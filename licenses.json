@@ -2496,15 +2496,6 @@
     "path": "node_modules/chokidar/node_modules/binary-extensions",
     "licenseFile": "node_modules/chokidar/node_modules/binary-extensions/license"
   },
-  "bindings@1.5.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/TooTallNate/node-bindings",
-    "publisher": "Nathan Rajlich",
-    "email": "nathan@tootallnate.net",
-    "url": "http://tootallnate.net",
-    "path": "node_modules/bindings",
-    "licenseFile": "node_modules/bindings/LICENSE.md"
-  },
   "bl@4.0.3": {
     "licenses": "MIT",
     "repository": "https://github.com/rvagg/bl",
@@ -3104,15 +3095,6 @@
     "url": "https://paulmillr.com",
     "path": "node_modules/chokidar",
     "licenseFile": "node_modules/chokidar/LICENSE"
-  },
-  "chownr@1.1.3": {
-    "licenses": "ISC",
-    "repository": "https://github.com/isaacs/chownr",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "node_modules/fsevents/node_modules/chownr",
-    "licenseFile": "node_modules/fsevents/node_modules/chownr/LICENSE"
   },
   "chownr@1.1.4": {
     "licenses": "ISC",
@@ -5247,15 +5229,6 @@
     "path": "node_modules/file-loader",
     "licenseFile": "node_modules/file-loader/README.md"
   },
-  "file-uri-to-path@1.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/TooTallNate/file-uri-to-path",
-    "publisher": "Nathan Rajlich",
-    "email": "nathan@tootallnate.net",
-    "url": "http://n8.io/",
-    "path": "node_modules/file-uri-to-path",
-    "licenseFile": "node_modules/file-uri-to-path/LICENSE"
-  },
   "filesize@3.6.1": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/avoidwork/filesize.js",
@@ -5505,15 +5478,6 @@
     "path": "node_modules/fs-extra",
     "licenseFile": "node_modules/fs-extra/LICENSE"
   },
-  "fs-minipass@1.2.7": {
-    "licenses": "ISC",
-    "repository": "https://github.com/npm/fs-minipass",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "node_modules/fsevents/node_modules/fs-minipass",
-    "licenseFile": "node_modules/fsevents/node_modules/fs-minipass/LICENSE"
-  },
   "fs-readdir-recursive@1.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/fs-utils/fs-readdir-recursive",
@@ -5544,26 +5508,6 @@
   "fs@0.0.2": {
     "licenses": "MIT",
     "path": "node_modules/fs"
-  },
-  "fsevents@1.2.11": {
-    "licenses": "MIT",
-    "repository": "https://github.com/strongloop/fsevents",
-    "publisher": "Philipp Dunkel",
-    "email": "pip@pipobscure.com",
-    "path": "node_modules/fsevents",
-    "licenseFile": "node_modules/fsevents/LICENSE"
-  },
-  "fsevents@2.1.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/fsevents/fsevents",
-    "path": "node_modules/jest-haste-map/node_modules/fsevents",
-    "licenseFile": "node_modules/jest-haste-map/node_modules/fsevents/LICENSE"
-  },
-  "fsevents@2.1.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/fsevents/fsevents",
-    "path": "node_modules/chokidar/node_modules/fsevents",
-    "licenseFile": "node_modules/chokidar/node_modules/fsevents/LICENSE"
   },
   "fstream-ignore@1.0.5": {
     "licenses": "ISC",
@@ -6418,15 +6362,6 @@
     "publisher": "Nadav Ivgi",
     "path": "node_modules/iferr",
     "licenseFile": "node_modules/iferr/LICENSE"
-  },
-  "ignore-walk@3.0.3": {
-    "licenses": "ISC",
-    "repository": "https://github.com/isaacs/ignore-walk",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "node_modules/fsevents/node_modules/ignore-walk",
-    "licenseFile": "node_modules/fsevents/node_modules/ignore-walk/LICENSE"
   },
   "ignore@3.3.10": {
     "licenses": "MIT",
@@ -8788,24 +8723,6 @@
     "path": "node_modules/minimist",
     "licenseFile": "node_modules/minimist/LICENSE"
   },
-  "minipass@2.9.0": {
-    "licenses": "ISC",
-    "repository": "https://github.com/isaacs/minipass",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "node_modules/fsevents/node_modules/minipass",
-    "licenseFile": "node_modules/fsevents/node_modules/minipass/LICENSE"
-  },
-  "minizlib@1.3.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/isaacs/minizlib",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "node_modules/fsevents/node_modules/minizlib",
-    "licenseFile": "node_modules/fsevents/node_modules/minizlib/LICENSE"
-  },
   "mississippi@3.0.0": {
     "licenses": "BSD-2-Clause",
     "repository": "https://github.com/maxogden/mississippi",
@@ -8842,8 +8759,8 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
-    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/chromedriver/node_modules/mkdirp",
+    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
   },
   "mocha@6.2.2": {
     "licenses": "MIT",
@@ -8987,14 +8904,6 @@
     "path": "node_modules/nearley",
     "licenseFile": "node_modules/nearley/LICENSE.txt"
   },
-  "needle@2.4.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/tomas/needle",
-    "publisher": "Tomás Pollak",
-    "email": "tomas@forkhq.com",
-    "path": "node_modules/fsevents/node_modules/needle",
-    "licenseFile": "node_modules/fsevents/node_modules/needle/license.txt"
-  },
   "negotiator@0.6.2": {
     "licenses": "MIT",
     "repository": "https://github.com/jshttp/negotiator",
@@ -9124,14 +9033,6 @@
     "path": "node_modules/node-polyglot",
     "licenseFile": "node_modules/node-polyglot/LICENSE"
   },
-  "node-pre-gyp@0.14.0": {
-    "licenses": "BSD-3-Clause",
-    "repository": "https://github.com/mapbox/node-pre-gyp",
-    "publisher": "Dane Springmeyer",
-    "email": "dane@mapbox.com",
-    "path": "node_modules/fsevents/node_modules/node-pre-gyp",
-    "licenseFile": "node_modules/fsevents/node_modules/node-pre-gyp/LICENSE"
-  },
   "node-releases@1.1.59": {
     "licenses": "MIT",
     "repository": "https://github.com/chicoxyzzy/node-releases",
@@ -9145,15 +9046,6 @@
     "repository": "https://github.com/segmentio/noop-logger",
     "path": "node_modules/noop-logger",
     "licenseFile": "node_modules/noop-logger/Readme.md"
-  },
-  "nopt@4.0.1": {
-    "licenses": "ISC",
-    "repository": "https://github.com/npm/nopt",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "node_modules/fsevents/node_modules/nopt",
-    "licenseFile": "node_modules/fsevents/node_modules/nopt/LICENSE"
   },
   "nopt@4.0.3": {
     "licenses": "ISC",
@@ -9205,15 +9097,6 @@
     "path": "node_modules/normalize-selector",
     "licenseFile": "node_modules/normalize-selector/README.md"
   },
-  "npm-bundled@1.1.1": {
-    "licenses": "ISC",
-    "repository": "https://github.com/npm/npm-bundled",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "node_modules/fsevents/node_modules/npm-bundled",
-    "licenseFile": "node_modules/fsevents/node_modules/npm-bundled/LICENSE"
-  },
   "npm-normalize-package-bin@1.0.1": {
     "licenses": "ISC",
     "repository": "https://github.com/npm/npm-normalize-package-bin",
@@ -9222,15 +9105,6 @@
     "url": "https://izs.me",
     "path": "node_modules/npm-normalize-package-bin",
     "licenseFile": "node_modules/npm-normalize-package-bin/LICENSE"
-  },
-  "npm-packlist@1.4.7": {
-    "licenses": "ISC",
-    "repository": "https://github.com/npm/npm-packlist",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "node_modules/fsevents/node_modules/npm-packlist",
-    "licenseFile": "node_modules/fsevents/node_modules/npm-packlist/LICENSE"
   },
   "npm-run-path@2.0.2": {
     "licenses": "MIT",
@@ -9501,13 +9375,13 @@
     "path": "node_modules/jest/node_modules/onetime",
     "licenseFile": "node_modules/jest/node_modules/onetime/license"
   },
-  "onfido-sdk-ui@6.3.1": {
+  "onfido-sdk-ui@6.4.0": {
     "licenses": "MIT",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/stefaniacardenas/Desktop/Code/onfido/onfido-sdk-ui",
+    "path": "/home/ethanify/Work/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
@@ -11002,12 +10876,6 @@
     "url": "http://blog.izs.me/",
     "path": "node_modules/read",
     "licenseFile": "node_modules/read/LICENCE"
-  },
-  "readable-stream@2.3.6": {
-    "licenses": "MIT",
-    "repository": "https://github.com/nodejs/readable-stream",
-    "path": "node_modules/fsevents/node_modules/readable-stream",
-    "licenseFile": "node_modules/fsevents/node_modules/readable-stream/LICENSE"
   },
   "readable-stream@2.3.7": {
     "licenses": "MIT",
@@ -12776,15 +12644,6 @@
     "email": "mathiasbuus@gmail.com",
     "path": "node_modules/tar-stream",
     "licenseFile": "node_modules/tar-stream/LICENSE"
-  },
-  "tar@4.4.13": {
-    "licenses": "ISC",
-    "repository": "https://github.com/npm/node-tar",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "node_modules/fsevents/node_modules/tar",
-    "licenseFile": "node_modules/fsevents/node_modules/tar/LICENSE"
   },
   "tarr@1.0.3": {
     "licenses": "BSD*",
