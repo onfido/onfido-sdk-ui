@@ -225,12 +225,26 @@ const pingMockServer = () => {
  */
 const waitForMockServer = async () => {
   let isMockServerRunning = false
+  let retries = 0
 
   while (!isMockServerRunning) {
+    // 30s timeout for mock server waiting
+    if (retries >= 30) {
+      console.error(
+        chalk.red(`It seems that the mock server wasn't started properly!`)
+      )
+
+      process.exit(1)
+    }
+
     try {
+      console.error(
+        chalk.yellow(`(${retries + 1}) Waiting for mock server to respond...`)
+      )
       await pingMockServer()
       isMockServerRunning = true
     } catch (err) {
+      retries += 1
       await sleep(1000)
     }
   }
