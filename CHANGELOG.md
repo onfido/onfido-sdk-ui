@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Internal: Introduce integration tests for API endpoint integrations
+- Public: Added npm latest version badge
 
 ### Changed
 
