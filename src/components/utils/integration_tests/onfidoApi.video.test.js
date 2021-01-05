@@ -1,8 +1,8 @@
 import fs from 'fs'
 import { requestChallenges, uploadLiveVideo } from '../onfidoApi'
 import { getTestJwtToken } from './helpers'
+import { API_URL, PATH_TO_RESOURCE_FILES } from './testUrls'
 
-const API_URL = 'https://api.onfido.com'
 let jwtToken = null
 
 const EXPIRED_JWT_TOKEN =
@@ -36,8 +36,6 @@ const TEST_VIDEO_DATA = {
   language: 'en_US',
   sdkMetadata: {},
 }
-
-const PATH_TO_RESOURCE_FILES = `${__dirname}/../../../../test/resources/`
 
 /* eslint jest/no-test-callback: 0 */
 /*

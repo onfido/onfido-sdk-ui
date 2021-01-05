@@ -1,8 +1,8 @@
+import fs from 'fs'
 import { uploadDocument } from '../onfidoApi'
 import { getTestJwtToken, createEmptyFile } from './helpers'
-import fs from 'fs'
+import { API_URL, PATH_TO_RESOURCE_FILES } from './testUrls'
 
-const API_URL = 'https://api.onfido.com'
 let jwtToken = null
 
 const EXPIRED_JWT_TOKEN =
@@ -31,8 +31,6 @@ const TEST_DOCUMENT_DATA = {
   side: 'front',
   type: 'passport',
 }
-
-const PATH_TO_RESOURCE_FILES = `${__dirname}/../../../../test/resources/`
 
 /* eslint jest/no-test-callback: 0 */
 /*
