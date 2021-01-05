@@ -13,6 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - UI: Updated text and background colours
+- Public: Added npm latest version badge
 
 ### Fixed
 
