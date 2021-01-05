@@ -73,7 +73,7 @@ const TEST_VIDEO_DATA = {
   sdkMetadata: {},
 }
 
-const PATH_TO_TEST_FILES = `${__dirname}/./../../../../test/resources/`
+const PATH_TO_RESOURCE_FILES = `${__dirname}/../../../../test/resources/`
 
 const createEmptyFile = (
   testFileName = 'empty_file.jpg',
@@ -112,7 +112,7 @@ describe('API uploadDocument endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
       if (err) {
         done(err)
       }
@@ -145,7 +145,7 @@ describe('API uploadDocument endpoint', () => {
       }
     }
     const testFileName = 'passport.jpg'
-    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
       if (err) {
         done(err)
       }
@@ -215,7 +215,7 @@ describe('API uploadLivePhoto endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
       if (err) {
         done(err)
       }
@@ -245,7 +245,7 @@ describe('API uploadLivePhoto endpoint', () => {
       }
     }
     const testFileName = 'one_face.jpg'
-    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
       if (err) {
         done(err)
       }
@@ -305,7 +305,7 @@ describe('API uploadSnapshot endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
       if (err) {
         done(err)
       }
@@ -343,7 +343,7 @@ describe('API uploadSnapshot endpoint', () => {
       }
     }
     const testFileName = 'one_face.png'
-    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
       if (err) {
         done(err)
       }
@@ -422,7 +422,7 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
       if (err) {
         done(err)
       }
@@ -475,7 +475,7 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
       }
     }
     const testFileName = 'one_face.png'
-    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
       if (err) {
         done(err)
       }
@@ -590,7 +590,7 @@ describe('API uploadLiveVideo endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
       if (err) {
         done(err)
       }
@@ -623,7 +623,7 @@ describe('API uploadLiveVideo endpoint', () => {
       }
     }
     const testFileName = 'test-video.webm'
-    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
       if (err) {
         done(err)
       }
