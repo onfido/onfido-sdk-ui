@@ -112,26 +112,21 @@ describe('API uploadDocument endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
-      if (err) {
-        done(err)
-      }
-
-      const testFile = new File([data], testFileName, {
-        type: 'image/jpeg',
-      })
-      const documentData = {
-        file: testFile,
-        ...TEST_DOCUMENT_DATA,
-      }
-      uploadDocument(
-        documentData,
-        API_URL,
-        jwtToken,
-        (response) => onSuccessCallback(response),
-        (error) => done(error)
-      )
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new File([data], testFileName, {
+      type: 'image/jpeg',
     })
+    const documentData = {
+      file: testFile,
+      ...TEST_DOCUMENT_DATA,
+    }
+    uploadDocument(
+      documentData,
+      API_URL,
+      jwtToken,
+      (response) => onSuccessCallback(response),
+      (error) => done(error)
+    )
   })
 
   test('uploadDocument returns an error if request is made with an expired JWT token', (done) => {
@@ -145,26 +140,21 @@ describe('API uploadDocument endpoint', () => {
       }
     }
     const testFileName = 'passport.jpg'
-    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
-      if (err) {
-        done(err)
-      }
-
-      const testFile = new File([data], testFileName, {
-        type: 'image/jpeg',
-      })
-      const documentData = {
-        file: testFile,
-        ...TEST_DOCUMENT_DATA,
-      }
-      uploadDocument(
-        documentData,
-        API_URL,
-        EXPIRED_JWT_TOKEN,
-        () => done(),
-        onErrorCallback
-      )
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new File([data], testFileName, {
+      type: 'image/jpeg',
     })
+    const documentData = {
+      file: testFile,
+      ...TEST_DOCUMENT_DATA,
+    }
+    uploadDocument(
+      documentData,
+      API_URL,
+      EXPIRED_JWT_TOKEN,
+      () => done(),
+      onErrorCallback
+    )
   })
 
   test('uploadDocument returns an error on uploading an empty file', (done) => {
@@ -215,23 +205,18 @@ describe('API uploadLivePhoto endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
-      if (err) {
-        done(err)
-      }
-
-      const testFile = new File([data], testFileName, {
-        type: 'image/jpeg',
-      })
-      const selfieData = { file: testFile, sdkMetadata: {} }
-      uploadLivePhoto(
-        selfieData,
-        API_URL,
-        jwtToken,
-        (response) => onSuccessCallback(response),
-        (error) => done(error)
-      )
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new File([data], testFileName, {
+      type: 'image/jpeg',
     })
+    const selfieData = { file: testFile, sdkMetadata: {} }
+    uploadLivePhoto(
+      selfieData,
+      API_URL,
+      jwtToken,
+      (response) => onSuccessCallback(response),
+      (error) => done(error)
+    )
   })
 
   test('uploadLivePhoto returns an error if request is made with an expired JWT token', (done) => {
@@ -245,23 +230,18 @@ describe('API uploadLivePhoto endpoint', () => {
       }
     }
     const testFileName = 'one_face.jpg'
-    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
-      if (err) {
-        done(err)
-      }
-
-      const testFile = new File([data], testFileName, {
-        type: 'image/jpeg',
-      })
-      const selfieData = { file: testFile, sdkMetadata: {} }
-      uploadLivePhoto(
-        selfieData,
-        API_URL,
-        EXPIRED_JWT_TOKEN,
-        () => done(),
-        onErrorCallback
-      )
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new File([data], testFileName, {
+      type: 'image/jpeg',
     })
+    const selfieData = { file: testFile, sdkMetadata: {} }
+    uploadLivePhoto(
+      selfieData,
+      API_URL,
+      EXPIRED_JWT_TOKEN,
+      () => done(),
+      onErrorCallback
+    )
   })
 
   test('uploadLivePhoto returns an error on uploading an empty file', (done) => {
@@ -305,31 +285,26 @@ describe('API uploadSnapshot endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
-      if (err) {
-        done(err)
-      }
-
-      const testBlob = new Blob([data], {
-        type: 'image/png',
-      })
-      const snapshotData = {
-        file: {
-          blob: testBlob,
-          filename: 'applicant_snapshot.png',
-        },
-      }
-      uploadSnapshot(
-        snapshotData,
-        API_URL,
-        jwtToken,
-        (response) => onSuccessCallback(response),
-        (error) => {
-          console.error(error.response.error.fields)
-          done(error)
-        }
-      )
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testBlob = new Blob([data], {
+      type: 'image/png',
     })
+    const snapshotData = {
+      file: {
+        blob: testBlob,
+        filename: 'applicant_snapshot.png',
+      },
+    }
+    uploadSnapshot(
+      snapshotData,
+      API_URL,
+      jwtToken,
+      (response) => onSuccessCallback(response),
+      (error) => {
+        console.error(error.response.error.fields)
+        done(error)
+      }
+    )
   })
 
   test('uploadSnapshot returns an error if request is made with an expired JWT token', (done) => {
@@ -343,28 +318,23 @@ describe('API uploadSnapshot endpoint', () => {
       }
     }
     const testFileName = 'one_face.png'
-    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
-      if (err) {
-        done(err)
-      }
-
-      const testBlob = new Blob([data], {
-        type: 'image/png',
-      })
-      const snapshotData = {
-        file: {
-          blob: testBlob,
-          filename: 'applicant_snapshot.png',
-        },
-      }
-      uploadSnapshot(
-        snapshotData,
-        API_URL,
-        EXPIRED_JWT_TOKEN,
-        () => done(),
-        onErrorCallback
-      )
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testBlob = new Blob([data], {
+      type: 'image/png',
     })
+    const snapshotData = {
+      file: {
+        blob: testBlob,
+        filename: 'applicant_snapshot.png',
+      },
+    }
+    uploadSnapshot(
+      snapshotData,
+      API_URL,
+      EXPIRED_JWT_TOKEN,
+      () => done(),
+      onErrorCallback
+    )
   })
 
   test('uploadSnapshot returns an error on uploading an empty file', (done) => {
@@ -422,46 +392,41 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
-      if (err) {
-        done(err)
-      }
-
-      const testSnapshot = new Blob([data], {
-        type: 'image/png',
-      })
-      const snapshotData = {
-        blob: testSnapshot,
-        filename: 'applicant_snapshot.png',
-      }
-
-      const testSelfieImage = new Blob([data], {
-        type: 'image/png',
-      })
-      const selfieData = {
-        blob: testSelfieImage,
-        filename: 'applicant_selfie.png',
-        id: 'test-selfie',
-        method: 'face',
-        side: null,
-        variant: 'standard',
-        snapshot_uuids: ['test-snapshot-uuid'],
-        sdkMetadata: {},
-      }
-
-      sendMultiframeSelfie(
-        snapshotData,
-        selfieData,
-        API_URL,
-        jwtToken,
-        (response) => onSuccessCallback(response),
-        (error) => {
-          console.error(error.response)
-          done(error)
-        },
-        (eventString) => console.log(eventString)
-      )
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testSnapshot = new Blob([data], {
+      type: 'image/png',
     })
+    const snapshotData = {
+      blob: testSnapshot,
+      filename: 'applicant_snapshot.png',
+    }
+
+    const testSelfieImage = new Blob([data], {
+      type: 'image/png',
+    })
+    const selfieData = {
+      blob: testSelfieImage,
+      filename: 'applicant_selfie.png',
+      id: 'test-selfie',
+      method: 'face',
+      side: null,
+      variant: 'standard',
+      snapshot_uuids: ['test-snapshot-uuid'],
+      sdkMetadata: {},
+    }
+
+    sendMultiframeSelfie(
+      snapshotData,
+      selfieData,
+      API_URL,
+      jwtToken,
+      (response) => onSuccessCallback(response),
+      (error) => {
+        console.error(error.response)
+        done(error)
+      },
+      (eventString) => console.log(eventString)
+    )
   })
 
   test('sendMultiframeSelfie returns an error if request is made with an expired JWT token', (done) => {
@@ -475,42 +440,37 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
       }
     }
     const testFileName = 'one_face.png'
-    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
-      if (err) {
-        done(err)
-      }
-
-      const testSnapshot = new Blob([data], {
-        type: 'image/png',
-      })
-      const snapshotData = {
-        blob: testSnapshot,
-        filename: 'applicant_snapshot.png',
-      }
-
-      const testSelfieImage = new Blob([data], {
-        type: 'image/png',
-      })
-      const selfieData = {
-        blob: testSelfieImage,
-        filename: 'applicant_selfie.png',
-        id: 'test-selfie',
-        method: 'face',
-        side: null,
-        variant: 'standard',
-        sdkMetadata: {},
-      }
-
-      sendMultiframeSelfie(
-        snapshotData,
-        selfieData,
-        API_URL,
-        EXPIRED_JWT_TOKEN,
-        () => done(),
-        onErrorCallback,
-        (eventString) => console.log(eventString)
-      )
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testSnapshot = new Blob([data], {
+      type: 'image/png',
     })
+    const snapshotData = {
+      blob: testSnapshot,
+      filename: 'applicant_snapshot.png',
+    }
+
+    const testSelfieImage = new Blob([data], {
+      type: 'image/png',
+    })
+    const selfieData = {
+      blob: testSelfieImage,
+      filename: 'applicant_selfie.png',
+      id: 'test-selfie',
+      method: 'face',
+      side: null,
+      variant: 'standard',
+      sdkMetadata: {},
+    }
+
+    sendMultiframeSelfie(
+      snapshotData,
+      selfieData,
+      API_URL,
+      EXPIRED_JWT_TOKEN,
+      () => done(),
+      onErrorCallback,
+      (eventString) => console.log(eventString)
+    )
   })
 
   test('sendMultiframeSelfie returns an error on uploading empty files', (done) => {
@@ -590,26 +550,21 @@ describe('API uploadLiveVideo endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
-      if (err) {
-        done(err)
-      }
-
-      const testFile = new Blob([data], {
-        type: 'video/webm',
-      })
-      const videoData = {
-        ...TEST_VIDEO_DATA,
-        blob: testFile,
-      }
-      uploadLiveVideo(
-        videoData,
-        API_URL,
-        jwtToken,
-        (response) => onSuccessCallback(response),
-        (error) => done(error)
-      )
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new Blob([data], {
+      type: 'video/webm',
     })
+    const videoData = {
+      ...TEST_VIDEO_DATA,
+      blob: testFile,
+    }
+    uploadLiveVideo(
+      videoData,
+      API_URL,
+      jwtToken,
+      (response) => onSuccessCallback(response),
+      (error) => done(error)
+    )
   })
 
   test('uploadLiveVideo returns an error if request is made with an expired JWT token', (done) => {
@@ -623,26 +578,21 @@ describe('API uploadLiveVideo endpoint', () => {
       }
     }
     const testFileName = 'test-video.webm'
-    fs.readFile(`${PATH_TO_RESOURCE_FILES}${testFileName}`, (err, data) => {
-      if (err) {
-        done(err)
-      }
-
-      const testFile = new File([data], testFileName, {
-        type: 'video/webm',
-      })
-      const videoData = {
-        blob: testFile,
-        ...TEST_VIDEO_DATA,
-      }
-      uploadLiveVideo(
-        videoData,
-        API_URL,
-        EXPIRED_JWT_TOKEN,
-        () => done(),
-        onErrorCallback
-      )
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new File([data], testFileName, {
+      type: 'video/webm',
     })
+    const videoData = {
+      blob: testFile,
+      ...TEST_VIDEO_DATA,
+    }
+    uploadLiveVideo(
+      videoData,
+      API_URL,
+      EXPIRED_JWT_TOKEN,
+      () => done(),
+      onErrorCallback
+    )
   })
 
   test('uploadLiveVideo returns an error on uploading an empty file', (done) => {
