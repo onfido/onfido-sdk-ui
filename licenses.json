@@ -1020,6 +1020,12 @@
     "path": "node_modules/@nodelib/fs.scandir/node_modules/@nodelib/fs.stat",
     "licenseFile": "node_modules/@nodelib/fs.scandir/node_modules/@nodelib/fs.stat/LICENSE"
   },
+  "@nodelib/fs.stat@2.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.stat",
+    "path": "node_modules/chromedriver/node_modules/@nodelib/fs.stat",
+    "licenseFile": "node_modules/chromedriver/node_modules/@nodelib/fs.stat/LICENSE"
+  },
   "@nodelib/fs.walk@1.2.4": {
     "licenses": "MIT",
     "repository": "https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.walk",
@@ -2056,6 +2062,13 @@
     "path": "node_modules/axios",
     "licenseFile": "node_modules/axios/LICENSE"
   },
+  "axios@0.21.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/axios/axios",
+    "publisher": "Matt Zabriskie",
+    "path": "node_modules/chromedriver/node_modules/axios",
+    "licenseFile": "node_modules/chromedriver/node_modules/axios/LICENSE"
+  },
   "babel-eslint@10.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel-eslint",
@@ -2875,7 +2888,7 @@
     "path": "node_modules/chrome-trace-event",
     "licenseFile": "node_modules/chrome-trace-event/LICENSE.txt"
   },
-  "chromedriver@87.0.1": {
+  "chromedriver@87.0.5": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/giggio/node-chromedriver",
     "publisher": "Giovanni Bassi",
@@ -3610,14 +3623,6 @@
     "path": "node_modules/portfinder/node_modules/debug",
     "licenseFile": "node_modules/portfinder/node_modules/debug/LICENSE"
   },
-  "debug@4.1.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/visionmedia/debug",
-    "publisher": "TJ Holowaychuk",
-    "email": "tj@vision-media.ca",
-    "path": "node_modules/tcp-port-used/node_modules/debug",
-    "licenseFile": "node_modules/tcp-port-used/node_modules/debug/LICENSE"
-  },
   "debug@4.1.1": {
     "licenses": "MIT",
     "repository": "https://github.com/visionmedia/debug",
@@ -3631,8 +3636,8 @@
     "repository": "https://github.com/visionmedia/debug",
     "publisher": "TJ Holowaychuk",
     "email": "tj@vision-media.ca",
-    "path": "node_modules/extract-zip/node_modules/debug",
-    "licenseFile": "node_modules/extract-zip/node_modules/debug/LICENSE"
+    "path": "node_modules/tcp-port-used/node_modules/debug",
+    "licenseFile": "node_modules/tcp-port-used/node_modules/debug/LICENSE"
   },
   "debuglog@1.0.1": {
     "licenses": "MIT",
@@ -3794,12 +3799,12 @@
     "path": "node_modules/del",
     "licenseFile": "node_modules/del/license"
   },
-  "del@5.1.0": {
+  "del@6.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/del",
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com",
+    "url": "https://sindresorhus.com",
     "path": "node_modules/chromedriver/node_modules/del",
     "licenseFile": "node_modules/chromedriver/node_modules/del/license"
   },
@@ -5042,6 +5047,15 @@
     "path": "node_modules/flush-write-stream",
     "licenseFile": "node_modules/flush-write-stream/LICENSE"
   },
+  "follow-redirects@1.13.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/follow-redirects/follow-redirects",
+    "publisher": "Ruben Verborgh",
+    "email": "ruben@verborgh.org",
+    "url": "https://ruben.verborgh.org/",
+    "path": "node_modules/chromedriver/node_modules/follow-redirects",
+    "licenseFile": "node_modules/chromedriver/node_modules/follow-redirects/LICENSE"
+  },
   "follow-redirects@1.5.10": {
     "licenses": "MIT",
     "repository": "https://github.com/follow-redirects/follow-redirects",
@@ -5502,7 +5516,7 @@
     "path": "node_modules/eslint/node_modules/globals",
     "licenseFile": "node_modules/eslint/node_modules/globals/license"
   },
-  "globby@10.0.2": {
+  "globby@11.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/globby",
     "publisher": "Sindre Sorhus",
@@ -5510,15 +5524,6 @@
     "url": "sindresorhus.com",
     "path": "node_modules/chromedriver/node_modules/globby",
     "licenseFile": "node_modules/chromedriver/node_modules/globby/license"
-  },
-  "globby@11.0.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/sindresorhus/globby",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com",
-    "path": "node_modules/stylelint/node_modules/globby",
-    "licenseFile": "node_modules/stylelint/node_modules/globby/license"
   },
   "globby@6.1.0": {
     "licenses": "MIT",
@@ -5559,6 +5564,12 @@
     "repository": "https://github.com/isaacs/node-graceful-fs",
     "path": "node_modules/graceful-fs",
     "licenseFile": "node_modules/graceful-fs/LICENSE"
+  },
+  "graceful-fs@4.2.4": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/node-graceful-fs",
+    "path": "node_modules/chromedriver/node_modules/graceful-fs",
+    "licenseFile": "node_modules/chromedriver/node_modules/graceful-fs/LICENSE"
   },
   "growl@1.10.5": {
     "licenses": "MIT",
@@ -6337,6 +6348,15 @@
     "path": "node_modules/ip-regex",
     "licenseFile": "node_modules/ip-regex/license"
   },
+  "ip-regex@4.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/ip-regex",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "node_modules/is2/node_modules/ip-regex",
+    "licenseFile": "node_modules/is2/node_modules/ip-regex/license"
+  },
   "ip@1.1.5": {
     "licenses": "MIT",
     "repository": "https://github.com/indutny/node-ip",
@@ -6939,7 +6959,7 @@
     "path": "node_modules/is-wsl",
     "licenseFile": "node_modules/is-wsl/license"
   },
-  "is2@2.0.1": {
+  "is2@2.0.6": {
     "licenses": "MIT",
     "repository": "https://github.com/stdarg/is2",
     "publisher": "Enrico Marino",
@@ -9088,12 +9108,12 @@
     "path": "node_modules/p-map",
     "licenseFile": "node_modules/p-map/license"
   },
-  "p-map@3.0.0": {
+  "p-map@4.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/p-map",
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com",
+    "url": "https://sindresorhus.com",
     "path": "node_modules/chromedriver/node_modules/p-map",
     "licenseFile": "node_modules/chromedriver/node_modules/p-map/license"
   },
@@ -12136,7 +12156,7 @@
     "path": "node_modules/tcomb",
     "licenseFile": "node_modules/tcomb/LICENSE"
   },
-  "tcp-port-used@1.0.1": {
+  "tcp-port-used@1.0.2": {
     "licenses": "MIT",
     "repository": "https://github.com/stdarg/tcp-port-used",
     "publisher": "Edmond Meinfelder",
