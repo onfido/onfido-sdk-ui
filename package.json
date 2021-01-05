@@ -120,7 +120,7 @@
     "bundlesize": "^0.18.0",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
-    "chromedriver": "^87.0.1",
+    "chromedriver": "^87.0.5",
     "css-loader": "^3.4.2",
     "dts-bundle-generator": "^5.5.0",
     "enzyme": "^3.11.0",
