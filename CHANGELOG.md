@@ -10,6 +10,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+- Public: Added npm latest version badge
+
 ### Changed
 
 - Internal: Switched to `bundlewatch` for bundle size diff reporting, checking.
