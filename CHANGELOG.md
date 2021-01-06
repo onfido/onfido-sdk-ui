@@ -8,10 +8,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Public: Added npm latest version badge
+
 ### Changed
 
 - UI: Replaced internal button component with button from @onfido/castor-react.
 - UI: Replaced some sass variables with css variables to allow customization of colors and fonts.
+### Fixed
 
 ## [6.4.0]
 
