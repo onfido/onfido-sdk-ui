@@ -4,7 +4,12 @@ import {
   uploadSnapshot,
   sendMultiframeSelfie,
 } from '../onfidoApi'
-import { getTestJwtToken, createEmptyFile } from './helpers'
+import {
+  getTestJwtToken,
+  createEmptyFile,
+  checkForExpectedFileUploadProperties,
+  COMMON_FILE_UPLOAD_PROPERTIES,
+} from './helpers'
 import { API_URL, PATH_TO_RESOURCE_FILES } from './testUrls'
 import {
   EXPIRED_JWT_TOKEN,
@@ -27,17 +32,17 @@ describe('API uploadLivePhoto endpoint', () => {
   })
 
   test('uploadLivePhoto returns expected response on successful upload', (done) => {
-    expect.assertions(7)
     const testFileName = 'one_face.jpg'
+    const testFileType = 'image/jpeg'
+    const expectedProperties = [
+      { file_name: testFileName },
+      { file_type: testFileType },
+      ...COMMON_FILE_UPLOAD_PROPERTIES,
+    ]
+    expect.assertions(expectedProperties.length)
     const onSuccessCallback = (response) => {
       try {
-        expect(response).toHaveProperty('created_at')
-        expect(response).toHaveProperty('download_href')
-        expect(response).toHaveProperty('href')
-        expect(response).toHaveProperty('file_name', testFileName)
-        expect(response).toHaveProperty('file_size')
-        expect(response).toHaveProperty('file_type', 'image/jpeg')
-        expect(response).toHaveProperty('id')
+        checkForExpectedFileUploadProperties(expectedProperties, response)
         done()
       } catch (err) {
         done(err)
@@ -214,25 +219,24 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
   })
 
   test('sendMultiframeSelfie returns expected response on successful upload', (done) => {
-    expect.assertions(7)
-    const testFileName = 'one_face.png'
+    const testFileType = 'image/png'
+    const expectedProperties = [
+      { file_name: 'applicant_selfie.png' },
+      { file_type: testFileType },
+      ...COMMON_FILE_UPLOAD_PROPERTIES,
+    ]
+    expect.assertions(expectedProperties.length)
     const onSuccessCallback = (response) => {
       try {
-        expect(response).toHaveProperty('created_at')
-        expect(response).toHaveProperty('download_href')
-        expect(response).toHaveProperty('href')
-        expect(response).toHaveProperty('file_name', 'applicant_selfie.png')
-        expect(response).toHaveProperty('file_size')
-        expect(response).toHaveProperty('file_type', 'image/jpeg')
-        expect(response).toHaveProperty('id')
+        checkForExpectedFileUploadProperties(expectedProperties, response)
         done()
       } catch (err) {
         done(err)
       }
     }
-    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}one_face.png`)
     const testSnapshot = new Blob([data], {
-      type: 'image/png',
+      type: testFileType,
     })
     const snapshotData = {
       blob: testSnapshot,
@@ -240,7 +244,7 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
     }
 
     const testSelfieImage = new Blob([data], {
-      type: 'image/png',
+      type: testFileType,
     })
     const selfieData = {
       blob: testSelfieImage,

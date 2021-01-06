@@ -1,6 +1,10 @@
 import fs from 'fs'
 import { requestChallenges, uploadLiveVideo } from '../onfidoApi'
-import { getTestJwtToken } from './helpers'
+import {
+  getTestJwtToken,
+  checkForExpectedFileUploadProperties,
+  COMMON_FILE_UPLOAD_PROPERTIES,
+} from './helpers'
 import { API_URL, PATH_TO_RESOURCE_FILES } from './testUrls'
 import {
   EXPIRED_JWT_TOKEN,
@@ -42,24 +46,19 @@ describe('API uploadLiveVideo endpoint', () => {
   })
 
   test('uploadLiveVideo returns expected response on successful upload', (done) => {
-    expect.assertions(9)
     const testFileName = 'test-video.webm'
+    const testFileType = 'video/webm'
+    const expectedProperties = [
+      { file_name: 'blob' },
+      { file_type: testFileType },
+      { challenge: TEST_VIDEO_DATA.challengeData.challenges },
+      { languages: [{ source: 'sdk', language_code: 'en_US' }] },
+      ...COMMON_FILE_UPLOAD_PROPERTIES,
+    ]
+    expect.assertions(expectedProperties.length)
     const onSuccessCallback = (response) => {
       try {
-        expect(response).toHaveProperty(
-          'challenge',
-          TEST_VIDEO_DATA.challengeData.challenges
-        )
-        expect(response).toHaveProperty('languages', [
-          { source: 'sdk', language_code: 'en_US' },
-        ])
-        expect(response).toHaveProperty('created_at')
-        expect(response).toHaveProperty('download_href')
-        expect(response).toHaveProperty('href')
-        expect(response).toHaveProperty('file_name', 'blob')
-        expect(response).toHaveProperty('file_size')
-        expect(response).toHaveProperty('file_type', 'video/webm')
-        expect(response).toHaveProperty('id')
+        checkForExpectedFileUploadProperties(expectedProperties, response)
         done()
       } catch (err) {
         done(err)

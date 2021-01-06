@@ -1,6 +1,11 @@
 import fs from 'fs'
 import { uploadDocument } from '../onfidoApi'
-import { getTestJwtToken, createEmptyFile } from './helpers'
+import {
+  getTestJwtToken,
+  createEmptyFile,
+  checkForExpectedFileUploadProperties,
+  COMMON_FILE_UPLOAD_PROPERTIES,
+} from './helpers'
 import { API_URL, PATH_TO_RESOURCE_FILES } from './testUrls'
 import {
   EXPIRED_JWT_TOKEN,
@@ -35,22 +40,22 @@ describe('API uploadDocument endpoint', () => {
   })
 
   test('uploadDocument returns expected response on successful upload', (done) => {
-    expect.assertions(12)
     const testFileName = 'passport.jpg'
+    const testFileType = 'jpg'
+    const expectedProperties = [
+      'applicant_id',
+      'sdk_warnings',
+      { side: 'front' },
+      { type: 'passport' },
+      { issuing_country: null },
+      { file_name: testFileName },
+      { file_type: testFileType },
+      ...COMMON_FILE_UPLOAD_PROPERTIES,
+    ]
+    expect.assertions(expectedProperties.length)
     const onSuccessCallback = (response) => {
       try {
-        expect(response).toHaveProperty('applicant_id')
-        expect(response).toHaveProperty('created_at')
-        expect(response).toHaveProperty('download_href')
-        expect(response).toHaveProperty('href')
-        expect(response).toHaveProperty('file_name', testFileName)
-        expect(response).toHaveProperty('file_size')
-        expect(response).toHaveProperty('file_type', 'jpg')
-        expect(response).toHaveProperty('id')
-        expect(response).toHaveProperty('sdk_warnings')
-        expect(response).toHaveProperty('side', 'front')
-        expect(response).toHaveProperty('type', 'passport')
-        expect(response).toHaveProperty('issuing_country', null)
+        checkForExpectedFileUploadProperties(expectedProperties, response)
         done()
       } catch (err) {
         done(err)

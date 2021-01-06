@@ -22,3 +22,27 @@ export const createEmptyFile = (
   new File([], testFileName, {
     type: mimeType,
   })
+
+export const COMMON_FILE_UPLOAD_PROPERTIES = [
+  'created_at',
+  'download_href',
+  'href',
+  'file_size',
+  'id',
+]
+
+export const checkForExpectedFileUploadProperties = (
+  expectedProperties,
+  response
+) => {
+  expectedProperties.forEach((expectedProperty) => {
+    if (typeof expectedProperty === 'object') {
+      const keys = Object.keys(expectedProperty)
+      keys.forEach((key) =>
+        expect(response).toHaveProperty(key, expectedProperty[key])
+      )
+    } else {
+      expect(response).toHaveProperty(expectedProperty)
+    }
+  })
+}
