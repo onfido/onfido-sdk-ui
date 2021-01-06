@@ -77,7 +77,7 @@
     ],
     "trackBranches": [
       "master",
-      "develop"
+      "development"
     ]
   },
   "devDependencies": {
