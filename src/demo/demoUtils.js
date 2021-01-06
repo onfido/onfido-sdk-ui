@@ -95,7 +95,7 @@ export const getInitSdkOptions = () => {
           queryParamToValueString.useMultipleSelfieCapture !== 'false',
         snapshotInterval: queryParamToValueString.snapshotInterval
           ? parseInt(queryParamToValueString.snapshotInterval, 10)
-          : 1000,
+          : 500,
       },
     },
     queryParamToValueString.noCompleteStep !== 'true' && 'complete',

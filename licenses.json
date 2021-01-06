@@ -8251,8 +8251,8 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/chromedriver/node_modules/mkdirp",
-    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
+    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
   },
   "mocha@6.2.2": {
     "licenses": "MIT",
@@ -8900,7 +8900,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/kimmi.gan/Development/onfido-sdk-ui",
+    "path": "onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {

@@ -16,6 +16,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 
+- Public: Fix 422 error on snapshot upload
+
 ## [6.4.0]
 
 ### Added
