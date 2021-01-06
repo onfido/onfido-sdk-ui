@@ -64,7 +64,7 @@
     "files": [
       {
         "path": "./dist/onfido.min.js",
-        "maxSize": "190 kB"
+        "maxSize": "200 kB"
       },
       {
         "path": "./dist/onfido.crossDevice.min.js",
