@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: Borales/actions-yarn@v2.1.0
-      - run: yarn install
+      - run: npm install
       - uses: jackyef/bundlewatch-gh-action@0.1.0
         with:
           bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
