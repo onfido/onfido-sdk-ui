@@ -24,7 +24,7 @@
     "bundle-analyzer": "webpack-bundle-analyzer",
     "test": "jest --verbose",
     "test:ui": "babel-node test/main.js",
-    "bundlewatch": "bundlewatch",
+    "size": "bundlewatch",
     "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js",
     "license-checker": "license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json"
   },
