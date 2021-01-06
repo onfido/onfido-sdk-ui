@@ -9,16 +9,14 @@ import {
 
 let jwtToken = null
 
-const DOCUMENT_VALIDATIONS = {
-  detect_document: 'error',
-  detect_cutoff: 'warn',
-  detect_glare: 'warn',
-  detect_blur: 'warn',
-}
-
 const TEST_DOCUMENT_DATA = {
   sdkMetadata: {},
-  validations: { ...DOCUMENT_VALIDATIONS },
+  validations: {
+    detect_document: 'error',
+    detect_cutoff: 'warn',
+    detect_glare: 'warn',
+    detect_blur: 'warn',
+  },
   side: 'front',
   type: 'passport',
 }
