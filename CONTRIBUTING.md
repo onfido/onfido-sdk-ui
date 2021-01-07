@@ -45,15 +45,16 @@ This project uses the following linters:
 - eslint
 - stylelint
 
-A Prettier config has been set up for this project and it is recommended to set your IDE to run Prettier on save if possible.
+A Prettier config has been set up for this project and it is recommended to set your IDE to run Prettier on save if possible as this is one of the linting checks run as part of the CI build.
 
 At build time, our CI runs the following tests:
 
 - UI
 - Unit
+- Integration
 - Type checker
 - Linter
-- Dependencies vulnerability detection
+- npm dependencies vulnerability detection
 
 All of the above must have passed in order for the build to succeed. Please note that the CI relies on encrypted variables to run tests therefore the build will only be executed if the pull request has been created by an internal contributor and it will always fail for pull requests from external contributors.
 For internal contributors, all the PR checks must pass.
