@@ -60,20 +60,26 @@
       "^components(.*)$": "<rootDir>/src/components$1"
     }
   },
-  "bundlesize": [
-    {
-      "path": "./dist/onfido.min.js",
-      "maxSize": "200 kB"
-    },
-    {
-      "path": "./dist/onfido.crossDevice.min.js",
-      "maxSize": "1.3 kB"
-    },
-    {
-      "path": "./dist/style.css",
-      "maxSize": "200 kB"
-    }
-  ],
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "./dist/onfido.min.js",
+        "maxSize": "200 kB"
+      },
+      {
+        "path": "./dist/onfido.crossDevice.min.js",
+        "maxSize": "1.3 kB"
+      },
+      {
+        "path": "./dist/style.css",
+        "maxSize": "200 kB"
+      }
+    ],
+    "trackBranches": [
+      "master",
+      "development"
+    ]
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.8.7",
@@ -107,10 +113,9 @@
     "babel-plugin-auto-await": "^0.4.2",
     "babel-upgrade": "0.0.23",
     "browserstack-local": "^1.4.5",
-    "bundlesize": "^0.18.0",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
-    "chromedriver": "^87.0.1",
+    "chromedriver": "^87.0.5",
     "css-loader": "^3.4.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-preact-pure": "^2.2.3",
