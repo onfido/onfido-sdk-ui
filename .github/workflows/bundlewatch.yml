@@ -1,0 +1,23 @@
+name: 'Bundlewatch Github Action - on Pull Requests'
+
+on:
+  pull_request:
+    types: [synchronize, opened]
+
+jobs:
+  bundlewatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          # Match node version with .nvmrc
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Build dist
+        run: |
+          npm install
+          npm run build
+      - uses: jackyef/bundlewatch-gh-action@0.1.0
+        with:
+          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
