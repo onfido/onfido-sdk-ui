@@ -42,6 +42,7 @@ const TEST_VIDEO_DATA = {
 
 describe('API uploadLiveVideo endpoint', () => {
   beforeEach(async () => {
+    jest.setTimeout(10000)
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
   })
 
