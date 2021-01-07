@@ -14,6 +14,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Switched to `bundlewatch` Github Action for bundle size diff reporting, checking.
+
 ### Fixed
 
 - Public: Fix "File type not supported" error on snapshot upload in selfie step.
