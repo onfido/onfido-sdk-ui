@@ -16,7 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 
-- Public: Fix 422 error on snapshot upload
+- Public: Fix "File type not supported" error on snapshot upload in selfie step.
 
 ## [6.4.0]
 
