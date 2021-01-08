@@ -865,4 +865,4 @@ Previous version of the SDK will be supported for a month after a new major vers
 
 ## How is the Onfido SDK licensed?
 
-The Onfido SDK core and Onfido SDK UI layer are available under the MIT license.
+Please see [LICENSE](https://github.com/onfido/onfido-sdk-ui/blob/master/LICENSE) for licensing details.
