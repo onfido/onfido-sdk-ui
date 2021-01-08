@@ -28,7 +28,7 @@ let jwtToken = null
 
 describe('API uploadLivePhoto endpoint', () => {
   beforeEach(async () => {
-    jest.setTimeout(15000)
+    jest.setTimeout(20000)
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
   })
 

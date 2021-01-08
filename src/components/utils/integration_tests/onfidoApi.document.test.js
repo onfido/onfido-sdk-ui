@@ -36,7 +36,7 @@ const TEST_DOCUMENT_DATA = {
 
 describe('API uploadDocument endpoint', () => {
   beforeEach(async () => {
-    jest.setTimeout(15000)
+    jest.setTimeout(20000)
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
   })
 
