@@ -116,6 +116,11 @@ const PROD_CONFIG = {
 
 const TEST_CONFIG = {
   ...PROD_CONFIG,
+  ONFIDO_API_URL: 'https://localhost:8080/api',
+  JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
+  US_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
+  CA_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
+  SMS_DELIVERY_URL: 'https://localhost:8080/telephony',
   PUBLIC_PATH: '/',
   MOBILE_URL: '/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
@@ -140,7 +145,11 @@ const STAGING_CONFIG = {
 }
 
 const DEVELOPMENT_CONFIG = {
-  ...TEST_CONFIG,
+  ...PROD_CONFIG,
+  PUBLIC_PATH: '/',
+  MOBILE_URL: '/',
+  RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
+  WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
 
 const CONFIG_MAP = {
