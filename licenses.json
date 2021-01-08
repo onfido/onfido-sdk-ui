@@ -8760,7 +8760,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/stefaniacardenas/Desktop/Code/onfido/onfido-sdk-ui",
+    "path": "onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
