@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/onfido/onfido-sdk-ui.git"
   },
-  "license": "MIT",
+  "license": "SEE LICENSE IN onfido-sdk-ui/LICENSE",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
     "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
