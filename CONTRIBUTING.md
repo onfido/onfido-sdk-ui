@@ -1,5 +1,14 @@
 ## Contributors guidelines
 
+### Prerequisites
+
+The project requires few dependencies
+
+- Node.js v14+.
+- Docker for running the mock server for UI testing.
+- Linux, MacOS or Windows Subsystem for Linux (WSL)
+  (Windows Powershell isn't supported yet).
+
 ### Getting started
 
 To start contributing to the Onfido Web SDK, clone this repository and run the following commands:

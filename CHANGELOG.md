@@ -15,7 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - Internal: Switched to `bundlewatch` Github Action for bundle size diff reporting, checking.
-- UI: Updated text and background colours
+- Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
 
 ### Fixed
 
@@ -23,6 +23,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+- Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce Hooks on non-critical components.
 - Public: Added `CROSS_DEVICE_INTRO`, `CROSS_DEVICE_GET_LINK` user analytic events for integrators to listen for when tracking user journey when initiating Cross Device flow from desktop browser
 - Public: Added `licenses.json` file containing the list of dependencies licenses.

@@ -7,13 +7,13 @@
     "type": "git",
     "url": "https://github.com/onfido/onfido-sdk-ui.git"
   },
-  "license": "MIT",
+  "license": "SEE LICENSE IN ./LICENSE",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
     "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
     "build": "webpack --quiet --display-error-details --bail",
     "build:dev": "NODE_ENV=development npm run build",
-    "build:test": "NODE_ENV=test npm run build",
+    "build:test": "NODE_ENV=test npm run build && npm run mock-server:build",
     "prebuild": "npm run clean && npm run mkdirs && npm run license-checker && npm run check && npm run test",
     "mkdirs": "mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
@@ -27,7 +27,9 @@
     "test:unit": "jest --verbose --testPathPattern=src/components/utils/unit_tests",
     "test:ui": "babel-node test/main.js",
     "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js",
-    "license-checker": "license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json"
+    "license-checker": "license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json",
+    "mock-server:build": "cd ./test/mock-server && ./prepare.sh && docker build -t onfido-web-sdk:ui-mock-server .",
+    "mock-server:run": "docker run -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server"
   },
   "main": "lib/index.js",
   "bin": {
