@@ -20,5 +20,6 @@
     "target": "es5",
     "types": ["jest"],
     "typeRoots": ["./typings", "./node_modules/@types"]
-  }
+  },
+  "exclude": ["./test/mock-server"]
 }

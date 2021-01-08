@@ -1,3 +1,4 @@
+/* eslint-disable no-duplicate-imports */
 import { Router, Status } from './deps.ts'
 import type { FormDataBody } from './deps.ts'
 
@@ -22,7 +23,7 @@ const matchUploadedFile = (
 
 const buildDocumentsResponse = (
   formData: FormDataBody
-): { body: object; status: Status } | undefined => {
+): { body: Record<string, unknown>; status: Status } | undefined => {
   if (!formData.files || !formData.files.length) {
     return
   }
@@ -129,7 +130,7 @@ const buildDocumentsResponse = (
 
 const buildLivePhotosResponse = (
   formData: FormDataBody
-): { body: object; status: Status } | undefined => {
+): { body: Record<string, unknown>; status: Status } | undefined => {
   if (!formData.files || !formData.files.length) {
     return
   }
