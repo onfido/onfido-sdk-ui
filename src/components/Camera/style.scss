@@ -79,8 +79,7 @@
   }
 
   &:disabled {
-    cursor: not-allowed;
-    background-color: $color-camera-button-disabled;
+    display: none;
   }
 }
 
