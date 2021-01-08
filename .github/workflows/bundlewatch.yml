@@ -1,4 +1,4 @@
-name: 'Bundlewatch Github Action - on Pull Requests'
+name: 'Bundlewatch Github Action - Pull Requests'
 
 on:
   pull_request:
