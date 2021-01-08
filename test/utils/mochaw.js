@@ -85,5 +85,5 @@ export const locale = (lang = 'en_US') =>
 
 export const verifyElementCopy = async (element, copy) => {
   const elementText = await element.getText()
-  await expect(elementText).to.equal(copy)
+  expect(elementText).to.equal(copy)
 }
