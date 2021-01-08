@@ -70,9 +70,9 @@ do
 
   DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
 
-  # Rebuild with NODE_ENV=production for test target only
+  # Rebuild with TEST_ENV=deployment for test target only
   if [ "$NODE_ENV" == "test" ]; then
-    NODE_ENV=production npm run build
+    TEST_ENV=deployment npm run build
   fi
 
   surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
