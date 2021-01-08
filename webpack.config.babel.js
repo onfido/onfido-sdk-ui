@@ -16,6 +16,10 @@ import nodeExternals from 'webpack-node-externals'
 
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'
+
+// TEST_ENV can be one of: undefined | deployment when NODE_ENV=test
+const TEST_ENV = process.env.TEST_ENV
+
 // For production, test, and staging we should build production ready code
 // i.e. fully minified so that testing staging is as realistic as possible
 const PRODUCTION_BUILD = NODE_ENV !== 'development'
@@ -114,17 +118,21 @@ const PROD_CONFIG = {
   WOOPRA_DOMAIN,
 }
 
-const TEST_CONFIG = {
+const TEST_DEPLOYMENT_CONFIG = {
   ...PROD_CONFIG,
+  PUBLIC_PATH: '/',
+  MOBILE_URL: '/',
+  RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
+  WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
+}
+
+const TEST_E2E_CONFIG = {
+  ...TEST_DEPLOYMENT_CONFIG,
   ONFIDO_API_URL: 'https://localhost:8080/api',
   JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
   US_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
   CA_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
   SMS_DELIVERY_URL: 'https://localhost:8080/telephony',
-  PUBLIC_PATH: '/',
-  MOBILE_URL: '/',
-  RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
-  WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
 
 const STAGING_CONFIG = {
@@ -155,7 +163,7 @@ const DEVELOPMENT_CONFIG = {
 const CONFIG_MAP = {
   development: DEVELOPMENT_CONFIG,
   staging: STAGING_CONFIG,
-  test: TEST_CONFIG,
+  test: TEST_ENV === 'deployment' ? TEST_DEPLOYMENT_CONFIG : TEST_E2E_CONFIG,
   production: PROD_CONFIG,
 }
 
