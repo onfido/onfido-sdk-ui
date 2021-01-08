@@ -72,7 +72,7 @@ do
 
   # Rebuild with NODE_ENV=production for test target only
   if [ "$NODE_ENV" == "test" ]; then
-    npm run build
+    NODE_ENV=production npm run build
   fi
 
   surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
