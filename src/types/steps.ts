@@ -34,7 +34,6 @@ type StepOptionDocument = {
   useLiveDocumentCapture?: boolean
   uploadFallback?: boolean
   useWebcam?: boolean
-  requestedVariant?: 'standard' | 'video'
 }
 
 type StepOptionPoA = {
