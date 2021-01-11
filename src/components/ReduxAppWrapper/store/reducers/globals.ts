@@ -1,6 +1,38 @@
 import * as constants from '../../constants'
+import type { EnterpriseCobranding } from '~types/enterprise'
+import type {
+  CountryPayload,
+  SmsPayload,
+  UrlsPayload,
+  GlobalActions,
+} from '../../types'
 
-const initialState = {
+export type GlobalState = {
+  documentType?: string
+  idDocumentIssuingCountry: CountryPayload
+  poaDocumentType?: string
+  roomId?: string
+  socket?: SocketIOClient.Socket
+  sms: SmsPayload
+  clientSuccess?: boolean
+  mobileConnected?: boolean
+  termsAccepted?: boolean
+  isNavigationDisabled?: boolean
+  isFullScreen?: boolean
+  deviceHasCameraSupport?: boolean
+  // This prevents logo from being shown before state can be updated to hide it.
+  hideOnfidoLogo?: boolean
+  cobrand?: EnterpriseCobranding
+  urls: UrlsPayload
+  /**
+   * Number of retries on image quality reasons: cut-off, glare, blur
+   * If the API returns warning on one of those reasons, increase this state by 1 and ask for redo
+   * After at most <MAX_RETRIES_FOR_IMAGE_QUALITY> retries and there's still warning, allow user to proceed.
+   */
+  imageQualityRetries: number
+}
+
+const initialState: GlobalState = {
   documentType: null,
   idDocumentIssuingCountry: {
     country_alpha2: null,
@@ -12,6 +44,7 @@ const initialState = {
   socket: null,
   sms: { number: null, valid: false },
   clientSuccess: false,
+  mobileConnected: false,
   termsAccepted: false,
   isNavigationDisabled: false,
   isFullScreen: false,
@@ -34,7 +67,10 @@ const initialState = {
   imageQualityRetries: 0,
 }
 
-export default function globals(state = initialState, action) {
+export default function globals(
+  state = initialState,
+  action: GlobalActions
+): GlobalState {
   switch (action.type) {
     case constants.SET_ID_DOCUMENT_TYPE:
       return {
@@ -53,25 +89,43 @@ export default function globals(state = initialState, action) {
         idDocumentIssuingCountry: initialState.idDocumentIssuingCountry,
       }
     case constants.SET_POA_DOCUMENT_TYPE:
-      return { ...state, poaDocumentType: action.payload }
+      return {
+        ...state,
+        poaDocumentType: action.payload,
+      }
     case constants.SET_ROOM_ID:
       return { ...state, roomId: action.payload }
     case constants.SET_SOCKET:
-      return { ...state, socket: action.payload }
+      return {
+        ...state,
+        socket: action.payload,
+      }
     case constants.SET_MOBILE_NUMBER:
       return { ...state, sms: action.payload }
     case constants.SET_CLIENT_SUCCESS:
-      return { ...state, clientSuccess: action.payload }
+      return {
+        ...state,
+        clientSuccess: action.payload,
+      }
     case constants.MOBILE_CONNECTED:
-      return { ...state, mobileConnected: action.payload }
+      return {
+        ...state,
+        mobileConnected: action.payload,
+      }
     case constants.ACCEPT_TERMS:
       return { ...state, termsAccepted: true }
     case constants.SET_NAVIGATION_DISABLED:
-      return { ...state, isNavigationDisabled: !!action.payload }
+      return {
+        ...state,
+        isNavigationDisabled: action.payload,
+      }
     case constants.SET_FULL_SCREEN:
-      return { ...state, isFullScreen: !!action.payload }
+      return { ...state, isFullScreen: action.payload }
     case constants.SET_DEVICE_HAS_CAMERA_SUPPORT:
-      return { ...state, deviceHasCameraSupport: !!action.payload }
+      return {
+        ...state,
+        deviceHasCameraSupport: action.payload,
+      }
     case constants.SET_URLS:
       return {
         ...state,
@@ -81,9 +135,15 @@ export default function globals(state = initialState, action) {
         },
       }
     case constants.HIDE_ONFIDO_LOGO:
-      return { ...state, hideOnfidoLogo: action.payload }
+      return {
+        ...state,
+        hideOnfidoLogo: action.payload,
+      }
     case constants.SHOW_COBRANDING:
-      return { ...state, cobrand: action.payload }
+      return {
+        ...state,
+        cobrand: action.payload,
+      }
     case constants.RETRY_FOR_IMAGE_QUALITY:
       return {
         ...state,
