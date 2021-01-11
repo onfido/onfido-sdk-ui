@@ -46,7 +46,8 @@ In order to merge your pull request, you should get an approval from 2 Onfido te
 
 The current pull request checks are
 
-- Bundlesize - A tool that monitors the SDK size increase
+- Bundlewatch - Monitors SDK bundle size increase
+- CodeQL - Analysises SDK codebase for security vulnerabilities
 - Travis CI - Our continuous integration tool
 
 This project uses the following linters:
