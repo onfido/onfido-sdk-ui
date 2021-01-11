@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Public: Added npm latest version badge
+- Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 
 ### Changed
 
@@ -22,11 +23,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Fix "File type not supported" error on snapshot upload in selfie step.
 
-## [6.4.0]
+## [6.4.0] - 2020-12-21
 
 ### Added
 
-- Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce Hooks on non-critical components.
 - Public: Added `CROSS_DEVICE_INTRO`, `CROSS_DEVICE_GET_LINK` user analytic events for integrators to listen for when tracking user journey when initiating Cross Device flow from desktop browser
 - Public: Added `licenses.json` file containing the list of dependencies licenses.
