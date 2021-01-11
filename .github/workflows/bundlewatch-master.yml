@@ -11,6 +11,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
+      - name: Use same Node.js version as .nvmrc
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build dist
+        run: npm run build
       - name: Run BundleWatch Check
         uses: jackyef/bundlewatch-gh-action@0.1.0
         with:
