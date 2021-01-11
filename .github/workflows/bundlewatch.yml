@@ -8,16 +8,18 @@ jobs:
   bundlewatch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout repository
+        uses: actions/checkout@v1
       - name: Use same Node.js version as .nvmrc
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
-        run: npm ci
+        run: npm install
       - name: Build dist
         run: npm run build
-      - uses: jackyef/bundlewatch-gh-action@0.1.0
+      - name: Run BundleWatch Check
+        uses: jackyef/bundlewatch-gh-action@0.1.0
         with:
           bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
