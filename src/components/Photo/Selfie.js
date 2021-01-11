@@ -71,8 +71,15 @@ export default class SelfieCapture extends Component {
     }))
   }
 
-  takeSnapshot = () =>
+  takeSnapshot = () => {
+    const snapshot =
+      this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
+
+    snapshot?.blob &&
+      this.state.isCaptureButtonDisabled &&
+      this.setState({ isCaptureButtonDisabled: false })
     this.webcam && screenshot(this.webcam, this.handleSnapshot)
+  }
 
   takeSelfie = () => {
     this.setState({ isCaptureButtonDisabled: true })
@@ -82,13 +89,9 @@ export default class SelfieCapture extends Component {
   onUserMedia = () => {
     if (this.props.useMultipleSelfieCapture) {
       // A timeout is required for this.webcam to load, else 'webcam is null' console error is displayed
-      // despite an actual camera stream snapshot being captured
-      // 750ms is the minimum possible timeout without resulting in a null blob being sent to
-      // the /snapshots endpoint in file payload on some browsers, e.g. macOS Firefox & Safari
-      const initialSnapshotTimeout = 750
+      const initialSnapshotTimeout = 0
       this.initialSnapshotTimeoutId = setTimeout(() => {
         this.takeSnapshot()
-        this.setState({ isCaptureButtonDisabled: false })
       }, initialSnapshotTimeout)
       this.snapshotIntervalId = setInterval(
         this.takeSnapshot,
