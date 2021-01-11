@@ -5406,15 +5406,6 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/stylelint/node_modules/globby",
-    "licenseFile": "node_modules/stylelint/node_modules/globby/license"
-  },
-  "globby@11.0.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/sindresorhus/globby",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "https://sindresorhus.com",
     "path": "node_modules/chromedriver/node_modules/globby",
     "licenseFile": "node_modules/chromedriver/node_modules/globby/license"
   },
@@ -8140,8 +8131,8 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/chromedriver/node_modules/mkdirp",
-    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
+    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
   },
   "mocha@6.2.2": {
     "licenses": "MIT",
@@ -8764,12 +8755,12 @@
     "licenseFile": "node_modules/jest-changed-files/node_modules/onetime/license"
   },
   "onfido-sdk-ui@6.4.0": {
-    "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
+    "licenses": "MIT",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/kimmi.gan/Development/onfido-sdk-ui",
+    "path": "onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
