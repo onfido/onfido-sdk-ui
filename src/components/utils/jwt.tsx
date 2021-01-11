@@ -1,17 +1,18 @@
 import { currentSeconds } from './index'
+import type { EnterpriseFeatures } from '~types/enterprise'
 
-export const parseJwt = (token) => {
+export const parseJwt = (token: string): Record<string, unknown> => {
   const base64Url = token.split('.')[1]
   const base64 = base64Url.replace('-', '+').replace('_', '/')
   return JSON.parse(atob(base64))
 }
 
-export const jwtExpired = (token) => {
+export const jwtExpired = (token: string): boolean => {
   const expTime = parseJwt(token).exp
   return currentSeconds() > expTime
 }
 
-export const getUrlsFromJWT = (token) => {
+export const getUrlsFromJWT = (token: string): Record<string, string> => {
   let urls = {}
   try {
     const jwt = parseJwt(token)
@@ -22,7 +23,9 @@ export const getUrlsFromJWT = (token) => {
   return urls
 }
 
-export const getEnterpriseFeaturesFromJWT = (token) => {
+export const getEnterpriseFeaturesFromJWT = (
+  token: string
+): EnterpriseFeatures => {
   try {
     const jwt = parseJwt(token)
     return jwt.enterprise_features

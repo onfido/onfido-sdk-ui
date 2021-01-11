@@ -1,4 +1,15 @@
 export type StepTypes = 'welcome' | 'document' | 'poa' | 'face' | 'complete'
+export type DocumentTypes =
+  | 'passport'
+  | 'driving_licence'
+  | 'national_identity_card'
+  | 'residence_permit'
+export type PoATypes =
+  | 'bank_building_society_statement'
+  | 'utility_bill'
+  | 'council_tax'
+  | 'benefit_letters'
+  | 'government_letter'
 
 type StepConfigBase = {
   type: StepTypes
@@ -10,29 +21,25 @@ type StepOptionWelcome = {
   nextButton?: string
 }
 
+type DocumentTypeConfig =
+  | boolean
+  | {
+      country: string
+    }
+
 type StepOptionDocument = {
-  documentTypes?: {
-    passport?: boolean
-    driving_licence?: boolean
-    national_identity_card?: boolean
-    residence_permit?: boolean
-  }
+  documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
   showCountrySelection?: boolean
   forceCrossDevice?: boolean
   useLiveDocumentCapture?: boolean
   uploadFallback?: boolean
   useWebcam?: boolean
+  requestedVariant?: 'standard' | 'video'
 }
 
 type StepOptionPoA = {
   country?: string
-  documentTypes: {
-    bank_building_society_statement?: boolean
-    utility_bill?: boolean
-    council_tax?: boolean // GBR only
-    benefit_letters?: boolean // GBR only
-    government_letter?: boolean // non-GBR only
-  }
+  documentTypes?: Partial<Record<PoATypes, boolean>>
 }
 
 type StepOptionFace = {
