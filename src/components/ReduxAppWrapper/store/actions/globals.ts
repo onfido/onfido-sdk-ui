@@ -20,7 +20,7 @@ export const setIdDocumentIssuingCountry: ActionCreatorType<CountryPayload> = (
   payload,
 })
 
-export const resetIdDocumentIssuingCountry = (): ActionType<unknown> => ({
+export const resetIdDocumentIssuingCountry = (): ActionType<never> => ({
   type: constants.RESET_ID_ISSUING_COUNTRY,
 })
 
@@ -59,7 +59,7 @@ export const mobileConnected: ActionCreatorType<boolean> = (payload) => ({
   payload,
 })
 
-export const acceptTerms = (): ActionType<unknown> => ({
+export const acceptTerms = (): ActionType<never> => ({
   type: constants.ACCEPT_TERMS,
 })
 
@@ -97,10 +97,10 @@ export const showCobranding: ActionCreatorType<EnterpriseCobranding> = (
   payload,
 })
 
-export const retryForImageQuality = (): ActionType<unknown> => ({
+export const retryForImageQuality = (): ActionType<never> => ({
   type: constants.RETRY_FOR_IMAGE_QUALITY,
 })
 
-export const resetImageQualityRetries = (): ActionType<unknown> => ({
+export const resetImageQualityRetries = (): ActionType<never> => ({
   type: constants.RESET_IMAGE_QUALITY_RETRIES,
 })

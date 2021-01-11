@@ -5670,15 +5670,6 @@
     "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/globby",
     "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/globby/license"
   },
-  "globby@11.0.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/sindresorhus/globby",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "https://sindresorhus.com",
-    "path": "node_modules/chromedriver/node_modules/globby",
-    "licenseFile": "node_modules/chromedriver/node_modules/globby/license"
-  },
   "globby@6.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/globby",
