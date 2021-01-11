@@ -8,6 +8,8 @@ import {
 } from './utils/browserstack'
 import { eachP, asyncForEach } from './utils/async'
 import { exec } from 'child_process'
+import chalk from 'chalk'
+import https from 'https'
 
 if (!process.env.BROWSERSTACK_USERNAME) {
   console.error('ERROR: BrowserStack username not set')
@@ -98,15 +100,15 @@ const createBrowser = async (browser, testCase) => {
       ...(bsLocal ? [stopBrowserstackLocal(bsLocal)] : []),
     ])
       .then(() => {
-        console.log('finished browser')
+        console.log(chalk.green('Browser closed'))
       })
       .catch((e) => {
-        console.log('error finishing browser', e)
+        console.log(chalk.yellow('Error closing browser'), e)
       })
   }
 
   driver.finish = async () => {
-    console.log('finishing browser')
+    console.log(chalk.gray('Closing browser'))
     await quitAll()
   }
 
@@ -173,32 +175,110 @@ const runner = async () => {
         if (driver) driver.finish()
       }
     })
-    console.log('Finished test')
   })
 
-  console.log('finished')
+  console.log(chalk.green('Tests finished'))
   process.exit(totalFailures > 0 ? 1 : 0)
 }
 
-const server = exec('npm run travis')
-const killServer = () => {
-  console.log('Killing server')
-  if (!server.killed) {
-    server.kill()
-    console.log('Kill signal sent')
-  } else {
-    console.log('Kill signal already sent')
+const killMockServer = (dockerContainerId) => {
+  console.log(chalk.grey('Killing mock server'))
+  exec(`docker stop ${dockerContainerId} -t0`, (error) => {
+    if (error) {
+      console.log(chalk.yellow('Error killing mock server:'), error)
+    } else {
+      console.log(chalk.green('Mock server killed'))
+    }
+  })
+}
+
+console.log(chalk.bold.green('Starting mock server'))
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+const pingMockServer = () => {
+  const options = {
+    hostname: 'localhost',
+    port: 8080,
+    path: '/api/ping',
+    method: 'GET',
+    rejectUnauthorized: false,
+  }
+
+  return new Promise((resolve, reject) => {
+    https
+      .request(options, (res) => {
+        res.on('data', (data) => resolve(data))
+      })
+      .on('error', reject)
+      .end()
+  })
+}
+
+/**
+ * There's always an amount of delay time for the mock server to be alive completely,
+ * after the `docker run ...` command exits with the container ID.
+ * Without this waiting method, we can see several first tests to be failed,
+ * which is clearly a false positive.
+ * Particularly the sleep(1000) is to defer the ping action to be run every 1 second,
+ * instead of every process tick, which is unnecessarily wasteful.
+ */
+const waitForMockServer = async () => {
+  let isMockServerRunning = false
+  let retries = 0
+
+  while (!isMockServerRunning) {
+    // 30s timeout for mock server waiting
+    if (retries >= 30) {
+      console.error(
+        chalk.red(`It seems that the mock server wasn't started properly!`)
+      )
+
+      process.exit(1)
+    }
+
+    try {
+      console.error(
+        chalk.yellow(`(${retries + 1}) Waiting for mock server to respond...`)
+      )
+      await pingMockServer()
+      isMockServerRunning = true
+    } catch (err) {
+      retries += 1
+      await sleep(1000)
+    }
   }
 }
 
-server.stdout.on('data', (data) => {
-  if (data.includes('Available on:')) {
-    runner()
+exec('npm run mock-server:run', async (error, stdout) => {
+  if (error) {
+    console.error(chalk.yellow('Error running mock server:'), error)
+    return
   }
-})
 
-process.on('exit', () => {
-  killServer()
+  const stdoutLines = stdout.split('\n').filter((line) => line)
+  const dockerContainerId = stdoutLines[stdoutLines.length - 1]
+
+  console.log(
+    chalk.green(
+      `Mock server is running in docker container with id ${chalk.yellow(
+        dockerContainerId
+      )}`
+    )
+  )
+
+  await waitForMockServer()
+  runner()
+
+  const cleanUp = () => {
+    killMockServer(dockerContainerId)
+  }
+
+  process.on('exit', cleanUp) // Script stops normally
+  process.on('SIGINT', cleanUp) // Script stops by Ctrl-C
+  process.on('SIGUSR1', cleanUp) // Script stops by "kill pid"
+  process.on('SIGUSR2', cleanUp) // Script stops by "kill pid"
+  process.on('uncaughtException', cleanUp) // Script stops by uncaught exception
 })
 
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/

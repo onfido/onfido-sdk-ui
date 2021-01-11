@@ -1,2 +1,3 @@
 test/*.conf.js
 node_modules
+test/mock-server/**/*.js

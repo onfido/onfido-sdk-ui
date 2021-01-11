@@ -70,6 +70,11 @@ do
 
   DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
 
+  # Rebuild with TEST_ENV=deployment for test target only
+  if [ "$NODE_ENV" == "test" ]; then
+    TEST_ENV=deployment npm run build
+  fi
+
   surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
 
   if [ "$TRAVIS_PULL_REQUEST" != "false" ]

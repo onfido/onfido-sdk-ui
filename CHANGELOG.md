@@ -6,10 +6,27 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [next-version]
+
+### Added
+
+- Public: Added npm latest version badge
+
+### Changed
+
+- Internal: Switched to `bundlewatch` Github Action for bundle size diff reporting, checking.
+- UI: Updated text and background colours
+- Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
+
+### Fixed
+
+- Public: Fix "File type not supported" error on snapshot upload in selfie step.
+
 ## [6.4.0]
 
 ### Added
 
+- Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce Hooks on non-critical components.
 - Public: Added `CROSS_DEVICE_INTRO`, `CROSS_DEVICE_GET_LINK` user analytic events for integrators to listen for when tracking user journey when initiating Cross Device flow from desktop browser
 - Public: Added `licenses.json` file containing the list of dependencies licenses.
