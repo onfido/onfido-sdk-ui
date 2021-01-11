@@ -17,9 +17,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: npm install
-      - name: Build dist
-        run: npm run build
       - name: Run BundleWatch Check
         uses: jackyef/bundlewatch-gh-action@0.1.0
         with:
+          build-script: npm run build
           bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
