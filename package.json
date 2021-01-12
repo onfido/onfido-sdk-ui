@@ -22,7 +22,7 @@
     "lint": "eslint '{src,test}/**/*.js' && stylelint 'src/**/*.scss' && prettier . -c",
     "flow": "flow check",
     "bundle-analyzer": "webpack-bundle-analyzer",
-    "test": "jest --verbose",
+    "test": "npm run test:unit",
     "test:integration": "jest --verbose --testPathPattern=src/components/utils/integration_tests",
     "test:unit": "jest --verbose --testPathPattern=src/components/utils/unit_tests",
     "test:ui": "babel-node test/main.js",
