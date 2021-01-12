@@ -108,7 +108,7 @@ class Confirm extends Component {
     }
 
     const warningList = []
-    // This assumes there might be multiple warnings in one response
+    // There might be multiple warnings in one response
     Object.entries(warnings).map(([key, val]) => {
       const imageQualityValidationWarn = IMAGE_QUALITY_KEYS_MAP[key]
       if (imageQualityValidationWarn && !val.valid) {
