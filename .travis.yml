@@ -18,6 +18,7 @@ before_install:
   - sudo service docker restart
   - chmod ugo+x ./test/scripts/setup_test_environment.sh
   - sudo ./test/scripts/setup_test_environment.sh
+  - docker system info
 install:
   - npm --production=false install
 script:
