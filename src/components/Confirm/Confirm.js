@@ -12,7 +12,11 @@ import Spinner from '../Spinner'
 import Previews from './Previews'
 
 const MAX_RETRIES_FOR_IMAGE_QUALITY = 2
-
+const IMAGE_QUALITY_KEYS_MAP = {
+  detect_cutoff: 'CUTOFF_DETECTED',
+  detect_glare: 'GLARE_DETECTED',
+  detect_blur: 'BLUR_DETECTED',
+}
 class Confirm extends Component {
   constructor(props) {
     super(props)
@@ -34,6 +38,9 @@ class Confirm extends Component {
   }
 
   onfidoErrorFieldMap = ([key, val]) => {
+    const imageQualityValidationError = IMAGE_QUALITY_KEYS_MAP[key]
+    if (imageQualityValidationError) return imageQualityValidationError
+
     if (key === 'document_detection') return 'INVALID_CAPTURE'
     // on corrupted PDF or other unsupported file types
     if (key === 'file') return 'INVALID_TYPE'
@@ -82,39 +89,34 @@ class Confirm extends Component {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const imageQualityWarning = this.getImageQualityWarningFromResponse(
-      apiResponse
-    )
+    const imageQualityWarnings = this.handleImageQualityWarning(apiResponse)
 
-    if (!imageQualityWarning) {
+    if (!imageQualityWarnings.length) {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
     } else {
-      this.setWarning(imageQualityWarning)
+      // show the first warning in the list of warnings
+      this.setWarning(imageQualityWarnings[0])
     }
   }
 
-  getImageQualityWarningFromResponse = (apiResponse) => {
+  handleImageQualityWarning = (apiResponse) => {
     const { sdk_warnings: warnings } = apiResponse
 
     if (!warnings) {
       return null
     }
 
-    if (warnings.detect_cutoff && !warnings.detect_cutoff.valid) {
-      return 'CUT_OFF_DETECTED'
-    }
+    const warningList = []
+    // This assumes there might be multiple warnings in one response
+    Object.entries(warnings).map(([key, val]) => {
+      const imageQualityValidationWarn = IMAGE_QUALITY_KEYS_MAP[key]
+      if (imageQualityValidationWarn && !val.valid) {
+        warningList.push(imageQualityValidationWarn)
+      }
+    })
 
-    if (warnings.detect_glare && !warnings.detect_glare.valid) {
-      return 'GLARE_DETECTED'
-    }
-
-    if (warnings.detect_blur && !warnings.detect_blur.valid) {
-      return 'BLUR_DETECTED'
-    }
-
-    // Not interested in any other warnings
-    return null
+    return warningList
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
@@ -167,6 +169,7 @@ class Confirm extends Component {
       token,
       poaDocumentType,
       language,
+      imageQualityRetries,
     } = this.props
     const url = urls.onfido_api_url
     this.startTime = performance.now()
@@ -183,15 +186,21 @@ class Confirm extends Component {
 
     if (method === 'document') {
       const isPoA = poaDocumentTypes.includes(poaDocumentType)
-      const shouldWarnForImageQuality = !isOfMimeType(['pdf'], blob) && !isPoA
+      const shouldPerformImageQualityValidations =
+        !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
+      const shouldReturnErrorForImageQuality =
+        imageQualityRetries < MAX_RETRIES_FOR_IMAGE_QUALITY
+      const imageQualityErrorType = shouldReturnErrorForImageQuality
+        ? 'error'
+        : 'warn'
       const validations = {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
-        ...(shouldWarnForImageQuality
+        ...(shouldPerformImageQualityValidations
           ? {
-              detect_cutoff: 'warn',
-              detect_glare: 'warn',
-              detect_blur: 'warn',
+              detect_cutoff: imageQualityErrorType,
+              detect_glare: imageQualityErrorType,
+              detect_blur: imageQualityErrorType,
             }
           : {}),
       }
@@ -220,8 +229,12 @@ class Confirm extends Component {
   onRetake = () => {
     const { actions, previousStep } = this.props
 
-    // Retake on warning, increase image quality retries
-    if (this.state.error.type === 'warn') {
+    // Retake on image quality error, increase image quality retries
+    const isImageQualityError = Object.keys(IMAGE_QUALITY_KEYS_MAP).find(
+      (key) => IMAGE_QUALITY_KEYS_MAP[key] === this.state.error.name
+    )
+
+    if (isImageQualityError && this.state.error.type === 'error') {
       actions.retryForImageQuality()
     }
 
@@ -243,7 +256,6 @@ class Confirm extends Component {
     documentType,
     poaDocumentType,
     isFullScreen,
-    imageQualityRetries,
   }) => {
     const { error, uploadInProgress } = this.state
 
@@ -262,11 +274,7 @@ class Confirm extends Component {
         method={method}
         documentType={documentType}
         poaDocumentType={poaDocumentType}
-        forceRetake={
-          error.type === 'error' ||
-          (error.type === 'warn' &&
-            imageQualityRetries < MAX_RETRIES_FOR_IMAGE_QUALITY)
-        }
+        forceRetake={error.type === 'error'}
       />
     )
   }
