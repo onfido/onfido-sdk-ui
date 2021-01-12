@@ -18,8 +18,8 @@ before_install:
   - sudo ./test/scripts/setup_test_environment.sh
 install:
   - npm --production=false install
-  - if [ "${NODE_ENV}" = "test" ]; then npm run mock-server:build; fi
 script:
+  - if [ "${TRAVIS_PULL_REQUEST}" != "false" ] && [ "${NODE_ENV}" = "test" ]; then npm run mock-server:build; fi
   - if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then audit-ci --moderate; fi
   - npm run build
   - chmod ugo+x ./test.sh
