@@ -14,7 +14,10 @@ cache:
   directories:
     - 'node_modules'
 before_install:
-  - echo 'DOCKER_OPTS="$DOCKER_OPTS --registry-mirror=https://mirror.gcr.io"'
+  - tmpdaemon=$(mktemp)
+  - sudo jq '."registry-mirrors" += ["https://mirror.gcr.io"]' /etc/docker/daemon.json > $tmpdaemon
+  - sudo mv $tmpdaemon /etc/docker/daemon.json
+  - sudo systemctl daemon-reload
   - sudo service docker restart
   - chmod ugo+x ./test/scripts/setup_test_environment.sh
   - sudo ./test/scripts/setup_test_environment.sh
