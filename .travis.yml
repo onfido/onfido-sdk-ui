@@ -14,6 +14,8 @@ cache:
   directories:
     - 'node_modules'
 before_install:
+  - echo 'DOCKER_OPTS="$DOCKER_OPTS --registry-mirror=https://mirror.gcr.io"'
+  - sudo service docker restart
   - chmod ugo+x ./test/scripts/setup_test_environment.sh
   - sudo ./test/scripts/setup_test_environment.sh
 install:
