@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Public: Added npm latest version badge
+- Internal: App component, Redux system & some utils are now typed in TypeScript.
 
 ### Changed
 
