@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - Internal: Switched to `bundlewatch` Github Action for bundle size diff reporting, checking.
+- Public: Return error for image quality failures on the first two document upload attempts.
 
 ### Fixed
 
