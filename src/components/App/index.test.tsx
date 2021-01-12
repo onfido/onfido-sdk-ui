@@ -4,5 +4,5 @@ import { shallow } from 'enzyme'
 import App from './index'
 
 it('renders without crashing', () => {
-  shallow(<App />)
+  shallow(<App options={{}} />)
 })

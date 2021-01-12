@@ -1,26 +1,26 @@
 import * as constants from '../../constants'
 import { cleanFalsy } from '~utils/array'
 import { omit } from '~utils/object'
-import type { DocumentCapture, FaceCapture, CaptureActions } from '../../types'
+import type { CaptureActions, CaptureState } from '../../types'
 
-type CaptureKeys = 'document_front' | 'document_back' | 'face'
-
-export type CaptureState = Partial<
-  Record<CaptureKeys, DocumentCapture | FaceCapture>
->
+type StateKeys = keyof CaptureState
 
 const initialState: CaptureState = {}
 
 const stateKey = (arr: string[]) => cleanFalsy(arr).join('_')
 const getKeyByCaptureId = (captures: CaptureState = {}, captureId: string) =>
-  (Object.keys(captures) as CaptureKeys[]).find(
-    (key: CaptureKeys) => captures[key].id === captureId
+  (Object.keys(captures) as StateKeys[]).find(
+    (key) => captures[key].id === captureId
   )
 
-export function captures(
+export default function captures(
   state = initialState,
   action: CaptureActions
 ): CaptureState {
+  if (action.type === constants.RESET_STORE) {
+    return initialState
+  }
+
   if (action.type === constants.CAPTURE_DELETE) {
     const key = stateKey([action.payload.method, action.payload.side])
     return omit(state, [key])

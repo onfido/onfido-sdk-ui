@@ -1,21 +1,23 @@
 import { pick, omitBy } from '~utils/object'
 import * as constants from '../../constants'
 import type {
-  ActionType,
-  ActionCreatorType,
+  CaptureActions,
   DocumentCapture,
   FaceCapture,
   CapturePayload,
   MetadataPayload,
 } from '../../types'
 
-export const createCapture: ActionCreatorType<CapturePayload> = (payload) => ({
+export const createCapture = (
+  payload: DocumentCapture | FaceCapture
+): CaptureActions => ({
   type: constants.CAPTURE_CREATE,
   payload,
 })
 
-export const deleteCapture = (): ActionType<never> => ({
+export const deleteCapture = (payload: CapturePayload): CaptureActions => ({
   type: constants.CAPTURE_DELETE,
+  payload,
 })
 
 export const setCaptureMetadata = ({
@@ -23,9 +25,9 @@ export const setCaptureMetadata = ({
   apiResponse,
 }: {
   capture: DocumentCapture | FaceCapture
-  apiResponse: unknown
-}): ActionType<MetadataPayload> => {
-  const payload = {
+  apiResponse: Record<string, unknown>
+}): CaptureActions => {
+  const payload: MetadataPayload = {
     captureId: capture.id,
     metadata: omitBy(
       {

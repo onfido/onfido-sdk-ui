@@ -1,11 +1,10 @@
+import type { Action } from 'redux'
 import * as globals from './globals'
 import * as captures from './captures'
-import { RESET_STORE } from '../../constants'
-import type { ActionCreatorType } from '../../types'
+import * as constants from '../../constants'
 
-const reset: ActionCreatorType<unknown> = (payload) => ({
-  type: RESET_STORE,
-  payload,
+const reset = (): Action<typeof constants.RESET_STORE> => ({
+  type: constants.RESET_STORE,
 })
 
 export const actions = { ...globals, ...captures, reset }

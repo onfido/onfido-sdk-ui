@@ -151,8 +151,6 @@ const Header = () => <h1>Onfido SDK UI Demo</h1>
 const Step1 = () => (
   <div>
     <p className="qa-first-step-text">This is the first step</p>
-    {/* @FIXME couldn't find a resource to fix this */}
-    {/* @ts-ignore */}
     <Link to="/dummy-step-2">
       <button className="qa-step-two-btn">Start</button>
     </Link>
@@ -164,8 +162,6 @@ const Step2 = () => (
     <p className="qa-second-step-text">
       This is a dummy step added to the demo app history
     </p>
-    {/* @FIXME couldn't find a resource to fix this */}
-    {/* @ts-ignore */}
     <Link to="/id-verification">
       <button className="qa-start-verification-btn">Go to SDK</button>
     </Link>
