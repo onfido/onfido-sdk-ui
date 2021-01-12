@@ -1,16 +1,19 @@
-import { h, Component } from 'preact'
-import { createStore } from 'redux'
+import { h, Component, VNode } from 'preact'
+import { createStore, Store } from 'redux'
 import { Provider as ReduxProvider } from 'react-redux'
-import reducer from './store/reducers'
-import type { /* CaptureActions, GlobalActions, */ RootState } from './types'
+import reducer, { RootState } from './store/reducers'
+import type { CaptureActions, GlobalActions } from './types'
 
-type Props = Record<string, unknown>
+type Props = {
+  children: VNode
+}
 
 class ReduxAppWrapper extends Component<Props> {
-  private store: Store<RootState>
+  private store: Store<RootState, CaptureActions | GlobalActions>
+
   constructor(props: Props) {
     super(props)
-    this.store = createStore<RootState>(
+    this.store = createStore(
       reducer,
       window.__REDUX_DEVTOOLS_EXTENSION__
         ? window.__REDUX_DEVTOOLS_EXTENSION__()

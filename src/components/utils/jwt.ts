@@ -1,5 +1,6 @@
 import { currentSeconds } from './index'
 import type { EnterpriseFeatures } from '~types/enterprise'
+import type { UrlsPayload } from '../ReduxAppWrapper/types'
 
 export const parseJwt = (token: string): Record<string, unknown> => {
   const base64Url = token.split('.')[1]
@@ -12,14 +13,16 @@ export const jwtExpired = (token: string): boolean => {
   return currentSeconds() > expTime
 }
 
-export const getUrlsFromJWT = (token: string): Record<string, string> => {
-  let urls = {}
+export const getUrlsFromJWT = (token: string): UrlsPayload => {
+  const urls: UrlsPayload = {}
+
   try {
     const jwt = parseJwt(token)
-    urls = jwt.urls
+    Object.assign(urls, jwt.urls)
   } catch (err) {
     console.error('Invalid token:', err.message)
   }
+
   return urls
 }
 

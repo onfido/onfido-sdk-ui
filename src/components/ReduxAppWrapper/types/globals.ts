@@ -13,11 +13,11 @@ export type SmsPayload = {
 }
 
 export type UrlsPayload = {
-  onfido_api_url: string
-  telephony_url: string
-  hosted_sdk_url: string
-  detect_document_url: string
-  sync_url: string
+  onfido_api_url?: string
+  telephony_url?: string
+  hosted_sdk_url?: string
+  detect_document_url?: string
+  sync_url?: string
 }
 
 export type GlobalActions =
