@@ -66,7 +66,7 @@ const SdkMount: FunctionComponent<{
     }
 
     return () => onfidoSdk && onfidoSdk.tearDown()
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     if (!onfidoSdk) {
@@ -90,7 +90,7 @@ const SdkDemo: FunctionComponent<{
   sdkOptions?: SdkOptions
   viewOptions?: UIConfigs
 }> = ({ hasPreview = false, sdkOptions, viewOptions }) => {
-  const [token, setToken] = useState(null)
+  const [token, setToken] = useState<string>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const callTokenFactory = useCallback(() => {
