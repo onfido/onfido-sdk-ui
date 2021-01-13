@@ -1,6 +1,7 @@
-import supportedDrivingLicences from './supported-docs-driving_licence.json'
-import supportedNationalIDCards from './supported-docs-national_identity_card.json'
-import supportedResidencePermit from './supported-docs-residence_permit.json'
+/* eslint-disable @typescript-eslint/no-var-requires */
+const supportedDrivingLicences = require('./supported-docs-driving_licence.json')
+const supportedNationalIDCards = require('./supported-docs-national_identity_card.json')
+const supportedResidencePermit = require('./supported-docs-residence_permit.json')
 
 import type { DocumentTypes } from '~types/steps'
 
