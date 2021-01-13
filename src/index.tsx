@@ -9,12 +9,12 @@ import { SdkOptions, SdkHandle } from '~types/sdk'
 import { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
 import App from './components/App'
 
-interface NormalisedSdkOptions extends SdkOptions {
-  steps: StepConfig[]
-}
-
 if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
+}
+
+interface NormalisedSdkOptions extends SdkOptions {
+  steps: StepConfig[]
 }
 
 const onfidoRender = (

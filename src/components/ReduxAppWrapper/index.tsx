@@ -1,4 +1,5 @@
-import { h, Component, VNode } from 'preact'
+import { h, FunctionComponent, VNode } from 'preact'
+import { useEffect, useState } from 'preact/hooks'
 import { createStore, Store } from 'redux'
 import { Provider as ReduxProvider } from 'react-redux'
 import reducer, { RootState } from './store/reducers'
@@ -8,24 +9,27 @@ type Props = {
   children: VNode
 }
 
-class ReduxAppWrapper extends Component<Props> {
-  private store: Store<RootState, CaptureActions | GlobalActions>
+type StoreType = Store<RootState, CaptureActions | GlobalActions>
 
-  constructor(props: Props) {
-    super(props)
-    this.store = createStore(
+const ReduxAppWrapper: FunctionComponent<Props> = ({ children }) => {
+  const [store, setStore] = useState<StoreType>(null)
+
+  useEffect(() => {
+    const newStore = createStore(
       reducer,
       window.__REDUX_DEVTOOLS_EXTENSION__
         ? window.__REDUX_DEVTOOLS_EXTENSION__()
         : undefined
     )
+
+    setStore(newStore)
+  }, [])
+
+  if (store == null) {
+    return null
   }
 
-  render(): h.JSX.Element {
-    return (
-      <ReduxProvider store={this.store}>{this.props.children}</ReduxProvider>
-    )
-  }
+  return <ReduxProvider store={store}>{children}</ReduxProvider>
 }
 
 export default ReduxAppWrapper
