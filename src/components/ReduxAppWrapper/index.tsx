@@ -25,6 +25,10 @@ const ReduxAppWrapper: FunctionComponent<Props> = ({ children }) => {
     setStore(newStore)
   }, [])
 
+  if (store == null) {
+    return null
+  }
+
   return <ReduxProvider store={store}>{children}</ReduxProvider>
 }
 

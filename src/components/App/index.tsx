@@ -1,6 +1,5 @@
 import { h, FunctionComponent } from 'preact'
 import ReduxAppWrapper from '../ReduxAppWrapper/'
-
 import ModalApp, { OwnedProps as Props } from './ModalApp'
 
 const App: FunctionComponent<Props> = ({ options }) => (
