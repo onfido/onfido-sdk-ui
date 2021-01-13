@@ -39,9 +39,7 @@ const STEP_CROSS_DEVICE = 'crossDevice'
 type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
 type ExtendedStepConfig = StepConfig | { type: typeof STEP_CROSS_DEVICE }
 
-type ComponentsByStepType = Partial<
-  Record<ExtendedStepTypes, () => ComponentType[]>
->
+type ComponentsByStepType = Partial<Record<ExtendedStepTypes, ComponentType[]>>
 type ComponentStep = {
   component: ComponentType
   step: ExtendedStepConfig
@@ -127,25 +125,25 @@ const captureStepsComponents = (
 
   const configForDocumentType = documentStepOptions?.documentTypes[documentType]
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
+
   return {
-    welcome: () => [Welcome],
-    face: () => getFaceSteps(steps, deviceHasCameraSupport, mobileFlow),
-    document: () =>
-      getIdentityDocumentComponents(
-        documentType,
-        hasOnePreselectedDocument(steps),
-        showCountrySelectionForSinglePreselectedDocument,
-        shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport),
-        configForDocumentType
-      ),
-    poa: () => [
+    welcome: [Welcome],
+    face: getFaceSteps(steps, deviceHasCameraSupport, mobileFlow),
+    document: getIdentityDocumentComponents(
+      documentType,
+      hasOnePreselectedDocument(steps),
+      showCountrySelectionForSinglePreselectedDocument,
+      shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport),
+      configForDocumentType
+    ),
+    poa: [
       PoAIntro,
       SelectPoADocument,
       PoAGuidance,
       PoACapture,
       DocumentFrontConfirm,
     ],
-    complete: () => complete,
+    complete,
   }
 }
 
@@ -272,8 +270,8 @@ const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
 }
 
 const crossDeviceComponents: ComponentsByStepType = {
-  crossDevice: () => [CrossDeviceIntro, CrossDeviceLink, MobileFlow],
-  complete: () => [Complete],
+  crossDevice: [CrossDeviceIntro, CrossDeviceLink, MobileFlow],
+  complete: [Complete],
 }
 
 const createComponentList = (
@@ -293,7 +291,7 @@ const createComponent = (
   if (!(type in components)) {
     console.error(`No such step: ${type}`)
   }
-  return components[type]().map(wrapComponent(step, stepIndex))
+  return components[type].map(wrapComponent(step, stepIndex))
 }
 
 const wrapComponent = (step: ExtendedStepConfig, stepIndex: number) => (
