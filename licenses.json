@@ -1213,6 +1213,12 @@
     "path": "node_modules/@types/color-name",
     "licenseFile": "node_modules/@types/color-name/LICENSE"
   },
+  "@types/dom-mediacapture-record@1.0.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/dom-mediacapture-record",
+    "licenseFile": "node_modules/@types/dom-mediacapture-record/LICENSE"
+  },
   "@types/enzyme@3.10.8": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
@@ -5670,15 +5676,6 @@
     "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/globby",
     "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/globby/license"
   },
-  "globby@11.0.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/sindresorhus/globby",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "https://sindresorhus.com",
-    "path": "node_modules/chromedriver/node_modules/globby",
-    "licenseFile": "node_modules/chromedriver/node_modules/globby/license"
-  },
   "globby@6.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/globby",
@@ -7986,14 +7983,6 @@
     "url": "sindresorhus.com",
     "path": "node_modules/@istanbuljs/load-nyc-config/node_modules/locate-path",
     "licenseFile": "node_modules/@istanbuljs/load-nyc-config/node_modules/locate-path/license"
-  },
-  "lodash-es@4.17.15": {
-    "licenses": "MIT",
-    "repository": "https://github.com/lodash/lodash",
-    "publisher": "John-David Dalton",
-    "email": "john.david.dalton@gmail.com",
-    "path": "node_modules/lodash-es",
-    "licenseFile": "node_modules/lodash-es/LICENSE"
   },
   "lodash.escape@4.0.1": {
     "licenses": "MIT",
@@ -10533,12 +10522,12 @@
     "path": "node_modules/react-phone-number-input",
     "licenseFile": "node_modules/react-phone-number-input/LICENSE"
   },
-  "react-redux@4.4.10": {
+  "react-redux@5.1.2": {
     "licenses": "MIT",
-    "repository": "https://github.com/reactjs/react-redux",
+    "repository": "https://github.com/reduxjs/react-redux",
     "publisher": "Dan Abramov",
     "email": "dan.abramov@me.com",
-    "url": "http://github.com/gaearon",
+    "url": "https://github.com/gaearon",
     "path": "node_modules/react-redux",
     "licenseFile": "node_modules/react-redux/LICENSE.md"
   },
@@ -10742,17 +10731,11 @@
     "path": "node_modules/redent",
     "licenseFile": "node_modules/redent/license"
   },
-  "redux@3.5.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/reactjs/redux",
-    "path": "node_modules/redux",
-    "licenseFile": "node_modules/redux/LICENSE.md"
-  },
   "redux@4.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/reduxjs/redux",
-    "path": "node_modules/@types/react-redux/node_modules/redux",
-    "licenseFile": "node_modules/@types/react-redux/node_modules/redux/LICENSE.md"
+    "path": "node_modules/redux",
+    "licenseFile": "node_modules/redux/LICENSE.md"
   },
   "regenerate-unicode-properties@8.2.0": {
     "licenses": "MIT",
@@ -12355,21 +12338,13 @@
     "path": "node_modules/svg-tags",
     "licenseFile": "node_modules/svg-tags/LICENSE"
   },
-  "symbol-observable@0.2.4": {
+  "symbol-observable@1.2.0": {
     "licenses": "MIT",
     "repository": "https://github.com/blesh/symbol-observable",
     "publisher": "Ben Lesh",
     "email": "ben@benlesh.com",
     "path": "node_modules/symbol-observable",
     "licenseFile": "node_modules/symbol-observable/license"
-  },
-  "symbol-observable@1.2.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/blesh/symbol-observable",
-    "publisher": "Ben Lesh",
-    "email": "ben@benlesh.com",
-    "path": "node_modules/@types/react-redux/node_modules/symbol-observable",
-    "licenseFile": "node_modules/@types/react-redux/node_modules/symbol-observable/license"
   },
   "symbol-tree@3.2.4": {
     "licenses": "MIT",

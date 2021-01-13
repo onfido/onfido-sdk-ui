@@ -8,7 +8,7 @@ export type SupportedLanguages =
   | 'fr_FR'
   | 'fr'
 
-export interface LocaleConfig {
+export type LocaleConfig = {
   locale?: SupportedLanguages
   phrases: Record<string, unknown>
   mobilePhrases?: Record<string, unknown>

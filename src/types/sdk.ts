@@ -1,24 +1,24 @@
 import { SupportedLanguages, LocaleConfig } from './locales'
 import { StepConfig, StepTypes } from './steps'
 
-interface DocumentResponse {
+type DocumentResponse = {
   id: string
   side: string
   type: string
 }
 
-interface FaceResponse {
+type FaceResponse = {
   id: string
   variant: string
 }
 
-export interface SdkResponse {
+export type SdkResponse = {
   document_front: DocumentResponse
   document_back?: DocumentResponse
   face: FaceResponse
 }
 
-export interface SdkError {
+export type SdkError = {
   type: 'exception' | 'expired_token'
   message: string
 }
@@ -59,7 +59,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   }
 }
 
-export interface SdkHandle {
+export type SdkHandle = {
   options: SdkOptions
   setOptions(options: SdkOptions): void
   tearDown(): void
