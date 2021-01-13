@@ -25,17 +25,17 @@ import type {
 
 import withConnect, { PropsFromRedux } from './withConnect'
 
-export type OwnedProps = {
+export type PassedProps = {
   options: SdkOptions
   socket?: SocketIOClient.Socket
 }
 
-type ModalAppProps = OwnedProps & PropsFromRedux
+type Props = PassedProps & PropsFromRedux
 
-class ModalApp extends Component<ModalAppProps> {
+class ModalApp extends Component<Props> {
   private events: EventEmitter2.emitter
 
-  constructor(props: ModalAppProps) {
+  constructor(props: Props) {
     super(props)
     this.events = new EventEmitter2()
     this.events.on('complete', this.trackOnComplete)
@@ -50,7 +50,7 @@ class ModalApp extends Component<ModalAppProps> {
     this.prepareInitialStore({}, this.props.options)
   }
 
-  componentDidUpdate(prevProps: ModalAppProps) {
+  componentDidUpdate(prevProps: Props) {
     this.jwtValidation(prevProps.options, this.props.options)
     this.prepareInitialStore(prevProps.options, this.props.options)
     this.rebindEvents(prevProps.options, this.props.options)
@@ -255,4 +255,4 @@ class ModalApp extends Component<ModalAppProps> {
   }
 }
 
-export default withConnect<ComponentType<OwnedProps>>(ModalApp)
+export default withConnect<ComponentType<PassedProps>>(ModalApp)
