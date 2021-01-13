@@ -1,11 +1,6 @@
 import * as constants from '../constants'
+import type { CountryData } from 'supported-documents'
 import type { EnterpriseCobranding } from '~types/enterprise'
-
-export type CountryPayload = {
-  country_alpha2?: string
-  country_alpha3?: string
-  name?: string
-}
 
 export type SmsPayload = {
   number?: string
@@ -22,7 +17,7 @@ export type UrlsPayload = {
 
 export type GlobalActions =
   | { type: typeof constants.SET_ID_DOCUMENT_TYPE; payload: string }
-  | { type: typeof constants.SET_ID_ISSUING_COUNTRY; payload: CountryPayload }
+  | { type: typeof constants.SET_ID_ISSUING_COUNTRY; payload: CountryData }
   | { type: typeof constants.RESET_ID_ISSUING_COUNTRY }
   | { type: typeof constants.SET_POA_DOCUMENT_TYPE; payload: string }
   | { type: typeof constants.SET_ROOM_ID; payload: string }
@@ -43,7 +38,7 @@ export type GlobalActions =
 
 export type GlobalState = {
   documentType?: string
-  idDocumentIssuingCountry: CountryPayload
+  idDocumentIssuingCountry?: CountryData
   poaDocumentType?: string
   roomId?: string
   socket?: SocketIOClient.Socket

@@ -1,9 +1,22 @@
-export type StepTypes = 'welcome' | 'document' | 'poa' | 'face' | 'complete'
+const STEP_WELCOME = 'welcome'
+const STEP_DOCUMENT = 'document'
+const STEP_POA = 'poa'
+const STEP_FACE = 'face'
+const STEP_COMPLETE = 'complete'
+
+export type StepTypes =
+  | typeof STEP_WELCOME
+  | typeof STEP_DOCUMENT
+  | typeof STEP_POA
+  | typeof STEP_FACE
+  | typeof STEP_COMPLETE
+
 export type DocumentTypes =
   | 'passport'
   | 'driving_licence'
   | 'national_identity_card'
   | 'residence_permit'
+
 export type PoATypes =
   | 'bank_building_society_statement'
   | 'utility_bill'
@@ -11,30 +24,30 @@ export type PoATypes =
   | 'benefit_letters'
   | 'government_letter'
 
-type StepConfigBase = {
-  type: StepTypes
-}
-
 type StepOptionWelcome = {
   title?: string
   descriptions?: string[]
   nextButton?: string
 }
 
-type DocumentTypeConfig =
+export type DocumentTypeConfig =
   | boolean
   | {
       country: string
     }
 
-type StepOptionDocument = {
-  documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
-  showCountrySelection?: boolean
-  forceCrossDevice?: boolean
-  useLiveDocumentCapture?: boolean
+type CaptureOptions = {
   uploadFallback?: boolean
+  useUploader?: boolean
   useWebcam?: boolean
 }
+
+type StepOptionDocument = {
+  documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
+  forceCrossDevice?: boolean
+  showCountrySelection?: boolean
+  useLiveDocumentCapture?: boolean
+} & CaptureOptions
 
 type StepOptionPoA = {
   country?: string
@@ -43,9 +56,8 @@ type StepOptionPoA = {
 
 type StepOptionFace = {
   requestedVariant?: 'standard' | 'video'
-  uploadFallback?: boolean
   useMultipleSelfieCapture?: boolean
-}
+} & CaptureOptions
 
 type StepOptionComplete = {
   message?: string
@@ -53,24 +65,29 @@ type StepOptionComplete = {
 }
 
 export type StepConfigWelcome = {
+  type: typeof STEP_WELCOME
   options?: StepOptionWelcome
-} & StepConfigBase
+}
 
 export type StepConfigDocument = {
+  type: typeof STEP_DOCUMENT
   options?: StepOptionDocument
-} & StepConfigBase
+}
 
 export type StepConfigPoA = {
+  type: typeof STEP_POA
   options?: StepOptionPoA
-} & StepConfigBase
+}
 
 export type StepConfigFace = {
+  type: typeof STEP_FACE
   options?: StepOptionFace
-} & StepConfigBase
+}
 
 export type StepConfigComplete = {
+  type: typeof STEP_COMPLETE
   options?: StepOptionComplete
-} & StepConfigBase
+}
 
 export type StepConfig =
   | StepConfigWelcome

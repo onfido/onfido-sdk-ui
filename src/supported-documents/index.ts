@@ -2,13 +2,25 @@ import supportedDrivingLicences from './supported-docs-driving_licence.json'
 import supportedNationalIDCards from './supported-docs-national_identity_card.json'
 import supportedResidencePermit from './supported-docs-residence_permit.json'
 
-/* export type CountryType = {
-  country_alpha2: string,
-  country_alpha3: string,
-  name: string,
-} */
+import type { DocumentTypes } from '~types/steps'
 
-export const getCountryDataForDocumentType = (countryCode, documentType) => {
+type CountryCodes = {
+  country_alpha2: string
+  country_alpha3: string
+}
+
+type SourceData = {
+  country: string
+} & CountryCodes
+
+export type CountryData = {
+  name: string
+} & CountryCodes
+
+export const getCountryDataForDocumentType = (
+  countryCode: Optional<string>,
+  documentType: DocumentTypes
+): Optional<CountryData> => {
   // Consistent with API, which accepts a 3-letter ISO country code for issuing_country param value
   if (countryCode && countryCode.length === 3) {
     const supportedCountriesList = getSupportedCountriesForDocument(
@@ -22,7 +34,9 @@ export const getCountryDataForDocumentType = (countryCode, documentType) => {
   return null
 }
 
-export const getSupportedCountriesForDocument = (documentType) => {
+export const getSupportedCountriesForDocument = (
+  documentType: DocumentTypes
+): CountryData[] => {
   switch (documentType) {
     case 'driving_licence':
       return getCountriesList(supportedDrivingLicences)
@@ -36,8 +50,8 @@ export const getSupportedCountriesForDocument = (documentType) => {
   }
 }
 
-const getCountriesList = (supportedDocsData) => {
-  const countriesList = supportedDocsData.map((docData) => {
+const getCountriesList = (supportedDocsData: { sourceData: SourceData }[]) => {
+  const countriesList: CountryData[] = supportedDocsData.map((docData) => {
     const { sourceData } = docData
     return {
       country_alpha2: sourceData.country_alpha2,
@@ -45,10 +59,12 @@ const getCountriesList = (supportedDocsData) => {
       name: sourceData.country,
     }
   })
+
   const uniqueCountriesList = [
     ...new Map(
       countriesList.map((country) => [country.country_alpha3, country])
     ).values(),
   ]
+
   return uniqueCountriesList.sort((a, b) => a.name.localeCompare(b.name))
 }

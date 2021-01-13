@@ -3,11 +3,7 @@ import type { GlobalActions, GlobalState } from '../../types'
 
 const initialState: GlobalState = {
   documentType: null,
-  idDocumentIssuingCountry: {
-    country_alpha2: null,
-    country_alpha3: null,
-    name: null,
-  },
+  idDocumentIssuingCountry: null,
   poaDocumentType: null,
   roomId: null,
   socket: null,

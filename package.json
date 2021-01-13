@@ -108,6 +108,7 @@
     "@babel/register": "^7.8.6",
     "@onfido/surge": "^0.20.2",
     "@sentry/cli": "^1.51.1",
+    "@types/dom-mediacapture-record": "^1.0.7",
     "@types/enzyme": "^3.10.8",
     "@types/history": "^4.7.8",
     "@types/jest": "^26.0.15",
