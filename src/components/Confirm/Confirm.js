@@ -91,7 +91,7 @@ class Confirm extends Component {
 
     const imageQualityWarnings = this.handleImageQualityWarning(apiResponse)
 
-    if (!imageQualityWarnings.length) {
+    if (!imageQualityWarnings?.length) {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
     } else {
