@@ -39,25 +39,25 @@ type CaptureMetadata = {
   variant?: FaceCaptureVariants
 }
 
-export interface CapturePayload {
+export type CapturePayload = {
   method: CaptureMethods
   side?: DocumentSides
 }
 
-export interface DocumentCapture extends CapturePayload {
+export type DocumentCapture = {
   blob: Blob
   sdkMetadata: SdkMetadata
   documentType: DocumentTypes | PoATypes
   id: string
   metadata: CaptureMetadata & { id: string }
-}
+} & CapturePayload
 
-export interface FaceCapture extends CapturePayload {
+export type FaceCapture = {
   snapshot?: Blob
   variant: FaceCaptureVariants
   id: string
   metadata: CaptureMetadata & { id: string }
-}
+} & CapturePayload
 
 export type MetadataPayload = {
   captureId: string
