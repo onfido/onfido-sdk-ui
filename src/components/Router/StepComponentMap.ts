@@ -1,3 +1,4 @@
+import type { ComponentType } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
 import CountrySelector from '../CountrySelector'
@@ -22,8 +23,32 @@ import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
-import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils'
+import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils/index'
 import { getCountryDataForDocumentType } from '../../supported-documents'
+
+import type {
+  DocumentTypes,
+  DocumentTypeConfig,
+  StepTypes,
+  StepConfig,
+  StepConfigDocument,
+  StepConfigFace,
+} from '~types/steps'
+
+const STEP_CROSS_DEVICE = 'crossDevice'
+type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
+type ExtendedStepConfig = StepConfig | { type: typeof STEP_CROSS_DEVICE }
+
+type ComponentsByStepType = Partial<
+  Record<ExtendedStepTypes, () => ComponentType[]>
+>
+type ComponentStep = {
+  component: ComponentType
+  step: ExtendedStepConfig
+  stepIndex: number
+}
+
+const shallowFlatten = <T>(list: T[][]): T[] => [].concat(...list)
 
 export const componentsList = ({
   flow,
@@ -31,7 +56,13 @@ export const componentsList = ({
   steps,
   mobileFlow,
   deviceHasCameraSupport,
-}) => {
+}: {
+  flow: string
+  documentType: DocumentTypes
+  steps: StepConfig[]
+  mobileFlow: boolean
+  deviceHasCameraSupport: boolean
+}): ComponentStep[] => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
   return flow === 'captureSteps'
     ? createComponentList(
@@ -46,40 +77,48 @@ export const componentsList = ({
     : createComponentList(crossDeviceComponents, crossDeviceSteps(steps))
 }
 
-const isComplete = (step) => step.type === 'complete'
+const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
-const hasCompleteStep = (steps) => steps.some(isComplete)
+const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
 
-const clientCaptureSteps = (steps) =>
+const clientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
   hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
-const shouldUseVideo = (steps) => {
-  const { options: faceOptions } =
-    steps.find(({ type }) => type === 'face') || {}
+const shouldUseVideo = (steps: StepConfig[]): boolean => {
+  const faceStep = steps.find(({ type }) => type === 'face') as StepConfigFace
+
   return (
-    (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
+    faceStep?.options?.requestedVariant === 'video' &&
+    window.MediaRecorder != null
   )
 }
 
-const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
-  const { options: documentOptions } = steps.find(
+const shouldUseCameraForDocumentCapture = (
+  steps: StepConfig[],
+  deviceHasCameraSupport: boolean
+): boolean => {
+  const documentStep = steps.find(
     (step) => step.type === 'document'
-  )
+  ) as StepConfigDocument
+
   const canUseLiveDocumentCapture =
-    (!isDesktop || isHybrid) && documentOptions?.useLiveDocumentCapture
+    (!isDesktop || isHybrid) && documentStep?.options?.useLiveDocumentCapture
+
   return (
-    (canUseLiveDocumentCapture || documentOptions?.useWebcam) &&
+    (canUseLiveDocumentCapture || documentStep?.options?.useWebcam) &&
     deviceHasCameraSupport
   )
 }
 
 const captureStepsComponents = (
-  documentType,
-  mobileFlow,
-  steps,
-  deviceHasCameraSupport
-) => {
-  const documentStep = steps.find((step) => step.type === 'document')
+  documentType: DocumentTypes,
+  mobileFlow: boolean,
+  steps: StepConfig[],
+  deviceHasCameraSupport: boolean
+): ComponentsByStepType => {
+  const documentStep = steps.find(
+    (step) => step.type === 'document'
+  ) as StepConfigDocument
   const documentStepOptions = documentStep?.options
 
   // DEPRECATED: documentStep.options.showCountrySelection will be deprecated in a future release
@@ -110,59 +149,78 @@ const captureStepsComponents = (
   }
 }
 
-const getFaceSteps = (steps, deviceHasCameraSupport, mobileFlow) => {
-  const faceStep = steps.filter((step) => step.type === 'face')[0]
-  const shouldDisplayUploader = faceStep.options && faceStep.options.useUploader
+const getFaceSteps = (
+  steps: StepConfig[],
+  deviceHasCameraSupport: boolean,
+  mobileFlow: boolean
+): ComponentType[] => {
+  const faceStep = steps.find((step) => step.type === 'face') as StepConfigFace
+  const shouldDisplayUploader = faceStep?.options?.useUploader
+
   // if shouldDisplayUploader is true webcam should not be used
   const shouldSelfieScreenUseCamera =
     !shouldDisplayUploader && deviceHasCameraSupport
+
   return shouldUseVideo(steps)
     ? getRequiredVideoSteps(deviceHasCameraSupport, mobileFlow)
     : getRequiredSelfieSteps(shouldSelfieScreenUseCamera)
 }
 
-const getRequiredVideoSteps = (shouldUseCamera, mobileFlow) => {
+const getRequiredVideoSteps = (
+  shouldUseCamera: boolean,
+  mobileFlow: boolean
+): ComponentType[] => {
   const allVideoSteps = [VideoIntro, VideoCapture, VideoConfirm]
+
   if (mobileFlow && !shouldUseCamera) {
     // do not display intro on cross device flow
     return allVideoSteps.slice(1)
   }
+
   return allVideoSteps
 }
 
-const getRequiredSelfieSteps = (deviceHasCameraSupport) => {
+const getRequiredSelfieSteps = (
+  deviceHasCameraSupport: boolean
+): ComponentType[] => {
   const allSelfieSteps = [SelfieIntro, SelfieCapture, SelfieConfirm]
+
   if (!deviceHasCameraSupport) {
     // do not display intro if camera cannot be used
     return allSelfieSteps.slice(1)
   }
+
   return allSelfieSteps
 }
 
 const getNonPassportFrontDocumentCaptureFlow = (
-  hasOnePreselectedDocument,
-  showCountrySelection
-) => {
+  hasOnePreselectedDocument: boolean,
+  showCountrySelection: boolean
+): ComponentType[] => {
   const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+
   if (hasOnePreselectedDocument && showCountrySelection) {
     return [CountrySelector, ...frontCaptureComponents]
   }
+
   if (hasOnePreselectedDocument && !showCountrySelection) {
     return frontCaptureComponents
   }
+
   if (!hasOnePreselectedDocument && !showCountrySelection) {
     return [SelectIdentityDocument, ...frontCaptureComponents]
   }
+
   return [SelectIdentityDocument, CountrySelector, ...frontCaptureComponents]
 }
 
 const getIdentityDocumentComponents = (
-  documentType,
-  hasOnePreselectedDocument,
-  showCountrySelectionForSinglePreselectedDocument,
-  shouldUseCameraForDocumentCapture,
-  configForDocumentType
-) => {
+  documentType: DocumentTypes,
+  hasOnePreselectedDocument: boolean,
+  showCountrySelectionForSinglePreselectedDocument: boolean,
+  shouldUseCameraForDocumentCapture: boolean,
+  configForDocumentType: Optional<DocumentTypeConfig>
+): ComponentType[] => {
   const doubleSidedDocs = [
     'driving_licence',
     'national_identity_card',
@@ -186,7 +244,10 @@ const getIdentityDocumentComponents = (
     return [SelectIdentityDocument, ...frontCaptureComponents]
   }
 
-  const countryCode = configForDocumentType?.country
+  const countryCode =
+    typeof configForDocumentType === 'boolean'
+      ? null
+      : configForDocumentType?.country
   const supportedCountry = getCountryDataForDocumentType(
     countryCode,
     documentType
@@ -204,24 +265,30 @@ const getIdentityDocumentComponents = (
   return frontDocumentFlow
 }
 
-const crossDeviceSteps = (steps) => {
-  const baseSteps = [{ type: 'crossDevice' }]
+const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
+  const baseSteps: ExtendedStepConfig[] = [{ type: 'crossDevice' }]
   const completeStep = steps.find(isComplete)
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
 }
 
-const crossDeviceComponents = {
+const crossDeviceComponents: ComponentsByStepType = {
   crossDevice: () => [CrossDeviceIntro, CrossDeviceLink, MobileFlow],
   complete: () => [Complete],
 }
 
-const createComponentList = (components, steps) => {
-  const mapSteps = (step, stepIndex) =>
-    createComponent(components, step, stepIndex)
-  return shallowFlatten(steps.map(mapSteps))
-}
+const createComponentList = (
+  components: ComponentsByStepType,
+  steps: ExtendedStepConfig[]
+): ComponentStep[] =>
+  shallowFlatten(
+    steps.map((step, stepIndex) => createComponent(components, step, stepIndex))
+  )
 
-const createComponent = (components, step, stepIndex) => {
+const createComponent = (
+  components: ComponentsByStepType,
+  step: ExtendedStepConfig,
+  stepIndex: number
+): ComponentStep[] => {
   const { type } = step
   if (!(type in components)) {
     console.error(`No such step: ${type}`)
@@ -229,10 +296,10 @@ const createComponent = (components, step, stepIndex) => {
   return components[type]().map(wrapComponent(step, stepIndex))
 }
 
-const wrapComponent = (step, stepIndex) => (component) => ({
+const wrapComponent = (step: ExtendedStepConfig, stepIndex: number) => (
+  component: ComponentType
+): ComponentStep => ({
   component,
   step,
   stepIndex,
 })
-
-const shallowFlatten = (list) => [].concat(...list)

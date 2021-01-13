@@ -1,6 +1,9 @@
+import '@types/dom-mediacapture-record'
 import { SdkHandle, SdkOptions, SdkInitMethod } from '~types/sdk'
 
 declare global {
+  type Optional<T> = T | null | undefined
+
   namespace NodeJS {
     interface Global {
       Onfido: {

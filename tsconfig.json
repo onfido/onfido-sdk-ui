@@ -19,7 +19,8 @@
     "sourceMap": true,
     "target": "es5",
     "types": ["jest"],
-    "typeRoots": ["./typings", "./node_modules/@types"]
+    "typeRoots": ["./typings", "./node_modules/@types"],
+    "downlevelIteration": true
   },
   "exclude": ["./test/mock-server"]
 }
