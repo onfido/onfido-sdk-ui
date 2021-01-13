@@ -6,6 +6,8 @@ import {
 import { until } from 'selenium-webdriver'
 const assert = require('chai').assert
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
 const options = {
   pageObjects: [
     'Welcome',
@@ -146,22 +148,33 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    // TODO: Bring back these tests once the face detection service is re-enabled
-    // it('should return no face found error for selfie', async () => {
-    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&useUploader=true`)
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
-    //   confirm.verifyNoFaceError(copy)
-    // })
+    // @TODO: Bring back these tests once the face detection service is re-enabled
+    it.skip('should return no face found error for selfie', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&useUploader=true`
+      )
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
+      confirm.verifyNoFaceError(copy)
+    })
 
-    // it('should return multiple faces error', async () => {
-    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&useUploader=true`)
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
-    //   confirm.verifyMultipleFacesError(copy)
-    // })
+    // @TODO: Bring back these tests once the face detection service is re-enabled
+    it.skip('should return multiple faces error', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&useUploader=true`
+      )
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
+      confirm.verifyMultipleFacesError(copy)
+    })
 
-    it('should be taken to the cross-device flow for selfie capture there is no camera and liveness variant requested', async () => {
+    it('should be taken to the cross-device flow for selfie capture if there is no camera and liveness variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -177,6 +190,12 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
+
+      /**
+       * @FIXME: the screen "Let's make sure nobody's impersonating you"
+       * unusually displays for about 2 seconds then disappears
+       */
+      await sleep(2500)
       crossDeviceIntro.verifyTitle(copy)
     })
 

@@ -1,6 +1,7 @@
 language: node_js
 services:
   - xvfb
+  - docker
 node_js:
   - lts/dubnium
 os:
@@ -17,10 +18,10 @@ before_install:
   - sudo ./test/scripts/setup_test_environment.sh
 install:
   - npm --production=false install
+  - npm run mock-server:build
 script:
   - if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then audit-ci --moderate; fi
   - npm run build
-  - if [ "$NODE_ENV" == "production" ]; then npm run bundlesize; fi
   - chmod ugo+x ./test.sh
   - ./test.sh
 after_success:

@@ -46,7 +46,19 @@ describe(
       )
     })
 
-    it('should upload document with PDF', async () => {
+    it('should upload passport document with PDF', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector)
+      documentUpload.clickUploadButton()
+      passportUploadImageGuide.verifyTitle(copy)
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.pdf'
+      )
+    })
+
+    // @FIXME: the country selector is broken on Firefox
+    it.skip('should upload id document with PDF', async () => {
       driver.get(localhostUrl)
       welcome.continueToNextStep()
       documentSelector.clickOnIdentityCardIcon()

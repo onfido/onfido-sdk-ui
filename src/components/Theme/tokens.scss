@@ -22,7 +22,7 @@
   --font-weight-body: 500;
 
   /* Color Variables */
-  --color-background: rgba(var(--ods-color-neutral-white));
+  --color-background: rgba(var(--ods-color-neutral-050));
   --color-warning: rgba(var(--ods-color-primary-500));
   --color-error: rgba(220, 42, 42);
 
@@ -55,7 +55,6 @@
   --color-camera-button: rgba(var(--ods-color-neutral-white));
   --color-camera-button-hover: var(--color-primary-button-hover);
   --color-camera-button-active: var(--color-primary-button-active);
-  --color-camera-button-disabled: rgba(var(--ods-color-neutral-800));
 
   /* - Selectors button colors */
   --selectors-box-shadow-hover: 0 0 0 2px var(--color-primary-hover);
