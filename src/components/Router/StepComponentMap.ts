@@ -203,7 +203,7 @@ const buildNonPassportDocumentFrontCaptureComponents = (
 
 const buildDocumentComponents = (
   documentStep: Optional<StepConfigDocument>,
-  documentType: DocumentTypes,
+  documentType: Optional<DocumentTypes>,
   hasOnePreselectedDocument: boolean,
   shouldUseCameraForDocumentCapture: boolean
 ): ComponentType[] => {
@@ -214,7 +214,7 @@ const buildDocumentComponents = (
   const configForDocumentType =
     documentStep?.options?.documentTypes[documentType]
 
-  const doubleSidedDocs = [
+  const doubleSidedDocs: DocumentTypes[] = [
     'driving_licence',
     'national_identity_card',
     'residence_permit',
