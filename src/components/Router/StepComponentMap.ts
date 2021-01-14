@@ -180,26 +180,16 @@ const buildRequiredSelfieComponents = (
   return allSelfieSteps
 }
 
-const buildNonPassportDocumentFrontCaptureComponents = (
+const buildNonPassportPreCaptureComponents = (
   hasOnePreselectedDocument: boolean,
   showCountrySelection: boolean
 ): ComponentType[] => {
-  const frontCaptureComponents = [DocumentFrontCapture, DocumentFrontConfirm]
+  const prependDocumentSelector = hasOnePreselectedDocument
+    ? []
+    : [SelectIdentityDocument]
+  const prependCountrySelector = showCountrySelection ? [CountrySelector] : []
 
-  if (hasOnePreselectedDocument && showCountrySelection) {
-    return [CountrySelector, ...frontCaptureComponents]
-  }
-
-  if (hasOnePreselectedDocument && !showCountrySelection) {
-    return frontCaptureComponents
-  }
-
-  if (!hasOnePreselectedDocument && !showCountrySelection) {
-    return [SelectIdentityDocument, ...frontCaptureComponents]
-  }
-
-  // !hasOnePreselectedDocument && showCountrySelection
-  return [SelectIdentityDocument, CountrySelector, ...frontCaptureComponents]
+  return [...prependDocumentSelector, ...prependCountrySelector]
 }
 
 const buildDocumentComponents = (
@@ -225,10 +215,6 @@ const buildDocumentComponents = (
     VideoConfirm,
   ]
 
-  if (shouldUseVideo) {
-    return [SelectIdentityDocument, ...videoCaptureComponents]
-  }
-
   const doubleSidedDocs: DocumentTypes[] = [
     'driving_licence',
     'national_identity_card',
@@ -237,15 +223,19 @@ const buildDocumentComponents = (
   const isPassportDocument = documentType === 'passport'
 
   if (isPassportDocument) {
-    const frontCaptureComponents = shouldUseCamera
+    const preCaptureComponents = hasOnePreselectedDocument
+      ? []
+      : [SelectIdentityDocument]
+
+    if (shouldUseVideo) {
+      return [...preCaptureComponents, ...videoCaptureComponents]
+    }
+
+    const standardCaptureComponents = shouldUseCamera
       ? [DocumentFrontCapture, DocumentFrontConfirm]
       : [DocumentFrontCapture, ImageQualityGuide, DocumentFrontConfirm]
 
-    if (hasOnePreselectedDocument) {
-      return frontCaptureComponents
-    }
-
-    return [SelectIdentityDocument, ...frontCaptureComponents]
+    return [...preCaptureComponents, ...standardCaptureComponents]
   }
 
   const countryCode =
@@ -259,16 +249,27 @@ const buildDocumentComponents = (
   const showCountrySelection =
     showCountrySelectionForSinglePreselectedDocument ||
     (!hasOnePreselectedDocument && !supportedCountry && countryCode !== null)
-  const frontDocumentFlow = buildNonPassportDocumentFrontCaptureComponents(
+
+  const preCaptureComponents = buildNonPassportPreCaptureComponents(
     hasOnePreselectedDocument,
     showCountrySelection
   )
 
-  if (doubleSidedDocs.includes(documentType)) {
-    return [...frontDocumentFlow, DocumentBackCapture, DocumentBackConfirm]
+  if (shouldUseVideo) {
+    return [...preCaptureComponents, ...videoCaptureComponents]
   }
 
-  return frontDocumentFlow
+  const frontCaptureComponents = [
+    ...preCaptureComponents,
+    DocumentFrontCapture,
+    DocumentFrontConfirm,
+  ]
+
+  if (doubleSidedDocs.includes(documentType)) {
+    return [...frontCaptureComponents, DocumentBackCapture, DocumentBackConfirm]
+  }
+
+  return frontCaptureComponents
 }
 
 const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
