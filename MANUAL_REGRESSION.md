@@ -84,14 +84,14 @@ Given user is on Passport page
 9. Submit verification
    - user should see `Verification complete` screen
 
-### 4b. Cross-device with copied link (with Liveness)
+### 4b. Cross-device with copied link (with Face video)
 
 (on private mode of: Google Chrome, Firefox browsers)
 
-Given user is on Passport page and link is opened with additional GET parameter `?liveness=true`
+Given user is on Passport page and link is opened with additional GET parameter `?faceVideo=true`
 
 1. Follow steps 1-6 of the test above (3a)
-2. Switch to the second tab and complete uploading the document and liveness video challenges
+2. Switch to the second tab and complete uploading the document and face video challenges
 3. Switch to the first tab again
    - user should see `Great, that’s everything we need` screen
    - list of items uploaded should be displayed as
@@ -167,28 +167,28 @@ Given user is on first page of cross-device flow
    - user should see `You must open this link on a mobile device` message
    - user should see the icon with the phone, screen and the red cross
 
-### 9. Cross device transition between browsers with different liveness support
+### 9. Cross device transition between browsers with different face video support
 
 (on private mode of: Google Chrome, Firefox)
 
 Given webcam is connected to the computer
 
-1. Open link with additional GET parameter `?liveness=true`
+1. Open link with additional GET parameter `?faceVideo=true`
 2. Upload the ID documents in the browser
-3. On the liveness recording screen, wait for the `Check that it is connected and functional. You can also continue verification on your phone` message and select it
+3. On the face video recording screen, wait for the `Check that it is connected and functional. You can also continue verification on your phone` message and select it
 4. Open the cross device link on a mobile device that doesn't have media recorder API support (Chrome on iOS)
    - user should be taken to the selfie intro screen
 5. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
-   - user should be taken to the liveness intro screen
+   - user should be taken to the face video intro screen
 
 Given webcam is not connected to the computer
 
-1. Open link with additional GET parameter `?liveness=true`
+1. Open link with additional GET parameter `?faceVideo=true`
 2. Upload the ID documents in the browser
 3. Open the cross device link on a mobile device that doesn't have media recorder API support (Chrome on iOS)
    - user should be taken to the selfie intro screen
 4. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
-   - user should be taken to the liveness intro screen
+   - user should be taken to the face video intro screen
 
 ### 10a. Check happy path flow for passports on other desktop browsers
 
@@ -456,7 +456,7 @@ Given webcam is connected to the computer
 
 Given webcam is connected to the computer
 
-1. Open link with additional GET parameter `?liveness=true`
+1. Open link with additional GET parameter `?faceVideo=true`
 2. Go through the flow to face capture
 3. You should see an intro screen with header "Let’s make sure nobody’s impersonating you"
    - Click "Continue"
@@ -476,7 +476,7 @@ Given webcam is connected to the computer
 
 Given webcam is connected to the computer
 
-1. Open link with additional GET parameter `?liveness=true`
+1. Open link with additional GET parameter `?faceVideo=true`
 2. Go through the flow to face capture
 3. You should see a screen that guides you to use your mobile
    - Copy the link
@@ -491,7 +491,7 @@ Given webcam is connected to the computer
 
 Given there is no webcam connected to the computer
 
-1. Open link with additional GET parameter `?liveness=true`
+1. Open link with additional GET parameter `?faceVideo=true`
 2. Go through the flow to face capture
 3. You should see a screen that guides you to use your mobile - Input mobile number - Send SMS - Click on link on your mobile - Accept camera permissions
    On Android:
@@ -569,7 +569,7 @@ Given user opened the link with `?uploadFallback=false` flag
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browser without a camera
    - user should not be able to upload documents
-   - user should not be able to record the liveness video
+   - user should not be able to record the face video
    - user should see `Unsupported browser` message
    - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should see the icon with the phone, screen and the red cross

@@ -9,10 +9,10 @@ class Camera extends BasePage {
     return this.$('.onfido-sdk-ui-Camera-btn')
   }
   async recordButton() {
-    return this.$('.onfido-sdk-ui-Video-startRecording')
+    return this.$('.onfido-sdk-ui-FaceVideo-startRecording')
   }
   async stopButton() {
-    return this.$('.onfido-sdk-ui-Video-stopRecording')
+    return this.$('.onfido-sdk-ui-FaceVideo-stopRecording')
   }
   async warningMessage() {
     return this.$('.onfido-sdk-ui-Error-container-warning')

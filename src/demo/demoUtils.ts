@@ -206,7 +206,7 @@ export const getInitSdkOptions = (): SdkOptions => {
 export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
   standard: null,
 
-  liveness: [
+  faceVideo: [
     'welcome',
     'document',
     {

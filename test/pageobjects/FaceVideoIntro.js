@@ -3,10 +3,10 @@ import { verifyElementCopy } from '../utils/mochaw'
 
 class FaceVideoIntro extends BasePage {
   async cameraIcon() {
-    return this.$('.onfido-sdk-ui-Video-twoActionsIcon')
+    return this.$('.onfido-sdk-ui-FaceVideo-twoActionsIcon')
   }
   async microphoneIcon() {
-    return this.$('.onfido-sdk-ui-Video-speakOutLoudIcon')
+    return this.$('.onfido-sdk-ui-FaceVideo-speakOutLoudIcon')
   }
   async continueButton() {
     return this.$('.onfido-sdk-ui-Button-button-text')
