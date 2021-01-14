@@ -1,13 +1,16 @@
-import { h } from 'preact'
+import { h, ComponentType, FunctionComponent } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'
 
-const withOptions = (WrappedComponent, additionalProps = {}) => {
-  const OptionedComponent = (optionsAsProps) => (
+const withOptions = <P extends unknown>(
+  WrappedComponent: ComponentType<P>,
+  additionalProps: P = {} as P
+): ComponentType<P> => {
+  const WithOptionComponent: FunctionComponent<P> = (optionsAsProps) => (
     <WrappedComponent {...optionsAsProps} {...additionalProps} />
   )
-  return OptionedComponent
+  return WithOptionComponent
 }
 
 export const DocumentFrontCapture = appendToTracking(

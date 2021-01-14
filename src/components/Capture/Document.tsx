@@ -7,7 +7,7 @@ import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
+import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils/index'
 import { compose } from '~utils/func'
 import { validateFile } from '~utils/file'
 import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
@@ -15,6 +15,11 @@ import { randomId } from '~utils/string'
 import { localised } from '../../locales'
 import FallbackButton from '../Button/FallbackButton'
 import style from './style.scss'
+
+type Props = {
+  side?: 'front' | 'back'
+  forceCrossDevice: boolean
+}
 
 class Document extends Component {
   static defaultProps = {
