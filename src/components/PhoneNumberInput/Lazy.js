@@ -10,7 +10,7 @@ const Loading = localised(({ translate }) => (
 ))
 
 const AsyncCrossDevice = asyncComponent(
-  () => import(/* webpackChunkName: "crossDevice" */ './index.js'),
+  () => import(/* webpackChunkName: "crossDevice" */ './index'),
   Loading
 )
 

@@ -1,6 +1,6 @@
 import mocha from 'mocha'
-const { By, until, WebDriver, WebElement } = require('selenium-webdriver')
-const expect = require('chai').expect
+import { By, until, WebDriver, WebElement } from 'selenium-webdriver'
+import { expect } from 'chai'
 
 WebElement.prototype.nativeClick = WebElement.prototype.click
 WebElement.prototype.click = async function (useSeleniumNativeClick = false) {
@@ -69,7 +69,7 @@ it.skip = (description, fn) => mocha.it.skip(description, asyncTestWrap(fn))
 const uncapitalize = (str1) => str1.charAt(0).toLowerCase() + str1.slice(1)
 
 const instantiateFile = (fileName) => (...args) =>
-  new (require(`../pageobjects/${fileName}`).default)(...args)
+  new (require(`../pageobjects/${fileName}`).default)(...args) // eslint-disable-line @typescript-eslint/no-var-requires
 
 export const instantiate = (...classFiles) => (...args) =>
   classFiles.reduce(

@@ -30,6 +30,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Introduce Hooks on non-critical components.
 - Public: Added `CROSS_DEVICE_INTRO`, `CROSS_DEVICE_GET_LINK` user analytic events for integrators to listen for when tracking user journey when initiating Cross Device flow from desktop browser
 - Public: Added `licenses.json` file containing the list of dependencies licenses.
+- Internal: Introduce Hooks on non-critical components.
+- Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
 
 ### Changed
 

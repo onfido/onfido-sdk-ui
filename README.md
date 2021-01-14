@@ -14,6 +14,7 @@
 - [User Analytics](#user-analytics)
 - [Going live](#going-live)
 - [Accessibility](#accessibility)
+- [TypeScript](#typescript)
 - [More information](#more-information)
 
 ## Overview
@@ -797,6 +798,17 @@ The Onfido SDK has been optimised to provide the following accessibility support
 - Sufficient touch target size: all interactive elements have been designed to meet the recommended touch target size
 
 Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
+
+## TypeScript
+
+From version `7.0.0`, TypeScript is officially supported, providing typings for:
+
+- `init()` method.
+- `options` argument (`SdkOptions`) and return object (`SdkHandle`) of `init()` method.
+- Arguments (`SdkResponse` and `SdkError`) for `onComplete()` and `onError()` callbacks.
+- `steps` option (`StepTypes` and `StepConfig`).
+- `language` option (`SupportedLanguages` and `LocaleConfig`).
+- `region` option (`ServerRegions`).
 
 ## More information
 

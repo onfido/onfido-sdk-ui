@@ -1,5 +1,5 @@
 import AxeBuilder from 'axe-webdriverjs'
-const expect = require('chai').expect
+import { expect } from 'chai'
 import { Key } from 'selenium-webdriver'
 
 const disabledAccessibilityRules = [
