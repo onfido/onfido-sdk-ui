@@ -28,7 +28,6 @@ import { getCountryDataForDocumentType } from '../../supported-documents'
 
 import type {
   DocumentTypes,
-  DocumentTypeConfig,
   StepTypes,
   StepConfig,
   StepConfigDocument,
@@ -86,23 +85,10 @@ const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
 const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
   hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
-const shouldUseVideo = (steps: StepConfig[]): boolean => {
-  const faceStep = steps.find(({ type }) => type === 'face') as StepConfigFace
-
-  return (
-    faceStep?.options?.requestedVariant === 'video' &&
-    window.MediaRecorder != null
-  )
-}
-
 const shouldUseCameraForDocumentCapture = (
-  steps: StepConfig[],
+  documentStep: Optional<StepConfigDocument>,
   deviceHasCameraSupport: boolean
 ): boolean => {
-  const documentStep = steps.find(
-    (step) => step.type === 'document'
-  ) as StepConfigDocument
-
   const canUseLiveDocumentCapture =
     (!isDesktop || isHybrid) && documentStep?.options?.useLiveDocumentCapture
 
@@ -118,26 +104,22 @@ const buildCaptureStepComponents = (
   steps: StepConfig[],
   deviceHasCameraSupport: boolean
 ): ComponentsByStepType => {
+  const faceStep = steps.find((step) => step.type === 'face') as StepConfigFace
+
   const documentStep = steps.find(
     (step) => step.type === 'document'
   ) as StepConfigDocument
-  const documentStepOptions = documentStep?.options
 
-  // DEPRECATED: documentStep.options.showCountrySelection will be deprecated in a future release
-  const showCountrySelectionForSinglePreselectedDocument =
-    documentStepOptions?.showCountrySelection
-
-  const configForDocumentType = documentStepOptions?.documentTypes[documentType]
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
 
   return {
     welcome: [Welcome],
+    face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     document: buildDocumentComponents(
+      documentStep,
       documentType,
       hasOnePreselectedDocument(steps),
-      showCountrySelectionForSinglePreselectedDocument,
-      shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport),
-      configForDocumentType
+      shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport)
     ),
     poa: [
       PoAIntro,
@@ -146,24 +128,26 @@ const buildCaptureStepComponents = (
       PoACapture,
       DocumentFrontConfirm,
     ],
-    face: buildFaceComponents(steps, deviceHasCameraSupport, mobileFlow),
     complete,
   }
 }
 
 const buildFaceComponents = (
-  steps: StepConfig[],
+  faceStep: Optional<StepConfigFace>,
   deviceHasCameraSupport: boolean,
   mobileFlow: boolean
 ): ComponentType[] => {
-  const faceStep = steps.find((step) => step.type === 'face') as StepConfigFace
   const shouldDisplayUploader = faceStep?.options?.useUploader
 
   // if shouldDisplayUploader is true webcam should not be used
   const shouldSelfieScreenUseCamera =
     !shouldDisplayUploader && deviceHasCameraSupport
 
-  return shouldUseVideo(steps)
+  const shouldUseVideo =
+    faceStep?.options?.requestedVariant === 'video' &&
+    window.MediaRecorder != null
+
+  return shouldUseVideo
     ? buildRequiredVideoComponents(deviceHasCameraSupport, mobileFlow)
     : buildRequiredSelfieComponents(shouldSelfieScreenUseCamera)
 }
@@ -218,12 +202,18 @@ const buildNonPassportDocumentFrontCaptureComponents = (
 }
 
 const buildDocumentComponents = (
+  documentStep: Optional<StepConfigDocument>,
   documentType: DocumentTypes,
   hasOnePreselectedDocument: boolean,
-  showCountrySelectionForSinglePreselectedDocument: boolean,
-  shouldUseCameraForDocumentCapture: boolean,
-  configForDocumentType: Optional<DocumentTypeConfig>
+  shouldUseCameraForDocumentCapture: boolean
 ): ComponentType[] => {
+  // DEPRECATED: documentStep.options.showCountrySelection will be deprecated in a future release
+  const showCountrySelectionForSinglePreselectedDocument =
+    documentStep?.options?.showCountrySelection
+
+  const configForDocumentType =
+    documentStep?.options?.documentTypes[documentType]
+
   const doubleSidedDocs = [
     'driving_licence',
     'national_identity_card',
