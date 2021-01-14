@@ -39,6 +39,11 @@ const baseRules = [
       resolve('node_modules/ansi-regex'),
     ],
   },
+  {
+    test: /\.tsx?$/,
+    include: [`${__dirname}/src`],
+    use: ['ts-loader'],
+  },
 ]
 
 const baseStyleLoaders = (modules, withSourceMap) => [
@@ -220,10 +225,10 @@ const basePlugins = (bundle_name) => [
 const baseConfig = {
   mode: PRODUCTION_BUILD ? 'production' : 'development',
   context: `${__dirname}/src`,
-  entry: './index.js',
+  entry: './index.tsx',
 
   resolve: {
-    extensions: ['.jsx', '.js', '.scss', '.json'],
+    extensions: ['.jsx', '.js', '.tsx', '.ts', '.scss', '.json'],
     modules: [`${__dirname}/node_modules`, `${__dirname}/src`],
     alias: {
       react: 'preact/compat',
@@ -260,9 +265,9 @@ const configDist = {
   ...baseConfig,
 
   entry: {
-    onfido: './index.js',
-    demo: './demo/demo.js',
-    previewer: './demo/previewer.js',
+    onfido: './index.tsx',
+    demo: './demo/demo.tsx',
+    previewer: './demo/previewer.tsx',
   },
 
   output: {

@@ -1,7 +1,7 @@
+import path from 'path'
+import remote from 'selenium-webdriver/remote'
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-const path = require('path')
-const remote = require('selenium-webdriver/remote')
 
 export default class PassportUploadImageGuide extends BasePage {
   async docExampleImgCutOff() {

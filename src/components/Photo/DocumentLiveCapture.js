@@ -1,4 +1,3 @@
-// @flow
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
@@ -12,7 +11,7 @@ import Camera from '../Camera'
 import CameraError from '../CameraError'
 import style from './style.scss'
 
-type State = {
+/* type State = {
   hasBecomeInactive: boolean,
   hasCameraError: boolean,
   isCapturing: boolean,
@@ -29,15 +28,15 @@ type Props = {
   containerClassName: string,
   renderTitle: Function,
   renderError: Function,
-}
+} */
 
 const IDEAL_CAMERA_HEIGHT_IN_PX = 1080
 const FALLBACK_HEIGHT_IN_PX = 720
 
-export default class DocumentLiveCapture extends Component<Props, State> {
+export default class DocumentLiveCapture extends Component {
   webcam = null
 
-  state: State = {
+  state = {
     hasBecomeInactive: false,
     hasCameraError: false,
     isCapturing: false,
@@ -52,7 +51,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
 
   handleCameraError = () => this.setState({ hasCameraError: true })
 
-  captureDocument = (blob: Blob, sdkMetadata: Object) => {
+  captureDocument = (blob, sdkMetadata) => {
     const documentCapture = {
       blob,
       sdkMetadata,

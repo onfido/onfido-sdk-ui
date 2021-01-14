@@ -1,8 +1,7 @@
-// @flow
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import Pannable from '../Pannable'
-import { localised, type LocalisedType } from '../../locales'
+import { localised /* , type LocalisedType */ } from '../../locales'
 import {
   withNavigationDisabledState,
   withNavigationDisableAction,
@@ -11,7 +10,7 @@ import { withFullScreenState, withFullScreenAction } from '../FullScreen'
 import { compose } from '~utils/func'
 import style from './style.scss'
 
-type Props = {
+/* type Props = {
   src: string,
   altTag: string,
   isNavigationDisabled: boolean,
@@ -22,17 +21,17 @@ type Props = {
 
 type State = {
   isExpanded: boolean,
-}
+} */
 
-class EnlargedPreview extends Component<Props, State> {
-  previewContainer: ?HTMLDivElement
-  image: ?Pannable
+class EnlargedPreview extends Component {
+  previewContainer
+  image
 
   state = {
     isExpanded: false,
   }
 
-  componentWillUpdate(nextProps: Props, nextState: State) {
+  componentWillUpdate(nextProps, nextState) {
     if (nextState.isExpanded !== nextProps.isNavigationDisabled) {
       this.props.setNavigationDisabled(nextState.isExpanded)
     }
