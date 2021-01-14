@@ -86,7 +86,18 @@ const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
 const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
   hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
-const shouldUseVideo = (steps: StepConfig[]): boolean => {
+const shouldUseVideoForDocument = (steps: StepConfig[]): boolean => {
+  const faceStep = steps.find(
+    ({ type }) => type === 'document'
+  ) as StepConfigFace
+
+  return (
+    faceStep?.options?.requestedVariant === 'video' &&
+    window.MediaRecorder != null
+  )
+}
+
+const shouldUseVideoForFace = (steps: StepConfig[]): boolean => {
   const faceStep = steps.find(({ type }) => type === 'face') as StepConfigFace
 
   return (
@@ -163,7 +174,7 @@ const buildFaceComponents = (
   const shouldSelfieScreenUseCamera =
     !shouldDisplayUploader && deviceHasCameraSupport
 
-  return shouldUseVideo(steps)
+  return shouldUseVideoForFace(steps)
     ? buildRequiredVideoComponents(deviceHasCameraSupport, mobileFlow)
     : buildRequiredSelfieComponents(shouldSelfieScreenUseCamera)
 }
