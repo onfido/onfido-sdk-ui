@@ -1,7 +1,7 @@
+import { assert } from 'chai'
+import { Key } from 'selenium-webdriver'
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
-import { Key } from 'selenium-webdriver'
-const assert = require('chai').assert
 
 const options = {
   pageObjects: [

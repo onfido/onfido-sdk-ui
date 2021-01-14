@@ -1,3 +1,4 @@
+/* eslint-disable no-duplicate-imports */
 import { create, getNumericDate } from './deps.ts'
 import type { Header } from './deps.ts'
 

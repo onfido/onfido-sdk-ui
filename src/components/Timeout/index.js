@@ -1,24 +1,23 @@
-// @flow
 import { Component } from 'preact'
 
-type Props = {
+/* type Props = {
   seconds: number,
   onTimeout: (void) => void,
 }
 
 type State = {
   hasTimedOut: boolean,
-}
+} */
 
-export default class Timeout extends Component<Props, State> {
-  timeoutId: TimeoutID
+export default class Timeout extends Component {
+  timeoutId
 
-  static defaultProps: Props = {
+  static defaultProps = {
     seconds: 0,
     onTimeout: () => {},
   }
 
-  state: State = {
+  state = {
     hasTimedOut: false,
   }
 
@@ -36,7 +35,7 @@ export default class Timeout extends Component<Props, State> {
     this.clearInactivityTimeout()
   }
 
-  componentDidUpdate(prevProps: Props, prevState: State) {
+  componentDidUpdate(prevProps, prevState) {
     if (!prevState.hasTimedOut && this.state.hasTimedOut) {
       this.props.onTimeout()
     }

@@ -1,9 +1,8 @@
-// @flow
 import { h } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
-import { localised, type LocalisedType } from '../../locales'
+import { localised /* , type LocalisedType */ } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import { VIDEO_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
@@ -11,11 +10,11 @@ import { compose } from '~utils/func'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-type Props = {
+/* type Props = {
   nextStep: Function,
-} & LocalisedType
+} & LocalisedType */
 
-const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
+const Intro = ({ translate, parseTranslatedTags, nextStep }) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('video_intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
