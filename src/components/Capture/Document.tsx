@@ -16,18 +16,51 @@ import { localised } from '../../locales'
 import FallbackButton from '../Button/FallbackButton'
 import style from './style.scss'
 
+import type {
+  DocumentSides,
+  ImageResizeInfo,
+  SdkMetadata,
+  FlowVariants,
+} from '~types/commons'
+import type { DocumentTypes, PoATypes } from '~types/steps'
+
 type Props = {
-  side?: 'front' | 'back'
+  actions: {
+    deleteCapture: () => void
+    createCapture: (...args: unknown[]) => void
+  }
+  changeFlowTo: (newFlow: FlowVariants) => void
+  documentType: DocumentTypes
   forceCrossDevice: boolean
+  hasCamera: boolean
+  isPoA: boolean
+  mobileFlow: boolean
+  nextStep: () => void
+  poaDocumentType: PoATypes
+  side?: DocumentSides
+  subTitle: string
+  translate: (key: string) => string
+  uploadFallback: boolean
+  useLiveDocumentCapture: boolean
+  useWebcam: boolean
 }
 
-class Document extends Component {
+type CapturePayload = {
+  base64?: string
+  blob: Blob
+  filename?: string
+  id?: string
+  isPreviewCropped?: boolean
+  sdkMetadata: SdkMetadata
+}
+
+class Document extends Component<Props> {
   static defaultProps = {
     side: 'front',
     forceCrossDevice: false,
   }
 
-  handleCapture = (payload) => {
+  handleCapture = (payload: CapturePayload) => {
     const {
       isPoA,
       documentType,
@@ -50,19 +83,18 @@ class Document extends Component {
     nextStep()
   }
 
-  handleUpload = (blob, imageResizeInfo) => {
+  handleUpload = (blob: Blob, imageResizeInfo: ImageResizeInfo) =>
     this.handleCapture({
       blob,
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
-  }
 
   handleError = () => this.props.actions.deleteCapture()
 
-  handleFileSelected = (file) =>
+  handleFileSelected = (file: File) =>
     validateFile(file, this.handleUpload, this.handleError)
 
-  renderUploadFallback = (text) => (
+  renderUploadFallback = (text: string) => (
     <CustomFileInput
       className={style.uploadFallback}
       onChange={this.handleFileSelected}
@@ -73,7 +105,7 @@ class Document extends Component {
     </CustomFileInput>
   )
 
-  renderCrossDeviceFallback = (text) => (
+  renderCrossDeviceFallback = (text: string) => (
     <FallbackButton
       text={text}
       onClick={() => this.props.changeFlowTo('crossDeviceSteps')}

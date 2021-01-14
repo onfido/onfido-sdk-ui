@@ -27,6 +27,8 @@ import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils/index'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 
+import type { FlowVariants } from '~types/commons'
+
 import type {
   DocumentTypes,
   StepTypes,
@@ -34,10 +36,6 @@ import type {
   StepConfigDocument,
   StepConfigFace,
 } from '~types/steps'
-
-const FLOW_CAPTURE = 'captureSteps'
-const FLOW_CROSS_DEVICE = 'crossDeviceSteps'
-type FlowTypes = typeof FLOW_CAPTURE | typeof FLOW_CROSS_DEVICE
 
 const STEP_CROSS_DEVICE = 'crossDevice'
 type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
@@ -59,7 +57,7 @@ export const buildComponentsList = ({
   mobileFlow,
   deviceHasCameraSupport,
 }: {
-  flow: FlowTypes
+  flow: FlowVariants
   documentType: DocumentTypes
   steps: StepConfig[]
   mobileFlow: boolean

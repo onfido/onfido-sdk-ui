@@ -8,21 +8,23 @@ export type DocumentSides = 'front' | 'back'
 
 export type FaceCaptureVariants = 'standard' | 'live'
 
-export type ImageInfo = {
+type ImageInfo = {
   width: number
   height: number
   fileSize: number
 }
 
+export type ImageResizeInfo = {
+  resizedFrom: ImageInfo
+  resizedTo: ImageInfo
+}
+
 export type SdkMetadata = {
   captureMethod: CaptureMethodVariants
-  imageResizeInfo?: {
-    resizedFrom: ImageInfo
-    resizedTo: ImageInfo
-  }
-  isCrossDeviceFlow: boolean
-  deviceType: DeviceTypes
-  system: {
+  imageResizeInfo?: ImageResizeInfo
+  isCrossDeviceFlow?: boolean
+  deviceType?: DeviceTypes
+  system?: {
     os: string
     os_version: string
     browser: string
@@ -43,3 +45,7 @@ export type UrlsConfig = {
   detect_document_url?: string
   sync_url?: string
 }
+
+const FLOW_CAPTURE = 'captureSteps'
+const FLOW_CROSS_DEVICE = 'crossDeviceSteps'
+export type FlowVariants = typeof FLOW_CAPTURE | typeof FLOW_CROSS_DEVICE
