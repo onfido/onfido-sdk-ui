@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
-import { componentsList } from '../../Router/StepComponentMap'
+import { buildComponentsList } from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
 import { CROSS_DEVICE_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
 import theme from '../../Theme/style.scss'
@@ -16,8 +16,8 @@ const previousComponentType = ({
   steps,
   step,
 }) =>
-  componentsList({ flow, documentType, poaDocumentType, steps })[step || 0].step
-    .type
+  buildComponentsList({ flow, documentType, poaDocumentType, steps })[step || 0]
+    .step.type
 
 const getStageIcon = (key, isFace) => {
   const iconPrefix = 'stageIcon'

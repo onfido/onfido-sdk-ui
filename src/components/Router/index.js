@@ -6,7 +6,7 @@ import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { compose } from '~utils/func'
 import { createSocket } from '~utils/crossDeviceSync'
-import { componentsList } from './StepComponentMap'
+import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import themeWrap from '../Theme'
 import Spinner from '../Spinner'
@@ -359,7 +359,7 @@ const findFirstIndex = (componentsList, clientStepIndex) =>
 class HistoryRouter extends Component {
   constructor(props) {
     super(props)
-    const componentsList = this.buildComponentsList(
+    const componentsList = this.getComponentsList(
       { flow: 'captureSteps' },
       this.props
     )
@@ -492,19 +492,17 @@ class HistoryRouter extends Component {
     }
   }
 
-  getComponentsList = () => this.buildComponentsList(this.state, this.props)
-
-  buildComponentsList = (
-    { flow },
-    {
+  getComponentsList = (state = this.state, props = this.props) => {
+    const { flow } = state
+    const {
       documentType,
       poaDocumentType,
       steps,
       deviceHasCameraSupport,
       options: { mobileFlow },
-    }
-  ) =>
-    componentsList({
+    } = props
+
+    return buildComponentsList({
       flow,
       documentType,
       poaDocumentType,
@@ -512,6 +510,7 @@ class HistoryRouter extends Component {
       mobileFlow,
       deviceHasCameraSupport,
     })
+  }
 
   getDocumentType = () => {
     const { documentType, steps } = this.props
