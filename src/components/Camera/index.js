@@ -1,5 +1,3 @@
-// @flow
-import * as React from 'react'
 import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import classNames from 'classnames'
@@ -16,7 +14,7 @@ import style from './style.scss'
 // support the precise resolution.
 const DEFAULT_CAMERA_HEIGHT_IN_PX = 720
 
-export type Props = {
+/* export type Props = {
   translate: (string, ?{}) => string,
   className?: string,
   containerClassName?: string,
@@ -35,7 +33,7 @@ export type Props = {
   isButtonDisabled: boolean,
   hasGrantedPermission: boolean,
   fallbackHeight?: number,
-}
+} */
 
 const CameraPure = ({
   className,
@@ -56,7 +54,7 @@ const CameraPure = ({
   isButtonDisabled,
   hasGrantedPermission,
   fallbackHeight,
-}: Props) => (
+}) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>

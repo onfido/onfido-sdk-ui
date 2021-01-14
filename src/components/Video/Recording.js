@@ -1,19 +1,18 @@
-// @flow
 import { h } from 'preact'
-import Challenge, { type ChallengeType } from './Challenge'
+import Challenge /* , { type ChallengeType } */ from './Challenge'
 import classNames from 'classnames'
 import Button from '../Button'
 import style from './style.scss'
-import { localised, type LocalisedType } from '../../locales'
+import { localised /* , type LocalisedType */ } from '../../locales'
 
-type Props = {
+/* type Props = {
   currentChallenge: ChallengeType,
   isLastChallenge: boolean,
   hasError: boolean,
   disableInteraction: boolean,
   onNext: (void) => void,
   onStop: (void) => void,
-} & LocalisedType
+} & LocalisedType */
 
 const Recording = ({
   onStop,
@@ -22,7 +21,7 @@ const Recording = ({
   isLastChallenge,
   disableInteraction,
   translate,
-}: Props) => (
+}) => (
   <div>
     <div className={style.caption}>
       <div>

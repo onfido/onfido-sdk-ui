@@ -1,12 +1,10 @@
-// @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import Error from '../Error'
 import classNames from 'classnames'
 import { parseTags } from '~utils'
 import style from './style.scss'
 
-type Props = {
+/* type Props = {
   trackScreen: Function,
   error: Object,
   hasBackdrop?: boolean,
@@ -16,9 +14,9 @@ type Props = {
 
 type State = {
   isDimissed: boolean,
-}
+} */
 
-export default class CameraError extends Component<Props, State> {
+export default class CameraError extends Component {
   state = {
     isDimissed: false,
   }
@@ -29,7 +27,7 @@ export default class CameraError extends Component<Props, State> {
     }
   }
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps) {
     if (prevProps.error.name !== this.props.error.name) {
       this.setState({ isDimissed: false })
     }

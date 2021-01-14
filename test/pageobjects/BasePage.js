@@ -1,5 +1,5 @@
+import { assert } from 'chai'
 import { locale, verifyElementCopy } from '../utils/mochaw'
-const assert = require('chai').assert
 
 class BasePage {
   constructor(driver, waitAndFind) {
