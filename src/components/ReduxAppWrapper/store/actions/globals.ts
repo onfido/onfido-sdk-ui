@@ -1,6 +1,7 @@
 import * as constants from '../../constants'
+import type { CountryData, UrlsConfig } from '~types/commons'
 import type { EnterpriseCobranding } from '~types/enterprise'
-import type { CountryPayload, UrlsPayload, GlobalActions } from '../../types'
+import type { GlobalActions } from '../../types'
 
 export const setIdDocumentType = (payload: string): GlobalActions => ({
   type: constants.SET_ID_DOCUMENT_TYPE,
@@ -8,7 +9,7 @@ export const setIdDocumentType = (payload: string): GlobalActions => ({
 })
 
 export const setIdDocumentIssuingCountry = (
-  payload: CountryPayload
+  payload: CountryData
 ): GlobalActions => ({
   type: constants.SET_ID_ISSUING_COUNTRY,
   payload,
@@ -70,7 +71,7 @@ export const setDeviceHasCameraSupport = (payload: boolean): GlobalActions => ({
   payload,
 })
 
-export const setUrls = (payload: UrlsPayload): GlobalActions => ({
+export const setUrls = (payload: UrlsConfig): GlobalActions => ({
   type: constants.SET_URLS,
   payload,
 })

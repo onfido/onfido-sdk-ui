@@ -1,37 +1,11 @@
 import * as constants from '../constants'
+import type {
+  CaptureMethods,
+  DocumentSides,
+  FaceCaptureVariants,
+  SdkMetadata,
+} from '~types/commons'
 import type { DocumentTypes, PoATypes } from '~types/steps'
-
-type CaptureMethods = 'document' | 'face'
-
-type CaptureMethodVariants = 'live' | 'html5'
-
-type DeviceTypes = 'desktop' | 'mobile'
-
-type DocumentSides = 'front' | 'back'
-
-type FaceCaptureVariants = 'standard' | 'live'
-
-type ImageInfo = {
-  width: number
-  height: number
-  fileSize: number
-}
-
-type SdkMetadata = {
-  captureMethod: CaptureMethodVariants
-  imageResizeInfo?: {
-    resizedFrom: ImageInfo
-    resizedTo: ImageInfo
-  }
-  isCrossDeviceFlow: boolean
-  deviceType: DeviceTypes
-  system: {
-    os: string
-    os_version: string
-    browser: string
-    browser_version: string
-  }
-}
 
 type CaptureMetadata = {
   type?: DocumentTypes | PoATypes
