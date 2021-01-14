@@ -204,7 +204,7 @@ const buildDocumentComponents = (
   documentStep: Optional<StepConfigDocument>,
   documentType: Optional<DocumentTypes>,
   hasOnePreselectedDocument: boolean,
-  shouldUseCameraForDocumentCapture: boolean
+  shouldUseCamera: boolean
 ): ComponentType[] => {
   // DEPRECATED: documentStep.options.showCountrySelection will be deprecated in a future release
   const showCountrySelectionForSinglePreselectedDocument =
@@ -233,18 +233,11 @@ const buildDocumentComponents = (
     'residence_permit',
   ]
   const isPassportDocument = documentType === 'passport'
-  const isDocumentUpload = !shouldUseCameraForDocumentCapture
 
   if (isPassportDocument) {
-    let frontCaptureComponents = [DocumentFrontCapture, DocumentFrontConfirm]
-
-    if (isDocumentUpload) {
-      frontCaptureComponents = [
-        DocumentFrontCapture,
-        ImageQualityGuide,
-        DocumentFrontConfirm,
-      ]
-    }
+    const frontCaptureComponents = shouldUseCamera
+      ? [DocumentFrontCapture, DocumentFrontConfirm]
+      : [DocumentFrontCapture, ImageQualityGuide, DocumentFrontConfirm]
 
     if (hasOnePreselectedDocument) {
       return frontCaptureComponents
