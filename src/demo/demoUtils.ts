@@ -1,7 +1,7 @@
 import { LocaleConfig, SupportedLanguages } from '~types/locales'
 import {
-  DocumentTypeConfig,
   DocumentTypes,
+  DocumentTypeConfig,
   StepConfig,
   StepTypes,
 } from '~types/steps'
@@ -73,21 +73,28 @@ const getPreselectedDocumentTypes = (): Partial<
   Record<DocumentTypes, DocumentTypeConfig>
 > => {
   const preselectedDocumentType = queryParamToValueString.oneDoc
+
   if (preselectedDocumentType) {
     return {
       [preselectedDocumentType]: true,
     }
-  } else if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
+  }
+
+  if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
     return {
       driving_licence: true,
     }
-  } else if (queryParamToValueString.oneDocWithPresetCountry === 'true') {
+  }
+
+  if (queryParamToValueString.oneDocWithPresetCountry === 'true') {
     return {
       driving_licence: {
         country: 'ESP',
       },
     }
-  } else if (queryParamToValueString.multiDocWithPresetCountry === 'true') {
+  }
+
+  if (queryParamToValueString.multiDocWithPresetCountry === 'true') {
     return {
       driving_licence: {
         country: 'ESP',
@@ -99,9 +106,9 @@ const getPreselectedDocumentTypes = (): Partial<
         country: null,
       },
     }
-  } else if (
-    queryParamToValueString.multiDocWithInvalidPresetCountry === 'true'
-  ) {
+  }
+
+  if (queryParamToValueString.multiDocWithInvalidPresetCountry === 'true') {
     return {
       driving_licence: {
         country: 'ES',
@@ -111,6 +118,7 @@ const getPreselectedDocumentTypes = (): Partial<
       },
     }
   }
+
   return {}
 }
 
