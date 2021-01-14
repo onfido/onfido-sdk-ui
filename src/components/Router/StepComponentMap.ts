@@ -105,18 +105,21 @@ const buildCaptureStepComponents = (
   steps: StepConfig[],
   deviceHasCameraSupport: boolean
 ): ComponentsByStepType => {
+  const faceStep = steps.find((step) => step.type === 'face') as StepConfigFace
+
   const documentStep = steps.find(
     (step) => step.type === 'document'
   ) as StepConfigDocument
-  const faceStep = steps.find((step) => step.type === 'face') as StepConfigFace
+
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
 
   return {
     welcome: [Welcome],
+    face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     document: buildDocumentComponents(
       documentStep,
       documentType,
-      hasOnePreselectedDocument(documentStep),
+      hasOnePreselectedDocument(steps),
       shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport)
     ),
     poa: [
@@ -126,7 +129,6 @@ const buildCaptureStepComponents = (
       PoACapture,
       DocumentFrontConfirm,
     ],
-    face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     complete,
   }
 }
