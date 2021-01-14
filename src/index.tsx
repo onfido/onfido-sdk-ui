@@ -3,62 +3,74 @@ import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
 import 'custom-event-polyfill'
 
-import App from './components/App'
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
+import { SdkOptions, SdkHandle } from '~types/sdk'
+import { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
+import App from './components/App'
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
 }
 
-/**
- * Renders the Onfido component
- *
- * @param {DOMelement} [merge] preact requires the element which was created from the first render to be passed as 3rd argument for a rerender
- * @returns {DOMelement} Element which was generated from render
- */
-const onfidoRender = (options, el, merge) =>
-  render(<App options={options} />, el, merge)
+interface NormalisedSdkOptions extends SdkOptions {
+  steps: StepConfig[]
+}
 
-const defaults = {
+const onfidoRender = (
+  options: SdkOptions,
+  el: Element | Document | ShadowRoot | DocumentFragment,
+  merge?: Element | Text
+) => render(<App options={options} />, el, merge)
+
+const defaults: SdkOptions = {
   token: undefined,
   containerId: 'onfido-mount',
   onComplete: noop,
   onError: noop,
 }
 
-const isStep = (val) => typeof val === 'object'
-const formatStep = (typeOrStep) =>
-  isStep(typeOrStep) ? typeOrStep : { type: typeOrStep }
+const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {
+  if (typeof typeOrStep === 'string') {
+    return { type: typeOrStep }
+  }
 
-const formatOptions = ({ steps, smsNumberCountryCode, ...otherOptions }) => ({
+  return typeOrStep
+}
+
+const formatOptions = ({
+  steps,
+  smsNumberCountryCode,
+  ...otherOptions
+}: SdkOptions): NormalisedSdkOptions => ({
   ...otherOptions,
   smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
   steps: (steps || ['welcome', 'document', 'face', 'complete']).map(formatStep),
 })
 
-const experimentalFeatureWarnings = ({ steps }) => {
-  const isDocument = (step) => step.type === 'document'
-  const documentStep = steps.find(isDocument)
-  const isUseWebcamOptionEnabled =
-    documentStep && documentStep.options && documentStep.options.useWebcam
-  if (isUseWebcamOptionEnabled) {
+const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
+  const documentStep = steps.find(
+    (step) => step.type === 'document'
+  ) as StepConfigDocument
+
+  if (!documentStep) {
+    return
+  }
+
+  if (documentStep.options?.useWebcam) {
     console.warn(
       '`useWebcam` is an experimental option and is currently discouraged'
     )
   }
-  const isLiveDocumentCaptureEnabled =
-    documentStep &&
-    documentStep.options &&
-    documentStep.options.useLiveDocumentCapture
-  if (isLiveDocumentCaptureEnabled) {
+
+  if (documentStep.options?.useLiveDocumentCapture) {
     console.warn(
       '`useLiveDocumentCapture` is a beta feature and is still subject to ongoing changes'
     )
   }
 }
 
-const isSMSCountryCodeValid = (smsNumberCountryCode) => {
+const isSMSCountryCodeValid = (smsNumberCountryCode: string) => {
   // If you need to refactor this code, remember not to introduce large libraries such as
   // libphonenumber-js in the main bundle!
   const countries = getCountryCodes(labels)
@@ -71,47 +83,48 @@ const isSMSCountryCodeValid = (smsNumberCountryCode) => {
   return isCodeValid
 }
 
-const validateSmsCountryCode = (smsNumberCountryCode) => {
+const validateSmsCountryCode = (
+  smsNumberCountryCode: string
+): string | undefined => {
   if (!smsNumberCountryCode) return 'GB'
   const upperCaseCode = upperCase(smsNumberCountryCode)
   return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'GB'
 }
 
-const elementIsInPage = (node) =>
+const elementIsInPage = (node: HTMLElement) =>
   node === document.body ? false : document.body.contains(node)
 
-const getContainerElementById = (containerId) => {
+const getContainerElementById = (containerId: string) => {
   const el = document.getElementById(containerId)
+
   if (elementIsInPage(el)) {
     return el
   }
+
   throw new Error(
     `Element ID ${containerId} does not exist in current page body`
   )
 }
 
-export const init = (opts) => {
+export const init = (opts: SdkOptions): SdkHandle => {
   console.log('onfido_sdk_version', process.env.SDK_VERSION)
   const options = formatOptions({ ...defaults, ...opts })
 
   experimentalFeatureWarnings(options)
 
-  let containerEl
+  let containerEl: HTMLElement = null
+
   if (options.containerEl) {
     containerEl = options.containerEl
   } else if (options.containerId) {
     containerEl = getContainerElementById(options.containerId)
   }
-  const element = onfidoRender(options, containerEl)
+
+  onfidoRender(options, containerEl)
 
   return {
     options,
-    element,
-    /**
-     * Does a merge with previous options and rerenders
-     *
-     * @param {Object} changedOptions shallow diff of the initialised options
-     */
+    // element,
     setOptions(changedOptions) {
       this.options = formatOptions({ ...this.options, ...changedOptions })
       if (

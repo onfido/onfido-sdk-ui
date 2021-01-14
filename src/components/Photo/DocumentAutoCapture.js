@@ -1,4 +1,3 @@
-// @flow
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
 import { screenshot } from '~utils/camera'
@@ -14,7 +13,7 @@ const maxAttempts = 3
 
 const requestError = { name: 'REQUEST_ERROR', type: 'error' }
 
-type State = {
+/* type State = {
   hasError: boolean,
 }
 
@@ -26,16 +25,16 @@ type Props = {
   triggerOnError: Function,
   renderFallback: Function,
   trackScreen: Function,
-}
+} */
 
-export default class DocumentAutoCapture extends Component<Props, State> {
+export default class DocumentAutoCapture extends Component {
   webcam = null
 
-  interval: ?Visibility
+  interval
 
-  captureIds: string[] = []
+  captureIds = []
 
-  state: State = {
+  state = {
     hasError: false,
   }
 
@@ -68,7 +67,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     Visibility.stop(this.interval)
   }
 
-  handleScreenshotBlob = (blob: Blob, sdkMetadata: Object) =>
+  handleScreenshotBlob = (blob, sdkMetadata) =>
     blobToLossyBase64(
       blob,
       (base64) => this.handleScreenshot(blob, base64, sdkMetadata),
@@ -76,7 +75,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
       { maxWidth: 200 }
     )
 
-  handleScreenshot = (blob: Blob, base64: string, sdkMetadata: Object) => {
+  handleScreenshot = (blob, base64, sdkMetadata) => {
     if (base64) {
       const id = randomId()
       this.captureIds.push(id)
@@ -88,7 +87,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     }
   }
 
-  validate = (base64: string, id: string, callback: Function) => {
+  validate = (base64, id, callback) => {
     const { urls, token } = this.props
     const url = urls.detect_document_url
     const data = JSON.stringify({ image: base64, id })
@@ -104,11 +103,11 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     )
   }
 
-  setProcessed(id: string) {
+  setProcessed(id) {
     this.captureIds = this.captureIds.filter((captureId) => captureId === id)
   }
 
-  handleValidationError = (error: Object) => {
+  handleValidationError = (error) => {
     this.setState({ hasError: true })
     this.props.triggerOnError(error)
     this.props.onError()

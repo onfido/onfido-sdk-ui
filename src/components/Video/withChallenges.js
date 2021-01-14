@@ -1,16 +1,14 @@
-// @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import Spinner from '../Spinner'
 import CameraError from '../CameraError'
-import type { ChallengeType } from './Challenge'
+// import type { ChallengeType } from './Challenge'
 import { requestChallenges } from '~utils/onfidoApi'
 import { currentMilliseconds } from '~utils'
 import { sendScreen } from '../../Tracker'
 
 const requestError = { name: 'REQUEST_ERROR', type: 'error' }
 
-type InjectedProps = {
+/* type InjectedProps = {
   token: string,
   renderFallback: Function,
   trackScreen: Function,
@@ -22,7 +20,7 @@ type State = {
   hasError: boolean,
   hasLoaded: boolean,
   challengeRequestedAt: number,
-}
+} */
 
 const initialState = {
   challengesId: '',
@@ -32,11 +30,9 @@ const initialState = {
   challengeRequestedAt: 0,
 }
 
-const withChallenges = <Props: *>(
-  WrappedVideo: React.ComponentType<Props>
-): React.ComponentType<Props & InjectedProps> =>
-  class WithChallenges extends Component<Props, State> {
-    state: State = { ...initialState }
+const withChallenges = (WrappedVideo) =>
+  class WithChallenges extends Component {
+    state = { ...initialState }
 
     componentDidMount() {
       this.loadChallenges()
@@ -58,9 +54,9 @@ const withChallenges = <Props: *>(
       )
     }
 
-    handleResponse = (response: Object) => {
-      const challenges: ChallengeType[] = response.data.challenge
-      const challengesId: string = String(response.data.id)
+    handleResponse = (response) => {
+      const challenges = response.data.challenge
+      const challengesId = String(response.data.id)
       this.setState({ challenges, challengesId, hasLoaded: true })
       sendScreen(['face_video_challenge_loaded'], {
         challenge_loading_time: this.challengeLoadingTime(),

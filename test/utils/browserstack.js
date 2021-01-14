@@ -1,4 +1,4 @@
-const browserstack = require('browserstack-local')
+import browserstack from 'browserstack-local'
 
 export const createBrowserStackLocal = async (options) =>
   new Promise((resolve, reject) => {

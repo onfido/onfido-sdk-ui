@@ -1,6 +1,5 @@
-// @flow
 import { h, Component } from 'preact'
-import type { ChallengeType, ChallengeResultType } from './Challenge'
+// import type { ChallengeType, ChallengeResultType } from './Challenge'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 import FallbackButton from '../Button/FallbackButton'
@@ -13,9 +12,9 @@ import { sendScreen } from '../../Tracker'
 import Recording from './Recording'
 import Timeout from '../Timeout'
 import withChallenges from './withChallenges'
-import { localised, LocalisedType } from '../../locales'
+import { localised /* , LocalisedType */ } from '../../locales'
 
-type Props = {
+/* type Props = {
   challenges: ChallengeType[],
   challengesId: any,
   onRedo: (void) => void,
@@ -38,7 +37,7 @@ type State = {
   hasCameraError: boolean,
   startedAt: number,
   switchSeconds?: number,
-}
+} */
 
 const initialState = {
   startedAt: undefined,
@@ -53,12 +52,12 @@ const initialState = {
 
 const recordingTooLongError = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
 
-class Video extends Component<Props, State> {
+class Video extends Component {
   webcam = null
 
-  state: State = { ...initialState }
+  state = { ...initialState }
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps) {
     if (prevProps.challenges !== this.props.challenges) {
       this.setState({ ...initialState })
     }
@@ -125,7 +124,7 @@ class Video extends Component<Props, State> {
     callback()
   }
 
-  renderRedoActionsFallback = (text: string, callback: Function) => (
+  renderRedoActionsFallback = (text, callback) => (
     <FallbackButton
       text={text}
       onClick={() => this.handleFallbackClick(callback)}

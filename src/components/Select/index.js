@@ -1,24 +1,23 @@
-// @flow
 import { h } from 'preact'
 import PageTitle from '../PageTitle'
 import {
   PoADocumentSelector,
   IdentityDocumentSelector,
 } from '../DocumentSelector'
-import type { GroupType } from '../DocumentSelector/documentTypes'
+// import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
-import { localised, type LocalisedType } from '../../locales'
+import { localised /*, type LocalisedType */ } from '../../locales'
 import style from './style.scss'
 
-type Props = {
+/* type Props = {
   country: string,
   nextStep: (void) => void,
   documentTypes?: Object,
   actions: Object,
-} & LocalisedType
+} & LocalisedType */
 
-const makeDocumentSelectorOfGroup = (group: GroupType) => {
-  const DocumentSelectorByGroup = (props: Props) => {
+const makeDocumentSelectorOfGroup = (group) => {
+  const DocumentSelectorByGroup = (props) => {
     const { translate, country } = props
     const isPoA = group === 'proof_of_address'
     const DocumentSelector = isPoA

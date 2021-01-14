@@ -1,4 +1,4 @@
-import { getSupportedCountriesForDocument } from './index.js'
+import { getSupportedCountriesForDocument } from './index'
 
 describe('getSupportedCountriesForDocument', () => {
   it('should not contain any duplicate countries', () => {
