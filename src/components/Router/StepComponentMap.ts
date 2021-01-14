@@ -22,7 +22,7 @@ import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
-import VideoIntro from '../Video/Intro'
+import FaceVideoIntro from '../FaceVideo/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils/index'
 import { getCountryDataForDocumentType } from '../../supported-documents'
@@ -157,7 +157,7 @@ const buildRequiredVideoComponents = (
   shouldUseCamera: boolean,
   mobileFlow: boolean
 ): ComponentType[] => {
-  const allVideoSteps = [VideoIntro, FaceVideoCapture, VideoConfirm]
+  const allVideoSteps = [FaceVideoIntro, FaceVideoCapture, VideoConfirm]
 
   if (mobileFlow && !shouldUseCamera) {
     // do not display intro on cross device flow
@@ -210,7 +210,7 @@ const buildDocumentComponents = (
     window.MediaRecorder != null
 
   const videoCaptureComponents = [
-    VideoIntro,
+    FaceVideoIntro,
     DocumentVideoCapture,
     VideoConfirm,
   ]

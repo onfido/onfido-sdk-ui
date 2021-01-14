@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import Selfie from '../Photo/Selfie'
-import Video from '../Video'
+import FaceVideo from '../FaceVideo'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
@@ -123,7 +123,7 @@ class Face extends Component {
       )
       if (requestedVariant === 'video') {
         return (
-          <Video
+          <FaceVideo
             {...cameraProps}
             onVideoCapture={this.handleVideoCapture}
             ariaLabel={ariaLabelForSelfieCameraView}

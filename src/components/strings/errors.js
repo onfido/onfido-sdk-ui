@@ -63,7 +63,7 @@ export default {
     message: 'selfie_capture.alert.camera_inactive.title',
     instruction: 'selfie_capture.alert.camera_inactive.detail_no_fallback',
   },
-  LIVENESS_TIMEOUT: {
+  VIDEO_TIMEOUT: {
     message: 'selfie_capture.alert.timeout.title',
     instruction: 'selfie_capture.alert.timeout.detail',
   },

@@ -50,9 +50,9 @@ const initialState = {
   hasCameraError: false,
 }
 
-const recordingTooLongError = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
+const recordingTooLongError = { name: 'VIDEO_TIMEOUT', type: 'warning' }
 
-class Video extends Component {
+class FaceVideo extends Component {
   webcam = null
 
   state = { ...initialState }
@@ -239,4 +239,4 @@ class Video extends Component {
   }
 }
 
-export default localised(withChallenges(Video))
+export default localised(withChallenges(FaceVideo))
