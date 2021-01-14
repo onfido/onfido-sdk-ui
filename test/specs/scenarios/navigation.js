@@ -17,7 +17,7 @@ const options = {
   ],
 }
 export const navigationScenarios = async (lang) => {
-  describe.only(
+  describe(
     `NAVIGATION scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
