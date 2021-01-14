@@ -39,10 +39,12 @@ import type {
 
 const STEP_CROSS_DEVICE = 'crossDevice'
 type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
-type ExtendedStepConfig = StepConfig | { type: typeof STEP_CROSS_DEVICE }
+type ExtendedStepConfig =
+  | StepConfig
+  | { type: typeof STEP_CROSS_DEVICE; options?: never }
 
 type ComponentsByStepType = Partial<Record<ExtendedStepTypes, ComponentType[]>>
-type ComponentStep = {
+export type ComponentStep = {
   component: ComponentType
   step: ExtendedStepConfig
   stepIndex: number

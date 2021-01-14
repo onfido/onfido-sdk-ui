@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h, Component, ComponentType } from 'preact'
 import classNames from 'classnames'
 import { sendScreen } from '../../Tracker'
 import { wrapArray } from '~utils/array'
@@ -6,10 +6,30 @@ import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 
-class StepsRouter extends Component {
+import type { EnterpriseCobranding } from '~types/enterprise'
+import type { SdkOptions } from '~types/sdk'
+import type { ComponentStep } from './StepComponentMap'
+
+type Props = {
+  back: () => void
+  componentsList: ComponentStep[]
+  disableNavigation: boolean
+  isFullScreen: boolean
+  hideOnfidoLogo: boolean
+  cobrand?: EnterpriseCobranding
+  options: SdkOptions
+  step: number
+}
+
+class StepsRouter extends Component<Props> {
+  private container: Optional<HTMLDivElement>
+
   resetSdkFocus = () => this.container.focus()
 
-  trackScreen = (screenNameHierarchy, properties = {}) => {
+  trackScreen = (
+    screenNameHierarchy: string | string[],
+    properties: Record<string, unknown> = {}
+  ) => {
     const { step } = this.currentComponent()
     sendScreen([step.type, ...wrapArray(screenNameHierarchy)], {
       ...properties,
@@ -72,9 +92,11 @@ class StepsRouter extends Component {
           })}
         >
           <CurrentComponent
-            {...passedProps}
-            trackScreen={this.trackScreen}
-            resetSdkFocus={this.resetSdkFocus}
+            {...{
+              ...passedProps,
+              trackScreen: this.trackScreen,
+              resetSdkFocus: this.resetSdkFocus,
+            }}
           />
         </div>
         {!hideLogoLogic && cobrandLogic ? (
@@ -93,4 +115,4 @@ class StepsRouter extends Component {
   }
 }
 
-export default withFullScreenState(StepsRouter)
+export default withFullScreenState<ComponentType<Props>>(StepsRouter)
