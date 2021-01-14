@@ -548,4 +548,4 @@ HistoryRouter.defaultProps = {
   stepIndexType: 'user',
 }
 
-export default compose(withCameraDetection)(Router)
+export default withCameraDetection(Router)
