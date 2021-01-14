@@ -10,23 +10,27 @@ const withOptions = (WrappedComponent, additionalProps = {}) => {
   return OptionedComponent
 }
 
-export const FrontDocumentCapture = appendToTracking(
+export const DocumentFrontCapture = appendToTracking(
   withOptions(Document),
   'front_capture'
 )
-export const BackDocumentCapture = appendToTracking(
+export const DocumentBackCapture = appendToTracking(
   withOptions(Document, { side: 'back' }),
   'back_capture'
 )
-export const SelfieCapture = appendToTracking(
-  withOptions(Face, { requestedVariant: 'standard' }),
-  'selfie_capture'
-)
-export const VideoCapture = appendToTracking(
+export const DocumentVideoCapture = appendToTracking(
   withOptions(Face, { requestedVariant: 'video' }),
   'video_capture'
 )
-export const PoADocumentCapture = appendToTracking(
+export const FaceSelfieCapture = appendToTracking(
+  withOptions(Face, { requestedVariant: 'standard' }),
+  'selfie_capture'
+)
+export const FaceVideoCapture = appendToTracking(
+  withOptions(Face, { requestedVariant: 'video' }),
+  'video_capture'
+)
+export const PoACapture = appendToTracking(
   withOptions(Document, { isPoA: true, forceCrossDevice: false }),
   'poa'
 )
