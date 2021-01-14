@@ -1,7 +1,7 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
-class LivenessIntro extends BasePage {
+class FaceVideoIntro extends BasePage {
   async cameraIcon() {
     return this.$('.onfido-sdk-ui-Video-twoActionsIcon')
   }
@@ -12,7 +12,7 @@ class LivenessIntro extends BasePage {
     return this.$('.onfido-sdk-ui-Button-button-text')
   }
 
-  async verifyUIElementsOnTheLivenessIntroScreen(copy) {
+  async verifyUIElementsOnTheFaceVideoIntroScreen(copy) {
     this.title().isDisplayed()
     verifyElementCopy(this.title(), copy.video_intro.title)
     this.cameraIcon().isDisplayed()
@@ -24,4 +24,4 @@ class LivenessIntro extends BasePage {
   }
 }
 
-export default LivenessIntro
+export default FaceVideoIntro

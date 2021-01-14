@@ -20,7 +20,7 @@ const options = {
     'CrossDeviceLink',
     'CrossDeviceMobileConnected',
     'CrossDeviceSubmit',
-    'LivenessIntro',
+    'FaceVideoIntro',
     'PoaDocumentSelection',
     'PoaGuidance',
     'PoaIntro',
@@ -46,7 +46,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         crossDeviceLink,
         crossDeviceMobileConnected,
         crossDeviceSubmit,
-        livenessIntro,
+        faceVideoIntro,
         poaDocumentSelection,
         poaIntro,
         basePage,
@@ -266,7 +266,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&liveness=true`
+          `?language=${lang}&faceVideo=true`
         )
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -277,7 +277,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           confirm,
           'passport.jpg'
         )
-        livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
+        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
         runAccessibilityTest(driver)
       })
 
@@ -286,7 +286,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&liveness=true`
+          `?language=${lang}&faceVideo=true`
         )
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -297,19 +297,19 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           confirm,
           'passport.jpg'
         )
-        livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-        livenessIntro.clickOnContinueButton()
+        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+        faceVideoIntro.clickOnContinueButton()
         runAccessibilityTest(driver)
       })
 
       //FIXME: This is commented out due to the color-contrast accessibility rule fail - CX-4214.
       // it('should verify accessibility for liveness recording and liveness confirmation screens', async () => {
-      //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
+      //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&faceVideo=true`)
       //   driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       //   documentUpload.clickUploadButton()
       //   uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
-      //   livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      //   livenessIntro.clickOnContinueButton()
+      //   faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      //   faceVideoIntro.clickOnContinueButton()
       //   camera.startVideoRecording()
       //   runAccessibilityTest(driver)
       //   camera.completeChallenges()

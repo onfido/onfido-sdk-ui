@@ -18,7 +18,7 @@ const options = {
     'DocumentSelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
-    'LivenessIntro',
+    'FaceVideoIntro',
     'SelfieIntro',
     'VerificationComplete',
     'BasePage',
@@ -36,7 +36,7 @@ export const faceScenarios = (lang) => {
       documentSelector,
       passportUploadImageGuide,
       documentUpload,
-      livenessIntro,
+      faceVideoIntro,
       selfieIntro,
       verificationComplete,
       basePage,
@@ -174,12 +174,12 @@ export const faceScenarios = (lang) => {
       confirm.verifyMultipleFacesError(copy)
     })
 
-    it('should be taken to the cross-device flow for selfie capture if there is no camera and liveness variant requested', async () => {
+    it('should be taken to the cross-device flow for selfie capture if there is no camera and faceVideo variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&faceVideo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])'
@@ -199,12 +199,12 @@ export const faceScenarios = (lang) => {
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {
+    it('should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&faceVideo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -221,12 +221,12 @@ export const faceScenarios = (lang) => {
       cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(copy)
     })
 
-    it('should enter the liveness flow if I have a camera and liveness variant requested', async () => {
+    it('should enter the faceVideo flow if I have a camera and faceVideo variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&faceVideo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -237,16 +237,16 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      faceVideoIntro.clickOnContinueButton()
     })
 
-    it('should enter the liveness flow and display timeout notification after 10 seconds', async () => {
+    it('should enter the faceVideo flow and display timeout notification after 10 seconds', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&faceVideo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -257,8 +257,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      faceVideoIntro.clickOnContinueButton()
       camera.continueButton().click()
       driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
       assert.isFalse(
@@ -272,7 +272,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&faceVideo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -283,8 +283,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      faceVideoIntro.clickOnContinueButton()
       camera.continueButton().click()
       camera.verifyVideoTitle(copy)
       camera.recordButton().click()
@@ -300,12 +300,12 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant', async () => {
+    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for faceVideo variant', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true&hideOnfidoLogo=true`
+        `?language=${lang}&faceVideo=true&hideOnfidoLogo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -316,8 +316,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkLogoIsHidden()
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.checkLogoIsHidden()
+      faceVideoIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
       camera.recordVideo()
       camera.completeChallenges()
@@ -326,12 +326,12 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkLogoIsHidden()
     })
 
-    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for liveness variant', async () => {
+    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for faceVideo variant', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true&showCobrand=true`
+        `?language=${lang}&faceVideo=true&showCobrand=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -342,8 +342,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkCobrandIsVisible()
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.checkCobrandIsVisible()
+      faceVideoIntro.clickOnContinueButton()
       camera.checkCobrandIsVisible()
       camera.recordVideo()
       camera.completeChallenges()
@@ -352,12 +352,12 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkCobrandIsVisible()
     })
 
-    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for liveness variant', async () => {
+    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for faceVideo variant', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true&showCobrand=true&hideOnfidoLogo=true`
+        `?language=${lang}&faceVideo=true&showCobrand=true&hideOnfidoLogo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -368,8 +368,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkLogoIsHidden()
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.checkLogoIsHidden()
+      faceVideoIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
       camera.recordVideo()
       camera.completeChallenges()

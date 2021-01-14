@@ -10,7 +10,7 @@ const options = {
     'DocumentSelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
-    'LivenessIntro',
+    'FaceVideoIntro',
     'Camera',
     'Confirm',
     'BasePage',
@@ -26,7 +26,7 @@ export const navigationScenarios = async (lang) => {
         documentSelector,
         passportUploadImageGuide,
         documentUpload,
-        livenessIntro,
+        faceVideoIntro,
         camera,
         confirm,
         basePage,
@@ -63,12 +63,12 @@ export const navigationScenarios = async (lang) => {
         welcome.checkBackArrowIsNotDisplayed()
       })
 
-      it('should display the liveness intro again on back button click when on the liveness flow and I have a camera', async () => {
+      it('should display the face video intro again on back button click when on the face video flow and I have a camera', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&liveness=true`
+          `?language=${lang}&faceVideo=true`
         )
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -79,11 +79,11 @@ export const navigationScenarios = async (lang) => {
           confirm,
           'passport.jpg'
         )
-        livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-        livenessIntro.clickOnContinueButton()
+        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+        faceVideoIntro.clickOnContinueButton()
         camera.recordVideo()
         camera.clickBackArrow()
-        livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
+        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
       })
     }
   )
