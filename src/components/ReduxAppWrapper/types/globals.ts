@@ -1,18 +1,10 @@
 import * as constants from '../constants'
-import type { CountryData } from 'supported-documents'
+import type { CountryData, UrlsConfig } from '~types/commons'
 import type { EnterpriseCobranding } from '~types/enterprise'
 
 export type SmsPayload = {
   number?: string
   valid?: boolean
-}
-
-export type UrlsPayload = {
-  onfido_api_url?: string
-  telephony_url?: string
-  hosted_sdk_url?: string
-  detect_document_url?: string
-  sync_url?: string
 }
 
 export type GlobalActions =
@@ -29,7 +21,7 @@ export type GlobalActions =
   | { type: typeof constants.SET_NAVIGATION_DISABLED; payload: boolean }
   | { type: typeof constants.SET_FULL_SCREEN; payload: boolean }
   | { type: typeof constants.SET_DEVICE_HAS_CAMERA_SUPPORT; payload: boolean }
-  | { type: typeof constants.SET_URLS; payload: UrlsPayload }
+  | { type: typeof constants.SET_URLS; payload: UrlsConfig }
   | { type: typeof constants.HIDE_ONFIDO_LOGO; payload: boolean }
   | { type: typeof constants.SHOW_COBRANDING; payload: EnterpriseCobranding }
   | { type: typeof constants.RETRY_FOR_IMAGE_QUALITY }
@@ -52,7 +44,7 @@ export type GlobalState = {
   // This prevents logo from being shown before state can be updated to hide it.
   hideOnfidoLogo?: boolean
   cobrand?: EnterpriseCobranding
-  urls: UrlsPayload
+  urls: UrlsConfig
   /**
    * Number of retries on image quality reasons: cut-off, glare, blur
    * If the API returns warning on one of those reasons, increase this state by 1 and ask for redo

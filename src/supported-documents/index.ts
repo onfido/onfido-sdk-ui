@@ -3,20 +3,14 @@ const supportedDrivingLicences = require('./supported-docs-driving_licence.json'
 const supportedNationalIDCards = require('./supported-docs-national_identity_card.json')
 const supportedResidencePermit = require('./supported-docs-residence_permit.json')
 
+import type { CountryData } from '~types/commons'
 import type { DocumentTypes } from '~types/steps'
 
-type CountryCodes = {
+type SourceData = {
   country_alpha2: string
   country_alpha3: string
-}
-
-type SourceData = {
   country: string
-} & CountryCodes
-
-export type CountryData = {
-  name: string
-} & CountryCodes
+}
 
 export const getCountryDataForDocumentType = (
   countryCode: Optional<string>,
