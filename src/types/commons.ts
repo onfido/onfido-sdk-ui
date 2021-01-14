@@ -8,18 +8,20 @@ export type DocumentSides = 'front' | 'back'
 
 export type FaceCaptureVariants = 'standard' | 'live'
 
-export type ImageInfo = {
+type ImageInfo = {
   width: number
   height: number
   fileSize: number
 }
 
+type ImageResizeInfo = {
+  resizedFrom: ImageInfo
+  resizedTo: ImageInfo
+}
+
 export type SdkMetadata = {
   captureMethod: CaptureMethodVariants
-  imageResizeInfo?: {
-    resizedFrom: ImageInfo
-    resizedTo: ImageInfo
-  }
+  imageResizeInfo?: ImageResizeInfo
   isCrossDeviceFlow: boolean
   deviceType: DeviceTypes
   system: {
