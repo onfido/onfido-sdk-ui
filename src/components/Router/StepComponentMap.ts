@@ -35,6 +35,10 @@ import type {
   StepConfigFace,
 } from '~types/steps'
 
+const FLOW_CAPTURE = 'captureSteps'
+const FLOW_CROSS_DEVICE = 'crossDeviceSteps'
+type FlowTypes = typeof FLOW_CAPTURE | typeof FLOW_CROSS_DEVICE
+
 const STEP_CROSS_DEVICE = 'crossDevice'
 type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
 type ExtendedStepConfig = StepConfig | { type: typeof STEP_CROSS_DEVICE }
@@ -48,14 +52,14 @@ type ComponentStep = {
 
 const shallowFlatten = <T>(list: T[][]): T[] => [].concat(...list)
 
-export const componentsList = ({
+export const buildComponentsList = ({
   flow,
   documentType,
   steps,
   mobileFlow,
   deviceHasCameraSupport,
 }: {
-  flow: string
+  flow: FlowTypes
   documentType: DocumentTypes
   steps: StepConfig[]
   mobileFlow: boolean
@@ -128,7 +132,6 @@ const buildCaptureStepComponents = (
 
   return {
     welcome: [Welcome],
-    face: buildFaceComponents(steps, deviceHasCameraSupport, mobileFlow),
     document: buildDocumentComponents(
       documentType,
       hasOnePreselectedDocument(steps),
@@ -143,6 +146,7 @@ const buildCaptureStepComponents = (
       PoACapture,
       DocumentFrontConfirm,
     ],
+    face: buildFaceComponents(steps, deviceHasCameraSupport, mobileFlow),
     complete,
   }
 }
@@ -191,7 +195,7 @@ const buildRequiredSelfieComponents = (
   return allSelfieSteps
 }
 
-const buildNonPassportFrontDocumentCaptureComponents = (
+const buildNonPassportDocumentFrontCaptureComponents = (
   hasOnePreselectedDocument: boolean,
   showCountrySelection: boolean
 ): ComponentType[] => {
@@ -209,6 +213,7 @@ const buildNonPassportFrontDocumentCaptureComponents = (
     return [SelectIdentityDocument, ...frontCaptureComponents]
   }
 
+  // !hasOnePreselectedDocument && showCountrySelection
   return [SelectIdentityDocument, CountrySelector, ...frontCaptureComponents]
 }
 
@@ -229,6 +234,7 @@ const buildDocumentComponents = (
 
   if (isPassportDocument) {
     let frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+
     if (isDocumentUpload) {
       frontCaptureComponents = [
         FrontDocumentCapture,
@@ -236,9 +242,11 @@ const buildDocumentComponents = (
         DocumentFrontConfirm,
       ]
     }
+
     if (hasOnePreselectedDocument) {
       return frontCaptureComponents
     }
+
     return [SelectIdentityDocument, ...frontCaptureComponents]
   }
 
@@ -253,13 +261,15 @@ const buildDocumentComponents = (
   const showCountrySelection =
     showCountrySelectionForSinglePreselectedDocument ||
     (!hasOnePreselectedDocument && !supportedCountry && countryCode !== null)
-  const frontDocumentFlow = buildNonPassportFrontDocumentCaptureComponents(
+  const frontDocumentFlow = buildNonPassportDocumentFrontCaptureComponents(
     hasOnePreselectedDocument,
     showCountrySelection
   )
+
   if (doubleSidedDocs.includes(documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
+
   return frontDocumentFlow
 }
 
