@@ -228,7 +228,7 @@ const buildDocumentComponents = (
     window.MediaRecorder != null
 
   if (shouldUseVideoForDocument) {
-    return [DocumentVideoCapture]
+    return [VideoIntro, DocumentVideoCapture, VideoConfirm]
   }
 
   const doubleSidedDocs: DocumentTypes[] = [
