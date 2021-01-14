@@ -22,9 +22,9 @@ type ImageResizeInfo = {
 export type SdkMetadata = {
   captureMethod: CaptureMethodVariants
   imageResizeInfo?: ImageResizeInfo
-  isCrossDeviceFlow: boolean
-  deviceType: DeviceTypes
-  system: {
+  isCrossDeviceFlow?: boolean
+  deviceType?: DeviceTypes
+  system?: {
     os: string
     os_version: string
     browser: string
