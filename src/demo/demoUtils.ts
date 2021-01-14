@@ -1,5 +1,10 @@
 import { LocaleConfig, SupportedLanguages } from '~types/locales'
-import { StepConfig, StepTypes } from '~types/steps'
+import {
+  DocumentTypeConfig,
+  DocumentTypes,
+  StepConfig,
+  StepTypes,
+} from '~types/steps'
 import { ServerRegions, SdkOptions } from '~types/sdk'
 
 type StringifiedBoolean = 'true' | 'false'
@@ -11,11 +16,12 @@ export type QueryParams = {
   hideOnfidoLogo?: StringifiedBoolean
   language?: 'customTranslations' | SupportedLanguages
   link_id?: string
-  liveness?: StringifiedBoolean
+  docVideo?: StringifiedBoolean
+  faceVideo?: StringifiedBoolean
   multiDocWithInvalidPresetCountry?: StringifiedBoolean
   multiDocWithPresetCountry?: StringifiedBoolean
   noCompleteStep?: StringifiedBoolean
-  oneDoc?: StepTypes
+  oneDoc?: DocumentTypes
   oneDocWithCountrySelection?: StringifiedBoolean
   oneDocWithPresetCountry?: StringifiedBoolean
   poa?: StringifiedBoolean
@@ -63,8 +69,10 @@ export const queryParamToValueString = window.location.search
     return { ...acc, [key]: value }
   }, {})
 
-const getPreselectedDocumentTypes = (): Record<string, unknown> => {
-  const preselectedDocumentType = queryParamToValueString.oneDoc as string
+const getPreselectedDocumentTypes = (): Partial<
+  Record<DocumentTypes, DocumentTypeConfig>
+> => {
+  const preselectedDocumentType = queryParamToValueString.oneDoc
   if (preselectedDocumentType) {
     return {
       [preselectedDocumentType]: true,
@@ -135,13 +143,13 @@ export const getInitSdkOptions = (): SdkOptions => {
         showCountrySelection:
           queryParamToValueString.oneDocWithCountrySelection === 'true',
         forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
+        requestedVariant:
+          queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
       },
     } as StepConfig,
     {
       type: 'face',
       options: {
-        requestedVariant:
-          queryParamToValueString.liveness === 'true' ? 'video' : 'standard',
         useUploader: queryParamToValueString.useUploader === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useMultipleSelfieCapture:
@@ -149,6 +157,8 @@ export const getInitSdkOptions = (): SdkOptions => {
         snapshotInterval: queryParamToValueString.snapshotInterval
           ? parseInt(queryParamToValueString.snapshotInterval, 10)
           : 500,
+        requestedVariant:
+          queryParamToValueString.faceVideo === 'true' ? 'video' : 'standard',
       },
     } as StepConfig,
     queryParamToValueString.noCompleteStep !== 'true' &&
