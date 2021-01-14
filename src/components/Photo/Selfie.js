@@ -1,15 +1,13 @@
-// @flow
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera'
 import { mimeType } from '~utils/blob'
-import { trackComponent } from '../../Tracker'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 
-type State = {
+/* type State = {
   hasBecomeInactive: boolean,
   hasCameraError: boolean,
   snapshotBuffer: Array<{
@@ -26,14 +24,14 @@ type Props = {
   inactiveError: Object,
   useMultipleSelfieCapture: boolean,
   snapshotInterval: number,
-}
+} */
 
-class SelfieCapture extends Component<Props, State> {
+export default class SelfieCapture extends Component {
   webcam = null
-  snapshotIntervalId: ?IntervalID = null
-  initialSnapshotTimeoutId: ?TimeoutID = null
+  snapshotIntervalId = null
+  initialSnapshotTimeoutId = null
 
-  state: State = {
+  state = {
     hasBecomeInactive: false,
     hasCameraError: false,
     snapshotBuffer: [],
@@ -45,7 +43,7 @@ class SelfieCapture extends Component<Props, State> {
   handleCameraError = () =>
     this.setState({ hasCameraError: true, isCaptureButtonDisabled: true })
 
-  handleSelfie = (blob: Blob, sdkMetadata: Object) => {
+  handleSelfie = (blob, sdkMetadata) => {
     const selfie = {
       blob,
       sdkMetadata,
@@ -62,7 +60,7 @@ class SelfieCapture extends Component<Props, State> {
     this.setState({ isCaptureButtonDisabled: false })
   }
 
-  handleSnapshot = (blob: Blob) => {
+  handleSnapshot = (blob) => {
     // Always try to get the older snapshot to ensure
     // it's different enough from the user initiated selfie
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
@@ -73,8 +71,15 @@ class SelfieCapture extends Component<Props, State> {
     }))
   }
 
-  takeSnapshot = () =>
+  takeSnapshot = () => {
+    const snapshot =
+      this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
+
+    snapshot?.blob &&
+      this.state.isCaptureButtonDisabled &&
+      this.setState({ isCaptureButtonDisabled: false })
     this.webcam && screenshot(this.webcam, this.handleSnapshot)
+  }
 
   takeSelfie = () => {
     this.setState({ isCaptureButtonDisabled: true })
@@ -84,13 +89,9 @@ class SelfieCapture extends Component<Props, State> {
   onUserMedia = () => {
     if (this.props.useMultipleSelfieCapture) {
       // A timeout is required for this.webcam to load, else 'webcam is null' console error is displayed
-      // despite an actual camera stream snapshot being captured
-      // 750ms is the minimum possible timeout without resulting in a null blob being sent to
-      // the /snapshots endpoint in file payload on some browsers, e.g. macOS Firefox & Safari
-      const initialSnapshotTimeout = 750
+      const initialSnapshotTimeout = 0
       this.initialSnapshotTimeoutId = setTimeout(() => {
         this.takeSnapshot()
-        this.setState({ isCaptureButtonDisabled: false })
       }, initialSnapshotTimeout)
       this.snapshotIntervalId = setInterval(
         this.takeSnapshot,
@@ -145,5 +146,3 @@ class SelfieCapture extends Component<Props, State> {
     )
   }
 }
-
-export default trackComponent(SelfieCapture)

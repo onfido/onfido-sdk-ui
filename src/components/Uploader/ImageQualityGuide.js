@@ -45,7 +45,7 @@ const DocumentExample = localised(({ translate, type }) => (
   </div>
 ))
 
-class ImageQualityGuide extends Component<Props, State> {
+class ImageQualityGuide extends Component {
   static defaultProps = {
     onUpload: () => {},
   }

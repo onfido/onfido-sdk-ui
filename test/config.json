@@ -15,8 +15,16 @@
       "timeout": 50000,
       "browsers": [
         {
-          "browserName": "IE",
-          "browser_version": "11.0",
+          "browserName": "Firefox",
+          "browser_version": "83",
+          "os": "Windows",
+          "os_version": "10",
+          "resolution": "1920x1080",
+          "remote": true
+        },
+        {
+          "browserName": "Edge",
+          "browser_version": "87",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",

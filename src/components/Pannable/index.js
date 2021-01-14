@@ -1,10 +1,8 @@
-// @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
 
-type Props = {
+/* type Props = {
   children: ?React.Node,
   className: ?string,
 }
@@ -12,24 +10,24 @@ type Props = {
 type State = {
   clientX: number,
   clientY: number,
-}
+} */
 
-export default class Pannable extends Component<Props, State> {
-  container: ?HTMLDivElement
+export default class Pannable extends Component {
+  container = null
 
   state = {
     clientX: 0,
     clientY: 0,
   }
 
-  handleTouchStart = (ev: SyntheticTouchEvent<HTMLDivElement>) => {
+  handleTouchStart = (ev) => {
     if (ev.touches.length === 1) {
       const { clientX, clientY } = ev.touches[0]
       this.setState({ clientX, clientY })
     }
   }
 
-  handleTouchMove = (ev: SyntheticTouchEvent<HTMLDivElement>) => {
+  handleTouchMove = (ev) => {
     ev.preventDefault()
     if (ev.touches.length === 1) {
       const { clientX, clientY } = ev.touches[0]
@@ -38,7 +36,7 @@ export default class Pannable extends Component<Props, State> {
     }
   }
 
-  handlePan = (deltaX: number, deltaY: number) => {
+  handlePan = (deltaX, deltaY) => {
     if (this.container) {
       this.container.scrollLeft += deltaX
       this.container.scrollTop += deltaY

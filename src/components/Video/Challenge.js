@@ -1,21 +1,16 @@
-// @flow
-import * as React from 'react'
 import { h } from 'preact'
 import PageTitle from '../PageTitle'
 import classNames from 'classnames'
 import style from './style.scss'
 import { functionalSwitch } from '~utils'
-import { localised, type LocalisedType } from '../../locales'
+import { localised /* , type LocalisedType */ } from '../../locales'
 
-type ChallengeContainerProps = {
+/* type ChallengeContainerProps = {
   title: string,
   renderInstructions: (void) => React.Element<*>,
-}
+} */
 
-const ChallengeContainer = ({
-  title,
-  renderInstructions,
-}: ChallengeContainerProps) => (
+const ChallengeContainer = ({ title, renderInstructions }) => (
   <div>
     <PageTitle title={title} className={style.challengeTitle} />
     <div aria-level="2" className={style.challengeDescription}>
@@ -24,7 +19,7 @@ const ChallengeContainer = ({
   </div>
 )
 
-export type ChallengeType = {
+/* export type ChallengeType = {
   query: any,
   type: 'recite' | 'movement',
 }
@@ -35,9 +30,9 @@ export type ChallengeResultType = {
   switchSeconds?: number,
 }
 
-type Props = LocalisedType & ChallengeType
+type Props = LocalisedType & ChallengeType */
 
-const Recite = localised(({ translate, query: digits }: Props) => (
+const Recite = localised(({ translate, query: digits }) => (
   <ChallengeContainer
     title={translate('video_capture.header.challenge_digit_instructions')}
     renderInstructions={() => (
@@ -46,7 +41,7 @@ const Recite = localised(({ translate, query: digits }: Props) => (
   />
 ))
 
-const Movement = localised(({ translate, query = '' }: Props) => {
+const Movement = localised(({ translate, query = '' }) => {
   const side = query.replace('turn', '').toLowerCase()
   return (
     <ChallengeContainer
@@ -62,7 +57,7 @@ const Movement = localised(({ translate, query = '' }: Props) => {
   )
 })
 
-const Challenge = (props: ChallengeType) => {
+const Challenge = (props) => {
   const ReciteSwitch = () => <Recite {...props} />
   const MovementSwitch = () => <Movement {...props} />
 

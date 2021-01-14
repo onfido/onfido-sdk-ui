@@ -14,6 +14,7 @@
 - [User Analytics](#user-analytics)
 - [Going live](#going-live)
 - [Accessibility](#accessibility)
+- [TypeScript](#typescript)
 - [More information](#more-information)
 
 ## Overview
@@ -798,6 +799,17 @@ The Onfido SDK has been optimised to provide the following accessibility support
 
 Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
 
+## TypeScript
+
+From version `7.0.0`, TypeScript is officially supported, providing typings for:
+
+- `init()` method.
+- `options` argument (`SdkOptions`) and return object (`SdkHandle`) of `init()` method.
+- Arguments (`SdkResponse` and `SdkError`) for `onComplete()` and `onError()` callbacks.
+- `steps` option (`StepTypes` and `StepConfig`).
+- `language` option (`SupportedLanguages` and `LocaleConfig`).
+- `region` option (`ServerRegions`).
+
 ## More information
 
 ### Browser compatibility
@@ -853,4 +865,4 @@ Previous version of the SDK will be supported for a month after a new major vers
 
 ## How is the Onfido SDK licensed?
 
-The Onfido SDK core and Onfido SDK UI layer are available under the MIT license.
+Please see [LICENSE](https://github.com/onfido/onfido-sdk-ui/blob/master/LICENSE) for licensing details.
