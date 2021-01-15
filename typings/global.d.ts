@@ -1,3 +1,4 @@
+import { compose } from 'redux'
 import '@types/dom-mediacapture-record'
 import { SdkHandle, SdkOptions, SdkInitMethod } from '~types/sdk'
 
@@ -13,7 +14,7 @@ declare global {
   }
 
   interface Window extends NodeJS.Global {
-    __REDUX_DEVTOOLS_EXTENSION__?: () => unknown
+    __REDUX_DEVTOOLS_EXTENSION__?: typeof compose
     onfidoSdkHandle: SdkHandle
     updateOptions: (
       options: SdkOptions & { onComplete?: (data: unknown) => void }
