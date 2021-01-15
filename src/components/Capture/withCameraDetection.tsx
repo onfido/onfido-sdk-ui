@@ -7,10 +7,10 @@ export type CameraDetectionProps = {
   hasCamera?: boolean
 }
 
-export default (
-  WrappedComponent: ComponentType<ReduxProps & CameraDetectionProps>
-): ComponentType =>
-  class WithCameraDetection extends PureComponent<ReduxProps> {
+export default function withCameraDetection<P extends ReduxProps>(
+  WrappedComponent: ComponentType<CameraDetectionProps>
+): ComponentType<P> {
+  return class WithCameraDetection extends PureComponent<P> {
     state: CameraDetectionProps = {
       hasCamera: null,
     }
@@ -55,3 +55,4 @@ export default (
       )
     }
   }
+}

@@ -6,11 +6,9 @@ import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 
-import type { FlowVariants } from '~types/commons'
-import type { EnterpriseCobranding } from '~types/enterprise'
-import type { DocumentTypes } from '~types/steps'
-import type { SdkOptions } from '~types/sdk'
+import type { NormalisedSdkOptions, FlowVariants } from '~types/commons'
 import type { ComponentStep } from './StepComponentMap'
+import type { ReduxProps } from 'components/App/withConnect'
 
 type Props = {
   back: () => void
@@ -19,21 +17,17 @@ type Props = {
     newStep?: number,
     excludeStepFromHistory?: boolean
   ) => void
-  cobrand?: EnterpriseCobranding
   componentsList: ComponentStep[]
   disableNavigation: boolean
-  documentType: DocumentTypes
-  hideOnfidoLogo: boolean
-  isFullScreen: boolean
   nextStep: () => void
   previousStep: () => void
   triggerOnError: (response: Record<string, unknown>) => void
-  options: SdkOptions
+  options: NormalisedSdkOptions
   step: number
-}
+} & ReduxProps
 
 class StepsRouter extends Component<Props> {
-  private container: Optional<HTMLDivElement>
+  private container?: HTMLDivElement
 
   resetSdkFocus = () => this.container.focus()
 
@@ -53,10 +47,10 @@ class StepsRouter extends Component<Props> {
   render = () => {
     const {
       back,
-      disableNavigation,
-      isFullScreen,
-      hideOnfidoLogo,
       cobrand,
+      disableNavigation,
+      hideOnfidoLogo,
+      isFullScreen,
       options: { mobileFlow, ...globalUserOptions },
       ...otherProps
     } = this.props

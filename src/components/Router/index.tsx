@@ -15,7 +15,7 @@ import { noop } from '~utils/func'
 import { createSocket } from '~utils/crossDeviceSync'
 import { buildComponentsList, ComponentStep } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
-import themeWrap from '../Theme'
+import withTheme from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 import withCameraDetection, {
@@ -30,13 +30,17 @@ import {
 } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
-import type { FlowVariants } from '~types/commons'
+import type {
+  ErrorTypes,
+  FlowVariants,
+  NormalisedSdkOptions,
+} from '~types/commons'
+import type { SupportedLanguages, LocaleConfig } from '~types/locales'
 import type {
   DocumentTypes,
   StepConfig,
   StepConfigDocument,
 } from '~types/steps'
-import type { SdkOptions } from '~types/sdk'
 import type { ReduxProps } from 'components/App/withConnect'
 import type { CaptureState } from 'components/ReduxAppWrapper/types'
 
@@ -53,10 +57,15 @@ const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   )
 }
 
+const findFirstIndex = (
+  componentsList: ComponentStep[],
+  clientStepIndex: number
+) => componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
+
 type CaptureKeys = keyof CaptureState
 
 type OmittedSdkOptions = Omit<
-  SdkOptions,
+  NormalisedSdkOptions,
   | 'containerEl'
   | 'containerId'
   | 'isModalOpen'
@@ -69,23 +78,26 @@ type OmittedSdkOptions = Omit<
 
 type StepIndexType = 'client' | 'user'
 
-type RouterProps = {
+type RouterOwnProps = {
   options: OmittedSdkOptions
-} & ReduxProps &
-  CameraDetectionProps
+} & ReduxProps
+
+type RouterProps = RouterOwnProps & CameraDetectionProps
+
+type FlowChangeCallback = (
+  newFlow: FlowVariants,
+  newStep: number,
+  previousFlow: FlowVariants,
+  payload: {
+    userStepIndex: number
+    clientStepIndex: number
+    clientStep: ComponentStep
+  }
+) => void
 
 type InternalRouterProps = {
   allowCrossDeviceFlow: boolean
-  onFlowChange?: (
-    newFlow: FlowVariants,
-    newStep: number,
-    previousFlow: FlowVariants,
-    payload: {
-      userStepIndex: number
-      clientStepIndex: number
-      clientStep: ComponentStep
-    }
-  ) => void
+  onFlowChange?: FlowChangeCallback
 } & RouterProps
 
 const Router: FunctionComponent<RouterProps> = (props) => {
@@ -102,16 +114,18 @@ const Router: FunctionComponent<RouterProps> = (props) => {
 }
 
 // Wrap components with theme that include navigation and footer
-const WrappedSpinner = themeWrap(Spinner)
-const WrappedError = themeWrap(GenericError)
+const WrappedSpinner = withTheme(Spinner)
+const WrappedError = withTheme(GenericError)
 
 type CrossDeviceState = {
-  crossDeviceError?: Record<string, unknown>
+  crossDeviceError?: {
+    name: ErrorTypes
+  }
   crossDeviceInitialStep?: number
-  language?: string
+  language?: SupportedLanguages | LocaleConfig
   loading?: boolean
   roomId?: string
-  socket: SocketIOClient.Socket
+  socket?: SocketIOClient.Socket
   step?: number
   stepIndexType?: StepIndexType
   steps?: StepConfig[]
@@ -276,9 +290,8 @@ class CrossDeviceMobileRouter extends Component<
     actions.acceptTerms()
   }
 
-  setError = (name = 'GENERIC_CLIENT_ERROR') => {
+  setError = (name: ErrorTypes = 'GENERIC_CLIENT_ERROR') =>
     this.setState({ crossDeviceError: { name }, loading: false })
-  }
 
   onDisconnect = () => {
     this.pingTimeoutId = window.setTimeout(this.setError, 3000)
@@ -333,7 +346,7 @@ class CrossDeviceMobileRouter extends Component<
     return null
   }
 
-  render = () => {
+  render() {
     const { language } = this.state
     return (
       <LocaleProvider language={language}>
@@ -385,26 +398,26 @@ class MainRouter extends Component<InternalRouterProps, MainState> {
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
 
     return {
+      clientStepIndex: this.state.crossDeviceInitialClientStep,
+      deviceHasCameraSupport,
+      disableAnalytics,
+      documentType,
+      enterpriseFeatures,
+      idDocumentIssuingCountry,
+      language,
+      poaDocumentType,
+      step: this.state.crossDeviceInitialStep,
       steps,
       token,
       urls,
-      language,
-      documentType,
-      idDocumentIssuingCountry,
-      poaDocumentType,
-      deviceHasCameraSupport,
       woopraCookie,
-      disableAnalytics,
-      step: this.state.crossDeviceInitialStep,
-      clientStepIndex: this.state.crossDeviceInitialClientStep,
-      enterpriseFeatures,
     }
   }
 
-  onFlowChange = (
+  onFlowChange: FlowChangeCallback = (
     newFlow,
-    newStep,
-    previousFlow,
+    _newStep,
+    _previousFlow,
     { userStepIndex, clientStepIndex }
   ) => {
     if (newFlow === 'crossDeviceSteps') {
@@ -414,6 +427,7 @@ class MainRouter extends Component<InternalRouterProps, MainState> {
       })
     }
   }
+
   renderUnsupportedBrowserError = () => {
     const steps = this.props.options.steps
     const shouldStrictlyUseCamera =
@@ -428,6 +442,7 @@ class MainRouter extends Component<InternalRouterProps, MainState> {
         />
       )
     }
+
     return null
   }
 
@@ -442,14 +457,9 @@ class MainRouter extends Component<InternalRouterProps, MainState> {
     )
 }
 
-const findFirstIndex = (
-  componentsList: ComponentStep[],
-  clientStepIndex: number
-) => componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
-
 type HistoryRouterProps = {
   crossDeviceClientError: (name?: string) => void
-  mobileConfig: unknown
+  mobileConfig: Record<string, unknown>
   sendClientSuccess: () => void
 } & InternalRouterProps &
   CrossDeviceState
@@ -664,15 +674,15 @@ class HistoryRouter extends Component<HistoryRouterProps, HistoryRouterState> {
     return (
       <StepsRouter
         {...this.props}
-        documentType={documentType}
-        componentsList={this.getComponentsList()}
-        step={this.state.step}
-        disableNavigation={this.disableNavigation()}
+        back={this.back}
         changeFlowTo={this.changeFlowTo}
+        componentsList={this.getComponentsList()}
+        disableNavigation={this.disableNavigation()}
+        documentType={documentType}
         nextStep={this.nextStep}
         previousStep={this.previousStep}
+        step={this.state.step}
         triggerOnError={this.triggerOnError}
-        back={this.back}
       />
     )
   }
@@ -683,4 +693,4 @@ HistoryRouter.defaultProps = {
   stepIndexType: 'user',
 }
 
-export default withCameraDetection(Router)
+export default withCameraDetection<RouterOwnProps>(Router)
