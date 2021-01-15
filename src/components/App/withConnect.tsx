@@ -17,6 +17,6 @@ const mapDispatchToProps = (
 
 const connector = connect(mapStateToProps, mapDispatchToProps)
 
-export type PropsFromRedux = ConnectedProps<typeof connector>
+export type ReduxProps = ConnectedProps<typeof connector>
 
 export default connector
