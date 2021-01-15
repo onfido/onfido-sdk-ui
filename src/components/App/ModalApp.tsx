@@ -27,7 +27,6 @@ import withConnect, { PropsFromRedux } from './withConnect'
 
 export type PassedProps = {
   options: SdkOptions
-  socket?: SocketIOClient.Socket
 }
 
 type Props = PassedProps & PropsFromRedux
