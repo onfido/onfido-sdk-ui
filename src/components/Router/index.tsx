@@ -2,9 +2,8 @@ import { h, Component } from 'preact'
 import { createMemoryHistory, createBrowserHistory } from 'history'
 
 import { pick } from '~utils/object'
-import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
+import { isDesktop, getUnsupportedMobileBrowserError } from '~utils/index'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
-import { compose } from '~utils/func'
 import { createSocket } from '~utils/crossDeviceSync'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
@@ -21,14 +20,18 @@ import {
 } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
+import type { StepConfig } from '~types/steps'
+
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
-const isUploadFallbackOffAndShouldUseCamera = (step) => {
-  const options = step.options
+const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
+  if (!step.options || (step.type != 'document' && step.type != 'face')) {
+    return false
+  }
+
   return (
-    options &&
-    options.uploadFallback === false &&
-    (step.type === 'face' || options.useLiveDocumentCapture)
+    step.options?.uploadFallback === false &&
+    (step.type === 'face' || step.options?.useLiveDocumentCapture)
   )
 }
 
