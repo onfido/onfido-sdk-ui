@@ -1207,6 +1207,12 @@
     "path": "node_modules/@types/cheerio",
     "licenseFile": "node_modules/@types/cheerio/LICENSE"
   },
+  "@types/classnames@2.2.11": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/classnames",
+    "licenseFile": "node_modules/@types/classnames/LICENSE"
+  },
   "@types/color-name@1.1.1": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
