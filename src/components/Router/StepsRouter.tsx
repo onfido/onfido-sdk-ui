@@ -6,17 +6,28 @@ import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 
+import type { FlowVariants } from '~types/commons'
 import type { EnterpriseCobranding } from '~types/enterprise'
+import type { DocumentTypes } from '~types/steps'
 import type { SdkOptions } from '~types/sdk'
 import type { ComponentStep } from './StepComponentMap'
 
 type Props = {
   back: () => void
+  changeFlowTo: (
+    newFlow: FlowVariants,
+    newStep?: number,
+    excludeStepFromHistory?: boolean
+  ) => void
+  cobrand?: EnterpriseCobranding
   componentsList: ComponentStep[]
   disableNavigation: boolean
-  isFullScreen: boolean
+  documentType: DocumentTypes
   hideOnfidoLogo: boolean
-  cobrand?: EnterpriseCobranding
+  isFullScreen: boolean
+  nextStep: () => void
+  previousStep: () => void
+  triggerOnError: (response: Record<string, unknown>) => void
   options: SdkOptions
   step: number
 }

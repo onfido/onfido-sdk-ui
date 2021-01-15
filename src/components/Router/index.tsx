@@ -13,7 +13,7 @@ import { isDesktop, getUnsupportedMobileBrowserError } from '~utils/index'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { noop } from '~utils/func'
 import { createSocket } from '~utils/crossDeviceSync'
-import { buildComponentsList } from './StepComponentMap'
+import { buildComponentsList, ComponentStep } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import themeWrap from '../Theme'
 import Spinner from '../Spinner'
@@ -31,9 +31,14 @@ import {
 import { LocaleProvider } from '../../locales'
 
 import type { FlowVariants } from '~types/commons'
-import type { StepConfig } from '~types/steps'
+import type {
+  DocumentTypes,
+  StepConfig,
+  StepConfigDocument,
+} from '~types/steps'
 import type { SdkOptions } from '~types/sdk'
 import type { ReduxProps } from 'components/App/withConnect'
+import type { CaptureState } from 'components/ReduxAppWrapper/types'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -47,6 +52,8 @@ const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
     (step.type === 'face' || step.options?.useLiveDocumentCapture)
   )
 }
+
+type CaptureKeys = keyof CaptureState
 
 type OmittedSdkOptions = Omit<
   SdkOptions,
@@ -69,14 +76,14 @@ type RouterProps = {
 
 type InternalRouterProps = {
   allowCrossDeviceFlow: boolean
-  onFlowChange: (
+  onFlowChange?: (
     newFlow: FlowVariants,
     newStep: number,
     previousFlow: FlowVariants,
     payload: {
       userStepIndex: number
       clientStepIndex: number
-      clientStep: number
+      clientStep: ComponentStep
     }
   ) => void
 } & RouterProps
@@ -282,18 +289,21 @@ class CrossDeviceMobileRouter extends Component<
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-    const captures = Object.keys(this.props.captures).reduce((acc, key) => {
-      const dataWhitelist = [
-        'documentType',
-        'idDocumentIssuingCountry',
-        'poaDocumentType',
-        'id',
-        'metadata',
-        'method',
-        'side',
-      ]
-      return acc.concat(pick(this.props.captures[key], dataWhitelist))
-    }, [])
+    const captures = (Object.keys(this.props.captures) as CaptureKeys[]).reduce(
+      (acc, key) => {
+        const dataWhitelist = [
+          'documentType',
+          'idDocumentIssuingCountry',
+          'poaDocumentType',
+          'id',
+          'metadata',
+          'method',
+          'side',
+        ]
+        return acc.concat(pick(this.props.captures[key], dataWhitelist))
+      },
+      []
+    )
     this.sendMessage('client success', { captures })
   }
 
@@ -340,9 +350,15 @@ class CrossDeviceMobileRouter extends Component<
   }
 }
 
-class MainRouter extends Component<InternalRouterProps> {
+type MainState = {
+  crossDeviceInitialClientStep?: number
+  crossDeviceInitialStep?: number
+}
+
+class MainRouter extends Component<InternalRouterProps, MainState> {
   constructor(props: InternalRouterProps) {
     super(props)
+
     this.state = {
       crossDeviceInitialStep: null,
     }
@@ -357,6 +373,7 @@ class MainRouter extends Component<InternalRouterProps> {
       options,
       urls,
     } = this.props
+
     const {
       steps,
       token,
@@ -364,6 +381,7 @@ class MainRouter extends Component<InternalRouterProps> {
       disableAnalytics,
       enterpriseFeatures,
     } = options
+
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
 
     return {
@@ -413,21 +431,28 @@ class MainRouter extends Component<InternalRouterProps> {
     return null
   }
 
-  render = (props) =>
+  render = () =>
     this.renderUnsupportedBrowserError() || (
       <HistoryRouter
-        {...props}
-        steps={props.options.steps}
+        {...this.props}
+        steps={this.props.options.steps}
         onFlowChange={this.onFlowChange}
-        mobileConfig={this.generateMobileConfig(props.actions)}
+        mobileConfig={this.generateMobileConfig()}
       />
     )
 }
 
-const findFirstIndex = (componentsList, clientStepIndex) =>
-  componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
+const findFirstIndex = (
+  componentsList: ComponentStep[],
+  clientStepIndex: number
+) => componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
 
-type HistoryRouterProps = InternalRouterProps & CrossDeviceState
+type HistoryRouterProps = {
+  crossDeviceClientError: (name?: string) => void
+  mobileConfig: unknown
+  sendClientSuccess: () => void
+} & InternalRouterProps &
+  CrossDeviceState
 
 type HistoryLocationState = {
   step: number
@@ -528,7 +553,7 @@ class HistoryRouter extends Component<HistoryRouterProps, HistoryRouterState> {
   triggerOnComplete = () => {
     const { captures } = this.props
 
-    const data = Object.keys(captures).reduce(
+    const data = (Object.keys(captures) as CaptureKeys[]).reduce(
       (acc, key) => ({
         ...acc,
         [key]: captures[key].metadata,
@@ -539,7 +564,10 @@ class HistoryRouter extends Component<HistoryRouterProps, HistoryRouterState> {
     this.props.options.events.emit('complete', data)
   }
 
-  formattedError = (response, status) => {
+  formattedError = (
+    response: string | { error: Record<string, unknown> },
+    status: number
+  ) => {
     const errorResponse = response.error || response || {}
     // TODO: remove once find_document_in_image back-end `/validate_document` returns error response with same signature
     const isExpiredTokenErrorMessage =
@@ -554,7 +582,7 @@ class HistoryRouter extends Component<HistoryRouterProps, HistoryRouterState> {
     return { type, message }
   }
 
-  triggerOnError = (apiResponse) => {
+  triggerOnError = (apiResponse: Record<string, unknown>) => {
     const { status, response } = apiResponse
     if (status === 0) return
     const error = this.formattedError(response, status)
@@ -590,7 +618,10 @@ class HistoryRouter extends Component<HistoryRouterProps, HistoryRouterState> {
     }
   }
 
-  getComponentsList = (state = this.state, props = this.props) => {
+  getComponentsList = (
+    state: Partial<HistoryRouterState> = this.state,
+    props: Partial<HistoryRouterProps> = this.props
+  ) => {
     const { flow } = state
     const {
       documentType,
@@ -610,23 +641,29 @@ class HistoryRouter extends Component<HistoryRouterProps, HistoryRouterState> {
     })
   }
 
-  getDocumentType = () => {
+  getDocumentType = (): DocumentTypes => {
     const { documentType, steps } = this.props
-    const documentStep = steps.find((step) => step.type === 'document')
+    const documentStep = steps.find(
+      (step) => step.type === 'document'
+    ) as StepConfigDocument
+
     const documentTypes = documentStep?.options?.documentTypes || {}
-    const enabledDocuments = Object.keys(documentTypes)
+    const enabledDocuments = Object.keys(documentTypes) as DocumentTypes[]
     const isSinglePreselectedDocument = enabledDocuments.length === 1
+
     if (isSinglePreselectedDocument && !documentType) {
       return enabledDocuments[0]
     }
+
     return documentType
   }
 
-  render = (props) => {
+  render = () => {
     const documentType = this.getDocumentType()
+
     return (
       <StepsRouter
-        {...props}
+        {...this.props}
         documentType={documentType}
         componentsList={this.getComponentsList()}
         step={this.state.step}
