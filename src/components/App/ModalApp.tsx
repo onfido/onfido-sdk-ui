@@ -23,13 +23,13 @@ import type {
   EnterpriseCobranding,
 } from '~types/enterprise'
 
-import withConnect, { PropsFromRedux } from './withConnect'
+import withConnect, { ReduxProps } from './withConnect'
 
 export type PassedProps = {
   options: SdkOptions
 }
 
-type Props = PassedProps & PropsFromRedux
+type Props = PassedProps & ReduxProps
 
 class ModalApp extends Component<Props> {
   private events: EventEmitter2.emitter
