@@ -1,3 +1,10 @@
+import { StepConfig } from './steps'
+import { SdkOptions } from './sdk'
+
+export interface NormalisedSdkOptions extends SdkOptions {
+  steps?: StepConfig[]
+}
+
 export type CaptureMethods = 'document' | 'face'
 
 export type CaptureMethodVariants = 'live' | 'html5'
