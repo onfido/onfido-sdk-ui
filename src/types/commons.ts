@@ -45,3 +45,7 @@ export type UrlsConfig = {
   detect_document_url?: string
   sync_url?: string
 }
+
+const FLOW_CAPTURE = 'captureSteps'
+const FLOW_CROSS_DEVICE = 'crossDeviceSteps'
+export type FlowVariants = typeof FLOW_CAPTURE | typeof FLOW_CROSS_DEVICE

@@ -1,16 +1,26 @@
-import { h, Component } from 'preact'
-import { createMemoryHistory, createBrowserHistory } from 'history'
+import { h, Component, FunctionComponent } from 'preact'
+import {
+  createMemoryHistory,
+  createBrowserHistory,
+  History,
+  LocationListener,
+  MemoryHistory,
+} from 'history'
+import { EventEmitter2 } from 'eventemitter2'
 
 import { pick } from '~utils/object'
 import { isDesktop, getUnsupportedMobileBrowserError } from '~utils/index'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
+import { noop } from '~utils/func'
 import { createSocket } from '~utils/crossDeviceSync'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import themeWrap from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
-import withCameraDetection from '../Capture/withCameraDetection'
+import withCameraDetection, {
+  CameraDetectionProps,
+} from '../Capture/withCameraDetection'
 
 import {
   getWoopraCookie,
@@ -20,7 +30,10 @@ import {
 } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
+import type { FlowVariants } from '~types/commons'
 import type { StepConfig } from '~types/steps'
+import type { SdkOptions } from '~types/sdk'
+import type { ReduxProps } from 'components/App/withConnect'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -35,10 +48,44 @@ const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   )
 }
 
-const Router = (props) => {
+type OmittedSdkOptions = Omit<
+  SdkOptions,
+  | 'containerEl'
+  | 'containerId'
+  | 'isModalOpen'
+  | 'onModalRequestClose'
+  | 'shouldCloseOnOverlayClick'
+  | 'useModal'
+> & {
+  events: EventEmitter2.emitter
+}
+
+type StepIndexType = 'client' | 'user'
+
+type RouterProps = {
+  options: OmittedSdkOptions
+} & ReduxProps &
+  CameraDetectionProps
+
+type InternalRouterProps = {
+  allowCrossDeviceFlow: boolean
+  onFlowChange: (
+    newFlow: FlowVariants,
+    newStep: number,
+    previousFlow: FlowVariants,
+    payload: {
+      userStepIndex: number
+      clientStepIndex: number
+      clientStep: number
+    }
+  ) => void
+} & RouterProps
+
+const Router: FunctionComponent<RouterProps> = (props) => {
   const RouterComponent = props.options.mobileFlow
     ? CrossDeviceMobileRouter
     : MainRouter
+
   return (
     <RouterComponent
       {...props}
@@ -51,31 +98,55 @@ const Router = (props) => {
 const WrappedSpinner = themeWrap(Spinner)
 const WrappedError = themeWrap(GenericError)
 
-class CrossDeviceMobileRouter extends Component {
-  constructor(props) {
+type CrossDeviceState = {
+  crossDeviceError?: Record<string, unknown>
+  crossDeviceInitialStep?: number
+  language?: string
+  loading?: boolean
+  roomId?: string
+  socket: SocketIOClient.Socket
+  step?: number
+  stepIndexType?: StepIndexType
+  steps?: StepConfig[]
+  token?: string
+}
+
+class CrossDeviceMobileRouter extends Component<
+  InternalRouterProps,
+  CrossDeviceState
+> {
+  private configTimeoutId?: number = null
+  private pingTimeoutId?: number = null
+
+  constructor(props: InternalRouterProps) {
     super(props)
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
     const url = props.urls.sync_url
     const roomId = window.location.pathname.substring(3) || props.options.roomId
+
     this.state = {
       token: null,
       steps: null,
       step: null,
       socket: createSocket(url),
       roomId,
-      crossDeviceError: false,
+      crossDeviceError: null,
       loading: true,
     }
+
     if (restrictedXDevice && isDesktop) {
-      return this.setError('FORBIDDEN_CLIENT_ERROR')
+      this.setError('FORBIDDEN_CLIENT_ERROR')
+      return
     }
+
     this.state.socket.on('config', this.setMobileConfig(props.actions))
     this.state.socket.on('connect', () => {
       this.state.socket.emit('join', { roomId: this.state.roomId })
     })
     this.state.socket.open()
     this.requestMobileConfig()
+
     if (this.props.options.mobileFlow) {
       this.sendMessage('cross device start')
       addEventListener('userAnalyticsEvent', (event) => {
@@ -85,9 +156,6 @@ class CrossDeviceMobileRouter extends Component {
       })
     }
   }
-
-  configTimeoutId = null
-  pingTimeoutId = null
 
   componentDidMount() {
     this.state.socket.on('custom disconnect', this.onDisconnect)
@@ -100,7 +168,7 @@ class CrossDeviceMobileRouter extends Component {
     this.state.socket.close()
   }
 
-  sendMessage = (event, payload) => {
+  sendMessage = (event: string, payload?: Record<string, unknown>) => {
     const roomId = this.state.roomId
     this.state.socket.emit('message', { roomId, event, payload })
   }
@@ -108,7 +176,7 @@ class CrossDeviceMobileRouter extends Component {
   requestMobileConfig = () => {
     this.sendMessage('get config')
     this.clearConfigTimeout()
-    this.configTimeoutId = setTimeout(() => {
+    this.configTimeoutId = window.setTimeout(() => {
       if (this.state.loading) this.setError()
     }, 10000)
   }
@@ -163,7 +231,7 @@ class CrossDeviceMobileRouter extends Component {
         steps,
         step: isFaceStep ? clientStepIndex : userStepIndex,
         stepIndexType: isFaceStep ? 'client' : 'user',
-        crossDeviceError: false,
+        crossDeviceError: null,
         language,
       },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
@@ -206,7 +274,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   onDisconnect = () => {
-    this.pingTimeoutId = setTimeout(this.setError, 3000)
+    this.pingTimeoutId = window.setTimeout(this.setError, 3000)
     this.sendMessage('disconnect ping')
   }
 
@@ -272,8 +340,8 @@ class CrossDeviceMobileRouter extends Component {
   }
 }
 
-class MainRouter extends Component {
-  constructor(props) {
+class MainRouter extends Component<InternalRouterProps> {
+  constructor(props: InternalRouterProps) {
     super(props)
     this.state = {
       crossDeviceInitialStep: null,
@@ -359,9 +427,26 @@ class MainRouter extends Component {
 const findFirstIndex = (componentsList, clientStepIndex) =>
   componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
 
-class HistoryRouter extends Component {
-  constructor(props) {
+type HistoryRouterProps = InternalRouterProps & CrossDeviceState
+
+type HistoryLocationState = {
+  step: number
+  flow: FlowVariants
+}
+
+type HistoryRouterState = {
+  initialStep: number
+} & HistoryLocationState
+
+class HistoryRouter extends Component<HistoryRouterProps, HistoryRouterState> {
+  private history:
+    | MemoryHistory<HistoryLocationState>
+    | History<HistoryLocationState>
+  private unlisten: () => void
+
+  constructor(props: HistoryRouterProps) {
     super(props)
+
     const componentsList = this.getComponentsList(
       { flow: 'captureSteps' },
       this.props
@@ -384,7 +469,9 @@ class HistoryRouter extends Component {
     this.setStepIndex(this.state.step, this.state.flow)
   }
 
-  onHistoryChange = ({ state: historyState }) => {
+  onHistoryChange: LocationListener<HistoryLocationState> = ({
+    state: historyState,
+  }) => {
     this.setState({ ...historyState })
   }
 
@@ -392,7 +479,7 @@ class HistoryRouter extends Component {
     this.unlisten()
   }
 
-  getStepType = (step) => {
+  getStepType = (step: number) => {
     const componentList = this.getComponentsList()
     return componentList[step] ? componentList[step].step.type : null
   }
@@ -409,7 +496,11 @@ class HistoryRouter extends Component {
     this.state.initialStep === this.state.step &&
     this.state.flow === 'captureSteps'
 
-  changeFlowTo = (newFlow, newStep = 0, excludeStepFromHistory = false) => {
+  changeFlowTo = (
+    newFlow: FlowVariants,
+    newStep = 0,
+    excludeStepFromHistory = false
+  ) => {
     const { flow: previousFlow, step: previousUserStepIndex } = this.state
     if (previousFlow === newFlow) return
 
@@ -481,7 +572,11 @@ class HistoryRouter extends Component {
     this.history.goBack()
   }
 
-  setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory) => {
+  setStepIndex = (
+    newStepIndex: number,
+    newFlow?: FlowVariants,
+    excludeStepFromHistory?: boolean
+  ) => {
     const { flow: currentFlow } = this.state
     const newState = {
       step: newStepIndex,
@@ -547,7 +642,7 @@ class HistoryRouter extends Component {
 }
 
 HistoryRouter.defaultProps = {
-  onFlowChange: () => {},
+  onFlowChange: noop,
   stepIndexType: 'user',
 }
 

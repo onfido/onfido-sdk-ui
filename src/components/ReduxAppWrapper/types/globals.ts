@@ -1,6 +1,7 @@
 import * as constants from '../constants'
 import type { CountryData, UrlsConfig } from '~types/commons'
 import type { EnterpriseCobranding } from '~types/enterprise'
+import type { DocumentTypes, PoATypes } from '~types/steps'
 
 export type SmsPayload = {
   number?: string
@@ -29,9 +30,9 @@ export type GlobalActions =
   | { type: typeof constants.RESET_STORE }
 
 export type GlobalState = {
-  documentType?: string
+  documentType?: DocumentTypes
   idDocumentIssuingCountry?: CountryData
-  poaDocumentType?: string
+  poaDocumentType?: PoATypes
   roomId?: string
   socket?: SocketIOClient.Socket
   sms: SmsPayload
