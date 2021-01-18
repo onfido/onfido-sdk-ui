@@ -37,8 +37,8 @@ import type {
 } from '~types/steps'
 
 const STEP_CROSS_DEVICE = 'crossDevice'
-type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
-type ExtendedStepConfig =
+export type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
+export type ExtendedStepConfig =
   | StepConfig
   | { type: typeof STEP_CROSS_DEVICE; options?: never }
 
