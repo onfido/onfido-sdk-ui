@@ -24,7 +24,7 @@ export type PoaTypes =
   | 'benefit_letters'
   | 'government_letter'
 
-type StepOptionWelcome = {
+export type StepOptionWelcome = {
   title?: string
   descriptions?: string[]
   nextButton?: string
@@ -37,29 +37,29 @@ export type DocumentTypeConfig =
     }
 
 type CaptureOptions = {
+  requestedVariant?: 'standard' | 'video'
   uploadFallback?: boolean
   useUploader?: boolean
   useWebcam?: boolean
 }
 
-type StepOptionDocument = {
+export type StepOptionDocument = {
   documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
   forceCrossDevice?: boolean
   showCountrySelection?: boolean
   useLiveDocumentCapture?: boolean
 } & CaptureOptions
 
-type StepOptionPoA = {
+export type StepOptionPoA = {
   country?: string
   documentTypes?: Partial<Record<PoaTypes, boolean>>
 }
 
-type StepOptionFace = {
-  requestedVariant?: 'standard' | 'video'
+export type StepOptionFace = {
   useMultipleSelfieCapture?: boolean
 } & CaptureOptions
 
-type StepOptionComplete = {
+export type StepOptionComplete = {
   message?: string
   submessage?: string
 }

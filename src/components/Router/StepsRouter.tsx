@@ -9,6 +9,7 @@ import { withFullScreenState } from '../FullScreen'
 import type {
   ChangeFlowProp,
   TriggerOnErrorProp,
+  TrackScreenProp,
   ComponentStep,
   RouterOwnProps,
 } from '~types/routers'
@@ -29,10 +30,7 @@ class StepsRouter extends Component<Props> {
 
   resetSdkFocus = () => this.container.focus()
 
-  trackScreen = (
-    screenNameHierarchy: string | string[],
-    properties: Record<string, unknown> = {}
-  ) => {
+  trackScreen: TrackScreenProp = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
     sendScreen([step.type, ...wrapArray(screenNameHierarchy)], {
       ...properties,

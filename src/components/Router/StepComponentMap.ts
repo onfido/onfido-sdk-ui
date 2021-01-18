@@ -31,7 +31,7 @@ import type {
   ExtendedStepConfig,
   FlowVariants,
 } from '~types/commons'
-import type { ComponentStep } from '~types/routers'
+import type { StepComponentProps, ComponentStep } from '~types/routers'
 import type {
   DocumentTypes,
   PoaTypes,
@@ -40,7 +40,9 @@ import type {
   StepConfigFace,
 } from '~types/steps'
 
-type ComponentsByStepType = Partial<Record<ExtendedStepTypes, ComponentType[]>>
+type ComponentsByStepType = Partial<
+  Record<ExtendedStepTypes, ComponentType<StepComponentProps>[]>
+>
 
 const shallowFlatten = <T>(list: T[][]): T[] => [].concat(...list)
 
@@ -130,7 +132,7 @@ const buildFaceComponents = (
   faceStep: Optional<StepConfigFace>,
   deviceHasCameraSupport: boolean,
   mobileFlow: boolean
-): ComponentType[] => {
+): ComponentType<StepComponentProps>[] => {
   const shouldDisplayUploader = faceStep?.options?.useUploader
 
   // if shouldDisplayUploader is true webcam should not be used
@@ -149,7 +151,7 @@ const buildFaceComponents = (
 const buildRequiredVideoComponents = (
   shouldUseCamera: boolean,
   mobileFlow: boolean
-): ComponentType[] => {
+): ComponentType<StepComponentProps>[] => {
   const allVideoSteps = [VideoIntro, VideoCapture, VideoConfirm]
 
   if (mobileFlow && !shouldUseCamera) {
@@ -162,7 +164,7 @@ const buildRequiredVideoComponents = (
 
 const buildRequiredSelfieComponents = (
   deviceHasCameraSupport: boolean
-): ComponentType[] => {
+): ComponentType<StepComponentProps>[] => {
   const allSelfieSteps = [SelfieIntro, SelfieCapture, SelfieConfirm]
 
   if (!deviceHasCameraSupport) {
@@ -176,7 +178,7 @@ const buildRequiredSelfieComponents = (
 const buildNonPassportDocumentFrontCaptureComponents = (
   hasOnePreselectedDocument: boolean,
   showCountrySelection: boolean
-): ComponentType[] => {
+): ComponentType<StepComponentProps>[] => {
   const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
 
   if (hasOnePreselectedDocument && showCountrySelection) {
@@ -200,7 +202,7 @@ const buildDocumentComponents = (
   documentType: Optional<DocumentTypes>,
   hasOnePreselectedDocument: boolean,
   shouldUseCameraForDocumentCapture: boolean
-): ComponentType[] => {
+): ComponentType<StepComponentProps>[] => {
   // DEPRECATED: documentStep.options.showCountrySelection will be deprecated in a future release
   const showCountrySelectionForSinglePreselectedDocument =
     documentStep?.options?.showCountrySelection
@@ -289,7 +291,7 @@ const createComponent = (
 }
 
 const wrapComponent = (step: ExtendedStepConfig, stepIndex: number) => (
-  component: ComponentType
+  component: ComponentType<StepComponentProps>
 ): ComponentStep => ({
   component,
   step,
