@@ -277,7 +277,7 @@ export default class CrossDeviceMobileRouter extends Component<Props, State> {
     return null
   }
 
-  render(): h.JSX.Element {
+  render(): JSX.Element {
     const { language, step, steps, stepIndexType } = this.state
 
     return (
