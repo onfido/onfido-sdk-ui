@@ -35,13 +35,11 @@ type State = {
   isCapturing: boolean
 }
 
-type CameraRef = typeof Camera
-
 const IDEAL_CAMERA_HEIGHT_IN_PX = 1080
 const FALLBACK_HEIGHT_IN_PX = 720
 
 export default class DocumentLiveCapture extends Component<Props, State> {
-  private webcam?: CameraRef = null
+  private webcam?: HTMLVideoElement = null
 
   state = {
     hasAllowedCameraAccess: false,
@@ -119,7 +117,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             containerClassName={containerClassName}
             renderTitle={renderTitle}
             translate={translate}
-            webcamRef={(c: CameraRef) => (this.webcam = c)}
+            webcamRef={(c: HTMLVideoElement) => (this.webcam = c)}
             isUploadFallbackDisabled={isUploadFallbackDisabled}
             trackScreen={trackScreen}
             onUserMedia={this.handleUserMediaReady}
