@@ -1,11 +1,9 @@
 import { h, ComponentType } from 'preact'
 import { PureComponent } from 'preact/compat'
 import { checkIfHasWebcam, isSafari131 } from '~utils/index'
-import type { ReduxProps } from 'components/App/withConnect'
 
-export type CameraDetectionProps = {
-  hasCamera?: boolean
-}
+import type { ReduxProps } from 'components/App/withConnect'
+import type { CameraDetectionProps } from '~types/routers'
 
 export default function withCameraDetection<P extends ReduxProps>(
   WrappedComponent: ComponentType<CameraDetectionProps>

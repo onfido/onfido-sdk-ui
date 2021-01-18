@@ -5,7 +5,7 @@ import withCameraDetection from '../Capture/withCameraDetection'
 import CrossDeviceMobileRouter from './CrossDeviceMobileRouter'
 import MainRouter from './MainRouter'
 
-import type { RouterOwnProps, RouterProps as Props } from './types'
+import type { RouterOwnProps, RouterProps as Props } from '~types/routers'
 
 const Router: FunctionComponent<Props> = (props) => {
   const RouterComponent = props.options.mobileFlow

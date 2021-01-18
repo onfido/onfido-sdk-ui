@@ -1,7 +1,7 @@
 import { EventEmitter2 } from 'eventemitter2'
 import { EnterpriseFeatures } from './enterprise'
 import { SupportedLanguages, LocaleConfig } from './locales'
-import { DocumentTypes, PoaTypes, StepConfig } from './steps'
+import { DocumentTypes, PoaTypes, StepConfig, StepTypes } from './steps'
 import { SdkOptions } from './sdk'
 
 export interface NormalisedSdkOptions extends SdkOptions {
@@ -19,6 +19,12 @@ export type NarrowSdkOptions = Omit<
 > & {
   events?: EventEmitter2.emitter
 }
+
+const STEP_CROSS_DEVICE = 'crossDevice'
+export type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
+export type ExtendedStepConfig =
+  | StepConfig
+  | { type: typeof STEP_CROSS_DEVICE; options?: never }
 
 export type CaptureMethods = 'document' | 'face'
 

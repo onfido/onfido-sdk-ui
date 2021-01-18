@@ -9,7 +9,7 @@ import HistoryRouter from './HistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
-import type { FlowChangeCallback, RouterProps as Props } from './types'
+import type { FlowChangeCallback, RouterProps as Props } from '~types/routers'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type != 'document' && step.type != 'face')) {

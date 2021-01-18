@@ -6,12 +6,12 @@ import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 
-import type { ComponentStep } from './StepComponentMap'
 import type {
   ChangeFlowProp,
   TriggerOnErrorProp,
+  ComponentStep,
   RouterOwnProps,
-} from './types'
+} from '~types/routers'
 
 type Props = {
   back: () => void

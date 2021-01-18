@@ -7,29 +7,30 @@ import {
   MemoryHistory,
 } from 'history'
 
-import {
-  buildComponentsList,
-  ExtendedStepTypes,
-  ComponentStep,
-} from './StepComponentMap'
+import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
 import type { ApiRequest } from '~types/api'
-import type { FlowVariants, MobileConfig } from '~types/commons'
+import type {
+  ExtendedStepTypes,
+  FlowVariants,
+  MobileConfig,
+} from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
+import type {
+  ComponentStep,
+  ChangeFlowProp,
+  RouterProps,
+  StepIndexType,
+  TriggerOnErrorProp,
+} from '~types/routers'
 import type {
   DocumentTypes,
   StepConfig,
   StepConfigDocument,
 } from '~types/steps'
-import type {
-  ChangeFlowProp,
-  RouterProps,
-  StepIndexType,
-  TriggerOnErrorProp,
-} from './types'
 
 type FormattedError = {
   type: 'expired_token' | 'exception'

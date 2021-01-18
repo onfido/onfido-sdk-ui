@@ -26,28 +26,21 @@ import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils/index'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 
-import type { FlowVariants } from '~types/commons'
+import type {
+  ExtendedStepTypes,
+  ExtendedStepConfig,
+  FlowVariants,
+} from '~types/commons'
+import type { ComponentStep } from '~types/routers'
 import type {
   DocumentTypes,
   PoaTypes,
-  StepTypes,
   StepConfig,
   StepConfigDocument,
   StepConfigFace,
 } from '~types/steps'
 
-const STEP_CROSS_DEVICE = 'crossDevice'
-export type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
-export type ExtendedStepConfig =
-  | StepConfig
-  | { type: typeof STEP_CROSS_DEVICE; options?: never }
-
 type ComponentsByStepType = Partial<Record<ExtendedStepTypes, ComponentType[]>>
-export type ComponentStep = {
-  component: ComponentType
-  step: ExtendedStepConfig
-  stepIndex: number
-}
 
 const shallowFlatten = <T>(list: T[][]): T[] => [].concat(...list)
 

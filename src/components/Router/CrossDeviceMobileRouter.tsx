@@ -15,8 +15,8 @@ import HistoryRouter from './HistoryRouter'
 import type { ErrorTypes, MobileConfig } from '~types/commons'
 import type { SupportedLanguages, LocaleConfig } from '~types/locales'
 import type { CaptureKeys } from '~types/redux'
+import type { StepIndexType, RouterProps as Props } from '~types/routers'
 import type { StepConfig } from '~types/steps'
-import type { StepIndexType, RouterProps as Props } from './types'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
