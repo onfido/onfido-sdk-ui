@@ -28,7 +28,7 @@ import type { CaptureState } from 'components/ReduxAppWrapper/types'
 
 type CaptureKeys = keyof CaptureState
 
-type HistoryRouterProps = {
+type Props = {
   step?: number
   stepIndexType: StepIndexType
   steps?: StepConfig[]
@@ -42,7 +42,7 @@ type HistoryLocationState = {
   flow: FlowVariants
 }
 
-type HistoryRouterState = {
+type State = {
   initialStep: number
 } & HistoryLocationState
 
@@ -51,16 +51,13 @@ const findFirstIndex = (
   clientStepIndex: number
 ) => componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
 
-export default class HistoryRouter extends Component<
-  HistoryRouterProps,
-  HistoryRouterState
-> {
+export default class HistoryRouter extends Component<Props, State> {
   private history:
     | MemoryHistory<HistoryLocationState>
     | History<HistoryLocationState>
   private unlisten: () => void
 
-  constructor(props: HistoryRouterProps) {
+  constructor(props: Props) {
     super(props)
 
     const componentsList = this.getComponentsList(
@@ -216,8 +213,8 @@ export default class HistoryRouter extends Component<
   }
 
   getComponentsList = (
-    state: Partial<HistoryRouterState> = this.state,
-    props: Partial<HistoryRouterProps> = this.props
+    state: Partial<State> = this.state,
+    props: Partial<Props> = this.props
   ): ComponentStep[] => {
     const { flow } = state
     const {
