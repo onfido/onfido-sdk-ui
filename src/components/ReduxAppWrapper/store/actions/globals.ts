@@ -1,8 +1,9 @@
-import * as constants from '../../constants'
+import * as constants from '~types/redux/constants'
+
 import type { CountryData, UrlsConfig } from '~types/commons'
 import type { EnterpriseCobranding } from '~types/enterprise'
+import type { GlobalActions } from '~types/redux'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
-import type { GlobalActions } from '../../types'
 
 export const setIdDocumentType = (payload: DocumentTypes): GlobalActions => ({
   type: constants.SET_ID_DOCUMENT_TYPE,

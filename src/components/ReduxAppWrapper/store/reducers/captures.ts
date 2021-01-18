@@ -1,7 +1,8 @@
-import * as constants from '../../constants'
+import * as constants from '~types/redux/constants'
 import { cleanFalsy } from '~utils/array'
 import { omit } from '~utils/object'
-import type { CaptureActions, CaptureState } from '../../types'
+
+import type { CaptureActions, CaptureState } from '~types/redux'
 
 type StateKeys = keyof CaptureState
 

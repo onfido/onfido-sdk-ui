@@ -1,12 +1,13 @@
+import * as constants from '~types/redux/constants'
 import { pick, omitBy } from '~utils/object'
-import * as constants from '../../constants'
+
 import type {
   CaptureActions,
   DocumentCapture,
   FaceCapture,
   CapturePayload,
   MetadataPayload,
-} from '../../types'
+} from '~types/redux'
 
 export const createCapture = (
   payload: DocumentCapture | FaceCapture

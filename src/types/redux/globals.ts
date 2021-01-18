@@ -1,4 +1,4 @@
-import * as constants from '../constants'
+import * as constants from './constants'
 import type { CountryData, UrlsConfig } from '~types/commons'
 import type { EnterpriseCobranding } from '~types/enterprise'
 import type { DocumentTypes, PoaTypes } from '~types/steps'

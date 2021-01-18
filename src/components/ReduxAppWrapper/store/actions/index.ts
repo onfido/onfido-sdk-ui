@@ -1,5 +1,5 @@
 import type { Action } from 'redux'
-import * as constants from '../../constants'
+import * as constants from '~types/redux/constants'
 import * as globals from './globals'
 import * as captures from './captures'
 
