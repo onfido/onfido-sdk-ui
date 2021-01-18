@@ -29,7 +29,7 @@ import { getCountryDataForDocumentType } from '../../supported-documents'
 import type { FlowVariants } from '~types/commons'
 import type {
   DocumentTypes,
-  PoATypes,
+  PoaTypes,
   StepTypes,
   StepConfig,
   StepConfigDocument,
@@ -60,7 +60,7 @@ export const buildComponentsList = ({
 }: {
   flow: FlowVariants
   documentType: DocumentTypes
-  poaDocumentType: PoATypes
+  poaDocumentType: PoaTypes
   steps: StepConfig[]
   mobileFlow: boolean
   deviceHasCameraSupport: boolean
