@@ -41,6 +41,10 @@ export type TriggerOnErrorProp = (response: ApiRequest) => void
 
 export type StepIndexType = 'client' | 'user'
 
+export type CameraDetectionProps = {
+  hasCamera?: boolean
+}
+
 export type PropsFromRouter = {
   back: () => void
   changeFlowTo: ChangeFlowProp
@@ -56,7 +60,8 @@ type StepComponentBaseProps = {
   trackScreen: TrackScreenProp
 } & ReduxProps &
   NarrowSdkOptions &
-  PropsFromRouter
+  PropsFromRouter &
+  CameraDetectionProps
 
 export type StepComponentWelcomeProps = StepOptionWelcome &
   StepComponentBaseProps
@@ -83,10 +88,6 @@ export type ComponentStep = {
 export type RouterOwnProps = {
   options: NarrowSdkOptions
 } & ReduxProps
-
-export type CameraDetectionProps = {
-  hasCamera?: boolean
-}
 
 export type RouterProps = {
   allowCrossDeviceFlow: boolean

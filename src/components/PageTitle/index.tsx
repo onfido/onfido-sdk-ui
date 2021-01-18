@@ -7,7 +7,7 @@ type Props = {
   className?: string
   isFullScreen?: boolean
   smaller?: boolean
-  subTitle: string
+  subTitle?: string
   title: string
 }
 
