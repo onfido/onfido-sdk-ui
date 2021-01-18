@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+import Webcam from 'react-webcam-onfido'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { getInactiveError } from '~utils/inactiveError.js'
@@ -39,7 +40,7 @@ const IDEAL_CAMERA_HEIGHT_IN_PX = 1080
 const FALLBACK_HEIGHT_IN_PX = 720
 
 export default class DocumentLiveCapture extends Component<Props, State> {
-  private webcam?: HTMLVideoElement = null
+  private webcam?: Webcam = null
 
   state = {
     hasAllowedCameraAccess: false,
@@ -117,7 +118,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             containerClassName={containerClassName}
             renderTitle={renderTitle}
             translate={translate}
-            webcamRef={(c: HTMLVideoElement) => (this.webcam = c)}
+            webcamRef={(c: Webcam) => (this.webcam = c)}
             isUploadFallbackDisabled={isUploadFallbackDisabled}
             trackScreen={trackScreen}
             onUserMedia={this.handleUserMediaReady}

@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
+import Webcam from 'react-webcam-onfido'
 import { screenshot } from '~utils/camera'
 import { blobToLossyBase64 } from '~utils/blob'
 import { randomId } from '~utils/string'
@@ -33,7 +34,7 @@ type State = {
 }
 
 export default class DocumentAutoCapture extends Component<Props, State> {
-  private webcam?: HTMLVideoElement = null
+  private webcam?: Webcam = null
   private interval?: number
   private captureIds: string[] = []
 
@@ -135,7 +136,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
       <Camera
         {...this.props}
         className={style.docAutoCaptureFrame}
-        webcamRef={(c: HTMLVideoElement) => (this.webcam = c)}
+        webcamRef={(c: Webcam) => (this.webcam = c)}
         renderError={
           hasError ? (
             <CameraError
