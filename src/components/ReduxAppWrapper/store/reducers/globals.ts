@@ -1,5 +1,5 @@
-import * as constants from '../../constants'
-import type { GlobalActions, GlobalState } from '../../types'
+import * as constants from '~types/redux/constants'
+import type { GlobalActions, GlobalState } from '~types/redux'
 
 const initialState: GlobalState = {
   documentType: null,
