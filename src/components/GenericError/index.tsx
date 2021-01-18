@@ -10,11 +10,13 @@ import style from './style.scss'
 import type { ErrorTypes } from '~types/commons'
 import type { LocalisedType } from 'locales'
 
-type Props = {
+export type OwnProps = {
   error: {
     name: ErrorTypes
   }
-} & LocalisedType
+}
+
+type Props = OwnProps & LocalisedType
 
 class GenericError extends Component<Props> {
   componentDidMount() {

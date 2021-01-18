@@ -1,4 +1,6 @@
-import { StepConfig } from './steps'
+import { EnterpriseFeatures } from './enterprise'
+import { SupportedLanguages, LocaleConfig } from './locales'
+import { DocumentTypes, PoaTypes, StepConfig } from './steps'
 import { SdkOptions } from './sdk'
 
 export interface NormalisedSdkOptions extends SdkOptions {
@@ -80,3 +82,19 @@ export type ErrorTypes =
   | 'UNSUPPORTED_ANDROID_BROWSER'
   | 'UNSUPPORTED_FILE'
   | 'UNSUPPORTED_IOS_BROWSER'
+
+export type MobileConfig = {
+  clientStepIndex: number
+  deviceHasCameraSupport: boolean
+  disableAnalytics: boolean
+  documentType: DocumentTypes
+  enterpriseFeatures: EnterpriseFeatures
+  idDocumentIssuingCountry: CountryData
+  language: SupportedLanguages | LocaleConfig
+  poaDocumentType: PoaTypes
+  step: number
+  steps: StepConfig[]
+  token: string
+  urls: UrlsConfig
+  woopraCookie: string
+}

@@ -1,5 +1,4 @@
 import { h, ComponentType, FunctionComponent } from 'preact'
-import { compose } from 'redux'
 import { connect, ConnectedProps } from 'react-redux'
 import classNames from 'classnames'
 
@@ -13,21 +12,20 @@ type OwnProps = {
   disableNavigation?: boolean
 }
 
-const mapStateToProps = (state: RootState, ownProps?: OwnProps) => ({
+const mapStateToProps = (state: RootState) => ({
   hideOnfidoLogo: state.globals.hideOnfidoLogo,
   cobrand: state.globals.cobrand,
-  ...(ownProps || {}),
 })
 
 const withConnect = connect(mapStateToProps)
 
-type Props = ConnectedProps<typeof withConnect>
+type Props = OwnProps & ConnectedProps<typeof withConnect>
 
-const withTheme = (
-  WrappedComponent: ComponentType<Props>
+const themeWrapped = (
+  WrappedComponent: ComponentType<OwnProps>
 ): ComponentType<Props> => {
   const ThemedComponent: FunctionComponent<Props> = (props) => {
-    const { back, disableNavigation, hideOnfidoLogo, cobrand } = props
+    const { back, disableNavigation = false, hideOnfidoLogo, cobrand } = props
 
     return (
       <div
@@ -59,7 +57,12 @@ const withTheme = (
       </div>
     )
   }
+
   return ThemedComponent
 }
 
-export default compose(withConnect, withTheme)
+export default function withTheme<P>(
+  WrappedComponent: ComponentType<OwnProps & P>
+): ComponentType<OwnProps & P> {
+  return withConnect<ComponentType<OwnProps>>(themeWrapped(WrappedComponent))
+}

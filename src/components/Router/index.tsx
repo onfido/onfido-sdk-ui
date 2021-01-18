@@ -17,7 +17,7 @@ import { buildComponentsList, ComponentStep } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import withTheme from '../Theme'
 import Spinner from '../Spinner'
-import GenericError from '../GenericError'
+import GenericError, { OwnProps as GenericErrorProps } from '../GenericError'
 import withCameraDetection, {
   CameraDetectionProps,
 } from '../Capture/withCameraDetection'
@@ -30,10 +30,12 @@ import {
 } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
+import type { ApiRequest } from '~types/api'
 import type {
   ErrorTypes,
   FlowVariants,
   NormalisedSdkOptions,
+  MobileConfig,
 } from '~types/commons'
 import type { SupportedLanguages, LocaleConfig } from '~types/locales'
 import type {
@@ -73,7 +75,7 @@ type OmittedSdkOptions = Omit<
   | 'shouldCloseOnOverlayClick'
   | 'useModal'
 > & {
-  events: EventEmitter2.emitter
+  events?: EventEmitter2.emitter
 }
 
 type StepIndexType = 'client' | 'user'
@@ -115,7 +117,7 @@ const Router: FunctionComponent<RouterProps> = (props) => {
 
 // Wrap components with theme that include navigation and footer
 const WrappedSpinner = withTheme(Spinner)
-const WrappedError = withTheme(GenericError)
+const WrappedError = withTheme<GenericErrorProps>(GenericError)
 
 type CrossDeviceState = {
   crossDeviceError?: {
@@ -161,7 +163,7 @@ class CrossDeviceMobileRouter extends Component<
       return
     }
 
-    this.state.socket.on('config', this.setMobileConfig(props.actions))
+    this.state.socket.on('config', this.setMobileConfig)
     this.state.socket.on('connect', () => {
       this.state.socket.emit('join', { roomId: this.state.roomId })
     })
@@ -212,20 +214,20 @@ class CrossDeviceMobileRouter extends Component<
     }
   }
 
-  setMobileConfig = (actions) => (data) => {
+  setMobileConfig = (data: MobileConfig) => {
     const {
-      token,
-      urls,
-      steps,
-      language,
+      clientStepIndex,
+      disableAnalytics,
       documentType,
+      enterpriseFeatures,
       idDocumentIssuingCountry,
+      language,
       poaDocumentType,
       step: userStepIndex,
-      clientStepIndex,
+      steps,
+      token,
+      urls,
       woopraCookie,
-      disableAnalytics,
-      enterpriseFeatures,
     } = data
 
     if (disableAnalytics) {
@@ -260,14 +262,14 @@ class CrossDeviceMobileRouter extends Component<
       () => this.setState({ loading: false })
     )
     if (urls) {
-      actions.setUrls(urls)
+      this.props.actions.setUrls(urls)
     }
     if (poaDocumentType) {
-      actions.setPoADocumentType(poaDocumentType)
+      this.props.actions.setPoADocumentType(poaDocumentType)
     } else {
-      actions.setIdDocumentType(documentType)
+      this.props.actions.setIdDocumentType(documentType)
       if (documentType !== 'passport') {
-        actions.setIdDocumentIssuingCountry(idDocumentIssuingCountry)
+        this.props.actions.setIdDocumentIssuingCountry(idDocumentIssuingCountry)
       }
     }
     if (enterpriseFeatures) {
@@ -276,18 +278,18 @@ class CrossDeviceMobileRouter extends Component<
         enterpriseFeatures.hideOnfidoLogo &&
         validEnterpriseFeatures?.hideOnfidoLogo
       ) {
-        actions.hideOnfidoLogo(true)
+        this.props.actions.hideOnfidoLogo(true)
       } else {
-        actions.hideOnfidoLogo(false)
+        this.props.actions.hideOnfidoLogo(false)
         if (enterpriseFeatures.cobrand && validEnterpriseFeatures?.cobrand) {
-          actions.showCobranding(enterpriseFeatures.cobrand)
+          this.props.actions.showCobranding(enterpriseFeatures.cobrand)
         }
       }
     } else {
-      actions.hideOnfidoLogo(false)
-      actions.showCobranding(null)
+      this.props.actions.hideOnfidoLogo(false)
+      this.props.actions.showCobranding(null)
     }
-    actions.acceptTerms()
+    this.props.actions.acceptTerms()
   }
 
   setError = (name: ErrorTypes = 'GENERIC_CLIENT_ERROR') =>
@@ -326,7 +328,7 @@ class CrossDeviceMobileRouter extends Component<
       steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
     const { hasCamera } = this.props
 
-    if (this.state.loading) return <WrappedSpinner disableNavigation={true} />
+    if (this.state.loading) return <WrappedSpinner disableNavigation />
     if (this.state.crossDeviceError) {
       return (
         <WrappedError
@@ -377,7 +379,7 @@ class MainRouter extends Component<InternalRouterProps, MainState> {
     }
   }
 
-  generateMobileConfig = () => {
+  generateMobileConfig = (): MobileConfig => {
     const {
       documentType,
       idDocumentIssuingCountry,
@@ -574,11 +576,13 @@ class HistoryRouter extends Component<HistoryRouterProps, HistoryRouterState> {
     this.props.options.events.emit('complete', data)
   }
 
-  formattedError = (
-    response: string | { error: Record<string, unknown> },
-    status: number
-  ) => {
-    const errorResponse = response.error || response || {}
+  formattedError = ({
+    response,
+    status,
+  }: ApiRequest): { type: 'expired_token' | 'exception'; message: string } => {
+    const errorResponse =
+      typeof response === 'string' ? {} : response.error || response || {}
+
     // TODO: remove once find_document_in_image back-end `/validate_document` returns error response with same signature
     const isExpiredTokenErrorMessage =
       typeof response === 'string' && response.includes('expired')
@@ -588,14 +592,18 @@ class HistoryRouter extends Component<HistoryRouterProps, HistoryRouterState> {
     const type = isExpiredTokenError ? 'expired_token' : 'exception'
     // `/validate_document` returns a string only. Example: "Token has expired."
     // Ticket in backlog to update all APIs to use signature similar to main Onfido API
-    const message = errorResponse.message || response
+    const message =
+      errorResponse.message ||
+      (typeof response === 'string' ? response : response.message)
     return { type, message }
   }
 
-  triggerOnError = (apiResponse: Record<string, unknown>) => {
-    const { status, response } = apiResponse
-    if (status === 0) return
-    const error = this.formattedError(response, status)
+  triggerOnError = ({ response, status }: ApiRequest) => {
+    if (status === 0) {
+      return
+    }
+
+    const error = this.formattedError({ response, status })
     const { type, message } = error
     this.props.options.events.emit('error', { type, message })
     trackException(`${type} - ${message}`)

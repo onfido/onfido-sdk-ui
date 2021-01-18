@@ -31,8 +31,8 @@ export type LocalisedType = {
 
 const LocaleContext = createContext<LocalisedType>(null)
 
-export const localised = (WrappedComponent: ComponentType): ComponentType<ProviderProps> => {
-  const LocalisedComponent: FunctionComponent<ProviderProps> = (props) => (
+export const localised = <P extends LocalisedType>(WrappedComponent: ComponentType<P>): ComponentType<P> => {
+  const LocalisedComponent: FunctionComponent<P> = (props) => (
     <LocaleContext.Consumer>
       {(injectedProps) => <WrappedComponent {...props} {...injectedProps} />}
     </LocaleContext.Consumer>
