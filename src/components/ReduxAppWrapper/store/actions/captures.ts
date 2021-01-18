@@ -5,7 +5,7 @@ import type {
   CaptureActions,
   DocumentCapture,
   FaceCapture,
-  CapturePayload,
+  DeleteCapturePayload,
   MetadataPayload,
 } from '~types/redux'
 
@@ -16,7 +16,9 @@ export const createCapture = (
   payload,
 })
 
-export const deleteCapture = (payload: CapturePayload): CaptureActions => ({
+export const deleteCapture = (
+  payload: DeleteCapturePayload
+): CaptureActions => ({
   type: constants.CAPTURE_DELETE,
   payload,
 })

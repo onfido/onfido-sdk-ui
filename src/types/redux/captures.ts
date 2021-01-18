@@ -13,25 +13,38 @@ type CaptureMetadata = {
   variant?: FaceCaptureVariants
 }
 
+type MetadataState = {
+  metadata: CaptureMetadata & { id: string }
+}
+
 export type CapturePayload = {
+  base64?: string
+  blob: Blob
+  id?: string
   method: CaptureMethods
+  sdkMetadata: SdkMetadata
   side?: DocumentSides
 }
 
 export type DocumentCapture = {
-  blob: Blob
-  sdkMetadata: SdkMetadata
   documentType: DocumentTypes | PoaTypes
   id: string
-  metadata: CaptureMetadata & { id: string }
+  isPreviewCropped?: boolean
 } & CapturePayload
 
 export type FaceCapture = {
-  snapshot?: Blob
+  snapshot?: {
+    blob: Blob
+    filename: string
+  }
   variant: FaceCaptureVariants
   id: string
-  metadata: CaptureMetadata & { id: string }
 } & CapturePayload
+
+export type DeleteCapturePayload = {
+  method: CaptureMethods
+  side?: DocumentSides
+}
 
 export type MetadataPayload = {
   captureId: string
@@ -45,7 +58,7 @@ export type CaptureActions =
     }
   | {
       type: typeof constants.CAPTURE_DELETE
-      payload: CapturePayload
+      payload: DeleteCapturePayload
     }
   | {
       type: typeof constants.SET_CAPTURE_METADATA
@@ -54,9 +67,9 @@ export type CaptureActions =
   | { type: typeof constants.RESET_STORE }
 
 export type CaptureState = {
-  document_front?: DocumentCapture
-  document_back?: DocumentCapture
-  face?: FaceCapture
+  document_front?: DocumentCapture & MetadataState
+  document_back?: DocumentCapture & MetadataState
+  face?: FaceCapture & MetadataState
 }
 
 export type CaptureKeys = keyof CaptureState

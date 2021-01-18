@@ -20,30 +20,24 @@ import type {
   DocumentSides,
   ImageResizeInfo,
   SdkMetadata,
-  FlowVariants,
 } from '~types/commons'
-import type { DocumentTypes, PoaTypes } from '~types/steps'
+import type { DocumentCapture } from '~types/redux'
+import type { ChangeFlowProp, RouterProps } from '~types/routers'
 
 type Props = {
-  actions: {
-    deleteCapture: () => void
-    createCapture: (...args: unknown[]) => void
-  }
-  changeFlowTo: (newFlow: FlowVariants) => void
-  documentType: DocumentTypes
+  changeFlowTo: ChangeFlowProp
   forceCrossDevice: boolean
   hasCamera: boolean
   isPoA: boolean
   mobileFlow: boolean
   nextStep: () => void
-  poaDocumentType: PoaTypes
   side?: DocumentSides
   subTitle: string
   translate: (key: string) => string
   uploadFallback: boolean
   useLiveDocumentCapture: boolean
   useWebcam: boolean
-}
+} & RouterProps
 
 type CapturePayload = {
   base64?: string
@@ -70,9 +64,13 @@ class Document extends Component<Props> {
       nextStep,
       mobileFlow,
     } = this.props
-    const documentCaptureData = {
+
+    const documentCaptureData: DocumentCapture = {
       ...payload,
-      sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
+      sdkMetadata: addDeviceRelatedProperties(
+        payload.sdkMetadata,
+        mobileFlow
+      ) as SdkMetadata,
       method: 'document',
       documentType: isPoA ? poaDocumentType : documentType,
       side,
@@ -89,7 +87,7 @@ class Document extends Component<Props> {
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
 
-  handleError = () => this.props.actions.deleteCapture()
+  handleError = () => this.props.actions.deleteCapture({ method: 'face' })
 
   handleFileSelected = (file: File) =>
     validateFile(file, this.handleUpload, this.handleError)
