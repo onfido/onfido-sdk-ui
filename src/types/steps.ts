@@ -24,11 +24,7 @@ export type PoaTypes =
   | 'benefit_letters'
   | 'government_letter'
 
-export type StepOptionWelcome = {
-  title?: string
-  descriptions?: string[]
-  nextButton?: string
-}
+export type RequestedVariant = 'standard' | 'video'
 
 export type DocumentTypeConfig =
   | boolean
@@ -37,10 +33,16 @@ export type DocumentTypeConfig =
     }
 
 type CaptureOptions = {
-  requestedVariant?: 'standard' | 'video'
+  requestedVariant?: RequestedVariant
   uploadFallback?: boolean
   useUploader?: boolean
   useWebcam?: boolean
+}
+
+export type StepOptionWelcome = {
+  title?: string
+  descriptions?: string[]
+  nextButton?: string
 }
 
 export type StepOptionDocument = {
