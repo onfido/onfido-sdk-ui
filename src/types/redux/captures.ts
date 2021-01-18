@@ -58,3 +58,5 @@ export type CaptureState = {
   document_back?: DocumentCapture
   face?: FaceCapture
 }
+
+export type CaptureKeys = keyof CaptureState

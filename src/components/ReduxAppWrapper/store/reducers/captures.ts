@@ -2,15 +2,13 @@ import * as constants from '~types/redux/constants'
 import { cleanFalsy } from '~utils/array'
 import { omit } from '~utils/object'
 
-import type { CaptureActions, CaptureState } from '~types/redux'
-
-type StateKeys = keyof CaptureState
+import type { CaptureActions, CaptureState, CaptureKeys } from '~types/redux'
 
 const initialState: CaptureState = {}
 
 const stateKey = (arr: string[]) => cleanFalsy(arr).join('_')
 const getKeyByCaptureId = (captures: CaptureState = {}, captureId: string) =>
-  (Object.keys(captures) as StateKeys[]).find(
+  (Object.keys(captures) as CaptureKeys[]).find(
     (key) => captures[key].id === captureId
   )
 
