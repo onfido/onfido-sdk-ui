@@ -36,8 +36,10 @@ export type DocumentTypeConfig =
       country: string
     }
 
+export type RequestedVariant = 'standard' | 'video'
+
 type CaptureOptions = {
-  requestedVariant?: 'standard' | 'video'
+  requestedVariant?: RequestedVariant
   uploadFallback?: boolean
   useUploader?: boolean
   useWebcam?: boolean

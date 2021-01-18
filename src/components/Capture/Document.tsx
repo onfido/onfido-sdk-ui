@@ -12,32 +12,16 @@ import { compose } from '~utils/func'
 import { validateFile } from '~utils/file'
 import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
-import { localised } from '../../locales'
+import { localised, LocalisedType } from '../../locales'
 import FallbackButton from '../Button/FallbackButton'
 import style from './style.scss'
 
-import type {
-  DocumentSides,
-  ImageResizeInfo,
-  SdkMetadata,
-} from '~types/commons'
+import type { ImageResizeInfo, SdkMetadata } from '~types/commons'
 import type { DocumentCapture } from '~types/redux'
-import type { ChangeFlowProp, RouterProps } from '~types/routers'
+import type { StepComponentDocumentProps } from '~types/routers'
+import type { Options as OptionsProps } from './withOptions'
 
-type Props = {
-  changeFlowTo: ChangeFlowProp
-  forceCrossDevice: boolean
-  hasCamera: boolean
-  isPoA: boolean
-  mobileFlow: boolean
-  nextStep: () => void
-  side?: DocumentSides
-  subTitle: string
-  translate: (key: string) => string
-  uploadFallback: boolean
-  useLiveDocumentCapture: boolean
-  useWebcam: boolean
-} & RouterProps
+type Props = StepComponentDocumentProps & LocalisedType & OptionsProps
 
 type CapturePayload = {
   base64?: string
@@ -120,7 +104,6 @@ class Document extends Component<Props> {
       isPoA,
       side,
       translate,
-      subTitle,
       uploadFallback,
     } = this.props
 
@@ -130,7 +113,7 @@ class Document extends Component<Props> {
       ].title
     )
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
-    const renderTitle = <PageTitle {...{ title, subTitle }} smaller />
+    const renderTitle = <PageTitle title={title} smaller />
     const renderFallback = isDesktop
       ? this.renderCrossDeviceFallback
       : this.renderUploadFallback
