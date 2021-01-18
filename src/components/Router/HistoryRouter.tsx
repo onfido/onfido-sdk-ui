@@ -23,7 +23,7 @@ import type {
   StepConfig,
   StepConfigDocument,
 } from '~types/steps'
-import type { CaptureKeys, StepIndexType, InternalRouterProps } from './types'
+import type { CaptureKeys, StepIndexType, RouterProps } from './types'
 
 type Props = {
   crossDeviceClientError?: (name?: string) => void
@@ -32,7 +32,7 @@ type Props = {
   step?: number
   stepIndexType: StepIndexType
   steps?: StepConfig[]
-} & InternalRouterProps
+} & RouterProps
 
 type HistoryLocationState = {
   step: number
