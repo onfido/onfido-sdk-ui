@@ -1,8 +1,11 @@
-import type { CaptureState } from 'components/ReduxAppWrapper/types'
-import type { ComponentStep } from './StepComponentMap'
-import { CameraDetectionProps } from '../Capture/withCameraDetection'
+import type { ComponentType } from 'preact'
 
-import type { FlowVariants, NarrowSdkOptions } from '~types/commons'
+import type { ApiRequest } from '~types/api'
+import type {
+  ExtendedStepConfig,
+  FlowVariants,
+  NarrowSdkOptions,
+} from '~types/commons'
 import type { ReduxProps } from 'components/App/withConnect'
 
 export type ChangeFlowProp = (
@@ -22,17 +25,26 @@ export type FlowChangeCallback = (
   }
 ) => void
 
-export type CaptureKeys = keyof CaptureState
+export type TriggerOnErrorProp = (response: ApiRequest) => void
 
 export type StepIndexType = 'client' | 'user'
+
+export type ComponentStep = {
+  component: ComponentType
+  step: ExtendedStepConfig
+  stepIndex: number
+}
 
 export type RouterOwnProps = {
   options: NarrowSdkOptions
 } & ReduxProps
 
-type RouterBaseProps = RouterOwnProps & CameraDetectionProps
+export type CameraDetectionProps = {
+  hasCamera?: boolean
+}
 
 export type RouterProps = {
   allowCrossDeviceFlow: boolean
   onFlowChange?: FlowChangeCallback
-} & RouterBaseProps
+} & RouterOwnProps &
+  CameraDetectionProps

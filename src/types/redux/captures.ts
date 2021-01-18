@@ -1,4 +1,4 @@
-import * as constants from '../constants'
+import * as constants from './constants'
 import type {
   CaptureMethods,
   DocumentSides,
@@ -58,3 +58,5 @@ export type CaptureState = {
   document_back?: DocumentCapture
   face?: FaceCapture
 }
+
+export type CaptureKeys = keyof CaptureState

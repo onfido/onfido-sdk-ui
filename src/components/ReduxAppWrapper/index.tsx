@@ -3,7 +3,8 @@ import { useEffect, useState } from 'preact/hooks'
 import { createStore, Store } from 'redux'
 import { Provider as ReduxProvider } from 'react-redux'
 import reducer, { RootState } from './store/reducers'
-import type { CaptureActions, GlobalActions } from './types'
+
+import type { CaptureActions, GlobalActions } from '~types/redux'
 
 type Props = {
   children: VNode

@@ -7,28 +7,35 @@ import {
   MemoryHistory,
 } from 'history'
 
-import {
-  buildComponentsList,
-  ExtendedStepTypes,
-  ComponentStep,
-} from './StepComponentMap'
+import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
 import type { ApiRequest } from '~types/api'
-import type { FlowVariants, MobileConfig } from '~types/commons'
+import type {
+  ExtendedStepTypes,
+  FlowVariants,
+  MobileConfig,
+} from '~types/commons'
+import type { CaptureKeys } from '~types/redux'
+import type {
+  ComponentStep,
+  ChangeFlowProp,
+  RouterProps,
+  StepIndexType,
+  TriggerOnErrorProp,
+} from '~types/routers'
 import type {
   DocumentTypes,
   StepConfig,
   StepConfigDocument,
 } from '~types/steps'
-import type {
-  ChangeFlowProp,
-  CaptureKeys,
-  StepIndexType,
-  RouterProps,
-} from './types'
+
+type FormattedError = {
+  type: 'expired_token' | 'exception'
+  message: string
+}
 
 type Props = {
   crossDeviceClientError?: (name?: string) => void
@@ -154,10 +161,7 @@ export default class HistoryRouter extends Component<Props, State> {
     this.props.options.events.emit('complete', data)
   }
 
-  formattedError = ({
-    response,
-    status,
-  }: ApiRequest): { type: 'expired_token' | 'exception'; message: string } => {
+  formattedError = ({ response, status }: ApiRequest): FormattedError => {
     const errorResponse =
       typeof response === 'string' ? {} : response.error || response || {}
 
@@ -176,7 +180,7 @@ export default class HistoryRouter extends Component<Props, State> {
     return { type, message }
   }
 
-  triggerOnError = ({ response, status }: ApiRequest): void => {
+  triggerOnError: TriggerOnErrorProp = ({ response, status }) => {
     if (status === 0) {
       return
     }
