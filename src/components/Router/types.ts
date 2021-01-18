@@ -5,6 +5,12 @@ import { CameraDetectionProps } from '../Capture/withCameraDetection'
 import type { FlowVariants, NarrowSdkOptions } from '~types/commons'
 import type { ReduxProps } from 'components/App/withConnect'
 
+export type ChangeFlowProp = (
+  newFlow: FlowVariants,
+  newStep?: number,
+  excludeStepFromHistory?: boolean
+) => void
+
 export type FlowChangeCallback = (
   newFlow: FlowVariants,
   newStep: number,

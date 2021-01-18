@@ -23,7 +23,12 @@ import type {
   StepConfig,
   StepConfigDocument,
 } from '~types/steps'
-import type { CaptureKeys, StepIndexType, RouterProps } from './types'
+import type {
+  ChangeFlowProp,
+  CaptureKeys,
+  StepIndexType,
+  RouterProps,
+} from './types'
 
 type Props = {
   crossDeviceClientError?: (name?: string) => void
@@ -106,11 +111,11 @@ export default class HistoryRouter extends Component<Props, State> {
     this.state.initialStep === this.state.step &&
     this.state.flow === 'captureSteps'
 
-  changeFlowTo = (
-    newFlow: FlowVariants,
+  changeFlowTo: ChangeFlowProp = (
+    newFlow,
     newStep = 0,
     excludeStepFromHistory = false
-  ): void => {
+  ) => {
     const { flow: previousFlow, step: previousUserStepIndex } = this.state
     if (previousFlow === newFlow) return
 

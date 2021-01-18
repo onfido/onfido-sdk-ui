@@ -6,25 +6,20 @@ import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 
-import type { NormalisedSdkOptions, FlowVariants } from '~types/commons'
+import type { ApiRequest } from '~types/api'
 import type { ComponentStep } from './StepComponentMap'
-import type { ReduxProps } from 'components/App/withConnect'
+import type { ChangeFlowProp, RouterOwnProps } from './types'
 
 type Props = {
   back: () => void
-  changeFlowTo: (
-    newFlow: FlowVariants,
-    newStep?: number,
-    excludeStepFromHistory?: boolean
-  ) => void
+  changeFlowTo: ChangeFlowProp
   componentsList: ComponentStep[]
   disableNavigation: boolean
   nextStep: () => void
   previousStep: () => void
-  triggerOnError: (response: Record<string, unknown>) => void
-  options: NormalisedSdkOptions
+  triggerOnError: (response: ApiRequest) => void
   step: number
-} & ReduxProps
+} & RouterOwnProps
 
 class StepsRouter extends Component<Props> {
   private container?: HTMLDivElement
@@ -54,6 +49,7 @@ class StepsRouter extends Component<Props> {
       options: { mobileFlow, ...globalUserOptions },
       ...otherProps
     } = this.props
+
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
@@ -61,17 +57,23 @@ class StepsRouter extends Component<Props> {
       ...options,
       ...globalUserOptions,
       ...otherProps,
-      mobileFlow,
       back,
+      mobileFlow,
+      resetSdkFocus: this.resetSdkFocus,
+      trackScreen: this.trackScreen,
     }
+
     const stepId = `onfido-step${this.props.step}` // to trigger update in NavigationBar on step change
+
     // This prevents the logo, cobrand UI elements from appearing late
     const hideLogoLogic = mobileFlow
       ? hideOnfidoLogo
       : globalUserOptions.enterpriseFeatures?.hideOnfidoLogo && hideOnfidoLogo
+
     const cobrandLogic = mobileFlow
       ? cobrand
       : globalUserOptions.enterpriseFeatures?.cobrand && cobrand
+
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
@@ -96,13 +98,7 @@ class StepsRouter extends Component<Props> {
             [theme.scrollableContent]: !isFullScreen,
           })}
         >
-          <CurrentComponent
-            {...{
-              ...passedProps,
-              trackScreen: this.trackScreen,
-              resetSdkFocus: this.resetSdkFocus,
-            }}
-          />
+          <CurrentComponent {...passedProps} />
         </div>
         {!hideLogoLogic && cobrandLogic ? (
           <div className={classNames({ [theme.cobrandFooter]: cobrandLogic })}>
