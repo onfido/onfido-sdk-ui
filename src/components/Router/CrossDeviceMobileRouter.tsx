@@ -42,7 +42,7 @@ type State = {
   language?: SupportedLanguages | LocaleConfig
   loading?: boolean
   roomId?: string
-  socket?: SocketIOClient.Socket
+  socket: SocketIOClient.Socket
   step?: number
   stepIndexType?: StepIndexType
   steps?: StepConfig[]
@@ -222,6 +222,7 @@ export default class CrossDeviceMobileRouter extends Component<Props, State> {
 
   sendClientSuccess = (): void => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
+
     const captures = (Object.keys(this.props.captures) as CaptureKeys[]).reduce(
       (acc, key) => {
         const dataWhitelist = [
@@ -237,16 +238,20 @@ export default class CrossDeviceMobileRouter extends Component<Props, State> {
       },
       []
     )
+
     this.sendMessage('client success', { captures })
   }
 
   renderLoadingOrErrors = (): VNode => {
-    const steps = this.state.steps
+    const { hasCamera } = this.props
+    const { steps } = this.state
     const shouldStrictlyUseCamera =
       steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
-    const { hasCamera } = this.props
 
-    if (this.state.loading) return <WrappedSpinner disableNavigation />
+    if (this.state.loading) {
+      return <WrappedSpinner disableNavigation />
+    }
+
     if (this.state.crossDeviceError) {
       return (
         <WrappedError
@@ -255,6 +260,7 @@ export default class CrossDeviceMobileRouter extends Component<Props, State> {
         />
       )
     }
+
     if (!hasCamera && shouldStrictlyUseCamera) {
       return (
         <WrappedError
@@ -263,6 +269,7 @@ export default class CrossDeviceMobileRouter extends Component<Props, State> {
         />
       )
     }
+
     return null
   }
 

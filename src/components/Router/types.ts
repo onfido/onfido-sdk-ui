@@ -1,10 +1,8 @@
-import { EventEmitter2 } from 'eventemitter2'
-
 import type { CaptureState } from 'components/ReduxAppWrapper/types'
 import type { ComponentStep } from './StepComponentMap'
 import { CameraDetectionProps } from '../Capture/withCameraDetection'
 
-import type { FlowVariants, NormalisedSdkOptions } from '~types/commons'
+import type { FlowVariants, NarrowSdkOptions } from '~types/commons'
 import type { ReduxProps } from 'components/App/withConnect'
 
 export type FlowChangeCallback = (
@@ -22,20 +20,8 @@ export type CaptureKeys = keyof CaptureState
 
 export type StepIndexType = 'client' | 'user'
 
-type OmittedSdkOptions = Omit<
-  NormalisedSdkOptions,
-  | 'containerEl'
-  | 'containerId'
-  | 'isModalOpen'
-  | 'onModalRequestClose'
-  | 'shouldCloseOnOverlayClick'
-  | 'useModal'
-> & {
-  events?: EventEmitter2.emitter
-}
-
 export type RouterOwnProps = {
-  options: OmittedSdkOptions
+  options: NarrowSdkOptions
 } & ReduxProps
 
 type RouterBaseProps = RouterOwnProps & CameraDetectionProps
