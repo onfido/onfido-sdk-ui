@@ -7,32 +7,23 @@ import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 
 import type {
-  ChangeFlowProp,
-  TriggerOnErrorProp,
-  ComponentStep,
+  TrackScreenProp,
   RouterOwnProps,
+  PropsFromRouter,
+  StepComponentProps,
 } from '~types/routers'
 
 type Props = {
-  back: () => void
-  changeFlowTo: ChangeFlowProp
-  componentsList: ComponentStep[]
   disableNavigation: boolean
-  nextStep: () => void
-  previousStep: () => void
-  triggerOnError: TriggerOnErrorProp
-  step: number
-} & RouterOwnProps
+} & PropsFromRouter &
+  RouterOwnProps
 
 class StepsRouter extends Component<Props> {
   private container?: HTMLDivElement
 
   resetSdkFocus = () => this.container.focus()
 
-  trackScreen = (
-    screenNameHierarchy: string | string[],
-    properties: Record<string, unknown> = {}
-  ) => {
+  trackScreen: TrackScreenProp = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
     sendScreen([step.type, ...wrapArray(screenNameHierarchy)], {
       ...properties,
@@ -56,7 +47,7 @@ class StepsRouter extends Component<Props> {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
-    const passedProps = {
+    const passedProps: StepComponentProps = {
       ...options,
       ...globalUserOptions,
       ...otherProps,
