@@ -1,3 +1,4 @@
+import { EventEmitter2 } from 'eventemitter2'
 import { EnterpriseFeatures } from './enterprise'
 import { SupportedLanguages, LocaleConfig } from './locales'
 import { DocumentTypes, PoaTypes, StepConfig } from './steps'
@@ -5,6 +6,18 @@ import { SdkOptions } from './sdk'
 
 export interface NormalisedSdkOptions extends SdkOptions {
   steps?: StepConfig[]
+}
+
+export type NarrowSdkOptions = Omit<
+  NormalisedSdkOptions,
+  | 'containerEl'
+  | 'containerId'
+  | 'isModalOpen'
+  | 'onModalRequestClose'
+  | 'shouldCloseOnOverlayClick'
+  | 'useModal'
+> & {
+  events?: EventEmitter2.emitter
 }
 
 export type CaptureMethods = 'document' | 'face'
