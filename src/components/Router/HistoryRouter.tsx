@@ -23,18 +23,15 @@ import type {
   StepConfig,
   StepConfigDocument,
 } from '~types/steps'
-import type { StepIndexType, InternalRouterProps } from './types'
-import type { CaptureState } from 'components/ReduxAppWrapper/types'
-
-type CaptureKeys = keyof CaptureState
+import type { CaptureKeys, StepIndexType, InternalRouterProps } from './types'
 
 type Props = {
-  step?: number
-  stepIndexType: StepIndexType
-  steps?: StepConfig[]
   crossDeviceClientError?: (name?: string) => void
   mobileConfig?: MobileConfig
   sendClientSuccess?: () => void
+  step?: number
+  stepIndexType: StepIndexType
+  steps?: StepConfig[]
 } & InternalRouterProps
 
 type HistoryLocationState = {

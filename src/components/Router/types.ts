@@ -1,10 +1,24 @@
 import { EventEmitter2 } from 'eventemitter2'
 
+import type { CaptureState } from 'components/ReduxAppWrapper/types'
 import type { ComponentStep } from './StepComponentMap'
 import { CameraDetectionProps } from '../Capture/withCameraDetection'
 
 import type { FlowVariants, NormalisedSdkOptions } from '~types/commons'
 import type { ReduxProps } from 'components/App/withConnect'
+
+export type FlowChangeCallback = (
+  newFlow: FlowVariants,
+  newStep: number,
+  previousFlow: FlowVariants,
+  payload: {
+    userStepIndex: number
+    clientStepIndex: number
+    clientStep: ComponentStep
+  }
+) => void
+
+export type CaptureKeys = keyof CaptureState
 
 export type StepIndexType = 'client' | 'user'
 
@@ -20,24 +34,13 @@ type OmittedSdkOptions = Omit<
   events?: EventEmitter2.emitter
 }
 
-type RouterOwnProps = {
+export type RouterOwnProps = {
   options: OmittedSdkOptions
 } & ReduxProps
 
-type RouterProps = RouterOwnProps & CameraDetectionProps
+type RouterBaseProps = RouterOwnProps & CameraDetectionProps
 
-type FlowChangeCallback = (
-  newFlow: FlowVariants,
-  newStep: number,
-  previousFlow: FlowVariants,
-  payload: {
-    userStepIndex: number
-    clientStepIndex: number
-    clientStep: ComponentStep
-  }
-) => void
-
-export type InternalRouterProps = {
+export type RouterProps = {
   allowCrossDeviceFlow: boolean
   onFlowChange?: FlowChangeCallback
-} & RouterProps
+} & RouterBaseProps
