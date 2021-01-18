@@ -1,9 +1,11 @@
 export type StepTypes = 'welcome' | 'document' | 'poa' | 'face' | 'complete'
+
 export type DocumentTypes =
   | 'passport'
   | 'driving_licence'
   | 'national_identity_card'
   | 'residence_permit'
+
 export type PoaTypes =
   | 'bank_building_society_statement'
   | 'utility_bill'

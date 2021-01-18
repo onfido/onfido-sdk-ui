@@ -31,7 +31,7 @@ export type GlobalActions =
 
 export type GlobalState = {
   documentType?: DocumentTypes
-  idDocumentIssuingCountry: CountryData
+  idDocumentIssuingCountry?: CountryData
   poaDocumentType?: PoaTypes
   roomId?: string
   socket?: SocketIOClient.Socket
