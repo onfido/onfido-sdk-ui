@@ -11,7 +11,6 @@ import { EventEmitter2 } from 'eventemitter2'
 import { pick } from '~utils/object'
 import { isDesktop, getUnsupportedMobileBrowserError } from '~utils/index'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
-import { noop } from '~utils/func'
 import { createSocket } from '~utils/crossDeviceSync'
 import { buildComponentsList, ComponentStep } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
@@ -149,13 +148,13 @@ class CrossDeviceMobileRouter extends Component<
     const roomId = window.location.pathname.substring(3) || props.options.roomId
 
     this.state = {
-      token: null,
-      steps: null,
-      step: null,
-      socket: createSocket(url),
-      roomId,
       crossDeviceError: null,
       loading: true,
+      roomId,
+      socket: createSocket(url),
+      step: null,
+      steps: null,
+      token: null,
     }
 
     if (restrictedXDevice && isDesktop) {
@@ -261,9 +260,11 @@ class CrossDeviceMobileRouter extends Component<
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
     )
+
     if (urls) {
       this.props.actions.setUrls(urls)
     }
+
     if (poaDocumentType) {
       this.props.actions.setPoADocumentType(poaDocumentType)
     } else {
@@ -272,8 +273,10 @@ class CrossDeviceMobileRouter extends Component<
         this.props.actions.setIdDocumentIssuingCountry(idDocumentIssuingCountry)
       }
     }
+
     if (enterpriseFeatures) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+
       if (
         enterpriseFeatures.hideOnfidoLogo &&
         validEnterpriseFeatures?.hideOnfidoLogo
@@ -281,6 +284,7 @@ class CrossDeviceMobileRouter extends Component<
         this.props.actions.hideOnfidoLogo(true)
       } else {
         this.props.actions.hideOnfidoLogo(false)
+
         if (enterpriseFeatures.cobrand && validEnterpriseFeatures?.cobrand) {
           this.props.actions.showCobranding(enterpriseFeatures.cobrand)
         }
@@ -289,6 +293,7 @@ class CrossDeviceMobileRouter extends Component<
       this.props.actions.hideOnfidoLogo(false)
       this.props.actions.showCobranding(null)
     }
+
     this.props.actions.acceptTerms()
   }
 
@@ -349,15 +354,18 @@ class CrossDeviceMobileRouter extends Component<
   }
 
   render() {
-    const { language } = this.state
+    const { language, step, steps, stepIndexType } = this.state
+
     return (
       <LocaleProvider language={language}>
         {this.renderLoadingOrErrors() || (
           <HistoryRouter
             {...this.props}
-            {...this.state}
-            sendClientSuccess={this.sendClientSuccess}
             crossDeviceClientError={this.setError}
+            sendClientSuccess={this.sendClientSuccess}
+            step={step}
+            stepIndexType={stepIndexType}
+            steps={steps}
           />
         )}
       </LocaleProvider>
@@ -452,19 +460,23 @@ class MainRouter extends Component<InternalRouterProps, MainState> {
     this.renderUnsupportedBrowserError() || (
       <HistoryRouter
         {...this.props}
-        steps={this.props.options.steps}
-        onFlowChange={this.onFlowChange}
         mobileConfig={this.generateMobileConfig()}
+        onFlowChange={this.onFlowChange}
+        stepIndexType="user"
+        steps={this.props.options.steps}
       />
     )
 }
 
 type HistoryRouterProps = {
-  crossDeviceClientError: (name?: string) => void
-  mobileConfig: Record<string, unknown>
-  sendClientSuccess: () => void
-} & InternalRouterProps &
-  CrossDeviceState
+  step?: number
+  stepIndexType: StepIndexType
+  steps?: StepConfig[]
+  crossDeviceClientError?: (name?: string) => void
+  mobileConfig?: MobileConfig
+  sendClientSuccess?: () => void
+} & InternalRouterProps
+// & CrossDeviceState
 
 type HistoryLocationState = {
   step: number
@@ -694,11 +706,6 @@ class HistoryRouter extends Component<HistoryRouterProps, HistoryRouterState> {
       />
     )
   }
-}
-
-HistoryRouter.defaultProps = {
-  onFlowChange: noop,
-  stepIndexType: 'user',
 }
 
 export default withCameraDetection<RouterOwnProps>(Router)
