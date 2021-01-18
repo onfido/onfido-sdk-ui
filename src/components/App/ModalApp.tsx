@@ -11,6 +11,12 @@ import {
   getUrlsFromJWT,
   getEnterpriseFeaturesFromJWT,
 } from '~utils/jwt'
+
+import type { NormalisedSdkOptions } from '~types/commons'
+import type {
+  EnterpriseFeatures,
+  EnterpriseCobranding,
+} from '~types/enterprise'
 import type { SdkOptions, SdkError, SdkResponse } from '~types/sdk'
 import type {
   StepTypes,
@@ -18,18 +24,14 @@ import type {
   StepConfigDocument,
   DocumentTypes,
 } from '~types/steps'
-import type {
-  EnterpriseFeatures,
-  EnterpriseCobranding,
-} from '~types/enterprise'
 
-import withConnect, { PropsFromRedux } from './withConnect'
+import withConnect, { ReduxProps } from './withConnect'
 
 export type PassedProps = {
-  options: SdkOptions
+  options: NormalisedSdkOptions
 }
 
-type Props = PassedProps & PropsFromRedux
+type Props = PassedProps & ReduxProps
 
 class ModalApp extends Component<Props> {
   private events: EventEmitter2.emitter
@@ -62,8 +64,8 @@ class ModalApp extends Component<Props> {
   }
 
   jwtValidation = (
-    prevOptions: SdkOptions = {},
-    newOptions: SdkOptions = {}
+    prevOptions: NormalisedSdkOptions = {},
+    newOptions: NormalisedSdkOptions = {}
   ) => {
     if (prevOptions.token !== newOptions.token) {
       try {
@@ -94,7 +96,10 @@ class ModalApp extends Component<Props> {
     this.events.on('error', onError)
   }
 
-  rebindEvents = (oldOptions: SdkOptions, newOptions: SdkOptions) => {
+  rebindEvents = (
+    oldOptions: NormalisedSdkOptions,
+    newOptions: NormalisedSdkOptions
+  ) => {
     this.events.off('complete', oldOptions.onComplete)
     this.events.off('error', oldOptions.onError)
     this.bindEvents(newOptions.onComplete, newOptions.onError)
@@ -135,8 +140,8 @@ class ModalApp extends Component<Props> {
   }
 
   prepareInitialStore = (
-    prevOptions: SdkOptions = {},
-    options: SdkOptions = {}
+    prevOptions: NormalisedSdkOptions = {},
+    options: NormalisedSdkOptions = {}
   ) => {
     const { userDetails: { smsNumber } = {}, steps, token } = options
     const {

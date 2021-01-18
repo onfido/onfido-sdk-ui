@@ -1,3 +1,12 @@
+import { EnterpriseFeatures } from './enterprise'
+import { SupportedLanguages, LocaleConfig } from './locales'
+import { DocumentTypes, PoaTypes, StepConfig } from './steps'
+import { SdkOptions } from './sdk'
+
+export interface NormalisedSdkOptions extends SdkOptions {
+  steps?: StepConfig[]
+}
+
 export type CaptureMethods = 'document' | 'face'
 
 export type CaptureMethodVariants = 'live' | 'html5'
@@ -49,3 +58,43 @@ export type UrlsConfig = {
 const FLOW_CAPTURE = 'captureSteps'
 const FLOW_CROSS_DEVICE = 'crossDeviceSteps'
 export type FlowVariants = typeof FLOW_CAPTURE | typeof FLOW_CROSS_DEVICE
+
+export type ErrorTypes =
+  | 'BLUR_DETECTED'
+  | 'CAMERA_INACTIVE'
+  | 'CAMERA_INACTIVE_NO_FALLBACK'
+  | 'CAMERA_NOT_WORKING'
+  | 'CAMERA_NOT_WORKING_NO_FALLBACK'
+  | 'CUT_OFF_DETECTED'
+  | 'FORBIDDEN_CLIENT_ERROR'
+  | 'GENERIC_CLIENT_ERROR'
+  | 'GLARE_DETECTED'
+  | 'INTERRUPTED_FLOW_ERROR'
+  | 'INVALID_CAPTURE'
+  | 'INVALID_SIZE'
+  | 'INVALID_TYPE'
+  | 'MULTIPLE_FACES_ERROR'
+  | 'NO_FACE_ERROR'
+  | 'REQUEST_ERROR'
+  | 'SMS_FAILED'
+  | 'SMS_OVERUSE'
+  | 'UNSUPPORTED_ANDROID_BROWSER'
+  | 'UNSUPPORTED_FILE'
+  | 'UNSUPPORTED_IOS_BROWSER'
+  | 'VIDEO_TIMEOUT'
+
+export type MobileConfig = {
+  clientStepIndex: number
+  deviceHasCameraSupport: boolean
+  disableAnalytics: boolean
+  documentType: DocumentTypes
+  enterpriseFeatures: EnterpriseFeatures
+  idDocumentIssuingCountry: CountryData
+  language: SupportedLanguages | LocaleConfig
+  poaDocumentType: PoaTypes
+  step: number
+  steps: StepConfig[]
+  token: string
+  urls: UrlsConfig
+  woopraCookie: string
+}

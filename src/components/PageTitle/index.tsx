@@ -12,7 +12,7 @@ type Props = {
 }
 
 class PageTitle extends Component<Props> {
-  private container: Optional<HTMLSpanElement>
+  private container?: HTMLSpanElement
 
   componentDidUpdate(prevProps: Props) {
     const { title, subTitle } = this.props
@@ -24,6 +24,7 @@ class PageTitle extends Component<Props> {
 
   render() {
     const { title, subTitle, smaller, isFullScreen, className } = this.props
+
     return (
       <div
         className={classNames(

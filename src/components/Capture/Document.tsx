@@ -22,7 +22,7 @@ import type {
   SdkMetadata,
   FlowVariants,
 } from '~types/commons'
-import type { DocumentTypes, PoATypes } from '~types/steps'
+import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 type Props = {
   actions: {
@@ -36,7 +36,7 @@ type Props = {
   isPoA: boolean
   mobileFlow: boolean
   nextStep: () => void
-  poaDocumentType: PoATypes
+  poaDocumentType: PoaTypes
   side?: DocumentSides
   subTitle: string
   translate: (key: string) => string

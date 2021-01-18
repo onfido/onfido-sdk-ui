@@ -4,19 +4,19 @@ import { actions } from '../ReduxAppWrapper/store/actions/'
 import type { RootState } from '../ReduxAppWrapper/store/reducers'
 import type { CaptureActions, GlobalActions } from '../ReduxAppWrapper/types'
 
+type CombinedActions = CaptureActions | GlobalActions
+
 const mapStateToProps = (state: RootState) => ({
   ...state.globals,
   captures: state.captures,
 })
 
-const mapDispatchToProps = (
-  dispatch: Dispatch<CaptureActions | GlobalActions>
-) => ({
+const mapDispatchToProps = (dispatch: Dispatch<CombinedActions>) => ({
   actions: bindActionCreators(actions, dispatch),
 })
 
 const connector = connect(mapStateToProps, mapDispatchToProps)
 
-export type PropsFromRedux = ConnectedProps<typeof connector>
+export type ReduxProps = ConnectedProps<typeof connector>
 
 export default connector

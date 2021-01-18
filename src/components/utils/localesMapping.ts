@@ -1,7 +1,7 @@
-import { DocumentTypes, PoATypes } from '~types/steps'
+import { DocumentTypes, PoaTypes } from '~types/steps'
 
 export const CONFIRM_PREVIEWS_LOCALES_MAPPING: Record<
-  DocumentTypes | PoATypes,
+  DocumentTypes | PoaTypes,
   string
 > = {
   passport: 'doc_confirmation.body_passport',
@@ -32,7 +32,7 @@ type CaptureLocale = {
 }
 
 export const DOCUMENT_CAPTURE_LOCALES_MAPPING: Record<
-  DocumentTypes | PoATypes,
+  DocumentTypes | PoaTypes,
   CaptureLocale
 > = {
   passport: {
@@ -144,7 +144,7 @@ type PoaGuidanceLocale = {
 }
 
 export const POA_GUIDANCE_LOCALES_MAPPING: Record<
-  PoATypes,
+  PoaTypes,
   PoaGuidanceLocale
 > = {
   bank_building_society_statement: {

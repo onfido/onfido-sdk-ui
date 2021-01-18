@@ -28,9 +28,9 @@ import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils/index'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 
 import type { FlowVariants } from '~types/commons'
-
 import type {
   DocumentTypes,
+  PoaTypes,
   StepTypes,
   StepConfig,
   StepConfigDocument,
@@ -38,8 +38,8 @@ import type {
 } from '~types/steps'
 
 const STEP_CROSS_DEVICE = 'crossDevice'
-type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
-type ExtendedStepConfig =
+export type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
+export type ExtendedStepConfig =
   | StepConfig
   | { type: typeof STEP_CROSS_DEVICE; options?: never }
 
@@ -61,6 +61,7 @@ export const buildComponentsList = ({
 }: {
   flow: FlowVariants
   documentType: DocumentTypes
+  poaDocumentType: PoaTypes
   steps: StepConfig[]
   mobileFlow: boolean
   deviceHasCameraSupport: boolean

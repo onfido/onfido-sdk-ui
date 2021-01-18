@@ -1,12 +1,21 @@
-import { h } from 'preact'
+import { h, ComponentType } from 'preact'
 import { PureComponent } from 'preact/compat'
-import { checkIfHasWebcam, isSafari131 } from '~utils'
+import { checkIfHasWebcam, isSafari131 } from '~utils/index'
+import type { ReduxProps } from 'components/App/withConnect'
 
-export default (WrappedComponent) =>
-  class WithCameraDetection extends PureComponent {
-    state = {
+export type CameraDetectionProps = {
+  hasCamera?: boolean
+}
+
+export default function withCameraDetection<P extends ReduxProps>(
+  WrappedComponent: ComponentType<CameraDetectionProps>
+): ComponentType<P> {
+  return class WithCameraDetection extends PureComponent<P> {
+    state: CameraDetectionProps = {
       hasCamera: null,
     }
+
+    private cameraCheckerIntervalId?: number = null
 
     componentDidMount() {
       // HACK: use of isSafari131 util function is a workaround specifically for
@@ -14,7 +23,7 @@ export default (WrappedComponent) =>
       //       on subsequent calls to enumerateDevices
       //       see https://bugs.webkit.org/show_bug.cgi?id=209580
       if (!isSafari131()) {
-        this.cameraCheckerIntervalId = setInterval(
+        this.cameraCheckerIntervalId = window.setInterval(
           this.checkCameraSupport,
           2000
         )
@@ -29,7 +38,7 @@ export default (WrappedComponent) =>
     }
 
     checkCameraSupport = () =>
-      checkIfHasWebcam((hasCamera) => {
+      checkIfHasWebcam((hasCamera: boolean) => {
         this.props.actions.setDeviceHasCameraSupport(hasCamera)
         this.setState({ hasCamera })
       })
@@ -46,3 +55,4 @@ export default (WrappedComponent) =>
       )
     }
   }
+}

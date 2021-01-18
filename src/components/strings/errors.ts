@@ -1,4 +1,12 @@
-export default {
+import type { ErrorTypes } from '~types/commons'
+
+type LocaleData = {
+  message: string
+  instruction: string
+  icon?: string
+}
+
+const errors: Record<ErrorTypes, LocaleData> = {
   INVALID_CAPTURE: {
     message: 'doc_confirmation.alert.no_doc_title',
     instruction: 'doc_confirmation.alert.no_doc_detail',
@@ -91,3 +99,5 @@ export default {
     icon: 'unsupportedBrowserIcon',
   },
 }
+
+export default errors
