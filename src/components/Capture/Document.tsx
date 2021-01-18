@@ -115,9 +115,7 @@ class Document extends Component<Props> {
       return (
         <DocumentAutoCapture
           {...propsWithErrorHandling}
-          renderTitle={renderTitle}
           renderFallback={renderFallback}
-          containerClassName={style.documentContainer}
           onValidCapture={this.handleCapture}
         />
       )

@@ -9,46 +9,49 @@ import CameraError from '../CameraError'
 import { postToBackend } from '~utils/sdkBackend'
 import style from '../Camera/style.scss'
 
+import type { ErrorCallback } from '~types/api'
+import type { SdkMetadata, UrlsConfig } from '~types/commons'
+import type { CapturePayload } from '~types/redux'
+import type { TrackScreenProp, TriggerOnErrorProp } from '~types/routers'
+
 const maxAttempts = 3
 
 const requestError = { name: 'REQUEST_ERROR', type: 'error' }
 
-/* type State = {
-  hasError: boolean,
+type Props = {
+  onError: () => void
+  onValidCapture: (payload: CapturePayload) => void
+  renderFallback: (text: string) => JSX.Element
+  token?: string
+  trackScreen: TrackScreenProp
+  triggerOnError: TriggerOnErrorProp
+  urls: UrlsConfig
 }
 
-type Props = {
-  urls: Object,
-  token: string,
-  onValidCapture: Function,
-  onError: Function,
-  triggerOnError: Function,
-  renderFallback: Function,
-  trackScreen: Function,
-} */
+type State = {
+  hasError: boolean
+}
 
-export default class DocumentAutoCapture extends Component {
-  webcam = null
-
-  interval
-
-  captureIds = []
+export default class DocumentAutoCapture extends Component<Props, State> {
+  private webcam: typeof Camera = null
+  private interval?: number
+  private captureIds: string[] = []
 
   state = {
     hasError: false,
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.start()
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     this.stop()
   }
 
-  screenshot = () => {
+  screenshot = (): void => {
     if (this.captureIds.length < maxAttempts) {
-      screenshot(this.webcam, (blob, sdkMetadata) =>
+      screenshot(this.webcam, (blob: Blob, sdkMetadata: SdkMetadata) =>
         this.handleScreenshotBlob(blob, sdkMetadata)
       )
     } else {
@@ -58,27 +61,33 @@ export default class DocumentAutoCapture extends Component {
     }
   }
 
-  start() {
+  start = (): void => {
     this.stop()
     this.interval = Visibility.every(1000, this.screenshot)
   }
 
-  stop() {
+  stop = (): void => {
     Visibility.stop(this.interval)
   }
 
-  handleScreenshotBlob = (blob, sdkMetadata) =>
+  handleScreenshotBlob = (blob: Blob, sdkMetadata: SdkMetadata): void =>
     blobToLossyBase64(
       blob,
-      (base64) => this.handleScreenshot(blob, base64, sdkMetadata),
-      (error) => console.error('Error converting screenshot to base64', error),
+      (base64: string) => this.handleScreenshot(blob, base64, sdkMetadata),
+      (error: Error) =>
+        console.error('Error converting screenshot to base64', error),
       { maxWidth: 200 }
     )
 
-  handleScreenshot = (blob, base64, sdkMetadata) => {
+  handleScreenshot = (
+    blob: Blob,
+    base64: string,
+    sdkMetadata: SdkMetadata
+  ): void => {
     if (base64) {
       const id = randomId()
       this.captureIds.push(id)
+
       this.validate(base64, id, (valid) =>
         valid
           ? this.props.onValidCapture({ blob, base64, id, sdkMetadata })
@@ -87,10 +96,15 @@ export default class DocumentAutoCapture extends Component {
     }
   }
 
-  validate = (base64, id, callback) => {
+  validate = (
+    base64: string,
+    id: string,
+    callback: (valid: boolean) => void
+  ): void => {
     const { urls, token } = this.props
     const url = urls.detect_document_url
     const data = JSON.stringify({ image: base64, id })
+
     postToBackend(
       data,
       url,
@@ -103,24 +117,25 @@ export default class DocumentAutoCapture extends Component {
     )
   }
 
-  setProcessed(id) {
+  setProcessed = (id: string): void => {
     this.captureIds = this.captureIds.filter((captureId) => captureId === id)
   }
 
-  handleValidationError = (error) => {
+  handleValidationError: ErrorCallback = (error) => {
     this.setState({ hasError: true })
     this.props.triggerOnError(error)
     this.props.onError()
   }
 
-  render() {
+  render(): JSX.Element {
     const { hasError } = this.state
     const { trackScreen, renderFallback } = this.props
+
     return (
       <Camera
         {...this.props}
         className={style.docAutoCaptureFrame}
-        webcamRef={(c) => (this.webcam = c)}
+        webcamRef={(c: typeof Camera) => (this.webcam = c)}
         renderError={
           hasError ? (
             <CameraError
