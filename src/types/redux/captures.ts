@@ -20,8 +20,9 @@ type MetadataState = {
 export type CapturePayload = {
   base64?: string
   blob: Blob
+  filename?: string
   id?: string
-  method: CaptureMethods
+  method?: CaptureMethods
   sdkMetadata: SdkMetadata
   side?: DocumentSides
 }

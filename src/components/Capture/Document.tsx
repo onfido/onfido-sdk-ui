@@ -17,20 +17,11 @@ import FallbackButton from '../Button/FallbackButton'
 import style from './style.scss'
 
 import type { ImageResizeInfo, SdkMetadata } from '~types/commons'
-import type { DocumentCapture } from '~types/redux'
+import type { CapturePayload, DocumentCapture } from '~types/redux'
 import type { StepComponentDocumentProps } from '~types/routers'
 import type { Options as OptionsProps } from './withOptions'
 
 type Props = StepComponentDocumentProps & LocalisedType & OptionsProps
-
-type CapturePayload = {
-  base64?: string
-  blob: Blob
-  filename?: string
-  id?: string
-  isPreviewCropped?: boolean
-  sdkMetadata: SdkMetadata
-}
 
 class Document extends Component<Props> {
   static defaultProps = {
