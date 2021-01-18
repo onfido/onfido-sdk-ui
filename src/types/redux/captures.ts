@@ -22,6 +22,7 @@ export type CapturePayload = {
   blob: Blob
   filename?: string
   id?: string
+  isPreviewCropped?: boolean
   method?: CaptureMethods
   sdkMetadata: SdkMetadata
   side?: DocumentSides

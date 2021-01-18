@@ -32,8 +32,10 @@ type State = {
   hasError: boolean
 }
 
+type CameraRef = typeof Camera
+
 export default class DocumentAutoCapture extends Component<Props, State> {
-  private webcam: typeof Camera = null
+  private webcam?: CameraRef = null
   private interval?: number
   private captureIds: string[] = []
 
@@ -135,7 +137,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
       <Camera
         {...this.props}
         className={style.docAutoCaptureFrame}
-        webcamRef={(c: typeof Camera) => (this.webcam = c)}
+        webcamRef={(c: CameraRef) => (this.webcam = c)}
         renderError={
           hasError ? (
             <CameraError

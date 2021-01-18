@@ -125,11 +125,11 @@ class Document extends Component<Props> {
       return (
         <DocumentLiveCapture
           {...propsWithErrorHandling}
-          renderTitle={renderTitle}
-          renderFallback={renderFallback}
           containerClassName={style.liveDocumentContainer}
-          onCapture={this.handleCapture}
           isUploadFallbackDisabled={!uploadFallback}
+          onCapture={this.handleCapture}
+          renderFallback={renderFallback}
+          renderTitle={renderTitle}
         />
       )
     }

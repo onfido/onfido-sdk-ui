@@ -11,48 +11,55 @@ import Camera from '../Camera'
 import CameraError from '../CameraError'
 import style from './style.scss'
 
-/* type State = {
-  hasBecomeInactive: boolean,
-  hasCameraError: boolean,
-  isCapturing: boolean,
-}
+import type { LocalisedType } from 'locales'
+import type { SdkMetadata } from '~types/commons'
+import type { CapturePayload } from '~types/redux'
+import type { TrackScreenProp } from '~types/routers'
+import type { DocumentTypes } from '~types/steps'
 
 type Props = {
-  translate: (string, ?{}) => string,
-  onCapture: Function,
-  renderFallback: Function,
-  isUploadFallbackDisabled: boolean,
-  trackScreen: Function,
-  documentType: string,
-  className: string,
-  containerClassName: string,
-  renderTitle: Function,
-  renderError: Function,
-} */
+  className?: string
+  containerClassName: string
+  documentType?: DocumentTypes
+  isUploadFallbackDisabled: boolean
+  onCapture: (payload: CapturePayload) => void
+  renderFallback: (text: string) => JSX.Element
+  renderTitle: JSX.Element
+  trackScreen: TrackScreenProp
+} & LocalisedType
+
+type State = {
+  hasAllowedCameraAccess: boolean
+  hasBecomeInactive: boolean
+  hasCameraError: boolean
+  isCapturing: boolean
+}
+
+type CameraRef = typeof Camera
 
 const IDEAL_CAMERA_HEIGHT_IN_PX = 1080
 const FALLBACK_HEIGHT_IN_PX = 720
 
-export default class DocumentLiveCapture extends Component {
-  webcam = null
+export default class DocumentLiveCapture extends Component<Props, State> {
+  private webcam?: CameraRef = null
 
   state = {
+    hasAllowedCameraAccess: false,
     hasBecomeInactive: false,
     hasCameraError: false,
     isCapturing: false,
-    hasAllowedCameraAccess: false,
   }
 
-  handleUserMediaReady = () => {
+  handleUserMediaReady = (): void => {
     this.setState({ hasAllowedCameraAccess: true })
   }
 
-  handleTimeout = () => this.setState({ hasBecomeInactive: true })
+  handleTimeout = (): void => this.setState({ hasBecomeInactive: true })
 
-  handleCameraError = () => this.setState({ hasCameraError: true })
+  handleCameraError = (): void => this.setState({ hasCameraError: true })
 
-  captureDocument = (blob, sdkMetadata) => {
-    const documentCapture = {
+  captureDocument = (blob: Blob, sdkMetadata: SdkMetadata): void => {
+    const documentCapture: CapturePayload = {
       blob,
       sdkMetadata,
       filename: `document_capture.${mimeType(blob)}`,
@@ -62,17 +69,17 @@ export default class DocumentLiveCapture extends Component {
     this.setState({ isCapturing: false })
   }
 
-  captureDocumentPhoto = () => {
+  captureDocumentPhoto = (): void => {
     this.setState({ isCapturing: true })
     sendEvent('Taking live photo of document')
     screenshot(this.webcam, this.captureDocument, 'image/jpeg')
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     this.setState({ isCapturing: false })
   }
 
-  render() {
+  render(): JSX.Element {
     const {
       translate,
       trackScreen,
@@ -83,19 +90,23 @@ export default class DocumentLiveCapture extends Component {
       renderTitle,
       documentType,
     } = this.props
+
     const {
       hasAllowedCameraAccess,
       hasBecomeInactive,
       hasCameraError,
       isCapturing,
     } = this.state
+
     const id1SizeDocuments = new Set([
       'driving_licence',
       'national_identity_card',
     ])
+
     const documentSize = id1SizeDocuments.has(documentType)
       ? 'id1Card'
       : 'id3Card'
+
     return (
       <div className={style.container}>
         {this.state.isCapturing ? (
@@ -108,7 +119,7 @@ export default class DocumentLiveCapture extends Component {
             containerClassName={containerClassName}
             renderTitle={renderTitle}
             translate={translate}
-            webcamRef={(c) => (this.webcam = c)}
+            webcamRef={(c: CameraRef) => (this.webcam = c)}
             isUploadFallbackDisabled={isUploadFallbackDisabled}
             trackScreen={trackScreen}
             onUserMedia={this.handleUserMediaReady}
@@ -132,7 +143,7 @@ export default class DocumentLiveCapture extends Component {
               <Timeout seconds={10} onTimeout={this.handleTimeout} />
             )}
             <ToggleFullScreen />
-            <DocumentOverlay isFullScreen={true} documentSize={documentSize} />
+            <DocumentOverlay documentSize={documentSize} />
           </Camera>
         )}
       </div>
