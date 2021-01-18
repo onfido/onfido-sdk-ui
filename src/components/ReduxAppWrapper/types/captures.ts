@@ -5,10 +5,10 @@ import type {
   FaceCaptureVariants,
   SdkMetadata,
 } from '~types/commons'
-import type { DocumentTypes, PoATypes } from '~types/steps'
+import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 type CaptureMetadata = {
-  type?: DocumentTypes | PoATypes
+  type?: DocumentTypes | PoaTypes
   side?: DocumentSides
   variant?: FaceCaptureVariants
 }
@@ -21,7 +21,7 @@ export type CapturePayload = {
 export type DocumentCapture = {
   blob: Blob
   sdkMetadata: SdkMetadata
-  documentType: DocumentTypes | PoATypes
+  documentType: DocumentTypes | PoaTypes
   id: string
   metadata: CaptureMetadata & { id: string }
 } & CapturePayload

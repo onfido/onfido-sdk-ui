@@ -1,9 +1,10 @@
 import * as constants from '../../constants'
 import type { CountryData, UrlsConfig } from '~types/commons'
 import type { EnterpriseCobranding } from '~types/enterprise'
+import type { DocumentTypes, PoaTypes } from '~types/steps'
 import type { GlobalActions } from '../../types'
 
-export const setIdDocumentType = (payload: string): GlobalActions => ({
+export const setIdDocumentType = (payload: DocumentTypes): GlobalActions => ({
   type: constants.SET_ID_DOCUMENT_TYPE,
   payload,
 })
@@ -19,7 +20,7 @@ export const resetIdDocumentIssuingCountry = (): GlobalActions => ({
   type: constants.RESET_ID_ISSUING_COUNTRY,
 })
 
-export const setPoADocumentType = (payload: string): GlobalActions => ({
+export const setPoADocumentType = (payload: PoaTypes): GlobalActions => ({
   type: constants.SET_POA_DOCUMENT_TYPE,
   payload,
 })

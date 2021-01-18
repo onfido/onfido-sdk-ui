@@ -17,7 +17,7 @@ export type DocumentTypes =
   | 'national_identity_card'
   | 'residence_permit'
 
-export type PoATypes =
+export type PoaTypes =
   | 'bank_building_society_statement'
   | 'utility_bill'
   | 'council_tax'
@@ -51,7 +51,7 @@ type StepOptionDocument = {
 
 type StepOptionPoA = {
   country?: string
-  documentTypes?: Partial<Record<PoATypes, boolean>>
+  documentTypes?: Partial<Record<PoaTypes, boolean>>
 }
 
 type StepOptionFace = {
