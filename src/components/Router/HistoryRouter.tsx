@@ -16,9 +16,9 @@ import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
-import type { CaptureKeys } from 'components/ReduxAppWrapper/types'
 import type { ApiRequest } from '~types/api'
 import type { FlowVariants, MobileConfig } from '~types/commons'
+import type { CaptureKeys } from '~types/redux'
 import type {
   DocumentTypes,
   StepConfig,
