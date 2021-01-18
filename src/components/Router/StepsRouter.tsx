@@ -6,9 +6,12 @@ import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 
-import type { ApiRequest } from '~types/api'
 import type { ComponentStep } from './StepComponentMap'
-import type { ChangeFlowProp, RouterOwnProps } from './types'
+import type {
+  ChangeFlowProp,
+  TriggerOnErrorProp,
+  RouterOwnProps,
+} from './types'
 
 type Props = {
   back: () => void
@@ -17,7 +20,7 @@ type Props = {
   disableNavigation: boolean
   nextStep: () => void
   previousStep: () => void
-  triggerOnError: (response: ApiRequest) => void
+  triggerOnError: TriggerOnErrorProp
   step: number
 } & RouterOwnProps
 

@@ -16,6 +16,7 @@ import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
+import type { CaptureKeys } from 'components/ReduxAppWrapper/types'
 import type { ApiRequest } from '~types/api'
 import type { FlowVariants, MobileConfig } from '~types/commons'
 import type {
@@ -25,10 +26,15 @@ import type {
 } from '~types/steps'
 import type {
   ChangeFlowProp,
-  CaptureKeys,
-  StepIndexType,
   RouterProps,
+  StepIndexType,
+  TriggerOnErrorProp,
 } from './types'
+
+type FormattedError = {
+  type: 'expired_token' | 'exception'
+  message: string
+}
 
 type Props = {
   crossDeviceClientError?: (name?: string) => void
@@ -154,10 +160,7 @@ export default class HistoryRouter extends Component<Props, State> {
     this.props.options.events.emit('complete', data)
   }
 
-  formattedError = ({
-    response,
-    status,
-  }: ApiRequest): { type: 'expired_token' | 'exception'; message: string } => {
+  formattedError = ({ response, status }: ApiRequest): FormattedError => {
     const errorResponse =
       typeof response === 'string' ? {} : response.error || response || {}
 
@@ -176,7 +179,7 @@ export default class HistoryRouter extends Component<Props, State> {
     return { type, message }
   }
 
-  triggerOnError = ({ response, status }: ApiRequest): void => {
+  triggerOnError: TriggerOnErrorProp = ({ response, status }) => {
     if (status === 0) {
       return
     }

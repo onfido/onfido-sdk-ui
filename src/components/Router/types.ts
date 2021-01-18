@@ -1,7 +1,7 @@
-import type { CaptureState } from 'components/ReduxAppWrapper/types'
 import type { ComponentStep } from './StepComponentMap'
 import { CameraDetectionProps } from '../Capture/withCameraDetection'
 
+import type { ApiRequest } from '~types/api'
 import type { FlowVariants, NarrowSdkOptions } from '~types/commons'
 import type { ReduxProps } from 'components/App/withConnect'
 
@@ -22,7 +22,7 @@ export type FlowChangeCallback = (
   }
 ) => void
 
-export type CaptureKeys = keyof CaptureState
+export type TriggerOnErrorProp = (response: ApiRequest) => void
 
 export type StepIndexType = 'client' | 'user'
 
