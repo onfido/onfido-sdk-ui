@@ -39,4 +39,4 @@ class GenericError extends Component<Props> {
   }
 }
 
-export default localised(GenericError)
+export default localised<OwnProps>(GenericError)

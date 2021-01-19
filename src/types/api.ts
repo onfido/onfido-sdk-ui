@@ -31,9 +31,12 @@ export type ImageQualityValidationPayload = Record<
   'error' | 'warn'
 >
 
-type ChallengePayload =
-  | { query: number[]; type: 'recite' }
-  | { query: string; type: 'movement' }
+const CHALLENGE_RECITE = 'recite'
+const CHALLENGE_MOVEMENT = 'movement'
+
+export type ChallengePayload =
+  | { type: typeof CHALLENGE_RECITE; query: number[] }
+  | { type: typeof CHALLENGE_MOVEMENT; query: string }
 
 export type ChallengeData = {
   challenges: ChallengePayload[]
