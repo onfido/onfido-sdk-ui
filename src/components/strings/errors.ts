@@ -1,4 +1,4 @@
-import type { ErrorTypes } from '~types/commons'
+import type { ErrorNames } from '~types/commons'
 
 type LocaleData = {
   message: string
@@ -6,7 +6,7 @@ type LocaleData = {
   icon?: string
 }
 
-const errors: Record<ErrorTypes, LocaleData> = {
+const errors: Record<ErrorNames, LocaleData> = {
   INVALID_CAPTURE: {
     message: 'doc_confirmation.alert.no_doc_title',
     instruction: 'doc_confirmation.alert.no_doc_detail',

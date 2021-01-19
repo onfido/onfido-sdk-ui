@@ -39,7 +39,7 @@ export type FaceCaptureVariants = 'standard' | 'live'
 type ImageInfo = {
   width: number
   height: number
-  fileSize: number
+  fileSize?: number
 }
 
 export type ImageResizeInfo = {
@@ -48,7 +48,9 @@ export type ImageResizeInfo = {
 }
 
 export type SdkMetadata = {
-  captureMethod: CaptureMethodVariants
+  captureMethod?: CaptureMethodVariants
+  camera_name?: string
+  microphone_name?: string
   imageResizeInfo?: ImageResizeInfo
   isCrossDeviceFlow?: boolean
   deviceType?: DeviceTypes
@@ -78,7 +80,7 @@ const FLOW_CAPTURE = 'captureSteps'
 const FLOW_CROSS_DEVICE = 'crossDeviceSteps'
 export type FlowVariants = typeof FLOW_CAPTURE | typeof FLOW_CROSS_DEVICE
 
-export type ErrorTypes =
+export type ErrorNames =
   | 'BLUR_DETECTED'
   | 'CAMERA_INACTIVE'
   | 'CAMERA_INACTIVE_NO_FALLBACK'
@@ -101,6 +103,8 @@ export type ErrorTypes =
   | 'UNSUPPORTED_FILE'
   | 'UNSUPPORTED_IOS_BROWSER'
   | 'VIDEO_TIMEOUT'
+
+export type ErrorTypes = 'error' | 'warning'
 
 export type MobileConfig = {
   clientStepIndex: number

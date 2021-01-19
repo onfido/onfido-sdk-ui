@@ -1,15 +1,12 @@
 import detectSystem from '../detectSystem'
 
-const mockWindowNavigator = (overridenData) => {
+const mockWindowNavigator = (overridenData: Partial<Navigator>) => {
   const originalWindow = { ...window }
-  const windowSpy = jest.spyOn(global, 'window', 'get')
+  const windowSpy = jest.spyOn(global.window, 'navigator', 'get')
 
   windowSpy.mockImplementation(() => ({
-    ...originalWindow,
-    navigator: {
-      ...originalWindow.navigator,
-      ...overridenData,
-    },
+    ...originalWindow.navigator,
+    ...overridenData,
   }))
 }
 

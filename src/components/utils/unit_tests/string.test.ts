@@ -1,4 +1,4 @@
-import { lowerCase, upperCase } from '../string.js'
+import { lowerCase, upperCase } from '../string'
 
 test('Uppercase string transforms to lowercase', () => {
   expect(lowerCase('TOBELOWERCASE')).toBe('tobelowercase')

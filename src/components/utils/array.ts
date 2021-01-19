@@ -1,11 +1,12 @@
-export const cleanFalsy = <T>(
-  list: Array<T | null | undefined | boolean>
-): Array<T | boolean> => list.filter((n) => n)
+export const cleanFalsy = <T>(list: Array<T | null | undefined>): Array<T> =>
+  list.filter((n) => n)
 
-export const wrapArray = (maybeArray: unknown): Array<unknown> =>
-  Array.isArray(maybeArray) ? maybeArray : [maybeArray]
+type ArrayAlways<T> = T extends Array<unknown> ? T : T[]
 
-type NonArray<T> = T extends Array<unknown> ? never : T
+export const wrapArray = <T>(maybeArray: T): ArrayAlways<T> =>
+  Array.isArray(maybeArray)
+    ? (maybeArray as ArrayAlways<T>)
+    : ([maybeArray] as ArrayAlways<T>)
 
-export const flatten = <T>(...values: T[]): Array<NonArray<T>> =>
+export const flatten = <T>(values: T[][]): T[] =>
   values.reduce((accum, arr) => accum.concat(...wrapArray(arr)), [])

@@ -74,9 +74,8 @@ export default class DocumentAutoCapture extends Component<Props, State> {
   handleScreenshotBlob = (blob: Blob, sdkMetadata: SdkMetadata): void =>
     blobToLossyBase64(
       blob,
-      (base64: string) => this.handleScreenshot(blob, base64, sdkMetadata),
-      (error: Error) =>
-        console.error('Error converting screenshot to base64', error),
+      (base64) => this.handleScreenshot(blob, base64, sdkMetadata),
+      (error) => console.error('Error converting screenshot to base64', error),
       { maxWidth: 200 }
     )
 
