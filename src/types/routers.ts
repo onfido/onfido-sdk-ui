@@ -5,6 +5,8 @@ import type {
   ExtendedStepConfig,
   FlowVariants,
   NarrowSdkOptions,
+  ErrorNames,
+  ErrorTypes,
 } from '~types/commons'
 import type {
   StepOptionWelcome,
@@ -15,11 +17,7 @@ import type {
 } from '~types/steps'
 import type { ReduxProps } from 'components/App/withConnect'
 
-export type ChangeFlowProp = (
-  newFlow: FlowVariants,
-  newStep?: number,
-  excludeStepFromHistory?: boolean
-) => void
+export type StepIndexType = 'client' | 'user'
 
 export type FlowChangeCallback = (
   newFlow: FlowVariants,
@@ -32,6 +30,12 @@ export type FlowChangeCallback = (
   }
 ) => void
 
+export type ChangeFlowProp = (
+  newFlow: FlowVariants,
+  newStep?: number,
+  excludeStepFromHistory?: boolean
+) => void
+
 export type TrackScreenProp = (
   screenNameHierarchy: string | string[],
   properties?: Record<string, unknown>
@@ -39,7 +43,10 @@ export type TrackScreenProp = (
 
 export type TriggerOnErrorProp = (response: ApiRequest) => void
 
-export type StepIndexType = 'client' | 'user'
+export type ErrorProp = {
+  name: ErrorNames
+  type?: ErrorTypes
+}
 
 export type CameraDetectionProps = {
   hasCamera?: boolean

@@ -15,7 +15,11 @@ import HistoryRouter from './HistoryRouter'
 import type { ErrorNames, MobileConfig } from '~types/commons'
 import type { SupportedLanguages, LocaleConfig } from '~types/locales'
 import type { CaptureKeys } from '~types/redux'
-import type { StepIndexType, RouterProps as Props } from '~types/routers'
+import type {
+  StepIndexType,
+  ErrorProp,
+  RouterProps as Props,
+} from '~types/routers'
 import type { StepConfig } from '~types/steps'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
@@ -36,9 +40,7 @@ const WrappedSpinner = withTheme(Spinner)
 const WrappedError = withTheme<GenericErrorProps>(GenericError)
 
 type State = {
-  crossDeviceError?: {
-    name: ErrorNames
-  }
+  crossDeviceError?: ErrorProp
   crossDeviceInitialStep?: number
   language?: SupportedLanguages | LocaleConfig
   loading?: boolean
