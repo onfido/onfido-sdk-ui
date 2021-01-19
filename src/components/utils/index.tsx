@@ -222,9 +222,14 @@ export const getEnabledDocuments = (steps: StepConfig[]): DocumentTypes[] => {
 
   const docTypes =
     documentStep && documentStep.options && documentStep.options.documentTypes
+
+  if (!docTypes) {
+    return []
+  }
+
   const configuredDocTypes = Object.keys(docTypes) as DocumentTypes[]
 
-  return docTypes ? configuredDocTypes.filter((type) => docTypes[type]) : []
+  return configuredDocTypes.filter((type) => docTypes[type])
 }
 
 /**
