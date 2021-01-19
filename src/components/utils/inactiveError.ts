@@ -1,8 +1,8 @@
-import type { ErrorTypes } from '~types/commons'
+import type { ErrorNames, ErrorTypes } from '~types/commons'
 
 export const getInactiveError = (
   isUploadFallbackDisabled: boolean
-): { name: ErrorTypes; type: string } => ({
+): { name: ErrorNames; type: ErrorTypes } => ({
   name: isUploadFallbackDisabled
     ? 'CAMERA_INACTIVE_NO_FALLBACK'
     : 'CAMERA_INACTIVE',
