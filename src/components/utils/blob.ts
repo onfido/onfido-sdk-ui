@@ -57,11 +57,12 @@ const blobToCanvas = (
   loadImage(
     blob,
     (canvasOrEventError) => {
-      console.log('canvasOrEventError:', canvasOrEventError)
       if (canvasOrEventError instanceof Event) {
         errorCallback(canvasOrEventError)
       } else if (canvasOrEventError instanceof HTMLCanvasElement) {
         callback(canvasOrEventError)
+      } else {
+        console.warn('Result mismatched:', canvasOrEventError)
       }
     },
     { maxWidth, maxHeight, orientation, canvas }
