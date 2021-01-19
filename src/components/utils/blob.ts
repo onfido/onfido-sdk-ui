@@ -3,7 +3,7 @@ import loadImage from 'blueimp-load-image'
 import 'blueimp-load-image/js/load-image-orientation'
 import 'blueimp-load-image/js/load-image-exif'
 
-type Base64ResultCallback = (result: string | ArrayBuffer) => void
+type Base64ResultCallback = (result: string) => void
 type BlobResultCallback = (blob: Blob) => void
 type CanvasResultCallback = (canvas: HTMLCanvasElement) => void
 type ErrorCallback = (error: Event) => void
@@ -26,10 +26,13 @@ const blobToBase64 = (
   errorCallback: ErrorCallback
 ): void => {
   const reader = new FileReader()
+
   reader.readAsDataURL(blob)
+
   reader.onload = () => {
-    callback(reader.result)
+    callback(reader.result as string)
   }
+
   reader.onerror = function (error) {
     console.warn('File Reading Error: ', error)
     errorCallback(error)
