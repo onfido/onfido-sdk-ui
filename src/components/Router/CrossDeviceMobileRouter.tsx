@@ -1,7 +1,7 @@
 import { h, Component, VNode } from 'preact'
 
 import { pick } from '~utils/object'
-import { isDesktop, getUnsupportedMobileBrowserError } from '~utils/index'
+import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import withTheme from '../Theme'

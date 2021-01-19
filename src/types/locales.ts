@@ -13,3 +13,13 @@ export type LocaleConfig = {
   phrases: Record<string, unknown>
   mobilePhrases?: Record<string, unknown>
 }
+
+export type TranslatedTagHandler = (tag: {
+  type: string
+  text: string
+}) => string | Element
+
+export type TranslatedTagParser = (
+  key: string,
+  handler: TranslatedTagHandler
+) => (string | Element)[]

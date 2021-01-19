@@ -1,10 +1,8 @@
 import { h, createContext, FunctionComponent, ComponentType, VNode } from 'preact'
-import { parseTags } from '~utils/index'
+import { parseTags } from '~utils'
 import initializePolyglot from './polyglot'
 
-import type { SupportedLanguages, LocaleConfig } from '~types/locales'
-
-type TranslatedTagParser = (key: string, handler: (text: string) => ChildNode) => ChildNode[]
+import type { SupportedLanguages, LocaleConfig, TranslatedTagParser } from '~types/locales'
 
 type ProviderProps = {
   language: SupportedLanguages | LocaleConfig
