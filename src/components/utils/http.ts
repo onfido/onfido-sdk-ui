@@ -1,14 +1,14 @@
 import type { ErrorCallback, SuccessCallback } from '~types/api'
 
-type RequestParams = {
-  contentType: string
+export type HttpRequestParams = {
+  contentType?: string
   endpoint: string
-  payload: string
+  payload?: string | FormData
   token: string
 }
 
 export const performHttpReq = (
-  { contentType, endpoint, payload, token }: RequestParams,
+  { contentType, endpoint, payload, token }: HttpRequestParams,
   onSuccess: SuccessCallback,
   onError: ErrorCallback
 ): void => {

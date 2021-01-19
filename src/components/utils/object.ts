@@ -69,6 +69,6 @@ export const map = <K extends string, V, T>(
   )
 
 export const forEach = <K extends string, V>(
-  obj: Record<K, V>,
+  obj: Partial<Record<K, V>>,
   fn: (value: V, key: K) => void
 ): void => (Object.entries(obj) as Array<[K, V]>).forEach(([k, v]) => fn(v, k))
