@@ -10,29 +10,29 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
-- Public: Added npm latest version badge
+- Public: Added npm latest version badge.
+- Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
+- Internal: Introduce integration tests for API endpoint integrations.
+- Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
 - Internal: App component, Redux system & some utils are now typed in TypeScript.
 
 ### Changed
 
 - Internal: Switched to `bundlewatch` Github Action for bundle size diff reporting, checking.
-- UI: Updated text and background colours
+- UI: Updated text and background colours.
 - Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
 
 ### Fixed
 
 - Public: Fix "File type not supported" error on snapshot upload in selfie step.
 
-## [6.4.0]
+## [6.4.0] - 2020-12-21
 
 ### Added
 
-- Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce Hooks on non-critical components.
 - Public: Added `CROSS_DEVICE_INTRO`, `CROSS_DEVICE_GET_LINK` user analytic events for integrators to listen for when tracking user journey when initiating Cross Device flow from desktop browser
 - Public: Added `licenses.json` file containing the list of dependencies licenses.
-- Internal: Introduce Hooks on non-critical components.
-- Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
 
 ### Changed
 
