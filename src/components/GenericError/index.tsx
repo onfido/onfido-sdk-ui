@@ -7,13 +7,11 @@ import { localised } from '../../locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-import type { ErrorNames } from '~types/commons'
+import type { ErrorProp } from '~types/routers'
 import type { LocalisedType } from 'locales'
 
 export type OwnProps = {
-  error: {
-    name: ErrorNames
-  }
+  error: ErrorProp
 }
 
 type Props = OwnProps & LocalisedType
