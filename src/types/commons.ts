@@ -48,7 +48,9 @@ type ImageResizeInfo = {
 }
 
 export type SdkMetadata = {
-  captureMethod: CaptureMethodVariants
+  captureMethod?: CaptureMethodVariants
+  camera_name?: string
+  microphone_name?: string
   imageResizeInfo?: ImageResizeInfo
   isCrossDeviceFlow?: boolean
   deviceType?: DeviceTypes

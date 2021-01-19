@@ -28,6 +28,13 @@ declare module 'react-webcam-onfido' {
   }
 
   export default interface Webcam extends Component<CameraType> {
+    stream: MediaStream
+    canvas: HTMLCanvasElement
+    ctx: CanvasRenderingContext2D
+    video?: HTMLVideoElement
+    recordedBlobs: Blob[]
+    mediaRecorder: MediaRecorder
+
     getConstraints(
       width?: number,
       height?: number,
@@ -36,5 +43,7 @@ declare module 'react-webcam-onfido' {
     ): ConstraintPayload
 
     getCanvas(): HTMLCanvasElement | null
+
+    getVideoBlob(): Blob
   }
 }
