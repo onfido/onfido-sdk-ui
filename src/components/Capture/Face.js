@@ -12,7 +12,7 @@ import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import { validateFile } from '~utils/file'
-import { getInactiveError } from '~utils/inactiveError.js'
+import { getInactiveError } from '~utils/inactiveError'
 import { localised } from '../../locales'
 import style from './style.scss'
 
