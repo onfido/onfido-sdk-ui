@@ -1,14 +1,20 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
-import { localised /* , type LocalisedType */ } from '../../locales'
+import { localised, LocalisedType } from '../../locales'
 
-/* type Props = {
-  disableInteraction: boolean,
-  onStart: (void) => void,
-} & LocalisedType */
+type OwnProps = {
+  disableInteraction: boolean
+  onStart: () => void
+}
 
-const StartRecording = ({ translate, onStart, disableInteraction }) => (
+type Props = OwnProps & LocalisedType
+
+const StartRecording: FunctionComponent<Props> = ({
+  disableInteraction,
+  onStart,
+  translate,
+}) => (
   <div className={style.actions}>
     <div className={classNames(style.captureActionsHint, style.recordAction)}>
       {translate('video_capture.body_record')}
@@ -23,4 +29,4 @@ const StartRecording = ({ translate, onStart, disableInteraction }) => (
   </div>
 )
 
-export default localised(StartRecording)
+export default localised<OwnProps>(StartRecording)

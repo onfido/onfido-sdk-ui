@@ -17,9 +17,9 @@ export type LocaleConfig = {
 export type TranslatedTagHandler = (tag: {
   type: string
   text: string
-}) => string | Element
+}) => string | JSX.Element
 
 export type TranslatedTagParser = (
   key: string,
   handler: TranslatedTagHandler
-) => (string | Element)[]
+) => (string | JSX.Element)[]

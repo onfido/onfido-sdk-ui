@@ -43,7 +43,9 @@ declare module 'react-webcam-onfido' {
     ): ConstraintPayload
 
     getCanvas(): HTMLCanvasElement | null
-
     getVideoBlob(): Blob
+
+    startRecording(): void
+    stopRecording(): void
   }
 }

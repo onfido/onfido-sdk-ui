@@ -1,20 +1,31 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
-import { localised /* , type LocalisedType */ } from '../../locales'
+import { localised, LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
-import { VIDEO_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
+import {
+  VIDEO_INTRO_LOCALES_MAPPING,
+  VideoIntroTypes,
+} from '~utils/localesMapping'
 import { compose } from '~utils/func'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-/* type Props = {
-  nextStep: Function,
-} & LocalisedType */
+type OwnProps = {
+  nextStep: () => void
+}
 
-const Intro = ({ translate, parseTranslatedTags, nextStep }) => (
+type Props = OwnProps & LocalisedType
+
+const VIDEO_INTRO_TYPES: VideoIntroTypes[] = ['actions', 'speak']
+
+const Intro: FunctionComponent<Props> = ({
+  translate,
+  parseTranslatedTags,
+  nextStep,
+}) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('video_intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
@@ -22,7 +33,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }) => (
         className={style.introBullets}
         aria-label={translate('video_intro.list_accessibility')}
       >
-        {['actions', 'speak'].map((key) => {
+        {VIDEO_INTRO_TYPES.map((key) => {
           return (
             <li key={key} className={style.introBullet}>
               <span

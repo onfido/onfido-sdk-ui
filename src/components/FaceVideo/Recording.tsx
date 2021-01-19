@@ -1,20 +1,24 @@
-import { h } from 'preact'
-import Challenge /* , { type ChallengeType } */ from './Challenge'
+import { h, FunctionComponent } from 'preact'
+import Challenge from './Challenge'
 import classNames from 'classnames'
 import Button from '../Button'
 import style from './style.scss'
-import { localised /* , type LocalisedType */ } from '../../locales'
+import { localised, LocalisedType } from '../../locales'
 
-/* type Props = {
-  currentChallenge: ChallengeType,
-  isLastChallenge: boolean,
-  hasError: boolean,
-  disableInteraction: boolean,
-  onNext: (void) => void,
-  onStop: (void) => void,
-} & LocalisedType */
+import type { ChallengePayload } from '~types/api'
 
-const Recording = ({
+type OwnProps = {
+  currentChallenge: ChallengePayload
+  disableInteraction: boolean
+  hasError: boolean
+  isLastChallenge: boolean
+  onNext: () => void
+  onStop: () => void
+}
+
+type Props = OwnProps & LocalisedType
+
+const Recording: FunctionComponent<Props> = ({
   onStop,
   onNext,
   currentChallenge,
@@ -30,7 +34,7 @@ const Recording = ({
             {translate('video_capture.status')}
           </span>
         </div>
-        <Challenge {...{ ...currentChallenge }} />
+        <Challenge {...currentChallenge} />
       </div>
     </div>
     <div className={style.actions}>
@@ -62,4 +66,4 @@ const Recording = ({
   </div>
 )
 
-export default localised(Recording)
+export default localised<OwnProps>(Recording)

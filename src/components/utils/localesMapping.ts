@@ -169,7 +169,7 @@ export const POA_GUIDANCE_LOCALES_MAPPING: Record<
   },
 }
 
-type VideoIntroTypes = 'actions' | 'speak'
+export type VideoIntroTypes = 'actions' | 'speak'
 
 type VideoIntroLocale = {
   className: string

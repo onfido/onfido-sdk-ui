@@ -13,10 +13,10 @@ import type {
   StepConfigDocument,
 } from '~types/steps'
 
-export const functionalSwitch = (
+export const functionalSwitch = <T extends unknown>(
   key: string,
-  hash: Record<string, () => void>
-): void => (hash[key] || (() => null))()
+  hash: Record<string, () => T>
+): T => (hash[key] || (() => null))()
 
 export const getCSSValue = (
   expectedUnit: string,

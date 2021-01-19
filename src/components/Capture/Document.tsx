@@ -17,8 +17,11 @@ import FallbackButton from '../Button/FallbackButton'
 import style from './style.scss'
 
 import type { ImageResizeInfo, SdkMetadata } from '~types/commons'
-import type { CapturePayload, DocumentCapture } from '~types/redux'
-import type { StepComponentDocumentProps } from '~types/routers'
+import type { DocumentCapture } from '~types/redux'
+import type {
+  HandleCaptureProp,
+  StepComponentDocumentProps,
+} from '~types/routers'
 import type { Options as OptionsProps } from './withOptions'
 
 type Props = StepComponentDocumentProps & LocalisedType & OptionsProps
@@ -29,7 +32,7 @@ class Document extends Component<Props> {
     forceCrossDevice: false,
   }
 
-  handleCapture = (payload: CapturePayload) => {
+  handleCapture: HandleCaptureProp = (payload) => {
     const {
       isPoA,
       documentType,

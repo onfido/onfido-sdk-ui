@@ -1,20 +1,21 @@
 import type { ComponentType } from 'preact'
 
-import type { ApiRequest } from '~types/api'
+import type { ApiRequest } from './api'
 import type {
   ExtendedStepConfig,
   FlowVariants,
   NarrowSdkOptions,
   ErrorNames,
   ErrorTypes,
-} from '~types/commons'
+} from './commons'
 import type {
   StepOptionWelcome,
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
   StepOptionComplete,
-} from '~types/steps'
+} from './steps'
+import type { CapturePayload } from './redux'
 import type { ReduxProps } from 'components/App/withConnect'
 
 export type StepIndexType = 'client' | 'user'
@@ -42,6 +43,10 @@ export type TrackScreenProp = (
 ) => void
 
 export type TriggerOnErrorProp = (response: ApiRequest) => void
+
+export type HandleCaptureProp = (payload: CapturePayload) => void
+
+export type RenderFallbackProp = (text: string) => JSX.Element
 
 export type ErrorProp = {
   name: ErrorNames

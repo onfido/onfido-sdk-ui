@@ -12,8 +12,12 @@ import style from '../Camera/style.scss'
 
 import type { ErrorCallback } from '~types/api'
 import type { SdkMetadata, UrlsConfig } from '~types/commons'
-import type { CapturePayload } from '~types/redux'
-import type { TrackScreenProp, TriggerOnErrorProp } from '~types/routers'
+import type {
+  HandleCaptureProp,
+  RenderFallbackProp,
+  TrackScreenProp,
+  TriggerOnErrorProp,
+} from '~types/routers'
 
 const maxAttempts = 3
 
@@ -21,8 +25,8 @@ const requestError = { name: 'REQUEST_ERROR', type: 'error' }
 
 type Props = {
   onError: () => void
-  onValidCapture: (payload: CapturePayload) => void
-  renderFallback: (text: string) => JSX.Element
+  onValidCapture: HandleCaptureProp
+  renderFallback: RenderFallbackProp
   token?: string
   trackScreen: TrackScreenProp
   triggerOnError: TriggerOnErrorProp
