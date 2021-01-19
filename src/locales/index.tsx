@@ -1,5 +1,5 @@
 import { h, createContext, FunctionComponent, ComponentType, VNode } from 'preact'
-import { parseTags } from '~utils/index'
+import { parseTags } from '~utils'
 import initializePolyglot from './polyglot'
 
 import type { SupportedLanguages, LocaleConfig, TranslatedTagParser } from '~types/locales'

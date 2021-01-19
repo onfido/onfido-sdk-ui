@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import { isDesktop } from '~utils/index'
+import { isDesktop } from '~utils'
 import style from './style.scss'
 
 const Button = ({

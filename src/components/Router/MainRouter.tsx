@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 
-import { isDesktop, getUnsupportedMobileBrowserError } from '~utils/index'
+import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import withTheme from '../Theme'
 import GenericError, { OwnProps as GenericErrorProps } from '../GenericError'
 

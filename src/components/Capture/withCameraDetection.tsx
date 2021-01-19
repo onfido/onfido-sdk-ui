@@ -1,6 +1,6 @@
 import { h, ComponentType } from 'preact'
 import { PureComponent } from 'preact/compat'
-import { checkIfHasWebcam, isSafari131 } from '~utils/index'
+import { checkIfHasWebcam, isSafari131 } from '~utils'
 
 import type { ReduxProps } from 'components/App/withConnect'
 import type { CameraDetectionProps } from '~types/routers'

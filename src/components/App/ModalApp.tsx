@@ -4,7 +4,7 @@ import Modal from '../Modal'
 import Router from '../Router'
 import * as Tracker from '../../Tracker'
 import { LocaleProvider } from '../../locales'
-import { getEnabledDocuments } from '~utils/index'
+import { getEnabledDocuments } from '~utils'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 import {
   parseJwt,

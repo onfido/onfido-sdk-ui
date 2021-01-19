@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact'
 
-import { isDesktop } from '~utils/index'
+import { isDesktop } from '~utils'
 import withCameraDetection from '../Capture/withCameraDetection'
 import CrossDeviceMobileRouter from './CrossDeviceMobileRouter'
 import MainRouter from './MainRouter'
