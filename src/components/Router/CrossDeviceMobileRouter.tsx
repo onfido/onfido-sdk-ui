@@ -12,7 +12,7 @@ import { setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 import HistoryRouter from './HistoryRouter'
 
-import type { ErrorTypes, MobileConfig } from '~types/commons'
+import type { ErrorNames, MobileConfig } from '~types/commons'
 import type { SupportedLanguages, LocaleConfig } from '~types/locales'
 import type { CaptureKeys } from '~types/redux'
 import type { StepIndexType, RouterProps as Props } from '~types/routers'
@@ -37,7 +37,7 @@ const WrappedError = withTheme<GenericErrorProps>(GenericError)
 
 type State = {
   crossDeviceError?: {
-    name: ErrorTypes
+    name: ErrorNames
   }
   crossDeviceInitialStep?: number
   language?: SupportedLanguages | LocaleConfig
@@ -214,7 +214,7 @@ export default class CrossDeviceMobileRouter extends Component<Props, State> {
     this.props.actions.acceptTerms()
   }
 
-  setError = (name: ErrorTypes = 'GENERIC_CLIENT_ERROR'): void =>
+  setError = (name: ErrorNames = 'GENERIC_CLIENT_ERROR'): void =>
     this.setState({ crossDeviceError: { name }, loading: false })
 
   onDisconnect = (): void => {

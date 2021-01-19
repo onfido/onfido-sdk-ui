@@ -78,7 +78,7 @@ const FLOW_CAPTURE = 'captureSteps'
 const FLOW_CROSS_DEVICE = 'crossDeviceSteps'
 export type FlowVariants = typeof FLOW_CAPTURE | typeof FLOW_CROSS_DEVICE
 
-export type ErrorTypes =
+export type ErrorNames =
   | 'BLUR_DETECTED'
   | 'CAMERA_INACTIVE'
   | 'CAMERA_INACTIVE_NO_FALLBACK'
@@ -101,6 +101,8 @@ export type ErrorTypes =
   | 'UNSUPPORTED_ANDROID_BROWSER'
   | 'UNSUPPORTED_FILE'
   | 'UNSUPPORTED_IOS_BROWSER'
+
+export type ErrorTypes = 'error' | 'warning'
 
 export type MobileConfig = {
   clientStepIndex: number
