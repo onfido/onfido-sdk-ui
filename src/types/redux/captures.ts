@@ -4,6 +4,7 @@ import type {
   DocumentSides,
   FaceCaptureVariants,
   SdkMetadata,
+  FilePayload,
 } from '~types/commons'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
@@ -35,10 +36,7 @@ export type DocumentCapture = {
 } & CapturePayload
 
 export type FaceCapture = {
-  snapshot?: {
-    blob: Blob
-    filename: string
-  }
+  snapshot?: FilePayload
   variant: FaceCaptureVariants
   id: string
 } & CapturePayload
