@@ -1,3 +1,5 @@
+import { h } from 'preact'
+
 export type SupportedLanguages =
   | 'en_US'
   | 'en'
@@ -17,9 +19,9 @@ export type LocaleConfig = {
 export type TranslatedTagHandler = (tag: {
   type: string
   text: string
-}) => string | JSX.Element
+}) => string | h.JSX.Element
 
 export type TranslatedTagParser = (
   key: string,
   handler: TranslatedTagHandler
-) => (string | JSX.Element)[]
+) => (string | h.JSX.Element)[]
