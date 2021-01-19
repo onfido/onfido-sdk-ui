@@ -66,10 +66,10 @@ const buildDocumentsResponse = (
     ])
   ) {
     return {
-      body: Object.assign(responses.api.v3.documents.cut_off, {
+      body: Object.assign(responses.api.v3.documents.cutoff, {
         applicant_id: applicantId,
       }),
-      status: Status.OK,
+      status: 422,
     }
   }
 

@@ -201,7 +201,7 @@ export const documentScenarios = async (lang) => {
         )
         // Image is flagged for glare by back end,
         // i.e. resized image was successfully uploaded to back end as API cannot accept a file over 10MB
-        confirm.verifyImageQualityWarning(copy, 'glare')
+        confirm.verifyImageQualityMessage(copy, 'glare')
       })
 
       it('should return "use another file type" message', async () => {
@@ -222,34 +222,40 @@ export const documentScenarios = async (lang) => {
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()
         countrySelector.clickSubmitDocumentButton()
-        uploadFileAndClickConfirmButton(
-          documentUpload,
-          confirm,
-          'identity_card_with_glare.jpg'
-        )
-        confirm.verifyImageQualityWarning(copy, 'glare')
-
-        // 1st retake
-        confirm.clickRedoButton()
+        // first upload attempt should return an error if image quality is detected
+        // FIXME: Image quality errors are only returned for cut-off images in these tests!
+        // We should be able to define the error type for each request
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
           'identity_card_with_cut-off.png'
         )
-        confirm.verifyImageQualityWarning(copy, 'cut-off')
+        confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
+        confirm.clickRedoButton()
+
+        // 1st retake
+        it('should return an error on the second attempt', async () => {
+          uploadFileAndClickConfirmButton(
+            documentUpload,
+            confirm,
+            'identity_card_with_cut-off.png'
+          )
+          confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
+          confirm.clickRedoButton()
+        })
 
         // 2nd retake
-        confirm.clickRedoButton()
-        uploadFileAndClickConfirmButton(
-          documentUpload,
-          confirm,
-          'identity_card_with_glare.jpg'
-        )
-        confirm.verifyImageQualityWarning(copy, 'glare')
-
-        // Proceed all the way
-        confirm.confirmBtn().isDisplayed()
-        confirm.clickConfirmButton()
+        it('should return a warning on the third attempt', async () => {
+          uploadFileAndClickConfirmButton(
+            documentUpload,
+            confirm,
+            'identity_card_with_glare.jpg'
+          )
+          confirm.verifyImageQualityMessage(copy, 'glare')
+          // Proceed all the way
+          confirm.confirmBtn().isDisplayed()
+          confirm.clickConfirmButton()
+        })
       })
 
       it('should return image quality message on back of doc', async () => {
@@ -263,35 +269,41 @@ export const documentScenarios = async (lang) => {
           confirm,
           'national_identity_card.jpg'
         )
-        uploadFileAndClickConfirmButton(
-          documentUpload,
-          confirm,
-          'identity_card_with_cut-off_glare.png'
-        )
-        // Multiple image quality warnings, display by priority
-        confirm.verifyImageQualityWarning(copy, 'cut-off')
-
-        // 1st retake
-        confirm.clickRedoButton()
-        uploadFileAndClickConfirmButton(
-          documentUpload,
-          confirm,
-          'identity_card_with_glare.jpg'
-        )
-        confirm.verifyImageQualityWarning(copy, 'glare')
-
-        // 2nd retake
-        confirm.clickRedoButton()
+        // first upload attempt should return an error if image quality is detected
+        // FIXME: Image quality errors are only returned for cut-off images in these tests!
+        // We should be able to define the error type for each request
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
           'identity_card_with_cut-off.png'
         )
-        confirm.verifyImageQualityWarning(copy, 'cut-off')
+        confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
+        confirm.clickRedoButton()
 
-        // Process all the way
-        confirm.confirmBtn().isDisplayed()
-        confirm.clickConfirmButton()
+        // 1st retake
+        it('should return an error on the second attempt', async () => {
+          uploadFileAndClickConfirmButton(
+            documentUpload,
+            confirm,
+            'identity_card_with_cut-off.png'
+          )
+          confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
+          confirm.clickRedoButton()
+        })
+
+        // 2nd retake
+        it('should return a warning on the third attempt', async () => {
+          uploadFileAndClickConfirmButton(
+            documentUpload,
+            confirm,
+            'identity_card_with_cut-off_glare.png'
+          )
+          // Multiple image quality warnings, display by priority
+          confirm.verifyImageQualityMessage(copy, 'cut-off')
+          // Proceed all the way
+          confirm.confirmBtn().isDisplayed()
+          confirm.clickConfirmButton()
+        })
       })
 
       it('should be able to retry document upload', async () => {
