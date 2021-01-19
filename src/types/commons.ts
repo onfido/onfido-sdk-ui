@@ -39,10 +39,10 @@ export type FaceCaptureVariants = 'standard' | 'live'
 type ImageInfo = {
   width: number
   height: number
-  fileSize: number
+  fileSize?: number
 }
 
-type ImageResizeInfo = {
+export type ImageResizeInfo = {
   resizedFrom: ImageInfo
   resizedTo: ImageInfo
 }
