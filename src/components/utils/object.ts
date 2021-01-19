@@ -1,11 +1,11 @@
 export const findKey = <K extends string, V>(
-  obj: Record<K, V> = {} as Record<K, V>,
+  obj: Partial<Record<K, V>> = {},
   fn: (value: V, key: K) => boolean
 ): K => (Object.keys(obj) as K[]).find((key) => fn(obj[key], key))
 
 export const shallowEquals = <K extends string, V>(
-  objA: Record<K, V>,
-  objB: Record<K, V>
+  objA: Partial<Record<K, V>>,
+  objB: Partial<Record<K, V>>
 ): boolean => {
   if (!objA && !objB) return true
   if ((!objA && objB) || (objA && !objB)) return false
@@ -25,40 +25,38 @@ export const shallowEquals = <K extends string, V>(
 }
 
 export const pick = <K extends string, V>(
-  obj: Record<K, V>,
+  obj: Partial<Record<K, V>>,
   keys: K[] = []
-): Record<K, V> => omitBy(obj, (key) => !keys.includes(key))
+): Partial<Record<K, V>> => omitBy(obj, (key) => !keys.includes(key))
 
 export const pickBy = <K extends string, V>(
-  obj: Record<K, V>,
+  obj: Partial<Record<K, V>>,
   rule: (key: K, value: V) => boolean
-): Record<K, V> => omitBy(obj, (...args) => !rule(...args))
+): Partial<Record<K, V>> => omitBy(obj, (...args) => !rule(...args))
 
 export const omit = <K extends string, V>(
-  obj: Record<K, V>,
+  obj: Partial<Record<K, V>>,
   keys: K[] = []
-): Record<K, V> => omitBy(obj, (key) => keys.includes(key))
+): Partial<Record<K, V>> => omitBy(obj, (key) => keys.includes(key))
 
 export const omitBy = <K extends string, V>(
-  obj: Optional<Record<K, V>>,
+  obj: Partial<Record<K, V>> | undefined,
   rule: (key: K, value: V) => boolean
-): Record<K, V> => {
-  const defaultValue = {} as Record<K, V>
-
-  return (Object.keys(obj || defaultValue) as K[]).reduce((accum, key) => {
+): Partial<Record<K, V>> => {
+  return (Object.keys(obj || {}) as K[]).reduce((accum, key) => {
     if (!rule(key, obj[key])) {
       accum[key] = obj[key]
     }
 
     return accum
-  }, defaultValue)
+  }, {} as Partial<Record<K, V>>)
 }
 
 export const isEmpty = (obj: Record<string, unknown> = {}): boolean =>
   Object.keys(obj).length === 0
 
 export const map = <K extends string, V, T>(
-  obj: Record<K, V>,
+  obj: Partial<Record<K, V>>,
   fn: (value: V, key: K) => T
 ): Record<K, T> =>
   Object.assign(

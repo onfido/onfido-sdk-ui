@@ -192,7 +192,7 @@ const objectToFormData = (object: SubmitPayload): FormData => {
   forEach(object, (value, fieldName) => {
     if (typeof value === 'string' || value instanceof Blob) {
       formData.append(fieldName, value)
-    } else {
+    } else if (typeof value === 'object') {
       formData.append(fieldName, value.blob, value.filename)
     }
   })
