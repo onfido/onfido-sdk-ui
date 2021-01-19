@@ -85,9 +85,7 @@ const resizeImageFile = (
       )
     }
 
-    if (typeof readerEvent.target.result === 'string') {
-      image.src = readerEvent.target.result
-    }
+    image.src = readerEvent.target.result as string
   }
 
   reader.readAsDataURL(file)
