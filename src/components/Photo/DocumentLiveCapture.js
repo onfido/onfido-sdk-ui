@@ -78,7 +78,6 @@ export default class DocumentLiveCapture extends Component {
       trackScreen,
       renderFallback,
       isUploadFallbackDisabled,
-      className,
       containerClassName,
       renderTitle,
       documentType,
@@ -104,7 +103,6 @@ export default class DocumentLiveCapture extends Component {
           <Camera
             facing={'environment'}
             idealCameraHeight={IDEAL_CAMERA_HEIGHT_IN_PX}
-            className={className}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
             translate={translate}
