@@ -8,22 +8,15 @@ import { withFullScreenState } from '../FullScreen'
 
 import type { TrackScreenCallback } from '~types/hocs'
 import type {
-  ChangeFlowProp,
-  TriggerOnErrorProp,
-  ComponentStep,
+  PropsFromRouter,
   RouterOwnProps,
+  StepComponentProps,
 } from '~types/routers'
 
 type Props = {
-  back: () => void
-  changeFlowTo: ChangeFlowProp
-  componentsList: ComponentStep[]
   disableNavigation: boolean
-  nextStep: () => void
-  previousStep: () => void
-  triggerOnError: TriggerOnErrorProp
-  step: number
-} & RouterOwnProps
+} & PropsFromRouter &
+  RouterOwnProps
 
 class StepsRouter extends Component<Props> {
   private container?: HTMLDivElement
@@ -54,7 +47,7 @@ class StepsRouter extends Component<Props> {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
-    const passedProps = {
+    const passedProps: StepComponentProps = {
       ...options,
       ...globalUserOptions,
       ...otherProps,

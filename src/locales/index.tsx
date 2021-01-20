@@ -2,7 +2,8 @@ import { h, createContext, FunctionComponent, ComponentType, VNode } from 'preac
 import { parseTags } from '~utils'
 import initializePolyglot from './polyglot'
 
-import type { SupportedLanguages, LocaleConfig, TranslatedTagParser, TranslateCallback } from '~types/locales'
+import type { WithLocalisedProps } from '~types/hocs'
+import type { SupportedLanguages, LocaleConfig, TranslatedTagParser } from '~types/locales'
 
 type ProviderProps = {
   language: SupportedLanguages | LocaleConfig
@@ -21,15 +22,9 @@ export const LocaleProvider: FunctionComponent<ProviderProps> = ({ language, chi
   )
 }
 
-export type LocalisedType = {
-  language: SupportedLanguages
-  parseTranslatedTags: TranslatedTagParser
-  translate: TranslateCallback
-}
+const LocaleContext = createContext<WithLocalisedProps>(null)
 
-const LocaleContext = createContext<LocalisedType>(null)
-
-export const localised = <P extends unknown>(WrappedComponent: ComponentType<P & LocalisedType>): ComponentType<P> => {
+export const localised = <P extends unknown>(WrappedComponent: ComponentType<P & WithLocalisedProps>): ComponentType<P> => {
   const LocalisedComponent: FunctionComponent<P> = (props) => (
     <LocaleContext.Consumer>
       {(injectedProps) => <WrappedComponent {...props} {...injectedProps} />}

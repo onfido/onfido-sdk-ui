@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import { trackComponent } from '../../Tracker'
@@ -7,12 +7,24 @@ import { buildIteratorKey } from '~utils'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-const localisedDescriptions = (translate) => [
+import type { TranslateCallback } from '~types/locales'
+import type { WithLocalisedProps } from '~types/hocs'
+import type { StepComponentWelcomeProps } from '~types/routers'
+
+type Props = StepComponentWelcomeProps & WithLocalisedProps
+
+const localisedDescriptions = (translate: TranslateCallback) => [
   translate('welcome.description_p_1'),
   translate('welcome.description_p_2'),
 ]
 
-const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
+const Welcome: FunctionComponent<Props> = ({
+  title,
+  descriptions,
+  nextButton,
+  nextStep,
+  translate,
+}) => {
   const welcomeTitle = title ? title : translate('welcome.title')
   const welcomeDescriptions = descriptions
     ? descriptions

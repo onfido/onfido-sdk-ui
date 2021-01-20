@@ -6,7 +6,7 @@ import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import withTheme from '../Theme'
 import Spinner from '../Spinner'
-import GenericError, { OwnProps as GenericErrorProps } from '../GenericError'
+import GenericError from '../GenericError'
 
 import { setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
@@ -37,7 +37,7 @@ const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
 
 // Wrap components with theme that include navigation and footer
 const WrappedSpinner = withTheme(Spinner)
-const WrappedError = withTheme<GenericErrorProps>(GenericError)
+const WrappedError = withTheme(GenericError)
 
 type State = {
   crossDeviceError?: ErrorProp

@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 
 import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import withTheme from '../Theme'
-import GenericError, { OwnProps as GenericErrorProps } from '../GenericError'
+import GenericError from '../GenericError'
 
 import { getWoopraCookie } from '../../Tracker'
 import HistoryRouter from './HistoryRouter'
@@ -23,7 +23,7 @@ const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
 }
 
 // Wrap components with theme that include navigation and footer
-const WrappedError = withTheme<GenericErrorProps>(GenericError)
+const WrappedError = withTheme(GenericError)
 
 type State = {
   crossDeviceInitialClientStep?: number
