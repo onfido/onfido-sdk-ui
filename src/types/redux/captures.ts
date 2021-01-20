@@ -2,16 +2,15 @@ import * as constants from './constants'
 import type {
   CaptureMethods,
   DocumentSides,
-  FaceCaptureVariants,
-  SdkMetadata,
   FilePayload,
+  SdkMetadata,
 } from '~types/commons'
-import type { DocumentTypes, PoaTypes } from '~types/steps'
+import type { DocumentTypes, PoaTypes, RequestedVariant } from '~types/steps'
 
 type CaptureMetadata = {
   type?: DocumentTypes | PoaTypes
   side?: DocumentSides
-  variant?: FaceCaptureVariants
+  variant?: RequestedVariant
 }
 
 type MetadataState = {
@@ -26,19 +25,20 @@ export type CapturePayload = {
   isPreviewCropped?: boolean
   method?: CaptureMethods
   sdkMetadata: SdkMetadata
-  side?: DocumentSides
 }
 
 export type DocumentCapture = {
   documentType: DocumentTypes | PoaTypes
   id: string
   isPreviewCropped?: boolean
+  side?: DocumentSides
 } & CapturePayload
 
 export type FaceCapture = {
-  snapshot?: FilePayload
-  variant: FaceCaptureVariants
   id: string
+  side: never
+  snapshot?: FilePayload
+  variant: RequestedVariant
 } & CapturePayload
 
 export type DeleteCapturePayload = {
