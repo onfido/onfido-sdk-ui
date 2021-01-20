@@ -8,13 +8,13 @@ import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 import type { ErrorProp } from '~types/routers'
-import type { LocalisedType } from 'locales'
+import type { WithLocalisedProps } from '~types/hocs'
 
 type GenericErrorProps = {
   error: ErrorProp
 }
 
-type Props = GenericErrorProps & LocalisedType
+type Props = GenericErrorProps & WithLocalisedProps
 
 class GenericError extends Component<Props> {
   componentDidMount() {

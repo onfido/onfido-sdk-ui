@@ -2,9 +2,10 @@ import { h, FunctionComponent } from 'preact'
 import PageTitle from '../PageTitle'
 import classNames from 'classnames'
 import style from './style.scss'
-import { localised, LocalisedType } from '../../locales'
+import { localised } from '../../locales'
 
 import type { ChallengePayload } from '~types/api'
+import type { WithLocalisedProps } from '~types/hocs'
 
 type ChallengeContainerProps = {
   title: string
@@ -23,7 +24,7 @@ const ChallengeContainer: FunctionComponent<ChallengeContainerProps> = ({
   </div>
 )
 
-const Challenge: FunctionComponent<ChallengePayload & LocalisedType> = ({
+const Challenge: FunctionComponent<ChallengePayload & WithLocalisedProps> = ({
   query,
   type,
   translate,

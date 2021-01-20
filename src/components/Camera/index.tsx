@@ -6,10 +6,10 @@ import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
 import StartRecording from '../FaceVideo/StartRecording'
 import { compose } from '~utils/func'
-import { localised, LocalisedType } from '../../locales'
+import { localised } from '../../locales'
 import style from './style.scss'
 
-import type { WithTrackingProps } from '~types/hocs'
+import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
@@ -34,7 +34,7 @@ type CameraProps = {
 } & WebcamProps &
   WithTrackingProps
 
-type Props = CameraProps & LocalisedType
+type Props = CameraProps & WithLocalisedProps
 
 const Camera: FunctionComponent<Props> = ({
   buttonType = 'photo',

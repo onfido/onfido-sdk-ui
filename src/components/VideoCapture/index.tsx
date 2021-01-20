@@ -3,7 +3,7 @@ import Webcam from 'react-webcam-onfido'
 
 import { getRecordedVideo } from '~utils/camera'
 
-import { localised, LocalisedType } from '../../locales'
+import { localised } from '../../locales'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
@@ -14,7 +14,7 @@ import { ToggleFullScreen } from '../FullScreen'
 import Recording from './Recording'
 
 import type { CaptureMethods } from '~types/commons'
-import type { WithTrackingProps } from '~types/hocs'
+import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type { ErrorProp, RenderFallbackProp } from '~types/routers'
 
@@ -29,7 +29,7 @@ type VideoCaptureProps = {
   renderFallback: RenderFallbackProp
 } & WithTrackingProps
 
-type Props = VideoCaptureProps & LocalisedType
+type Props = VideoCaptureProps & WithLocalisedProps
 
 type State = {
   hasBecomeInactive: boolean

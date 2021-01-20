@@ -1,14 +1,16 @@
 import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
-import { localised, LocalisedType } from '../../locales'
+import { localised } from '../../locales'
+
+import type { WithLocalisedProps } from '~types/hocs'
 
 type StartRecordingProps = {
   disableInteraction: boolean
   onStart: () => void
 }
 
-type Props = StartRecordingProps & LocalisedType
+type Props = StartRecordingProps & WithLocalisedProps
 
 const StartRecording: FunctionComponent<Props> = ({
   disableInteraction,

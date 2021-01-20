@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
-import { localised, LocalisedType } from '../../locales'
+import { localised } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import {
@@ -12,13 +12,14 @@ import {
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
+import type { WithLocalisedProps } from '~types/hocs'
 import type { StepComponentFaceProps } from '~types/routers'
 
 type FaceVideoIntroProps = {
   nextStep: () => void
 } & StepComponentFaceProps
 
-type Props = FaceVideoIntroProps & LocalisedType
+type Props = FaceVideoIntroProps & WithLocalisedProps
 
 const VIDEO_INTRO_TYPES: VideoIntroTypes[] = ['actions', 'speak']
 

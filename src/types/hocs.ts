@@ -1,3 +1,15 @@
+import type {
+  SupportedLanguages,
+  TranslatedTagParser,
+  TranslateCallback,
+} from './locales'
+
+export type WithLocalisedProps = {
+  language: SupportedLanguages
+  parseTranslatedTags: TranslatedTagParser
+  translate: TranslateCallback
+}
+
 export type WithCameraDetectionProps = {
   hasCamera?: boolean
 }

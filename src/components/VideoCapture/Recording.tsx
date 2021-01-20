@@ -2,9 +2,11 @@ import { h, FunctionComponent, VNode } from 'preact'
 import classNames from 'classnames'
 
 import { noop } from '~utils/func'
-import { localised, LocalisedType } from '../../locales'
+import { localised } from '../../locales'
 import Button from '../Button'
 import style from './style.scss'
+
+import type { WithLocalisedProps } from '~types/hocs'
 
 type RecordingProps = {
   children?: VNode
@@ -14,7 +16,7 @@ type RecordingProps = {
   onStop: () => void
 }
 
-type Props = RecordingProps & LocalisedType
+type Props = RecordingProps & WithLocalisedProps
 
 const Recording: FunctionComponent<Props> = ({
   children,

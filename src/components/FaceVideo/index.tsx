@@ -12,9 +12,10 @@ import { sendScreen } from '../../Tracker'
 import Recording from './Recording'
 import Timeout from '../Timeout'
 import withChallenges from './withChallenges'
-import { localised, LocalisedType } from '../../locales'
+import { localised } from '../../locales'
 
 import type { ChallengePayload, ChallengeData } from '~types/api'
+import type { WithLocalisedProps } from '~types/hocs'
 import type {
   ErrorProp,
   RenderFallbackProp,
@@ -34,7 +35,7 @@ type FaceVideoProps = {
   inactiveError: ErrorProp
 } & StepComponentFaceProps
 
-type Props = FaceVideoProps & LocalisedType
+type Props = FaceVideoProps & WithLocalisedProps
 
 type State = {
   currentIndex: number

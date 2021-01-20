@@ -3,9 +3,10 @@ import Challenge from './Challenge'
 import classNames from 'classnames'
 import Button from '../Button'
 import style from './style.scss'
-import { localised, LocalisedType } from '../../locales'
+import { localised } from '../../locales'
 
 import type { ChallengePayload } from '~types/api'
+import type { WithLocalisedProps } from '~types/hocs'
 
 type RecordingProps = {
   currentChallenge: ChallengePayload
@@ -16,7 +17,7 @@ type RecordingProps = {
   onStop: () => void
 }
 
-type Props = RecordingProps & LocalisedType
+type Props = RecordingProps & WithLocalisedProps
 
 const Recording: FunctionComponent<Props> = ({
   onStop,
