@@ -101,22 +101,13 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       isCapturing,
     } = this.state
 
-    const id1SizeDocuments = new Set([
-      'driving_licence',
-      'national_identity_card',
-    ])
-
-    const documentSize = id1SizeDocuments.has(documentType)
-      ? 'id1Card'
-      : 'id3Card'
-
     return (
       <div className={style.container}>
         {this.state.isCapturing ? (
           <Spinner />
         ) : (
           <Camera
-            facing={'environment'}
+            facing="environment"
             idealCameraHeight={IDEAL_CAMERA_HEIGHT_IN_PX}
             className={className}
             containerClassName={containerClassName}
@@ -146,7 +137,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
               <Timeout seconds={10} onTimeout={this.handleTimeout} />
             )}
             <ToggleFullScreen />
-            <DocumentOverlay documentSize={documentSize} />
+            <DocumentOverlay type={documentType} />
           </Camera>
         )}
       </div>

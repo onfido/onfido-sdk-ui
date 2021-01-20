@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h, Component, VNode } from 'preact'
 import Webcam from 'react-webcam-onfido'
 
 import { getRecordedVideo } from '~utils/camera'
@@ -10,7 +10,6 @@ import CameraError from '../CameraError'
 import FallbackButton from '../Button/FallbackButton'
 import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
-import { DocumentOverlay, FaceOverlay } from '../Overlay'
 
 import Recording from './Recording'
 
@@ -23,6 +22,7 @@ import type {
 
 type OwnProps = {
   cameraClassName?: string
+  children?: VNode
   inactiveError: ErrorProp
   method: CaptureMethods
   onRecordingStart?: () => void
@@ -161,7 +161,7 @@ class VideoCapture extends Component<Props, State> {
   }
 
   render = () => {
-    const { cameraClassName, method, translate } = this.props
+    const { cameraClassName, children, translate } = this.props
     const {
       isRecording,
       hasBecomeInactive,
@@ -197,11 +197,8 @@ class VideoCapture extends Component<Props, State> {
         {...(hasTimeoutError ? { renderError: this.renderError() } : {})}
       >
         <ToggleFullScreen />
-        {method === 'face' ? (
-          <FaceOverlay isWithoutHole={hasCameraError || isRecording} />
-        ) : (
-          <DocumentOverlay documentSize="id1Card" />
-        )}
+        {/* <FaceOverlay isWithoutHole={hasCameraError || isRecording} /> */}
+        {children}
         {isRecording
           ? this.renderRecordingTimeoutMessage()
           : this.renderInactivityTimeoutMessage()}

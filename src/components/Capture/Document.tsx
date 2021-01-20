@@ -17,6 +17,7 @@ import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import FallbackButton from '../Button/FallbackButton'
+import { DocumentOverlay } from '../Overlay'
 
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import style from './style.scss'
@@ -138,7 +139,9 @@ class Document extends Component<Props> {
               : this.renderUploadFallback
           }
           trackScreen={this.props.trackScreen}
-        />
+        >
+          <DocumentOverlay type={documentType} />
+        </VideoCapture>
       )
     }
 
