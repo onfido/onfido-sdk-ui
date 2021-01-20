@@ -6,10 +6,10 @@ import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 
+import type { TrackScreenCallback } from '~types/hocs'
 import type {
-  TrackScreenProp,
-  RouterOwnProps,
   PropsFromRouter,
+  RouterOwnProps,
   StepComponentProps,
 } from '~types/routers'
 
@@ -23,7 +23,7 @@ class StepsRouter extends Component<Props> {
 
   resetSdkFocus = () => this.container.focus()
 
-  trackScreen: TrackScreenProp = (screenNameHierarchy, properties = {}) => {
+  trackScreen: TrackScreenCallback = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
     sendScreen([step.type, ...wrapArray(screenNameHierarchy)], {
       ...properties,
