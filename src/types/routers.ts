@@ -10,12 +10,14 @@ import type {
 } from './commons'
 import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
 import type {
+  CaptureOptions,
   StepOptionWelcome,
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
   StepOptionComplete,
 } from './steps'
+import type { CapturePayload } from './redux'
 import type { ReduxProps } from 'components/App/withConnect'
 
 export type StepIndexType = 'client' | 'user'
@@ -39,12 +41,27 @@ export type ChangeFlowProp = (
 
 export type TriggerOnErrorProp = (response: ApiRequest) => void
 
+export type HandleCaptureProp = (payload: CapturePayload) => void
+
+export type RenderFallbackProp = (text: string) => JSX.Element
+
 export type ErrorProp = {
   name: ErrorNames
   type?: ErrorTypes
 }
 
+export type RouterOwnProps = {
+  options: NarrowSdkOptions
+} & ReduxProps
+
+export type RouterProps = {
+  allowCrossDeviceFlow: boolean
+  onFlowChange?: FlowChangeCallback
+} & RouterOwnProps &
+  WithCameraDetectionProps
+
 export type PropsFromRouter = {
+  allowCrossDeviceFlow: boolean
   back: () => void
   changeFlowTo: ChangeFlowProp
   componentsList: ComponentStep[]
@@ -70,6 +87,7 @@ export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
+export type StepComponentCaptureProps = CaptureOptions & StepComponentBaseProps
 
 export type StepComponentProps =
   | StepComponentWelcomeProps
@@ -83,13 +101,3 @@ export type ComponentStep = {
   step: ExtendedStepConfig
   stepIndex: number
 }
-
-export type RouterOwnProps = {
-  options: NarrowSdkOptions
-} & ReduxProps
-
-export type RouterProps = {
-  allowCrossDeviceFlow: boolean
-  onFlowChange?: FlowChangeCallback
-} & RouterOwnProps &
-  WithCameraDetectionProps

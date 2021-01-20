@@ -25,3 +25,8 @@ export type TranslatedTagParser = (
   key: string,
   handler: TranslatedTagHandler
 ) => (string | h.JSX.Element)[]
+
+export type TranslateCallback = (
+  key: string,
+  options?: Record<string, unknown>
+) => string

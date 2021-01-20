@@ -32,7 +32,7 @@ export type DocumentTypeConfig =
       country: string
     }
 
-type CaptureOptions = {
+export type CaptureOptions = {
   requestedVariant?: RequestedVariant
   uploadFallback?: boolean
   useUploader?: boolean
