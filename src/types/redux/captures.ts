@@ -25,6 +25,7 @@ export type CapturePayload = {
   isPreviewCropped?: boolean
   method?: CaptureMethods
   sdkMetadata: SdkMetadata
+  variant?: RequestedVariant
 }
 
 export type DocumentCapture = {
@@ -38,7 +39,6 @@ export type FaceCapture = {
   id: string
   side: never
   snapshot?: FilePayload
-  variant: RequestedVariant
 } & CapturePayload
 
 export type DeleteCapturePayload = {

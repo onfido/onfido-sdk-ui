@@ -39,7 +39,7 @@ class Document extends Component<Props> {
     side: 'front',
   }
 
-  handleCapture: HandleCaptureProp = (payload) => {
+  handleCapture: HandleCaptureProp = ({ variant, ...payload }) => {
     const {
       actions,
       documentType,
@@ -57,14 +57,11 @@ class Document extends Component<Props> {
       method: 'document',
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
       side,
+      variant: variant || 'standard',
     }
     actions.createCapture(documentCaptureData)
 
     nextStep()
-  }
-
-  handleVideoCapture = (blob: Blob) => {
-    console.log('blob:', blob)
   }
 
   handleUpload = (blob: Blob, imageResizeInfo: ImageResizeInfo) =>
@@ -132,7 +129,9 @@ class Document extends Component<Props> {
           inactiveError={getInactiveError(isUploadFallbackDisabled)}
           method="document"
           onRedo={() => console.log('redo')}
-          onVideoCapture={this.handleVideoCapture}
+          onVideoCapture={(payload) =>
+            this.handleCapture({ ...payload, variant: 'video' })
+          }
           renderFallback={renderFallback}
           trackScreen={this.props.trackScreen}
         >

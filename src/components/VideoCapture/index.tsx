@@ -14,6 +14,7 @@ import { ToggleFullScreen } from '../FullScreen'
 import Recording from './Recording'
 
 import type { CaptureMethods } from '~types/commons'
+import type { CapturePayload } from '~types/redux'
 import type {
   ErrorProp,
   RenderFallbackProp,
@@ -27,7 +28,7 @@ type OwnProps = {
   method: CaptureMethods
   onRecordingStart?: () => void
   onRedo: () => void
-  onVideoCapture: (blob: Blob) => void
+  onVideoCapture: (payload: CapturePayload) => void
   renderFallback: RenderFallbackProp
   trackScreen: TrackScreenProp
 }
@@ -83,8 +84,8 @@ class VideoCapture extends Component<Props, State> {
     this.stopRecording()
 
     if (this.webcam && !hasRecordingTakenTooLong) {
-      getRecordedVideo(this.webcam, ({ blob }) =>
-        this.props.onVideoCapture(blob)
+      getRecordedVideo(this.webcam, (payload) =>
+        this.props.onVideoCapture(payload)
       )
     }
   }
