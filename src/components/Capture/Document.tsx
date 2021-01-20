@@ -129,6 +129,7 @@ class Document extends Component<Props> {
         <VideoCapture
           cameraClassName={style.faceContainer}
           inactiveError={getInactiveError(isUploadFallbackDisabled)}
+          method="document"
           onRedo={() => console.log('redo')}
           onVideoCapture={this.handleVideoCapture}
           renderFallback={

@@ -10,10 +10,11 @@ import CameraError from '../CameraError'
 import FallbackButton from '../Button/FallbackButton'
 import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
-import { FaceOverlay } from '../Overlay'
+import { DocumentOverlay, FaceOverlay } from '../Overlay'
 
 import Recording from './Recording'
 
+import type { CaptureMethods } from '~types/commons'
 import type {
   ErrorProp,
   RenderFallbackProp,
@@ -23,6 +24,7 @@ import type {
 type OwnProps = {
   cameraClassName?: string
   inactiveError: ErrorProp
+  method: CaptureMethods
   onRecordingStart?: () => void
   onRedo: () => void
   onVideoCapture: (blob: Blob) => void
@@ -159,7 +161,7 @@ class VideoCapture extends Component<Props, State> {
   }
 
   render = () => {
-    const { translate } = this.props
+    const { cameraClassName, method, translate } = this.props
     const {
       isRecording,
       hasBecomeInactive,
@@ -181,7 +183,7 @@ class VideoCapture extends Component<Props, State> {
     return (
       <Camera
         buttonType="video"
-        containerClassName={this.props.cameraClassName}
+        containerClassName={cameraClassName}
         isButtonDisabled={disableRecording}
         isRecording={isRecording}
         onButtonClick={this.handleRecordingStart}
@@ -195,7 +197,11 @@ class VideoCapture extends Component<Props, State> {
         {...(hasTimeoutError ? { renderError: this.renderError() } : {})}
       >
         <ToggleFullScreen />
-        <FaceOverlay isWithoutHole={hasCameraError || isRecording} />
+        {method === 'face' ? (
+          <FaceOverlay isWithoutHole={hasCameraError || isRecording} />
+        ) : (
+          <DocumentOverlay documentSize="id1Card" />
+        )}
         {isRecording
           ? this.renderRecordingTimeoutMessage()
           : this.renderInactivityTimeoutMessage()}

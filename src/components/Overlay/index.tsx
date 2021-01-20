@@ -21,7 +21,7 @@ export const FaceOverlay = withFullScreenState<ComponentType<FaceOverlayProps>>(
 )
 
 type DocumentOverlayProps = {
-  documentSize?: string
+  documentSize?: 'id1Card' | 'id3Card'
 }
 
 export const DocumentOverlay: FunctionComponent<DocumentOverlayProps> = ({
