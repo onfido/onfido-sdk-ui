@@ -75,8 +75,6 @@ class Confirm extends Component {
   }
 
   onApiSuccess = (apiResponse) => {
-    console.log('apiResponse:', apiResponse)
-
     const { method, nextStep, actions } = this.props
     const { capture } = this.state
 

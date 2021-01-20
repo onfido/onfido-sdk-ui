@@ -56,7 +56,7 @@ class Document extends Component<Props> {
       id: payload.id || randomId(),
       method: 'document',
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
-      side,
+      side: variant === 'standard' ? side : null,
       variant: variant || 'standard',
     }
     actions.createCapture(documentCaptureData)

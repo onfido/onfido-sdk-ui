@@ -30,7 +30,7 @@ const DocumentBackWrapper = (props) => (
 )
 
 const DocumentVideoWrapper = (props) => (
-  <MapConfirm {...props} method="document" side="front" />
+  <MapConfirm {...props} method="document" />
 )
 
 const BaseFaceConfirm = (props) => <MapConfirm {...props} method="face" />
