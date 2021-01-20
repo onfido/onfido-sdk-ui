@@ -14,8 +14,9 @@ import {
 import {
   DocumentFrontConfirm,
   DocumentBackConfirm,
+  DocumentVideoConfirm,
   SelfieConfirm,
-  VideoConfirm,
+  FaceVideoConfirm,
 } from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -153,7 +154,7 @@ const buildRequiredVideoComponents = (
   shouldUseCamera: boolean,
   mobileFlow: boolean
 ): ComponentType<StepComponentProps>[] => {
-  const allVideoSteps = [FaceVideoIntro, FaceVideoCapture, VideoConfirm]
+  const allVideoSteps = [FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm]
 
   if (mobileFlow && !shouldUseCamera) {
     // do not display intro on cross device flow
@@ -205,7 +206,7 @@ const buildDocumentComponents = (
     documentStep?.options?.requestedVariant === 'video' &&
     window.MediaRecorder != null
 
-  const videoCaptureComponents = [DocumentVideoCapture]
+  const videoCaptureComponents = [DocumentVideoCapture, DocumentVideoConfirm]
 
   const doubleSidedDocs: DocumentTypes[] = [
     'driving_licence',

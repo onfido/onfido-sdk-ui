@@ -145,7 +145,42 @@ export const sendMultiframeSelfie = (
     .catch((err) => onError(err))
 }
 
-export const uploadLiveVideo = (
+export const uploadDocumentVideo = (
+  { blob, sdkMetadata = {} }: UploadLiveVideoPayload,
+  url: string,
+  token: string,
+  onSuccess: SuccessCallback,
+  onError: ErrorCallback
+): void => {
+  const placeholderChallengeData = {
+    languages: JSON.stringify([
+      { source: 'sdk', language_code: 'PLACEHOLDER' },
+    ]),
+    challenge: JSON.stringify([
+      {
+        query: [-1, -1, -1],
+        type: 'recite',
+      },
+      {
+        query: 'PLACEHOLDER',
+        type: 'movement',
+      },
+    ]),
+    challenge_id: 'PLACEHOLDER',
+    challenge_switch_at: -1,
+  }
+
+  const payload: SubmitLiveVideoPayload = {
+    ...placeholderChallengeData,
+    file: blob,
+    sdk_metadata: JSON.stringify(sdkMetadata),
+  }
+
+  const endpoint = `${url}/v3/live_videos`
+  sendFile(endpoint, payload, token, onSuccess, onError)
+}
+
+export const uploadFaceVideo = (
   { challengeData, blob, language, sdkMetadata = {} }: UploadLiveVideoPayload,
   url: string,
   token: string,

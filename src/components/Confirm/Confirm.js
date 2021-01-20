@@ -4,7 +4,8 @@ import { isOfMimeType } from '~utils/blob'
 import {
   uploadDocument,
   uploadLivePhoto,
-  uploadLiveVideo,
+  uploadDocumentVideo,
+  uploadFaceVideo,
   sendMultiframeSelfie,
 } from '~utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
@@ -74,6 +75,8 @@ class Confirm extends Component {
   }
 
   onApiSuccess = (apiResponse) => {
+    console.log('apiResponse:', apiResponse)
+
     const { method, nextStep, actions } = this.props
     const { capture } = this.state
 
@@ -181,6 +184,33 @@ class Confirm extends Component {
     } = capture
     this.setState({ capture })
 
+    if (variant === 'video') {
+      if (method === 'document') {
+        const data = { blob, sdkMetadata }
+        uploadDocumentVideo(
+          data,
+          url,
+          token,
+          this.onApiSuccess,
+          this.onApiError
+        )
+        return
+      }
+
+      if (method === 'face') {
+        const data = { challengeData, blob, language, sdkMetadata }
+        uploadFaceVideo(data, url, token, this.onApiSuccess, this.onApiError)
+        return
+      }
+
+      return
+    }
+
+    if (method === 'face') {
+      this.handleSelfieUpload(capture, token)
+      return
+    }
+
     if (method === 'document') {
       const isPoA = poaDocumentTypes.includes(poaDocumentType)
       const shouldWarnForImageQuality = !isOfMimeType(['pdf'], blob) && !isPoA
@@ -207,13 +237,6 @@ class Confirm extends Component {
         ...issuingCountry,
       }
       uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
-    } else if (method === 'face') {
-      if (variant === 'video') {
-        const data = { challengeData, blob, language, sdkMetadata }
-        uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
-      } else {
-        this.handleSelfieUpload(capture, token)
-      }
     }
   }
 
