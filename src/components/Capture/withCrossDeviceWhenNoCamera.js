@@ -26,14 +26,18 @@ export default (WrappedComponent) =>
 
     attemptForwardToCrossDevice = () => {
       const {
-        changeFlowTo,
-        forceCrossDevice,
         hasCamera,
+        forceCrossDevice,
+        changeFlowTo,
+        componentsList,
         requestedVariant,
+        step,
       } = this.props
 
+      const currentStep = componentsList[step]
       const cameraRequiredButNoneDetected =
-        requestedVariant === 'video' && !hasCamera
+        !hasCamera &&
+        (requestedVariant === 'video' || currentStep.step.type === 'face')
 
       if (cameraRequiredButNoneDetected) {
         console.warn(
