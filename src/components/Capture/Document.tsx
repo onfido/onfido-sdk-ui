@@ -16,7 +16,7 @@ import { localised, LocalisedType } from '../../locales'
 import FallbackButton from '../Button/FallbackButton'
 import style from './style.scss'
 
-import type { ImageResizeInfo, SdkMetadata } from '~types/commons'
+import type { ImageResizeInfo } from '~types/commons'
 import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
@@ -27,32 +27,30 @@ import type { Options as OptionsProps } from './withOptions'
 type Props = StepComponentDocumentProps & LocalisedType & OptionsProps
 
 class Document extends Component<Props> {
-  static defaultProps = {
-    side: 'front',
+  static defaultProps: Partial<Props> = {
     forceCrossDevice: false,
+    requestedVariant: 'standard',
+    side: 'front',
   }
 
   handleCapture: HandleCaptureProp = (payload) => {
     const {
-      isPoA,
-      documentType,
-      poaDocumentType,
       actions,
-      side,
-      nextStep,
+      documentType,
+      isPoA,
       mobileFlow,
+      nextStep,
+      poaDocumentType,
+      side,
     } = this.props
 
     const documentCaptureData: DocumentCapture = {
       ...payload,
-      sdkMetadata: addDeviceRelatedProperties(
-        payload.sdkMetadata,
-        mobileFlow
-      ) as SdkMetadata,
-      method: 'document',
       documentType: isPoA ? poaDocumentType : documentType,
-      side,
       id: payload.id || randomId(),
+      method: 'document',
+      sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
+      side,
     }
     actions.createCapture(documentCaptureData)
 
