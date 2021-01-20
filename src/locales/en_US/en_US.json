@@ -198,7 +198,7 @@
     },
     "linked_computer": {
         "button_primary": "Continue",
-        "info": "Make sure§",
+        "info": "Make sure",
         "list_item_desktop_open": "2. Your desktop window stays open",
         "list_item_sent_by_you": "1. This link was sent by you",
         "subtitle": "Continue with the verification",
