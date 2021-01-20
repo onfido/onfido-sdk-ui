@@ -13,8 +13,6 @@ export type DeviceTypes = 'desktop' | 'mobile'
 
 export type DocumentSides = 'front' | 'back'
 
-export type FaceCaptureVariants = 'standard' | 'live'
-
 type ImageInfo = {
   width: number
   height: number
@@ -51,4 +49,9 @@ export type UrlsConfig = {
   hosted_sdk_url?: string
   detect_document_url?: string
   sync_url?: string
+}
+
+export type FilePayload = {
+  blob: Blob
+  filename: string
 }
