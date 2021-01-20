@@ -3,9 +3,9 @@ import { pick, omitBy } from '~utils/object'
 
 import type {
   CaptureActions,
+  DeleteCapturePayload,
   DocumentCapture,
   FaceCapture,
-  DeleteCapturePayload,
   MetadataPayload,
 } from '~types/redux'
 
@@ -35,8 +35,7 @@ export const setCaptureMetadata = ({
     metadata: omitBy(
       {
         ...pick(apiResponse, ['id', 'side', 'type']),
-        // we only want the face variant to show in the metadata
-        variant: capture.method === 'face' && (capture as FaceCapture).variant,
+        variant: capture.variant,
       },
       // omit any null/undefined metadata values
       (_key: unknown, value: unknown) => !value
