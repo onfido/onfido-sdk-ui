@@ -9,6 +9,8 @@ import { compose } from '~utils/func'
 import { localised, LocalisedType } from '../../locales'
 import style from './style.scss'
 
+import type { TrackScreenProp } from '~types/routers'
+
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
@@ -29,6 +31,7 @@ type OwnProps = {
   renderTitle?: VNode
   video?: boolean
   webcamRef?: Ref<Webcam>
+  trackScreen: TrackScreenProp
 } & WebcamProps
 
 type Props = OwnProps & LocalisedType

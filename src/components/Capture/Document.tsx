@@ -133,11 +133,7 @@ class Document extends Component<Props> {
           method="document"
           onRedo={() => console.log('redo')}
           onVideoCapture={this.handleVideoCapture}
-          renderFallback={
-            isDesktop
-              ? this.renderCrossDeviceFallback
-              : this.renderUploadFallback
-          }
+          renderFallback={renderFallback}
           trackScreen={this.props.trackScreen}
         >
           <DocumentOverlay type={documentType} />
