@@ -8,6 +8,7 @@ import type {
   ErrorNames,
   ErrorTypes,
 } from './commons'
+import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
 import type {
   StepOptionWelcome,
   StepOptionDocument,
@@ -36,20 +37,11 @@ export type ChangeFlowProp = (
   excludeStepFromHistory?: boolean
 ) => void
 
-export type TrackScreenProp = (
-  screenNameHierarchy: string | string[],
-  properties?: Record<string, unknown>
-) => void
-
 export type TriggerOnErrorProp = (response: ApiRequest) => void
 
 export type ErrorProp = {
   name: ErrorNames
   type?: ErrorTypes
-}
-
-export type CameraDetectionProps = {
-  hasCamera?: boolean
 }
 
 export type PropsFromRouter = {
@@ -64,11 +56,11 @@ export type PropsFromRouter = {
 
 type StepComponentBaseProps = {
   resetSdkFocus: () => void
-  trackScreen: TrackScreenProp
 } & ReduxProps &
   NarrowSdkOptions &
   PropsFromRouter &
-  CameraDetectionProps
+  WithCameraDetectionProps &
+  WithTrackingProps
 
 export type StepComponentWelcomeProps = StepOptionWelcome &
   StepComponentBaseProps
@@ -100,4 +92,4 @@ export type RouterProps = {
   allowCrossDeviceFlow: boolean
   onFlowChange?: FlowChangeCallback
 } & RouterOwnProps &
-  CameraDetectionProps
+  WithCameraDetectionProps
