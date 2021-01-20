@@ -15,8 +15,8 @@
       "timeout": 50000,
       "browsers": [
         {
-          "browserName": "Edge",
-          "browser_version": "87",
+          "browserName": "Firefox",
+          "browser_version": "83",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",
