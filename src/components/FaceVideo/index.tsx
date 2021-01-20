@@ -21,7 +21,7 @@ import type {
   StepComponentFaceProps,
 } from '~types/routers'
 
-type OwnProps = {
+type FaceVideoProps = {
   challenges: ChallengePayload[]
   challengesId: string
   onRedo: () => void
@@ -34,7 +34,7 @@ type OwnProps = {
   inactiveError: ErrorProp
 } & StepComponentFaceProps
 
-type Props = OwnProps & LocalisedType
+type Props = FaceVideoProps & LocalisedType
 
 type State = {
   currentIndex: number
@@ -250,4 +250,4 @@ class FaceVideo extends Component<Props, State> {
   }
 }
 
-export default localised<OwnProps>(withChallenges(FaceVideo))
+export default localised<FaceVideoProps>(withChallenges(FaceVideo))

@@ -14,12 +14,9 @@ import style from './style.scss'
 
 import type { LocalisedType } from 'locales'
 import type { SdkMetadata } from '~types/commons'
+import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
-import type {
-  HandleCaptureProp,
-  RenderFallbackProp,
-  TrackScreenProp,
-} from '~types/routers'
+import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 
 type Props = {
@@ -30,8 +27,8 @@ type Props = {
   onCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
   renderTitle: JSX.Element
-  trackScreen: TrackScreenProp
-} & LocalisedType
+} & LocalisedType &
+  WithTrackingProps
 
 type State = {
   hasAllowedCameraAccess: boolean

@@ -3,12 +3,12 @@ import classNames from 'classnames'
 import style from './style.scss'
 import { localised, LocalisedType } from '../../locales'
 
-type OwnProps = {
+type StartRecordingProps = {
   disableInteraction: boolean
   onStart: () => void
 }
 
-type Props = OwnProps & LocalisedType
+type Props = StartRecordingProps & LocalisedType
 
 const StartRecording: FunctionComponent<Props> = ({
   disableInteraction,
@@ -29,4 +29,4 @@ const StartRecording: FunctionComponent<Props> = ({
   </div>
 )
 
-export default localised<OwnProps>(StartRecording)
+export default localised(StartRecording)

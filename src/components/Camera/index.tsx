@@ -9,14 +9,14 @@ import { compose } from '~utils/func'
 import { localised, LocalisedType } from '../../locales'
 import style from './style.scss'
 
-import type { TrackScreenProp } from '~types/routers'
+import type { WithTrackingProps } from '~types/hocs'
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 const DEFAULT_CAMERA_HEIGHT_IN_PX = 720
 
-type OwnProps = {
+type CameraProps = {
   buttonType?: 'photo' | 'video'
   children?: VNode
   className?: string
@@ -31,10 +31,10 @@ type OwnProps = {
   renderTitle?: VNode
   video?: boolean
   webcamRef?: Ref<Webcam>
-  trackScreen: TrackScreenProp
-} & WebcamProps
+} & WebcamProps &
+  WithTrackingProps
 
-type Props = OwnProps & LocalisedType
+type Props = CameraProps & LocalisedType
 
 const Camera: FunctionComponent<Props> = ({
   buttonType = 'photo',

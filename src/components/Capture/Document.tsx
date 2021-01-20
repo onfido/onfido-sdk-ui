@@ -2,7 +2,6 @@ import { h, Component } from 'preact'
 
 import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
 import { validateFile } from '~utils/file'
-import { compose } from '~utils/func'
 import { getInactiveError } from '~utils/inactiveError'
 import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
@@ -186,5 +185,5 @@ class Document extends Component<Props> {
 }
 
 export default appendToTracking(
-  localised<StepComponentDocumentProps>(withCrossDeviceWhenNoCamera(Document))
+  localised(withCrossDeviceWhenNoCamera(Document))
 )

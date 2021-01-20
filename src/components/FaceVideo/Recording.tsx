@@ -7,7 +7,7 @@ import { localised, LocalisedType } from '../../locales'
 
 import type { ChallengePayload } from '~types/api'
 
-type OwnProps = {
+type RecordingProps = {
   currentChallenge: ChallengePayload
   disableInteraction: boolean
   hasError: boolean
@@ -16,7 +16,7 @@ type OwnProps = {
   onStop: () => void
 }
 
-type Props = OwnProps & LocalisedType
+type Props = RecordingProps & LocalisedType
 
 const Recording: FunctionComponent<Props> = ({
   onStop,
@@ -66,4 +66,4 @@ const Recording: FunctionComponent<Props> = ({
   </div>
 )
 
-export default localised<OwnProps>(Recording)
+export default localised(Recording)

@@ -14,11 +14,11 @@ import style from './style.scss'
 
 import type { StepComponentFaceProps } from '~types/routers'
 
-type OwnProps = {
+type FaceVideoIntroProps = {
   nextStep: () => void
 } & StepComponentFaceProps
 
-type Props = OwnProps & LocalisedType
+type Props = FaceVideoIntroProps & LocalisedType
 
 const VIDEO_INTRO_TYPES: VideoIntroTypes[] = ['actions', 'speak']
 
@@ -63,6 +63,6 @@ const Intro: FunctionComponent<Props> = ({
 )
 
 export default trackComponent(
-  localised<OwnProps>(withCrossDeviceWhenNoCamera(Intro)),
+  localised(withCrossDeviceWhenNoCamera(Intro)),
   'video_intro'
 )

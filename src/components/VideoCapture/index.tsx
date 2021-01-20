@@ -14,14 +14,11 @@ import { ToggleFullScreen } from '../FullScreen'
 import Recording from './Recording'
 
 import type { CaptureMethods } from '~types/commons'
+import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
-import type {
-  ErrorProp,
-  RenderFallbackProp,
-  TrackScreenProp,
-} from '~types/routers'
+import type { ErrorProp, RenderFallbackProp } from '~types/routers'
 
-type OwnProps = {
+type VideoCaptureProps = {
   cameraClassName?: string
   children?: VNode
   inactiveError: ErrorProp
@@ -30,10 +27,9 @@ type OwnProps = {
   onRedo: () => void
   onVideoCapture: (payload: CapturePayload) => void
   renderFallback: RenderFallbackProp
-  trackScreen: TrackScreenProp
-}
+} & WithTrackingProps
 
-type Props = OwnProps & LocalisedType
+type Props = VideoCaptureProps & LocalisedType
 
 type State = {
   hasBecomeInactive: boolean
@@ -215,4 +211,4 @@ class VideoCapture extends Component<Props, State> {
   }
 }
 
-export default localised<OwnProps>(VideoCapture)
+export default localised(VideoCapture)

@@ -143,12 +143,12 @@ const screeNameHierarchyFormat = (screeNameHierarchy: string[]): string =>
 
 const sendScreen = (
   screeNameHierarchy: string[],
-  properties: Record<string, unknown>
+  properties?: Record<string, unknown>
 ): void => sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
 
 const appendToTracking = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,
-  ancestorScreeNameHierarchy: string
+  ancestorScreeNameHierarchy?: string
 ): ComponentType<P> =>
   class TrackedComponent extends Component<P> {
     trackScreen: TrackScreenCallback = (
@@ -170,7 +170,7 @@ const appendToTracking = <P extends WithTrackingProps>(
 
 const trackComponent = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,
-  screenName: string
+  screenName?: string
 ): ComponentType<P> =>
   class TrackedComponent extends Component<P> {
     componentDidMount() {
@@ -235,7 +235,7 @@ const setWoopraCookie = (cookie: string): void => {
   woopra.cookie = cookie
 }
 
-const getWoopraCookie = (): void => (woopra ? woopra.cookie : null)
+const getWoopraCookie = (): Optional<string> => (woopra ? woopra.cookie : null)
 
 export {
   setUp,

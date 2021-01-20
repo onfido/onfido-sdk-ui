@@ -6,7 +6,7 @@ import { localised, LocalisedType } from '../../locales'
 import Button from '../Button'
 import style from './style.scss'
 
-type OwnProps = {
+type RecordingProps = {
   children?: VNode
   disableInteraction?: boolean
   hasMoreSteps?: boolean
@@ -14,7 +14,7 @@ type OwnProps = {
   onStop: () => void
 }
 
-type Props = OwnProps & LocalisedType
+type Props = RecordingProps & LocalisedType
 
 const Recording: FunctionComponent<Props> = ({
   children,
@@ -62,4 +62,4 @@ const Recording: FunctionComponent<Props> = ({
   </div>
 )
 
-export default localised<OwnProps>(Recording)
+export default localised(Recording)

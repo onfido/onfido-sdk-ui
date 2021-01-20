@@ -12,10 +12,10 @@ import style from '../Camera/style.scss'
 
 import type { ErrorCallback } from '~types/api'
 import type { SdkMetadata, UrlsConfig } from '~types/commons'
+import type { WithTrackingProps } from '~types/hocs'
 import type {
   HandleCaptureProp,
   RenderFallbackProp,
-  TrackScreenProp,
   TriggerOnErrorProp,
 } from '~types/routers'
 
@@ -28,10 +28,9 @@ type Props = {
   onValidCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
   token?: string
-  trackScreen: TrackScreenProp
   triggerOnError: TriggerOnErrorProp
   urls: UrlsConfig
-}
+} & WithTrackingProps
 
 type State = {
   hasError: boolean

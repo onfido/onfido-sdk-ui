@@ -10,11 +10,11 @@ import style from './style.scss'
 import type { ErrorProp } from '~types/routers'
 import type { LocalisedType } from 'locales'
 
-export type OwnProps = {
+type GenericErrorProps = {
   error: ErrorProp
 }
 
-type Props = OwnProps & LocalisedType
+type Props = GenericErrorProps & LocalisedType
 
 class GenericError extends Component<Props> {
   componentDidMount() {
@@ -39,4 +39,4 @@ class GenericError extends Component<Props> {
   }
 }
 
-export default localised<OwnProps>(GenericError)
+export default localised(GenericError)
