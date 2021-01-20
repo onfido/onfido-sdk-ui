@@ -42,6 +42,10 @@
     margin: auto;
     object-fit: cover;
   }
+
+  .docLiveCaptureFrame & {
+    object-fit: unset;
+  }
 }
 
 .actions {
@@ -87,6 +91,11 @@
   position: absolute;
   top: 0;
   height: 100%;
+
+  .docLiveCaptureFrame & {
+    height: auto;
+  }
+
   /* Only apply styles on Edge where there is no `object-fit:cover` support for video */
   @supports (-ms-ime-align: auto) {
     left: 50%;
