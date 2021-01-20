@@ -124,8 +124,3 @@ export type MobileConfig = {
   urls: UrlsConfig
   woopraCookie: string
 }
-
-export type FilePayload = {
-  blob: Blob
-  filename: string
-}

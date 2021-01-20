@@ -205,11 +205,7 @@ const buildDocumentComponents = (
     documentStep?.options?.requestedVariant === 'video' &&
     window.MediaRecorder != null
 
-  const videoCaptureComponents = [
-    FaceVideoIntro,
-    DocumentVideoCapture,
-    VideoConfirm,
-  ]
+  const videoCaptureComponents = [DocumentVideoCapture]
 
   const doubleSidedDocs: DocumentTypes[] = [
     'driving_licence',

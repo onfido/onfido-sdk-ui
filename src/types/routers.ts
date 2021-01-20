@@ -9,6 +9,7 @@ import type {
   ErrorTypes,
 } from './commons'
 import type {
+  CaptureOptions,
   StepOptionWelcome,
   StepOptionDocument,
   StepOptionPoA,
@@ -83,6 +84,7 @@ export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
+export type StepComponentCaptureProps = CaptureOptions & StepComponentBaseProps
 
 export type StepComponentProps =
   | StepComponentWelcomeProps

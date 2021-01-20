@@ -1,19 +1,24 @@
 import { h, Component } from 'preact'
+
+import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
+import { validateFile } from '~utils/file'
+import { compose } from '~utils/func'
+import { getInactiveError } from '~utils/inactiveError'
+import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
+import { randomId } from '~utils/string'
+
 import { appendToTracking } from '../../Tracker'
+import { localised, LocalisedType } from '../../locales'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
+import VideoCapture from '../VideoCapture'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
-import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils/index'
-import { compose } from '~utils/func'
-import { validateFile } from '~utils/file'
-import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
-import { randomId } from '~utils/string'
-import { localised, LocalisedType } from '../../locales'
 import FallbackButton from '../Button/FallbackButton'
+
+import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import style from './style.scss'
 
 import type { ImageResizeInfo } from '~types/commons'
@@ -57,6 +62,10 @@ class Document extends Component<Props> {
     nextStep()
   }
 
+  handleVideoCapture = (blob: Blob) => {
+    console.log('blob:', blob)
+  }
+
   handleUpload = (blob: Blob, imageResizeInfo: ImageResizeInfo) =>
     this.handleCapture({
       blob,
@@ -88,15 +97,16 @@ class Document extends Component<Props> {
 
   render() {
     const {
-      useLiveDocumentCapture,
-      useWebcam,
-      hasCamera,
       documentType,
-      poaDocumentType,
+      hasCamera,
       isPoA,
+      poaDocumentType,
+      requestedVariant,
       side,
       translate,
       uploadFallback,
+      useLiveDocumentCapture,
+      useWebcam,
     } = this.props
 
     const title = translate(
@@ -111,6 +121,25 @@ class Document extends Component<Props> {
       : this.renderUploadFallback
     const enableLiveDocumentCapture =
       useLiveDocumentCapture && (!isDesktop || isHybrid)
+
+    if (requestedVariant === 'video') {
+      const isUploadFallbackDisabled = !isDesktop && !this.props.uploadFallback
+
+      return (
+        <VideoCapture
+          cameraClassName={style.faceContainer}
+          inactiveError={getInactiveError(isUploadFallbackDisabled)}
+          onRedo={() => console.log('redo')}
+          onVideoCapture={this.handleVideoCapture}
+          renderFallback={
+            isDesktop
+              ? this.renderCrossDeviceFallback
+              : this.renderUploadFallback
+          }
+          trackScreen={this.props.trackScreen}
+        />
+      )
+    }
 
     if (hasCamera && useWebcam) {
       return (
