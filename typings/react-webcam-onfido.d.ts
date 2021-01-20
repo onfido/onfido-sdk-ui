@@ -2,7 +2,7 @@ declare module 'react-webcam-onfido' {
   import { Component } from 'react'
 
   type ConstraintTypes = number | Record<string, unknown>
-  type FacingModeLiterals = 'user' | 'environment'
+  type FacingModeLiterals = VideoFacingModeEnum
   type FacingModeType = FacingModeLiterals | { exact: FacingModeLiterals }
 
   type ConstraintPayload = {
@@ -14,7 +14,7 @@ declare module 'react-webcam-onfido' {
     audio?: boolean
   }
 
-  type CameraType = {
+  export type WebcamProps = {
     audio?: boolean
     className?: string
     facingMode?: FacingModeType
@@ -27,7 +27,7 @@ declare module 'react-webcam-onfido' {
     width?: ConstraintTypes
   }
 
-  export default interface Webcam extends Component<CameraType> {
+  export default class Webcam extends Component<WebcamProps> {
     stream: MediaStream
     canvas: HTMLCanvasElement
     ctx: CanvasRenderingContext2D
