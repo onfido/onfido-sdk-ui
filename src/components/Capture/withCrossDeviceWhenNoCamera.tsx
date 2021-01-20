@@ -6,9 +6,11 @@ import type {
   StepComponentFaceProps,
 } from '~types/routers'
 
-type BaseProps = StepComponentDocumentProps | StepComponentFaceProps
+type CaptureComponentProps =
+  | StepComponentDocumentProps
+  | (StepComponentFaceProps & { forceCrossDevice: never })
 
-const withCrossDeviceWhenNoCamera = <P extends BaseProps>(
+const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
   WrappedComponent: ComponentType<P>
 ): ComponentType<P> =>
   class WithCrossDeviceWhenNoCamera extends Component<P> {
@@ -18,7 +20,6 @@ const withCrossDeviceWhenNoCamera = <P extends BaseProps>(
 
     componentDidUpdate(prevProps: P) {
       const propsWeCareAbout: Array<keyof P> = [
-        // 'currentStep',
         'mobileFlow',
         'hasCamera',
         'allowCrossDeviceFlow',

@@ -185,8 +185,6 @@ class Document extends Component<Props> {
   }
 }
 
-export default compose(
-  appendToTracking,
-  localised,
-  withCrossDeviceWhenNoCamera
-)(Document)
+export default appendToTracking(
+  localised<StepComponentDocumentProps>(withCrossDeviceWhenNoCamera(Document))
+)

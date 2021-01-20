@@ -55,16 +55,6 @@ export type ErrorProp = {
   type?: ErrorTypes
 }
 
-export type PropsFromRouter = {
-  back: () => void
-  changeFlowTo: ChangeFlowProp
-  componentsList: ComponentStep[]
-  nextStep: () => void
-  previousStep: () => void
-  triggerOnError: TriggerOnErrorProp
-  step: number
-}
-
 export type RouterOwnProps = {
   options: NarrowSdkOptions
 } & ReduxProps
@@ -75,10 +65,24 @@ export type RouterProps = {
 } & RouterOwnProps &
   WithCameraDetectionProps
 
+export type PropsFromRouter = {
+  allowCrossDeviceFlow: boolean
+  back: () => void
+  changeFlowTo: ChangeFlowProp
+  componentsList: ComponentStep[]
+  nextStep: () => void
+  previousStep: () => void
+  triggerOnError: TriggerOnErrorProp
+  step: number
+}
+
 type StepComponentBaseProps = {
   resetSdkFocus: () => void
   trackScreen: TrackScreenProp
-} & RouterProps
+} & ReduxProps &
+  NarrowSdkOptions &
+  PropsFromRouter &
+  WithCameraDetectionProps
 
 export type StepComponentWelcomeProps = StepOptionWelcome &
   StepComponentBaseProps

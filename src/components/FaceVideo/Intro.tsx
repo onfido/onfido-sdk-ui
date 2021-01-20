@@ -9,13 +9,14 @@ import {
   VIDEO_INTRO_LOCALES_MAPPING,
   VideoIntroTypes,
 } from '~utils/localesMapping'
-import { compose } from '~utils/func'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
+import type { StepComponentFaceProps } from '~types/routers'
+
 type OwnProps = {
   nextStep: () => void
-}
+} & StepComponentFaceProps
 
 type Props = OwnProps & LocalisedType
 
@@ -62,6 +63,6 @@ const Intro: FunctionComponent<Props> = ({
 )
 
 export default trackComponent(
-  compose(localised, withCrossDeviceWhenNoCamera)(Intro),
+  localised<OwnProps>(withCrossDeviceWhenNoCamera(Intro)),
   'video_intro'
 )
