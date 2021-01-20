@@ -7,14 +7,15 @@ import type {
 } from '~types/commons'
 import type { DocumentTypes, PoaTypes, RequestedVariant } from '~types/steps'
 
-type CaptureMetadata = {
+export type CaptureMetadata = {
+  id?: string
   type?: DocumentTypes | PoaTypes
   side?: DocumentSides
   variant?: RequestedVariant
 }
 
 type MetadataState = {
-  metadata: CaptureMetadata & { id: string }
+  metadata: CaptureMetadata
 }
 
 export type CapturePayload = {
@@ -25,6 +26,7 @@ export type CapturePayload = {
   isPreviewCropped?: boolean
   method?: CaptureMethods
   sdkMetadata: SdkMetadata
+  variant?: RequestedVariant
 }
 
 export type DocumentCapture = {
@@ -38,7 +40,6 @@ export type FaceCapture = {
   id: string
   side: never
   snapshot?: FilePayload
-  variant: RequestedVariant
 } & CapturePayload
 
 export type DeleteCapturePayload = {
@@ -69,6 +70,7 @@ export type CaptureActions =
 export type CaptureState = {
   document_front?: DocumentCapture & MetadataState
   document_back?: DocumentCapture & MetadataState
+  document?: DocumentCapture & MetadataState
   face?: FaceCapture & MetadataState
 }
 
