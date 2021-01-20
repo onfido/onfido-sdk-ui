@@ -1,15 +1,24 @@
-import { h, Component } from 'preact'
+import { h, Component, ComponentType } from 'preact'
 import { isDesktop } from '~utils'
 
-export default (WrappedComponent) =>
-  class WithCrossDeviceWhenNoCamera extends Component {
+import type {
+  StepComponentDocumentProps,
+  StepComponentFaceProps,
+} from '~types/routers'
+
+type BaseProps = StepComponentDocumentProps | StepComponentFaceProps
+
+const withCrossDeviceWhenNoCamera = <P extends BaseProps>(
+  WrappedComponent: ComponentType<P>
+): ComponentType<P> =>
+  class WithCrossDeviceWhenNoCamera extends Component<P> {
     componentDidMount() {
       this.attemptForwardToCrossDevice()
     }
 
-    componentDidUpdate(prevProps) {
-      const propsWeCareAbout = [
-        'currentStep',
+    componentDidUpdate(prevProps: P) {
+      const propsWeCareAbout: Array<keyof P> = [
+        // 'currentStep',
         'mobileFlow',
         'hasCamera',
         'allowCrossDeviceFlow',
@@ -26,10 +35,10 @@ export default (WrappedComponent) =>
 
     attemptForwardToCrossDevice = () => {
       const {
-        hasCamera,
-        forceCrossDevice,
         changeFlowTo,
         componentsList,
+        forceCrossDevice,
+        hasCamera,
         requestedVariant,
         step,
       } = this.props
@@ -73,3 +82,5 @@ export default (WrappedComponent) =>
       return <WrappedComponent {...this.props} />
     }
   }
+
+export default withCrossDeviceWhenNoCamera

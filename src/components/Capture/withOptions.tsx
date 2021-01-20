@@ -10,13 +10,13 @@ export type Options = {
   side?: DocumentSides
 }
 
-const withOptions = (
-  WrappedComponent: ComponentType,
+const withOptions = <P extends unknown>(
+  WrappedComponent: ComponentType<P>,
   additionalProps: Options = {}
-): ComponentType<Options> => {
-  const WithOptionComponent: FunctionComponent<Options> = (optionsAsProps) => (
-    <WrappedComponent {...optionsAsProps} {...additionalProps} />
-  )
+): ComponentType<P & Options> => {
+  const WithOptionComponent: FunctionComponent<P & Options> = (
+    optionsAsProps
+  ) => <WrappedComponent {...optionsAsProps} {...additionalProps} />
   return WithOptionComponent
 }
 
