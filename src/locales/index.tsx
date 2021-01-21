@@ -8,7 +8,7 @@ type TranslatedTagParser = (key: string, handler: (text: string) => ChildNode) =
 
 type ProviderProps = {
   language: SupportedLanguages | LocaleConfig
-  children: JSX.Element
+  children: h.JSX.Element
 }
 
 export const LocaleProvider: FunctionComponent<ProviderProps> = ({ language, children }) => {

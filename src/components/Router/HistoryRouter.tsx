@@ -258,7 +258,7 @@ export default class HistoryRouter extends Component<Props, State> {
     return documentType
   }
 
-  render(): JSX.Element {
+  render(): h.JSX.Element {
     const documentType = this.getDocumentType()
 
     return (

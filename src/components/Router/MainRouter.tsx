@@ -99,7 +99,7 @@ export default class MainRouter extends Component<Props, State> {
     return !isDesktop && !hasCamera && shouldStrictlyUseCamera
   }
 
-  render(): JSX.Element {
+  render(): h.JSX.Element {
     if (this.checkUnsupportedBrowserError()) {
       return (
         <WrappedError

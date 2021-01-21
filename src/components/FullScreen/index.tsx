@@ -16,7 +16,7 @@ class ToggleOnMount extends Component<Props> {
     this.props.setFullScreen(false)
   }
 
-  render(): JSX.Element {
+  render(): h.JSX.Element {
     return null
   }
 }
