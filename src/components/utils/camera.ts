@@ -2,7 +2,7 @@ import Webcam from 'react-webcam-onfido'
 import { canvasToBlob } from './blob'
 
 import type { SdkMetadata } from '~types/commons'
-import type { CapturePayload } from '~types/redux'
+import type { HandleCaptureProp } from '~types/routers'
 
 export const screenshot = (
   webcam: Webcam,
@@ -27,7 +27,7 @@ export const screenshot = (
 
 export const getRecordedVideo = (
   webcam: Webcam,
-  callback: (payload: CapturePayload) => void
+  callback: HandleCaptureProp
 ): void => {
   const blob = webcam.getVideoBlob()
   const sdkMetadata = getDeviceInfo(webcam.stream)
