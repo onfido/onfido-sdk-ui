@@ -22,15 +22,14 @@ import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import style from './style.scss'
 
 import type { ImageResizeInfo } from '~types/commons'
-import type { WithLocalisedProps } from '~types/hocs'
+import type { WithLocalisedProps, WithOptionsProps } from '~types/hocs'
 import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
   StepComponentDocumentProps,
 } from '~types/routers'
-import type { Options as OptionsProps } from './withOptions'
 
-type Props = StepComponentDocumentProps & WithLocalisedProps & OptionsProps
+type Props = StepComponentDocumentProps & WithLocalisedProps & WithOptionsProps
 
 class Document extends Component<Props> {
   static defaultProps: Partial<Props> = {

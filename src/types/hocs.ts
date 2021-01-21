@@ -1,9 +1,11 @@
 import type { ChallengePayload } from './api'
+import type { DocumentSides } from './commons'
 import type {
   SupportedLanguages,
   TranslatedTagParser,
   TranslateCallback,
 } from './locales'
+import type { RequestedVariant } from './steps'
 
 export type WithChallengesProps = {
   challenges: ChallengePayload[]
@@ -31,4 +33,11 @@ export type TrackScreenCallback = (
 
 export type WithTrackingProps = {
   trackScreen: TrackScreenCallback
+}
+
+export type WithOptionsProps = {
+  forceCrossDevice?: boolean
+  isPoA?: boolean
+  requestedVariant?: RequestedVariant
+  side?: DocumentSides
 }

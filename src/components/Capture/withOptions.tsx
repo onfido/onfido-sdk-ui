@@ -1,20 +1,11 @@
 import { h, ComponentType, FunctionComponent } from 'preact'
-
-import type { DocumentSides } from '~types/commons'
-import type { RequestedVariant } from '~types/steps'
-
-export type Options = {
-  forceCrossDevice?: boolean
-  isPoA?: boolean
-  requestedVariant?: RequestedVariant
-  side?: DocumentSides
-}
+import type { WithOptionsProps } from '~types/hocs'
 
 const withOptions = <P extends unknown>(
   WrappedComponent: ComponentType<P>,
-  additionalProps: Options = {}
-): ComponentType<P & Options> => {
-  const WithOptionComponent: FunctionComponent<P & Options> = (
+  additionalProps: WithOptionsProps = {}
+): ComponentType<P & WithOptionsProps> => {
+  const WithOptionComponent: FunctionComponent<P & WithOptionsProps> = (
     optionsAsProps
   ) => <WrappedComponent {...optionsAsProps} {...additionalProps} />
   return WithOptionComponent
