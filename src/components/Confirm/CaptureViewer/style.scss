@@ -28,7 +28,7 @@
 
 .croppedImageWrapper {
   @media (--small-viewport) {
-    min-height: 12em;
+    min-height: 13em;
   }
 }
 
@@ -64,11 +64,11 @@
     https://caniuse.com/#feat=object-position */
 .croppedDocumentImage {
   width: 100%;
-  height: 14em;
+  height: 15em;
   object-fit: cover;
   object-position: center;
   @media (--small-viewport) {
-    height: 12em;
+    height: 13em;
   }
 }
 
