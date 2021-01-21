@@ -1,11 +1,22 @@
-import { h, Component } from 'preact'
+import { h, Component, ComponentType } from 'preact'
 import { withFullScreenState } from '../FullScreen'
 import classNames from 'classnames'
 import style from './style.scss'
 
-class PageTitle extends Component {
-  componentDidUpdate(prevProps) {
+type Props = {
+  className?: string
+  isFullScreen?: boolean
+  smaller?: boolean
+  subTitle?: string
+  title: string
+}
+
+class PageTitle extends Component<Props> {
+  private container?: HTMLSpanElement
+
+  componentDidUpdate(prevProps: Props) {
     const { title, subTitle } = this.props
+
     if (title !== prevProps.title || subTitle !== prevProps.subTitle) {
       this.container && this.container.focus()
     }
@@ -13,6 +24,7 @@ class PageTitle extends Component {
 
   render() {
     const { title, subTitle, smaller, isFullScreen, className } = this.props
+
     return (
       <div
         className={classNames(
@@ -48,4 +60,4 @@ class PageTitle extends Component {
   }
 }
 
-export default withFullScreenState(PageTitle)
+export default withFullScreenState<ComponentType<Props>>(PageTitle)
