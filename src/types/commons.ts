@@ -80,6 +80,6 @@ export type ErrorNames =
   | 'UNSUPPORTED_ANDROID_BROWSER'
   | 'UNSUPPORTED_FILE'
   | 'UNSUPPORTED_IOS_BROWSER'
-  | 'VIDEO_TIMEOUT'
+  | 'LIVENESS_TIMEOUT'
 
 export type ErrorTypes = 'error' | 'warning'
