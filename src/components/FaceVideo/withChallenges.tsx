@@ -6,6 +6,7 @@ import { currentMilliseconds } from '~utils'
 import { sendScreen } from '../../Tracker'
 
 import type { ApiRequest, ApiResponse, ChallengePayload } from '~types/api'
+import type { WithChallengesProps } from '~types/hocs'
 import type {
   ErrorProp,
   RenderFallbackProp,
@@ -33,7 +34,7 @@ const initialState: State = {
 }
 
 const withChallenges = <P extends Props>(
-  WrappedVideo: ComponentType<P>
+  WrappedVideo: ComponentType<P & WithChallengesProps>
 ): ComponentType<P> =>
   class WithChallenges extends Component<P, State> {
     state = { ...initialState }
@@ -95,18 +96,22 @@ const withChallenges = <P extends Props>(
     render() {
       const { hasLoaded, hasError, challenges, challengesId } = this.state
 
-      return hasLoaded ? (
+      if (!hasLoaded) {
+        return <Spinner />
+      }
+
+      const passedProps = {
+        ...this.props,
+        challengesId,
+        challenges,
+      }
+
+      return (
         <WrappedVideo
-          {...{
-            ...this.props,
-            challengesId,
-            challenges,
-            onRedo: this.loadChallenges,
-          }}
-          {...(hasError ? { renderError: this.renderError() } : {})}
+          {...passedProps}
+          onRedo={this.loadChallenges}
+          renderError={hasError && this.renderError()}
         />
-      ) : (
-        <Spinner />
       )
     }
   }

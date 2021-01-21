@@ -101,6 +101,7 @@ class Document extends Component<Props> {
       poaDocumentType,
       requestedVariant,
       side,
+      trackScreen,
       translate,
       uploadFallback,
       useLiveDocumentCapture,
@@ -128,15 +129,13 @@ class Document extends Component<Props> {
           cameraClassName={style.faceContainer}
           inactiveError={getInactiveError(isUploadFallbackDisabled)}
           method="document"
-          onRedo={() => console.log('redo')}
           onVideoCapture={(payload) =>
             this.handleCapture({ ...payload, variant: 'video' })
           }
           renderFallback={renderFallback}
-          trackScreen={this.props.trackScreen}
-        >
-          <DocumentOverlay type={documentType} />
-        </VideoCapture>
+          renderOverlay={() => <DocumentOverlay type={documentType} />}
+          trackScreen={trackScreen}
+        />
       )
     }
 

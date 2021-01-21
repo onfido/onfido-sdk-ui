@@ -1,8 +1,9 @@
 import { h, FunctionComponent } from 'preact'
-import PageTitle from '../PageTitle'
 import classNames from 'classnames'
-import style from './style.scss'
+
 import { localised } from '../../locales'
+import PageTitle from '../PageTitle'
+import style from './style.scss'
 
 import type { ChallengePayload } from '~types/api'
 import type { WithLocalisedProps } from '~types/hocs'

@@ -1,4 +1,4 @@
-import { h, Component, VNode } from 'preact'
+import { h, Component } from 'preact'
 import Webcam from 'react-webcam-onfido'
 
 import { getRecordedVideo } from '~utils/camera'
@@ -11,33 +11,40 @@ import FallbackButton from '../Button/FallbackButton'
 import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
 
-import Recording from './Recording'
+import Recording, { RecordingProps } from './Recording'
 
 import type { CaptureMethods } from '~types/commons'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
-import type { CapturePayload } from '~types/redux'
-import type { ErrorProp, RenderFallbackProp } from '~types/routers'
+import type {
+  ErrorProp,
+  HandleCaptureProp,
+  RenderFallbackProp,
+} from '~types/routers'
+
+type OverlayProps = {
+  hasCameraError: boolean
+  isRecording: boolean
+}
 
 type VideoCaptureProps = {
   cameraClassName?: string
-  children?: VNode
   inactiveError: ErrorProp
   method: CaptureMethods
   onRecordingStart?: () => void
-  onRedo: () => void
-  onVideoCapture: (payload: CapturePayload) => void
+  onRedo?: () => void
+  onVideoCapture: HandleCaptureProp
+  recordingProps?: Omit<RecordingProps, 'disableInteraction' | 'onStop'>
   renderFallback: RenderFallbackProp
+  renderOverlay?: (props: OverlayProps) => h.JSX.Element
 } & WithTrackingProps
 
 type Props = VideoCaptureProps & WithLocalisedProps
 
 type State = {
   hasBecomeInactive: boolean
-  hasCameraError: boolean
   hasMediaStream: boolean
   hasRecordingTakenTooLong: boolean
-  isRecording: boolean
-}
+} & OverlayProps
 
 const initialState: State = {
   hasBecomeInactive: false,
@@ -71,7 +78,6 @@ class VideoCapture extends Component<Props, State> {
     if (this.state.hasMediaStream) {
       this.startRecording()
       this.props.onRecordingStart && this.props.onRecordingStart()
-      // sendScreen(['face_video_capture_step_1'])
     }
   }
 
@@ -98,7 +104,7 @@ class VideoCapture extends Component<Props, State> {
   handleCameraError = () => this.setState({ hasCameraError: true })
 
   handleFallbackClick = (callback: () => void) => {
-    this.props.onRedo()
+    this.props.onRedo && this.props.onRedo()
     callback()
   }
 
@@ -160,9 +166,10 @@ class VideoCapture extends Component<Props, State> {
   render = () => {
     const {
       cameraClassName,
-      children,
       method,
+      recordingProps = {},
       renderFallback,
+      renderOverlay,
       trackScreen,
       translate,
     } = this.props
@@ -205,13 +212,13 @@ class VideoCapture extends Component<Props, State> {
         webcamRef={(c: Webcam) => (this.webcam = c)}
       >
         <ToggleFullScreen />
-        {/* <FaceOverlay isWithoutHole={hasCameraError || isRecording} /> */}
-        {children}
+        {renderOverlay && renderOverlay({ hasCameraError, isRecording })}
         {isRecording
           ? this.renderRecordingTimeoutMessage()
           : this.renderInactivityTimeoutMessage()}
         {isRecording && (
           <Recording
+            {...recordingProps}
             disableInteraction={hasTimeoutError || hasCameraError}
             onStop={this.handleRecordingStop}
           />

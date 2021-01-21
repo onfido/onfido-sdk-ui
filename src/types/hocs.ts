@@ -1,8 +1,14 @@
+import type { ChallengePayload } from './api'
 import type {
   SupportedLanguages,
   TranslatedTagParser,
   TranslateCallback,
 } from './locales'
+
+export type WithChallengesProps = {
+  challenges: ChallengePayload[]
+  challengesId: string
+}
 
 export type WithLocalisedProps = {
   language: SupportedLanguages

@@ -102,7 +102,7 @@ class Face extends Component {
     }
     const cameraProps = {
       renderTitle: <PageTitle title={title} smaller />,
-      containerClassName: style.faceContainer,
+      cameraClassName: style.faceContainer,
       renderFallback: isDesktop
         ? this.renderCrossDeviceFallback
         : this.renderUploadFallback,
@@ -126,7 +126,6 @@ class Face extends Component {
           <FaceVideo
             {...cameraProps}
             onVideoCapture={this.handleVideoCapture}
-            ariaLabel={ariaLabelForSelfieCameraView}
           />
         )
       }

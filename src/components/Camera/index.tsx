@@ -1,11 +1,13 @@
 import { h, FunctionComponent } from 'preact'
 import Webcam, { WebcamProps } from 'react-webcam-onfido'
 import classNames from 'classnames'
-import withFailureHandling from './withFailureHandling'
+
+import { localised } from '../../locales'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
-import StartRecording from '../FaceVideo/StartRecording'
-import { localised } from '../../locales'
+import StartRecording from '../VideoCapture/StartRecording'
+
+import withFailureHandling from './withFailureHandling'
 import style from './style.scss'
 
 import type { CameraProps } from '~types/camera'
