@@ -11,6 +11,7 @@ import type {
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
+import type { TrackedEventNames } from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 type UploadPayload = {
@@ -116,7 +117,7 @@ export const sendMultiframeSelfie = (
   url: string,
   onSuccess: SuccessCallback,
   onError: ErrorCallback,
-  sendEvent: (event: string) => void
+  sendEvent: (event: TrackedEventNames) => void
 ): void => {
   const snapshotData = {
     file: {

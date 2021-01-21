@@ -6,6 +6,11 @@ import { map as mapObject } from '~utils/object'
 import { isOnfidoHostname } from '~utils/string'
 
 import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
+import type {
+  TrackedEventNames,
+  UserAnalyticsEventNames,
+  UserAnalyticsEventDetail,
+} from '~types/tracker'
 
 let shouldSendEvents = false
 
@@ -15,7 +20,10 @@ let sentryClient: BrowserClient = null
 let sentryHub: Hub = null
 let woopra: WoopraTracker = null
 
-const integratorTrackedEvents = new Map([
+const integratorTrackedEvents = new Map<
+  TrackedEventNames,
+  UserAnalyticsEventNames
+>([
   ['screen_welcome', 'WELCOME'],
   ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
   ['screen_document_front_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'],
@@ -27,11 +35,11 @@ const integratorTrackedEvents = new Map([
   ['screen_face_video_intro', 'VIDEO_FACIAL_INTRO'],
   ['screen_face_video_capture_step_1', 'VIDEO_FACIAL_CAPTURE_STEP_1'],
   ['screen_face_video_capture_step_2', 'VIDEO_FACIAL_CAPTURE_STEP_2'],
-  ['Starting upload', 'UPLOAD'],
   ['screen_document_type_select', 'DOCUMENT_TYPE_SELECT'],
   ['screen_document_country_select', 'ID_DOCUMENT_COUNTRY_SELECT'],
   ['screen_crossDevice', 'CROSS_DEVICE_INTRO'],
   ['screen_crossDevice_crossdevice_link', 'CROSS_DEVICE_GET_LINK'],
+  ['Starting upload', 'UPLOAD'],
 ])
 
 const setUp = (): void => {
@@ -115,18 +123,18 @@ const formatProperties = (
 }
 
 const userAnalyticsEvent = (
-  eventName: string,
+  eventName: UserAnalyticsEventNames,
   properties: Record<string, unknown>
 ): void => {
   dispatchEvent(
-    new CustomEvent('userAnalyticsEvent', {
+    new CustomEvent<UserAnalyticsEventDetail>('userAnalyticsEvent', {
       detail: { eventName, properties, isCrossDevice: false },
     })
   )
 }
 
 const sendEvent = (
-  eventName: string,
+  eventName: TrackedEventNames,
   properties?: Record<string, unknown>
 ): void => {
   if (integratorTrackedEvents.has(eventName)) {
@@ -138,8 +146,10 @@ const sendEvent = (
   }
 }
 
-const screeNameHierarchyFormat = (screeNameHierarchy: string[]): string =>
-  `screen_${cleanFalsy(screeNameHierarchy).join('_')}`
+const screeNameHierarchyFormat = (
+  screeNameHierarchy: string[]
+): TrackedEventNames =>
+  `screen_${cleanFalsy(screeNameHierarchy).join('_')}` as TrackedEventNames
 
 const sendScreen = (
   screeNameHierarchy: string[],
