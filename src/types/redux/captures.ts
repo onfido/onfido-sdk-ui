@@ -1,4 +1,6 @@
 import * as constants from './constants'
+
+import type { ChallengeData } from '~types/api'
 import type {
   CaptureMethods,
   DocumentSides,
@@ -21,6 +23,7 @@ type MetadataState = {
 export type CapturePayload = {
   base64?: string
   blob: Blob
+  challengeData?: ChallengeData
   filename?: string
   id?: string
   isPreviewCropped?: boolean
