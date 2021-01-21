@@ -251,4 +251,4 @@ class FaceVideo extends Component<Props, State> {
   }
 }
 
-export default localised<FaceVideoProps>(withChallenges(FaceVideo))
+export default localised(withChallenges(FaceVideo))

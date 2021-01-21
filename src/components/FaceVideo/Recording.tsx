@@ -35,7 +35,7 @@ const Recording: FunctionComponent<Props> = ({
             {translate('video_capture.status')}
           </span>
         </div>
-        <Challenge {...currentChallenge} />
+        <Challenge challenge={currentChallenge} />
       </div>
     </div>
     <div className={style.actions}>

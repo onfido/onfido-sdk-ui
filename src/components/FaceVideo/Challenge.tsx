@@ -24,26 +24,28 @@ const ChallengeContainer: FunctionComponent<ChallengeContainerProps> = ({
   </div>
 )
 
-const Challenge: FunctionComponent<ChallengePayload & WithLocalisedProps> = ({
-  query,
-  type,
-  translate,
-}) => {
-  if (type === 'recite') {
+type ChallengeProps = {
+  challenge: ChallengePayload
+}
+
+type Props = ChallengeProps & WithLocalisedProps
+
+const Challenge: FunctionComponent<Props> = ({ challenge, translate }) => {
+  if (challenge.type === 'recite') {
     return (
       <ChallengeContainer
         title={translate('video_capture.header.challenge_digit_instructions')}
         renderInstructions={() => (
           <span className={style.recite}>
-            {(query as number[]).join(' \u2013 ')}
+            {challenge.query.join(' \u2013 ')}
           </span>
         )}
       />
     )
   }
 
-  if (type === 'movement' && typeof query === 'string') {
-    const side = query.replace('turn', '').toLowerCase()
+  if (challenge.type === 'movement') {
+    const side = challenge.query.replace('turn', '').toLowerCase()
 
     return (
       <ChallengeContainer
@@ -52,7 +54,10 @@ const Challenge: FunctionComponent<ChallengePayload & WithLocalisedProps> = ({
         })}
         renderInstructions={() => (
           <span
-            className={classNames(style.movement, style[`movement-${query}`])}
+            className={classNames(
+              style.movement,
+              style[`movement-${challenge.query}`]
+            )}
           />
         )}
       />
@@ -62,4 +67,4 @@ const Challenge: FunctionComponent<ChallengePayload & WithLocalisedProps> = ({
   return null
 }
 
-export default localised<ChallengePayload>(Challenge)
+export default localised(Challenge)

@@ -12,11 +12,6 @@ export type ApiRequest = {
   status: number
 }
 
-export type ApiResponse = {
-  uuid?: string
-  valid: boolean
-}
-
 export type SuccessCallback = (response: ApiResponse) => void
 export type ErrorCallback = (request: ApiRequest) => void
 
@@ -42,4 +37,15 @@ export type ChallengeData = {
   challenges: ChallengePayload[]
   id: string
   switchSeconds: number
+}
+
+type ChallengeResponse = {
+  id: string
+  challenge: ChallengePayload[]
+}
+
+export type ApiResponse = {
+  data?: ChallengeResponse // | or something
+  uuid?: string
+  valid: boolean
 }
