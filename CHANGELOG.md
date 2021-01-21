@@ -10,14 +10,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
-- Public: Added npm latest version badge
+- Public: Added npm latest version badge.
 - Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
+- Internal: Introduce integration tests for API endpoint integrations.
 
 ### Changed
 
 - Internal: Switched to `bundlewatch` Github Action for bundle size diff reporting, checking.
-- UI: Updated text and background colours
+- UI: Updated text and background colours.
 - Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
 - UI: Replaced internal button component with button from @onfido/castor-react.
 - UI: Replaced some sass variables with css variables to allow customization of colors and fonts.
@@ -25,8 +26,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Fix "File type not supported" error on snapshot upload in selfie step.
+- Public: Fix typo in `en_US.json` file
 
-## [6.4.0]
+## [6.4.0] - 2020-12-21
 
 ### Added
 
