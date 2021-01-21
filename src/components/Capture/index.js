@@ -1,14 +1,7 @@
-import { h } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'
-
-const withOptions = (WrappedComponent, additionalProps = {}) => {
-  const OptionedComponent = (optionsAsProps) => (
-    <WrappedComponent {...optionsAsProps} {...additionalProps} />
-  )
-  return OptionedComponent
-}
+import withOptions from './withOptions'
 
 export const FrontDocumentCapture = appendToTracking(
   withOptions(Document),
