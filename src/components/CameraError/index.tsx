@@ -43,7 +43,7 @@ export default class CameraError extends Component<Props, State> {
 
   handleDismiss = (): void => this.setState({ isDimissed: true })
 
-  render(): JSX.Element {
+  render(): h.JSX.Element {
     const { error, hasBackdrop, renderFallback, isDismissible } = this.props
 
     return (

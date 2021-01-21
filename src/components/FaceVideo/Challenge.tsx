@@ -9,7 +9,7 @@ import type { WithLocalisedProps } from '~types/hocs'
 
 type ChallengeContainerProps = {
   title: string
-  renderInstructions: () => JSX.Element
+  renderInstructions: () => h.JSX.Element
 }
 
 const ChallengeContainer: FunctionComponent<ChallengeContainerProps> = ({

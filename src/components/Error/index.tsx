@@ -20,7 +20,7 @@ type ErrorProps = {
   isDismissible?: boolean
   onDismiss?: () => void
   renderInstruction?: (str: string) => ParsedElement[]
-  renderMessage?: () => JSX.Element
+  renderMessage?: () => h.JSX.Element
   role: ErrorRoles
   withArrow?: boolean
 }

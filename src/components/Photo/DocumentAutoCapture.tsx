@@ -131,7 +131,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     this.props.onError()
   }
 
-  render(): JSX.Element {
+  render(): h.JSX.Element {
     const { hasError } = this.state
     const { trackScreen, renderFallback } = this.props
 

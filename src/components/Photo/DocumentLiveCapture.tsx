@@ -25,7 +25,7 @@ type Props = {
   isUploadFallbackDisabled: boolean
   onCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
-  renderTitle: JSX.Element
+  renderTitle: h.JSX.Element
 } & WithLocalisedProps &
   WithTrackingProps
 
@@ -78,7 +78,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     this.setState({ isCapturing: false })
   }
 
-  render(): JSX.Element {
+  render(): h.JSX.Element {
     const {
       trackScreen,
       renderFallback,
