@@ -1,9 +1,4 @@
-import type { ErrorNames, ErrorTypes } from '~types/commons'
-
-type ErrorProp = {
-  name: ErrorNames
-  type?: ErrorTypes
-}
+import type { ErrorProp } from '~types/commons'
 
 export const getInactiveError = (
   isUploadFallbackDisabled: boolean
