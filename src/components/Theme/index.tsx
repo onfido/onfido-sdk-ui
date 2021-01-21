@@ -2,15 +2,11 @@ import { h, ComponentType, FunctionComponent } from 'preact'
 import { connect, ConnectedProps } from 'react-redux'
 import classNames from 'classnames'
 
+import { RootState } from 'components/ReduxAppWrapper/store/reducers'
 import NavigationBar from '../NavigationBar'
 import theme from './style.scss'
 
-import { RootState } from 'components/ReduxAppWrapper/store/reducers'
-
-type ThemeWrappedProps = {
-  back?: () => void
-  disableNavigation?: boolean
-}
+import type { WithThemeProps } from '~types/hocs'
 
 const mapStateToProps = (state: RootState) => ({
   hideOnfidoLogo: state.globals.hideOnfidoLogo,
@@ -19,10 +15,10 @@ const mapStateToProps = (state: RootState) => ({
 
 const withConnect = connect(mapStateToProps)
 
-type Props = ThemeWrappedProps & ConnectedProps<typeof withConnect>
+type Props = WithThemeProps & ConnectedProps<typeof withConnect>
 
 const themeWrapped = (
-  WrappedComponent: ComponentType<ThemeWrappedProps>
+  WrappedComponent: ComponentType<WithThemeProps>
 ): ComponentType<Props> => {
   const ThemedComponent: FunctionComponent<Props> = (props) => {
     const { back, disableNavigation = false, hideOnfidoLogo, cobrand } = props
@@ -63,8 +59,8 @@ const themeWrapped = (
 
 export default function withTheme<P>(
   WrappedComponent: ComponentType<P>
-): ComponentType<ThemeWrappedProps & P> {
-  return withConnect<ComponentType<ThemeWrappedProps>>(
+): ComponentType<WithThemeProps & P> {
+  return withConnect<ComponentType<WithThemeProps>>(
     themeWrapped(WrappedComponent)
   )
 }

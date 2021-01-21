@@ -41,3 +41,8 @@ export type WithOptionsProps = {
   requestedVariant?: RequestedVariant
   side?: DocumentSides
 }
+
+export type WithThemeProps = {
+  back?: () => void
+  disableNavigation?: boolean
+}
