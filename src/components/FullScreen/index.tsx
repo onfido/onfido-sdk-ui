@@ -1,4 +1,4 @@
-import { Component, ComponentType } from 'preact'
+import { h, Component, ComponentType } from 'preact'
 import { connect } from 'react-redux'
 import { setFullScreen } from '../ReduxAppWrapper/store/actions/globals'
 import type { RootState } from '../ReduxAppWrapper/store/reducers'
@@ -16,7 +16,7 @@ class ToggleOnMount extends Component<Props> {
     this.props.setFullScreen(false)
   }
 
-  render(): JSX.Element {
+  render(): h.JSX.Element {
     return null
   }
 }
