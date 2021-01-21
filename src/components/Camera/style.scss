@@ -99,6 +99,11 @@
 
   .docLiveCaptureFrame & {
     height: auto;
+    margin: 50% auto;
+
+    @media (--short-viewport) {
+      margin: 0;
+    }
   }
 
   /* Only apply styles on Edge where there is no `object-fit:cover` support for video */
