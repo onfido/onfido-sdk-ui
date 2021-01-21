@@ -1,28 +1,31 @@
-import { h, Component } from 'preact'
+import { h, Component, ComponentType } from 'preact'
 import Spinner from '../Spinner'
 import CameraError from '../CameraError'
-// import type { ChallengeType } from './Challenge'
 import { requestChallenges } from '~utils/onfidoApi'
 import { currentMilliseconds } from '~utils'
 import { sendScreen } from '../../Tracker'
 
-const requestError = { name: 'REQUEST_ERROR', type: 'error' }
+import type { ApiRequest, ApiResponse, ChallengePayload } from '~types/api'
+import type { WithChallengesProps } from '~types/hocs'
+import type {
+  ErrorProp,
+  RenderFallbackProp,
+  StepComponentFaceProps,
+} from '~types/routers'
 
-/* type InjectedProps = {
-  token: string,
-  renderFallback: Function,
-  trackScreen: Function,
-}
+const requestError: ErrorProp = { name: 'REQUEST_ERROR', type: 'error' }
+
+type Props = { renderFallback: RenderFallbackProp } & StepComponentFaceProps
 
 type State = {
-  challengesId: string,
-  challenges: ChallengeType[],
-  hasError: boolean,
-  hasLoaded: boolean,
-  challengeRequestedAt: number,
-} */
+  challengesId: string
+  challenges: ChallengePayload[]
+  hasError: boolean
+  hasLoaded: boolean
+  challengeRequestedAt: number
+}
 
-const initialState = {
+const initialState: State = {
   challengesId: '',
   challenges: [],
   hasLoaded: false,
@@ -30,8 +33,10 @@ const initialState = {
   challengeRequestedAt: 0,
 }
 
-const withChallenges = (WrappedVideo) =>
-  class WithChallenges extends Component {
+const withChallenges = <P extends Props>(
+  WrappedVideo: ComponentType<P & WithChallengesProps>
+): ComponentType<P> =>
+  class WithChallenges extends Component<P, State> {
     state = { ...initialState }
 
     componentDidMount() {
@@ -54,16 +59,18 @@ const withChallenges = (WrappedVideo) =>
       )
     }
 
-    handleResponse = (response) => {
-      const challenges = response.data.challenge
-      const challengesId = String(response.data.id)
+    handleResponse = (response: ApiResponse) => {
+      const challenges = response.data?.challenge
+      const challengesId = String(response.data?.id)
+
       this.setState({ challenges, challengesId, hasLoaded: true })
+
       sendScreen(['face_video_challenge_loaded'], {
         challenge_loading_time: this.challengeLoadingTime(),
       })
     }
 
-    handleError = (error) => {
+    handleError = (error: ApiRequest) => {
       this.setState({ hasLoaded: true, hasError: true })
       this.props.triggerOnError(error)
       sendScreen(['face_video_challenge_load_failed'], {
@@ -76,6 +83,7 @@ const withChallenges = (WrappedVideo) =>
 
     renderError = () => {
       const { trackScreen, renderFallback } = this.props
+
       return (
         <CameraError
           {...{ trackScreen, renderFallback }}
@@ -88,18 +96,22 @@ const withChallenges = (WrappedVideo) =>
     render() {
       const { hasLoaded, hasError, challenges, challengesId } = this.state
 
-      return hasLoaded ? (
+      if (!hasLoaded) {
+        return <Spinner />
+      }
+
+      const passedProps = {
+        ...this.props,
+        challengesId,
+        challenges,
+      }
+
+      return (
         <WrappedVideo
-          {...{
-            ...this.props,
-            challengesId,
-            challenges,
-            onRedo: this.loadChallenges,
-          }}
-          {...(hasError ? { renderError: this.renderError() } : {})}
+          {...passedProps}
+          onRedo={this.loadChallenges}
+          renderError={hasError && this.renderError()}
         />
-      ) : (
-        <Spinner />
       )
     }
   }
