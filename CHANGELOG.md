@@ -25,6 +25,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Fix "File type not supported" error on snapshot upload in selfie step.
 - Public: Fix typo in `en_US.json` file
+- Public: Fix zoomed document capture view for Document Live Capture on some Huawei devices, e.g. Huawei P40, P30.
 
 ## [6.4.0] - 2020-12-21
 
