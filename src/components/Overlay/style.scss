@@ -38,6 +38,8 @@ $card-frame-width: 92%;
   $aspect-ratio: 1.586; /* ID1 card size - width: 85.60mm, height: 53.98mm */
 
   @extend %_overlay;
+  bottom: initial;
+  top: 0%;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
@@ -48,6 +50,8 @@ $card-frame-width: 92%;
   $aspect-ratio: 1.42; /* ID3 card size - width: 125mm, height: 88mm */
 
   @extend %_overlay;
+  bottom: initial;
+  top: 0%;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
@@ -62,7 +66,7 @@ $card-frame-width: 92%;
   $offset-y: 105 * $unit;
 
   background-size: ($overlay-width * $scale) ($overlay-height * $scale);
-  background-position: 50%
+  background-position: 0%
     calc(#{($hole-height - $overlay-height) * $scale / 2 + $offset-y});
 }
 
