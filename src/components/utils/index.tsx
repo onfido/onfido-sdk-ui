@@ -38,8 +38,8 @@ export const getCSSMilisecsValue = (cssUnit: string | number): number =>
 
 export const wrapWithClass = (
   className: string,
-  children: JSX.Element
-): JSX.Element => <div className={className}>{children}</div>
+  children: h.JSX.Element
+): h.JSX.Element => <div className={className}>{children}</div>
 
 export const preventDefaultOnClick = (callback: () => void) => (
   event: Event

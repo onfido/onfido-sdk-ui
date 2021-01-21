@@ -1,4 +1,4 @@
-import type { ComponentType } from 'preact'
+import { h, ComponentType } from 'preact'
 
 import type { ApiRequest } from './api'
 import type {
@@ -46,7 +46,7 @@ export type HandleCaptureProp = (payload: CapturePayload) => void
 export type RenderFallbackProp = (
   text: string,
   callback?: () => void
-) => JSX.Element
+) => h.JSX.Element
 
 export type ErrorProp = {
   name: ErrorNames
