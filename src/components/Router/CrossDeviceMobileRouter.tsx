@@ -1,4 +1,4 @@
-import { h, Component, VNode } from 'preact'
+import { h, Component } from 'preact'
 
 import { pick } from '~utils/object'
 import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
@@ -248,7 +248,7 @@ export default class CrossDeviceMobileRouter extends Component<Props, State> {
     this.sendMessage('client success', { captures })
   }
 
-  renderLoadingOrErrors = (): VNode => {
+  renderLoadingOrErrors = (): h.JSX.Element => {
     const { hasCamera } = this.props
     const { steps } = this.state
     const shouldStrictlyUseCamera =
@@ -279,7 +279,7 @@ export default class CrossDeviceMobileRouter extends Component<Props, State> {
     return null
   }
 
-  render(): JSX.Element {
+  render(): h.JSX.Element {
     const { language, step, steps, stepIndexType } = this.state
 
     return (
