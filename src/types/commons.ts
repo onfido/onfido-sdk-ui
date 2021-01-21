@@ -72,6 +72,7 @@ export type ErrorNames =
   | 'INVALID_CAPTURE'
   | 'INVALID_SIZE'
   | 'INVALID_TYPE'
+  | 'LIVENESS_TIMEOUT'
   | 'MULTIPLE_FACES_ERROR'
   | 'NO_FACE_ERROR'
   | 'REQUEST_ERROR'
@@ -80,6 +81,5 @@ export type ErrorNames =
   | 'UNSUPPORTED_ANDROID_BROWSER'
   | 'UNSUPPORTED_FILE'
   | 'UNSUPPORTED_IOS_BROWSER'
-  | 'LIVENESS_TIMEOUT'
 
 export type ErrorTypes = 'error' | 'warning'
