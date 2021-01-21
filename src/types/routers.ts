@@ -43,7 +43,10 @@ export type TriggerOnErrorProp = (response: ApiRequest) => void
 
 export type HandleCaptureProp = (payload: CapturePayload) => void
 
-export type RenderFallbackProp = (text: string) => JSX.Element
+export type RenderFallbackProp = (
+  text: string,
+  callback?: () => void
+) => JSX.Element
 
 export type ErrorProp = {
   name: ErrorNames

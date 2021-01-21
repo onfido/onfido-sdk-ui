@@ -1,12 +1,35 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import errors from '../strings/errors'
+
 import { identity, noop } from '~utils/func'
+import errors from '../strings/errors'
 import { localised } from '../../locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-class Error extends Component {
+import type { WithLocalisedProps } from '~types/hocs'
+import type { ParsedElement } from '~types/locales'
+import type { ErrorProp } from '~types/routers'
+
+type ErrorRoles = 'alert' | 'alertdialog'
+
+type ErrorProps = {
+  className?: string
+  error: ErrorProp
+  focusOnMount?: boolean
+  isDismissible?: boolean
+  onDismiss?: () => void
+  renderInstruction?: (str: string) => ParsedElement[]
+  renderMessage?: () => JSX.Element
+  role: ErrorRoles
+  withArrow?: boolean
+}
+
+type Props = ErrorProps & WithLocalisedProps
+
+class Error extends Component<Props> {
+  private container?: HTMLDivElement = null
+
   componentDidMount() {
     if (this.props.focusOnMount && this.container) {
       this.container.focus()
@@ -15,15 +38,15 @@ class Error extends Component {
 
   render() {
     const {
-      role,
       className,
       error,
-      translate,
-      withArrow,
-      renderMessage = identity,
-      renderInstruction = identity,
       isDismissible,
       onDismiss = noop,
+      renderInstruction = identity,
+      renderMessage = identity,
+      role,
+      translate,
+      withArrow,
     } = this.props
     const { message, instruction } = errors[error.name]
     const errorType = error.type === 'error' ? 'error' : 'warning'

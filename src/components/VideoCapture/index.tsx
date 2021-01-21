@@ -158,7 +158,13 @@ class VideoCapture extends Component<Props, State> {
   }
 
   render = () => {
-    const { cameraClassName, children, trackScreen, translate } = this.props
+    const {
+      cameraClassName,
+      children,
+      renderFallback,
+      trackScreen,
+      translate,
+    } = this.props
     const {
       isRecording,
       hasBecomeInactive,
@@ -186,13 +192,14 @@ class VideoCapture extends Component<Props, State> {
         onButtonClick={this.handleRecordingStart}
         onError={this.handleCameraError}
         onUserMedia={this.handleMediaStream}
+        renderError={hasTimeoutError && this.renderError()}
+        renderFallback={renderFallback}
         renderTitle={
           !isRecording && <PageTitle title={translate('video_capture.body')} />
         }
         trackScreen={trackScreen}
         video
         webcamRef={(c: Webcam) => (this.webcam = c)}
-        {...(hasTimeoutError ? { renderError: this.renderError() } : {})}
       >
         <ToggleFullScreen />
         {/* <FaceOverlay isWithoutHole={hasCameraError || isRecording} /> */}

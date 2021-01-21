@@ -21,8 +21,8 @@ declare module 'react-webcam-onfido' {
     fallbackHeight?: ConstraintTypes
     fallbackWidth?: ConstraintTypes
     height?: ConstraintTypes
-    onFailure: (error: Error) => void
-    onUserMedia: () => void
+    onFailure?: (error: Error) => void
+    onUserMedia?: () => void
     screenshotFormat?: 'image/webp' | 'image/png' | 'image/jpeg'
     width?: ConstraintTypes
   }

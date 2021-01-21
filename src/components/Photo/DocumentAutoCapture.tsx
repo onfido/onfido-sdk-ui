@@ -14,6 +14,7 @@ import type { ErrorCallback } from '~types/api'
 import type { SdkMetadata, UrlsConfig } from '~types/commons'
 import type { WithTrackingProps } from '~types/hocs'
 import type {
+  ErrorProp,
   HandleCaptureProp,
   RenderFallbackProp,
   TriggerOnErrorProp,
@@ -21,7 +22,7 @@ import type {
 
 const maxAttempts = 3
 
-const requestError = { name: 'REQUEST_ERROR', type: 'error' }
+const requestError: ErrorProp = { name: 'REQUEST_ERROR', type: 'error' }
 
 type Props = {
   onError: () => void

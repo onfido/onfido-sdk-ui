@@ -4,45 +4,48 @@ import classNames from 'classnames'
 import { parseTags } from '~utils'
 import style from './style.scss'
 
-/* type Props = {
-  trackScreen: Function,
-  error: Object,
-  hasBackdrop?: boolean,
-  isDismissible?: boolean,
-  renderFallback: (string, Function) => React.Node,
-}
+import type { WithTrackingProps } from '~types/hocs'
+import type { ErrorProp, RenderFallbackProp } from '~types/routers'
+
+type Props = {
+  error?: ErrorProp
+  hasBackdrop?: boolean
+  isDismissible?: boolean
+  renderFallback: RenderFallbackProp
+} & WithTrackingProps
 
 type State = {
-  isDimissed: boolean,
-} */
+  isDimissed: boolean
+}
 
-export default class CameraError extends Component {
+export default class CameraError extends Component<Props, State> {
   state = {
     isDimissed: false,
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     if (this.props.error.type === 'error') {
       this.props.trackScreen('camera_error')
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: Props): void {
     if (prevProps.error.name !== this.props.error.name) {
       this.setState({ isDimissed: false })
     }
   }
 
-  trackFallbackClick = () => {
+  trackFallbackClick = (): void => {
     if (this.props.error.type === 'warning') {
       this.props.trackScreen('fallback_triggered')
     }
   }
 
-  handleDismiss = () => this.setState({ isDimissed: true })
+  handleDismiss = (): void => this.setState({ isDimissed: true })
 
-  render = () => {
+  render(): JSX.Element {
     const { error, hasBackdrop, renderFallback, isDismissible } = this.props
+
     return (
       !this.state.isDimissed && (
         <div

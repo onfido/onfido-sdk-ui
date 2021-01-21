@@ -1,40 +1,30 @@
-import { h, FunctionComponent, VNode, Ref } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import Webcam, { WebcamProps } from 'react-webcam-onfido'
 import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
 import StartRecording from '../FaceVideo/StartRecording'
-import { compose } from '~utils/func'
 import { localised } from '../../locales'
 import style from './style.scss'
 
-import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import type { CameraProps } from '~types/camera'
+import type {
+  WithLocalisedProps,
+  WithFailureHandlingProps,
+  WithTrackingProps,
+} from '~types/hocs'
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 const DEFAULT_CAMERA_HEIGHT_IN_PX = 720
 
-type CameraProps = {
-  buttonType?: 'photo' | 'video'
-  children?: VNode
-  className?: string
-  containerClassName?: string
-  facing?: VideoFacingModeEnum
-  hasGrantedPermission?: boolean
-  idealCameraHeight?: number
-  isButtonDisabled?: boolean
-  isRecording?: boolean
-  onButtonClick: () => void
-  renderError?: VNode
-  renderTitle?: VNode
-  video?: boolean
-  webcamRef?: Ref<Webcam>
-} & WebcamProps &
+type Props = CameraProps &
+  WebcamProps &
+  WithLocalisedProps &
+  WithFailureHandlingProps &
   WithTrackingProps
-
-type Props = CameraProps & WithLocalisedProps
 
 const Camera: FunctionComponent<Props> = ({
   buttonType = 'photo',
@@ -104,8 +94,5 @@ const Camera: FunctionComponent<Props> = ({
   </div>
 )
 
-export default compose(
-  localised,
-  withFailureHandling,
-  withPermissionsFlow
-)(Camera)
+// export default localised(withFailureHandling(Camera))
+export default localised(withFailureHandling(withPermissionsFlow(Camera)))

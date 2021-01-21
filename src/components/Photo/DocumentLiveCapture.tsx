@@ -80,7 +80,6 @@ export default class DocumentLiveCapture extends Component<Props, State> {
 
   render(): JSX.Element {
     const {
-      translate,
       trackScreen,
       renderFallback,
       isUploadFallbackDisabled,
@@ -108,7 +107,6 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             className={className}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
-            translate={translate}
             webcamRef={(c: Webcam) => (this.webcam = c)}
             isUploadFallbackDisabled={isUploadFallbackDisabled}
             trackScreen={trackScreen}

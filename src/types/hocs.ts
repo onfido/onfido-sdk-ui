@@ -14,6 +14,10 @@ export type WithCameraDetectionProps = {
   hasCamera?: boolean
 }
 
+export type WithFailureHandlingProps = {
+  onError?: (error: Error) => void
+}
+
 export type TrackScreenCallback = (
   screenNameHierarchy?: string | string[],
   properties?: Record<string, unknown>

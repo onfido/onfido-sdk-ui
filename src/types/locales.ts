@@ -16,15 +16,17 @@ export type LocaleConfig = {
   mobilePhrases?: Record<string, unknown>
 }
 
+export type ParsedElement = string | h.JSX.Element
+
 export type TranslatedTagHandler = (tag: {
   type: string
   text: string
-}) => string | h.JSX.Element
+}) => ParsedElement
 
 export type TranslatedTagParser = (
   key: string,
   handler: TranslatedTagHandler
-) => (string | h.JSX.Element)[]
+) => ParsedElement[]
 
 export type TranslateCallback = (
   key: string,
