@@ -16,6 +16,7 @@ class PageTitle extends Component<Props> {
 
   componentDidUpdate(prevProps: Props) {
     const { title, subTitle } = this.props
+
     if (title !== prevProps.title || subTitle !== prevProps.subTitle) {
       this.container && this.container.focus()
     }

@@ -7,7 +7,7 @@ import theme from './style.scss'
 
 import { RootState } from 'components/ReduxAppWrapper/store/reducers'
 
-type OwnProps = {
+type ThemeWrappedProps = {
   back?: () => void
   disableNavigation?: boolean
 }
@@ -19,10 +19,10 @@ const mapStateToProps = (state: RootState) => ({
 
 const withConnect = connect(mapStateToProps)
 
-type Props = OwnProps & ConnectedProps<typeof withConnect>
+type Props = ThemeWrappedProps & ConnectedProps<typeof withConnect>
 
 const themeWrapped = (
-  WrappedComponent: ComponentType<OwnProps>
+  WrappedComponent: ComponentType<ThemeWrappedProps>
 ): ComponentType<Props> => {
   const ThemedComponent: FunctionComponent<Props> = (props) => {
     const { back, disableNavigation = false, hideOnfidoLogo, cobrand } = props
@@ -62,7 +62,9 @@ const themeWrapped = (
 }
 
 export default function withTheme<P>(
-  WrappedComponent: ComponentType<OwnProps & P>
-): ComponentType<OwnProps & P> {
-  return withConnect<ComponentType<OwnProps>>(themeWrapped(WrappedComponent))
+  WrappedComponent: ComponentType<P>
+): ComponentType<ThemeWrappedProps & P> {
+  return withConnect<ComponentType<ThemeWrappedProps>>(
+    themeWrapped(WrappedComponent)
+  )
 }

@@ -1,4 +1,4 @@
-import { h, VNode } from 'preact'
+import { h } from 'preact'
 import enumerateDevices, { DeviceData } from 'enumerate-devices'
 import detectSystem from './detectSystem'
 
@@ -13,10 +13,10 @@ import type {
   StepConfigDocument,
 } from '~types/steps'
 
-export const functionalSwitch = (
+export const functionalSwitch = <T extends unknown>(
   key: string,
-  hash: Record<string, () => void>
-): void => (hash[key] || (() => null))()
+  hash: Record<string, () => T>
+): T => (hash[key] || (() => null))()
 
 export const getCSSValue = (
   expectedUnit: string,
@@ -38,7 +38,7 @@ export const getCSSMilisecsValue = (cssUnit: string | number): number =>
 
 export const wrapWithClass = (
   className: string,
-  children: VNode
+  children: JSX.Element
 ): JSX.Element => <div className={className}>{children}</div>
 
 export const preventDefaultOnClick = (callback: () => void) => (
