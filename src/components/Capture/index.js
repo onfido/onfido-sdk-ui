@@ -3,11 +3,11 @@ import Document from './Document'
 import Face from './Face'
 import withOptions from './withOptions'
 
-export const FrontDocumentCapture = appendToTracking(
+export const DocumentFrontCapture = appendToTracking(
   withOptions(Document),
   'front_capture'
 )
-export const BackDocumentCapture = appendToTracking(
+export const DocumentBackCapture = appendToTracking(
   withOptions(Document, { side: 'back' }),
   'back_capture'
 )
