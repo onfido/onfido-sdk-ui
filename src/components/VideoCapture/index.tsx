@@ -161,10 +161,12 @@ class VideoCapture extends Component<Props, State> {
     const {
       cameraClassName,
       children,
+      method,
       renderFallback,
       trackScreen,
       translate,
     } = this.props
+
     const {
       isRecording,
       hasBecomeInactive,
@@ -187,6 +189,7 @@ class VideoCapture extends Component<Props, State> {
       <Camera
         buttonType="video"
         containerClassName={cameraClassName}
+        facing={method === 'face' ? 'user' : 'environment'}
         isButtonDisabled={disableRecording}
         isRecording={isRecording}
         onButtonClick={this.handleRecordingStart}

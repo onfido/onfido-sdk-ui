@@ -1470,8 +1470,8 @@
   "@typescript-eslint/typescript-estree@4.8.1": {
     "licenses": "BSD-2-Clause",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
-    "path": "node_modules/@typescript-eslint/parser/node_modules/@typescript-eslint/typescript-estree",
-    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/@typescript-eslint/typescript-estree/LICENSE"
+    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/typescript-estree",
+    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/typescript-estree/LICENSE"
   },
   "@typescript-eslint/visitor-keys@4.8.1": {
     "licenses": "MIT",
@@ -2034,8 +2034,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@typescript-eslint/parser/node_modules/array-union",
-    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/array-union/license"
+    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/array-union",
+    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/array-union/license"
   },
   "array-uniq@1.0.3": {
     "licenses": "MIT",
@@ -4163,8 +4163,8 @@
     "publisher": "Kevin Mårtensson",
     "email": "kevinmartensson@gmail.com",
     "url": "github.com/kevva",
-    "path": "node_modules/@typescript-eslint/parser/node_modules/dir-glob",
-    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/dir-glob/license"
+    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/dir-glob",
+    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/dir-glob/license"
   },
   "discontinuous-range@1.0.0": {
     "licenses": "MIT",
@@ -4553,8 +4553,8 @@
     "publisher": "Jordan Harband",
     "email": "ljharb@gmail.com",
     "url": "http://ljharb.codes",
-    "path": "node_modules/enzyme-shallow-equal/node_modules/es-abstract",
-    "licenseFile": "node_modules/enzyme-shallow-equal/node_modules/es-abstract/LICENSE"
+    "path": "node_modules/object.entries/node_modules/es-abstract",
+    "licenseFile": "node_modules/object.entries/node_modules/es-abstract/LICENSE"
   },
   "es-get-iterator@1.1.0": {
     "licenses": "MIT",
@@ -5028,8 +5028,8 @@
     "repository": "https://github.com/mrmlnc/fast-glob",
     "publisher": "Denis Malinochkin",
     "url": "https://mrmlnc.com",
-    "path": "node_modules/@typescript-eslint/parser/node_modules/fast-glob",
-    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/fast-glob/LICENSE"
+    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/fast-glob",
+    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/fast-glob/LICENSE"
   },
   "fast-json-stable-stringify@2.1.0": {
     "licenses": "MIT",
@@ -5691,8 +5691,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@typescript-eslint/parser/node_modules/globby",
-    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/globby/license"
+    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/globby",
+    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/globby/license"
   },
   "globby@6.1.0": {
     "licenses": "MIT",
@@ -6239,8 +6239,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/kaelzhang/node-ignore",
     "publisher": "kael",
-    "path": "node_modules/@typescript-eslint/parser/node_modules/ignore",
-    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/ignore/LICENSE-MIT"
+    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/ignore",
+    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/ignore/LICENSE-MIT"
   },
   "immediate@3.0.6": {
     "licenses": "MIT",
@@ -6648,8 +6648,8 @@
     "publisher": "Jordan Harband",
     "email": "ljharb@gmail.com",
     "url": "http://ljharb.codes",
-    "path": "node_modules/string.prototype.trimend/node_modules/is-callable",
-    "licenseFile": "node_modules/string.prototype.trimend/node_modules/is-callable/LICENSE"
+    "path": "node_modules/object.entries/node_modules/is-callable",
+    "licenseFile": "node_modules/object.entries/node_modules/is-callable/LICENSE"
   },
   "is-callable@1.2.1": {
     "licenses": "MIT",
@@ -6955,8 +6955,8 @@
     "repository": "https://github.com/ljharb/is-regex",
     "publisher": "Jordan Harband",
     "email": "ljharb@gmail.com",
-    "path": "node_modules/enzyme-shallow-equal/node_modules/is-regex",
-    "licenseFile": "node_modules/enzyme-shallow-equal/node_modules/is-regex/LICENSE"
+    "path": "node_modules/object.entries/node_modules/is-regex",
+    "licenseFile": "node_modules/object.entries/node_modules/is-regex/LICENSE"
   },
   "is-regexp@2.1.0": {
     "licenses": "MIT",
@@ -9696,8 +9696,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@typescript-eslint/parser/node_modules/path-type",
-    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/path-type/license"
+    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/path-type",
+    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/path-type/license"
   },
   "pathval@1.1.0": {
     "licenses": "MIT",

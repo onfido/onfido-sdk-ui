@@ -1,7 +1,14 @@
-import { h, Component } from 'preact'
+import { h, Component, ComponentType } from 'preact'
+import type { WebcamProps } from 'react-webcam-onfido'
 import PermissionsPrimer from '../CameraPermissions/Primer'
 import PermissionsRecover from '../CameraPermissions/Recover'
+
 import { checkIfWebcamPermissionGranted } from '~utils'
+// import { noop } from '~utils/func'
+
+import type { CameraProps } from '~types/camera'
+import type { WithTrackingProps } from '~types/hocs'
+import type { ErrorProp } from '~types/routers'
 
 const permissionErrors = [
   'PermissionDeniedError',
@@ -9,26 +16,19 @@ const permissionErrors = [
   'NotFoundError',
 ]
 
-/* type State = {
-  hasGrantedPermission: ?boolean,
-  hasSeenPermissionsPrimer: boolean,
-  checkingWebcamPermissions: boolean,
+type Props = CameraProps & WebcamProps & WithTrackingProps
+
+type State = {
+  hasGrantedPermission?: boolean
+  hasSeenPermissionsPrimer: boolean
+  checkingWebcamPermissions: boolean
 }
 
-type InjectedProps = {
-  hasGrantedPermission: boolean,
-  onUserMedia: () => void,
-  onFailure: (Error) => void,
-} */
-
-export default (WrappedCamera) =>
-  class WithPermissionFlow extends Component {
-    static defaultProps = {
-      onUserMedia: () => {},
-      onFailure: () => {},
-    }
-
-    state = {
+export default <P extends Props>(
+  WrappedCamera: ComponentType<P>
+): ComponentType<P> =>
+  class WithPermissionFlow extends Component<P, State> {
+    state: State = {
       hasGrantedPermission: null,
       hasSeenPermissionsPrimer: false,
       checkingWebcamPermissions: true,
@@ -49,14 +49,14 @@ export default (WrappedCamera) =>
 
     handleUserMedia = () => {
       this.setState({ hasGrantedPermission: true })
-      this.props.onUserMedia()
+      this.props.onUserMedia && this.props.onUserMedia()
     }
 
-    handleWebcamFailure = (error) => {
+    handleWebcamFailure = (error: ErrorProp) => {
       if (permissionErrors.includes(error.name)) {
         this.setState({ hasGrantedPermission: false })
       } else {
-        this.props.onFailure()
+        this.props.onFailure && this.props.onFailure()
       }
     }
 

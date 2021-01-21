@@ -94,5 +94,4 @@ const Camera: FunctionComponent<Props> = ({
   </div>
 )
 
-// export default localised(withFailureHandling(Camera))
 export default localised(withFailureHandling(withPermissionsFlow(Camera)))
