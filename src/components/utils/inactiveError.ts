@@ -1,4 +1,4 @@
-import type { ErrorProp } from '~types/commons'
+import type { ErrorProp } from '~types/routers'
 
 export const getInactiveError = (
   isUploadFallbackDisabled: boolean

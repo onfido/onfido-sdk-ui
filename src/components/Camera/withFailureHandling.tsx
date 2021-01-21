@@ -3,8 +3,8 @@ import type { WebcamProps } from 'react-webcam-onfido'
 import CameraError from '../CameraError'
 
 import type { CameraProps } from '~types/camera'
-import type { ErrorProp } from '~types/commons'
 import type { WithFailureHandlingProps, WithTrackingProps } from '~types/hocs'
+import type { ErrorProp } from '~types/routers'
 
 type Props = CameraProps & WebcamProps & WithTrackingProps
 

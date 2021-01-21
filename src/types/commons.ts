@@ -83,8 +83,3 @@ export type ErrorNames =
   | 'LIVENESS_TIMEOUT'
 
 export type ErrorTypes = 'error' | 'warning'
-
-export type ErrorProp = {
-  name: ErrorNames
-  type?: ErrorTypes
-}
