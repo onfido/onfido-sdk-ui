@@ -21,6 +21,14 @@
           "os_version": "10",
           "resolution": "1920x1080",
           "remote": true
+        },
+        {
+          "browserName": "Edge",
+          "browser_version": "87",
+          "os": "Windows",
+          "os_version": "10",
+          "resolution": "1920x1080",
+          "remote": true
         }
       ]
     }
