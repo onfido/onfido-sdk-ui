@@ -16,16 +16,18 @@ export type DocumentSides = 'front' | 'back'
 type ImageInfo = {
   width: number
   height: number
-  fileSize: number
+  fileSize?: number
 }
 
-type ImageResizeInfo = {
+export type ImageResizeInfo = {
   resizedFrom: ImageInfo
   resizedTo: ImageInfo
 }
 
 export type SdkMetadata = {
-  captureMethod: CaptureMethodVariants
+  captureMethod?: CaptureMethodVariants
+  camera_name?: string
+  microphone_name?: string
   imageResizeInfo?: ImageResizeInfo
   isCrossDeviceFlow?: boolean
   deviceType?: DeviceTypes
