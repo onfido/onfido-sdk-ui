@@ -1,20 +1,29 @@
-import { h, Component } from 'preact'
-import { BrowserClient, Hub } from '@sentry/browser'
+import { h, Component, ComponentType } from 'preact'
+import { BrowserClient, EventHint, Hub, Severity } from '@sentry/browser'
 import { cleanFalsy, wrapArray } from '~utils/array'
 import WoopraTracker from './safeWoopra'
 import { map as mapObject } from '~utils/object'
 import { isOnfidoHostname } from '~utils/string'
 
+import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
+import type {
+  TrackedEventNames,
+  UserAnalyticsEventNames,
+  UserAnalyticsEventDetail,
+} from '~types/tracker'
+
 let shouldSendEvents = false
 
 const client = window.location.hostname
 const sdk_version = process.env.SDK_VERSION
-let sentryClient = null
-let sentryHub = null
+let sentryClient: BrowserClient = null
+let sentryHub: Hub = null
+let woopra: WoopraTracker = null
 
-let woopra = null
-
-const integratorTrackedEvents = new Map([
+const integratorTrackedEvents = new Map<
+  TrackedEventNames,
+  UserAnalyticsEventNames
+>([
   ['screen_welcome', 'WELCOME'],
   ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
   ['screen_document_front_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'],
@@ -26,14 +35,14 @@ const integratorTrackedEvents = new Map([
   ['screen_face_video_intro', 'VIDEO_FACIAL_INTRO'],
   ['screen_face_video_capture_step_1', 'VIDEO_FACIAL_CAPTURE_STEP_1'],
   ['screen_face_video_capture_step_2', 'VIDEO_FACIAL_CAPTURE_STEP_2'],
-  ['Starting upload', 'UPLOAD'],
   ['screen_document_type_select', 'DOCUMENT_TYPE_SELECT'],
   ['screen_document_country_select', 'ID_DOCUMENT_COUNTRY_SELECT'],
   ['screen_crossDevice', 'CROSS_DEVICE_INTRO'],
   ['screen_crossDevice_crossdevice_link', 'CROSS_DEVICE_GET_LINK'],
+  ['Starting upload', 'UPLOAD'],
 ])
 
-const setUp = () => {
+const setUp = (): void => {
   woopra = new WoopraTracker('onfidojssdkwoopra')
 
   woopra.init()
@@ -55,7 +64,7 @@ const setUp = () => {
   )
 }
 
-const uninstall = () => {
+const uninstall = (): void => {
   if (sentryClient) {
     sentryClient.close(2000).then(() => {
       sentryClient = null
@@ -66,20 +75,17 @@ const uninstall = () => {
   uninstallWoopra()
 }
 
-const uninstallWoopra = () => {
+const uninstallWoopra = (): void => {
   woopra && woopra.dispose()
   shouldSendEvents = false
 }
 
-const install = () => {
+const install = (): void => {
   sentryClient = new BrowserClient({
     dsn: 'https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946',
     environment: process.env.NODE_ENV,
     release: sdk_version,
     debug: true,
-    autoBreadcrumbs: {
-      console: false,
-    },
     // TODO: Make sure the whitelisting works as expected
     whitelistUrls: [/onfido[A-z.]*\.min.js/g],
     beforeBreadcrumb: (crumb) => {
@@ -92,32 +98,45 @@ const install = () => {
 
       const shouldReturnCrumb = isOnfidoXhr || isOnfidoClick
 
-      return shouldReturnCrumb ? crumb : false
+      return shouldReturnCrumb ? crumb : null
     },
-    shouldSendCallback: () => process.env.PRODUCTION_BUILD,
+    // @TODO: verify these mismatched options
+    // autoBreadcrumbs: { console: false },
+    // shouldSendCallback: () => process.env.PRODUCTION_BUILD,
   })
   sentryHub = new Hub(sentryClient)
-  sentryHub.addBreadcrumb({ level: 'info' })
+  sentryHub.addBreadcrumb({ level: Severity.Info })
 
   shouldSendEvents = true
 }
 
-const formatProperties = (properties) => {
-  if (!properties) return null
+const formatProperties = (
+  properties?: Record<string, unknown>
+): Optional<Record<string, unknown>> => {
+  if (!properties) {
+    return null
+  }
+
   return mapObject(properties, (value) =>
     typeof value === 'object' ? JSON.stringify(value) : value
   )
 }
 
-const userAnalyticsEvent = (eventName, properties) => {
+const userAnalyticsEvent = (
+  eventName: UserAnalyticsEventNames,
+  properties: Record<string, unknown>
+): void => {
   dispatchEvent(
-    new CustomEvent('userAnalyticsEvent', {
+    new CustomEvent<UserAnalyticsEventDetail>('userAnalyticsEvent', {
       detail: { eventName, properties, isCrossDevice: false },
     })
   )
 }
 
-const sendEvent = (eventName, properties) => {
+const sendEvent = (
+  eventName: TrackedEventNames,
+  properties?: Record<string, unknown>
+): void => {
   if (integratorTrackedEvents.has(eventName)) {
     userAnalyticsEvent(integratorTrackedEvents.get(eventName), properties)
   }
@@ -127,15 +146,25 @@ const sendEvent = (eventName, properties) => {
   }
 }
 
-const screeNameHierarchyFormat = (screeNameHierarchy) =>
-  `screen_${cleanFalsy(screeNameHierarchy).join('_')}`
+const screeNameHierarchyFormat = (
+  screeNameHierarchy: string[]
+): TrackedEventNames =>
+  `screen_${cleanFalsy(screeNameHierarchy).join('_')}` as TrackedEventNames
 
-const sendScreen = (screeNameHierarchy, properties) =>
-  sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
+const sendScreen = (
+  screeNameHierarchy: string[],
+  properties?: Record<string, unknown>
+): void => sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
 
-const appendToTracking = (Acomponent, ancestorScreeNameHierarchy) =>
-  class TrackedComponent extends Component {
-    trackScreen = (screenNameHierarchy, ...others) =>
+const appendToTracking = <P extends WithTrackingProps>(
+  WrappedComponent: ComponentType<P>,
+  ancestorScreeNameHierarchy?: string
+): ComponentType<P> =>
+  class TrackedComponent extends Component<P> {
+    trackScreen: TrackScreenCallback = (
+      screenNameHierarchy: string | string[],
+      ...others
+    ) =>
       this.props.trackScreen(
         [
           ...wrapArray(ancestorScreeNameHierarchy),
@@ -144,48 +173,60 @@ const appendToTracking = (Acomponent, ancestorScreeNameHierarchy) =>
         ...others
       )
 
-    render = () => <Acomponent {...this.props} trackScreen={this.trackScreen} />
+    render = () => (
+      <WrappedComponent {...this.props} trackScreen={this.trackScreen} />
+    )
   }
 
-const trackComponent = (Acomponent, screenName) =>
-  class TrackedComponent extends Component {
+const trackComponent = <P extends WithTrackingProps>(
+  WrappedComponent: ComponentType<P>,
+  screenName?: string
+): ComponentType<P> =>
+  class TrackedComponent extends Component<P> {
     componentDidMount() {
       this.props.trackScreen(screenName)
     }
-    render = () => <Acomponent {...this.props} />
+
+    render = () => <WrappedComponent {...this.props} />
   }
 
-const trackComponentMode = (Acomponent, propKey) =>
-  class TrackedComponentWithMode extends Component {
+const trackComponentMode = <P extends WithTrackingProps>(
+  WrappedComponent: ComponentType<P>,
+  propKey: keyof P
+): ComponentType<P> =>
+  class TrackedComponentWithMode extends Component<P> {
     componentDidMount() {
       this.trackScreen(this.props)
     }
 
-    trackScreen(props) {
+    trackScreen(props: P) {
       const propValue = props[propKey]
-      const params = propValue ? [propKey, { [propKey]: propValue }] : []
-      this.props.trackScreen(...params)
+      propValue
+        ? this.props.trackScreen(propKey as string, { [propKey]: propValue })
+        : this.props.trackScreen()
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: P) {
       if (this.props[propKey] !== nextProps[propKey]) {
         this.trackScreen(nextProps)
       }
     }
 
-    render = () => <Acomponent {...this.props} />
+    render = () => <WrappedComponent {...this.props} />
   }
 
-const trackComponentAndMode = (Acomponent, screenName, propKey) =>
-  appendToTracking(trackComponentMode(Acomponent, propKey), screenName)
+const trackComponentAndMode = <P extends WithTrackingProps>(
+  WrappedComponent: ComponentType<P>,
+  screenName: string,
+  propKey: keyof P
+): ComponentType<P> =>
+  appendToTracking(trackComponentMode(WrappedComponent, propKey), screenName)
 
-const trackException = (message, extra) => {
-  sentryHub.captureException(new Error(message), {
-    extra,
-  })
+const trackException = (message: string, extra?: EventHint): void => {
+  sentryHub.captureException(new Error(message), extra)
 }
 
-const setWoopraCookie = (cookie) => {
+const setWoopraCookie = (cookie: string): void => {
   if (!woopra) {
     return
   }
@@ -204,7 +245,7 @@ const setWoopraCookie = (cookie) => {
   woopra.cookie = cookie
 }
 
-const getWoopraCookie = () => (woopra ? woopra.cookie : null)
+const getWoopraCookie = (): Optional<string> => (woopra ? woopra.cookie : null)
 
 export {
   setUp,

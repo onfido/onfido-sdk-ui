@@ -1,4 +1,9 @@
-export const CONFIRM_PREVIEWS_LOCALES_MAPPING = {
+import { DocumentTypes, PoaTypes } from '~types/steps'
+
+export const CONFIRM_PREVIEWS_LOCALES_MAPPING: Record<
+  DocumentTypes | PoaTypes,
+  string
+> = {
   passport: 'doc_confirmation.body_passport',
   driving_licence: 'doc_confirmation.body_license',
   national_identity_card: 'doc_confirmation.body_id',
@@ -16,7 +21,20 @@ export const CROSS_DEVICE_INTRO_LOCALES_MAPPING = {
   'return-to-computer': 'cross_device_intro.list_item_finish',
 }
 
-export const DOCUMENT_CAPTURE_LOCALES_MAPPING = {
+type CaptureSideLocale = {
+  title: string
+  body: string
+}
+
+type CaptureLocale = {
+  front: CaptureSideLocale
+  back?: CaptureSideLocale
+}
+
+export const DOCUMENT_CAPTURE_LOCALES_MAPPING: Record<
+  DocumentTypes | PoaTypes,
+  CaptureLocale
+> = {
   passport: {
     front: {
       title: 'doc_submit.title_passport',
@@ -85,7 +103,17 @@ export const DOCUMENT_CAPTURE_LOCALES_MAPPING = {
   },
 }
 
-export const IMAGE_QUALITY_GUIDE_LOCALES_MAPPING = {
+type ImageQualityResults = 'cutoff' | 'blur' | 'glare' | 'good'
+
+type ImageQualityGuideLocale = {
+  label: string
+  alt: string
+}
+
+export const IMAGE_QUALITY_GUIDE_LOCALES_MAPPING: Record<
+  ImageQualityResults,
+  ImageQualityGuideLocale
+> = {
   cutoff: {
     label: 'upload_guide.image_detail_cutoff_label',
     alt: 'upload_guide.image_detail_cutoff_alt',
@@ -110,7 +138,15 @@ export const POA_INTRO_LOCALES_MAPPING = {
   most_recent: 'poa_intro.list_most_recent',
 }
 
-export const POA_GUIDANCE_LOCALES_MAPPING = {
+type PoaGuidanceLocale = {
+  title: string
+  subtitle: string
+}
+
+export const POA_GUIDANCE_LOCALES_MAPPING: Record<
+  PoaTypes,
+  PoaGuidanceLocale
+> = {
   bank_building_society_statement: {
     title: 'doc_submit.title_bank_statement',
     subtitle: 'poa_guidance.subtitle_bank_statement',
@@ -133,7 +169,17 @@ export const POA_GUIDANCE_LOCALES_MAPPING = {
   },
 }
 
-export const VIDEO_INTRO_LOCALES_MAPPING = {
+export type VideoIntroTypes = 'actions' | 'speak'
+
+type VideoIntroLocale = {
+  className: string
+  localeKey: string
+}
+
+export const VIDEO_INTRO_LOCALES_MAPPING: Record<
+  VideoIntroTypes,
+  VideoIntroLocale
+> = {
   actions: {
     className: 'twoActionsIcon',
     localeKey: 'video_intro.list_item_actions',

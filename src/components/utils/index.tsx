@@ -1,27 +1,49 @@
-import parseUnit from 'parse-unit'
 import { h } from 'preact'
-import enumerateDevices from 'enumerate-devices'
+import enumerateDevices, { DeviceData } from 'enumerate-devices'
 import detectSystem from './detectSystem'
 
-export const functionalSwitch = (key, hash) => (hash[key] || (() => null))()
+// @TODO: parse-unit export doesn't work with TypeScript
+const parseUnit = require('parse-unit')
 
-export const getCSSValue = (expectedUnit, cssUnit) => {
+import type { SdkMetadata, ErrorNames } from '~types/commons'
+import type { TranslatedTagParser } from '~types/locales'
+import type {
+  DocumentTypes,
+  StepConfig,
+  StepConfigDocument,
+} from '~types/steps'
+
+export const functionalSwitch = <T extends unknown>(
+  key: string,
+  hash: Record<string, () => T>
+): T => (hash[key] || (() => null))()
+
+export const getCSSValue = (
+  expectedUnit: string,
+  cssUnit: string | number
+): number => {
   const [value, resUnit] = parseUnit(cssUnit)
+
   if (resUnit !== expectedUnit) {
     console.warn(
       `The css @value: ${cssUnit} unit is ${resUnit} but it should be ${expectedUnit}`
     )
   }
+
   return value
 }
 
-export const getCSSMilisecsValue = (cssUnit) => getCSSValue('ms', cssUnit)
+export const getCSSMilisecsValue = (cssUnit: string | number): number =>
+  getCSSValue('ms', cssUnit)
 
-export const wrapWithClass = (className, children) => (
-  <div className={className}>{children}</div>
-)
+export const wrapWithClass = (
+  className: string,
+  children: h.JSX.Element
+): h.JSX.Element => <div className={className}>{children}</div>
 
-export const preventDefaultOnClick = (callback) => (event) => {
+export const preventDefaultOnClick = (callback: () => void) => (
+  event: Event
+): void => {
   event.preventDefault()
   callback()
 }
@@ -35,28 +57,34 @@ const isIOS =
 
 // WARN: only intended to target Safari 13.1 which has a reported bug handling enumerateDevices()
 // https://bugs.webkit.org/show_bug.cgi?id=209580
-export const isSafari131 = () => {
+export const isSafari131 = (): boolean => {
   const userAgent = navigator.userAgent
   const isSafari =
     /Safari/.test(userAgent) && /Apple Computer/.test(navigator.vendor)
+
   const version = userAgent
     .substring(userAgent.indexOf('Version/'), userAgent.indexOf('Safari/'))
     .trim()
+
   return isSafari && version.includes('13.1')
 }
 
 // WARN: use of this util and navigator.userAgent is highly discouraged unless absolutely necessary and for simple use cases
-export const getUnsupportedMobileBrowserError = () => {
+export const getUnsupportedMobileBrowserError = (): ErrorNames => {
   console.warn(
     'getMobileOSName - use of navigator.userAgent is highly discouraged unless absolutely necessary and only for simple use cases'
   )
+
   const userAgent = navigator.userAgent
+
   if (/android/i.test(userAgent)) {
     return 'UNSUPPORTED_ANDROID_BROWSER'
   }
+
   if (isIOS) {
     return 'UNSUPPORTED_IOS_BROWSER'
   }
+
   console.error('Unable to determine mobile OS')
   return 'INTERRUPTED_FLOW_ERROR'
 }
@@ -78,7 +106,13 @@ const isTouchable =
 // To detect hybrid desktop/mobile devices which have a rear facing camera such as the Surface
 export const isHybrid = isWindows && isTouchable
 
-const enumerateDevicesInternal = (onSuccess, onError) => {
+type CheckDeviceCallback = (device: DeviceData) => boolean
+type CheckDevicesCallback = (devices: DeviceData[]) => boolean
+
+const enumerateDevicesInternal = (
+  onSuccess: (devices: DeviceData[]) => void,
+  onError: (error: Error) => void
+) => {
   try {
     enumerateDevices().then(onSuccess).catch(onError)
   } catch (exception) {
@@ -86,7 +120,9 @@ const enumerateDevicesInternal = (onSuccess, onError) => {
   }
 }
 
-const checkDevicesInfo = (checkFn) => (onResult) =>
+const checkDevicesInfo = (checkFn: CheckDevicesCallback) => (
+  onResult: (result: boolean) => void
+) =>
   enumerateDevicesInternal(
     (devices) => onResult(checkFn(devices)),
     () => onResult(false)
@@ -96,15 +132,19 @@ const checkDevicesInfo = (checkFn) => (onResult) =>
 //       Safari 13.1 bug that incorrectly returns a "videoinput" as "audioinput"
 //       on subsequent calls to enumerateDevices()
 //       https://bugs.webkit.org/show_bug.cgi?id=209580
-const isMediaInputDevice = ({ kind = '' }) => kind.includes('input')
-const isVideoDevice = ({ kind = '' }) => kind.includes('video')
+const isMediaInputDevice: CheckDeviceCallback = ({ kind = '' }) =>
+  kind.includes('input')
 
-const hasDevicePermission = ({ label }) => !!label
+const isVideoDevice: CheckDeviceCallback = ({ kind = '' }) =>
+  kind.includes('video')
+
+const hasDevicePermission: CheckDeviceCallback = ({ label }) => !!label
 
 export const checkIfHasWebcam = checkDevicesInfo((devices) => {
   if (isSafari131()) {
     return devices.every(isMediaInputDevice)
   }
+
   return devices.some(isVideoDevice)
 })
 
@@ -112,22 +152,26 @@ export const checkIfWebcamPermissionGranted = checkDevicesInfo((devices) =>
   devices.filter(isMediaInputDevice).some(hasDevicePermission)
 )
 
-export const parseTags = (str, handleTag) => {
+export const parseTags: TranslatedTagParser = (str, handleTag) => {
   const parser = new DOMParser()
   const stringToXml = parser.parseFromString(`<l>${str}</l>`, 'application/xml')
   const xmlToNodesArray = Array.from(stringToXml.firstChild.childNodes)
+
   return xmlToNodesArray.map((node) =>
     node.nodeType === document.TEXT_NODE
       ? node.textContent
-      : handleTag({ type: node.tagName, text: node.textContent })
+      : handleTag({ type: (node as Element).tagName, text: node.textContent })
   )
 }
 
-export const currentSeconds = () => Math.floor(Date.now() / 1000)
+export const currentSeconds = (): number => Math.floor(Date.now() / 1000)
 
-export const currentMilliseconds = () => new Date().getTime()
+export const currentMilliseconds = (): number => new Date().getTime()
 
-export const copyToClipboard = (mobileUrl, callback) => {
+export const copyToClipboard = (
+  mobileUrl: string,
+  callback: () => void
+): void => {
   const tempInput = document.createElement('input')
   document.body.appendChild(tempInput)
   tempInput.setAttribute('value', mobileUrl)
@@ -137,7 +181,10 @@ export const copyToClipboard = (mobileUrl, callback) => {
   callback()
 }
 
-export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => {
+export const addDeviceRelatedProperties = (
+  sdkMetadata: SdkMetadata,
+  isCrossDeviceFlow: boolean
+): SdkMetadata => {
   const osInfo = detectSystem('os')
   const browserInfo = detectSystem('browser')
 
@@ -157,7 +204,7 @@ export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => {
   }
 }
 
-export const capitalise = (string) => {
+export const capitalise = (string: string): string => {
   if (string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
@@ -165,14 +212,24 @@ export const capitalise = (string) => {
   return string
 }
 
-export const hasOnePreselectedDocument = (steps) =>
+export const hasOnePreselectedDocument = (steps: StepConfig[]): boolean =>
   getEnabledDocuments(steps).length === 1
 
-export const getEnabledDocuments = (steps) => {
-  const documentStep = steps.find((step) => step.type === 'document')
+export const getEnabledDocuments = (steps: StepConfig[]): DocumentTypes[] => {
+  const documentStep = steps.find(
+    (step) => step.type === 'document'
+  ) as StepConfigDocument
+
   const docTypes =
     documentStep && documentStep.options && documentStep.options.documentTypes
-  return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
+
+  if (!docTypes) {
+    return []
+  }
+
+  const configuredDocTypes = Object.keys(docTypes) as DocumentTypes[]
+
+  return configuredDocTypes.filter((type) => docTypes[type])
 }
 
 /**
@@ -180,5 +237,5 @@ export const getEnabledDocuments = (steps) => {
  * It's necessary to encode and unescape here is to work with non-Latin characters
  * See more: https://stackoverflow.com/a/26603875
  */
-export const buildIteratorKey = (value) =>
+export const buildIteratorKey = (value: string | number | boolean): string =>
   btoa(unescape(encodeURIComponent(value)))
