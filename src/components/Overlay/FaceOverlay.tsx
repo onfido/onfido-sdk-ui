@@ -1,23 +1,23 @@
-import { h, ComponentType } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 import { withFullScreenState } from '../FullScreen'
 import style from './style.scss'
 
-type Props = {
+type FaceOverlayProps = {
   isWithoutHole?: boolean
 }
 
-const FaceOverlay = withFullScreenState<ComponentType<Props>>(
-  ({ isWithoutHole }) => (
-    <div
-      data-onfido-qa="faceOverlay"
-      className={classNames(style.faceOverlay, {
-        [style.isWithoutHole]: isWithoutHole,
-      })}
-    >
-      <span className={style.face} />
-    </div>
-  )
+const FaceOverlay: FunctionComponent<FaceOverlayProps> = ({
+  isWithoutHole,
+}) => (
+  <div
+    data-onfido-qa="faceOverlay"
+    className={classNames(style.faceOverlay, {
+      [style.isWithoutHole]: isWithoutHole,
+    })}
+  >
+    <span className={style.face} />
+  </div>
 )
 
-export default FaceOverlay
+export default withFullScreenState(FaceOverlay)
