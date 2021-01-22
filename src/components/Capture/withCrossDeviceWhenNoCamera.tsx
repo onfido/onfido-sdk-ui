@@ -45,6 +45,8 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
       } = this.props
 
       const currentStep = componentsList[step]
+      const docVideoRequested =
+        requestedVariant === 'video' && currentStep.step.type === 'document'
       const cameraRequiredButNoneDetected =
         !hasCamera &&
         (requestedVariant === 'video' || currentStep.step.type === 'face')
@@ -55,7 +57,12 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         )
       }
 
-      if (cameraRequiredButNoneDetected || forceCrossDevice) {
+      if (
+        cameraRequiredButNoneDetected ||
+        forceCrossDevice ||
+        // @TODO: remove this test when we fully support docVideo variant for both desktop & mobile web
+        docVideoRequested
+      ) {
         if (this.props.mobileFlow) {
           console.warn('Already on cross device flow but no camera detected')
           return
