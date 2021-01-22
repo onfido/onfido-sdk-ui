@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Introduce integration tests for API endpoint integrations.
 - Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
+- Internal: Refactor for better reusability of video capture components.
 
 ### Changed
 
