@@ -46,9 +46,9 @@
   .docLiveCaptureFrame & {
     //  NOTE: object-fit: cover causes camera view to appear very zoomed in on some Android devices,
     //        e.g. Huawei P40, P30.
-    //        For iOS devices, the camera view is very slightly zoomed in when object-fit: cover applied.
-    //        With object-fit zoom is gone but camera view is still fullscreen.
-    //        The user also does not get the full camera view.
+    //        For iOS devices, the camera view is very slightly zoomed in when object-fit: cover is applied.
+    //        With object-fit: initial, i.e. use the browser default, zoom is gone but camera view is still fullscreen.
+    //        The user also does not get the full camera view for both Android & iOS devices.
     //        See MDN documentation https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
     object-fit: initial; // set to browser default, setting to "none" still results in a zoomed in view
   }
