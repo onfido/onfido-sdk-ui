@@ -69,7 +69,7 @@ const buildDocumentsResponse = (
       body: Object.assign(responses.api.v3.documents.cutoff, {
         applicant_id: applicantId,
       }),
-      status: 422,
+      status: Status.UnprocessableEntity,
     }
   }
 
