@@ -11,7 +11,13 @@ import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
 
-const MAX_RETRIES_FOR_IMAGE_QUALITY = 2
+// The number of additional image quality retries
+// that should return an error if an image quality validation is detected.
+// This means that if image quality validations are detected, the user will only see an error
+// on the first TWO upload attempt.
+// From the third attempt, if image quality validations are detected, the user will see a warning
+// and they use can choose to proceed regardless of the image quality warning
+const MAX_IMAGE_QUALITY_RETRIES_WITH_ERROR = 1
 const IMAGE_QUALITY_KEYS_MAP = {
   detect_cutoff: 'CUTOFF_DETECTED',
   detect_glare: 'GLARE_DETECTED',
@@ -91,7 +97,7 @@ class Confirm extends Component {
 
     const imageQualityWarnings = this.handleImageQualityWarning(apiResponse)
 
-    if (!imageQualityWarnings?.length) {
+    if (!imageQualityWarnings.length) {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
     } else {
@@ -104,10 +110,11 @@ class Confirm extends Component {
     const { sdk_warnings: warnings } = apiResponse
 
     if (!warnings) {
-      return null
+      return []
     }
 
     const warningList = []
+
     // There might be multiple warnings in one response
     Object.entries(warnings).map(([key, val]) => {
       const imageQualityValidationWarn = IMAGE_QUALITY_KEYS_MAP[key]
@@ -190,7 +197,7 @@ class Confirm extends Component {
         !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const shouldReturnErrorForImageQuality =
-        imageQualityRetries < MAX_RETRIES_FOR_IMAGE_QUALITY
+        imageQualityRetries <= MAX_IMAGE_QUALITY_RETRIES_WITH_ERROR
       const imageQualityErrorType = shouldReturnErrorForImageQuality
         ? 'error'
         : 'warn'

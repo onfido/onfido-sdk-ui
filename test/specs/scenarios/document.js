@@ -281,7 +281,7 @@ export const documentScenarios = async (lang) => {
         confirm.clickRedoButton()
 
         // 1st retake
-        it('should return an error on the second back doc upload attempt', async () => {
+        it('should return an error on the first retake attempt', async () => {
           uploadFileAndClickConfirmButton(
             documentUpload,
             confirm,
@@ -292,7 +292,7 @@ export const documentScenarios = async (lang) => {
         })
 
         // 2nd retake
-        it('should return a warning on the third back doc upload attempt', async () => {
+        it('should return a warning on the second retake attempt', async () => {
           uploadFileAndClickConfirmButton(
             documentUpload,
             confirm,
