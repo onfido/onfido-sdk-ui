@@ -4,7 +4,6 @@ import PermissionsPrimer from '../CameraPermissions/Primer'
 import PermissionsRecover from '../CameraPermissions/Recover'
 
 import { checkIfWebcamPermissionGranted } from '~utils'
-// import { noop } from '~utils/func'
 
 import type { CameraProps } from '~types/camera'
 import type { WithTrackingProps } from '~types/hocs'
