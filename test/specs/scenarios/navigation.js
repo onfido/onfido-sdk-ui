@@ -10,7 +10,7 @@ const options = {
     'DocumentSelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
-    'LivenessIntro',
+    'FaceVideoIntro',
     'Camera',
     'Confirm',
     'BasePage',
@@ -26,7 +26,7 @@ export const navigationScenarios = async (lang) => {
         documentSelector,
         passportUploadImageGuide,
         documentUpload,
-        livenessIntro,
+        faceVideoIntro,
         camera,
         confirm,
         basePage,
@@ -79,11 +79,11 @@ export const navigationScenarios = async (lang) => {
           confirm,
           'passport.jpg'
         )
-        livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-        livenessIntro.clickOnContinueButton()
+        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+        faceVideoIntro.clickOnContinueButton()
         camera.recordVideo()
         camera.clickBackArrow()
-        livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
+        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
       })
     }
   )

@@ -8,20 +8,20 @@ import {
   DocumentFrontCapture,
   DocumentBackCapture,
   SelfieCapture,
-  VideoCapture,
+  FaceVideoCapture,
 } from '../Capture'
 import {
   DocumentFrontConfirm,
   DocumentBackConfirm,
   SelfieConfirm,
-  VideoConfirm,
+  FaceVideoConfirm,
 } from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
-import VideoIntro from '../Video/Intro'
+import FaceVideoIntro from '../FaceVideo/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils'
 import { getCountryDataForDocumentType } from '../../supported-documents'
@@ -152,7 +152,7 @@ const buildRequiredVideoComponents = (
   shouldUseCamera: boolean,
   mobileFlow: boolean
 ): ComponentType<StepComponentProps>[] => {
-  const allVideoSteps = [VideoIntro, VideoCapture, VideoConfirm]
+  const allVideoSteps = [FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm]
 
   if (mobileFlow && !shouldUseCamera) {
     // do not display intro on cross device flow

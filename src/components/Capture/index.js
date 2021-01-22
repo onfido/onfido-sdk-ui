@@ -15,7 +15,7 @@ export const SelfieCapture = appendToTracking(
   withOptions(Face, { requestedVariant: 'standard' }),
   'selfie_capture'
 )
-export const VideoCapture = appendToTracking(
+export const FaceVideoCapture = appendToTracking(
   withOptions(Face, { requestedVariant: 'video' }),
   'video_capture'
 )

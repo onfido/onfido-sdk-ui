@@ -18,7 +18,7 @@ const options = {
     'DocumentSelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
-    'LivenessIntro',
+    'FaceVideoIntro',
     'SelfieIntro',
     'VerificationComplete',
     'BasePage',
@@ -36,7 +36,7 @@ export const faceScenarios = (lang) => {
       documentSelector,
       passportUploadImageGuide,
       documentUpload,
-      livenessIntro,
+      faceVideoIntro,
       selfieIntro,
       verificationComplete,
       basePage,
@@ -237,8 +237,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      faceVideoIntro.clickOnContinueButton()
     })
 
     it('should enter the liveness flow and display timeout notification after 10 seconds', async () => {
@@ -257,8 +257,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      faceVideoIntro.clickOnContinueButton()
       camera.continueButton().click()
       driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
       assert.isFalse(
@@ -283,8 +283,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      faceVideoIntro.clickOnContinueButton()
       camera.continueButton().click()
       camera.verifyVideoTitle(copy)
       camera.recordButton().click()
@@ -316,8 +316,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkLogoIsHidden()
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.checkLogoIsHidden()
+      faceVideoIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
       camera.recordVideo()
       camera.completeChallenges()
@@ -342,8 +342,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkCobrandIsVisible()
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.checkCobrandIsVisible()
+      faceVideoIntro.clickOnContinueButton()
       camera.checkCobrandIsVisible()
       camera.recordVideo()
       camera.completeChallenges()
@@ -368,8 +368,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkLogoIsHidden()
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.checkLogoIsHidden()
+      faceVideoIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
       camera.recordVideo()
       camera.completeChallenges()

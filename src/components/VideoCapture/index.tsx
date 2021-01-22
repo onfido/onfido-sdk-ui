@@ -55,7 +55,7 @@ const initialState: State = {
 }
 
 const recordingTooLongError: ErrorProp = {
-  name: 'VIDEO_TIMEOUT',
+  name: 'LIVENESS_TIMEOUT',
   type: 'warning',
 }
 
