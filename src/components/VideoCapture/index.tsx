@@ -13,7 +13,6 @@ import { ToggleFullScreen } from '../FullScreen'
 
 import Recording, { RecordingProps } from './Recording'
 
-import type { CaptureMethods } from '~types/commons'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type {
   ErrorProp,
@@ -28,8 +27,8 @@ type OverlayProps = {
 
 type VideoCaptureProps = {
   cameraClassName?: string
+  facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
-  method: CaptureMethods
   onRecordingStart?: () => void
   onRedo?: () => void
   onVideoCapture: HandleCaptureProp
@@ -166,7 +165,7 @@ class VideoCapture extends Component<Props, State> {
   render = () => {
     const {
       cameraClassName,
-      method,
+      facing,
       recordingProps = {},
       renderFallback,
       renderOverlay,
@@ -196,7 +195,7 @@ class VideoCapture extends Component<Props, State> {
       <Camera
         buttonType="video"
         containerClassName={cameraClassName}
-        facing={method === 'face' ? 'user' : 'environment'}
+        facing={facing}
         isButtonDisabled={disableRecording}
         isRecording={isRecording}
         onButtonClick={this.handleRecordingStart}
