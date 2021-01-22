@@ -1,59 +1,52 @@
-import { h } from 'preact'
-import Webcam from 'react-webcam-onfido'
+import { h, FunctionComponent } from 'preact'
+import Webcam, { WebcamProps } from 'react-webcam-onfido'
 import classNames from 'classnames'
-import withFailureHandling from './withFailureHandling'
+
+import { localised } from '../../locales'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
-import StartRecording from '../Video/StartRecording'
-import { compose } from '~utils/func'
-import { localised } from '../../locales'
+import StartRecording from '../VideoCapture/StartRecording'
+
+import withFailureHandling from './withFailureHandling'
 import style from './style.scss'
+
+import type { CameraProps } from '~types/camera'
+import type {
+  WithLocalisedProps,
+  WithFailureHandlingProps,
+  WithTrackingProps,
+} from '~types/hocs'
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 const DEFAULT_CAMERA_HEIGHT_IN_PX = 720
 
-/* export type Props = {
-  translate: (string, ?{}) => string,
-  className?: string,
-  containerClassName?: string,
-  children?: React.Node,
-  renderError?: React.Node,
-  renderTitle?: React.Node,
-  onFailure?: (Error) => void,
-  onUserMedia?: Function,
-  webcamRef: React.Ref<typeof Webcam>,
-  video?: boolean,
-  isRecording?: boolean,
-  facing?: 'user' | 'environment',
-  idealCameraHeight?: number,
-  buttonType?: string,
-  onButtonClick: Function,
-  isButtonDisabled: boolean,
-  hasGrantedPermission: boolean,
-  fallbackHeight?: number,
-} */
+type Props = CameraProps &
+  WebcamProps &
+  WithLocalisedProps &
+  WithFailureHandlingProps &
+  WithTrackingProps
 
-const CameraPure = ({
+const Camera: FunctionComponent<Props> = ({
+  buttonType = 'photo',
+  children,
   className,
   containerClassName,
-  renderTitle,
-  renderError,
-  children,
-  webcamRef,
-  onUserMedia,
-  onFailure,
-  video,
-  isRecording,
-  translate,
   facing = 'user',
-  idealCameraHeight,
-  buttonType,
-  onButtonClick,
-  isButtonDisabled,
-  hasGrantedPermission,
   fallbackHeight,
+  hasGrantedPermission,
+  idealCameraHeight,
+  isButtonDisabled,
+  isRecording,
+  onButtonClick,
+  onFailure,
+  onUserMedia,
+  renderError,
+  renderTitle,
+  translate,
+  video,
+  webcamRef,
 }) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
@@ -64,12 +57,11 @@ const CameraPure = ({
         aria-describedby="cameraViewAriaLabel"
       >
         <Webcam
-          className={style.video}
           audio={!!video}
-          height={idealCameraHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
+          className={style.video}
           facingMode={facing}
-          fallbackHeight={fallbackHeight}
-          {...{ onUserMedia, ref: webcamRef, onFailure }}
+          height={idealCameraHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
+          {...{ fallbackHeight, onFailure, onUserMedia, ref: webcamRef }}
         />
       </div>
       <div className={style.actions}>
@@ -104,8 +96,4 @@ const CameraPure = ({
   </div>
 )
 
-export default compose(
-  localised,
-  withFailureHandling,
-  withPermissionsFlow
-)(CameraPure)
+export default localised(withFailureHandling(withPermissionsFlow(Camera)))

@@ -1,0 +1,77 @@
+@import '../Theme/constants';
+
+.challengeDescription {
+  line-height: 2.25;
+}
+
+.challengeTitle {
+  font-weight: 600;
+  font-size: 20 * $unit;
+  line-height: 1.2;
+}
+
+.introCopy {
+  margin-bottom: auto;
+}
+
+.introBullets {
+  text-align: left;
+  padding-left: 40 * $unit;
+
+  @media (--small-viewport) {
+    padding-left: 0;
+  }
+}
+
+.introBullet {
+  padding-left: 46 * $unit;
+  margin-bottom: 24 * $unit;
+  list-style: none;
+  position: relative;
+}
+
+.bolder {
+  font-weight: 600;
+}
+
+.introIcon {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 26 * $unit;
+  height: 26 * $unit;
+}
+
+.speakOutLoudIcon {
+  background-image: url('./assets/mic.svg');
+  background-size: contain;
+}
+
+.twoActionsIcon {
+  background-image: url('./assets/camera.svg');
+  background-size: contain;
+}
+
+.movement {
+  background-image: url('./assets/move-arrow.svg');
+  background-size: contain;
+  display: inline-block;
+  width: 65 * $unit;
+  height: 21 * $unit;
+  margin-top: 16 * $unit;
+}
+
+.movement-turnLeft {
+  transform: rotate(180deg);
+}
+
+.recite {
+  display: block;
+  font-size: 54 * $unit;
+  font-weight: 600;
+  line-height: 1.19;
+  margin-top: 2.37 * $unit;
+}
