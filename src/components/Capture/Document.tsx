@@ -8,9 +8,9 @@ import { randomId } from '~utils/string'
 
 import { appendToTracking } from '../../Tracker'
 import { localised } from '../../locales'
+import DocumentVideo from '../DocumentVideo'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
-import VideoCapture from '../VideoCapture'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
@@ -100,7 +100,7 @@ class Document extends Component<Props> {
       poaDocumentType,
       requestedVariant,
       side,
-      trackScreen,
+      // trackScreen,
       translate,
       uploadFallback,
       useLiveDocumentCapture,
@@ -121,11 +121,12 @@ class Document extends Component<Props> {
       useLiveDocumentCapture && (!isDesktop || isHybrid)
 
     if (requestedVariant === 'video') {
-      const isUploadFallbackDisabled = !isDesktop && !this.props.uploadFallback
+      // const isUploadFallbackDisabled = !isDesktop && !this.props.uploadFallback
 
       return (
-        <VideoCapture
-          cameraClassName={style.faceContainer}
+        <DocumentVideo
+          documentType={documentType}
+          /* cameraClassName={style.faceContainer}
           inactiveError={getInactiveError(isUploadFallbackDisabled)}
           method="document"
           onVideoCapture={(payload) =>
@@ -133,7 +134,7 @@ class Document extends Component<Props> {
           }
           renderFallback={renderFallback}
           renderOverlay={() => <DocumentOverlay type={documentType} />}
-          trackScreen={trackScreen}
+          trackScreen={trackScreen} */
         />
       )
     }
