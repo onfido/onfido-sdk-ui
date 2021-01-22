@@ -11,15 +11,21 @@ export const DocumentBackCapture = appendToTracking(
   withOptions(Document, { side: 'back' }),
   'back_capture'
 )
+export const DocumentVideoCapture = appendToTracking(
+  withOptions(Document, { requestedVariant: 'video' }),
+  'document_video_capture'
+)
+
+export const PoACapture = appendToTracking(
+  withOptions(Document, { isPoA: true, forceCrossDevice: false }),
+  'poa'
+)
+
 export const SelfieCapture = appendToTracking(
   withOptions(Face, { requestedVariant: 'standard' }),
   'selfie_capture'
 )
 export const FaceVideoCapture = appendToTracking(
   withOptions(Face, { requestedVariant: 'video' }),
-  'video_capture'
-)
-export const PoADocumentCapture = appendToTracking(
-  withOptions(Document, { isPoA: true, forceCrossDevice: false }),
-  'poa'
+  'face_video_capture'
 )

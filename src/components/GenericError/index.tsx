@@ -7,11 +7,22 @@ import { localised } from '../../locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-class GenericError extends Component {
+import type { ErrorProp } from '~types/routers'
+import type { WithLocalisedProps } from '~types/hocs'
+
+type GenericErrorProps = {
+  error: ErrorProp
+}
+
+type Props = GenericErrorProps & WithLocalisedProps
+
+class GenericError extends Component<Props> {
   componentDidMount() {
     sendScreen([`${lowerCase(this.props.error.name)}`])
   }
-  render({ translate, error }) {
+
+  render() {
+    const { translate, error } = this.props
     const { message, instruction, icon } = errors[error.name]
     const iconName = icon ? icon : 'genericErrorIcon'
     return (

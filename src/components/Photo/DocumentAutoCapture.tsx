@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
+import Webcam from 'react-webcam-onfido'
 import { screenshot } from '~utils/camera'
 import { blobToLossyBase64 } from '~utils/blob'
 import { randomId } from '~utils/string'
@@ -9,46 +10,53 @@ import CameraError from '../CameraError'
 import { postToBackend } from '~utils/sdkBackend'
 import style from '../Camera/style.scss'
 
+import type { ErrorCallback } from '~types/api'
+import type { SdkMetadata, UrlsConfig } from '~types/commons'
+import type { WithTrackingProps } from '~types/hocs'
+import type {
+  ErrorProp,
+  HandleCaptureProp,
+  RenderFallbackProp,
+  TriggerOnErrorProp,
+} from '~types/routers'
+
 const maxAttempts = 3
 
-const requestError = { name: 'REQUEST_ERROR', type: 'error' }
-
-/* type State = {
-  hasError: boolean,
-}
+const requestError: ErrorProp = { name: 'REQUEST_ERROR', type: 'error' }
 
 type Props = {
-  urls: Object,
-  token: string,
-  onValidCapture: Function,
-  onError: Function,
-  triggerOnError: Function,
-  renderFallback: Function,
-  trackScreen: Function,
-} */
+  onError: () => void
+  onValidCapture: HandleCaptureProp
+  renderFallback: RenderFallbackProp
+  token?: string
+  triggerOnError: TriggerOnErrorProp
+  urls: UrlsConfig
+} & WithTrackingProps
 
-export default class DocumentAutoCapture extends Component {
-  webcam = null
+type State = {
+  hasError: boolean
+}
 
-  interval
-
-  captureIds = []
+export default class DocumentAutoCapture extends Component<Props, State> {
+  private webcam?: Webcam = null
+  private interval?: number
+  private captureIds: string[] = []
 
   state = {
     hasError: false,
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.start()
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     this.stop()
   }
 
-  screenshot = () => {
+  screenshot = (): void => {
     if (this.captureIds.length < maxAttempts) {
-      screenshot(this.webcam, (blob, sdkMetadata) =>
+      screenshot(this.webcam, (blob: Blob, sdkMetadata: SdkMetadata) =>
         this.handleScreenshotBlob(blob, sdkMetadata)
       )
     } else {
@@ -58,16 +66,16 @@ export default class DocumentAutoCapture extends Component {
     }
   }
 
-  start() {
+  start = (): void => {
     this.stop()
     this.interval = Visibility.every(1000, this.screenshot)
   }
 
-  stop() {
+  stop = (): void => {
     Visibility.stop(this.interval)
   }
 
-  handleScreenshotBlob = (blob, sdkMetadata) =>
+  handleScreenshotBlob = (blob: Blob, sdkMetadata: SdkMetadata): void =>
     blobToLossyBase64(
       blob,
       (base64) => this.handleScreenshot(blob, base64, sdkMetadata),
@@ -75,10 +83,15 @@ export default class DocumentAutoCapture extends Component {
       { maxWidth: 200 }
     )
 
-  handleScreenshot = (blob, base64, sdkMetadata) => {
+  handleScreenshot = (
+    blob: Blob,
+    base64: string,
+    sdkMetadata: SdkMetadata
+  ): void => {
     if (base64) {
       const id = randomId()
       this.captureIds.push(id)
+
       this.validate(base64, id, (valid) =>
         valid
           ? this.props.onValidCapture({ blob, base64, id, sdkMetadata })
@@ -87,10 +100,15 @@ export default class DocumentAutoCapture extends Component {
     }
   }
 
-  validate = (base64, id, callback) => {
+  validate = (
+    base64: string,
+    id: string,
+    callback: (valid: boolean) => void
+  ): void => {
     const { urls, token } = this.props
     const url = urls.detect_document_url
     const data = JSON.stringify({ image: base64, id })
+
     postToBackend(
       data,
       url,
@@ -103,24 +121,25 @@ export default class DocumentAutoCapture extends Component {
     )
   }
 
-  setProcessed(id) {
+  setProcessed = (id: string): void => {
     this.captureIds = this.captureIds.filter((captureId) => captureId === id)
   }
 
-  handleValidationError = (error) => {
+  handleValidationError: ErrorCallback = (error) => {
     this.setState({ hasError: true })
     this.props.triggerOnError(error)
     this.props.onError()
   }
 
-  render() {
+  render(): h.JSX.Element {
     const { hasError } = this.state
     const { trackScreen, renderFallback } = this.props
+
     return (
       <Camera
         {...this.props}
         className={style.docAutoCaptureFrame}
-        webcamRef={(c) => (this.webcam = c)}
+        webcamRef={(c: Webcam) => (this.webcam = c)}
         renderError={
           hasError ? (
             <CameraError

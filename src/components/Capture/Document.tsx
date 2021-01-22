@@ -1,63 +1,80 @@
 import { h, Component } from 'preact'
+
+import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
+import { validateFile } from '~utils/file'
+import { getInactiveError } from '~utils/inactiveError'
+import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
+import { randomId } from '~utils/string'
+
 import { appendToTracking } from '../../Tracker'
+import { localised } from '../../locales'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
+import VideoCapture from '../VideoCapture'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
-import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
-import { compose } from '~utils/func'
-import { validateFile } from '~utils/file'
-import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
-import { randomId } from '~utils/string'
-import { localised } from '../../locales'
 import FallbackButton from '../Button/FallbackButton'
+import { DocumentOverlay } from '../Overlay'
+
+import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import style from './style.scss'
 
-class Document extends Component {
-  static defaultProps = {
-    side: 'front',
+import type { ImageResizeInfo } from '~types/commons'
+import type { WithLocalisedProps, WithOptionsProps } from '~types/hocs'
+import type { DocumentCapture } from '~types/redux'
+import type {
+  HandleCaptureProp,
+  StepComponentDocumentProps,
+} from '~types/routers'
+
+type Props = StepComponentDocumentProps & WithLocalisedProps & WithOptionsProps
+
+class Document extends Component<Props> {
+  static defaultProps: Partial<Props> = {
     forceCrossDevice: false,
+    requestedVariant: 'standard',
+    side: 'front',
   }
 
-  handleCapture = (payload) => {
+  handleCapture: HandleCaptureProp = ({ variant, ...payload }) => {
     const {
-      isPoA,
-      documentType,
-      poaDocumentType,
       actions,
-      side,
-      nextStep,
+      documentType,
+      isPoA,
       mobileFlow,
-    } = this.props
-    const documentCaptureData = {
-      ...payload,
-      sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
-      method: 'document',
-      documentType: isPoA ? poaDocumentType : documentType,
+      nextStep,
+      poaDocumentType,
       side,
+    } = this.props
+
+    const documentCaptureData: DocumentCapture = {
+      ...payload,
+      documentType: isPoA ? poaDocumentType : documentType,
       id: payload.id || randomId(),
+      method: 'document',
+      sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
+      side: variant === 'video' ? null : side,
+      variant: variant || 'standard',
     }
     actions.createCapture(documentCaptureData)
 
     nextStep()
   }
 
-  handleUpload = (blob, imageResizeInfo) => {
+  handleUpload = (blob: Blob, imageResizeInfo: ImageResizeInfo) =>
     this.handleCapture({
       blob,
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
-  }
 
-  handleError = () => this.props.actions.deleteCapture()
+  handleError = () => this.props.actions.deleteCapture({ method: 'face' })
 
-  handleFileSelected = (file) =>
+  handleFileSelected = (file: File) =>
     validateFile(file, this.handleUpload, this.handleError)
 
-  renderUploadFallback = (text) => (
+  renderUploadFallback = (text: string) => (
     <CustomFileInput
       className={style.uploadFallback}
       onChange={this.handleFileSelected}
@@ -68,7 +85,7 @@ class Document extends Component {
     </CustomFileInput>
   )
 
-  renderCrossDeviceFallback = (text) => (
+  renderCrossDeviceFallback = (text: string) => (
     <FallbackButton
       text={text}
       onClick={() => this.props.changeFlowTo('crossDeviceSteps')}
@@ -77,16 +94,17 @@ class Document extends Component {
 
   render() {
     const {
+      documentType,
+      hasCamera,
+      isPoA,
+      poaDocumentType,
+      requestedVariant,
+      side,
+      trackScreen,
+      translate,
+      uploadFallback,
       useLiveDocumentCapture,
       useWebcam,
-      hasCamera,
-      documentType,
-      poaDocumentType,
-      isPoA,
-      side,
-      translate,
-      subTitle,
-      uploadFallback,
     } = this.props
 
     const title = translate(
@@ -95,20 +113,36 @@ class Document extends Component {
       ].title
     )
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
-    const renderTitle = <PageTitle {...{ title, subTitle }} smaller />
+    const renderTitle = <PageTitle title={title} smaller />
     const renderFallback = isDesktop
       ? this.renderCrossDeviceFallback
       : this.renderUploadFallback
     const enableLiveDocumentCapture =
       useLiveDocumentCapture && (!isDesktop || isHybrid)
 
+    if (requestedVariant === 'video') {
+      const isUploadFallbackDisabled = !isDesktop && !this.props.uploadFallback
+
+      return (
+        <VideoCapture
+          cameraClassName={style.faceContainer}
+          inactiveError={getInactiveError(isUploadFallbackDisabled)}
+          method="document"
+          onVideoCapture={(payload) =>
+            this.handleCapture({ ...payload, variant: 'video' })
+          }
+          renderFallback={renderFallback}
+          renderOverlay={() => <DocumentOverlay type={documentType} />}
+          trackScreen={trackScreen}
+        />
+      )
+    }
+
     if (hasCamera && useWebcam) {
       return (
         <DocumentAutoCapture
           {...propsWithErrorHandling}
-          renderTitle={renderTitle}
           renderFallback={renderFallback}
-          containerClassName={style.documentContainer}
           onValidCapture={this.handleCapture}
         />
       )
@@ -118,11 +152,11 @@ class Document extends Component {
       return (
         <DocumentLiveCapture
           {...propsWithErrorHandling}
-          renderTitle={renderTitle}
-          renderFallback={renderFallback}
           containerClassName={style.liveDocumentContainer}
-          onCapture={this.handleCapture}
           isUploadFallbackDisabled={!uploadFallback}
+          onCapture={this.handleCapture}
+          renderFallback={renderFallback}
+          renderTitle={renderTitle}
         />
       )
     }
@@ -149,8 +183,6 @@ class Document extends Component {
   }
 }
 
-export default compose(
-  appendToTracking,
-  localised,
-  withCrossDeviceWhenNoCamera
-)(Document)
+export default appendToTracking(
+  localised(withCrossDeviceWhenNoCamera(Document))
+)
