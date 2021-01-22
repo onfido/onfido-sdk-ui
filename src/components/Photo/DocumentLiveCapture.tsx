@@ -13,21 +13,20 @@ import CameraError from '../CameraError'
 import style from './style.scss'
 
 import type { SdkMetadata } from '~types/commons'
-import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 
 type Props = {
   className?: string
-  containerClassName: string
+  containerClassName?: string
   documentType?: DocumentTypes
   isUploadFallbackDisabled: boolean
   onCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
   renderTitle: h.JSX.Element
-} & WithLocalisedProps &
-  WithTrackingProps
+} & WithTrackingProps
 
 type State = {
   hasAllowedCameraAccess: boolean
