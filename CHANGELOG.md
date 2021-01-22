@@ -25,6 +25,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Fix "File type not supported" error on snapshot upload in selfie step.
+- Public: Fix typo in `en_US.json` file
 
 ## [6.4.0] - 2020-12-21
 
