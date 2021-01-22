@@ -2,7 +2,6 @@ import { h, Component } from 'preact'
 
 import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
 import { validateFile } from '~utils/file'
-import { getInactiveError } from '~utils/inactiveError'
 import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 
@@ -10,13 +9,11 @@ import { appendToTracking } from '../../Tracker'
 import { localised } from '../../locales'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
-import VideoCapture from '../VideoCapture'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import FallbackButton from '../Button/FallbackButton'
-import { DocumentOverlay } from '../Overlay'
 
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import style from './style.scss'
@@ -98,9 +95,7 @@ class Document extends Component<Props> {
       hasCamera,
       isPoA,
       poaDocumentType,
-      requestedVariant,
       side,
-      trackScreen,
       translate,
       uploadFallback,
       useLiveDocumentCapture,
@@ -119,24 +114,6 @@ class Document extends Component<Props> {
       : this.renderUploadFallback
     const enableLiveDocumentCapture =
       useLiveDocumentCapture && (!isDesktop || isHybrid)
-
-    if (requestedVariant === 'video') {
-      const isUploadFallbackDisabled = !isDesktop && !this.props.uploadFallback
-
-      return (
-        <VideoCapture
-          cameraClassName={style.faceContainer}
-          inactiveError={getInactiveError(isUploadFallbackDisabled)}
-          method="document"
-          onVideoCapture={(payload) =>
-            this.handleCapture({ ...payload, variant: 'video' })
-          }
-          renderFallback={renderFallback}
-          renderOverlay={() => <DocumentOverlay type={documentType} />}
-          trackScreen={trackScreen}
-        />
-      )
-    }
 
     if (hasCamera && useWebcam) {
       return (
