@@ -14,7 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce integration tests for API endpoint integrations.
 - Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
-- Internal: App component, Redux system & utils are now typed in TypeScript.
+- Internal: App component, Redux system, utils & HoCs are now typed in TypeScript.
 
 ### Changed
 
