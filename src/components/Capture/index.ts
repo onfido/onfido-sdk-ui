@@ -21,7 +21,7 @@ export const PoACapture = appendToTracking(
   'poa'
 )
 
-export const FaceSelfieCapture = appendToTracking(
+export const SelfieCapture = appendToTracking(
   withOptions(Face, { requestedVariant: 'standard' }),
   'selfie_capture'
 )

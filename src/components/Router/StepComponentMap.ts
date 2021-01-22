@@ -8,7 +8,7 @@ import {
   DocumentFrontCapture,
   DocumentBackCapture,
   DocumentVideoCapture,
-  FaceSelfieCapture,
+  SelfieCapture,
   FaceVideoCapture,
 } from '../Capture'
 import {
@@ -167,7 +167,7 @@ const buildRequiredVideoComponents = (
 const buildRequiredSelfieComponents = (
   deviceHasCameraSupport: boolean
 ): ComponentType<StepComponentProps>[] => {
-  const allSelfieSteps = [SelfieIntro, FaceSelfieCapture, SelfieConfirm]
+  const allSelfieSteps = [SelfieIntro, SelfieCapture, SelfieConfirm]
 
   if (!deviceHasCameraSupport) {
     // do not display intro if camera cannot be used
