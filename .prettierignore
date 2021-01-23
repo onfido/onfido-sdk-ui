@@ -4,3 +4,4 @@
 /src/locales
 /src/supported-documents/*.json
 /test/mock-server/frontend
+/coverage
