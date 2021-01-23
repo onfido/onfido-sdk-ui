@@ -3,6 +3,10 @@ import { shallow } from 'enzyme'
 
 import App from '../index'
 
-it('renders without crashing', () => {
-  shallow(<App options={{}} />)
+describe('App', () => {
+  it('renders without crashing', () => {
+    const wrapper = shallow(<App options={{}} />)
+    expect(wrapper.exists()).toBeTruthy()
+    expect(wrapper.find('ReduxAppWrapper').exists()).toBeTruthy()
+  })
 })
