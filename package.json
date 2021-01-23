@@ -44,12 +44,19 @@
     "identity",
     "verification"
   ],
-  "files": ["dist", "lib", "src"],
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
   "jest": {
     "globals": {
       "WOOPRA_WINDOW_KEY": "woopraSafe"
     },
-    "setupFiles": ["./src/unit_tests/setupTests.js", "jest-canvas-mock"],
+    "setupFiles": [
+      "./src/unit_tests/setupTests.js",
+      "jest-canvas-mock"
+    ],
     "moduleNameMapper": {
       "^react$": "preact/compat",
       "^react-dom$": "preact/compat",
@@ -80,7 +87,10 @@
         "maxSize": "200 kB"
       }
     ],
-    "trackBranches": ["master", "development"]
+    "trackBranches": [
+      "master",
+      "development"
+    ]
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
