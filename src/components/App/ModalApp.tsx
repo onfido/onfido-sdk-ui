@@ -27,11 +27,11 @@ import type {
 
 import withConnect, { ReduxProps } from './withConnect'
 
-export type PassedProps = {
+export type ModalAppProps = {
   options: NormalisedSdkOptions
 }
 
-type Props = PassedProps & ReduxProps
+type Props = ModalAppProps & ReduxProps
 
 class ModalApp extends Component<Props> {
   private events: EventEmitter2.emitter
@@ -259,4 +259,4 @@ class ModalApp extends Component<Props> {
   }
 }
 
-export default withConnect<ComponentType<PassedProps>>(ModalApp)
+export default withConnect<ComponentType<ModalAppProps>>(ModalApp)

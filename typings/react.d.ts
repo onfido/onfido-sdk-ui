@@ -1,5 +1,3 @@
-/// <reference types="enzyme-adapter-preact-pure" />
-
 import React from 'react'
 
 declare global {

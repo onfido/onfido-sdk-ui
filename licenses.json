@@ -811,6 +811,14 @@
     "path": "node_modules/@babel/runtime-corejs3",
     "licenseFile": "node_modules/@babel/runtime-corejs3/LICENSE"
   },
+  "@babel/runtime@7.12.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/babel/babel",
+    "publisher": "Sebastian McKenzie",
+    "email": "sebmck@gmail.com",
+    "path": "node_modules/react-redux/node_modules/@babel/runtime",
+    "licenseFile": "node_modules/react-redux/node_modules/@babel/runtime/LICENSE"
+  },
   "@babel/runtime@7.8.7": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
@@ -10493,6 +10501,12 @@
     "path": "node_modules/react-is",
     "licenseFile": "node_modules/react-is/LICENSE"
   },
+  "react-is@16.13.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "node_modules/react-redux/node_modules/react-is",
+    "licenseFile": "node_modules/react-redux/node_modules/react-is/LICENSE"
+  },
   "react-is@17.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
@@ -10528,7 +10542,7 @@
     "path": "node_modules/react-phone-number-input",
     "licenseFile": "node_modules/react-phone-number-input/LICENSE"
   },
-  "react-redux@5.1.2": {
+  "react-redux@7.2.2": {
     "licenses": "MIT",
     "repository": "https://github.com/reduxjs/react-redux",
     "publisher": "Dan Abramov",
@@ -10782,6 +10796,14 @@
     "email": "bn@cs.stanford.edu",
     "path": "node_modules/@babel/runtime-corejs3/node_modules/regenerator-runtime",
     "licenseFile": "node_modules/@babel/runtime-corejs3/node_modules/regenerator-runtime/LICENSE"
+  },
+  "regenerator-runtime@0.13.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime",
+    "publisher": "Ben Newman",
+    "email": "bn@cs.stanford.edu",
+    "path": "node_modules/react-redux/node_modules/regenerator-runtime",
+    "licenseFile": "node_modules/react-redux/node_modules/regenerator-runtime/LICENSE"
   },
   "regenerator-transform@0.14.5": {
     "licenses": "MIT",
