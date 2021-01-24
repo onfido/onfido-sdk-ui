@@ -33,6 +33,6 @@ describe('DocumentVideo', () => {
     )
 
     const documentLiveCapture = wrapper.find('DocumentLiveCapture')
-    console.log(documentLiveCapture.debug())
+    expect(documentLiveCapture.exists()).toBeTruthy()
   })
 })

@@ -11,9 +11,6 @@ type Props = {
   title: string
 }
 
-// const PageTitle: FunctionComponent<Props> = ({ title }) => <span>{title}</span>
-// export default PageTitle
-
 class PageTitle extends Component<Props> {
   private container?: HTMLSpanElement
 
