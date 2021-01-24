@@ -4,7 +4,7 @@ import { omit } from '~utils/object'
 
 import type { CaptureActions, CaptureState, CaptureKeys } from '~types/redux'
 
-const initialState: CaptureState = {}
+export const initialState: CaptureState = {}
 
 const stateKey = (arr: string[]) => cleanFalsy(arr).join('_')
 const getKeyByCaptureId = (captures: CaptureState = {}, captureId: string) =>
