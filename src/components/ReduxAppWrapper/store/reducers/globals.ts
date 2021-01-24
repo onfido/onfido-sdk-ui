@@ -1,7 +1,7 @@
 import * as constants from '~types/redux/constants'
 import type { GlobalActions, GlobalState } from '~types/redux'
 
-const initialState: GlobalState = {
+export const initialState: GlobalState = {
   documentType: null,
   idDocumentIssuingCountry: null,
   poaDocumentType: null,
