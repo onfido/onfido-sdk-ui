@@ -58,6 +58,8 @@
       "jest-canvas-mock"
     ],
     "moduleNameMapper": {
+      "^react$": "preact/compat",
+      "^react-dom$": "preact/compat",
       "\\.(scss|css)$": "<rootDir>/src/unit_tests/mocks/styleMock.js",
       "^~jest(.*)$": "<rootDir>/test/utils/jest$1",
       "^~locales(.*)$": "<rootDir>/src/locales$1",
@@ -214,7 +216,7 @@
     "parse-unit": "~1.0.1",
     "pdfobject": "~2.0.201604172",
     "preact": "^10.5.4",
-    "react-redux": "^5.1.2",
+    "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "socket.io-client": "~2.2.0",
     "supports-webp": "~1.0.3",
