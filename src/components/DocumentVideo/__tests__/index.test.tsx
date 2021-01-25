@@ -11,53 +11,6 @@ import VideoCapture, { VideoCaptureProps } from '../../VideoCapture'
 
 import type { CapturePayload } from '~types/redux'
 
-jest.mock(
-  'enumerate-devices',
-  () =>
-    new Promise((resolve) =>
-      resolve([
-        {
-          deviceId: 'fake-videoinput-device-id',
-          groupId: 'face-videoinput-group-id',
-          kind: 'videoinput',
-          label: 'fake-videoinput',
-        },
-      ])
-    )
-)
-const mockGetUserMedia = () => {
-  const originalWindow = { ...window }
-  const windowSpy = jest.spyOn(global.window, 'navigator', 'get')
-
-  windowSpy.mockImplementation(() => ({
-    ...originalWindow.navigator,
-    mediaDevices: {
-      ...originalWindow.navigator.mediaDevices,
-      getUserMedia: () =>
-        new Promise((resolve) =>
-          resolve({
-            active: true,
-            id: 'fake-media-id',
-            addEventListener: jest.fn(),
-            addTrack: jest.fn(),
-            clone: jest.fn(),
-            dispatchEvent: jest.fn(),
-            getAudioTracks: jest.fn(),
-            getTrackById: jest.fn(),
-            getTracks: jest.fn(),
-            getVideoTracks: jest.fn(),
-            onaddtrack: jest.fn(),
-            onremovetrack: jest.fn(),
-            removeEventListener: jest.fn(),
-            removeTrack: jest.fn(),
-          })
-        ),
-    },
-  }))
-}
-
-mockGetUserMedia()
-
 const fakePayload: CapturePayload = {
   blob: new Blob(),
   sdkMetadata: {},
