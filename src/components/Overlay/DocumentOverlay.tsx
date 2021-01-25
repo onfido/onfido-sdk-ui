@@ -5,7 +5,7 @@ import type { DocumentTypes } from '~types/steps'
 
 type DocumentSizes = 'id1Card' | 'id3Card' | 'rectangle'
 
-type Props = {
+export type Props = {
   type?: DocumentTypes
 }
 

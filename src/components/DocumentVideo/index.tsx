@@ -68,7 +68,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
     )
   }
 
-  // return <div>VideoCapture for {documentType}</div>
   const inactiveError = getInactiveError(true)
 
   return (
