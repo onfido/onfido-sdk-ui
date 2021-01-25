@@ -10,7 +10,7 @@ import DocumentLiveCapture, {
   Props as DocumentLiveCaptureProps,
 } from '../../Photo/DocumentLiveCapture'
 import DocumentVideo, { DocumentVideoProps } from '../index'
-import VideoCapture, { VideoCaptureProps } from '../../VideoCapture'
+import VideoCapture, { Props as VideoCaptureProps } from '../../VideoCapture'
 
 import type { CapturePayload } from '~types/redux'
 

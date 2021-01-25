@@ -29,7 +29,7 @@ type VideoLayerProps = {
   onStop: () => void
 } & WithPermissionsFlowProps
 
-type Props = {
+export type Props = {
   cameraClassName?: string
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
