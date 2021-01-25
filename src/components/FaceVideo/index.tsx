@@ -7,8 +7,8 @@ import { FaceOverlay } from '../Overlay'
 import withChallenges from './withChallenges'
 import VideoCapture from '../VideoCapture'
 import Challenge from './Challenge'
-import Recording from '../VideoCapture/Recording'
-import StartRecording from '../VideoCapture/StartRecording'
+import Recording from './Recording'
+import StartRecording from './StartRecording'
 
 import type { ChallengePayload } from '~types/api'
 import type {
