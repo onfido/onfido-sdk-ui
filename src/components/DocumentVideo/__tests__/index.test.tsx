@@ -96,12 +96,15 @@ describe('DocumentVideo', () => {
         const {
           cameraClassName,
           inactiveError,
+          onRedo,
           renderFallback,
           trackScreen,
         } = videoCapture.props()
 
         expect(cameraClassName).toEqual('fakeCameraClass')
         expect(inactiveError.name).toEqual('CAMERA_INACTIVE_NO_FALLBACK')
+
+        expect(onRedo).toBeDefined()
 
         renderFallback('fake_fallback_reason')
         expect(defaultProps.renderFallback).toHaveBeenCalledWith(
@@ -111,6 +114,8 @@ describe('DocumentVideo', () => {
         expect(defaultProps.trackScreen).toHaveBeenCalledWith(
           'fake_screen_tracking'
         )
+
+        expect(videoCapture.find('StartRecording').exists()).toBeTruthy()
       })
 
       it('renders correct overlay', () => {
@@ -119,6 +124,31 @@ describe('DocumentVideo', () => {
         )
         expect(documentOverlay.exists()).toBeTruthy()
         expect(documentOverlay.props().type).toEqual(defaultProps.documentType)
+      })
+
+      it('starts recording correctly', () => {
+        const startRecordingButton = videoCapture.find(
+          'StartRecording Button > button'
+        )
+        startRecordingButton.simulate('click')
+        wrapper.update()
+        expect(wrapper.find('VideoCapture StartRecording').exists()).toBeFalsy()
+        expect(wrapper.find('VideoCapture Recording').exists()).toBeTruthy()
+      })
+
+      it('handles redo fallback correctly', () => {
+        const startRecordingButton = videoCapture.find(
+          'StartRecording Button > button'
+        )
+        startRecordingButton.simulate('click')
+        wrapper.update()
+        videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
+        videoCapture.props().onRedo()
+        wrapper.update()
+        expect(
+          wrapper.find('VideoCapture StartRecording').exists()
+        ).toBeTruthy()
+        expect(wrapper.find('VideoCapture Recording').exists()).toBeFalsy()
       })
     })
   })

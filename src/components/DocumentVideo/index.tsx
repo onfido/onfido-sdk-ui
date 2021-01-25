@@ -40,7 +40,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
   }
 
   const handleVideoRecordingStart = () => {
-    console.log('handleVideoRecordingStart')
     setRecordingStep('tilt')
   }
 
@@ -50,6 +49,11 @@ const DocumentVideo: FunctionComponent<Props> = ({
 
   const handleNextRecordingStep = () => {
     console.log('handleNextRecordingStep')
+  }
+
+  const handleVideoRecordingRedo = () => {
+    console.log('invoke handleVideoRecordingRedo')
+    setRecordingStep('intro')
   }
 
   if (captureStep === 'front' || captureStep === 'back') {
@@ -77,6 +81,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
       cameraClassName={cameraClassName}
       inactiveError={inactiveError}
       onRecordingStart={handleVideoRecordingStart}
+      onRedo={handleVideoRecordingRedo}
       onVideoCapture={handleVideoCapture}
       renderFallback={renderFallback}
       renderOverlay={() => <DocumentOverlay type={documentType} />}
