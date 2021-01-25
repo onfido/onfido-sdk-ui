@@ -5,8 +5,6 @@ import initializePolyglot from './polyglot'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { SupportedLanguages, LocaleConfig, TranslatedTagParser } from '~types/locales'
 
-const LocaleContext = createContext<WithLocalisedProps>(null)
-
 type ProviderProps = {
   language: SupportedLanguages | LocaleConfig
   children: h.JSX.Element

@@ -7,21 +7,70 @@ import DocumentLiveCapture, {
   Props as DocumentLiveCaptureProps,
 } from '../../Photo/DocumentLiveCapture'
 import DocumentVideo, { DocumentVideoProps } from '../index'
+import VideoCapture, { VideoCaptureProps } from '../../VideoCapture'
 
 import type { CapturePayload } from '~types/redux'
+
+jest.mock(
+  'enumerate-devices',
+  () =>
+    new Promise((resolve) =>
+      resolve([
+        {
+          deviceId: 'fake-videoinput-device-id',
+          groupId: 'face-videoinput-group-id',
+          kind: 'videoinput',
+          label: 'fake-videoinput',
+        },
+      ])
+    )
+)
+const mockGetUserMedia = () => {
+  const originalWindow = { ...window }
+  const windowSpy = jest.spyOn(global.window, 'navigator', 'get')
+
+  windowSpy.mockImplementation(() => ({
+    ...originalWindow.navigator,
+    mediaDevices: {
+      ...originalWindow.navigator.mediaDevices,
+      getUserMedia: () =>
+        new Promise((resolve) =>
+          resolve({
+            active: true,
+            id: 'fake-media-id',
+            addEventListener: jest.fn(),
+            addTrack: jest.fn(),
+            clone: jest.fn(),
+            dispatchEvent: jest.fn(),
+            getAudioTracks: jest.fn(),
+            getTrackById: jest.fn(),
+            getTracks: jest.fn(),
+            getVideoTracks: jest.fn(),
+            onaddtrack: jest.fn(),
+            onremovetrack: jest.fn(),
+            removeEventListener: jest.fn(),
+            removeTrack: jest.fn(),
+          })
+        ),
+    },
+  }))
+}
+
+mockGetUserMedia()
 
 const fakePayload: CapturePayload = {
   blob: new Blob(),
   sdkMetadata: {},
 }
 
-describe('DocumentVideo', () => {
-  const defaultProps: DocumentVideoProps = {
-    documentType: 'driving_licence',
-    renderFallback: jest.fn(),
-    trackScreen: jest.fn(),
-  }
+const defaultProps: DocumentVideoProps = {
+  cameraClassName: 'fakeCameraClass',
+  documentType: 'driving_licence',
+  renderFallback: jest.fn(),
+  trackScreen: jest.fn(),
+}
 
+describe('DocumentVideo', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(
       <MockedReduxProvider>
@@ -47,18 +96,64 @@ describe('DocumentVideo', () => {
     })
 
     it('renders the front document capture by default', () => {
-      const documentLiveCapture = wrapper.find('DocumentLiveCapture')
-      expect(documentLiveCapture.exists()).toBeTruthy()
-    })
-
-    it('switches to video step after front side image captured', () => {
       const documentLiveCapture = wrapper.find<DocumentLiveCaptureProps>(
         DocumentLiveCapture
       )
       expect(documentLiveCapture.exists()).toBeTruthy()
-      documentLiveCapture.props().onCapture(fakePayload)
-      wrapper.update()
-      expect(wrapper.find('VideoCapture').exists()).toBeTruthy()
+
+      const {
+        isUploadFallbackDisabled,
+        renderFallback,
+        trackScreen,
+      } = documentLiveCapture.props()
+
+      expect(isUploadFallbackDisabled).toBeTruthy()
+      renderFallback('fake_fallback_reason')
+      expect(defaultProps.renderFallback).toHaveBeenCalledWith(
+        'fake_fallback_reason'
+      )
+      trackScreen('fake_screen_tracking')
+      expect(defaultProps.trackScreen).toHaveBeenCalledWith(
+        'fake_screen_tracking'
+      )
+    })
+
+    describe('when capture video', () => {
+      let videoCapture: ReactWrapper<VideoCaptureProps>
+
+      beforeEach(() => {
+        const documentLiveCapture = wrapper.find<DocumentLiveCaptureProps>(
+          DocumentLiveCapture
+        )
+        documentLiveCapture.props().onCapture(fakePayload)
+        wrapper.update()
+        videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
+      })
+
+      it('switches to video step after front side image captured', () => {
+        expect(videoCapture.exists()).toBeTruthy()
+
+        const {
+          cameraClassName,
+          inactiveError,
+          recordingProps,
+          renderFallback,
+          trackScreen,
+        } = videoCapture.props()
+
+        expect(cameraClassName).toEqual('fakeCameraClass')
+        expect(inactiveError.name).toEqual('CAMERA_INACTIVE_NO_FALLBACK')
+        expect(recordingProps.hasMoreSteps).toBeTruthy()
+
+        renderFallback('fake_fallback_reason')
+        expect(defaultProps.renderFallback).toHaveBeenCalledWith(
+          'fake_fallback_reason'
+        )
+        trackScreen('fake_screen_tracking')
+        expect(defaultProps.trackScreen).toHaveBeenCalledWith(
+          'fake_screen_tracking'
+        )
+      })
     })
   })
 })

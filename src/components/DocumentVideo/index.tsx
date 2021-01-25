@@ -1,18 +1,23 @@
 import { h, FunctionComponent } from 'preact'
-import { useCallback, useState } from 'preact/compat'
+import { useState } from 'preact/compat'
 
+import { getInactiveError } from '~utils/inactiveError'
 import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { localised } from '../../locales'
-import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
+import { DocumentOverlay } from '../Overlay'
 import PageTitle from '../PageTitle'
+import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
+import VideoCapture from '../VideoCapture'
 
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 
 type CaptureStep = 'front' | 'video' | 'back'
+type RecordingStep = 'intro' | 'tilt' | 'flip'
 
 export type DocumentVideoProps = {
+  cameraClassName?: string
   documentType: DocumentTypes
   renderFallback: RenderFallbackProp
 } & WithTrackingProps
@@ -20,24 +25,36 @@ export type DocumentVideoProps = {
 type Props = DocumentVideoProps & WithLocalisedProps
 
 const DocumentVideo: FunctionComponent<Props> = ({
+  cameraClassName,
   documentType,
   renderFallback,
   translate,
   trackScreen,
 }) => {
-  const [step, setStep] = useState<CaptureStep>('front')
+  const [captureStep, setCaptureStep] = useState<CaptureStep>('front')
+  const [recordingStep, setRecordingStep] = useState<RecordingStep>('intro')
 
-  const handlePhotoCapture = useCallback<HandleCaptureProp>(
-    (payload) => {
-      console.log('handlePhotoCapture.payload:', step, payload)
-      setStep('video')
-    },
-    [step]
-  )
+  const handlePhotoCapture: HandleCaptureProp = (payload) => {
+    console.log('handlePhotoCapture.payload:', payload)
+    setCaptureStep('video')
+  }
 
-  if (step === 'front' || step === 'back') {
+  const handleVideoRecordingStart = () => {
+    console.log('handleVideoRecordingStart')
+    setRecordingStep('tilt')
+  }
+
+  const handleVideoCapture: HandleCaptureProp = (payload) => {
+    console.log('handleVideoCapture.payload', payload)
+  }
+
+  const handleNextRecordingStep = () => {
+    console.log('handleNextRecordingStep')
+  }
+
+  if (captureStep === 'front' || captureStep === 'back') {
     const title = translate(
-      DOCUMENT_CAPTURE_LOCALES_MAPPING[documentType][step].title
+      DOCUMENT_CAPTURE_LOCALES_MAPPING[documentType][captureStep].title
     )
 
     return (
@@ -51,7 +68,24 @@ const DocumentVideo: FunctionComponent<Props> = ({
     )
   }
 
-  return <div>Video capture for {documentType}</div>
+  // return <div>VideoCapture for {documentType}</div>
+  const inactiveError = getInactiveError(true)
+
+  return (
+    <VideoCapture
+      cameraClassName={cameraClassName}
+      inactiveError={inactiveError}
+      onRecordingStart={handleVideoRecordingStart}
+      onVideoCapture={handleVideoCapture}
+      renderFallback={renderFallback}
+      renderOverlay={() => <DocumentOverlay type={documentType} />}
+      recordingProps={{
+        hasMoreSteps: recordingStep !== 'flip',
+        onNext: handleNextRecordingStep,
+      }}
+      trackScreen={trackScreen}
+    />
+  )
 }
 
 export default localised(DocumentVideo)

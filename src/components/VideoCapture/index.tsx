@@ -25,7 +25,7 @@ type OverlayProps = {
   isRecording: boolean
 }
 
-type VideoCaptureProps = {
+export type VideoCaptureProps = {
   cameraClassName?: string
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
