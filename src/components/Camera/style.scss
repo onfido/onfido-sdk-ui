@@ -48,6 +48,7 @@
     //        e.g. Huawei P40, P30.
     //        For iOS devices, the camera view is very slightly zoomed in when object-fit: cover is applied.
     //        With object-fit: initial, i.e. use the browser default, zoom is gone but camera view is still fullscreen.
+    //        Note also that if viewed on a browser's device emulator camera view displays differently to on actual device.
     //        The user also does not get the full camera view for both Android & iOS devices.
     //        See MDN documentation https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
     object-fit: initial; // set to browser default, setting to "none" still results in a zoomed in view
