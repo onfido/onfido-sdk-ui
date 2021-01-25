@@ -86,6 +86,7 @@ class FaceVideo extends Component<Props, State> {
       inactiveError,
       renderFallback,
       trackScreen,
+      translate,
     } = this.props
 
     const { currentIndex } = this.state
@@ -126,6 +127,7 @@ class FaceVideo extends Component<Props, State> {
             />
           )
         }
+        title={translate('video_capture.body')}
         trackScreen={trackScreen}
       />
     )

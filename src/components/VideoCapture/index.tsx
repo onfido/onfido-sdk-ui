@@ -44,6 +44,7 @@ export type VideoCaptureProps = {
   renderFallback: RenderFallbackProp
   renderOverlay?: (props: OverlayProps) => h.JSX.Element
   renderVideoLayer?: (props: VideoLayerProps) => h.JSX.Element
+  title?: string
 } & WithTrackingProps
 
 type Props = VideoCaptureProps & WithLocalisedProps
@@ -178,8 +179,8 @@ class VideoCapture extends Component<Props, State> {
       renderFallback,
       renderOverlay,
       renderVideoLayer,
+      title,
       trackScreen,
-      translate,
     } = this.props
 
     const {
@@ -222,9 +223,7 @@ class VideoCapture extends Component<Props, State> {
             onStop: this.handleRecordingStop,
           })
         }
-        renderTitle={
-          !isRecording && <PageTitle title={translate('video_capture.body')} />
-        }
+        renderTitle={!isRecording && title && <PageTitle title={title} />}
         trackScreen={trackScreen}
         video
         webcamRef={(c: Webcam) => (this.webcam = c)}

@@ -8,6 +8,8 @@ import { DocumentOverlay } from '../Overlay'
 import PageTitle from '../PageTitle'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import VideoCapture from '../VideoCapture'
+import Recording from './Recording'
+import StartRecording from './StartRecording'
 
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
@@ -78,10 +80,26 @@ const DocumentVideo: FunctionComponent<Props> = ({
       onVideoCapture={handleVideoCapture}
       renderFallback={renderFallback}
       renderOverlay={() => <DocumentOverlay type={documentType} />}
-      renderVideoLayer={(props) => {
-        console.log('Video layer props:', props)
-        return <div>Video layer</div>
-      }}
+      renderVideoLayer={({
+        disableInteraction,
+        isRecording,
+        onStart,
+        onStop,
+      }) =>
+        isRecording ? (
+          <Recording
+            hasMoreSteps={false}
+            disableInteraction={disableInteraction}
+            onNext={handleNextRecordingStep}
+            onStop={onStop}
+          />
+        ) : (
+          <StartRecording
+            disableInteraction={disableInteraction}
+            onClick={onStart}
+          />
+        )
+      }
       trackScreen={trackScreen}
     />
   )

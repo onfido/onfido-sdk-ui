@@ -351,6 +351,11 @@
         "subtitle": "Scans and photocopies are not accepted",
         "title": "Upload passport photo page"
     },
+    "doc_video_capture": {
+        "button_primary_next": "Next",
+        "button_record_accessibility": "Start recording",
+        "button_stop_accessibility": "Stop recording"
+    },
     "video_capture": {
         "body": "Position your face in the oval",
         "body_next": "When you're done, press next",
