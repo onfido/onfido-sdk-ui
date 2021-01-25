@@ -18,8 +18,7 @@ describe('ModalApp', () => {
     expect(wrapper.find('Connect(ModalApp)').exists()).toBeTruthy()
   })
 
-  // @FIXME: mocks socket.io to make this work
-  it.skip('renders the LocaleProvider', () => {
+  it('renders the LocaleProvider', () => {
     const wrapper = mount(
       <MockedReduxProvider>
         <ModalApp options={{}} />
@@ -27,6 +26,6 @@ describe('ModalApp', () => {
     )
 
     expect(wrapper.exists()).toBeTruthy()
-    console.log(wrapper.debug())
+    expect(wrapper.find('LocaleProvider').exists()).toBeTruthy()
   })
 })

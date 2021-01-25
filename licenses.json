@@ -1385,11 +1385,17 @@
     "path": "node_modules/@types/react-router",
     "licenseFile": "node_modules/@types/react-router/LICENSE"
   },
-  "@types/react@16.9.56": {
+  "@types/react@17.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/@types/react",
     "licenseFile": "node_modules/@types/react/LICENSE"
+  },
+  "@types/redux-mock-store@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/redux-mock-store",
+    "licenseFile": "node_modules/@types/redux-mock-store/LICENSE"
   },
   "@types/socket.io-client@1.4.34": {
     "licenses": "MIT",
@@ -3740,7 +3746,7 @@
     "path": "node_modules/cssstyle",
     "licenseFile": "node_modules/cssstyle/LICENSE"
   },
-  "csstype@3.0.5": {
+  "csstype@3.0.6": {
     "licenses": "MIT",
     "repository": "https://github.com/frenic/csstype",
     "publisher": "Fredrik Nicol",
@@ -8064,6 +8070,15 @@
     "path": "node_modules/lodash.isobject",
     "licenseFile": "node_modules/lodash.isobject/LICENSE.txt"
   },
+  "lodash.isplainobject@4.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "node_modules/lodash.isplainobject",
+    "licenseFile": "node_modules/lodash.isplainobject/LICENSE"
+  },
   "lodash.isstring@4.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/lodash/lodash",
@@ -10762,6 +10777,14 @@
     "url": "sindresorhus.com",
     "path": "node_modules/redent",
     "licenseFile": "node_modules/redent/license"
+  },
+  "redux-mock-store@1.5.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/arnaudbenard/redux-mock-store",
+    "publisher": "Arnaud Benard",
+    "email": "arnaudm.benard@gmail.com",
+    "path": "node_modules/redux-mock-store",
+    "licenseFile": "node_modules/redux-mock-store/LICENSE.md"
   },
   "redux@4.0.5": {
     "licenses": "MIT",
