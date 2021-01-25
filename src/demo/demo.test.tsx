@@ -20,6 +20,9 @@ jest.mock('./demoUtils', () => ({
     ),
 }))
 
+const mockedConsole = jest.fn()
+console.log = mockedConsole
+
 describe('Mount Demo App', () => {
   let Demo: FunctionComponent = null
 
@@ -48,6 +51,14 @@ describe('Mount Demo App', () => {
       const sdkDemo = mount(<Demo />)
       expect(sdkDemo.exists()).toBeTruthy()
       expect(window.Onfido.init).toHaveBeenCalled()
+      expect(mockedConsole).toHaveBeenCalledWith(
+        '* JWT Factory URL:',
+        'https://token-factory.onfido.com/sdk_token',
+        'for',
+        'EU',
+        'in',
+        'test'
+      )
     })
   })
 
@@ -59,6 +70,14 @@ describe('Mount Demo App', () => {
     it('mounts the Onfido Demo without crashing', () => {
       const sdkDemo = mount(<Demo />)
       expect(sdkDemo.exists()).toBeTruthy()
+      expect(mockedConsole).toHaveBeenCalledWith(
+        '* JWT Factory URL:',
+        'https://token-factory.onfido.com/sdk_token',
+        'for',
+        'EU',
+        'in',
+        'test'
+      )
     })
   })
 })
