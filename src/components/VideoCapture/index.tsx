@@ -11,9 +11,11 @@ import FallbackButton from '../Button/FallbackButton'
 import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
 
-import Recording, { RecordingProps } from './Recording'
-
-import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import type {
+  WithLocalisedProps,
+  WithTrackingProps,
+  WithPermissionsFlowProps,
+} from '~types/hocs'
 import type {
   ErrorProp,
   HandleCaptureProp,
@@ -25,16 +27,23 @@ type OverlayProps = {
   isRecording: boolean
 }
 
-type VideoCaptureProps = {
+type VideoLayerProps = {
+  disableInteraction: boolean
+  isRecording: boolean
+  onStart: () => void
+  onStop: () => void
+} & WithPermissionsFlowProps
+
+export type VideoCaptureProps = {
   cameraClassName?: string
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
   onRecordingStart?: () => void
   onRedo?: () => void
   onVideoCapture: HandleCaptureProp
-  recordingProps?: Omit<RecordingProps, 'disableInteraction' | 'onStop'>
   renderFallback: RenderFallbackProp
   renderOverlay?: (props: OverlayProps) => h.JSX.Element
+  renderVideoLayer?: (props: VideoLayerProps) => h.JSX.Element
 } & WithTrackingProps
 
 type Props = VideoCaptureProps & WithLocalisedProps
@@ -166,9 +175,9 @@ class VideoCapture extends Component<Props, State> {
     const {
       cameraClassName,
       facing,
-      recordingProps = {},
       renderFallback,
       renderOverlay,
+      renderVideoLayer,
       trackScreen,
       translate,
     } = this.props
@@ -197,12 +206,22 @@ class VideoCapture extends Component<Props, State> {
         containerClassName={cameraClassName}
         facing={facing}
         isButtonDisabled={disableRecording}
-        isRecording={isRecording}
         onButtonClick={this.handleRecordingStart}
         onError={this.handleCameraError}
         onUserMedia={this.handleMediaStream}
         renderError={hasTimeoutError && this.renderError()}
         renderFallback={renderFallback}
+        renderVideoLayer={({ hasGrantedPermission }) =>
+          renderVideoLayer &&
+          renderVideoLayer({
+            disableInteraction: isRecording
+              ? hasTimeoutError || hasCameraError
+              : !hasGrantedPermission || disableRecording,
+            isRecording,
+            onStart: this.handleRecordingStart,
+            onStop: this.handleRecordingStop,
+          })
+        }
         renderTitle={
           !isRecording && <PageTitle title={translate('video_capture.body')} />
         }
@@ -215,13 +234,6 @@ class VideoCapture extends Component<Props, State> {
         {isRecording
           ? this.renderRecordingTimeoutMessage()
           : this.renderInactivityTimeoutMessage()}
-        {isRecording && (
-          <Recording
-            {...recordingProps}
-            disableInteraction={hasTimeoutError || hasCameraError}
-            onStop={this.handleRecordingStop}
-          />
-        )}
       </Camera>
     )
   }

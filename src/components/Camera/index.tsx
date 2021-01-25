@@ -5,7 +5,6 @@ import classNames from 'classnames'
 import { localised } from '../../locales'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
-import StartRecording from '../VideoCapture/StartRecording'
 
 import withFailureHandling from './withFailureHandling'
 import style from './style.scss'
@@ -15,6 +14,7 @@ import type {
   WithLocalisedProps,
   WithFailureHandlingProps,
   WithTrackingProps,
+  WithPermissionsFlowProps,
 } from '~types/hocs'
 
 // Specify just a camera height (no width) because on safari if you specify both
@@ -26,6 +26,7 @@ type Props = CameraProps &
   WebcamProps &
   WithLocalisedProps &
   WithFailureHandlingProps &
+  WithPermissionsFlowProps &
   WithTrackingProps
 
 const Camera: FunctionComponent<Props> = ({
@@ -38,12 +39,12 @@ const Camera: FunctionComponent<Props> = ({
   hasGrantedPermission,
   idealCameraHeight,
   isButtonDisabled,
-  isRecording,
   onButtonClick,
   onFailure,
   onUserMedia,
   renderError,
   renderTitle,
+  renderVideoLayer,
   translate,
   video,
   webcamRef,
@@ -76,12 +77,9 @@ const Camera: FunctionComponent<Props> = ({
           />
         )}
       </div>
-      {buttonType === 'video' && !isRecording && (
-        <StartRecording
-          disableInteraction={!hasGrantedPermission || isButtonDisabled}
-          onStart={onButtonClick}
-        />
-      )}
+      {buttonType === 'video' &&
+        renderVideoLayer &&
+        renderVideoLayer({ hasGrantedPermission })}
       <div
         id="cameraViewAriaLabel"
         aria-label={
