@@ -89,11 +89,11 @@ class ModalApp extends Component<Props> {
   trackOnComplete = () => Tracker.sendEvent('completed flow')
 
   bindEvents = (
-    onComplete: (data: SdkResponse) => void,
-    onError: (error: SdkError) => void
+    onComplete?: (data: SdkResponse) => void,
+    onError?: (error: SdkError) => void
   ) => {
-    this.events.on('complete', onComplete)
-    this.events.on('error', onError)
+    onComplete && this.events.on('complete', onComplete)
+    onError && this.events.on('error', onError)
   }
 
   rebindEvents = (
