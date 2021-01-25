@@ -12,8 +12,13 @@ import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
 
 import Recording, { RecordingProps } from './Recording'
+import StartRecording from './StartRecording'
 
-import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import type {
+  WithLocalisedProps,
+  WithTrackingProps,
+  WithPermissionsFlowProps,
+} from '~types/hocs'
 import type {
   ErrorProp,
   HandleCaptureProp,
@@ -35,7 +40,8 @@ export type VideoCaptureProps = {
   recordingProps?: Omit<RecordingProps, 'disableInteraction' | 'onStop'>
   renderFallback: RenderFallbackProp
   renderOverlay?: (props: OverlayProps) => h.JSX.Element
-} & WithTrackingProps
+} & WithTrackingProps &
+  WithPermissionsFlowProps
 
 type Props = VideoCaptureProps & WithLocalisedProps
 
@@ -166,6 +172,7 @@ class VideoCapture extends Component<Props, State> {
     const {
       cameraClassName,
       facing,
+      hasGrantedPermission,
       recordingProps = {},
       renderFallback,
       renderOverlay,
@@ -197,7 +204,6 @@ class VideoCapture extends Component<Props, State> {
         containerClassName={cameraClassName}
         facing={facing}
         isButtonDisabled={disableRecording}
-        isRecording={isRecording}
         onButtonClick={this.handleRecordingStart}
         onError={this.handleCameraError}
         onUserMedia={this.handleMediaStream}
@@ -215,11 +221,16 @@ class VideoCapture extends Component<Props, State> {
         {isRecording
           ? this.renderRecordingTimeoutMessage()
           : this.renderInactivityTimeoutMessage()}
-        {isRecording && (
+        {isRecording ? (
           <Recording
             {...recordingProps}
             disableInteraction={hasTimeoutError || hasCameraError}
             onStop={this.handleRecordingStop}
+          />
+        ) : (
+          <StartRecording
+            disableInteraction={!hasGrantedPermission || disableRecording}
+            onStart={this.handleRecordingStart}
           />
         )}
       </Camera>

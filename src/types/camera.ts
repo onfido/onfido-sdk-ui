@@ -11,10 +11,8 @@ export type CameraProps = {
   className?: string
   containerClassName?: string
   facing?: VideoFacingModeEnum
-  hasGrantedPermission?: boolean
   idealCameraHeight?: number
   isButtonDisabled?: boolean
-  isRecording?: boolean
   isUploadFallbackDisabled?: boolean
   onButtonClick?: () => void
   renderError?: h.JSX.Element
