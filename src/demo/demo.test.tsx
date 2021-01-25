@@ -7,6 +7,8 @@ declare global {
   }
 }
 
+jest.mock('../Tracker/safeWoopra')
+
 jest.mock('./demoUtils', () => ({
   getInitSdkOptions: jest.fn().mockReturnValue({}),
   queryParamToValueString: { useHistory: false },
@@ -18,17 +20,8 @@ jest.mock('./demoUtils', () => ({
     ),
 }))
 
-// when the Onfido SDK is imported Woopra needs to be mocked
-const mockWoopraFn = jest.fn()
-
-jest.mock('../Tracker/safeWoopra', () =>
-  jest.fn().mockImplementation(() => ({
-    init: () => mockWoopraFn,
-    config: () => mockWoopraFn,
-    identify: () => mockWoopraFn,
-    track: () => mockWoopraFn,
-  }))
-)
+const mockedConsole = jest.fn()
+console.log = mockedConsole
 
 describe('Mount Demo App', () => {
   let Demo: FunctionComponent = null
@@ -58,6 +51,14 @@ describe('Mount Demo App', () => {
       const sdkDemo = mount(<Demo />)
       expect(sdkDemo.exists()).toBeTruthy()
       expect(window.Onfido.init).toHaveBeenCalled()
+      expect(mockedConsole).toHaveBeenCalledWith(
+        '* JWT Factory URL:',
+        'https://token-factory.onfido.com/sdk_token',
+        'for',
+        'EU',
+        'in',
+        'test'
+      )
     })
   })
 
@@ -69,6 +70,14 @@ describe('Mount Demo App', () => {
     it('mounts the Onfido Demo without crashing', () => {
       const sdkDemo = mount(<Demo />)
       expect(sdkDemo.exists()).toBeTruthy()
+      expect(mockedConsole).toHaveBeenCalledWith(
+        '* JWT Factory URL:',
+        'https://token-factory.onfido.com/sdk_token',
+        'for',
+        'EU',
+        'in',
+        'test'
+      )
     })
   })
 })
