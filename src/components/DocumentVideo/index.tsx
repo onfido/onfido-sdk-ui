@@ -10,7 +10,6 @@ import VideoCapture from '../VideoCapture'
 import Instructions from './Instructions'
 import Recording from './Recording'
 import StartRecording from './StartRecording'
-import style from './style.scss'
 
 import type { CaptureStep, RecordingStep } from '~types/docVideo'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'

@@ -360,7 +360,13 @@
             "back_passport": "Back of passport",
             "back_license": "Back of driver's license",
             "back_id": "Back of national ID card",
-            "back_permit": "Back of residence permit"
+            "back_permit": "Back of residence permit",
+            "video_intro_title": "Record a video of your document",
+            "video_intro_subtitle": "Start recording and follow the instructions",
+            "video_tilt_title": "Slowly tilt your document to show light reflections",
+            "video_tilt_subtitle": "Press next step when complete",
+            "video_flip_title": "Now, flip your document to show its back",
+            "video_flip_subtitle": "Press done when complete"
         },
         "button_primary_next": "Suivant",
         "button_record_accessibility": "Commencer l'enregistrement",

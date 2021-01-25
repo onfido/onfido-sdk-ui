@@ -1,4 +1,20 @@
+import { RecordingStep } from '~types/docVideo'
 import { DocumentTypes, PoaTypes } from '~types/steps'
+
+type CaptureSideLocale = {
+  title: string
+  body: string
+}
+
+type CaptureLocale = {
+  front: CaptureSideLocale
+  back?: CaptureSideLocale
+}
+
+type TitleLocale = {
+  title: string
+  subtitle: string
+}
 
 export const CONFIRM_PREVIEWS_LOCALES_MAPPING: Record<
   DocumentTypes | PoaTypes,
@@ -19,16 +35,6 @@ export const CROSS_DEVICE_INTRO_LOCALES_MAPPING = {
   sms: 'cross_device_intro.list_item_send_phone',
   'take-photos': 'cross_device_intro.list_item_open_link',
   'return-to-computer': 'cross_device_intro.list_item_finish',
-}
-
-type CaptureSideLocale = {
-  title: string
-  body: string
-}
-
-type CaptureLocale = {
-  front: CaptureSideLocale
-  back?: CaptureSideLocale
 }
 
 export const DOCUMENT_CAPTURE_LOCALES_MAPPING: Record<
@@ -138,15 +144,7 @@ export const POA_INTRO_LOCALES_MAPPING = {
   most_recent: 'poa_intro.list_most_recent',
 }
 
-type PoaGuidanceLocale = {
-  title: string
-  subtitle: string
-}
-
-export const POA_GUIDANCE_LOCALES_MAPPING: Record<
-  PoaTypes,
-  PoaGuidanceLocale
-> = {
+export const POA_GUIDANCE_LOCALES_MAPPING: Record<PoaTypes, TitleLocale> = {
   bank_building_society_statement: {
     title: 'doc_submit.title_bank_statement',
     subtitle: 'poa_guidance.subtitle_bank_statement',
@@ -190,10 +188,11 @@ export const VIDEO_INTRO_LOCALES_MAPPING: Record<
   },
 }
 
-export const DOC_VIDEO_INSTRUCTIONS_MAPPING: Record<
-  'front' | 'back',
-  Record<DocumentTypes, string>
-> = {
+export const DOC_VIDEO_INSTRUCTIONS_MAPPING: {
+  front: Record<DocumentTypes, string>
+  back: Record<DocumentTypes, string>
+  video: Record<RecordingStep, TitleLocale>
+} = {
   front: {
     passport: 'doc_video_capture.instructions.front_passport',
     driving_licence: 'doc_video_capture.instructions.front_license',
@@ -205,5 +204,19 @@ export const DOC_VIDEO_INSTRUCTIONS_MAPPING: Record<
     driving_licence: 'doc_video_capture.instructions.back_license',
     national_identity_card: 'doc_video_capture.instructions.back_id',
     residence_permit: 'doc_video_capture.instructions.back_permit',
+  },
+  video: {
+    intro: {
+      title: 'doc_video_capture.instructions.video_intro_title',
+      subtitle: 'doc_video_capture.instructions.video_intro_subtitle',
+    },
+    tilt: {
+      title: 'doc_video_capture.instructions.video_tilt_title',
+      subtitle: 'doc_video_capture.instructions.video_tilt_subtitle',
+    },
+    flip: {
+      title: 'doc_video_capture.instructions.video_flip_title',
+      subtitle: 'doc_video_capture.instructions.video_flip_subtitle',
+    },
   },
 }

@@ -12,10 +12,14 @@
   justify-content: center;
 }
 
-.instructions .title {
+.instructions > span {
   color: $color-white;
-  font-size: 24 * $unit;
   font-family: $font-family;
+  font-size: 16 * $unit;
+
+  &.title {
+    font-size: 24 * $unit;
+  }
 }
 
 .actions {
@@ -28,44 +32,14 @@
   &.disabled {
     z-index: 0;
   }
+
+  .instructions {
+    bottom: 72 * $unit;
+  }
 }
 
 .btn:extend(.btn, .btn-centered, .btn-primary) {
   padding: 0;
   margin-left: auto;
   margin-right: auto;
-}
-
-@mixin _full-screen-rounded-icon() {
-  cursor: pointer;
-  width: 60 * $unit;
-  height: 60 * $unit;
-  font-size: inherit;
-  border: 0;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: $color-transparent;
-  box-shadow: none;
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.7;
-  }
-
-  &:hover:not(:disabled) {
-    filter: brightness(200%);
-  }
-
-  &:active {
-    filter: brightness(80%);
-  }
-}
-
-@mixin _full-screen-stop-recording-icon() {
-  @include _full-screen-rounded-icon();
-  background-image: url('./assets/stop.svg');
-}
-
-.stopRecording {
-  @include _full-screen-stop-recording-icon();
 }

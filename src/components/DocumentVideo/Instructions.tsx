@@ -5,14 +5,15 @@ import type { RecordingStep } from '~types/docVideo'
 
 type Props = {
   icon?: RecordingStep
-  subTitle?: string
+  subtitle?: string
   title: string
 }
 
-const Instructions: FunctionComponent<Props> = ({ title }) => {
+const Instructions: FunctionComponent<Props> = ({ subtitle, title }) => {
   return (
     <div className={style.instructions}>
       <span className={style.title}>{title}</span>
+      {subtitle && <span className={style.subtitle}>{subtitle}</span>}
     </div>
   )
 }

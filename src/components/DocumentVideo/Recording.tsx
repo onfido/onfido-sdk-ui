@@ -1,5 +1,4 @@
 import { h, FunctionComponent } from 'preact'
-import classNames from 'classnames'
 
 import { noop } from '~utils/func'
 import { localised } from '../../locales'
@@ -27,23 +26,17 @@ const Recording: FunctionComponent<Props> = ({
 }) => (
   <div>
     <div className={style.actions}>
-      {hasMoreSteps ? (
-        <Button
-          variants={['centered', 'primary', 'lg']}
-          disabled={disableInteraction}
-          onClick={onNext}
-        >
-          {translate('doc_video_capture.button_primary_next')}
-        </Button>
-      ) : (
-        <button
-          type="button"
-          aria-label={translate('doc_video_capture.button_stop_accessibility')}
-          disabled={disableInteraction}
-          onClick={onStop}
-          className={classNames(style.btn, style.stopRecording)}
-        />
-      )}
+      <Button
+        variants={['centered', 'primary', 'lg']}
+        disabled={disableInteraction}
+        onClick={hasMoreSteps ? onNext : onStop}
+      >
+        {translate(
+          hasMoreSteps
+            ? 'doc_video_capture.button_primary_next'
+            : 'doc_video_capture.button_stop_accessibility'
+        )}
+      </Button>
     </div>
   </div>
 )
