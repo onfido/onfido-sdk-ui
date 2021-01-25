@@ -25,11 +25,12 @@ const DocumentVideo: FunctionComponent<Props> = ({
   translate,
   trackScreen,
 }) => {
-  const [step] = useState<CaptureStep>('front')
+  const [step, setStep] = useState<CaptureStep>('front')
 
   const handlePhotoCapture = useCallback<HandleCaptureProp>(
     (payload) => {
       console.log('handlePhotoCapture.payload:', step, payload)
+      setStep('video')
     },
     [step]
   )

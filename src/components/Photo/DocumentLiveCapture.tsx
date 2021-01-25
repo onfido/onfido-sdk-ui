@@ -18,7 +18,7 @@ import type { CapturePayload } from '~types/redux'
 import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 
-type Props = {
+export type Props = {
   className?: string
   containerClassName?: string
   documentType?: DocumentTypes

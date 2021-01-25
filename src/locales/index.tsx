@@ -10,6 +10,8 @@ type ProviderProps = {
   children: h.JSX.Element
 }
 
+export const LocaleContext = createContext<WithLocalisedProps>(null)
+
 export const LocaleProvider: FunctionComponent<ProviderProps> = ({ language, children }) => {
   const polyglot = initializePolyglot(language)
   const translate = polyglot.t.bind(polyglot)
@@ -21,8 +23,6 @@ export const LocaleProvider: FunctionComponent<ProviderProps> = ({ language, chi
     </LocaleContext.Provider>
   )
 }
-
-const LocaleContext = createContext<WithLocalisedProps>(null)
 
 export const localised = <P extends unknown>(WrappedComponent: ComponentType<P & WithLocalisedProps>): ComponentType<P> => {
   const LocalisedComponent: FunctionComponent<P> = (props) => (
