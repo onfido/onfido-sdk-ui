@@ -19,7 +19,7 @@ import Previews from './Previews'
 // and they use can choose to proceed regardless of the image quality warning
 const MAX_IMAGE_QUALITY_RETRIES_WITH_ERROR = 1
 const IMAGE_QUALITY_KEYS_MAP = {
-  detect_cutoff: 'CUTOFF_DETECTED',
+  detect_cutoff: 'CUTOFF_DETECTED', // error with the heighest priority
   detect_glare: 'GLARE_DETECTED',
   detect_blur: 'BLUR_DETECTED',
 }
@@ -44,9 +44,6 @@ class Confirm extends Component {
   }
 
   onfidoErrorFieldMap = ([key, val]) => {
-    const imageQualityValidationError = IMAGE_QUALITY_KEYS_MAP[key]
-    if (imageQualityValidationError) return imageQualityValidationError
-
     if (key === 'document_detection') return 'INVALID_CAPTURE'
     // on corrupted PDF or other unsupported file types
     if (key === 'file') return 'INVALID_TYPE'
@@ -58,13 +55,19 @@ class Confirm extends Component {
         ? 'NO_FACE_ERROR'
         : 'MULTIPLE_FACES_ERROR'
     }
-    // return a generic error if the status is 422 and the key is none of the above
-    return 'REQUEST_ERROR'
+  }
+
+  handleImageQualityError = (errorField) => {
+    for (const errorKey in IMAGE_QUALITY_KEYS_MAP) {
+      if (Object.keys(errorField).includes(errorKey))
+        return IMAGE_QUALITY_KEYS_MAP[errorKey]
+    }
   }
 
   onfidoErrorReduce = ({ fields }) => {
+    const imageQualityError = this.handleImageQualityError(fields)
     const [first] = Object.entries(fields).map(this.onfidoErrorFieldMap)
-    return first
+    return first || imageQualityError
   }
 
   onApiError = (error) => {
@@ -76,7 +79,7 @@ class Confirm extends Component {
       this.props.triggerOnError({ status, response })
       return this.props.crossDeviceClientError()
     } else if (status === 422) {
-      errorKey = this.onfidoErrorReduce(response.error)
+      errorKey = this.onfidoErrorReduce(response.error) || 'REQUEST_ERROR'
     } else {
       this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
@@ -84,6 +87,21 @@ class Confirm extends Component {
     }
 
     this.setError(errorKey)
+  }
+
+  imageQualityWarnings = (warnings) => {
+    for (const warnKey in IMAGE_QUALITY_KEYS_MAP) {
+      if (Object.keys(warnings).includes(warnKey) && !warnings[warnKey].valid)
+        return IMAGE_QUALITY_KEYS_MAP[warnKey]
+    }
+  }
+
+  onImageQualityWarning = (apiResponse) => {
+    const { sdk_warnings: warnings } = apiResponse
+    if (!warnings) {
+      return null
+    }
+    return this.imageQualityWarnings(warnings)
   }
 
   onApiSuccess = (apiResponse) => {
@@ -95,35 +113,14 @@ class Confirm extends Component {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const imageQualityWarnings = this.handleImageQualityWarning(apiResponse)
+    const imageQualityWarning = this.onImageQualityWarning(apiResponse)
 
-    if (!imageQualityWarnings.length) {
+    if (!imageQualityWarning) {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
     } else {
-      // show the first warning in the list of warnings
-      this.setWarning(imageQualityWarnings[0])
+      this.setWarning(imageQualityWarning)
     }
-  }
-
-  handleImageQualityWarning = (apiResponse) => {
-    const { sdk_warnings: warnings } = apiResponse
-
-    if (!warnings) {
-      return []
-    }
-
-    const warningList = []
-
-    // There might be multiple warnings in one response
-    Object.entries(warnings).map(([key, val]) => {
-      const imageQualityValidationWarn = IMAGE_QUALITY_KEYS_MAP[key]
-      if (imageQualityValidationWarn && !val.valid) {
-        warningList.push(imageQualityValidationWarn)
-      }
-    })
-
-    return warningList
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
