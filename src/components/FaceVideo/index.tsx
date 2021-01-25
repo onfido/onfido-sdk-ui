@@ -7,6 +7,8 @@ import { FaceOverlay } from '../Overlay'
 import withChallenges from './withChallenges'
 import VideoCapture from '../VideoCapture'
 import Challenge from './Challenge'
+import Recording from '../VideoCapture/Recording'
+import StartRecording from '../VideoCapture/StartRecording'
 
 import type { ChallengePayload } from '~types/api'
 import type {
@@ -102,11 +104,28 @@ class FaceVideo extends Component<Props, State> {
         renderOverlay={({ hasCameraError, isRecording }) => (
           <FaceOverlay isWithoutHole={hasCameraError || isRecording} />
         )}
-        recordingProps={{
-          children: <Challenge challenge={currentChallenge} />,
-          hasMoreSteps: !isLastChallenge,
-          onNext: this.handleNextChallenge,
-        }}
+        renderVideoLayer={({
+          disableInteraction,
+          isRecording,
+          onStart,
+          onStop,
+        }) =>
+          isRecording ? (
+            <Recording
+              hasMoreSteps={!isLastChallenge}
+              disableInteraction={disableInteraction}
+              onNext={this.handleNextChallenge}
+              onStop={onStop}
+            >
+              <Challenge challenge={currentChallenge} />
+            </Recording>
+          ) : (
+            <StartRecording
+              disableInteraction={disableInteraction}
+              onStart={onStart}
+            />
+          )
+        }
         trackScreen={trackScreen}
       />
     )

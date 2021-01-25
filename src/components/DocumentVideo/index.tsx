@@ -78,9 +78,9 @@ const DocumentVideo: FunctionComponent<Props> = ({
       onVideoCapture={handleVideoCapture}
       renderFallback={renderFallback}
       renderOverlay={() => <DocumentOverlay type={documentType} />}
-      recordingProps={{
-        hasMoreSteps: recordingStep !== 'flip',
-        onNext: handleNextRecordingStep,
+      renderVideoLayer={(props) => {
+        console.log('Video layer props:', props)
+        return <div>Video layer</div>
       }}
       trackScreen={trackScreen}
     />

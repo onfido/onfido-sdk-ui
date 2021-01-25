@@ -94,14 +94,12 @@ describe('DocumentVideo', () => {
         const {
           cameraClassName,
           inactiveError,
-          recordingProps,
           renderFallback,
           trackScreen,
         } = videoCapture.props()
 
         expect(cameraClassName).toEqual('fakeCameraClass')
         expect(inactiveError.name).toEqual('CAMERA_INACTIVE_NO_FALLBACK')
-        expect(recordingProps.hasMoreSteps).toBeTruthy()
 
         renderFallback('fake_fallback_reason')
         expect(defaultProps.renderFallback).toHaveBeenCalledWith(
