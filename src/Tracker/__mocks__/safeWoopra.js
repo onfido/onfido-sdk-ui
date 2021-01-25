@@ -1,19 +1,11 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+// @FIXME: Put proper implementation to test Tracker
 class WoopraTracker {
-  init() {
-    console.log('invoke WoopraTracker.init')
-  }
-  config() {
-    console.log('invoke WoopraTracker.config')
-  }
-  identify() {
-    console.log('invoke WoopraTracker.identify')
-  }
-  track() {
-    console.log('invoke WoopraTracker.track')
-  }
-  dispose() {
-    console.log('invoke WoopraTracker.dispose')
-  }
+  init() {}
+  config() {}
+  identify() {}
+  track() {}
+  dispose() {}
 }
 
 module.exports = WoopraTracker
