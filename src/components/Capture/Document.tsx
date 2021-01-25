@@ -141,12 +141,12 @@ class Document extends Component<Props> {
     if (hasCamera && enableLiveDocumentCapture) {
       return (
         <DocumentLiveCapture
-          {...propsWithErrorHandling}
           containerClassName={style.liveDocumentContainer}
           isUploadFallbackDisabled={!uploadFallback}
           onCapture={this.handleCapture}
           renderFallback={renderFallback}
           renderTitle={renderTitle}
+          trackScreen={trackScreen}
         />
       )
     }

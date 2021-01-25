@@ -19,13 +19,14 @@ import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 
 export type Props = {
+  children?: h.JSX.Element
   className?: string
   containerClassName?: string
   documentType?: DocumentTypes
   isUploadFallbackDisabled: boolean
   onCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
-  renderTitle: h.JSX.Element
+  renderTitle?: h.JSX.Element
 } & WithTrackingProps
 
 type State = {
@@ -79,13 +80,14 @@ export default class DocumentLiveCapture extends Component<Props, State> {
 
   render(): h.JSX.Element {
     const {
-      trackScreen,
-      renderFallback,
-      isUploadFallbackDisabled,
+      children,
       className,
       containerClassName,
-      renderTitle,
       documentType,
+      isUploadFallbackDisabled,
+      renderFallback,
+      renderTitle,
+      trackScreen,
     } = this.props
 
     const {
@@ -131,6 +133,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             )}
             <ToggleFullScreen />
             <DocumentOverlay type={documentType} />
+            {children}
           </Camera>
         )}
       </div>

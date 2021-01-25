@@ -60,11 +60,13 @@ describe('DocumentVideo', () => {
       expect(documentLiveCapture.exists()).toBeTruthy()
 
       const {
+        documentType,
         isUploadFallbackDisabled,
         renderFallback,
         trackScreen,
       } = documentLiveCapture.props()
 
+      expect(documentType).toEqual(defaultProps.documentType)
       expect(isUploadFallbackDisabled).toBeTruthy()
       renderFallback('fake_fallback_reason')
       expect(defaultProps.renderFallback).toHaveBeenCalledWith(

@@ -352,6 +352,16 @@
         "title": "Upload passport photo page"
     },
     "doc_video_capture": {
+        "instructions": {
+            "front_passport": "Front of passport",
+            "front_license": "Front of driver's license",
+            "front_id": "Front of national ID card",
+            "front_permit": "Front of residence permit",
+            "back_passport": "Back of passport",
+            "back_license": "Back of driver's license",
+            "back_id": "Back of national ID card",
+            "back_permit": "Back of residence permit"
+        },
         "button_primary_next": "Next",
         "button_record_accessibility": "Start recording",
         "button_stop_accessibility": "Stop recording"

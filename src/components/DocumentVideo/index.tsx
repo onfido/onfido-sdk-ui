@@ -2,21 +2,20 @@ import { h, FunctionComponent } from 'preact'
 import { useState } from 'preact/compat'
 
 import { getInactiveError } from '~utils/inactiveError'
-import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
-import { localised } from '../../locales'
+import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
+import { localised } from '~locales'
 import { DocumentOverlay } from '../Overlay'
-import PageTitle from '../PageTitle'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import VideoCapture from '../VideoCapture'
+import Instructions from './Instructions'
 import Recording from './Recording'
 import StartRecording from './StartRecording'
+import style from './style.scss'
 
+import type { CaptureStep, RecordingStep } from '~types/docVideo'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
-
-type CaptureStep = 'front' | 'video' | 'back'
-type RecordingStep = 'intro' | 'tilt' | 'flip'
 
 export type DocumentVideoProps = {
   cameraClassName?: string
@@ -56,17 +55,19 @@ const DocumentVideo: FunctionComponent<Props> = ({
 
   if (captureStep === 'front' || captureStep === 'back') {
     const title = translate(
-      DOCUMENT_CAPTURE_LOCALES_MAPPING[documentType][captureStep].title
+      DOC_VIDEO_INSTRUCTIONS_MAPPING[captureStep][documentType]
     )
 
     return (
       <DocumentLiveCapture
+        documentType={documentType}
         isUploadFallbackDisabled
         onCapture={handlePhotoCapture}
         renderFallback={renderFallback}
-        renderTitle={<PageTitle title={title} smaller />}
         trackScreen={trackScreen}
-      />
+      >
+        <Instructions title={title} />
+      </DocumentLiveCapture>
     )
   }
 

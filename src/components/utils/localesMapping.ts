@@ -189,3 +189,21 @@ export const VIDEO_INTRO_LOCALES_MAPPING: Record<
     localeKey: 'video_intro.list_item_speak',
   },
 }
+
+export const DOC_VIDEO_INSTRUCTIONS_MAPPING: Record<
+  'front' | 'back',
+  Record<DocumentTypes, string>
+> = {
+  front: {
+    passport: 'doc_video_capture.instructions.front_passport',
+    driving_licence: 'doc_video_capture.instructions.front_license',
+    national_identity_card: 'doc_video_capture.instructions.front_id',
+    residence_permit: 'doc_video_capture.instructions.front_permit',
+  },
+  back: {
+    passport: 'doc_video_capture.instructions.back_passport',
+    driving_licence: 'doc_video_capture.instructions.back_license',
+    national_identity_card: 'doc_video_capture.instructions.back_id',
+    residence_permit: 'doc_video_capture.instructions.back_permit',
+  },
+}
