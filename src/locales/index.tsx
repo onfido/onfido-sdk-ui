@@ -5,6 +5,8 @@ import initializePolyglot from './polyglot'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { SupportedLanguages, LocaleConfig, TranslatedTagParser } from '~types/locales'
 
+const LocaleContext = createContext<WithLocalisedProps>(null)
+
 type ProviderProps = {
   language: SupportedLanguages | LocaleConfig
   children: h.JSX.Element
@@ -21,8 +23,6 @@ export const LocaleProvider: FunctionComponent<ProviderProps> = ({ language, chi
     </LocaleContext.Provider>
   )
 }
-
-const LocaleContext = createContext<WithLocalisedProps>(null)
 
 export const localised = <P extends unknown>(WrappedComponent: ComponentType<P & WithLocalisedProps>): ComponentType<P> => {
   const LocalisedComponent: FunctionComponent<P> = (props) => (
