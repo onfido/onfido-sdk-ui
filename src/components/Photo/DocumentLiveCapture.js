@@ -102,9 +102,9 @@ export default class DocumentLiveCapture extends Component {
         ) : (
           <Camera
             facing={'environment'}
+            docLiveCaptureFrame={true}
             idealCameraHeight={IDEAL_CAMERA_HEIGHT_IN_PX}
             containerClassName={containerClassName}
-            className={'docLiveCaptureFrame'}
             renderTitle={renderTitle}
             translate={translate}
             webcamRef={(c) => (this.webcam = c)}
