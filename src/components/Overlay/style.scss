@@ -66,7 +66,7 @@ $card-frame-width: 92%;
   $offset-y: 105 * $unit;
 
   background-size: ($overlay-width * $scale) ($overlay-height * $scale);
-  background-position: 0%
+  background-position: 50%
     calc(#{($hole-height - $overlay-height) * $scale / 2 + $offset-y});
 }
 
