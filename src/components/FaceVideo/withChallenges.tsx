@@ -15,7 +15,9 @@ import type {
 
 const requestError: ErrorProp = { name: 'REQUEST_ERROR', type: 'error' }
 
-type Props = { renderFallback: RenderFallbackProp } & StepComponentFaceProps
+type Props = {
+  renderFallback: RenderFallbackProp
+} & StepComponentFaceProps
 
 type State = {
   challengesId: string

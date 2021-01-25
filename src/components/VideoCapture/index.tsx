@@ -34,7 +34,7 @@ export type Props = {
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
   onRecordingStart?: () => void
-  onRedo?: () => void
+  onRedo: () => void
   onVideoCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
   renderOverlay?: (props: OverlayProps) => h.JSX.Element
@@ -107,7 +107,7 @@ export default class VideoCapture extends Component<Props, State> {
   handleCameraError = (): void => this.setState({ hasCameraError: true })
 
   handleFallbackClick = (callback: () => void): void => {
-    this.props.onRedo && this.props.onRedo()
+    this.props.onRedo()
     callback()
   }
 

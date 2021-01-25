@@ -26,7 +26,7 @@ import type {
 type FaceVideoProps = {
   cameraClassName: string
   inactiveError: ErrorProp
-  // onSwitchChallenge: () => void
+  onRedo: () => void
   onVideoCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
 } & StepComponentFaceProps
@@ -84,6 +84,7 @@ class FaceVideo extends Component<Props, State> {
       cameraClassName,
       challenges = [],
       inactiveError,
+      onRedo,
       renderFallback,
       trackScreen,
       translate,
@@ -100,6 +101,7 @@ class FaceVideo extends Component<Props, State> {
         cameraClassName={cameraClassName}
         inactiveError={inactiveError}
         onRecordingStart={this.onRecordingStart}
+        onRedo={onRedo}
         onVideoCapture={this.onVideoCapture}
         renderFallback={renderFallback}
         renderOverlay={({ hasCameraError, isRecording }) => (
