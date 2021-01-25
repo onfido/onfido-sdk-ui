@@ -3,7 +3,6 @@ import Webcam from 'react-webcam-onfido'
 
 import { getRecordedVideo } from '~utils/camera'
 
-import { localised } from '../../locales'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
@@ -11,11 +10,7 @@ import FallbackButton from '../Button/FallbackButton'
 import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
 
-import type {
-  WithLocalisedProps,
-  WithTrackingProps,
-  WithPermissionsFlowProps,
-} from '~types/hocs'
+import type { WithTrackingProps, WithPermissionsFlowProps } from '~types/hocs'
 import type {
   ErrorProp,
   HandleCaptureProp,
@@ -34,7 +29,7 @@ type VideoLayerProps = {
   onStop: () => void
 } & WithPermissionsFlowProps
 
-export type VideoCaptureProps = {
+type Props = {
   cameraClassName?: string
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
@@ -44,9 +39,8 @@ export type VideoCaptureProps = {
   renderFallback: RenderFallbackProp
   renderOverlay?: (props: OverlayProps) => h.JSX.Element
   renderVideoLayer?: (props: VideoLayerProps) => h.JSX.Element
+  title?: string
 } & WithTrackingProps
-
-type Props = VideoCaptureProps & WithLocalisedProps
 
 type State = {
   hasBecomeInactive: boolean
@@ -67,29 +61,29 @@ const recordingTooLongError: ErrorProp = {
   type: 'warning',
 }
 
-class VideoCapture extends Component<Props, State> {
+export default class VideoCapture extends Component<Props, State> {
   private webcam?: Webcam = null
 
   state = { ...initialState }
 
-  startRecording = () => {
+  startRecording = (): void => {
     this.webcam && this.webcam.startRecording()
     this.setState({ isRecording: true, hasBecomeInactive: false })
   }
 
-  stopRecording = () => {
+  stopRecording = (): void => {
     this.webcam && this.webcam.stopRecording()
     this.setState({ isRecording: false })
   }
 
-  handleRecordingStart = () => {
+  handleRecordingStart = (): void => {
     if (this.state.hasMediaStream) {
       this.startRecording()
       this.props.onRecordingStart && this.props.onRecordingStart()
     }
   }
 
-  handleRecordingStop = () => {
+  handleRecordingStop = (): void => {
     const { hasRecordingTakenTooLong } = this.state
     this.stopRecording()
 
@@ -100,30 +94,34 @@ class VideoCapture extends Component<Props, State> {
     }
   }
 
-  handleMediaStream = () => this.setState({ hasMediaStream: true })
+  handleMediaStream = (): void => this.setState({ hasMediaStream: true })
 
-  handleInactivityTimeout = () => this.setState({ hasBecomeInactive: true })
+  handleInactivityTimeout = (): void =>
+    this.setState({ hasBecomeInactive: true })
 
-  handleRecordingTimeout = () => {
+  handleRecordingTimeout = (): void => {
     this.setState({ hasRecordingTakenTooLong: true })
     this.stopRecording()
   }
 
-  handleCameraError = () => this.setState({ hasCameraError: true })
+  handleCameraError = (): void => this.setState({ hasCameraError: true })
 
-  handleFallbackClick = (callback: () => void) => {
+  handleFallbackClick = (callback: () => void): void => {
     this.props.onRedo && this.props.onRedo()
     callback()
   }
 
-  renderRedoActionsFallback = (text: string, callback: () => void) => (
+  renderRedoActionsFallback = (
+    text: string,
+    callback: () => void
+  ): h.JSX.Element => (
     <FallbackButton
       text={text}
       onClick={() => this.handleFallbackClick(callback)}
     />
   )
 
-  renderError = () => {
+  renderError = (): h.JSX.Element => {
     const { inactiveError, renderFallback, trackScreen } = this.props
     const passedProps = this.state.hasRecordingTakenTooLong
       ? {
@@ -140,7 +138,7 @@ class VideoCapture extends Component<Props, State> {
     return <CameraError trackScreen={trackScreen} {...passedProps} />
   }
 
-  renderRecordingTimeoutMessage = () => {
+  renderRecordingTimeoutMessage = (): h.JSX.Element => {
     const { hasBecomeInactive, hasRecordingTakenTooLong } = this.state
     const hasTimeoutError = hasBecomeInactive || hasRecordingTakenTooLong
     const hasError = hasTimeoutError || this.state.hasCameraError
@@ -156,7 +154,7 @@ class VideoCapture extends Component<Props, State> {
     }
   }
 
-  renderInactivityTimeoutMessage = () => {
+  renderInactivityTimeoutMessage = (): h.JSX.Element => {
     const { hasRecordingTakenTooLong, hasCameraError } = this.state
     const hasError = hasRecordingTakenTooLong || hasCameraError
 
@@ -171,15 +169,15 @@ class VideoCapture extends Component<Props, State> {
     }
   }
 
-  render = () => {
+  render(): h.JSX.Element {
     const {
       cameraClassName,
       facing,
       renderFallback,
       renderOverlay,
       renderVideoLayer,
+      title,
       trackScreen,
-      translate,
     } = this.props
 
     const {
@@ -222,9 +220,7 @@ class VideoCapture extends Component<Props, State> {
             onStop: this.handleRecordingStop,
           })
         }
-        renderTitle={
-          !isRecording && <PageTitle title={translate('video_capture.body')} />
-        }
+        renderTitle={!isRecording && title && <PageTitle title={title} />}
         trackScreen={trackScreen}
         video
         webcamRef={(c: Webcam) => (this.webcam = c)}
@@ -238,5 +234,3 @@ class VideoCapture extends Component<Props, State> {
     )
   }
 }
-
-export default localised(VideoCapture)
