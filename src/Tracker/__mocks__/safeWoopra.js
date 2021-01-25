@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-empty-function, @typescript-eslint/explicit-module-boundary-types */
 // @FIXME: Put proper implementation to test Tracker
 class WoopraTracker {
   init() {}
@@ -8,4 +8,5 @@ class WoopraTracker {
   dispose() {}
 }
 
-module.exports = WoopraTracker
+// module.exports = WoopraTracker
+export default WoopraTracker
