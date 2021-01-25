@@ -7,6 +7,8 @@ declare global {
   }
 }
 
+jest.mock('../Tracker/safeWoopra')
+
 jest.mock('./demoUtils', () => ({
   getInitSdkOptions: jest.fn().mockReturnValue({}),
   queryParamToValueString: { useHistory: false },
@@ -17,18 +19,6 @@ jest.mock('./demoUtils', () => ({
       onSuccess('TEST_TOKEN')
     ),
 }))
-
-// when the Onfido SDK is imported Woopra needs to be mocked
-const mockWoopraFn = jest.fn()
-
-jest.mock('../Tracker/safeWoopra', () =>
-  jest.fn().mockImplementation(() => ({
-    init: () => mockWoopraFn,
-    config: () => mockWoopraFn,
-    identify: () => mockWoopraFn,
-    track: () => mockWoopraFn,
-  }))
-)
 
 describe('Mount Demo App', () => {
   let Demo: FunctionComponent = null
