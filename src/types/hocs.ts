@@ -46,3 +46,7 @@ export type WithThemeProps = {
   back?: () => void
   disableNavigation?: boolean
 }
+
+export type WithPermissionsFlowProps = {
+  hasGrantedPermission?: boolean
+}

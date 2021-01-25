@@ -6,7 +6,7 @@ import PermissionsRecover from '../CameraPermissions/Recover'
 import { checkIfWebcamPermissionGranted } from '~utils'
 
 import type { CameraProps } from '~types/camera'
-import type { WithTrackingProps } from '~types/hocs'
+import type { WithTrackingProps, WithPermissionsFlowProps } from '~types/hocs'
 import type { ErrorProp } from '~types/routers'
 
 const permissionErrors = [
@@ -15,7 +15,10 @@ const permissionErrors = [
   'NotFoundError',
 ]
 
-type Props = CameraProps & WebcamProps & WithTrackingProps
+type Props = CameraProps &
+  WebcamProps &
+  WithTrackingProps &
+  WithPermissionsFlowProps
 
 type State = {
   hasGrantedPermission?: boolean
