@@ -7,45 +7,14 @@ export default {
   api: {
     v3: {
       documents: {
-        cut_off: {
-          id: 'f5c8a78f-aa96-4803-8e55-022ec9db946e',
-          created_at: '2020-11-26T15:47:52Z',
-          file_name: 'identity_card_with_cut-off.png',
-          file_type: 'png',
-          file_size: 223029,
-          type: 'passport',
-          side: 'front',
-          issuing_country: null,
-          sdk_warnings: {
-            detect_glare: { valid: true },
-            detect_cutoff: { valid: false },
-            detect_blur: { valid: true },
-            image_quality: {
-              quality: 'bad',
-              breakdown: {
-                blur: {
-                  has_blur: false,
-                  max: 1,
-                  min: 0,
-                  score: 0.64779657125473,
-                  threshold: 0.2012,
-                },
-                cutoff: {
-                  has_cutoff: true,
-                  max: 1,
-                  min: 0,
-                  score: 0.00520833333333333,
-                  threshold: 0.015,
-                },
-                has_document: true,
-              },
-              image_quality_uuid: 'c733dcf3-74d5-4338-ba7d-264d71aec3b0',
+        cutoff: {
+          error: {
+            type: 'validation_error',
+            message: 'There was a validation error on this request',
+            fields: {
+              detect_cutoff: ['cutoff document detected in image'],
             },
           },
-          applicant_id: '<to-be-replaced>',
-          href: '/v3/documents/f5c8a78f-aa96-4803-8e55-022ec9db946e',
-          download_href:
-            '/v3/documents/f5c8a78f-aa96-4803-8e55-022ec9db946e/download',
         },
         driving_licence_front: {
           id: '35e2f9cb-b79a-460a-ae86-297af0dace7b',

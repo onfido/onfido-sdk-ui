@@ -112,7 +112,7 @@ class Confirm extends BasePage {
     )
   }
 
-  async verifyImageQualityWarning(copy, reason) {
+  async verifyImageQualityMessage(copy, reason, errorType = 'warning') {
     console.assert(
       ['cut-off', 'glare', 'blur'].includes(reason),
       `Reason must be one of 'cut-off', 'glare' or 'blur'`
@@ -136,7 +136,10 @@ class Confirm extends BasePage {
     const { [reason]: error } = errorsMap
     verifyElementCopy(this.errorTitleText(), error.title)
     verifyElementCopy(this.errorInstruction(), error.detail)
-    this.warningTitleIcon().isDisplayed()
+
+    errorType === 'warning'
+      ? this.warningTitleIcon().isDisplayed()
+      : this.errorTitleIcon().isDisplayed()
   }
 
   async playVideoBeforeConfirm() {
