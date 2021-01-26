@@ -15,8 +15,7 @@ describe('DocumentVideo', () => {
 
     it('renders title correctly', () => {
       const wrapper = mount(<Instructions title={fakeTitle} />)
-      const title = wrapper.find('span')
-      expect(title.length).toEqual(1)
+      const title = wrapper.find('.title')
       expect(title.exists()).toBeTruthy()
       expect(title.text()).toEqual(fakeTitle)
     })
@@ -25,10 +24,12 @@ describe('DocumentVideo', () => {
       const wrapper = mount(
         <Instructions title={fakeTitle} subtitle={fakeSubtitle} />
       )
-      const texts = wrapper.find('span')
-      expect(texts.length).toEqual(2)
-      expect(texts.at(0).text()).toEqual(fakeTitle)
-      expect(texts.at(1).text()).toEqual(fakeSubtitle)
+      const title = wrapper.find('.title')
+      expect(title.exists()).toBeTruthy()
+
+      const subTitle = wrapper.find('.subtitle')
+      expect(subTitle.exists()).toBeTruthy()
+      expect(subTitle.text()).toEqual(fakeSubtitle)
     })
   })
 })

@@ -136,7 +136,7 @@ describe('DocumentVideo', () => {
         expect(wrapper.find('VideoCapture Recording').exists()).toBeTruthy()
       })
 
-      it('handles redo fallback correctly', () => {
+      it.skip('handles redo fallback correctly', () => {
         const startRecordingButton = videoCapture.find(
           'StartRecording Button > button'
         )
