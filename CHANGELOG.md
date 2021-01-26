@@ -22,6 +22,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Switched to `bundlewatch` Github Action for bundle size diff reporting, checking.
 - UI: Updated text and background colours.
 - Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
+- Public: Return error for image quality failures on the first two document upload attempts.
 
 ### Fixed
 
