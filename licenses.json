@@ -1966,8 +1966,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@jest/globals/node_modules/ansi-styles",
-    "licenseFile": "node_modules/@jest/globals/node_modules/ansi-styles/license"
+    "path": "node_modules/dts-bundle-generator/node_modules/ansi-styles",
+    "licenseFile": "node_modules/dts-bundle-generator/node_modules/ansi-styles/license"
   },
   "anymatch@2.0.0": {
     "licenses": "ISC",
@@ -8846,8 +8846,8 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/chromedriver/node_modules/mkdirp",
-    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
+    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
   },
   "mocha@6.2.2": {
     "licenses": "MIT",
@@ -12634,8 +12634,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@jest/globals/node_modules/supports-color",
-    "licenseFile": "node_modules/@jest/globals/node_modules/supports-color/license"
+    "path": "node_modules/license-checker-rseidelsohn/node_modules/supports-color",
+    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/supports-color/license"
   },
   "supports-hyperlinks@2.1.0": {
     "licenses": "MIT",
