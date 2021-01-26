@@ -31,13 +31,11 @@ import type {
 type Props = StepComponentDocumentProps & WithLocalisedProps & WithOptionsProps
 
 class Document extends Component<Props> {
-  static defaultProps: Partial<Props> = {
+  static defaultProps = {
     forceCrossDevice: false,
-    requestedVariant: 'standard',
-    side: 'front',
   }
 
-  handleCapture: HandleCaptureProp = ({ variant, ...payload }) => {
+  handleCapture: HandleCaptureProp = (payload) => {
     const {
       actions,
       documentType,
@@ -54,8 +52,8 @@ class Document extends Component<Props> {
       id: payload.id || randomId(),
       method: 'document',
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
-      side: variant === 'video' ? null : side,
-      variant: variant || 'standard',
+      side,
+      variant: 'standard',
     }
     actions.createCapture(documentCaptureData)
 
@@ -63,8 +61,21 @@ class Document extends Component<Props> {
   }
 
   handleDocVideoCapture: HandleDocVideoCaptureProp = (payload) => {
-    console.log('docVideo capture:', payload)
-    // this.props.nextStep()
+    const { actions, documentType, mobileFlow, nextStep } = this.props
+    const { video, front, back } = payload
+
+    const baseData: Omit<DocumentCapture, 'blob'> = {
+      documentType,
+      id: randomId(),
+      method: 'document',
+      sdkMetadata: addDeviceRelatedProperties(video.sdkMetadata, mobileFlow),
+    }
+
+    actions.createCapture({ ...baseData, ...front, side: 'front' })
+    actions.createCapture({ ...baseData, ...back, side: 'back' })
+    actions.createCapture({ ...baseData, ...video, variant: 'video' })
+
+    nextStep()
   }
 
   handleUpload = (blob: Blob, imageResizeInfo: ImageResizeInfo) =>
@@ -73,7 +84,10 @@ class Document extends Component<Props> {
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
 
-  handleError = () => this.props.actions.deleteCapture({ method: 'face' })
+  handleError = () => {
+    const { actions, side, requestedVariant: variant } = this.props
+    actions.deleteCapture({ method: 'document', side, variant })
+  }
 
   handleFileSelected = (file: File) =>
     validateFile(file, this.handleUpload, this.handleError)
@@ -111,18 +125,9 @@ class Document extends Component<Props> {
       useWebcam,
     } = this.props
 
-    const title = translate(
-      DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
-        side
-      ].title
-    )
-    const propsWithErrorHandling = { ...this.props, onError: this.handleError }
-    const renderTitle = <PageTitle title={title} smaller />
     const renderFallback = isDesktop
       ? this.renderCrossDeviceFallback
       : this.renderUploadFallback
-    const enableLiveDocumentCapture =
-      useLiveDocumentCapture && (!isDesktop || isHybrid)
 
     if (requestedVariant === 'video') {
       return (
@@ -134,6 +139,16 @@ class Document extends Component<Props> {
         />
       )
     }
+
+    const title = translate(
+      DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
+        side
+      ].title
+    )
+    const propsWithErrorHandling = { ...this.props, onError: this.handleError }
+    const renderTitle = <PageTitle title={title} smaller />
+    const enableLiveDocumentCapture =
+      useLiveDocumentCapture && (!isDesktop || isHybrid)
 
     if (hasCamera && useWebcam) {
       return (

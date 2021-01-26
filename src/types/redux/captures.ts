@@ -48,6 +48,7 @@ export type FaceCapture = {
 export type DeleteCapturePayload = {
   method: CaptureMethods
   side?: DocumentSides
+  variant?: RequestedVariant
 }
 
 export type MetadataPayload = {
@@ -73,7 +74,7 @@ export type CaptureActions =
 export type CaptureState = {
   document_front?: DocumentCapture & MetadataState
   document_back?: DocumentCapture & MetadataState
-  document?: DocumentCapture & MetadataState
+  document_video?: DocumentCapture & MetadataState
   face?: FaceCapture & MetadataState
 }
 

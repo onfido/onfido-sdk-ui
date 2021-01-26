@@ -1,14 +1,13 @@
 import { h } from 'preact'
 import { connect } from 'react-redux'
-import { cleanFalsy } from '~utils/array'
-import Confirm from './Confirm'
+
+import { buildCaptureStateKey } from '~utils/redux'
 import { trackComponentAndMode, appendToTracking } from '../../Tracker'
 import { localised } from '../../locales'
+import Confirm from './Confirm'
 
-const captureKey = (...args) => cleanFalsy(args).join('_')
-
-const mapStateToProps = (state, { method, side }) => ({
-  capture: state.captures[captureKey(method, side)],
+const mapStateToProps = (state, { method, side, variant }) => ({
+  capture: state.captures[buildCaptureStateKey({ method, side, variant })],
   isFullScreen: state.globals.isFullScreen,
   imageQualityRetries: state.globals.imageQualityRetries,
 })
@@ -30,7 +29,7 @@ const DocumentBackWrapper = (props) => (
 )
 
 const DocumentVideoWrapper = (props) => (
-  <MapConfirm {...props} method="document" />
+  <MapConfirm {...props} method="document" variant="video" />
 )
 
 const BaseFaceConfirm = (props) => <MapConfirm {...props} method="face" />
