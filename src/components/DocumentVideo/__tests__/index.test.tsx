@@ -20,7 +20,7 @@ import type { CapturePayload } from '~types/redux'
 
 jest.mock('../../CameraPermissions/withPermissionsFlow')
 
-const fakePayload: CapturePayload = {
+const fakePhotoPayload: CapturePayload = {
   blob: new Blob(),
   sdkMetadata: {},
 }
@@ -33,6 +33,10 @@ const defaultProps: DocumentVideoProps = {
 }
 
 describe('DocumentVideo', () => {
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('renders without crashing', () => {
     const wrapper = shallow(
       <MockedReduxProvider>
@@ -87,7 +91,7 @@ describe('DocumentVideo', () => {
         const documentLiveCapture = wrapper.find<DocumentLiveCaptureProps>(
           DocumentLiveCapture
         )
-        documentLiveCapture.props().onCapture(fakePayload)
+        documentLiveCapture.props().onCapture(fakePhotoPayload)
         wrapper.update()
       })
 
@@ -128,35 +132,39 @@ describe('DocumentVideo', () => {
         expect(documentOverlay.props().type).toEqual(defaultProps.documentType)
       })
 
-      it('starts recording correctly', () => {
-        const startRecordingButton = wrapper.find(
-          'StartRecording Button > button'
-        )
-        startRecordingButton.simulate('click')
-        wrapper.update()
+      describe('when recording', () => {
+        beforeEach(() => {
+          const startRecordingButton = wrapper.find(
+            'StartRecording Button > button'
+          )
+          startRecordingButton.simulate('click')
+        })
 
-        expect(wrapper.find('VideoCapture StartRecording').exists()).toBeFalsy()
-        const recording = wrapper.find<RecordingProps>(Recording)
-        expect(recording.exists()).toBeTruthy()
-        expect(recording.props().disableInteraction).toBeFalsy()
-        expect(recording.props().hasMoreSteps).toBeTruthy()
-      })
+        it('handles redo fallback correctly', () => {
+          const timeout = wrapper.find<TimeoutProps>(Timeout)
+          timeout.props().onTimeout()
+          wrapper.update()
 
-      it('handles redo fallback correctly', () => {
-        const startRecordingButton = wrapper.find(
-          'StartRecording Button > button'
-        )
-        startRecordingButton.simulate('click')
-        const timeout = wrapper.find<TimeoutProps>(Timeout)
-        timeout.props().onTimeout()
-        wrapper.update()
+          expect(wrapper.find('VideoCapture Recording').exists()).toBeFalsy()
+          const startRecording = wrapper.find<StartRecordingProps>(
+            StartRecording
+          )
+          expect(startRecording).toBeTruthy()
 
-        expect(wrapper.find('VideoCapture Recording').exists()).toBeFalsy()
-        const startRecording = wrapper.find<StartRecordingProps>(StartRecording)
-        expect(startRecording).toBeTruthy()
+          // @FIXME: this requires mocking parseTags util in CameraError/index.tsx:69
+          // expect(startRecording.props().disableInteraction).toBeFalsy()
+        })
 
-        // @FIXME: this requires mocking parseTags util in CameraError/index.tsx:69
-        // expect(startRecording.props().disableInteraction).toBeFalsy()
+        it('starts recording correctly', () => {
+          expect(
+            wrapper.find('VideoCapture StartRecording').exists()
+          ).toBeFalsy()
+          const recording = wrapper.find<RecordingProps>(Recording)
+          expect(recording.exists()).toBeTruthy()
+          expect(recording.props().disableInteraction).toBeFalsy()
+          expect(recording.props().hasMoreSteps).toBeTruthy()
+          expect(recording.find('Instructions').exists()).toBeTruthy()
+        })
       })
     })
   })
