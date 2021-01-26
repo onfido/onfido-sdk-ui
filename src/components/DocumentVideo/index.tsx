@@ -13,6 +13,7 @@ import StartRecording from './StartRecording'
 
 import type { CaptureStep, RecordingStep } from '~types/docVideo'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import type { CapturePayload } from '~types/redux'
 import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 
@@ -33,27 +34,15 @@ const DocumentVideo: FunctionComponent<Props> = ({
 }) => {
   const [captureStep, setCaptureStep] = useState<CaptureStep>('front')
   const [recordingStep, setRecordingStep] = useState<RecordingStep>('intro')
+  const [photoPayload, setPhotoPayload] = useState<CapturePayload>(null)
 
   const handlePhotoCapture: HandleCaptureProp = (payload) => {
-    console.log('handlePhotoCapture.payload:', payload)
+    setPhotoPayload(payload)
     setCaptureStep('video')
-  }
-
-  const handleVideoRecordingStart = () => {
-    setRecordingStep('tilt')
   }
 
   const handleVideoCapture: HandleCaptureProp = (payload) => {
     console.log('handleVideoCapture.payload', payload)
-  }
-
-  const handleNextRecordingStep = () => {
-    console.log('handleNextRecordingStep')
-  }
-
-  const handleVideoRecordingRedo = () => {
-    console.log('invoke handleVideoRecordingRedo')
-    setRecordingStep('intro')
   }
 
   if (captureStep === 'front' || captureStep === 'back') {
@@ -74,14 +63,12 @@ const DocumentVideo: FunctionComponent<Props> = ({
     )
   }
 
-  const inactiveError = getInactiveError(true)
-
   return (
     <VideoCapture
       cameraClassName={cameraClassName}
-      inactiveError={inactiveError}
-      onRecordingStart={handleVideoRecordingStart}
-      onRedo={handleVideoRecordingRedo}
+      inactiveError={getInactiveError(true)}
+      onRecordingStart={() => setRecordingStep('tilt')}
+      onRedo={() => setRecordingStep('intro')}
       onVideoCapture={handleVideoCapture}
       renderFallback={renderFallback}
       renderOverlay={() => <DocumentOverlay type={documentType} />}
@@ -93,9 +80,9 @@ const DocumentVideo: FunctionComponent<Props> = ({
       }) =>
         isRecording ? (
           <Recording
-            hasMoreSteps={false}
+            hasMoreSteps={recordingStep !== 'flip'}
             disableInteraction={disableInteraction}
-            onNext={handleNextRecordingStep}
+            onNext={() => setRecordingStep('flip')}
             onStop={onStop}
           />
         ) : (

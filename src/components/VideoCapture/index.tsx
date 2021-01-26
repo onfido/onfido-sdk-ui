@@ -48,10 +48,9 @@ type State = {
   hasRecordingTakenTooLong: boolean
 } & OverlayProps
 
-const initialState: State = {
+const initialStateWithoutMediaStream: Omit<State, 'hasMediaStream'> = {
   hasBecomeInactive: false,
   hasCameraError: false,
-  hasMediaStream: false,
   hasRecordingTakenTooLong: false,
   isRecording: false,
 }
@@ -64,7 +63,7 @@ const recordingTooLongError: ErrorProp = {
 export default class VideoCapture extends Component<Props, State> {
   private webcam?: Webcam = null
 
-  state = { ...initialState }
+  state = { ...initialStateWithoutMediaStream, hasMediaStream: false }
 
   startRecording = (): void => {
     this.webcam && this.webcam.startRecording()
@@ -107,8 +106,10 @@ export default class VideoCapture extends Component<Props, State> {
   handleCameraError = (): void => this.setState({ hasCameraError: true })
 
   handleFallbackClick = (callback: () => void): void => {
-    this.props.onRedo()
-    callback()
+    this.setState({ ...initialStateWithoutMediaStream }, () => {
+      this.props.onRedo()
+      callback()
+    })
   }
 
   renderRedoActionsFallback = (
@@ -193,9 +194,9 @@ export default class VideoCapture extends Component<Props, State> {
     // Recording button should not be clickable on camera error, when recording takes too long,
     // when camera stream is not ready or when camera stream is recording
     const disableRecording =
+      !hasMediaStream ||
       hasRecordingTakenTooLong ||
       hasCameraError ||
-      !hasMediaStream ||
       isRecording
 
     return (

@@ -51,12 +51,6 @@ const initialState: State = {
 class FaceVideo extends Component<Props, State> {
   state = { ...initialState }
 
-  componentDidUpdate(prevProps: Props) {
-    if (prevProps.challenges !== this.props.challenges) {
-      this.setState({ ...initialState })
-    }
-  }
-
   onRecordingStart = () => {
     this.setState({ startedAt: currentMilliseconds() })
     sendScreen(['face_video_capture_step_1'])

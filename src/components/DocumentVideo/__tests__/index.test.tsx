@@ -9,8 +9,12 @@ import DocumentOverlay, {
 import DocumentLiveCapture, {
   Props as DocumentLiveCaptureProps,
 } from '../../Photo/DocumentLiveCapture'
-import DocumentVideo, { DocumentVideoProps } from '../index'
 import VideoCapture, { Props as VideoCaptureProps } from '../../VideoCapture'
+import Timeout, { Props as TimeoutProps } from '../../Timeout'
+
+import DocumentVideo, { DocumentVideoProps } from '../index'
+import Recording, { RecordingProps } from '../Recording'
+import StartRecording, { StartRecordingProps } from '../StartRecording'
 
 import type { CapturePayload } from '~types/redux'
 
@@ -79,18 +83,16 @@ describe('DocumentVideo', () => {
     })
 
     describe('when capture video', () => {
-      let videoCapture: ReactWrapper<VideoCaptureProps>
-
       beforeEach(() => {
         const documentLiveCapture = wrapper.find<DocumentLiveCaptureProps>(
           DocumentLiveCapture
         )
         documentLiveCapture.props().onCapture(fakePayload)
         wrapper.update()
-        videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
       })
 
       it('switches to video step after front side image captured', () => {
+        const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
         expect(videoCapture.exists()).toBeTruthy()
 
         const {
@@ -119,7 +121,7 @@ describe('DocumentVideo', () => {
       })
 
       it('renders correct overlay', () => {
-        const documentOverlay = videoCapture.find<DocumentOverlayProps>(
+        const documentOverlay = wrapper.find<DocumentOverlayProps>(
           DocumentOverlay
         )
         expect(documentOverlay.exists()).toBeTruthy()
@@ -127,28 +129,34 @@ describe('DocumentVideo', () => {
       })
 
       it('starts recording correctly', () => {
-        const startRecordingButton = videoCapture.find(
+        const startRecordingButton = wrapper.find(
           'StartRecording Button > button'
         )
         startRecordingButton.simulate('click')
         wrapper.update()
+
         expect(wrapper.find('VideoCapture StartRecording').exists()).toBeFalsy()
-        expect(wrapper.find('VideoCapture Recording').exists()).toBeTruthy()
+        const recording = wrapper.find<RecordingProps>(Recording)
+        expect(recording.exists()).toBeTruthy()
+        expect(recording.props().disableInteraction).toBeFalsy()
+        expect(recording.props().hasMoreSteps).toBeTruthy()
       })
 
-      it.skip('handles redo fallback correctly', () => {
-        const startRecordingButton = videoCapture.find(
+      it('handles redo fallback correctly', () => {
+        const startRecordingButton = wrapper.find(
           'StartRecording Button > button'
         )
         startRecordingButton.simulate('click')
+        const timeout = wrapper.find<TimeoutProps>(Timeout)
+        timeout.props().onTimeout()
         wrapper.update()
-        videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
-        videoCapture.props().onRedo()
-        wrapper.update()
-        expect(
-          wrapper.find('VideoCapture StartRecording').exists()
-        ).toBeTruthy()
+
         expect(wrapper.find('VideoCapture Recording').exists()).toBeFalsy()
+        const startRecording = wrapper.find<StartRecordingProps>(StartRecording)
+        expect(startRecording).toBeTruthy()
+
+        // @FIXME: this requires mocking parseTags util in CameraError/index.tsx:69
+        // expect(startRecording.props().disableInteraction).toBeFalsy()
       })
     })
   })

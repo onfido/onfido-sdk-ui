@@ -8,7 +8,7 @@ import style from './style.scss'
 
 import type { WithLocalisedProps } from '~types/hocs'
 
-type StartRecordingProps = {
+export type StartRecordingProps = {
   disableInteraction: boolean
   onClick: () => void
 }
