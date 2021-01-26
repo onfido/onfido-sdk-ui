@@ -8,5 +8,4 @@ class WoopraTracker {
   dispose() {}
 }
 
-// module.exports = WoopraTracker
 export default WoopraTracker
