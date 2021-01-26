@@ -1,18 +1,3 @@
-/* jest.mock(
-  'enumerate-devices',
-  () =>
-    new Promise((resolve) =>
-      resolve([
-        {
-          deviceId: 'fake-videoinput-device-id',
-          groupId: 'face-videoinput-group-id',
-          kind: 'videoinput',
-          label: 'fake-videoinput',
-        },
-      ])
-    )
-) */
-
 export const mockGetUserMedia = (): void => {
   const originalWindow = { ...window }
   const windowSpy = jest.spyOn(global.window, 'navigator', 'get')

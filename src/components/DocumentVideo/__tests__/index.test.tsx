@@ -194,7 +194,7 @@ describe('DocumentVideo', () => {
           })
         })
 
-        it('moves to the back document capture step', () => {
+        it('switches to the back document capture step', () => {
           const button = wrapper.find('Recording Button > button')
           button.simulate('click')
           const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
