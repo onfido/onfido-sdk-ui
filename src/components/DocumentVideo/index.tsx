@@ -63,6 +63,13 @@ const DocumentVideo: FunctionComponent<Props> = ({
     )
   }
 
+  const title = translate(
+    DOC_VIDEO_INSTRUCTIONS_MAPPING.video[recordingStep].title
+  )
+  const subtitle = translate(
+    DOC_VIDEO_INSTRUCTIONS_MAPPING.video[recordingStep].subtitle
+  )
+
   return (
     <VideoCapture
       cameraClassName={cameraClassName}
@@ -84,7 +91,9 @@ const DocumentVideo: FunctionComponent<Props> = ({
             disableInteraction={disableInteraction}
             onNext={() => setRecordingStep('flip')}
             onStop={onStop}
-          />
+          >
+            <Instructions title={title} subtitle={subtitle} />
+          </Recording>
         ) : (
           <StartRecording
             disableInteraction={disableInteraction}
