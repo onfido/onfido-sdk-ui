@@ -2,6 +2,7 @@ import { h, FunctionComponent } from 'preact'
 import { useState } from 'preact/compat'
 
 import { getInactiveError } from '~utils/inactiveError'
+import { mimeType } from '~utils/blob'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import { localised } from '~locales'
 import { DocumentOverlay } from '../Overlay'
@@ -30,6 +31,14 @@ export type DocumentVideoProps = {
 
 type Props = DocumentVideoProps & WithLocalisedProps
 
+const renamedCapture = (
+  payload: CapturePayload,
+  step: CaptureSteps
+): CapturePayload => ({
+  ...payload,
+  filename: `document_${step}.${mimeType(payload.blob)}`,
+})
+
 const DocumentVideo: FunctionComponent<Props> = ({
   cameraClassName,
   documentType,
@@ -44,12 +53,12 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const [videoPayload, setVideoPayload] = useState<CapturePayload>(null)
 
   const handleFrontCapture: HandleCaptureProp = (payload) => {
-    setFrontPayload(payload)
+    setFrontPayload(renamedCapture(payload, 'front'))
     setCaptureStep('video')
   }
 
   const handleVideoCapture: HandleCaptureProp = (payload) => {
-    setVideoPayload(payload)
+    setVideoPayload(renamedCapture(payload, 'video'))
     setCaptureStep('back')
   }
 
@@ -57,7 +66,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
     onCapture({
       front: frontPayload,
       video: videoPayload,
-      back: payload,
+      back: renamedCapture(payload, 'back'),
     })
   }
 

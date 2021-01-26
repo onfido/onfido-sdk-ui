@@ -202,18 +202,19 @@ describe('DocumentVideo', () => {
             front: {
               blob: new Blob([]),
               sdkMetadata: fakeSdkMetadata,
-              filename: 'document_capture.jpeg',
-              isPreviewCropped: true,
-            },
-            back: {
-              blob: new Blob([]),
-              sdkMetadata: fakeSdkMetadata,
-              filename: 'document_capture.jpeg',
+              filename: 'document_front.jpeg',
               isPreviewCropped: true,
             },
             video: {
               blob: new Blob([]),
               sdkMetadata: fakeSdkMetadata,
+              filename: 'document_video.webm',
+            },
+            back: {
+              blob: new Blob([]),
+              sdkMetadata: fakeSdkMetadata,
+              filename: 'document_back.jpeg',
+              isPreviewCropped: true,
             },
           })
         })
