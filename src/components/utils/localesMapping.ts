@@ -1,4 +1,4 @@
-import { RecordingStep } from '~types/docVideo'
+import { RecordingSteps } from '~types/docVideo'
 import { DocumentTypes, PoaTypes } from '~types/steps'
 
 type CaptureSideLocale = {
@@ -191,7 +191,7 @@ export const VIDEO_INTRO_LOCALES_MAPPING: Record<
 export const DOC_VIDEO_INSTRUCTIONS_MAPPING: {
   front: Record<DocumentTypes, string>
   back: Record<DocumentTypes, string>
-  video: Record<RecordingStep, TitleLocale>
+  video: Record<RecordingSteps, TitleLocale>
 } = {
   front: {
     passport: 'doc_video_capture.instructions.front_passport',

@@ -64,6 +64,7 @@ class Document extends Component<Props> {
 
   handleDocVideoCapture: HandleDocVideoCaptureProp = (payload) => {
     console.log('docVideo capture:', payload)
+    // this.props.nextStep()
   }
 
   handleUpload = (blob: Blob, imageResizeInfo: ImageResizeInfo) =>

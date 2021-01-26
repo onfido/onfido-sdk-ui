@@ -16,21 +16,14 @@ import DocumentVideo, { DocumentVideoProps } from '../index'
 import Recording, { RecordingProps } from '../Recording'
 import StartRecording, { StartRecordingProps } from '../StartRecording'
 
-import type { CapturePayload } from '~types/redux'
+import type { SdkMetadata } from '~types/commons'
 
 jest.mock('../../CameraPermissions/withPermissionsFlow')
 
-const fakeFrontPayload: CapturePayload = {
-  blob: new Blob(),
-  sdkMetadata: {},
-}
-const fakeVideoPayload: CapturePayload = {
-  blob: new Blob(),
-  sdkMetadata: {},
-}
-const fakeBackPayload: CapturePayload = {
-  blob: new Blob(),
-  sdkMetadata: {},
+const fakeSdkMetadata: SdkMetadata = {
+  captureMethod: 'live',
+  camera_name: 'fake-video-track',
+  microphone_name: 'fake-audio-track',
 }
 
 const defaultProps: DocumentVideoProps = {
@@ -97,11 +90,9 @@ describe('DocumentVideo', () => {
 
     describe('when capture video', () => {
       beforeEach(() => {
-        const documentLiveCapture = wrapper.find<DocumentLiveCaptureProps>(
-          DocumentLiveCapture
-        )
-        documentLiveCapture.props().onCapture(fakeFrontPayload)
-
+        wrapper
+          .find('DocumentLiveCapture CameraButton > button')
+          .simulate('click')
         wrapper.update()
       })
 
@@ -195,25 +186,35 @@ describe('DocumentVideo', () => {
         })
 
         it('switches to the back document capture step', () => {
-          const button = wrapper.find('Recording Button > button')
-          button.simulate('click')
-          const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
-          videoCapture.props().onVideoCapture(fakeVideoPayload)
+          const recordingButton = wrapper.find('Recording Button > button')
+          recordingButton.simulate('click') // next step
+          recordingButton.simulate('click') // stop recording
           wrapper.update()
 
           expect(wrapper.find('VideoCapture').exists()).toBeFalsy()
-
-          const documentLiveCapture = wrapper.find<DocumentLiveCaptureProps>(
-            DocumentLiveCapture
+          expect(wrapper.find('DocumentLiveCapture').exists()).toBeTruthy()
+          const cameraButton = wrapper.find(
+            'DocumentLiveCapture CameraButton > button'
           )
-          expect(documentLiveCapture.exists()).toBeTruthy()
-
-          documentLiveCapture.props().onCapture(fakeBackPayload)
+          cameraButton.simulate('click')
 
           expect(defaultProps.onCapture).toHaveBeenCalledWith({
-            front: fakeFrontPayload,
-            back: fakeBackPayload,
-            video: fakeVideoPayload,
+            front: {
+              blob: new Blob([]),
+              sdkMetadata: fakeSdkMetadata,
+              filename: 'document_capture.jpeg',
+              isPreviewCropped: true,
+            },
+            back: {
+              blob: new Blob([]),
+              sdkMetadata: fakeSdkMetadata,
+              filename: 'document_capture.jpeg',
+              isPreviewCropped: true,
+            },
+            video: {
+              blob: new Blob([]),
+              sdkMetadata: fakeSdkMetadata,
+            },
           })
         })
       })

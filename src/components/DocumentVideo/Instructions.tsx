@@ -1,10 +1,10 @@
 import { h, FunctionComponent } from 'preact'
 import style from './style.scss'
 
-import type { RecordingStep } from '~types/docVideo'
+import type { RecordingSteps } from '~types/docVideo'
 
 type Props = {
-  icon?: RecordingStep
+  icon?: RecordingSteps
   subtitle?: string
   title: string
 }
