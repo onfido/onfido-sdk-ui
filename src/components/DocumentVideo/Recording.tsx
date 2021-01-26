@@ -18,27 +18,31 @@ export type RecordingProps = {
 type Props = RecordingProps & WithLocalisedProps
 
 const Recording: FunctionComponent<Props> = ({
+  children,
   disableInteraction = false,
   hasMoreSteps = false,
   onNext = noop,
   onStop,
   translate,
-}) => (
-  <div>
-    <div className={style.actions}>
-      <Button
-        variants={['centered', 'primary', 'lg']}
-        disabled={disableInteraction}
-        onClick={hasMoreSteps ? onNext : onStop}
-      >
-        {translate(
-          hasMoreSteps
-            ? 'doc_video_capture.button_primary_next'
-            : 'doc_video_capture.button_stop_accessibility'
-        )}
-      </Button>
+}) => {
+  return (
+    <div>
+      <div className={style.actions}>
+        {children}
+        <Button
+          variants={['centered', 'primary', 'lg']}
+          disabled={disableInteraction}
+          onClick={hasMoreSteps ? onNext : onStop}
+        >
+          {translate(
+            hasMoreSteps
+              ? 'doc_video_capture.button_primary_next'
+              : 'doc_video_capture.button_stop_accessibility'
+          )}
+        </Button>
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default localised(Recording)

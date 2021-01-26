@@ -38,6 +38,9 @@ describe('DocumentVideo', () => {
       expect(button.text()).toEqual(
         'doc_video_capture.button_record_accessibility'
       )
+
+      button.simulate('click')
+      expect(defaultProps.onClick).toHaveBeenCalled()
     })
 
     it('disables button when disableInteraction=true', () => {
