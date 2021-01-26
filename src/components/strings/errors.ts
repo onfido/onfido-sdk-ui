@@ -35,7 +35,7 @@ const errors: Record<ErrorNames, LocaleData> = {
     message: 'generic.errors.request_error.message',
     instruction: 'generic.errors.request_error.instruction',
   },
-  CUT_OFF_DETECTED: {
+  CUTOFF_DETECTED: {
     message: 'doc_confirmation.alert.crop_title',
     instruction: 'doc_confirmation.alert.crop_detail',
   },

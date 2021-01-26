@@ -11,8 +11,18 @@ import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
 
-const MAX_RETRIES_FOR_IMAGE_QUALITY = 2
-
+// The number of additional image quality retries
+// that should return an error if an image quality validation is detected.
+// This means that if image quality validations are detected, the user will only see an error
+// on the first TWO upload attempt.
+// From the third attempt, if image quality validations are detected, the user will see a warning
+// and they use can choose to proceed regardless of the image quality warning
+const MAX_IMAGE_QUALITY_RETRIES_WITH_ERROR = 1
+const IMAGE_QUALITY_KEYS_MAP = {
+  detect_cutoff: 'CUTOFF_DETECTED', // error with the heighest priority
+  detect_glare: 'GLARE_DETECTED',
+  detect_blur: 'BLUR_DETECTED',
+}
 class Confirm extends Component {
   constructor(props) {
     super(props)
@@ -45,13 +55,19 @@ class Confirm extends Component {
         ? 'NO_FACE_ERROR'
         : 'MULTIPLE_FACES_ERROR'
     }
-    // return a generic error if the status is 422 and the key is none of the above
-    return 'REQUEST_ERROR'
+  }
+
+  handleImageQualityError = (errorField) => {
+    for (const errorKey in IMAGE_QUALITY_KEYS_MAP) {
+      if (Object.keys(errorField).includes(errorKey))
+        return IMAGE_QUALITY_KEYS_MAP[errorKey]
+    }
   }
 
   onfidoErrorReduce = ({ fields }) => {
+    const imageQualityError = this.handleImageQualityError(fields)
     const [first] = Object.entries(fields).map(this.onfidoErrorFieldMap)
-    return first
+    return first || imageQualityError
   }
 
   onApiError = (error) => {
@@ -63,7 +79,7 @@ class Confirm extends Component {
       this.props.triggerOnError({ status, response })
       return this.props.crossDeviceClientError()
     } else if (status === 422) {
-      errorKey = this.onfidoErrorReduce(response.error)
+      errorKey = this.onfidoErrorReduce(response.error) || 'REQUEST_ERROR'
     } else {
       this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
@@ -71,6 +87,21 @@ class Confirm extends Component {
     }
 
     this.setError(errorKey)
+  }
+
+  imageQualityWarnings = (warnings) => {
+    for (const warnKey in IMAGE_QUALITY_KEYS_MAP) {
+      if (Object.keys(warnings).includes(warnKey) && !warnings[warnKey].valid)
+        return IMAGE_QUALITY_KEYS_MAP[warnKey]
+    }
+  }
+
+  onImageQualityWarning = (apiResponse) => {
+    const { sdk_warnings: warnings } = apiResponse
+    if (!warnings) {
+      return null
+    }
+    return this.imageQualityWarnings(warnings)
   }
 
   onApiSuccess = (apiResponse) => {
@@ -82,9 +113,7 @@ class Confirm extends Component {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const imageQualityWarning = this.getImageQualityWarningFromResponse(
-      apiResponse
-    )
+    const imageQualityWarning = this.onImageQualityWarning(apiResponse)
 
     if (!imageQualityWarning) {
       // wait a tick to ensure the action completes before progressing
@@ -92,29 +121,6 @@ class Confirm extends Component {
     } else {
       this.setWarning(imageQualityWarning)
     }
-  }
-
-  getImageQualityWarningFromResponse = (apiResponse) => {
-    const { sdk_warnings: warnings } = apiResponse
-
-    if (!warnings) {
-      return null
-    }
-
-    if (warnings.detect_cutoff && !warnings.detect_cutoff.valid) {
-      return 'CUT_OFF_DETECTED'
-    }
-
-    if (warnings.detect_glare && !warnings.detect_glare.valid) {
-      return 'GLARE_DETECTED'
-    }
-
-    if (warnings.detect_blur && !warnings.detect_blur.valid) {
-      return 'BLUR_DETECTED'
-    }
-
-    // Not interested in any other warnings
-    return null
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
@@ -167,6 +173,7 @@ class Confirm extends Component {
       token,
       poaDocumentType,
       language,
+      imageQualityRetries,
     } = this.props
     const url = urls.onfido_api_url
     this.startTime = performance.now()
@@ -183,15 +190,21 @@ class Confirm extends Component {
 
     if (method === 'document') {
       const isPoA = poaDocumentTypes.includes(poaDocumentType)
-      const shouldWarnForImageQuality = !isOfMimeType(['pdf'], blob) && !isPoA
+      const shouldPerformImageQualityValidations =
+        !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
+      const shouldReturnErrorForImageQuality =
+        imageQualityRetries <= MAX_IMAGE_QUALITY_RETRIES_WITH_ERROR
+      const imageQualityErrorType = shouldReturnErrorForImageQuality
+        ? 'error'
+        : 'warn'
       const validations = {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
-        ...(shouldWarnForImageQuality
+        ...(shouldPerformImageQualityValidations
           ? {
-              detect_cutoff: 'warn',
-              detect_glare: 'warn',
-              detect_blur: 'warn',
+              detect_cutoff: imageQualityErrorType,
+              detect_glare: imageQualityErrorType,
+              detect_blur: imageQualityErrorType,
             }
           : {}),
       }
@@ -220,8 +233,12 @@ class Confirm extends Component {
   onRetake = () => {
     const { actions, previousStep } = this.props
 
-    // Retake on warning, increase image quality retries
-    if (this.state.error.type === 'warn') {
+    // Retake on image quality error, increase image quality retries
+    const isImageQualityError = Object.keys(IMAGE_QUALITY_KEYS_MAP).find(
+      (key) => IMAGE_QUALITY_KEYS_MAP[key] === this.state.error.name
+    )
+
+    if (isImageQualityError && this.state.error.type === 'error') {
       actions.retryForImageQuality()
     }
 
@@ -243,7 +260,6 @@ class Confirm extends Component {
     documentType,
     poaDocumentType,
     isFullScreen,
-    imageQualityRetries,
   }) => {
     const { error, uploadInProgress } = this.state
 
@@ -262,11 +278,7 @@ class Confirm extends Component {
         method={method}
         documentType={documentType}
         poaDocumentType={poaDocumentType}
-        forceRetake={
-          error.type === 'error' ||
-          (error.type === 'warn' &&
-            imageQualityRetries < MAX_RETRIES_FOR_IMAGE_QUALITY)
-        }
+        forceRetake={error.type === 'error'}
       />
     )
   }
