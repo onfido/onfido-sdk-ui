@@ -8,6 +8,7 @@ import type {
   ErrorNames,
   ErrorTypes,
 } from './commons'
+import type { CaptureSteps } from './docVideo'
 import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
 import type {
   CaptureOptions,
@@ -42,6 +43,9 @@ export type ChangeFlowProp = (
 export type TriggerOnErrorProp = (response: ApiRequest) => void
 
 export type HandleCaptureProp = (payload: CapturePayload) => void
+export type HandleDocVideoCaptureProp = (
+  payload: Record<CaptureSteps, CapturePayload>
+) => void
 
 export type RenderFallbackProp = (
   text: string,

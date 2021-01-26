@@ -20,7 +20,15 @@ import type { CapturePayload } from '~types/redux'
 
 jest.mock('../../CameraPermissions/withPermissionsFlow')
 
-const fakePhotoPayload: CapturePayload = {
+const fakeFrontPayload: CapturePayload = {
+  blob: new Blob(),
+  sdkMetadata: {},
+}
+const fakeVideoPayload: CapturePayload = {
+  blob: new Blob(),
+  sdkMetadata: {},
+}
+const fakeBackPayload: CapturePayload = {
   blob: new Blob(),
   sdkMetadata: {},
 }
@@ -28,6 +36,7 @@ const fakePhotoPayload: CapturePayload = {
 const defaultProps: DocumentVideoProps = {
   cameraClassName: 'fakeCameraClass',
   documentType: 'driving_licence',
+  onCapture: jest.fn(),
   renderFallback: jest.fn(),
   trackScreen: jest.fn(),
 }
@@ -91,7 +100,8 @@ describe('DocumentVideo', () => {
         const documentLiveCapture = wrapper.find<DocumentLiveCaptureProps>(
           DocumentLiveCapture
         )
-        documentLiveCapture.props().onCapture(fakePhotoPayload)
+        documentLiveCapture.props().onCapture(fakeFrontPayload)
+
         wrapper.update()
       })
 
@@ -134,10 +144,8 @@ describe('DocumentVideo', () => {
 
       describe('when recording', () => {
         beforeEach(() => {
-          const startRecordingButton = wrapper.find(
-            'StartRecording Button > button'
-          )
-          startRecordingButton.simulate('click')
+          const button = wrapper.find('StartRecording Button > button')
+          button.simulate('click')
         })
 
         it('handles redo fallback correctly', () => {
@@ -164,6 +172,49 @@ describe('DocumentVideo', () => {
           expect(recording.props().disableInteraction).toBeFalsy()
           expect(recording.props().hasMoreSteps).toBeTruthy()
           expect(recording.find('Instructions').exists()).toBeTruthy()
+          expect(recording.find('Instructions').props()).toMatchObject({
+            icon: 'tilt',
+            title: 'doc_video_capture.instructions.video_tilt_title',
+            subtitle: 'doc_video_capture.instructions.video_tilt_subtitle',
+          })
+        })
+
+        it('moves to the next step correctly', () => {
+          const button = wrapper.find('Recording Button > button')
+          button.simulate('click')
+
+          const recording = wrapper.find<RecordingProps>(Recording)
+          expect(recording.props().disableInteraction).toBeFalsy()
+          expect(recording.props().hasMoreSteps).toBeFalsy()
+          expect(recording.find('Instructions').exists()).toBeTruthy()
+          expect(recording.find('Instructions').props()).toMatchObject({
+            icon: 'flip',
+            title: 'doc_video_capture.instructions.video_flip_title',
+            subtitle: 'doc_video_capture.instructions.video_flip_subtitle',
+          })
+        })
+
+        it('moves to the back document capture step', () => {
+          const button = wrapper.find('Recording Button > button')
+          button.simulate('click')
+          const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
+          videoCapture.props().onVideoCapture(fakeVideoPayload)
+          wrapper.update()
+
+          expect(wrapper.find('VideoCapture').exists()).toBeFalsy()
+
+          const documentLiveCapture = wrapper.find<DocumentLiveCaptureProps>(
+            DocumentLiveCapture
+          )
+          expect(documentLiveCapture.exists()).toBeTruthy()
+
+          documentLiveCapture.props().onCapture(fakeBackPayload)
+
+          expect(defaultProps.onCapture).toHaveBeenCalledWith({
+            front: fakeFrontPayload,
+            back: fakeBackPayload,
+            video: fakeVideoPayload,
+          })
         })
       })
     })

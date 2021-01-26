@@ -24,6 +24,7 @@ import type { WithLocalisedProps, WithOptionsProps } from '~types/hocs'
 import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
+  HandleDocVideoCaptureProp,
   StepComponentDocumentProps,
 } from '~types/routers'
 
@@ -59,6 +60,10 @@ class Document extends Component<Props> {
     actions.createCapture(documentCaptureData)
 
     nextStep()
+  }
+
+  handleDocVideoCapture: HandleDocVideoCaptureProp = (payload) => {
+    console.log('docVideo capture:', payload)
   }
 
   handleUpload = (blob: Blob, imageResizeInfo: ImageResizeInfo) =>
@@ -122,6 +127,7 @@ class Document extends Component<Props> {
       return (
         <DocumentVideo
           documentType={documentType}
+          onCapture={this.handleDocVideoCapture}
           renderFallback={renderFallback}
           trackScreen={trackScreen}
         />

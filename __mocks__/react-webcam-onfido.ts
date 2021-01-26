@@ -6,8 +6,10 @@ export default class Webcam extends Component<WebcamProps> {
     this.props.onUserMedia && this.props.onUserMedia()
   }
 
-  startRecording(): void {}
-  stopRecording(): void {}
+  getCanvas = (): HTMLCanvasElement => document.createElement('canvas')
+  getVideoBlob = (): Blob => new Blob()
+  startRecording = (): void => null
+  stopRecording = (): void => null
 
   render(): h.JSX.Element {
     return null

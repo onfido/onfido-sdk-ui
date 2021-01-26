@@ -11,16 +11,21 @@ import Instructions from './Instructions'
 import Recording from './Recording'
 import StartRecording from './StartRecording'
 
-import type { CaptureStep, RecordingStep } from '~types/docVideo'
+import type { CaptureSteps, RecordingSteps } from '~types/docVideo'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
-import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
+import type {
+  HandleCaptureProp,
+  HandleDocVideoCaptureProp,
+  RenderFallbackProp,
+} from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 
 export type DocumentVideoProps = {
   cameraClassName?: string
   documentType: DocumentTypes
   renderFallback: RenderFallbackProp
+  onCapture: HandleDocVideoCaptureProp
 } & WithTrackingProps
 
 type Props = DocumentVideoProps & WithLocalisedProps
@@ -28,21 +33,32 @@ type Props = DocumentVideoProps & WithLocalisedProps
 const DocumentVideo: FunctionComponent<Props> = ({
   cameraClassName,
   documentType,
+  onCapture,
   renderFallback,
   translate,
   trackScreen,
 }) => {
-  const [captureStep, setCaptureStep] = useState<CaptureStep>('front')
-  const [recordingStep, setRecordingStep] = useState<RecordingStep>('intro')
-  const [photoPayload, setPhotoPayload] = useState<CapturePayload>(null)
+  const [captureStep, setCaptureStep] = useState<CaptureSteps>('front')
+  const [recordingStep, setRecordingStep] = useState<RecordingSteps>('intro')
+  const [frontPayload, setFrontPayload] = useState<CapturePayload>(null)
+  const [videoPayload, setVideoPayload] = useState<CapturePayload>(null)
 
-  const handlePhotoCapture: HandleCaptureProp = (payload) => {
-    setPhotoPayload(payload)
+  const handleFrontCapture: HandleCaptureProp = (payload) => {
+    setFrontPayload(payload)
     setCaptureStep('video')
   }
 
   const handleVideoCapture: HandleCaptureProp = (payload) => {
-    console.log('handleVideoCapture.payload', payload)
+    setVideoPayload(payload)
+    setCaptureStep('back')
+  }
+
+  const handleBackCapture: HandleCaptureProp = (payload) => {
+    onCapture({
+      front: frontPayload,
+      video: videoPayload,
+      back: payload,
+    })
   }
 
   if (captureStep === 'front' || captureStep === 'back') {
@@ -54,7 +70,9 @@ const DocumentVideo: FunctionComponent<Props> = ({
       <DocumentLiveCapture
         documentType={documentType}
         isUploadFallbackDisabled
-        onCapture={handlePhotoCapture}
+        onCapture={
+          captureStep === 'front' ? handleFrontCapture : handleBackCapture
+        }
         renderFallback={renderFallback}
         trackScreen={trackScreen}
       >
@@ -92,7 +110,11 @@ const DocumentVideo: FunctionComponent<Props> = ({
             onNext={() => setRecordingStep('flip')}
             onStop={onStop}
           >
-            <Instructions title={title} subtitle={subtitle} />
+            <Instructions
+              icon={recordingStep}
+              title={title}
+              subtitle={subtitle}
+            />
           </Recording>
         ) : (
           <StartRecording
