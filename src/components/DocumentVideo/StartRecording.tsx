@@ -9,14 +9,14 @@ import style from './style.scss'
 import type { WithLocalisedProps } from '~types/hocs'
 
 export type StartRecordingProps = {
-  disableInteraction: boolean
+  disableInteraction?: boolean
   onClick: () => void
 }
 
 type Props = StartRecordingProps & WithLocalisedProps
 
 const StartRecording: FunctionComponent<Props> = ({
-  disableInteraction,
+  disableInteraction = false,
   onClick,
   translate,
 }) => {

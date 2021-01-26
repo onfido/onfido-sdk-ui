@@ -2,18 +2,18 @@ import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
-import StartRecording from '../StartRecording'
+import Recording from '../Recording'
 
 const defaultProps = {
-  onClick: jest.fn(),
+  onStop: jest.fn(),
 }
 
 describe('DocumentVideo', () => {
-  describe('StartRecording', () => {
+  describe('Recording', () => {
     it('renders without crashing', () => {
       const wrapper = shallow(
         <MockedLocalised>
-          <StartRecording {...defaultProps} />
+          <Recording {...defaultProps} />
         </MockedLocalised>
       )
       expect(wrapper.exists()).toBeTruthy()
@@ -22,28 +22,21 @@ describe('DocumentVideo', () => {
     it('renders instructions & button correctly', () => {
       const wrapper = mount(
         <MockedLocalised>
-          <StartRecording {...defaultProps} />
+          <Recording {...defaultProps} />
         </MockedLocalised>
-      )
-
-      expect(wrapper.find('Instructions .title').text()).toEqual(
-        'doc_video_capture.instructions.video_intro_title'
-      )
-      expect(wrapper.find('Instructions .subtitle').text()).toEqual(
-        'doc_video_capture.instructions.video_intro_subtitle'
       )
 
       const button = wrapper.find('Button > button')
       expect(button.prop('disabled')).toBeFalsy()
       expect(button.text()).toEqual(
-        'doc_video_capture.button_record_accessibility'
+        'doc_video_capture.button_stop_accessibility'
       )
     })
 
     it('disables button when disableInteraction=true', () => {
       const wrapper = mount(
         <MockedLocalised>
-          <StartRecording {...defaultProps} disableInteraction />
+          <Recording {...defaultProps} disableInteraction />
         </MockedLocalised>
       )
 
