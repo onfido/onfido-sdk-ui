@@ -16,4 +16,4 @@ const idObj = new Proxy(
   }
 )
 
-module.exports = idObj
+export default idObj
