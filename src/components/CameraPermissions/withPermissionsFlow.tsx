@@ -74,16 +74,22 @@ export default <P extends Props>(
       // otherwise we'll see a flicker, after we do work out what's what
       if (checkingWebcamPermissions) return null
 
-      return hasGrantedPermission === false ? (
-        <PermissionsRecover {...{ trackScreen }} />
-      ) : hasGrantedPermission || hasSeenPermissionsPrimer ? (
-        <WrappedCamera
-          {...this.props}
-          hasGrantedPermission={hasGrantedPermission}
-          onUserMedia={this.handleUserMedia}
-          onFailure={this.handleWebcamFailure}
-        />
-      ) : (
+      if (hasGrantedPermission === false) {
+        return <PermissionsRecover {...{ trackScreen }} />
+      }
+
+      if (hasGrantedPermission || hasSeenPermissionsPrimer) {
+        return (
+          <WrappedCamera
+            {...this.props}
+            hasGrantedPermission={hasGrantedPermission}
+            onUserMedia={this.handleUserMedia}
+            onFailure={this.handleWebcamFailure}
+          />
+        )
+      }
+
+      return (
         <PermissionsPrimer
           {...{ trackScreen }}
           onNext={this.setPermissionsPrimerSeen}
