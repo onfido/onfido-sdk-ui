@@ -25,7 +25,7 @@ jest.mock('../../utils', () => ({
   checkIfWebcamPermissionGranted: jest
     .fn()
     .mockImplementation((callback) => callback(true)),
-  parseTags: jest.fn().mockImplementation((str, handler) => handler(str)),
+  parseTags: jest.fn().mockImplementation((text, handler) => handler({ text })),
 }))
 
 const fakeSdkMetadata: SdkMetadata = {
@@ -143,26 +143,55 @@ describe('DocumentVideo', () => {
         expect(documentOverlay.props().type).toEqual(defaultProps.documentType)
       })
 
+      describe('when inactive timed out', () => {
+        beforeEach(() => {
+          const timeout = wrapper.find<TimeoutProps>(Timeout)
+          timeout.props().onTimeout()
+          wrapper.update()
+        })
+
+        it('handles redo fallback correctly', () => {
+          const error = wrapper.find('CameraError Error')
+          expect(error.exists()).toBeTruthy()
+          expect(error.find('.title').text()).toEqual(
+            'selfie_capture.alert.camera_inactive.title'
+          )
+        })
+      })
+
       describe('when recording', () => {
         beforeEach(() => {
           const button = wrapper.find('StartRecording Button > button')
           button.simulate('click')
         })
 
-        it('handles redo fallback correctly', () => {
-          const timeout = wrapper.find<TimeoutProps>(Timeout)
-          timeout.props().onTimeout()
-          wrapper.update()
+        describe('when inactive timed out', () => {
+          beforeEach(() => {
+            const timeout = wrapper.find<TimeoutProps>(Timeout)
+            timeout.props().onTimeout()
+            wrapper.update()
+          })
 
-          wrapper.find<FallbackButtonProps>(FallbackButton).props().onClick()
-          wrapper.update()
+          it('handles redo fallback correctly', () => {
+            const error = wrapper.find('CameraError Error')
+            expect(error.exists()).toBeTruthy()
+            expect(error.find('.title').text()).toEqual(
+              'selfie_capture.alert.timeout.title'
+            )
+            expect(error.find('.instruction button').text()).toEqual(
+              'selfie_capture.alert.timeout.detail'
+            )
 
-          expect(wrapper.find('VideoCapture Recording').exists()).toBeFalsy()
-          const startRecording = wrapper.find<StartRecordingProps>(
-            StartRecording
-          )
-          expect(startRecording.exists()).toBeTruthy()
-          expect(startRecording.props().disableInteraction).toBeFalsy()
+            wrapper.find<FallbackButtonProps>(FallbackButton).props().onClick()
+            wrapper.update()
+
+            expect(wrapper.find('VideoCapture Recording').exists()).toBeFalsy()
+            const startRecording = wrapper.find<StartRecordingProps>(
+              StartRecording
+            )
+            expect(startRecording.exists()).toBeTruthy()
+            expect(startRecording.props().disableInteraction).toBeFalsy()
+          })
         })
 
         it('starts recording correctly', () => {
