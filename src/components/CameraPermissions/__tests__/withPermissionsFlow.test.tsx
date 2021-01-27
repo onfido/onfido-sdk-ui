@@ -18,7 +18,7 @@ type DummyProps = {
 } & WithTrackingProps
 
 const DummyComponent: FunctionComponent<DummyProps> = () => (
-  <span>Wrapped component</span>
+  <span>Dummy component</span>
 )
 
 const WrappedComponent = withPermissionsFlow(DummyComponent)
