@@ -30,14 +30,16 @@ describe('ModalApp', () => {
     expect(wrapper.find('Connect(ModalApp)').exists()).toBeTruthy()
   })
 
-  it('renders the LocaleProvider', () => {
-    const wrapper = mount(
-      <MockedReduxProvider>
-        <ModalApp options={defaultOptions} />
-      </MockedReduxProvider>
-    )
+  describe('when mounted', () => {
+    it('renders without crashing', () => {
+      const wrapper = mount(
+        <MockedReduxProvider>
+          <ModalApp options={defaultOptions} />
+        </MockedReduxProvider>
+      )
 
-    expect(wrapper.exists()).toBeTruthy()
-    expect(wrapper.find(LocaleProvider).exists()).toBeTruthy()
+      expect(wrapper.exists()).toBeTruthy()
+      expect(wrapper.find(LocaleProvider).exists()).toBeTruthy()
+    })
   })
 })
