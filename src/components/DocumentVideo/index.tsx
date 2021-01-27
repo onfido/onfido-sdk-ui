@@ -100,6 +100,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
   return (
     <VideoCapture
       cameraClassName={cameraClassName}
+      facing="environment"
       inactiveError={getInactiveError(true)}
       onRecordingStart={() => setRecordingStep('tilt')}
       onRedo={() => setRecordingStep('intro')}

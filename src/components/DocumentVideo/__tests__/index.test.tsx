@@ -102,6 +102,7 @@ describe('DocumentVideo', () => {
 
         const {
           cameraClassName,
+          facing,
           inactiveError,
           onRedo,
           renderFallback,
@@ -109,6 +110,7 @@ describe('DocumentVideo', () => {
         } = videoCapture.props()
 
         expect(cameraClassName).toEqual('fakeCameraClass')
+        expect(facing).toEqual('environment')
         expect(inactiveError.name).toEqual('CAMERA_INACTIVE_NO_FALLBACK')
 
         expect(onRedo).toBeDefined()
