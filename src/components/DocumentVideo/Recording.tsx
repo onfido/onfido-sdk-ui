@@ -1,6 +1,5 @@
 import { h, FunctionComponent } from 'preact'
 
-import { noop } from '~utils/func'
 import { localised } from '../../locales'
 import Button from '../Button'
 import style from './style.scss'
@@ -21,7 +20,7 @@ const Recording: FunctionComponent<Props> = ({
   children,
   disableInteraction = false,
   hasMoreSteps = false,
-  onNext = noop,
+  onNext,
   onStop,
   translate,
 }) => {

@@ -9,6 +9,9 @@ import DocumentOverlay, {
 import DocumentLiveCapture, {
   Props as DocumentLiveCaptureProps,
 } from '../../Photo/DocumentLiveCapture'
+import FallbackButton, {
+  Props as FallbackButtonProps,
+} from '../../Button/FallbackButton'
 import VideoCapture, { Props as VideoCaptureProps } from '../../VideoCapture'
 import Timeout, { Props as TimeoutProps } from '../../Timeout'
 
@@ -18,7 +21,12 @@ import StartRecording, { StartRecordingProps } from '../StartRecording'
 
 import type { SdkMetadata } from '~types/commons'
 
-jest.mock('../../CameraPermissions/withPermissionsFlow')
+jest.mock('../../utils', () => ({
+  checkIfWebcamPermissionGranted: jest
+    .fn()
+    .mockImplementation((callback) => callback(true)),
+  parseTags: jest.fn().mockImplementation((str, handler) => handler(str)),
+}))
 
 const fakeSdkMetadata: SdkMetadata = {
   captureMethod: 'live',
@@ -146,14 +154,15 @@ describe('DocumentVideo', () => {
           timeout.props().onTimeout()
           wrapper.update()
 
+          wrapper.find<FallbackButtonProps>(FallbackButton).props().onClick()
+          wrapper.update()
+
           expect(wrapper.find('VideoCapture Recording').exists()).toBeFalsy()
           const startRecording = wrapper.find<StartRecordingProps>(
             StartRecording
           )
-          expect(startRecording).toBeTruthy()
-
-          // @FIXME: this requires mocking parseTags util in CameraError/index.tsx:69
-          // expect(startRecording.props().disableInteraction).toBeFalsy()
+          expect(startRecording.exists()).toBeTruthy()
+          expect(startRecording.props().disableInteraction).toBeFalsy()
         })
 
         it('starts recording correctly', () => {

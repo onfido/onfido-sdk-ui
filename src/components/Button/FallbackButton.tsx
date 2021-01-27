@@ -1,8 +1,13 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-const FallbackButton = ({ text, onClick }) => (
+export type Props = {
+  text: string
+  onClick?: () => void
+}
+
+const FallbackButton: FunctionComponent<Props> = ({ text, onClick }) => (
   <button
     type="button"
     className={`${style.fallbackButton} ${theme.warning}`}

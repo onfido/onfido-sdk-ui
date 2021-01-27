@@ -15,7 +15,7 @@ jest.mock('../../utils', () => ({
 }))
 
 const defaultProps: VideoCaptureProps = {
-  inactiveError: { name: 'LIVENESS_TIMEOUT' },
+  inactiveError: { name: 'VIDEO_TIMEOUT' },
   onRedo: jest.fn(),
   onVideoCapture: jest.fn(),
   renderFallback: jest.fn(),
