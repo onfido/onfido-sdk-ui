@@ -41,6 +41,7 @@
   height: calc(100% - #{$non-content-height});
   position: relative;
   display: flex;
+  flex-direction: column;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
 

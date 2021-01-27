@@ -15,4 +15,9 @@ declare global {
       options: SdkOptions & { onComplete?: (data: unknown) => void }
     ) => void
   }
+
+  module '*.scss' {
+    const content: { [className: string]: string }
+    export = content
+  }
 }
