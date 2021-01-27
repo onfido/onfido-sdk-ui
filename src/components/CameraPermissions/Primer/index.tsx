@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import PageTitle from 'components/PageTitle'
 import Button from 'components/Button'
 import { trackComponent } from 'Tracker'
-import { localised } from '../../../locales'
+import { localised } from '~locales'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
