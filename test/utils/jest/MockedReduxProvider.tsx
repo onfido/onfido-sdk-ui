@@ -4,22 +4,21 @@ import configureMockStore from 'redux-mock-store'
 
 import { initialState as captures } from 'components/ReduxAppWrapper/store/reducers/captures'
 import { initialState as globals } from 'components/ReduxAppWrapper/store/reducers/globals'
-import type { RootState } from 'components/ReduxAppWrapper/store/reducers'
+import type { GlobalState } from '~types/redux'
 
 type Props = {
   children?: h.JSX.Element
-  overrideState?: RootState
+  overrideGlobals?: Partial<GlobalState>
 }
 
 const MockedReduxProvider: FunctionComponent<Props> = ({
   children,
-  overrideState,
+  overrideGlobals,
 }) => {
   const mockStore = configureMockStore()
   const mockState = {
     captures,
-    globals,
-    ...overrideState,
+    globals: { ...globals, ...overrideGlobals },
   }
   const store = mockStore(mockState)
 
