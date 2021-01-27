@@ -57,7 +57,7 @@ describe('VideoCapture', () => {
       wrapper = mount(
         <MockedReduxProvider>
           <MockedLocalised>
-            <VideoCapture {...defaultProps} />
+            <VideoCapture {...defaultProps} title="Fake title" />
           </MockedLocalised>
         </MockedReduxProvider>
       )
@@ -83,6 +83,9 @@ describe('VideoCapture', () => {
       expect(defaultProps.renderFallback).toHaveBeenCalledWith(
         'fake_fallback_reason'
       )
+
+      expect(wrapper.find('PageTitle').exists()).toBeTruthy()
+      expect(wrapper.find('PageTitle').text()).toEqual('Fake title')
     })
 
     it('renders inactive timeout correctly', () => {
@@ -99,8 +102,10 @@ describe('VideoCapture', () => {
         recordButton.simulate('click')
       })
 
-      it('starts video recording', () => {
+      it('starts video recording and hides title', () => {
+        expect(recordButton.text()).toEqual('Stop')
         expect(defaultProps.onRecordingStart).toHaveBeenCalled()
+        expect(wrapper.find('PageTitle').exists()).toBeFalsy()
       })
 
       it('renders inactive timeout correctly', () => {
@@ -111,6 +116,7 @@ describe('VideoCapture', () => {
 
       it('stops video recording with capture payload', () => {
         recordButton.simulate('click')
+        expect(recordButton.text()).toEqual('Start')
 
         expect(defaultProps.onVideoCapture).toHaveBeenCalledWith({
           blob: new Blob(),
