@@ -1,16 +1,17 @@
 import { h, Component, ComponentType } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
-import Modal from '../Modal'
-import Router from '../Router'
-import * as Tracker from '../../Tracker'
-import { LocaleProvider } from '../../locales'
+
+import { LocaleProvider } from '~locales'
 import { getEnabledDocuments } from '~utils'
-import { getCountryDataForDocumentType } from '../../supported-documents'
 import {
   parseJwt,
   getUrlsFromJWT,
   getEnterpriseFeaturesFromJWT,
 } from '~utils/jwt'
+import Modal from '../Modal'
+import Router from '../Router'
+import * as Tracker from '../../Tracker'
+import { getCountryDataForDocumentType } from '../../supported-documents'
 
 import type { NormalisedSdkOptions } from '~types/commons'
 import type {
