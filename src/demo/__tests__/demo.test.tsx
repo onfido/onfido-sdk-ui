@@ -61,7 +61,7 @@ describe('Mount Demo App', () => {
         'for',
         'EU',
         'in',
-        'test'
+        process.env.NODE_ENV
       )
     })
   })
@@ -80,7 +80,7 @@ describe('Mount Demo App', () => {
         'for',
         'EU',
         'in',
-        'test'
+        process.env.NODE_ENV
       )
     })
   })
