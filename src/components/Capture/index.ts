@@ -17,7 +17,11 @@ export const DocumentVideoCapture = appendToTracking(
 )
 
 export const PoACapture = appendToTracking(
-  withOptions(Document, { isPoA: true, forceCrossDevice: false }),
+  withOptions(Document, {
+    isPoA: true,
+    forceCrossDevice: false,
+    side: 'front',
+  }),
   'poa'
 )
 
