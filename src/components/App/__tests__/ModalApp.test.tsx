@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
 import MockedReduxProvider from '~jest/MockedReduxProvider'
-import { LocaleProvider } from '../../../locales'
+import { LocaleProvider } from '~locales'
 import ModalApp from '../ModalApp'
 
 import type { NormalisedSdkOptions } from '~types/commons'
