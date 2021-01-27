@@ -4,7 +4,7 @@ import Face from './Face'
 import withOptions from './withOptions'
 
 export const DocumentFrontCapture = appendToTracking(
-  withOptions(Document),
+  withOptions(Document, { side: 'front' }),
   'front_capture'
 )
 export const DocumentBackCapture = appendToTracking(
