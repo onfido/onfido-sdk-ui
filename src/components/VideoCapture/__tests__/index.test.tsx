@@ -16,10 +16,21 @@ jest.mock('../../utils', () => ({
 
 const defaultProps: VideoCaptureProps = {
   inactiveError: { name: 'VIDEO_TIMEOUT' },
+  onRecordingStart: jest.fn(),
   onRedo: jest.fn(),
   onVideoCapture: jest.fn(),
   renderFallback: jest.fn(),
   trackScreen: jest.fn(),
+  /* eslint-disable-next-line react/display-name */
+  renderVideoLayer: ({ disableInteraction, isRecording, onStart, onStop }) => (
+    <button
+      id="record-video"
+      disabled={disableInteraction}
+      onClick={isRecording ? onStop : onStart}
+    >
+      {isRecording ? 'Stop' : 'Start'}
+    </button>
+  ),
 }
 
 describe('VideoCapture', () => {
@@ -72,6 +83,44 @@ describe('VideoCapture', () => {
       expect(defaultProps.renderFallback).toHaveBeenCalledWith(
         'fake_fallback_reason'
       )
+    })
+
+    it('renders inactive timeout correctly', () => {
+      const timeout = wrapper.find('Timeout')
+      expect(timeout.exists()).toBeTruthy()
+      expect(timeout.prop('seconds')).toEqual(12)
+    })
+
+    describe('when recording', () => {
+      let recordButton: ReactWrapper
+
+      beforeEach(() => {
+        recordButton = wrapper.find('#record-video')
+        recordButton.simulate('click')
+      })
+
+      it('starts video recording', () => {
+        expect(defaultProps.onRecordingStart).toHaveBeenCalled()
+      })
+
+      it('renders inactive timeout correctly', () => {
+        const timeout = wrapper.find('Timeout')
+        expect(timeout.exists()).toBeTruthy()
+        expect(timeout.prop('seconds')).toEqual(20)
+      })
+
+      it('stops video recording with capture payload', () => {
+        recordButton.simulate('click')
+
+        expect(defaultProps.onVideoCapture).toHaveBeenCalledWith({
+          blob: new Blob(),
+          sdkMetadata: {
+            camera_name: 'fake-video-track',
+            captureMethod: 'live',
+            microphone_name: 'fake-audio-track',
+          },
+        })
+      })
     })
   })
 })
