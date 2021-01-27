@@ -58,6 +58,8 @@
       "jest-canvas-mock"
     ],
     "moduleNameMapper": {
+      "^react$": "preact/compat",
+      "^react-dom$": "preact/compat",
       "\\.(scss|css)$": "<rootDir>/src/unit_tests/mocks/styleMock.js",
       "^~types(.*)$": "<rootDir>/src/components/types$1",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
