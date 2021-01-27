@@ -1,12 +1,24 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import { mount, shallow } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
-import Primer from '../Primer'
+import withPermissionsFlow from '../withPermissionsFlow'
+import type { WithTrackingProps } from '~types/hocs'
+import type { RenderFallbackProp } from '~types/routers'
+
+type DummyProps = {
+  renderFallback: RenderFallbackProp
+} & WithTrackingProps
+
+const DummyComponent: FunctionComponent<DummyProps> = () => (
+  <span>Wrapped component</span>
+)
+
+const WrappedComponent = withPermissionsFlow(DummyComponent)
 
 const defaultProps = {
-  onNext: jest.fn(),
+  renderFallback: jest.fn(),
   trackScreen: jest.fn(),
 }
 
@@ -16,11 +28,10 @@ describe('CameraPermissions', () => {
       const wrapper = shallow(
         <MockedReduxProvider>
           <MockedLocalised>
-            <Primer {...defaultProps} />
+            <WrappedComponent {...defaultProps} />
           </MockedLocalised>
         </MockedReduxProvider>
       )
-
       expect(wrapper.exists()).toBeTruthy()
     })
 
@@ -29,13 +40,13 @@ describe('CameraPermissions', () => {
         const wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <Primer {...defaultProps} />
+              <WrappedComponent {...defaultProps} />
             </MockedLocalised>
           </MockedReduxProvider>
         )
 
         expect(wrapper.exists()).toBeTruthy()
-        expect(wrapper.find('PageTitle').exists()).toBeTruthy()
+        expect(wrapper.find('Permissions').exists()).toBeTruthy()
       })
     })
   })
