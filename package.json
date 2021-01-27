@@ -22,7 +22,7 @@
     "check": "npm run -s lint",
     "lint": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}' && stylelint 'src/**/*.scss' && prettier . -c",
     "bundle-analyzer": "webpack-bundle-analyzer",
-    "test": "jest --verbose",
+    "test": "npm run test:unit",
     "test:integration": "jest --verbose --testPathPattern=__integrations__",
     "test:unit": "jest --verbose --testPathPattern=__tests__",
     "test:ui": "babel-node test/main.js",
