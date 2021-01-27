@@ -68,9 +68,9 @@ describe('VideoCapture', () => {
       expect(isButtonDisabled).toBeFalsy()
       expect(renderError).toBeFalsy()
 
-      renderFallback('fake_fallback_text')
+      renderFallback('fake_fallback_reason')
       expect(defaultProps.renderFallback).toHaveBeenCalledWith(
-        'fake_fallback_text'
+        'fake_fallback_reason'
       )
     })
   })
