@@ -112,7 +112,6 @@
     "@babel/plugin-transform-react-jsx": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.10.4",
-    "@babel/preset-typescript": "^7.12.7",
     "@babel/register": "^7.8.6",
     "@onfido/surge": "^0.20.2",
     "@sentry/cli": "^1.51.1",
