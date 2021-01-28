@@ -31,13 +31,23 @@
   }
 }
 
-.instructions > .flipIcon {
-  background: url('./assets/flip.svg') no-repeat;
+.instructions > .icon {
   font-size: 16 * $unit;
-  height: 1.625em;
-  width: 2.625em;
+  background-repeat: no-repeat;
   margin-left: auto;
   margin-right: auto;
+}
+
+.instructions > .tiltIcon {
+  background: url('./assets/tilt.png');
+  height: 2.25em;
+  width: 3.0625em;
+}
+
+.instructions > .flipIcon {
+  background: url('./assets/flip.svg');
+  height: 1.625em;
+  width: 2.625em;
 }
 
 .actions {

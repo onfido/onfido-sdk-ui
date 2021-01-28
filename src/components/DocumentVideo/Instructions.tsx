@@ -13,7 +13,12 @@ type Props = {
 const Instructions: FunctionComponent<Props> = ({ icon, subtitle, title }) => {
   return (
     <div className={style.instructions}>
-      <span className={cx({ [style.flipIcon]: icon === 'flip' })} />
+      <span
+        className={cx(style.icon, {
+          [style.flipIcon]: icon === 'flip',
+          [style.tiltIcon]: icon === 'tilt',
+        })}
+      />
       <span className={style.title}>{title}</span>
       {subtitle && <span className={style.subtitle}>{subtitle}</span>}
     </div>
