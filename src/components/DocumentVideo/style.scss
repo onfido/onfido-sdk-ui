@@ -6,7 +6,6 @@
   bottom: 128 * $unit;
   left: 16 * $unit;
   right: 16 * $unit;
-  // height: 144 * $unit;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,10 +15,29 @@
   color: $color-white;
   font-family: $font-family;
   font-size: 16 * $unit;
+  margin-bottom: 0.5em;
+
+  @media (--medium-viewport) {
+    font-size: 12 * $unit;
+    margin-bottom: 0;
+  }
 }
 
 .instructions > .title {
   font-size: 24 * $unit;
+
+  @media (--medium-viewport) {
+    font-size: 20 * $unit;
+  }
+}
+
+.instructions > .flipIcon {
+  background: url('./assets/flip.svg') no-repeat;
+  font-size: 16 * $unit;
+  height: 1.625em;
+  width: 2.625em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .actions {

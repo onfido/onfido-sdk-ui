@@ -104,7 +104,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
       onRedo={() => setRecordingStep('intro')}
       onVideoCapture={handleVideoCapture}
       renderFallback={renderFallback}
-      renderOverlay={() => <DocumentOverlay type={documentType} />}
+      renderOverlay={() => <DocumentOverlay type={documentType} videoCapture />}
       renderVideoLayer={({
         disableInteraction,
         isRecording,

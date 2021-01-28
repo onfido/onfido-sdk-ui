@@ -5,5 +5,7 @@
 @custom-media --shorter-viewport (max-height: 520px);
 /* For viewport smaller than iPhone 5 in terms of height */
 @custom-media --short-viewport (max-height: 567px);
+/* For viewport smaller than or equal to iPhone 5 in terms of height */
+@custom-media --medium-viewport (max-height: 568px);
 /* For viewport larger than iPhone 5 in terms of height */
 @custom-media --long-viewport (min-height: 568px);

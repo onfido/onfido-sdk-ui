@@ -10,6 +10,11 @@
   box-shadow: 0 0 0 300 * $unit $color-camera-overlay;
 }
 
+.docVideo {
+  bottom: 65%;
+  box-shadow: 0 0 0 410 * $unit $color-camera-overlay;
+}
+
 .rectangle {
   //default value of react-webcam https://github.com/cezary/react-webcam
   $width-frame: 640;

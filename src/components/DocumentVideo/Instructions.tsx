@@ -1,4 +1,5 @@
 import { h, FunctionComponent } from 'preact'
+import cx from 'classnames'
 import style from './style.scss'
 
 import type { RecordingSteps } from '~types/docVideo'
@@ -9,9 +10,10 @@ type Props = {
   title: string
 }
 
-const Instructions: FunctionComponent<Props> = ({ subtitle, title }) => {
+const Instructions: FunctionComponent<Props> = ({ icon, subtitle, title }) => {
   return (
     <div className={style.instructions}>
+      <span className={cx({ [style.flipIcon]: icon === 'flip' })} />
       <span className={style.title}>{title}</span>
       {subtitle && <span className={style.subtitle}>{subtitle}</span>}
     </div>
