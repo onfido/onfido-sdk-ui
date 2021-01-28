@@ -5886,6 +5886,12 @@
     "path": "node_modules/hard-rejection",
     "licenseFile": "node_modules/hard-rejection/license"
   },
+  "harmony-reflect@1.6.1": {
+    "licenses": "(Apache-2.0 OR MPL-1.1)",
+    "repository": "git+https://tvcutsem@github.com/tvcutsem/harmony-reflect",
+    "path": "node_modules/harmony-reflect",
+    "licenseFile": "node_modules/harmony-reflect/README.md"
+  },
   "has-ansi@2.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/has-ansi",
@@ -6279,6 +6285,15 @@
     "publisher": "Glen Maddern",
     "path": "node_modules/icss-utils",
     "licenseFile": "node_modules/icss-utils/LICENSE.md"
+  },
+  "identity-obj-proxy@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/keyanzhang/identity-obj-proxy",
+    "publisher": "Keyan Zhang",
+    "email": "root@keyanzhang.com",
+    "url": "http://keya.nz",
+    "path": "node_modules/identity-obj-proxy",
+    "licenseFile": "node_modules/identity-obj-proxy/LICENSE"
   },
   "ieee754@1.1.13": {
     "licenses": "BSD-3-Clause",
