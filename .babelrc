@@ -5,7 +5,7 @@
       "@babel/preset-env",
       {
         "corejs": {
-          "version": "3",
+          "version": "2",
           "proposals": true
         },
         "useBuiltIns": "usage",
