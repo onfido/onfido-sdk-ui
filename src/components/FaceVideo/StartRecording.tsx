@@ -14,13 +14,11 @@ type StartRecordingProps = {
 type Props = StartRecordingProps & WithLocalisedProps
 
 const StartRecording: FunctionComponent<Props> = ({
-  children,
   disableInteraction,
   onStart,
   translate,
 }) => (
   <div className={style.actions}>
-    {children}
     <div className={classNames(style.captureActionsHint, style.recordAction)}>
       {translate('video_capture.body_record')}
     </div>
