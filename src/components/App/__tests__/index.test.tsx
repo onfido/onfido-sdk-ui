@@ -5,6 +5,11 @@ import App from '../index'
 import type { NormalisedSdkOptions } from '~types/commons'
 
 jest.mock('Tracker/safeWoopra')
+jest.mock('../../utils', () => ({
+  getEnabledDocuments: jest.fn().mockReturnValue([]),
+  getCSSMilisecsValue: jest.fn().mockReturnValue(0),
+  wrapWithClass: jest.fn().mockImplementation(({ children }) => children),
+}))
 
 const defaultOptions: NormalisedSdkOptions = {
   steps: [
