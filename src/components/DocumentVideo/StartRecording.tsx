@@ -7,12 +7,12 @@ import Button from '../Button'
 import Instructions from './Instructions'
 import style from './style.scss'
 
-export type StartRecordingProps = {
+export type Props = {
   disableInteraction?: boolean
   onClick: () => void
 }
 
-const StartRecording: FunctionComponent<StartRecordingProps> = ({
+const StartRecording: FunctionComponent<Props> = ({
   disableInteraction = false,
   onClick,
 }) => {

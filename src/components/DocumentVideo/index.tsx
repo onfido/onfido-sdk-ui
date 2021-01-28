@@ -1,10 +1,10 @@
 import { h, FunctionComponent } from 'preact'
-import { useState } from 'preact/compat'
+import { useContext, useState } from 'preact/compat'
 
 import { getInactiveError } from '~utils/inactiveError'
 import { mimeType } from '~utils/blob'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
-import { localised } from '~locales'
+import { LocaleContext } from '~locales'
 import { DocumentOverlay } from '../Overlay'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import VideoCapture from '../VideoCapture'
@@ -13,7 +13,7 @@ import Recording from './Recording'
 import StartRecording from './StartRecording'
 
 import type { CaptureSteps, RecordingSteps } from '~types/docVideo'
-import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type {
   HandleCaptureProp,
@@ -22,14 +22,12 @@ import type {
 } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 
-export type DocumentVideoProps = {
+export type Props = {
   cameraClassName?: string
   documentType: DocumentTypes
   renderFallback: RenderFallbackProp
   onCapture: HandleDocVideoCaptureProp
 } & WithTrackingProps
-
-type Props = DocumentVideoProps & WithLocalisedProps
 
 const renamedCapture = (
   payload: CapturePayload,
@@ -44,13 +42,13 @@ const DocumentVideo: FunctionComponent<Props> = ({
   documentType,
   onCapture,
   renderFallback,
-  translate,
   trackScreen,
 }) => {
   const [captureStep, setCaptureStep] = useState<CaptureSteps>('front')
   const [recordingStep, setRecordingStep] = useState<RecordingSteps>('intro')
   const [frontPayload, setFrontPayload] = useState<CapturePayload>(null)
   const [videoPayload, setVideoPayload] = useState<CapturePayload>(null)
+  const { translate } = useContext(LocaleContext)
 
   const handleFrontCapture: HandleCaptureProp = (payload) => {
     setFrontPayload(renamedCapture(payload, 'front'))
@@ -138,4 +136,4 @@ const DocumentVideo: FunctionComponent<Props> = ({
   )
 }
 
-export default localised(DocumentVideo)
+export default DocumentVideo

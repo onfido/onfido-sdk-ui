@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { mount } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
-import Recording, { RecordingProps } from '../Recording'
+import Recording, { Props as RecordingProps } from '../Recording'
 
 const defaultProps: RecordingProps = {
   onNext: jest.fn(),

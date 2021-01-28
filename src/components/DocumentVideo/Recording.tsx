@@ -5,7 +5,7 @@ import { LocaleContext } from '../../locales'
 import Button from '../Button'
 import style from './style.scss'
 
-export type RecordingProps = {
+export type Props = {
   children?: h.JSX.Element | h.JSX.Element[]
   disableInteraction?: boolean
   hasMoreSteps?: boolean
@@ -13,7 +13,7 @@ export type RecordingProps = {
   onStop: () => void
 }
 
-const Recording: FunctionComponent<RecordingProps> = ({
+const Recording: FunctionComponent<Props> = ({
   children,
   disableInteraction = false,
   hasMoreSteps = false,
