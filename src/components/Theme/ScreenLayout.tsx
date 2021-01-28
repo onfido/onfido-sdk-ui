@@ -1,9 +1,9 @@
-import { h, Fragment, ComponentType, ComponentChildren } from 'preact'
+import { h, Fragment, ComponentType, ComponentChildren, VNode } from 'preact'
 import theme from './style.scss'
 
 type ScreenLayoutProps = {
   children: ComponentChildren
-  actions?: ComponentType
+  actions?: ComponentType | VNode
 }
 
 const ScreenLayout = ({ children, actions }: ScreenLayoutProps) => {
