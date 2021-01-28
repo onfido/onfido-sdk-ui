@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { shallow } from 'enzyme'
 
-import App from './index'
+import App from '../index'
 
 jest.mock('@onfido/castor-react', () => {
   return {
