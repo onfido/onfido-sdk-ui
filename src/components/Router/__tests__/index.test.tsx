@@ -9,6 +9,13 @@ import type { NarrowSdkOptions } from '~types/commons'
 
 jest.mock('../../utils/crossDeviceSync')
 
+jest.mock('../../utils', () => ({
+  buildIteratorKey: jest.fn().mockImplementation((key) => key),
+  checkIfHasWebcam: jest.fn().mockImplementation((callback) => callback(true)),
+  hasOnePreselectedDocument: jest.fn().mockReturnValue(false),
+  isSafari131: jest.fn().mockReturnValue(false),
+}))
+
 const defaultOptions: NarrowSdkOptions = {
   steps: [
     { type: 'welcome' },
