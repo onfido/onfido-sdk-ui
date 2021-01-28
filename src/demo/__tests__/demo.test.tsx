@@ -7,9 +7,9 @@ declare global {
   }
 }
 
-jest.mock('../Tracker/safeWoopra')
+jest.mock('../../Tracker/safeWoopra')
 
-jest.mock('./demoUtils', () => ({
+jest.mock('../demoUtils', () => ({
   getInitSdkOptions: jest.fn().mockReturnValue({}),
   queryParamToValueString: { useHistory: false },
   getTokenFactoryUrl: () => 'https://token-factory.onfido.com/sdk_token',
@@ -34,6 +34,10 @@ describe('Mount Demo App', () => {
     document.body.appendChild(rootNode)
   })
 
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   describe('by mocking Onfido SDK', () => {
     beforeEach(() => {
       window.Onfido = {
@@ -44,7 +48,7 @@ describe('Mount Demo App', () => {
         })),
       }
 
-      Demo = require('./demo').Demo
+      Demo = require('../demo').Demo
     })
 
     it('mounts the Onfido Demo without crashing', () => {
@@ -57,14 +61,14 @@ describe('Mount Demo App', () => {
         'for',
         'EU',
         'in',
-        'test'
+        process.env.NODE_ENV
       )
     })
   })
 
   describe('without mocking Onfido SDK', () => {
     beforeEach(() => {
-      Demo = require('./demo').Demo
+      Demo = require('../demo').Demo
     })
 
     it('mounts the Onfido Demo without crashing', () => {
@@ -76,7 +80,7 @@ describe('Mount Demo App', () => {
         'for',
         'EU',
         'in',
-        'test'
+        process.env.NODE_ENV
       )
     })
   })
