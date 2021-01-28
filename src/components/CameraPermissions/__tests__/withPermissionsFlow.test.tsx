@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { mount, shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
@@ -38,54 +38,41 @@ describe('CameraPermissions', () => {
       jest.clearAllMocks()
     })
 
-    it('renders without crashing', () => {
-      const wrapper = shallow(
-        <MockedReduxProvider>
-          <MockedLocalised>
-            <WrappedComponent {...defaultProps} />
-          </MockedLocalised>
-        </MockedReduxProvider>
-      )
-      expect(wrapper.exists()).toBeTruthy()
-    })
-
-    describe('when mounted', () => {
-      describe('when webcam permissions rejected', () => {
-        beforeEach(() => {
-          mockedCheck.mockImplementation((callback) => callback(false))
-        })
-
-        it('renders PermissionsPrimer', () => {
-          const wrapper = mount(
-            <MockedReduxProvider>
-              <MockedLocalised>
-                <WrappedComponent {...defaultProps} />
-              </MockedLocalised>
-            </MockedReduxProvider>
-          )
-
-          expect(wrapper.exists()).toBeTruthy()
-          expect(wrapper.find('Permissions').exists()).toBeTruthy()
-        })
+    describe('when webcam permissions rejected', () => {
+      beforeEach(() => {
+        mockedCheck.mockImplementation((callback) => callback(false))
       })
 
-      describe('when webcam permissions granted', () => {
-        beforeEach(() => {
-          mockedCheck.mockImplementation((callback) => callback(true))
-        })
+      it('renders PermissionsPrimer', () => {
+        const wrapper = mount(
+          <MockedReduxProvider>
+            <MockedLocalised>
+              <WrappedComponent {...defaultProps} />
+            </MockedLocalised>
+          </MockedReduxProvider>
+        )
 
-        it('renders wrapped component', () => {
-          const wrapper = mount(
-            <MockedReduxProvider>
-              <MockedLocalised>
-                <WrappedComponent {...defaultProps} />
-              </MockedLocalised>
-            </MockedReduxProvider>
-          )
+        expect(wrapper.exists()).toBeTruthy()
+        expect(wrapper.find('Permissions').exists()).toBeTruthy()
+      })
+    })
 
-          expect(wrapper.exists()).toBeTruthy()
-          expect(wrapper.find(DummyComponent).exists()).toBeTruthy()
-        })
+    describe('when webcam permissions granted', () => {
+      beforeEach(() => {
+        mockedCheck.mockImplementation((callback) => callback(true))
+      })
+
+      it('renders wrapped component', () => {
+        const wrapper = mount(
+          <MockedReduxProvider>
+            <MockedLocalised>
+              <WrappedComponent {...defaultProps} />
+            </MockedLocalised>
+          </MockedReduxProvider>
+        )
+
+        expect(wrapper.exists()).toBeTruthy()
+        expect(wrapper.find(DummyComponent).exists()).toBeTruthy()
       })
     })
   })
