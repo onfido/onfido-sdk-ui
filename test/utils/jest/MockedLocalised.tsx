@@ -4,7 +4,6 @@ import { LocaleContext } from '~locales'
 import type { SupportedLanguages } from '~types/locales'
 
 type Props = {
-  children: h.JSX.Element
   language?: SupportedLanguages
 }
 

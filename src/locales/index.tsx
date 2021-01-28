@@ -11,7 +11,6 @@ import type {
 
 type ProviderProps = {
   language: SupportedLanguages | LocaleConfig
-  children: h.JSX.Element
 }
 
 export const LocaleContext = createContext<WithLocalisedProps>(null)

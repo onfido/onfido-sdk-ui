@@ -6,13 +6,9 @@ import reducer, { RootState } from './store/reducers'
 
 import type { CaptureActions, GlobalActions } from '~types/redux'
 
-type Props = {
-  children: h.JSX.Element
-}
-
 type StoreType = Store<RootState, CaptureActions | GlobalActions>
 
-const ReduxAppWrapper: FunctionComponent<Props> = ({ children }) => {
+const ReduxAppWrapper: FunctionComponent = ({ children }) => {
   const [store, setStore] = useState<StoreType>(null)
 
   useEffect(() => {
