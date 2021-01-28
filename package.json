@@ -23,8 +23,8 @@
     "lint": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}' && stylelint 'src/**/*.scss' && prettier . -c",
     "bundle-analyzer": "webpack-bundle-analyzer",
     "test": "npm run test:unit",
-    "test:integration": "jest --verbose --testPathPattern=src/components/utils/integration_tests",
-    "test:unit": "jest --verbose --testPathPattern=src/components/utils/unit_tests",
+    "test:integration": "jest --verbose --testPathPattern=__integrations__",
+    "test:unit": "jest --verbose --testPathPattern=__tests__",
     "test:ui": "babel-node test/main.js",
     "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js",
     "license-checker": "license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json",
@@ -71,7 +71,11 @@
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest",
       "^.+\\.(ts|tsx)$": "ts-jest"
-    }
+    },
+    "testMatch": [
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/__integrations__/**/*.integration.[jt]s?(x)"
+    ]
   },
   "bundlewatch": {
     "files": [
