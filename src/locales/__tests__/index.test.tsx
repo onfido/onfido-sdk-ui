@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 
 import { LocaleProvider } from '../index'
 
@@ -12,6 +12,17 @@ describe('locales', () => {
         </LocaleProvider>
       )
       expect(wrapper.exists()).toBeTruthy()
+    })
+
+    describe('when mounted', () => {
+      it('renders without crashing', () => {
+        const wrapper = mount(
+          <LocaleProvider language="en_US">
+            <span>Fake localised wrapped</span>
+          </LocaleProvider>
+        )
+        expect(wrapper.exists()).toBeTruthy()
+      })
     })
   })
 })

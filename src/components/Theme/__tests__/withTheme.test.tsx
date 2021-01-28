@@ -15,13 +15,7 @@ describe('CameraPermissions', () => {
     })
 
     it('renders without crashing', () => {
-      const wrapper = shallow(
-        <MockedReduxProvider>
-          <MockedLocalised>
-            <WrappedComponent />
-          </MockedLocalised>
-        </MockedReduxProvider>
-      )
+      const wrapper = shallow(<WrappedComponent />)
       expect(wrapper.exists()).toBeTruthy()
     })
 

@@ -20,14 +20,8 @@ const defaultOptions: NormalisedSdkOptions = {
 
 describe('ModalApp', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(
-      <MockedReduxProvider>
-        <ModalApp options={defaultOptions} />
-      </MockedReduxProvider>
-    )
-
+    const wrapper = shallow(<ModalApp options={{}} />)
     expect(wrapper.exists()).toBeTruthy()
-    expect(wrapper.find('Connect(ModalApp)').exists()).toBeTruthy()
   })
 
   describe('when mounted', () => {

@@ -10,14 +10,8 @@ const defaultProps = {
 
 describe('PageTitle', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(
-      <MockedReduxProvider>
-        <PageTitle {...defaultProps} />
-      </MockedReduxProvider>
-    )
-
+    const wrapper = shallow(<PageTitle {...defaultProps} />)
     expect(wrapper.exists()).toBeTruthy()
-    expect(wrapper.find('Connect(PageTitle)').exists()).toBeTruthy()
   })
 
   describe('when mounted', () => {
