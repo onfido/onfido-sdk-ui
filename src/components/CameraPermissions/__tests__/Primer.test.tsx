@@ -13,14 +13,7 @@ const defaultProps = {
 describe('CameraPermissions', () => {
   describe('Primer', () => {
     it('renders without crashing', () => {
-      const wrapper = shallow(
-        <MockedReduxProvider>
-          <MockedLocalised>
-            <Primer {...defaultProps} />
-          </MockedLocalised>
-        </MockedReduxProvider>
-      )
-
+      const wrapper = shallow(<Primer {...defaultProps} />)
       expect(wrapper.exists()).toBeTruthy()
     })
 
