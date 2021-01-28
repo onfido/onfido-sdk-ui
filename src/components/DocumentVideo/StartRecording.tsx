@@ -1,25 +1,22 @@
 import { h, FunctionComponent } from 'preact'
+import { useContext } from 'preact/compat'
 
-import { localised } from '~locales'
+import { LocaleContext } from '~locales'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import Button from '../Button'
 import Instructions from './Instructions'
 import style from './style.scss'
-
-import type { WithLocalisedProps } from '~types/hocs'
 
 export type StartRecordingProps = {
   disableInteraction?: boolean
   onClick: () => void
 }
 
-type Props = StartRecordingProps & WithLocalisedProps
-
-const StartRecording: FunctionComponent<Props> = ({
+const StartRecording: FunctionComponent<StartRecordingProps> = ({
   disableInteraction = false,
   onClick,
-  translate,
 }) => {
+  const { translate } = useContext(LocaleContext)
   const title = translate(DOC_VIDEO_INSTRUCTIONS_MAPPING.video.intro.title)
   const subtitle = translate(
     DOC_VIDEO_INSTRUCTIONS_MAPPING.video.intro.subtitle
@@ -39,4 +36,4 @@ const StartRecording: FunctionComponent<Props> = ({
   )
 }
 
-export default localised(StartRecording)
+export default StartRecording

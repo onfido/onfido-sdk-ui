@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { mount, shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import Recording, { RecordingProps } from '../Recording'
@@ -15,11 +15,6 @@ describe('DocumentVideo', () => {
   })
 
   describe('Recording', () => {
-    it('renders without crashing', () => {
-      const wrapper = shallow(<Recording {...defaultProps} />)
-      expect(wrapper.exists()).toBeTruthy()
-    })
-
     it('renders instructions correctly', () => {
       const wrapper = mount(
         <MockedLocalised>

@@ -1,10 +1,9 @@
 import { h, FunctionComponent } from 'preact'
+import { useContext } from 'preact/compat'
 
-import { localised } from '../../locales'
+import { LocaleContext } from '../../locales'
 import Button from '../Button'
 import style from './style.scss'
-
-import type { WithLocalisedProps } from '~types/hocs'
 
 export type RecordingProps = {
   children?: h.JSX.Element | h.JSX.Element[]
@@ -14,16 +13,15 @@ export type RecordingProps = {
   onStop: () => void
 }
 
-type Props = RecordingProps & WithLocalisedProps
-
-const Recording: FunctionComponent<Props> = ({
+const Recording: FunctionComponent<RecordingProps> = ({
   children,
   disableInteraction = false,
   hasMoreSteps = false,
   onNext,
   onStop,
-  translate,
 }) => {
+  const { translate } = useContext(LocaleContext)
+
   return (
     <div>
       <div className={style.actions}>
@@ -44,4 +42,4 @@ const Recording: FunctionComponent<Props> = ({
   )
 }
 
-export default localised(Recording)
+export default Recording
