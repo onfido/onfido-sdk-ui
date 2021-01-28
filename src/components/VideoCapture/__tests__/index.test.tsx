@@ -41,13 +41,7 @@ describe('VideoCapture', () => {
   })
 
   it('renders without crashing', () => {
-    const wrapper = shallow(
-      <MockedReduxProvider>
-        <MockedLocalised>
-          <VideoCapture {...defaultProps} />
-        </MockedLocalised>
-      </MockedReduxProvider>
-    )
+    const wrapper = shallow(<VideoCapture {...defaultProps} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 
