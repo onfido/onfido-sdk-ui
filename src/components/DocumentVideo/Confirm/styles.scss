@@ -1,0 +1,12 @@
+@import '../Theme/constants';
+
+.container {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-right: -16 * $unit;
+  @media (--small-viewport) {
+    margin-right: -8 * $unit;
+  }
+}

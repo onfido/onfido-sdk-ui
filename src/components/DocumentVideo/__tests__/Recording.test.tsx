@@ -10,11 +10,11 @@ const defaultProps: RecordingProps = {
 }
 
 describe('DocumentVideo', () => {
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
-
   describe('Recording', () => {
+    afterEach(() => {
+      jest.clearAllMocks()
+    })
+
     it('renders instructions correctly', () => {
       const wrapper = mount(
         <MockedLocalised>

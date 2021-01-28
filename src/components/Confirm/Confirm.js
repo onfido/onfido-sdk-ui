@@ -4,7 +4,6 @@ import { isOfMimeType } from '~utils/blob'
 import {
   uploadDocument,
   uploadLivePhoto,
-  uploadDocumentVideo,
   uploadFaceVideo,
   sendMultiframeSelfie,
 } from '~utils/onfidoApi'
@@ -189,29 +188,13 @@ class Confirm extends Component {
     } = capture
     this.setState({ capture })
 
-    if (variant === 'video') {
-      if (method === 'document') {
-        const data = { blob, sdkMetadata }
-        uploadDocumentVideo(
-          data,
-          url,
-          token,
-          this.onApiSuccess,
-          this.onApiError
-        )
-        return
-      }
-
-      if (method === 'face') {
+    if (method === 'face') {
+      if (variant === 'video') {
         const data = { challengeData, blob, language, sdkMetadata }
         uploadFaceVideo(data, url, token, this.onApiSuccess, this.onApiError)
         return
       }
 
-      return
-    }
-
-    if (method === 'face') {
       this.handleSelfieUpload(capture, token)
       return
     }

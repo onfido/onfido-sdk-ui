@@ -14,10 +14,10 @@ import {
 import {
   DocumentFrontConfirm,
   DocumentBackConfirm,
-  DocumentVideoConfirm,
   SelfieConfirm,
   FaceVideoConfirm,
 } from '../Confirm'
+import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
