@@ -1,5 +1,5 @@
 import type { DocumentTypes } from '~types/steps'
-import { getSupportedCountriesForDocument } from './index'
+import { getSupportedCountriesForDocument } from '../index'
 
 describe('getSupportedCountriesForDocument', () => {
   it('should not contain any duplicate countries', () => {
