@@ -1,16 +1,16 @@
 import fs from 'fs'
-import { uploadDocument } from '../onfidoApi'
+import { uploadDocument } from '../../onfidoApi'
 import {
   getTestJwtToken,
   createEmptyFile,
   checkForExpectedFileUploadProperties,
   COMMON_FILE_UPLOAD_PROPERTIES,
-} from './helpers'
-import { API_URL, PATH_TO_RESOURCE_FILES } from './testUrls'
+} from '../helpers'
+import { API_URL, PATH_TO_RESOURCE_FILES } from '../helpers/testUrls'
 import {
   EXPIRED_JWT_TOKEN,
   EXPECTED_EXPIRED_TOKEN_ERROR,
-} from './mockExpiredJwt'
+} from '../helpers/mockExpiredJwt'
 
 let jwtToken = null
 
