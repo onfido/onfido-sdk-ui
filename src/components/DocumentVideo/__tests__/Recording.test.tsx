@@ -16,11 +16,7 @@ describe('DocumentVideo', () => {
 
   describe('Recording', () => {
     it('renders without crashing', () => {
-      const wrapper = shallow(
-        <MockedLocalised>
-          <Recording {...defaultProps} />
-        </MockedLocalised>
-      )
+      const wrapper = shallow(<Recording {...defaultProps} />)
       expect(wrapper.exists()).toBeTruthy()
     })
 

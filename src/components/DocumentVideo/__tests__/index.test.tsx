@@ -48,13 +48,7 @@ describe('DocumentVideo', () => {
   })
 
   it('renders without crashing', () => {
-    const wrapper = shallow(
-      <MockedReduxProvider>
-        <MockedLocalised>
-          <DocumentVideo {...defaultProps} />
-        </MockedLocalised>
-      </MockedReduxProvider>
-    )
+    const wrapper = shallow(<DocumentVideo {...defaultProps} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 
