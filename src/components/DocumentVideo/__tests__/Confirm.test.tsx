@@ -143,6 +143,7 @@ describe('DocumentVideo', () => {
               sdkMetadata: fakeFrontPayload.sdkMetadata,
               side: 'front',
               type: fakeDocumentType,
+              validations: { detect_document: 'error' },
             },
             fakeUrl,
             fakeToken
@@ -153,6 +154,7 @@ describe('DocumentVideo', () => {
               sdkMetadata: fakeBackPayload.sdkMetadata,
               side: 'back',
               type: fakeDocumentType,
+              validations: { detect_document: 'error' },
             },
             fakeUrl,
             fakeToken

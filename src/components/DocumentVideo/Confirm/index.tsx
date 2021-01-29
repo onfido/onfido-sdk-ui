@@ -47,6 +47,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
           sdkMetadata: documentFront.sdkMetadata,
           side: 'front',
           type: documentType,
+          validations: { detect_document: 'error' },
         },
         apiUrl,
         token
@@ -58,6 +59,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
           sdkMetadata: documentBack.sdkMetadata,
           side: 'back',
           type: documentType,
+          validations: { detect_document: 'error' },
         },
         apiUrl,
         token
@@ -76,7 +78,6 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     } catch (apiRequest) {
       setLoading(false)
       // const { response, status } = apiRequest as ApiRequest
-      // console.log('error:', { response, status })
       setError({ name: 'REQUEST_ERROR', type: 'error' })
     }
   }, [
