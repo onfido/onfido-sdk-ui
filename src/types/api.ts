@@ -21,9 +21,8 @@ export type ImageQualityValidationTypes =
   | 'detect_glare'
   | 'detect_blur'
 
-export type ImageQualityValidationPayload = Record<
-  ImageQualityValidationTypes,
-  'error' | 'warn'
+export type ImageQualityValidationPayload = Partial<
+  Record<ImageQualityValidationTypes, 'error' | 'warn'>
 >
 
 const CHALLENGE_RECITE = 'recite'
