@@ -108,7 +108,6 @@ export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
-export type StepComponentCaptureProps = CaptureOptions & StepComponentBaseProps
 
 export type StepComponentProps =
   | StepComponentWelcomeProps
