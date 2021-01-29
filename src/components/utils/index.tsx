@@ -33,7 +33,7 @@ export const getCSSValue = (
   return value
 }
 
-export const getCSSMilisecsValue = (cssUnit: string | number): number =>
+export const getCSSMillisecsValue = (cssUnit: string | number): number =>
   getCSSValue('ms', cssUnit)
 
 export const wrapWithClass = (
