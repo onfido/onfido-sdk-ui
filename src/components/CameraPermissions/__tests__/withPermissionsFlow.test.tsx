@@ -9,9 +9,7 @@ import withPermissionsFlow from '../withPermissionsFlow'
 import type { WithTrackingProps } from '~types/hocs'
 import type { RenderFallbackProp } from '~types/routers'
 
-jest.mock('../../utils', () => ({
-  checkIfWebcamPermissionGranted: jest.fn(),
-}))
+jest.mock('../../utils')
 
 type DummyProps = {
   renderFallback: RenderFallbackProp
@@ -28,7 +26,7 @@ const defaultProps = {
   trackScreen: jest.fn(),
 }
 
-const mockedCheck = checkIfWebcamPermissionGranted as jest.MockedFunction<
+const mockedCheckWebcamPermission = checkIfWebcamPermissionGranted as jest.MockedFunction<
   typeof checkIfWebcamPermissionGranted
 >
 
@@ -40,7 +38,9 @@ describe('CameraPermissions', () => {
 
     describe('when webcam permissions rejected', () => {
       beforeEach(() => {
-        mockedCheck.mockImplementation((callback) => callback(false))
+        mockedCheckWebcamPermission.mockImplementation((callback) =>
+          callback(false)
+        )
       })
 
       it('renders PermissionsPrimer', () => {
@@ -59,7 +59,9 @@ describe('CameraPermissions', () => {
 
     describe('when webcam permissions granted', () => {
       beforeEach(() => {
-        mockedCheck.mockImplementation((callback) => callback(true))
+        mockedCheckWebcamPermission.mockImplementation((callback) =>
+          callback(true)
+        )
       })
 
       it('renders wrapped component', () => {
