@@ -20,12 +20,7 @@ import DocumentVideo, { Props as DocumentVideoProps } from '../index'
 import Recording, { Props as RecordingProps } from '../Recording'
 import StartRecording, { Props as StartRecordingProps } from '../StartRecording'
 
-jest.mock('../../utils', () => ({
-  checkIfWebcamPermissionGranted: jest
-    .fn()
-    .mockImplementation((callback) => callback(true)),
-  parseTags: jest.fn().mockImplementation((text, handler) => handler({ text })),
-}))
+jest.mock('../../utils')
 
 const defaultProps: DocumentVideoProps = {
   cameraClassName: 'fakeCameraClass',
