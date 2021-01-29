@@ -3,6 +3,7 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
+import { fakeCapturePayload } from '~jest/captures'
 import DocumentOverlay, {
   Props as DocumentOverlayProps,
 } from '../../Overlay/DocumentOverlay'
@@ -19,20 +20,12 @@ import DocumentVideo, { Props as DocumentVideoProps } from '../index'
 import Recording, { Props as RecordingProps } from '../Recording'
 import StartRecording, { Props as StartRecordingProps } from '../StartRecording'
 
-import type { SdkMetadata } from '~types/commons'
-
 jest.mock('../../utils', () => ({
   checkIfWebcamPermissionGranted: jest
     .fn()
     .mockImplementation((callback) => callback(true)),
   parseTags: jest.fn().mockImplementation((text, handler) => handler({ text })),
 }))
-
-const fakeSdkMetadata: SdkMetadata = {
-  captureMethod: 'live',
-  camera_name: 'fake-video-track',
-  microphone_name: 'fake-audio-track',
-}
 
 const defaultProps: DocumentVideoProps = {
   cameraClassName: 'fakeCameraClass',
@@ -226,19 +219,16 @@ describe('DocumentVideo', () => {
 
         expect(defaultProps.onCapture).toHaveBeenCalledWith({
           front: {
-            blob: new Blob([]),
-            sdkMetadata: fakeSdkMetadata,
+            ...fakeCapturePayload('standard'),
             filename: 'document_front.jpeg',
             isPreviewCropped: true,
           },
           video: {
-            blob: new Blob([]),
-            sdkMetadata: fakeSdkMetadata,
+            ...fakeCapturePayload('video'),
             filename: 'document_video.webm',
           },
           back: {
-            blob: new Blob([]),
-            sdkMetadata: fakeSdkMetadata,
+            ...fakeCapturePayload('standard'),
             filename: 'document_back.jpeg',
             isPreviewCropped: true,
           },

@@ -5,9 +5,10 @@ import configureMockStore from 'redux-mock-store'
 import { initialState as captures } from 'components/ReduxAppWrapper/store/reducers/captures'
 import { initialState as globals } from 'components/ReduxAppWrapper/store/reducers/globals'
 import type { ReduxProps } from 'components/App/withConnect'
-import type { GlobalState } from '~types/redux'
+import type { CaptureState, GlobalState } from '~types/redux'
 
 type Props = {
+  overrideCaptures?: Partial<CaptureState>
   overrideGlobals?: Partial<GlobalState>
 }
 
@@ -45,11 +46,12 @@ export const mockedReduxProps: ReduxProps = {
 
 const MockedReduxProvider: FunctionComponent<Props> = ({
   children,
+  overrideCaptures,
   overrideGlobals,
 }) => {
   const mockStore = configureMockStore()
   const mockState = {
-    captures,
+    captures: { ...captures, ...overrideCaptures },
     globals: { ...globals, ...overrideGlobals },
   }
   const store = mockStore(mockState)

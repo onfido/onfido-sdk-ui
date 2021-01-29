@@ -16,7 +16,7 @@ export type CaptureMetadata = {
   variant?: RequestedVariant
 }
 
-type MetadataState = {
+export type MetadataState = {
   metadata: CaptureMetadata
 }
 
@@ -41,7 +41,7 @@ export type DocumentCapture = {
 
 export type FaceCapture = {
   id: string
-  side: never
+  side?: never
   snapshot?: FilePayload
 } & CapturePayload
 
