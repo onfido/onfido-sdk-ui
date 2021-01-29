@@ -7,7 +7,9 @@ import MockedReduxProvider, {
 } from '~jest/MockedReduxProvider'
 import { fakeDocumentCaptureState } from '~jest/captures'
 import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
-import Confirm, { Props as ConfirmProps } from '../Confirm'
+import Confirm from '../Confirm'
+
+import type { StepComponentDocumentProps } from '~types/routers'
 
 jest.mock('../../utils/onfidoApi')
 
@@ -20,13 +22,12 @@ const mockedUploadDocumentVideo = uploadDocumentVideo as jest.MockedFunction<
 
 const runAllPromises = () => new Promise(setImmediate)
 
-const defaultProps: ConfirmProps = {
+const defaultProps: StepComponentDocumentProps = {
   allowCrossDeviceFlow: true,
   componentsList: [],
   back: jest.fn(),
   changeFlowTo: jest.fn(),
   nextStep: jest.fn(),
-  onRedo: jest.fn(),
   previousStep: jest.fn(),
   resetSdkFocus: jest.fn(),
   step: 0,
@@ -58,6 +59,7 @@ describe('DocumentVideo', () => {
 
     it('renders buttons correctly', () => {
       expect(wrapper.find('Spinner').exists()).toBeFalsy()
+      expect(wrapper.find('Error').exists()).toBeFalsy()
 
       const uploadButton = wrapper.find('button.button-primary')
       expect(uploadButton.exists()).toBeTruthy()
@@ -74,7 +76,7 @@ describe('DocumentVideo', () => {
 
     it('goes back when click on redo', () => {
       wrapper.find('button.button-secondary').simulate('click')
-      expect(defaultProps.onRedo).toHaveBeenCalled()
+      expect(defaultProps.previousStep).toHaveBeenCalled()
     })
 
     describe('when upload', () => {
@@ -89,6 +91,10 @@ describe('DocumentVideo', () => {
         'standard',
         'back'
       )
+      const fakeVideoPayload = fakeDocumentCaptureState(
+        fakeDocumentType,
+        'video'
+      )
       const fakeUrl = 'https://fake-api.onfido.com'
       const fakeToken = 'fake-sdk-token'
 
@@ -98,6 +104,7 @@ describe('DocumentVideo', () => {
             overrideCaptures={{
               document_front: fakeFrontPayload,
               document_back: fakeBackPayload,
+              document_video: fakeVideoPayload,
             }}
             overrideGlobals={{
               urls: {
@@ -142,7 +149,7 @@ describe('DocumentVideo', () => {
           )
           expect(mockedUploadDocument).toHaveBeenCalledWith(
             {
-              file: new Blob([]),
+              file: fakeBackPayload.blob,
               sdkMetadata: fakeBackPayload.sdkMetadata,
               side: 'back',
               type: fakeDocumentType,
@@ -152,10 +159,8 @@ describe('DocumentVideo', () => {
           )
           expect(mockedUploadDocumentVideo).toHaveBeenCalledWith(
             {
-              file: new Blob([]),
-              sdkMetadata: fakeBackPayload.sdkMetadata,
-              side: 'back',
-              type: fakeDocumentType,
+              blob: fakeVideoPayload.blob,
+              sdkMetadata: fakeVideoPayload.sdkMetadata,
             },
             fakeUrl,
             fakeToken
@@ -184,6 +189,7 @@ describe('DocumentVideo', () => {
           await runAllPromises()
           wrapper.update()
           expect(wrapper.find('Spinner').exists()).toBeFalsy()
+          expect(wrapper.find('Error').exists()).toBeTruthy()
           expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
           expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
         })

@@ -3,27 +3,25 @@ import { useCallback, useContext, useState } from 'preact/compat'
 import { useSelector } from 'react-redux'
 
 import { LocaleContext } from '~locales'
-import { uploadDocument } from '~utils/onfidoApi'
+import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
 import Button from '../../Button'
+import Error from '../../Error'
 import Spinner from '../../Spinner'
 import style from './style.scss'
 
 import type { RootState } from 'components/ReduxAppWrapper/store/reducers'
-import type { ApiRequest } from '~types/api'
+// import type { ApiRequest } from '~types/api'
 import type { CapturePayload } from '~types/redux'
-import type { StepComponentDocumentProps } from '~types/routers'
+import type { ErrorProp, StepComponentDocumentProps } from '~types/routers'
 
-export type Props = {
-  onRedo: () => void
-} & StepComponentDocumentProps
-
-const Confirm: FunctionComponent<Props> = ({
+const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   documentType,
   nextStep,
-  onRedo,
+  previousStep,
   token,
 }) => {
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<ErrorProp>(null)
   const { translate } = useContext(LocaleContext)
 
   const apiUrl = useSelector<RootState, string>(
@@ -34,6 +32,9 @@ const Confirm: FunctionComponent<Props> = ({
   )
   const documentBack = useSelector<RootState, CapturePayload>(
     (state) => state.captures.document_back
+  )
+  const documentVideo = useSelector<RootState, CapturePayload>(
+    (state) => state.captures.document_video
   )
 
   const onUploadDocument = useCallback(async () => {
@@ -62,33 +63,53 @@ const Confirm: FunctionComponent<Props> = ({
         token
       )
 
+      await uploadDocumentVideo(
+        {
+          blob: documentVideo.blob,
+          sdkMetadata: documentVideo.sdkMetadata,
+        },
+        apiUrl,
+        token
+      )
+
       nextStep()
     } catch (apiRequest) {
       setLoading(false)
-      const { response, status } = apiRequest as ApiRequest
-      console.log('error:', { response, status })
+      // const { response, status } = apiRequest as ApiRequest
+      // console.log('error:', { response, status })
+      setError({ name: 'REQUEST_ERROR', type: 'error' })
     }
-  }, [documentType, nextStep, token, apiUrl, documentFront, documentBack])
+  }, [
+    documentType,
+    nextStep,
+    token,
+    apiUrl,
+    documentFront,
+    documentBack,
+    documentVideo,
+  ])
 
   if (loading) {
-    return (
-      <div className={style.container}>
-        <Spinner />
-      </div>
-    )
+    return <Spinner />
   }
 
   return (
     <div className={style.container}>
-      <Button
-        onClick={onUploadDocument}
-        variants={['primary', 'lg', 'centered']}
-      >
-        {translate('doc_confirmation.button_primary_upload')}
-      </Button>
-      <Button onClick={onRedo} variants={['secondary', 'lg', 'centered']}>
-        {translate('doc_confirmation.button_primary_redo')}
-      </Button>
+      {error ? <Error error={error} role="alert" /> : <div />}
+      <div className={style.buttonsContainer}>
+        <Button
+          onClick={onUploadDocument}
+          variants={['primary', 'lg', 'centered']}
+        >
+          {translate('doc_confirmation.button_primary_upload')}
+        </Button>
+        <Button
+          onClick={previousStep}
+          variants={['secondary', 'lg', 'centered']}
+        >
+          {translate('doc_confirmation.button_primary_redo')}
+        </Button>
+      </div>
     </div>
   )
 }

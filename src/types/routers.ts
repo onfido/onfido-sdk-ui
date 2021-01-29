@@ -12,7 +12,6 @@ import type {
 import type { CaptureSteps } from './docVideo'
 import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
 import type {
-  CaptureOptions,
   StepOptionWelcome,
   StepOptionDocument,
   StepOptionPoA,

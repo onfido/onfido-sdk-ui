@@ -29,7 +29,7 @@ export const fakeCapturePayload = (
 export const fakeDocumentCaptureState = (
   documentType: DocumentTypes,
   variant: RequestedVariant,
-  side: DocumentSides
+  side?: DocumentSides
 ): DocumentCapture & MetadataState => ({
   ...fakeCapturePayload(variant, side),
   documentType,
