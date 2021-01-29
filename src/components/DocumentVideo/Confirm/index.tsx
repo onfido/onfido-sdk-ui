@@ -9,12 +9,34 @@ import Spinner from '../../Spinner'
 import style from './style.scss'
 
 import type { RootState } from 'components/ReduxAppWrapper/store/reducers'
+import type { ApiResponse, ApiRequest } from '~types/api'
+import type { DocumentSides } from '~types/commons'
 import type { CapturePayload } from '~types/redux'
 import type { StepComponentDocumentProps } from '~types/routers'
+import type { DocumentTypes } from '~types/steps'
 
 export type Props = {
   onRedo: () => void
 } & StepComponentDocumentProps
+
+const promisifiedUploadDocument = (
+  type: DocumentTypes,
+  side: DocumentSides,
+  payload: CapturePayload,
+  url: string,
+  token: string
+): Promise<ApiResponse> =>
+  new Promise((resolve, reject) => {
+    const { blob: file, sdkMetadata } = payload
+
+    uploadDocument(
+      { file, side, sdkMetadata, type },
+      url,
+      token,
+      (apiResponse) => resolve(apiResponse),
+      (apiRequest) => reject(apiRequest)
+    )
+  })
 
 const Confirm: FunctionComponent<Props> = ({ documentType, onRedo, token }) => {
   const [loading, setLoading] = useState(false)
@@ -27,19 +49,23 @@ const Confirm: FunctionComponent<Props> = ({ documentType, onRedo, token }) => {
     (state) => state.captures.document_front
   )
 
-  const onUploadDocument = useCallback(() => {
+  const onUploadDocument = useCallback(async () => {
     setLoading(true)
-    const { blob, sdkMetadata } = documentFront
-    uploadDocument(
-      { file: blob, side: 'front', sdkMetadata, type: documentType },
-      apiUrl,
-      token,
-      (apiResponse) => {
-        console.log('response', apiResponse)
-        setLoading(false)
-      },
-      (apiRequest) => console.log('request', apiRequest)
-    )
+
+    try {
+      const response = await promisifiedUploadDocument(
+        documentType,
+        'front',
+        documentFront,
+        apiUrl,
+        token
+      )
+      console.log('response', response)
+      setLoading(false)
+    } catch (apiRequest) {
+      const { response, status } = apiRequest as ApiRequest
+      console.log('error:', { response, status })
+    }
   }, [apiUrl, documentFront, documentType, token])
 
   if (loading) {
