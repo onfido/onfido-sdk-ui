@@ -6,10 +6,17 @@ import MockedReduxProvider, {
   mockedReduxProps,
 } from '~jest/MockedReduxProvider'
 import { fakeDocumentCaptureState } from '~jest/captures'
-import { uploadDocument } from '~utils/onfidoApi'
+import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
 import Confirm, { Props as ConfirmProps } from '../Confirm'
 
 jest.mock('../../utils/onfidoApi')
+
+const mockedUploadDocument = uploadDocument as jest.MockedFunction<
+  typeof uploadDocument
+>
+const mockedUploadDocumentVideo = uploadDocumentVideo as jest.MockedFunction<
+  typeof uploadDocumentVideo
+>
 
 const runAllPromises = () => new Promise(setImmediate)
 
@@ -71,10 +78,6 @@ describe('DocumentVideo', () => {
     })
 
     describe('when upload', () => {
-      const mockedUploadDocument = uploadDocument as jest.MockedFunction<
-        typeof uploadDocument
-      >
-
       const fakeDocumentType = 'passport'
       const fakeFrontPayload = fakeDocumentCaptureState(
         fakeDocumentType,
@@ -116,6 +119,7 @@ describe('DocumentVideo', () => {
       describe('when success', () => {
         beforeEach(() => {
           mockedUploadDocument.mockResolvedValue({ valid: true })
+          mockedUploadDocumentVideo.mockResolvedValue({ valid: true })
           wrapper.find('button.button-primary').simulate('click')
         })
 
@@ -123,6 +127,8 @@ describe('DocumentVideo', () => {
           expect(wrapper.find('Spinner').exists()).toBeTruthy()
           expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
           expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
+
+          await runAllPromises()
 
           expect(mockedUploadDocument).toHaveBeenCalledWith(
             {
@@ -144,8 +150,17 @@ describe('DocumentVideo', () => {
             fakeUrl,
             fakeToken
           )
+          expect(mockedUploadDocumentVideo).toHaveBeenCalledWith(
+            {
+              file: new Blob([]),
+              sdkMetadata: fakeBackPayload.sdkMetadata,
+              side: 'back',
+              type: fakeDocumentType,
+            },
+            fakeUrl,
+            fakeToken
+          )
 
-          await runAllPromises()
           expect(mockedUploadDocument).toHaveBeenCalledTimes(2)
           expect(defaultProps.nextStep).toHaveBeenCalled()
         })
