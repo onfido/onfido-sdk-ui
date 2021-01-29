@@ -20,7 +20,7 @@ import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import style from './style.scss'
 
 import type { ImageResizeInfo } from '~types/commons'
-import type { WithLocalisedProps, WithOptionsProps } from '~types/hocs'
+import type { WithLocalisedProps, WithCaptureVariantProps } from '~types/hocs'
 import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
@@ -28,7 +28,9 @@ import type {
   StepComponentDocumentProps,
 } from '~types/routers'
 
-type Props = StepComponentDocumentProps & WithLocalisedProps & WithOptionsProps
+type Props = StepComponentDocumentProps &
+  WithLocalisedProps &
+  WithCaptureVariantProps
 
 class Document extends Component<Props> {
   static defaultProps = {

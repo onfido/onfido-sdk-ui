@@ -35,7 +35,7 @@ export type WithTrackingProps = {
   trackScreen: TrackScreenCallback
 }
 
-export type WithOptionsProps = {
+export type WithCaptureVariantProps = {
   forceCrossDevice?: boolean
   isPoA?: boolean
   requestedVariant?: RequestedVariant

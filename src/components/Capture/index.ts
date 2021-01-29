@@ -1,23 +1,23 @@
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'
-import withOptions from './withOptions'
+import withCaptureVariant from './withCaptureVariant'
 
 export const DocumentFrontCapture = appendToTracking(
-  withOptions(Document, { side: 'front' }),
+  withCaptureVariant(Document, { side: 'front' }),
   'front_capture'
 )
 export const DocumentBackCapture = appendToTracking(
-  withOptions(Document, { side: 'back' }),
+  withCaptureVariant(Document, { side: 'back' }),
   'back_capture'
 )
 export const DocumentVideoCapture = appendToTracking(
-  withOptions(Document, { requestedVariant: 'video' }),
+  withCaptureVariant(Document, { requestedVariant: 'video' }),
   'document_video_capture'
 )
 
 export const PoACapture = appendToTracking(
-  withOptions(Document, {
+  withCaptureVariant(Document, {
     isPoA: true,
     forceCrossDevice: false,
     side: 'front',
@@ -26,10 +26,10 @@ export const PoACapture = appendToTracking(
 )
 
 export const SelfieCapture = appendToTracking(
-  withOptions(Face, { requestedVariant: 'standard' }),
+  withCaptureVariant(Face, { requestedVariant: 'standard' }),
   'selfie_capture'
 )
 export const FaceVideoCapture = appendToTracking(
-  withOptions(Face, { requestedVariant: 'video' }),
+  withCaptureVariant(Face, { requestedVariant: 'video' }),
   'face_video_capture'
 )

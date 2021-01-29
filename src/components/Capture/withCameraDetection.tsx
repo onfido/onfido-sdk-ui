@@ -5,8 +5,10 @@ import { checkIfHasWebcam, isSafari131 } from '~utils'
 import type { WithCameraDetectionProps } from '~types/hocs'
 import type { ReduxProps } from 'components/App/withConnect'
 
-export default function withCameraDetection<P extends ReduxProps>(
-  WrappedComponent: ComponentType<WithCameraDetectionProps>
+type Props = ReduxProps & WithCameraDetectionProps
+
+export default function withCameraDetection<P extends Props>(
+  WrappedComponent: ComponentType<P>
 ): ComponentType<P> {
   return class WithCameraDetection extends PureComponent<P> {
     state: WithCameraDetectionProps = {

@@ -15,6 +15,7 @@ const defaultProps: ConfirmProps = {
   previousStep: jest.fn(),
   resetSdkFocus: jest.fn(),
   step: 0,
+  stepIndexType: 'user',
   trackScreen: jest.fn(),
   triggerOnError: jest.fn(),
   ...reduxProps,
