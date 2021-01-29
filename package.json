@@ -211,6 +211,7 @@
     "node-polyglot": "^2.2.2",
     "parse-unit": "~1.0.1",
     "pdfobject": "~2.0.201604172",
+    "polyfill-array-includes": "^2.0.0",
     "preact": "^10.5.4",
     "redux": "~3.5.2",
     "socket.io-client": "~2.2.0",
