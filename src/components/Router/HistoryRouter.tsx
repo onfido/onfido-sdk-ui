@@ -13,38 +13,20 @@ import StepsRouter from './StepsRouter'
 import { trackException } from '../../Tracker'
 
 import type { ApiRequest } from '~types/api'
-import type {
-  ExtendedStepTypes,
-  FlowVariants,
-  MobileConfig,
-} from '~types/commons'
+import type { ExtendedStepTypes, FlowVariants } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
 import type {
   ComponentStep,
   ChangeFlowProp,
-  RouterProps,
-  StepIndexType,
   TriggerOnErrorProp,
+  HistoryRouterProps,
 } from '~types/routers'
-import type {
-  DocumentTypes,
-  StepConfig,
-  StepConfigDocument,
-} from '~types/steps'
+import type { DocumentTypes, StepConfigDocument } from '~types/steps'
 
 type FormattedError = {
   type: 'expired_token' | 'exception'
   message: string
 }
-
-type Props = {
-  crossDeviceClientError?: (name?: string) => void
-  mobileConfig?: MobileConfig
-  sendClientSuccess?: () => void
-  step?: number
-  stepIndexType: StepIndexType
-  steps?: StepConfig[]
-} & RouterProps
 
 type HistoryLocationState = {
   step: number
@@ -60,13 +42,16 @@ const findFirstIndex = (
   clientStepIndex: number
 ) => componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
 
-export default class HistoryRouter extends Component<Props, State> {
+export default class HistoryRouter extends Component<
+  HistoryRouterProps,
+  State
+> {
   private history:
     | MemoryHistory<HistoryLocationState>
     | History<HistoryLocationState>
   private unlisten: () => void
 
-  constructor(props: Props) {
+  constructor(props: HistoryRouterProps) {
     super(props)
 
     const componentsList = this.getComponentsList(
@@ -220,7 +205,7 @@ export default class HistoryRouter extends Component<Props, State> {
 
   getComponentsList = (
     state: Partial<State> = this.state,
-    props: Partial<Props> = this.props
+    props: Partial<HistoryRouterProps> = this.props
   ): ComponentStep[] => {
     const { flow } = state
     const {

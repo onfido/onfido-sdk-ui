@@ -18,7 +18,7 @@ import type { CaptureKeys } from '~types/redux'
 import type {
   StepIndexType,
   ErrorProp,
-  RouterProps as Props,
+  InternalRouterProps,
 } from '~types/routers'
 import type { StepConfig } from '~types/steps'
 
@@ -52,11 +52,14 @@ type State = {
   token?: string
 }
 
-export default class CrossDeviceMobileRouter extends Component<Props, State> {
+export default class CrossDeviceMobileRouter extends Component<
+  InternalRouterProps,
+  State
+> {
   private configTimeoutId?: number = null
   private pingTimeoutId?: number = null
 
-  constructor(props: Props) {
+  constructor(props: InternalRouterProps) {
     super(props)
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
