@@ -7,6 +7,7 @@ import Confirm, { Props as ConfirmProps } from '../Confirm'
 
 const defaultProps: ConfirmProps = {
   allowCrossDeviceFlow: true,
+  componentsList: [],
   back: jest.fn(),
   changeFlowTo: jest.fn(),
   nextStep: jest.fn(),
