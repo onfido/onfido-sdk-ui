@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
-import { reduxProps } from '~jest/MockedReduxProvider'
+import { mockedReduxProps } from '~jest/MockedReduxProvider'
 import Confirm, { Props as ConfirmProps } from '../Confirm'
 
 const defaultProps: ConfirmProps = {
@@ -18,7 +18,7 @@ const defaultProps: ConfirmProps = {
   stepIndexType: 'user',
   trackScreen: jest.fn(),
   triggerOnError: jest.fn(),
-  ...reduxProps,
+  ...mockedReduxProps,
 }
 
 describe('DocumentVideo', () => {
