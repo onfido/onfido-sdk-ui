@@ -44,17 +44,5 @@ export const randomId = (): string => Math.random().toString(36).substring(7)
 export const includesRegex = (string: string, regex: RegExp): boolean =>
   !!string.match(regex)
 
-/*
-Tested pass against:
-https://api.onfido.com/v2/documents
-https://onfido.com/v2/documents
-https://cross.onfido.com/v2/documents
-https://cross.lol.onfido.com/v2/documents
-
-Tested fail against:
-https://revolut.com/v2/documents/?url=https://onfido.com", /https:\/\/[A-Za-z0-9\.]*\.?onfido\.com/g
-https://onfido.revolut.com/v2/documents
-https://onfido.revolut.com/v2/documents/onfido.com
- */
 export const isOnfidoHostname = (url: string): boolean =>
   includesRegex(url, /^https:\/\/[A-Za-z0-9.]*\.?onfido\.com$/g)
