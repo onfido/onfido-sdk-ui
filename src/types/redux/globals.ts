@@ -48,7 +48,7 @@ export type GlobalState = {
   urls: UrlsConfig
   /**
    * Number of retries on image quality reasons: cut-off, glare, blur
-   * If the API returns warning on one of those reasons, increase this state by 1 and ask for redo
+   * If the API returns an error on one of those reasons, increase this state by 1 and ask for redo
    * After at most <MAX_RETRIES_FOR_IMAGE_QUALITY> retries and there's still warning, allow user to proceed.
    */
   imageQualityRetries: number
