@@ -9,7 +9,7 @@ import HistoryRouter from './HistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
-import type { FlowChangeCallback, RouterProps as Props } from '~types/routers'
+import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type != 'document' && step.type != 'face')) {
@@ -30,8 +30,8 @@ type State = {
   crossDeviceInitialStep?: number
 }
 
-export default class MainRouter extends Component<Props, State> {
-  constructor(props: Props) {
+export default class MainRouter extends Component<InternalRouterProps, State> {
+  constructor(props: InternalRouterProps) {
     super(props)
 
     this.state = {

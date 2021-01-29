@@ -7,18 +7,9 @@ import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 
 import type { TrackScreenCallback } from '~types/hocs'
-import type {
-  PropsFromRouter,
-  RouterOwnProps,
-  StepComponentProps,
-} from '~types/routers'
+import type { StepComponentProps, StepsRouterProps } from '~types/routers'
 
-type Props = {
-  disableNavigation: boolean
-} & PropsFromRouter &
-  RouterOwnProps
-
-class StepsRouter extends Component<Props> {
+class StepsRouter extends Component<StepsRouterProps> {
   private container?: HTMLDivElement
 
   resetSdkFocus = () => this.container.focus()
@@ -110,4 +101,4 @@ class StepsRouter extends Component<Props> {
   }
 }
 
-export default withFullScreenState<ComponentType<Props>>(StepsRouter)
+export default withFullScreenState<ComponentType<StepsRouterProps>>(StepsRouter)
