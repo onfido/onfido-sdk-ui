@@ -16,7 +16,7 @@ import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 type UploadPayload = {
   filename?: string
-  sdkMetadata?: SdkMetadata
+  sdkMetadata: SdkMetadata
 }
 
 type UploadDocumentPayload = {
@@ -34,7 +34,11 @@ type UploadVideoPayload = {
 } & UploadPayload
 
 type UploadSnapshotPayload = {
-  file?: FilePayload
+  file: Blob | FilePayload
+}
+
+type UploadLivePhotoPayload = {
+  file: Blob | FilePayload
   snapshot_uuids?: string
 } & UploadPayload
 
@@ -70,10 +74,10 @@ export const uploadDocument = (
   payload: UploadDocumentPayload,
   url: string,
   token: string,
-  onSuccess: SuccessCallback,
-  onError: ErrorCallback
-): void => {
-  const { sdkMetadata = {}, validations = {}, ...other } = payload
+  onSuccess?: SuccessCallback,
+  onError?: ErrorCallback
+): Promise<ApiResponse> => {
+  const { sdkMetadata, validations = {}, ...other } = payload
 
   const data: SubmitPayload = {
     ...other,
@@ -82,11 +86,14 @@ export const uploadDocument = (
   }
 
   const endpoint = `${url}/v3/documents`
-  sendFile(endpoint, data, token, onSuccess, onError)
+
+  return new Promise((resolve, reject) =>
+    sendFile(endpoint, data, token, onSuccess || resolve, onError || reject)
+  )
 }
 
 export const uploadLivePhoto = (
-  { sdkMetadata = {}, ...data }: UploadSnapshotPayload,
+  { sdkMetadata, ...data }: UploadLivePhotoPayload,
   url: string,
   token: string,
   onSuccess: SuccessCallback,
@@ -122,7 +129,7 @@ export const sendMultiframeSelfie = (
   onError: ErrorCallback,
   sendEvent: (event: TrackedEventNames) => void
 ): void => {
-  const snapshotData = {
+  const snapshotData: UploadSnapshotPayload = {
     file: {
       blob: snapshot.blob,
       filename: snapshot.filename,
@@ -150,7 +157,7 @@ export const sendMultiframeSelfie = (
 }
 
 export const uploadLiveVideo = (
-  { challengeData, blob, language, sdkMetadata = {} }: UploadVideoPayload,
+  { challengeData, blob, language, sdkMetadata }: UploadVideoPayload,
   url: string,
   token: string,
   onSuccess: SuccessCallback,
