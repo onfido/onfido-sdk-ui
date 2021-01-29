@@ -2,6 +2,7 @@ import { h, render } from 'preact'
 import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
 import 'custom-event-polyfill'
+import 'ie-array-find-polyfill'
 
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
