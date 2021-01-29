@@ -9,12 +9,7 @@ import VideoCapture, { Props as VideoCaptureProps } from '../index'
 
 import type { CameraProps } from '~types/camera'
 
-jest.mock('../../utils', () => ({
-  checkIfWebcamPermissionGranted: jest
-    .fn()
-    .mockImplementation((callback) => callback(true)),
-  parseTags: jest.fn().mockImplementation((text, handler) => handler({ text })),
-}))
+jest.mock('../../utils')
 
 const defaultProps: VideoCaptureProps = {
   inactiveError: { name: 'LIVENESS_TIMEOUT' },
