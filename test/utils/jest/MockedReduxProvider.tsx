@@ -12,7 +12,7 @@ type Props = {
   overrideGlobals?: Partial<GlobalState>
 }
 
-export const reduxProps: ReduxProps = {
+export const mockedReduxProps: ReduxProps = {
   actions: {
     /* common actions */
     reset: jest.fn(),

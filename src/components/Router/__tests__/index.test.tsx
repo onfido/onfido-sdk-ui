@@ -2,7 +2,9 @@ import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
-import MockedReduxProvider, { reduxProps } from '~jest/MockedReduxProvider'
+import MockedReduxProvider, {
+  mockedReduxProps,
+} from '~jest/MockedReduxProvider'
 import Router from '../index'
 
 import type { NarrowSdkOptions } from '~types/commons'
@@ -22,7 +24,7 @@ describe('CameraPermissions', () => {
   describe('Router', () => {
     it('renders without crashing', () => {
       const wrapper = shallow(
-        <Router {...reduxProps} options={defaultOptions} />
+        <Router {...mockedReduxProps} options={defaultOptions} />
       )
       expect(wrapper.exists()).toBeTruthy()
     })
@@ -32,7 +34,7 @@ describe('CameraPermissions', () => {
         const wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <Router {...reduxProps} options={defaultOptions} />
+              <Router {...mockedReduxProps} options={defaultOptions} />
             </MockedLocalised>
           </MockedReduxProvider>
         )
@@ -47,7 +49,7 @@ describe('CameraPermissions', () => {
           <MockedReduxProvider>
             <MockedLocalised>
               <Router
-                {...reduxProps}
+                {...mockedReduxProps}
                 options={{ ...defaultOptions, mobileFlow: true }}
               />
             </MockedLocalised>
