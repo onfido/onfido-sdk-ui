@@ -1,18 +1,20 @@
-import type { SdkMetadata } from '~types/commons'
+import type { DocumentSides, SdkMetadata } from '~types/commons'
 import type { DocumentTypes, RequestedVariant } from '~types/steps'
 import type {
   CapturePayload,
-  MetadataState,
   DocumentCapture,
   FaceCapture,
+  MetadataState,
 } from '~types/redux'
 
 export const fakeCapturePayload = (
-  variant: RequestedVariant
+  variant: RequestedVariant,
+  side?: DocumentSides
 ): CapturePayload => {
+  const suffix = side ? `-${side}` : ''
   const fakeSdkMetadata: SdkMetadata = {
     captureMethod: 'live',
-    camera_name: 'fake-video-track',
+    camera_name: `fake-video-track${suffix}`,
     microphone_name: 'fake-audio-track',
   }
 
@@ -26,9 +28,10 @@ export const fakeCapturePayload = (
 
 export const fakeDocumentCaptureState = (
   documentType: DocumentTypes,
-  variant: RequestedVariant
+  variant: RequestedVariant,
+  side: DocumentSides
 ): DocumentCapture & MetadataState => ({
-  ...fakeCapturePayload(variant),
+  ...fakeCapturePayload(variant, side),
   documentType,
   id: `fake-${documentType}-id`,
   metadata: {},

@@ -32,12 +32,15 @@ const Confirm: FunctionComponent<Props> = ({
   const documentFront = useSelector<RootState, CapturePayload>(
     (state) => state.captures.document_front
   )
+  const documentBack = useSelector<RootState, CapturePayload>(
+    (state) => state.captures.document_back
+  )
 
   const onUploadDocument = useCallback(async () => {
     setLoading(true)
 
     try {
-      const response = await uploadDocument(
+      await uploadDocument(
         {
           file: documentFront.blob,
           sdkMetadata: documentFront.sdkMetadata,
@@ -48,14 +51,24 @@ const Confirm: FunctionComponent<Props> = ({
         token
       )
 
-      console.log('response', response)
+      await uploadDocument(
+        {
+          file: documentBack.blob,
+          sdkMetadata: documentBack.sdkMetadata,
+          side: 'back',
+          type: documentType,
+        },
+        apiUrl,
+        token
+      )
+
       nextStep()
     } catch (apiRequest) {
       setLoading(false)
       const { response, status } = apiRequest as ApiRequest
       console.log('error:', { response, status })
     }
-  }, [apiUrl, documentFront, documentType, nextStep, token])
+  }, [documentType, nextStep, token, apiUrl, documentFront, documentBack])
 
   if (loading) {
     return (

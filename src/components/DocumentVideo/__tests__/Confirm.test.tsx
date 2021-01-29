@@ -76,9 +76,15 @@ describe('DocumentVideo', () => {
       >
 
       const fakeDocumentType = 'passport'
-      const fakeCapturePayload = fakeDocumentCaptureState(
+      const fakeFrontPayload = fakeDocumentCaptureState(
         fakeDocumentType,
-        'standard'
+        'standard',
+        'front'
+      )
+      const fakeBackPayload = fakeDocumentCaptureState(
+        fakeDocumentType,
+        'standard',
+        'back'
       )
       const fakeUrl = 'https://fake-api.onfido.com'
       const fakeToken = 'fake-sdk-token'
@@ -87,7 +93,8 @@ describe('DocumentVideo', () => {
         wrapper = mount(
           <MockedReduxProvider
             overrideCaptures={{
-              document_front: fakeCapturePayload,
+              document_front: fakeFrontPayload,
+              document_back: fakeBackPayload,
             }}
             overrideGlobals={{
               urls: {
@@ -112,23 +119,34 @@ describe('DocumentVideo', () => {
           wrapper.find('button.button-primary').simulate('click')
         })
 
-        it('renders spinner correctly', () => {
+        it('renders spinner correctly', async () => {
           expect(wrapper.find('Spinner').exists()).toBeTruthy()
           expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
           expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
 
-          expect(mockedUploadDocument).toHaveBeenCalled()
-          const [data, url, token] = mockedUploadDocument.mock.calls[0]
-          expect(data).toMatchObject({
-            file: new Blob([]),
-            sdkMetadata: fakeCapturePayload.sdkMetadata,
-            side: 'front',
-            type: 'passport',
-          })
-          expect(url).toEqual(fakeUrl)
-          expect(token).toEqual(fakeToken)
+          expect(mockedUploadDocument).toHaveBeenCalledWith(
+            {
+              file: fakeFrontPayload.blob,
+              sdkMetadata: fakeFrontPayload.sdkMetadata,
+              side: 'front',
+              type: fakeDocumentType,
+            },
+            fakeUrl,
+            fakeToken
+          )
+          expect(mockedUploadDocument).toHaveBeenCalledWith(
+            {
+              file: new Blob([]),
+              sdkMetadata: fakeBackPayload.sdkMetadata,
+              side: 'back',
+              type: fakeDocumentType,
+            },
+            fakeUrl,
+            fakeToken
+          )
 
-          jest.runAllTimers()
+          await runAllPromises()
+          expect(mockedUploadDocument).toHaveBeenCalledTimes(2)
           expect(defaultProps.nextStep).toHaveBeenCalled()
         })
       })
