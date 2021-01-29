@@ -15,19 +15,20 @@ import type { TrackedEventNames } from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 type UploadPayload = {
-  blob?: Blob
   filename?: string
   sdkMetadata?: SdkMetadata
 }
 
 type UploadDocumentPayload = {
+  file: Blob
   issuing_country?: string
   side?: DocumentSides
-  type?: Exclude<DocumentTypes, 'residence_permit'> | PoaTypes | 'unknown'
+  type?: DocumentTypes | PoaTypes | 'unknown'
   validations?: ImageQualityValidationPayload
 } & UploadPayload
 
-type UploadLiveVideoPayload = {
+type UploadVideoPayload = {
+  blob: Blob
   challengeData?: ChallengeData
   language?: SupportedLanguages
 } & UploadPayload
@@ -36,6 +37,8 @@ type UploadSnapshotPayload = {
   file?: FilePayload
   snapshot_uuids?: string
 } & UploadPayload
+
+type SelfiePayload = { blob?: Blob } & UploadPayload
 
 type SubmitPayload = Omit<UploadPayload, 'sdkMetadata'> & {
   file?: Blob | FilePayload
@@ -112,7 +115,7 @@ export const uploadSnapshot = (
 
 export const sendMultiframeSelfie = (
   snapshot: FilePayload,
-  selfie: UploadPayload,
+  selfie: SelfiePayload,
   token: string,
   url: string,
   onSuccess: SuccessCallback,
@@ -147,7 +150,7 @@ export const sendMultiframeSelfie = (
 }
 
 export const uploadLiveVideo = (
-  { challengeData, blob, language, sdkMetadata = {} }: UploadLiveVideoPayload,
+  { challengeData, blob, language, sdkMetadata = {} }: UploadVideoPayload,
   url: string,
   token: string,
   onSuccess: SuccessCallback,
