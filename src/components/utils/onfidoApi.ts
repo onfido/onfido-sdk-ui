@@ -70,9 +70,9 @@ export const uploadDocument = (
   payload: UploadDocumentPayload,
   url: string,
   token: string,
-  onSuccess: SuccessCallback,
-  onError: ErrorCallback
-): void => {
+  onSuccess?: SuccessCallback,
+  onError?: ErrorCallback
+): Promise<ApiResponse> => {
   const { sdkMetadata = {}, validations = {}, ...other } = payload
 
   const data: SubmitPayload = {
@@ -82,7 +82,10 @@ export const uploadDocument = (
   }
 
   const endpoint = `${url}/v3/documents`
-  sendFile(endpoint, data, token, onSuccess, onError)
+
+  return new Promise((resolve, reject) =>
+    sendFile(endpoint, data, token, onSuccess || resolve, onError || reject)
+  )
 }
 
 export const uploadLivePhoto = (
@@ -153,9 +156,9 @@ export const uploadDocumentVideo = (
   { blob, sdkMetadata = {} }: UploadVideoPayload,
   url: string,
   token: string,
-  onSuccess: SuccessCallback,
-  onError: ErrorCallback
-): void => {
+  onSuccess?: SuccessCallback,
+  onError?: ErrorCallback
+): Promise<ApiResponse> => {
   const placeholderChallengeData = {
     languages: JSON.stringify([
       { source: 'sdk', language_code: 'PLACEHOLDER' },
@@ -181,7 +184,10 @@ export const uploadDocumentVideo = (
   }
 
   const endpoint = `${url}/v3/live_videos`
-  sendFile(endpoint, payload, token, onSuccess, onError)
+
+  return new Promise((resolve, reject) =>
+    sendFile(endpoint, payload, token, onSuccess || resolve, onError || reject)
+  )
 }
 
 export const uploadFaceVideo = (

@@ -11,6 +11,8 @@ import Confirm, { Props as ConfirmProps } from '../Confirm'
 
 jest.mock('../../utils/onfidoApi')
 
+const runAllPromises = () => new Promise(setImmediate)
+
 const defaultProps: ConfirmProps = {
   allowCrossDeviceFlow: true,
   componentsList: [],
@@ -106,11 +108,7 @@ describe('DocumentVideo', () => {
 
       describe('when success', () => {
         beforeEach(() => {
-          mockedUploadDocument.mockImplementation(
-            (_payload, _url, _token, onSuccess) =>
-              setTimeout(() => onSuccess({ valid: true }), 0)
-          )
-
+          mockedUploadDocument.mockResolvedValue({ valid: true })
           wrapper.find('button.button-primary').simulate('click')
         })
 
@@ -131,37 +129,30 @@ describe('DocumentVideo', () => {
           expect(token).toEqual(fakeToken)
 
           jest.runAllTimers()
-          // @TODO: navigate to the next screen
+          expect(defaultProps.nextStep).toHaveBeenCalled()
         })
       })
 
       describe('when error', () => {
         beforeEach(() => {
-          mockedUploadDocument.mockImplementation(
-            (_payload, _url, _token, _onSuccess, onError) =>
-              setTimeout(
-                () =>
-                  onError({
-                    response: { message: 'Fake error message' },
-                    status: 422,
-                  }),
-                0
-              )
-          )
+          mockedUploadDocument.mockRejectedValue({
+            response: { message: 'Fake error message' },
+            status: 422,
+          })
 
           wrapper.find('button.button-primary').simulate('click')
         })
 
-        it('renders spinner correctly', () => {
+        it('renders spinner correctly', async () => {
           expect(wrapper.find('Spinner').exists()).toBeTruthy()
           expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
           expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
 
-          // console.log(mockedUploadDocument.mock.calls)
-          jest.runAllTimers()
-          expect(wrapper.find('Spinner').exists()).toBeTruthy()
-          expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
-          expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
+          await runAllPromises()
+          wrapper.update()
+          expect(wrapper.find('Spinner').exists()).toBeFalsy()
+          expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
+          expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
         })
       })
     })

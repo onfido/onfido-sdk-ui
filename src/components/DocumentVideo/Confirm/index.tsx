@@ -9,36 +9,20 @@ import Spinner from '../../Spinner'
 import style from './style.scss'
 
 import type { RootState } from 'components/ReduxAppWrapper/store/reducers'
-import type { ApiResponse, ApiRequest } from '~types/api'
-import type { DocumentSides } from '~types/commons'
+import type { ApiRequest } from '~types/api'
 import type { CapturePayload } from '~types/redux'
 import type { StepComponentDocumentProps } from '~types/routers'
-import type { DocumentTypes } from '~types/steps'
 
 export type Props = {
   onRedo: () => void
 } & StepComponentDocumentProps
 
-const promisifiedUploadDocument = (
-  type: DocumentTypes,
-  side: DocumentSides,
-  payload: CapturePayload,
-  url: string,
-  token: string
-): Promise<ApiResponse> =>
-  new Promise((resolve, reject) => {
-    const { blob: file, sdkMetadata } = payload
-
-    uploadDocument(
-      { file, side, sdkMetadata, type },
-      url,
-      token,
-      (apiResponse) => resolve(apiResponse),
-      (apiRequest) => reject(apiRequest)
-    )
-  })
-
-const Confirm: FunctionComponent<Props> = ({ documentType, onRedo, token }) => {
+const Confirm: FunctionComponent<Props> = ({
+  documentType,
+  nextStep,
+  onRedo,
+  token,
+}) => {
   const [loading, setLoading] = useState(false)
   const { translate } = useContext(LocaleContext)
 
@@ -53,20 +37,25 @@ const Confirm: FunctionComponent<Props> = ({ documentType, onRedo, token }) => {
     setLoading(true)
 
     try {
-      const response = await promisifiedUploadDocument(
-        documentType,
-        'front',
-        documentFront,
+      const response = await uploadDocument(
+        {
+          file: documentFront.blob,
+          sdkMetadata: documentFront.sdkMetadata,
+          side: 'front',
+          type: documentType,
+        },
         apiUrl,
         token
       )
+
       console.log('response', response)
-      setLoading(false)
+      nextStep()
     } catch (apiRequest) {
+      setLoading(false)
       const { response, status } = apiRequest as ApiRequest
       console.log('error:', { response, status })
     }
-  }, [apiUrl, documentFront, documentType, token])
+  }, [apiUrl, documentFront, documentType, nextStep, token])
 
   if (loading) {
     return (
