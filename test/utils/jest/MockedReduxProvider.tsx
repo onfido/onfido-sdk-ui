@@ -2,17 +2,16 @@ import { h, FunctionComponent } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 
-import type { ReduxProps } from 'components/App/withConnect'
 import { initialState as captures } from 'components/ReduxAppWrapper/store/reducers/captures'
 import { initialState as globals } from 'components/ReduxAppWrapper/store/reducers/globals'
+import type { ReduxProps } from 'components/App/withConnect'
 import type { GlobalState } from '~types/redux'
 
 type Props = {
-  children?: h.JSX.Element
   overrideGlobals?: Partial<GlobalState>
 }
 
-export const reduxProps: ReduxProps = {
+export const mockedReduxProps: ReduxProps = {
   actions: {
     /* common actions */
     reset: jest.fn(),
