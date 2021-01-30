@@ -7,9 +7,9 @@ export type HttpRequestParams = {
   token: string
 }
 
-export const performHttpReq = (
+export const performHttpReq = <T>(
   { contentType, endpoint, payload, token }: HttpRequestParams,
-  onSuccess: SuccessCallback,
+  onSuccess: SuccessCallback<T>,
   onError: ErrorCallback
 ): void => {
   const request = new XMLHttpRequest()
