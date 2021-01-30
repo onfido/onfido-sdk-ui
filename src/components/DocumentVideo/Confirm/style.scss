@@ -6,17 +6,29 @@
   justify-content: space-between;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content > .title {
+  font-size: 30 * $unit;
+}
+
+.content > .icon {
+  background-image: url('../../Complete/assets/complete.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 32 * $unit;
+  width: 32 * $unit;
+  margin-bottom: 8 * $unit;
+}
+
 .buttonsContainer {
   padding: 0 16 * $unit;
 }
 
 .buttonsContainer > button {
   margin-top: 16 * $unit;
-}
-
-.icon {
-  height: 64 * $unit;
-  background-size: contain;
-  background-image: url('../../Complete/assets/complete.svg');
-  margin-bottom: 24 * $unit;
 }
