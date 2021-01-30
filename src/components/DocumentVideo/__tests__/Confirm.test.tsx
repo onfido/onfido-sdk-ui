@@ -62,6 +62,7 @@ describe('DocumentVideo', () => {
       expect(wrapper.find('Error').exists()).toBeFalsy()
 
       expect(wrapper.find('.content').exists()).toBeTruthy()
+      expect(wrapper.find('.content > .icon').exists()).toBeTruthy()
       expect(wrapper.find('.content > .title').text()).toEqual(
         'doc_video_confirmation.title'
       )

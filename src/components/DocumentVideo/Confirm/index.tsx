@@ -99,6 +99,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       {error ? <Error error={error} role="alert" /> : <div />}
       {!error && (
         <div className={style.content}>
+          <span className={style.icon} />
           <span className={style.title}>
             {translate('doc_video_confirmation.title')}
           </span>
