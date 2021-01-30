@@ -97,6 +97,16 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   return (
     <div className={style.container}>
       {error ? <Error error={error} role="alert" /> : <div />}
+      {!error && (
+        <div className={style.content}>
+          <span className={style.title}>
+            {translate('doc_video_confirmation.title')}
+          </span>
+          <span className={style.body}>
+            {translate('doc_video_confirmation.body')}
+          </span>
+        </div>
+      )}
       <div className={style.buttonsContainer}>
         <Button
           onClick={onUploadDocument}

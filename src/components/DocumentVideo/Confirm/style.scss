@@ -13,3 +13,10 @@
 .buttonsContainer > button {
   margin-top: 16 * $unit;
 }
+
+.icon {
+  height: 64 * $unit;
+  background-size: contain;
+  background-image: url('../../Complete/assets/complete.svg');
+  margin-bottom: 24 * $unit;
+}

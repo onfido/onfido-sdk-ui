@@ -372,6 +372,10 @@
         "button_record_accessibility": "Commencer l'enregistrement",
         "button_stop_accessibility": "Arrêter l’enregistrement"
     },
+    "doc_video_confirmation": {
+        "title": "Merci",
+        "body": "Your video has been recorded"
+    },
     "video_capture": {
         "body": "Positionnez votre visage dans le cercle",
         "body_next": "Lorsque vous avez terminé, appuyez sur suivant",

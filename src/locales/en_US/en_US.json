@@ -372,6 +372,10 @@
         "button_record_accessibility": "Start recording",
         "button_stop_accessibility": "Done"
     },
+    "doc_video_confirmation": {
+        "title": "Thank you",
+        "body": "Your video has been recorded"
+    },
     "video_capture": {
         "body": "Position your face in the oval",
         "body_next": "When you're done, press next",

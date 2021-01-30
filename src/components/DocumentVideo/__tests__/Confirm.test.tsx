@@ -57,9 +57,17 @@ describe('DocumentVideo', () => {
       jest.clearAllMocks()
     })
 
-    it('renders buttons correctly', () => {
+    it('renders UIs correctly', () => {
       expect(wrapper.find('Spinner').exists()).toBeFalsy()
       expect(wrapper.find('Error').exists()).toBeFalsy()
+
+      expect(wrapper.find('.content').exists()).toBeTruthy()
+      expect(wrapper.find('.content > .title').text()).toEqual(
+        'doc_video_confirmation.title'
+      )
+      expect(wrapper.find('.content > .body').text()).toEqual(
+        'doc_video_confirmation.body'
+      )
 
       const uploadButton = wrapper.find('button.button-primary')
       expect(uploadButton.exists()).toBeTruthy()
@@ -185,6 +193,7 @@ describe('DocumentVideo', () => {
 
         it('renders spinner correctly', async () => {
           expect(wrapper.find('Spinner').exists()).toBeTruthy()
+          expect(wrapper.find('.content').exists()).toBeFalsy()
           expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
           expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
 
@@ -192,6 +201,7 @@ describe('DocumentVideo', () => {
           wrapper.update()
           expect(wrapper.find('Spinner').exists()).toBeFalsy()
           expect(wrapper.find('Error').exists()).toBeTruthy()
+          expect(wrapper.find('.content').exists()).toBeFalsy()
           expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
           expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
         })
