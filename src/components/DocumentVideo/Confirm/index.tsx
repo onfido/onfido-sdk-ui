@@ -78,6 +78,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     } catch (apiRequest) {
       setLoading(false)
       // const { response, status } = apiRequest as ApiRequest
+      console.log(apiRequest)
       setError({ name: 'REQUEST_ERROR', type: 'error' })
     }
   }, [
@@ -113,13 +114,13 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
           onClick={onUploadDocument}
           variants={['primary', 'lg', 'centered']}
         >
-          {translate('doc_confirmation.button_primary_upload')}
+          {translate('doc_video_confirmation.button_upload')}
         </Button>
         <Button
           onClick={previousStep}
           variants={['secondary', 'lg', 'centered']}
         >
-          {translate('doc_confirmation.button_primary_redo')}
+          {translate('doc_video_confirmation.button_redo')}
         </Button>
       </div>
     </div>

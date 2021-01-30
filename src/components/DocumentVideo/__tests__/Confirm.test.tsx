@@ -73,13 +73,13 @@ describe('DocumentVideo', () => {
       const uploadButton = wrapper.find('button.button-primary')
       expect(uploadButton.exists()).toBeTruthy()
       expect(uploadButton.text()).toEqual(
-        'doc_confirmation.button_primary_upload'
+        'doc_video_confirmation.button_upload'
       )
       expect(uploadButton.hasClass('button-lg button-centered')).toBeTruthy()
 
       const redoButton = wrapper.find('button.button-secondary')
       expect(redoButton.exists()).toBeTruthy()
-      expect(redoButton.text()).toEqual('doc_confirmation.button_primary_redo')
+      expect(redoButton.text()).toEqual('doc_video_confirmation.button_redo')
       expect(redoButton.hasClass('button-lg button-centered')).toBeTruthy()
     })
 

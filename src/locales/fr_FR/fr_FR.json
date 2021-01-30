@@ -374,7 +374,9 @@
     },
     "doc_video_confirmation": {
         "title": "Merci",
-        "body": "Your video has been recorded"
+        "body": "Your video has been recorded",
+        "button_upload": "Upload",
+        "button_redo": "Retake"
     },
     "video_capture": {
         "body": "Positionnez votre visage dans le cercle",
