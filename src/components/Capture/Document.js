@@ -62,7 +62,6 @@ class Document extends Component {
       className={style.uploadFallback}
       onChange={this.handleFileSelected}
       accept="image/*"
-      capture
     >
       {text}
     </CustomFileInput>

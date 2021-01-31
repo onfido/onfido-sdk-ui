@@ -70,8 +70,7 @@ class Face extends Component {
     <CustomFileInput
       className={style.uploadFallback}
       onChange={this.handleFileSelected}
-      accept="image/*"
-      capture="user"
+      accept="image/*;capture=user"
     >
       {text}
     </CustomFileInput>
