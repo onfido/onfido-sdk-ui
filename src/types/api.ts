@@ -121,7 +121,7 @@ export type FaceVideoResponse = {
 
 export type SnapshotResponse = {
   uuid: string
-} & UploadFileResponse
+} & Record<keyof UploadFileResponse, never>
 
 export type VideoChallengeResponse = {
   data: {
