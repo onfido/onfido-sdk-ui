@@ -1,6 +1,6 @@
 import { h, ComponentType } from 'preact'
 
-import type { ApiRequest } from './api'
+import type { ApiError } from './api'
 import type {
   ExtendedStepConfig,
   FlowVariants,
@@ -41,7 +41,7 @@ export type ChangeFlowProp = (
   excludeStepFromHistory?: boolean
 ) => void
 
-export type TriggerOnErrorProp = (response: ApiRequest) => void
+export type TriggerOnErrorProp = (response: ApiError) => void
 
 export type HandleCaptureProp = (payload: CapturePayload) => void
 
