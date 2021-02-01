@@ -17,6 +17,8 @@ export type ImageQualityValidationPayload = Partial<
 /* Errors */
 
 const API_ERROR_VALIDATION = 'validation_error'
+const API_ERROR_EXPIRED_TOKEN = 'expired_token'
+const API_ERROR_AUTHORIZATION = 'authorization_error'
 
 type ValidationReasons =
   | 'attachment_content_type'
@@ -27,17 +29,33 @@ type ValidationReasons =
   | 'detect_blur'
 
 type ValidationError = {
-  type: typeof API_ERROR_VALIDATION
-  message: string
-  fields: Partial<Record<ValidationReasons, string[]>>
+  type?: never
+  message?: never
+  error?: {
+    type: typeof API_ERROR_VALIDATION
+    message: string
+    fields: Partial<Record<ValidationReasons, string[]>>
+  }
 }
 
-type ErrorPayload = {
-  error?: ValidationError
+type ExpiredTokenError = {
+  type: typeof API_ERROR_EXPIRED_TOKEN
+  message: string
+  error?: never
+}
+
+type AuthorizationError = {
+  type?: never
+  message?: never
+  error: {
+    type: typeof API_ERROR_AUTHORIZATION
+    message: string
+    fields: Record<string, unknown>
+  }
 }
 
 export type ApiError = {
-  response: string | ErrorPayload
+  response: string | ValidationError | ExpiredTokenError | AuthorizationError
   status: number
 }
 
