@@ -102,17 +102,15 @@ export const uploadLivePhoto = (
   token: string,
   onSuccess?: SuccessCallback<UploadFileResponse>,
   onError?: ErrorCallback
-): Promise<UploadFileResponse> => {
+): void => {
   const endpoint = `${url}/v3/live_photos`
 
-  return new Promise((resolve, reject) =>
-    sendFile(
-      endpoint,
-      { ...data, sdk_metadata: JSON.stringify(sdkMetadata) },
-      token,
-      onSuccess || resolve,
-      onError || reject
-    )
+  sendFile(
+    endpoint,
+    { ...data, sdk_metadata: JSON.stringify(sdkMetadata) },
+    token,
+    onSuccess,
+    onError
   )
 }
 
@@ -122,11 +120,9 @@ export const uploadSnapshot = (
   token: string,
   onSuccess?: SuccessCallback<SnapshotResponse>,
   onError?: ErrorCallback
-): Promise<SnapshotResponse> => {
+): void => {
   const endpoint = `${url}/v3/snapshots`
-  return new Promise((resolve, reject) =>
-    sendFile(endpoint, payload, token, onSuccess || resolve, onError || reject)
-  )
+  sendFile(endpoint, payload, token, onSuccess, onError)
 }
 
 export const sendMultiframeSelfie = (

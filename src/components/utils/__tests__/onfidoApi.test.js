@@ -92,9 +92,14 @@ describe('sendMultiframeSelfie', () => {
   describe('with invalid data', () => {
     const invalidSnapshotData = { ...snapshotData, blob: {} }
     const invalidSelfieData = { ...selfieData, blob: {} }
-    const onError = (res) => expect(res).toMatchObject(/TypeError/)
+    const onError = (res) => {
+      expect(res).toMatchObject(/TypeError/)
+      expect(res.message).toEqual(
+        `Failed to execute 'append' on 'FormData': parameter 2 is not of type 'Blob'.`
+      )
+    }
     it('should call onError callback with TypeError', () => {
-      expect.assertions(1)
+      expect.assertions(2)
       sendMultiframeSelfie(
         invalidSnapshotData,
         invalidSelfieData,
