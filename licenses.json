@@ -10126,7 +10126,7 @@
     "path": "node_modules/prettier-linter-helpers",
     "licenseFile": "node_modules/prettier-linter-helpers/LICENSE.md"
   },
-  "prettier@2.0.5": {
+  "prettier@2.2.1": {
     "licenses": "MIT",
     "repository": "https://github.com/prettier/prettier",
     "publisher": "James Long",

@@ -170,7 +170,7 @@
     "postcss-custom-media": "^7.0.8",
     "postcss-loader": "^2.0.6",
     "postcss-url": "^7.0.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.2.1",
     "qrcode.react": "^1.0.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
