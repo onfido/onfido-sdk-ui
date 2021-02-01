@@ -14,7 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
 - Internal: Introduce integration tests for API endpoint integrations.
-- Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete componenets.
+- Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 
 ### Changed
 

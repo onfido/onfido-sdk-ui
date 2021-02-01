@@ -1,16 +1,25 @@
-import { h, Fragment, ComponentType, ComponentChildren, VNode } from 'preact'
+import {
+  h,
+  Fragment,
+  FunctionComponent,
+  ComponentChildren,
+  VNode,
+} from 'preact'
 import theme from './style.scss'
 
 type ScreenLayoutProps = {
   children: ComponentChildren
-  actions?: ComponentType | VNode
+  actions?: VNode
 }
 
-const ScreenLayout = ({ children, actions }: ScreenLayoutProps) => {
+const ScreenLayout: FunctionComponent<ScreenLayoutProps> = ({
+  children,
+  actions,
+}) => {
   return (
     <Fragment>
       <div className={theme.scrollableContent}>{children}</div>
-      {actions && actions}
+      {actions}
     </Fragment>
   )
 }
