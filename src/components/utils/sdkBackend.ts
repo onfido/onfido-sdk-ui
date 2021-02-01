@@ -2,10 +2,15 @@ import { performHttpReq } from './http'
 import { formatError } from './onfidoApi'
 import { trackException } from '../../Tracker'
 
-import type { ApiRequest, ErrorCallback, SuccessCallback } from '~types/api'
+import type {
+  ApiError,
+  ValidateDocumentResponse,
+  ErrorCallback,
+  SuccessCallback,
+} from '~types/api'
 
 const handleError = (
-  { status, response }: ApiRequest,
+  { status, response }: ApiError,
   callback: ErrorCallback
 ) => {
   trackException(`${status} - ${response}`)
@@ -16,7 +21,7 @@ export const postToBackend = (
   payload: string,
   url: string,
   token: string,
-  onSuccess: SuccessCallback,
+  onSuccess: SuccessCallback<ValidateDocumentResponse>,
   errorCallback: ErrorCallback
 ): void => {
   const endpoint = `${url}/validate_document`
