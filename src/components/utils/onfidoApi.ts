@@ -6,6 +6,7 @@ import type {
   ApiError,
   UploadFileResponse,
   DocumentImageResponse,
+  DocumentVideoResponse,
   ChallengeData,
   FaceVideoResponse,
   VideoChallengeResponse,
@@ -165,9 +166,9 @@ export const uploadDocumentVideo = (
   { blob, sdkMetadata }: UploadVideoPayload,
   url: string,
   token: string,
-  onSuccess?: SuccessCallback<UploadFileResponse>,
+  onSuccess?: SuccessCallback<DocumentVideoResponse>,
   onError?: ErrorCallback
-): Promise<UploadFileResponse> => {
+): Promise<DocumentVideoResponse> => {
   const placeholderChallengeData = {
     languages: JSON.stringify([
       { source: 'sdk', language_code: 'PLACEHOLDER' },
