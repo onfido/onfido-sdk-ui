@@ -4567,8 +4567,8 @@
     "publisher": "Jordan Harband",
     "email": "ljharb@gmail.com",
     "url": "http://ljharb.codes",
-    "path": "node_modules/enzyme-shallow-equal/node_modules/es-abstract",
-    "licenseFile": "node_modules/enzyme-shallow-equal/node_modules/es-abstract/LICENSE"
+    "path": "node_modules/object.entries/node_modules/es-abstract",
+    "licenseFile": "node_modules/object.entries/node_modules/es-abstract/LICENSE"
   },
   "es-get-iterator@1.1.0": {
     "licenses": "MIT",
@@ -6662,8 +6662,8 @@
     "publisher": "Jordan Harband",
     "email": "ljharb@gmail.com",
     "url": "http://ljharb.codes",
-    "path": "node_modules/string.prototype.trimend/node_modules/is-callable",
-    "licenseFile": "node_modules/string.prototype.trimend/node_modules/is-callable/LICENSE"
+    "path": "node_modules/object.entries/node_modules/is-callable",
+    "licenseFile": "node_modules/object.entries/node_modules/is-callable/LICENSE"
   },
   "is-callable@1.2.1": {
     "licenses": "MIT",
@@ -6969,8 +6969,8 @@
     "repository": "https://github.com/ljharb/is-regex",
     "publisher": "Jordan Harband",
     "email": "ljharb@gmail.com",
-    "path": "node_modules/enzyme-shallow-equal/node_modules/is-regex",
-    "licenseFile": "node_modules/enzyme-shallow-equal/node_modules/is-regex/LICENSE"
+    "path": "node_modules/object.entries/node_modules/is-regex",
+    "licenseFile": "node_modules/object.entries/node_modules/is-regex/LICENSE"
   },
   "is-regexp@2.1.0": {
     "licenses": "MIT",
@@ -10138,7 +10138,7 @@
     "path": "node_modules/prettier-linter-helpers",
     "licenseFile": "node_modules/prettier-linter-helpers/LICENSE.md"
   },
-  "prettier@2.0.5": {
+  "prettier@2.2.1": {
     "licenses": "MIT",
     "repository": "https://github.com/prettier/prettier",
     "publisher": "James Long",
