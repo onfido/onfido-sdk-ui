@@ -1,14 +1,7 @@
-import {
-  h,
-  Fragment,
-  FunctionComponent,
-  ComponentChildren,
-  VNode,
-} from 'preact'
+import { h, Fragment, FunctionComponent, VNode } from 'preact'
 import theme from './style.scss'
 
 type ScreenLayoutProps = {
-  children: ComponentChildren
   actions?: VNode
 }
 
