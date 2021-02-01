@@ -12,7 +12,7 @@ import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
-import type { ApiRequest } from '~types/api'
+import type { ApiError } from '~types/api'
 import type { ExtendedStepTypes, FlowVariants } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
 import type {
@@ -146,22 +146,23 @@ export default class HistoryRouter extends Component<
     this.props.options.events.emit('complete', data)
   }
 
-  formattedError = ({ response, status }: ApiRequest): FormattedError => {
-    const errorResponse =
-      typeof response === 'string' ? {} : response.error || response || {}
+  formattedError = ({ response, status }: ApiError): FormattedError => {
+    if (typeof response === 'string') {
+      // TODO: remove once find_document_in_image back-end `/validate_document` returns error response with same signature
+      const isExpiredTokenErrorMessage = response.includes('expired')
+      const isExpiredTokenError = status === 401 && isExpiredTokenErrorMessage
+      const type = isExpiredTokenError ? 'expired_token' : 'exception'
+      return { type, message: response }
+    }
 
-    // TODO: remove once find_document_in_image back-end `/validate_document` returns error response with same signature
-    const isExpiredTokenErrorMessage =
-      typeof response === 'string' && response.includes('expired')
+    const errorResponse = response.error || response || {}
+
     const isExpiredTokenError =
-      status === 401 &&
-      (isExpiredTokenErrorMessage || errorResponse.type === 'expired_token')
+      status === 401 && errorResponse.type === 'expired_token'
     const type = isExpiredTokenError ? 'expired_token' : 'exception'
     // `/validate_document` returns a string only. Example: "Token has expired."
     // Ticket in backlog to update all APIs to use signature similar to main Onfido API
-    const message =
-      errorResponse.message ||
-      (typeof response === 'string' ? response : response.message)
+    const message = errorResponse.message || response.message
     return { type, message }
   }
 

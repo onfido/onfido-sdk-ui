@@ -2,12 +2,16 @@ import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
 
 import type {
-  ApiRequest,
-  ApiResponse,
-  ChallengeData,
-  ErrorCallback,
   ImageQualityValidationPayload,
+  ApiError,
+  UploadFileResponse,
+  DocumentImageResponse,
+  ChallengeData,
+  FaceVideoResponse,
+  VideoChallengeResponse,
+  SnapshotResponse,
   SuccessCallback,
+  ErrorCallback,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
@@ -60,7 +64,7 @@ type SubmitLiveVideoPayload = {
 } & SubmitPayload
 
 export const formatError = (
-  { response, status }: ApiRequest,
+  { response, status }: ApiError,
   onError: ErrorCallback
 ): void => {
   try {
@@ -74,9 +78,9 @@ export const uploadDocument = (
   payload: UploadDocumentPayload,
   url: string,
   token: string,
-  onSuccess?: SuccessCallback,
+  onSuccess?: SuccessCallback<DocumentImageResponse>,
   onError?: ErrorCallback
-): Promise<ApiResponse> => {
+): Promise<DocumentImageResponse> => {
   const { sdkMetadata, validations = {}, ...other } = payload
 
   const data: SubmitPayload = {
@@ -96,10 +100,11 @@ export const uploadLivePhoto = (
   { sdkMetadata, ...data }: UploadLivePhotoPayload,
   url: string,
   token: string,
-  onSuccess: SuccessCallback,
-  onError: ErrorCallback
+  onSuccess?: SuccessCallback<UploadFileResponse>,
+  onError?: ErrorCallback
 ): void => {
   const endpoint = `${url}/v3/live_photos`
+
   sendFile(
     endpoint,
     { ...data, sdk_metadata: JSON.stringify(sdkMetadata) },
@@ -113,8 +118,8 @@ export const uploadSnapshot = (
   payload: UploadSnapshotPayload,
   url: string,
   token: string,
-  onSuccess: SuccessCallback,
-  onError: ErrorCallback
+  onSuccess?: SuccessCallback<SnapshotResponse>,
+  onError?: ErrorCallback
 ): void => {
   const endpoint = `${url}/v3/snapshots`
   sendFile(endpoint, payload, token, onSuccess, onError)
@@ -125,7 +130,7 @@ export const sendMultiframeSelfie = (
   selfie: SelfiePayload,
   token: string,
   url: string,
-  onSuccess: SuccessCallback,
+  onSuccess: SuccessCallback<UploadFileResponse>,
   onError: ErrorCallback,
   sendEvent: (event: TrackedEventNames) => void
 ): void => {
@@ -137,7 +142,7 @@ export const sendMultiframeSelfie = (
   }
   const { blob, filename, sdkMetadata } = selfie
 
-  new Promise<ApiResponse>((resolve, reject) => {
+  new Promise<SnapshotResponse>((resolve, reject) => {
     sendEvent('Starting snapshot upload')
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
@@ -198,9 +203,9 @@ export const uploadFaceVideo = (
   { challengeData, blob, language, sdkMetadata }: UploadVideoPayload,
   url: string,
   token: string,
-  onSuccess: SuccessCallback,
-  onError: ErrorCallback
-): void => {
+  onSuccess?: SuccessCallback<FaceVideoResponse>,
+  onError?: ErrorCallback
+): Promise<FaceVideoResponse> => {
   const {
     challenges: challenge,
     id: challenge_id,
@@ -217,13 +222,16 @@ export const uploadFaceVideo = (
   }
 
   const endpoint = `${url}/v3/live_videos`
-  sendFile(endpoint, payload, token, onSuccess, onError)
+
+  return new Promise((resolve, reject) =>
+    sendFile(endpoint, payload, token, onSuccess || resolve, onError || reject)
+  )
 }
 
 export const requestChallenges = (
   url: string,
   token: string,
-  onSuccess: SuccessCallback,
+  onSuccess: SuccessCallback<VideoChallengeResponse>,
   onError: ErrorCallback
 ): void => {
   const options: HttpRequestParams = {
@@ -253,7 +261,7 @@ const sendFile = (
   endpoint: string,
   data: SubmitPayload,
   token: string,
-  onSuccess: SuccessCallback,
+  onSuccess: SuccessCallback<UploadFileResponse>,
   onError: ErrorCallback
 ) => {
   const payload: SubmitPayload = {
