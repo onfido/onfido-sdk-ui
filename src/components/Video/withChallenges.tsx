@@ -5,7 +5,12 @@ import { requestChallenges } from '~utils/onfidoApi'
 import { currentMilliseconds } from '~utils'
 import { sendScreen } from '../../Tracker'
 
-import type { ApiRequest, ApiResponse, ChallengePayload } from '~types/api'
+import type {
+  ApiError,
+  ChallengePayload,
+  VideoChallengeResponse,
+  SuccessCallback,
+} from '~types/api'
 import type { WithChallengesProps } from '~types/hocs'
 import type {
   ErrorProp,
@@ -59,7 +64,7 @@ const withChallenges = <P extends Props>(
       )
     }
 
-    handleResponse = (response: ApiResponse) => {
+    handleResponse: SuccessCallback<VideoChallengeResponse> = (response) => {
       const challenges = response.data?.challenge
       const challengesId = String(response.data?.id)
 
@@ -70,7 +75,7 @@ const withChallenges = <P extends Props>(
       })
     }
 
-    handleError = (error: ApiRequest) => {
+    handleError = (error: ApiError) => {
       this.setState({ hasLoaded: true, hasError: true })
       this.props.triggerOnError(error)
       sendScreen(['face_video_challenge_load_failed'], {
