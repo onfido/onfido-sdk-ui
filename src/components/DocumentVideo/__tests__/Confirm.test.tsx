@@ -6,6 +6,10 @@ import MockedReduxProvider, {
   mockedReduxProps,
 } from '~jest/MockedReduxProvider'
 import { fakeDocumentCaptureState } from '~jest/captures'
+import {
+  fakePassportImageResponse,
+  fakePassportVideoResponse,
+} from '~jest/responses'
 import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
 import Confirm from '../Confirm'
 
@@ -134,8 +138,8 @@ describe('DocumentVideo', () => {
 
       describe('when success', () => {
         beforeEach(() => {
-          mockedUploadDocument.mockResolvedValue({ valid: true })
-          mockedUploadDocumentVideo.mockResolvedValue({ valid: true })
+          mockedUploadDocument.mockResolvedValue(fakePassportImageResponse)
+          mockedUploadDocumentVideo.mockResolvedValue(fakePassportVideoResponse)
           wrapper.find('button.button-primary').simulate('click')
         })
 

@@ -10,7 +10,7 @@ import Spinner from '../../Spinner'
 import style from './style.scss'
 
 import type { RootState } from 'components/ReduxAppWrapper/store/reducers'
-// import type { ApiRequest } from '~types/api'
+import type { ApiError } from '~types/api'
 import type { CapturePayload } from '~types/redux'
 import type { ErrorProp, StepComponentDocumentProps } from '~types/routers'
 
@@ -75,10 +75,10 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       )
 
       nextStep()
-    } catch (apiRequest) {
+    } catch (error) {
       setLoading(false)
-      // const { response, status } = apiRequest as ApiRequest
-      console.log(apiRequest)
+      const { response, status } = error as ApiError
+      console.log({ response, status })
       setError({ name: 'REQUEST_ERROR', type: 'error' })
     }
   }, [

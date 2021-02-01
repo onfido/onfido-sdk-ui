@@ -165,9 +165,9 @@ export const uploadDocumentVideo = (
   { blob, sdkMetadata }: UploadVideoPayload,
   url: string,
   token: string,
-  onSuccess?: SuccessCallback,
+  onSuccess?: SuccessCallback<UploadFileResponse>,
   onError?: ErrorCallback
-): Promise<ApiResponse> => {
+): Promise<UploadFileResponse> => {
   const placeholderChallengeData = {
     languages: JSON.stringify([
       { source: 'sdk', language_code: 'PLACEHOLDER' },
