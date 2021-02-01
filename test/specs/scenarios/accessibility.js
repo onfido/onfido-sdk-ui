@@ -92,9 +92,9 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       }
 
       const waitForAlertToAppearAndSendSms = async () => {
+        crossDeviceLink.clickOnSendLinkButton()
         driver.wait(until.alertIsPresent())
         driver.switchTo().alert().accept()
-        crossDeviceLink.clickOnSendLinkButton()
       }
 
       const runThroughCrossDeviceFlow = async () => {
@@ -157,13 +157,11 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         goToCrossDeviceGetSecureLinkScreen()
         crossDeviceLink.switchToSendSmsOption()
         crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
-        crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
         runAccessibilityTest(driver)
       })
 
-      // FIXME: consistently fails due to accessibility test auto timing out
-      // eslint-disable-next-line jest/no-disabled-tests
+      // @FIXME: consistently fails due to accessibility test auto timing out
       it.skip('should verify accessibility for the cross device submit screen', async () => {
         goToPassportUploadScreen(
           driver,
@@ -205,9 +203,8 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      // Skip test for now as there is a bug in library reported here
+      // @FIXME: Skip test for now as there is a bug in library reported here
       // https://github.com/alphagov/accessible-autocomplete/issues/361
-      // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should verify accessibility for the country selector screen', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()

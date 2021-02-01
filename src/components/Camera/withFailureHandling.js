@@ -1,23 +1,19 @@
-// @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import CameraError from '../CameraError'
 
-type State = {
+/* type State = {
   hasError: boolean,
 }
 
 type Props = {
   onError: (?string) => void,
   isUploadFallbackDisabled: ?boolean,
-}
+} */
 
-export default <WrappedProps: *>(
-  WrappedCamera: React.ComponentType<WrappedProps>
-): React.ComponentType<WrappedProps & Props> =>
-  class WithFailureHandling extends Component<WrappedProps, State> {
+export default (WrappedCamera) =>
+  class WithFailureHandling extends Component {
     static defaultProps = {
-      onError: () => {},
+      onError: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
     }
 
     state = {

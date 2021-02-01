@@ -3,7 +3,7 @@
 *.log
 build
 node_modules
-lib
+/lib/reports
 es
 /release/releaseSecret.js
 /dist/style.css.map
@@ -21,3 +21,5 @@ dist/onfido.crossDevice.css.map
 dist/onfido.crossDevice.css
 dist/previewer*
 dist/*~*
+test/mock-server/*.pem
+test/mock-server/frontend/

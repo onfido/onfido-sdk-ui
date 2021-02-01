@@ -1,15 +1,14 @@
-// @flow
 import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
-import { localised, type LocalisedType } from '../../locales'
+import { localised /* , type LocalisedType */ } from '../../locales'
 
-type Props = {
+/* type Props = {
   disableInteraction: boolean,
   onStart: (void) => void,
-} & LocalisedType
+} & LocalisedType */
 
-const StartRecording = ({ translate, onStart, disableInteraction }: Props) => (
+const StartRecording = ({ translate, onStart, disableInteraction }) => (
   <div className={style.actions}>
     <div className={classNames(style.captureActionsHint, style.recordAction)}>
       {translate('video_capture.body_record')}

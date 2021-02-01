@@ -1,17 +1,15 @@
-// @flow
-import type { Node, ComponentType } from 'react'
 import { h, createContext } from 'preact'
 import { parseTags } from '~utils'
 import initializePolyglot from './polyglot'
 
 const LocaleContext = createContext({})
 
-type ProviderProps = {
+/* type ProviderProps = {
   language: string,
   children: Node,
-}
+} */
 
-export const LocaleProvider = ({ language, children }: ProviderProps) => {
+export const LocaleProvider = ({ language, children }) => {
   const polyglot = initializePolyglot(language)
   const translate = polyglot.t.bind(polyglot)
   const parseTranslatedTags = (key, handler) => parseTags(translate(key), handler)
@@ -23,16 +21,16 @@ export const LocaleProvider = ({ language, children }: ProviderProps) => {
   )
 }
 
-export type LocalisedType = {
+/* export type LocalisedType = {
   translate: (string, ?{}) => string,
   parseTranslatedTags: (string, { text: string } => Node) => Node,
   language: string,
-}
+} */
 
-export const localised = <Props: *>(Wrapped: ComponentType<Props>): ComponentType<{...LocalisedType, ...Props}> => {
-  const LocalisedComponent = (props: Props) => (
+export const localised = (Wrapped) => {
+  const LocalisedComponent = (props) => (
     <LocaleContext.Consumer>
-      {(injectedProps: LocalisedType) => <Wrapped {...props} {...injectedProps} />}
+      {(injectedProps) => <Wrapped {...props} {...injectedProps} />}
     </LocaleContext.Consumer>
   )
 
