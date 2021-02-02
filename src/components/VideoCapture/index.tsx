@@ -30,6 +30,7 @@ type VideoLayerProps = {
 } & WithPermissionsFlowProps
 
 export type Props = {
+  audio?: boolean
   cameraClassName?: string
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
@@ -172,6 +173,7 @@ export default class VideoCapture extends Component<Props, State> {
 
   render(): h.JSX.Element {
     const {
+      audio,
       cameraClassName,
       facing,
       renderFallback,
@@ -201,6 +203,7 @@ export default class VideoCapture extends Component<Props, State> {
 
     return (
       <Camera
+        audio={audio}
         buttonType="video"
         containerClassName={cameraClassName}
         facing={facing}
@@ -223,7 +226,6 @@ export default class VideoCapture extends Component<Props, State> {
         }
         renderTitle={!isRecording && title && <PageTitle title={title} />}
         trackScreen={trackScreen}
-        video
         webcamRef={(c: Webcam) => (this.webcam = c)}
       >
         <ToggleFullScreen />

@@ -7,6 +7,7 @@ import type { RenderFallbackProp } from './routers'
 export type ButtonType = 'photo' | 'video'
 
 export type CameraProps = {
+  audio?: boolean
   buttonType?: ButtonType
   children?: h.JSX.Element | h.JSX.Element[]
   className?: string
@@ -20,6 +21,5 @@ export type CameraProps = {
   renderFallback: RenderFallbackProp
   renderTitle?: h.JSX.Element
   renderVideoLayer?: (props: WithPermissionsFlowProps) => h.JSX.Element
-  video?: boolean
   webcamRef?: Ref<Webcam>
 }

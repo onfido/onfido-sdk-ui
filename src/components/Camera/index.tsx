@@ -30,6 +30,7 @@ type Props = CameraProps &
   WithTrackingProps
 
 const Camera: FunctionComponent<Props> = ({
+  audio,
   buttonType = 'photo',
   children,
   className,
@@ -46,7 +47,6 @@ const Camera: FunctionComponent<Props> = ({
   renderTitle,
   renderVideoLayer,
   translate,
-  video,
   webcamRef,
 }) => (
   <div className={classNames(style.camera, className)}>
@@ -58,7 +58,7 @@ const Camera: FunctionComponent<Props> = ({
         aria-describedby="cameraViewAriaLabel"
       >
         <Webcam
-          audio={!!video}
+          audio={audio}
           className={style.video}
           facingMode={facing}
           height={idealCameraHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
@@ -83,7 +83,7 @@ const Camera: FunctionComponent<Props> = ({
       <div
         id="cameraViewAriaLabel"
         aria-label={
-          video
+          buttonType === 'video'
             ? translate('video_capture.frame_accessibility')
             : translate('selfie_capture.frame_accessibility')
         }
