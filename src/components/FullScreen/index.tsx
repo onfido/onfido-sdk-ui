@@ -1,7 +1,8 @@
 import { h, Component, ComponentType } from 'preact'
 import { connect } from 'react-redux'
 import { setFullScreen } from '../ReduxAppWrapper/store/actions/globals'
-import type { RootState } from '../ReduxAppWrapper/store/reducers'
+
+import type { RootState } from '~types/redux'
 
 type WithFullScreenActionProps = {
   setFullScreen: (value: boolean) => void
