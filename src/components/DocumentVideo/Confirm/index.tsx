@@ -11,6 +11,7 @@ import style from './style.scss'
 
 import type { RootState } from 'components/ReduxAppWrapper/store/reducers'
 import type { ApiError } from '~types/api'
+import type { CountryData } from '~types/commons'
 import type { CapturePayload } from '~types/redux'
 import type { ErrorProp, StepComponentDocumentProps } from '~types/routers'
 
@@ -36,9 +37,16 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   const documentVideo = useSelector<RootState, CapturePayload>(
     (state) => state.captures.document_video
   )
+  const issuingCountry = useSelector<RootState, CountryData>(
+    (state) => state.globals.idDocumentIssuingCountry
+  )
 
   const onUploadDocument = useCallback(async () => {
     setLoading(true)
+
+    if (documentType !== 'passport') {
+      console.log('issuingCountry', issuingCountry)
+    }
 
     try {
       await uploadDocument(

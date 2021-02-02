@@ -1,5 +1,6 @@
 import { h, FunctionComponent } from 'preact'
 import { useContext, useState } from 'preact/compat'
+import { useSelector } from 'react-redux'
 
 import { getInactiveError } from '~utils/inactiveError'
 import { mimeType } from '~utils/blob'
