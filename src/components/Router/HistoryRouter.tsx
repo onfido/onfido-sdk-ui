@@ -147,14 +147,6 @@ export default class HistoryRouter extends Component<
   }
 
   formattedError = ({ response, status }: ApiError): FormattedError => {
-    if (typeof response === 'string') {
-      // TODO: remove once find_document_in_image back-end `/validate_document` returns error response with same signature
-      const isExpiredTokenErrorMessage = response.includes('expired')
-      const isExpiredTokenError = status === 401 && isExpiredTokenErrorMessage
-      const type = isExpiredTokenError ? 'expired_token' : 'exception'
-      return { type, message: response }
-    }
-
     const errorResponse = response.error || response || {}
 
     const isExpiredTokenError =
