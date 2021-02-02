@@ -15,7 +15,7 @@ const handleError = (
 ) => {
   trackException(`${status} - ${response}`)
 
-  if (response === 'Token expired') {
+  if (response === 'Token has expired.') {
     callback({
       status,
       response: {

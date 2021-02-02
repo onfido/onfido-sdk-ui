@@ -50,6 +50,8 @@ type ValidationError = {
 export type ApiError = {
   response: {
     error?: AuthorizationError | ExpiredTokenError | ValidationError
+    type?: string
+    message?: string
   }
   status: number
 }
