@@ -8,6 +8,8 @@ import MockedReduxProvider, {
 import { fakeDocumentCaptureState } from '~jest/captures'
 import {
   fakePassportImageResponse,
+  fakeDrivingLicenceFrontResponse,
+  fakeDrivingLicenceBackResponse,
   fakePassportVideoResponse,
 } from '~jest/responses'
 import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
@@ -249,7 +251,10 @@ describe('DocumentVideo', () => {
 
       describe('when success', () => {
         beforeEach(() => {
-          mockedUploadDocument.mockResolvedValue(fakePassportImageResponse)
+          mockedUploadDocument.mockResolvedValueOnce(
+            fakeDrivingLicenceFrontResponse
+          )
+          mockedUploadDocument.mockResolvedValue(fakeDrivingLicenceBackResponse)
           mockedUploadDocumentVideo.mockResolvedValue(fakePassportVideoResponse)
           wrapper.find('button.button-primary').simulate('click')
         })
