@@ -16,6 +16,11 @@ export type ImageQualityValidationPayload = Partial<
 
 /* Errors */
 
+export type ApiRawError = {
+  response: string
+  status: number
+}
+
 const API_ERROR_AUTHORIZATION = 'authorization_error'
 const API_ERROR_EXPIRED_TOKEN = 'expired_token'
 const API_ERROR_VALIDATION = 'validation_error'
@@ -47,15 +52,12 @@ type ValidationError = {
   fields: Partial<Record<ValidationReasons, string[]>>
 }
 
-export type ApiError = {
+export type ApiParsedError = {
   response: {
     error?: AuthorizationError | ExpiredTokenError | ValidationError
+    type?: string
+    message?: string
   }
-  status: number
-}
-
-export type RawApiError = {
-  response: string
   status: number
 }
 
@@ -161,4 +163,4 @@ export type ValidateDocumentResponse = {
 /* Callbacks */
 
 export type SuccessCallback<T> = (response: T) => void
-export type ErrorCallback = (error: ApiError) => void
+export type ErrorCallback = (error: ApiParsedError) => void
