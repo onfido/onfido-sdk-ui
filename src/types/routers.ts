@@ -5,17 +5,18 @@ import type {
   ExtendedStepConfig,
   FlowVariants,
   NarrowSdkOptions,
+  MobileConfig,
   ErrorNames,
   ErrorTypes,
 } from './commons'
 import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
 import type {
-  CaptureOptions,
   StepOptionWelcome,
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
   StepOptionComplete,
+  StepConfig,
 } from './steps'
 import type { CapturePayload } from './redux'
 import type { ReduxProps } from 'components/App/withConnect'
@@ -51,33 +52,49 @@ export type ErrorProp = {
   type?: ErrorTypes
 }
 
-export type RouterOwnProps = {
+export type WithSdkOptionsProps = {
   options: NarrowSdkOptions
-} & ReduxProps
+}
 
-export type RouterProps = {
-  allowCrossDeviceFlow: boolean
-  onFlowChange?: FlowChangeCallback
-} & RouterOwnProps &
+export type ExternalRouterProps = WithSdkOptionsProps &
+  ReduxProps &
   WithCameraDetectionProps
 
-export type PropsFromRouter = {
+export type InternalRouterProps = {
   allowCrossDeviceFlow: boolean
+  onFlowChange?: FlowChangeCallback
+} & ExternalRouterProps
+
+export type HistoryRouterProps = {
+  crossDeviceClientError?: (name?: string) => void
+  mobileConfig?: MobileConfig
+  sendClientSuccess?: () => void
+  step?: number
+  stepIndexType: StepIndexType
+  steps?: StepConfig[]
+} & InternalRouterProps
+
+export type StepsRouterProps = {
   back: () => void
   changeFlowTo: ChangeFlowProp
   componentsList: ComponentStep[]
+  disableNavigation: boolean
   nextStep: () => void
   previousStep: () => void
   triggerOnError: ErrorCallback
-  step: number
-}
+} & HistoryRouterProps
 
 type StepComponentBaseProps = {
   resetSdkFocus: () => void
-} & ReduxProps &
+} & Omit<
+  StepsRouterProps,
+  | 'disableNavigation'
+  | 'cobrand'
+  | 'hideOnfidoLogo'
+  | 'isFullScreen'
+  | 'options'
+> &
   NarrowSdkOptions &
-  PropsFromRouter &
-  WithCameraDetectionProps &
   WithTrackingProps
 
 export type StepComponentWelcomeProps = StepOptionWelcome &
@@ -88,7 +105,6 @@ export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
-export type StepComponentCaptureProps = CaptureOptions & StepComponentBaseProps
 
 export type StepComponentProps =
   | StepComponentWelcomeProps
