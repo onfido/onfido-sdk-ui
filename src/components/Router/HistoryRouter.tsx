@@ -12,13 +12,12 @@ import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
-import type { ApiError } from '~types/api'
+import type { ApiParsedError, ErrorCallback } from '~types/api'
 import type { ExtendedStepTypes, FlowVariants } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
 import type {
   ComponentStep,
   ChangeFlowProp,
-  TriggerOnErrorProp,
   HistoryRouterProps,
 } from '~types/routers'
 import type { DocumentTypes, StepConfigDocument } from '~types/steps'
@@ -146,7 +145,7 @@ export default class HistoryRouter extends Component<
     this.props.options.events.emit('complete', data)
   }
 
-  formattedError = ({ response, status }: ApiError): FormattedError => {
+  formattedError = ({ response, status }: ApiParsedError): FormattedError => {
     const errorResponse = response.error || response || {}
 
     const isExpiredTokenError =
@@ -158,7 +157,7 @@ export default class HistoryRouter extends Component<
     return { type, message }
   }
 
-  triggerOnError: TriggerOnErrorProp = ({ response, status }) => {
+  triggerOnError: ErrorCallback = ({ response, status }) => {
     if (status === 0) {
       return
     }
