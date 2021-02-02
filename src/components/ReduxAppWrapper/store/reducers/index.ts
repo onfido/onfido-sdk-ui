@@ -7,6 +7,4 @@ const appReducer = combineReducers({
   globals,
 })
 
-export type RootState = ReturnType<typeof appReducer>
-
 export default appReducer
