@@ -2,11 +2,11 @@ import { h, ComponentType, FunctionComponent } from 'preact'
 import { connect, ConnectedProps } from 'react-redux'
 import classNames from 'classnames'
 
-import { RootState } from 'components/ReduxAppWrapper/store/reducers'
 import NavigationBar from '../NavigationBar'
 import theme from './style.scss'
 
 import type { WithThemeProps } from '~types/hocs'
+import type { RootState } from '~types/redux'
 
 const mapStateToProps = (state: RootState) => ({
   hideOnfidoLogo: state.globals.hideOnfidoLogo,
