@@ -1,6 +1,6 @@
 import { h, ComponentType } from 'preact'
 
-import type { ApiError } from './api'
+import type { ErrorCallback } from './api'
 import type {
   ExtendedStepConfig,
   FlowVariants,
@@ -39,8 +39,6 @@ export type ChangeFlowProp = (
   excludeStepFromHistory?: boolean
 ) => void
 
-export type TriggerOnErrorProp = (response: ApiError) => void
-
 export type HandleCaptureProp = (payload: CapturePayload) => void
 
 export type RenderFallbackProp = (
@@ -70,7 +68,7 @@ export type PropsFromRouter = {
   componentsList: ComponentStep[]
   nextStep: () => void
   previousStep: () => void
-  triggerOnError: TriggerOnErrorProp
+  triggerOnError: ErrorCallback
   step: number
 }
 
