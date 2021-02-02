@@ -49,12 +49,12 @@ type ValidationError = {
 
 export type ApiError = {
   response: {
-    error: AuthorizationError | ExpiredTokenError | ValidationError
+    error?: AuthorizationError | ExpiredTokenError | ValidationError
   }
   status: number
 }
 
-export type ValidateDocumentExpiredTokenError = {
+export type RawApiError = {
   response: string
   status: number
 }
