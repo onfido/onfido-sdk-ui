@@ -16,25 +16,27 @@ export type ImageQualityValidationPayload = Partial<
 
 /* Errors */
 
+export type ApiRawError = {
+  response: string
+  status: number
+}
+
 const API_ERROR_AUTHORIZATION = 'authorization_error'
 const API_ERROR_EXPIRED_TOKEN = 'expired_token'
 const API_ERROR_VALIDATION = 'validation_error'
 
-type AuthorizationError = {
-  type?: never
-  message?: never
-  error: {
-    type: typeof API_ERROR_AUTHORIZATION
-    message: string
-    fields: Record<string, unknown>
-  }
+type ApiErrorPayload = {
+  message: string
+  fields: Record<string, unknown>
 }
+
+type AuthorizationError = {
+  type: typeof API_ERROR_AUTHORIZATION
+} & ApiErrorPayload
 
 type ExpiredTokenError = {
   type: typeof API_ERROR_EXPIRED_TOKEN
-  message: string
-  error?: never
-}
+} & ApiErrorPayload
 
 type ValidationReasons =
   | 'attachment_content_type'
@@ -45,17 +47,17 @@ type ValidationReasons =
   | 'detect_blur'
 
 type ValidationError = {
-  type?: never
-  message?: never
-  error?: {
-    type: typeof API_ERROR_VALIDATION
-    message: string
-    fields: Partial<Record<ValidationReasons, string[]>>
-  }
+  type: typeof API_ERROR_VALIDATION
+  message: string
+  fields: Partial<Record<ValidationReasons, string[]>>
 }
 
-export type ApiError = {
-  response: string | ValidationError | ExpiredTokenError | AuthorizationError
+export type ApiParsedError = {
+  response: {
+    error?: AuthorizationError | ExpiredTokenError | ValidationError
+    type?: string
+    message?: string
+  }
   status: number
 }
 
@@ -149,10 +151,16 @@ export type VideoChallengeResponse = {
 }
 
 export type ValidateDocumentResponse = {
+  breakdown: {
+    document_confidence: number
+    document_detected: boolean
+  }
+  id: string
+  is_document: boolean
   valid: boolean
 }
 
 /* Callbacks */
 
 export type SuccessCallback<T> = (response: T) => void
-export type ErrorCallback = (request: ApiError) => void
+export type ErrorCallback = (error: ApiParsedError) => void
