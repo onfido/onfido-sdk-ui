@@ -17,7 +17,6 @@ import type {
   ErrorProp,
   HandleCaptureProp,
   RenderFallbackProp,
-  TriggerOnErrorProp,
 } from '~types/routers'
 
 const maxAttempts = 3
@@ -29,7 +28,7 @@ type Props = {
   onValidCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
   token?: string
-  triggerOnError: TriggerOnErrorProp
+  triggerOnError: ErrorCallback
   urls: UrlsConfig
 } & WithTrackingProps
 
