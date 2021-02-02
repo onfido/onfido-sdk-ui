@@ -54,6 +54,11 @@ export type ApiError = {
   status: number
 }
 
+export type ValidateDocumentExpiredTokenError = {
+  response: string
+  status: number
+}
+
 /* Responses */
 
 export type UploadFileResponse = {
@@ -144,10 +149,16 @@ export type VideoChallengeResponse = {
 }
 
 export type ValidateDocumentResponse = {
+  breakdown: {
+    document_confidence: number
+    document_detected: boolean
+  }
+  id: string
+  is_document: boolean
   valid: boolean
 }
 
 /* Callbacks */
 
 export type SuccessCallback<T> = (response: T) => void
-export type ErrorCallback = (request: ApiError) => void
+export type ErrorCallback = (error: ApiError) => void

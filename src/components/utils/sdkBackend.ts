@@ -5,16 +5,27 @@ import { trackException } from '../../Tracker'
 import type {
   ApiError,
   ValidateDocumentResponse,
-  ErrorCallback,
+  ValidateDocumentExpiredTokenError,
   SuccessCallback,
+  ErrorCallback,
 } from '~types/api'
 
 const handleError = (
-  { status, response }: ApiError,
+  { status, response }: ApiError | ValidateDocumentExpiredTokenError,
   callback: ErrorCallback
 ) => {
   trackException(`${status} - ${response}`)
-  callback({ status, response })
+
+  if (typeof response === 'string') {
+    callback({
+      status,
+      response: {
+        error: { type: 'expired_token', message: response, fields: {} },
+      },
+    })
+  } else {
+    callback({ status, response })
+  }
 }
 
 export const postToBackend = (
