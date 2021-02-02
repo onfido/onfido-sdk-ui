@@ -1,1 +1,3 @@
-export const checkIfWebcamPermissionGranted = jest.fn()
+export const checkIfWebcamPermissionGranted = jest
+  .fn()
+  .mockImplementation((callback) => callback(true))
