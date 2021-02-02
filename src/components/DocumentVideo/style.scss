@@ -34,20 +34,25 @@
 .instructions > .icon {
   font-size: 16 * $unit;
   background-repeat: no-repeat;
+  background-size: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .instructions > .tiltIcon {
-  background: url('./assets/tilt.png');
-  height: 2.25em;
+  background-image: url('./assets/tilt.png');
   width: 3.0625em;
+  height: 2.25em;
+
+  @media (--hires) {
+    background-image: url('./assets/tilt@2x.png');
+  }
 }
 
 .instructions > .flipIcon {
-  background: url('./assets/flip.svg');
-  height: 1.625em;
+  background-image: url('./assets/flip.svg');
   width: 2.625em;
+  height: 1.625em;
 }
 
 .actions {
