@@ -89,11 +89,19 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       )
 
       nextStep()
-    } catch (error) {
+    } catch (errorResponse) {
       setLoading(false)
-      const { response, status } = error as ApiParsedError
-      console.log({ response, status })
-      setError({ name: 'REQUEST_ERROR', type: 'error' })
+      const {
+        response: { error },
+      } = errorResponse as ApiParsedError
+
+      if (error?.type === 'validation_error') {
+        if (error?.fields.document_detection) {
+          setError({ name: 'INVALID_CAPTURE', type: 'error' })
+        }
+      } else {
+        setError({ name: 'REQUEST_ERROR', type: 'error' })
+      }
     }
   }, [
     documentType,

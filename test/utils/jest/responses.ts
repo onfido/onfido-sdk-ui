@@ -1,4 +1,8 @@
-import { DocumentVideoResponse, DocumentImageResponse } from '~types/api'
+import {
+  ApiParsedError,
+  DocumentVideoResponse,
+  DocumentImageResponse,
+} from '~types/api'
 
 export const fakePassportImageResponse: DocumentImageResponse = {
   id: 'a2910652-2ed9-42d9-82b5-0e0578ab57fb',
@@ -117,14 +121,26 @@ export const fakeDrivingLicenceBackResponse: DocumentImageResponse = {
 }
 
 export const fakePassportVideoResponse: DocumentVideoResponse = {
-  id: '00000000-0000-0000-0000-000000000000',
-  created_at: '2020-01-01T00:00:00Z',
-  file_name: 'passport.jpg',
-  file_type: 'jpg',
-  file_size: 73591,
+  id: '3837dac4-3fc5-4256-ad37-e374957c00cd',
+  created_at: '2020-11-26T16:51:17Z',
+  file_name: 'blob',
+  file_type: 'video/webm',
+  file_size: 154006,
   type: 'passport',
   issuing_country: null,
-  applicant_id: '00000000-0000-0000-0000-000000000000',
-  href: '/v3/documents/00000000-0000-0000-0000-000000000000',
-  download_href: '/v3/documents/00000000-0000-0000-0000-000000000000/download',
+  applicant_id: '<to-be-replaced>',
+  href: '/v3/live_videos/3837dac4-3fc5-4256-ad37-e374957c00cd',
+  download_href:
+    '/v3/live_videos/3837dac4-3fc5-4256-ad37-e374957c00cd/download',
+}
+
+export const fakeNoDocumentError: ApiParsedError = {
+  response: {
+    error: {
+      type: 'validation_error',
+      message: 'There was a validation error on this request',
+      fields: { document_detection: ['no document in image'] },
+    },
+  },
+  status: 422,
 }

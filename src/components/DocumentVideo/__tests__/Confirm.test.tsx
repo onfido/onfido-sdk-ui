@@ -11,6 +11,7 @@ import {
   fakeDrivingLicenceFrontResponse,
   fakeDrivingLicenceBackResponse,
   fakePassportVideoResponse,
+  fakeNoDocumentError,
 } from '~jest/responses'
 import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
 import Confirm from '../Confirm'
@@ -47,11 +48,7 @@ const defaultProps: StepComponentDocumentProps = {
 }
 
 const mockFailedRequest = (wrapper: ReactWrapper) => {
-  mockedUploadDocument.mockRejectedValue({
-    response: { message: 'Fake error message' },
-    status: 422,
-  })
-
+  mockedUploadDocument.mockRejectedValue(fakeNoDocumentError)
   wrapper.find('button.button-primary').simulate('click')
 }
 
@@ -64,7 +61,15 @@ const assertUploadError = async (wrapper: ReactWrapper) => {
   await runAllPromises()
   wrapper.update()
   expect(wrapper.find('Spinner').exists()).toBeFalsy()
+
   expect(wrapper.find('Error').exists()).toBeTruthy()
+  expect(wrapper.find('Error .title').text()).toEqual(
+    'doc_confirmation.alert.no_doc_title'
+  )
+  expect(wrapper.find('Error .instruction').text()).toEqual(
+    'doc_confirmation.alert.no_doc_detail'
+  )
+
   expect(wrapper.find('.content').exists()).toBeFalsy()
   expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
   expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
