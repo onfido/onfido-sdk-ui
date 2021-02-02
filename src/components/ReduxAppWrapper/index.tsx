@@ -2,9 +2,9 @@ import { h, FunctionComponent } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
 import { createStore, Store } from 'redux'
 import { Provider as ReduxProvider } from 'react-redux'
-import reducer, { RootState } from './store/reducers'
+import reducer from './store/reducers'
 
-import type { CaptureActions, GlobalActions } from '~types/redux'
+import type { RootState, CaptureActions, GlobalActions } from '~types/redux'
 
 type StoreType = Store<RootState, CaptureActions | GlobalActions>
 
