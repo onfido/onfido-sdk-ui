@@ -49,8 +49,13 @@ type ValidationError = {
 
 export type ApiError = {
   response: {
-    error: AuthorizationError | ExpiredTokenError | ValidationError
+    error?: AuthorizationError | ExpiredTokenError | ValidationError
   }
+  status: number
+}
+
+export type RawApiError = {
+  response: string
   status: number
 }
 
@@ -144,10 +149,16 @@ export type VideoChallengeResponse = {
 }
 
 export type ValidateDocumentResponse = {
+  breakdown: {
+    document_confidence: number
+    document_detected: boolean
+  }
+  id: string
+  is_document: boolean
   valid: boolean
 }
 
 /* Callbacks */
 
 export type SuccessCallback<T> = (response: T) => void
-export type ErrorCallback = (request: ApiError) => void
+export type ErrorCallback = (error: ApiError) => void
