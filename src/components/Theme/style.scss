@@ -65,6 +65,10 @@
   position: static;
 }
 
+.actionsContainer {
+  flex-grow: 0;
+}
+
 $footer-top-margin: 16 * $unit;
 $cobrand-logo-width: 80 * $unit;
 

@@ -12,7 +12,7 @@ const ScreenLayout: FunctionComponent<ScreenLayoutProps> = ({
   return (
     <Fragment>
       <div className={theme.scrollableContent}>{children}</div>
-      {actions}
+      <div className={theme.actionsContainer}>{actions}</div>
     </Fragment>
   )
 }
