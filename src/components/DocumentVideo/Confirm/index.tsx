@@ -9,10 +9,9 @@ import Error from '../../Error'
 import Spinner from '../../Spinner'
 import style from './style.scss'
 
-import type { RootState } from 'components/ReduxAppWrapper/store/reducers'
 import type { ApiError } from '~types/api'
 import type { CountryData } from '~types/commons'
-import type { CapturePayload } from '~types/redux'
+import type { RootState, CapturePayload } from '~types/redux'
 import type { ErrorProp, StepComponentDocumentProps } from '~types/routers'
 
 const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
