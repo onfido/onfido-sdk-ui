@@ -29,6 +29,8 @@ export type Props = {
   onCapture: HandleDocVideoCaptureProp
 } & WithTrackingProps
 
+const singleSidedDocuments: DocumentTypes[] = ['passport']
+
 const renamedCapture = (
   payload: CapturePayload,
   step: CaptureSteps
@@ -56,6 +58,14 @@ const DocumentVideo: FunctionComponent<Props> = ({
   }
 
   const handleVideoCapture: HandleCaptureProp = (payload) => {
+    if (singleSidedDocuments.includes(documentType)) {
+      onCapture({
+        front: frontPayload,
+        video: renamedCapture(payload, 'video'),
+      })
+      return
+    }
+
     setVideoPayload(renamedCapture(payload, 'video'))
     setCaptureStep('back')
   }

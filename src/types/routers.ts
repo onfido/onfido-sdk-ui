@@ -45,7 +45,7 @@ export type TriggerOnErrorProp = (response: ApiError) => void
 
 export type HandleCaptureProp = (payload: CapturePayload) => void
 export type HandleDocVideoCaptureProp = (
-  payload: Record<CaptureSteps, CapturePayload>
+  payload: Partial<Record<CaptureSteps, CapturePayload>>
 ) => void
 
 export type RenderFallbackProp = (

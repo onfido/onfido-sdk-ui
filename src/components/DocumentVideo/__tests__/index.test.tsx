@@ -19,6 +19,7 @@ import Timeout, { Props as TimeoutProps } from '../../Timeout'
 import DocumentVideo, { Props as DocumentVideoProps } from '../index'
 import Recording, { Props as RecordingProps } from '../Recording'
 import StartRecording, { Props as StartRecordingProps } from '../StartRecording'
+import type { DocumentTypes } from '~types/steps'
 
 jest.mock('../../utils')
 
@@ -30,6 +31,107 @@ const defaultProps: DocumentVideoProps = {
   trackScreen: jest.fn(),
 }
 
+const simulateTimeout = (wrapper: ReactWrapper) => {
+  const timeout = wrapper.find<TimeoutProps>(Timeout)
+  timeout.props().onTimeout()
+  wrapper.update()
+}
+
+const simulatePhotoCapture = (wrapper: ReactWrapper) => {
+  wrapper.find('DocumentLiveCapture CameraButton > button').simulate('click')
+  wrapper.update()
+}
+
+const simulateVideoCaptureStart = (wrapper: ReactWrapper) => {
+  const button = wrapper.find('StartRecording Button > button')
+  button.simulate('click')
+}
+
+const simulateVideoCaptureContinue = (wrapper: ReactWrapper) => {
+  const button = wrapper.find('Recording Button > button')
+  button.simulate('click')
+}
+
+const assertPhotoCapture = (wrapper: ReactWrapper, docType: DocumentTypes) => {
+  expect(wrapper.find('VideoCapture').exists()).toBeFalsy()
+  const documentLiveCapture = wrapper.find<DocumentLiveCaptureProps>(
+    DocumentLiveCapture
+  )
+  expect(documentLiveCapture.exists()).toBeTruthy()
+
+  const {
+    documentType,
+    isUploadFallbackDisabled,
+    renderFallback,
+    trackScreen,
+  } = documentLiveCapture.props()
+
+  expect(documentType).toEqual(docType)
+  expect(isUploadFallbackDisabled).toBeTruthy()
+  renderFallback('fake_fallback_reason')
+  expect(defaultProps.renderFallback).toHaveBeenCalledWith(
+    'fake_fallback_reason'
+  )
+  trackScreen('fake_screen_tracking')
+  expect(defaultProps.trackScreen).toHaveBeenCalledWith('fake_screen_tracking')
+}
+
+const assertVideoIntroStep = (wrapper: ReactWrapper) => {
+  expect(wrapper.find('DocumentLiveCapture').exists()).toBeFalsy()
+  const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
+  expect(videoCapture.exists()).toBeTruthy()
+
+  const {
+    cameraClassName,
+    facing,
+    inactiveError,
+    onRedo,
+    renderFallback,
+    trackScreen,
+  } = videoCapture.props()
+
+  expect(cameraClassName).toEqual('fakeCameraClass')
+  expect(facing).toEqual('environment')
+  expect(inactiveError.name).toEqual('CAMERA_INACTIVE_NO_FALLBACK')
+
+  expect(onRedo).toBeDefined()
+
+  renderFallback('fake_fallback_reason')
+  expect(defaultProps.renderFallback).toHaveBeenCalledWith(
+    'fake_fallback_reason'
+  )
+  trackScreen('fake_screen_tracking')
+  expect(defaultProps.trackScreen).toHaveBeenCalledWith('fake_screen_tracking')
+
+  expect(videoCapture.find('StartRecording').exists()).toBeTruthy()
+}
+
+const assertVideoTiltStep = (wrapper: ReactWrapper) => {
+  expect(wrapper.find('VideoCapture StartRecording').exists()).toBeFalsy()
+  const recording = wrapper.find<RecordingProps>(Recording)
+  expect(recording.exists()).toBeTruthy()
+  expect(recording.props().disableInteraction).toBeFalsy()
+  expect(recording.props().hasMoreSteps).toBeTruthy()
+  expect(recording.find('Instructions').exists()).toBeTruthy()
+  expect(recording.find('Instructions').props()).toMatchObject({
+    icon: 'tilt',
+    title: 'doc_video_capture.instructions.video_tilt_title',
+    subtitle: 'doc_video_capture.instructions.video_tilt_subtitle',
+  })
+}
+
+const assertVideoFlipStep = (wrapper: ReactWrapper) => {
+  const recording = wrapper.find<RecordingProps>(Recording)
+  expect(recording.props().disableInteraction).toBeFalsy()
+  expect(recording.props().hasMoreSteps).toBeFalsy()
+  expect(recording.find('Instructions').exists()).toBeTruthy()
+  expect(recording.find('Instructions').props()).toMatchObject({
+    icon: 'flip',
+    title: 'doc_video_capture.instructions.video_flip_title',
+    subtitle: 'doc_video_capture.instructions.video_flip_subtitle',
+  })
+}
+
 describe('DocumentVideo', () => {
   let wrapper: ReactWrapper
 
@@ -37,196 +139,154 @@ describe('DocumentVideo', () => {
     jest.clearAllMocks()
   })
 
-  beforeEach(() => {
-    wrapper = mount(
-      <MockedReduxProvider>
-        <MockedLocalised>
-          <DocumentVideo {...defaultProps} />
-        </MockedLocalised>
-      </MockedReduxProvider>
-    )
-  })
-
-  it('renders the front document capture by default', () => {
-    const documentLiveCapture = wrapper.find<DocumentLiveCaptureProps>(
-      DocumentLiveCapture
-    )
-    expect(documentLiveCapture.exists()).toBeTruthy()
-
-    const {
-      documentType,
-      isUploadFallbackDisabled,
-      renderFallback,
-      trackScreen,
-    } = documentLiveCapture.props()
-
-    expect(documentType).toEqual(defaultProps.documentType)
-    expect(isUploadFallbackDisabled).toBeTruthy()
-    renderFallback('fake_fallback_reason')
-    expect(defaultProps.renderFallback).toHaveBeenCalledWith(
-      'fake_fallback_reason'
-    )
-    trackScreen('fake_screen_tracking')
-    expect(defaultProps.trackScreen).toHaveBeenCalledWith(
-      'fake_screen_tracking'
-    )
-  })
-
-  describe('when capture video', () => {
+  describe('with double-sided documents', () => {
     beforeEach(() => {
-      wrapper
-        .find('DocumentLiveCapture CameraButton > button')
-        .simulate('click')
-      wrapper.update()
+      wrapper = mount(
+        <MockedReduxProvider>
+          <MockedLocalised>
+            <DocumentVideo {...defaultProps} />
+          </MockedLocalised>
+        </MockedReduxProvider>
+      )
     })
 
-    it('switches to video step after front side image captured', () => {
-      const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
-      expect(videoCapture.exists()).toBeTruthy()
+    it('renders the front document capture by default', () =>
+      assertPhotoCapture(wrapper, defaultProps.documentType))
 
-      const {
-        cameraClassName,
-        facing,
-        inactiveError,
-        onRedo,
-        renderFallback,
-        trackScreen,
-      } = videoCapture.props()
+    describe('when capture video', () => {
+      beforeEach(() => simulatePhotoCapture(wrapper))
 
-      expect(cameraClassName).toEqual('fakeCameraClass')
-      expect(facing).toEqual('environment')
-      expect(inactiveError.name).toEqual('CAMERA_INACTIVE_NO_FALLBACK')
+      it('switches to video step after front side image captured', () =>
+        assertVideoIntroStep(wrapper))
 
-      expect(onRedo).toBeDefined()
-
-      renderFallback('fake_fallback_reason')
-      expect(defaultProps.renderFallback).toHaveBeenCalledWith(
-        'fake_fallback_reason'
-      )
-      trackScreen('fake_screen_tracking')
-      expect(defaultProps.trackScreen).toHaveBeenCalledWith(
-        'fake_screen_tracking'
-      )
-
-      expect(videoCapture.find('StartRecording').exists()).toBeTruthy()
-    })
-
-    it('renders correct overlay', () => {
-      const documentOverlay = wrapper.find<DocumentOverlayProps>(
-        DocumentOverlay
-      )
-      expect(documentOverlay.exists()).toBeTruthy()
-      expect(documentOverlay.props().type).toEqual(defaultProps.documentType)
-    })
-
-    describe('when inactive timed out', () => {
-      beforeEach(() => {
-        const timeout = wrapper.find<TimeoutProps>(Timeout)
-        timeout.props().onTimeout()
-        wrapper.update()
-      })
-
-      it('handles redo fallback correctly', () => {
-        const error = wrapper.find('CameraError Error')
-        expect(error.exists()).toBeTruthy()
-        expect(error.find('.title').text()).toEqual(
-          'selfie_capture.alert.camera_inactive.title'
+      it('renders overlay correctly', () => {
+        const documentOverlay = wrapper.find<DocumentOverlayProps>(
+          DocumentOverlay
         )
-      })
-    })
-
-    describe('when recording', () => {
-      beforeEach(() => {
-        const button = wrapper.find('StartRecording Button > button')
-        button.simulate('click')
+        expect(documentOverlay.exists()).toBeTruthy()
+        expect(documentOverlay.props().type).toEqual(defaultProps.documentType)
       })
 
       describe('when inactive timed out', () => {
-        beforeEach(() => {
-          const timeout = wrapper.find<TimeoutProps>(Timeout)
-          timeout.props().onTimeout()
-          wrapper.update()
-        })
+        beforeEach(() => simulateTimeout(wrapper))
 
         it('handles redo fallback correctly', () => {
           const error = wrapper.find('CameraError Error')
           expect(error.exists()).toBeTruthy()
           expect(error.find('.title').text()).toEqual(
-            'selfie_capture.alert.timeout.title'
+            'selfie_capture.alert.camera_inactive.title'
           )
-          expect(error.find('.instruction button').text()).toEqual(
-            'selfie_capture.alert.timeout.detail'
-          )
-
-          wrapper.find<FallbackButtonProps>(FallbackButton).props().onClick()
-          wrapper.update()
-
-          expect(wrapper.find('VideoCapture Recording').exists()).toBeFalsy()
-          const startRecording = wrapper.find<StartRecordingProps>(
-            StartRecording
-          )
-          expect(startRecording.exists()).toBeTruthy()
-          expect(startRecording.props().disableInteraction).toBeFalsy()
         })
       })
 
-      it('starts recording correctly', () => {
-        expect(wrapper.find('VideoCapture StartRecording').exists()).toBeFalsy()
-        const recording = wrapper.find<RecordingProps>(Recording)
-        expect(recording.exists()).toBeTruthy()
-        expect(recording.props().disableInteraction).toBeFalsy()
-        expect(recording.props().hasMoreSteps).toBeTruthy()
-        expect(recording.find('Instructions').exists()).toBeTruthy()
-        expect(recording.find('Instructions').props()).toMatchObject({
-          icon: 'tilt',
-          title: 'doc_video_capture.instructions.video_tilt_title',
-          subtitle: 'doc_video_capture.instructions.video_tilt_subtitle',
+      describe('when recording', () => {
+        beforeEach(() => simulateVideoCaptureStart(wrapper))
+
+        describe('when inactive timed out', () => {
+          beforeEach(() => simulateTimeout(wrapper))
+
+          it('handles redo fallback correctly', () => {
+            const error = wrapper.find('CameraError Error')
+            expect(error.exists()).toBeTruthy()
+            expect(error.find('.title').text()).toEqual(
+              'selfie_capture.alert.timeout.title'
+            )
+            expect(error.find('.instruction button').text()).toEqual(
+              'selfie_capture.alert.timeout.detail'
+            )
+
+            wrapper.find<FallbackButtonProps>(FallbackButton).props().onClick()
+            wrapper.update()
+
+            expect(wrapper.find('VideoCapture Recording').exists()).toBeFalsy()
+            const startRecording = wrapper.find<StartRecordingProps>(
+              StartRecording
+            )
+            expect(startRecording.exists()).toBeTruthy()
+            expect(startRecording.props().disableInteraction).toBeFalsy()
+          })
+        })
+
+        it('starts recording correctly', () => assertVideoTiltStep(wrapper))
+
+        it('moves to the next step correctly', () => {
+          simulateVideoCaptureContinue(wrapper)
+          assertVideoFlipStep(wrapper)
+        })
+
+        it('switches to the back document capture step', () => {
+          simulateVideoCaptureContinue(wrapper)
+          simulateVideoCaptureContinue(wrapper)
+
+          assertPhotoCapture(wrapper, defaultProps.documentType)
+          simulatePhotoCapture(wrapper)
+
+          expect(defaultProps.onCapture).toHaveBeenCalledWith({
+            front: {
+              ...fakeCapturePayload('standard'),
+              filename: 'document_front.jpeg',
+              isPreviewCropped: true,
+            },
+            video: {
+              ...fakeCapturePayload('video'),
+              filename: 'document_video.webm',
+            },
+            back: {
+              ...fakeCapturePayload('standard'),
+              filename: 'document_back.jpeg',
+              isPreviewCropped: true,
+            },
+          })
         })
       })
+    })
+  })
 
-      it('moves to the next step correctly', () => {
-        const button = wrapper.find('Recording Button > button')
-        button.simulate('click')
+  describe('with single-sided documents', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <MockedReduxProvider>
+          <MockedLocalised>
+            <DocumentVideo {...defaultProps} documentType="passport" />
+          </MockedLocalised>
+        </MockedReduxProvider>
+      )
+    })
 
-        const recording = wrapper.find<RecordingProps>(Recording)
-        expect(recording.props().disableInteraction).toBeFalsy()
-        expect(recording.props().hasMoreSteps).toBeFalsy()
-        expect(recording.find('Instructions').exists()).toBeTruthy()
-        expect(recording.find('Instructions').props()).toMatchObject({
-          icon: 'flip',
-          title: 'doc_video_capture.instructions.video_flip_title',
-          subtitle: 'doc_video_capture.instructions.video_flip_subtitle',
+    it('renders the front document capture by default', () =>
+      assertPhotoCapture(wrapper, 'passport'))
+
+    describe('when capture video', () => {
+      beforeEach(() => simulatePhotoCapture(wrapper))
+
+      it('switches to video step after front side image captured', () =>
+        assertVideoIntroStep(wrapper))
+
+      describe('when recording', () => {
+        beforeEach(() => simulateVideoCaptureStart(wrapper))
+
+        it('starts recording correctly', () => assertVideoTiltStep(wrapper))
+
+        it('moves to the next step correctly', () => {
+          simulateVideoCaptureContinue(wrapper)
+          assertVideoFlipStep(wrapper)
         })
-      })
 
-      it('switches to the back document capture step', () => {
-        const recordingButton = wrapper.find('Recording Button > button')
-        recordingButton.simulate('click') // next step
-        recordingButton.simulate('click') // stop recording
-        wrapper.update()
+        it('ends the flow without capturing back side', () => {
+          simulateVideoCaptureContinue(wrapper)
+          simulateVideoCaptureContinue(wrapper)
 
-        expect(wrapper.find('VideoCapture').exists()).toBeFalsy()
-        expect(wrapper.find('DocumentLiveCapture').exists()).toBeTruthy()
-        const cameraButton = wrapper.find(
-          'DocumentLiveCapture CameraButton > button'
-        )
-        cameraButton.simulate('click')
-
-        expect(defaultProps.onCapture).toHaveBeenCalledWith({
-          front: {
-            ...fakeCapturePayload('standard'),
-            filename: 'document_front.jpeg',
-            isPreviewCropped: true,
-          },
-          video: {
-            ...fakeCapturePayload('video'),
-            filename: 'document_video.webm',
-          },
-          back: {
-            ...fakeCapturePayload('standard'),
-            filename: 'document_back.jpeg',
-            isPreviewCropped: true,
-          },
+          expect(defaultProps.onCapture).toHaveBeenCalledWith({
+            front: {
+              ...fakeCapturePayload('standard'),
+              filename: 'document_front.jpeg',
+              isPreviewCropped: true,
+            },
+            video: {
+              ...fakeCapturePayload('video'),
+              filename: 'document_video.webm',
+            },
+          })
         })
       })
     })
