@@ -17,6 +17,9 @@ import type { StepComponentDocumentProps } from '~types/routers'
 
 jest.mock('../../utils/onfidoApi')
 
+const fakeUrl = 'https://fake-api.onfido.com'
+const fakeToken = 'fake-sdk-token'
+
 const mockedUploadDocument = uploadDocument as jest.MockedFunction<
   typeof uploadDocument
 >
@@ -39,6 +42,30 @@ const defaultProps: StepComponentDocumentProps = {
   trackScreen: jest.fn(),
   triggerOnError: jest.fn(),
   ...mockedReduxProps,
+}
+
+const mockFailedRequest = (wrapper: ReactWrapper) => {
+  mockedUploadDocument.mockRejectedValue({
+    response: { message: 'Fake error message' },
+    status: 422,
+  })
+
+  wrapper.find('button.button-primary').simulate('click')
+}
+
+const assertUploadError = async (wrapper: ReactWrapper) => {
+  expect(wrapper.find('Spinner').exists()).toBeTruthy()
+  expect(wrapper.find('.content').exists()).toBeFalsy()
+  expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
+  expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
+
+  await runAllPromises()
+  wrapper.update()
+  expect(wrapper.find('Spinner').exists()).toBeFalsy()
+  expect(wrapper.find('Error').exists()).toBeTruthy()
+  expect(wrapper.find('.content').exists()).toBeFalsy()
+  expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
+  expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
 }
 
 describe('DocumentVideo', () => {
@@ -92,31 +119,23 @@ describe('DocumentVideo', () => {
       expect(defaultProps.previousStep).toHaveBeenCalled()
     })
 
-    describe('when upload', () => {
+    describe('when upload passport', () => {
       const fakeDocumentType = 'passport'
       const fakeFrontPayload = fakeDocumentCaptureState(
         fakeDocumentType,
         'standard',
         'front'
       )
-      const fakeBackPayload = fakeDocumentCaptureState(
-        fakeDocumentType,
-        'standard',
-        'back'
-      )
       const fakeVideoPayload = fakeDocumentCaptureState(
         fakeDocumentType,
         'video'
       )
-      const fakeUrl = 'https://fake-api.onfido.com'
-      const fakeToken = 'fake-sdk-token'
 
       beforeEach(() => {
         wrapper = mount(
           <MockedReduxProvider
             overrideCaptures={{
               document_front: fakeFrontPayload,
-              document_back: fakeBackPayload,
               document_video: fakeVideoPayload,
             }}
             overrideGlobals={{
@@ -161,9 +180,103 @@ describe('DocumentVideo', () => {
             fakeUrl,
             fakeToken
           )
+          expect(mockedUploadDocumentVideo).toHaveBeenCalledWith(
+            {
+              blob: fakeVideoPayload.blob,
+              sdkMetadata: fakeVideoPayload.sdkMetadata,
+            },
+            fakeUrl,
+            fakeToken
+          )
+
+          expect(mockedUploadDocument).toHaveBeenCalledTimes(1)
+          expect(defaultProps.nextStep).toHaveBeenCalled()
+        })
+      })
+
+      describe('when error', () => {
+        beforeEach(() => mockFailedRequest(wrapper))
+        it('renders spinner correctly', () => assertUploadError(wrapper))
+      })
+    })
+
+    describe('when upload driving licence', () => {
+      const fakeDocumentType = 'driving_licence'
+      const fakeFrontPayload = fakeDocumentCaptureState(
+        fakeDocumentType,
+        'standard',
+        'front'
+      )
+      const fakeBackPayload = fakeDocumentCaptureState(
+        fakeDocumentType,
+        'standard',
+        'back'
+      )
+      const fakeVideoPayload = fakeDocumentCaptureState(
+        fakeDocumentType,
+        'video'
+      )
+
+      beforeEach(() => {
+        wrapper = mount(
+          <MockedReduxProvider
+            overrideCaptures={{
+              document_front: fakeFrontPayload,
+              document_back: fakeBackPayload,
+              document_video: fakeVideoPayload,
+            }}
+            overrideGlobals={{
+              idDocumentIssuingCountry: {
+                name: 'United States of America',
+                country_alpha2: 'US',
+                country_alpha3: 'USA',
+              },
+              urls: {
+                onfido_api_url: fakeUrl,
+              },
+            }}
+          >
+            <MockedLocalised>
+              <Confirm
+                {...defaultProps}
+                documentType={fakeDocumentType}
+                token={fakeToken}
+              />
+            </MockedLocalised>
+          </MockedReduxProvider>
+        )
+      })
+
+      describe('when success', () => {
+        beforeEach(() => {
+          mockedUploadDocument.mockResolvedValue(fakePassportImageResponse)
+          mockedUploadDocumentVideo.mockResolvedValue(fakePassportVideoResponse)
+          wrapper.find('button.button-primary').simulate('click')
+        })
+
+        it('renders spinner correctly', async () => {
+          expect(wrapper.find('Spinner').exists()).toBeTruthy()
+          expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
+          expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
+
+          await runAllPromises()
+
+          expect(mockedUploadDocument).toHaveBeenCalledWith(
+            {
+              file: fakeFrontPayload.blob,
+              issuing_country: 'USA',
+              sdkMetadata: fakeFrontPayload.sdkMetadata,
+              side: 'front',
+              type: fakeDocumentType,
+              validations: { detect_document: 'error' },
+            },
+            fakeUrl,
+            fakeToken
+          )
           expect(mockedUploadDocument).toHaveBeenCalledWith(
             {
               file: fakeBackPayload.blob,
+              issuing_country: 'USA',
               sdkMetadata: fakeBackPayload.sdkMetadata,
               side: 'back',
               type: fakeDocumentType,
@@ -187,29 +300,8 @@ describe('DocumentVideo', () => {
       })
 
       describe('when error', () => {
-        beforeEach(() => {
-          mockedUploadDocument.mockRejectedValue({
-            response: { message: 'Fake error message' },
-            status: 422,
-          })
-
-          wrapper.find('button.button-primary').simulate('click')
-        })
-
-        it('renders spinner correctly', async () => {
-          expect(wrapper.find('Spinner').exists()).toBeTruthy()
-          expect(wrapper.find('.content').exists()).toBeFalsy()
-          expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
-          expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
-
-          await runAllPromises()
-          wrapper.update()
-          expect(wrapper.find('Spinner').exists()).toBeFalsy()
-          expect(wrapper.find('Error').exists()).toBeTruthy()
-          expect(wrapper.find('.content').exists()).toBeFalsy()
-          expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
-          expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
-        })
+        beforeEach(() => mockFailedRequest(wrapper))
+        it('renders spinner correctly', () => assertUploadError(wrapper))
       })
     })
   })

@@ -1,6 +1,5 @@
 import { h, FunctionComponent } from 'preact'
 import { useContext, useState } from 'preact/compat'
-import { useSelector } from 'react-redux'
 
 import { getInactiveError } from '~utils/inactiveError'
 import { mimeType } from '~utils/blob'
@@ -30,8 +29,6 @@ export type Props = {
   onCapture: HandleDocVideoCaptureProp
 } & WithTrackingProps
 
-const singleSidedDocuments: DocumentTypes[] = ['passport']
-
 const renamedCapture = (
   payload: CapturePayload,
   step: CaptureSteps
@@ -59,7 +56,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
   }
 
   const handleVideoCapture: HandleCaptureProp = (payload) => {
-    if (singleSidedDocuments.includes(documentType)) {
+    if (documentType === 'passport') {
       onCapture({
         front: frontPayload,
         video: renamedCapture(payload, 'video'),

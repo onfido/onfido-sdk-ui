@@ -43,9 +43,12 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   const onUploadDocument = useCallback(async () => {
     setLoading(true)
 
-    if (documentType !== 'passport') {
-      console.log('issuingCountry', issuingCountry)
-    }
+    const issuingCountryData =
+      documentType === 'passport'
+        ? {}
+        : {
+            issuing_country: issuingCountry.country_alpha3,
+          }
 
     try {
       await uploadDocument(
@@ -55,22 +58,26 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
           side: 'front',
           type: documentType,
           validations: { detect_document: 'error' },
+          ...issuingCountryData,
         },
         apiUrl,
         token
       )
 
-      await uploadDocument(
-        {
-          file: documentBack.blob,
-          sdkMetadata: documentBack.sdkMetadata,
-          side: 'back',
-          type: documentType,
-          validations: { detect_document: 'error' },
-        },
-        apiUrl,
-        token
-      )
+      if (documentBack) {
+        await uploadDocument(
+          {
+            file: documentBack.blob,
+            sdkMetadata: documentBack.sdkMetadata,
+            side: 'back',
+            type: documentType,
+            validations: { detect_document: 'error' },
+            ...issuingCountryData,
+          },
+          apiUrl,
+          token
+        )
+      }
 
       await uploadDocumentVideo(
         {
@@ -96,6 +103,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     documentFront,
     documentBack,
     documentVideo,
+    issuingCountry,
   ])
 
   if (loading) {

@@ -74,8 +74,10 @@ class Document extends Component<Props> {
     }
 
     actions.createCapture({ ...baseData, ...front, side: 'front' })
-    actions.createCapture({ ...baseData, ...back, side: 'back' })
     actions.createCapture({ ...baseData, ...video, variant: 'video' })
+    if (back) {
+      actions.createCapture({ ...baseData, ...back, side: 'back' })
+    }
 
     nextStep()
   }
