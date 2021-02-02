@@ -2,8 +2,7 @@ import { connect, ConnectedProps } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 import { actions } from '../ReduxAppWrapper/store/actions/'
 
-import type { CaptureActions, GlobalActions } from '~types/redux'
-import type { RootState } from '../ReduxAppWrapper/store/reducers'
+import type { RootState, CaptureActions, GlobalActions } from '~types/redux'
 
 type CombinedActions = CaptureActions | GlobalActions
 
