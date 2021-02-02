@@ -3,14 +3,14 @@ import { formatError } from './onfidoApi'
 import { trackException } from '../../Tracker'
 
 import type {
-  RawApiError,
+  ApiRawError,
   ValidateDocumentResponse,
   SuccessCallback,
   ErrorCallback,
 } from '~types/api'
 
 const handleError = (
-  { status, response }: RawApiError,
+  { status, response }: ApiRawError,
   callback: ErrorCallback
 ) => {
   trackException(`${status} - ${response}`)

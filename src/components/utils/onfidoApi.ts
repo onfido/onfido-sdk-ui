@@ -3,7 +3,7 @@ import { forEach } from './object'
 
 import type {
   ImageQualityValidationPayload,
-  RawApiError,
+  ApiRawError,
   UploadFileResponse,
   DocumentImageResponse,
   ChallengeData,
@@ -64,7 +64,7 @@ type SubmitLiveVideoPayload = {
 } & SubmitPayload
 
 export const formatError = (
-  { response, status }: RawApiError,
+  { response, status }: ApiRawError,
   onError: ErrorCallback
 ): void => {
   try {

@@ -1,4 +1,4 @@
-import type { RawApiError, SuccessCallback } from '~types/api'
+import type { ApiRawError, SuccessCallback } from '~types/api'
 
 export type HttpRequestParams = {
   contentType?: string
@@ -10,7 +10,7 @@ export type HttpRequestParams = {
 export const performHttpReq = <T>(
   { contentType, endpoint, payload, token }: HttpRequestParams,
   onSuccess: SuccessCallback<T>,
-  onError: (error: RawApiError) => void
+  onError: (error: ApiRawError) => void
 ): void => {
   const request = new XMLHttpRequest()
   request.open('POST', endpoint)
