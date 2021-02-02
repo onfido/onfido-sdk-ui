@@ -3,18 +3,28 @@ import { formatError } from './onfidoApi'
 import { trackException } from '../../Tracker'
 
 import type {
-  ApiError,
+  RawApiError,
   ValidateDocumentResponse,
-  ErrorCallback,
   SuccessCallback,
+  ErrorCallback,
 } from '~types/api'
 
 const handleError = (
-  { status, response }: ApiError,
+  { status, response }: RawApiError,
   callback: ErrorCallback
 ) => {
   trackException(`${status} - ${response}`)
-  callback({ status, response })
+
+  if (response === 'Token expired') {
+    callback({
+      status,
+      response: {
+        error: { type: 'expired_token', message: response, fields: {} },
+      },
+    })
+  } else {
+    formatError({ status, response }, callback)
+  }
 }
 
 export const postToBackend = (
@@ -33,7 +43,7 @@ export const postToBackend = (
     contentType: 'application/json',
   }
 
-  performHttpReq(options, onSuccess, (response) =>
-    formatError(response, () => handleError(response, errorCallback))
+  performHttpReq(options, onSuccess, (error) =>
+    handleError(error, errorCallback)
   )
 }
