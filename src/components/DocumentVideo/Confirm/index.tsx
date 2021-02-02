@@ -9,7 +9,7 @@ import Error from '../../Error'
 import Spinner from '../../Spinner'
 import style from './style.scss'
 
-import type { ApiError } from '~types/api'
+import type { ApiParsedError } from '~types/api'
 import type { CountryData } from '~types/commons'
 import type { RootState, CapturePayload } from '~types/redux'
 import type { ErrorProp, StepComponentDocumentProps } from '~types/routers'
@@ -91,7 +91,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       nextStep()
     } catch (error) {
       setLoading(false)
-      const { response, status } = error as ApiError
+      const { response, status } = error as ApiParsedError
       console.log({ response, status })
       setError({ name: 'REQUEST_ERROR', type: 'error' })
     }
