@@ -92,6 +92,7 @@ class FaceVideo extends Component<Props, State> {
 
     return (
       <VideoCapture
+        audio
         cameraClassName={cameraClassName}
         inactiveError={inactiveError}
         onRecordingStart={this.onRecordingStart}
