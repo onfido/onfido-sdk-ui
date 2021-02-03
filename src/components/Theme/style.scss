@@ -71,6 +71,14 @@
 
 $footer-top-margin: 0 * $unit;
 $cobrand-logo-width: 80 * $unit;
+$logo-height: 32 * $unit;
+
+%_logo {
+  height: $logo-height;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .cobrandFooter {
   display: flex;
@@ -114,12 +122,9 @@ $cobrand-logo-width: 80 * $unit;
   }
 
   .logo {
+    @extend %_logo;
     background-image: url('./assets/onfido-logo.svg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
     width: $cobrand-logo-width;
-    height: 32 * $unit;
     margin-top: 0;
     flex: 0 0 auto;
 
@@ -132,20 +137,15 @@ $cobrand-logo-width: 80 * $unit;
   }
 }
 
-$logo-height: 32 * $unit;
-
 .footer {
   width: 100%;
   height: $footer-height;
   flex: 0 0 auto;
+  z-index: 1;
 
   .logo {
-    height: $logo-height;
+    @extend %_logo;
     margin-top: $footer-height - $logo-height;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1;
 
     .defaultLogo & {
       background-image: url('./assets/watermark.svg');
