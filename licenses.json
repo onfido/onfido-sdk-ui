@@ -22,14 +22,6 @@
     "path": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/code-frame",
     "licenseFile": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/code-frame/LICENSE"
   },
-  "@babel/code-frame@7.12.11": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "publisher": "Sebastian McKenzie",
-    "email": "sebmck@gmail.com",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/code-frame",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/code-frame/LICENSE"
-  },
   "@babel/code-frame@7.8.3": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel/tree/master/packages/babel-code-frame",
@@ -69,14 +61,6 @@
     "email": "sebmck@gmail.com",
     "path": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/generator",
     "licenseFile": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/generator/LICENSE"
-  },
-  "@babel/generator@7.12.11": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "publisher": "Sebastian McKenzie",
-    "email": "sebmck@gmail.com",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/generator",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/generator/LICENSE"
   },
   "@babel/generator@7.8.8": {
     "licenses": "MIT",
@@ -120,14 +104,6 @@
     "path": "node_modules/@babel/plugin-proposal-private-methods/node_modules/@babel/helper-create-class-features-plugin",
     "licenseFile": "node_modules/@babel/plugin-proposal-private-methods/node_modules/@babel/helper-create-class-features-plugin/LICENSE"
   },
-  "@babel/helper-create-class-features-plugin@7.12.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "publisher": "The Babel Team",
-    "url": "https://babeljs.io/team",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-create-class-features-plugin",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-create-class-features-plugin/LICENSE"
-  },
   "@babel/helper-create-class-features-plugin@7.8.6": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel/tree/master/packages/babel-helper-create-class-features-plugin",
@@ -162,12 +138,6 @@
     "path": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/helper-function-name",
     "licenseFile": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/helper-function-name/LICENSE"
   },
-  "@babel/helper-function-name@7.12.11": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-function-name",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-function-name/LICENSE"
-  },
   "@babel/helper-function-name@7.8.3": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel/tree/master/packages/babel-helper-function-name",
@@ -179,12 +149,6 @@
     "repository": "https://github.com/babel/babel",
     "path": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/helper-get-function-arity",
     "licenseFile": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/helper-get-function-arity/LICENSE"
-  },
-  "@babel/helper-get-function-arity@7.12.10": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-get-function-arity",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-get-function-arity/LICENSE"
   },
   "@babel/helper-get-function-arity@7.8.3": {
     "licenses": "MIT",
@@ -205,14 +169,6 @@
     "email": "justin@ridgewell.name",
     "path": "node_modules/@babel/helper-module-transforms/node_modules/@babel/helper-member-expression-to-functions",
     "licenseFile": "node_modules/@babel/helper-module-transforms/node_modules/@babel/helper-member-expression-to-functions/LICENSE"
-  },
-  "@babel/helper-member-expression-to-functions@7.12.7": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "publisher": "Justin Ridgewell",
-    "email": "justin@ridgewell.name",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-member-expression-to-functions",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-member-expression-to-functions/LICENSE"
   },
   "@babel/helper-member-expression-to-functions@7.8.3": {
     "licenses": "MIT",
@@ -243,12 +199,6 @@
     "repository": "https://github.com/babel/babel",
     "path": "node_modules/@babel/helper-module-transforms/node_modules/@babel/helper-optimise-call-expression",
     "licenseFile": "node_modules/@babel/helper-module-transforms/node_modules/@babel/helper-optimise-call-expression/LICENSE"
-  },
-  "@babel/helper-optimise-call-expression@7.12.10": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-optimise-call-expression",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-optimise-call-expression/LICENSE"
   },
   "@babel/helper-optimise-call-expression@7.8.3": {
     "licenses": "MIT",
@@ -282,12 +232,6 @@
     "path": "node_modules/@babel/helper-module-transforms/node_modules/@babel/helper-replace-supers",
     "licenseFile": "node_modules/@babel/helper-module-transforms/node_modules/@babel/helper-replace-supers/LICENSE"
   },
-  "@babel/helper-replace-supers@7.12.11": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-replace-supers",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-replace-supers/LICENSE"
-  },
   "@babel/helper-replace-supers@7.8.6": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel/tree/master/packages/babel-helper-replace-supers",
@@ -308,12 +252,6 @@
     "path": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/helper-split-export-declaration",
     "licenseFile": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/helper-split-export-declaration/LICENSE"
   },
-  "@babel/helper-split-export-declaration@7.12.11": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-split-export-declaration",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-split-export-declaration/LICENSE"
-  },
   "@babel/helper-split-export-declaration@7.8.3": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel/tree/master/packages/babel-helper-split-export-declaration",
@@ -325,18 +263,6 @@
     "repository": "https://github.com/babel/babel",
     "path": "node_modules/@babel/helper-validator-identifier",
     "licenseFile": "node_modules/@babel/helper-validator-identifier/LICENSE"
-  },
-  "@babel/helper-validator-identifier@7.12.11": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-validator-identifier",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/helper-validator-identifier/LICENSE"
-  },
-  "@babel/helper-validator-option@7.12.11": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "path": "node_modules/@babel/helper-validator-option",
-    "licenseFile": "node_modules/@babel/helper-validator-option/LICENSE"
   },
   "@babel/helper-wrap-function@7.10.4": {
     "licenses": "MIT",
@@ -397,14 +323,6 @@
     "email": "sebmck@gmail.com",
     "path": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/parser",
     "licenseFile": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/parser/LICENSE"
-  },
-  "@babel/parser@7.12.11": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "publisher": "Sebastian McKenzie",
-    "email": "sebmck@gmail.com",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/parser",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/parser/LICENSE"
   },
   "@babel/parser@7.8.8": {
     "licenses": "MIT",
@@ -650,12 +568,6 @@
     "path": "node_modules/@babel/plugin-syntax-top-level-await",
     "licenseFile": "node_modules/@babel/plugin-syntax-top-level-await/LICENSE"
   },
-  "@babel/plugin-syntax-typescript@7.12.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "path": "node_modules/@babel/plugin-syntax-typescript",
-    "licenseFile": "node_modules/@babel/plugin-syntax-typescript/LICENSE"
-  },
   "@babel/plugin-transform-arrow-functions@7.10.4": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
@@ -850,12 +762,6 @@
     "path": "node_modules/@babel/plugin-transform-typeof-symbol",
     "licenseFile": "node_modules/@babel/plugin-transform-typeof-symbol/LICENSE"
   },
-  "@babel/plugin-transform-typescript@7.12.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "path": "node_modules/@babel/plugin-transform-typescript",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/LICENSE"
-  },
   "@babel/plugin-transform-unicode-escapes@7.10.4": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
@@ -889,12 +795,6 @@
     "path": "node_modules/@babel/preset-modules",
     "licenseFile": "node_modules/@babel/preset-modules/README.md"
   },
-  "@babel/preset-typescript@7.12.7": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "path": "node_modules/@babel/preset-typescript",
-    "licenseFile": "node_modules/@babel/preset-typescript/LICENSE"
-  },
   "@babel/register@7.8.6": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel/tree/master/packages/babel-register",
@@ -927,14 +827,6 @@
     "path": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/template",
     "licenseFile": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/template/LICENSE"
   },
-  "@babel/template@7.12.7": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "publisher": "Sebastian McKenzie",
-    "email": "sebmck@gmail.com",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/template",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/template/LICENSE"
-  },
   "@babel/template@7.8.6": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel/tree/master/packages/babel-template",
@@ -950,14 +842,6 @@
     "email": "sebmck@gmail.com",
     "path": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/traverse",
     "licenseFile": "node_modules/@babel/helper-remap-async-to-generator/node_modules/@babel/traverse/LICENSE"
-  },
-  "@babel/traverse@7.12.12": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "publisher": "Sebastian McKenzie",
-    "email": "sebmck@gmail.com",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/traverse",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/traverse/LICENSE"
   },
   "@babel/traverse@7.8.6": {
     "licenses": "MIT",
@@ -982,14 +866,6 @@
     "email": "sebmck@gmail.com",
     "path": "node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
     "licenseFile": "node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types/LICENSE"
-  },
-  "@babel/types@7.12.12": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "publisher": "Sebastian McKenzie",
-    "email": "sebmck@gmail.com",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/types",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/@babel/types/LICENSE"
   },
   "@babel/types@7.8.7": {
     "licenses": "MIT",
@@ -1966,8 +1842,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/dts-bundle-generator/node_modules/ansi-styles",
-    "licenseFile": "node_modules/dts-bundle-generator/node_modules/ansi-styles/license"
+    "path": "node_modules/@jest/globals/node_modules/ansi-styles",
+    "licenseFile": "node_modules/@jest/globals/node_modules/ansi-styles/license"
   },
   "anymatch@2.0.0": {
     "licenses": "ISC",
@@ -3972,8 +3848,8 @@
     "repository": "https://github.com/visionmedia/debug",
     "publisher": "TJ Holowaychuk",
     "email": "tj@vision-media.ca",
-    "path": "node_modules/@babel/plugin-transform-typescript/node_modules/debug",
-    "licenseFile": "node_modules/@babel/plugin-transform-typescript/node_modules/debug/LICENSE"
+    "path": "node_modules/tcp-port-used/node_modules/debug",
+    "licenseFile": "node_modules/tcp-port-used/node_modules/debug/LICENSE"
   },
   "debuglog@1.0.1": {
     "licenses": "MIT",
@@ -6156,8 +6032,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/history",
-    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
+    "path": "node_modules/react-router/node_modules/history",
+    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -6403,6 +6279,13 @@
     "publisher": "Glen Maddern",
     "path": "node_modules/icss-utils",
     "licenseFile": "node_modules/icss-utils/LICENSE.md"
+  },
+  "ie-array-find-polyfill@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/abdalla/ie-array-find-polyfill",
+    "publisher": "Carlos Abdalla",
+    "path": "node_modules/ie-array-find-polyfill",
+    "licenseFile": "node_modules/ie-array-find-polyfill/LICENSE"
   },
   "ieee754@1.1.13": {
     "licenses": "BSD-3-Clause",
@@ -8846,8 +8729,8 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
-    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/chromedriver/node_modules/mkdirp",
+    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
   },
   "mocha@6.2.2": {
     "licenses": "MIT",
@@ -9485,13 +9368,13 @@
     "path": "node_modules/jest/node_modules/onetime",
     "licenseFile": "node_modules/jest/node_modules/onetime/license"
   },
-  "onfido-sdk-ui@6.4.0": {
+  "onfido-sdk-ui@6.5.0-rc.1": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "onfido-sdk-ui",
+    "path": "/Users/kimmi.gan/Development/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
@@ -10151,6 +10034,13 @@
     "publisher": "C. Scott Ananian",
     "path": "node_modules/pn",
     "licenseFile": "node_modules/pn/README.md"
+  },
+  "polyfill-array-includes@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Latusinski/polyfill-array-includes",
+    "publisher": "Kevin Latusinski",
+    "path": "node_modules/polyfill-array-includes",
+    "licenseFile": "node_modules/polyfill-array-includes/README.md"
   },
   "portfinder@1.0.25": {
     "licenses": "MIT",
@@ -11370,8 +11260,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
   },
   "resolve-url@0.2.1": {
     "licenses": "MIT",
@@ -12634,8 +12524,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/license-checker-rseidelsohn/node_modules/supports-color",
-    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/supports-color/license"
+    "path": "node_modules/@jest/globals/node_modules/supports-color",
+    "licenseFile": "node_modules/@jest/globals/node_modules/supports-color/license"
   },
   "supports-hyperlinks@2.1.0": {
     "licenses": "MIT",
@@ -13607,8 +13497,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",
