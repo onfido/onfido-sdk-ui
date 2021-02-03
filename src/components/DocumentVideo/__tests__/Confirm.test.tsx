@@ -298,6 +298,7 @@ describe('DocumentVideo', () => {
           expect(mockedUploadDocumentVideo).toHaveBeenCalledWith(
             {
               blob: fakeVideoPayload.blob,
+              issuing_country: 'USA',
               sdkMetadata: fakeVideoPayload.sdkMetadata,
             },
             fakeUrl,

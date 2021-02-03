@@ -40,12 +40,15 @@
 }
 
 .instructions > .tiltIcon {
-  background-image: url('./assets/tilt.png');
   width: 3.0625em;
   height: 2.25em;
 
-  @media (--hires) {
-    background-image: url('./assets/tilt@3x.png');
+  &.left {
+    background-image: url('./assets/tilt-left.svg');
+  }
+
+  &.right {
+    background-image: url('./assets/tilt-right.svg');
   }
 }
 

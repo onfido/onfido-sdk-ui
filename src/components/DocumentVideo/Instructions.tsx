@@ -17,6 +17,7 @@ const Instructions: FunctionComponent<Props> = ({ icon, subtitle, title }) => {
         className={cx(style.icon, {
           [style.flipIcon]: icon === 'flip',
           [style.tiltIcon]: icon === 'tilt',
+          [style.right]: icon === 'tilt',
         })}
       />
       <span className={style.title}>{title}</span>
