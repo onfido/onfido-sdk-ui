@@ -145,6 +145,15 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
         >
           {translate('doc_video_confirmation.button_redo')}
         </Button>
+        {process.env.NODE_ENV === 'development' && (
+          <a
+            href={window.URL.createObjectURL(documentVideo.blob)}
+            download={documentVideo.filename}
+            style={{ display: 'block', marginTop: '1em' }}
+          >
+            Download
+          </a>
+        )}
       </div>
     </div>
   )

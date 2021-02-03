@@ -121,7 +121,9 @@ const DocumentVideo: FunctionComponent<Props> = ({
       }) =>
         isRecording ? (
           <Recording
-            hasMoreSteps={recordingStep !== 'flip'}
+            hasMoreSteps={
+              documentType === 'passport' ? false : recordingStep !== 'flip'
+            }
             disableInteraction={disableInteraction}
             onNext={() => setRecordingStep('flip')}
             onStop={onStop}

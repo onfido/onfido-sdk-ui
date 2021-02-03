@@ -106,12 +106,12 @@ const assertVideoIntroStep = (wrapper: ReactWrapper) => {
   expect(videoCapture.find('StartRecording').exists()).toBeTruthy()
 }
 
-const assertVideoTiltStep = (wrapper: ReactWrapper) => {
+const assertVideoTiltStep = (wrapper: ReactWrapper, hasMoreSteps: boolean) => {
   expect(wrapper.find('VideoCapture StartRecording').exists()).toBeFalsy()
   const recording = wrapper.find<RecordingProps>(Recording)
   expect(recording.exists()).toBeTruthy()
   expect(recording.props().disableInteraction).toBeFalsy()
-  expect(recording.props().hasMoreSteps).toBeTruthy()
+  expect(recording.props().hasMoreSteps).toEqual(hasMoreSteps)
   expect(recording.find('Instructions').exists()).toBeTruthy()
   expect(recording.find('Instructions').props()).toMatchObject({
     icon: 'tilt',
@@ -207,7 +207,8 @@ describe('DocumentVideo', () => {
           })
         })
 
-        it('starts recording correctly', () => assertVideoTiltStep(wrapper))
+        it('starts recording correctly', () =>
+          assertVideoTiltStep(wrapper, true))
 
         it('moves to the next step correctly', () => {
           simulateVideoCaptureContinue(wrapper)
@@ -265,15 +266,10 @@ describe('DocumentVideo', () => {
       describe('when recording', () => {
         beforeEach(() => simulateVideoCaptureStart(wrapper))
 
-        it('starts recording correctly', () => assertVideoTiltStep(wrapper))
-
-        it('moves to the next step correctly', () => {
-          simulateVideoCaptureContinue(wrapper)
-          assertVideoFlipStep(wrapper)
-        })
+        it('starts recording correctly', () =>
+          assertVideoTiltStep(wrapper, false))
 
         it('ends the flow without capturing back side', () => {
-          simulateVideoCaptureContinue(wrapper)
           simulateVideoCaptureContinue(wrapper)
 
           expect(defaultProps.onCapture).toHaveBeenCalledWith({
