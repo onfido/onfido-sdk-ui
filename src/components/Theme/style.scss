@@ -69,17 +69,21 @@
   flex-grow: 0;
 }
 
-$footer-top-margin: 16 * $unit;
+$footer-top-margin: 0 * $unit;
 $cobrand-logo-width: 80 * $unit;
 
 .cobrandFooter {
   display: flex;
+  height: $footer-height;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: $footer-top-margin $large-text-margin 0;
   @media (--small-viewport) {
     margin: $footer-top-margin $small-text-margin 0;
+  }
+  @media (--smaller-viewport) {
+    margin: $footer-top-margin $smaller-text-margin 0;
   }
 
   .cobrandLabel {
@@ -115,7 +119,7 @@ $cobrand-logo-width: 80 * $unit;
     background-position: center;
     background-repeat: no-repeat;
     width: $cobrand-logo-width;
-    height: $footer-height;
+    height: 32 * $unit;
     margin-top: 0;
     flex: 0 0 auto;
 
@@ -128,27 +132,32 @@ $cobrand-logo-width: 80 * $unit;
   }
 }
 
+$logo-height: 32 * $unit;
+
 .footer {
   width: 100%;
   height: $footer-height;
-  margin-top: 16 * $unit;
   flex: 0 0 auto;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
 
-  .defaultLogo & {
-    background-image: url('./assets/watermark.svg');
-  }
+  .logo {
+    height: $logo-height;
+    margin-top: $footer-height - $logo-height;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    .defaultLogo & {
+      background-image: url('./assets/watermark.svg');
+    }
 
-  .fullScreenStep.defaultLogo & {
-    /* A full screen step will be a video/stream step, with a darker background */
-    background-image: url('./assets/watermark_night.svg');
-  }
+    .fullScreenStep.defaultLogo & {
+      /* A full screen step will be a video/stream step, with a darker background */
+      background-image: url('./assets/watermark_night.svg');
+    }
 
-  .noLogo & {
-    background-image: none;
+    .noLogo & {
+      background-image: none;
+    }
   }
 }
 
@@ -157,12 +166,8 @@ $cobrand-logo-width: 80 * $unit;
   @media (--small-viewport) {
     margin: 0 $small-text-margin;
   }
-}
-
-.mbottom-large {
-  margin-bottom: 88 * $unit;
-  @media (--small-viewport) {
-    margin-bottom: 40 * $unit;
+  @media (--smaller-viewport) {
+    margin: 0 $smaller-text-margin;
   }
 }
 
