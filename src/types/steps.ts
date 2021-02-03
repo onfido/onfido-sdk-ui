@@ -1,4 +1,10 @@
-export type StepTypes = 'welcome' | 'document' | 'poa' | 'face' | 'complete'
+export type StepTypes =
+  | 'welcome'
+  | 'userConsent'
+  | 'document'
+  | 'poa'
+  | 'face'
+  | 'complete'
 
 type StepConfigBase = {
   type: StepTypes
@@ -50,6 +56,8 @@ export type StepConfigWelcome = {
   options?: StepOptionWelcome
 } & StepConfigBase
 
+export type StepConfigUserConsent = StepConfigBase
+
 export type StepConfigDocument = {
   options?: StepOptionDocument
 } & StepConfigBase
@@ -68,6 +76,7 @@ export type StepConfigComplete = {
 
 export type StepConfig =
   | StepConfigWelcome
+  | StepConfigUserConsent
   | StepConfigDocument
   | StepConfigPoA
   | StepConfigFace

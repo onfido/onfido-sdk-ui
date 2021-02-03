@@ -1,4 +1,5 @@
 import Welcome from '../Welcome'
+import UserConsent from '../UserConsent'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
 import CountrySelector from '../CountrySelector'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
@@ -90,6 +91,7 @@ const captureStepsComponents = (
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
+    userConsent: () => [UserConsent],
     face: () => getFaceSteps(steps, deviceHasCameraSupport, mobileFlow),
     document: () =>
       getIdentityDocumentComponents(

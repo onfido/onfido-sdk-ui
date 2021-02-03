@@ -6,7 +6,7 @@ export declare type LocaleConfig = {
 	phrases: Record<string, unknown>;
 	mobilePhrases?: Record<string, unknown>;
 };
-export declare type StepTypes = "welcome" | "document" | "poa" | "face" | "complete";
+export declare type StepTypes = "welcome" | "userConsent" | "document" | "poa" | "face" | "complete";
 export declare type StepConfigBase = {
 	type: StepTypes;
 };
@@ -50,6 +50,7 @@ export declare type StepOptionComplete = {
 export declare type StepConfigWelcome = {
 	options?: StepOptionWelcome;
 } & StepConfigBase;
+export declare type StepConfigUserConsent = StepConfigBase;
 export declare type StepConfigDocument = {
 	options?: StepOptionDocument;
 } & StepConfigBase;
@@ -62,7 +63,7 @@ export declare type StepConfigFace = {
 export declare type StepConfigComplete = {
 	options?: StepOptionComplete;
 } & StepConfigBase;
-export declare type StepConfig = StepConfigWelcome | StepConfigDocument | StepConfigPoA | StepConfigFace | StepConfigComplete;
+export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoA | StepConfigFace | StepConfigComplete;
 export declare type DocumentResponse = {
 	id: string;
 	side: string;

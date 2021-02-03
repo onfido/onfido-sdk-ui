@@ -1,9 +1,21 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils/index'
 import style from './style.scss'
 
-const Button = ({
+type ButtonProps = {
+  uiTestDataAttribute?: string
+  className?: string
+  textClassName?: string
+  variants: Array<string>
+  disabled?: boolean
+  onClick: h.JSX.MouseEventHandler<HTMLButtonElement>
+  ariaLive?: string
+  ariaRelevant?: string
+  ariaBusy?: string
+}
+
+const Button: FunctionComponent<ButtonProps> = ({
   uiTestDataAttribute,
   className,
   textClassName,

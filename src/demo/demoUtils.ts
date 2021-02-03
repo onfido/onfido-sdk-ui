@@ -123,6 +123,7 @@ export const getInitSdkOptions = (): SdkOptions => {
 
   const steps: Array<StepTypes | StepConfig> = [
     'welcome' as StepTypes,
+    'userConsent' as StepTypes,
     queryParamToValueString.poa === 'true' && ({ type: 'poa' } as StepConfig),
     {
       type: 'document',
