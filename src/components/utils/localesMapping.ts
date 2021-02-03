@@ -200,7 +200,7 @@ export const DOC_VIDEO_INSTRUCTIONS_MAPPING: {
     residence_permit: 'doc_video_capture.instructions.front_permit',
   },
   back: {
-    passport: 'doc_video_capture.instructions.back_passport',
+    passport: '',
     driving_licence: 'doc_video_capture.instructions.back_license',
     national_identity_card: 'doc_video_capture.instructions.back_id',
     residence_permit: 'doc_video_capture.instructions.back_permit',
