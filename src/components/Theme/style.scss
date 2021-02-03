@@ -152,7 +152,7 @@ $cobrand-logo-width: 80 * $unit;
   }
 }
 
-.thickWrapper {
+.contentMargin {
   margin: 0 $large-text-margin;
   @media (--small-viewport) {
     margin: 0 $small-text-margin;
