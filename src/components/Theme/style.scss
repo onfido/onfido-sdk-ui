@@ -146,6 +146,7 @@ $logo-height: 32 * $unit;
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
+
     .defaultLogo & {
       background-image: url('./assets/watermark.svg');
     }
