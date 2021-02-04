@@ -32,7 +32,7 @@
     "mock-server:run": "docker run -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server"
   },
   "main": "lib/index.js",
-  "types": "lib/index.d.js",
+  "types": "lib/index.d.ts",
   "bin": {
     "migrate_locales": "scripts/migrate_locales.js"
   },
