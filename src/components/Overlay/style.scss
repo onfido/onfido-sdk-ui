@@ -53,7 +53,7 @@ $card-frame-width: 92%;
 
   @extend %_overlay;
   bottom: initial;
-  top: 0%;
+  top: -5%;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
