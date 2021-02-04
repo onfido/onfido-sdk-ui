@@ -25,14 +25,15 @@ $unit-x-small: (1/11) * 1em;
  */
 $unit-rrui: 1em;
 
-$large-text-margin: 40 * $unit;
+$large-text-margin: 32 * $unit;
 $small-text-margin: 24 * $unit;
+$smaller-text-margin: 16 * $unit;
 $padding-lg: 16 * $unit;
 $padding-sm: 10 * $unit;
 $padding-xs: 8 * $unit;
 
-$footer-height: 32 * $unit;
-$footer-margin: 16 * $unit;
+$footer-height: 40 * $unit;
+$footer-margin: 0 * $unit;
 $navigation-height: 32 * $unit;
 $navigation-height-sm-screen: 38 * $unit;
 $navigation-padding-top: $padding-lg;
