@@ -41,6 +41,7 @@
   height: calc(100% - #{$non-content-height});
   position: relative;
   display: flex;
+  flex-direction: column;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
 
@@ -64,17 +65,34 @@
   position: static;
 }
 
-$footer-top-margin: 16 * $unit;
+.actionsContainer {
+  margin-top: 8 * $unit;
+  flex-grow: 0;
+}
+
+$footer-top-margin: 0 * $unit;
 $cobrand-logo-width: 80 * $unit;
+$logo-height: 32 * $unit;
+
+%_logo {
+  height: $logo-height;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .cobrandFooter {
   display: flex;
+  height: $footer-height;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: $footer-top-margin $large-text-margin 0;
   @media (--small-viewport) {
     margin: $footer-top-margin $small-text-margin 0;
+  }
+  @media (--smaller-viewport) {
+    margin: $footer-top-margin $smaller-text-margin 0;
   }
 
   .cobrandLabel {
@@ -105,12 +123,9 @@ $cobrand-logo-width: 80 * $unit;
   }
 
   .logo {
+    @extend %_logo;
     background-image: url('./assets/onfido-logo.svg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
     width: $cobrand-logo-width;
-    height: $footer-height;
     margin-top: 0;
     flex: 0 0 auto;
 
@@ -126,38 +141,35 @@ $cobrand-logo-width: 80 * $unit;
 .footer {
   width: 100%;
   height: $footer-height;
-  margin-top: 16 * $unit;
   flex: 0 0 auto;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   z-index: 1;
 
-  .defaultLogo & {
-    background-image: url('./assets/watermark.svg');
-  }
+  .logo {
+    @extend %_logo;
+    margin-top: $footer-height - $logo-height;
 
-  .fullScreenStep.defaultLogo & {
-    /* A full screen step will be a video/stream step, with a darker background */
-    background-image: url('./assets/watermark_night.svg');
-  }
+    .defaultLogo & {
+      background-image: url('./assets/watermark.svg');
+    }
 
-  .noLogo & {
-    background-image: none;
+    .fullScreenStep.defaultLogo & {
+      /* A full screen step will be a video/stream step, with a darker background */
+      background-image: url('./assets/watermark_night.svg');
+    }
+
+    .noLogo & {
+      background-image: none;
+    }
   }
 }
 
-.thickWrapper {
+.contentMargin {
   margin: 0 $large-text-margin;
   @media (--small-viewport) {
     margin: 0 $small-text-margin;
   }
-}
-
-.mbottom-large {
-  margin-bottom: 88 * $unit;
-  @media (--small-viewport) {
-    margin-bottom: 40 * $unit;
+  @media (--smaller-viewport) {
+    margin: 0 $smaller-text-margin;
   }
 }
 
