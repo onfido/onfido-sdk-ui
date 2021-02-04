@@ -17,7 +17,7 @@ import style from './style.scss'
 const Intro = ({ translate, parseTranslatedTags, nextStep }) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('video_intro.title')} />
-    <div className={classNames(theme.thickWrapper, style.introCopy)}>
+    <div className={classNames(theme.contentMargin, style.introCopy)}>
       <ul
         className={style.introBullets}
         aria-label={translate('video_intro.list_accessibility')}
@@ -42,7 +42,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }) => (
         })}
       </ul>
     </div>
-    <div className={theme.thickWrapper}>
+    <div className={theme.contentMargin}>
       <Button
         variant="primary"
         className={classNames(theme['button-centered'], theme['button-lg'])}

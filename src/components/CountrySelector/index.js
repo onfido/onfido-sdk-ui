@@ -134,7 +134,7 @@ class CountrySelection extends Component {
         <PageTitle title={translate('country_select.title')} />
         <div
           className={classNames(
-            theme.thickWrapper,
+            theme.contentMargin,
             theme.alignTextLeft,
             style.container
           )}
@@ -164,7 +164,7 @@ class CountrySelection extends Component {
             this.state.showNoResultsError &&
             this.renderNoResultsError()}
         </div>
-        <div className={classNames(theme.thickWrapper)}>
+        <div className={classNames(theme.contentMargin)}>
           <Button
             variant="primary"
             className={classNames(theme['button-centered'], theme['button-lg'])}

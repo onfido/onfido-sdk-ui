@@ -13,7 +13,7 @@ const Recover = ({ translate }) => (
       title={translate('permission_recovery.title_cam')}
       subTitle={translate('permission_recovery.subtitle_cam')}
     />
-    <div className={theme.thickWrapper}>
+    <div className={theme.contentMargin}>
       <div className={style.instructions}>
         <span className={style.recovery}>
           {translate('permission_recovery.info')}
@@ -33,7 +33,7 @@ const Recover = ({ translate }) => (
         </ol>
       </div>
     </div>
-    <div className={theme.thickWrapper}>
+    <div className={theme.contentMargin}>
       <Button
         variant="primary"
         className={classNames(theme['button-centered'], theme['button-lg'])}

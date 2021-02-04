@@ -42,7 +42,7 @@ const Guidance = ({
           <Graphic />
         </div>
       </div>
-      <div className={theme.thickWrapper}>
+      <div className={theme.contentMargin}>
         <Button
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
