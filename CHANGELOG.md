@@ -13,6 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added npm latest version badge.
 - Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce integration tests for API endpoint integrations.
+- Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 - Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
 - Internal: App component, Redux system & utils are now typed in TypeScript.
 
