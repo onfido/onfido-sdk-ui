@@ -8,6 +8,7 @@ import 'custom-event-polyfill'
 //       Should be fine to remove when those PRs are merged in eventually.
 import 'ie-array-find-polyfill'
 import 'polyfill-array-includes'
+import 'array-flat-polyfill'
 
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
