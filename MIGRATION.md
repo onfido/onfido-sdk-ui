@@ -4,7 +4,7 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `6.4.0` -> `6.5.0`
 
-From version 7.0.0, TypeScript is officially supported. If you previously installed
+From version 6.5.0, TypeScript is officially supported. If you previously installed
 [the DefinitelyTyped package](https://www.npmjs.com/package/@types/onfido-sdk-ui),
 you can safely remove it because the distributed NPM package already contains
 an `index.d.ts` declaration file.
