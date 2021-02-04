@@ -15,8 +15,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Introduce integration tests for API endpoint integrations.
 - Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
-- Internal: Refactor for better reusability of video capture components.
-- Public: Improvements in video capture steps.
 
 ### Changed
 
@@ -24,6 +22,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Updated text and background colours.
 - Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
 - Public: Return error for image quality failures on the first two document upload attempts.
+- Internal: Refactor for better reusability of video capture components.
+- Public: Improvements in video capture steps.
 
 ### Fixed
 
