@@ -23,7 +23,7 @@ const Permissions: FunctionComponent<Props> = ({ onNext, translate }) => (
     />
     <div
       className={classNames(
-        theme.thickWrapper,
+        theme.contentMargin,
         style.bodyWrapper,
         theme.scrollableContent
       )}
@@ -33,7 +33,7 @@ const Permissions: FunctionComponent<Props> = ({ onNext, translate }) => (
       </div>
       <p className={style.instructions}>{translate('permission.body_cam')}</p>
     </div>
-    <div className={classNames(theme.thickWrapper, style.actions)}>
+    <div className={classNames(theme.contentMargin, style.actions)}>
       <Button variants={['centered', 'primary', 'lg']} onClick={onNext}>
         {translate('permission.button_primary_cam')}
       </Button>

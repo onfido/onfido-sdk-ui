@@ -1,9 +1,10 @@
 import { h, FunctionComponent } from 'preact'
+import { buildIteratorKey } from '~utils'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import { trackComponent } from '../../Tracker'
 import { localised } from '../../locales'
-import { buildIteratorKey } from '~utils'
+import ScreenLayout from '../Theme/ScreenLayout'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
@@ -18,6 +19,56 @@ const localisedDescriptions = (translate: TranslateCallback) => [
   translate('welcome.description_p_2'),
 ]
 
+type WelcomeContentProps = {
+  descriptions: string[]
+  translate: TranslateCallback
+}
+
+const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
+  descriptions,
+  translate,
+}) => {
+  const welcomeDescriptions = descriptions
+    ? descriptions
+    : localisedDescriptions(translate)
+
+  return (
+    <div className={theme.contentMargin}>
+      <div className={style.text}>
+        {welcomeDescriptions.map((description) => (
+          <p key={`description_${buildIteratorKey(description)}`}>
+            {description}
+          </p>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+type WelcomeActionsProps = {
+  nextButton?: string
+  nextStep: () => void
+  translate: TranslateCallback
+}
+
+const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
+  nextButton,
+  nextStep,
+  translate,
+}) => {
+  const welcomeNextButton = nextButton
+    ? nextButton
+    : translate('welcome.next_button')
+
+  return (
+    <div className={theme.contentMargin}>
+      <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
+        {welcomeNextButton}
+      </Button>
+    </div>
+  )
+}
+
 const Welcome: FunctionComponent<Props> = ({
   title,
   descriptions,
@@ -25,29 +76,14 @@ const Welcome: FunctionComponent<Props> = ({
   nextStep,
   translate,
 }) => {
+  const actions = <WelcomeActions {...{ nextButton, nextStep, translate }} />
   const welcomeTitle = title ? title : translate('welcome.title')
-  const welcomeDescriptions = descriptions
-    ? descriptions
-    : localisedDescriptions(translate)
-  const welcomeNextButton = nextButton
-    ? nextButton
-    : translate('welcome.next_button')
+
   return (
-    <div>
+    <ScreenLayout actions={actions}>
       <PageTitle title={welcomeTitle} />
-      <div className={theme.thickWrapper}>
-        <div className={style.text}>
-          {welcomeDescriptions.map((description) => (
-            <p key={`description_${buildIteratorKey(description)}`}>
-              {description}
-            </p>
-          ))}
-        </div>
-        <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
-          {welcomeNextButton}
-        </Button>
-      </div>
-    </div>
+      <WelcomeContent {...{ descriptions, translate }} />
+    </ScreenLayout>
   )
 }
 
