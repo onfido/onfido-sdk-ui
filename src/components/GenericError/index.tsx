@@ -31,7 +31,7 @@ class GenericError extends Component<Props> {
           title={translate(message)}
           subTitle={translate(instruction)}
         />
-        <div className={theme.thickWrapper}>
+        <div className={theme.contentMargin}>
           <span className={`${theme.icon} ${style[iconName]}`} />
         </div>
       </div>

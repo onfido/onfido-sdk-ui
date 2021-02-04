@@ -94,7 +94,9 @@ class StepsRouter extends Component<StepsRouterProps> {
             <div className={theme.logo} />
           </div>
         ) : (
-          <div className={theme.footer} />
+          <div className={theme.footer}>
+            <div className={theme.logo} />
+          </div>
         )}
       </div>
     )
