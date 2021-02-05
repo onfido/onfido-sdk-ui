@@ -4,9 +4,9 @@ import { createStore, Store } from 'redux'
 import { Provider as ReduxProvider } from 'react-redux'
 import reducer from './store/reducers'
 
-import type { RootState, CaptureActions, GlobalActions } from '~types/redux'
+import type { CombinedActions, RootState } from '~types/redux'
 
-type StoreType = Store<RootState, CaptureActions | GlobalActions>
+type StoreType = Store<RootState, CombinedActions>
 
 const ReduxAppWrapper: FunctionComponent = ({ children }) => {
   const [store, setStore] = useState<StoreType>(null)
