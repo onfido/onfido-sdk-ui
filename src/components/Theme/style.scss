@@ -59,6 +59,7 @@
 .scrollableContent {
   flex: 1 1 auto; /* .content will fit remaining space */
   overflow: auto; /* scrollbar will only appear when child element exceeds .content height */
+  height: 100%;
 }
 
 .fullScreenContentWrapper {
