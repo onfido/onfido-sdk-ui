@@ -11,6 +11,7 @@ type StringifiedBoolean = 'true' | 'false'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
+  createCheckFor?: string
   disableAnalytics?: StringifiedBoolean
   forceCrossDevice?: StringifiedBoolean
   hideOnfidoLogo?: StringifiedBoolean
@@ -329,19 +330,36 @@ export const getTokenFactoryUrl = (region: ServerRegions): string => {
   }
 }
 
+const buildTokenRequestParams = (): string => {
+  const { createCheckFor } = queryParamToValueString
+  if (createCheckFor) {
+    const [firstName, lastName] = decodeURIComponent(createCheckFor).split(',')
+
+    return [
+      ['first_name', encodeURIComponent(firstName)].join('='),
+      ['last_name', encodeURIComponent(lastName)].join('='),
+    ].join('&')
+  }
+
+  return ''
+}
+
 export const getToken = (
   hasPreview: boolean,
   url: string,
   eventEmitter: MessagePort,
-  onSuccess: (message: string) => void
+  onSuccess: (token: string) => void
 ): void => {
   const request = new XMLHttpRequest()
-  request.open('GET', url, true)
+
+  request.open('GET', [url, buildTokenRequestParams()].join('?'), true)
+
   request.setRequestHeader(
     'Authorization',
     `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
   )
-  request.onload = function () {
+
+  request.onload = () => {
     if (request.status >= 200 && request.status < 400) {
       const data = JSON.parse(request.responseText)
       if (hasPreview && eventEmitter) {
@@ -356,4 +374,36 @@ export const getToken = (
     }
   }
   request.send()
+}
+
+export const createCheck = (applicantId: string): void => {
+  const request = new XMLHttpRequest()
+
+  request.open('GET', [url, buildTokenRequestParams()].join('?'), true)
+  request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+
+  request.setRequestHeader(
+    'Authorization',
+    `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
+  )
+
+  request.onload = () => {
+    if (request.status >= 200 && request.status < 400) {
+      const data = JSON.parse(request.responseText)
+      console.log(data)
+    }
+  }
+
+  const { poa, docVideo, faceVideo } = queryParamToValueString
+  const body = {
+    applicant_id: applicantId,
+    report_names: [
+      poa ? 'proof_of_address' : 'document',
+      docVideo || faceVideo
+        ? 'facial_similarity_video'
+        : 'facial_similarity_photo',
+    ],
+  }
+
+  request.send(JSON.stringify(body))
 }

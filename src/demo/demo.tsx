@@ -113,6 +113,15 @@ const SdkDemo: FunctionComponent<{
     callTokenFactory()
   }, [callTokenFactory])
 
+  const onComplete = (data: Record<string, unknown>) => {
+    if (hasPreview) {
+      port2.postMessage({ type: 'SDK_COMPLETE', data })
+      return
+    }
+
+    console.log('Complete with data!', data)
+  }
+
   const { tearDown } = viewOptions || {}
 
   if (tearDown) {
@@ -123,10 +132,7 @@ const SdkDemo: FunctionComponent<{
     ...getInitSdkOptions(),
     token,
     isModalOpen,
-    onComplete: (data) =>
-      hasPreview
-        ? port2.postMessage({ type: 'SDK_COMPLETE', data })
-        : console.log(data),
+    onComplete,
     onError: (error) => console.error('onError callback:', error),
     onModalRequestClose: () => setIsModalOpen(false),
     ...(sdkOptions || {}),
