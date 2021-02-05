@@ -44,15 +44,29 @@ export const fakePassportImageResponse: DocumentImageResponse = {
   download_href: '/v3/documents/a2910652-2ed9-42d9-82b5-0e0578ab57fb/download',
 }
 
+export const fakePassportVideoResponse: DocumentVideoResponse = {
+  id: '3837dac4-3fc5-4256-ad37-e374957c00cd',
+  created_at: '2020-11-26T16:51:17Z',
+  file_name: 'blob',
+  file_type: 'video/webm',
+  file_size: 154006,
+  type: 'passport',
+  issuing_country: null,
+  applicant_id: '<to-be-replaced>',
+  href: '/v3/live_videos/3837dac4-3fc5-4256-ad37-e374957c00cd',
+  download_href:
+    '/v3/live_videos/3837dac4-3fc5-4256-ad37-e374957c00cd/download',
+}
+
 export const fakeDrivingLicenceFrontResponse: DocumentImageResponse = {
   id: '35e2f9cb-b79a-460a-ae86-297af0dace7b',
   created_at: '2020-11-26T16:32:31Z',
   file_name: 'driving_licence_front.png',
   file_type: 'png',
   file_size: 2174203,
-  type: 'council_tax',
+  type: 'driving_licence',
   side: 'front',
-  issuing_country: 'GBR',
+  issuing_country: 'USA',
   sdk_warnings: {
     detect_glare: { valid: true },
     image_quality: {
@@ -89,8 +103,8 @@ export const fakeDrivingLicenceBackResponse: DocumentImageResponse = {
   file_type: 'jpg',
   file_size: 138117,
   type: 'driving_licence',
-  side: 'front',
-  issuing_country: 'GBR',
+  side: 'back',
+  issuing_country: 'USA',
   sdk_warnings: {
     detect_glare: { valid: true },
     image_quality: {
@@ -120,14 +134,14 @@ export const fakeDrivingLicenceBackResponse: DocumentImageResponse = {
   download_href: '/v3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d/download',
 }
 
-export const fakePassportVideoResponse: DocumentVideoResponse = {
+export const fakeDrivingLicenceVideoResponse: DocumentVideoResponse = {
   id: '3837dac4-3fc5-4256-ad37-e374957c00cd',
   created_at: '2020-11-26T16:51:17Z',
   file_name: 'blob',
   file_type: 'video/webm',
   file_size: 154006,
-  type: 'passport',
-  issuing_country: null,
+  type: 'driving_licence',
+  issuing_country: 'USA',
   applicant_id: '<to-be-replaced>',
   href: '/v3/live_videos/3837dac4-3fc5-4256-ad37-e374957c00cd',
   download_href:

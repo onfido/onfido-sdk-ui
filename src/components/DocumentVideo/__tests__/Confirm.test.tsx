@@ -4,13 +4,15 @@ import { mount, ReactWrapper } from 'enzyme'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider, {
   mockedReduxProps,
+  MockedStore,
 } from '~jest/MockedReduxProvider'
 import { fakeDocumentCaptureState } from '~jest/captures'
 import {
   fakePassportImageResponse,
+  fakePassportVideoResponse,
   fakeDrivingLicenceFrontResponse,
   fakeDrivingLicenceBackResponse,
-  fakePassportVideoResponse,
+  fakeDrivingLicenceVideoResponse,
   fakeNoDocumentError,
 } from '~jest/responses'
 import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
@@ -78,6 +80,7 @@ const assertUploadError = async (wrapper: ReactWrapper) => {
 describe('DocumentVideo', () => {
   describe('Confirm', () => {
     let wrapper: ReactWrapper
+    let mockedStore: MockedStore
 
     beforeEach(() => {
       jest.useFakeTimers()
@@ -93,6 +96,7 @@ describe('DocumentVideo', () => {
 
     afterEach(() => {
       jest.clearAllMocks()
+      mockedStore && mockedStore.clearActions()
     })
 
     it('renders UIs correctly', () => {
@@ -150,6 +154,7 @@ describe('DocumentVideo', () => {
                 onfido_api_url: fakeUrl,
               },
             }}
+            storeRef={(store) => (mockedStore = store)}
           >
             <MockedLocalised>
               <Confirm
@@ -197,6 +202,33 @@ describe('DocumentVideo', () => {
           )
 
           expect(mockedUploadDocument).toHaveBeenCalledTimes(1)
+
+          expect(mockedStore.getActions()).toMatchObject([
+            {
+              type: 'SET_CAPTURE_METADATA',
+              payload: {
+                captureId: fakeFrontPayload.id,
+                metadata: {
+                  id: fakePassportImageResponse.id,
+                  type: fakeDocumentType,
+                  side: 'front',
+                  variant: 'standard',
+                },
+              },
+            },
+            {
+              type: 'SET_CAPTURE_METADATA',
+              payload: {
+                captureId: fakeVideoPayload.id,
+                metadata: {
+                  id: fakePassportVideoResponse.id,
+                  type: fakeDocumentType,
+                  variant: 'video',
+                },
+              },
+            },
+          ])
+
           expect(defaultProps.nextStep).toHaveBeenCalled()
         })
       })
@@ -242,6 +274,7 @@ describe('DocumentVideo', () => {
                 onfido_api_url: fakeUrl,
               },
             }}
+            storeRef={(store) => (mockedStore = store)}
           >
             <MockedLocalised>
               <Confirm
@@ -260,7 +293,9 @@ describe('DocumentVideo', () => {
             fakeDrivingLicenceFrontResponse
           )
           mockedUploadDocument.mockResolvedValue(fakeDrivingLicenceBackResponse)
-          mockedUploadDocumentVideo.mockResolvedValue(fakePassportVideoResponse)
+          mockedUploadDocumentVideo.mockResolvedValue(
+            fakeDrivingLicenceVideoResponse
+          )
           wrapper.find('button.button-primary').simulate('click')
         })
 
@@ -306,6 +341,45 @@ describe('DocumentVideo', () => {
           )
 
           expect(mockedUploadDocument).toHaveBeenCalledTimes(2)
+
+          expect(mockedStore.getActions()).toMatchObject([
+            {
+              type: 'SET_CAPTURE_METADATA',
+              payload: {
+                captureId: fakeFrontPayload.id,
+                metadata: {
+                  id: fakeDrivingLicenceFrontResponse.id,
+                  type: fakeDocumentType,
+                  side: 'front',
+                  variant: 'standard',
+                },
+              },
+            },
+            {
+              type: 'SET_CAPTURE_METADATA',
+              payload: {
+                captureId: fakeBackPayload.id,
+                metadata: {
+                  id: fakeDrivingLicenceBackResponse.id,
+                  type: fakeDocumentType,
+                  side: 'back',
+                  variant: 'standard',
+                },
+              },
+            },
+            {
+              type: 'SET_CAPTURE_METADATA',
+              payload: {
+                captureId: fakeVideoPayload.id,
+                metadata: {
+                  id: fakePassportVideoResponse.id,
+                  type: fakeDocumentType,
+                  variant: 'video',
+                },
+              },
+            },
+          ])
+
           expect(defaultProps.nextStep).toHaveBeenCalled()
         })
       })

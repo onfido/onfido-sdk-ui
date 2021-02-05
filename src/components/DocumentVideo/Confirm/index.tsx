@@ -1,9 +1,11 @@
 import { h, FunctionComponent } from 'preact'
 import { useCallback, useContext, useState } from 'preact/compat'
-import { useSelector } from 'react-redux'
+import type { Dispatch } from 'redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { LocaleContext } from '~locales'
 import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
+import { actions } from 'components/ReduxAppWrapper/store/actions'
 import Button from '../../Button'
 import Error from '../../Error'
 import Spinner from '../../Spinner'
@@ -11,7 +13,7 @@ import style from './style.scss'
 
 import type { ApiParsedError } from '~types/api'
 import type { CountryData } from '~types/commons'
-import type { RootState, CapturePayload } from '~types/redux'
+import type { CombinedActions, RootState, DocumentCapture } from '~types/redux'
 import type { ErrorProp, StepComponentDocumentProps } from '~types/routers'
 
 const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
@@ -24,16 +26,17 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   const [error, setError] = useState<ErrorProp>(null)
   const { translate } = useContext(LocaleContext)
 
+  const dispatch = useDispatch<Dispatch<CombinedActions>>()
   const apiUrl = useSelector<RootState, string>(
     (state) => state.globals.urls.onfido_api_url
   )
-  const documentFront = useSelector<RootState, CapturePayload>(
+  const documentFront = useSelector<RootState, DocumentCapture>(
     (state) => state.captures.document_front
   )
-  const documentBack = useSelector<RootState, CapturePayload>(
+  const documentBack = useSelector<RootState, DocumentCapture>(
     (state) => state.captures.document_back
   )
-  const documentVideo = useSelector<RootState, CapturePayload>(
+  const documentVideo = useSelector<RootState, DocumentCapture>(
     (state) => state.captures.document_video
   )
   const issuingCountry = useSelector<RootState, CountryData>(
@@ -51,7 +54,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
           }
 
     try {
-      await uploadDocument(
+      const frontUploadResponse = await uploadDocument(
         {
           file: documentFront.blob,
           sdkMetadata: documentFront.sdkMetadata,
@@ -64,8 +67,15 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
         token
       )
 
+      dispatch(
+        actions.setCaptureMetadata({
+          capture: documentFront,
+          apiResponse: frontUploadResponse,
+        })
+      )
+
       if (documentBack) {
-        await uploadDocument(
+        const backUploadResponse = await uploadDocument(
           {
             file: documentBack.blob,
             sdkMetadata: documentBack.sdkMetadata,
@@ -77,9 +87,16 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
           apiUrl,
           token
         )
+
+        dispatch(
+          actions.setCaptureMetadata({
+            capture: documentBack,
+            apiResponse: backUploadResponse,
+          })
+        )
       }
 
-      await uploadDocumentVideo(
+      const videoUploadResponse = await uploadDocumentVideo(
         {
           blob: documentVideo.blob,
           sdkMetadata: documentVideo.sdkMetadata,
@@ -87,6 +104,13 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
         },
         apiUrl,
         token
+      )
+
+      dispatch(
+        actions.setCaptureMetadata({
+          capture: documentVideo,
+          apiResponse: videoUploadResponse,
+        })
       )
 
       nextStep()
@@ -108,6 +132,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     documentType,
     nextStep,
     token,
+    dispatch,
     apiUrl,
     documentFront,
     documentBack,

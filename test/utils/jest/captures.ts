@@ -34,6 +34,7 @@ export const fakeDocumentCaptureState = (
   ...fakeCapturePayload(variant, side),
   documentType,
   id: `fake-${documentType}-id`,
+  variant,
   metadata: {},
 })
 
