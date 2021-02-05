@@ -32,9 +32,9 @@ export const fakeDocumentCaptureState = (
   side?: DocumentSides
 ): DocumentCapture & MetadataState => ({
   ...fakeCapturePayload(variant, side),
+  ...(variant === 'video' ? { variant } : {}),
   documentType,
   id: `fake-${documentType}-id`,
-  variant,
   metadata: {},
 })
 
