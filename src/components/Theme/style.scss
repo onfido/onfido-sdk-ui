@@ -1,4 +1,13 @@
+@use '~@onfido/castor';
 @import './constants';
+
+:global {
+  @include castor.Button();
+}
+
+:root {
+  @include castor.day();
+}
 
 .step {
   width: 100%;
@@ -276,5 +285,27 @@ $logo-height: 32 * $unit;
 
   &:active {
     background-color: $color-error-button-active;
+  }
+}
+
+.button-centered {
+  margin: auto;
+}
+
+.button-lg {
+  height: $button-height;
+  font-size: $font-size-small;
+  width: $lg-btn-width-lg-screen;
+  @media (--small-viewport) {
+    width: $lg-btn-width-sm-screen;
+  }
+}
+
+.button-sm {
+  height: $button-height;
+  font-size: $font-size-small;
+  width: $sm-btn-width-lg-screen;
+  @media (--small-viewport) {
+    width: $sm-btn-width-sm-screen;
   }
 }

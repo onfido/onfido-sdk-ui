@@ -37,7 +37,7 @@ class CrossDeviceLink extends BasePage {
     return this.$('.onfido-sdk-ui-PhoneNumberInput-mobileInput')
   }
   async sendLinkBtn() {
-    return this.$('.onfido-sdk-ui-Button-button-text')
+    return this.$('[data-onfido-qa="cross-device-send-link-btn"]')
   }
   async copyLinkInsteadLabel() {
     return this.$(
@@ -150,7 +150,8 @@ class CrossDeviceLink extends BasePage {
   }
 
   async clickOnSendLinkButton() {
-    this.sendLinkBtn().click()
+    const useSeleniumNativeClick = true
+    this.sendLinkBtn().click(useSeleniumNativeClick)
   }
 
   async selectCountryOption(value) {

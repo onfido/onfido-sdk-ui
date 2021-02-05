@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
-import Button from '../Button'
 import FallbackButton from '../Button/FallbackButton'
 import { localised /* , type LocalisedType */ } from '../../locales'
 import {
@@ -166,14 +166,15 @@ class CountrySelection extends Component {
         </div>
         <div className={classNames(theme.contentMargin)}>
           <Button
-            variants={['centered', 'primary', 'lg']}
+            variant="primary"
+            className={classNames(theme['button-centered'], theme['button-lg'])}
             disabled={
               !idDocumentIssuingCountry ||
               !idDocumentIssuingCountry.country_alpha3 ||
               this.state.showNoResultsError
             }
             onClick={nextStep}
-            uiTestDataAttribute="countrySelectorNextStep"
+            data-onfido-qa="countrySelectorNextStep"
           >
             {translate('country_select.button_primary')}
           </Button>

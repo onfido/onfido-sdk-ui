@@ -1,7 +1,7 @@
 import { h } from 'preact'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
-import Button from '../Button'
 import { localised /* , type LocalisedType */ } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
@@ -43,7 +43,12 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }) => (
       </ul>
     </div>
     <div className={theme.contentMargin}>
-      <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
+      <Button
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
+        onClick={nextStep}
+        data-onfido-qa="liveness-continue-btn"
+      >
         {translate('video_intro.button_primary')}
       </Button>
     </div>

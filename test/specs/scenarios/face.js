@@ -259,7 +259,7 @@ export const faceScenarios = (lang) => {
       )
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
-      camera.continueButton().click()
+      camera.enableCameraButton().click()
       driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
       assert.isFalse(
         camera.isOverlayPresent(),
@@ -285,7 +285,7 @@ export const faceScenarios = (lang) => {
       )
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
-      camera.continueButton().click()
+      camera.enableCameraButton().click()
       camera.verifyVideoTitle(copy)
       camera.recordButton().click()
       assert.isTrue(

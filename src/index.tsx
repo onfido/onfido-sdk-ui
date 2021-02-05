@@ -8,9 +8,11 @@ import 'custom-event-polyfill'
 //       Should be fine to remove when those PRs are merged in eventually.
 import 'ie-array-find-polyfill'
 import 'polyfill-array-includes'
+import 'array-flat-polyfill'
 
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
+import { cssVarsPonyfill } from './cssVarsPonyfill'
 import { SdkOptions, SdkHandle } from '~types/sdk'
 import { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
 import App from './components/App'
@@ -117,6 +119,7 @@ export const init = (opts: SdkOptions): SdkHandle => {
   const options = formatOptions({ ...defaults, ...opts })
 
   experimentalFeatureWarnings(options)
+  cssVarsPonyfill()
 
   let containerEl: HTMLElement = null
 

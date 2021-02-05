@@ -2,8 +2,11 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class Camera extends BasePage {
-  async continueButton() {
-    return this.$('.onfido-sdk-ui-Button-button-primary')
+  async enableCameraButton() {
+    return this.$('[data-onfido-qa="enable-camera-btn"]')
+  }
+  async nextChallengeButton() {
+    return this.$('[data-onfido-qa="liveness-next-challenge-btn"]')
   }
   async shutterButton() {
     return this.$('.onfido-sdk-ui-Camera-btn')
@@ -41,12 +44,12 @@ class Camera extends BasePage {
   }
 
   async recordVideo() {
-    this.continueButton().click()
+    this.enableCameraButton().click()
     this.recordButton().click()
   }
 
   async completeChallenges() {
-    this.continueButton().click()
+    this.nextChallengeButton().click()
     this.stopButton().click()
   }
 }
