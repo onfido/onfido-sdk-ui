@@ -332,6 +332,11 @@ export const getTokenFactoryUrl = (region: ServerRegions): string => {
 
 const buildTokenRequestParams = (): string => {
   const { createCheckFor } = queryParamToValueString
+
+  /**
+   * If `createCheckFor` param is present,
+   * applicant will be created with corresponding first & last name
+   */
   if (createCheckFor) {
     const [firstName, lastName] = decodeURIComponent(createCheckFor).split(',')
 
@@ -348,7 +353,7 @@ export const getToken = (
   hasPreview: boolean,
   url: string,
   eventEmitter: MessagePort,
-  onSuccess: (token: string) => void
+  onSuccess: (token: string, applicantId: string) => void
 ): void => {
   const request = new XMLHttpRequest()
 
@@ -370,16 +375,26 @@ export const getToken = (
           },
         })
       }
-      onSuccess(data.message)
+      onSuccess(data.message, data.applicant_id)
     }
   }
   request.send()
 }
 
-export const createCheck = (applicantId: string): void => {
+export const createCheckIfNeeded = (
+  tokenUrl: string,
+  applicantId: string
+): void => {
+  const { createCheckFor, poa, docVideo, faceVideo } = queryParamToValueString
+
+  // Don't create check if createCheckFor flag isn't present
+  if (!createCheckFor) {
+    return
+  }
+
   const request = new XMLHttpRequest()
 
-  request.open('GET', [url, buildTokenRequestParams()].join('?'), true)
+  request.open('POST', tokenUrl.replace('sdk_token', 'check'), true)
   request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
 
   request.setRequestHeader(
@@ -390,11 +405,10 @@ export const createCheck = (applicantId: string): void => {
   request.onload = () => {
     if (request.status >= 200 && request.status < 400) {
       const data = JSON.parse(request.responseText)
-      console.log(data)
+      console.log('Check created!', data)
     }
   }
 
-  const { poa, docVideo, faceVideo } = queryParamToValueString
   const body = {
     applicant_id: applicantId,
     report_names: [

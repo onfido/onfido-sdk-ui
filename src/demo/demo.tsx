@@ -7,6 +7,7 @@ import {
   queryParamToValueString,
   getTokenFactoryUrl,
   getToken,
+  createCheckIfNeeded,
 } from './demoUtils'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
@@ -90,7 +91,9 @@ const SdkDemo: FunctionComponent<{
   sdkOptions?: SdkOptions
   viewOptions?: UIConfigs
 }> = ({ hasPreview = false, sdkOptions, viewOptions }) => {
+  const [tokenUrl, setTokenUrl] = useState<string>(null)
   const [token, setToken] = useState<string>(null)
+  const [applicantId, setApplicantId] = useState<string>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const callTokenFactory = useCallback(() => {
@@ -103,10 +106,12 @@ const SdkDemo: FunctionComponent<{
     ).toUpperCase() as ServerRegions
 
     url = getTokenFactoryUrl(regionCode)
+    setTokenUrl(url)
 
-    getToken(hasPreview, url, port2, (respondedToken) =>
+    getToken(hasPreview, url, port2, (respondedToken, responedApplicantId) => {
       setToken(respondedToken)
-    )
+      setApplicantId(responedApplicantId)
+    })
   }, [hasPreview, sdkOptions])
 
   useEffect(() => {
@@ -120,6 +125,7 @@ const SdkDemo: FunctionComponent<{
     }
 
     console.log('Complete with data!', data)
+    createCheckIfNeeded(tokenUrl, applicantId)
   }
 
   const { tearDown } = viewOptions || {}
