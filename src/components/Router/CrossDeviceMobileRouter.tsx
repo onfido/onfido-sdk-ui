@@ -290,6 +290,7 @@ export default class CrossDeviceMobileRouter extends Component<
         {this.renderLoadingOrErrors() || (
           <HistoryRouter
             {...this.props}
+            {...this.state}
             crossDeviceClientError={this.setError}
             sendClientSuccess={this.sendClientSuccess}
             step={step}
