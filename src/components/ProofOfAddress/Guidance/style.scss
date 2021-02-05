@@ -13,7 +13,7 @@
 }
 
 .subTitle {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
 
   &::before {
     content: '';
@@ -65,5 +65,5 @@
 
 .label {
   fill: $color-body-text;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
 }

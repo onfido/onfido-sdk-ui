@@ -23,22 +23,28 @@
 
 .instructionsCopy {
   margin: 14 * $unit-small 24 * $unit-small;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   line-height: 1.43;
 
   @media (--small-viewport) {
-    font-size: $font-size-base;
+    font-size: var(--font-size-base);
     margin: 14 * $unit 24 * $unit;
   }
 }
 
 .error {
-  color: $color-error;
+  color: var(--color-error);
 }
 
 .buttons {
   display: flex;
   justify-content: space-around;
+
+  &.vertical {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-right: 0;
+  }
 }
 
 .poaButtons {
@@ -61,6 +67,11 @@
   margin-right: 16 * $unit;
   @media (--small-viewport) {
     margin-right: 8 * $unit;
+  }
+
+  &.vertical {
+    margin-right: 0;
+    margin-top: 8 * $unit;
   }
 }
 

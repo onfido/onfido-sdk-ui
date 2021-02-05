@@ -1,12 +1,53 @@
 @use '~@onfido/castor';
+@use './tokens' as onfidoSdk;
 @import './constants';
 
 :global {
   @include castor.Button();
+
+  .ods-button {
+    border-radius: var(--button-border-radius);
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    &.-action--primary {
+      background-color: var(--color-primary-button);
+      color: var(--color-primary-button-text);
+
+      &:active {
+        background-color: var(--color-primary-button-active);
+      }
+
+      &:disabled {
+        background-color: var(--color-primary-button-disabled);
+      }
+
+      &:hover {
+        background-color: var(--color-primary-button-hover);
+      }
+    }
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    &.-action--secondary {
+      background-color: var(--color-secondary-button);
+      color: var(--color-secondary-button-text);
+      border-color: var(--color-secondary-button-border);
+
+      &:active {
+        background-color: var(--color-secondary-button-active);
+        border-color: var(--color-secondary-button-border-active);
+      }
+
+      &:hover {
+        background-color: var(--color-secondary-button-hover);
+        border-color: var(--color-secondary-button-border-hover);
+      }
+    }
+  }
 }
 
 :root {
   @include castor.day();
+  @include onfidoSdk.tokens();
 }
 
 .step {
@@ -105,7 +146,7 @@ $logo-height: 32 * $unit;
   }
 
   .cobrandLabel {
-    color: $color-neutral-700;
+    color: rgba(var(--ods-color-neutral-700));
     font-size: 10 * $unit;
     display: flex;
     flex-direction: row;
@@ -201,7 +242,7 @@ $logo-height: 32 * $unit;
   border-radius: 10 * $unit-small;
   background-color: $color-tips-pill;
   color: $color-white;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   font-weight: 600;
   position: absolute;
   margin-top: -10 * $unit-small;
@@ -225,24 +266,24 @@ $logo-height: 32 * $unit;
 .link {
   cursor: pointer;
   line-height: 1.43;
-  font-size: $font-size-small;
-  font-family: $font-family;
+  font-size: var(--font-size-small);
+  font-family: var(--font-family);
   margin: auto;
   padding: 2px;
   text-decoration: none;
   border: 1px solid transparent;
-  border-bottom-color: $color-primary-500;
+  border-bottom-color: var(--color-primary);
   background-color: $color-transparent;
   color: $color-body-text;
 
   &:not(:disabled) {
     &:hover {
-      background-color: $color-primary-button-hover;
+      background-color: var(--color-primary-button-hover);
       color: $color-white;
     }
 
     &:active {
-      background-color: $color-primary-button-active;
+      background-color: var(--color-primary-button-active);
       color: $color-white;
     }
   }
@@ -250,7 +291,7 @@ $logo-height: 32 * $unit;
   &:visited {
     text-decoration: none;
     color: $color-body-text;
-    font-size: $font-size-small;
+    font-size: var(--font-size-small);
   }
 
   &:disabled {
@@ -263,11 +304,11 @@ $logo-height: 32 * $unit;
 
   &:hover {
     color: $color-warning-button-text-hover;
-    background-color: $color-primary-button-hover;
+    background-color: var(--color-primary-button-hover);
   }
 
   &:active {
-    background-color: $color-primary-button-active;
+    background-color: var(--color-primary-button-active);
   }
 }
 
@@ -276,7 +317,7 @@ $logo-height: 32 * $unit;
 
   &:hover,
   &:active {
-    color: $color-error;
+    color: var(--color-error);
   }
 
   &:hover {
@@ -294,7 +335,7 @@ $logo-height: 32 * $unit;
 
 .button-lg {
   height: $button-height;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   width: $lg-btn-width-lg-screen;
   @media (--small-viewport) {
     width: $lg-btn-width-sm-screen;
@@ -303,9 +344,13 @@ $logo-height: 32 * $unit;
 
 .button-sm {
   height: $button-height;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   width: $sm-btn-width-lg-screen;
   @media (--small-viewport) {
     width: $sm-btn-width-sm-screen;
+  }
+
+  &.vertical {
+    width: $lg-btn-width-lg-screen;
   }
 }
