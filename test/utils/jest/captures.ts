@@ -34,7 +34,7 @@ export const fakeDocumentCaptureState = (
   ...fakeCapturePayload(variant, side),
   ...(variant === 'video' ? { variant } : {}),
   documentType,
-  id: `fake-${documentType}-id`,
+  id: `fake-${documentType}-${variant === 'standard' ? side : variant}-id`,
   metadata: {},
 })
 

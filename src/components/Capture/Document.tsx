@@ -62,24 +62,38 @@ class Document extends Component<Props> {
     nextStep()
   }
 
-  handleDocVideoCapture: HandleDocVideoCaptureProp = (payload) => {
+  handleVideoCapture: HandleDocVideoCaptureProp = (payload) => {
     const { actions, documentType, mobileFlow, nextStep } = this.props
     const { video, front, back } = payload
 
-    const baseData: Omit<DocumentCapture, 'blob'> = {
+    const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
       documentType,
-      id: randomId(),
       method: 'document',
       sdkMetadata: addDeviceRelatedProperties(video.sdkMetadata, mobileFlow),
     }
 
-    actions.createCapture({ ...baseData, ...front, side: 'front' })
+    actions.createCapture({
+      ...baseData,
+      ...front,
+      id: randomId(),
+      side: 'front',
+    })
 
     if (back) {
-      actions.createCapture({ ...baseData, ...back, side: 'back' })
+      actions.createCapture({
+        ...baseData,
+        ...back,
+        id: randomId(),
+        side: 'back',
+      })
     }
 
-    actions.createCapture({ ...baseData, ...video, variant: 'video' })
+    actions.createCapture({
+      ...baseData,
+      ...video,
+      id: randomId(),
+      variant: 'video',
+    })
 
     nextStep()
   }
@@ -139,7 +153,7 @@ class Document extends Component<Props> {
       return (
         <DocumentVideo
           documentType={documentType}
-          onCapture={this.handleDocVideoCapture}
+          onCapture={this.handleVideoCapture}
           renderFallback={renderFallback}
           trackScreen={trackScreen}
         />
