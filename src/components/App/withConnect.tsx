@@ -2,9 +2,7 @@ import { connect, ConnectedProps } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 import { actions } from '../ReduxAppWrapper/store/actions/'
 
-import type { RootState, CaptureActions, GlobalActions } from '~types/redux'
-
-type CombinedActions = CaptureActions | GlobalActions
+import type { CombinedActions, RootState } from '~types/redux'
 
 const mapStateToProps = (state: RootState) => ({
   ...state.globals,
