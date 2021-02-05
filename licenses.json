@@ -9239,7 +9239,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/home/ethanify/Work/onfido-sdk-ui",
+    "path": "onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
