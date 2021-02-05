@@ -13,13 +13,6 @@
   }
 }
 
-.actionsContainer {
-  margin: 0 48 * $unit;
-  @media (--small-viewport) {
-    margin: 0 $small-text-margin;
-  }
-}
-
 .title {
   flex: 0 0 auto;
 }

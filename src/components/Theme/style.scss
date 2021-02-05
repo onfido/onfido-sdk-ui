@@ -45,14 +45,21 @@
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
 
-  > * {
-    flex-grow: 1;
-  }
-
+  // This is the global margin applied to all the children of content class.
+  // You don't need to add margin for each component anymore
+  margin: 0 $large-text-margin;
   @media (--small-viewport) {
     $non-content-height: $footer-height + $footer-margin +
-      $navigation-height-sm-screen + $navigation-padding-top-sm-screen;
+    $navigation-height-sm-screen + $navigation-padding-top-sm-screen;
     height: calc(100% - #{$non-content-height});
+    margin: 0 $small-text-margin;
+  }
+  @media (--smaller-viewport) {
+    margin: 0 $smaller-text-margin;
+  }
+
+  > * {
+    flex-grow: 1;
   }
 }
 
@@ -64,6 +71,10 @@
 
 .fullScreenContentWrapper {
   position: static;
+}
+
+.content.fullScreenContentWrapper { 
+  margin: 0;
 }
 
 .actionsContainer {
@@ -161,16 +172,6 @@ $logo-height: 32 * $unit;
     .noLogo & {
       background-image: none;
     }
-  }
-}
-
-.contentMargin {
-  margin: 0 $large-text-margin;
-  @media (--small-viewport) {
-    margin: 0 $small-text-margin;
-  }
-  @media (--smaller-viewport) {
-    margin: 0 $smaller-text-margin;
   }
 }
 

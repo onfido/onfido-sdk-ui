@@ -26,7 +26,7 @@ const PoAIntro = ({ country, translate, parseTranslatedTags, nextStep }) => (
         </div>
       ))}
     </div>
-    <div className={theme.contentMargin}>
+    <div>
       <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
         {translate('poa_intro.button_primary')}
       </Button>
