@@ -283,7 +283,7 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   render(): h.JSX.Element {
-    const { language, step, steps, stepIndexType } = this.state
+    const { language } = this.state
 
     return (
       <LocaleProvider language={language}>
@@ -293,9 +293,6 @@ export default class CrossDeviceMobileRouter extends Component<
             {...this.state}
             crossDeviceClientError={this.setError}
             sendClientSuccess={this.sendClientSuccess}
-            step={step}
-            stepIndexType={stepIndexType}
-            steps={steps}
           />
         )}
       </LocaleProvider>

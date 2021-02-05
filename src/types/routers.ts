@@ -70,7 +70,7 @@ export type HistoryRouterProps = {
   mobileConfig?: MobileConfig
   sendClientSuccess?: () => void
   step?: number
-  stepIndexType: StepIndexType
+  stepIndexType?: StepIndexType
   steps?: StepConfig[]
 } & InternalRouterProps
 
