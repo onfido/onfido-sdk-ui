@@ -104,7 +104,7 @@ describe('Capture', () => {
         )
 
         expect(wrapper.exists()).toBeTruthy()
-        expect(wrapper.find('DocumentLiveCapture').exists()).toBeTruthy()
+        expect(wrapper.find('VideoCapture').exists()).toBeTruthy()
       })
     })
   })
