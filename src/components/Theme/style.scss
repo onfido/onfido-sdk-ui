@@ -50,7 +50,7 @@
   margin: 0 $large-text-margin;
   @media (--small-viewport) {
     $non-content-height: $footer-height + $footer-margin +
-    $navigation-height-sm-screen + $navigation-padding-top-sm-screen;
+      $navigation-height-sm-screen + $navigation-padding-top-sm-screen;
     height: calc(100% - #{$non-content-height});
     margin: 0 $small-text-margin;
   }
@@ -73,7 +73,7 @@
   position: static;
 }
 
-.content.fullScreenContentWrapper { 
+.content.fullScreenContentWrapper {
   margin: 0;
 }
 
