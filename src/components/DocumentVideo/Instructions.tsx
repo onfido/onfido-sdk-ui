@@ -2,12 +2,12 @@ import { h, FunctionComponent } from 'preact'
 import cx from 'classnames'
 import style from './style.scss'
 
-import type { RecordingSteps } from '~types/docVideo'
+import type { CaptureSteps, TiltModes } from '~types/docVideo'
 
 type Props = {
-  icon?: RecordingSteps
+  icon?: CaptureSteps
   subtitle?: string
-  tiltMode?: 'left' | 'right'
+  tiltMode?: TiltModes
   title: string
 }
 
@@ -21,7 +21,7 @@ const Instructions: FunctionComponent<Props> = ({
     <div className={style.instructions}>
       <span
         className={cx(style.icon, {
-          [style.flipIcon]: icon === 'flip',
+          [style.backIcon]: icon === 'back',
           [style.tiltIcon]: icon === 'tilt',
           [style.right]: icon === 'tilt' && tiltMode !== 'left', // default to be 'right'
           [style.left]: icon === 'tilt' && tiltMode === 'left',
