@@ -59,6 +59,18 @@ $card-frame-width: 92%;
   border-color: $color-white;
 }
 
+/* Document w/ SVG */
+
+.document {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+/* Face */
+
 @mixin position-hole($scale) {
   $overlay-width: 740 * $unit;
   $overlay-height: 1800 * $unit;
