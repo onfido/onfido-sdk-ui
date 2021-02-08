@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h, Component, Ref } from 'preact'
 import Webcam from 'react-webcam-onfido'
 
 import { getRecordedVideo } from '~utils/camera'
@@ -41,6 +41,7 @@ export type Props = {
   renderOverlay?: (props: OverlayProps) => h.JSX.Element
   renderVideoLayer?: (props: VideoLayerProps) => h.JSX.Element
   title?: string
+  webcamRef?: Ref<Webcam>
 } & WithTrackingProps
 
 type State = {
@@ -181,6 +182,7 @@ export default class VideoCapture extends Component<Props, State> {
       renderVideoLayer,
       title,
       trackScreen,
+      webcamRef,
     } = this.props
 
     const {
@@ -226,7 +228,17 @@ export default class VideoCapture extends Component<Props, State> {
         }
         renderTitle={!isRecording && title && <PageTitle title={title} />}
         trackScreen={trackScreen}
-        webcamRef={(c: Webcam) => (this.webcam = c)}
+        webcamRef={(webcam) => {
+          this.webcam = webcam
+
+          if (webcamRef) {
+            if (typeof webcamRef === 'function') {
+              webcamRef(webcam)
+            } else {
+              webcamRef.current = webcam
+            }
+          }
+        }}
       >
         <ToggleFullScreen />
         {renderOverlay && renderOverlay({ hasCameraError, isRecording })}
