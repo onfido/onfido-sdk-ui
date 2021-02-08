@@ -1,10 +1,10 @@
 import { h, FunctionComponent } from 'preact'
 import style from './style.scss'
 
+import type { TiltModes } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
 
 type DocumentSizes = 'id1Card' | 'id3Card' | 'rectangle'
-type TiltModes = 'left' | 'right'
 
 type DrawFrameParams = {
   aspectRatio: number
