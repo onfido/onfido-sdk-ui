@@ -18,9 +18,9 @@
 }
 
 .message {
-  margin: 32 * $unit $large-text-margin 16 * $unit;
+  margin: 32 * $unit 0 16 * $unit;
   @media (--small-viewport) {
-    margin: 16 * $unit $small-text-margin;
+    margin: 16 * $unit 0;
   }
 }
 
