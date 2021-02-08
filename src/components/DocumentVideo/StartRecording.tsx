@@ -17,10 +17,8 @@ const StartRecording: FunctionComponent<Props> = ({
   onClick,
 }) => {
   const { translate } = useContext(LocaleContext)
-  const title = translate(DOC_VIDEO_INSTRUCTIONS_MAPPING.video.intro.title)
-  const subtitle = translate(
-    DOC_VIDEO_INSTRUCTIONS_MAPPING.video.intro.subtitle
-  )
+  const title = translate(DOC_VIDEO_INSTRUCTIONS_MAPPING.intro.title)
+  const subtitle = translate(DOC_VIDEO_INSTRUCTIONS_MAPPING.intro.subtitle)
 
   return (
     <div className={style.actions}>

@@ -18,10 +18,10 @@ describe('DocumentVideo', () => {
       )
 
       expect(wrapper.find('Instructions .title').text()).toEqual(
-        'doc_video_capture.instructions.video_intro_title'
+        'doc_video_capture.instructions.intro_title'
       )
       expect(wrapper.find('Instructions .subtitle').text()).toEqual(
-        'doc_video_capture.instructions.video_intro_subtitle'
+        'doc_video_capture.instructions.intro_subtitle'
       )
 
       const button = wrapper.find('Button > button')
