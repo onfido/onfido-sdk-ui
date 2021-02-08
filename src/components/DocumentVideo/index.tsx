@@ -22,6 +22,8 @@ import type {
 } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 
+const TILT_MODE = 'right'
+
 export type Props = {
   cameraClassName?: string
   documentType: DocumentTypes
@@ -112,7 +114,13 @@ const DocumentVideo: FunctionComponent<Props> = ({
       onRedo={() => setRecordingStep('intro')}
       onVideoCapture={handleVideoCapture}
       renderFallback={renderFallback}
-      renderOverlay={() => <DocumentOverlay type={documentType} />}
+      renderOverlay={() => (
+        <DocumentOverlay
+          marginBottom={0.5}
+          tilt={recordingStep === 'tilt' ? TILT_MODE : undefined}
+          type={documentType}
+        />
+      )}
       renderVideoLayer={({
         disableInteraction,
         isRecording,
@@ -130,8 +138,9 @@ const DocumentVideo: FunctionComponent<Props> = ({
           >
             <Instructions
               icon={recordingStep}
-              title={title}
               subtitle={subtitle}
+              tiltMode={TILT_MODE}
+              title={title}
             />
           </Recording>
         ) : (
