@@ -14,17 +14,17 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   transition: 0.5s;
+}
 
-  &.hollow {
-    fill: $color-camera-overlay;
-    stroke: transparent;
-  }
+.document .hollow {
+  fill: $color-camera-overlay;
+  stroke: transparent;
+}
 
-  &.highlight {
-    fill: transparent;
-    stroke: $color-white;
-    stroke-width: 0.25;
-  }
+.document .highlight {
+  fill: transparent;
+  stroke: $color-white;
+  stroke-width: 0.25;
 }
 
 /* Face */
