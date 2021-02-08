@@ -1,10 +1,10 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'preact',
-    'plugin:flowtype/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'prettier/standard',
   ],
@@ -21,12 +21,15 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['react', 'flowtype', 'mocha', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'mocha', 'prettier'],
   globals: {
     expect: false,
   },
   rules: {
     'prefer-const': 'error',
+    '@typescript-eslint/no-empty-function': 'warn',
+    '@typescript-eslint/no-var-requires': 'warn',
+    '@typescript-eslint/ban-ts-comment': 'warn',
     /* Temporary disabled rules for React development */
     'react/no-did-mount-set-state': 'warn',
     'react/no-did-update-set-state': 'warn',

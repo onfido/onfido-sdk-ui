@@ -1,7 +1,15 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import { mount } from 'enzyme'
 
-jest.mock('./demoUtils', () => ({
+declare global {
+  interface Window {
+    domNode: HTMLElement
+  }
+}
+
+jest.mock('../../Tracker/safeWoopra')
+
+jest.mock('../demoUtils', () => ({
   getInitSdkOptions: jest.fn().mockReturnValue({}),
   queryParamToValueString: { useHistory: false },
   getTokenFactoryUrl: () => 'https://token-factory.onfido.com/sdk_token',
@@ -12,20 +20,11 @@ jest.mock('./demoUtils', () => ({
     ),
 }))
 
-// when the Onfido SDK is imported Woopra needs to be mocked
-const mockWoopraFn = jest.fn()
-
-jest.mock('../Tracker/safeWoopra', () =>
-  jest.fn().mockImplementation(() => ({
-    init: () => mockWoopraFn,
-    config: () => mockWoopraFn,
-    identify: () => mockWoopraFn,
-    track: () => mockWoopraFn,
-  }))
-)
+const mockedConsole = jest.fn()
+console.log = mockedConsole
 
 describe('Mount Demo App', () => {
-  let Demo = null
+  let Demo: FunctionComponent = null
 
   beforeEach(() => {
     // create rootNode
@@ -35,31 +34,54 @@ describe('Mount Demo App', () => {
     document.body.appendChild(rootNode)
   })
 
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   describe('by mocking Onfido SDK', () => {
     beforeEach(() => {
-      // Mock window.Onfido
       window.Onfido = {
-        init: jest.fn(),
+        init: jest.fn().mockImplementation(() => ({
+          options: {},
+          setOptions: jest.fn(),
+          tearDown: jest.fn(),
+        })),
       }
 
-      Demo = require('./demo').Demo
+      Demo = require('../demo').Demo
     })
 
     it('mounts the Onfido Demo without crashing', () => {
       const sdkDemo = mount(<Demo />)
       expect(sdkDemo.exists()).toBeTruthy()
       expect(window.Onfido.init).toHaveBeenCalled()
+      expect(mockedConsole).toHaveBeenCalledWith(
+        '* JWT Factory URL:',
+        'https://token-factory.onfido.com/sdk_token',
+        'for',
+        'EU',
+        'in',
+        process.env.NODE_ENV
+      )
     })
   })
 
   describe('without mocking Onfido SDK', () => {
     beforeEach(() => {
-      Demo = require('./demo').Demo
+      Demo = require('../demo').Demo
     })
 
     it('mounts the Onfido Demo without crashing', () => {
       const sdkDemo = mount(<Demo />)
       expect(sdkDemo.exists()).toBeTruthy()
+      expect(mockedConsole).toHaveBeenCalledWith(
+        '* JWT Factory URL:',
+        'https://token-factory.onfido.com/sdk_token',
+        'for',
+        'EU',
+        'in',
+        process.env.NODE_ENV
+      )
     })
   })
 })

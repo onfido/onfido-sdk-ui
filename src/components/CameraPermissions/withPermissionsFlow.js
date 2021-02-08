@@ -1,5 +1,3 @@
-// @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import PermissionsPrimer from '../CameraPermissions/Primer'
 import PermissionsRecover from '../CameraPermissions/Recover'
@@ -11,7 +9,7 @@ const permissionErrors = [
   'NotFoundError',
 ]
 
-type State = {
+/* type State = {
   hasGrantedPermission: ?boolean,
   hasSeenPermissionsPrimer: boolean,
   checkingWebcamPermissions: boolean,
@@ -21,18 +19,16 @@ type InjectedProps = {
   hasGrantedPermission: boolean,
   onUserMedia: () => void,
   onFailure: (Error) => void,
-}
+} */
 
-export default <Props: *>(
-  WrappedCamera: React.ComponentType<Props>
-): React.ComponentType<Props & InjectedProps> =>
-  class WithPermissionFlow extends Component<Props, State> {
+export default (WrappedCamera) =>
+  class WithPermissionFlow extends Component {
     static defaultProps = {
       onUserMedia: () => {},
       onFailure: () => {},
     }
 
-    state: State = {
+    state = {
       hasGrantedPermission: null,
       hasSeenPermissionsPrimer: false,
       checkingWebcamPermissions: true,
@@ -56,7 +52,7 @@ export default <Props: *>(
       this.props.onUserMedia()
     }
 
-    handleWebcamFailure = (error: Error) => {
+    handleWebcamFailure = (error) => {
       if (permissionErrors.includes(error.name)) {
         this.setState({ hasGrantedPermission: false })
       } else {

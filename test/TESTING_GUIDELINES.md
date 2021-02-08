@@ -17,8 +17,13 @@ Our UI tests also run on BrowserStack. If you would like to run them on your Bro
 1.  Run `test.sh` script OR
 2.  Run:
 
-- `npm run build:dev`
-- `npm run test:ui`
+- `npm run build:test`. This will:
+  - Build the front-end with `NODE_ENV=production` using Webpack.
+  - Build test server using Deno and generate a Docker image with tag `onfido-web-sdk:ui-mock-server`.
+- `npm run test:ui`. This will:
+  - Parse and load UI test scenarios from `test/config.json`.
+  - Run the test server image with tag `onfido-web-sdk:ui-mock-server` and wait until it responds.
+  - Run the test scenarios against test server at `https://localhost:8080`.
 
 ### `test` directory structure
 

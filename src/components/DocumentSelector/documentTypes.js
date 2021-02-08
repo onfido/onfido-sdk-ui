@@ -1,16 +1,16 @@
-// @flow
 import { findKey } from '~utils/object'
 import { upperCase } from '~utils/string'
-export type GroupType = 'identity' | 'proof_of_address'
 
-export type DocumentOptionsType = {
+// export type GroupType = 'identity' | 'proof_of_address'
+
+/* export type DocumentOptionsType = {
   icon: string,
   label: string,
   detail?: string,
   warning?: string,
   eStatements?: boolean,
   checkAvailableInCountry?: (string) => boolean,
-}
+} */
 
 export const idDocumentOptions = {
   passport: {
@@ -31,10 +31,10 @@ export const idDocumentOptions = {
   },
 }
 
-export const idDocumentTypes: string[] = Object.keys(idDocumentOptions)
+export const idDocumentTypes = Object.keys(idDocumentOptions)
 
-const isUK = (code: string) => upperCase(code) === 'GBR'
-const isNonUK = (code: string) => upperCase(code) !== 'GBR'
+const isUK = (code) => upperCase(code) === 'GBR'
+const isNonUK = (code) => upperCase(code) !== 'GBR'
 
 export const poaDocumentOptions = {
   bank_building_society_statement: {
@@ -66,9 +66,9 @@ export const poaDocumentOptions = {
   },
 }
 
-export const poaDocumentTypes: string[] = Object.keys(poaDocumentOptions)
+export const poaDocumentTypes = Object.keys(poaDocumentOptions)
 
-export const getDocumentTypeGroup = (documentType: string): GroupType =>
+export const getDocumentTypeGroup = (documentType) =>
   findKey(
     {
       proof_of_address: poaDocumentTypes,

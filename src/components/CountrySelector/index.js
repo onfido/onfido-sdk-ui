@@ -1,13 +1,12 @@
-// @flow
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import FallbackButton from '../Button/FallbackButton'
-import { localised, type LocalisedType } from '../../locales'
+import { localised /* , type LocalisedType */ } from '../../locales'
 import {
   getSupportedCountriesForDocument,
-  type CountryData,
+  /* type CountryData, */
 } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags, hasOnePreselectedDocument } from '~utils'
@@ -16,7 +15,7 @@ import Autocomplete from 'accessible-autocomplete/preact'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
-type Props = {
+/* type Props = {
   documentType: string,
   idDocumentIssuingCountry: CountryData,
   previousStep: () => void,
@@ -27,27 +26,27 @@ type Props = {
 
 type State = {
   showNoResultsError: Boolean,
-}
+} */
 
-const getFlagIconURL = (country: CountryData) => {
+const getFlagIconURL = (country) => {
   // NOTE: `flagsPath` is the same as what is returned by libphonenumber-js in PhoneNumberInput component
   const flagsPath = 'https://lipis.github.io/flag-icon-css/flags/4x3/'
   return `${flagsPath}${country.country_alpha2.toLowerCase()}.svg`
 }
 
-const getCountryOptionTemplate = (country: CountryData) =>
+const getCountryOptionTemplate = (country) =>
   `<i
       role="presentation"
       class="${style.countryFlag}"
       style="background-image: url(${getFlagIconURL(country)})"></i>
     <span class="${style.countryLabel}">${country.name}</span>`
 
-class CountrySelection extends Component<Props, State> {
+class CountrySelection extends Component {
   state = {
     showNoResultsError: false,
   }
 
-  handleCountrySearchConfirm = (selectedCountry: CountryData) => {
+  handleCountrySearchConfirm = (selectedCountry) => {
     const { actions, idDocumentIssuingCountry } = this.props
     if (selectedCountry) {
       this.setState({
@@ -65,7 +64,7 @@ class CountrySelection extends Component<Props, State> {
     }
   }
 
-  suggestCountries = (query: string = '', populateResults: Function) => {
+  suggestCountries = (query = '', populateResults) => {
     const { documentType, idDocumentIssuingCountry, actions } = this.props
     if (idDocumentIssuingCountry && query !== idDocumentIssuingCountry.name) {
       actions.resetIdDocumentIssuingCountry()
@@ -154,8 +153,8 @@ class CountrySelection extends Component<Props, State> {
               displayMenu="overlay"
               cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
               templates={{
-                inputValue: (country: CountryData) => country && country.name,
-                suggestion: (country: CountryData) =>
+                inputValue: (country) => country && country.name,
+                suggestion: (country) =>
                   country && getCountryOptionTemplate(country),
               }}
               onConfirm={this.handleCountrySearchConfirm}

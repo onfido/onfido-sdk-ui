@@ -1,27 +1,26 @@
-// @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
 
-type Props = {
+/* type Props = {
   children: ?React.Node,
   className: ?string,
   onClick: (?void) => void,
   onChange: (File) => void,
-}
+} */
 
 const noop = () => {}
 
-export default class CustomFileInput extends Component<Props> {
-  static defaultProps: Props = {
+export default class CustomFileInput extends Component {
+  static defaultProps = {
     children: null,
     className: '',
     onClick: noop,
     onChange: noop,
   }
 
-  input: ?HTMLInputElement
+  input
 
   handleClick = () => {
     if (this.input) {
@@ -30,7 +29,7 @@ export default class CustomFileInput extends Component<Props> {
     this.props.onClick()
   }
 
-  handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
+  handleChange = (event) => {
     if (this.input) {
       this.props.onChange(this.input.files[0])
     }
