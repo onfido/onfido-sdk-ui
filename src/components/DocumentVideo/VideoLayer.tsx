@@ -36,11 +36,7 @@ const VideoLayer: FunctionComponent<VideoLayerProps> = ({
 
   if (!isRecording) {
     return (
-      <StartRecording
-        disableInteraction={disableInteraction}
-        onClick={onStart}
-        totalSteps={totalSteps}
-      >
+      <StartRecording disableInteraction={disableInteraction} onClick={onStart}>
         <Instructions title={title} />
       </StartRecording>
     )
@@ -54,10 +50,9 @@ const VideoLayer: FunctionComponent<VideoLayerProps> = ({
           : 'doc_video_capture.button_stop_accessibility'
       )}
       disableInteraction={disableInteraction}
+      hasMoreSteps={stepNumber < totalSteps}
       onNext={onNext}
       onStop={onStop}
-      stepNumber={stepNumber}
-      totalSteps={totalSteps}
     >
       <Instructions
         icon={step}

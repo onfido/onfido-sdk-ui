@@ -6,7 +6,6 @@ import StartRecording from '../StartRecording'
 
 const defaultProps = {
   onClick: jest.fn(),
-  totalSteps: 3,
 }
 
 describe('DocumentVideo', () => {
@@ -17,10 +16,6 @@ describe('DocumentVideo', () => {
           <StartRecording {...defaultProps} />
         </MockedLocalised>
       )
-
-      const progress = wrapper.find('ProgressBar')
-      expect(progress.exists()).toBeTruthy()
-      expect(progress.prop('totalSteps')).toEqual(defaultProps.totalSteps)
 
       const button = wrapper.find('Button > button')
       expect(button.exists()).toBeTruthy()

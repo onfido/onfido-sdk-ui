@@ -60,6 +60,24 @@
 
 .progress {
   display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 16 * $unit;
+  right: 16 * $unit;
+  top: 48 * $unit;
+}
+
+.progress .step {
+  background-color: $color-white;
+  border-radius: 2 * $unit;
+  height: 4 * $unit;
+  margin: 0 3 * $unit;
+  opacity: 0.4;
+  width: 96 * $unit;
+}
+
+.progress .step.active {
+  opacity: 1;
 }
 
 .actions {

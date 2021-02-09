@@ -101,6 +101,7 @@ export type Props = {
 }
 
 const DocumentOverlay: FunctionComponent<Props> = ({
+  children,
   marginBottom,
   tilt,
   type,
@@ -130,6 +131,7 @@ const DocumentOverlay: FunctionComponent<Props> = ({
         <path className={style.highlight} d={inner} ref={highlightFrameRef} />
       </svg>
       {withPlaceholder && <Placeholder rect={hollowRect} />}
+      {children}
     </div>
   )
 }
