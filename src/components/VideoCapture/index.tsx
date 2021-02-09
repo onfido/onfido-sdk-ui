@@ -22,7 +22,7 @@ type OverlayProps = {
   isRecording: boolean
 }
 
-type VideoLayerProps = {
+export type VideoLayerProps = {
   disableInteraction: boolean
   isRecording: boolean
   onStart: () => void
