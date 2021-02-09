@@ -49,20 +49,26 @@
   --osdk-color-background-button-secondary-border-hover: var(--color-primary-hover);
   --osdk-color-background-button-secondary-border-active: var(--color-primary-active);
 
-  --color-icon-button: $color-transparent;
-  --color-icon-button-hover: rgba(var(--ods-color-neutral-400));
-  --color-icon-button-active: rgba(var(--ods-color-neutral-600));
-
-  /* - Camera button colors */
-  --color-camera-button: rgba(var(--ods-color-neutral-white));
-  --color-camera-button-hover: var(--osdk-color-background-button-primary-hover);
-  --color-camera-button-active: var(--osdk-color-background-button-primary-active);
-
-  /* - Document Type Selectors button colors */
-  --selectors-box-shadow-hover: 0 0 0 2px var(--color-primary-hover);
-  --selectors-box-shadow-active: 0 0 0 2px var(--color-primary-active);
-
   /* Button group customisations */
   --osdk-border-radius-button: var(--ods-border-radius-medium);
   --osdk-button-group-vertical: false;
+
+  /* Document Type Selectors option button colors */
+  --selectors-box-shadow-hover: 0 0 0 2px var(--color-primary-hover);
+  --selectors-box-shadow-active: 0 0 0 2px var(--color-primary-active);
+
+  /* Back button colors */
+  --osdk-color-background-button-back-icon: $color-transparent;
+  --osdk-color-background-button-back-icon-hover: rgba(var(--ods-color-neutral-400));
+  --osdk-color-background-button-back-icon-active: rgba(var(--ods-color-neutral-600));
+
+  /* Close (modal) button colors */
+  --osdk-color-background-button-close-icon: $color-transparent;
+  --osdk-color-background-button-close-icon-hover: rgba(var(--ods-color-neutral-400));
+  --osdk-color-background-button-close-icon-active: rgba(var(--ods-color-neutral-600));
+
+  /* Camera button colors */
+  --color-camera-button: rgba(var(--ods-color-neutral-white));
+  --color-camera-button-hover: var(--osdk-color-background-button-primary-hover);
+  --color-camera-button-active: var(--osdk-color-background-button-primary-active);
 }

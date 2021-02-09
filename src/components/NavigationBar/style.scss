@@ -7,8 +7,7 @@
   text-align: left;
   box-sizing: content-box;
   @media (--small-viewport) {
-    $navigation-all-padding: $navigation-padding-top-sm-screen
-      $navigation-padding-sides-sm-screen 0;
+    $navigation-all-padding: $navigation-padding-top-sm-screen $navigation-padding-sides-sm-screen 0;
     height: $navigation-height-sm-screen;
     padding: $navigation-all-padding;
   }
@@ -22,7 +21,7 @@
   font-family: var(--font-family);
   line-height: 1;
   border: 0;
-  background-color: var(--color-icon-button);
+  background-color: var(--osdk-color-background-button-back-icon);
   cursor: pointer;
 
   @media (--small-viewport) {
@@ -45,11 +44,7 @@
 
 .fullScreenNav {
   /* stylelint-disable function-parentheses-space-inside */
-  background: linear-gradient(
-    0deg,
-    $color-navbar-gradient-one 0%,
-    $color-navbar-gradient-two 100%
-  );
+  background: linear-gradient(0deg, $color-navbar-gradient-one 0%, $color-navbar-gradient-two 100%);
   /* stylelint-enable function-parentheses-space-inside */
   z-index: 3;
 
@@ -57,7 +52,7 @@
     &:hover {
       .iconBack {
         background-image: url('./assets/back-black.svg');
-        background-color: var(--color-icon-button-hover);
+        background-color: var(--osdk-color-background-button-back-icon-hover);
       }
     }
   }
@@ -69,7 +64,7 @@
       background-image: url('./assets/back-black.svg');
 
       .iconBack {
-        background-color: var(--color-icon-button-active);
+        background-color: var(--osdk-color-background-button-back-icon-active);
       }
     }
   }
@@ -89,13 +84,13 @@
 
   &:hover {
     .iconBack {
-      background-color: var(--color-icon-button-hover);
+      background-color: var(--osdk-color-background-button-back-icon-hover);
     }
   }
 
   &:active {
     .iconBack {
-      background-color: var(--color-icon-button-active);
+      background-color: var(--osdk-color-background-button-back-icon-active);
     }
   }
 }
