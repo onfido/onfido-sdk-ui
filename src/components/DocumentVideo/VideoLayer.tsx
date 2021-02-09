@@ -53,10 +53,11 @@ const VideoLayer: FunctionComponent<VideoLayerProps> = ({
           ? 'doc_video_capture.button_primary_next'
           : 'doc_video_capture.button_stop_accessibility'
       )}
-      hasMoreSteps={stepNumber < totalSteps}
       disableInteraction={disableInteraction}
       onNext={onNext}
       onStop={onStop}
+      stepNumber={stepNumber}
+      totalSteps={totalSteps}
     >
       <Instructions
         icon={step}

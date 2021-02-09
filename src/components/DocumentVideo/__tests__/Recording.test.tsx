@@ -7,6 +7,8 @@ const defaultProps: RecordingProps = {
   buttonText: 'Fake button',
   onNext: jest.fn(),
   onStop: jest.fn(),
+  stepNumber: 0,
+  totalSteps: 3,
 }
 
 describe('DocumentVideo', () => {
@@ -15,20 +17,23 @@ describe('DocumentVideo', () => {
       jest.clearAllMocks()
     })
 
-    it('renders instructions correctly', () => {
-      const wrapper = mount(
-        <Recording {...defaultProps}>
-          <div>
-            <span className="title">doc_video.recording.title</span>
-            <span className="subtitle">doc_video.recording.subtitle</span>
-          </div>
-        </Recording>
-      )
+    it('renders items correctly', () => {
+      const wrapper = mount(<Recording {...defaultProps} />)
 
-      expect(wrapper.find('.title').text()).toEqual('doc_video.recording.title')
-      expect(wrapper.find('.subtitle').text()).toEqual(
-        'doc_video.recording.subtitle'
-      )
+      const progress = wrapper.find('ProgressBar')
+      expect(progress.exists()).toBeTruthy()
+      expect(progress.props()).toMatchObject({
+        stepNumber: defaultProps.stepNumber,
+        totalSteps: defaultProps.totalSteps,
+      })
+
+      const button = wrapper.find('Button > button')
+      expect(button.prop('disabled')).toBeFalsy()
+      expect(button.text()).toEqual(defaultProps.buttonText)
+
+      button.simulate('click')
+      expect(defaultProps.onNext).toHaveBeenCalled()
+      expect(defaultProps.onStop).not.toHaveBeenCalled()
     })
 
     it('disables button when disableInteraction=true', () => {
@@ -38,9 +43,24 @@ describe('DocumentVideo', () => {
       expect(button.prop('disabled')).toBeTruthy()
     })
 
+    it('renders children correctly', () => {
+      const wrapper = mount(
+        <Recording {...defaultProps}>
+          <div>
+            <span className="title">Fake title</span>
+            <span className="subtitle">Fake subtitle</span>
+          </div>
+        </Recording>
+      )
+      expect(wrapper.find('.title').text()).toEqual('Fake title')
+      expect(wrapper.find('.subtitle').text()).toEqual('Fake subtitle')
+    })
+
     describe('with no more steps', () => {
       it('renders button correctly', () => {
-        const wrapper = mount(<Recording {...defaultProps} />)
+        const wrapper = mount(
+          <Recording {...defaultProps} stepNumber={defaultProps.totalSteps} />
+        )
 
         const button = wrapper.find('Button > button')
         expect(button.prop('disabled')).toBeFalsy()
@@ -49,20 +69,6 @@ describe('DocumentVideo', () => {
         button.simulate('click')
         expect(defaultProps.onStop).toHaveBeenCalled()
         expect(defaultProps.onNext).not.toHaveBeenCalled()
-      })
-    })
-
-    describe('with more steps', () => {
-      it('renders button correctly', () => {
-        const wrapper = mount(<Recording {...defaultProps} hasMoreSteps />)
-
-        const button = wrapper.find('Button > button')
-        expect(button.prop('disabled')).toBeFalsy()
-        expect(button.text()).toEqual(defaultProps.buttonText)
-
-        button.simulate('click')
-        expect(defaultProps.onNext).toHaveBeenCalled()
-        expect(defaultProps.onStop).not.toHaveBeenCalled()
       })
     })
   })
