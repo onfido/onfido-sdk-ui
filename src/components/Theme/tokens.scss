@@ -21,23 +21,25 @@
   --font-weight-subtitle: 600;
   --font-weight-body: 500;
 
-  /* Color Variables */
+  /* General UI element background color settings */
   --color-background: rgba(var(--ods-color-neutral-050));
   --color-warning: rgba(var(--ods-color-primary-500));
   --color-error: rgba(220, 42, 42);
 
+  /* TODO: not really required now, should do a full check after Phase 1 customisations implemented to be sure */
   --color-primary: rgba(var(--ods-color-primary-500));
   --color-primary-hover: rgba(var(--ods-color-primary-400));
   --color-primary-active: rgba(var(--ods-color-primary-600));
 
-  /* - Button colors */
+  /* Primary Button customisations */
   --color-primary-button: var(--color-primary);
   --color-primary-button-hover: var(--color-primary-hover);
   --color-primary-button-active: var(--color-primary-active);
   --color-primary-button-text: rgba(var(--ods-color-content-on-action));
   --color-primary-button-disabled: rgba(var(--ods-color-neutral-300));
 
-  --color-secondary-button: $transparent;
+  /* Secondary Button customisations */
+  --color-secondary-button: rgba(var(--ods-color-background-action-subtle));
   /* prettier-ignore */
   --color-secondary-button-hover: rgba(var(--ods-color-background-action-subtle-hover));
   /* prettier-ignore */
@@ -56,11 +58,11 @@
   --color-camera-button-hover: var(--color-primary-button-hover);
   --color-camera-button-active: var(--color-primary-button-active);
 
-  /* - Selectors button colors */
+  /* - Document Type Selectors button colors */
   --selectors-box-shadow-hover: 0 0 0 2px var(--color-primary-hover);
   --selectors-box-shadow-active: 0 0 0 2px var(--color-primary-active);
 
-  /* Other button variables */
+  /* Button group customisations */
   --osdk-border-radius-button: var(--ods-border-radius-medium);
   --button-group-vertical: false;
 }
