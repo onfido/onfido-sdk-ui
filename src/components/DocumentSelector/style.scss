@@ -10,11 +10,15 @@
   }
 }
 
+$selectors-text-color: $color-body-text;
+
 .option {
   width: 100%;
   background: $color-white;
   border-radius: 4 * $unit;
-  border: $selectors-border;
+  border-color: #8b9094;
+  border-style: solid;
+  border-width: 1px;
   color: $selectors-text-color;
   cursor: pointer;
   display: flex;
