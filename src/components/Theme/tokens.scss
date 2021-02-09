@@ -1,3 +1,5 @@
+/* stylelint-disable function-parentheses-space-inside */
+
 @mixin tokens() {
   --unit: (1/16) * 1em;
 
@@ -33,21 +35,35 @@
 
   /* Primary Button customisations */
   /* TODO: Button border colors */
-  --osdk-color-background-button-primary-text: rgba(var(--ods-color-content-on-action));
+  --osdk-color-background-button-primary-text: rgba(
+    var(--ods-color-content-on-action)
+  );
   --osdk-color-background-button-primary: var(--color-primary);
   --osdk-color-background-button-primary-hover: var(--color-primary-hover);
   --osdk-color-background-button-primary-active: var(--color-primary-active);
-  --osdk-color-background-button-primary-disabled: rgba(var(--ods-color-neutral-300));
+  --osdk-color-background-button-primary-disabled: rgba(
+    var(--ods-color-neutral-300)
+  );
 
   /* Secondary Button customisations */
   /* TODO: Button border colors */
   --osdk-color-background-button-secondary-text: var(--color-primary);
-  --osdk-color-background-button-secondary: rgba(var(--ods-color-background-action-subtle));
-  --osdk-color-background-button-secondary-hover: rgba(var(--ods-color-background-action-subtle-hover));
-  --osdk-color-background-button-secondary-active: rgba(var(--ods-color-background-action-subtle));
+  --osdk-color-background-button-secondary: rgba(
+    var(--ods-color-background-action-subtle)
+  );
+  --osdk-color-background-button-secondary-hover: rgba(
+    var(--ods-color-background-action-subtle-hover)
+  );
+  --osdk-color-background-button-secondary-active: rgba(
+    var(--ods-color-background-action-subtle)
+  );
   --osdk-color-background-button-secondary-border: var(--color-primary);
-  --osdk-color-background-button-secondary-border-hover: var(--color-primary-hover);
-  --osdk-color-background-button-secondary-border-active: var(--color-primary-active);
+  --osdk-color-background-button-secondary-border-hover: var(
+    --color-primary-hover
+  );
+  --osdk-color-background-button-secondary-border-active: var(
+    --color-primary-active
+  );
 
   /* Button group customisations */
   --osdk-border-radius-button: var(--ods-border-radius-medium);
@@ -59,16 +75,30 @@
 
   /* Back button colors */
   --osdk-color-background-button-back-icon: $color-transparent;
-  --osdk-color-background-button-back-icon-hover: rgba(var(--ods-color-neutral-400));
-  --osdk-color-background-button-back-icon-active: rgba(var(--ods-color-neutral-600));
+  --osdk-color-background-button-back-icon-hover: rgba(
+    var(--ods-color-neutral-400)
+  );
+  --osdk-color-background-button-back-icon-active: rgba(
+    var(--ods-color-neutral-600)
+  );
 
   /* Close (modal) button colors */
   --osdk-color-background-button-close-icon: $color-transparent;
-  --osdk-color-background-button-close-icon-hover: rgba(var(--ods-color-neutral-400));
-  --osdk-color-background-button-close-icon-active: rgba(var(--ods-color-neutral-600));
+  --osdk-color-background-button-close-icon-hover: rgba(
+    var(--ods-color-neutral-400)
+  );
+  --osdk-color-background-button-close-icon-active: rgba(
+    var(--ods-color-neutral-600)
+  );
 
   /* Camera button colors */
   --osdk-color-background-button-camera: rgba(var(--ods-color-neutral-white));
-  --osdk-color-background-button-camera-hover: var(--osdk-color-background-button-primary-hover);
-  --osdk-color-background-button-camera-active: var(--osdk-color-background-button-primary-active);
+  --osdk-color-background-button-camera-hover: var(
+    --osdk-color-background-button-primary-hover
+  );
+  --osdk-color-background-button-camera-active: var(
+    --osdk-color-background-button-primary-active
+  );
 }
+
+/* stylelint-enable function-parentheses-space-inside */
