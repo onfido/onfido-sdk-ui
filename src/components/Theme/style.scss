@@ -32,6 +32,7 @@
       color: var(--osdk-color-background-button-secondary-text);
       border-color: var(--osdk-color-background-button-secondary-border);
 
+      /* stylelint-disable function-parentheses-space-inside */
       &:active {
         background-color: var(--osdk-color-background-button-secondary-active);
         border-color: var(
@@ -45,6 +46,7 @@
           --osdk-color-background-button-secondary-border-hover
         );
       }
+      /* stylelint-enable function-parentheses-space-inside */
     }
   }
 }
