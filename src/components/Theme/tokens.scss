@@ -37,6 +37,7 @@
   --font-weight-body: 500;
 
   /* General UI element background color settings */
+  --osdk-color-border-surface-modal: var(--ods-color-border-input);
   --color-background: rgba(var(--ods-color-neutral-050));
   --color-warning: rgba(var(--ods-color-primary-500));
   --color-error: rgba(220, 42, 42);
@@ -83,8 +84,10 @@
   --osdk-button-group-vertical: false;
 
   /* Document Type Selectors option button colors */
-  --selectors-box-shadow-hover: 0 0 0 2px var(--color-primary-hover);
-  --selectors-box-shadow-active: 0 0 0 2px var(--color-primary-active);
+  --osdk-color-border-doc-type-button: var(--osdk-color-border-surface-modal);
+  // FIXME: border width (2px) to be a separate CSS variable
+  --osdk-color-border-doc-type-button-hover: 0 0 0 2px var(--color-primary-hover);
+  --osdk-color-border-doc-type-button-active: 0 0 0 2px var(--color-primary-active);
 
   /* Back button colors */
   --osdk-color-background-button-back-icon: $color-transparent;
