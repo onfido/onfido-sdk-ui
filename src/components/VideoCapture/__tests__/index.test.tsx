@@ -1,11 +1,15 @@
-import { h } from 'preact'
+import { h, FunctionComponent, Ref } from 'preact'
 import { mount, shallow, ReactWrapper } from 'enzyme'
+import Webcam from 'react-webcam-onfido'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import Camera from '../../Camera'
 import Timeout, { Props as TimeoutProps } from '../../Timeout'
-import VideoCapture, { Props as VideoCaptureProps } from '../index'
+import VideoCapture, {
+  VideoLayerProps,
+  Props as VideoCaptureProps,
+} from '../index'
 
 import type { CameraProps } from '~types/camera'
 
@@ -17,23 +21,29 @@ const assertTimeout = (wrapper: ReactWrapper, seconds: number) => {
   expect(timeout.props().seconds).toEqual(seconds)
 }
 
+const MockedVideoLayer: FunctionComponent<VideoLayerProps> = ({
+  disableInteraction,
+  isRecording,
+  onStart,
+  onStop,
+}) => (
+  <button
+    id="record-video"
+    disabled={disableInteraction}
+    onClick={isRecording ? onStop : onStart}
+  >
+    {isRecording ? 'Stop' : 'Start'}
+  </button>
+)
+
 const defaultProps: VideoCaptureProps = {
   inactiveError: { name: 'VIDEO_TIMEOUT' },
   onRecordingStart: jest.fn(),
   onRedo: jest.fn(),
   onVideoCapture: jest.fn(),
   renderFallback: jest.fn(),
+  renderVideoLayer: MockedVideoLayer,
   trackScreen: jest.fn(),
-  /* eslint-disable-next-line react/display-name */
-  renderVideoLayer: ({ disableInteraction, isRecording, onStart, onStop }) => (
-    <button
-      id="record-video"
-      disabled={disableInteraction}
-      onClick={isRecording ? onStop : onStart}
-    >
-      {isRecording ? 'Stop' : 'Start'}
-    </button>
-  ),
 }
 
 describe('VideoCapture', () => {
@@ -137,11 +147,7 @@ describe('VideoCapture', () => {
         wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <VideoCapture
-                {...defaultProps}
-                recordingTimeout={30}
-                title="Fake title"
-              />
+              <VideoCapture {...defaultProps} recordingTimeout={30} />
             </MockedLocalised>
           </MockedReduxProvider>
         )
@@ -150,6 +156,36 @@ describe('VideoCapture', () => {
       })
 
       it('renders inactive timeout correctly', () => assertTimeout(wrapper, 30))
+    })
+
+    describe('with webcamRef passed', () => {
+      it('triggers callback function correctly', () => {
+        const mockedWebcamRef = jest.fn()
+
+        wrapper = mount(
+          <MockedReduxProvider>
+            <MockedLocalised>
+              <VideoCapture {...defaultProps} webcamRef={mockedWebcamRef} />
+            </MockedLocalised>
+          </MockedReduxProvider>
+        )
+
+        expect(mockedWebcamRef).toHaveBeenCalled()
+      })
+
+      it('assign ref object correctly', () => {
+        const mockedWebcamRef: Ref<Webcam> = {}
+
+        wrapper = mount(
+          <MockedReduxProvider>
+            <MockedLocalised>
+              <VideoCapture {...defaultProps} webcamRef={mockedWebcamRef} />
+            </MockedLocalised>
+          </MockedReduxProvider>
+        )
+
+        expect(mockedWebcamRef.current).toBeDefined()
+      })
     })
   })
 })

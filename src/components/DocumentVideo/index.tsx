@@ -8,12 +8,8 @@ import { getInactiveError } from '~utils/inactiveError'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import { LocaleContext } from '~locales'
 import { DocumentOverlay } from '../Overlay'
-import VideoCapture, {
-  VideoLayerProps as VideoLayerRenderProps,
-} from '../VideoCapture'
-import Instructions from './Instructions'
-import Recording from './Recording'
-import StartRecording from './StartRecording'
+import VideoCapture from '../VideoCapture'
+import VideoLayer from './VideoLayer'
 
 import type { CaptureSteps, CaptureVariants, TiltModes } from '~types/docVideo'
 import type { WithTrackingProps } from '~types/hocs'
@@ -34,57 +30,6 @@ const renamedCapture = (
   ...payload,
   filename: `document_${step}.${mimeType(payload.blob)}`,
 })
-
-type VideoLayerProps = {
-  captureStep: CaptureSteps
-  hasMoreSteps: boolean
-  onNext: () => void
-  subtitle: string
-  title: string
-} & VideoLayerRenderProps
-
-const VideoLayer: FunctionComponent<VideoLayerProps> = ({
-  captureStep,
-  disableInteraction,
-  isRecording,
-  hasMoreSteps,
-  onNext,
-  onStart,
-  onStop,
-  title,
-  subtitle,
-}) => {
-  const { translate } = useContext(LocaleContext)
-
-  if (!isRecording) {
-    return (
-      <StartRecording disableInteraction={disableInteraction} onClick={onStart}>
-        <Instructions title={title} />
-      </StartRecording>
-    )
-  }
-
-  return (
-    <Recording
-      buttonText={translate(
-        captureStep !== 'back'
-          ? 'doc_video_capture.button_primary_next'
-          : 'doc_video_capture.button_stop_accessibility'
-      )}
-      hasMoreSteps={hasMoreSteps}
-      disableInteraction={disableInteraction}
-      onNext={onNext}
-      onStop={onStop}
-    >
-      <Instructions
-        icon={captureStep}
-        subtitle={subtitle}
-        tiltMode={TILT_MODE}
-        title={title}
-      />
-    </Recording>
-  )
-}
 
 export type Props = {
   cameraClassName?: string
