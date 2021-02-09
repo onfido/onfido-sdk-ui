@@ -9,10 +9,12 @@ type DummyProps = {
 }
 
 const DummyComponent: FunctionComponent<DummyProps> = ({ documentType }) => {
-  const { step, hasMoreSteps, nextStep, restart } = useCaptureStep(documentType)
+  const { step, stepNumber, totalSteps, nextStep, restart } = useCaptureStep(
+    documentType
+  )
 
   return (
-    <div id="content" data-test={{ step, hasMoreSteps }}>
+    <div id="content" data-test={{ step, stepNumber, totalSteps }}>
       <button id="next" onClick={nextStep}>
         Next step
       </button>
@@ -42,24 +44,24 @@ describe('DocumentVideo', () => {
       })
 
       it('returns intro step initially', () =>
-        assertStep(wrapper, { step: 'intro', hasMoreSteps: true }))
+        assertStep(wrapper, { step: 'intro', stepNumber: 0, totalSteps: 3 }))
 
       it('moves to front step correctly', () => {
         wrapper.find('#next').simulate('click')
-        assertStep(wrapper, { step: 'front', hasMoreSteps: true })
+        assertStep(wrapper, { step: 'front', stepNumber: 1, totalSteps: 3 })
       })
 
       it('moves to tilt step correctly', () => {
         wrapper.find('#next').simulate('click')
         wrapper.find('#next').simulate('click')
-        assertStep(wrapper, { step: 'tilt', hasMoreSteps: true })
+        assertStep(wrapper, { step: 'tilt', stepNumber: 2, totalSteps: 3 })
       })
 
       it('moves to back step correctly', () => {
         wrapper.find('#next').simulate('click')
         wrapper.find('#next').simulate('click')
         wrapper.find('#next').simulate('click')
-        assertStep(wrapper, { step: 'back', hasMoreSteps: false })
+        assertStep(wrapper, { step: 'back', stepNumber: 3, totalSteps: 3 })
       })
 
       it('does nothing after last step', () => {
@@ -67,7 +69,7 @@ describe('DocumentVideo', () => {
         wrapper.find('#next').simulate('click')
         wrapper.find('#next').simulate('click')
         wrapper.find('#next').simulate('click')
-        assertStep(wrapper, { step: 'back', hasMoreSteps: false })
+        assertStep(wrapper, { step: 'back', stepNumber: 3, totalSteps: 3 })
       })
 
       it('restarts correctly', () => {
@@ -75,7 +77,7 @@ describe('DocumentVideo', () => {
         wrapper.find('#next').simulate('click')
         wrapper.find('#next').simulate('click')
         wrapper.find('#restart').simulate('click')
-        assertStep(wrapper, { step: 'intro', hasMoreSteps: true })
+        assertStep(wrapper, { step: 'intro', stepNumber: 0, totalSteps: 3 })
       })
     })
 
@@ -85,31 +87,31 @@ describe('DocumentVideo', () => {
       })
 
       it('returns intro step initially', () =>
-        assertStep(wrapper, { step: 'intro', hasMoreSteps: true }))
+        assertStep(wrapper, { step: 'intro', stepNumber: 0, totalSteps: 2 }))
 
       it('moves to front step correctly', () => {
         wrapper.find('#next').simulate('click')
-        assertStep(wrapper, { step: 'front', hasMoreSteps: true })
+        assertStep(wrapper, { step: 'front', stepNumber: 1, totalSteps: 2 })
       })
 
       it('moves to tilt step correctly', () => {
         wrapper.find('#next').simulate('click')
         wrapper.find('#next').simulate('click')
-        assertStep(wrapper, { step: 'tilt', hasMoreSteps: false })
+        assertStep(wrapper, { step: 'tilt', stepNumber: 2, totalSteps: 2 })
       })
 
       it('does nothing after last step', () => {
         wrapper.find('#next').simulate('click')
         wrapper.find('#next').simulate('click')
         wrapper.find('#next').simulate('click')
-        assertStep(wrapper, { step: 'tilt', hasMoreSteps: false })
+        assertStep(wrapper, { step: 'tilt', stepNumber: 2, totalSteps: 2 })
       })
 
       it('restarts correctly', () => {
         wrapper.find('#next').simulate('click')
         wrapper.find('#next').simulate('click')
         wrapper.find('#restart').simulate('click')
-        assertStep(wrapper, { step: 'intro', hasMoreSteps: true })
+        assertStep(wrapper, { step: 'intro', stepNumber: 0, totalSteps: 2 })
       })
     })
   })

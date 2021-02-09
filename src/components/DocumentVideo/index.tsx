@@ -46,9 +46,13 @@ const DocumentVideo: FunctionComponent<Props> = ({
   renderFallback,
   trackScreen,
 }) => {
-  const { step, hasMoreSteps, nextStep, restart: restartFlow } = useCaptureStep(
-    documentType
-  )
+  const {
+    step,
+    stepNumber,
+    totalSteps,
+    nextStep,
+    restart: restartFlow,
+  } = useCaptureStep(documentType)
   const [frontPayload, setFrontPayload] = useState<CapturePayload>(null)
   const { translate } = useContext(LocaleContext)
   const webcamRef = useRef<Webcam>(null)
@@ -105,11 +109,12 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const subtitle = translate(localeKeys.subtitle)
 
   const passedProps = {
-    hasMoreSteps,
+    onNext: nextStep,
     step,
+    stepNumber,
     subtitle,
     title,
-    onNext: nextStep,
+    totalSteps,
   }
 
   return (

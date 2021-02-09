@@ -4,10 +4,11 @@ import type { CaptureSteps } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
 
 type UseCaptureStepType = {
-  step: CaptureSteps
-  hasMoreSteps: boolean
   nextStep: () => void
   restart: () => void
+  step: CaptureSteps
+  stepNumber: number
+  totalSteps: number
 }
 
 const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
@@ -16,22 +17,23 @@ const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
   const possibleSteps: CaptureSteps[] =
     documentType === 'passport' ? ['front', 'tilt'] : ['front', 'tilt', 'back']
 
-  const hasMoreSteps =
-    possibleSteps.indexOf(currentStep) < possibleSteps.length - 1
+  const stepNumber =
+    currentStep === 'intro' ? 0 : possibleSteps.indexOf(currentStep) + 1
+  const totalSteps = possibleSteps.length
 
   const nextStep = useCallback(() => {
-    if (!hasMoreSteps) {
+    if (stepNumber >= totalSteps) {
       return
     }
 
-    const currentStepIndex = possibleSteps.indexOf(currentStep)
-    const nextStep = possibleSteps[currentStepIndex + 1]
-    setCurrentStep(nextStep)
-  }, [currentStep, possibleSteps, hasMoreSteps])
+    // `stepNumber` is always step index + 1
+    setCurrentStep(possibleSteps[stepNumber])
+  }, [possibleSteps, stepNumber, totalSteps])
 
   return {
     step: currentStep,
-    hasMoreSteps,
+    stepNumber,
+    totalSteps,
     nextStep,
     restart: () => setCurrentStep('intro'),
   }
