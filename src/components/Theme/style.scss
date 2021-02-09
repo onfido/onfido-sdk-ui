@@ -10,19 +10,19 @@
 
     /* stylelint-disable-next-line selector-class-pattern */
     &.-action--primary {
-      background-color: var(--color-primary-button);
-      color: var(--color-primary-button-text);
+      background-color: var(--osdk-color-background-button-primary);
+      color: var(--osdk-color-background-button-primary-text);
 
       &:active {
-        background-color: var(--color-primary-button-active);
+        background-color: var(--osdk-color-background-button-primary-active);
       }
 
       &:disabled {
-        background-color: var(--color-primary-button-disabled);
+        background-color: var(--osdk-color-background-button-primary-disabled);
       }
 
       &:hover {
-        background-color: var(--color-primary-button-hover);
+        background-color: var(--osdk-color-background-button-primary-hover);
       }
     }
 
@@ -256,6 +256,7 @@ $logo-height: 32 * $unit;
 }
 
 .link {
+  /* TODO: CX-5306 link customisation options */
   cursor: pointer;
   line-height: 1.43;
   font-size: var(--font-size-small);
@@ -270,12 +271,12 @@ $logo-height: 32 * $unit;
 
   &:not(:disabled) {
     &:hover {
-      background-color: var(--color-primary-button-hover);
+      background-color: var(--osdk-color-background-button-primary-hover);
       color: $color-white;
     }
 
     &:active {
-      background-color: var(--color-primary-button-active);
+      background-color: var(--osdk-color-background-button-primary-active);
       color: $color-white;
     }
   }
@@ -296,11 +297,11 @@ $logo-height: 32 * $unit;
 
   &:hover {
     color: $color-warning-button-text-hover;
-    background-color: var(--color-primary-button-hover);
+    background-color: var(--osdk-color-background-button-primary-hover);
   }
 
   &:active {
-    background-color: var(--color-primary-button-active);
+    background-color: var(--osdk-color-background-button-primary-active);
   }
 }
 

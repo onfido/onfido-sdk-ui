@@ -32,11 +32,13 @@
   --color-primary-active: rgba(var(--ods-color-primary-600));
 
   /* Primary Button customisations */
-  --color-primary-button: var(--color-primary);
-  --color-primary-button-hover: var(--color-primary-hover);
-  --color-primary-button-active: var(--color-primary-active);
-  --color-primary-button-text: rgba(var(--ods-color-content-on-action));
-  --color-primary-button-disabled: rgba(var(--ods-color-neutral-300));
+  /* prettier-ignore */
+  --osdk-color-background-button-primary-text: rgba(var(--ods-color-content-on-action));
+  --osdk-color-background-button-primary: var(--color-primary);
+  --osdk-color-background-button-primary-hover: var(--color-primary-hover);
+  --osdk-color-background-button-primary-active: var(--color-primary-active);
+  /* prettier-ignore */
+  --osdk-color-background-button-primary-disabled: rgba(var(--ods-color-neutral-300));
 
   /* Secondary Button customisations */
   --color-secondary-button: rgba(var(--ods-color-background-action-subtle));
@@ -55,8 +57,10 @@
 
   /* - Camera button colors */
   --color-camera-button: rgba(var(--ods-color-neutral-white));
-  --color-camera-button-hover: var(--color-primary-button-hover);
-  --color-camera-button-active: var(--color-primary-button-active);
+  /* prettier-ignore */
+  --color-camera-button-hover: var(--osdk-color-background-button-primary-hover);
+  /* prettier-ignore */
+  --color-camera-button-active: var(--osdk-color-background-button-primary-active);
 
   /* - Document Type Selectors button colors */
   --selectors-box-shadow-hover: 0 0 0 2px var(--color-primary-hover);

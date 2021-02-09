@@ -154,12 +154,12 @@ $parent-width: 432;
   color: $color-body-text;
 
   &:hover {
-    background-color: var(--color-primary-button-hover);
+    background-color: var(--osdk-color-background-button-primary-hover);
     color: $color-white;
   }
 
   &:active {
-    background-color: var(--color-primary-button-active);
+    background-color: var(--osdk-color-background-button-primary-active);
     color: $color-white;
   }
 
