@@ -8,7 +8,9 @@ import { getInactiveError } from '~utils/inactiveError'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import { LocaleContext } from '~locales'
 import { DocumentOverlay } from '../Overlay'
-import VideoCapture from '../VideoCapture'
+import VideoCapture, {
+  VideoLayerProps as VideoLayerRenderProps,
+} from '../VideoCapture'
 import Instructions from './Instructions'
 import Recording from './Recording'
 import StartRecording from './StartRecording'
@@ -25,13 +27,6 @@ import type { DocumentTypes } from '~types/steps'
 
 const TILT_MODE: TiltModes = 'right'
 
-export type Props = {
-  cameraClassName?: string
-  documentType: DocumentTypes
-  renderFallback: RenderFallbackProp
-  onCapture: HandleDocVideoCaptureProp
-} & WithTrackingProps
-
 const renamedCapture = (
   payload: CapturePayload,
   step: CaptureVariants
@@ -39,6 +34,76 @@ const renamedCapture = (
   ...payload,
   filename: `document_${step}.${mimeType(payload.blob)}`,
 })
+
+type VideoLayerProps = {
+  captureStep: CaptureSteps
+  documentType: DocumentTypes
+  onNext: () => void
+} & VideoLayerRenderProps
+
+const VideoLayer: FunctionComponent<VideoLayerProps> = ({
+  captureStep,
+  disableInteraction,
+  documentType,
+  isRecording,
+  onNext,
+  onStart,
+  onStop,
+}) => {
+  const { translate } = useContext(LocaleContext)
+
+  if (!isRecording) {
+    const localeKey = documentType === 'passport' ? 'passport' : 'others'
+    const title = translate(
+      DOC_VIDEO_INSTRUCTIONS_MAPPING[localeKey].intro.title
+    )
+
+    return (
+      <StartRecording disableInteraction={disableInteraction} onClick={onStart}>
+        <Instructions title={title} />
+      </StartRecording>
+    )
+  }
+
+  const localeKeys =
+    documentType === 'passport' && captureStep !== 'back'
+      ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[captureStep]
+      : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[captureStep]
+  const title = translate(localeKeys.title)
+  const subtitle = translate(localeKeys.subtitle)
+
+  return (
+    <Recording
+      buttonText={translate(
+        captureStep !== 'back'
+          ? 'doc_video_capture.button_primary_next'
+          : 'doc_video_capture.button_stop_accessibility'
+      )}
+      hasMoreSteps={
+        documentType === 'passport'
+          ? captureStep !== 'tilt'
+          : captureStep !== 'back'
+      }
+      disableInteraction={disableInteraction}
+      onNext={onNext}
+      onStop={onStop}
+    >
+      <Instructions
+        icon={captureStep}
+        subtitle={subtitle}
+        tiltMode={TILT_MODE}
+        title={title}
+      />
+    </Recording>
+  )
+}
+
+export type Props = {
+  cameraClassName?: string
+  documentType: DocumentTypes
+  renderFallback: RenderFallbackProp
+  onCapture: HandleDocVideoCaptureProp
+} & WithTrackingProps
 
 const DocumentVideo: FunctionComponent<Props> = ({
   cameraClassName,
@@ -49,11 +114,10 @@ const DocumentVideo: FunctionComponent<Props> = ({
 }) => {
   const [captureStep, setCaptureStep] = useState<CaptureSteps>('intro')
   const [frontPayload, setFrontPayload] = useState<CapturePayload>(null)
-  const { translate } = useContext(LocaleContext)
   const webcamRef = useRef<Webcam>(null)
 
   const onRecordingStart = () => {
-    setCaptureStep('tilt')
+    setCaptureStep('front')
 
     screenshot(webcamRef.current, (blob, sdkMetadata) => {
       const frontPayload = renamedCapture(
@@ -96,13 +160,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
     })
   }
 
-  const localeKeys =
-    documentType === 'passport' && captureStep !== 'back'
-      ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[captureStep]
-      : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[captureStep]
-  const title = translate(localeKeys.title)
-  const subtitle = translate(localeKeys.subtitle)
-
   return (
     <VideoCapture
       cameraClassName={cameraClassName}
@@ -121,42 +178,20 @@ const DocumentVideo: FunctionComponent<Props> = ({
           withPlaceholder={captureStep === 'intro'}
         />
       )}
-      renderVideoLayer={({
-        disableInteraction,
-        isRecording,
-        onStart,
-        onStop,
-      }) =>
-        isRecording ? (
-          <Recording
-            buttonText={translate(
-              captureStep !== 'back'
-                ? 'doc_video_capture.button_primary_next'
-                : 'doc_video_capture.button_stop_accessibility'
-            )}
-            hasMoreSteps={
-              documentType === 'passport' ? false : captureStep !== 'back'
+      renderVideoLayer={(props) => (
+        <VideoLayer
+          {...props}
+          captureStep={captureStep}
+          documentType={documentType}
+          onNext={() => {
+            if (captureStep === 'front') {
+              setCaptureStep('tilt')
+            } else if (captureStep === 'tilt') {
+              setCaptureStep('back')
             }
-            disableInteraction={disableInteraction}
-            onNext={() => setCaptureStep('back')}
-            onStop={onStop}
-          >
-            <Instructions
-              icon={captureStep}
-              subtitle={subtitle}
-              tiltMode={TILT_MODE}
-              title={title}
-            />
-          </Recording>
-        ) : (
-          <StartRecording
-            disableInteraction={disableInteraction}
-            onClick={onStart}
-          >
-            <Instructions title={title} />
-          </StartRecording>
-        )
-      }
+          }}
+        />
+      )}
       trackScreen={trackScreen}
       webcamRef={webcamRef}
     />
