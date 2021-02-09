@@ -54,6 +54,16 @@ describe('Overlay', () => {
         // `hollow` path should contain `highlight` path
         expect(hollow.prop('d').match(highlight.prop('d'))).toBeTruthy()
       })
+
+      describe('with placeholder', () => {
+        it('renders placeholder when withPlaceholder=true', () => {
+          const wrapper = mount(
+            <DocumentOverlay tilt="right" withPlaceholder />
+          )
+
+          expect(wrapper.find('.placeholder').exists()).toBeTruthy()
+        })
+      })
     })
   })
 })

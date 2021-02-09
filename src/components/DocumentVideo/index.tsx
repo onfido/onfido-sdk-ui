@@ -96,10 +96,12 @@ const DocumentVideo: FunctionComponent<Props> = ({
     })
   }
 
-  const title = translate(DOC_VIDEO_INSTRUCTIONS_MAPPING[captureStep].title)
-  const subtitle = translate(
-    DOC_VIDEO_INSTRUCTIONS_MAPPING[captureStep].subtitle
-  )
+  const localeKeys =
+    documentType === 'passport' && captureStep !== 'back'
+      ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[captureStep]
+      : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[captureStep]
+  const title = translate(localeKeys.title)
+  const subtitle = translate(localeKeys.subtitle)
 
   return (
     <VideoCapture
@@ -109,12 +111,14 @@ const DocumentVideo: FunctionComponent<Props> = ({
       onRecordingStart={onRecordingStart}
       onRedo={() => setCaptureStep('intro')}
       onVideoCapture={onVideoCapture}
+      recordingTimeout={30}
       renderFallback={renderFallback}
       renderOverlay={() => (
         <DocumentOverlay
           marginBottom={0.5}
           tilt={captureStep === 'tilt' ? TILT_MODE : undefined}
           type={documentType}
+          withPlaceholder={captureStep === 'intro'}
         />
       )}
       renderVideoLayer={({
@@ -143,7 +147,9 @@ const DocumentVideo: FunctionComponent<Props> = ({
           <StartRecording
             disableInteraction={disableInteraction}
             onClick={onStart}
-          />
+          >
+            <Instructions title={title} />
+          </StartRecording>
         )
       }
       trackScreen={trackScreen}

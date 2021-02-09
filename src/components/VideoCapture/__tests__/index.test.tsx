@@ -11,6 +11,12 @@ import type { CameraProps } from '~types/camera'
 
 jest.mock('../../utils')
 
+const assertTimeout = (wrapper: ReactWrapper, seconds: number) => {
+  const timeout = wrapper.find<TimeoutProps>(Timeout)
+  expect(timeout.exists()).toBeTruthy()
+  expect(timeout.props().seconds).toEqual(seconds)
+}
+
 const defaultProps: VideoCaptureProps = {
   inactiveError: { name: 'VIDEO_TIMEOUT' },
   onRecordingStart: jest.fn(),
@@ -79,11 +85,7 @@ describe('VideoCapture', () => {
       expect(wrapper.find('PageTitle').text()).toEqual('Fake title')
     })
 
-    it('renders inactive timeout correctly', () => {
-      const timeout = wrapper.find('Timeout')
-      expect(timeout.exists()).toBeTruthy()
-      expect(timeout.prop('seconds')).toEqual(12)
-    })
+    it('renders inactive timeout correctly', () => assertTimeout(wrapper, 12))
 
     describe('when recording', () => {
       beforeEach(() => {
@@ -96,11 +98,7 @@ describe('VideoCapture', () => {
         expect(wrapper.find('PageTitle').exists()).toBeFalsy()
       })
 
-      it('renders inactive timeout correctly', () => {
-        const timeout = wrapper.find('Timeout')
-        expect(timeout.exists()).toBeTruthy()
-        expect(timeout.prop('seconds')).toEqual(20)
-      })
+      it('renders inactive timeout correctly', () => assertTimeout(wrapper, 20))
 
       it('stops video recording with capture payload', () => {
         wrapper.find('#record-video').simulate('click')
@@ -132,6 +130,26 @@ describe('VideoCapture', () => {
           )
         })
       })
+    })
+
+    describe('with recordingTimeout passed', () => {
+      beforeEach(() => {
+        wrapper = mount(
+          <MockedReduxProvider>
+            <MockedLocalised>
+              <VideoCapture
+                {...defaultProps}
+                recordingTimeout={30}
+                title="Fake title"
+              />
+            </MockedLocalised>
+          </MockedReduxProvider>
+        )
+
+        wrapper.find('#record-video').simulate('click')
+      })
+
+      it('renders inactive timeout correctly', () => assertTimeout(wrapper, 30))
     })
   })
 })

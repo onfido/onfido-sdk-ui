@@ -353,14 +353,22 @@
     },
     "doc_video_capture": {
         "instructions": {
-            "intro_title": "Record a video of your document",
-            "intro_subtitle": "Start recording and follow the instructions",
-            "front_title": "Keep the front of your document in the frame",
-            "front_subtitle": "Start recording and follow the instructions",
-            "tilt_title": "Slowly tilt your document to show light reflections",
-            "tilt_subtitle": "Press next step when complete",
-            "back_title": "Now, flip your document to show its back",
-            "back_subtitle": "Press done when complete"
+            "passport": {
+                "intro_title": "Record a video of your passport photo page",
+                "front_title": "Keep your passport photo page in the frame",
+                "front_subtitle": "Start recording and follow the instructions",
+                "tilt_title": "Slowly tilt your passport to show light reflections",
+                "tilt_subtitle": "Press next step when complete"
+            },
+            "others": {
+                "intro_title": "Record a video of your document",
+                "front_title": "Keep the front of your document in the frame",
+                "front_subtitle": "Start recording and follow the instructions",
+                "tilt_title": "Slowly tilt your document to show light reflections",
+                "tilt_subtitle": "Press next step when complete",
+                "back_title": "Now, flip your document to show its back",
+                "back_subtitle": "Press done when complete"
+            }
         },
         "button_primary_next": "Next step",
         "button_record_accessibility": "Start recording",

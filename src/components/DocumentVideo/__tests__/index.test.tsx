@@ -43,7 +43,14 @@ const simulateCaptureNext = (wrapper: ReactWrapper) => {
   button.simulate('click')
 }
 
-const assertIntroStep = (wrapper: ReactWrapper) => {
+const assertOverlay = (wrapper: ReactWrapper, withPlaceholder: boolean) => {
+  const documentOverlay = wrapper.find<DocumentOverlayProps>(DocumentOverlay)
+  expect(documentOverlay.exists()).toBeTruthy()
+  expect(documentOverlay.props().type).toEqual(defaultProps.documentType)
+  expect(documentOverlay.props().withPlaceholder).toEqual(withPlaceholder)
+}
+
+const assertIntroStep = (wrapper: ReactWrapper, forPassport: boolean) => {
   const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
   expect(videoCapture.exists()).toBeTruthy()
 
@@ -70,32 +77,64 @@ const assertIntroStep = (wrapper: ReactWrapper) => {
   expect(defaultProps.trackScreen).toHaveBeenCalledWith('fake_screen_tracking')
 
   expect(videoCapture.find('StartRecording').exists()).toBeTruthy()
+
+  if (forPassport) {
+    expect(videoCapture.find('Instructions').props()).toMatchObject({
+      title: 'doc_video_capture.instructions.passport.intro_title',
+    })
+  } else {
+    expect(videoCapture.find('Instructions').props()).toMatchObject({
+      title: 'doc_video_capture.instructions.others.intro_title',
+    })
+  }
 }
 
-const assertTiltStep = (wrapper: ReactWrapper, hasMoreSteps: boolean) => {
+const assertTiltStep = (
+  wrapper: ReactWrapper,
+  forPassport: boolean,
+  hasMoreSteps: boolean
+) => {
   expect(wrapper.find('VideoCapture StartRecording').exists()).toBeFalsy()
   const recording = wrapper.find<RecordingProps>(Recording)
   expect(recording.exists()).toBeTruthy()
   expect(recording.props().disableInteraction).toBeFalsy()
   expect(recording.props().hasMoreSteps).toEqual(hasMoreSteps)
   expect(recording.find('Instructions').exists()).toBeTruthy()
-  expect(recording.find('Instructions').props()).toMatchObject({
-    icon: 'tilt',
-    title: 'doc_video_capture.instructions.tilt_title',
-    subtitle: 'doc_video_capture.instructions.tilt_subtitle',
-  })
+
+  if (forPassport) {
+    expect(recording.find('Instructions').props()).toMatchObject({
+      icon: 'tilt',
+      title: 'doc_video_capture.instructions.passport.tilt_title',
+      subtitle: 'doc_video_capture.instructions.passport.tilt_subtitle',
+    })
+  } else {
+    expect(recording.find('Instructions').props()).toMatchObject({
+      icon: 'tilt',
+      title: 'doc_video_capture.instructions.others.tilt_title',
+      subtitle: 'doc_video_capture.instructions.others.tilt_subtitle',
+    })
+  }
 }
 
-const assertBackStep = (wrapper: ReactWrapper) => {
+const assertBackStep = (wrapper: ReactWrapper, forPassport: boolean) => {
   const recording = wrapper.find<RecordingProps>(Recording)
   expect(recording.props().disableInteraction).toBeFalsy()
   expect(recording.props().hasMoreSteps).toBeFalsy()
   expect(recording.find('Instructions').exists()).toBeTruthy()
-  expect(recording.find('Instructions').props()).toMatchObject({
-    icon: 'back',
-    title: 'doc_video_capture.instructions.back_title',
-    subtitle: 'doc_video_capture.instructions.back_subtitle',
-  })
+
+  if (forPassport) {
+    expect(recording.find('Instructions').props()).toMatchObject({
+      icon: 'back',
+      title: 'doc_video_capture.instructions.passport.back_title',
+      subtitle: 'doc_video_capture.instructions.passport.back_subtitle',
+    })
+  } else {
+    expect(recording.find('Instructions').props()).toMatchObject({
+      icon: 'back',
+      title: 'doc_video_capture.instructions.others.back_title',
+      subtitle: 'doc_video_capture.instructions.others.back_subtitle',
+    })
+  }
 }
 
 describe('DocumentVideo', () => {
@@ -116,14 +155,14 @@ describe('DocumentVideo', () => {
       )
     })
 
-    it('renders the video capture by default', () => assertIntroStep(wrapper))
+    it('renders the video capture by default', () =>
+      assertIntroStep(wrapper, false))
 
-    it('renders overlay correctly', () => {
-      const documentOverlay = wrapper.find<DocumentOverlayProps>(
-        DocumentOverlay
-      )
-      expect(documentOverlay.exists()).toBeTruthy()
-      expect(documentOverlay.props().type).toEqual(defaultProps.documentType)
+    it('renders overlay correctly', () => assertOverlay(wrapper, true))
+
+    it('sets correct timeout', () => {
+      const timeout = wrapper.find<TimeoutProps>(Timeout)
+      expect(timeout.props().seconds).toEqual(12)
     })
 
     describe('when inactive timed out', () => {
@@ -166,11 +205,19 @@ describe('DocumentVideo', () => {
         })
       })
 
-      it('starts recording correctly', () => assertTiltStep(wrapper, true))
+      it('sets correct timeout', () => {
+        const timeout = wrapper.find<TimeoutProps>(Timeout)
+        expect(timeout.props().seconds).toEqual(30)
+      })
+
+      it('starts recording correctly', () => {
+        assertOverlay(wrapper, false)
+        assertTiltStep(wrapper, false, true)
+      })
 
       it('moves to the next step correctly', () => {
         simulateCaptureNext(wrapper)
-        assertBackStep(wrapper)
+        assertBackStep(wrapper, false)
       })
 
       it('switches to the back document capture step', () => {
@@ -206,12 +253,14 @@ describe('DocumentVideo', () => {
       )
     })
 
-    it('renders the video capture by default', () => assertIntroStep(wrapper))
+    it('renders the video capture by default', () =>
+      assertIntroStep(wrapper, true))
 
     describe('when recording', () => {
       beforeEach(() => simulateCaptureStart(wrapper))
 
-      it('starts recording correctly', () => assertTiltStep(wrapper, false))
+      it('starts recording correctly', () =>
+        assertTiltStep(wrapper, true, false))
 
       it('ends the flow without capturing back side', () => {
         simulateCaptureNext(wrapper)

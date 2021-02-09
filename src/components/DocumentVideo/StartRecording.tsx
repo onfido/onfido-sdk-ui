@@ -2,9 +2,7 @@ import { h, FunctionComponent } from 'preact'
 import { useContext } from 'preact/compat'
 
 import { LocaleContext } from '~locales'
-import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import Button from '../Button'
-import Instructions from './Instructions'
 import style from './style.scss'
 
 export type Props = {
@@ -13,16 +11,15 @@ export type Props = {
 }
 
 const StartRecording: FunctionComponent<Props> = ({
+  children,
   disableInteraction = false,
   onClick,
 }) => {
   const { translate } = useContext(LocaleContext)
-  const title = translate(DOC_VIDEO_INSTRUCTIONS_MAPPING.intro.title)
-  const subtitle = translate(DOC_VIDEO_INSTRUCTIONS_MAPPING.intro.subtitle)
 
   return (
     <div className={style.actions}>
-      <Instructions title={title} subtitle={subtitle} />
+      {children}
       <Button
         variants={['centered', 'primary', 'lg']}
         disabled={disableInteraction}

@@ -37,6 +37,7 @@ export type Props = {
   onRecordingStart?: () => void
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
+  recordingTimeout?: number
   renderFallback: RenderFallbackProp
   renderOverlay?: (props: OverlayProps) => h.JSX.Element
   renderVideoLayer?: (props: VideoLayerProps) => h.JSX.Element
@@ -142,6 +143,7 @@ export default class VideoCapture extends Component<Props, State> {
   }
 
   renderRecordingTimeoutMessage = (): h.JSX.Element => {
+    const { recordingTimeout = 20 } = this.props
     const { hasBecomeInactive, hasRecordingTakenTooLong } = this.state
     const hasTimeoutError = hasBecomeInactive || hasRecordingTakenTooLong
     const hasError = hasTimeoutError || this.state.hasCameraError
@@ -150,7 +152,7 @@ export default class VideoCapture extends Component<Props, State> {
       return (
         <Timeout
           key="recording"
-          seconds={20}
+          seconds={recordingTimeout}
           onTimeout={this.handleRecordingTimeout}
         />
       )

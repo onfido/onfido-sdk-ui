@@ -188,24 +188,40 @@ export const VIDEO_INTRO_LOCALES_MAPPING: Record<
   },
 }
 
-export const DOC_VIDEO_INSTRUCTIONS_MAPPING: Record<
-  CaptureSteps,
-  TitleLocale
-> = {
-  intro: {
-    title: 'doc_video_capture.instructions.intro_title',
-    subtitle: 'doc_video_capture.instructions.intro_subtitle',
+export const DOC_VIDEO_INSTRUCTIONS_MAPPING: {
+  passport: Record<Exclude<CaptureSteps, 'back'>, TitleLocale>
+  others: Record<CaptureSteps, TitleLocale>
+} = {
+  passport: {
+    intro: {
+      title: 'doc_video_capture.instructions.passport.intro_title',
+      subtitle: '',
+    },
+    front: {
+      title: 'doc_video_capture.instructions.passport.front_title',
+      subtitle: 'doc_video_capture.instructions.passport.front_subtitle',
+    },
+    tilt: {
+      title: 'doc_video_capture.instructions.passport.tilt_title',
+      subtitle: 'doc_video_capture.instructions.passport.tilt_subtitle',
+    },
   },
-  front: {
-    title: 'doc_video_capture.instructions.front_title',
-    subtitle: 'doc_video_capture.instructions.front_subtitle',
-  },
-  tilt: {
-    title: 'doc_video_capture.instructions.tilt_title',
-    subtitle: 'doc_video_capture.instructions.tilt_subtitle',
-  },
-  back: {
-    title: 'doc_video_capture.instructions.back_title',
-    subtitle: 'doc_video_capture.instructions.back_subtitle',
+  others: {
+    intro: {
+      title: 'doc_video_capture.instructions.others.intro_title',
+      subtitle: '',
+    },
+    front: {
+      title: 'doc_video_capture.instructions.others.front_title',
+      subtitle: 'doc_video_capture.instructions.others.front_subtitle',
+    },
+    tilt: {
+      title: 'doc_video_capture.instructions.others.tilt_title',
+      subtitle: 'doc_video_capture.instructions.others.tilt_subtitle',
+    },
+    back: {
+      title: 'doc_video_capture.instructions.others.back_title',
+      subtitle: 'doc_video_capture.instructions.others.back_subtitle',
+    },
   },
 }

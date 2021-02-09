@@ -27,6 +27,16 @@
   stroke-width: 0.25;
 }
 
+.document .placeholder {
+  background-image: url('./assets/card-placeholder.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
 /* Face */
 
 @mixin position-hole($scale) {

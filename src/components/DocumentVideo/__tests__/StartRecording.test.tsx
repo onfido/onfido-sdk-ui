@@ -17,13 +17,6 @@ describe('DocumentVideo', () => {
         </MockedLocalised>
       )
 
-      expect(wrapper.find('Instructions .title').text()).toEqual(
-        'doc_video_capture.instructions.intro_title'
-      )
-      expect(wrapper.find('Instructions .subtitle').text()).toEqual(
-        'doc_video_capture.instructions.intro_subtitle'
-      )
-
       const button = wrapper.find('Button > button')
       expect(button.prop('disabled')).toBeFalsy()
       expect(button.text()).toEqual(
