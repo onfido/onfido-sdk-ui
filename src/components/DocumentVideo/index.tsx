@@ -37,40 +37,32 @@ const renamedCapture = (
 
 type VideoLayerProps = {
   captureStep: CaptureSteps
-  documentType: DocumentTypes
+  hasMoreSteps: boolean
   onNext: () => void
+  subtitle: string
+  title: string
 } & VideoLayerRenderProps
 
 const VideoLayer: FunctionComponent<VideoLayerProps> = ({
   captureStep,
   disableInteraction,
-  documentType,
   isRecording,
+  hasMoreSteps,
   onNext,
   onStart,
   onStop,
+  title,
+  subtitle,
 }) => {
   const { translate } = useContext(LocaleContext)
 
   if (!isRecording) {
-    const localeKey = documentType === 'passport' ? 'passport' : 'others'
-    const title = translate(
-      DOC_VIDEO_INSTRUCTIONS_MAPPING[localeKey].intro.title
-    )
-
     return (
       <StartRecording disableInteraction={disableInteraction} onClick={onStart}>
         <Instructions title={title} />
       </StartRecording>
     )
   }
-
-  const localeKeys =
-    documentType === 'passport' && captureStep !== 'back'
-      ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[captureStep]
-      : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[captureStep]
-  const title = translate(localeKeys.title)
-  const subtitle = translate(localeKeys.subtitle)
 
   return (
     <Recording
@@ -79,11 +71,7 @@ const VideoLayer: FunctionComponent<VideoLayerProps> = ({
           ? 'doc_video_capture.button_primary_next'
           : 'doc_video_capture.button_stop_accessibility'
       )}
-      hasMoreSteps={
-        documentType === 'passport'
-          ? captureStep !== 'tilt'
-          : captureStep !== 'back'
-      }
+      hasMoreSteps={hasMoreSteps}
       disableInteraction={disableInteraction}
       onNext={onNext}
       onStop={onStop}
@@ -114,6 +102,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
 }) => {
   const [captureStep, setCaptureStep] = useState<CaptureSteps>('intro')
   const [frontPayload, setFrontPayload] = useState<CapturePayload>(null)
+  const { translate } = useContext(LocaleContext)
   const webcamRef = useRef<Webcam>(null)
 
   const onRecordingStart = () => {
@@ -160,6 +149,35 @@ const DocumentVideo: FunctionComponent<Props> = ({
     })
   }
 
+  const localeKeys =
+    documentType === 'passport' && captureStep !== 'back'
+      ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[captureStep]
+      : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[captureStep]
+  const title = translate(localeKeys.title)
+  const subtitle = translate(localeKeys.subtitle)
+
+  const passedProps = {
+    captureStep,
+    title,
+    subtitle,
+  }
+
+  /* const recordingSteps: CaptureSteps[] =
+    documentType === 'passport' ? ['front', 'tilt'] : ['front', 'tilt', 'back'] */
+
+  /* hasMoreSteps={
+            recordingSteps.indexOf(captureStep) === recordingSteps.length - 1
+          }
+          onNext={() => {
+            const currentStepIndex = recordingSteps.indexOf(captureStep)
+            if (currentStepIndex >= recordingSteps.length - 1) {
+              return
+            }
+            const nextStep =
+              recordingSteps[recordingSteps.indexOf(captureStep) + 1]
+            setCaptureStep(nextStep)
+          }} */
+
   return (
     <VideoCapture
       cameraClassName={cameraClassName}
@@ -181,8 +199,12 @@ const DocumentVideo: FunctionComponent<Props> = ({
       renderVideoLayer={(props) => (
         <VideoLayer
           {...props}
-          captureStep={captureStep}
-          documentType={documentType}
+          {...passedProps}
+          hasMoreSteps={
+            documentType === 'passport'
+              ? captureStep !== 'tilt'
+              : captureStep !== 'back'
+          }
           onNext={() => {
             if (captureStep === 'front') {
               setCaptureStep('tilt')
