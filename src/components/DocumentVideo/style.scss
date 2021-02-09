@@ -58,6 +58,10 @@
   height: 1.625em;
 }
 
+.progress {
+  display: flex;
+}
+
 .actions {
   position: absolute;
   z-index: 1000;

@@ -36,7 +36,11 @@ const VideoLayer: FunctionComponent<VideoLayerProps> = ({
 
   if (!isRecording) {
     return (
-      <StartRecording disableInteraction={disableInteraction} onClick={onStart}>
+      <StartRecording
+        disableInteraction={disableInteraction}
+        onClick={onStart}
+        totalSteps={totalSteps}
+      >
         <Instructions title={title} />
       </StartRecording>
     )

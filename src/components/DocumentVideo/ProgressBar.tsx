@@ -3,11 +3,14 @@ import classNames from 'classnames'
 import style from './style.scss'
 
 export type Props = {
-  stepNumber: number
+  stepNumber?: number
   totalSteps: number
 }
 
-const ProgressBar: FunctionComponent<Props> = ({ stepNumber, totalSteps }) => (
+const ProgressBar: FunctionComponent<Props> = ({
+  stepNumber = 0,
+  totalSteps,
+}) => (
   <div className={style.progress}>
     {Array(totalSteps)
       .fill(null)

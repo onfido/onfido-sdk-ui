@@ -4,7 +4,6 @@ import { mount } from 'enzyme'
 import ProgressBar from '../ProgressBar'
 
 const defaultProps = {
-  stepNumber: 0,
   totalSteps: 3,
 }
 
