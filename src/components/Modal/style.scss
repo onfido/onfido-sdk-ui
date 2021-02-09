@@ -160,7 +160,7 @@ $modal-animation-duration: 200ms;
   background-image: url('./assets/cross-white.svg');
 
   &:hover {
-    background-color: $color-transparent;
+    background-image: url('./assets/cross.svg');
   }
 
   .closeButtonLabel {
