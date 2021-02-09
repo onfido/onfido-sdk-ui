@@ -10,8 +10,9 @@ import { LocaleContext } from '~locales'
 import { DocumentOverlay } from '../Overlay'
 import VideoCapture from '../VideoCapture'
 import VideoLayer from './VideoLayer'
+import useCaptureStep from './useCaptureStep'
 
-import type { CaptureSteps, CaptureVariants, TiltModes } from '~types/docVideo'
+import type { CaptureVariants, TiltModes } from '~types/docVideo'
 import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type {
@@ -45,13 +46,15 @@ const DocumentVideo: FunctionComponent<Props> = ({
   renderFallback,
   trackScreen,
 }) => {
-  const [captureStep, setCaptureStep] = useState<CaptureSteps>('intro')
+  const { step, hasMoreSteps, nextStep, restart: restartFlow } = useCaptureStep(
+    documentType
+  )
   const [frontPayload, setFrontPayload] = useState<CapturePayload>(null)
   const { translate } = useContext(LocaleContext)
   const webcamRef = useRef<Webcam>(null)
 
   const onRecordingStart = () => {
-    setCaptureStep('front')
+    nextStep()
 
     screenshot(webcamRef.current, (blob, sdkMetadata) => {
       const frontPayload = renamedCapture(
@@ -95,33 +98,19 @@ const DocumentVideo: FunctionComponent<Props> = ({
   }
 
   const localeKeys =
-    documentType === 'passport' && captureStep !== 'back'
-      ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[captureStep]
-      : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[captureStep]
+    documentType === 'passport' && step !== 'back'
+      ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[step]
+      : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[step]
   const title = translate(localeKeys.title)
   const subtitle = translate(localeKeys.subtitle)
 
   const passedProps = {
-    captureStep,
-    title,
+    hasMoreSteps,
+    step,
     subtitle,
+    title,
+    onNext: nextStep,
   }
-
-  /* const recordingSteps: CaptureSteps[] =
-    documentType === 'passport' ? ['front', 'tilt'] : ['front', 'tilt', 'back'] */
-
-  /* hasMoreSteps={
-            recordingSteps.indexOf(captureStep) === recordingSteps.length - 1
-          }
-          onNext={() => {
-            const currentStepIndex = recordingSteps.indexOf(captureStep)
-            if (currentStepIndex >= recordingSteps.length - 1) {
-              return
-            }
-            const nextStep =
-              recordingSteps[recordingSteps.indexOf(captureStep) + 1]
-            setCaptureStep(nextStep)
-          }} */
 
   return (
     <VideoCapture
@@ -129,36 +118,19 @@ const DocumentVideo: FunctionComponent<Props> = ({
       facing="environment"
       inactiveError={getInactiveError(true)}
       onRecordingStart={onRecordingStart}
-      onRedo={() => setCaptureStep('intro')}
+      onRedo={restartFlow}
       onVideoCapture={onVideoCapture}
       recordingTimeout={30}
       renderFallback={renderFallback}
       renderOverlay={() => (
         <DocumentOverlay
           marginBottom={0.5}
-          tilt={captureStep === 'tilt' ? TILT_MODE : undefined}
+          tilt={step === 'tilt' ? TILT_MODE : undefined}
           type={documentType}
-          withPlaceholder={captureStep === 'intro'}
+          withPlaceholder={step === 'intro'}
         />
       )}
-      renderVideoLayer={(props) => (
-        <VideoLayer
-          {...props}
-          {...passedProps}
-          hasMoreSteps={
-            documentType === 'passport'
-              ? captureStep !== 'tilt'
-              : captureStep !== 'back'
-          }
-          onNext={() => {
-            if (captureStep === 'front') {
-              setCaptureStep('tilt')
-            } else if (captureStep === 'tilt') {
-              setCaptureStep('back')
-            }
-          }}
-        />
-      )}
+      renderVideoLayer={(props) => <VideoLayer {...props} {...passedProps} />}
       trackScreen={trackScreen}
       webcamRef={webcamRef}
     />

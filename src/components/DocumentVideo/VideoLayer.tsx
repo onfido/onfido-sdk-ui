@@ -12,7 +12,7 @@ import type { VideoLayerProps as VideoLayerRenderProps } from '../VideoCapture'
 const TILT_MODE: TiltModes = 'right'
 
 type VideoLayerProps = {
-  captureStep: CaptureSteps
+  step: CaptureSteps
   hasMoreSteps: boolean
   onNext: () => void
   subtitle: string
@@ -20,7 +20,7 @@ type VideoLayerProps = {
 } & VideoLayerRenderProps
 
 const VideoLayer: FunctionComponent<VideoLayerProps> = ({
-  captureStep,
+  step,
   disableInteraction,
   isRecording,
   hasMoreSteps,
@@ -43,7 +43,7 @@ const VideoLayer: FunctionComponent<VideoLayerProps> = ({
   return (
     <Recording
       buttonText={translate(
-        captureStep !== 'back'
+        step !== 'back'
           ? 'doc_video_capture.button_primary_next'
           : 'doc_video_capture.button_stop_accessibility'
       )}
@@ -53,7 +53,7 @@ const VideoLayer: FunctionComponent<VideoLayerProps> = ({
       onStop={onStop}
     >
       <Instructions
-        icon={captureStep}
+        icon={step}
         subtitle={subtitle}
         tiltMode={TILT_MODE}
         title={title}
