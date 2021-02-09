@@ -4,7 +4,7 @@
 
 :global {
   @include castor.Button();
-
+  // FIXME: Castor Button border uses shorthand version
   .ods-button {
     border-radius: var(--osdk-border-radius-button);
 
@@ -28,18 +28,22 @@
 
     /* stylelint-disable-next-line selector-class-pattern */
     &.-action--secondary {
-      background-color: var(--color-secondary-button);
-      color: var(--color-secondary-button-text);
-      border-color: var(--color-secondary-button-border);
+      background-color: var(--osdk-color-background-button-secondary);
+      color: var(--osdk-color-background-button-secondary-text);
+      border-color: var(--osdk-color-background-button-secondary-border);
 
       &:active {
-        background-color: var(--color-secondary-button-active);
-        border-color: var(--color-secondary-button-border-active);
+        background-color: var(--osdk-color-background-button-secondary-active);
+        border-color: var(
+          --osdk-color-background-button-secondary-border-active
+        );
       }
 
       &:hover {
-        background-color: var(--color-secondary-button-hover);
-        border-color: var(--color-secondary-button-border-hover);
+        background-color: var(--osdk-color-background-button-secondary-hover);
+        border-color: var(
+          --osdk-color-background-button-secondary-border-hover
+        );
       }
     }
   }

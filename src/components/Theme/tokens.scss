@@ -32,24 +32,22 @@
   --color-primary-active: rgba(var(--ods-color-primary-600));
 
   /* Primary Button customisations */
-  /* prettier-ignore */
+  /* TODO: Button border colours */
   --osdk-color-background-button-primary-text: rgba(var(--ods-color-content-on-action));
   --osdk-color-background-button-primary: var(--color-primary);
   --osdk-color-background-button-primary-hover: var(--color-primary-hover);
   --osdk-color-background-button-primary-active: var(--color-primary-active);
-  /* prettier-ignore */
   --osdk-color-background-button-primary-disabled: rgba(var(--ods-color-neutral-300));
 
   /* Secondary Button customisations */
-  --color-secondary-button: rgba(var(--ods-color-background-action-subtle));
-  /* prettier-ignore */
-  --color-secondary-button-hover: rgba(var(--ods-color-background-action-subtle-hover));
-  /* prettier-ignore */
-  --color-secondary-button-active: rgba(var(--ods-color-background-action-subtle));
-  --color-secondary-button-text: var(--color-primary);
-  --color-secondary-button-border: var(--color-primary);
-  --color-secondary-button-border-hover: var(--color-primary-hover);
-  --color-secondary-button-border-active: var(--color-primary-active);
+  /* TODO: Button border colours */
+  --osdk-color-background-button-secondary-text: var(--color-primary);
+  --osdk-color-background-button-secondary: rgba(var(--ods-color-background-action-subtle));
+  --osdk-color-background-button-secondary-hover: rgba(var(--ods-color-background-action-subtle-hover));
+  --osdk-color-background-button-secondary-active: rgba(var(--ods-color-background-action-subtle));
+  --osdk-color-background-button-secondary-border: var(--color-primary);
+  --osdk-color-background-button-secondary-border-hover: var(--color-primary-hover);
+  --osdk-color-background-button-secondary-border-active: var(--color-primary-active);
 
   --color-icon-button: $color-transparent;
   --color-icon-button-hover: rgba(var(--ods-color-neutral-400));
@@ -57,9 +55,7 @@
 
   /* - Camera button colors */
   --color-camera-button: rgba(var(--ods-color-neutral-white));
-  /* prettier-ignore */
   --color-camera-button-hover: var(--osdk-color-background-button-primary-hover);
-  /* prettier-ignore */
   --color-camera-button-active: var(--osdk-color-background-button-primary-active);
 
   /* - Document Type Selectors button colors */
