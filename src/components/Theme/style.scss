@@ -6,7 +6,7 @@
   @include castor.Button();
 
   .ods-button {
-    border-radius: var(--button-border-radius);
+    border-radius: var(--osdk-border-radius-button);
 
     /* stylelint-disable-next-line selector-class-pattern */
     &.-action--primary {
