@@ -10,6 +10,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+### Changed
+
+### Fixed
+
+## [6.5.0] - 2020-02-08
+
+### Added
+
 - Public: Added npm latest version badge.
 - Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce integration tests for API endpoint integrations.
@@ -889,7 +897,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.4.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.5.0...development
+[6.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.4.0...6.5.0
 [6.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.3.1...6.4.0
 [6.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.3.0...6.3.1
 [6.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.1...6.3.0

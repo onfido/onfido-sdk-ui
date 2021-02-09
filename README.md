@@ -801,7 +801,7 @@ Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-a
 
 ## TypeScript
 
-From version `7.0.0`, TypeScript is officially supported, providing typings for:
+From version `6.5.0`, TypeScript is officially supported, providing typings for:
 
 - `init()` method.
 - `options` argument (`SdkOptions`) and return object (`SdkHandle`) of `init()` method.
