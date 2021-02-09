@@ -129,6 +129,11 @@ const DocumentVideo: FunctionComponent<Props> = ({
       }) =>
         isRecording ? (
           <Recording
+            buttonText={translate(
+              captureStep !== 'back'
+                ? 'doc_video_capture.button_primary_next'
+                : 'doc_video_capture.button_stop_accessibility'
+            )}
             hasMoreSteps={
               documentType === 'passport' ? false : captureStep !== 'back'
             }

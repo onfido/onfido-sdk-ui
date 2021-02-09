@@ -50,7 +50,10 @@ const assertOverlay = (wrapper: ReactWrapper, withPlaceholder: boolean) => {
   expect(documentOverlay.props().withPlaceholder).toEqual(withPlaceholder)
 }
 
-const assertIntroStep = (wrapper: ReactWrapper, forPassport: boolean) => {
+const assertIntroStep = (
+  wrapper: ReactWrapper,
+  forSingleSidedDocs: boolean
+) => {
   const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
   expect(videoCapture.exists()).toBeTruthy()
 
@@ -77,13 +80,15 @@ const assertIntroStep = (wrapper: ReactWrapper, forPassport: boolean) => {
   expect(defaultProps.trackScreen).toHaveBeenCalledWith('fake_screen_tracking')
 
   expect(videoCapture.find('StartRecording').exists()).toBeTruthy()
+  const instructions = videoCapture.find('Instructions')
+  expect(instructions.exists()).toBeTruthy()
 
-  if (forPassport) {
-    expect(videoCapture.find('Instructions').props()).toMatchObject({
+  if (forSingleSidedDocs) {
+    expect(instructions.props()).toMatchObject({
       title: 'doc_video_capture.instructions.passport.intro_title',
     })
   } else {
-    expect(videoCapture.find('Instructions').props()).toMatchObject({
+    expect(instructions.props()).toMatchObject({
       title: 'doc_video_capture.instructions.others.intro_title',
     })
   }
@@ -91,7 +96,7 @@ const assertIntroStep = (wrapper: ReactWrapper, forPassport: boolean) => {
 
 const assertTiltStep = (
   wrapper: ReactWrapper,
-  forPassport: boolean,
+  forSingleSidedDocs: boolean,
   hasMoreSteps: boolean
 ) => {
   expect(wrapper.find('VideoCapture StartRecording').exists()).toBeFalsy()
@@ -99,16 +104,21 @@ const assertTiltStep = (
   expect(recording.exists()).toBeTruthy()
   expect(recording.props().disableInteraction).toBeFalsy()
   expect(recording.props().hasMoreSteps).toEqual(hasMoreSteps)
-  expect(recording.find('Instructions').exists()).toBeTruthy()
+  expect(recording.props().buttonText).toEqual(
+    'doc_video_capture.button_primary_next'
+  )
 
-  if (forPassport) {
-    expect(recording.find('Instructions').props()).toMatchObject({
+  const instructions = recording.find('Instructions')
+  expect(instructions.exists()).toBeTruthy()
+
+  if (forSingleSidedDocs) {
+    expect(instructions.props()).toMatchObject({
       icon: 'tilt',
       title: 'doc_video_capture.instructions.passport.tilt_title',
       subtitle: 'doc_video_capture.instructions.passport.tilt_subtitle',
     })
   } else {
-    expect(recording.find('Instructions').props()).toMatchObject({
+    expect(instructions.props()).toMatchObject({
       icon: 'tilt',
       title: 'doc_video_capture.instructions.others.tilt_title',
       subtitle: 'doc_video_capture.instructions.others.tilt_subtitle',
@@ -116,25 +126,22 @@ const assertTiltStep = (
   }
 }
 
-const assertBackStep = (wrapper: ReactWrapper, forPassport: boolean) => {
+const assertBackStep = (wrapper: ReactWrapper) => {
   const recording = wrapper.find<RecordingProps>(Recording)
   expect(recording.props().disableInteraction).toBeFalsy()
   expect(recording.props().hasMoreSteps).toBeFalsy()
-  expect(recording.find('Instructions').exists()).toBeTruthy()
+  expect(recording.props().buttonText).toEqual(
+    'doc_video_capture.button_stop_accessibility'
+  )
 
-  if (forPassport) {
-    expect(recording.find('Instructions').props()).toMatchObject({
-      icon: 'back',
-      title: 'doc_video_capture.instructions.passport.back_title',
-      subtitle: 'doc_video_capture.instructions.passport.back_subtitle',
-    })
-  } else {
-    expect(recording.find('Instructions').props()).toMatchObject({
-      icon: 'back',
-      title: 'doc_video_capture.instructions.others.back_title',
-      subtitle: 'doc_video_capture.instructions.others.back_subtitle',
-    })
-  }
+  const instructions = recording.find('Instructions')
+  expect(instructions.exists()).toBeTruthy()
+
+  expect(instructions.props()).toMatchObject({
+    icon: 'back',
+    title: 'doc_video_capture.instructions.others.back_title',
+    subtitle: 'doc_video_capture.instructions.others.back_subtitle',
+  })
 }
 
 describe('DocumentVideo', () => {
@@ -217,7 +224,7 @@ describe('DocumentVideo', () => {
 
       it('moves to the next step correctly', () => {
         simulateCaptureNext(wrapper)
-        assertBackStep(wrapper, false)
+        assertBackStep(wrapper)
       })
 
       it('switches to the back document capture step', () => {

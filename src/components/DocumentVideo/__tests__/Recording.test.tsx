@@ -1,10 +1,10 @@
 import { h } from 'preact'
 import { mount } from 'enzyme'
 
-import MockedLocalised from '~jest/MockedLocalised'
 import Recording, { Props as RecordingProps } from '../Recording'
 
 const defaultProps: RecordingProps = {
+  buttonText: 'Fake button',
   onNext: jest.fn(),
   onStop: jest.fn(),
 }
@@ -17,14 +17,12 @@ describe('DocumentVideo', () => {
 
     it('renders instructions correctly', () => {
       const wrapper = mount(
-        <MockedLocalised>
-          <Recording {...defaultProps}>
-            <div>
-              <span className="title">doc_video.recording.title</span>
-              <span className="subtitle">doc_video.recording.subtitle</span>
-            </div>
-          </Recording>
-        </MockedLocalised>
+        <Recording {...defaultProps}>
+          <div>
+            <span className="title">doc_video.recording.title</span>
+            <span className="subtitle">doc_video.recording.subtitle</span>
+          </div>
+        </Recording>
       )
 
       expect(wrapper.find('.title').text()).toEqual('doc_video.recording.title')
@@ -34,11 +32,7 @@ describe('DocumentVideo', () => {
     })
 
     it('disables button when disableInteraction=true', () => {
-      const wrapper = mount(
-        <MockedLocalised>
-          <Recording {...defaultProps} disableInteraction />
-        </MockedLocalised>
-      )
+      const wrapper = mount(<Recording {...defaultProps} disableInteraction />)
 
       const button = wrapper.find('Button > button')
       expect(button.prop('disabled')).toBeTruthy()
@@ -46,17 +40,11 @@ describe('DocumentVideo', () => {
 
     describe('with no more steps', () => {
       it('renders button correctly', () => {
-        const wrapper = mount(
-          <MockedLocalised>
-            <Recording {...defaultProps} />
-          </MockedLocalised>
-        )
+        const wrapper = mount(<Recording {...defaultProps} />)
 
         const button = wrapper.find('Button > button')
         expect(button.prop('disabled')).toBeFalsy()
-        expect(button.text()).toEqual(
-          'doc_video_capture.button_stop_accessibility'
-        )
+        expect(button.text()).toEqual(defaultProps.buttonText)
 
         button.simulate('click')
         expect(defaultProps.onStop).toHaveBeenCalled()
@@ -66,15 +54,11 @@ describe('DocumentVideo', () => {
 
     describe('with more steps', () => {
       it('renders button correctly', () => {
-        const wrapper = mount(
-          <MockedLocalised>
-            <Recording {...defaultProps} hasMoreSteps />
-          </MockedLocalised>
-        )
+        const wrapper = mount(<Recording {...defaultProps} hasMoreSteps />)
 
         const button = wrapper.find('Button > button')
         expect(button.prop('disabled')).toBeFalsy()
-        expect(button.text()).toEqual('doc_video_capture.button_primary_next')
+        expect(button.text()).toEqual(defaultProps.buttonText)
 
         button.simulate('click')
         expect(defaultProps.onNext).toHaveBeenCalled()

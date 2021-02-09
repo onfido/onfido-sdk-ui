@@ -1,11 +1,10 @@
 import { h, FunctionComponent } from 'preact'
-import { useContext } from 'preact/compat'
 
-import { LocaleContext } from '../../locales'
 import Button from '../Button'
 import style from './style.scss'
 
 export type Props = {
+  buttonText: string
   children?: h.JSX.Element | h.JSX.Element[]
   disableInteraction?: boolean
   hasMoreSteps?: boolean
@@ -14,32 +13,25 @@ export type Props = {
 }
 
 const Recording: FunctionComponent<Props> = ({
+  buttonText,
   children,
   disableInteraction = false,
   hasMoreSteps = false,
   onNext,
   onStop,
-}) => {
-  const { translate } = useContext(LocaleContext)
-
-  return (
-    <div>
-      <div className={style.actions}>
-        {children}
-        <Button
-          variants={['centered', 'primary', 'lg']}
-          disabled={disableInteraction}
-          onClick={hasMoreSteps ? onNext : onStop}
-        >
-          {translate(
-            hasMoreSteps
-              ? 'doc_video_capture.button_primary_next'
-              : 'doc_video_capture.button_stop_accessibility'
-          )}
-        </Button>
-      </div>
+}) => (
+  <div>
+    <div className={style.actions}>
+      {children}
+      <Button
+        variants={['centered', 'primary', 'lg']}
+        disabled={disableInteraction}
+        onClick={hasMoreSteps ? onNext : onStop}
+      >
+        {buttonText}
+      </Button>
     </div>
-  )
-}
+  </div>
+)
 
 export default Recording
