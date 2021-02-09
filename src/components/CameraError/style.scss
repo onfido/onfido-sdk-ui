@@ -1,12 +1,12 @@
 @import '../Theme/constants';
 
 .errorContainer {
+  @extend %global-margin;
   left: 0;
   position: absolute;
   right: 0;
   top: 0;
   z-index: 4;
-  @extend %global-margin;
 }
 
 @mixin _error-overlay {
