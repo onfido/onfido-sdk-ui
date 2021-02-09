@@ -7,10 +7,8 @@ import Recording from './Recording'
 import StartRecording from './StartRecording'
 import style from './style.scss'
 
-import type { CaptureSteps, TiltModes } from '~types/docVideo'
+import { TILT_MODE, CaptureSteps } from '~types/docVideo'
 import type { VideoLayerProps } from '../VideoCapture'
-
-const TILT_MODE: TiltModes = 'right'
 
 export type Props = {
   onNext: () => void
@@ -47,7 +45,7 @@ const VideoLayer: FunctionComponent<Props> = ({
     setTimeout(() => {
       showSuccessState(false)
       onNext()
-    }, 2000)
+    }, 1000)
   }, [step, onNext])
 
   if (!isRecording) {

@@ -13,7 +13,7 @@ import ProgressBar from './ProgressBar'
 import VideoLayer from './VideoLayer'
 import useCaptureStep from './useCaptureStep'
 
-import type { CaptureVariants, TiltModes } from '~types/docVideo'
+import { TILT_MODE, CaptureVariants } from '~types/docVideo'
 import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type {
@@ -22,8 +22,6 @@ import type {
   RenderFallbackProp,
 } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
-
-const TILT_MODE: TiltModes = 'right'
 
 const renamedCapture = (
   payload: CapturePayload,
