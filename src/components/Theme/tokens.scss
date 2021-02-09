@@ -1,3 +1,16 @@
+/*
+ *  NOTE on CSS variable naming convention:
+ *
+ *  1) Supported SDK customisation options = CSS variables with --osdk- prefix
+ *
+ *  2) Castor theme tokens = CSS variables with --ods- prefix are Castor theme tokens
+ *
+ *  Wherever it makes sense for colour token mappings, the relevant Castor theme token should be used.
+ *  See Castor Day theme file for available theme tokens:
+ *  https://github.com/onfido/castor/blob/main/packages/core/src/theme/themes/day.scss
+ *  Where it does not, the basic colour token should be used instead.
+ */
+
 /* stylelint-disable function-parentheses-space-inside */
 
 @mixin tokens() {
