@@ -1,4 +1,4 @@
-import { h, Fragment, FunctionComponent } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import { useContext } from 'preact/compat'
 
 import { LocaleContext } from '~locales'
@@ -18,18 +18,16 @@ const StartRecording: FunctionComponent<Props> = ({
   const { translate } = useContext(LocaleContext)
 
   return (
-    <Fragment>
-      <div className={style.actions}>
-        {children}
-        <Button
-          variants={['centered', 'primary', 'lg']}
-          disabled={disableInteraction}
-          onClick={onClick}
-        >
-          {translate('doc_video_capture.button_record_accessibility')}
-        </Button>
-      </div>
-    </Fragment>
+    <div className={style.actions}>
+      {children}
+      <Button
+        variants={['centered', 'primary', 'lg']}
+        disabled={disableInteraction}
+        onClick={onClick}
+      >
+        {translate('doc_video_capture.button_record_accessibility')}
+      </Button>
+    </div>
   )
 }
 

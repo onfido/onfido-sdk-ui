@@ -43,6 +43,8 @@ const simulateCaptureStart = (wrapper: ReactWrapper) => {
 const simulateCaptureNext = (wrapper: ReactWrapper) => {
   const button = wrapper.find('Recording Button > button')
   button.simulate('click')
+  jest.runTimersToTime(2000) // Waits for success state disappears
+  wrapper.update()
 }
 
 const assertOverlay = (
@@ -178,8 +180,13 @@ const assertBackStep = (wrapper: ReactWrapper) => {
 describe('DocumentVideo', () => {
   let wrapper: ReactWrapper
 
+  beforeAll(() => {
+    jest.useFakeTimers()
+  })
+
   afterEach(() => {
     jest.clearAllMocks()
+    jest.clearAllTimers()
   })
 
   describe('with double-sided documents', () => {

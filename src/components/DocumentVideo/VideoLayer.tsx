@@ -1,26 +1,27 @@
 import { h, FunctionComponent } from 'preact'
-import { useContext } from 'preact/compat'
+import { useCallback, useContext, useState } from 'preact/compat'
 
 import { LocaleContext } from '~locales'
 import Instructions from './Instructions'
 import Recording from './Recording'
 import StartRecording from './StartRecording'
+import style from './style.scss'
 
 import type { CaptureSteps, TiltModes } from '~types/docVideo'
-import type { VideoLayerProps as VideoLayerRenderProps } from '../VideoCapture'
+import type { VideoLayerProps } from '../VideoCapture'
 
 const TILT_MODE: TiltModes = 'right'
 
-type VideoLayerProps = {
+export type Props = {
   onNext: () => void
   step: CaptureSteps
   stepNumber: number
   subtitle: string
   title: string
   totalSteps: number
-} & VideoLayerRenderProps
+} & VideoLayerProps
 
-const VideoLayer: FunctionComponent<VideoLayerProps> = ({
+const VideoLayer: FunctionComponent<Props> = ({
   disableInteraction,
   isRecording,
   onNext,
@@ -32,7 +33,22 @@ const VideoLayer: FunctionComponent<VideoLayerProps> = ({
   title,
   totalSteps,
 }) => {
+  const [shouldShowSuccess, showSuccessState] = useState(false)
   const { translate } = useContext(LocaleContext)
+
+  const handleNext = useCallback(() => {
+    if (step === 'intro') {
+      onNext()
+      return
+    }
+
+    showSuccessState(true)
+
+    setTimeout(() => {
+      showSuccessState(false)
+      onNext()
+    }, 2000)
+  }, [step, onNext])
 
   if (!isRecording) {
     return (
@@ -40,6 +56,10 @@ const VideoLayer: FunctionComponent<VideoLayerProps> = ({
         <Instructions title={title} />
       </StartRecording>
     )
+  }
+
+  if (shouldShowSuccess) {
+    return <span className={style.success} />
   }
 
   return (
@@ -51,7 +71,7 @@ const VideoLayer: FunctionComponent<VideoLayerProps> = ({
       )}
       disableInteraction={disableInteraction}
       hasMoreSteps={stepNumber < totalSteps}
-      onNext={onNext}
+      onNext={handleNext}
       onStop={onStop}
     >
       <Instructions

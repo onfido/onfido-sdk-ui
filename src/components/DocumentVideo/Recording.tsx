@@ -20,17 +20,15 @@ const Recording: FunctionComponent<Props> = ({
   onNext,
   onStop,
 }) => (
-  <div>
-    <div className={style.actions}>
-      {children}
-      <Button
-        variants={['centered', 'primary', 'lg']}
-        disabled={disableInteraction}
-        onClick={hasMoreSteps ? onNext : onStop}
-      >
-        {buttonText}
-      </Button>
-    </div>
+  <div className={style.actions}>
+    {children}
+    <Button
+      variants={['centered', 'primary', 'lg']}
+      disabled={disableInteraction}
+      onClick={hasMoreSteps ? onNext : onStop}
+    >
+      {buttonText}
+    </Button>
   </div>
 )
 

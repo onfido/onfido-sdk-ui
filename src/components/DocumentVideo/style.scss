@@ -80,6 +80,19 @@
   opacity: 1;
 }
 
+.success {
+  background-image: url('../Complete/assets/complete.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 48 * $unit;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 160 * $unit;
+  z-index: 1000;
+}
+
 .actions {
   position: absolute;
   z-index: 1000;
