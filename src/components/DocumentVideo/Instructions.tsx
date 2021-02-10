@@ -1,4 +1,5 @@
 import { h, FunctionComponent } from 'preact'
+import { memo } from 'preact/compat'
 import cx from 'classnames'
 import style from './style.scss'
 
@@ -33,4 +34,4 @@ const Instructions: FunctionComponent<Props> = ({
   )
 }
 
-export default Instructions
+export default memo(Instructions)

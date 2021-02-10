@@ -1,4 +1,5 @@
 import { h, FunctionComponent } from 'preact'
+import { memo } from 'preact/compat'
 
 import Button from '../Button'
 import style from './style.scss'
@@ -32,4 +33,4 @@ const Recording: FunctionComponent<Props> = ({
   </div>
 )
 
-export default Recording
+export default memo(Recording)

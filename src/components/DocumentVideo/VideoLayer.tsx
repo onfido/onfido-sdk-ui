@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { useCallback, useContext, useState } from 'preact/compat'
+import { memo, useCallback, useContext, useState } from 'preact/compat'
 
 import { LocaleContext } from '~locales'
 import Instructions from './Instructions'
@@ -82,4 +82,4 @@ const VideoLayer: FunctionComponent<Props> = ({
   )
 }
 
-export default VideoLayer
+export default memo(VideoLayer)

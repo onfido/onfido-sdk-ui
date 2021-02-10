@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { useEffect, useRef, useState } from 'preact/compat'
+import { memo, useEffect, useRef, useState } from 'preact/compat'
 import style from './style.scss'
 
 import type { TiltModes } from '~types/docVideo'
@@ -136,4 +136,4 @@ const DocumentOverlay: FunctionComponent<Props> = ({
   )
 }
 
-export default DocumentOverlay
+export default memo(DocumentOverlay)

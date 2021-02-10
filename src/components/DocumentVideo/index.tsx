@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { useContext, useRef, useState } from 'preact/compat'
+import { memo, useContext, useRef, useState } from 'preact/compat'
 import Webcam from 'react-webcam-onfido'
 
 import { mimeType } from '~utils/blob'
@@ -143,4 +143,4 @@ const DocumentVideo: FunctionComponent<Props> = ({
   )
 }
 
-export default DocumentVideo
+export default memo(DocumentVideo)

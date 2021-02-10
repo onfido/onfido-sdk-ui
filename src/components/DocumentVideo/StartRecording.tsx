@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { useContext } from 'preact/compat'
+import { memo, useContext } from 'preact/compat'
 
 import { LocaleContext } from '~locales'
 import Button from '../Button'
@@ -31,4 +31,4 @@ const StartRecording: FunctionComponent<Props> = ({
   )
 }
 
-export default StartRecording
+export default memo(StartRecording)

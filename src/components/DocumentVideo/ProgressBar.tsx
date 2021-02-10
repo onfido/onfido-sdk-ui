@@ -1,4 +1,5 @@
 import { h, FunctionComponent } from 'preact'
+import { memo } from 'preact/compat'
 import classNames from 'classnames'
 import style from './style.scss'
 
@@ -25,4 +26,4 @@ const ProgressBar: FunctionComponent<Props> = ({
   </div>
 )
 
-export default ProgressBar
+export default memo(ProgressBar)

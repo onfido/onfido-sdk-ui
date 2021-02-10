@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { useCallback, useContext, useState } from 'preact/compat'
+import { memo, useCallback, useContext, useState } from 'preact/compat'
 import type { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -176,4 +176,4 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   )
 }
 
-export default Confirm
+export default memo(Confirm)
