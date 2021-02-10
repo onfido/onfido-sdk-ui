@@ -8,30 +8,49 @@ import Button from '../Button'
 // import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-interface ActionsProps {
+type ActionsProps = {
   onAccept(): void
+  onDecline(): void
+  translate(arg: string): string
 }
 
-const Actions: FunctionComponent<{ props: ActionsProps }> = (props) => {
-  const onAcceptCb = props.onAccept
+type UserConsentProps = {
+  nextStep(): void
+  previousStep(): void
+  translate(arg: string): string
+}
 
+const Actions: FunctionComponent<ActionsProps> = ({
+  onAccept,
+  onDecline,
+  translate,
+}) => {
+  const primaryBtnCopy = translate('user_consent.button_primary')
+  const secondaryBtnCopy = translate('user_consent.button_secondary')
   return (
     <div className={style.actions}>
       <Button
         className={style.secondary}
         variants={['secondary', 'sm']}
-        onClick={() => {}}
+        onClick={onDecline}
       >
-        Do not accept
+        {secondaryBtnCopy}
       </Button>
-      <Button variants={['primary', 'sm']} onClick={() => onAcceptCb()}>
-        Accept
+      <Button variants={['primary', 'sm']} onClick={onAccept}>
+      {primaryBtnCopy}
       </Button>
     </div>
   )
 }
 
-const UserConsent: FunctionComponent = (props) => {
+const UserConsent: FunctionComponent<UserConsentProps> = ({nextStep, previousStep, translate}): h.JSX.Element => {
+  const actions = (
+    <Actions
+      onAccept={nextStep}
+      onDecline={previousStep}
+      translate={translate}
+    />
+  )
   const sanitizer = dompurify.sanitize
   const [consentHtml, setConsentHtml] = useState('')
 
@@ -42,7 +61,7 @@ const UserConsent: FunctionComponent = (props) => {
   }, [])
 
   return (
-    <ScreenLayout actions={<Actions onAccept={props.nextStep} />}>
+    <ScreenLayout actions={actions}>
       <div
         className={style.consentFrame}
         dangerouslySetInnerHTML={{ __html: sanitizer(consentHtml) }}
