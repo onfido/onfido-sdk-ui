@@ -31,24 +31,18 @@
     /* stylelint-disable-next-line selector-class-pattern */
     &.-action--secondary {
       background-color: var(--osdk-color-background-button-secondary);
-      color: var(--osdk-color-background-button-secondary-text);
-      border-color: var(--osdk-color-background-button-secondary-border);
+      color: var(--osdk-color-content-button-secondary-text);
+      border-color: var(--osdk-color-border-button-secondary);
 
-      /* stylelint-disable function-parentheses-space-inside */
       &:active {
         background-color: var(--osdk-color-background-button-secondary-active);
-        border-color: var(
-          --osdk-color-background-button-secondary-border-active
-        );
+        border-color: var(--osdk-color-border-button-secondary);
       }
 
       &:hover {
         background-color: var(--osdk-color-background-button-secondary-hover);
-        border-color: var(
-          --osdk-color-background-button-secondary-border-hover
-        );
+        border-color: var(--osdk-color-border-button-secondary);
       }
-      /* stylelint-enable function-parentheses-space-inside */
     }
   }
 }

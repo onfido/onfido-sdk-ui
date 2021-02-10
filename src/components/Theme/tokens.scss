@@ -68,8 +68,12 @@
   );
 
   /* Secondary Button customisations */
-  --osdk-color-background-button-secondary-text: var(--color-primary);
-  --osdk-color-border-button-secondary: var(--color-primary);
+  --osdk-color-content-button-secondary-text: rgba(
+    var(--ods-color-content-action)
+  );
+
+  --osdk-color-border-button-secondary: rgba(var(--ods-color-border-action));
+
   --osdk-color-background-button-secondary: rgba(
     var(--ods-color-background-action-subtle)
   );
@@ -78,13 +82,6 @@
   );
   --osdk-color-background-button-secondary-active: rgba(
     var(--ods-color-background-action-subtle)
-  );
-  --osdk-color-background-button-secondary-border: var(--color-primary);
-  --osdk-color-background-button-secondary-border-hover: var(
-    --color-primary-hover
-  );
-  --osdk-color-background-button-secondary-border-active: var(
-    --color-primary-active
   );
 
   /* Button group customisations */
