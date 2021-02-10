@@ -2,9 +2,7 @@ import { h, Component, ComponentType } from 'preact'
 import { blobToLossyBase64 } from '~utils/blob'
 import { createObjectURL, revokeObjectURL } from '~utils/objectUrl'
 
-type WithBlobPreviewProps = {
-  blob: Blob
-}
+import type { WithBlobPreviewProps } from '~types/hocs'
 
 type WrappedPreviewProps = {
   base64?: string

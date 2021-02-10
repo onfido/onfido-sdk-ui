@@ -50,3 +50,7 @@ export type WithThemeProps = {
 export type WithPermissionsFlowProps = {
   hasGrantedPermission?: boolean
 }
+
+export type WithBlobPreviewProps = {
+  blob: Blob
+}

@@ -4,7 +4,7 @@ import style from './style.scss'
 
 type CaptureVideoViewerProps = {
   ariaLabel: string
-  previewUrl: string
+  previewUrl?: string
 }
 
 const CaptureVideoViewer: FunctionComponent<CaptureVideoViewerProps> = ({
