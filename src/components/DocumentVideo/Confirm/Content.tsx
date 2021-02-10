@@ -21,7 +21,11 @@ const Content: FunctionComponent<Props> = ({ capture, previewing }) => {
         <span className={style.title}>
           {translate('doc_video_confirmation.preview_title')}
         </span>
-        <CaptureViewer capture={capture} method="document" />
+        <CaptureViewer
+          capture={capture}
+          className={style.videoWrapper}
+          method="document"
+        />
       </div>
     )
   }

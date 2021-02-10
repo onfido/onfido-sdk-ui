@@ -12,8 +12,9 @@
   align-items: center;
 }
 
-.content > .title {
-  font-size: 30 * $unit;
+.title {
+  font-size: 24 * $unit;
+  font-weight: bold;
 }
 
 .content > .icon {
@@ -23,6 +24,11 @@
   height: 32 * $unit;
   width: 32 * $unit;
   margin-bottom: 8 * $unit;
+}
+
+.preview .videoWrapper {
+  margin-top: 16 * $unit;
+  margin-bottom: 0;
 }
 
 .buttonsContainer > button {
