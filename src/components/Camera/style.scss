@@ -87,6 +87,13 @@
   position: absolute;
   top: 0;
   height: 100%;
+  left: -$large-text-margin;
+  @media (--small-viewport) {
+    left: -$small-text-margin;
+  }
+  @media (--smaller-viewport) {
+    left: -$smaller-text-margin;
+  }
   /* Only apply styles on Edge where there is no `object-fit:cover` support for video */
   @supports (-ms-ime-align: auto) {
     left: 50%;

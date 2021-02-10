@@ -19,7 +19,7 @@ const WelcomeContent = ({ descriptions, translate }) => {
     : localisedDescriptions(translate)
 
   return (
-    <div className={theme.contentMargin}>
+    <div>
       <div className={style.text}>
         {welcomeDescriptions.map((description) => (
           <p key={`description_${buildIteratorKey(description)}`}>
@@ -37,7 +37,7 @@ const WelcomeActions = ({ nextButton, nextStep, translate }) => {
     : translate('welcome.next_button')
 
   return (
-    <div className={theme.contentMargin}>
+    <div>
       <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
         {welcomeNextButton}
       </Button>
