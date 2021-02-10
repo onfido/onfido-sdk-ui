@@ -1,5 +1,41 @@
+@import '../Theme/constants';
+
 .consentFrame {
   width: 100%;
   height: 100%;
   border-style: none;
+
+  h1 {
+    color: $color-title-text;
+    font-weight: 600;
+    font-size: 30 * $unit;
+    line-height: 1.34;
+    text-align: center;
+    margin-bottom: 16 * $unit;
+    @media (--small-viewport) {
+      font-size: 24 * $unit;
+    }
+  }
+
+  > * {
+    text-align: left;
+
+    a {
+      color: $color-primary-500;
+    }
+  }
+}
+
+.actions {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.secondary {
+  margin-right: 16 * $unit;
+  @media (--small-viewport) {
+    margin-right: 8 * $unit;
+  }
 }
