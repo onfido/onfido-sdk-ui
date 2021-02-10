@@ -1,8 +1,16 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import { withBlobPreviewUrl } from './hocs'
 import style from './style.scss'
 
-const CaptureVideoViewer = ({ ariaLabel, previewUrl }) => (
+type CaptureVideoViewerProps = {
+  ariaLabel: string
+  previewUrl: string
+}
+
+const CaptureVideoViewer: FunctionComponent<CaptureVideoViewerProps> = ({
+  ariaLabel,
+  previewUrl,
+}) => (
   <div className={style.videoWrapper}>
     <video
       aria-label={ariaLabel}
