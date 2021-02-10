@@ -48,7 +48,7 @@ describe('Mount Demo App', () => {
         })),
       }
 
-      Demo = require('../demo').Demo
+      Demo = require('../demo').SdkDemo
     })
 
     it('mounts the Onfido Demo without crashing', () => {
@@ -68,7 +68,7 @@ describe('Mount Demo App', () => {
 
   describe('without mocking Onfido SDK', () => {
     beforeEach(() => {
-      Demo = require('../demo').Demo
+      Demo = require('../demo').SdkDemo
     })
 
     it('mounts the Onfido Demo without crashing', () => {
