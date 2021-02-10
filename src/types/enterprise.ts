@@ -5,4 +5,5 @@ export type EnterpriseCobranding = {
 export type EnterpriseFeatures = {
   hideOnfidoLogo?: boolean
   cobrand?: EnterpriseCobranding
+  useSubmitCallbacks?: boolean
 }

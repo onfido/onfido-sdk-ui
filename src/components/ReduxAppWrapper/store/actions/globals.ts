@@ -90,6 +90,11 @@ export const showCobranding = (
   payload,
 })
 
+export const useSubmitCallback = (payload: boolean): GlobalActions => ({
+  type: constants.USE_SUBMIT_CALLBACKS,
+  payload,
+})
+
 export const retryForImageQuality = (): GlobalActions => ({
   type: constants.RETRY_FOR_IMAGE_QUALITY,
 })

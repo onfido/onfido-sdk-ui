@@ -196,6 +196,14 @@ class ModalApp extends Component<Props> {
         cobrandConfig
       )
     }
+
+    const useSubmitCallbacks = options.enterpriseFeatures?.useSubmitCallbacks
+    if (useSubmitCallbacks) {
+      this.useSubmitCallbacksIfClientHasFeature(
+        validEnterpriseFeatures.useSubmitCallbacks
+      )
+    }
+
   }
 
   setUrls = (token: string) => {
@@ -223,6 +231,15 @@ class ModalApp extends Component<Props> {
       this.props.actions.showCobranding(cobrandConfig)
     } else {
       this.onInvalidEnterpriseFeatureException('cobrand')
+    }
+  }
+
+  useSubmitCallbacksIfClientHasFeature = (isValidEnterpriseFeature: boolean) => {
+    if (isValidEnterpriseFeature) {
+      this.props.actions.useSubmitCallbacks(true)
+    } else {
+      this.props.actions.useSubmitCallbacks(false)
+      this.onInvalidEnterpriseFeatureException('useSubmitCallbacks')
     }
   }
 
