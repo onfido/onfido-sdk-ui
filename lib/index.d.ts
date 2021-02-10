@@ -6,9 +6,23 @@ export declare type LocaleConfig = {
 	phrases: Record<string, unknown>;
 	mobilePhrases?: Record<string, unknown>;
 };
-export declare type StepTypes = "welcome" | "document" | "poa" | "face" | "complete";
-export declare type StepConfigBase = {
-	type: StepTypes;
+declare const STEP_WELCOME = "welcome";
+declare const STEP_DOCUMENT = "document";
+declare const STEP_POA = "poa";
+declare const STEP_FACE = "face";
+declare const STEP_COMPLETE = "complete";
+export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE;
+export declare type DocumentTypes = "passport" | "driving_licence" | "national_identity_card" | "residence_permit";
+export declare type PoaTypes = "bank_building_society_statement" | "utility_bill" | "council_tax" | "benefit_letters" | "government_letter";
+export declare type RequestedVariant = "standard" | "video";
+export declare type DocumentTypeConfig = boolean | {
+	country: string;
+};
+export declare type CaptureOptions = {
+	requestedVariant?: RequestedVariant;
+	uploadFallback?: boolean;
+	useUploader?: boolean;
+	useWebcam?: boolean;
 };
 export declare type StepOptionWelcome = {
 	title?: string;
@@ -16,53 +30,50 @@ export declare type StepOptionWelcome = {
 	nextButton?: string;
 };
 export declare type StepOptionDocument = {
-	documentTypes?: {
-		passport?: boolean;
-		driving_licence?: boolean;
-		national_identity_card?: boolean;
-		residence_permit?: boolean;
-	};
-	showCountrySelection?: boolean;
+	documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>;
 	forceCrossDevice?: boolean;
+	showCountrySelection?: boolean;
 	useLiveDocumentCapture?: boolean;
-	uploadFallback?: boolean;
-	useWebcam?: boolean;
-};
+} & CaptureOptions;
 export declare type StepOptionPoA = {
 	country?: string;
-	documentTypes: {
-		bank_building_society_statement?: boolean;
-		utility_bill?: boolean;
-		council_tax?: boolean;
-		benefit_letters?: boolean;
-		government_letter?: boolean;
-	};
+	documentTypes?: Partial<Record<PoaTypes, boolean>>;
 };
 export declare type StepOptionFace = {
-	requestedVariant?: "standard" | "video";
-	uploadFallback?: boolean;
 	useMultipleSelfieCapture?: boolean;
-};
+} & CaptureOptions;
 export declare type StepOptionComplete = {
 	message?: string;
 	submessage?: string;
 };
 export declare type StepConfigWelcome = {
+	type: typeof STEP_WELCOME;
 	options?: StepOptionWelcome;
-} & StepConfigBase;
+};
 export declare type StepConfigDocument = {
+	type: typeof STEP_DOCUMENT;
 	options?: StepOptionDocument;
-} & StepConfigBase;
+};
 export declare type StepConfigPoA = {
+	type: typeof STEP_POA;
 	options?: StepOptionPoA;
-} & StepConfigBase;
+};
 export declare type StepConfigFace = {
+	type: typeof STEP_FACE;
 	options?: StepOptionFace;
-} & StepConfigBase;
+};
 export declare type StepConfigComplete = {
+	type: typeof STEP_COMPLETE;
 	options?: StepOptionComplete;
-} & StepConfigBase;
+};
 export declare type StepConfig = StepConfigWelcome | StepConfigDocument | StepConfigPoA | StepConfigFace | StepConfigComplete;
+export declare type EnterpriseCobranding = {
+	text: string;
+};
+export declare type EnterpriseFeatures = {
+	hideOnfidoLogo?: boolean;
+	cobrand?: EnterpriseCobranding;
+};
 export declare type DocumentResponse = {
 	id: string;
 	side: string;
@@ -106,12 +117,7 @@ export interface SdkOptions extends FunctionalConfigurations {
 		smsNumber?: string;
 	};
 	steps?: Array<StepTypes | StepConfig>;
-	enterpriseFeatures?: {
-		hideOnfidoLogo?: boolean;
-		cobrand?: {
-			text: string;
-		};
-	};
+	enterpriseFeatures?: EnterpriseFeatures;
 }
 export declare type SdkHandle = {
 	options: SdkOptions;

@@ -1,5 +1,10 @@
 import { LocaleConfig, SupportedLanguages } from '~types/locales'
-import { StepConfig, StepTypes } from '~types/steps'
+import {
+  DocumentTypes,
+  DocumentTypeConfig,
+  StepConfig,
+  StepTypes,
+} from '~types/steps'
 import { ServerRegions, SdkOptions } from '~types/sdk'
 
 type StringifiedBoolean = 'true' | 'false'
@@ -15,7 +20,7 @@ export type QueryParams = {
   multiDocWithInvalidPresetCountry?: StringifiedBoolean
   multiDocWithPresetCountry?: StringifiedBoolean
   noCompleteStep?: StringifiedBoolean
-  oneDoc?: StepTypes
+  oneDoc?: DocumentTypes
   oneDocWithCountrySelection?: StringifiedBoolean
   oneDocWithPresetCountry?: StringifiedBoolean
   poa?: StringifiedBoolean
@@ -63,23 +68,32 @@ export const queryParamToValueString = window.location.search
     return { ...acc, [key]: value }
   }, {})
 
-const getPreselectedDocumentTypes = (): Record<string, unknown> => {
-  const preselectedDocumentType = queryParamToValueString.oneDoc as string
+const getPreselectedDocumentTypes = (): Partial<
+  Record<DocumentTypes, DocumentTypeConfig>
+> => {
+  const preselectedDocumentType = queryParamToValueString.oneDoc
+
   if (preselectedDocumentType) {
     return {
       [preselectedDocumentType]: true,
     }
-  } else if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
+  }
+
+  if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
     return {
       driving_licence: true,
     }
-  } else if (queryParamToValueString.oneDocWithPresetCountry === 'true') {
+  }
+
+  if (queryParamToValueString.oneDocWithPresetCountry === 'true') {
     return {
       driving_licence: {
         country: 'ESP',
       },
     }
-  } else if (queryParamToValueString.multiDocWithPresetCountry === 'true') {
+  }
+
+  if (queryParamToValueString.multiDocWithPresetCountry === 'true') {
     return {
       driving_licence: {
         country: 'ESP',
@@ -91,9 +105,9 @@ const getPreselectedDocumentTypes = (): Record<string, unknown> => {
         country: null,
       },
     }
-  } else if (
-    queryParamToValueString.multiDocWithInvalidPresetCountry === 'true'
-  ) {
+  }
+
+  if (queryParamToValueString.multiDocWithInvalidPresetCountry === 'true') {
     return {
       driving_licence: {
         country: 'ES',
@@ -103,6 +117,7 @@ const getPreselectedDocumentTypes = (): Record<string, unknown> => {
       },
     }
   }
+
   return {}
 }
 

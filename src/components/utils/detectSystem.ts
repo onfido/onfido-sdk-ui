@@ -1,4 +1,19 @@
-const SYSTEMS_MAPPING = {
+type SystemTypes = 'os' | 'browser'
+
+type SystemData = {
+  name: string
+  codeName: string
+  versionPrefix: string
+}
+
+type SystemInfo = {
+  name: string
+  version: string
+}
+
+type SystemMapping = Record<SystemTypes, SystemData[]>
+
+const SYSTEMS_MAPPING: SystemMapping = {
   os: [
     {
       name: 'Windows Phone',
@@ -45,7 +60,7 @@ const SYSTEMS_MAPPING = {
   ],
 }
 
-const detectSystem = (systemType) => {
+const detectSystem = (systemType: SystemTypes): SystemInfo => {
   const userAgent = [
     window.navigator.platform,
     window.navigator.userAgent,

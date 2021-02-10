@@ -811,6 +811,14 @@
     "path": "node_modules/@babel/runtime-corejs3",
     "licenseFile": "node_modules/@babel/runtime-corejs3/LICENSE"
   },
+  "@babel/runtime@7.12.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/babel/babel",
+    "publisher": "Sebastian McKenzie",
+    "email": "sebmck@gmail.com",
+    "path": "node_modules/react-redux/node_modules/@babel/runtime",
+    "licenseFile": "node_modules/react-redux/node_modules/@babel/runtime/LICENSE"
+  },
   "@babel/runtime@7.8.7": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
@@ -1129,17 +1137,29 @@
     "path": "node_modules/@types/babel__traverse",
     "licenseFile": "node_modules/@types/babel__traverse/LICENSE"
   },
-  "@types/cheerio@0.22.22": {
+  "@types/cheerio@0.22.23": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/@types/cheerio",
     "licenseFile": "node_modules/@types/cheerio/LICENSE"
+  },
+  "@types/classnames@2.2.11": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/classnames",
+    "licenseFile": "node_modules/@types/classnames/LICENSE"
   },
   "@types/color-name@1.1.1": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/@types/color-name",
     "licenseFile": "node_modules/@types/color-name/LICENSE"
+  },
+  "@types/dom-mediacapture-record@1.0.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/dom-mediacapture-record",
+    "licenseFile": "node_modules/@types/dom-mediacapture-record/LICENSE"
   },
   "@types/enzyme@3.10.8": {
     "licenses": "MIT",
@@ -1170,6 +1190,12 @@
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/@types/history",
     "licenseFile": "node_modules/@types/history/LICENSE"
+  },
+  "@types/hoist-non-react-statics@3.3.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/hoist-non-react-statics",
+    "licenseFile": "node_modules/@types/hoist-non-react-statics/LICENSE"
   },
   "@types/istanbul-lib-coverage@2.0.1": {
     "licenses": "MIT",
@@ -1251,6 +1277,12 @@
     "path": "node_modules/@types/react-phone-number-input",
     "licenseFile": "node_modules/@types/react-phone-number-input/LICENSE"
   },
+  "@types/react-redux@7.1.15": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/react-redux",
+    "licenseFile": "node_modules/@types/react-redux/LICENSE"
+  },
   "@types/react-router-dom@5.1.6": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
@@ -1263,11 +1295,23 @@
     "path": "node_modules/@types/react-router",
     "licenseFile": "node_modules/@types/react-router/LICENSE"
   },
-  "@types/react@16.9.56": {
+  "@types/react@17.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/@types/react",
     "licenseFile": "node_modules/@types/react/LICENSE"
+  },
+  "@types/redux-mock-store@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/redux-mock-store",
+    "licenseFile": "node_modules/@types/redux-mock-store/LICENSE"
+  },
+  "@types/socket.io-client@1.4.34": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/socket.io-client",
+    "licenseFile": "node_modules/@types/socket.io-client/LICENSE"
   },
   "@types/stack-utils@2.0.0": {
     "licenses": "MIT",
@@ -3577,7 +3621,7 @@
     "path": "node_modules/cssstyle",
     "licenseFile": "node_modules/cssstyle/LICENSE"
   },
-  "csstype@3.0.5": {
+  "csstype@3.0.6": {
     "licenses": "MIT",
     "repository": "https://github.com/frenic/csstype",
     "publisher": "Fredrik Nicol",
@@ -5851,8 +5895,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/history",
-    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
+    "path": "node_modules/react-router/node_modules/history",
+    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -6295,6 +6339,15 @@
     "repository": "https://github.com/isaacs/inherits",
     "path": "node_modules/inherits",
     "licenseFile": "node_modules/inherits/LICENSE"
+  },
+  "ini@1.3.5": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/ini",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me/",
+    "path": "node_modules/fsevents/node_modules/ini",
+    "licenseFile": "node_modules/fsevents/node_modules/ini/LICENSE"
   },
   "ini@1.3.7": {
     "licenses": "ISC",
@@ -7718,14 +7771,6 @@
     "path": "node_modules/jest-resolve/node_modules/locate-path",
     "licenseFile": "node_modules/jest-resolve/node_modules/locate-path/license"
   },
-  "lodash-es@4.17.15": {
-    "licenses": "MIT",
-    "repository": "https://github.com/lodash/lodash",
-    "publisher": "John-David Dalton",
-    "email": "john.david.dalton@gmail.com",
-    "path": "node_modules/lodash-es",
-    "licenseFile": "node_modules/lodash-es/LICENSE"
-  },
   "lodash.escape@4.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/lodash/lodash",
@@ -7779,6 +7824,15 @@
     "url": "http://allyoucanleet.com/",
     "path": "node_modules/lodash.isobject",
     "licenseFile": "node_modules/lodash.isobject/LICENSE.txt"
+  },
+  "lodash.isplainobject@4.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "node_modules/lodash.isplainobject",
+    "licenseFile": "node_modules/lodash.isplainobject/LICENSE"
   },
   "lodash.isstring@4.0.1": {
     "licenses": "MIT",
@@ -8967,7 +9021,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "onfido-sdk-ui",
+    "path": "/home/ethanify/Work/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
@@ -9874,7 +9928,7 @@
     "path": "node_modules/prettier-linter-helpers",
     "licenseFile": "node_modules/prettier-linter-helpers/LICENSE.md"
   },
-  "prettier@2.0.5": {
+  "prettier@2.2.1": {
     "licenses": "MIT",
     "repository": "https://github.com/prettier/prettier",
     "publisher": "James Long",
@@ -10265,6 +10319,12 @@
     "path": "node_modules/react-is",
     "licenseFile": "node_modules/react-is/LICENSE"
   },
+  "react-is@16.13.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "node_modules/react-redux/node_modules/react-is",
+    "licenseFile": "node_modules/react-redux/node_modules/react-is/LICENSE"
+  },
   "react-is@17.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
@@ -10300,12 +10360,12 @@
     "path": "node_modules/react-phone-number-input",
     "licenseFile": "node_modules/react-phone-number-input/LICENSE"
   },
-  "react-redux@4.4.10": {
+  "react-redux@7.2.2": {
     "licenses": "MIT",
-    "repository": "https://github.com/reactjs/react-redux",
+    "repository": "https://github.com/reduxjs/react-redux",
     "publisher": "Dan Abramov",
     "email": "dan.abramov@me.com",
-    "url": "http://github.com/gaearon",
+    "url": "https://github.com/gaearon",
     "path": "node_modules/react-redux",
     "licenseFile": "node_modules/react-redux/LICENSE.md"
   },
@@ -10499,9 +10559,17 @@
     "path": "node_modules/redent",
     "licenseFile": "node_modules/redent/license"
   },
-  "redux@3.5.2": {
+  "redux-mock-store@1.5.4": {
     "licenses": "MIT",
-    "repository": "https://github.com/reactjs/redux",
+    "repository": "https://github.com/arnaudbenard/redux-mock-store",
+    "publisher": "Arnaud Benard",
+    "email": "arnaudm.benard@gmail.com",
+    "path": "node_modules/redux-mock-store",
+    "licenseFile": "node_modules/redux-mock-store/LICENSE.md"
+  },
+  "redux@4.0.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/reduxjs/redux",
     "path": "node_modules/redux",
     "licenseFile": "node_modules/redux/LICENSE.md"
   },
@@ -10544,6 +10612,14 @@
     "email": "bn@cs.stanford.edu",
     "path": "node_modules/@babel/runtime-corejs3/node_modules/regenerator-runtime",
     "licenseFile": "node_modules/@babel/runtime-corejs3/node_modules/regenerator-runtime/LICENSE"
+  },
+  "regenerator-runtime@0.13.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime",
+    "publisher": "Ben Newman",
+    "email": "bn@cs.stanford.edu",
+    "path": "node_modules/react-redux/node_modules/regenerator-runtime",
+    "licenseFile": "node_modules/react-redux/node_modules/regenerator-runtime/LICENSE"
   },
   "regenerator-transform@0.14.5": {
     "licenses": "MIT",
@@ -10804,8 +10880,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
   },
   "resolve-url@0.2.1": {
     "licenses": "MIT",
@@ -12064,7 +12140,7 @@
     "path": "node_modules/svg-tags",
     "licenseFile": "node_modules/svg-tags/LICENSE"
   },
-  "symbol-observable@0.2.4": {
+  "symbol-observable@1.2.0": {
     "licenses": "MIT",
     "repository": "https://github.com/blesh/symbol-observable",
     "publisher": "Ben Lesh",
@@ -12983,8 +13059,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",

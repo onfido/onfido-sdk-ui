@@ -1,14 +1,10 @@
-import { h, Component } from 'preact'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import EventEmitter from 'eventemitter2'
+import { h, Component, ComponentType } from 'preact'
+import { EventEmitter2 } from 'eventemitter2'
 import Modal from '../Modal'
 import Router from '../Router'
 import * as Tracker from '../../Tracker'
-import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
-import { actions } from '../ReduxAppWrapper/store/actions/'
-import { getEnabledDocuments } from '~utils'
+import { getEnabledDocuments } from '~utils/index'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 import {
   parseJwt,
@@ -16,10 +12,33 @@ import {
   getEnterpriseFeaturesFromJWT,
 } from '~utils/jwt'
 
-class ModalApp extends Component {
-  constructor(props) {
+import type { NormalisedSdkOptions } from '~types/commons'
+import type {
+  EnterpriseFeatures,
+  EnterpriseCobranding,
+} from '~types/enterprise'
+import type { SdkOptions, SdkError, SdkResponse } from '~types/sdk'
+import type {
+  StepTypes,
+  StepConfig,
+  StepConfigDocument,
+  DocumentTypes,
+} from '~types/steps'
+
+import withConnect, { ReduxProps } from './withConnect'
+
+export type ModalAppProps = {
+  options: NormalisedSdkOptions
+}
+
+type Props = ModalAppProps & ReduxProps
+
+class ModalApp extends Component<Props> {
+  private events: EventEmitter2.emitter
+
+  constructor(props: Props) {
     super(props)
-    this.events = new EventEmitter()
+    this.events = new EventEmitter2()
     this.events.on('complete', this.trackOnComplete)
     if (!props.options.disableAnalytics) {
       Tracker.setUp()
@@ -32,7 +51,7 @@ class ModalApp extends Component {
     this.prepareInitialStore({}, this.props.options)
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: Props) {
     this.jwtValidation(prevProps.options, this.props.options)
     this.prepareInitialStore(prevProps.options, this.props.options)
     this.rebindEvents(prevProps.options, this.props.options)
@@ -40,11 +59,14 @@ class ModalApp extends Component {
 
   componentWillUnmount() {
     this.props.socket && this.props.socket.close()
-    this.events.removeAllListeners('complete', 'error')
+    this.events.removeAllListeners(['complete', 'error'])
     Tracker.uninstall()
   }
 
-  jwtValidation = (prevOptions = {}, newOptions = {}) => {
+  jwtValidation = (
+    prevOptions: NormalisedSdkOptions = {},
+    newOptions: NormalisedSdkOptions = {}
+  ) => {
     if (prevOptions.token !== newOptions.token) {
       try {
         parseJwt(newOptions.token)
@@ -54,43 +76,60 @@ class ModalApp extends Component {
     }
   }
 
-  onInvalidJWT = (message) => {
-    const type = 'exception'
-    this.events.emit('error', { type, message })
+  onInvalidJWT = (message: string) => {
+    this.events.emit('error', { type: 'exception', message })
   }
 
-  onInvalidEnterpriseFeatureException = (feature) => {
-    const type = 'exception'
+  onInvalidEnterpriseFeatureException = (feature: string) => {
     const message = `EnterpriseFeatureNotEnabledException: Enterprise feature ${feature} not enabled for this account.`
-    this.events.emit('error', { type, message })
+    this.events.emit('error', { type: 'exception', message })
     Tracker.trackException(message)
   }
 
   trackOnComplete = () => Tracker.sendEvent('completed flow')
 
-  bindEvents = (onComplete, onError) => {
-    this.events.on('complete', onComplete)
-    this.events.on('error', onError)
+  bindEvents = (
+    onComplete?: (data: SdkResponse) => void,
+    onError?: (error: SdkError) => void
+  ) => {
+    onComplete && this.events.on('complete', onComplete)
+    onError && this.events.on('error', onError)
   }
 
-  rebindEvents = (oldOptions, newOptions) => {
+  rebindEvents = (
+    oldOptions: NormalisedSdkOptions,
+    newOptions: NormalisedSdkOptions
+  ) => {
     this.events.off('complete', oldOptions.onComplete)
     this.events.off('error', oldOptions.onError)
     this.bindEvents(newOptions.onComplete, newOptions.onError)
   }
 
-  setIssuingCountryIfConfigured = (documentStep, preselectedDocumentType) => {
-    const docTypes =
-      documentStep && documentStep.options && documentStep.options.documentTypes
+  setIssuingCountryIfConfigured = (
+    steps: Array<StepTypes | StepConfig>,
+    preselectedDocumentType: DocumentTypes
+  ) => {
+    const documentStep = steps.find(
+      (step) => typeof step !== 'string' && step.type === 'document'
+    )
+
+    if (typeof documentStep === 'string' || !documentStep.options) {
+      return
+    }
+
+    const docTypes = (documentStep as StepConfigDocument).options.documentTypes
     const preselectedDocumentTypeConfig = docTypes[preselectedDocumentType]
+
     if (typeof preselectedDocumentTypeConfig === 'boolean') {
       return
     }
+
     const countryCode = preselectedDocumentTypeConfig.country
     const supportedCountry = getCountryDataForDocumentType(
       countryCode,
       preselectedDocumentType
     )
+
     if (supportedCountry) {
       this.props.actions.setIdDocumentIssuingCountry(supportedCountry)
     } else if (countryCode !== null) {
@@ -100,7 +139,10 @@ class ModalApp extends Component {
     }
   }
 
-  prepareInitialStore = (prevOptions = {}, options = {}) => {
+  prepareInitialStore = (
+    prevOptions: NormalisedSdkOptions = {},
+    options: NormalisedSdkOptions = {}
+  ) => {
     const { userDetails: { smsNumber } = {}, steps, token } = options
     const {
       userDetails: { smsNumber: prevSmsNumber } = {},
@@ -113,15 +155,12 @@ class ModalApp extends Component {
     }
 
     if (steps && steps !== prevSteps) {
-      const enabledDocs = getEnabledDocuments(steps)
+      const enabledDocs = getEnabledDocuments(steps) as DocumentTypes[]
+
       if (enabledDocs.length === 1) {
         const preselectedDocumentType = enabledDocs[0]
         this.props.actions.setIdDocumentType(preselectedDocumentType)
-        const documentStep = steps.find((step) => step.type === 'document')
-        this.setIssuingCountryIfConfigured(
-          documentStep,
-          preselectedDocumentType
-        )
+        this.setIssuingCountryIfConfigured(steps, preselectedDocumentType)
       }
     }
 
@@ -136,7 +175,10 @@ class ModalApp extends Component {
     }
   }
 
-  setConfiguredEnterpriseFeatures = (validEnterpriseFeatures, options) => {
+  setConfiguredEnterpriseFeatures = (
+    validEnterpriseFeatures: EnterpriseFeatures,
+    options: SdkOptions
+  ) => {
     const hideOnfidoLogo = options.enterpriseFeatures?.hideOnfidoLogo
     if (hideOnfidoLogo) {
       this.hideDefaultLogoIfClientHasFeature(
@@ -155,14 +197,15 @@ class ModalApp extends Component {
     }
   }
 
-  setUrls = (token) => {
+  setUrls = (token: string) => {
     const jwtUrls = getUrlsFromJWT(token)
+
     if (jwtUrls) {
       this.props.actions.setUrls(jwtUrls)
     }
   }
 
-  hideDefaultLogoIfClientHasFeature = (isValidEnterpriseFeature) => {
+  hideDefaultLogoIfClientHasFeature = (isValidEnterpriseFeature: boolean) => {
     if (isValidEnterpriseFeature) {
       this.props.actions.hideOnfidoLogo(true)
     } else {
@@ -172,8 +215,8 @@ class ModalApp extends Component {
   }
 
   displayCobrandIfClientHasFeature = (
-    isValidEnterpriseFeature,
-    cobrandConfig
+    isValidEnterpriseFeature: EnterpriseCobranding | null | undefined,
+    cobrandConfig: EnterpriseCobranding
   ) => {
     if (isValidEnterpriseFeature) {
       this.props.actions.showCobranding(cobrandConfig)
@@ -182,18 +225,20 @@ class ModalApp extends Component {
     }
   }
 
-  render = ({
-    options: {
-      useModal,
-      isModalOpen,
-      onModalRequestClose,
-      containerId,
-      containerEl,
-      shouldCloseOnOverlayClick,
-      ...otherOptions
-    },
-    ...otherProps
-  }) => {
+  render() {
+    const {
+      options: {
+        useModal,
+        isModalOpen,
+        onModalRequestClose,
+        containerId,
+        containerEl,
+        shouldCloseOnOverlayClick,
+        ...otherOptions
+      },
+      ...otherProps
+    } = this.props
+
     return (
       <LocaleProvider language={this.props.options.language}>
         <Modal
@@ -214,21 +259,4 @@ class ModalApp extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  ...state.globals,
-  captures: state.captures,
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch),
-})
-
-const ConnectedModalApp = connect(mapStateToProps, mapDispatchToProps)(ModalApp)
-
-const App = ({ options }) => (
-  <ReduxAppWrapper options={options}>
-    <ConnectedModalApp options={options} />
-  </ReduxAppWrapper>
-)
-
-export default App
+export default withConnect<ComponentType<ModalAppProps>>(ModalApp)

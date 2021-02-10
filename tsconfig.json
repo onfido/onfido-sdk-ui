@@ -12,6 +12,7 @@
     "noImplicitAny": true,
     "outDir": "./dist/",
     "paths": {
+      "~jest/*": ["../test/utils/jest/*"],
       "~types/*": ["types/*"],
       "~utils/*": ["components/utils/*"]
     },
