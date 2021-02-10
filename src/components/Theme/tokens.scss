@@ -115,11 +115,11 @@
 
   /* Camera button colors */
   --osdk-color-background-button-camera: rgba(var(--ods-color-neutral-white));
-  --osdk-color-background-button-camera-hover: var(
-    --osdk-color-background-button-primary-hover
+  --osdk-color-background-button-camera-hover: rgba(
+    var(--ods-color-primary-400)
   );
-  --osdk-color-background-button-camera-active: var(
-    --osdk-color-background-button-primary-active
+  --osdk-color-background-button-camera-active: rgba(
+    var(--ods-color-primary-600)
   );
 }
 
