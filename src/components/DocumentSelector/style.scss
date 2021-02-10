@@ -3,10 +3,10 @@
 .list {
   list-style: none;
   padding: 0;
-  margin: 8 * $unit $large-text-margin 0;
+  margin-top: 8 * $unit;
 
   @media (--small-viewport) {
-    margin: 0 16 * $unit;
+    margin-top: 0;
   }
 }
 

@@ -13,19 +13,13 @@ const Permissions = ({ onNext, translate }) => (
       title={translate('permission.title_cam')}
       subTitle={translate('permission.subtitle_cam')}
     />
-    <div
-      className={classNames(
-        theme.contentMargin,
-        style.bodyWrapper,
-        theme.scrollableContent
-      )}
-    >
+    <div className={classNames(style.bodyWrapper, theme.scrollableContent)}>
       <div className={style.image}>
         <div className={style.graphic} />
       </div>
       <p className={style.instructions}>{translate('permission.body_cam')}</p>
     </div>
-    <div className={classNames(theme.contentMargin, style.actions)}>
+    <div className={style.actions}>
       <Button variants={['centered', 'primary', 'lg']} onClick={onNext}>
         {translate('permission.button_primary_cam')}
       </Button>

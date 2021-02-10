@@ -25,7 +25,7 @@ const makeDocumentSelectorOfGroup = (group) => {
       : IdentityDocumentSelector
 
     return (
-      <div className={style.wrapper}>
+      <div>
         <PageTitle
           title={translate(
             isPoA ? 'doc_select.title_poa' : 'doc_select.title',

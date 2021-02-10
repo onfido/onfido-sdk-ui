@@ -98,6 +98,13 @@
   position: absolute;
   top: 0;
   height: 100%;
+  left: -$large-text-margin;
+  @media (--small-viewport) {
+    left: -$small-text-margin;
+  }
+  @media (--smaller-viewport) {
+    left: -$smaller-text-margin;
+  }
 
   .docLiveCaptureFrame & {
     height: auto;
