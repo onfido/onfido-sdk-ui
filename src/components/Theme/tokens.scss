@@ -48,10 +48,10 @@
   --color-primary-active: rgba(var(--ods-color-primary-600));
 
   /* Primary Button customisations */
-  /* TODO: Button border colors */
   --osdk-color-background-button-primary-text: rgba(
     var(--ods-color-content-on-action)
   );
+  --osdk-color-border-button-primary: var(--color-primary);
   --osdk-color-background-button-primary: var(--color-primary);
   --osdk-color-background-button-primary-hover: var(--color-primary-hover);
   --osdk-color-background-button-primary-active: var(--color-primary-active);
@@ -60,8 +60,8 @@
   );
 
   /* Secondary Button customisations */
-  /* TODO: Button border colors */
   --osdk-color-background-button-secondary-text: var(--color-primary);
+  --osdk-color-border-button-secondary: var(--color-primary);
   --osdk-color-background-button-secondary: rgba(
     var(--ods-color-background-action-subtle)
   );
