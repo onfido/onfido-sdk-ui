@@ -41,7 +41,7 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
       />
       <ol
         aria-label={translate('cross_device_intro.list_accessibility')}
-        className={classNames(theme.contentMargin, style.content, style.list)}
+        className={classNames(style.content, style.list)}
       >
         {stageList.map((key) => (
           <li key={key} className={style.stage}>
@@ -62,7 +62,7 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
           </li>
         ))}
       </ol>
-      <div className={classNames(theme.contentMargin, style.buttonContainer)}>
+      <div className={style.buttonContainer}>
         <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
           {translate('cross_device_intro.button_primary')}
         </Button>
