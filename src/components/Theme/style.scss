@@ -12,6 +12,7 @@
 .fullScreenStep {
   overflow: hidden;
   border-radius: 8 * $unit;
+  background: $color-black;
 }
 
 .fullHeightContainer {
@@ -38,27 +39,28 @@
   /* Content height is 100% - non content height (total height of footer + total height of navbar) */
   $non-content-height: $footer-height + $footer-margin + $navigation-height +
     $navigation-padding-top;
+  @extend %global-margin;
   height: calc(100% - #{$non-content-height});
   position: relative;
   display: flex;
   flex-direction: column;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-
-  > * {
-    flex-grow: 1;
-  }
-
   @media (--small-viewport) {
     $non-content-height: $footer-height + $footer-margin +
       $navigation-height-sm-screen + $navigation-padding-top-sm-screen;
     height: calc(100% - #{$non-content-height});
+  }
+
+  > * {
+    flex-grow: 1;
   }
 }
 
 .scrollableContent {
   flex: 1 1 auto; /* .content will fit remaining space */
   overflow: auto; /* scrollbar will only appear when child element exceeds .content height */
+  height: 100%;
 }
 
 .fullScreenContentWrapper {
@@ -160,16 +162,6 @@ $logo-height: 32 * $unit;
     .noLogo & {
       background-image: none;
     }
-  }
-}
-
-.contentMargin {
-  margin: 0 $large-text-margin;
-  @media (--small-viewport) {
-    margin: 0 $small-text-margin;
-  }
-  @media (--smaller-viewport) {
-    margin: 0 $smaller-text-margin;
   }
 }
 

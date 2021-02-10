@@ -9,7 +9,7 @@ import style from './style.scss'
 const MobileNotificationSent = ({ sms, translate, previousStep }) => (
   <div>
     <PageTitle title={translate('sms_sent.title')} />
-    <div className={theme.contentMargin}>
+    <div>
       <div className={style.submessage}>
         {translate('sms_sent.subtitle', {
           number: sms.number,
