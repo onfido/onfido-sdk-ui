@@ -42,8 +42,8 @@ $navigation-padding-top-sm-screen: $padding-sm;
 $navigation-padding-sides-sm-screen: $padding-xs;
 
 /* Solid colors */
-$color-white: #fff;
-$color-black: #000;
+$color-white: var(--ods-color-neutral-white);
+$color-black: var(--ods-color-neutral-black);
 
 $color-icon-temporary: rgba(var(--ods-color-neutral-300));
 $color-border: rgba(var(--ods-color-neutral-600));
