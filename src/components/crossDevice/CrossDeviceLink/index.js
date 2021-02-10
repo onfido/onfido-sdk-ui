@@ -326,7 +326,7 @@ class CrossDeviceLinkUI extends Component {
             )}
           />
         )}
-        <div className={classNames(theme.contentMargin, style.secureLinkView)}>
+        <div className={style.secureLinkView}>
           <div role="region" id="selectedLinkView">
             {currentViewRender()}
           </div>

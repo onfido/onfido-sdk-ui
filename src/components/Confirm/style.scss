@@ -2,21 +2,14 @@
 
 .previewsContainer {
   width: 100%;
+  height: 100%;
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 16 * $unit;
 
   &.previewsContainerIsFullScreen {
     top: 0;
-  }
-}
-
-.actionsContainer {
-  margin: 0 48 * $unit;
-  @media (--small-viewport) {
-    margin: 0 $small-text-margin;
   }
 }
 
@@ -25,9 +18,9 @@
 }
 
 .message {
-  margin: 32 * $unit $large-text-margin 16 * $unit;
+  margin: 32 * $unit 0 16 * $unit;
   @media (--small-viewport) {
-    margin: 0 $small-text-margin 16 * $unit;
+    margin: 16 * $unit 0;
   }
 }
 

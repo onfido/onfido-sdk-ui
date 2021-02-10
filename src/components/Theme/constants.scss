@@ -148,3 +148,13 @@ $color-camera-button-active: $color-primary-button-active;
 @mixin width-parent-relative($base-width, $parent-width) {
   width: 100% * ($base-width/$parent-width);
 }
+
+%global-margin {
+  margin: 0 $large-text-margin;
+  @media (--small-viewport) {
+    margin: 0 $small-text-margin;
+  }
+  @media (--smaller-viewport) {
+    margin: 0 $smaller-text-margin;
+  }
+}
