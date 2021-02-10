@@ -1,19 +1,30 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
+import { HTMLProps } from 'react'
 import classNames from 'classnames'
-import { isDesktop } from '~utils/index'
+import { isDesktop } from '~utils'
 import style from './style.scss'
 
-const Button = ({
-  uiTestDataAttribute,
-  className,
-  textClassName,
-  variants = [],
-  disabled,
-  children,
-  onClick,
+type Props = HTMLProps<HTMLButtonElement> & {
+  ariaBusy?: string
+  ariaLive?: string
+  ariaRelevant?: string
+  onClick?: h.JSX.MouseEventHandler<HTMLButtonElement>
+  textClassName?: string
+  uiTestDataAttribute?: string
+  variants?: string[]
+}
+
+const Button: FunctionComponent<Props> = ({
+  ariaBusy,
   ariaLive,
   ariaRelevant,
-  ariaBusy,
+  children,
+  className,
+  disabled,
+  onClick,
+  textClassName,
+  uiTestDataAttribute,
+  variants = [],
 }) => (
   <button
     type="button"

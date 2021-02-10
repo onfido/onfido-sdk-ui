@@ -1,9 +1,30 @@
-import { StepConfig } from './steps'
+import { EventEmitter2 } from 'eventemitter2'
+import { EnterpriseFeatures } from './enterprise'
+import { SupportedLanguages, LocaleConfig } from './locales'
+import { DocumentTypes, PoaTypes, StepConfig, StepTypes } from './steps'
 import { SdkOptions } from './sdk'
 
 export interface NormalisedSdkOptions extends SdkOptions {
   steps?: StepConfig[]
 }
+
+export type NarrowSdkOptions = Omit<
+  NormalisedSdkOptions,
+  | 'containerEl'
+  | 'containerId'
+  | 'isModalOpen'
+  | 'onModalRequestClose'
+  | 'shouldCloseOnOverlayClick'
+  | 'useModal'
+> & {
+  events?: EventEmitter2.emitter
+}
+
+const STEP_CROSS_DEVICE = 'crossDevice'
+export type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
+export type ExtendedStepConfig =
+  | StepConfig
+  | { type: typeof STEP_CROSS_DEVICE; options?: never }
 
 export type CaptureMethods = 'document' | 'face'
 
@@ -58,6 +79,10 @@ export type FilePayload = {
   filename: string
 }
 
+const FLOW_CAPTURE = 'captureSteps'
+const FLOW_CROSS_DEVICE = 'crossDeviceSteps'
+export type FlowVariants = typeof FLOW_CAPTURE | typeof FLOW_CROSS_DEVICE
+
 export type ErrorNames =
   | 'BLUR_DETECTED'
   | 'CAMERA_INACTIVE'
@@ -83,3 +108,19 @@ export type ErrorNames =
   | 'UNSUPPORTED_IOS_BROWSER'
 
 export type ErrorTypes = 'error' | 'warning'
+
+export type MobileConfig = {
+  clientStepIndex: number
+  deviceHasCameraSupport: boolean
+  disableAnalytics: boolean
+  documentType: DocumentTypes
+  enterpriseFeatures: EnterpriseFeatures
+  idDocumentIssuingCountry: CountryData
+  language: SupportedLanguages | LocaleConfig
+  poaDocumentType: PoaTypes
+  step: number
+  steps: StepConfig[]
+  token: string
+  urls: UrlsConfig
+  woopraCookie: string
+}

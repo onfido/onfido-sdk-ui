@@ -1,14 +1,28 @@
-import { h } from 'preact'
-import { compose } from 'redux'
-import { connect } from 'react-redux'
+import { h, ComponentType, FunctionComponent } from 'preact'
+import { connect, ConnectedProps } from 'react-redux'
 import classNames from 'classnames'
 
 import NavigationBar from '../NavigationBar'
 import theme from './style.scss'
 
-export const themeWrap = (WrappedComponent) => {
-  const ThemedComponent = (props) => {
-    const { back, disableNavigation, hideOnfidoLogo, cobrand } = props
+import type { WithThemeProps } from '~types/hocs'
+import type { RootState } from '~types/redux'
+
+const mapStateToProps = (state: RootState) => ({
+  hideOnfidoLogo: state.globals.hideOnfidoLogo,
+  cobrand: state.globals.cobrand,
+})
+
+const withConnect = connect(mapStateToProps)
+
+type Props = WithThemeProps & ConnectedProps<typeof withConnect>
+
+const themeWrapped = (
+  WrappedComponent: ComponentType<WithThemeProps>
+): ComponentType<Props> => {
+  const ThemedComponent: FunctionComponent<Props> = (props) => {
+    const { back, disableNavigation = false, hideOnfidoLogo, cobrand } = props
+
     return (
       <div
         className={classNames(theme.step, {
@@ -25,7 +39,7 @@ export const themeWrap = (WrappedComponent) => {
         <div className={theme.content}>
           <WrappedComponent {...props} />
         </div>
-        {cobrand & !hideOnfidoLogo ? (
+        {cobrand && !hideOnfidoLogo ? (
           <div className={classNames({ [theme.cobrandFooter]: cobrand })}>
             <div className={theme.cobrandLabel} aria-hidden="true">
               <div className={theme.cobrandText}>{cobrand.text}</div>
@@ -39,13 +53,14 @@ export const themeWrap = (WrappedComponent) => {
       </div>
     )
   }
+
   return ThemedComponent
 }
 
-const mapStateToProps = (state, ownProps = {}) => ({
-  hideOnfidoLogo: state.globals.hideOnfidoLogo,
-  cobrand: state.globals.cobrand,
-  ...ownProps,
-})
-
-export default compose(connect(mapStateToProps), themeWrap)
+export default function withTheme<P>(
+  WrappedComponent: ComponentType<P>
+): ComponentType<WithThemeProps & P> {
+  return withConnect<ComponentType<WithThemeProps>>(
+    themeWrapped(WrappedComponent)
+  )
+}

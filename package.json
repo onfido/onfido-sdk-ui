@@ -62,6 +62,7 @@
       "^react-dom$": "preact/compat",
       "\\.(scss|css)$": "<rootDir>/src/unit_tests/mocks/styleMock.js",
       "^~jest(.*)$": "<rootDir>/test/utils/jest$1",
+      "^~locales(.*)$": "<rootDir>/src/locales$1",
       "^~types(.*)$": "<rootDir>/src/types$1",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
       "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
