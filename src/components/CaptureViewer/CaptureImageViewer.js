@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import classNames from 'classnames'
 import { withBlobPreviewUrl, withBlobBase64 } from './hocs'
-import EnlargedPreview from '../../EnlargedPreview'
+import EnlargedPreview from '../EnlargedPreview'
 import style from './style.scss'
 
 const CaptureImageViewer = ({
