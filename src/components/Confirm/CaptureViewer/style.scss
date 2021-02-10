@@ -24,7 +24,7 @@
 
 .croppedImageWrapper {
   @media (--small-viewport) {
-    min-height: 12em;
+    min-height: 13em;
   }
 }
 
@@ -53,17 +53,18 @@
   object-fit: contain;
 }
 
-/* Only used for mobile device view */
+/* Only used for Doc Live Capture preview (mobile devices only) */
 /* For browser compatibility for object-fit, object-position see
     https://caniuse.com/#feat=object-fit
     https://caniuse.com/#feat=object-position */
 .croppedDocumentImage {
   width: 100%;
-  height: 14em;
+  height: 15em;
   object-fit: cover;
-  object-position: center;
+  object-position: 50% -13vh; // -13vh = start point of top border of document overlay which is top aligned
+
   @media (--small-viewport) {
-    height: 12em;
+    height: 13em;
   }
 }
 
