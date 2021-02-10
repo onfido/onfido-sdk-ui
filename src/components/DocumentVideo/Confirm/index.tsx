@@ -142,6 +142,15 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     issuingCountry,
   ])
 
+  const onSecondaryClick = useCallback(() => {
+    if (error || previewing) {
+      previousStep()
+      return
+    }
+
+    setPreviewing(true)
+  }, [error, previewing, previousStep])
+
   if (loading) {
     return <Spinner />
   }
@@ -158,11 +167,11 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
           {translate('doc_video_confirmation.button_upload')}
         </Button>
         <Button
-          onClick={previewing ? previousStep : () => setPreviewing(true)}
+          onClick={onSecondaryClick}
           variants={['secondary', 'lg', 'centered']}
         >
           {translate(
-            previewing
+            error || previewing
               ? 'doc_video_confirmation.button_redo'
               : 'doc_video_confirmation.button_preview'
           )}

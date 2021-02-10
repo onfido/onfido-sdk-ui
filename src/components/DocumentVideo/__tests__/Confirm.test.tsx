@@ -71,7 +71,6 @@ const assertError = (wrapper: ReactWrapper, unknownError = false) => {
   expect(wrapper.find('.content').exists()).toBeFalsy()
   expect(wrapper.find('.preview').exists()).toBeFalsy()
   expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
-  expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
 
   expect(wrapper.find('Error').exists()).toBeTruthy()
 
@@ -90,6 +89,14 @@ const assertError = (wrapper: ReactWrapper, unknownError = false) => {
       'doc_confirmation.alert.no_doc_detail'
     )
   }
+
+  assertButton(
+    wrapper,
+    'button-secondary',
+    'doc_video_confirmation.button_redo'
+  )
+  simulateButtonClick(wrapper, false)
+  expect(defaultProps.previousStep).toHaveBeenCalled()
 }
 
 const assertContent = (
