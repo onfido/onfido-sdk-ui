@@ -158,3 +158,14 @@ export const fakeNoDocumentError: ApiParsedError = {
   },
   status: 422,
 }
+
+export const fakeUnknownError: ApiParsedError = {
+  response: {
+    error: {
+      type: 'unknown',
+      message: 'Unknown error',
+      fields: {},
+    },
+  },
+  status: 500,
+}

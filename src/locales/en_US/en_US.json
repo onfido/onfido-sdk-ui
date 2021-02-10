@@ -377,8 +377,10 @@
     "doc_video_confirmation": {
         "title": "Thank you",
         "body": "Your video has been recorded",
-        "button_upload": "Upload",
-        "button_redo": "Retake"
+        "preview_title": "Check your video",
+        "button_upload": "Upload video",
+        "button_preview": "Preview video",
+        "button_redo": "Retake video"
     },
     "video_capture": {
         "body": "Position your face in the oval",

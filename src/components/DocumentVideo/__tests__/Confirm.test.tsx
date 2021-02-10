@@ -14,8 +14,10 @@ import {
   fakeDrivingLicenceBackResponse,
   fakeDrivingLicenceVideoResponse,
   fakeNoDocumentError,
+  // fakeUnknownError,
 } from '~jest/responses'
 import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
+import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import Confirm from '../Confirm'
 
 import type { StepComponentDocumentProps } from '~types/routers'
@@ -49,32 +51,90 @@ const defaultProps: StepComponentDocumentProps = {
   ...mockedReduxProps,
 }
 
-const mockFailedRequest = (wrapper: ReactWrapper) => {
+const simulateButtonClick = (wrapper: ReactWrapper, primary = true) =>
+  wrapper
+    .find(`button.button-${primary ? 'primary' : 'secondary'}`)
+    .simulate('click')
+
+const simulateUploadFailed = (wrapper: ReactWrapper) => {
   mockedUploadDocument.mockRejectedValue(fakeNoDocumentError)
-  wrapper.find('button.button-primary').simulate('click')
+  simulateButtonClick(wrapper)
+}
+
+const assertButton = (
+  wrapper: ReactWrapper,
+  buttonClass: string,
+  buttonText: string
+) => {
+  const button = wrapper.find(`button.${buttonClass}`)
+  expect(button.exists()).toBeTruthy()
+  expect(button.text()).toEqual(buttonText)
+  expect(button.hasClass('button-lg button-centered')).toBeTruthy()
+}
+
+const assertError = (wrapper: ReactWrapper, unknownError = false) => {
+  expect(wrapper.find('.content').exists()).toBeFalsy()
+  expect(wrapper.find('.preview').exists()).toBeFalsy()
+  expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
+  expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
+
+  expect(wrapper.find('Error').exists()).toBeTruthy()
+
+  if (!unknownError) {
+    expect(wrapper.find('Error .title').text()).toEqual(
+      'doc_confirmation.alert.no_doc_title'
+    )
+    expect(wrapper.find('Error .instruction').text()).toEqual(
+      'doc_confirmation.alert.no_doc_detail'
+    )
+  }
+}
+
+const assertContent = (
+  wrapper: ReactWrapper,
+  variant: 'default' | 'preview'
+) => {
+  expect(wrapper.find('Spinner').exists()).toBeFalsy()
+  expect(wrapper.find('Error').exists()).toBeFalsy()
+  expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
+  expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
+
+  if (variant === 'preview') {
+    expect(wrapper.find('.content').exists()).toBeFalsy()
+
+    expect(wrapper.find('.preview').exists()).toBeTruthy()
+    expect(wrapper.find('.preview > .title').text()).toEqual(
+      'doc_video_confirmation.preview_title'
+    )
+    expect(wrapper.find('.preview > CaptureViewer').exists()).toBeTruthy()
+    return
+  }
+
+  // Default
+  expect(wrapper.find('.content').exists()).toBeTruthy()
+  expect(wrapper.find('.content > .icon').exists()).toBeTruthy()
+  expect(wrapper.find('.content > .title').text()).toEqual(
+    'doc_video_confirmation.title'
+  )
+  expect(wrapper.find('.content > .body').text()).toEqual(
+    'doc_video_confirmation.body'
+  )
+  expect(wrapper.find('.preview').exists()).toBeFalsy()
+}
+
+const assertSpinner = (wrapper: ReactWrapper) => {
+  expect(wrapper.find('Spinner').exists()).toBeTruthy()
+  expect(wrapper.find('.content').exists()).toBeFalsy()
+  expect(wrapper.find('CaptureViewer').exists()).toBeFalsy()
+  expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
+  expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
 }
 
 const assertUploadError = async (wrapper: ReactWrapper) => {
-  expect(wrapper.find('Spinner').exists()).toBeTruthy()
-  expect(wrapper.find('.content').exists()).toBeFalsy()
-  expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
-  expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
-
+  assertSpinner(wrapper)
   await runAllPromises()
   wrapper.update()
-  expect(wrapper.find('Spinner').exists()).toBeFalsy()
-
-  expect(wrapper.find('Error').exists()).toBeTruthy()
-  expect(wrapper.find('Error .title').text()).toEqual(
-    'doc_confirmation.alert.no_doc_title'
-  )
-  expect(wrapper.find('Error .instruction').text()).toEqual(
-    'doc_confirmation.alert.no_doc_detail'
-  )
-
-  expect(wrapper.find('.content').exists()).toBeFalsy()
-  expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
-  expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
+  assertError(wrapper)
 }
 
 describe('DocumentVideo', () => {
@@ -99,38 +159,23 @@ describe('DocumentVideo', () => {
       mockedStore && mockedStore.clearActions()
     })
 
-    it('renders UIs correctly', () => {
-      expect(wrapper.find('Spinner').exists()).toBeFalsy()
-      expect(wrapper.find('Error').exists()).toBeFalsy()
+    it('renders items correctly', () => {
+      assertContent(wrapper, 'default')
 
-      expect(wrapper.find('.content').exists()).toBeTruthy()
-      expect(wrapper.find('.content > .icon').exists()).toBeTruthy()
-      expect(wrapper.find('.content > .title').text()).toEqual(
-        'doc_video_confirmation.title'
-      )
-      expect(wrapper.find('.content > .body').text()).toEqual(
-        'doc_video_confirmation.body'
-      )
-
-      const uploadButton = wrapper.find('button.button-primary')
-      expect(uploadButton.exists()).toBeTruthy()
-      expect(uploadButton.text()).toEqual(
+      assertButton(
+        wrapper,
+        'button-primary',
         'doc_video_confirmation.button_upload'
       )
-      expect(uploadButton.hasClass('button-lg button-centered')).toBeTruthy()
 
-      const redoButton = wrapper.find('button.button-secondary')
-      expect(redoButton.exists()).toBeTruthy()
-      expect(redoButton.text()).toEqual('doc_video_confirmation.button_redo')
-      expect(redoButton.hasClass('button-lg button-centered')).toBeTruthy()
+      assertButton(
+        wrapper,
+        'button-secondary',
+        'doc_video_confirmation.button_preview'
+      )
     })
 
-    it('goes back when click on redo', () => {
-      wrapper.find('button.button-secondary').simulate('click')
-      expect(defaultProps.previousStep).toHaveBeenCalled()
-    })
-
-    describe('when upload passport', () => {
+    describe('with passport captures', () => {
       const fakeDocumentType = 'passport'
       const fakeFrontPayload = fakeDocumentCaptureState(
         fakeDocumentType,
@@ -167,17 +212,32 @@ describe('DocumentVideo', () => {
         )
       })
 
-      describe('when success', () => {
+      it('shows capture viewer when click on preview', () => {
+        simulateButtonClick(wrapper, false)
+        assertContent(wrapper, 'preview')
+
+        assertButton(
+          wrapper,
+          'button-secondary',
+          'doc_video_confirmation.button_redo'
+        )
+      })
+
+      it('goes back when click on redo', () => {
+        simulateButtonClick(wrapper, false) // Preview
+        simulateButtonClick(wrapper, false) // Redo
+        expect(defaultProps.previousStep).toHaveBeenCalled()
+      })
+
+      describe('when upload success', () => {
         beforeEach(() => {
           mockedUploadDocument.mockResolvedValue(fakePassportImageResponse)
           mockedUploadDocumentVideo.mockResolvedValue(fakePassportVideoResponse)
-          wrapper.find('button.button-primary').simulate('click')
+          simulateButtonClick(wrapper)
         })
 
         it('renders spinner correctly', async () => {
-          expect(wrapper.find('Spinner').exists()).toBeTruthy()
-          expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
-          expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
+          assertSpinner(wrapper)
 
           await runAllPromises()
 
@@ -232,13 +292,14 @@ describe('DocumentVideo', () => {
         })
       })
 
-      describe('when error', () => {
-        beforeEach(() => mockFailedRequest(wrapper))
+      describe('when upload failed', () => {
+        beforeEach(() => simulateUploadFailed(wrapper))
+
         it('renders spinner correctly', () => assertUploadError(wrapper))
       })
     })
 
-    describe('when upload driving licence', () => {
+    describe('with driving licence captures', () => {
       const fakeDocumentType = 'driving_licence'
       const fakeFrontPayload = fakeDocumentCaptureState(
         fakeDocumentType,
@@ -286,7 +347,24 @@ describe('DocumentVideo', () => {
         )
       })
 
-      describe('when success', () => {
+      it('shows capture viewer when click on preview', () => {
+        simulateButtonClick(wrapper, false)
+        assertContent(wrapper, 'preview')
+
+        assertButton(
+          wrapper,
+          'button-secondary',
+          'doc_video_confirmation.button_redo'
+        )
+      })
+
+      it('goes back when click on redo', () => {
+        simulateButtonClick(wrapper, false) // Preview
+        simulateButtonClick(wrapper, false) // Redo
+        expect(defaultProps.previousStep).toHaveBeenCalled()
+      })
+
+      describe('when upload success', () => {
         beforeEach(() => {
           mockedUploadDocument.mockResolvedValueOnce(
             fakeDrivingLicenceFrontResponse
@@ -295,13 +373,11 @@ describe('DocumentVideo', () => {
           mockedUploadDocumentVideo.mockResolvedValue(
             fakeDrivingLicenceVideoResponse
           )
-          wrapper.find('button.button-primary').simulate('click')
+          simulateButtonClick(wrapper)
         })
 
         it('renders spinner correctly', async () => {
-          expect(wrapper.find('Spinner').exists()).toBeTruthy()
-          expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
-          expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
+          assertSpinner(wrapper)
 
           await runAllPromises()
 
@@ -381,8 +457,9 @@ describe('DocumentVideo', () => {
         })
       })
 
-      describe('when error', () => {
-        beforeEach(() => mockFailedRequest(wrapper))
+      describe('when upload failed', () => {
+        beforeEach(() => simulateUploadFailed(wrapper))
+
         it('renders spinner correctly', () => assertUploadError(wrapper))
       })
     })

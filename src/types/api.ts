@@ -24,6 +24,7 @@ export type ApiRawError = {
 const API_ERROR_AUTHORIZATION = 'authorization_error'
 const API_ERROR_EXPIRED_TOKEN = 'expired_token'
 const API_ERROR_VALIDATION = 'validation_error'
+const API_ERROR_UNKNOWN = 'unknown'
 
 type ApiErrorPayload = {
   message: string
@@ -52,9 +53,17 @@ type ValidationError = {
   fields: Partial<Record<ValidationReasons, string[]>>
 }
 
+type UnknownError = {
+  type: typeof API_ERROR_UNKNOWN
+} & ApiErrorPayload
+
 export type ApiParsedError = {
   response: {
-    error?: AuthorizationError | ExpiredTokenError | ValidationError
+    error?:
+      | AuthorizationError
+      | ExpiredTokenError
+      | ValidationError
+      | UnknownError
     type?: string
     message?: string
   }

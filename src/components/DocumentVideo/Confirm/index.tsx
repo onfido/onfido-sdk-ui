@@ -9,6 +9,7 @@ import { actions } from 'components/ReduxAppWrapper/store/actions'
 import Button from '../../Button'
 import Error from '../../Error'
 import Spinner from '../../Spinner'
+import Content from './Content'
 import style from './style.scss'
 
 import type { ApiParsedError } from '~types/api'
@@ -23,6 +24,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   token,
 }) => {
   const [loading, setLoading] = useState(false)
+  const [previewing, setPreviewing] = useState(false)
   const [error, setError] = useState<ErrorProp>(null)
   const { translate } = useContext(LocaleContext)
 
@@ -147,17 +149,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   return (
     <div className={style.container}>
       {error ? <Error error={error} role="alert" /> : <div />}
-      {!error && (
-        <div className={style.content}>
-          <span className={style.icon} />
-          <span className={style.title}>
-            {translate('doc_video_confirmation.title')}
-          </span>
-          <span className={style.body}>
-            {translate('doc_video_confirmation.body')}
-          </span>
-        </div>
-      )}
+      {!error && <Content capture={documentVideo} previewing={previewing} />}
       <div className={style.buttonsContainer}>
         <Button
           onClick={onUploadDocument}
@@ -166,10 +158,14 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
           {translate('doc_video_confirmation.button_upload')}
         </Button>
         <Button
-          onClick={previousStep}
+          onClick={previewing ? previousStep : () => setPreviewing(true)}
           variants={['secondary', 'lg', 'centered']}
         >
-          {translate('doc_video_confirmation.button_redo')}
+          {translate(
+            previewing
+              ? 'doc_video_confirmation.button_redo'
+              : 'doc_video_confirmation.button_preview'
+          )}
         </Button>
       </div>
     </div>
