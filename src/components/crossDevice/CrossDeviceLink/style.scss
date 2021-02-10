@@ -139,6 +139,7 @@ $parent-width: 432;
   font-family: var(--font-family);
 }
 
+/* FIXME: CX-5306 - text/link Button for x-device Copy link */
 .copyToClipboard {
   cursor: pointer;
   float: right;
