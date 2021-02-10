@@ -10,9 +10,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+- Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
+
 ### Changed
 
 ### Fixed
+
+- Public: Fix zoomed document capture view for Document Live Capture on some Huawei devices, e.g. Huawei P40, P30.
 
 ## [6.5.0] - 2020-02-08
 
@@ -22,7 +26,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
 - Internal: Introduce integration tests for API endpoint integrations.
-- Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 
 ### Changed
 
@@ -35,7 +38,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Fix "File type not supported" error on snapshot upload in selfie step.
 - Public: Fix typo in `en_US.json` file
-- Public: Fix zoomed document capture view for Document Live Capture on some Huawei devices, e.g. Huawei P40, P30.
 
 ## [6.4.0] - 2020-12-21
 
