@@ -1263,6 +1263,12 @@
     "path": "node_modules/@types/parse-unit",
     "licenseFile": "node_modules/@types/parse-unit/LICENSE"
   },
+  "@types/pdfobject@2.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/pdfobject",
+    "licenseFile": "node_modules/@types/pdfobject/LICENSE"
+  },
   "@types/prettier@2.1.5": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
@@ -8390,8 +8396,8 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
-    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/chromedriver/node_modules/mkdirp",
+    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
   },
   "mocha@6.2.2": {
     "licenses": "MIT",
@@ -9019,7 +9025,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/ethan.nguyen/Documents/Workspaces/Onfido/onfido-sdk-ui",
+    "path": "/home/ethanify/Work/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
