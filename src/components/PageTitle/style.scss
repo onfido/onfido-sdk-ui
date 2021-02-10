@@ -24,10 +24,10 @@
 }
 
 .titleWrapper {
-  margin: 32 * $unit $large-text-margin 16 * $unit;
+  margin: 32 * $unit 0 16 * $unit;
   flex-shrink: 0;
   @media (--small-viewport) {
-    margin: 0 $small-text-margin 16 * $unit;
+    margin: 0 0 16 * $unit;
   }
 }
 

@@ -31,7 +31,7 @@ const Intro: FunctionComponent<Props> = ({
 }) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('video_intro.title')} />
-    <div className={classNames(theme.contentMargin, style.introCopy)}>
+    <div className={style.introCopy}>
       <ul
         className={style.introBullets}
         aria-label={translate('video_intro.list_accessibility')}
@@ -56,7 +56,7 @@ const Intro: FunctionComponent<Props> = ({
         })}
       </ul>
     </div>
-    <div className={theme.contentMargin}>
+    <div>
       <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
         {translate('video_intro.button_primary')}
       </Button>

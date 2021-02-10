@@ -1,10 +1,21 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 import { withBlobPreviewUrl, withBlobBase64 } from './hocs'
-import EnlargedPreview from '../../EnlargedPreview'
+import EnlargedPreview from '../EnlargedPreview'
 import style from './style.scss'
 
-const CaptureImageViewer = ({
+import type { WithBlobPreviewProps } from '~types/hocs'
+
+type CaptureImageViewerProps = {
+  altTag?: string
+  id?: string
+  isDocument?: boolean
+  isFullScreen?: boolean
+  isPreviewCropped?: boolean
+  src?: string
+}
+
+const CaptureImageViewer: FunctionComponent<CaptureImageViewerProps> = ({
   src,
   id,
   isDocument,
@@ -53,7 +64,9 @@ const CaptureImageViewerWithBase64 = withBlobBase64(({ base64, ...props }) => (
   <CaptureImageViewer src={base64} {...props} />
 ))
 
-const WrappedCaptureImageViewer = ({ blob, ...props }) =>
+const WrappedCaptureImageViewer: FunctionComponent<
+  CaptureImageViewerProps & WithBlobPreviewProps
+> = ({ blob, ...props }) =>
   blob instanceof File ? (
     <CaptureImageViewerWithBase64 blob={blob} {...props} />
   ) : (

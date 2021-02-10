@@ -81,7 +81,6 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   render(): h.JSX.Element {
     const {
       children,
-      className,
       containerClassName,
       documentType,
       isUploadFallbackDisabled,
@@ -104,8 +103,8 @@ export default class DocumentLiveCapture extends Component<Props, State> {
         ) : (
           <Camera
             facing="environment"
+            docLiveCaptureFrame
             idealCameraHeight={IDEAL_CAMERA_HEIGHT_IN_PX}
-            className={className}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
             webcamRef={(c: Webcam) => (this.webcam = c)}
