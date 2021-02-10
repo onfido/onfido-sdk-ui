@@ -1271,6 +1271,12 @@
     "path": "node_modules/@types/parse-unit",
     "licenseFile": "node_modules/@types/parse-unit/LICENSE"
   },
+  "@types/pdfobject@2.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/pdfobject",
+    "licenseFile": "node_modules/@types/pdfobject/LICENSE"
+  },
   "@types/prettier@2.1.5": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
