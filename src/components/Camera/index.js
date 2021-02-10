@@ -16,7 +16,6 @@ const DEFAULT_CAMERA_HEIGHT_IN_PX = 720
 
 /* export type Props = {
   translate: (string, ?{}) => string,
-  className?: string,
   containerClassName?: string,
   children?: React.Node,
   renderError?: React.Node,
@@ -27,6 +26,7 @@ const DEFAULT_CAMERA_HEIGHT_IN_PX = 720
   video?: boolean,
   isRecording?: boolean,
   facing?: 'user' | 'environment',
+  docLiveCaptureFrame?: boolean,
   idealCameraHeight?: number,
   buttonType?: string,
   onButtonClick: Function,
@@ -36,7 +36,6 @@ const DEFAULT_CAMERA_HEIGHT_IN_PX = 720
 } */
 
 const CameraPure = ({
-  className,
   containerClassName,
   renderTitle,
   renderError,
@@ -48,6 +47,7 @@ const CameraPure = ({
   isRecording,
   translate,
   facing = 'user',
+  docLiveCaptureFrame = false,
   idealCameraHeight,
   buttonType,
   onButtonClick,
@@ -55,7 +55,11 @@ const CameraPure = ({
   hasGrantedPermission,
   fallbackHeight,
 }) => (
-  <div className={classNames(style.camera, className)}>
+  <div
+    className={classNames(style.camera, {
+      [style.docLiveCaptureFrame]: docLiveCaptureFrame,
+    })}
+  >
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>
       <div
