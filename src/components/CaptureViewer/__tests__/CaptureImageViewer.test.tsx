@@ -1,6 +1,8 @@
 import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
+import MockedLocalised from '~jest/MockedLocalised'
+import MockedReduxProvider from '~jest/MockedReduxProvider'
 import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import CaptureImageViewer from '../CaptureImageViewer'
 
@@ -19,6 +21,7 @@ describe('CaptureViewer', () => {
         const wrapper = mount(<CaptureImageViewer blob={fakeBlob} />)
         expect(wrapper.exists()).toBeTruthy()
         expect(wrapper.find('.imageWrapper').exists()).toBeTruthy()
+        expect(wrapper.find('EnlargedPreview').exists()).toBeFalsy()
 
         const image = wrapper.find('img')
         expect(image.exists()).toBeTruthy()
@@ -36,6 +39,21 @@ describe('CaptureViewer', () => {
         expect(image.exists()).toBeTruthy()
         expect(image.hasClass('image')).toBeTruthy()
         expect(image.prop('src')).toEqual('data:image/jpeg;base64,00')
+      })
+    })
+
+    describe('for documents', () => {
+      it('renders items correctly', () => {
+        const wrapper = mount(
+          <MockedReduxProvider>
+            <MockedLocalised>
+              <CaptureImageViewer blob={fakeBlob} isDocument />
+            </MockedLocalised>
+          </MockedReduxProvider>
+        )
+        expect(wrapper.exists()).toBeTruthy()
+        expect(wrapper.find('.imageWrapper').exists()).toBeTruthy()
+        expect(wrapper.find('EnlargedPreview').exists()).toBeTruthy()
       })
     })
   })
