@@ -14,7 +14,7 @@ import {
   fakeDrivingLicenceBackResponse,
   fakeDrivingLicenceVideoResponse,
   fakeNoDocumentError,
-  // fakeUnknownError,
+  fakeUnknownError,
 } from '~jest/responses'
 import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
 import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
@@ -56,11 +56,6 @@ const simulateButtonClick = (wrapper: ReactWrapper, primary = true) =>
     .find(`button.button-${primary ? 'primary' : 'secondary'}`)
     .simulate('click')
 
-const simulateUploadFailed = (wrapper: ReactWrapper) => {
-  mockedUploadDocument.mockRejectedValue(fakeNoDocumentError)
-  simulateButtonClick(wrapper)
-}
-
 const assertButton = (
   wrapper: ReactWrapper,
   buttonClass: string,
@@ -80,7 +75,14 @@ const assertError = (wrapper: ReactWrapper, unknownError = false) => {
 
   expect(wrapper.find('Error').exists()).toBeTruthy()
 
-  if (!unknownError) {
+  if (unknownError) {
+    expect(wrapper.find('Error .title').text()).toEqual(
+      'generic.errors.request_error.message'
+    )
+    expect(wrapper.find('Error .instruction').text()).toEqual(
+      'generic.errors.request_error.instruction'
+    )
+  } else {
     expect(wrapper.find('Error .title').text()).toEqual(
       'doc_confirmation.alert.no_doc_title'
     )
@@ -128,13 +130,6 @@ const assertSpinner = (wrapper: ReactWrapper) => {
   expect(wrapper.find('CaptureViewer').exists()).toBeFalsy()
   expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
   expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
-}
-
-const assertUploadError = async (wrapper: ReactWrapper) => {
-  assertSpinner(wrapper)
-  await runAllPromises()
-  wrapper.update()
-  assertError(wrapper)
 }
 
 describe('DocumentVideo', () => {
@@ -290,12 +285,6 @@ describe('DocumentVideo', () => {
 
           expect(defaultProps.nextStep).toHaveBeenCalled()
         })
-      })
-
-      describe('when upload failed', () => {
-        beforeEach(() => simulateUploadFailed(wrapper))
-
-        it('renders spinner correctly', () => assertUploadError(wrapper))
       })
     })
 
@@ -458,9 +447,31 @@ describe('DocumentVideo', () => {
       })
 
       describe('when upload failed', () => {
-        beforeEach(() => simulateUploadFailed(wrapper))
+        describe('with no document error', () => {
+          beforeEach(() => {
+            mockedUploadDocument.mockRejectedValue(fakeNoDocumentError)
+            simulateButtonClick(wrapper)
+          })
 
-        it('renders spinner correctly', () => assertUploadError(wrapper))
+          it('renders INVALID_CAPTURE error correctly', async () => {
+            await runAllPromises()
+            wrapper.update()
+            assertError(wrapper)
+          })
+        })
+
+        describe('with unknown error', () => {
+          beforeEach(() => {
+            mockedUploadDocument.mockRejectedValue(fakeUnknownError)
+            simulateButtonClick(wrapper)
+          })
+
+          it('renders REQUEST_ERROR error correctly', async () => {
+            await runAllPromises()
+            wrapper.update()
+            assertError(wrapper, true)
+          })
+        })
       })
     })
   })
