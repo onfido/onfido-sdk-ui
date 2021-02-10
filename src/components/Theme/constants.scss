@@ -55,13 +55,6 @@ $color-subtitle-text: $color-body-text;
 $color-tips-pill: #5d6b78;
 $color-input-border: #667080;
 
-/* Warning message button text color */
-$color-warning-button-text-hover: $color-white;
-
-/* Error message button colors */
-$color-error-button-hover: #ffb9b9;
-$color-error-button-active: #fce5e5;
-
 /* Transparent colors */
 $color-transparent: transparent;
 $color-help-container: rgba(var(--ods-color-neutral-600));
@@ -71,14 +64,19 @@ $color-camera-error-overlay: #1c1f21;
 $color-navbar-gradient-one: rgba(28, 31, 33, 0);
 $color-navbar-gradient-two: rgba(28, 31, 33, 0.35);
 
-/* Button colors */
+/* Warning message button text color */
+$color-warning-button-text-hover: $color-white;
+
+/* Error message button colors */
+$color-error-button-hover: #ffb9b9;
+$color-error-button-active: #fce5e5;
+
+/* Doc/Face capture preview "Enlarge image" button colors */
 $color-small-button: rgba(15, 37, 54, 0.85);
 $color-small-button-hover: rgba(15, 37, 54, 0.6);
 $color-small-button-active: rgba(15, 37, 54, 0.85);
 
-/* Button size variables */
-$button-height: 56px;
-
+/* Primary/Secondary Button width variables */
 $lg-btn-width-lg-screen: 272 * $unit-small;
 $lg-btn-width-sm-screen: 100%;
 

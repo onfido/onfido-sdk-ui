@@ -329,7 +329,6 @@ $logo-height: 32 * $unit;
 }
 
 .button-lg {
-  height: $button-height;
   font-size: var(--font-size-small);
   width: $lg-btn-width-lg-screen;
   @media (--small-viewport) {
@@ -338,7 +337,6 @@ $logo-height: 32 * $unit;
 }
 
 .button-sm {
-  height: $button-height;
   font-size: var(--font-size-small);
   width: $sm-btn-width-lg-screen;
   @media (--small-viewport) {
