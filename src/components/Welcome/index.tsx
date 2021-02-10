@@ -1,19 +1,33 @@
-import { h } from 'preact'
-import ScreenLayout from '../Theme/ScreenLayout'
+import { h, FunctionComponent } from 'preact'
+import { buildIteratorKey } from '~utils'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import { trackComponent } from '../../Tracker'
 import { localised } from '../../locales'
-import { buildIteratorKey } from '~utils'
+import ScreenLayout from '../Theme/ScreenLayout'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-const localisedDescriptions = (translate) => [
+import type { TranslateCallback } from '~types/locales'
+import type { WithLocalisedProps } from '~types/hocs'
+import type { StepComponentWelcomeProps } from '~types/routers'
+
+type Props = StepComponentWelcomeProps & WithLocalisedProps
+
+const localisedDescriptions = (translate: TranslateCallback) => [
   translate('welcome.description_p_1'),
   translate('welcome.description_p_2'),
 ]
 
-const WelcomeContent = ({ descriptions, translate }) => {
+type WelcomeContentProps = {
+  descriptions: string[]
+  translate: TranslateCallback
+}
+
+const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
+  descriptions,
+  translate,
+}) => {
   const welcomeDescriptions = descriptions
     ? descriptions
     : localisedDescriptions(translate)
@@ -31,7 +45,17 @@ const WelcomeContent = ({ descriptions, translate }) => {
   )
 }
 
-const WelcomeActions = ({ nextButton, nextStep, translate }) => {
+type WelcomeActionsProps = {
+  nextButton?: string
+  nextStep: () => void
+  translate: TranslateCallback
+}
+
+const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
+  nextButton,
+  nextStep,
+  translate,
+}) => {
   const welcomeNextButton = nextButton
     ? nextButton
     : translate('welcome.next_button')
@@ -45,9 +69,16 @@ const WelcomeActions = ({ nextButton, nextStep, translate }) => {
   )
 }
 
-const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
+const Welcome: FunctionComponent<Props> = ({
+  title,
+  descriptions,
+  nextButton,
+  nextStep,
+  translate,
+}) => {
   const actions = <WelcomeActions {...{ nextButton, nextStep, translate }} />
   const welcomeTitle = title ? title : translate('welcome.title')
+
   return (
     <ScreenLayout actions={actions}>
       <PageTitle title={welcomeTitle} />
