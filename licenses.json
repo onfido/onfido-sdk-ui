@@ -811,15 +811,7 @@
     "path": "node_modules/@babel/runtime-corejs3",
     "licenseFile": "node_modules/@babel/runtime-corejs3/LICENSE"
   },
-  "@babel/runtime@7.12.5": {
-    "licenses": "MIT",
-    "repository": "https://github.com/babel/babel",
-    "publisher": "Sebastian McKenzie",
-    "email": "sebmck@gmail.com",
-    "path": "node_modules/react-redux/node_modules/@babel/runtime",
-    "licenseFile": "node_modules/react-redux/node_modules/@babel/runtime/LICENSE"
-  },
-  "@babel/runtime@7.8.7": {
+  "@babel/runtime@7.12.13": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "publisher": "Sebastian McKenzie",
@@ -8398,8 +8390,8 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/chromedriver/node_modules/mkdirp",
-    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
+    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
   },
   "mocha@6.2.2": {
     "licenses": "MIT",
@@ -9027,7 +9019,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/home/ethanify/Work/onfido-sdk-ui",
+    "path": "/Users/ethan.nguyen/Documents/Workspaces/Onfido/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
@@ -10606,14 +10598,6 @@
     "email": "bn@cs.stanford.edu",
     "path": "node_modules/@babel/runtime-corejs3/node_modules/regenerator-runtime",
     "licenseFile": "node_modules/@babel/runtime-corejs3/node_modules/regenerator-runtime/LICENSE"
-  },
-  "regenerator-runtime@0.13.7": {
-    "licenses": "MIT",
-    "repository": "https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime",
-    "publisher": "Ben Newman",
-    "email": "bn@cs.stanford.edu",
-    "path": "node_modules/react-redux/node_modules/regenerator-runtime",
-    "licenseFile": "node_modules/react-redux/node_modules/regenerator-runtime/LICENSE"
   },
   "regenerator-transform@0.14.5": {
     "licenses": "MIT",
