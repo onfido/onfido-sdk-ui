@@ -48,13 +48,21 @@
   --color-primary-active: rgba(var(--ods-color-primary-600));
 
   /* Primary Button customisations */
-  --osdk-color-background-button-primary-text: rgba(
+  --osdk-color-content-button-primary-text: rgba(
     var(--ods-color-content-on-action)
   );
-  --osdk-color-border-button-primary: var(--color-primary);
-  --osdk-color-background-button-primary: var(--color-primary);
-  --osdk-color-background-button-primary-hover: var(--color-primary-hover);
-  --osdk-color-background-button-primary-active: var(--color-primary-active);
+
+  --osdk-color-border-button-primary: rgba(var(--ods-color-border-action));
+
+  --osdk-color-background-button-primary: rgba(
+    var(--ods-color-background-action)
+  );
+  --osdk-color-background-button-primary-hover: rgba(
+    var(--ods-color-background-action-hover)
+  );
+  --osdk-color-background-button-primary-active: rgba(
+    var(--ods-color-background-action-active)
+  );
   --osdk-color-background-button-primary-disabled: rgba(
     var(--ods-color-neutral-300)
   );

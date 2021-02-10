@@ -11,7 +11,8 @@
     /* stylelint-disable-next-line selector-class-pattern */
     &.-action--primary {
       background-color: var(--osdk-color-background-button-primary);
-      color: var(--osdk-color-background-button-primary-text);
+      color: var(--osdk-color-content-button-primary-text);
+      border-color: var(--osdk-color-border-button-primary);
 
       &:active {
         background-color: var(--osdk-color-background-button-primary-active);
@@ -19,9 +20,10 @@
 
       &:disabled {
         background-color: var(--osdk-color-background-button-primary-disabled);
+        border-color: $color-transparent;
       }
 
-      &:hover {
+      &:hover:not(:disabled) {
         background-color: var(--osdk-color-background-button-primary-hover);
       }
     }
