@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact'
 import { mount } from 'enzyme'
 
-import '../../utils/__mocks__/objectUrl'
+import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import { withBlobPreviewUrl, withBlobBase64 } from '../hocs'
 
 type DummyProps = {
@@ -14,8 +14,8 @@ const DummyComponent: FunctionComponent<DummyProps> = ({
   previewUrl,
 }) => (
   <div>
-    {base64 && <span class="base64">{base64}</span>}
-    {previewUrl && <span class="previewUrl">{previewUrl}</span>}
+    {base64 && <span className="base64">{base64}</span>}
+    {previewUrl && <span className="previewUrl">{previewUrl}</span>}
   </div>
 )
 
