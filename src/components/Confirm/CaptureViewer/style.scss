@@ -19,11 +19,7 @@
   display: flex;
   position: relative;
   min-height: 90 * $unit;
-  margin: 0 48 * $unit;
-
-  @media (--small-viewport) {
-    margin: 0 $small-text-margin;
-  }
+  justify-content: center;
 }
 
 .croppedImageWrapper {
@@ -51,7 +47,6 @@
   max-width: 100%;
   max-height: 100%;
   display: block;
-  margin: 0 auto;
   border-radius: 3 * $unit;
   flex: 0 0 auto;
   align-self: stretch;
