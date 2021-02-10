@@ -25,6 +25,7 @@ import type {
   StepConfigDocument,
   DocumentTypes,
 } from '~types/steps'
+import { kebabCase } from '~utils/string'
 
 import withConnect, { ReduxProps } from './withConnect'
 
@@ -173,6 +174,20 @@ class ModalApp extends Component<Props> {
 
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
       this.setConfiguredEnterpriseFeatures(validEnterpriseFeatures, options)
+    }
+
+    const { customUI } = this.props.options
+    if (customUI && customUI !== prevOptions.customUI) {
+      const sdkCustomisations = Object.keys(customUI).map(
+        (key) => `--osdk-${kebabCase(key)}: ${customUI[key]};`
+      )
+      const style = `
+      <style>
+          :root {
+            ${sdkCustomisations.join('\n')}
+          }
+      </style>`
+      document.head.insertAdjacentHTML('beforeend', style)
     }
   }
 
