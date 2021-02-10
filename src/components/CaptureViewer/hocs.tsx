@@ -93,7 +93,9 @@ export const withBlobBase64 = <P extends WrappedPreviewProps>(
     }
 
     componentWillReceiveProps({ blob }: P & WithBlobPreviewProps) {
-      if (this.props.blob !== blob) this.updateBase64(blob)
+      if (this.props.blob !== blob) {
+        this.updateBase64(blob)
+      }
     }
 
     render() {
