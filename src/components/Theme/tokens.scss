@@ -89,11 +89,15 @@
   --osdk-button-group-vertical: false;
 
   /* Document Type Selectors option button colors */
-  --color-border-doc-type-button: var(--osdk-color-border-surface-modal);
-  // FIXME: border width (2px) to be a separate CSS variable
-  --color-border-doc-type-button-hover: 0 0 0 2px
-    var(--ods-color-border-action-hover);
-  --color-border-doc-type-button-active: 0 0 0 2px var(--color-primary-active);
+  --color-background-doc-type-button: rgba(var(--ods-color-neutral-white));
+
+  --color-border-doc-type-button: rgba(var(--ods-color-border-input));
+  --color-border-doc-type-button-hover: rgba(
+    var(--ods-color-border-action-hover)
+  );
+  --color-border-doc-type-button-active: rgba(
+    var(--ods-color-border-action-focus)
+  );
 
   /* Back button colors */
   --osdk-color-background-button-back-icon-hover: rgba(
