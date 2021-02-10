@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { memo, useCallback, useEffect, useState } from 'preact/compat'
+import { memo, useEffect, useState } from 'preact/compat'
 import {
   UIConfigs,
   getInitSdkOptions,
@@ -31,7 +31,7 @@ const SdkDemo: FunctionComponent<Props> = ({
   const [regionCode, setRegionCode] = useState<ServerRegions>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const callTokenFactory = useCallback(() => {
+  useEffect(() => {
     const { region } = sdkOptions || {}
 
     const builtRegionCode = (
@@ -48,10 +48,6 @@ const SdkDemo: FunctionComponent<Props> = ({
       setToken(respondedToken)
     )
   }, [hasPreview, messagePort, sdkOptions])
-
-  useEffect(() => {
-    callTokenFactory()
-  }, [callTokenFactory])
 
   const { tearDown } = viewOptions || {}
 
