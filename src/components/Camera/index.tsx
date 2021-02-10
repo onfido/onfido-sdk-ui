@@ -33,8 +33,8 @@ const Camera: FunctionComponent<Props> = ({
   audio,
   buttonType = 'photo',
   children,
-  className,
   containerClassName,
+  docLiveCaptureFrame = false,
   facing = 'user',
   fallbackHeight,
   hasGrantedPermission,
@@ -49,7 +49,11 @@ const Camera: FunctionComponent<Props> = ({
   translate,
   webcamRef,
 }) => (
-  <div className={classNames(style.camera, className)}>
+  <div
+    className={classNames(style.camera, {
+      [style.docLiveCaptureFrame]: docLiveCaptureFrame,
+    })}
+  >
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>
       <div

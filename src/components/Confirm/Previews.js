@@ -8,6 +8,7 @@ import Error from '../Error'
 import { CONFIRM_PREVIEWS_LOCALES_MAPPING } from '~utils/localesMapping'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
+import ScreenLayout from '../Theme/ScreenLayout'
 
 const getMessageKey = ({
   capture,
@@ -89,42 +90,47 @@ const Previews = localised(
         method,
       })
     )
+    const actions = (
+      <Actions
+        {...{
+          retakeAction,
+          confirmAction,
+          isUploading,
+          error,
+          forceRetake,
+        }}
+      />
+    )
 
     return (
-      <div
-        className={classNames(
-          style.previewsContainer,
-          theme.fullHeightContainer,
-          {
-            [style.previewsContainerIsFullScreen]: isFullScreen,
-          }
-        )}
-      >
-        {isFullScreen ? null : error.type ? (
-          <Error
-            {...{ error, withArrow: true, role: 'alert', focusOnMount: false }}
-          />
-        ) : (
-          <PageTitle title={title} smaller={true} className={style.title} />
-        )}
-        <CaptureViewer
-          {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }}
-        />
-        {!isFullScreen && (
-          <div>
-            <p className={style.message}>{message}</p>
-            <Actions
+      <ScreenLayout actions={!isFullScreen && actions}>
+        <div
+          className={classNames(
+            style.previewsContainer,
+            theme.fullHeightContainer,
+            {
+              [style.previewsContainerIsFullScreen]: isFullScreen,
+            }
+          )}
+        >
+          {isFullScreen ? null : error.type ? (
+            <Error
               {...{
-                retakeAction,
-                confirmAction,
-                isUploading,
                 error,
-                forceRetake,
+                withArrow: true,
+                role: 'alert',
+                focusOnMount: false,
               }}
             />
-          </div>
-        )}
-      </div>
+          ) : (
+            <PageTitle title={title} smaller={true} className={style.title} />
+          )}
+          <CaptureViewer
+            {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }}
+          />
+          {!isFullScreen && <p className={style.message}>{message}</p>}
+        </div>
+      </ScreenLayout>
     )
   }
 )
