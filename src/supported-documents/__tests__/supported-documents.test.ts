@@ -1,3 +1,4 @@
+import type { DocumentTypes } from '~types/steps'
 import { getSupportedCountriesForDocument } from '../index'
 
 describe('getSupportedCountriesForDocument', () => {
@@ -46,7 +47,7 @@ describe('getSupportedCountriesForDocument', () => {
       .spyOn(console, 'error')
       .mockImplementation(() => {})
     const supportedCountries = getSupportedCountriesForDocument(
-      'unknown_document'
+      'unknown_document' as DocumentTypes
     )
     expect(consoleError).toHaveBeenCalled()
     expect(supportedCountries).toEqual([])

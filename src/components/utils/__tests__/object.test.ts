@@ -1,4 +1,4 @@
-import { pick, omit } from '../object.js'
+import { pick, omit } from '../object'
 
 describe('pick', () => {
   it('should pick only the specified keys of an object', () => {

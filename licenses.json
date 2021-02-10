@@ -1137,6 +1137,12 @@
     "path": "node_modules/@types/babel__traverse",
     "licenseFile": "node_modules/@types/babel__traverse/LICENSE"
   },
+  "@types/blueimp-load-image@2.23.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/blueimp-load-image",
+    "licenseFile": "node_modules/@types/blueimp-load-image/LICENSE"
+  },
   "@types/cheerio@0.22.23": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
@@ -1258,6 +1264,12 @@
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/@types/parse-json",
     "licenseFile": "node_modules/@types/parse-json/LICENSE"
+  },
+  "@types/parse-unit@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/parse-unit",
+    "licenseFile": "node_modules/@types/parse-unit/LICENSE"
   },
   "@types/prettier@2.1.5": {
     "licenses": "MIT",
