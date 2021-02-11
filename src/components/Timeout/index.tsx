@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 
-export type Props = {
+type Props = {
   seconds: number
   onTimeout: () => void
 }

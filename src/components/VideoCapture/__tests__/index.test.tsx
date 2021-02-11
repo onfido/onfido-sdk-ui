@@ -5,7 +5,6 @@ import Webcam from 'react-webcam-onfido'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import Camera from '../../Camera'
-import Timeout, { Props as TimeoutProps } from '../../Timeout'
 import VideoCapture, {
   VideoLayerProps,
   Props as VideoCaptureProps,
@@ -16,9 +15,24 @@ import type { CameraProps } from '~types/camera'
 jest.mock('../../utils')
 
 const assertTimeout = (wrapper: ReactWrapper, seconds: number) => {
-  const timeout = wrapper.find<TimeoutProps>(Timeout)
+  const timeout = wrapper.find('Timeout')
   expect(timeout.exists()).toBeTruthy()
-  expect(timeout.props().seconds).toEqual(seconds)
+  expect(timeout.prop('seconds')).toEqual(seconds)
+}
+
+const assertInactiveError = (wrapper: ReactWrapper, forceRedo: boolean) => {
+  expect(wrapper.find('#record-video').text()).toEqual('Start')
+  expect(wrapper.find('Timeout').exists()).toBeFalsy()
+
+  const error = wrapper.find('CameraError Error')
+  expect(error.exists()).toBeTruthy()
+
+  if (forceRedo) {
+    expect(wrapper.find('#record-video').prop('disabled')).toBeTruthy()
+    expect(wrapper.find('FallbackButton').text()).toEqual(
+      'selfie_capture.alert.timeout.detail'
+    )
+  }
 }
 
 const MockedVideoLayer: FunctionComponent<VideoLayerProps> = ({
@@ -47,6 +61,10 @@ const defaultProps: VideoCaptureProps = {
 }
 
 describe('VideoCapture', () => {
+  beforeAll(() => {
+    jest.useFakeTimers()
+  })
+
   afterEach(() => {
     jest.clearAllMocks()
   })
@@ -97,6 +115,16 @@ describe('VideoCapture', () => {
 
     it('renders inactive timeout correctly', () => assertTimeout(wrapper, 12))
 
+    describe('when inactive timed out', () => {
+      beforeEach(() => {
+        jest.runTimersToTime(12_000) // 12 seconds - default value
+        wrapper.update()
+      })
+
+      it('handles redo fallback correctly', () =>
+        assertInactiveError(wrapper, false))
+    })
+
     describe('when recording', () => {
       beforeEach(() => {
         wrapper.find('#record-video').simulate('click')
@@ -126,19 +154,12 @@ describe('VideoCapture', () => {
 
       describe('when inactive timed out', () => {
         beforeEach(() => {
-          const timeout = wrapper.find<TimeoutProps>(Timeout)
-          timeout.props().onTimeout()
+          jest.runTimersToTime(20_000) // 20 seconds - default value
           wrapper.update()
         })
 
-        it('handles redo fallback correctly', () => {
-          expect(wrapper.find('#record-video').text()).toEqual('Start')
-          expect(wrapper.find('#record-video').prop('disabled')).toBeTruthy()
-          expect(wrapper.find(Timeout).exists()).toBeFalsy()
-          expect(wrapper.find('FallbackButton').text()).toEqual(
-            'selfie_capture.alert.timeout.detail'
-          )
-        })
+        it('handles redo fallback correctly', () =>
+          assertInactiveError(wrapper, true))
       })
     })
 

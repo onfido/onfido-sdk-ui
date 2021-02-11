@@ -11,7 +11,6 @@ import FallbackButton, {
   Props as FallbackButtonProps,
 } from '../../Button/FallbackButton'
 import VideoCapture, { Props as VideoCaptureProps } from '../../VideoCapture'
-import Timeout, { Props as TimeoutProps } from '../../Timeout'
 
 import DocumentVideo, { Props as DocumentVideoProps } from '../index'
 import Recording, { Props as RecordingProps } from '../Recording'
@@ -27,12 +26,6 @@ const defaultProps: DocumentVideoProps = {
   onCapture: jest.fn(),
   renderFallback: jest.fn(),
   trackScreen: jest.fn(),
-}
-
-const simulateTimeout = (wrapper: ReactWrapper) => {
-  const timeout = wrapper.find<TimeoutProps>(Timeout)
-  timeout.props().onTimeout()
-  wrapper.update()
 }
 
 const simulateCaptureStart = (wrapper: ReactWrapper) => {
@@ -206,17 +199,14 @@ describe('DocumentVideo', () => {
     it('renders overlay correctly', () =>
       assertOverlay(wrapper, 'driving_licence', true))
 
-    it('sets correct timeout', () => {
-      const timeout = wrapper.find<TimeoutProps>(Timeout)
-      expect(timeout.props().seconds).toEqual(12)
-    })
-
     describe('when inactive timed out', () => {
-      beforeEach(() => simulateTimeout(wrapper))
+      beforeEach(() => {
+        jest.runTimersToTime(12_000)
+        wrapper.update()
+      })
 
       it('handles redo fallback correctly', () => {
         const error = wrapper.find('CameraError Error')
-        expect(error.exists()).toBeTruthy()
         expect(error.find('.title').text()).toEqual(
           'selfie_capture.alert.camera_inactive.title'
         )
@@ -227,11 +217,13 @@ describe('DocumentVideo', () => {
       beforeEach(() => simulateCaptureStart(wrapper))
 
       describe('when inactive timed out', () => {
-        beforeEach(() => simulateTimeout(wrapper))
+        beforeEach(() => {
+          jest.runTimersToTime(30_000)
+          wrapper.update()
+        })
 
         it('handles redo fallback correctly', () => {
           const error = wrapper.find('CameraError Error')
-          expect(error.exists()).toBeTruthy()
           expect(error.find('.title').text()).toEqual(
             'selfie_capture.alert.timeout.title'
           )
@@ -252,8 +244,8 @@ describe('DocumentVideo', () => {
       })
 
       it('sets correct timeout', () => {
-        const timeout = wrapper.find<TimeoutProps>(Timeout)
-        expect(timeout.props().seconds).toEqual(30)
+        const timeout = wrapper.find('Timeout')
+        expect(timeout.prop('seconds')).toEqual(30)
       })
 
       it('starts recording correctly', () => {
