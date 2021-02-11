@@ -370,9 +370,10 @@
                 "back_subtitle": "Press done when complete"
             }
         },
-        "button_primary_next": "Next step",
-        "button_record_accessibility": "Start recording",
-        "button_stop_accessibility": "Done"
+        "button_next": "Next step",
+        "button_record": "Start recording",
+        "button_start": "Start",
+        "button_stop": "Done"
     },
     "doc_video_confirmation": {
         "title": "Thank you",

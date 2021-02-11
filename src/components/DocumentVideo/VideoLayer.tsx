@@ -19,6 +19,13 @@ export type Props = {
   totalSteps: number
 } & VideoLayerProps
 
+const BUTTON_LOCALE_MAP: Record<CaptureSteps, string> = {
+  intro: 'doc_video_capture.button_start',
+  front: 'doc_video_capture.button_record',
+  tilt: 'doc_video_capture.button_next',
+  back: 'doc_video_capture.button_stop',
+}
+
 const VideoLayer: FunctionComponent<Props> = ({
   disableInteraction,
   isRecording,
@@ -62,11 +69,7 @@ const VideoLayer: FunctionComponent<Props> = ({
 
   return (
     <Recording
-      buttonText={translate(
-        step !== 'back'
-          ? 'doc_video_capture.button_primary_next'
-          : 'doc_video_capture.button_stop_accessibility'
-      )}
+      buttonText={translate(BUTTON_LOCALE_MAP[step])}
       disableInteraction={disableInteraction}
       hasMoreSteps={stepNumber < totalSteps}
       onNext={handleNext}

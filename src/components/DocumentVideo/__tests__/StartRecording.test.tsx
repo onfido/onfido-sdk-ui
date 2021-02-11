@@ -20,9 +20,7 @@ describe('DocumentVideo', () => {
       const button = wrapper.find('Button > button')
       expect(button.exists()).toBeTruthy()
       expect(button.prop('disabled')).toBeFalsy()
-      expect(button.text()).toEqual(
-        'doc_video_capture.button_record_accessibility'
-      )
+      expect(button.text()).toEqual('doc_video_capture.button_start')
 
       button.simulate('click')
       expect(defaultProps.onClick).toHaveBeenCalled()

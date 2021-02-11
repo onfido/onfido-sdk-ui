@@ -105,7 +105,7 @@ const assertFrontStep = (
   expect(recording.props().disableInteraction).toBeFalsy()
   expect(recording.props().hasMoreSteps).toBeTruthy()
   expect(recording.props().buttonText).toEqual(
-    'doc_video_capture.button_primary_next'
+    'doc_video_capture.button_record'
   )
 
   const instructions = recording.find('Instructions')
@@ -130,9 +130,7 @@ const assertTiltStep = (wrapper: ReactWrapper, forSingleSidedDocs: boolean) => {
   expect(recording.exists()).toBeTruthy()
   expect(recording.props().disableInteraction).toBeFalsy()
   expect(recording.props().hasMoreSteps).toEqual(!forSingleSidedDocs)
-  expect(recording.props().buttonText).toEqual(
-    'doc_video_capture.button_primary_next'
-  )
+  expect(recording.props().buttonText).toEqual('doc_video_capture.button_next')
 
   const instructions = recording.find('Instructions')
   expect(instructions.exists()).toBeTruthy()
@@ -156,9 +154,7 @@ const assertBackStep = (wrapper: ReactWrapper) => {
   const recording = wrapper.find<RecordingProps>(Recording)
   expect(recording.props().disableInteraction).toBeFalsy()
   expect(recording.props().hasMoreSteps).toBeFalsy()
-  expect(recording.props().buttonText).toEqual(
-    'doc_video_capture.button_stop_accessibility'
-  )
+  expect(recording.props().buttonText).toEqual('doc_video_capture.button_stop')
 
   const instructions = recording.find('Instructions')
   expect(instructions.exists()).toBeTruthy()

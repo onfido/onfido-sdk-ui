@@ -25,7 +25,7 @@ const StartRecording: FunctionComponent<Props> = ({
         disabled={disableInteraction}
         onClick={onClick}
       >
-        {translate('doc_video_capture.button_record_accessibility')}
+        {translate('doc_video_capture.button_start')}
       </Button>
     </div>
   )
