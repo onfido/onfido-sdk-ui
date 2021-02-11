@@ -121,6 +121,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
       cameraClassName={cameraClassName}
       facing="environment"
       inactiveError={getInactiveError(true)}
+      method="document"
       onRecordingStart={onRecordingStart}
       onRedo={restartFlow}
       onVideoCapture={onVideoCapture}

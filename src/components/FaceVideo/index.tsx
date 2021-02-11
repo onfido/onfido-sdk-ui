@@ -95,6 +95,7 @@ class FaceVideo extends Component<Props, State> {
         audio
         cameraClassName={cameraClassName}
         inactiveError={inactiveError}
+        method="face"
         onRecordingStart={this.onRecordingStart}
         onRedo={onRedo}
         onVideoCapture={this.onVideoCapture}

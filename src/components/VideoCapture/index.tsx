@@ -10,6 +10,7 @@ import FallbackButton from '../Button/FallbackButton'
 import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
 
+import type { CaptureMethods } from '~types/commons'
 import type { WithTrackingProps, WithPermissionsFlowProps } from '~types/hocs'
 import type {
   ErrorProp,
@@ -34,6 +35,7 @@ export type Props = {
   cameraClassName?: string
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
+  method: CaptureMethods
   onRecordingStart?: () => void
   onRedo: () => void
   onVideoCapture: HandleCaptureProp

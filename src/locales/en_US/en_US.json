@@ -352,6 +352,12 @@
         "title": "Upload passport photo page"
     },
     "doc_video_capture": {
+        "alert": {
+            "timeout": {
+                "detail": "Video recording is limited to 30 seconds. <fallback>Redo video actions<\/fallback>",
+                "title": "Looks like you took too long"
+            }
+        },
         "instructions": {
             "passport": {
                 "intro_title": "Record a video of your passport photo page",

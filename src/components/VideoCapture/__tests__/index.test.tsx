@@ -56,6 +56,7 @@ const MockedVideoLayer: FunctionComponent<VideoLayerProps> = ({
 
 const defaultProps: VideoCaptureProps = {
   inactiveError: { name: 'CAMERA_INACTIVE' },
+  method: 'face',
   onRecordingStart: jest.fn(),
   onRedo: jest.fn(),
   onVideoCapture: jest.fn(),
