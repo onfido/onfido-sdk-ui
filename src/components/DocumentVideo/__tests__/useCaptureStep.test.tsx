@@ -25,6 +25,13 @@ const DummyComponent: FunctionComponent<DummyProps> = ({ documentType }) => {
   )
 }
 
+const simulateNext = (wrapper: ShallowWrapper, times: number) => {
+  const button = wrapper.find('#next')
+  Array(times)
+    .fill(null)
+    .forEach(() => button.simulate('click'))
+}
+
 const assertStep = (
   wrapper: ShallowWrapper,
   matchObject: Record<string, unknown>
@@ -47,35 +54,32 @@ describe('DocumentVideo', () => {
         assertStep(wrapper, { step: 'intro', stepNumber: 0, totalSteps: 3 }))
 
       it('moves to front step correctly', () => {
-        wrapper.find('#next').simulate('click')
+        simulateNext(wrapper, 1)
         assertStep(wrapper, { step: 'front', stepNumber: 1, totalSteps: 3 })
       })
 
       it('moves to tilt step correctly', () => {
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
+        simulateNext(wrapper, 2)
         assertStep(wrapper, { step: 'tilt', stepNumber: 2, totalSteps: 3 })
       })
 
       it('moves to back step correctly', () => {
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
+        simulateNext(wrapper, 3)
         assertStep(wrapper, { step: 'back', stepNumber: 3, totalSteps: 3 })
+      })
+
+      it('moves to complete step correctly', () => {
+        simulateNext(wrapper, 4)
+        assertStep(wrapper, { step: 'complete', stepNumber: 3, totalSteps: 3 })
       })
 
       it('does nothing after last step', () => {
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
-        assertStep(wrapper, { step: 'back', stepNumber: 3, totalSteps: 3 })
+        simulateNext(wrapper, 5)
+        assertStep(wrapper, { step: 'complete', stepNumber: 3, totalSteps: 3 })
       })
 
       it('restarts correctly', () => {
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
+        simulateNext(wrapper, 2)
         wrapper.find('#restart').simulate('click')
         assertStep(wrapper, { step: 'intro', stepNumber: 0, totalSteps: 3 })
       })
@@ -90,26 +94,27 @@ describe('DocumentVideo', () => {
         assertStep(wrapper, { step: 'intro', stepNumber: 0, totalSteps: 2 }))
 
       it('moves to front step correctly', () => {
-        wrapper.find('#next').simulate('click')
+        simulateNext(wrapper, 1)
         assertStep(wrapper, { step: 'front', stepNumber: 1, totalSteps: 2 })
       })
 
       it('moves to tilt step correctly', () => {
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
+        simulateNext(wrapper, 2)
         assertStep(wrapper, { step: 'tilt', stepNumber: 2, totalSteps: 2 })
+      })
+
+      it('moves to complete step correctly', () => {
+        simulateNext(wrapper, 3)
+        assertStep(wrapper, { step: 'complete', stepNumber: 2, totalSteps: 2 })
       })
 
       it('does nothing after last step', () => {
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
-        assertStep(wrapper, { step: 'tilt', stepNumber: 2, totalSteps: 2 })
+        simulateNext(wrapper, 4)
+        assertStep(wrapper, { step: 'complete', stepNumber: 2, totalSteps: 2 })
       })
 
       it('restarts correctly', () => {
-        wrapper.find('#next').simulate('click')
-        wrapper.find('#next').simulate('click')
+        simulateNext(wrapper, 1)
         wrapper.find('#restart').simulate('click')
         assertStep(wrapper, { step: 'intro', stepNumber: 0, totalSteps: 2 })
       })

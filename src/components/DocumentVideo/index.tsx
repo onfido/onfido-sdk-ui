@@ -5,14 +5,17 @@ import Webcam from 'react-webcam-onfido'
 import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
 import { getInactiveError } from '~utils/inactiveError'
-import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
+import {
+  TitleLocale,
+  DOC_VIDEO_INSTRUCTIONS_MAPPING,
+} from '~utils/localesMapping'
 import { LocaleContext } from '~locales'
 import { DocumentOverlay } from '../Overlay'
 import VideoCapture from '../VideoCapture'
 import VideoLayer from './VideoLayer'
 import useCaptureStep from './useCaptureStep'
 
-import { TILT_MODE, CaptureVariants } from '~types/docVideo'
+import { TILT_MODE, CaptureSteps, CaptureVariants } from '~types/docVideo'
 import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type {
@@ -29,6 +32,19 @@ const renamedCapture = (
   ...payload,
   filename: `document_${step}.${mimeType(payload.blob)}`,
 })
+
+const getLocaleKey = (
+  documentType: DocumentTypes,
+  step: CaptureSteps
+): TitleLocale => {
+  if (step === 'complete') {
+    return { title: '', subtitle: '' }
+  }
+
+  return documentType === 'passport' && step !== 'back'
+    ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[step]
+    : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[step]
+}
 
 export type Props = {
   cameraClassName?: string
@@ -99,10 +115,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
     })
   }
 
-  const localeKeys =
-    documentType === 'passport' && step !== 'back'
-      ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[step]
-      : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[step]
+  const localeKeys = getLocaleKey(documentType, step)
   const title = translate(localeKeys.title)
   const subtitle = translate(localeKeys.subtitle)
 

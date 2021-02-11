@@ -22,14 +22,28 @@ describe('DocumentVideo', () => {
       expect(steps.at(2).hasClass('active')).toBeFalsy()
     })
 
-    it('renders steps with active ones', () => {
-      const wrapper = mount(<ProgressBar {...defaultProps} stepNumber={2} />)
+    describe('with active steps', () => {
+      it(`renders correct steps when current step isn't finished yet`, () => {
+        const wrapper = mount(<ProgressBar {...defaultProps} stepNumber={2} />)
 
-      const steps = wrapper.find('.step')
-      expect(steps.length).toEqual(defaultProps.totalSteps)
-      expect(steps.at(0).hasClass('active')).toBeTruthy()
-      expect(steps.at(1).hasClass('active')).toBeTruthy()
-      expect(steps.at(2).hasClass('active')).toBeFalsy()
+        const steps = wrapper.find('.step')
+        expect(steps.length).toEqual(defaultProps.totalSteps)
+        expect(steps.at(0).hasClass('active')).toBeTruthy()
+        expect(steps.at(1).hasClass('active')).toBeFalsy()
+        expect(steps.at(2).hasClass('active')).toBeFalsy()
+      })
+
+      it(`renders correct steps when current step is finished`, () => {
+        const wrapper = mount(
+          <ProgressBar {...defaultProps} stepFinished stepNumber={2} />
+        )
+
+        const steps = wrapper.find('.step')
+        expect(steps.length).toEqual(defaultProps.totalSteps)
+        expect(steps.at(0).hasClass('active')).toBeTruthy()
+        expect(steps.at(1).hasClass('active')).toBeTruthy()
+        expect(steps.at(2).hasClass('active')).toBeFalsy()
+      })
     })
   })
 })

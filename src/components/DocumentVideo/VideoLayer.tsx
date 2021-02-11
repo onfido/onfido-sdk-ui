@@ -20,10 +20,11 @@ export type Props = {
 } & VideoLayerProps
 
 const BUTTON_LOCALE_MAP: Record<CaptureSteps, string> = {
-  intro: 'doc_video_capture.button_start',
+  intro: '',
   front: 'doc_video_capture.button_record',
   tilt: 'doc_video_capture.button_next',
   back: 'doc_video_capture.button_stop',
+  complete: '',
 }
 
 const SUCCESS_STATE_TIMEOUT = 1000
@@ -40,7 +41,7 @@ const VideoLayer: FunctionComponent<Props> = ({
   title,
   totalSteps,
 }) => {
-  const [shouldShowSuccess, showSuccessState] = useState(false)
+  const [stepFinished, setStepFinished] = useState(false)
   const { translate } = useContext(LocaleContext)
 
   const handleNext = useCallback(() => {
@@ -49,10 +50,10 @@ const VideoLayer: FunctionComponent<Props> = ({
       return
     }
 
-    showSuccessState(true)
+    setStepFinished(true)
 
     setTimeout(() => {
-      showSuccessState(false)
+      setStepFinished(false)
       onNext()
     }, SUCCESS_STATE_TIMEOUT)
   }, [step, onNext])
@@ -70,7 +71,7 @@ const VideoLayer: FunctionComponent<Props> = ({
     </Fragment>
   )
 
-  const recording = shouldShowSuccess ? (
+  const recording = stepFinished ? (
     <span className={style.success} />
   ) : (
     <Fragment>
@@ -92,7 +93,11 @@ const VideoLayer: FunctionComponent<Props> = ({
 
   return (
     <Fragment>
-      <ProgressBar stepNumber={stepNumber} totalSteps={totalSteps} />
+      <ProgressBar
+        stepFinished={stepFinished}
+        stepNumber={stepNumber}
+        totalSteps={totalSteps}
+      />
       <div className={style.actions}>
         {isRecording ? recording : startRecording}
       </div>

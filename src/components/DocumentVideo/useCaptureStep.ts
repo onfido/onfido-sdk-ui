@@ -17,22 +17,38 @@ const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
   const possibleSteps: CaptureSteps[] =
     documentType === 'passport' ? ['front', 'tilt'] : ['front', 'tilt', 'back']
 
-  const stepNumber =
-    currentStep === 'intro' ? 0 : possibleSteps.indexOf(currentStep) + 1
   const totalSteps = possibleSteps.length
 
+  const getStepNumber = useCallback((): number => {
+    if (currentStep === 'intro') {
+      return 0
+    }
+
+    if (currentStep === 'complete') {
+      return totalSteps
+    }
+
+    return possibleSteps.indexOf(currentStep) + 1
+  }, [currentStep, possibleSteps, totalSteps])
+
   const nextStep = useCallback(() => {
-    if (stepNumber >= totalSteps) {
+    if (currentStep === 'complete') {
       return
     }
 
-    // `stepNumber` is always step index + 1
-    setCurrentStep(possibleSteps[stepNumber])
-  }, [possibleSteps, stepNumber, totalSteps])
+    const stepIndex = possibleSteps.indexOf(currentStep)
+
+    if (stepIndex === possibleSteps.length - 1) {
+      setCurrentStep('complete')
+      return
+    }
+
+    setCurrentStep(possibleSteps[stepIndex + 1])
+  }, [currentStep, possibleSteps])
 
   return {
     step: currentStep,
-    stepNumber,
+    stepNumber: getStepNumber(),
     totalSteps,
     nextStep,
     restart: () => setCurrentStep('intro'),

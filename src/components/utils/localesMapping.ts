@@ -11,7 +11,7 @@ type CaptureLocale = {
   back?: CaptureSideLocale
 }
 
-type TitleLocale = {
+export type TitleLocale = {
   title: string
   subtitle: string
 }
@@ -189,8 +189,8 @@ export const VIDEO_INTRO_LOCALES_MAPPING: Record<
 }
 
 export const DOC_VIDEO_INSTRUCTIONS_MAPPING: {
-  passport: Record<Exclude<CaptureSteps, 'back'>, TitleLocale>
-  others: Record<CaptureSteps, TitleLocale>
+  passport: Record<Exclude<CaptureSteps, 'back' | 'complete'>, TitleLocale>
+  others: Record<Exclude<CaptureSteps, 'complete'>, TitleLocale>
 } = {
   passport: {
     intro: {
