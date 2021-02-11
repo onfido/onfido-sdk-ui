@@ -9,7 +9,6 @@ import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import { LocaleContext } from '~locales'
 import { DocumentOverlay } from '../Overlay'
 import VideoCapture from '../VideoCapture'
-import ProgressBar from './ProgressBar'
 import VideoLayer from './VideoLayer'
 import useCaptureStep from './useCaptureStep'
 
@@ -132,9 +131,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
           tilt={step === 'tilt' ? TILT_MODE : undefined}
           type={documentType}
           withPlaceholder={step === 'intro'}
-        >
-          <ProgressBar stepNumber={stepNumber} totalSteps={totalSteps} />
-        </DocumentOverlay>
+        />
       )}
       renderVideoLayer={(props) => <VideoLayer {...props} {...passedProps} />}
       trackScreen={trackScreen}

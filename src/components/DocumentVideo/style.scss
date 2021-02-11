@@ -2,7 +2,7 @@
 
 .instructions {
   position: absolute;
-  z-index: 1000;
+  z-index: 3;
   bottom: 128 * $unit;
   left: 16 * $unit;
   right: 16 * $unit;
@@ -65,6 +65,7 @@
   left: 16 * $unit;
   right: 16 * $unit;
   top: 48 * $unit;
+  z-index: 3;
 }
 
 .progress .step {
@@ -90,12 +91,12 @@
   left: 0;
   right: 0;
   bottom: 160 * $unit;
-  z-index: 1000;
+  z-index: 3;
 }
 
 .actions {
   position: absolute;
-  z-index: 1000;
+  z-index: 3;
   bottom: 48 * $unit;
   left: 16 * $unit;
   right: 16 * $unit;

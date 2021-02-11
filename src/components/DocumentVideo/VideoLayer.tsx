@@ -1,8 +1,9 @@
-import { h, FunctionComponent } from 'preact'
+import { h, FunctionComponent, Fragment } from 'preact'
 import { memo, useCallback, useContext, useState } from 'preact/compat'
 
 import { LocaleContext } from '~locales'
 import Instructions from './Instructions'
+import ProgressBar from './ProgressBar'
 import Recording from './Recording'
 import StartRecording from './StartRecording'
 import style from './style.scss'
@@ -25,6 +26,8 @@ const BUTTON_LOCALE_MAP: Record<CaptureSteps, string> = {
   tilt: 'doc_video_capture.button_next',
   back: 'doc_video_capture.button_stop',
 }
+
+const SUCCESS_STATE_TIMEOUT = 1000
 
 const VideoLayer: FunctionComponent<Props> = ({
   disableInteraction,
@@ -52,22 +55,18 @@ const VideoLayer: FunctionComponent<Props> = ({
     setTimeout(() => {
       showSuccessState(false)
       onNext()
-    }, 1000)
+    }, SUCCESS_STATE_TIMEOUT)
   }, [step, onNext])
 
-  if (!isRecording) {
-    return (
-      <StartRecording disableInteraction={disableInteraction} onClick={onStart}>
-        <Instructions title={title} />
-      </StartRecording>
-    )
-  }
+  const startRecording = (
+    <StartRecording disableInteraction={disableInteraction} onClick={onStart}>
+      <Instructions title={title} />
+    </StartRecording>
+  )
 
-  if (shouldShowSuccess) {
-    return <span className={style.success} />
-  }
-
-  return (
+  const recording = shouldShowSuccess ? (
+    <span className={style.success} />
+  ) : (
     <Recording
       buttonText={translate(BUTTON_LOCALE_MAP[step])}
       disableInteraction={disableInteraction}
@@ -82,6 +81,13 @@ const VideoLayer: FunctionComponent<Props> = ({
         title={title}
       />
     </Recording>
+  )
+
+  return (
+    <Fragment>
+      <ProgressBar stepNumber={stepNumber} totalSteps={totalSteps} />
+      {isRecording ? recording : startRecording}
+    </Fragment>
   )
 }
 
