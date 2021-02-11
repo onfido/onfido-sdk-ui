@@ -32,6 +32,10 @@ const assertInactiveError = (wrapper: ReactWrapper, forceRedo: boolean) => {
     expect(wrapper.find('FallbackButton').text()).toEqual(
       'selfie_capture.alert.timeout.detail'
     )
+  } else {
+    expect(error.find('.title').text()).toEqual(
+      'selfie_capture.alert.camera_inactive.title'
+    )
   }
 }
 
@@ -51,7 +55,7 @@ const MockedVideoLayer: FunctionComponent<VideoLayerProps> = ({
 )
 
 const defaultProps: VideoCaptureProps = {
-  inactiveError: { name: 'VIDEO_TIMEOUT' },
+  inactiveError: { name: 'CAMERA_INACTIVE' },
   onRecordingStart: jest.fn(),
   onRedo: jest.fn(),
   onVideoCapture: jest.fn(),
@@ -121,7 +125,7 @@ describe('VideoCapture', () => {
         wrapper.update()
       })
 
-      it('handles redo fallback correctly', () =>
+      it('shows inactive error correctly', () =>
         assertInactiveError(wrapper, false))
     })
 
@@ -158,7 +162,7 @@ describe('VideoCapture', () => {
           wrapper.update()
         })
 
-        it('handles redo fallback correctly', () =>
+        it('shows inactive error correctly', () =>
           assertInactiveError(wrapper, true))
       })
     })

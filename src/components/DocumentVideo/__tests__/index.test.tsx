@@ -195,22 +195,13 @@ describe('DocumentVideo', () => {
     it('renders overlay correctly', () =>
       assertOverlay(wrapper, 'driving_licence', true))
 
-    describe('when inactive timed out', () => {
-      beforeEach(() => {
-        jest.runTimersToTime(12_000)
-        wrapper.update()
-      })
-
-      it('handles redo fallback correctly', () => {
-        const error = wrapper.find('CameraError Error')
-        expect(error.find('.title').text()).toEqual(
-          'selfie_capture.alert.camera_inactive.title'
-        )
-      })
-    })
-
     describe('when recording', () => {
       beforeEach(() => simulateCaptureStart(wrapper))
+
+      it('sets correct timeout', () => {
+        const timeout = wrapper.find('Timeout')
+        expect(timeout.prop('seconds')).toEqual(30)
+      })
 
       describe('when inactive timed out', () => {
         beforeEach(() => {
@@ -219,14 +210,6 @@ describe('DocumentVideo', () => {
         })
 
         it('handles redo fallback correctly', () => {
-          const error = wrapper.find('CameraError Error')
-          expect(error.find('.title').text()).toEqual(
-            'selfie_capture.alert.timeout.title'
-          )
-          expect(error.find('.instruction button').text()).toEqual(
-            'selfie_capture.alert.timeout.detail'
-          )
-
           wrapper.find<FallbackButtonProps>(FallbackButton).props().onClick()
           wrapper.update()
 
@@ -237,11 +220,6 @@ describe('DocumentVideo', () => {
           expect(startRecording.exists()).toBeTruthy()
           expect(startRecording.props().disableInteraction).toBeFalsy()
         })
-      })
-
-      it('sets correct timeout', () => {
-        const timeout = wrapper.find('Timeout')
-        expect(timeout.prop('seconds')).toEqual(30)
       })
 
       it('starts recording correctly', () => {

@@ -71,7 +71,11 @@ const errors: Record<ErrorNames, LocaleData> = {
     message: 'selfie_capture.alert.camera_inactive.title',
     instruction: 'selfie_capture.alert.camera_inactive.detail_no_fallback',
   },
-  VIDEO_TIMEOUT: {
+  FACE_VIDEO_TIMEOUT: {
+    message: 'selfie_capture.alert.timeout.title',
+    instruction: 'selfie_capture.alert.timeout.detail',
+  },
+  DOC_VIDEO_TIMEOUT: {
     message: 'selfie_capture.alert.timeout.title',
     instruction: 'selfie_capture.alert.timeout.detail',
   },

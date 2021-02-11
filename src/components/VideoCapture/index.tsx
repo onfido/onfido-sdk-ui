@@ -59,7 +59,7 @@ const initialStateWithoutMediaStream: Omit<State, 'hasMediaStream'> = {
 }
 
 const recordingTooLongError: ErrorProp = {
-  name: 'VIDEO_TIMEOUT',
+  name: 'FACE_VIDEO_TIMEOUT',
   type: 'warning',
 }
 
