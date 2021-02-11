@@ -22,7 +22,7 @@ type OverlayProps = {
   isRecording: boolean
 }
 
-type VideoLayerProps = {
+export type VideoLayerProps = {
   disableInteraction: boolean
   isRecording: boolean
   onStart: () => void
@@ -140,35 +140,29 @@ export default class VideoCapture extends Component<Props, State> {
     return <CameraError trackScreen={trackScreen} {...passedProps} />
   }
 
-  renderRecordingTimeoutMessage = (): h.JSX.Element => {
-    const { hasBecomeInactive, hasRecordingTakenTooLong } = this.state
-    const hasTimeoutError = hasBecomeInactive || hasRecordingTakenTooLong
-    const hasError = hasTimeoutError || this.state.hasCameraError
-
-    if (!hasError) {
-      return (
-        <Timeout
-          key="recording"
-          seconds={20}
-          onTimeout={this.handleRecordingTimeout}
-        />
-      )
-    }
-  }
-
   renderInactivityTimeoutMessage = (): h.JSX.Element => {
-    const { hasRecordingTakenTooLong, hasCameraError } = this.state
-    const hasError = hasRecordingTakenTooLong || hasCameraError
+    const {
+      hasBecomeInactive,
+      hasCameraError,
+      hasRecordingTakenTooLong,
+      isRecording,
+    } = this.state
+    const hasError =
+      hasRecordingTakenTooLong || hasCameraError || hasBecomeInactive
 
-    if (!hasError) {
-      return (
-        <Timeout
-          key="notRecording"
-          seconds={12}
-          onTimeout={this.handleInactivityTimeout}
-        />
-      )
+    if (hasError) {
+      return null
     }
+
+    const passedProps = {
+      key: isRecording ? 'recording' : 'notRecording',
+      seconds: isRecording ? 20 : 12,
+      onTimeout: isRecording
+        ? this.handleRecordingTimeout
+        : this.handleInactivityTimeout,
+    }
+
+    return <Timeout {...passedProps} />
   }
 
   render(): h.JSX.Element {
@@ -230,9 +224,7 @@ export default class VideoCapture extends Component<Props, State> {
       >
         <ToggleFullScreen />
         {renderOverlay && renderOverlay({ hasCameraError, isRecording })}
-        {isRecording
-          ? this.renderRecordingTimeoutMessage()
-          : this.renderInactivityTimeoutMessage()}
+        {this.renderInactivityTimeoutMessage()}
       </Camera>
     )
   }
