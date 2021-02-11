@@ -5,7 +5,6 @@ import Button from '../Button'
 import { trackComponent } from '../../Tracker'
 import { localised } from '../../locales'
 import ScreenLayout from '../Theme/ScreenLayout'
-import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 import type { TranslateCallback } from '~types/locales'

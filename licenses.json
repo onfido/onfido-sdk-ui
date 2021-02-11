@@ -1167,6 +1167,12 @@
     "path": "node_modules/@types/dom-mediacapture-record",
     "licenseFile": "node_modules/@types/dom-mediacapture-record/LICENSE"
   },
+  "@types/dompurify@2.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/dompurify",
+    "licenseFile": "node_modules/@types/dompurify/LICENSE"
+  },
   "@types/enzyme@3.10.8": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
@@ -1330,6 +1336,12 @@
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/jest-message-util/node_modules/@types/stack-utils",
     "licenseFile": "node_modules/jest-message-util/node_modules/@types/stack-utils/LICENSE"
+  },
+  "@types/trusted-types@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/trusted-types",
+    "licenseFile": "node_modules/@types/trusted-types/LICENSE"
   },
   "@types/unist@2.0.3": {
     "licenses": "MIT",
@@ -4184,6 +4196,15 @@
     "path": "node_modules/domhandler",
     "licenseFile": "node_modules/domhandler/LICENSE"
   },
+  "dompurify@2.2.6": {
+    "licenses": "(MPL-2.0 OR Apache-2.0)",
+    "repository": "https://github.com/cure53/DOMPurify",
+    "publisher": "Mario Heiderich",
+    "email": "mario@cure53.de",
+    "url": "https://cure53.de/",
+    "path": "node_modules/dompurify",
+    "licenseFile": "node_modules/dompurify/LICENSE"
+  },
   "domutils@1.5.1": {
     "licenses": "BSD*",
     "repository": "https://github.com/FB55/domutils",
@@ -5907,8 +5928,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/history",
-    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/history",
+    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -8404,8 +8425,8 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/chromedriver/node_modules/mkdirp",
-    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
+    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
   },
   "mocha@6.2.2": {
     "licenses": "MIT",
@@ -9033,7 +9054,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/home/ethanify/Work/onfido-sdk-ui",
+    "path": "/Users/stefaniacardenas/Desktop/Code/onfido/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
@@ -10892,8 +10913,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
   },
   "resolve-url@0.2.1": {
     "licenses": "MIT",
@@ -13071,8 +13092,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",
