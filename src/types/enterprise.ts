@@ -1,4 +1,5 @@
 import {
+  ApiParsedError,
   DocumentImageResponse,
   FaceVideoResponse,
   UploadFileResponse,
@@ -10,19 +11,9 @@ export type EnterpriseCobranding = {
 
 type EnterpriseCallbackResponse = {
   continueWithOnfidoSubmission?: boolean
+  onfidoSuccess?: DocumentImageResponse | UploadFileResponse | FaceVideoResponse
+  onfidoError?: ApiParsedError
 }
-
-type EnterpriseCallbackDocumentResponse = {
-  onfidoResponse?: DocumentImageResponse
-} & EnterpriseCallbackResponse
-
-type EnterpriseCallbackSelfieResponse = {
-  onfidoResponse?: UploadFileResponse
-} & EnterpriseCallbackResponse
-
-type EnterpriseCallbackVideoResponse = {
-  onfidoResponse?: FaceVideoResponse
-} & EnterpriseCallbackResponse
 
 export type EnterpriseFeatures = {
   hideOnfidoLogo?: boolean
@@ -31,13 +22,13 @@ export type EnterpriseFeatures = {
   onSubmitDocument?: (
     data: FormData,
     token: string
-  ) => Promise<EnterpriseCallbackDocumentResponse>
+  ) => Promise<EnterpriseCallbackResponse>
   onSubmitSelfie?: (
     data: FormData,
     token: string
-  ) => Promise<EnterpriseCallbackSelfieResponse>
+  ) => Promise<EnterpriseCallbackResponse>
   onSubmitVideo?: (
     data: FormData,
     token: string
-  ) => Promise<EnterpriseCallbackVideoResponse>
+  ) => Promise<EnterpriseCallbackResponse>
 }

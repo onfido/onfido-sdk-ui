@@ -203,7 +203,6 @@ class ModalApp extends Component<Props> {
         validEnterpriseFeatures.useSubmitCallbacks
       )
     }
-
   }
 
   setUrls = (token: string) => {

@@ -6,6 +6,7 @@ import {
   uploadLivePhoto,
   uploadLiveVideo,
   sendMultiframeSelfie,
+  objectToFormData,
 } from '~utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
@@ -174,10 +175,13 @@ class Confirm extends Component {
       poaDocumentType,
       language,
       imageQualityRetries,
+      useSubmitCallbacks,
     } = this.props
     const url = urls.onfido_api_url
-    this.startTime = performance.now()
-    sendEvent('Starting upload', { method })
+    if (!useSubmitCallbacks) {
+      this.startTime = performance.now()
+      sendEvent('Starting upload', { method })
+    }
     this.setState({ uploadInProgress: true })
     const {
       blob,
@@ -219,15 +223,63 @@ class Confirm extends Component {
         sdkMetadata,
         ...issuingCountry,
       }
-      uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+      if (useSubmitCallbacks) this.onSubmitCallback(data, 'onSubmitDocument')
+      else uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
     } else if (method === 'face') {
       if (variant === 'video') {
         const data = { challengeData, blob, language, sdkMetadata }
-        uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
-      } else {
-        this.handleSelfieUpload(capture, token)
-      }
+        if (useSubmitCallbacks) this.onSubmitCallback(data, 'onSubmitVideo')
+        else
+          uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
+      } else if (useSubmitCallbacks)
+        this.onSubmitCallback(capture, token, 'onSubmitSelfie')
+      else this.handleSelfieUpload(capture, token)
     }
+  }
+
+  onSubmitCallback = (data, callbackName) => {
+    const { enterpriseFeatures, method, token, urls } = this.props
+    const url = urls.onfido_api_url
+    let payload = data
+
+    if (callbackName === 'onSubmitSelfie') {
+      const { blob, filename, ...otherData } = data
+      payload = { file: { blob, filename }, otherData }
+    }
+
+    const formDataPayload = objectToFormData(payload)
+    enterpriseFeatures[callbackName](formDataPayload, token).then(
+      ({
+        continueWithOnfidoSubmission,
+        onfidoSuccessResponse,
+        onfidoErrorResponse,
+      }) => {
+        if (onfidoSuccessResponse) this.onApiSuccess(onfidoSuccessResponse)
+        else if (onfidoErrorResponse) this.onApiError(onfidoErrorResponse)
+        else if (continueWithOnfidoSubmission) {
+          this.startTime = performance.now()
+          sendEvent('Starting upload', { method })
+          if (callbackName === 'onSubmitDocument')
+            this.uploadDocument(
+              data,
+              url,
+              token,
+              this.onApiSuccess,
+              this.onApiError
+            )
+          else if (callbackName === 'onSubmitVideo')
+            this.uploadLiveVideo(
+              data,
+              url,
+              token,
+              this.onApiSuccess,
+              this.onApiError
+            )
+          else if (callbackName === 'onSubmitSelfie')
+            this.handleSelfieUpload(data, token)
+        }
+      }
+    )
   }
 
   onRetake = () => {
