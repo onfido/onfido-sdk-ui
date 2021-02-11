@@ -33,19 +33,6 @@ const renamedCapture = (
   filename: `document_${step}.${mimeType(payload.blob)}`,
 })
 
-const getLocaleKey = (
-  documentType: DocumentTypes,
-  step: CaptureSteps
-): TitleLocale => {
-  if (step === 'complete') {
-    return { title: '', subtitle: '' }
-  }
-
-  return documentType === 'passport' && step !== 'back'
-    ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[step]
-    : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[step]
-}
-
 export type Props = {
   cameraClassName?: string
   documentType: DocumentTypes
@@ -115,9 +102,13 @@ const DocumentVideo: FunctionComponent<Props> = ({
     })
   }
 
-  const localeKeys = getLocaleKey(documentType, step)
-  const title = translate(localeKeys.title)
-  const subtitle = translate(localeKeys.subtitle)
+  const mappedLocale =
+    documentType === 'passport' && step !== 'back'
+      ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[step]
+      : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[step]
+
+  const title = translate(mappedLocale.title)
+  const subtitle = translate(mappedLocale.subtitle)
 
   const passedProps = {
     onNext: nextStep,

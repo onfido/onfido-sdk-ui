@@ -68,14 +68,9 @@ describe('DocumentVideo', () => {
         assertStep(wrapper, { step: 'back', stepNumber: 3, totalSteps: 3 })
       })
 
-      it('moves to complete step correctly', () => {
-        simulateNext(wrapper, 4)
-        assertStep(wrapper, { step: 'complete', stepNumber: 3, totalSteps: 3 })
-      })
-
       it('does nothing after last step', () => {
-        simulateNext(wrapper, 5)
-        assertStep(wrapper, { step: 'complete', stepNumber: 3, totalSteps: 3 })
+        simulateNext(wrapper, 4)
+        assertStep(wrapper, { step: 'back', stepNumber: 3, totalSteps: 3 })
       })
 
       it('restarts correctly', () => {
@@ -103,14 +98,9 @@ describe('DocumentVideo', () => {
         assertStep(wrapper, { step: 'tilt', stepNumber: 2, totalSteps: 2 })
       })
 
-      it('moves to complete step correctly', () => {
-        simulateNext(wrapper, 3)
-        assertStep(wrapper, { step: 'complete', stepNumber: 2, totalSteps: 2 })
-      })
-
       it('does nothing after last step', () => {
-        simulateNext(wrapper, 4)
-        assertStep(wrapper, { step: 'complete', stepNumber: 2, totalSteps: 2 })
+        simulateNext(wrapper, 3)
+        assertStep(wrapper, { step: 'tilt', stepNumber: 2, totalSteps: 2 })
       })
 
       it('restarts correctly', () => {

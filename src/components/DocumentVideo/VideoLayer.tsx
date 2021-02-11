@@ -24,7 +24,6 @@ const BUTTON_LOCALE_MAP: Record<CaptureSteps, string> = {
   front: 'doc_video_capture.button_record',
   tilt: 'doc_video_capture.button_next',
   back: 'doc_video_capture.button_stop',
-  complete: '',
 }
 
 const SUCCESS_STATE_TIMEOUT = 1000
@@ -54,7 +53,8 @@ const VideoLayer: FunctionComponent<Props> = ({
 
     setTimeout(() => {
       setStepFinished(false)
-      onNext()
+
+      stepNumber < totalSteps ? onNext() : onStop()
     }, SUCCESS_STATE_TIMEOUT)
   }, [step, onNext])
 
@@ -84,7 +84,7 @@ const VideoLayer: FunctionComponent<Props> = ({
       <Button
         variants={['centered', 'primary', 'lg']}
         disabled={disableInteraction}
-        onClick={stepNumber < totalSteps ? handleNext : onStop}
+        onClick={handleNext}
       >
         {translate(BUTTON_LOCALE_MAP[step])}
       </Button>
