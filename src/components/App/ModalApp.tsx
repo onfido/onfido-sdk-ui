@@ -234,7 +234,9 @@ class ModalApp extends Component<Props> {
     }
   }
 
-  useSubmitCallbacksIfClientHasFeature = (isValidEnterpriseFeature: boolean) => {
+  useSubmitCallbacksIfClientHasFeature = (
+    isValidEnterpriseFeature: boolean
+  ) => {
     if (isValidEnterpriseFeature) {
       this.props.actions.useSubmitCallbacks(true)
     } else {
