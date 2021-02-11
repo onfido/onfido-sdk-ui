@@ -2,10 +2,9 @@ import { h, FunctionComponent, Fragment } from 'preact'
 import { memo, useCallback, useContext, useState } from 'preact/compat'
 
 import { LocaleContext } from '~locales'
+import Button from '../Button'
 import Instructions from './Instructions'
 import ProgressBar from './ProgressBar'
-import Recording from './Recording'
-import StartRecording from './StartRecording'
 import style from './style.scss'
 
 import { TILT_MODE, CaptureSteps } from '~types/docVideo'
@@ -59,34 +58,44 @@ const VideoLayer: FunctionComponent<Props> = ({
   }, [step, onNext])
 
   const startRecording = (
-    <StartRecording disableInteraction={disableInteraction} onClick={onStart}>
+    <Fragment>
       <Instructions title={title} />
-    </StartRecording>
+      <Button
+        variants={['centered', 'primary', 'lg']}
+        disabled={disableInteraction}
+        onClick={onStart}
+      >
+        {translate('doc_video_capture.button_start')}
+      </Button>
+    </Fragment>
   )
 
   const recording = shouldShowSuccess ? (
     <span className={style.success} />
   ) : (
-    <Recording
-      buttonText={translate(BUTTON_LOCALE_MAP[step])}
-      disableInteraction={disableInteraction}
-      hasMoreSteps={stepNumber < totalSteps}
-      onNext={handleNext}
-      onStop={onStop}
-    >
+    <Fragment>
       <Instructions
         icon={step}
         subtitle={subtitle}
         tiltMode={TILT_MODE}
         title={title}
       />
-    </Recording>
+      <Button
+        variants={['centered', 'primary', 'lg']}
+        disabled={disableInteraction}
+        onClick={stepNumber < totalSteps ? handleNext : onStop}
+      >
+        {translate(BUTTON_LOCALE_MAP[step])}
+      </Button>
+    </Fragment>
   )
 
   return (
     <Fragment>
       <ProgressBar stepNumber={stepNumber} totalSteps={totalSteps} />
-      {isRecording ? recording : startRecording}
+      <div className={style.actions}>
+        {isRecording ? recording : startRecording}
+      </div>
     </Fragment>
   )
 }

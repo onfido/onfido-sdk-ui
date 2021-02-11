@@ -13,8 +13,6 @@ import FallbackButton, {
 import VideoCapture, { Props as VideoCaptureProps } from '../../VideoCapture'
 
 import DocumentVideo, { Props as DocumentVideoProps } from '../index'
-import Recording, { Props as RecordingProps } from '../Recording'
-import StartRecording, { Props as StartRecordingProps } from '../StartRecording'
 
 import type { DocumentTypes } from '~types/steps'
 
@@ -29,12 +27,12 @@ const defaultProps: DocumentVideoProps = {
 }
 
 const simulateCaptureStart = (wrapper: ReactWrapper) => {
-  const button = wrapper.find('StartRecording Button > button')
+  const button = wrapper.find('VideoLayer Button > button')
   button.simulate('click')
 }
 
 const simulateCaptureNext = (wrapper: ReactWrapper) => {
-  const button = wrapper.find('Recording Button > button')
+  const button = wrapper.find('VideoLayer Button > button')
   button.simulate('click')
   jest.runTimersToTime(2000) // Waits for success state disappears
   wrapper.update()
@@ -80,8 +78,8 @@ const assertIntroStep = (
   trackScreen('fake_screen_tracking')
   expect(defaultProps.trackScreen).toHaveBeenCalledWith('fake_screen_tracking')
 
-  expect(videoCapture.find('StartRecording').exists()).toBeTruthy()
-  const instructions = videoCapture.find('Instructions')
+  expect(videoCapture.find('VideoLayer Button').exists()).toBeTruthy()
+  const instructions = videoCapture.find('VideoLayer Instructions')
   expect(instructions.exists()).toBeTruthy()
 
   if (forSingleSidedDocs) {
@@ -99,16 +97,12 @@ const assertFrontStep = (
   wrapper: ReactWrapper,
   forSingleSidedDocs: boolean
 ) => {
-  expect(wrapper.find('VideoCapture StartRecording').exists()).toBeFalsy()
-  const recording = wrapper.find<RecordingProps>(Recording)
-  expect(recording.exists()).toBeTruthy()
-  expect(recording.props().disableInteraction).toBeFalsy()
-  expect(recording.props().hasMoreSteps).toBeTruthy()
-  expect(recording.props().buttonText).toEqual(
-    'doc_video_capture.button_record'
-  )
+  const recordingButton = wrapper.find('VideoLayer Button')
+  expect(recordingButton.exists()).toBeTruthy()
+  expect(recordingButton.prop('disabled')).toBeFalsy()
+  expect(recordingButton.text()).toEqual('doc_video_capture.button_record')
 
-  const instructions = recording.find('Instructions')
+  const instructions = wrapper.find('VideoLayer Instructions')
   expect(instructions.exists()).toBeTruthy()
 
   if (forSingleSidedDocs) {
@@ -125,14 +119,12 @@ const assertFrontStep = (
 }
 
 const assertTiltStep = (wrapper: ReactWrapper, forSingleSidedDocs: boolean) => {
-  expect(wrapper.find('VideoCapture StartRecording').exists()).toBeFalsy()
-  const recording = wrapper.find<RecordingProps>(Recording)
-  expect(recording.exists()).toBeTruthy()
-  expect(recording.props().disableInteraction).toBeFalsy()
-  expect(recording.props().hasMoreSteps).toEqual(!forSingleSidedDocs)
-  expect(recording.props().buttonText).toEqual('doc_video_capture.button_next')
+  const recordingButton = wrapper.find('VideoLayer Button')
+  expect(recordingButton.exists()).toBeTruthy()
+  expect(recordingButton.prop('disabled')).toBeFalsy()
+  expect(recordingButton.text()).toEqual('doc_video_capture.button_next')
 
-  const instructions = recording.find('Instructions')
+  const instructions = wrapper.find('VideoLayer Instructions')
   expect(instructions.exists()).toBeTruthy()
 
   if (forSingleSidedDocs) {
@@ -151,12 +143,12 @@ const assertTiltStep = (wrapper: ReactWrapper, forSingleSidedDocs: boolean) => {
 }
 
 const assertBackStep = (wrapper: ReactWrapper) => {
-  const recording = wrapper.find<RecordingProps>(Recording)
-  expect(recording.props().disableInteraction).toBeFalsy()
-  expect(recording.props().hasMoreSteps).toBeFalsy()
-  expect(recording.props().buttonText).toEqual('doc_video_capture.button_stop')
+  const recordingButton = wrapper.find('VideoLayer Button')
+  expect(recordingButton.exists()).toBeTruthy()
+  expect(recordingButton.prop('disabled')).toBeFalsy()
+  expect(recordingButton.text()).toEqual('doc_video_capture.button_stop')
 
-  const instructions = recording.find('Instructions')
+  const instructions = wrapper.find('VideoLayer Instructions')
   expect(instructions.exists()).toBeTruthy()
 
   expect(instructions.props()).toMatchObject({
@@ -213,12 +205,12 @@ describe('DocumentVideo', () => {
           wrapper.find<FallbackButtonProps>(FallbackButton).props().onClick()
           wrapper.update()
 
-          expect(wrapper.find('VideoCapture Recording').exists()).toBeFalsy()
-          const startRecording = wrapper.find<StartRecordingProps>(
-            StartRecording
+          const recordingButton = wrapper.find('VideoLayer Button')
+          expect(recordingButton.exists()).toBeTruthy()
+          expect(recordingButton.prop('disabled')).toBeFalsy()
+          expect(recordingButton.text()).toEqual(
+            'doc_video_capture.button_start'
           )
-          expect(startRecording.exists()).toBeTruthy()
-          expect(startRecording.props().disableInteraction).toBeFalsy()
         })
       })
 

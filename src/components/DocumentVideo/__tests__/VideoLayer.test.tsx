@@ -19,11 +19,11 @@ const defaultProps: VideoLayerProps = {
 }
 
 const simulateNext = (wrapper: ReactWrapper) =>
-  wrapper.find('Recording Button > button').simulate('click')
+  wrapper.find('Button > button').simulate('click')
 
 const assertSuccessStep = (wrapper: ReactWrapper) => {
   expect(defaultProps.onNext).not.toHaveBeenCalled()
-  expect(wrapper.find('Recording').exists()).toBeFalsy()
+  expect(wrapper.find('Button').exists()).toBeFalsy()
   expect(wrapper.find('.success').exists()).toBeTruthy()
 
   jest.runTimersToTime(2000)
@@ -31,7 +31,7 @@ const assertSuccessStep = (wrapper: ReactWrapper) => {
   expect(defaultProps.onNext).toHaveBeenCalledTimes(1)
 
   wrapper.update()
-  expect(wrapper.find('Recording').exists()).toBeTruthy()
+  expect(wrapper.find('Button').exists()).toBeTruthy()
   expect(wrapper.find('.success').exists()).toBeFalsy()
 }
 
@@ -53,7 +53,7 @@ describe('DocumentVideo', () => {
         </MockedLocalised>
       )
 
-      expect(wrapper.find('StartRecording').exists()).toBeTruthy()
+      expect(wrapper.find('Button').exists()).toBeTruthy()
     })
 
     describe('when recording', () => {
@@ -64,7 +64,7 @@ describe('DocumentVideo', () => {
           </MockedLocalised>
         )
 
-        expect(wrapper.find('Recording').exists()).toBeTruthy()
+        expect(wrapper.find('Button').exists()).toBeTruthy()
         simulateNext(wrapper)
         expect(defaultProps.onNext).toHaveBeenCalled()
       })

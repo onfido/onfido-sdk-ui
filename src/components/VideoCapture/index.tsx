@@ -166,7 +166,7 @@ export default class VideoCapture extends Component<Props, State> {
       return null
     }
 
-    const recordingTimeout = method === 'document' ? 3 : 20
+    const recordingTimeout = method === 'document' ? 30 : 20
 
     const passedProps = {
       key: isRecording ? 'recording' : 'notRecording',
