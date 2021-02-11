@@ -39,7 +39,6 @@ export type Props = {
   onRecordingStart?: () => void
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
-  recordingTimeout?: number
   renderFallback: RenderFallbackProp
   renderOverlay?: (props: OverlayProps) => h.JSX.Element
   renderVideoLayer?: (props: VideoLayerProps) => h.JSX.Element
@@ -60,9 +59,15 @@ const initialStateWithoutMediaStream: Omit<State, 'hasMediaStream'> = {
   isRecording: false,
 }
 
-const recordingTooLongError: ErrorProp = {
-  name: 'FACE_VIDEO_TIMEOUT',
-  type: 'warning',
+const RECORDING_TIMEOUT_ERRORS_MAP: Record<CaptureMethods, ErrorProp> = {
+  face: {
+    name: 'FACE_VIDEO_TIMEOUT',
+    type: 'warning',
+  },
+  document: {
+    name: 'DOC_VIDEO_TIMEOUT',
+    type: 'warning',
+  },
 }
 
 export default class VideoCapture extends Component<Props, State> {
@@ -128,10 +133,12 @@ export default class VideoCapture extends Component<Props, State> {
   )
 
   renderError = (): h.JSX.Element => {
-    const { inactiveError, renderFallback, trackScreen } = this.props
+    const { inactiveError, method, renderFallback, trackScreen } = this.props
+    const { [method]: recordingTimeoutError } = RECORDING_TIMEOUT_ERRORS_MAP
+
     const passedProps = this.state.hasRecordingTakenTooLong
       ? {
-          error: recordingTooLongError,
+          error: recordingTimeoutError,
           hasBackdrop: true,
           renderFallback: this.renderRedoActionsFallback,
         }
@@ -145,7 +152,7 @@ export default class VideoCapture extends Component<Props, State> {
   }
 
   renderInactivityTimeoutMessage = (): h.JSX.Element => {
-    const { recordingTimeout = 20 } = this.props
+    const { method } = this.props
     const {
       hasBecomeInactive,
       hasCameraError,
@@ -158,6 +165,8 @@ export default class VideoCapture extends Component<Props, State> {
     if (hasError) {
       return null
     }
+
+    const recordingTimeout = method === 'document' ? 30 : 20
 
     const passedProps = {
       key: isRecording ? 'recording' : 'notRecording',

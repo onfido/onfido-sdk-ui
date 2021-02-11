@@ -125,7 +125,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
       onRecordingStart={onRecordingStart}
       onRedo={restartFlow}
       onVideoCapture={onVideoCapture}
-      recordingTimeout={30}
       renderFallback={renderFallback}
       renderOverlay={() => (
         <DocumentOverlay

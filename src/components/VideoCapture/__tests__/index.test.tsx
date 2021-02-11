@@ -11,6 +11,7 @@ import VideoCapture, {
 } from '../index'
 
 import type { CameraProps } from '~types/camera'
+import type { CaptureMethods } from '~types/commons'
 
 jest.mock('../../utils')
 
@@ -20,21 +21,34 @@ const assertTimeout = (wrapper: ReactWrapper, seconds: number) => {
   expect(timeout.prop('seconds')).toEqual(seconds)
 }
 
-const assertInactiveError = (wrapper: ReactWrapper, forceRedo: boolean) => {
+const assertInactiveError = (
+  wrapper: ReactWrapper,
+  method: CaptureMethods,
+  forceRedo: boolean
+) => {
   expect(wrapper.find('#record-video').text()).toEqual('Start')
   expect(wrapper.find('Timeout').exists()).toBeFalsy()
 
   const error = wrapper.find('CameraError Error')
   expect(error.exists()).toBeTruthy()
 
-  if (forceRedo) {
-    expect(wrapper.find('#record-video').prop('disabled')).toBeTruthy()
-    expect(wrapper.find('FallbackButton').text()).toEqual(
-      'selfie_capture.alert.timeout.detail'
-    )
-  } else {
+  if (!forceRedo) {
     expect(error.find('.title').text()).toEqual(
       'selfie_capture.alert.camera_inactive.title'
+    )
+
+    return
+  }
+
+  expect(wrapper.find('#record-video').prop('disabled')).toBeTruthy()
+
+  if (method === 'document') {
+    expect(wrapper.find('FallbackButton').text()).toEqual(
+      'doc_video_capture.alert.timeout.detail'
+    )
+  } else {
+    expect(wrapper.find('FallbackButton').text()).toEqual(
+      'selfie_capture.alert.timeout.detail'
     )
   }
 }
@@ -127,7 +141,7 @@ describe('VideoCapture', () => {
       })
 
       it('shows inactive error correctly', () =>
-        assertInactiveError(wrapper, false))
+        assertInactiveError(wrapper, defaultProps.method, false))
     })
 
     describe('when recording', () => {
@@ -164,16 +178,16 @@ describe('VideoCapture', () => {
         })
 
         it('shows inactive error correctly', () =>
-          assertInactiveError(wrapper, true))
+          assertInactiveError(wrapper, defaultProps.method, true))
       })
     })
 
-    describe('with recordingTimeout passed', () => {
+    describe('for documents', () => {
       beforeEach(() => {
         wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <VideoCapture {...defaultProps} recordingTimeout={30} />
+              <VideoCapture {...defaultProps} method="document" />
             </MockedLocalised>
           </MockedReduxProvider>
         )
@@ -182,6 +196,16 @@ describe('VideoCapture', () => {
       })
 
       it('renders inactive timeout correctly', () => assertTimeout(wrapper, 30))
+
+      describe('when inactive timed out', () => {
+        beforeEach(() => {
+          jest.runTimersToTime(30_000) // 30 seconds - for documents
+          wrapper.update()
+        })
+
+        it('shows inactive error correctly', () =>
+          assertInactiveError(wrapper, 'document', true))
+      })
     })
 
     describe('with webcamRef passed', () => {
