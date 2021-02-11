@@ -350,6 +350,7 @@
         "image_detail_good_label": "La photo doit montrer clairement votre document",
         "subtitle": "Les numérisations et photocopies ne sont pas acceptées",
         "title": "Envoyez la page du passeport où figure votre photo"
+    },
     "user_consent": {
         "button_primary": "Accept",
         "button_secondary": "Do not accept",
