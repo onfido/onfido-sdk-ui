@@ -4,15 +4,15 @@ import Face from './Face'
 import withCaptureVariant from './withCaptureVariant'
 
 export const DocumentFrontCapture = appendToTracking(
-  withCaptureVariant(Document, { side: 'front' }),
+  withCaptureVariant(Document, { side: 'front', requestedVariant: 'standard' }),
   'front_capture'
 )
 export const DocumentBackCapture = appendToTracking(
-  withCaptureVariant(Document, { side: 'back' }),
+  withCaptureVariant(Document, { side: 'back', requestedVariant: 'standard' }),
   'back_capture'
 )
 export const DocumentVideoCapture = appendToTracking(
-  withCaptureVariant(Document, { requestedVariant: 'video' }),
+  withCaptureVariant(Document, { side: 'front', requestedVariant: 'video' }),
   'document_video_capture'
 )
 
