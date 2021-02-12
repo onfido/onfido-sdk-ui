@@ -7,6 +7,7 @@ import {
   uploadLiveVideo,
   sendMultiframeSelfie,
   objectToFormData,
+  formatError,
 } from '~utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
@@ -232,7 +233,7 @@ class Confirm extends Component {
         else
           uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
       } else if (useSubmitCallbacks)
-        this.onSubmitCallback(capture, token, 'onSubmitSelfie')
+        this.onSubmitCallback(capture, 'onSubmitSelfie')
       else this.handleSelfieUpload(capture, token)
     }
   }
@@ -240,22 +241,13 @@ class Confirm extends Component {
   onSubmitCallback = (data, callbackName) => {
     const { enterpriseFeatures, method, token, urls } = this.props
     const url = urls.onfido_api_url
-    let payload = data
 
-    if (callbackName === 'onSubmitSelfie') {
-      const { blob, filename, ...otherData } = data
-      payload = { file: { blob, filename }, otherData }
-    }
-
+    const payload = this.prepareCallbackPayload(data, callbackName)
     const formDataPayload = objectToFormData(payload)
-    enterpriseFeatures[callbackName](formDataPayload, token).then(
-      ({
-        continueWithOnfidoSubmission,
-        onfidoSuccessResponse,
-        onfidoErrorResponse,
-      }) => {
-        if (onfidoSuccessResponse) this.onApiSuccess(onfidoSuccessResponse)
-        else if (onfidoErrorResponse) this.onApiError(onfidoErrorResponse)
+
+    enterpriseFeatures[callbackName](formDataPayload, token)
+      .then(({ continueWithOnfidoSubmission, onfidoSuccess }) => {
+        if (onfidoSuccess) this.onApiSuccess(onfidoSuccess)
         else if (continueWithOnfidoSubmission) {
           this.startTime = performance.now()
           sendEvent('Starting upload', { method })
@@ -278,8 +270,50 @@ class Confirm extends Component {
           else if (callbackName === 'onSubmitSelfie')
             this.handleSelfieUpload(data, token)
         }
+      })
+      .catch((errorResponse) => formatError(errorResponse, this.onApiError))
+  }
+
+  prepareCallbackPayload = (data, callbackName) => {
+    let payload
+    if (callbackName === 'onSubmitSelfie') {
+      const { blob, filename, snapshot } = data
+      payload = {
+        file: { blob, filename },
+        snapshot,
       }
-    )
+    } else if (callbackName === 'onSubmitVideo') {
+      const {
+        blob,
+        language,
+        challengeData: {
+          challenges: challenge,
+          id: challenge_id,
+          switchSeconds: challenge_switch_at,
+        },
+      } = data
+      payload = {
+        file: blob,
+        challenge: JSON.stringify(challenge),
+        challenge_id,
+        challenge_switch_at,
+        languages: JSON.stringify([{ source: 'sdk', language_code: language }]),
+      }
+    } else {
+      const { file, side, type, validations } = data
+      payload = {
+        file,
+        side,
+        type,
+        sdk_validations: JSON.stringify(validations),
+      }
+    }
+    return {
+      sdk_metadata: JSON.stringify(data.sdkMetadata),
+      sdk_source: 'onfido_web_sdk',
+      sdk_version: process.env.SDK_VERSION,
+      ...payload,
+    }
   }
 
   onRetake = () => {

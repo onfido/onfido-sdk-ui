@@ -1,5 +1,4 @@
 import {
-  ApiParsedError,
   DocumentImageResponse,
   FaceVideoResponse,
   UploadFileResponse,
@@ -9,10 +8,9 @@ export type EnterpriseCobranding = {
   text: string
 }
 
-type EnterpriseCallbackResponse = {
+export type EnterpriseCallbackResponse = {
   continueWithOnfidoSubmission?: boolean
   onfidoSuccess?: DocumentImageResponse | UploadFileResponse | FaceVideoResponse
-  onfidoError?: ApiParsedError
 }
 
 export type EnterpriseFeatures = {
