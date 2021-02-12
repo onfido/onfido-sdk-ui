@@ -9,8 +9,10 @@ import {
   createCheckIfNeeded,
 } from './demoUtils'
 import SdkMount from './SdkMount'
+import ApplicantForm from './ApplicantForm'
 
 import { ServerRegions, SdkOptions } from '~types/sdk'
+import type { ApplicantData } from './types'
 
 const DEFAULT_REGION: ServerRegions = 'EU'
 
@@ -31,9 +33,14 @@ const SdkDemo: FunctionComponent<Props> = ({
   const [tokenUrl, setTokenUrl] = useState<string>(null)
   const [regionCode, setRegionCode] = useState<ServerRegions>(null)
   const [applicantId, setApplicantId] = useState<string>(null)
+  const [applicantData, setApplicantData] = useState<ApplicantData>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
+    if (queryParamToValueString.createCheck && !applicantData) {
+      return
+    }
+
     const { region } = sdkOptions || {}
 
     const builtRegionCode = (
@@ -49,13 +56,14 @@ const SdkDemo: FunctionComponent<Props> = ({
     getToken(
       hasPreview,
       url,
+      applicantData,
       messagePort,
       (respondedToken, responedApplicantId) => {
         setToken(respondedToken)
         setApplicantId(responedApplicantId)
       }
     )
-  }, [hasPreview, messagePort, sdkOptions])
+  }, [hasPreview, applicantData, messagePort, sdkOptions])
 
   const onComplete = (data: Record<string, unknown>) => {
     if (hasPreview) {
@@ -64,7 +72,7 @@ const SdkDemo: FunctionComponent<Props> = ({
     }
 
     console.log('Complete with data!', data)
-    createCheckIfNeeded(tokenUrl, applicantId)
+    createCheckIfNeeded(tokenUrl, applicantId, applicantData)
   }
 
   const { tearDown } = viewOptions || {}
@@ -90,6 +98,13 @@ const SdkDemo: FunctionComponent<Props> = ({
           Verify identity
         </button>
       )}
+      {!token &&
+        queryParamToValueString.createCheck &&
+        (applicantData ? (
+          'Loading ...'
+        ) : (
+          <ApplicantForm onSubmit={setApplicantData} />
+        ))}
       {token && (
         <SdkMount options={options} regionCode={regionCode} url={tokenUrl} />
       )}

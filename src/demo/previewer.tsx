@@ -3,12 +3,7 @@ import { memo, useEffect, useRef, useState } from 'preact/compat'
 
 import { SdkOptions } from '~types/sdk'
 
-import {
-  CheckData,
-  UIConfigs,
-  getInitSdkOptions,
-  // createCheckIfNeeded,
-} from './demoUtils'
+import { CheckData, UIConfigs, getInitSdkOptions } from './demoUtils'
 import {
   SdkOptionsView,
   ViewOptionsComponent,
@@ -72,7 +67,6 @@ const SdkPreviewer = () => {
         }
 
         console.log('Complete with data!', message.data.data)
-        // createCheckIfNeeded(checkData.applicantId)
       }
     }
 

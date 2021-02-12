@@ -1,17 +1,16 @@
-import { LocaleConfig, SupportedLanguages } from '~types/locales'
-import {
+import type { LocaleConfig, SupportedLanguages } from '~types/locales'
+import type {
   DocumentTypes,
   DocumentTypeConfig,
   StepConfig,
   StepTypes,
 } from '~types/steps'
-import { ServerRegions, SdkOptions } from '~types/sdk'
-
-type StringifiedBoolean = 'true' | 'false'
+import type { ServerRegions, SdkOptions } from '~types/sdk'
+import type { ApplicantData, StringifiedBoolean } from './types'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
-  createCheckFor?: string
+  createCheck?: StringifiedBoolean
   disableAnalytics?: StringifiedBoolean
   forceCrossDevice?: StringifiedBoolean
   hideOnfidoLogo?: StringifiedBoolean
@@ -330,34 +329,33 @@ export const getTokenFactoryUrl = (region: ServerRegions): string => {
   }
 }
 
-const buildTokenRequestParams = (): string => {
-  const { createCheckFor } = queryParamToValueString
-
-  /**
-   * If `createCheckFor` param is present,
-   * applicant will be created with corresponding first & last name
-   */
-  if (createCheckFor) {
-    const [firstName, lastName] = decodeURIComponent(createCheckFor).split(',')
-
-    return [
-      ['first_name', encodeURIComponent(firstName)].join('='),
-      ['last_name', encodeURIComponent(lastName)].join('='),
-    ].join('&')
+const buildTokenRequestParams = (
+  applicantData: ApplicantData | null
+): string => {
+  if (!applicantData) {
+    return ''
   }
 
-  return ''
+  return Object.entries(applicantData)
+    .filter(([, value]) => value)
+    .map((pair) => pair.join('='))
+    .join('&')
 }
 
 export const getToken = (
   hasPreview: boolean,
   url: string,
+  applicantData: ApplicantData | null,
   eventEmitter: MessagePort,
   onSuccess: (token: string, applicantId: string) => void
 ): void => {
   const request = new XMLHttpRequest()
 
-  request.open('GET', [url, buildTokenRequestParams()].join('?'), true)
+  request.open(
+    'GET',
+    [url, buildTokenRequestParams(applicantData)].join('?'),
+    true
+  )
 
   request.setRequestHeader(
     'Authorization',
@@ -383,12 +381,13 @@ export const getToken = (
 
 export const createCheckIfNeeded = (
   tokenUrl: string,
-  applicantId: string
+  applicantId: string,
+  applicantData: ApplicantData | null
 ): void => {
-  const { createCheckFor, poa, docVideo, faceVideo } = queryParamToValueString
+  const { poa, docVideo, faceVideo } = queryParamToValueString
 
-  // Don't create check if createCheckFor flag isn't present
-  if (!createCheckFor) {
+  // Don't create check if createCheck flag isn't present
+  if (!applicantData) {
     return
   }
 
