@@ -25,6 +25,11 @@ const IMAGE_QUALITY_KEYS_MAP = {
   detect_glare: 'GLARE_DETECTED',
   detect_blur: 'BLUR_DETECTED',
 }
+const CALLBACK_TYPES = {
+  selfie: 'onSubmitSelfie',
+  video: 'onSubmitVideo',
+  document: 'onSubmitDocument',
+}
 class Confirm extends Component {
   constructor(props) {
     super(props)
@@ -224,16 +229,16 @@ class Confirm extends Component {
         sdkMetadata,
         ...issuingCountry,
       }
-      if (useSubmitCallbacks) this.onSubmitCallback(data, 'onSubmitDocument')
+      if (useSubmitCallbacks) this.onSubmitCallback(data, CALLBACK_TYPES.document)
       else uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
     } else if (method === 'face') {
       if (variant === 'video') {
         const data = { challengeData, blob, language, sdkMetadata }
-        if (useSubmitCallbacks) this.onSubmitCallback(data, 'onSubmitVideo')
+        if (useSubmitCallbacks) this.onSubmitCallback(data, CALLBACK_TYPES.video)
         else
           uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
       } else if (useSubmitCallbacks)
-        this.onSubmitCallback(capture, 'onSubmitSelfie')
+        this.onSubmitCallback(capture, CALLBACK_TYPES.selfie)
       else this.handleSelfieUpload(capture, token)
     }
   }
@@ -251,7 +256,7 @@ class Confirm extends Component {
         else if (continueWithOnfidoSubmission) {
           this.startTime = performance.now()
           sendEvent('Starting upload', { method })
-          if (callbackName === 'onSubmitDocument')
+          if (callbackName === CALLBACK_TYPES.document)
             this.uploadDocument(
               data,
               url,
@@ -259,7 +264,7 @@ class Confirm extends Component {
               this.onApiSuccess,
               this.onApiError
             )
-          else if (callbackName === 'onSubmitVideo')
+          else if (callbackName === CALLBACK_TYPES.video)
             this.uploadLiveVideo(
               data,
               url,
@@ -267,7 +272,7 @@ class Confirm extends Component {
               this.onApiSuccess,
               this.onApiError
             )
-          else if (callbackName === 'onSubmitSelfie')
+          else if (callbackName === CALLBACK_TYPES.selfie)
             this.handleSelfieUpload(data, token)
         }
       })
@@ -276,13 +281,13 @@ class Confirm extends Component {
 
   prepareCallbackPayload = (data, callbackName) => {
     let payload
-    if (callbackName === 'onSubmitSelfie') {
+    if (callbackName === CALLBACK_TYPES.selfie) {
       const { blob, filename, snapshot } = data
       payload = {
         file: { blob, filename },
         snapshot,
       }
-    } else if (callbackName === 'onSubmitVideo') {
+    } else if (callbackName === CALLBACK_TYPES.video) {
       const {
         blob,
         language,
@@ -299,7 +304,7 @@ class Confirm extends Component {
         challenge_switch_at,
         languages: JSON.stringify([{ source: 'sdk', language_code: language }]),
       }
-    } else {
+    } else if (callbackName === CALLBACK_TYPES.document) {
       const { file, side, type, validations } = data
       payload = {
         file,
