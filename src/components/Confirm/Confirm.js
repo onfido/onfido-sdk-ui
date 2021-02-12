@@ -250,12 +250,19 @@ class Confirm extends Component {
     const payload = this.prepareCallbackPayload(data, callbackName)
     const formDataPayload = objectToFormData(payload)
 
+    sendEvent(`Triggering ${callbackName} callback`)
     enterpriseFeatures[callbackName](formDataPayload, token)
       .then(({ continueWithOnfidoSubmission, onfidoSuccess }) => {
-        if (onfidoSuccess) this.onApiSuccess(onfidoSuccess)
-        else if (continueWithOnfidoSubmission) {
+        if (onfidoSuccess) {
+          sendEvent(`Success response from ${callbackName}`)
+          this.onApiSuccess(onfidoSuccess)
+        } else if (continueWithOnfidoSubmission) {
           this.startTime = performance.now()
-          sendEvent('Starting upload', { method })
+          sendEvent('Starting upload after callback', {
+            method: callbackName === CALLBACK_TYPES.document
+              ? 'document'
+              : 'face'
+          })
           if (callbackName === CALLBACK_TYPES.document)
             this.uploadDocument(
               data,
@@ -276,7 +283,10 @@ class Confirm extends Component {
             this.handleSelfieUpload(data, token)
         }
       })
-      .catch((errorResponse) => formatError(errorResponse, this.onApiError))
+      .catch((errorResponse) => {
+        sendEvent(`Error response from ${callbackName}`)
+        formatError(errorResponse, this.onApiError)
+      })
   }
 
   prepareCallbackPayload = (data, callbackName) => {
