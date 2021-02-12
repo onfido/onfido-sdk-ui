@@ -1,5 +1,6 @@
 import { h, FunctionComponent } from 'preact'
 import { memo, useState } from 'preact/compat'
+import { v4 as uuid4 } from 'uuid'
 
 import type { ApplicantData } from './types'
 
@@ -36,6 +37,15 @@ type Props = {
   onSubmit: (data: ApplicantData) => void
 }
 
+const appendUuidToEmail = (email: string): string => {
+  if (!email.length) {
+    return undefined
+  }
+
+  const [address, domain] = email.split('@')
+  return [[address, uuid4()].join('_'), domain].join('@')
+}
+
 const ApplicantForm: FunctionComponent<Props> = ({ onSubmit }) => {
   const [firstName, setFirstName] = useState('Web ANSSI')
   const [lastName, setLastName] = useState('v6.5.0')
@@ -47,7 +57,7 @@ const ApplicantForm: FunctionComponent<Props> = ({ onSubmit }) => {
     onSubmit({
       first_name: firstName.length ? firstName : undefined,
       last_name: lastName.length ? lastName : undefined,
-      email: email.length ? email : undefined,
+      email: appendUuidToEmail(email),
     })
   }
 
