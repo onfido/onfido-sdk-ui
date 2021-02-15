@@ -28,7 +28,7 @@ const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 
 const baseRules = [
   {
-    test: /\.jsx?$/,
+    test: /\.(js|ts)x?$/,
     loader: 'babel-loader',
     options: { configFile: resolve('.babelrc') },
     include: [
@@ -38,11 +38,6 @@ const baseRules = [
       resolve('node_modules/strip-ansi'),
       resolve('node_modules/ansi-regex'),
     ],
-  },
-  {
-    test: /\.tsx?$/,
-    include: [`${__dirname}/src`],
-    use: ['ts-loader'],
   },
 ]
 
