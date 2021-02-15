@@ -52,6 +52,8 @@ $color-adjust-huener: rgba(var(--ods-color-neutral-600));
 $color-body-text: rgba(var(--ods-color-neutral-800));
 $color-title-text: rgba(var(--ods-color-neutral-800));
 $color-subtitle-text: $color-body-text;
+
+/* TODO: CX-5306 - "Tips" and "Recovery" header pills background, text colours should be the same */
 $color-tips-pill: #5d6b78;
 $color-input-border: #667080;
 
