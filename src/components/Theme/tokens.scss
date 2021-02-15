@@ -44,7 +44,7 @@
   --osdk-color-border-surface-modal: rgba(var(--ods-color-border-input));
   --color-background: rgba(var(--ods-color-neutral-050));
   --color-warning: rgba(var(--ods-color-primary-500));
-  --color-error: rgba(220, 42, 42);
+  --color-error: rgba(var(--ods-color-background-negative));
 
   /* TODO: not really required now, should do a full check after Phase 1 customisations implemented to be sure */
   --color-primary: rgba(var(--ods-color-primary-500));
