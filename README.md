@@ -127,7 +127,7 @@ var Onfido = require('onfido-sdk-ui')
 
 The **CSS style** will be included **inline with the JS code** when the library is imported.
 
-#### Notice
+#### Note
 
 The library is **Browser only**, it does not support the **Node Context**.
 
@@ -335,6 +335,7 @@ A number of options are available to allow you to customise the SDK:
   The container element that the UI will mount to. This needs to be an empty element. This can be used as an alternative to passing in the container ID string previously described for `containerId`. Note that if `containerEl` is provided, then `containerId` will be ignored.
 
 - **`language {String || Object} optional`**
+
   The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
   To leverage one of these languages, the `language` option should be passed as a string containing a supported language tag.
 
@@ -367,6 +368,7 @@ A number of options are available to allow you to customise the SDK:
   If `language` is not present the default copy will be in English.
 
 - **`smsNumberCountryCode {String} optional`**
+
   The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
 
   Example:
@@ -376,6 +378,7 @@ A number of options are available to allow you to customise the SDK:
   ```
 
 - **`userDetails {Object} optional`**
+
   Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
 
   The following details can be used by the SDK:
