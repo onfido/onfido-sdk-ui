@@ -930,14 +930,21 @@
     "path": "node_modules/@nodelib/fs.walk",
     "licenseFile": "node_modules/@nodelib/fs.walk/LICENSE"
   },
-  "@onfido/castor-react@1.0.0": {
+  "@onfido/castor-icons@2.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/onfido/castor-icons",
+    "publisher": "Onfido",
+    "path": "node_modules/@onfido/castor-icons",
+    "licenseFile": "node_modules/@onfido/castor-icons/README.md"
+  },
+  "@onfido/castor-react@1.0.1": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
     "path": "node_modules/@onfido/castor-react",
     "licenseFile": "node_modules/@onfido/castor-react/README.md"
   },
-  "@onfido/castor@1.0.0": {
+  "@onfido/castor@1.0.1": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
