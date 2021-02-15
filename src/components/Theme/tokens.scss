@@ -90,7 +90,7 @@
 
   /* Button group customisations */
   --osdk-border-radius-button: var(--ods-border-radius-medium);
-  --osdk-button-group-vertical: false;
+  --osdk-button-group-vertical: false; // TODO: needs a clearer, more descriptive name
 
   /* Document Type Selectors option button colors */
   --color-background-doc-type-button: rgba(var(--ods-color-neutral-white));
