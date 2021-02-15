@@ -391,6 +391,39 @@ A number of options are available to allow you to customise the SDK:
   }
   ```
 
+- **`customUI {Object} optional`**
+
+  If you would like to customise the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values) for the following options:
+
+  | Primary Button options                 | Description                                              |
+  | -------------------------------------- | -------------------------------------------------------- |
+  | `colorContentButtonPrimaryText`        | Change color of Primary Button text                      |
+  | `colorBackgroundButtonPrimary`         | Change background color of Primary Button                |
+  | `colorBackgroundButtonPrimaryHover`    | Change background color of Primary Button on hover       |
+  | `colorBackgroundButtonPrimaryActive`   | Change background color of Primary Button on click/tap   |
+  | `colorBorderButtonPrimary`             | Change color of Primary Button border                    |
+
+  | Secondary Button options               | Description                                              |
+  | -------------------------------------- | -------------------------------------------------------- |
+  | `colorContentButtonSecondaryText`      | Change color of Secondary Button text                    |
+  | `colorBackgroundButtonSecondary`       | Change background color of Secondary Button              |
+  | `colorBackgroundButtonSecondaryHover`  | Change background color of Secondary Button on hover     |
+  | `colorBackgroundButtonSecondaryActive` | Change background color of Secondary Button on click/tap |
+  | `colorBorderButtonSecondary`           | Change color of Secondary Button border                  |
+
+  | Document Type Button options      | Description                                              |
+  | --------------------------------- | -------------------------------------------------------- |
+  | `colorBorderDocTypeButton`        | Change color of Document Type Button border              |
+  | `colorBorderDocTypeButtonHover`   | Change color of Document Type Button border on hover     |
+  | `colorBorderDocTypeButtonActive`  | Change color of Document Type Button border on click/tap |
+
+  The following options are applied to multiple Button elements:
+
+  | Shared Button options                    | Value Type   | Description                                                                        |
+  | ---------------------------------------- | ------------ | ---------------------------------------------------------------------------------- |
+  | `borderRadiusButton`                     | `string`     | Change border radius value of Primary, Secondary and Document Type Option buttons                                                      |
+  | `buttonGroupVertical` (default: `false`) | `boolean`    | Display Primary, Secondary button group in Document, Face capture confirmation screens in separate rows instead of inline  by default  |
+
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
