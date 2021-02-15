@@ -84,7 +84,7 @@
   height: 100%;
 }
 
-@keyframes gauge-fill {
+@keyframes gaugeFill {
   from {
     width: 0%;
   }
@@ -95,7 +95,7 @@
 }
 
 .progress .step.active .gauge {
-  animation: gauge-fill 0.5s ease-in-out forwards;
+  animation: gaugeFill 0.5s ease-in-out forwards;
 }
 
 .success {
