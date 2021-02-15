@@ -14,8 +14,8 @@
     "build": "webpack --quiet --display-error-details --bail",
     "build:dev": "NODE_ENV=development npm run build",
     "build:test": "NODE_ENV=test npm run build && npm run mock-server:build",
-    "prebuild": "npm run clean && npm run mkdirs && npm run license-checker && npm run check && npm run test",
-    "postbuild": "dts-bundle-generator src/types/index.ts --out-file lib/index.d.ts",
+    "_prebuild": "npm run clean && npm run mkdirs && npm run license-checker && npm run check && npm run test",
+    "_postbuild": "dts-bundle-generator src/types/index.ts --out-file lib/index.d.ts",
     "mkdirs": "mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
     "prepare": "npm run clean && npm run check && npm run build",
@@ -198,7 +198,6 @@
     "terser-webpack-plugin": "^1.2.2",
     "travis-weigh-in": "^1.0.2",
     "ts-jest": "^26.4.4",
-    "ts-loader": "^8.0.11",
     "typescript": "^4.1.3",
     "webpack": "^4.42.0",
     "webpack-bundle-analyzer": "^3.6.1",
@@ -210,6 +209,7 @@
     "yn": "^3.0.0"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.12.16",
     "@babel/runtime-corejs3": "^7.8.7",
     "@sentry/browser": "^5.14.2",
     "blueimp-load-image": "~2.29.0",
