@@ -7347,8 +7347,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/lydell/js-tokens",
     "publisher": "Simon Lydell",
-    "path": "node_modules/@onfido/castor-react/node_modules/js-tokens",
-    "licenseFile": "node_modules/@onfido/castor-react/node_modules/js-tokens/LICENSE"
+    "path": "node_modules/js-tokens",
+    "licenseFile": "node_modules/js-tokens/LICENSE"
   },
   "js-yaml@3.13.1": {
     "licenses": "MIT",
@@ -12466,15 +12466,6 @@
     "url": "https://github.com/kulshekhar",
     "path": "node_modules/ts-jest",
     "licenseFile": "node_modules/ts-jest/LICENSE.md"
-  },
-  "ts-loader@8.0.11": {
-    "licenses": "MIT",
-    "repository": "https://github.com/TypeStrong/ts-loader",
-    "publisher": "John Reilly",
-    "email": "johnny_reilly@hotmail.com",
-    "url": "https://blog.johnnyreilly.com",
-    "path": "node_modules/ts-loader",
-    "licenseFile": "node_modules/ts-loader/LICENSE"
   },
   "tslib@1.11.1": {
     "licenses": "Apache-2.0",
