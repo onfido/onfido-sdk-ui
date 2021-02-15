@@ -1028,8 +1028,8 @@
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor-icons",
     "publisher": "Onfido",
-    "path": "node_modules/@onfido/castor-icons",
-    "licenseFile": "node_modules/@onfido/castor-icons/README.md"
+    "path": "node_modules/@onfido/castor-react/node_modules/@onfido/castor-icons",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/@onfido/castor-icons/README.md"
   },
   "@onfido/castor-react@1.0.1": {
     "licenses": "Apache-2.0",
@@ -1786,8 +1786,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-message-util/node_modules/ansi-regex",
-    "licenseFile": "node_modules/jest-message-util/node_modules/ansi-regex/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/ansi-regex",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/ansi-regex/license"
   },
   "ansi-styles@2.2.1": {
     "licenses": "MIT",
@@ -1813,8 +1813,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@jest/types/node_modules/ansi-styles",
-    "licenseFile": "node_modules/@jest/types/node_modules/ansi-styles/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/ansi-styles",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/ansi-styles/license"
   },
   "anymatch@2.0.0": {
     "licenses": "ISC",
@@ -2796,8 +2796,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/camelcase",
-    "licenseFile": "node_modules/camelcase/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/camelcase",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/camelcase/license"
   },
   "camelcase@6.0.0": {
     "licenses": "MIT",
@@ -3148,8 +3148,8 @@
     "repository": "https://github.com/yargs/cliui",
     "publisher": "Ben Coe",
     "email": "ben@npmjs.com",
-    "path": "node_modules/jest-runtime/node_modules/cliui",
-    "licenseFile": "node_modules/jest-runtime/node_modules/cliui/LICENSE.txt"
+    "path": "node_modules/@onfido/castor-react/node_modules/cliui",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/cliui/LICENSE.txt"
   },
   "clone-regexp@2.2.0": {
     "licenses": "MIT",
@@ -3228,8 +3228,8 @@
     "repository": "https://github.com/Qix-/color-convert",
     "publisher": "Heather Arthur",
     "email": "fayearthur@gmail.com",
-    "path": "node_modules/@jest/types/node_modules/color-convert",
-    "licenseFile": "node_modules/@jest/types/node_modules/color-convert/LICENSE"
+    "path": "node_modules/@onfido/castor-react/node_modules/color-convert",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/color-convert/LICENSE"
   },
   "color-name@1.1.3": {
     "licenses": "MIT",
@@ -3244,8 +3244,8 @@
     "repository": "https://github.com/colorjs/color-name",
     "publisher": "DY",
     "email": "dfcreative@gmail.com",
-    "path": "node_modules/@jest/types/node_modules/color-name",
-    "licenseFile": "node_modules/@jest/types/node_modules/color-name/LICENSE"
+    "path": "node_modules/@onfido/castor-react/node_modules/color-name",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/color-name/LICENSE"
   },
   "colorette@1.2.1": {
     "licenses": "MIT",
@@ -3796,8 +3796,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/decamelize",
-    "licenseFile": "node_modules/decamelize/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/decamelize",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/decamelize/license"
   },
   "decimal.js@10.2.1": {
     "licenses": "MIT",
@@ -4222,6 +4222,13 @@
     "path": "node_modules/dts-bundle-generator",
     "licenseFile": "node_modules/dts-bundle-generator/LICENSE"
   },
+  "dts-bundle-generator@5.7.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/timocov/dts-bundle-generator",
+    "publisher": "Evgeniy Timokhov",
+    "path": "node_modules/@onfido/castor-react/node_modules/dts-bundle-generator",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/dts-bundle-generator/LICENSE"
+  },
   "duplexer@0.1.1": {
     "licenses": "MIT",
     "repository": "https://github.com/Raynos/duplexer",
@@ -4324,8 +4331,8 @@
     "repository": "https://github.com/mathiasbynens/emoji-regex",
     "publisher": "Mathias Bynens",
     "url": "https://mathiasbynens.be/",
-    "path": "node_modules/emoji-regex",
-    "licenseFile": "node_modules/emoji-regex/LICENSE-MIT.txt"
+    "path": "node_modules/@onfido/castor-react/node_modules/emoji-regex",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/emoji-regex/LICENSE-MIT.txt"
   },
   "emojis-list@2.1.0": {
     "licenses": "MIT",
@@ -5137,8 +5144,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/find-up",
-    "licenseFile": "node_modules/jest-resolve/node_modules/find-up/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/find-up",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/find-up/license"
   },
   "findup-sync@2.0.0": {
     "licenses": "MIT",
@@ -5468,8 +5475,8 @@
     "licenses": "ISC",
     "repository": "https://github.com/stefanpenner/get-caller-file",
     "publisher": "Stefan Penner",
-    "path": "node_modules/jest-runtime/node_modules/get-caller-file",
-    "licenseFile": "node_modules/jest-runtime/node_modules/get-caller-file/LICENSE.md"
+    "path": "node_modules/@onfido/castor-react/node_modules/get-caller-file",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/get-caller-file/LICENSE.md"
   },
   "get-func-name@2.0.0": {
     "licenses": "MIT",
@@ -6794,8 +6801,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-runtime/node_modules/is-fullwidth-code-point",
-    "licenseFile": "node_modules/jest-runtime/node_modules/is-fullwidth-code-point/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/is-fullwidth-code-point",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/is-fullwidth-code-point/license"
   },
   "is-generator-fn@2.1.0": {
     "licenses": "MIT",
@@ -7426,8 +7433,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/lydell/js-tokens",
     "publisher": "Simon Lydell",
-    "path": "node_modules/js-tokens",
-    "licenseFile": "node_modules/js-tokens/LICENSE"
+    "path": "node_modules/@onfido/castor-react/node_modules/js-tokens",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/js-tokens/LICENSE"
   },
   "js-yaml@3.13.1": {
     "licenses": "MIT",
@@ -7803,8 +7810,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/locate-path",
-    "licenseFile": "node_modules/jest-resolve/node_modules/locate-path/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/locate-path",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/locate-path/license"
   },
   "lodash.escape@4.0.1": {
     "licenses": "MIT",
@@ -7945,8 +7952,8 @@
     "repository": "https://github.com/zertosh/loose-envify",
     "publisher": "Andres Suarez",
     "email": "zertosh@gmail.com",
-    "path": "node_modules/loose-envify",
-    "licenseFile": "node_modules/loose-envify/LICENSE"
+    "path": "node_modules/@onfido/castor-react/node_modules/loose-envify",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/loose-envify/LICENSE"
   },
   "lower-case@1.1.4": {
     "licenses": "MIT",
@@ -8876,8 +8883,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/object-assign",
-    "licenseFile": "node_modules/object-assign/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/object-assign",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/object-assign/license"
   },
   "object-component@0.0.3": {
     "licenses": "MIT*",
@@ -9199,6 +9206,15 @@
     "path": "node_modules/p-limit",
     "licenseFile": "node_modules/p-limit/license"
   },
+  "p-limit@2.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/p-limit",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "node_modules/@onfido/castor-react/node_modules/p-limit",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/p-limit/license"
+  },
   "p-locate@2.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/p-locate",
@@ -9223,8 +9239,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/p-locate",
-    "licenseFile": "node_modules/jest-resolve/node_modules/p-locate/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/p-locate",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/p-locate/license"
   },
   "p-map@2.1.0": {
     "licenses": "MIT",
@@ -9268,8 +9284,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/p-try",
-    "licenseFile": "node_modules/p-try/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/p-try",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/p-try/license"
   },
   "pako@1.0.11": {
     "licenses": "(MIT AND Zlib)",
@@ -9454,8 +9470,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/path-exists",
-    "licenseFile": "node_modules/jest-resolve/node_modules/path-exists/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/path-exists",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/path-exists/license"
   },
   "path-is-absolute@1.0.1": {
     "licenses": "MIT",
@@ -10445,8 +10461,8 @@
   "react@17.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
-    "path": "node_modules/react",
-    "licenseFile": "node_modules/react/LICENSE"
+    "path": "node_modules/@onfido/castor-react/node_modules/react",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/react/LICENSE"
   },
   "read-installed@4.0.3": {
     "licenses": "ISC",
@@ -10819,8 +10835,8 @@
     "publisher": "Troy Goode",
     "email": "troygoode@gmail.com",
     "url": "http://github.com/troygoode/",
-    "path": "node_modules/require-directory",
-    "licenseFile": "node_modules/require-directory/LICENSE"
+    "path": "node_modules/@onfido/castor-react/node_modules/require-directory",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/require-directory/LICENSE"
   },
   "require-main-filename@1.0.1": {
     "licenses": "ISC",
@@ -10835,8 +10851,8 @@
     "repository": "https://github.com/yargs/require-main-filename",
     "publisher": "Ben Coe",
     "email": "ben@npmjs.com",
-    "path": "node_modules/jest-runtime/node_modules/require-main-filename",
-    "licenseFile": "node_modules/jest-runtime/node_modules/require-main-filename/LICENSE.txt"
+    "path": "node_modules/@onfido/castor-react/node_modules/require-main-filename",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/require-main-filename/LICENSE.txt"
   },
   "requires-port@1.0.0": {
     "licenses": "MIT",
@@ -11289,8 +11305,8 @@
     "repository": "https://github.com/yargs/set-blocking",
     "publisher": "Ben Coe",
     "email": "ben@npmjs.com",
-    "path": "node_modules/set-blocking",
-    "licenseFile": "node_modules/set-blocking/LICENSE.txt"
+    "path": "node_modules/@onfido/castor-react/node_modules/set-blocking",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/set-blocking/LICENSE.txt"
   },
   "set-immediate-shim@1.0.1": {
     "licenses": "MIT",
@@ -11865,8 +11881,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-runtime/node_modules/string-width",
-    "licenseFile": "node_modules/jest-runtime/node_modules/string-width/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/string-width",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/string-width/license"
   },
   "string.prototype.matchall@4.0.2": {
     "licenses": "MIT",
@@ -11963,8 +11979,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-runtime/node_modules/strip-ansi",
-    "licenseFile": "node_modules/jest-runtime/node_modules/strip-ansi/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/strip-ansi",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/strip-ansi/license"
   },
   "strip-bom@3.0.0": {
     "licenses": "MIT",
@@ -12678,6 +12694,13 @@
     "path": "node_modules/typescript",
     "licenseFile": "node_modules/typescript/LICENSE.txt"
   },
+  "typescript@4.1.5": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Microsoft/TypeScript",
+    "publisher": "Microsoft Corp.",
+    "path": "node_modules/@onfido/castor-react/node_modules/typescript",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/typescript/LICENSE.txt"
+  },
   "ua-parser-js@0.7.21": {
     "licenses": "MIT",
     "repository": "https://github.com/faisalman/ua-parser-js",
@@ -13377,8 +13400,8 @@
     "licenses": "ISC",
     "repository": "https://github.com/nexdrew/which-module",
     "publisher": "nexdrew",
-    "path": "node_modules/which-module",
-    "licenseFile": "node_modules/which-module/LICENSE"
+    "path": "node_modules/@onfido/castor-react/node_modules/which-module",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/which-module/LICENSE"
   },
   "which@1.3.1": {
     "licenses": "ISC",
@@ -13461,8 +13484,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-runtime/node_modules/wrap-ansi",
-    "licenseFile": "node_modules/jest-runtime/node_modules/wrap-ansi/license"
+    "path": "node_modules/@onfido/castor-react/node_modules/wrap-ansi",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/wrap-ansi/license"
   },
   "wrappy@1.0.2": {
     "licenses": "ISC",
@@ -13608,6 +13631,14 @@
     "path": "node_modules/y18n",
     "licenseFile": "node_modules/y18n/LICENSE"
   },
+  "y18n@4.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/yargs/y18n",
+    "publisher": "Ben Coe",
+    "email": "ben@npmjs.com",
+    "path": "node_modules/@onfido/castor-react/node_modules/y18n",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/y18n/LICENSE"
+  },
   "yallist@3.1.1": {
     "licenses": "ISC",
     "repository": "https://github.com/isaacs/yallist",
@@ -13663,8 +13694,8 @@
     "repository": "https://github.com/yargs/yargs-parser",
     "publisher": "Ben Coe",
     "email": "ben@npmjs.com",
-    "path": "node_modules/jest-runtime/node_modules/yargs-parser",
-    "licenseFile": "node_modules/jest-runtime/node_modules/yargs-parser/LICENSE.txt"
+    "path": "node_modules/@onfido/castor-react/node_modules/yargs-parser",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/yargs-parser/LICENSE.txt"
   },
   "yargs-parser@20.2.4": {
     "licenses": "ISC",
@@ -13709,8 +13740,8 @@
   "yargs@15.4.1": {
     "licenses": "MIT",
     "repository": "https://github.com/yargs/yargs",
-    "path": "node_modules/jest-runtime/node_modules/yargs",
-    "licenseFile": "node_modules/jest-runtime/node_modules/yargs/LICENSE"
+    "path": "node_modules/@onfido/castor-react/node_modules/yargs",
+    "licenseFile": "node_modules/@onfido/castor-react/node_modules/yargs/LICENSE"
   },
   "yauzl@2.10.0": {
     "licenses": "MIT",
