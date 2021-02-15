@@ -34,12 +34,14 @@ const ProgressBar: FunctionComponent<Props> = ({
       {Array(totalSteps)
         .fill(null)
         .map((_step, index) => (
-          <span
+          <div
             className={classNames(style.step, {
               [style.active]: getStepActiveState(index),
             })}
             key={`document-video-progress-${index}`}
-          />
+          >
+            <span className={style.gauge} />
+          </div>
         ))}
     </div>
   )

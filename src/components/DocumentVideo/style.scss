@@ -69,16 +69,32 @@
 }
 
 .progress .step {
-  background-color: $color-white;
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 2 * $unit;
   height: 4 * $unit;
   margin: 0 3 * $unit;
-  opacity: 0.4;
+  overflow: hidden;
   width: 96 * $unit;
 }
 
-.progress .step.active {
-  opacity: 1;
+.progress .gauge {
+  background-color: white;
+  display: block;
+  width: 0%;
+  height: 100%;
+}
+
+@keyframes gauge-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.progress .step.active .gauge {
+  animation: gauge-fill 0.5s ease-in-out forwards;
 }
 
 .success {
