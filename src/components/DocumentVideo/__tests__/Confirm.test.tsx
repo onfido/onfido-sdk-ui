@@ -20,6 +20,7 @@ import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
 import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import Confirm from '../Confirm'
 
+import type { ApiParsedError } from '~types/api'
 import type { StepComponentDocumentProps } from '~types/routers'
 
 jest.mock('../../utils/onfidoApi')
@@ -67,26 +68,26 @@ const assertButton = (
   expect(button.hasClass('button-lg button-centered')).toBeTruthy()
 }
 
-const assertError = (wrapper: ReactWrapper, unknownError = false) => {
+const assertError = (wrapper: ReactWrapper, noDoc = false) => {
   expect(wrapper.find('.content').exists()).toBeFalsy()
   expect(wrapper.find('.preview').exists()).toBeFalsy()
   expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
 
   expect(wrapper.find('Error').exists()).toBeTruthy()
 
-  if (unknownError) {
-    expect(wrapper.find('Error .title').text()).toEqual(
-      'generic.errors.request_error.message'
-    )
-    expect(wrapper.find('Error .instruction').text()).toEqual(
-      'generic.errors.request_error.instruction'
-    )
-  } else {
+  if (noDoc) {
     expect(wrapper.find('Error .title').text()).toEqual(
       'doc_confirmation.alert.no_doc_title'
     )
     expect(wrapper.find('Error .instruction').text()).toEqual(
       'doc_confirmation.alert.no_doc_detail'
+    )
+  } else {
+    expect(wrapper.find('Error .title').text()).toEqual(
+      'generic.errors.request_error.message'
+    )
+    expect(wrapper.find('Error .instruction').text()).toEqual(
+      'generic.errors.request_error.instruction'
     )
   }
 
@@ -463,20 +464,51 @@ describe('DocumentVideo', () => {
           it('renders INVALID_CAPTURE error correctly', async () => {
             await runAllPromises()
             wrapper.update()
-            assertError(wrapper)
+            assertError(wrapper, true)
           })
         })
 
-        describe('with unknown error', () => {
-          beforeEach(() => {
-            mockedUploadDocument.mockRejectedValue(fakeUnknownError)
-            simulateButtonClick(wrapper)
-          })
+        describe('with other errors', () => {
+          const blankError = { response: {}, status: 422 }
 
-          it('renders REQUEST_ERROR error correctly', async () => {
-            await runAllPromises()
-            wrapper.update()
-            assertError(wrapper, true)
+          const fakeErrors: ApiParsedError[] = [
+            blankError,
+            {
+              ...blankError,
+              response: {
+                error: {
+                  type: 'validation_error',
+                  message: 'Fake message',
+                  fields: {},
+                },
+              },
+            },
+            {
+              ...blankError,
+              response: {
+                error: {
+                  type: 'validation_error',
+                  message: 'Fake message',
+                  fields: { document_detection: null },
+                },
+              },
+            },
+            fakeUnknownError,
+          ]
+
+          fakeErrors.forEach((error) => {
+            describe('on error', () => {
+              beforeEach(() => {
+                mockedUploadDocument.mockRejectedValue(error)
+                simulateButtonClick(wrapper)
+              })
+
+              it('renders REQUEST_ERROR error correctly', async () => {
+                await runAllPromises()
+                wrapper.update()
+                assertError(wrapper)
+              })
+            })
           })
         })
       })

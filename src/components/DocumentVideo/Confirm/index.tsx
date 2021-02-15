@@ -122,10 +122,11 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
         response: { error },
       } = errorResponse as ApiParsedError
 
-      if (error?.type === 'validation_error') {
-        if (error?.fields.document_detection) {
-          setError({ name: 'INVALID_CAPTURE', type: 'error' })
-        }
+      if (
+        error?.type === 'validation_error' &&
+        error?.fields.document_detection != null
+      ) {
+        setError({ name: 'INVALID_CAPTURE', type: 'error' })
       } else {
         setError({ name: 'REQUEST_ERROR', type: 'error' })
       }

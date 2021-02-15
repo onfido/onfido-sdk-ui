@@ -52,11 +52,15 @@ const VideoLayer: FunctionComponent<Props> = ({
     setStepFinished(true)
 
     setTimeout(() => {
-      setStepFinished(false)
+      if (stepNumber >= totalSteps) {
+        onStop()
+        return
+      }
 
-      stepNumber < totalSteps ? onNext() : onStop()
+      onNext()
+      setStepFinished(false)
     }, SUCCESS_STATE_TIMEOUT)
-  }, [step, onNext])
+  }, [step, stepNumber, totalSteps, onNext, onStop])
 
   const startRecording = (
     <Fragment>

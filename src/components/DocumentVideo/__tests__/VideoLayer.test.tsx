@@ -19,20 +19,31 @@ const defaultProps: VideoLayerProps = {
 }
 
 const simulateNext = (wrapper: ReactWrapper) =>
-  wrapper.find('Button > button').simulate('click')
+  wrapper.find('.actions Button > button').simulate('click')
 
-const assertSuccessStep = (wrapper: ReactWrapper) => {
-  expect(defaultProps.onNext).not.toHaveBeenCalled()
-  expect(wrapper.find('Button').exists()).toBeFalsy()
-  expect(wrapper.find('.success').exists()).toBeTruthy()
+const assertSuccessState = (wrapper: ReactWrapper, isSuccess: boolean) => {
+  expect(wrapper.find('.actions Button').exists()).toEqual(!isSuccess)
+  expect(wrapper.find('.actions .success').exists()).toEqual(isSuccess)
+}
+
+const assertSuccessStep = (wrapper: ReactWrapper, lastStep = false) => {
+  assertSuccessState(wrapper, true)
 
   jest.runTimersToTime(2000)
-  expect(defaultProps.onNext).toHaveBeenCalled()
-  expect(defaultProps.onNext).toHaveBeenCalledTimes(1)
 
+  if (lastStep) {
+    expect(defaultProps.onStop).toHaveBeenCalled()
+    expect(defaultProps.onStop).toHaveBeenCalledTimes(1)
+    expect(defaultProps.onNext).not.toHaveBeenCalled()
+  } else {
+    expect(defaultProps.onNext).toHaveBeenCalled()
+    expect(defaultProps.onNext).toHaveBeenCalledTimes(1)
+    expect(defaultProps.onStop).not.toHaveBeenCalled()
+  }
+
+  // Keep success state for the last step
   wrapper.update()
-  expect(wrapper.find('Button').exists()).toBeTruthy()
-  expect(wrapper.find('.success').exists()).toBeFalsy()
+  assertSuccessState(wrapper, lastStep)
 }
 
 describe('DocumentVideo', () => {
@@ -72,16 +83,21 @@ describe('DocumentVideo', () => {
       describe('after intro step', () => {
         const steps: CaptureSteps[] = ['front', 'tilt', 'back']
 
-        steps.forEach((step) =>
+        steps.forEach((step, stepIndex) =>
           it(`delays onNext to show success state when step=${step}`, () => {
             const wrapper = mount(
               <MockedLocalised>
-                <VideoLayer {...defaultProps} isRecording step={step} />
+                <VideoLayer
+                  {...defaultProps}
+                  isRecording
+                  step={step}
+                  stepNumber={stepIndex + 1}
+                />
               </MockedLocalised>
             )
 
             simulateNext(wrapper)
-            assertSuccessStep(wrapper)
+            assertSuccessStep(wrapper, step === 'back')
           })
         )
       })
