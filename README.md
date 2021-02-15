@@ -835,6 +835,10 @@ The Onfido SDK has been optimised to provide the following accessibility support
 
 Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
 
+### Note
+
+If you are making your own UI customisations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible colour contrast ratios and dyslexic friendly fonts.
+
 ## TypeScript
 
 From version `6.5.0`, TypeScript is officially supported, providing typings for:
