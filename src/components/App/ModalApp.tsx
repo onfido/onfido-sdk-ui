@@ -26,6 +26,7 @@ import type {
   DocumentTypes,
 } from '~types/steps'
 import { kebabCase } from '~utils/string'
+import { setUICustomisations } from '../Theme/utils'
 
 import withConnect, { ReduxProps } from './withConnect'
 

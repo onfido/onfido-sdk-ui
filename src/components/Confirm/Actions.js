@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { localised } from '../../locales'
-import { isButtonGroupVertical } from '~utils/computedStyles'
+import { isButtonGroupVertical } from '../Theme/utils'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
