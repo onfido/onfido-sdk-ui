@@ -12,7 +12,7 @@ import 'array-flat-polyfill'
 
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
-import { cssVarsPonyfill } from './cssVarsPonyfill'
+import { cssVarsPonyfill } from '~utils/cssVarsPonyfill'
 import type { NormalisedSdkOptions } from '~types/commons'
 import type { SdkOptions, SdkHandle } from '~types/sdk'
 import type { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
