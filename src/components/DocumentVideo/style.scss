@@ -78,7 +78,7 @@
 }
 
 .progress .gauge {
-  background-color: white;
+  background-color: $color-white;
   display: block;
   width: 0%;
   height: 100%;
@@ -88,6 +88,7 @@
   from {
     width: 0%;
   }
+
   to {
     width: 100%;
   }
