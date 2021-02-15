@@ -1,14 +1,18 @@
 /*
- *  NOTE on CSS variable naming convention:
+ *  NOTE on CSS variable prefix naming convention & Castor DS token mappings:
  *
- *  1) Supported SDK customisation options = CSS variables with --osdk- prefix
+ *  1) Supported SDK customisation options = CSS variables with --osdk- prefix.
+ *     Anything without --osdk- prefix is not officially supported but is here as this is the single source for tokens.
  *
- *  2) Castor theme tokens = CSS variables with --ods- prefix are Castor theme tokens
+ *  2) Castor theme tokens = CSS variables with --ods- prefix are Castor theme tokens.
  *
- *  Wherever it makes sense for colour token mappings, the relevant Castor theme token should be used.
- *  See Castor Day theme file for available theme tokens:
+ *  Wherever it makes sense for colour token mappings, the relevant Day theme design tokens from Castor should be used.
+ *  See the Castor Day theme file for available tokens:
  *  https://github.com/onfido/castor/blob/main/packages/core/src/theme/themes/day.scss
- *  Where it does not, the basic colour token should be used instead.
+ *  Where it does not, the basic colour token, e.g. --ods-color-primary-500, should be used instead.
+ *
+ * Colors in color palette are RGB values but also adds alpha level (or opacity),
+ * so all colour related CSS variables must be wrapped with rgba(), e.g. rgba((var(--castor-colour-token))).
  */
 
 /* stylelint-disable function-parentheses-space-inside */
@@ -37,7 +41,7 @@
   --font-weight-body: 500;
 
   /* General UI element background color settings */
-  --osdk-color-border-surface-modal: var(--ods-color-border-input);
+  --osdk-color-border-surface-modal: rgba(var(--ods-color-border-input));
   --color-background: rgba(var(--ods-color-neutral-050));
   --color-warning: rgba(var(--ods-color-primary-500));
   --color-error: rgba(220, 42, 42);
