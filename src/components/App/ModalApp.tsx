@@ -146,11 +146,12 @@ class ModalApp extends Component<Props> {
     prevOptions: NormalisedSdkOptions = {},
     options: NormalisedSdkOptions = {}
   ) => {
-    const { userDetails: { smsNumber } = {}, steps, token } = options
+    const { token, userDetails: { smsNumber } = {}, steps, customUI } = options
     const {
       userDetails: { smsNumber: prevSmsNumber } = {},
       steps: prevSteps,
       token: prevToken,
+      customUI: prevCustomUI,
     } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
@@ -177,18 +178,8 @@ class ModalApp extends Component<Props> {
       this.setConfiguredEnterpriseFeatures(validEnterpriseFeatures, options)
     }
 
-    const { customUI } = this.props.options
-    if (customUI && customUI !== prevOptions.customUI) {
-      const sdkCustomisations = Object.keys(customUI).map(
-        (key) => `--osdk-${kebabCase(key)}: ${customUI[key]};`
-      )
-      const style = `
-      <style>
-          :root {
-            ${sdkCustomisations.join('\n')}
-          }
-      </style>`
-      document.head.insertAdjacentHTML('beforeend', style)
+    if (customUI && customUI !== prevCustomUI) {
+      setUICustomisations(customUI)
     }
   }
 
