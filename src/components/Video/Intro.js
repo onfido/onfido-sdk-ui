@@ -17,7 +17,7 @@ import style from './style.scss'
 const Intro = ({ translate, parseTranslatedTags, nextStep }) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('video_intro.title')} />
-    <div className={classNames(theme.contentMargin, style.introCopy)}>
+    <div className={style.introCopy}>
       <ul
         className={style.introBullets}
         aria-label={translate('video_intro.list_accessibility')}

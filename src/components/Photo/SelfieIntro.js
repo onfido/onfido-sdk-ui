@@ -10,7 +10,7 @@ import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const InstructionsPure = ({ listScreenReaderText, instructions }) => (
-  <div className={classNames(theme.contentMargin, theme.scrollableContent)}>
+  <div className={theme.scrollableContent}>
     <ul className={style.introBullets} aria-label={listScreenReaderText}>
       {instructions.map((instruction) => (
         <li

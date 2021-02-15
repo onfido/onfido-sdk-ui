@@ -34,20 +34,26 @@
 $card-frame-height: 0%;
 $card-frame-width: 92%;
 
+/* ID1 = Driving Licence, National ID Card */
 .id1Card {
   $aspect-ratio: 1.586; /* ID1 card size - width: 85.60mm, height: 53.98mm */
 
   @extend %_overlay;
+  bottom: initial;
+  top: 0%;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
   border-color: $color-white;
 }
 
+/* ID3 = Passport */
 .id3Card {
   $aspect-ratio: 1.42; /* ID3 card size - width: 125mm, height: 88mm */
 
   @extend %_overlay;
+  bottom: initial;
+  top: -5%;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc(#{$card-frame-width / $aspect-ratio});

@@ -13,20 +13,17 @@ import 'array-flat-polyfill'
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
 import { cssVarsPonyfill } from './cssVarsPonyfill'
-import { SdkOptions, SdkHandle } from '~types/sdk'
-import { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
+import type { NormalisedSdkOptions } from '~types/commons'
+import type { SdkOptions, SdkHandle } from '~types/sdk'
+import type { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
 import App from './components/App'
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
 }
 
-interface NormalisedSdkOptions extends SdkOptions {
-  steps: StepConfig[]
-}
-
 const onfidoRender = (
-  options: SdkOptions,
+  options: NormalisedSdkOptions,
   el: Element | Document | ShadowRoot | DocumentFragment,
   merge?: Element | Text
 ) => render(<App options={options} />, el, merge)

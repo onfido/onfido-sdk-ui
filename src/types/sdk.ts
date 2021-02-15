@@ -1,5 +1,6 @@
-import { SupportedLanguages, LocaleConfig } from './locales'
-import { StepConfig, StepTypes } from './steps'
+import type { SupportedLanguages, LocaleConfig } from './locales'
+import type { StepConfig, StepTypes } from './steps'
+import type { EnterpriseFeatures } from './enterprise'
 
 type DocumentResponse = {
   id: string
@@ -53,10 +54,7 @@ export interface SdkOptions extends FunctionalConfigurations {
     smsNumber?: string
   }
   steps?: Array<StepTypes | StepConfig>
-  enterpriseFeatures?: {
-    hideOnfidoLogo?: boolean
-    cobrand?: { text: string }
-  }
+  enterpriseFeatures?: EnterpriseFeatures
 }
 
 export type SdkHandle = {

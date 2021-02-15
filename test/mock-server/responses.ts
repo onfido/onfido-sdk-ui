@@ -269,6 +269,15 @@ export default {
       snapshots: {
         uuid: '422e1061-a479-4356-b64a-78d53b4ea217',
       },
+      validate_document: {
+        breakdown: {
+          document_confidence: 0.00010868642129935324,
+          document_detected: false,
+        },
+        id: 'ru18be',
+        is_document: false,
+        valid: false,
+      },
     },
   },
 }

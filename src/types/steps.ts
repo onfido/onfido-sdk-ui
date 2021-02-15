@@ -1,70 +1,95 @@
-export type StepTypes = 'welcome' | 'document' | 'poa' | 'face' | 'complete'
+const STEP_WELCOME = 'welcome'
+const STEP_DOCUMENT = 'document'
+const STEP_POA = 'poa'
+const STEP_FACE = 'face'
+const STEP_COMPLETE = 'complete'
 
-type StepConfigBase = {
-  type: StepTypes
+export type StepTypes =
+  | typeof STEP_WELCOME
+  | typeof STEP_DOCUMENT
+  | typeof STEP_POA
+  | typeof STEP_FACE
+  | typeof STEP_COMPLETE
+
+export type DocumentTypes =
+  | 'passport'
+  | 'driving_licence'
+  | 'national_identity_card'
+  | 'residence_permit'
+
+export type PoaTypes =
+  | 'bank_building_society_statement'
+  | 'utility_bill'
+  | 'council_tax'
+  | 'benefit_letters'
+  | 'government_letter'
+
+export type RequestedVariant = 'standard' | 'video'
+
+export type DocumentTypeConfig =
+  | boolean
+  | {
+      country: string
+    }
+
+export type CaptureOptions = {
+  requestedVariant?: RequestedVariant
+  uploadFallback?: boolean
+  useUploader?: boolean
+  useWebcam?: boolean
 }
 
-type StepOptionWelcome = {
+export type StepOptionWelcome = {
   title?: string
   descriptions?: string[]
   nextButton?: string
 }
 
-type StepOptionDocument = {
-  documentTypes?: {
-    passport?: boolean
-    driving_licence?: boolean
-    national_identity_card?: boolean
-    residence_permit?: boolean
-  }
-  showCountrySelection?: boolean
+export type StepOptionDocument = {
+  documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
   forceCrossDevice?: boolean
+  showCountrySelection?: boolean
   useLiveDocumentCapture?: boolean
-  uploadFallback?: boolean
-  useWebcam?: boolean
-}
+} & CaptureOptions
 
-type StepOptionPoA = {
+export type StepOptionPoA = {
   country?: string
-  documentTypes: {
-    bank_building_society_statement?: boolean
-    utility_bill?: boolean
-    council_tax?: boolean // GBR only
-    benefit_letters?: boolean // GBR only
-    government_letter?: boolean // non-GBR only
-  }
+  documentTypes?: Partial<Record<PoaTypes, boolean>>
 }
 
-type StepOptionFace = {
-  requestedVariant?: 'standard' | 'video'
-  uploadFallback?: boolean
+export type StepOptionFace = {
   useMultipleSelfieCapture?: boolean
-}
+} & CaptureOptions
 
-type StepOptionComplete = {
+export type StepOptionComplete = {
   message?: string
   submessage?: string
 }
 
 export type StepConfigWelcome = {
+  type: typeof STEP_WELCOME
   options?: StepOptionWelcome
-} & StepConfigBase
+}
 
 export type StepConfigDocument = {
+  type: typeof STEP_DOCUMENT
   options?: StepOptionDocument
-} & StepConfigBase
+}
 
 export type StepConfigPoA = {
+  type: typeof STEP_POA
   options?: StepOptionPoA
-} & StepConfigBase
+}
 
 export type StepConfigFace = {
+  type: typeof STEP_FACE
   options?: StepOptionFace
-} & StepConfigBase
+}
 
 export type StepConfigComplete = {
+  type: typeof STEP_COMPLETE
   options?: StepOptionComplete
-} & StepConfigBase
+}
 
 export type StepConfig =
   | StepConfigWelcome

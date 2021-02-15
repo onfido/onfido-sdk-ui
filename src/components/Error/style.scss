@@ -4,11 +4,11 @@
   border-radius: 6 * $unit;
   text-align: left;
   color: $color-white;
-  margin: 0 40 * $unit 16 * $unit;
+  margin-bottom: 16 * $unit;
   padding: 8 * $unit 16 * $unit 12 * $unit 16 * $unit;
   position: relative;
   @media (--small-viewport) {
-    margin: 0 16 * $unit 8 * $unit;
+    margin-bottom: 8 * $unit;
   }
 }
 

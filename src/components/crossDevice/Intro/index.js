@@ -3,7 +3,7 @@ import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
-import { componentsList } from '../../Router/StepComponentMap'
+import { buildComponentsList } from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
 import { CROSS_DEVICE_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
 import theme from '../../Theme/style.scss'
@@ -16,8 +16,8 @@ const previousComponentType = ({
   steps,
   step,
 }) =>
-  componentsList({ flow, documentType, poaDocumentType, steps })[step || 0].step
-    .type
+  buildComponentsList({ flow, documentType, poaDocumentType, steps })[step || 0]
+    .step.type
 
 const getStageIcon = (key, isFace) => {
   const iconPrefix = 'stageIcon'
@@ -41,7 +41,7 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
       />
       <ol
         aria-label={translate('cross_device_intro.list_accessibility')}
-        className={classNames(theme.contentMargin, style.content, style.list)}
+        className={classNames(style.content, style.list)}
       >
         {stageList.map((key) => (
           <li key={key} className={style.stage}>

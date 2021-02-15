@@ -2,11 +2,10 @@
 
 .content {
   text-align: left;
-  margin: 0 80 * $unit auto;
+  margin: 0 48 * $unit auto;
 
   @media (--small-viewport) {
-    margin-left: 24 * $unit;
-    margin-right: 24 * $unit;
+    margin: 0 0 auto;
   }
 }
 

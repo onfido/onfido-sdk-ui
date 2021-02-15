@@ -10,9 +10,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+- Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
+
 ### Changed
 
 ### Fixed
+
+- Public: Fix zoomed document capture view for Document Live Capture on some Huawei devices, e.g. Huawei P40, P30.
 
 ## [6.5.0] - 2020-02-08
 
@@ -20,9 +24,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Added npm latest version badge.
 - Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
-- Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
 - Internal: Introduce integration tests for API endpoint integrations.
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
+- Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
+- Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
 
 ### Changed
 
@@ -32,6 +37,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Return error for image quality failures on the first two document upload attempts.
 - UI: Replaced internal button component with button from @onfido/castor-react.
 - UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
+- Internal: Use ScreenLayout component in Confirm screen.
 
 ### Fixed
 
