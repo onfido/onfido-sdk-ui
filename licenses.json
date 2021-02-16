@@ -1335,6 +1335,12 @@
     "path": "node_modules/@types/unist",
     "licenseFile": "node_modules/@types/unist/LICENSE"
   },
+  "@types/uuid@8.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/uuid",
+    "licenseFile": "node_modules/@types/uuid/LICENSE"
+  },
   "@types/yargs-parser@15.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
