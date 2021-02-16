@@ -210,6 +210,7 @@
     "@babel/preset-typescript": "^7.12.16",
     "@babel/runtime-corejs3": "^7.8.7",
     "@onfido/castor": "^1.0.1",
+    "@onfido/castor-icons": "^2.0.0",
     "@onfido/castor-react": "^1.0.1",
     "@sentry/browser": "^5.14.2",
     "array-flat-polyfill": "^1.0.1",
