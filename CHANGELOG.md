@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
+- Public: Added support for UI customisations in SDK configuration using `customUI` option. See README for details of supported customisation options.
 
 ### Changed
 
