@@ -424,10 +424,10 @@ A number of options are available to allow you to customise the SDK:
 
   The following options are applied to multiple Button elements:
 
-  | Shared Button options                    | Value Type   | Description                                                                        |
-  | ---------------------------------------- | ------------ | ---------------------------------------------------------------------------------- |
-  | `borderRadiusButton`                     | `string`     | Change border radius value of Primary, Secondary and Document Type Option buttons                                                      |
-  | `buttonGroupVertical` (default: `false`) | `boolean`    | Display Primary, Secondary button group in Document, Face capture confirmation screens in separate rows instead of inline  by default  |
+  | Shared Button options                    | Value Type   | Description                                                                         |
+  | ---------------------------------------- | ------------ | ----------------------------------------------------------------------------------- |
+  | `borderRadiusButton`                     | `string`     | Change border radius value of Primary, Secondary and Document Type Option buttons                                                        |
+  | `buttonGroupStacked` (default: `false`)  | `boolean`    | Display Primary, Secondary button group in Document and Face capture confirmation screens are in separate rows instead of inline by default |
 
 - **`steps {List} optional`**
 

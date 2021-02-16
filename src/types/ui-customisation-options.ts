@@ -16,8 +16,8 @@ export type UICustomisationOptions = {
   // Applied to both Primary, Secondary Buttons
   borderRadiusButton?: string
 
-  // Displays Primary, Secondary Button groups as individual blocks instead of inline
-  buttonGroupVertical?: boolean
+  // Displays Primary, Secondary Button groups as stacked blocks instead of inline on the same row
+  buttonGroupStacked?: boolean
 
   // Document Type Option Button
   colorBorderDocTypeButton?: string

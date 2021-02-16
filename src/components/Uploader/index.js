@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
 import { validateFile } from '~utils/file'
-import { isButtonGroupVertical } from '../Theme/utils'
+import { isButtonGroupStacked } from '../Theme/utils'
 import { trackComponentAndMode } from '../../Tracker'
 import { localised } from '../../locales'
 import CustomFileInput from '../CustomFileInput'
@@ -25,14 +25,14 @@ const MobileUploadArea = ({
     <div
       className={classNames(style.buttons, {
         [style.poaButtons]: isPoA,
-        [style.vertical]: isButtonGroupVertical(),
+        [style.vertical]: isButtonGroupStacked(),
       })}
     >
       <CustomFileInput
         className={classNames({
           [style.buttonContainer]: !isPoA,
           [style.poaBtnContainer]: isPoA,
-          [style.vertical]: isButtonGroupVertical(),
+          [style.vertical]: isButtonGroupStacked(),
         })}
         onChange={onFileSelected}
         accept="image/*"
@@ -43,7 +43,7 @@ const MobileUploadArea = ({
           className={
             isPoA
               ? classNames(theme['button-sm'], {
-                  [theme.vertical]: isButtonGroupVertical(),
+                  [theme.vertical]: isButtonGroupStacked(),
                 })
               : classNames(theme['button-centered'], theme['button-lg'])
           }
@@ -57,7 +57,7 @@ const MobileUploadArea = ({
           <Button
             variant="primary"
             className={classNames(theme['button-sm'], {
-              [theme.vertical]: isButtonGroupVertical(),
+              [theme.vertical]: isButtonGroupStacked(),
             })}
             disabled={isUploading}
           >
