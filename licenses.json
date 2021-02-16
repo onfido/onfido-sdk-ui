@@ -5949,13 +5949,6 @@
     "path": "node_modules/icss-utils",
     "licenseFile": "node_modules/icss-utils/LICENSE.md"
   },
-  "ie-array-find-polyfill@1.1.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/abdalla/ie-array-find-polyfill",
-    "publisher": "Carlos Abdalla",
-    "path": "node_modules/ie-array-find-polyfill",
-    "licenseFile": "node_modules/ie-array-find-polyfill/LICENSE"
-  },
   "ieee754@1.1.13": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/feross/ieee754",
@@ -9368,13 +9361,6 @@
     "email": "charlie.robbins@gmail.com",
     "path": "node_modules/pkginfo",
     "licenseFile": "node_modules/pkginfo/LICENSE"
-  },
-  "polyfill-array-includes@2.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/Latusinski/polyfill-array-includes",
-    "publisher": "Kevin Latusinski",
-    "path": "node_modules/polyfill-array-includes",
-    "licenseFile": "node_modules/polyfill-array-includes/README.md"
   },
   "portfinder@1.0.25": {
     "licenses": "MIT",
