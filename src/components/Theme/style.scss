@@ -4,7 +4,7 @@
 
 :global {
   @include castor.Button();
-  // FIXME: Castor Button border uses shorthand version
+
   .ods-button {
     border-radius: var(--osdk-border-radius-button);
 
@@ -19,7 +19,7 @@
       }
 
       &:disabled {
-        background-color: var(--osdk-color-background-button-primary-disabled);
+        background-color: var(--color-background-button-primary-disabled);
         border-color: $color-transparent;
       }
 
