@@ -103,19 +103,11 @@
     var(--ods-color-border-action-focus)
   );
 
-  /* Back button colors */
-  --osdk-color-background-button-back-icon-hover: rgba(
+  /* Back, Close (modal) icon button colors */
+  --osdk-color-background-button-icon-hover: rgba(
     var(--ods-color-neutral-400)
   );
-  --osdk-color-background-button-back-icon-active: rgba(
-    var(--ods-color-neutral-600)
-  );
-
-  /* Close (modal) button colors */
-  --osdk-color-background-button-close-icon-hover: rgba(
-    var(--ods-color-neutral-400)
-  );
-  --osdk-color-background-button-close-icon-active: rgba(
+  --osdk-color-background-button-icon-active: rgba(
     var(--ods-color-neutral-600)
   );
 

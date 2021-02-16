@@ -417,6 +417,11 @@ A number of options are available to allow you to customise the SDK:
   | `colorBorderDocTypeButtonHover`   | Change color of Document Type Button border on hover     |
   | `colorBorderDocTypeButtonActive`  | Change color of Document Type Button border on click/tap |
 
+  | Icon Button options               | Description                                                        |
+  | --------------------------------- | ------------------------------------------------------------------ |
+  | `colorBackgroundButtonIconHover`  | Change background color of Back, Close (modal) Button on hover     |
+  | `colorBackgroundButtonIconActive` | Change background color of Back, Close (modal) Button on click/tap |
+
   The following options are applied to multiple Button elements:
 
   | Shared Button options                    | Value Type   | Description                                                                        |

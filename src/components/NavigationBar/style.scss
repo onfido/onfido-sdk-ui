@@ -57,7 +57,7 @@
     &:hover {
       .iconBack {
         background-image: url('./assets/back-black.svg');
-        background-color: var(--osdk-color-background-button-back-icon-hover);
+        background-color: var(--osdk-color-background-button-icon-hover);
       }
     }
   }
@@ -69,7 +69,7 @@
       background-image: url('./assets/back-black.svg');
 
       .iconBack {
-        background-color: var(--osdk-color-background-button-back-icon-active);
+        background-color: var(--osdk-color-background-button-icon-active);
       }
     }
   }
@@ -89,13 +89,13 @@
 
   &:hover {
     .iconBack {
-      background-color: var(--osdk-color-background-button-back-icon-hover);
+      background-color: var(--osdk-color-background-button-icon-hover);
     }
   }
 
   &:active {
     .iconBack {
-      background-color: var(--osdk-color-background-button-back-icon-active);
+      background-color: var(--osdk-color-background-button-icon-active);
     }
   }
 }

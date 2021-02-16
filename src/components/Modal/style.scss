@@ -138,12 +138,12 @@ $modal-animation-duration: 200ms;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: var(--osdk-color-background-button-close-icon-hover);
+      background-color: var(--osdk-color-background-button-icon-hover);
     }
   }
 
   &:active {
-    background-color: var(--osdk-color-background-button-close-icon-active);
+    background-color: var(--osdk-color-background-button-icon-active);
   }
 }
 
