@@ -104,9 +104,7 @@
   );
 
   /* Back, Close (modal) icon button colors */
-  --osdk-color-background-button-icon-hover: rgba(
-    var(--ods-color-neutral-400)
-  );
+  --osdk-color-background-button-icon-hover: rgba(var(--ods-color-neutral-400));
   --osdk-color-background-button-icon-active: rgba(
     var(--ods-color-neutral-600)
   );
