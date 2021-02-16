@@ -12,6 +12,10 @@ import {
   commonSteps,
 } from './demoUtils'
 
+import { UICustomisationOptions } from '~types/ui-customisation-options'
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
+const customUIConfig = require('./custom-ui-config.json')
+
 export const SdkOptionsView: FunctionComponent<{
   sdkOptions: SdkOptions
   updateSdkOptions: (newOptions: Partial<SdkOptions>) => void
@@ -26,7 +30,22 @@ export const SdkOptionsView: FunctionComponent<{
           updateSdkOptions({ useModal: (e.target as HTMLInputElement).checked })
         }
       />
-      useModal
+      Display SDK as Modal
+    </label>
+
+    <label>
+      <input
+        type="checkbox"
+        checked={sdkOptions.customUI}
+        onChange={(e) =>
+          updateSdkOptions({
+            customUI: (e.target as HTMLInputElement).checked
+              ? (customUIConfig as UICustomisationOptions)
+              : null,
+          })
+        }
+      />
+      Use customised SDK UI
     </label>
 
     <div className="label">

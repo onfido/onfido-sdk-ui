@@ -1,0 +1,13 @@
+{
+  "colorContentButtonPrimaryText": "#333",
+  "colorBackgroundButtonPrimary": "#ffb997",
+  "colorBorderButtonPrimary": "#b23a48",
+  "colorBackgroundButtonPrimaryHover": "#f67e7d",
+  "colorBackgroundButtonPrimaryActive": "#843b62",
+  "colorContentButtonSecondaryText": "hsl(90deg 1% 31%)",
+  "colorBackgroundButtonSecondary": "rgb(255 238 170 / 92%)",
+  "colorBorderButtonSecondary": "#5c374c",
+  "colorBackgroundButtonSecondaryHover": "#ce6a85",
+  "colorBackgroundButtonSecondaryActive": "#985277",
+  "buttonGroupStacked": true
+}

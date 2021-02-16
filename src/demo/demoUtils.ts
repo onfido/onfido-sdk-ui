@@ -6,6 +6,9 @@ import {
   StepTypes,
 } from '~types/steps'
 import { ServerRegions, SdkOptions } from '~types/sdk'
+import { UICustomisationOptions } from '~types/ui-customisation-options'
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
+const customUIConfig = require('./custom-ui-config.json')
 
 type StringifiedBoolean = 'true' | 'false'
 
@@ -38,6 +41,7 @@ export type QueryParams = {
   useMultipleSelfieCapture?: StringifiedBoolean
   useUploader?: StringifiedBoolean
   useWebcam?: StringifiedBoolean
+  customisedUI?: StringifiedBoolean
 }
 
 export type CheckData = {
@@ -180,6 +184,9 @@ export const getInitSdkOptions = (): SdkOptions => {
       ? { text: 'Planet Express, Incorporated' }
       : undefined
 
+  const customUI =
+    queryParamToValueString.customisedUI === 'true' ? customUIConfig : undefined
+
   return {
     useModal: queryParamToValueString.useModal === 'true',
     shouldCloseOnOverlayClick:
@@ -196,6 +203,7 @@ export const getInitSdkOptions = (): SdkOptions => {
       hideOnfidoLogo,
       cobrand,
     },
+    customUI: customUI as UICustomisationOptions,
     ...smsNumberCountryCode,
   }
 }
