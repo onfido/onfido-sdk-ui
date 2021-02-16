@@ -1,18 +1,17 @@
 export type UICustomisationOptions = {
   // Primary Button
   colorContentButtonPrimaryText?: string
-  colorBorderButtonPrimary?: string
   colorBackgroundButtonPrimary?: string
   colorBackgroundButtonPrimaryHover?: string
   colorBackgroundButtonPrimaryActive?: string
-  colorBackgroundButtonPrimaryDisabled?: string
+  colorBorderButtonPrimary?: string
 
   // Secondary Button
   colorContentButtonSecondaryText?: string
-  colorBorderButtonSecondary?: string
   colorBackgroundButtonSecondary?: string
   colorBackgroundButtonSecondaryHover?: string
   colorBackgroundButtonSecondaryActive?: string
+  colorBorderButtonSecondary?: string
 
   // Applied to both Primary, Secondary Buttons
   borderRadiusButton?: string

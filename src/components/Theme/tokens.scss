@@ -56,8 +56,6 @@
     var(--ods-color-content-on-action)
   );
 
-  --osdk-color-border-button-primary: rgba(var(--ods-color-border-action));
-
   --osdk-color-background-button-primary: rgba(
     var(--ods-color-background-action)
   );
@@ -67,16 +65,16 @@
   --osdk-color-background-button-primary-active: rgba(
     var(--ods-color-background-action-active)
   );
-  --osdk-color-background-button-primary-disabled: rgba(
+  --color-background-button-primary-disabled: rgba(
     var(--ods-color-neutral-300)
   );
+
+  --osdk-color-border-button-primary: rgba(var(--ods-color-border-action));
 
   /* Secondary Button customisations */
   --osdk-color-content-button-secondary-text: rgba(
     var(--ods-color-content-action)
   );
-
-  --osdk-color-border-button-secondary: rgba(var(--ods-color-border-action));
 
   --osdk-color-background-button-secondary: rgba(
     var(--ods-color-background-action-subtle)
@@ -87,6 +85,8 @@
   --osdk-color-background-button-secondary-active: rgba(
     var(--ods-color-background-action-subtle)
   );
+
+  --osdk-color-border-button-secondary: rgba(var(--ods-color-border-action));
 
   /* Button group customisations */
   --osdk-border-radius-button: var(--ods-border-radius-medium);
