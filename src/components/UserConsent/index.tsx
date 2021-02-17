@@ -1,28 +1,23 @@
 import { h, FunctionComponent } from 'preact'
-import { useEffect, useState } from 'preact/hooks'
+import { useEffect, useState, useContext } from 'preact/hooks'
+import { LocaleContext } from '~locales'
 import dompurify from 'dompurify'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
-import { localised } from '../../locales'
 import Button from '../Button'
 import style from './style.scss'
 
-import type { WithLocalisedProps } from '~types/hocs'
 import type { StepComponentUserConsentProps } from '~types/routers'
 
-type UserConsentProps = StepComponentUserConsentProps & WithLocalisedProps
+type UserConsentProps = StepComponentUserConsentProps
 
 type ActionsProps = {
   onAccept(): void
   onDecline(): void
-  translate(arg: string): string
 }
 
-const Actions: FunctionComponent<ActionsProps> = ({
-  onAccept,
-  onDecline,
-  translate,
-}) => {
+const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
+  const { translate } = useContext(LocaleContext)
   const primaryBtnCopy = translate('user_consent.button_primary')
   const secondaryBtnCopy = translate('user_consent.button_secondary')
   return (
@@ -44,15 +39,8 @@ const Actions: FunctionComponent<ActionsProps> = ({
 const UserConsent: FunctionComponent<UserConsentProps> = ({
   nextStep,
   previousStep,
-  translate,
-}): h.JSX.Element => {
-  const actions = (
-    <Actions
-      onAccept={nextStep}
-      onDecline={previousStep}
-      translate={translate}
-    />
-  )
+}) => {
+  const actions = <Actions onAccept={nextStep} onDecline={previousStep} />
   const sanitizer = dompurify.sanitize
   const [consentHtml, setConsentHtml] = useState('')
 
@@ -71,4 +59,4 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
     </ScreenLayout>
   )
 }
-export default trackComponent(localised(UserConsent))
+export default trackComponent(UserConsent)
