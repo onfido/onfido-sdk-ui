@@ -1,6 +1,10 @@
 import { kebabCase } from '~utils/string'
 
-export const setUICustomisations = (customUI = {}): void => {
+import { UICustomisationOptions } from '~types/ui-customisation-options'
+
+export const setUICustomisations = (
+  customUI: UICustomisationOptions = {}
+): void => {
   const sdkCustomisations = Object.keys(customUI).map(
     (key) => `--osdk-${kebabCase(key)}: ${customUI[key]};`
   )
@@ -13,7 +17,7 @@ export const setUICustomisations = (customUI = {}): void => {
   document.head.insertAdjacentHTML('beforeend', style)
 }
 
-export const isButtonGroupStacked = (): void =>
+export const isButtonGroupStacked = (): boolean =>
   !!JSON.parse(
     getComputedStyle(document.body).getPropertyValue(
       '--osdk-button-group-stacked'
