@@ -23,13 +23,4 @@ export type UICustomisationOptions = {
   colorBorderDocTypeButton?: string
   colorBorderDocTypeButtonHover?: string
   colorBorderDocTypeButtonActive?: string
-
-  // Back, Close (modal) Icon Button
-  colorBackgroundButtonIconHover?: string
-  colorBackgroundButtonIconActive?: string
-
-  // Camera button
-  colorBackgroundButtonCamera?: string
-  colorBackgroundButtonCameraHover?: string
-  colorBackgroundButtonCameraActive?: string
 }
