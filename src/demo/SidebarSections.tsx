@@ -36,7 +36,7 @@ export const SdkOptionsView: FunctionComponent<{
     <label>
       <input
         type="checkbox"
-        checked={sdkOptions.customUI}
+        checked={!!sdkOptions.customUI}
         onChange={(e) =>
           updateSdkOptions({
             customUI: (e.target as HTMLInputElement).checked
