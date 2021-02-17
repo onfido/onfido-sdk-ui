@@ -1,10 +1,6 @@
 import { kebabCase } from '~utils/string'
 
-import { UICustomisationOptions } from '~types/ui-customisation-options'
-
-export const setUICustomisations = (
-  customUI: UICustomisationOptions = {}
-): void => {
+export const setUICustomisations = (customUI = {}): void => {
   const sdkCustomisations = Object.keys(customUI).map(
     (key) => `--osdk-${kebabCase(key)}: ${customUI[key]};`
   )
