@@ -210,8 +210,10 @@ $parent-width: 432;
   margin: 0 0 0 24 * $unit;
 }
 
-.viewOptions {
+.viewOptionsGroup {
   margin: 16 * $unit;
+  display: flex;
+  justify-content: center;
 }
 
 .viewOption {
