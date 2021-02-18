@@ -393,9 +393,9 @@ A number of options are available to allow you to customise the SDK:
 
 - **`customUI {Object} optional`**
 
-  If you would like to customise the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values) for the following options:
+  If you would like to customise the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values) for the following UI element options:
 
-  | Primary Button options               | Description                                            |
+  | Primary Buttons                      | Description                                            |
   | ------------------------------------ | ------------------------------------------------------ |
   | `colorContentButtonPrimaryText`      | Change color of Primary Button text                    |
   | `colorBackgroundButtonPrimary`       | Change background color of Primary Button              |
@@ -403,7 +403,7 @@ A number of options are available to allow you to customise the SDK:
   | `colorBackgroundButtonPrimaryActive` | Change background color of Primary Button on click/tap |
   | `colorBorderButtonPrimary`           | Change color of Primary Button border                  |
 
-  | Secondary Button options               | Description                                              |
+  | Secondary Buttons                      | Description                                              |
   | -------------------------------------- | -------------------------------------------------------- |
   | `colorContentButtonSecondaryText`      | Change color of Secondary Button text                    |
   | `colorBackgroundButtonSecondary`       | Change background color of Secondary Button              |
@@ -411,7 +411,7 @@ A number of options are available to allow you to customise the SDK:
   | `colorBackgroundButtonSecondaryActive` | Change background color of Secondary Button on click/tap |
   | `colorBorderButtonSecondary`           | Change color of Secondary Button border                  |
 
-  | Document Type Button options     | Description                                              |
+  | Document Type Buttons            | Description                                              |
   | -------------------------------- | -------------------------------------------------------- |
   | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
   | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
@@ -423,6 +423,13 @@ A number of options are available to allow you to customise the SDK:
   | --------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
   | `borderRadiusButton`                    | `string`   | Change border radius value of Primary, Secondary and Document Type Option buttons                                                           |
   | `buttonGroupStacked` (default: `false`) | `boolean`  | Display Primary, Secondary button group in Document and Face capture confirmation screens are in separate rows instead of inline by default |
+
+  | Links                       | Description                              |
+  | --------------------------- | ---------------------------------------- |
+  | `colorBorderLinkUnderline`  | Change Link underline color              |
+  | `colorContentLinkTextHover` | Change Link underline color on hover     |
+  | `colorBackgroundLinkHover`  | Change Link underline color on click/tap |
+  | `colorBackgroundLinkActive` | Change Link underline color on click/tap |
 
 - **`steps {List} optional`**
 
