@@ -14,6 +14,7 @@ import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 import { localised } from '../../locales'
 import FallbackButton from '../Button/FallbackButton'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 class Document extends Component {
@@ -59,7 +60,7 @@ class Document extends Component {
 
   renderUploadFallback = (text) => (
     <CustomFileInput
-      className={style.uploadFallback}
+      className={theme.warningFallbackButton}
       onChange={this.handleFileSelected}
       accept="image/*"
       capture

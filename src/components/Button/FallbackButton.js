@@ -5,7 +5,7 @@ import style from './style.scss'
 const FallbackButton = ({ text, onClick }) => (
   <button
     type="button"
-    className={`${style.fallbackButton} ${theme.warning}`}
+    className={`${style.fallbackButton} ${theme.warningFallbackButton}`}
     onClick={onClick}
   >
     {text}

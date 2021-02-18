@@ -14,6 +14,7 @@ import { randomId } from '~utils/string'
 import { validateFile } from '~utils/file'
 import { getInactiveError } from '~utils/inactiveError'
 import { localised } from '../../locales'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const defaultPayload = {
@@ -68,7 +69,7 @@ class Face extends Component {
 
   renderUploadFallback = (text) => (
     <CustomFileInput
-      className={style.uploadFallback}
+      className={theme.warningFallbackButton}
       onChange={this.handleFileSelected}
       accept="image/*"
       capture="user"
