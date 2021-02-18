@@ -30,7 +30,7 @@ export const SdkOptionsView: FunctionComponent<{
           updateSdkOptions({ useModal: (e.target as HTMLInputElement).checked })
         }
       />
-      Display SDK as Modal
+      &nbsp;Display SDK as Modal
     </label>
 
     <label>
@@ -45,7 +45,9 @@ export const SdkOptionsView: FunctionComponent<{
           })
         }
       />
-      Use customised SDK UI
+      &nbsp;Use customised SDK UI
+      <br />
+      &nbsp;&nbsp;&nbsp;(refresh to reset)
     </label>
 
     <div className="label">
