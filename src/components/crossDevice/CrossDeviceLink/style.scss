@@ -139,38 +139,6 @@ $parent-width: 432;
   font-family: var(--font-family);
 }
 
-/* FIXME: CX-5306 - text/link Button for x-device Copy link */
-.copyToClipboard {
-  cursor: pointer;
-  float: right;
-  height: 100%;
-  font-size: var(--font-size-small);
-  font-family: var(--font-family);
-  margin-left: 4 * $unit-small;
-  padding: 2px;
-  text-decoration: none;
-  border: 1px solid transparent;
-  border-bottom-color: var(--color-primary);
-  background-color: $color-transparent;
-  color: $color-body-text;
-
-  &:hover {
-    background-color: var(--osdk-color-background-button-primary-hover);
-    color: $color-white;
-  }
-
-  &:active {
-    background-color: var(--osdk-color-background-button-primary-active);
-    color: $color-white;
-  }
-
-  &:visited {
-    text-decoration: none;
-    color: $color-body-text;
-    font-size: var(--font-size-small);
-  }
-}
-
 .copySuccess .copyToClipboard {
   border-bottom-color: transparent;
 }
