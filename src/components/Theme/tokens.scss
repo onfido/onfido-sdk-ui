@@ -109,6 +109,18 @@
   --color-background-button-camera: rgba(var(--ods-color-neutral-white));
   --color-background-button-camera-hover: rgba(var(--ods-color-primary-400));
   --color-background-button-camera-active: rgba(var(--ods-color-primary-600));
+
+  /* Link colors */
+  --osdk-color-border-link-underline: rgba(var(--ods-color-border-action));
+  --osdk-color-content-link-text-hover: rgba(
+    var(--ods-color-content-on-action)
+  );
+  --osdk-color-background-link-hover: rgba(
+    var(--ods-color-background-action-hover)
+  );
+  --osdk-color-background-link-active: rgba(
+    var(--ods-color-background-action-active)
+  );
 }
 
 /* stylelint-enable function-parentheses-space-inside */

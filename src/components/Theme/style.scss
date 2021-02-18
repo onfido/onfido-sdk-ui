@@ -258,35 +258,33 @@ $logo-height: 32 * $unit;
 }
 
 .link {
-  /* TODO: CX-5306 link customisation options */
   cursor: pointer;
-  line-height: 1.43;
-  font-size: var(--font-size-small);
   font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  line-height: 1.43;
   margin: auto;
   padding: 2px;
   text-decoration: none;
   border: 1px solid transparent;
-  border-bottom-color: var(--color-primary);
-  background-color: transparent;
+  border-bottom-color: var(--osdk-color-border-link-underline);
+  background-color: $color-transparent;
   color: $color-body-text;
 
   &:not(:disabled) {
     &:hover {
-      background-color: var(--osdk-color-background-button-primary-hover);
-      color: $color-white;
+      background-color: var(--osdk-color-background-link-hover);
+      color: var(--osdk-color-content-link-text-hover);
     }
 
     &:active {
-      background-color: var(--osdk-color-background-button-primary-active);
-      color: $color-white;
+      background-color: var(--osdk-color-background-link-active);
+      color: var(--osdk-color-content-link-text-hover);
     }
   }
 
   &:visited {
     text-decoration: none;
     color: $color-body-text;
-    font-size: var(--font-size-small);
   }
 
   &:disabled {
