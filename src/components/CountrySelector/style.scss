@@ -24,6 +24,11 @@
   @extend %_text;
 }
 
+.fallbackLink {
+  display: inline-block;
+  font-size: inherit;
+}
+
 %_icon {
   display: inline-block;
   background-repeat: no-repeat;
