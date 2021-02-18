@@ -25,11 +25,16 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
       <Button
         className={style.secondary}
         variants={['secondary', 'sm']}
+        uiTestDataAttribute={'userConsentBtnSecondary'}
         onClick={onDecline}
       >
         {secondaryBtnCopy}
       </Button>
-      <Button variants={['primary', 'sm']} onClick={onAccept}>
+      <Button
+        variants={['primary', 'sm']}
+        uiTestDataAttribute={'userConsentBtnPrimary'}
+        onClick={onAccept}
+      >
         {primaryBtnCopy}
       </Button>
     </div>
@@ -54,6 +59,7 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
     <ScreenLayout actions={actions}>
       <div
         className={style.consentFrame}
+        data-onfido-qa="userConsentFrameWrapper"
         dangerouslySetInnerHTML={{ __html: sanitizer(consentHtml) }}
       />
     </ScreenLayout>

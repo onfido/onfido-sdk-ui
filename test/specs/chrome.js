@@ -11,6 +11,7 @@ import { navigationScenarios } from './scenarios/navigation'
 import { proofOfAddressScenarios } from './scenarios/proofOfAddress'
 import { hostAppHistoryScenarios } from './scenarios/hostAppHistory'
 import { accessibilityScenarios } from './scenarios/accessibility'
+import { userConsentScenarios } from './scenarios/userConsent'
 
 describe('Happy Paths on Chrome', () => {
   // Multiple language scenarios
@@ -33,4 +34,5 @@ describe('Happy Paths on Chrome', () => {
   proofOfAddressScenarios()
   accessibilityScenarios()
   hostAppHistoryScenarios()
+  userConsentScenarios()
 })
