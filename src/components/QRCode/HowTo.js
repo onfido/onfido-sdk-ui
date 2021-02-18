@@ -26,7 +26,7 @@ class QRCodeHowTo extends Component {
           type="button"
           aria-atomic="false"
           aria-expanded={isExpanded}
-          className={classNames(theme.link, style.qrCodeHelpButton)}
+          className={classNames(theme.textButton, style.qrCodeHelpButton)}
           onClick={this.toggleHelpListVisibility}
         >
           {translate('get_link.info_qr_how')}

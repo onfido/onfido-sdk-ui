@@ -257,7 +257,8 @@ $logo-height: 32 * $unit;
   padding-left: 24 * $unit;
 }
 
-.link {
+.link,
+.textButton {
   cursor: pointer;
   font-family: var(--font-family);
   font-size: var(--font-size-small);
@@ -282,14 +283,14 @@ $logo-height: 32 * $unit;
     }
   }
 
-  &:visited {
-    text-decoration: none;
-    color: $color-body-text;
-  }
-
   &:disabled {
     cursor: not-allowed;
   }
+}
+
+.link:visited {
+  text-decoration: none;
+  color: $color-body-text;
 }
 
 .warning {
