@@ -16,7 +16,7 @@ class UserConsent extends BasePage {
   async verifyFrameTitle() {
     verifyElementCopy(
       this.consentFrameTitle(),
-      "Accept Onfido's privacy statements and Terms of Service"
+      "Onfido's privacy statement and Terms of Service"
     )
   }
 
