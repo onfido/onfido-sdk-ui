@@ -293,25 +293,29 @@ $logo-height: 32 * $unit;
   color: $color-body-text;
 }
 
-.warning {
+/* Link/Text Button for Live Doc/Face Capture fallback on Warning popup */
+.warningFallbackButton {
+  color: --osdk-color-content-alert-info;
   background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom-color: var(--osdk-color-content-alert-info);
 
   &:hover {
-    color: $color-warning-button-text-hover;
-    background-color: var(--osdk-color-background-button-primary-hover);
+    background-color: var(--osdk-color-background-alert-info-link-hover);
   }
 
   &:active {
-    background-color: var(--osdk-color-background-button-primary-active);
+    background-color: var(--osdk-color-background-alert-info-link-active);
   }
 }
 
+/* Error Popup Fallback Button - assume the fallback here is either upload/x-device */
 .error {
   background-color: transparent;
 
   &:hover,
   &:active {
-    color: var(--color-error);
+    color: var(--osdk-color-background-alert-error);
   }
 
   &:hover {
