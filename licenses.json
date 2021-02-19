@@ -2316,6 +2316,15 @@
     "path": "node_modules/chokidar/node_modules/binary-extensions",
     "licenseFile": "node_modules/chokidar/node_modules/binary-extensions/license"
   },
+  "bindings@1.5.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/node-bindings",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://tootallnate.net",
+    "path": "node_modules/bindings",
+    "licenseFile": "node_modules/bindings/LICENSE.md"
+  },
   "blob@0.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/webmodules/blob",
@@ -4899,6 +4908,15 @@
     "publisher": "Tobias Koppers @sokra",
     "path": "node_modules/file-loader",
     "licenseFile": "node_modules/file-loader/README.md"
+  },
+  "file-uri-to-path@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/file-uri-to-path",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "node_modules/file-uri-to-path",
+    "licenseFile": "node_modules/file-uri-to-path/LICENSE"
   },
   "filesize@3.6.1": {
     "licenses": "BSD-3-Clause",
@@ -8256,6 +8274,12 @@
     "path": "node_modules/eslint/node_modules/mute-stream",
     "licenseFile": "node_modules/eslint/node_modules/mute-stream/LICENSE"
   },
+  "nan@2.14.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/nan",
+    "path": "node_modules/nan",
+    "licenseFile": "node_modules/nan/LICENSE.md"
+  },
   "nanomatch@1.2.13": {
     "licenses": "MIT",
     "repository": "https://github.com/micromatch/nanomatch",
@@ -8726,7 +8750,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/home/ethanify/Work/onfido-sdk-ui",
+    "path": "onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
