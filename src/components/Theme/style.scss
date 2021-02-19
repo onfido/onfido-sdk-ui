@@ -24,7 +24,7 @@
 
       &:disabled {
         background-color: var(--color-background-button-primary-disabled);
-        border-color: $color-transparent;
+        border-color: transparent;
       }
     }
 
@@ -268,7 +268,7 @@ $logo-height: 32 * $unit;
   text-decoration: none;
   border: 1px solid transparent;
   border-bottom-color: var(--color-primary);
-  background-color: $color-transparent;
+  background-color: transparent;
   color: $color-body-text;
 
   &:not(:disabled) {

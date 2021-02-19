@@ -22,7 +22,7 @@
   font-family: var(--font-family);
   line-height: 1;
   border: 0;
-  background-color: $color-transparent;
+  background-color: transparent;
   cursor: pointer;
 
   @media (--small-viewport) {
@@ -37,7 +37,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  background-color: $color-transparent;
+  background-color: transparent;
   border-radius: 16 * $unit;
   display: inline-block;
   vertical-align: middle;

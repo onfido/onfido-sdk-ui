@@ -122,7 +122,7 @@
   @media (--small-viewport) {
     background-image: url('./assets/camera.svg');
     background-position: center;
-    background-color: $color-transparent;
+    background-color: transparent;
     background-size: contain;
     border-radius: 0;
     height: 100%;
@@ -164,7 +164,7 @@
   @media (--small-viewport) {
     background-image: url('./assets/camera.svg');
     background-position: center;
-    background-color: $color-transparent;
+    background-color: transparent;
     background-size: contain;
     border-radius: 0;
     height: 100%;
@@ -195,7 +195,7 @@
   height: 16 * $unit;
 
   @media (--small-viewport) {
-    background-color: $color-transparent;
+    background-color: transparent;
     border: 0;
     justify-content: space-between;
     padding: 0;
