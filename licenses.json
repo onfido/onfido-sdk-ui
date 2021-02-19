@@ -3558,6 +3558,14 @@
     "path": "node_modules/create-react-context",
     "licenseFile": "node_modules/create-react-context/LICENSE"
   },
+  "cross-fetch@3.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lquixada/cross-fetch",
+    "publisher": "Leonardo Quixada",
+    "email": "lquixada@gmail.com",
+    "path": "node_modules/cross-fetch",
+    "licenseFile": "node_modules/cross-fetch/LICENSE"
+  },
   "cross-spawn@6.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/moxystudio/node-cross-spawn",
@@ -5928,8 +5936,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/history",
-    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
+    "path": "node_modules/react-router/node_modules/history",
+    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -7292,6 +7300,15 @@
     "repository": "https://github.com/facebook/jest",
     "path": "node_modules/jest-environment-node",
     "licenseFile": "node_modules/jest-environment-node/LICENSE"
+  },
+  "jest-fetch-mock@3.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jefflau/jest-fetch-mock",
+    "publisher": "Jeff Lau",
+    "email": "jeff-lau@live.com",
+    "url": "http://jefflau.net/",
+    "path": "node_modules/jest-fetch-mock",
+    "licenseFile": "node_modules/jest-fetch-mock/LICENSE.md"
   },
   "jest-get-type@26.3.0": {
     "licenses": "MIT",
@@ -10046,6 +10063,13 @@
     "path": "node_modules/promise-inflight",
     "licenseFile": "node_modules/promise-inflight/LICENSE"
   },
+  "promise-polyfill@8.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/taylorhakes/promise-polyfill",
+    "publisher": "Taylor Hakes",
+    "path": "node_modules/promise-polyfill",
+    "licenseFile": "node_modules/promise-polyfill/LICENSE"
+  },
   "promise@7.3.1": {
     "licenses": "MIT",
     "repository": "https://github.com/then/promise",
@@ -10913,8 +10937,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
   },
   "resolve-url@0.2.1": {
     "licenses": "MIT",
@@ -13092,8 +13116,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",

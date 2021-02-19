@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact'
 import { useEffect, useState, useContext } from 'preact/hooks'
 import { LocaleContext } from '~locales'
-import dompurify from 'dompurify'
+import { sanitize } from 'dompurify'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
 import Button from '../Button'
@@ -46,7 +46,6 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
   previousStep,
 }) => {
   const actions = <Actions onAccept={nextStep} onDecline={previousStep} />
-  const sanitizer = dompurify.sanitize
   const [consentHtml, setConsentHtml] = useState('')
 
   useEffect(() => {
@@ -60,7 +59,7 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
       <div
         className={style.consentFrame}
         data-onfido-qa="userConsentFrameWrapper"
-        dangerouslySetInnerHTML={{ __html: sanitizer(consentHtml) }}
+        dangerouslySetInnerHTML={{ __html: sanitize(consentHtml) }}
       />
     </ScreenLayout>
   )
