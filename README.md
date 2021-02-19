@@ -426,7 +426,7 @@ A number of options are available to allow you to customise the SDK:
 
 - **`steps {List} optional`**
 
-  List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
+  List of the different steps and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required):
 
   ```javascript
   steps: [
@@ -837,7 +837,7 @@ Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-a
 
 ### Note
 
-If you are making your own UI customisations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible colour contrast ratios and dyslexic friendly fonts.
+If you are making your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible colour contrast ratios and dyslexic friendly fonts.
 
 ## TypeScript
 

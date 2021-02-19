@@ -12,7 +12,7 @@ import {
   commonSteps,
 } from './demoUtils'
 
-import { UICustomisationOptions } from '~types/ui-customisation-options'
+import { UICustomizationOptions } from '~types/ui-customisation-options'
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const customUIConfig = require('./custom-ui-config.json')
 
@@ -40,7 +40,7 @@ export const SdkOptionsView: FunctionComponent<{
         onChange={(e) =>
           updateSdkOptions({
             customUI: (e.target as HTMLInputElement).checked
-              ? (customUIConfig as UICustomisationOptions)
+              ? (customUIConfig as UICustomizationOptions)
               : null,
           })
         }

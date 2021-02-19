@@ -3,7 +3,7 @@ import { EnterpriseFeatures } from './enterprise'
 import { SupportedLanguages, LocaleConfig } from './locales'
 import { DocumentTypes, PoaTypes, StepConfig, StepTypes } from './steps'
 import { SdkOptions } from './sdk'
-import { UICustomisationOptions } from './ui-customisation-options'
+import { UICustomizationOptions } from './ui-customisation-options'
 
 export interface NormalisedSdkOptions extends SdkOptions {
   steps?: StepConfig[]
@@ -124,5 +124,5 @@ export type MobileConfig = {
   token: string
   urls: UrlsConfig
   woopraCookie: string
-  customUI: UICustomisationOptions
+  customUI: UICustomizationOptions
 }

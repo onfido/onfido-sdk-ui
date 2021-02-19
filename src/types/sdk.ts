@@ -1,7 +1,7 @@
 import type { SupportedLanguages, LocaleConfig } from './locales'
 import type { StepConfig, StepTypes } from './steps'
 import type { EnterpriseFeatures } from './enterprise'
-import { UICustomisationOptions } from './ui-customisation-options'
+import { UICustomizationOptions } from './ui-customisation-options'
 
 type DocumentResponse = {
   id: string
@@ -56,7 +56,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   }
   steps?: Array<StepTypes | StepConfig>
   enterpriseFeatures?: EnterpriseFeatures
-  customUI?: UICustomisationOptions
+  customUI?: UICustomizationOptions
 }
 
 export type SdkHandle = {

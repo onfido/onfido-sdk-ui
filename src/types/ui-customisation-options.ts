@@ -1,4 +1,4 @@
-export type UICustomisationOptions = {
+export type UICustomizationOptions = {
   // Primary Button
   colorContentButtonPrimaryText?: string
   colorBackgroundButtonPrimary?: string

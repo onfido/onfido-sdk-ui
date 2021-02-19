@@ -6,7 +6,7 @@ import {
   StepTypes,
 } from '~types/steps'
 import { ServerRegions, SdkOptions } from '~types/sdk'
-import { UICustomisationOptions } from '~types/ui-customisation-options'
+import { UICustomizationOptions } from '~types/ui-customisation-options'
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const customUIConfig = require('./custom-ui-config.json')
 
@@ -203,7 +203,7 @@ export const getInitSdkOptions = (): SdkOptions => {
       hideOnfidoLogo,
       cobrand,
     },
-    customUI: customUI as UICustomisationOptions,
+    customUI: customUI as UICustomizationOptions,
     ...smsNumberCountryCode,
   }
 }
