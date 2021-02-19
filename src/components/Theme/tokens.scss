@@ -63,14 +63,6 @@
   );
   --osdk-color-content-alert-error: rgba(var(--ods-color-content-inverse-main));
 
-  /* Error Message - fallback link */
-  --osdk-color-background-alert-error-link-hover: rgba(
-    var(--ods-color-background-action-hover)
-  );
-  --osdk-color-background-alert-error-link-active: rgba(
-    var(--ods-color-background-action-active)
-  );
-
   /* TODO: not really required now, should do a full check after Phase 1 customisations implemented to be sure */
   --color-primary: rgba(var(--ods-color-primary-500));
   --color-primary-hover: rgba(var(--ods-color-primary-400));
