@@ -2,9 +2,8 @@ import { kebabCase } from '~utils/string'
 import { UICustomisationOptions } from '~types/ui-customisation-options'
 
 export const setUICustomisations = (customUI: UICustomisationOptions): void => {
-  const sdkCustomisations = Object.keys(customUI).map(
-    (property: keyof typeof customUI) =>
-      `--osdk-${kebabCase(property)}: ${customUI[property]};`
+  const sdkCustomisations = Object.entries(customUI).map(
+    ([property, value]) => `--osdk-${kebabCase(property)}: ${value};`
   )
   if (sdkCustomisations.length > 0) {
     const style = `
