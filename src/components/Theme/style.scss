@@ -18,13 +18,13 @@
         background-color: var(--osdk-color-background-button-primary-active);
       }
 
+      &:hover {
+        background-color: var(--osdk-color-background-button-primary-hover);
+      }
+
       &:disabled {
         background-color: var(--color-background-button-primary-disabled);
         border-color: $color-transparent;
-      }
-
-      &:hover:not(:disabled) {
-        background-color: var(--osdk-color-background-button-primary-hover);
       }
     }
 
