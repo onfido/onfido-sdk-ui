@@ -17,8 +17,7 @@ export const setUICustomisations = (customUI: UICustomisationOptions): void => {
 }
 
 export const isButtonGroupStacked = (): boolean =>
-  !!JSON.parse(
-    getComputedStyle(document.body).getPropertyValue(
-      '--osdk-button-group-stacked'
-    )
-  )
+  'true' ===
+  getComputedStyle(document.body)
+    .getPropertyValue('--osdk-button-group-stacked')
+    .trim()
