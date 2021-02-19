@@ -24,7 +24,7 @@
     "check:es": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}'",
     "check:styles": "stylelint 'src/**/*.scss'",
     "check:format": "prettier . -c",
-    "format": "npx prettier --write .",
+    "format": "prettier --write .",
     "test": "npm run test:unit",
     "test:integration": "jest --verbose --testPathPattern=__integrations__",
     "test:unit": "jest --verbose --testPathPattern=__tests__",
