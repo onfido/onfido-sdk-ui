@@ -61,13 +61,13 @@ $parent-width: 432;
 }
 
 .fieldError {
-  border: 1px solid var(--color-error);
+  border: 1px solid rgba(var(--ods-color-content-negative));
   border-right: 0;
-  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit var(--color-error);
+  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit var(--ods-color-content-negative);
 }
 
 .numberError {
-  color: var(--color-error);
+  color: rgba(var(--ods-color-content-negative));
   font-size: var(--font-size-small);
   line-height: 1.43;
   text-align: left;
