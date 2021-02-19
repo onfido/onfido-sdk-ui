@@ -33,7 +33,7 @@ describe('UserConsent', () => {
   describe('when mounted', () => {
     beforeEach(() => {
       const sanitizer = sanitize as jest.Mock
-      sanitizer.mockReturnValueOnce('<h1>Hello</h1>')
+      sanitizer.mockReturnValueOnce('<h1>My Sanitized Header</h1>')
     })
 
     it('renders UserConsent with actions', () => {
@@ -56,7 +56,7 @@ describe('UserConsent', () => {
       // In Enzyme v3 you need to use `render()` to see the HTML inside `dangerouslySetInnerHTML`
       // See the following issues https://github.com/enzymejs/enzyme/issues/419 and https://github.com/enzymejs/enzyme/issues/1297
 
-      expect(wrapper.render().html()).toContain('<h1>Hello</h1>')
+      expect(wrapper.render().html()).toContain('<h1>My Sanitized Header</h1>')
     })
   })
 })
