@@ -1,5 +1,5 @@
 import { sendMultiframeSelfie } from '../../onfidoApi'
-import createMockXHR from './createMockXHR'
+import createMockXHR from '~jest/createMockXHR'
 
 const url = 'https://test.url.com'
 const jwtToken = 'fake.token'
