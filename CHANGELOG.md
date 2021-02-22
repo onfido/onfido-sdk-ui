@@ -16,6 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Replace `ts-loader` with `@babel/preset-typescript` for better TypeScript transpilation.
 - UI: Replaced internal button component with button from @onfido/castor-react.
 - UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
 - Internal: Use ScreenLayout component in Confirm screen.
