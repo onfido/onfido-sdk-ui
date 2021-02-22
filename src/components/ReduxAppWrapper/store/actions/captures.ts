@@ -33,7 +33,10 @@ export const setCaptureMetadata = ({
   const payload: MetadataPayload = {
     captureId: capture.id,
     metadata: omitBy(
-      pick(apiResponse, ['id', 'side', 'type', 'media_uuids']),
+      {
+        ...pick(apiResponse, ['id', 'side', 'type', 'media_uuids']),
+        variant: capture.variant,
+      },
       // omit any null/undefined metadata values
       (_key: unknown, value: unknown) => !value
     ),
