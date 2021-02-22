@@ -1,7 +1,7 @@
 import type { SupportedLanguages, LocaleConfig } from './locales'
 import type { StepConfig, StepTypes } from './steps'
 import type { EnterpriseFeatures } from './enterprise'
-import { UICustomizationOptions } from './ui-customisation-options'
+import type { UICustomizationOptions } from './ui-customisation-options'
 
 type DocumentResponse = {
   id: string
