@@ -155,6 +155,9 @@ const STAGING_CONFIG = {
   PUBLIC_PATH: '/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
+
+  // @TODO: clean-up this config when v4 APIs are live
+  USE_V4_APIS_FOR_DOC_VIDEO: process.env.USE_V4_APIS_FOR_DOC_VIDEO,
 }
 
 const DEVELOPMENT_CONFIG = {
