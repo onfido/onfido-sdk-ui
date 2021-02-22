@@ -245,6 +245,36 @@ export const requestChallenges = (
 }
 
 /* Begin of /v4 APIs */
+type UploadBinaryMediaReponse = {
+  media_id: string
+}
+
+export const uploadBinaryMedia = (
+  { file, filename }: UploadDocumentPayload,
+  url: string,
+  token: string,
+  onSuccess?: SuccessCallback<UploadBinaryMediaReponse>,
+  onError?: ErrorCallback
+): Promise<UploadBinaryMediaReponse> =>
+  new Promise((resolve, reject) => {
+    try {
+      const formData = new FormData()
+      formData.append('media', file, filename)
+
+      const requestParams: HttpRequestParams = {
+        payload: formData,
+        endpoint: `${url}/v4/binary_media`,
+        token: `Bearer ${token}`,
+      }
+
+      performHttpReq(requestParams, onSuccess || resolve, (request) =>
+        formatError(request, onError || reject)
+      )
+    } catch (error) {
+      const onErrorCallback = onError || reject
+      onErrorCallback(error)
+    }
+  })
 /* End of /v4 APIs*/
 
 const objectToFormData = (object: SubmitPayload): FormData => {

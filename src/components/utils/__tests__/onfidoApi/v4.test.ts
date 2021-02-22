@@ -1,28 +1,22 @@
-import { sendMultiframeSelfie } from '../../onfidoApi'
+import { uploadBinaryMedia } from '../../onfidoApi'
 import createMockXHR from '~jest/createMockXHR'
 
 const url = 'https://test.url.com'
 const jwtToken = 'fake.token'
 
-const snapshotData = {
-  blob: new Blob(),
-  filename: 'applicant_selfie.jpg',
-}
-
-const selfieData = {
-  blob: new Blob(),
+const documentCapture = {
+  file: new Blob(),
   filename: 'applicant_selfie.jpg',
   sdkMetadata: {},
 }
 
 const mockedOnSuccess = jest.fn()
 const mockedOnError = jest.fn()
-const mockedTrackingCallback = jest.fn()
 
 const runAllPromises = () => new Promise(setImmediate)
 
 describe('onfidoApi', () => {
-  describe('sendMultiframeSelfie', () => {
+  describe('uploadBinaryMedia', () => {
     let mockXHR: XMLHttpRequest = null
 
     afterEach(() => {
@@ -32,47 +26,31 @@ describe('onfidoApi', () => {
 
     describe('with valid data', () => {
       beforeEach(() => {
-        mockXHR = createMockXHR({ response: { payload: 'success' } })
+        mockXHR = createMockXHR({ response: { media_id: 'fake-media-id' } })
         jest.spyOn(window, 'XMLHttpRequest').mockImplementation(() => mockXHR)
       })
 
-      it('should send two XHR requests', async () => {
-        sendMultiframeSelfie(
-          snapshotData,
-          selfieData,
-          jwtToken,
+      it('sends correct request', async () => {
+        uploadBinaryMedia(
+          documentCapture,
           url,
+          jwtToken,
           mockedOnSuccess,
-          mockedOnError,
-          mockedTrackingCallback
+          mockedOnError
         )
-
-        mockXHR.onload(null) // Upload snapshots
-        await runAllPromises()
-
-        expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Starting snapshot upload'
-        )
-        expect(mockXHR.open).toHaveBeenCalledWith('POST', `${url}/v3/snapshots`)
-        expect(mockXHR.send).toHaveBeenCalled()
-
-        mockXHR.onload(null) // Upload live photos
+        mockXHR.onload(null)
         await runAllPromises()
 
         expect(mockXHR.open).toHaveBeenCalledWith(
           'POST',
-          `${url}/v3/live_photos`
+          `${url}/v4/binary_media`
         )
-        expect(mockXHR.send).toHaveBeenCalledTimes(2)
-        expect(mockedOnSuccess).toHaveBeenCalledWith({ payload: 'success' })
-        expect(mockedOnError).not.toHaveBeenCalled()
+        expect(mockXHR.send).toHaveBeenCalledTimes(1)
 
-        expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Snapshot upload completed'
-        )
-        expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Starting live photo upload'
-        )
+        expect(mockedOnSuccess).toHaveBeenCalledWith({
+          media_id: 'fake-media-id',
+        })
+        expect(mockedOnError).not.toHaveBeenCalled()
       })
     })
 
@@ -86,16 +64,13 @@ describe('onfidoApi', () => {
       })
 
       it('should call onError callback', async () => {
-        sendMultiframeSelfie(
-          snapshotData,
-          selfieData,
-          jwtToken,
+        uploadBinaryMedia(
+          documentCapture,
           url,
+          jwtToken,
           mockedOnSuccess,
-          mockedOnError,
-          mockedTrackingCallback
+          mockedOnError
         )
-
         mockXHR.onload(null)
         await runAllPromises()
 
@@ -115,17 +90,12 @@ describe('onfidoApi', () => {
       })
 
       it('should call onError callback with TypeError', async () => {
-        const invalidSnapshotData = { ...snapshotData, blob: {} as Blob }
-        const invalidSelfieData = { ...selfieData, blob: {} as Blob }
-
-        sendMultiframeSelfie(
-          invalidSnapshotData,
-          invalidSelfieData,
-          jwtToken,
+        uploadBinaryMedia(
+          { ...documentCapture, file: {} as Blob },
           url,
+          jwtToken,
           mockedOnSuccess,
-          mockedOnError,
-          mockedTrackingCallback
+          mockedOnError
         )
 
         mockXHR.onload(null)
