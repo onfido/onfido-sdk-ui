@@ -7,8 +7,7 @@ import {
 } from '~types/steps'
 import { ServerRegions, SdkOptions } from '~types/sdk'
 import { UICustomizationOptions } from '~types/ui-customisation-options'
-/* eslint-disable-next-line @typescript-eslint/no-var-requires */
-const customUIConfig = require('./custom-ui-config.json')
+import customUIConfig from './custom-ui-config.json'
 
 type StringifiedBoolean = 'true' | 'false'
 
