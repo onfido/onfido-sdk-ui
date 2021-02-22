@@ -121,6 +121,9 @@ const PROD_CONFIG = {
   PUBLIC_PATH: `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN,
+
+  // @TODO: clean-up this config when v4 APIs are live
+  USE_V4_APIS_FOR_DOC_VIDEO: process.env.USE_V4_APIS_FOR_DOC_VIDEO,
 }
 
 const TEST_DEPLOYMENT_CONFIG = {

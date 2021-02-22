@@ -302,7 +302,6 @@ describe('DocumentVideo', () => {
                 metadata: {
                   id: fakePassportVideoResponse.id,
                   type: fakeDocumentType,
-                  variant: 'video',
                 },
               },
             },
@@ -317,15 +316,16 @@ describe('DocumentVideo', () => {
           return
         }
 
-        const mediaUuidds = ['fake-image-media-id', 'fake-video-media-id']
+        const imageMediaUuid = 'fake-image-media-id'
+        const videoMediaUuid = 'fake-image-media-id'
 
         beforeEach(() => {
           mockedUploadBinaryMedia
             .mockResolvedValueOnce({
-              media_id: mediaUuidds[0],
+              media_id: imageMediaUuid,
             })
             .mockResolvedValueOnce({
-              media_id: mediaUuidds[1],
+              media_id: videoMediaUuid,
             })
           mockedCreateV4Document.mockResolvedValue(fakeCreateV4DocumentResponse)
           simulateButtonClick(wrapper)
@@ -355,7 +355,7 @@ describe('DocumentVideo', () => {
             fakeToken
           )
           expect(mockedCreateV4Document).toHaveBeenCalledWith(
-            mediaUuidds,
+            [imageMediaUuid, videoMediaUuid],
             fakeUrl,
             fakeToken
           )
@@ -365,13 +365,16 @@ describe('DocumentVideo', () => {
 
           expect(mockedStore.getActions()).toMatchObject([
             {
+              type: 'CAPTURE_DELETE',
+              payload: { method: 'document', side: 'front' },
+            },
+            {
               type: 'SET_CAPTURE_METADATA',
               payload: {
                 captureId: fakeVideoPayload.id,
                 metadata: {
                   id: fakeCreateV4DocumentResponse.uuid,
-                  type: fakeCreateV4DocumentResponse.document_type,
-                  media_uuids: mediaUuidds,
+                  media_uuids: [imageMediaUuid, videoMediaUuid],
                 },
               },
             },
@@ -534,7 +537,6 @@ describe('DocumentVideo', () => {
                 metadata: {
                   id: fakePassportVideoResponse.id,
                   type: fakeDocumentType,
-                  variant: 'video',
                 },
               },
             },
@@ -549,22 +551,20 @@ describe('DocumentVideo', () => {
           return
         }
 
-        const mediaUuidds = [
-          'fake-front-media-id',
-          'fake-back-media-id',
-          'fake-video-media-id',
-        ]
+        const frontMediaUuid = 'fake-front-media-id'
+        const backMediaUuid = 'fake-back-media-id'
+        const videoMediaUuid = 'fake-video-media-id'
 
         beforeEach(() => {
           mockedUploadBinaryMedia
             .mockResolvedValueOnce({
-              media_id: mediaUuidds[0],
+              media_id: frontMediaUuid,
             })
             .mockResolvedValueOnce({
-              media_id: mediaUuidds[1],
+              media_id: backMediaUuid,
             })
             .mockResolvedValueOnce({
-              media_id: mediaUuidds[2],
+              media_id: videoMediaUuid,
             })
           mockedCreateV4Document.mockResolvedValue(fakeCreateV4DocumentResponse)
           simulateButtonClick(wrapper)
@@ -603,7 +603,7 @@ describe('DocumentVideo', () => {
             fakeToken
           )
           expect(mockedCreateV4Document).toHaveBeenCalledWith(
-            mediaUuidds,
+            [frontMediaUuid, backMediaUuid, videoMediaUuid],
             fakeUrl,
             fakeToken
           )
@@ -613,13 +613,20 @@ describe('DocumentVideo', () => {
 
           expect(mockedStore.getActions()).toMatchObject([
             {
+              type: 'CAPTURE_DELETE',
+              payload: { method: 'document', side: 'front' },
+            },
+            {
+              type: 'CAPTURE_DELETE',
+              payload: { method: 'document', side: 'back' },
+            },
+            {
               type: 'SET_CAPTURE_METADATA',
               payload: {
                 captureId: fakeVideoPayload.id,
                 metadata: {
                   id: fakeCreateV4DocumentResponse.uuid,
-                  type: fakeCreateV4DocumentResponse.document_type,
-                  media_uuids: mediaUuidds,
+                  media_uuids: [frontMediaUuid, backMediaUuid, videoMediaUuid],
                 },
               },
             },

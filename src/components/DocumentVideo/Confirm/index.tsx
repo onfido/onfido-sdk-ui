@@ -154,7 +154,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     const mediaUuids = []
 
     try {
-      const { media_id: frontId } = await uploadBinaryMedia(
+      const { media_id: frontMediaUuid } = await uploadBinaryMedia(
         {
           file: documentFront.blob,
           filename: documentFront.filename,
@@ -164,10 +164,16 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
         token
       )
 
-      mediaUuids.push(frontId)
+      mediaUuids.push(frontMediaUuid)
+      dispatch(
+        actions.deleteCapture({
+          method: 'document',
+          side: 'front',
+        })
+      )
 
       if (documentBack) {
-        const { media_id: backId } = await uploadBinaryMedia(
+        const { media_id: backMediaUuid } = await uploadBinaryMedia(
           {
             file: documentBack.blob,
             filename: documentBack.filename,
@@ -177,10 +183,16 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
           token
         )
 
-        mediaUuids.push(backId)
+        mediaUuids.push(backMediaUuid)
+        dispatch(
+          actions.deleteCapture({
+            method: 'document',
+            side: 'back',
+          })
+        )
       }
 
-      const { media_id: videoId } = await uploadBinaryMedia(
+      const { media_id: videoMediaUuid } = await uploadBinaryMedia(
         {
           file: documentVideo.blob,
           filename: documentVideo.filename,
@@ -190,9 +202,9 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
         token
       )
 
-      mediaUuids.push(videoId)
+      mediaUuids.push(videoMediaUuid)
 
-      const { uuid, document_type } = await createV4Document(
+      const { uuid: documentUuid } = await createV4Document(
         mediaUuids,
         apiUrl,
         token
@@ -202,8 +214,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
         actions.setCaptureMetadata({
           capture: documentVideo,
           apiResponse: {
-            id: uuid,
-            type: document_type,
+            id: documentUuid,
             media_uuids: mediaUuids,
           },
         })

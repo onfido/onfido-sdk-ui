@@ -7,7 +7,7 @@ export const initialState: CaptureState = {}
 
 const getKeyByCaptureId = (captures: CaptureState = {}, captureId: string) =>
   (Object.keys(captures) as CaptureKeys[]).find(
-    (key) => captures[key].id === captureId
+    (key) => captures[key] && captures[key].id === captureId
   )
 
 export default function captures(
