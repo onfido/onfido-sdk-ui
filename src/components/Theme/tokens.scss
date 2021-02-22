@@ -65,9 +65,6 @@
   --osdk-color-background-button-primary-active: rgba(
     var(--ods-color-background-action-active)
   );
-  --color-background-button-primary-disabled: rgba(
-    var(--ods-color-neutral-300)
-  );
 
   --osdk-color-border-button-primary: rgba(var(--ods-color-border-action));
 
@@ -77,7 +74,7 @@
   );
 
   --osdk-color-background-button-secondary: rgba(
-    var(--ods-color-background-action-subtle)
+    var(--ods-color-background-always-transparent)
   );
   --osdk-color-background-button-secondary-hover: rgba(
     var(--ods-color-background-action-subtle-hover)
