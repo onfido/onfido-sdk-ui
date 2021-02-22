@@ -1,14 +1,17 @@
 type MockedXhrParams = {
-  status: number
-  response: Record<string, unknown>
+  status?: number
+  response?: Record<string, unknown>
 }
 
-const createMockXHR = (params: MockedXhrParams): XMLHttpRequest => {
+const createMockXHR = ({
+  status = 201,
+  response = {},
+}: MockedXhrParams): XMLHttpRequest => {
   const xhr = new XMLHttpRequest()
-  const { status = 201, response } = params
 
   return {
     ...xhr,
+    onload: jest.fn(),
     open: jest.fn(),
     send: jest.fn(),
     setRequestHeader: jest.fn(),

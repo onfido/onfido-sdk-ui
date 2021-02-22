@@ -23,16 +23,17 @@ const runAllPromises = () => new Promise(setImmediate)
 
 describe('onfidoApi', () => {
   describe('sendMultiframeSelfie', () => {
-    let mockXHR = null
+    let mockXHR: XMLHttpRequest = null
 
     afterEach(() => {
       jest.clearAllMocks()
+      jest.restoreAllMocks()
     })
 
     describe('with valid data', () => {
       beforeEach(() => {
         mockXHR = createMockXHR({ response: { payload: 'success' } })
-        window.XMLHttpRequest = jest.fn().mockImplementation(() => mockXHR)
+        jest.spyOn(window, 'XMLHttpRequest').mockImplementation(() => mockXHR)
       })
 
       it('should send two XHR requests', async () => {
@@ -46,10 +47,10 @@ describe('onfidoApi', () => {
           mockedTrackingCallback
         )
 
-        mockXHR.onload() // First XHR has been mocked
+        mockXHR.onload(null) // First XHR has been mocked
         await runAllPromises()
 
-        mockXHR.onload() // Second XHR has been mocked
+        mockXHR.onload(null) // Second XHR has been mocked
         await runAllPromises()
 
         expect(mockXHR.send).toHaveBeenCalledTimes(2)
@@ -74,7 +75,7 @@ describe('onfidoApi', () => {
           status: 401,
           response: { error: 'unauthorized' },
         })
-        window.XMLHttpRequest = jest.fn().mockImplementation(() => mockXHR)
+        jest.spyOn(window, 'XMLHttpRequest').mockImplementation(() => mockXHR)
       })
 
       it('should call onError callback', async () => {
@@ -88,7 +89,7 @@ describe('onfidoApi', () => {
           mockedTrackingCallback
         )
 
-        mockXHR.onload()
+        mockXHR.onload(null)
         await runAllPromises()
 
         expect(mockXHR.send).toHaveBeenCalledTimes(1)
@@ -101,9 +102,14 @@ describe('onfidoApi', () => {
     })
 
     describe('with invalid data', () => {
+      beforeEach(() => {
+        mockXHR = createMockXHR({})
+        jest.spyOn(window, 'XMLHttpRequest').mockImplementation(() => mockXHR)
+      })
+
       it('should call onError callback with TypeError', async () => {
-        const invalidSnapshotData = { ...snapshotData, blob: {} }
-        const invalidSelfieData = { ...selfieData, blob: {} }
+        const invalidSnapshotData = { ...snapshotData, blob: {} as Blob }
+        const invalidSelfieData = { ...selfieData, blob: {} as Blob }
 
         sendMultiframeSelfie(
           invalidSnapshotData,
@@ -115,12 +121,13 @@ describe('onfidoApi', () => {
           mockedTrackingCallback
         )
 
-        mockXHR.onload()
+        mockXHR.onload(null)
         await runAllPromises()
 
         expect(mockXHR.send).not.toHaveBeenCalled()
         expect(mockedOnSuccess).not.toHaveBeenCalled()
         expect(mockedOnError).toHaveBeenCalledTimes(1)
+
         const error = mockedOnError.mock.calls[0][0]
         expect(error).toMatchObject(/TypeError/)
         expect(error.message).toEqual(
