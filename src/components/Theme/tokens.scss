@@ -1,3 +1,4 @@
+@use '~@onfido/castor';
 /*
  *  NOTE on CSS variable prefix naming convention & Castor DS token mappings:
  *
@@ -41,7 +42,7 @@
   --font-weight-body: 500;
 
   /* General UI element background color settings */
-  --osdk-color-border-surface-modal: rgba(var(--ods-color-border-input));
+  --osdk-color-border-surface-modal: rgba(var(--ods-color-neutral-600));
   --color-background: rgba(var(--ods-color-neutral-050));
   --color-warning: rgba(var(--ods-color-primary-500));
   --color-error: rgba(var(--ods-color-background-negative));
