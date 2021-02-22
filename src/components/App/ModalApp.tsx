@@ -25,7 +25,7 @@ import type {
   StepConfigDocument,
   DocumentTypes,
 } from '~types/steps'
-import { setUICustomisations } from '../Theme/utils'
+import { setUICustomizations } from '../Theme/utils'
 
 import withConnect, { ReduxProps } from './withConnect'
 
@@ -178,7 +178,7 @@ class ModalApp extends Component<Props> {
     }
 
     if (customUI && customUI !== prevCustomUI) {
-      setUICustomisations(customUI)
+      setUICustomizations(customUI)
     }
   }
 
