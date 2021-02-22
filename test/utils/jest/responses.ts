@@ -2,6 +2,7 @@ import {
   ApiParsedError,
   DocumentVideoResponse,
   DocumentImageResponse,
+  CreateV4DocumentResponse,
 } from '~types/api'
 
 export const fakePassportImageResponse: DocumentImageResponse = {
@@ -168,4 +169,41 @@ export const fakeUnknownError: ApiParsedError = {
     },
   },
   status: 500,
+}
+
+// v4 APIs
+export const fakeCreateV4DocumentResponse: CreateV4DocumentResponse = {
+  uuid: '272bfecf-2700-4f81-9215-aab3b616c711',
+  applicant_uuid: '83710329-50ed-4d6c-b9ec-942a7d2d23ca',
+  document_media: [
+    {
+      binary_media: {
+        uuid: '9fff8d87-cc71-4445-85f9-346ccc365e94',
+        content_type: '',
+        byte_size: 0,
+      },
+      document_fields: [],
+    },
+    {
+      binary_media: {
+        uuid: '196f356d-b5ed-4350-a0a5-9a3f0695eb14',
+        content_type: '',
+        byte_size: 0,
+      },
+      document_fields: [],
+    },
+  ],
+  document_type: 'IDENTITY_DOCUMENT',
+}
+
+export const fakeAccessDeniedError: ApiParsedError = {
+  response: {
+    error: {
+      type: 'ACCESS_DENIED',
+      message:
+        'User is not authorized to access this resource with an explicit deny',
+      fields: {},
+    },
+  },
+  status: 403,
 }

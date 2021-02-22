@@ -25,6 +25,7 @@ const API_ERROR_AUTHORIZATION = 'authorization_error'
 const API_ERROR_EXPIRED_TOKEN = 'expired_token'
 const API_ERROR_VALIDATION = 'validation_error'
 const API_ERROR_UNKNOWN = 'unknown'
+const API_ERROR_ACCESS_DENIED = 'ACCESS_DENIED'
 
 type ApiErrorPayload = {
   message: string
@@ -53,6 +54,12 @@ type ValidationError = {
   fields: Partial<Record<ValidationReasons, string[]>>
 }
 
+type AccessDeniedError = {
+  type: typeof API_ERROR_ACCESS_DENIED
+  message: string
+  fields: Record<string, unknown>
+}
+
 type UnknownError = {
   type: typeof API_ERROR_UNKNOWN
 } & ApiErrorPayload
@@ -63,6 +70,7 @@ export type ApiParsedError = {
       | AuthorizationError
       | ExpiredTokenError
       | ValidationError
+      | AccessDeniedError
       | UnknownError
     type?: string
     message?: string
@@ -173,6 +181,35 @@ export type ValidateDocumentResponse = {
   id: string
   is_document: boolean
   valid: boolean
+}
+
+/* v4 APIs */
+export type UploadBinaryMediaReponse = {
+  media_id: string
+}
+
+type BinaryMediaPayload = {
+  uuid: string
+  content_type: string
+  byte_size: number
+}
+
+type DocumentFieldPayload = {
+  name: string
+  raw_value: string
+  source: string
+}
+
+type DocumentMediaPayload = {
+  binary_media: BinaryMediaPayload
+  document_fields: DocumentFieldPayload[]
+}
+
+export type CreateV4DocumentResponse = {
+  uuid: string
+  applicant_uuid: string
+  document_media: Array<DocumentMediaPayload>
+  document_type: 'IDENTITY_DOCUMENT' | 'OTHERS'
 }
 
 /* Callbacks */

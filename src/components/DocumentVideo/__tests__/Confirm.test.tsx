@@ -13,10 +13,17 @@ import {
   fakeDrivingLicenceFrontResponse,
   fakeDrivingLicenceBackResponse,
   fakeDrivingLicenceVideoResponse,
+  fakeCreateV4DocumentResponse,
   fakeNoDocumentError,
   fakeUnknownError,
+  fakeAccessDeniedError,
 } from '~jest/responses'
-import { uploadDocument, uploadDocumentVideo } from '~utils/onfidoApi'
+import {
+  uploadDocument,
+  uploadDocumentVideo,
+  uploadBinaryMedia,
+  createV4Document,
+} from '~utils/onfidoApi'
 import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import Confirm from '../Confirm'
 
@@ -33,6 +40,12 @@ const mockedUploadDocument = uploadDocument as jest.MockedFunction<
 >
 const mockedUploadDocumentVideo = uploadDocumentVideo as jest.MockedFunction<
   typeof uploadDocumentVideo
+>
+const mockedUploadBinaryMedia = uploadBinaryMedia as jest.MockedFunction<
+  typeof uploadBinaryMedia
+>
+const mockedCreateV4Document = createV4Document as jest.MockedFunction<
+  typeof createV4Document
 >
 
 const runAllPromises = () => new Promise(setImmediate)
@@ -232,7 +245,11 @@ describe('DocumentVideo', () => {
         expect(defaultProps.previousStep).toHaveBeenCalled()
       })
 
-      describe('when upload success', () => {
+      describe('when upload success - v3 APIs', () => {
+        if (process.env.USE_V4_APIS_FOR_DOC_VIDEO === 'true') {
+          return
+        }
+
         beforeEach(() => {
           mockedUploadDocument.mockResolvedValue(fakePassportImageResponse)
           mockedUploadDocumentVideo.mockResolvedValue(fakePassportVideoResponse)
@@ -286,6 +303,75 @@ describe('DocumentVideo', () => {
                   id: fakePassportVideoResponse.id,
                   type: fakeDocumentType,
                   variant: 'video',
+                },
+              },
+            },
+          ])
+
+          expect(defaultProps.nextStep).toHaveBeenCalled()
+        })
+      })
+
+      describe('when upload success - v4 APIs', () => {
+        if (process.env.USE_V4_APIS_FOR_DOC_VIDEO !== 'true') {
+          return
+        }
+
+        const mediaUuidds = ['fake-image-media-id', 'fake-video-media-id']
+
+        beforeEach(() => {
+          mockedUploadBinaryMedia
+            .mockResolvedValueOnce({
+              media_id: mediaUuidds[0],
+            })
+            .mockResolvedValueOnce({
+              media_id: mediaUuidds[1],
+            })
+          mockedCreateV4Document.mockResolvedValue(fakeCreateV4DocumentResponse)
+          simulateButtonClick(wrapper)
+        })
+
+        it('renders spinner correctly', async () => {
+          assertSpinner(wrapper)
+
+          await runAllPromises()
+
+          expect(mockedUploadBinaryMedia).toHaveBeenCalledWith(
+            {
+              file: fakeFrontPayload.blob,
+              filename: fakeFrontPayload.filename,
+              sdkMetadata: fakeFrontPayload.sdkMetadata,
+            },
+            fakeUrl,
+            fakeToken
+          )
+          expect(mockedUploadBinaryMedia).toHaveBeenCalledWith(
+            {
+              file: fakeVideoPayload.blob,
+              filename: fakeVideoPayload.filename,
+              sdkMetadata: fakeVideoPayload.sdkMetadata,
+            },
+            fakeUrl,
+            fakeToken
+          )
+          expect(mockedCreateV4Document).toHaveBeenCalledWith(
+            mediaUuidds,
+            fakeUrl,
+            fakeToken
+          )
+
+          expect(mockedUploadBinaryMedia).toHaveBeenCalledTimes(2)
+          expect(mockedCreateV4Document).toHaveBeenCalledTimes(1)
+
+          expect(mockedStore.getActions()).toMatchObject([
+            {
+              type: 'SET_CAPTURE_METADATA',
+              payload: {
+                captureId: fakeVideoPayload.id,
+                metadata: {
+                  id: fakeCreateV4DocumentResponse.uuid,
+                  type: fakeCreateV4DocumentResponse.document_type,
+                  media_uuids: mediaUuidds,
                 },
               },
             },
@@ -361,7 +447,11 @@ describe('DocumentVideo', () => {
         expect(defaultProps.previousStep).toHaveBeenCalled()
       })
 
-      describe('when upload success', () => {
+      describe('when upload success - v3 APIs', () => {
+        if (process.env.USE_V4_APIS_FOR_DOC_VIDEO === 'true') {
+          return
+        }
+
         beforeEach(() => {
           mockedUploadDocument.mockResolvedValueOnce(
             fakeDrivingLicenceFrontResponse
@@ -454,7 +544,96 @@ describe('DocumentVideo', () => {
         })
       })
 
-      describe('when upload failed', () => {
+      describe('when upload success - v4 APIs', () => {
+        if (process.env.USE_V4_APIS_FOR_DOC_VIDEO !== 'true') {
+          return
+        }
+
+        const mediaUuidds = [
+          'fake-front-media-id',
+          'fake-back-media-id',
+          'fake-video-media-id',
+        ]
+
+        beforeEach(() => {
+          mockedUploadBinaryMedia
+            .mockResolvedValueOnce({
+              media_id: mediaUuidds[0],
+            })
+            .mockResolvedValueOnce({
+              media_id: mediaUuidds[1],
+            })
+            .mockResolvedValueOnce({
+              media_id: mediaUuidds[2],
+            })
+          mockedCreateV4Document.mockResolvedValue(fakeCreateV4DocumentResponse)
+          simulateButtonClick(wrapper)
+        })
+
+        it('renders spinner correctly', async () => {
+          assertSpinner(wrapper)
+
+          await runAllPromises()
+
+          expect(mockedUploadBinaryMedia).toHaveBeenCalledWith(
+            {
+              file: fakeFrontPayload.blob,
+              filename: fakeFrontPayload.filename,
+              sdkMetadata: fakeFrontPayload.sdkMetadata,
+            },
+            fakeUrl,
+            fakeToken
+          )
+          expect(mockedUploadBinaryMedia).toHaveBeenCalledWith(
+            {
+              file: fakeBackPayload.blob,
+              filename: fakeBackPayload.filename,
+              sdkMetadata: fakeBackPayload.sdkMetadata,
+            },
+            fakeUrl,
+            fakeToken
+          )
+          expect(mockedUploadBinaryMedia).toHaveBeenCalledWith(
+            {
+              file: fakeVideoPayload.blob,
+              filename: fakeVideoPayload.filename,
+              sdkMetadata: fakeVideoPayload.sdkMetadata,
+            },
+            fakeUrl,
+            fakeToken
+          )
+          expect(mockedCreateV4Document).toHaveBeenCalledWith(
+            mediaUuidds,
+            fakeUrl,
+            fakeToken
+          )
+
+          expect(mockedUploadBinaryMedia).toHaveBeenCalledTimes(3)
+          expect(mockedCreateV4Document).toHaveBeenCalledTimes(1)
+
+          expect(mockedStore.getActions()).toMatchObject([
+            {
+              type: 'SET_CAPTURE_METADATA',
+              payload: {
+                captureId: fakeVideoPayload.id,
+                metadata: {
+                  id: fakeCreateV4DocumentResponse.uuid,
+                  type: fakeCreateV4DocumentResponse.document_type,
+                  media_uuids: mediaUuidds,
+                },
+              },
+            },
+          ])
+
+          expect(defaultProps.nextStep).toHaveBeenCalled()
+        })
+      })
+
+      describe('when upload failed - v3 APIs', () => {
+        if (process.env.USE_V4_APIS_FOR_DOC_VIDEO === 'true') {
+          return
+        }
+
         describe('with no document error', () => {
           beforeEach(() => {
             mockedUploadDocument.mockRejectedValue(fakeNoDocumentError)
@@ -510,6 +689,23 @@ describe('DocumentVideo', () => {
               })
             })
           })
+        })
+      })
+
+      describe('when upload failed - v4 APIs', () => {
+        if (process.env.USE_V4_APIS_FOR_DOC_VIDEO !== 'true') {
+          return
+        }
+
+        beforeEach(() => {
+          mockedUploadBinaryMedia.mockRejectedValue(fakeAccessDeniedError)
+          simulateButtonClick(wrapper)
+        })
+
+        it('renders REQUEST_ERROR error correctly', async () => {
+          await runAllPromises()
+          wrapper.update()
+          assertError(wrapper, false)
         })
       })
     })

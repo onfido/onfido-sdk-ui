@@ -11,6 +11,8 @@ import type {
   FaceVideoResponse,
   VideoChallengeResponse,
   SnapshotResponse,
+  UploadBinaryMediaReponse,
+  CreateV4DocumentResponse,
   SuccessCallback,
   ErrorCallback,
 } from '~types/api'
@@ -244,11 +246,7 @@ export const requestChallenges = (
   performHttpReq(options, onSuccess, (request) => formatError(request, onError))
 }
 
-/* Begin of /v4 APIs */
-type UploadBinaryMediaReponse = {
-  media_id: string
-}
-
+/* v4 APIs */
 export const uploadBinaryMedia = (
   { file, filename }: UploadDocumentPayload,
   url: string,
@@ -276,27 +274,6 @@ export const uploadBinaryMedia = (
     }
   })
 
-type BinaryMediaPayload = {
-  binary_media: { uuid: string }
-}
-
-type DocumentFieldPayload = {
-  name: string
-  raw_value: string
-  source: string
-}
-
-type DocumentFieldsList = {
-  document_fields: DocumentFieldPayload[]
-}
-
-type CreateV4DocumentResponse = {
-  applicant_uuid: string
-  document_uuid: string
-  document_media: Array<BinaryMediaPayload | DocumentFieldsList>
-  document_type: 'IDENTITY_DOCUMENT' | 'OTHERS'
-}
-
 export const createV4Document = (
   mediaIds: string[],
   url: string,
@@ -318,7 +295,6 @@ export const createV4Document = (
       formatError(request, onError || reject)
     )
   })
-/* End of /v4 APIs*/
 
 const objectToFormData = (object: SubmitPayload): FormData => {
   const formData = new FormData()
