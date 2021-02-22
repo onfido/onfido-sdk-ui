@@ -15,9 +15,9 @@ $selector-button-box-shadow: 0 0 0 2px;
 
 .option {
   width: 100%;
-  background: var(--color-background-doc-type-button);
+  background: var(--osdk-color-background-doc-type-button);
   border-radius: var(--osdk-border-radius-button);
-  border-color: var(--color-border-doc-type-button);
+  border-color: var(--osdk-color-border-doc-type-button);
   border-style: solid;
   border-width: 1px;
   color: $color-body-text;
@@ -44,12 +44,12 @@ $selector-button-box-shadow: 0 0 0 2px;
 
   &.optionHoverDesktop:hover {
     box-shadow: $selector-button-box-shadow
-      var(--color-border-doc-type-button-hover);
+      var(--osdk-color-border-doc-type-button-hover);
   }
 
   &:active {
     box-shadow: $selector-button-box-shadow
-      var(--color-border-doc-type-button-active);
+      var(--osdk-color-border-doc-type-button-active);
   }
 }
 

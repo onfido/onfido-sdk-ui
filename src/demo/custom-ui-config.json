@@ -9,5 +9,8 @@
   "colorBorderButtonSecondary": "#5c374c",
   "colorBackgroundButtonSecondaryHover": "#ce6a85",
   "colorBackgroundButtonSecondaryActive": "#985277",
-  "buttonGroupStacked": true
+  "buttonGroupStacked": true,
+  "colorBorderDocTypeButton": "#5c374c",
+  "colorBorderDocTypeButtonHover": "#f67e7d",
+  "colorBorderDocTypeButtonActive": "#843b62"
 }
