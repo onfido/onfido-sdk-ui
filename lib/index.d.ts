@@ -74,6 +74,23 @@ export declare type EnterpriseFeatures = {
 	hideOnfidoLogo?: boolean;
 	cobrand?: EnterpriseCobranding;
 };
+export declare type UICustomizationOptions = {
+	colorContentButtonPrimaryText?: string;
+	colorBackgroundButtonPrimary?: string;
+	colorBackgroundButtonPrimaryHover?: string;
+	colorBackgroundButtonPrimaryActive?: string;
+	colorBorderButtonPrimary?: string;
+	colorContentButtonSecondaryText?: string;
+	colorBackgroundButtonSecondary?: string;
+	colorBackgroundButtonSecondaryHover?: string;
+	colorBackgroundButtonSecondaryActive?: string;
+	colorBorderButtonSecondary?: string;
+	borderRadiusButton?: string;
+	buttonGroupStacked?: boolean;
+	colorBorderDocTypeButton?: string;
+	colorBorderDocTypeButtonHover?: string;
+	colorBorderDocTypeButtonActive?: string;
+};
 export declare type DocumentResponse = {
 	id: string;
 	side: string;
@@ -118,6 +135,7 @@ export interface SdkOptions extends FunctionalConfigurations {
 	};
 	steps?: Array<StepTypes | StepConfig>;
 	enterpriseFeatures?: EnterpriseFeatures;
+	customUI?: UICustomizationOptions;
 }
 export declare type SdkHandle = {
 	options: SdkOptions;
