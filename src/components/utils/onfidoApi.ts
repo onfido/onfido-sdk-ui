@@ -244,6 +244,9 @@ export const requestChallenges = (
   performHttpReq(options, onSuccess, (request) => formatError(request, onError))
 }
 
+/* Begin of /v4 APIs */
+/* End of /v4 APIs*/
+
 const objectToFormData = (object: SubmitPayload): FormData => {
   const formData = new FormData()
 

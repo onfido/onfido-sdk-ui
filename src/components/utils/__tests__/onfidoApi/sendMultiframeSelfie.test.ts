@@ -50,16 +50,23 @@ describe('onfidoApi', () => {
         mockXHR.onload(null) // First XHR has been mocked
         await runAllPromises()
 
+        expect(mockedTrackingCallback).toHaveBeenCalledWith(
+          'Starting snapshot upload'
+        )
+        expect(mockXHR.open).toHaveBeenCalledWith('POST', `${url}/v3/snapshots`)
+        expect(mockXHR.send).toHaveBeenCalled()
+
         mockXHR.onload(null) // Second XHR has been mocked
         await runAllPromises()
 
+        expect(mockXHR.open).toHaveBeenCalledWith(
+          'POST',
+          `${url}/v3/live_photos`
+        )
         expect(mockXHR.send).toHaveBeenCalledTimes(2)
         expect(mockedOnSuccess).toHaveBeenCalledWith({ payload: 'success' })
         expect(mockedOnError).not.toHaveBeenCalled()
 
-        expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Starting snapshot upload'
-        )
         expect(mockedTrackingCallback).toHaveBeenCalledWith(
           'Snapshot upload completed'
         )
