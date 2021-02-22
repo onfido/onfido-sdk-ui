@@ -275,6 +275,49 @@ export const uploadBinaryMedia = (
       onErrorCallback(error)
     }
   })
+
+type BinaryMediaPayload = {
+  binary_media: { uuid: string }
+}
+
+type DocumentFieldPayload = {
+  name: string
+  raw_value: string
+  source: string
+}
+
+type DocumentFieldsList = {
+  document_fields: DocumentFieldPayload[]
+}
+
+type CreateV4DocumentResponse = {
+  applicant_uuid: string
+  document_uuid: string
+  document_media: Array<BinaryMediaPayload | DocumentFieldsList>
+  document_type: 'IDENTITY_DOCUMENT' | 'OTHERS'
+}
+
+export const createV4Document = (
+  mediaIds: string[],
+  url: string,
+  token: string,
+  onSuccess?: SuccessCallback<CreateV4DocumentResponse>,
+  onError?: ErrorCallback
+): Promise<CreateV4DocumentResponse> =>
+  new Promise((resolve, reject) => {
+    const requestParams: HttpRequestParams = {
+      contentType: 'application/json',
+      payload: JSON.stringify({
+        document_media: mediaIds.map((uuid) => ({ binary_media: { uuid } })),
+      }),
+      endpoint: `${url}/v4/documents`,
+      token: `Bearer ${token}`,
+    }
+
+    performHttpReq(requestParams, onSuccess || resolve, (request) =>
+      formatError(request, onError || reject)
+    )
+  })
 /* End of /v4 APIs*/
 
 const objectToFormData = (object: SubmitPayload): FormData => {
