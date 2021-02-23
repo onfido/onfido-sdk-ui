@@ -1,6 +1,21 @@
 export type UICustomizationOptions = {
-  // Fonts
-  fontFamily?: string
+  // Title Fonts
+  fontFamilyTitle?: string
+  fontSizeTitle?: string
+  fontWeightTitle?: string | number
+  colorContentTitle?: string
+
+  // Subtitle Fonts
+  fontFamilySubtitle?: string
+  fontSizeSubtitle?: string
+  fontWeightSubtitle?: string | number
+  colorContentSubtitle?: string
+
+  // Body Fonts
+  fontFamilyBody?: string
+  fontSizeBody?: string
+  fontWeightBody?: string | number
+  colorContentBody?: string
 
   // Primary Button
   colorContentButtonPrimaryText?: string
