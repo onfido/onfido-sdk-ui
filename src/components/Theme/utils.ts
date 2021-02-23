@@ -6,13 +6,9 @@ export const setUICustomizations = (customUI: UICustomizationOptions): void => {
     ([property, value]) => `--osdk-${kebabCase(property)}: ${value};`
   )
   if (sdkCustomisations.length > 0) {
-    const style = `
-      <style>
-          :root {
-            ${sdkCustomisations.join('\n')}
-          }
-      </style>`
-    document.head.insertAdjacentHTML('beforeend', style)
+    const style = document.createElement('style')
+    style.textContent = `:root { ${sdkCustomisations.join('\n')} }`
+    document.head.appendChild(style)
   }
 }
 
