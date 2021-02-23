@@ -424,12 +424,23 @@ A number of options are available to allow you to customise the SDK:
   | `borderRadiusButton`                    | `string`   | Change border radius value of Primary, Secondary and Document Type Option buttons                                                           |
   | `buttonGroupStacked` (default: `false`) | `boolean`  | Display Primary, Secondary button group in Document and Face capture confirmation screens are in separate rows instead of inline by default |
 
-  | Links                       | Description                              |
-  | --------------------------- | ---------------------------------------- |
-  | `colorBorderLinkUnderline`  | Change Link underline color              |
-  | `colorContentLinkTextHover` | Change Link underline color on hover     |
-  | `colorBackgroundLinkHover`  | Change Link underline color on click/tap |
-  | `colorBackgroundLinkActive` | Change Link underline color on click/tap |
+  | Links                       | Description                               |
+  | --------------------------- | ----------------------------------------- |
+  | `colorContentLinkTextHover` | Change Link text color                    |
+  | `colorBorderLinkUnderline`  | Change Link underline color               |
+  | `colorBackgroundLinkHover`  | Change Link background color on hover     |
+  | `colorBackgroundLinkActive` | Change Link background color on click/tap |
+
+  | Warning, Error Popups              | Description                                                |
+  | ---------------------------------- | ---------------------------------------------------------- |
+  | `colorContentAlertInfo`            | Change warning popup fallback Link underline color         |
+  | `colorBackgroundAlertInfo`         | Change warning popup fallback Link background on hover     |
+  | `colorContentAlertInfoLinkHover`   | Change warning popup fallback Link background on click/tap |
+  | `colorContentAlertInfoLinkActive`  | Change warning popup fallback Link background on click/tap |
+  | `colorContentAlertError`           | Change error popup fallback Link underline color           |
+  | `colorBackgroundAlertError`        | Change error popup fallback Link background on hover       |
+  | `colorContentAlertErrorLinkHover`  | Change error popup fallback Link background on click/tap   |
+  | `colorContentAlertErrorLinkActive` | Change error popup fallback Link background on click/tap   |
 
 - **`steps {List} optional`**
 
