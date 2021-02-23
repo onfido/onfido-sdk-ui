@@ -2,14 +2,10 @@
 
 .content {
   position: relative;
-  margin: 0 40 * $unit 16 * $unit;
+  margin-bottom: 16 * $unit;
   flex: 1;
   flex-direction: column;
   display: flex;
-
-  @media (--small-viewport) {
-    margin: 0 24 * $unit 16 * $unit;
-  }
 }
 
 .subTitle {
