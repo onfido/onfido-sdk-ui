@@ -1,3 +1,5 @@
+import { hmac256 } from './blob'
+import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
 
@@ -250,27 +252,33 @@ export const requestChallenges = (
 export const uploadBinaryMedia = (
   { file, filename }: UploadDocumentPayload,
   url: string,
-  token: string,
-  onSuccess?: SuccessCallback<UploadBinaryMediaReponse>,
-  onError?: ErrorCallback
+  token: string
 ): Promise<UploadBinaryMediaReponse> =>
   new Promise((resolve, reject) => {
     try {
-      const formData = new FormData()
-      formData.append('media', file, filename)
+      const tokenData = parseJwt(token)
 
-      const requestParams: HttpRequestParams = {
-        payload: formData,
-        endpoint: `${url}/v4/binary_media`,
-        token: `Bearer ${token}`,
-      }
+      file
+        .arrayBuffer()
+        .then((data) => hmac256(tokenData.uuid as string, data))
+        .then((hmac) => {
+          const formData = new FormData()
+          formData.append('media', file, filename)
 
-      performHttpReq(requestParams, onSuccess || resolve, (request) =>
-        formatError(request, onError || reject)
-      )
+          const requestParams: HttpRequestParams = {
+            endpoint: `${url}/v4/binary_media`,
+            headers: { 'X-Video-Auth': hmac },
+            payload: formData,
+            token: `Bearer ${token}`,
+          }
+
+          performHttpReq(requestParams, resolve, (request) =>
+            formatError(request, reject)
+          )
+        })
+        .catch(reject)
     } catch (error) {
-      const onErrorCallback = onError || reject
-      onErrorCallback(error)
+      reject(error)
     }
   })
 
