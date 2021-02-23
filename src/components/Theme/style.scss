@@ -309,6 +309,24 @@ $logo-height: 32 * $unit;
   }
 }
 
+/* Error Popup Fallback Button - assume the fallback here is either upload/x-device */
+.error {
+  background-color: transparent;
+
+  &:hover,
+  &:active {
+    color: var(--osdk-color-background-alert-error);
+  }
+
+  &:hover {
+    background-color: $color-error-button-hover;
+  }
+
+  &:active {
+    background-color: $color-error-button-active;
+  }
+}
+
 .button-centered {
   margin: auto;
 }
