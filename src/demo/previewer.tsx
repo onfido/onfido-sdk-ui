@@ -1,6 +1,5 @@
 import { h, render } from 'preact'
-import { memo } from 'preact/compat'
-import { useEffect, useRef, useState } from 'preact/hooks'
+import { memo, useEffect, useRef, useState } from 'preact/compat'
 
 import { SdkOptions } from '~types/sdk'
 

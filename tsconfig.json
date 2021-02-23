@@ -6,7 +6,7 @@
     "jsx": "react",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
-    "lib": ["es6", "dom"],
+    "lib": ["esnext", "dom"],
     "module": "es6",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -19,8 +19,9 @@
       "~utils/*": ["components/utils/*"]
     },
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "sourceMap": true,
-    "target": "es5",
+    "target": "es2019",
     "types": ["jest"],
     "typeRoots": ["./typings", "./node_modules/@types"],
     "downlevelIteration": true
