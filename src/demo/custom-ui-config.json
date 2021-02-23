@@ -1,5 +1,6 @@
 {
-  "fontFamily": "Oldtown, fantasy",
+  "fontFamilyTitle": "Impact, fantasy",
+  "fontWeightSubtitle": 500,
   "colorContentButtonPrimaryText": "#333",
   "colorBackgroundButtonPrimary": "#ffb997",
   "colorBorderButtonPrimary": "#b23a48",
