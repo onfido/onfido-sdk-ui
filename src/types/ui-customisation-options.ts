@@ -1,4 +1,7 @@
 export type UICustomizationOptions = {
+  // Fonts
+  fontFamily?: string
+
   // Primary Button
   colorContentButtonPrimaryText?: string
   colorBackgroundButtonPrimary?: string
