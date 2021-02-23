@@ -136,7 +136,7 @@ $parent-width: 432;
   line-height: 1.5;
   color: $color-body-text;
   white-space: nowrap;
-  font-family: var(--font-family);
+  font-family: var(--osdk-font-family);
 }
 
 /* FIXME: CX-5306 - text/link Button for x-device Copy link */
@@ -145,7 +145,7 @@ $parent-width: 432;
   float: right;
   height: 100%;
   font-size: var(--font-size-small);
-  font-family: var(--font-family);
+  font-family: var(--osdk-font-family);
   margin-left: 4 * $unit-small;
   padding: 2px;
   text-decoration: none;

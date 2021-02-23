@@ -20,11 +20,12 @@
 @mixin tokens() {
   --unit: (1/16) * 1em;
 
-  /* Font Variables */
-  --font-family: 'Open Sans', sans-serif;
-  --font-family-title: var(--font-family);
-  --font-family-subtitle: var(--font-family);
-  --font-family-body: var(--font-family);
+  /* Font settings */
+  --osdk-font-family: 'Open Sans', sans-serif;
+
+  --font-family-title: var(--osdk-font-family);
+  --font-family-subtitle: var(--osdk-font-family);
+  --font-family-body: var(--osdk-font-family);
 
   --font-size-base: calc(16 * var(--unit));
 
