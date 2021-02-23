@@ -395,6 +395,10 @@ A number of options are available to allow you to customize the SDK:
 
   If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values) for the following options:
 
+  | Font options | Description                                                    |
+  | ------------ | -------------------------------------------------------------- |
+  | `fontFamily` | Change font family of SDK (only works for basic font families) |
+
   | Primary Button options               | Description                                            |
   | ------------------------------------ | ------------------------------------------------------ |
   | `colorContentButtonPrimaryText`      | Change color of Primary Button text                    |
