@@ -309,21 +309,24 @@ $logo-height: 32 * $unit;
   }
 }
 
-/* Error Popup Fallback Button - assume the fallback here is either upload/x-device */
+/* Basic camera fallback for "Camera not working" Error popup */
+.errorFallbackButton,
 .error {
   background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom-color: var(--osdk-color-content-alert-error);
 
   &:hover,
   &:active {
-    color: var(--osdk-color-background-alert-error);
+    color: var(--osdk-color-content-alert-error);
   }
 
   &:hover {
-    background-color: $color-error-button-hover;
+    background-color: var(--osdk-color-background-alert-error-link-hover);
   }
 
   &:active {
-    background-color: $color-error-button-active;
+    background-color: var(--osdk-color-background-alert-error-link-active);
   }
 }
 

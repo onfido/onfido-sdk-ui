@@ -64,10 +64,10 @@
 
   /* Error Message - fallback link */
   --osdk-color-background-alert-error-link-hover: rgba(
-    var(--ods-color-background-action-hover)
+    var(--ods-color-background-negative-hover)
   );
   --osdk-color-background-alert-error-link-active: rgba(
-    var(--ods-color-background-action-active)
+    var(--ods-color-background-negative-active)
   );
 
   /* TODO: not really required now, should do a full check after Phase 1 customisations implemented to be sure */

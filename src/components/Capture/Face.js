@@ -67,9 +67,9 @@ class Face extends Component {
   handleFileSelected = (file) =>
     validateFile(file, this.handleUpload, this.handleError)
 
-  renderUploadFallback = (text) => (
+  renderUploadFallback = (text, type = 'warning') => (
     <CustomFileInput
-      className={theme.warningFallbackButton}
+      className={theme[`${type}FallbackButton`]}
       onChange={this.handleFileSelected}
       accept="image/*"
       capture="user"
