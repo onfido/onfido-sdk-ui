@@ -48,7 +48,6 @@ $color-black: rgba(var(--ods-color-neutral-black));
 $color-icon-temporary: rgba(var(--ods-color-neutral-300));
 $color-border: rgba(var(--ods-color-neutral-600));
 $color-divider: rgba(var(--ods-color-neutral-400));
-$color-adjust-huener: rgba(var(--ods-color-neutral-600));
 $color-body-text: rgba(var(--ods-color-neutral-800));
 $color-title-text: rgba(var(--ods-color-neutral-800));
 $color-subtitle-text: $color-body-text;
@@ -65,9 +64,6 @@ $color-camera-overlay: rgba(0, 0, 0, 0.7);
 $color-camera-error-overlay: #1c1f21;
 $color-navbar-gradient-one: rgba(28, 31, 33, 0);
 $color-navbar-gradient-two: rgba(28, 31, 33, 0.35);
-
-/* Warning message button text color */
-$color-warning-button-text-hover: $color-white;
 
 /* Doc/Face capture preview "Enlarge image" button colors */
 $color-small-button: rgba(15, 37, 54, 0.85);
