@@ -14,6 +14,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Replace `ts-loader` with `@babel/preset-typescript` for better TypeScript transpilation.
+
 ### Fixed
 
 - Public: Fix zoomed document capture view for Document Live Capture on some Huawei devices, e.g. Huawei P40, P30.
