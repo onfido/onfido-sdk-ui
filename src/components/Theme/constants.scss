@@ -51,9 +51,7 @@ $color-icon-temporary: rgba(var(--ods-color-neutral-300));
 $color-border: rgba(var(--ods-color-neutral-600));
 $color-divider: rgba(var(--ods-color-neutral-400));
 $color-adjust-huener: rgba(var(--ods-color-neutral-600));
-$color-body-text: rgba(var(--ods-color-neutral-800));
-$color-title-text: rgba(var(--ods-color-neutral-800));
-$color-subtitle-text: $color-body-text;
+$color-body-text: var(--osdk-color-content-body);
 
 /* TODO: CX-5306 - "Tips" and "Recovery" header pills background, text colours should be the same */
 $color-tips-pill: #5d6b78;
