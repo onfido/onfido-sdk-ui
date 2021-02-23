@@ -12,8 +12,7 @@
   "buttonGroupStacked": true,
   "colorBorderDocTypeButton": "#5c374c",
   "colorBorderDocTypeButtonHover": "#f67e7d",
-  "colorBorderDocTypeButtonActive": "#843b62"
-
+  "colorBorderDocTypeButtonActive": "#843b62",
   "colorBorderLinkUnderline": "#b23a48",
   "colorContentLinkTextHover": "#5c374c",
   "colorBackgroundLinkHover": "rgb(255 238 170 / 92%)",
