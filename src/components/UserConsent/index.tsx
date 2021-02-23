@@ -59,7 +59,9 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
       <div
         className={style.consentFrame}
         data-onfido-qa="userConsentFrameWrapper"
-        dangerouslySetInnerHTML={{ __html: sanitize(consentHtml) }}
+        dangerouslySetInnerHTML={{
+          __html: sanitize(consentHtml, { ADD_ATTR: ['target', 'rel'] }),
+        }}
       />
     </ScreenLayout>
   )
