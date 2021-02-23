@@ -23,8 +23,8 @@ jest.mock('../demoUtils', () => ({
 const mockedConsole = jest.fn()
 console.log = mockedConsole
 
-describe('Mount Demo App', () => {
-  let Demo: FunctionComponent = null
+describe('Demo app', () => {
+  let SdkDemo: FunctionComponent = null
 
   beforeEach(() => {
     // create rootNode
@@ -48,11 +48,11 @@ describe('Mount Demo App', () => {
         })),
       }
 
-      Demo = require('../demo').Demo
+      SdkDemo = require('../demo').SdkDemo // eslint-disable-line @typescript-eslint/no-var-requires
     })
 
-    it('mounts the Onfido Demo without crashing', () => {
-      const sdkDemo = mount(<Demo />)
+    it('mounts the Onfido SdkDemo without crashing', () => {
+      const sdkDemo = mount(<SdkDemo />)
       expect(sdkDemo.exists()).toBeTruthy()
       expect(window.Onfido.init).toHaveBeenCalled()
       expect(mockedConsole).toHaveBeenCalledWith(
@@ -68,11 +68,11 @@ describe('Mount Demo App', () => {
 
   describe('without mocking Onfido SDK', () => {
     beforeEach(() => {
-      Demo = require('../demo').Demo
+      SdkDemo = require('../demo').SdkDemo // eslint-disable-line @typescript-eslint/no-var-requires
     })
 
-    it('mounts the Onfido Demo without crashing', () => {
-      const sdkDemo = mount(<Demo />)
+    it('mounts the Onfido SdkDemo without crashing', () => {
+      const sdkDemo = mount(<SdkDemo />)
       expect(sdkDemo.exists()).toBeTruthy()
       expect(mockedConsole).toHaveBeenCalledWith(
         '* JWT Factory URL:',
