@@ -1155,8 +1155,8 @@
   "@nodelib/fs.stat@2.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.stat",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@nodelib/fs.stat",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@nodelib/fs.stat/LICENSE"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/@nodelib/fs.stat",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/@nodelib/fs.stat/LICENSE"
   },
   "@nodelib/fs.walk@1.2.4": {
     "licenses": "MIT",
@@ -1552,8 +1552,8 @@
   "@typescript-eslint/typescript-estree@4.14.2": {
     "licenses": "BSD-2-Clause",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/typescript-estree",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/typescript-estree/LICENSE"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/@typescript-eslint/typescript-estree",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/@typescript-eslint/typescript-estree/LICENSE"
   },
   "@typescript-eslint/visitor-keys@4.14.2": {
     "licenses": "MIT",
@@ -2093,8 +2093,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/array-union",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/array-union/license"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/array-union",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/array-union/license"
   },
   "array-uniq@1.0.3": {
     "licenses": "MIT",
@@ -4231,8 +4231,8 @@
     "publisher": "Kevin Mårtensson",
     "email": "kevinmartensson@gmail.com",
     "url": "github.com/kevva",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/dir-glob",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/dir-glob/license"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/dir-glob",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/dir-glob/license"
   },
   "discontinuous-range@1.0.0": {
     "licenses": "MIT",
@@ -5095,8 +5095,8 @@
     "repository": "https://github.com/mrmlnc/fast-glob",
     "publisher": "Denis Malinochkin",
     "url": "https://mrmlnc.com",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/fast-glob",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/fast-glob/LICENSE"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/fast-glob",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/fast-glob/LICENSE"
   },
   "fast-json-stable-stringify@2.1.0": {
     "licenses": "MIT",
@@ -5802,8 +5802,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "https://sindresorhus.com",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/globby",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/globby/license"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/globby",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/globby/license"
   },
   "globby@6.1.0": {
     "licenses": "MIT",
@@ -6358,8 +6358,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/kaelzhang/node-ignore",
     "publisher": "kael",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/ignore",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/ignore/LICENSE-MIT"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/ignore",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/ignore/LICENSE-MIT"
   },
   "immediate@3.0.6": {
     "licenses": "MIT",
@@ -7638,10 +7638,7 @@
     "licenseFile": "node_modules/json-schema-traverse/LICENSE"
   },
   "json-schema@0.2.3": {
-    "licenses": [
-      "AFLv2.1",
-      "BSD"
-    ],
+    "licenses": ["AFLv2.1", "BSD"],
     "repository": "https://github.com/kriszyp/json-schema",
     "publisher": "Kris Zyp",
     "path": "node_modules/json-schema",
@@ -9695,8 +9692,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/path-type",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/path-type/license"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/path-type",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/path-type/license"
   },
   "pathval@1.1.0": {
     "licenses": "MIT",
@@ -9707,10 +9704,7 @@
     "licenseFile": "node_modules/pathval/LICENSE"
   },
   "pause-stream@0.0.11": {
-    "licenses": [
-      "MIT",
-      "Apache2"
-    ],
+    "licenses": ["MIT", "Apache2"],
     "repository": "https://github.com/dominictarr/pause-stream",
     "publisher": "Dominic Tarr",
     "email": "dominic.tarr@gmail.com",
