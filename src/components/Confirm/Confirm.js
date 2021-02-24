@@ -259,7 +259,7 @@ class Confirm extends Component {
         } else if (continueWithOnfidoSubmission) {
           this.startTime = performance.now()
           sendEvent('Starting upload after callback', {
-            method
+            method,
           })
           if (callbackName === CALLBACK_TYPES.document)
             this.uploadDocument(
