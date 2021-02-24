@@ -85,7 +85,7 @@
 
 $_sdk-font-size: var(--font-size-small);
 $_sdk-line-height: 18 * $unit-small;
-$_sdk-text-color: $color-body-text;
+$_sdk-text-color: var(--osdk-color-content-body);
 
 $_sdk-border-style: 1px solid $color-input-border;
 $_sdk-input-horizontal-padding: 8 * $unit-small;

@@ -27,7 +27,7 @@
   }
 
   .rrui__select__arrow {
-    color: $color-body-text;
+    color: var(--osdk-color-content-body);
   }
 
   .rrui__select__options:not(.rrui__select__options--menu) {
