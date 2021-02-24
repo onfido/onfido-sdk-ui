@@ -295,7 +295,7 @@ $logo-height: 32 * $unit;
 
 /* Link/Text Button for Live Doc/Face Capture fallback on Warning popup */
 .warningFallbackButton {
-  color: --osdk-color-content-alert-info;
+  color: var(--osdk-color-content-alert-info);
   background-color: transparent;
   border: 1px solid transparent;
   border-bottom-color: var(--osdk-color-content-alert-info);
