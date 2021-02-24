@@ -114,6 +114,7 @@ const PROD_CONFIG = {
   MOBILE_URL: 'https://id.onfido.com',
   SMS_DELIVERY_URL: 'https://telephony.onfido.com',
   PUBLIC_PATH: `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
+  USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN,
 }
