@@ -1,0 +1,36 @@
+@import '../../Theme/constants';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 24 * $unit;
+  font-weight: bold;
+}
+
+.content > .icon {
+  background-image: url('../../Complete/assets/complete.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 32 * $unit;
+  width: 32 * $unit;
+  margin-bottom: 8 * $unit;
+}
+
+.preview .videoWrapper {
+  margin-top: 16 * $unit;
+  margin-bottom: 0;
+}
+
+.buttonsContainer > button {
+  margin-top: 16 * $unit;
+}

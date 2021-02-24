@@ -7,7 +7,7 @@ import { randomId } from '~utils/string'
 
 import { appendToTracking } from '../../Tracker'
 import { localised } from '../../locales'
-// import DocumentVideo from '../DocumentVideo'
+import DocumentVideo from '../DocumentVideo'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
@@ -151,13 +151,12 @@ class Document extends Component<Props> {
 
     if (requestedVariant === 'video') {
       return (
-        <div>Document Video</div>
-        /* <DocumentVideo
+        <DocumentVideo
           documentType={documentType}
           onCapture={this.handleVideoCapture}
           renderFallback={renderFallback}
           trackScreen={trackScreen}
-        /> */
+        />
       )
     }
 
