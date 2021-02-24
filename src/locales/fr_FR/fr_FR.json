@@ -383,6 +383,17 @@
         "button_preview": "Preview video",
         "button_redo": "Retake video"
     },
+    "user_consent": {
+        "button_primary": "Accept",
+        "button_secondary": "Do not accept",
+        "prompt": {
+            "button_primary": "Yes, don’t verify me",
+            "button_secondary": "Review again",
+            "button_secondary_copy": "Review again",
+            "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+            "no_consent_title": "Are you sure?"
+        }
+    },
     "video_capture": {
         "body": "Positionnez votre visage dans le cercle",
         "body_next": "Lorsque vous avez terminé, appuyez sur suivant",

@@ -1,5 +1,6 @@
 import type { ComponentType } from 'preact'
 import Welcome from '../Welcome'
+import UserConsent from '../UserConsent'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
 import CountrySelector from '../CountrySelector'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
@@ -112,6 +113,7 @@ const buildCaptureStepComponents = (
 
   return {
     welcome: [Welcome],
+    userConsent: [UserConsent],
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     document: buildDocumentComponents(
       documentStep,

@@ -26,7 +26,7 @@
     "check:format": "prettier . -c",
     "test": "npm run test:unit",
     "test:integration": "jest --verbose --testPathPattern=__integrations__",
-    "test:unit": "jest --verbose --testPathPattern=__tests__",
+    "test:unit": "jest --coverage --verbose --testPathPattern=__tests__",
     "test:ui": "babel-node test/main.js",
     "mock-server:build": "cd ./test/mock-server && ./prepare.sh && docker build -t onfido-web-sdk:ui-mock-server .",
     "mock-server:run": "docker run -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server",
@@ -53,12 +53,10 @@
     "src"
   ],
   "jest": {
-    "globals": {
-      "WOOPRA_WINDOW_KEY": "woopraSafe"
-    },
     "setupFiles": [
       "./src/unit_tests/setupTests.js",
-      "jest-canvas-mock"
+      "jest-canvas-mock",
+      "./src/unit_tests/envVars.js"
     ],
     "moduleNameMapper": {
       "^react$": "preact/compat",
@@ -84,7 +82,7 @@
     "files": [
       {
         "path": "./dist/onfido.min.js",
-        "maxSize": "200 kB"
+        "maxSize": "210 kB"
       },
       {
         "path": "./dist/onfido.crossDevice.min.js",
@@ -166,6 +164,7 @@
     "jest": "^26.6.3",
     "jest-canvas-mock": "^2.2.0",
     "jest-cli": "^26.6.3",
+    "jest-fetch-mock": "^3.0.3",
     "license-checker-rseidelsohn": "^1.1.2",
     "mini-css-extract-plugin": "^0.5.0",
     "mocha": "^6.0.2",
@@ -212,9 +211,11 @@
     "@babel/preset-typescript": "^7.12.16",
     "@babel/runtime-corejs3": "^7.8.7",
     "@sentry/browser": "^5.14.2",
+    "@types/dompurify": "^2.2.1",
     "blueimp-load-image": "~2.29.0",
     "classnames": "~2.2.5",
     "custom-event-polyfill": "^1.0.7",
+    "dompurify": "^2.2.6",
     "enumerate-devices": "^1.1.0",
     "eventemitter2": "~2.1.3",
     "history": "~4.5.1",

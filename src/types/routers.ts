@@ -103,6 +103,7 @@ type StepComponentBaseProps = {
 
 export type StepComponentWelcomeProps = StepOptionWelcome &
   StepComponentBaseProps
+export type StepComponentUserConsentProps = StepComponentBaseProps
 export type StepComponentDocumentProps = StepOptionDocument &
   StepComponentBaseProps
 export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
@@ -112,6 +113,7 @@ export type StepComponentCompleteProps = StepOptionComplete &
 
 export type StepComponentProps =
   | StepComponentWelcomeProps
+  | StepComponentUserConsentProps
   | StepComponentDocumentProps
   | StepComponentPoaProps
   | StepComponentFaceProps
