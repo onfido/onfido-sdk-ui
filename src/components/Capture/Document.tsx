@@ -7,6 +7,7 @@ import { randomId } from '~utils/string'
 
 import { appendToTracking } from '../../Tracker'
 import { localised } from '../../locales'
+// import DocumentVideo from '../DocumentVideo'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
@@ -23,6 +24,7 @@ import type { WithLocalisedProps, WithCaptureVariantProps } from '~types/hocs'
 import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
+  HandleDocVideoCaptureProp,
   StepComponentDocumentProps,
 } from '~types/routers'
 
@@ -31,13 +33,11 @@ type Props = StepComponentDocumentProps &
   WithCaptureVariantProps
 
 class Document extends Component<Props> {
-  static defaultProps: Partial<Props> = {
+  static defaultProps = {
     forceCrossDevice: false,
-    requestedVariant: 'standard',
-    side: 'front',
   }
 
-  handleCapture: HandleCaptureProp = ({ variant, ...payload }) => {
+  handleCapture: HandleCaptureProp = (payload) => {
     const {
       actions,
       documentType,
@@ -54,10 +54,46 @@ class Document extends Component<Props> {
       id: payload.id || randomId(),
       method: 'document',
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
-      side: variant === 'video' ? null : side,
-      variant: variant || 'standard',
+      side,
+      variant: 'standard',
     }
     actions.createCapture(documentCaptureData)
+
+    nextStep()
+  }
+
+  handleVideoCapture: HandleDocVideoCaptureProp = (payload) => {
+    const { actions, documentType, mobileFlow, nextStep } = this.props
+    const { video, front, back } = payload
+
+    const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
+      documentType,
+      method: 'document',
+      sdkMetadata: addDeviceRelatedProperties(video.sdkMetadata, mobileFlow),
+    }
+
+    actions.createCapture({
+      ...baseData,
+      ...front,
+      id: randomId(),
+      side: 'front',
+    })
+
+    if (back) {
+      actions.createCapture({
+        ...baseData,
+        ...back,
+        id: randomId(),
+        side: 'back',
+      })
+    }
+
+    actions.createCapture({
+      ...baseData,
+      ...video,
+      id: randomId(),
+      variant: 'video',
+    })
 
     nextStep()
   }
@@ -68,7 +104,10 @@ class Document extends Component<Props> {
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
 
-  handleError = () => this.props.actions.deleteCapture({ method: 'face' })
+  handleError = () => {
+    const { actions, side, requestedVariant: variant } = this.props
+    actions.deleteCapture({ method: 'document', side, variant })
+  }
 
   handleFileSelected = (file: File) =>
     validateFile(file, this.handleUpload, this.handleError)
@@ -97,12 +136,30 @@ class Document extends Component<Props> {
       hasCamera,
       isPoA,
       poaDocumentType,
+      requestedVariant,
       side,
+      trackScreen,
       translate,
       uploadFallback,
       useLiveDocumentCapture,
       useWebcam,
     } = this.props
+
+    const renderFallback = isDesktop
+      ? this.renderCrossDeviceFallback
+      : this.renderUploadFallback
+
+    if (requestedVariant === 'video') {
+      return (
+        <div>Document Video</div>
+        /* <DocumentVideo
+          documentType={documentType}
+          onCapture={this.handleVideoCapture}
+          renderFallback={renderFallback}
+          trackScreen={trackScreen}
+        /> */
+      )
+    }
 
     const title = translate(
       DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
@@ -111,9 +168,6 @@ class Document extends Component<Props> {
     )
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle title={title} smaller />
-    const renderFallback = isDesktop
-      ? this.renderCrossDeviceFallback
-      : this.renderUploadFallback
     const enableLiveDocumentCapture =
       useLiveDocumentCapture && (!isDesktop || isHybrid)
 
@@ -130,12 +184,12 @@ class Document extends Component<Props> {
     if (hasCamera && enableLiveDocumentCapture) {
       return (
         <DocumentLiveCapture
-          {...propsWithErrorHandling}
           containerClassName={style.liveDocumentContainer}
           isUploadFallbackDisabled={!uploadFallback}
           onCapture={this.handleCapture}
           renderFallback={renderFallback}
           renderTitle={renderTitle}
+          trackScreen={trackScreen}
         />
       )
     }
