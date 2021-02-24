@@ -9,6 +9,7 @@ import type {
   ErrorNames,
   ErrorTypes,
 } from './commons'
+import type { CaptureVariants } from './docVideo'
 import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
 import type {
   StepOptionWelcome,
@@ -41,6 +42,9 @@ export type ChangeFlowProp = (
 ) => void
 
 export type HandleCaptureProp = (payload: CapturePayload) => void
+export type HandleDocVideoCaptureProp = (
+  payload: Partial<Record<CaptureVariants, CapturePayload>>
+) => void
 
 export type RenderFallbackProp = (
   text: string,

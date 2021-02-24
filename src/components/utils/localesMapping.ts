@@ -1,4 +1,20 @@
+import { CaptureSteps } from '~types/docVideo'
 import { DocumentTypes, PoaTypes } from '~types/steps'
+
+type CaptureSideLocale = {
+  title: string
+  body: string
+}
+
+type CaptureLocale = {
+  front: CaptureSideLocale
+  back?: CaptureSideLocale
+}
+
+export type TitleLocale = {
+  title: string
+  subtitle: string
+}
 
 export const CONFIRM_PREVIEWS_LOCALES_MAPPING: Record<
   DocumentTypes | PoaTypes,
@@ -19,16 +35,6 @@ export const CROSS_DEVICE_INTRO_LOCALES_MAPPING = {
   sms: 'cross_device_intro.list_item_send_phone',
   'take-photos': 'cross_device_intro.list_item_open_link',
   'return-to-computer': 'cross_device_intro.list_item_finish',
-}
-
-type CaptureSideLocale = {
-  title: string
-  body: string
-}
-
-type CaptureLocale = {
-  front: CaptureSideLocale
-  back?: CaptureSideLocale
 }
 
 export const DOCUMENT_CAPTURE_LOCALES_MAPPING: Record<
@@ -138,15 +144,7 @@ export const POA_INTRO_LOCALES_MAPPING = {
   most_recent: 'poa_intro.list_most_recent',
 }
 
-type PoaGuidanceLocale = {
-  title: string
-  subtitle: string
-}
-
-export const POA_GUIDANCE_LOCALES_MAPPING: Record<
-  PoaTypes,
-  PoaGuidanceLocale
-> = {
+export const POA_GUIDANCE_LOCALES_MAPPING: Record<PoaTypes, TitleLocale> = {
   bank_building_society_statement: {
     title: 'doc_submit.title_bank_statement',
     subtitle: 'poa_guidance.subtitle_bank_statement',
@@ -187,5 +185,43 @@ export const VIDEO_INTRO_LOCALES_MAPPING: Record<
   speak: {
     className: 'speakOutLoudIcon',
     localeKey: 'video_intro.list_item_speak',
+  },
+}
+
+export const DOC_VIDEO_INSTRUCTIONS_MAPPING: {
+  passport: Record<Exclude<CaptureSteps, 'back' | 'complete'>, TitleLocale>
+  others: Record<Exclude<CaptureSteps, 'complete'>, TitleLocale>
+} = {
+  passport: {
+    intro: {
+      title: 'doc_video_capture.instructions.passport.intro_title',
+      subtitle: '',
+    },
+    front: {
+      title: 'doc_video_capture.instructions.passport.front_title',
+      subtitle: 'doc_video_capture.instructions.passport.front_subtitle',
+    },
+    tilt: {
+      title: 'doc_video_capture.instructions.passport.tilt_title',
+      subtitle: 'doc_video_capture.instructions.passport.tilt_subtitle',
+    },
+  },
+  others: {
+    intro: {
+      title: 'doc_video_capture.instructions.others.intro_title',
+      subtitle: '',
+    },
+    front: {
+      title: 'doc_video_capture.instructions.others.front_title',
+      subtitle: 'doc_video_capture.instructions.others.front_subtitle',
+    },
+    tilt: {
+      title: 'doc_video_capture.instructions.others.tilt_title',
+      subtitle: 'doc_video_capture.instructions.others.tilt_subtitle',
+    },
+    back: {
+      title: 'doc_video_capture.instructions.others.back_title',
+      subtitle: 'doc_video_capture.instructions.others.back_subtitle',
+    },
   },
 }

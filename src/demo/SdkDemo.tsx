@@ -6,10 +6,13 @@ import {
   queryParamToValueString,
   getTokenFactoryUrl,
   getToken,
+  createCheckIfNeeded,
 } from './demoUtils'
 import SdkMount from './SdkMount'
+import ApplicantForm from './ApplicantForm'
 
 import { ServerRegions, SdkOptions } from '~types/sdk'
+import type { ApplicantData } from './types'
 
 const DEFAULT_REGION: ServerRegions = 'EU'
 
@@ -29,9 +32,15 @@ const SdkDemo: FunctionComponent<Props> = ({
   const [token, setToken] = useState<string>(null)
   const [tokenUrl, setTokenUrl] = useState<string>(null)
   const [regionCode, setRegionCode] = useState<ServerRegions>(null)
+  const [applicantId, setApplicantId] = useState<string>(null)
+  const [applicantData, setApplicantData] = useState<ApplicantData>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
+    if (queryParamToValueString.createCheck && !applicantData) {
+      return
+    }
+
     const { region } = sdkOptions || {}
 
     const builtRegionCode = (
@@ -44,10 +53,27 @@ const SdkDemo: FunctionComponent<Props> = ({
     const url = getTokenFactoryUrl(builtRegionCode)
     setTokenUrl(url)
 
-    getToken(hasPreview, url, messagePort, (respondedToken) =>
-      setToken(respondedToken)
+    getToken(
+      hasPreview,
+      url,
+      applicantData,
+      messagePort,
+      (respondedToken, responedApplicantId) => {
+        setToken(respondedToken)
+        setApplicantId(responedApplicantId)
+      }
     )
-  }, [hasPreview, messagePort, sdkOptions])
+  }, [hasPreview, applicantData, messagePort, sdkOptions])
+
+  const onComplete = (data: Record<string, unknown>) => {
+    if (hasPreview) {
+      messagePort.postMessage({ type: 'SDK_COMPLETE', data })
+      return
+    }
+
+    console.log('Complete with data!', data)
+    createCheckIfNeeded(tokenUrl, applicantId, applicantData)
+  }
 
   const { tearDown } = viewOptions || {}
 
@@ -59,10 +85,7 @@ const SdkDemo: FunctionComponent<Props> = ({
     ...getInitSdkOptions(),
     token,
     isModalOpen,
-    onComplete: (data) =>
-      hasPreview
-        ? messagePort.postMessage({ type: 'SDK_COMPLETE', data })
-        : console.log(data),
+    onComplete,
     onError: (error) => console.error('onError callback:', error),
     onModalRequestClose: () => setIsModalOpen(false),
     ...(sdkOptions || {}),
@@ -75,6 +98,13 @@ const SdkDemo: FunctionComponent<Props> = ({
           Verify identity
         </button>
       )}
+      {!token &&
+        queryParamToValueString.createCheck &&
+        (applicantData ? (
+          'Loading ...'
+        ) : (
+          <ApplicantForm onSubmit={setApplicantData} />
+        ))}
       {token && (
         <SdkMount options={options} regionCode={regionCode} url={tokenUrl} />
       )}

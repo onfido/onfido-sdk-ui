@@ -1,22 +1,23 @@
-import { LocaleConfig, SupportedLanguages } from '~types/locales'
-import {
+import type { LocaleConfig, SupportedLanguages } from '~types/locales'
+import type {
   DocumentTypes,
   DocumentTypeConfig,
   StepConfig,
   StepTypes,
 } from '~types/steps'
-import { ServerRegions, SdkOptions } from '~types/sdk'
-
-type StringifiedBoolean = 'true' | 'false'
+import type { ServerRegions, SdkOptions } from '~types/sdk'
+import type { ApplicantData, StringifiedBoolean } from './types'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
+  createCheck?: StringifiedBoolean
   disableAnalytics?: StringifiedBoolean
   forceCrossDevice?: StringifiedBoolean
   hideOnfidoLogo?: StringifiedBoolean
   language?: 'customTranslations' | SupportedLanguages
   link_id?: string
-  liveness?: StringifiedBoolean
+  docVideo?: StringifiedBoolean
+  faceVideo?: StringifiedBoolean
   multiDocWithInvalidPresetCountry?: StringifiedBoolean
   multiDocWithPresetCountry?: StringifiedBoolean
   noCompleteStep?: StringifiedBoolean
@@ -150,13 +151,13 @@ export const getInitSdkOptions = (): SdkOptions => {
         showCountrySelection:
           queryParamToValueString.oneDocWithCountrySelection === 'true',
         forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
+        requestedVariant:
+          queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
       },
     } as StepConfig,
     {
       type: 'face',
       options: {
-        requestedVariant:
-          queryParamToValueString.liveness === 'true' ? 'video' : 'standard',
         useUploader: queryParamToValueString.useUploader === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useMultipleSelfieCapture:
@@ -164,6 +165,8 @@ export const getInitSdkOptions = (): SdkOptions => {
         snapshotInterval: queryParamToValueString.snapshotInterval
           ? parseInt(queryParamToValueString.snapshotInterval, 10)
           : 500,
+        requestedVariant:
+          queryParamToValueString.faceVideo === 'true' ? 'video' : 'standard',
       },
     } as StepConfig,
     queryParamToValueString.noCompleteStep !== 'true' &&
@@ -203,7 +206,7 @@ export const getInitSdkOptions = (): SdkOptions => {
 export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
   standard: null,
 
-  liveness: [
+  faceVideo: [
     'welcome',
     'document',
     {
@@ -326,19 +329,40 @@ export const getTokenFactoryUrl = (region: ServerRegions): string => {
   }
 }
 
+const buildTokenRequestParams = (
+  applicantData: ApplicantData | null
+): string => {
+  if (!applicantData) {
+    return ''
+  }
+
+  return Object.entries(applicantData)
+    .filter(([, value]) => value)
+    .map((pair) => pair.join('='))
+    .join('&')
+}
+
 export const getToken = (
   hasPreview: boolean,
   url: string,
+  applicantData: ApplicantData | null,
   eventEmitter: MessagePort,
-  onSuccess: (message: string) => void
+  onSuccess: (token: string, applicantId: string) => void
 ): void => {
   const request = new XMLHttpRequest()
-  request.open('GET', url, true)
+
+  request.open(
+    'GET',
+    [url, buildTokenRequestParams(applicantData)].join('?'),
+    true
+  )
+
   request.setRequestHeader(
     'Authorization',
     `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
   )
-  request.onload = function () {
+
+  request.onload = () => {
     if (request.status >= 200 && request.status < 400) {
       const data = JSON.parse(request.responseText)
       if (hasPreview && eventEmitter) {
@@ -349,8 +373,50 @@ export const getToken = (
           },
         })
       }
-      onSuccess(data.message)
+      onSuccess(data.message, data.applicant_id)
     }
   }
   request.send()
+}
+
+export const createCheckIfNeeded = (
+  tokenUrl: string,
+  applicantId: string,
+  applicantData: ApplicantData | null
+): void => {
+  const { poa, docVideo, faceVideo } = queryParamToValueString
+
+  // Don't create check if createCheck flag isn't present
+  if (!applicantData) {
+    return
+  }
+
+  const request = new XMLHttpRequest()
+
+  request.open('POST', tokenUrl.replace('sdk_token', 'check'), true)
+  request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+
+  request.setRequestHeader(
+    'Authorization',
+    `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
+  )
+
+  request.onload = () => {
+    if (request.status >= 200 && request.status < 400) {
+      const data = JSON.parse(request.responseText)
+      console.log('Check created!', data)
+    }
+  }
+
+  const body = {
+    applicant_id: applicantId,
+    report_names: [
+      poa ? 'proof_of_address' : 'document',
+      docVideo || faceVideo
+        ? 'facial_similarity_video'
+        : 'facial_similarity_photo',
+    ],
+  }
+
+  request.send(JSON.stringify(body))
 }

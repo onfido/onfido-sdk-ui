@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { requestChallenges, uploadLiveVideo } from '../../onfidoApi'
+import { requestChallenges, uploadFaceVideo } from '../../onfidoApi'
 import {
   getTestJwtToken,
   checkForExpectedFileUploadProperties,
@@ -40,13 +40,13 @@ const TEST_VIDEO_DATA = {
           Work to address this will be done in a separate ticket (CX-6016)
  */
 
-describe('API uploadLiveVideo endpoint', () => {
+describe('API uploadFaceVideo endpoint', () => {
   beforeEach(async () => {
     jest.setTimeout(10000)
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
   })
 
-  test('uploadLiveVideo returns expected response on successful upload', (done) => {
+  test('uploadFaceVideo returns expected response on successful upload', (done) => {
     const testFileName = 'test-video.webm'
     const testFileType = 'video/webm'
     const expectedProperties = [
@@ -73,7 +73,7 @@ describe('API uploadLiveVideo endpoint', () => {
       ...TEST_VIDEO_DATA,
       blob: testFile,
     }
-    uploadLiveVideo(
+    uploadFaceVideo(
       videoData,
       API_URL,
       jwtToken,
@@ -82,7 +82,7 @@ describe('API uploadLiveVideo endpoint', () => {
     )
   })
 
-  test('uploadLiveVideo returns an error if request is made with an expired JWT token', (done) => {
+  test('uploadFaceVideo returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
       try {
@@ -101,7 +101,7 @@ describe('API uploadLiveVideo endpoint', () => {
       blob: testFile,
       ...TEST_VIDEO_DATA,
     }
-    uploadLiveVideo(
+    uploadFaceVideo(
       videoData,
       API_URL,
       EXPIRED_JWT_TOKEN,
@@ -110,7 +110,7 @@ describe('API uploadLiveVideo endpoint', () => {
     )
   })
 
-  test('uploadLiveVideo returns an error on uploading an empty file', (done) => {
+  test('uploadFaceVideo returns an error on uploading an empty file', (done) => {
     expect.assertions(3)
     const onErrorCallback = (error) => {
       try {
@@ -129,7 +129,7 @@ describe('API uploadLiveVideo endpoint', () => {
       blob: emptyVideoBlob,
       ...TEST_VIDEO_DATA,
     }
-    uploadLiveVideo(
+    uploadFaceVideo(
       videoData,
       API_URL,
       jwtToken,

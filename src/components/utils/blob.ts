@@ -140,3 +140,32 @@ export const isOfMimeType = (mimeTypeList: string[], blob: Blob): boolean =>
   mimeTypeList.some(
     (acceptableMimeType) => acceptableMimeType === mimeType(blob)
   )
+
+export const hmac256 = async (
+  key: string,
+  data: ArrayBuffer
+): Promise<string> => {
+  const encoder = new TextEncoder()
+  const encodedKey = encoder.encode(key)
+
+  const cryptoKey = await window.crypto.subtle.importKey(
+    'raw',
+    encodedKey,
+    {
+      name: 'HMAC',
+      hash: { name: 'SHA-256' },
+    },
+    false,
+    ['sign']
+  )
+
+  const signature = await window.crypto.subtle.sign('HMAC', cryptoKey, data)
+
+  const digest = Array.prototype.map
+    .call(new Uint8Array(signature), (byte: number) =>
+      `00${byte.toString(16)}`.slice(-2)
+    )
+    .join('')
+
+  return digest
+}

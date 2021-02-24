@@ -15,8 +15,9 @@ jest.mock('../demoUtils', () => ({
   getTokenFactoryUrl: () => 'https://token-factory.onfido.com/sdk_token',
   getToken: jest
     .fn()
-    .mockImplementation((_hasPreview, _url, _eventEmitter, onSuccess) =>
-      onSuccess('TEST_TOKEN')
+    .mockImplementation(
+      (_hasPreview, _url, _applicantData, _eventEmitter, onSuccess) =>
+        onSuccess('TEST_TOKEN')
     ),
 }))
 
