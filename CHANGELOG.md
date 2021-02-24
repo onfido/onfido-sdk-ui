@@ -39,6 +39,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Return error for image quality failures on the first two document upload attempts.
 - Internal: Use ScreenLayout component in Confirm screen.
 - Internal: Refactor for better reusability of video capture components.
+- Public: Improvements in video capture steps.
 
 ### Fixed
 

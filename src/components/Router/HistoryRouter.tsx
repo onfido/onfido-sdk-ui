@@ -134,13 +134,9 @@ export default class HistoryRouter extends Component<
   triggerOnComplete = (): void => {
     const { captures } = this.props
 
-    const data = (Object.keys(captures) as CaptureKeys[]).reduce(
-      (acc, key) => ({
-        ...acc,
-        [key]: captures[key].metadata,
-      }),
-      {}
-    )
+    const data = Object.entries(captures)
+      .filter(([, value]) => value != null)
+      .reduce((acc, [key, value]) => ({ ...acc, [key]: value.metadata }), {})
 
     this.props.options.events.emit('complete', data)
   }
