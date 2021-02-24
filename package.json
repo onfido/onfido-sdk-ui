@@ -26,7 +26,7 @@
     "check:format": "prettier . -c",
     "test": "npm run test:unit",
     "test:integration": "jest --verbose --testPathPattern=__integrations__",
-    "test:unit": "jest --verbose --testPathPattern=__tests__",
+    "test:unit": "jest --coverage --verbose --testPathPattern=__tests__",
     "test:ui": "babel-node test/main.js",
     "mock-server:build": "cd ./test/mock-server && ./prepare.sh && docker build -t onfido-web-sdk:ui-mock-server .",
     "mock-server:run": "docker run -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server",
