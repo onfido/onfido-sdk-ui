@@ -14,6 +14,7 @@ const options = {
     'DocumentUpload',
     'Confirm',
     'VerificationComplete',
+    'CrossDeviceIntro',
     'BasePage',
   ],
 }
@@ -31,6 +32,7 @@ export const documentScenarios = async (lang) => {
         documentUpload,
         confirm,
         verificationComplete,
+        crossDeviceIntro,
         basePage,
       } = pageObjects
 
@@ -337,6 +339,24 @@ export const documentScenarios = async (lang) => {
         )
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
         verificationComplete.verifyUIElements(copy)
+      })
+
+      it('should be taken to the cross-device flow for video capture if there is no camera and docVideo variant requested', async () => {
+        driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
+        driver.executeScript(
+          'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])'
+        )
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        crossDeviceIntro.verifyTitle(copy)
+      })
+
+      // @TODO: remove this test when we fully support docVideo variant for both desktop & mobile web
+      it('should be taken to the cross-device flow for video capture docVideo variant requested', async () => {
+        driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        crossDeviceIntro.verifyTitle(copy)
       })
     }
   )

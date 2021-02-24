@@ -242,6 +242,7 @@ export default class CrossDeviceMobileRouter extends Component<
           'metadata',
           'method',
           'side',
+          'variant',
         ]
         return acc.concat(pick(this.props.captures[key], dataWhitelist))
       },
