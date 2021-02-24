@@ -458,16 +458,19 @@ A number of options are available to allow you to customise the SDK:
   | `colorBackgroundLinkHover`  | Change Link background color on hover     |
   | `colorBackgroundLinkActive` | Change Link background color on click/tap |
 
-  | Warning, Error Popups              | Description                                                |
-  | ---------------------------------- | ---------------------------------------------------------- |
-  | `colorContentAlertInfo`            | Change warning popup fallback Link underline color         |
-  | `colorBackgroundAlertInfo`         | Change warning popup fallback Link background on hover     |
-  | `colorContentAlertInfoLinkHover`   | Change warning popup fallback Link background on click/tap |
-  | `colorContentAlertInfoLinkActive`  | Change warning popup fallback Link background on click/tap |
-  | `colorContentAlertError`           | Change error popup fallback Link underline color           |
-  | `colorBackgroundAlertError`        | Change error popup fallback Link background on hover       |
-  | `colorContentAlertErrorLinkHover`  | Change error popup fallback Link background on click/tap   |
-  | `colorContentAlertErrorLinkActive` | Change error popup fallback Link background on click/tap   |
+  | Warning Popups                    | Description                                                |
+  | --------------------------------- | ---------------------------------------------------------- |
+  | `colorContentAlertInfo`           | Change warning popup text color                            |
+  | `colorBackgroundAlertInfo`        | Change warning popup background color                      |
+  | `colorContentAlertInfoLinkHover`  | Change warning popup fallback Link background on hover     |
+  | `colorContentAlertInfoLinkActive` | Change warning popup fallback Link background on click/tap |
+
+  | Error Popups                       | Description                                              |
+  | ---------------------------------- | -------------------------------------------------------- |
+  | `colorContentAlertError`           | Change error popup text color                            |
+  | `colorBackgroundAlertError`        | Change error popup background color                      |
+  | `colorContentAlertErrorLinkHover`  | Change error popup fallback Link background on hover     |
+  | `colorContentAlertErrorLinkActive` | Change error popup fallback Link background on click/tap |
 
 - **`steps {List} optional`**
 
