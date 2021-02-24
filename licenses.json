@@ -3458,12 +3458,6 @@
     "path": "node_modules/create-hmac",
     "licenseFile": "node_modules/create-hmac/LICENSE"
   },
-  "create-react-class@15.7.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/facebook/react",
-    "path": "node_modules/create-react-class",
-    "licenseFile": "node_modules/create-react-class/LICENSE.txt"
-  },
   "create-react-context@0.2.3": {
     "licenses": "MIT*",
     "repository": "https://github.com/thejameskyle/create-react-context",
@@ -10225,12 +10219,6 @@
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react-dom",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react-dom/LICENSE"
   },
-  "react-dom@15.6.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/facebook/react",
-    "path": "node_modules/react-dom",
-    "licenseFile": "node_modules/react-dom/LICENSE"
-  },
   "react-dom@16.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
@@ -10330,12 +10318,6 @@
     "repository": "https://github.com/facebook/react",
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react/LICENSE"
-  },
-  "react@15.6.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/facebook/react",
-    "path": "node_modules/react",
-    "licenseFile": "node_modules/react/LICENSE"
   },
   "react@16.13.0": {
     "licenses": "MIT",
