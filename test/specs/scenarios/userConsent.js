@@ -5,7 +5,7 @@ const options = {
   pageObjects: ['BasePage', 'Welcome', 'DocumentSelector', 'UserConsent'],
 }
 
-export const userConsentScenarios = async (lang) => {
+export const userConsentScenarios = async (lang = 'en_US') => {
   describe(
     `USER_CONSENT scenarios in ${lang}`,
     options,

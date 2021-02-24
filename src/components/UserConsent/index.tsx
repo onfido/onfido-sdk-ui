@@ -1,28 +1,23 @@
 import { h, FunctionComponent } from 'preact'
-import { useEffect, useState } from 'preact/hooks'
-import dompurify from 'dompurify'
+import { useEffect, useState, useContext } from 'preact/hooks'
+import { LocaleContext } from '~locales'
+import { sanitize } from 'dompurify'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
-import { localised } from '../../locales'
 import Button from '../Button'
 import style from './style.scss'
 
-import type { WithLocalisedProps } from '~types/hocs'
 import type { StepComponentUserConsentProps } from '~types/routers'
 
-type UserConsentProps = StepComponentUserConsentProps & WithLocalisedProps
+type UserConsentProps = StepComponentUserConsentProps
 
 type ActionsProps = {
   onAccept(): void
   onDecline(): void
-  translate(arg: string): string
 }
 
-const Actions: FunctionComponent<ActionsProps> = ({
-  onAccept,
-  onDecline,
-  translate,
-}) => {
+const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
+  const { translate } = useContext(LocaleContext)
   const primaryBtnCopy = translate('user_consent.button_primary')
   const secondaryBtnCopy = translate('user_consent.button_secondary')
   return (
@@ -30,11 +25,16 @@ const Actions: FunctionComponent<ActionsProps> = ({
       <Button
         className={style.secondary}
         variants={['secondary', 'sm']}
+        uiTestDataAttribute={'userConsentBtnSecondary'}
         onClick={onDecline}
       >
         {secondaryBtnCopy}
       </Button>
-      <Button variants={['primary', 'sm']} onClick={onAccept}>
+      <Button
+        variants={['primary', 'sm']}
+        uiTestDataAttribute={'userConsentBtnPrimary'}
+        onClick={onAccept}
+      >
         {primaryBtnCopy}
       </Button>
     </div>
@@ -44,16 +44,8 @@ const Actions: FunctionComponent<ActionsProps> = ({
 const UserConsent: FunctionComponent<UserConsentProps> = ({
   nextStep,
   previousStep,
-  translate,
-}): h.JSX.Element => {
-  const actions = (
-    <Actions
-      onAccept={nextStep}
-      onDecline={previousStep}
-      translate={translate}
-    />
-  )
-  const sanitizer = dompurify.sanitize
+}) => {
+  const actions = <Actions onAccept={nextStep} onDecline={previousStep} />
   const [consentHtml, setConsentHtml] = useState('')
 
   useEffect(() => {
@@ -66,9 +58,12 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
     <ScreenLayout actions={actions}>
       <div
         className={style.consentFrame}
-        dangerouslySetInnerHTML={{ __html: sanitizer(consentHtml) }}
+        data-onfido-qa="userConsentFrameWrapper"
+        dangerouslySetInnerHTML={{
+          __html: sanitize(consentHtml, { ADD_ATTR: ['target', 'rel'] }),
+        }}
       />
     </ScreenLayout>
   )
 }
-export default trackComponent(localised(UserConsent))
+export default trackComponent(UserConsent)

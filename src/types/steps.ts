@@ -75,7 +75,7 @@ export type StepConfigWelcome = {
 
 export type StepConfigUserConsent = {
   type: typeof STEP_USER_CONSENT
-  options?: null
+  options?: never
 }
 
 export type StepConfigDocument = {

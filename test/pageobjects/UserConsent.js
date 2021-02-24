@@ -3,20 +3,20 @@ import BasePage from './BasePage.js'
 
 class UserConsent extends BasePage {
   async consentFrameTitle() {
-    return this.$('.onfido-sdk-ui-UserConsent-consentFrame > h1')
+    return this.$('[data-onfido-qa="userConsentFrameWrapper"]> h1')
   }
 
   async declineBtn() {
-    return this.$('.onfido-sdk-ui-UserConsent-secondary')
+    return this.$('[data-onfido-qa="userConsentBtnSecondary"]')
   }
   async acceptBtn() {
-    return this.$('.onfido-sdk-ui-Button-button-primary')
+    return this.$('[data-onfido-qa="userConsentBtnPrimary"]')
   }
 
   async verifyFrameTitle() {
     verifyElementCopy(
       this.consentFrameTitle(),
-      "Accept Onfido's privacy statements and Terms of Service"
+      "Onfido's privacy statement and Terms of Service"
     )
   }
 
