@@ -248,12 +248,10 @@ class Confirm extends Component {
   onSubmitCallback = (data, callbackName) => {
     const { enterpriseFeatures, method, token, urls } = this.props
     const url = urls.onfido_api_url
-
-    const payload = this.prepareCallbackPayload(data, callbackName)
-    const formDataPayload = objectToFormData(payload)
+    const formDataPayload = this.prepareCallbackPayload(data, callbackName)
 
     sendEvent(`Triggering ${callbackName} callback`)
-    enterpriseFeatures[callbackName](formDataPayload, token)
+    enterpriseFeatures[callbackName](formDataPayload)
       .then(({ continueWithOnfidoSubmission, onfidoSuccess }) => {
         if (onfidoSuccess) {
           sendEvent(`Success response from ${callbackName}`)
@@ -261,8 +259,7 @@ class Confirm extends Component {
         } else if (continueWithOnfidoSubmission) {
           this.startTime = performance.now()
           sendEvent('Starting upload after callback', {
-            method:
-              callbackName === CALLBACK_TYPES.document ? 'document' : 'face',
+            method
           })
           if (callbackName === CALLBACK_TYPES.document)
             this.uploadDocument(
@@ -324,12 +321,12 @@ class Confirm extends Component {
         sdk_validations: JSON.stringify(validations),
       }
     }
-    return {
+    return objectToFormData({
       sdk_metadata: JSON.stringify(data.sdkMetadata),
       sdk_source: 'onfido_web_sdk',
       sdk_version: process.env.SDK_VERSION,
       ...payload,
-    }
+    })
   }
 
   onRetake = () => {
