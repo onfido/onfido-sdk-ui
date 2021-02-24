@@ -420,7 +420,7 @@ A number of options are available to allow you to customise the SDK:
   Example configuration with the different CSS colour value variations that can be used:
 
   ```javascript
-  customUI: [{
+  customUI: {
       "colorContentButtonPrimaryText": "#333",
       "colorBackgroundButtonPrimary": "#ffb997",
       "colorBorderButtonPrimary": "#B23A48",
@@ -445,7 +445,7 @@ A number of options are available to allow you to customise the SDK:
   Example configuration:
 
   ```javascript
-  customUI: [{
+  customUI: {
       borderRadiusButton: "50px",
       buttonGroupStacked: true
     }
