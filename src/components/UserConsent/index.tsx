@@ -1,10 +1,11 @@
 import { h, FunctionComponent } from 'preact'
 import { useEffect, useState, useContext } from 'preact/hooks'
+import { Button } from '@onfido/castor-react'
 import { LocaleContext } from '~locales'
 import { sanitize } from 'dompurify'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
-import Button from '../Button'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 import type { StepComponentUserConsentProps } from '~types/routers'
@@ -23,16 +24,17 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
   return (
     <div className={style.actions}>
       <Button
-        className={style.secondary}
-        variants={['secondary', 'sm']}
-        uiTestDataAttribute={'userConsentBtnSecondary'}
+        variant="secondary"
+        className={theme['button-sm']}
+        data-onfido-qa="userConsentBtnSecondary"
         onClick={onDecline}
       >
         {secondaryBtnCopy}
       </Button>
       <Button
-        variants={['primary', 'sm']}
-        uiTestDataAttribute={'userConsentBtnPrimary'}
+        variant="primary"
+        className={theme['button-sm']}
+        data-onfido-qa="userConsentBtnPrimary"
         onClick={onAccept}
       >
         {primaryBtnCopy}
