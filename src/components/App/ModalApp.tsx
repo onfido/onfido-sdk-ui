@@ -197,10 +197,10 @@ class ModalApp extends Component<Props> {
       )
     }
 
-    const useSubmitCallbacks = options.enterpriseFeatures?.useSubmitCallbacks
-    if (useSubmitCallbacks) {
-      this.useSubmitCallbacksIfClientHasFeature(
-        validEnterpriseFeatures.useSubmitCallbacks
+    const useDecoupleCallbacks = options.enterpriseFeatures?.decouple
+    if (useDecoupleCallbacks) {
+      this.useDecoupleCallbacksIfClientHasFeature(
+        validEnterpriseFeatures.decouple
       )
     }
   }
@@ -233,14 +233,14 @@ class ModalApp extends Component<Props> {
     }
   }
 
-  useSubmitCallbacksIfClientHasFeature = (
+  useDecoupleCallbacksIfClientHasFeature = (
     isValidEnterpriseFeature: boolean
   ) => {
     if (isValidEnterpriseFeature) {
-      this.props.actions.useSubmitCallbacks(true)
+      this.props.actions.useDecoupleCallbacks(true)
     } else {
-      this.props.actions.useSubmitCallbacks(false)
-      this.onInvalidEnterpriseFeatureException('useSubmitCallbacks')
+      this.props.actions.useDecoupleCallbacks(false)
+      this.onInvalidEnterpriseFeatureException('decouple')
     }
   }
 

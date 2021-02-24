@@ -17,7 +17,7 @@ export const initialState: GlobalState = {
   // This prevents logo from being shown before state can be updated to hide it.
   hideOnfidoLogo: true,
   cobrand: null,
-  useSubmitCallbacks: false,
+  useDecoupleCallbacks: false,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
@@ -129,7 +129,7 @@ export default function globals(
     case constants.USE_SUBMIT_CALLBACKS:
       return {
         ...state,
-        useSubmitCallbacks: action.payload,
+        useDecoupleCallbacks: action.payload,
       }
 
     case constants.RETRY_FOR_IMAGE_QUALITY:

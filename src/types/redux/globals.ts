@@ -46,7 +46,7 @@ export type GlobalState = {
   // This prevents logo from being shown before state can be updated to hide it.
   hideOnfidoLogo?: boolean
   cobrand?: EnterpriseCobranding
-  useSubmitCallbacks?: boolean
+  useDecoupleCallbacks?: boolean
   urls: UrlsConfig
   /**
    * Number of retries on image quality reasons: cut-off, glare, blur

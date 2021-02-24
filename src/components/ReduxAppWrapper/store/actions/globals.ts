@@ -90,7 +90,7 @@ export const showCobranding = (
   payload,
 })
 
-export const useSubmitCallbacks = (payload: boolean): GlobalActions => ({
+export const useDecoupleCallbacks = (payload: boolean): GlobalActions => ({
   type: constants.USE_SUBMIT_CALLBACKS,
   payload,
 })

@@ -8,6 +8,7 @@ import {
 import { ServerRegions, SdkOptions } from '~types/sdk'
 
 type StringifiedBoolean = 'true' | 'false'
+type DecoupleResponseOptions = 'success' | 'error' | 'onfido'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
@@ -38,6 +39,8 @@ export type QueryParams = {
   useMultipleSelfieCapture?: StringifiedBoolean
   useUploader?: StringifiedBoolean
   useWebcam?: StringifiedBoolean
+  useDecoupleCallbacks?: StringifiedBoolean
+  decoupleResponse?: DecoupleResponseOptions
 }
 
 export type CheckData = {
@@ -179,6 +182,47 @@ export const getInitSdkOptions = (): SdkOptions => {
     queryParamToValueString.showCobrand === 'true'
       ? { text: 'Planet Express, Incorporated' }
       : undefined
+  const decouple = queryParamToValueString.useDecoupleCallbacks === 'true'
+  let decoupleCallbacks = {}
+  if (queryParamToValueString.decoupleResponse === 'success') {
+    const successResponse = new Promise((resolve) =>
+      resolve({
+        onfidoSuccessResponse: {
+          id: '123-456-789',
+        },
+      })
+    )
+    decoupleCallbacks = {
+      onSubmitDocument: () => successResponse,
+      onSubmitSelfie: () => successResponse,
+      onSubmitVideo: () => successResponse,
+    }
+  } else if (queryParamToValueString.decoupleResponse === 'error') {
+    const errorResponse = new Promise((_, reject) =>
+      reject({
+        status: 422,
+        response: {
+          message: 'There was a validation error on this request',
+          type: 'validation_error',
+          fields: { detect_glare: ['glare found in image'] },
+        },
+      })
+    )
+    decoupleCallbacks = {
+      onSubmitDocument: () => errorResponse,
+      onSubmitSelfie: () => errorResponse,
+      onSubmitVideo: () => errorResponse,
+    }
+  } else if (queryParamToValueString.decoupleResponse === 'onfido') {
+    const response = new Promise((resolve) =>
+      resolve({ continueWithOnfidoUpload: true })
+    )
+    decoupleCallbacks = {
+      onSubmitDocument: () => response,
+      onSubmitSelfie: () => response,
+      onSubmitVideo: () => response,
+    }
+  }
 
   return {
     useModal: queryParamToValueString.useModal === 'true',
@@ -195,6 +239,8 @@ export const getInitSdkOptions = (): SdkOptions => {
     enterpriseFeatures: {
       hideOnfidoLogo,
       cobrand,
+      decouple,
+      ...decoupleCallbacks,
     },
     ...smsNumberCountryCode,
   }

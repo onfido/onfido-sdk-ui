@@ -16,7 +16,7 @@ export type EnterpriseCallbackResponse = {
 export type EnterpriseFeatures = {
   hideOnfidoLogo?: boolean
   cobrand?: EnterpriseCobranding
-  useSubmitCallbacks?: boolean
+  decouple?: boolean
   onSubmitDocument?: (
     data: FormData,
     token: string

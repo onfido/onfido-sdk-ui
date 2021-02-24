@@ -181,10 +181,10 @@ class Confirm extends Component {
       poaDocumentType,
       language,
       imageQualityRetries,
-      useSubmitCallbacks,
+      useDecoupleCallbacks,
     } = this.props
     const url = urls.onfido_api_url
-    if (!useSubmitCallbacks) {
+    if (!useDecoupleCallbacks) {
       this.startTime = performance.now()
       sendEvent('Starting upload', { method })
     }
@@ -229,15 +229,17 @@ class Confirm extends Component {
         sdkMetadata,
         ...issuingCountry,
       }
-      if (useSubmitCallbacks) this.onSubmitCallback(data, CALLBACK_TYPES.document)
+      if (useDecoupleCallbacks)
+        this.onSubmitCallback(data, CALLBACK_TYPES.document)
       else uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
     } else if (method === 'face') {
       if (variant === 'video') {
         const data = { challengeData, blob, language, sdkMetadata }
-        if (useSubmitCallbacks) this.onSubmitCallback(data, CALLBACK_TYPES.video)
+        if (useDecoupleCallbacks)
+          this.onSubmitCallback(data, CALLBACK_TYPES.video)
         else
           uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
-      } else if (useSubmitCallbacks)
+      } else if (useDecoupleCallbacks)
         this.onSubmitCallback(capture, CALLBACK_TYPES.selfie)
       else this.handleSelfieUpload(capture, token)
     }
@@ -259,9 +261,8 @@ class Confirm extends Component {
         } else if (continueWithOnfidoSubmission) {
           this.startTime = performance.now()
           sendEvent('Starting upload after callback', {
-            method: callbackName === CALLBACK_TYPES.document
-              ? 'document'
-              : 'face'
+            method:
+              callbackName === CALLBACK_TYPES.document ? 'document' : 'face',
           })
           if (callbackName === CALLBACK_TYPES.document)
             this.uploadDocument(
