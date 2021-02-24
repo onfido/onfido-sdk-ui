@@ -1,10 +1,12 @@
 import { h, FunctionComponent } from 'preact'
 import { useEffect, useState, useContext } from 'preact/hooks'
+import classNames from 'classnames'
 import { Button } from '@onfido/castor-react'
 import { LocaleContext } from '~locales'
 import { sanitize } from 'dompurify'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
+import { isButtonGroupStacked } from '../Theme/utils'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
@@ -22,10 +24,21 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
   const primaryBtnCopy = translate('user_consent.button_primary')
   const secondaryBtnCopy = translate('user_consent.button_secondary')
   return (
-    <div className={style.actions}>
+    <div
+      className={classNames(style.actions, {
+        [style.vertical]: isButtonGroupStacked(),
+      })}
+    >
       <Button
         variant="secondary"
-        className={theme['button-sm']}
+        className={classNames(
+          theme['button-sm'],
+          style.action,
+          style.secondary,
+          {
+            [style.vertical]: isButtonGroupStacked(),
+          }
+        )}
         data-onfido-qa="userConsentBtnSecondary"
         onClick={onDecline}
       >
@@ -33,7 +46,9 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
       </Button>
       <Button
         variant="primary"
-        className={theme['button-sm']}
+        className={classNames(theme['button-sm'], style.action, {
+          [style.vertical]: isButtonGroupStacked(),
+        })}
         data-onfido-qa="userConsentBtnPrimary"
         onClick={onAccept}
       >
