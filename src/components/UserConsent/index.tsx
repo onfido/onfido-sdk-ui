@@ -5,6 +5,7 @@ import { LocaleContext } from '~locales'
 import { sanitize } from 'dompurify'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 import type { StepComponentUserConsentProps } from '~types/routers'
@@ -23,8 +24,8 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
   return (
     <div className={style.actions}>
       <Button
-        className={style.secondary}
-        variant="primary"
+        variant="secondary"
+        className={theme['button-sm']}
         data-onfido-qa="userConsentBtnSecondary"
         onClick={onDecline}
       >
@@ -32,6 +33,7 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
       </Button>
       <Button
         variant="primary"
+        className={theme['button-sm']}
         data-onfido-qa="userConsentBtnPrimary"
         onClick={onAccept}
       >
