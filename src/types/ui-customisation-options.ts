@@ -29,4 +29,16 @@ export type UICustomizationOptions = {
   colorContentLinkTextHover?: string
   colorBackgroundLinkHover?: string
   colorBackgroundLinkActive?: string
+
+  // Warning Popup
+  colorContentAlertInfo?: string
+  colorBackgroundAlertInfo?: string
+  colorBackgroundAlertInfoLinkHover?: string
+  colorBackgroundAlertInfoLinkActive?: string
+
+  // Error Popup
+  colorContentAlertError?: string
+  colorBackgroundAlertError?: string
+  colorBackgroundAlertErrorLinkHover?: string
+  colorBackgroundAlertErrorLinkActive?: string
 }
