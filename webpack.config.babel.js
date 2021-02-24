@@ -28,14 +28,9 @@ const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 
 const baseRules = [
   {
-    test: /\.jsx?$/,
+    test: /\.(js|ts)x?$/,
     include: [`${__dirname}/src`],
     use: ['babel-loader'],
-  },
-  {
-    test: /\.tsx?$/,
-    include: [`${__dirname}/src`],
-    use: ['ts-loader'],
   },
 ]
 
