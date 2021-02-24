@@ -27,6 +27,7 @@ export type QueryParams = {
   region?: string
   shouldCloseOnOverlayClick?: StringifiedBoolean
   showCobrand?: StringifiedBoolean
+  showUserConsent?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
   snapshotInterva?: StringifiedBoolean
   snapshotInterval?: StringifiedBoolean
@@ -138,6 +139,8 @@ export const getInitSdkOptions = (): SdkOptions => {
 
   const steps: Array<StepTypes | StepConfig> = [
     'welcome' as StepTypes,
+    queryParamToValueString.showUserConsent === 'true' &&
+      ({ type: 'userConsent' } as StepConfig),
     queryParamToValueString.poa === 'true' && ({ type: 'poa' } as StepConfig),
     {
       type: 'document',

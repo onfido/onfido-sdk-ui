@@ -351,6 +351,17 @@
         "subtitle": "No se aceptan fotos escaneadas ni fotocopias",
         "title": "Subir la página del pasaporte con su foto"
     },
+    "user_consent": {
+        "button_primary": "Accept",
+        "button_secondary": "Do not accept",
+        "prompt": {
+            "button_primary": "Yes, don’t verify me",
+            "button_secondary": "Review again",
+            "button_secondary_copy": "Review again",
+            "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+            "no_consent_title": "Are you sure?"
+        }
+    },
     "video_capture": {
         "body": "Coloque su cara en el óvalo",
         "body_next": "Cuando esté listo, presione continuar",

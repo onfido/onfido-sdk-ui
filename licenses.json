@@ -1081,6 +1081,12 @@
     "path": "node_modules/@types/dom-mediacapture-record",
     "licenseFile": "node_modules/@types/dom-mediacapture-record/LICENSE"
   },
+  "@types/dompurify@2.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/dompurify",
+    "licenseFile": "node_modules/@types/dompurify/LICENSE"
+  },
   "@types/enzyme@3.10.8": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
@@ -1244,6 +1250,12 @@
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/jest-message-util/node_modules/@types/stack-utils",
     "licenseFile": "node_modules/jest-message-util/node_modules/@types/stack-utils/LICENSE"
+  },
+  "@types/trusted-types@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/trusted-types",
+    "licenseFile": "node_modules/@types/trusted-types/LICENSE"
   },
   "@types/unist@2.0.3": {
     "licenses": "MIT",
@@ -3460,6 +3472,14 @@
     "path": "node_modules/create-react-context",
     "licenseFile": "node_modules/create-react-context/LICENSE"
   },
+  "cross-fetch@3.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lquixada/cross-fetch",
+    "publisher": "Leonardo Quixada",
+    "email": "lquixada@gmail.com",
+    "path": "node_modules/cross-fetch",
+    "licenseFile": "node_modules/cross-fetch/LICENSE"
+  },
   "cross-spawn@6.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/moxystudio/node-cross-spawn",
@@ -4097,6 +4117,15 @@
     "email": "me@feedic.com",
     "path": "node_modules/domhandler",
     "licenseFile": "node_modules/domhandler/LICENSE"
+  },
+  "dompurify@2.2.6": {
+    "licenses": "(MPL-2.0 OR Apache-2.0)",
+    "repository": "https://github.com/cure53/DOMPurify",
+    "publisher": "Mario Heiderich",
+    "email": "mario@cure53.de",
+    "url": "https://cure53.de/",
+    "path": "node_modules/dompurify",
+    "licenseFile": "node_modules/dompurify/LICENSE"
   },
   "domutils@1.5.1": {
     "licenses": "BSD*",
@@ -7179,6 +7208,15 @@
     "path": "node_modules/jest-environment-node",
     "licenseFile": "node_modules/jest-environment-node/LICENSE"
   },
+  "jest-fetch-mock@3.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jefflau/jest-fetch-mock",
+    "publisher": "Jeff Lau",
+    "email": "jeff-lau@live.com",
+    "url": "http://jefflau.net/",
+    "path": "node_modules/jest-fetch-mock",
+    "licenseFile": "node_modules/jest-fetch-mock/LICENSE.md"
+  },
   "jest-get-type@26.3.0": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/jest",
@@ -9924,6 +9962,13 @@
     "url": "http://re-becca.org/",
     "path": "node_modules/promise-inflight",
     "licenseFile": "node_modules/promise-inflight/LICENSE"
+  },
+  "promise-polyfill@8.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/taylorhakes/promise-polyfill",
+    "publisher": "Taylor Hakes",
+    "path": "node_modules/promise-polyfill",
+    "licenseFile": "node_modules/promise-polyfill/LICENSE"
   },
   "promise@7.3.1": {
     "licenses": "MIT",
