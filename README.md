@@ -417,12 +417,39 @@ A number of options are available to allow you to customise the SDK:
   | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
   | `colorBorderDocTypeButtonActive` | Change color of Document Type Button border on click/tap |
 
+  Example configuration with the different CSS colour value variations that can be used:
+
+  ```javascript
+  customUI: [{
+      "colorContentButtonPrimaryText": "#333",
+      "colorBackgroundButtonPrimary": "#ffb997",
+      "colorBorderButtonPrimary": "#B23A48",
+      "colorBackgroundButtonPrimaryHover": "#F67E7D",
+      "colorBackgroundButtonPrimaryActive": "#843b62",
+
+      "colorContentButtonSecondaryText": "hsl(90deg 1% 31%)",
+      "colorBackgroundButtonSecondary": "rgb(255 238 170 / 92%)",
+      "colorBorderButtonSecondary": "coral",
+      "colorBackgroundButtonSecondaryHover": "#ce6a85",
+      "colorBackgroundButtonSecondaryActive": "#985277",
+    }
+  ```
+
   The following options are applied to multiple Button elements:
 
   | Shared Button options                   | Value Type | Description                                                                                                                                 |
   | --------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
   | `borderRadiusButton`                    | `string`   | Change border radius value of Primary, Secondary and Document Type Option buttons                                                           |
   | `buttonGroupStacked` (default: `false`) | `boolean`  | Display Primary, Secondary button group in Document and Face capture confirmation screens are in separate rows instead of inline by default |
+
+  Example configuration:
+
+  ```javascript
+  customUI: [{
+      borderRadiusButton: "50px",
+      buttonGroupStacked: true
+    }
+  ```
 
 - **`steps {List} optional`**
 
