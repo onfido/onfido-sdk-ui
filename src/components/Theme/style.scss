@@ -23,7 +23,7 @@
       }
 
       &:disabled {
-        background-color: castor.color('neutral-300');
+        background-color: var(--ods-color-neutral-300);
         border-color: transparent;
       }
     }
@@ -150,7 +150,7 @@ $logo-height: 32 * $unit;
   }
 
   .cobrandLabel {
-    color: castor.color('neutral-700');
+    color: rgba(var(--ods-color-neutral-700));
     font-size: 10 * $unit;
     display: flex;
     flex-direction: row;

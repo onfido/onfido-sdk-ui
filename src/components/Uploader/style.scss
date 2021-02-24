@@ -1,4 +1,3 @@
-@use '~@onfido/castor';
 @import '../Theme/constants';
 
 .container {
@@ -34,7 +33,7 @@
 }
 
 .error {
-  color: castor.color('content-negative');
+  color: rgba(var(--ods-color-content-negative));
 }
 
 .buttons {
