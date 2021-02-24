@@ -69,8 +69,8 @@ const Camera: FunctionComponent<Props> = ({
           {...{ fallbackHeight, onFailure, onUserMedia, ref: webcamRef }}
         />
       </div>
-      <div className={style.actions}>
-        {buttonType === 'photo' && (
+      {buttonType === 'photo' && (
+        <div className={style.actions}>
           <CameraButton
             ariaLabel={translate('selfie_capture.button_accessibility')}
             disableInteraction={!hasGrantedPermission || isButtonDisabled}
@@ -79,8 +79,8 @@ const Camera: FunctionComponent<Props> = ({
               [style.disabled]: !hasGrantedPermission || isButtonDisabled,
             })}
           />
-        )}
-      </div>
+        </div>
+      )}
       {buttonType === 'video' &&
         renderVideoLayer &&
         renderVideoLayer({ hasGrantedPermission })}
