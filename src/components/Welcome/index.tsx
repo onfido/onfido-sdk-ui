@@ -3,11 +3,11 @@ import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 
 import { buildIteratorKey } from '~utils'
+import theme from 'components/Theme/style.scss'
 import PageTitle from '../PageTitle'
 import { trackComponent } from '../../Tracker'
 import { localised } from '../../locales'
 import ScreenLayout from '../Theme/ScreenLayout'
-import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 import type { TranslateCallback } from '~types/locales'

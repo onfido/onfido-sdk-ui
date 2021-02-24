@@ -110,6 +110,7 @@ Some of the SDK configuration options can also be previewed in the demo app by u
 | `region`                   | `US`,`CA`,`EU`      | `EU`    | Generate JWT for a supported region with SDK Token Factory       |
 | `useHistory`               | `true`,`false`      | `false` | Enable basic dummy host app history                              |
 | `customisedUI`             | `true`,`false`      | `false` | Enable customised SDK UI                                         |
+| `showUserConsent`          | `true`,`false`      | `false` | Enable user consent step                                         |
 
 Usage example: https://localhost:8080?liveness=true&language=de
 Please refer to [this file](./src/demo/demoUtils.js) for more available options.
