@@ -52,8 +52,8 @@
   }
 
   > * {
-    flex-grow: 1;
     @extend %global-padding;
+    flex-grow: 1;
   }
 }
 
