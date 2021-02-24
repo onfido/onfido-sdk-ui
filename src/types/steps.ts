@@ -1,4 +1,5 @@
 const STEP_WELCOME = 'welcome'
+const STEP_USER_CONSENT = 'userConsent'
 const STEP_DOCUMENT = 'document'
 const STEP_POA = 'poa'
 const STEP_FACE = 'face'
@@ -6,6 +7,7 @@ const STEP_COMPLETE = 'complete'
 
 export type StepTypes =
   | typeof STEP_WELCOME
+  | typeof STEP_USER_CONSENT
   | typeof STEP_DOCUMENT
   | typeof STEP_POA
   | typeof STEP_FACE
@@ -71,6 +73,11 @@ export type StepConfigWelcome = {
   options?: StepOptionWelcome
 }
 
+export type StepConfigUserConsent = {
+  type: typeof STEP_USER_CONSENT
+  options?: never
+}
+
 export type StepConfigDocument = {
   type: typeof STEP_DOCUMENT
   options?: StepOptionDocument
@@ -93,6 +100,7 @@ export type StepConfigComplete = {
 
 export type StepConfig =
   | StepConfigWelcome
+  | StepConfigUserConsent
   | StepConfigDocument
   | StepConfigPoA
   | StepConfigFace

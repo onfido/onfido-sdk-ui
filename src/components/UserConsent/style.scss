@@ -1,0 +1,56 @@
+@import '../Theme/constants';
+
+.consentFrame {
+  width: 100%;
+  height: 100%;
+  border-style: none;
+
+  h1 {
+    color: $color-title-text;
+    font-weight: 600;
+    font-size: $font-size-x-large;
+    line-height: 1.34;
+    text-align: center;
+    margin-bottom: 32 * $unit-x-large;
+    @media (--small-viewport) {
+      font-size: 24 * $unit;
+    }
+  }
+
+  hr {
+    margin: 24 * $unit 0;
+  }
+
+  > * {
+    text-align: left;
+
+    a {
+      color: $color-primary-500;
+    }
+  }
+
+  h4 {
+    margin-bottom: 32 * $unit;
+    margin-bottom: 16 * $unit;
+  }
+
+  div:last-child {
+    p {
+      height: 3em;
+    }
+  }
+}
+
+.actions {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.secondary {
+  margin-right: 16 * $unit;
+  @media (--small-viewport) {
+    margin-right: 8 * $unit;
+  }
+}
