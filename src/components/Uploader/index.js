@@ -31,7 +31,7 @@ const MobileUploadArea = ({
       <CustomFileInput
         className={classNames({
           [style.buttonContainer]: !isPoA,
-          [style.poaBtnContainer]: isPoA,
+          [style.poaBtn]: isPoA,
           [style.vertical]: isButtonGroupStacked(),
         })}
         onChange={onFileSelected}
@@ -53,7 +53,10 @@ const MobileUploadArea = ({
         </Button>
       </CustomFileInput>
       {isPoA && (
-        <CustomFileInput onChange={onFileSelected}>
+        <CustomFileInput
+          onChange={onFileSelected}
+          className={classNames({ [style.poaBtn]: isPoA })}
+        >
           <Button
             variant="primary"
             className={classNames(theme['button-sm'], {
