@@ -257,14 +257,10 @@ $logo-height: 32 * $unit;
   padding-left: 24 * $unit;
 }
 
+a,
 .link,
 .textButton {
-  cursor: pointer;
   font-family: var(--font-family);
-  font-size: var(--font-size-small);
-  line-height: 1.43;
-  margin: auto;
-  padding: 2px;
   text-decoration: none;
   border: 1px solid transparent;
   border-bottom-color: var(--osdk-color-border-link-underline);
@@ -282,15 +278,25 @@ $logo-height: 32 * $unit;
       color: var(--osdk-color-content-link-text-hover);
     }
   }
+}
+
+a:visited,
+.link:visited {
+  text-decoration: none;
+  color: $color-body-text;
+}
+
+.link,
+.textButton {
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  line-height: 1.43;
+  margin: auto;
+  padding: 2px;
 
   &:disabled {
     cursor: not-allowed;
   }
-}
-
-.link:visited {
-  text-decoration: none;
-  color: $color-body-text;
 }
 
 /* Link/Text Button for Live Doc/Face Capture fallback on Warning popup */
