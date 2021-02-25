@@ -11,11 +11,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
+- Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
+- Public: Added support for UI customizations in SDK configuration using `customUI` option. See README for details of supported customization options.
 - Internal: Added user consent screen
 
 ### Changed
 
 - Internal: Replace `ts-loader` with `@babel/preset-typescript` for better TypeScript transpilation.
+- UI: Replaced internal button component with button from @onfido/castor-react.
+- UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
+- Internal: Use ScreenLayout component in Confirm screen.
 
 ### Fixed
 
@@ -28,9 +33,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added npm latest version badge.
 - Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
 - Internal: Introduce integration tests for API endpoint integrations.
-- Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 - Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
-- Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
 
 ### Changed
 
@@ -38,9 +41,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Updated text and background colours.
 - Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
 - Public: Return error for image quality failures on the first two document upload attempts.
-- UI: Replaced internal button component with button from @onfido/castor-react.
-- UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
-- Internal: Use ScreenLayout component in Confirm screen.
 
 ### Fixed
 

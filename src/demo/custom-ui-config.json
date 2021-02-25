@@ -1,0 +1,17 @@
+{
+  "colorContentButtonPrimaryText": "#333",
+  "colorBackgroundButtonPrimary": "#ffb997",
+  "colorBorderButtonPrimary": "#b23a48",
+  "colorBackgroundButtonPrimaryHover": "#f67e7d",
+  "colorBackgroundButtonPrimaryActive": "#843b62",
+  "colorContentButtonSecondaryText": "hsl(90deg 1% 31%)",
+  "colorBackgroundButtonSecondary": "rgb(255 238 170 / 92%)",
+  "colorBorderButtonSecondary": "coral",
+  "colorBackgroundButtonSecondaryHover": "#ce6a85",
+  "colorBackgroundButtonSecondaryActive": "#985277",
+  "borderRadiusButton": "50px",
+  "buttonGroupStacked": true,
+  "colorBorderDocTypeButton": "#5c374c",
+  "colorBorderDocTypeButtonHover": "#f67e7d",
+  "colorBorderDocTypeButtonActive": "#843b62"
+}

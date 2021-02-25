@@ -6,40 +6,42 @@
   @include castor.Button();
 
   .ods-button {
-    border-radius: var(--button-border-radius);
+    border-radius: var(--osdk-border-radius-button);
 
     /* stylelint-disable-next-line selector-class-pattern */
     &.-action--primary {
-      background-color: var(--color-primary-button);
-      color: var(--color-primary-button-text);
+      background-color: var(--osdk-color-background-button-primary);
+      color: var(--osdk-color-content-button-primary-text);
+      border-color: var(--osdk-color-border-button-primary);
 
       &:active {
-        background-color: var(--color-primary-button-active);
-      }
-
-      &:disabled {
-        background-color: var(--color-primary-button-disabled);
+        background-color: var(--osdk-color-background-button-primary-active);
       }
 
       &:hover {
-        background-color: var(--color-primary-button-hover);
+        background-color: var(--osdk-color-background-button-primary-hover);
+      }
+
+      &:disabled {
+        background-color: var(--ods-color-neutral-300);
+        border-color: transparent;
       }
     }
 
     /* stylelint-disable-next-line selector-class-pattern */
     &.-action--secondary {
-      background-color: var(--color-secondary-button);
-      color: var(--color-secondary-button-text);
-      border-color: var(--color-secondary-button-border);
+      background-color: var(--osdk-color-background-button-secondary);
+      color: var(--osdk-color-content-button-secondary-text);
+      border-color: var(--osdk-color-border-button-secondary);
 
       &:active {
-        background-color: var(--color-secondary-button-active);
-        border-color: var(--color-secondary-button-border-active);
+        background-color: var(--osdk-color-background-button-secondary-active);
+        border-color: var(--osdk-color-border-button-secondary);
       }
 
       &:hover {
-        background-color: var(--color-secondary-button-hover);
-        border-color: var(--color-secondary-button-border-hover);
+        background-color: var(--osdk-color-background-button-secondary-hover);
+        border-color: var(--osdk-color-border-button-secondary);
       }
     }
   }
@@ -256,6 +258,7 @@ $logo-height: 32 * $unit;
 }
 
 .link {
+  /* TODO: CX-5306 link customisation options */
   cursor: pointer;
   line-height: 1.43;
   font-size: var(--font-size-small);
@@ -265,17 +268,17 @@ $logo-height: 32 * $unit;
   text-decoration: none;
   border: 1px solid transparent;
   border-bottom-color: var(--color-primary);
-  background-color: $color-transparent;
+  background-color: transparent;
   color: $color-body-text;
 
   &:not(:disabled) {
     &:hover {
-      background-color: var(--color-primary-button-hover);
+      background-color: var(--osdk-color-background-button-primary-hover);
       color: $color-white;
     }
 
     &:active {
-      background-color: var(--color-primary-button-active);
+      background-color: var(--osdk-color-background-button-primary-active);
       color: $color-white;
     }
   }
@@ -296,11 +299,11 @@ $logo-height: 32 * $unit;
 
   &:hover {
     color: $color-warning-button-text-hover;
-    background-color: var(--color-primary-button-hover);
+    background-color: var(--osdk-color-background-button-primary-hover);
   }
 
   &:active {
-    background-color: var(--color-primary-button-active);
+    background-color: var(--osdk-color-background-button-primary-active);
   }
 }
 
@@ -326,7 +329,6 @@ $logo-height: 32 * $unit;
 }
 
 .button-lg {
-  height: $button-height;
   font-size: var(--font-size-small);
   width: $lg-btn-width-lg-screen;
   @media (--small-viewport) {
@@ -335,7 +337,6 @@ $logo-height: 32 * $unit;
 }
 
 .button-sm {
-  height: $button-height;
   font-size: var(--font-size-small);
   width: $sm-btn-width-lg-screen;
   @media (--small-viewport) {

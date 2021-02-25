@@ -25,6 +25,7 @@ import type {
   StepConfigDocument,
   DocumentTypes,
 } from '~types/steps'
+import { setUICustomizations } from '../Theme/utils'
 
 import withConnect, { ReduxProps } from './withConnect'
 
@@ -144,11 +145,12 @@ class ModalApp extends Component<Props> {
     prevOptions: NormalisedSdkOptions = {},
     options: NormalisedSdkOptions = {}
   ) => {
-    const { userDetails: { smsNumber } = {}, steps, token } = options
+    const { token, userDetails: { smsNumber } = {}, steps, customUI } = options
     const {
       userDetails: { smsNumber: prevSmsNumber } = {},
       steps: prevSteps,
       token: prevToken,
+      customUI: prevCustomUI,
     } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
@@ -173,6 +175,10 @@ class ModalApp extends Component<Props> {
 
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
       this.setConfiguredEnterpriseFeatures(validEnterpriseFeatures, options)
+    }
+
+    if (customUI && customUI !== prevCustomUI) {
+      setUICustomizations(customUI)
     }
   }
 

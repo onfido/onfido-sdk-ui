@@ -1,3 +1,22 @@
+/*
+ *  NOTE on CSS variable prefix naming convention & Castor DS token mappings:
+ *
+ *  1) Supported SDK customisation options = CSS variables with --osdk- prefix.
+ *     Anything without --osdk- prefix is not officially supported but is here as this is the single source for tokens.
+ *
+ *  2) Castor theme tokens = CSS variables with --ods- prefix.
+ *
+ *  Wherever it makes sense for colour token mappings, the relevant Day theme design tokens from Castor should be used.
+ *  See the Castor Day theme file for available tokens:
+ *  https://github.com/onfido/castor/blob/main/packages/core/src/theme/themes/day.scss
+ *  Where it does not, the basic colour token, e.g. --ods-color-primary-500, should be used instead.
+ *
+ * Colors in color palette are RGB values but also adds alpha level (or opacity),
+ * so all colour related CSS variables must be wrapped with rgba(), e.g. rgba((var(--castor-colour-token))).
+ */
+
+/* stylelint-disable function-parentheses-space-inside */
+
 @mixin tokens() {
   --unit: (1/16) * 1em;
 
@@ -21,46 +40,74 @@
   --font-weight-subtitle: 600;
   --font-weight-body: 500;
 
-  /* Color Variables */
+  /* General UI element background color settings */
+  --osdk-color-border-surface-modal: rgba(var(--ods-color-neutral-600));
   --color-background: rgba(var(--ods-color-neutral-050));
   --color-warning: rgba(var(--ods-color-primary-500));
-  --color-error: rgba(220, 42, 42);
+  --color-error: rgba(var(--ods-color-background-negative));
 
+  /* TODO: not really required now, should do a full check after Phase 1 customisations implemented to be sure */
   --color-primary: rgba(var(--ods-color-primary-500));
   --color-primary-hover: rgba(var(--ods-color-primary-400));
   --color-primary-active: rgba(var(--ods-color-primary-600));
 
-  /* - Button colors */
-  --color-primary-button: var(--color-primary);
-  --color-primary-button-hover: var(--color-primary-hover);
-  --color-primary-button-active: var(--color-primary-active);
-  --color-primary-button-text: rgba(var(--ods-color-content-on-action));
-  --color-primary-button-disabled: rgba(var(--ods-color-neutral-300));
+  /* Primary Button customisations */
+  --osdk-color-content-button-primary-text: rgba(
+    var(--ods-color-content-on-action)
+  );
 
-  --color-secondary-button: $transparent;
-  /* prettier-ignore */
-  --color-secondary-button-hover: rgba(var(--ods-color-background-action-subtle-hover));
-  /* prettier-ignore */
-  --color-secondary-button-active: rgba(var(--ods-color-background-action-subtle));
-  --color-secondary-button-text: var(--color-primary);
-  --color-secondary-button-border: var(--color-primary);
-  --color-secondary-button-border-hover: var(--color-primary-hover);
-  --color-secondary-button-border-active: var(--color-primary-active);
+  --osdk-color-background-button-primary: rgba(
+    var(--ods-color-background-action)
+  );
+  --osdk-color-background-button-primary-hover: rgba(
+    var(--ods-color-background-action-hover)
+  );
+  --osdk-color-background-button-primary-active: rgba(
+    var(--ods-color-background-action-active)
+  );
 
-  --color-icon-button: $color-transparent;
-  --color-icon-button-hover: rgba(var(--ods-color-neutral-400));
-  --color-icon-button-active: rgba(var(--ods-color-neutral-600));
+  --osdk-color-border-button-primary: rgba(var(--ods-color-border-action));
 
-  /* - Camera button colors */
-  --color-camera-button: rgba(var(--ods-color-neutral-white));
-  --color-camera-button-hover: var(--color-primary-button-hover);
-  --color-camera-button-active: var(--color-primary-button-active);
+  /* Secondary Button customisations */
+  --osdk-color-content-button-secondary-text: rgba(
+    var(--ods-color-content-action)
+  );
 
-  /* - Selectors button colors */
-  --selectors-box-shadow-hover: 0 0 0 2px var(--color-primary-hover);
-  --selectors-box-shadow-active: 0 0 0 2px var(--color-primary-active);
+  --osdk-color-background-button-secondary: rgba(
+    var(--ods-color-background-always-transparent)
+  );
+  --osdk-color-background-button-secondary-hover: rgba(
+    var(--ods-color-background-action-subtle-hover)
+  );
+  --osdk-color-background-button-secondary-active: rgba(
+    var(--ods-color-background-action-subtle)
+  );
 
-  /* Other button variables */
-  --button-border-radius: var(--ods-border-radius-medium);
-  --button-group-vertical: false;
+  --osdk-color-border-button-secondary: rgba(var(--ods-color-border-action));
+
+  /* Button group customisations */
+  --osdk-border-radius-button: var(--ods-border-radius-medium);
+  --osdk-button-group-stacked: false;
+
+  /* Document Type Selectors option button colors */
+  --color-background-doc-type-button: rgba(var(--ods-color-neutral-white));
+
+  --osdk-color-border-doc-type-button: rgba(var(--ods-color-border-input));
+  --osdk-color-border-doc-type-button-hover: rgba(
+    var(--ods-color-border-action-hover)
+  );
+  --osdk-color-border-doc-type-button-active: rgba(
+    var(--ods-color-border-action-focus)
+  );
+
+  /* Back, Close (modal) icon button colors */
+  --color-background-button-icon-hover: rgba(var(--ods-color-neutral-400));
+  --color-background-button-icon-active: rgba(var(--ods-color-neutral-600));
+
+  /* Selfie Camera button colors */
+  --color-background-button-camera: rgba(var(--ods-color-neutral-white));
+  --color-background-button-camera-hover: rgba(var(--ods-color-primary-400));
+  --color-background-button-camera-active: rgba(var(--ods-color-primary-600));
 }
+
+/* stylelint-enable function-parentheses-space-inside */

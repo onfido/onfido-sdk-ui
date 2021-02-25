@@ -9,6 +9,7 @@
   position: static;
 }
 
+/* FIXME: CX-5306 - text/link Button for live Doc/Face Capture fallback to native Camera app */
 .uploadFallback {
   cursor: pointer;
   text-decoration: underline;

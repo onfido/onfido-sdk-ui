@@ -127,7 +127,7 @@ var Onfido = require('onfido-sdk-ui')
 
 The **CSS style** will be included **inline with the JS code** when the library is imported.
 
-#### Notice
+#### Note
 
 The library is **Browser only**, it does not support the **Node Context**.
 
@@ -276,7 +276,7 @@ onfidoOut.tearDown()
 
 ## Customising the SDK
 
-A number of options are available to allow you to customise the SDK:
+A number of options are available to allow you to customize the SDK:
 
 - **`token {String} required`**
 
@@ -335,7 +335,8 @@ A number of options are available to allow you to customise the SDK:
   The container element that the UI will mount to. This needs to be an empty element. This can be used as an alternative to passing in the container ID string previously described for `containerId`. Note that if `containerEl` is provided, then `containerId` will be ignored.
 
 - **`language {String || Object} optional`**
-  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
+
+  The SDK language can be customized by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
   To leverage one of these languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
@@ -348,7 +349,7 @@ A number of options are available to allow you to customise the SDK:
   The object should include the following keys:
 
   - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-    You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+    You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
     The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English, Spanish, French and German.
 
   - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
@@ -367,7 +368,8 @@ A number of options are available to allow you to customise the SDK:
   If `language` is not present the default copy will be in English.
 
 - **`smsNumberCountryCode {String} optional`**
-  The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+
+  The default country for the SMS number input can be customized by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
 
   Example:
 
@@ -376,6 +378,7 @@ A number of options are available to allow you to customise the SDK:
   ```
 
 - **`userDetails {Object} optional`**
+
   Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
 
   The following details can be used by the SDK:
@@ -388,9 +391,69 @@ A number of options are available to allow you to customise the SDK:
   }
   ```
 
+- **`customUI {Object} optional`**
+
+  If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values) for the following options:
+
+  | Primary Button options               | Description                                            |
+  | ------------------------------------ | ------------------------------------------------------ |
+  | `colorContentButtonPrimaryText`      | Change color of Primary Button text                    |
+  | `colorBackgroundButtonPrimary`       | Change background color of Primary Button              |
+  | `colorBackgroundButtonPrimaryHover`  | Change background color of Primary Button on hover     |
+  | `colorBackgroundButtonPrimaryActive` | Change background color of Primary Button on click/tap |
+  | `colorBorderButtonPrimary`           | Change color of Primary Button border                  |
+
+  | Secondary Button options               | Description                                              |
+  | -------------------------------------- | -------------------------------------------------------- |
+  | `colorContentButtonSecondaryText`      | Change color of Secondary Button text                    |
+  | `colorBackgroundButtonSecondary`       | Change background color of Secondary Button              |
+  | `colorBackgroundButtonSecondaryHover`  | Change background color of Secondary Button on hover     |
+  | `colorBackgroundButtonSecondaryActive` | Change background color of Secondary Button on click/tap |
+  | `colorBorderButtonSecondary`           | Change color of Secondary Button border                  |
+
+  | Document Type Button options     | Description                                              |
+  | -------------------------------- | -------------------------------------------------------- |
+  | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
+  | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
+  | `colorBorderDocTypeButtonActive` | Change color of Document Type Button border on click/tap |
+
+  Example configuration with the different CSS colour value variations that can be used:
+
+  ```javascript
+  customUI: {
+      "colorContentButtonPrimaryText": "#333",
+      "colorBackgroundButtonPrimary": "#ffb997",
+      "colorBorderButtonPrimary": "#B23A48",
+      "colorBackgroundButtonPrimaryHover": "#F67E7D",
+      "colorBackgroundButtonPrimaryActive": "#843b62",
+
+      "colorContentButtonSecondaryText": "hsl(90deg 1% 31%)",
+      "colorBackgroundButtonSecondary": "rgb(255 238 170 / 92%)",
+      "colorBorderButtonSecondary": "coral",
+      "colorBackgroundButtonSecondaryHover": "#ce6a85",
+      "colorBackgroundButtonSecondaryActive": "#985277",
+    }
+  ```
+
+  The following options are applied to multiple Button elements:
+
+  | Shared Button options                   | Value Type | Description                                                                                                                                 |
+  | --------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `borderRadiusButton`                    | `string`   | Change border radius value of Primary, Secondary and Document Type Option buttons                                                           |
+  | `buttonGroupStacked` (default: `false`) | `boolean`  | Display Primary, Secondary button group in Document and Face capture confirmation screens are in separate rows instead of inline by default |
+
+  Example configuration:
+
+  ```javascript
+  customUI: {
+      borderRadiusButton: "50px",
+      buttonGroupStacked: true
+    }
+  ```
+
 - **`steps {List} optional`**
 
-  List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
+  List of the different steps and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required):
 
   ```javascript
   steps: [
@@ -405,7 +468,7 @@ A number of options are available to allow you to customise the SDK:
   ]
   ```
 
-  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customised.
+  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customized.
 
   The SDK can also be used to capture Proof of Address documents. This can be achieved by using the `poa` step.
 
@@ -798,6 +861,10 @@ The Onfido SDK has been optimised to provide the following accessibility support
 - Sufficient touch target size: all interactive elements have been designed to meet the recommended touch target size
 
 Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
+
+### Note
+
+If you are making your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible colour contrast ratios and dyslexic friendly fonts.
 
 ## TypeScript
 

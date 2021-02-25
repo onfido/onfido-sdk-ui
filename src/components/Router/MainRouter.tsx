@@ -55,6 +55,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       language,
       disableAnalytics,
       enterpriseFeatures,
+      customUI,
     } = options
 
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
@@ -65,6 +66,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       disableAnalytics,
       documentType,
       enterpriseFeatures,
+      customUI,
       idDocumentIssuingCountry,
       language,
       poaDocumentType,

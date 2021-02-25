@@ -10,12 +10,17 @@
   }
 }
 
+/* Selector Button box shadow (offset-x | offset-y | blur-radius | spread-radius) */
+$selector-button-box-shadow: 0 0 0 2px;
+
 .option {
   width: 100%;
-  background: $color-white;
-  border-radius: 4 * $unit;
-  border: $selectors-border;
-  color: $selectors-text-color;
+  background: var(--osdk-color-background-doc-type-button);
+  border-radius: var(--osdk-border-radius-button);
+  border-color: var(--osdk-color-border-doc-type-button);
+  border-style: solid;
+  border-width: 1px;
+  color: $color-body-text;
   cursor: pointer;
   display: flex;
   font: inherit;
@@ -38,11 +43,13 @@
   }
 
   &.optionHoverDesktop:hover {
-    box-shadow: var(--selectors-box-shadow-hover);
+    box-shadow: $selector-button-box-shadow
+      var(--osdk-color-border-doc-type-button-hover);
   }
 
   &:active {
-    box-shadow: var(--selectors-box-shadow-active);
+    box-shadow: $selector-button-box-shadow
+      var(--osdk-color-border-doc-type-button-active);
   }
 }
 
@@ -67,7 +74,7 @@
 }
 
 .hint {
-  color: $selectors-text-color;
+  color: $color-body-text;
   font-weight: 500;
   font-size: var(--font-size-small);
   margin-bottom: 4 * $unit-small;
@@ -80,6 +87,7 @@
 }
 
 .tag {
+  /* .tag class used by PoA documents only */
   display: inline-block;
   background-color: var(--color-background);
   font-size: var(--font-size-small);

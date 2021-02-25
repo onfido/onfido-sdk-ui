@@ -23,9 +23,10 @@
 }
 
 .recovery {
-  background: var(--color-secondary-button-text);
+  /* TODO: CX-5306 - SDK Customisation - This is the "Recovery" header pill */
+  color: $color-white; // Header pill text colour
+  background: var(--color-primary); // Header pill background colour
   border-radius: 14 * $unit-small;
-  color: $color-white;
   font-weight: 600;
   left: 20 * $unit-small;
   line-height: 24 * $unit-small;

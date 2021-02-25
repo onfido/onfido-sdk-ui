@@ -102,7 +102,7 @@ $modal-animation-duration: 200ms;
 }
 
 .closeButton {
-  background-color: var(--color-icon-button);
+  background-color: transparent;
   background-image: url('./assets/cross.svg');
   background-size: contain;
   border-radius: 16 * $unit;
@@ -138,12 +138,12 @@ $modal-animation-duration: 200ms;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: var(--color-icon-button-hover);
+      background-color: var(--color-background-button-icon-hover);
     }
   }
 
   &:active {
-    background-color: var(--color-icon-button-active);
+    background-color: var(--color-background-button-icon-active);
   }
 }
 
@@ -162,7 +162,7 @@ $modal-animation-duration: 200ms;
   background-image: url('./assets/cross-white.svg');
 
   &:hover {
-    background-color: $color-transparent;
+    background-image: url('./assets/cross.svg');
   }
 
   .closeButtonLabel {
