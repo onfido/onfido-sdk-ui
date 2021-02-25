@@ -232,17 +232,15 @@ class Confirm extends Component {
       if (useDecoupleCallbacks)
         this.onSubmitCallback(data, CALLBACK_TYPES.document)
       else uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
-    } else if (method === 'face') {
-      if (variant === 'video') {
-        const data = { challengeData, blob, language, sdkMetadata }
-        if (useDecoupleCallbacks)
-          this.onSubmitCallback(data, CALLBACK_TYPES.video)
-        else
-          uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
-      } else if (useDecoupleCallbacks)
-        this.onSubmitCallback(capture, CALLBACK_TYPES.selfie)
-      else this.handleSelfieUpload(capture, token)
-    }
+    } else if (variant === 'video') {
+      const data = { challengeData, blob, language, sdkMetadata }
+      if (useDecoupleCallbacks)
+        this.onSubmitCallback(data, CALLBACK_TYPES.video)
+      else
+        uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
+    } else if (useDecoupleCallbacks) {
+      this.onSubmitCallback(capture, CALLBACK_TYPES.selfie)
+    } else this.handleSelfieUpload(capture, token)
   }
 
   onSubmitCallback = (data, callbackName) => {
@@ -252,17 +250,17 @@ class Confirm extends Component {
 
     sendEvent(`Triggering ${callbackName} callback`)
     enterpriseFeatures[callbackName](formDataPayload)
-      .then(({ continueWithOnfidoSubmission, onfidoSuccess }) => {
-        if (onfidoSuccess) {
+      .then(({ continueWithOnfidoSubmission, onfidoSuccessResponse }) => {
+        if (onfidoSuccessResponse) {
           sendEvent(`Success response from ${callbackName}`)
-          this.onApiSuccess(onfidoSuccess)
+          this.onApiSuccess(onfidoSuccessResponse)
         } else if (continueWithOnfidoSubmission) {
           this.startTime = performance.now()
           sendEvent('Starting upload after callback', {
             method,
           })
           if (callbackName === CALLBACK_TYPES.document)
-            this.uploadDocument(
+            uploadDocument(
               data,
               url,
               token,
@@ -270,7 +268,7 @@ class Confirm extends Component {
               this.onApiError
             )
           else if (callbackName === CALLBACK_TYPES.video)
-            this.uploadLiveVideo(
+            uploadLiveVideo(
               data,
               url,
               token,
@@ -292,7 +290,7 @@ class Confirm extends Component {
     if (callbackName === CALLBACK_TYPES.selfie) {
       const { blob, filename, snapshot } = data
       payload = {
-        file: { blob, filename },
+        file: filename ? { blob, filename } : blob,
         snapshot,
       }
     } else if (callbackName === CALLBACK_TYPES.video) {
