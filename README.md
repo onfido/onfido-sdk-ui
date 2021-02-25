@@ -410,6 +410,17 @@ A number of options are available to allow you to customize the SDK:
   | `colorContentSubtitle` | Change text colour of the SDK screen subtitles |
   | `colorContentBody`     | Change text colour of the SDK screen content   |
 
+  Example configuration with the different CSS font related values that can be used:
+
+  ```javascript
+  customUI: {
+    "fontFamilyTitle": "Impact, fantasy",
+    "fontSizeTitle": "26px",
+    "fontWeightSubtitle": 600,
+    "fontSizeSubtitle": "1.25rem",
+  }
+  ```
+
   | Primary Button options               | Description                                            |
   | ------------------------------------ | ------------------------------------------------------ |
   | `colorContentButtonPrimaryText`      | Change color of Primary Button text                    |
