@@ -395,20 +395,20 @@ A number of options are available to allow you to customize the SDK:
 
   If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values) for the following options:
 
-  | Typography options     | Description                                  |
-  | ---------------------- | -------------------------------------------- |
-  | `fontFamilyTitle`      | Change font family of the SDK's titles       |
-  | `fontSizeTitle`        | Change font size of the SDK's titles         |
-  | `fontWeightTitle`      | Change font weight of the SDK's titles       |
-  | `colorContentTitle`    | Change text colour of the SDK's titles       |
-  | `fontFamilySubtitle`   | Change font family of the SDK's subtitles    |
-  | `fontSizeSubtitle`     | Change font size of the SDK's subtitles      |
-  | `fontWeightSubtitle`   | Change font weight of the SDK's subtitles    |
-  | `colorContentSubtitle` | Change text colour of the SDK's subtitles    |
-  | `fontFamilyBody`       | Change font family of the SDK's content body |
-  | `fontSizeBody`         | Change font size of the SDK's content body   |
-  | `fontWeightBody`       | Change font weight of the SDK's content body |
-  | `colorContentBody`     | Change text colour of the SDK's content body |
+  | Typography options     | Description                                    |
+  | ---------------------- | ---------------------------------------------- |
+  | `fontFamilyTitle`      | Change font family of the SDK screen titles    |
+  | `fontFamilySubtitle`   | Change font family of the SDK screen subtitles |
+  | `fontFamilyBody`       | Change font family of the SDK screen content   |
+  | `fontSizeTitle`        | Change font size of the SDK screen titles      |
+  | `fontSizeSubtitle`     | Change font size of the SDK screen subtitles   |
+  | `fontSizeBody`         | Change font size of the SDK screen content     |
+  | `fontWeightTitle`      | Change font weight of the SDK screen titles    |
+  | `fontWeightSubtitle`   | Change font weight of the SDK screen subtitles |
+  | `fontWeightBody`       | Change font weight of the SDK screen content   |
+  | `colorContentTitle`    | Change text colour of the SDK screen titles    |
+  | `colorContentSubtitle` | Change text colour of the SDK screen subtitles |
+  | `colorContentBody`     | Change text colour of the SDK screen content   |
 
   | Primary Button options               | Description                                            |
   | ------------------------------------ | ------------------------------------------------------ |
