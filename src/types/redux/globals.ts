@@ -25,7 +25,7 @@ export type GlobalActions =
   | { type: typeof constants.SET_URLS; payload: UrlsConfig }
   | { type: typeof constants.HIDE_ONFIDO_LOGO; payload: boolean }
   | { type: typeof constants.SHOW_COBRANDING; payload: EnterpriseCobranding }
-  | { type: typeof constants.USE_SUBMIT_CALLBACKS; payload: boolean }
+  | { type: typeof constants.SET_DECOUPLE_FROM_API; payload: boolean }
   | { type: typeof constants.RETRY_FOR_IMAGE_QUALITY }
   | { type: typeof constants.RESET_IMAGE_QUALITY_RETRIES }
   | { type: typeof constants.RESET_STORE }
@@ -46,7 +46,7 @@ export type GlobalState = {
   // This prevents logo from being shown before state can be updated to hide it.
   hideOnfidoLogo?: boolean
   cobrand?: EnterpriseCobranding
-  useDecoupleCallbacks?: boolean
+  isDecoupledFromAPI?: boolean
   urls: UrlsConfig
   /**
    * Number of retries on image quality reasons: cut-off, glare, blur

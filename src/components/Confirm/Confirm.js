@@ -181,10 +181,10 @@ class Confirm extends Component {
       poaDocumentType,
       language,
       imageQualityRetries,
-      useDecoupleCallbacks,
+      isDecoupledFromAPI,
     } = this.props
     const url = urls.onfido_api_url
-    if (!useDecoupleCallbacks) {
+    if (!isDecoupledFromAPI) {
       this.startTime = performance.now()
       sendEvent('Starting upload', { method })
     }
@@ -229,16 +229,14 @@ class Confirm extends Component {
         sdkMetadata,
         ...issuingCountry,
       }
-      if (useDecoupleCallbacks)
+      if (isDecoupledFromAPI)
         this.onSubmitCallback(data, CALLBACK_TYPES.document)
       else uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
     } else if (variant === 'video') {
       const data = { challengeData, blob, language, sdkMetadata }
-      if (useDecoupleCallbacks)
-        this.onSubmitCallback(data, CALLBACK_TYPES.video)
-      else
-        uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
-    } else if (useDecoupleCallbacks) {
+      if (isDecoupledFromAPI) this.onSubmitCallback(data, CALLBACK_TYPES.video)
+      else uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
+    } else if (isDecoupledFromAPI) {
       this.onSubmitCallback(capture, CALLBACK_TYPES.selfie)
     } else this.handleSelfieUpload(capture, token)
   }
@@ -260,13 +258,7 @@ class Confirm extends Component {
             method,
           })
           if (callbackName === CALLBACK_TYPES.document)
-            uploadDocument(
-              data,
-              url,
-              token,
-              this.onApiSuccess,
-              this.onApiError
-            )
+            uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
           else if (callbackName === CALLBACK_TYPES.video)
             uploadLiveVideo(
               data,

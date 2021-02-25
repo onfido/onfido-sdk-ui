@@ -423,9 +423,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       it('should continue through full flow without problems when decoupled but still uploading media', async () => {
-        driver.get(
-          `${baseUrl}&useDecoupleCallbacks=true&decoupleResponse=onfido`
-        )
+        driver.get(`${baseUrl}&isDecoupledFromAPI=true&decoupleResponse=onfido`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
         runThroughCrossDeviceFlow()
@@ -444,7 +442,7 @@ export const crossDeviceScenarios = async (lang) => {
 
       it('should continue through full flow without problems when decoupled response includes success response', async () => {
         driver.get(
-          `${baseUrl}&useDecoupleCallbacks=true&decoupleResponse=success`
+          `${baseUrl}&isDecoupledFromAPI=true&decoupleResponse=success`
         )
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()

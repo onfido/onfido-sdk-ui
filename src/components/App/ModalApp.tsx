@@ -197,9 +197,9 @@ class ModalApp extends Component<Props> {
       )
     }
 
-    const useDecoupleCallbacks = options.enterpriseFeatures?.decouple
-    if (useDecoupleCallbacks) {
-      this.useDecoupleCallbacksIfClientHasFeature(
+    const isDecoupledFromAPI = options.enterpriseFeatures?.decouple
+    if (isDecoupledFromAPI) {
+      this.setDecoupleFromAPIIfClientHasFeature(
         validEnterpriseFeatures.decouple
       )
     }
@@ -233,13 +233,13 @@ class ModalApp extends Component<Props> {
     }
   }
 
-  useDecoupleCallbacksIfClientHasFeature = (
+  setDecoupleFromAPIIfClientHasFeature = (
     isValidEnterpriseFeature: boolean
   ) => {
     if (isValidEnterpriseFeature) {
-      this.props.actions.useDecoupleCallbacks(true)
+      this.props.actions.setDecoupleFromAPI(true)
     } else {
-      this.props.actions.useDecoupleCallbacks(false)
+      this.props.actions.setDecoupleFromAPI(false)
       this.onInvalidEnterpriseFeatureException('decouple')
     }
   }

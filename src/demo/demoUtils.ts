@@ -40,7 +40,7 @@ export type QueryParams = {
   useMultipleSelfieCapture?: StringifiedBoolean
   useUploader?: StringifiedBoolean
   useWebcam?: StringifiedBoolean
-  useDecoupleCallbacks?: StringifiedBoolean
+  isDecoupledFromAPI?: StringifiedBoolean
   decoupleResponse?: DecoupleResponseOptions
 }
 
@@ -185,7 +185,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     queryParamToValueString.showCobrand === 'true'
       ? { text: 'Planet Express, Incorporated' }
       : undefined
-  const decouple = queryParamToValueString.useDecoupleCallbacks === 'true'
+  const decouple = queryParamToValueString.isDecoupledFromAPI === 'true'
   let decoupleCallbacks = {}
   if (queryParamToValueString.decoupleResponse === 'success') {
     const successResponse = new Promise((resolve) =>

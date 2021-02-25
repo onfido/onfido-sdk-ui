@@ -344,7 +344,7 @@ export const documentScenarios = async (lang) => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&useUploader=true&useDecoupleCallbacks=true&decoupleResponse=error`
+          `?language=${lang}&useUploader=true&isDecoupledFromAPI=true&decoupleResponse=error`
         )
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(

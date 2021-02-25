@@ -90,8 +90,8 @@ export const showCobranding = (
   payload,
 })
 
-export const useDecoupleCallbacks = (payload: boolean): GlobalActions => ({
-  type: constants.USE_SUBMIT_CALLBACKS,
+export const setDecoupleFromAPI = (payload: boolean): GlobalActions => ({
+  type: constants.SET_DECOUPLE_FROM_API,
   payload,
 })
 
