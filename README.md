@@ -276,7 +276,7 @@ onfidoOut.tearDown()
 
 ## Customising the SDK
 
-A number of options are available to allow you to customise the SDK:
+A number of options are available to allow you to customize the SDK:
 
 - **`token {String} required`**
 
@@ -336,7 +336,7 @@ A number of options are available to allow you to customise the SDK:
 
 - **`language {String || Object} optional`**
 
-  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
+  The SDK language can be customized by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
   To leverage one of these languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
@@ -349,7 +349,7 @@ A number of options are available to allow you to customise the SDK:
   The object should include the following keys:
 
   - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-    You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+    You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
     The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English, Spanish, French and German.
 
   - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
@@ -369,7 +369,7 @@ A number of options are available to allow you to customise the SDK:
 
 - **`smsNumberCountryCode {String} optional`**
 
-  The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+  The default country for the SMS number input can be customized by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
 
   Example:
 
@@ -420,7 +420,7 @@ A number of options are available to allow you to customise the SDK:
   Example configuration with the different CSS colour value variations that can be used:
 
   ```javascript
-  customUI: [{
+  customUI: {
       "colorContentButtonPrimaryText": "#333",
       "colorBackgroundButtonPrimary": "#ffb997",
       "colorBorderButtonPrimary": "#B23A48",
@@ -445,7 +445,7 @@ A number of options are available to allow you to customise the SDK:
   Example configuration:
 
   ```javascript
-  customUI: [{
+  customUI: {
       borderRadiusButton: "50px",
       buttonGroupStacked: true
     }
@@ -489,7 +489,7 @@ A number of options are available to allow you to customise the SDK:
   ]
   ```
 
-  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customised.
+  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customized.
 
   The SDK can also be used to capture Proof of Address documents. This can be achieved by using the `poa` step.
 
