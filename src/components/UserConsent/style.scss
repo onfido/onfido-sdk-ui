@@ -6,7 +6,7 @@
   border-style: none;
 
   h1 {
-    color: $color-title-text;
+    color: var(--osdk-color-content-title);
     font-weight: 600;
     font-size: $font-size-x-large;
     line-height: 1.34;
