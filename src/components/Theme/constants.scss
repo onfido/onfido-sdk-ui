@@ -160,3 +160,13 @@ $color-camera-button-active: $color-primary-button-active;
     margin: 0 $smaller-text-margin;
   }
 }
+
+%global-padding {
+  padding: 0 $large-text-margin;
+  @media (--small-viewport) {
+    padding: 0 $small-text-margin;
+  }
+  @media (--smaller-viewport) {
+    padding: 0 $smaller-text-margin;
+  }
+}
