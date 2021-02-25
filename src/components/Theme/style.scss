@@ -23,7 +23,7 @@
       }
 
       &:disabled {
-        background-color: var(--ods-color-neutral-300);
+        background-color: rgba(var(--ods-color-neutral-300));
         border-color: transparent;
       }
     }
