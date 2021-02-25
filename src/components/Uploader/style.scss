@@ -50,7 +50,13 @@
   @extend %overflow-drop-shadow;
 }
 
-.poaBtnContainer {
+.poaBtn {
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.poaBtn:first-child {
   margin-right: 16 * $unit;
   @media (--small-viewport) {
     margin-right: 8 * $unit;
