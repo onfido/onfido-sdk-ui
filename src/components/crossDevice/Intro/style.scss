@@ -34,7 +34,7 @@
   &::before {
     content: '';
     display: block;
-    background-color: var(--osdk-color-content-body);
+    background-color: $color-icons-connector-line;
     width: 2 * $unit;
     height: 100%;
     position: absolute;
