@@ -393,7 +393,12 @@ A number of options are available to allow you to customize the SDK:
 
 - **`customUI {Object} optional`**
 
-  If you would like to customise the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values) for the following UI element options:
+  If you would like to customise the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values - see example configurations below) for the following UI element options:
+
+  | Modal (SDK main container)    | Description                          |
+  | ----------------------------- | ------------------------------------ |
+  | `colorBackgroundSurfaceModal` | Change background color of SDK modal |
+  | `colorBorderSurfaceModal`     | Change color of SDK modal border     |
 
   | Primary Buttons                      | Description                                            |
   | ------------------------------------ | ------------------------------------------------------ |

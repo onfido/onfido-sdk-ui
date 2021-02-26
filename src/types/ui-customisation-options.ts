@@ -1,4 +1,8 @@
 export type UICustomizationOptions = {
+  // Modal (SDK Container)
+  colorBackgroundSurfaceModal?: string
+  colorBorderSurfaceModal?: string
+
   // Primary Button
   colorContentButtonPrimaryText?: string
   colorBackgroundButtonPrimary?: string

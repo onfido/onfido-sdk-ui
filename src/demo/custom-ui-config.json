@@ -1,5 +1,6 @@
 {
-  "colorContentButtonPrimaryText": "#333",
+  "colorBorderSurfaceModal": "rgb(3 3 3)",
+  "colorContentButtonPrimaryText": "#000",
   "colorBackgroundButtonPrimary": "#ffb997",
   "colorBorderButtonPrimary": "#b23a48",
   "colorBackgroundButtonPrimaryHover": "#f67e7d",
