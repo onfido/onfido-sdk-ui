@@ -87,12 +87,10 @@ $selector-button-box-shadow: 0 0 0 2px;
 }
 
 .tag {
-  /* .tag class used by PoA documents only */
+  /* .tag class used for PoA document type buttons, i.e. "e-statements accepted" text */
   display: inline-block;
-  background-color: var(--color-background);
   font-size: var(--font-size-small);
   padding: 0 12 * $unit-small;
-  border-radius: 12 * $unit-small;
   margin-left: -12 * $unit-small;
   margin-top: 2 * $unit-small;
 }

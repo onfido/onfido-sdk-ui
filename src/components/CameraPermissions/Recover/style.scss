@@ -2,10 +2,7 @@
 
 .instructions {
   font-size: var(--font-size-small);
-
   text-align: left;
-  border-radius: 3 * $unit-small;
-  border: 1px solid rgba(var(--ods-color-neutral-050));
   margin: 30 * $unit-small 0 24 * $unit-small;
   position: relative;
   padding: 24 * $unit-small 24 * $unit-small 12 * $unit-small;
