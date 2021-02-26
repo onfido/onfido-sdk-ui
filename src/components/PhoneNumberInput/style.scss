@@ -1,7 +1,8 @@
 @import '../Theme/constants';
 
+/* "Loading" phone number input placeholder text */
 .loading {
-  color: $color-tips-pill;
+  color: rgba(var(--ods-color-content-placeholder));
   font-size: var(--font-size-large);
   line-height: 1.6;
   margin: 8 * $unit-large;
