@@ -18,5 +18,7 @@
   "colorBorderLinkUnderline": "#b23a48",
   "colorContentLinkTextHover": "#5c374c",
   "colorBackgroundLinkHover": "rgb(255 238 170 / 92%)",
-  "colorBackgroundLinkActive": "#b23a48"
+  "colorBackgroundLinkActive": "#b23a48",
+  "colorBackgroundInfoPill": "#ffb997",
+  "colorContentInfoPill": "#333"
 }

@@ -45,4 +45,8 @@ export type UICustomizationOptions = {
   colorBackgroundAlertError?: string
   colorBackgroundAlertErrorLinkHover?: string
   colorBackgroundAlertErrorLinkActive?: string
+
+  // Header/Highlight Pills
+  colorBackgroundInfoPill?: string
+  colorContentInfoPill?: string
 }
