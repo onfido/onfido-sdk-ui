@@ -247,34 +247,43 @@ class Confirm extends Component {
     const formDataPayload = this.prepareCallbackPayload(data, callbackName)
 
     sendEvent(`Triggering ${callbackName} callback`)
-    enterpriseFeatures[callbackName](formDataPayload)
-      .then(({ continueWithOnfidoSubmission, onfidoSuccessResponse }) => {
-        if (onfidoSuccessResponse) {
-          sendEvent(`Success response from ${callbackName}`)
-          this.onApiSuccess(onfidoSuccessResponse)
-        } else if (continueWithOnfidoSubmission) {
-          this.startTime = performance.now()
-          sendEvent('Starting upload after callback', {
-            method,
-          })
-          if (callbackName === CALLBACK_TYPES.document)
-            uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
-          else if (callbackName === CALLBACK_TYPES.video)
-            uploadLiveVideo(
-              data,
-              url,
-              token,
-              this.onApiSuccess,
-              this.onApiError
-            )
-          else if (callbackName === CALLBACK_TYPES.selfie)
-            this.handleSelfieUpload(data, token)
+    try {
+      const {
+        continueWithOnfidoSubmission,
+        onfidoSuccessResponse,
+      } = await enterpriseFeatures[callbackName](formDataPayload)
+
+      if (onfidoSuccessResponse) {
+        sendEvent(`Success response from ${callbackName}`)
+        this.onApiSuccess(onfidoSuccessResponse)
+        return
+      }
+
+      if (continueWithOnfidoSubmission) {
+        this.startTime = performance.now()
+        sendEvent('Starting upload after callback', {
+          method,
+        })
+
+        if (callbackName === CALLBACK_TYPES.document) {
+          uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+          return
         }
-      })
-      .catch((errorResponse) => {
-        sendEvent(`Error response from ${callbackName}`)
-        formatError(errorResponse, this.onApiError)
-      })
+
+        if (callbackName === CALLBACK_TYPES.video) {
+          uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
+          return
+        }
+
+        if (callbackName === CALLBACK_TYPES.selfie) {
+          this.handleSelfieUpload(data, token)
+          return
+        }
+      }
+    } catch (errorResponse) {
+      sendEvent(`Error response from ${callbackName}`)
+      formatError(errorResponse, this.onApiError)
+    }
   }
 
   prepareCallbackPayload = (data, callbackName) => {
