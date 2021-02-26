@@ -86,8 +86,8 @@ $selector-button-box-shadow: 0 0 0 2px;
   margin-bottom: 6 * $unit-small;
 }
 
+/* .tag class used for PoA document type buttons, i.e. "e-statements accepted" text */
 .tag {
-  /* .tag class used for PoA document type buttons, i.e. "e-statements accepted" text */
   display: inline-block;
   font-size: var(--font-size-small);
   padding: 0 12 * $unit-small;
