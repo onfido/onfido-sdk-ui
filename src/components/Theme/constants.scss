@@ -48,7 +48,6 @@ $color-white: rgba(var(--ods-color-neutral-white));
 $color-black: rgba(var(--ods-color-neutral-black));
 
 $color-icon-temporary: rgba(var(--ods-color-neutral-300));
-$color-border: rgba(var(--ods-color-neutral-600));
 $color-divider: rgba(var(--ods-color-neutral-400));
 $color-body-text: rgba(var(--ods-color-neutral-800));
 $color-title-text: rgba(var(--ods-color-neutral-800));
@@ -97,7 +96,7 @@ $sm-btn-width-sm-screen: 160 * $unit-small;
 
 %overflow-drop-shadow {
   @media (--shorter-viewport) {
-    background-color: var(--color-background);
+    background-color: rgba(var(--ods-color-neutral-050));
     bottom: 0;
     box-shadow: 0 -5px 10px -5px #7b7b7b;
     left: -1em;
