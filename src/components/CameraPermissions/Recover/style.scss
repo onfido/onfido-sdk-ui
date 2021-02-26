@@ -19,12 +19,9 @@
   margin: 0 0 8 * $unit-small;
 }
 
+/* Camera Permission "Recovery" header pill, has subtle differences to the Theme header pill */
 .recovery {
-  /* TODO: CX-5306 - SDK Customisation - This is the "Recovery" header pill */
-  color: $color-white; // Header pill text colour
-  background: var(--color-primary); // Header pill background colour
-  border-radius: 14 * $unit-small;
-  font-weight: 600;
+  @include header-highlight-pill(14);
   left: 20 * $unit-small;
   line-height: 24 * $unit-small;
   padding: 0 15 * $unit-small;

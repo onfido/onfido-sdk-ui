@@ -234,12 +234,7 @@ $logo-height: 32 * $unit;
 
 /* Header Pill element in Camera Permission Recovery, Cross Device Connected screens */
 .header {
-  border-radius: 10 * $unit-small;
-  background-color: var(--osdk-color-background-info-pill);
-  color: var(--osdk-color-content-info-pill);
-  font-family: inherit;
-  font-size: var(--font-size-small);
-  font-weight: 600;
+  @include header-highlight-pill(10);
   position: absolute;
   margin-top: -10 * $unit-small;
   margin-left: 10 * $unit-small;
