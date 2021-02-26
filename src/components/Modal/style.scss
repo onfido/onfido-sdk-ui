@@ -58,12 +58,13 @@ $modal-animation-duration: 200ms;
   height: 600 * $unit;
   text-align: center;
   max-height: calc(100% + #{4 * $unit});
+  background-color: var(--osdk-color-background-surface-modal);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--osdk-color-border-surface-modal);
   border-radius: 8 * $unit;
-  border: 1px solid $color-border;
 
   font-family: var(--font-family-body) !important;
-  background-color: var(--color-background);
-
   color: $color-body-text;
   font-weight: var(--font-weight-body);
   line-height: 1.5;

@@ -40,9 +40,11 @@
   --font-weight-subtitle: 600;
   --font-weight-body: 500;
 
-  /* General UI element background color settings */
+  /* Modal (SDK Container) */
+  --osdk-color-background-surface-modal: rgba(
+    var(--ods-color-background-surface)
+  );
   --osdk-color-border-surface-modal: rgba(var(--ods-color-neutral-600));
-  --color-background: rgba(var(--ods-color-neutral-050));
 
   /* Warning/Info Message */
   --osdk-color-background-alert-info: rgba(var(--ods-color-primary-500));
