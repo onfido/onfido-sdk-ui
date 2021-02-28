@@ -241,7 +241,7 @@ class Confirm extends Component {
     } else this.handleSelfieUpload(capture, token)
   }
 
-  onSubmitCallback = (data, callbackName) => {
+  onSubmitCallback = async (data, callbackName) => {
     const { enterpriseFeatures, method, token, urls } = this.props
     const url = urls.onfido_api_url
     const formDataPayload = this.prepareCallbackPayload(data, callbackName)
