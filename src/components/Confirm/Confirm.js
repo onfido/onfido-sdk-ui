@@ -261,8 +261,9 @@ class Confirm extends Component {
 
       if (continueWithOnfidoSubmission) {
         this.startTime = performance.now()
-        sendEvent('Starting upload after callback', {
+        sendEvent('Starting upload', {
           method,
+          uploadAfterNetworkDecouple: true,
         })
 
         if (callbackName === CALLBACK_TYPES.document) {
