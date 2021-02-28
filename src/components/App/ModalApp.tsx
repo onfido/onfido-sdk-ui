@@ -197,10 +197,11 @@ class ModalApp extends Component<Props> {
       )
     }
 
-    const isDecoupledFromAPI = options.enterpriseFeatures?.decouple
+    const isDecoupledFromAPI =
+      options.enterpriseFeatures?.useCustomizedApiRequests
     if (isDecoupledFromAPI) {
       this.setDecoupleFromAPIIfClientHasFeature(
-        validEnterpriseFeatures.decouple
+        validEnterpriseFeatures.useCustomizedApiRequests
       )
     }
   }

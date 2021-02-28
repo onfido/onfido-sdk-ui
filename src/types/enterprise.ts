@@ -16,7 +16,7 @@ export type EnterpriseCallbackResponse = {
 export type EnterpriseFeatures = {
   hideOnfidoLogo?: boolean
   cobrand?: EnterpriseCobranding
-  decouple?: boolean
+  useCustomizedApiRequests?: boolean
   onSubmitDocument?: (
     data: FormData,
     token: string

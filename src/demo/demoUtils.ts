@@ -40,7 +40,7 @@ export type QueryParams = {
   useMultipleSelfieCapture?: StringifiedBoolean
   useUploader?: StringifiedBoolean
   useWebcam?: StringifiedBoolean
-  isDecoupledFromAPI?: StringifiedBoolean
+  useCustomizedApiRequests?: StringifiedBoolean
   decoupleResponse?: DecoupleResponseOptions
 }
 
@@ -185,7 +185,8 @@ export const getInitSdkOptions = (): SdkOptions => {
     queryParamToValueString.showCobrand === 'true'
       ? { text: 'Planet Express, Incorporated' }
       : undefined
-  const decouple = queryParamToValueString.isDecoupledFromAPI === 'true'
+  const useCustomizedApiRequests =
+    queryParamToValueString.useCustomizedApiRequests === 'true'
   let decoupleCallbacks = {}
   if (queryParamToValueString.decoupleResponse === 'success') {
     const successResponse = Promise.resolve({
@@ -238,7 +239,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     enterpriseFeatures: {
       hideOnfidoLogo,
       cobrand,
-      decouple,
+      useCustomizedApiRequests,
       ...decoupleCallbacks,
     },
     ...smsNumberCountryCode,
