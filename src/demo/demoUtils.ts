@@ -188,38 +188,34 @@ export const getInitSdkOptions = (): SdkOptions => {
   const decouple = queryParamToValueString.isDecoupledFromAPI === 'true'
   let decoupleCallbacks = {}
   if (queryParamToValueString.decoupleResponse === 'success') {
-    const successResponse = new Promise((resolve) =>
-      resolve({
-        onfidoSuccessResponse: {
-          id: '123-456-789',
-        },
-      })
-    )
+    const successResponse = Promise.resolve({
+      onfidoSuccessResponse: {
+        id: '123-456-789',
+      },
+    })
     decoupleCallbacks = {
       onSubmitDocument: () => successResponse,
       onSubmitSelfie: () => successResponse,
       onSubmitVideo: () => successResponse,
     }
   } else if (queryParamToValueString.decoupleResponse === 'error') {
-    const errorResponse = new Promise((_, reject) =>
-      reject({
-        status: 422,
-        response: {
+    const errorResponse = {
+      status: 422,
+      response: JSON.stringify({
+        error: {
           message: 'There was a validation error on this request',
           type: 'validation_error',
           fields: { detect_glare: ['glare found in image'] },
         },
-      })
-    )
+      }),
+    }
     decoupleCallbacks = {
-      onSubmitDocument: () => errorResponse,
-      onSubmitSelfie: () => errorResponse,
-      onSubmitVideo: () => errorResponse,
+      onSubmitDocument: () => Promise.reject(errorResponse),
+      onSubmitSelfie: () => Promise.reject(errorResponse),
+      onSubmitVideo: () => Promise.reject(errorResponse),
     }
   } else if (queryParamToValueString.decoupleResponse === 'onfido') {
-    const response = new Promise((resolve) =>
-      resolve({ continueWithOnfidoUpload: true })
-    )
+    const response = Promise.resolve({ continueWithOnfidoSubmission: true })
     decoupleCallbacks = {
       onSubmitDocument: () => response,
       onSubmitSelfie: () => response,
