@@ -18,15 +18,12 @@ export type EnterpriseFeatures = {
   cobrand?: EnterpriseCobranding
   useCustomizedApiRequests?: boolean
   onSubmitDocument?: (
-    data: FormData,
-    token: string
+    data: FormData
   ) => Promise<EnterpriseCallbackResponse>
   onSubmitSelfie?: (
-    data: FormData,
-    token: string
+    data: FormData
   ) => Promise<EnterpriseCallbackResponse>
   onSubmitVideo?: (
-    data: FormData,
-    token: string
+    data: FormData
   ) => Promise<EnterpriseCallbackResponse>
 }
