@@ -393,7 +393,7 @@ A number of options are available to allow you to customize the SDK:
 
 - **`customUI {Object} optional`**
 
-  If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values) for the following options:
+  If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA color values, border radius values) for the following options:
 
   | Typography options     | Description                                    |
   | ---------------------- | ---------------------------------------------- |
@@ -406,9 +406,9 @@ A number of options are available to allow you to customize the SDK:
   | `fontWeightTitle`      | Change font weight of the SDK screen titles    |
   | `fontWeightSubtitle`   | Change font weight of the SDK screen subtitles |
   | `fontWeightBody`       | Change font weight of the SDK screen content   |
-  | `colorContentTitle`    | Change text colour of the SDK screen titles    |
-  | `colorContentSubtitle` | Change text colour of the SDK screen subtitles |
-  | `colorContentBody`     | Change text colour of the SDK screen content   |
+  | `colorContentTitle`    | Change text color of the SDK screen titles     |
+  | `colorContentSubtitle` | Change text color of the SDK screen subtitles  |
+  | `colorContentBody`     | Change text color of the SDK screen content    |
 
   Example configuration with the different CSS font related values that can be used:
 
@@ -443,7 +443,7 @@ A number of options are available to allow you to customize the SDK:
   | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
   | `colorBorderDocTypeButtonActive` | Change color of Document Type Button border on click/tap |
 
-  Example configuration with the different CSS colour value variations that can be used:
+  Example configuration with the different CSS color value variations that can be used:
 
   ```javascript
   customUI: {
@@ -890,7 +890,7 @@ Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-a
 
 ### Note
 
-If you are making your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible colour contrast ratios and dyslexic friendly fonts.
+If you are making your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible color contrast ratios and dyslexic friendly fonts.
 
 ## TypeScript
 
