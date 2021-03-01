@@ -11,7 +11,7 @@ export type UICustomizationOptions = {
   fontWeightSubtitle?: string | number
   colorContentSubtitle?: string
 
-  // Body Fonts
+  // Body Font
   fontFamilyBody?: string
   fontSizeBody?: string
   fontWeightBody?: string | number
