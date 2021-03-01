@@ -67,21 +67,22 @@ class Face extends Component {
   handleFileSelected = (file) =>
     validateFile(file, this.handleUpload, this.handleError)
 
-  renderUploadFallback = (text, type = 'warning') => (
-    <CustomFileInput
-   const INPUT_CLASS_MAPPER = {
-     error: 'errorFallbackButton',
-     warning: 'warningFallbackButton',
-   }
-   ...
-      className={theme[type]}
-      onChange={this.handleFileSelected}
-      accept="image/*"
-      capture="user"
-    >
-      {text}
-    </CustomFileInput>
-  )
+  renderUploadFallback = (text, type = 'warning') => {
+    const INPUT_CLASS_MAPPER = {
+      error: 'errorFallbackButton',
+      warning: 'warningFallbackButton',
+    }
+    return (
+      <CustomFileInput
+        className={INPUT_CLASS_MAPPER[type]}
+        onChange={this.handleFileSelected}
+        accept="image/*"
+        capture="user"
+      >
+        {text}
+      </CustomFileInput>
+    )
+  }
 
   renderCrossDeviceFallback = (text, callback) => (
     <FallbackButton
