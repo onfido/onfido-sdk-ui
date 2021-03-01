@@ -2,19 +2,19 @@ export type UICustomizationOptions = {
   // Title Font
   fontFamilyTitle?: string
   fontSizeTitle?: string
-  fontWeightTitle?: string | number
+  fontWeightTitle?: number
   colorContentTitle?: string
 
   // Subtitle Font
   fontFamilySubtitle?: string
   fontSizeSubtitle?: string
-  fontWeightSubtitle?: string | number
+  fontWeightSubtitle?: number
   colorContentSubtitle?: string
 
   // Body Font
   fontFamilyBody?: string
   fontSizeBody?: string
-  fontWeightBody?: string | number
+  fontWeightBody?: number
   colorContentBody?: string
 
   // Primary Button

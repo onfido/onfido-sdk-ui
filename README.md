@@ -395,20 +395,20 @@ A number of options are available to allow you to customize the SDK:
 
   If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA color values, border radius values) for the following options:
 
-  | Typography options     | Description                                    |
-  | ---------------------- | ---------------------------------------------- |
-  | `fontFamilyTitle`      | Change font family of the SDK screen titles    |
-  | `fontFamilySubtitle`   | Change font family of the SDK screen subtitles |
-  | `fontFamilyBody`       | Change font family of the SDK screen content   |
-  | `fontSizeTitle`        | Change font size of the SDK screen titles      |
-  | `fontSizeSubtitle`     | Change font size of the SDK screen subtitles   |
-  | `fontSizeBody`         | Change font size of the SDK screen content     |
-  | `fontWeightTitle`      | Change font weight of the SDK screen titles    |
-  | `fontWeightSubtitle`   | Change font weight of the SDK screen subtitles |
-  | `fontWeightBody`       | Change font weight of the SDK screen content   |
-  | `colorContentTitle`    | Change text color of the SDK screen titles     |
-  | `colorContentSubtitle` | Change text color of the SDK screen subtitles  |
-  | `colorContentBody`     | Change text color of the SDK screen content    |
+  | Typography options     | Description                                                                        |
+  | ---------------------- | ---------------------------------------------------------------------------------- |
+  | `fontFamilyTitle`      | Change font family of the SDK screen titles                                        |
+  | `fontFamilySubtitle`   | Change font family of the SDK screen subtitles                                     |
+  | `fontFamilyBody`       | Change font family of the SDK screen content                                       |
+  | `fontSizeTitle`        | Change font size of the SDK screen titles                                          |
+  | `fontSizeSubtitle`     | Change font size of the SDK screen subtitles                                       |
+  | `fontSizeBody`         | Change font size of the SDK screen content                                         |
+  | `fontWeightTitle`      | Change font weight of the SDK screen titles (number format only, e.g. 400, 600)    |
+  | `fontWeightSubtitle`   | Change font weight of the SDK screen subtitles (number format only, e.g. 400, 600) |
+  | `fontWeightBody`       | Change font weight of the SDK screen content (number format only, e.g. 400, 600)   |
+  | `colorContentTitle`    | Change text color of the SDK screen titles                                         |
+  | `colorContentSubtitle` | Change text color of the SDK screen subtitles                                      |
+  | `colorContentBody`     | Change text color of the SDK screen content                                        |
 
   Example configuration with the different CSS font related values that can be used:
 
