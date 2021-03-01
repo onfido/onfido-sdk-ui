@@ -244,7 +244,7 @@ $logo-height: 32 * $unit;
 .help {
   padding: 24 * $unit 16 * $unit 16 * $unit;
   text-align: left;
-  box-shadow: inset 0 0 0 1 * $unit $color-help-container;
+  box-shadow: inset 0 0 0 1 * $unit var(--osdk-color-border-surface-modal);
   border-radius: 8 * $unit;
   margin-bottom: 24 * $unit;
 }
