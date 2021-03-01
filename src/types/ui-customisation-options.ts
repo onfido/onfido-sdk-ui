@@ -5,7 +5,7 @@ export type UICustomizationOptions = {
   fontWeightTitle?: string | number
   colorContentTitle?: string
 
-  // Subtitle Fonts
+  // Subtitle Font
   fontFamilySubtitle?: string
   fontSizeSubtitle?: string
   fontWeightSubtitle?: string | number
