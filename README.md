@@ -477,6 +477,11 @@ A number of options are available to allow you to customize the SDK:
   | `colorContentAlertErrorLinkHover`  | Change error popup fallback Link background on hover     |
   | `colorContentAlertErrorLinkActive` | Change error popup fallback Link background on click/tap |
 
+  | Info Header/Highlight Pills | Description                                                                                      |
+  | --------------------------- | ------------------------------------------------------------------------------------------------ |
+  | `colorBackgroundInfoPill`   | Change background color of Cross Device, Camera/Mic Permissions screens' information header pill |
+  | `colorContentInfoPill`      | Change text color of Cross Device, Camera/Mic Permissions screens' information header pill       |
+
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required):
