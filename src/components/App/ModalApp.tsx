@@ -87,6 +87,12 @@ class ModalApp extends Component<Props> {
     Tracker.trackException(message)
   }
 
+  onInvalidCustomApiException = (callbackName: string) => {
+    const message = `CustomApiException: ${callbackName} must be a function that returns a promise for useCustomApiRequests to work properly.`
+    this.events.emit('error', { type: 'exception', message })
+    Tracker.trackException(message)
+  }
+
   trackOnComplete = () => Tracker.sendEvent('completed flow')
 
   bindEvents = (
@@ -238,6 +244,24 @@ class ModalApp extends Component<Props> {
     isValidEnterpriseFeature: boolean
   ) => {
     if (isValidEnterpriseFeature) {
+      const {
+        onSubmitDocument,
+        onSubmitSelfie,
+        onSubmitVideo,
+      } = this.props.options.enterpriseFeatures
+
+      if (typeof onSubmitDocument !== 'function') {
+        this.onInvalidCustomApiException('onSubmitDocument')
+      }
+
+      if (typeof onSubmitSelfie !== 'function') {
+        this.onInvalidCustomApiException('onSubmitSelfie')
+      }
+
+      if (typeof onSubmitVideo !== 'function') {
+        this.onInvalidCustomApiException('onSubmitVideo')
+      }
+
       this.props.actions.setDecoupleFromAPI(true)
     } else {
       this.props.actions.setDecoupleFromAPI(false)
