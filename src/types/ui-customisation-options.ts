@@ -1,5 +1,5 @@
 export type UICustomizationOptions = {
-  // Title Fonts
+  // Title Font
   fontFamilyTitle?: string
   fontSizeTitle?: string
   fontWeightTitle?: string | number
