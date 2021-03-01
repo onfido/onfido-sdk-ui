@@ -241,7 +241,7 @@ class ModalApp extends Component<Props> {
       this.props.actions.setDecoupleFromAPI(true)
     } else {
       this.props.actions.setDecoupleFromAPI(false)
-      this.onInvalidEnterpriseFeatureException('decouple')
+      this.onInvalidEnterpriseFeatureException('useCustomApiRequests')
     }
   }
 
