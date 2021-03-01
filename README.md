@@ -421,7 +421,7 @@ A number of options are available to allow you to customize the SDK:
   }
   ```
 
-  **Note:** If using a scalable font size unit like em/rem, the SDK's base font size is 16px. This is currently not customisable.
+  **Note:** If using a scalable font size unit like em/rem, the SDK's base font size is 16px. This is currently not customizable.
 
   | Primary Button options               | Description                                            |
   | ------------------------------------ | ------------------------------------------------------ |
