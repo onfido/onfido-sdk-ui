@@ -761,6 +761,7 @@ Below is the list of potential events currently being tracked by the hook:
 
 ```
 WELCOME - User reached the "Welcome" screen
+USER_CONSENT - User reached the "User Consent" screen
 DOCUMENT_TYPE_SELECT - User reached the "Choose document" screen where the type of document to upload can be selected
 ID_DOCUMENT_COUNTRY_SELECT - User reached the "Select issuing country" screen where the the appropriate issuing country can be searched for and selected if supported
 CROSS_DEVICE_INTRO - User reached the cross device "Continue on your phone" intro screen
