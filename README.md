@@ -464,7 +464,11 @@ A number of options are available to allow you to customize the SDK:
   | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
   | `colorBorderDocTypeButtonActive` | Change color of Document Type Button border on click/tap |
 
-  Example configuration with the different CSS color value variations that can be used:
+  | Icon Background option | Description                                                         |
+  | ---------------------- | ------------------------------------------------------------------- |
+  | `colorBackgroundIcon`  | Change color of the background circle of pictogram icons in the SDK |
+
+  Example configuration with the different CSS colour value variations that can be used:
 
   ```javascript
   customUI: {
