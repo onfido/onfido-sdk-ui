@@ -92,7 +92,7 @@ $_sdk-font-size: var(--font-size-small);
 $_sdk-line-height: 18 * $unit-small;
 $_sdk-text-color: $color-body-text;
 
-$_sdk-border-style: 1px solid rgba(var(--ods-color-border-input));
+$_sdk-input-border-style: 1px solid rgba(var(--ods-color-border-input));
 $_sdk-input-horizontal-padding: 8 * $unit-small;
 $_sdk-input-vertical-padding: 12 * $unit-small;
 $_sdk-input-icon-padding: 34 * $unit-small;
@@ -120,7 +120,7 @@ $_sdk-option-border-bottom: 0;
 .custom__hint,
 .custom__input {
   height: 100%;
-  border: $_sdk-border-style;
+  border: $_sdk-input-border-style;
   border-radius: 4 * $unit;
   box-sizing: border-box;
   margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
@@ -161,7 +161,7 @@ $_sdk-option-border-bottom: 0;
 
 .custom__menu {
   background-color: #fff;
-  border: $_sdk-border-style;
+  border: $_sdk-input-border-style;
   border-top: 0;
   color: $_sdk-text-color;
   margin: 0;
