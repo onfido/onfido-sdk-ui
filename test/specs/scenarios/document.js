@@ -352,7 +352,14 @@ export const documentScenarios = async (lang) => {
           confirm,
           'identity_card_with_glare.jpg'
         )
-        confirm.verifyImageQualityMessage(copy, 'glare')
+        confirm.verifyImageQualityMessage(copy, 'glare', 'error')
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_glare.jpg'
+        )
+        confirm.verifyImageQualityMessage(copy, 'glare', 'error')
       })
     }
   )
