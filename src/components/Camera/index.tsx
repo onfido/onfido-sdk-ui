@@ -66,7 +66,8 @@ const Camera: FunctionComponent<Props> = ({
           className={style.video}
           facingMode={facing}
           height={idealCameraHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
-          {...{ fallbackHeight, onFailure, onUserMedia, ref: webcamRef }}
+          fallbackHeight={fallbackHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
+          {...{ onFailure, onUserMedia, ref: webcamRef }}
         />
       </div>
       <div className={style.actions}>
