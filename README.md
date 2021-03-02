@@ -258,6 +258,20 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
   }
   ```
 
+- **`onUserExit {Function} optional`**
+
+  Callback that fires when the user abandons the flow without completing it. The callback returns a string with the reason for leaving. When the user exits the flow by declining the consent prompt the value returned will be `'USER_CONSENT_DENIED'`.
+
+  ```js
+  Onfido.init({
+    token: 'your-jwt-token',
+    containerId: 'onfido-mount',
+    onUserExit: function (userExitCode) {
+      console.log(userExitCode)
+    },
+  })
+  ```
+
 - **`onModalRequestClose {Function} optional`**
 
   Callback that fires when the user attempts to close the modal.
@@ -420,6 +434,16 @@ A number of options are available to allow you to customise the SDK:
   - `title` (string)
   - `descriptions` ([string])
   - `nextButton` (string)
+
+  ### userConsent
+
+  This step contains a screen to collect the user's privacy consent and is an optional step in the SDK flow. It contains the required consent language as well as links to Onfido's policies and terms of use. The user must click "Accept" to get past this step and continue with the flow. The content is available in English only, and is not translatable.
+
+  Note that this step does not automatically inform Onfido that the user has given their consent. At the end of the SDK flow, you still need to set the API parameter `privacy_notices_read_consent_given` outside of the SDK flow when [creating a check](#creating-checks).
+
+  If you choose to disable this step, you must incorporate the required consent language and links to Onfido's policies and terms of use into your own application's flow before your user starts interacting with the Onfido SDK.
+
+  For more information about this step, and how to collect user consent, please visit [onfido-privacy-notices-and-consent](http://developers.onfido.com/guide/onfido-privacy-notices-and-consent).
 
   ### document
 

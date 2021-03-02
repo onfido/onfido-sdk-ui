@@ -30,6 +30,7 @@ export type TrackedEventNames =
 
 export type UserAnalyticsEventNames =
   | 'WELCOME'
+  | 'USER_CONSENT'
   | 'DOCUMENT_CAPTURE_FRONT'
   | 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'
   | 'DOCUMENT_CAPTURE_BACK'

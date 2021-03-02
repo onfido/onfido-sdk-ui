@@ -1,30 +1,67 @@
 import ReactModal from 'react-modal'
-import { h, FunctionComponent, ComponentChildren } from 'preact'
+import { h, FunctionComponent } from 'preact'
+import { useContext } from 'preact/compat'
+import { LocaleContext } from '~locales'
 import classNames from 'classnames'
 import { getCSSMillisecsValue } from '~utils'
 import style from './style.scss'
 import styleConstants from '../Theme/constants.scss'
 import theme from '../Theme/style.scss'
+import Button from '../Button'
 
 const MODAL_ANIMATION_DURATION = getCSSMillisecsValue(
   styleConstants.modal_animation_duration
 )
 
 type DeclineModalProps = {
-  children: ComponentChildren
   isOpen: boolean
-  onRequestClose: void
+  onRequestClose(): void
   containerEl: HTMLElement
-  containerId: string
+  onDismissModal(): void
+  onAbandonFlow(): void
+}
+
+type ActionsProps = {
+  onAbandonFlow(): void
+  onDismissModal(): void
+}
+
+const Actions: FunctionComponent<ActionsProps> = ({
+  onAbandonFlow,
+  onDismissModal,
+}) => {
+  const { translate } = useContext(LocaleContext)
+  const primaryBtnCopy = translate('user_consent.prompt.button_primary')
+  const secondaryBtnCopy = translate('user_consent.prompt.button_secondary')
+  return (
+    <div className={classNames(style.actions, style.modalActions)}>
+      <Button
+        className={style.secondary}
+        variants={['secondary', 'sm']}
+        uiTestDataAttribute={'userConsentBtnSecondary'}
+        onClick={() => onAbandonFlow()}
+      >
+        {secondaryBtnCopy}
+      </Button>
+      <Button
+        variants={['primary', 'sm']}
+        uiTestDataAttribute={'userConsentBtnPrimary'}
+        onClick={() => onDismissModal()}
+      >
+        {primaryBtnCopy}
+      </Button>
+    </div>
+  )
 }
 
 const DeclineModal: FunctionComponent<DeclineModalProps> = ({
-  children,
   isOpen,
   onRequestClose,
   containerEl,
-  containerId,
+  onDismissModal,
+  onAbandonFlow,
 }: DeclineModalProps) => {
+  const { translate } = useContext(LocaleContext)
   return (
     <ReactModal
       isOpen={isOpen}
@@ -38,11 +75,15 @@ const DeclineModal: FunctionComponent<DeclineModalProps> = ({
       bodyOpenClassName={theme.modalBody}
       className={classNames(style.declineModalInner, theme.modalInner)}
       role={'dialog'}
-      shouldCloseOnOverlayClick={false}
+      shouldCloseOnOverlayClick={true}
       closeTimeoutMS={MODAL_ANIMATION_DURATION}
-      appElement={containerEl || document.getElementById(containerId)}
+      appElement={containerEl}
     >
-      <div className={style.declineChild}>{children}</div>
+      <div className={style.modalContent}>
+        <h2>{translate('user_consent.prompt.no_consent_title')}</h2>
+        <p>{translate('user_consent.prompt.no_consent_detail')}</p>
+        <Actions {...{ onAbandonFlow, onDismissModal }} />
+      </div>
     </ReactModal>
   )
 }

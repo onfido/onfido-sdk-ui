@@ -64,6 +64,8 @@ const SdkDemo: FunctionComponent<Props> = ({
         ? messagePort.postMessage({ type: 'SDK_COMPLETE', data })
         : console.log(data),
     onError: (error) => console.error('onError callback:', error),
+    onUserExit: (userExitCode) =>
+      console.log('onUserExit callback:', userExitCode),
     onModalRequestClose: () => setIsModalOpen(false),
     ...(sdkOptions || {}),
   }

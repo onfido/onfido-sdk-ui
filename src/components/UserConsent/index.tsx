@@ -1,5 +1,10 @@
 import { h, FunctionComponent, Fragment } from 'preact'
-import { useEffect, useState, useContext } from 'preact/compat'
+import {
+  useEffect,
+  useState,
+  useContext,
+  unmountComponentAtNode,
+} from 'preact/compat'
 import { LocaleContext } from '~locales'
 import { sanitize } from 'dompurify'
 import { trackComponent } from '../../Tracker'
@@ -46,13 +51,26 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
   nextStep,
   containerEl,
   containerId,
+  events,
 }) => {
   const [consentHtml, setConsentHtml] = useState('')
-  const [isModalOpen, setModalState] = useState(false)
+  const [isModalOpen, setModalToOpen] = useState(false)
+  const sdkContainer = containerEl || document.getElementById(containerId)
 
   const actions = (
-    <Actions onAccept={nextStep} onDecline={() => setModalState(true)} />
+    <Actions
+      onAccept={nextStep}
+      onDecline={() => {
+        setModalToOpen(true)
+      }}
+    />
   )
+
+  const triggerUserExit = () => {
+    setModalToOpen(false)
+    events.emit('userExit', 'USER_CONSENT_DENIED')
+    unmountComponentAtNode(sdkContainer)
+  }
 
   useEffect(() => {
     fetch(process.env.USER_CONSENT_URL)
@@ -65,11 +83,11 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
       {isModalOpen && (
         <DeclineModal
           isOpen={true}
-          onRequestClose={() => {}}
-          {...{ containerId, containerEl }}
-        >
-          Placeholder
-        </DeclineModal>
+          onRequestClose={() => setModalToOpen(false)}
+          onDismissModal={() => setModalToOpen(false)}
+          onAbandonFlow={triggerUserExit}
+          containerEl={sdkContainer}
+        />
       )}
       <ScreenLayout actions={actions}>
         <div
