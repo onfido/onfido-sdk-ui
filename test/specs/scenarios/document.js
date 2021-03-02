@@ -339,7 +339,7 @@ export const documentScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should be able to retry document upload when decoupled and receiving an error response', async () => {
+      it('should be able to retry document upload when using customized API requests feature and receiving an error response from the callback', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -353,14 +353,6 @@ export const documentScenarios = async (lang) => {
           'identity_card_with_glare.jpg'
         )
         confirm.verifyImageQualityMessage(copy, 'glare')
-        confirm.clickRedoButton()
-        uploadFileAndClickConfirmButton(
-          passportUploadImageGuide,
-          confirm,
-          'passport.pdf'
-        )
-        uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
-        verificationComplete.verifyUIElements(copy)
       })
     }
   )

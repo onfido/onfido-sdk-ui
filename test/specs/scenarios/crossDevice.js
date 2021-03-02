@@ -422,7 +422,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.checkLogoIsHidden()
       })
 
-      it('should continue through full flow without problems when decoupled but still uploading media to API as normal', async () => {
+      it('should continue through full flow without problems when using customized API requests but still uploading media to API as normal', async () => {
         driver.get(
           `${baseUrl}&useCustomizedApiRequests=true&decoupleResponse=onfido`
         )
@@ -442,7 +442,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceSubmit.clickOnSubmitVerificationButton()
       })
 
-      it('should continue through full flow without problems when decoupled response includes success response', async () => {
+      it('should continue through full flow without problems when using customized API requests and success response is returned from callbacks', async () => {
         driver.get(
           `${baseUrl}&useCustomizedApiRequests=true&decoupleResponse=success`
         )
