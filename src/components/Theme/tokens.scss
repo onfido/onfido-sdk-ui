@@ -45,6 +45,9 @@
     var(--ods-color-background-surface)
   );
   --osdk-color-border-surface-modal: rgba(var(--ods-color-neutral-600));
+  --osdk-border-width-surface-modal: 1px;
+  --osdk-border-style-surface-modal: solid;
+  --osdk-border-radius-surface-modal: calc(8 * var(--unit));
 
   /* Warning/Info Message */
   --osdk-color-background-alert-info: rgba(var(--ods-color-primary-500));
