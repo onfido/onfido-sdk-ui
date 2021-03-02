@@ -54,3 +54,44 @@
     margin-right: 8 * $unit;
   }
 }
+
+/* Decline Modal */
+
+.declineModalInner {
+  font-size: 16px;
+
+  width: 448 * $unit;
+  height: 236 * $unit;
+  margin: auto;
+
+  text-align: center;
+  border-radius: 8 * $unit;
+  border: 1px solid $color-border;
+  background-color: $color-background;
+
+  font-family: $font-family !important;
+
+  color: $color-body-text;
+  font-weight: 500;
+  line-height: 1.5;
+
+  @media (--small-viewport) {
+    width: 100%;
+    margin: auto $small-text-margin;
+  }
+
+  @media (--smaller-viewport) {
+    width: 100%;
+    margin: auto $smaller-text-margin;
+  }
+  &,
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+.declineChild {
+  @extend %global-margin;
+}

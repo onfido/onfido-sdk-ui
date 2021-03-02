@@ -1,10 +1,11 @@
-import { h, FunctionComponent } from 'preact'
-import { useEffect, useState, useContext } from 'preact/hooks'
+import { h, FunctionComponent, Fragment } from 'preact'
+import { useEffect, useState, useContext } from 'preact/compat'
 import { LocaleContext } from '~locales'
 import { sanitize } from 'dompurify'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
 import Button from '../Button'
+import DeclineModal from './DeclineModal'
 import style from './style.scss'
 
 import type { StepComponentUserConsentProps } from '~types/routers'
@@ -43,10 +44,15 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
 
 const UserConsent: FunctionComponent<UserConsentProps> = ({
   nextStep,
-  previousStep,
+  containerEl,
+  containerId,
 }) => {
-  const actions = <Actions onAccept={nextStep} onDecline={previousStep} />
   const [consentHtml, setConsentHtml] = useState('')
+  const [isModalOpen, setModalState] = useState(false)
+
+  const actions = (
+    <Actions onAccept={nextStep} onDecline={() => setModalState(true)} />
+  )
 
   useEffect(() => {
     fetch(process.env.USER_CONSENT_URL)
@@ -55,15 +61,26 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
   }, [])
 
   return (
-    <ScreenLayout actions={actions}>
-      <div
-        className={style.consentFrame}
-        data-onfido-qa="userConsentFrameWrapper"
-        dangerouslySetInnerHTML={{
-          __html: sanitize(consentHtml, { ADD_ATTR: ['target', 'rel'] }),
-        }}
-      />
-    </ScreenLayout>
+    <Fragment>
+      {isModalOpen && (
+        <DeclineModal
+          isOpen={true}
+          onRequestClose={() => {}}
+          {...{ containerId, containerEl }}
+        >
+          Placeholder
+        </DeclineModal>
+      )}
+      <ScreenLayout actions={actions}>
+        <div
+          className={style.consentFrame}
+          data-onfido-qa="userConsentFrameWrapper"
+          dangerouslySetInnerHTML={{
+            __html: sanitize(consentHtml, { ADD_ATTR: ['target', 'rel'] }),
+          }}
+        />
+      </ScreenLayout>
+    </Fragment>
   )
 }
 export default trackComponent(UserConsent)

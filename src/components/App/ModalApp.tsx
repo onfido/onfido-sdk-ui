@@ -251,7 +251,12 @@ class ModalApp extends Component<Props> {
           shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
         >
           <Router
-            options={{ ...otherOptions, events: this.events }}
+            options={{
+              ...otherOptions,
+              containerId,
+              containerEl,
+              events: this.events,
+            }}
             {...otherProps}
           />
         </Modal>

@@ -2,6 +2,7 @@ export const USER_ANALYTICS_EVENT = 'userAnalyticsEvent'
 
 type MappedEventNames =
   | 'screen_welcome'
+  | 'screen_userConsent'
   | 'screen_document_front_capture_file_upload'
   | 'screen_document_front_confirmation'
   | 'screen_document_back_capture_file_upload'
