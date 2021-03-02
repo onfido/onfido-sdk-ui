@@ -84,8 +84,8 @@
   --color-primary-hover: rgba(var(--ods-color-primary-400));
   --color-primary-active: rgba(var(--ods-color-primary-600));
 
-  /* TODO: Icon background circle color */
-  --osdk-color-background-icon: grey;
+  /* Icon background circle color */
+  --osdk-color-background-icon: rgba(var(--ods-color-background-surface-alt));
 
   /* Primary Button customisations */
   --osdk-color-content-button-primary-text: rgba(
