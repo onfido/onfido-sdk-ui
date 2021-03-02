@@ -119,7 +119,7 @@
   background-size: 72 * $unit;
   background-position: 40% 50%;
   background-repeat: no-repeat;
-  background-color: $color-icon-temporary;
+  background-color: var(--osdk-color-background-icon);
   border-radius: 144 * $unit 144 * $unit;
   height: 144 * $unit;
   width: 144 * $unit;
@@ -161,7 +161,7 @@
   background-size: 100 * $unit;
   background-position: 50% 30%;
   background-repeat: no-repeat;
-  background-color: $color-icon-temporary;
+  background-color: var(--osdk-color-background-icon);
   border-radius: 144 * $unit 144 * $unit;
   height: 144 * $unit;
   width: 144 * $unit;
