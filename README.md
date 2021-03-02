@@ -197,7 +197,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 - Handle callbacks
 - Remove the SDK from the page
-- Customise the SDK
+- Customize the SDK
 - Create checks
 
 ## Handling callbacks
