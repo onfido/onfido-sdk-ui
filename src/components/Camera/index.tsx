@@ -20,7 +20,7 @@ import type {
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-const DEFAULT_CAMERA_HEIGHT_IN_PX = 720
+const DEFAULT_CAMERA_WIDTH_IN_PX = 1280
 
 type Props = CameraProps &
   WebcamProps &
@@ -65,8 +65,8 @@ const Camera: FunctionComponent<Props> = ({
           audio={audio}
           className={style.video}
           facingMode={facing}
-          height={idealCameraHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
-          fallbackHeight={fallbackHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
+          width={idealCameraHeight || DEFAULT_CAMERA_WIDTH_IN_PX}
+          fallbackWidth={fallbackHeight || DEFAULT_CAMERA_WIDTH_IN_PX}
           {...{ onFailure, onUserMedia, ref: webcamRef }}
         />
       </div>
