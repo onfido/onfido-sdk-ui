@@ -5,17 +5,14 @@ import Webcam from 'react-webcam-onfido'
 import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
 import { getInactiveError } from '~utils/inactiveError'
-import {
-  TitleLocale,
-  DOC_VIDEO_INSTRUCTIONS_MAPPING,
-} from '~utils/localesMapping'
+import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import { LocaleContext } from '~locales'
 import { DocumentOverlay } from '../Overlay'
 import VideoCapture from '../VideoCapture'
 import VideoLayer from './VideoLayer'
 import useCaptureStep from './useCaptureStep'
 
-import { TILT_MODE, CaptureSteps, CaptureVariants } from '~types/docVideo'
+import { TILT_MODE, CaptureVariants } from '~types/docVideo'
 import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type {
