@@ -1,18 +1,1 @@
-<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-  <g fill="none" fill-rule="evenodd">
-    <g transform="translate(12 4)">
-      <rect stroke="#2C3E4F" stroke-width="1.3333" fill="#FFF" x=".6667" y="4.6667" width="22.6667" height="38.6667" rx="2.6667"/>
-      <circle stroke="#283E4F" stroke-width=".6667" fill="#FFF" cx="12" cy="39" r="1.6667"/>
-      <rect fill="#2C3E4F" x="7.3333" y="7.3333" width="9.3333" height="1" rx=".5"/>
-      <g fill="#2C3E4F">
-        <path d="M25.5 5h2.3333a.5.5 0 0 1 0 1H25.5a.5.5 0 1 1 0-1zM23.5.6667V3a.5.5 0 1 1-1 0V.6667a.5.5 0 0 1 1 0zM24.6869 3.0035l1.6499-1.65a.5.5 0 1 1 .7071.7071l-1.65 1.65a.5.5 0 1 1-.7071-.7071z"/>
-      </g>
-      <g transform="translate(2.6667 16)">
-        <rect stroke="#8B9094" stroke-width=".5" fill="#F3F3F4" x=".25" y=".25" width="18.1667" height="4.8333" rx=".6667"/>
-        <path d="M2 2.6667a.6667.6667 0 1 0 0-1.3334.6667.6667 0 0 0 0 1.3334z" fill="#353FF4"/>
-        <rect fill="#8B9094" x="3.6667" y="1.6667" width="10.3333" height="1" rx=".5"/>
-        <rect fill="#8B9094" x="3.6667" y="3.3333" width="13" height="1" rx=".5"/>
-      </g>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"  fill-rule="evenodd" xmlns:v="https://vecta.io/nano"><g fill="#fff"><rect stroke="#2c3e4f" stroke-width="1.333" x="12.667" y="8.667" width="22.667" height="38.667" rx="2.667"/><circle stroke="#283e4f" stroke-width=".667" cx="24" cy="43" r="1.667"/></g><g fill="#2c3e4f"><rect x="19.333" y="11.333" width="9.333" height="1" rx=".5"/><path d="M37.5 9h2.333a.5.5 0 1 1 0 1H37.5a.5.5 0 1 1 0-1zm-2-4.333V7a.5.5 0 1 1-1 0V4.667a.5.5 0 1 1 1 0zm1.187 2.337l1.65-1.65a.5.5 0 0 1 .838.223.5.5 0 0 1-.131.484l-1.65 1.65a.5.5 0 0 1-.838-.223.5.5 0 0 1 .131-.484z"/></g><rect stroke="#8b9094" stroke-width=".5" fill="#f3f3f4" x="14.917" y="20.25" width="18.167" height="4.833" rx=".667"/><path d="M16.667 22.667c.368 0 .667-.298.667-.667s-.298-.667-.667-.667S16 21.632 16 22s.298.667.667.667z" fill="#353ff4"/><g fill="#8b9094"><rect x="18.334" y="21.667" width="10.333" height="1" rx=".5"/><rect x="18.334" y="23.333" width="13" height="1" rx=".5"/></g></svg>
