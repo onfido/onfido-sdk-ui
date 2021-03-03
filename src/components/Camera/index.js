@@ -48,6 +48,7 @@ const CameraPure = ({
   translate,
   facing = 'user',
   docLiveCaptureFrame = false,
+  docAutoCaptureFrame = false,
   idealCameraHeight,
   buttonType,
   onButtonClick,
@@ -58,6 +59,7 @@ const CameraPure = ({
   <div
     className={classNames(style.camera, {
       [style.docLiveCaptureFrame]: docLiveCaptureFrame,
+      [style.docAutoCaptureFrame]: docAutoCaptureFrame,
     })}
   >
     {renderTitle}
