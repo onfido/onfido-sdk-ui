@@ -38,14 +38,14 @@ const Actions: FunctionComponent<ActionsProps> = ({
       <Button
         className={style.secondary}
         variants={['secondary', 'sm']}
-        uiTestDataAttribute={'userConsentBtnSecondary'}
+        uiTestDataAttribute={'userConsentDeclineModalBtnSecondary'}
         onClick={() => onAbandonFlow()}
       >
         {secondaryBtnCopy}
       </Button>
       <Button
         variants={['primary', 'sm']}
-        uiTestDataAttribute={'userConsentBtnPrimary'}
+        uiTestDataAttribute={'userConsentDeclineModalBtnPrimary'}
         onClick={() => onDismissModal()}
       >
         {primaryBtnCopy}
@@ -78,8 +78,12 @@ const DeclineModal: FunctionComponent<DeclineModalProps> = ({
       shouldCloseOnOverlayClick={true}
       closeTimeoutMS={MODAL_ANIMATION_DURATION}
       appElement={containerEl}
+      data-onfido-qa="userConsentDeclineModal"
     >
-      <div className={style.modalContent}>
+      <div
+        className={style.modalContent}
+        data-onfido-qa="userConsentDeclineModalContent"
+      >
         <h2>{translate('user_consent.prompt.no_consent_title')}</h2>
         <p>{translate('user_consent.prompt.no_consent_detail')}</p>
         <Actions {...{ onAbandonFlow, onDismissModal }} />
