@@ -34,6 +34,7 @@ const Camera: FunctionComponent<Props> = ({
   buttonType = 'photo',
   children,
   containerClassName,
+  docAutoCaptureFrame = false,
   docLiveCaptureFrame = false,
   facing = 'user',
   fallbackHeight,
@@ -52,6 +53,7 @@ const Camera: FunctionComponent<Props> = ({
   <div
     className={classNames(style.camera, {
       [style.docLiveCaptureFrame]: docLiveCaptureFrame,
+      [style.docAutoCaptureFrame]: docAutoCaptureFrame,
     })}
   >
     {renderTitle}
