@@ -48,6 +48,7 @@
 }
 
 .stageIcon {
+  @extend %icon-circle-background;
   background-size: contain;
   flex-shrink: 0;
   float: left;
