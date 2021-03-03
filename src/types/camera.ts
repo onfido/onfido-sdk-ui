@@ -12,6 +12,7 @@ export type CameraProps = {
   children?: h.JSX.Element | h.JSX.Element[]
   className?: string
   containerClassName?: string
+  docAutoCaptureFrame?: boolean
   docLiveCaptureFrame?: boolean
   facing?: VideoFacingModeEnum
   idealCameraHeight?: number
