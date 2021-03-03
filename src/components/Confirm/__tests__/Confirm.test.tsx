@@ -1,14 +1,19 @@
 import { h } from 'preact'
-import { mount } from 'enzyme'
+import { FunctionComponent } from 'react'
+import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
-import MockedReduxProvider from '~jest/MockedReduxProvider'
+import MockedReduxProvider, {
+  mockedReduxProps,
+} from '~jest/MockedReduxProvider'
 import {
   uploadDocument,
   uploadLiveVideo,
   sendMultiframeSelfie,
+  formatError,
 } from '~utils/onfidoApi'
 import Confirm from '../Confirm'
+import { ApiRawError } from '~types/api'
 
 jest.mock('../../utils')
 jest.mock('../../utils/objectUrl')
@@ -19,34 +24,20 @@ const defaultProps = {
     onfido_api_url: '',
   },
   capture: {
-    blob: new Blob(),
-    documentType: '',
-    variant: '',
     challengeData: {
       challenges: '',
       id: '',
       switchSeconds: 0,
     },
-    language: '',
-    sdkMetadata: '',
     snapshot: new Blob(),
   },
-  method: 'document',
-  side: '',
-  token: '',
-  poaDocumentType: '',
-  language: '',
-  imageQualityRetries: 0,
   isDecoupledFromAPI: true,
-  enterpriseFeatures: {},
-  triggerOnError: jest.fn(),
   resetSdkFocus: jest.fn(),
   actions: {
-    resetImageQualityRetries: jest.fn(),
-    setCaptureMetadata: jest.fn(),
+    ...mockedReduxProps.actions,
   },
-  nextStep: jest.fn(),
 }
+
 type MockedConfirmType = {
   method: string
   mockVariant: 'success' | 'error' | 'continue'
@@ -63,9 +54,9 @@ const ENTERPRISE_CALLBACKS_BY_VARIANT: Record<
     onSubmitVideo: () => onfidoSuccessResponse,
   },
   error: {
-    onSubmitDocument: () => onfidoErrorResponse,
-    onSubmitSelfie: () => onfidoErrorResponse,
-    onSubmitVideo: () => onfidoErrorResponse,
+    onSubmitDocument: () => Promise.reject(onfidoRawError),
+    onSubmitSelfie: () => Promise.reject(onfidoRawError),
+    onSubmitVideo: () => Promise.reject(onfidoRawError),
   },
   continue: {
     onSubmitDocument: () => continueWithOnfidoSubmission,
@@ -95,8 +86,7 @@ const MockedConfirm: FunctionComponent<MockedConfirmType> = ({
   )
 }
 
-const onfidoSuccessResponse = Promise.resolve({ onfidoSuccessResponse: {} })
-const onfidoErrorResponse = Promise.reject({
+const onfidoRawError: ApiRawError = {
   status: 422,
   response: JSON.stringify({
     error: {
@@ -105,7 +95,8 @@ const onfidoErrorResponse = Promise.reject({
       fields: { detect_glare: ['glare found in image'] },
     },
   }),
-})
+}
+const onfidoSuccessResponse = Promise.resolve({ onfidoSuccessResponse: {} })
 const continueWithOnfidoSubmission = Promise.resolve({
   continueWithOnfidoSubmission: true,
 })
@@ -131,27 +122,28 @@ const UPLOAD_TYPES = [
   },
 ]
 
+const mockedFormatError = formatError as jest.MockedFunction<typeof formatError>
+
 describe('Confirm', () => {
+  let wrapper: ReactWrapper
+  const runAllPromises = () => new Promise(setImmediate)
+
   describe('onSubmitCallback', () => {
     UPLOAD_TYPES.forEach(({ type, method, variant, uploadFunction }) => {
       describe(`for ${type}`, () => {
         afterEach(() => {
           jest.clearAllMocks()
-          props = defaultProps
         })
 
         describe('when response contains onfidoSuccessResponse', () => {
           beforeEach(() => {
-            props = {
-              ...defaultProps,
-              method,
-              capture: { ...defaultProps.capture, variant },
-              enterpriseFeatures: {
-                onSubmitDocument: () => onfidoSuccessResponse,
-                onSubmitSelfie: () => onfidoSuccessResponse,
-                onSubmitVideo: () => onfidoSuccessResponse,
-              },
-            }
+            wrapper = mount(
+              <MockedConfirm
+                method={method}
+                mockVariant="success"
+                variant={variant}
+              />
+            )
           })
 
           it('does not trigger the SDK to send the request', async () => {
@@ -159,14 +151,8 @@ describe('Confirm', () => {
               { [uploadFunction.name]: uploadFunction },
               uploadFunction.name
             )
-            const wrapper = mount(
-              <MockedReduxProvider>
-                <MockedLocalised>
-                  <Confirm {...props} />
-                </MockedLocalised>
-              </MockedReduxProvider>
-            )
             wrapper.find('.button-primary').simulate('click')
+            await runAllPromises()
 
             expect(spyUpload).not.toHaveBeenCalled()
           })
@@ -175,17 +161,11 @@ describe('Confirm', () => {
             // Spying on prop setCaptureMetadata called within onApiSuccess because we
             // can't directly spy on onApiSuccess when using arrow function for class property
             const spyOnApiSuccess = jest.spyOn(
-              props.actions,
+              defaultProps.actions,
               'setCaptureMetadata'
             )
-            const wrapper = mount(
-              <MockedReduxProvider>
-                <MockedLocalised>
-                  <Confirm {...props} />,
-                </MockedLocalised>
-              </MockedReduxProvider>
-            )
-            await wrapper.find('.button-primary').simulate('click')
+            wrapper.find('.button-primary').simulate('click')
+            await runAllPromises()
 
             expect(spyOnApiSuccess).toHaveBeenCalledTimes(1)
           })
@@ -193,16 +173,17 @@ describe('Confirm', () => {
 
         describe('when an errorResponse is caught', () => {
           beforeEach(() => {
-            props = {
-              ...defaultProps,
-              method,
-              capture: { ...defaultProps.capture, variant },
-              enterpriseFeatures: {
-                onSubmitDocument: () => onfidoErrorResponse,
-                onSubmitSelfie: () => onfidoErrorResponse,
-                onSubmitVideo: () => onfidoErrorResponse,
-              },
-            }
+            wrapper = mount(
+              <MockedConfirm
+                method={method}
+                mockVariant="error"
+                variant={variant}
+              />
+            )
+            mockedFormatError.mockImplementation(
+              ({ response, status }, onError) =>
+                onError({ status, response: JSON.parse(response) })
+            )
           })
 
           it('does not trigger the SDK to send the request', async () => {
@@ -210,28 +191,15 @@ describe('Confirm', () => {
               { [uploadFunction.name]: uploadFunction },
               uploadFunction.name
             )
-            const wrapper = mount(
-              <MockedReduxProvider>
-                <MockedLocalised>
-                  <Confirm {...props} />
-                </MockedLocalised>
-              </MockedReduxProvider>
-            )
-            await wrapper.find('.button-primary').simulate('click')
+            wrapper.find('.button-primary').simulate('click')
+            await runAllPromises()
 
             expect(spyUpload).not.toHaveBeenCalled()
           })
 
           it('correctly updates the state with the error', async () => {
-            const wrapper = mount(
-              <MockedReduxProvider>
-                <MockedLocalised>
-                  <Confirm {...props} />
-                </MockedLocalised>
-              </MockedReduxProvider>
-            )
-            await wrapper.find('.button-primary').simulate('click')
-            wrapper.update()
+            wrapper.find('.button-primary').simulate('click')
+            await runAllPromises()
             const errorState = wrapper.find('Confirm').state('error')
 
             expect(errorState).toEqual({
@@ -243,16 +211,13 @@ describe('Confirm', () => {
 
         describe('when response contains continueWithOnfidoSubmission: true', () => {
           beforeEach(() => {
-            props = {
-              ...defaultProps,
-              method,
-              capture: { ...defaultProps.capture, variant },
-              enterpriseFeatures: {
-                onSubmitDocument: () => continueWithOnfidoSubmission,
-                onSubmitSelfie: () => continueWithOnfidoSubmission,
-                onSubmitVideo: () => continueWithOnfidoSubmission,
-              },
-            }
+            wrapper = mount(
+              <MockedConfirm
+                method={method}
+                mockVariant="continue"
+                variant={variant}
+              />
+            )
           })
 
           it('triggers the SDK to send the request to Onfido', async () => {
@@ -260,14 +225,8 @@ describe('Confirm', () => {
               { [uploadFunction.name]: uploadFunction },
               uploadFunction.name
             )
-            const wrapper = mount(
-              <MockedReduxProvider>
-                <MockedLocalised>
-                  <Confirm {...props} />
-                </MockedLocalised>
-              </MockedReduxProvider>
-            )
-            await wrapper.find('.button-primary').simulate('click')
+            wrapper.find('.button-primary').simulate('click')
+            await runAllPromises()
 
             expect(spyUpload).toHaveBeenCalledTimes(1)
           })
