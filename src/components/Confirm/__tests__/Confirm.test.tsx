@@ -47,7 +47,53 @@ const defaultProps = {
   },
   nextStep: jest.fn(),
 }
-let props = defaultProps
+type MockedConfirmType = {
+  method: string
+  mockVariant: 'success' | 'error' | 'continue'
+  variant: string
+}
+
+const ENTERPRISE_CALLBACKS_BY_VARIANT: Record<
+  'success' | 'error' | 'continue',
+  unknown
+> = {
+  success: {
+    onSubmitDocument: () => onfidoSuccessResponse,
+    onSubmitSelfie: () => onfidoSuccessResponse,
+    onSubmitVideo: () => onfidoSuccessResponse,
+  },
+  error: {
+    onSubmitDocument: () => onfidoErrorResponse,
+    onSubmitSelfie: () => onfidoErrorResponse,
+    onSubmitVideo: () => onfidoErrorResponse,
+  },
+  continue: {
+    onSubmitDocument: () => continueWithOnfidoSubmission,
+    onSubmitSelfie: () => continueWithOnfidoSubmission,
+    onSubmitVideo: () => continueWithOnfidoSubmission,
+  },
+}
+
+const MockedConfirm: FunctionComponent<MockedConfirmType> = ({
+  method,
+  mockVariant,
+  variant,
+}) => {
+  const props = {
+    ...defaultProps,
+    method,
+    capture: { ...defaultProps.capture, variant },
+    enterpriseFeatures: ENTERPRISE_CALLBACKS_BY_VARIANT[mockVariant],
+  }
+
+  return (
+    <MockedReduxProvider>
+      <MockedLocalised>
+        <Confirm {...props} />
+      </MockedLocalised>
+    </MockedReduxProvider>
+  )
+}
 
 const onfidoSuccessResponse = Promise.resolve({ onfidoSuccessResponse: {} })
 const onfidoErrorResponse = Promise.reject({
@@ -120,7 +166,7 @@ describe('Confirm', () => {
                 </MockedLocalised>
               </MockedReduxProvider>
             )
-            await wrapper.find('.button-primary').simulate('click')
+            wrapper.find('.button-primary').simulate('click')
 
             expect(spyUpload).not.toHaveBeenCalled()
           })
