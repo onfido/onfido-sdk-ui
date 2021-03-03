@@ -443,7 +443,9 @@ A number of options are available to allow you to customise the SDK:
 
   If you choose to disable this step, you must incorporate the required consent language and links to Onfido's policies and terms of use into your own application's flow before your user starts interacting with the Onfido SDK.
 
-  For more information about this step, and how to collect user consent, please visit [onfido-privacy-notices-and-consent](http://developers.onfido.com/guide/onfido-privacy-notices-and-consent).
+  For more information about this step, and how to collect user consent, please visit the [Onfido Privacy Notices and Consent](http://developers.onfido.com/guide/onfido-privacy-notices-and-consent) page.
+
+  **Note**: The `userConsent` step must be used in conjunction with the `onUserExit` callback. See the [Handling Callbacks](#handling-callbacks) for more information.
 
   ### document
 
