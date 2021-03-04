@@ -24,6 +24,7 @@ import type {
   StepConfig,
   StepConfigDocument,
   DocumentTypes,
+  StepConfigFace,
 } from '~types/steps'
 import { setUICustomizations } from '../Theme/utils'
 
@@ -84,6 +85,12 @@ class ModalApp extends Component<Props> {
 
   onInvalidEnterpriseFeatureException = (feature: string) => {
     const message = `EnterpriseFeatureNotEnabledException: Enterprise feature ${feature} not enabled for this account.`
+    this.events.emit('error', { type: 'exception', message })
+    Tracker.trackException(message)
+  }
+
+  onInvalidCustomApiException = (callbackName: string) => {
+    const message = `CustomApiException: ${callbackName} must be a function that returns a promise for useCustomApiRequests to work properly.`
     this.events.emit('error', { type: 'exception', message })
     Tracker.trackException(message)
   }
@@ -202,6 +209,14 @@ class ModalApp extends Component<Props> {
         cobrandConfig
       )
     }
+
+    const isDecoupledFromAPI =
+      options.enterpriseFeatures?.useCustomizedApiRequests
+    if (isDecoupledFromAPI) {
+      this.setDecoupleFromAPIIfClientHasFeature(
+        validEnterpriseFeatures.useCustomizedApiRequests
+      )
+    }
   }
 
   setUrls = (token: string) => {
@@ -229,6 +244,41 @@ class ModalApp extends Component<Props> {
       this.props.actions.showCobranding(cobrandConfig)
     } else {
       this.onInvalidEnterpriseFeatureException('cobrand')
+    }
+  }
+
+  setDecoupleFromAPIIfClientHasFeature = (
+    isValidEnterpriseFeature: boolean
+  ) => {
+    if (isValidEnterpriseFeature) {
+      const {
+        onSubmitDocument,
+        onSubmitSelfie,
+        onSubmitVideo,
+      } = this.props.options.enterpriseFeatures
+
+      if (typeof onSubmitDocument !== 'function') {
+        this.onInvalidCustomApiException('onSubmitDocument')
+      }
+
+      if (typeof onSubmitSelfie !== 'function') {
+        this.onInvalidCustomApiException('onSubmitSelfie')
+      }
+
+      const faceStep = this.props.options.steps.find(
+        (step) => typeof step !== 'string' && step.type === 'face'
+      ) as StepConfigFace
+
+      if (faceStep?.options?.requestedVariant === 'video') {
+        if (typeof onSubmitVideo !== 'function') {
+          this.onInvalidCustomApiException('onSubmitVideo')
+        }
+      }
+
+      this.props.actions.setDecoupleFromAPI(true)
+    } else {
+      this.props.actions.setDecoupleFromAPI(false)
+      this.onInvalidEnterpriseFeatureException('useCustomApiRequests')
     }
   }
 

@@ -10,6 +10,7 @@ import { UICustomizationOptions } from '~types/ui-customisation-options'
 import customUIConfig from './custom-ui-config.json'
 
 type StringifiedBoolean = 'true' | 'false'
+type DecoupleResponseOptions = 'success' | 'error' | 'onfido'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
@@ -42,6 +43,8 @@ export type QueryParams = {
   useUploader?: StringifiedBoolean
   useWebcam?: StringifiedBoolean
   customisedUI?: StringifiedBoolean
+  useCustomizedApiRequests?: StringifiedBoolean
+  decoupleResponse?: DecoupleResponseOptions
 }
 
 export type CheckData = {
@@ -185,6 +188,44 @@ export const getInitSdkOptions = (): SdkOptions => {
     queryParamToValueString.showCobrand === 'true'
       ? { text: 'Planet Express, Incorporated' }
       : undefined
+  const useCustomizedApiRequests =
+    queryParamToValueString.useCustomizedApiRequests === 'true'
+  let decoupleCallbacks = {}
+  if (queryParamToValueString.decoupleResponse === 'success') {
+    const successResponse = Promise.resolve({
+      onfidoSuccessResponse: {
+        id: '123-456-789',
+      },
+    })
+    decoupleCallbacks = {
+      onSubmitDocument: () => successResponse,
+      onSubmitSelfie: () => successResponse,
+      onSubmitVideo: () => successResponse,
+    }
+  } else if (queryParamToValueString.decoupleResponse === 'error') {
+    const errorResponse = {
+      status: 422,
+      response: JSON.stringify({
+        error: {
+          message: 'There was a validation error on this request',
+          type: 'validation_error',
+          fields: { detect_glare: ['glare found in image'] },
+        },
+      }),
+    }
+    decoupleCallbacks = {
+      onSubmitDocument: () => Promise.reject(errorResponse),
+      onSubmitSelfie: () => Promise.reject(errorResponse),
+      onSubmitVideo: () => Promise.reject(errorResponse),
+    }
+  } else if (queryParamToValueString.decoupleResponse === 'onfido') {
+    const response = Promise.resolve({ continueWithOnfidoSubmission: true })
+    decoupleCallbacks = {
+      onSubmitDocument: () => response,
+      onSubmitSelfie: () => response,
+      onSubmitVideo: () => response,
+    }
+  }
 
   const customUI =
     queryParamToValueString.customisedUI === 'true' ? customUIConfig : undefined
@@ -204,6 +245,8 @@ export const getInitSdkOptions = (): SdkOptions => {
     enterpriseFeatures: {
       hideOnfidoLogo,
       cobrand,
+      useCustomizedApiRequests,
+      ...decoupleCallbacks,
     },
     customUI: customUI as UICustomizationOptions,
     ...smsNumberCountryCode,
