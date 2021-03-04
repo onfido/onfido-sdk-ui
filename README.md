@@ -393,7 +393,26 @@ A number of options are available to allow you to customize the SDK:
 
 - **`customUI {Object} optional`**
 
-  If you would like to customise the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values) for the following UI element options:
+  If you would like to customise the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values - see example configurations below) for the following UI element options:
+
+  | Modal (SDK main container)    | Description                          |
+  | ----------------------------- | ------------------------------------ |
+  | `colorBackgroundSurfaceModal` | Change background color of SDK modal |
+  | `colorBorderSurfaceModal`     | Change color of SDK modal border     |
+  | `borderWidthSurfaceModal`     | Change border width of SDK modal     |
+  | `borderStyleSurfaceModal`     | Change border style of SDK modal     |
+  | `borderRadiusSurfaceModal`    | Change border radius of SDK modal    |
+
+  Example configuration with the different CSS colour value variations, border style that can be used:
+
+  ```javascript
+  customUI: {
+      "colorBackgroundSurfaceModal": "#fafafa",
+      "colorBorderSurfaceModal": "rgb(132 59 98)",
+      "borderWidthSurfaceModal": "6px",
+      "borderStyleSurfaceModal": "groove",
+    }
+  ```
 
   | Primary Buttons                      | Description                                            |
   | ------------------------------------ | ------------------------------------------------------ |
@@ -471,6 +490,11 @@ A number of options are available to allow you to customize the SDK:
   | `colorBackgroundAlertError`        | Change error popup background color                      |
   | `colorContentAlertErrorLinkHover`  | Change error popup fallback Link background on hover     |
   | `colorContentAlertErrorLinkActive` | Change error popup fallback Link background on click/tap |
+
+  | Info Header/Highlight Pills | Description                                                                                      |
+  | --------------------------- | ------------------------------------------------------------------------------------------------ |
+  | `colorBackgroundInfoPill`   | Change background color of Cross Device, Camera/Mic Permissions screens' information header pill |
+  | `colorContentInfoPill`      | Change text color of Cross Device, Camera/Mic Permissions screens' information header pill       |
 
 - **`steps {List} optional`**
 

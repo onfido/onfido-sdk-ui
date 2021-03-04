@@ -40,9 +40,14 @@
   --font-weight-subtitle: 600;
   --font-weight-body: 500;
 
-  /* General UI element background color settings */
+  /* Modal (SDK Container) */
+  --osdk-color-background-surface-modal: rgba(
+    var(--ods-color-background-surface)
+  );
   --osdk-color-border-surface-modal: rgba(var(--ods-color-neutral-600));
-  --color-background: rgba(var(--ods-color-neutral-050));
+  --osdk-border-width-surface-modal: 1px;
+  --osdk-border-style-surface-modal: solid;
+  --osdk-border-radius-surface-modal: calc(8 * var(--unit));
 
   /* Warning/Info Message */
   --osdk-color-background-alert-info: rgba(var(--ods-color-primary-500));
@@ -144,6 +149,10 @@
   --osdk-color-background-link-active: rgba(
     var(--ods-color-background-action-active)
   );
+
+  /* Header/Highlight Pills */
+  --osdk-color-background-info-pill: rgba(var(--ods-color-background-info));
+  --osdk-color-content-info-pill: rgba(var(--ods-color-content-inverse-main));
 }
 
 /* stylelint-enable function-parentheses-space-inside */

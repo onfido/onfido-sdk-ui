@@ -1,4 +1,10 @@
 export type UICustomizationOptions = {
+  // Modal (SDK Container)
+  colorBackgroundSurfaceModal?: string
+  colorBorderSurfaceModal?: string
+  borderWidthSurfaceModal?: string
+  borderStyleSurfaceModal?: string
+
   // Primary Button
   colorContentButtonPrimaryText?: string
   colorBackgroundButtonPrimary?: string
@@ -41,4 +47,8 @@ export type UICustomizationOptions = {
   colorBackgroundAlertError?: string
   colorBackgroundAlertErrorLinkHover?: string
   colorBackgroundAlertErrorLinkActive?: string
+
+  // Header/Highlight Pills
+  colorBackgroundInfoPill?: string
+  colorContentInfoPill?: string
 }
