@@ -358,6 +358,29 @@ export const documentScenarios = async (lang) => {
         documentSelector.clickOnPassportIcon()
         crossDeviceIntro.verifyTitle(copy)
       })
+
+      it('should be able to retry document upload when using customized API requests feature and receiving an error response from the callback', async () => {
+        goToPassportUploadScreen(
+          driver,
+          welcome,
+          documentSelector,
+          `?language=${lang}&useUploader=true&useCustomizedApiRequests=true&decoupleResponse=error`
+        )
+        documentUpload.clickUploadButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_glare.jpg'
+        )
+        confirm.verifyImageQualityMessage(copy, 'glare', 'error')
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_glare.jpg'
+        )
+        confirm.verifyImageQualityMessage(copy, 'glare', 'error')
+      })
     }
   )
 }
