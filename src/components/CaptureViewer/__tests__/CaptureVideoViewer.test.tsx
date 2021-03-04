@@ -1,8 +1,9 @@
 import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
-import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import CaptureVideoViewer from '../CaptureVideoViewer'
+
+jest.mock('../../utils/objectUrl')
 
 const defaultProps = {
   ariaLabel: 'Fake aria-label',
