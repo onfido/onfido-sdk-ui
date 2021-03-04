@@ -1196,6 +1196,12 @@
     "path": "node_modules/@types/prop-types",
     "licenseFile": "node_modules/@types/prop-types/LICENSE"
   },
+  "@types/react-modal@3.12.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/react-modal",
+    "licenseFile": "node_modules/@types/react-modal/LICENSE"
+  },
   "@types/react-phone-number-input@3.0.6": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
@@ -2839,8 +2845,8 @@
     "repository": "https://github.com/paulmillr/chokidar",
     "publisher": "Paul Miller",
     "url": "https://paulmillr.com",
-    "path": "node_modules/webpack-dev-server/node_modules/chokidar",
-    "licenseFile": "node_modules/webpack-dev-server/node_modules/chokidar/README.md"
+    "path": "node_modules/@nicolo-ribaudo/chokidar-2/node_modules/chokidar",
+    "licenseFile": "node_modules/@nicolo-ribaudo/chokidar-2/node_modules/chokidar/README.md"
   },
   "chokidar@3.4.0": {
     "licenses": "MIT",
@@ -8120,8 +8126,8 @@
     "publisher": "James Halliday",
     "email": "mail@substack.net",
     "url": "http://substack.net",
-    "path": "node_modules/mocha/node_modules/minimist",
-    "licenseFile": "node_modules/mocha/node_modules/minimist/LICENSE"
+    "path": "node_modules/fsevents/node_modules/minimist",
+    "licenseFile": "node_modules/fsevents/node_modules/minimist/LICENSE"
   },
   "minimist@1.1.1": {
     "licenses": "MIT",
@@ -8162,10 +8168,10 @@
     "publisher": "James Halliday",
     "email": "mail@substack.net",
     "url": "http://substack.net",
-    "path": "node_modules/mocha/node_modules/mkdirp",
-    "licenseFile": "node_modules/mocha/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/fsevents/node_modules/mkdirp",
+    "licenseFile": "node_modules/fsevents/node_modules/mkdirp/LICENSE"
   },
-  "mkdirp@0.5.3": {
+  "mkdirp@0.5.4": {
     "licenses": "MIT",
     "repository": "https://github.com/substack/node-mkdirp",
     "publisher": "James Halliday",
@@ -8177,10 +8183,10 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/chromedriver/node_modules/mkdirp",
-    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
+    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
   },
-  "mocha@6.2.2": {
+  "mocha@6.2.3": {
     "licenses": "MIT",
     "repository": "https://github.com/mochajs/mocha",
     "publisher": "TJ Holowaychuk",
@@ -10087,9 +10093,9 @@
     "path": "node_modules/react-redux",
     "licenseFile": "node_modules/react-redux/LICENSE.md"
   },
-  "react-responsive-ui@0.14.187": {
+  "react-responsive-ui@0.14.200": {
     "licenses": "MIT",
-    "repository": "https://github.com/catamphetamine/react-responsive-ui",
+    "repository": "git+https://gitlab.com/catamphetamine/react-responsive-ui",
     "publisher": "catamphetamine",
     "email": "purecatamphetamine@gmail.com",
     "path": "node_modules/react-responsive-ui",
@@ -10125,7 +10131,7 @@
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react/LICENSE"
   },
-  "react@15.6.2": {
+  "react@15.7.0": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
     "path": "node_modules/react",
@@ -10471,6 +10477,13 @@
     "url": "http://gulpjs.com/",
     "path": "node_modules/replace-ext",
     "licenseFile": "node_modules/replace-ext/LICENSE"
+  },
+  "request-animation-frame-timeout@1.0.0": {
+    "licenses": "MIT",
+    "repository": "git://gitlab.com/catamphetamine/request-animation-frame-timeout",
+    "publisher": "@catamphetamine",
+    "path": "node_modules/request-animation-frame-timeout",
+    "licenseFile": "node_modules/request-animation-frame-timeout/README.md"
   },
   "request-promise-core@1.1.4": {
     "licenses": "ISC",
@@ -13301,14 +13314,6 @@
     "path": "node_modules/yargs-parser",
     "licenseFile": "node_modules/yargs-parser/LICENSE.txt"
   },
-  "yargs-parser@13.1.1": {
-    "licenses": "ISC",
-    "repository": "https://github.com/yargs/yargs-parser",
-    "publisher": "Ben Coe",
-    "email": "ben@npmjs.com",
-    "path": "node_modules/mocha/node_modules/yargs-parser",
-    "licenseFile": "node_modules/mocha/node_modules/yargs-parser/LICENSE.txt"
-  },
   "yargs-parser@13.1.2": {
     "licenses": "ISC",
     "repository": "https://github.com/yargs/yargs-parser",
@@ -13352,12 +13357,6 @@
     "repository": "https://github.com/yargs/yargs",
     "path": "node_modules/webpack-cli/node_modules/yargs",
     "licenseFile": "node_modules/webpack-cli/node_modules/yargs/LICENSE"
-  },
-  "yargs@13.3.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/yargs/yargs",
-    "path": "node_modules/mocha/node_modules/yargs",
-    "licenseFile": "node_modules/mocha/node_modules/yargs/LICENSE"
   },
   "yargs@13.3.2": {
     "licenses": "MIT",
