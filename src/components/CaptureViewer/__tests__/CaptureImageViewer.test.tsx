@@ -3,8 +3,9 @@ import { mount, shallow } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
-import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import CaptureImageViewer from '../CaptureImageViewer'
+
+jest.mock('../../utils/objectUrl')
 
 const fakeBlob = new Blob([])
 const fakeFileBlob = new File([], 'fake-file.jpg')

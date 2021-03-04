@@ -2,8 +2,9 @@ import { h } from 'preact'
 import { mount, shallow, ReactWrapper } from 'enzyme'
 import PdfObject from 'pdfobject'
 
-import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import PdfViewer from '../PdfViewer'
+
+jest.mock('../../utils/objectUrl')
 
 const defaultProps = {
   blob: new Blob([]),
