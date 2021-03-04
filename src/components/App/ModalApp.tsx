@@ -24,6 +24,7 @@ import type {
   StepConfig,
   StepConfigDocument,
   DocumentTypes,
+  StepConfigFace,
 } from '~types/steps'
 
 import withConnect, { ReduxProps } from './withConnect'
@@ -258,8 +259,14 @@ class ModalApp extends Component<Props> {
         this.onInvalidCustomApiException('onSubmitSelfie')
       }
 
-      if (typeof onSubmitVideo !== 'function') {
-        this.onInvalidCustomApiException('onSubmitVideo')
+      const faceStep = this.props.options.steps.find(
+        (step) => typeof step !== 'string' && step.type === 'face'
+      ) as StepConfigFace
+
+      if (faceStep?.options?.requestedVariant === 'video') {
+        if (typeof onSubmitVideo !== 'function') {
+          this.onInvalidCustomApiException('onSubmitVideo')
+        }
       }
 
       this.props.actions.setDecoupleFromAPI(true)
