@@ -24,12 +24,12 @@ import {
   uploadBinaryMedia,
   createV4Document,
 } from '~utils/onfidoApi'
-import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import Confirm from '../Confirm'
 
 import type { ApiParsedError } from '~types/api'
 import type { StepComponentDocumentProps } from '~types/routers'
 
+jest.mock('../../utils/objectUrl')
 jest.mock('../../utils/onfidoApi')
 
 const fakeUrl = 'https://fake-api.onfido.com'
