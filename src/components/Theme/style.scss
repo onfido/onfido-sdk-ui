@@ -262,14 +262,14 @@ $logo-height: 32 * $unit;
   cursor: pointer;
   line-height: 1.43;
   font-size: var(--font-size-small);
-  font-family: var(--font-family);
+  font-family: var(--osdk-font-family-body);
   margin: auto;
   padding: 2px;
   text-decoration: none;
   border: 1px solid transparent;
   border-bottom-color: var(--color-primary);
   background-color: transparent;
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
 
   &:not(:disabled) {
     &:hover {
@@ -285,7 +285,7 @@ $logo-height: 32 * $unit;
 
   &:visited {
     text-decoration: none;
-    color: $color-body-text;
+    color: var(--osdk-color-content-body);
     font-size: var(--font-size-small);
   }
 

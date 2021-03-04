@@ -61,10 +61,10 @@ $modal-animation-duration: 200ms;
   border-radius: 8 * $unit;
   border: 1px solid $color-border;
 
-  font-family: var(--font-family-body) !important;
+  font-family: var(--osdk-font-family-body) !important;
   background-color: var(--color-background);
 
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   font-weight: var(--font-weight-body);
   line-height: 1.5;
 
@@ -108,7 +108,7 @@ $modal-animation-duration: 200ms;
   border-radius: 16 * $unit;
   border: 0;
   cursor: pointer;
-  font-family: var(--font-family);
+  font-family: var(--osdk-font-family-body);
   height: 32 * $unit;
   position: absolute;
   right: 15 * $unit;

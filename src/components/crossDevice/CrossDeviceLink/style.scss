@@ -33,7 +33,7 @@ $parent-width: 432;
 .label {
   font-weight: 600;
   text-align: left;
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   float: left;
 }
 
@@ -134,9 +134,9 @@ $parent-width: 432;
   text-overflow: ellipsis;
   font-size: inherit;
   line-height: 1.5;
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   white-space: nowrap;
-  font-family: var(--font-family);
+  font-family: var(--osdk-font-family-body);
 }
 
 /* FIXME: CX-5306 - text/link Button for x-device Copy link */
@@ -145,14 +145,14 @@ $parent-width: 432;
   float: right;
   height: 100%;
   font-size: var(--font-size-small);
-  font-family: var(--font-family);
+  font-family: var(--osdk-font-family-body);
   margin-left: 4 * $unit-small;
   padding: 2px;
   text-decoration: none;
   border: 1px solid transparent;
   border-bottom-color: var(--color-primary);
   background-color: $color-transparent;
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
 
   &:hover {
     background-color: var(--osdk-color-background-button-primary-hover);
@@ -166,7 +166,7 @@ $parent-width: 432;
 
   &:visited {
     text-decoration: none;
-    color: $color-body-text;
+    color: var(--osdk-color-content-body);
     font-size: var(--font-size-small);
   }
 }

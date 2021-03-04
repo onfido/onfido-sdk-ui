@@ -61,7 +61,7 @@ You will receive a response containing the applicant id which will be used to cr
 
 ### 3. Generating an SDK token
 
-For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
+For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialize the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
 
 ```shell
 $ curl https://api.onfido.com/v3/sdk_token \
@@ -148,7 +148,7 @@ verification component will be mounted. -->
 
 ### 6. Initialising the SDK
 
-You are now ready to initialise the SDK:
+You are now ready to initialize the SDK:
 
 ```js
 Onfido.init({
@@ -197,7 +197,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 - Handle callbacks
 - Remove the SDK from the page
-- Customise the SDK
+- Customize the SDK
 - Create checks
 
 ## Handling callbacks
@@ -266,7 +266,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 ## Removing the SDK
 
-If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
+If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialize the SDK inside the same webpage later on.
 
 ```javascript
 onfidoOut = Onfido.init({...})
@@ -369,7 +369,7 @@ A number of options are available to allow you to customize the SDK:
 
 - **`smsNumberCountryCode {String} optional`**
 
-  The default country for the SMS number input can be customized by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+  The default country for the SMS number input can be customized by passing the `smsNumberCountryCode` option when the SDK is initialized. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
 
   Example:
 
@@ -393,7 +393,35 @@ A number of options are available to allow you to customize the SDK:
 
 - **`customUI {Object} optional`**
 
-  If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA colour values, border radius values) for the following options:
+  If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA color values, border radius values) for the following options:
+
+  | Typography options     | Description                                                                        |
+  | ---------------------- | ---------------------------------------------------------------------------------- |
+  | `fontFamilyTitle`      | Change font family of the SDK screen titles                                        |
+  | `fontFamilySubtitle`   | Change font family of the SDK screen subtitles                                     |
+  | `fontFamilyBody`       | Change font family of the SDK screen content                                       |
+  | `fontSizeTitle`        | Change font size of the SDK screen titles                                          |
+  | `fontSizeSubtitle`     | Change font size of the SDK screen subtitles                                       |
+  | `fontSizeBody`         | Change font size of the SDK screen content                                         |
+  | `fontWeightTitle`      | Change font weight of the SDK screen titles (number format only, e.g. 400, 600)    |
+  | `fontWeightSubtitle`   | Change font weight of the SDK screen subtitles (number format only, e.g. 400, 600) |
+  | `fontWeightBody`       | Change font weight of the SDK screen content (number format only, e.g. 400, 600)   |
+  | `colorContentTitle`    | Change text color of the SDK screen titles                                         |
+  | `colorContentSubtitle` | Change text color of the SDK screen subtitles                                      |
+  | `colorContentBody`     | Change text color of the SDK screen content                                        |
+
+  Example configuration with the different CSS font related values that can be used:
+
+  ```javascript
+  customUI: {
+    "fontFamilyTitle": "Impact, fantasy",
+    "fontSizeTitle": "26px",
+    "fontWeightSubtitle": 600,
+    "fontSizeSubtitle": "1.25rem",
+  }
+  ```
+
+  **Note:** If using a scalable font size unit like em/rem, the SDK's base font size is 16px. This is currently not customizable.
 
   | Primary Button options               | Description                                            |
   | ------------------------------------ | ------------------------------------------------------ |
@@ -417,7 +445,7 @@ A number of options are available to allow you to customize the SDK:
   | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
   | `colorBorderDocTypeButtonActive` | Change color of Document Type Button border on click/tap |
 
-  Example configuration with the different CSS colour value variations that can be used:
+  Example configuration with the different CSS color value variations that can be used:
 
   ```javascript
   customUI: {
@@ -732,7 +760,7 @@ A number of options are available to allow you to customize the SDK:
 
 ### Changing options in runtime
 
-It's possible to change the options initialised at runtime:
+It's possible to change the options initialized at runtime:
 
 ```javascript
 onfidoOut = Onfido.init({...})
@@ -768,7 +796,7 @@ In order to perform a full document/face check, you need to call our [API](https
 ### 1. Creating a check
 
 With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-reports).
-The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report.
+The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report.
 The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the report name you should include in your request.
 Example of data returned by the `onComplete` callback:
 `{face: {variant: 'standard' | 'video'}}`
@@ -864,7 +892,7 @@ Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-a
 
 ### Note
 
-If you are making your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible colour contrast ratios and dyslexic friendly fonts.
+If you are making your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible color contrast ratios and dyslexic friendly fonts.
 
 ## TypeScript
 
