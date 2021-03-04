@@ -21,12 +21,10 @@
 
 /* Camera Permission "Recovery" header pill, has subtle differences to the Theme header pill */
 .recovery {
-  @include header-highlight-pill(14);
-  left: 20 * $unit-small;
-  line-height: 24 * $unit-small;
-  padding: 0 15 * $unit-small;
+  @extend %header-highlight-pill;
   position: absolute;
   top: 0;
+  left: 20 * $unit-small;
   transform: translateY(-50%);
 }
 

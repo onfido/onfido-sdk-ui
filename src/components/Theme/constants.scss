@@ -131,11 +131,13 @@ $sm-btn-width-sm-screen: 160 * $unit-small;
   }
 }
 
-@mixin header-highlight-pill($border-radius) {
-  border-radius: $border-radius * $unit-small;
+%header-highlight-pill {
+  border-radius: 14 * $unit-small;
   background-color: var(--osdk-color-background-info-pill);
   color: var(--osdk-color-content-info-pill);
   font-family: inherit;
   font-size: var(--font-size-small);
   font-weight: 600;
+  line-height: 24 * $unit-small;
+  padding: 0 14 * $unit-small;
 }

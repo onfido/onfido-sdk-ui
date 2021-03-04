@@ -234,13 +234,13 @@ $logo-height: 32 * $unit;
 
 /* Header Pill element in Camera Permission Recovery, Cross Device Connected screens */
 .header {
-  @include header-highlight-pill(10);
+  @extend %header-highlight-pill;
   position: absolute;
   margin-top: -10 * $unit-small;
   margin-left: 10 * $unit-small;
-  padding: 0 14 * $unit-small;
 }
 
+/* Cross Device Connected screen Tips info box */
 .help {
   padding: 24 * $unit 16 * $unit 16 * $unit;
   text-align: left;
