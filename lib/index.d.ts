@@ -80,6 +80,18 @@ export declare type EnterpriseFeatures = {
 	cobrand?: EnterpriseCobranding;
 };
 export declare type UICustomizationOptions = {
+	fontFamilyTitle?: string;
+	fontSizeTitle?: string;
+	fontWeightTitle?: number;
+	colorContentTitle?: string;
+	fontFamilySubtitle?: string;
+	fontSizeSubtitle?: string;
+	fontWeightSubtitle?: number;
+	colorContentSubtitle?: string;
+	fontFamilyBody?: string;
+	fontSizeBody?: string;
+	fontWeightBody?: number;
+	colorContentBody?: string;
 	colorContentButtonPrimaryText?: string;
 	colorBackgroundButtonPrimary?: string;
 	colorBackgroundButtonPrimaryHover?: string;
