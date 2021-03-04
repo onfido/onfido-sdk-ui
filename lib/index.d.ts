@@ -80,6 +80,10 @@ export declare type EnterpriseFeatures = {
 	cobrand?: EnterpriseCobranding;
 };
 export declare type UICustomizationOptions = {
+	colorBackgroundSurfaceModal?: string;
+	colorBorderSurfaceModal?: string;
+	borderWidthSurfaceModal?: string;
+	borderStyleSurfaceModal?: string;
 	fontFamilyTitle?: string;
 	fontSizeTitle?: string;
 	fontWeightTitle?: number;
@@ -107,6 +111,20 @@ export declare type UICustomizationOptions = {
 	colorBorderDocTypeButton?: string;
 	colorBorderDocTypeButtonHover?: string;
 	colorBorderDocTypeButtonActive?: string;
+	colorBorderLinkUnderline?: string;
+	colorContentLinkTextHover?: string;
+	colorBackgroundLinkHover?: string;
+	colorBackgroundLinkActive?: string;
+	colorContentAlertInfo?: string;
+	colorBackgroundAlertInfo?: string;
+	colorBackgroundAlertInfoLinkHover?: string;
+	colorBackgroundAlertInfoLinkActive?: string;
+	colorContentAlertError?: string;
+	colorBackgroundAlertError?: string;
+	colorBackgroundAlertErrorLinkHover?: string;
+	colorBackgroundAlertErrorLinkActive?: string;
+	colorBackgroundInfoPill?: string;
+	colorContentInfoPill?: string;
 };
 export declare type DocumentResponse = {
 	id: string;
