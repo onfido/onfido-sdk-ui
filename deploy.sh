@@ -68,7 +68,8 @@ do
   DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[^A-Za-z0-9]+/\-/g'`
   echo "DEPLOY_SUBDOMAIN: ${DEPLOY_SUBDOMAIN}"
 
-  DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
+  # DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
+  DEPLOY_DOMAIN=https://microsoft-idv-branch-onfido-sdk-ui-onfido.surge.sh
 
   # Rebuild with TEST_ENV=deployment for test target only
   if [ "$NODE_ENV" == "test" ]; then
