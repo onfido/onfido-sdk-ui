@@ -1,4 +1,7 @@
 {
+  "fontFamilyTitle": "Impact, fantasy",
+  "fontWeightSubtitle": 600,
+  "fontSizeSubtitle": "1.25rem",
   "colorBackgroundSurfaceModal": "#fafafa",
   "colorBorderSurfaceModal": "#b23a48",
   "borderWidthSurfaceModal": "6px",

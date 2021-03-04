@@ -20,7 +20,7 @@ $selector-button-box-shadow: 0 0 0 2px;
   border-color: var(--osdk-color-border-doc-type-button);
   border-style: solid;
   border-width: 1px;
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   cursor: pointer;
   display: flex;
   font: inherit;
@@ -74,7 +74,7 @@ $selector-button-box-shadow: 0 0 0 2px;
 }
 
 .hint {
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   font-weight: 500;
   font-size: var(--font-size-small);
   margin-bottom: 4 * $unit-small;

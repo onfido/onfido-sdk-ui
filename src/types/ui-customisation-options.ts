@@ -5,6 +5,24 @@ export type UICustomizationOptions = {
   borderWidthSurfaceModal?: string
   borderStyleSurfaceModal?: string
 
+  // Title Font
+  fontFamilyTitle?: string
+  fontSizeTitle?: string
+  fontWeightTitle?: number
+  colorContentTitle?: string
+
+  // Subtitle Font
+  fontFamilySubtitle?: string
+  fontSizeSubtitle?: string
+  fontWeightSubtitle?: number
+  colorContentSubtitle?: string
+
+  // Body Font
+  fontFamilyBody?: string
+  fontSizeBody?: string
+  fontWeightBody?: number
+  colorContentBody?: string
+
   // Primary Button
   colorContentButtonPrimaryText?: string
   colorBackgroundButtonPrimary?: string

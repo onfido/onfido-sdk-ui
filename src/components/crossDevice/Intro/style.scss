@@ -34,7 +34,7 @@
   &::before {
     content: '';
     display: block;
-    background-color: $color-body-text;
+    background-color: $color-icons-connector-line;
     width: 2 * $unit;
     height: 100%;
     position: absolute;
@@ -82,6 +82,6 @@
   &-sms,
   &-take-photos,
   &-return-to-computer {
-    color: $color-body-text;
+    color: var(--osdk-color-content-body);
   }
 }

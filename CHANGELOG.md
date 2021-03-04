@@ -25,6 +25,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Fix zoomed document capture view for Document Live Capture on some Huawei devices, e.g. Huawei P40, P30.
+- Public: Fix issue where documents are submitted to Onfido API without filename or file type.
 
 ## [6.5.0] - 2020-02-08
 

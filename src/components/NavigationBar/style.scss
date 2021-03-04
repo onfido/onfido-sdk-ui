@@ -16,10 +16,10 @@
 
 .back {
   height: 32 * $unit;
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   padding: 0;
   font-size: inherit;
-  font-family: var(--font-family);
+  font-family: var(--osdk-font-family-body);
   line-height: 1;
   border: 0;
   background-color: transparent;
