@@ -51,23 +51,23 @@ $parent-width: 432;
 
 .inputContainer {
   height: 100%;
-  border: 1px solid $color-input-border;
+  border: 1px solid rgba(var(--ods-color-border-input));
   border-top-left-radius: 4 * $unit;
   border-bottom-left-radius: 4 * $unit;
   border-right: 0;
-  background-color: $color-white;
+  background-color: rgba(var(--ods-color-neutral-white));
   float: left;
-  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit $color-input-border;
+  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit rgba(var(--ods-color-border-input));
 }
 
 .fieldError {
-  border: 1px solid var(--color-error);
+  border: 1px solid rgba(var(--ods-color-content-negative));
   border-right: 0;
-  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit var(--color-error);
+  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit rgba(var(--ods-color-content-negative));
 }
 
 .numberError {
-  color: var(--color-error);
+  color: rgba(var(--ods-color-content-negative));
   font-size: var(--font-size-small);
   line-height: 1.43;
   text-align: left;
@@ -139,38 +139,6 @@ $parent-width: 432;
   font-family: var(--osdk-font-family-body);
 }
 
-/* FIXME: CX-5306 - text/link Button for x-device Copy link */
-.copyToClipboard {
-  cursor: pointer;
-  float: right;
-  height: 100%;
-  font-size: var(--font-size-small);
-  font-family: var(--osdk-font-family-body);
-  margin-left: 4 * $unit-small;
-  padding: 2px;
-  text-decoration: none;
-  border: 1px solid transparent;
-  border-bottom-color: var(--color-primary);
-  background-color: $color-transparent;
-  color: var(--osdk-color-content-body);
-
-  &:hover {
-    background-color: var(--osdk-color-background-button-primary-hover);
-    color: $color-white;
-  }
-
-  &:active {
-    background-color: var(--osdk-color-background-button-primary-active);
-    color: $color-white;
-  }
-
-  &:visited {
-    text-decoration: none;
-    color: var(--osdk-color-content-body);
-    font-size: var(--font-size-small);
-  }
-}
-
 .copySuccess .copyToClipboard {
   border-bottom-color: transparent;
 }
@@ -210,8 +178,10 @@ $parent-width: 432;
   margin: 0 0 0 24 * $unit;
 }
 
-.viewOptions {
+.viewOptionsGroup {
   margin: 16 * $unit;
+  display: flex;
+  justify-content: center;
 }
 
 .viewOption {

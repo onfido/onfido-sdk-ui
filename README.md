@@ -423,7 +423,26 @@ A number of options are available to allow you to customize the SDK:
 
   **Note:** If using a scalable font size unit like em/rem, the SDK's base font size is 16px. This is currently not customizable.
 
-  | Primary Button options               | Description                                            |
+  | Modal (SDK main container)    | Description                          |
+  | ----------------------------- | ------------------------------------ |
+  | `colorBackgroundSurfaceModal` | Change background color of SDK modal |
+  | `colorBorderSurfaceModal`     | Change color of SDK modal border     |
+  | `borderWidthSurfaceModal`     | Change border width of SDK modal     |
+  | `borderStyleSurfaceModal`     | Change border style of SDK modal     |
+  | `borderRadiusSurfaceModal`    | Change border radius of SDK modal    |
+
+  Example configuration with the different CSS colour value variations, border style that can be used:
+
+  ```javascript
+  customUI: {
+      "colorBackgroundSurfaceModal": "#fafafa",
+      "colorBorderSurfaceModal": "rgb(132 59 98)",
+      "borderWidthSurfaceModal": "6px",
+      "borderStyleSurfaceModal": "groove",
+    }
+  ```
+
+  | Primary Buttons                      | Description                                            |
   | ------------------------------------ | ------------------------------------------------------ |
   | `colorContentButtonPrimaryText`      | Change color of Primary Button text                    |
   | `colorBackgroundButtonPrimary`       | Change background color of Primary Button              |
@@ -431,7 +450,7 @@ A number of options are available to allow you to customize the SDK:
   | `colorBackgroundButtonPrimaryActive` | Change background color of Primary Button on click/tap |
   | `colorBorderButtonPrimary`           | Change color of Primary Button border                  |
 
-  | Secondary Button options               | Description                                              |
+  | Secondary Buttons                      | Description                                              |
   | -------------------------------------- | -------------------------------------------------------- |
   | `colorContentButtonSecondaryText`      | Change color of Secondary Button text                    |
   | `colorBackgroundButtonSecondary`       | Change background color of Secondary Button              |
@@ -439,7 +458,7 @@ A number of options are available to allow you to customize the SDK:
   | `colorBackgroundButtonSecondaryActive` | Change background color of Secondary Button on click/tap |
   | `colorBorderButtonSecondary`           | Change color of Secondary Button border                  |
 
-  | Document Type Button options     | Description                                              |
+  | Document Type Buttons            | Description                                              |
   | -------------------------------- | -------------------------------------------------------- |
   | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
   | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
@@ -478,6 +497,32 @@ A number of options are available to allow you to customize the SDK:
       buttonGroupStacked: true
     }
   ```
+
+  | Links                       | Description                               |
+  | --------------------------- | ----------------------------------------- |
+  | `colorContentLinkTextHover` | Change Link text color                    |
+  | `colorBorderLinkUnderline`  | Change Link underline color               |
+  | `colorBackgroundLinkHover`  | Change Link background color on hover     |
+  | `colorBackgroundLinkActive` | Change Link background color on click/tap |
+
+  | Warning Popups                    | Description                                                |
+  | --------------------------------- | ---------------------------------------------------------- |
+  | `colorContentAlertInfo`           | Change warning popup text color                            |
+  | `colorBackgroundAlertInfo`        | Change warning popup background color                      |
+  | `colorContentAlertInfoLinkHover`  | Change warning popup fallback Link background on hover     |
+  | `colorContentAlertInfoLinkActive` | Change warning popup fallback Link background on click/tap |
+
+  | Error Popups                       | Description                                              |
+  | ---------------------------------- | -------------------------------------------------------- |
+  | `colorContentAlertError`           | Change error popup text color                            |
+  | `colorBackgroundAlertError`        | Change error popup background color                      |
+  | `colorContentAlertErrorLinkHover`  | Change error popup fallback Link background on hover     |
+  | `colorContentAlertErrorLinkActive` | Change error popup fallback Link background on click/tap |
+
+  | Info Header/Highlight Pills | Description                                                                                      |
+  | --------------------------- | ------------------------------------------------------------------------------------------------ |
+  | `colorBackgroundInfoPill`   | Change background color of Cross Device, Camera/Mic Permissions screens' information header pill |
+  | `colorContentInfoPill`      | Change text color of Cross Device, Camera/Mic Permissions screens' information header pill       |
 
 - **`steps {List} optional`**
 

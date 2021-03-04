@@ -2,10 +2,7 @@
 
 .instructions {
   font-size: var(--font-size-small);
-
   text-align: left;
-  border-radius: 3 * $unit-small;
-  border: 1px solid var(--color-background);
   margin: 30 * $unit-small 0 24 * $unit-small;
   position: relative;
   padding: 24 * $unit-small 24 * $unit-small 12 * $unit-small;
@@ -23,16 +20,10 @@
 }
 
 .recovery {
-  /* TODO: CX-5306 - SDK Customisation - This is the "Recovery" header pill */
-  color: $color-white; // Header pill text colour
-  background: var(--color-primary); // Header pill background colour
-  border-radius: 14 * $unit-small;
-  font-weight: 600;
-  left: 20 * $unit-small;
-  line-height: 24 * $unit-small;
-  padding: 0 15 * $unit-small;
+  @extend %header-highlight-pill;
   position: absolute;
   top: 0;
+  left: 20 * $unit-small;
   transform: translateY(-50%);
 }
 

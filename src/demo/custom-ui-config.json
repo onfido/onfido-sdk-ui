@@ -2,7 +2,11 @@
   "fontFamilyTitle": "Impact, fantasy",
   "fontWeightSubtitle": 600,
   "fontSizeSubtitle": "1.25rem",
-  "colorContentButtonPrimaryText": "#333",
+  "colorBackgroundSurfaceModal": "#fafafa",
+  "colorBorderSurfaceModal": "#b23a48",
+  "borderWidthSurfaceModal": "6px",
+  "borderStyleSurfaceModal": "groove",
+  "colorContentButtonPrimaryText": "#000",
   "colorBackgroundButtonPrimary": "#ffb997",
   "colorBorderButtonPrimary": "#b23a48",
   "colorBackgroundButtonPrimaryHover": "#f67e7d",
@@ -16,5 +20,11 @@
   "buttonGroupStacked": true,
   "colorBorderDocTypeButton": "#5c374c",
   "colorBorderDocTypeButtonHover": "#f67e7d",
-  "colorBorderDocTypeButtonActive": "#843b62"
+  "colorBorderDocTypeButtonActive": "#843b62",
+  "colorBorderLinkUnderline": "#b23a48",
+  "colorContentLinkTextHover": "#5c374c",
+  "colorBackgroundLinkHover": "rgb(255 238 170 / 92%)",
+  "colorBackgroundLinkActive": "#b23a48",
+  "colorBackgroundInfoPill": "#ffb997",
+  "colorContentInfoPill": "#333"
 }

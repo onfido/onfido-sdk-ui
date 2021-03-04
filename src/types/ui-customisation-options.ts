@@ -1,4 +1,10 @@
 export type UICustomizationOptions = {
+  // Modal (SDK Container)
+  colorBackgroundSurfaceModal?: string
+  colorBorderSurfaceModal?: string
+  borderWidthSurfaceModal?: string
+  borderStyleSurfaceModal?: string
+
   // Title Font
   fontFamilyTitle?: string
   fontSizeTitle?: string
@@ -41,4 +47,26 @@ export type UICustomizationOptions = {
   colorBorderDocTypeButton?: string
   colorBorderDocTypeButtonHover?: string
   colorBorderDocTypeButtonActive?: string
+
+  // Link
+  colorBorderLinkUnderline?: string
+  colorContentLinkTextHover?: string
+  colorBackgroundLinkHover?: string
+  colorBackgroundLinkActive?: string
+
+  // Warning Popup
+  colorContentAlertInfo?: string
+  colorBackgroundAlertInfo?: string
+  colorBackgroundAlertInfoLinkHover?: string
+  colorBackgroundAlertInfoLinkActive?: string
+
+  // Error Popup
+  colorContentAlertError?: string
+  colorBackgroundAlertError?: string
+  colorBackgroundAlertErrorLinkHover?: string
+  colorBackgroundAlertErrorLinkActive?: string
+
+  // Header/Highlight Pills
+  colorBackgroundInfoPill?: string
+  colorContentInfoPill?: string
 }

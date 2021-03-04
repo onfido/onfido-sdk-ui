@@ -44,11 +44,40 @@
   --osdk-font-weight-body: 500;
   --osdk-color-content-body: rgba(var(--ods-color-content-main));
 
-  /* General UI element background color settings */
+  /* Modal (SDK Container) */
+  --osdk-color-background-surface-modal: rgba(
+    var(--ods-color-background-surface)
+  );
   --osdk-color-border-surface-modal: rgba(var(--ods-color-neutral-600));
-  --color-background: rgba(var(--ods-color-neutral-050));
-  --color-warning: rgba(var(--ods-color-primary-500));
-  --color-error: rgba(var(--ods-color-background-negative));
+  --osdk-border-width-surface-modal: 1px;
+  --osdk-border-style-surface-modal: solid;
+  --osdk-border-radius-surface-modal: calc(8 * var(--unit));
+
+  /* Warning/Info Message */
+  --osdk-color-background-alert-info: rgba(var(--ods-color-primary-500));
+
+  /* Warning/Info Message - fallback link */
+  --osdk-color-content-alert-info: rgba(var(--ods-color-content-inverse-main));
+  --osdk-color-background-alert-info-link-hover: rgba(
+    var(--ods-color-background-action-hover)
+  );
+  --osdk-color-background-alert-info-link-active: rgba(
+    var(--ods-color-background-action-active)
+  );
+
+  /* Error Message */
+  --osdk-color-background-alert-error: rgba(
+    var(--ods-color-background-negative)
+  );
+  --osdk-color-content-alert-error: rgba(var(--ods-color-content-inverse-main));
+
+  /* Error Message - fallback link */
+  --osdk-color-background-alert-error-link-hover: rgba(
+    var(--ods-color-background-negative-hover)
+  );
+  --osdk-color-background-alert-error-link-active: rgba(
+    var(--ods-color-background-negative-active)
+  );
 
   /* TODO: not really required now, should do a full check after Phase 1 customisations implemented to be sure */
   --color-primary: rgba(var(--ods-color-primary-500));
@@ -112,6 +141,22 @@
   --color-background-button-camera: rgba(var(--ods-color-neutral-white));
   --color-background-button-camera-hover: rgba(var(--ods-color-primary-400));
   --color-background-button-camera-active: rgba(var(--ods-color-primary-600));
+
+  /* Link colors */
+  --osdk-color-border-link-underline: rgba(var(--ods-color-border-action));
+  --osdk-color-content-link-text-hover: rgba(
+    var(--ods-color-content-on-action)
+  );
+  --osdk-color-background-link-hover: rgba(
+    var(--ods-color-background-action-hover)
+  );
+  --osdk-color-background-link-active: rgba(
+    var(--ods-color-background-action-active)
+  );
+
+  /* Header/Highlight Pills */
+  --osdk-color-background-info-pill: rgba(var(--ods-color-background-info));
+  --osdk-color-content-info-pill: rgba(var(--ods-color-content-inverse-main));
 }
 
 /* stylelint-enable function-parentheses-space-inside */
