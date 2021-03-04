@@ -445,7 +445,7 @@ A number of options are available to allow you to customise the SDK:
 
   For more information about this step, and how to collect user consent, please visit the [Onfido Privacy Notices and Consent](http://developers.onfido.com/guide/onfido-privacy-notices-and-consent) page.
 
-  **Note**: The `userConsent` step must be used in conjunction with the `onUserExit` callback. See the [Handling Callbacks](#handling-callbacks) for more information.
+  **Note**: The `userConsent` step must be used in conjunction with the `onUserExit` callback. See the [Handling Callbacks](#handling-callbacks) section for more information.
 
   ### document
 
