@@ -210,9 +210,9 @@
   "dependencies": {
     "@babel/preset-typescript": "^7.12.16",
     "@babel/runtime-corejs3": "^7.8.7",
-    "@onfido/castor": "^1.0.1",
+    "@onfido/castor": "^1.1.2",
     "@onfido/castor-icons": "^2.0.0",
-    "@onfido/castor-react": "^1.0.1",
+    "@onfido/castor-react": "^1.1.2",
     "@sentry/browser": "^5.14.2",
     "@types/dompurify": "^2.2.1",
     "array-flat-polyfill": "^1.0.1",
