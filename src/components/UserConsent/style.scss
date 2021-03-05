@@ -72,10 +72,10 @@
   margin: auto;
 
   border-radius: 4 * $unit;
-  border: 1px solid $color-border;
-  background-color: $color-background;
+  border: 1px solid var(--osdk-color-border-surface-modal);
+  background-color: var(--osdk-color-background-surface-modal);
 
-  font-family: $font-family !important;
+  font-family: var(--font-size-large) !important;
 
   color: $color-body-text;
   font-weight: 500;
@@ -109,7 +109,7 @@
   }
 
   h2 {
-    font-size: $font-size-large;
+    font-size: var(--font-size-large);
     line-height: 28 * $unit;
     margin: 0;
   }
