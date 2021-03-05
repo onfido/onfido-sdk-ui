@@ -107,9 +107,7 @@
     var(--ods-color-content-action)
   );
 
-  --osdk-color-background-button-secondary: rgba(
-    var(--ods-color-background-always-transparent)
-  );
+  --osdk-color-background-button-secondary: transparent;
   --osdk-color-background-button-secondary-hover: rgba(
     var(--ods-color-background-action-subtle-hover)
   );
