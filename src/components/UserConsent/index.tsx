@@ -14,6 +14,7 @@ import DeclineModal from './DeclineModal'
 import style from './style.scss'
 
 import type { StepComponentUserConsentProps } from '~types/routers'
+import { ApiRawError, SuccessCallback } from '~types/api'
 
 type UserConsentProps = StepComponentUserConsentProps
 
@@ -47,6 +48,26 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
   )
 }
 
+const getConsentFile = (
+  onSuccess: SuccessCallback<string>,
+  onError: (error: ApiRawError) => void
+): void => {
+  const request = new XMLHttpRequest()
+  request.open('GET', process.env.USER_CONSENT_URL)
+
+  request.onload = () => {
+    if (request.status === 200 || request.status === 201) {
+      onSuccess(request.responseText)
+    } else {
+      // TODO in CX-6197: if there is an error, we will display a reload screen
+      onError(request)
+    }
+  }
+  request.onerror = () => onError(request)
+
+  request.send()
+}
+
 const UserConsent: FunctionComponent<UserConsentProps> = ({
   nextStep,
   containerEl,
@@ -73,9 +94,11 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
   }
 
   useEffect(() => {
-    fetch(process.env.USER_CONSENT_URL)
-      .then((data) => data.text())
+    new Promise<string>((resolve, reject) => {
+      getConsentFile(resolve, reject)
+    })
       .then((html) => setConsentHtml(html))
+      .catch((err) => console.error(err))
   }, [])
 
   return (
