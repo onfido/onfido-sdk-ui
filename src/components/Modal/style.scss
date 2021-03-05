@@ -28,7 +28,7 @@
 
   font-family: var(--osdk-font-family-body) !important;
   color: var(--osdk-color-content-body);
-  font-weight: var(--font-weight-body);
+  font-weight: var(--osdk-font-weight-body);
   line-height: 1.5;
 
   @media (--small-viewport) {
