@@ -134,8 +134,10 @@ const SdkDemo: FunctionComponent<{
       phrases: {
         welcome: {
           title: 'Create your Verfiable Credential with Microsoft.',
-          description_p_1: 'To create your credentials, we will need to verify your identity. It will only take a few minutes.',
-          description_p_2: 'Please ready a government-issued identity document such as a Driver License, ID card, or passport.',
+          description_p_1:
+            'To create your credentials, we will need to verify your identity. It will only take a few minutes.',
+          description_p_2:
+            'Please ready a government-issued identity document such as a Driver License, ID card, or passport.',
         },
         generic: {
           back: '',
@@ -145,10 +147,11 @@ const SdkDemo: FunctionComponent<{
         },
         outro: {
           title: 'Please Scan QR Code',
-          body: 'This will add your identity to the verifiable credential wallet'
-        }
-      }
-    }
+          body:
+            'This will add your identity to the verifiable credential wallet',
+        },
+      },
+    },
   }
 
   return (
