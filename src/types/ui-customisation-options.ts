@@ -44,6 +44,7 @@ export type UICustomizationOptions = {
   buttonGroupStacked?: boolean
 
   // Document Type Option Button
+  colorBackgroundDocTypeButton?: string
   colorBorderDocTypeButton?: string
   colorBorderDocTypeButtonHover?: string
   colorBorderDocTypeButtonActive?: string
