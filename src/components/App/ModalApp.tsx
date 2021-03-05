@@ -18,7 +18,12 @@ import type {
   EnterpriseFeatures,
   EnterpriseCobranding,
 } from '~types/enterprise'
-import type { SdkOptions, SdkError, SdkResponse } from '~types/sdk'
+import type {
+  SdkOptions,
+  SdkError,
+  SdkResponse,
+  UserExitCode,
+} from '~types/sdk'
 import type {
   StepTypes,
   StepConfig,
@@ -46,7 +51,11 @@ class ModalApp extends Component<Props> {
       Tracker.setUp()
       Tracker.install()
     }
-    this.bindEvents(props.options.onComplete, props.options.onError)
+    this.bindEvents(
+      props.options.onComplete,
+      props.options.onError,
+      props.options.onUserExit
+    )
   }
 
   componentDidMount() {
@@ -98,10 +107,12 @@ class ModalApp extends Component<Props> {
 
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,
-    onError?: (error: SdkError) => void
+    onError?: (error: SdkError) => void,
+    onUserExit?: (error: UserExitCode) => void
   ) => {
     onComplete && this.events.on('complete', onComplete)
     onError && this.events.on('error', onError)
+    onUserExit && this.events.on('userExit', onUserExit)
   }
 
   rebindEvents = (
@@ -110,7 +121,12 @@ class ModalApp extends Component<Props> {
   ) => {
     this.events.off('complete', oldOptions.onComplete)
     this.events.off('error', oldOptions.onError)
-    this.bindEvents(newOptions.onComplete, newOptions.onError)
+    this.events.off('userExit', oldOptions.onUserExit)
+    this.bindEvents(
+      newOptions.onComplete,
+      newOptions.onError,
+      newOptions.onUserExit
+    )
   }
 
   setIssuingCountryIfConfigured = (
@@ -301,7 +317,12 @@ class ModalApp extends Component<Props> {
           shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
         >
           <Router
-            options={{ ...otherOptions, events: this.events }}
+            options={{
+              ...otherOptions,
+              containerId,
+              containerEl,
+              events: this.events,
+            }}
             {...otherProps}
           />
         </Modal>
