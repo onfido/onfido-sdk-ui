@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.6.0] - 2021-03-08
+
 ### Added
 
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
@@ -23,7 +25,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fix zoomed document capture view for Document Live Capture on some Huawei devices, e.g. Huawei P40, P30.
 - Public: Fix issue where documents are submitted to Onfido API without filename or file type.
 
-## [6.5.0] - 2020-02-08
+## [6.5.0] - 2021-02-08
 
 ### Added
 
@@ -905,7 +907,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.5.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.6.0...development
+[6.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.5.0...6.6.0
 [6.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.4.0...6.5.0
 [6.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.3.1...6.4.0
 [6.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.3.0...6.3.1
