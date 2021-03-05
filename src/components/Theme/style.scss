@@ -196,7 +196,6 @@ $logo-height: 32 * $unit;
   width: 100%;
   height: $footer-height;
   flex: 0 0 auto;
-  z-index: 1;
 
   .logo {
     @extend %_logo;
