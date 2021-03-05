@@ -53,8 +53,8 @@ class ModalApp extends Component<Props> {
     const { options } = this.props
     this.prepareInitialStore({}, options)
     const trackedProperties = {
-      customUI: options.customUI,
-      isCrossDevice: options.mobileFlow,
+      is_custom_ui: !!options.customUI,
+      enterprise_features_enabled: options.enterpriseFeatures,
     }
     Tracker.sendEvent('SDK_FLOW_START', trackedProperties)
   }
