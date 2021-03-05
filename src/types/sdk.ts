@@ -25,6 +25,8 @@ export type SdkError = {
   message: string
 }
 
+export type UserExitCode = 'USER_CONSENT_DENIED'
+
 export type ServerRegions = 'US' | 'EU' | 'CA'
 
 interface FunctionalConfigurations {
@@ -39,6 +41,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   // Callbacks
   onComplete?: (data: SdkResponse) => void
   onError?: (error: SdkError) => void
+  onUserExit?: (data: UserExitCode) => void
   onModalRequestClose?: () => void
 
   // SDK Configuration
