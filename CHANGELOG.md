@@ -13,6 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 - Internal: Added user consent screen
 - Public: Added callbacks that are triggered on user media submission if the feature is enabled. Note - This is a premium enterprise feature.
+- Public: Added optional applicantId field to the enterpriseFeatures configuration.
 
 ### Changed
 
