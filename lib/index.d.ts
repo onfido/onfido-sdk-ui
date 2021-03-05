@@ -101,6 +101,7 @@ export declare type UICustomizationOptions = {
 	colorBorderButtonSecondary?: string;
 	borderRadiusButton?: string;
 	buttonGroupStacked?: boolean;
+	colorBackgroundDocTypeButton?: string;
 	colorBorderDocTypeButton?: string;
 	colorBorderDocTypeButtonHover?: string;
 	colorBorderDocTypeButtonActive?: string;
