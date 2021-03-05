@@ -8,3 +8,4 @@ export const checkIfWebcamPermissionGranted = jest
 export const getEnabledDocuments = jest.fn().mockReturnValue([])
 export const hasOnePreselectedDocument = jest.fn().mockReturnValue(false)
 export const isSafari131 = jest.fn().mockReturnValue(false)
+export const getCSSMillisecsValue = jest.fn().mockReturnValue('200ms')

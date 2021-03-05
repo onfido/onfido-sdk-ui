@@ -5,9 +5,11 @@ import { withFullScreenState } from '../FullScreen'
 import { getCSSMillisecsValue, wrapWithClass } from '~utils'
 import { localised } from '../../locales'
 import style from './style.scss'
+import styleConstants from '../Theme/constants.scss'
+import theme from '../Theme/style.scss'
 
 const MODAL_ANIMATION_DURATION = getCSSMillisecsValue(
-  style.modal_animation_duration
+  styleConstants.modal_animation_duration
 )
 
 const Wrapper = ({ children }) => wrapWithClass(style.inner, children)
@@ -25,14 +27,14 @@ const Modal = ({
   <ReactModal
     isOpen={isOpen}
     onRequestClose={onRequestClose}
-    portalClassName={style.portal}
+    portalClassName={theme.portal}
     overlayClassName={{
-      base: style.overlay,
-      afterOpen: style['overlay--after-open'],
-      afterClose: style['overlay--after-close'],
+      base: theme.modalOverlay,
+      afterOpen: theme['modalOverlay--after-open'],
+      beforeClose: theme['modalOverlay--before-close'],
     }}
-    bodyOpenClassName={style.modalBody}
-    className={style.inner}
+    bodyOpenClassName={theme.modalBody}
+    className={classNames(theme.modalInner, style.inner)}
     role={'dialog'}
     shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
     closeTimeoutMS={MODAL_ANIMATION_DURATION}

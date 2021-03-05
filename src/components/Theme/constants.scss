@@ -34,6 +34,7 @@ $padding-lg: 16 * $unit;
 $padding-sm: 10 * $unit;
 $padding-xs: 8 * $unit;
 
+$sdk-container-max-width: 512 * $unit;
 $footer-height: 40 * $unit;
 $footer-margin: 0 * $unit;
 $navigation-height: 32 * $unit;
@@ -81,6 +82,13 @@ $lg-btn-width-sm-screen: 100%;
 
 $sm-btn-width-lg-screen: 200 * $unit-small;
 $sm-btn-width-sm-screen: 160 * $unit-small;
+
+/* Modal */
+$modal-animation-duration: 200ms;
+// Export is required for ^ variable to be accessible at React/JS side
+:export {
+  modal_animation_duration: $modal-animation-duration;
+}
 
 %absolute-center {
   margin: auto;

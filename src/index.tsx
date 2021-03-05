@@ -31,6 +31,7 @@ const defaults: SdkOptions = {
   containerId: 'onfido-mount',
   onComplete: noop,
   onError: noop,
+  onUserExit: noop,
 }
 
 const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {
