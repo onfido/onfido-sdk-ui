@@ -1,10 +1,16 @@
-import { h, FunctionComponent } from 'preact'
-import { useEffect, useState, useContext } from 'preact/hooks'
+import { h, FunctionComponent, Fragment } from 'preact'
+import {
+  useEffect,
+  useState,
+  useContext,
+  unmountComponentAtNode,
+} from 'preact/compat'
 import { LocaleContext } from '~locales'
 import { sanitize } from 'dompurify'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
 import Button from '../Button'
+import DeclineModal from './DeclineModal'
 import style from './style.scss'
 
 import type { StepComponentUserConsentProps } from '~types/routers'
@@ -43,10 +49,28 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
 
 const UserConsent: FunctionComponent<UserConsentProps> = ({
   nextStep,
-  previousStep,
+  containerEl,
+  containerId,
+  events,
 }) => {
-  const actions = <Actions onAccept={nextStep} onDecline={previousStep} />
   const [consentHtml, setConsentHtml] = useState('')
+  const [isModalOpen, setModalToOpen] = useState(false)
+  const sdkContainer = containerEl || document.getElementById(containerId)
+
+  const actions = (
+    <Actions
+      onAccept={nextStep}
+      onDecline={() => {
+        setModalToOpen(true)
+      }}
+    />
+  )
+
+  const triggerUserExit = () => {
+    setModalToOpen(false)
+    events.emit('userExit', 'USER_CONSENT_DENIED')
+    unmountComponentAtNode(sdkContainer)
+  }
 
   useEffect(() => {
     fetch(process.env.USER_CONSENT_URL)
@@ -55,15 +79,26 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
   }, [])
 
   return (
-    <ScreenLayout actions={actions}>
-      <div
-        className={style.consentFrame}
-        data-onfido-qa="userConsentFrameWrapper"
-        dangerouslySetInnerHTML={{
-          __html: sanitize(consentHtml, { ADD_ATTR: ['target', 'rel'] }),
-        }}
-      />
-    </ScreenLayout>
+    <Fragment>
+      {isModalOpen && (
+        <DeclineModal
+          isOpen={true}
+          onRequestClose={() => setModalToOpen(false)}
+          onDismissModal={() => setModalToOpen(false)}
+          onAbandonFlow={triggerUserExit}
+          containerEl={sdkContainer}
+        />
+      )}
+      <ScreenLayout actions={actions}>
+        <div
+          className={style.consentFrame}
+          data-onfido-qa="userConsentFrameWrapper"
+          dangerouslySetInnerHTML={{
+            __html: sanitize(consentHtml, { ADD_ATTR: ['target', 'rel'] }),
+          }}
+        />
+      </ScreenLayout>
+    </Fragment>
   )
 }
 export default trackComponent(UserConsent)

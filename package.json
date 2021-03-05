@@ -126,6 +126,7 @@
     "@types/jest": "^26.0.15",
     "@types/parse-unit": "^1.0.1",
     "@types/pdfobject": "^2.0.6",
+    "@types/react-modal": "^3.12.0",
     "@types/react-phone-number-input": "^3.0.6",
     "@types/react-redux": "^7.1.15",
     "@types/react-router-dom": "^5.1.6",
