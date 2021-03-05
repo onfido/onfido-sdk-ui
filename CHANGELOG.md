@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
 - Public: Added support for UI customizations in SDK configuration using `customUI` option. See README for details of supported customization options.
 - Internal: Added user consent screen
+- Internal: Add Woopra tracking for UI customization option usage.
 
 ### Changed
 
