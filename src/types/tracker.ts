@@ -21,6 +21,7 @@ type MappedEventNames =
 
 export type TrackedEventNames =
   | MappedEventNames
+  | 'SDK_FLOW_START'
   | 'Completed upload'
   | 'Snapshot upload completed'
   | 'Starting live photo upload'
