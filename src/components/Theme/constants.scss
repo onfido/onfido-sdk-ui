@@ -16,7 +16,6 @@ $unit: (1/16) * 1em;
  * our parent has a different font size.
  */
 $unit-x-large: (1/30) * 1em;
-$font-size-x-large: 30 * $unit;
 $unit-large: (1/20) * 1em;
 $unit-small: (1/14) * 1em;
 $unit-x-small: (1/11) * 1em;
@@ -34,6 +33,7 @@ $padding-lg: 16 * $unit;
 $padding-sm: 10 * $unit;
 $padding-xs: 8 * $unit;
 
+$sdk-container-max-width: 512 * $unit;
 $footer-height: 40 * $unit;
 $footer-margin: 0 * $unit;
 $navigation-height: 32 * $unit;
@@ -44,8 +44,10 @@ $navigation-padding-top-sm-screen: $padding-sm;
 $navigation-padding-sides-sm-screen: $padding-xs;
 
 /* Solid colors */
-$color-white: rgba(var(--ods-color-neutral-white));
-$color-black: rgba(var(--ods-color-neutral-black));
+/*  Use rgb() notation instead of rgba() as these colours do not have an opacity value.
+    Colour reverts to browser default on IE11 which is correctly flagging value as invalid if rgba() used. */
+$color-white: rgb(var(--ods-color-neutral-white));
+$color-black: rgb(var(--ods-color-neutral-black));
 
 $color-icon-temporary: rgba(var(--ods-color-neutral-300));
 $color-divider: rgba(var(--ods-color-neutral-400));
@@ -81,6 +83,13 @@ $lg-btn-width-sm-screen: 100%;
 
 $sm-btn-width-lg-screen: 200 * $unit-small;
 $sm-btn-width-sm-screen: 160 * $unit-small;
+
+/* Modal */
+$modal-animation-duration: 200ms;
+// Export is required for ^ variable to be accessible at React/JS side
+:export {
+  modal_animation_duration: $modal-animation-duration;
+}
 
 %absolute-center {
   margin: auto;

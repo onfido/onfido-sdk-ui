@@ -12,6 +12,7 @@ const payload = {
   enterprise_features: {
     cobrand: true,
     hideOnfidoLogo: true,
+    useCustomizedApiRequests: true,
   },
   urls: {
     telephony_url: 'https://localhost:8080/telephony',

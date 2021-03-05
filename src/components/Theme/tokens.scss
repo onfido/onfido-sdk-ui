@@ -26,11 +26,12 @@
   --font-size-base: calc(16 * var(--unit));
 
   --font-size-large: calc(20 * var(--unit));
+  --font-size-x-large: calc(30 * var(--unit));
   --font-size-small: calc(14 * var(--unit));
   --font-size-x-small: calc(11 * var(--unit));
 
   --osdk-font-family-title: var(--font-family);
-  --osdk-font-size-title: calc(30 * var(--unit));
+  --osdk-font-size-title: var(--font-size-x-large);
   --osdk-font-weight-title: 600;
   --osdk-color-content-title: rgba(var(--ods-color-content-main));
 
@@ -106,9 +107,7 @@
     var(--ods-color-content-action)
   );
 
-  --osdk-color-background-button-secondary: rgba(
-    var(--ods-color-background-always-transparent)
-  );
+  --osdk-color-background-button-secondary: transparent;
   --osdk-color-background-button-secondary-hover: rgba(
     var(--ods-color-background-action-subtle-hover)
   );
@@ -123,7 +122,7 @@
   --osdk-button-group-stacked: false;
 
   /* Document Type Selectors option button colors */
-  --color-background-doc-type-button: rgba(var(--ods-color-neutral-white));
+  --osdk-color-background-doc-type-button: rgba(var(--ods-color-neutral-white));
 
   --osdk-color-border-doc-type-button: rgba(var(--ods-color-border-input));
   --osdk-color-border-doc-type-button-hover: rgba(
