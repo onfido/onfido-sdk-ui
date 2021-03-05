@@ -11,6 +11,7 @@ import {
   uploadLiveVideo,
   sendMultiframeSelfie,
   formatError,
+  objectToFormData,
 } from '~utils/onfidoApi'
 import Confirm from '../Confirm'
 import { ApiRawError } from '~types/api'
@@ -62,6 +63,7 @@ const ENTERPRISE_CALLBACKS_BY_VARIANT: Record<
     onSubmitDocument: () => continueWithOnfidoSubmission,
     onSubmitSelfie: () => continueWithOnfidoSubmission,
     onSubmitVideo: () => continueWithOnfidoSubmission,
+    applicantId: '123-456',
   },
 }
 
@@ -229,6 +231,33 @@ describe('Confirm', () => {
             await runAllPromises()
 
             expect(spyUpload).toHaveBeenCalledTimes(1)
+          })
+        })
+
+        describe('when applicantId is provided', () => {
+          beforeEach(() => {
+            wrapper = mount(
+              <MockedConfirm
+                method={method}
+                mockVariant="continue"
+                variant={variant}
+              />
+            )
+          })
+
+          it('should add the applicantId to the FormData', async () => {
+            const spyUpload = jest.spyOn(
+              { objectToFormData },
+              'objectToFormData'
+            )
+            wrapper.find('.button-primary').simulate('click')
+            await runAllPromises()
+
+            expect(spyUpload).toBeCalledWith(
+              expect.objectContaining({
+                applicant_id: '123-456',
+              })
+            )
           })
         })
       })

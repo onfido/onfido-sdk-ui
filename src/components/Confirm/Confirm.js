@@ -326,6 +326,7 @@ class Confirm extends Component {
       sdk_metadata: JSON.stringify(data.sdkMetadata),
       sdk_source: 'onfido_web_sdk',
       sdk_version: process.env.SDK_VERSION,
+      applicant_id: this.props.enterpriseFeatures?.applicantId,
       ...payload,
     })
   }

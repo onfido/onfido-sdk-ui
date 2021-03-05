@@ -20,4 +20,5 @@ export type EnterpriseFeatures = {
   onSubmitDocument?: (data: FormData) => Promise<EnterpriseCallbackResponse>
   onSubmitSelfie?: (data: FormData) => Promise<EnterpriseCallbackResponse>
   onSubmitVideo?: (data: FormData) => Promise<EnterpriseCallbackResponse>
+  applicantId?: string
 }
