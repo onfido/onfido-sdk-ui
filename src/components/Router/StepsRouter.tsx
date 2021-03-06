@@ -28,6 +28,7 @@ class StepsRouter extends Component<StepsRouterProps> {
     const {
       back,
       cobrand,
+      logoCobrand,
       disableNavigation,
       hideOnfidoLogo,
       isFullScreen,
@@ -59,6 +60,14 @@ class StepsRouter extends Component<StepsRouterProps> {
       ? cobrand
       : globalUserOptions.enterpriseFeatures?.cobrand && cobrand
 
+    const logoCobrandLogic = mobileFlow
+      ? logoCobrand
+      : globalUserOptions.enterpriseFeatures?.logoCobrand && logoCobrand
+
+    const logoCobrandStyle = logoCobrandLogic
+      ? { backgroundImage: 'url(' + logoCobrandLogic.src + ')' }
+      : null
+
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
@@ -66,6 +75,7 @@ class StepsRouter extends Component<StepsRouterProps> {
           [theme.fullScreenStep]: isFullScreen,
           [theme.noLogo]: hideLogoLogic,
           [theme.cobrandLogo]: cobrandLogic,
+          [theme.logoCobrandLogo]: logoCobrand,
           [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
         })}
         tabIndex={-1}
@@ -85,10 +95,19 @@ class StepsRouter extends Component<StepsRouterProps> {
         >
           <CurrentComponent {...passedProps} />
         </div>
-        {!hideLogoLogic && cobrandLogic ? (
-          <div className={classNames({ [theme.cobrandFooter]: cobrandLogic })}>
+        {!hideLogoLogic && (cobrandLogic || logoCobrandLogic) ? (
+          <div
+            className={classNames({
+              [theme.cobrandFooter]: cobrandLogic || logoCobrandLogic,
+            })}
+          >
+            {logoCobrandLogic ? (
+              <div className={theme.logoCobrandLogo} style={logoCobrandStyle} />
+            ) : null}
             <div className={theme.cobrandLabel} aria-hidden="true">
-              <div className={theme.cobrandText}>{cobrandLogic.text}</div>
+              {cobrandLogic ? (
+                <div className={theme.cobrandText}>{cobrandLogic.text}</div>
+              ) : null}
               <div className={theme.poweredBy}>powered by</div>
             </div>
             <div className={theme.logo} />

@@ -6,6 +6,8 @@ import {
   StepTypes,
 } from '~types/steps'
 import { ServerRegions, SdkOptions } from '~types/sdk'
+// @ts-ignore
+import testCobrandLogo from './assets/onfido-logo.svg'
 
 type StringifiedBoolean = 'true' | 'false'
 
@@ -27,6 +29,7 @@ export type QueryParams = {
   region?: string
   shouldCloseOnOverlayClick?: StringifiedBoolean
   showCobrand?: StringifiedBoolean
+  showLogoCobrand?: StringifiedBoolean
   showUserConsent?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
   snapshotInterva?: StringifiedBoolean
@@ -182,6 +185,10 @@ export const getInitSdkOptions = (): SdkOptions => {
     queryParamToValueString.showCobrand === 'true'
       ? { text: 'Planet Express, Incorporated' }
       : undefined
+  const logoCobrand =
+    queryParamToValueString.showLogoCobrand == 'true'
+      ? { src: testCobrandLogo }
+      : undefined
 
   return {
     useModal: queryParamToValueString.useModal === 'true',
@@ -198,6 +205,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     enterpriseFeatures: {
       hideOnfidoLogo,
       cobrand,
+      logoCobrand,
     },
     ...smsNumberCountryCode,
   }

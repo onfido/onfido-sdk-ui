@@ -75,9 +75,13 @@ export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | Ste
 export declare type EnterpriseCobranding = {
 	text: string;
 };
+export declare type EnterpriseLogoCobranding = {
+	src: string;
+};
 export declare type EnterpriseFeatures = {
 	hideOnfidoLogo?: boolean;
 	cobrand?: EnterpriseCobranding;
+	logoCobrand?: EnterpriseLogoCobranding;
 };
 export declare type DocumentResponse = {
 	id: string;

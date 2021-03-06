@@ -17,6 +17,7 @@ import type { NormalisedSdkOptions } from '~types/commons'
 import type {
   EnterpriseFeatures,
   EnterpriseCobranding,
+  EnterpriseLogoCobranding,
 } from '~types/enterprise'
 import type { SdkOptions, SdkError, SdkResponse } from '~types/sdk'
 import type {
@@ -196,6 +197,14 @@ class ModalApp extends Component<Props> {
         cobrandConfig
       )
     }
+
+    const logoCobrandConfig = options.enterpriseFeatures?.logoCobrand
+    if (!hideOnfidoLogo && !cobrandConfig && logoCobrandConfig) {
+      this.displayLogoCobrandIfClientHasFeature(
+        validEnterpriseFeatures.logoCobrand,
+        logoCobrandConfig
+      )
+    }
   }
 
   setUrls = (token: string) => {
@@ -223,6 +232,17 @@ class ModalApp extends Component<Props> {
       this.props.actions.showCobranding(cobrandConfig)
     } else {
       this.onInvalidEnterpriseFeatureException('cobrand')
+    }
+  }
+
+  displayLogoCobrandIfClientHasFeature = (
+    isValidEnterpriseFeature: EnterpriseLogoCobranding | null | undefined,
+    logoCobrandConfig: EnterpriseLogoCobranding
+  ) => {
+    if (isValidEnterpriseFeature) {
+      this.props.actions.showLogoCobranding(logoCobrandConfig)
+    } else {
+      this.onInvalidEnterpriseFeatureException('logoCobrand')
     }
   }
 

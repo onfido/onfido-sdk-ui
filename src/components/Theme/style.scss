@@ -124,6 +124,13 @@ $logo-height: 32 * $unit;
     }
   }
 
+  .logoCobrandLogo {
+    @extend %_logo;
+    width: $cobrand-logo-width;
+    margin-top: 0;
+    flex: 0 0 auto;
+  }
+
   .logo {
     @extend %_logo;
     background-image: url('./assets/onfido-logo.svg');
