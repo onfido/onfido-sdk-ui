@@ -98,7 +98,7 @@ class ModalApp extends Component<Props> {
   }
 
   onInvalidCustomApiException = (callbackName: string) => {
-    const message = `CustomApiException: ${callbackName} must be a function that returns a promise for useCustomApiRequests to work properly.`
+    const message = `CustomizedApiException: ${callbackName} must be a function that returns a promise for useCustomizedApiRequests to work properly.`
     this.events.emit('error', { type: 'exception', message })
     Tracker.trackException(message)
   }
@@ -288,7 +288,7 @@ class ModalApp extends Component<Props> {
       this.props.actions.setDecoupleFromAPI(true)
     } else {
       this.props.actions.setDecoupleFromAPI(false)
-      this.onInvalidEnterpriseFeatureException('useCustomApiRequests')
+      this.onInvalidEnterpriseFeatureException('useCustomizedApiRequests')
     }
   }
 
