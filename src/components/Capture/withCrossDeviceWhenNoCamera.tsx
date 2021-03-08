@@ -1,6 +1,7 @@
 import { h, Component, ComponentType } from 'preact'
 import { isDesktop } from '~utils'
 
+import { ApiParsedError } from '~types/api'
 import type {
   StepComponentDocumentProps,
   StepComponentFaceProps,
@@ -9,6 +10,17 @@ import type {
 type CaptureComponentProps =
   | StepComponentDocumentProps
   | (StepComponentFaceProps & { forceCrossDevice: never })
+
+const buildError = (message: string): ApiParsedError => {
+  console.warn(message)
+
+  return {
+    response: {
+      message,
+    },
+    status: 499, // For placeholder purpose only
+  }
+}
 
 const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
   WrappedComponent: ComponentType<P>
@@ -42,6 +54,7 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         hasCamera,
         requestedVariant,
         step,
+        triggerOnError,
       } = this.props
 
       const currentStep = componentsList[step]
@@ -52,8 +65,10 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         (requestedVariant === 'video' || currentStep.step.type === 'face')
 
       if (cameraRequiredButNoneDetected) {
-        console.warn(
-          'Camera required: Either device has no camera or browser is unable to detect camera'
+        triggerOnError(
+          buildError(
+            'Camera required: Either device has no camera or browser is unable to detect camera'
+          )
         )
       }
 
@@ -64,13 +79,17 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         docVideoRequested
       ) {
         if (this.props.mobileFlow) {
-          console.warn('Already on cross device flow but no camera detected')
+          triggerOnError(
+            buildError('Already on cross device flow but no camera detected')
+          )
           return
         }
 
         if (this.props.mobileFlow && !this.props.uploadFallback) {
-          console.error(
-            'Unable to complete the flow: upload fallback not allowed'
+          triggerOnError(
+            buildError(
+              'Unable to complete the flow: upload fallback not allowed'
+            )
           )
           return
         }

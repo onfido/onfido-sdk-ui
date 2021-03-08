@@ -694,6 +694,7 @@ describe('DocumentVideo', () => {
                 await runAllPromises()
                 wrapper.update()
                 assertError(wrapper)
+                expect(defaultProps.triggerOnError).toHaveBeenCalledWith(error)
               })
             })
           })
@@ -714,6 +715,9 @@ describe('DocumentVideo', () => {
           await runAllPromises()
           wrapper.update()
           assertError(wrapper, false)
+          expect(defaultProps.triggerOnError).toHaveBeenCalledWith(
+            fakeAccessDeniedError
+          )
         })
       })
     })

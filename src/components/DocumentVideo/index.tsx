@@ -114,6 +114,13 @@ const DocumentVideo: FunctionComponent<Props> = ({
     subtitle,
     title,
     totalSteps,
+    /* onStart: () => {
+      if (webcamRef.current) {
+        const [videoTrack] = webcamRef.current.stream.getVideoTracks()
+        const { width, height } = videoTrack.getSettings()
+        alert(`Width: ${width}; Height: ${height}`)
+      }
+    }, */
   }
 
   return (

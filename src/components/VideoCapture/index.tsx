@@ -216,6 +216,7 @@ export default class VideoCapture extends Component<Props, State> {
         buttonType="video"
         containerClassName={cameraClassName}
         facing={facing}
+        fallbackToDefaultWidth
         isButtonDisabled={disableRecording}
         onButtonClick={this.handleRecordingStart}
         onError={this.handleCameraError}

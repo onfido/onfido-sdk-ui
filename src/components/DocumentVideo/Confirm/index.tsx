@@ -27,6 +27,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   nextStep,
   previousStep,
   token,
+  triggerOnError,
 }) => {
   const [loading, setLoading] = useState(false)
   const [previewing, setPreviewing] = useState(false)
@@ -123,6 +124,8 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       nextStep()
     } catch (errorResponse) {
       setLoading(false)
+      triggerOnError(errorResponse)
+
       const {
         response: { error },
       } = errorResponse as ApiParsedError
@@ -146,6 +149,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     documentBack,
     documentVideo,
     issuingCountry,
+    triggerOnError,
   ])
 
   const onUploadDocumentsV4 = useCallback(async () => {
@@ -224,6 +228,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       nextStep()
     } catch (errorResponse) {
       setLoading(false)
+      triggerOnError(errorResponse)
       setError({ name: 'REQUEST_ERROR', type: 'error' })
     }
   }, [
@@ -234,6 +239,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     documentFront,
     documentBack,
     documentVideo,
+    triggerOnError,
   ])
 
   const onUploadDocuments =
