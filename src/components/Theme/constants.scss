@@ -44,8 +44,10 @@ $navigation-padding-top-sm-screen: $padding-sm;
 $navigation-padding-sides-sm-screen: $padding-xs;
 
 /* Solid colors */
-$color-white: rgba(var(--ods-color-neutral-white));
-$color-black: rgba(var(--ods-color-neutral-black));
+/*  Use rgb() notation instead of rgba() as these colours do not have an opacity value.
+    Colour reverts to browser default on IE11 which is correctly flagging value as invalid if rgba() used. */
+$color-white: rgb(var(--ods-color-neutral-white));
+$color-black: rgb(var(--ods-color-neutral-black));
 
 $color-icon-temporary: rgba(var(--ods-color-neutral-300));
 $color-divider: rgba(var(--ods-color-neutral-400));

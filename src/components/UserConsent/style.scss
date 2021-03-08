@@ -83,6 +83,11 @@
 
   overflow: auto;
 
+  /* HACK: only apply this fix to IE11*/
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    height: 0; /*necessary for IE11, see: https://stackoverflow.com/questions/24396205/flex-grow-not-working-in-internet-explorer-11-0*/
+  }
+
   @media (--small-viewport) {
     width: 100%;
     margin: auto $small-text-margin;
