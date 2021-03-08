@@ -2845,8 +2845,8 @@
     "repository": "https://github.com/paulmillr/chokidar",
     "publisher": "Paul Miller",
     "url": "https://paulmillr.com",
-    "path": "node_modules/@nicolo-ribaudo/chokidar-2/node_modules/chokidar",
-    "licenseFile": "node_modules/@nicolo-ribaudo/chokidar-2/node_modules/chokidar/README.md"
+    "path": "node_modules/webpack-dev-server/node_modules/chokidar",
+    "licenseFile": "node_modules/webpack-dev-server/node_modules/chokidar/README.md"
   },
   "chokidar@3.4.0": {
     "licenses": "MIT",
@@ -2872,7 +2872,7 @@
     "path": "node_modules/chrome-trace-event",
     "licenseFile": "node_modules/chrome-trace-event/LICENSE.txt"
   },
-  "chromedriver@87.0.5": {
+  "chromedriver@89.0.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/giggio/node-chromedriver",
     "publisher": "Giovanni Bassi",
@@ -8120,15 +8120,6 @@
     "path": "node_modules/minimist-options",
     "licenseFile": "node_modules/minimist-options/license"
   },
-  "minimist@0.0.8": {
-    "licenses": "MIT",
-    "repository": "https://github.com/substack/minimist",
-    "publisher": "James Halliday",
-    "email": "mail@substack.net",
-    "url": "http://substack.net",
-    "path": "node_modules/fsevents/node_modules/minimist",
-    "licenseFile": "node_modules/fsevents/node_modules/minimist/LICENSE"
-  },
   "minimist@1.1.1": {
     "licenses": "MIT",
     "repository": "https://github.com/substack/minimist",
@@ -8162,15 +8153,6 @@
     "path": "node_modules/mixin-deep",
     "licenseFile": "node_modules/mixin-deep/LICENSE"
   },
-  "mkdirp@0.5.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/substack/node-mkdirp",
-    "publisher": "James Halliday",
-    "email": "mail@substack.net",
-    "url": "http://substack.net",
-    "path": "node_modules/fsevents/node_modules/mkdirp",
-    "licenseFile": "node_modules/fsevents/node_modules/mkdirp/LICENSE"
-  },
   "mkdirp@0.5.4": {
     "licenses": "MIT",
     "repository": "https://github.com/substack/node-mkdirp",
@@ -8183,8 +8165,8 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
-    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/chromedriver/node_modules/mkdirp",
+    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
   },
   "mocha@6.2.3": {
     "licenses": "MIT",
