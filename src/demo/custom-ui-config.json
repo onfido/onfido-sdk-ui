@@ -23,10 +23,10 @@
   "colorBorderDocTypeButtonActive": "#843b62",
   "colorBorderLinkUnderline": "#b23a48",
   "colorContentLinkTextHover": "#5c374c",
-  "colorBackgroundLinkHover": "rgb(255 238 170 / 92%)",
+  "colorBackgroundLinkHover": "rgba(255 238 170, 0.92)",
   "colorBackgroundLinkActive": "#b23a48",
   "colorBackgroundInfoPill": "#ffb997",
   "colorContentInfoPill": "#333",
-  "colorBackgroundButtonIconHover": "rgb(255 238 170 / 92%)",
+  "colorBackgroundButtonIconHover": "rgb(255 238 170, 0.92)",
   "colorBackgroundButtonIconActive": "#ffb997"
 }
