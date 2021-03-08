@@ -8,13 +8,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [6.6.0] - 2021-03-08
+## [6.6.0] - 2021-03-09
 
 ### Added
 
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
-- Internal: Added user consent screen
+- Public: Added user consent screen
 - Public: Added callbacks that are triggered on user media submission if the feature is enabled. Note - This is a premium enterprise feature.
+- Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
+- Internal: Use ScreenLayout component in Confirm screen.
 
 ### Changed
 
@@ -31,10 +33,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Added npm latest version badge.
 - Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
-- Internal: Introduce integration tests for API endpoint integrations.
-- Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 - Internal: Introduce TypeScript on non-critical components & deprecate FlowType.
-- Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
+- Internal: Introduce integration tests for API endpoint integrations.
 
 ### Changed
 
@@ -42,7 +42,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Updated text and background colours.
 - Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
 - Public: Return error for image quality failures on the first two document upload attempts.
-- Internal: Use ScreenLayout component in Confirm screen.
 
 ### Fixed
 
