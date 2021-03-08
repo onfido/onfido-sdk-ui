@@ -57,7 +57,7 @@
     &:hover {
       .iconBack {
         background-image: url('./assets/back-black.svg');
-        background-color: var(--osdk-color-background-button-icon-hover);
+        background-color: rgba(var(--ods-color-neutral-400));
       }
     }
   }
@@ -69,7 +69,7 @@
       background-image: url('./assets/back-black.svg');
 
       .iconBack {
-        background-color: var(--osdk-color-background-button-icon-active);
+        background-color: rgba(var(--ods-color-neutral-600));
       }
     }
   }
