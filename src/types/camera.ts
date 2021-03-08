@@ -15,8 +15,8 @@ export type CameraProps = {
   docAutoCaptureFrame?: boolean
   docLiveCaptureFrame?: boolean
   facing?: VideoFacingModeEnum
-  fallbackToDefaultHeight?: boolean
-  idealCameraHeight?: number
+  fallbackToDefaultWidth?: boolean
+  idealCameraWidth?: number
   isButtonDisabled?: boolean
   isUploadFallbackDisabled?: boolean
   onButtonClick?: () => void
