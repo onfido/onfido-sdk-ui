@@ -14,7 +14,6 @@ import { trackException } from '../../Tracker'
 
 import type { ApiParsedError, ErrorCallback } from '~types/api'
 import type { ExtendedStepTypes, FlowVariants } from '~types/commons'
-import type { CaptureKeys } from '~types/redux'
 import type {
   ComponentStep,
   ChangeFlowProp,
