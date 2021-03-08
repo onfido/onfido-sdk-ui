@@ -2901,7 +2901,7 @@
     "path": "node_modules/chrome-trace-event",
     "licenseFile": "node_modules/chrome-trace-event/LICENSE.txt"
   },
-  "chromedriver@87.0.5": {
+  "chromedriver@89.0.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/giggio/node-chromedriver",
     "publisher": "Giovanni Bassi",
@@ -10030,17 +10030,17 @@
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react-dom",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react-dom/LICENSE"
   },
+  "react-dom@15.6.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "node_modules/react-dom",
+    "licenseFile": "node_modules/react-dom/LICENSE"
+  },
   "react-dom@16.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
     "path": "node_modules/mochawesome-report-generator/node_modules/react-dom",
     "licenseFile": "node_modules/mochawesome-report-generator/node_modules/react-dom/LICENSE"
-  },
-  "react-dom@17.0.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/facebook/react",
-    "path": "node_modules/react-dom",
-    "licenseFile": "node_modules/react-dom/LICENSE"
   },
   "react-is@16.13.0": {
     "licenses": "MIT",
@@ -10852,12 +10852,6 @@
     "repository": "https://github.com/facebook/react",
     "path": "node_modules/scheduler",
     "licenseFile": "node_modules/scheduler/LICENSE"
-  },
-  "scheduler@0.20.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/facebook/react",
-    "path": "node_modules/react-dom/node_modules/scheduler",
-    "licenseFile": "node_modules/react-dom/node_modules/scheduler/LICENSE"
   },
   "schema-utils@0.4.7": {
     "licenses": "MIT",
