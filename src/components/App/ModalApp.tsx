@@ -18,12 +18,18 @@ import type {
   EnterpriseFeatures,
   EnterpriseCobranding,
 } from '~types/enterprise'
-import type { SdkOptions, SdkError, SdkResponse } from '~types/sdk'
+import type {
+  SdkOptions,
+  SdkError,
+  SdkResponse,
+  UserExitCode,
+} from '~types/sdk'
 import type {
   StepTypes,
   StepConfig,
   StepConfigDocument,
   DocumentTypes,
+  StepConfigFace,
 } from '~types/steps'
 
 import withConnect, { ReduxProps } from './withConnect'
@@ -45,7 +51,11 @@ class ModalApp extends Component<Props> {
       Tracker.setUp()
       Tracker.install()
     }
-    this.bindEvents(props.options.onComplete, props.options.onError)
+    this.bindEvents(
+      props.options.onComplete,
+      props.options.onError,
+      props.options.onUserExit
+    )
   }
 
   componentDidMount() {
@@ -87,14 +97,22 @@ class ModalApp extends Component<Props> {
     Tracker.trackException(message)
   }
 
+  onInvalidCustomApiException = (callbackName: string) => {
+    const message = `CustomApiException: ${callbackName} must be a function that returns a promise for useCustomApiRequests to work properly.`
+    this.events.emit('error', { type: 'exception', message })
+    Tracker.trackException(message)
+  }
+
   trackOnComplete = () => Tracker.sendEvent('completed flow')
 
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,
-    onError?: (error: SdkError) => void
+    onError?: (error: SdkError) => void,
+    onUserExit?: (error: UserExitCode) => void
   ) => {
     onComplete && this.events.on('complete', onComplete)
     onError && this.events.on('error', onError)
+    onUserExit && this.events.on('userExit', onUserExit)
   }
 
   rebindEvents = (
@@ -103,7 +121,12 @@ class ModalApp extends Component<Props> {
   ) => {
     this.events.off('complete', oldOptions.onComplete)
     this.events.off('error', oldOptions.onError)
-    this.bindEvents(newOptions.onComplete, newOptions.onError)
+    this.events.off('userExit', oldOptions.onUserExit)
+    this.bindEvents(
+      newOptions.onComplete,
+      newOptions.onError,
+      newOptions.onUserExit
+    )
   }
 
   setIssuingCountryIfConfigured = (
@@ -196,6 +219,14 @@ class ModalApp extends Component<Props> {
         cobrandConfig
       )
     }
+
+    const isDecoupledFromAPI =
+      options.enterpriseFeatures?.useCustomizedApiRequests
+    if (isDecoupledFromAPI) {
+      this.setDecoupleFromAPIIfClientHasFeature(
+        validEnterpriseFeatures.useCustomizedApiRequests
+      )
+    }
   }
 
   setUrls = (token: string) => {
@@ -226,6 +257,41 @@ class ModalApp extends Component<Props> {
     }
   }
 
+  setDecoupleFromAPIIfClientHasFeature = (
+    isValidEnterpriseFeature: boolean
+  ) => {
+    if (isValidEnterpriseFeature) {
+      const {
+        onSubmitDocument,
+        onSubmitSelfie,
+        onSubmitVideo,
+      } = this.props.options.enterpriseFeatures
+
+      if (typeof onSubmitDocument !== 'function') {
+        this.onInvalidCustomApiException('onSubmitDocument')
+      }
+
+      if (typeof onSubmitSelfie !== 'function') {
+        this.onInvalidCustomApiException('onSubmitSelfie')
+      }
+
+      const faceStep = this.props.options.steps.find(
+        (step) => typeof step !== 'string' && step.type === 'face'
+      ) as StepConfigFace
+
+      if (faceStep?.options?.requestedVariant === 'video') {
+        if (typeof onSubmitVideo !== 'function') {
+          this.onInvalidCustomApiException('onSubmitVideo')
+        }
+      }
+
+      this.props.actions.setDecoupleFromAPI(true)
+    } else {
+      this.props.actions.setDecoupleFromAPI(false)
+      this.onInvalidEnterpriseFeatureException('useCustomApiRequests')
+    }
+  }
+
   render() {
     const {
       options: {
@@ -251,7 +317,12 @@ class ModalApp extends Component<Props> {
           shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
         >
           <Router
-            options={{ ...otherOptions, events: this.events }}
+            options={{
+              ...otherOptions,
+              containerId,
+              containerEl,
+              events: this.events,
+            }}
             {...otherProps}
           />
         </Modal>

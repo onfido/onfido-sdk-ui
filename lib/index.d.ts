@@ -72,12 +72,90 @@ export declare type StepConfigComplete = {
 	options?: StepOptionComplete;
 };
 export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoA | StepConfigFace | StepConfigComplete;
+export declare type DocumentSides = "front" | "back";
+export declare type UploadFileResponse = {
+	id: string;
+	created_at: string;
+	file_name: string;
+	file_type: string;
+	file_size: number;
+	href: string;
+	download_href: string;
+};
+export declare type ImageQualityBreakdown = {
+	max: number;
+	min: number;
+	score: number;
+	threshold: number;
+};
+export declare type ImageCutoffBreakdown = {
+	has_cutoff: boolean;
+} & ImageQualityBreakdown;
+export declare type ImageGlareBreakdown = {
+	has_glare: boolean;
+} & ImageQualityBreakdown;
+export declare type ImageBlurBreakdown = {
+	has_blur: boolean;
+} & ImageQualityBreakdown;
+export declare type ImageQualityWarnings = {
+	detect_cutoff?: {
+		valid: boolean;
+	};
+	detect_glare?: {
+		valid: boolean;
+	};
+	detect_blur?: {
+		valid: boolean;
+	};
+	image_quality: {
+		quality: string;
+		breakdown: {
+			cutoff?: ImageCutoffBreakdown;
+			glare?: ImageGlareBreakdown;
+			blur?: ImageBlurBreakdown;
+			has_document: boolean;
+		};
+		image_quality_uuid: string;
+	};
+};
+export declare type DocumentImageResponse = {
+	applicant_id: string;
+	type: DocumentTypes | PoaTypes;
+	side: DocumentSides;
+	issuing_country?: string;
+	sdk_warnings: ImageQualityWarnings;
+} & UploadFileResponse;
+declare const CHALLENGE_RECITE = "recite";
+declare const CHALLENGE_MOVEMENT = "movement";
+export declare type ChallengePayload = {
+	type: typeof CHALLENGE_RECITE;
+	query: number[];
+} | {
+	type: typeof CHALLENGE_MOVEMENT;
+	query: string;
+};
+export declare type VideoChallengeLanguage = {
+	source: string;
+	language_code: SupportedLanguages;
+};
+export declare type FaceVideoResponse = {
+	challenge: ChallengePayload[];
+	languages: VideoChallengeLanguage[];
+} & UploadFileResponse;
 export declare type EnterpriseCobranding = {
 	text: string;
+};
+export declare type EnterpriseCallbackResponse = {
+	continueWithOnfidoSubmission?: boolean;
+	onfidoSuccess?: DocumentImageResponse | UploadFileResponse | FaceVideoResponse;
 };
 export declare type EnterpriseFeatures = {
 	hideOnfidoLogo?: boolean;
 	cobrand?: EnterpriseCobranding;
+	useCustomizedApiRequests?: boolean;
+	onSubmitDocument?: (data: FormData) => Promise<EnterpriseCallbackResponse>;
+	onSubmitSelfie?: (data: FormData) => Promise<EnterpriseCallbackResponse>;
+	onSubmitVideo?: (data: FormData) => Promise<EnterpriseCallbackResponse>;
 };
 export declare type DocumentResponse = {
 	id: string;
@@ -97,6 +175,7 @@ export declare type SdkError = {
 	type: "exception" | "expired_token";
 	message: string;
 };
+export declare type UserExitCode = "USER_CONSENT_DENIED";
 export declare type ServerRegions = "US" | "EU" | "CA";
 export interface FunctionalConfigurations {
 	disableAnalytics?: boolean;
@@ -108,6 +187,7 @@ export interface FunctionalConfigurations {
 export interface SdkOptions extends FunctionalConfigurations {
 	onComplete?: (data: SdkResponse) => void;
 	onError?: (error: SdkError) => void;
+	onUserExit?: (data: UserExitCode) => void;
 	onModalRequestClose?: () => void;
 	token?: string;
 	useModal?: boolean;

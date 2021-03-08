@@ -1,3 +1,5 @@
+export const objectToFormData = jest.fn().mockReturnValue(new FormData())
+export const formatError = jest.fn()
 export const uploadDocument = jest.fn()
 export const uploadLivePhoto = jest.fn()
 export const uploadSnapshot = jest.fn()

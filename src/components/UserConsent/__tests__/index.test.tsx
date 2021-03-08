@@ -58,5 +58,19 @@ describe('UserConsent', () => {
 
       expect(wrapper.render().html()).toContain('<h1>My Sanitized Header</h1>')
     })
+
+    it('renders the DeclineModal component', () => {
+      const wrapper = mount(
+        <MockedLocalised>
+          <UserConsent {...defaultOptions} />
+        </MockedLocalised>
+      )
+      const secondaryBtn = wrapper.find(
+        'button[data-onfido-qa="userConsentBtnSecondary"]'
+      )
+      expect(secondaryBtn.exists()).toBeTruthy()
+      secondaryBtn.simulate('click')
+      expect(wrapper.find('DeclineModal').exists()).toBeTruthy()
+    })
   })
 })

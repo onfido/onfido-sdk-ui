@@ -6,6 +6,8 @@ import {
   uploadLivePhoto,
   uploadFaceVideo,
   sendMultiframeSelfie,
+  objectToFormData,
+  formatError,
 } from '~utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
@@ -22,6 +24,11 @@ const IMAGE_QUALITY_KEYS_MAP = {
   detect_cutoff: 'CUTOFF_DETECTED', // error with the heighest priority
   detect_glare: 'GLARE_DETECTED',
   detect_blur: 'BLUR_DETECTED',
+}
+const CALLBACK_TYPES = {
+  selfie: 'onSubmitSelfie',
+  video: 'onSubmitVideo',
+  document: 'onSubmitDocument',
 }
 class Confirm extends Component {
   constructor(props) {
@@ -174,30 +181,23 @@ class Confirm extends Component {
       poaDocumentType,
       language,
       imageQualityRetries,
+      isDecoupledFromAPI,
     } = this.props
     const url = urls.onfido_api_url
-    this.startTime = performance.now()
-    sendEvent('Starting upload', { method })
+    if (!isDecoupledFromAPI) {
+      this.startTime = performance.now()
+      sendEvent('Starting upload', { method })
+    }
     this.setState({ uploadInProgress: true })
     const {
       blob,
+      filename,
       documentType: type,
       variant,
       challengeData,
       sdkMetadata,
     } = capture
     this.setState({ capture })
-
-    if (method === 'face') {
-      if (variant === 'video') {
-        const data = { challengeData, blob, language, sdkMetadata }
-        uploadFaceVideo(data, url, token, this.onApiSuccess, this.onApiError)
-        return
-      }
-
-      this.handleSelfieUpload(capture, token)
-      return
-    }
 
     if (method === 'document') {
       const isPoA = poaDocumentTypes.includes(poaDocumentType)
@@ -223,15 +223,111 @@ class Confirm extends Component {
       // API does not support 'residence_permit' type but does accept 'unknown'
       // See https://documentation.onfido.com/#document-types
       const data = {
-        file: blob,
+        file: { blob, filename },
         type: type === 'residence_permit' ? 'unknown' : type,
         side,
         validations,
         sdkMetadata,
         ...issuingCountry,
       }
-      uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+      if (isDecoupledFromAPI)
+        this.onSubmitCallback(data, CALLBACK_TYPES.document)
+      else uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+    } else if (variant === 'video') {
+      const data = { challengeData, blob, language, sdkMetadata }
+      if (isDecoupledFromAPI) this.onSubmitCallback(data, CALLBACK_TYPES.video)
+      else uploadFaceVideo(data, url, token, this.onApiSuccess, this.onApiError)
+    } else if (isDecoupledFromAPI) {
+      this.onSubmitCallback(capture, CALLBACK_TYPES.selfie)
+    } else this.handleSelfieUpload(capture, token)
+  }
+
+  onSubmitCallback = async (data, callbackName) => {
+    const { enterpriseFeatures, method, token, urls } = this.props
+    const url = urls.onfido_api_url
+    const formDataPayload = this.prepareCallbackPayload(data, callbackName)
+
+    sendEvent(`Triggering ${callbackName} callback`)
+    try {
+      const {
+        continueWithOnfidoSubmission,
+        onfidoSuccessResponse,
+      } = await enterpriseFeatures[callbackName](formDataPayload)
+
+      if (onfidoSuccessResponse) {
+        sendEvent(`Success response from ${callbackName}`)
+        this.onApiSuccess(onfidoSuccessResponse)
+        return
+      }
+
+      if (continueWithOnfidoSubmission) {
+        this.startTime = performance.now()
+        sendEvent('Starting upload', {
+          method,
+          uploadAfterNetworkDecouple: true,
+        })
+
+        if (callbackName === CALLBACK_TYPES.document) {
+          uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+          return
+        }
+
+        if (callbackName === CALLBACK_TYPES.video) {
+          uploadFaceVideo(data, url, token, this.onApiSuccess, this.onApiError)
+          return
+        }
+
+        if (callbackName === CALLBACK_TYPES.selfie) {
+          this.handleSelfieUpload(data, token)
+          return
+        }
+      }
+    } catch (errorResponse) {
+      sendEvent(`Error response from ${callbackName}`)
+      formatError(errorResponse, this.onApiError)
     }
+  }
+
+  prepareCallbackPayload = (data, callbackName) => {
+    let payload
+    if (callbackName === CALLBACK_TYPES.selfie) {
+      const { blob, filename, snapshot } = data
+      payload = {
+        file: filename ? { blob, filename } : blob,
+        snapshot,
+      }
+    } else if (callbackName === CALLBACK_TYPES.video) {
+      const {
+        blob,
+        language,
+        challengeData: {
+          challenges: challenge,
+          id: challenge_id,
+          switchSeconds: challenge_switch_at,
+        },
+      } = data
+      payload = {
+        file: blob,
+        challenge: JSON.stringify(challenge),
+        challenge_id,
+        challenge_switch_at,
+        languages: JSON.stringify([{ source: 'sdk', language_code: language }]),
+      }
+    } else if (callbackName === CALLBACK_TYPES.document) {
+      const { file, side, type, validations } = data
+      payload = {
+        file,
+        side,
+        type,
+        sdk_validations: JSON.stringify(validations),
+      }
+    }
+    return objectToFormData({
+      sdk_metadata: JSON.stringify(data.sdkMetadata),
+      sdk_source: 'onfido_web_sdk',
+      sdk_version: process.env.SDK_VERSION,
+      ...payload,
+    })
   }
 
   onRetake = () => {

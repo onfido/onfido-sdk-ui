@@ -28,11 +28,34 @@ export const userConsentScenarios = async (lang = 'en_US') => {
         documentSelector.verifyTitle(copy)
       })
 
-      it('should decline user consent', async () => {
+      it('when clicking on decline it should show a modal', async () => {
         driver.get(`${localhostUrl}?language=${lang}&showUserConsent=true`)
         welcome.continueToNextStep()
         userConsent.declineUserConsent()
-        welcome.verifyTitle(copy)
+        userConsent.userConsentModalIsOpen()
+        userConsent.verifyUserConsentDeclineModalTitle(copy)
+        userConsent.verifyUserConsentDeclineModalPrimaryBtn(copy)
+        userConsent.verifyUserConsentDeclineModalSecondaryBtn(copy)
+      })
+
+      it('when clicking on the modal primary button the modal should be dismissed', async () => {
+        driver.get(`${localhostUrl}?language=${lang}&showUserConsent=true`)
+        welcome.continueToNextStep()
+        userConsent.declineUserConsent()
+        userConsent.userConsentModalIsOpen()
+        userConsent.verifyUserConsentDeclineModalTitle(copy)
+        userConsent.userConsentDeclineModalPrimaryBtnClick()
+        userConsent.userConsentModalIsClosed()
+      })
+
+      it('when clicking on the secondary button the sdk should be unmounted', async () => {
+        driver.get(`${localhostUrl}?language=${lang}&showUserConsent=true`)
+        welcome.continueToNextStep()
+        userConsent.declineUserConsent()
+        userConsent.userConsentModalIsOpen()
+        userConsent.verifyUserConsentDeclineModalTitle(copy)
+        userConsent.userConsentDeclineModalSecondaryBtnClick()
+        userConsent.isConsentScreenUnmounted()
       })
     }
   )

@@ -660,6 +660,35 @@ Given user opened the link with `?uploadFallback=false` flag
    - browser should disregard the request for live document capture
    - browser should direct to the normal desktop flow options of cross device or document upload
 
+### 35a. User Consent screen
+
+(on private mode on desktop and mobile browsers)
+
+1. Open link with additional GET parameter `?showUserConsent=true`
+2. Continue to the next step
+   - You should see a consent screen with a list of FAQs
+   - When clicking on the links inside the screen content, they should open in a new tab
+3. Click on "Accept"
+   - You should see the document selector screen
+4. Click on the back button
+   - You should see the consent screen again
+5. Click on "Do not accept"
+   - You should see a modal with the title "Are you sure?"
+6. Click on "Review again"
+   - The modal should disappear
+7. Click on "Do not accept"
+   - You should see a modal with the title "Are you sure?"
+8. Click on "Yes, don't verify me"
+   - The SDK should disappear and the flow will be over
+
+### 35b. User Consent screen inside a modal
+
+(on private mode on desktop and mobile browsers)
+
+1. Open link with additional GET parameter `?showUserConsent=true&useModal=true`
+2. The SDK will open inside a modal.
+   - Repeat steps 2-8 from test case no. 35a
+
 ## Non-functional
 
 ### 1. Check analytics tracking

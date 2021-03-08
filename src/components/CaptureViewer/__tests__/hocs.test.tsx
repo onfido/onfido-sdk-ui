@@ -2,9 +2,10 @@ import { h, FunctionComponent } from 'preact'
 import { mount, ReactWrapper } from 'enzyme'
 import loadImage from 'blueimp-load-image'
 
-import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import { revokeObjectURL } from '~utils/objectUrl'
 import { withBlobPreviewUrl, withBlobBase64 } from '../hocs'
+
+jest.mock('../../utils/objectUrl')
 
 type DummyProps = {
   base64?: string

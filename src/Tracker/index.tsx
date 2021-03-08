@@ -25,6 +25,7 @@ const integratorTrackedEvents = new Map<
   UserAnalyticsEventNames
 >([
   ['screen_welcome', 'WELCOME'],
+  ['screen_userConsent', 'USER_CONSENT'],
   ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
   ['screen_document_front_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'],
   ['screen_document_back_capture_file_upload', 'DOCUMENT_CAPTURE_BACK'],

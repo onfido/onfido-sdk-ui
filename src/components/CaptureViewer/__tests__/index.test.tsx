@@ -3,10 +3,11 @@ import { mount } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
-import '../../utils/__mocks__/objectUrl' // eslint-disable-line jest/no-mocks-import
 import CaptureViewer from '../index'
 
 import type { CapturePayload } from '~types/redux'
+
+jest.mock('../../utils/objectUrl')
 
 const fakePdfCapture: CapturePayload = {
   blob: new Blob([], { type: 'application/pdf' }),

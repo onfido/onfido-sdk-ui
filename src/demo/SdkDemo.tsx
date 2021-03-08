@@ -87,6 +87,8 @@ const SdkDemo: FunctionComponent<Props> = ({
     isModalOpen,
     onComplete,
     onError: (error) => console.error('onError callback:', error),
+    onUserExit: (userExitCode) =>
+      console.log('onUserExit callback:', userExitCode),
     onModalRequestClose: () => setIsModalOpen(false),
     ...(sdkOptions || {}),
   }

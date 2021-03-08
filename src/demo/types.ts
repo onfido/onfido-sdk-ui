@@ -7,3 +7,4 @@ export type ApplicantData = {
 }
 
 export type ApiTestEnvs = 'dev' | 'pre-prod' | 'production'
+export type DecoupleResponseOptions = 'success' | 'error' | 'onfido'

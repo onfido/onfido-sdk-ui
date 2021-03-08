@@ -20,7 +20,7 @@ import type {
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-const DEFAULT_CAMERA_HEIGHT_IN_PX = 720
+const DEFAULT_CAMERA_WIDTH_IN_PX = 1280
 
 type Props = CameraProps &
   WebcamProps &
@@ -34,6 +34,7 @@ const Camera: FunctionComponent<Props> = ({
   buttonType = 'photo',
   children,
   containerClassName,
+  docAutoCaptureFrame = false,
   docLiveCaptureFrame = false,
   facing = 'user',
   fallbackHeight,
@@ -52,6 +53,7 @@ const Camera: FunctionComponent<Props> = ({
   <div
     className={classNames(style.camera, {
       [style.docLiveCaptureFrame]: docLiveCaptureFrame,
+      [style.docAutoCaptureFrame]: docAutoCaptureFrame,
     })}
   >
     {renderTitle}
@@ -65,8 +67,9 @@ const Camera: FunctionComponent<Props> = ({
           audio={audio}
           className={style.video}
           facingMode={facing}
-          height={idealCameraHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
-          {...{ fallbackHeight, onFailure, onUserMedia, ref: webcamRef }}
+          width={idealCameraHeight || DEFAULT_CAMERA_WIDTH_IN_PX}
+          fallbackWidth={fallbackHeight || DEFAULT_CAMERA_WIDTH_IN_PX}
+          {...{ onFailure, onUserMedia, ref: webcamRef }}
         />
       </div>
       {buttonType === 'photo' && (

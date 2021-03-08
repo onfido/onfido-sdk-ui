@@ -1,48 +1,10 @@
 @import '../Theme/constants';
 
-.portal > * {
-  // When the modal is closed, overlay div has no css class
-  // This selector should be overridden by the `&--after-open` class below
-  opacity: 0;
-}
-
-.modalBody {
-  /*! Just a placeholder no namespace this element using css modules*/
-}
-
-$modal-animation-duration: 200ms;
-// Export is required for ^ variable to be accessible at React/JS side
-:export {
-  modal_animation_duration: $modal-animation-duration;
-}
-
-.overlay {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-color: $color-modal-overlay;
-  transition: opacity $modal-animation-duration,
-    z-index 0s $modal-animation-duration;
-
-  &--after-open {
-    opacity: 1;
-  }
-
-  &--before-close {
-    opacity: 0;
-  }
-}
-
 .inner {
   /*
    * We set the `font-size` to 16px here. This will fix the rest of the SDK
    * (which uses relative units) to this absolute unit.
-   *
-   * (NOTE - this feature is not yet ready to be used!)
+
    * To opt-in to relative font-sizes, you can override this style to a relative
    * font-size e.g. `font-size: 1em`
    */
@@ -54,7 +16,7 @@ $modal-animation-duration: 200ms;
   margin: auto;
 
   width: 94vw;
-  max-width: 512 * $unit;
+  max-width: $sdk-container-max-width;
   height: 600 * $unit;
   text-align: center;
   max-height: calc(100% + #{4 * $unit});
@@ -81,23 +43,6 @@ $modal-animation-duration: 200ms;
   *::before,
   *::after {
     box-sizing: border-box;
-  }
-
-  .portal & {
-    margin: auto;
-    z-index: -1;
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity $modal-animation-duration,
-      transform $modal-animation-duration, z-index 0s $modal-animation-duration;
-  }
-
-  .overlay--after-open & {
-    z-index: 100;
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity $modal-animation-duration,
-      transform $modal-animation-duration;
   }
 }
 

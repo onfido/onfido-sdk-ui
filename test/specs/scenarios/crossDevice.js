@@ -421,6 +421,46 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.checkLogoIsHidden()
       })
+
+      it('should continue through full flow without problems when using customized API requests but still uploading media to API as normal', async () => {
+        driver.get(
+          `${baseUrl}&useCustomizedApiRequests=true&decoupleResponse=onfido`
+        )
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        runThroughCrossDeviceFlow()
+        documentUpload.clickUploadButton()
+        uploadFileAndClickConfirmButton(
+          passportUploadImageGuide,
+          confirm,
+          'passport.jpg'
+        )
+        selfieIntro.clickOnContinueButton()
+        camera.takeSelfie()
+        confirm.clickConfirmButton()
+        switchBrowserTab(0)
+        crossDeviceSubmit.clickOnSubmitVerificationButton()
+      })
+
+      it('should continue through full flow without problems when using customized API requests and success response is returned from callbacks', async () => {
+        driver.get(
+          `${baseUrl}&useCustomizedApiRequests=true&decoupleResponse=success`
+        )
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        runThroughCrossDeviceFlow()
+        documentUpload.clickUploadButton()
+        uploadFileAndClickConfirmButton(
+          passportUploadImageGuide,
+          confirm,
+          'passport.jpg'
+        )
+        selfieIntro.clickOnContinueButton()
+        camera.takeSelfie()
+        confirm.clickConfirmButton()
+        switchBrowserTab(0)
+        crossDeviceSubmit.clickOnSubmitVerificationButton()
+      })
     }
   )
 }

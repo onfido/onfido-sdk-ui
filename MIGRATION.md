@@ -2,6 +2,21 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `6.5.0` -> `6.6.0`
+
+### Added strings
+
+The **English** copy for the following string(s) has been added:
+
+`user_consent.button_primary`
+`user_consent.button_secondary`
+`user_consent.prompt.button_primary`
+`user_consent.prompt.button_secondary`
+`user_consent.prompt.no_consent_detail`
+`user_consent.prompt.no_consent_title`
+
+**Note**: The consent screen copy is only available in **English**
+
 ## `6.4.0` -> `6.5.0`
 
 From version 6.5.0, TypeScript is officially supported. If you previously installed

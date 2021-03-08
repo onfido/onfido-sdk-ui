@@ -42,6 +42,7 @@ $padding-lg: 16 * $unit;
 $padding-sm: 10 * $unit;
 $padding-xs: 8 * $unit;
 
+$sdk-container-max-width: 512 * $unit;
 $footer-height: 40 * $unit;
 $footer-margin: 0 * $unit;
 $navigation-height: 32 * $unit;
@@ -120,6 +121,13 @@ $selectors-box-shadow-active: 0 0 0 2px #232aad;
 $color-camera-button: $color-white;
 $color-camera-button-hover: $color-primary-button-hover;
 $color-camera-button-active: $color-primary-button-active;
+
+/* Modal */
+$modal-animation-duration: 200ms;
+// Export is required for ^ variable to be accessible at React/JS side
+:export {
+  modal_animation_duration: $modal-animation-duration;
+}
 
 %absolute-center {
   margin: auto;

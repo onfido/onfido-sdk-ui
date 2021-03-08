@@ -320,7 +320,7 @@ export const createV4Document = (
     }
   })
 
-const objectToFormData = (object: SubmitPayload): FormData => {
+export const objectToFormData = (object: SubmitPayload): FormData => {
   const formData = new FormData()
 
   forEach(object, (value, fieldName) => {

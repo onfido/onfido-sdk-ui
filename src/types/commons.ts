@@ -10,8 +10,6 @@ export interface NormalisedSdkOptions extends SdkOptions {
 
 export type NarrowSdkOptions = Omit<
   NormalisedSdkOptions,
-  | 'containerEl'
-  | 'containerId'
   | 'isModalOpen'
   | 'onModalRequestClose'
   | 'shouldCloseOnOverlayClick'
