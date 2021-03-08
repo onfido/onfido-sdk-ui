@@ -474,6 +474,7 @@ A number of options are available to allow you to customize the SDK:
 
   | Document Type Buttons            | Description                                              |
   | -------------------------------- | -------------------------------------------------------- |
+  | `colorContentDocTypeButton`      | Change Document Type Button text color                   |
   | `colorBackgroundDocTypeButton`   | Change background color of Document Type Button          |
   | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
   | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
