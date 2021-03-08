@@ -101,7 +101,7 @@ const SdkPreviewer = () => {
         iframeRef.removeEventListener('load', onIFrameLoad)
       }
     }
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   /**
    * Re-render the demo app only if `sdkOptions` or `viewOptions` changed
