@@ -70,4 +70,8 @@ export type UICustomizationOptions = {
   // Header/Highlight Pills
   colorBackgroundInfoPill?: string
   colorContentInfoPill?: string
+
+  // Back, Close (modal) Icon Buttons
+  colorBackgroundButtonIconHover?: string
+  colorBackgroundButtonIconActive?: string
 }

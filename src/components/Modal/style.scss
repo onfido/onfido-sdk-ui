@@ -84,12 +84,12 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: var(--color-background-button-icon-hover);
+      background-color: var(--osdk-color-background-button-icon-hover);
     }
   }
 
   &:active {
-    background-color: var(--color-background-button-icon-active);
+    background-color: var(--osdk-color-background-button-icon-active);
   }
 }
 
