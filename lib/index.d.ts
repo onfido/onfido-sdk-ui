@@ -175,6 +175,7 @@ export declare type SdkError = {
 	type: "exception" | "expired_token";
 	message: string;
 };
+export declare type UserExitCode = "USER_CONSENT_DENIED";
 export declare type ServerRegions = "US" | "EU" | "CA";
 export interface FunctionalConfigurations {
 	disableAnalytics?: boolean;
@@ -186,6 +187,7 @@ export interface FunctionalConfigurations {
 export interface SdkOptions extends FunctionalConfigurations {
 	onComplete?: (data: SdkResponse) => void;
 	onError?: (error: SdkError) => void;
+	onUserExit?: (data: UserExitCode) => void;
 	onModalRequestClose?: () => void;
 	token?: string;
 	useModal?: boolean;
