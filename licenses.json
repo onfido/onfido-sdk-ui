@@ -2878,7 +2878,7 @@
     "path": "node_modules/chrome-trace-event",
     "licenseFile": "node_modules/chrome-trace-event/LICENSE.txt"
   },
-  "chromedriver@87.0.5": {
+  "chromedriver@89.0.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/giggio/node-chromedriver",
     "publisher": "Giovanni Bassi",
