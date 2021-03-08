@@ -36,8 +36,7 @@ type State = {
   isCapturing: boolean
 }
 
-const IDEAL_CAMERA_HEIGHT_IN_PX = 1080
-const FALLBACK_HEIGHT_IN_PX = 720
+const IDEAL_CAMERA_WIDTH_IN_PX = 1080 // Full HD 1080p
 
 export default class DocumentLiveCapture extends Component<Props, State> {
   private webcam?: Webcam = null
@@ -104,7 +103,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
           <Camera
             facing="environment"
             docLiveCaptureFrame
-            idealCameraHeight={IDEAL_CAMERA_HEIGHT_IN_PX}
+            idealCameraWidth={IDEAL_CAMERA_WIDTH_IN_PX}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
             webcamRef={(c: Webcam) => (this.webcam = c)}
@@ -125,7 +124,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             buttonType="photo"
             onButtonClick={this.captureDocumentPhoto}
             isButtonDisabled={hasCameraError || isCapturing}
-            fallbackHeight={FALLBACK_HEIGHT_IN_PX}
+            fallbackToDefaultWidth
           >
             {hasAllowedCameraAccess && !hasCameraError && (
               <Timeout seconds={10} onTimeout={this.handleTimeout} />
