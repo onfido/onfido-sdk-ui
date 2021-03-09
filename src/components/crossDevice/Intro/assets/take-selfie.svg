@@ -1,1 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" xmlns:v="https://vecta.io/nano"><defs><circle id="A" cx="8" cy="8" r="7.5"/></defs><g fill="none" fill-rule="evenodd"><g fill-rule="nonzero"><rect stroke="#2c3e4f" stroke-width="1.333" fill="#fff" x="13" y="9" width="22" height="38" rx="2.667"/><rect fill="#2c3e4f" x="20" y="11" width="8" height="1" rx=".5"/></g><g transform="translate(16 18)"><mask id="B" fill="#fff"><use xlink:href="#A"/></mask><g stroke="#2c3e4f"><circle mask="url(#B)" cx="12.85" cy="-.85" r="7.35"/><circle mask="url(#B)" cx="-1.65" cy=".85" r="7.35"/></g></g><g fill-rule="nonzero"><circle stroke="#2c3e4f" fill="#fff" cx="24" cy="43" r="1.5"/><g fill="#2c3e4f"><circle cx="22" cy="27" r="1"/><circle cx="26" cy="27" r="1"/></g></g><circle stroke="#2c3e4f" cx="24" cy="26" r="7.5"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48">
+    <defs>
+        <circle id="a" cx="8" cy="8" r="7.5"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <rect stroke="#2c3e4f" stroke-width="1.333" fill="#fff" x="13" y="9" width="22" height="38" rx="2.667"/>
+            <rect fill="#2c3e4f" x="20" y="11" width="8" height="1" rx=".5"/>
+        </g>
+        <g transform="translate(16 18)">
+            <mask id="b" fill="#fff">
+                <use xlink:href="#a"/>
+            </mask>
+            <g stroke="#2c3e4f">
+                <circle mask="url(#b)" cx="12.85" cy="-.85" r="7.35"/>
+                <circle mask="url(#b)" cx="-1.65" cy=".85" r="7.35"/>
+            </g>
+        </g>
+        <g fill-rule="nonzero">
+            <circle stroke="#2c3e4f" fill="#fff" cx="24" cy="43" r="1.5"/>
+            <g fill="#2c3e4f">
+                <circle cx="22" cy="27" r="1"/>
+                <circle cx="26" cy="27" r="1"/>
+            </g>
+        </g>
+        <circle stroke="#2c3e4f" cx="24" cy="26" r="7.5"/>
+    </g>
+</svg>
