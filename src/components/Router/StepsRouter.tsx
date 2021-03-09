@@ -102,7 +102,10 @@ class StepsRouter extends Component<StepsRouterProps> {
             })}
           >
             {logoCobrandLogic ? (
-              <div className={theme.logoCobrandImage} style={logoCobrandStyle} />
+              <div
+                className={theme.logoCobrandImage}
+                style={logoCobrandStyle}
+              />
             ) : null}
             <div className={theme.cobrandLabel} aria-hidden="true">
               {textCobrandLogic ? (
