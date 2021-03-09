@@ -69,7 +69,7 @@ class ModalApp extends Component<Props> {
       const trackedProperties = {
         is_custom_ui: customUIConfigIsNotEmpty,
       }
-      Tracker.sendEvent('SDK_FLOW_START', trackedProperties)
+      Tracker.sendEvent('started flow', trackedProperties)
     }
   }
 
