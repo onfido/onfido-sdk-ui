@@ -109,6 +109,11 @@
 
   &:hover {
     background-image: url('./assets/cross.svg');
+    background-color: $color-fullscreen-icon-button-hover;
+  }
+
+  &:active {
+    background-color: $color-fullscreen-icon-button-active;
   }
 
   .closeButtonLabel {

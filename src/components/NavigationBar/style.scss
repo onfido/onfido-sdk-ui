@@ -57,7 +57,7 @@
     &:hover {
       .iconBack {
         background-image: url('./assets/back-black.svg');
-        background-color: rgba(var(--ods-color-neutral-400));
+        background-color: $color-fullscreen-icon-button-hover;
       }
     }
   }
@@ -69,7 +69,7 @@
       background-image: url('./assets/back-black.svg');
 
       .iconBack {
-        background-color: rgba(var(--ods-color-neutral-600));
+        background-color: $color-fullscreen-icon-button-active;
       }
     }
   }

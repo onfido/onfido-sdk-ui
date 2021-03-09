@@ -77,6 +77,10 @@ $color-small-button-active: rgba(15, 37, 54, 0.85);
 /* Liveness Video recording status indicator icon color */
 $camera-recording-status-icon-color: #dc2a2a;
 
+/* Live Camera Capture screens' Back, Close icon button background is not customisable */
+$color-fullscreen-icon-button-hover: rgba(var(--ods-color-neutral-400));
+$color-fullscreen-icon-button-active: rgba(var(--ods-color-neutral-600));
+
 /* Primary/Secondary Button width variables */
 $lg-btn-width-lg-screen: 272 * $unit-small;
 $lg-btn-width-sm-screen: 100%;
