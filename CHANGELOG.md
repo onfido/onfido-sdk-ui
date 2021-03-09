@@ -13,6 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 - Internal: Added user consent screen
 - Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the onfido logo
+- Public: Added callbacks that are triggered on user media submission if the feature is enabled. Note - This is a premium enterprise feature.
 
 ### Changed
 
@@ -21,6 +22,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Fix zoomed document capture view for Document Live Capture on some Huawei devices, e.g. Huawei P40, P30.
+- Public: Fix issue where documents are submitted to Onfido API without filename or file type.
 
 ## [6.5.0] - 2020-02-08
 

@@ -46,6 +46,7 @@ export const mockedReduxProps: ReduxProps = {
     hideOnfidoLogo: jest.fn(),
     showCobranding: jest.fn(),
     showLogoCobranding: jest.fn(),
+    setDecoupleFromAPI: jest.fn(),
     retryForImageQuality: jest.fn(),
     resetImageQualityRetries: jest.fn(),
   },

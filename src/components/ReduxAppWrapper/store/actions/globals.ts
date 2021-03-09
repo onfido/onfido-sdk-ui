@@ -100,6 +100,11 @@ export const showLogoCobranding = (
   payload,
 })
 
+export const setDecoupleFromAPI = (payload: boolean): GlobalActions => ({
+  type: constants.SET_DECOUPLE_FROM_API,
+  payload,
+})
+
 export const retryForImageQuality = (): GlobalActions => ({
   type: constants.RETRY_FOR_IMAGE_QUALITY,
 })

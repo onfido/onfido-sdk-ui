@@ -13,6 +13,7 @@ const payload = {
     cobrand: true,
     hideOnfidoLogo: true,
     logoCobrand: true,
+    useCustomizedApiRequests: true,
   },
   urls: {
     telephony_url: 'https://localhost:8080/telephony',

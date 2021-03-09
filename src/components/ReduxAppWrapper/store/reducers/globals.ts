@@ -18,6 +18,7 @@ export const initialState: GlobalState = {
   hideOnfidoLogo: true,
   cobrand: null,
   logoCobrand: null,
+  isDecoupledFromAPI: false,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
@@ -130,6 +131,12 @@ export default function globals(
       return {
         ...state,
         logoCobrand: action.payload,
+      }
+
+    case constants.SET_DECOUPLE_FROM_API:
+      return {
+        ...state,
+        isDecoupledFromAPI: action.payload,
       }
 
     case constants.RETRY_FOR_IMAGE_QUALITY:

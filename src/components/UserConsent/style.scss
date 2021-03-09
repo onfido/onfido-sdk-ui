@@ -54,3 +54,83 @@
     margin-right: 8 * $unit;
   }
 }
+
+/* Decline Modal */
+
+.declineModalInner {
+  font-size: 16px;
+
+  width: 448 * $unit;
+  min-height: 236 * $unit;
+  margin: auto;
+
+  border-radius: 4 * $unit;
+  border: 1px solid $color-border;
+  background-color: $color-background;
+
+  font-family: $font-family !important;
+
+  color: $color-body-text;
+  font-weight: 500;
+  line-height: 1.5;
+
+  overflow: auto;
+
+  /* HACK: only apply this fix to IE11*/
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    height: 0; /*necessary for IE11, see: https://stackoverflow.com/questions/24396205/flex-grow-not-working-in-internet-explorer-11-0*/
+  }
+
+  @media (--small-viewport) {
+    width: 100%;
+    margin: auto $small-text-margin;
+  }
+
+  @media (--smaller-viewport) {
+    width: 100%;
+    margin: auto $smaller-text-margin;
+  }
+
+  &,
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+.modalContent {
+  margin: $small-text-margin;
+
+  @media (--small-viewport) {
+    margin: $smaller-text-margin;
+  }
+
+  h2 {
+    font-size: $font-size-large;
+    line-height: 28 * $unit;
+    margin: 0;
+  }
+
+  p {
+    margin-top: 8 * $unit;
+    margin-bottom: 24 * $unit;
+  }
+}
+
+.modalActions {
+  @media (--small-viewport) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    button {
+      width: 100%;
+    }
+
+    button:first-child {
+      margin-right: 0;
+      margin-bottom: 8 * $unit;
+    }
+  }
+}

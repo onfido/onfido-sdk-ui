@@ -32,6 +32,7 @@ export type GlobalActions =
       type: typeof constants.SHOW_LOGO_COBRANDING
       payload: EnterpriseLogoCobranding
     }
+  | { type: typeof constants.SET_DECOUPLE_FROM_API; payload: boolean }
   | { type: typeof constants.RETRY_FOR_IMAGE_QUALITY }
   | { type: typeof constants.RESET_IMAGE_QUALITY_RETRIES }
   | { type: typeof constants.RESET_STORE }
@@ -53,6 +54,7 @@ export type GlobalState = {
   hideOnfidoLogo?: boolean
   cobrand?: EnterpriseCobranding
   logoCobrand?: EnterpriseLogoCobranding
+  isDecoupledFromAPI?: boolean
   urls: UrlsConfig
   /**
    * Number of retries on image quality reasons: cut-off, glare, blur
