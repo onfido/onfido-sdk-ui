@@ -148,7 +148,7 @@ const SdkDemo: FunctionComponent<{
         outro: {
           title: 'Please Scan QR Code',
           body:
-            'This will add your identity to the verifiable credential wallet',
+            'This will add your identity to the verifiable credential wallet.',
         },
       },
     },
