@@ -17,5 +17,6 @@ jobs:
     steps:
       - uses: ericcornelissen/svgo-action@v1
         with:
+          svgo-version: 2
           svgo-options: svgo.config.js
           repo-token: ${{ secrets.GITHUB_TOKEN }}
