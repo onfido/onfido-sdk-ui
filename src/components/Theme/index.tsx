@@ -34,8 +34,8 @@ const themeWrapped = (
       <div
         className={classNames(theme.step, {
           [theme.noLogo]: hideOnfidoLogo,
-          [theme.cobrandLogo]: cobrand,
-          [theme.logoCobrandLogo]: logoCobrand,
+          [theme.textCobrandLogo]: cobrand,
+          [theme.logoCobrandImage]: logoCobrand,
           [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
         })}
       >
@@ -53,7 +53,7 @@ const themeWrapped = (
               [theme.cobrandFooter]: cobrand || logoCobrand,
             })}
           >
-            {logoCobrand ? <div className={theme.logoCobrandLogo} /> : null}
+            {logoCobrand ? <div className={theme.logoCobrandImage} /> : null}
             <div className={theme.cobrandLabel} aria-hidden="true">
               {cobrand ? (
                 <div className={theme.cobrandText}>{cobrand.text}</div>

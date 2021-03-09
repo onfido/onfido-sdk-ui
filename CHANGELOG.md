@@ -12,7 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 - Internal: Added user consent screen
-- Internal: Added logo cobranding enterprise feature
+- Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the onfido logo
 
 ### Changed
 

@@ -29,7 +29,7 @@ class BasePage {
     return this.$('.onfido-sdk-ui-Theme-cobrandText')
   }
   async cobrandLogo() {
-    return this.$('.onfido-sdk-ui-Theme-logoCobrandLogo')
+    return this.$('.onfido-sdk-ui-Theme-logoCobrandImage')
   }
   async poweredBy() {
     return this.$('.onfido-sdk-ui-Theme-poweredBy')

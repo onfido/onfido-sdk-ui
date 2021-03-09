@@ -75,7 +75,7 @@ class StepsRouter extends Component<StepsRouterProps> {
           [theme.fullScreenStep]: isFullScreen,
           [theme.noLogo]: hideLogoLogic,
           [theme.textCobrandLogo]: textCobrandLogic,
-          [theme.logoCobrandLogo]: logoCobrand,
+          [theme.logoCobrandImage]: logoCobrand,
           [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
         })}
         tabIndex={-1}
@@ -102,7 +102,7 @@ class StepsRouter extends Component<StepsRouterProps> {
             })}
           >
             {logoCobrandLogic ? (
-              <div className={theme.logoCobrandLogo} style={logoCobrandStyle} />
+              <div className={theme.logoCobrandImage} style={logoCobrandStyle} />
             ) : null}
             <div className={theme.cobrandLabel} aria-hidden="true">
               {textCobrandLogic ? (

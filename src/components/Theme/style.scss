@@ -124,7 +124,7 @@ $logo-height: 32 * $unit;
     }
   }
 
-  .logoCobrandLogo {
+  .logoCobrandImage {
     @extend %_logo;
     width: $cobrand-logo-width;
     margin-top: 0;
