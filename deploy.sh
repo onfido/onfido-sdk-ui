@@ -69,7 +69,7 @@ do
   echo "DEPLOY_SUBDOMAIN: ${DEPLOY_SUBDOMAIN}"
 
   # DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
-  DEPLOY_DOMAIN=https://microsoft-idv-sdk-ui-onfido.surge.sh
+  DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-microsoft-idv-sdk-ui-onfido.surge.sh
 
   # Rebuild with TEST_ENV=deployment for test target only
   if [ "$NODE_ENV" == "test" ]; then
