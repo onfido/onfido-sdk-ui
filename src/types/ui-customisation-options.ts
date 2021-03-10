@@ -50,6 +50,9 @@ export type UICustomizationOptions = {
   colorBorderDocTypeButtonHover?: string
   colorBorderDocTypeButtonActive?: string
 
+  // Icon Background
+  colorBackgroundIcon?: string
+
   // Link
   colorBorderLinkUnderline?: string
   colorContentLinkTextHover?: string

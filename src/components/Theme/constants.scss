@@ -145,6 +145,11 @@ $modal-animation-duration: 200ms;
   }
 }
 
+%icon-circle-background {
+  background-color: var(--osdk-color-background-icon);
+  border-radius: 50%;
+}
+
 %header-highlight-pill {
   border-radius: 14 * $unit-small;
   background-color: var(--osdk-color-background-info-pill);
