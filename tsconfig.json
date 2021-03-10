@@ -13,6 +13,7 @@
     "outDir": "./dist/",
     "paths": {
       "~jest/*": ["../test/utils/jest/*"],
+      "~contexts/*": ["contexts/*"],
       "~locales": ["locales/index"],
       "~types/*": ["types/*"],
       "~utils": ["components/utils/index"],
