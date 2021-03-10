@@ -33,13 +33,17 @@ const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
     : localisedDescriptions(translate)
 
   return (
-    <div>
+    <div className={style.content}>
       <div className={style.text}>
         {welcomeDescriptions.map((description) => (
           <p key={`description_${buildIteratorKey(description)}`}>
             {description}
           </p>
         ))}
+      </div>
+      <div className={style.recordingLimit}>
+        <span className={style.timer} />
+        <span>{'Recording is limited to 30 seconds'}</span>
       </div>
     </div>
   )
@@ -61,11 +65,9 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
     : translate('welcome.next_button')
 
   return (
-    <div>
-      <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
-        {welcomeNextButton}
-      </Button>
-    </div>
+    <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
+      {welcomeNextButton}
+    </Button>
   )
 }
 

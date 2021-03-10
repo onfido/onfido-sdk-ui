@@ -1,6 +1,25 @@
 @import '../Theme/constants';
 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .text {
   margin-top: 64 * $unit;
   margin-bottom: 80 * $unit;
+}
+
+.recordingLimit {
+  display: flex;
+  align-items: center;
+}
+
+.timer {
+  background-image: url('./assets/timer.svg');
+  display: inline-block;
+  width: 1em;
+  height: 1em;
 }
