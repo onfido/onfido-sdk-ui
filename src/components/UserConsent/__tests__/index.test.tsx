@@ -24,6 +24,8 @@ const defaultOptions: StepComponentUserConsentProps = {
   trackScreen: jest.fn(),
 }
 
+console.error = jest.fn()
+
 describe('UserConsent', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(<UserConsent {...defaultOptions} />)
