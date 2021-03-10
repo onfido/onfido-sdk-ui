@@ -305,7 +305,7 @@ class ModalApp extends Component<Props> {
     } = options
 
     return (
-      <SdkOptionsProvider options={options}>
+      <SdkOptionsProvider options={{ ...options, events: this.events }}>
         <LocaleProvider language={options.language}>
           <Modal
             useModal={useModal}

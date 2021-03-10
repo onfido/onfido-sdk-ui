@@ -1,12 +1,12 @@
 import { h, createContext, FunctionComponent } from 'preact'
 import { useContext } from 'preact/compat'
 
-import type { NormalisedSdkOptions } from '~types/commons'
+import type { NarrowSdkOptions } from '~types/commons'
 
-const SdkOptionsContext = createContext<NormalisedSdkOptions>(null)
+const SdkOptionsContext = createContext<NarrowSdkOptions>(null)
 
 type Props = {
-  options: NormalisedSdkOptions
+  options: NarrowSdkOptions
 }
 
 export const SdkOptionsProvider: FunctionComponent<Props> = ({
@@ -20,7 +20,7 @@ export const SdkOptionsProvider: FunctionComponent<Props> = ({
   )
 }
 
-export const useSdkOptions = (): NormalisedSdkOptions => {
+export const useSdkOptions = (): NarrowSdkOptions => {
   const options = useContext(SdkOptionsContext)
 
   if (!options) {

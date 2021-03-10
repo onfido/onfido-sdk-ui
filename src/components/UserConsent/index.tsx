@@ -5,8 +5,10 @@ import {
   useContext,
   unmountComponentAtNode,
 } from 'preact/compat'
-import { LocaleContext } from '~locales'
 import { sanitize } from 'dompurify'
+
+import { useSdkOptions } from '~contexts'
+import { LocaleContext } from '~locales'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
 import Button from '../Button'
@@ -69,10 +71,8 @@ const getConsentFile = (
 
 const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
-  containerEl,
-  containerId,
-  events,
 }) => {
+  const { containerEl, containerId, events } = useSdkOptions()
   const [consentHtml, setConsentHtml] = useState('')
   const [isModalOpen, setModalToOpen] = useState(false)
   const sdkContainer = containerEl || document.getElementById(containerId)
