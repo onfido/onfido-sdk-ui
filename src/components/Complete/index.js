@@ -1,9 +1,11 @@
 import { h, Component } from 'preact'
+import { Fragment } from 'react'
 import { trackComponent } from '../../Tracker'
 import PageTitle from '../PageTitle'
 import { localised } from '../../locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
+import Spinner from '../Spinner'
 import axios from 'axios'
 
 class Complete extends Component {
@@ -12,6 +14,7 @@ class Complete extends Component {
     this.state = {
       qrCode: this.fetchQrCode(),
       pin: '',
+      loading: true,
     }
   }
 
@@ -30,6 +33,7 @@ class Complete extends Component {
         this.setState({
           qrCode,
           pin,
+          loading: false,
         })
       })
       .catch((err) => {
@@ -39,16 +43,23 @@ class Complete extends Component {
 
   render({ message, submessage, translate }) {
     const {
-      state: { qrCode, pin },
+      state: { qrCode, pin, loading },
     } = this
     const title = message || translate('outro.title')
     const body = submessage || translate('outro.body')
+    console.log('state', this.state)
     return (
       <div className={style.wrapper}>
-        <span className={`${theme.icon}  ${style.icon}`} />
-        <PageTitle title={title} subTitle={body} />
-        <p className={style.pin}>{pin}</p>
-        {qrCode !== null && <img className={style.msQrCode} src={qrCode} />}
+        {loading ? (
+          <Spinner />
+        ) : (
+          <Fragment>
+            <span className={`${theme.icon}  ${style.icon}`} />
+            <PageTitle title={title} subTitle={body} />
+            <p className={style.pin}>{pin}</p>
+            <img className={style.msQrCode} src={qrCode} />
+          </Fragment>
+        )}
       </div>
     )
   }
