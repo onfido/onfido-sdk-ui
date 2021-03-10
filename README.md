@@ -540,6 +540,11 @@ A number of options are available to allow you to customize the SDK:
   | `colorBackgroundInfoPill`   | Change background color of Cross Device, Camera/Mic Permissions screens' information header pill |
   | `colorContentInfoPill`      | Change text color of Cross Device, Camera/Mic Permissions screens' information header pill       |
 
+  | Camera Shutter Button               | Description                                                             |
+  | ----------------------------------- | ----------------------------------------------------------------------- |
+  | `colorBackgroundButtonCameraHover`  | Change background color of Live Capture screens' Camera button on hover |
+  | `colorBackgroundButtonCameraActive` | Change text color of Live Capture screens' Camera button on click/tap   |
+
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required):

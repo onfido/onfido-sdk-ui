@@ -70,4 +70,8 @@ export type UICustomizationOptions = {
   // Header/Highlight Pills
   colorBackgroundInfoPill?: string
   colorContentInfoPill?: string
+
+  // Camera Shutter Button (only customisable for hover, active states)
+  colorBackgroundButtonCameraHover?: string
+  colorBackgroundButtonCameraActive?: string
 }

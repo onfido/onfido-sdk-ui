@@ -26,5 +26,7 @@
   "colorBackgroundLinkHover": "rgb(255 238 170 / 92%)",
   "colorBackgroundLinkActive": "#b23a48",
   "colorBackgroundInfoPill": "#ffb997",
-  "colorContentInfoPill": "#333"
+  "colorContentInfoPill": "#333",
+  "colorBackgroundButtonCameraHover": "#f67e7d",
+  "colorBackgroundButtonCameraActive": "#843b62"
 }
