@@ -15,12 +15,12 @@ $selector-button-box-shadow: 0 0 0 2px;
 
 .option {
   width: 100%;
+  color: var(--osdk-color-content-doc-type-button);
   background: var(--osdk-color-background-doc-type-button);
   border-radius: var(--osdk-border-radius-button);
   border-color: var(--osdk-color-border-doc-type-button);
   border-style: solid;
   border-width: 1px;
-  color: var(--osdk-color-content-body);
   cursor: pointer;
   display: flex;
   font: inherit;
