@@ -1,8 +1,8 @@
 import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
+import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import MockedLocalised from '~jest/MockedLocalised'
-import MockedSdkOptionsProvider from '~jest/MockedSdkOptionsProvider'
 import MockedReduxProvider, {
   mockedReduxProps,
 } from '~jest/MockedReduxProvider'
@@ -32,11 +32,11 @@ describe('Router', () => {
     it('renders MainRouter by default', () => {
       const wrapper = mount(
         <MockedReduxProvider>
-          <MockedSdkOptionsProvider options={defaultOptions}>
+          <SdkOptionsProvider options={defaultOptions}>
             <MockedLocalised>
               <Router {...mockedReduxProps} />
             </MockedLocalised>
-          </MockedSdkOptionsProvider>
+          </SdkOptionsProvider>
         </MockedReduxProvider>
       )
 
@@ -48,13 +48,11 @@ describe('Router', () => {
     it('renders CrossDeviceMobileRouter when mobileFlow=true', () => {
       const wrapper = mount(
         <MockedReduxProvider>
-          <MockedSdkOptionsProvider
-            options={{ ...defaultOptions, mobileFlow: true }}
-          >
+          <SdkOptionsProvider options={{ ...defaultOptions, mobileFlow: true }}>
             <MockedLocalised>
               <Router {...mockedReduxProps} />
             </MockedLocalised>
-          </MockedSdkOptionsProvider>
+          </SdkOptionsProvider>
         </MockedReduxProvider>
       )
 
