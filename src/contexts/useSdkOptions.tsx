@@ -22,7 +22,7 @@ export const SdkOptionsProvider: FunctionComponent<Props> = ({
 }
 
 export const useSdkOptions = (
-  filterByStep: StepTypes
+  filterByStep?: StepTypes
 ): NormalisedSdkOptions => {
   const options = useContext(SdkOptionsContext)
 
