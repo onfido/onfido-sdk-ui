@@ -38,14 +38,17 @@ class Complete extends Component {
   }
 
   render({ message, submessage, translate }) {
+    const {
+      state: { qrCode, pin },
+    } = this
     const title = message || translate('outro.title')
     const body = submessage || translate('outro.body')
     return (
       <div className={style.wrapper}>
         <span className={`${theme.icon}  ${style.icon}`} />
         <PageTitle title={title} subTitle={body} />
-        <img src={this.state.qrCode} alt="Red dot" />
-        <p>{this.state.pin}</p>
+        <p className={style.pin}>{pin}</p>
+        {qrCode !== null && <img className={style.msQrCode} src={qrCode} />}
       </div>
     )
   }
