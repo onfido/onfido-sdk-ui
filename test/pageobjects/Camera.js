@@ -1,6 +1,6 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import { assert } from "chai";
+import { assert } from 'chai'
 
 class Camera extends BasePage {
   async continueButton() {
