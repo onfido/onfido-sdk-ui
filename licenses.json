@@ -2350,13 +2350,13 @@
     "path": "node_modules/blueimp-load-image",
     "licenseFile": "node_modules/blueimp-load-image/LICENSE.txt"
   },
-  "bn.js@4.11.8": {
+  "bn.js@4.12.0": {
     "licenses": "MIT",
     "repository": "https://github.com/indutny/bn.js",
     "publisher": "Fedor Indutny",
     "email": "fedor@indutny.com",
     "path": "node_modules/bn.js",
-    "licenseFile": "node_modules/bn.js/README.md"
+    "licenseFile": "node_modules/bn.js/LICENSE"
   },
   "body-parser@1.19.0": {
     "licenses": "MIT",
@@ -4147,7 +4147,7 @@
     "path": "node_modules/browserslist/node_modules/electron-to-chromium",
     "licenseFile": "node_modules/browserslist/node_modules/electron-to-chromium/LICENSE"
   },
-  "elliptic@6.5.3": {
+  "elliptic@6.5.4": {
     "licenses": "MIT",
     "repository": "https://github.com/indutny/elliptic",
     "publisher": "Fedor Indutny",
