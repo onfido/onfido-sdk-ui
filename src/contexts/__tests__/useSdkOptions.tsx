@@ -1,8 +1,9 @@
 import { h, FunctionComponent } from 'preact'
 import { mount } from 'enzyme'
+import { EventEmitter2 } from 'eventemitter2'
 
 import { useSdkOptions, SdkOptionsProvider } from '../useSdkOptions'
-import type { NormalisedSdkOptions } from '~types/commons'
+import type { NarrowSdkOptions } from '~types/commons'
 
 const DummyComponent: FunctionComponent = () => {
   const options = useSdkOptions()
@@ -19,7 +20,7 @@ describe('context', () => {
     })
 
     it('gets correct options data', () => {
-      const fakeOptions: NormalisedSdkOptions = {
+      const fakeOptions: NarrowSdkOptions = {
         token: 'fake-sdk-token',
         containerId: 'onfido-mount',
         language: 'fr',
@@ -32,6 +33,7 @@ describe('context', () => {
           { type: 'face' },
           { type: 'complete' },
         ],
+        events: new EventEmitter2(),
       }
 
       const wrapper = mount(

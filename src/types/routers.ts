@@ -60,6 +60,7 @@ export type ExternalRouterProps = ReduxProps & WithCameraDetectionProps
 export type InternalRouterProps = {
   allowCrossDeviceFlow: boolean
   onFlowChange?: FlowChangeCallback
+  // @TODO: remove this prop completely to consume useSdkOptions() hook instead
   options: NarrowSdkOptions
 } & ExternalRouterProps
 
