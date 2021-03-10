@@ -45,6 +45,7 @@ export const userConsentScenarios = async (lang = 'en_US') => {
         userConsent.userConsentModalIsOpen()
         userConsent.verifyUserConsentDeclineModalTitle(copy)
         userConsent.userConsentDeclineModalPrimaryBtnClick()
+        driver.sleep(500)
         userConsent.userConsentModalIsClosed()
       })
 
