@@ -13,10 +13,8 @@ import Button from '../Button'
 import DeclineModal from './DeclineModal'
 import style from './style.scss'
 
-import type { StepComponentUserConsentProps } from '~types/routers'
+import type { StepComponentBaseProps } from '~types/routers'
 import type { ApiRawError, SuccessCallback } from '~types/api'
-
-type UserConsentProps = StepComponentUserConsentProps
 
 type ActionsProps = {
   onAccept(): void
@@ -27,6 +25,7 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
   const { translate } = useContext(LocaleContext)
   const primaryBtnCopy = translate('user_consent.button_primary')
   const secondaryBtnCopy = translate('user_consent.button_secondary')
+
   return (
     <div className={style.actions}>
       <Button
@@ -68,7 +67,7 @@ const getConsentFile = (
   request.send()
 }
 
-const UserConsent: FunctionComponent<UserConsentProps> = ({
+const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
   containerEl,
   containerId,
@@ -116,6 +115,7 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
         <div
           className={style.consentFrame}
           data-onfido-qa="userConsentFrameWrapper"
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: sanitize(consentHtml, { ADD_ATTR: ['target', 'rel'] }),
           }}

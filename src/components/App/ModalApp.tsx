@@ -302,7 +302,6 @@ class ModalApp extends Component<Props> {
       containerId,
       containerEl,
       shouldCloseOnOverlayClick,
-      ...otherOptions
     } = options
 
     return (
@@ -316,15 +315,7 @@ class ModalApp extends Component<Props> {
             containerEl={containerEl}
             shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
           >
-            <Router
-              options={{
-                ...otherOptions,
-                containerId,
-                containerEl,
-                events: this.events,
-              }}
-              {...otherProps}
-            />
+            <Router {...otherProps} />
           </Modal>
         </LocaleProvider>
       </SdkOptionsProvider>

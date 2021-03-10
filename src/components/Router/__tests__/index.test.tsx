@@ -24,9 +24,7 @@ const defaultOptions: NarrowSdkOptions = {
 
 describe('Router', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(
-      <Router {...mockedReduxProps} options={defaultOptions} />
-    )
+    const wrapper = shallow(<Router {...mockedReduxProps} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 
@@ -36,7 +34,7 @@ describe('Router', () => {
         <MockedReduxProvider>
           <MockedSdkOptionsProvider options={defaultOptions}>
             <MockedLocalised>
-              <Router {...mockedReduxProps} options={defaultOptions} />
+              <Router {...mockedReduxProps} />
             </MockedLocalised>
           </MockedSdkOptionsProvider>
         </MockedReduxProvider>
@@ -54,10 +52,7 @@ describe('Router', () => {
             options={{ ...defaultOptions, mobileFlow: true }}
           >
             <MockedLocalised>
-              <Router
-                {...mockedReduxProps}
-                options={{ ...defaultOptions, mobileFlow: true }}
-              />
+              <Router {...mockedReduxProps} />
             </MockedLocalised>
           </MockedSdkOptionsProvider>
         </MockedReduxProvider>

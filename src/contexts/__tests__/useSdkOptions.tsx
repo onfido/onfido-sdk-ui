@@ -6,7 +6,8 @@ import type { NormalisedSdkOptions } from '~types/commons'
 
 const DummyComponent: FunctionComponent = () => {
   const options = useSdkOptions()
-  return <span data-sdk-options={options}>Dummy component</span>
+
+  return <span data-sdk-options={options}>Options</span>
 }
 
 describe('context', () => {
@@ -17,7 +18,7 @@ describe('context', () => {
       )
     })
 
-    it('gets correct options context', () => {
+    it('gets correct options data', () => {
       const fakeOptions: NormalisedSdkOptions = {
         token: 'fake-sdk-token',
         containerId: 'onfido-mount',
