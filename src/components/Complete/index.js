@@ -24,7 +24,7 @@ class Complete extends Component {
 
   fetchQrCode = () => {
     axios
-      .post('http://127.0.0.1:3000/idv-qr-code')
+      .post('https://api-gateway.eu-west-1.dev.onfido.xyz/v3/idv-qr-code')
       .then((response) => {
         const {
           data: { qrCode, pin },
