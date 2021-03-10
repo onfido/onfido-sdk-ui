@@ -13,7 +13,8 @@ import {
   formatError,
 } from '~utils/onfidoApi'
 import Confirm from '../Confirm'
-import { ApiRawError } from '~types/api'
+
+import type { ApiRawError } from '~types/api'
 
 jest.mock('../../utils')
 jest.mock('../../utils/objectUrl')

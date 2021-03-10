@@ -11,7 +11,7 @@ import {
 import SdkMount from './SdkMount'
 import ApplicantForm from './ApplicantForm'
 
-import { ServerRegions, SdkOptions } from '~types/sdk'
+import type { ServerRegions, SdkOptions } from '~types/sdk'
 import type { ApplicantData } from './types'
 
 const DEFAULT_REGION: ServerRegions = 'EU'

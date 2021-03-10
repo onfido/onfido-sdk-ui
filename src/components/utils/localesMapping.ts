@@ -1,5 +1,5 @@
-import { CaptureSteps } from '~types/docVideo'
-import { DocumentTypes, PoaTypes } from '~types/steps'
+import type { CaptureSteps } from '~types/docVideo'
+import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 type CaptureSideLocale = {
   title: string
