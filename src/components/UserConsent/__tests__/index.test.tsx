@@ -5,11 +5,11 @@ import { sanitize } from 'dompurify'
 import UserConsent from '../index'
 import MockedLocalised from '~jest/MockedLocalised'
 import { mockedReduxProps } from '~jest/MockedReduxProvider'
-import type { StepComponentUserConsentProps } from '~types/routers'
+import type { StepComponentBaseProps } from '~types/routers'
 
 jest.mock('dompurify')
 
-const defaultOptions: StepComponentUserConsentProps = {
+const defaultOptions: StepComponentBaseProps = {
   ...mockedReduxProps,
   componentsList: [
     { component: UserConsent, step: { type: 'userConsent' }, stepIndex: 0 },
