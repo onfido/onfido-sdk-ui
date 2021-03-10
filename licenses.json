@@ -7418,10 +7418,7 @@
     "licenseFile": "node_modules/json-schema-traverse/LICENSE"
   },
   "json-schema@0.2.3": {
-    "licenses": [
-      "AFLv2.1",
-      "BSD"
-    ],
+    "licenses": ["AFLv2.1", "BSD"],
     "repository": "https://github.com/kriszyp/json-schema",
     "publisher": "Kris Zyp",
     "path": "node_modules/json-schema",
@@ -9487,10 +9484,7 @@
     "licenseFile": "node_modules/pathval/LICENSE"
   },
   "pause-stream@0.0.11": {
-    "licenses": [
-      "MIT",
-      "Apache2"
-    ],
+    "licenses": ["MIT", "Apache2"],
     "repository": "https://github.com/dominictarr/pause-stream",
     "publisher": "Dominic Tarr",
     "email": "dominic.tarr@gmail.com",
