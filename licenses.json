@@ -2878,8 +2878,8 @@
     "repository": "https://github.com/paulmillr/chokidar",
     "publisher": "Paul Miller",
     "url": "https://paulmillr.com",
-    "path": "node_modules/@nicolo-ribaudo/chokidar-2/node_modules/chokidar",
-    "licenseFile": "node_modules/@nicolo-ribaudo/chokidar-2/node_modules/chokidar/README.md"
+    "path": "node_modules/watchpack-chokidar2/node_modules/chokidar",
+    "licenseFile": "node_modules/watchpack-chokidar2/node_modules/chokidar/README.md"
   },
   "chokidar@3.4.0": {
     "licenses": "MIT",
@@ -13120,6 +13120,12 @@
     "url": "http://www.berkeleytrue.com",
     "path": "node_modules/node-polyglot/node_modules/warning",
     "licenseFile": "node_modules/node-polyglot/node_modules/warning/LICENSE.md"
+  },
+  "watchpack-chokidar2@2.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/webpack/watchpack",
+    "publisher": "Tobias Koppers @sokra",
+    "path": "node_modules/watchpack-chokidar2"
   },
   "watchpack@1.7.2": {
     "licenses": "MIT",
