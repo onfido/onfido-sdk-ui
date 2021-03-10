@@ -14,7 +14,7 @@ import DeclineModal from './DeclineModal'
 import style from './style.scss'
 
 import type { StepComponentUserConsentProps } from '~types/routers'
-import { ApiRawError, SuccessCallback } from '~types/api'
+import type { ApiRawError, SuccessCallback } from '~types/api'
 
 type UserConsentProps = StepComponentUserConsentProps
 

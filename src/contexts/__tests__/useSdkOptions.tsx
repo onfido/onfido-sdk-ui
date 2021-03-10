@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact'
 import { mount } from 'enzyme'
 
-import useSdkOptions, { SdkOptionsProvider } from '../useSdkOptions'
+import { useSdkOptions, SdkOptionsProvider } from '../useSdkOptions'
 import type { NormalisedSdkOptions } from '~types/commons'
 
 const DummyComponent: FunctionComponent = () => {

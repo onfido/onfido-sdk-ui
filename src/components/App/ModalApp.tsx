@@ -1,6 +1,7 @@
 import { h, Component, ComponentType } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
 
+import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import { LocaleProvider } from '~locales'
 import { getEnabledDocuments } from '~utils'
 import {
@@ -293,40 +294,40 @@ class ModalApp extends Component<Props> {
   }
 
   render() {
+    const { options, ...otherProps } = this.props
     const {
-      options: {
-        useModal,
-        isModalOpen,
-        onModalRequestClose,
-        containerId,
-        containerEl,
-        shouldCloseOnOverlayClick,
-        ...otherOptions
-      },
-      ...otherProps
-    } = this.props
+      useModal,
+      isModalOpen,
+      onModalRequestClose,
+      containerId,
+      containerEl,
+      shouldCloseOnOverlayClick,
+      ...otherOptions
+    } = options
 
     return (
-      <LocaleProvider language={this.props.options.language}>
-        <Modal
-          useModal={useModal}
-          isOpen={isModalOpen}
-          onRequestClose={onModalRequestClose}
-          containerId={containerId}
-          containerEl={containerEl}
-          shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-        >
-          <Router
-            options={{
-              ...otherOptions,
-              containerId,
-              containerEl,
-              events: this.events,
-            }}
-            {...otherProps}
-          />
-        </Modal>
-      </LocaleProvider>
+      <SdkOptionsProvider options={options}>
+        <LocaleProvider language={options.language}>
+          <Modal
+            useModal={useModal}
+            isOpen={isModalOpen}
+            onRequestClose={onModalRequestClose}
+            containerId={containerId}
+            containerEl={containerEl}
+            shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+          >
+            <Router
+              options={{
+                ...otherOptions,
+                containerId,
+                containerEl,
+                events: this.events,
+              }}
+              {...otherProps}
+            />
+          </Modal>
+        </LocaleProvider>
+      </SdkOptionsProvider>
     )
   }
 }

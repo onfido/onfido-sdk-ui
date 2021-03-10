@@ -1,4 +1,6 @@
 import { h, FunctionComponent } from 'preact'
+
+import { useSdkOptions } from '~contexts'
 import { buildIteratorKey } from '~utils'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
@@ -75,6 +77,9 @@ const Welcome: FunctionComponent<Props> = ({
   nextStep,
   translate,
 }) => {
+  const { steps } = useSdkOptions()
+  console.log('configured steps:', steps)
+
   const actions = <WelcomeActions {...{ nextButton, nextStep, translate }} />
   const welcomeTitle = title ? title : translate('welcome.title')
 

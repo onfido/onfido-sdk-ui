@@ -1,7 +1,8 @@
 import { h, createContext, FunctionComponent } from 'preact'
 import { useContext } from 'preact/compat'
 
-import { NormalisedSdkOptions } from '~types/commons'
+import type { NormalisedSdkOptions } from '~types/commons'
+import type { StepTypes } from '~types/steps'
 
 const SdkOptionsContext = createContext<NormalisedSdkOptions>(null)
 
@@ -20,7 +21,9 @@ export const SdkOptionsProvider: FunctionComponent<Props> = ({
   )
 }
 
-const useSdkOptions = (): NormalisedSdkOptions => {
+export const useSdkOptions = (
+  filterByStep: StepTypes
+): NormalisedSdkOptions => {
   const options = useContext(SdkOptionsContext)
 
   if (!options) {
@@ -29,5 +32,3 @@ const useSdkOptions = (): NormalisedSdkOptions => {
 
   return options
 }
-
-export default useSdkOptions
