@@ -31,7 +31,7 @@ export type RequestedVariant = 'standard' | 'video'
 export type DocumentTypeConfig =
   | boolean
   | {
-      country: string | null
+      country: Optional<string>
     }
 
 export type CaptureOptions = {

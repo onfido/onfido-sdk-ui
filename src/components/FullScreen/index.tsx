@@ -1,26 +1,10 @@
-import { h, Component, ComponentType } from 'preact'
-import { connect } from 'react-redux'
+import { FunctionComponent } from 'preact'
+import { useEffect } from 'preact/compat'
+import { connect, useDispatch } from 'react-redux'
 import { setFullScreen } from '../ReduxAppWrapper/store/actions/globals'
 
-import type { RootState } from '~types/redux'
-
-type WithFullScreenActionProps = {
-  setFullScreen: (value: boolean) => void
-}
-
-class ToggleOnMount extends Component<WithFullScreenActionProps> {
-  componentDidMount() {
-    this.props.setFullScreen(true)
-  }
-
-  componentWillUnmount() {
-    this.props.setFullScreen(false)
-  }
-
-  render(): h.JSX.Element {
-    return null
-  }
-}
+import type { Dispatch } from 'redux'
+import type { CombinedActions, RootState } from '~types/redux'
 
 export const withFullScreenState = connect(
   ({ globals: { isFullScreen } }: RootState) => ({
@@ -32,6 +16,14 @@ export const withFullScreenAction = connect(null, (dispatch) => ({
   setFullScreen: (value: boolean) => dispatch(setFullScreen(value)),
 }))
 
-export const ToggleFullScreen = withFullScreenAction<
-  ComponentType<WithFullScreenActionProps>
->(ToggleOnMount)
+export const ToggleFullScreen: FunctionComponent = () => {
+  const dispatch = useDispatch<Dispatch<CombinedActions>>()
+
+  useEffect(() => {
+    dispatch(setFullScreen(true))
+
+    return () => dispatch(setFullScreen(false))
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  return null
+}

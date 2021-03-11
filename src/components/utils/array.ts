@@ -12,3 +12,9 @@ export const wrapArray = <T>(maybeArray: T): ArrayAlways<T> =>
 
 export const flatten = <T>(values: T[][]): T[] =>
   values.reduce((accum, arr) => accum.concat(...wrapArray(arr)), [])
+
+export const notEmpty = <TValue>(
+  value: TValue | null | undefined
+): value is TValue => {
+  return value !== null && value !== undefined
+}
