@@ -26,9 +26,11 @@ const SdkDemo: FunctionComponent<Props> = ({
   sdkOptions,
   viewOptions,
 }) => {
-  const [token, setToken] = useState<string>(null)
-  const [tokenUrl, setTokenUrl] = useState<string>(null)
-  const [regionCode, setRegionCode] = useState<ServerRegions>(null)
+  const [token, setToken] = useState<string | undefined>(undefined)
+  const [tokenUrl, setTokenUrl] = useState<string | undefined>(undefined)
+  const [regionCode, setRegionCode] = useState<ServerRegions | undefined>(
+    undefined
+  )
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
@@ -77,7 +79,7 @@ const SdkDemo: FunctionComponent<Props> = ({
           Verify identity
         </button>
       )}
-      {token && (
+      {token && regionCode && tokenUrl && (
         <SdkMount options={options} regionCode={regionCode} url={tokenUrl} />
       )}
     </div>

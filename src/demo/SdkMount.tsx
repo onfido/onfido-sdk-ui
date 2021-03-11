@@ -25,7 +25,7 @@ type Props = {
 }
 
 const SdkMount: FunctionComponent<Props> = ({ options, regionCode, url }) => {
-  const [onfidoSdk, setOnfidoSdk] = useState<SdkHandle>(null)
+  const [onfidoSdk, setOnfidoSdk] = useState<SdkHandle | undefined>(undefined)
   const mountEl = useRef(null)
 
   /**

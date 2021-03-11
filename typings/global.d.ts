@@ -16,7 +16,7 @@ declare global {
   interface Window extends NodeJS.Global {
     __REDUX_DEVTOOLS_EXTENSION__?: typeof compose
     onfidoSdkHandle: SdkHandle
-    updateOptions: (
+    updateOptions?: (
       options: SdkOptions & { onComplete?: (data: unknown) => void }
     ) => void
   }

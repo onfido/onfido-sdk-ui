@@ -13,7 +13,9 @@ type ProviderProps = {
   language: SupportedLanguages | LocaleConfig
 }
 
-export const LocaleContext = createContext<WithLocalisedProps>(null)
+export const LocaleContext = createContext<WithLocalisedProps | undefined>(
+  undefined
+)
 
 export const LocaleProvider: FunctionComponent<ProviderProps> = ({
   language,
@@ -42,7 +44,13 @@ export const localised = <P extends unknown>(
 ): ComponentType<P> => {
   const LocalisedComponent: FunctionComponent<P> = (props) => (
     <LocaleContext.Consumer>
-      {(injectedProps) => <WrappedComponent {...props} {...injectedProps} />}
+      {(injectedProps) => {
+        if (injectedProps == null) {
+          throw new Error(`LocaleContext hasn't been initialized!`)
+        }
+
+        return <WrappedComponent {...props} {...injectedProps} />
+      }}
     </LocaleContext.Consumer>
   )
 

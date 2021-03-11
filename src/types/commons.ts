@@ -59,9 +59,9 @@ export type SdkMetadata = {
 }
 
 export type CountryData = {
-  country_alpha2?: string
-  country_alpha3?: string
-  name?: string
+  country_alpha2: string
+  country_alpha3: string
+  name: string
 }
 
 export type UrlsConfig = {
