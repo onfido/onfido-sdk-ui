@@ -6,13 +6,13 @@
  *
  *  2) Castor theme tokens = CSS variables with --ods- prefix.
  *
- *  Wherever it makes sense for colour token mappings, the relevant Day theme design tokens from Castor should be used.
+ *  Wherever it makes sense for color token mappings, the relevant Day theme design tokens from Castor should be used.
  *  See the Castor Day theme file for available tokens:
  *  https://github.com/onfido/castor/blob/main/packages/core/src/theme/themes/day.scss
- *  Where it does not, the basic colour token, e.g. --ods-color-primary-500, should be used instead.
+ *  Where it does not, the basic color token, e.g. --ods-color-primary-500, should be used instead.
  *
- * Colors in color palette are RGB values but also adds alpha level (or opacity),
- * so all colour related CSS variables must be wrapped with rgba(), e.g. rgba((var(--castor-colour-token))).
+ * Colors in color palette are RGB values but some also adds alpha level (or opacity),
+ * so all color related CSS variables must be wrapped with rgba(), e.g. rgba((var(--castor-color-token))).
  */
 
 /* stylelint-disable function-parentheses-space-inside */
@@ -125,6 +125,7 @@
   --osdk-button-group-stacked: false;
 
   /* Document Type Selectors option button colors */
+  --osdk-color-content-doc-type-button: rgba(var(--osdk-color-content-body));
   --osdk-color-background-doc-type-button: rgba(var(--ods-color-neutral-white));
 
   --osdk-color-border-doc-type-button: rgba(var(--ods-color-border-input));
@@ -136,8 +137,10 @@
   );
 
   /* Back, Close (modal) icon button colors */
-  --color-background-button-icon-hover: rgba(var(--ods-color-neutral-400));
-  --color-background-button-icon-active: rgba(var(--ods-color-neutral-600));
+  --osdk-color-background-button-icon-hover: rgba(var(--ods-color-neutral-400));
+  --osdk-color-background-button-icon-active: rgba(
+    var(--ods-color-neutral-600)
+  );
 
   /* Selfie Camera button colors */
   --color-background-button-camera: rgba(var(--ods-color-neutral-white));

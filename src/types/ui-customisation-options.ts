@@ -44,6 +44,7 @@ export type UICustomizationOptions = {
   buttonGroupStacked?: boolean
 
   // Document Type Option Button
+  colorContentDocTypeButton?: string
   colorBackgroundDocTypeButton?: string
   colorBorderDocTypeButton?: string
   colorBorderDocTypeButtonHover?: string
@@ -73,6 +74,10 @@ export type UICustomizationOptions = {
   // Header/Highlight Pills
   colorBackgroundInfoPill?: string
   colorContentInfoPill?: string
+
+  // Back, Close (modal) Icon Buttons
+  colorBackgroundButtonIconHover?: string
+  colorBackgroundButtonIconActive?: string
 
   // Camera Shutter Button (only customisable for hover, active states)
   colorBackgroundButtonCameraHover?: string

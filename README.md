@@ -474,6 +474,7 @@ A number of options are available to allow you to customize the SDK:
 
   | Document Type Buttons            | Description                                              |
   | -------------------------------- | -------------------------------------------------------- |
+  | `colorContentDocTypeButton`      | Change Document Type Button text color                   |
   | `colorBackgroundDocTypeButton`   | Change background color of Document Type Button          |
   | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
   | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
@@ -543,6 +544,11 @@ A number of options are available to allow you to customize the SDK:
   | --------------------------- | ------------------------------------------------------------------------------------------------ |
   | `colorBackgroundInfoPill`   | Change background color of Cross Device, Camera/Mic Permissions screens' information header pill |
   | `colorContentInfoPill`      | Change text color of Cross Device, Camera/Mic Permissions screens' information header pill       |
+
+  | Icon Buttons                      | Description                                                            |
+  | --------------------------------- | ---------------------------------------------------------------------- |
+  | `colorBackgroundButtonIconHover`  | Change background color of Back, Close Modal icon buttons on hover     |
+  | `colorBackgroundButtonIconActive` | Change background color of Back, Close Modal icon buttons on click/tap |
 
   | Camera Shutter Button               | Description                                                                                 |
   | ----------------------------------- | ------------------------------------------------------------------------------------------- |

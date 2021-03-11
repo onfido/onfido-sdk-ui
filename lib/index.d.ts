@@ -119,6 +119,8 @@ export declare type UICustomizationOptions = {
 	colorBackgroundAlertErrorLinkActive?: string;
 	colorBackgroundInfoPill?: string;
 	colorContentInfoPill?: string;
+	colorBackgroundButtonIconHover?: string;
+	colorBackgroundButtonIconActive?: string;
 };
 export declare type DocumentSides = "front" | "back";
 export declare type UploadFileResponse = {

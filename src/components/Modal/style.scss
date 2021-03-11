@@ -84,12 +84,12 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: var(--color-background-button-icon-hover);
+      background-color: var(--osdk-color-background-button-icon-hover);
     }
   }
 
   &:active {
-    background-color: var(--color-background-button-icon-active);
+    background-color: var(--osdk-color-background-button-icon-active);
   }
 }
 
@@ -109,6 +109,11 @@
 
   &:hover {
     background-image: url('./assets/cross.svg');
+    background-color: $color-fullscreen-icon-button-hover;
+  }
+
+  &:active {
+    background-color: $color-fullscreen-icon-button-active;
   }
 
   .closeButtonLabel {
