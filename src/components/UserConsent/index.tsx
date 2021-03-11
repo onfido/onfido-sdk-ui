@@ -2,7 +2,6 @@ import { h, FunctionComponent, Fragment } from 'preact'
 import { useEffect, useState, unmountComponentAtNode } from 'preact/compat'
 import { useLocales } from '~locales'
 import { sanitize } from 'dompurify'
-
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
 import Button from '../Button'
@@ -23,6 +22,7 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
   const { translate } = useLocales()
   const primaryBtnCopy = translate('user_consent.button_primary')
   const secondaryBtnCopy = translate('user_consent.button_secondary')
+
   return (
     <div className={style.actions}>
       <Button
@@ -48,11 +48,12 @@ const getConsentFile = (
   onSuccess: SuccessCallback<string>,
   onError: (error: ApiRawError) => void
 ): void => {
+  const request = new XMLHttpRequest()
+
   if (!process.env.USER_CONSENT_URL) {
-    throw new Error('USER_CONSENT_URL env var not provided')
+    throw new Error('USER_CONSENT_URL env var was not set')
   }
 
-  const request = new XMLHttpRequest()
   request.open('GET', process.env.USER_CONSENT_URL)
 
   request.onload = () => {
@@ -76,8 +77,18 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
 }) => {
   const [consentHtml, setConsentHtml] = useState('')
   const [isModalOpen, setModalToOpen] = useState(false)
-  const sdkContainer =
-    containerEl || (containerId ? document.getElementById(containerId) : null)
+
+  const openModal = () => setModalToOpen(true)
+  const closeModal = () => setModalToOpen(false)
+
+  const sdkContainer = containerEl || document.getElementById(containerId || '')
+
+  const actions = <Actions onAccept={nextStep} onDecline={openModal} />
+
+  const triggerUserExit = () => {
+    events?.emit('userExit', 'USER_CONSENT_DENIED')
+    sdkContainer && unmountComponentAtNode(sdkContainer)
+  }
 
   useEffect(() => {
     new Promise<string>((resolve, reject) => {
@@ -87,29 +98,14 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
       .catch((err) => console.error(err))
   }, [])
 
-  const actions = (
-    <Actions
-      onAccept={nextStep}
-      onDecline={() => {
-        setModalToOpen(true)
-      }}
-    />
-  )
-
-  const triggerUserExit = () => {
-    setModalToOpen(false)
-    events?.emit('userExit', 'USER_CONSENT_DENIED')
-    sdkContainer && unmountComponentAtNode(sdkContainer)
-  }
-
   return (
     <Fragment>
       <DeclineModal
         isOpen={isModalOpen}
-        onRequestClose={() => setModalToOpen(false)}
-        onDismissModal={() => setModalToOpen(false)}
+        onRequestClose={closeModal}
+        onDismissModal={closeModal}
         onAbandonFlow={triggerUserExit}
-        containerEl={sdkContainer || undefined}
+        containerEl={sdkContainer}
       />
       <ScreenLayout actions={actions}>
         <div

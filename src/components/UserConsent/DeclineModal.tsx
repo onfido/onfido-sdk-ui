@@ -1,8 +1,7 @@
 import ReactModal from 'react-modal'
 import { h, FunctionComponent } from 'preact'
-import classNames from 'classnames'
-
 import { useLocales } from '~locales'
+import classNames from 'classnames'
 import { getCSSMillisecsValue } from '~utils'
 import style from './style.scss'
 import styleConstants from '../Theme/constants.scss'
@@ -16,7 +15,7 @@ const MODAL_ANIMATION_DURATION = getCSSMillisecsValue(
 type DeclineModalProps = {
   isOpen: boolean
   onRequestClose(): void
-  containerEl?: HTMLElement
+  containerEl: HTMLElement | null
   onDismissModal(): void
   onAbandonFlow(): void
 }
@@ -33,6 +32,7 @@ const Actions: FunctionComponent<ActionsProps> = ({
   const { translate } = useLocales()
   const primaryBtnCopy = translate('user_consent.prompt.button_primary')
   const secondaryBtnCopy = translate('user_consent.prompt.button_secondary')
+
   return (
     <div className={classNames(style.actions, style.modalActions)}>
       <Button
@@ -78,7 +78,7 @@ const DeclineModal: FunctionComponent<DeclineModalProps> = ({
       role={'dialog'}
       shouldCloseOnOverlayClick={true}
       closeTimeoutMS={MODAL_ANIMATION_DURATION}
-      appElement={containerEl}
+      appElement={containerEl || undefined}
       data-onfido-qa="userConsentDeclineModal"
     >
       <div
