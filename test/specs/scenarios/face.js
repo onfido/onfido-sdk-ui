@@ -121,7 +121,7 @@ export const faceScenarios = (lang) => {
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
       camera.verifySelfieTitle(copy)
-      camera.verifyOnFidoFooterIsVisible()
+      camera.verifyOnfidoFooterIsVisible()
       camera.takeSelfie()
       confirm.clickConfirmButton()
       verificationComplete.verifyUIElements(copy)
@@ -288,7 +288,7 @@ export const faceScenarios = (lang) => {
       livenessIntro.clickOnContinueButton()
       camera.continueButton().click()
       camera.verifyVideoTitle(copy)
-      camera.verifyOnFidoFooterIsVisible()
+      camera.verifyOnfidoFooterIsVisible()
       camera.recordButton().click()
       assert.isTrue(
         camera.isOverlayPresent(),

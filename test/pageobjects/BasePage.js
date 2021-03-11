@@ -31,7 +31,7 @@ class BasePage {
   async poweredBy() {
     return this.$('.onfido-sdk-ui-Theme-poweredBy')
   }
-  async onFidoFooter() {
+  async onfidoFooter() {
     return this.$('.onfido-sdk-ui-Theme-footer')
   }
 

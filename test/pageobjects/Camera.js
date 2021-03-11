@@ -41,10 +41,10 @@ class Camera extends BasePage {
     return cameraClasses.includes('onfido-sdk-ui-Overlay-isWithoutHole')
   }
 
-  async verifyOnFidoFooterIsVisible() {
+  async verifyOnfidoFooterIsVisible() {
     assert.isTrue(
-      this.onFidoFooter().isDisplayed(),
-      'Test Failed: onFido footer should be present'
+      this.onfidoFooter().isDisplayed(),
+      'Test Failed: Onfido footer should be present'
     )
   }
 
