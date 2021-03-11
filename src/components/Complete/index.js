@@ -12,6 +12,7 @@ class Complete extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      // look into removing this async function from the constructor
       qrCode: this.fetchQrCode(),
       pin: '',
       loading: true,
@@ -24,7 +25,7 @@ class Complete extends Component {
 
   fetchQrCode = () => {
     axios
-      .post('https://api-gateway.eu-west-1.dev.onfido.xyz/v3/idv-qr-code')
+      .post('https://edge.api.onfido.com/v3/idv-qr-code')
       .then((response) => {
         const {
           data: { qrCode, pin },
