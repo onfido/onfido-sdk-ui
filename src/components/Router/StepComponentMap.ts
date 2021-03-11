@@ -87,8 +87,7 @@ const shouldUseCameraForDocumentCapture = (
     (!isDesktop || isHybrid) && documentStep?.options?.useLiveDocumentCapture
 
   return (
-    (canUseLiveDocumentCapture != null ||
-      documentStep?.options?.useWebcam === true) &&
+    (canUseLiveDocumentCapture || documentStep?.options?.useWebcam === true) &&
     deviceHasCameraSupport === true
   )
 }
@@ -222,7 +221,6 @@ const buildDocumentComponents = (
   const isPassportDocument = documentType === 'passport'
 
   // @TODO: convert SelectIdentityDocument, DocumentFrontCapture, DocumentFrontConfirm & ImageQualityGuide to TS
-
   if (isPassportDocument) {
     const preCaptureComponents = hasOnePreselectedDocument
       ? []
