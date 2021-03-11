@@ -58,9 +58,9 @@ $navigation-padding-sides-sm-screen: $padding-xs;
 $color-white: rgb(var(--ods-color-neutral-white));
 $color-black: rgb(var(--ods-color-neutral-black));
 
-$color-icon-temporary: rgba(var(--ods-color-neutral-300));
-$color-divider: rgba(var(--ods-color-neutral-400));
-$color-icons-connector-line: rgba(var(--ods-color-neutral-800));
+$color-icon-temporary: rgb(var(--ods-color-neutral-300));
+$color-divider: rgb(var(--ods-color-neutral-400));
+$color-icons-connector-line: rgb(var(--ods-color-neutral-800));
 
 /* Transparent colors */
 $color-modal-overlay: rgba(0, 0, 0, 0.6);
@@ -78,8 +78,8 @@ $color-small-button-active: rgba(15, 37, 54, 0.85);
 $camera-recording-status-icon-color: #dc2a2a;
 
 /* Live Camera Capture screens' Back, Close icon button background is not customisable */
-$color-fullscreen-icon-button-hover: rgba(var(--ods-color-neutral-400));
-$color-fullscreen-icon-button-active: rgba(var(--ods-color-neutral-600));
+$color-fullscreen-icon-button-hover: rgb(var(--ods-color-neutral-400));
+$color-fullscreen-icon-button-active: rgb(var(--ods-color-neutral-600));
 
 /* Primary/Secondary Button width variables */
 $lg-btn-width-lg-screen: 272 * $unit-small;
@@ -106,7 +106,7 @@ $modal-animation-duration: 200ms;
 
 %overflow-drop-shadow {
   @media (--shorter-viewport) {
-    background-color: rgba(var(--ods-color-neutral-050));
+    background-color: rgb(var(--ods-color-neutral-050));
     bottom: 0;
     box-shadow: 0 -5px 10px -5px #7b7b7b;
     left: -1em;
