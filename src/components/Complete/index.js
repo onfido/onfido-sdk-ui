@@ -13,7 +13,7 @@ class Complete extends Component {
     super(props)
     this.state = {
       // look into removing this async function from the constructor
-      qrCode: this.fetchQrCode(),
+      qrCode: '',
       pin: '',
       loading: true,
     }
@@ -21,6 +21,7 @@ class Complete extends Component {
 
   componentDidMount() {
     this.props.nextStep()
+    this.fetchQrCode()
   }
 
   fetchQrCode = () => {
