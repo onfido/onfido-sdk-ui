@@ -16,6 +16,8 @@ $font-size-base: 16 * $unit;
  * We also need different units for when trying to do `px` "equivalents" when
  * our parent has a different font size.
  */
+$unit-x-large: (1/30) * 1em;
+$font-size-x-large: 30 * $unit;
 $unit-large: (1/20) * 1em;
 $font-size-large: 20 * $unit;
 
@@ -33,14 +35,16 @@ $unit-rrui: 1em;
 
 $font-family: 'Open Sans', sans-serif;
 
-$large-text-margin: 40 * $unit;
+$large-text-margin: 32 * $unit;
 $small-text-margin: 24 * $unit;
+$smaller-text-margin: 16 * $unit;
 $padding-lg: 16 * $unit;
 $padding-sm: 10 * $unit;
 $padding-xs: 8 * $unit;
 
-$footer-height: 32 * $unit;
-$footer-margin: 16 * $unit;
+$sdk-container-max-width: 512 * $unit;
+$footer-height: 40 * $unit;
+$footer-margin: 0 * $unit;
 $navigation-height: 32 * $unit;
 $navigation-height-sm-screen: 38 * $unit;
 $navigation-padding-top: $padding-lg;
@@ -118,6 +122,13 @@ $color-camera-button: $color-white;
 $color-camera-button-hover: $color-primary-button-hover;
 $color-camera-button-active: $color-primary-button-active;
 
+/* Modal */
+$modal-animation-duration: 200ms;
+// Export is required for ^ variable to be accessible at React/JS side
+:export {
+  modal_animation_duration: $modal-animation-duration;
+}
+
 %absolute-center {
   margin: auto;
   position: absolute;
@@ -146,4 +157,24 @@ $color-camera-button-active: $color-primary-button-active;
 
 @mixin width-parent-relative($base-width, $parent-width) {
   width: 100% * ($base-width/$parent-width);
+}
+
+%global-margin {
+  margin: 0 $large-text-margin;
+  @media (--small-viewport) {
+    margin: 0 $small-text-margin;
+  }
+  @media (--smaller-viewport) {
+    margin: 0 $smaller-text-margin;
+  }
+}
+
+%global-padding {
+  padding: 0 $large-text-margin;
+  @media (--small-viewport) {
+    padding: 0 $small-text-margin;
+  }
+  @media (--smaller-viewport) {
+    padding: 0 $smaller-text-margin;
+  }
 }

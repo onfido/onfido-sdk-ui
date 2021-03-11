@@ -41,7 +41,7 @@ const Guidance = ({
           <Graphic />
         </div>
       </div>
-      <div className={theme.thickWrapper}>
+      <div>
         <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
           {translate('poa_guidance.button_primary')}
         </Button>

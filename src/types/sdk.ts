@@ -1,5 +1,6 @@
-import { SupportedLanguages, LocaleConfig } from './locales'
-import { StepConfig, StepTypes } from './steps'
+import type { SupportedLanguages, LocaleConfig } from './locales'
+import type { StepConfig, StepTypes } from './steps'
+import type { EnterpriseFeatures } from './enterprise'
 
 type DocumentResponse = {
   id: string
@@ -23,6 +24,8 @@ export type SdkError = {
   message: string
 }
 
+export type UserExitCode = 'USER_CONSENT_DENIED'
+
 export type ServerRegions = 'US' | 'EU' | 'CA'
 
 interface FunctionalConfigurations {
@@ -37,6 +40,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   // Callbacks
   onComplete?: (data: SdkResponse) => void
   onError?: (error: SdkError) => void
+  onUserExit?: (data: UserExitCode) => void
   onModalRequestClose?: () => void
 
   // Customization
@@ -53,10 +57,7 @@ export interface SdkOptions extends FunctionalConfigurations {
     smsNumber?: string
   }
   steps?: Array<StepTypes | StepConfig>
-  enterpriseFeatures?: {
-    hideOnfidoLogo?: boolean
-    cobrand?: { text: string }
-  }
+  enterpriseFeatures?: EnterpriseFeatures
 }
 
 export type SdkHandle = {

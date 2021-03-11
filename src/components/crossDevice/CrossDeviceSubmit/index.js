@@ -55,7 +55,7 @@ class CrossDeviceSubmit extends Component {
           title={translate('cross_device_checklist.title')}
           subTitle={translate('cross_device_checklist.subtitle')}
         />
-        <div className={theme.thickWrapper}>
+        <div>
           <ul
             className={style.uploadList}
             aria-label={translate('cross_device_checklist.info')}

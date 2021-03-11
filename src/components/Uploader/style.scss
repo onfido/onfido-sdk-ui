@@ -7,6 +7,7 @@
 .crossDeviceInstructionsContainer {
   height: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 20 * $unit;
@@ -38,14 +39,7 @@
 
 .buttons {
   display: flex;
-  justify-content: space-around;
-}
-
-.poaButtons {
-  margin-right: -16 * $unit;
-  @media (--small-viewport) {
-    margin-right: -8 * $unit;
-  }
+  justify-content: space-between;
 }
 
 .buttonContainer {
@@ -57,7 +51,13 @@
   @extend %overflow-drop-shadow;
 }
 
-.poaBtnContainer {
+.poaBtn {
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.poaBtn:first-child {
   margin-right: 16 * $unit;
   @media (--small-viewport) {
     margin-right: 8 * $unit;
@@ -165,7 +165,6 @@
 .uploaderWrapper {
   display: flex;
   flex-direction: column;
-  margin: 0 16 * $unit;
   flex-grow: 1;
   height: 16 * $unit;
 }
@@ -175,7 +174,7 @@
   flex-direction: column;
   flex-grow: 1;
   position: relative;
-  padding: 24 * $unit 24 * $unit 8 * $unit;
+  padding: 24 * $unit 0 8 * $unit;
   justify-content: space-around;
   /*
     We need to define a height for the uploadArea

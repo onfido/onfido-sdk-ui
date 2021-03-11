@@ -12,7 +12,7 @@ const MobileConnected = ({ translate, back }) => (
       title={translate('switch_phone.title')}
       subTitle={translate('switch_phone.subtitle')}
     />
-    <div className={theme.thickWrapper}>
+    <div>
       <span className={`${theme.icon} ${style.icon}`} />
       <div className={theme.header}>{translate('switch_phone.info')}</div>
       <div className={`${style.help} ${theme.help}`}>

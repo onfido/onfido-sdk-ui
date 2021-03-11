@@ -1,8 +1,14 @@
 import { LocaleConfig, SupportedLanguages } from '~types/locales'
-import { StepConfig, StepTypes } from '~types/steps'
+import {
+  DocumentTypes,
+  DocumentTypeConfig,
+  StepConfig,
+  StepTypes,
+} from '~types/steps'
 import { ServerRegions, SdkOptions } from '~types/sdk'
 
 type StringifiedBoolean = 'true' | 'false'
+type DecoupleResponseOptions = 'success' | 'error' | 'onfido'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
@@ -15,13 +21,14 @@ export type QueryParams = {
   multiDocWithInvalidPresetCountry?: StringifiedBoolean
   multiDocWithPresetCountry?: StringifiedBoolean
   noCompleteStep?: StringifiedBoolean
-  oneDoc?: StepTypes
+  oneDoc?: DocumentTypes
   oneDocWithCountrySelection?: StringifiedBoolean
   oneDocWithPresetCountry?: StringifiedBoolean
   poa?: StringifiedBoolean
   region?: string
   shouldCloseOnOverlayClick?: StringifiedBoolean
   showCobrand?: StringifiedBoolean
+  showUserConsent?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
   snapshotInterva?: StringifiedBoolean
   snapshotInterval?: StringifiedBoolean
@@ -33,6 +40,8 @@ export type QueryParams = {
   useMultipleSelfieCapture?: StringifiedBoolean
   useUploader?: StringifiedBoolean
   useWebcam?: StringifiedBoolean
+  useCustomizedApiRequests?: StringifiedBoolean
+  decoupleResponse?: DecoupleResponseOptions
 }
 
 export type CheckData = {
@@ -63,23 +72,32 @@ export const queryParamToValueString = window.location.search
     return { ...acc, [key]: value }
   }, {})
 
-const getPreselectedDocumentTypes = (): Record<string, unknown> => {
-  const preselectedDocumentType = queryParamToValueString.oneDoc as string
+const getPreselectedDocumentTypes = (): Partial<
+  Record<DocumentTypes, DocumentTypeConfig>
+> => {
+  const preselectedDocumentType = queryParamToValueString.oneDoc
+
   if (preselectedDocumentType) {
     return {
       [preselectedDocumentType]: true,
     }
-  } else if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
+  }
+
+  if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
     return {
       driving_licence: true,
     }
-  } else if (queryParamToValueString.oneDocWithPresetCountry === 'true') {
+  }
+
+  if (queryParamToValueString.oneDocWithPresetCountry === 'true') {
     return {
       driving_licence: {
         country: 'ESP',
       },
     }
-  } else if (queryParamToValueString.multiDocWithPresetCountry === 'true') {
+  }
+
+  if (queryParamToValueString.multiDocWithPresetCountry === 'true') {
     return {
       driving_licence: {
         country: 'ESP',
@@ -91,9 +109,9 @@ const getPreselectedDocumentTypes = (): Record<string, unknown> => {
         country: null,
       },
     }
-  } else if (
-    queryParamToValueString.multiDocWithInvalidPresetCountry === 'true'
-  ) {
+  }
+
+  if (queryParamToValueString.multiDocWithInvalidPresetCountry === 'true') {
     return {
       driving_licence: {
         country: 'ES',
@@ -103,6 +121,7 @@ const getPreselectedDocumentTypes = (): Record<string, unknown> => {
       },
     }
   }
+
   return {}
 }
 
@@ -123,6 +142,8 @@ export const getInitSdkOptions = (): SdkOptions => {
 
   const steps: Array<StepTypes | StepConfig> = [
     'welcome' as StepTypes,
+    queryParamToValueString.showUserConsent === 'true' &&
+      ({ type: 'userConsent' } as StepConfig),
     queryParamToValueString.poa === 'true' && ({ type: 'poa' } as StepConfig),
     {
       type: 'document',
@@ -164,6 +185,44 @@ export const getInitSdkOptions = (): SdkOptions => {
     queryParamToValueString.showCobrand === 'true'
       ? { text: 'Planet Express, Incorporated' }
       : undefined
+  const useCustomizedApiRequests =
+    queryParamToValueString.useCustomizedApiRequests === 'true'
+  let decoupleCallbacks = {}
+  if (queryParamToValueString.decoupleResponse === 'success') {
+    const successResponse = Promise.resolve({
+      onfidoSuccessResponse: {
+        id: '123-456-789',
+      },
+    })
+    decoupleCallbacks = {
+      onSubmitDocument: () => successResponse,
+      onSubmitSelfie: () => successResponse,
+      onSubmitVideo: () => successResponse,
+    }
+  } else if (queryParamToValueString.decoupleResponse === 'error') {
+    const errorResponse = {
+      status: 422,
+      response: JSON.stringify({
+        error: {
+          message: 'There was a validation error on this request',
+          type: 'validation_error',
+          fields: { detect_glare: ['glare found in image'] },
+        },
+      }),
+    }
+    decoupleCallbacks = {
+      onSubmitDocument: () => Promise.reject(errorResponse),
+      onSubmitSelfie: () => Promise.reject(errorResponse),
+      onSubmitVideo: () => Promise.reject(errorResponse),
+    }
+  } else if (queryParamToValueString.decoupleResponse === 'onfido') {
+    const response = Promise.resolve({ continueWithOnfidoSubmission: true })
+    decoupleCallbacks = {
+      onSubmitDocument: () => response,
+      onSubmitSelfie: () => response,
+      onSubmitVideo: () => response,
+    }
+  }
 
   return {
     useModal: queryParamToValueString.useModal === 'true',
@@ -180,6 +239,8 @@ export const getInitSdkOptions = (): SdkOptions => {
     enterpriseFeatures: {
       hideOnfidoLogo,
       cobrand,
+      useCustomizedApiRequests,
+      ...decoupleCallbacks,
     },
     ...smsNumberCountryCode,
   }

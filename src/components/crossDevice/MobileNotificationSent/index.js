@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
-import { preventDefaultOnClick } from '~utils/index'
+import { preventDefaultOnClick } from '~utils'
 import { localised } from '../../../locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
@@ -9,7 +9,7 @@ import style from './style.scss'
 const MobileNotificationSent = ({ sms, translate, previousStep }) => (
   <div>
     <PageTitle title={translate('sms_sent.title')} />
-    <div className={theme.thickWrapper}>
+    <div>
       <div className={style.submessage}>
         {translate('sms_sent.subtitle', {
           number: sms.number,

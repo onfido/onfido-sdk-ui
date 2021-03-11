@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import { Fragment } from 'react'
 import { trackComponent } from '../../Tracker'
+import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
 import { localised } from '../../locales'
 import theme from '../Theme/style.scss'
@@ -55,12 +56,12 @@ class Complete extends Component {
         {loading ? (
           <Spinner />
         ) : (
-          <Fragment>
+          <ScreenLayout>
             <span className={`${theme.icon}  ${style.icon}`} />
             <PageTitle title={title} subTitle={body} />
             <p className={style.pin}>{pin}</p>
             <img className={style.msQrCode} src={qrCode} />
-          </Fragment>
+          </ScreenLayout>
         )}
       </div>
     )

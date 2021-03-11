@@ -18,7 +18,7 @@ class ClientSuccess extends Component {
           title={translate('cross_device_return.title')}
           subTitle={translate('cross_device_return.subtitle')}
         />
-        <div className={theme.thickWrapper}>
+        <div>
           <span className={`${theme.icon}  ${style.icon}`} />
           <div className={style.text}>
             {translate('cross_device_return.body')}
