@@ -41,7 +41,8 @@ const validateFileTypeAndSize = (
   > = {
     INVALID_TYPE: (file) => !isOfMimeType(acceptedTypes, file),
     INVALID_IMAGE_SIZE: (file) =>
-      file.type.match(/image.*/) && file.size > MAX_IMAGE_FILE_SIZE_ACCEPTED,
+      file.type.match(/image.*/) != null &&
+      file.size > MAX_IMAGE_FILE_SIZE_ACCEPTED,
     INVALID_SIZE: (file) => file.size > MAX_FILE_SIZE_ACCEPTED_BY_API,
   }
 
@@ -64,7 +65,7 @@ const resizeImageFile = (
       tempCanvas.height = resizeTo.height
       tempCanvas
         .getContext('2d')
-        .drawImage(image, 0, 0, resizeTo.width, resizeTo.height)
+        ?.drawImage(image, 0, 0, resizeTo.width, resizeTo.height)
 
       const imgDiff = {
         resizedFrom: {
@@ -85,7 +86,9 @@ const resizeImageFile = (
       )
     }
 
-    image.src = readerEvent.target.result as string
+    if (typeof readerEvent.target?.result === 'string') {
+      image.src = readerEvent.target?.result
+    }
   }
 
   reader.readAsDataURL(file)
@@ -122,11 +125,11 @@ export const getDimensionsToResizeTo = (
 
 export const validateFile = (
   file: Blob,
-  onSuccess: (file: Blob, imageResizeInfo: ImageResizeInfo) => void,
+  onSuccess: (file: Blob, imageResizeInfo?: ImageResizeInfo) => void,
   onError: (error: ImageValidationTypes) => void
 ): void => {
   const fileError = validateFileTypeAndSize(file)
-  const imageResizeInfo: ImageResizeInfo = null
+  const imageResizeInfo: ImageResizeInfo | undefined = undefined
 
   if (fileError === INVALID_IMAGE_SIZE) {
     resizeImageFile(file, ({ resizedImage, imgDiff }) => {

@@ -2,15 +2,26 @@ import { currentSeconds } from './index'
 import type { UrlsConfig } from '~types/commons'
 import type { EnterpriseFeatures } from '~types/enterprise'
 
-export const parseJwt = (token: string): Record<string, unknown> => {
+type JWT = {
+  exp: number
+  payload: {
+    app: string
+    ref: string
+  }
+  uuid: string
+  enterprise_features: EnterpriseFeatures
+  urls: UrlsConfig
+}
+
+export const parseJwt = (token: string): JWT => {
   const base64Url = token.split('.')[1]
   const base64 = base64Url.replace('-', '+').replace('_', '/')
   return JSON.parse(atob(base64))
 }
 
 export const jwtExpired = (token: string): boolean => {
-  const expTime = parseJwt(token).exp
-  return currentSeconds() > expTime
+  const { exp } = parseJwt(token)
+  return currentSeconds() > exp
 }
 
 export const getUrlsFromJWT = (token: string): UrlsConfig => {
@@ -34,5 +45,6 @@ export const getEnterpriseFeaturesFromJWT = (
     return jwt.enterprise_features
   } catch (err) {
     console.error('Invalid token:', err.message)
+    return {}
   }
 }
