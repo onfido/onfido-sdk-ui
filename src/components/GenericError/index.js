@@ -20,7 +20,7 @@ class GenericError extends Component {
           title={translate(message)}
           subTitle={translate(instruction)}
         />
-        <div className={theme.thickWrapper}>
+        <div>
           <span className={`${theme.icon} ${style[iconName]}`} />
         </div>
       </div>

@@ -1,32 +1,25 @@
-import { h } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'
+import withCaptureVariant from './withCaptureVariant'
 
-const withOptions = (WrappedComponent, additionalProps = {}) => {
-  const OptionedComponent = (optionsAsProps) => (
-    <WrappedComponent {...optionsAsProps} {...additionalProps} />
-  )
-  return OptionedComponent
-}
-
-export const FrontDocumentCapture = appendToTracking(
-  withOptions(Document),
+export const DocumentFrontCapture = appendToTracking(
+  withCaptureVariant(Document),
   'front_capture'
 )
-export const BackDocumentCapture = appendToTracking(
-  withOptions(Document, { side: 'back' }),
+export const DocumentBackCapture = appendToTracking(
+  withCaptureVariant(Document, { side: 'back' }),
   'back_capture'
 )
 export const SelfieCapture = appendToTracking(
-  withOptions(Face, { requestedVariant: 'standard' }),
+  withCaptureVariant(Face, { requestedVariant: 'standard' }),
   'selfie_capture'
 )
 export const VideoCapture = appendToTracking(
-  withOptions(Face, { requestedVariant: 'video' }),
+  withCaptureVariant(Face, { requestedVariant: 'video' }),
   'video_capture'
 )
 export const PoADocumentCapture = appendToTracking(
-  withOptions(Document, { isPoA: true, forceCrossDevice: false }),
+  withCaptureVariant(Document, { isPoA: true, forceCrossDevice: false }),
   'poa'
 )

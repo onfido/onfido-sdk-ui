@@ -132,13 +132,7 @@ class CountrySelection extends Component {
     return (
       <div className={theme.fullHeightContainer}>
         <PageTitle title={translate('country_select.title')} />
-        <div
-          className={classNames(
-            theme.thickWrapper,
-            theme.alignTextLeft,
-            style.container
-          )}
-        >
+        <div className={classNames(theme.alignTextLeft, style.container)}>
           <div data-onfido-qa="countrySelector">
             <label className={style.label} htmlFor="country-search">
               {translate('country_select.search.label')}
@@ -164,7 +158,7 @@ class CountrySelection extends Component {
             this.state.showNoResultsError &&
             this.renderNoResultsError()}
         </div>
-        <div className={classNames(theme.thickWrapper)}>
+        <div>
           <Button
             variants={['centered', 'primary', 'lg']}
             disabled={

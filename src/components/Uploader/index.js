@@ -25,7 +25,7 @@ const MobileUploadArea = ({
       <CustomFileInput
         className={classNames({
           [style.buttonContainer]: !isPoA,
-          [style.poaBtnContainer]: isPoA,
+          [style.poaBtn]: isPoA,
         })}
         onChange={onFileSelected}
         accept="image/*"
@@ -39,7 +39,10 @@ const MobileUploadArea = ({
         </Button>
       </CustomFileInput>
       {isPoA && (
-        <CustomFileInput onChange={onFileSelected}>
+        <CustomFileInput
+          onChange={onFileSelected}
+          className={classNames({ [style.poaBtn]: isPoA })}
+        >
           <Button variants={['primary', 'sm']} disabled={isUploading}>
             {translate(
               isDesktop

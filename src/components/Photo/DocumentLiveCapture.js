@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
-import { screenshot } from '~utils/camera.js'
-import { mimeType } from '~utils/blob.js'
-import { getInactiveError } from '~utils/inactiveError.js'
+import { screenshot } from '~utils/camera'
+import { mimeType } from '~utils/blob'
+import { getInactiveError } from '~utils/inactiveError'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import { sendEvent } from '../../Tracker'
@@ -78,7 +78,6 @@ export default class DocumentLiveCapture extends Component {
       trackScreen,
       renderFallback,
       isUploadFallbackDisabled,
-      className,
       containerClassName,
       renderTitle,
       documentType,
@@ -103,8 +102,8 @@ export default class DocumentLiveCapture extends Component {
         ) : (
           <Camera
             facing={'environment'}
+            docLiveCaptureFrame={true}
             idealCameraHeight={IDEAL_CAMERA_HEIGHT_IN_PX}
-            className={className}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
             translate={translate}

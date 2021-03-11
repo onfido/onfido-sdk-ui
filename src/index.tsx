@@ -3,28 +3,19 @@ import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
 import 'custom-event-polyfill'
 
-// TODO: These IE11 polyfills are missing in `development` after the Typescript conversion.
-//       But on PRs where the components that use these Array methods have been converted the polyfills seem to be included.
-//       Should be fine to remove when those PRs are merged in eventually.
-import 'ie-array-find-polyfill'
-import 'polyfill-array-includes'
-
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
-import { SdkOptions, SdkHandle } from '~types/sdk'
-import { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
+import type { NormalisedSdkOptions } from '~types/commons'
+import type { SdkOptions, SdkHandle } from '~types/sdk'
+import type { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
 import App from './components/App'
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
 }
 
-interface NormalisedSdkOptions extends SdkOptions {
-  steps: StepConfig[]
-}
-
 const onfidoRender = (
-  options: SdkOptions,
+  options: NormalisedSdkOptions,
   el: Element | Document | ShadowRoot | DocumentFragment,
   merge?: Element | Text
 ) => render(<App options={options} />, el, merge)
@@ -34,6 +25,7 @@ const defaults: SdkOptions = {
   containerId: 'onfido-mount',
   onComplete: noop,
   onError: noop,
+  onUserExit: noop,
 }
 
 const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {
