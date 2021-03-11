@@ -9,10 +9,10 @@ import type { WithThemeProps } from '~types/hocs'
 import type { EnterpriseCobranding } from '~types/enterprise'
 import type { RootState } from '~types/redux'
 
-const withTheme = (
-  WrappedComponent: ComponentType<WithThemeProps>
-): ComponentType<WithThemeProps> => {
-  const ThemedComponent: FunctionComponent<WithThemeProps> = (props) => {
+const withTheme = <P extends unknown>(
+  WrappedComponent: ComponentType<P>
+): ComponentType<WithThemeProps & P> => {
+  const ThemedComponent: FunctionComponent<WithThemeProps & P> = (props) => {
     const hideOnfidoLogo = useSelector<RootState, boolean | undefined>(
       (state) => state.globals.hideOnfidoLogo
     )

@@ -124,9 +124,13 @@ const formatProperties = (
 }
 
 const userAnalyticsEvent = (
-  eventName: UserAnalyticsEventNames,
-  properties: Record<string, unknown>
+  eventName: UserAnalyticsEventNames | undefined,
+  properties: Record<string, unknown> = {}
 ): void => {
+  if (!eventName) {
+    return
+  }
+
   dispatchEvent(
     new CustomEvent<UserAnalyticsEventDetail>('userAnalyticsEvent', {
       detail: { eventName, properties, isCrossDevice: false },
@@ -168,7 +172,9 @@ const appendToTracking = <P extends WithTrackingProps>(
     ) =>
       this.props.trackScreen(
         [
-          ...wrapArray(ancestorScreeNameHierarchy),
+          ...(ancestorScreeNameHierarchy
+            ? wrapArray(ancestorScreeNameHierarchy)
+            : []),
           ...wrapArray(screenNameHierarchy),
         ],
         ...others

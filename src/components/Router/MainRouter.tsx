@@ -12,7 +12,7 @@ import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
-  if (!step.options || (step.type != 'document' && step.type != 'face')) {
+  if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
     return false
   }
 
@@ -103,7 +103,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     if (this.checkUnsupportedBrowserError()) {
       return (
         <WrappedError
-          disableNavigation={true}
+          disableNavigation
           error={{ name: getUnsupportedMobileBrowserError() }}
         />
       )

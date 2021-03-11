@@ -25,7 +25,7 @@ import type { StepConfig } from '~types/steps'
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
-  if (!step.options || (step.type != 'document' && step.type != 'face')) {
+  if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
     return false
   }
 

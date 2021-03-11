@@ -17,7 +17,7 @@ export declare type DocumentTypes = "passport" | "driving_licence" | "national_i
 export declare type PoaTypes = "bank_building_society_statement" | "utility_bill" | "council_tax" | "benefit_letters" | "government_letter";
 export declare type RequestedVariant = "standard" | "video";
 export declare type DocumentTypeConfig = boolean | {
-	country: string;
+	country: string | null;
 };
 export declare type CaptureOptions = {
 	requestedVariant?: RequestedVariant;

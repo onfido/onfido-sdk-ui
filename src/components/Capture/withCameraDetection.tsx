@@ -15,7 +15,7 @@ export default function withCameraDetection<P extends Props>(
       hasCamera: null,
     }
 
-    private cameraCheckerIntervalId?: number = null
+    private cameraCheckerIntervalId?: number
 
     componentDidMount() {
       // HACK: use of isSafari131 util function is a workaround specifically for

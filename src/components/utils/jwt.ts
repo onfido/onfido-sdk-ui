@@ -13,7 +13,11 @@ type JWT = {
   urls: UrlsConfig
 }
 
-export const parseJwt = (token: string): JWT => {
+export const parseJwt = (token?: string): JWT => {
+  if (!token) {
+    throw new Error('Token undefined')
+  }
+
   const base64Url = token.split('.')[1]
   const base64 = base64Url.replace('-', '+').replace('_', '/')
   return JSON.parse(atob(base64))

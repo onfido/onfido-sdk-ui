@@ -1,4 +1,5 @@
 import { h, createContext, FunctionComponent, ComponentType } from 'preact'
+import { useContext } from 'preact/compat'
 import { parseTags } from '~utils'
 import initializePolyglot from './polyglot'
 
@@ -10,7 +11,7 @@ import type {
 } from '~types/locales'
 
 type ProviderProps = {
-  language: SupportedLanguages | LocaleConfig
+  language?: SupportedLanguages | LocaleConfig
 }
 
 export const LocaleContext = createContext<WithLocalisedProps | undefined>(
@@ -37,6 +38,16 @@ export const LocaleProvider: FunctionComponent<ProviderProps> = ({
       {children}
     </LocaleContext.Provider>
   )
+}
+
+export const useLocales = (): WithLocalisedProps => {
+  const context = useContext(LocaleContext)
+
+  if (!context) {
+    throw new Error(`LocaleContext hasn't been initialized!`)
+  }
+
+  return context
 }
 
 export const localised = <P extends unknown>(

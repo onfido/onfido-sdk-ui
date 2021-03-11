@@ -1,12 +1,8 @@
 import { h, FunctionComponent, Fragment } from 'preact'
-import {
-  useEffect,
-  useState,
-  useContext,
-  unmountComponentAtNode,
-} from 'preact/compat'
-import { LocaleContext } from '~locales'
+import { useEffect, useState, unmountComponentAtNode } from 'preact/compat'
+import { useLocales } from '~locales'
 import { sanitize } from 'dompurify'
+
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
 import Button from '../Button'
@@ -24,7 +20,7 @@ type ActionsProps = {
 }
 
 const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
   const primaryBtnCopy = translate('user_consent.button_primary')
   const secondaryBtnCopy = translate('user_consent.button_secondary')
   return (
@@ -52,6 +48,10 @@ const getConsentFile = (
   onSuccess: SuccessCallback<string>,
   onError: (error: ApiRawError) => void
 ): void => {
+  if (!process.env.USER_CONSENT_URL) {
+    throw new Error('USER_CONSENT_URL env var not provided')
+  }
+
   const request = new XMLHttpRequest()
   request.open('GET', process.env.USER_CONSENT_URL)
 
@@ -76,7 +76,16 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
 }) => {
   const [consentHtml, setConsentHtml] = useState('')
   const [isModalOpen, setModalToOpen] = useState(false)
-  const sdkContainer = containerEl || document.getElementById(containerId)
+  const sdkContainer =
+    containerEl || (containerId ? document.getElementById(containerId) : null)
+
+  useEffect(() => {
+    new Promise<string>((resolve, reject) => {
+      getConsentFile(resolve, reject)
+    })
+      .then((html) => setConsentHtml(html))
+      .catch((err) => console.error(err))
+  }, [])
 
   const actions = (
     <Actions
@@ -89,17 +98,9 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
 
   const triggerUserExit = () => {
     setModalToOpen(false)
-    events.emit('userExit', 'USER_CONSENT_DENIED')
+    events?.emit('userExit', 'USER_CONSENT_DENIED')
     unmountComponentAtNode(sdkContainer)
   }
-
-  useEffect(() => {
-    new Promise<string>((resolve, reject) => {
-      getConsentFile(resolve, reject)
-    })
-      .then((html) => setConsentHtml(html))
-      .catch((err) => console.error(err))
-  }, [])
 
   return (
     <Fragment>
@@ -116,6 +117,7 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
         <div
           className={style.consentFrame}
           data-onfido-qa="userConsentFrameWrapper"
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: sanitize(consentHtml, { ADD_ATTR: ['target', 'rel'] }),
           }}
