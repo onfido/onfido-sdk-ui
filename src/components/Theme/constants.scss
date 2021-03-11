@@ -1,3 +1,5 @@
+/* UNITS */
+
 /**
  * We want our units to be based on `em`, so that our SDK can accommodate for
  * the user changing their browser font size.
@@ -26,6 +28,8 @@ $unit-x-small: (1/11) * 1em;
  */
 $unit-rrui: 1em;
 
+/* MARGINS & PADDINGS */
+
 $large-text-margin: 32 * $unit;
 $small-text-margin: 24 * $unit;
 $smaller-text-margin: 16 * $unit;
@@ -43,31 +47,27 @@ $navigation-padding-sides: $padding-lg;
 $navigation-padding-top-sm-screen: $padding-sm;
 $navigation-padding-sides-sm-screen: $padding-xs;
 
+/* COLORS */
+/*
+ *  NOTE: Use rgb() notation instead of rgba() when using Castor basic color tokens.
+ *        The CSS color values do not have an opacity value. Only RGB.
+ *        Color reverts to browser default on IE11 which flags color value as invalid when rgba() used.
+ */
+
 /* Solid colors */
-/*  Use rgb() notation instead of rgba() as these colours do not have an opacity value.
-    Colour reverts to browser default on IE11 which is correctly flagging value as invalid if rgba() used. */
 $color-white: rgb(var(--ods-color-neutral-white));
 $color-black: rgb(var(--ods-color-neutral-black));
 
 $color-icon-temporary: rgba(var(--ods-color-neutral-300));
 $color-divider: rgba(var(--ods-color-neutral-400));
 $color-icons-connector-line: rgba(var(--ods-color-neutral-800));
-$color-body-text: rgba(var(--ods-color-neutral-800));
-$color-title-text: rgba(var(--ods-color-neutral-800));
-$color-subtitle-text: $color-body-text;
 
 /* Transparent colors */
-$color-transparent: transparent;
-$color-help-container: rgba(var(--ods-color-neutral-600));
 $color-modal-overlay: rgba(0, 0, 0, 0.6);
 $color-camera-overlay: rgba(0, 0, 0, 0.7);
 $color-camera-error-overlay: #1c1f21;
 $color-navbar-gradient-one: rgba(28, 31, 33, 0);
 $color-navbar-gradient-two: rgba(28, 31, 33, 0.35);
-
-/* Error message button colors */
-$color-error-button-hover: #ffb9b9;
-$color-error-button-active: #fce5e5;
 
 /* Doc/Face capture preview "Enlarge image" button colors */
 $color-small-button: rgba(15, 37, 54, 0.85);
