@@ -205,6 +205,7 @@ export interface SdkOptions extends FunctionalConfigurations {
 	enterpriseFeatures?: EnterpriseFeatures;
 }
 export declare type SdkHandle = {
+	containerId?: string;
 	options: SdkOptions;
 	setOptions(options: SdkOptions): void;
 	tearDown(): void;
