@@ -101,10 +101,12 @@ export declare type UICustomizationOptions = {
 	colorBorderButtonSecondary?: string;
 	borderRadiusButton?: string;
 	buttonGroupStacked?: boolean;
+	colorContentDocTypeButton?: string;
 	colorBackgroundDocTypeButton?: string;
 	colorBorderDocTypeButton?: string;
 	colorBorderDocTypeButtonHover?: string;
 	colorBorderDocTypeButtonActive?: string;
+	colorBackgroundIcon?: string;
 	colorBorderLinkUnderline?: string;
 	colorContentLinkTextHover?: string;
 	colorBackgroundLinkHover?: string;
@@ -119,6 +121,8 @@ export declare type UICustomizationOptions = {
 	colorBackgroundAlertErrorLinkActive?: string;
 	colorBackgroundInfoPill?: string;
 	colorContentInfoPill?: string;
+	colorBackgroundButtonIconHover?: string;
+	colorBackgroundButtonIconActive?: string;
 };
 export declare type DocumentSides = "front" | "back";
 export declare type UploadFileResponse = {
