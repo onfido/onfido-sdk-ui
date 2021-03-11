@@ -16,8 +16,8 @@ let shouldSendEvents = false
 
 const client = window.location.hostname
 const sdk_version = process.env.SDK_VERSION
-let sentryClient: BrowserClient = null
-let sentryHub: Hub = null
+let sentryClient: BrowserClient | undefined
+let sentryHub: Hub | undefined
 let woopra: WoopraTracker = null
 
 const integratorTrackedEvents = new Map<
@@ -68,8 +68,8 @@ const setUp = (): void => {
 const uninstall = (): void => {
   if (sentryClient) {
     sentryClient.close(2000).then(() => {
-      sentryClient = null
-      sentryHub = null
+      sentryClient = undefined
+      sentryHub = undefined
       process.exit()
     })
   }
@@ -91,11 +91,11 @@ const install = (): void => {
     whitelistUrls: [/onfido[A-z.]*\.min.js/g],
     beforeBreadcrumb: (crumb) => {
       const isOnfidoXhr =
-        crumb.category === 'xhr' && isOnfidoHostname(crumb.data.url)
+        crumb.category === 'xhr' && isOnfidoHostname(crumb.data?.url)
 
       const isOnfidoClick =
         crumb.category === 'ui.click' &&
-        crumb.message.includes('.onfido-sdk-ui')
+        crumb.message?.includes('.onfido-sdk-ui')
 
       const shouldReturnCrumb = isOnfidoXhr || isOnfidoClick
 
@@ -167,7 +167,7 @@ const appendToTracking = <P extends WithTrackingProps>(
 ): ComponentType<P> =>
   class TrackedComponent extends Component<P> {
     trackScreen: TrackScreenCallback = (
-      screenNameHierarchy: string | string[],
+      screenNameHierarchy?: string | string[],
       ...others
     ) =>
       this.props.trackScreen(
@@ -175,7 +175,7 @@ const appendToTracking = <P extends WithTrackingProps>(
           ...(ancestorScreeNameHierarchy
             ? wrapArray(ancestorScreeNameHierarchy)
             : []),
-          ...wrapArray(screenNameHierarchy),
+          ...(screenNameHierarchy ? wrapArray(screenNameHierarchy) : []),
         ],
         ...others
       )
@@ -230,7 +230,7 @@ const trackComponentAndMode = <P extends WithTrackingProps>(
   appendToTracking(trackComponentMode(WrappedComponent, propKey), screenName)
 
 const trackException = (message: string, extra?: EventHint): void => {
-  sentryHub.captureException(new Error(message), extra)
+  sentryHub?.captureException(new Error(message), extra)
 }
 
 const setWoopraCookie = (cookie: string): void => {

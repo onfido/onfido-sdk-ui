@@ -123,7 +123,7 @@ export default function globals(
     case constants.SHOW_COBRANDING:
       return {
         ...state,
-        cobrand: action.payload,
+        cobrand: action.payload || undefined,
       }
 
     case constants.SET_DECOUPLE_FROM_API:

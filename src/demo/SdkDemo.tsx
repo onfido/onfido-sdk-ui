@@ -15,7 +15,7 @@ const DEFAULT_REGION: ServerRegions = 'EU'
 
 type Props = {
   hasPreview?: boolean
-  messagePort: MessagePort
+  messagePort?: MessagePort
   sdkOptions?: SdkOptions
   viewOptions?: UIConfigs
 }
@@ -63,7 +63,7 @@ const SdkDemo: FunctionComponent<Props> = ({
     isModalOpen,
     onComplete: (data) =>
       hasPreview
-        ? messagePort.postMessage({ type: 'SDK_COMPLETE', data })
+        ? messagePort?.postMessage({ type: 'SDK_COMPLETE', data })
         : console.log(data),
     onError: (error) => console.error('onError callback:', error),
     onUserExit: (userExitCode) =>

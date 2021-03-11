@@ -108,17 +108,17 @@ export type ErrorNames =
 export type ErrorTypes = 'error' | 'warning'
 
 export type MobileConfig = {
-  clientStepIndex: number
-  deviceHasCameraSupport: boolean
-  disableAnalytics: boolean
-  documentType: DocumentTypes
-  enterpriseFeatures: EnterpriseFeatures
-  idDocumentIssuingCountry: CountryData
-  language: SupportedLanguages | LocaleConfig
-  poaDocumentType: PoaTypes
-  step: number
+  clientStepIndex?: number
+  deviceHasCameraSupport?: boolean
+  disableAnalytics?: boolean
+  documentType?: DocumentTypes
+  enterpriseFeatures?: EnterpriseFeatures
+  idDocumentIssuingCountry?: CountryData
+  language?: SupportedLanguages | LocaleConfig
+  poaDocumentType?: PoaTypes
+  step?: number
   steps: StepConfig[]
-  token: string
+  token?: string
   urls: UrlsConfig
-  woopraCookie: string
+  woopraCookie?: string | null
 }

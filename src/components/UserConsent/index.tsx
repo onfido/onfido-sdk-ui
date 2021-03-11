@@ -99,20 +99,18 @@ const UserConsent: FunctionComponent<UserConsentProps> = ({
   const triggerUserExit = () => {
     setModalToOpen(false)
     events?.emit('userExit', 'USER_CONSENT_DENIED')
-    unmountComponentAtNode(sdkContainer)
+    sdkContainer && unmountComponentAtNode(sdkContainer)
   }
 
   return (
     <Fragment>
-      {isModalOpen && (
-        <DeclineModal
-          isOpen={true}
-          onRequestClose={() => setModalToOpen(false)}
-          onDismissModal={() => setModalToOpen(false)}
-          onAbandonFlow={triggerUserExit}
-          containerEl={sdkContainer}
-        />
-      )}
+      <DeclineModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setModalToOpen(false)}
+        onDismissModal={() => setModalToOpen(false)}
+        onAbandonFlow={triggerUserExit}
+        containerEl={sdkContainer || undefined}
+      />
       <ScreenLayout actions={actions}>
         <div
           className={style.consentFrame}

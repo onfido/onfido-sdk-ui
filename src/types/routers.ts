@@ -66,7 +66,7 @@ export type InternalRouterProps = {
 } & ExternalRouterProps
 
 export type HistoryRouterProps = {
-  crossDeviceClientError?: (name?: string) => void
+  crossDeviceClientError?: (name?: ErrorNames) => void
   mobileConfig?: MobileConfig
   sendClientSuccess?: () => void
   step?: number
@@ -81,6 +81,7 @@ export type StepsRouterProps = {
   disableNavigation: boolean
   nextStep: () => void
   previousStep: () => void
+  step: number
   triggerOnError: ErrorCallback
 } & HistoryRouterProps
 

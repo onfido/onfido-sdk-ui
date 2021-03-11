@@ -35,6 +35,7 @@ const defaultOptions: StepComponentUserConsentProps = {
   triggerOnError: jest.fn(),
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
+  step: 0,
 }
 
 describe('UserConsent', () => {

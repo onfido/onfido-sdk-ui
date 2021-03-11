@@ -18,7 +18,7 @@ const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
 
   return (
     step.options?.uploadFallback === false &&
-    (step.type === 'face' || step.options?.useLiveDocumentCapture)
+    (step.type === 'face' || step.options?.useLiveDocumentCapture === true)
   )
 }
 
@@ -31,14 +31,6 @@ type State = {
 }
 
 export default class MainRouter extends Component<InternalRouterProps, State> {
-  constructor(props: InternalRouterProps) {
-    super(props)
-
-    this.state = {
-      crossDeviceInitialStep: null,
-    }
-  }
-
   generateMobileConfig = (): MobileConfig => {
     const {
       documentType,
@@ -58,6 +50,10 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     } = options
 
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
+
+    if (!steps) {
+      throw new Error('steps not provided')
+    }
 
     return {
       clientStepIndex: this.state.crossDeviceInitialClientStep,
@@ -96,7 +92,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
     const { hasCamera } = this.props
 
-    return !isDesktop && !hasCamera && shouldStrictlyUseCamera
+    return !isDesktop && !hasCamera && shouldStrictlyUseCamera === true
   }
 
   render(): h.JSX.Element {

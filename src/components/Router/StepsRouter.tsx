@@ -12,17 +12,26 @@ import type { StepComponentProps, StepsRouterProps } from '~types/routers'
 class StepsRouter extends Component<StepsRouterProps> {
   private container?: HTMLDivElement
 
-  resetSdkFocus = () => this.container.focus()
+  resetSdkFocus = () => this.container?.focus()
 
   trackScreen: TrackScreenCallback = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
-    sendScreen([step.type, ...wrapArray(screenNameHierarchy)], {
-      ...properties,
-      ...step.options,
-    })
+    sendScreen(
+      [
+        step.type,
+        ...(screenNameHierarchy ? wrapArray(screenNameHierarchy) : []),
+      ],
+      {
+        ...properties,
+        ...step.options,
+      }
+    )
   }
 
-  currentComponent = () => this.props.componentsList[this.props.step]
+  currentComponent = () => {
+    const { componentsList, step } = this.props
+    return componentsList[step]
+  }
 
   render = () => {
     const {
@@ -69,7 +78,7 @@ class StepsRouter extends Component<StepsRouterProps> {
           [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
         })}
         tabIndex={-1}
-        ref={(node) => (this.container = node)}
+        ref={(node) => node && (this.container = node)}
       >
         <NavigationBar
           id={stepId}
@@ -103,4 +112,6 @@ class StepsRouter extends Component<StepsRouterProps> {
   }
 }
 
+// @TODO: convert StepsRouter to FunctionComponent
+// @ts-ignore
 export default withFullScreenState<ComponentType<StepsRouterProps>>(StepsRouter)

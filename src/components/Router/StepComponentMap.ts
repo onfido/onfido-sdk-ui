@@ -35,7 +35,6 @@ import type {
 import type { StepComponentProps, ComponentStep } from '~types/routers'
 import type {
   DocumentTypes,
-  PoaTypes,
   StepConfig,
   StepConfigDocument,
   StepConfigFace,
@@ -53,13 +52,13 @@ export const buildComponentsList = ({
   deviceHasCameraSupport,
 }: {
   flow: FlowVariants
-  documentType: DocumentTypes
-  poaDocumentType: PoaTypes
+  documentType: DocumentTypes | undefined
   steps: StepConfig[]
-  mobileFlow: boolean
-  deviceHasCameraSupport: boolean
+  mobileFlow?: boolean
+  deviceHasCameraSupport?: boolean
 }): ComponentStep[] => {
   const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
+
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
         buildCaptureStepComponents(
@@ -82,7 +81,7 @@ const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
 
 const shouldUseCameraForDocumentCapture = (
   documentStep: Optional<StepConfigDocument>,
-  deviceHasCameraSupport: boolean
+  deviceHasCameraSupport?: boolean
 ): boolean => {
   const canUseLiveDocumentCapture =
     (!isDesktop || isHybrid) && documentStep?.options?.useLiveDocumentCapture
@@ -90,15 +89,15 @@ const shouldUseCameraForDocumentCapture = (
   return (
     (canUseLiveDocumentCapture != null ||
       documentStep?.options?.useWebcam === true) &&
-    deviceHasCameraSupport
+    deviceHasCameraSupport === true
   )
 }
 
 const buildCaptureStepComponents = (
-  documentType: DocumentTypes,
-  mobileFlow: boolean,
+  documentType: DocumentTypes | undefined,
+  mobileFlow: boolean | undefined,
   steps: StepConfig[],
-  deviceHasCameraSupport: boolean
+  deviceHasCameraSupport?: boolean
 ): ComponentsByStepType => {
   const faceStep = steps.find((step) => step.type === 'face') as StepConfigFace
 
@@ -135,8 +134,8 @@ const buildCaptureStepComponents = (
 
 const buildFaceComponents = (
   faceStep: Optional<StepConfigFace>,
-  deviceHasCameraSupport: boolean,
-  mobileFlow: boolean
+  deviceHasCameraSupport?: boolean,
+  mobileFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
   const shouldDisplayUploader = faceStep?.options?.useUploader
 
@@ -154,8 +153,8 @@ const buildFaceComponents = (
 }
 
 const buildRequiredVideoComponents = (
-  shouldUseCamera: boolean,
-  mobileFlow: boolean
+  shouldUseCamera?: boolean,
+  mobileFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
   // @TODO: convert VideoIntro, VideoCapture, VideoConfirm to TS
   const allVideoSteps = [VideoIntro, VideoCapture, VideoConfirm]
@@ -171,7 +170,7 @@ const buildRequiredVideoComponents = (
 }
 
 const buildRequiredSelfieComponents = (
-  deviceHasCameraSupport: boolean
+  deviceHasCameraSupport?: boolean
 ): ComponentType<StepComponentProps>[] => {
   // @TODO: convert SelfieIntro, SelfieCapture, SelfieConfirm to TS
   const allSelfieSteps = [SelfieIntro, SelfieCapture, SelfieConfirm]

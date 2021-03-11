@@ -1,8 +1,8 @@
 import ReactModal from 'react-modal'
 import { h, FunctionComponent } from 'preact'
-import { useContext } from 'preact/compat'
-import { LocaleContext } from '~locales'
 import classNames from 'classnames'
+
+import { useLocales } from '~locales'
 import { getCSSMillisecsValue } from '~utils'
 import style from './style.scss'
 import styleConstants from '../Theme/constants.scss'
@@ -16,7 +16,7 @@ const MODAL_ANIMATION_DURATION = getCSSMillisecsValue(
 type DeclineModalProps = {
   isOpen: boolean
   onRequestClose(): void
-  containerEl: HTMLElement
+  containerEl?: HTMLElement
   onDismissModal(): void
   onAbandonFlow(): void
 }
@@ -30,7 +30,7 @@ const Actions: FunctionComponent<ActionsProps> = ({
   onAbandonFlow,
   onDismissModal,
 }) => {
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
   const primaryBtnCopy = translate('user_consent.prompt.button_primary')
   const secondaryBtnCopy = translate('user_consent.prompt.button_secondary')
   return (
@@ -61,7 +61,8 @@ const DeclineModal: FunctionComponent<DeclineModalProps> = ({
   onDismissModal,
   onAbandonFlow,
 }: DeclineModalProps) => {
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
+
   return (
     <ReactModal
       isOpen={isOpen}

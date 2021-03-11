@@ -384,7 +384,7 @@ export const getTokenFactoryUrl = (region: ServerRegions): string => {
 export const getToken = (
   hasPreview: boolean,
   url: string,
-  eventEmitter: MessagePort,
+  eventEmitter: MessagePort | undefined,
   onSuccess: (message: string) => void
 ): void => {
   const request = new XMLHttpRequest()

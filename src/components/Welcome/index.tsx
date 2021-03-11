@@ -19,7 +19,7 @@ const localisedDescriptions = (translate: TranslateCallback) => [
 ]
 
 type WelcomeContentProps = {
-  descriptions: string[]
+  descriptions?: string[]
   translate: TranslateCallback
 }
 

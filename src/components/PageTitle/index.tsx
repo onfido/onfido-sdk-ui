@@ -12,7 +12,7 @@ type Props = {
 }
 
 class PageTitle extends Component<Props> {
-  private container?: HTMLSpanElement
+  private container: HTMLSpanElement | null = null
 
   componentDidUpdate(prevProps: Props) {
     const { title, subTitle } = this.props
@@ -60,4 +60,6 @@ class PageTitle extends Component<Props> {
   }
 }
 
+// @TODO: convert PageTitle to FunctionComponent
+// @ts-ignore
 export default withFullScreenState<ComponentType<Props>>(PageTitle)
