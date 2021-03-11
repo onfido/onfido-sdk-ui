@@ -211,6 +211,13 @@ export default class CrossDeviceMobileRouter extends Component<
           this.props.actions.showCobranding(enterpriseFeatures.cobrand)
         }
       }
+
+      if (
+        enterpriseFeatures.useCustomizedApiRequests &&
+        validEnterpriseFeatures?.useCustomizedApiRequests
+      ) {
+        this.props.actions.setDecoupleFromAPI(true)
+      }
     } else {
       this.props.actions.hideOnfidoLogo(false)
       this.props.actions.showCobranding(null)
