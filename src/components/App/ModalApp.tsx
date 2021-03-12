@@ -1,4 +1,4 @@
-import { h, Component, ComponentType } from 'preact'
+import { h, Component } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
@@ -19,6 +19,7 @@ import type {
   EnterpriseFeatures,
   EnterpriseCobranding,
 } from '~types/enterprise'
+import type { ReduxProps } from '~types/routers'
 import type {
   SdkOptions,
   SdkError,
@@ -33,7 +34,7 @@ import type {
   StepConfigFace,
 } from '~types/steps'
 
-import withConnect, { ReduxProps } from './withConnect'
+import withConnect from './withConnect'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
@@ -323,6 +324,4 @@ class ModalApp extends Component<Props> {
   }
 }
 
-// @TODO: convert ModalApp to FunctionComponent
-// @ts-ignore
-export default withConnect<ComponentType<ModalAppProps>>(ModalApp)
+export default withConnect(ModalApp)

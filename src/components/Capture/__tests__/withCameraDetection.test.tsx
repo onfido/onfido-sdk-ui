@@ -2,11 +2,11 @@ import { h, FunctionComponent } from 'preact'
 import { mount, ReactWrapper } from 'enzyme'
 import enumerateDevices from 'enumerate-devices'
 
-import { ReduxProps } from 'components/App/withConnect'
 import { mockedReduxProps } from '~jest/MockedReduxProvider'
 import withCameraDetection from '../withCameraDetection'
 
 import type { WithCameraDetectionProps } from '~types/hocs'
+import type { ReduxProps } from '~types/routers'
 
 const runAllPromises = () => new Promise(setImmediate)
 
