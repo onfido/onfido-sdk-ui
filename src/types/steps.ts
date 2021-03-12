@@ -84,17 +84,13 @@ export type StepConfigsMap = {
   }
 }
 
-export type StepConfigWelcome = StepConfigsMap['welcome']
-export type StepConfigUserConsent = StepConfigsMap['userConsent']
 export type StepConfigDocument = StepConfigsMap['document']
-export type StepConfigPoA = StepConfigsMap['poa']
 export type StepConfigFace = StepConfigsMap['face']
-export type StepConfigComplete = StepConfigsMap['complete']
 
 export type StepConfig =
-  | StepConfigWelcome
-  | StepConfigUserConsent
+  | StepConfigsMap['welcome']
+  | StepConfigsMap['userConsent']
   | StepConfigDocument
-  | StepConfigPoA
+  | StepConfigsMap['poa']
   | StepConfigFace
-  | StepConfigComplete
+  | StepConfigsMap['complete']
