@@ -124,7 +124,7 @@
   --osdk-button-group-stacked: false;
 
   /* Document Type Selectors option button colors */
-  --osdk-color-content-doc-type-button: rgba(var(--osdk-color-content-body));
+  --osdk-color-content-doc-type-button: var(--osdk-color-content-body);
   --osdk-color-background-doc-type-button: rgb(var(--ods-color-neutral-white));
 
   --osdk-color-border-doc-type-button: rgba(var(--ods-color-border-input));
