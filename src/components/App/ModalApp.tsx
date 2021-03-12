@@ -64,10 +64,10 @@ class ModalApp extends Component<Props> {
     this.prepareInitialStore({}, options)
     if (!options.mobileFlow) {
       const { customUI } = options
-      const customUIConfigIsNotEmpty =
-        customUI && Object.keys(customUI).length > 0
+      const hasCustomUIConfigured =
+        !!customUI && Object.keys(customUI).length > 0
       const trackedProperties = {
-        is_custom_ui: customUIConfigIsNotEmpty,
+        is_custom_ui: hasCustomUIConfigured,
       }
       Tracker.sendEvent('started flow', trackedProperties)
     }
