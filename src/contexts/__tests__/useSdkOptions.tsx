@@ -1,26 +1,40 @@
 import { h, FunctionComponent } from 'preact'
-import { useState } from 'preact/compat'
 import { mount } from 'enzyme'
 import { EventEmitter2 } from 'eventemitter2'
 
 import { useSdkOptions, SdkOptionsProvider } from '../useSdkOptions'
 import type { NarrowSdkOptions } from '~types/commons'
-import type { StepConfig } from '~types/steps'
+import type { StepTypes } from '~types/steps'
 
-const DummyComponent: FunctionComponent = () => {
+type DummyProps = {
+  step?: StepTypes
+}
+
+const DummyComponent: FunctionComponent<DummyProps> = ({ step }) => {
   const [options, { findStep }] = useSdkOptions()
-  const [step, setStep] = useState<StepConfig | undefined>(undefined)
-
-  const onClick = () => setStep(findStep('document'))
+  const currentStep = findStep(step)
 
   return (
-    <div>
-      <span data-sdk-options={options} data-step={step}>
-        Options
-      </span>
-      <button onClick={onClick}>Find step</button>
-    </div>
+    <span data-sdk-options={options} data-step={currentStep}>
+      Options
+    </span>
   )
+}
+
+const defaultOptions: NarrowSdkOptions = {
+  token: 'fake-sdk-token',
+  containerId: 'onfido-mount',
+  language: 'fr',
+  userDetails: {
+    smsNumber: '+447495023357',
+  },
+  steps: [
+    { type: 'welcome' },
+    { type: 'document', options: { forceCrossDevice: true } },
+    { type: 'face' },
+    { type: 'complete' },
+  ],
+  events: new EventEmitter2(),
 }
 
 describe('context', () => {
@@ -32,30 +46,39 @@ describe('context', () => {
     })
 
     it('gets correct options data', () => {
-      const fakeOptions: NarrowSdkOptions = {
-        token: 'fake-sdk-token',
-        containerId: 'onfido-mount',
-        language: 'fr',
-        userDetails: {
-          smsNumber: '+447495023357',
-        },
-        steps: [
-          { type: 'welcome' },
-          { type: 'document' },
-          { type: 'face' },
-          { type: 'complete' },
-        ],
-        events: new EventEmitter2(),
-      }
-
       const wrapper = mount(
-        <SdkOptionsProvider options={fakeOptions}>
+        <SdkOptionsProvider options={defaultOptions}>
           <DummyComponent />
         </SdkOptionsProvider>
       )
 
-      const span = wrapper.find('DummyComponent span')
-      expect(span.prop('data-sdk-options')).toMatchObject(fakeOptions)
+      const span = wrapper.find('DummyComponent > span')
+      expect(span.prop('data-sdk-options')).toMatchObject(defaultOptions)
+      expect(span.prop('data-step')).toBeUndefined()
+    })
+
+    it('gets correct step config', () => {
+      const wrapper = mount(
+        <SdkOptionsProvider options={defaultOptions}>
+          <DummyComponent step="document" />
+        </SdkOptionsProvider>
+      )
+
+      const span = wrapper.find('DummyComponent > span')
+      expect(span.prop('data-step')).toMatchObject({
+        type: 'document',
+        options: { forceCrossDevice: true },
+      })
+    })
+
+    it(`gets no step when options doesn't include passed type`, () => {
+      const wrapper = mount(
+        <SdkOptionsProvider options={defaultOptions}>
+          <DummyComponent step="userConsent" />
+        </SdkOptionsProvider>
+      )
+
+      const span = wrapper.find('DummyComponent > span')
       expect(span.prop('data-step')).toBeUndefined()
     })
   })
