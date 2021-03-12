@@ -120,7 +120,7 @@
   --osdk-color-border-button-secondary: rgba(var(--ods-color-border-action));
 
   /* Button group customisations */
-  --osdk-border-radius-button: calc(4 * var(--unit));
+  --osdk-border-radius-button: var(--ods-border-radius-medium);
   --osdk-button-group-stacked: false;
 
   /* Document Type Selectors option button colors */
