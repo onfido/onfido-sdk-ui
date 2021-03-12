@@ -9,7 +9,7 @@ import {
 } from './demoUtils'
 import SdkMount from './SdkMount'
 
-import { ServerRegions, SdkOptions } from '~types/sdk'
+import type { ServerRegions, SdkOptions } from '~types/sdk'
 
 const DEFAULT_REGION: ServerRegions = 'EU'
 

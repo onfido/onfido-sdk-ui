@@ -1,6 +1,7 @@
 import { h, Component, ComponentType } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
 
+import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import { LocaleProvider } from '~locales'
 import { getEnabledDocuments } from '~utils'
 import {
@@ -59,7 +60,7 @@ class ModalApp extends Component<Props> {
   }
 
   componentDidMount() {
-    this.prepareInitialStore({}, this.props.options)
+    this.prepareInitialStore({ steps: [] }, this.props.options)
   }
 
   componentDidUpdate(prevProps: Props) {
@@ -75,8 +76,8 @@ class ModalApp extends Component<Props> {
   }
 
   jwtValidation = (
-    prevOptions: NormalisedSdkOptions = {},
-    newOptions: NormalisedSdkOptions = {}
+    prevOptions: NormalisedSdkOptions,
+    newOptions: NormalisedSdkOptions
   ) => {
     if (prevOptions.token !== newOptions.token) {
       try {
@@ -167,8 +168,8 @@ class ModalApp extends Component<Props> {
   }
 
   prepareInitialStore = (
-    prevOptions: NormalisedSdkOptions = {},
-    options: NormalisedSdkOptions = {}
+    prevOptions: NormalisedSdkOptions,
+    options: NormalisedSdkOptions
   ) => {
     const { userDetails: { smsNumber } = {}, steps, token } = options
     const {
@@ -293,40 +294,31 @@ class ModalApp extends Component<Props> {
   }
 
   render() {
+    const { options, ...otherProps } = this.props
     const {
-      options: {
-        useModal,
-        isModalOpen,
-        onModalRequestClose,
-        containerId,
-        containerEl,
-        shouldCloseOnOverlayClick,
-        ...otherOptions
-      },
-      ...otherProps
-    } = this.props
+      useModal,
+      isModalOpen,
+      onModalRequestClose,
+      containerId,
+      containerEl,
+      shouldCloseOnOverlayClick,
+    } = options
 
     return (
-      <LocaleProvider language={this.props.options.language}>
-        <Modal
-          useModal={useModal}
-          isOpen={isModalOpen}
-          onRequestClose={onModalRequestClose}
-          containerId={containerId}
-          containerEl={containerEl}
-          shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-        >
-          <Router
-            options={{
-              ...otherOptions,
-              containerId,
-              containerEl,
-              events: this.events,
-            }}
-            {...otherProps}
-          />
-        </Modal>
-      </LocaleProvider>
+      <SdkOptionsProvider options={{ ...options, events: this.events }}>
+        <LocaleProvider language={options.language}>
+          <Modal
+            useModal={useModal}
+            isOpen={isModalOpen}
+            onRequestClose={onModalRequestClose}
+            containerId={containerId}
+            containerEl={containerEl}
+            shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+          >
+            <Router {...otherProps} />
+          </Modal>
+        </LocaleProvider>
+      </SdkOptionsProvider>
     )
   }
 }

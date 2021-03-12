@@ -5,7 +5,7 @@ import { DocumentTypes, PoaTypes, StepConfig, StepTypes } from './steps'
 import { SdkOptions } from './sdk'
 
 export interface NormalisedSdkOptions extends SdkOptions {
-  steps?: StepConfig[]
+  steps: StepConfig[]
 }
 
 export type NarrowSdkOptions = Omit<

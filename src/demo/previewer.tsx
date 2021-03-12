@@ -1,8 +1,6 @@
 import { h, render } from 'preact'
 import { memo, useEffect, useRef, useState } from 'preact/compat'
 
-import { SdkOptions } from '~types/sdk'
-
 import { CheckData, UIConfigs, getInitSdkOptions } from './demoUtils'
 import {
   SdkOptionsView,
@@ -10,6 +8,8 @@ import {
   CheckDataView,
   SystemInfo,
 } from './SidebarSections'
+
+import type { SdkOptions } from '~types/sdk'
 
 const channel = new MessageChannel()
 const port1 = channel.port1

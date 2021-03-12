@@ -20,7 +20,7 @@ const defaultOptions: NormalisedSdkOptions = {
 
 describe('ModalApp', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<ModalApp options={{}} />)
+    const wrapper = shallow(<ModalApp options={defaultOptions} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 

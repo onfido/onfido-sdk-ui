@@ -1,17 +1,17 @@
 import { h, FunctionComponent, Fragment } from 'preact'
 import { useEffect, useState, unmountComponentAtNode } from 'preact/compat'
-import { useLocales } from '~locales'
 import { sanitize } from 'dompurify'
+
+import { useSdkOptions } from '~contexts'
+import { useLocales } from '~locales'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
 import Button from '../Button'
 import DeclineModal from './DeclineModal'
 import style from './style.scss'
 
-import type { StepComponentUserConsentProps } from '~types/routers'
-import { ApiRawError, SuccessCallback } from '~types/api'
-
-type UserConsentProps = StepComponentUserConsentProps
+import type { StepComponentBaseProps } from '~types/routers'
+import type { ApiRawError, SuccessCallback } from '~types/api'
 
 type ActionsProps = {
   onAccept(): void
@@ -69,12 +69,10 @@ const getConsentFile = (
   request.send()
 }
 
-const UserConsent: FunctionComponent<UserConsentProps> = ({
+const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
-  containerEl,
-  containerId,
-  events,
 }) => {
+  const { containerEl, containerId, events } = useSdkOptions()
   const [consentHtml, setConsentHtml] = useState('')
   const [isModalOpen, setModalToOpen] = useState(false)
 
