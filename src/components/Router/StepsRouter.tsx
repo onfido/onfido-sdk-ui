@@ -1,4 +1,4 @@
-import { h, Component, ComponentType } from 'preact'
+import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { sendScreen } from '../../Tracker'
 import { wrapArray } from '~utils/array'
@@ -112,6 +112,4 @@ class StepsRouter extends Component<StepsRouterProps> {
   }
 }
 
-// @TODO: convert StepsRouter to FunctionComponent
-// @ts-ignore
-export default withFullScreenState<ComponentType<StepsRouterProps>>(StepsRouter)
+export default withFullScreenState(StepsRouter)

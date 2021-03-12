@@ -14,7 +14,7 @@ import type { ReduxProps } from '~types/routers'
 export default function withConnect<P>(
   WrappedComponent: ComponentType<ReduxProps & P>
 ): ComponentType<P> {
-  const ModalApp: FunctionComponent<P> = (props) => {
+  const ConnectedModalApp: FunctionComponent<P> = (props) => {
     const globals = useSelector<RootState, GlobalState>(
       (state) => state.globals
     )
@@ -32,5 +32,5 @@ export default function withConnect<P>(
     return <WrappedComponent {...props} {...reduxProps} />
   }
 
-  return ModalApp
+  return ConnectedModalApp
 }
