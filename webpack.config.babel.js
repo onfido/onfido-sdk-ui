@@ -229,6 +229,7 @@ const baseConfig = {
     alias: {
       react: 'preact/compat',
       'react-dom': 'preact/compat',
+      '~contexts': `${__dirname}/src/contexts`,
       '~locales': `${__dirname}/src/locales`,
       '~types': `${__dirname}/src/types`,
       '~utils': `${__dirname}/src/components/utils`,
