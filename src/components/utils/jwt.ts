@@ -31,8 +31,6 @@ export const getEnterpriseFeaturesFromJWT = (
 ): EnterpriseFeatures => {
   try {
     const jwt = parseJwt(token)
-    // @ts-ignore
-    jwt.enterprise_features.logoCobrand = true
     return jwt.enterprise_features
   } catch (err) {
     console.error('Invalid token:', err.message)

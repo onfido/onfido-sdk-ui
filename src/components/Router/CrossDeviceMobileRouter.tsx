@@ -209,10 +209,7 @@ export default class CrossDeviceMobileRouter extends Component<
         validEnterpriseFeatures?.cobrand
       ) {
         this.props.actions.hideOnfidoLogo(false)
-
-        if (enterpriseFeatures.cobrand && validEnterpriseFeatures?.cobrand) {
-          this.props.actions.showCobranding(enterpriseFeatures.cobrand)
-        }
+        this.props.actions.showCobranding(enterpriseFeatures.cobrand)
       } else {
         this.props.actions.hideOnfidoLogo(false)
 
