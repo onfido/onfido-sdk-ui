@@ -1,20 +1,17 @@
 <svg width="49" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#a)">
     <rect x="14.425" y="5.925" width="20.35" height="35.15" rx="2.775" fill="#F7F9FA" stroke="#1E1E24" stroke-width="1.85"/>
-    <path d="M25.988 37.375a1.387 1.387 0 1 1-2.775 0 1.387 1.387 0 0 1 2.774 0zM31.538 21.65a6.938 6.938 0 1 1-13.876 0 6.938 6.938 0 0 1 13.876 0z" fill="#F7F9FA" stroke="#1E1E24" stroke-width=".925"/>
+    <path d="M25.988 37.375a1.387 1.387 0 1 1-2.775 0 1.387 1.387 0 0 1 2.774 0zm5.55-15.725a6.938 6.938 0 1 1-13.876 0 6.938 6.938 0 0 1 13.876 0z" fill="#F7F9FA" stroke="#1E1E24" stroke-width=".925"/>
     <mask id="b" mask-type="alpha" maskUnits="userSpaceOnUse" x="17" y="14" width="15" height="16">
       <path d="M31.538 21.65a6.938 6.938 0 1 1-13.876 0 6.938 6.938 0 0 1 13.876 0z" fill="#fff" stroke="#fff" stroke-width=".925"/>
     </mask>
     <g mask="url(#b)" fill-rule="evenodd" clip-rule="evenodd" fill="#1E1E24">
-      <path d="M26.45 23.5a.925.925 0 1 0 0-1.85.925.925 0 0 0 0 1.85zM22.75 23.5a.925.925 0 1 0 0-1.85.925.925 0 0 0 0 1.85z"/>
+      <path d="M26.45 23.5a.925.925 0 1 0 0-1.85.925.925 0 0 0 0 1.85zm-3.7 0a.925.925 0 1 0 0-1.85.925.925 0 0 0 0 1.85z"/>
       <path d="M34.775 13.787a6.012 6.012 0 1 1-12.025 0 6.012 6.012 0 0 1 12.025 0zm-6.012 6.938a6.938 6.938 0 1 0-6.803-8.306 6.937 6.937 0 1 0 .655 4.587 6.937 6.937 0 0 0 6.148 3.719zm-6.938-5.088a6.013 6.013 0 1 1-12.025 0 6.013 6.013 0 0 1 12.025 0z"/>
     </g>
   </g>
   <defs>
     <clipPath id="a">
-      <path fill="#fff" transform="translate(.5)" d="M0 0h48v48H0z"/>
-    </clipPath>
-    <clipPath id="b">
       <path fill="#fff" transform="translate(.5)" d="M0 0h48v48H0z"/>
     </clipPath>
   </defs>
