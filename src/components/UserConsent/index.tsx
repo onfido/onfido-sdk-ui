@@ -79,7 +79,8 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   const openModal = () => setModalToOpen(true)
   const closeModal = () => setModalToOpen(false)
 
-  const sdkContainer = containerEl || document.getElementById(containerId || '')
+  const sdkContainer =
+    containerEl || document.getElementById(containerId || '') || undefined
 
   const actions = <Actions onAccept={nextStep} onDecline={openModal} />
 

@@ -24,8 +24,8 @@ export const parseJwt = (token?: string): JWT => {
 }
 
 export const jwtExpired = (token: string): boolean => {
-  const { exp } = parseJwt(token)
-  return currentSeconds() > exp
+  const { exp: expiresAt } = parseJwt(token)
+  return currentSeconds() > expiresAt
 }
 
 export const getUrlsFromJWT = (token: string): UrlsConfig => {

@@ -15,7 +15,7 @@ const MODAL_ANIMATION_DURATION = getCSSMillisecsValue(
 type DeclineModalProps = {
   isOpen: boolean
   onRequestClose(): void
-  containerEl: HTMLElement | null
+  containerEl?: HTMLElement
   onDismissModal(): void
   onAbandonFlow(): void
 }
@@ -78,7 +78,7 @@ const DeclineModal: FunctionComponent<DeclineModalProps> = ({
       role={'dialog'}
       shouldCloseOnOverlayClick={true}
       closeTimeoutMS={MODAL_ANIMATION_DURATION}
-      appElement={containerEl || undefined}
+      appElement={containerEl}
       data-onfido-qa="userConsentDeclineModal"
     >
       <div

@@ -30,7 +30,6 @@ export type QueryParams = {
   showCobrand?: StringifiedBoolean
   showUserConsent?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
-  snapshotInterva?: StringifiedBoolean
   snapshotInterval?: string
   uploadFallback?: StringifiedBoolean
   useHistory?: StringifiedBoolean
