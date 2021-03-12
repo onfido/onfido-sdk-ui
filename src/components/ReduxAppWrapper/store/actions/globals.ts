@@ -84,7 +84,7 @@ export const hideOnfidoLogo = (payload: boolean): GlobalActions => ({
 })
 
 export const showCobranding = (
-  payload: EnterpriseCobranding
+  payload: EnterpriseCobranding | null
 ): GlobalActions => ({
   type: constants.SHOW_COBRANDING,
   payload,

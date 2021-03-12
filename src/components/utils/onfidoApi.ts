@@ -46,7 +46,7 @@ type UploadLivePhotoPayload = {
   snapshot_uuids?: string
 } & UploadPayload
 
-type SelfiePayload = { blob?: Blob } & UploadPayload
+type SelfiePayload = { blob: Blob } & UploadPayload
 
 type SubmitPayload = Omit<UploadPayload, 'sdkMetadata'> & {
   file?: Blob | FilePayload
@@ -100,8 +100,8 @@ export const uploadLivePhoto = (
   { sdkMetadata, ...data }: UploadLivePhotoPayload,
   url: string,
   token: string,
-  onSuccess?: SuccessCallback<UploadFileResponse>,
-  onError?: ErrorCallback
+  onSuccess: SuccessCallback<UploadFileResponse>,
+  onError: ErrorCallback
 ): void => {
   const endpoint = `${url}/v3/live_photos`
 
@@ -118,8 +118,8 @@ export const uploadSnapshot = (
   payload: UploadSnapshotPayload,
   url: string,
   token: string,
-  onSuccess?: SuccessCallback<SnapshotResponse>,
-  onError?: ErrorCallback
+  onSuccess: SuccessCallback<SnapshotResponse>,
+  onError: ErrorCallback
 ): void => {
   const endpoint = `${url}/v3/snapshots`
   sendFile(endpoint, payload, token, onSuccess, onError)
@@ -140,7 +140,7 @@ export const sendMultiframeSelfie = (
       filename: snapshot.filename,
     },
   }
-  const { blob, filename, sdkMetadata } = selfie
+  const { blob, filename = 'selfie', sdkMetadata } = selfie
 
   new Promise<SnapshotResponse>((resolve, reject) => {
     sendEvent('Starting snapshot upload')
@@ -172,7 +172,7 @@ export const uploadLiveVideo = (
     challenges: challenge,
     id: challenge_id,
     switchSeconds: challenge_switch_at,
-  } = challengeData
+  } = challengeData || {}
 
   const payload: SubmitLiveVideoPayload = {
     file: blob,
@@ -219,11 +219,11 @@ export const objectToFormData = (object: SubmitPayload): FormData => {
   return formData
 }
 
-const sendFile = (
+const sendFile = <T>(
   endpoint: string,
   data: SubmitPayload,
   token: string,
-  onSuccess: SuccessCallback<UploadFileResponse>,
+  onSuccess: SuccessCallback<T>,
   onError: ErrorCallback
 ) => {
   const payload: SubmitPayload = {
