@@ -126,7 +126,7 @@ export type ChallengePayload =
 export type ChallengeData = {
   challenges: ChallengePayload[]
   id: string
-  switchSeconds: number
+  switchSeconds?: number
 }
 
 type VideoChallengeLanguage = {

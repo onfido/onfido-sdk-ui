@@ -28,7 +28,7 @@ type ErrorProps = {
 type Props = ErrorProps & WithLocalisedProps
 
 class Error extends Component<Props> {
-  private container?: HTMLDivElement = null
+  private container?: HTMLDivElement
 
   componentDidMount() {
     if (this.props.focusOnMount && this.container) {
@@ -55,7 +55,7 @@ class Error extends Component<Props> {
       <div
         role={role}
         aria-modal={role && role.includes('dialog')}
-        ref={(node) => (this.container = node)}
+        ref={(node) => node && (this.container = node)}
         tabIndex={-1}
         className={classNames(
           style.container,

@@ -4,20 +4,20 @@ import Face from './Face'
 import withCaptureVariant from './withCaptureVariant'
 
 export const DocumentFrontCapture = appendToTracking(
-  withCaptureVariant(Document),
+  withCaptureVariant(Document, { side: 'front' }),
   'front_capture'
 )
 export const DocumentBackCapture = appendToTracking(
   withCaptureVariant(Document, { side: 'back' }),
   'back_capture'
 )
-export const DocumentVideoCapture = appendToTracking(
-  withCaptureVariant(Document, { requestedVariant: 'video' }),
-  'document_video_capture'
-)
 
 export const PoACapture = appendToTracking(
-  withCaptureVariant(Document, { isPoA: true, forceCrossDevice: false }),
+  withCaptureVariant(Document, {
+    isPoA: true,
+    forceCrossDevice: false,
+    side: 'front',
+  }),
   'poa'
 )
 

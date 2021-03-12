@@ -27,7 +27,7 @@ const CaptureViewer: FunctionComponent<Props> = ({
   }
 
   if (variant === 'video') {
-    return <CaptureVideoViewer ariaLabel={videoAriaLabel} blob={blob} />
+    return <CaptureVideoViewer ariaLabel={videoAriaLabel || ''} blob={blob} />
   }
 
   return (

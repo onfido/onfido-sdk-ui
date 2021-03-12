@@ -10,7 +10,7 @@ type State = {
 }
 
 export default class Timeout extends Component<Props, State> {
-  private timeoutId?: number = null
+  private timeoutId?: number
 
   state = {
     hasTimedOut: false,
@@ -38,7 +38,7 @@ export default class Timeout extends Component<Props, State> {
 
   clearInactivityTimeout = (): void => clearTimeout(this.timeoutId)
 
-  render(): h.JSX.Element {
+  render(): h.JSX.Element | null {
     return null
   }
 }

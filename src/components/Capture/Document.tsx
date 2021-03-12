@@ -25,6 +25,23 @@ import type {
   HandleCaptureProp,
   StepComponentDocumentProps,
 } from '~types/routers'
+import type { DocumentTypes, PoaTypes } from '~types/steps'
+
+const getDocumentType = (
+  isPoA?: boolean,
+  documentType?: DocumentTypes,
+  poaDocumentType?: PoaTypes
+): DocumentTypes | PoaTypes => {
+  if (isPoA && poaDocumentType) {
+    return poaDocumentType
+  }
+
+  if (documentType) {
+    return documentType
+  }
+
+  throw new Error('Neither documentType nor poaDocumentType provided')
+}
 
 type Props = StepComponentDocumentProps &
   WithLocalisedProps &
@@ -50,11 +67,11 @@ class Document extends Component<Props> {
 
     const documentCaptureData: DocumentCapture = {
       ...payload,
-      documentType: isPoA ? poaDocumentType : documentType,
+      documentType: getDocumentType(isPoA, documentType, poaDocumentType),
       id: payload.id || randomId(),
       method: 'document',
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
-      side: variant === 'video' ? null : side,
+      side: variant === 'video' ? undefined : side,
       variant: variant || 'standard',
     }
     actions.createCapture(documentCaptureData)
@@ -62,7 +79,7 @@ class Document extends Component<Props> {
     nextStep()
   }
 
-  handleUpload = (blob: Blob, imageResizeInfo: ImageResizeInfo) =>
+  handleUpload = (blob: Blob, imageResizeInfo?: ImageResizeInfo) =>
     this.handleCapture({
       blob,
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
@@ -104,10 +121,14 @@ class Document extends Component<Props> {
       useWebcam,
     } = this.props
 
+    if (!side) {
+      throw new Error('Capture size was not provided')
+    }
+
     const title = translate(
-      DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
-        side
-      ].title
+      DOCUMENT_CAPTURE_LOCALES_MAPPING[
+        getDocumentType(isPoA, documentType, poaDocumentType)
+      ][side]?.title || ''
     )
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle title={title} smaller />
@@ -145,9 +166,9 @@ class Document extends Component<Props> {
     // For document, the upload can be 'identity' or 'proof_of_address'
     const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
     const instructions = translate(
-      DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
-        side
-      ].body
+      DOCUMENT_CAPTURE_LOCALES_MAPPING[
+        getDocumentType(isPoA, documentType, poaDocumentType)
+      ][side]?.body || ''
     )
 
     return (

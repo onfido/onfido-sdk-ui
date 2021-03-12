@@ -59,7 +59,7 @@ const defaultProps: VideoCaptureProps = {
   onRedo: jest.fn(),
   onVideoCapture: jest.fn(),
   renderFallback: jest.fn(),
-  renderVideoLayer: MockedVideoLayer,
+  renderVideoLayer: (props) => <MockedVideoLayer {...props} />, // eslint-disable-line react/display-name
   trackScreen: jest.fn(),
 }
 

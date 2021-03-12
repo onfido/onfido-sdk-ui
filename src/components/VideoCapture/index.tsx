@@ -62,7 +62,7 @@ const recordingTooLongError: ErrorProp = {
 }
 
 export default class VideoCapture extends Component<Props, State> {
-  private webcam?: Webcam = null
+  private webcam?: Webcam
 
   state = { ...initialStateWithoutMediaStream, hasMediaStream: false }
 
@@ -140,7 +140,7 @@ export default class VideoCapture extends Component<Props, State> {
     return <CameraError trackScreen={trackScreen} {...passedProps} />
   }
 
-  renderInactivityTimeoutMessage = (): h.JSX.Element => {
+  renderInactivityTimeoutMessage = (): h.JSX.Element | null => {
     const {
       hasBecomeInactive,
       hasCameraError,
@@ -205,22 +205,23 @@ export default class VideoCapture extends Component<Props, State> {
         onButtonClick={this.handleRecordingStart}
         onError={this.handleCameraError}
         onUserMedia={this.handleMediaStream}
-        renderError={hasTimeoutError && this.renderError()}
+        renderError={hasTimeoutError ? this.renderError() : null}
         renderFallback={renderFallback}
         renderVideoLayer={({ hasGrantedPermission }) =>
-          renderVideoLayer &&
-          renderVideoLayer({
-            disableInteraction: isRecording
-              ? hasTimeoutError || hasCameraError
-              : !hasGrantedPermission || disableRecording,
-            isRecording,
-            onStart: this.handleRecordingStart,
-            onStop: this.handleRecordingStop,
-          })
+          renderVideoLayer
+            ? renderVideoLayer({
+                disableInteraction: isRecording
+                  ? hasTimeoutError || hasCameraError
+                  : !hasGrantedPermission || disableRecording,
+                isRecording,
+                onStart: this.handleRecordingStart,
+                onStop: this.handleRecordingStop,
+              })
+            : null
         }
-        renderTitle={!isRecording && title && <PageTitle title={title} />}
+        renderTitle={!isRecording && title ? <PageTitle title={title} /> : null}
         trackScreen={trackScreen}
-        webcamRef={(c: Webcam) => (this.webcam = c)}
+        webcamRef={(ref) => ref && (this.webcam = ref)}
       >
         <ToggleFullScreen />
         {renderOverlay && renderOverlay({ hasCameraError, isRecording })}
