@@ -56,7 +56,7 @@
   --osdk-color-border-surface-modal: rgb(var(--ods-color-neutral-600));
   --osdk-border-width-surface-modal: 1px;
   --osdk-border-style-surface-modal: solid;
-  --osdk-border-radius-surface-modal: calc(8 * var(--unit));
+  --osdk-border-radius-surface-modal: var(--ods-border-radius-large);
 
   /* Warning/Info Message */
   --osdk-color-background-alert-info: rgb(var(--ods-color-primary-500));
