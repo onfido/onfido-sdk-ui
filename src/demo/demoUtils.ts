@@ -6,7 +6,6 @@ import type {
   StepTypes,
 } from '~types/steps'
 import type { ServerRegions, SdkOptions } from '~types/sdk'
-import { ServerRegions, SdkOptions } from '~types/sdk'
 // @ts-ignore
 import testCobrandLogo from './assets/onfido-logo.svg'
 
