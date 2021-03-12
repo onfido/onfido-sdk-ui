@@ -2,17 +2,19 @@ import { h, createContext, FunctionComponent } from 'preact'
 import { useContext } from 'preact/compat'
 
 import type { NarrowSdkOptions } from '~types/commons'
-import type { StepTypes, StepConfig, StepConfigsMap } from '~types/steps'
+import type { StepTypes, StepConfigsMap } from '~types/steps'
 
 type FindStepCallback = <T extends StepTypes>(
   type: T
 ) => Partial<StepConfigsMap>[T]
 
-type EnhancedSdkOptions = {
+type EnhancedOptions = {
   findStep: FindStepCallback
-} & NarrowSdkOptions
+}
 
-const SdkOptionsContext = createContext<EnhancedSdkOptions | undefined>(
+type SdkOptionsContextType = [NarrowSdkOptions, EnhancedOptions]
+
+const SdkOptionsContext = createContext<SdkOptionsContextType | undefined>(
   undefined
 )
 
@@ -30,24 +32,18 @@ export const SdkOptionsProvider: FunctionComponent<Props> = ({
     steps.map((step) => [step.type, step])
   ) as Partial<StepConfigsMap>
 
-  const findStep: FindStepCallback = (type) => mappedSteps[type]
+  const enhancedOptions: EnhancedOptions = {
+    findStep: (type) => mappedSteps[type],
+  }
 
   return (
-    <SdkOptionsContext.Provider value={{ ...options, findStep }}>
+    <SdkOptionsContext.Provider value={[options, enhancedOptions]}>
       {children}
     </SdkOptionsContext.Provider>
   )
 }
 
-export const findStep = <T extends StepTypes>(steps: StepConfig[], type: T) => {
-  const mappedSteps = Object.fromEntries(
-    steps.map((step) => [step.type, step])
-  ) as Partial<StepConfigsMap>
-
-  return mappedSteps[type]
-}
-
-export const useSdkOptions = (): EnhancedSdkOptions => {
+export const useSdkOptions = (): SdkOptionsContextType => {
   const options = useContext(SdkOptionsContext)
 
   if (!options) {

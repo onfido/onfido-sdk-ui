@@ -8,17 +8,17 @@ import type { NarrowSdkOptions } from '~types/commons'
 import type { StepConfig } from '~types/steps'
 
 const DummyComponent: FunctionComponent = () => {
-  const options = useSdkOptions()
+  const [options, { findStep }] = useSdkOptions()
   const [step, setStep] = useState<StepConfig | undefined>(undefined)
+
+  const onClick = () => setStep(findStep('document'))
 
   return (
     <div>
       <span data-sdk-options={options} data-step={step}>
         Options
       </span>
-      <button onClick={() => setStep(options.findStep('document'))}>
-        Find step
-      </button>
+      <button onClick={onClick}>Find step</button>
     </div>
   )
 }

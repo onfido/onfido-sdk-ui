@@ -69,7 +69,7 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
 }
 
 const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
-  const { findStep } = useSdkOptions()
+  const [, { findStep }] = useSdkOptions()
   const { translate } = useContext(LocaleContext)
   const { title, descriptions, nextButton } = findStep('welcome')?.options || {}
 
