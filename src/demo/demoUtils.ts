@@ -1,10 +1,11 @@
-import { LocaleConfig, SupportedLanguages } from '~types/locales'
-import {
+import type { LocaleConfig, SupportedLanguages } from '~types/locales'
+import type {
   DocumentTypes,
   DocumentTypeConfig,
   StepConfig,
   StepTypes,
 } from '~types/steps'
+import type { ServerRegions, SdkOptions } from '~types/sdk'
 import { ServerRegions, SdkOptions } from '~types/sdk'
 // @ts-ignore
 import testCobrandLogo from './assets/onfido-logo.svg'
