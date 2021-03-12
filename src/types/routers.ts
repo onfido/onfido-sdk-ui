@@ -11,7 +11,6 @@ import type {
 } from './commons'
 import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
 import type {
-  StepOptionWelcome,
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
@@ -52,17 +51,13 @@ export type ErrorProp = {
   type?: ErrorTypes
 }
 
-export type WithSdkOptionsProps = {
-  options: NarrowSdkOptions
-}
-
-export type ExternalRouterProps = WithSdkOptionsProps &
-  ReduxProps &
-  WithCameraDetectionProps
+export type ExternalRouterProps = ReduxProps & WithCameraDetectionProps
 
 export type InternalRouterProps = {
   allowCrossDeviceFlow: boolean
   onFlowChange?: FlowChangeCallback
+  // @TODO: remove this prop completely to consume useSdkOptions() hook instead
+  options: NarrowSdkOptions
 } & ExternalRouterProps
 
 export type HistoryRouterProps = {
@@ -84,7 +79,7 @@ export type StepsRouterProps = {
   triggerOnError: ErrorCallback
 } & HistoryRouterProps
 
-type StepComponentBaseProps = {
+export type StepComponentBaseProps = {
   resetSdkFocus: () => void
 } & Omit<
   StepsRouterProps,
@@ -97,9 +92,6 @@ type StepComponentBaseProps = {
   NarrowSdkOptions &
   WithTrackingProps
 
-export type StepComponentWelcomeProps = StepOptionWelcome &
-  StepComponentBaseProps
-export type StepComponentUserConsentProps = StepComponentBaseProps
 export type StepComponentDocumentProps = StepOptionDocument &
   StepComponentBaseProps
 export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
@@ -108,8 +100,7 @@ export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
 
 export type StepComponentProps =
-  | StepComponentWelcomeProps
-  | StepComponentUserConsentProps
+  | StepComponentBaseProps
   | StepComponentDocumentProps
   | StepComponentPoaProps
   | StepComponentFaceProps
