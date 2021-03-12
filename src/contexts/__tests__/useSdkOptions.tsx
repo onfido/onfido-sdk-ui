@@ -25,7 +25,7 @@ describe('context', () => {
         containerId: 'onfido-mount',
         language: 'fr',
         userDetails: {
-          smsNumber: '+44765432109',
+          smsNumber: '+447495023357',
         },
         steps: [
           { type: 'welcome' },
