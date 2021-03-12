@@ -1,14 +1,26 @@
 import { h, FunctionComponent } from 'preact'
+import { useState } from 'preact/compat'
 import { mount } from 'enzyme'
 import { EventEmitter2 } from 'eventemitter2'
 
 import { useSdkOptions, SdkOptionsProvider } from '../useSdkOptions'
 import type { NarrowSdkOptions } from '~types/commons'
+import type { StepConfig } from '~types/steps'
 
 const DummyComponent: FunctionComponent = () => {
   const options = useSdkOptions()
+  const [step, setStep] = useState<StepConfig | undefined>(undefined)
 
-  return <span data-sdk-options={options}>Options</span>
+  return (
+    <div>
+      <span data-sdk-options={options} data-step={step}>
+        Options
+      </span>
+      <button onClick={() => setStep(options.findStep('document'))}>
+        Find step
+      </button>
+    </div>
+  )
 }
 
 describe('context', () => {
@@ -42,8 +54,9 @@ describe('context', () => {
         </SdkOptionsProvider>
       )
 
-      const span = wrapper.find('DummyComponent > span')
+      const span = wrapper.find('DummyComponent span')
       expect(span.prop('data-sdk-options')).toMatchObject(fakeOptions)
+      expect(span.prop('data-step')).toBeUndefined()
     })
   })
 })

@@ -68,35 +68,28 @@ export type StepOptionComplete = {
   submessage?: string
 }
 
-export type StepConfigWelcome = {
-  type: typeof STEP_WELCOME
-  options?: StepOptionWelcome
+type StepOptionsMap = {
+  welcome: StepOptionWelcome
+  userConsent: never
+  document: StepOptionDocument
+  poa: StepOptionPoA
+  face: StepOptionFace
+  complete: StepOptionComplete
 }
 
-export type StepConfigUserConsent = {
-  type: typeof STEP_USER_CONSENT
-  options?: never
+export type StepConfigsMap = {
+  [Type in StepTypes]: {
+    type: Type
+    options?: StepOptionsMap[Type]
+  }
 }
 
-export type StepConfigDocument = {
-  type: typeof STEP_DOCUMENT
-  options?: StepOptionDocument
-}
-
-export type StepConfigPoA = {
-  type: typeof STEP_POA
-  options?: StepOptionPoA
-}
-
-export type StepConfigFace = {
-  type: typeof STEP_FACE
-  options?: StepOptionFace
-}
-
-export type StepConfigComplete = {
-  type: typeof STEP_COMPLETE
-  options?: StepOptionComplete
-}
+export type StepConfigWelcome = StepConfigsMap['welcome']
+export type StepConfigUserConsent = StepConfigsMap['userConsent']
+export type StepConfigDocument = StepConfigsMap['document']
+export type StepConfigPoA = StepConfigsMap['poa']
+export type StepConfigFace = StepConfigsMap['face']
+export type StepConfigComplete = StepConfigsMap['complete']
 
 export type StepConfig =
   | StepConfigWelcome

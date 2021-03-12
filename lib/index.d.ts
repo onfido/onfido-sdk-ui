@@ -47,30 +47,26 @@ export declare type StepOptionComplete = {
 	message?: string;
 	submessage?: string;
 };
-export declare type StepConfigWelcome = {
-	type: typeof STEP_WELCOME;
-	options?: StepOptionWelcome;
+export declare type StepOptionsMap = {
+	welcome: StepOptionWelcome;
+	userConsent: never;
+	document: StepOptionDocument;
+	poa: StepOptionPoA;
+	face: StepOptionFace;
+	complete: StepOptionComplete;
 };
-export declare type StepConfigUserConsent = {
-	type: typeof STEP_USER_CONSENT;
-	options?: never;
+export declare type StepConfigsMap = {
+	[Type in StepTypes]: {
+		type: Type;
+		options?: StepOptionsMap[Type];
+	};
 };
-export declare type StepConfigDocument = {
-	type: typeof STEP_DOCUMENT;
-	options?: StepOptionDocument;
-};
-export declare type StepConfigPoA = {
-	type: typeof STEP_POA;
-	options?: StepOptionPoA;
-};
-export declare type StepConfigFace = {
-	type: typeof STEP_FACE;
-	options?: StepOptionFace;
-};
-export declare type StepConfigComplete = {
-	type: typeof STEP_COMPLETE;
-	options?: StepOptionComplete;
-};
+export declare type StepConfigWelcome = StepConfigsMap["welcome"];
+export declare type StepConfigUserConsent = StepConfigsMap["userConsent"];
+export declare type StepConfigDocument = StepConfigsMap["document"];
+export declare type StepConfigPoA = StepConfigsMap["poa"];
+export declare type StepConfigFace = StepConfigsMap["face"];
+export declare type StepConfigComplete = StepConfigsMap["complete"];
 export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoA | StepConfigFace | StepConfigComplete;
 export declare type DocumentSides = "front" | "back";
 export declare type UploadFileResponse = {

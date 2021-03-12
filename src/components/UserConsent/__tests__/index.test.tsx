@@ -8,10 +8,15 @@ import { mockedReduxProps } from '~jest/MockedReduxProvider'
 import UserConsent from '../index'
 
 import type { StepComponentBaseProps } from '~types/routers'
+import type { NarrowSdkOptions } from '~types/commons'
 
 jest.mock('dompurify')
 
-const defaultOptions: StepComponentBaseProps = {
+const defaultOptions: NarrowSdkOptions = {
+  steps: [{ type: 'welcome' }, { type: 'userConsent' }],
+}
+
+const defaultProps: StepComponentBaseProps = {
   ...mockedReduxProps,
   componentsList: [
     { component: UserConsent, step: { type: 'userConsent' }, stepIndex: 0 },
@@ -30,7 +35,7 @@ console.error = jest.fn()
 
 describe('UserConsent', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<UserConsent {...defaultOptions} />)
+    const wrapper = shallow(<UserConsent {...defaultProps} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 
@@ -42,9 +47,9 @@ describe('UserConsent', () => {
 
     it('renders UserConsent with actions', () => {
       const wrapper = mount(
-        <SdkOptionsProvider options={{}}>
+        <SdkOptionsProvider options={defaultOptions}>
           <MockedLocalised>
-            <UserConsent {...defaultOptions} />
+            <UserConsent {...defaultProps} />
           </MockedLocalised>
         </SdkOptionsProvider>
       )
@@ -55,9 +60,9 @@ describe('UserConsent', () => {
 
     it('renders UserConsent sanitized HTML', () => {
       const wrapper = mount(
-        <SdkOptionsProvider options={{}}>
+        <SdkOptionsProvider options={defaultOptions}>
           <MockedLocalised>
-            <UserConsent {...defaultOptions} />
+            <UserConsent {...defaultProps} />
           </MockedLocalised>
         </SdkOptionsProvider>
       )
@@ -69,9 +74,9 @@ describe('UserConsent', () => {
 
     it('renders the DeclineModal component', () => {
       const wrapper = mount(
-        <SdkOptionsProvider options={{}}>
+        <SdkOptionsProvider options={defaultOptions}>
           <MockedLocalised>
-            <UserConsent {...defaultOptions} />
+            <UserConsent {...defaultProps} />
           </MockedLocalised>
         </SdkOptionsProvider>
       )
