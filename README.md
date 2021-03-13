@@ -12,6 +12,7 @@
 - [Customising the SDK](#customising-the-sdk)
 - [Creating checks](#creating-checks)
 - [User Analytics](#user-analytics)
+- [Premium Enterprise Features](#premium-enterprise-features)
 - [Going live](#going-live)
 - [Accessibility](#accessibility)
 - [TypeScript](#typescript)
@@ -804,6 +805,118 @@ VIDEO_FACIAL_INTRO - User reached the "liveness intro" screen
 VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties
 VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "liveness video capture", challenge_type can be found in eventProperties
 UPLOAD - User's file is uploading
+```
+
+## Premium Enterprise Features
+
+These features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
+
+### Customized API Requests
+
+This premium enterprise feature enables you to control the data collected by the Onfido SDK through the use of callbacks that are invoked when the user submits their captured media. These callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. The callback for video is not officially supported yet.
+
+Example:
+```javascript
+Onfido.init({
+  // Other options here
+  enterpriseFeatures: {
+    useCustomizedApiRequests: true,
+    onSubmitDocuments: (documentData) => {
+      // Your callback code here
+    },
+    onSubmitSelfie: (selfieData) => {
+      // Your callback code here
+    },
+  }
+})
+```
+
+#### Callbacks Overview
+The callbacks will provide you with a FormData object including the information that the SDK would send to Onfido. These callbacks will be invoked when the user confirms their image on the UI and won’t send the request to Onfido unless requested in the response.
+
+**onSubmitDocument FormData Paramaters**
+```javascript
+{
+  file: blob,
+	side: string,
+	type: string,
+	sdk_validations: {
+ 		detect_document: string,
+		detect_cutoff: string,
+    detect_glare: string,
+    detect_blur: string,
+  },
+  sdk_source: string,
+  sdk_version: string,
+  sdk_metadata: {
+    captureMethod: string,
+    imageResizeInfo: string | null,
+    isCrossDeviceFlow: boolean,
+    deviceType: string,
+    system: {
+      os: string,
+      os_version: string,
+      browser: string,
+      browser_version: string,
+    },
+  },
+}
+```
+
+**onSubmitSelfie FormData Paramaters**
+```javascript
+{
+  file: blob,
+	snapshot: blob,
+  sdk_source: string,
+  sdk_version: string,
+  sdk_metadata: {
+    captureMethod: string,
+    imageResizeInfo: string | null,
+    isCrossDeviceFlow: boolean,
+    deviceType: string,
+    system: {
+      os: string,
+      os_version: string,
+      browser: string,
+      browser_version: string,
+    },
+  },
+}
+
+```
+
+**Allowing the SDK to upload data to Onfido**
+
+If you would like the SDK to upload the user-submitted data to Onfido you can resolve the promise with an object containing `continueWithOnfidoUpload: true`
+
+Example: 
+```javascript
+onSubmitDocument: (data) => {
+  Promise.resolve({ continueWithOnfidoUpload: true })
+})
+```
+
+**Providing the SDK with the Onfido response**
+
+If you would like to upload the data yourself from your backend, we strongly recommend that you add all of the data provided to you through the callbacks in your request to the appropriate endpoint - `/documents` or `/live_photos`. Additionally, you should use the SDK token created for each applicant in the `Authorization` header of the request as shown below.
+
+Example
+```
+Authorization: Bearer <SDK token here>
+```
+
+Once you have sent the request to Onfido yourself, you can supply the SDK with the response so it can determine what the user should be presented with. In the case where a success response is received, the promise should be resolved with `onfidoSuccessResponse: <onfidoResponse>`, otherwise reject the promise with the Onfido error response. Please note that an error response could be returned due to image quality issues and the SDK will present the user with the appropriate error message.
+
+Example:
+```javascript
+onSubmitDocument: (data) => {
+  // Send request to Onfido API /documents via your backend proxy
+  .then(onfidoSuccessResponse =>
+    Promise.resolve({ onfidoSuccessResponse }))
+  .catch(onfidoError => Promise.reject(onfidoError))
+}
+
 ```
 
 ## Going live
