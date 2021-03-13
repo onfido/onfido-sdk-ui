@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added user consent screen
 - Public: Added callbacks that are triggered on user media submission if the feature is enabled. Note - This is a premium enterprise feature.
 - Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
+- Public: Add cross-device support for useCustomizedApiRequests callbacks via customer hosting of SDK.
 
 ### Changed
 
