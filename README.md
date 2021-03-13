@@ -77,18 +77,6 @@ Make a note of the `token` value in the response, as you will need it later on w
 
 \* Tokens expire 90 minutes after creation.
 
-### Cross device URL
-
-This is a premium enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
-
-```shell
-$ curl https://api.onfido.com/v3/sdk_token \
- -H 'Authorization: Token token=YOUR_API_TOKEN' \
- -F 'applicant_id=YOUR_APPLICANT_ID' \
- -F 'referrer=REFERRER_PATTERN' \
- -F 'cross_device_url=YOUR_CUSTOM_URL'
-```
-
 ### 4. Including/Importing the library
 
 #### 4.1 HTML Script Tag Include
@@ -831,6 +819,8 @@ Onfido.init({
 })
 ```
 
+To enable callbacks on the cross-device flow you must also host the cross-device experience of the Onfido SDK yourself. This can be done using the [cross device URL](#cross-device-url) premium enterprise feature. Once this is set up you must initialize the SDK with the callbacks and `useCustomizedApiRequests` options shown above as well as `mobileFlow: true`.
+
 #### Callbacks Overview
 The callbacks will provide you with a FormData object including the information that the SDK would send to Onfido. These callbacks will be invoked when the user confirms their image on the UI and won’t send the request to Onfido unless requested in the response.
 
@@ -918,6 +908,24 @@ onSubmitDocument: (data) => {
 }
 
 ```
+
+### Cross device URL
+
+This feature allows you to be able to specify your own custom url that the cross device flow will redirect to instead of the Onfido default `id.onfido.com`. To use this feature generate a SDK token as shown below and use it to start the SDK.
+
+```shell
+$ curl https://api.onfido.com/v3/sdk_token \
+ -H 'Authorization: Token token=YOUR_API_TOKEN' \
+ -F 'applicant_id=YOUR_APPLICANT_ID' \
+ -F 'referrer=REFERRER_PATTERN' \
+ -F 'cross_device_url=YOUR_CUSTOM_URL'
+```
+
+In addition to this, you must either:
+
+1. Set up a server to forward the incoming HTTP request, including the path, to id.onfido.com. This can be done by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido hosted Web SDK. 
+
+2. Set up a server to host the Onfido Web SDK yourself at the provided URL.
 
 ## Going live
 
