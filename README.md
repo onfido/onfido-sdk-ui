@@ -804,6 +804,7 @@ These features must be enabled for your account before they can be used. For mor
 This premium enterprise feature enables you to control the data collected by the Onfido SDK through the use of callbacks that are invoked when the user submits their captured media. These callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. The callback for video is not officially supported yet.
 
 Example:
+
 ```javascript
 Onfido.init({
   // Other options here
@@ -815,16 +816,18 @@ Onfido.init({
     onSubmitSelfie: (selfieData) => {
       // Your callback code here
     },
-  }
+  },
 })
 ```
 
 To enable callbacks on the cross-device flow you must also host the cross-device experience of the Onfido SDK yourself. This can be done using the [cross device URL](#cross-device-url) premium enterprise feature. Once this is set up you must initialize the SDK with the callbacks and `useCustomizedApiRequests` options shown above as well as `mobileFlow: true`.
 
 #### Callbacks Overview
+
 The callbacks will provide you with a FormData object including the information that the SDK would send to Onfido. These callbacks will be invoked when the user confirms their image on the UI and won’t send the request to Onfido unless requested in the response.
 
 **onSubmitDocument FormData Paramaters**
+
 ```javascript
 {
   file: blob,
@@ -854,6 +857,7 @@ The callbacks will provide you with a FormData object including the information 
 ```
 
 **onSubmitSelfie FormData Paramaters**
+
 ```javascript
 {
   file: blob,
@@ -880,7 +884,8 @@ The callbacks will provide you with a FormData object including the information 
 
 If you would like the SDK to upload the user-submitted data to Onfido you can resolve the promise with an object containing `continueWithOnfidoUpload: true`
 
-Example: 
+Example:
+
 ```javascript
 onSubmitDocument: (data) => {
   Promise.resolve({ continueWithOnfidoUpload: true })
@@ -891,7 +896,8 @@ onSubmitDocument: (data) => {
 
 If you would like to upload the data yourself from your backend, we strongly recommend that you add all of the data provided to you through the callbacks in your request to the appropriate endpoint - `/documents` or `/live_photos`. Additionally, you should use the SDK token created for each applicant in the `Authorization` header of the request as shown below.
 
-Example
+Example:
+
 ```
 Authorization: Bearer <SDK token here>
 ```
@@ -899,6 +905,7 @@ Authorization: Bearer <SDK token here>
 Once you have sent the request to Onfido yourself, you can supply the SDK with the response so it can determine what the user should be presented with. In the case where a success response is received, the promise should be resolved with `onfidoSuccessResponse: <onfidoResponse>`, otherwise reject the promise with the Onfido error response. Please note that an error response could be returned due to image quality issues and the SDK will present the user with the appropriate error message.
 
 Example:
+
 ```javascript
 onSubmitDocument: (data) => {
   // Send request to Onfido API /documents via your backend proxy
@@ -923,7 +930,7 @@ $ curl https://api.onfido.com/v3/sdk_token \
 
 In addition to this, you must either:
 
-1. Set up a server to forward the incoming HTTP request, including the path, to id.onfido.com. This can be done by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido hosted Web SDK. 
+1. Set up a server to forward the incoming HTTP request, including the path, to id.onfido.com. This can be done by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido hosted Web SDK.
 
 2. Set up a server to host the Onfido Web SDK yourself at the provided URL.
 
