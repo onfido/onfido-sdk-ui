@@ -104,13 +104,11 @@ const SdkDemo: FunctionComponent<Props> = ({
           Verify identity
         </button>
       )}
-      {!token &&
-        queryParamToValueString.createCheck &&
-        (applicantData ? (
-          'Loading ...'
-        ) : (
-          <ApplicantForm onSubmit={setApplicantData} />
-        ))}
+      {!token && queryParamToValueString.createCheck && applicantData ? (
+        'Loading ...'
+      ) : (
+        <ApplicantForm onSubmit={setApplicantData} />
+      )}
       {token && regionCode && tokenUrl && (
         <SdkMount options={options} regionCode={regionCode} url={tokenUrl} />
       )}
