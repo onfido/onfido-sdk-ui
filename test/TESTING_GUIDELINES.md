@@ -14,8 +14,8 @@ Guide to UI tests for Web SDK.
 
 Our UI tests also run on BrowserStack. If you would like to run them on your BrowserStack account, set an environment variable `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY`.
 
-1.  Run `test.sh` script OR
-2.  Run:
+1. Run `test.sh` script OR
+2. Run:
 
 - `npm run build:test`. This will:
   - Build the front-end with `NODE_ENV=production` using Webpack.
