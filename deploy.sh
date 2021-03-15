@@ -62,8 +62,6 @@ for DEPLOY_SUBDOMAIN_UNFORMATTED in "${DEPLOY_SUBDOMAIN_UNFORMATTED_LIST[@]}"
 do
   if [ "$NODE_ENV" == "production" ]; then
     DEPLOY_DOMAIN=https://microsoft-idv-sdk-ui-onfido.surge.sh
-    surge teardown $DEPLOY_DOMAIN
-    echo "Tore down domain: ${DEPLOY_DOMAIN}"
   else
     # replaces non alphanumeric symbols with "-"
     # sed -r is only supported in linux, ref http://stackoverflow.com/a/2871217/689223
