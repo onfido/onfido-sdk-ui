@@ -2,7 +2,7 @@
   <g clip-path="url(#a)">
     <rect x="14.425" y="5.925" width="20.35" height="35.15" rx="2.775" fill="#F7F9FA" stroke="#1E1E24" stroke-width="1.85"/>
     <path d="M25.988 37.375a1.387 1.387 0 1 1-2.775 0 1.387 1.387 0 0 1 2.774 0zM31.538 21.65a6.938 6.938 0 1 1-13.876 0 6.938 6.938 0 0 1 13.876 0z" fill="#F7F9FA" stroke="#1E1E24" stroke-width=".925"/>
-    <mask id="b" mask-type="alpha" maskUnits="userSpaceOnUse" x="17" y="14" width="15" height="16">
+    <mask id="b" maskUnits="userSpaceOnUse" x="17" y="14" width="15" height="16">
       <path d="M31.538 21.65a6.938 6.938 0 1 1-13.876 0 6.938 6.938 0 0 1 13.876 0z" fill="#fff" stroke="#fff" stroke-width=".925"/>
     </mask>
     <g mask="url(#b)" fill-rule="evenodd" clip-rule="evenodd" fill="#1E1E24">
