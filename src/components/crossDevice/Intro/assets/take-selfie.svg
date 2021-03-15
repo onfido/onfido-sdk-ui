@@ -3,18 +3,16 @@
     <circle id="a" cx="8" cy="8" r="7.5"/>
   </defs>
   <g fill="none" fill-rule="evenodd">
-    <g fill-rule="nonzero">
-      <rect x="14.425" y="5.925" width="20.35" height="35.15" rx="2.775" fill="#F7F9FA" stroke="#1E1E24" stroke-width="1.85"/>
-      <path d="M25.988 37.375a1.387 1.387 0 1 1-2.775 0 1.387 1.387 0 0 1 2.774 0zm5.55-15.725a6.938 6.938 0 1 1-13.876 0 6.938 6.938 0 0 1 13.876 0z" fill="#F7F9FA" stroke="#1E1E24" stroke-width=".925"/>
+    <g fill-rule="nonzero" fill="#F7F9FA" stroke="#1E1E24">
+      <rect x="14.425" y="5.925" width="20.35" height="35.15" rx="2.775" stroke-width="1.85"/>
+      <path d="M25.988 37.375a1.387 1.387 0 1 1-2.775 0 1.387 1.387 0 0 1 2.774 0zm5.55-15.725a6.938 6.938 0 1 1-13.876 0 6.938 6.938 0 0 1 13.876 0z" stroke-width=".925"/>
     </g>
-    <g stroke="#1E1E24">
-      <g transform="translate(17 14)">
-        <mask id="b" fill="#fff">
-          <use xlink:href="#a"/>
-        </mask>
-        <circle cx="12.85" cy="-.85" r="7.35" mask="url(#b)"/>
-        <circle cx="-1.65" cy=".85" r="7.35" mask="url(#b)"/>
-      </g>
+    <g transform="translate(17 14)" stroke="#1E1E24">
+      <mask id="b" fill="#fff">
+        <use xlink:href="#a"/>
+      </mask>
+      <circle cx="12.85" cy="-.85" r="7.35" mask="url(#b)"/>
+      <circle cx="-1.65" cy=".85" r="7.35" mask="url(#b)"/>
     </g>
     <g fill="#1E1E24" fill-rule="nonzero">
       <circle cx="22.5" cy="23" r="1"/>
