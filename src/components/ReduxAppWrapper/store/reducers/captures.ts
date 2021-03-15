@@ -5,10 +5,17 @@ import type { CaptureActions, CaptureState, CaptureKeys } from '~types/redux'
 
 export const initialState: CaptureState = {}
 
-const getKeyByCaptureId = (captures: CaptureState = {}, captureId: string) =>
-  (Object.keys(captures) as CaptureKeys[]).find(
-    (key) => captures[key] && captures[key].id === captureId
+const getKeyByCaptureId = (captures: CaptureState = {}, captureId: string) => {
+  const matched = Object.entries(captures).find(
+    ([, value]) => value?.id === captureId
   )
+
+  if (!matched) {
+    return undefined
+  }
+
+  return matched[0] as CaptureKeys
+}
 
 export default function captures(
   state = initialState,
@@ -31,12 +38,14 @@ export default function captures(
   if (action.type === constants.SET_CAPTURE_METADATA) {
     const key = getKeyByCaptureId(state, action.payload.captureId)
 
-    return {
-      ...state,
-      [key]: {
-        ...state[key],
-        metadata: action.payload.metadata,
-      },
+    if (key) {
+      return {
+        ...state,
+        [key]: {
+          ...state[key],
+          metadata: action.payload.metadata,
+        },
+      }
     }
   }
 

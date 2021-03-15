@@ -13,7 +13,7 @@ export const withBlobPreviewUrl = <P extends WrappedPreviewProps>(
   WrappedComponent: ComponentType<P>
 ): ComponentType<P & WithBlobPreviewProps> => {
   type State = {
-    previewUrl: string
+    previewUrl?: string
   }
 
   class BlobPreviewUrlComponent extends Component<
@@ -30,7 +30,8 @@ export const withBlobPreviewUrl = <P extends WrappedPreviewProps>(
       }
     }
 
-    createPreviewUrl = (blob?: Blob) => (blob ? createObjectURL(blob) : null)
+    createPreviewUrl = (blob?: Blob) =>
+      blob ? createObjectURL(blob) : undefined
 
     updateBlobPreview(blob?: Blob) {
       this.revokePreviewURL()
@@ -38,7 +39,7 @@ export const withBlobPreviewUrl = <P extends WrappedPreviewProps>(
     }
 
     revokePreviewURL() {
-      revokeObjectURL(this.state.previewUrl)
+      this.state.previewUrl && revokeObjectURL(this.state.previewUrl)
     }
 
     componentWillReceiveProps({ blob }: P & WithBlobPreviewProps) {
@@ -65,7 +66,7 @@ export const withBlobBase64 = <P extends WrappedPreviewProps>(
   WrappedComponent: ComponentType<P>
 ): ComponentType<P & WithBlobPreviewProps> => {
   type State = {
-    base64: string
+    base64?: string
   }
 
   class BlobBase64Component extends Component<P & WithBlobPreviewProps, State> {
@@ -73,11 +74,6 @@ export const withBlobBase64 = <P extends WrappedPreviewProps>(
       super(props)
 
       const { blob } = props
-
-      this.state = {
-        base64: null,
-      }
-
       this.updateBase64(blob)
     }
 

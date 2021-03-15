@@ -33,10 +33,10 @@ export default class Webcam extends Component<WebcamProps> {
     return canvas
   }
   getVideoBlob = (): Blob => new Blob([], { type: 'video/webm' })
-  startRecording = (): void => null
-  stopRecording = (): void => null
+  startRecording = (): void => {} // eslint-disable-line @typescript-eslint/no-empty-function
+  stopRecording = (): void => {} // eslint-disable-line @typescript-eslint/no-empty-function
 
-  render(): h.JSX.Element {
+  render(): h.JSX.Element | null {
     return null
   }
 }

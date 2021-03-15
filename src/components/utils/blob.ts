@@ -4,9 +4,10 @@ import 'blueimp-load-image/js/load-image-orientation'
 import 'blueimp-load-image/js/load-image-exif'
 
 type Base64ResultCallback = (result: string) => void
-type BlobResultCallback = (blob: Blob) => void
 type CanvasResultCallback = (canvas: HTMLCanvasElement) => void
 type ErrorCallback = (error: Event) => void
+type BlobResultCallback = (blob: Blob) => void
+type FileReaderCallback = (error: ProgressEvent<FileReader>) => void
 
 type Base64Blob = {
   integerArray: Uint8Array
@@ -23,7 +24,7 @@ type ImageOptions = {
 const blobToBase64 = (
   blob: Blob,
   callback: Base64ResultCallback,
-  errorCallback: ErrorCallback
+  errorCallback: FileReaderCallback
 ): void => {
   const reader = new FileReader()
 
@@ -104,13 +105,13 @@ export const canvasToBlob = (
     return
   }
 
-  canvas.toBlob(callback, mimeType)
+  canvas.toBlob((blob) => blob && callback(blob), mimeType)
 }
 
 export const blobToLossyBase64 = (
   blob: Blob,
   callback: Base64ResultCallback,
-  errorCallback: (error: ProgressEvent<FileReader>) => void,
+  errorCallback: FileReaderCallback,
   options?: ImageOptions
 ): void => {
   const browserSupportedLossyFormat = `image/${supportsWebP ? 'webp' : 'jpeg'}`

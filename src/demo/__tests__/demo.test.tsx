@@ -25,7 +25,7 @@ const mockedConsole = jest.fn()
 console.log = mockedConsole
 
 describe('Demo app', () => {
-  let SdkDemo: FunctionComponent = null
+  let SdkDemo: FunctionComponent
 
   beforeEach(() => {
     // create rootNode

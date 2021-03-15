@@ -18,7 +18,7 @@ const DEFAULT_REGION: ServerRegions = 'EU'
 
 type Props = {
   hasPreview?: boolean
-  messagePort: MessagePort
+  messagePort?: MessagePort
   sdkOptions?: SdkOptions
   viewOptions?: UIConfigs
 }
@@ -29,11 +29,15 @@ const SdkDemo: FunctionComponent<Props> = ({
   sdkOptions,
   viewOptions,
 }) => {
-  const [token, setToken] = useState<string>(null)
-  const [tokenUrl, setTokenUrl] = useState<string>(null)
-  const [regionCode, setRegionCode] = useState<ServerRegions>(null)
-  const [applicantId, setApplicantId] = useState<string>(null)
-  const [applicantData, setApplicantData] = useState<ApplicantData>(null)
+  const [token, setToken] = useState<string | undefined>(undefined)
+  const [tokenUrl, setTokenUrl] = useState<string | undefined>(undefined)
+  const [regionCode, setRegionCode] = useState<ServerRegions | undefined>(
+    undefined
+  )
+  const [applicantId, setApplicantId] = useState<string | undefined>(undefined)
+  const [applicantData, setApplicantData] = useState<ApplicantData | undefined>(
+    undefined
+  )
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
@@ -67,7 +71,7 @@ const SdkDemo: FunctionComponent<Props> = ({
 
   const onComplete = (data: Record<string, unknown>) => {
     if (hasPreview) {
-      messagePort.postMessage({ type: 'SDK_COMPLETE', data })
+      messagePort?.postMessage({ type: 'SDK_COMPLETE', data })
       return
     }
 
@@ -107,7 +111,7 @@ const SdkDemo: FunctionComponent<Props> = ({
         ) : (
           <ApplicantForm onSubmit={setApplicantData} />
         ))}
-      {token && (
+      {token && regionCode && tokenUrl && (
         <SdkMount options={options} regionCode={regionCode} url={tokenUrl} />
       )}
     </div>

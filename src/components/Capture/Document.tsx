@@ -27,6 +27,23 @@ import type {
   HandleDocVideoCaptureProp,
   StepComponentDocumentProps,
 } from '~types/routers'
+import type { DocumentTypes, PoaTypes } from '~types/steps'
+
+const getDocumentType = (
+  isPoA?: boolean,
+  documentType?: DocumentTypes,
+  poaDocumentType?: PoaTypes
+): DocumentTypes | PoaTypes => {
+  if (isPoA && poaDocumentType) {
+    return poaDocumentType
+  }
+
+  if (documentType) {
+    return documentType
+  }
+
+  throw new Error('Neither documentType nor poaDocumentType provided')
+}
 
 type Props = StepComponentDocumentProps &
   WithLocalisedProps &
@@ -50,7 +67,7 @@ class Document extends Component<Props> {
 
     const documentCaptureData: DocumentCapture = {
       ...payload,
-      documentType: isPoA ? poaDocumentType : documentType,
+      documentType: getDocumentType(isPoA, documentType, poaDocumentType),
       id: payload.id || randomId(),
       method: 'document',
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
@@ -66,10 +83,17 @@ class Document extends Component<Props> {
     const { actions, documentType, mobileFlow, nextStep } = this.props
     const { video, front, back } = payload
 
+    if (!documentType) {
+      throw new Error('documentType not provided')
+    }
+
     const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
       documentType,
       method: 'document',
-      sdkMetadata: addDeviceRelatedProperties(video.sdkMetadata, mobileFlow),
+      sdkMetadata: addDeviceRelatedProperties(
+        video?.sdkMetadata || {},
+        mobileFlow
+      ),
     }
 
     actions.createCapture({
@@ -98,7 +122,7 @@ class Document extends Component<Props> {
     nextStep()
   }
 
-  handleUpload = (blob: Blob, imageResizeInfo: ImageResizeInfo) =>
+  handleUpload = (blob: Blob, imageResizeInfo?: ImageResizeInfo) =>
     this.handleCapture({
       blob,
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
@@ -150,6 +174,10 @@ class Document extends Component<Props> {
       : this.renderUploadFallback
 
     if (requestedVariant === 'video') {
+      if (!documentType) {
+        throw new Error('documentType not provided')
+      }
+
       return (
         <DocumentVideo
           documentType={documentType}
@@ -160,10 +188,14 @@ class Document extends Component<Props> {
       )
     }
 
+    if (!side) {
+      throw new Error('Capture size was not provided')
+    }
+
     const title = translate(
-      DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
-        side
-      ].title
+      DOCUMENT_CAPTURE_LOCALES_MAPPING[
+        getDocumentType(isPoA, documentType, poaDocumentType)
+      ][side]?.title || ''
     )
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle title={title} smaller />
@@ -198,9 +230,9 @@ class Document extends Component<Props> {
     // For document, the upload can be 'identity' or 'proof_of_address'
     const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
     const instructions = translate(
-      DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
-        side
-      ].body
+      DOCUMENT_CAPTURE_LOCALES_MAPPING[
+        getDocumentType(isPoA, documentType, poaDocumentType)
+      ][side]?.body || ''
     )
 
     return (

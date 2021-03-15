@@ -51,7 +51,7 @@ class PdfPreview extends Component<PdfPreviewProps> {
 
   componentDidMount() {
     const { previewUrl } = this.props
-    this.embedPDF(previewUrl)
+    previewUrl && this.embedPDF(previewUrl)
   }
 
   shouldComponentUpdate() {
@@ -59,7 +59,7 @@ class PdfPreview extends Component<PdfPreviewProps> {
   }
 
   componentWillReceiveProps({ previewUrl }: PdfPreviewProps) {
-    if (this.props.pdfPreview !== previewUrl) {
+    if (this.props.pdfPreview !== previewUrl && previewUrl) {
       this.embedPDF(previewUrl)
     }
   }
@@ -81,7 +81,7 @@ export default class PdfViewer extends Component<WithBlobPreviewProps> {
 
     return (
       <div className={style.pdfWrapper}>
-        {window.navigator.msSaveOrOpenBlob ? (
+        {typeof window.navigator.msSaveOrOpenBlob === 'function' ? (
           <IEPdfBlobLink blob={blob} />
         ) : (
           <PdfPreviewWithPreviewUrl blob={blob} />

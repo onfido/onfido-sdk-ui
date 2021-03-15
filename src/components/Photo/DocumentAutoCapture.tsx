@@ -36,7 +36,7 @@ type State = {
 }
 
 export default class DocumentAutoCapture extends Component<Props, State> {
-  private webcam?: Webcam = null
+  private webcam?: Webcam
   private interval?: number
   private captureIds: string[] = []
 
@@ -53,6 +53,10 @@ export default class DocumentAutoCapture extends Component<Props, State> {
   }
 
   screenshot = (): void => {
+    if (!this.webcam) {
+      return
+    }
+
     if (this.captureIds.length < maxAttempts) {
       screenshot(this.webcam, (blob: Blob, sdkMetadata: SdkMetadata) =>
         this.handleScreenshotBlob(blob, sdkMetadata)
@@ -70,7 +74,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
   }
 
   stop = (): void => {
-    Visibility.stop(this.interval)
+    this.interval && Visibility.stop(this.interval)
   }
 
   handleScreenshotBlob = (blob: Blob, sdkMetadata: SdkMetadata): void =>
@@ -107,6 +111,14 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     const url = urls.detect_document_url
     const data = JSON.stringify({ image: base64, id })
 
+    if (!url) {
+      throw new Error('detect_document_url not provided')
+    }
+
+    if (!token) {
+      throw new Error('token not provided')
+    }
+
     postToBackend(
       data,
       url,
@@ -137,14 +149,14 @@ export default class DocumentAutoCapture extends Component<Props, State> {
       <Camera
         {...this.props}
         docAutoCaptureFrame
-        webcamRef={(c) => (this.webcam = c)}
+        webcamRef={(ref) => ref && (this.webcam = ref)}
         renderError={
           hasError ? (
             <CameraError
               error={requestError}
               {...{ trackScreen, renderFallback }}
             />
-          ) : undefined
+          ) : null
         }
       >
         <DocumentOverlay />

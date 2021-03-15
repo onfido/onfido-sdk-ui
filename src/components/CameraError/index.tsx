@@ -8,7 +8,7 @@ import type { WithTrackingProps } from '~types/hocs'
 import type { ErrorProp, RenderFallbackProp } from '~types/routers'
 
 type Props = {
-  error?: ErrorProp
+  error: ErrorProp
   hasBackdrop?: boolean
   isDismissible?: boolean
   renderFallback: RenderFallbackProp
@@ -43,35 +43,37 @@ export default class CameraError extends Component<Props, State> {
 
   handleDismiss = (): void => this.setState({ isDimissed: true })
 
-  render(): h.JSX.Element {
+  render(): h.JSX.Element | null {
     const { error, hasBackdrop, renderFallback, isDismissible } = this.props
 
+    if (this.state.isDimissed) {
+      return null
+    }
+
     return (
-      !this.state.isDimissed && (
-        <div
-          className={classNames(
-            style.errorContainer,
-            style[`${error.type}ContainerType`],
-            {
-              [style.errorHasBackdrop]: hasBackdrop,
-            }
-          )}
-        >
-          <Error
-            role="alertdialog"
-            className={style.errorMessage}
-            error={error}
-            focusOnMount={true}
-            isDismissible={isDismissible}
-            onDismiss={this.handleDismiss}
-            renderInstruction={(str) =>
-              parseTags(str, ({ text }) =>
-                renderFallback(text, this.trackFallbackClick)
-              )
-            }
-          />
-        </div>
-      )
+      <div
+        className={classNames(
+          style.errorContainer,
+          style[`${error.type}ContainerType`],
+          {
+            [style.errorHasBackdrop]: hasBackdrop,
+          }
+        )}
+      >
+        <Error
+          role="alertdialog"
+          className={style.errorMessage}
+          error={error}
+          focusOnMount={true}
+          isDismissible={isDismissible}
+          onDismiss={this.handleDismiss}
+          renderInstruction={(str) =>
+            parseTags(str, ({ text }) =>
+              renderFallback(text, this.trackFallbackClick)
+            )
+          }
+        />
+      </div>
     )
   }
 }

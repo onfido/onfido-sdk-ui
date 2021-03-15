@@ -34,8 +34,7 @@ export type QueryParams = {
   showCobrand?: StringifiedBoolean
   showUserConsent?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
-  snapshotInterva?: StringifiedBoolean
-  snapshotInterval?: StringifiedBoolean
+  snapshotInterval?: string
   uploadFallback?: StringifiedBoolean
   useHistory?: StringifiedBoolean
   useLiveDocumentCapture?: StringifiedBoolean
@@ -49,7 +48,7 @@ export type QueryParams = {
 }
 
 export type CheckData = {
-  applicantId: string | null
+  applicantId?: string
   sdkFlowCompleted: boolean
 }
 
@@ -144,43 +143,47 @@ export const getInitSdkOptions = (): SdkOptions => {
       ? SAMPLE_LOCALE
       : queryParamToValueString.language
 
-  const steps: Array<StepTypes | StepConfig> = [
-    'welcome' as StepTypes,
-    queryParamToValueString.showUserConsent === 'true' &&
-      ({ type: 'userConsent' } as StepConfig),
-    queryParamToValueString.poa === 'true' && ({ type: 'poa' } as StepConfig),
-    {
-      type: 'document',
-      options: {
-        useLiveDocumentCapture:
-          queryParamToValueString.useLiveDocumentCapture === 'true',
-        uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-        useWebcam: queryParamToValueString.useWebcam === 'true',
-        documentTypes: getPreselectedDocumentTypes(),
-        showCountrySelection:
-          queryParamToValueString.oneDocWithCountrySelection === 'true',
-        forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
-        requestedVariant:
-          queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
-      },
-    } as StepConfig,
-    {
-      type: 'face',
-      options: {
-        useUploader: queryParamToValueString.useUploader === 'true',
-        uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-        useMultipleSelfieCapture:
-          queryParamToValueString.useMultipleSelfieCapture !== 'false',
-        snapshotInterval: queryParamToValueString.snapshotInterval
-          ? parseInt(queryParamToValueString.snapshotInterval, 10)
-          : 500,
-        requestedVariant:
-          queryParamToValueString.faceVideo === 'true' ? 'video' : 'standard',
-      },
-    } as StepConfig,
-    queryParamToValueString.noCompleteStep !== 'true' &&
-      ({ type: 'complete' } as StepConfig),
-  ].filter(Boolean)
+  const steps: Array<StepConfig> = [{ type: 'welcome' }]
+
+  if (queryParamToValueString.showUserConsent === 'true') {
+    steps.push({ type: 'userConsent' })
+  }
+
+  if (queryParamToValueString.poa === 'true') {
+    steps.push({ type: 'poa' })
+  }
+
+  steps.push({
+    type: 'document',
+    options: {
+      useLiveDocumentCapture:
+        queryParamToValueString.useLiveDocumentCapture === 'true',
+      uploadFallback: queryParamToValueString.uploadFallback !== 'false',
+      useWebcam: queryParamToValueString.useWebcam === 'true',
+      documentTypes: getPreselectedDocumentTypes(),
+      showCountrySelection:
+        queryParamToValueString.oneDocWithCountrySelection === 'true',
+      forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
+      requestedVariant:
+        queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
+    },
+  })
+
+  steps.push({
+    type: 'face',
+    options: {
+      useUploader: queryParamToValueString.useUploader === 'true',
+      uploadFallback: queryParamToValueString.uploadFallback !== 'false',
+      useMultipleSelfieCapture:
+        queryParamToValueString.useMultipleSelfieCapture !== 'false',
+      requestedVariant:
+        queryParamToValueString.faceVideo === 'true' ? 'video' : 'standard',
+    },
+  })
+
+  if (queryParamToValueString.noCompleteStep !== 'true') {
+    steps.push({ type: 'complete' })
+  }
 
   const smsNumberCountryCode = queryParamToValueString.countryCode
     ? { smsNumberCountryCode: queryParamToValueString.countryCode }
@@ -253,7 +256,7 @@ export const getInitSdkOptions = (): SdkOptions => {
 }
 
 export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
-  standard: null,
+  standard: [],
 
   faceVideo: [
     'welcome',
@@ -368,14 +371,19 @@ export const commonLanguages: Record<
 export const commonRegions: ServerRegions[] = ['EU', 'US', 'CA']
 
 export const getTokenFactoryUrl = (region: ServerRegions): string => {
-  switch (region) {
-    case 'US':
-      return process.env.US_JWT_FACTORY
-    case 'CA':
-      return process.env.CA_JWT_FACTORY
-    default:
-      return process.env.JWT_FACTORY
+  if (region === 'US' && process.env.US_JWT_FACTORY) {
+    return process.env.US_JWT_FACTORY
   }
+
+  if (region === 'CA' && process.env.CA_JWT_FACTORY) {
+    return process.env.CA_JWT_FACTORY
+  }
+
+  if (region === 'EU' && process.env.JWT_FACTORY) {
+    return process.env.JWT_FACTORY
+  }
+
+  throw new Error('No JWT_FACTORY env provided')
 }
 
 const buildTokenRequestParams = (
@@ -395,7 +403,7 @@ export const getToken = (
   hasPreview: boolean,
   url: string,
   applicantData: ApplicantData | null,
-  eventEmitter: MessagePort,
+  eventEmitter: MessagePort | undefined,
   onSuccess: (token: string, applicantId: string) => void
 ): void => {
   const request = new XMLHttpRequest()
@@ -429,16 +437,16 @@ export const getToken = (
 }
 
 export const createCheckIfNeeded = (
-  tokenUrl: string,
-  applicantId: string,
-  applicantData: ApplicantData | null
+  tokenUrl: string | undefined,
+  applicantId: string | undefined,
+  applicantData: ApplicantData | undefined
 ): void => {
-  const { poa, docVideo, faceVideo } = queryParamToValueString
-
   // Don't create check if createCheck flag isn't present
-  if (!applicantData) {
+  if (!tokenUrl || !applicantId || !applicantData) {
     return
   }
+
+  const { poa, docVideo, faceVideo } = queryParamToValueString
 
   const request = new XMLHttpRequest()
 

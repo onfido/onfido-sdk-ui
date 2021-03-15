@@ -18,7 +18,7 @@ const defaultOptions: NormalisedSdkOptions = {
 
 describe('App', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<App options={{}} />)
+    const wrapper = shallow(<App options={defaultOptions} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 

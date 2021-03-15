@@ -39,7 +39,7 @@ type State = {
 const IDEAL_CAMERA_WIDTH_IN_PX = 1080 // Full HD 1080p
 
 export default class DocumentLiveCapture extends Component<Props, State> {
-  private webcam?: Webcam = null
+  private webcam?: Webcam
 
   state = {
     hasAllowedCameraAccess: false,
@@ -68,6 +68,10 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   }
 
   captureDocumentPhoto = (): void => {
+    if (!this.webcam) {
+      return
+    }
+
     this.setState({ isCapturing: true })
     sendEvent('Taking live photo of document')
     screenshot(this.webcam, this.captureDocument, 'image/jpeg')
@@ -106,7 +110,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             idealCameraWidth={IDEAL_CAMERA_WIDTH_IN_PX}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
-            webcamRef={(c: Webcam) => (this.webcam = c)}
+            webcamRef={(ref) => ref && (this.webcam = ref)}
             isUploadFallbackDisabled={isUploadFallbackDisabled}
             trackScreen={trackScreen}
             onUserMedia={this.handleUserMediaReady}

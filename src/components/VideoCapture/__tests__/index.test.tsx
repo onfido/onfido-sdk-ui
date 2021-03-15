@@ -12,6 +12,7 @@ import VideoCapture, {
 
 import type { CameraProps } from '~types/camera'
 import type { CaptureMethods } from '~types/commons'
+import type { WithTrackingProps } from '~types/hocs'
 
 jest.mock('../../utils')
 
@@ -75,7 +76,7 @@ const defaultProps: VideoCaptureProps = {
   onRedo: jest.fn(),
   onVideoCapture: jest.fn(),
   renderFallback: jest.fn(),
-  renderVideoLayer: MockedVideoLayer,
+  renderVideoLayer: (props) => <MockedVideoLayer {...props} />, // eslint-disable-line react/display-name
   trackScreen: jest.fn(),
 }
 
@@ -95,7 +96,7 @@ describe('VideoCapture', () => {
 
   describe('when mounted', () => {
     let wrapper: ReactWrapper
-    let camera: ReactWrapper<CameraProps>
+    let camera: ReactWrapper<CameraProps & WithTrackingProps>
 
     beforeEach(() => {
       wrapper = mount(
@@ -106,7 +107,7 @@ describe('VideoCapture', () => {
         </MockedReduxProvider>
       )
 
-      camera = wrapper.find<CameraProps>(Camera)
+      camera = wrapper.find<CameraProps & WithTrackingProps>(Camera)
     })
 
     it('renders Camera correctly', () => {

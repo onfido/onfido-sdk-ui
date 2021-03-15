@@ -71,7 +71,7 @@ const RECORDING_TIMEOUT_ERRORS_MAP: Record<CaptureMethods, ErrorProp> = {
 }
 
 export default class VideoCapture extends Component<Props, State> {
-  private webcam?: Webcam = null
+  private webcam?: Webcam
 
   state = { ...initialStateWithoutMediaStream, hasMediaStream: false }
 
@@ -115,17 +115,14 @@ export default class VideoCapture extends Component<Props, State> {
 
   handleCameraError = (): void => this.setState({ hasCameraError: true })
 
-  handleFallbackClick = (callback: () => void): void => {
+  handleFallbackClick = (callback?: () => void): void => {
     this.setState({ ...initialStateWithoutMediaStream }, () => {
       this.props.onRedo()
-      callback()
+      typeof callback === 'function' && callback()
     })
   }
 
-  renderRedoActionsFallback = (
-    text: string,
-    callback: () => void
-  ): h.JSX.Element => (
+  renderRedoActionsFallback: RenderFallbackProp = (text, callback) => (
     <FallbackButton
       text={text}
       onClick={() => this.handleFallbackClick(callback)}
@@ -151,7 +148,7 @@ export default class VideoCapture extends Component<Props, State> {
     return <CameraError trackScreen={trackScreen} {...passedProps} />
   }
 
-  renderInactivityTimeoutMessage = (): h.JSX.Element => {
+  renderInactivityTimeoutMessage = (): h.JSX.Element | null => {
     const { method } = this.props
     const {
       hasBecomeInactive,
@@ -221,22 +218,27 @@ export default class VideoCapture extends Component<Props, State> {
         onButtonClick={this.handleRecordingStart}
         onError={this.handleCameraError}
         onUserMedia={this.handleMediaStream}
-        renderError={hasTimeoutError && this.renderError()}
+        renderError={hasTimeoutError ? this.renderError() : null}
         renderFallback={renderFallback}
         renderVideoLayer={({ hasGrantedPermission }) =>
-          renderVideoLayer &&
-          renderVideoLayer({
-            disableInteraction: isRecording
-              ? hasTimeoutError || hasCameraError
-              : !hasGrantedPermission || disableRecording,
-            isRecording,
-            onStart: this.handleRecordingStart,
-            onStop: this.handleRecordingStop,
-          })
+          renderVideoLayer
+            ? renderVideoLayer({
+                disableInteraction: isRecording
+                  ? hasTimeoutError || hasCameraError
+                  : !hasGrantedPermission || disableRecording,
+                isRecording,
+                onStart: this.handleRecordingStart,
+                onStop: this.handleRecordingStop,
+              })
+            : null
         }
-        renderTitle={!isRecording && title && <PageTitle title={title} />}
+        renderTitle={!isRecording && title ? <PageTitle title={title} /> : null}
         trackScreen={trackScreen}
         webcamRef={(webcam) => {
+          if (!webcam) {
+            return
+          }
+
           this.webcam = webcam
 
           if (webcamRef) {

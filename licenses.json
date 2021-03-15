@@ -1292,7 +1292,7 @@
     "path": "node_modules/@types/yauzl",
     "licenseFile": "node_modules/@types/yauzl/LICENSE"
   },
-  "@typescript-eslint/eslint-plugin@4.14.2": {
+  "@typescript-eslint/eslint-plugin@4.17.0": {
     "licenses": "MIT",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
     "path": "node_modules/@typescript-eslint/eslint-plugin",
@@ -1304,25 +1304,25 @@
     "path": "node_modules/@typescript-eslint/experimental-utils",
     "licenseFile": "node_modules/@typescript-eslint/experimental-utils/LICENSE"
   },
-  "@typescript-eslint/experimental-utils@4.14.2": {
+  "@typescript-eslint/experimental-utils@4.17.0": {
     "licenses": "MIT",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
     "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/experimental-utils",
     "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/experimental-utils/LICENSE"
   },
-  "@typescript-eslint/parser@4.14.2": {
+  "@typescript-eslint/parser@4.17.0": {
     "licenses": "BSD-2-Clause",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
     "path": "node_modules/@typescript-eslint/parser",
     "licenseFile": "node_modules/@typescript-eslint/parser/LICENSE"
   },
-  "@typescript-eslint/scope-manager@4.14.2": {
+  "@typescript-eslint/scope-manager@4.17.0": {
     "licenses": "MIT",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
     "path": "node_modules/@typescript-eslint/scope-manager",
     "licenseFile": "node_modules/@typescript-eslint/scope-manager/LICENSE"
   },
-  "@typescript-eslint/types@4.14.2": {
+  "@typescript-eslint/types@4.17.0": {
     "licenses": "MIT",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
     "path": "node_modules/@typescript-eslint/types",
@@ -1334,13 +1334,13 @@
     "path": "node_modules/@typescript-eslint/typescript-estree",
     "licenseFile": "node_modules/@typescript-eslint/typescript-estree/LICENSE"
   },
-  "@typescript-eslint/typescript-estree@4.14.2": {
+  "@typescript-eslint/typescript-estree@4.17.0": {
     "licenses": "BSD-2-Clause",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
     "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/typescript-estree",
     "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/typescript-estree/LICENSE"
   },
-  "@typescript-eslint/visitor-keys@4.14.2": {
+  "@typescript-eslint/visitor-keys@4.17.0": {
     "licenses": "MIT",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
     "path": "node_modules/@typescript-eslint/visitor-keys",
@@ -5368,6 +5368,15 @@
     "url": "https://gulpjs.com/",
     "path": "node_modules/chokidar/node_modules/glob-parent",
     "licenseFile": "node_modules/chokidar/node_modules/glob-parent/LICENSE"
+  },
+  "glob-parent@5.1.2": {
+    "licenses": "ISC",
+    "repository": "https://github.com/gulpjs/glob-parent",
+    "publisher": "Gulp Team",
+    "email": "team@gulpjs.com",
+    "url": "https://gulpjs.com/",
+    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/glob-parent",
+    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/glob-parent/LICENSE"
   },
   "glob-to-regexp@0.3.0": {
     "licenses": "BSD*",
@@ -12331,7 +12340,7 @@
     "path": "node_modules/typedarray",
     "licenseFile": "node_modules/typedarray/LICENSE"
   },
-  "typescript@4.1.3": {
+  "typescript@4.2.3": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/Microsoft/TypeScript",
     "publisher": "Microsoft Corp.",
