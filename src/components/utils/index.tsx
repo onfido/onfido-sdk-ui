@@ -7,11 +7,6 @@ const parseUnit = require('parse-unit')
 
 import type { SdkMetadata, ErrorNames } from '~types/commons'
 import type { TranslatedTagParser } from '~types/locales'
-import type {
-  DocumentTypes,
-  StepConfig,
-  StepConfigDocument,
-} from '~types/steps'
 
 export const functionalSwitch = <T extends unknown>(
   key: string,

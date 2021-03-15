@@ -7,6 +7,7 @@ import {
   MemoryHistory,
 } from 'history'
 
+import { buildStepFinder } from '~utils/steps'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
@@ -20,7 +21,7 @@ import type {
   ChangeFlowProp,
   HistoryRouterProps,
 } from '~types/routers'
-import type { DocumentTypes, StepConfigDocument } from '~types/steps'
+import type { DocumentTypes } from '~types/steps'
 
 type FormattedError = {
   type: 'expired_token' | 'exception'
@@ -85,9 +86,9 @@ export default class HistoryRouter extends Component<
     this.unlisten()
   }
 
-  getStepType = (step: number): Optional<ExtendedStepTypes> => {
+  getStepType = (step: number): ExtendedStepTypes | undefined => {
     const componentList = this.getComponentsList()
-    return componentList[step] ? componentList[step].step.type : null
+    return componentList[step] ? componentList[step].step.type : undefined
   }
 
   disableNavigation = (): boolean => {
@@ -220,10 +221,8 @@ export default class HistoryRouter extends Component<
 
   getDocumentType = (): DocumentTypes => {
     const { documentType, steps } = this.props
-    const documentStep = steps.find(
-      (step) => step.type === 'document'
-    ) as StepConfigDocument
 
+    const documentStep = buildStepFinder(steps)('document')
     const documentTypes = documentStep?.options?.documentTypes || {}
     const enabledDocuments = Object.keys(documentTypes) as DocumentTypes[]
     const isSinglePreselectedDocument = enabledDocuments.length === 1

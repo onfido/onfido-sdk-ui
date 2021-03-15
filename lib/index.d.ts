@@ -55,15 +55,19 @@ export declare type StepOptionsMap = {
 	face: StepOptionFace;
 	complete: StepOptionComplete;
 };
-export declare type StepConfigsMap = {
+export declare type StepConfigMap = {
 	[Type in StepTypes]: {
 		type: Type;
 		options?: StepOptionsMap[Type];
 	};
 };
-export declare type StepConfigDocument = StepConfigsMap["document"];
-export declare type StepConfigFace = StepConfigsMap["face"];
-export declare type StepConfig = StepConfigsMap["welcome"] | StepConfigsMap["userConsent"] | StepConfigDocument | StepConfigsMap["poa"] | StepConfigFace | StepConfigsMap["complete"];
+export declare type StepConfigWelcome = StepConfigMap["welcome"];
+export declare type StepConfigUserConsent = StepConfigMap["userConsent"];
+export declare type StepConfigDocument = StepConfigMap["document"];
+export declare type StepConfigPoa = StepConfigMap["poa"];
+export declare type StepConfigFace = StepConfigMap["face"];
+export declare type StepConfigComplete = StepConfigMap["complete"];
+export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoa | StepConfigFace | StepConfigComplete;
 export declare type DocumentSides = "front" | "back";
 export declare type UploadFileResponse = {
 	id: string;

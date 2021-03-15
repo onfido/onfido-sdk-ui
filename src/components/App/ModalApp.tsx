@@ -25,7 +25,7 @@ import type {
   SdkResponse,
   UserExitCode,
 } from '~types/sdk'
-import type { StepConfig, DocumentTypes, StepConfigFace } from '~types/steps'
+import type { StepConfig, DocumentTypes } from '~types/steps'
 
 import withConnect, { ReduxProps } from './withConnect'
 
@@ -253,12 +253,14 @@ class ModalApp extends Component<Props> {
   setDecoupleFromAPIIfClientHasFeature = (
     isValidEnterpriseFeature: boolean
   ) => {
+    const { actions, options } = this.props
+
     if (isValidEnterpriseFeature) {
       const {
         onSubmitDocument,
         onSubmitSelfie,
         onSubmitVideo,
-      } = this.props.options.enterpriseFeatures
+      } = options.enterpriseFeatures
 
       if (typeof onSubmitDocument !== 'function') {
         this.onInvalidCustomApiException('onSubmitDocument')
@@ -268,9 +270,7 @@ class ModalApp extends Component<Props> {
         this.onInvalidCustomApiException('onSubmitSelfie')
       }
 
-      const faceStep = this.props.options.steps.find(
-        (step) => typeof step !== 'string' && step.type === 'face'
-      ) as StepConfigFace
+      const faceStep = buildStepFinder(options.steps)('face')
 
       if (faceStep?.options?.requestedVariant === 'video') {
         if (typeof onSubmitVideo !== 'function') {
@@ -278,9 +278,9 @@ class ModalApp extends Component<Props> {
         }
       }
 
-      this.props.actions.setDecoupleFromAPI(true)
+      actions.setDecoupleFromAPI(true)
     } else {
-      this.props.actions.setDecoupleFromAPI(false)
+      actions.setDecoupleFromAPI(false)
       this.onInvalidEnterpriseFeatureException('useCustomApiRequests')
     }
   }
