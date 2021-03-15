@@ -12,6 +12,8 @@ DEPLOY_SUBDOMAIN_UNFORMATTED_LIST=()
 echo "TRAVIS_PULL_REQUEST: ${TRAVIS_PULL_REQUEST}"
 echo "TRAVIS_TAG: ${TRAVIS_TAG}"
 
+echo "ON BRANCH: $(git branch --show-current)"
+
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
   if [ "$NODE_ENV" == "production" ]
