@@ -11,7 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
-- Public: Add cross-device support for useCustomizedApiRequests callbacks via customer hosting of SDK.
+- Public: Add cross-device support for useCustomizedApiRequests callbacks via customer hosting of SDK. Note - This is a premium enterprise feature.
 
 ## [6.6.0] - 2021-03-11
 

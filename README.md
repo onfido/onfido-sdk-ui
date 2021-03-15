@@ -799,7 +799,7 @@ UPLOAD - User's file is uploading
 
 These features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
 
-### Customized API Requests
+### Customized API Requests - Premium Enterprise Feature
 
 This premium enterprise feature enables you to control the data collected by the Onfido SDK through the use of callbacks that are invoked when the user submits their captured media. These callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. The callback for video is not officially supported yet.
 
@@ -820,7 +820,7 @@ Onfido.init({
 })
 ```
 
-To enable callbacks on the cross-device flow you must also host the cross-device experience of the Onfido SDK yourself. This can be done using the [cross device URL](#cross-device-url) premium enterprise feature. Once this is set up you must initialize the SDK with the callbacks and `useCustomizedApiRequests` options shown above as well as `mobileFlow: true`.
+To enable callbacks on the cross-device flow you must also host the cross-device experience of the Onfido SDK yourself. This can be done using the [cross device URL](#cross-device-url) premium enterprise feature. Once you have a server with the Onfido Web SDK installed and set up you must initialize the SDK with `mobileFlow: true` as well as the callbacks and `useCustomizedApiRequests` options shown above.
 
 #### Callbacks Overview
 
@@ -843,7 +843,18 @@ The callbacks will provide you with a FormData object including the information 
   sdk_version: string,
   sdk_metadata: {
     captureMethod: string,
-    imageResizeInfo: string | null,
+    imageResizeInfo: null | {
+      resizedFrom: {
+        width: number,
+        height: number,
+        fileSize: number,
+      },
+      resizedTo: {
+        width: number,
+        height: number,
+        fileSize: number,
+      },
+    },
     isCrossDeviceFlow: boolean,
     deviceType: string,
     system: {
@@ -866,7 +877,18 @@ The callbacks will provide you with a FormData object including the information 
   sdk_version: string,
   sdk_metadata: {
     captureMethod: string,
-    imageResizeInfo: string | null,
+    imageResizeInfo: null | {
+      resizedFrom: {
+        width: number,
+        height: number,
+        fileSize: number,
+      },
+      resizedTo: {
+        width: number,
+        height: number,
+        fileSize: number,
+      },
+    },
     isCrossDeviceFlow: boolean,
     deviceType: string,
     system: {
@@ -888,13 +910,14 @@ Example:
 
 ```javascript
 onSubmitDocument: (data) => {
-  Promise.resolve({ continueWithOnfidoUpload: true })
+  // Send data to your backend then resolve promise,
+  return Promise.resolve({ continueWithOnfidoUpload: true })
 })
 ```
 
 **Providing the SDK with the Onfido response**
 
-If you would like to upload the data yourself from your backend, we strongly recommend that you add all of the data provided to you through the callbacks in your request to the appropriate endpoint - `/documents` or `/live_photos`. Additionally, you should use the SDK token created for each applicant in the `Authorization` header of the request as shown below.
+If you would like to upload the data yourself from your backend, we strongly recommend that you add all of the data provided to you through the callbacks in your request to the appropriate endpoint - `/documents` or `/live_photos`. Additionally, you should use the SDK token created for each applicant in the `Authorization` header of the request as shown below. Please note, the SDK token is not included in the FormData provided by the callbacks. You may want to append this or some other unique identifier that is mapped to the applicant's SDK token on your backend before sending it off.
 
 Example:
 
@@ -916,9 +939,9 @@ onSubmitDocument: (data) => {
 
 ```
 
-### Cross device URL
+### Cross device URL - Premium Enterprise Feature
 
-This feature allows you to be able to specify your own custom url that the cross device flow will redirect to instead of the Onfido default `id.onfido.com`. To use this feature generate a SDK token as shown below and use it to start the SDK.
+This feature allows you to specify your own custom or whitelabel url that the cross device flow will redirect to instead of the Onfido default `id.onfido.com`. To use this feature generate a SDK token as shown below and use it to start the SDK.
 
 ```shell
 $ curl https://api.onfido.com/v3/sdk_token \
@@ -930,9 +953,9 @@ $ curl https://api.onfido.com/v3/sdk_token \
 
 In addition to this, you must either:
 
-1. Set up a server to forward the incoming HTTP request, including the path, to id.onfido.com. This can be done by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido hosted Web SDK.
+1. Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`. This can be done by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido-hosted Web SDK.
 
-2. Set up a server to host the Onfido Web SDK yourself at the provided URL.
+2. Set up a server to host the Onfido Web SDK yourself at the provided URL. This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
 
 ## Going live
 
