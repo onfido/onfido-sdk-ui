@@ -93,19 +93,15 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   const { containerEl, containerId, events } = useSdkOptions()
   const [consentHtml, setConsentHtml] = useState('')
   const [isModalOpen, setModalToOpen] = useState(false)
+
+  const openModal = () => setModalToOpen(true)
+  const closeModal = () => setModalToOpen(false)
+
   const sdkContainer = containerEl || document.getElementById(containerId)
 
-  const actions = (
-    <Actions
-      onAccept={nextStep}
-      onDecline={() => {
-        setModalToOpen(true)
-      }}
-    />
-  )
+  const actions = <Actions onAccept={nextStep} onDecline={openModal} />
 
   const triggerUserExit = () => {
-    setModalToOpen(false)
     events.emit('userExit', 'USER_CONSENT_DENIED')
     unmountComponentAtNode(sdkContainer)
   }
@@ -120,15 +116,13 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
 
   return (
     <Fragment>
-      {isModalOpen && (
-        <DeclineModal
-          isOpen={true}
-          onRequestClose={() => setModalToOpen(false)}
-          onDismissModal={() => setModalToOpen(false)}
-          onAbandonFlow={triggerUserExit}
-          containerEl={sdkContainer}
-        />
-      )}
+      <DeclineModal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        onDismissModal={closeModal}
+        onAbandonFlow={triggerUserExit}
+        containerEl={sdkContainer}
+      />
       <ScreenLayout actions={actions}>
         <div
           className={style.consentFrame}
