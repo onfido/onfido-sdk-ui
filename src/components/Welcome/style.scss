@@ -12,10 +12,10 @@
   align-items: center;
   justify-content: space-between;
   flex: 1;
-}
 
-.content.left {
-  align-items: flex-start;
+  @media (--small-viewport) {
+    align-items: flex-start;
+  }
 }
 
 .text {
@@ -23,7 +23,8 @@
 }
 
 .instructions {
-  text-align: left;
+  list-style-position: inside;
+  padding: 0;
 
   > li {
     margin-bottom: 16 * $unit;
@@ -31,6 +32,11 @@
 
   > li::marker {
     color: $color-primary-500;
+  }
+
+  @media (--small-viewport) {
+    padding-left: 32 * $unit;
+    text-align: left;
   }
 }
 
