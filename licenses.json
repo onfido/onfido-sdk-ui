@@ -5021,6 +5021,15 @@
     "path": "node_modules/file-uri-to-path",
     "licenseFile": "node_modules/file-uri-to-path/LICENSE"
   },
+  "file-uri-to-path@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/file-uri-to-path",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "node_modules/file-uri-to-path",
+    "licenseFile": "node_modules/file-uri-to-path/LICENSE"
+  },
   "filesize@3.6.1": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/avoidwork/filesize.js",
@@ -8375,8 +8384,8 @@
   "mkdirp@1.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "node_modules/chromedriver/node_modules/mkdirp",
-    "licenseFile": "node_modules/chromedriver/node_modules/mkdirp/LICENSE"
+    "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
+    "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
   },
   "mocha@6.2.3": {
     "licenses": "MIT",
@@ -8998,13 +9007,13 @@
     "path": "node_modules/jest-changed-files/node_modules/onetime",
     "licenseFile": "node_modules/jest-changed-files/node_modules/onetime/license"
   },
-  "onfido-sdk-ui@6.5.0": {
+  "onfido-sdk-ui@6.6.0": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/jake.batchelor/WebstormProjects/onfido-sdk-ui",
+    "path": "onfido/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
