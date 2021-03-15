@@ -106,17 +106,14 @@ export default class VideoCapture extends Component<Props, State> {
 
   handleCameraError = (): void => this.setState({ hasCameraError: true })
 
-  handleFallbackClick = (callback: () => void): void => {
+  handleFallbackClick = (callback?: () => void): void => {
     this.setState({ ...initialStateWithoutMediaStream }, () => {
       this.props.onRedo()
-      callback()
+      typeof callback === 'function' && callback()
     })
   }
 
-  renderRedoActionsFallback = (
-    text: string,
-    callback: () => void
-  ): h.JSX.Element => (
+  renderRedoActionsFallback: RenderFallbackProp = (text, callback) => (
     <FallbackButton
       text={text}
       onClick={() => this.handleFallbackClick(callback)}

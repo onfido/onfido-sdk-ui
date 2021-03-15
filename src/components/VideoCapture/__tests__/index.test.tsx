@@ -10,6 +10,7 @@ import VideoCapture, {
 } from '../index'
 
 import type { CameraProps } from '~types/camera'
+import type { WithTrackingProps } from '~types/hocs'
 
 jest.mock('../../utils')
 
@@ -79,7 +80,7 @@ describe('VideoCapture', () => {
 
   describe('when mounted', () => {
     let wrapper: ReactWrapper
-    let camera: ReactWrapper<CameraProps>
+    let camera: ReactWrapper<CameraProps & WithTrackingProps>
 
     beforeEach(() => {
       wrapper = mount(
@@ -90,7 +91,7 @@ describe('VideoCapture', () => {
         </MockedReduxProvider>
       )
 
-      camera = wrapper.find<CameraProps>(Camera)
+      camera = wrapper.find<CameraProps & WithTrackingProps>(Camera)
     })
 
     it('renders Camera correctly', () => {
