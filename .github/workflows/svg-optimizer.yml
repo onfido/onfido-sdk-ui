@@ -17,7 +17,8 @@ jobs:
     steps:
       - uses: ericcornelissen/svgo-action@v1
         with:
-          test-run: true
+          test-run: false
           svgo-version: 2
           svgo-options: svgo.config.js
+          ignore: take-selfie.svg
           repo-token: ${{ secrets.GITHUB_TOKEN }}
