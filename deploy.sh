@@ -64,7 +64,6 @@ do
     DEPLOY_DOMAIN=https://microsoft-idv-sdk-ui-onfido.surge.sh
     surge teardown microsoft-idv-sdk-ui-onfido.surge.sh
     echo "Tore down domain: ${DEPLOY_DOMAIN}"
-    break
   else
     # replaces non alphanumeric symbols with "-"
     # sed -r is only supported in linux, ref http://stackoverflow.com/a/2871217/689223
