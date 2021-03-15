@@ -2,14 +2,29 @@ import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 import { sanitize } from 'dompurify'
 
-import UserConsent from '../index'
+import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import MockedLocalised from '~jest/MockedLocalised'
 import { mockedReduxProps } from '~jest/MockedReduxProvider'
-import type { StepComponentUserConsentProps } from '~types/routers'
+import UserConsent from '../index'
+
+import type { StepComponentBaseProps } from '~types/routers'
 
 jest.mock('dompurify')
 
-const defaultOptions: StepComponentUserConsentProps = {
+const xhrMock: Partial<XMLHttpRequest> = {
+  open: jest.fn(),
+  send: jest.fn(),
+  setRequestHeader: jest.fn(),
+  readyState: 4,
+  status: 200,
+  response: '<h1>My Sanitized Header</h1>',
+}
+
+jest
+  .spyOn(window, 'XMLHttpRequest')
+  .mockImplementation(() => xhrMock as XMLHttpRequest)
+
+const defaultOptions: StepComponentBaseProps = {
   ...mockedReduxProps,
   componentsList: [
     { component: UserConsent, step: { type: 'userConsent' }, stepIndex: 0 },
@@ -24,6 +39,8 @@ const defaultOptions: StepComponentUserConsentProps = {
   trackScreen: jest.fn(),
 }
 
+console.error = jest.fn()
+
 describe('UserConsent', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(<UserConsent {...defaultOptions} />)
@@ -33,14 +50,16 @@ describe('UserConsent', () => {
   describe('when mounted', () => {
     beforeEach(() => {
       const sanitizer = sanitize as jest.Mock
-      sanitizer.mockReturnValueOnce('<h1>My Sanitized Header</h1>')
+      sanitizer.mockReturnValueOnce(xhrMock.response)
     })
 
     it('renders UserConsent with actions', () => {
       const wrapper = mount(
-        <MockedLocalised>
-          <UserConsent {...defaultOptions} />
-        </MockedLocalised>
+        <SdkOptionsProvider options={{}}>
+          <MockedLocalised>
+            <UserConsent {...defaultOptions} />
+          </MockedLocalised>
+        </SdkOptionsProvider>
       )
 
       expect(wrapper.exists()).toBeTruthy()
@@ -49,21 +68,27 @@ describe('UserConsent', () => {
 
     it('renders UserConsent sanitized HTML', () => {
       const wrapper = mount(
-        <MockedLocalised>
-          <UserConsent {...defaultOptions} />
-        </MockedLocalised>
+        <SdkOptionsProvider options={{}}>
+          <MockedLocalised>
+            <UserConsent {...defaultOptions} />
+          </MockedLocalised>
+        </SdkOptionsProvider>
       )
       // In Enzyme v3 you need to use `render()` to see the HTML inside `dangerouslySetInnerHTML`
       // See the following issues https://github.com/enzymejs/enzyme/issues/419 and https://github.com/enzymejs/enzyme/issues/1297
 
-      expect(wrapper.render().html()).toContain('<h1>My Sanitized Header</h1>')
+      expect(wrapper.find('ScreenLayout').render().html()).toContain(
+        xhrMock.response
+      )
     })
 
     it('renders the DeclineModal component', () => {
       const wrapper = mount(
-        <MockedLocalised>
-          <UserConsent {...defaultOptions} />
-        </MockedLocalised>
+        <SdkOptionsProvider options={{}}>
+          <MockedLocalised>
+            <UserConsent {...defaultOptions} />
+          </MockedLocalised>
+        </SdkOptionsProvider>
       )
       const secondaryBtn = wrapper.find({
         'data-onfido-qa': 'userConsentBtnSecondary',

@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
+import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider, {
   mockedReduxProps,
@@ -23,9 +24,7 @@ const defaultOptions: NarrowSdkOptions = {
 
 describe('Router', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(
-      <Router {...mockedReduxProps} options={defaultOptions} />
-    )
+    const wrapper = shallow(<Router {...mockedReduxProps} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 
@@ -33,9 +32,11 @@ describe('Router', () => {
     it('renders MainRouter by default', () => {
       const wrapper = mount(
         <MockedReduxProvider>
-          <MockedLocalised>
-            <Router {...mockedReduxProps} options={defaultOptions} />
-          </MockedLocalised>
+          <SdkOptionsProvider options={defaultOptions}>
+            <MockedLocalised>
+              <Router {...mockedReduxProps} />
+            </MockedLocalised>
+          </SdkOptionsProvider>
         </MockedReduxProvider>
       )
 
@@ -47,12 +48,11 @@ describe('Router', () => {
     it('renders CrossDeviceMobileRouter when mobileFlow=true', () => {
       const wrapper = mount(
         <MockedReduxProvider>
-          <MockedLocalised>
-            <Router
-              {...mockedReduxProps}
-              options={{ ...defaultOptions, mobileFlow: true }}
-            />
-          </MockedLocalised>
+          <SdkOptionsProvider options={{ ...defaultOptions, mobileFlow: true }}>
+            <MockedLocalised>
+              <Router {...mockedReduxProps} />
+            </MockedLocalised>
+          </SdkOptionsProvider>
         </MockedReduxProvider>
       )
 

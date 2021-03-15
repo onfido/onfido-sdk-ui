@@ -1,8 +1,8 @@
 import { h, FunctionComponent } from 'preact'
 import { useCallback, useRef } from 'preact/compat'
 
-import { SdkOptions } from '~types/sdk'
 import detectSystem from '~utils/detectSystem'
+import type { SdkOptions } from '~types/sdk'
 
 import {
   CheckData,
