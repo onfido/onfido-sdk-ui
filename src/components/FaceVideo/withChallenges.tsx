@@ -59,14 +59,6 @@ const withChallenges = <P extends Props>(
             urls: { onfido_api_url: url },
           } = this.props
 
-          if (!url) {
-            throw new Error('onfido_api_url not provided')
-          }
-
-          if (!token) {
-            throw new Error('token not provided')
-          }
-
           requestChallenges(url, token, this.handleResponse, this.handleError)
           sendScreen(['face_video_challenge_requested'])
         }

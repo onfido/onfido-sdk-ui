@@ -111,8 +111,8 @@ export const uploadDocument = (
 
 export const uploadLivePhoto = (
   { sdkMetadata, ...data }: UploadLivePhotoPayload,
-  url: string,
-  token: string,
+  url: string | undefined,
+  token: string | undefined,
   onSuccess: SuccessCallback<UploadFileResponse>,
   onError: ErrorCallback
 ): void => {
@@ -129,8 +129,8 @@ export const uploadLivePhoto = (
 
 export const uploadSnapshot = (
   payload: UploadSnapshotPayload,
-  url: string,
-  token: string,
+  url: string | undefined,
+  token: string | undefined,
   onSuccess: SuccessCallback<SnapshotResponse>,
   onError: ErrorCallback
 ): void => {
@@ -141,8 +141,8 @@ export const uploadSnapshot = (
 export const sendMultiframeSelfie = (
   snapshot: FilePayload,
   selfie: SelfiePayload,
-  token: string,
-  url: string,
+  token: string | undefined,
+  url: string | undefined,
   onSuccess: SuccessCallback<UploadFileResponse>,
   onError: ErrorCallback,
   sendEvent: (event: TrackedEventNames) => void
@@ -222,8 +222,8 @@ export const uploadDocumentVideo = (
 
 export const uploadFaceVideo = (
   { challengeData, blob, language, sdkMetadata }: UploadVideoPayload,
-  url: string,
-  token: string,
+  url: string | undefined,
+  token: string | undefined,
   onSuccess?: SuccessCallback<FaceVideoResponse>,
   onError?: ErrorCallback
 ): Promise<FaceVideoResponse> => {
@@ -250,11 +250,19 @@ export const uploadFaceVideo = (
 }
 
 export const requestChallenges = (
-  url: string,
-  token: string,
+  url: string | undefined,
+  token: string | undefined,
   onSuccess: SuccessCallback<VideoChallengeResponse>,
   onError: ErrorCallback
 ): void => {
+  if (!url) {
+    throw new Error('onfido_api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
   const options: HttpRequestParams = {
     endpoint: `${url}/v3/live_video_challenge`,
     contentType: 'application/json',
@@ -369,12 +377,20 @@ export const objectToFormData = (object: SubmitPayload): FormData => {
 }
 
 const sendFile = <T>(
-  endpoint: string,
+  endpoint: string | undefined,
   data: SubmitPayload,
-  token: string,
+  token: string | undefined,
   onSuccess: SuccessCallback<T>,
   onError: ErrorCallback
 ) => {
+  if (!endpoint) {
+    throw new Error('onfido_api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
   const payload: SubmitPayload = {
     ...data,
     sdk_source: 'onfido_web_sdk',
