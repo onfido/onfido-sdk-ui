@@ -11,8 +11,8 @@
     <meta
       http-equiv="Content-Security-Policy"
       content="
-      default-src 'self';
-      script-src 'self' https://www.woopra.com https://sentry.io;
+      default-src 'self' https://assets.onfido.com;
+      script-src 'self' https://assets.onfido.com https://www.woopra.com https://sentry.io;
       style-src 'self' 'unsafe-inline' https://assets.onfido.com;
       connect-src blob: <%= process.env.NODE_ENV === 'test' ? 'https://localhost:8080' : '' %> *.onfido.com wss://*.onfido.com *.dev.onfido.xyz wss://*.dev.onfido.xyz https://www.woopra.com https://sentry.io;
       img-src 'self' data: blob: https://lipis.github.io/flag-icon-css/;
