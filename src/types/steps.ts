@@ -77,20 +77,20 @@ type StepOptionsMap = {
   complete: StepOptionComplete
 }
 
-export type StepConfigsMap = {
+export type StepConfigMap = {
   [Type in StepTypes]: {
     type: Type
     options?: StepOptionsMap[Type]
   }
 }
 
-export type StepConfigDocument = StepConfigsMap['document']
-export type StepConfigFace = StepConfigsMap['face']
+export type StepConfigDocument = StepConfigMap['document']
+export type StepConfigFace = StepConfigMap['face']
 
 export type StepConfig =
-  | StepConfigsMap['welcome']
-  | StepConfigsMap['userConsent']
+  | StepConfigMap['welcome']
+  | StepConfigMap['userConsent']
   | StepConfigDocument
-  | StepConfigsMap['poa']
+  | StepConfigMap['poa']
   | StepConfigFace
-  | StepConfigsMap['complete']
+  | StepConfigMap['complete']

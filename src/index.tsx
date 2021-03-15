@@ -3,11 +3,12 @@ import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
 import 'custom-event-polyfill'
 
-import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
+import { upperCase } from '~utils/string'
+import { buildStepFinder } from '~utils/steps'
 import type { NormalisedSdkOptions } from '~types/commons'
 import type { SdkOptions, SdkHandle } from '~types/sdk'
-import type { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
+import type { StepConfig, StepTypes } from '~types/steps'
 import App from './components/App'
 
 if (process.env.NODE_ENV === 'development') {
@@ -47,21 +48,15 @@ const formatOptions = ({
 })
 
 const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
-  const documentStep = steps.find(
-    (step) => step.type === 'document'
-  ) as StepConfigDocument
+  const documentStep = buildStepFinder(steps)('document')
 
-  if (!documentStep) {
-    return
-  }
-
-  if (documentStep.options?.useWebcam) {
+  if (documentStep?.options?.useWebcam) {
     console.warn(
       '`useWebcam` is an experimental option and is currently discouraged'
     )
   }
 
-  if (documentStep.options?.useLiveDocumentCapture) {
+  if (documentStep?.options?.useLiveDocumentCapture) {
     console.warn(
       '`useLiveDocumentCapture` is a beta feature and is still subject to ongoing changes'
     )

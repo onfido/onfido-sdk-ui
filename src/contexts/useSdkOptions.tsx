@@ -1,12 +1,8 @@
 import { h, createContext, FunctionComponent } from 'preact'
 import { useContext } from 'preact/compat'
+import { buildStepFinder, FindStepCallback } from '~utils/steps'
 
 import type { NarrowSdkOptions } from '~types/commons'
-import type { StepTypes, StepConfigsMap } from '~types/steps'
-
-type FindStepCallback = <T extends StepTypes>(
-  type: T
-) => Partial<StepConfigsMap>[T]
 
 type EnhancedOptions = {
   findStep: FindStepCallback
@@ -28,12 +24,8 @@ export const SdkOptionsProvider: FunctionComponent<Props> = ({
 }) => {
   const { steps } = options
 
-  const mappedSteps = Object.fromEntries(
-    steps.map((step) => [step.type, step])
-  ) as Partial<StepConfigsMap>
-
   const enhancedOptions: EnhancedOptions = {
-    findStep: (type) => mappedSteps[type],
+    findStep: buildStepFinder(steps),
   }
 
   return (

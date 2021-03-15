@@ -9,7 +9,8 @@ import {
   /* type CountryData, */
 } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
-import { parseTags, hasOnePreselectedDocument } from '~utils'
+import { parseTags } from '~utils'
+import { hasOnePreselectedDocument } from '~utils/steps'
 
 import Autocomplete from 'accessible-autocomplete/preact'
 import theme from 'components/Theme/style.scss'
