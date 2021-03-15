@@ -61,9 +61,7 @@ fi
 for DEPLOY_SUBDOMAIN_UNFORMATTED in "${DEPLOY_SUBDOMAIN_UNFORMATTED_LIST[@]}"
 do
   if [ "$NODE_ENV" == "production" ]; then
-    DEPLOY_DOMAIN=https://microsoft-idv-sdk-ui-onfido.surge.sh
-    surge teardown $DEPLOY_DOMAIN
-    echo "Tore down domain: ${DEPLOY_DOMAIN}"
+    break
   else
     # replaces non alphanumeric symbols with "-"
     # sed -r is only supported in linux, ref http://stackoverflow.com/a/2871217/689223
@@ -81,7 +79,7 @@ do
     TEST_ENV=deployment npm run build
   fi
 
-  surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN
+  surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
   echo "Deploy domain: ${DEPLOY_DOMAIN}"
 
   if [ "$TRAVIS_PULL_REQUEST" != "false" ]
@@ -93,3 +91,9 @@ do
     curl -H "Authorization: token ${GITHUB_API_TOKEN}" --request POST ${GITHUB_PR_COMMENTS} --data '{"body":"Travis automatic deployment: '${DEPLOY_DOMAIN}'"}'
   fi
 done
+
+
+if [ "$NODE_ENV" == "production" ]; then
+  surge --project ${DEPLOY_PATH} --domain https://microsoft-idv-sdk-ui-onfido.surge.sh;
+  echo "Deploy domain: ${DEPLOY_DOMAIN}"
+fi
