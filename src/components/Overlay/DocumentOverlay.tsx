@@ -107,7 +107,7 @@ const DocumentOverlay: FunctionComponent<Props> = ({
   type,
   withPlaceholder,
 }) => {
-  const [hollowRect, setHollowRect] = useState<DOMRect>(null)
+  const [hollowRect, setHollowRect] = useState<DOMRect | undefined>(undefined)
   const highlightFrameRef = useRef<SVGPathElement>(null)
   const size = getDocumentSize(type)
   const { [size]: aspectRatio } = ASPECT_RATIOS

@@ -60,6 +60,7 @@ const defaultProps: StepComponentDocumentProps = {
   resetSdkFocus: jest.fn(),
   step: 0,
   stepIndexType: 'user',
+  steps: [{ type: 'document' }],
   trackScreen: jest.fn(),
   triggerOnError: jest.fn(),
   ...mockedReduxProps,
@@ -160,9 +161,14 @@ describe('DocumentVideo', () => {
 
     beforeEach(() => {
       jest.useFakeTimers()
+      const fakeVideoPayload = fakeDocumentCaptureState('passport', 'video')
 
       wrapper = mount(
-        <MockedReduxProvider>
+        <MockedReduxProvider
+          overrideCaptures={{
+            document_video: fakeVideoPayload,
+          }}
+        >
           <MockedLocalised>
             <Confirm {...defaultProps} />
           </MockedLocalised>
@@ -676,7 +682,7 @@ describe('DocumentVideo', () => {
                 error: {
                   type: 'validation_error',
                   message: 'Fake message',
-                  fields: { document_detection: null },
+                  fields: { document_detection: undefined },
                 },
               },
             },

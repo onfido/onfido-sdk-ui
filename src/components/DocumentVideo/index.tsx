@@ -1,12 +1,12 @@
 import { h, FunctionComponent } from 'preact'
-import { memo, useContext, useRef, useState } from 'preact/compat'
+import { memo, useRef, useState } from 'preact/compat'
 import Webcam from 'react-webcam-onfido'
 
 import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
 import { getInactiveError } from '~utils/inactiveError'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
-import { LocaleContext } from '~locales'
+import { useLocales } from '~locales'
 import { DocumentOverlay } from '../Overlay'
 import VideoCapture from '../VideoCapture'
 import VideoLayer from './VideoLayer'
@@ -51,8 +51,10 @@ const DocumentVideo: FunctionComponent<Props> = ({
     nextStep,
     restart: restartFlow,
   } = useCaptureStep(documentType)
-  const [frontPayload, setFrontPayload] = useState<CapturePayload>(null)
-  const { translate } = useContext(LocaleContext)
+  const [frontPayload, setFrontPayload] = useState<CapturePayload | undefined>(
+    undefined
+  )
+  const { translate } = useLocales()
   const webcamRef = useRef<Webcam>(null)
 
   const onRecordingStart = () => {

@@ -1,7 +1,7 @@
 import { h, FunctionComponent, Fragment } from 'preact'
-import { memo, useCallback, useContext, useState } from 'preact/compat'
+import { memo, useCallback, useState } from 'preact/compat'
 
-import { LocaleContext } from '~locales'
+import { useLocales } from '~locales'
 import Button from '../Button'
 import Instructions from './Instructions'
 import ProgressBar from './ProgressBar'
@@ -41,7 +41,7 @@ const VideoLayer: FunctionComponent<Props> = ({
   totalSteps,
 }) => {
   const [stepFinished, setStepFinished] = useState(false)
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
 
   const handleNext = useCallback(() => {
     if (step === 'intro') {

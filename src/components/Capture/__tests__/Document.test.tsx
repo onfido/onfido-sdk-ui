@@ -28,6 +28,7 @@ const defaultProps: StepComponentDocumentProps = {
   resetSdkFocus: jest.fn(),
   step: 0,
   stepIndexType: 'user',
+  steps: [{ type: 'document' }],
   trackScreen: jest.fn(),
   triggerOnError: jest.fn(),
   ...mockedReduxProps,

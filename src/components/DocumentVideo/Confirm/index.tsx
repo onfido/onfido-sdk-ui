@@ -1,9 +1,9 @@
 import { h, FunctionComponent } from 'preact'
-import { memo, useCallback, useContext, useState } from 'preact/compat'
+import { memo, useCallback, useState } from 'preact/compat'
 import type { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { LocaleContext } from '~locales'
+import { useLocales } from '~locales'
 import {
   uploadDocument,
   uploadDocumentVideo,
@@ -31,34 +31,44 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
 }) => {
   const [loading, setLoading] = useState(false)
   const [previewing, setPreviewing] = useState(false)
-  const [error, setError] = useState<ErrorProp>(null)
-  const { translate } = useContext(LocaleContext)
+  const [error, setError] = useState<ErrorProp | undefined>(undefined)
+  const { translate } = useLocales()
 
   const dispatch = useDispatch<Dispatch<CombinedActions>>()
-  const apiUrl = useSelector<RootState, string>(
+  const apiUrl = useSelector<RootState, string | undefined>(
     (state) => state.globals.urls.onfido_api_url
   )
-  const documentFront = useSelector<RootState, DocumentCapture>(
+  const documentFront = useSelector<RootState, DocumentCapture | undefined>(
     (state) => state.captures.document_front
   )
-  const documentBack = useSelector<RootState, DocumentCapture>(
+  const documentBack = useSelector<RootState, DocumentCapture | undefined>(
     (state) => state.captures.document_back
   )
-  const documentVideo = useSelector<RootState, DocumentCapture>(
+  const documentVideo = useSelector<RootState, DocumentCapture | undefined>(
     (state) => state.captures.document_video
   )
-  const issuingCountry = useSelector<RootState, CountryData>(
+  const issuingCountry = useSelector<RootState, CountryData | undefined>(
     (state) => state.globals.idDocumentIssuingCountry
   )
 
   const onUploadDocumentsV3 = useCallback(async () => {
+    if (!documentFront) {
+      console.error('Front document not captured')
+      return null
+    }
+
+    if (!documentVideo) {
+      console.error('Document video not captured')
+      return null
+    }
+
     setLoading(true)
 
     const issuingCountryData =
       documentType === 'passport'
         ? {}
         : {
-            issuing_country: issuingCountry.country_alpha3,
+            issuing_country: issuingCountry?.country_alpha3,
           }
 
     try {
@@ -153,6 +163,16 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   ])
 
   const onUploadDocumentsV4 = useCallback(async () => {
+    if (!documentFront) {
+      console.error('Front document not captured')
+      return
+    }
+
+    if (!documentVideo) {
+      console.error('Document video not captured')
+      return
+    }
+
     setLoading(true)
 
     const mediaUuids = []

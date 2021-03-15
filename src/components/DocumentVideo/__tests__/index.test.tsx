@@ -202,7 +202,11 @@ describe('DocumentVideo', () => {
         })
 
         it('handles redo fallback correctly', () => {
-          wrapper.find<FallbackButtonProps>(FallbackButton).props().onClick()
+          const fallbackButton = wrapper.find<FallbackButtonProps>(
+            FallbackButton
+          )
+          const onClick = fallbackButton?.props().onClick
+          onClick && onClick()
           wrapper.update()
 
           assertRecordingButton(wrapper, 'doc_video_capture.button_start')

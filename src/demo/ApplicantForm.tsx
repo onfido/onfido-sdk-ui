@@ -37,7 +37,7 @@ type Props = {
   onSubmit: (data: ApplicantData) => void
 }
 
-const appendUuidToEmail = (email: string): string => {
+const appendUuidToEmail = (email: string): string | undefined => {
   if (!email.length) {
     return undefined
   }

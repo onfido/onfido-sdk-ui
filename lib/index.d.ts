@@ -122,7 +122,7 @@ export declare type DocumentImageResponse = {
 	applicant_id: string;
 	type: DocumentTypes | PoaTypes;
 	side: DocumentSides;
-	issuing_country?: string;
+	issuing_country: string | null | undefined;
 	sdk_warnings: ImageQualityWarnings;
 } & UploadFileResponse;
 declare const CHALLENGE_RECITE = "recite";

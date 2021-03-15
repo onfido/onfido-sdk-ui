@@ -235,6 +235,7 @@ const buildDocumentComponents = (
       : [SelectIdentityDocument]
 
     if (shouldUseVideo) {
+      // @ts-ignore
       return [...preCaptureComponents, ...videoCaptureComponents]
     }
 
@@ -264,6 +265,7 @@ const buildDocumentComponents = (
   )
 
   if (shouldUseVideo) {
+    // @ts-ignore
     return [...preCaptureComponents, ...videoCaptureComponents]
   }
 

@@ -386,9 +386,7 @@ export const getTokenFactoryUrl = (region: ServerRegions): string => {
   throw new Error('No JWT_FACTORY env provided')
 }
 
-const buildTokenRequestParams = (
-  applicantData: ApplicantData | null
-): string => {
+const buildTokenRequestParams = (applicantData?: ApplicantData): string => {
   if (!applicantData) {
     return ''
   }
@@ -402,7 +400,7 @@ const buildTokenRequestParams = (
 export const getToken = (
   hasPreview: boolean,
   url: string,
-  applicantData: ApplicantData | null,
+  applicantData: ApplicantData | undefined,
   eventEmitter: MessagePort | undefined,
   onSuccess: (token: string, applicantId: string) => void
 ): void => {

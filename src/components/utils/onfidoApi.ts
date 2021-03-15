@@ -81,11 +81,19 @@ export const formatError = (
 
 export const uploadDocument = (
   payload: UploadDocumentPayload,
-  url: string,
-  token: string,
+  url: string | undefined,
+  token: string | undefined,
   onSuccess?: SuccessCallback<DocumentImageResponse>,
   onError?: ErrorCallback
 ): Promise<DocumentImageResponse> => {
+  if (!url) {
+    throw new Error('api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
   const { sdkMetadata, validations = {}, ...other } = payload
 
   const data: SubmitPayload = {
@@ -168,11 +176,19 @@ export const sendMultiframeSelfie = (
 
 export const uploadDocumentVideo = (
   { blob, sdkMetadata }: UploadVideoPayload,
-  url: string,
-  token: string,
+  url: string | undefined,
+  token: string | undefined,
   onSuccess?: SuccessCallback<DocumentVideoResponse>,
   onError?: ErrorCallback
 ): Promise<DocumentVideoResponse> => {
+  if (!url) {
+    throw new Error('api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
   const placeholderChallengeData = {
     languages: JSON.stringify([
       { source: 'sdk', language_code: 'PLACEHOLDER' },
@@ -251,11 +267,19 @@ export const requestChallenges = (
 /* v4 APIs */
 export const uploadBinaryMedia = (
   { file, filename }: UploadDocumentPayload,
-  url: string,
-  token: string,
+  url: string | undefined,
+  token: string | undefined,
   includeHmacAuth = false
-): Promise<UploadBinaryMediaReponse> =>
-  new Promise((resolve, reject) => {
+): Promise<UploadBinaryMediaReponse> => {
+  if (!url) {
+    throw new Error('api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
+  return new Promise((resolve, reject) => {
     try {
       const tokenData = parseJwt(token)
       const formData = new FormData()
@@ -295,13 +319,22 @@ export const uploadBinaryMedia = (
       reject(error)
     }
   })
+}
 
 export const createV4Document = (
   mediaIds: string[],
-  url: string,
-  token: string
-): Promise<CreateV4DocumentResponse> =>
-  new Promise((resolve, reject) => {
+  url: string | undefined,
+  token: string | undefined
+): Promise<CreateV4DocumentResponse> => {
+  if (!url) {
+    throw new Error('api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
+  return new Promise((resolve, reject) => {
     try {
       const requestParams: HttpRequestParams = {
         contentType: 'application/json',
@@ -319,6 +352,7 @@ export const createV4Document = (
       reject(error)
     }
   })
+}
 
 export const objectToFormData = (object: SubmitPayload): FormData => {
   const formData = new FormData()

@@ -1,19 +1,23 @@
 import { h, FunctionComponent } from 'preact'
-import { memo, useContext } from 'preact/compat'
+import { memo } from 'preact/compat'
 
-import { LocaleContext } from '~locales'
+import { useLocales } from '~locales'
 import CaptureViewer from '../../CaptureViewer'
 import style from './style.scss'
 
 import type { DocumentCapture } from '~types/redux'
 
 type Props = {
-  capture: DocumentCapture
+  capture?: DocumentCapture
   previewing: boolean
 }
 
 const Content: FunctionComponent<Props> = ({ capture, previewing }) => {
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
+
+  if (!capture) {
+    return null
+  }
 
   if (previewing) {
     return (

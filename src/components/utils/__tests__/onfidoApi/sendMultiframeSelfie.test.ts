@@ -23,7 +23,7 @@ const runAllPromises = () => new Promise(setImmediate)
 
 describe('onfidoApi', () => {
   describe('sendMultiframeSelfie', () => {
-    let mockXHR: XMLHttpRequest = null
+    let mockXHR: XMLHttpRequest
 
     afterEach(() => {
       jest.clearAllMocks()
@@ -47,7 +47,9 @@ describe('onfidoApi', () => {
           mockedTrackingCallback
         )
 
-        mockXHR.onload(null) // Upload snapshots
+        mockXHR &&
+          mockXHR.onload &&
+          mockXHR.onload(new ProgressEvent('upload snapshots')) // Upload snapshots
         await runAllPromises()
 
         expect(mockedTrackingCallback).toHaveBeenCalledWith(
@@ -56,7 +58,9 @@ describe('onfidoApi', () => {
         expect(mockXHR.open).toHaveBeenCalledWith('POST', `${url}/v3/snapshots`)
         expect(mockXHR.send).toHaveBeenCalled()
 
-        mockXHR.onload(null) // Upload live photos
+        mockXHR &&
+          mockXHR.onload &&
+          mockXHR.onload(new ProgressEvent('upload live photo')) // Upload live photo
         await runAllPromises()
 
         expect(mockXHR.open).toHaveBeenCalledWith(
@@ -96,7 +100,7 @@ describe('onfidoApi', () => {
           mockedTrackingCallback
         )
 
-        mockXHR.onload(null)
+        mockXHR && mockXHR.onload && mockXHR.onload(new ProgressEvent('error'))
         await runAllPromises()
 
         expect(mockXHR.send).toHaveBeenCalledTimes(1)
@@ -128,7 +132,9 @@ describe('onfidoApi', () => {
           mockedTrackingCallback
         )
 
-        mockXHR.onload(null)
+        mockXHR &&
+          mockXHR.onload &&
+          mockXHR.onload(new ProgressEvent('Type error'))
         await runAllPromises()
 
         expect(mockXHR.send).not.toHaveBeenCalled()

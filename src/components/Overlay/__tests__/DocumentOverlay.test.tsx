@@ -19,21 +19,32 @@ describe('Overlay', () => {
         expect(wrapper.find('.document svg').exists()).toBeTruthy()
 
         const highlight = wrapper.find('.highlight')
+        const highlightDraw = highlight.prop('d')
         expect(highlight.exists()).toBeTruthy()
 
+        if (!highlightDraw) {
+          // To trigger failed test
+          expect(highlightDraw).toBeDefined()
+          return
+        }
+
         // `highlight` path shouldn't contain OUTER_FRAME
-        expect(highlight.prop('d').match(OUTER_FRAME)).toBeFalsy()
+        expect(highlightDraw.match(OUTER_FRAME)).toBeFalsy()
 
         // `highlight` path should contain parallel top & bottom lines
-        expect(highlight.prop('d').match('l 90 0')).toBeTruthy()
-        expect(highlight.prop('d').match('l -90 0')).toBeTruthy()
+        expect(highlightDraw.match('l 90 0')).toBeTruthy()
+        expect(highlightDraw.match('l -90 0')).toBeTruthy()
 
         const hollow = wrapper.find('.hollow')
         expect(hollow.exists()).toBeTruthy()
 
         // `hollow` path should contain both OUTER_FRAME and `highlight` path
-        expect(hollow.prop('d').match(OUTER_FRAME)).toBeTruthy()
-        expect(hollow.prop('d').match(highlight.prop('d'))).toBeTruthy()
+        const hollowDraw = hollow.prop('d')
+
+        if (hollowDraw) {
+          expect(hollowDraw.match(OUTER_FRAME)).toBeTruthy()
+          expect(hollowDraw?.match(highlightDraw)).toBeTruthy()
+        }
       })
 
       it('renders a perspective rectangle when tilt', () => {
@@ -42,17 +53,24 @@ describe('Overlay', () => {
         expect(wrapper.find('.document svg').exists()).toBeTruthy()
 
         const highlight = wrapper.find('.highlight')
+        const highlightDraw = highlight.prop('d')
         expect(highlight.exists()).toBeTruthy()
 
+        if (!highlightDraw) {
+          // To trigger failed test
+          expect(highlightDraw).toBeDefined()
+          return
+        }
+
         // `highlight` path shouldn't contain parallel top & bottom lines
-        expect(highlight.prop('d').match('l 90 0')).toBeFalsy()
-        expect(highlight.prop('d').match('l -90 0')).toBeFalsy()
+        expect(highlightDraw.match('l 90 0')).toBeFalsy()
+        expect(highlightDraw.match('l -90 0')).toBeFalsy()
 
         const hollow = wrapper.find('.hollow')
         expect(hollow.exists()).toBeTruthy()
 
         // `hollow` path should contain `highlight` path
-        expect(hollow.prop('d').match(highlight.prop('d'))).toBeTruthy()
+        expect(hollow.prop('d')?.match(highlightDraw)).toBeTruthy()
       })
 
       describe('with placeholder', () => {
