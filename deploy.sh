@@ -60,19 +60,19 @@ fi
 
 for DEPLOY_SUBDOMAIN_UNFORMATTED in "${DEPLOY_SUBDOMAIN_UNFORMATTED_LIST[@]}"
 do
-  if [ "$NODE_ENV" == "production" ]; then
-    break
-  else
-    # replaces non alphanumeric symbols with "-"
-    # sed -r is only supported in linux, ref http://stackoverflow.com/a/2871217/689223
-    # Domain names follow the RFC1123 spec [a-Z] [0-9] [-]
-    # The length is limited to 253 characters
-    # https://en.wikipedia.org/wiki/Domain_Name_System#Domain_name_syntax
-    DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[^A-Za-z0-9]+/\-/g'`
-    DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-microsoft-idv-sdk-ui-onfido.surge.sh
-  fi
+  # replaces non alphanumeric symbols with "-"
+  # sed -r is only supported in linux, ref http://stackoverflow.com/a/2871217/689223
+  # Domain names follow the RFC1123 spec [a-Z] [0-9] [-]
+  # The length is limited to 253 characters
+  # https://en.wikipedia.org/wiki/Domain_Name_System#Domain_name_syntax
+  DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[^A-Za-z0-9]+/\-/g'`
+  echo "DEPLOY_SUBDOMAIN: ${DEPLOY_SUBDOMAIN}"
 
-  echo "DEPLOY_DOMAIN: ${DEPLOY_DOMAIN}"
+if [ "$NODE_ENV" == "production" ]; then
+  DEPLOY_DOMAIN=https://microsoft-idv-sdk-ui-onfido.surge.sh
+else
+  DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-microsoft-idv-sdk-ui-onfido.surge.sh
+fi
 
   # Rebuild with TEST_ENV=deployment for test target only
   if [ "$NODE_ENV" == "test" ]; then
@@ -80,7 +80,6 @@ do
   fi
 
   surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
-  echo "Deploy domain: ${DEPLOY_DOMAIN}"
 
   if [ "$TRAVIS_PULL_REQUEST" != "false" ]
   then
@@ -92,8 +91,4 @@ do
   fi
 done
 
-
-if [ "$NODE_ENV" == "production" ]; then
-  surge --project ${DEPLOY_PATH} --domain https://microsoft-idv-sdk-ui-onfido.surge.sh;
-  echo "Deploy domain: ${DEPLOY_DOMAIN}"
-fi
+echo "Deploy domain: ${DEPLOY_DOMAIN}"
