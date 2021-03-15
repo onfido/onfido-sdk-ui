@@ -65,10 +65,6 @@ export default class CrossDeviceMobileRouter extends Component<
     // the cross device flow without running nginx
     const url = props.urls.sync_url
 
-    if (!url) {
-      throw new Error('sync_url not provided')
-    }
-
     const roomId = window.location.pathname.substring(3) || props.options.roomId
 
     this.state = {
