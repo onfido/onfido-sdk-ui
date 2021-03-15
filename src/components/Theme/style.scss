@@ -145,6 +145,10 @@ $logo-height: 32 * $unit;
   height: $footer-height;
   flex: 0 0 auto;
 
+  .fullScreenStep & {
+    z-index: 1;
+  }
+
   .logo {
     @extend %_logo;
     margin-top: $footer-height - $logo-height;
