@@ -97,6 +97,12 @@ const SdkDemo: FunctionComponent<Props> = ({
     ...(sdkOptions || {}),
   }
 
+  const applicantForm = applicantData ? (
+    'Loading ...'
+  ) : (
+    <ApplicantForm onSubmit={setApplicantData} />
+  )
+
   return (
     <div className="container">
       {options.useModal && (
@@ -104,11 +110,7 @@ const SdkDemo: FunctionComponent<Props> = ({
           Verify identity
         </button>
       )}
-      {!token && queryParamToValueString.createCheck && applicantData ? (
-        'Loading ...'
-      ) : (
-        <ApplicantForm onSubmit={setApplicantData} />
-      )}
+      {!token && queryParamToValueString.createCheck && applicantForm}
       {token && regionCode && tokenUrl && (
         <SdkMount options={options} regionCode={regionCode} url={tokenUrl} />
       )}

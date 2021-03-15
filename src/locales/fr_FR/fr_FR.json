@@ -352,6 +352,12 @@
         "title": "Envoyez la page du passeport où figure votre photo"
     },
     "doc_video_capture": {
+        "alert": {
+            "timeout": {
+                "detail": "Video recording is limited to 30 seconds. <fallback>Redo video actions<\/fallback>",
+                "title": "Looks like you took too long"
+            }
+        },
         "instructions": {
             "passport": {
                 "intro_title": "Record a video of your passport photo page",
@@ -369,6 +375,13 @@
                 "back_title": "Now, flip your document to show its back",
                 "back_subtitle": "Press done when complete"
             }
+        },
+        "welcome": {
+            "caption": "Use your device to record:",
+            "instruction_item_1": "your identity document",
+            "instruction_item_2": "your face",
+            "limit": "Recording is limited to 30 seconds",
+            "next_button": "Choose document"
         },
         "button_next": "Next step",
         "button_record": "Start recording",

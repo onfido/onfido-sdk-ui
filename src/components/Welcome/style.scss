@@ -1,15 +1,37 @@
 @import '../Theme/constants';
 
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8 * $unit;
+}
+
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  flex: 1;
+}
+
+.content.left {
+  align-items: flex-start;
 }
 
 .text {
   margin-top: 64 * $unit;
-  margin-bottom: 80 * $unit;
+}
+
+.instructions {
+  text-align: left;
+
+  > li {
+    margin-bottom: 16 * $unit;
+  }
+
+  > li::marker {
+    color: $color-primary-500;
+  }
 }
 
 .recordingLimit {
@@ -18,8 +40,8 @@
 }
 
 .timer {
-  background-image: url('./assets/timer.svg');
+  background: url('./assets/timer.svg') left no-repeat;
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: 20 * $unit;
+  height: 16 * $unit;
 }

@@ -1,67 +1,34 @@
 import { h, FunctionComponent } from 'preact'
 
 import { useSdkOptions } from '~contexts'
-import { buildIteratorKey } from '~utils'
 import { useLocales } from '~locales'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
+import { DefaultContent, DocVideoContent } from './Content'
 import style from './style.scss'
 
-import type { TranslateCallback } from '~types/locales'
 import type { StepComponentBaseProps } from '~types/routers'
-import type { StepConfigWelcome } from '~types/steps'
-
-const localisedDescriptions = (translate: TranslateCallback) => [
-  translate('welcome.description_p_1'),
-  translate('welcome.description_p_2'),
-]
-
-type WelcomeContentProps = {
-  descriptions?: string[]
-}
-
-const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
-  descriptions,
-}) => {
-  const { translate } = useLocales()
-
-  const welcomeDescriptions = descriptions
-    ? descriptions
-    : localisedDescriptions(translate)
-
-  return (
-    <div className={style.content}>
-      <div className={style.text}>
-        {welcomeDescriptions.map((description) => (
-          <p key={`description_${buildIteratorKey(description)}`}>
-            {description}
-          </p>
-        ))}
-      </div>
-      <div className={style.recordingLimit}>
-        <span className={style.timer} />
-        <span>{'Recording is limited to 30 seconds'}</span>
-      </div>
-    </div>
-  )
-}
+import type { StepConfigWelcome, StepConfigDocument } from '~types/steps'
 
 type WelcomeActionsProps = {
+  forDocVideo?: boolean
   nextButton?: string
   nextStep: () => void
 }
 
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
+  forDocVideo,
   nextButton,
   nextStep,
 }) => {
   const { translate } = useLocales()
 
-  const welcomeNextButton = nextButton
-    ? nextButton
+  const defaultButton = forDocVideo
+    ? translate('doc_video_capture.welcome.next_button')
     : translate('welcome.next_button')
+  const welcomeNextButton = nextButton || defaultButton
 
   return (
     <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
@@ -74,19 +41,29 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
   const { steps } = useSdkOptions()
   const { translate } = useLocales()
 
-  const { options } = steps.find(
+  const welcomeStep = steps.find(
     (step) => step.type === 'welcome'
   ) as StepConfigWelcome
 
-  const { title, descriptions, nextButton } = options || {}
+  const { title, descriptions, nextButton } = welcomeStep?.options || {}
 
-  const actions = <WelcomeActions {...{ nextButton, nextStep }} />
-  const welcomeTitle = title ? title : translate('welcome.title')
+  const documentStep = steps.find(
+    (step) => step.type === 'document'
+  ) as StepConfigDocument
+
+  const forDocVideo = documentStep?.options?.requestedVariant === 'video'
+
+  const actions = <WelcomeActions {...{ forDocVideo, nextButton, nextStep }} />
+  const welcomeTitle = title || translate('welcome.title')
 
   return (
-    <ScreenLayout actions={actions}>
+    <ScreenLayout actions={actions} className={style.container}>
       <PageTitle title={welcomeTitle} />
-      <WelcomeContent {...{ descriptions, translate }} />
+      {forDocVideo ? (
+        <DocVideoContent />
+      ) : (
+        <DefaultContent {...{ descriptions, translate }} />
+      )}
     </ScreenLayout>
   )
 }

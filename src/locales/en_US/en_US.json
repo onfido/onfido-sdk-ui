@@ -376,6 +376,13 @@
                 "back_subtitle": "Press done when complete"
             }
         },
+        "welcome": {
+            "caption": "Use your device to record:",
+            "instruction_item_1": "your identity document",
+            "instruction_item_2": "your face",
+            "limit": "Recording is limited to 30 seconds",
+            "next_button": "Choose document"
+        },
         "button_next": "Next step",
         "button_record": "Start recording",
         "button_start": "Start",
