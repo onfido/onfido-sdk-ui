@@ -550,6 +550,11 @@ A number of options are available to allow you to customize the SDK:
   | `colorBackgroundButtonIconHover`  | Change background color of Back, Close Modal icon buttons on hover     |
   | `colorBackgroundButtonIconActive` | Change background color of Back, Close Modal icon buttons on click/tap |
 
+  | Camera Shutter Button               | Description                                                                                 |
+  | ----------------------------------- | ------------------------------------------------------------------------------------------- |
+  | `colorBackgroundButtonCameraHover`  | Change background color of Live Selfie/Document Capture screens's Camera button on hover    |
+  | `colorBackgroundButtonCameraActive` | Change background color of Live Selfie/Document Capture screen's Camera button on click/tap |
+
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required):

@@ -83,11 +83,11 @@
   width: 56 * $unit;
 
   &:hover {
-    background-color: var(--color-background-button-camera-hover);
+    background-color: var(--osdk-color-background-button-camera-hover);
   }
 
   &:active {
-    background-color: var(--color-background-button-camera-active);
+    background-color: var(--osdk-color-background-button-camera-active);
   }
 
   &:disabled {
