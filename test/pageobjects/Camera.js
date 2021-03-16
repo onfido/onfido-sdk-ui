@@ -1,5 +1,6 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
+import { assert } from 'chai'
 
 class Camera extends BasePage {
   async enableCameraButton() {
@@ -41,6 +42,13 @@ class Camera extends BasePage {
   async isOverlayPresent() {
     const cameraClasses = this.faceOverlay().getAttribute('class').split(' ')
     return cameraClasses.includes('onfido-sdk-ui-Overlay-isWithoutHole')
+  }
+
+  async verifyOnfidoFooterIsVisible() {
+    assert.isTrue(
+      this.onfidoFooter().isDisplayed(),
+      'Test Failed: Onfido footer should be present'
+    )
   }
 
   async recordVideo() {
