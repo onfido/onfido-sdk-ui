@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="48" fill="none" xmlns:v="https://vecta.io/nano"><g clip-path="url(#B)"><g fill="#f7f9fa" stroke="#1e1e24"><rect x="14.425" y="5.925" width="20.35" height="35.15" rx="2.775" stroke-width="1.85"/><g stroke-width=".925"><path d="M25.988 37.375a1.39 1.39 0 0 1-1.387 1.387 1.39 1.39 0 0 1-1.388-1.387 1.39 1.39 0 0 1 1.388-1.388 1.39 1.39 0 0 1 1.387 1.388z"/><use xlink:href="#C"/></g></g><mask id="A" mask-type="alpha" maskUnits="userSpaceOnUse" x="17" y="14" width="15" height="16"><use xlink:href="#C" fill="#fff" stroke="#fff" stroke-width=".925"/></mask><g mask="url(#A)"><use xlink:href="#D" fill-rule="evenodd" fill="#1e1e24"/><path fill-rule="evenodd" d="M22.75 23.5c.511 0 .925-.414.925-.925s-.414-.925-.925-.925-.925.414-.925.925.414.925.925.925zm12.025-9.713c0 3.321-2.692 6.013-6.012 6.013s-6.012-2.692-6.012-6.013 2.692-6.013 6.012-6.013 6.012 2.692 6.012 6.013zm-6.012 6.938a6.94 6.94 0 0 0 6.938-6.938 6.94 6.94 0 0 0-13.74-1.368 6.94 6.94 0 0 0-13.085 3.219 6.94 6.94 0 0 0 13.74 1.368c1.16 2.211 3.477 3.719 6.147 3.719zm-6.937-5.087c0 3.321-2.692 6.012-6.012 6.012S9.8 18.958 9.8 15.638s2.692-6.012 6.012-6.012 6.012 2.692 6.012 6.012z" fill="#1e1e24"/></g></g><defs><clipPath id="B"><path fill="#fff" transform="translate(.5)" d="M0 0h48v48H0z"/></clipPath><path id="C" d="M31.538 21.65a6.94 6.94 0 0 1-6.937 6.938 6.94 6.94 0 0 1-6.937-6.937 6.94 6.94 0 0 1 6.938-6.937 6.94 6.94 0 0 1 6.938 6.937z"/><path id="D" d="M26.45 23.5c.511 0 .925-.414.925-.925s-.414-.925-.925-.925-.925.414-.925.925.414.925.925.925z"/></defs></svg>
+<svg width="49" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#prefix__clip0)">
+        <rect x="13.925" y="6.925" width="20.35" height="35.15" rx="2.775" fill="#F7F9FA" stroke="#1E1E24" stroke-width="1.85"/>
+        <path d="M25.488 38.375a1.387 1.387 0 11-2.775 0 1.387 1.387 0 012.774 0zM31.038 22.65a6.938 6.938 0 11-13.876 0 6.938 6.938 0 0113.876 0z" fill="#F7F9FA" stroke="#1E1E24" stroke-width=".925"/>
+        <rect x="20.4" y="8.775" width="7.4" height=".925" rx=".463" fill="#1E1E24"/>
+        <path d="M31.054 20.114a6.013 6.013 0 01-8.765-4.64 7.36 7.36 0 00-1.02.337 6.015 6.015 0 01-4.567 6.678 7.21 7.21 0 00.038.939 6.946 6.946 0 005.375-5.422 6.937 6.937 0 006.148 3.719 6.91 6.91 0 003.056-.708 7.35 7.35 0 00-.265-.903z" fill="#1E1E24"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M25.95 24.5a.925.925 0 100-1.85.925.925 0 000 1.85zM22.25 24.5a.925.925 0 100-1.85.925.925 0 000 1.85z" fill="#1E1E24"/>
+    </g>
+    <defs>
+        <clipPath id="prefix__clip0">
+            <path fill="#fff" transform="translate(.5)" d="M0 0h48v48H0z"/>
+        </clipPath>
+    </defs>
+</svg>
