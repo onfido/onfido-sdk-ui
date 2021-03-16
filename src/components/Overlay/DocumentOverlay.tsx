@@ -111,8 +111,8 @@ const DocumentOverlay: FunctionComponent<Props> = ({
         shapeRendering="geometricPrecision"
         viewBox={`0 0 ${OUTER_WIDTH} ${OUTER_HEIGHT}`}
       >
-        <path className={style.hollow} d={`${outer} ${inner}`} />
-        <path className={style.highlight} d={inner} ref={highlightFrameRef} />
+        <path className={style.fullScreen} d={`${outer} ${inner}`} />
+        <path className={style.hollow} d={inner} ref={highlightFrameRef} />
       </svg>
       {withPlaceholder && (
         <span

@@ -29,32 +29,32 @@ describe('Overlay', () => {
 
         assertHollowSize(wrapper, 'rectangle')
 
-        const highlight = wrapper.find('.highlight')
-        const highlightDraw = highlight.prop('d')
-        expect(highlight.exists()).toBeTruthy()
+        const hollow = wrapper.find('.hollow')
+        const hollowDraw = hollow.prop('d')
+        expect(hollow.exists()).toBeTruthy()
 
-        if (!highlightDraw) {
+        if (!hollowDraw) {
           // To trigger failed test
-          expect(highlightDraw).toBeDefined()
+          expect(hollowDraw).toBeDefined()
           return
         }
 
-        // `highlight` path shouldn't contain OUTER_FRAME
-        expect(highlightDraw.match(OUTER_FRAME)).toBeFalsy()
+        // `hollow` path shouldn't contain OUTER_FRAME
+        expect(hollowDraw.match(OUTER_FRAME)).toBeFalsy()
 
-        // `highlight` path should contain parallel top & bottom lines
-        expect(highlightDraw.match('l 90 0')).toBeTruthy()
-        expect(highlightDraw.match('l -90 0')).toBeTruthy()
+        // `hollow` path should contain parallel top & bottom lines
+        expect(hollowDraw.match('l 90 0')).toBeTruthy()
+        expect(hollowDraw.match('l -90 0')).toBeTruthy()
 
-        const hollow = wrapper.find('.hollow')
-        expect(hollow.exists()).toBeTruthy()
+        const fullScreen = wrapper.find('.fullScreen')
+        expect(fullScreen.exists()).toBeTruthy()
 
-        // `hollow` path should contain both OUTER_FRAME and `highlight` path
-        const hollowDraw = hollow.prop('d')
+        // `fullScreen` path should contain both OUTER_FRAME and `hollow` path
+        const fullScreenDraw = fullScreen.prop('d')
 
-        if (hollowDraw) {
-          expect(hollowDraw.match(OUTER_FRAME)).toBeTruthy()
-          expect(hollowDraw?.match(highlightDraw)).toBeTruthy()
+        if (fullScreenDraw) {
+          expect(fullScreenDraw.match(OUTER_FRAME)).toBeTruthy()
+          expect(fullScreenDraw.match(hollowDraw)).toBeTruthy()
         }
       })
 

@@ -20,12 +20,12 @@
   transition: 0.5s;
 }
 
-.document .hollow {
+.document .fullScreen {
   fill: $color-camera-overlay;
   stroke: transparent;
 }
 
-.document .highlight {
+.document .hollow {
   fill: transparent;
   stroke: $color-white;
   stroke-width: 0.25;
