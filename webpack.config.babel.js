@@ -283,7 +283,7 @@ const configDist = {
       ...baseRules,
       ...baseStyleRules(),
       {
-        test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
+        test: /\.(woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
         use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]'],
       },
     ],
