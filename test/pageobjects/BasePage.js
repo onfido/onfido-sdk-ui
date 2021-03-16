@@ -75,7 +75,10 @@ class BasePage {
       this.cobrandLabel().isDisplayed(),
       'Test Failed: Cobrand text should be displayed'
     )
-    verifyElementCopy(this.cobrandText(), 'Planet Express, Incorporated')
+    assert.isTrue(
+      this.cobrandLogo().isDisplayed(),
+      'Test Failed: Cobrand logo should be displayed'
+    )
     verifyElementCopy(this.poweredBy(), 'powered by')
   }
 }
