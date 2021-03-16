@@ -831,11 +831,11 @@ The callbacks will provide you with a FormData object including the information 
 ```javascript
 {
   file: blob,
-	side: string,
-	type: string,
-	sdk_validations: {
- 		detect_document: string,
-		detect_cutoff: string,
+  side: string,
+  type: string,
+  sdk_validations: {
+    detect_document: string,
+    detect_cutoff: string,
     detect_glare: string,
     detect_blur: string,
   },
@@ -872,7 +872,7 @@ The callbacks will provide you with a FormData object including the information 
 ```javascript
 {
   file: blob,
-	snapshot: blob,
+  snapshot: blob,
   sdk_source: string,
   sdk_version: string,
   sdk_metadata: {
@@ -941,7 +941,7 @@ onSubmitDocument: (data) => {
 
 Below is a sample openAPI yml file you could use as an example to start your own proxy.
 
-```yml
+```yaml
 openapi: 3.0.0
 info:
   title: Network decouple back-end sample
@@ -1300,7 +1300,7 @@ File structure for this minimal example
 
 dockerfile
 
-```docker
+```
 FROM nginx:1.15.8-alpine
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
@@ -1312,7 +1312,7 @@ COPY ./dist /usr/share/nginx/sdk/
 
 nginx.conf
 
-```
+```nginx
 server {
   # Change the next 2 lines as needed
   listen       80;
