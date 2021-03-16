@@ -20,5 +20,4 @@ jobs:
           test-run: false
           svgo-version: 2
           svgo-options: svgo.config.js
-          ignore: take-selfie.svg
           repo-token: ${{ secrets.GITHUB_TOKEN }}
