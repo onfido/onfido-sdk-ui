@@ -495,8 +495,8 @@ A number of options are available to allow you to customize the SDK:
       "colorBackgroundButtonPrimaryHover": "#F67E7D",
       "colorBackgroundButtonPrimaryActive": "#843b62",
 
-      "colorContentButtonSecondaryText": "hsl(90deg 1% 31%)",
-      "colorBackgroundButtonSecondary": "rgb(255 238 170 / 92%)",
+      "colorContentButtonSecondaryText": "hsla(90deg 1% 31%)",
+      "colorBackgroundButtonSecondary": "rgba(255 238 170 / 92%)",
       "colorBorderButtonSecondary": "coral",
       "colorBackgroundButtonSecondaryHover": "#ce6a85",
       "colorBackgroundButtonSecondaryActive": "#985277",
