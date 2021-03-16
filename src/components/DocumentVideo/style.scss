@@ -4,8 +4,8 @@
   position: absolute;
   z-index: 3;
   bottom: 128 * $unit;
-  left: 16 * $unit;
-  right: 16 * $unit;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,6 +25,7 @@
 
 .instructions > .title {
   font-size: 24 * $unit;
+  font-weight: 600;
 
   @media (--medium-viewport) {
     font-size: 20 * $unit;

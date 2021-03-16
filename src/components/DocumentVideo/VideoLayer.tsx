@@ -1,5 +1,5 @@
 import { h, FunctionComponent, Fragment } from 'preact'
-import { memo, useCallback, useState } from 'preact/compat'
+import { memo, useCallback, useEffect, useState } from 'preact/compat'
 
 import { useLocales } from '~locales'
 import Button from '../Button'
@@ -17,7 +17,8 @@ export type Props = {
   totalSteps: number
 } & VideoLayerProps
 
-const SUCCESS_STATE_TIMEOUT = 1000
+const SUCCESS_STATE_TIMEOUT = 2000
+const SUCCESS_STATE_VIBRATION = 500
 
 const VideoLayer: FunctionComponent<Props> = ({
   disableInteraction,
@@ -50,6 +51,12 @@ const VideoLayer: FunctionComponent<Props> = ({
       setStepFinished(false)
     }, SUCCESS_STATE_TIMEOUT)
   }, [stepNumber, totalSteps, onNext, onStop])
+
+  useEffect(() => {
+    if (stepFinished) {
+      navigator.vibrate(SUCCESS_STATE_VIBRATION)
+    }
+  }, [stepFinished])
 
   const { title, subtitle, button } = instructionKeys[stepNumber]
 

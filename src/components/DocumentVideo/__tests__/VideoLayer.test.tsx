@@ -4,6 +4,8 @@ import { mount, ReactWrapper } from 'enzyme'
 import MockedLocalised from '~jest/MockedLocalised'
 import VideoLayer, { Props as VideoLayerProps } from '../VideoLayer'
 
+navigator.vibrate = jest.fn()
+
 const defaultProps: VideoLayerProps = {
   disableInteraction: false,
   instructionKeys: Array(3).fill({
@@ -28,6 +30,7 @@ const assertSuccessState = (wrapper: ReactWrapper, isSuccess: boolean) => {
 
 const assertSuccessStep = (wrapper: ReactWrapper, lastStep = false) => {
   assertSuccessState(wrapper, true)
+  expect(navigator.vibrate).toHaveBeenCalledWith(500)
 
   jest.runTimersToTime(2000)
 
@@ -97,7 +100,7 @@ describe('DocumentVideo', () => {
             )
 
             simulateNext(wrapper)
-            assertSuccessStep(wrapper, stepNumber === 2)
+            assertSuccessStep(wrapper, stepNumber === steps.length)
           })
         )
       })

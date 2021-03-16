@@ -10,6 +10,10 @@
   top: 0;
 }
 
+.document svg {
+  height: 100%;
+}
+
 .document svg > path {
   stroke-linecap: round;
   stroke-linejoin: round;
