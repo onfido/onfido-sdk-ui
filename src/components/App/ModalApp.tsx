@@ -61,7 +61,17 @@ class ModalApp extends Component<Props> {
   }
 
   componentDidMount() {
-    this.prepareInitialStore({}, this.props.options)
+    const { options } = this.props
+    this.prepareInitialStore({}, options)
+    if (!options.mobileFlow) {
+      const { customUI } = options
+      const hasCustomUIConfigured =
+        !!customUI && Object.keys(customUI).length > 0
+      const trackedProperties = {
+        is_custom_ui: hasCustomUIConfigured,
+      }
+      Tracker.sendEvent('started flow', trackedProperties)
+    }
   }
 
   componentDidUpdate(prevProps: Props) {

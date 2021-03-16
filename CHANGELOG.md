@@ -11,7 +11,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
-- Public: Added support for UI customizations in SDK configuration using `customUI` option. See `README.md` for details of supported customization options.
+- Public: Added support for UI customizations in SDK configuration using `customUI` option. See README for details of supported customization options.
+- Internal: Add Woopra tracking for UI customization option usage.
 
 ### Changed
 
