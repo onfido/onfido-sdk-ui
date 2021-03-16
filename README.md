@@ -939,6 +939,719 @@ onSubmitDocument: (data) => {
 
 ```
 
+Below is a sample openAPI yml file you could use as an example to start your own proxy.
+
+```yml
+openapi: 3.0.0
+info:
+  title: Network decouple back-end sample
+  description: Network decouple back-end setup skeleton
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    IDocumentsRequest:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+          description: Uploaded document. Passed in from the web SDK callback
+        type:
+          type: string
+          default: passport
+          description: >-
+            The type of document that was submitted. Passed in from the web SDK
+            callback
+        side:
+          type: string
+          default: front
+          description: >-
+            The type side of the document that was submitted. Passed in from the
+            web SDK callback
+        sdk_metadata:
+          type: object
+          default:
+            captureMethod: html5
+            imageResizeInfo: null
+            isCrossDeviceFlow: false
+            deviceType: desktop
+            system:
+              os: Macintosh
+              os_version: 10.15.6
+              browser: Chrome
+              browser_version: 88.0.4324.192
+          description: >-
+            The metadata that web SDK collects. Forward this to Onfido API
+            without modifications. Passed in from the web SDK callback
+        sdk_validations:
+          type: object
+          default:
+            detect_document: error
+            detect_cutoff: error
+            detect_glare: error
+            detect_blur: error
+          description: >-
+            This is a an object used by web SDK to seek image quality feedback
+            from the API. Forward this object without modifications to Onfido
+            API.Passed in from the web SDK callback
+        sdk_source:
+          type: string
+          default: onfido_web_sdk
+          description: >-
+            The source of origin of the requests. Forward this without
+            modifications to the Onfido APIPassed in from the web SDK callback
+        sdk_version:
+          type: string
+          default: 6.5.0
+          description: >-
+            The SDK version. Forward this without modifications to the Onfido
+            API. Passed in from the web SDK callback
+    IMultiFrameSelfieRequest:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+          description: Uploaded photo
+        sdk_metadata:
+          type: object
+          default:
+            captureMethod: html5
+            imageResizeInfo: null
+            isCrossDeviceFlow: false
+            deviceType: desktop
+            system:
+              os: Macintosh
+              os_version: 10.15.6
+              browser: Chrome
+              browser_version: 88.0.4324.192
+          description: >-
+            The metadata that web SDK collects. Forward this to Onfido API
+            without modifications. Passed in from the web SDK callback
+        snapshot:
+          type: string
+          format: binary
+          description: Uploaded snapshot taken by the Web SDK to improve fraud analysis
+paths:
+  /onfido/documents:
+    post:
+      operationId: OnfidoController documents
+      parameters:
+        - name: Auhorization
+          in: header
+          description: Customer back-end Authentication token
+          schema:
+            type: string
+      requestBody:
+        required: true
+        description: The API endpoint to intercept the document upload from the Web SDK
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/IDocumentsRequest'
+      responses:
+        '200':
+          description: >-
+            The response received from Onfido v3/documents API call. The
+            response format might slightly vary with the use case. Forward it
+            without modifications as the callback response.
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  created_at:
+                    type: string
+                    format: date-time
+                  file_name:
+                    type: string
+                  file_size:
+                    type: integer
+                  file_type:
+                    type: string
+                  type:
+                    type: string
+                  side:
+                    type: string
+                  issuing_country:
+                    type: string
+                  applicant_id:
+                    type: string
+                  href:
+                    type: string
+                  download_href:
+                    type: string
+                  sdk_warnings:
+                    type: object
+                    properties:
+                      detect_document:
+                        type: string
+                        enum:
+                          - error
+                          - warn
+                      detect_glare:
+                        type: string
+                        enum:
+                          - error
+                          - warn
+                      detect_blur:
+                        type: string
+                        enum:
+                          - error
+                          - warn
+                      detect_cutoff:
+                        type: string
+                        enum:
+                          - error
+                          - warn
+                      image_quality:
+                        type: object
+                        properties:
+                          quality:
+                            type: string
+                          image_quality_uuid:
+                            type: string
+                            format: uuid
+                          breakdown:
+                            type: object
+                            properties:
+                              has_document:
+                                type: boolean
+                              blur:
+                                type: object
+                                properties:
+                                  algorithm_version:
+                                    type: string
+                                  has_blur:
+                                    type: boolean
+                                  max:
+                                    type: integer
+                                  min:
+                                    type: integer
+                                  score:
+                                    type: number
+                                    format: double
+                                  threshold:
+                                    type: number
+                                    format: float
+                              cutoff:
+                                type: object
+                                properties:
+                                  has_cutoff:
+                                    type: boolean
+                                  max:
+                                    type: integer
+                                  min:
+                                    type: integer
+                                  score:
+                                    type: number
+                                    format: double
+                                  threshold:
+                                    type: number
+                                    format: float
+                              document:
+                                type: object
+                                properties:
+                                  has_document:
+                                    type: boolean
+                                  max:
+                                    type: integer
+                                  min:
+                                    type: integer
+                                  detection_score:
+                                    type: number
+                                    format: double
+                                  threshold:
+                                    type: number
+                                    format: float
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      message:
+                        type: string
+                  fields:
+                    type: object
+                    properties:
+                      detect_glare:
+                        type: array
+                        items:
+                          type: string
+        '500':
+          description: ''
+  /onfido/live_photos:
+    post:
+      operationId: OnfidoController
+      parameters:
+        - name: Auhorization
+          in: header
+          description: Customer back-end Authentication token
+          schema:
+            type: string
+      requestBody:
+        required: true
+        description: The API endpoint to intercept the live photos upload from the Web SDK
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/IMultiFrameSelfieRequest'
+      responses:
+        '200':
+          description: >-
+            The response received from Onfido v3/live_photos API call. The
+            response format might slightly vary with the use case. Forward it
+            without modifications as the callback response.
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  created_at:
+                    type: string
+                    format: date-time
+                  file_name:
+                    type: string
+                  file_type:
+                    type: string
+                  file_size:
+                    type: integer
+                  href:
+                    type: string
+                  sdk_source:
+                    type: string
+                  sdk_version:
+                    type: string
+                  download_href:
+                    type: string
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '500':
+          description: ''
+```
+
+If you just need an openAPI file as reference for the Onfido API v3 /documents and /live_photos endpoint schemas, use the file yml below:
+
+```yml
+openapi: 3.0.1
+info:
+  title: API
+  version: 1.0.0
+servers:
+  - url: https://api.onfido.com
+
+security:
+  - bearerAuth: []
+  - apiToken: []
+
+paths:
+  /v3/live_photos:
+    post:
+      summary: Upload live photo
+      operationId: upload_live_photo
+      description: >
+        You can upload live photos to this endpoint. Like document upload, files must be uploaded as a multipart form.
+        Valid file types are jpg, png and pdf. The file size must be between 32KB and 10MB.
+        Live photos are validated at the point of upload to check that they contain exactly one face.
+        This validation can be disabled by setting the advanced_validation argument to false.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - applicant_id
+                - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The file to be uploaded.
+                advanced_validation:
+                  type: boolean
+                  description: Validates that the live photo contains exactly one face.
+                  default: true
+                sdk_source:
+                  type: string
+                  description: which is the sdk uploading the doc
+                  enum:
+                    - "onfido_web_sdk"
+                    - "onfido_ios_sdk"
+                    - "onfido_android_sdk"
+                sdk_metadata:
+                  $ref: "#/components/schemas/SdkMetadata"
+      responses:
+        "201":
+          description: The Live Photo
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The generated live_photos
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  created_at:
+                    type: string
+                    format: date-time
+                  file_name:
+                    type: string
+                  file_size:
+                    type: integer
+                  href:
+                    type: string
+                  download_href:
+                    type: string
+  /v3/documents:
+    post:
+      summary: Upload a document
+      operationId: upload_document
+      description: >
+        Documents are uploaded using this endpoint. Along with the file upload the relevant document type must be specified.
+        Documents must be uploaded as a multipart form. The valid file types are: jpg, png and pdf. The file size must be between 2KB and 3MB.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - type
+                - file
+                - applicant_id
+              properties:
+                applicant_id:
+                  type: string
+                  description: The ID of the applicant whose document is being uploaded.
+                type:
+                  type: string
+                  description: The type of document.
+                file:
+                  type: string
+                  format: binary
+                  description: The file to be uploaded.
+                side:
+                  type: string
+                  description: Either the `front` or `back` of the document.
+                issuing_country:
+                  type: string
+                  description: The issuing country of the document, a 3-letter ISO code.
+                filename:
+                  type: string
+                  description: Filename of the upload file. Should contain extension
+                sdk_validations:
+                  type: object
+                  description: Image quality verification that should be performed.
+                  properties:
+                    detect_document:
+                      type: string
+                      enum:
+                        - "error"
+                        - "warn"
+                    detect_glare:
+                      type: string
+                      enum:
+                        - "error"
+                        - "warn"
+                    detect_blur:
+                      type: string
+                      enum:
+                        - "error"
+                        - "warn"
+                    detect_cutoff:
+                      type: string
+                      enum:
+                        - "error"
+                        - "warn"
+                sdk_source:
+                  type: string
+                  description: which is the sdk uploading the doc
+                  enum:
+                    - "onfido_web_sdk"
+                    - "onfido_ios_sdk"
+                    - "onfido_android_sdk"
+                sdk_version:
+                  description: version of the sdk
+                  type: string
+                sdk_metadata:
+                  $ref: "#/components/schemas/SdkMetadata"
+                advanced_validations:
+                  type: string
+                  description: Image quality verification that should be performed. If `true` then is equal to `sdk_validations` with `detect_document` set to `error`
+                  enum:
+                    - "true"
+                    - "false"
+      responses:
+        "201":
+          description: A document
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The generated document plus sdk_validations
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  created_at:
+                    type: string
+                    format: date-time
+                  file_name:
+                    type: string
+                  file_size:
+                    type: integer
+                  file_type:
+                    type: string
+                  applicant_id:
+                    type: string
+                    format: uuid
+                  type:
+                    type: string
+                  href:
+                    type: string
+                  download_href:
+                    type: string
+                  side:
+                    type: string
+                  issuing_country:
+                    type: string
+                  sdk_warnings:
+                    type: object
+                    properties:
+                      detect_glare:
+                        type: object
+                        properties:
+                          valid:
+                            type: boolean
+                      detect_document:
+                        type: object
+                        properties:
+                          valid:
+                            type: boolean
+                      detect_cutoff:
+                        type: object
+                        properties:
+                          valid:
+                            type: boolean
+                      detect_blur:
+                        type: object
+                        properties:
+                          valid:
+                            type: boolean
+                      image_quality:
+                        type: object
+                        properties:
+                          quality:
+                            type: string
+                          image_quality_uuid:
+                            type: string
+                            format: uuid
+                          breakdown:
+                            type: object
+                            properties:
+                              has_document:
+                                type: boolean
+                              blur:
+                                type: object
+                                properties:
+                                  algorithm_version:
+                                    type: string
+                                  has_blur:
+                                    type: boolean
+                                  max:
+                                    type: integer
+                                  min:
+                                    type: integer
+                                  score:
+                                    type: number
+                                    format: double
+                                  threshold:
+                                    type: number
+                                    format: float
+                              cutoff:
+                                type: object
+                                properties:
+                                  has_cutoff:
+                                    type: boolean
+                                  max:
+                                    type: integer
+                                  min:
+                                    type: integer
+                                  score:
+                                    type: number
+                                    format: double
+                                  threshold:
+                                    type: number
+                                    format: float
+                              document:
+                                type: object
+                                properties:
+                                  has_document:
+                                    type: boolean
+                                  max:
+                                    type: integer
+                                  min:
+                                    type: integer
+                                  detection_score:
+                                    type: number
+                                    format: double
+                                  threshold:
+                                    type: number
+                                    format: float
+                required:
+                  - id
+        422:
+          description: Image rejected due to bad image
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ValidationError"
+        401:
+          description: Expired token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExpiredSdkTokenError"
+        default:
+          description: An error occurs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DefaultError"
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiToken:
+      type: apiKey
+      name: Authorization
+      in: header
+
+  schemas:
+    DefaultError:
+      type: object
+      properties:
+        error:
+          title: ErrorProperties
+          type: object
+          properties:
+            type:
+              type: string
+            message:
+              type: string
+            fields:
+              type: object
+              additionalProperties: true
+    ExpiredSdkTokenError:
+      type: object
+      properties:
+        error:
+          title: ErrorProperties
+          type: object
+          properties:
+            type:
+              type: string
+              enum: ["expired_token"]
+            message:
+              type: string
+              enum: ["The token has expired, please request a new one"]
+            fields:
+              type: object
+    ValidationError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            type:
+              type: string
+            message:
+              type: string
+              enum:
+                - "There was a validation error on this request"
+            fields:
+              type: object
+              properties:
+                document_detection:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                      - "no document in image"
+                detect_glare:
+                  items:
+                    type: string
+                    enum:
+                      - "glare found in image"
+                detect_cutoff:
+                  items:
+                    type: string
+                    enum:
+                      - "document cutoff detected in image"
+                detect_blur:
+                  items:
+                    type: string
+                    enum:
+                      - "blur detected in image"
+    SdkMetadata:
+      type: object
+      description: Metadata collected by the SDK
+      properties:
+        system:
+          $ref: "#/components/schemas/SystemInfo"
+    SystemInfo:
+      type: object
+      properties:
+        brand:
+          type: string
+        fingerprint:
+          type: string
+        hardware:
+          type: string
+        manufacturer:
+          type: string
+        model:
+          type: string
+        product:
+          type: string
+```
+
+
 ### Cross device URL - Premium Enterprise Feature
 
 This feature allows you to specify your own custom or whitelabel url that the cross device flow will redirect to instead of the Onfido default `id.onfido.com`. To use this feature generate a SDK token as shown below and use it to start the SDK.
@@ -956,6 +1669,114 @@ In addition to this, you must either:
 1. Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`. This can be done by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido-hosted Web SDK.
 
 2. Set up a server to host the Onfido Web SDK yourself at the provided URL. This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
+
+Below is an example of how you could host the Onfido Web SDK with minimal setup, but it does not have to be done this way.
+
+**Example**
+
+This example involves using docker and an nginx image to serve an html file which starts the Onfido Web SDK using just the minified js and css files from the dist directory. (`onfido-sdk-ui/dist/onfido.min.js` and `onfido-sdk-ui/dist/style.css`)
+
+To help with getting the correct version of the Web SDK, we append the Onfido files with the base32 version that is associated with each release. This value can be obtained from the first 2 characters in the appended path when using the cross-device flow. For example, if the current release appends a path that starts with `BW` we would rename the minified files `BW-onfido.min.js` and `BW-style.css` for this example to work.
+
+File structure for this minimal example
+
+```
+- dist
+  - <BASE32>-onfido.min.js
+  - <BASE32>-style.css
+- dockerfile
+- nginx.conf
+- index.html
+```
+
+dockerfile
+
+```docker
+FROM nginx:1.15.8-alpine
+
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY ./index.html /usr/share/nginx/html/
+
+COPY ./dist /usr/share/nginx/sdk/
+```
+
+nginx.conf
+
+```
+server {
+  # Change the next 2 lines as needed
+  listen       80;
+  server_name  localhost;
+
+  location ~ ^/[0-9a-zA-Z]+$ {
+    root   /usr/share/nginx/html; 
+    try_files $uri /index.html =404;
+  }
+
+  location ~* \.(js|jpg|png|css)$ {
+    root /usr/share/nginx/sdk/;
+  }
+}
+```
+
+index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <title>Onfido Verification</title>
+  <style type="text/css">
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body, button {
+      -webkit-font-smoothing: antialiased;
+    }
+    @media (min-width: 30em) {
+      #onfido-mount {
+        position: relative;
+        top: 10%;
+      }
+      .onfido-sdk-ui-Modal-inner {
+        font-family: "Open Sans", sans-serif !important;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    var version = window.location.pathname.substring(1, 3)
+    var jsPath = version + '-onfido.min.js'
+    var cssPath = version + '-style.css'
+
+    var link = document.createElement('link');
+    link.rel = 'stylesheet'
+    link.href = cssPath
+
+    var script = document.createElement('script');
+    script.onload = function () {
+      window.onfidoOut = Onfido.init({ mobileFlow: true })
+    };
+    script.src = jsPath
+
+    document.head.appendChild(link);
+    document.head.appendChild(script);
+  </script>
+</head>
+
+<body>
+  <div id="onfido-mount"></div>
+</body>
+
+</html>
+```
+
 
 ## Going live
 
