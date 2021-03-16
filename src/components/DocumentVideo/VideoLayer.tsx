@@ -4,7 +4,7 @@ import { memo, useCallback, useEffect, useState } from 'preact/compat'
 import { useLocales } from '~locales'
 import Button from '../Button'
 import Instructions from './Instructions'
-import ProgressBar from './ProgressBar'
+import StepProgress from './StepProgress'
 import style from './style.scss'
 
 import type { DocInstructionLocale } from '~utils/localesMapping'
@@ -85,11 +85,7 @@ const VideoLayer: FunctionComponent<Props> = ({
 
   return (
     <Fragment>
-      <ProgressBar
-        stepFinished={stepFinished}
-        stepNumber={stepNumber}
-        totalSteps={totalSteps}
-      />
+      <StepProgress stepNumber={stepNumber} totalSteps={totalSteps} />
       <div className={style.actions}>{actions}</div>
     </Fragment>
   )

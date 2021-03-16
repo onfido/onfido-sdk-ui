@@ -2,20 +2,20 @@
 
 .instructions {
   position: absolute;
-  z-index: 3;
   bottom: 128 * $unit;
   left: 0;
   right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 3;
 }
 
 .instructions > span {
   color: $color-white;
   font-family: $font-family;
   font-size: 16 * $unit;
-  margin-bottom: 0.5em;
+  margin-bottom: 8 * $unit;
 
   @media (--medium-viewport) {
     font-size: 12 * $unit;
@@ -38,24 +38,16 @@
   position: absolute;
   left: 16 * $unit;
   right: 16 * $unit;
-  top: 48 * $unit;
+  bottom: 270 * $unit;
   z-index: 3;
 }
 
 .progress .step {
   background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 2 * $unit;
-  height: 4 * $unit;
-  margin: 0 3 * $unit;
-  overflow: hidden;
-  width: 96 * $unit;
-}
-
-.progress .gauge {
-  background-color: $color-white;
-  display: block;
-  width: 0%;
-  height: 100%;
+  border-radius: 4 * $unit;
+  color: $color-white;
+  font-size: $font-size-small;
+  padding: 4 * $unit 10 * $unit;
 }
 
 @keyframes gaugeFill {
@@ -87,10 +79,10 @@
 
 .actions {
   position: absolute;
-  z-index: 3;
   bottom: 48 * $unit;
   left: 16 * $unit;
   right: 16 * $unit;
+  z-index: 3;
 
   &.disabled {
     z-index: 0;

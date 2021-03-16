@@ -387,7 +387,8 @@
         "button_next": "Next step",
         "button_record": "Start recording",
         "button_start": "Start",
-        "button_stop": "Finish recording"
+        "button_stop": "Finish recording",
+        "progress": "STEP <step></step> OF <total></total>"
     },
     "doc_video_confirmation": {
         "title": "Thank you",
