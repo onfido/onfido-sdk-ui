@@ -6,13 +6,12 @@ import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
 import { getInactiveError } from '~utils/inactiveError'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
-import { useLocales } from '~locales'
 import { DocumentOverlay } from '../Overlay'
 import VideoCapture from '../VideoCapture'
 import VideoLayer from './VideoLayer'
 import useCaptureStep from './useCaptureStep'
 
-import { TILT_MODE, CaptureVariants } from '~types/docVideo'
+import { CaptureVariants } from '~types/docVideo'
 import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type {
@@ -30,6 +29,14 @@ const renamedCapture = (
   filename: `document_${step}.${mimeType(payload.blob)}`,
 })
 
+const getInstructionLocaleKeys = (documentType: DocumentTypes) => {
+  if (documentType === 'passport') {
+    return DOC_VIDEO_INSTRUCTIONS_MAPPING.passport
+  }
+
+  return DOC_VIDEO_INSTRUCTIONS_MAPPING.card_ids
+}
+
 export type Props = {
   cameraClassName?: string
   documentType: DocumentTypes
@@ -45,7 +52,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
   trackScreen,
 }) => {
   const {
-    step,
     stepNumber,
     totalSteps,
     nextStep,
@@ -54,7 +60,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const [frontPayload, setFrontPayload] = useState<CapturePayload | undefined>(
     undefined
   )
-  const { translate } = useLocales()
   const webcamRef = useRef<Webcam>(null)
 
   const onRecordingStart = () => {
@@ -101,28 +106,13 @@ const DocumentVideo: FunctionComponent<Props> = ({
     })
   }
 
-  const mappedLocale =
-    documentType === 'passport' && step !== 'back'
-      ? DOC_VIDEO_INSTRUCTIONS_MAPPING.passport[step]
-      : DOC_VIDEO_INSTRUCTIONS_MAPPING.others[step]
-
-  const title = translate(mappedLocale.title)
-  const subtitle = translate(mappedLocale.subtitle)
+  const instructionKeys = getInstructionLocaleKeys(documentType)
 
   const passedProps = {
+    instructionKeys,
     onNext: nextStep,
-    step,
     stepNumber,
-    subtitle,
-    title,
     totalSteps,
-    /* onStart: () => {
-      if (webcamRef.current) {
-        const [videoTrack] = webcamRef.current.stream.getVideoTracks()
-        const { width, height } = videoTrack.getSettings()
-        alert(`Width: ${width}; Height: ${height}`)
-      }
-    }, */
   }
 
   return (
@@ -138,9 +128,8 @@ const DocumentVideo: FunctionComponent<Props> = ({
       renderOverlay={() => (
         <DocumentOverlay
           marginBottom={0.5}
-          tilt={step === 'tilt' ? TILT_MODE : undefined}
           type={documentType}
-          withPlaceholder={step === 'intro'}
+          withPlaceholder={stepNumber === 0}
         />
       )}
       renderVideoLayer={(props) => <VideoLayer {...props} {...passedProps} />}

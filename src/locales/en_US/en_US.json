@@ -360,20 +360,21 @@
         },
         "instructions": {
             "passport": {
-                "intro_title": "Record a video of your passport photo page",
-                "front_title": "Keep your passport photo page in the frame",
-                "front_subtitle": "Start recording and follow the instructions",
-                "tilt_title": "Slowly tilt your passport to show light reflections",
-                "tilt_subtitle": "Press next step when complete"
+                "intro_title": "While holding your passport, keep the photo page within the frame",
+                "step_1_title": "Keep your passport photo page in the frame"
             },
-            "others": {
-                "intro_title": "Record a video of your document",
-                "front_title": "Keep the front of your document in the frame",
-                "front_subtitle": "Start recording and follow the instructions",
-                "tilt_title": "Slowly tilt your document to show light reflections",
-                "tilt_subtitle": "Press next step when complete",
-                "back_title": "Now, flip your document to show its back",
-                "back_subtitle": "Press done when complete"
+            "card_ids": {
+                "intro_title": "While holding your document, keep its front side within the frame",
+                "step_1_title": "Now, keep still",
+                "step_2_title": "Slowly turn your document around to show the back",
+                "step_2_subtitle": "Keep the document in full view at all times"
+            },
+            "paper_ids": {
+                "intro_title": "Profile photo side",
+                "intro_subtitle": "Lay your document flat, include all inner pages (must contain your photo)",
+                "step_1_title": "Now, keep still",
+                "step_2_title": "Turn your document around to show the outer pages",
+                "step_2_subtitle": "Keep the document in full view at all times"
             }
         },
         "welcome": {
@@ -386,7 +387,7 @@
         "button_next": "Next step",
         "button_record": "Start recording",
         "button_start": "Start",
-        "button_stop": "Done"
+        "button_stop": "Finish recording"
     },
     "doc_video_confirmation": {
         "title": "Thank you",

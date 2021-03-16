@@ -3,19 +3,19 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import VideoLayer, { Props as VideoLayerProps } from '../VideoLayer'
-import type { CaptureSteps } from '~types/docVideo'
 
 const defaultProps: VideoLayerProps = {
   disableInteraction: false,
+  instructionKeys: Array(3).fill({
+    button: 'Fake button',
+    title: 'Fake title',
+  }),
   isRecording: false,
   onNext: jest.fn(),
   onStart: jest.fn(),
   onStop: jest.fn(),
-  step: 'intro',
   stepNumber: 0,
-  subtitle: 'Fake subtitle',
-  title: 'Fake title',
-  totalSteps: 3,
+  totalSteps: 2,
 }
 
 const simulateNext = (wrapper: ReactWrapper) =>
@@ -81,23 +81,23 @@ describe('DocumentVideo', () => {
       })
 
       describe('after intro step', () => {
-        const steps: CaptureSteps[] = ['front', 'tilt', 'back']
+        const steps = [1, 2]
 
-        steps.forEach((step, stepIndex) =>
-          it(`delays onNext to show success state when step=${step}`, () => {
+        steps.forEach((stepNumber) =>
+          it(`delays onNext to show success state when step=${stepNumber}`, () => {
             const wrapper = mount(
               <MockedLocalised>
                 <VideoLayer
                   {...defaultProps}
                   isRecording
-                  step={step}
-                  stepNumber={stepIndex + 1}
+                  stepNumber={stepNumber}
+                  totalSteps={steps.length}
                 />
               </MockedLocalised>
             )
 
             simulateNext(wrapper)
-            assertSuccessStep(wrapper, step === 'back')
+            assertSuccessStep(wrapper, stepNumber === 2)
           })
         )
       })

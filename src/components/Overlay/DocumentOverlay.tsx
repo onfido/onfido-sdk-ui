@@ -2,7 +2,6 @@ import { h, FunctionComponent } from 'preact'
 import { memo, useEffect, useRef, useState } from 'preact/compat'
 import style from './style.scss'
 
-import type { TiltModes } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
 
 type DocumentSizes = 'id1Card' | 'id3Card' | 'rectangle'
@@ -10,7 +9,6 @@ type DocumentSizes = 'id1Card' | 'id3Card' | 'rectangle'
 const OUTER_WIDTH = 100
 const OUTER_HEIGHT = (100 * window.innerHeight) / window.innerWidth
 const INNER_WIDTH_RATIO = 0.9 // 90% of outer width
-const TILT_DELTA = 5
 
 const ASPECT_RATIOS: Record<DocumentSizes, number> = {
   id1Card: 1.586,
@@ -34,13 +32,11 @@ const getDocumentSize = (type?: DocumentTypes): DocumentSizes => {
 type DrawFrameParams = {
   aspectRatio: number
   marginBottom?: number
-  tilt?: TiltModes
 }
 
 const drawInnerFrame = ({
   aspectRatio,
   marginBottom,
-  tilt,
 }: DrawFrameParams): string => {
   const width = OUTER_WIDTH * INNER_WIDTH_RATIO
   const height = width / aspectRatio
@@ -54,23 +50,6 @@ const drawInnerFrame = ({
   const startY = marginBottom
     ? OUTER_HEIGHT * (1 - marginBottom)
     : (OUTER_HEIGHT + height) / 2
-
-  if (tilt) {
-    const startPoint =
-      tilt === 'left'
-        ? [startX + TILT_DELTA, startY - TILT_DELTA].join(',')
-        : [startX + TILT_DELTA, startY + TILT_DELTA].join(',')
-    const tiltedWidth = width - TILT_DELTA * 2
-
-    const heightDelta = tilt === 'left' ? TILT_DELTA * 2 : -TILT_DELTA * 2
-    const tiltedHeight = height + heightDelta
-
-    const bottomLine = `l ${tiltedWidth} ${heightDelta}`
-    const rightLine = `v -${tiltedHeight}`
-    const topLine = `l -${tiltedWidth} ${heightDelta}`
-
-    return `M${startPoint} ${bottomLine} ${rightLine} ${topLine} Z`
-  }
 
   const startPoint = [startX, startY].join(',')
   const bottomLine = `l ${width} 0`
@@ -95,7 +74,6 @@ const Placeholder: FunctionComponent<PlaceholderProps> = ({ rect }) => {
 
 export type Props = {
   marginBottom?: number
-  tilt?: TiltModes
   type?: DocumentTypes
   withPlaceholder?: boolean
 }
@@ -103,7 +81,6 @@ export type Props = {
 const DocumentOverlay: FunctionComponent<Props> = ({
   children,
   marginBottom,
-  tilt,
   type,
   withPlaceholder,
 }) => {
@@ -113,7 +90,7 @@ const DocumentOverlay: FunctionComponent<Props> = ({
   const { [size]: aspectRatio } = ASPECT_RATIOS
 
   const outer = `M0,0 h${OUTER_WIDTH} v${OUTER_HEIGHT} h-${OUTER_WIDTH} Z`
-  const inner = drawInnerFrame({ aspectRatio, marginBottom, tilt })
+  const inner = drawInnerFrame({ aspectRatio, marginBottom })
 
   useEffect(() => {
     if (highlightFrameRef.current) {
@@ -124,6 +101,7 @@ const DocumentOverlay: FunctionComponent<Props> = ({
   return (
     <div className={style.document}>
       <svg
+        data-size={size}
         shapeRendering="geometricPrecision"
         viewBox={`0 0 ${OUTER_WIDTH} ${OUTER_HEIGHT}`}
       >

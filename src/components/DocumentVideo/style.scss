@@ -31,33 +31,6 @@
   }
 }
 
-.instructions > .icon {
-  font-size: 16 * $unit;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.instructions > .tiltIcon {
-  width: 3.0625em;
-  height: 2.25em;
-
-  &.left {
-    background-image: url('./assets/tilt-left.svg');
-  }
-
-  &.right {
-    background-image: url('./assets/tilt-right.svg');
-  }
-}
-
-.instructions > .backIcon {
-  background-image: url('./assets/back.svg');
-  width: 2.625em;
-  height: 1.625em;
-}
-
 .progress {
   display: flex;
   justify-content: center;
