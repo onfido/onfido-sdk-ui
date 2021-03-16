@@ -85,6 +85,7 @@ export type StepComponentBaseProps = {
   StepsRouterProps,
   | 'disableNavigation'
   | 'cobrand'
+  | 'logoCobrand'
   | 'hideOnfidoLogo'
   | 'isFullScreen'
   | 'options'
