@@ -17,6 +17,7 @@ const defaultProps: VideoLayerProps = {
   onNext: jest.fn(),
   onStart: jest.fn(),
   onStop: jest.fn(),
+  onSubmit: jest.fn(),
   stepNumber: 0,
   totalSteps: 2,
 }

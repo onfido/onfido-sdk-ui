@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { memo, useRef, useState } from 'preact/compat'
+import { memo, useEffect, useRef, useState } from 'preact/compat'
 import Webcam from 'react-webcam-onfido'
 
 import { mimeType } from '~utils/blob'
@@ -56,16 +56,49 @@ const DocumentVideo: FunctionComponent<Props> = ({
     nextStep,
     restart: restartFlow,
   } = useCaptureStep(documentType)
+  const [flowComplete, setFlowComplete] = useState(false)
   const [frontPayload, setFrontPayload] = useState<CapturePayload | undefined>(
     undefined
   )
+  const [backPayload, setBackPayload] = useState<CapturePayload | undefined>(
+    undefined
+  )
+  const [videoPayload, setVideoPayload] = useState<CapturePayload | undefined>(
+    undefined
+  )
   const webcamRef = useRef<Webcam>(null)
+
+  useEffect(() => {
+    if (!flowComplete) {
+      return
+    }
+
+    if (documentType === 'passport') {
+      onCapture({
+        front: frontPayload,
+        video: videoPayload,
+      })
+    } else {
+      onCapture({
+        front: frontPayload,
+        video: videoPayload,
+        back: backPayload,
+      })
+    }
+  }, [
+    flowComplete,
+    documentType,
+    onCapture,
+    frontPayload,
+    videoPayload,
+    backPayload,
+  ])
 
   const onRecordingStart = () => {
     nextStep()
 
     screenshot(webcamRef.current, (blob, sdkMetadata) => {
-      const frontPayload = renamedCapture(
+      const frontCapture = renamedCapture(
         {
           blob,
           sdkMetadata,
@@ -73,23 +106,20 @@ const DocumentVideo: FunctionComponent<Props> = ({
         'front'
       )
 
-      setFrontPayload(frontPayload)
+      setFrontPayload(frontCapture)
     })
   }
 
   const onVideoCapture: HandleCaptureProp = (payload) => {
-    const videoPayload = renamedCapture(payload, 'video')
+    const videoCapture = renamedCapture(payload, 'video')
+    setVideoPayload(videoCapture)
 
     if (documentType === 'passport') {
-      onCapture({
-        front: frontPayload,
-        video: videoPayload,
-      })
       return
     }
 
     screenshot(webcamRef.current, (blob, sdkMetadata) => {
-      const backPayload = renamedCapture(
+      const backCapture = renamedCapture(
         {
           blob,
           sdkMetadata,
@@ -97,11 +127,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
         'back'
       )
 
-      onCapture({
-        front: frontPayload,
-        video: videoPayload,
-        back: backPayload,
-      })
+      setBackPayload(backCapture)
     })
   }
 
@@ -111,6 +137,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
     documentType,
     instructionKeys,
     onNext: nextStep,
+    onSubmit: () => setFlowComplete(true),
     stepNumber,
     totalSteps,
   }

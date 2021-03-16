@@ -27,17 +27,17 @@ const defaultProps: DocumentVideoProps = {
   trackScreen: jest.fn(),
 }
 
-const simulateCaptureClick = (
-  wrapper: ReactWrapper,
-  waitForSuccessTimedOut = true
-) => {
+const simulateCaptureClick = (wrapper: ReactWrapper) => {
   const button = wrapper.find('VideoLayer Button > button')
   button.simulate('click')
 
-  if (waitForSuccessTimedOut) {
-    jest.runTimersToTime(2000)
-    wrapper.update()
-  }
+  jest.runTimersToTime(2000)
+
+  // Force rerender to trigger useEffect in DocumentVideo
+  // https://github.com/enzymejs/enzyme/issues/2091#issuecomment-486680844
+  wrapper.setProps({})
+
+  wrapper.update()
 }
 
 const assertOverlay = (
@@ -174,7 +174,7 @@ describe('DocumentVideo', () => {
       assertOverlay(wrapper, 'driving_licence', true))
 
     describe('when recording', () => {
-      beforeEach(() => simulateCaptureClick(wrapper, false))
+      beforeEach(() => simulateCaptureClick(wrapper))
 
       it('sets correct timeout', () => {
         const timeout = wrapper.find('Timeout')
@@ -209,7 +209,7 @@ describe('DocumentVideo', () => {
         assertSecondStep(wrapper, false)
       })
 
-      it('switches to the back document capture step', () => {
+      it('ends the flow with back side captured', () => {
         simulateCaptureClick(wrapper) // 1st -> 2nd
         simulateCaptureClick(wrapper) // 2nd -> complete
 
@@ -246,7 +246,7 @@ describe('DocumentVideo', () => {
       assertIntroStep(wrapper, true))
 
     describe('when recording', () => {
-      beforeEach(() => simulateCaptureClick(wrapper, false))
+      beforeEach(() => simulateCaptureClick(wrapper))
 
       it('starts recording correctly', () => {
         assertOverlay(wrapper, 'passport', false)

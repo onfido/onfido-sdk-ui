@@ -18,6 +18,7 @@ export type Props = {
   documentType: DocumentTypes
   instructionKeys: DocInstructionLocale[]
   onNext: () => void
+  onSubmit: () => void
   stepNumber: number
   totalSteps: number
 } & VideoLayerProps
@@ -33,11 +34,18 @@ const VideoLayer: FunctionComponent<Props> = ({
   onNext,
   onStart,
   onStop,
+  onSubmit,
   stepNumber,
   totalSteps,
 }) => {
   const [stepFinished, setStepFinished] = useState(false)
   const { translate } = useLocales()
+
+  useEffect(() => {
+    if (stepFinished) {
+      navigator.vibrate(SUCCESS_STATE_VIBRATION)
+    }
+  }, [stepFinished])
 
   const handleNext = useCallback(() => {
     if (stepNumber === 0) {
@@ -47,22 +55,20 @@ const VideoLayer: FunctionComponent<Props> = ({
 
     setStepFinished(true)
 
+    if (stepNumber >= totalSteps) {
+      onStop()
+    }
+
     setTimeout(() => {
       if (stepNumber >= totalSteps) {
-        onStop()
+        onSubmit()
         return
       }
 
       onNext()
       setStepFinished(false)
     }, SUCCESS_STATE_TIMEOUT)
-  }, [stepNumber, totalSteps, onNext, onStop])
-
-  useEffect(() => {
-    if (stepFinished) {
-      navigator.vibrate(SUCCESS_STATE_VIBRATION)
-    }
-  }, [stepFinished])
+  }, [stepNumber, totalSteps, onNext, onStop, onSubmit])
 
   const { title, subtitle, button } = instructionKeys[stepNumber]
 
@@ -73,23 +79,22 @@ const VideoLayer: FunctionComponent<Props> = ({
     />
   )
 
-  const actions =
-    isRecording && stepFinished ? (
-      <div className={style.instructions}>
-        <span className={style.success} />
-      </div>
-    ) : (
-      <Fragment>
-        {instruction}
-        <Button
-          variants={['centered', 'primary', 'lg']}
-          disabled={disableInteraction}
-          onClick={isRecording ? handleNext : onStart}
-        >
-          {translate(button)}
-        </Button>
-      </Fragment>
-    )
+  const items = stepFinished ? (
+    <div className={style.instructions}>
+      <span className={style.success} />
+    </div>
+  ) : (
+    <Fragment>
+      {instruction}
+      <Button
+        variants={['centered', 'primary', 'lg']}
+        disabled={disableInteraction}
+        onClick={isRecording ? handleNext : onStart}
+      >
+        {translate(button)}
+      </Button>
+    </Fragment>
+  )
 
   const hollowRect = calculateHollowRect(documentType, 0.5)
 
@@ -102,7 +107,7 @@ const VideoLayer: FunctionComponent<Props> = ({
       />
       <div className={style.controls} style={{ top: hollowRect.bottom }}>
         <StepProgress stepNumber={stepNumber} totalSteps={totalSteps} />
-        {actions}
+        {items}
       </div>
     </Fragment>
   )
