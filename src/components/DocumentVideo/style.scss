@@ -1,14 +1,37 @@
 @import '../Theme/constants';
 
-.instructions {
+.controls {
   position: absolute;
-  bottom: 128 * $unit;
-  left: 0;
-  right: 0;
+  bottom: 48 * $unit;
+  left: 16 * $unit;
+  right: 16 * $unit;
+  display: flex;
+  flex-direction: column;
+}
+
+.progress {
+  align-self: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 4 * $unit;
+  color: $color-white;
+  font-size: $font-size-small;
+  margin-top: 16 * $unit;
+  padding: 4 * $unit 10 * $unit;
+}
+
+.success {
+  background-image: url('../Complete/assets/complete.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 48 * $unit;
+}
+
+.instructions {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 3;
 }
 
 .instructions > span {
@@ -30,71 +53,4 @@
   @media (--medium-viewport) {
     font-size: 20 * $unit;
   }
-}
-
-.progress {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  left: 16 * $unit;
-  right: 16 * $unit;
-  bottom: 270 * $unit;
-  z-index: 3;
-}
-
-.progress .step {
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 4 * $unit;
-  color: $color-white;
-  font-size: $font-size-small;
-  padding: 4 * $unit 10 * $unit;
-}
-
-@keyframes gaugeFill {
-  from {
-    width: 0%;
-  }
-
-  to {
-    width: 100%;
-  }
-}
-
-.progress .step.active .gauge {
-  animation: gaugeFill 0.5s ease-in-out forwards;
-}
-
-.success {
-  background-image: url('../Complete/assets/complete.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 48 * $unit;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 160 * $unit;
-  z-index: 3;
-}
-
-.actions {
-  position: absolute;
-  bottom: 48 * $unit;
-  left: 16 * $unit;
-  right: 16 * $unit;
-  z-index: 3;
-
-  &.disabled {
-    z-index: 0;
-  }
-
-  .instructions {
-    bottom: 72 * $unit;
-  }
-}
-
-.btn:extend(.btn, .btn-centered, .btn-primary) {
-  padding: 0;
-  margin-left: auto;
-  margin-right: auto;
 }

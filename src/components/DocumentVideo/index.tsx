@@ -6,7 +6,6 @@ import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
 import { getInactiveError } from '~utils/inactiveError'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
-import { DocumentOverlay } from '../Overlay'
 import VideoCapture from '../VideoCapture'
 import VideoLayer from './VideoLayer'
 import useCaptureStep from './useCaptureStep'
@@ -109,6 +108,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const instructionKeys = getInstructionLocaleKeys(documentType)
 
   const passedProps = {
+    documentType,
     instructionKeys,
     onNext: nextStep,
     stepNumber,
@@ -125,13 +125,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
       onRedo={restartFlow}
       onVideoCapture={onVideoCapture}
       renderFallback={renderFallback}
-      renderOverlay={() => (
-        <DocumentOverlay
-          marginBottom={0.5}
-          type={documentType}
-          withPlaceholder={stepNumber === 0}
-        />
-      )}
       renderVideoLayer={(props) => <VideoLayer {...props} {...passedProps} />}
       trackScreen={trackScreen}
       webcamRef={webcamRef}

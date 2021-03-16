@@ -7,6 +7,7 @@ import VideoLayer, { Props as VideoLayerProps } from '../VideoLayer'
 navigator.vibrate = jest.fn()
 
 const defaultProps: VideoLayerProps = {
+  documentType: 'passport',
   disableInteraction: false,
   instructionKeys: Array(3).fill({
     button: 'Fake button',
@@ -21,11 +22,11 @@ const defaultProps: VideoLayerProps = {
 }
 
 const simulateNext = (wrapper: ReactWrapper) =>
-  wrapper.find('.actions Button > button').simulate('click')
+  wrapper.find('.controls Button > button').simulate('click')
 
 const assertSuccessState = (wrapper: ReactWrapper, isSuccess: boolean) => {
-  expect(wrapper.find('.actions Button').exists()).toEqual(!isSuccess)
-  expect(wrapper.find('.actions .success').exists()).toEqual(isSuccess)
+  expect(wrapper.find('.controls Button').exists()).toEqual(!isSuccess)
+  expect(wrapper.find('.controls .success').exists()).toEqual(isSuccess)
 }
 
 const assertSuccessStep = (wrapper: ReactWrapper, lastStep = false) => {

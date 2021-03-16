@@ -6,6 +6,13 @@ import type { DocumentTypes } from '~types/steps'
 
 type DocumentSizes = 'id1Card' | 'id3Card' | 'rectangle'
 
+type HollowRect = {
+  left: number
+  bottom: number
+  width: number
+  height: number
+}
+
 // Assume that the SVG viewport is (100, OUTER_HEIGHT)
 const OUTER_WIDTH = 100
 const OUTER_HEIGHT = (OUTER_WIDTH * window.innerHeight) / window.innerWidth
@@ -30,18 +37,11 @@ const getDocumentSize = (type?: DocumentTypes): DocumentSizes => {
   return ID1_SIZE_DOCUMENTS.has(type) ? 'id1Card' : 'id3Card'
 }
 
-type InnerRect = {
-  left: number
-  bottom: number
-  width: number
-  height: number
-}
-
-const calculateInnerRect = (
+export const calculateHollowRect = (
   documentType?: DocumentTypes,
   marginBottom?: number,
   scaleToSvgViewport = false
-): InnerRect => {
+): HollowRect => {
   const size = getDocumentSize(documentType)
   const { [size]: aspectRatio } = ASPECT_RATIOS
 
@@ -74,7 +74,7 @@ const drawInnerFrame = (
   documentType?: DocumentTypes,
   marginBottom?: number
 ): string => {
-  const { left, bottom, width, height } = calculateInnerRect(
+  const { left, bottom, width, height } = calculateHollowRect(
     documentType,
     marginBottom,
     true
@@ -117,7 +117,7 @@ const DocumentOverlay: FunctionComponent<Props> = ({
       {withPlaceholder && (
         <span
           className={style.placeholder}
-          style={calculateInnerRect(type, marginBottom)}
+          style={calculateHollowRect(type, marginBottom)}
         />
       )}
       {children}

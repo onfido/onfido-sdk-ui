@@ -30,11 +30,7 @@ const StepProgress: FunctionComponent<Props> = ({
     }
   })
 
-  return (
-    <div className={style.progress}>
-      <span className={style.step}>{step}</span>
-    </div>
-  )
+  return <span className={style.progress}>{step}</span>
 }
 
 export default memo(StepProgress)
