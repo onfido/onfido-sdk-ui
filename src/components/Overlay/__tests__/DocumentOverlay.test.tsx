@@ -60,7 +60,9 @@ describe('Overlay', () => {
 
       describe('with placeholder', () => {
         it('renders placeholder when withPlaceholder=true', () => {
-          const wrapper = mount(<DocumentOverlay withPlaceholder />)
+          const wrapper = mount(
+            <DocumentOverlay marginBottom={10} withPlaceholder />
+          )
           expect(wrapper.find('.placeholder').exists()).toBeTruthy()
         })
       })

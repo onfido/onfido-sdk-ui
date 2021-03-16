@@ -17,6 +17,7 @@ import DocumentVideo, { Props as DocumentVideoProps } from '../index'
 import type { DocumentTypes } from '~types/steps'
 
 jest.mock('../../utils')
+navigator.vibrate = jest.fn()
 
 const defaultProps: DocumentVideoProps = {
   cameraClassName: 'fakeCameraClass',
