@@ -1,10 +1,10 @@
-import { uploadBinaryMedia } from '../../onfidoApi'
 import { jwtToken } from '~jest/responses'
+import { uploadBinaryMedia } from '~utils/onfidoApi'
 import { hmac256 } from '~utils/blob'
 import { performHttpReq } from '~utils/http'
 
-jest.mock('../../blob')
-jest.mock('../../http')
+jest.mock('~utils/blob')
+jest.mock('~utils/http')
 
 const url = 'https://test.url.com'
 

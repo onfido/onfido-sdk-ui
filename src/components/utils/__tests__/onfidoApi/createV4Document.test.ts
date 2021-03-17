@@ -1,9 +1,9 @@
-import { createV4Document } from '../../onfidoApi'
 import { jwtToken, fakeCreateV4DocumentResponse } from '~jest/responses'
 import { performHttpReq } from '~utils/http'
+import { createV4Document } from '~utils/onfidoApi'
 
-jest.mock('../../blob')
-jest.mock('../../http')
+jest.mock('~utils/blob')
+jest.mock('~utils/http')
 
 const url = 'https://test.url.com'
 

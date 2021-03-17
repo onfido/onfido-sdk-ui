@@ -7,7 +7,7 @@ import Content from '../../Confirm/Content'
 
 import type { DocumentCapture } from '~types/redux'
 
-jest.mock('../../../utils/objectUrl')
+jest.mock('~utils/objectUrl')
 
 const fakeCapture: DocumentCapture = {
   documentType: 'passport',
