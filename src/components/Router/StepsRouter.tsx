@@ -28,6 +28,7 @@ class StepsRouter extends Component<StepsRouterProps> {
     const {
       back,
       cobrand,
+      logoCobrand,
       disableNavigation,
       hideOnfidoLogo,
       isFullScreen,
@@ -55,9 +56,17 @@ class StepsRouter extends Component<StepsRouterProps> {
       ? hideOnfidoLogo
       : globalUserOptions.enterpriseFeatures?.hideOnfidoLogo && hideOnfidoLogo
 
-    const cobrandLogic = mobileFlow
+    const textCobrandLogic = mobileFlow
       ? cobrand
       : globalUserOptions.enterpriseFeatures?.cobrand && cobrand
+
+    const logoCobrandLogic = mobileFlow
+      ? logoCobrand
+      : globalUserOptions.enterpriseFeatures?.logoCobrand && logoCobrand
+
+    const logoCobrandStyle = logoCobrandLogic
+      ? { backgroundImage: `url(${logoCobrandLogic.src})` }
+      : null
 
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
@@ -65,7 +74,8 @@ class StepsRouter extends Component<StepsRouterProps> {
         className={classNames(theme.step, {
           [theme.fullScreenStep]: isFullScreen,
           [theme.noLogo]: hideLogoLogic,
-          [theme.cobrandLogo]: cobrandLogic,
+          [theme.textCobrandLogo]: textCobrandLogic,
+          [theme.logoCobrandImage]: logoCobrand,
           [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
         })}
         tabIndex={-1}
@@ -85,10 +95,22 @@ class StepsRouter extends Component<StepsRouterProps> {
         >
           <CurrentComponent {...passedProps} />
         </div>
-        {!hideLogoLogic && cobrandLogic ? (
-          <div className={classNames({ [theme.cobrandFooter]: cobrandLogic })}>
+        {!hideLogoLogic && (textCobrandLogic || logoCobrandLogic) ? (
+          <div
+            className={classNames({
+              [theme.cobrandFooter]: textCobrandLogic || logoCobrandLogic,
+            })}
+          >
+            {logoCobrandLogic ? (
+              <div
+                className={theme.logoCobrandImage}
+                style={logoCobrandStyle}
+              />
+            ) : null}
             <div className={theme.cobrandLabel} aria-hidden="true">
-              <div className={theme.cobrandText}>{cobrandLogic.text}</div>
+              {textCobrandLogic ? (
+                <div className={theme.cobrandText}>{textCobrandLogic.text}</div>
+              ) : null}
               <div className={theme.poweredBy}>powered by</div>
             </div>
             <div className={theme.logo} />

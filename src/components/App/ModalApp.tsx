@@ -18,6 +18,7 @@ import type { NormalisedSdkOptions } from '~types/commons'
 import type {
   EnterpriseFeatures,
   EnterpriseCobranding,
+  EnterpriseLogoCobranding,
 } from '~types/enterprise'
 import type {
   SdkOptions,
@@ -61,7 +62,17 @@ class ModalApp extends Component<Props> {
   }
 
   componentDidMount() {
-    this.prepareInitialStore({}, this.props.options)
+    const { options } = this.props
+    this.prepareInitialStore({}, options)
+    if (!options.mobileFlow) {
+      const { customUI } = options
+      const hasCustomUIConfigured =
+        !!customUI && Object.keys(customUI).length > 0
+      const trackedProperties = {
+        is_custom_ui: hasCustomUIConfigured,
+      }
+      Tracker.sendEvent('started flow', trackedProperties)
+    }
   }
 
   componentDidUpdate(prevProps: Props) {
@@ -227,6 +238,14 @@ class ModalApp extends Component<Props> {
       )
     }
 
+    const logoCobrandConfig = options.enterpriseFeatures?.logoCobrand
+    if (!hideOnfidoLogo && !cobrandConfig && logoCobrandConfig) {
+      this.displayLogoCobrandIfClientHasFeature(
+        validEnterpriseFeatures.logoCobrand,
+        logoCobrandConfig
+      )
+    }
+
     const isDecoupledFromAPI =
       options.enterpriseFeatures?.useCustomizedApiRequests
     if (isDecoupledFromAPI) {
@@ -261,6 +280,17 @@ class ModalApp extends Component<Props> {
       this.props.actions.showCobranding(cobrandConfig)
     } else {
       this.onInvalidEnterpriseFeatureException('cobrand')
+    }
+  }
+
+  displayLogoCobrandIfClientHasFeature = (
+    isValidEnterpriseFeature: EnterpriseLogoCobranding | null | undefined,
+    logoCobrandConfig: EnterpriseLogoCobranding
+  ) => {
+    if (isValidEnterpriseFeature) {
+      this.props.actions.showLogoCobranding(logoCobrandConfig)
+    } else {
+      this.onInvalidEnterpriseFeatureException('logoCobrand')
     }
   }
 

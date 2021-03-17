@@ -78,4 +78,8 @@ export type UICustomizationOptions = {
   // Back, Close (modal) Icon Buttons
   colorBackgroundButtonIconHover?: string
   colorBackgroundButtonIconActive?: string
+
+  // Camera Shutter Button (only customisable for hover, active states)
+  colorBackgroundButtonCameraHover?: string
+  colorBackgroundButtonCameraActive?: string
 }

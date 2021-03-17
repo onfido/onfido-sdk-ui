@@ -123,6 +123,8 @@ export declare type UICustomizationOptions = {
 	colorContentInfoPill?: string;
 	colorBackgroundButtonIconHover?: string;
 	colorBackgroundButtonIconActive?: string;
+	colorBackgroundButtonCameraHover?: string;
+	colorBackgroundButtonCameraActive?: string;
 };
 export declare type DocumentSides = "front" | "back";
 export declare type UploadFileResponse = {
@@ -197,6 +199,9 @@ export declare type FaceVideoResponse = {
 export declare type EnterpriseCobranding = {
 	text: string;
 };
+export declare type EnterpriseLogoCobranding = {
+	src: string;
+};
 export declare type EnterpriseCallbackResponse = {
 	continueWithOnfidoSubmission?: boolean;
 	onfidoSuccess?: DocumentImageResponse | UploadFileResponse | FaceVideoResponse;
@@ -204,6 +209,7 @@ export declare type EnterpriseCallbackResponse = {
 export declare type EnterpriseFeatures = {
 	hideOnfidoLogo?: boolean;
 	cobrand?: EnterpriseCobranding;
+	logoCobrand?: EnterpriseLogoCobranding;
 	useCustomizedApiRequests?: boolean;
 	onSubmitDocument?: (data: FormData) => Promise<EnterpriseCallbackResponse>;
 	onSubmitSelfie?: (data: FormData) => Promise<EnterpriseCallbackResponse>;
