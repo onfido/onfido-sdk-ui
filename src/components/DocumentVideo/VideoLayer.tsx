@@ -92,26 +92,32 @@ const VideoLayer: FunctionComponent<Props> = ({
     />
   )
 
-  const items = stepFinished ? (
-    <div className={style.instructions}>
-      <span className={style.success} />
-    </div>
-  ) : (
-    <Fragment>
-      {instruction}
-      {buttonVisible ? (
-        <Button
-          variants={['centered', 'primary', 'lg']}
-          disabled={disableInteraction}
-          onClick={isRecording ? handleNext : onStart}
-        >
-          {translate(button)}
-        </Button>
-      ) : (
-        <div className={style.buttonPlaceholder} />
-      )}
-    </Fragment>
+  const action = (
+    <Button
+      variants={['centered', 'primary', 'lg']}
+      disabled={disableInteraction}
+      onClick={isRecording ? handleNext : onStart}
+    >
+      {translate(button)}
+    </Button>
   )
+
+  const renderItems = useCallback(() => {
+    if (stepFinished) {
+      return (
+        <div className={style.instructions}>
+          <span className={style.success} />
+        </div>
+      )
+    }
+
+    return (
+      <Fragment>
+        {instruction}
+        {buttonVisible ? action : <div className={style.buttonPlaceholder} />}
+      </Fragment>
+    )
+  }, [action, buttonVisible, instruction, stepFinished])
 
   const hollowRect = calculateHollowRect(documentType, 0.5)
 
@@ -124,7 +130,7 @@ const VideoLayer: FunctionComponent<Props> = ({
       />
       <div className={style.controls} style={{ top: hollowRect.bottom }}>
         <StepProgress stepNumber={stepNumber} totalSteps={totalSteps} />
-        {items}
+        {renderItems()}
       </div>
     </Fragment>
   )
