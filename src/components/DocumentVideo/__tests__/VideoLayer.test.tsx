@@ -164,7 +164,7 @@ describe('DocumentVideo', () => {
         )
       })
 
-      describe('for passport', () => {
+      describe.skip('for passport', () => {
         it('shows holding progress and then success state', () => {
           const wrapper = mount(
             <MockedLocalised>
