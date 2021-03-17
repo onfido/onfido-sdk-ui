@@ -204,16 +204,26 @@ export default class CrossDeviceMobileRouter extends Component<
         validEnterpriseFeatures?.hideOnfidoLogo
       ) {
         this.props.actions.hideOnfidoLogo(true)
+      } else if (
+        enterpriseFeatures.cobrand &&
+        validEnterpriseFeatures?.cobrand
+      ) {
+        this.props.actions.hideOnfidoLogo(false)
+        this.props.actions.showCobranding(enterpriseFeatures.cobrand)
       } else {
         this.props.actions.hideOnfidoLogo(false)
 
-        if (enterpriseFeatures.cobrand && validEnterpriseFeatures?.cobrand) {
-          this.props.actions.showCobranding(enterpriseFeatures.cobrand)
+        if (
+          enterpriseFeatures.logoCobrand &&
+          validEnterpriseFeatures?.logoCobrand
+        ) {
+          this.props.actions.showLogoCobranding(enterpriseFeatures.logoCobrand)
         }
       }
     } else {
       this.props.actions.hideOnfidoLogo(false)
       this.props.actions.showCobranding(null)
+      this.props.actions.showLogoCobranding(null)
     }
 
     this.props.actions.acceptTerms()
