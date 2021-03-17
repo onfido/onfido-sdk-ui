@@ -11,6 +11,7 @@ import type {
   DecoupleResponseOptions,
   StringifiedBoolean,
 } from './types'
+import testCobrandLogo from './assets/onfido-logo.svg'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
@@ -32,6 +33,7 @@ export type QueryParams = {
   region?: string
   shouldCloseOnOverlayClick?: StringifiedBoolean
   showCobrand?: StringifiedBoolean
+  showLogoCobrand?: StringifiedBoolean
   showUserConsent?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
   snapshotInterval?: string
@@ -194,6 +196,10 @@ export const getInitSdkOptions = (): SdkOptions => {
     queryParamToValueString.showCobrand === 'true'
       ? { text: 'Planet Express, Incorporated' }
       : undefined
+  const logoCobrand =
+    queryParamToValueString.showLogoCobrand === 'true'
+      ? { src: testCobrandLogo }
+      : undefined
   const useCustomizedApiRequests =
     queryParamToValueString.useCustomizedApiRequests === 'true'
   let decoupleCallbacks = {}
@@ -248,6 +254,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     enterpriseFeatures: {
       hideOnfidoLogo,
       cobrand,
+      logoCobrand,
       useCustomizedApiRequests,
       ...decoupleCallbacks,
     },

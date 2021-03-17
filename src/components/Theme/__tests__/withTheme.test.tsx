@@ -65,9 +65,7 @@ describe('Theme', () => {
 
       it('render wrapped component correctly', () => {
         expect(wrapper.find('.noLogo').exists()).toBeFalsy()
-        expect(wrapper.find('.cobrandLogo .cobrandText').text()).toEqual(
-          'Fake brand'
-        )
+        expect(wrapper.find('.cobrandText').text()).toEqual('Fake brand')
       })
     })
   })
