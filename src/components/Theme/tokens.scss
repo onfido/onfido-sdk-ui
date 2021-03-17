@@ -141,8 +141,12 @@
 
   /* Selfie Camera button colors */
   --color-background-button-camera: rgb(var(--ods-color-neutral-white));
-  --color-background-button-camera-hover: rgb(var(--ods-color-primary-400));
-  --color-background-button-camera-active: rgb(var(--ods-color-primary-600));
+  --osdk-color-background-button-camera-hover: rgb(
+    var(--ods-color-primary-400)
+  );
+  --osdk-color-background-button-camera-active: rgb(
+    var(--ods-color-primary-600)
+  );
 
   /* Link colors */
   --osdk-color-border-link-underline: rgba(var(--ods-color-border-action));
