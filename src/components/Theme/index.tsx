@@ -11,6 +11,7 @@ import type { RootState } from '~types/redux'
 const mapStateToProps = (state: RootState) => ({
   hideOnfidoLogo: state.globals.hideOnfidoLogo,
   cobrand: state.globals.cobrand,
+  logoCobrand: state.globals.logoCobrand,
 })
 
 const withConnect = connect(mapStateToProps)
@@ -21,13 +22,20 @@ const themeWrapped = (
   WrappedComponent: ComponentType<WithThemeProps>
 ): ComponentType<Props> => {
   const ThemedComponent: FunctionComponent<Props> = (props) => {
-    const { back, disableNavigation = false, hideOnfidoLogo, cobrand } = props
+    const {
+      back,
+      disableNavigation = false,
+      hideOnfidoLogo,
+      cobrand,
+      logoCobrand,
+    } = props
 
     return (
       <div
         className={classNames(theme.step, {
           [theme.noLogo]: hideOnfidoLogo,
-          [theme.cobrandLogo]: cobrand,
+          [theme.textCobrandLogo]: cobrand,
+          [theme.logoCobrandImage]: logoCobrand,
           [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
         })}
       >
@@ -39,10 +47,17 @@ const themeWrapped = (
         <div className={theme.content}>
           <WrappedComponent {...props} />
         </div>
-        {cobrand && !hideOnfidoLogo ? (
-          <div className={classNames({ [theme.cobrandFooter]: cobrand })}>
+        {(cobrand || logoCobrand) && !hideOnfidoLogo ? (
+          <div
+            className={classNames({
+              [theme.cobrandFooter]: cobrand || logoCobrand,
+            })}
+          >
+            {logoCobrand ? <div className={theme.logoCobrandImage} /> : null}
             <div className={theme.cobrandLabel} aria-hidden="true">
-              <div className={theme.cobrandText}>{cobrand.text}</div>
+              {cobrand ? (
+                <div className={theme.cobrandText}>{cobrand.text}</div>
+              ) : null}
               <div className={theme.poweredBy}>powered by</div>
             </div>
             <div className={theme.logo} />
