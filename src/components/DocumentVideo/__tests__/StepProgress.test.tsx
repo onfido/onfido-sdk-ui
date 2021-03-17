@@ -6,7 +6,7 @@ import StepProgress from '../StepProgress'
 
 mockedTranslate.mockImplementation((str) => {
   if (str === 'doc_video_capture.progress') {
-    return 'step: <step></step> - total: <total></total>'
+    return '<hidden>Invisible</hidden>step: <step></step> - total: <total></total>'
   }
 
   return str

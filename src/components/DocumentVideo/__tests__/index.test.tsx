@@ -29,9 +29,11 @@ const defaultProps: DocumentVideoProps = {
 
 const simulateCaptureClick = (wrapper: ReactWrapper) => {
   const button = wrapper.find('VideoLayer Button > button')
+  jest.runTimersToTime(3000) // wait for button to display
+  // wrapper.setProps({})
   button.simulate('click')
 
-  jest.runTimersToTime(2000)
+  jest.runTimersToTime(2000) // wait for success state to disappear
 
   // Force rerender to trigger useEffect in DocumentVideo
   // https://github.com/enzymejs/enzyme/issues/2091#issuecomment-486680844

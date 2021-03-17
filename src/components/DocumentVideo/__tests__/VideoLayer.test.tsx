@@ -1,18 +1,24 @@
 import { h } from 'preact'
-import { mount, ReactWrapper } from 'enzyme'
+import { mount, shallow, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import VideoLayer, { Props as VideoLayerProps } from '../VideoLayer'
 
 navigator.vibrate = jest.fn()
 
+const fakeInstructions = {
+  button: 'fake_button_key',
+  title: 'fake_title_key',
+}
+
 const defaultProps: VideoLayerProps = {
   documentType: 'passport',
   disableInteraction: false,
-  instructionKeys: Array(3).fill({
-    button: 'Fake button',
-    title: 'Fake title',
-  }),
+  instructionKeys: [
+    fakeInstructions,
+    { ...fakeInstructions, subtitle: 'fake_subtitle_key' },
+    fakeInstructions,
+  ],
   isRecording: false,
   onNext: jest.fn(),
   onStart: jest.fn(),
@@ -25,13 +31,15 @@ const defaultProps: VideoLayerProps = {
 const simulateNext = (wrapper: ReactWrapper) =>
   wrapper.find('.controls Button > button').simulate('click')
 
-const assertSuccessState = (wrapper: ReactWrapper, isSuccess: boolean) => {
-  expect(wrapper.find('.controls Button').exists()).toEqual(!isSuccess)
-  expect(wrapper.find('.controls .success').exists()).toEqual(isSuccess)
+const assertButton = (wrapper: ReactWrapper) => {
+  expect(wrapper.find('Button').exists()).toBeFalsy()
+  jest.runTimersToTime(3000)
+  wrapper.update()
+  expect(wrapper.find('Button').exists()).toBeTruthy()
 }
 
 const assertSuccessStep = (wrapper: ReactWrapper, lastStep = false) => {
-  assertSuccessState(wrapper, true)
+  expect(wrapper.find('.controls .success').exists()).toBeTruthy()
   expect(navigator.vibrate).toHaveBeenCalledWith(500)
 
   jest.runTimersToTime(2000)
@@ -48,12 +56,13 @@ const assertSuccessStep = (wrapper: ReactWrapper, lastStep = false) => {
 
   // Keep success state for the last step
   wrapper.update()
-  assertSuccessState(wrapper, lastStep)
+  expect(wrapper.find('.controls .success').exists()).toEqual(lastStep)
 }
 
 describe('DocumentVideo', () => {
   describe('VideoLayer', () => {
     beforeAll(() => {
+      console.warn = jest.fn()
       jest.useFakeTimers()
     })
 
@@ -70,18 +79,35 @@ describe('DocumentVideo', () => {
       )
 
       expect(wrapper.find('Button').exists()).toBeTruthy()
+      simulateNext(wrapper)
+      expect(defaultProps.onStart).toHaveBeenCalled()
     })
 
     describe('when recording', () => {
-      it('renders items correctly', () => {
+      it('throws error on exceptional case', () => {
+        // isRecording = true shouldn't come along with stepNumber = 0
         const wrapper = mount(
           <MockedLocalised>
             <VideoLayer {...defaultProps} isRecording />
           </MockedLocalised>
         )
 
-        expect(wrapper.find('Button').exists()).toBeTruthy()
         simulateNext(wrapper)
+        expect(console.warn).toHaveBeenCalledWith(
+          'handleNext is supposed to be called after intro step'
+        )
+      })
+
+      it('renders items correctly', () => {
+        const wrapper = mount(
+          <MockedLocalised>
+            <VideoLayer {...defaultProps} isRecording stepNumber={1} />
+          </MockedLocalised>
+        )
+
+        assertButton(wrapper)
+        simulateNext(wrapper)
+        jest.runTimersToTime(2000)
         expect(defaultProps.onNext).toHaveBeenCalled()
       })
 
@@ -101,6 +127,7 @@ describe('DocumentVideo', () => {
               </MockedLocalised>
             )
 
+            assertButton(wrapper)
             simulateNext(wrapper)
             assertSuccessStep(wrapper, stepNumber === steps.length)
           })

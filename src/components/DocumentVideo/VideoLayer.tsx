@@ -23,6 +23,7 @@ export type Props = {
   totalSteps: number
 } & VideoLayerProps
 
+const VISIBLE_BUTTON_TIMEOUT = 3000
 const SUCCESS_STATE_TIMEOUT = 2000
 const SUCCESS_STATE_VIBRATION = 500
 
@@ -38,18 +39,30 @@ const VideoLayer: FunctionComponent<Props> = ({
   stepNumber,
   totalSteps,
 }) => {
+  const [buttonVisible, setButtonVisible] = useState(false)
   const [stepFinished, setStepFinished] = useState(false)
   const { translate } = useLocales()
 
   useEffect(() => {
+    if (stepNumber === 0) {
+      setButtonVisible(true)
+      return
+    }
+
+    setButtonVisible(false)
+    setTimeout(() => setButtonVisible(true), VISIBLE_BUTTON_TIMEOUT)
+  }, [stepNumber])
+
+  useEffect(() => {
     if (stepFinished) {
       navigator.vibrate(SUCCESS_STATE_VIBRATION)
+      setButtonVisible(false)
     }
   }, [stepFinished])
 
   const handleNext = useCallback(() => {
     if (stepNumber === 0) {
-      onNext()
+      console.warn('handleNext is supposed to be called after intro step')
       return
     }
 
@@ -86,13 +99,17 @@ const VideoLayer: FunctionComponent<Props> = ({
   ) : (
     <Fragment>
       {instruction}
-      <Button
-        variants={['centered', 'primary', 'lg']}
-        disabled={disableInteraction}
-        onClick={isRecording ? handleNext : onStart}
-      >
-        {translate(button)}
-      </Button>
+      {buttonVisible ? (
+        <Button
+          variants={['centered', 'primary', 'lg']}
+          disabled={disableInteraction}
+          onClick={isRecording ? handleNext : onStart}
+        >
+          {translate(button)}
+        </Button>
+      ) : (
+        <div className={style.buttonPlaceholder} />
+      )}
     </Fragment>
   )
 
