@@ -85,14 +85,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
         back: backPayload,
       })
     }
-  }, [
-    flowComplete,
-    documentType,
-    onCapture,
-    frontPayload,
-    videoPayload,
-    backPayload,
-  ])
+  }, [flowComplete]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const onRecordingStart = () => {
     nextStep()
