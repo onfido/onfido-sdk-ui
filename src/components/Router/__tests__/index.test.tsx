@@ -10,8 +10,8 @@ import Router from '../index'
 
 import type { NarrowSdkOptions } from '~types/commons'
 
-jest.mock('../../utils')
-jest.mock('../../utils/crossDeviceSync')
+jest.mock('~utils')
+jest.mock('~utils/crossDeviceSync')
 
 const defaultOptions: NarrowSdkOptions = {
   steps: [
