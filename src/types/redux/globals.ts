@@ -1,6 +1,9 @@
 import * as constants from './constants'
 import type { CountryData, UrlsConfig } from '~types/commons'
-import type { EnterpriseCobranding } from '~types/enterprise'
+import type {
+  EnterpriseCobranding,
+  EnterpriseLogoCobranding,
+} from '~types/enterprise'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 export type SmsPayload = {
@@ -24,9 +27,10 @@ export type GlobalActions =
   | { type: typeof constants.SET_DEVICE_HAS_CAMERA_SUPPORT; payload: boolean }
   | { type: typeof constants.SET_URLS; payload: UrlsConfig }
   | { type: typeof constants.HIDE_ONFIDO_LOGO; payload: boolean }
+  | { type: typeof constants.SHOW_COBRANDING; payload: EnterpriseCobranding }
   | {
-      type: typeof constants.SHOW_COBRANDING
-      payload: EnterpriseCobranding | null
+      type: typeof constants.SHOW_LOGO_COBRANDING
+      payload: EnterpriseLogoCobranding
     }
   | { type: typeof constants.SET_DECOUPLE_FROM_API; payload: boolean }
   | { type: typeof constants.RETRY_FOR_IMAGE_QUALITY }
@@ -49,6 +53,7 @@ export type GlobalState = {
   // This prevents logo from being shown before state can be updated to hide it.
   hideOnfidoLogo?: boolean
   cobrand?: EnterpriseCobranding
+  logoCobrand?: EnterpriseLogoCobranding
   isDecoupledFromAPI?: boolean
   urls: UrlsConfig
   /**

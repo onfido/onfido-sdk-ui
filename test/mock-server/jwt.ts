@@ -12,6 +12,7 @@ const payload = {
   enterprise_features: {
     cobrand: true,
     hideOnfidoLogo: true,
+    logoCobrand: true,
     useCustomizedApiRequests: true,
   },
   urls: {
