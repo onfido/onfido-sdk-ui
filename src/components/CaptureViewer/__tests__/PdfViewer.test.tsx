@@ -4,7 +4,7 @@ import PdfObject from 'pdfobject'
 
 import PdfViewer from '../PdfViewer'
 
-jest.mock('../../utils/objectUrl')
+jest.mock('~utils/objectUrl')
 
 const defaultProps = {
   blob: new Blob([]),

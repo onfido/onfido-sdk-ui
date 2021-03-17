@@ -7,7 +7,7 @@ import CaptureViewer from '../index'
 
 import type { CapturePayload } from '~types/redux'
 
-jest.mock('../../utils/objectUrl')
+jest.mock('~utils/objectUrl')
 
 const fakePdfCapture: CapturePayload = {
   blob: new Blob([], { type: 'application/pdf' }),

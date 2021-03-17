@@ -12,7 +12,7 @@ import VideoCapture, {
 import type { CameraProps } from '~types/camera'
 import type { WithTrackingProps } from '~types/hocs'
 
-jest.mock('../../utils')
+jest.mock('~utils')
 
 const assertTimeout = (wrapper: ReactWrapper, seconds: number) => {
   const timeout = wrapper.find('Timeout')

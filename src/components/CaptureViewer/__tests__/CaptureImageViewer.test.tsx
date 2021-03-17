@@ -5,7 +5,7 @@ import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import CaptureImageViewer from '../CaptureImageViewer'
 
-jest.mock('../../utils/objectUrl')
+jest.mock('~utils/objectUrl')
 
 const fakeBlob = new Blob([])
 const fakeFileBlob = new File([], 'fake-file.jpg')
