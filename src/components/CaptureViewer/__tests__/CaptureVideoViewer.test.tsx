@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme'
 
 import CaptureVideoViewer from '../CaptureVideoViewer'
 
-jest.mock('../../utils/objectUrl')
+jest.mock('~utils/objectUrl')
 
 const defaultProps = {
   ariaLabel: 'Fake aria-label',

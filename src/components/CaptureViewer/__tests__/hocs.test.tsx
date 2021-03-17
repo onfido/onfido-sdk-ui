@@ -5,7 +5,7 @@ import loadImage from 'blueimp-load-image'
 import { revokeObjectURL } from '~utils/objectUrl'
 import { withBlobPreviewUrl, withBlobBase64 } from '../hocs'
 
-jest.mock('../../utils/objectUrl')
+jest.mock('~utils/objectUrl')
 
 type DummyProps = {
   base64?: string

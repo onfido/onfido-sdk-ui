@@ -14,7 +14,7 @@ import type { CameraProps } from '~types/camera'
 import type { CaptureMethods } from '~types/commons'
 import type { WithTrackingProps } from '~types/hocs'
 
-jest.mock('../../utils')
+jest.mock('~utils')
 
 const assertTimeout = (wrapper: ReactWrapper, seconds: number) => {
   const timeout = wrapper.find('Timeout')
