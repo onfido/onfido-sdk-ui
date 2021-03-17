@@ -27,19 +27,46 @@ const defaultProps: DocumentVideoProps = {
   trackScreen: jest.fn(),
 }
 
-const simulateCaptureClick = (wrapper: ReactWrapper) => {
-  const button = wrapper.find('VideoLayer Button > button')
-  jest.runTimersToTime(3000) // wait for button to display
-  // wrapper.setProps({})
-  button.simulate('click')
-
-  jest.runTimersToTime(2000) // wait for success state to disappear
-
-  // Force rerender to trigger useEffect in DocumentVideo
-  // https://github.com/enzymejs/enzyme/issues/2091#issuecomment-486680844
-  wrapper.setProps({})
+const waitForTimeout = (
+  wrapper: ReactWrapper,
+  type: 'button' | 'success' | 'recording'
+) => {
+  switch (type) {
+    case 'button':
+      jest.runTimersToTime(3000)
+      break
+    case 'success':
+      jest.runTimersToTime(2000)
+      break
+    case 'recording':
+      jest.runTimersToTime(30_000)
+      break
+    default:
+      break
+  }
 
   wrapper.update()
+}
+
+const simulateButtonClick = (
+  wrapper: ReactWrapper,
+  shouldWait = false,
+  forceRerender = false
+) => {
+  if (shouldWait) {
+    waitForTimeout(wrapper, 'button')
+  }
+
+  const button = wrapper.find('VideoLayer Button > button')
+  button.simulate('click')
+
+  waitForTimeout(wrapper, 'success')
+
+  if (forceRerender) {
+    // Force rerender to trigger useEffect in DocumentVideo
+    // https://github.com/enzymejs/enzyme/issues/2091#issuecomment-486680844
+    wrapper.setProps({})
+  }
 }
 
 const assertOverlay = (
@@ -109,6 +136,7 @@ const assertFirstStep = (
   wrapper: ReactWrapper,
   forSingleSidedDocs: boolean
 ) => {
+  waitForTimeout(wrapper, 'button')
   assertRecordingButton(wrapper, 'doc_video_capture.button_next')
 
   const instructions = wrapper.find('VideoLayer Instructions')
@@ -129,6 +157,7 @@ const assertSecondStep = (
   wrapper: ReactWrapper,
   forSingleSidedDocs: boolean
 ) => {
+  waitForTimeout(wrapper, 'button')
   assertRecordingButton(wrapper, 'doc_video_capture.button_stop')
 
   const instructions = wrapper.find('VideoLayer Instructions')
@@ -176,7 +205,7 @@ describe('DocumentVideo', () => {
       assertOverlay(wrapper, 'driving_licence', true))
 
     describe('when recording', () => {
-      beforeEach(() => simulateCaptureClick(wrapper))
+      beforeEach(() => simulateButtonClick(wrapper))
 
       it('sets correct timeout', () => {
         const timeout = wrapper.find('Timeout')
@@ -185,8 +214,7 @@ describe('DocumentVideo', () => {
 
       describe('when inactive timed out', () => {
         beforeEach(() => {
-          jest.runTimersToTime(30_000)
-          wrapper.update()
+          waitForTimeout(wrapper, 'recording')
         })
 
         it('handles redo fallback correctly', () => {
@@ -207,13 +235,13 @@ describe('DocumentVideo', () => {
       })
 
       it('moves to the second step correctly', () => {
-        simulateCaptureClick(wrapper)
+        simulateButtonClick(wrapper, true, true)
         assertSecondStep(wrapper, false)
       })
 
       it('ends the flow with back side captured', () => {
-        simulateCaptureClick(wrapper) // 1st -> 2nd
-        simulateCaptureClick(wrapper) // 2nd -> complete
+        simulateButtonClick(wrapper, true, true) // 1st -> 2nd
+        simulateButtonClick(wrapper, true, true) // 2nd -> complete
 
         expect(defaultProps.onCapture).toHaveBeenCalledWith({
           front: {
@@ -248,7 +276,7 @@ describe('DocumentVideo', () => {
       assertIntroStep(wrapper, true))
 
     describe('when recording', () => {
-      beforeEach(() => simulateCaptureClick(wrapper))
+      beforeEach(() => simulateButtonClick(wrapper))
 
       it('starts recording correctly', () => {
         assertOverlay(wrapper, 'passport', false)
@@ -256,7 +284,7 @@ describe('DocumentVideo', () => {
       })
 
       it('ends the flow without capturing back side', () => {
-        simulateCaptureClick(wrapper)
+        simulateButtonClick(wrapper, true, true)
 
         expect(defaultProps.onCapture).toHaveBeenCalledWith({
           front: {
