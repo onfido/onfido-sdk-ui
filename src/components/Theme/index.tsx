@@ -6,7 +6,10 @@ import NavigationBar from '../NavigationBar'
 import theme from './style.scss'
 
 import type { WithThemeProps } from '~types/hocs'
-import type { EnterpriseCobranding } from '~types/enterprise'
+import type {
+  EnterpriseCobranding,
+  EnterpriseLogoCobranding,
+} from '~types/enterprise'
 import type { RootState } from '~types/redux'
 
 const withTheme = <P extends unknown>(
@@ -19,13 +22,19 @@ const withTheme = <P extends unknown>(
     const cobrand = useSelector<RootState, EnterpriseCobranding | undefined>(
       (state) => state.globals.cobrand
     )
+    const logoCobrand = useSelector<
+      RootState,
+      EnterpriseLogoCobranding | undefined
+    >((state) => state.globals.logoCobrand)
+
     const { back, disableNavigation = false } = props
 
     return (
       <div
         className={classNames(theme.step, {
           [theme.noLogo]: hideOnfidoLogo,
-          [theme.cobrandLogo]: cobrand,
+          [theme.textCobrandLogo]: cobrand,
+          [theme.logoCobrandImage]: logoCobrand,
           [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
         })}
       >
@@ -37,10 +46,17 @@ const withTheme = <P extends unknown>(
         <div className={theme.content}>
           <WrappedComponent {...props} />
         </div>
-        {cobrand && !hideOnfidoLogo ? (
-          <div className={classNames({ [theme.cobrandFooter]: cobrand })}>
+        {(cobrand || logoCobrand) && !hideOnfidoLogo ? (
+          <div
+            className={classNames({
+              [theme.cobrandFooter]: cobrand || logoCobrand,
+            })}
+          >
+            {logoCobrand ? <div className={theme.logoCobrandImage} /> : null}
             <div className={theme.cobrandLabel} aria-hidden="true">
-              <div className={theme.cobrandText}>{cobrand.text}</div>
+              {cobrand ? (
+                <div className={theme.cobrandText}>{cobrand.text}</div>
+              ) : null}
               <div className={theme.poweredBy}>powered by</div>
             </div>
             <div className={theme.logo} />
