@@ -14,6 +14,32 @@ import type { DocumentTypes } from '~types/steps'
 import type { DocInstructionLocale } from '~utils/localesMapping'
 import type { VideoLayerProps } from '../VideoCapture'
 
+type RecordState = 'hideButton' | 'showButton' | 'holdingStill' | 'success'
+type RecordTransition = {
+  state: RecordState
+  nextState: () => void
+  resetState: () => void
+}
+
+/**
+ * For intro step:
+ *  -> hideButton (ends immediately)
+ *  -> showButton (wait for click)
+ *  -> success (wait 2s)
+ * For passport:
+ *  -> hideButton (wait 3s)
+ *  -> showButton (wait for click)
+ *  -> holdingStill (wait 6s)
+ *  -> success (wait 2s)
+ * For other documents:
+ *  -> hideButton (wait 3s)
+ *  -> showButton (wait for click)
+ *  -> success (wait 2s)
+ */
+const useTransition = (documentType: DocumentTypes): RecordTransition => {
+  const [currentState, setCurrentState] = useState('hideButton')
+}
+
 export type Props = {
   documentType: DocumentTypes
   instructionKeys: DocInstructionLocale[]
@@ -117,7 +143,7 @@ const VideoLayer: FunctionComponent<Props> = ({
         {buttonVisible ? action : <div className={style.buttonPlaceholder} />}
       </Fragment>
     )
-  }, [action, buttonVisible, instruction, stepFinished])
+  }, [action, buttonVisible, isHolding, instruction, stepFinished])
 
   const hollowRect = calculateHollowRect(documentType, 0.5)
 

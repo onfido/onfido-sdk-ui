@@ -12,7 +12,7 @@ const fakeInstructions = {
 }
 
 const defaultProps: VideoLayerProps = {
-  documentType: 'passport',
+  documentType: 'driving_licence',
   disableInteraction: false,
   instructionKeys: [
     fakeInstructions,
@@ -28,21 +28,52 @@ const defaultProps: VideoLayerProps = {
   totalSteps: 2,
 }
 
+const waitForTimeout = (
+  wrapper: ReactWrapper,
+  type: 'button' | 'holding' | 'success'
+) => {
+  switch (type) {
+    case 'button':
+      jest.runTimersToTime(3000)
+      break
+    case 'holding':
+      jest.runTimersToTime(6000)
+      break
+    case 'success':
+      jest.runTimersToTime(2000)
+      break
+    default:
+      break
+  }
+
+  wrapper.update()
+}
+
 const simulateNext = (wrapper: ReactWrapper) =>
   wrapper.find('.controls Button > button').simulate('click')
 
 const assertButton = (wrapper: ReactWrapper) => {
   expect(wrapper.find('Button').exists()).toBeFalsy()
-  jest.runTimersToTime(3000)
-  wrapper.update()
+  waitForTimeout(wrapper, 'button')
   expect(wrapper.find('Button').exists()).toBeTruthy()
 }
 
-const assertSuccessStep = (wrapper: ReactWrapper, lastStep = false) => {
+const assertHoldingState = (wrapper: ReactWrapper) => {
+  expect(wrapper.find('.holding').exists()).toBeTruthy()
   expect(wrapper.find('.controls .success').exists()).toBeTruthy()
+  expect(wrapper.find('Button').exists()).toBeFalsy()
+
+  waitForTimeout(wrapper, 'holding')
+  expect(wrapper.find('.holding').exists()).toBeFalsy()
+}
+
+const assertSuccessState = (wrapper: ReactWrapper, lastStep = false) => {
+  expect(wrapper.find('.holding').exists()).toBeFalsy()
+  expect(wrapper.find('.controls .success').exists()).toBeTruthy()
+  expect(wrapper.find('Button').exists()).toBeFalsy()
   expect(navigator.vibrate).toHaveBeenCalledWith(500)
 
-  jest.runTimersToTime(2000)
+  waitForTimeout(wrapper, 'success')
 
   if (lastStep) {
     expect(defaultProps.onStop).toHaveBeenCalled()
@@ -55,7 +86,6 @@ const assertSuccessStep = (wrapper: ReactWrapper, lastStep = false) => {
   }
 
   // Keep success state for the last step
-  wrapper.update()
   expect(wrapper.find('.controls .success').exists()).toEqual(lastStep)
 }
 
@@ -107,7 +137,7 @@ describe('DocumentVideo', () => {
 
         assertButton(wrapper)
         simulateNext(wrapper)
-        jest.runTimersToTime(2000)
+        waitForTimeout(wrapper, 'success')
         expect(defaultProps.onNext).toHaveBeenCalled()
       })
 
@@ -129,9 +159,31 @@ describe('DocumentVideo', () => {
 
             assertButton(wrapper)
             simulateNext(wrapper)
-            assertSuccessStep(wrapper, stepNumber === steps.length)
+            assertSuccessState(wrapper, stepNumber === steps.length)
           })
         )
+      })
+
+      describe('for passport', () => {
+        it('shows holding progress and then success state', () => {
+          const wrapper = mount(
+            <MockedLocalised>
+              <VideoLayer
+                {...defaultProps}
+                documentType="passport"
+                isRecording
+                stepNumber={1}
+                totalSteps={1}
+              />
+            </MockedLocalised>
+          )
+
+          assertButton(wrapper)
+          simulateNext(wrapper)
+
+          assertHoldingState(wrapper)
+          assertSuccessState(wrapper, true)
+        })
       })
     })
   })
