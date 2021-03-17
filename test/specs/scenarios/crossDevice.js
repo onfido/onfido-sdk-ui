@@ -421,6 +421,32 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.checkLogoIsHidden()
       })
+      it('should show the cobrand logo and onfido logo on all screens when showLogoCobrand is enabled and token has feature enabled', async () => {
+        driver.get(`${baseUrl}&showLogoCobrand=true`)
+        welcome.checkLogoCobrandIsVisible()
+        welcome.continueToNextStep()
+        documentSelector.checkLogoCobrandIsVisible()
+        documentSelector.clickOnPassportIcon()
+        runThroughCrossDeviceFlow()
+        documentUpload.checkLogoCobrandIsVisible()
+        documentUpload.clickUploadButton()
+        uploadFileAndClickConfirmButton(
+          passportUploadImageGuide,
+          confirm,
+          'passport.jpg'
+        )
+        selfieIntro.checkLogoCobrandIsVisible()
+        selfieIntro.clickOnContinueButton()
+        camera.checkLogoCobrandIsVisible()
+        camera.takeSelfie()
+        confirm.checkLogoCobrandIsVisible()
+        confirm.clickConfirmButton()
+        crossDeviceClientSuccess.checkLogoCobrandIsVisible()
+        switchBrowserTab(0)
+        crossDeviceSubmit.checkLogoCobrandIsVisible()
+        crossDeviceSubmit.clickOnSubmitVerificationButton()
+        verificationComplete.checkLogoCobrandIsVisible()
+      })
 
       it('should continue through full flow without problems when using customized API requests but still uploading media to API as normal', async () => {
         driver.get(

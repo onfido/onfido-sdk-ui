@@ -8,6 +8,8 @@ import type {
 import type { ServerRegions, SdkOptions } from '~types/sdk'
 import type { UICustomizationOptions } from '~types/ui-customisation-options'
 import customUIConfig from './custom-ui-config.json'
+// @ts-ignore
+import testCobrandLogo from './assets/onfido-logo.svg'
 
 type StringifiedBoolean = 'true' | 'false'
 type DecoupleResponseOptions = 'success' | 'error' | 'onfido'
@@ -30,6 +32,7 @@ export type QueryParams = {
   region?: string
   shouldCloseOnOverlayClick?: StringifiedBoolean
   showCobrand?: StringifiedBoolean
+  showLogoCobrand?: StringifiedBoolean
   showUserConsent?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
   snapshotInterva?: StringifiedBoolean
@@ -188,6 +191,10 @@ export const getInitSdkOptions = (): SdkOptions => {
     queryParamToValueString.showCobrand === 'true'
       ? { text: 'Planet Express, Incorporated' }
       : undefined
+  const logoCobrand =
+    queryParamToValueString.showLogoCobrand == 'true'
+      ? { src: testCobrandLogo }
+      : undefined
   const useCustomizedApiRequests =
     queryParamToValueString.useCustomizedApiRequests === 'true'
   let decoupleCallbacks = {}
@@ -245,6 +252,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     enterpriseFeatures: {
       hideOnfidoLogo,
       cobrand,
+      logoCobrand,
       useCustomizedApiRequests,
       ...decoupleCallbacks,
     },

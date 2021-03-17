@@ -18,6 +18,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Replaced internal button component with button from @onfido/castor-react.
 - UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
+- Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the Onfido logo.
 
 ## [6.6.0] - 2021-03-11
 
