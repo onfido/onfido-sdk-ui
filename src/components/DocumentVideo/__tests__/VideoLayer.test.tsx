@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { mount, shallow, ReactWrapper } from 'enzyme'
+import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import VideoLayer, { Props as VideoLayerProps } from '../VideoLayer'
