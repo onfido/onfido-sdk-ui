@@ -15,6 +15,31 @@ type UseCaptureStepType = {
   totalSteps: number
 }
 
+/* type MachineSpec<S extends string, A extends string> = {
+  initialState: S
+  states: Record<S, Record<A, S>>
+}
+
+const buildReducer = <S extends string, A extends string>(
+  spec: MachineSpec<S, A>
+) => (currentState: S, action: A): S => spec.states[currentState][action]
+
+const spec: MachineSpec<Exclude<CaptureSteps, 'back'>, CaptureStepActions> = {
+  initialState: 'intro',
+  states: {
+    intro: {
+      NEXT_CAPTURE_STEP: 'front',
+      RESET_CAPTURE_STEP: 'intro',
+    },
+    front: {
+      NEXT_CAPTURE_STEP: 'front',
+      RESET_CAPTURE_STEP: 'intro',
+    },
+  },
+}
+
+const reducer = buildReducer(spec) */
+
 const STEPS_BY_FLOW: Record<CaptureFlows, CaptureSteps[]> = {
   passport: ['intro', 'front'],
   cardId: ['intro', 'front', 'back'],
