@@ -109,6 +109,18 @@ const buildCaptureStepComponents = (
 
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
 
+  // this should only be printed when importing the Auth bundle
+  // This code should not be present in the IDV bundle
+  if (process.env.SDK_ENV === 'Auth') {
+    console.log(`>>>>>>>>>>>>> hello, I'm the Auth bundle`)
+  }
+
+  // this should only be printed when importing the IDV bundle
+  // This code should not be present in the Auth bundle
+  if (process.env.SDK_ENV === 'IDV') {
+    console.log(`>>>>>>>>>>>>> hello, Im the IDV bundle`)
+  }
+
   return {
     welcome: [Welcome],
     userConsent: [UserConsent],

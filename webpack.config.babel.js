@@ -177,14 +177,14 @@ const formatDefineHash = (defineHash) =>
   )
 const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
-const basePlugins = (bundle_name) => [
+const basePlugins = (bundleName) => [
   new Visualizer({
     filename: `./reports/statistics.html`,
   }),
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: false,
-    reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
+    reportFilename: `${__dirname}/dist/reports/bundle_${bundleName}_size.html`,
     defaultSizes: 'gzip',
   }),
   new webpack.NoEmitOnErrorsPlugin(),
@@ -192,6 +192,7 @@ const basePlugins = (bundle_name) => [
     formatDefineHash({
       ...CONFIG,
       NODE_ENV,
+      SDK_ENV: bundleName,
       PRODUCTION_BUILD,
       SDK_VERSION: packageJson.version,
       // We use a Base 32 version string for the cross-device flow, to make URL
@@ -253,107 +254,112 @@ const baseConfig = {
   devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-cheap-source-map',
 }
 
-const configDist = {
-  ...baseConfig,
+const configDist = (bundleName = '') => {
+  return {
+    ...baseConfig,
 
-  entry: {
-    onfido: './index.tsx',
-    demo: './demo/demo.tsx',
-    previewer: './demo/previewer.tsx',
-  },
+    entry: {
+      [`onfido${bundleName}`]: './index.tsx',
+      demo: './demo/demo.tsx',
+      previewer: './demo/previewer.tsx',
+    },
 
-  output: {
-    library: 'Onfido',
-    libraryTarget: 'umd',
-    path: `${__dirname}/dist`,
-    publicPath: CONFIG.PUBLIC_PATH,
-    filename: '[name].min.js',
-    chunkFilename: 'onfido.[name].min.js',
-  },
+    output: {
+      library: `Onfido${bundleName}`,
+      libraryTarget: 'umd',
+      path: `${__dirname}/dist`,
+      publicPath: CONFIG.PUBLIC_PATH,
+      filename: '[name].min.js',
+      chunkFilename: `onfido${bundleName}.[name].min.js`,
+    },
 
-  module: {
-    rules: [
-      ...baseRules,
-      ...baseStyleRules(),
-      {
-        test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]'],
-      },
-    ],
-  },
+    module: {
+      rules: [
+        ...baseRules,
+        ...baseStyleRules(),
+        {
+          test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
+          use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]'],
+        },
+      ],
+    },
 
-  optimization: {
-    minimizer: [
+    optimization: {
+      minimizer: [
+        ...(PRODUCTION_BUILD
+          ? [
+              new TerserPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true,
+                terserOptions: {
+                  output: {
+                    preamble: `/* Onfido${bundleName} SDK ${packageJson.version} */`,
+                    comments: '/^!/',
+                  },
+                },
+                extractComments: {
+                  condition: /^\**!|@preserve|@license|@cc_on/i,
+                  filename: (filename) => {
+                    const filenameNoExtension = path.basename(
+                      filename,
+                      '.min.js'
+                    )
+                    return `${filenameNoExtension}.LICENSES.txt`
+                  },
+                  banner: (licenseFile) => {
+                    return `License information can be found in ${licenseFile}`
+                  },
+                },
+              }),
+            ]
+          : []),
+      ],
+    },
+
+    plugins: [
+      ...basePlugins(bundleName || 'IDV'),
+      new MiniCssExtractPlugin({
+        filename: 'style.css',
+        chunkFilename: `onfido${bundleName}.[name].css`,
+      }),
+      new HtmlWebpackPlugin({
+        template: './demo/demo.ejs',
+        filename: 'index.html',
+        minify: { collapseWhitespace: true },
+        inject: 'body',
+        JWT_FACTORY: CONFIG.JWT_FACTORY,
+        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+        chunks: ['onfido', 'demo'],
+      }),
+      new HtmlWebpackPlugin({
+        template: './demo/previewer.ejs',
+        filename: 'previewer/index.html',
+        minify: { collapseWhitespace: true },
+        inject: 'body',
+        JWT_FACTORY: CONFIG.JWT_FACTORY,
+        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+        chunks: ['previewer'],
+      }),
       ...(PRODUCTION_BUILD
         ? [
-            new TerserPlugin({
-              cache: true,
-              parallel: true,
-              sourceMap: true,
-              terserOptions: {
-                output: {
-                  preamble: `/* Onfido SDK ${packageJson.version} */`,
-                  comments: '/^!/',
-                },
-              },
-              extractComments: {
-                condition: /^\**!|@preserve|@license|@cc_on/i,
-                filename: (filename) => {
-                  const filenameNoExtension = path.basename(filename, '.min.js')
-                  return `${filenameNoExtension}.LICENSES.txt`
-                },
-                banner: (licenseFile) => {
-                  return `License information can be found in ${licenseFile}`
-                },
-              },
+            new webpack.LoaderOptionsPlugin({
+              minimize: true,
+              debug: false,
             }),
           ]
         : []),
     ],
-  },
 
-  plugins: [
-    ...basePlugins('dist'),
-    new MiniCssExtractPlugin({
-      filename: 'style.css',
-      chunkFilename: 'onfido.[name].css',
-    }),
-    new HtmlWebpackPlugin({
-      template: './demo/demo.ejs',
-      filename: 'index.html',
-      minify: { collapseWhitespace: true },
-      inject: 'body',
-      JWT_FACTORY: CONFIG.JWT_FACTORY,
-      DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
-      chunks: ['onfido', 'demo'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './demo/previewer.ejs',
-      filename: 'previewer/index.html',
-      minify: { collapseWhitespace: true },
-      inject: 'body',
-      JWT_FACTORY: CONFIG.JWT_FACTORY,
-      DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
-      chunks: ['previewer'],
-    }),
-    ...(PRODUCTION_BUILD
-      ? [
-          new webpack.LoaderOptionsPlugin({
-            minimize: true,
-            debug: false,
-          }),
-        ]
-      : []),
-  ],
-
-  devServer: {
-    port: process.env.PORT || 8080,
-    host: '0.0.0.0',
-    publicPath: '/',
-    contentBase: './dist',
-    historyApiFallback: true,
-    disableHostCheck: true, // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
-  },
+    devServer: {
+      port: process.env.PORT || 8080,
+      host: '0.0.0.0',
+      publicPath: '/',
+      contentBase: './dist',
+      historyApiFallback: true,
+      disableHostCheck: true, // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
+    },
+  }
 }
 
 const configNpmLib = {
@@ -391,4 +397,4 @@ const configNpmLib = {
 
 const smp = new SpeedMeasurePlugin()
 
-export default [smp.wrap(configDist), configNpmLib]
+export default [smp.wrap(configDist()), configDist('Auth'), configNpmLib]
