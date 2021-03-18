@@ -1,12 +1,7 @@
 import { useCallback, useEffect, useReducer, useState } from 'preact/compat'
 
+import type { RecordState, RecordActions } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
-
-export type RecordState =
-  | 'hideButton'
-  | 'showButton'
-  | 'holdingStill'
-  | 'success'
 
 type UseCaptureStepType = {
   nextStep: () => void
@@ -20,11 +15,8 @@ type UseCaptureStepType = {
 const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
   const [stepNumber, setStepNumber] = useState<number>(0)
 
-  const reducer = (
-    state: RecordState,
-    action: 'nextStep' | 'nextRecordState'
-  ): RecordState => {
-    if (action === 'nextStep') {
+  const reducer = (state: RecordState, action: RecordActions): RecordState => {
+    if (action === 'NEXT_STEP') {
       return stepNumber === 0 ? 'showButton' : 'hideButton'
     }
 
@@ -33,7 +25,18 @@ const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
         return 'showButton'
 
       case 'showButton':
-        return stepNumber === 0 ? state : 'success'
+        if (stepNumber === 0) {
+          return state
+        }
+
+        if (documentType === 'passport') {
+          return 'holdingStill'
+        }
+
+        return 'success'
+
+      case 'holdingStill':
+        return 'success'
 
       default:
         return state
@@ -46,7 +49,7 @@ const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
   )
 
   useEffect(() => {
-    transitState('nextStep')
+    transitState('NEXT_STEP')
   }, [stepNumber])
 
   const totalSteps = documentType === 'passport' ? 1 : 2
@@ -60,7 +63,7 @@ const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
   }, [stepNumber, totalSteps])
 
   return {
-    nextRecordState: () => transitState('nextRecordState'),
+    nextRecordState: () => transitState('NEXT_RECORD_STATE'),
     nextStep,
     recordState,
     restart: () => setStepNumber(0),

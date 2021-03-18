@@ -1,7 +1,8 @@
 import { h, FunctionComponent } from 'preact'
 import { shallow, ShallowWrapper } from 'enzyme'
-import useCaptureStep, { RecordState } from '../useCaptureStep'
+import useCaptureStep from '../useCaptureStep'
 
+import type { RecordState } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
 
 type DummyProps = {
@@ -111,7 +112,7 @@ describe('DocumentVideo', () => {
         })
       })
 
-      describe('during step later than intro', () => {
+      describe('during 1st step', () => {
         beforeEach(() => {
           simulateNextStep(wrapper, 1)
         })
@@ -174,6 +175,36 @@ describe('DocumentVideo', () => {
         it('does nothing aftewards', () => {
           simulateNextRecordState(wrapper, 1)
           assertRecordState(wrapper, 'showButton')
+        })
+      })
+
+      describe('during 1st step', () => {
+        beforeEach(() => {
+          simulateNextStep(wrapper, 1)
+        })
+
+        it('returns hideButton state initially', () => {
+          assertRecordState(wrapper, 'hideButton')
+        })
+
+        it('transits to showButton state correctly', () => {
+          simulateNextRecordState(wrapper, 1)
+          assertRecordState(wrapper, 'showButton')
+        })
+
+        it('transits to holdingStill state correctly', () => {
+          simulateNextRecordState(wrapper, 2)
+          assertRecordState(wrapper, 'holdingStill')
+        })
+
+        it('transits to success state correctly', () => {
+          simulateNextRecordState(wrapper, 3)
+          assertRecordState(wrapper, 'success')
+        })
+
+        it('does nothing when triggering nextRecordState again', () => {
+          simulateNextRecordState(wrapper, 4)
+          assertRecordState(wrapper, 'success')
         })
       })
     })
