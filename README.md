@@ -833,37 +833,10 @@ The callbacks will provide you with a FormData object including the information 
   file: blob,
   side: string,
   type: string,
-  sdk_validations: {
-    detect_document: string,
-    detect_cutoff: string,
-    detect_glare: string,
-    detect_blur: string,
-  },
+  sdk_validations: object,
   sdk_source: string,
   sdk_version: string,
-  sdk_metadata: {
-    captureMethod: string,
-    imageResizeInfo: null | {
-      resizedFrom: {
-        width: number,
-        height: number,
-        fileSize: number,
-      },
-      resizedTo: {
-        width: number,
-        height: number,
-        fileSize: number,
-      },
-    },
-    isCrossDeviceFlow: boolean,
-    deviceType: string,
-    system: {
-      os: string,
-      os_version: string,
-      browser: string,
-      browser_version: string,
-    },
-  },
+  sdk_metadata: object,
 }
 ```
 
@@ -875,29 +848,7 @@ The callbacks will provide you with a FormData object including the information 
   snapshot: blob,
   sdk_source: string,
   sdk_version: string,
-  sdk_metadata: {
-    captureMethod: string,
-    imageResizeInfo: null | {
-      resizedFrom: {
-        width: number,
-        height: number,
-        fileSize: number,
-      },
-      resizedTo: {
-        width: number,
-        height: number,
-        fileSize: number,
-      },
-    },
-    isCrossDeviceFlow: boolean,
-    deviceType: string,
-    system: {
-      os: string,
-      os_version: string,
-      browser: string,
-      browser_version: string,
-    },
-  },
+  sdk_metadata: object,
 }
 
 ```
@@ -939,7 +890,7 @@ onSubmitDocument: (data) => {
 
 ```
 
-Below is a sample openAPI yml file you could use as an example to start your own proxy.
+Below is a sample openAPI YAML file you could use as an example to start your own proxy.
 
 ```yaml
 openapi: 3.0.0
@@ -958,57 +909,41 @@ components:
         file:
           type: string
           format: binary
-          description: Uploaded document. Passed in from the web SDK callback
+          description: Uploaded document. Passed in from the web SDK callback.
         type:
           type: string
           default: passport
           description: >-
             The type of document that was submitted. Passed in from the web SDK
-            callback
+            callback.
         side:
           type: string
           default: front
           description: >-
             The type side of the document that was submitted. Passed in from the
-            web SDK callback
+            web SDK callback.
         sdk_metadata:
           type: object
-          default:
-            captureMethod: html5
-            imageResizeInfo: null
-            isCrossDeviceFlow: false
-            deviceType: desktop
-            system:
-              os: Macintosh
-              os_version: 10.15.6
-              browser: Chrome
-              browser_version: 88.0.4324.192
           description: >-
             The metadata that web SDK collects. Forward this to Onfido API
-            without modifications. Passed in from the web SDK callback
+            without modifications. Passed in from the web SDK callback.
         sdk_validations:
           type: object
-          default:
-            detect_document: error
-            detect_cutoff: error
-            detect_glare: error
-            detect_blur: error
           description: >-
             This is a an object used by web SDK to seek image quality feedback
             from the API. Forward this object without modifications to Onfido
-            API.Passed in from the web SDK callback
+            API. Passed in from the web SDK callback.
         sdk_source:
           type: string
           default: onfido_web_sdk
           description: >-
             The source of origin of the requests. Forward this without
-            modifications to the Onfido APIPassed in from the web SDK callback
+            modifications to the Onfido API. Passed in from the web SDK callback.
         sdk_version:
           type: string
-          default: 6.5.0
           description: >-
             The SDK version. Forward this without modifications to the Onfido
-            API. Passed in from the web SDK callback
+            API. Passed in from the web SDK callback.
     IMultiFrameSelfieRequest:
       type: object
       properties:
@@ -1018,25 +953,15 @@ components:
           description: Uploaded photo
         sdk_metadata:
           type: object
-          default:
-            captureMethod: html5
-            imageResizeInfo: null
-            isCrossDeviceFlow: false
-            deviceType: desktop
-            system:
-              os: Macintosh
-              os_version: 10.15.6
-              browser: Chrome
-              browser_version: 88.0.4324.192
           description: >-
             The metadata that web SDK collects. Forward this to Onfido API
-            without modifications. Passed in from the web SDK callback
+            without modifications. Passed in from the web SDK callback.
         snapshot:
           type: string
           format: binary
-          description: Uploaded snapshot taken by the Web SDK to improve fraud analysis
+          description: Uploaded snapshot taken by the Web SDK to improve fraud analysis.
 paths:
-  /onfido/documents:
+  /onfido/v3/documents:
     post:
       operationId: OnfidoController documents
       parameters:
@@ -1088,87 +1013,6 @@ paths:
                     type: string
                   sdk_warnings:
                     type: object
-                    properties:
-                      detect_document:
-                        type: string
-                        enum:
-                          - error
-                          - warn
-                      detect_glare:
-                        type: string
-                        enum:
-                          - error
-                          - warn
-                      detect_blur:
-                        type: string
-                        enum:
-                          - error
-                          - warn
-                      detect_cutoff:
-                        type: string
-                        enum:
-                          - error
-                          - warn
-                      image_quality:
-                        type: object
-                        properties:
-                          quality:
-                            type: string
-                          image_quality_uuid:
-                            type: string
-                            format: uuid
-                          breakdown:
-                            type: object
-                            properties:
-                              has_document:
-                                type: boolean
-                              blur:
-                                type: object
-                                properties:
-                                  algorithm_version:
-                                    type: string
-                                  has_blur:
-                                    type: boolean
-                                  max:
-                                    type: integer
-                                  min:
-                                    type: integer
-                                  score:
-                                    type: number
-                                    format: double
-                                  threshold:
-                                    type: number
-                                    format: float
-                              cutoff:
-                                type: object
-                                properties:
-                                  has_cutoff:
-                                    type: boolean
-                                  max:
-                                    type: integer
-                                  min:
-                                    type: integer
-                                  score:
-                                    type: number
-                                    format: double
-                                  threshold:
-                                    type: number
-                                    format: float
-                              document:
-                                type: object
-                                properties:
-                                  has_document:
-                                    type: boolean
-                                  max:
-                                    type: integer
-                                  min:
-                                    type: integer
-                                  detection_score:
-                                    type: number
-                                    format: double
-                                  threshold:
-                                    type: number
-                                    format: float
         '201':
           description: ''
           content:
@@ -1194,14 +1038,9 @@ paths:
                         type: string
                   fields:
                     type: object
-                    properties:
-                      detect_glare:
-                        type: array
-                        items:
-                          type: string
         '500':
           description: ''
-  /onfido/live_photos:
+  /onfido/v3/live_photos:
     post:
       operationId: OnfidoController
       parameters:
@@ -1277,6 +1116,34 @@ In addition to this, you must either:
 
 1. Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`. This can be done by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido-hosted Web SDK.
 
+Below is an example set-up for a minimal nginx server using docker.
+
+**Example**
+
+reverse-proxy.conf
+
+```nginx
+server {
+  # Change the next 2 lines as needed
+  listen       80;
+  server_name  localhost;
+
+  location / {
+    # This forwards the path to Onfido and is the only change
+    # necessary when working with the default nginx configuration
+    proxy_pass https://id.onfido.com;
+  }
+}
+```
+
+dockerfile
+
+```
+FROM nginx:1.15.8-alpine
+
+COPY ./reverse-proxy.conf /etc/nginx/conf.d/default.conf
+```
+
 2. Set up a server to host the Onfido Web SDK yourself at the provided URL. This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
 
 Below is an example of how you could host the Onfido Web SDK with minimal setup, but it does not have to be done this way.
@@ -1319,7 +1186,7 @@ server {
   server_name  localhost;
 
   location ~ ^/[0-9a-zA-Z]+$ {
-    root   /usr/share/nginx/html; 
+    root   /usr/share/nginx/html;
     try_files $uri /index.html =404;
   }
 
@@ -1334,58 +1201,61 @@ index.html
 ```html
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="format-detection" content="telephone=no">
-  <title>Onfido Verification</title>
-  <style type="text/css">
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-    body, button {
-      -webkit-font-smoothing: antialiased;
-    }
-    @media (min-width: 30em) {
-      #onfido-mount {
-        position: relative;
-        top: 10%;
+  <head>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Onfido Verification</title>
+    <style type="text/css">
+      html,
+      body {
+        height: 100%;
+        margin: 0;
       }
-      .onfido-sdk-ui-Modal-inner {
-        font-family: "Open Sans", sans-serif !important;
+      body,
+      button {
+        -webkit-font-smoothing: antialiased;
       }
-    }
-  </style>
-  <script type="text/javascript">
-    var version = window.location.pathname.substring(1, 3)
-    var jsPath = version + '-onfido.min.js'
-    var cssPath = version + '-style.css'
+      @media (min-width: 30em) {
+        #onfido-mount {
+          position: relative;
+          top: 10%;
+        }
+        .onfido-sdk-ui-Modal-inner {
+          font-family: 'Open Sans', sans-serif !important;
+        }
+      }
+    </style>
+    <script type="text/javascript">
+      var version = window.location.pathname.substring(1, 3)
+      var jsPath = version + '-onfido.min.js'
+      var cssPath = version + '-style.css'
 
-    var link = document.createElement('link');
-    link.rel = 'stylesheet'
-    link.href = cssPath
+      var link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = cssPath
 
-    var script = document.createElement('script');
-    script.onload = function () {
-      window.onfidoOut = Onfido.init({ mobileFlow: true })
-    };
-    script.src = jsPath
+      var script = document.createElement('script')
+      script.onload = function () {
+        window.onfidoOut = Onfido.init({ mobileFlow: true })
+      }
+      script.src = jsPath
 
-    document.head.appendChild(link);
-    document.head.appendChild(script);
-  </script>
-</head>
+      document.head.appendChild(link)
+      document.head.appendChild(script)
+    </script>
+  </head>
 
-<body>
-  <div id="onfido-mount"></div>
-</body>
-
+  <body>
+    <div id="onfido-mount"></div>
+  </body>
 </html>
 ```
-
 
 ## Going live
 
