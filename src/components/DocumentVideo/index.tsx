@@ -58,7 +58,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
     totalSteps,
     nextStep,
     restart: restartFlow,
-  } = useCaptureStep(documentType)
+  } = useCaptureStep(captureFlow)
   const [flowComplete, setFlowComplete] = useState(false)
   const [frontPayload, setFrontPayload] = useState<CapturePayload | undefined>(
     undefined

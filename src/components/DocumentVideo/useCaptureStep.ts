@@ -1,7 +1,6 @@
 import { useEffect, useReducer } from 'preact/compat'
 
 import type { CaptureFlows, CaptureSteps, RecordState } from '~types/docVideo'
-import type { DocumentTypes } from '~types/steps'
 
 type CaptureStepActions = 'NEXT_STEP' | 'RESET_STEP'
 type RecordStateActions = 'NEXT_RECORD_STATE' | 'NEXT_STEP'
@@ -21,10 +20,7 @@ const STEPS_BY_FLOW: Record<CaptureFlows, CaptureSteps[]> = {
   cardId: ['intro', 'front', 'back'],
 }
 
-const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
-  const captureFlow: CaptureFlows =
-    documentType === 'passport' ? 'passport' : 'cardId'
-
+const useCaptureStep = (captureFlow: CaptureFlows): UseCaptureStepType => {
   const captureStepReducer = (
     state: CaptureSteps,
     action: CaptureStepActions
@@ -77,7 +73,7 @@ const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
           return state
         }
 
-        if (documentType === 'passport') {
+        if (captureFlow === 'passport') {
           return 'holdingStill'
         }
 

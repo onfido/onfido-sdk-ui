@@ -2,14 +2,13 @@ import { h, FunctionComponent } from 'preact'
 import { shallow, ShallowWrapper } from 'enzyme'
 import useCaptureStep from '../useCaptureStep'
 
-import type { CaptureSteps, RecordState } from '~types/docVideo'
-import type { DocumentTypes } from '~types/steps'
+import type { CaptureFlows, CaptureSteps, RecordState } from '~types/docVideo'
 
 type DummyProps = {
-  documentType: DocumentTypes
+  captureFlow: CaptureFlows
 }
 
-const DummyComponent: FunctionComponent<DummyProps> = ({ documentType }) => {
+const DummyComponent: FunctionComponent<DummyProps> = ({ captureFlow }) => {
   const {
     captureStep,
     nextRecordState,
@@ -18,7 +17,7 @@ const DummyComponent: FunctionComponent<DummyProps> = ({ documentType }) => {
     restart,
     stepNumber,
     totalSteps,
-  } = useCaptureStep(documentType)
+  } = useCaptureStep(captureFlow)
 
   return (
     <div>
@@ -80,9 +79,9 @@ describe('DocumentVideo', () => {
   describe('useCaptureStep', () => {
     let wrapper: ShallowWrapper
 
-    describe('with double-sided documents', () => {
+    describe('with card ID documents', () => {
       beforeEach(() => {
-        wrapper = shallow(<DummyComponent documentType="driving_licence" />)
+        wrapper = shallow(<DummyComponent captureFlow="cardId" />)
       })
 
       it('returns intro step initially', () =>
@@ -163,9 +162,9 @@ describe('DocumentVideo', () => {
       })
     })
 
-    describe('with single-sided documents', () => {
+    describe('with passports', () => {
       beforeEach(() => {
-        wrapper = shallow(<DummyComponent documentType="passport" />)
+        wrapper = shallow(<DummyComponent captureFlow="passport" />)
       })
 
       it('returns intro step initially', () =>
