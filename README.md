@@ -801,7 +801,7 @@ These features must be enabled for your account before they can be used. For mor
 
 ### Customized API Requests - Premium Enterprise Feature
 
-This premium enterprise feature enables you to control the data collected by the Onfido SDK through the use of callbacks that are invoked when the user submits their captured media. These callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. The callback for video is not officially supported yet.
+This premium enterprise feature enables you to control the data collected by the Onfido SDK through the use of callbacks that are invoked when the user submits their captured media. These callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. The callback for video is not supported yet.
 
 Example:
 
@@ -956,6 +956,17 @@ components:
           description: >-
             The metadata that web SDK collects. Forward this to Onfido API
             without modifications. Passed in from the web SDK callback.
+        sdk_source:
+          type: string
+          default: onfido_web_sdk
+          description: >-
+            The source of origin of the requests. Forward this without
+            modifications to the Onfido API. Passed in from the web SDK callback.
+        sdk_version:
+          type: string
+          description: >-
+            The SDK version. Forward this without modifications to the Onfido
+            API. Passed in from the web SDK callback.
         snapshot:
           type: string
           format: binary
@@ -1019,10 +1030,6 @@ paths:
             application/json:
               schema:
                 type: object
-        '401':
-          description: ''
-        '403':
-          description: ''
         '422':
           description: ''
           content:
@@ -1038,8 +1045,6 @@ paths:
                         type: string
                   fields:
                     type: object
-        '500':
-          description: ''
   /onfido/v3/live_photos:
     post:
       operationId: OnfidoController
@@ -1092,12 +1097,6 @@ paths:
             application/json:
               schema:
                 type: object
-        '401':
-          description: ''
-        '403':
-          description: ''
-        '500':
-          description: ''
 ```
 
 ### Cross device URL - Premium Enterprise Feature
@@ -1120,7 +1119,7 @@ Below is an example set-up for a minimal nginx server using docker.
 
 **Example**
 
-reverse-proxy.conf
+nginx.conf
 
 ```nginx
 server {
@@ -1141,7 +1140,7 @@ dockerfile
 ```
 FROM nginx:1.15.8-alpine
 
-COPY ./reverse-proxy.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 ```
 
 2. Set up a server to host the Onfido Web SDK yourself at the provided URL. This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
