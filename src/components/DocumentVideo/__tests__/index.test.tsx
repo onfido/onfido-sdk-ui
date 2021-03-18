@@ -29,11 +29,15 @@ const defaultProps: DocumentVideoProps = {
 
 const waitForTimeout = (
   wrapper: ReactWrapper,
-  type: 'button' | 'success' | 'recording'
+  type: 'button' | 'holding' | 'success' | 'recording',
+  forceRerender = false
 ) => {
   switch (type) {
     case 'button':
       jest.runTimersToTime(3000)
+      break
+    case 'holding':
+      jest.runTimersToTime(6000)
       break
     case 'success':
       jest.runTimersToTime(2000)
@@ -46,21 +50,6 @@ const waitForTimeout = (
   }
 
   wrapper.update()
-}
-
-const simulateButtonClick = (
-  wrapper: ReactWrapper,
-  shouldWait = false,
-  forceRerender = false
-) => {
-  if (shouldWait) {
-    waitForTimeout(wrapper, 'button')
-  }
-
-  const button = wrapper.find('VideoLayer Button > button')
-  button.simulate('click')
-
-  waitForTimeout(wrapper, 'success')
 
   if (forceRerender) {
     // Force rerender to trigger useEffect in DocumentVideo
@@ -68,6 +57,9 @@ const simulateButtonClick = (
     wrapper.setProps({})
   }
 }
+
+const simulateButtonClick = (wrapper: ReactWrapper) =>
+  wrapper.find('VideoLayer Button > button').simulate('click')
 
 const assertOverlay = (
   wrapper: ReactWrapper,
@@ -223,7 +215,7 @@ describe('DocumentVideo', () => {
           )
           const onClick = fallbackButton?.props().onClick
           onClick && onClick()
-          wrapper.update()
+          wrapper.setProps({})
 
           assertRecordingButton(wrapper, 'doc_video_capture.button_record')
         })
@@ -235,13 +227,20 @@ describe('DocumentVideo', () => {
       })
 
       it('moves to the second step correctly', () => {
-        simulateButtonClick(wrapper, true, true)
+        waitForTimeout(wrapper, 'button')
+        simulateButtonClick(wrapper)
+        waitForTimeout(wrapper, 'success', true)
         assertSecondStep(wrapper, false)
       })
 
       it('ends the flow with back side captured', () => {
-        simulateButtonClick(wrapper, true, true) // 1st -> 2nd
-        simulateButtonClick(wrapper, true, true) // 2nd -> complete
+        waitForTimeout(wrapper, 'button')
+        simulateButtonClick(wrapper)
+        waitForTimeout(wrapper, 'success', true)
+
+        waitForTimeout(wrapper, 'button')
+        simulateButtonClick(wrapper)
+        waitForTimeout(wrapper, 'success', true)
 
         expect(defaultProps.onCapture).toHaveBeenCalledWith({
           front: {
@@ -284,7 +283,10 @@ describe('DocumentVideo', () => {
       })
 
       it('ends the flow without capturing back side', () => {
-        simulateButtonClick(wrapper, true, true)
+        waitForTimeout(wrapper, 'button')
+        simulateButtonClick(wrapper)
+        waitForTimeout(wrapper, 'holding', true)
+        waitForTimeout(wrapper, 'success', true)
 
         expect(defaultProps.onCapture).toHaveBeenCalledWith({
           front: {

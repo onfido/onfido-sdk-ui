@@ -51,6 +51,16 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const captureFlow = getCaptureFlow(documentType)
 
   const [flowComplete, setFlowComplete] = useState(false)
+
+  /**
+   * Because every flow control was placed inside VideoLayer _except_ restart,
+   * and the redo event was controlled from VideoCapture,
+   * we need a mechanism to trigger flow restart from outside.
+   * This state will be incremented every time VideoCapture ask for redo,
+   * hence VideoLayer will be updated with a new value and then restart the flow
+   */
+  const [flowRestartTrigger, setFlowRestartTrigger] = useState(0)
+
   const [frontPayload, setFrontPayload] = useState<CapturePayload | undefined>(
     undefined
   )
@@ -119,6 +129,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const passedProps = {
     captureFlow,
     documentType,
+    flowRestartTrigger,
     onSubmit: () => setFlowComplete(true),
   }
 
@@ -129,7 +140,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
       inactiveError={getInactiveError(true)}
       method="document"
       onRecordingStart={onRecordingStart}
-      onRedo={() => 'restartFlow'}
+      onRedo={() => setFlowRestartTrigger((prevTrigger) => prevTrigger + 1)}
       onVideoCapture={onVideoCapture}
       renderFallback={renderFallback}
       renderVideoLayer={(props) => <VideoLayer {...props} {...passedProps} />}

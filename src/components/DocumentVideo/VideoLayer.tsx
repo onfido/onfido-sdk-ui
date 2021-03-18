@@ -19,6 +19,7 @@ import type { VideoLayerProps } from '../VideoCapture'
 export type Props = {
   captureFlow: CaptureFlows
   documentType: DocumentTypes
+  flowRestartTrigger: number
   onSubmit: () => void
 } & VideoLayerProps
 
@@ -31,6 +32,7 @@ const VideoLayer: FunctionComponent<Props> = ({
   captureFlow,
   disableInteraction,
   documentType,
+  flowRestartTrigger,
   isRecording,
   onStart,
   onStop,
@@ -41,7 +43,7 @@ const VideoLayer: FunctionComponent<Props> = ({
     nextRecordState,
     nextStep,
     recordState,
-    // restart: restartFlow,
+    restart: restartFlow,
     stepNumber,
     totalSteps,
   } = useCaptureStep(captureFlow)
@@ -52,9 +54,13 @@ const VideoLayer: FunctionComponent<Props> = ({
 
   const { translate } = useLocales()
 
+  /*
   useEffect(() => {
-    console.log('recordState:', recordState)
+    console.log({ captureStep, recordState })
+  }, [captureStep, recordState])
+  */
 
+  useEffect(() => {
     switch (recordState) {
       case 'hideButton':
         setTimeout(nextRecordState, VISIBLE_BUTTON_TIMEOUT)
@@ -87,6 +93,10 @@ const VideoLayer: FunctionComponent<Props> = ({
     }
   }, [recordState]) // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    restartFlow()
+  }, [flowRestartTrigger]) // eslint-disable-line react-hooks/exhaustive-deps
+
   const handleStart = useCallback(() => {
     nextStep()
     onStart()
@@ -112,6 +122,14 @@ const VideoLayer: FunctionComponent<Props> = ({
   )
 
   const renderItems = useCallback(() => {
+    if (recordState === 'holdingStill') {
+      return (
+        <div className={style.holding}>
+          <span />
+        </div>
+      )
+    }
+
     if (recordState === 'success') {
       return (
         <div className={style.instructions}>

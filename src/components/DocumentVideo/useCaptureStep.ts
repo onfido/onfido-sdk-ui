@@ -2,8 +2,8 @@ import { useEffect, useReducer } from 'preact/compat'
 
 import type { CaptureFlows, CaptureSteps, RecordState } from '~types/docVideo'
 
-type CaptureStepActions = 'NEXT_STEP' | 'RESET_STEP'
-type RecordStateActions = 'NEXT_RECORD_STATE' | 'NEXT_STEP'
+type CaptureStepActions = 'NEXT_CAPTURE_STEP' | 'RESET_CAPTURE_STEP'
+type RecordStateActions = 'NEXT_RECORD_STATE' | 'RESET_RECORD_STATE'
 
 type UseCaptureStepType = {
   nextStep: () => void
@@ -25,7 +25,7 @@ const useCaptureStep = (captureFlow: CaptureFlows): UseCaptureStepType => {
     state: CaptureSteps,
     action: CaptureStepActions
   ): CaptureSteps => {
-    if (action === 'RESET_STEP') {
+    if (action === 'RESET_CAPTURE_STEP') {
       return 'intro'
     }
 
@@ -60,7 +60,7 @@ const useCaptureStep = (captureFlow: CaptureFlows): UseCaptureStepType => {
     state: RecordState,
     action: RecordStateActions
   ): RecordState => {
-    if (action === 'NEXT_STEP') {
+    if (action === 'RESET_RECORD_STATE') {
       return initState(captureStep)
     }
 
@@ -94,7 +94,7 @@ const useCaptureStep = (captureFlow: CaptureFlows): UseCaptureStepType => {
   )
 
   useEffect(() => {
-    dispatchRecordState('NEXT_STEP')
+    dispatchRecordState('RESET_RECORD_STATE')
   }, [captureStep])
 
   const possibleSteps = STEPS_BY_FLOW[captureFlow]
@@ -104,9 +104,9 @@ const useCaptureStep = (captureFlow: CaptureFlows): UseCaptureStepType => {
   return {
     captureStep,
     nextRecordState: () => dispatchRecordState('NEXT_RECORD_STATE'),
-    nextStep: () => dispatchCaptureStep('NEXT_STEP'),
+    nextStep: () => dispatchCaptureStep('NEXT_CAPTURE_STEP'),
     recordState,
-    restart: () => dispatchCaptureStep('RESET_STEP'),
+    restart: () => dispatchCaptureStep('RESET_CAPTURE_STEP'),
     stepNumber,
     totalSteps,
   }
