@@ -7,20 +7,13 @@ import VideoLayer, { Props as VideoLayerProps } from '../VideoLayer'
 navigator.vibrate = jest.fn()
 
 const defaultProps: VideoLayerProps = {
+  captureFlow: 'cardId',
   documentType: 'driving_licence',
   disableInteraction: false,
-  instructionKeys: {
-    title: 'fake_title_key',
-    subtitle: 'fake_subtitle_key',
-    button: 'fake_button_key',
-  },
   isRecording: false,
-  onNext: jest.fn(),
   onStart: jest.fn(),
   onStop: jest.fn(),
   onSubmit: jest.fn(),
-  stepNumber: 0,
-  totalSteps: 2,
 }
 
 const waitForTimeout = (
@@ -53,13 +46,15 @@ const assertButton = (wrapper: ReactWrapper) => {
   expect(wrapper.find('Button').exists()).toBeTruthy()
 }
 
-const assertHoldingState = (wrapper: ReactWrapper) => {
+{
+  /* const assertHoldingState = (wrapper: ReactWrapper) => {
   expect(wrapper.find('.holding').exists()).toBeTruthy()
   expect(wrapper.find('.controls .success').exists()).toBeTruthy()
   expect(wrapper.find('Button').exists()).toBeFalsy()
 
   waitForTimeout(wrapper, 'holding')
   expect(wrapper.find('.holding').exists()).toBeFalsy()
+} */
 }
 
 const assertSuccessState = (wrapper: ReactWrapper, lastStep = false) => {
@@ -73,10 +68,7 @@ const assertSuccessState = (wrapper: ReactWrapper, lastStep = false) => {
   if (lastStep) {
     expect(defaultProps.onStop).toHaveBeenCalled()
     expect(defaultProps.onStop).toHaveBeenCalledTimes(1)
-    expect(defaultProps.onNext).not.toHaveBeenCalled()
   } else {
-    expect(defaultProps.onNext).toHaveBeenCalled()
-    expect(defaultProps.onNext).toHaveBeenCalledTimes(1)
     expect(defaultProps.onStop).not.toHaveBeenCalled()
   }
 
@@ -109,76 +101,28 @@ describe('DocumentVideo', () => {
     })
 
     describe('when recording', () => {
-      it('throws error on exceptional case', () => {
-        // isRecording = true shouldn't come along with stepNumber = 0
-        const wrapper = mount(
+      let wrapper: ReactWrapper
+
+      beforeEach(() => {
+        wrapper = mount(
           <MockedLocalised>
-            <VideoLayer {...defaultProps} isRecording />
+            <VideoLayer {...defaultProps} />
           </MockedLocalised>
         )
 
         simulateNext(wrapper)
-        expect(console.warn).toHaveBeenCalledWith(
-          'handleNext is supposed to be called after intro step'
-        )
       })
 
-      it('renders items correctly', () => {
-        const wrapper = mount(
-          <MockedLocalised>
-            <VideoLayer {...defaultProps} isRecording stepNumber={1} />
-          </MockedLocalised>
-        )
+      it('hides button initially and displays after timeout', () =>
+        assertButton(wrapper))
 
-        assertButton(wrapper)
+      it.only('shows success state after click', () => {
+        console.log('invoke 1:', wrapper.find('VideoLayer .controls').debug())
+        waitForTimeout(wrapper, 'button')
+        console.log('invoke 2:', wrapper.find('VideoLayer .controls').debug())
         simulateNext(wrapper)
-        waitForTimeout(wrapper, 'success')
-        expect(defaultProps.onNext).toHaveBeenCalled()
-      })
-
-      describe('after intro step', () => {
-        const steps = [1, 2]
-
-        steps.forEach((stepNumber) =>
-          it(`delays onNext to show success state when step=${stepNumber}`, () => {
-            const wrapper = mount(
-              <MockedLocalised>
-                <VideoLayer
-                  {...defaultProps}
-                  isRecording
-                  stepNumber={stepNumber}
-                  totalSteps={steps.length}
-                />
-              </MockedLocalised>
-            )
-
-            assertButton(wrapper)
-            simulateNext(wrapper)
-            assertSuccessState(wrapper, stepNumber === steps.length)
-          })
-        )
-      })
-
-      describe.skip('for passport', () => {
-        it('shows holding progress and then success state', () => {
-          const wrapper = mount(
-            <MockedLocalised>
-              <VideoLayer
-                {...defaultProps}
-                documentType="passport"
-                isRecording
-                stepNumber={1}
-                totalSteps={1}
-              />
-            </MockedLocalised>
-          )
-
-          assertButton(wrapper)
-          simulateNext(wrapper)
-
-          assertHoldingState(wrapper)
-          assertSuccessState(wrapper, true)
-        })
+        console.log('invoke 3:', wrapper.find('VideoLayer .controls').debug())
+        // assertSuccessState(wrapper)
       })
     })
   })

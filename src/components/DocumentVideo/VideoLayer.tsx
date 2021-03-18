@@ -1,87 +1,96 @@
 import { h, FunctionComponent, Fragment } from 'preact'
-import { memo, useCallback, useEffect, useState } from 'preact/compat'
+import { memo, useCallback, useEffect } from 'preact/compat'
 
 import { useLocales } from '~locales'
+import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import Button from '../Button'
 import DocumentOverlay, {
   calculateHollowRect,
 } from '../Overlay/DocumentOverlay'
 import Instructions from './Instructions'
 import StepProgress from './StepProgress'
+import useCaptureStep from './useCaptureStep'
 import style from './style.scss'
 
-import type { InstructionLocale } from '~types/docVideo'
+import type { CaptureFlows } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
 import type { VideoLayerProps } from '../VideoCapture'
 
 export type Props = {
+  captureFlow: CaptureFlows
   documentType: DocumentTypes
-  instructionKeys: InstructionLocale
-  onNext: () => void
   onSubmit: () => void
-  stepNumber: number
-  totalSteps: number
 } & VideoLayerProps
 
 const VISIBLE_BUTTON_TIMEOUT = 3000
 const SUCCESS_STATE_TIMEOUT = 2000
 const SUCCESS_STATE_VIBRATION = 500
+const HOLDING_STILL_TIMEOUT = 6000
 
 const VideoLayer: FunctionComponent<Props> = ({
+  captureFlow,
   disableInteraction,
   documentType,
-  instructionKeys,
   isRecording,
-  onNext,
   onStart,
   onStop,
   onSubmit,
-  stepNumber,
-  totalSteps,
 }) => {
-  const [buttonVisible, setButtonVisible] = useState(false)
-  const [stepFinished, setStepFinished] = useState(false)
+  const {
+    captureStep,
+    nextRecordState,
+    nextStep,
+    recordState,
+    // restart: restartFlow,
+    stepNumber,
+    totalSteps,
+  } = useCaptureStep(captureFlow)
+
+  const { [captureStep]: instructionKeys } = DOC_VIDEO_INSTRUCTIONS_MAPPING[
+    captureFlow
+  ]
+
   const { translate } = useLocales()
 
   useEffect(() => {
-    if (stepNumber === 0) {
-      setButtonVisible(true)
-      return
-    }
+    console.log('recordState:', recordState)
 
-    setButtonVisible(false)
-    setTimeout(() => setButtonVisible(true), VISIBLE_BUTTON_TIMEOUT)
-  }, [stepNumber])
+    switch (recordState) {
+      case 'hideButton':
+        setTimeout(nextRecordState, VISIBLE_BUTTON_TIMEOUT)
+        break
 
-  useEffect(() => {
-    if (stepFinished) {
-      navigator.vibrate(SUCCESS_STATE_VIBRATION)
-      setButtonVisible(false)
-    }
-  }, [stepFinished])
+      case 'holdingStill':
+        setTimeout(nextRecordState, HOLDING_STILL_TIMEOUT)
+        break
 
-  const handleNext = useCallback(() => {
-    if (stepNumber === 0) {
-      console.warn('handleNext is supposed to be called after intro step')
-      return
-    }
+      case 'success': {
+        navigator.vibrate(SUCCESS_STATE_VIBRATION)
 
-    setStepFinished(true)
+        if (stepNumber >= totalSteps) {
+          onStop()
+        }
 
-    if (stepNumber >= totalSteps) {
-      onStop()
-    }
+        setTimeout(() => {
+          if (stepNumber >= totalSteps) {
+            onSubmit()
+          } else {
+            nextStep()
+          }
+        }, SUCCESS_STATE_TIMEOUT)
 
-    setTimeout(() => {
-      if (stepNumber >= totalSteps) {
-        onSubmit()
-        return
+        break
       }
 
-      onNext()
-      setStepFinished(false)
-    }, SUCCESS_STATE_TIMEOUT)
-  }, [stepNumber, totalSteps, onNext, onStop, onSubmit])
+      default:
+        break
+    }
+  }, [recordState]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleStart = useCallback(() => {
+    nextStep()
+    onStart()
+  }, [nextStep, onStart])
 
   const { title, subtitle, button } = instructionKeys
 
@@ -96,14 +105,14 @@ const VideoLayer: FunctionComponent<Props> = ({
     <Button
       variants={['centered', 'primary', 'lg']}
       disabled={disableInteraction}
-      onClick={isRecording ? handleNext : onStart}
+      onClick={isRecording ? nextRecordState : handleStart}
     >
       {translate(button)}
     </Button>
   )
 
   const renderItems = useCallback(() => {
-    if (stepFinished) {
+    if (recordState === 'success') {
       return (
         <div className={style.instructions}>
           <span className={style.success} />
@@ -114,10 +123,14 @@ const VideoLayer: FunctionComponent<Props> = ({
     return (
       <Fragment>
         {instruction}
-        {buttonVisible ? action : <div className={style.buttonPlaceholder} />}
+        {recordState === 'showButton' ? (
+          action
+        ) : (
+          <div className={style.buttonPlaceholder} />
+        )}
       </Fragment>
     )
-  }, [action, buttonVisible, instruction, stepFinished])
+  }, [action, recordState, instruction])
 
   const hollowRect = calculateHollowRect(documentType, 0.5)
 

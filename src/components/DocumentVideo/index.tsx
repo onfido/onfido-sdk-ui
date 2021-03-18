@@ -5,10 +5,8 @@ import Webcam from 'react-webcam-onfido'
 import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
 import { getInactiveError } from '~utils/inactiveError'
-import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import VideoCapture from '../VideoCapture'
 import VideoLayer from './VideoLayer'
-import useCaptureStep from './useCaptureStep'
 
 import { CaptureVariants, CaptureFlows } from '~types/docVideo'
 import type { WithTrackingProps } from '~types/hocs'
@@ -52,13 +50,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
 }) => {
   const captureFlow = getCaptureFlow(documentType)
 
-  const {
-    captureStep,
-    stepNumber,
-    totalSteps,
-    nextStep,
-    restart: restartFlow,
-  } = useCaptureStep(captureFlow)
   const [flowComplete, setFlowComplete] = useState(false)
   const [frontPayload, setFrontPayload] = useState<CapturePayload | undefined>(
     undefined
@@ -91,8 +82,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
   }, [flowComplete]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const onRecordingStart = () => {
-    nextStep()
-
     screenshot(webcamRef.current, (blob, sdkMetadata) => {
       const frontCapture = renamedCapture(
         {
@@ -127,17 +116,10 @@ const DocumentVideo: FunctionComponent<Props> = ({
     })
   }
 
-  const { [captureStep]: instructionKeys } = DOC_VIDEO_INSTRUCTIONS_MAPPING[
-    captureFlow
-  ]
-
   const passedProps = {
+    captureFlow,
     documentType,
-    instructionKeys,
-    onNext: nextStep,
     onSubmit: () => setFlowComplete(true),
-    stepNumber,
-    totalSteps,
   }
 
   return (
@@ -147,7 +129,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
       inactiveError={getInactiveError(true)}
       method="document"
       onRecordingStart={onRecordingStart}
-      onRedo={restartFlow}
+      onRedo={() => 'restartFlow'}
       onVideoCapture={onVideoCapture}
       renderFallback={renderFallback}
       renderVideoLayer={(props) => <VideoLayer {...props} {...passedProps} />}
