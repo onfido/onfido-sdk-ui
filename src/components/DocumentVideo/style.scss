@@ -27,6 +27,7 @@
   height: 48 * $unit;
 }
 
+.holdStill,
 .instructions {
   flex: 1;
   display: flex;
@@ -34,6 +35,7 @@
   justify-content: center;
 }
 
+.holdStill > span,
 .instructions > span {
   color: $color-white;
   font-family: $font-family;
@@ -46,12 +48,45 @@
   }
 }
 
+.holdStill .text,
 .instructions > .title {
   font-size: 24 * $unit;
   font-weight: 600;
 
   @media (--medium-viewport) {
     font-size: 20 * $unit;
+  }
+}
+
+.holdStill .loading {
+  align-self: center;
+  border-radius: 4 * $unit;
+  display: flex;
+  height: 4 * $unit;
+  overflow: hidden;
+  width: 50%;
+
+  > .active {
+    flex: 0;
+    background-color: $color-white;
+    animation: holdStill-loading 6s forwards linear;
+  }
+
+  > .background {
+    flex: 1;
+    background-color: $color-icon-button-hover;
+    opacity: 0.15;
+    animation: holdStill-loading 6s forwards linear reverse;
+  }
+}
+
+@keyframes holdStill-loading {
+  0% {
+    flex: 0;
+  }
+
+  100% {
+    flex: 1;
   }
 }
 

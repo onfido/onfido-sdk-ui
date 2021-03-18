@@ -94,9 +94,10 @@ const assertButton = (wrapper: ReactWrapper) => {
 
 const assertHoldingState = (wrapper: ReactWrapper) => {
   expect(wrapper.find('.holdStill').exists()).toBeTruthy()
-  expect(wrapper.find('.holdStill').text()).toEqual(
+  expect(wrapper.find('.holdStill .text').text()).toEqual(
     'doc_video_capture.hold_still'
   )
+  expect(wrapper.find('.holdStill .loading').exists()).toBeTruthy()
   expect(wrapper.find('.controls .success').exists()).toBeFalsy()
   expect(wrapper.find('Button').exists()).toBeFalsy()
 

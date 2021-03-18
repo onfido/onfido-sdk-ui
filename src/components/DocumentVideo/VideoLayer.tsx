@@ -125,7 +125,13 @@ const VideoLayer: FunctionComponent<Props> = ({
     if (recordState === 'holdStill') {
       return (
         <div className={style.holdStill}>
-          <span>{translate('doc_video_capture.hold_still')}</span>
+          <span className={style.text}>
+            {translate('doc_video_capture.hold_still')}
+          </span>
+          <span className={style.loading}>
+            <span className={style.active} />
+            <span className={style.background} />
+          </span>
         </div>
       )
     }
