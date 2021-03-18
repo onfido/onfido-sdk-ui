@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact'
 import { shallow, ShallowWrapper } from 'enzyme'
 import useCaptureStep from '../useCaptureStep'
 
-import type { RecordState } from '~types/docVideo'
+import type { CaptureSteps, RecordState } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
 
 type DummyProps = {
@@ -15,12 +15,14 @@ const DummyComponent: FunctionComponent<DummyProps> = ({ documentType }) => {
     nextStep,
     recordState,
     restart,
+    step,
     stepNumber,
     totalSteps,
   } = useCaptureStep(documentType)
 
   return (
     <div>
+      <span id="step">{step}</span>
       <span id="stepNumber">{stepNumber}</span>
       <span id="totalSteps">{totalSteps}</span>
       <span id="recordState">{recordState}</span>
@@ -53,10 +55,12 @@ const simulateNextRecordState = (wrapper: ShallowWrapper, times: number) => {
 
 const assertStep = (
   wrapper: ShallowWrapper,
+  step: CaptureSteps,
   stepNumber: number,
   totalSteps: number
 ) => {
   wrapper.update()
+  expect(wrapper.find('#step').text()).toEqual(step)
   expect(wrapper.find('#stepNumber').text()).toEqual(String(stepNumber))
   expect(wrapper.find('#totalSteps').text()).toEqual(String(totalSteps))
 }
@@ -78,27 +82,28 @@ describe('DocumentVideo', () => {
         wrapper = shallow(<DummyComponent documentType="driving_licence" />)
       })
 
-      it('returns intro step initially', () => assertStep(wrapper, 0, 2))
+      it('returns intro step initially', () =>
+        assertStep(wrapper, 'intro', 0, 2))
 
       it('moves to 1st step correctly', () => {
         simulateNextStep(wrapper, 1)
-        assertStep(wrapper, 1, 2)
+        assertStep(wrapper, 'front', 1, 2)
       })
 
       it('moves to 2nd step correctly', () => {
         simulateNextStep(wrapper, 2)
-        assertStep(wrapper, 2, 2)
+        assertStep(wrapper, 'back', 2, 2)
       })
 
       it('does nothing after last step', () => {
         simulateNextStep(wrapper, 3)
-        assertStep(wrapper, 2, 2)
+        assertStep(wrapper, 'back', 2, 2)
       })
 
       it('restarts correctly', () => {
         simulateNextStep(wrapper, 2)
         wrapper.find('#restart').simulate('click')
-        assertStep(wrapper, 0, 2)
+        assertStep(wrapper, 'intro', 0, 2)
       })
 
       describe('during intro step', () => {
@@ -149,22 +154,23 @@ describe('DocumentVideo', () => {
         wrapper = shallow(<DummyComponent documentType="passport" />)
       })
 
-      it('returns intro step initially', () => assertStep(wrapper, 0, 1))
+      it('returns intro step initially', () =>
+        assertStep(wrapper, 'intro', 0, 1))
 
       it('moves to front step correctly', () => {
         simulateNextStep(wrapper, 1)
-        assertStep(wrapper, 1, 1)
+        assertStep(wrapper, 'front', 1, 1)
       })
 
       it('does nothing after last step', () => {
         simulateNextStep(wrapper, 2)
-        assertStep(wrapper, 1, 1)
+        assertStep(wrapper, 'front', 1, 1)
       })
 
       it('restarts correctly', () => {
         simulateNextStep(wrapper, 1)
         wrapper.find('#restart').simulate('click')
-        assertStep(wrapper, 0, 1)
+        assertStep(wrapper, 'intro', 0, 1)
       })
 
       describe('during intro step', () => {
