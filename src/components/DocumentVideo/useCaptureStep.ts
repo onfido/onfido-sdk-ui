@@ -1,4 +1,5 @@
-import { useEffect, useReducer } from 'preact/compat'
+import { useEffect } from 'preact/compat'
+import useStateMachine, { MachineSpec } from '~utils/useStateMachine'
 
 import type { CaptureFlows, CaptureSteps, RecordState } from '~types/docVideo'
 
@@ -15,30 +16,106 @@ type UseCaptureStepType = {
   totalSteps: number
 }
 
-/* type MachineSpec<S extends string, A extends string> = {
-  initialState: S
-  states: Record<S, Record<A, S>>
+const getCaptureStepSpec = (
+  captureFlow: CaptureFlows
+): MachineSpec<CaptureSteps, CaptureStepActions> => {
+  if (captureFlow === 'passport') {
+    return {
+      initialState: 'intro',
+      states: {
+        intro: {
+          NEXT_CAPTURE_STEP: 'front',
+        },
+        front: {
+          NEXT_CAPTURE_STEP: 'front',
+          RESET_CAPTURE_STEP: 'intro',
+        },
+      },
+    }
+  }
+
+  return {
+    initialState: 'intro',
+    states: {
+      intro: {
+        NEXT_CAPTURE_STEP: 'front',
+      },
+      front: {
+        NEXT_CAPTURE_STEP: 'back',
+        RESET_CAPTURE_STEP: 'intro',
+      },
+      back: {
+        NEXT_CAPTURE_STEP: 'back',
+        RESET_CAPTURE_STEP: 'intro',
+      },
+    },
+  }
 }
 
-const buildReducer = <S extends string, A extends string>(
-  spec: MachineSpec<S, A>
-) => (currentState: S, action: A): S => spec.states[currentState][action]
+const getRecordStateSpec = (
+  captureFlow: CaptureFlows,
+  captureStep: CaptureSteps
+): MachineSpec<RecordState, RecordStateActions> => {
+  if (captureStep === 'intro') {
+    return {
+      initialState: 'showButton',
+      states: {
+        hideButton: {
+          RESET_RECORD_STATE: 'showButton',
+        },
+        showButton: {
+          RESET_RECORD_STATE: 'showButton',
+        },
+        holdStill: {
+          RESET_RECORD_STATE: 'showButton',
+        },
+        success: {
+          RESET_RECORD_STATE: 'showButton',
+        },
+      },
+    }
+  }
 
-const spec: MachineSpec<Exclude<CaptureSteps, 'back'>, CaptureStepActions> = {
-  initialState: 'intro',
-  states: {
-    intro: {
-      NEXT_CAPTURE_STEP: 'front',
-      RESET_CAPTURE_STEP: 'intro',
+  if (captureFlow === 'passport') {
+    return {
+      initialState: 'hideButton',
+      states: {
+        hideButton: {
+          NEXT_RECORD_STATE: 'showButton',
+        },
+        showButton: {
+          NEXT_RECORD_STATE: 'holdStill',
+          RESET_RECORD_STATE: 'hideButton',
+        },
+        holdStill: {
+          NEXT_RECORD_STATE: 'success',
+          RESET_RECORD_STATE: 'hideButton',
+        },
+        success: {
+          NEXT_RECORD_STATE: 'success',
+          RESET_RECORD_STATE: 'hideButton',
+        },
+      },
+    }
+  }
+
+  return {
+    initialState: 'hideButton',
+    states: {
+      hideButton: {
+        NEXT_RECORD_STATE: 'showButton',
+      },
+      showButton: {
+        NEXT_RECORD_STATE: 'success',
+        RESET_RECORD_STATE: 'hideButton',
+      },
+      success: {
+        NEXT_RECORD_STATE: 'success',
+        RESET_RECORD_STATE: 'hideButton',
+      },
     },
-    front: {
-      NEXT_CAPTURE_STEP: 'front',
-      RESET_CAPTURE_STEP: 'intro',
-    },
-  },
+  }
 }
-
-const reducer = buildReducer(spec) */
 
 const STEPS_BY_FLOW: Record<CaptureFlows, CaptureSteps[]> = {
   passport: ['intro', 'front'],
@@ -46,81 +123,17 @@ const STEPS_BY_FLOW: Record<CaptureFlows, CaptureSteps[]> = {
 }
 
 const useCaptureStep = (captureFlow: CaptureFlows): UseCaptureStepType => {
-  const captureStepReducer = (
-    state: CaptureSteps,
-    action: CaptureStepActions
-  ): CaptureSteps => {
-    if (action === 'RESET_CAPTURE_STEP') {
-      return 'intro'
-    }
-
-    switch (state) {
-      case 'intro':
-        return 'front'
-
-      case 'front': {
-        switch (captureFlow) {
-          case 'cardId':
-            return 'back'
-
-          default:
-            return state
-        }
-      }
-
-      default:
-        return state
-    }
-  }
-
-  const [captureStep, dispatchCaptureStep] = useReducer(
-    captureStepReducer,
-    'intro'
+  const [captureStep, dispatchCaptureStep] = useStateMachine(
+    getCaptureStepSpec(captureFlow)
   )
 
-  const initState = (step: CaptureSteps): RecordState =>
-    step === 'intro' ? 'showButton' : 'hideButton'
-
-  const recordStateReducer = (
-    state: RecordState,
-    action: RecordStateActions
-  ): RecordState => {
-    if (action === 'RESET_RECORD_STATE') {
-      return initState(captureStep)
-    }
-
-    switch (state) {
-      case 'hideButton':
-        return 'showButton'
-
-      case 'showButton':
-        if (captureStep === 'intro') {
-          return state
-        }
-
-        if (captureFlow === 'passport') {
-          return 'holdStill'
-        }
-
-        return 'success'
-
-      case 'holdStill':
-        return 'success'
-
-      default:
-        return state
-    }
-  }
-
-  const [recordState, dispatchRecordState] = useReducer(
-    recordStateReducer,
-    captureStep,
-    initState
+  const [recordState, dispatchRecordState] = useStateMachine(
+    getRecordStateSpec(captureFlow, captureStep)
   )
 
   useEffect(() => {
     dispatchRecordState('RESET_RECORD_STATE')
-  }, [captureStep])
+  }, [captureStep]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const possibleSteps = STEPS_BY_FLOW[captureFlow]
   const totalSteps = possibleSteps.length - 1
