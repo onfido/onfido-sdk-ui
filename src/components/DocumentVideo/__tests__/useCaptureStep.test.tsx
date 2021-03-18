@@ -11,18 +11,18 @@ type DummyProps = {
 
 const DummyComponent: FunctionComponent<DummyProps> = ({ documentType }) => {
   const {
+    captureStep,
     nextRecordState,
     nextStep,
     recordState,
     restart,
-    step,
     stepNumber,
     totalSteps,
   } = useCaptureStep(documentType)
 
   return (
     <div>
-      <span id="step">{step}</span>
+      <span id="captureStep">{captureStep}</span>
       <span id="stepNumber">{stepNumber}</span>
       <span id="totalSteps">{totalSteps}</span>
       <span id="recordState">{recordState}</span>
@@ -46,6 +46,9 @@ const simulateNextStep = (wrapper: ShallowWrapper, times: number) => {
     .forEach(() => button.simulate('click'))
 }
 
+const simulateRestart = (wrapper: ShallowWrapper) =>
+  wrapper.find('#restart').simulate('click')
+
 const simulateNextRecordState = (wrapper: ShallowWrapper, times: number) => {
   const button = wrapper.find('#nextRecordState')
   Array(times)
@@ -53,14 +56,14 @@ const simulateNextRecordState = (wrapper: ShallowWrapper, times: number) => {
     .forEach(() => button.simulate('click'))
 }
 
-const assertStep = (
+const assertCaptureStep = (
   wrapper: ShallowWrapper,
-  step: CaptureSteps,
+  captureStep: CaptureSteps,
   stepNumber: number,
   totalSteps: number
 ) => {
   wrapper.update()
-  expect(wrapper.find('#step').text()).toEqual(step)
+  expect(wrapper.find('#captureStep').text()).toEqual(captureStep)
   expect(wrapper.find('#stepNumber').text()).toEqual(String(stepNumber))
   expect(wrapper.find('#totalSteps').text()).toEqual(String(totalSteps))
 }
@@ -83,27 +86,27 @@ describe('DocumentVideo', () => {
       })
 
       it('returns intro step initially', () =>
-        assertStep(wrapper, 'intro', 0, 2))
+        assertCaptureStep(wrapper, 'intro', 0, 2))
 
       it('moves to 1st step correctly', () => {
         simulateNextStep(wrapper, 1)
-        assertStep(wrapper, 'front', 1, 2)
+        assertCaptureStep(wrapper, 'front', 1, 2)
       })
 
       it('moves to 2nd step correctly', () => {
         simulateNextStep(wrapper, 2)
-        assertStep(wrapper, 'back', 2, 2)
+        assertCaptureStep(wrapper, 'back', 2, 2)
       })
 
       it('does nothing after last step', () => {
         simulateNextStep(wrapper, 3)
-        assertStep(wrapper, 'back', 2, 2)
+        assertCaptureStep(wrapper, 'back', 2, 2)
       })
 
-      it('restarts correctly', () => {
+      it('restarts flow correctly', () => {
         simulateNextStep(wrapper, 2)
-        wrapper.find('#restart').simulate('click')
-        assertStep(wrapper, 'intro', 0, 2)
+        simulateRestart(wrapper)
+        assertCaptureStep(wrapper, 'intro', 0, 2)
       })
 
       describe('during intro step', () => {
@@ -114,6 +117,11 @@ describe('DocumentVideo', () => {
         it('does nothing aftewards', () => {
           simulateNextRecordState(wrapper, 1)
           assertRecordState(wrapper, 'showButton')
+        })
+
+        it('restarts flow correctly', () => {
+          simulateRestart(wrapper)
+          assertRecordState(wrapper, 'showButton') // restart to intro step
         })
       })
 
@@ -146,6 +154,12 @@ describe('DocumentVideo', () => {
           simulateNextStep(wrapper, 1)
           assertRecordState(wrapper, 'hideButton')
         })
+
+        it('restarts flow correctly', () => {
+          simulateNextRecordState(wrapper, 2)
+          simulateRestart(wrapper)
+          assertRecordState(wrapper, 'showButton') // restart to intro step
+        })
       })
     })
 
@@ -155,22 +169,22 @@ describe('DocumentVideo', () => {
       })
 
       it('returns intro step initially', () =>
-        assertStep(wrapper, 'intro', 0, 1))
+        assertCaptureStep(wrapper, 'intro', 0, 1))
 
       it('moves to front step correctly', () => {
         simulateNextStep(wrapper, 1)
-        assertStep(wrapper, 'front', 1, 1)
+        assertCaptureStep(wrapper, 'front', 1, 1)
       })
 
       it('does nothing after last step', () => {
         simulateNextStep(wrapper, 2)
-        assertStep(wrapper, 'front', 1, 1)
+        assertCaptureStep(wrapper, 'front', 1, 1)
       })
 
-      it('restarts correctly', () => {
+      it('restarts flow correctly', () => {
         simulateNextStep(wrapper, 1)
-        wrapper.find('#restart').simulate('click')
-        assertStep(wrapper, 'intro', 0, 1)
+        simulateRestart(wrapper)
+        assertCaptureStep(wrapper, 'intro', 0, 1)
       })
 
       describe('during intro step', () => {
@@ -181,6 +195,11 @@ describe('DocumentVideo', () => {
         it('does nothing aftewards', () => {
           simulateNextRecordState(wrapper, 1)
           assertRecordState(wrapper, 'showButton')
+        })
+
+        it('restarts flow correctly', () => {
+          simulateRestart(wrapper)
+          assertRecordState(wrapper, 'showButton') // restart to intro step
         })
       })
 
@@ -211,6 +230,12 @@ describe('DocumentVideo', () => {
         it('does nothing when triggering nextRecordState again', () => {
           simulateNextRecordState(wrapper, 4)
           assertRecordState(wrapper, 'success')
+        })
+
+        it('restarts flow correctly', () => {
+          simulateNextRecordState(wrapper, 3)
+          simulateRestart(wrapper)
+          assertRecordState(wrapper, 'showButton') // restart to intro step
         })
       })
     })

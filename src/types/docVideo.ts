@@ -6,8 +6,6 @@ export type CaptureFlows = 'passport' | 'cardId'
 
 export type CaptureSteps = 'intro' | 'front' | 'back'
 
-export type CaptureActions = 'NEXT_RECORD_STATE' | 'NEXT_STEP' | 'RESET_STEP'
-
 export type RecordState =
   | 'hideButton'
   | 'showButton'

@@ -1,19 +1,17 @@
 import { useEffect, useReducer } from 'preact/compat'
 
-import type {
-  CaptureFlows,
-  CaptureSteps,
-  CaptureActions,
-  RecordState,
-} from '~types/docVideo'
+import type { CaptureFlows, CaptureSteps, RecordState } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
+
+type CaptureStepActions = 'NEXT_STEP' | 'RESET_STEP'
+type RecordStateActions = 'NEXT_RECORD_STATE' | 'NEXT_STEP'
 
 type UseCaptureStepType = {
   nextStep: () => void
   nextRecordState: () => void
   restart: () => void
   recordState: RecordState
-  step: CaptureSteps
+  captureStep: CaptureSteps
   stepNumber: number
   totalSteps: number
 }
@@ -27,72 +25,74 @@ const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
   const captureFlow: CaptureFlows =
     documentType === 'passport' ? 'passport' : 'cardId'
 
-  const stepReducer = (
+  const captureStepReducer = (
     state: CaptureSteps,
-    action: CaptureActions
+    action: CaptureStepActions
   ): CaptureSteps => {
     if (action === 'RESET_STEP') {
       return 'intro'
     }
 
-    if (action === 'NEXT_STEP') {
-      switch (state) {
-        case 'intro':
-          return 'front'
+    switch (state) {
+      case 'intro':
+        return 'front'
 
-        case 'front':
-          return captureFlow === 'cardId' ? 'back' : state
+      case 'front': {
+        switch (captureFlow) {
+          case 'cardId':
+            return 'back'
 
-        default:
-          return state
+          default:
+            return state
+        }
       }
-    }
 
-    return state
+      default:
+        return state
+    }
   }
 
-  const [captureStep, dispatchCaptureStep] = useReducer(stepReducer, 'intro')
+  const [captureStep, dispatchCaptureStep] = useReducer(
+    captureStepReducer,
+    'intro'
+  )
 
   const initState = (step: CaptureSteps): RecordState =>
     step === 'intro' ? 'showButton' : 'hideButton'
 
-  const stateReducer = (
+  const recordStateReducer = (
     state: RecordState,
-    action: CaptureActions
+    action: RecordStateActions
   ): RecordState => {
     if (action === 'NEXT_STEP') {
       return initState(captureStep)
     }
 
-    if (action === 'NEXT_RECORD_STATE') {
-      switch (state) {
-        case 'hideButton':
-          return 'showButton'
+    switch (state) {
+      case 'hideButton':
+        return 'showButton'
 
-        case 'showButton':
-          if (captureStep === 'intro') {
-            return state
-          }
-
-          if (documentType === 'passport') {
-            return 'holdingStill'
-          }
-
-          return 'success'
-
-        case 'holdingStill':
-          return 'success'
-
-        default:
+      case 'showButton':
+        if (captureStep === 'intro') {
           return state
-      }
-    }
+        }
 
-    return state
+        if (documentType === 'passport') {
+          return 'holdingStill'
+        }
+
+        return 'success'
+
+      case 'holdingStill':
+        return 'success'
+
+      default:
+        return state
+    }
   }
 
   const [recordState, dispatchRecordState] = useReducer(
-    stateReducer,
+    recordStateReducer,
     captureStep,
     initState
   )
@@ -106,11 +106,11 @@ const useCaptureStep = (documentType: DocumentTypes): UseCaptureStepType => {
   const stepNumber = possibleSteps.indexOf(captureStep)
 
   return {
+    captureStep,
     nextRecordState: () => dispatchRecordState('NEXT_RECORD_STATE'),
     nextStep: () => dispatchCaptureStep('NEXT_STEP'),
     recordState,
     restart: () => dispatchCaptureStep('RESET_STEP'),
-    step: captureStep,
     stepNumber,
     totalSteps,
   }
