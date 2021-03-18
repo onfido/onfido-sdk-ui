@@ -10,13 +10,13 @@ import Instructions from './Instructions'
 import StepProgress from './StepProgress'
 import style from './style.scss'
 
+import type { InstructionLocale } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
-import type { DocInstructionLocale } from '~utils/localesMapping'
 import type { VideoLayerProps } from '../VideoCapture'
 
 export type Props = {
   documentType: DocumentTypes
-  instructionKeys: DocInstructionLocale[]
+  instructionKeys: InstructionLocale[]
   onNext: () => void
   onSubmit: () => void
   stepNumber: number

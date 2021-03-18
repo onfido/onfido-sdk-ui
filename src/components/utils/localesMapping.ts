@@ -1,3 +1,4 @@
+import type { InstructionLocale } from '~types/docVideo'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 type CaptureSideLocale = {
@@ -187,16 +188,10 @@ export const VIDEO_INTRO_LOCALES_MAPPING: Record<
   },
 }
 
-export type DocInstructionLocale = {
-  title: string
-  subtitle?: string
-  button: string
-}
-
 export const DOC_VIDEO_INSTRUCTIONS_MAPPING: {
-  passport: DocInstructionLocale[]
-  card_ids: DocInstructionLocale[]
-  paper_ids: DocInstructionLocale[]
+  passport: InstructionLocale[]
+  card_ids: InstructionLocale[]
+  paper_ids: InstructionLocale[]
 } = {
   passport: [
     {
@@ -210,32 +205,32 @@ export const DOC_VIDEO_INSTRUCTIONS_MAPPING: {
   ],
   card_ids: [
     {
-      title: 'doc_video_capture.instructions.card_ids.intro_title',
+      title: 'doc_video_capture.instructions.card_id.intro_title',
       button: 'doc_video_capture.button_record',
     },
     {
-      title: 'doc_video_capture.instructions.card_ids.step_1_title',
+      title: 'doc_video_capture.instructions.card_id.step_1_title',
       button: 'doc_video_capture.button_next',
     },
     {
-      title: 'doc_video_capture.instructions.card_ids.step_2_title',
-      subtitle: 'doc_video_capture.instructions.card_ids.step_2_subtitle',
+      title: 'doc_video_capture.instructions.card_id.step_2_title',
+      subtitle: 'doc_video_capture.instructions.card_id.step_2_subtitle',
       button: 'doc_video_capture.button_stop',
     },
   ],
   paper_ids: [
     {
-      title: 'doc_video_capture.instructions.paper_ids.intro_title',
-      subtitle: 'doc_video_capture.instructions.paper_ids.intro_title',
+      title: 'doc_video_capture.instructions.paper_id.intro_title',
+      subtitle: 'doc_video_capture.instructions.paper_id.intro_title',
       button: 'doc_video_capture.button_record',
     },
     {
-      title: 'doc_video_capture.instructions.paper_ids.step_1_title',
+      title: 'doc_video_capture.instructions.paper_id.step_1_title',
       button: 'doc_video_capture.button_next',
     },
     {
-      title: 'doc_video_capture.instructions.paper_ids.step_2_title',
-      subtitle: 'doc_video_capture.instructions.paper_ids.step_2_subtitle',
+      title: 'doc_video_capture.instructions.paper_id.step_2_title',
+      subtitle: 'doc_video_capture.instructions.paper_id.step_2_subtitle',
       button: 'doc_video_capture.button_stop',
     },
   ],

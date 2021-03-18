@@ -11,3 +11,9 @@ export type RecordState =
   | 'showButton'
   | 'holdingStill'
   | 'success'
+
+export type InstructionLocale = {
+  title: string
+  subtitle?: string
+  button: string
+}

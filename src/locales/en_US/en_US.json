@@ -363,13 +363,13 @@
                 "intro_title": "While holding your passport, keep the photo page within the frame",
                 "step_1_title": "Keep your passport photo page in the frame"
             },
-            "card_ids": {
+            "card_id": {
                 "intro_title": "While holding your document, keep its front side within the frame",
                 "step_1_title": "Now, keep still",
                 "step_2_title": "Slowly turn your document around to show the back",
                 "step_2_subtitle": "Keep the document in full view at all times"
             },
-            "paper_ids": {
+            "paper_id": {
                 "intro_title": "Profile photo side",
                 "intro_subtitle": "Lay your document flat, include all inner pages (must contain your photo)",
                 "step_1_title": "Now, keep still",

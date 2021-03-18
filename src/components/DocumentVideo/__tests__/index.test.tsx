@@ -127,7 +127,7 @@ const assertIntroStep = (
     })
   } else {
     expect(instructions.props()).toMatchObject({
-      title: 'doc_video_capture.instructions.card_ids.intro_title',
+      title: 'doc_video_capture.instructions.card_id.intro_title',
     })
   }
 }
@@ -148,7 +148,7 @@ const assertFirstStep = (
     })
   } else {
     expect(instructions.props()).toMatchObject({
-      title: 'doc_video_capture.instructions.card_ids.step_1_title',
+      title: 'doc_video_capture.instructions.card_id.step_1_title',
     })
   }
 }
@@ -169,8 +169,8 @@ const assertSecondStep = (
     })
   } else {
     expect(instructions.props()).toMatchObject({
-      title: 'doc_video_capture.instructions.card_ids.step_2_title',
-      subtitle: 'doc_video_capture.instructions.card_ids.step_2_subtitle',
+      title: 'doc_video_capture.instructions.card_id.step_2_title',
+      subtitle: 'doc_video_capture.instructions.card_id.step_2_subtitle',
     })
   }
 }
