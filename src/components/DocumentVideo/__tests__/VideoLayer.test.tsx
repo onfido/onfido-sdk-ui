@@ -6,19 +6,14 @@ import VideoLayer, { Props as VideoLayerProps } from '../VideoLayer'
 
 navigator.vibrate = jest.fn()
 
-const fakeInstructions = {
-  button: 'fake_button_key',
-  title: 'fake_title_key',
-}
-
 const defaultProps: VideoLayerProps = {
   documentType: 'driving_licence',
   disableInteraction: false,
-  instructionKeys: [
-    fakeInstructions,
-    { ...fakeInstructions, subtitle: 'fake_subtitle_key' },
-    fakeInstructions,
-  ],
+  instructionKeys: {
+    title: 'fake_title_key',
+    subtitle: 'fake_subtitle_key',
+    button: 'fake_button_key',
+  },
   isRecording: false,
   onNext: jest.fn(),
   onStart: jest.fn(),

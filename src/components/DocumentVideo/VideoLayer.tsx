@@ -16,7 +16,7 @@ import type { VideoLayerProps } from '../VideoCapture'
 
 export type Props = {
   documentType: DocumentTypes
-  instructionKeys: InstructionLocale[]
+  instructionKeys: InstructionLocale
   onNext: () => void
   onSubmit: () => void
   stepNumber: number
@@ -83,7 +83,7 @@ const VideoLayer: FunctionComponent<Props> = ({
     }, SUCCESS_STATE_TIMEOUT)
   }, [stepNumber, totalSteps, onNext, onStop, onSubmit])
 
-  const { title, subtitle, button } = instructionKeys[stepNumber]
+  const { title, subtitle, button } = instructionKeys
 
   const instruction = (
     <Instructions

@@ -10,7 +10,7 @@ import VideoCapture from '../VideoCapture'
 import VideoLayer from './VideoLayer'
 import useCaptureStep from './useCaptureStep'
 
-import { CaptureVariants } from '~types/docVideo'
+import { CaptureVariants, CaptureFlows } from '~types/docVideo'
 import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type {
@@ -28,12 +28,12 @@ const renamedCapture = (
   filename: `document_${step}.${mimeType(payload.blob)}`,
 })
 
-const getInstructionLocaleKeys = (documentType: DocumentTypes) => {
+const getCaptureFlow = (documentType: DocumentTypes): CaptureFlows => {
   if (documentType === 'passport') {
-    return DOC_VIDEO_INSTRUCTIONS_MAPPING.passport
+    return 'passport'
   }
 
-  return DOC_VIDEO_INSTRUCTIONS_MAPPING.card_ids
+  return 'cardId'
 }
 
 export type Props = {
@@ -50,7 +50,10 @@ const DocumentVideo: FunctionComponent<Props> = ({
   renderFallback,
   trackScreen,
 }) => {
+  const captureFlow = getCaptureFlow(documentType)
+
   const {
+    captureStep,
     stepNumber,
     totalSteps,
     nextStep,
@@ -124,7 +127,9 @@ const DocumentVideo: FunctionComponent<Props> = ({
     })
   }
 
-  const instructionKeys = getInstructionLocaleKeys(documentType)
+  const { [captureStep]: instructionKeys } = DOC_VIDEO_INSTRUCTIONS_MAPPING[
+    captureFlow
+  ]
 
   const passedProps = {
     documentType,
