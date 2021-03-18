@@ -6,11 +6,7 @@ export type CaptureFlows = 'passport' | 'cardId'
 
 export type CaptureSteps = 'intro' | 'front' | 'back'
 
-export type RecordState =
-  | 'hideButton'
-  | 'showButton'
-  | 'holdingStill'
-  | 'success'
+export type RecordState = 'hideButton' | 'showButton' | 'holdStill' | 'success'
 
 export type InstructionLocale = {
   title: string

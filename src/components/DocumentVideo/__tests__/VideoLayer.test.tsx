@@ -93,16 +93,19 @@ const assertButton = (wrapper: ReactWrapper) => {
 }
 
 const assertHoldingState = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.holding').exists()).toBeTruthy()
+  expect(wrapper.find('.holdStill').exists()).toBeTruthy()
+  expect(wrapper.find('.holdStill').text()).toEqual(
+    'doc_video_capture.hold_still'
+  )
   expect(wrapper.find('.controls .success').exists()).toBeFalsy()
   expect(wrapper.find('Button').exists()).toBeFalsy()
 
   waitForTimeout(wrapper, 'holding')
-  expect(wrapper.find('.holding').exists()).toBeFalsy()
+  expect(wrapper.find('.holdStill').exists()).toBeFalsy()
 }
 
 const assertSuccessState = (wrapper: ReactWrapper, lastStep = false) => {
-  expect(wrapper.find('.holding').exists()).toBeFalsy()
+  expect(wrapper.find('.holdStill').exists()).toBeFalsy()
   expect(wrapper.find('.controls .success').exists()).toBeTruthy()
   expect(wrapper.find('Button').exists()).toBeFalsy()
   expect(navigator.vibrate).toHaveBeenCalledWith(500)
@@ -185,7 +188,7 @@ describe('DocumentVideo', () => {
       it('hides button initially and displays after timeout', () =>
         assertButton(wrapper))
 
-      it('shows holdingStill state after click', () => {
+      it('shows holdStill state after click', () => {
         waitForTimeout(wrapper, 'button')
         simulateNext(wrapper)
         assertHoldingState(wrapper)

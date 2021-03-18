@@ -74,12 +74,12 @@ const useCaptureStep = (captureFlow: CaptureFlows): UseCaptureStepType => {
         }
 
         if (captureFlow === 'passport') {
-          return 'holdingStill'
+          return 'holdStill'
         }
 
         return 'success'
 
-      case 'holdingStill':
+      case 'holdStill':
         return 'success'
 
       default:

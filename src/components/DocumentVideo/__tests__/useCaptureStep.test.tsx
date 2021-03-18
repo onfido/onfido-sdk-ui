@@ -216,9 +216,9 @@ describe('DocumentVideo', () => {
           assertRecordState(wrapper, 'showButton')
         })
 
-        it('transits to holdingStill state correctly', () => {
+        it('transits to holdStill state correctly', () => {
           simulateNextRecordState(wrapper, 2)
-          assertRecordState(wrapper, 'holdingStill')
+          assertRecordState(wrapper, 'holdStill')
         })
 
         it('transits to success state correctly', () => {

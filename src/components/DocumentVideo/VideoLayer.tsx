@@ -66,7 +66,7 @@ const VideoLayer: FunctionComponent<Props> = ({
         setTimeout(nextRecordState, VISIBLE_BUTTON_TIMEOUT)
         break
 
-      case 'holdingStill':
+      case 'holdStill':
         setTimeout(nextRecordState, HOLDING_STILL_TIMEOUT)
         break
 
@@ -122,10 +122,10 @@ const VideoLayer: FunctionComponent<Props> = ({
   )
 
   const renderItems = useCallback(() => {
-    if (recordState === 'holdingStill') {
+    if (recordState === 'holdStill') {
       return (
-        <div className={style.holding}>
-          <span />
+        <div className={style.holdStill}>
+          <span>{translate('doc_video_capture.hold_still')}</span>
         </div>
       )
     }
@@ -148,7 +148,7 @@ const VideoLayer: FunctionComponent<Props> = ({
         )}
       </Fragment>
     )
-  }, [action, recordState, instruction])
+  }, [action, recordState, instruction, translate])
 
   const hollowRect = calculateHollowRect(documentType, 0.5)
 

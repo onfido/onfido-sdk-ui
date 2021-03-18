@@ -388,6 +388,7 @@
         "button_record": "Start recording",
         "button_start": "Start",
         "button_stop": "Finish recording",
+        "hold_still": "Hold still",
         "progress": "STEP <step></step> OF <total></total>"
     },
     "doc_video_confirmation": {
