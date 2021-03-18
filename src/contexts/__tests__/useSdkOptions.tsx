@@ -10,6 +10,11 @@ type DummyProps = {
   step?: StepTypes
 }
 
+/**
+ * In real situations, there shouldn't be such a `step` prop
+ * passed down to the consuming component.
+ * This is only a convenient way to create a test environment for this hook
+ */
 const DummyComponent: FunctionComponent<DummyProps> = ({ step }) => {
   const [options, { findStep }] = useSdkOptions()
   const currentStep = findStep(step)
