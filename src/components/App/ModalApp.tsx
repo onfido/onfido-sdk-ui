@@ -1,4 +1,4 @@
-import { h, Component, ComponentType } from 'preact'
+import { h, Component } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
@@ -20,6 +20,7 @@ import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,
 } from '~types/enterprise'
+import type { ReduxProps } from '~types/routers'
 import type {
   SdkOptions,
   SdkError,
@@ -34,7 +35,7 @@ import type {
   StepConfigFace,
 } from '~types/steps'
 
-import withConnect, { ReduxProps } from './withConnect'
+import withConnect from './withConnect'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
@@ -61,7 +62,7 @@ class ModalApp extends Component<Props> {
   }
 
   componentDidMount() {
-    this.prepareInitialStore({}, this.props.options)
+    this.prepareInitialStore({ steps: [] }, this.props.options)
   }
 
   componentDidUpdate(prevProps: Props) {
@@ -77,8 +78,8 @@ class ModalApp extends Component<Props> {
   }
 
   jwtValidation = (
-    prevOptions: NormalisedSdkOptions = {},
-    newOptions: NormalisedSdkOptions = {}
+    prevOptions: NormalisedSdkOptions,
+    newOptions: NormalisedSdkOptions
   ) => {
     if (prevOptions.token !== newOptions.token) {
       try {
@@ -121,9 +122,10 @@ class ModalApp extends Component<Props> {
     oldOptions: NormalisedSdkOptions,
     newOptions: NormalisedSdkOptions
   ) => {
-    this.events.off('complete', oldOptions.onComplete)
-    this.events.off('error', oldOptions.onError)
-    this.events.off('userExit', oldOptions.onUserExit)
+    oldOptions.onComplete && this.events.off('complete', oldOptions.onComplete)
+    oldOptions.onError && this.events.off('error', oldOptions.onError)
+    oldOptions.onUserExit && this.events.off('userExit', oldOptions.onUserExit)
+
     this.bindEvents(
       newOptions.onComplete,
       newOptions.onError,
@@ -137,20 +139,22 @@ class ModalApp extends Component<Props> {
   ) => {
     const documentStep = steps.find(
       (step) => typeof step !== 'string' && step.type === 'document'
-    )
+    ) as StepConfigDocument
 
     if (typeof documentStep === 'string' || !documentStep.options) {
       return
     }
 
-    const docTypes = (documentStep as StepConfigDocument).options.documentTypes
-    const preselectedDocumentTypeConfig = docTypes[preselectedDocumentType]
+    const docTypes = documentStep.options.documentTypes
+    const preselectedDocumentTypeConfig = docTypes
+      ? docTypes[preselectedDocumentType]
+      : undefined
 
     if (typeof preselectedDocumentTypeConfig === 'boolean') {
       return
     }
 
-    const countryCode = preselectedDocumentTypeConfig.country
+    const countryCode = preselectedDocumentTypeConfig?.country
     const supportedCountry = getCountryDataForDocumentType(
       countryCode,
       preselectedDocumentType
@@ -166,8 +170,8 @@ class ModalApp extends Component<Props> {
   }
 
   prepareInitialStore = (
-    prevOptions: NormalisedSdkOptions = {},
-    options: NormalisedSdkOptions = {}
+    prevOptions: NormalisedSdkOptions,
+    options: NormalisedSdkOptions
   ) => {
     const { userDetails: { smsNumber } = {}, steps, token } = options
     const {
@@ -247,7 +251,7 @@ class ModalApp extends Component<Props> {
     }
   }
 
-  hideDefaultLogoIfClientHasFeature = (isValidEnterpriseFeature: boolean) => {
+  hideDefaultLogoIfClientHasFeature = (isValidEnterpriseFeature?: boolean) => {
     if (isValidEnterpriseFeature) {
       this.props.actions.hideOnfidoLogo(true)
     } else {
@@ -279,14 +283,11 @@ class ModalApp extends Component<Props> {
   }
 
   setDecoupleFromAPIIfClientHasFeature = (
-    isValidEnterpriseFeature: boolean
+    isValidEnterpriseFeature?: boolean
   ) => {
     if (isValidEnterpriseFeature) {
-      const {
-        onSubmitDocument,
-        onSubmitSelfie,
-        onSubmitVideo,
-      } = this.props.options.enterpriseFeatures
+      const { onSubmitDocument, onSubmitSelfie, onSubmitVideo } =
+        this.props.options.enterpriseFeatures || {}
 
       if (typeof onSubmitDocument !== 'function') {
         this.onInvalidCustomApiException('onSubmitDocument')
@@ -296,7 +297,7 @@ class ModalApp extends Component<Props> {
         this.onInvalidCustomApiException('onSubmitSelfie')
       }
 
-      const faceStep = this.props.options.steps.find(
+      const faceStep = this.props.options.steps?.find(
         (step) => typeof step !== 'string' && step.type === 'face'
       ) as StepConfigFace
 
@@ -343,4 +344,4 @@ class ModalApp extends Component<Props> {
   }
 }
 
-export default withConnect<ComponentType<ModalAppProps>>(ModalApp)
+export default withConnect(ModalApp)

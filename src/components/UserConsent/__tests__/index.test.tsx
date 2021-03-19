@@ -7,6 +7,7 @@ import MockedLocalised from '~jest/MockedLocalised'
 import { mockedReduxProps } from '~jest/MockedReduxProvider'
 import UserConsent from '../index'
 
+import type { NarrowSdkOptions } from '~types/commons'
 import type { StepComponentBaseProps } from '~types/routers'
 
 jest.mock('dompurify')
@@ -24,7 +25,12 @@ jest
   .spyOn(window, 'XMLHttpRequest')
   .mockImplementation(() => xhrMock as XMLHttpRequest)
 
-const defaultOptions: StepComponentBaseProps = {
+const defaultOptions: NarrowSdkOptions = {
+  steps: [{ type: 'welcome' }, { type: 'userConsent' }],
+}
+
+const defaultProps: StepComponentBaseProps = {
+  ...defaultOptions,
   ...mockedReduxProps,
   componentsList: [
     { component: UserConsent, step: { type: 'userConsent' }, stepIndex: 0 },
@@ -37,13 +43,12 @@ const defaultOptions: StepComponentBaseProps = {
   triggerOnError: jest.fn(),
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
+  step: 0,
 }
-
-console.error = jest.fn()
 
 describe('UserConsent', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<UserConsent {...defaultOptions} />)
+    const wrapper = shallow(<UserConsent {...defaultProps} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 
@@ -55,9 +60,9 @@ describe('UserConsent', () => {
 
     it('renders UserConsent with actions', () => {
       const wrapper = mount(
-        <SdkOptionsProvider options={{}}>
+        <SdkOptionsProvider options={defaultOptions}>
           <MockedLocalised>
-            <UserConsent {...defaultOptions} />
+            <UserConsent {...defaultProps} />
           </MockedLocalised>
         </SdkOptionsProvider>
       )
@@ -68,9 +73,9 @@ describe('UserConsent', () => {
 
     it('renders UserConsent sanitized HTML', () => {
       const wrapper = mount(
-        <SdkOptionsProvider options={{}}>
+        <SdkOptionsProvider options={defaultOptions}>
           <MockedLocalised>
-            <UserConsent {...defaultOptions} />
+            <UserConsent {...defaultProps} />
           </MockedLocalised>
         </SdkOptionsProvider>
       )
@@ -84,9 +89,9 @@ describe('UserConsent', () => {
 
     it('renders the DeclineModal component', () => {
       const wrapper = mount(
-        <SdkOptionsProvider options={{}}>
+        <SdkOptionsProvider options={defaultOptions}>
           <MockedLocalised>
-            <UserConsent {...defaultOptions} />
+            <UserConsent {...defaultProps} />
           </MockedLocalised>
         </SdkOptionsProvider>
       )
