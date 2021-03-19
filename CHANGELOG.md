@@ -13,6 +13,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
 - Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the Onfido logo.
 
+### Changed
+
+### Fixed
+
+- UI: Fix Camera Permission icon not displaying on iOS devices on Selfie/Liveness capture flow
+
 ## [6.6.0] - 2021-03-11
 
 ### Added

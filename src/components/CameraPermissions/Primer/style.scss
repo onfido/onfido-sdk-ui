@@ -52,6 +52,7 @@
 
   @media (--small-viewport) {
     background-size: contain;
+    flex-grow: 1; // prevents container height collapsing on iOS devices
     height: 100%;
   }
 }
