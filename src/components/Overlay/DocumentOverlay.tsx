@@ -4,7 +4,12 @@ import style from './style.scss'
 
 import type { DocumentTypes } from '~types/steps'
 
-type DocumentSizes = 'id1Card' | 'id3Card' | 'rectangle'
+type DocumentSizes =
+  | 'id1Card'
+  | 'id3Card'
+  | 'rectangle'
+  | 'itPaperId'
+  | 'frPaperId'
 
 type HollowRect = {
   left: number

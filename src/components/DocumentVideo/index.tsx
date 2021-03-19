@@ -31,7 +31,7 @@ const getCaptureFlow = (documentType: DocumentTypes): CaptureFlows => {
     return 'passport'
   }
 
-  return 'cardId'
+  return 'paperId'
 }
 
 export type Props = {

@@ -225,7 +225,7 @@ export const DOC_VIDEO_INSTRUCTIONS_MAPPING: Record<
   paperId: {
     intro: {
       title: 'doc_video_capture.instructions.paper_id.intro_title',
-      subtitle: 'doc_video_capture.instructions.paper_id.intro_title',
+      subtitle: 'doc_video_capture.instructions.paper_id.intro_subtitle',
       button: 'doc_video_capture.button_record',
     },
     front: {
