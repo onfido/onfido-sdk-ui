@@ -1,15 +1,14 @@
 import { h, FunctionComponent } from 'preact'
-import { useContext } from 'preact/compat'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 
 import { useSdkOptions } from '~contexts'
-import { LocaleContext } from '~locales'
 import { buildIteratorKey } from '~utils'
-import theme from 'components/Theme/style.scss'
-import PageTitle from '../PageTitle'
+import { useLocales } from '~locales'
 import { trackComponent } from '../../Tracker'
+import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
+import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
 import type { TranslateCallback } from '~types/locales'
@@ -22,13 +21,13 @@ const localisedDescriptions = (translate: TranslateCallback) => [
 ]
 
 type WelcomeContentProps = {
-  descriptions: string[]
+  descriptions?: string[]
 }
 
 const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
   descriptions,
 }) => {
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
 
   const welcomeDescriptions = descriptions
     ? descriptions
@@ -56,7 +55,7 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   nextButton,
   nextStep,
 }) => {
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
 
   const welcomeNextButton = nextButton
     ? nextButton
@@ -78,7 +77,7 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
 
 const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
   const { steps } = useSdkOptions()
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
 
   const { options } = steps.find(
     (step) => step.type === 'welcome'

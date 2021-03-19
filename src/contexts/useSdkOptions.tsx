@@ -3,7 +3,7 @@ import { useContext } from 'preact/compat'
 
 import type { NarrowSdkOptions } from '~types/commons'
 
-const SdkOptionsContext = createContext<NarrowSdkOptions>(null)
+const SdkOptionsContext = createContext<NarrowSdkOptions | undefined>(undefined)
 
 type Props = {
   options: NarrowSdkOptions

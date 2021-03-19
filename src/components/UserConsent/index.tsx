@@ -1,16 +1,11 @@
 import { h, FunctionComponent, Fragment } from 'preact'
-import {
-  useEffect,
-  useState,
-  useContext,
-  unmountComponentAtNode,
-} from 'preact/compat'
+import { useEffect, useState, unmountComponentAtNode } from 'preact/compat'
 import classNames from 'classnames'
 import { sanitize } from 'dompurify'
 import { Button } from '@onfido/castor-react'
 
 import { useSdkOptions } from '~contexts'
-import { LocaleContext } from '~locales'
+import { useLocales } from '~locales'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
 import { isButtonGroupStacked } from '../Theme/utils'
@@ -28,7 +23,7 @@ type ActionsProps = {
 }
 
 const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
   const primaryBtnCopy = translate('user_consent.button_primary')
   const secondaryBtnCopy = translate('user_consent.button_secondary')
 
@@ -72,6 +67,11 @@ const getConsentFile = (
   onError: (error: ApiRawError) => void
 ): void => {
   const request = new XMLHttpRequest()
+
+  if (!process.env.USER_CONSENT_URL) {
+    throw new Error('USER_CONSENT_URL env var was not set')
+  }
+
   request.open('GET', process.env.USER_CONSENT_URL)
 
   request.onload = () => {
@@ -97,13 +97,14 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   const openModal = () => setModalToOpen(true)
   const closeModal = () => setModalToOpen(false)
 
-  const sdkContainer = containerEl || document.getElementById(containerId)
+  const sdkContainer =
+    containerEl || document.getElementById(containerId || '') || undefined
 
   const actions = <Actions onAccept={nextStep} onDecline={openModal} />
 
   const triggerUserExit = () => {
-    events.emit('userExit', 'USER_CONSENT_DENIED')
-    unmountComponentAtNode(sdkContainer)
+    events?.emit('userExit', 'USER_CONSENT_DENIED')
+    sdkContainer && unmountComponentAtNode(sdkContainer)
   }
 
   useEffect(() => {

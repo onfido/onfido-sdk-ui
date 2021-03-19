@@ -1,4 +1,5 @@
 import { h, ComponentType } from 'preact'
+import { ActionCreatorsMapObject } from 'redux'
 
 import type { ErrorCallback } from './api'
 import type {
@@ -17,8 +18,18 @@ import type {
   StepOptionComplete,
   StepConfig,
 } from './steps'
-import type { CapturePayload } from './redux'
-import type { ReduxProps } from 'components/App/withConnect'
+import type {
+  CombinedActions,
+  CaptureState,
+  GlobalState,
+  CapturePayload,
+} from './redux'
+
+// @TODO: deprecate this props to consume `useSelector` and `useDispatch` hooks instead
+export type ReduxProps = {
+  actions: ActionCreatorsMapObject<CombinedActions>
+  captures: CaptureState
+} & GlobalState
 
 export type StepIndexType = 'client' | 'user'
 
@@ -61,7 +72,7 @@ export type InternalRouterProps = {
 } & ExternalRouterProps
 
 export type HistoryRouterProps = {
-  crossDeviceClientError?: (name?: string) => void
+  crossDeviceClientError?: (name?: ErrorNames) => void
   mobileConfig?: MobileConfig
   sendClientSuccess?: () => void
   step?: number
@@ -76,6 +87,7 @@ export type StepsRouterProps = {
   disableNavigation: boolean
   nextStep: () => void
   previousStep: () => void
+  step: number
   triggerOnError: ErrorCallback
 } & HistoryRouterProps
 

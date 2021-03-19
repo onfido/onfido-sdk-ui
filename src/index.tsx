@@ -53,7 +53,7 @@ const formatOptions = ({
 })
 
 const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
-  const documentStep = steps.find(
+  const documentStep = steps?.find(
     (step) => step.type === 'document'
   ) as StepConfigDocument
 
@@ -88,7 +88,7 @@ const isSMSCountryCodeValid = (smsNumberCountryCode: string) => {
 }
 
 const validateSmsCountryCode = (
-  smsNumberCountryCode: string
+  smsNumberCountryCode?: string
 ): string | undefined => {
   if (!smsNumberCountryCode) return 'GB'
   const upperCaseCode = upperCase(smsNumberCountryCode)
@@ -101,7 +101,7 @@ const elementIsInPage = (node: HTMLElement) =>
 const getContainerElementById = (containerId: string) => {
   const el = document.getElementById(containerId)
 
-  if (elementIsInPage(el)) {
+  if (el && elementIsInPage(el)) {
     return el
   }
 
@@ -117,19 +117,18 @@ export const init = (opts: SdkOptions): SdkHandle => {
   experimentalFeatureWarnings(options)
   cssVarsPonyfill()
 
-  let containerEl: HTMLElement = null
+  let containerEl: HTMLElement
 
   if (options.containerEl) {
     containerEl = options.containerEl
+    onfidoRender(options, containerEl)
   } else if (options.containerId) {
     containerEl = getContainerElementById(options.containerId)
+    onfidoRender(options, containerEl)
   }
-
-  onfidoRender(options, containerEl)
 
   return {
     options,
-    // element,
     setOptions(changedOptions) {
       this.options = formatOptions({ ...this.options, ...changedOptions })
       if (
@@ -143,11 +142,11 @@ export const init = (opts: SdkOptions): SdkHandle => {
       ) {
         containerEl = getContainerElementById(changedOptions.containerId)
       }
-      this.element = onfidoRender(this.options, containerEl, this.element)
+      onfidoRender(this.options as NormalisedSdkOptions, containerEl)
       return this.options
     },
     tearDown() {
-      render(null, containerEl, this.element)
+      render(null, containerEl)
     },
   }
 }

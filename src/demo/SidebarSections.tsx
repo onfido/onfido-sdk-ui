@@ -40,7 +40,7 @@ export const SdkOptionsView: FunctionComponent<{
           updateSdkOptions({
             customUI: (e.target as HTMLInputElement).checked
               ? (customUIConfig as UICustomizationOptions)
-              : null,
+              : undefined,
           })
         }
       />

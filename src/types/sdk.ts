@@ -59,10 +59,11 @@ export interface SdkOptions extends FunctionalConfigurations {
   }
   steps?: Array<StepTypes | StepConfig>
   enterpriseFeatures?: EnterpriseFeatures
-  customUI?: UICustomizationOptions
+  customUI?: UICustomizationOptions | null
 }
 
 export type SdkHandle = {
+  containerId?: string
   options: SdkOptions
   setOptions(options: SdkOptions): void
   tearDown(): void

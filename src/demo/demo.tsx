@@ -35,8 +35,14 @@ const DummyHostApp: FunctionComponent = () => (
 )
 
 const renderDemoApp = () => {
-  let messagePort: MessagePort = null
+  let messagePort: MessagePort
+
   const rootNode = document.getElementById('demo-app')
+
+  if (!rootNode) {
+    throw new Error('Element #demo-app not found!')
+  }
+
   const { useHistory } = queryParamToValueString
 
   const onMessage = (event: MessageEvent) => {
@@ -68,6 +74,8 @@ const renderDemoApp = () => {
           <DummyHostApp />
         </Router>
       ) : (
+        // tsc complains: Variable 'messagePort' is used before being assigned.
+        // @ts-ignore
         <SdkDemo messagePort={messagePort} />
       ),
       rootNode

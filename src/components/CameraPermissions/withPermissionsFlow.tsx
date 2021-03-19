@@ -21,7 +21,7 @@ type Props = CameraProps &
   WithPermissionsFlowProps
 
 type State = {
-  hasGrantedPermission?: boolean
+  hasGrantedPermission: boolean | null
   hasSeenPermissionsPrimer: boolean
   checkingWebcamPermissions: boolean
 }

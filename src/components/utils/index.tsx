@@ -101,7 +101,8 @@ const maxTouchPoints = navigator.maxTouchPoints || navigator.msMaxTouchPoints
 const isTouchable =
   'ontouchstart' in window ||
   maxTouchPoints > 0 ||
-  (window.matchMedia && matchMedia('(any-pointer: coarse)').matches)
+  (typeof window.matchMedia === 'function' &&
+    matchMedia('(any-pointer: coarse)').matches)
 
 // To detect hybrid desktop/mobile devices which have a rear facing camera such as the Surface
 export const isHybrid = isWindows && isTouchable
@@ -155,13 +156,19 @@ export const checkIfWebcamPermissionGranted = checkDevicesInfo((devices) =>
 export const parseTags: TranslatedTagParser = (str, handleTag) => {
   const parser = new DOMParser()
   const stringToXml = parser.parseFromString(`<l>${str}</l>`, 'application/xml')
-  const xmlToNodesArray = Array.from(stringToXml.firstChild.childNodes)
+  const xmlToNodesArray = Array.from(
+    stringToXml.firstChild?.childNodes || []
+  ) as Element[]
 
-  return xmlToNodesArray.map((node) =>
-    node.nodeType === document.TEXT_NODE
-      ? node.textContent
-      : handleTag({ type: (node as Element).tagName, text: node.textContent })
-  )
+  return xmlToNodesArray.map((node) => {
+    const textContent = node.textContent || ''
+
+    if (node.nodeType === document.TEXT_NODE) {
+      return textContent
+    }
+
+    return handleTag({ type: node.tagName, text: textContent })
+  })
 }
 
 export const currentSeconds = (): number => Math.floor(Date.now() / 1000)
