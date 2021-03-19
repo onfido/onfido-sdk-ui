@@ -14,6 +14,7 @@ import VideoCapture, { Props as VideoCaptureProps } from '../../VideoCapture'
 
 import DocumentVideo, { Props as DocumentVideoProps } from '../index'
 
+import type { CountryData } from '~types/commons'
 import type { DocumentTypes } from '~types/steps'
 
 jest.mock('~utils')
@@ -83,6 +84,7 @@ const assertIntroStep = (
   wrapper: ReactWrapper,
   forSingleSidedDocs: boolean
 ) => {
+  expect(wrapper.find('PaperIdFlowSelector').exists()).toBeFalsy()
   const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
   expect(videoCapture.exists()).toBeTruthy()
 
@@ -297,6 +299,76 @@ describe('DocumentVideo', () => {
             ...fakeCapturePayload('video'),
             filename: 'document_video.webm',
           },
+        })
+      })
+    })
+  })
+
+  describe('with paper IDs', () => {
+    const paperIdCases: Array<{
+      documentType: DocumentTypes
+      idDocumentIssuingCountry: CountryData
+    }> = [
+      {
+        documentType: 'driving_licence',
+        idDocumentIssuingCountry: {
+          name: 'France',
+          country_alpha2: 'FR',
+          country_alpha3: 'FRA',
+        },
+      },
+      {
+        documentType: 'national_identity_card',
+        idDocumentIssuingCountry: {
+          name: 'Italy',
+          country_alpha2: 'IT',
+          country_alpha3: 'ITA',
+        },
+      },
+    ]
+
+    paperIdCases.forEach(({ documentType, idDocumentIssuingCountry }) => {
+      describe(`for ${idDocumentIssuingCountry.name} ${documentType}`, () => {
+        beforeEach(() => {
+          wrapper = mount(
+            <MockedReduxProvider overrideGlobals={{ idDocumentIssuingCountry }}>
+              <MockedLocalised>
+                <DocumentVideo {...defaultProps} documentType={documentType} />
+              </MockedLocalised>
+            </MockedReduxProvider>
+          )
+        })
+
+        it('renders the flow selection by default', () => {
+          expect(wrapper.find('PaperIdFlowSelector').exists()).toBeTruthy()
+          expect(wrapper.find(VideoCapture).exists()).toBeFalsy()
+        })
+
+        describe.skip('when recording', () => {
+          beforeEach(() => simulateButtonClick(wrapper))
+
+          it('starts recording correctly', () => {
+            assertOverlay(wrapper, 'passport', false)
+            assertFirstStep(wrapper, true)
+          })
+
+          it('ends the flow without capturing back side', () => {
+            waitForTimeout(wrapper, 'button')
+            simulateButtonClick(wrapper)
+            waitForTimeout(wrapper, 'holding', true)
+            waitForTimeout(wrapper, 'success', true)
+
+            expect(defaultProps.onCapture).toHaveBeenCalledWith({
+              front: {
+                ...fakeCapturePayload('standard'),
+                filename: 'document_front.jpeg',
+              },
+              video: {
+                ...fakeCapturePayload('video'),
+                filename: 'document_video.webm',
+              },
+            })
+          })
         })
       })
     })

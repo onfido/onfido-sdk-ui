@@ -1,5 +1,6 @@
 import { h, FunctionComponent } from 'preact'
 import { memo, useEffect, useRef, useState } from 'preact/compat'
+import { useSelector } from 'react-redux'
 import Webcam from 'react-webcam-onfido'
 
 import { mimeType } from '~utils/blob'
@@ -9,11 +10,13 @@ import DocumentOverlay, {
   calculateHollowRect,
 } from '../Overlay/DocumentOverlay'
 import VideoCapture from '../VideoCapture'
+import PaperIdFlowSelector from './PaperIdFlowSelector'
 import VideoLayer from './VideoLayer'
 
-import { CaptureVariants, CaptureFlows } from '~types/docVideo'
+import type { CountryData } from '~types/commons'
+import type { CaptureVariants, CaptureFlows } from '~types/docVideo'
 import type { WithTrackingProps } from '~types/hocs'
-import type { CapturePayload } from '~types/redux'
+import type { RootState, CapturePayload } from '~types/redux'
 import type {
   HandleCaptureProp,
   HandleDocVideoCaptureProp,
@@ -37,6 +40,20 @@ const getCaptureFlow = (documentType: DocumentTypes): CaptureFlows => {
   return 'cardId'
 }
 
+const checkToShowPaperIdFlowSelector = (
+  documentType: DocumentTypes,
+  issuingCountry?: string
+) => {
+  if (!issuingCountry) {
+    return false
+  }
+
+  return (
+    (documentType === 'driving_licence' && issuingCountry === 'FR') ||
+    (documentType === 'national_identity_card' && issuingCountry === 'IT')
+  )
+}
+
 export type Props = {
   cameraClassName?: string
   documentType: DocumentTypes
@@ -52,8 +69,12 @@ const DocumentVideo: FunctionComponent<Props> = ({
   trackScreen,
 }) => {
   const captureFlow = getCaptureFlow(documentType)
+  const issuingCountryData = useSelector<RootState, CountryData | undefined>(
+    (state) => state.globals.idDocumentIssuingCountry
+  )
 
   const [flowComplete, setFlowComplete] = useState(false)
+  const [isPaperIdFlow, setIsPaperIdFlow] = useState(false)
 
   /**
    * Because every flow control was placed inside VideoLayer _except_ restart,
@@ -129,9 +150,20 @@ const DocumentVideo: FunctionComponent<Props> = ({
     })
   }
 
+  const issuingCountry = issuingCountryData?.country_alpha2
+
+  if (checkToShowPaperIdFlowSelector(documentType, issuingCountry)) {
+    return <PaperIdFlowSelector />
+  }
+
   const overlayBottomMargin = 0.5
+  const documentOverlayProps = {
+    documentType,
+    isPaperId: isPaperIdFlow,
+    issuingCountry,
+  }
   const overlayHollowRect = calculateHollowRect(
-    { documentType },
+    documentOverlayProps,
     overlayBottomMargin
   )
 
@@ -160,9 +192,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
           renderOverlay={(props) => (
             <DocumentOverlay
               {...props}
-              documentType={documentType}
-              isPaperId
-              issuingCountry="it"
+              {...documentOverlayProps}
               marginBottom={overlayBottomMargin}
             />
           )}

@@ -53,11 +53,11 @@ const getDocumentSize = ({
   }
 
   if (isPaperId) {
-    if (documentType === 'driving_licence' && issuingCountry === 'fr') {
+    if (documentType === 'driving_licence' && issuingCountry === 'FR') {
       return 'frPaperDl'
     }
 
-    if (documentType === 'national_identity_card' && issuingCountry === 'it') {
+    if (documentType === 'national_identity_card' && issuingCountry === 'IT') {
       return 'itPaperId'
     }
   }
@@ -75,11 +75,11 @@ const getPlaceholder = ({
   }
 
   if (isPaperId) {
-    if (documentType === 'driving_licence' && issuingCountry === 'fr') {
+    if (documentType === 'driving_licence' && issuingCountry === 'FR') {
       return 'frPaperDl'
     }
 
-    if (documentType === 'national_identity_card' && issuingCountry === 'it') {
+    if (documentType === 'national_identity_card' && issuingCountry === 'IT') {
       return 'itPaperId'
     }
   }
