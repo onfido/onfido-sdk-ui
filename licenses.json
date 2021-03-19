@@ -46,7 +46,7 @@
     "path": "node_modules/@babel/core",
     "licenseFile": "node_modules/@babel/core/LICENSE"
   },
-  "@babel/generator@7.12.17": {
+  "@babel/generator@7.13.9": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "publisher": "Sebastian McKenzie",
@@ -80,7 +80,7 @@
     "path": "node_modules/@babel/helper-compilation-targets",
     "licenseFile": "node_modules/@babel/helper-compilation-targets/LICENSE"
   },
-  "@babel/helper-create-class-features-plugin@7.12.17": {
+  "@babel/helper-create-class-features-plugin@7.13.11": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "publisher": "The Babel Team",
@@ -126,7 +126,7 @@
     "path": "node_modules/@babel/helper-hoist-variables",
     "licenseFile": "node_modules/@babel/helper-hoist-variables/LICENSE"
   },
-  "@babel/helper-member-expression-to-functions@7.12.17": {
+  "@babel/helper-member-expression-to-functions@7.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "publisher": "Justin Ridgewell",
@@ -156,7 +156,7 @@
     "path": "node_modules/@babel/helper-optimise-call-expression",
     "licenseFile": "node_modules/@babel/helper-optimise-call-expression/LICENSE"
   },
-  "@babel/helper-plugin-utils@7.12.13": {
+  "@babel/helper-plugin-utils@7.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "publisher": "Logan Smyth",
@@ -176,7 +176,7 @@
     "path": "node_modules/@babel/helper-remap-async-to-generator",
     "licenseFile": "node_modules/@babel/helper-remap-async-to-generator/LICENSE"
   },
-  "@babel/helper-replace-supers@7.12.13": {
+  "@babel/helper-replace-supers@7.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "path": "node_modules/@babel/helper-replace-supers",
@@ -252,7 +252,7 @@
     "path": "node_modules/@babel/node",
     "licenseFile": "node_modules/@babel/node/LICENSE"
   },
-  "@babel/parser@7.12.17": {
+  "@babel/parser@7.13.11": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "publisher": "Sebastian McKenzie",
@@ -696,7 +696,7 @@
     "path": "node_modules/@babel/plugin-transform-typeof-symbol",
     "licenseFile": "node_modules/@babel/plugin-transform-typeof-symbol/LICENSE"
   },
-  "@babel/plugin-transform-typescript@7.12.17": {
+  "@babel/plugin-transform-typescript@7.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "path": "node_modules/@babel/plugin-transform-typescript",
@@ -735,7 +735,7 @@
     "path": "node_modules/@babel/preset-modules",
     "licenseFile": "node_modules/@babel/preset-modules/README.md"
   },
-  "@babel/preset-typescript@7.12.17": {
+  "@babel/preset-typescript@7.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "path": "node_modules/@babel/preset-typescript",
@@ -781,7 +781,7 @@
     "path": "node_modules/@babel/template",
     "licenseFile": "node_modules/@babel/template/LICENSE"
   },
-  "@babel/traverse@7.12.17": {
+  "@babel/traverse@7.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "publisher": "Sebastian McKenzie",
@@ -789,7 +789,7 @@
     "path": "node_modules/@babel/traverse",
     "licenseFile": "node_modules/@babel/traverse/LICENSE"
   },
-  "@babel/types@7.12.17": {
+  "@babel/types@7.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "publisher": "Sebastian McKenzie",
