@@ -222,7 +222,7 @@ export const DOC_VIDEO_INSTRUCTIONS_MAPPING: Record<
       button: 'doc_video_capture.button_stop',
     },
   },
-  /* paperId: {
+  paperId: {
     intro: {
       title: 'doc_video_capture.instructions.paper_id.intro_title',
       subtitle: 'doc_video_capture.instructions.paper_id.intro_title',
@@ -237,5 +237,5 @@ export const DOC_VIDEO_INSTRUCTIONS_MAPPING: Record<
       subtitle: 'doc_video_capture.instructions.paper_id.step_2_subtitle',
       button: 'doc_video_capture.button_stop',
     },
-  }, */
+  },
 }

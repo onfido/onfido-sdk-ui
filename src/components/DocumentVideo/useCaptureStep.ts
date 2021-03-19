@@ -113,6 +113,7 @@ const getRecordStateSpec = (
 const STEPS_BY_FLOW: Record<CaptureFlows, CaptureSteps[]> = {
   passport: ['intro', 'front'],
   cardId: ['intro', 'front', 'back'],
+  paperId: ['intro', 'front', 'back'],
 }
 
 const useCaptureStep = (captureFlow: CaptureFlows): UseCaptureStepType => {
