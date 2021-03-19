@@ -62,7 +62,9 @@ export const DocVideoContent: FunctionComponent = () => {
       </div>
       <div className={style.recordingLimit}>
         <span className={style.timer} />
-        <span>{translate('doc_video_capture.welcome.limit')}</span>
+        <span className={style.text}>
+          {translate('doc_video_capture.welcome.limit')}
+        </span>
       </div>
     </div>
   )

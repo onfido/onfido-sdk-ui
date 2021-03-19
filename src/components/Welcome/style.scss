@@ -45,12 +45,16 @@
 
 .recordingLimit {
   display: flex;
-  align-items: center;
-}
+  align-items: flex-start;
 
-.timer {
-  background: url('./assets/timer.svg') left no-repeat;
-  display: inline-block;
-  width: 20 * $unit;
-  height: 16 * $unit;
+  > .timer {
+    background: url('./assets/timer.svg') left no-repeat;
+    width: 20 * $unit;
+    align-self: stretch;
+  }
+
+  > .text {
+    flex: 1;
+    text-align: left;
+  }
 }
