@@ -27,7 +27,6 @@ const getCaptureStepSpec = (
           NEXT_CAPTURE_STEP: 'front',
         },
         front: {
-          NEXT_CAPTURE_STEP: 'front',
           RESET_CAPTURE_STEP: 'intro',
         },
       },
@@ -45,7 +44,6 @@ const getCaptureStepSpec = (
         RESET_CAPTURE_STEP: 'intro',
       },
       back: {
-        NEXT_CAPTURE_STEP: 'back',
         RESET_CAPTURE_STEP: 'intro',
       },
     },
