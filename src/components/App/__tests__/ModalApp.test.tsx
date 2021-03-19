@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { mount, shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import { LocaleProvider } from '~locales'
@@ -20,20 +20,13 @@ const defaultOptions: NormalisedSdkOptions = {
 
 describe('ModalApp', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<ModalApp options={{}} />)
+    const wrapper = mount(
+      <MockedReduxProvider>
+        <ModalApp options={defaultOptions} />
+      </MockedReduxProvider>
+    )
+
     expect(wrapper.exists()).toBeTruthy()
-  })
-
-  describe('when mounted', () => {
-    it('renders without crashing', () => {
-      const wrapper = mount(
-        <MockedReduxProvider>
-          <ModalApp options={defaultOptions} />
-        </MockedReduxProvider>
-      )
-
-      expect(wrapper.exists()).toBeTruthy()
-      expect(wrapper.find(LocaleProvider).exists()).toBeTruthy()
-    })
+    expect(wrapper.find(LocaleProvider).exists()).toBeTruthy()
   })
 })

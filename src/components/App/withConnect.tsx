@@ -1,20 +1,36 @@
-import { connect, ConnectedProps } from 'react-redux'
+import { h, ComponentType, FunctionComponent } from 'preact'
 import { bindActionCreators, Dispatch } from 'redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { actions } from '../ReduxAppWrapper/store/actions/'
 
-import type { CombinedActions, RootState } from '~types/redux'
+import type {
+  CombinedActions,
+  RootState,
+  GlobalState,
+  CaptureState,
+} from '~types/redux'
+import type { ReduxProps } from '~types/routers'
 
-const mapStateToProps = (state: RootState) => ({
-  ...state.globals,
-  captures: state.captures,
-})
+export default function withConnect<P>(
+  WrappedComponent: ComponentType<ReduxProps & P>
+): ComponentType<P> {
+  const ConnectedModalApp: FunctionComponent<P> = (props) => {
+    const globals = useSelector<RootState, GlobalState>(
+      (state) => state.globals
+    )
+    const captures = useSelector<RootState, CaptureState>(
+      (state) => state.captures
+    )
+    const dispatch = useDispatch<Dispatch<CombinedActions>>()
 
-const mapDispatchToProps = (dispatch: Dispatch<CombinedActions>) => ({
-  actions: bindActionCreators(actions, dispatch),
-})
+    const reduxProps: ReduxProps = {
+      ...globals,
+      captures,
+      actions: bindActionCreators(actions, dispatch),
+    }
 
-const connector = connect(mapStateToProps, mapDispatchToProps)
+    return <WrappedComponent {...props} {...reduxProps} />
+  }
 
-export type ReduxProps = ConnectedProps<typeof connector>
-
-export default connector
+  return ConnectedModalApp
+}

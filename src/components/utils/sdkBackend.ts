@@ -29,11 +29,19 @@ const handleError = (
 
 export const postToBackend = (
   payload: string,
-  url: string,
-  token: string,
+  url: string | undefined,
+  token: string | undefined,
   onSuccess: SuccessCallback<ValidateDocumentResponse>,
   errorCallback: ErrorCallback
 ): void => {
+  if (!url) {
+    throw new Error('detect_document_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
   const endpoint = `${url}/validate_document`
 
   const options = {

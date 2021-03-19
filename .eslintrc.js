@@ -26,6 +26,7 @@ module.exports = {
     expect: false,
   },
   rules: {
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
     'prefer-const': 'error',
     '@typescript-eslint/no-empty-function': 'warn',
     '@typescript-eslint/no-var-requires': 'warn',

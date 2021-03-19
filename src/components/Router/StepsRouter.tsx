@@ -1,4 +1,4 @@
-import { h, Component, ComponentType } from 'preact'
+import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { sendScreen } from '../../Tracker'
 import { wrapArray } from '~utils/array'
@@ -12,17 +12,26 @@ import type { StepComponentProps, StepsRouterProps } from '~types/routers'
 class StepsRouter extends Component<StepsRouterProps> {
   private container?: HTMLDivElement
 
-  resetSdkFocus = () => this.container.focus()
+  resetSdkFocus = () => this.container?.focus()
 
   trackScreen: TrackScreenCallback = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
-    sendScreen([step.type, ...wrapArray(screenNameHierarchy)], {
-      ...properties,
-      ...step.options,
-    })
+    sendScreen(
+      [
+        step.type,
+        ...(screenNameHierarchy ? wrapArray(screenNameHierarchy) : []),
+      ],
+      {
+        ...properties,
+        ...step.options,
+      }
+    )
   }
 
-  currentComponent = () => this.props.componentsList[this.props.step]
+  currentComponent = () => {
+    const { componentsList, step } = this.props
+    return componentsList[step]
+  }
 
   render = () => {
     const {
@@ -64,9 +73,9 @@ class StepsRouter extends Component<StepsRouterProps> {
       ? logoCobrand
       : globalUserOptions.enterpriseFeatures?.logoCobrand && logoCobrand
 
-    const logoCobrandStyle = logoCobrandLogic
-      ? { backgroundImage: `url(${logoCobrandLogic.src})` }
-      : null
+    const logoCobrandStyle = logoCobrandLogic && {
+      backgroundImage: `url(${logoCobrandLogic.src})`,
+    }
 
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
@@ -79,7 +88,7 @@ class StepsRouter extends Component<StepsRouterProps> {
           [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
         })}
         tabIndex={-1}
-        ref={(node) => (this.container = node)}
+        ref={(node) => node && (this.container = node)}
       >
         <NavigationBar
           id={stepId}
@@ -125,4 +134,4 @@ class StepsRouter extends Component<StepsRouterProps> {
   }
 }
 
-export default withFullScreenState<ComponentType<StepsRouterProps>>(StepsRouter)
+export default withFullScreenState(StepsRouter)

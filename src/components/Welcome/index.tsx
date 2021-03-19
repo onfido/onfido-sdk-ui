@@ -1,12 +1,11 @@
 import { h, FunctionComponent } from 'preact'
-import { useContext } from 'preact/compat'
 
 import { useSdkOptions } from '~contexts'
 import { buildIteratorKey } from '~utils'
+import { useLocales } from '~locales'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import { trackComponent } from '../../Tracker'
-import { LocaleContext } from '../../locales'
 import ScreenLayout from '../Theme/ScreenLayout'
 import style from './style.scss'
 
@@ -20,13 +19,13 @@ const localisedDescriptions = (translate: TranslateCallback) => [
 ]
 
 type WelcomeContentProps = {
-  descriptions: string[]
+  descriptions?: string[]
 }
 
 const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
   descriptions,
 }) => {
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
 
   const welcomeDescriptions = descriptions
     ? descriptions
@@ -54,7 +53,7 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   nextButton,
   nextStep,
 }) => {
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
 
   const welcomeNextButton = nextButton
     ? nextButton
@@ -71,7 +70,7 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
 
 const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
   const { steps } = useSdkOptions()
-  const { translate } = useContext(LocaleContext)
+  const { translate } = useLocales()
 
   const { options } = steps.find(
     (step) => step.type === 'welcome'

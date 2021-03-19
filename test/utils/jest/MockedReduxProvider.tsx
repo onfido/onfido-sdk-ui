@@ -4,13 +4,13 @@ import configureMockStore, { MockStoreEnhanced } from 'redux-mock-store'
 
 import { initialState as captures } from 'components/ReduxAppWrapper/store/reducers/captures'
 import { initialState as globals } from 'components/ReduxAppWrapper/store/reducers/globals'
-import type { ReduxProps } from 'components/App/withConnect'
 import type {
   CombinedActions,
   RootState,
   CaptureState,
   GlobalState,
 } from '~types/redux'
+import type { ReduxProps } from '~types/routers'
 
 export type MockedStore = MockStoreEnhanced<RootState, CombinedActions>
 

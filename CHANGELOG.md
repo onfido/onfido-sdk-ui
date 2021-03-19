@@ -14,6 +14,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added cross-device support for useCustomizedApiRequests callbacks via customer hosting of SDK. Note - This is a premium enterprise feature.
 - Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the Onfido logo.
 
+### Changed
+
+### Fixed
+
+- UI: Fix Camera Permission icon not displaying on iOS devices on Selfie/Liveness capture flow
+
 ## [6.6.0] - 2021-03-11
 
 ### Added
@@ -23,6 +29,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added callbacks that are triggered on user media submission if the feature is enabled. Note - This is a premium enterprise feature.
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
 - Internal: Use ScreenLayout component in Confirm screen.
+- Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
+- Internal: Enable `strict` mode in tsconfig.json
 
 ### Changed
 
