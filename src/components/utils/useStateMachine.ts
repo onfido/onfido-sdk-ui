@@ -14,6 +14,8 @@ export const buildReducer = <S extends string, A extends string>(
     const nextState = stateTransitions[action]
 
     if (nextState) {
+      // @TODO find out why TS doesn't recognise undefined check here
+      // tsc complains: Type 'S | undefined' is not assignable to type 'S'
       return nextState as S
     }
 

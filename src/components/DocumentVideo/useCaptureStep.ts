@@ -61,9 +61,6 @@ const getRecordStateSpec = (
         hideButton: {
           RESET_RECORD_STATE: 'showButton',
         },
-        showButton: {
-          RESET_RECORD_STATE: 'showButton',
-        },
         holdStill: {
           RESET_RECORD_STATE: 'showButton',
         },
@@ -90,7 +87,6 @@ const getRecordStateSpec = (
           RESET_RECORD_STATE: 'hideButton',
         },
         success: {
-          NEXT_RECORD_STATE: 'success',
           RESET_RECORD_STATE: 'hideButton',
         },
       },
@@ -108,7 +104,6 @@ const getRecordStateSpec = (
         RESET_RECORD_STATE: 'hideButton',
       },
       success: {
-        NEXT_RECORD_STATE: 'success',
         RESET_RECORD_STATE: 'hideButton',
       },
     },
