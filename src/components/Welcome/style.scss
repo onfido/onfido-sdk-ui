@@ -1,5 +1,12 @@
 @import '../Theme/constants';
 
+.subtitle {
+  align-self: center;
+  font-size: $font-size-small;
+  font-weight: bold;
+  margin-top: -24 * $unit;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -16,10 +23,6 @@
   @media (--small-viewport) {
     align-items: flex-start;
   }
-}
-
-.text {
-  margin-top: 64 * $unit;
 }
 
 .instructions {
