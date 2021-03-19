@@ -11,8 +11,12 @@
  *  https://github.com/onfido/castor/blob/main/packages/core/src/theme/themes/day.scss
  *  Where it does not, the basic color token, e.g. --ods-color-primary-500, should be used instead.
  *
- * Colors in color palette are RGB values but some also adds alpha level (or opacity),
- * so all color related CSS variables must be wrapped with rgba(), e.g. rgba((var(--castor-color-token))).
+ * Colors in theme color palette are RGB values but some also add a alpha level (opacity),
+ * so all color related CSS variables must be wrapped with rgba(), e.g. rgba((var(--castor-color-theme-token))).
+ *
+ * If using Castor basic color tokens, use the rgb() notation instead of rgba() notation.
+ * The CSS color values do not have an opacity value. Only RGB.
+ * Color reverts to browser default on IE11 which flags color value as invalid when rgba() used.
  */
 
 /* stylelint-disable function-parentheses-space-inside */
@@ -49,13 +53,13 @@
   --osdk-color-background-surface-modal: rgba(
     var(--ods-color-background-surface)
   );
-  --osdk-color-border-surface-modal: rgba(var(--ods-color-neutral-600));
+  --osdk-color-border-surface-modal: rgb(var(--ods-color-neutral-600));
   --osdk-border-width-surface-modal: 1px;
   --osdk-border-style-surface-modal: solid;
-  --osdk-border-radius-surface-modal: calc(8 * var(--unit));
+  --osdk-border-radius-surface-modal: var(--ods-border-radius-large);
 
   /* Warning/Info Message */
-  --osdk-color-background-alert-info: rgba(var(--ods-color-primary-500));
+  --osdk-color-background-alert-info: rgb(var(--ods-color-primary-500));
 
   /* Warning/Info Message - fallback link */
   --osdk-color-content-alert-info: rgba(var(--ods-color-content-inverse-main));
@@ -79,11 +83,6 @@
   --osdk-color-background-alert-error-link-active: rgba(
     var(--ods-color-background-negative-active)
   );
-
-  /* TODO: not really required now, should do a full check after Phase 1 customisations implemented to be sure */
-  --color-primary: rgba(var(--ods-color-primary-500));
-  --color-primary-hover: rgba(var(--ods-color-primary-400));
-  --color-primary-active: rgba(var(--ods-color-primary-600));
 
   /* Icon background circle color */
   --osdk-color-background-icon: rgba(var(--ods-color-background-surface-alt));
@@ -125,8 +124,8 @@
   --osdk-button-group-stacked: false;
 
   /* Document Type Selectors option button colors */
-  --osdk-color-content-doc-type-button: rgba(var(--osdk-color-content-body));
-  --osdk-color-background-doc-type-button: rgba(var(--ods-color-neutral-white));
+  --osdk-color-content-doc-type-button: var(--osdk-color-content-body);
+  --osdk-color-background-doc-type-button: rgb(var(--ods-color-neutral-white));
 
   --osdk-color-border-doc-type-button: rgba(var(--ods-color-border-input));
   --osdk-color-border-doc-type-button-hover: rgba(
@@ -137,17 +136,15 @@
   );
 
   /* Back, Close (modal) icon button colors */
-  --osdk-color-background-button-icon-hover: rgba(var(--ods-color-neutral-400));
-  --osdk-color-background-button-icon-active: rgba(
-    var(--ods-color-neutral-600)
-  );
+  --osdk-color-background-button-icon-hover: rgb(var(--ods-color-neutral-400));
+  --osdk-color-background-button-icon-active: rgb(var(--ods-color-neutral-600));
 
   /* Selfie Camera button colors */
-  --color-background-button-camera: rgba(var(--ods-color-neutral-white));
-  --osdk-color-background-button-camera-hover: rgba(
+  --color-background-button-camera: rgb(var(--ods-color-neutral-white));
+  --osdk-color-background-button-camera-hover: rgb(
     var(--ods-color-primary-400)
   );
-  --osdk-color-background-button-camera-active: rgba(
+  --osdk-color-background-button-camera-active: rgb(
     var(--ods-color-primary-600)
   );
 

@@ -23,7 +23,7 @@
 
   &::before {
     content: '';
-    background-color: var(--color-primary);
+    background-color: rgb(var(--ods-color-primary-500));
     border-radius: 50%;
     display: inline-block;
     height: 6 * $unit;
