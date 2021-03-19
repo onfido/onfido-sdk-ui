@@ -27,6 +27,8 @@ const ASPECT_RATIOS: Record<DocumentSizes, number> = {
   id1Card: 1.586,
   id3Card: 1.42,
   rectangle: 1.57,
+  itPaperId: 1,
+  frPaperId: 1,
 }
 
 const ID1_SIZE_DOCUMENTS = new Set<DocumentTypes>([
