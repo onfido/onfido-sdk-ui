@@ -9,7 +9,7 @@ import withPermissionsFlow from '../withPermissionsFlow'
 import type { WithTrackingProps } from '~types/hocs'
 import type { RenderFallbackProp } from '~types/routers'
 
-jest.mock('../../utils')
+jest.mock('~utils')
 
 type DummyProps = {
   renderFallback: RenderFallbackProp

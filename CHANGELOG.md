@@ -30,6 +30,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
 - Internal: Use ScreenLayout component in Confirm screen.
+- Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
+- Internal: Enable `strict` mode in tsconfig.json
 
 ### Changed
 

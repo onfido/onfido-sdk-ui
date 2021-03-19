@@ -1,34 +1,33 @@
 import { h, ComponentType, FunctionComponent } from 'preact'
-import { connect, ConnectedProps } from 'react-redux'
+import { useSelector } from 'react-redux'
 import classNames from 'classnames'
 
 import NavigationBar from '../NavigationBar'
 import theme from './style.scss'
 
 import type { WithThemeProps } from '~types/hocs'
+import type {
+  EnterpriseCobranding,
+  EnterpriseLogoCobranding,
+} from '~types/enterprise'
 import type { RootState } from '~types/redux'
 
-const mapStateToProps = (state: RootState) => ({
-  hideOnfidoLogo: state.globals.hideOnfidoLogo,
-  cobrand: state.globals.cobrand,
-  logoCobrand: state.globals.logoCobrand,
-})
+const withTheme = <P extends unknown>(
+  WrappedComponent: ComponentType<P>
+): ComponentType<WithThemeProps & P> => {
+  const ThemedComponent: FunctionComponent<WithThemeProps & P> = (props) => {
+    const hideOnfidoLogo = useSelector<RootState, boolean | undefined>(
+      (state) => state.globals.hideOnfidoLogo
+    )
+    const cobrand = useSelector<RootState, EnterpriseCobranding | undefined>(
+      (state) => state.globals.cobrand
+    )
+    const logoCobrand = useSelector<
+      RootState,
+      EnterpriseLogoCobranding | undefined
+    >((state) => state.globals.logoCobrand)
 
-const withConnect = connect(mapStateToProps)
-
-type Props = WithThemeProps & ConnectedProps<typeof withConnect>
-
-const themeWrapped = (
-  WrappedComponent: ComponentType<WithThemeProps>
-): ComponentType<Props> => {
-  const ThemedComponent: FunctionComponent<Props> = (props) => {
-    const {
-      back,
-      disableNavigation = false,
-      hideOnfidoLogo,
-      cobrand,
-      logoCobrand,
-    } = props
+    const { back, disableNavigation = false } = props
 
     return (
       <div
@@ -72,10 +71,4 @@ const themeWrapped = (
   return ThemedComponent
 }
 
-export default function withTheme<P>(
-  WrappedComponent: ComponentType<P>
-): ComponentType<WithThemeProps & P> {
-  return withConnect<ComponentType<WithThemeProps>>(
-    themeWrapped(WrappedComponent)
-  )
-}
+export default withTheme

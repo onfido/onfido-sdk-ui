@@ -1,37 +1,58 @@
-import { h, Component, ComponentType } from 'preact'
-import { connect } from 'react-redux'
+import { h, ComponentType, FunctionComponent } from 'preact'
+import { useEffect } from 'preact/compat'
+import { useDispatch, useSelector } from 'react-redux'
 import { setFullScreen } from '../ReduxAppWrapper/store/actions/globals'
 
-import type { RootState } from '~types/redux'
+import type { Dispatch } from 'redux'
+import type { CombinedActions, GlobalActions, RootState } from '~types/redux'
+
+type WithFullScreenStateProps = {
+  isFullScreen?: boolean
+}
+
+// @TODO: deprecate this props to consume `useSelector` and `useDispatch` hooks instead
+export function withFullScreenState<P>(
+  WrappedComponent: ComponentType<WithFullScreenStateProps & P>
+): ComponentType<P> {
+  const WithFullScreenComponent: FunctionComponent<P> = (props) => {
+    const isFullScreen = useSelector<RootState, boolean | undefined>(
+      (state) => state.globals.isFullScreen
+    )
+
+    return <WrappedComponent {...props} isFullScreen={isFullScreen} />
+  }
+
+  return WithFullScreenComponent
+}
 
 type WithFullScreenActionProps = {
   setFullScreen: (value: boolean) => void
 }
 
-class ToggleOnMount extends Component<WithFullScreenActionProps> {
-  componentDidMount() {
-    this.props.setFullScreen(true)
+// @TODO: deprecate this props to consume `useSelector` and `useDispatch` hooks instead
+export function withFullScreenAction<P>(
+  WrappedComponent: ComponentType<WithFullScreenActionProps & P>
+): ComponentType<P> {
+  const WithFullScreenComponent: FunctionComponent<P> = (props) => {
+    const dispatch = useDispatch<Dispatch<GlobalActions>>()
+    const setFullScreenAction = (value: boolean): void => {
+      dispatch(setFullScreen(value))
+    }
+
+    return <WrappedComponent {...props} setFullScreen={setFullScreenAction} />
   }
 
-  componentWillUnmount() {
-    this.props.setFullScreen(false)
-  }
-
-  render(): h.JSX.Element {
-    return null
-  }
+  return WithFullScreenComponent
 }
 
-export const withFullScreenState = connect(
-  ({ globals: { isFullScreen } }: RootState) => ({
-    isFullScreen,
-  })
-)
+export const ToggleFullScreen: FunctionComponent = () => {
+  const dispatch = useDispatch<Dispatch<CombinedActions>>()
 
-export const withFullScreenAction = connect(null, (dispatch) => ({
-  setFullScreen: (value: boolean) => dispatch(setFullScreen(value)),
-}))
+  useEffect(() => {
+    dispatch(setFullScreen(true))
 
-export const ToggleFullScreen = withFullScreenAction<
-  ComponentType<WithFullScreenActionProps>
->(ToggleOnMount)
+    return () => dispatch(setFullScreen(false))
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  return null
+}
