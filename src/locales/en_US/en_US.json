@@ -377,6 +377,12 @@
                 "step_2_subtitle": "Keep the document in full view at all times"
             }
         },
+        "paper_id_flow_selector": {
+            "title_id": "What type of identity card do you have?",
+            "title_license": "What type of license do you have?",
+            "button_card": "Plastic card",
+            "button_paper": "Paper document"
+        },
         "welcome": {
             "title": "Verify your identity",
             "subtitle": "It should take a few minutes",

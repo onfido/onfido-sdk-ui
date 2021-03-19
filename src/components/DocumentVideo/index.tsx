@@ -32,26 +32,22 @@ const renamedCapture = (
   filename: `document_${step}.${mimeType(payload.blob)}`,
 })
 
-const getCaptureFlow = (documentType: DocumentTypes): CaptureFlows => {
+const getCaptureFlow = (
+  documentType: DocumentTypes,
+  issuingCountry?: string
+): CaptureFlows | undefined => {
   if (documentType === 'passport') {
     return 'passport'
   }
 
-  return 'cardId'
-}
-
-const checkToShowPaperIdFlowSelector = (
-  documentType: DocumentTypes,
-  issuingCountry?: string
-) => {
-  if (!issuingCountry) {
-    return false
-  }
-
-  return (
+  if (
     (documentType === 'driving_licence' && issuingCountry === 'FR') ||
     (documentType === 'national_identity_card' && issuingCountry === 'IT')
-  )
+  ) {
+    return undefined
+  }
+
+  return 'cardId'
 }
 
 export type Props = {
@@ -68,13 +64,14 @@ const DocumentVideo: FunctionComponent<Props> = ({
   renderFallback,
   trackScreen,
 }) => {
-  const captureFlow = getCaptureFlow(documentType)
   const issuingCountryData = useSelector<RootState, CountryData | undefined>(
     (state) => state.globals.idDocumentIssuingCountry
   )
 
+  const [captureFlow, setCaptureFlow] = useState(
+    getCaptureFlow(documentType, issuingCountryData?.country_alpha2)
+  )
   const [flowComplete, setFlowComplete] = useState(false)
-  const [isPaperIdFlow, setIsPaperIdFlow] = useState(false)
 
   /**
    * Because every flow control was placed inside VideoLayer _except_ restart,
@@ -152,14 +149,19 @@ const DocumentVideo: FunctionComponent<Props> = ({
 
   const issuingCountry = issuingCountryData?.country_alpha2
 
-  if (checkToShowPaperIdFlowSelector(documentType, issuingCountry)) {
-    return <PaperIdFlowSelector />
+  if (!captureFlow) {
+    return (
+      <PaperIdFlowSelector
+        documentType={documentType}
+        onSelectFlow={setCaptureFlow}
+      />
+    )
   }
 
   const overlayBottomMargin = 0.5
   const documentOverlayProps = {
     documentType,
-    isPaperId: isPaperIdFlow,
+    isPaperId: captureFlow === 'paperId',
     issuingCountry,
   }
   const overlayHollowRect = calculateHollowRect(
