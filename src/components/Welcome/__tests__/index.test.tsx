@@ -53,14 +53,44 @@ describe('Welcome', () => {
       expect(wrapper.exists()).toBeTruthy()
       expect(wrapper.find('PageTitle').text()).toEqual('welcome.title')
 
-      const descriptions = wrapper.find('DefaultContent .text p')
-      expect(descriptions.at(0).text()).toMatch('welcome.description_p_1')
-      expect(descriptions.at(1).text()).toMatch('welcome.description_p_2')
-
       expect(wrapper.find('DocVideoContent').exists()).toBeFalsy()
       expect(wrapper.find('WelcomeActions > Button').text()).toEqual(
         'welcome.next_button'
       )
+    })
+
+    it('renders correct PageTitle with no welcome step', () => {
+      const wrapper = mount(
+        <MockedReduxProvider>
+          <SdkOptionsProvider options={{ steps: [] }}>
+            <MockedLocalised>
+              <Welcome {...defaultProps} />
+            </MockedLocalised>
+          </SdkOptionsProvider>
+        </MockedReduxProvider>
+      )
+
+      expect(wrapper.exists()).toBeTruthy()
+      expect(wrapper.find('PageTitle').text()).toEqual('welcome.title')
+    })
+
+    it('renders correct PageTitle with custom title', () => {
+      const wrapper = mount(
+        <MockedReduxProvider>
+          <SdkOptionsProvider
+            options={{
+              steps: [{ type: 'welcome', options: { title: 'Fake title' } }],
+            }}
+          >
+            <MockedLocalised>
+              <Welcome {...defaultProps} />
+            </MockedLocalised>
+          </SdkOptionsProvider>
+        </MockedReduxProvider>
+      )
+
+      expect(wrapper.exists()).toBeTruthy()
+      expect(wrapper.find('PageTitle').text()).toEqual('Fake title')
     })
 
     describe('with document video step', () => {
@@ -84,23 +114,11 @@ describe('Welcome', () => {
         )
 
         expect(wrapper.exists()).toBeTruthy()
-        expect(wrapper.find('PageTitle').text()).toEqual('welcome.title')
+        expect(wrapper.find('PageTitle').text()).toEqual(
+          'doc_video_capture.welcome.title'
+        )
         expect(wrapper.find('DefaultContent').exists()).toBeFalsy()
         expect(wrapper.find('WelcomeActions').exists()).toBeTruthy()
-
-        expect(wrapper.find('DocVideoContent .caption').text()).toEqual(
-          'doc_video_capture.welcome.caption'
-        )
-        const items = wrapper.find('DocVideoContent .instructions > li')
-        expect(items.at(0).text()).toEqual(
-          'doc_video_capture.welcome.instruction_item_1'
-        )
-        expect(items.at(1).text()).toEqual(
-          'doc_video_capture.welcome.instruction_item_2'
-        )
-        expect(wrapper.find('.recordingLimit').text()).toEqual(
-          'doc_video_capture.welcome.limit'
-        )
 
         expect(wrapper.find('WelcomeActions > Button').text()).toEqual(
           'doc_video_capture.welcome.next_button'

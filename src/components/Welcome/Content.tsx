@@ -47,6 +47,9 @@ export const DocVideoContent: FunctionComponent = () => {
 
   return (
     <div className={classNames(style.content, style.left)}>
+      <span className={style.subtitle}>
+        {translate('doc_video_capture.welcome.subtitle')}
+      </span>
       <div className={style.text}>
         <span className={style.caption}>
           {translate('doc_video_capture.welcome.caption')}

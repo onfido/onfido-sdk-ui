@@ -1,4 +1,5 @@
 import { h, FunctionComponent } from 'preact'
+import { useCallback } from 'preact/compat'
 
 import { useSdkOptions } from '~contexts'
 import { useLocales } from '~locales'
@@ -54,11 +55,20 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
   const actions = <WelcomeActions {...{ forDocVideo, nextButton, nextStep }} />
-  const welcomeTitle = title || translate('welcome.title')
+
+  const getTitle = useCallback(() => {
+    if (title) {
+      return title
+    }
+
+    return forDocVideo
+      ? translate('doc_video_capture.welcome.title')
+      : translate('welcome.title')
+  }, [title, forDocVideo, translate])
 
   return (
     <ScreenLayout actions={actions} className={style.container}>
-      <PageTitle title={welcomeTitle} />
+      <PageTitle title={getTitle()} />
       {forDocVideo ? (
         <DocVideoContent />
       ) : (

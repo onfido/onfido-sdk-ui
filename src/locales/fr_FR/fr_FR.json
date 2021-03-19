@@ -378,6 +378,8 @@
             }
         },
         "welcome": {
+            "title": "Verify your identity",
+            "subtitle": "It should take a few minutes",
             "caption": "Use your device to record:",
             "instruction_item_1": "your identity document",
             "instruction_item_2": "your face",
