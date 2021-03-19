@@ -74,20 +74,12 @@ describe('Overlay', () => {
       })
 
       describe('with placeholder', () => {
+        const paperIdCases = [false, true]
         const cardPlaceholderCases: Array<DocumentTypes | undefined> = [
           undefined,
           'driving_licence',
           'national_identity_card',
         ]
-
-        cardPlaceholderCases.forEach((documentType) => {
-          it('renders card placeholder by default', () => {
-            const wrapper = mount(
-              <DocumentOverlay documentType={documentType} withPlaceholder />
-            )
-            assertPlaceholder(wrapper, 'card')
-          })
-        })
 
         it('renders passport placeholder when documentType=passport', () => {
           const wrapper = mount(
@@ -96,30 +88,49 @@ describe('Overlay', () => {
           assertPlaceholder(wrapper, 'passport')
         })
 
-        it('renders FR DL placeholder when documentType=driving_licence & issuingCountry=fr', () => {
-          const wrapper = mount(
-            <DocumentOverlay
-              issuingCountry="fr"
-              documentType="driving_licence"
-              withPlaceholder
-            />
-          )
-          assertPlaceholder(wrapper, 'frPaperDl')
-        })
+        paperIdCases.forEach((isPaperId) => {
+          cardPlaceholderCases.forEach((documentType) => {
+            it(`renders card placeholder when documentType=${documentType} & isPaperId=${isPaperId}`, () => {
+              const wrapper = mount(
+                <DocumentOverlay
+                  documentType={documentType}
+                  isPaperId={isPaperId}
+                  withPlaceholder
+                />
+              )
+              assertPlaceholder(wrapper, 'card')
+            })
+          })
 
-        it('renders IT ID placeholder when documentType=national_identity_card & issuingCountry=it', () => {
-          const wrapper = mount(
-            <DocumentOverlay
-              issuingCountry="it"
-              documentType="national_identity_card"
-              withPlaceholder
-            />
-          )
-          assertPlaceholder(wrapper, 'itPaperId')
+          it(`renders correct FR DL placeholder when documentType=driving_licence & issuingCountry=fr & isPaperId=${isPaperId}`, () => {
+            const wrapper = mount(
+              <DocumentOverlay
+                documentType="driving_licence"
+                isPaperId={isPaperId}
+                issuingCountry="fr"
+                withPlaceholder
+              />
+            )
+            assertPlaceholder(wrapper, isPaperId ? 'frPaperDl' : 'card')
+          })
+
+          it(`renders correct IT ID placeholder when documentType=national_identity_card & issuingCountry=it & isPaperId=${isPaperId}`, () => {
+            const wrapper = mount(
+              <DocumentOverlay
+                documentType="national_identity_card"
+                isPaperId={isPaperId}
+                issuingCountry="it"
+                withPlaceholder
+              />
+            )
+            assertPlaceholder(wrapper, isPaperId ? 'itPaperId' : 'card')
+          })
         })
       })
 
       describe('with a specific documentType', () => {
+        const paperIdCases = [false, true]
+
         it('renders id1 size', () => {
           const wrapper = mount(
             <DocumentOverlay documentType="driving_licence" />
@@ -132,24 +143,28 @@ describe('Overlay', () => {
           assertHollowSize(wrapper, 'id3Card')
         })
 
-        it('renders frPaperId size', () => {
-          const wrapper = mount(
-            <DocumentOverlay
-              issuingCountry="fr"
-              documentType="driving_licence"
-            />
-          )
-          assertHollowSize(wrapper, 'frPaperDl')
-        })
+        paperIdCases.forEach((isPaperId) => {
+          it(`renders correct size for FR DL when isPaperId=${isPaperId}`, () => {
+            const wrapper = mount(
+              <DocumentOverlay
+                documentType="driving_licence"
+                isPaperId={isPaperId}
+                issuingCountry="fr"
+              />
+            )
+            assertHollowSize(wrapper, isPaperId ? 'frPaperDl' : 'id1Card')
+          })
 
-        it('renders itPaperId size', () => {
-          const wrapper = mount(
-            <DocumentOverlay
-              issuingCountry="it"
-              documentType="national_identity_card"
-            />
-          )
-          assertHollowSize(wrapper, 'itPaperId')
+          it(`renders correct size for IT ID when isPaperId=${isPaperId}`, () => {
+            const wrapper = mount(
+              <DocumentOverlay
+                documentType="national_identity_card"
+                isPaperId={isPaperId}
+                issuingCountry="it"
+              />
+            )
+            assertHollowSize(wrapper, isPaperId ? 'itPaperId' : 'id1Card')
+          })
         })
       })
     })

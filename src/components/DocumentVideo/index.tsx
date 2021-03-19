@@ -161,6 +161,8 @@ const DocumentVideo: FunctionComponent<Props> = ({
             <DocumentOverlay
               {...props}
               documentType={documentType}
+              isPaperId
+              issuingCountry="it"
               marginBottom={overlayBottomMargin}
             />
           )}

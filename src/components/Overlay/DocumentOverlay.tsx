@@ -45,37 +45,46 @@ const ID1_SIZE_DOCUMENTS = new Set<DocumentTypes>([
 
 const getDocumentSize = ({
   documentType,
+  isPaperId,
   issuingCountry,
 }: DocTypeParams): DocumentSizes => {
   if (!documentType) {
     return 'rectangle'
   }
 
-  if (documentType === 'driving_licence' && issuingCountry === 'fr') {
-    return 'frPaperDl'
-  }
+  if (isPaperId) {
+    if (documentType === 'driving_licence' && issuingCountry === 'fr') {
+      return 'frPaperDl'
+    }
 
-  if (documentType === 'national_identity_card' && issuingCountry === 'it') {
-    return 'itPaperId'
+    if (documentType === 'national_identity_card' && issuingCountry === 'it') {
+      return 'itPaperId'
+    }
   }
 
   return ID1_SIZE_DOCUMENTS.has(documentType) ? 'id1Card' : 'id3Card'
 }
 
-const getPlaceholder = ({ documentType, issuingCountry }: DocTypeParams) => {
-  switch (documentType) {
-    case 'passport':
-      return 'passport'
-
-    case 'driving_licence':
-      return issuingCountry === 'fr' ? 'frPaperDl' : 'card'
-
-    case 'national_identity_card':
-      return issuingCountry === 'it' ? 'itPaperId' : 'card'
-
-    default:
-      return 'card'
+const getPlaceholder = ({
+  documentType,
+  isPaperId,
+  issuingCountry,
+}: DocTypeParams) => {
+  if (documentType === 'passport') {
+    return 'passport'
   }
+
+  if (isPaperId) {
+    if (documentType === 'driving_licence' && issuingCountry === 'fr') {
+      return 'frPaperDl'
+    }
+
+    if (documentType === 'national_identity_card' && issuingCountry === 'it') {
+      return 'itPaperId'
+    }
+  }
+
+  return 'card'
 }
 
 export const calculateHollowRect = (
@@ -112,11 +121,11 @@ export const calculateHollowRect = (
 }
 
 const drawInnerFrame = (
-  { documentType }: DocTypeParams,
+  docTypeParams: DocTypeParams,
   marginBottom?: number
 ): string => {
   const { left, bottom, width, height } = calculateHollowRect(
-    { documentType },
+    docTypeParams,
     marginBottom,
     true
   )
@@ -160,7 +169,7 @@ const DocumentOverlay: FunctionComponent<Props> = ({
             style.placeholder,
             style[getPlaceholder(docTypeParams)]
           )}
-          style={calculateHollowRect(docTypeParams)}
+          style={calculateHollowRect(docTypeParams, marginBottom)}
         />
       )}
       {children}
