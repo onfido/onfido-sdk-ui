@@ -5,6 +5,9 @@ import Webcam from 'react-webcam-onfido'
 import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
 import { getInactiveError } from '~utils/inactiveError'
+import DocumentOverlay, {
+  calculateHollowRect,
+} from '../Overlay/DocumentOverlay'
 import VideoCapture from '../VideoCapture'
 import VideoLayer from './VideoLayer'
 
@@ -126,10 +129,17 @@ const DocumentVideo: FunctionComponent<Props> = ({
     })
   }
 
+  const overlayBottomMargin = 0.5
+  const overlayHollowRect = calculateHollowRect(
+    { documentType },
+    overlayBottomMargin
+  )
+
   const passedProps = {
     captureFlow,
     documentType,
     flowRestartTrigger,
+    footerHeightLimit: overlayHollowRect.bottom,
     onSubmit: () => setFlowComplete(true),
   }
 
@@ -143,7 +153,19 @@ const DocumentVideo: FunctionComponent<Props> = ({
       onRedo={() => setFlowRestartTrigger((prevTrigger) => prevTrigger + 1)}
       onVideoCapture={onVideoCapture}
       renderFallback={renderFallback}
-      renderVideoLayer={(props) => <VideoLayer {...props} {...passedProps} />}
+      renderVideoLayer={(props) => (
+        <VideoLayer
+          {...props}
+          {...passedProps}
+          renderOverlay={(props) => (
+            <DocumentOverlay
+              {...props}
+              documentType={documentType}
+              marginBottom={overlayBottomMargin}
+            />
+          )}
+        />
+      )}
       trackScreen={trackScreen}
       webcamRef={webcamRef}
     />

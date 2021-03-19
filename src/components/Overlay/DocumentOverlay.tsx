@@ -1,15 +1,22 @@
 import { h, FunctionComponent } from 'preact'
 import { memo, useRef } from 'preact/compat'
+import classNames from 'classnames'
 import style from './style.scss'
 
 import type { DocumentTypes } from '~types/steps'
 
-type DocumentSizes =
+export type DocumentSizes =
   | 'id1Card'
   | 'id3Card'
   | 'rectangle'
+  | 'frPaperDl'
   | 'itPaperId'
-  | 'frPaperId'
+
+type DocTypeParams = {
+  documentType?: DocumentTypes
+  isPaperId?: boolean
+  issuingCountry?: string
+}
 
 type HollowRect = {
   left: number
@@ -27,8 +34,8 @@ const ASPECT_RATIOS: Record<DocumentSizes, number> = {
   id1Card: 1.586,
   id3Card: 1.42,
   rectangle: 1.57,
-  itPaperId: 1,
-  frPaperId: 1,
+  frPaperDl: 2.05,
+  itPaperId: 1.37,
 }
 
 const ID1_SIZE_DOCUMENTS = new Set<DocumentTypes>([
@@ -36,20 +43,47 @@ const ID1_SIZE_DOCUMENTS = new Set<DocumentTypes>([
   'national_identity_card',
 ])
 
-const getDocumentSize = (type?: DocumentTypes): DocumentSizes => {
-  if (!type) {
+const getDocumentSize = ({
+  documentType,
+  issuingCountry,
+}: DocTypeParams): DocumentSizes => {
+  if (!documentType) {
     return 'rectangle'
   }
 
-  return ID1_SIZE_DOCUMENTS.has(type) ? 'id1Card' : 'id3Card'
+  if (documentType === 'driving_licence' && issuingCountry === 'fr') {
+    return 'frPaperDl'
+  }
+
+  if (documentType === 'national_identity_card' && issuingCountry === 'it') {
+    return 'itPaperId'
+  }
+
+  return ID1_SIZE_DOCUMENTS.has(documentType) ? 'id1Card' : 'id3Card'
+}
+
+const getPlaceholder = ({ documentType, issuingCountry }: DocTypeParams) => {
+  switch (documentType) {
+    case 'passport':
+      return 'passport'
+
+    case 'driving_licence':
+      return issuingCountry === 'fr' ? 'frPaperDl' : 'card'
+
+    case 'national_identity_card':
+      return issuingCountry === 'it' ? 'itPaperId' : 'card'
+
+    default:
+      return 'card'
+  }
 }
 
 export const calculateHollowRect = (
-  documentType?: DocumentTypes,
+  docTypeParams: DocTypeParams,
   marginBottom?: number,
   scaleToSvgViewport = false
 ): HollowRect => {
-  const size = getDocumentSize(documentType)
+  const size = getDocumentSize(docTypeParams)
   const { [size]: aspectRatio } = ASPECT_RATIOS
 
   const width = OUTER_WIDTH * INNER_WIDTH_RATIO
@@ -78,11 +112,11 @@ export const calculateHollowRect = (
 }
 
 const drawInnerFrame = (
-  documentType?: DocumentTypes,
+  { documentType }: DocTypeParams,
   marginBottom?: number
 ): string => {
   const { left, bottom, width, height } = calculateHollowRect(
-    documentType,
+    { documentType },
     marginBottom,
     true
   )
@@ -96,25 +130,24 @@ const drawInnerFrame = (
 
 export type Props = {
   marginBottom?: number
-  type?: DocumentTypes
   withPlaceholder?: boolean
-}
+} & DocTypeParams
 
 const DocumentOverlay: FunctionComponent<Props> = ({
   children,
   marginBottom,
-  type,
   withPlaceholder,
+  ...docTypeParams
 }) => {
   const highlightFrameRef = useRef<SVGPathElement>(null)
 
   const outer = `M0,0 h${OUTER_WIDTH} v${OUTER_HEIGHT} h-${OUTER_WIDTH} Z`
-  const inner = drawInnerFrame(type, marginBottom)
+  const inner = drawInnerFrame(docTypeParams, marginBottom)
 
   return (
     <div className={style.document}>
       <svg
-        data-size={getDocumentSize(type)}
+        data-size={getDocumentSize(docTypeParams)}
         shapeRendering="geometricPrecision"
         viewBox={`0 0 ${OUTER_WIDTH} ${OUTER_HEIGHT}`}
       >
@@ -123,8 +156,11 @@ const DocumentOverlay: FunctionComponent<Props> = ({
       </svg>
       {withPlaceholder && (
         <span
-          className={style.placeholder}
-          style={calculateHollowRect(type, marginBottom)}
+          className={classNames(
+            style.placeholder,
+            style[getPlaceholder(docTypeParams)]
+          )}
+          style={calculateHollowRect(docTypeParams)}
         />
       )}
       {children}

@@ -68,7 +68,7 @@ const assertOverlay = (
 ) => {
   const documentOverlay = wrapper.find<DocumentOverlayProps>(DocumentOverlay)
   expect(documentOverlay.exists()).toBeTruthy()
-  expect(documentOverlay.props().type).toEqual(documentType)
+  expect(documentOverlay.props().documentType).toEqual(documentType)
   expect(documentOverlay.props().withPlaceholder).toEqual(withPlaceholder)
 }
 

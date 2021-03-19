@@ -11,13 +11,14 @@ navigator.vibrate = jest.fn()
 
 const defaultProps: VideoLayerProps = {
   captureFlow: 'cardId',
-  documentType: 'driving_licence',
   disableInteraction: false,
   flowRestartTrigger: 0,
+  footerHeightLimit: 300,
   isRecording: false,
   onStart: jest.fn(),
   onStop: jest.fn(),
   onSubmit: jest.fn(),
+  renderOverlay: jest.fn().mockReturnValue(<div>Overlay</div>),
 }
 
 type MockedVideoCaptureProps = {

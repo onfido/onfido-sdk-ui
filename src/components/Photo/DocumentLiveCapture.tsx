@@ -134,7 +134,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
               <Timeout seconds={10} onTimeout={this.handleTimeout} />
             )}
             <ToggleFullScreen />
-            <DocumentOverlay type={documentType} />
+            <DocumentOverlay documentType={documentType} />
             {children}
           </Camera>
         )}

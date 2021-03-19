@@ -4,23 +4,24 @@ import { memo, useCallback, useEffect } from 'preact/compat'
 import { useLocales } from '~locales'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import Button from '../Button'
-import DocumentOverlay, {
-  calculateHollowRect,
-} from '../Overlay/DocumentOverlay'
 import Instructions from './Instructions'
 import StepProgress from './StepProgress'
 import useCaptureStep from './useCaptureStep'
 import style from './style.scss'
 
 import type { CaptureFlows } from '~types/docVideo'
-import type { DocumentTypes } from '~types/steps'
 import type { VideoLayerProps } from '../VideoCapture'
+
+type OverlayProps = {
+  withPlaceholder?: boolean
+}
 
 export type Props = {
   captureFlow: CaptureFlows
-  documentType: DocumentTypes
   flowRestartTrigger: number
+  footerHeightLimit: number
   onSubmit: () => void
+  renderOverlay: (props: OverlayProps) => h.JSX.Element | null
 } & VideoLayerProps
 
 const VISIBLE_BUTTON_TIMEOUT = 3000
@@ -31,12 +32,13 @@ const HOLDING_STILL_TIMEOUT = 6000
 const VideoLayer: FunctionComponent<Props> = ({
   captureFlow,
   disableInteraction,
-  documentType,
   flowRestartTrigger,
+  footerHeightLimit,
   isRecording,
   onStart,
   onStop,
   onSubmit,
+  renderOverlay,
 }) => {
   const {
     captureStep,
@@ -156,16 +158,12 @@ const VideoLayer: FunctionComponent<Props> = ({
     )
   }, [action, recordState, instruction, translate])
 
-  const hollowRect = calculateHollowRect(documentType, 0.5)
-
   return (
     <Fragment>
-      <DocumentOverlay
-        marginBottom={0.5}
-        type={documentType}
-        withPlaceholder={stepNumber === 0}
-      />
-      <div className={style.controls} style={{ top: hollowRect.bottom }}>
+      {renderOverlay({
+        withPlaceholder: captureStep === 'intro',
+      })}
+      <div className={style.controls} style={{ top: footerHeightLimit }}>
         <StepProgress stepNumber={stepNumber} totalSteps={totalSteps} />
         {renderItems()}
       </div>
