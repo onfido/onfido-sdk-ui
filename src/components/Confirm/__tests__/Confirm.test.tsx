@@ -16,9 +16,9 @@ import Confirm from '../Confirm'
 
 import type { ApiRawError } from '~types/api'
 
-jest.mock('../../utils')
-jest.mock('../../utils/objectUrl')
-jest.mock('../../utils/onfidoApi')
+jest.mock('~utils')
+jest.mock('~utils/objectUrl')
+jest.mock('~utils/onfidoApi')
 
 const defaultProps = {
   urls: {

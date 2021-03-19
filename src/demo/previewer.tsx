@@ -28,11 +28,10 @@ const SdkPreviewer = () => {
   const [sdkOptions, setSdkOptions] = useState<SdkOptions>(getInitSdkOptions())
   const [sdkFlowCompleted, setSdkFlowCompleted] = useState(false)
   const [checkData, setCheckData] = useState<CheckData>({
-    applicantId: null,
     sdkFlowCompleted: false,
   })
 
-  const iframe = useRef(null)
+  const iframe = useRef<HTMLIFrameElement>(null)
 
   const updateViewOptions = (newOptions: Partial<UIConfigs>) =>
     setViewOptions((currentOptions) => ({ ...currentOptions, ...newOptions }))
@@ -48,7 +47,7 @@ const SdkPreviewer = () => {
    * and should execute the clean-up function when the component unmounts.
    */
   useEffect(() => {
-    let globalOnCompleteFunc: (data: unknown) => void = null
+    let globalOnCompleteFunc: (data: unknown) => void
 
     const onMessage = (message: MessageEvent) => {
       if (message.data.type === 'UPDATE_CHECK_DATA') {
@@ -72,7 +71,7 @@ const SdkPreviewer = () => {
 
     const onIFrameLoad = () => {
       // Transfer port2 to the iframe
-      iframe.current.contentWindow.postMessage('init', '*', [channel.port2])
+      iframe.current.contentWindow?.postMessage('init', '*', [channel.port2])
     }
 
     window.updateOptions = ({ onComplete, ...sdkOptions }) => {
@@ -164,4 +163,9 @@ const SdkPreviewer = () => {
 const Previewer = memo(SdkPreviewer)
 
 const rootNode = document.getElementById('previewer-app')
+
+if (!rootNode) {
+  throw new Error('Element #previewer-app not found!')
+}
+
 render(<Previewer />, rootNode)

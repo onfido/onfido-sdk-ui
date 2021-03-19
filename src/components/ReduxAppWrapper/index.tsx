@@ -9,7 +9,7 @@ import type { CombinedActions, RootState } from '~types/redux'
 type StoreType = Store<RootState, CombinedActions>
 
 const ReduxAppWrapper: FunctionComponent = ({ children }) => {
-  const [store, setStore] = useState<StoreType>(null)
+  const [store, setStore] = useState<StoreType | undefined>(undefined)
 
   useEffect(() => {
     const newStore = createStore(

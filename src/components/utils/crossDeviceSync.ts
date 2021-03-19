@@ -7,5 +7,10 @@ const socketData: SocketIOClient.ConnectOpts = {
   transports: ['websocket', 'polling'], // default: ['polling', 'websocket']
 }
 
-export const createSocket = (url: string): SocketIOClient.Socket =>
-  io(url, socketData)
+export const createSocket = (url?: string): SocketIOClient.Socket => {
+  if (!url) {
+    throw new Error('sync_url not provided')
+  }
+
+  return io(url, socketData)
+}

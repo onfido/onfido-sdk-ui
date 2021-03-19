@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { mount, shallow, ReactWrapper } from 'enzyme'
+import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
@@ -8,15 +8,10 @@ import withTheme from '../index'
 const DummyComponent: FunctionComponent = () => <span>Dummy component</span>
 const WrappedComponent = withTheme(DummyComponent)
 
-describe('CameraPermissions', () => {
-  describe('Primer', () => {
+describe('Theme', () => {
+  describe('withTheme', () => {
     afterEach(() => {
       jest.clearAllMocks()
-    })
-
-    it('renders without crashing', () => {
-      const wrapper = shallow(<WrappedComponent />)
-      expect(wrapper.exists()).toBeTruthy()
     })
 
     describe('when mounted', () => {
@@ -45,10 +40,8 @@ describe('CameraPermissions', () => {
 
       it('render wrapped component correctly', () => {
         expect(wrapper.find('.content > DummyComponent').exists()).toBeTruthy()
-        expect(
-          wrapper.find('DummyComponent').prop('hideOnfidoLogo')
-        ).toBeTruthy()
-        expect(wrapper.find('DummyComponent').prop('cobrand')).toBeNull()
+        expect(wrapper.find('.noLogo').exists()).toBeTruthy()
+        expect(wrapper.find('.cobrandLogo').exists()).toBeFalsy()
       })
     })
 
@@ -71,12 +64,8 @@ describe('CameraPermissions', () => {
       })
 
       it('render wrapped component correctly', () => {
-        expect(
-          wrapper.find('DummyComponent').prop('hideOnfidoLogo')
-        ).toBeFalsy()
-        expect(wrapper.find('DummyComponent').prop('cobrand')).toMatchObject({
-          text: 'Fake brand',
-        })
+        expect(wrapper.find('.noLogo').exists()).toBeFalsy()
+        expect(wrapper.find('.cobrandText').text()).toEqual('Fake brand')
       })
     })
   })

@@ -2,12 +2,12 @@ import * as constants from '~types/redux/constants'
 import type { GlobalActions, GlobalState } from '~types/redux'
 
 export const initialState: GlobalState = {
-  documentType: null,
-  idDocumentIssuingCountry: null,
-  poaDocumentType: null,
-  roomId: null,
-  socket: null,
-  sms: { number: null, valid: false },
+  documentType: undefined,
+  idDocumentIssuingCountry: undefined,
+  poaDocumentType: undefined,
+  roomId: undefined,
+  socket: undefined,
+  sms: { number: undefined, valid: false },
   clientSuccess: false,
   mobileConnected: false,
   termsAccepted: false,
@@ -16,8 +16,8 @@ export const initialState: GlobalState = {
   deviceHasCameraSupport: false,
   // This prevents logo from being shown before state can be updated to hide it.
   hideOnfidoLogo: true,
-  cobrand: null,
-  logoCobrand: null,
+  cobrand: undefined,
+  logoCobrand: undefined,
   isDecoupledFromAPI: false,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
@@ -43,7 +43,7 @@ export default function globals(
       return {
         ...state,
         documentType: action.payload,
-        poaDocumentType: null,
+        poaDocumentType: undefined,
       }
 
     case constants.SET_ID_ISSUING_COUNTRY:
@@ -124,7 +124,7 @@ export default function globals(
     case constants.SHOW_COBRANDING:
       return {
         ...state,
-        cobrand: action.payload,
+        cobrand: action.payload || undefined,
       }
 
     case constants.SHOW_LOGO_COBRANDING:

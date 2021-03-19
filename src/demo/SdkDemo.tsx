@@ -15,7 +15,7 @@ const DEFAULT_REGION: ServerRegions = 'EU'
 
 type Props = {
   hasPreview?: boolean
-  messagePort: MessagePort
+  messagePort?: MessagePort
   sdkOptions?: SdkOptions
   viewOptions?: UIConfigs
 }
@@ -26,9 +26,11 @@ const SdkDemo: FunctionComponent<Props> = ({
   sdkOptions,
   viewOptions,
 }) => {
-  const [token, setToken] = useState<string>(null)
-  const [tokenUrl, setTokenUrl] = useState<string>(null)
-  const [regionCode, setRegionCode] = useState<ServerRegions>(null)
+  const [token, setToken] = useState<string | undefined>(undefined)
+  const [tokenUrl, setTokenUrl] = useState<string | undefined>(undefined)
+  const [regionCode, setRegionCode] = useState<ServerRegions | undefined>(
+    undefined
+  )
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
@@ -61,7 +63,7 @@ const SdkDemo: FunctionComponent<Props> = ({
     isModalOpen,
     onComplete: (data) =>
       hasPreview
-        ? messagePort.postMessage({ type: 'SDK_COMPLETE', data })
+        ? messagePort?.postMessage({ type: 'SDK_COMPLETE', data })
         : console.log(data),
     onError: (error) => console.error('onError callback:', error),
     onUserExit: (userExitCode) =>
@@ -77,7 +79,7 @@ const SdkDemo: FunctionComponent<Props> = ({
           Verify identity
         </button>
       )}
-      {token && (
+      {token && regionCode && tokenUrl && (
         <SdkMount options={options} regionCode={regionCode} url={tokenUrl} />
       )}
     </div>

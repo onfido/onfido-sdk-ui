@@ -61,6 +61,7 @@ export interface SdkOptions extends FunctionalConfigurations {
 }
 
 export type SdkHandle = {
+  containerId?: string
   options: SdkOptions
   setOptions(options: SdkOptions): void
   tearDown(): void
