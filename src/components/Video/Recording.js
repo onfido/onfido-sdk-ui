@@ -1,9 +1,10 @@
 import { h } from 'preact'
-import Challenge /* , { type ChallengeType } */ from './Challenge'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import Button from '../Button'
-import style from './style.scss'
+import Challenge /* , { type ChallengeType } */ from './Challenge'
 import { localised /* , type LocalisedType */ } from '../../locales'
+import style from './style.scss'
+import theme from '../Theme/style.scss'
 
 /* type Props = {
   currentChallenge: ChallengeType,
@@ -43,9 +44,11 @@ const Recording = ({
       </div>
       {!isLastChallenge ? (
         <Button
-          variants={['centered', 'primary', 'lg']}
+          variant="primary"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
           disabled={disableInteraction}
           onClick={onNext}
+          data-onfido-qa="liveness-next-challenge-btn"
         >
           {translate('video_capture.button_primary_next')}
         </Button>

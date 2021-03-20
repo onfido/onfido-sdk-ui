@@ -1,13 +1,14 @@
 import { h, Component } from 'preact'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
 import { validateFile } from '~utils/file'
+import { isButtonGroupStacked } from '../Theme/utils'
 import { trackComponentAndMode } from '../../Tracker'
 import { localised } from '../../locales'
 import CustomFileInput from '../CustomFileInput'
 import PageTitle from '../PageTitle'
-import Button from '../Button'
 import UploadError from './Error'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
@@ -21,18 +22,31 @@ const MobileUploadArea = ({
 }) => (
   <div className={style.uploadArea}>
     {children}
-    <div className={classNames(style.buttons, { [style.poaButtons]: isPoA })}>
+    <div
+      className={classNames(style.buttons, {
+        [style.poaButtons]: isPoA,
+        [style.vertical]: isButtonGroupStacked(),
+      })}
+    >
       <CustomFileInput
         className={classNames({
           [style.buttonContainer]: !isPoA,
           [style.poaBtn]: isPoA,
+          [style.vertical]: isButtonGroupStacked(),
         })}
         onChange={onFileSelected}
         accept="image/*"
         capture
       >
         <Button
-          variants={isPoA ? ['secondary', 'sm'] : ['centered', 'primary', 'lg']}
+          variant={isPoA ? 'secondary' : 'primary'}
+          className={
+            isPoA
+              ? classNames(theme['button-sm'], {
+                  [theme.vertical]: isButtonGroupStacked(),
+                })
+              : classNames(theme['button-centered'], theme['button-lg'])
+          }
           disabled={isUploading}
         >
           {translate('photo_upload.button_take_photo')}
@@ -43,7 +57,13 @@ const MobileUploadArea = ({
           onChange={onFileSelected}
           className={classNames({ [style.poaBtn]: isPoA })}
         >
-          <Button variants={['primary', 'sm']} disabled={isUploading}>
+          <Button
+            variant="primary"
+            className={classNames(theme['button-sm'], {
+              [theme.vertical]: isButtonGroupStacked(),
+            })}
+            disabled={isUploading}
+          >
             {translate(
               isDesktop
                 ? 'doc_submit.button_link_upload'
@@ -66,7 +86,8 @@ const PassportMobileUploadArea = ({
     {children}
     <div className={style.buttons}>
       <Button
-        variants={['centered', 'primary', 'lg']}
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
         disabled={isUploading}
         onClick={nextStep}
       >
@@ -97,8 +118,12 @@ const DesktopUploadArea = ({
     <div>
       {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
         <Button
-          variants={['centered', 'primary', 'lg']}
-          className={style.crossDeviceButton}
+          variant="primary"
+          className={classNames(
+            theme['button-centered'],
+            theme['button-lg'],
+            style.crossDeviceButton
+          )}
           onClick={() => changeFlowTo('crossDeviceSteps')}
           disabled={isUploading}
         >

@@ -9,7 +9,7 @@ class CameraPermissions extends BasePage {
     return this.$('.onfido-sdk-ui-CameraPermissions-Primer-graphic')
   }
   async enableCameraButton() {
-    return this.$('.onfido-sdk-ui-Button-button-text')
+    return this.$('[data-onfido-qa="enable-camera-btn"]')
   }
 
   async verifyUIElementsOnTheCameraPermissionsScreen(copy) {

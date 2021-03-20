@@ -20,14 +20,15 @@
   height: 600 * $unit;
   text-align: center;
   max-height: calc(100% + #{4 * $unit});
-  border-radius: 8 * $unit;
-  border: 1px solid $color-border;
+  background-color: var(--osdk-color-background-surface-modal);
+  border-color: var(--osdk-color-border-surface-modal);
+  border-width: var(--osdk-border-width-surface-modal);
+  border-style: var(--osdk-border-style-surface-modal);
+  border-radius: var(--osdk-border-radius-surface-modal);
 
-  font-family: $font-family !important;
-  background-color: $color-background;
-
-  color: $color-body-text;
-  font-weight: 500;
+  font-family: var(--osdk-font-family-body) !important;
+  color: var(--osdk-color-content-body);
+  font-weight: var(--osdk-font-weight-body);
   line-height: 1.5;
 
   @media (--small-viewport) {
@@ -47,13 +48,13 @@
 }
 
 .closeButton {
-  background-color: $color-icon-button;
+  background-color: transparent;
   background-image: url('./assets/cross.svg');
   background-size: contain;
   border-radius: 16 * $unit;
   border: 0;
   cursor: pointer;
-  font-family: $font-family;
+  font-family: var(--osdk-font-family-body);
   height: 32 * $unit;
   position: absolute;
   right: 15 * $unit;
@@ -83,12 +84,12 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: $color-icon-button-hover;
+      background-color: var(--osdk-color-background-button-icon-hover);
     }
   }
 
   &:active {
-    background-color: $color-icon-button-active;
+    background-color: var(--osdk-color-background-button-icon-active);
   }
 }
 
@@ -99,7 +100,7 @@
   top: 50%;
   transform: translateY(-50%);
   font-weight: 500;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   margin-right: 7 * $unit-small;
 }
 
@@ -107,7 +108,12 @@
   background-image: url('./assets/cross-white.svg');
 
   &:hover {
-    background-color: $color-transparent;
+    background-image: url('./assets/cross.svg');
+    background-color: $color-fullscreen-icon-button-hover;
+  }
+
+  &:active {
+    background-color: $color-fullscreen-icon-button-active;
   }
 
   .closeButtonLabel {

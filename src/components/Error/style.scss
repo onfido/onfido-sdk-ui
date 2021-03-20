@@ -13,11 +13,13 @@
 }
 
 .container-error {
-  background-color: $color-error;
+  background-color: var(--osdk-color-background-alert-error);
+  color: var(--osdk-color-content-alert-error);
 }
 
 .container-warning {
-  background-color: $color-warning;
+  background-color: var(--osdk-color-background-alert-info);
+  color: var(--osdk-color-content-alert-info);
 }
 
 .instruction {
@@ -27,7 +29,7 @@
 }
 
 .instruction-text {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   line-height: 1.43;
 }
 
@@ -66,22 +68,22 @@
   left: calc(50% - #{8 * $unit});
   width: 8 * $unit;
   height: 8 * $unit;
-  border-top: 8 * $unit solid $color-transparent;
-  border-right: 8 * $unit solid $color-transparent;
-  border-bottom: 8 * $unit solid $color-transparent;
-  border-left: 8 * $unit solid $color-transparent;
+  border-top: 8 * $unit solid transparent;
+  border-right: 8 * $unit solid transparent;
+  border-bottom: 8 * $unit solid transparent;
+  border-left: 8 * $unit solid transparent;
   border-bottom-left-radius: 3 * $unit;
   transform: rotate(-45deg);
 }
 
 .warningTriangle {
-  border-bottom: 8 * $unit solid $color-warning;
-  border-left: 8 * $unit solid $color-warning;
+  border-bottom: 8 * $unit solid var(--osdk-color-background-alert-info);
+  border-left: 8 * $unit solid var(--osdk-color-background-alert-info);
 }
 
 .errorTriangle {
-  border-bottom: 8 * $unit solid $color-error;
-  border-left: 8 * $unit solid $color-error;
+  border-bottom: 8 * $unit solid var(--osdk-color-background-alert-error);
+  border-left: 8 * $unit solid var(--osdk-color-background-alert-error);
 }
 
 .dismiss {

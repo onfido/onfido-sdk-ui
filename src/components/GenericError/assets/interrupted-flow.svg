@@ -1,30 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="144px" height="144px" viewBox="0 0 144 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
-    <title>icons/link-expired-error</title>
-    <desc>Created with Sketch.</desc>
-    <g id="LATEST-UPDATE" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="web-mob-M_018" transform="translate(-84.000000, -184.000000)">
-            <g id="icons/link-expired-error" transform="translate(84.000000, 184.000000)">
-                <g id="link-expired-error-large">
-                    <path d="M72,144 C32.235498,144 0,111.764502 0,72 C0,32.235498 32.235498,0 72,0 C111.764502,0 144,32.235498 144,72 C144,111.764502 111.764502,144 72,144 Z" id="circle-BG" fill="#8B9094" opacity="0.15339319"></path>
-                    <g id="mobile-link-error" transform="translate(48.000000, 22.000000)">
-                        <g id="icons/mobile/large" transform="translate(0.000000, 10.000000)">
-                            <g id="mobile-small">
-                                <rect id="Rectangle-5" stroke="#2C3E4F" stroke-width="4" fill="#FFFFFF" x="2" y="2" width="44" height="76" rx="8"></rect>
-                                <circle id="Oval" stroke="#283E4F" stroke-width="2" fill="#FFFFFF" cx="24" cy="69" r="4"></circle>
-                                <rect id="Rectangle-4-Copy-2" fill="#2C3E4F" x="15" y="8" width="18" height="2" rx="1"></rect>
-                            </g>
-                        </g>
-                        <g id="icons/error/large/fill" transform="translate(34.000000, 0.000000)">
-                            <g id="error-cross-small">
-                                <circle id="Oval" fill="#E61C1C" cx="12" cy="12" r="12"></circle>
-                                <path d="M9.91393788,12 L6.43248429,8.51854642 C5.85643415,7.94249627 5.85643415,7.00853444 6.43248429,6.43248429 C7.00853444,5.85643415 7.94249627,5.85643415 8.51854642,6.43248429 L12,9.91393788 L15.4814536,6.43248429 C16.0575037,5.85643415 16.9914656,5.85643415 17.5675157,6.43248429 C18.1435659,7.00853444 18.1435659,7.94249627 17.5675157,8.51854642 L14.0860621,12 L17.5675157,15.4814536 C18.1435659,16.0575037 18.1435659,16.9914656 17.5675157,17.5675157 C16.9914656,18.1435659 16.0575037,18.1435659 15.4814536,17.5675157 L12,14.0860621 L8.51854642,17.5675157 C7.94249627,18.1435659 7.00853444,18.1435659 6.43248429,17.5675157 C5.85643415,16.9914656 5.85643415,16.0575037 6.43248429,15.4814536 L9.91393788,12 Z" id="Combined-Shape" fill="#FFFFFF"></path>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" fill-rule="evenodd">
+  <g fill="#fff">
+    <rect stroke="#2c3e4f" stroke-width="4" x="50" y="34" width="44" height="76" rx="8"/>
+    <circle stroke="#283e4f" stroke-width="2" cx="72" cy="101" r="4"/>
+  </g>
+  <rect fill="#2c3e4f" x="63" y="40" width="18" height="2" rx="1"/>
+  <circle fill="#e61c1c" cx="94" cy="34" r="12"/>
+  <path d="m91.914 34-3.481-3.481a1.475 1.475 0 0 1 2.086-2.086L94 31.914l3.481-3.481a1.475 1.475 0 0 1 2.086 2.086L96.086 34l3.481 3.481a1.475 1.475 0 0 1-2.086 2.086L94 36.086l-3.481 3.481a1.475 1.475 0 0 1-2.086-2.086L91.914 34z" fill="#fff"/>
 </svg>

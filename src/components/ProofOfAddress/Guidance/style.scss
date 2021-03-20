@@ -9,7 +9,7 @@
 }
 
 .subTitle {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
 
   &::before {
     content: '';
@@ -30,7 +30,7 @@
 }
 
 .makeSure {
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   font-weight: 600;
   margin-bottom: 8 * $unit;
 
@@ -60,6 +60,6 @@
 }
 
 .label {
-  fill: $color-body-text;
-  font-size: $font-size-small;
+  fill: var(--osdk-color-content-body);
+  font-size: var(--font-size-small);
 }

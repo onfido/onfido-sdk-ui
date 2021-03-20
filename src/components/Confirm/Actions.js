@@ -1,16 +1,23 @@
 import { h } from 'preact'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import Button from '../Button'
 import { localised } from '../../locales'
+import { isButtonGroupStacked } from '../Theme/utils'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const RetakeAction = localised(({ retakeAction, translate, singleAction }) => (
   <Button
     onClick={retakeAction}
-    className={singleAction ? null : style.retakeAction}
-    variants={
-      singleAction ? ['primary', 'lg', 'centered'] : ['secondary', 'sm']
+    variant={singleAction ? 'primary' : 'secondary'}
+    className={
+      singleAction
+        ? classNames(theme['button-lg'], theme['button-centered'])
+        : classNames(theme['button-sm'], style.retakeAction, {
+            [style.vertical]: isButtonGroupStacked(),
+          })
     }
+    data-onfido-qa="redo-action-btn"
   >
     {translate(
       singleAction
@@ -23,9 +30,13 @@ const RetakeAction = localised(({ retakeAction, translate, singleAction }) => (
 const ConfirmAction = localised(
   ({ confirmAction, isUploading, translate, error }) => (
     <Button
-      variants={['primary', 'sm']}
+      variant="primary"
+      className={classNames(theme['button-sm'], {
+        [theme.vertical]: isButtonGroupStacked(),
+      })}
       onClick={confirmAction}
       disabled={isUploading}
+      data-onfido-qa="confirm-action-btn"
     >
       {error.type === 'warn'
         ? translate('doc_confirmation.button_primary_upload_anyway')
@@ -45,6 +56,7 @@ const Actions = ({
     <div
       className={classNames(style.actions, {
         [style.singleAction]: forceRetake,
+        [style.vertical]: isButtonGroupStacked(),
       })}
     >
       <RetakeAction {...{ retakeAction, singleAction: forceRetake }} />

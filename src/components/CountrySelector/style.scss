@@ -9,7 +9,7 @@
 }
 
 %_text {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
 }
 
 .label {
@@ -22,6 +22,11 @@
 
 .fallbackText {
   @extend %_text;
+}
+
+.fallbackLink {
+  display: inline-block;
+  font-size: inherit;
 }
 
 %_icon {
@@ -83,11 +88,11 @@
   Use Sass variables, placeholders as much as possible to easily maintain this
 */
 
-$_sdk-font-size: $font-size-small;
+$_sdk-font-size: var(--font-size-small);
 $_sdk-line-height: 18 * $unit-small;
-$_sdk-text-color: $color-body-text;
+$_sdk-text-color: var(--osdk-color-content-body);
 
-$_sdk-border-style: 1px solid $color-input-border;
+$_sdk-input-border-style: 1px solid rgba(var(--ods-color-border-input));
 $_sdk-input-horizontal-padding: 8 * $unit-small;
 $_sdk-input-vertical-padding: 12 * $unit-small;
 $_sdk-input-icon-padding: 34 * $unit-small;
@@ -95,8 +100,8 @@ $_sdk-search-icon-size: 24 * $unit-small;
 
 $_sdk-menu-max-height: 265 * $unit;
 $_sdk-menu-width-offset: 4 * $unit;
-$_sdk-option-hover-color: $color-primary-button-hover;
-$_sdk-option-active-color: $color-primary-button-active;
+$_sdk-option-hover-color: var(--osdk-color-background-button-primary-hover);
+$_sdk-option-active-color: var(--osdk-color-background-button-primary-active);
 $_sdk-option-padding: 8 * $unit-small;
 $_sdk-option-border-bottom: 0;
 
@@ -115,7 +120,7 @@ $_sdk-option-border-bottom: 0;
 .custom__hint,
 .custom__input {
   height: 100%;
-  border: $_sdk-border-style;
+  border: $_sdk-input-border-style;
   border-radius: 4 * $unit;
   box-sizing: border-box;
   margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
@@ -126,7 +131,7 @@ $_sdk-option-border-bottom: 0;
   background-color: transparent;
   position: relative;
   /* font size for form elements (input, select, textarea) must be at least 16px otherwise iOS Safari intervenes & forces UI to zoom in */
-  font-size: $font-size-base;
+  font-size: var(--font-size-base);
 }
 
 .custom__hint {
@@ -156,7 +161,7 @@ $_sdk-option-border-bottom: 0;
 
 .custom__menu {
   background-color: #fff;
-  border: $_sdk-border-style;
+  border: $_sdk-input-border-style;
   border-top: 0;
   color: $_sdk-text-color;
   margin: 0;

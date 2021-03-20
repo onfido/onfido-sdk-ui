@@ -1,51 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.1" viewBox="0 0 42 48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<title>cross-device-small-icon</title>
-<desc>Created with Sketch.</desc>
-<defs>
-<rect id="c" width="28" height="48" rx="4"/>
-<circle id="b" cx="14" cy="43" r="2"/>
-<path id="a" d="m2-1.8284e-15 28 1.2872e-14v1.3911e-15c1.1046-2.165e-15 2 0.89543 2 2v16c0 1.1046-0.89543 2-2 2h-28c-1.1046 0-2-0.89543-2-2v-16h-1.1102e-15c-1.3527e-16 -1.1046 0.89543-2 2-2z"/>
-</defs>
-<g fill="none" fill-rule="evenodd">
-<g transform="translate(-8 -12)">
-<g transform="translate(7 12)">
-<g transform="translate(15)">
-<g transform="translate(-0)">
-<use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#c"/>
-<rect x="1" y="1" width="26" height="46" rx="4" stroke="#2C3E4F" stroke-width="2"/>
-<rect x="9" y="4" width="10" height="1" rx=".5" fill="#2C3E4F"/>
-<g id="e">
-<use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#b"/>
-<circle cx="14" cy="43" r="1.5" stroke="#2C3E4F"/>
-</g>
-</g>
-</g>
-<g id="d" transform="translate(19.369 23.902) rotate(-15) translate(-16.5 -11)">
-<g transform="translate(.21166 .81778)">
-<g transform="translate(0 1)">
-<use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#a"/>
-<path d="m2 0.5c-0.82843 0-1.5 0.67157-1.5 1.5v16c0 0.82843 0.67157 1.5 1.5 1.5h28c0.82843 0 1.5-0.67157 1.5-1.5v-16c0-0.82843-0.67157-1.5-1.5-1.5h-28z" stroke="#283E4F"/>
-<g transform="translate(16 5)" fill="#283E4F">
-<rect y="6" width="13" height="1" rx=".5"/>
-<rect x="3" y="3" width="10" height="1" rx=".5"/>
-<rect x="5" width="2" height="1" rx=".5"/>
-<rect x="8" width="2" height="1" rx=".5"/>
-<rect x="11" width="2" height="1" rx=".5"/>
-</g>
-<g transform="translate(2 14)" stroke="#283E4F" stroke-width="1.2">
-<path d="m11.074 4.4c-1.1877-2.369-3.0797-3.8-5.1034-3.8-1.9488 0-3.8205 1.4493-5.0322 3.8h10.136z"/>
-</g>
-<g transform="translate(2.6176 1.4)" stroke="#283E4F">
-<path d="m5.3824 11.1c2.3461 0 4.5-2.6477 4.5-5.3667 0-2.5618-2.0177-4.6333-4.5-4.6333-1.6508 0-3.1456 0.92312-3.9351 2.384-0.36862 0.68201-0.56487 1.4504-0.56487 2.2494 0 2.7189 2.1539 5.3667 4.5 5.3667z"/>
-</g>
-</g>
-</g>
-</g>
-<rect x="15" y="12" width="2" height="31" fill="#283E4F"/>
-<rect x="17" y="10" width="24" height="27" fill="#fff" fill-opacity=".67"/>
-<rect x="17.5" y="10.5" width="23" height="26" stroke="#fff"/>
-</g>
-</g>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 42 48">
+  <defs>
+    <circle id="b" cx="14" cy="43" r="2"/>
+    <rect id="a" width="28" height="48" rx="4"/>
+    <path id="c" d="M2 0h28a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(14)">
+      <use fill="#fff" xlink:href="#a"/>
+      <rect x="1" y="1" width="26" height="46" rx="4" stroke="#2c3e4f" stroke-width="2"/>
+      <rect x="9" y="4" width="10" height="1" rx=".5" fill="#2c3e4f"/>
+      <use fill="#fff" xlink:href="#b"/>
+      <circle cx="14" cy="43" r="1.5" stroke="#2c3e4f"/>
+    </g>
+    <g transform="rotate(-15 73.233 8.64)">
+      <use fill="#fff" xlink:href="#c"/>
+      <path d="M2 .5A1.5 1.5 0 0 0 .5 2v16A1.5 1.5 0 0 0 2 19.5h28a1.5 1.5 0 0 0 1.5-1.5V2A1.5 1.5 0 0 0 30 .5H2z" stroke="#283e4f"/>
+      <g fill="#283e4f">
+        <rect y="11" width="13" height="1" rx=".5" x="16"/>
+        <rect x="19" y="8" width="10" height="1" rx=".5"/>
+        <rect x="21" width="2" height="1" rx=".5" y="5"/>
+        <rect x="24" width="2" height="1" rx=".5" y="5"/>
+        <rect x="27" width="2" height="1" rx=".5" y="5"/>
+      </g>
+      <g stroke="#283e4f">
+        <path d="M13.074 18.4c-1.188-2.369-3.08-3.8-5.103-3.8-1.949 0-3.82 1.449-5.032 3.8h10.136z" stroke-width="1.2"/>
+        <path d="M8 12.5c2.346 0 4.5-2.648 4.5-5.367C12.5 4.572 10.483 2.5 8 2.5c-1.651 0-3.146.923-3.935 2.384A4.711 4.711 0 0 0 3.5 7.133C3.5 9.852 5.654 12.5 8 12.5z"/>
+      </g>
+    </g>
+    <path fill="#283e4f" d="M14 12h2v31h-2z"/>
+    <path fill="#fff" fill-opacity=".67" d="M16 10h24v27H16z"/>
+    <path stroke="#fff" d="M16.5 10.5h23v26h-23z"/>
+  </g>
 </svg>
