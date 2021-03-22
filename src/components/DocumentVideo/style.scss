@@ -14,7 +14,7 @@
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 4 * $unit;
   color: $color-white;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   margin-top: 16 * $unit;
   padding: 4 * $unit 10 * $unit;
 }
@@ -38,7 +38,7 @@
 .holdStill > span,
 .instructions > span {
   color: $color-white;
-  font-family: $font-family;
+  font-family: var(--osdk-font-family-body);
   font-size: 16 * $unit;
   margin-bottom: 8 * $unit;
 

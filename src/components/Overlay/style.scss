@@ -3,7 +3,7 @@
 /* Document */
 
 .document {
-  border: 1px solid rgb(var(--ods-color-primary-500)); /* Doc Autocapture border colour */
+  border: 1px solid var(--osdk-color-background-alert-info); /* Doc Autocapture border colour */
   position: absolute;
   bottom: 0;
   left: 0;

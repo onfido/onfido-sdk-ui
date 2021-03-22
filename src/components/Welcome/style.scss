@@ -2,7 +2,7 @@
 
 .subtitle {
   align-self: center;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   font-weight: bold;
   margin-top: -24 * $unit;
 }
@@ -34,7 +34,7 @@
   }
 
   > li::marker {
-    color: $color-primary-500;
+    color: var(--osdk-color-background-alert-info);
   }
 
   @media (--small-viewport) {
