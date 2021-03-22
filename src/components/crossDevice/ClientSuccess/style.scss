@@ -1,14 +1,15 @@
 @import '../../Theme/constants';
 
 .icon {
+  @extend %icon-circle-background;
   height: 144 * $unit;
+  width: 144 * $unit;
   background-size: contain;
   background-image: url('./assets/return-to-computer-large.svg');
-  margin-top: 50 * $unit;
-  margin-bottom: 50 * $unit;
+  margin: 50 * $unit auto;
 }
 
 .text {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   line-height: 1.43;
 }

@@ -60,7 +60,7 @@ const waitForTimeout = (
 }
 
 const simulateButtonClick = (wrapper: ReactWrapper) =>
-  wrapper.find('VideoLayer Button > button').simulate('click')
+  wrapper.find({ 'data-onfido-qa': 'doc-video-capture-btn' }).simulate('click')
 
 const assertOverlay = (
   wrapper: ReactWrapper,
@@ -74,7 +74,9 @@ const assertOverlay = (
 }
 
 const assertRecordingButton = (wrapper: ReactWrapper, text: string) => {
-  const recordingButton = wrapper.find('VideoLayer Button')
+  const recordingButton = wrapper.find({
+    'data-onfido-qa': 'doc-video-capture-btn',
+  })
   expect(recordingButton.exists()).toBeTruthy()
   expect(recordingButton.prop('disabled')).toBeFalsy()
   expect(recordingButton.text()).toEqual(text)

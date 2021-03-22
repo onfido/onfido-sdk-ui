@@ -11,6 +11,8 @@ import type {
   DecoupleResponseOptions,
   StringifiedBoolean,
 } from './types'
+import type { UICustomizationOptions } from '~types/ui-customisation-options'
+import customUIConfig from './custom-ui-config.json'
 import testCobrandLogo from './assets/onfido-logo.svg'
 
 export type QueryParams = {
@@ -45,6 +47,7 @@ export type QueryParams = {
   useMultipleSelfieCapture?: StringifiedBoolean
   useUploader?: StringifiedBoolean
   useWebcam?: StringifiedBoolean
+  customisedUI?: StringifiedBoolean
   useCustomizedApiRequests?: StringifiedBoolean
   decoupleResponse?: DecoupleResponseOptions
 }
@@ -239,6 +242,9 @@ export const getInitSdkOptions = (): SdkOptions => {
     }
   }
 
+  const customUI =
+    queryParamToValueString.customisedUI === 'true' ? customUIConfig : undefined
+
   return {
     useModal: queryParamToValueString.useModal === 'true',
     shouldCloseOnOverlayClick:
@@ -258,6 +264,7 @@ export const getInitSdkOptions = (): SdkOptions => {
       useCustomizedApiRequests,
       ...decoupleCallbacks,
     },
+    customUI: customUI as UICustomizationOptions,
     ...smsNumberCountryCode,
   }
 }

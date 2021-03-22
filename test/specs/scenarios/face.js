@@ -260,7 +260,7 @@ export const faceScenarios = (lang) => {
       )
       faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
       faceVideoIntro.clickOnContinueButton()
-      camera.continueButton().click()
+      camera.enableCameraButton().click()
       driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
       assert.isFalse(
         camera.isOverlayPresent(),
@@ -286,7 +286,7 @@ export const faceScenarios = (lang) => {
       )
       faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
       faceVideoIntro.clickOnContinueButton()
-      camera.continueButton().click()
+      camera.enableCameraButton().click()
       camera.verifyVideoTitle(copy)
       camera.verifyOnfidoFooterIsVisible()
       camera.recordButton().click()

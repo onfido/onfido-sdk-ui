@@ -95,9 +95,9 @@ describe('UserConsent', () => {
           </MockedLocalised>
         </SdkOptionsProvider>
       )
-      const secondaryBtn = wrapper.find(
-        'button[data-onfido-qa="userConsentBtnSecondary"]'
-      )
+      const secondaryBtn = wrapper.find({
+        'data-onfido-qa': 'userConsentBtnSecondary',
+      })
       expect(secondaryBtn.exists()).toBeTruthy()
       secondaryBtn.simulate('click')
       expect(wrapper.find('DeclineModal').exists()).toBeTruthy()

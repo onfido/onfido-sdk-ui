@@ -66,26 +66,33 @@ const defaultProps: StepComponentDocumentProps = {
   ...mockedReduxProps,
 }
 
-const simulateButtonClick = (wrapper: ReactWrapper, primary = true) =>
-  wrapper
-    .find(`button.button-${primary ? 'primary' : 'secondary'}`)
-    .simulate('click')
+type ButtonVariants = 'primary' | 'secondary'
+
+const findButton = (wrapper: ReactWrapper, buttonVariant: ButtonVariants) =>
+  wrapper.find({
+    'data-onfido-qa': `doc-video-confirm-${buttonVariant}-btn`,
+  })
+
+const simulateButtonClick = (
+  wrapper: ReactWrapper,
+  buttonVariant: ButtonVariants
+) => findButton(wrapper, buttonVariant).simulate('click')
 
 const assertButton = (
   wrapper: ReactWrapper,
-  buttonClass: string,
+  buttonVariant: ButtonVariants,
   buttonText: string
 ) => {
-  const button = wrapper.find(`button.${buttonClass}`)
+  const button = findButton(wrapper, buttonVariant)
   expect(button.exists()).toBeTruthy()
   expect(button.text()).toEqual(buttonText)
-  expect(button.hasClass('button-lg button-centered')).toBeTruthy()
+  expect(button.hasClass('button-centered button-lg')).toBeTruthy()
 }
 
 const assertError = (wrapper: ReactWrapper, noDoc = false) => {
   expect(wrapper.find('.content').exists()).toBeFalsy()
   expect(wrapper.find('.preview').exists()).toBeFalsy()
-  expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
+  expect(findButton(wrapper, 'primary')).toBeTruthy()
 
   expect(wrapper.find('Error').exists()).toBeTruthy()
 
@@ -105,12 +112,8 @@ const assertError = (wrapper: ReactWrapper, noDoc = false) => {
     )
   }
 
-  assertButton(
-    wrapper,
-    'button-secondary',
-    'doc_video_confirmation.button_redo'
-  )
-  simulateButtonClick(wrapper, false)
+  assertButton(wrapper, 'secondary', 'doc_video_confirmation.button_redo')
+  simulateButtonClick(wrapper, 'secondary')
   expect(defaultProps.previousStep).toHaveBeenCalled()
 }
 
@@ -120,8 +123,14 @@ const assertContent = (
 ) => {
   expect(wrapper.find('Spinner').exists()).toBeFalsy()
   expect(wrapper.find('Error').exists()).toBeFalsy()
-  expect(wrapper.find('button.button-primary').exists()).toBeTruthy()
-  expect(wrapper.find('button.button-secondary').exists()).toBeTruthy()
+  expect(
+    wrapper.find({ 'data-onfido-qa': 'doc-video-confirm-primary-btn' }).exists()
+  ).toBeTruthy()
+  expect(
+    wrapper
+      .find({ 'data-onfido-qa': 'doc-video-confirm-secondary-btn' })
+      .exists()
+  ).toBeTruthy()
 
   if (variant === 'preview') {
     expect(wrapper.find('.content').exists()).toBeFalsy()
@@ -150,8 +159,8 @@ const assertSpinner = (wrapper: ReactWrapper) => {
   expect(wrapper.find('Spinner').exists()).toBeTruthy()
   expect(wrapper.find('.content').exists()).toBeFalsy()
   expect(wrapper.find('CaptureViewer').exists()).toBeFalsy()
-  expect(wrapper.find('button.button-primary').exists()).toBeFalsy()
-  expect(wrapper.find('button.button-secondary').exists()).toBeFalsy()
+  expect(findButton(wrapper, 'primary').exists()).toBeFalsy()
+  expect(findButton(wrapper, 'secondary').exists()).toBeFalsy()
 }
 
 describe('DocumentVideo', () => {
@@ -184,15 +193,11 @@ describe('DocumentVideo', () => {
     it('renders items correctly', () => {
       assertContent(wrapper, 'default')
 
-      assertButton(
-        wrapper,
-        'button-primary',
-        'doc_video_confirmation.button_upload'
-      )
+      assertButton(wrapper, 'primary', 'doc_video_confirmation.button_upload')
 
       assertButton(
         wrapper,
-        'button-secondary',
+        'secondary',
         'doc_video_confirmation.button_preview'
       )
     })
@@ -235,19 +240,15 @@ describe('DocumentVideo', () => {
       })
 
       it('shows capture viewer when click on preview', () => {
-        simulateButtonClick(wrapper, false)
+        simulateButtonClick(wrapper, 'secondary')
         assertContent(wrapper, 'preview')
 
-        assertButton(
-          wrapper,
-          'button-secondary',
-          'doc_video_confirmation.button_redo'
-        )
+        assertButton(wrapper, 'secondary', 'doc_video_confirmation.button_redo')
       })
 
       it('goes back when click on redo', () => {
-        simulateButtonClick(wrapper, false) // Preview
-        simulateButtonClick(wrapper, false) // Redo
+        simulateButtonClick(wrapper, 'secondary') // Preview
+        simulateButtonClick(wrapper, 'secondary') // Redo
         expect(defaultProps.previousStep).toHaveBeenCalled()
       })
 
@@ -259,7 +260,7 @@ describe('DocumentVideo', () => {
         beforeEach(() => {
           mockedUploadDocument.mockResolvedValue(fakePassportImageResponse)
           mockedUploadDocumentVideo.mockResolvedValue(fakePassportVideoResponse)
-          simulateButtonClick(wrapper)
+          simulateButtonClick(wrapper, 'primary')
         })
 
         it('renders spinner correctly', async () => {
@@ -334,7 +335,7 @@ describe('DocumentVideo', () => {
               media_id: videoMediaUuid,
             })
           mockedCreateV4Document.mockResolvedValue(fakeCreateV4DocumentResponse)
-          simulateButtonClick(wrapper)
+          simulateButtonClick(wrapper, 'primary')
         })
 
         it('renders spinner correctly', async () => {
@@ -441,19 +442,15 @@ describe('DocumentVideo', () => {
       })
 
       it('shows capture viewer when click on preview', () => {
-        simulateButtonClick(wrapper, false)
+        simulateButtonClick(wrapper, 'secondary')
         assertContent(wrapper, 'preview')
 
-        assertButton(
-          wrapper,
-          'button-secondary',
-          'doc_video_confirmation.button_redo'
-        )
+        assertButton(wrapper, 'secondary', 'doc_video_confirmation.button_redo')
       })
 
       it('goes back when click on redo', () => {
-        simulateButtonClick(wrapper, false) // Preview
-        simulateButtonClick(wrapper, false) // Redo
+        simulateButtonClick(wrapper, 'secondary') // Preview
+        simulateButtonClick(wrapper, 'secondary') // Redo
         expect(defaultProps.previousStep).toHaveBeenCalled()
       })
 
@@ -469,7 +466,7 @@ describe('DocumentVideo', () => {
           mockedUploadDocumentVideo.mockResolvedValue(
             fakeDrivingLicenceVideoResponse
           )
-          simulateButtonClick(wrapper)
+          simulateButtonClick(wrapper, 'primary')
         })
 
         it('renders spinner correctly', async () => {
@@ -573,7 +570,7 @@ describe('DocumentVideo', () => {
               media_id: videoMediaUuid,
             })
           mockedCreateV4Document.mockResolvedValue(fakeCreateV4DocumentResponse)
-          simulateButtonClick(wrapper)
+          simulateButtonClick(wrapper, 'primary')
         })
 
         it('renders spinner correctly', async () => {
@@ -651,7 +648,7 @@ describe('DocumentVideo', () => {
         describe('with no document error', () => {
           beforeEach(() => {
             mockedUploadDocument.mockRejectedValue(fakeNoDocumentError)
-            simulateButtonClick(wrapper)
+            simulateButtonClick(wrapper, 'primary')
           })
 
           it('renders INVALID_CAPTURE error correctly', async () => {
@@ -693,7 +690,7 @@ describe('DocumentVideo', () => {
             describe('on error', () => {
               beforeEach(() => {
                 mockedUploadDocument.mockRejectedValue(error)
-                simulateButtonClick(wrapper)
+                simulateButtonClick(wrapper, 'primary')
               })
 
               it('renders REQUEST_ERROR error correctly', async () => {
@@ -714,7 +711,7 @@ describe('DocumentVideo', () => {
 
         beforeEach(() => {
           mockedUploadBinaryMedia.mockRejectedValue(fakeAccessDeniedError)
-          simulateButtonClick(wrapper)
+          simulateButtonClick(wrapper, 'primary')
         })
 
         it('renders REQUEST_ERROR error correctly', async () => {

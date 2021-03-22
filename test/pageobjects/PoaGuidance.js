@@ -27,7 +27,7 @@ class PoaGuidance extends BasePage {
     return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(6')
   }
   async continueButton() {
-    return this.$('.onfido-sdk-ui-Button-button-text')
+    return this.$('[data-onfido-qa="poa-continue-btn"]')
   }
   async backButton() {
     return this.$('.onfido-sdk-ui-NavigationBar-iconBack')

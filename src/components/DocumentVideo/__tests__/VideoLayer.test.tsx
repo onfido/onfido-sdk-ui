@@ -84,13 +84,16 @@ const waitForTimeout = (
   wrapper.update()
 }
 
+const findButton = (wrapper: ReactWrapper) =>
+  wrapper.find({ 'data-onfido-qa': 'doc-video-capture-btn' })
+
 const simulateNext = (wrapper: ReactWrapper) =>
-  wrapper.find('.controls Button > button').simulate('click')
+  findButton(wrapper).simulate('click')
 
 const assertButton = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('Button').exists()).toBeFalsy()
+  expect(findButton(wrapper).exists()).toBeFalsy()
   waitForTimeout(wrapper, 'button')
-  expect(wrapper.find('Button').exists()).toBeTruthy()
+  expect(findButton(wrapper).exists()).toBeTruthy()
 }
 
 const assertHoldingState = (wrapper: ReactWrapper) => {
@@ -100,7 +103,7 @@ const assertHoldingState = (wrapper: ReactWrapper) => {
   )
   expect(wrapper.find('.holdStill .loading').exists()).toBeTruthy()
   expect(wrapper.find('.controls .success').exists()).toBeFalsy()
-  expect(wrapper.find('Button').exists()).toBeFalsy()
+  expect(findButton(wrapper).exists()).toBeFalsy()
 
   waitForTimeout(wrapper, 'holding')
   expect(wrapper.find('.holdStill').exists()).toBeFalsy()
@@ -109,7 +112,7 @@ const assertHoldingState = (wrapper: ReactWrapper) => {
 const assertSuccessState = (wrapper: ReactWrapper, lastStep = false) => {
   expect(wrapper.find('.holdStill').exists()).toBeFalsy()
   expect(wrapper.find('.controls .success').exists()).toBeTruthy()
-  expect(wrapper.find('Button').exists()).toBeFalsy()
+  expect(findButton(wrapper).exists()).toBeFalsy()
   expect(navigator.vibrate).toHaveBeenCalledWith(500)
 
   if (lastStep) {
@@ -148,7 +151,7 @@ describe('DocumentVideo', () => {
         </MockedLocalised>
       )
 
-      expect(wrapper.find('Button').exists()).toBeTruthy()
+      expect(findButton(wrapper).exists()).toBeTruthy()
       simulateNext(wrapper)
       expect(defaultProps.onStart).toHaveBeenCalled()
     })

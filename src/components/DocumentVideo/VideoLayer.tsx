@@ -1,9 +1,11 @@
 import { h, FunctionComponent, Fragment } from 'preact'
 import { memo, useCallback, useEffect } from 'preact/compat'
+import { Button } from '@onfido/castor-react'
+import classNames from 'classnames'
 
 import { useLocales } from '~locales'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
-import Button from '../Button'
+import theme from 'components/Theme/style.scss'
 import Instructions from './Instructions'
 import StepProgress from './StepProgress'
 import useCaptureStep from './useCaptureStep'
@@ -115,9 +117,11 @@ const VideoLayer: FunctionComponent<Props> = ({
 
   const action = (
     <Button
-      variants={['centered', 'primary', 'lg']}
+      variant="primary"
+      className={classNames(theme['button-centered'], theme['button-lg'])}
       disabled={disableInteraction}
       onClick={isRecording ? nextRecordState : handleStart}
+      data-onfido-qa="doc-video-capture-btn"
     >
       {translate(button)}
     </Button>

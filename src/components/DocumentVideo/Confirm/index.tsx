@@ -2,6 +2,8 @@ import { h, FunctionComponent } from 'preact'
 import { memo, useCallback, useState } from 'preact/compat'
 import type { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
+import { Button } from '@onfido/castor-react'
+import classNames from 'classnames'
 
 import { useLocales } from '~locales'
 import {
@@ -11,7 +13,7 @@ import {
   createV4Document,
 } from '~utils/onfidoApi'
 import { actions } from 'components/ReduxAppWrapper/store/actions'
-import Button from '../../Button'
+import theme from 'components/Theme/style.scss'
 import Error from '../../Error'
 import Spinner from '../../Spinner'
 import Content from './Content'
@@ -287,13 +289,17 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       <div className={style.buttonsContainer}>
         <Button
           onClick={onUploadDocuments}
-          variants={['primary', 'lg', 'centered']}
+          variant="primary"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
+          data-onfido-qa="doc-video-confirm-primary-btn"
         >
           {translate('doc_video_confirmation.button_upload')}
         </Button>
         <Button
           onClick={onSecondaryClick}
-          variants={['secondary', 'lg', 'centered']}
+          variant="secondary"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
+          data-onfido-qa="doc-video-confirm-secondary-btn"
         >
           {translate(
             error || previewing

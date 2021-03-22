@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { mount, shallow } from 'enzyme'
+import { mount, shallow, ReactWrapper } from 'enzyme'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import MockedLocalised from '~jest/MockedLocalised'
@@ -32,6 +32,9 @@ const defaultProps: StepComponentBaseProps = {
   step: 0,
 }
 
+const findButton = (wrapper: ReactWrapper) =>
+  wrapper.find({ 'data-onfido-qa': 'welcome-next-btn' })
+
 describe('Welcome', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(<Welcome {...defaultProps} />)
@@ -54,9 +57,7 @@ describe('Welcome', () => {
       expect(wrapper.find('PageTitle').text()).toEqual('welcome.title')
 
       expect(wrapper.find('DocVideoContent').exists()).toBeFalsy()
-      expect(wrapper.find('WelcomeActions > Button').text()).toEqual(
-        'welcome.next_button'
-      )
+      expect(findButton(wrapper).text()).toEqual('welcome.next_button')
     })
 
     it('renders correct PageTitle with no welcome step', () => {
@@ -120,7 +121,7 @@ describe('Welcome', () => {
         expect(wrapper.find('DefaultContent').exists()).toBeFalsy()
         expect(wrapper.find('WelcomeActions').exists()).toBeTruthy()
 
-        expect(wrapper.find('WelcomeActions > Button').text()).toEqual(
+        expect(findButton(wrapper).text()).toEqual(
           'doc_video_capture.welcome.next_button'
         )
       })

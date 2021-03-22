@@ -1,11 +1,13 @@
 import { h, FunctionComponent } from 'preact'
 import { useCallback } from 'preact/compat'
+import classNames from 'classnames'
+import { Button } from '@onfido/castor-react'
 
 import { useSdkOptions } from '~contexts'
 import { useLocales } from '~locales'
-import PageTitle from '../PageTitle'
-import Button from '../Button'
+import theme from 'components/Theme/style.scss'
 import { trackComponent } from '../../Tracker'
+import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
 import { DefaultContent, DocVideoContent } from './Content'
 import style from './style.scss'
@@ -32,7 +34,12 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   const welcomeNextButton = nextButton || defaultButton
 
   return (
-    <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
+    <Button
+      variant="primary"
+      className={classNames(theme['button-centered'], theme['button-lg'])}
+      onClick={nextStep}
+      data-onfido-qa="welcome-next-btn"
+    >
       {welcomeNextButton}
     </Button>
   )

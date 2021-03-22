@@ -1,6 +1,7 @@
 import type { SupportedLanguages, LocaleConfig } from './locales'
 import type { StepConfig, StepTypes } from './steps'
 import type { EnterpriseFeatures } from './enterprise'
+import type { UICustomizationOptions } from './ui-customisation-options'
 
 type DocumentResponse = {
   id: string
@@ -43,7 +44,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   onUserExit?: (data: UserExitCode) => void
   onModalRequestClose?: () => void
 
-  // Customization
+  // SDK Configuration
   token?: string
   useModal?: boolean
   isModalOpen?: boolean
@@ -58,6 +59,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   }
   steps?: Array<StepTypes | StepConfig>
   enterpriseFeatures?: EnterpriseFeatures
+  customUI?: UICustomizationOptions | null
 }
 
 export type SdkHandle = {

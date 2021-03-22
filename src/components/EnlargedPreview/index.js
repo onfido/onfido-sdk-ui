@@ -1,7 +1,6 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import Pannable from '../Pannable'
-import Button from '../Button'
 import { localised /* , type LocalisedType */ } from '../../locales'
 import {
   withNavigationDisabledState,
@@ -100,16 +99,16 @@ class EnlargedPreview extends Component {
             </Pannable>
           )}
         </div>
-        <Button
-          className={style.button}
-          textClassName={style['button-text']}
-          variants={['overlay']}
+        <button
+          className={classNames(style.button, style['button-overlay'])}
           onClick={this.toggle}
         >
-          {isExpanded
-            ? translate('doc_confirmation.button_close')
-            : translate('doc_confirmation.button_zoom')}
-        </Button>
+          <span className={style['button-text']}>
+            {isExpanded
+              ? translate('doc_confirmation.button_close')
+              : translate('doc_confirmation.button_zoom')}
+          </span>
+        </button>
       </div>
     )
   }

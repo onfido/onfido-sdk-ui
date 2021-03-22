@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { copyToClipboard } from '~utils'
 import { localised } from '../../../locales'
+import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
 class CopyLink extends Component {
@@ -64,7 +65,7 @@ class CopyLink extends Component {
               <button
                 type="button"
                 onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}
-                className={style.copyToClipboard}
+                className={classNames(theme.textButton, style.copyToClipboard)}
               >
                 {translate(linkCopyKey)}
               </button>
