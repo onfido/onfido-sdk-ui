@@ -24,7 +24,8 @@ import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
-import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils'
+import { isDesktop, isHybrid } from '~utils'
+import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 
 import type {
@@ -80,7 +81,7 @@ const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
   hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
 const shouldUseCameraForDocumentCapture = (
-  documentStep: Optional<StepConfigDocument>,
+  documentStep?: StepConfigDocument,
   deviceHasCameraSupport?: boolean
 ): boolean => {
   const canUseLiveDocumentCapture =
@@ -98,11 +99,9 @@ const buildCaptureStepComponents = (
   steps: StepConfig[],
   deviceHasCameraSupport?: boolean
 ): ComponentsByStepType => {
-  const faceStep = steps.find((step) => step.type === 'face') as StepConfigFace
-
-  const documentStep = steps.find(
-    (step) => step.type === 'document'
-  ) as StepConfigDocument
+  const findStep = buildStepFinder(steps)
+  const faceStep = findStep('face')
+  const documentStep = findStep('document')
 
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
 
@@ -132,7 +131,7 @@ const buildCaptureStepComponents = (
 }
 
 const buildFaceComponents = (
-  faceStep: Optional<StepConfigFace>,
+  faceStep?: StepConfigFace,
   deviceHasCameraSupport?: boolean,
   mobileFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
@@ -197,8 +196,8 @@ const buildNonPassportPreCaptureComponents = (
 }
 
 const buildDocumentComponents = (
-  documentStep: Optional<StepConfigDocument>,
-  documentType: Optional<DocumentTypes>,
+  documentStep: StepConfigDocument | undefined,
+  documentType: DocumentTypes | undefined,
   hasOnePreselectedDocument: boolean,
   shouldUseCamera: boolean
 ): ComponentType<StepComponentProps>[] => {

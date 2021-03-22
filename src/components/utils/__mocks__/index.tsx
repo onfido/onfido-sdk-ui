@@ -5,8 +5,6 @@ export const checkIfHasWebcam = jest
 export const checkIfWebcamPermissionGranted = jest
   .fn()
   .mockImplementation((callback) => callback(true))
-export const getEnabledDocuments = jest.fn().mockReturnValue([])
-export const hasOnePreselectedDocument = jest.fn().mockReturnValue(false)
 export const isSafari131 = jest.fn().mockReturnValue(false)
 export const parseTags = jest
   .fn()

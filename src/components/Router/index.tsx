@@ -9,7 +9,7 @@ import MainRouter from './MainRouter'
 import type { ExternalRouterProps } from '~types/routers'
 
 const Router: FunctionComponent<ExternalRouterProps> = (props) => {
-  const options = useSdkOptions()
+  const [options] = useSdkOptions()
   const { mobileFlow } = options
   const RouterComponent = mobileFlow ? CrossDeviceMobileRouter : MainRouter
 

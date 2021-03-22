@@ -273,23 +273,19 @@ export default class CrossDeviceMobileRouter extends Component<
     this.sendMessage('client success', { captures })
   }
 
-  renderLoadingOrErrors = (): h.JSX.Element | null => {
+  renderContent = (): h.JSX.Element => {
     const { hasCamera } = this.props
-    const { steps } = this.state
-    const shouldStrictlyUseCamera =
-      steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
+    const { crossDeviceError, loading, steps } = this.state
+    const shouldStrictlyUseCamera = steps?.some(
+      isUploadFallbackOffAndShouldUseCamera
+    )
 
-    if (this.state.loading) {
+    if (loading || !steps) {
       return <WrappedSpinner disableNavigation />
     }
 
-    if (this.state.crossDeviceError) {
-      return (
-        <WrappedError
-          disableNavigation={true}
-          error={this.state.crossDeviceError}
-        />
-      )
+    if (crossDeviceError) {
+      return <WrappedError disableNavigation={true} error={crossDeviceError} />
     }
 
     if (!hasCamera && shouldStrictlyUseCamera) {
@@ -301,7 +297,15 @@ export default class CrossDeviceMobileRouter extends Component<
       )
     }
 
-    return null
+    return (
+      <HistoryRouter
+        {...this.props}
+        {...this.state}
+        crossDeviceClientError={this.setError}
+        sendClientSuccess={this.sendClientSuccess}
+        steps={steps}
+      />
+    )
   }
 
   render(): h.JSX.Element {
@@ -309,14 +313,7 @@ export default class CrossDeviceMobileRouter extends Component<
 
     return (
       <LocaleProvider language={language}>
-        {this.renderLoadingOrErrors() || (
-          <HistoryRouter
-            {...this.props}
-            {...this.state}
-            crossDeviceClientError={this.setError}
-            sendClientSuccess={this.sendClientSuccess}
-          />
-        )}
+        {this.renderContent()}
       </LocaleProvider>
     )
   }
