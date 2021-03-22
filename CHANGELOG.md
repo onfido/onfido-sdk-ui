@@ -25,18 +25,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Fix Camera Permission icon not displaying on iOS devices on Selfie/Liveness capture flow
 
-## [6.6.0] - 2021-03-11
+## [6.6.0] - 2021-03-09
 
 ### Added
 
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 - Public: Added user consent screen
 - Public: Added callbacks that are triggered on user media submission if the feature is enabled. Note - This is a premium enterprise feature.
-- Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
 - Internal: Use ScreenLayout component in Confirm screen.
-- Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
-- Internal: Enable `strict` mode in tsconfig.json
 
 ### Changed
 
