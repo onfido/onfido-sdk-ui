@@ -11,7 +11,7 @@
 
 .requirements {
   font-weight: 600;
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   margin-bottom: 16 * $unit;
 }
 
@@ -23,7 +23,7 @@
 
   &::before {
     content: '';
-    background-color: $color-primary-500;
+    background-color: rgb(var(--ods-color-primary-500));
     border-radius: 50%;
     display: inline-block;
     height: 6 * $unit;

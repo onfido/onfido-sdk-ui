@@ -9,7 +9,7 @@ class LivenessIntro extends BasePage {
     return this.$('.onfido-sdk-ui-Video-speakOutLoudIcon')
   }
   async continueButton() {
-    return this.$('.onfido-sdk-ui-Button-button-text')
+    return this.$('[data-onfido-qa="liveness-continue-btn"]')
   }
 
   async verifyUIElementsOnTheLivenessIntroScreen(copy) {

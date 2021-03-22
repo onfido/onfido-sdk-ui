@@ -2,11 +2,12 @@ import ReactModal from 'react-modal'
 import { h, FunctionComponent } from 'preact'
 import { useLocales } from '~locales'
 import classNames from 'classnames'
+import { Button } from '@onfido/castor-react'
+
 import { getCSSMillisecsValue } from '~utils'
 import style from './style.scss'
 import styleConstants from '../Theme/constants.scss'
 import theme from '../Theme/style.scss'
-import Button from '../Button'
 
 const MODAL_ANIMATION_DURATION = getCSSMillisecsValue(
   styleConstants.modal_animation_duration
@@ -36,16 +37,21 @@ const Actions: FunctionComponent<ActionsProps> = ({
   return (
     <div className={classNames(style.actions, style.modalActions)}>
       <Button
-        className={style.secondary}
-        variants={['secondary', 'sm']}
-        uiTestDataAttribute={'userConsentDeclineModalBtnSecondary'}
+        variant="secondary"
+        className={classNames(
+          theme['button-centered'],
+          theme['button-sm'],
+          style.secondary
+        )}
+        data-onfido-qa="userConsentDeclineModalBtnSecondary"
         onClick={() => onAbandonFlow()}
       >
         {secondaryBtnCopy}
       </Button>
       <Button
-        variants={['primary', 'sm']}
-        uiTestDataAttribute={'userConsentDeclineModalBtnPrimary'}
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-sm'])}
+        data-onfido-qa="userConsentDeclineModalBtnPrimary"
         onClick={() => onDismissModal()}
       >
         {primaryBtnCopy}

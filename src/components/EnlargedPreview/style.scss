@@ -38,6 +38,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 5 * $unit 15.4 * $unit;
+    border: 0;
 
     &::before {
       content: '';
@@ -53,7 +54,7 @@
     }
 
     .button-text {
-      font-size: $font-size-x-small;
+      font-size: var(--font-size-x-small);
       position: relative;
       top: -1.65 * $unit-x-small;
     }
@@ -73,5 +74,24 @@
       margin-right: 8 * $unit;
       background-image: url('./assets/collapse.svg');
     }
+  }
+}
+
+.button-overlay {
+  background-color: $color-small-button !important;
+  border-radius: 4 * $unit;
+  color: $color-white;
+  font: inherit;
+  font-weight: 600;
+  height: auto !important;
+  line-height: 1.4;
+  padding: 11.2 * $unit 19.6 * $unit;
+
+  &:hover {
+    background-color: $color-small-button-hover;
+  }
+
+  &:active {
+    background-color: $color-small-button-active;
   }
 }

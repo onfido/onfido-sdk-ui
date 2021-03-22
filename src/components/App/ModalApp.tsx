@@ -34,6 +34,7 @@ import type {
   DocumentTypes,
   StepConfigFace,
 } from '~types/steps'
+import { setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
 
@@ -62,7 +63,17 @@ class ModalApp extends Component<Props> {
   }
 
   componentDidMount() {
-    this.prepareInitialStore({ steps: [] }, this.props.options)
+    const { options } = this.props
+    this.prepareInitialStore({ steps: [] }, options)
+    if (!options.mobileFlow) {
+      const { customUI } = options
+      const hasCustomUIConfigured =
+        !!customUI && Object.keys(customUI).length > 0
+      const trackedProperties = {
+        is_custom_ui: hasCustomUIConfigured,
+      }
+      Tracker.sendEvent('started flow', trackedProperties)
+    }
   }
 
   componentDidUpdate(prevProps: Props) {
@@ -173,11 +184,12 @@ class ModalApp extends Component<Props> {
     prevOptions: NormalisedSdkOptions,
     options: NormalisedSdkOptions
   ) => {
-    const { userDetails: { smsNumber } = {}, steps, token } = options
+    const { token, userDetails: { smsNumber } = {}, steps, customUI } = options
     const {
       userDetails: { smsNumber: prevSmsNumber } = {},
       steps: prevSteps,
       token: prevToken,
+      customUI: prevCustomUI,
     } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
@@ -202,6 +214,10 @@ class ModalApp extends Component<Props> {
 
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
       this.setConfiguredEnterpriseFeatures(validEnterpriseFeatures, options)
+    }
+
+    if (customUI && customUI !== prevCustomUI) {
+      setUICustomizations(customUI)
     }
   }
 

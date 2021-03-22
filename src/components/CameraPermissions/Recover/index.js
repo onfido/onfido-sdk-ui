@@ -1,8 +1,9 @@
 import { h } from 'preact'
-import PageTitle from 'components/PageTitle'
-import Button from 'components/Button'
+import { Button } from '@onfido/castor-react'
+import classNames from 'classnames'
 import { trackComponent } from 'Tracker'
 import { localised } from '../../../locales'
+import PageTitle from 'components/PageTitle'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
@@ -34,8 +35,8 @@ const Recover = ({ translate }) => (
     </div>
     <div>
       <Button
-        className={style.button}
-        variants={['primary', 'lg']}
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={() => window.location.reload()}
       >
         {translate('permission_recovery.button_primary')}

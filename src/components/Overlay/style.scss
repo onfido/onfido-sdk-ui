@@ -1,7 +1,7 @@
 @import '../Theme/constants';
 
 %_overlay {
-  border: 1px solid $color-primary-500; /* Doc Autocapture border colour */
+  border: 1px solid rgb(var(--ods-color-primary-500)); /* Doc Autocapture border colour */
   position: absolute;
   bottom: 50%;
   left: 50%;

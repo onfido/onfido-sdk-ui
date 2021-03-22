@@ -1,3 +1,5 @@
+/* UNITS */
+
 /**
  * We want our units to be based on `em`, so that our SDK can accommodate for
  * the user changing their browser font size.
@@ -10,22 +12,15 @@
  * and it's proportionate to the difference otherwise.
  */
 $unit: (1/16) * 1em;
-$font-size-base: 16 * $unit;
 
 /*
  * We also need different units for when trying to do `px` "equivalents" when
  * our parent has a different font size.
  */
 $unit-x-large: (1/30) * 1em;
-$font-size-x-large: 30 * $unit;
 $unit-large: (1/20) * 1em;
-$font-size-large: 20 * $unit;
-
 $unit-small: (1/14) * 1em;
-$font-size-small: 14 * $unit;
-
 $unit-x-small: (1/11) * 1em;
-$font-size-x-small: 11 * $unit;
 
 /*
  * We also have a special unit for the react-phone-number-input library, so
@@ -33,7 +28,7 @@ $font-size-x-small: 11 * $unit;
  */
 $unit-rrui: 1em;
 
-$font-family: 'Open Sans', sans-serif;
+/* MARGINS & PADDINGS */
 
 $large-text-margin: 32 * $unit;
 $small-text-margin: 24 * $unit;
@@ -52,75 +47,46 @@ $navigation-padding-sides: $padding-lg;
 $navigation-padding-top-sm-screen: $padding-sm;
 $navigation-padding-sides-sm-screen: $padding-xs;
 
+/* COLORS */
+/*
+ *  NOTE: Use rgb() notation instead of rgba() when using Castor basic color tokens.
+ *        The CSS color values do not have an opacity value. Only RGB.
+ *        Color reverts to browser default on IE11 which flags color value as invalid when rgba() used.
+ */
+
 /* Solid colors */
-$color-white: #fff;
-$color-primary-500: #353ff4;
-$color-icon-temporary: #edeeef;
-$color-neutral-050: #fcfcfd;
-$color-neutral-600: #a2a8b3;
-$color-neutral-700: #636670;
-$color-neutral-800: #2b2d33;
+$color-white: rgb(var(--ods-color-neutral-white));
+$color-black: rgb(var(--ods-color-neutral-black));
 
-$color-background: $color-neutral-050;
-$color-border: $color-neutral-600;
-$color-divider: #dee1e4;
-$color-adjust-huener: $color-neutral-600;
-$color-body-text: $color-neutral-800;
-$color-title-text: $color-body-text;
-$color-subtitle-text: $color-body-text;
-$color-camera-error-overlay: #1c1f21;
-$color-black: #000;
-$color-small-print: #0f2536;
-$color-tips-pill: #5d6b78;
-$color-input-border: #667080;
-$color-error: #dc2a2a;
-$color-warning: $color-primary-500;
-
-/* Warning message button text color */
-$color-warning-button-text-hover: $color-white;
-
-/* Error message button colors */
-$color-error-button-hover: #ffb9b9;
-$color-error-button-active: #fce5e5;
+$color-icon-temporary: rgb(var(--ods-color-neutral-300));
+$color-divider: rgb(var(--ods-color-neutral-400));
+$color-icons-connector-line: rgb(var(--ods-color-neutral-800));
 
 /* Transparent colors */
-$color-transparent: transparent;
-$color-help-container: $color-neutral-600;
 $color-modal-overlay: rgba(0, 0, 0, 0.6);
 $color-camera-overlay: rgba(0, 0, 0, 0.7);
+$color-camera-error-overlay: #1c1f21;
 $color-navbar-gradient-one: rgba(28, 31, 33, 0);
 $color-navbar-gradient-two: rgba(28, 31, 33, 0.35);
 
-/* Button colors */
-$color-primary-button: $color-primary-500;
-$color-primary-button-hover: #5c6cff;
-$color-primary-button-active: #232aad;
-$color-primary-button-disabled: #e8ecf0;
-
-$color-secondary-button: $color-transparent;
-$color-secondary-button-hover: rgba(92, 108, 255, 0.15);
-$color-secondary-button-active: rgba(35, 42, 173, 0.3);
-$color-secondary-button-text: $color-primary-500;
-$color-button-border: $color-primary-500;
-
+/* Doc/Face capture preview "Enlarge image" button colors */
 $color-small-button: rgba(15, 37, 54, 0.85);
 $color-small-button-hover: rgba(15, 37, 54, 0.6);
 $color-small-button-active: rgba(15, 37, 54, 0.85);
 
-$color-icon-button: $color-transparent;
-$color-icon-button-hover: #d5dae0;
-$color-icon-button-active: #a2a8b3;
+/* Liveness Video recording status indicator icon color */
+$camera-recording-status-icon-color: #dc2a2a;
 
-/* Selectors button styles */
-$selectors-text-color: $color-body-text;
-$selectors-border: 1px solid #8b9094;
-$selectors-box-shadow-hover: 0 0 0 2px #5c6cff;
-$selectors-box-shadow-active: 0 0 0 2px #232aad;
+/* Live Camera Capture screens' Back, Close icon button background is not customisable */
+$color-fullscreen-icon-button-hover: rgb(var(--ods-color-neutral-400));
+$color-fullscreen-icon-button-active: rgb(var(--ods-color-neutral-600));
 
-/* Camera button colors */
-$color-camera-button: $color-white;
-$color-camera-button-hover: $color-primary-button-hover;
-$color-camera-button-active: $color-primary-button-active;
+/* Primary/Secondary Button width variables */
+$lg-btn-width-lg-screen: 272 * $unit-small;
+$lg-btn-width-sm-screen: 100%;
+
+$sm-btn-width-lg-screen: 200 * $unit-small;
+$sm-btn-width-sm-screen: 160 * $unit-small;
 
 /* Modal */
 $modal-animation-duration: 200ms;
@@ -140,7 +106,7 @@ $modal-animation-duration: 200ms;
 
 %overflow-drop-shadow {
   @media (--shorter-viewport) {
-    background-color: $color-background;
+    background-color: rgb(var(--ods-color-neutral-050));
     bottom: 0;
     box-shadow: 0 -5px 10px -5px #7b7b7b;
     left: -1em;
@@ -177,4 +143,20 @@ $modal-animation-duration: 200ms;
   @media (--smaller-viewport) {
     padding: 0 $smaller-text-margin;
   }
+}
+
+%icon-circle-background {
+  background-color: var(--osdk-color-background-icon);
+  border-radius: 50%;
+}
+
+%header-highlight-pill {
+  border-radius: 14 * $unit-small;
+  background-color: var(--osdk-color-background-info-pill);
+  color: var(--osdk-color-content-info-pill);
+  font-family: inherit;
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  line-height: 24 * $unit-small;
+  padding: 0 14 * $unit-small;
 }
