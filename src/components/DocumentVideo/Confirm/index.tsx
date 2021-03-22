@@ -23,7 +23,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   previousStep,
   triggerOnError,
 }) => {
-  const { token } = useSdkOptions()
+  const [{ token }] = useSdkOptions()
   const [loading, setLoading] = useState(false)
   const [previewing, setPreviewing] = useState(false)
   const [error, setError] = useState<ErrorProp | undefined>(undefined)

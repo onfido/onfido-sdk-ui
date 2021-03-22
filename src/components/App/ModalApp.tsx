@@ -3,12 +3,12 @@ import { EventEmitter2 } from 'eventemitter2'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import { LocaleProvider } from '~locales'
-import { getEnabledDocuments } from '~utils'
 import {
   parseJwt,
   getUrlsFromJWT,
   getEnterpriseFeaturesFromJWT,
 } from '~utils/jwt'
+import { buildStepFinder, getEnabledDocuments } from '~utils/steps'
 import Modal from '../Modal'
 import Router from '../Router'
 import * as Tracker from '../../Tracker'
@@ -27,13 +27,7 @@ import type {
   SdkResponse,
   UserExitCode,
 } from '~types/sdk'
-import type {
-  StepTypes,
-  StepConfig,
-  StepConfigDocument,
-  DocumentTypes,
-  StepConfigFace,
-} from '~types/steps'
+import type { StepConfig, DocumentTypes } from '~types/steps'
 import { setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
@@ -145,14 +139,12 @@ class ModalApp extends Component<Props> {
   }
 
   setIssuingCountryIfConfigured = (
-    steps: Array<StepTypes | StepConfig>,
+    steps: StepConfig[],
     preselectedDocumentType: DocumentTypes
   ) => {
-    const documentStep = steps.find(
-      (step) => typeof step !== 'string' && step.type === 'document'
-    ) as StepConfigDocument
+    const documentStep = buildStepFinder(steps)('document')
 
-    if (typeof documentStep === 'string' || !documentStep.options) {
+    if (!documentStep?.options) {
       return
     }
 
@@ -301,9 +293,11 @@ class ModalApp extends Component<Props> {
   setDecoupleFromAPIIfClientHasFeature = (
     isValidEnterpriseFeature?: boolean
   ) => {
+    const { actions, options } = this.props
+
     if (isValidEnterpriseFeature) {
       const { onSubmitDocument, onSubmitSelfie, onSubmitVideo } =
-        this.props.options.enterpriseFeatures || {}
+        options.enterpriseFeatures || {}
 
       if (typeof onSubmitDocument !== 'function') {
         this.onInvalidCustomApiException('onSubmitDocument')
@@ -313,9 +307,7 @@ class ModalApp extends Component<Props> {
         this.onInvalidCustomApiException('onSubmitSelfie')
       }
 
-      const faceStep = this.props.options.steps?.find(
-        (step) => typeof step !== 'string' && step.type === 'face'
-      ) as StepConfigFace
+      const faceStep = buildStepFinder(options.steps)('face')
 
       if (faceStep?.options?.requestedVariant === 'video') {
         if (typeof onSubmitVideo !== 'function') {
@@ -323,9 +315,9 @@ class ModalApp extends Component<Props> {
         }
       }
 
-      this.props.actions.setDecoupleFromAPI(true)
+      actions.setDecoupleFromAPI(true)
     } else {
-      this.props.actions.setDecoupleFromAPI(false)
+      actions.setDecoupleFromAPI(false)
       this.onInvalidEnterpriseFeatureException('useCustomApiRequests')
     }
   }

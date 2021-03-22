@@ -46,19 +46,13 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
 }
 
 const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
-  const { steps } = useSdkOptions()
+  const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
 
-  const welcomeStep = steps.find(
-    (step) => step.type === 'welcome'
-  ) as StepConfigWelcome
-
+  const welcomeStep = findStep('welcome')
   const { title, descriptions, nextButton } = welcomeStep?.options || {}
 
-  const documentStep = steps.find(
-    (step) => step.type === 'document'
-  ) as StepConfigDocument
-
+  const documentStep = findStep('document')
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
   const actions = <WelcomeActions {...{ forDocVideo, nextButton, nextStep }} />
