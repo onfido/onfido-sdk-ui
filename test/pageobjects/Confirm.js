@@ -6,10 +6,10 @@ class Confirm extends BasePage {
     return this.$('.onfido-sdk-ui-Confirm-message')
   }
   async redoBtn() {
-    return this.$('.onfido-sdk-ui-Confirm-actions > button:first-child')
+    return this.$('[data-onfido-qa="redo-action-btn"]')
   }
   async confirmBtn() {
-    return this.$('.onfido-sdk-ui-Confirm-actions > button:nth-child(2)')
+    return this.$('[data-onfido-qa="confirm-action-btn"]')
   }
   async uploaderError() {
     return this.$('.onfido-sdk-ui-Uploader-error')

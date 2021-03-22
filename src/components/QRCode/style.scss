@@ -19,7 +19,7 @@
 }
 
 .qrCodeHelpList {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   text-align: left;
   margin-bottom: 0;
 }

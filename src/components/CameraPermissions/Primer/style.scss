@@ -9,14 +9,14 @@
 }
 
 .instructions {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   margin: 10% 16 * $unit-small 16 * $unit-small;
 }
 
 .image {
   height: auto;
   width: 100%;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   display: flex;
   flex-direction: column;
   flex: 2 1 32 * $unit-x-small;
@@ -31,7 +31,7 @@
 }
 
 .reasons {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
 
   text-align: center;
   min-height: 42 * $unit-small;
@@ -42,7 +42,7 @@
 }
 
 .graphic {
-  background-color: $color-transparent;
+  background-color: transparent;
   background-image: url('./assets/allow.svg');
   background-repeat: no-repeat;
   background-size: 100%;

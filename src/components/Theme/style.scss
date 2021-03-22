@@ -1,4 +1,56 @@
+@use '~@onfido/castor';
+@use './tokens' as onfidoSdk;
 @import './constants';
+
+:global {
+  @include castor.Button();
+
+  .ods-button {
+    border-radius: var(--osdk-border-radius-button);
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    &.-action--primary {
+      background-color: var(--osdk-color-background-button-primary);
+      color: var(--osdk-color-content-button-primary-text);
+      border-color: var(--osdk-color-border-button-primary);
+
+      &:active {
+        background-color: var(--osdk-color-background-button-primary-active);
+      }
+
+      &:hover {
+        background-color: var(--osdk-color-background-button-primary-hover);
+      }
+
+      &:disabled {
+        background-color: rgba(var(--ods-color-neutral-300));
+        border-color: transparent;
+      }
+    }
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    &.-action--secondary {
+      background-color: var(--osdk-color-background-button-secondary);
+      color: var(--osdk-color-content-button-secondary-text);
+      border-color: var(--osdk-color-border-button-secondary);
+
+      &:active {
+        background-color: var(--osdk-color-background-button-secondary-active);
+        border-color: var(--osdk-color-border-button-secondary);
+      }
+
+      &:hover {
+        background-color: var(--osdk-color-background-button-secondary-hover);
+        border-color: var(--osdk-color-border-button-secondary);
+      }
+    }
+  }
+}
+
+:root {
+  @include castor.day();
+  @include onfidoSdk.tokens();
+}
 
 .step {
   width: 100%;
@@ -98,7 +150,7 @@ $logo-height: 32 * $unit;
   }
 
   .cobrandLabel {
-    color: $color-neutral-700;
+    color: rgba(var(--ods-color-neutral-700));
     font-size: 10 * $unit;
     display: flex;
     flex-direction: row;
@@ -190,22 +242,19 @@ $logo-height: 32 * $unit;
   height: 64 * $unit;
 }
 
+/* Header Pill element in Camera Permission Recovery, Cross Device Connected screens */
 .header {
-  border-radius: 10 * $unit-small;
-  background-color: $color-tips-pill;
-  color: $color-white;
-  font-size: $font-size-small;
-  font-weight: 600;
+  @extend %header-highlight-pill;
   position: absolute;
   margin-top: -10 * $unit-small;
   margin-left: 10 * $unit-small;
-  padding: 0 14 * $unit-small;
 }
 
+/* Cross Device Connected screen Tips info box */
 .help {
   padding: 24 * $unit 16 * $unit 16 * $unit;
   text-align: left;
-  box-shadow: inset 0 0 0 1 * $unit $color-help-container;
+  box-shadow: inset 0 0 0 1 * $unit var(--osdk-color-border-surface-modal);
   border-radius: 8 * $unit;
   margin-bottom: 24 * $unit;
 }
@@ -215,69 +264,106 @@ $logo-height: 32 * $unit;
   padding-left: 24 * $unit;
 }
 
-.link {
-  cursor: pointer;
-  line-height: 1.43;
-  font-size: $font-size-small;
-  font-family: $font-family;
-  margin: auto;
-  padding: 2px;
+a,
+.link,
+.textButton {
+  font-family: var(--osdk-font-family-body);
   text-decoration: none;
   border: 1px solid transparent;
-  border-bottom-color: $color-primary-500;
-  background-color: $color-transparent;
-  color: $color-body-text;
+  border-bottom-color: var(--osdk-color-border-link-underline);
+  background-color: transparent;
+  color: var(--osdk-color-content-body);
 
   &:not(:disabled) {
     &:hover {
-      background-color: $color-primary-button-hover;
-      color: $color-white;
+      background-color: var(--osdk-color-background-link-hover);
+      color: var(--osdk-color-content-link-text-hover);
     }
 
     &:active {
-      background-color: $color-primary-button-active;
-      color: $color-white;
+      background-color: var(--osdk-color-background-link-active);
+      color: var(--osdk-color-content-link-text-hover);
     }
   }
+}
 
-  &:visited {
-    text-decoration: none;
-    color: $color-body-text;
-    font-size: $font-size-small;
-  }
+a:visited,
+.link:visited {
+  text-decoration: none;
+  color: var(--osdk-color-content-body);
+}
+
+.link,
+.textButton {
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  line-height: 1.43;
+  margin: auto;
+  padding: 2px;
 
   &:disabled {
     cursor: not-allowed;
   }
 }
 
-.warning {
+/* Link/Text Button for Live Doc/Face Capture fallback on Warning popup */
+.warningFallbackButton {
+  color: var(--osdk-color-content-alert-info);
   background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom-color: var(--osdk-color-content-alert-info);
 
   &:hover {
-    color: $color-warning-button-text-hover;
-    background-color: $color-primary-button-hover;
+    background-color: var(--osdk-color-background-alert-info-link-hover);
   }
 
   &:active {
-    background-color: $color-primary-button-active;
+    background-color: var(--osdk-color-background-alert-info-link-active);
   }
 }
 
+/* Basic camera fallback for "Camera not working" Error popup */
+.errorFallbackButton,
 .error {
   background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom-color: var(--osdk-color-content-alert-error);
 
   &:hover,
   &:active {
-    color: $color-error;
+    color: var(--osdk-color-content-alert-error);
   }
 
   &:hover {
-    background-color: $color-error-button-hover;
+    background-color: var(--osdk-color-background-alert-error-link-hover);
   }
 
   &:active {
-    background-color: $color-error-button-active;
+    background-color: var(--osdk-color-background-alert-error-link-active);
+  }
+}
+
+.button-centered {
+  margin: auto;
+}
+
+.button-lg {
+  font-size: var(--font-size-small);
+  width: $lg-btn-width-lg-screen;
+  @media (--small-viewport) {
+    width: $lg-btn-width-sm-screen;
+  }
+}
+
+.button-sm {
+  font-size: var(--font-size-small);
+  width: $sm-btn-width-lg-screen;
+  @media (--small-viewport) {
+    width: $sm-btn-width-sm-screen;
+  }
+
+  &.vertical {
+    width: $lg-btn-width-lg-screen;
   }
 }
 

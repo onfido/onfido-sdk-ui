@@ -12,6 +12,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
 - Public: Added cross-device support for useCustomizedApiRequests callbacks via customer hosting of SDK. Note - This is a premium enterprise feature.
+- Public: Added support for UI customizations in SDK configuration using `customUI` option. See README for details of supported customization options.
+- Internal: Add Woopra tracking for UI customization option usage.
+
+### Changed
+
+- UI: Replaced internal button component with button from @onfido/castor-react.
+- UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
 - Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the Onfido logo.
 
 ### Changed

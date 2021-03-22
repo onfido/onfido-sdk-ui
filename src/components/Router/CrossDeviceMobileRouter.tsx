@@ -5,6 +5,7 @@ import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import withTheme from '../Theme'
+import { setUICustomizations } from '../Theme/utils'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 
@@ -82,7 +83,7 @@ export default class CrossDeviceMobileRouter extends Component<
       return
     }
 
-    this.state.socket.on('config', this.setMobileConfig)
+    this.state.socket.on('config', this.setUpHostedSDKWithMobileConfig)
     this.state.socket.on('connect', () => {
       this.state.socket.emit('join', { roomId: this.state.roomId })
     })
@@ -134,7 +135,7 @@ export default class CrossDeviceMobileRouter extends Component<
     }
   }
 
-  setMobileConfig = (data: MobileConfig): void => {
+  setUpHostedSDKWithMobileConfig = (data: MobileConfig): void => {
     const {
       clientStepIndex,
       disableAnalytics,
@@ -148,6 +149,7 @@ export default class CrossDeviceMobileRouter extends Component<
       token,
       urls,
       woopraCookie,
+      customUI,
     } = data
 
     if (disableAnalytics) {
@@ -198,6 +200,10 @@ export default class CrossDeviceMobileRouter extends Component<
       if (documentType !== 'passport' && idDocumentIssuingCountry) {
         this.props.actions.setIdDocumentIssuingCountry(idDocumentIssuingCountry)
       }
+    }
+
+    if (customUI) {
+      setUICustomizations(customUI)
     }
 
     if (enterpriseFeatures) {

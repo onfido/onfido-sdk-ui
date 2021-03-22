@@ -14,6 +14,7 @@ import { randomId } from '~utils/string'
 import { validateFile } from '~utils/file'
 import { getInactiveError } from '~utils/inactiveError'
 import { localised } from '../../locales'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const defaultPayload = {
@@ -66,16 +67,23 @@ class Face extends Component {
   handleFileSelected = (file) =>
     validateFile(file, this.handleUpload, this.handleError)
 
-  renderUploadFallback = (text) => (
-    <CustomFileInput
-      className={style.uploadFallback}
-      onChange={this.handleFileSelected}
-      accept="image/*"
-      capture="user"
-    >
-      {text}
-    </CustomFileInput>
-  )
+  renderUploadFallback = (text, type = 'warning') => {
+    const INPUT_CLASS_MAPPER = {
+      error: 'errorFallbackButton',
+      warning: 'warningFallbackButton',
+    }
+    const fallbackButtonType = INPUT_CLASS_MAPPER[type]
+    return (
+      <CustomFileInput
+        className={theme[fallbackButtonType]}
+        onChange={this.handleFileSelected}
+        accept="image/*"
+        capture="user"
+      >
+        {text}
+      </CustomFileInput>
+    )
+  }
 
   renderCrossDeviceFallback = (text, callback) => (
     <FallbackButton

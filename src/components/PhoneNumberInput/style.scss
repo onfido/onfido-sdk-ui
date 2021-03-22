@@ -1,15 +1,16 @@
 @import '../Theme/constants';
 
+/* "Loading" phone number input placeholder text */
 .loading {
-  color: $color-tips-pill;
-  font-size: $font-size-large;
+  color: rgba(var(--ods-color-content-placeholder));
+  font-size: var(--font-size-large);
   line-height: 1.6;
   margin: 8 * $unit-large;
   float: left;
 }
 
 .mobileInput {
-  font-size: $font-size-base;
+  font-size: var(--font-size-base);
 }
 
 .phoneNumberContainer {
@@ -27,7 +28,7 @@
   }
 
   .rrui__select__arrow {
-    color: $color-body-text;
+    color: var(--osdk-color-content-body);
   }
 
   .rrui__select__options:not(.rrui__select__options--menu) {

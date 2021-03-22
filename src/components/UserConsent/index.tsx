@@ -1,12 +1,16 @@
 import { h, FunctionComponent, Fragment } from 'preact'
 import { useEffect, useState, unmountComponentAtNode } from 'preact/compat'
+import classNames from 'classnames'
 import { sanitize } from 'dompurify'
+import { Button } from '@onfido/castor-react'
 
 import { useSdkOptions } from '~contexts'
 import { useLocales } from '~locales'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
-import Button from '../Button'
+import { isButtonGroupStacked } from '../Theme/utils'
+import theme from '../Theme/style.scss'
+
 import DeclineModal from './DeclineModal'
 import style from './style.scss'
 
@@ -24,18 +28,32 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
   const secondaryBtnCopy = translate('user_consent.button_secondary')
 
   return (
-    <div className={style.actions}>
+    <div
+      className={classNames(style.actions, {
+        [style.vertical]: isButtonGroupStacked(),
+      })}
+    >
       <Button
-        className={style.secondary}
-        variants={['secondary', 'sm']}
-        uiTestDataAttribute={'userConsentBtnSecondary'}
+        variant="secondary"
+        className={classNames(
+          theme['button-sm'],
+          style.action,
+          style.secondary,
+          {
+            [style.vertical]: isButtonGroupStacked(),
+          }
+        )}
+        data-onfido-qa="userConsentBtnSecondary"
         onClick={onDecline}
       >
         {secondaryBtnCopy}
       </Button>
       <Button
-        variants={['primary', 'sm']}
-        uiTestDataAttribute={'userConsentBtnPrimary'}
+        variant="primary"
+        className={classNames(theme['button-sm'], style.action, {
+          [style.vertical]: isButtonGroupStacked(),
+        })}
+        data-onfido-qa="userConsentBtnPrimary"
         onClick={onAccept}
       >
         {primaryBtnCopy}
