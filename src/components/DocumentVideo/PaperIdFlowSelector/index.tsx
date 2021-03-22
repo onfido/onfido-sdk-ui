@@ -2,8 +2,8 @@ import { h, FunctionComponent } from 'preact'
 import { memo } from 'preact/compat'
 
 import { useLocales } from '~locales'
-import { ToggleFullScreen } from '../FullScreen'
-import DocumentOverlay from '../Overlay/DocumentOverlay'
+import { ToggleFullScreen } from '../../FullScreen'
+import DocumentOverlay from '../../Overlay/DocumentOverlay'
 import style from './style.scss'
 
 import type { CaptureFlows } from '~types/docVideo'
@@ -40,17 +40,21 @@ const PaperIdFlowSelector: FunctionComponent<Props> = ({
       <div className={style.footer}>
         <span className={style.title}>{translate(titleKey)}</span>
         <button className={style.cardId} onClick={() => onSelectFlow('cardId')}>
+          <span className={style.icon} />
           <span className={style.text}>
             {translate('doc_video_capture.paper_id_flow_selector.button_card')}
           </span>
+          <span className={style.chevron} />
         </button>
         <button
           className={style.paperId}
           onClick={() => onSelectFlow('paperId')}
         >
+          <span className={style.icon} />
           <span className={style.text}>
             {translate('doc_video_capture.paper_id_flow_selector.button_paper')}
           </span>
+          <span className={style.chevron} />
         </button>
       </div>
     </div>
