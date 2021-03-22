@@ -15,6 +15,7 @@ import VideoCapture, { Props as VideoCaptureProps } from '../../VideoCapture'
 import DocumentVideo, { Props as DocumentVideoProps } from '../index'
 
 import type { CountryData } from '~types/commons'
+import type { CaptureFlows } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
 
 jest.mock('~utils')
@@ -331,6 +332,16 @@ describe('DocumentVideo', () => {
 
     paperIdCases.forEach(({ documentType, idDocumentIssuingCountry }) => {
       describe(`for ${idDocumentIssuingCountry.name} ${documentType}`, () => {
+        const possibleFlows: CaptureFlows[] = ['cardId', 'paperId']
+
+        const simulateFlowClick = (
+          wrapper: ReactWrapper,
+          flow: CaptureFlows
+        ) => {
+          const button = wrapper.find(`PaperIdFlowSelector .${flow}`)
+          button.simulate('click')
+        }
+
         beforeEach(() => {
           wrapper = mount(
             <MockedReduxProvider overrideGlobals={{ idDocumentIssuingCountry }}>
@@ -346,29 +357,39 @@ describe('DocumentVideo', () => {
           expect(wrapper.find(VideoCapture).exists()).toBeFalsy()
         })
 
-        describe.skip('when recording', () => {
-          beforeEach(() => simulateButtonClick(wrapper))
+        possibleFlows.forEach((flow) => {
+          describe(`when select ${flow} flow`, () => {
+            beforeEach(() => simulateFlowClick(wrapper, flow))
 
-          it('starts recording correctly', () => {
-            assertOverlay(wrapper, 'passport', false)
-            assertFirstStep(wrapper, true)
-          })
+            it('starts flow correctly', () => {
+              expect(wrapper.find('PaperIdFlowSelector').exists()).toBeFalsy()
+              expect(wrapper.find(VideoCapture).exists()).toBeTruthy()
+            })
 
-          it('ends the flow without capturing back side', () => {
-            waitForTimeout(wrapper, 'button')
-            simulateButtonClick(wrapper)
-            waitForTimeout(wrapper, 'holding', true)
-            waitForTimeout(wrapper, 'success', true)
+            it('ends the flow with back side captured', () => {
+              simulateButtonClick(wrapper)
+              waitForTimeout(wrapper, 'button')
+              simulateButtonClick(wrapper)
+              waitForTimeout(wrapper, 'success', true)
 
-            expect(defaultProps.onCapture).toHaveBeenCalledWith({
-              front: {
-                ...fakeCapturePayload('standard'),
-                filename: 'document_front.jpeg',
-              },
-              video: {
-                ...fakeCapturePayload('video'),
-                filename: 'document_video.webm',
-              },
+              waitForTimeout(wrapper, 'button')
+              simulateButtonClick(wrapper)
+              waitForTimeout(wrapper, 'success', true)
+
+              expect(defaultProps.onCapture).toHaveBeenCalledWith({
+                front: {
+                  ...fakeCapturePayload('standard'),
+                  filename: 'document_front.jpeg',
+                },
+                video: {
+                  ...fakeCapturePayload('video'),
+                  filename: 'document_video.webm',
+                },
+                back: {
+                  ...fakeCapturePayload('standard'),
+                  filename: 'document_back.jpeg',
+                },
+              })
             })
           })
         })
