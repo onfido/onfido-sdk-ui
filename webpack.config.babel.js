@@ -124,9 +124,6 @@ const PROD_CONFIG = {
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN,
-
-  // @TODO: clean-up this config when v4 APIs are live
-  USE_V4_APIS_FOR_DOC_VIDEO: process.env.USE_V4_APIS_FOR_DOC_VIDEO,
 }
 
 const TEST_DEPLOYMENT_CONFIG = {
