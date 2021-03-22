@@ -3,7 +3,7 @@ services:
   - xvfb
   - docker
 node_js:
-  - lts/dubnium
+  - lts/fermium
 os:
   - linux
 env:

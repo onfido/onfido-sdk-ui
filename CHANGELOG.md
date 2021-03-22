@@ -19,6 +19,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Replaced internal button component with button from @onfido/castor-react.
 - UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
 - Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the Onfido logo.
+- Internal: Use Node 14 LTS for Travis to be consistent with `.nvmrc` and `Dockerfile`.
 
 ### Changed
 
@@ -33,6 +34,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 - Public: Added user consent screen
 - Public: Added callbacks that are triggered on user media submission if the feature is enabled. Note - This is a premium enterprise feature.
+- Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
 - Internal: Use ScreenLayout component in Confirm screen.
 - Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
