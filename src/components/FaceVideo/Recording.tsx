@@ -1,10 +1,11 @@
 import { h, FunctionComponent } from 'preact'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 
 import { noop } from '~utils/func'
-import { localised } from '../../locales'
-import Button from '../Button'
+import { localised } from '~locales'
 import style from './style.scss'
+import theme from '../Theme/style.scss'
 
 import type { WithLocalisedProps } from '~types/hocs'
 
@@ -45,9 +46,11 @@ const Recording: FunctionComponent<Props> = ({
       </div>
       {hasMoreSteps ? (
         <Button
-          variants={['centered', 'primary', 'lg']}
+          variant="primary"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
           disabled={disableInteraction}
           onClick={onNext}
+          data-onfido-qa="liveness-next-challenge-btn"
         >
           {translate('video_capture.button_primary_next')}
         </Button>

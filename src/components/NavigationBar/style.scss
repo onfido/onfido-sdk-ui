@@ -16,13 +16,13 @@
 
 .back {
   height: 32 * $unit;
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   padding: 0;
   font-size: inherit;
-  font-family: $font-family;
+  font-family: var(--osdk-font-family-body);
   line-height: 1;
   border: 0;
-  background-color: $color-icon-button;
+  background-color: transparent;
   cursor: pointer;
 
   @media (--small-viewport) {
@@ -37,7 +37,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  background-color: $color-transparent;
+  background-color: transparent;
   border-radius: 16 * $unit;
   display: inline-block;
   vertical-align: middle;
@@ -57,7 +57,7 @@
     &:hover {
       .iconBack {
         background-image: url('./assets/back-black.svg');
-        background-color: $color-icon-button-hover;
+        background-color: $color-fullscreen-icon-button-hover;
       }
     }
   }
@@ -69,7 +69,7 @@
       background-image: url('./assets/back-black.svg');
 
       .iconBack {
-        background-color: $color-icon-button-active;
+        background-color: $color-fullscreen-icon-button-active;
       }
     }
   }
@@ -89,13 +89,13 @@
 
   &:hover {
     .iconBack {
-      background-color: $color-icon-button-hover;
+      background-color: var(--osdk-color-background-button-icon-hover);
     }
   }
 
   &:active {
     .iconBack {
-      background-color: $color-icon-button-active;
+      background-color: var(--osdk-color-background-button-icon-active);
     }
   }
 }
@@ -107,7 +107,7 @@
 .label {
   visibility: hidden;
   margin: 0 7 * $unit;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
 
   @media (--small-viewport) {
     display: none;

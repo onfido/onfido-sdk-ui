@@ -1,12 +1,14 @@
 import { h, FunctionComponent } from 'preact'
+import { Button } from '@onfido/castor-react'
+import classNames from 'classnames'
 
 import { useSdkOptions } from '~contexts'
 import { buildIteratorKey } from '~utils'
 import { useLocales } from '~locales'
-import PageTitle from '../PageTitle'
-import Button from '../Button'
 import { trackComponent } from '../../Tracker'
+import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
+import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
 import type { TranslateCallback } from '~types/locales'
@@ -60,8 +62,13 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
     : translate('welcome.next_button')
 
   return (
-    <div>
-      <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
+    <div className={theme.contentMargin}>
+      <Button
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
+        onClick={nextStep}
+        data-onfido-qa="welcome-next-btn"
+      >
         {welcomeNextButton}
       </Button>
     </div>

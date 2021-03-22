@@ -33,7 +33,7 @@ $parent-width: 432;
 .label {
   font-weight: 600;
   text-align: left;
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   float: left;
 }
 
@@ -51,24 +51,24 @@ $parent-width: 432;
 
 .inputContainer {
   height: 100%;
-  border: 1px solid $color-input-border;
+  border: 1px solid rgba(var(--ods-color-border-input));
   border-top-left-radius: 4 * $unit;
   border-bottom-left-radius: 4 * $unit;
   border-right: 0;
-  background-color: $color-white;
+  background-color: rgba(var(--ods-color-neutral-white));
   float: left;
-  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit $color-input-border;
+  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit rgba(var(--ods-color-border-input));
 }
 
 .fieldError {
-  border: 1px solid $color-error;
+  border: 1px solid rgba(var(--ods-color-content-negative));
   border-right: 0;
-  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit $color-error;
+  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit rgba(var(--ods-color-content-negative));
 }
 
 .numberError {
-  color: $color-error;
-  font-size: $font-size-small;
+  color: rgba(var(--ods-color-content-negative));
+  font-size: var(--font-size-small);
   line-height: 1.43;
   text-align: left;
   margin-top: 4 * $unit-small;
@@ -134,40 +134,9 @@ $parent-width: 432;
   text-overflow: ellipsis;
   font-size: inherit;
   line-height: 1.5;
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   white-space: nowrap;
-  font-family: $font-family;
-}
-
-.copyToClipboard {
-  cursor: pointer;
-  float: right;
-  height: 100%;
-  font-size: $font-size-small;
-  font-family: $font-family;
-  margin-left: 4 * $unit-small;
-  padding: 2px;
-  text-decoration: none;
-  border: 1px solid transparent;
-  border-bottom-color: $color-primary-500;
-  background-color: $color-transparent;
-  color: $color-body-text;
-
-  &:hover {
-    background-color: $color-primary-button-hover;
-    color: $color-white;
-  }
-
-  &:active {
-    background-color: $color-primary-button-active;
-    color: $color-white;
-  }
-
-  &:visited {
-    text-decoration: none;
-    color: $color-body-text;
-    font-size: $font-size-small;
-  }
+  font-family: var(--osdk-font-family-body);
 }
 
 .copySuccess .copyToClipboard {
@@ -209,8 +178,10 @@ $parent-width: 432;
   margin: 0 0 0 24 * $unit;
 }
 
-.viewOptions {
+.viewOptionsGroup {
   margin: 16 * $unit;
+  display: flex;
+  justify-content: center;
 }
 
 .viewOption {

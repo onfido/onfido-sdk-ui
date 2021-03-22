@@ -24,22 +24,35 @@
 
 .instructionsCopy {
   margin: 14 * $unit-small 24 * $unit-small;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   line-height: 1.43;
 
   @media (--small-viewport) {
-    font-size: $font-size-base;
+    font-size: var(--font-size-base);
     margin: 14 * $unit 24 * $unit;
   }
 }
 
 .error {
-  color: $color-error;
+  color: rgba(var(--ods-color-content-negative));
 }
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+
+  &.vertical {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-right: 0;
+  }
+}
+
+.poaButtons {
+  margin-right: -16 * $unit;
+  @media (--small-viewport) {
+    margin-right: -8 * $unit;
+  }
 }
 
 .buttonContainer {
@@ -61,6 +74,11 @@
   margin-right: 16 * $unit;
   @media (--small-viewport) {
     margin-right: 8 * $unit;
+  }
+
+  &.vertical {
+    margin-right: 0;
+    margin-top: 8 * $unit;
   }
 }
 
@@ -97,21 +115,28 @@
   }
 }
 
-%_document-icon {
+%_document-upload-icon {
+  @extend %icon-circle-background;
   background-image: url('./assets/cross-device-doc-icon.svg');
   background-size: 72 * $unit;
   background-position: 40% 50%;
   background-repeat: no-repeat;
-  background-color: $color-icon-temporary;
-  border-radius: 144 * $unit 144 * $unit;
   height: 144 * $unit;
   width: 144 * $unit;
   margin: auto;
+}
+
+.icon {
+  @extend %_document-upload-icon;
+}
+
+.identityIcon {
+  @extend %_document-upload-icon;
 
   @media (--small-viewport) {
     background-image: url('./assets/camera.svg');
     background-position: center;
-    background-color: $color-transparent;
+    background-color: transparent;
     background-size: contain;
     border-radius: 0;
     height: 100%;
@@ -119,16 +144,8 @@
   }
 }
 
-.icon {
-  @extend %_document-icon;
-}
-
-.identityIcon {
-  @extend %_document-icon;
-}
-
 .proofOfAddressIcon {
-  @extend %_document-icon;
+  @extend %_document-upload-icon;
 
   @media (--small-viewport) {
     height: 100%;
@@ -139,13 +156,12 @@
 }
 
 .faceIcon {
+  @extend %icon-circle-background;
   background-size: 64 * $unit auto;
   background-image: url('./assets/cross-device-selfie-icon.svg');
   background-size: 100 * $unit;
   background-position: 50% 30%;
   background-repeat: no-repeat;
-  background-color: $color-icon-temporary;
-  border-radius: 144 * $unit 144 * $unit;
   height: 144 * $unit;
   width: 144 * $unit;
   margin: auto;
@@ -153,7 +169,7 @@
   @media (--small-viewport) {
     background-image: url('./assets/camera.svg');
     background-position: center;
-    background-color: $color-transparent;
+    background-color: transparent;
     background-size: contain;
     border-radius: 0;
     height: 100%;
@@ -184,7 +200,7 @@
   height: 16 * $unit;
 
   @media (--small-viewport) {
-    background-color: $color-transparent;
+    background-color: transparent;
     border: 0;
     justify-content: space-between;
     padding: 0;

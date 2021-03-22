@@ -3,8 +3,14 @@ import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
 import 'custom-event-polyfill'
 
+// TODO: These IE11 polyfills are missing in `development` after the Typescript conversion.
+//       But on PRs where the components that use these Array methods have been converted the polyfills seem to be included.
+//       Should be fine to remove when those PRs are merged in eventually.
+import 'array-flat-polyfill'
+
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
+import { cssVarsPonyfill } from '~utils/cssVarsPonyfill'
 import type { NormalisedSdkOptions } from '~types/commons'
 import type { SdkOptions, SdkHandle } from '~types/sdk'
 import type { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
@@ -109,6 +115,7 @@ export const init = (opts: SdkOptions): SdkHandle => {
   const options = formatOptions({ ...defaults, ...opts })
 
   experimentalFeatureWarnings(options)
+  cssVarsPonyfill()
 
   let containerEl: HTMLElement
 

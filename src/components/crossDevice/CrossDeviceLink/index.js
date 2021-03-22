@@ -1,9 +1,11 @@
 import { h, Component } from 'preact'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
+import { preventDefaultOnClick } from '~utils'
 import { performHttpReq } from '~utils/http'
 import { formatError } from '~utils/onfidoApi'
+import { createSocket } from '~utils/crossDeviceSync'
 import Spinner from '../../Spinner'
-import Button from '../../Button'
 import CopyLink from './CopyLink'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import QRCodeGenerator from '../../QRCode'
@@ -12,7 +14,6 @@ import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent, sendEvent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { createSocket } from '~utils/crossDeviceSync'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
@@ -261,13 +262,14 @@ class CrossDeviceLinkUI extends Component {
               />
             </div>
             <Button
-              ariaLive="polite"
-              ariaRelevant="text"
-              ariaBusy={sending}
+              variant="primary"
               className={classNames(style.btn, { [style.sending]: sending })}
-              variants={['primary']}
               onClick={this.handleSendSmsLinkClick}
               disabled={sending || invalidNumber}
+              aria-busy={sending}
+              aria-live="polite"
+              aria-relevant="text"
+              data-onfido-qa="cross-device-send-link-btn"
             >
               {translate(buttonCopyKey)}
             </Button>
@@ -333,23 +335,28 @@ class CrossDeviceLinkUI extends Component {
           <p className={style.styledLabel}>
             {translate('get_link.link_divider')}
           </p>
-          <div className={style.viewOptions} aria-controls="selectedLinkView">
+          <div
+            className={style.viewOptionsGroup}
+            aria-controls="selectedLinkView"
+          >
             {SECURE_LINK_VIEWS.filter(
               (view) => view.id !== this.state.currentViewId
             ).map((view) => (
-              <button
-                type="button"
+              <a
+                href="#"
                 className={classNames(
                   theme.link,
                   style.viewOption,
                   style[view.className]
                 )}
                 ref={(node) => (this.viewOptionBtn = node)}
-                onClick={() => this.handleViewOptionSelect(view.id)}
+                onClick={() =>
+                  preventDefaultOnClick(this.handleViewOptionSelect(view.id))
+                }
                 key={`view_${view.id}`}
               >
                 {translate(view.label)}
-              </button>
+              </a>
             ))}
           </div>
         </div>

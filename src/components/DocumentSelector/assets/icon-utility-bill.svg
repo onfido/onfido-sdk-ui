@@ -1,17 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-  <circle fill="#EDEEEF" cx="24" cy="24" r="24"/>
-  <g fill="none" fill-rule="evenodd">
-    <g transform="translate(15 13)">
-      <path fill="#FFF" stroke="#2C3E4F" stroke-width="2" d="M4.5527 15.651l.3326.223.7429 3.343a1 1 0 0 0 .9761.783h4.7914a1 1 0 0 0 .9761-.783l.743-3.343.3325-.223C15.6512 14.1741 17 11.7022 17 9c0-4.4183-3.5817-8-8-8S1 4.5817 1 9c0 2.7022 1.3488 5.1741 3.5527 6.651z"/>
-      <rect width="8" height="2" x="5" y="22" fill="#2C3E4F" rx="1"/>
-      <rect width="6" height="2" x="6" y="25" fill="#2C3E4F" rx="1"/>
-    </g>
-    <g fill="#2C3E4F" transform="translate(10 8)">
-      <rect width="1" height="4" x="4.268" y="3.768" rx=".5" transform="rotate(-45 4.768 5.768)"/>
-      <rect width="1" height="4" x="13" rx=".5"/>
-      <rect width="1" height="4" x="22.268" y="3.768" rx=".5" transform="rotate(45 22.768 5.768)"/>
-      <rect width="4" height="1" y="12" rx=".5"/>
-      <rect width="4" height="1" x="24" y="12" rx=".5"/>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill-rule="evenodd">
+  <path fill="#fff" stroke="#2c3e4f" stroke-width="2" d="m19.553 28.651.333.223.743 3.343a1 1 0 0 0 .976.783h4.791a1 1 0 0 0 .976-.783l.743-3.343.332-.223A7.99 7.99 0 0 0 32 22a8 8 0 1 0-16 0 7.99 7.99 0 0 0 3.553 6.651z"/>
+  <g fill="#2c3e4f">
+    <rect width="8" height="2" x="20" y="35" rx="1"/>
+    <rect width="6" height="2" x="21" y="38" rx="1"/>
+    <rect width="1" height="4" x="4.268" y="3.768" rx=".5" transform="rotate(-45 19.425 -2.303)"/>
+    <rect width="1" height="4" x="23" rx=".5" y="8"/>
+    <rect width="1" height="4" x="22.268" y="3.768" rx=".5" transform="rotate(45 18.111 21.84)"/>
+    <rect width="4" height="1" y="20" rx=".5" x="10"/>
+    <rect width="4" height="1" x="34" y="20" rx=".5"/>
   </g>
 </svg>

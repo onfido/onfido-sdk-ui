@@ -9,7 +9,7 @@ class FaceVideoIntro extends BasePage {
     return this.$('.onfido-sdk-ui-FaceVideo-speakOutLoudIcon')
   }
   async continueButton() {
-    return this.$('.onfido-sdk-ui-Button-button-text')
+    return this.$('[data-onfido-qa="liveness-continue-btn"]')
   }
 
   async verifyUIElementsOnTheFaceVideoIntroScreen(copy) {

@@ -14,6 +14,7 @@ import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import FallbackButton from '../Button/FallbackButton'
+import theme from '../Theme/style.scss'
 
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import style from './style.scss'
@@ -92,7 +93,7 @@ class Document extends Component<Props> {
 
   renderUploadFallback = (text: string) => (
     <CustomFileInput
-      className={style.uploadFallback}
+      className={theme.warningFallbackButton}
       onChange={this.handleFileSelected}
       accept="image/*"
       capture

@@ -1,6 +1,7 @@
 import { h } from 'preact'
+import { Button } from '@onfido/castor-react'
+import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
-import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import { POA_GUIDANCE_LOCALES_MAPPING } from '~utils/localesMapping'
@@ -41,8 +42,13 @@ const Guidance = ({
           <Graphic />
         </div>
       </div>
-      <div>
-        <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
+      <div className={theme.contentMargin}>
+        <Button
+          variant="primary"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
+          onClick={nextStep}
+          data-onfido-qa="poa-continue-btn"
+        >
           {translate('poa_guidance.button_primary')}
         </Button>
       </div>

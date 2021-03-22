@@ -931,6 +931,27 @@
     "path": "node_modules/@nodelib/fs.walk",
     "licenseFile": "node_modules/@nodelib/fs.walk/LICENSE"
   },
+  "@onfido/castor-icons@2.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/onfido/castor-icons",
+    "publisher": "Onfido",
+    "path": "node_modules/@onfido/castor-icons",
+    "licenseFile": "node_modules/@onfido/castor-icons/README.md"
+  },
+  "@onfido/castor-react@1.1.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/onfido/castor",
+    "publisher": "Onfido",
+    "path": "node_modules/@onfido/castor-react",
+    "licenseFile": "node_modules/@onfido/castor-react/README.md"
+  },
+  "@onfido/castor@1.1.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/onfido/castor",
+    "publisher": "Onfido",
+    "path": "node_modules/@onfido/castor",
+    "licenseFile": "node_modules/@onfido/castor/README.md"
+  },
   "@onfido/surge@0.20.2": {
     "licenses": "ISC",
     "repository": "https://github.com/sintaxi/surge",
@@ -1806,6 +1827,14 @@
     "url": "sindresorhus.com",
     "path": "node_modules/array-find-index",
     "licenseFile": "node_modules/array-find-index/license"
+  },
+  "array-flat-polyfill@1.0.1": {
+    "licenses": "CC0-1.0",
+    "repository": "https://github.com/jonathantneal/array-flat-polyfill",
+    "publisher": "Jonathan Neal",
+    "email": "jonathantneal@hotmail.com",
+    "path": "node_modules/array-flat-polyfill",
+    "licenseFile": "node_modules/array-flat-polyfill/LICENSE.md"
   },
   "array-flatten@1.1.1": {
     "licenses": "MIT",
@@ -10109,17 +10138,17 @@
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react/LICENSE"
   },
-  "react@15.7.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/facebook/react",
-    "path": "node_modules/react",
-    "licenseFile": "node_modules/react/LICENSE"
-  },
   "react@16.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
     "path": "node_modules/mochawesome-report-generator/node_modules/react",
     "licenseFile": "node_modules/mochawesome-report-generator/node_modules/react/LICENSE"
+  },
+  "react@17.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "node_modules/react",
+    "licenseFile": "node_modules/react/LICENSE"
   },
   "read-installed@4.0.3": {
     "licenses": "ISC",
