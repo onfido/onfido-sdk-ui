@@ -11,8 +11,21 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
+- Public: Added support for UI customizations in SDK configuration using `customUI` option. See README for details of supported customization options.
+- Internal: Add Woopra tracking for UI customization option usage.
+
+### Changed
+
+- UI: Replaced internal button component with button from @onfido/castor-react.
+- UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
 - Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the Onfido logo.
 - Internal: Use Node 14 LTS for Travis to be consistent with `.nvmrc` and `Dockerfile`.
+
+### Changed
+
+### Fixed
+
+- UI: Fix Camera Permission icon not displaying on iOS devices on Selfie/Liveness capture flow
 
 ## [6.6.0] - 2021-03-11
 
@@ -24,6 +37,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
 - Internal: Use ScreenLayout component in Confirm screen.
+- Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
+- Internal: Enable `strict` mode in tsconfig.json
 
 ### Changed
 

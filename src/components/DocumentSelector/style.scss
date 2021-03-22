@@ -10,12 +10,17 @@
   }
 }
 
+/* Selector Button box shadow (offset-x | offset-y | blur-radius | spread-radius) */
+$selector-button-box-shadow: 0 0 0 2px;
+
 .option {
   width: 100%;
-  background: $color-white;
-  border-radius: 4 * $unit;
-  border: $selectors-border;
-  color: $selectors-text-color;
+  color: var(--osdk-color-content-doc-type-button);
+  background: var(--osdk-color-background-doc-type-button);
+  border-radius: var(--osdk-border-radius-button);
+  border-color: var(--osdk-color-border-doc-type-button);
+  border-style: solid;
+  border-width: 1px;
   cursor: pointer;
   display: flex;
   font: inherit;
@@ -38,11 +43,13 @@
   }
 
   &.optionHoverDesktop:hover {
-    box-shadow: $selectors-box-shadow-hover;
+    box-shadow: $selector-button-box-shadow
+      var(--osdk-color-border-doc-type-button-hover);
   }
 
   &:active {
-    box-shadow: $selectors-box-shadow-active;
+    box-shadow: $selector-button-box-shadow
+      var(--osdk-color-border-doc-type-button-active);
   }
 }
 
@@ -67,24 +74,23 @@
 }
 
 .hint {
-  color: $selectors-text-color;
+  color: var(--osdk-color-content-body);
   font-weight: 500;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   margin-bottom: 4 * $unit-small;
 }
 
 .warning {
   font-weight: 600;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   margin-bottom: 6 * $unit-small;
 }
 
+/* .tag class used for PoA document type buttons, i.e. "e-statements accepted" text */
 .tag {
   display: inline-block;
-  background-color: $color-background;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   padding: 0 12 * $unit-small;
-  border-radius: 12 * $unit-small;
   margin-left: -12 * $unit-small;
   margin-top: 2 * $unit-small;
 }
@@ -113,6 +119,7 @@ $_document-types: (
 
 @each $_document-type in $_document-types {
   .icon-#{$_document-type} {
+    @extend %icon-circle-background;
     background-image: url('./assets/icon-#{$_document-type}.svg');
   }
 }

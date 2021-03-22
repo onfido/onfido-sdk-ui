@@ -1,4 +1,4 @@
-import { h, Component, ComponentType } from 'preact'
+import { h, Component } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
@@ -20,6 +20,7 @@ import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,
 } from '~types/enterprise'
+import type { ReduxProps } from '~types/routers'
 import type {
   SdkOptions,
   SdkError,
@@ -27,8 +28,9 @@ import type {
   UserExitCode,
 } from '~types/sdk'
 import type { StepConfig, DocumentTypes } from '~types/steps'
+import { setUICustomizations } from '../Theme/utils'
 
-import withConnect, { ReduxProps } from './withConnect'
+import withConnect from './withConnect'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
@@ -55,7 +57,17 @@ class ModalApp extends Component<Props> {
   }
 
   componentDidMount() {
-    this.prepareInitialStore({}, this.props.options)
+    const { options } = this.props
+    this.prepareInitialStore({ steps: [] }, options)
+    if (!options.mobileFlow) {
+      const { customUI } = options
+      const hasCustomUIConfigured =
+        !!customUI && Object.keys(customUI).length > 0
+      const trackedProperties = {
+        is_custom_ui: hasCustomUIConfigured,
+      }
+      Tracker.sendEvent('started flow', trackedProperties)
+    }
   }
 
   componentDidUpdate(prevProps: Props) {
@@ -71,8 +83,8 @@ class ModalApp extends Component<Props> {
   }
 
   jwtValidation = (
-    prevOptions: NormalisedSdkOptions = {},
-    newOptions: NormalisedSdkOptions = {}
+    prevOptions: NormalisedSdkOptions,
+    newOptions: NormalisedSdkOptions
   ) => {
     if (prevOptions.token !== newOptions.token) {
       try {
@@ -115,9 +127,10 @@ class ModalApp extends Component<Props> {
     oldOptions: NormalisedSdkOptions,
     newOptions: NormalisedSdkOptions
   ) => {
-    this.events.off('complete', oldOptions.onComplete)
-    this.events.off('error', oldOptions.onError)
-    this.events.off('userExit', oldOptions.onUserExit)
+    oldOptions.onComplete && this.events.off('complete', oldOptions.onComplete)
+    oldOptions.onError && this.events.off('error', oldOptions.onError)
+    oldOptions.onUserExit && this.events.off('userExit', oldOptions.onUserExit)
+
     this.bindEvents(
       newOptions.onComplete,
       newOptions.onError,
@@ -131,18 +144,20 @@ class ModalApp extends Component<Props> {
   ) => {
     const documentStep = buildStepFinder(steps)('document')
 
-    if (!documentStep.options) {
+    if (!documentStep?.options) {
       return
     }
 
     const docTypes = documentStep.options.documentTypes
-    const preselectedDocumentTypeConfig = docTypes[preselectedDocumentType]
+    const preselectedDocumentTypeConfig = docTypes
+      ? docTypes[preselectedDocumentType]
+      : undefined
 
     if (typeof preselectedDocumentTypeConfig === 'boolean') {
       return
     }
 
-    const countryCode = preselectedDocumentTypeConfig.country
+    const countryCode = preselectedDocumentTypeConfig?.country
     const supportedCountry = getCountryDataForDocumentType(
       countryCode,
       preselectedDocumentType
@@ -158,14 +173,15 @@ class ModalApp extends Component<Props> {
   }
 
   prepareInitialStore = (
-    prevOptions: NormalisedSdkOptions = {},
-    options: NormalisedSdkOptions = {}
+    prevOptions: NormalisedSdkOptions,
+    options: NormalisedSdkOptions
   ) => {
-    const { userDetails: { smsNumber } = {}, steps, token } = options
+    const { token, userDetails: { smsNumber } = {}, steps, customUI } = options
     const {
       userDetails: { smsNumber: prevSmsNumber } = {},
       steps: prevSteps,
       token: prevToken,
+      customUI: prevCustomUI,
     } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
@@ -190,6 +206,10 @@ class ModalApp extends Component<Props> {
 
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
       this.setConfiguredEnterpriseFeatures(validEnterpriseFeatures, options)
+    }
+
+    if (customUI && customUI !== prevCustomUI) {
+      setUICustomizations(customUI)
     }
   }
 
@@ -239,7 +259,7 @@ class ModalApp extends Component<Props> {
     }
   }
 
-  hideDefaultLogoIfClientHasFeature = (isValidEnterpriseFeature: boolean) => {
+  hideDefaultLogoIfClientHasFeature = (isValidEnterpriseFeature?: boolean) => {
     if (isValidEnterpriseFeature) {
       this.props.actions.hideOnfidoLogo(true)
     } else {
@@ -271,16 +291,13 @@ class ModalApp extends Component<Props> {
   }
 
   setDecoupleFromAPIIfClientHasFeature = (
-    isValidEnterpriseFeature: boolean
+    isValidEnterpriseFeature?: boolean
   ) => {
     const { actions, options } = this.props
 
     if (isValidEnterpriseFeature) {
-      const {
-        onSubmitDocument,
-        onSubmitSelfie,
-        onSubmitVideo,
-      } = options.enterpriseFeatures
+      const { onSubmitDocument, onSubmitSelfie, onSubmitVideo } =
+        options.enterpriseFeatures || {}
 
       if (typeof onSubmitDocument !== 'function') {
         this.onInvalidCustomApiException('onSubmitDocument')
@@ -335,4 +352,4 @@ class ModalApp extends Component<Props> {
   }
 }
 
-export default withConnect<ComponentType<ModalAppProps>>(ModalApp)
+export default withConnect(ModalApp)

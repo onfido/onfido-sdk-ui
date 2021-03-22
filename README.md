@@ -61,7 +61,7 @@ You will receive a response containing the applicant id which will be used to cr
 
 ### 3. Generating an SDK token
 
-For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
+For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialize the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
 
 ```shell
 $ curl https://api.onfido.com/v3/sdk_token \
@@ -127,7 +127,7 @@ var Onfido = require('onfido-sdk-ui')
 
 The **CSS style** will be included **inline with the JS code** when the library is imported.
 
-#### Notice
+#### Note
 
 The library is **Browser only**, it does not support the **Node Context**.
 
@@ -148,7 +148,7 @@ verification component will be mounted. -->
 
 ### 6. Initialising the SDK
 
-You are now ready to initialise the SDK:
+You are now ready to initialize the SDK:
 
 ```js
 Onfido.init({
@@ -197,7 +197,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 - Handle callbacks
 - Remove the SDK from the page
-- Customise the SDK
+- Customize the SDK
 - Create checks
 
 ## Handling callbacks
@@ -280,7 +280,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 ## Removing the SDK
 
-If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
+If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialize the SDK inside the same webpage later on.
 
 ```javascript
 onfidoOut = Onfido.init({...})
@@ -290,7 +290,7 @@ onfidoOut.tearDown()
 
 ## Customising the SDK
 
-A number of options are available to allow you to customise the SDK:
+A number of options are available to allow you to customize the SDK:
 
 - **`token {String} required`**
 
@@ -349,7 +349,8 @@ A number of options are available to allow you to customise the SDK:
   The container element that the UI will mount to. This needs to be an empty element. This can be used as an alternative to passing in the container ID string previously described for `containerId`. Note that if `containerEl` is provided, then `containerId` will be ignored.
 
 - **`language {String || Object} optional`**
-  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
+
+  The SDK language can be customized by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
   To leverage one of these languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
@@ -362,7 +363,7 @@ A number of options are available to allow you to customise the SDK:
   The object should include the following keys:
 
   - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-    You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+    You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
     The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English, Spanish, French and German.
 
   - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
@@ -381,7 +382,8 @@ A number of options are available to allow you to customise the SDK:
   If `language` is not present the default copy will be in English.
 
 - **`smsNumberCountryCode {String} optional`**
-  The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+
+  The default country for the SMS number input can be customized by passing the `smsNumberCountryCode` option when the SDK is initialized. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
 
   Example:
 
@@ -390,6 +392,7 @@ A number of options are available to allow you to customise the SDK:
   ```
 
 - **`userDetails {Object} optional`**
+
   Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
 
   The following details can be used by the SDK:
@@ -402,9 +405,159 @@ A number of options are available to allow you to customise the SDK:
   }
   ```
 
+- **`customUI {Object} optional`**
+
+  If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA color values, border radius values) for the following options:
+
+  | Typography options     | Description                                                                        |
+  | ---------------------- | ---------------------------------------------------------------------------------- |
+  | `fontFamilyTitle`      | Change font family of the SDK screen titles                                        |
+  | `fontFamilySubtitle`   | Change font family of the SDK screen subtitles                                     |
+  | `fontFamilyBody`       | Change font family of the SDK screen content                                       |
+  | `fontSizeTitle`        | Change font size of the SDK screen titles                                          |
+  | `fontSizeSubtitle`     | Change font size of the SDK screen subtitles                                       |
+  | `fontSizeBody`         | Change font size of the SDK screen content                                         |
+  | `fontWeightTitle`      | Change font weight of the SDK screen titles (number format only, e.g. 400, 600)    |
+  | `fontWeightSubtitle`   | Change font weight of the SDK screen subtitles (number format only, e.g. 400, 600) |
+  | `fontWeightBody`       | Change font weight of the SDK screen content (number format only, e.g. 400, 600)   |
+  | `colorContentTitle`    | Change text color of the SDK screen titles                                         |
+  | `colorContentSubtitle` | Change text color of the SDK screen subtitles                                      |
+  | `colorContentBody`     | Change text color of the SDK screen content                                        |
+
+  Example configuration with the different CSS font related values that can be used:
+
+  ```javascript
+  customUI: {
+    "fontFamilyTitle": "Impact, fantasy",
+    "fontSizeTitle": "26px",
+    "fontWeightSubtitle": 600,
+    "fontSizeSubtitle": "1.25rem",
+  }
+  ```
+
+  **Note:** If using a scalable font size unit like em/rem, the SDK's base font size is 16px. This is currently not customizable.
+
+  | Modal (SDK main container)    | Description                          |
+  | ----------------------------- | ------------------------------------ |
+  | `colorBackgroundSurfaceModal` | Change background color of SDK modal |
+  | `colorBorderSurfaceModal`     | Change color of SDK modal border     |
+  | `borderWidthSurfaceModal`     | Change border width of SDK modal     |
+  | `borderStyleSurfaceModal`     | Change border style of SDK modal     |
+  | `borderRadiusSurfaceModal`    | Change border radius of SDK modal    |
+
+  Example configuration with the different CSS colour value variations, border style that can be used:
+
+  ```javascript
+  customUI: {
+      "colorBackgroundSurfaceModal": "#fafafa",
+      "colorBorderSurfaceModal": "rgb(132 59 98)",
+      "borderWidthSurfaceModal": "6px",
+      "borderStyleSurfaceModal": "groove",
+    }
+  ```
+
+  | Primary Buttons                      | Description                                            |
+  | ------------------------------------ | ------------------------------------------------------ |
+  | `colorContentButtonPrimaryText`      | Change color of Primary Button text                    |
+  | `colorBackgroundButtonPrimary`       | Change background color of Primary Button              |
+  | `colorBackgroundButtonPrimaryHover`  | Change background color of Primary Button on hover     |
+  | `colorBackgroundButtonPrimaryActive` | Change background color of Primary Button on click/tap |
+  | `colorBorderButtonPrimary`           | Change color of Primary Button border                  |
+
+  | Secondary Buttons                      | Description                                              |
+  | -------------------------------------- | -------------------------------------------------------- |
+  | `colorContentButtonSecondaryText`      | Change color of Secondary Button text                    |
+  | `colorBackgroundButtonSecondary`       | Change background color of Secondary Button              |
+  | `colorBackgroundButtonSecondaryHover`  | Change background color of Secondary Button on hover     |
+  | `colorBackgroundButtonSecondaryActive` | Change background color of Secondary Button on click/tap |
+  | `colorBorderButtonSecondary`           | Change color of Secondary Button border                  |
+
+  | Document Type Buttons            | Description                                              |
+  | -------------------------------- | -------------------------------------------------------- |
+  | `colorContentDocTypeButton`      | Change Document Type Button text color                   |
+  | `colorBackgroundDocTypeButton`   | Change background color of Document Type Button          |
+  | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
+  | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
+  | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
+  | `colorBorderDocTypeButtonActive` | Change color of Document Type Button border on click/tap |
+
+  | Icon Background option | Description                                                         |
+  | ---------------------- | ------------------------------------------------------------------- |
+  | `colorBackgroundIcon`  | Change color of the background circle of pictogram icons in the SDK |
+
+  Example configuration with the different CSS colour value variations that can be used:
+
+  ```javascript
+  customUI: {
+      "colorContentButtonPrimaryText": "#333",
+      "colorBackgroundButtonPrimary": "#ffb997",
+      "colorBorderButtonPrimary": "#B23A48",
+      "colorBackgroundButtonPrimaryHover": "#F67E7D",
+      "colorBackgroundButtonPrimaryActive": "#843b62",
+
+      "colorContentButtonSecondaryText": "hsla(90deg 1% 31%)",
+      "colorBackgroundButtonSecondary": "rgba(255 238 170 / 92%)",
+      "colorBorderButtonSecondary": "coral",
+      "colorBackgroundButtonSecondaryHover": "#ce6a85",
+      "colorBackgroundButtonSecondaryActive": "#985277",
+    }
+  ```
+
+  The following options are applied to multiple Button elements:
+
+  | Shared Button options                   | Value Type | Description                                                                                                                                 |
+  | --------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `borderRadiusButton`                    | `string`   | Change border radius value of Primary, Secondary and Document Type Option buttons                                                           |
+  | `buttonGroupStacked` (default: `false`) | `boolean`  | Display Primary, Secondary button group in Document and Face capture confirmation screens are in separate rows instead of inline by default |
+
+  Example configuration:
+
+  ```javascript
+  customUI: {
+      borderRadiusButton: "50px",
+      buttonGroupStacked: true
+    }
+  ```
+
+  | Links                       | Description                               |
+  | --------------------------- | ----------------------------------------- |
+  | `colorContentLinkTextHover` | Change Link text color                    |
+  | `colorBorderLinkUnderline`  | Change Link underline color               |
+  | `colorBackgroundLinkHover`  | Change Link background color on hover     |
+  | `colorBackgroundLinkActive` | Change Link background color on click/tap |
+
+  | Warning Popups                    | Description                                                |
+  | --------------------------------- | ---------------------------------------------------------- |
+  | `colorContentAlertInfo`           | Change warning popup text color                            |
+  | `colorBackgroundAlertInfo`        | Change warning popup background color                      |
+  | `colorContentAlertInfoLinkHover`  | Change warning popup fallback Link background on hover     |
+  | `colorContentAlertInfoLinkActive` | Change warning popup fallback Link background on click/tap |
+
+  | Error Popups                       | Description                                              |
+  | ---------------------------------- | -------------------------------------------------------- |
+  | `colorContentAlertError`           | Change error popup text color                            |
+  | `colorBackgroundAlertError`        | Change error popup background color                      |
+  | `colorContentAlertErrorLinkHover`  | Change error popup fallback Link background on hover     |
+  | `colorContentAlertErrorLinkActive` | Change error popup fallback Link background on click/tap |
+
+  | Info Header/Highlight Pills | Description                                                                                      |
+  | --------------------------- | ------------------------------------------------------------------------------------------------ |
+  | `colorBackgroundInfoPill`   | Change background color of Cross Device, Camera/Mic Permissions screens' information header pill |
+  | `colorContentInfoPill`      | Change text color of Cross Device, Camera/Mic Permissions screens' information header pill       |
+
+  | Icon Buttons                      | Description                                                            |
+  | --------------------------------- | ---------------------------------------------------------------------- |
+  | `colorBackgroundButtonIconHover`  | Change background color of Back, Close Modal icon buttons on hover     |
+  | `colorBackgroundButtonIconActive` | Change background color of Back, Close Modal icon buttons on click/tap |
+
+  | Camera Shutter Button               | Description                                                                                 |
+  | ----------------------------------- | ------------------------------------------------------------------------------------------- |
+  | `colorBackgroundButtonCameraHover`  | Change background color of Live Selfie/Document Capture screens's Camera button on hover    |
+  | `colorBackgroundButtonCameraActive` | Change background color of Live Selfie/Document Capture screen's Camera button on click/tap |
+
 - **`steps {List} optional`**
 
-  List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
+  List of the different steps and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required):
 
   ```javascript
   steps: [
@@ -419,7 +572,7 @@ A number of options are available to allow you to customise the SDK:
   ]
   ```
 
-  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customised.
+  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customized.
 
   The SDK can also be used to capture Proof of Address documents. This can be achieved by using the `poa` step.
 
@@ -695,7 +848,7 @@ A number of options are available to allow you to customise the SDK:
 
 ### Changing options in runtime
 
-It's possible to change the options initialised at runtime:
+It's possible to change the options initialized at runtime:
 
 ```javascript
 onfidoOut = Onfido.init({...})
@@ -731,7 +884,7 @@ In order to perform a full document/face check, you need to call our [API](https
 ### 1. Creating a check
 
 With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-reports).
-The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report.
+The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report.
 The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the report name you should include in your request.
 Example of data returned by the `onComplete` callback:
 `{face: {variant: 'standard' | 'video'}}`
@@ -825,6 +978,10 @@ The Onfido SDK has been optimised to provide the following accessibility support
 - Sufficient touch target size: all interactive elements have been designed to meet the recommended touch target size
 
 Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
+
+### Note
+
+If you are making your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible color contrast ratios and dyslexic friendly fonts.
 
 ## TypeScript
 

@@ -63,7 +63,7 @@ export default class CameraError extends Component {
             onDismiss={this.handleDismiss}
             renderInstruction={(str) =>
               parseTags(str, ({ text }) =>
-                renderFallback(text, this.trackFallbackClick)
+                renderFallback(text, 'error', this.trackFallbackClick)
               )
             }
           />

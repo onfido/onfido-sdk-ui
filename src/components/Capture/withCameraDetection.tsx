@@ -3,7 +3,7 @@ import { PureComponent } from 'preact/compat'
 import { checkIfHasWebcam, isSafari131 } from '~utils'
 
 import type { WithCameraDetectionProps } from '~types/hocs'
-import type { ReduxProps } from 'components/App/withConnect'
+import type { ReduxProps } from '~types/routers'
 
 type Props = ReduxProps & WithCameraDetectionProps
 
@@ -15,7 +15,7 @@ export default function withCameraDetection<P extends Props>(
       hasCamera: null,
     }
 
-    private cameraCheckerIntervalId?: number = null
+    private cameraCheckerIntervalId?: number
 
     componentDidMount() {
       // HACK: use of isSafari131 util function is a workaround specifically for

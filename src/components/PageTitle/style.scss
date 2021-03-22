@@ -1,13 +1,14 @@
 @import '../Theme/constants';
 
 .title {
-  color: $color-title-text;
-  font-weight: 600;
+  color: var(--osdk-color-content-title);
+  font-family: var(--osdk-font-family-title);
+  font-weight: var(--osdk-font-weight-title);
   margin-bottom: 16 * $unit;
 }
 
 .titleSpan {
-  font-size: 30 * $unit;
+  font-size: var(--osdk-font-size-title);
   line-height: 1.34;
   @media (--small-viewport) {
     font-size: 24 * $unit;
@@ -19,8 +20,10 @@
 }
 
 .subTitle {
-  color: $color-subtitle-text;
-  font-weight: 600;
+  color: var(--osdk-color-content-subtitle);
+  font-size: var(--osdk-font-size-subtitle);
+  font-family: var(--osdk-font-family-subtitle);
+  font-weight: var(--osdk-font-weight-subtitle);
 }
 
 .titleWrapper {
@@ -50,7 +53,7 @@
   }
 
   .titleSpan {
-    font-size: $font-size-base;
+    font-size: var(--font-size-base);
     line-height: 1.5;
   }
 }

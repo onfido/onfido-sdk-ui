@@ -17,7 +17,7 @@ type DummyProps = {
  */
 const DummyComponent: FunctionComponent<DummyProps> = ({ step }) => {
   const [options, { findStep }] = useSdkOptions()
-  const currentStep = findStep(step)
+  const currentStep = step ? findStep(step) : undefined
 
   return (
     <span data-sdk-options={options} data-step={currentStep}>

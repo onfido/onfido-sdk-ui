@@ -7,8 +7,8 @@ import MockedLocalised from '~jest/MockedLocalised'
 import { mockedReduxProps } from '~jest/MockedReduxProvider'
 import UserConsent from '../index'
 
-import type { StepComponentBaseProps } from '~types/routers'
 import type { NarrowSdkOptions } from '~types/commons'
+import type { StepComponentBaseProps } from '~types/routers'
 
 jest.mock('dompurify')
 
@@ -30,6 +30,7 @@ const defaultOptions: NarrowSdkOptions = {
 }
 
 const defaultProps: StepComponentBaseProps = {
+  ...defaultOptions,
   ...mockedReduxProps,
   componentsList: [
     { component: UserConsent, step: { type: 'userConsent' }, stepIndex: 0 },
@@ -42,9 +43,8 @@ const defaultProps: StepComponentBaseProps = {
   triggerOnError: jest.fn(),
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
+  step: 0,
 }
-
-console.error = jest.fn()
 
 describe('UserConsent', () => {
   it('renders without crashing', () => {
@@ -95,9 +95,9 @@ describe('UserConsent', () => {
           </MockedLocalised>
         </SdkOptionsProvider>
       )
-      const secondaryBtn = wrapper.find(
-        'button[data-onfido-qa="userConsentBtnSecondary"]'
-      )
+      const secondaryBtn = wrapper.find({
+        'data-onfido-qa': 'userConsentBtnSecondary',
+      })
       expect(secondaryBtn.exists()).toBeTruthy()
       secondaryBtn.simulate('click')
       expect(wrapper.find('DeclineModal').exists()).toBeTruthy()

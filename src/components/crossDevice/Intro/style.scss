@@ -34,7 +34,7 @@
   &::before {
     content: '';
     display: block;
-    background-color: $color-body-text;
+    background-color: $color-icons-connector-line;
     width: 2 * $unit;
     height: 100%;
     position: absolute;
@@ -48,6 +48,7 @@
 }
 
 .stageIcon {
+  @extend %icon-circle-background;
   background-size: contain;
   flex-shrink: 0;
   float: left;
@@ -57,7 +58,7 @@
   z-index: 1;
 
   &-sms {
-    background-image: url('./assets/connection-large.svg');
+    background-image: url('./assets/mobile.svg');
   }
 
   &-take-photos {
@@ -69,7 +70,7 @@
   }
 
   &-return-to-computer {
-    background-image: url('./assets/return-to-computer-large.svg');
+    background-image: url('./assets/return-to-computer.svg');
   }
 }
 
@@ -82,6 +83,6 @@
   &-sms,
   &-take-photos,
   &-return-to-computer {
-    color: $color-body-text;
+    color: var(--osdk-color-content-body);
   }
 }

@@ -19,7 +19,7 @@ export type WithLocalisedProps = {
 }
 
 export type WithCameraDetectionProps = {
-  hasCamera?: boolean
+  hasCamera?: boolean | null
 }
 
 export type WithFailureHandlingProps = {
