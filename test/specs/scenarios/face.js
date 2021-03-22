@@ -379,5 +379,41 @@ export const faceScenarios = (lang) => {
       confirm.clickConfirmButton()
       verificationComplete.checkLogoIsHidden()
     })
+
+    it('should continue through full flow without problems when using customized API requests but still uploading media to API as normal', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&useCustomizedApiRequests=true&decoupleResponse=onfido`
+      )
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      selfieIntro.clickOnContinueButton()
+      camera.takeSelfie()
+      confirm.clickConfirmButton()
+    })
+
+    it('should continue through full flow without problems when using customized API requests and success response is returned from callbacks', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&useCustomizedApiRequests=true&decoupleResponse=success`
+      )
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      selfieIntro.clickOnContinueButton()
+      camera.takeSelfie()
+      confirm.clickConfirmButton()
+    })
   })
 }
