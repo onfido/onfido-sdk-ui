@@ -66,6 +66,7 @@ export type CountryData = {
 }
 
 export type UrlsConfig = {
+  auth_url?: string
   onfido_api_url?: string
   telephony_url?: string
   hosted_sdk_url?: string
