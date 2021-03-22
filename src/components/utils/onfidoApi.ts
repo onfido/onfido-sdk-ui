@@ -8,7 +8,6 @@ import type {
   ApiRawError,
   UploadFileResponse,
   DocumentImageResponse,
-  DocumentVideoResponse,
   ChallengeData,
   FaceVideoResponse,
   VideoChallengeResponse,
@@ -164,44 +163,6 @@ export const sendMultiframeSelfie = (
       )
     })
     .catch((err) => onError(err))
-}
-
-export const uploadDocumentVideo = (
-  { blob, sdkMetadata }: UploadVideoPayload,
-  url: string | undefined,
-  token: string | undefined,
-  onSuccess?: SuccessCallback<DocumentVideoResponse>,
-  onError?: ErrorCallback
-): Promise<DocumentVideoResponse> => {
-  const placeholderChallengeData = {
-    languages: JSON.stringify([
-      { source: 'sdk', language_code: 'PLACEHOLDER' },
-    ]),
-    challenge: JSON.stringify([
-      {
-        query: [-1, -1, -1],
-        type: 'recite',
-      },
-      {
-        query: 'PLACEHOLDER',
-        type: 'movement',
-      },
-    ]),
-    challenge_id: 'PLACEHOLDER',
-    challenge_switch_at: -1,
-  }
-
-  const payload: SubmitLiveVideoPayload = {
-    ...placeholderChallengeData,
-    file: blob,
-    sdk_metadata: JSON.stringify(sdkMetadata),
-  }
-
-  const endpoint = `${url}/v3/live_videos`
-
-  return new Promise((resolve, reject) =>
-    sendFile(endpoint, payload, token, onSuccess || resolve, onError || reject)
-  )
 }
 
 export const uploadFaceVideo = (

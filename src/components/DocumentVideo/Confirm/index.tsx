@@ -5,13 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 
+import { useSdkOptions } from '~contexts'
 import { useLocales } from '~locales'
-import {
-  uploadDocument,
-  uploadDocumentVideo,
-  uploadBinaryMedia,
-  createV4Document,
-} from '~utils/onfidoApi'
+import { uploadBinaryMedia, createV4Document } from '~utils/onfidoApi'
 import { actions } from 'components/ReduxAppWrapper/store/actions'
 import theme from 'components/Theme/style.scss'
 import Error from '../../Error'
@@ -19,18 +15,15 @@ import Spinner from '../../Spinner'
 import Content from './Content'
 import style from './style.scss'
 
-import type { ApiParsedError } from '~types/api'
-import type { CountryData } from '~types/commons'
 import type { CombinedActions, RootState, DocumentCapture } from '~types/redux'
 import type { ErrorProp, StepComponentDocumentProps } from '~types/routers'
 
 const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
-  documentType,
   nextStep,
   previousStep,
-  token,
   triggerOnError,
 }) => {
+  const { token } = useSdkOptions()
   const [loading, setLoading] = useState(false)
   const [previewing, setPreviewing] = useState(false)
   const [error, setError] = useState<ErrorProp | undefined>(undefined)
@@ -49,122 +42,8 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   const documentVideo = useSelector<RootState, DocumentCapture | undefined>(
     (state) => state.captures.document_video
   )
-  const issuingCountry = useSelector<RootState, CountryData | undefined>(
-    (state) => state.globals.idDocumentIssuingCountry
-  )
 
-  const onUploadDocumentsV3 = useCallback(async () => {
-    if (!documentFront) {
-      console.error('Front document not captured')
-      return null
-    }
-
-    if (!documentVideo) {
-      console.error('Document video not captured')
-      return null
-    }
-
-    setLoading(true)
-
-    const issuingCountryData =
-      documentType === 'passport'
-        ? {}
-        : {
-            issuing_country: issuingCountry?.country_alpha3,
-          }
-
-    try {
-      const frontUploadResponse = await uploadDocument(
-        {
-          file: documentFront.blob,
-          sdkMetadata: documentFront.sdkMetadata,
-          side: 'front',
-          type: documentType,
-          validations: { detect_document: 'error' },
-          ...issuingCountryData,
-        },
-        apiUrl,
-        token
-      )
-
-      dispatch(
-        actions.setCaptureMetadata({
-          capture: documentFront,
-          apiResponse: frontUploadResponse,
-        })
-      )
-
-      if (documentBack) {
-        const backUploadResponse = await uploadDocument(
-          {
-            file: documentBack.blob,
-            sdkMetadata: documentBack.sdkMetadata,
-            side: 'back',
-            type: documentType,
-            validations: { detect_document: 'error' },
-            ...issuingCountryData,
-          },
-          apiUrl,
-          token
-        )
-
-        dispatch(
-          actions.setCaptureMetadata({
-            capture: documentBack,
-            apiResponse: backUploadResponse,
-          })
-        )
-      }
-
-      const videoUploadResponse = await uploadDocumentVideo(
-        {
-          blob: documentVideo.blob,
-          sdkMetadata: documentVideo.sdkMetadata,
-          ...issuingCountryData,
-        },
-        apiUrl,
-        token
-      )
-
-      dispatch(
-        actions.setCaptureMetadata({
-          capture: documentVideo,
-          apiResponse: videoUploadResponse,
-        })
-      )
-
-      nextStep()
-    } catch (errorResponse) {
-      setLoading(false)
-      triggerOnError(errorResponse)
-
-      const {
-        response: { error },
-      } = errorResponse as ApiParsedError
-
-      if (
-        error?.type === 'validation_error' &&
-        error?.fields.document_detection != null
-      ) {
-        setError({ name: 'INVALID_CAPTURE', type: 'error' })
-      } else {
-        setError({ name: 'REQUEST_ERROR', type: 'error' })
-      }
-    }
-  }, [
-    documentType,
-    nextStep,
-    token,
-    dispatch,
-    apiUrl,
-    documentFront,
-    documentBack,
-    documentVideo,
-    issuingCountry,
-    triggerOnError,
-  ])
-
-  const onUploadDocumentsV4 = useCallback(async () => {
+  const onUploadDocuments = useCallback(async () => {
     if (!documentFront) {
       console.error('Front document not captured')
       return
@@ -263,11 +142,6 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     documentVideo,
     triggerOnError,
   ])
-
-  const onUploadDocuments =
-    process.env.USE_V4_APIS_FOR_DOC_VIDEO === 'true'
-      ? onUploadDocumentsV4
-      : onUploadDocumentsV3
 
   const onSecondaryClick = useCallback(() => {
     if (error || previewing) {

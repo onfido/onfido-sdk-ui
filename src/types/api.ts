@@ -133,12 +133,6 @@ export type DocumentImageResponse = {
   sdk_warnings: ImageQualityWarnings
 } & UploadFileResponse
 
-export type DocumentVideoResponse = {
-  applicant_id: string
-  type: DocumentTypes | PoaTypes
-  issuing_country: string | null | undefined
-} & UploadFileResponse
-
 const CHALLENGE_RECITE = 'recite'
 const CHALLENGE_MOVEMENT = 'movement'
 
