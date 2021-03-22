@@ -40,13 +40,17 @@ const PaperIdFlowSelector: FunctionComponent<Props> = ({
       <div className={style.footer}>
         <span className={style.title}>{translate(titleKey)}</span>
         <button className={style.cardId} onClick={() => onSelectFlow('cardId')}>
-          {translate('doc_video_capture.paper_id_flow_selector.button_card')}
+          <span className={style.text}>
+            {translate('doc_video_capture.paper_id_flow_selector.button_card')}
+          </span>
         </button>
         <button
           className={style.paperId}
           onClick={() => onSelectFlow('paperId')}
         >
-          {translate('doc_video_capture.paper_id_flow_selector.button_paper')}
+          <span className={style.text}>
+            {translate('doc_video_capture.paper_id_flow_selector.button_paper')}
+          </span>
         </button>
       </div>
     </div>
