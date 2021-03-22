@@ -21,8 +21,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the Onfido logo.
 - Internal: Use Node 14 LTS for Travis to be consistent with `.nvmrc` and `Dockerfile`.
 
-### Changed
-
 ### Fixed
 
 - UI: Fix Camera Permission icon not displaying on iOS devices on Selfie/Liveness capture flow
