@@ -219,7 +219,7 @@ export const requestChallenges = (
 
 /* v4 APIs */
 export const uploadBinaryMedia = (
-  { file, filename }: UploadDocumentPayload,
+  { file, filename, sdkMetadata }: UploadDocumentPayload,
   url: string | undefined,
   token: string | undefined,
   includeHmacAuth = false
@@ -229,6 +229,7 @@ export const uploadBinaryMedia = (
       const tokenData = parseJwt(token)
       const formData = new FormData()
       formData.append('media', file, filename)
+      formData.append('sdk_metadata', JSON.stringify(sdkMetadata))
 
       if (!includeHmacAuth) {
         const requestParams: HttpRequestParams = {

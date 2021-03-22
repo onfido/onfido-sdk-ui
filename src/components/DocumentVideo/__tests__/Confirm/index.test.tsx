@@ -232,7 +232,7 @@ describe('DocumentVideo', () => {
               overrideCaptures={captures}
               overrideGlobals={{
                 urls: {
-                  onfido_api_url: fakeUrl,
+                  auth_url: fakeUrl,
                 },
               }}
               storeRef={(store) => (mockedStore = store)}
@@ -272,7 +272,7 @@ describe('DocumentVideo', () => {
             }}
             overrideGlobals={{
               urls: {
-                onfido_api_url: fakeUrl,
+                auth_url: fakeUrl,
               },
             }}
             storeRef={(store) => (mockedStore = store)}
@@ -402,7 +402,7 @@ describe('DocumentVideo', () => {
                 country_alpha3: 'USA',
               },
               urls: {
-                onfido_api_url: fakeUrl,
+                auth_url: fakeUrl,
               },
             }}
             storeRef={(store) => (mockedStore = store)}

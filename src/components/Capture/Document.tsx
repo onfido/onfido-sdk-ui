@@ -98,24 +98,24 @@ class Document extends Component<Props> {
     }
 
     actions.createCapture({
-      ...baseData,
       ...front,
+      ...baseData,
       id: randomId(),
       side: 'front',
     })
 
     if (back) {
       actions.createCapture({
-        ...baseData,
         ...back,
+        ...baseData,
         id: randomId(),
         side: 'back',
       })
     }
 
     actions.createCapture({
-      ...baseData,
       ...video,
+      ...baseData,
       id: randomId(),
       variant: 'video',
     })
