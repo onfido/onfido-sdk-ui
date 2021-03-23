@@ -53,20 +53,16 @@ describe('DocumentVideo', () => {
 
         const footer = wrapper.find('.footer')
         expect(footer.find('.title').text()).toEqual(
-          'doc_video_capture.paper_id_flow_selector.title_license'
+          'doc_capture.prompt.title_license'
         )
 
         const cardButton = footer.find('button.cardId')
-        expect(cardButton.text()).toEqual(
-          'doc_video_capture.paper_id_flow_selector.button_card'
-        )
+        expect(cardButton.text()).toEqual('doc_capture.prompt.button_card')
         cardButton.simulate('click')
         expect(defaultProps.onSelectFlow).toHaveBeenCalledWith('cardId')
 
         const paperButton = footer.find('button.paperId')
-        expect(paperButton.text()).toEqual(
-          'doc_video_capture.paper_id_flow_selector.button_paper'
-        )
+        expect(paperButton.text()).toEqual('doc_capture.prompt.button_paper')
         paperButton.simulate('click')
         expect(defaultProps.onSelectFlow).toHaveBeenCalledWith('paperId')
       })
@@ -85,7 +81,7 @@ describe('DocumentVideo', () => {
           )
 
           expect(wrapper.find('.footer .title').text()).toEqual(
-            'doc_video_capture.paper_id_flow_selector.title_id'
+            'doc_capture.prompt.title_id'
           )
         })
       })

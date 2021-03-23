@@ -45,7 +45,7 @@ const assertInactiveError = (
 
   if (method === 'document') {
     expect(wrapper.find('FallbackButton').text()).toEqual(
-      'doc_video_capture.alert.timeout.detail'
+      'doc_video_capture.prompt.detail_timeout'
     )
   } else {
     expect(wrapper.find('FallbackButton').text()).toEqual(
