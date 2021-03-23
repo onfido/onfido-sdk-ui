@@ -23,7 +23,7 @@ const Content: FunctionComponent<Props> = ({ capture, previewing }) => {
     return (
       <div className={style.preview}>
         <span className={style.title}>
-          {translate('doc_video_confirmation.preview_title')}
+          {translate('doc_video_confirmation.title')}
         </span>
         <CaptureViewer
           capture={capture}
@@ -37,12 +37,8 @@ const Content: FunctionComponent<Props> = ({ capture, previewing }) => {
   return (
     <div className={style.content}>
       <span className={style.icon} />
-      <span className={style.title}>
-        {translate('doc_video_confirmation.title')}
-      </span>
-      <span className={style.body}>
-        {translate('doc_video_confirmation.body')}
-      </span>
+      <span className={style.title}>{translate('outro.title')}</span>
+      <span className={style.body}>{translate('video_confirmation.body')}</span>
     </div>
   )
 }

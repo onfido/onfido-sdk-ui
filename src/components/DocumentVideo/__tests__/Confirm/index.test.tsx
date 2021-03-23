@@ -125,7 +125,7 @@ const assertContent = (
 
     expect(wrapper.find('.preview').exists()).toBeTruthy()
     expect(wrapper.find('.preview > .title').text()).toEqual(
-      'doc_video_confirmation.preview_title'
+      'doc_video_confirmation.title'
     )
     expect(wrapper.find('.preview > CaptureViewer').exists()).toBeTruthy()
     return
@@ -134,11 +134,9 @@ const assertContent = (
   // Default
   expect(wrapper.find('.content').exists()).toBeTruthy()
   expect(wrapper.find('.content > .icon').exists()).toBeTruthy()
-  expect(wrapper.find('.content > .title').text()).toEqual(
-    'doc_video_confirmation.title'
-  )
+  expect(wrapper.find('.content > .title').text()).toEqual('outro.title')
   expect(wrapper.find('.content > .body').text()).toEqual(
-    'doc_video_confirmation.body'
+    'video_confirmation.body'
   )
   expect(wrapper.find('.preview').exists()).toBeFalsy()
 }

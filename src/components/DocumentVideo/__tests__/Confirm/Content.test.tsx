@@ -41,11 +41,9 @@ describe('DocumentVideo', () => {
             </MockedLocalised>
           )
 
-          expect(wrapper.find('.title').text()).toEqual(
-            'doc_video_confirmation.title'
-          )
+          expect(wrapper.find('.title').text()).toEqual('outro.title')
           expect(wrapper.find('.body').text()).toEqual(
-            'doc_video_confirmation.body'
+            'video_confirmation.body'
           )
         })
 
@@ -59,7 +57,7 @@ describe('DocumentVideo', () => {
           )
 
           expect(wrapper.find('.title').text()).toEqual(
-            'doc_video_confirmation.preview_title'
+            'doc_video_confirmation.title'
           )
           expect(wrapper.find('.body').exists()).toBeFalsy()
 
