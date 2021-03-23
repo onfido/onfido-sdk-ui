@@ -1,5 +1,4 @@
 import { h, FunctionComponent } from 'preact'
-import { useCallback } from 'preact/compat'
 import classNames from 'classnames'
 import { Button } from '@onfido/castor-react'
 
@@ -13,25 +12,18 @@ import { DefaultContent, DocVideoContent } from './Content'
 import style from './style.scss'
 
 import type { StepComponentBaseProps } from '~types/routers'
-import type { StepConfigWelcome, StepConfigDocument } from '~types/steps'
 
 type WelcomeActionsProps = {
-  forDocVideo?: boolean
   nextButton?: string
   nextStep: () => void
 }
 
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
-  forDocVideo,
   nextButton,
   nextStep,
 }) => {
   const { translate } = useLocales()
-
-  const defaultButton = forDocVideo
-    ? translate('doc_video_capture.welcome.next_button')
-    : translate('welcome.next_button')
-  const welcomeNextButton = nextButton || defaultButton
+  const welcomeNextButton = nextButton || translate('welcome.next_button')
 
   return (
     <Button
@@ -55,21 +47,12 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
   const documentStep = findStep('document')
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
-  const actions = <WelcomeActions {...{ forDocVideo, nextButton, nextStep }} />
-
-  const getTitle = useCallback(() => {
-    if (title) {
-      return title
-    }
-
-    return forDocVideo
-      ? translate('doc_video_capture.welcome.title')
-      : translate('welcome.title')
-  }, [title, forDocVideo, translate])
+  const actions = <WelcomeActions {...{ nextButton, nextStep }} />
+  const welcomeTitle = title || translate('welcome.title')
 
   return (
     <ScreenLayout actions={actions} className={style.container}>
-      <PageTitle title={getTitle()} />
+      <PageTitle title={welcomeTitle} />
       {forDocVideo ? (
         <DocVideoContent />
       ) : (

@@ -5,12 +5,31 @@ import { buildIteratorKey } from '~utils'
 import { useLocales } from '~locales'
 import style from './style.scss'
 
-import type { TranslateCallback } from '~types/locales'
+type InstructionsProps = {
+  className?: string
+}
 
-const localisedDescriptions = (translate: TranslateCallback) => [
-  translate('welcome.description_p_1'),
-  translate('welcome.description_p_2'),
-]
+const Instructions: FunctionComponent<InstructionsProps> = ({ className }) => {
+  const { translate } = useLocales()
+
+  const instructionItemKeys = [
+    'welcome.list_item_doc',
+    'welcome.list_item_selfie',
+  ]
+
+  return (
+    <div className={classNames(style.instructions, className)}>
+      <span className={style.caption}>
+        {translate('welcome.list_header_doc_video')}
+      </span>
+      <ol>
+        {instructionItemKeys.map((itemKey) => (
+          <li key={itemKey}>{translate(itemKey)}</li>
+        ))}
+      </ol>
+    </div>
+  )
+}
 
 type DefaultContentProps = {
   descriptions?: string[]
@@ -19,16 +38,18 @@ type DefaultContentProps = {
 export const DefaultContent: FunctionComponent<DefaultContentProps> = ({
   descriptions,
 }) => {
-  const { translate } = useLocales()
-
-  const welcomeDescriptions = descriptions
-    ? descriptions
-    : localisedDescriptions(translate)
+  if (!descriptions) {
+    return (
+      <div className={style.content}>
+        <Instructions className={style.marginTop} />
+      </div>
+    )
+  }
 
   return (
     <div className={style.content}>
-      <div className={style.text}>
-        {welcomeDescriptions.map((description) => (
+      <div className={style.customDescriptions}>
+        {descriptions.map((description) => (
           <p key={`description_${buildIteratorKey(description)}`}>
             {description}
           </p>
@@ -40,30 +61,17 @@ export const DefaultContent: FunctionComponent<DefaultContentProps> = ({
 
 export const DocVideoContent: FunctionComponent = () => {
   const { translate } = useLocales()
-  const instructionItemKeys = [
-    'doc_video_capture.welcome.instruction_item_1',
-    'doc_video_capture.welcome.instruction_item_2',
-  ]
 
   return (
-    <div className={classNames(style.content, style.left)}>
+    <div className={style.content}>
       <span className={style.subtitle}>
-        {translate('doc_video_capture.welcome.subtitle')}
+        {translate('welcome.doc_video_subtitle')}
       </span>
-      <div className={style.text}>
-        <span className={style.caption}>
-          {translate('doc_video_capture.welcome.caption')}
-        </span>
-        <ol className={style.instructions}>
-          {instructionItemKeys.map((itemKey) => (
-            <li key={itemKey}>{translate(itemKey)}</li>
-          ))}
-        </ol>
-      </div>
+      <Instructions />
       <div className={style.recordingLimit}>
         <span className={style.timer} />
         <span className={style.text}>
-          {translate('doc_video_capture.welcome.limit')}
+          {translate('welcome.list_item_doc_video_timeout')}
         </span>
       </div>
     </div>

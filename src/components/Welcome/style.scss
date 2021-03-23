@@ -25,21 +25,34 @@
   }
 }
 
-.instructions {
-  list-style-position: inside;
-  padding: 0;
+.customDescriptions {
+  align-self: center;
+}
 
-  > li {
+.instructions {
+  &.marginTop {
+    margin-top: 32 * $unit;
+  }
+
+  > ol {
+    list-style-position: inside;
+    padding: 0;
+  }
+
+  > ol li {
     margin-bottom: 16 * $unit;
   }
 
-  > li::marker {
+  > ol li::marker {
     color: var(--osdk-color-background-alert-info);
   }
 
   @media (--small-viewport) {
-    padding-left: 32 * $unit;
     text-align: left;
+
+    > ol {
+      padding-left: 32 * $unit;
+    }
   }
 }
 

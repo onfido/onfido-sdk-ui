@@ -1,8 +1,17 @@
 import { h } from 'preact'
-import { mount } from 'enzyme'
+import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import { DefaultContent, DocVideoContent } from '../Content'
+
+const assertDefaultContent = (wrapper: ReactWrapper) => {
+  expect(wrapper.find('.caption').text()).toEqual(
+    'welcome.list_header_doc_video'
+  )
+  const items = wrapper.find('.instructions > ol li')
+  expect(items.at(0).text()).toEqual('welcome.list_item_doc')
+  expect(items.at(1).text()).toEqual('welcome.list_item_selfie')
+}
 
 describe('Welcome', () => {
   describe('DefaultContent', () => {
@@ -14,10 +23,7 @@ describe('Welcome', () => {
       )
 
       expect(wrapper.exists()).toBeTruthy()
-
-      const descriptions = wrapper.find('.text p')
-      expect(descriptions.at(0).text()).toMatch('welcome.description_p_1')
-      expect(descriptions.at(1).text()).toMatch('welcome.description_p_2')
+      assertDefaultContent(wrapper)
     })
 
     it('renders correct elements with custom descriptions', () => {
@@ -35,7 +41,7 @@ describe('Welcome', () => {
 
       expect(wrapper.exists()).toBeTruthy()
 
-      const descriptions = wrapper.find('.text p')
+      const descriptions = wrapper.find('.content p')
       expect(descriptions.at(0).text()).toMatch('Fake description 1')
       expect(descriptions.at(1).text()).toMatch('Fake description 2')
       expect(descriptions.at(2).text()).toMatch('Fake description 3')
@@ -53,20 +59,11 @@ describe('Welcome', () => {
       expect(wrapper.exists()).toBeTruthy()
 
       expect(wrapper.find('.subtitle').text()).toEqual(
-        'doc_video_capture.welcome.subtitle'
+        'welcome.doc_video_subtitle'
       )
-      expect(wrapper.find('.caption').text()).toEqual(
-        'doc_video_capture.welcome.caption'
-      )
-      const items = wrapper.find('.instructions > li')
-      expect(items.at(0).text()).toEqual(
-        'doc_video_capture.welcome.instruction_item_1'
-      )
-      expect(items.at(1).text()).toEqual(
-        'doc_video_capture.welcome.instruction_item_2'
-      )
+      assertDefaultContent(wrapper)
       expect(wrapper.find('.recordingLimit').text()).toEqual(
-        'doc_video_capture.welcome.limit'
+        'welcome.list_item_doc_video_timeout'
       )
     })
   })
