@@ -415,14 +415,6 @@
         "hold_still": "Hold still",
         "progress": "STEP <step></step> OF <total></total>"
     },
-    "doc_video_confirmation_legacy": {
-        "title": "Thank you",
-        "body": "Your video has been recorded",
-        "preview_title": "Check your video",
-        "button_upload": "Upload video",
-        "button_preview": "Preview video",
-        "button_redo": "Retake video"
-    },
     "user_consent": {
         "button_primary": "Accept",
         "button_secondary": "Do not accept",
