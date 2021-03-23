@@ -17,8 +17,8 @@ export type Props = {
 }
 
 const TITLE_KEY_BY_DOCUMENT_TYPE: Partial<Record<DocumentTypes, string>> = {
-  driving_licence: 'doc_video_capture.paper_id_flow_selector.title_license',
-  national_identity_card: 'doc_video_capture.paper_id_flow_selector.title_id',
+  driving_licence: 'doc_capture.prompt.title_license',
+  national_identity_card: 'doc_capture.prompt.title_id',
 }
 
 const PaperIdFlowSelector: FunctionComponent<Props> = ({
@@ -42,7 +42,7 @@ const PaperIdFlowSelector: FunctionComponent<Props> = ({
         <button className={style.cardId} onClick={() => onSelectFlow('cardId')}>
           <span className={style.icon} />
           <span className={style.text}>
-            {translate('doc_video_capture.paper_id_flow_selector.button_card')}
+            {translate('doc_capture.prompt.button_card')}
           </span>
           <span className={style.chevron} />
         </button>
@@ -52,7 +52,7 @@ const PaperIdFlowSelector: FunctionComponent<Props> = ({
         >
           <span className={style.icon} />
           <span className={style.text}>
-            {translate('doc_video_capture.paper_id_flow_selector.button_paper')}
+            {translate('doc_capture.prompt.button_paper')}
           </span>
           <span className={style.chevron} />
         </button>

@@ -46,6 +46,18 @@
         "subtitle": "You can now return to your computer to continue",
         "title": "Uploads successful"
     },
+    "doc_capture": {
+        "detail": {
+            "folded_doc_front": "Lay your document flat, include all inner pages (must contain your photo)"
+        },
+        "header_folded_doc_front": "Profile photo side",
+        "prompt": {
+            "button_card": "Plastic card",
+            "button_paper": "Paper document",
+            "title_id": "What type of identity card do you have?",
+            "title_license": "What type of license do you have?"
+        }
+    },
     "doc_confirmation": {
         "alert": {
             "blur_detail": "Make sure everything is clear",
@@ -118,7 +130,7 @@
         "title_permit_front": "Submit residence permit (front)",
         "title_tax_letter": "Submit letter"
     },
-    "doc_video_capture_new": {
+    "doc_video_capture": {
         "button_primary_fallback": "Next step",
         "button_primary_fallback_end": "Finish recording",
         "detail_step2": "Keep the document in full view at all times",
@@ -129,9 +141,36 @@
         "header_step1": "Now, keep still",
         "header_step2": "Slowly turn your document around to show the back",
         "prompt": {
-            "detail_timeout": "Video recording is limited to 30 seconds"
+            "detail_timeout": "Video recording is limited to 30 seconds. <fallback>Redo video actions<\/fallback>"
         },
         "stepper": "Step <step><\/step> of <total><\/total>"
+    },
+    "doc_video_capture_legacy": {
+        "alert": {
+            "timeout": {
+                "detail": "Video recording is limited to 30 seconds. <fallback>Redo video actions<\/fallback>",
+                "title": "Looks like you took too long"
+            }
+        },
+        "paper_id_flow_selector": {
+            "title_id": "What type of identity card do you have?",
+            "title_license": "What type of license do you have?",
+            "button_card": "Plastic card",
+            "button_paper": "Paper document"
+        },
+        "welcome": {
+            "title": "Verify your identity",
+            "subtitle": "It should take a few minutes",
+            "caption": "Use your device to record:",
+            "instruction_item_1": "your identity document",
+            "instruction_item_2": "your face",
+            "limit": "Recording is limited to 30 seconds",
+            "next_button": "Choose document"
+        },
+        "button_record": "Start recording",
+        "button_start": "Start",
+        "hold_still": "Hold still",
+        "progress": "STEP <step></step> OF <total></total>"
     },
     "doc_video_confirmation": {
         "button_secondary": "Preview video",
@@ -367,54 +406,6 @@
         "subtitle": "Scans and photocopies are not accepted",
         "title": "Upload passport photo page"
     },
-    "doc_video_capture": {
-        "alert": {
-            "timeout": {
-                "detail": "Video recording is limited to 30 seconds. <fallback>Redo video actions<\/fallback>",
-                "title": "Looks like you took too long"
-            }
-        },
-        "instructions": {
-            "passport": {
-                "intro_title": "While holding your passport, keep the photo page within the frame",
-                "step_1_title": "Keep your passport photo page in the frame"
-            },
-            "card_id": {
-                "intro_title": "While holding your document, keep its front side within the frame",
-                "step_1_title": "Now, keep still",
-                "step_2_title": "Slowly turn your document around to show the back",
-                "step_2_subtitle": "Keep the document in full view at all times"
-            },
-            "paper_id": {
-                "intro_title": "Profile photo side",
-                "intro_subtitle": "Lay your document flat, include all inner pages (must contain your photo)",
-                "step_1_title": "Now, keep still",
-                "step_2_title": "Turn your document around to show the outer pages",
-                "step_2_subtitle": "Keep the document in full view at all times"
-            }
-        },
-        "paper_id_flow_selector": {
-            "title_id": "What type of identity card do you have?",
-            "title_license": "What type of license do you have?",
-            "button_card": "Plastic card",
-            "button_paper": "Paper document"
-        },
-        "welcome": {
-            "title": "Verify your identity",
-            "subtitle": "It should take a few minutes",
-            "caption": "Use your device to record:",
-            "instruction_item_1": "your identity document",
-            "instruction_item_2": "your face",
-            "limit": "Recording is limited to 30 seconds",
-            "next_button": "Choose document"
-        },
-        "button_next": "Next step",
-        "button_record": "Start recording",
-        "button_start": "Start",
-        "button_stop": "Finish recording",
-        "hold_still": "Hold still",
-        "progress": "STEP <step></step> OF <total></total>"
-    },
     "user_consent": {
         "button_primary": "Accept",
         "button_secondary": "Do not accept",
@@ -431,6 +422,7 @@
         "body_record": "Press record and follow the instructions",
         "body_stop": "When you're done, press stop",
         "button_primary_next": "Next",
+        "button_primary_start": "Start recording",
         "button_record_accessibility": "Start recording",
         "button_stop_accessibility": "Stop recording",
         "frame_accessibility": "View from camera",
@@ -439,6 +431,9 @@
             "challenge_turn_left": "left",
             "challenge_turn_right": "right",
             "challenge_turn_template": "Look over your %{side} shoulder"
+        },
+        "prompt": {
+            "header_timeout": "Looks like you took too long"
         },
         "status": "Recording"
     },

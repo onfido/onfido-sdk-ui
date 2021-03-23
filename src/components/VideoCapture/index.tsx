@@ -18,6 +18,10 @@ import type {
   RenderFallbackProp,
 } from '~types/routers'
 
+const INACTIVE_TIMEOUT = 12
+const FACE_VIDEO_TIMEOUT = 20
+const DOC_VIDEO_TIMEOUT = 5
+
 type OverlayProps = {
   hasCameraError: boolean
   isRecording: boolean
@@ -163,11 +167,12 @@ export default class VideoCapture extends Component<Props, State> {
       return null
     }
 
-    const recordingTimeout = method === 'document' ? 30 : 20
+    const recordingTimeout =
+      method === 'document' ? DOC_VIDEO_TIMEOUT : FACE_VIDEO_TIMEOUT
 
     const passedProps = {
       key: isRecording ? 'recording' : 'notRecording',
-      seconds: isRecording ? recordingTimeout : 12,
+      seconds: isRecording ? recordingTimeout : INACTIVE_TIMEOUT,
       onTimeout: isRecording
         ? this.handleRecordingTimeout
         : this.handleInactivityTimeout,

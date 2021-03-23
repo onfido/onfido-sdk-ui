@@ -19,7 +19,7 @@ const StepProgress: FunctionComponent<Props> = ({
     return null
   }
 
-  const step = parseTranslatedTags('doc_video_capture.progress', ({ type }) => {
+  const step = parseTranslatedTags('doc_video_capture.stepper', ({ type }) => {
     switch (type) {
       case 'step':
         return String(stepNumber)

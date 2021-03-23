@@ -134,7 +134,7 @@ const assertFirstStep = (
   forSingleSidedDocs: boolean
 ) => {
   waitForTimeout(wrapper, 'button')
-  assertRecordingButton(wrapper, 'doc_video_capture.button_next')
+  assertRecordingButton(wrapper, 'doc_video_capture.button_primary_fallback')
 
   const instructions = wrapper.find('VideoLayer Instructions')
   expect(instructions.exists()).toBeTruthy()
@@ -155,7 +155,10 @@ const assertSecondStep = (
   forSingleSidedDocs: boolean
 ) => {
   waitForTimeout(wrapper, 'button')
-  assertRecordingButton(wrapper, 'doc_video_capture.button_stop')
+  assertRecordingButton(
+    wrapper,
+    'doc_video_capture.button_primary_fallback_end'
+  )
 
   const instructions = wrapper.find('VideoLayer Instructions')
   expect(instructions.exists()).toBeTruthy()

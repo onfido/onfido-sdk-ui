@@ -198,44 +198,47 @@ export const DOC_VIDEO_INSTRUCTIONS_MAPPING: Record<
 > = {
   passport: {
     intro: {
-      title: 'doc_video_capture.instructions.passport.intro_title',
-      button: 'doc_video_capture.button_record',
+      title: 'doc_video_capture.header_passport',
+      button: 'video_capture.button_primary_start',
     },
     front: {
-      title: 'doc_video_capture.instructions.passport.step_1_title',
-      button: 'doc_video_capture.button_next',
+      title: 'doc_video_capture.header_step1',
+      button: 'doc_video_capture.button_primary_fallback',
     },
-    back: { title: '', button: '' },
+    back: {
+      title: '',
+      button: '',
+    },
   },
   cardId: {
     intro: {
-      title: 'doc_video_capture.instructions.card_id.intro_title',
-      button: 'doc_video_capture.button_record',
+      title: 'doc_video_capture.header',
+      button: 'video_capture.button_primary_start',
     },
     front: {
-      title: 'doc_video_capture.instructions.card_id.step_1_title',
-      button: 'doc_video_capture.button_next',
+      title: 'doc_video_capture.header_step1',
+      button: 'doc_video_capture.button_primary_fallback',
     },
     back: {
-      title: 'doc_video_capture.instructions.card_id.step_2_title',
-      subtitle: 'doc_video_capture.instructions.card_id.step_2_subtitle',
-      button: 'doc_video_capture.button_stop',
+      title: 'doc_video_capture.header_step2',
+      subtitle: 'doc_video_capture.detail_step2',
+      button: 'doc_video_capture.button_primary_fallback_end',
     },
   },
   paperId: {
     intro: {
-      title: 'doc_video_capture.instructions.paper_id.intro_title',
-      subtitle: 'doc_video_capture.instructions.paper_id.intro_subtitle',
-      button: 'doc_video_capture.button_record',
+      title: 'doc_capture.header_folded_doc_front',
+      subtitle: 'doc_capture.detail.folded_doc_front',
+      button: 'video_capture.button_primary_start',
     },
     front: {
-      title: 'doc_video_capture.instructions.paper_id.step_1_title',
-      button: 'doc_video_capture.button_next',
+      title: 'doc_video_capture.header_step1',
+      button: 'doc_video_capture.button_primary_fallback',
     },
     back: {
-      title: 'doc_video_capture.instructions.paper_id.step_2_title',
-      subtitle: 'doc_video_capture.instructions.paper_id.step_2_subtitle',
-      button: 'doc_video_capture.button_stop',
+      title: 'doc_video_capture.header_paper_doc_step2',
+      subtitle: 'doc_video_capture.detail_step2',
+      button: 'doc_video_capture.button_primary_fallback_end',
     },
   },
 }

@@ -132,7 +132,7 @@ const VideoLayer: FunctionComponent<Props> = ({
       return (
         <div className={style.holdStill}>
           <span className={style.text}>
-            {translate('doc_video_capture.hold_still')}
+            {translate('doc_video_capture.header_passport_progress')}
           </span>
           <span className={style.loading}>
             <span className={style.active} />
