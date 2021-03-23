@@ -20,7 +20,7 @@ import type {
 
 const INACTIVE_TIMEOUT = 12
 const FACE_VIDEO_TIMEOUT = 20
-const DOC_VIDEO_TIMEOUT = 5
+const DOC_VIDEO_TIMEOUT = 30
 
 type OverlayProps = {
   hasCameraError: boolean

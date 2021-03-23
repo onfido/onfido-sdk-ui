@@ -5,7 +5,7 @@ import MockedLocalised, { mockedTranslate } from '~jest/MockedLocalised'
 import StepProgress from '../StepProgress'
 
 mockedTranslate.mockImplementation((str) => {
-  if (str === 'doc_video_capture.progress') {
+  if (str === 'doc_video_capture.stepper') {
     return '<hidden>Invisible</hidden>step: <step></step> - total: <total></total>'
   }
 

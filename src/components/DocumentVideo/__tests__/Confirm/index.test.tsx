@@ -150,7 +150,7 @@ const assertContent = (
   // Default
   expect(wrapper.find('.content').exists()).toBeTruthy()
   expect(wrapper.find('.content > .icon').exists()).toBeTruthy()
-  expect(wrapper.find('.content > .title').text()).toEqual('outro.title')
+  expect(wrapper.find('.content > .title').text()).toEqual('outro.body')
   expect(wrapper.find('.content > .body').text()).toEqual(
     'video_confirmation.body'
   )

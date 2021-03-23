@@ -113,47 +113,35 @@ const assertIntroStep = (
   trackScreen('fake_screen_tracking')
   expect(defaultProps.trackScreen).toHaveBeenCalledWith('fake_screen_tracking')
 
-  assertRecordingButton(wrapper, 'doc_video_capture.button_record')
+  assertRecordingButton(wrapper, 'video_capture.button_primary_start')
 
   const instructions = wrapper.find('VideoLayer Instructions')
   expect(instructions.exists()).toBeTruthy()
 
   if (forSingleSidedDocs) {
     expect(instructions.props()).toMatchObject({
-      title: 'doc_video_capture.instructions.passport.intro_title',
+      title: 'doc_video_capture.header_passport',
     })
   } else {
     expect(instructions.props()).toMatchObject({
-      title: 'doc_video_capture.instructions.card_id.intro_title',
+      title: 'doc_video_capture.header',
     })
   }
 }
 
-const assertFirstStep = (
-  wrapper: ReactWrapper,
-  forSingleSidedDocs: boolean
-) => {
+const assertFirstStep = (wrapper: ReactWrapper) => {
   waitForTimeout(wrapper, 'button')
   assertRecordingButton(wrapper, 'doc_video_capture.button_primary_fallback')
 
   const instructions = wrapper.find('VideoLayer Instructions')
   expect(instructions.exists()).toBeTruthy()
 
-  if (forSingleSidedDocs) {
-    expect(instructions.props()).toMatchObject({
-      title: 'doc_video_capture.instructions.passport.step_1_title',
-    })
-  } else {
-    expect(instructions.props()).toMatchObject({
-      title: 'doc_video_capture.instructions.card_id.step_1_title',
-    })
-  }
+  expect(instructions.props()).toMatchObject({
+    title: 'doc_video_capture.header_step1',
+  })
 }
 
-const assertSecondStep = (
-  wrapper: ReactWrapper,
-  forSingleSidedDocs: boolean
-) => {
+const assertSecondStep = (wrapper: ReactWrapper) => {
   waitForTimeout(wrapper, 'button')
   assertRecordingButton(
     wrapper,
@@ -163,16 +151,10 @@ const assertSecondStep = (
   const instructions = wrapper.find('VideoLayer Instructions')
   expect(instructions.exists()).toBeTruthy()
 
-  if (forSingleSidedDocs) {
-    expect(instructions.props()).toMatchObject({
-      title: 'doc_video_capture.instructions.passport.step_2_title',
-    })
-  } else {
-    expect(instructions.props()).toMatchObject({
-      title: 'doc_video_capture.instructions.card_id.step_2_title',
-      subtitle: 'doc_video_capture.instructions.card_id.step_2_subtitle',
-    })
-  }
+  expect(instructions.props()).toMatchObject({
+    title: 'doc_video_capture.header_step2',
+    subtitle: 'doc_video_capture.detail_step2',
+  })
 }
 
 describe('DocumentVideo', () => {
@@ -225,20 +207,20 @@ describe('DocumentVideo', () => {
           onClick && onClick()
           wrapper.setProps({})
 
-          assertRecordingButton(wrapper, 'doc_video_capture.button_record')
+          assertRecordingButton(wrapper, 'video_capture.button_primary_start')
         })
       })
 
       it('starts recording correctly', () => {
         assertOverlay(wrapper, 'driving_licence', false)
-        assertFirstStep(wrapper, false)
+        assertFirstStep(wrapper)
       })
 
       it('moves to the second step correctly', () => {
         waitForTimeout(wrapper, 'button')
         simulateButtonClick(wrapper)
         waitForTimeout(wrapper, 'success', true)
-        assertSecondStep(wrapper, false)
+        assertSecondStep(wrapper)
       })
 
       it('ends the flow with back side captured', () => {
@@ -287,7 +269,7 @@ describe('DocumentVideo', () => {
 
       it('starts recording correctly', () => {
         assertOverlay(wrapper, 'passport', false)
-        assertFirstStep(wrapper, true)
+        assertFirstStep(wrapper)
       })
 
       it('ends the flow without capturing back side', () => {

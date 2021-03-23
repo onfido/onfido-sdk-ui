@@ -19,18 +19,21 @@ const StepProgress: FunctionComponent<Props> = ({
     return null
   }
 
-  const step = parseTranslatedTags('doc_video_capture.stepper', ({ type }) => {
-    switch (type) {
-      case 'step':
-        return String(stepNumber)
-      case 'total':
-        return String(totalSteps)
-      default:
-        return ''
+  const stepStrings = parseTranslatedTags(
+    'doc_video_capture.stepper',
+    ({ type }) => {
+      switch (type) {
+        case 'step':
+          return String(stepNumber)
+        case 'total':
+          return String(totalSteps)
+        default:
+          return ''
+      }
     }
-  })
+  )
 
-  return <span className={style.progress}>{step}</span>
+  return <span className={style.progress}>{stepStrings}</span>
 }
 
 export default memo(StepProgress)
