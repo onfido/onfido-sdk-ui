@@ -167,7 +167,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
           className={classNames(theme['button-centered'], theme['button-lg'])}
           data-onfido-qa="doc-video-confirm-primary-btn"
         >
-          {translate('doc_video_confirmation.button_upload')}
+          {translate('video_confirmation.button_primary')}
         </Button>
         <Button
           onClick={onSecondaryClick}
@@ -177,8 +177,8 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
         >
           {translate(
             error || previewing
-              ? 'doc_video_confirmation.button_redo'
-              : 'doc_video_confirmation.button_preview'
+              ? 'video_confirmation.button_secondary'
+              : 'doc_video_confirmation.button_secondary'
           )}
         </Button>
       </div>

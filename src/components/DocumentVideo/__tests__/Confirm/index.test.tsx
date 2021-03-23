@@ -69,12 +69,28 @@ const simulateButtonClick = (
 const assertButton = (
   wrapper: ReactWrapper,
   buttonVariant: ButtonVariants,
-  buttonText: string
+  buttonFunction: 'upload' | 'preview' | 'redo'
 ) => {
   const button = findButton(wrapper, buttonVariant)
   expect(button.exists()).toBeTruthy()
-  expect(button.text()).toEqual(buttonText)
   expect(button.hasClass('button-centered button-lg')).toBeTruthy()
+
+  switch (buttonFunction) {
+    case 'upload':
+      expect(button.text()).toEqual('video_confirmation.button_primary')
+      break
+
+    case 'preview':
+      expect(button.text()).toEqual('doc_video_confirmation.button_secondary')
+      break
+
+    case 'redo':
+      expect(button.text()).toEqual('video_confirmation.button_secondary')
+      break
+
+    default:
+      break
+  }
 }
 
 const assertError = (wrapper: ReactWrapper, noDoc = false) => {
@@ -100,7 +116,7 @@ const assertError = (wrapper: ReactWrapper, noDoc = false) => {
     )
   }
 
-  assertButton(wrapper, 'secondary', 'doc_video_confirmation.button_redo')
+  assertButton(wrapper, 'secondary', 'redo')
   simulateButtonClick(wrapper, 'secondary')
   expect(defaultProps.previousStep).toHaveBeenCalled()
 }
@@ -180,14 +196,8 @@ describe('DocumentVideo', () => {
 
     it('renders items correctly', () => {
       assertContent(wrapper, 'default')
-
-      assertButton(wrapper, 'primary', 'doc_video_confirmation.button_upload')
-
-      assertButton(
-        wrapper,
-        'secondary',
-        'doc_video_confirmation.button_preview'
-      )
+      assertButton(wrapper, 'primary', 'upload')
+      assertButton(wrapper, 'secondary', 'preview')
     })
 
     describe('with missing captures', () => {
@@ -287,8 +297,7 @@ describe('DocumentVideo', () => {
       it('shows capture viewer when click on preview', () => {
         simulateButtonClick(wrapper, 'secondary')
         assertContent(wrapper, 'preview')
-
-        assertButton(wrapper, 'secondary', 'doc_video_confirmation.button_redo')
+        assertButton(wrapper, 'secondary', 'redo')
       })
 
       it('goes back when click on redo', () => {
@@ -417,8 +426,7 @@ describe('DocumentVideo', () => {
       it('shows capture viewer when click on preview', () => {
         simulateButtonClick(wrapper, 'secondary')
         assertContent(wrapper, 'preview')
-
-        assertButton(wrapper, 'secondary', 'doc_video_confirmation.button_redo')
+        assertButton(wrapper, 'secondary', 'redo')
       })
 
       it('goes back when click on redo', () => {
