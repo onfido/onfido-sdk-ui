@@ -37,7 +37,7 @@ const Content: FunctionComponent<Props> = ({ capture, previewing }) => {
   return (
     <div className={style.content}>
       <span className={style.icon} />
-      <span className={style.title}>{translate('outro.title')}</span>
+      <span className={style.title}>{translate('outro.body')}</span>
       <span className={style.body}>{translate('video_confirmation.body')}</span>
     </div>
   )

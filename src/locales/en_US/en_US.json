@@ -118,7 +118,7 @@
         "title_permit_front": "Submit residence permit (front)",
         "title_tax_letter": "Submit letter"
     },
-    "doc_video_capture": {
+    "doc_video_capture_new": {
         "button_primary_fallback": "Next step",
         "button_primary_fallback_end": "Finish recording",
         "detail_step2": "Keep the document in full view at all times",
@@ -415,7 +415,7 @@
         "hold_still": "Hold still",
         "progress": "STEP <step></step> OF <total></total>"
     },
-    "doc_video_confirmation": {
+    "doc_video_confirmation_legacy": {
         "title": "Thank you",
         "body": "Your video has been recorded",
         "preview_title": "Check your video",
@@ -451,6 +451,9 @@
         "status": "Recording"
     },
     "video_confirmation": {
+        "body": "Your video has been recorded",
+        "button_primary": "Upload video",
+        "button_secondary": "Retake video",
         "title": "Check selfie video",
         "video_accessibility": "Replay your recorded video"
     },

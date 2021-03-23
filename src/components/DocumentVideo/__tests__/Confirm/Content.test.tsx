@@ -41,7 +41,7 @@ describe('DocumentVideo', () => {
             </MockedLocalised>
           )
 
-          expect(wrapper.find('.title').text()).toEqual('outro.title')
+          expect(wrapper.find('.title').text()).toEqual('outro.body')
           expect(wrapper.find('.body').text()).toEqual(
             'video_confirmation.body'
           )
