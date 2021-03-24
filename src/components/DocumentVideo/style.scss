@@ -20,14 +20,6 @@
   text-transform: uppercase;
 }
 
-.success {
-  background-image: url('../Complete/assets/complete.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 48 * $unit;
-}
-
 .holdStill,
 .instructions {
   flex: 1;
@@ -57,6 +49,15 @@
   @media (--medium-viewport) {
     font-size: var(--font-size-large);
   }
+}
+
+.instructions .success {
+  background-image: url('../Complete/assets/complete.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 48 * $unit;
+  margin-bottom: 96 * $unit;
 }
 
 .holdStill .loading {

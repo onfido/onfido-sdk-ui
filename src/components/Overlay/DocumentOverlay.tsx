@@ -112,11 +112,12 @@ export const calculateHollowRect = (
     return { left, bottom, width, height }
   }
 
+  // There're minor adjustments to align the rect right into the hollow frame
   return {
     left: (left * window.innerWidth) / OUTER_WIDTH,
-    bottom: (bottom * window.innerWidth) / OUTER_WIDTH,
-    width: (width * window.innerWidth) / OUTER_WIDTH,
-    height: (height * window.innerWidth) / OUTER_WIDTH,
+    bottom: (bottom * window.innerWidth) / OUTER_WIDTH - 2,
+    width: (width * window.innerWidth) / OUTER_WIDTH - 4,
+    height: (height * window.innerWidth) / OUTER_WIDTH - 2,
   }
 }
 
@@ -129,7 +130,7 @@ const drawInnerFrame = (
     marginBottom,
     true
   )
-  const radius = 0
+  const radius = docTypeParams.documentType === 'passport' ? 2 : 0
   const startPoint = `M${[left + radius, bottom].join(',')}`
 
   const bottomLine = `h ${width - 2 * radius}`
