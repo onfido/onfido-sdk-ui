@@ -18,10 +18,12 @@ export type LocaleConfig = {
 
 export type ParsedElement = string | h.JSX.Element | null
 
-export type TranslatedTagHandler = (tag: {
+export type ParsedTag = {
   type: string
   text: string
-}) => ParsedElement
+}
+
+export type TranslatedTagHandler = (tag: ParsedTag) => ParsedElement
 
 export type TranslatedTagParser = (
   key: string,

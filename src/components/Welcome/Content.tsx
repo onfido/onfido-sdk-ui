@@ -2,6 +2,7 @@ import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 
 import { buildIteratorKey } from '~utils'
+import { VIDEO_CAPTURE } from '~utils/constants'
 import { useLocales } from '~locales'
 import style from './style.scss'
 
@@ -60,7 +61,19 @@ export const DefaultContent: FunctionComponent<DefaultContentProps> = ({
 }
 
 export const DocVideoContent: FunctionComponent = () => {
-  const { translate } = useLocales()
+  const { parseTranslatedTags, translate } = useLocales()
+
+  const recordingLimit = parseTranslatedTags(
+    'welcome.list_item_doc_video_timeout',
+    ({ type }) => {
+      switch (type) {
+        case 'timeout':
+          return String(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT)
+        default:
+          return ''
+      }
+    }
+  )
 
   return (
     <div className={style.content}>
@@ -70,9 +83,7 @@ export const DocVideoContent: FunctionComponent = () => {
       <Instructions />
       <div className={style.recordingLimit}>
         <span className={style.timer} />
-        <span className={style.text}>
-          {translate('welcome.list_item_doc_video_timeout')}
-        </span>
+        <span className={style.text}>{recordingLimit}</span>
       </div>
     </div>
   )

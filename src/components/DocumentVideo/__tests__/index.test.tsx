@@ -4,6 +4,7 @@ import { mount, ReactWrapper } from 'enzyme'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import { fakeCapturePayload } from '~jest/captures'
+import { VIDEO_CAPTURE, DOC_VIDEO_CAPTURE } from '~utils/constants'
 import DocumentOverlay, {
   Props as DocumentOverlayProps,
 } from '../../Overlay/DocumentOverlay'
@@ -36,16 +37,16 @@ const waitForTimeout = (
 ) => {
   switch (type) {
     case 'button':
-      jest.runTimersToTime(3000)
+      jest.runTimersToTime(DOC_VIDEO_CAPTURE.BUTTON_VISIBILITY_TIMEOUT)
       break
     case 'holding':
-      jest.runTimersToTime(6000)
+      jest.runTimersToTime(DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT)
       break
     case 'success':
-      jest.runTimersToTime(2000)
+      jest.runTimersToTime(DOC_VIDEO_CAPTURE.SUCCESS_STATE_TIMEOUT)
       break
     case 'recording':
-      jest.runTimersToTime(30_000)
+      jest.runTimersToTime(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT * 1000)
       break
     default:
       break
@@ -106,10 +107,11 @@ const assertIntroStep = (
 
   expect(onRedo).toBeDefined()
 
-  renderFallback('fake_fallback_reason')
-  expect(defaultProps.renderFallback).toHaveBeenCalledWith(
-    'fake_fallback_reason'
-  )
+  renderFallback({ text: 'Fake fallback action', type: 'fallback' })
+  expect(defaultProps.renderFallback).toHaveBeenCalledWith({
+    text: 'Fake fallback action',
+    type: 'fallback',
+  })
   trackScreen('fake_screen_tracking')
   expect(defaultProps.trackScreen).toHaveBeenCalledWith('fake_screen_tracking')
 
@@ -191,7 +193,7 @@ describe('DocumentVideo', () => {
 
       it('sets correct timeout', () => {
         const timeout = wrapper.find('Timeout')
-        expect(timeout.prop('seconds')).toEqual(30)
+        expect(timeout.prop('seconds')).toEqual(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT)
       })
 
       describe('when inactive timed out', () => {

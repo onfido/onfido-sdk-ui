@@ -4,6 +4,7 @@ import Webcam from 'react-webcam-onfido'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
+import { VIDEO_CAPTURE } from '~utils/constants'
 import Camera from '../../Camera'
 import VideoCapture, {
   VideoLayerProps,
@@ -124,20 +125,22 @@ describe('VideoCapture', () => {
       expect(isButtonDisabled).toBeFalsy()
       expect(renderError).toBeFalsy()
 
-      renderFallback('fake_fallback_reason')
-      expect(defaultProps.renderFallback).toHaveBeenCalledWith(
-        'fake_fallback_reason'
-      )
+      renderFallback({ text: 'Fake fallback action', type: 'fallback' })
+      expect(defaultProps.renderFallback).toHaveBeenCalledWith({
+        text: 'Fake fallback action',
+        type: 'fallback',
+      })
 
       expect(wrapper.find('PageTitle').exists()).toBeTruthy()
       expect(wrapper.find('PageTitle').text()).toEqual('Fake title')
     })
 
-    it('renders inactive timeout correctly', () => assertTimeout(wrapper, 12))
+    it('renders inactive timeout correctly', () =>
+      assertTimeout(wrapper, VIDEO_CAPTURE.INACTIVE_TIMEOUT))
 
     describe('when inactive timed out', () => {
       beforeEach(() => {
-        jest.runTimersToTime(12_000) // 12 seconds - default value
+        jest.runTimersToTime(VIDEO_CAPTURE.INACTIVE_TIMEOUT * 1000)
         wrapper.update()
       })
 
@@ -156,7 +159,8 @@ describe('VideoCapture', () => {
         expect(wrapper.find('PageTitle').exists()).toBeFalsy()
       })
 
-      it('renders inactive timeout correctly', () => assertTimeout(wrapper, 20))
+      it('renders inactive timeout correctly', () =>
+        assertTimeout(wrapper, VIDEO_CAPTURE.FACE_VIDEO_TIMEOUT))
 
       it('stops video recording with capture payload', () => {
         wrapper.find('#record-video').simulate('click')
@@ -174,7 +178,7 @@ describe('VideoCapture', () => {
 
       describe('when inactive timed out', () => {
         beforeEach(() => {
-          jest.runTimersToTime(20_000) // 20 seconds - default value
+          jest.runTimersToTime(VIDEO_CAPTURE.FACE_VIDEO_TIMEOUT * 1000)
           wrapper.update()
         })
 
@@ -196,11 +200,12 @@ describe('VideoCapture', () => {
         wrapper.find('#record-video').simulate('click')
       })
 
-      it('renders inactive timeout correctly', () => assertTimeout(wrapper, 30))
+      it('renders inactive timeout correctly', () =>
+        assertTimeout(wrapper, VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT))
 
       describe('when inactive timed out', () => {
         beforeEach(() => {
-          jest.runTimersToTime(30_000) // 30 seconds - for documents
+          jest.runTimersToTime(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT * 1000)
           wrapper.update()
         })
 

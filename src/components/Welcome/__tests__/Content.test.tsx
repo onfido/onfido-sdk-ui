@@ -1,8 +1,16 @@
 import { h } from 'preact'
 import { mount, ReactWrapper } from 'enzyme'
 
-import MockedLocalised from '~jest/MockedLocalised'
+import MockedLocalised, { mockedTranslate } from '~jest/MockedLocalised'
 import { DefaultContent, DocVideoContent } from '../Content'
+
+mockedTranslate.mockImplementation((str) => {
+  if (str === 'welcome.list_item_doc_video_timeout') {
+    return '<hidden>Invisible</hidden>timeout: <timeout></timeout>'
+  }
+
+  return str
+})
 
 const assertDefaultContent = (wrapper: ReactWrapper) => {
   expect(wrapper.find('.caption').text()).toEqual(
@@ -62,9 +70,7 @@ describe('Welcome', () => {
         'welcome.doc_video_subtitle'
       )
       assertDefaultContent(wrapper)
-      expect(wrapper.find('.recordingLimit').text()).toEqual(
-        'welcome.list_item_doc_video_timeout'
-      )
+      expect(wrapper.find('.recordingLimit').text()).toEqual('timeout: 30')
     })
   })
 })

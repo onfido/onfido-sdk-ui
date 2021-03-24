@@ -12,6 +12,7 @@ import type {
 } from './commons'
 import type { CaptureVariants } from './docVideo'
 import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
+import type { ParsedTag } from './locales'
 import type {
   StepOptionDocument,
   StepOptionPoA,
@@ -57,9 +58,9 @@ export type HandleDocVideoCaptureProp = (
 ) => void
 
 export type RenderFallbackProp = (
-  text: string,
+  tag: ParsedTag,
   callback?: () => void
-) => h.JSX.Element | null
+) => h.JSX.Element | string | null
 
 export type ErrorProp = {
   name: ErrorNames

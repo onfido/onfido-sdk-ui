@@ -129,7 +129,7 @@ const drawInnerFrame = (
     marginBottom,
     true
   )
-  const radius = 2
+  const radius = 0
   const startPoint = `M${[left + radius, bottom].join(',')}`
 
   const bottomLine = `h ${width - 2 * radius}`

@@ -26,6 +26,7 @@ import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
   HandleDocVideoCaptureProp,
+  RenderFallbackProp,
   StepComponentDocumentProps,
 } from '~types/routers'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
@@ -137,7 +138,7 @@ class Document extends Component<Props> {
   handleFileSelected = (file: File) =>
     validateFile(file, this.handleUpload, this.handleError)
 
-  renderUploadFallback = (text: string) => (
+  renderUploadFallback: RenderFallbackProp = ({ text }) => (
     <CustomFileInput
       className={theme.warningFallbackButton}
       onChange={this.handleFileSelected}
@@ -148,7 +149,7 @@ class Document extends Component<Props> {
     </CustomFileInput>
   )
 
-  renderCrossDeviceFallback = (text: string) => (
+  renderCrossDeviceFallback: RenderFallbackProp = ({ text }) => (
     <FallbackButton
       text={text}
       onClick={() => this.props.changeFlowTo('crossDeviceSteps')}

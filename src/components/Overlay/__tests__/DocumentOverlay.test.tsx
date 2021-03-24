@@ -53,8 +53,8 @@ describe('Overlay', () => {
         expect(hollowDraw.match(OUTER_FRAME)).toBeFalsy()
 
         // `hollow` path should contain parallel top & bottom lines
-        expect(hollowDraw.match('l 90 0')).toBeTruthy()
-        expect(hollowDraw.match('l -90 0')).toBeTruthy()
+        expect(hollowDraw.match('h 90')).toBeTruthy()
+        expect(hollowDraw.match('h -90')).toBeTruthy()
 
         const fullScreen = wrapper.find('.fullScreen')
         expect(fullScreen.exists()).toBeTruthy()

@@ -2,6 +2,7 @@ import { h, Component, Ref } from 'preact'
 import Webcam from 'react-webcam-onfido'
 
 import { getRecordedVideo } from '~utils/camera'
+import { VIDEO_CAPTURE } from '~utils/constants'
 
 import Timeout from '../Timeout'
 import Camera from '../Camera'
@@ -17,10 +18,6 @@ import type {
   HandleCaptureProp,
   RenderFallbackProp,
 } from '~types/routers'
-
-const INACTIVE_TIMEOUT = 12
-const FACE_VIDEO_TIMEOUT = 20
-const DOC_VIDEO_TIMEOUT = 30
 
 type OverlayProps = {
   hasCameraError: boolean
@@ -126,12 +123,23 @@ export default class VideoCapture extends Component<Props, State> {
     })
   }
 
-  renderRedoActionsFallback: RenderFallbackProp = (text, callback) => (
-    <FallbackButton
-      text={text}
-      onClick={() => this.handleFallbackClick(callback)}
-    />
-  )
+  renderRedoActionsFallback: RenderFallbackProp = (
+    { text, type },
+    callback
+  ) => {
+    switch (type) {
+      case 'timeout':
+        return String(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT)
+
+      default:
+        return (
+          <FallbackButton
+            text={text}
+            onClick={() => this.handleFallbackClick(callback)}
+          />
+        )
+    }
+  }
 
   renderError = (): h.JSX.Element => {
     const { inactiveError, method, renderFallback, trackScreen } = this.props
@@ -168,11 +176,13 @@ export default class VideoCapture extends Component<Props, State> {
     }
 
     const recordingTimeout =
-      method === 'document' ? DOC_VIDEO_TIMEOUT : FACE_VIDEO_TIMEOUT
+      method === 'document'
+        ? VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT
+        : VIDEO_CAPTURE.FACE_VIDEO_TIMEOUT
 
     const passedProps = {
       key: isRecording ? 'recording' : 'notRecording',
-      seconds: isRecording ? recordingTimeout : INACTIVE_TIMEOUT,
+      seconds: isRecording ? recordingTimeout : VIDEO_CAPTURE.INACTIVE_TIMEOUT,
       onTimeout: isRecording
         ? this.handleRecordingTimeout
         : this.handleInactivityTimeout,

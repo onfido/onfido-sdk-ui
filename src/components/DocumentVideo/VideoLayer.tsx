@@ -4,6 +4,7 @@ import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 
 import { useLocales } from '~locales'
+import { DOC_VIDEO_CAPTURE } from '~utils/constants'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import theme from 'components/Theme/style.scss'
 import Instructions from './Instructions'
@@ -25,11 +26,6 @@ export type Props = {
   onSubmit: () => void
   renderOverlay: (props: OverlayProps) => h.JSX.Element | null
 } & VideoLayerProps
-
-const VISIBLE_BUTTON_TIMEOUT = 3000
-const SUCCESS_STATE_TIMEOUT = 2000
-const SUCCESS_STATE_VIBRATION = 500
-const HOLDING_STILL_TIMEOUT = 6000
 
 const VideoLayer: FunctionComponent<Props> = ({
   captureFlow,
@@ -58,24 +54,18 @@ const VideoLayer: FunctionComponent<Props> = ({
 
   const { translate } = useLocales()
 
-  /*
-  useEffect(() => {
-    console.log({ captureStep, recordState })
-  }, [captureStep, recordState])
-  */
-
   useEffect(() => {
     switch (recordState) {
       case 'hideButton':
-        setTimeout(nextRecordState, VISIBLE_BUTTON_TIMEOUT)
+        setTimeout(nextRecordState, DOC_VIDEO_CAPTURE.BUTTON_VISIBILITY_TIMEOUT)
         break
 
       case 'holdStill':
-        setTimeout(nextRecordState, HOLDING_STILL_TIMEOUT)
+        setTimeout(nextRecordState, DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT)
         break
 
       case 'success': {
-        navigator.vibrate(SUCCESS_STATE_VIBRATION)
+        navigator.vibrate(DOC_VIDEO_CAPTURE.SUCCESS_STATE_VIBRATION)
 
         if (stepNumber >= totalSteps) {
           onStop()
@@ -87,7 +77,7 @@ const VideoLayer: FunctionComponent<Props> = ({
           } else {
             nextStep()
           }
-        }, SUCCESS_STATE_TIMEOUT)
+        }, DOC_VIDEO_CAPTURE.SUCCESS_STATE_TIMEOUT)
 
         break
       }
