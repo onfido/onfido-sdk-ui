@@ -495,6 +495,7 @@ export const createCheckIfNeeded = (
         ? 'facial_similarity_video'
         : 'facial_similarity_photo',
     ],
+    api_version: 'v4',
   }
 
   request.send(JSON.stringify(body))
