@@ -4,9 +4,14 @@
   @extend %icon-circle-background;
   height: 144 * $unit;
   width: 144 * $unit;
+  /*
+   * NOTE: iOS Safari has a strange bug where SVG background images are not displayed on some iOS devices
+   *       if margin, background image properties are not declared before the background-image
+   *       ref: http://geoffmuskett.com/strange-bug-on-ios-svg-background-images-no-showing/
+   */
+  margin: 50 * $unit auto;
   background-size: contain;
   background-image: url('./assets/return-to-computer-large.svg');
-  margin: 50 * $unit auto;
 }
 
 .text {
