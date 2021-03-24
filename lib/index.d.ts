@@ -200,7 +200,8 @@ export declare type EnterpriseCobranding = {
 	text: string;
 };
 export declare type EnterpriseLogoCobranding = {
-	src: string;
+	lightLogoSrc: string;
+	darkLogoSrc: string;
 };
 export declare type EnterpriseCallbackResponse = {
 	continueWithOnfidoSubmission?: boolean;

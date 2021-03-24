@@ -181,6 +181,14 @@ $logo-height: 32 * $unit;
     width: $cobrand-logo-width;
     margin-top: 0;
     flex: 0 0 auto;
+    background-image: var(--darkLogoSrc);
+
+    .fullScreenStep.logoCobrandImage & {
+      background-image: var(--lightLogoSrc);
+      width: $cobrand-logo-width;
+      margin-top: 0;
+      z-index: 0; /* to make the logo visible, otherwise it is hidden by overlay */
+    }
   }
 
   .logo {
@@ -190,7 +198,7 @@ $logo-height: 32 * $unit;
     margin-top: 0;
     flex: 0 0 auto;
 
-    .fullScreenStep.textCobrandLogo & {
+    .fullScreenStep.onfidoCobrandLogo & {
       background-image: url('./assets/onfido-logo-light.svg');
       width: $cobrand-logo-width;
       margin-top: 0;

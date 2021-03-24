@@ -228,6 +228,14 @@ export default class CrossDeviceMobileRouter extends Component<
           validEnterpriseFeatures?.logoCobrand
         ) {
           this.props.actions.showLogoCobranding(enterpriseFeatures.logoCobrand)
+          document.documentElement.style.setProperty(
+            '--darkLogoSrc',
+            `url(${enterpriseFeatures.logoCobrand.darkLogoSrc})`
+          )
+          document.documentElement.style.setProperty(
+            '--lightLogoSrc',
+            `url(${enterpriseFeatures.logoCobrand.lightLogoSrc})`
+          )
         }
       }
 

@@ -8,7 +8,8 @@ import type {
 import type { ServerRegions, SdkOptions } from '~types/sdk'
 import type { UICustomizationOptions } from '~types/ui-customisation-options'
 import customUIConfig from './custom-ui-config.json'
-import testCobrandLogo from './assets/onfido-logo.svg'
+import testDarkCobrandLogo from './assets/onfido-logo.svg'
+import testLightCobrandLogo from './assets/onfido-logo-light.svg'
 
 type StringifiedBoolean = 'true' | 'false'
 type DecoupleResponseOptions = 'success' | 'error' | 'onfido'
@@ -195,7 +196,7 @@ export const getInitSdkOptions = (): SdkOptions => {
       : undefined
   const logoCobrand =
     queryParamToValueString.showLogoCobrand === 'true'
-      ? { src: testCobrandLogo }
+      ? { lightLogoSrc: testLightCobrandLogo, darkLogoSrc: testDarkCobrandLogo }
       : undefined
   const useCustomizedApiRequests =
     queryParamToValueString.useCustomizedApiRequests === 'true'
