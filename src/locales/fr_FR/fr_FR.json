@@ -446,9 +446,12 @@
         "title": "Assurons-nous que personne ne se fait passer pour vous"
     },
     "welcome": {
-        "description_p_1": "Pour ouvrir un compte bancaire, nous devons vérifier votre identité.",
-        "description_p_2": "Cela ne prendra que quelques instants.",
-        "next_button": "Vérification d'identité",
-        "title": "Ouvrez votre nouveau compte bancaire"
+        "doc_video_subtitle": "It should take a few minutes",
+        "list_header_doc_video": "Use your device to record:",
+        "list_item_doc": "your identity document",
+        "list_item_doc_video_timeout": "Recording is limited to <timeout><\/timeout> seconds",
+        "list_item_selfie": "your face",
+        "next_button": "Verify Identity",
+        "title": "Verify your identity"
     }
 }

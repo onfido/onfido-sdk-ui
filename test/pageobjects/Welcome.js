@@ -7,11 +7,17 @@ import {
 import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
-  async text() {
-    return this.$('.onfido-sdk-ui-Welcome-text')
+  async subtitle() {
+    return this.$('.onfido-sdk-ui-Welcome-subtitle')
+  }
+  async instructions() {
+    return this.$('.onfido-sdk-ui-Welcome-instructions')
   }
   async defaultFooter() {
     return this.$('.onfido-sdk-ui-Theme-footer')
+  }
+  async recordingLimit() {
+    return this.$('.onfido-sdk-ui-Welcome-recordingLimit')
   }
   async primaryBtn() {
     return this.$('[data-onfido-qa="welcome-next-btn"]')
@@ -35,9 +41,23 @@ class Welcome extends BasePage {
   }
 
   async verifySubtitle(copy) {
+    verifyElementCopy(this.subtitle(), copy.welcome.doc_video_subtitle)
+  }
+
+  async verifyInstructions(copy) {
     verifyElementCopy(
-      this.text(),
-      `${copy.welcome.description_p_1}\n${copy.welcome.description_p_2}`
+      this.instructions(),
+      `${copy.welcome.list_header_doc_video}\n${copy.welcome.list_item_doc}\n${copy.welcome.list_item_selfie}`
+    )
+  }
+
+  async verifyRecordingLimit(copy) {
+    verifyElementCopy(
+      this.recordingLimit(),
+      copy.welcome.list_item_doc_video_timeout.replace(
+        '<timeout></timeout>',
+        30
+      )
     )
   }
 

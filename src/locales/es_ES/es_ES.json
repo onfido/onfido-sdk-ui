@@ -390,9 +390,12 @@
         "title": "Asegurémonos de que nadie se está haciendo pasar por usted"
     },
     "welcome": {
-        "description_p_1": "Para abrir una cuenta bancaria, necesitaremos verificar su identidad.",
-        "description_p_2": "Sólo tomará un par de minutos.",
-        "next_button": "Verificar identidad",
-        "title": "Abra su nueva cuenta bancaria"
+        "doc_video_subtitle": "It should take a few minutes",
+        "list_header_doc_video": "Use your device to record:",
+        "list_item_doc": "your identity document",
+        "list_item_doc_video_timeout": "Recording is limited to <timeout><\/timeout> seconds",
+        "list_item_selfie": "your face",
+        "next_button": "Verify Identity",
+        "title": "Verify your identity"
     }
 }

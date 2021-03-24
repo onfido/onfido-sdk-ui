@@ -20,10 +20,20 @@ export const welcomeScenarios = async (lang) => {
         expect(title).to.equal('Onfido SDK Demo')
       })
 
-      it('should verify UI elements on the welcome screen', async () => {
+      it('should verify UI elements on the welcome screen - regular flows', async () => {
         driver.get(`${localhostUrl}?language=${lang}`)
         welcome.verifyTitle(copy)
+        welcome.verifyInstructions(copy)
+        welcome.verifyIdentityButton(copy)
+        welcome.verifyFooter(copy)
+      })
+
+      it('should verify UI elements on the welcome screen - doc liveness flow', async () => {
+        driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
+        welcome.verifyTitle(copy)
         welcome.verifySubtitle(copy)
+        welcome.verifyInstructions(copy)
+        welcome.verifyRecordingLimit(copy)
         welcome.verifyIdentityButton(copy)
         welcome.verifyFooter(copy)
       })
