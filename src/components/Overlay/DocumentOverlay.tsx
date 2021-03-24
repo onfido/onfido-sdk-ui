@@ -32,10 +32,10 @@ const INNER_WIDTH_RATIO = 0.9 // 90% of outer width
 
 const ASPECT_RATIOS: Record<DocumentSizes, number> = {
   id1Card: 1.586,
-  id3Card: 1.42,
+  id3Card: 1.417,
   rectangle: 1.57,
   frPaperDl: 2.05,
-  itPaperId: 1.37,
+  itPaperId: 1.367,
 }
 
 const ID1_SIZE_DOCUMENTS = new Set<DocumentTypes>([
@@ -129,12 +129,33 @@ const drawInnerFrame = (
     marginBottom,
     true
   )
-  const startPoint = [left, bottom].join(',')
-  const bottomLine = `l ${width} 0`
-  const rightLine = `v -${height}`
-  const topLine = `l -${width} 0`
+  const radius = 2
+  const startPoint = `M${[left + radius, bottom].join(',')}`
 
-  return `M${startPoint} ${bottomLine} ${rightLine} ${topLine} Z`
+  const bottomLine = `h ${width - 2 * radius}`
+  const rightLine = `v -${height - 2 * radius}`
+  const topLine = `h -${width - 2 * radius}`
+  const leftLine = `v ${height - 2 * radius}`
+
+  const bottomRightCorner = `a ${radius},${radius} 0 0 0 ${radius},-${radius}`
+  const topRightCorner = `a ${radius},${radius} 0 0 0 -${radius},-${radius}`
+  const topLeftCorner = `a ${radius},${radius} 0 0 0 -${radius},${radius}`
+  const bottomLeftCorner = `a ${radius},${radius} 0 0 0 ${radius},${radius}`
+
+  const drawings = [
+    startPoint,
+    bottomLine,
+    bottomRightCorner,
+    rightLine,
+    topRightCorner,
+    topLine,
+    topLeftCorner,
+    leftLine,
+    bottomLeftCorner,
+    'Z',
+  ]
+
+  return drawings.join(' ')
 }
 
 export type Props = {
