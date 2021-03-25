@@ -1,6 +1,6 @@
 import { kebabCase } from '~utils/string'
 import { UICustomizationOptions } from '~types/ui-customisation-options'
-import {EnterpriseLogoCobranding} from "~types/enterprise";
+import { EnterpriseLogoCobranding } from '~types/enterprise'
 
 export const setUICustomizations = (customUI: UICustomizationOptions): void => {
   const sdkCustomisations = Object.entries(customUI).map(
@@ -13,10 +13,12 @@ export const setUICustomizations = (customUI: UICustomizationOptions): void => {
   }
 }
 
-export const setCobrandingLogos = (logoCobrandConfig: EnterpriseLogoCobranding): void => {
-    const style = document.createElement('style')
-    style.textContent = `:root { --darkLogoSrc: url(${logoCobrandConfig.darkLogoSrc}); \n --lightLogoSrc: url(${logoCobrandConfig.lightLogoSrc});}`
-    document.head.appendChild(style)
+export const setCobrandingLogos = (
+  logoCobrandConfig: EnterpriseLogoCobranding
+): void => {
+  const style = document.createElement('style')
+  style.textContent = `:root { --darkLogoSrc: url(${logoCobrandConfig.darkLogoSrc}); \n --lightLogoSrc: url(${logoCobrandConfig.lightLogoSrc});}`
+  document.head.appendChild(style)
 }
 
 export const isButtonGroupStacked = (): boolean =>

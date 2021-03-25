@@ -34,7 +34,7 @@ import type {
   DocumentTypes,
   StepConfigFace,
 } from '~types/steps'
-import {setCobrandingLogos, setUICustomizations} from '../Theme/utils'
+import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
 
