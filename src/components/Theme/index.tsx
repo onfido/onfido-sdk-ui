@@ -33,8 +33,8 @@ const withTheme = <P extends unknown>(
       <div
         className={classNames(theme.step, {
           [theme.noLogo]: hideOnfidoLogo,
-          [theme.textCobrandLogo]: cobrand,
           [theme.logoCobrandImage]: logoCobrand,
+          [theme.onfidoCobrandLogo]: cobrand || logoCobrand,
           [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
         })}
       >
