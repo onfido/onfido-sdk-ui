@@ -1,6 +1,10 @@
 import { h, createContext, FunctionComponent, Component } from 'preact'
 import { useContext, useEffect, useRef, useState } from 'preact/compat'
 
+/**
+ * This context aims to provide an accessible outer-most container dimensions,
+ * to serve calculations like in DocumentOverlay
+ */
 const ContainerDimensionsContext = createContext<DOMRect | undefined>(undefined)
 
 export const ContainerDimensionsProvider: FunctionComponent = ({
