@@ -88,9 +88,9 @@ const assertIntroStep = (
   wrapper: ReactWrapper,
   forSingleSidedDocs: boolean
 ) => {
-  expect(wrapper.find('PaperIdFlowSelector').exists()).toBeFalsy()
   const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
   expect(videoCapture.exists()).toBeTruthy()
+  expect(wrapper.find('PaperIdFlowSelector').exists()).toBeFalsy()
 
   const {
     cameraClassName,
@@ -341,7 +341,7 @@ describe('DocumentVideo', () => {
 
         it('renders the flow selection by default', () => {
           expect(wrapper.find('PaperIdFlowSelector').exists()).toBeTruthy()
-          expect(wrapper.find(VideoCapture).exists()).toBeFalsy()
+          expect(wrapper.find('VideoLayer').exists()).toBeFalsy()
         })
 
         possibleFlows.forEach((flow) => {
@@ -350,7 +350,7 @@ describe('DocumentVideo', () => {
 
             it('starts flow correctly', () => {
               expect(wrapper.find('PaperIdFlowSelector').exists()).toBeFalsy()
-              expect(wrapper.find(VideoCapture).exists()).toBeTruthy()
+              expect(wrapper.find('VideoLayer').exists()).toBeTruthy()
             })
 
             it('ends the flow with back side captured', () => {

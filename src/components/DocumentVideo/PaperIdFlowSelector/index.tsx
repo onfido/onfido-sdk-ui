@@ -36,7 +36,6 @@ const PaperIdFlowSelector: FunctionComponent<Props> = ({
   return (
     <div className={style.paperIdFlowSelector}>
       <DocumentOverlay marginBottom={0.5} />
-      <ToggleFullScreen />
       <div className={style.footer}>
         <span className={style.title}>{translate(titleKey)}</span>
         <button className={style.cardId} onClick={() => onSelectFlow('cardId')}>

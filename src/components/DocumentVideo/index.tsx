@@ -149,15 +149,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
 
   const issuingCountry = issuingCountryData?.country_alpha2
 
-  if (!captureFlow) {
-    return (
-      <PaperIdFlowSelector
-        documentType={documentType}
-        onSelectFlow={setCaptureFlow}
-      />
-    )
-  }
-
   const overlayBottomMargin = 0.5
   const documentOverlayProps = {
     documentType,
@@ -170,7 +161,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
   )
 
   const passedProps = {
-    captureFlow,
     documentType,
     flowRestartTrigger,
     footerHeightLimit: overlayHollowRect.bottom,
@@ -187,19 +177,27 @@ const DocumentVideo: FunctionComponent<Props> = ({
       onRedo={() => setFlowRestartTrigger((prevTrigger) => prevTrigger + 1)}
       onVideoCapture={onVideoCapture}
       renderFallback={renderFallback}
-      renderVideoLayer={(props) => (
-        <VideoLayer
-          {...props}
-          {...passedProps}
-          renderOverlay={(props) => (
-            <DocumentOverlay
-              {...props}
-              {...documentOverlayProps}
-              marginBottom={overlayBottomMargin}
-            />
-          )}
-        />
-      )}
+      renderVideoLayer={(props) =>
+        captureFlow ? (
+          <VideoLayer
+            {...props}
+            {...passedProps}
+            captureFlow={captureFlow}
+            renderOverlay={(props) => (
+              <DocumentOverlay
+                {...props}
+                {...documentOverlayProps}
+                marginBottom={overlayBottomMargin}
+              />
+            )}
+          />
+        ) : (
+          <PaperIdFlowSelector
+            documentType={documentType}
+            onSelectFlow={setCaptureFlow}
+          />
+        )
+      }
       trackScreen={trackScreen}
       webcamRef={webcamRef}
     />

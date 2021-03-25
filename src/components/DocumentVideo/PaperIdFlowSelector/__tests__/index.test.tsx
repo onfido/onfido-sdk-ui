@@ -1,7 +1,6 @@
 import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
-import MockedReduxProvider from '~jest/MockedReduxProvider'
 import MockedLocalised from '~jest/MockedLocalised'
 import PaperIdFlowSelector, {
   Props as PaperIdFlowSelectorProps,
@@ -22,11 +21,9 @@ describe('DocumentVideo', () => {
     describe('when mounted', () => {
       it('renders nothing if documentType is not license or id', () => {
         const wrapper = mount(
-          <MockedReduxProvider>
-            <MockedLocalised>
-              <PaperIdFlowSelector {...defaultProps} documentType="passport" />
-            </MockedLocalised>
-          </MockedReduxProvider>
+          <MockedLocalised>
+            <PaperIdFlowSelector {...defaultProps} documentType="passport" />
+          </MockedLocalised>
         )
 
         expect(
@@ -36,11 +33,9 @@ describe('DocumentVideo', () => {
 
       it('renders correct items', () => {
         const wrapper = mount(
-          <MockedReduxProvider>
-            <MockedLocalised>
-              <PaperIdFlowSelector {...defaultProps} />
-            </MockedLocalised>
-          </MockedReduxProvider>
+          <MockedLocalised>
+            <PaperIdFlowSelector {...defaultProps} />
+          </MockedLocalised>
         )
 
         expect(wrapper.exists()).toBeTruthy()
@@ -48,8 +43,6 @@ describe('DocumentVideo', () => {
         const documentOverlay = wrapper.find('DocumentOverlay')
         expect(documentOverlay.exists()).toBeTruthy()
         expect(documentOverlay.props()).toMatchObject({ marginBottom: 0.5 })
-
-        expect(wrapper.find('ToggleFullScreen').exists()).toBeTruthy()
 
         const footer = wrapper.find('.footer')
         expect(footer.find('.title').text()).toEqual(
@@ -70,14 +63,12 @@ describe('DocumentVideo', () => {
       describe('with id card', () => {
         it('renders correct title', () => {
           const wrapper = mount(
-            <MockedReduxProvider>
-              <MockedLocalised>
-                <PaperIdFlowSelector
-                  {...defaultProps}
-                  documentType="national_identity_card"
-                />
-              </MockedLocalised>
-            </MockedReduxProvider>
+            <MockedLocalised>
+              <PaperIdFlowSelector
+                {...defaultProps}
+                documentType="national_identity_card"
+              />
+            </MockedLocalised>
           )
 
           expect(wrapper.find('.footer .title').text()).toEqual(
