@@ -5,7 +5,7 @@ import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import withTheme from '../Theme'
-import { setUICustomizations } from '../Theme/utils'
+import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 
@@ -228,14 +228,7 @@ export default class CrossDeviceMobileRouter extends Component<
           validEnterpriseFeatures?.logoCobrand
         ) {
           this.props.actions.showLogoCobranding(enterpriseFeatures.logoCobrand)
-          document.documentElement.style.setProperty(
-            '--darkLogoSrc',
-            `url(${enterpriseFeatures.logoCobrand.darkLogoSrc})`
-          )
-          document.documentElement.style.setProperty(
-            '--lightLogoSrc',
-            `url(${enterpriseFeatures.logoCobrand.lightLogoSrc})`
-          )
+          setCobrandingLogos(enterpriseFeatures.logoCobrand)
         }
       }
 
