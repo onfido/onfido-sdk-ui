@@ -22,6 +22,6 @@ export type CameraProps = {
   renderError?: h.JSX.Element | null
   renderFallback: RenderFallbackProp
   renderTitle?: h.JSX.Element | null
-  renderVideoLayer?: (props: WithPermissionsFlowProps) => h.JSX.Element | null
+  renderVideoOverlay?: (props: WithPermissionsFlowProps) => h.JSX.Element
   webcamRef?: Ref<Webcam>
 }
