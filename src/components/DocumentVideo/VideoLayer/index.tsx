@@ -7,13 +7,13 @@ import { useLocales } from '~locales'
 import { DOC_VIDEO_CAPTURE } from '~utils/constants'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import theme from 'components/Theme/style.scss'
-import type { VideoLayerProps } from '../../VideoCapture'
 import Instructions from './Instructions'
 import StepProgress from './StepProgress'
 import useCaptureStep from './useCaptureStep'
 import style from './style.scss'
 
 import type { CaptureFlows } from '~types/docVideo'
+import type { VideoOverlayProps } from '../../VideoCapture'
 
 type OverlayProps = {
   withPlaceholder?: boolean
@@ -25,7 +25,7 @@ export type Props = {
   footerHeightLimit: number
   onSubmit: () => void
   renderOverlay: (props: OverlayProps) => h.JSX.Element | null
-} & VideoLayerProps
+} & VideoOverlayProps
 
 const VideoLayer: FunctionComponent<Props> = ({
   captureFlow,

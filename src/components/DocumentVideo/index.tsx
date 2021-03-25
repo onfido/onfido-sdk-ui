@@ -9,7 +9,7 @@ import { getInactiveError } from '~utils/inactiveError'
 import DocumentOverlay, {
   calculateHollowRect,
 } from '../Overlay/DocumentOverlay'
-import VideoCapture from '../VideoCapture'
+import VideoCapture, { VideoOverlayProps } from '../VideoCapture'
 import PaperIdFlowSelector from './PaperIdFlowSelector'
 import VideoLayer from './VideoLayer'
 
@@ -167,6 +167,32 @@ const DocumentVideo: FunctionComponent<Props> = ({
     onSubmit: () => setFlowComplete(true),
   }
 
+  const renderVideoOverlay = (props: VideoOverlayProps) => {
+    if (!captureFlow) {
+      return (
+        <PaperIdFlowSelector
+          documentType={documentType}
+          onSelectFlow={setCaptureFlow}
+        />
+      )
+    }
+
+    return (
+      <VideoLayer
+        {...props}
+        {...passedProps}
+        captureFlow={captureFlow}
+        renderOverlay={(props) => (
+          <DocumentOverlay
+            {...props}
+            {...documentOverlayProps}
+            marginBottom={overlayBottomMargin}
+          />
+        )}
+      />
+    )
+  }
+
   return (
     <VideoCapture
       cameraClassName={cameraClassName}
@@ -177,27 +203,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
       onRedo={() => setFlowRestartTrigger((prevTrigger) => prevTrigger + 1)}
       onVideoCapture={onVideoCapture}
       renderFallback={renderFallback}
-      renderVideoLayer={(props) =>
-        captureFlow ? (
-          <VideoLayer
-            {...props}
-            {...passedProps}
-            captureFlow={captureFlow}
-            renderOverlay={(props) => (
-              <DocumentOverlay
-                {...props}
-                {...documentOverlayProps}
-                marginBottom={overlayBottomMargin}
-              />
-            )}
-          />
-        ) : (
-          <PaperIdFlowSelector
-            documentType={documentType}
-            onSelectFlow={setCaptureFlow}
-          />
-        )
-      }
+      renderVideoOverlay={renderVideoOverlay}
       trackScreen={trackScreen}
       webcamRef={webcamRef}
     />
