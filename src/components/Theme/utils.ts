@@ -17,7 +17,7 @@ export const setCobrandingLogos = (
   logoCobrandConfig: EnterpriseLogoCobranding
 ): void => {
   const style = document.createElement('style')
-  style.textContent = `:root { --darkLogoSrc: url(${logoCobrandConfig.darkLogoSrc}); \n --lightLogoSrc: url(${logoCobrandConfig.lightLogoSrc});}`
+  style.textContent = `:root { --osdk-dark-cobrand-logo-src: url(${logoCobrandConfig.darkLogoSrc}); \n --osdk-light-cobrand-logo-src: url(${logoCobrandConfig.lightLogoSrc});}`
   document.head.appendChild(style)
 }
 
