@@ -48,7 +48,9 @@ const appendUuidToEmail = (email: string): string | undefined => {
 
 const ApplicantForm: FunctionComponent<Props> = ({ onSubmit }) => {
   const [firstName, setFirstName] = useState('Web ANSSI')
-  const [lastName, setLastName] = useState('v6.5.0')
+  const [lastName, setLastName] = useState(
+    `v${require('../../package.json').version}`
+  )
   const [email, setEmail] = useState('')
 
   const handleSubmit = (event: Event) => {
