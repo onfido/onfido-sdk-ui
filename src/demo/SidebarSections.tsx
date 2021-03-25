@@ -1,8 +1,8 @@
 import { h, FunctionComponent } from 'preact'
 import { useCallback, useRef } from 'preact/compat'
 
-import { SdkOptions } from '~types/sdk'
 import detectSystem from '~utils/detectSystem'
+import type { SdkOptions } from '~types/sdk'
 
 import {
   CheckData,
@@ -11,6 +11,9 @@ import {
   commonRegions,
   commonSteps,
 } from './demoUtils'
+
+import { UICustomizationOptions } from '~types/ui-customisation-options'
+import customUIConfig from './custom-ui-config.json'
 
 export const SdkOptionsView: FunctionComponent<{
   sdkOptions: SdkOptions
@@ -26,7 +29,24 @@ export const SdkOptionsView: FunctionComponent<{
           updateSdkOptions({ useModal: (e.target as HTMLInputElement).checked })
         }
       />
-      useModal
+      &nbsp;Display SDK as Modal
+    </label>
+
+    <label>
+      <input
+        type="checkbox"
+        checked={!!sdkOptions.customUI}
+        onChange={(e) =>
+          updateSdkOptions({
+            customUI: (e.target as HTMLInputElement).checked
+              ? (customUIConfig as UICustomizationOptions)
+              : undefined,
+          })
+        }
+      />
+      &nbsp;Use customised SDK UI
+      <br />
+      &nbsp;&nbsp;&nbsp;(refresh to reset)
     </label>
 
     <div className="label">

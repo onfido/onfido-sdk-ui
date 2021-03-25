@@ -260,7 +260,7 @@ export const faceScenarios = (lang) => {
       )
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
-      camera.continueButton().click()
+      camera.enableCameraButton().click()
       driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
       assert.isFalse(
         camera.isOverlayPresent(),
@@ -286,7 +286,7 @@ export const faceScenarios = (lang) => {
       )
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
-      camera.continueButton().click()
+      camera.enableCameraButton().click()
       camera.verifyVideoTitle(copy)
       camera.verifyOnfidoFooterIsVisible()
       camera.recordButton().click()
@@ -378,6 +378,42 @@ export const faceScenarios = (lang) => {
       confirm.checkLogoIsHidden()
       confirm.clickConfirmButton()
       verificationComplete.checkLogoIsHidden()
+    })
+
+    it('should continue through full flow without problems when using customized API requests but still uploading media to API as normal', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&useCustomizedApiRequests=true&decoupleResponse=onfido`
+      )
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      selfieIntro.clickOnContinueButton()
+      camera.takeSelfie()
+      confirm.clickConfirmButton()
+    })
+
+    it('should continue through full flow without problems when using customized API requests and success response is returned from callbacks', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&useCustomizedApiRequests=true&decoupleResponse=success`
+      )
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      selfieIntro.clickOnContinueButton()
+      camera.takeSelfie()
+      confirm.clickConfirmButton()
     })
   })
 }

@@ -12,6 +12,7 @@
 - [Customising the SDK](#customising-the-sdk)
 - [Creating checks](#creating-checks)
 - [User Analytics](#user-analytics)
+- [Premium Enterprise Features](#premium-enterprise-features)
 - [Going live](#going-live)
 - [Accessibility](#accessibility)
 - [TypeScript](#typescript)
@@ -61,7 +62,7 @@ You will receive a response containing the applicant id which will be used to cr
 
 ### 3. Generating an SDK token
 
-For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
+For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialize the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
 
 ```shell
 $ curl https://api.onfido.com/v3/sdk_token \
@@ -75,18 +76,6 @@ Note: If you are currently using API `v2` please refer to [this migration guide]
 Make a note of the `token` value in the response, as you will need it later on when initialising the SDK.
 
 \* Tokens expire 90 minutes after creation.
-
-### Cross device URL
-
-This is a premium enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
-
-```shell
-$ curl https://api.onfido.com/v3/sdk_token \
- -H 'Authorization: Token token=YOUR_API_TOKEN' \
- -F 'applicant_id=YOUR_APPLICANT_ID' \
- -F 'referrer=REFERRER_PATTERN' \
- -F 'cross_device_url=YOUR_CUSTOM_URL'
-```
 
 ### 4. Including/Importing the library
 
@@ -127,7 +116,7 @@ var Onfido = require('onfido-sdk-ui')
 
 The **CSS style** will be included **inline with the JS code** when the library is imported.
 
-#### Notice
+#### Note
 
 The library is **Browser only**, it does not support the **Node Context**.
 
@@ -148,7 +137,7 @@ verification component will be mounted. -->
 
 ### 6. Initialising the SDK
 
-You are now ready to initialise the SDK:
+You are now ready to initialize the SDK:
 
 ```js
 Onfido.init({
@@ -197,7 +186,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 - Handle callbacks
 - Remove the SDK from the page
-- Customise the SDK
+- Customize the SDK
 - Create checks
 
 ## Handling callbacks
@@ -280,7 +269,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 ## Removing the SDK
 
-If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
+If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialize the SDK inside the same webpage later on.
 
 ```javascript
 onfidoOut = Onfido.init({...})
@@ -290,7 +279,7 @@ onfidoOut.tearDown()
 
 ## Customising the SDK
 
-A number of options are available to allow you to customise the SDK:
+A number of options are available to allow you to customize the SDK:
 
 - **`token {String} required`**
 
@@ -349,7 +338,8 @@ A number of options are available to allow you to customise the SDK:
   The container element that the UI will mount to. This needs to be an empty element. This can be used as an alternative to passing in the container ID string previously described for `containerId`. Note that if `containerEl` is provided, then `containerId` will be ignored.
 
 - **`language {String || Object} optional`**
-  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
+
+  The SDK language can be customized by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
   To leverage one of these languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
@@ -362,7 +352,7 @@ A number of options are available to allow you to customise the SDK:
   The object should include the following keys:
 
   - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-    You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+    You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
     The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English, Spanish, French and German.
 
   - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
@@ -381,7 +371,8 @@ A number of options are available to allow you to customise the SDK:
   If `language` is not present the default copy will be in English.
 
 - **`smsNumberCountryCode {String} optional`**
-  The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+
+  The default country for the SMS number input can be customized by passing the `smsNumberCountryCode` option when the SDK is initialized. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
 
   Example:
 
@@ -390,6 +381,7 @@ A number of options are available to allow you to customise the SDK:
   ```
 
 - **`userDetails {Object} optional`**
+
   Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
 
   The following details can be used by the SDK:
@@ -402,9 +394,159 @@ A number of options are available to allow you to customise the SDK:
   }
   ```
 
+- **`customUI {Object} optional`**
+
+  If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA color values, border radius values) for the following options:
+
+  | Typography options     | Description                                                                        |
+  | ---------------------- | ---------------------------------------------------------------------------------- |
+  | `fontFamilyTitle`      | Change font family of the SDK screen titles                                        |
+  | `fontFamilySubtitle`   | Change font family of the SDK screen subtitles                                     |
+  | `fontFamilyBody`       | Change font family of the SDK screen content                                       |
+  | `fontSizeTitle`        | Change font size of the SDK screen titles                                          |
+  | `fontSizeSubtitle`     | Change font size of the SDK screen subtitles                                       |
+  | `fontSizeBody`         | Change font size of the SDK screen content                                         |
+  | `fontWeightTitle`      | Change font weight of the SDK screen titles (number format only, e.g. 400, 600)    |
+  | `fontWeightSubtitle`   | Change font weight of the SDK screen subtitles (number format only, e.g. 400, 600) |
+  | `fontWeightBody`       | Change font weight of the SDK screen content (number format only, e.g. 400, 600)   |
+  | `colorContentTitle`    | Change text color of the SDK screen titles                                         |
+  | `colorContentSubtitle` | Change text color of the SDK screen subtitles                                      |
+  | `colorContentBody`     | Change text color of the SDK screen content                                        |
+
+  Example configuration with the different CSS font related values that can be used:
+
+  ```javascript
+  customUI: {
+    "fontFamilyTitle": "Impact, fantasy",
+    "fontSizeTitle": "26px",
+    "fontWeightSubtitle": 600,
+    "fontSizeSubtitle": "1.25rem",
+  }
+  ```
+
+  **Note:** If using a scalable font size unit like em/rem, the SDK's base font size is 16px. This is currently not customizable.
+
+  | Modal (SDK main container)    | Description                          |
+  | ----------------------------- | ------------------------------------ |
+  | `colorBackgroundSurfaceModal` | Change background color of SDK modal |
+  | `colorBorderSurfaceModal`     | Change color of SDK modal border     |
+  | `borderWidthSurfaceModal`     | Change border width of SDK modal     |
+  | `borderStyleSurfaceModal`     | Change border style of SDK modal     |
+  | `borderRadiusSurfaceModal`    | Change border radius of SDK modal    |
+
+  Example configuration with the different CSS colour value variations, border style that can be used:
+
+  ```javascript
+  customUI: {
+      "colorBackgroundSurfaceModal": "#fafafa",
+      "colorBorderSurfaceModal": "rgb(132 59 98)",
+      "borderWidthSurfaceModal": "6px",
+      "borderStyleSurfaceModal": "groove",
+    }
+  ```
+
+  | Primary Buttons                      | Description                                            |
+  | ------------------------------------ | ------------------------------------------------------ |
+  | `colorContentButtonPrimaryText`      | Change color of Primary Button text                    |
+  | `colorBackgroundButtonPrimary`       | Change background color of Primary Button              |
+  | `colorBackgroundButtonPrimaryHover`  | Change background color of Primary Button on hover     |
+  | `colorBackgroundButtonPrimaryActive` | Change background color of Primary Button on click/tap |
+  | `colorBorderButtonPrimary`           | Change color of Primary Button border                  |
+
+  | Secondary Buttons                      | Description                                              |
+  | -------------------------------------- | -------------------------------------------------------- |
+  | `colorContentButtonSecondaryText`      | Change color of Secondary Button text                    |
+  | `colorBackgroundButtonSecondary`       | Change background color of Secondary Button              |
+  | `colorBackgroundButtonSecondaryHover`  | Change background color of Secondary Button on hover     |
+  | `colorBackgroundButtonSecondaryActive` | Change background color of Secondary Button on click/tap |
+  | `colorBorderButtonSecondary`           | Change color of Secondary Button border                  |
+
+  | Document Type Buttons            | Description                                              |
+  | -------------------------------- | -------------------------------------------------------- |
+  | `colorContentDocTypeButton`      | Change Document Type Button text color                   |
+  | `colorBackgroundDocTypeButton`   | Change background color of Document Type Button          |
+  | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
+  | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
+  | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
+  | `colorBorderDocTypeButtonActive` | Change color of Document Type Button border on click/tap |
+
+  | Icon Background option | Description                                                         |
+  | ---------------------- | ------------------------------------------------------------------- |
+  | `colorBackgroundIcon`  | Change color of the background circle of pictogram icons in the SDK |
+
+  Example configuration with the different CSS colour value variations that can be used:
+
+  ```javascript
+  customUI: {
+      "colorContentButtonPrimaryText": "#333",
+      "colorBackgroundButtonPrimary": "#ffb997",
+      "colorBorderButtonPrimary": "#B23A48",
+      "colorBackgroundButtonPrimaryHover": "#F67E7D",
+      "colorBackgroundButtonPrimaryActive": "#843b62",
+
+      "colorContentButtonSecondaryText": "hsla(90deg 1% 31%)",
+      "colorBackgroundButtonSecondary": "rgba(255 238 170 / 92%)",
+      "colorBorderButtonSecondary": "coral",
+      "colorBackgroundButtonSecondaryHover": "#ce6a85",
+      "colorBackgroundButtonSecondaryActive": "#985277",
+    }
+  ```
+
+  The following options are applied to multiple Button elements:
+
+  | Shared Button options                   | Value Type | Description                                                                                                                                 |
+  | --------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `borderRadiusButton`                    | `string`   | Change border radius value of Primary, Secondary and Document Type Option buttons                                                           |
+  | `buttonGroupStacked` (default: `false`) | `boolean`  | Display Primary, Secondary button group in Document and Face capture confirmation screens are in separate rows instead of inline by default |
+
+  Example configuration:
+
+  ```javascript
+  customUI: {
+      borderRadiusButton: "50px",
+      buttonGroupStacked: true
+    }
+  ```
+
+  | Links                       | Description                               |
+  | --------------------------- | ----------------------------------------- |
+  | `colorContentLinkTextHover` | Change Link text color                    |
+  | `colorBorderLinkUnderline`  | Change Link underline color               |
+  | `colorBackgroundLinkHover`  | Change Link background color on hover     |
+  | `colorBackgroundLinkActive` | Change Link background color on click/tap |
+
+  | Warning Popups                    | Description                                                |
+  | --------------------------------- | ---------------------------------------------------------- |
+  | `colorContentAlertInfo`           | Change warning popup text color                            |
+  | `colorBackgroundAlertInfo`        | Change warning popup background color                      |
+  | `colorContentAlertInfoLinkHover`  | Change warning popup fallback Link background on hover     |
+  | `colorContentAlertInfoLinkActive` | Change warning popup fallback Link background on click/tap |
+
+  | Error Popups                       | Description                                              |
+  | ---------------------------------- | -------------------------------------------------------- |
+  | `colorContentAlertError`           | Change error popup text color                            |
+  | `colorBackgroundAlertError`        | Change error popup background color                      |
+  | `colorContentAlertErrorLinkHover`  | Change error popup fallback Link background on hover     |
+  | `colorContentAlertErrorLinkActive` | Change error popup fallback Link background on click/tap |
+
+  | Info Header/Highlight Pills | Description                                                                                      |
+  | --------------------------- | ------------------------------------------------------------------------------------------------ |
+  | `colorBackgroundInfoPill`   | Change background color of Cross Device, Camera/Mic Permissions screens' information header pill |
+  | `colorContentInfoPill`      | Change text color of Cross Device, Camera/Mic Permissions screens' information header pill       |
+
+  | Icon Buttons                      | Description                                                            |
+  | --------------------------------- | ---------------------------------------------------------------------- |
+  | `colorBackgroundButtonIconHover`  | Change background color of Back, Close Modal icon buttons on hover     |
+  | `colorBackgroundButtonIconActive` | Change background color of Back, Close Modal icon buttons on click/tap |
+
+  | Camera Shutter Button               | Description                                                                                 |
+  | ----------------------------------- | ------------------------------------------------------------------------------------------- |
+  | `colorBackgroundButtonCameraHover`  | Change background color of Live Selfie/Document Capture screens's Camera button on hover    |
+  | `colorBackgroundButtonCameraActive` | Change background color of Live Selfie/Document Capture screen's Camera button on click/tap |
+
 - **`steps {List} optional`**
 
-  List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
+  List of the different steps and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required):
 
   ```javascript
   steps: [
@@ -419,7 +561,7 @@ A number of options are available to allow you to customise the SDK:
   ]
   ```
 
-  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customised.
+  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customized.
 
   The SDK can also be used to capture Proof of Address documents. This can be achieved by using the `poa` step.
 
@@ -437,7 +579,7 @@ A number of options are available to allow you to customise the SDK:
 
   ### userConsent
 
-  This step contains a screen to collect the user's privacy consent and is an optional step in the SDK flow. It contains the required consent language as well as links to Onfido's policies and terms of use. The user must click "Accept" to get past this step and continue with the flow. The content is available in English only, and is not translatable.
+  This step contains a screen to collect the US user's privacy consent for Onfido and is an optional step in the SDK flow. It contains the consent language required when you offer your service to US users as well as links to Onfido's policies and terms of use. The user must click "Accept" to get past this step and continue with the flow. The content is available in English only, and is not translatable.
 
   Note that this step does not automatically inform Onfido that the user has given their consent. At the end of the SDK flow, you still need to set the API parameter `privacy_notices_read_consent_given` outside of the SDK flow when [creating a check](#creating-checks).
 
@@ -695,7 +837,7 @@ A number of options are available to allow you to customise the SDK:
 
 ### Changing options in runtime
 
-It's possible to change the options initialised at runtime:
+It's possible to change the options initialized at runtime:
 
 ```javascript
 onfidoOut = Onfido.init({...})
@@ -731,7 +873,7 @@ In order to perform a full document/face check, you need to call our [API](https
 ### 1. Creating a check
 
 With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-reports).
-The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report.
+The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report.
 The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the report name you should include in your request.
 Example of data returned by the `onComplete` callback:
 `{face: {variant: 'standard' | 'video'}}`
@@ -806,6 +948,467 @@ VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "liveness vi
 UPLOAD - User's file is uploading
 ```
 
+## Premium Enterprise Features
+
+These features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
+
+### Customized API Requests - Premium Enterprise Feature
+
+This premium enterprise feature enables you to control the data collected by the Onfido SDK through the use of callbacks that are invoked when the user submits their captured media. These callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. The callback for video is not supported yet.
+
+Example:
+
+```javascript
+Onfido.init({
+  // Other options here
+  enterpriseFeatures: {
+    useCustomizedApiRequests: true,
+    onSubmitDocuments: (documentData) => {
+      // Your callback code here
+    },
+    onSubmitSelfie: (selfieData) => {
+      // Your callback code here
+    },
+  },
+})
+```
+
+To enable callbacks on the cross-device flow you must also host the cross-device experience of the Onfido SDK yourself. This can be done using the [cross device URL](#cross-device-url) premium enterprise feature. Once you have a server with the Onfido Web SDK installed and set up you must initialize the SDK with `mobileFlow: true` as well as the callbacks and `useCustomizedApiRequests` options shown above.
+
+#### Callbacks Overview
+
+The callbacks will provide you with a FormData object including the information that the SDK would send to Onfido. These callbacks will be invoked when the user confirms their image on the UI and won’t send the request to Onfido unless requested in the response.
+
+**onSubmitDocument FormData Paramaters**
+
+```javascript
+{
+  file: blob,
+  side: string,
+  type: string,
+  sdk_validations: object,
+  sdk_source: string,
+  sdk_version: string,
+  sdk_metadata: object,
+}
+```
+
+**onSubmitSelfie FormData Paramaters**
+
+```javascript
+{
+  file: blob,
+  snapshot: blob,
+  sdk_source: string,
+  sdk_version: string,
+  sdk_metadata: object,
+}
+
+```
+
+**Allowing the SDK to upload data to Onfido**
+
+If you would like the SDK to upload the user-submitted data to Onfido you can resolve the promise with an object containing `continueWithOnfidoUpload: true`
+
+Example:
+
+```javascript
+onSubmitDocument: (data) => {
+  // Send data to your backend then resolve promise,
+  return Promise.resolve({ continueWithOnfidoUpload: true })
+})
+```
+
+**Providing the SDK with the Onfido response**
+
+If you would like to upload the data yourself from your backend, we strongly recommend that you add all of the data provided to you through the callbacks in your request to the appropriate endpoint - `/documents` or `/live_photos`. Additionally, you should use the SDK token created for each applicant in the `Authorization` header of the request as shown below. Please note, the SDK token is not included in the FormData provided by the callbacks. You may want to append this or some other unique identifier that is mapped to the applicant's SDK token on your backend before sending it off.
+
+Example:
+
+```
+Authorization: Bearer <SDK token here>
+```
+
+Once you have sent the request to Onfido yourself, you can supply the SDK with the response so it can determine what the user should be presented with. In the case where a success response is received, the promise should be resolved with `onfidoSuccessResponse: <onfidoResponse>`, otherwise reject the promise with the Onfido error response. Please note that an error response could be returned due to image quality issues and the SDK will present the user with the appropriate error message.
+
+Example:
+
+```javascript
+onSubmitDocument: (data) => {
+  // Send request to Onfido API /documents via your backend proxy
+  .then(onfidoSuccessResponse =>
+    Promise.resolve({ onfidoSuccessResponse }))
+  .catch(onfidoError => Promise.reject(onfidoError))
+}
+
+```
+
+Below is a sample openAPI YAML file you could use as an example to start your own proxy.
+
+```yaml
+openapi: 3.0.0
+info:
+  title: Network decouple back-end sample
+  description: Network decouple back-end setup skeleton
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    IDocumentsRequest:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+          description: Uploaded document. Passed in from the web SDK callback.
+        type:
+          type: string
+          default: passport
+          description: >-
+            The type of document that was submitted. Passed in from the web SDK
+            callback.
+        side:
+          type: string
+          default: front
+          description: >-
+            The type side of the document that was submitted. Passed in from the
+            web SDK callback.
+        sdk_metadata:
+          type: object
+          description: >-
+            The metadata that web SDK collects. Forward this to Onfido API
+            without modifications. Passed in from the web SDK callback.
+        sdk_validations:
+          type: object
+          description: >-
+            This is a an object used by web SDK to seek image quality feedback
+            from the API. Forward this object without modifications to Onfido
+            API. Passed in from the web SDK callback.
+        sdk_source:
+          type: string
+          default: onfido_web_sdk
+          description: >-
+            The source of origin of the requests. Forward this without
+            modifications to the Onfido API. Passed in from the web SDK callback.
+        sdk_version:
+          type: string
+          description: >-
+            The SDK version. Forward this without modifications to the Onfido
+            API. Passed in from the web SDK callback.
+    IMultiFrameSelfieRequest:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+          description: Uploaded photo
+        sdk_metadata:
+          type: object
+          description: >-
+            The metadata that web SDK collects. Forward this to Onfido API
+            without modifications. Passed in from the web SDK callback.
+        sdk_source:
+          type: string
+          default: onfido_web_sdk
+          description: >-
+            The source of origin of the requests. Forward this without
+            modifications to the Onfido API. Passed in from the web SDK callback.
+        sdk_version:
+          type: string
+          description: >-
+            The SDK version. Forward this without modifications to the Onfido
+            API. Passed in from the web SDK callback.
+        snapshot:
+          type: string
+          format: binary
+          description: Uploaded snapshot taken by the Web SDK to improve fraud analysis.
+paths:
+  /onfido/v3/documents:
+    post:
+      operationId: OnfidoController documents
+      parameters:
+        - name: Auhorization
+          in: header
+          description: Customer back-end Authentication token
+          schema:
+            type: string
+      requestBody:
+        required: true
+        description: The API endpoint to intercept the document upload from the Web SDK
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/IDocumentsRequest'
+      responses:
+        '200':
+          description: >-
+            The response received from Onfido v3/documents API call. The
+            response format might slightly vary with the use case. Forward it
+            without modifications as the callback response.
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  created_at:
+                    type: string
+                    format: date-time
+                  file_name:
+                    type: string
+                  file_size:
+                    type: integer
+                  file_type:
+                    type: string
+                  type:
+                    type: string
+                  side:
+                    type: string
+                  issuing_country:
+                    type: string
+                  applicant_id:
+                    type: string
+                  href:
+                    type: string
+                  download_href:
+                    type: string
+                  sdk_warnings:
+                    type: object
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+        '422':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      message:
+                        type: string
+                  fields:
+                    type: object
+  /onfido/v3/live_photos:
+    post:
+      operationId: OnfidoController
+      parameters:
+        - name: Auhorization
+          in: header
+          description: Customer back-end Authentication token
+          schema:
+            type: string
+      requestBody:
+        required: true
+        description: The API endpoint to intercept the live photos upload from the Web SDK
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/IMultiFrameSelfieRequest'
+      responses:
+        '200':
+          description: >-
+            The response received from Onfido v3/live_photos API call. The
+            response format might slightly vary with the use case. Forward it
+            without modifications as the callback response.
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  created_at:
+                    type: string
+                    format: date-time
+                  file_name:
+                    type: string
+                  file_type:
+                    type: string
+                  file_size:
+                    type: integer
+                  href:
+                    type: string
+                  sdk_source:
+                    type: string
+                  sdk_version:
+                    type: string
+                  download_href:
+                    type: string
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+```
+
+### Cross device URL - Premium Enterprise Feature
+
+This feature allows you to specify your own custom or whitelabel url that the cross device flow will redirect to instead of the Onfido default `id.onfido.com`. To use this feature generate a SDK token as shown below and use it to start the SDK.
+
+```shell
+$ curl https://api.onfido.com/v3/sdk_token \
+ -H 'Authorization: Token token=YOUR_API_TOKEN' \
+ -F 'applicant_id=YOUR_APPLICANT_ID' \
+ -F 'referrer=REFERRER_PATTERN' \
+ -F 'cross_device_url=YOUR_CUSTOM_URL'
+```
+
+In addition to this, you must either:
+
+1. Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`. This can be done by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido-hosted Web SDK.
+
+Below is an example set-up for a minimal nginx server using docker.
+
+**Example**
+
+nginx.conf
+
+```nginx
+server {
+  # Change the next 2 lines as needed
+  listen       80;
+  server_name  localhost;
+
+  location / {
+    # This forwards the path to Onfido and is the only change
+    # necessary when working with the default nginx configuration
+    proxy_pass https://id.onfido.com;
+  }
+}
+```
+
+dockerfile
+
+```
+FROM nginx:1.15.8-alpine
+
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+```
+
+2. Set up a server to host the Onfido Web SDK yourself at the provided URL. This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
+
+Below is an example of how you could host the Onfido Web SDK with minimal setup, but it does not have to be done this way.
+
+**Example**
+
+This example involves using docker and an nginx image to serve an html file which starts the Onfido Web SDK using just the minified js and css files from the dist directory. (`onfido-sdk-ui/dist/onfido.min.js` and `onfido-sdk-ui/dist/style.css`)
+
+To help with getting the correct version of the Web SDK, we append the Onfido files with the base32 version that is associated with each release. This value can be obtained from the first 2 characters in the appended path when using the cross-device flow. For example, if the current release appends a path that starts with `BW` we would rename the minified files `BW-onfido.min.js` and `BW-style.css` for this example to work.
+
+File structure for this minimal example
+
+```
+- dist
+  - <BASE32>-onfido.min.js
+  - <BASE32>-style.css
+- dockerfile
+- nginx.conf
+- index.html
+```
+
+dockerfile
+
+```
+FROM nginx:1.15.8-alpine
+
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY ./index.html /usr/share/nginx/html/
+
+COPY ./dist /usr/share/nginx/sdk/
+```
+
+nginx.conf
+
+```nginx
+server {
+  # Change the next 2 lines as needed
+  listen       80;
+  server_name  localhost;
+
+  location ~ ^/[0-9a-zA-Z]+$ {
+    root   /usr/share/nginx/html;
+    try_files $uri /index.html =404;
+  }
+
+  location ~* \.(js|jpg|png|css)$ {
+    root /usr/share/nginx/sdk/;
+  }
+}
+```
+
+index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Onfido Verification</title>
+    <style type="text/css">
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body,
+      button {
+        -webkit-font-smoothing: antialiased;
+      }
+      @media (min-width: 30em) {
+        #onfido-mount {
+          position: relative;
+          top: 10%;
+        }
+        .onfido-sdk-ui-Modal-inner {
+          font-family: 'Open Sans', sans-serif !important;
+        }
+      }
+    </style>
+    <script type="text/javascript">
+      var version = window.location.pathname.substring(1, 3)
+      var jsPath = version + '-onfido.min.js'
+      var cssPath = version + '-style.css'
+
+      var link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = cssPath
+
+      var script = document.createElement('script')
+      script.onload = function () {
+        window.onfidoOut = Onfido.init({ mobileFlow: true })
+      }
+      script.src = jsPath
+
+      document.head.appendChild(link)
+      document.head.appendChild(script)
+    </script>
+  </head>
+
+  <body>
+    <div id="onfido-mount"></div>
+  </body>
+</html>
+```
+
 ## Going live
 
 Once you are happy with your integration and are ready to go live, please contact [client-support@onfido.com](mailto:client-support@onfido.com) to obtain live version of the API token. We will have to replace the sandbox token in your code with the live token.
@@ -825,6 +1428,10 @@ The Onfido SDK has been optimised to provide the following accessibility support
 - Sufficient touch target size: all interactive elements have been designed to meet the recommended touch target size
 
 Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
+
+### Note
+
+If you are making your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible color contrast ratios and dyslexic friendly fonts.
 
 ## TypeScript
 

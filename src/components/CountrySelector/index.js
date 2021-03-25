@@ -1,15 +1,18 @@
 import { h, Component } from 'preact'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
-import Button from '../Button'
-import FallbackButton from '../Button/FallbackButton'
 import { localised /* , type LocalisedType */ } from '../../locales'
 import {
   getSupportedCountriesForDocument,
   /* type CountryData, */
 } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
-import { parseTags, hasOnePreselectedDocument } from '~utils'
+import {
+  parseTags,
+  hasOnePreselectedDocument,
+  preventDefaultOnClick,
+} from '~utils'
 
 import Autocomplete from 'accessible-autocomplete/preact'
 import theme from 'components/Theme/style.scss'
@@ -104,7 +107,7 @@ class CountrySelection extends Component {
       ({ text }) => text
     )
 
-  trackFallbackClick = () => {
+  trackChooseAnotherDocumentTypeClick = () => {
     const { trackScreen, previousStep } = this.props
     trackScreen('fallback_clicked')
     previousStep()
@@ -120,7 +123,15 @@ class CountrySelection extends Component {
         <i className={style.errorIcon} />
         <span className={style.fallbackText}>
           {parseTags(noResultsErrorCopy, ({ text }) => (
-            <FallbackButton text={text} onClick={this.trackFallbackClick} />
+            <a
+              href="#"
+              className={classNames(theme.link, style.fallbackLink)}
+              onClick={preventDefaultOnClick(
+                this.trackChooseAnotherDocumentTypeClick
+              )}
+            >
+              {text}
+            </a>
           ))}
         </span>
       </div>
@@ -160,14 +171,15 @@ class CountrySelection extends Component {
         </div>
         <div>
           <Button
-            variants={['centered', 'primary', 'lg']}
+            variant="primary"
+            className={classNames(theme['button-centered'], theme['button-lg'])}
             disabled={
               !idDocumentIssuingCountry ||
               !idDocumentIssuingCountry.country_alpha3 ||
               this.state.showNoResultsError
             }
             onClick={nextStep}
-            uiTestDataAttribute="countrySelectorNextStep"
+            data-onfido-qa="countrySelectorNextStep"
           >
             {translate('country_select.button_primary')}
           </Button>

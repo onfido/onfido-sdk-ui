@@ -1,4 +1,4 @@
-import { DocumentTypes, PoaTypes } from '~types/steps'
+import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 export const CONFIRM_PREVIEWS_LOCALES_MAPPING: Record<
   DocumentTypes | PoaTypes,

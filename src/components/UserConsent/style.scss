@@ -6,9 +6,9 @@
   border-style: none;
 
   h1 {
-    color: $color-title-text;
-    font-weight: 600;
-    font-size: $font-size-x-large;
+    color: var(--osdk-color-content-title);
+    font-weight: var(--osdk-font-weight-title);
+    font-size: var(--osdk-font-size-title);
     line-height: 1.34;
     text-align: center;
     margin-bottom: 32 * $unit-x-large;
@@ -23,10 +23,6 @@
 
   > * {
     text-align: left;
-
-    a {
-      color: $color-primary-500;
-    }
   }
 
   h4 {
@@ -46,6 +42,17 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  &.vertical {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.action.vertical {
+  margin-top: 8 * $unit;
+  margin-right: 0;
+  width: $lg-btn-width-lg-screen;
 }
 
 .secondary {
@@ -65,12 +72,12 @@
   margin: auto;
 
   border-radius: 4 * $unit;
-  border: 1px solid $color-border;
-  background-color: $color-background;
+  border: 1px solid var(--osdk-color-border-surface-modal);
+  background-color: var(--osdk-color-background-surface-modal);
 
-  font-family: $font-family !important;
+  font-family: var(--osdk-font-family-body) !important;
 
-  color: $color-body-text;
+  color: var(--osdk-color-content-body);
   font-weight: 500;
   line-height: 1.5;
 
@@ -107,7 +114,7 @@
   }
 
   h2 {
-    font-size: $font-size-large;
+    font-size: var(--font-size-large);
     line-height: 28 * $unit;
     margin: 0;
   }

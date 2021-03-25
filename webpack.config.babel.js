@@ -11,7 +11,7 @@ import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
-import path from 'path'
+import { dirname, relative, resolve, basename } from 'path'
 import nodeExternals from 'webpack-node-externals'
 
 // NODE_ENV can be one of: development | staging | test | production
@@ -29,8 +29,15 @@ const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 const baseRules = [
   {
     test: /\.(js|ts)x?$/,
-    include: [`${__dirname}/src`],
-    use: ['babel-loader'],
+    loader: 'babel-loader',
+    options: { configFile: resolve('.babelrc') },
+    include: [
+      resolve('src'),
+      resolve('node_modules/@onfido/castor'),
+      resolve('node_modules/@onfido/castor-react'),
+      resolve('node_modules/strip-ansi'),
+      resolve('node_modules/ansi-regex'),
+    ],
   },
 ]
 
@@ -44,11 +51,11 @@ const baseStyleLoaders = (modules, withSourceMap) => [
       modules: modules
         ? {
             getLocalIdent: (context, localIdentName, localName) => {
-              const basePath = path.relative(
+              const basePath = relative(
                 `${__dirname}/src/components`,
                 context.resourcePath
               )
-              const baseDirFormatted = path.dirname(basePath).replace('/', '-')
+              const baseDirFormatted = dirname(basePath).replace('/', '-')
               return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
             },
           }
@@ -199,7 +206,7 @@ const basePlugins = (bundle_name) => [
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'BW',
+      BASE_32_VERSION: 'CA',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
@@ -222,6 +229,7 @@ const baseConfig = {
     alias: {
       react: 'preact/compat',
       'react-dom': 'preact/compat',
+      '~contexts': `${__dirname}/src/contexts`,
       '~locales': `${__dirname}/src/locales`,
       '~types': `${__dirname}/src/types`,
       '~utils': `${__dirname}/src/components/utils`,
@@ -298,7 +306,7 @@ const configDist = {
               extractComments: {
                 condition: /^\**!|@preserve|@license|@cc_on/i,
                 filename: (filename) => {
-                  const filenameNoExtension = path.basename(filename, '.min.js')
+                  const filenameNoExtension = basename(filename, '.min.js')
                   return `${filenameNoExtension}.LICENSES.txt`
                 },
                 banner: (licenseFile) => {

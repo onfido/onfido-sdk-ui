@@ -3,8 +3,14 @@ import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
 import 'custom-event-polyfill'
 
+// TODO: These IE11 polyfills are missing in `development` after the Typescript conversion.
+//       But on PRs where the components that use these Array methods have been converted the polyfills seem to be included.
+//       Should be fine to remove when those PRs are merged in eventually.
+import 'array-flat-polyfill'
+
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
+import { cssVarsPonyfill } from '~utils/cssVarsPonyfill'
 import type { NormalisedSdkOptions } from '~types/commons'
 import type { SdkOptions, SdkHandle } from '~types/sdk'
 import type { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
@@ -47,7 +53,7 @@ const formatOptions = ({
 })
 
 const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
-  const documentStep = steps.find(
+  const documentStep = steps?.find(
     (step) => step.type === 'document'
   ) as StepConfigDocument
 
@@ -82,7 +88,7 @@ const isSMSCountryCodeValid = (smsNumberCountryCode: string) => {
 }
 
 const validateSmsCountryCode = (
-  smsNumberCountryCode: string
+  smsNumberCountryCode?: string
 ): string | undefined => {
   if (!smsNumberCountryCode) return 'GB'
   const upperCaseCode = upperCase(smsNumberCountryCode)
@@ -95,7 +101,7 @@ const elementIsInPage = (node: HTMLElement) =>
 const getContainerElementById = (containerId: string) => {
   const el = document.getElementById(containerId)
 
-  if (elementIsInPage(el)) {
+  if (el && elementIsInPage(el)) {
     return el
   }
 
@@ -109,20 +115,20 @@ export const init = (opts: SdkOptions): SdkHandle => {
   const options = formatOptions({ ...defaults, ...opts })
 
   experimentalFeatureWarnings(options)
+  cssVarsPonyfill()
 
-  let containerEl: HTMLElement = null
+  let containerEl: HTMLElement
 
   if (options.containerEl) {
     containerEl = options.containerEl
+    onfidoRender(options, containerEl)
   } else if (options.containerId) {
     containerEl = getContainerElementById(options.containerId)
+    onfidoRender(options, containerEl)
   }
-
-  onfidoRender(options, containerEl)
 
   return {
     options,
-    // element,
     setOptions(changedOptions) {
       this.options = formatOptions({ ...this.options, ...changedOptions })
       if (
@@ -136,11 +142,11 @@ export const init = (opts: SdkOptions): SdkHandle => {
       ) {
         containerEl = getContainerElementById(changedOptions.containerId)
       }
-      this.element = onfidoRender(this.options, containerEl, this.element)
+      onfidoRender(this.options as NormalisedSdkOptions, containerEl)
       return this.options
     },
     tearDown() {
-      render(null, containerEl, this.element)
+      render(null, containerEl)
     },
   }
 }

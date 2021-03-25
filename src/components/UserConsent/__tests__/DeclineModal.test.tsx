@@ -29,13 +29,13 @@ describe('DeclineModal', () => {
           <DeclineModal {...defaultProps} />
         </MockedLocalised>
       )
-      const primaryBtn = wrapper.find(
-        'button[data-onfido-qa="userConsentDeclineModalBtnPrimary"]'
-      )
+      const primaryBtn = wrapper.find({
+        'data-onfido-qa': 'userConsentDeclineModalBtnPrimary',
+      })
 
-      const secondaryBtn = wrapper.find(
-        'button[data-onfido-qa="userConsentDeclineModalBtnSecondary"]'
-      )
+      const secondaryBtn = wrapper.find({
+        'data-onfido-qa': 'userConsentDeclineModalBtnSecondary',
+      })
 
       expect(wrapper.exists()).toBeTruthy()
       expect(primaryBtn.exists()).toBeTruthy()

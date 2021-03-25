@@ -8,7 +8,27 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [6.6.0] - 2021-03-11
+## [6.7.0] - 2021-03-25
+
+### Added
+
+- Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
+- Public: Added cross-device support for useCustomizedApiRequests callbacks via customer hosting of SDK. Note - This is a premium enterprise feature.
+- Public: Added support for UI customizations in SDK configuration using `customUI` option. See README for details of supported customization options.
+- Internal: Add Woopra tracking for UI customization option usage.
+
+### Changed
+
+- UI: Replaced internal button component with button from @onfido/castor-react.
+- UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
+- Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the Onfido logo.
+- Internal: Use Node 14 LTS for Travis to be consistent with `.nvmrc` and `Dockerfile`.
+
+### Fixed
+
+- UI: Fix Camera Permission icon not displaying on iOS devices on Selfie/Liveness capture flow
+
+## [6.6.0] - 2021-03-09
 
 ### Added
 
@@ -906,7 +926,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.6.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.0...development
+[6.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.6.0...6.7.0
 [6.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.5.0...6.6.0
 [6.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.4.0...6.5.0
 [6.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.3.1...6.4.0

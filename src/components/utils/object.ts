@@ -1,7 +1,9 @@
+// @TODO: replace this over-generic method with something easier to maintain
 export const findKey = <K extends string, V>(
   obj: Partial<Record<K, V>> = {},
   fn: (value: V, key: K) => boolean
-): K => (Object.keys(obj) as K[]).find((key) => fn(obj[key], key))
+  // @ts-ignore
+): K => Object.keys(obj).find((key) => fn(obj[key], key))
 
 export const shallowEquals = <K extends string, V>(
   objA: Partial<Record<K, V>>,
@@ -24,27 +26,30 @@ export const shallowEquals = <K extends string, V>(
   return true
 }
 
-export const pick = <K extends string, V>(
-  obj: Partial<Record<K, V>>,
+export const pick = <K extends string, U extends string, V>(
+  obj: Partial<Record<K | U, V>> | null,
   keys: K[] = []
-): Partial<Record<K, V>> => omitBy(obj, (key) => !keys.includes(key))
+  // @ts-ignore
+): Record<K, V> => omitBy(obj, (key) => !keys.includes(key))
 
 export const pickBy = <K extends string, V>(
   obj: Partial<Record<K, V>>,
   rule: (key: K, value: V) => boolean
 ): Partial<Record<K, V>> => omitBy(obj, (...args) => !rule(...args))
 
-export const omit = <K extends string, V>(
-  obj: Partial<Record<K, V>>,
+export const omit = <K extends string, U extends string, V>(
+  obj: Partial<Record<K | U, V>> | null,
   keys: K[] = []
-): Partial<Record<K, V>> => omitBy(obj, (key) => keys.includes(key))
+  // @ts-ignore
+): Record<U, V> => omitBy(obj, (key) => keys.includes(key))
 
 export const omitBy = <K extends string, V>(
-  obj: Partial<Record<K, V>> | undefined,
+  obj: Partial<Record<K, V>> | null,
   rule: (key: K, value: V) => boolean
 ): Partial<Record<K, V>> => {
   return (Object.keys(obj || {}) as K[]).reduce((accum, key) => {
-    if (!rule(key, obj[key])) {
+    // @ts-ignore
+    if (obj && !rule(key, obj[key])) {
       accum[key] = obj[key]
     }
 

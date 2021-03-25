@@ -1,3 +1,5 @@
+import { notEmpty } from './array'
+
 type SystemTypes = 'os' | 'browser'
 
 type SystemData = {
@@ -101,7 +103,7 @@ const detectSystem = (systemType: SystemTypes): SystemInfo => {
   )
 
   // Return first non-nullish result
-  return matchedSystems.filter((sys) => sys)[0]
+  return matchedSystems.filter(notEmpty)[0]
 }
 
 export default detectSystem

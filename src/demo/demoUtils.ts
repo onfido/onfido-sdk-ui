@@ -1,11 +1,15 @@
-import { LocaleConfig, SupportedLanguages } from '~types/locales'
-import {
+import type { LocaleConfig, SupportedLanguages } from '~types/locales'
+import type {
   DocumentTypes,
   DocumentTypeConfig,
   StepConfig,
   StepTypes,
 } from '~types/steps'
-import { ServerRegions, SdkOptions } from '~types/sdk'
+import type { ServerRegions, SdkOptions } from '~types/sdk'
+import type { UICustomizationOptions } from '~types/ui-customisation-options'
+import customUIConfig from './custom-ui-config.json'
+import testDarkCobrandLogo from './assets/onfido-logo.svg'
+import testLightCobrandLogo from './assets/onfido-logo-light.svg'
 
 type StringifiedBoolean = 'true' | 'false'
 type DecoupleResponseOptions = 'success' | 'error' | 'onfido'
@@ -28,10 +32,10 @@ export type QueryParams = {
   region?: string
   shouldCloseOnOverlayClick?: StringifiedBoolean
   showCobrand?: StringifiedBoolean
+  showLogoCobrand?: StringifiedBoolean
   showUserConsent?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
-  snapshotInterva?: StringifiedBoolean
-  snapshotInterval?: StringifiedBoolean
+  snapshotInterval?: string
   uploadFallback?: StringifiedBoolean
   useHistory?: StringifiedBoolean
   useLiveDocumentCapture?: StringifiedBoolean
@@ -40,12 +44,13 @@ export type QueryParams = {
   useMultipleSelfieCapture?: StringifiedBoolean
   useUploader?: StringifiedBoolean
   useWebcam?: StringifiedBoolean
+  customisedUI?: StringifiedBoolean
   useCustomizedApiRequests?: StringifiedBoolean
   decoupleResponse?: DecoupleResponseOptions
 }
 
 export type CheckData = {
-  applicantId: string | null
+  applicantId?: string
   sdkFlowCompleted: boolean
 }
 
@@ -140,41 +145,45 @@ export const getInitSdkOptions = (): SdkOptions => {
       ? SAMPLE_LOCALE
       : queryParamToValueString.language
 
-  const steps: Array<StepTypes | StepConfig> = [
-    'welcome' as StepTypes,
-    queryParamToValueString.showUserConsent === 'true' &&
-      ({ type: 'userConsent' } as StepConfig),
-    queryParamToValueString.poa === 'true' && ({ type: 'poa' } as StepConfig),
-    {
-      type: 'document',
-      options: {
-        useLiveDocumentCapture:
-          queryParamToValueString.useLiveDocumentCapture === 'true',
-        uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-        useWebcam: queryParamToValueString.useWebcam === 'true',
-        documentTypes: getPreselectedDocumentTypes(),
-        showCountrySelection:
-          queryParamToValueString.oneDocWithCountrySelection === 'true',
-        forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
-      },
-    } as StepConfig,
-    {
-      type: 'face',
-      options: {
-        requestedVariant:
-          queryParamToValueString.liveness === 'true' ? 'video' : 'standard',
-        useUploader: queryParamToValueString.useUploader === 'true',
-        uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-        useMultipleSelfieCapture:
-          queryParamToValueString.useMultipleSelfieCapture !== 'false',
-        snapshotInterval: queryParamToValueString.snapshotInterval
-          ? parseInt(queryParamToValueString.snapshotInterval, 10)
-          : 500,
-      },
-    } as StepConfig,
-    queryParamToValueString.noCompleteStep !== 'true' &&
-      ({ type: 'complete' } as StepConfig),
-  ].filter(Boolean)
+  const steps: Array<StepConfig> = [{ type: 'welcome' }]
+
+  if (queryParamToValueString.showUserConsent === 'true') {
+    steps.push({ type: 'userConsent' })
+  }
+
+  if (queryParamToValueString.poa === 'true') {
+    steps.push({ type: 'poa' })
+  }
+
+  steps.push({
+    type: 'document',
+    options: {
+      useLiveDocumentCapture:
+        queryParamToValueString.useLiveDocumentCapture === 'true',
+      uploadFallback: queryParamToValueString.uploadFallback !== 'false',
+      useWebcam: queryParamToValueString.useWebcam === 'true',
+      documentTypes: getPreselectedDocumentTypes(),
+      showCountrySelection:
+        queryParamToValueString.oneDocWithCountrySelection === 'true',
+      forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
+    },
+  })
+
+  steps.push({
+    type: 'face',
+    options: {
+      requestedVariant:
+        queryParamToValueString.liveness === 'true' ? 'video' : 'standard',
+      useUploader: queryParamToValueString.useUploader === 'true',
+      uploadFallback: queryParamToValueString.uploadFallback !== 'false',
+      useMultipleSelfieCapture:
+        queryParamToValueString.useMultipleSelfieCapture !== 'false',
+    },
+  })
+
+  if (queryParamToValueString.noCompleteStep !== 'true') {
+    steps.push({ type: 'complete' })
+  }
 
   const smsNumberCountryCode = queryParamToValueString.countryCode
     ? { smsNumberCountryCode: queryParamToValueString.countryCode }
@@ -184,6 +193,10 @@ export const getInitSdkOptions = (): SdkOptions => {
   const cobrand =
     queryParamToValueString.showCobrand === 'true'
       ? { text: 'Planet Express, Incorporated' }
+      : undefined
+  const logoCobrand =
+    queryParamToValueString.showLogoCobrand === 'true'
+      ? { lightLogoSrc: testLightCobrandLogo, darkLogoSrc: testDarkCobrandLogo }
       : undefined
   const useCustomizedApiRequests =
     queryParamToValueString.useCustomizedApiRequests === 'true'
@@ -224,6 +237,9 @@ export const getInitSdkOptions = (): SdkOptions => {
     }
   }
 
+  const customUI =
+    queryParamToValueString.customisedUI === 'true' ? customUIConfig : undefined
+
   return {
     useModal: queryParamToValueString.useModal === 'true',
     shouldCloseOnOverlayClick:
@@ -239,15 +255,17 @@ export const getInitSdkOptions = (): SdkOptions => {
     enterpriseFeatures: {
       hideOnfidoLogo,
       cobrand,
+      logoCobrand,
       useCustomizedApiRequests,
       ...decoupleCallbacks,
     },
+    customUI: customUI as UICustomizationOptions,
     ...smsNumberCountryCode,
   }
 }
 
 export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
-  standard: null,
+  standard: [],
 
   liveness: [
     'welcome',
@@ -362,20 +380,25 @@ export const commonLanguages: Record<
 export const commonRegions: ServerRegions[] = ['EU', 'US', 'CA']
 
 export const getTokenFactoryUrl = (region: ServerRegions): string => {
-  switch (region) {
-    case 'US':
-      return process.env.US_JWT_FACTORY
-    case 'CA':
-      return process.env.CA_JWT_FACTORY
-    default:
-      return process.env.JWT_FACTORY
+  if (region === 'US' && process.env.US_JWT_FACTORY) {
+    return process.env.US_JWT_FACTORY
   }
+
+  if (region === 'CA' && process.env.CA_JWT_FACTORY) {
+    return process.env.CA_JWT_FACTORY
+  }
+
+  if (region === 'EU' && process.env.JWT_FACTORY) {
+    return process.env.JWT_FACTORY
+  }
+
+  throw new Error('No JWT_FACTORY env provided')
 }
 
 export const getToken = (
   hasPreview: boolean,
   url: string,
-  eventEmitter: MessagePort,
+  eventEmitter: MessagePort | undefined,
   onSuccess: (message: string) => void
 ): void => {
   const request = new XMLHttpRequest()

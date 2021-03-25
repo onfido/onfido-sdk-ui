@@ -17,7 +17,7 @@ export declare type DocumentTypes = "passport" | "driving_licence" | "national_i
 export declare type PoaTypes = "bank_building_society_statement" | "utility_bill" | "council_tax" | "benefit_letters" | "government_letter";
 export declare type RequestedVariant = "standard" | "video";
 export declare type DocumentTypeConfig = boolean | {
-	country: string;
+	country: string | null;
 };
 export declare type CaptureOptions = {
 	requestedVariant?: RequestedVariant;
@@ -72,6 +72,60 @@ export declare type StepConfigComplete = {
 	options?: StepOptionComplete;
 };
 export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoA | StepConfigFace | StepConfigComplete;
+export declare type UICustomizationOptions = {
+	colorBackgroundSurfaceModal?: string;
+	colorBorderSurfaceModal?: string;
+	borderWidthSurfaceModal?: string;
+	borderStyleSurfaceModal?: string;
+	fontFamilyTitle?: string;
+	fontSizeTitle?: string;
+	fontWeightTitle?: number;
+	colorContentTitle?: string;
+	fontFamilySubtitle?: string;
+	fontSizeSubtitle?: string;
+	fontWeightSubtitle?: number;
+	colorContentSubtitle?: string;
+	fontFamilyBody?: string;
+	fontSizeBody?: string;
+	fontWeightBody?: number;
+	colorContentBody?: string;
+	colorContentButtonPrimaryText?: string;
+	colorBackgroundButtonPrimary?: string;
+	colorBackgroundButtonPrimaryHover?: string;
+	colorBackgroundButtonPrimaryActive?: string;
+	colorBorderButtonPrimary?: string;
+	colorContentButtonSecondaryText?: string;
+	colorBackgroundButtonSecondary?: string;
+	colorBackgroundButtonSecondaryHover?: string;
+	colorBackgroundButtonSecondaryActive?: string;
+	colorBorderButtonSecondary?: string;
+	borderRadiusButton?: string;
+	buttonGroupStacked?: boolean;
+	colorContentDocTypeButton?: string;
+	colorBackgroundDocTypeButton?: string;
+	colorBorderDocTypeButton?: string;
+	colorBorderDocTypeButtonHover?: string;
+	colorBorderDocTypeButtonActive?: string;
+	colorBackgroundIcon?: string;
+	colorBorderLinkUnderline?: string;
+	colorContentLinkTextHover?: string;
+	colorBackgroundLinkHover?: string;
+	colorBackgroundLinkActive?: string;
+	colorContentAlertInfo?: string;
+	colorBackgroundAlertInfo?: string;
+	colorBackgroundAlertInfoLinkHover?: string;
+	colorBackgroundAlertInfoLinkActive?: string;
+	colorContentAlertError?: string;
+	colorBackgroundAlertError?: string;
+	colorBackgroundAlertErrorLinkHover?: string;
+	colorBackgroundAlertErrorLinkActive?: string;
+	colorBackgroundInfoPill?: string;
+	colorContentInfoPill?: string;
+	colorBackgroundButtonIconHover?: string;
+	colorBackgroundButtonIconActive?: string;
+	colorBackgroundButtonCameraHover?: string;
+	colorBackgroundButtonCameraActive?: string;
+};
 export declare type DocumentSides = "front" | "back";
 export declare type UploadFileResponse = {
 	id: string;
@@ -145,6 +199,10 @@ export declare type FaceVideoResponse = {
 export declare type EnterpriseCobranding = {
 	text: string;
 };
+export declare type EnterpriseLogoCobranding = {
+	lightLogoSrc: string;
+	darkLogoSrc: string;
+};
 export declare type EnterpriseCallbackResponse = {
 	continueWithOnfidoSubmission?: boolean;
 	onfidoSuccess?: DocumentImageResponse | UploadFileResponse | FaceVideoResponse;
@@ -152,6 +210,7 @@ export declare type EnterpriseCallbackResponse = {
 export declare type EnterpriseFeatures = {
 	hideOnfidoLogo?: boolean;
 	cobrand?: EnterpriseCobranding;
+	logoCobrand?: EnterpriseLogoCobranding;
 	useCustomizedApiRequests?: boolean;
 	onSubmitDocument?: (data: FormData) => Promise<EnterpriseCallbackResponse>;
 	onSubmitSelfie?: (data: FormData) => Promise<EnterpriseCallbackResponse>;
@@ -203,8 +262,10 @@ export interface SdkOptions extends FunctionalConfigurations {
 	};
 	steps?: Array<StepTypes | StepConfig>;
 	enterpriseFeatures?: EnterpriseFeatures;
+	customUI?: UICustomizationOptions | null;
 }
 export declare type SdkHandle = {
+	containerId?: string;
 	options: SdkOptions;
 	setOptions(options: SdkOptions): void;
 	tearDown(): void;

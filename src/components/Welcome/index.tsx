@@ -1,17 +1,19 @@
 import { h, FunctionComponent } from 'preact'
+import { Button } from '@onfido/castor-react'
+import classNames from 'classnames'
+
+import { useSdkOptions } from '~contexts'
 import { buildIteratorKey } from '~utils'
-import PageTitle from '../PageTitle'
-import Button from '../Button'
+import { useLocales } from '~locales'
 import { trackComponent } from '../../Tracker'
-import { localised } from '../../locales'
+import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
+import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
 import type { TranslateCallback } from '~types/locales'
-import type { WithLocalisedProps } from '~types/hocs'
-import type { StepComponentWelcomeProps } from '~types/routers'
-
-type Props = StepComponentWelcomeProps & WithLocalisedProps
+import type { StepComponentBaseProps } from '~types/routers'
+import type { StepConfigWelcome } from '~types/steps'
 
 const localisedDescriptions = (translate: TranslateCallback) => [
   translate('welcome.description_p_1'),
@@ -19,14 +21,14 @@ const localisedDescriptions = (translate: TranslateCallback) => [
 ]
 
 type WelcomeContentProps = {
-  descriptions: string[]
-  translate: TranslateCallback
+  descriptions?: string[]
 }
 
 const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
   descriptions,
-  translate,
 }) => {
+  const { translate } = useLocales()
+
   const welcomeDescriptions = descriptions
     ? descriptions
     : localisedDescriptions(translate)
@@ -47,35 +49,43 @@ const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
 type WelcomeActionsProps = {
   nextButton?: string
   nextStep: () => void
-  translate: TranslateCallback
 }
 
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   nextButton,
   nextStep,
-  translate,
 }) => {
+  const { translate } = useLocales()
+
   const welcomeNextButton = nextButton
     ? nextButton
     : translate('welcome.next_button')
 
   return (
-    <div>
-      <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
+    <div className={theme.contentMargin}>
+      <Button
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
+        onClick={nextStep}
+        data-onfido-qa="welcome-next-btn"
+      >
         {welcomeNextButton}
       </Button>
     </div>
   )
 }
 
-const Welcome: FunctionComponent<Props> = ({
-  title,
-  descriptions,
-  nextButton,
-  nextStep,
-  translate,
-}) => {
-  const actions = <WelcomeActions {...{ nextButton, nextStep, translate }} />
+const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
+  const { steps } = useSdkOptions()
+  const { translate } = useLocales()
+
+  const { options } = steps.find(
+    (step) => step.type === 'welcome'
+  ) as StepConfigWelcome
+
+  const { title, descriptions, nextButton } = options || {}
+
+  const actions = <WelcomeActions {...{ nextButton, nextStep }} />
   const welcomeTitle = title ? title : translate('welcome.title')
 
   return (
@@ -86,4 +96,4 @@ const Welcome: FunctionComponent<Props> = ({
   )
 }
 
-export default trackComponent(localised(Welcome))
+export default trackComponent(Welcome)

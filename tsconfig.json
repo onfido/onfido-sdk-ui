@@ -13,6 +13,8 @@
     "outDir": "./dist/",
     "paths": {
       "~jest/*": ["../test/utils/jest/*"],
+      "~contexts": ["contexts/index"],
+      "~contexts/*": ["contexts/*"],
       "~locales": ["locales/index"],
       "~types/*": ["types/*"],
       "~utils": ["components/utils/index"],
@@ -21,6 +23,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
+    "strict": true,
     "target": "es2019",
     "types": ["jest"],
     "typeRoots": ["./typings", "./node_modules/@types"],

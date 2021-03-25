@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 import PageTitle from 'components/PageTitle'
-import Button from 'components/Button'
+import { Button } from '@onfido/castor-react'
 import { trackComponent } from 'Tracker'
 import { localised } from '~locales'
 import theme from 'components/Theme/style.scss'
@@ -27,8 +27,13 @@ const Permissions: FunctionComponent<Props> = ({ onNext, translate }) => (
       </div>
       <p className={style.instructions}>{translate('permission.body_cam')}</p>
     </div>
-    <div className={style.actions}>
-      <Button variants={['centered', 'primary', 'lg']} onClick={onNext}>
+    <div className={classNames(theme.contentMargin, style.actions)}>
+      <Button
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
+        onClick={onNext}
+        data-onfido-qa="enable-camera-btn"
+      >
         {translate('permission.button_primary_cam')}
       </Button>
     </div>

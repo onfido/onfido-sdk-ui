@@ -14,7 +14,7 @@ type SourceData = {
 
 export const getCountryDataForDocumentType = (
   countryCode: Optional<string>,
-  documentType: DocumentTypes
+  documentType: Optional<DocumentTypes>
 ): Optional<CountryData> => {
   // Consistent with API, which accepts a 3-letter ISO country code for issuing_country param value
   if (countryCode && countryCode.length === 3) {
@@ -30,7 +30,7 @@ export const getCountryDataForDocumentType = (
 }
 
 export const getSupportedCountriesForDocument = (
-  documentType: DocumentTypes
+  documentType: Optional<DocumentTypes>
 ): CountryData[] => {
   switch (documentType) {
     case 'driving_licence':
