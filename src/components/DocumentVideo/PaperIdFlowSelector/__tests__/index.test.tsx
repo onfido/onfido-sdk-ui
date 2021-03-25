@@ -5,7 +5,7 @@ import MockedReduxProvider from '~jest/MockedReduxProvider'
 import MockedLocalised from '~jest/MockedLocalised'
 import PaperIdFlowSelector, {
   Props as PaperIdFlowSelectorProps,
-} from '../PaperIdFlowSelector'
+} from '../index'
 
 const defaultProps: PaperIdFlowSelectorProps = {
   documentType: 'driving_licence',

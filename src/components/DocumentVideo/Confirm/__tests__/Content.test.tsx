@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme'
 
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import MockedLocalised from '~jest/MockedLocalised'
-import Content from '../../Confirm/Content'
+import Content from '../Content'
 
 import type { DocumentCapture } from '~types/redux'
 

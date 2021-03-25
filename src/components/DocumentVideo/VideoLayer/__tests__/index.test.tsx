@@ -3,7 +3,7 @@ import { useState } from 'preact/compat'
 import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
-import VideoLayer, { Props as VideoLayerProps } from '../VideoLayer'
+import VideoLayer, { Props as VideoLayerProps } from '../index'
 
 import type { CaptureFlows } from '~types/docVideo'
 

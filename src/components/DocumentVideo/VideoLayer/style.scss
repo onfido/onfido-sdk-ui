@@ -1,4 +1,4 @@
-@import '../Theme/constants';
+@import '../../Theme/constants';
 
 .controls {
   position: absolute;
@@ -52,12 +52,11 @@
 }
 
 .instructions .success {
-  background-image: url('../Complete/assets/complete.svg');
+  background-image: url('./assets/success.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   height: 48 * $unit;
-  margin-bottom: 96 * $unit;
 }
 
 .holdStill .loading {

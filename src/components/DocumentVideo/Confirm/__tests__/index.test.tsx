@@ -13,7 +13,7 @@ import {
   fakeAccessDeniedError,
 } from '~jest/responses'
 import { uploadBinaryMedia, createV4Document } from '~utils/onfidoApi'
-import Confirm from '../../Confirm'
+import Confirm from '../index'
 
 import type { NarrowSdkOptions } from '~types/commons'
 import type { StepComponentDocumentProps } from '~types/routers'
