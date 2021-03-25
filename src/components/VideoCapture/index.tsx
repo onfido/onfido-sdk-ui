@@ -19,12 +19,12 @@ import type {
   RenderFallbackProp,
 } from '~types/routers'
 
-type OverlayProps = {
+type PhotoOverlayProps = {
   hasCameraError: boolean
   isRecording: boolean
 }
 
-export type VideoLayerProps = {
+export type VideoOverlayProps = {
   disableInteraction: boolean
   isRecording: boolean
   onStart: () => void
@@ -41,8 +41,8 @@ export type Props = {
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
-  renderOverlay?: (props: OverlayProps) => h.JSX.Element
-  renderVideoLayer?: (props: VideoLayerProps) => h.JSX.Element
+  renderPhotoOverlay?: (props: PhotoOverlayProps) => h.JSX.Element
+  renderVideoOverlay?: (props: VideoOverlayProps) => h.JSX.Element
   title?: string
   webcamRef?: Ref<Webcam>
 } & WithTrackingProps
@@ -51,7 +51,7 @@ type State = {
   hasBecomeInactive: boolean
   hasMediaStream: boolean
   hasRecordingTakenTooLong: boolean
-} & OverlayProps
+} & PhotoOverlayProps
 
 const initialStateWithoutMediaStream: Omit<State, 'hasMediaStream'> = {
   hasBecomeInactive: false,
@@ -197,8 +197,8 @@ export default class VideoCapture extends Component<Props, State> {
       cameraClassName,
       facing,
       renderFallback,
-      renderOverlay,
-      renderVideoLayer,
+      renderPhotoOverlay,
+      renderVideoOverlay,
       title,
       trackScreen,
       webcamRef,
@@ -235,17 +235,18 @@ export default class VideoCapture extends Component<Props, State> {
         onUserMedia={this.handleMediaStream}
         renderError={hasTimeoutError ? this.renderError() : null}
         renderFallback={renderFallback}
-        renderVideoLayer={({ hasGrantedPermission }) =>
-          renderVideoLayer
-            ? renderVideoLayer({
-                disableInteraction: isRecording
-                  ? hasTimeoutError || hasCameraError
-                  : !hasGrantedPermission || disableRecording,
-                isRecording,
-                onStart: this.handleRecordingStart,
-                onStop: this.handleRecordingStop,
-              })
-            : null
+        renderVideoOverlay={
+          renderVideoOverlay
+            ? ({ hasGrantedPermission }) =>
+                renderVideoOverlay({
+                  disableInteraction: isRecording
+                    ? hasTimeoutError || hasCameraError
+                    : !hasGrantedPermission || disableRecording,
+                  isRecording,
+                  onStart: this.handleRecordingStart,
+                  onStop: this.handleRecordingStop,
+                })
+            : undefined
         }
         renderTitle={!isRecording && title ? <PageTitle title={title} /> : null}
         trackScreen={trackScreen}
@@ -266,7 +267,8 @@ export default class VideoCapture extends Component<Props, State> {
         }}
       >
         <ToggleFullScreen />
-        {renderOverlay && renderOverlay({ hasCameraError, isRecording })}
+        {renderPhotoOverlay &&
+          renderPhotoOverlay({ hasCameraError, isRecording })}
         {this.renderInactivityTimeoutMessage()}
       </Camera>
     )

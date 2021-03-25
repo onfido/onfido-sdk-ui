@@ -7,7 +7,7 @@ import MockedReduxProvider from '~jest/MockedReduxProvider'
 import { VIDEO_CAPTURE } from '~utils/constants'
 import Camera from '../../Camera'
 import VideoCapture, {
-  VideoLayerProps,
+  VideoOverlayProps,
   Props as VideoCaptureProps,
 } from '../index'
 
@@ -55,7 +55,7 @@ const assertInactiveError = (
   }
 }
 
-const MockedVideoLayer: FunctionComponent<VideoLayerProps> = ({
+const MockedVideoLayer: FunctionComponent<VideoOverlayProps> = ({
   disableInteraction,
   isRecording,
   onStart,
@@ -77,7 +77,7 @@ const defaultProps: VideoCaptureProps = {
   onRedo: jest.fn(),
   onVideoCapture: jest.fn(),
   renderFallback: jest.fn(),
-  renderVideoLayer: (props) => <MockedVideoLayer {...props} />, // eslint-disable-line react/display-name
+  renderVideoOverlay: (props) => <MockedVideoLayer {...props} />, // eslint-disable-line react/display-name
   trackScreen: jest.fn(),
 }
 

@@ -49,7 +49,7 @@ const Camera: FunctionComponent<Props> = ({
   onUserMedia,
   renderError,
   renderTitle,
-  renderVideoLayer,
+  renderVideoOverlay,
   translate,
   webcamRef,
 }) => {
@@ -95,8 +95,8 @@ const Camera: FunctionComponent<Props> = ({
           </div>
         )}
         {buttonType === 'video' &&
-          renderVideoLayer &&
-          renderVideoLayer({ hasGrantedPermission })}
+          renderVideoOverlay &&
+          renderVideoOverlay({ hasGrantedPermission })}
         <div
           id="cameraViewAriaLabel"
           aria-label={
