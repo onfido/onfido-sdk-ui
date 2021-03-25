@@ -137,8 +137,8 @@ export const calculateHollowRect = (
   return {
     left: (left * containerDimensions.width) / viewport.width,
     bottom: (bottom * containerDimensions.width) / viewport.width,
-    width: (width * containerDimensions.width) / viewport.width,
-    height: (height * containerDimensions.width) / viewport.width,
+    width: (width * containerDimensions.width) / viewport.width - 2,
+    height: (height * containerDimensions.width) / viewport.width - 2,
   }
 }
 
