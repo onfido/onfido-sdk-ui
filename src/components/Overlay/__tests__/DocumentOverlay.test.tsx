@@ -1,16 +1,29 @@
 import { h } from 'preact'
 import { mount, shallow, ReactWrapper } from 'enzyme'
 
+import MockedContainerDimensions from '~jest/MockedContainerDimensions'
 import DocumentOverlay, { DocumentSizes } from '../DocumentOverlay'
 import type { DocumentTypes } from '~types/steps'
-
-const OUTER_FRAME = 'M0,0 h100 v75 h-100 Z'
 
 const assertHollowSize = (wrapper: ReactWrapper, size: DocumentSizes) => {
   expect(wrapper.find('.placeholder').exists()).toBeFalsy()
   const svg = wrapper.find('.document svg')
   expect(svg.exists()).toBeTruthy()
   expect(svg.prop('data-size')).toEqual(size)
+}
+
+const assertHollowDraw = (wrapper: ReactWrapper, width: number) => {
+  const hollow = wrapper.find('.hollow')
+  expect(hollow.exists()).toBeTruthy()
+
+  const hollowDraw = hollow.prop('d')
+
+  if (!hollowDraw) {
+    return
+  }
+
+  expect(hollowDraw.match(`h ${width}`)).toBeTruthy()
+  expect(hollowDraw.match(`h -${width}`)).toBeTruthy()
 }
 
 const assertPlaceholder = (
@@ -34,42 +47,36 @@ describe('Overlay', () => {
 
     describe('when mounted', () => {
       it('renders a rectangle hollow by default', () => {
-        const wrapper = mount(<DocumentOverlay />)
+        const wrapper = mount(
+          <MockedContainerDimensions>
+            <DocumentOverlay />
+          </MockedContainerDimensions>
+        )
         expect(wrapper.find('.document').exists()).toBeTruthy()
 
         assertHollowSize(wrapper, 'rectangle')
-
-        const hollow = wrapper.find('.hollow')
-        const hollowDraw = hollow.prop('d')
-        expect(hollow.exists()).toBeTruthy()
-
-        if (!hollowDraw) {
-          // To trigger failed test
-          expect(hollowDraw).toBeDefined()
-          return
-        }
-
-        // `hollow` path shouldn't contain OUTER_FRAME
-        expect(hollowDraw.match(OUTER_FRAME)).toBeFalsy()
-
-        // `hollow` path should contain parallel top & bottom lines
-        expect(hollowDraw.match('h 90')).toBeTruthy()
-        expect(hollowDraw.match('h -90')).toBeTruthy()
+        assertHollowDraw(wrapper, 70)
 
         const fullScreen = wrapper.find('.fullScreen')
         expect(fullScreen.exists()).toBeTruthy()
+      })
 
-        // `fullScreen` path should contain both OUTER_FRAME and `hollow` path
-        const fullScreenDraw = fullScreen.prop('d')
+      it('draws bigger hollow in smaller viewports', () => {
+        const wrapper = mount(
+          <MockedContainerDimensions width={Infinity} height={Infinity}>
+            <DocumentOverlay />
+          </MockedContainerDimensions>
+        )
 
-        if (fullScreenDraw) {
-          expect(fullScreenDraw.match(OUTER_FRAME)).toBeTruthy()
-          expect(fullScreenDraw.match(hollowDraw)).toBeTruthy()
-        }
+        assertHollowDraw(wrapper, 90)
       })
 
       it('renders correctly with marginBottom', () => {
-        const wrapper = mount(<DocumentOverlay marginBottom={0.5} />)
+        const wrapper = mount(
+          <MockedContainerDimensions>
+            <DocumentOverlay marginBottom={0.5} />
+          </MockedContainerDimensions>
+        )
         expect(wrapper.exists()).toBeTruthy()
       })
 
@@ -83,7 +90,9 @@ describe('Overlay', () => {
 
         it('renders passport placeholder when documentType=passport', () => {
           const wrapper = mount(
-            <DocumentOverlay documentType="passport" withPlaceholder />
+            <MockedContainerDimensions>
+              <DocumentOverlay documentType="passport" withPlaceholder />
+            </MockedContainerDimensions>
           )
           assertPlaceholder(wrapper, 'passport')
         })
@@ -92,11 +101,13 @@ describe('Overlay', () => {
           cardPlaceholderCases.forEach((documentType) => {
             it(`renders card placeholder when documentType=${documentType} & isPaperId=${isPaperId}`, () => {
               const wrapper = mount(
-                <DocumentOverlay
-                  documentType={documentType}
-                  isPaperId={isPaperId}
-                  withPlaceholder
-                />
+                <MockedContainerDimensions>
+                  <DocumentOverlay
+                    documentType={documentType}
+                    isPaperId={isPaperId}
+                    withPlaceholder
+                  />
+                </MockedContainerDimensions>
               )
               assertPlaceholder(wrapper, 'card')
             })
@@ -104,24 +115,28 @@ describe('Overlay', () => {
 
           it(`renders correct FR DL placeholder when documentType=driving_licence & issuingCountry=FR & isPaperId=${isPaperId}`, () => {
             const wrapper = mount(
-              <DocumentOverlay
-                documentType="driving_licence"
-                isPaperId={isPaperId}
-                issuingCountry="FR"
-                withPlaceholder
-              />
+              <MockedContainerDimensions>
+                <DocumentOverlay
+                  documentType="driving_licence"
+                  isPaperId={isPaperId}
+                  issuingCountry="FR"
+                  withPlaceholder
+                />
+              </MockedContainerDimensions>
             )
             assertPlaceholder(wrapper, isPaperId ? 'frPaperDl' : 'card')
           })
 
           it(`renders correct IT ID placeholder when documentType=national_identity_card & issuingCountry=IT & isPaperId=${isPaperId}`, () => {
             const wrapper = mount(
-              <DocumentOverlay
-                documentType="national_identity_card"
-                isPaperId={isPaperId}
-                issuingCountry="IT"
-                withPlaceholder
-              />
+              <MockedContainerDimensions>
+                <DocumentOverlay
+                  documentType="national_identity_card"
+                  isPaperId={isPaperId}
+                  issuingCountry="IT"
+                  withPlaceholder
+                />
+              </MockedContainerDimensions>
             )
             assertPlaceholder(wrapper, isPaperId ? 'itPaperId' : 'card')
           })
@@ -133,35 +148,45 @@ describe('Overlay', () => {
 
         it('renders id1 size', () => {
           const wrapper = mount(
-            <DocumentOverlay documentType="driving_licence" />
+            <MockedContainerDimensions>
+              <DocumentOverlay documentType="driving_licence" />
+            </MockedContainerDimensions>
           )
           assertHollowSize(wrapper, 'id1Card')
         })
 
         it('renders id3 size', () => {
-          const wrapper = mount(<DocumentOverlay documentType="passport" />)
+          const wrapper = mount(
+            <MockedContainerDimensions>
+              <DocumentOverlay documentType="passport" />
+            </MockedContainerDimensions>
+          )
           assertHollowSize(wrapper, 'id3Card')
         })
 
         paperIdCases.forEach((isPaperId) => {
           it(`renders correct size for FR DL when isPaperId=${isPaperId}`, () => {
             const wrapper = mount(
-              <DocumentOverlay
-                documentType="driving_licence"
-                isPaperId={isPaperId}
-                issuingCountry="FR"
-              />
+              <MockedContainerDimensions>
+                <DocumentOverlay
+                  documentType="driving_licence"
+                  isPaperId={isPaperId}
+                  issuingCountry="FR"
+                />
+              </MockedContainerDimensions>
             )
             assertHollowSize(wrapper, isPaperId ? 'frPaperDl' : 'id1Card')
           })
 
           it(`renders correct size for IT ID when isPaperId=${isPaperId}`, () => {
             const wrapper = mount(
-              <DocumentOverlay
-                documentType="national_identity_card"
-                isPaperId={isPaperId}
-                issuingCountry="IT"
-              />
+              <MockedContainerDimensions>
+                <DocumentOverlay
+                  documentType="national_identity_card"
+                  isPaperId={isPaperId}
+                  issuingCountry="IT"
+                />
+              </MockedContainerDimensions>
             )
             assertHollowSize(wrapper, isPaperId ? 'itPaperId' : 'id1Card')
           })

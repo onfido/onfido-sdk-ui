@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import { mount, ReactWrapper } from 'enzyme'
 
+import MockedContainerDimensions from '~jest/MockedContainerDimensions'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import { fakeCapturePayload } from '~jest/captures'
@@ -176,7 +177,9 @@ describe('DocumentVideo', () => {
       wrapper = mount(
         <MockedReduxProvider>
           <MockedLocalised>
-            <DocumentVideo {...defaultProps} />
+            <MockedContainerDimensions>
+              <DocumentVideo {...defaultProps} />
+            </MockedContainerDimensions>
           </MockedLocalised>
         </MockedReduxProvider>
       )
@@ -257,7 +260,9 @@ describe('DocumentVideo', () => {
       wrapper = mount(
         <MockedReduxProvider>
           <MockedLocalised>
-            <DocumentVideo {...defaultProps} documentType="passport" />
+            <MockedContainerDimensions>
+              <DocumentVideo {...defaultProps} documentType="passport" />
+            </MockedContainerDimensions>
           </MockedLocalised>
         </MockedReduxProvider>
       )
@@ -333,7 +338,12 @@ describe('DocumentVideo', () => {
           wrapper = mount(
             <MockedReduxProvider overrideGlobals={{ idDocumentIssuingCountry }}>
               <MockedLocalised>
-                <DocumentVideo {...defaultProps} documentType={documentType} />
+                <MockedContainerDimensions>
+                  <DocumentVideo
+                    {...defaultProps}
+                    documentType={documentType}
+                  />
+                </MockedContainerDimensions>
               </MockedLocalised>
             </MockedReduxProvider>
           )

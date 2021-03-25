@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
+import MockedContainerDimensions from '~jest/MockedContainerDimensions'
 import MockedLocalised from '~jest/MockedLocalised'
 import PaperIdFlowSelector, {
   Props as PaperIdFlowSelectorProps,
@@ -22,7 +23,9 @@ describe('DocumentVideo', () => {
       it('renders nothing if documentType is not license or id', () => {
         const wrapper = mount(
           <MockedLocalised>
-            <PaperIdFlowSelector {...defaultProps} documentType="passport" />
+            <MockedContainerDimensions>
+              <PaperIdFlowSelector {...defaultProps} documentType="passport" />
+            </MockedContainerDimensions>
           </MockedLocalised>
         )
 
@@ -34,7 +37,9 @@ describe('DocumentVideo', () => {
       it('renders correct items', () => {
         const wrapper = mount(
           <MockedLocalised>
-            <PaperIdFlowSelector {...defaultProps} />
+            <MockedContainerDimensions>
+              <PaperIdFlowSelector {...defaultProps} />
+            </MockedContainerDimensions>
           </MockedLocalised>
         )
 
@@ -64,10 +69,12 @@ describe('DocumentVideo', () => {
         it('renders correct title', () => {
           const wrapper = mount(
             <MockedLocalised>
-              <PaperIdFlowSelector
-                {...defaultProps}
-                documentType="national_identity_card"
-              />
+              <MockedContainerDimensions>
+                <PaperIdFlowSelector
+                  {...defaultProps}
+                  documentType="national_identity_card"
+                />
+              </MockedContainerDimensions>
             </MockedLocalised>
           )
 

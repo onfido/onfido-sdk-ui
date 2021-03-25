@@ -2,7 +2,6 @@ import { h, FunctionComponent } from 'preact'
 import { memo } from 'preact/compat'
 
 import { useLocales } from '~locales'
-import { ToggleFullScreen } from '../../FullScreen'
 import DocumentOverlay from '../../Overlay/DocumentOverlay'
 import style from './style.scss'
 

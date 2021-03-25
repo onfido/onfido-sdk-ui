@@ -7,14 +7,25 @@ import { useContext, useEffect, useRef, useState } from 'preact/compat'
  */
 const ContainerDimensionsContext = createContext<DOMRect | undefined>(undefined)
 
-export const ContainerDimensionsProvider: FunctionComponent = ({
+type Props = {
+  overridenDimensions?: DOMRect
+}
+
+export const ContainerDimensionsProvider: FunctionComponent<Props> = ({
   children,
+  overridenDimensions,
 }) => {
-  const [dimensions, setDimensions] = useState<DOMRect | undefined>(undefined)
+  const [dimensions, setDimensions] = useState<DOMRect | undefined>(
+    overridenDimensions
+  )
 
   const containerRef = useRef<Component>()
 
   useEffect(() => {
+    if (overridenDimensions) {
+      return
+    }
+
     const handleResize = () => {
       const wrappedElement = containerRef.current.base
 
@@ -27,7 +38,7 @@ export const ContainerDimensionsProvider: FunctionComponent = ({
 
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [containerRef])
+  }, [containerRef]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <ContainerDimensionsContext.Provider ref={containerRef} value={dimensions}>

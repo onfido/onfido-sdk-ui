@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
+import MockedContainerDimensions from '~jest/MockedContainerDimensions'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider, {
   mockedReduxProps,
@@ -46,7 +47,12 @@ describe('Capture', () => {
         const wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <DocumentFrontCapture {...defaultProps} documentType="passport" />
+              <MockedContainerDimensions>
+                <DocumentFrontCapture
+                  {...defaultProps}
+                  documentType="passport"
+                />
+              </MockedContainerDimensions>
             </MockedLocalised>
           </MockedReduxProvider>
         )
@@ -71,10 +77,12 @@ describe('Capture', () => {
         const wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <DocumentBackCapture
-                {...defaultProps}
-                documentType="driving_licence"
-              />
+              <MockedContainerDimensions>
+                <DocumentBackCapture
+                  {...defaultProps}
+                  documentType="driving_licence"
+                />
+              </MockedContainerDimensions>
             </MockedLocalised>
           </MockedReduxProvider>
         )
@@ -99,7 +107,12 @@ describe('Capture', () => {
         const wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <DocumentVideoCapture {...defaultProps} documentType="passport" />
+              <MockedContainerDimensions>
+                <DocumentVideoCapture
+                  {...defaultProps}
+                  documentType="passport"
+                />
+              </MockedContainerDimensions>
             </MockedLocalised>
           </MockedReduxProvider>
         )

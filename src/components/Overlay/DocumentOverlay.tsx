@@ -1,6 +1,8 @@
 import { h, FunctionComponent } from 'preact'
-import { memo, useRef } from 'preact/compat'
+import { memo } from 'preact/compat'
 import classNames from 'classnames'
+
+import { useContainerDimensions } from '~contexts'
 import style from './style.scss'
 
 import type { DocumentTypes } from '~types/steps'
@@ -18,17 +20,18 @@ type DocTypeParams = {
   issuingCountry?: string
 }
 
+type ViewportDimensions = {
+  width: number
+  height: number
+  hollowWidthRatio: number
+}
+
 type HollowRect = {
   left: number
   bottom: number
   width: number
   height: number
 }
-
-// Assume that the SVG viewport is (100, OUTER_HEIGHT)
-const OUTER_WIDTH = 100
-const OUTER_HEIGHT = (OUTER_WIDTH * window.innerHeight) / window.innerWidth
-const INNER_WIDTH_RATIO = 0.9 // 90% of outer width
 
 const ASPECT_RATIOS: Record<DocumentSizes, number> = {
   id1Card: 1.586,
@@ -42,6 +45,22 @@ const ID1_SIZE_DOCUMENTS = new Set<DocumentTypes>([
   'driving_licence',
   'national_identity_card',
 ])
+
+// Assume that the SVG viewport is (100, height)
+const getViewport = (containerDimensions: DOMRect): ViewportDimensions => {
+  const width = 100
+
+  // Hollow width ratio = 90% for smaller viewports
+  // and = 70% for bigger viewports
+  const hollowWidthRatio =
+    containerDimensions.width < window.innerWidth ? 0.7 : 0.9
+
+  return {
+    width,
+    height: (width * containerDimensions.height) / containerDimensions.width,
+    hollowWidthRatio,
+  }
+}
 
 const getDocumentSize = ({
   documentType,
@@ -89,24 +108,26 @@ const getPlaceholder = ({
 
 export const calculateHollowRect = (
   docTypeParams: DocTypeParams,
+  containerDimensions: DOMRect,
   marginBottom?: number,
   scaleToSvgViewport = false
 ): HollowRect => {
+  const viewport = getViewport(containerDimensions)
   const size = getDocumentSize(docTypeParams)
   const { [size]: aspectRatio } = ASPECT_RATIOS
 
-  const width = OUTER_WIDTH * INNER_WIDTH_RATIO
+  const width = viewport.width * viewport.hollowWidthRatio
   const height = width / aspectRatio
 
-  const left = (OUTER_WIDTH - width) / 2
+  const left = (viewport.width - width) / 2
 
   /**
    * If no marginBottom provided,
    * calculate to show to inner frame at the middle of the screen
    */
   const bottom = marginBottom
-    ? OUTER_HEIGHT * (1 - marginBottom)
-    : (OUTER_HEIGHT + height) / 2
+    ? viewport.height * (1 - marginBottom)
+    : (viewport.height + height) / 2
 
   if (scaleToSvgViewport) {
     return { left, bottom, width, height }
@@ -114,19 +135,21 @@ export const calculateHollowRect = (
 
   // There're minor adjustments to align the rect right into the hollow frame
   return {
-    left: (left * window.innerWidth) / OUTER_WIDTH,
-    bottom: (bottom * window.innerWidth) / OUTER_WIDTH - 2,
-    width: (width * window.innerWidth) / OUTER_WIDTH - 4,
-    height: (height * window.innerWidth) / OUTER_WIDTH - 2,
+    left: (left * containerDimensions.width) / viewport.width,
+    bottom: (bottom * containerDimensions.width) / viewport.width,
+    width: (width * containerDimensions.width) / viewport.width,
+    height: (height * containerDimensions.width) / viewport.width,
   }
 }
 
 const drawInnerFrame = (
   docTypeParams: DocTypeParams,
+  containerDimensions: DOMRect,
   marginBottom?: number
 ): string => {
   const { left, bottom, width, height } = calculateHollowRect(
     docTypeParams,
+    containerDimensions,
     marginBottom,
     true
   )
@@ -170,20 +193,26 @@ const DocumentOverlay: FunctionComponent<Props> = ({
   withPlaceholder,
   ...docTypeParams
 }) => {
-  const highlightFrameRef = useRef<SVGPathElement>(null)
-
-  const outer = `M0,0 h${OUTER_WIDTH} v${OUTER_HEIGHT} h-${OUTER_WIDTH} Z`
-  const inner = drawInnerFrame(docTypeParams, marginBottom)
+  const containerDimensions = useContainerDimensions()
+  const viewport = getViewport(containerDimensions)
+  const outer = `M0,0 h${viewport.width} v${viewport.height} h-${viewport.width} Z`
+  const inner = drawInnerFrame(docTypeParams, containerDimensions, marginBottom)
 
   return (
-    <div className={style.document}>
+    <div
+      className={style.document}
+      style={{
+        height: containerDimensions.height,
+        width: containerDimensions.width,
+      }}
+    >
       <svg
         data-size={getDocumentSize(docTypeParams)}
         shapeRendering="geometricPrecision"
-        viewBox={`0 0 ${OUTER_WIDTH} ${OUTER_HEIGHT}`}
+        viewBox={`0 0 ${viewport.width} ${viewport.height}`}
       >
         <path className={style.fullScreen} d={`${outer} ${inner}`} />
-        <path className={style.hollow} d={inner} ref={highlightFrameRef} />
+        <path className={style.hollow} d={inner} />
       </svg>
       {withPlaceholder && (
         <span
@@ -191,7 +220,11 @@ const DocumentOverlay: FunctionComponent<Props> = ({
             style.placeholder,
             style[getPlaceholder(docTypeParams)]
           )}
-          style={calculateHollowRect(docTypeParams, marginBottom)}
+          style={calculateHollowRect(
+            docTypeParams,
+            containerDimensions,
+            marginBottom
+          )}
         />
       )}
       {children}

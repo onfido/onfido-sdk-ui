@@ -3,6 +3,7 @@ import { memo, useEffect, useRef, useState } from 'preact/compat'
 import { useSelector } from 'react-redux'
 import Webcam from 'react-webcam-onfido'
 
+import { useContainerDimensions } from '~contexts'
 import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
 import { getInactiveError } from '~utils/inactiveError'
@@ -92,6 +93,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
     undefined
   )
   const webcamRef = useRef<Webcam>(null)
+  const containerDimensions = useContainerDimensions()
 
   useEffect(() => {
     if (!flowComplete) {
@@ -157,6 +159,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
   }
   const overlayHollowRect = calculateHollowRect(
     documentOverlayProps,
+    containerDimensions,
     overlayBottomMargin
   )
 
