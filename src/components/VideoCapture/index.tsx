@@ -17,12 +17,12 @@ import type {
   RenderFallbackProp,
 } from '~types/routers'
 
-type OverlayProps = {
+type PhotoOverlayProps = {
   hasCameraError: boolean
   isRecording: boolean
 }
 
-export type VideoLayerProps = {
+export type VideoOverlayProps = {
   disableInteraction: boolean
   isRecording: boolean
   onStart: () => void
@@ -38,8 +38,8 @@ export type Props = {
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
-  renderPhotoOverlay?: (props: OverlayProps) => h.JSX.Element
-  renderVideoOverlay?: (props: VideoLayerProps) => h.JSX.Element
+  renderPhotoOverlay?: (props: PhotoOverlayProps) => h.JSX.Element
+  renderVideoOverlay?: (props: VideoOverlayProps) => h.JSX.Element
   title?: string
 } & WithTrackingProps
 
@@ -47,7 +47,7 @@ type State = {
   hasBecomeInactive: boolean
   hasMediaStream: boolean
   hasRecordingTakenTooLong: boolean
-} & OverlayProps
+} & PhotoOverlayProps
 
 const initialStateWithoutMediaStream: Omit<State, 'hasMediaStream'> = {
   hasBecomeInactive: false,

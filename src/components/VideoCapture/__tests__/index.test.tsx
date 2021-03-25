@@ -5,7 +5,7 @@ import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import Camera from '../../Camera'
 import VideoCapture, {
-  VideoLayerProps,
+  VideoOverlayProps,
   Props as VideoCaptureProps,
 } from '../index'
 
@@ -39,7 +39,7 @@ const assertInactiveError = (wrapper: ReactWrapper, forceRedo: boolean) => {
   }
 }
 
-const MockedVideoLayer: FunctionComponent<VideoLayerProps> = ({
+const MockedVideoLayer: FunctionComponent<VideoOverlayProps> = ({
   disableInteraction,
   isRecording,
   onStart,
