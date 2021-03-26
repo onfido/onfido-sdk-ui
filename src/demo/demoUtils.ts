@@ -13,7 +13,8 @@ import type {
 } from './types'
 import type { UICustomizationOptions } from '~types/ui-customisation-options'
 import customUIConfig from './custom-ui-config.json'
-import testCobrandLogo from './assets/onfido-logo.svg'
+import testDarkCobrandLogo from './assets/onfido-logo.svg'
+import testLightCobrandLogo from './assets/onfido-logo-light.svg'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
@@ -201,7 +202,7 @@ export const getInitSdkOptions = (): SdkOptions => {
       : undefined
   const logoCobrand =
     queryParamToValueString.showLogoCobrand === 'true'
-      ? { src: testCobrandLogo }
+      ? { lightLogoSrc: testLightCobrandLogo, darkLogoSrc: testDarkCobrandLogo }
       : undefined
   const useCustomizedApiRequests =
     queryParamToValueString.useCustomizedApiRequests === 'true'

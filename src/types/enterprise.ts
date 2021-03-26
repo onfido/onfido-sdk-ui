@@ -9,7 +9,8 @@ export type EnterpriseCobranding = {
 }
 
 export type EnterpriseLogoCobranding = {
-  src: string
+  lightLogoSrc: string
+  darkLogoSrc: string
 }
 
 export type EnterpriseCallbackResponse = {
