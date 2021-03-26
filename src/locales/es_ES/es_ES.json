@@ -46,6 +46,18 @@
         "subtitle": "Ahora puede volver a su computadora para continuar",
         "title": "Carga completa"
     },
+    "doc_capture": {
+        "detail": {
+            "folded_doc_front": "Asegúrese que su documento este completmente abierto (debe incluir su foto)"
+        },
+        "header_folded_doc_front": "Lado con su foto",
+        "prompt": {
+            "button_card": "Tarjeta de plastico",
+            "button_paper": "Documento en papel",
+            "title_id": "Que tipo de carnet tiene?",
+            "title_license": "Que tipo de licencia tiene?"
+        }
+    },
     "doc_confirmation": {
         "alert": {
             "blur_detail": "Asegúrese de que todo se vea nítido",
@@ -57,16 +69,16 @@
             "no_doc_detail": "Asegúrese de que todo el documento esté en la foto",
             "no_doc_title": "Documento no detectado"
         },
-        "body_bank_statement": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
-        "body_benefits_letter": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
-        "body_bill": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
+        "body_bank_statement": "Make sure details are clear to read, with no blur or glare",
+        "body_benefits_letter": "Make sure details are clear to read, with no blur or glare",
+        "body_bill": "Make sure details are clear to read, with no blur or glare",
         "body_id": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
         "body_image_medium": "Nos llevará más tiempo verificarle si no podemos leerla",
         "body_image_poor": "Para poder verificar que es usted, necesitamos una foto de mejor calidad",
         "body_license": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo",
         "body_passport": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo",
         "body_permit": "Asegúrese de que los detalles de su permiso sean legibles, la imagen sea nítida y que no tenga brillo",
-        "body_tax_letter": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
+        "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Cerrar",
         "button_primary_redo": "Reintentar",
         "button_primary_upload": "Confirmar",
@@ -84,7 +96,7 @@
         "button_bill_detail": "Gas, electricity, water, landline, or broadband",
         "button_government_letter": "Government Letter",
         "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
-        "button_id": "Tarjeta de identificación",
+        "button_id": "Documento Nacional de Identidad",
         "button_id_detail": "Frente y reverso",
         "button_license": "Licencia de conducir",
         "button_license_detail": "Frente y reverso",
@@ -117,6 +129,25 @@
         "title_permit_back": "Enviar permiso de residencia (reverso)",
         "title_permit_front": "Enviar permiso de residencia (anverso)",
         "title_tax_letter": "Submit letter"
+    },
+    "doc_video_capture": {
+        "button_primary_fallback": "Siguiente paso",
+        "button_primary_fallback_end": "Finalizar grabación",
+        "detail_step2": "Mantenga el documento a la vista en todo momento",
+        "header": "Mientras sostiene el documento, mantenga la parte frontal dentro del marco",
+        "header_paper_doc_step2": "Gire lentamente el documento para mostrar las páginas exteriores",
+        "header_passport": "Mientras sostiene su pasaporte, mantenga la página de la foto dentro del marco",
+        "header_passport_progress": "No se mueva",
+        "header_step1": "Ahora, no se mueva",
+        "header_step2": "Gire lentamente el documento para mostrar el reverso",
+        "prompt": {
+            "detail_timeout": "La grabación de vídeo tiene un límite de <timeout><\/timeout> segundos. <fallback>Volver a hacer acciones de vídeo<\/fallback>"
+        },
+        "stepper": "Paso <step><\/step> de <total><\/total>"
+    },
+    "doc_video_confirmation": {
+        "button_secondary": "Vista previa del vídeo",
+        "title": "Revise su vídeo"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Reinicie el proceso en la versión más reciente de Google Chrome",
@@ -229,7 +260,7 @@
         }
     },
     "outro": {
-        "body": "Gracias.",
+        "body": "Gracias",
         "title": "Verificación completa"
     },
     "permission_recovery": {
@@ -267,7 +298,7 @@
         "button_primary": "Continuar",
         "instructions": {
             "address": "Current address",
-            "full_name": "Nombre completo",
+            "full_name": "Full name",
             "issue_date": "Issue date or summary period",
             "label": "Make sure it clearly shows:",
             "logo": "Logo"
@@ -279,7 +310,7 @@
         "subtitle_tax_letter": "Must be issued in the <strong>last 12 months<\/strong>"
     },
     "poa_intro": {
-        "button_primary": "Iniciar la verificación",
+        "button_primary": "Start verification",
         "list_matches_signup": "<strong>Matches<\/strong> the address you used on signup",
         "list_most_recent": "Is your most <strong>recent<\/strong> document",
         "list_shows_address": "Shows your <strong>current<\/strong> address",
@@ -303,7 +334,7 @@
                 "title": "Parece que ha demorado demasiado"
             }
         },
-        "button_accessibility": "Tome una foto",
+        "button_accessibility": "Tomar foto",
         "frame_accessibility": "Vista desde la cámara",
         "title": "Tome una selfie"
     },
@@ -341,12 +372,9 @@
     "upload_guide": {
         "button_primary": "Subir foto",
         "image_detail_blur_alt": "Ejemplo de un documento borroso",
-        "image_detail_blur_label": "Todos los detalles deben ser claros, nada borroso.",
-        "image_detail_cutoff_alt": "Ejemplo de un documento cortado",
+        "image_detail_blur_label": "Todos los detalles deben ser claros, nada borroso",
         "image_detail_cutoff_label": "Mostrar todos los detalles, incluidas las dos líneas inferiores",
-        "image_detail_glare_alt": "Ejemplo de un documento con reflejo",
         "image_detail_glare_label": "Aléjese de la luz directa, sin reflejos",
-        "image_detail_good_alt": "Ejemplo de documento",
         "image_detail_good_label": "La foto debe mostrar claramente su documento",
         "subtitle": "No se aceptan fotos escaneadas ni fotocopias",
         "title": "Subir la página del pasaporte con su foto"
@@ -367,6 +395,7 @@
         "body_record": "Presione grabar y siga las instrucciones",
         "body_stop": "Cuando esté listo, presione parar",
         "button_primary_next": "Siguiente",
+        "button_primary_start": "Iniciar grabación",
         "button_record_accessibility": "Iniciar grabación",
         "button_stop_accessibility": "Parar grabación",
         "frame_accessibility": "Vista desde la cámara",
@@ -376,9 +405,15 @@
             "challenge_turn_right": "derecho",
             "challenge_turn_template": "Mire sobre su hombro %{side}"
         },
+        "prompt": {
+            "header_timeout": "Parece que ha demorado demasiado"
+        },
         "status": "Grabando"
     },
     "video_confirmation": {
+        "body": "Su video ha sido grabado",
+        "button_primary": "Enviar video",
+        "button_secondary": "Retomar el video",
         "title": "Verifique video",
         "video_accessibility": "Reproducir su video grabado"
     },
@@ -390,12 +425,12 @@
         "title": "Asegurémonos de que nadie se está haciendo pasar por usted"
     },
     "welcome": {
-        "doc_video_subtitle": "It should take a few minutes",
-        "list_header_doc_video": "Use your device to record:",
-        "list_item_doc": "your identity document",
-        "list_item_doc_video_timeout": "Recording is limited to <timeout><\/timeout> seconds",
-        "list_item_selfie": "your face",
-        "next_button": "Verify Identity",
-        "title": "Verify your identity"
+        "doc_video_subtitle": "Debería tomar unos minutos",
+        "list_header_doc_video": "Utilice su móvil para la grabación:",
+        "list_item_doc": "su documento de identidad",
+        "list_item_doc_video_timeout": "La grabación tiene un límite de <timeout><\/timeout> segundos",
+        "list_item_selfie": "su rostro",
+        "next_button": "Verificar identidad",
+        "title": "Abra su nueva cuenta bancaria"
     }
 }

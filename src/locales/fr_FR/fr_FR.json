@@ -9,8 +9,8 @@
         "button_primary": "Envoyer le document",
         "search": {
             "accessibility": "Choisissez le pays",
-            "input_placeholder": "par exemple, les États-Unis",
-            "label": "Rechercher un pays"
+            "input_placeholder": "ex : États-Unis",
+            "label": "Chercher un pays"
         },
         "title": "Sélectionnez votre pays"
     },
@@ -46,27 +46,39 @@
         "subtitle": "Vous pouvez maintenant retourner sur votre ordinateur pour continuer",
         "title": "Envois réussis"
     },
+    "doc_capture": {
+        "detail": {
+            "folded_doc_front": "Dépliez votre document, prenez en photo les pages intérieures (qui contiennent votre photo)"
+        },
+        "header_folded_doc_front": "Côté contenant votre photo",
+        "prompt": {
+            "button_card": "Carte plastique",
+            "button_paper": "Document papier",
+            "title_id": "Quelle type de carte d'identité avez-vous ?",
+            "title_license": "Quel type de permis avez-vous ?"
+        }
+    },
     "doc_confirmation": {
         "alert": {
             "blur_detail": "Assurez-vous que tout est bien net",
-            "blur_title": "L'image n'est pas claire",
+            "blur_title": "L'image est floue",
             "crop_detail": "Assurez-vous que l'intégralité du document est visible",
-            "crop_title": "Image coupée détectée",
+            "crop_title": "Image tronquée détectée",
             "glare_detail": "Éloignez-vous de la lumière directe",
             "glare_title": "Attention aux reflets",
             "no_doc_detail": "Assurez-vous que le document entier est sur la photo",
             "no_doc_title": "Aucun document détecté"
         },
-        "body_bank_statement": "Assurez-vous que les détails sont lisibles, sans flou ni reflets",
-        "body_benefits_letter": "Assurez-vous que les détails sont lisibles, sans flou ni reflets",
-        "body_bill": "Assurez-vous que les détails sont lisibles, sans flou ni reflets",
+        "body_bank_statement": "Make sure details are clear to read, with no blur or glare",
+        "body_benefits_letter": "Make sure details are clear to read, with no blur or glare",
+        "body_bill": "Make sure details are clear to read, with no blur or glare",
         "body_id": "Assurez-vous que les détails de votre carte sont lisibles, sans flou ni reflets",
         "body_image_medium": "Il faudra plus de temps pour vous vérifier si la lecture est impossible",
-        "body_image_poor": "Pour vous vérifier plus aisément, nous avons besoin d'une meilleure photo",
+        "body_image_poor": "Pour vous vérifier au mieux, nous avons besoin d'une meilleure photo",
         "body_license": "Assurez-vous que les détails de votre permis sont lisibles, sans flou ni reflets",
         "body_passport": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets",
         "body_permit": "Assurez-vous que votre carte est lisible, nette et sans reflets",
-        "body_tax_letter": "Assurez-vous que les détails sont lisibles, sans flou ni reflets",
+        "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Fermer",
         "button_primary_redo": "Recommencer",
         "button_primary_upload": "Confirmer",
@@ -80,43 +92,62 @@
         "button_bank_statement": "Bank or building society statement",
         "button_benefits_letter": "Benefits Letter",
         "button_benefits_letter_detail": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
-        "button_bill": "Facture",
-        "button_bill_detail": "Gaz, électricité, eau, ligne fixe ou Internet",
+        "button_bill": "Utility Bill",
+        "button_bill_detail": "Gas, electricity, water, landline, or broadband",
         "button_government_letter": "Government Letter",
         "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
-        "button_id": "Carte d'identité",
+        "button_id": "Carte nationale d'identité",
         "button_id_detail": "Recto et verso",
         "button_license": "Permis de conduire",
         "button_license_detail": "Recto et verso",
         "button_passport": "Passeport",
-        "button_passport_detail": "Page de votre passeport où figure votre photo",
+        "button_passport_detail": "Page de votre passeport contenant votre photo",
         "button_permit": "Carte de séjour",
         "button_permit_detail": "Recto et verso",
         "button_tax_letter": "Council Tax Letter",
-        "extra_estatements_ok": "relevés électroniques acceptés",
-        "extra_no_mobile": "Désolé, pas de factures de mobile",
+        "extra_estatements_ok": "e-statements accepted",
+        "extra_no_mobile": "Sorry, no mobile phone bills",
         "list_accessibility": "Documents que vous pouvez utiliser pour vérifier votre identité",
         "subtitle": "Il doit s'agir d'une pièce d'identité officielle avec photo",
-        "subtitle_poa": "Voici les documents les plus susceptibles d'indiquer votre adresse de résidence actuelle",
+        "subtitle_poa": "These are the documents most likely to show your current home address",
         "title": "Sélectionnez un document",
-        "title_poa": "Sélectionnez un document de %{country}"
+        "title_poa": "Select a %{country} document"
     },
     "doc_submit": {
-        "button_link_upload": "ou télécharger une photo - pas de scans ou de photocopies",
+        "button_link_upload": "ou envoyer une photo - pas de scans ou de photocopies",
         "button_primary": "Continuez sur votre mobile",
         "subtitle": "Prendre une photo avec votre téléphone",
-        "title_bank_statement": "Envoyer la déclaration",
-        "title_benefits_letter": "Envoyer la lettre",
+        "title_bank_statement": "Submit statement",
+        "title_benefits_letter": "Submit letter",
         "title_bill": "Submit bill",
         "title_government_letter": "Government Letter",
         "title_id_back": "Envoyez votre carte d'identité (verso)",
         "title_id_front": "Envoyer la carte d'identité (recto)",
         "title_license_back": "Envoyer le permis (verso)",
         "title_license_front": "Envoyer le permis (recto)",
-        "title_passport": "Envoyez la page du passeport où figure votre photo",
+        "title_passport": "Envoyez la page du passeport contenant votre photo",
         "title_permit_back": "Envoyer la carte de séjour (verso)",
         "title_permit_front": "Envoyer la carte de séjour (recto)",
-        "title_tax_letter": "Envoyer la lettre"
+        "title_tax_letter": "Submit letter"
+    },
+    "doc_video_capture": {
+        "button_primary_fallback": "Étape suivante",
+        "button_primary_fallback_end": "Terminer l’enregistrement",
+        "detail_step2": "Gardez le document en pleine vue à tout moment",
+        "header": "En tenant votre document, gardez son recto dans le cadre",
+        "header_paper_doc_step2": "Tournez lentement votre pièce d'identité pour montrer les pages extérieures",
+        "header_passport": "En tenant votre passeport, gardez la page de la photo dans le cadre.",
+        "header_passport_progress": "Restez immobile",
+        "header_step1": "Patientez",
+        "header_step2": "Tournez lentement votre pièce d'identité pour montrer le verso",
+        "prompt": {
+            "detail_timeout": "L'enregistrement vidéo est limité à <timeout> <\/timeout> secondes. <fallback> Refaire les actions vidéo <\/fallback>"
+        },
+        "stepper": "Étape <step> <\/step> sur <total> <\/total>"
+    },
+    "doc_video_confirmation": {
+        "button_secondary": "Aperçu de la vidéo",
+        "title": "Vérifiez votre vidéo"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Redémarrez le processus sur la dernière version de Google Chrome",
@@ -210,7 +241,7 @@
             "body_id_front": "Prenez une photo du recto de votre carte",
             "body_license_back": "Prenez une photo du verso de votre permis",
             "body_license_front": "Prenez une photo du recto de votre permis",
-            "body_passport": "Prenez une photo de la page du passeport où figure votre photo",
+            "body_passport": "Prenez une photo de la page du passeport contenant votre photo",
             "body_selfie": "Prenez un selfie"
         },
         "selfie_capture": {
@@ -225,7 +256,7 @@
         },
         "upload_guide": {
             "button_primary": "Prendre une photo",
-            "title": "Page du passeport où figure votre photo"
+            "title": "Page du passeport contenant votre photo"
         }
     },
     "outro": {
@@ -248,17 +279,17 @@
         "title_cam": "Autoriser l'accès à l'appareil photo"
     },
     "photo_upload": {
-        "body_bank_statement": "Fournissez la page entière du document pour de meilleurs résultats",
-        "body_benefits_letter": "Fournissez la page entière du document pour de meilleurs résultats",
-        "body_bill": "Fournissez la page entière du document pour de meilleurs résultats",
-        "body_government_letter": "Fournissez la page entière du document pour de meilleurs résultats",
+        "body_bank_statement": "Provide the whole document page for best results",
+        "body_benefits_letter": "Provide the whole document page for best results",
+        "body_bill": "Provide the whole document page for best results",
+        "body_government_letter": "Provide the whole document page for best results",
         "body_id_back": "Envoyez votre carte depuis votre ordinateur",
         "body_id_front": "Envoyez le recto de votre carte depuis votre ordinateur",
         "body_license_back": "Envoyez le verso de votre permis depuis votre ordinateur",
         "body_license_front": "Envoyez votre permis depuis votre ordinateur",
         "body_passport": "Envoyez votre passeport depuis votre ordinateur",
         "body_selfie": "Envoyez votre selfie depuis votre ordinateur",
-        "body_tax_letter": "Fournissez la page entière du document pour de meilleurs résultats",
+        "body_tax_letter": "Provide the whole document page for best results",
         "button_take_photo": "Prendre une photo",
         "button_upload": "Envoyer",
         "title_selfie": "Selfie"
@@ -266,10 +297,10 @@
     "poa_guidance": {
         "button_primary": "Continuer",
         "instructions": {
-            "address": "Adresse actuelle",
-            "full_name": "Nom complet",
+            "address": "Current address",
+            "full_name": "Full name",
             "issue_date": "Issue date or summary period",
-            "label": "Assurez-vous qu'il montre clairement:",
+            "label": "Make sure it clearly shows:",
             "logo": "Logo"
         },
         "subtitle_bank_statement": "Must be issued in the <strong>last 3 months<\/strong>",
@@ -279,12 +310,12 @@
         "subtitle_tax_letter": "Must be issued in the <strong>last 12 months<\/strong>"
     },
     "poa_intro": {
-        "button_primary": "Commencer la vérification",
-        "list_matches_signup": "<strong> Correspond à <\/strong> l'adresse que vous avez utilisée lors de l'inscription",
-        "list_most_recent": "Est votre document le plus <strong>récent<\/strong>",
-        "list_shows_address": "Indique votre adresse <strong>actuelle<\/strong>",
-        "subtitle": "Vous aurez besoin d'un document qui :",
-        "title": "Vérifions votre adresse %{country}"
+        "button_primary": "Start verification",
+        "list_matches_signup": "<strong>Matches<\/strong> the address you used on signup",
+        "list_most_recent": "Is your most <strong>recent<\/strong> document",
+        "list_shows_address": "Shows your <strong>current<\/strong> address",
+        "subtitle": "You'll need a document that:",
+        "title": "Let's verify your %{country} address"
     },
     "selfie_capture": {
         "alert": {
@@ -339,73 +370,14 @@
         "title": "Connecté à votre mobile"
     },
     "upload_guide": {
-        "button_primary": "Envoyer une photo",
+        "button_primary": "Envoyer la photo",
         "image_detail_blur_alt": "Exemple de document flou",
         "image_detail_blur_label": "Tous les détails doivent être clairs — rien ne doit être flou",
-        "image_detail_cutoff_alt": "Exemple de document tronqué",
         "image_detail_cutoff_label": "Afficher tous les détails — y compris les deux dernières lignes",
-        "image_detail_glare_alt": "Exemple de document avec reflets",
-        "image_detail_glare_label": "Éloignez-vous de la lumière directe — évitez l'éblouissement",
-        "image_detail_good_alt": "Exemple de document",
+        "image_detail_glare_label": "Éloignez-vous de la lumière directe — évitez les reflets",
         "image_detail_good_label": "La photo doit montrer clairement votre document",
-        "subtitle": "Les numérisations et photocopies ne sont pas acceptées",
-        "title": "Envoyez la page du passeport où figure votre photo"
-    },
-    "doc_video_capture": {
-        "alert": {
-            "timeout": {
-                "detail": "Video recording is limited to 30 seconds. <fallback>Redo video actions<\/fallback>",
-                "title": "Looks like you took too long"
-            }
-        },
-        "instructions": {
-            "passport": {
-                "intro_title": "While holding your passport, keep the photo page within the frame",
-                "step_1_title": "Keep your passport photo page in the frame"
-            },
-            "card_id": {
-                "intro_title": "While holding your document, keep its front side within the frame",
-                "step_1_title": "Now, keep still",
-                "step_2_title": "Slowly turn your document around to show the back",
-                "step_2_subtitle": "Keep the document in full view at all times"
-            },
-            "paper_id": {
-                "intro_title": "Profile photo side",
-                "intro_subtitle": "Lay your document flat, include all inner pages (must contain your photo)",
-                "step_1_title": "Now, keep still",
-                "step_2_title": "Turn your document around to show the outer pages",
-                "step_2_subtitle": "Keep the document in full view at all times"
-            }
-        },
-        "paper_id_flow_selector": {
-            "title_id": "What type of identity card do you have?",
-            "title_license": "What type of license do you have?",
-            "button_card": "Plastic card",
-            "button_paper": "Paper document"
-        },
-        "welcome": {
-            "title": "Verify your identity",
-            "subtitle": "It should take a few minutes",
-            "caption": "Use your device to record:",
-            "instruction_item_1": "your identity document",
-            "instruction_item_2": "your face",
-            "limit": "Recording is limited to 30 seconds",
-            "next_button": "Choose document"
-        },
-        "button_next": "Next step",
-        "button_record": "Start recording",
-        "button_start": "Start",
-        "button_stop": "Finish recording",
-        "hold_still": "Hold still",
-        "progress": "STEP <step></step> OF <total></total>"
-    },
-    "doc_video_confirmation": {
-        "title": "Thank you",
-        "body": "Your video has been recorded",
-        "preview_title": "Check your video",
-        "button_upload": "Upload video",
-        "button_preview": "Preview video",
-        "button_redo": "Retake video"
+        "subtitle": "Les scans et photocopies ne sont pas acceptés",
+        "title": "Envoyez la page du passeport contenant votre photo"
     },
     "user_consent": {
         "button_primary": "Accept",
@@ -423,7 +395,8 @@
         "body_record": "Appuyez sur enregistrer et suivez les instructions",
         "body_stop": "Lorsque vous avez terminé, appuyez sur stop",
         "button_primary_next": "Suivant",
-        "button_record_accessibility": "Commencer l'enregistrement",
+        "button_primary_start": "Démarrer l'enregistrement",
+        "button_record_accessibility": "Démarrer l'enregistrement",
         "button_stop_accessibility": "Arrêter l’enregistrement",
         "frame_accessibility": "Vue de la caméra",
         "header": {
@@ -432,9 +405,15 @@
             "challenge_turn_right": "droite",
             "challenge_turn_template": "Regardez par-dessus votre épaule %{side}"
         },
+        "prompt": {
+            "header_timeout": "Le temps est écoulé"
+        },
         "status": "En cours d'enregistrement"
     },
     "video_confirmation": {
+        "body": "Votre vidéo a été enregistrée",
+        "button_primary": "Envoyer la vidéo",
+        "button_secondary": "Reprendre une vidéo",
         "title": "Veuillez vérifier votre vidéo",
         "video_accessibility": "Rejouer la vidéo"
     },
@@ -446,12 +425,12 @@
         "title": "Assurons-nous que personne ne se fait passer pour vous"
     },
     "welcome": {
-        "doc_video_subtitle": "It should take a few minutes",
-        "list_header_doc_video": "Use your device to record:",
-        "list_item_doc": "your identity document",
-        "list_item_doc_video_timeout": "Recording is limited to <timeout><\/timeout> seconds",
-        "list_item_selfie": "your face",
-        "next_button": "Verify Identity",
-        "title": "Verify your identity"
+        "doc_video_subtitle": "Cela ne prendra que quelques minutes",
+        "list_header_doc_video": "Utilisez votre mobile pour enregistrer :",
+        "list_item_doc": "votre pièce d'identité",
+        "list_item_doc_video_timeout": "L'enregistrement est limité à <timeout><\/timeout> secondes",
+        "list_item_selfie": "votre visage",
+        "next_button": "Vérification d'identité",
+        "title": "Ouvrez votre nouveau compte bancaire"
     }
 }
