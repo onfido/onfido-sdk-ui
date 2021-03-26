@@ -34,7 +34,7 @@ import type {
   DocumentTypes,
   StepConfigFace,
 } from '~types/steps'
-import { setUICustomizations } from '../Theme/utils'
+import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
 
@@ -293,6 +293,7 @@ class ModalApp extends Component<Props> {
   ) => {
     if (isValidEnterpriseFeature) {
       this.props.actions.showLogoCobranding(logoCobrandConfig)
+      setCobrandingLogos(logoCobrandConfig)
     } else {
       this.onInvalidEnterpriseFeatureException('logoCobrand')
     }

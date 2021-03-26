@@ -181,6 +181,14 @@ $logo-height: 32 * $unit;
     width: $cobrand-logo-width;
     margin-top: 0;
     flex: 0 0 auto;
+    background-image: var(--osdk-dark-cobrand-logo-src);
+
+    .fullScreenStep.logoCobrandImage & {
+      background-image: var(--osdk-light-cobrand-logo-src);
+      width: $cobrand-logo-width;
+      margin-top: 0;
+      z-index: 0; /* to make the logo visible, otherwise it is hidden by overlay */
+    }
   }
 
   .logo {
@@ -190,7 +198,7 @@ $logo-height: 32 * $unit;
     margin-top: 0;
     flex: 0 0 auto;
 
-    .fullScreenStep.textCobrandLogo & {
+    .fullScreenStep.onfidoCobrandLogo & {
       background-image: url('./assets/onfido-logo-light.svg');
       width: $cobrand-logo-width;
       margin-top: 0;
@@ -264,7 +272,6 @@ $logo-height: 32 * $unit;
   padding-left: 24 * $unit;
 }
 
-a,
 .link,
 .textButton {
   font-family: var(--osdk-font-family-body);
@@ -287,7 +294,6 @@ a,
   }
 }
 
-a:visited,
 .link:visited {
   text-decoration: none;
   color: var(--osdk-color-content-body);
