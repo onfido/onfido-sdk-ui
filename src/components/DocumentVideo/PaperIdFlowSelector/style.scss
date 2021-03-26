@@ -1,15 +1,13 @@
 @import '../../Theme/constants';
 
-.paperIdFlowSelector .footer {
+.paperIdFlowSelector {
   align-items: stretch;
+  align-self: flex-end;
   background-color: $color-white;
-  bottom: 0;
   display: flex;
   flex-direction: column;
-  left: 0;
+  flex: 1;
   padding: 16 * $unit;
-  position: absolute;
-  right: 0;
   text-align: left;
   z-index: 3;
 }

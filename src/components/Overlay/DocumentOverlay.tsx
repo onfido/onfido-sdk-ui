@@ -106,11 +106,10 @@ const getPlaceholder = ({
   return 'card'
 }
 
-export const calculateHollowRect = (
+const calculateHollowRect = (
   docTypeParams: DocTypeParams,
   containerDimensions: DOMRect,
-  marginBottom?: number,
-  scaleToSvgViewport = false
+  marginBottom?: number
 ): HollowRect => {
   const viewport = getViewport(containerDimensions)
   const size = getDocumentSize(docTypeParams)
@@ -129,30 +128,30 @@ export const calculateHollowRect = (
     ? viewport.height * (1 - marginBottom)
     : (viewport.height + height) / 2
 
-  if (scaleToSvgViewport) {
-    return { left, bottom, width, height }
-  }
+  return { left, bottom, width, height }
+}
+
+const scaleHollowToContainer = (
+  hollowRect: HollowRect,
+  containerDimensions: DOMRect
+): HollowRect => {
+  const viewport = getViewport(containerDimensions)
+  const { left, bottom, width, height } = hollowRect
 
   // There're minor adjustments to align the rect right into the hollow frame
   return {
     left: (left * containerDimensions.width) / viewport.width,
-    bottom: (bottom * containerDimensions.width) / viewport.width,
+    bottom: (bottom * containerDimensions.width) / viewport.width - 2,
     width: (width * containerDimensions.width) / viewport.width - 2,
-    height: (height * containerDimensions.width) / viewport.width - 2,
+    height: (height * containerDimensions.width) / viewport.width,
   }
 }
 
 const drawInnerFrame = (
   docTypeParams: DocTypeParams,
-  containerDimensions: DOMRect,
-  marginBottom?: number
+  hollowRect: HollowRect
 ): string => {
-  const { left, bottom, width, height } = calculateHollowRect(
-    docTypeParams,
-    containerDimensions,
-    marginBottom,
-    true
-  )
+  const { left, bottom, width, height } = hollowRect
   const radius = docTypeParams.documentType === 'passport' ? 2 : 0
   const startPoint = `M${[left + radius, bottom].join(',')}`
 
@@ -196,7 +195,17 @@ const DocumentOverlay: FunctionComponent<Props> = ({
   const containerDimensions = useContainerDimensions()
   const viewport = getViewport(containerDimensions)
   const outer = `M0,0 h${viewport.width} v${viewport.height} h-${viewport.width} Z`
-  const inner = drawInnerFrame(docTypeParams, containerDimensions, marginBottom)
+  const hollowRect = calculateHollowRect(
+    docTypeParams,
+    containerDimensions,
+    marginBottom
+  )
+  const inner = drawInnerFrame(docTypeParams, hollowRect)
+
+  const placeholderRect = scaleHollowToContainer(
+    hollowRect,
+    containerDimensions
+  )
 
   return (
     <div
@@ -220,14 +229,12 @@ const DocumentOverlay: FunctionComponent<Props> = ({
             style.placeholder,
             style[getPlaceholder(docTypeParams)]
           )}
-          style={calculateHollowRect(
-            docTypeParams,
-            containerDimensions,
-            marginBottom
-          )}
+          style={placeholderRect}
         />
       )}
-      {children}
+      <div className={style.footer} style={{ top: placeholderRect.bottom }}>
+        {children}
+      </div>
     </div>
   )
 }

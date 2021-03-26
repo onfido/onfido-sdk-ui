@@ -12,31 +12,25 @@ import StepProgress from './StepProgress'
 import useCaptureStep from './useCaptureStep'
 import style from './style.scss'
 
-import type { CaptureFlows } from '~types/docVideo'
+import type { CaptureFlows, CaptureSteps } from '~types/docVideo'
 import type { VideoOverlayProps } from '../../VideoCapture'
-
-type OverlayProps = {
-  withPlaceholder?: boolean
-}
 
 export type Props = {
   captureFlow: CaptureFlows
   flowRestartTrigger: number
-  footerHeightLimit: number
+  onStepChange?: (step: CaptureSteps) => void
   onSubmit: () => void
-  renderOverlay: (props: OverlayProps) => h.JSX.Element | null
 } & VideoOverlayProps
 
 const VideoLayer: FunctionComponent<Props> = ({
   captureFlow,
   disableInteraction,
   flowRestartTrigger,
-  footerHeightLimit,
   isRecording,
   onStart,
+  onStepChange,
   onStop,
   onSubmit,
-  renderOverlay,
 }) => {
   const {
     captureStep,
@@ -53,6 +47,10 @@ const VideoLayer: FunctionComponent<Props> = ({
   ]
 
   const { translate } = useLocales()
+
+  useEffect(() => {
+    onStepChange && onStepChange(captureStep)
+  }, [onStepChange, captureStep])
 
   useEffect(() => {
     switch (recordState) {
@@ -153,15 +151,10 @@ const VideoLayer: FunctionComponent<Props> = ({
   }, [action, recordState, instruction, translate])
 
   return (
-    <Fragment>
-      {renderOverlay({
-        withPlaceholder: captureStep === 'intro',
-      })}
-      <div className={style.controls} style={{ top: footerHeightLimit }}>
-        <StepProgress stepNumber={stepNumber} totalSteps={totalSteps} />
-        {renderItems()}
-      </div>
-    </Fragment>
+    <div className={style.controls}>
+      <StepProgress stepNumber={stepNumber} totalSteps={totalSteps} />
+      {renderItems()}
+    </div>
   )
 }
 
