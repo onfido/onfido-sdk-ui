@@ -133,15 +133,15 @@
     "doc_video_capture": {
         "button_primary_fallback": "Étape suivante",
         "button_primary_fallback_end": "Terminer l’enregistrement",
-        "detail_step2": "Gardez le document en pleine vue à tout moment",
+        "detail_step2": "Gardez le document visible à tout moment",
         "header": "En tenant votre document, gardez son recto dans le cadre",
         "header_paper_doc_step2": "Tournez lentement votre pièce d'identité pour montrer les pages extérieures",
-        "header_passport": "En tenant votre passeport, gardez la page de la photo dans le cadre.",
+        "header_passport": "En tenant votre passeport, gardez la page de la photo dans le cadre",
         "header_passport_progress": "Restez immobile",
         "header_step1": "Patientez",
         "header_step2": "Tournez lentement votre pièce d'identité pour montrer le verso",
         "prompt": {
-            "detail_timeout": "L'enregistrement vidéo est limité à <timeout> <\/timeout> secondes. <fallback> Refaire les actions vidéo <\/fallback>"
+            "detail_timeout": "L'enregistrement vidéo est limité à <timeout> <\/timeout> secondes. <fallback> Recommencez <\/fallback>"
         },
         "stepper": "Étape <step> <\/step> sur <total> <\/total>"
     },
@@ -430,7 +430,7 @@
         "list_item_doc": "votre pièce d'identité",
         "list_item_doc_video_timeout": "L'enregistrement est limité à <timeout><\/timeout> secondes",
         "list_item_selfie": "votre visage",
-        "next_button": "Vérification d'identité",
-        "title": "Ouvrez votre nouveau compte bancaire"
+        "next_button": "Vérifiez votre identité",
+        "title": "Vérification d'identité"
     }
 }

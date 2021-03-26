@@ -141,7 +141,7 @@
         "header_step1": "Halten Sie nun still",
         "header_step2": "Drehen Sie Ihr Dokument langsam um, sodass die Rückseite zu sehen sind",
         "prompt": {
-            "detail_timeout": "Die Videoaufnahme ist auf <timeout><\/timeout> Sekunden beschränkt. <fallback>Video-Aktionen wiederholen<\/fallback>"
+            "detail_timeout": "Die Videoaufnahme ist auf <timeout><\/timeout> Sekunden beschränkt. <fallback>Nochmal beginnen<\/fallback>"
         },
         "stepper": "Schritt <step><\/step> von <total><\/total>"
     },
@@ -431,6 +431,6 @@
         "list_item_doc_video_timeout": "Die Aufnahme ist auf <timeout><\/timeout> Sekunden beschränkt",
         "list_item_selfie": "Ihr Gesicht",
         "next_button": "Identität überprüfen",
-        "title": "Eröffnen Sie Ihr neues Bankkonto"
+        "title": "Identität überprüfen"
     }
 }

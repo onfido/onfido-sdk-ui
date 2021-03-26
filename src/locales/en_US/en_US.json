@@ -141,7 +141,7 @@
         "header_step1": "Now, keep still",
         "header_step2": "Slowly turn your document around to show the back",
         "prompt": {
-            "detail_timeout": "Video recording is limited to <timeout><\/timeout> seconds. <fallback>Redo video actions<\/fallback>"
+            "detail_timeout": "Video recording is limited to <timeout><\/timeout> seconds. <fallback>Start again<\/fallback>"
         },
         "stepper": "Step <step><\/step> of <total><\/total>"
     },
@@ -430,7 +430,7 @@
         "list_item_doc": "your identity document",
         "list_item_doc_video_timeout": "Recording is limited to <timeout><\/timeout> seconds",
         "list_item_selfie": "your face",
-        "next_button": "Verify Identity",
+        "next_button": "Verify identity",
         "title": "Verify your identity"
     }
 }

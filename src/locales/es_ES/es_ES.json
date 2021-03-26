@@ -141,7 +141,7 @@
         "header_step1": "Ahora, no se mueva",
         "header_step2": "Gire lentamente el documento para mostrar el reverso",
         "prompt": {
-            "detail_timeout": "La grabación de vídeo tiene un límite de <timeout><\/timeout> segundos. <fallback>Volver a hacer acciones de vídeo<\/fallback>"
+            "detail_timeout": "La grabación de vídeo tiene un límite de <timeout><\/timeout> segundos. <fallback>Empezar de nuevo<\/fallback>"
         },
         "stepper": "Paso <step><\/step> de <total><\/total>"
     },
@@ -431,6 +431,6 @@
         "list_item_doc_video_timeout": "La grabación tiene un límite de <timeout><\/timeout> segundos",
         "list_item_selfie": "su rostro",
         "next_button": "Verificar identidad",
-        "title": "Abra su nueva cuenta bancaria"
+        "title": "Verifique su identidad"
     }
 }
