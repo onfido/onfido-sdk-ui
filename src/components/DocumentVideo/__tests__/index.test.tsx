@@ -118,7 +118,7 @@ const assertIntroStep = (
 
   assertRecordingButton(wrapper, 'video_capture.button_primary_start')
 
-  const instructions = wrapper.find('VideoLayer Instructions')
+  const instructions = wrapper.find('CaptureControls Instructions')
   expect(instructions.exists()).toBeTruthy()
 
   if (forSingleSidedDocs) {
@@ -136,7 +136,7 @@ const assertFirstStep = (wrapper: ReactWrapper) => {
   waitForTimeout(wrapper, 'button')
   assertRecordingButton(wrapper, 'doc_video_capture.button_primary_fallback')
 
-  const instructions = wrapper.find('VideoLayer Instructions')
+  const instructions = wrapper.find('CaptureControls Instructions')
   expect(instructions.exists()).toBeTruthy()
 
   expect(instructions.props()).toMatchObject({
@@ -151,7 +151,7 @@ const assertSecondStep = (wrapper: ReactWrapper) => {
     'doc_video_capture.button_primary_fallback_end'
   )
 
-  const instructions = wrapper.find('VideoLayer Instructions')
+  const instructions = wrapper.find('CaptureControls Instructions')
   expect(instructions.exists()).toBeTruthy()
 
   expect(instructions.props()).toMatchObject({
@@ -351,7 +351,7 @@ describe('DocumentVideo', () => {
 
         it('renders the flow selection by default', () => {
           expect(wrapper.find('PaperIdFlowSelector').exists()).toBeTruthy()
-          expect(wrapper.find('VideoLayer').exists()).toBeFalsy()
+          expect(wrapper.find('CaptureControls').exists()).toBeFalsy()
         })
 
         possibleFlows.forEach((flow) => {
@@ -360,7 +360,7 @@ describe('DocumentVideo', () => {
 
             it('starts flow correctly', () => {
               expect(wrapper.find('PaperIdFlowSelector').exists()).toBeFalsy()
-              expect(wrapper.find('VideoLayer').exists()).toBeTruthy()
+              expect(wrapper.find('CaptureControls').exists()).toBeTruthy()
             })
 
             it('ends the flow with back side captured', () => {

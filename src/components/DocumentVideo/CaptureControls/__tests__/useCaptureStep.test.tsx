@@ -76,7 +76,7 @@ const assertRecordState = (
 }
 
 describe('DocumentVideo', () => {
-  describe('VideoLayer', () => {
+  describe('CaptureControls', () => {
     describe('useCaptureStep', () => {
       let wrapper: ShallowWrapper
 

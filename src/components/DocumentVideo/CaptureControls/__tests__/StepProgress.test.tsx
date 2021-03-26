@@ -13,7 +13,7 @@ mockedTranslate.mockImplementation((str) => {
 })
 
 describe('DocumentVideo', () => {
-  describe('VideoLayer', () => {
+  describe('CaptureControls', () => {
     describe('StepProgress', () => {
       afterEach(() => {
         jest.clearAllMocks()

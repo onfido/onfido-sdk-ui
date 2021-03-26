@@ -22,7 +22,7 @@ export type Props = {
   onSubmit: () => void
 } & VideoOverlayProps
 
-const VideoLayer: FunctionComponent<Props> = ({
+const CaptureControls: FunctionComponent<Props> = ({
   captureFlow,
   disableInteraction,
   flowRestartTrigger,
@@ -158,4 +158,4 @@ const VideoLayer: FunctionComponent<Props> = ({
   )
 }
 
-export default memo(VideoLayer)
+export default memo(CaptureControls)

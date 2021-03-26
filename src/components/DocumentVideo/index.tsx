@@ -9,7 +9,7 @@ import { getInactiveError } from '~utils/inactiveError'
 import DocumentOverlay from '../Overlay/DocumentOverlay'
 import VideoCapture, { VideoOverlayProps } from '../VideoCapture'
 import PaperIdFlowSelector from './PaperIdFlowSelector'
-import VideoLayer from './VideoLayer'
+import CaptureControls from './CaptureControls'
 
 import type { CountryData } from '~types/commons'
 import type {
@@ -77,11 +77,11 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const [flowComplete, setFlowComplete] = useState(false)
 
   /**
-   * Because every flow control was placed inside VideoLayer _except_ restart,
+   * Because every flow control was placed inside CaptureControls _except_ restart,
    * and the redo event was controlled from VideoCapture,
    * we need a mechanism to trigger flow restart from outside.
    * This state will be incremented every time VideoCapture ask for redo,
-   * hence VideoLayer will be updated with a new value and then restart the flow
+   * hence CaptureControls will be updated with a new value and then restart the flow
    */
   const [flowRestartTrigger, setFlowRestartTrigger] = useState(0)
 
@@ -160,7 +160,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
     withPlaceholder: showOverlayPlaceholder,
   }
 
-  const videoControlsProps = {
+  const captureControlsProps = {
     documentType,
     flowRestartTrigger,
     onStepChange: (step: CaptureSteps) =>
@@ -170,9 +170,9 @@ const DocumentVideo: FunctionComponent<Props> = ({
 
   const renderVideoOverlay = (props: VideoOverlayProps) => {
     const overlayFooter = captureFlow ? (
-      <VideoLayer
+      <CaptureControls
         {...props}
-        {...videoControlsProps}
+        {...captureControlsProps}
         captureFlow={captureFlow}
       />
     ) : (

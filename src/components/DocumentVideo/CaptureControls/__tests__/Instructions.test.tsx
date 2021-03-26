@@ -7,7 +7,7 @@ const fakeTitle = 'Fake title'
 const fakeSubtitle = 'Fake subtitle'
 
 describe('DocumentVideo', () => {
-  describe('VideoLayer', () => {
+  describe('CaptureControls', () => {
     describe('Instructions', () => {
       it('renders without crashing', () => {
         const wrapper = shallow(<Instructions title={fakeTitle} />)

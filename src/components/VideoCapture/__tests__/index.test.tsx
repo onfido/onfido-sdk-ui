@@ -55,7 +55,7 @@ const assertInactiveError = (
   }
 }
 
-const MockedVideoLayer: FunctionComponent<VideoOverlayProps> = ({
+const MockedCaptureControls: FunctionComponent<VideoOverlayProps> = ({
   disableInteraction,
   isRecording,
   onStart,
@@ -77,7 +77,7 @@ const defaultProps: VideoCaptureProps = {
   onRedo: jest.fn(),
   onVideoCapture: jest.fn(),
   renderFallback: jest.fn(),
-  renderVideoOverlay: (props) => <MockedVideoLayer {...props} />, // eslint-disable-line react/display-name
+  renderVideoOverlay: (props) => <MockedCaptureControls {...props} />, // eslint-disable-line react/display-name
   trackScreen: jest.fn(),
 }
 
