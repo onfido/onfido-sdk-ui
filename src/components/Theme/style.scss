@@ -272,7 +272,6 @@ $logo-height: 32 * $unit;
   padding-left: 24 * $unit;
 }
 
-a,
 .link,
 .textButton {
   font-family: var(--osdk-font-family-body);
@@ -295,7 +294,6 @@ a,
   }
 }
 
-a:visited,
 .link:visited {
   text-decoration: none;
   color: var(--osdk-color-content-body);
