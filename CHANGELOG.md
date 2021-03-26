@@ -12,7 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 
-- UI: Fix host app/site's own link styling getting overrided by SDK's default theme styling
+- UI: Fix host app/site's own link styling getting overridden by SDK's default theme styling
 
 ## [6.7.0] - 2021-03-25
 
