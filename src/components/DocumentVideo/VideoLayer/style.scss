@@ -44,6 +44,7 @@
 .holdStill .text,
 .instructions > .title {
   font-size: 24 * $unit;
+  font-size: 125%;
   font-weight: 600;
 
   @media (--medium-viewport) {
