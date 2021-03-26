@@ -8,6 +8,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.7.1] - 2021-03-26
+
+### Fixed
+
+- UI: Fix host app/site's own link styling getting overridden by SDK's default theme styling
+
 ## [6.7.0] - 2021-03-25
 
 ### Added
@@ -926,7 +932,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.1...development
+[6.7.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.0...6.7.1
 [6.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.6.0...6.7.0
 [6.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.5.0...6.6.0
 [6.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.4.0...6.5.0
