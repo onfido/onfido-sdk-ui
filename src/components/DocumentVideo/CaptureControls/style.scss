@@ -58,6 +58,10 @@
   height: 48 * $unit;
 }
 
+.instructions .successAria {
+  opacity: 0;
+}
+
 .holdStill .loading {
   align-self: center;
   border-radius: 4 * $unit;

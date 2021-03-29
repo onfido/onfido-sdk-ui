@@ -66,6 +66,11 @@ const Camera: FunctionComponent<Props> = ({
       : fallbackHeight,
   }
 
+  const ariaLabel =
+    buttonType === 'video'
+      ? translate('video_capture.frame_accessibility')
+      : translate('selfie_capture.frame_accessibility')
+
   return (
     <div
       className={classNames(style.camera, {
@@ -81,6 +86,13 @@ const Camera: FunctionComponent<Props> = ({
           aria-describedby="cameraViewAriaLabel"
         >
           <Webcam {...webcamProps} />
+          <div
+            className={style.cameraViewAriaLabel}
+            id="cameraViewAriaLabel"
+            aria-label={ariaLabel}
+          >
+            {ariaLabel}
+          </div>
         </div>
         {buttonType === 'photo' && (
           <div className={style.actions}>
@@ -97,14 +109,6 @@ const Camera: FunctionComponent<Props> = ({
         {buttonType === 'video' &&
           renderVideoOverlay &&
           renderVideoOverlay({ hasGrantedPermission })}
-        <div
-          id="cameraViewAriaLabel"
-          aria-label={
-            buttonType === 'video'
-              ? translate('video_capture.frame_accessibility')
-              : translate('selfie_capture.frame_accessibility')
-          }
-        />
         {children}
         {renderError}
       </div>

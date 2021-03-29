@@ -143,7 +143,8 @@
         "prompt": {
             "detail_timeout": "La grabación de vídeo tiene un límite de <timeout><\/timeout> segundos. <fallback>Empezar de nuevo<\/fallback>"
         },
-        "stepper": "Paso <step><\/step> de <total><\/total>"
+        "stepper": "Paso <step><\/step> de <total><\/total>",
+        "success_accessibility": "Se ha realizado correctamente"
     },
     "doc_video_confirmation": {
         "button_secondary": "Vista previa del vídeo",

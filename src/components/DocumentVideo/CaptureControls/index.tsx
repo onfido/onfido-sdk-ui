@@ -131,9 +131,13 @@ const CaptureControls: FunctionComponent<Props> = ({
     }
 
     if (recordState === 'success') {
+      const ariaLabel = translate('doc_video_capture.success_accessibility')
       return (
         <div className={style.instructions}>
           <span className={style.success} />
+          <span className={style.successAria} aria-label={ariaLabel}>
+            {ariaLabel}
+          </span>
         </div>
       )
     }
