@@ -63,7 +63,8 @@ const CaptureControls: FunctionComponent<Props> = ({
         break
 
       case 'success': {
-        navigator.vibrate(DOC_VIDEO_CAPTURE.SUCCESS_STATE_VIBRATION)
+        navigator.vibrate &&
+          navigator.vibrate(DOC_VIDEO_CAPTURE.SUCCESS_STATE_VIBRATION)
 
         if (stepNumber >= totalSteps) {
           onStop()
@@ -132,6 +133,7 @@ const CaptureControls: FunctionComponent<Props> = ({
 
     if (recordState === 'success') {
       const ariaLabel = translate('doc_video_capture.success_accessibility')
+
       return (
         <div className={style.instructions}>
           <span className={style.success} />
