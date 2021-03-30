@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import { trackException, sendEvent } from '../../Tracker'
-import { isOfMimeType } from '~utils/blob'
+import { isOfMimeType, mimeType } from '~utils/blob'
 import {
   uploadDocument,
   uploadLivePhoto,
@@ -220,10 +220,18 @@ class Confirm extends Component {
           : {}),
       }
       const issuingCountry = this.getIssuingCountry()
-      // API does not support 'residence_permit' type but does accept 'unknown'
-      // See https://documentation.onfido.com/#document-types
+
+      // Make sure documents always have a filename
+      // A `filename` might have been defined when the capture is created
+      // if filename is not present, check if `blob` has a property `name` (only available for File types, which come from the html5 file picker)
+      // alternatively use default filename
+      //
+      const blobName =
+        filename || blob.name || `document_capture.${mimeType(blob)}`
       const data = {
-        file: { blob, filename },
+        file: { blob, filename: blobName },
+        // API does not support 'residence_permit' type but does accept 'unknown'
+        // See https://documentation.onfido.com/#document-types
         type: type === 'residence_permit' ? 'unknown' : type,
         side,
         validations,
