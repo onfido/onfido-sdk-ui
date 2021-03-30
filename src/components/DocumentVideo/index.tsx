@@ -94,7 +94,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const [videoPayload, setVideoPayload] = useState<CapturePayload | undefined>(
     undefined
   )
-  const webcamRef = useRef<Webcam>(null)
+  const webcamRef = useRef<Webcam>()
 
   useEffect(() => {
     if (!flowComplete) {
@@ -152,11 +152,13 @@ const DocumentVideo: FunctionComponent<Props> = ({
 
   const issuingCountry = issuingCountryData?.country_alpha2
 
-  const documentOverlayProps = {
+  const docOverlayProps = {
     documentType,
     isPaperId: captureFlow === 'paperId',
     issuingCountry,
     marginBottom: 0.5,
+    upperScreen: true,
+    video: true,
     withPlaceholder: showOverlayPlaceholder,
   }
 
@@ -183,9 +185,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
     )
 
     return (
-      <DocumentOverlay {...documentOverlayProps}>
-        {overlayFooter}
-      </DocumentOverlay>
+      <DocumentOverlay {...docOverlayProps}>{overlayFooter}</DocumentOverlay>
     )
   }
 
