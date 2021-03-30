@@ -66,11 +66,6 @@ const Camera: FunctionComponent<Props> = ({
       : fallbackHeight,
   }
 
-  const ariaLabel =
-    buttonType === 'video'
-      ? translate('video_capture.frame_accessibility')
-      : translate('selfie_capture.frame_accessibility')
-
   return (
     <div
       className={classNames(style.camera, {
@@ -80,19 +75,8 @@ const Camera: FunctionComponent<Props> = ({
     >
       {renderTitle}
       <div className={classNames(style.container, containerClassName)}>
-        <div
-          className={style.webcamContainer}
-          role="group"
-          aria-describedby="cameraViewAriaLabel"
-        >
+        <div className={style.webcamContainer}>
           <Webcam {...webcamProps} />
-          <div
-            className={style.cameraViewAriaLabel}
-            id="cameraViewAriaLabel"
-            aria-label={ariaLabel}
-          >
-            {ariaLabel}
-          </div>
         </div>
         {buttonType === 'photo' && (
           <div className={style.actions}>
