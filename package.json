@@ -144,7 +144,7 @@
     "accessible-autocomplete": "^2.0.3",
     "app-root-path": "^2.2.1",
     "async": "^2.6.2",
-    "audit-ci": "^2.5.1",
+    "audit-ci": "^3.1.1",
     "autoprefixer": "^7.1.1",
     "axe-webdriverjs": "^2.2.0",
     "babel-loader": "^8.0.0",
