@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Internal: Added default filename for all document uploads if filename is not present.
+
 ## [6.7.1] - 2021-03-26
 
 ### Fixed
