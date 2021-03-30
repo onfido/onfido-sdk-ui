@@ -101,7 +101,7 @@ class FaceVideo extends Component<Props, State> {
         onVideoCapture={this.onVideoCapture}
         renderFallback={renderFallback}
         renderPhotoOverlay={({ hasCameraError, isRecording }) => (
-          <FaceOverlay isWithoutHole={hasCameraError || isRecording} />
+          <FaceOverlay isWithoutHole={hasCameraError || isRecording} video />
         )}
         renderVideoOverlay={({
           disableInteraction,
