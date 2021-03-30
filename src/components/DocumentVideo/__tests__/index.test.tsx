@@ -5,7 +5,6 @@ import MockedContainerDimensions from '~jest/MockedContainerDimensions'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import { fakeCapturePayload } from '~jest/captures'
-import { VIDEO_CAPTURE, DOC_VIDEO_CAPTURE } from '~utils/constants'
 import DocumentOverlay, {
   Props as DocumentOverlayProps,
 } from '../../Overlay/DocumentOverlay'
@@ -23,6 +22,19 @@ import type { DocumentTypes } from '~types/steps'
 jest.mock('~utils')
 navigator.vibrate = jest.fn()
 
+const EXPECTED_VIDEO_CAPTURE = {
+  INACTIVE_TIMEOUT: 12,
+  FACE_VIDEO_TIMEOUT: 20,
+  DOC_VIDEO_TIMEOUT: 30,
+}
+
+const EXPECTED_DOC_VIDEO_CAPTURE = {
+  BUTTON_VISIBILITY_TIMEOUT: 3000,
+  SUCCESS_STATE_TIMEOUT: 2000,
+  SUCCESS_STATE_VIBRATION: 500,
+  HOLDING_STILL_TIMEOUT: 6000,
+}
+
 const defaultProps: DocumentVideoProps = {
   cameraClassName: 'fakeCameraClass',
   documentType: 'driving_licence',
@@ -38,16 +50,16 @@ const waitForTimeout = (
 ) => {
   switch (type) {
     case 'button':
-      jest.runTimersToTime(DOC_VIDEO_CAPTURE.BUTTON_VISIBILITY_TIMEOUT)
+      jest.runTimersToTime(EXPECTED_DOC_VIDEO_CAPTURE.BUTTON_VISIBILITY_TIMEOUT)
       break
     case 'holding':
-      jest.runTimersToTime(DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT)
+      jest.runTimersToTime(EXPECTED_DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT)
       break
     case 'success':
-      jest.runTimersToTime(DOC_VIDEO_CAPTURE.SUCCESS_STATE_TIMEOUT)
+      jest.runTimersToTime(EXPECTED_DOC_VIDEO_CAPTURE.SUCCESS_STATE_TIMEOUT)
       break
     case 'recording':
-      jest.runTimersToTime(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT * 1000)
+      jest.runTimersToTime(EXPECTED_VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT * 1000)
       break
     default:
       break
@@ -196,7 +208,9 @@ describe('DocumentVideo', () => {
 
       it('sets correct timeout', () => {
         const timeout = wrapper.find('Timeout')
-        expect(timeout.prop('seconds')).toEqual(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT)
+        expect(timeout.prop('seconds')).toEqual(
+          EXPECTED_VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT
+        )
       })
 
       describe('when inactive timed out', () => {
