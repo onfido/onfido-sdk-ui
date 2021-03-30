@@ -3,6 +3,7 @@ import { memo } from 'preact/compat'
 import classNames from 'classnames'
 
 import { useContainerDimensions } from '~contexts'
+import { useLocales } from '~locales'
 import style from './style.scss'
 
 import type { DocumentTypes } from '~types/steps'
@@ -109,7 +110,7 @@ const getPlaceholder = ({
 const calculateHollowRect = (
   docTypeParams: DocTypeParams,
   containerDimensions: DOMRect,
-  marginBottom?: number
+  upperScreen: boolean
 ): HollowRect => {
   const viewport = getViewport(containerDimensions)
   const size = getDocumentSize(docTypeParams)
@@ -119,13 +120,8 @@ const calculateHollowRect = (
   const height = width / aspectRatio
 
   const left = (viewport.width - width) / 2
-
-  /**
-   * If no marginBottom provided,
-   * calculate to show to inner frame at the middle of the screen
-   */
-  const bottom = marginBottom
-    ? viewport.height * (1 - marginBottom)
+  const bottom = upperScreen
+    ? viewport.height / 2
     : (viewport.height + height) / 2
 
   return { left, bottom, width, height }
@@ -133,15 +129,19 @@ const calculateHollowRect = (
 
 const scaleHollowToContainer = (
   hollowRect: HollowRect,
-  containerDimensions: DOMRect
+  containerDimensions: DOMRect,
+  upperScreen: boolean
 ): HollowRect => {
   const viewport = getViewport(containerDimensions)
-  const { left, bottom, width, height } = hollowRect
+  const { left, width, height } = hollowRect
+
+  const bottom =
+    (hollowRect.bottom * containerDimensions.width) / viewport.width
 
   // There're minor adjustments to align the rect right into the hollow frame
   return {
+    bottom: upperScreen ? bottom - 2 : containerDimensions.height - bottom - 2,
     left: (left * containerDimensions.width) / viewport.width,
-    bottom: (bottom * containerDimensions.width) / viewport.width - 2,
     width: (width * containerDimensions.width) / viewport.width - 2,
     height: (height * containerDimensions.width) / viewport.width,
   }
@@ -182,30 +182,41 @@ const drawInnerFrame = (
 }
 
 export type Props = {
-  marginBottom?: number
+  ariaLabel?: string
+  upperScreen?: boolean
+  video?: boolean
   withPlaceholder?: boolean
 } & DocTypeParams
 
 const DocumentOverlay: FunctionComponent<Props> = ({
+  ariaLabel,
   children,
-  marginBottom,
+  upperScreen = false,
+  video,
   withPlaceholder,
   ...docTypeParams
 }) => {
+  const { translate } = useLocales()
   const containerDimensions = useContainerDimensions()
+
   const viewport = getViewport(containerDimensions)
   const outer = `M0,0 h${viewport.width} v${viewport.height} h-${viewport.width} Z`
   const hollowRect = calculateHollowRect(
     docTypeParams,
     containerDimensions,
-    marginBottom
+    upperScreen
   )
   const inner = drawInnerFrame(docTypeParams, hollowRect)
 
   const placeholderRect = scaleHollowToContainer(
     hollowRect,
-    containerDimensions
+    containerDimensions,
+    upperScreen
   )
+
+  const defaultAriaLabel = video
+    ? translate('video_capture.frame_accessibility')
+    : translate('selfie_capture.frame_accessibility')
 
   return (
     <div
@@ -223,16 +234,22 @@ const DocumentOverlay: FunctionComponent<Props> = ({
         <path className={style.fullScreen} d={`${outer} ${inner}`} />
         <path className={style.hollow} d={inner} />
       </svg>
-      {withPlaceholder && (
-        <span
-          className={classNames(
-            style.placeholder,
-            style[getPlaceholder(docTypeParams)]
-          )}
-          style={placeholderRect}
-        />
-      )}
-      <div className={style.footer} style={{ top: placeholderRect.bottom }}>
+      <div
+        className={classNames(style.placeholder, {
+          [style[getPlaceholder(docTypeParams)]]: withPlaceholder,
+        })}
+        style={placeholderRect}
+      >
+        <span aria-label={ariaLabel} className={style.ariaLabel}>
+          {ariaLabel || defaultAriaLabel}
+        </span>
+      </div>
+      <div
+        className={style.footer}
+        style={{
+          top: (hollowRect.bottom * containerDimensions.width) / viewport.width,
+        }}
+      >
         {children}
       </div>
     </div>

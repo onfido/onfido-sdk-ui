@@ -2,11 +2,12 @@ import { h } from 'preact'
 import { mount, shallow, ReactWrapper } from 'enzyme'
 
 import MockedContainerDimensions from '~jest/MockedContainerDimensions'
+import MockedLocalised from '~jest/MockedLocalised'
 import DocumentOverlay, { DocumentSizes } from '../DocumentOverlay'
 import type { DocumentTypes } from '~types/steps'
 
 const assertHollowSize = (wrapper: ReactWrapper, size: DocumentSizes) => {
-  expect(wrapper.find('.placeholder').exists()).toBeFalsy()
+  expect(wrapper.find('.placeholder').exists()).toBeTruthy()
   const svg = wrapper.find('.document svg')
   expect(svg.exists()).toBeTruthy()
   expect(svg.prop('data-size')).toEqual(size)
@@ -48,9 +49,11 @@ describe('Overlay', () => {
     describe('when mounted', () => {
       it('renders a rectangle hollow by default', () => {
         const wrapper = mount(
-          <MockedContainerDimensions>
-            <DocumentOverlay />
-          </MockedContainerDimensions>
+          <MockedLocalised>
+            <MockedContainerDimensions>
+              <DocumentOverlay />
+            </MockedContainerDimensions>
+          </MockedLocalised>
         )
         expect(wrapper.find('.document').exists()).toBeTruthy()
 
@@ -59,23 +62,59 @@ describe('Overlay', () => {
 
         const fullScreen = wrapper.find('.fullScreen')
         expect(fullScreen.exists()).toBeTruthy()
+
+        expect(wrapper.find('.ariaLabel').text()).toEqual(
+          'selfie_capture.frame_accessibility'
+        )
       })
 
       it('draws bigger hollow in smaller viewports', () => {
         const wrapper = mount(
-          <MockedContainerDimensions width={Infinity} height={Infinity}>
-            <DocumentOverlay />
-          </MockedContainerDimensions>
+          <MockedLocalised>
+            <MockedContainerDimensions width={Infinity} height={Infinity}>
+              <DocumentOverlay />
+            </MockedContainerDimensions>
+          </MockedLocalised>
         )
 
         assertHollowDraw(wrapper, 90)
       })
 
-      it('renders correctly with marginBottom', () => {
+      it('renders video aria label', () => {
         const wrapper = mount(
-          <MockedContainerDimensions>
-            <DocumentOverlay marginBottom={0.5} />
-          </MockedContainerDimensions>
+          <MockedLocalised>
+            <MockedContainerDimensions>
+              <DocumentOverlay video />
+            </MockedContainerDimensions>
+          </MockedLocalised>
+        )
+
+        expect(wrapper.find('.ariaLabel').text()).toEqual(
+          'video_capture.frame_accessibility'
+        )
+      })
+
+      it('renders custom aria label', () => {
+        const ariaLabel = 'Custom aria label'
+
+        const wrapper = mount(
+          <MockedLocalised>
+            <MockedContainerDimensions>
+              <DocumentOverlay ariaLabel={ariaLabel} />
+            </MockedContainerDimensions>
+          </MockedLocalised>
+        )
+
+        expect(wrapper.find('.ariaLabel').text()).toEqual(ariaLabel)
+      })
+
+      it('renders correctly with upperScreen=true', () => {
+        const wrapper = mount(
+          <MockedLocalised>
+            <MockedContainerDimensions>
+              <DocumentOverlay upperScreen />
+            </MockedContainerDimensions>
+          </MockedLocalised>
         )
         expect(wrapper.exists()).toBeTruthy()
       })
@@ -90,9 +129,11 @@ describe('Overlay', () => {
 
         it('renders passport placeholder when documentType=passport', () => {
           const wrapper = mount(
-            <MockedContainerDimensions>
-              <DocumentOverlay documentType="passport" withPlaceholder />
-            </MockedContainerDimensions>
+            <MockedLocalised>
+              <MockedContainerDimensions>
+                <DocumentOverlay documentType="passport" withPlaceholder />
+              </MockedContainerDimensions>
+            </MockedLocalised>
           )
           assertPlaceholder(wrapper, 'passport')
         })
@@ -101,13 +142,15 @@ describe('Overlay', () => {
           cardPlaceholderCases.forEach((documentType) => {
             it(`renders card placeholder when documentType=${documentType} & isPaperId=${isPaperId}`, () => {
               const wrapper = mount(
-                <MockedContainerDimensions>
-                  <DocumentOverlay
-                    documentType={documentType}
-                    isPaperId={isPaperId}
-                    withPlaceholder
-                  />
-                </MockedContainerDimensions>
+                <MockedLocalised>
+                  <MockedContainerDimensions>
+                    <DocumentOverlay
+                      documentType={documentType}
+                      isPaperId={isPaperId}
+                      withPlaceholder
+                    />
+                  </MockedContainerDimensions>
+                </MockedLocalised>
               )
               assertPlaceholder(wrapper, 'card')
             })
@@ -115,28 +158,32 @@ describe('Overlay', () => {
 
           it(`renders correct FR DL placeholder when documentType=driving_licence & issuingCountry=FR & isPaperId=${isPaperId}`, () => {
             const wrapper = mount(
-              <MockedContainerDimensions>
-                <DocumentOverlay
-                  documentType="driving_licence"
-                  isPaperId={isPaperId}
-                  issuingCountry="FR"
-                  withPlaceholder
-                />
-              </MockedContainerDimensions>
+              <MockedLocalised>
+                <MockedContainerDimensions>
+                  <DocumentOverlay
+                    documentType="driving_licence"
+                    isPaperId={isPaperId}
+                    issuingCountry="FR"
+                    withPlaceholder
+                  />
+                </MockedContainerDimensions>
+              </MockedLocalised>
             )
             assertPlaceholder(wrapper, isPaperId ? 'frPaperDl' : 'card')
           })
 
           it(`renders correct IT ID placeholder when documentType=national_identity_card & issuingCountry=IT & isPaperId=${isPaperId}`, () => {
             const wrapper = mount(
-              <MockedContainerDimensions>
-                <DocumentOverlay
-                  documentType="national_identity_card"
-                  isPaperId={isPaperId}
-                  issuingCountry="IT"
-                  withPlaceholder
-                />
-              </MockedContainerDimensions>
+              <MockedLocalised>
+                <MockedContainerDimensions>
+                  <DocumentOverlay
+                    documentType="national_identity_card"
+                    isPaperId={isPaperId}
+                    issuingCountry="IT"
+                    withPlaceholder
+                  />
+                </MockedContainerDimensions>
+              </MockedLocalised>
             )
             assertPlaceholder(wrapper, isPaperId ? 'itPaperId' : 'card')
           })
@@ -148,18 +195,22 @@ describe('Overlay', () => {
 
         it('renders id1 size', () => {
           const wrapper = mount(
-            <MockedContainerDimensions>
-              <DocumentOverlay documentType="driving_licence" />
-            </MockedContainerDimensions>
+            <MockedLocalised>
+              <MockedContainerDimensions>
+                <DocumentOverlay documentType="driving_licence" />
+              </MockedContainerDimensions>
+            </MockedLocalised>
           )
           assertHollowSize(wrapper, 'id1Card')
         })
 
         it('renders id3 size', () => {
           const wrapper = mount(
-            <MockedContainerDimensions>
-              <DocumentOverlay documentType="passport" />
-            </MockedContainerDimensions>
+            <MockedLocalised>
+              <MockedContainerDimensions>
+                <DocumentOverlay documentType="passport" />
+              </MockedContainerDimensions>
+            </MockedLocalised>
           )
           assertHollowSize(wrapper, 'id3Card')
         })
@@ -167,26 +218,30 @@ describe('Overlay', () => {
         paperIdCases.forEach((isPaperId) => {
           it(`renders correct size for FR DL when isPaperId=${isPaperId}`, () => {
             const wrapper = mount(
-              <MockedContainerDimensions>
-                <DocumentOverlay
-                  documentType="driving_licence"
-                  isPaperId={isPaperId}
-                  issuingCountry="FR"
-                />
-              </MockedContainerDimensions>
+              <MockedLocalised>
+                <MockedContainerDimensions>
+                  <DocumentOverlay
+                    documentType="driving_licence"
+                    isPaperId={isPaperId}
+                    issuingCountry="FR"
+                  />
+                </MockedContainerDimensions>
+              </MockedLocalised>
             )
             assertHollowSize(wrapper, isPaperId ? 'frPaperDl' : 'id1Card')
           })
 
           it(`renders correct size for IT ID when isPaperId=${isPaperId}`, () => {
             const wrapper = mount(
-              <MockedContainerDimensions>
-                <DocumentOverlay
-                  documentType="national_identity_card"
-                  isPaperId={isPaperId}
-                  issuingCountry="IT"
-                />
-              </MockedContainerDimensions>
+              <MockedLocalised>
+                <MockedContainerDimensions>
+                  <DocumentOverlay
+                    documentType="national_identity_card"
+                    isPaperId={isPaperId}
+                    issuingCountry="IT"
+                  />
+                </MockedContainerDimensions>
+              </MockedLocalised>
             )
             assertHollowSize(wrapper, isPaperId ? 'itPaperId' : 'id1Card')
           })

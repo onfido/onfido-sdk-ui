@@ -37,9 +37,9 @@
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &.card {
     background-image: url('./assets/card-placeholder.svg');
@@ -98,4 +98,8 @@
   .isWithoutHole & {
     background-image: url('./assets/face-without-hole.svg');
   }
+}
+
+.ariaLabel {
+  opacity: 0;
 }
