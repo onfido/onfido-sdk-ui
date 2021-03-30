@@ -76,13 +76,13 @@
   }
 
   > .active {
-    flex: 0;
+    width: 0%;
     background-color: $color-white;
     animation: holdStill-loading 6s forwards linear;
   }
 
   > .background {
-    flex: 1;
+    width: 100%;
     background-color: $color-icon-button-hover;
     opacity: 0.15;
     animation: holdStill-loading 6s forwards linear reverse;
@@ -91,11 +91,11 @@
 
 @keyframes holdStill-loading {
   0% {
-    flex: 0;
+    width: 0%;
   }
 
   100% {
-    flex: 1;
+    width: 100%;
   }
 }
 
