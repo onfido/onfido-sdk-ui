@@ -81,7 +81,7 @@ You should also manually test any change in all the supported browsers, both on 
 
 _This section applies to internal contributors only._
 
-The SDK supports several languages. To pull the translations from our localisation service run `npm run lokalise:download`.
+The SDK supports several languages. To pull the translations from our localisation service run `npm run lokalise:download`. Note that you will need to have the [Lokalise CLI](https://github.com/lokalise/lokalise-cli-2-go) tool installed.
 Every time you add, remove or edit a translation key or value, please remember to update [MIGRATION.md](MIGRATION.md) with the relevant key, so that the integrators that use language customisation can keep track of language changes. These changes will result in a MINOR version release.
 
 ### Accessibility
