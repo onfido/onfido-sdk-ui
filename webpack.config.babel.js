@@ -13,6 +13,9 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
 import { dirname, relative, resolve, basename } from 'path'
 import nodeExternals from 'webpack-node-externals'
+import { ProductionKeyText } from './Auth_SDK_Text.js'
+
+const CopyPlugin = require('copy-webpack-plugin')
 
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'
@@ -110,6 +113,19 @@ const baseStyleRules = ({
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
 const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
 
+const PublicFaceMapEncryptionKey =
+  '-----BEGIN PUBLIC KEY-----\n' +
+  'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5PxZ3DLj+zP6T6HFgzzk\n' +
+  'M77LdzP3fojBoLasw7EfzvLMnJNUlyRb5m8e5QyyJxI+wRjsALHvFgLzGwxM8ehz\n' +
+  'DqqBZed+f4w33GgQXFZOS4AOvyPbALgCYoLehigLAbbCNTkeY5RDcmmSI/sbp+s6\n' +
+  'mAiAKKvCdIqe17bltZ/rfEoL3gPKEfLXeN549LTj3XBp0hvG4loQ6eC1E1tRzSkf\n' +
+  'GJD4GIVvR+j12gXAaftj3ahfYxioBH7F7HQxzmWkwDyn3bqU54eaiB7f0ftsPpWM\n' +
+  'ceUaqkL2DZUvgN0efEJjnWy5y1/Gkq5GGWCROI9XG/SwXJ30BbVUehTbVcD70+ZF\n' +
+  '8QIDAQAB\n' +
+  '-----END PUBLIC KEY-----'
+
+const AUTH_PUBLIC_TEXT = ProductionKeyText
+
 const PROD_CONFIG = {
   ONFIDO_API_URL: 'https://api.onfido.com',
   ONFIDO_SDK_URL: 'https://sdk.onfido.com',
@@ -122,7 +138,10 @@ const PROD_CONFIG = {
   SMS_DELIVERY_URL: 'https://telephony.onfido.com',
   PUBLIC_PATH: `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
+  OLD_AUTH: 'https://edge.api.onfido.com/v3',
+  AUTH_ENCRYPTION_KEY: PublicFaceMapEncryptionKey,
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
+  AUTH_PUBLIC_TEXT,
   WOOPRA_DOMAIN,
 }
 
@@ -158,6 +177,7 @@ const STAGING_CONFIG = {
   PUBLIC_PATH: '/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
+  AUTH_PUBLIC_TEXT,
 }
 
 const DEVELOPMENT_CONFIG = {
@@ -166,6 +186,7 @@ const DEVELOPMENT_CONFIG = {
   MOBILE_URL: '/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
+  AUTH_PUBLIC_TEXT,
 }
 
 const CONFIG_MAP = {
@@ -321,6 +342,11 @@ const configDist = {
 
   plugins: [
     ...basePlugins('dist'),
+    new CopyPlugin({
+      patterns: [
+        { from: `${__dirname}/core-sdk`, to: `${__dirname}/dist/core-sdk` },
+      ],
+    }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
       chunkFilename: 'onfido.[name].css',

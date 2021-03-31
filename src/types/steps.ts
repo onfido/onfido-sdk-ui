@@ -4,6 +4,7 @@ const STEP_DOCUMENT = 'document'
 const STEP_POA = 'poa'
 const STEP_FACE = 'face'
 const STEP_COMPLETE = 'complete'
+const STEP_AUTH = 'auth'
 
 export type StepTypes =
   | typeof STEP_WELCOME
@@ -12,6 +13,7 @@ export type StepTypes =
   | typeof STEP_POA
   | typeof STEP_FACE
   | typeof STEP_COMPLETE
+  | typeof STEP_AUTH
 
 export type DocumentTypes =
   | 'passport'
@@ -46,6 +48,8 @@ export type StepOptionWelcome = {
   descriptions?: string[]
   nextButton?: string
 }
+
+export type StepOptionAuth = { string: any }
 
 export type StepOptionDocument = {
   documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
@@ -98,6 +102,11 @@ export type StepConfigComplete = {
   options?: StepOptionComplete
 }
 
+export type StepConfigAuth = {
+  type: typeof STEP_AUTH
+  options?: StepOptionAuth
+}
+
 export type StepConfig =
   | StepConfigWelcome
   | StepConfigUserConsent
@@ -105,3 +114,4 @@ export type StepConfig =
   | StepConfigPoA
   | StepConfigFace
   | StepConfigComplete
+  | StepConfigAuth

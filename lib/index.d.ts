@@ -12,7 +12,8 @@ declare const STEP_DOCUMENT = "document";
 declare const STEP_POA = "poa";
 declare const STEP_FACE = "face";
 declare const STEP_COMPLETE = "complete";
-export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE;
+declare const STEP_AUTH = "auth";
+export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE | typeof STEP_AUTH;
 export declare type DocumentTypes = "passport" | "driving_licence" | "national_identity_card" | "residence_permit";
 export declare type PoaTypes = "bank_building_society_statement" | "utility_bill" | "council_tax" | "benefit_letters" | "government_letter";
 export declare type RequestedVariant = "standard" | "video";
@@ -29,6 +30,9 @@ export declare type StepOptionWelcome = {
 	title?: string;
 	descriptions?: string[];
 	nextButton?: string;
+};
+export declare type StepOptionAuth = {
+	string: any;
 };
 export declare type StepOptionDocument = {
 	documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>;
@@ -71,7 +75,11 @@ export declare type StepConfigComplete = {
 	type: typeof STEP_COMPLETE;
 	options?: StepOptionComplete;
 };
-export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoA | StepConfigFace | StepConfigComplete;
+export declare type StepConfigAuth = {
+	type: typeof STEP_AUTH;
+	options?: StepOptionAuth;
+};
+export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoA | StepConfigFace | StepConfigComplete | StepConfigAuth;
 export declare type UICustomizationOptions = {
 	colorBackgroundSurfaceModal?: string;
 	colorBorderSurfaceModal?: string;

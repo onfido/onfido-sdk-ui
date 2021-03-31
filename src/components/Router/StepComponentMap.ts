@@ -26,6 +26,8 @@ import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils'
 import { getCountryDataForDocumentType } from '../../supported-documents'
+import AuthIntro from '../Auth/AuthIntro'
+import LazyAuth from '../Auth/Lazy'
 
 import type {
   ExtendedStepTypes,
@@ -110,6 +112,8 @@ const buildCaptureStepComponents = (
     welcome: [Welcome],
     userConsent: [UserConsent],
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
+    //@ts-ignore
+    auth: [AuthIntro, LazyAuth],
     document: buildDocumentComponents(
       documentStep,
       documentType,
