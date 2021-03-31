@@ -227,7 +227,7 @@ class Confirm extends Component {
       // alternatively use default filename
       //
       const blobName =
-        filename || blob.name || `document_capture.${mimeType(blob)}`
+        filename || blob?.name || `document_capture.${mimeType(blob)}`
       const data = {
         file: { blob, filename: blobName },
         // API does not support 'residence_permit' type but does accept 'unknown'
