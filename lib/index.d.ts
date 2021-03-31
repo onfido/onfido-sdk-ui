@@ -73,6 +73,7 @@ export declare type UICustomizationOptions = {
 	colorBorderSurfaceModal?: string;
 	borderWidthSurfaceModal?: string;
 	borderStyleSurfaceModal?: string;
+	borderRadiusSurfaceModal?: string;
 	fontFamilyTitle?: string;
 	fontSizeTitle?: string;
 	fontWeightTitle?: number;
