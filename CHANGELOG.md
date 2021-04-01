@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Add type defition for `borderRadiusSurfaceModal` customisation option.
 - Public: Add information about Lokalise CLI v2 in CONTRIBUTING doc
+- Internal: Refactor `useSdkOptions()` hook to return a tuple: `[options, { findStep }]`
 
 ### Changed
 

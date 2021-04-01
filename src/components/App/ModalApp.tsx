@@ -142,7 +142,8 @@ class ModalApp extends Component<Props> {
     steps: StepConfig[],
     preselectedDocumentType: DocumentTypes
   ) => {
-    const documentStep = buildStepFinder(steps)('document')
+    const findStep = buildStepFinder(steps)
+    const documentStep = findStep('document')
 
     if (!documentStep?.options) {
       return
@@ -308,7 +309,8 @@ class ModalApp extends Component<Props> {
         this.onInvalidCustomApiException('onSubmitSelfie')
       }
 
-      const faceStep = buildStepFinder(options.steps)('face')
+      const findStep = buildStepFinder(options.steps)
+      const faceStep = findStep('face')
 
       if (faceStep?.options?.requestedVariant === 'video') {
         if (typeof onSubmitVideo !== 'function') {
