@@ -7,6 +7,7 @@ import { Button } from '@onfido/castor-react'
 import { useSdkOptions } from '~contexts'
 import { useLocales } from '~locales'
 import { trackComponent } from '../../Tracker'
+import ReloadContent from './ReloadContent'
 import ScreenLayout from '../Theme/ScreenLayout'
 import { isButtonGroupStacked } from '../Theme/utils'
 import theme from '../Theme/style.scss'
@@ -78,7 +79,6 @@ const getConsentFile = (
     if (request.status === 200 || request.status === 201) {
       onSuccess(request.responseText)
     } else {
-      // TODO in CX-6197: if there is an error, we will display a reload screen
       onError(request)
     }
   }
@@ -93,6 +93,7 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   const [{ containerEl, containerId, events }] = useSdkOptions()
   const [consentHtml, setConsentHtml] = useState('')
   const [isModalOpen, setModalToOpen] = useState(false)
+  const [isContentLoadError, setContentLoadError] = useState(false)
 
   const openModal = () => setModalToOpen(true)
   const closeModal = () => setModalToOpen(false)
@@ -107,13 +108,37 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
     sdkContainer && unmountComponentAtNode(sdkContainer)
   }
 
+  const onContentLoadSuccess = (html) => {
+    setContentLoadError(false)
+    setConsentHtml(html)
+  }
+
+  const onContentLoadFailed = (err) => {
+    console.error(err)
+    setContentLoadError(true)
+  }
+
   useEffect(() => {
     new Promise<string>((resolve, reject) => {
       getConsentFile(resolve, reject)
     })
-      .then((html) => setConsentHtml(html))
-      .catch((err) => console.error(err))
+      .then(onContentLoadSuccess)
+      .catch(onContentLoadFailed)
   }, [])
+
+  if (isContentLoadError) {
+    return (
+      <ReloadContent
+        onPrimaryButtonClick={() => {
+          new Promise<string>((resolve, reject) => {
+            getConsentFile(resolve, reject)
+          })
+            .then(onContentLoadSuccess)
+            .catch(onContentLoadFailed)
+        }}
+      />
+    )
+  }
 
   return (
     <Fragment>
