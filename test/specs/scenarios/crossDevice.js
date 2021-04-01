@@ -221,7 +221,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceMobileNotificationSent.verifyTitle(copy)
         if (lang === 'en_US') {
           crossDeviceMobileNotificationSent.verifySubmessage(
-            "We've sent a secure link to +447495023357"
+            'We’ve sent a secure link to +447495023357'
           )
         } else {
           crossDeviceMobileNotificationSent.verifySubmessage(
