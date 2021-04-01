@@ -218,14 +218,20 @@ export declare type DocumentResponse = {
 	side: string;
 	type: string;
 };
+export declare type DocumentVideoResponse = {
+	id: string;
+	media_uuids: string[];
+	variant: "video";
+};
 export declare type FaceResponse = {
 	id: string;
 	variant: string;
 };
 export declare type SdkResponse = {
-	document_front: DocumentResponse;
+	document_front?: DocumentResponse;
 	document_back?: DocumentResponse;
-	face: FaceResponse;
+	document_video?: DocumentVideoResponse;
+	face?: FaceResponse;
 };
 export declare type SdkError = {
 	type: "exception" | "expired_token";

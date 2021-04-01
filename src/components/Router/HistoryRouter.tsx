@@ -217,7 +217,8 @@ export default class HistoryRouter extends Component<
   getDocumentType = (): DocumentTypes | undefined => {
     const { documentType, steps } = this.props
 
-    const documentStep = buildStepFinder(steps)('document')
+    const findStep = buildStepFinder(steps)
+    const documentStep = findStep('document')
     const documentTypes = documentStep?.options?.documentTypes || {}
     const enabledDocuments = Object.keys(documentTypes) as DocumentTypes[]
     const isSinglePreselectedDocument = enabledDocuments.length === 1

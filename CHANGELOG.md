@@ -12,10 +12,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Add type defition for `borderRadiusSurfaceModal` customisation option.
 - Public: Add information about Lokalise CLI v2 in CONTRIBUTING doc
+- Internal: Refactor `useSdkOptions()` hook to return a tuple: `[options, { findStep }]`
 
 ### Changed
 
 ### Fixed
+
+- Public: Get latest copy from Lokalise with various grammar, punctuation fixes. Also reverts French, Spanish translations for some Proof of Address copy in these languages' locale files (Proof of Address is only supported for English)
 
 ## [6.7.1] - 2021-03-26
 

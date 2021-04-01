@@ -21,7 +21,8 @@ export const hasOnePreselectedDocument = (steps: StepConfig[]): boolean =>
   getEnabledDocuments(steps).length === 1
 
 export const getEnabledDocuments = (steps: StepConfig[]): DocumentTypes[] => {
-  const documentStep = buildStepFinder(steps)('document')
+  const findStep = buildStepFinder(steps)
+  const documentStep = findStep('document')
   const docTypes = documentStep?.options?.documentTypes
 
   if (!docTypes) {

@@ -38,7 +38,7 @@
         "list_item_finish": "Überprüfen Sie alle Eingaben und Daten, um die Einreichung abzuschließen",
         "list_item_open_link": "Öffnen Sie den Link und führen Sie die Aktionen aus",
         "list_item_send_phone": "Senden Sie einen Sicherheitslink an Ihr Mobiltelefon",
-        "subtitle": "So geht's:",
+        "subtitle": "So geht’s:",
         "title": "Fahren Sie mit Ihrem Mobiltelefon fort"
     },
     "cross_device_return": {
@@ -315,8 +315,8 @@
         "list_matches_signup": "<strong>Matches<\/strong> the address you used on signup",
         "list_most_recent": "Is your most <strong>recent<\/strong> document",
         "list_shows_address": "Shows your <strong>current<\/strong> address",
-        "subtitle": "You'll need a document that:",
-        "title": "Let's verify your %{country} address"
+        "subtitle": "You’ll need a document that:",
+        "title": "Let’s verify your %{country} address"
     },
     "selfie_capture": {
         "alert": {
