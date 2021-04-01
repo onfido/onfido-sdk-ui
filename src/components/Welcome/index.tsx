@@ -13,7 +13,6 @@ import style from './style.scss'
 
 import type { TranslateCallback } from '~types/locales'
 import type { StepComponentBaseProps } from '~types/routers'
-import type { StepConfigWelcome } from '~types/steps'
 
 const localisedDescriptions = (translate: TranslateCallback) => [
   translate('welcome.description_p_1'),
@@ -76,14 +75,9 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
 }
 
 const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
-  const { steps } = useSdkOptions()
+  const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
-
-  const { options } = steps.find(
-    (step) => step.type === 'welcome'
-  ) as StepConfigWelcome
-
-  const { title, descriptions, nextButton } = options || {}
+  const { title, descriptions, nextButton } = findStep('welcome')?.options || {}
 
   const actions = <WelcomeActions {...{ nextButton, nextStep }} />
   const welcomeTitle = title ? title : translate('welcome.title')
