@@ -5,13 +5,14 @@ import type {
   StepConfig,
   StepTypes,
 } from '~types/steps'
-import type { ServerRegions, SdkOptions } from '~types/sdk'
+import type { ServerRegions, SdkOptions, SdkResponse } from '~types/sdk'
+import type { UICustomizationOptions } from '~types/ui-customisation-options'
+
 import type {
   ApplicantData,
   DecoupleResponseOptions,
   StringifiedBoolean,
 } from './types'
-import type { UICustomizationOptions } from '~types/ui-customisation-options'
 import customUIConfig from './custom-ui-config.json'
 import testDarkCobrandLogo from './assets/onfido-logo.svg'
 import testLightCobrandLogo from './assets/onfido-logo-light.svg'
@@ -450,16 +451,16 @@ export const getToken = (
 }
 
 export const createCheckIfNeeded = (
-  tokenUrl: string | undefined,
-  applicantId: string | undefined,
-  applicantData: ApplicantData | undefined
+  tokenUrl?: string,
+  applicantId?: string,
+  submittedData?: SdkResponse
 ): void => {
   // Don't create check if createCheck flag isn't present
-  if (!tokenUrl || !applicantId || !applicantData) {
+  if (!queryParamToValueString.createCheck || !tokenUrl || !applicantId) {
     return
   }
 
-  const { poa, faceVideo } = queryParamToValueString
+  const { poa, docVideo, faceVideo } = queryParamToValueString
 
   const request = new XMLHttpRequest()
 
@@ -478,13 +479,18 @@ export const createCheckIfNeeded = (
     }
   }
 
+  const documentIds = docVideo
+    ? submittedData?.document_video?.media_uuids
+    : undefined
+
   const body = {
     applicant_id: applicantId,
     report_names: [
       poa ? 'proof_of_address' : 'document',
       faceVideo ? 'facial_similarity_video' : 'facial_similarity_photo',
     ],
-    api_version: 'v4',
+    document_ids: documentIds,
+    api_version: docVideo ? 'v4' : 'v3',
   }
 
   request.send(JSON.stringify(body))

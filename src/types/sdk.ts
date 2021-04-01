@@ -9,15 +9,22 @@ type DocumentResponse = {
   type: string
 }
 
+type DocumentVideoResponse = {
+  id: string
+  media_uuids: string[]
+  variant: 'video'
+}
+
 type FaceResponse = {
   id: string
   variant: string
 }
 
 export type SdkResponse = {
-  document_front: DocumentResponse
+  document_front?: DocumentResponse
   document_back?: DocumentResponse
-  face: FaceResponse
+  document_video?: DocumentVideoResponse
+  face?: FaceResponse
 }
 
 export type SdkError = {

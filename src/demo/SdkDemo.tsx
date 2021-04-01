@@ -11,7 +11,7 @@ import {
 import SdkMount from './SdkMount'
 import ApplicantForm from './ApplicantForm'
 
-import type { ServerRegions, SdkOptions } from '~types/sdk'
+import type { ServerRegions, SdkOptions, SdkResponse } from '~types/sdk'
 import type { ApplicantData } from './types'
 
 const DEFAULT_REGION: ServerRegions = 'EU'
@@ -69,14 +69,14 @@ const SdkDemo: FunctionComponent<Props> = ({
     )
   }, [hasPreview, applicantData, messagePort, sdkOptions])
 
-  const onComplete = (data: Record<string, unknown>) => {
+  const onComplete = (data: SdkResponse) => {
     if (hasPreview) {
       messagePort?.postMessage({ type: 'SDK_COMPLETE', data })
       return
     }
 
     console.log('Complete with data!', data)
-    createCheckIfNeeded(tokenUrl, applicantId, applicantData)
+    createCheckIfNeeded(tokenUrl, applicantId, data)
   }
 
   const { tearDown } = viewOptions || {}
