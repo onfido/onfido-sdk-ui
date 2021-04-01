@@ -18,6 +18,7 @@ const LoadError: FunctionComponent<{ onPrimaryButtonClick }> = ({
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={onPrimaryButtonClick}
+          data-onfido-qa="userConsentReloadScreenBtn"
         >
           {translate('user_consent_load_fail.button_primary')}
         </Button>
