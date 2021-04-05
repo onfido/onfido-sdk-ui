@@ -51,7 +51,8 @@ export default class AuthCapture extends Component {
   }
 
   getConfig = (ref) => {
-    const token = this.props.token
+    const token =
+      'eyJhbGciOiJFUzUxMiJ9.eyJleHAiOjE2MTc2NDY2ODksInBheWxvYWQiOnsiYXBwIjoiNmM0NDYzNTktMDJiOC00MDkxLWIzNGMtMjk5NzEzNTQ1OWM0IiwiYXBwbGljYXRpb25faWQiOiJjb20ub25maWRvLk9uZmlkb0F1dGgiLCJyZWYiOiIqIn0sInV1aWQiOiJCel81Z183SUxHQyIsInVybHMiOnsidGVsZXBob255X3VybCI6Imh0dHBzOi8vdGVsZXBob255Lm9uZmlkby5jb20iLCJkZXRlY3RfZG9jdW1lbnRfdXJsIjoiaHR0cHM6Ly9zZGsub25maWRvLmNvbSIsInN5bmNfdXJsIjoiaHR0cHM6Ly9zeW5jLm9uZmlkby5jb20iLCJob3N0ZWRfc2RrX3VybCI6Imh0dHBzOi8vaWQub25maWRvLmNvbSIsImF1dGhfdXJsIjoiaHR0cHM6Ly9lZGdlLmFwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIn19.MIGIAkIA-N_jWE9XQlOysfrde1bOYT9fFE8Az9noFmTMwvPUFdHnPoIYL0CepfC_Ftt3ircRzoWms2va3YMonokCzCA-CbECQgDLxo2dVbo7iP5aXB6JhYxAVmwP0GAIUeWfvdgJK6cTNJ9MP1usO3Ee5MYOvpTBFmuwxyr_okAJelCIEbIIZ56s_g'
     const XHR = new XMLHttpRequest()
     XHR.open('POST', `${process.env.OLD_AUTH}/auth_3d/session`)
     XHR.setRequestHeader('Authorization', `Bearer ${token}`)
@@ -75,7 +76,14 @@ export default class AuthCapture extends Component {
   }
 
   onLivenessCheckPressed = () => {
-    this.handleSessionToken(this)
+    // this.handleSessionToken(this)
+    if (this.state.authConfig.token) {
+      const latestProcessor = new AuthCheckProcessor(
+        this.state.authConfig.token,
+        AuthCapture,
+        this.props.token
+      )
+    }
   }
 
   onServerSessionTokenError = () => {
@@ -100,8 +108,10 @@ export default class AuthCapture extends Component {
 
   setLatestServerResult = (responseJSON) => {}
 
-  handleSessionToken = (ref) => {
-    const token = this.props.token
+  handleSessionToken = (sessionTokenCallback) => {
+    const token =
+      'eyJhbGciOiJFUzUxMiJ9.eyJleHAiOjE2MTc2MzI4NTYsInBheWxvYWQiOnsiYXBwIjoiNmM0NDYzNTktMDJiOC00MDkxLWIzNGMtMjk5NzEzNTQ1OWM0IiwiYXBwbGljYXRpb25faWQiOiJjb20ub25maWRvLk9uZmlkb0F1dGgiLCJyZWYiOiIqIn0sInV1aWQiOiJCel81Z183SUxHQyIsInVybHMiOnsidGVsZXBob255X3VybCI6Imh0dHBzOi8vdGVsZXBob255Lm9uZmlkby5jb20iLCJkZXRlY3RfZG9jdW1lbnRfdXJsIjoiaHR0cHM6Ly9zZGsub25maWRvLmNvbSIsInN5bmNfdXJsIjoiaHR0cHM6Ly9zeW5jLm9uZmlkby5jb20iLCJob3N0ZWRfc2RrX3VybCI6Imh0dHBzOi8vaWQub25maWRvLmNvbSIsImF1dGhfdXJsIjoiaHR0cHM6Ly9lZGdlLmFwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIn19.MIGIAkIBWH62eaW0wiRLwvEI0xFL-W4q74KkKAgDuJhLOJBoHS4KYCBglTM5Jrre7dKTB_gVPgsU_6ZfcC2qP_BMc8W6OGICQgHtoehcuVuxF25KQjBDAzDXuNEShvKIgpWVpjRl7TkRVD_e1T_GDDyld8c3YVG_m-JvAJfw2aJ_7_KfYA4SLRqzxQ'
+
     /*
     check where sdk_token is being generated and bring it here
 
@@ -119,6 +129,7 @@ export default class AuthCapture extends Component {
         console.log(response)
       }
     }
+    sessionTokenCallback()
     const body = {
       sdk_type: 'onfido_web_sdk',
     }

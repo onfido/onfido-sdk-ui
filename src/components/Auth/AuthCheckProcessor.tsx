@@ -4,6 +4,7 @@
 
 import { Config } from './AuthConfig'
 import { FaceTecSDK } from '../../../core-sdk/FaceTecSDK.js/FaceTecSDK'
+import Auth from './Auth'
 
 //
 // This is an example self-contained class to perform Liveness Checks with the FaceTec SDK.
@@ -18,12 +19,19 @@ export class AuthCheckProcessor {
   //
   success
   sampleAppControllerReference
+  sdkToken
 
-  constructor(sessionToken, sampleAppControllerReference) {
+  constructor(
+    sessionToken: string,
+    sampleAppControllerReference: Auth,
+    sdkToken: string
+  ) {
     //
     // DEVELOPER NOTE:  These properties are for demonstration purposes only so the Sample App can get information about what is happening in the processor.
     // In the code in your own App, you can pass around signals, flags, intermediates, and results however you would like.
     //
+    this.sdkToken =
+      'eyJhbGciOiJFUzUxMiJ9.eyJleHAiOjE2MTc2NDY2ODksInBheWxvYWQiOnsiYXBwIjoiNmM0NDYzNTktMDJiOC00MDkxLWIzNGMtMjk5NzEzNTQ1OWM0IiwiYXBwbGljYXRpb25faWQiOiJjb20ub25maWRvLk9uZmlkb0F1dGgiLCJyZWYiOiIqIn0sInV1aWQiOiJCel81Z183SUxHQyIsInVybHMiOnsidGVsZXBob255X3VybCI6Imh0dHBzOi8vdGVsZXBob255Lm9uZmlkby5jb20iLCJkZXRlY3RfZG9jdW1lbnRfdXJsIjoiaHR0cHM6Ly9zZGsub25maWRvLmNvbSIsInN5bmNfdXJsIjoiaHR0cHM6Ly9zeW5jLm9uZmlkby5jb20iLCJob3N0ZWRfc2RrX3VybCI6Imh0dHBzOi8vaWQub25maWRvLmNvbSIsImF1dGhfdXJsIjoiaHR0cHM6Ly9lZGdlLmFwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIn19.MIGIAkIA-N_jWE9XQlOysfrde1bOYT9fFE8Az9noFmTMwvPUFdHnPoIYL0CepfC_Ftt3ircRzoWms2va3YMonokCzCA-CbECQgDLxo2dVbo7iP5aXB6JhYxAVmwP0GAIUeWfvdgJK6cTNJ9MP1usO3Ee5MYOvpTBFmuwxyr_okAJelCIEbIIZ56s_g'
     this.success = false
     this.sampleAppControllerReference = sampleAppControllerReference
 
@@ -34,7 +42,6 @@ export class AuthCheckProcessor {
     // - FaceTecFaceScanProcessor:  A class that implements FaceTecFaceScanProcessor, which handles the FaceScan when the User completes a Session.  In this example, "this" implements the class.
     // - sessionToken:  A valid Session Token you just created by calling your API to get a Session Token from the Server SDK.
     //
-    console.log(sessionToken)
     const facetecsession = new FaceTecSDK.FaceTecSession(this, sessionToken)
   }
 
@@ -49,7 +56,7 @@ export class AuthCheckProcessor {
     // DEVELOPER NOTE:  These properties are for demonstration purposes only so the Sample App can get information about what is happening in the processor.
     // In the code in your own App, you can pass around signals, flags, intermediates, and results however you would like.
     //
-    this.sampleAppControllerReference.setLatestSessionResult(sessionResult)
+    // this.sampleAppControllerReference.setLatestSessionResult(sessionResult)
 
     //
     // Part 3:  Handles early exit scenarios where there is no FaceScan to handle -- i.e. User Cancellation, Timeouts, etc.
@@ -59,8 +66,7 @@ export class AuthCheckProcessor {
       FaceTecSDK.FaceTecSessionStatus.SessionCompletedSuccessfully
     ) {
       console.log(
-        'Session was not completed successfully, cancelling.  Status: ' +
-          sessionResult.status
+        `Session was not completed successfully, cancelling.  Status: ${sessionResult.status}`
       )
       this.latestNetworkRequest.abort()
       faceScanResultCallback.cancel()
@@ -73,32 +79,49 @@ export class AuthCheckProcessor {
     //
     // Part 4:  Get essential data off the FaceTecSessionResult
     //
-    var parameters = {
-      faceScan: sessionResult.faceScan,
-      auditTrailImage: sessionResult.auditTrail[0],
-      lowQualityAuditTrailImage: sessionResult.lowQualityAuditTrail[0],
-      sessionId: sessionResult.sessionId,
+    const parameters = {
+      face_scan: sessionResult.faceScan,
+      audit_trail_image: sessionResult.auditTrail[0],
+      low_quality_audit_trail_image: sessionResult.lowQualityAuditTrail[0],
+      metadata: {
+        sdk_source: 'onfido_web_sdk',
+        sdk_version: '1.0',
+        sdk_metadata: {
+          system: {
+            fingerprint: '',
+            model: '',
+            manufacturer: '',
+            brand: '',
+            product: '',
+            hardware: '',
+          },
+        },
+      },
     }
 
     //
     // Part 5:  Make the Networking Call to Your Servers.  Below is just example code, you are free to customize based on how your own API works.
     //
     this.latestNetworkRequest = new XMLHttpRequest()
-    this.latestNetworkRequest.open('POST', Config.BaseURL + '/auth_3d')
+    this.latestNetworkRequest.open('POST', `${Config.BaseURL}/auth_3d`)
+    this.latestNetworkRequest.setRequestHeader(
+      'Authorization',
+      `Bearer ${this.sdkToken}`
+    )
     this.latestNetworkRequest.setRequestHeader(
       'Content-Type',
       'application/json'
     )
 
     // TODO: Make this prettier and more consolidated and perhaps less things to do here.
-    this.latestNetworkRequest.setRequestHeader(
-      'X-Device-Key',
-      Config.DeviceKeyIdentifier
-    )
-    this.latestNetworkRequest.setRequestHeader(
-      'X-User-Agent',
-      FaceTecSDK.createFaceTecAPIUserAgentString(sessionResult.sessionId)
-    )
+    // this.latestNetworkRequest.setRequestHeader(
+    //   'X-Device-Key',
+    //   Config.DeviceKeyIdentifier
+    // )
+    // this.latestNetworkRequest.setRequestHeader(
+    //   'X-User-Agent',
+    //   FaceTecSDK.createFaceTecAPIUserAgentString(sessionResult.sessionId)
+    // )
 
     this.latestNetworkRequest.onreadystatechange = () => {
       //
@@ -107,16 +130,15 @@ export class AuthCheckProcessor {
       //
 
       if (this.latestNetworkRequest.readyState === XMLHttpRequest.DONE) {
+        const responseJSON = JSON.parse(this.latestNetworkRequest.responseText)
         try {
-          var responseJSON = JSON.parse(this.latestNetworkRequest.responseText)
-
+          const responseObj = responseJSON
           //
           // DEVELOPER NOTE:  These properties are for demonstration purposes only so the Sample App can get information about what is happening in the processor.
           // In the code in your own App, you can pass around signals, flags, intermediates, and results however you would like.
           //
-          this.sampleAppControllerReference.setLatestServerResult(responseJSON)
-
-          if (responseJSON.success === true) {
+          // this.sampleAppControllerReference.setLatestServerResult(responseJSON)
+          if (responseObj.success === true) {
             // CASE:  Success!  The Liveness Check was performed and the User Proved Liveness.
 
             //
@@ -125,12 +147,9 @@ export class AuthCheckProcessor {
             //
             this.success = true
 
-            // Demonstrates dynamically setting the Success Screen Message.
-            FaceTecSDK.FaceTecCustomization.setOverrideResultScreenSuccessMessage(
-              'Auth\nConfirmed'
-            )
+            console.log('Auth confirmed!')
             faceScanResultCallback.succeed()
-          } else if (responseJSON.success === false) {
+          } else if (responseObj.success === false) {
             // CASE:  In our Sample code, "success" being present and false means that the User Needs to Retry.
             // Real Users will likely succeed on subsequent attempts after following on-screen guidance.
             // Attackers/Fraudsters will continue to get rejected.
@@ -159,14 +178,14 @@ export class AuthCheckProcessor {
     // Part 7:  Demonstrates updating the Progress Bar based on the progress event.
     //
     this.latestNetworkRequest.upload.onprogress = function name(event) {
-      var progress = event.loaded / event.total
+      const progress = event.loaded / event.total
       faceScanResultCallback.uploadProgress(progress)
     }
 
     //
     // Part 8:  Actually send the request.
     //
-    var jsonStringToUpload = JSON.stringify(parameters)
+    const jsonStringToUpload = JSON.stringify(parameters)
     this.latestNetworkRequest.send(jsonStringToUpload)
 
     //
@@ -188,7 +207,8 @@ export class AuthCheckProcessor {
     // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after you signal the FaceTec SDK with success() or cancel().
     // Calling a custom function on the Sample App Controller is done for demonstration purposes to show you that here is where you get control back from the FaceTec SDK.
     //
-    this.sampleAppControllerReference.onComplete()
+    // this.sampleAppControllerReference.onComplete()
+    console.log('complete!')
   }
 
   //
