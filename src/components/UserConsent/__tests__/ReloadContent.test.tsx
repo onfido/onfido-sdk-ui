@@ -17,20 +17,4 @@ describe('ReloadContent', () => {
     )
     expect(wrapper.exists()).toBeTruthy()
   })
-
-  describe('when mounted', () => {
-    it('renders without crashing and with "Reload Screen" Button element', () => {
-      const wrapper = mount(
-        <MockedLocalised>
-          <ReloadContent {...defaultProps} />
-        </MockedLocalised>
-      )
-      const reloadScreenBtn = wrapper.find({
-        'data-onfido-qa': 'userConsentReloadScreenBtn',
-      })
-
-      expect(wrapper.exists()).toBeTruthy()
-      expect(reloadScreenBtn.exists()).toBeTruthy()
-    })
-  })
 })
