@@ -7,7 +7,11 @@ import ScreenLayout from '../Theme/ScreenLayout'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
-const LoadError: FunctionComponent<{ onPrimaryButtonClick }> = ({
+type ActionsProps = {
+  onPrimaryButtonClick(): void
+}
+
+const LoadError: FunctionComponent<ActionsProps> = ({
   onPrimaryButtonClick,
 }) => {
   const { translate } = useLocales()

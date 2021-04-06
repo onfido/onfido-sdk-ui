@@ -108,12 +108,12 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
     sdkContainer && unmountComponentAtNode(sdkContainer)
   }
 
-  const onContentLoadSuccess = (html) => {
+  const onContentLoadSuccess = (html: string) => {
     setContentLoadError(false)
     setConsentHtml(html)
   }
 
-  const onContentLoadFailed = (err) => {
+  const onContentLoadFailed = (err: string) => {
     console.error(err)
     setContentLoadError(true)
   }
