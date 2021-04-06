@@ -90,7 +90,7 @@ const getConsentFile = (
 const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
 }) => {
-  const { containerEl, containerId, events } = useSdkOptions()
+  const [{ containerEl, containerId, events }] = useSdkOptions()
   const [consentHtml, setConsentHtml] = useState('')
   const [isModalOpen, setModalToOpen] = useState(false)
 
