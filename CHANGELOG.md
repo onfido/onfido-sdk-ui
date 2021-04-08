@@ -12,11 +12,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Add type defition for `borderRadiusSurfaceModal` customisation option.
 - Public: Add information about Lokalise CLI v2 in CONTRIBUTING doc
+- Internal: Refactor `useSdkOptions()` hook to return a tuple: `[options, { findStep }]`
 - Internal: Added default filename for all document uploads if filename is not present.
 
 ### Changed
 
 ### Fixed
+
+- Public: Get latest copy from Lokalise with various grammar, punctuation fixes. Also reverts French, Spanish translations for some Proof of Address copy in these languages' locale files (Proof of Address is only supported for English)
 
 ## [6.7.1] - 2021-03-26
 
@@ -39,6 +42,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
 - Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the Onfido logo.
 - Internal: Use Node 14 LTS for Travis to be consistent with `.nvmrc` and `Dockerfile`.
+- Internal: Enable `strict` mode in tsconfig.json
 
 ### Fixed
 
