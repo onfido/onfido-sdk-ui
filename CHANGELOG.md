@@ -13,6 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add type defition for `borderRadiusSurfaceModal` customisation option.
 - Public: Add information about Lokalise CLI v2 in CONTRIBUTING doc
 - Internal: Refactor `useSdkOptions()` hook to return a tuple: `[options, { findStep }]`
+- Internal: Refactor for better reusability of video capture components.
 
 ### Changed
 
@@ -34,7 +35,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added cross-device support for useCustomizedApiRequests callbacks via customer hosting of SDK. Note - This is a premium enterprise feature.
 - Public: Added support for UI customizations in SDK configuration using `customUI` option. See README for details of supported customization options.
 - Internal: Add Woopra tracking for UI customization option usage.
-- Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
 
 ### Changed
 
@@ -83,7 +83,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
 - Public: Return error for image quality failures on the first two document upload attempts.
 - Internal: Use ScreenLayout component in Confirm screen.
-- Internal: Refactor for better reusability of video capture components.
 
 ### Fixed
 

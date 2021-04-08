@@ -121,7 +121,7 @@ describe('VideoCapture', () => {
 
     describe('when inactive timed out', () => {
       beforeEach(() => {
-        jest.runTimersToTime(12_000) // 12 seconds - default value
+        jest.advanceTimersByTime(12_000) // 12 seconds - default value
         wrapper.update()
       })
 
@@ -158,7 +158,7 @@ describe('VideoCapture', () => {
 
       describe('when inactive timed out', () => {
         beforeEach(() => {
-          jest.runTimersToTime(20_000) // 20 seconds - default value
+          jest.advanceTimersByTime(20_000) // 20 seconds - default value
           wrapper.update()
         })
 
