@@ -145,7 +145,7 @@ describe('VideoCapture', () => {
 
     describe('when inactive timed out', () => {
       beforeEach(() => {
-        jest.runTimersToTime(EXPECTED_VIDEO_CAPTURE.INACTIVE_TIMEOUT * 1000)
+        jest.advanceTimersByTime(EXPECTED_VIDEO_CAPTURE.INACTIVE_TIMEOUT * 1000)
         wrapper.update()
       })
 
@@ -183,7 +183,9 @@ describe('VideoCapture', () => {
 
       describe('when inactive timed out', () => {
         beforeEach(() => {
-          jest.runTimersToTime(EXPECTED_VIDEO_CAPTURE.FACE_VIDEO_TIMEOUT * 1000)
+          jest.advanceTimersByTime(
+            EXPECTED_VIDEO_CAPTURE.FACE_VIDEO_TIMEOUT * 1000
+          )
           wrapper.update()
         })
 
@@ -210,7 +212,9 @@ describe('VideoCapture', () => {
 
       describe('when inactive timed out', () => {
         beforeEach(() => {
-          jest.runTimersToTime(EXPECTED_VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT * 1000)
+          jest.advanceTimersByTime(
+            EXPECTED_VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT * 1000
+          )
           wrapper.update()
         })
 

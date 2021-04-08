@@ -13,6 +13,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add type defition for `borderRadiusSurfaceModal` customisation option.
 - Public: Add information about Lokalise CLI v2 in CONTRIBUTING doc
 - Internal: Refactor `useSdkOptions()` hook to return a tuple: `[options, { findStep }]`
+- Internal: Refactor for better reusability of video capture components.
+- Public: Improvements in video capture steps.
 
 ### Changed
 
@@ -82,8 +84,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
 - Public: Return error for image quality failures on the first two document upload attempts.
 - Internal: Use ScreenLayout component in Confirm screen.
-- Internal: Refactor for better reusability of video capture components.
-- Public: Improvements in video capture steps.
 
 ### Fixed
 
