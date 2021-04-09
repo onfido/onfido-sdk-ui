@@ -22,7 +22,7 @@ const CaptureViewer: FunctionComponent<Props> = ({
   method,
   isFullScreen,
   imageAltTag,
-  videoAriaLabel,
+  videoAriaLabel = 'Video preview',
 }) => {
   if (isOfMimeType(['pdf'], blob)) {
     return <PdfViewer blob={blob} />
@@ -31,7 +31,7 @@ const CaptureViewer: FunctionComponent<Props> = ({
   if (variant === 'video') {
     return (
       <CaptureVideoViewer
-        ariaLabel={videoAriaLabel || ''}
+        ariaLabel={videoAriaLabel}
         blob={blob}
         className={className}
       />
