@@ -1,10 +1,5 @@
 import { h, FunctionComponent, Fragment } from 'preact'
-import {
-  useCallback,
-  useEffect,
-  useState,
-  unmountComponentAtNode,
-} from 'preact/compat'
+import { useEffect, useState, unmountComponentAtNode } from 'preact/compat'
 import classNames from 'classnames'
 import { sanitize } from 'dompurify'
 import { Button } from '@onfido/castor-react'
@@ -123,19 +118,16 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
     setContentLoadError(true)
   }
 
-  const fetchConsentFile = useCallback(
-    () =>
-      new Promise<string>((resolve, reject) => {
-        getConsentFile(resolve, reject)
-      })
-        .then(onContentLoadSuccess)
-        .catch(onContentLoadFailed),
-    []
-  )
+  const fetchConsentFile = () =>
+    new Promise<string>((resolve, reject) => {
+      getConsentFile(resolve, reject)
+    })
+      .then(onContentLoadSuccess)
+      .catch(onContentLoadFailed)
 
   useEffect(() => {
     fetchConsentFile()
-  }, [fetchConsentFile])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   if (isContentLoadError) {
     return <ReloadContent onPrimaryButtonClick={fetchConsentFile} />
