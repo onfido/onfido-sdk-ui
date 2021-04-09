@@ -5,13 +5,15 @@ import ReloadContent from '../ReloadContent'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 
-const mockedOnClickFunction = jest.fn()
+const defaultProps = {
+  onPrimaryButtonClick: jest.fn(),
+}
 
 describe('ReloadContent', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(
       <MockedLocalised>
-        <ReloadContent onPrimaryButtonClick={mockedOnClickFunction} />
+        <ReloadContent {...defaultProps} />
       </MockedLocalised>
     )
     expect(wrapper.exists()).toBeTruthy()
@@ -22,7 +24,7 @@ describe('ReloadContent', () => {
       const wrapper = mount(
         <MockedReduxProvider>
           <MockedLocalised>
-            <ReloadContent onPrimaryButtonClick={mockedOnClickFunction} />
+            <ReloadContent {...defaultProps} />
           </MockedLocalised>
         </MockedReduxProvider>
       )
@@ -33,7 +35,7 @@ describe('ReloadContent', () => {
       expect(primaryBtn.exists()).toBeTruthy()
 
       primaryBtn.simulate('click')
-      expect(mockedOnClickFunction).toHaveBeenCalled()
+      expect(defaultProps.onPrimaryButtonClick).toHaveBeenCalled()
 
       wrapper.unmount()
     })
