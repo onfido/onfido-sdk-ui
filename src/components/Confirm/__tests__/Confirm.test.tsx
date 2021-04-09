@@ -31,6 +31,7 @@ const defaultProps = {
       switchSeconds: 0,
     },
     snapshot: new Blob(),
+    blob: new Blob(),
   },
   isDecoupledFromAPI: true,
   resetSdkFocus: jest.fn(),
