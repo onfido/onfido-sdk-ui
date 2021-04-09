@@ -5,7 +5,7 @@ import { validateFile } from '~utils/file'
 import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 
-import { appendToTracking } from '../../Tracker'
+import { appendToTracking, trackException } from '../../Tracker'
 import { localised } from '../../locales'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
@@ -28,6 +28,11 @@ import type {
 } from '~types/routers'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
+const EXCEPTIONS = {
+  DOC_TYPE_NOT_PROVIDED: 'Neither documentType nor poaDocumentType provided',
+  CAPTURE_SIDE_NOT_PROVIDED: 'Capture size was not provided',
+}
+
 const getDocumentType = (
   isPoA?: boolean,
   documentType?: DocumentTypes,
@@ -41,7 +46,8 @@ const getDocumentType = (
     return documentType
   }
 
-  throw new Error('Neither documentType nor poaDocumentType provided')
+  trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
+  throw new Error(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
 }
 
 type Props = StepComponentDocumentProps &
@@ -86,7 +92,10 @@ class Document extends Component<Props> {
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
 
-  handleError = () => this.props.actions.deleteCapture({ method: 'face' })
+  handleError = () => {
+    const { actions, side } = this.props
+    actions.deleteCapture({ method: 'document', side })
+  }
 
   handleFileSelected = (file: File) =>
     validateFile(file, this.handleUpload, this.handleError)
@@ -123,7 +132,8 @@ class Document extends Component<Props> {
     } = this.props
 
     if (!side) {
-      throw new Error('Capture size was not provided')
+      trackException(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
+      throw new Error(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
     }
 
     const title = translate(
