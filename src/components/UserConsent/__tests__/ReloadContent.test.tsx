@@ -5,6 +5,8 @@ import ReloadContent from '../ReloadContent'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 
+const mockedOnClickFunction = jest.fn()
+
 describe('ReloadContent', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(
@@ -17,7 +19,6 @@ describe('ReloadContent', () => {
 
   describe('when mounted', () => {
     it('renders without crashing', () => {
-      const mockedOnClickFunction = jest.fn()
       const wrapper = mount(
         <MockedReduxProvider>
           <MockedLocalised>
