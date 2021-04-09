@@ -129,12 +129,20 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   if (isContentLoadError) {
     return (
       <ReloadContent
-        onPrimaryButtonClick={() => {
-          new Promise<string>((resolve, reject) => {
-            getConsentFile(resolve, reject)
-          })
-            .then(onContentLoadSuccess)
-            .catch(onContentLoadFailed)
+  const fetchConsentFile = () =>
+    new Promise<string>((resolve, reject) => {
+      getConsentFile(resolve, reject)
+    })
+      .then(onContentLoadSuccess)
+      .catch(onContentLoadFailed)
+
+  useEffect(() => {
+    fetchConsentFile()
+  }, [])
+
+  if (isContentLoadError) {
+    return <ReloadContent onPrimaryButtonClick={fetchConsentFile} />
+  }
         }}
       />
     )
