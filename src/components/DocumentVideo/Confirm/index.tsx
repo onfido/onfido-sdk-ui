@@ -10,6 +10,7 @@ import { useLocales } from '~locales'
 import { uploadBinaryMedia, createV4Document } from '~utils/onfidoApi'
 import { actions } from 'components/ReduxAppWrapper/store/actions'
 import theme from 'components/Theme/style.scss'
+import { appendToTracking } from 'Tracker'
 import Error from '../../Error'
 import Spinner from '../../Spinner'
 import Content from './Content'
@@ -186,4 +187,4 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   )
 }
 
-export default memo(Confirm)
+export default appendToTracking(memo(Confirm), 'confirmation_video')
