@@ -57,6 +57,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added user consent screen
 - Public: Added callbacks that are triggered on user media submission if the feature is enabled. Note - This is a premium enterprise feature.
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
+- Internal: Use ScreenLayout component in Confirm screen.
 
 ### Changed
 
@@ -82,7 +83,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Updated text and background colours.
 - Public: Removed references to MIT license in README and updated copy in LICENSE to refer to Onfido Service Agreement and 3rd party licenses reports.
 - Public: Return error for image quality failures on the first two document upload attempts.
-- Internal: Use ScreenLayout component in Confirm screen.
 
 ### Fixed
 
