@@ -1,30 +1,11 @@
-import { h, FunctionComponent } from 'preact'
-import { useState } from 'preact/compat'
+import { h } from 'preact'
 import { mount } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
+import MockedVideoCapture from '~jest/MockedVideoCapture'
 import CaptureControls from '../index'
 
-import type { VideoOverlayProps } from '../../../VideoCapture'
-
-type Props = {
-  renderVideoOverlay: (props: VideoOverlayProps) => h.JSX.Element
-  disableInteraction?: boolean
-}
-
-const MockedVideoCapture: FunctionComponent<Props> = ({
-  renderVideoOverlay,
-  disableInteraction = false,
-}) => {
-  const [isRecording, setIsRecording] = useState(false)
-
-  return renderVideoOverlay({
-    disableInteraction,
-    isRecording,
-    onStart: () => setIsRecording(true),
-    onStop: () => setIsRecording(false),
-  })
-}
+jest.mock('../../../VideoCapture')
 
 describe('DocumentMultiFrame', () => {
   describe('CaptureControls', () => {
@@ -47,8 +28,6 @@ describe('DocumentMultiFrame', () => {
       )
 
       expect(wrapper.exists()).toBeTruthy()
-
-      console.log(wrapper.debug())
     })
   })
 })
