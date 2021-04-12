@@ -92,6 +92,7 @@ class Document extends Component<Props> {
     const { video, front, back } = payload
 
     if (!documentType) {
+      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
       throw new Error('documentType not provided')
     }
 
@@ -183,6 +184,7 @@ class Document extends Component<Props> {
 
     if (requestedVariant === 'video') {
       if (!documentType) {
+        trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
         throw new Error('documentType not provided')
       }
 
