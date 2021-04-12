@@ -3,49 +3,41 @@ import { useState } from 'preact/compat'
 import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
-import CaptureControls, { Props as CaptureControlsProps } from '../index'
+import MockedVideoCapture from '~jest/MockedVideoCapture'
+import CaptureControls from '../index'
 
 import type { CaptureFlows } from '~types/docVideo'
 
 navigator.vibrate = jest.fn()
 
-const defaultProps: CaptureControlsProps = {
-  captureFlow: 'cardId',
-  disableInteraction: false,
+const defaultProps = {
+  captureFlow: 'cardId' as CaptureFlows,
   flowRestartTrigger: 0,
-  isRecording: false,
-  onStart: jest.fn(),
-  onStop: jest.fn(),
   onSubmit: jest.fn(),
 }
 
-type MockedVideoCaptureProps = {
+type MockedDocumentVideoProps = {
   captureFlow: CaptureFlows
   withRestartButton?: boolean
 }
 
-const MockedVideoCapture: FunctionComponent<MockedVideoCaptureProps> = ({
+const MockedDocumentVideo: FunctionComponent<MockedDocumentVideoProps> = ({
   captureFlow,
   withRestartButton = false,
 }) => {
-  const [isRecording, setIsRecording] = useState(false)
   const [flowRestartTrigger, setFlowRestartTrigger] = useState(0)
 
   return (
     <MockedLocalised>
-      <CaptureControls
-        {...defaultProps}
-        captureFlow={captureFlow}
-        flowRestartTrigger={flowRestartTrigger}
-        isRecording={isRecording}
-        onStart={() => {
-          defaultProps.onStart()
-          setIsRecording(true)
-        }}
-        onStop={() => {
-          defaultProps.onStop()
-          setIsRecording(false)
-        }}
+      <MockedVideoCapture
+        renderVideoOverlay={(props) => (
+          <CaptureControls
+            {...props}
+            captureFlow={captureFlow}
+            flowRestartTrigger={flowRestartTrigger}
+            onSubmit={defaultProps.onSubmit}
+          />
+        )}
       />
       {withRestartButton && (
         <button
@@ -113,13 +105,6 @@ const assertSuccessState = (wrapper: ReactWrapper, lastStep = false) => {
   expect(findButton(wrapper).exists()).toBeFalsy()
   expect(navigator.vibrate).toHaveBeenCalledWith(500)
 
-  if (lastStep) {
-    expect(defaultProps.onStop).toHaveBeenCalled()
-    expect(defaultProps.onStop).toHaveBeenCalledTimes(1)
-  } else {
-    expect(defaultProps.onStop).not.toHaveBeenCalled()
-  }
-
   waitForTimeout(wrapper, 'success')
 
   if (lastStep) {
@@ -145,20 +130,23 @@ describe('DocumentVideo', () => {
     it('renders without crashing', () => {
       const wrapper = mount(
         <MockedLocalised>
-          <CaptureControls {...defaultProps} />
+          <MockedVideoCapture
+            renderVideoOverlay={(props) => (
+              <CaptureControls {...props} {...defaultProps} />
+            )}
+          />
         </MockedLocalised>
       )
 
       expect(findButton(wrapper).exists()).toBeTruthy()
       simulateNext(wrapper)
-      expect(defaultProps.onStart).toHaveBeenCalled()
     })
 
     describe('when recording', () => {
       let wrapper: ReactWrapper
 
       beforeEach(() => {
-        wrapper = mount(<MockedVideoCapture captureFlow="cardId" />)
+        wrapper = mount(<MockedDocumentVideo captureFlow="cardId" />)
         simulateNext(wrapper)
       })
 
@@ -184,7 +172,7 @@ describe('DocumentVideo', () => {
       let wrapper: ReactWrapper
 
       beforeEach(() => {
-        wrapper = mount(<MockedVideoCapture captureFlow="passport" />)
+        wrapper = mount(<MockedDocumentVideo captureFlow="passport" />)
         simulateNext(wrapper)
       })
 
@@ -210,7 +198,7 @@ describe('DocumentVideo', () => {
 
       beforeEach(() => {
         wrapper = mount(
-          <MockedVideoCapture captureFlow="cardId" withRestartButton />
+          <MockedDocumentVideo captureFlow="cardId" withRestartButton />
         )
         simulateNext(wrapper) // intro -> front
         waitForTimeout(wrapper, 'button')

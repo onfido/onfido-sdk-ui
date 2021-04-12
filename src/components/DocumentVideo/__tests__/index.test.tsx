@@ -14,6 +14,9 @@ import FallbackButton, {
 import VideoCapture, { Props as VideoCaptureProps } from '../../VideoCapture'
 
 import DocumentVideo, { Props as DocumentVideoProps } from '../index'
+import CaptureControls, {
+  Props as CaptureControlsProps,
+} from '../CaptureControls'
 
 import type { CountryData } from '~types/commons'
 import type { CaptureFlows } from '~types/docVideo'
@@ -405,6 +408,33 @@ describe('DocumentVideo', () => {
           })
         })
       })
+    })
+  })
+
+  describe('with empty payloads', () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <MockedReduxProvider>
+          <MockedLocalised>
+            <MockedContainerDimensions>
+              <DocumentVideo {...defaultProps} documentType="passport" />
+            </MockedContainerDimensions>
+          </MockedLocalised>
+        </MockedReduxProvider>
+      )
+    })
+
+    it(`doesn't trigger onCapture`, () => {
+      const captureControls = wrapper.find<CaptureControlsProps>(
+        CaptureControls
+      )
+
+      expect(() => {
+        captureControls.props().onSubmit()
+        wrapper.setProps({})
+      }).toThrowError('Missing frontPayload or videoPayload')
+
+      expect(defaultProps.onCapture).not.toHaveBeenCalled()
     })
   })
 })
