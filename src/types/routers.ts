@@ -10,7 +10,6 @@ import type {
   ErrorNames,
   ErrorTypes,
 } from './commons'
-import type { CaptureVariants } from './docVideo'
 import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
 import type { ParsedTag } from './locales'
 import type {

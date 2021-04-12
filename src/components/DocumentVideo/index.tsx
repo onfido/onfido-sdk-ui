@@ -101,6 +101,10 @@ const DocumentVideo: FunctionComponent<Props> = ({
       return
     }
 
+    if (!frontPayload || !videoPayload) {
+      throw new Error('Missing frontPayload or videoPayload')
+    }
+
     if (documentType === 'passport') {
       onCapture({
         front: frontPayload,
@@ -156,7 +160,6 @@ const DocumentVideo: FunctionComponent<Props> = ({
     documentType,
     isPaperId: captureFlow === 'paperId',
     issuingCountry,
-    marginBottom: 0.5,
     upperScreen: true,
     video: true,
     withPlaceholder: showOverlayPlaceholder,
