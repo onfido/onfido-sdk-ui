@@ -10,7 +10,6 @@ import type {
   ErrorNames,
   ErrorTypes,
 } from './commons'
-import type { CaptureVariants } from './docVideo'
 import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
 import type { ParsedTag } from './locales'
 import type {
@@ -53,9 +52,11 @@ export type ChangeFlowProp = (
 ) => void
 
 export type HandleCaptureProp = (payload: CapturePayload) => void
-export type HandleDocVideoCaptureProp = (
-  payload: Partial<Record<CaptureVariants, CapturePayload>>
-) => void
+export type HandleDocVideoCaptureProp = (payload: {
+  front: CapturePayload
+  back?: CapturePayload
+  video: CapturePayload
+}) => void
 
 export type RenderFallbackProp = (
   tag: ParsedTag,
