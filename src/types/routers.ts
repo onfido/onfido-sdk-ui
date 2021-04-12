@@ -53,9 +53,16 @@ export type ChangeFlowProp = (
 ) => void
 
 export type HandleCaptureProp = (payload: CapturePayload) => void
-export type HandleDocVideoCaptureProp = (
-  payload: Partial<Record<CaptureVariants, CapturePayload>>
-) => void
+export type HandleDocVideoCaptureProp = (payload: {
+  front: CapturePayload
+  back?: CapturePayload
+  video: CapturePayload
+}) => void
+export type HandleDocMultiFrameCaptureProp = (payload: {
+  front?: CapturePayload
+  back?: CapturePayload
+  video?: CapturePayload
+}) => void
 
 export type RenderFallbackProp = (
   tag: ParsedTag,
