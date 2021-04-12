@@ -1,6 +1,5 @@
 import { h, FunctionComponent } from 'preact'
 import { memo, useEffect } from 'preact/compat'
-import classNames from 'classnames'
 
 import { useLocales } from '~locales'
 import { DOC_MULTI_FRAME_CAPTURE } from '~utils/constants'
@@ -25,14 +24,21 @@ const CaptureControls: FunctionComponent<VideoOverlayProps> = ({
 
   return (
     <div className={style.controls}>
-      <CameraButton
-        ariaLabel={translate('selfie_capture.button_accessibility')}
-        disableInteraction={disableInteraction}
-        onClick={onStart}
-        className={classNames(style.shutter, {
-          [style.disabled]: disableInteraction || isRecording,
-        })}
-      />
+      {!disableInteraction && !isRecording && (
+        <CameraButton
+          ariaLabel={translate('selfie_capture.button_accessibility')}
+          disableInteraction={disableInteraction}
+          onClick={onStart}
+          className={style.shutter}
+        />
+      )}
+
+      {isRecording && (
+        <span className={style.captureCountdown}>
+          <span className={style.active} />
+          <span className={style.background} />
+        </span>
+      )}
     </div>
   )
 }

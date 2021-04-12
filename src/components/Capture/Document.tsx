@@ -145,6 +145,7 @@ class Document extends Component<Props> {
     const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
       documentType,
       method: 'document',
+      multiFrameCaptured: true,
       sdkMetadata: addDeviceRelatedProperties(
         video?.sdkMetadata || {},
         mobileFlow

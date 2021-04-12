@@ -31,6 +31,39 @@
   }
 }
 
-.shutter.disabled {
-  display: none;
+.captureCountdown {
+  align-self: center;
+  border-radius: 4 * $unit;
+  display: flex;
+  height: 4 * $unit;
+  margin-top: 16 * $unit;
+  overflow: hidden;
+  width: 50%;
+
+  > span {
+    border-radius: 4 * $unit;
+  }
+
+  > .active {
+    width: 0%;
+    background-color: $color-white;
+    animation: captureCountdown 6s forwards linear;
+  }
+
+  > .background {
+    width: 100%;
+    background-color: $color-icon-button-hover;
+    opacity: 0.15;
+    animation: captureCountdown 6s forwards linear reverse;
+  }
+}
+
+@keyframes captureCountdown {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
 }
