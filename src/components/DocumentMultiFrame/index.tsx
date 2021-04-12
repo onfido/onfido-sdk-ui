@@ -7,7 +7,7 @@ import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
 import { getInactiveError } from '~utils/inactiveError'
 import DocumentOverlay from '../Overlay/DocumentOverlay'
-import VideoCapture from '../VideoCapture'
+import VideoCapture, { VideoOverlayProps } from '../VideoCapture'
 import CaptureControls from './CaptureControls'
 
 import type { CountryData, DocumentSides } from '~types/commons'
@@ -48,6 +48,7 @@ const DocumentMultiFrame: FunctionComponent<Props> = ({
     (state) => state.globals.idDocumentIssuingCountry
   )
 
+  const [showOverlayPlaceholder, setShowOverlayPlaceholder] = useState(true)
   const [photoPayload, setPhotoPayload] = useState<CapturePayload | undefined>(
     undefined
   )
@@ -81,7 +82,25 @@ const DocumentMultiFrame: FunctionComponent<Props> = ({
   const docOverlayProps = {
     documentType,
     issuingCountry,
+    upperScreen: true,
     video: true,
+    withPlaceholder: showOverlayPlaceholder,
+  }
+
+  const renderVideoOverlay = (props: VideoOverlayProps) => {
+    const overridenProps: VideoOverlayProps = {
+      ...props,
+      onStart: () => {
+        setShowOverlayPlaceholder(false)
+        props.onStart()
+      },
+    }
+
+    return (
+      <DocumentOverlay {...docOverlayProps}>
+        <CaptureControls {...overridenProps} />
+      </DocumentOverlay>
+    )
   }
 
   const videoCaptureProps = {
@@ -89,6 +108,7 @@ const DocumentMultiFrame: FunctionComponent<Props> = ({
     onRecordingStart,
     onVideoCapture,
     renderFallback,
+    renderVideoOverlay,
     trackScreen,
     webcamRef,
   }
@@ -100,11 +120,6 @@ const DocumentMultiFrame: FunctionComponent<Props> = ({
       inactiveError={getInactiveError(true)}
       method="document"
       onRedo={() => setPhotoPayload(undefined)}
-      renderVideoOverlay={(props) => (
-        <DocumentOverlay {...docOverlayProps}>
-          <CaptureControls {...props} />
-        </DocumentOverlay>
-      )}
     />
   )
 }
