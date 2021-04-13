@@ -49,7 +49,7 @@ const CaptureControls: FunctionComponent<Props> = ({
           <Instructions
             title={
               isRecording
-                ? 'Capturing your document...'
+                ? translate('doc_capture.header.progress')
                 : 'Front of driver’s license'
             }
           />
