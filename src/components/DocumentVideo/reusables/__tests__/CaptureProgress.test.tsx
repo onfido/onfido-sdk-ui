@@ -3,6 +3,7 @@ import { mount, shallow } from 'enzyme'
 
 import CaptureProgress from '../CaptureProgress'
 
+const fakeDuration = 4321
 const fakeTitle = 'Fake title'
 
 describe('DocumentVideo', () => {
@@ -26,6 +27,16 @@ describe('DocumentVideo', () => {
           expect(wrapper.find('.title').text()).toEqual(fakeTitle)
           expect(wrapper.find('.loading .active').exists()).toBeTruthy()
           expect(wrapper.find('.loading .background').exists()).toBeTruthy()
+        })
+
+        it('adjusts animation duration correctly', () => {
+          const wrapper = mount(<CaptureProgress duration={fakeDuration} />)
+          expect(wrapper.find('.loading .active').prop('style')).toMatchObject({
+            animationDuration: '4321ms',
+          })
+          expect(
+            wrapper.find('.loading .background').prop('style')
+          ).toMatchObject({ animationDuration: '4321ms' })
         })
       })
     })
