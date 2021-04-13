@@ -4,6 +4,7 @@ import { memo, useEffect } from 'preact/compat'
 import { useLocales } from '~locales'
 import { DOC_MULTI_FRAME_CAPTURE } from '~utils/constants'
 import CameraButton from '../../Button/CameraButton'
+import Instructions from '../../DocumentVideo/CaptureControls/Instructions'
 import style from './style.scss'
 
 import type { VideoOverlayProps } from '../../VideoCapture'
@@ -24,6 +25,15 @@ const CaptureControls: FunctionComponent<VideoOverlayProps> = ({
 
   return (
     <div className={style.controls}>
+      <div className={style.instructions}>
+        <Instructions title="Front of driver’s license" />
+        {isRecording && (
+          <span className={style.captureCountdown}>
+            <span className={style.active} />
+            <span className={style.background} />
+          </span>
+        )}
+      </div>
       {!disableInteraction && !isRecording && (
         <CameraButton
           ariaLabel={translate('selfie_capture.button_accessibility')}
@@ -31,13 +41,6 @@ const CaptureControls: FunctionComponent<VideoOverlayProps> = ({
           onClick={onStart}
           className={style.shutter}
         />
-      )}
-
-      {isRecording && (
-        <span className={style.captureCountdown}>
-          <span className={style.active} />
-          <span className={style.background} />
-        </span>
       )}
     </div>
   )
