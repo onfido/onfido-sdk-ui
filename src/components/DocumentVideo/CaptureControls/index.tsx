@@ -7,8 +7,8 @@ import { useLocales } from '~locales'
 import { DOC_VIDEO_CAPTURE } from '~utils/constants'
 import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import theme from 'components/Theme/style.scss'
-import Instructions from './Instructions'
 import StepProgress from './StepProgress'
+import { CaptureProgress, Instructions, SuccessState } from '../reusables'
 import useCaptureStep from './useCaptureStep'
 import style from './style.scss'
 
@@ -97,13 +97,6 @@ const CaptureControls: FunctionComponent<Props> = ({
 
   const { title, subtitle, button } = instructionKeys
 
-  const instruction = (
-    <Instructions
-      subtitle={subtitle ? translate(subtitle) : undefined}
-      title={translate(title)}
-    />
-  )
-
   const action = (
     <Button
       variant="primary"
@@ -119,34 +112,26 @@ const CaptureControls: FunctionComponent<Props> = ({
   const renderItems = useCallback(() => {
     if (recordState === 'holdStill') {
       return (
-        <div className={style.holdStill}>
-          <span className={style.text}>
-            {translate('doc_video_capture.header_passport_progress')}
-          </span>
-          <span className={style.loading}>
-            <span className={style.active} />
-            <span className={style.background} />
-          </span>
-        </div>
+        <CaptureProgress
+          title={translate('doc_video_capture.header_passport_progress')}
+        />
       )
     }
 
     if (recordState === 'success') {
-      const ariaLabel = translate('doc_video_capture.success_accessibility')
-
       return (
-        <div className={style.instructions}>
-          <span className={style.success} />
-          <span className={style.successAria} aria-label={ariaLabel}>
-            {ariaLabel}
-          </span>
-        </div>
+        <SuccessState
+          ariaLabel={translate('doc_video_capture.success_accessibility')}
+        />
       )
     }
 
     return (
       <Fragment>
-        {instruction}
+        <Instructions
+          subtitle={subtitle ? translate(subtitle) : undefined}
+          title={translate(title)}
+        />
         {recordState === 'showButton' ? (
           action
         ) : (
@@ -154,7 +139,7 @@ const CaptureControls: FunctionComponent<Props> = ({
         )}
       </Fragment>
     )
-  }, [action, recordState, instruction, translate])
+  }, [action, recordState, title, subtitle, translate])
 
   return (
     <div className={style.controls}>
