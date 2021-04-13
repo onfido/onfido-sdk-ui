@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Add information about Lokalise CLI v2 in CONTRIBUTING doc
 - Internal: Refactor `useSdkOptions()` hook to return a tuple: `[options, { findStep }]`
 - Internal: Added default filename for all document uploads if filename is not present.
+- Public: Added user consent content reload screen
 
 ### Changed
 
