@@ -10,6 +10,10 @@ import type { CaptureFlows } from '~types/docVideo'
 
 navigator.vibrate = jest.fn()
 
+const EXPECTED_DOC_VIDEO_CAPTURE = {
+  HOLDING_STILL_TIMEOUT: 6000,
+}
+
 const defaultProps = {
   captureFlow: 'cardId' as CaptureFlows,
   flowRestartTrigger: 0,
@@ -88,8 +92,12 @@ const assertButton = (wrapper: ReactWrapper) => {
 }
 
 const assertHoldingState = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('CaptureProgress').exists()).toBeTruthy()
-  expect(wrapper.find('CaptureProgress').text()).toEqual(
+  const captureProgress = wrapper.find('CaptureProgress')
+  expect(captureProgress.exists()).toBeTruthy()
+  expect(captureProgress.prop('duration')).toEqual(
+    EXPECTED_DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT
+  )
+  expect(captureProgress.text()).toEqual(
     'doc_video_capture.header_passport_progress'
   )
   expect(wrapper.find('CaptureProgress .loading').exists()).toBeTruthy()

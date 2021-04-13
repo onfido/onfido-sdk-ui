@@ -63,19 +63,20 @@
 
   > span {
     border-radius: 4 * $unit;
+    animation-duration: 1000ms;
   }
 
   > .active {
     width: 0%;
     background-color: $color-white;
-    animation: captureProgress 6s forwards linear;
+    animation: captureProgress forwards linear;
   }
 
   > .background {
     width: 100%;
     background-color: $color-icon-button-hover;
     opacity: 0.15;
-    animation: captureProgress 6s forwards linear reverse;
+    animation: captureProgress forwards linear reverse;
   }
 }
 

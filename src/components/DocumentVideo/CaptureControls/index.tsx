@@ -113,6 +113,7 @@ const CaptureControls: FunctionComponent<Props> = ({
     if (recordState === 'holdStill') {
       return (
         <CaptureProgress
+          duration={DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT}
           title={translate('doc_video_capture.header_passport_progress')}
         />
       )
