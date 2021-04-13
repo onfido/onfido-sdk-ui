@@ -48,7 +48,7 @@
   height: 48 * $unit;
 }
 
-.instructions .successAria {
+.instructions .ariaLabel {
   opacity: 0;
 }
 
@@ -74,7 +74,7 @@
 
   > .background {
     width: 100%;
-    background-color: $color-icon-button-hover;
+    background-color: var(--osdk-color-background-button-custom);
     opacity: 0.15;
     animation: captureProgress forwards linear reverse;
   }

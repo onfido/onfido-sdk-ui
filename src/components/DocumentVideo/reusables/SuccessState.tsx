@@ -9,7 +9,7 @@ type Props = {
 const SuccessState: FunctionComponent<Props> = ({ ariaLabel }) => (
   <div className={style.instructions}>
     <span className={style.success} />
-    <span className={style.successAria} aria-label={ariaLabel}>
+    <span className={style.ariaLabel} aria-label={ariaLabel}>
       {ariaLabel}
     </span>
   </div>

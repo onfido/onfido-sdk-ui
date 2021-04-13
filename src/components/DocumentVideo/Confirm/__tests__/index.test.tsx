@@ -218,7 +218,7 @@ describe('DocumentVideo', () => {
           captures: {
             document_video: fakeVideoPayload,
           },
-          message: 'Front document not captured',
+          message: 'Front of document not captured',
         },
         {
           missingCapture: 'video',

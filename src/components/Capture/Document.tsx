@@ -64,7 +64,7 @@ class Document extends Component<Props> {
     forceCrossDevice: false,
   }
 
-  handleCapture: HandleCaptureProp = (payload) => {
+  handlePhotoCapture: HandleCaptureProp = (payload) => {
     const {
       actions,
       documentType,
@@ -181,7 +181,7 @@ class Document extends Component<Props> {
   }
 
   handleUpload = (blob: Blob, imageResizeInfo?: ImageResizeInfo) =>
-    this.handleCapture({
+    this.handlePhotoCapture({
       blob,
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
@@ -267,7 +267,7 @@ class Document extends Component<Props> {
         <DocumentAutoCapture
           {...propsWithErrorHandling}
           renderFallback={renderFallback}
-          onValidCapture={this.handleCapture}
+          onValidCapture={this.handlePhotoCapture}
         />
       )
     }
@@ -278,7 +278,7 @@ class Document extends Component<Props> {
           containerClassName={style.liveDocumentContainer}
           documentType={documentType}
           isUploadFallbackDisabled={!uploadFallback}
-          onCapture={this.handleCapture}
+          onCapture={this.handlePhotoCapture}
           renderFallback={renderFallback}
           renderTitle={renderTitle}
           trackScreen={trackScreen}
