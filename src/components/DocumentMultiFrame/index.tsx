@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { memo, useRef, useState } from 'preact/compat'
+import { memo, useEffect, useRef, useState } from 'preact/compat'
 import { useSelector } from 'react-redux'
 import Webcam from 'react-webcam-onfido'
 
@@ -49,10 +49,29 @@ const DocumentMultiFrame: FunctionComponent<Props> = ({
   )
 
   const [showOverlayPlaceholder, setShowOverlayPlaceholder] = useState(true)
+  const [flowComplete, setFlowComplete] = useState(false)
   const [photoPayload, setPhotoPayload] = useState<CapturePayload | undefined>(
     undefined
   )
+  const [videoPayload, setVideoPayload] = useState<CapturePayload | undefined>(
+    undefined
+  )
   const webcamRef = useRef<Webcam>()
+
+  useEffect(() => {
+    if (!flowComplete) {
+      return
+    }
+
+    if (!photoPayload || !videoPayload) {
+      throw new Error('Missing photoPayload or videoPayload')
+    }
+
+    onCapture({
+      [side]: photoPayload,
+      video: videoPayload,
+    })
+  }, [flowComplete]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const onRecordingStart = () => {
     screenshot(webcamRef.current, (blob, sdkMetadata) => {
@@ -70,11 +89,7 @@ const DocumentMultiFrame: FunctionComponent<Props> = ({
 
   const onVideoCapture: HandleCaptureProp = (payload) => {
     const videoCapture = appendFileName(payload, side)
-
-    onCapture({
-      [side]: photoPayload,
-      video: videoCapture,
-    })
+    setVideoPayload(videoCapture)
   }
 
   const issuingCountry = issuingCountryData?.country_alpha2
@@ -98,7 +113,10 @@ const DocumentMultiFrame: FunctionComponent<Props> = ({
 
     return (
       <DocumentOverlay {...docOverlayProps}>
-        <CaptureControls {...overridenProps} />
+        <CaptureControls
+          {...overridenProps}
+          onSubmit={() => setFlowComplete(true)}
+        />
       </DocumentOverlay>
     )
   }

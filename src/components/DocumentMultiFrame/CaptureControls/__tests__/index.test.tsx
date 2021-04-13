@@ -7,6 +7,10 @@ import CaptureControls from '../index'
 
 jest.mock('../../../VideoCapture')
 
+const defaultProps = {
+  onSubmit: jest.fn(),
+}
+
 describe('DocumentMultiFrame', () => {
   describe('CaptureControls', () => {
     beforeAll(() => {
@@ -22,7 +26,9 @@ describe('DocumentMultiFrame', () => {
       const wrapper = mount(
         <MockedLocalised>
           <MockedVideoCapture
-            renderVideoOverlay={(props) => <CaptureControls {...props} />}
+            renderVideoOverlay={(props) => (
+              <CaptureControls {...props} {...defaultProps} />
+            )}
           />
         </MockedLocalised>
       )

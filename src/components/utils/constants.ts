@@ -12,5 +12,6 @@ export const DOC_VIDEO_CAPTURE = {
 }
 
 export const DOC_MULTI_FRAME_CAPTURE = {
+  SUCCESS_STATE_TIMEOUT: 2000,
   VIDEO_LENGTH: 6000,
 }

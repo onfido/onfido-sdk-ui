@@ -1,40 +1,63 @@
 import { h, FunctionComponent } from 'preact'
-import { memo, useEffect } from 'preact/compat'
+import { memo, useEffect, useState } from 'preact/compat'
 
 import { useLocales } from '~locales'
 import { DOC_MULTI_FRAME_CAPTURE } from '~utils/constants'
 import CameraButton from '../../Button/CameraButton'
-import Instructions from '../../DocumentVideo/CaptureControls/Instructions'
+import {
+  CaptureProgress,
+  Instructions,
+  SuccessState,
+} from '../../DocumentVideo/reusables'
 import style from './style.scss'
 
 import type { VideoOverlayProps } from '../../VideoCapture'
 
-const CaptureControls: FunctionComponent<VideoOverlayProps> = ({
+type Props = {
+  onSubmit: () => void
+} & VideoOverlayProps
+
+const CaptureControls: FunctionComponent<Props> = ({
   disableInteraction,
   isRecording,
   onStart,
   onStop,
+  onSubmit,
 }) => {
+  const [isSuccess, setIsSuccess] = useState(false)
   const { translate } = useLocales()
 
   useEffect(() => {
     if (isRecording) {
-      setTimeout(onStop, DOC_MULTI_FRAME_CAPTURE.VIDEO_LENGTH)
+      setTimeout(() => {
+        setIsSuccess(true)
+        onStop()
+      }, DOC_MULTI_FRAME_CAPTURE.VIDEO_LENGTH)
     }
-  }, [isRecording, onStop])
+  }, [isRecording]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (isSuccess) {
+      setTimeout(onSubmit, DOC_MULTI_FRAME_CAPTURE.SUCCESS_STATE_TIMEOUT)
+    }
+  }, [isSuccess]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={style.controls}>
-      <div className={style.instructions}>
-        <Instructions title="Front of driver’s license" />
-        {isRecording && (
-          <span className={style.captureCountdown}>
-            <span className={style.active} />
-            <span className={style.background} />
-          </span>
+      <div>
+        {!isSuccess && (
+          <Instructions
+            title={
+              isRecording
+                ? 'Capturing your document...'
+                : 'Front of driver’s license'
+            }
+          />
         )}
+        {isRecording && <CaptureProgress />}
+        {isSuccess && <SuccessState ariaLabel="Success" />}
       </div>
-      {!disableInteraction && !isRecording && (
+      {!disableInteraction && !isRecording && !isSuccess && (
         <CameraButton
           ariaLabel={translate('selfie_capture.button_accessibility')}
           disableInteraction={disableInteraction}
