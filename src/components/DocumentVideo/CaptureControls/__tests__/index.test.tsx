@@ -87,7 +87,7 @@ const waitForTimeout = (
 const findButton = (wrapper: ReactWrapper) =>
   wrapper.find({ 'data-onfido-qa': 'doc-video-capture-btn' })
 
-const simulateNext = (wrapper: ReactWrapper) =>
+const simulateNextStep = (wrapper: ReactWrapper) =>
   findButton(wrapper).simulate('click')
 
 const assertButton = (wrapper: ReactWrapper) => {
@@ -153,7 +153,7 @@ describe('DocumentVideo', () => {
       )
 
       expect(findButton(wrapper).exists()).toBeTruthy()
-      simulateNext(wrapper)
+      simulateNextStep(wrapper)
       expect(defaultProps.onStepChange).toHaveBeenCalled()
     })
 
@@ -162,7 +162,7 @@ describe('DocumentVideo', () => {
 
       beforeEach(() => {
         wrapper = mount(<MockedDocumentVideo captureFlow="cardId" />)
-        simulateNext(wrapper)
+        simulateNextStep(wrapper)
       })
 
       it('hides button initially and displays after timeout', () =>
@@ -170,13 +170,13 @@ describe('DocumentVideo', () => {
 
       it('shows success state after click', () => {
         waitForTimeout(wrapper, 'button')
-        simulateNext(wrapper)
+        simulateNextStep(wrapper)
         assertSuccessState(wrapper)
       })
 
       it('hides success state after timeout', () => {
         waitForTimeout(wrapper, 'button')
-        simulateNext(wrapper)
+        simulateNextStep(wrapper)
         waitForTimeout(wrapper, 'success')
         wrapper.setProps({})
         expect(wrapper.find('.controls .success').exists()).toBeFalsy()
@@ -188,7 +188,7 @@ describe('DocumentVideo', () => {
 
       beforeEach(() => {
         wrapper = mount(<MockedDocumentVideo captureFlow="passport" />)
-        simulateNext(wrapper)
+        simulateNextStep(wrapper)
       })
 
       it('hides button initially and displays after timeout', () =>
@@ -196,13 +196,13 @@ describe('DocumentVideo', () => {
 
       it('shows holdStill state after click', () => {
         waitForTimeout(wrapper, 'button')
-        simulateNext(wrapper)
+        simulateNextStep(wrapper)
         assertHoldingState(wrapper)
       })
 
       it('shows success state after timeout', () => {
         waitForTimeout(wrapper, 'button')
-        simulateNext(wrapper)
+        simulateNextStep(wrapper)
         waitForTimeout(wrapper, 'holding')
         assertSuccessState(wrapper, true)
       })
@@ -215,9 +215,9 @@ describe('DocumentVideo', () => {
         wrapper = mount(
           <MockedDocumentVideo captureFlow="cardId" withRestartButton />
         )
-        simulateNext(wrapper) // intro -> front
+        simulateNextStep(wrapper) // intro -> front
         waitForTimeout(wrapper, 'button')
-        simulateNext(wrapper) // front -> back
+        simulateNextStep(wrapper) // front -> back
       })
 
       it('restarts flow correctly', () => {
