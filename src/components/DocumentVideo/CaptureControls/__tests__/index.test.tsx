@@ -13,6 +13,7 @@ navigator.vibrate = jest.fn()
 const defaultProps = {
   captureFlow: 'cardId' as CaptureFlows,
   flowRestartTrigger: 0,
+  onStepChange: jest.fn(),
   onSubmit: jest.fn(),
 }
 
@@ -87,20 +88,20 @@ const assertButton = (wrapper: ReactWrapper) => {
 }
 
 const assertHoldingState = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.holdStill').exists()).toBeTruthy()
-  expect(wrapper.find('.holdStill .text').text()).toEqual(
+  expect(wrapper.find('CaptureProgress').exists()).toBeTruthy()
+  expect(wrapper.find('CaptureProgress').text()).toEqual(
     'doc_video_capture.header_passport_progress'
   )
-  expect(wrapper.find('.holdStill .loading').exists()).toBeTruthy()
+  expect(wrapper.find('CaptureProgress .loading').exists()).toBeTruthy()
   expect(wrapper.find('.controls .success').exists()).toBeFalsy()
   expect(findButton(wrapper).exists()).toBeFalsy()
 
   waitForTimeout(wrapper, 'holding')
-  expect(wrapper.find('.holdStill').exists()).toBeFalsy()
+  expect(wrapper.find('CaptureProgress').exists()).toBeFalsy()
 }
 
 const assertSuccessState = (wrapper: ReactWrapper, lastStep = false) => {
-  expect(wrapper.find('.holdStill').exists()).toBeFalsy()
+  expect(wrapper.find('CaptureProgress').exists()).toBeFalsy()
   expect(wrapper.find('.controls .success').exists()).toBeTruthy()
   expect(findButton(wrapper).exists()).toBeFalsy()
   expect(navigator.vibrate).toHaveBeenCalledWith(500)
@@ -140,6 +141,7 @@ describe('DocumentVideo', () => {
 
       expect(findButton(wrapper).exists()).toBeTruthy()
       simulateNext(wrapper)
+      expect(defaultProps.onStepChange).toHaveBeenCalled()
     })
 
     describe('when recording', () => {
