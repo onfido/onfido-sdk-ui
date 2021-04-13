@@ -1,6 +1,5 @@
 import { h, FunctionComponent } from 'preact'
 import { memo, useEffect, useRef, useState } from 'preact/compat'
-import { useSelector } from 'react-redux'
 import Webcam from 'react-webcam-onfido'
 
 import { mimeType } from '~utils/blob'
@@ -10,9 +9,9 @@ import DocumentOverlay from '../Overlay/DocumentOverlay'
 import VideoCapture, { VideoOverlayProps } from '../VideoCapture'
 import CaptureControls from './CaptureControls'
 
-import type { CountryData, DocumentSides } from '~types/commons'
+import type { DocumentSides } from '~types/commons'
 import type { WithTrackingProps } from '~types/hocs'
-import type { RootState, CapturePayload } from '~types/redux'
+import type { CapturePayload } from '~types/redux'
 import type {
   HandleCaptureProp,
   HandleDocMultiFrameCaptureProp,
@@ -44,10 +43,6 @@ const DocumentMultiFrame: FunctionComponent<Props> = ({
   side,
   trackScreen,
 }) => {
-  const issuingCountryData = useSelector<RootState, CountryData | undefined>(
-    (state) => state.globals.idDocumentIssuingCountry
-  )
-
   const [showOverlayPlaceholder, setShowOverlayPlaceholder] = useState(true)
   const [flowComplete, setFlowComplete] = useState(false)
   const [photoPayload, setPhotoPayload] = useState<CapturePayload | undefined>(
@@ -92,11 +87,8 @@ const DocumentMultiFrame: FunctionComponent<Props> = ({
     setVideoPayload(videoCapture)
   }
 
-  const issuingCountry = issuingCountryData?.country_alpha2
-
   const docOverlayProps = {
     documentType,
-    issuingCountry,
     upperScreen: true,
     video: true,
     withPlaceholder: showOverlayPlaceholder,

@@ -6,6 +6,11 @@ import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import VideoCapture, { Props as VideoCaptureProps } from '../../VideoCapture'
 import DocumentMultiFrame, { Props as DocumentMultiFrameProps } from '../index'
+import CaptureControls, {
+  Props as CaptureControlsProps,
+} from '../CaptureControls'
+
+import type { DocumentSides } from '~types/commons'
 
 jest.mock('~utils')
 
@@ -18,7 +23,7 @@ const defaultProps: DocumentMultiFrameProps = {
   trackScreen: jest.fn(),
 }
 
-const assertCameraButton = (wrapper: ReactWrapper<VideoCaptureProps>) => {
+const assertCameraButton = (wrapper: ReactWrapper) => {
   const button = wrapper.find('CameraButton')
   expect(button.exists()).toBeTruthy()
   expect(button.prop('ariaLabel')).toEqual(
@@ -26,10 +31,18 @@ const assertCameraButton = (wrapper: ReactWrapper<VideoCaptureProps>) => {
   )
 }
 
+const assertDocumentOverlay = (
+  wrapper: ReactWrapper,
+  withPlaceholder: boolean
+) => {
+  const overlay = wrapper.find('DocumentOverlay')
+  expect(overlay.exists()).toBeTruthy()
+  expect(overlay.prop('withPlaceholder')).toEqual(withPlaceholder)
+}
+
 const assertVideoCapture = (wrapper: ReactWrapper) => {
   const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
   expect(videoCapture.exists()).toBeTruthy()
-  expect(wrapper.find('PaperIdFlowSelector').exists()).toBeFalsy()
 
   const {
     cameraClassName,
@@ -53,12 +66,10 @@ const assertVideoCapture = (wrapper: ReactWrapper) => {
   })
   trackScreen('fake_screen_tracking')
   expect(defaultProps.trackScreen).toHaveBeenCalledWith('fake_screen_tracking')
-
-  assertCameraButton(videoCapture)
 }
 
 describe('DocumentMultiFrame', () => {
-  let wrapper: ReactWrapper
+  const documentSides: DocumentSides[] = ['front', 'back']
 
   beforeAll(() => {
     jest.useFakeTimers()
@@ -69,17 +80,108 @@ describe('DocumentMultiFrame', () => {
     jest.clearAllTimers()
   })
 
-  beforeEach(() => {
-    wrapper = mount(
-      <MockedReduxProvider>
-        <MockedLocalised>
-          <MockedContainerDimensions>
-            <DocumentMultiFrame {...defaultProps} />
-          </MockedContainerDimensions>
-        </MockedLocalised>
-      </MockedReduxProvider>
-    )
+  documentSides.forEach((side) => {
+    describe(`with ${side} side`, () => {
+      let wrapper: ReactWrapper
+
+      beforeEach(() => {
+        wrapper = mount(
+          <MockedReduxProvider>
+            <MockedLocalised>
+              <MockedContainerDimensions>
+                <DocumentMultiFrame {...defaultProps} side={side} />
+              </MockedContainerDimensions>
+            </MockedLocalised>
+          </MockedReduxProvider>
+        )
+      })
+
+      it('renders the video capture by default', () => {
+        assertVideoCapture(wrapper)
+        assertDocumentOverlay(wrapper, true)
+        assertCameraButton(wrapper)
+      })
+
+      describe('when recording', () => {
+        beforeEach(() => {
+          wrapper.find('CameraButton > button').simulate('click')
+          wrapper.update()
+        })
+
+        it('starts recording correctly', () =>
+          assertDocumentOverlay(wrapper, false))
+
+        it('submits payloads correctly', () => {
+          // Recording stopped
+          jest.advanceTimersToNextTimer()
+          wrapper.setProps({})
+
+          // Success state timed out
+          jest.advanceTimersToNextTimer()
+          wrapper.setProps({})
+
+          expect(defaultProps.onCapture).toHaveBeenCalledWith({
+            [side]: {
+              blob: new Blob([]),
+              sdkMetadata: {
+                captureMethod: 'live',
+                camera_name: 'fake-video-track',
+                microphone_name: 'fake-audio-track',
+              },
+              filename: `document_${side}.jpeg`,
+            },
+            video: {
+              blob: new Blob([]),
+              sdkMetadata: {
+                captureMethod: 'live',
+                camera_name: 'fake-video-track',
+                microphone_name: 'fake-audio-track',
+              },
+              filename: `document_${side}.webm`,
+            },
+          })
+        })
+      })
+    })
   })
 
-  it('renders the video capture by default', () => assertVideoCapture(wrapper))
+  describe('with empty payloads', () => {
+    let wrapper: ReactWrapper
+
+    const assertEmptySubmit = () => {
+      const captureControls = wrapper.find<CaptureControlsProps>(
+        CaptureControls
+      )
+
+      expect(() => {
+        captureControls.props().onSubmit()
+        wrapper.setProps({})
+      }).toThrowError('Missing photoPayload or videoPayload')
+
+      expect(defaultProps.onCapture).not.toHaveBeenCalled()
+    }
+
+    beforeEach(() => {
+      wrapper = mount(
+        <MockedReduxProvider>
+          <MockedLocalised>
+            <MockedContainerDimensions>
+              <DocumentMultiFrame {...defaultProps} />
+            </MockedContainerDimensions>
+          </MockedLocalised>
+        </MockedReduxProvider>
+      )
+    })
+
+    it(`doesn't trigger onCapture`, assertEmptySubmit)
+
+    describe('on redo', () => {
+      beforeEach(() => {
+        const videoCapture = wrapper.find<VideoCaptureProps>(VideoCapture)
+        videoCapture.props().onRedo()
+      })
+
+      it(`doesn't trigger onCapture`, assertEmptySubmit)
+    })
+  })
 })

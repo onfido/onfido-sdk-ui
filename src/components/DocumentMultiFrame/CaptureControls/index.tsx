@@ -16,7 +16,7 @@ import type { DocumentSides } from '~types/commons'
 import type { DocumentTypes } from '~types/steps'
 import type { VideoOverlayProps } from '../../VideoCapture'
 
-type Props = {
+export type Props = {
   documentType: DocumentTypes
   onSubmit: () => void
   side: DocumentSides
