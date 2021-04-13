@@ -69,37 +69,17 @@ describe('DocumentMultiFrame', () => {
     jest.clearAllTimers()
   })
 
-  describe('with double-sided documents', () => {
-    beforeEach(() => {
-      wrapper = mount(
-        <MockedReduxProvider>
-          <MockedLocalised>
-            <MockedContainerDimensions>
-              <DocumentMultiFrame {...defaultProps} />
-            </MockedContainerDimensions>
-          </MockedLocalised>
-        </MockedReduxProvider>
-      )
-    })
-
-    it('renders the video capture by default', () =>
-      assertVideoCapture(wrapper))
+  beforeEach(() => {
+    wrapper = mount(
+      <MockedReduxProvider>
+        <MockedLocalised>
+          <MockedContainerDimensions>
+            <DocumentMultiFrame {...defaultProps} />
+          </MockedContainerDimensions>
+        </MockedLocalised>
+      </MockedReduxProvider>
+    )
   })
 
-  describe('with passports', () => {
-    beforeEach(() => {
-      wrapper = mount(
-        <MockedReduxProvider>
-          <MockedLocalised>
-            <MockedContainerDimensions>
-              <DocumentMultiFrame {...defaultProps} documentType="passport" />
-            </MockedContainerDimensions>
-          </MockedLocalised>
-        </MockedReduxProvider>
-      )
-    })
-
-    it('renders the video capture by default', () =>
-      assertVideoCapture(wrapper))
-  })
+  it('renders the video capture by default', () => assertVideoCapture(wrapper))
 })

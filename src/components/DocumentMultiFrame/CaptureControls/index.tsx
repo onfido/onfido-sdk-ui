@@ -3,6 +3,7 @@ import { memo, useEffect, useState } from 'preact/compat'
 
 import { useLocales } from '~locales'
 import { DOC_MULTI_FRAME_CAPTURE } from '~utils/constants'
+import { DOCUMENT_MULTI_FRAME_HEADER_MAPPING } from '~utils/localesMapping'
 import CameraButton from '../../Button/CameraButton'
 import {
   CaptureProgress,
@@ -11,18 +12,24 @@ import {
 } from '../../DocumentVideo/reusables'
 import style from './style.scss'
 
+import type { DocumentSides } from '~types/commons'
+import type { DocumentTypes } from '~types/steps'
 import type { VideoOverlayProps } from '../../VideoCapture'
 
 type Props = {
+  documentType: DocumentTypes
   onSubmit: () => void
+  side: DocumentSides
 } & VideoOverlayProps
 
 const CaptureControls: FunctionComponent<Props> = ({
   disableInteraction,
+  documentType,
   isRecording,
   onStart,
   onStop,
   onSubmit,
+  side,
 }) => {
   const [isSuccess, setIsSuccess] = useState(false)
   const { translate } = useLocales()
@@ -42,6 +49,8 @@ const CaptureControls: FunctionComponent<Props> = ({
     }
   }, [isSuccess]) // eslint-disable-line react-hooks/exhaustive-deps
 
+  const title = DOCUMENT_MULTI_FRAME_HEADER_MAPPING[documentType][side]
+
   return (
     <div className={style.controls}>
       <div>
@@ -50,11 +59,15 @@ const CaptureControls: FunctionComponent<Props> = ({
             title={
               isRecording
                 ? translate('doc_capture.header.progress')
-                : 'Front of driver’s license'
+                : translate(title)
             }
           />
         )}
-        {isRecording && <CaptureProgress />}
+        {isRecording && (
+          <CaptureProgress
+            duration={DOC_MULTI_FRAME_CAPTURE.CAPTURE_DURATION}
+          />
+        )}
         {isSuccess && <SuccessState ariaLabel="Success" />}
       </div>
       {!disableInteraction && !isRecording && !isSuccess && (

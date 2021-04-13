@@ -103,12 +103,14 @@ const DocumentMultiFrame: FunctionComponent<Props> = ({
   }
 
   const renderVideoOverlay = (props: VideoOverlayProps) => {
-    const overridenProps: VideoOverlayProps = {
+    const overridenProps = {
       ...props,
+      documentType,
       onStart: () => {
         setShowOverlayPlaceholder(false)
         props.onStart()
       },
+      side,
     }
 
     return (

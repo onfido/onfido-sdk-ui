@@ -113,6 +113,28 @@ export const DOCUMENT_CAPTURE_LOCALES_MAPPING: Record<
   },
 }
 
+export const DOCUMENT_MULTI_FRAME_HEADER_MAPPING: Record<
+  DocumentTypes,
+  { front: string; back: string }
+> = {
+  passport: {
+    front: 'doc_capture.header.passport',
+    back: '',
+  },
+  driving_licence: {
+    front: 'doc_capture.header.license_front',
+    back: 'doc_capture.header.license_back',
+  },
+  national_identity_card: {
+    front: 'doc_capture.header.id_front',
+    back: 'doc_capture.header.id_back',
+  },
+  residence_permit: {
+    front: 'doc_capture.header.permit_front',
+    back: 'doc_capture.header.permit_back',
+  },
+}
+
 type ImageQualityResults = 'cutoff' | 'blur' | 'glare' | 'good'
 
 type ImageQualityGuideLocale = {
