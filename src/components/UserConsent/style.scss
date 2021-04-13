@@ -141,3 +141,16 @@
     }
   }
 }
+
+.contentFlexbox {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.errorIcon {
+  height: 40 * $unit;
+  background-size: contain;
+  background-image: url('./assets/error-circle.svg');
+}

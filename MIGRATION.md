@@ -2,6 +2,18 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `6.6.0` -> `[next-version]`
+
+### Added strings
+
+The **English** copy for the following string(s) has been added:
+
+`user_consent_load_fail.button_primary`
+`user_consent_load_fail.detail`
+`user_consent_load_fail.prompt.title`
+
+**Note**: The consent screen copy is only available in **English**
+
 ## `6.5.0` -> `6.6.0`
 
 ### Added strings

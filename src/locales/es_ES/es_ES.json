@@ -380,6 +380,11 @@
         "subtitle": "No se aceptan fotos escaneadas ni fotocopias",
         "title": "Subir la página del pasaporte con su foto"
     },
+    "user_consent_load_fail": {
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
+    },
     "user_consent": {
         "button_primary": "Accept",
         "button_secondary": "Do not accept",
