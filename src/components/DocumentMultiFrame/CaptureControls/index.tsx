@@ -32,7 +32,7 @@ const CaptureControls: FunctionComponent<Props> = ({
       setTimeout(() => {
         setIsSuccess(true)
         onStop()
-      }, DOC_MULTI_FRAME_CAPTURE.VIDEO_LENGTH)
+      }, DOC_MULTI_FRAME_CAPTURE.CAPTURE_DURATION)
     }
   }, [isRecording]) // eslint-disable-line react-hooks/exhaustive-deps
 
