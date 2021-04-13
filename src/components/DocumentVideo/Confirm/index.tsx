@@ -10,7 +10,7 @@ import { useLocales } from '~locales'
 import { uploadBinaryMedia, createV4Document } from '~utils/onfidoApi'
 import { actions } from 'components/ReduxAppWrapper/store/actions'
 import theme from 'components/Theme/style.scss'
-import { appendToTracking } from 'Tracker'
+import { appendToTracking, trackException } from 'Tracker'
 import Error from '../../Error'
 import Spinner from '../../Spinner'
 import Content from './Content'
@@ -47,11 +47,13 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   const onUploadDocuments = useCallback(async () => {
     if (!documentFront) {
       console.error('Front of document not captured')
+      trackException('Front of document not captured')
       return
     }
 
     if (!documentVideo) {
       console.error('Document video not captured')
+      trackException('Document video not captured')
       return
     }
 
