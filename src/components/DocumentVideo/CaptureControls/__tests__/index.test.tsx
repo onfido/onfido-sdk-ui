@@ -11,6 +11,9 @@ import type { CaptureFlows } from '~types/docVideo'
 navigator.vibrate = jest.fn()
 
 const EXPECTED_DOC_VIDEO_CAPTURE = {
+  BUTTON_VISIBILITY_TIMEOUT: 3000,
+  SUCCESS_STATE_TIMEOUT: 2000,
+  SUCCESS_STATE_VIBRATION: 500,
   HOLDING_STILL_TIMEOUT: 6000,
 }
 
@@ -64,13 +67,15 @@ const waitForTimeout = (
 ) => {
   switch (type) {
     case 'button':
-      jest.runTimersToTime(3000)
+      jest.advanceTimersByTime(
+        EXPECTED_DOC_VIDEO_CAPTURE.BUTTON_VISIBILITY_TIMEOUT
+      )
       break
     case 'holding':
-      jest.runTimersToTime(6000)
+      jest.advanceTimersByTime(EXPECTED_DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT)
       break
     case 'success':
-      jest.runTimersToTime(2000)
+      jest.advanceTimersByTime(EXPECTED_DOC_VIDEO_CAPTURE.SUCCESS_STATE_TIMEOUT)
       break
     default:
       break

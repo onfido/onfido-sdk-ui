@@ -46,7 +46,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
 
   const onUploadDocuments = useCallback(async () => {
     if (!documentFront) {
-      console.error('Front document not captured')
+      console.error('Front of document not captured')
       return
     }
 

@@ -32,11 +32,11 @@ describe('DocumentVideo', () => {
         it('adjusts animation duration correctly', () => {
           const wrapper = mount(<CaptureProgress duration={fakeDuration} />)
           expect(wrapper.find('.loading .active').prop('style')).toMatchObject({
-            animationDuration: '4321ms',
+            animationDuration: `${fakeDuration}ms`,
           })
           expect(
             wrapper.find('.loading .background').prop('style')
-          ).toMatchObject({ animationDuration: '4321ms' })
+          ).toMatchObject({ animationDuration: `${fakeDuration}ms` })
         })
       })
     })

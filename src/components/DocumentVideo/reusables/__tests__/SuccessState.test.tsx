@@ -17,7 +17,7 @@ describe('DocumentVideo', () => {
         it('renders items correctly', () => {
           const wrapper = mount(<SuccessState ariaLabel={fakeAriaLabel} />)
           expect(wrapper.find('.success').exists()).toBeTruthy()
-          const aria = wrapper.find('.successAria')
+          const aria = wrapper.find('.ariaLabel')
           expect(aria.text()).toEqual(fakeAriaLabel)
           expect(aria.prop('aria-label')).toEqual(fakeAriaLabel)
         })

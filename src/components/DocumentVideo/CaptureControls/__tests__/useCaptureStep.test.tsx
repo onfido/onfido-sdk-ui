@@ -114,7 +114,7 @@ describe('DocumentVideo', () => {
             assertRecordState(wrapper, 'showButton')
           })
 
-          it('does nothing aftewards', () => {
+          it('does nothing afterwards', () => {
             simulateNextRecordState(wrapper, 1)
             assertRecordState(wrapper, 'showButton')
           })

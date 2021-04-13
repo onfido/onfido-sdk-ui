@@ -53,16 +53,18 @@ const waitForTimeout = (
 ) => {
   switch (type) {
     case 'button':
-      jest.runTimersToTime(EXPECTED_DOC_VIDEO_CAPTURE.BUTTON_VISIBILITY_TIMEOUT)
+      jest.advanceTimersByTime(
+        EXPECTED_DOC_VIDEO_CAPTURE.BUTTON_VISIBILITY_TIMEOUT
+      )
       break
     case 'holding':
-      jest.runTimersToTime(EXPECTED_DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT)
+      jest.advanceTimersByTime(EXPECTED_DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT)
       break
     case 'success':
-      jest.runTimersToTime(EXPECTED_DOC_VIDEO_CAPTURE.SUCCESS_STATE_TIMEOUT)
+      jest.advanceTimersByTime(EXPECTED_DOC_VIDEO_CAPTURE.SUCCESS_STATE_TIMEOUT)
       break
     case 'recording':
-      jest.runTimersToTime(EXPECTED_VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT * 1000)
+      jest.advanceTimersByTime(EXPECTED_VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT * 1000)
       break
     default:
       break
