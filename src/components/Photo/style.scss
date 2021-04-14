@@ -6,12 +6,12 @@
 
 .introIcon {
   @extend %icon-circle-background;
+  background-repeat: no-repeat;
+  background-size: contain;
   display: block;
   position: absolute;
   left: 0;
   top: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
   width: 48 * $unit;
   height: 48 * $unit;
 }
@@ -67,13 +67,13 @@
 }
 
 .selfieIcon {
-  background-image: url('./assets/selfie-picto.svg');
   background-size: contain;
+  background-image: url('./assets/selfie-picto.svg');
 }
 
 .glassesIcon {
-  background-image: url('./assets/glasses-picto.svg');
   background-size: contain;
+  background-image: url('./assets/glasses-picto.svg');
 }
 
 .introCopy {
