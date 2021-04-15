@@ -217,7 +217,11 @@ export const objectToFormData = (object: SubmitPayload): FormData => {
   const formData = new FormData()
 
   forEach(object, (value, fieldName) => {
-    if (typeof value === 'string' || value instanceof Blob) {
+    if (
+      typeof value === 'string' ||
+      typeof value === 'number' ||
+      value instanceof Blob
+    ) {
       formData.append(fieldName, value)
     } else if (typeof value === 'object') {
       formData.append(fieldName, value.blob, value.filename)
