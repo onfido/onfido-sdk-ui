@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- Internal: Fix Liveness Video upload payload to /live_videos API endpoint missing `challenge_switch_at` property and value
+
 ## [6.7.1] - 2021-03-26
 
 ### Fixed
