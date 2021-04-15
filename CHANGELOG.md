@@ -10,7 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 
-- UI: Fix Cross Device "Send Link" options link affecting host app/site's page routing on click
+- Public: Fix Cross Device "Send Link" options link affecting host app/site's page routing on click
 
 ## [6.7.1] - 2021-03-26
 
