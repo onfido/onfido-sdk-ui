@@ -1,4 +1,4 @@
-import { assert, expect } from 'chai'
+import { assert } from 'chai'
 import { until } from 'selenium-webdriver'
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
