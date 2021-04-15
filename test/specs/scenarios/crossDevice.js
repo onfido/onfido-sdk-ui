@@ -152,7 +152,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyTitle(copy)
         crossDeviceLink.switchToSendSmsOption()
         // TODO: verify that browser location URL has not been modified
-        expect(window.location.href).to.equal(baseUrl)
+        expect(driver.getCurrentUrl()).to.equal(baseUrl)
         crossDeviceLink.verifySubtitleSms(copy)
         crossDeviceLink.verifyNumberInputLabel(copy)
         crossDeviceLink.verifyNumberInput()
@@ -167,7 +167,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyTitle(copy)
         crossDeviceLink.switchToCopyLinkOption()
         // TODO: verify that browser location URL has not been modified
-        expect(window.location.href).to.equal(baseUrl)
+        expect(driver.getCurrentUrl()).to.equal(baseUrl)
         crossDeviceLink.verifySubtitleUrl(copy)
         crossDeviceLink.verifyCopyLinkInsteadLabel(copy)
         crossDeviceLink.verifyCopyToClipboardBtn(copy)
