@@ -7,7 +7,7 @@ class BasePage {
     this.driver = driver
   }
 
-  async expectCurrentUrLToMatchUrl(expectedUrl) {
+  async expectCurrentUrlToMatchUrl(expectedUrl) {
     assert.equal(
       this.driver.getCurrentUrl(),
       expectedUrl,
