@@ -10,56 +10,24 @@ import theme from '../Theme/style.scss'
 import style from './style.scss'
 import { StepComponentBaseProps } from '~types/routers'
 
-const InstructionsPure = ({ listScreenReaderText, instructions }) => (
-  <div className={classNames(theme.thickWrapper, theme.scrollableContent)}>
-    <ul className={style.introBullets} aria-label={listScreenReaderText}>
-      {instructions.map((instruction) => (
-        <li
-          className={style.introBullet}
-          key={`instruction_${instruction.key}`}
-        >
-          <span
-            className={classNames(
-              style.introIcon,
-              style[`${instruction.key}Icon`]
-            )}
-          />
-          <span className={classNames(style.bolder, style.introText)}>
-            {instruction.text}
-          </span>
-        </li>
-      ))}
-    </ul>
-  </div>
-)
-
 const Intro: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
   const { translate } = useLocales()
-
-  const instructions = [
-    {
-      key: 'selfie',
-      text: translate('selfie_intro.list_item_face_forward'),
-    },
-    {
-      key: 'glasses',
-      text: translate('selfie_intro.list_item_no_glasses'),
-    },
-  ]
 
   return (
     <div className={theme.fullHeightContainer}>
       <PageTitle
-        title={translate('selfie_intro.title')}
-        subTitle={translate('selfie_intro.subtitle')}
+        title={translate('auth_intro.title')}
+        subTitle={translate('auth_intro.subtitle')}
       />
-      <InstructionsPure
+      {/* <InstructionsPure
         listScreenReaderText={translate('selfie_intro.list_accessibility')}
         instructions={instructions}
-      />
+      /> */}
+      <h3>{translate('auth_intro.instructions.oval')}</h3>
+      <h3>{translate('auth_intro.instructions.eyes')}</h3>
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button variant="primary" kind="action" onClick={nextStep}>
-          {translate('selfie_intro.button_primary')}
+          {translate('auth_intro.button')}
         </Button>
       </div>
     </div>

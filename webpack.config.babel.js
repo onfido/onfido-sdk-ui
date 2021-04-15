@@ -11,10 +11,9 @@ import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
-import { dirname, relative, resolve, basename } from 'path'
+import { dirname, relative, resolve, basename, path } from 'path'
 import nodeExternals from 'webpack-node-externals'
 import { ProductionKeyText } from './Auth_SDK_Text.js'
-
 const CopyPlugin = require('copy-webpack-plugin')
 
 // NODE_ENV can be one of: development | staging | test | production
@@ -29,20 +28,28 @@ const PRODUCTION_BUILD = NODE_ENV !== 'development'
 
 const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 
-const baseRules = [
-  {
-    test: /\.(js|ts)x?$/,
-    loader: 'babel-loader',
-    options: { configFile: resolve('.babelrc') },
-    include: [
-      resolve('src'),
-      resolve('node_modules/@onfido/castor'),
-      resolve('node_modules/@onfido/castor-react'),
-      resolve('node_modules/strip-ansi'),
-      resolve('node_modules/ansi-regex'),
-    ],
-  },
-]
+const SDK_ENV = process.env.SDK_ENV.toLowerCase() || ''
+
+const baseRules = (hasAuth = false) => {
+  console.log(hasAuth)
+  return [
+    {
+      test: /\.(js|ts)x?$/,
+      loader: 'babel-loader',
+      options: { configFile: resolve('.babelrc') },
+      include: [
+        resolve('src'),
+        resolve('node_modules/@onfido/castor'),
+        resolve('node_modules/@onfido/castor-react'),
+        resolve('node_modules/strip-ansi'),
+        resolve('node_modules/ansi-regex'),
+      ],
+      ...(!hasAuth && {
+        exclude: [resolve('src/components/Auth'), resolve('core-sdk')],
+      }),
+    },
+  ]
+}
 
 const baseStyleLoaders = (modules, withSourceMap) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
@@ -212,7 +219,9 @@ const basePlugins = (bundle_name) => [
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: false,
-    reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
+    reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}${
+      bundle_name !== 'npm' ? '_dist' : ''
+    }_size.html`,
     defaultSizes: 'gzip',
   }),
   new webpack.NoEmitOnErrorsPlugin(),
@@ -220,6 +229,7 @@ const basePlugins = (bundle_name) => [
     formatDefineHash({
       ...CONFIG,
       NODE_ENV,
+      SDK_ENV,
       PRODUCTION_BUILD,
       SDK_VERSION: packageJson.version,
       // We use a Base 32 version string for the cross-device flow, to make URL
@@ -281,27 +291,26 @@ const baseConfig = {
   devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-cheap-source-map',
 }
 
-const configDist = {
+const configDist = (bundle_name = '') => ({
   ...baseConfig,
 
   entry: {
-    onfido: './index.tsx',
+    [`onfido${bundle_name}`]: './index.tsx',
     demo: './demo/demo.tsx',
     previewer: './demo/previewer.tsx',
   },
 
   output: {
-    library: 'Onfido',
+    library: `Onfido${bundle_name}`,
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
     publicPath: CONFIG.PUBLIC_PATH,
     filename: '[name].min.js',
-    chunkFilename: 'onfido.[name].min.js',
+    chunkFilename: `onfido${bundle_name}.[name].min.js`,
   },
-
   module: {
     rules: [
-      ...baseRules,
+      ...baseRules(bundle_name === 'auth'),
       ...baseStyleRules(),
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
@@ -320,7 +329,7 @@ const configDist = {
               sourceMap: true,
               terserOptions: {
                 output: {
-                  preamble: `/* Onfido SDK ${packageJson.version} */`,
+                  preamble: `/* Onfido${bundle_name} SDK ${packageJson.version} */`,
                   comments: '/^!/',
                 },
               },
@@ -341,15 +350,22 @@ const configDist = {
   },
 
   plugins: [
-    ...basePlugins('dist'),
-    new CopyPlugin({
-      patterns: [
-        { from: `${__dirname}/core-sdk`, to: `${__dirname}/dist/core-sdk` },
-      ],
-    }),
+    ...basePlugins(bundle_name || 'IDV'),
+    ...(SDK_ENV === 'auth'
+      ? [
+          new CopyPlugin({
+            patterns: [
+              {
+                from: `${__dirname}/core-sdk`,
+                to: `${__dirname}/dist/core-sdk`,
+              },
+            ],
+          }),
+        ]
+      : []),
     new MiniCssExtractPlugin({
       filename: 'style.css',
-      chunkFilename: 'onfido.[name].css',
+      chunkFilename: `onfido${bundle_name}.[name].css`,
     }),
     new HtmlWebpackPlugin({
       template: './demo/demo.ejs',
@@ -387,9 +403,9 @@ const configDist = {
     historyApiFallback: true,
     disableHostCheck: true, // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
   },
-}
+})
 
-const configNpmLib = {
+const configNpmLib = (bundle_name = '') => ({
   ...baseConfig,
   name: 'npm-library',
   output: {
@@ -399,7 +415,7 @@ const configNpmLib = {
   },
   module: {
     rules: [
-      ...baseRules,
+      ...baseRules(bundle_name === 'auth'),
       ...baseStyleRules({
         disableExtractToFile: true,
         withSourceMap: false,
@@ -420,8 +436,8 @@ const configNpmLib = {
       },
     }),
   ],
-}
+})
 
 const smp = new SpeedMeasurePlugin()
 
-export default [smp.wrap(configDist), configNpmLib]
+export default [smp.wrap(configDist(SDK_ENV)), configNpmLib(SDK_ENV)]

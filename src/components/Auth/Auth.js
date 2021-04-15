@@ -1,12 +1,7 @@
 import { h, Component } from 'preact'
 import { AuthCheckProcessor } from './AuthCheckProcessor'
 import { FaceTecSDK } from '../../../core-sdk/FaceTecSDK.js/FaceTecSDK'
-
-// type State = {
-//   latestSessionResult: String,
-//   latestIDScanResult: String,
-//   latestEnrollmentIdentifier: String
-// }
+import { Config } from './AuthConfig'
 
 export default class AuthCapture extends Component {
   state = {
@@ -14,6 +9,8 @@ export default class AuthCapture extends Component {
     latestIDScanResult: String,
     latestEnrollmentIdentifier: String,
     authConfig: Object,
+    token: String,
+    sessionState: String,
   }
   componentDidUpdate(prevProps, prevState) {
     if (
@@ -37,7 +34,8 @@ export default class AuthCapture extends Component {
       device_key_identifier,
       atob(public_key),
       (initializedSuccessfully) => {
-        if (initializedSuccessfully) console.log('initialized successfuly')
+        if (initializedSuccessfully)
+          this.setState({ sessionState: 'Initialized successfuly' })
       }
     )
   }
@@ -46,16 +44,26 @@ export default class AuthCapture extends Component {
     // Call our own endpoint to get the session information regarding public production key and session token
     // Save session data from fetch in state and use as needed (i.e. handleSessionToken)
     // Production auth key text must be parsed with base64 and followed by JSON.parse
-    this.getConfig(this)
+
+    FaceTecSDK.setCustomization(
+      Config.retrieveConfigurationWizardCustomization(FaceTecSDK)
+    )
+
+    this.setState(
+      {
+        sessionState: 'Initializing...',
+        token:
+          'eyJhbGciOiJFUzUxMiJ9.eyJleHAiOjE2MTg0ODk0NDUsInBheWxvYWQiOnsiYXBwIjoiYzljMmMyM2MtYzdiYi00ZTdlLWE5YzUtODk5NDUwYTZhNWMwIn0sInV1aWQiOiJCel81Z183SUxHQyIsInVybHMiOnsidGVsZXBob255X3VybCI6Imh0dHBzOi8vdGVsZXBob255Lm9uZmlkby5jb20iLCJkZXRlY3RfZG9jdW1lbnRfdXJsIjoiaHR0cHM6Ly9zZGsub25maWRvLmNvbSIsInN5bmNfdXJsIjoiaHR0cHM6Ly9zeW5jLm9uZmlkby5jb20iLCJob3N0ZWRfc2RrX3VybCI6Imh0dHBzOi8vaWQub25maWRvLmNvbSIsImF1dGhfdXJsIjoiaHR0cHM6Ly9lZGdlLmFwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIn19.MIGIAkIBWnh5pvK5nFVv8gceEjbe94koZyXmEjEK3BXLmFpx7LE07S0GZJxedrB2OGZdc0GfVjyUkKhTKhdzGFRH-DLx_WsCQgCTLugiVZ0u4odcRITy0D7XTwoxjuOW81qe4h4EpG6bCo9JPDtfDAYmITFmm77JOAIu8e3St3gLSN_8oDx0l2nnQA',
+      },
+      () => this.getConfig(this)
+    )
     // Request for devicekeyidentifier to begin new session (from our own BE)
   }
 
   getConfig = (ref) => {
-    const token =
-      'eyJhbGciOiJFUzUxMiJ9.eyJleHAiOjE2MTc2NDY2ODksInBheWxvYWQiOnsiYXBwIjoiNmM0NDYzNTktMDJiOC00MDkxLWIzNGMtMjk5NzEzNTQ1OWM0IiwiYXBwbGljYXRpb25faWQiOiJjb20ub25maWRvLk9uZmlkb0F1dGgiLCJyZWYiOiIqIn0sInV1aWQiOiJCel81Z183SUxHQyIsInVybHMiOnsidGVsZXBob255X3VybCI6Imh0dHBzOi8vdGVsZXBob255Lm9uZmlkby5jb20iLCJkZXRlY3RfZG9jdW1lbnRfdXJsIjoiaHR0cHM6Ly9zZGsub25maWRvLmNvbSIsInN5bmNfdXJsIjoiaHR0cHM6Ly9zeW5jLm9uZmlkby5jb20iLCJob3N0ZWRfc2RrX3VybCI6Imh0dHBzOi8vaWQub25maWRvLmNvbSIsImF1dGhfdXJsIjoiaHR0cHM6Ly9lZGdlLmFwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIn19.MIGIAkIA-N_jWE9XQlOysfrde1bOYT9fFE8Az9noFmTMwvPUFdHnPoIYL0CepfC_Ftt3ircRzoWms2va3YMonokCzCA-CbECQgDLxo2dVbo7iP5aXB6JhYxAVmwP0GAIUeWfvdgJK6cTNJ9MP1usO3Ee5MYOvpTBFmuwxyr_okAJelCIEbIIZ56s_g'
     const XHR = new XMLHttpRequest()
     XHR.open('POST', `${process.env.OLD_AUTH}/auth_3d/session`)
-    XHR.setRequestHeader('Authorization', `Bearer ${token}`)
+    XHR.setRequestHeader('Authorization', `Bearer ${this.state.token}`)
     XHR.setRequestHeader('Application-Id', 'com.onfido.onfidoAuth')
     XHR.setRequestHeader('Content-Type', 'application/json')
     XHR.onreadystatechange = function () {
@@ -76,12 +84,11 @@ export default class AuthCapture extends Component {
   }
 
   onLivenessCheckPressed = () => {
-    // this.handleSessionToken(this)
     if (this.state.authConfig.token) {
       const latestProcessor = new AuthCheckProcessor(
         this.state.authConfig.token,
         AuthCapture,
-        this.props.token
+        this.state.token
       )
     }
   }
@@ -108,33 +115,6 @@ export default class AuthCapture extends Component {
 
   setLatestServerResult = (responseJSON) => {}
 
-  handleSessionToken = (sessionTokenCallback) => {
-    const token =
-      'eyJhbGciOiJFUzUxMiJ9.eyJleHAiOjE2MTc2MzI4NTYsInBheWxvYWQiOnsiYXBwIjoiNmM0NDYzNTktMDJiOC00MDkxLWIzNGMtMjk5NzEzNTQ1OWM0IiwiYXBwbGljYXRpb25faWQiOiJjb20ub25maWRvLk9uZmlkb0F1dGgiLCJyZWYiOiIqIn0sInV1aWQiOiJCel81Z183SUxHQyIsInVybHMiOnsidGVsZXBob255X3VybCI6Imh0dHBzOi8vdGVsZXBob255Lm9uZmlkby5jb20iLCJkZXRlY3RfZG9jdW1lbnRfdXJsIjoiaHR0cHM6Ly9zZGsub25maWRvLmNvbSIsInN5bmNfdXJsIjoiaHR0cHM6Ly9zeW5jLm9uZmlkby5jb20iLCJob3N0ZWRfc2RrX3VybCI6Imh0dHBzOi8vaWQub25maWRvLmNvbSIsImF1dGhfdXJsIjoiaHR0cHM6Ly9lZGdlLmFwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIn19.MIGIAkIBWH62eaW0wiRLwvEI0xFL-W4q74KkKAgDuJhLOJBoHS4KYCBglTM5Jrre7dKTB_gVPgsU_6ZfcC2qP_BMc8W6OGICQgHtoehcuVuxF25KQjBDAzDXuNEShvKIgpWVpjRl7TkRVD_e1T_GDDyld8c3YVG_m-JvAJfw2aJ_7_KfYA4SLRqzxQ'
-
-    /*
-    check where sdk_token is being generated and bring it here
-
-    get session from auth_3d/session, this will provide values of device key id, production key text, public_key,
-    success & token (this token is assumingly the session token on line 80 
-    */
-    const XHR = new XMLHttpRequest()
-    XHR.open('POST', `${process.env.OLD_AUTH}/auth_3d/session`)
-    XHR.setRequestHeader('Authorization', `Bearer ${token}`)
-    XHR.setRequestHeader('Application-Id', 'com.onfido.onfidoAuth')
-    XHR.setRequestHeader('Content-Type', 'application/json')
-    XHR.onreadystatechange = function () {
-      if (this.readyState === XMLHttpRequest.DONE) {
-        const response = JSON.parse(this.responseText)
-        console.log(response)
-      }
-    }
-    sessionTokenCallback()
-    const body = {
-      sdk_type: 'onfido_web_sdk',
-    }
-    XHR.send(JSON.stringify(body))
-  }
   render() {
     return (
       <div>
@@ -147,7 +127,7 @@ export default class AuthCapture extends Component {
             >
               3D Liveness Check
             </button>
-            <p id="status">Initializing...</p>
+            <p id="status">{String(this.state.sessionState)}</p>
           </div>
         </div>
       </div>

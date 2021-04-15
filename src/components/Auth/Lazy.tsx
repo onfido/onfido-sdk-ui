@@ -11,7 +11,7 @@ const Loading = localised(({ translate }) => (
 
 const AsyncCrossDevice = asyncComponent(
   //@ts-ignore
-  () => import(/* webpackChunkName: "auth" */ './Auth.js'),
+  () => import(/* webpackChunkName: "vendor" */ './Auth.js'),
   Loading
 )
 

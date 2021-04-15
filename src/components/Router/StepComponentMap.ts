@@ -26,6 +26,7 @@ import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils'
 import { getCountryDataForDocumentType } from '../../supported-documents'
+const SDK_ENV = process.env.SDK_ENV
 import AuthIntro from '../Auth/AuthIntro'
 import LazyAuth from '../Auth/Lazy'
 
@@ -105,6 +106,10 @@ const buildCaptureStepComponents = (
   const documentStep = steps.find(
     (step) => step.type === 'document'
   ) as StepConfigDocument
+  // const authStep =
+  //   SDK_ENV === 'auth' && AuthIntro && LazyAuth
+  //     ? { auth: [AuthIntro, LazyAuth] }
+  //     : {}
 
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
 
