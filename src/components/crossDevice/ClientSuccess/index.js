@@ -19,7 +19,7 @@ class ClientSuccess extends Component {
           title={translate('cross_device_return.title')}
           subTitle={translate('cross_device_return.subtitle')}
         />
-        <div>
+        <div className={style.iconContainer}>
           <span className={classNames(theme.icon, style.icon)} />
           <div className={style.text}>
             {translate('cross_device_return.body')}
