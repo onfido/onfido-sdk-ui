@@ -27,9 +27,12 @@ import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 const SDK_ENV = process.env.SDK_ENV
-import AuthIntro from '../Auth/AuthIntro'
-import LazyAuth from '../Auth/Lazy'
-
+let AuthIntro
+let LazyAuth
+if (SDK_ENV === 'auth') {
+  AuthIntro = require('../Auth/AuthIntro')
+  LazyAuth = require('../Auth/Lazy')
+}
 import type {
   ExtendedStepTypes,
   ExtendedStepConfig,
@@ -106,11 +109,6 @@ const buildCaptureStepComponents = (
   const documentStep = steps.find(
     (step) => step.type === 'document'
   ) as StepConfigDocument
-  // const authStep =
-  //   SDK_ENV === 'auth' && AuthIntro && LazyAuth
-  //     ? { auth: [AuthIntro, LazyAuth] }
-  //     : {}
-
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
 
   return {
@@ -118,7 +116,7 @@ const buildCaptureStepComponents = (
     userConsent: [UserConsent],
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     //@ts-ignore
-    auth: [AuthIntro, LazyAuth],
+    ...(SDK_ENV === 'auth' && { auth: [AuthIntro, LazyAuth] }),
     document: buildDocumentComponents(
       documentStep,
       documentType,

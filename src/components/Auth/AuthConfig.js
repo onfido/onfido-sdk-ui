@@ -154,6 +154,7 @@ export const Config = (function () {
     successSVG.setAttribute('viewBox', '0 0 56 56')
     successSVG.innerHTML = success
     defaultCustomization.resultScreenCustomization.customResultAnimationSuccess = successSVG
+    defaultCustomization.resultScreenCustomization.customActivityIndicatorAnimation = loaderSVG
 
     return defaultCustomization
   }

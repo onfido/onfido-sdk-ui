@@ -29,13 +29,17 @@ export default class AuthCapture extends Component {
       device_key_identifier,
       public_key,
     } = this.state.authConfig
+    console.log('trying to init...')
     FaceTecSDK.initializeInProductionMode(
       production_key_text,
       device_key_identifier,
       atob(public_key),
       (initializedSuccessfully) => {
         if (initializedSuccessfully)
-          this.setState({ sessionState: 'Initialized successfuly' })
+          this.setState({
+            sessionState: 'Initialized successfuly',
+            sessionInit: true,
+          })
       }
     )
   }
@@ -44,6 +48,7 @@ export default class AuthCapture extends Component {
     // Call our own endpoint to get the session information regarding public production key and session token
     // Save session data from fetch in state and use as needed (i.e. handleSessionToken)
     // Production auth key text must be parsed with base64 and followed by JSON.parse
+    console.log(this.props)
 
     FaceTecSDK.setCustomization(
       Config.retrieveConfigurationWizardCustomization(FaceTecSDK)
@@ -51,9 +56,10 @@ export default class AuthCapture extends Component {
 
     this.setState(
       {
+        sessionInit: false,
         sessionState: 'Initializing...',
         token:
-          'eyJhbGciOiJFUzUxMiJ9.eyJleHAiOjE2MTg0ODk0NDUsInBheWxvYWQiOnsiYXBwIjoiYzljMmMyM2MtYzdiYi00ZTdlLWE5YzUtODk5NDUwYTZhNWMwIn0sInV1aWQiOiJCel81Z183SUxHQyIsInVybHMiOnsidGVsZXBob255X3VybCI6Imh0dHBzOi8vdGVsZXBob255Lm9uZmlkby5jb20iLCJkZXRlY3RfZG9jdW1lbnRfdXJsIjoiaHR0cHM6Ly9zZGsub25maWRvLmNvbSIsInN5bmNfdXJsIjoiaHR0cHM6Ly9zeW5jLm9uZmlkby5jb20iLCJob3N0ZWRfc2RrX3VybCI6Imh0dHBzOi8vaWQub25maWRvLmNvbSIsImF1dGhfdXJsIjoiaHR0cHM6Ly9lZGdlLmFwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIn19.MIGIAkIBWnh5pvK5nFVv8gceEjbe94koZyXmEjEK3BXLmFpx7LE07S0GZJxedrB2OGZdc0GfVjyUkKhTKhdzGFRH-DLx_WsCQgCTLugiVZ0u4odcRITy0D7XTwoxjuOW81qe4h4EpG6bCo9JPDtfDAYmITFmm77JOAIu8e3St3gLSN_8oDx0l2nnQA',
+          'eyJhbGciOiJFUzUxMiJ9.eyJleHAiOjE2MTg1MTE4MTcsInBheWxvYWQiOnsiYXBwIjoiM2UyZTRiM2YtNjdmMi00MDhiLTkxZGUtNDE4ZTMxZTFlMjU4In0sInV1aWQiOiJCel81Z183SUxHQyIsInVybHMiOnsidGVsZXBob255X3VybCI6Imh0dHBzOi8vdGVsZXBob255Lm9uZmlkby5jb20iLCJkZXRlY3RfZG9jdW1lbnRfdXJsIjoiaHR0cHM6Ly9zZGsub25maWRvLmNvbSIsInN5bmNfdXJsIjoiaHR0cHM6Ly9zeW5jLm9uZmlkby5jb20iLCJob3N0ZWRfc2RrX3VybCI6Imh0dHBzOi8vaWQub25maWRvLmNvbSIsImF1dGhfdXJsIjoiaHR0cHM6Ly9lZGdlLmFwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIn19.MIGHAkIB-lCIay0eO6j-_7nKYz6-aJdrOyg_Ob3aA-apGo4_9c4f9j1j1uBb-PsPX6UZeJOMFFy8O3wFUgZAu7W9Y0wA0Z8CQSR2qHkhoSB8nMNisOuTETxzKZeJrKC8RF2kyWIA1X5nG96U0HiQHjWYbMug_FE2-nwWJaKtgmReUZznQdegV6RZ',
       },
       () => this.getConfig(this)
     )
@@ -87,8 +93,9 @@ export default class AuthCapture extends Component {
     if (this.state.authConfig.token) {
       const latestProcessor = new AuthCheckProcessor(
         this.state.authConfig.token,
-        AuthCapture,
-        this.state.token
+        this.state.token,
+        this.props.nextStep,
+        this.props.events
       )
     }
   }
@@ -112,7 +119,9 @@ export default class AuthCapture extends Component {
   getLatestEnrollmentIdentifier = () => {
     return this.state.latestEnrollmentIdentifier
   }
-
+  onAuthComplete = () => {
+    return 'hello from auth side'
+  }
   setLatestServerResult = (responseJSON) => {}
 
   render() {
@@ -121,6 +130,7 @@ export default class AuthCapture extends Component {
         <div className="wrapping-box-container">
           <div id="controls" className="controls">
             <button
+              disabled={!this.state.sessionInit}
               id="liveness-button"
               className="big-button"
               onClick={() => this.onLivenessCheckPressed()}

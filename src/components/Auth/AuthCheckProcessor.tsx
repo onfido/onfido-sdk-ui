@@ -4,43 +4,28 @@
 
 import { Config } from './AuthConfig'
 import { FaceTecSDK } from '../../../core-sdk/FaceTecSDK.js/FaceTecSDK'
-import Auth from './Auth'
 
-//
-// This is an example self-contained class to perform Liveness Checks with the FaceTec SDK.
-// You may choose to further componentize parts of this in your own Apps based on your specific requirements.
-//
 export class AuthCheckProcessor {
   latestNetworkRequest = new XMLHttpRequest()
-
-  //
-  // DEVELOPER NOTE:  These properties are for demonstration purposes only so the Sample App can get information about what is happening in the processor.
-  // In the code in your own App, you can pass around signals, flags, intermediates, and results however you would like.
-  //
   success
-  sampleAppControllerReference
   sdkToken
+  nextStep
+  events
 
   constructor(
     sessionToken: string,
-    sampleAppControllerReference: Auth,
-    sdkToken: string
+    sdkToken: string,
+    nextStep: () => void,
+    //@ts-ignore
+    events
   ) {
-    //
-    // DEVELOPER NOTE:  These properties are for demonstration purposes only so the Sample App can get information about what is happening in the processor.
-    // In the code in your own App, you can pass around signals, flags, intermediates, and results however you would like.
-    //
-    this.sdkToken =
-      'eyJhbGciOiJFUzUxMiJ9.eyJleHAiOjE2MTc2NDY2ODksInBheWxvYWQiOnsiYXBwIjoiNmM0NDYzNTktMDJiOC00MDkxLWIzNGMtMjk5NzEzNTQ1OWM0IiwiYXBwbGljYXRpb25faWQiOiJjb20ub25maWRvLk9uZmlkb0F1dGgiLCJyZWYiOiIqIn0sInV1aWQiOiJCel81Z183SUxHQyIsInVybHMiOnsidGVsZXBob255X3VybCI6Imh0dHBzOi8vdGVsZXBob255Lm9uZmlkby5jb20iLCJkZXRlY3RfZG9jdW1lbnRfdXJsIjoiaHR0cHM6Ly9zZGsub25maWRvLmNvbSIsInN5bmNfdXJsIjoiaHR0cHM6Ly9zeW5jLm9uZmlkby5jb20iLCJob3N0ZWRfc2RrX3VybCI6Imh0dHBzOi8vaWQub25maWRvLmNvbSIsImF1dGhfdXJsIjoiaHR0cHM6Ly9lZGdlLmFwaS5vbmZpZG8uY29tIiwib25maWRvX2FwaV91cmwiOiJodHRwczovL2FwaS5vbmZpZG8uY29tIn19.MIGIAkIA-N_jWE9XQlOysfrde1bOYT9fFE8Az9noFmTMwvPUFdHnPoIYL0CepfC_Ftt3ircRzoWms2va3YMonokCzCA-CbECQgDLxo2dVbo7iP5aXB6JhYxAVmwP0GAIUeWfvdgJK6cTNJ9MP1usO3Ee5MYOvpTBFmuwxyr_okAJelCIEbIIZ56s_g'
+    this.sdkToken = sdkToken
     this.success = false
-    this.sampleAppControllerReference = sampleAppControllerReference
+    this.nextStep = nextStep
+    this.events = events
 
     //
     // Part 1:  Starting the FaceTec Session
-    //
-    // Required parameters:
-    // - FaceTecFaceScanProcessor:  A class that implements FaceTecFaceScanProcessor, which handles the FaceScan when the User completes a Session.  In this example, "this" implements the class.
-    // - sessionToken:  A valid Session Token you just created by calling your API to get a Session Token from the Server SDK.
     //
     const facetecsession = new FaceTecSDK.FaceTecSession(this, sessionToken)
   }
@@ -52,12 +37,6 @@ export class AuthCheckProcessor {
     sessionResult,
     faceScanResultCallback
   ) {
-    //
-    // DEVELOPER NOTE:  These properties are for demonstration purposes only so the Sample App can get information about what is happening in the processor.
-    // In the code in your own App, you can pass around signals, flags, intermediates, and results however you would like.
-    //
-    // this.sampleAppControllerReference.setLatestSessionResult(sessionResult)
-
     //
     // Part 3:  Handles early exit scenarios where there is no FaceScan to handle -- i.e. User Cancellation, Timeouts, etc.
     //
@@ -72,10 +51,6 @@ export class AuthCheckProcessor {
       faceScanResultCallback.cancel()
       return
     }
-
-    // IMPORTANT:  FaceTecSDK.FaceTecSessionStatus.SessionCompletedSuccessfully DOES NOT mean the Liveness Check was Successful.
-    // It simply means the User completed the Session and a 3D FaceScan was created.  You still need to perform the Liveness Check on your Servers.
-
     //
     // Part 4:  Get essential data off the FaceTecSessionResult
     //
@@ -113,16 +88,6 @@ export class AuthCheckProcessor {
       'application/json'
     )
 
-    // TODO: Make this prettier and more consolidated and perhaps less things to do here.
-    // this.latestNetworkRequest.setRequestHeader(
-    //   'X-Device-Key',
-    //   Config.DeviceKeyIdentifier
-    // )
-    // this.latestNetworkRequest.setRequestHeader(
-    //   'X-User-Agent',
-    //   FaceTecSDK.createFaceTecAPIUserAgentString(sessionResult.sessionId)
-    // )
-
     this.latestNetworkRequest.onreadystatechange = () => {
       //
       // Part 6:  In our Sample, we evaluate a boolean response and treat true as success, false as "User Needs to Retry",
@@ -133,44 +98,46 @@ export class AuthCheckProcessor {
         const responseJSON = JSON.parse(this.latestNetworkRequest.responseText)
         try {
           const responseObj = responseJSON
-          //
-          // DEVELOPER NOTE:  These properties are for demonstration purposes only so the Sample App can get information about what is happening in the processor.
-          // In the code in your own App, you can pass around signals, flags, intermediates, and results however you would like.
-          //
-          // this.sampleAppControllerReference.setLatestServerResult(responseJSON)
-          if (responseObj.success === true) {
-            // CASE:  Success!  The Liveness Check was performed and the User Proved Liveness.
 
-            //
-            // DEVELOPER NOTE:  These properties are for demonstration purposes only so the Sample App can get information about what is happening in the processor.
-            // In the code in your own App, you can pass around signals, flags, intermediates, and results however you would like.
-            //
+          if (responseObj.success === true) {
             this.success = true
 
-            console.log('Auth confirmed!')
             faceScanResultCallback.succeed()
+            this.nextStep()
           } else if (responseObj.success === false) {
-            // CASE:  In our Sample code, "success" being present and false means that the User Needs to Retry.
-            // Real Users will likely succeed on subsequent attempts after following on-screen guidance.
-            // Attackers/Fraudsters will continue to get rejected.
+            this.success = false
+
             console.log('User needs to retry, invoking retry.')
             faceScanResultCallback.retry()
           } else {
-            // CASE:  UNEXPECTED response from API.  Our Sample Code keys of a success boolean on the root of the JSON object --> You define your own API contracts with yourself and may choose to do something different here based on the error.
+            this.success = null
+
             console.log('Unexpected API response, cancelling out.')
             faceScanResultCallback.cancel()
+            this.nextStep()
           }
+
+          this.events?.emit('complete', {
+            type: 'complete',
+            ...responseObj,
+          })
         } catch {
           // CASE:  Parsing the response into JSON failed --> You define your own API contracts with yourself and may choose to do something different here based on the error.  Solid server-side code should ensure you don't get to this case.
-          console.log('Exception while handling API response, cancelling out.')
+          this.success = null
+          const message =
+            'Exception while handling API response, cancelling out.'
+          this.events?.emit('error', { type: 'exception', message })
           faceScanResultCallback.cancel()
+          this.nextStep()
         }
       }
     }
 
-    this.latestNetworkRequest.onerror = function () {
+    this.latestNetworkRequest.onerror = () => {
       // CASE:  Network Request itself is erroring --> You define your own API contracts with yourself and may choose to do something different here based on the error.
-      console.log('XHR error, cancelling.')
+      const message = 'XHR error, cancelling.'
+      this.events?.emit('error', { type: 'exception', message })
+      console.log(message)
       faceScanResultCallback.cancel()
     }
 
@@ -202,7 +169,7 @@ export class AuthCheckProcessor {
   //
   // Part 10:  This function gets called after the FaceTec SDK is completely done.  There are no parameters because you have already been passed all data in the processSessionWhileFaceTecSDKWaits function and have already handled all of your own results.
   //
-  onFaceTecSDKCompletelyDone() {
+  onFaceTecSDKCompletelyDone = () => {
     //
     // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after you signal the FaceTec SDK with success() or cancel().
     // Calling a custom function on the Sample App Controller is done for demonstration purposes to show you that here is where you get control back from the FaceTec SDK.
@@ -215,7 +182,4 @@ export class AuthCheckProcessor {
   // DEVELOPER NOTE:  This public convenience method is for demonstration purposes only so the Sample App can get information about what is happening in the processor.
   // In your code, you may not even want or need to do this.
   //
-  isSuccess() {
-    return this.success
-  }
 }

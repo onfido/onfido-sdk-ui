@@ -49,7 +49,15 @@ const formatOptions = ({
 }: SdkOptions): NormalisedSdkOptions => ({
   ...otherOptions,
   smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
-  steps: (steps || ['welcome', 'document', 'face', 'complete']).map(formatStep),
+  steps: (
+    steps || [
+      'welcome',
+      ...(process.env.SDK_ENV === 'auth' ? 'auth' : ''),
+      'document',
+      'face',
+      'complete',
+    ]
+  ).map(formatStep),
 })
 
 const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
