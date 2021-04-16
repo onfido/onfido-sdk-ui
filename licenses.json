@@ -11382,7 +11382,7 @@
     "path": "node_modules/sshpk",
     "licenseFile": "node_modules/sshpk/LICENSE"
   },
-  "ssri@6.0.1": {
+  "ssri@6.0.2": {
     "licenses": "ISC",
     "repository": "https://github.com/zkat/ssri",
     "publisher": "Kat Marchán",
