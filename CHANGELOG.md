@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- UI: Fixed flickering country list on SMS country dropdown. The fix involves updating `deviceHasCameraSupport` in the Redux store only when the value changes.
+
 ## [6.7.1] - 2021-03-26
 
 ### Fixed
