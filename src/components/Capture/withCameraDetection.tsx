@@ -38,7 +38,7 @@ export default function withCameraDetection<P extends Props>(
       if (cameraCheckerIntervalId) {
         return clearInterval(cameraCheckerIntervalId)
       }
-    }, [hasCamera])
+    }, [hasCamera]) // eslint-disable-line react-hooks/exhaustive-deps
     // while checking if we have a camera or not, don't render anything
     // otherwise we'll see a flicker, after we do work out what's what
     if (hasCamera === null) return null
