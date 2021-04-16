@@ -1,6 +1,5 @@
 import { h, FunctionComponent } from 'preact'
 import { memo, useState } from 'preact/compat'
-import { v4 as uuid4 } from 'uuid'
 
 import type { ApplicantData } from './types'
 
@@ -25,9 +24,10 @@ const Field: FunctionComponent<FieldProps> = ({
     <div className="input-field">
       <label>{label}</label>
       <input
+        onChange={(event) => onChange((event.target as HTMLInputElement).value)}
+        required
         type={label === 'Email' ? 'email' : 'text'}
         value={value}
-        onChange={(event) => onChange((event.target as HTMLInputElement).value)}
       />
     </div>
   )
@@ -37,20 +37,9 @@ type Props = {
   onSubmit: (data: ApplicantData) => void
 }
 
-const appendUuidToEmail = (email: string): string | undefined => {
-  if (!email.length) {
-    return undefined
-  }
-
-  const [address, domain] = email.split('@')
-  return [[address, uuid4()].join('_'), domain].join('@')
-}
-
 const ApplicantForm: FunctionComponent<Props> = ({ onSubmit }) => {
-  const [firstName, setFirstName] = useState('Web ANSSI')
-  const [lastName, setLastName] = useState(
-    `v${require('../../package.json').version}`
-  )
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
 
   const handleSubmit = (event: Event) => {
@@ -59,7 +48,7 @@ const ApplicantForm: FunctionComponent<Props> = ({ onSubmit }) => {
     onSubmit({
       first_name: firstName.length ? firstName : undefined,
       last_name: lastName.length ? lastName : undefined,
-      email: appendUuidToEmail(email),
+      email,
     })
   }
 
@@ -67,18 +56,8 @@ const ApplicantForm: FunctionComponent<Props> = ({ onSubmit }) => {
     <div>
       <h1>Applicant data</h1>
       <form id="applicant-form" onSubmit={handleSubmit}>
-        <Field
-          label="First name"
-          value={firstName}
-          onChange={setFirstName}
-          hidden
-        />
-        <Field
-          label="Last name"
-          value={lastName}
-          onChange={setLastName}
-          hidden
-        />
+        <Field label="First name" value={firstName} onChange={setFirstName} />
+        <Field label="Last name" value={lastName} onChange={setLastName} />
         <Field label="Email" value={email} onChange={setEmail} />
         <button type="submit">Submit</button>
       </form>
