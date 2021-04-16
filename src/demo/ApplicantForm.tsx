@@ -20,13 +20,15 @@ const Field: FunctionComponent<FieldProps> = ({
     return null
   }
 
+  const isEmail = label === 'Email'
+
   return (
     <div className="input-field">
       <label>{label}</label>
       <input
         onChange={(event) => onChange((event.target as HTMLInputElement).value)}
-        required
-        type={label === 'Email' ? 'email' : 'text'}
+        required={isEmail}
+        type={isEmail ? 'email' : 'text'}
         value={value}
       />
     </div>
