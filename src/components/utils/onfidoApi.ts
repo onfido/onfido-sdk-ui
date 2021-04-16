@@ -35,6 +35,10 @@ type UploadDocumentPayload = {
   validations?: ImageQualityValidationPayload
 } & UploadPayload
 
+type UploadDocumentVideoMediaPayload = {
+  file: Blob
+} & UploadPayload
+
 type UploadVideoPayload = {
   blob: Blob
   challengeData?: ChallengeData
@@ -94,6 +98,27 @@ export const uploadDocument = (
   }
 
   const endpoint = `${url}/v3/documents`
+
+  return new Promise((resolve, reject) =>
+    sendFile(endpoint, data, token, onSuccess || resolve, onError || reject)
+  )
+}
+
+export const uploadDocumentVideoMedia = (
+  payload: UploadDocumentVideoMediaPayload,
+  url: string | undefined,
+  token: string | undefined,
+  onSuccess?: SuccessCallback<DocumentImageResponse>,
+  onError?: ErrorCallback
+): Promise<DocumentImageResponse> => {
+  const { sdkMetadata, ...other } = payload
+
+  const data: SubmitPayload = {
+    ...other,
+    sdk_metadata: JSON.stringify(sdkMetadata),
+  }
+
+  const endpoint = `${url}/v3/document_video_media`
 
   return new Promise((resolve, reject) =>
     sendFile(endpoint, data, token, onSuccess || resolve, onError || reject)

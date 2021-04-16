@@ -175,6 +175,7 @@ class Confirm extends Component {
     const {
       urls,
       capture,
+      videoCapture,
       method,
       side,
       token,
@@ -240,7 +241,14 @@ class Confirm extends Component {
       }
       if (isDecoupledFromAPI)
         this.onSubmitCallback(data, CALLBACK_TYPES.document)
-      else uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+      else {
+        uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+
+        // Multi-frame capture
+        if (capture.multiFrameCaptured) {
+          console.log(this.props.videoCapture)
+        }
+      }
     } else if (variant === 'video') {
       const data = { challengeData, blob, language, sdkMetadata }
       if (isDecoupledFromAPI) this.onSubmitCallback(data, CALLBACK_TYPES.video)
