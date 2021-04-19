@@ -182,7 +182,7 @@ class Document extends Component<Props> {
       ? this.renderCrossDeviceFallback
       : this.renderUploadFallback
 
-    if (requestedVariant === 'video') {
+    if (hasCamera && requestedVariant === 'video') {
       if (!documentType) {
         trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
         throw new Error('documentType not provided')
