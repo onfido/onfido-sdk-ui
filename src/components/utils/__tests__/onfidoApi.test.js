@@ -1,4 +1,4 @@
-import { sendMultiframeSelfie } from '../onfidoApi'
+import { sendMultiframeSelfie, objectToFormData } from '../onfidoApi'
 import { noop } from '../func'
 
 const jwtToken = 'my_token'
@@ -49,6 +49,38 @@ const onError = (res) => {
 
 // mock tracking callback
 const trackingCallback = (message) => noop(message)
+
+describe('objectToFormData', () => {
+  it('should generate Form Data with all values contained in a given a payload object with varying value types', async () => {
+    const testVideoBlob = new Blob([], { type: 'video/webm' })
+    const testChallengeString = JSON.stringify([
+      { query: 'turnRight', type: 'movement' },
+      { query: [7, 5, 8], type: 'recite' },
+    ])
+    const testChallengeId = 'test-id-123'
+    const testChallengeSwitchAt = 1096
+    const testLanguagesString = JSON.stringify([
+      { source: 'sdk', language_code: 'en-US' },
+    ])
+    const result = objectToFormData({
+      file: testVideoBlob,
+      challenge: testChallengeString,
+      challenge_id: testChallengeId,
+      challenge_switch_at: testChallengeSwitchAt,
+      languages: testLanguagesString,
+    })
+
+    // challenge_switch_at is a numerical value in the payload passed to objectToFormData() but
+    // FormData.append() automatically converts the sent value to String if it is not a String or Blob
+    const expectedChallengeSwitchAt = testChallengeSwitchAt.toString(10)
+
+    expect(result.get('file')).toMatchObject(testVideoBlob)
+    expect(result.get('challenge')).toEqual(testChallengeString)
+    expect(result.get('challenge_id')).toEqual(testChallengeId)
+    expect(result.get('challenge_switch_at')).toEqual(expectedChallengeSwitchAt)
+    expect(result.get('languages')).toEqual(testLanguagesString)
+  })
+})
 
 describe('sendMultiframeSelfie', () => {
   describe('with valid data', () => {
