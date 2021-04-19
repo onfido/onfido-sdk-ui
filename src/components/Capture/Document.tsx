@@ -218,6 +218,7 @@ class Document extends Component<Props> {
         <DocumentAutoCapture
           {...propsWithErrorHandling}
           renderFallback={renderFallback}
+          renderTitle={renderTitle}
           onValidCapture={this.handlePhotoCapture}
         />
       )
