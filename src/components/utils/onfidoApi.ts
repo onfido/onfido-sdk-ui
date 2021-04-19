@@ -174,8 +174,9 @@ export const uploadLiveVideo = (
     switchSeconds: challenge_switch_at,
   } = challengeData || {}
 
-  // NOTE: important for automation - language_code string format must be BCP-47 IIRC, i.e. "en-US"
-  const languageCodeForApi = language && language.replace('_', '-')
+  // NOTE: important for automation - language_code string must be
+  //       either 2-letter ISO, i.e. "en", or BCP-47 IIRC format, i.e. "en-US".
+  const languageCodeForApi = language && language.split('_')[0]
   const payload: SubmitLiveVideoPayload = {
     file: blob,
     languages: JSON.stringify([

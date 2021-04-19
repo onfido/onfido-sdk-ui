@@ -60,7 +60,7 @@ describe('objectToFormData', () => {
     const testChallengeId = 'test-id-123'
     const testChallengeSwitchAt = 1096
     const testLanguagesString = JSON.stringify([
-      { source: 'sdk', language_code: 'en-US' },
+      { source: 'sdk', language_code: 'en' },
     ])
     const result = objectToFormData({
       file: testVideoBlob,

@@ -13,7 +13,7 @@ import {
 
 let jwtToken = null
 
-const LANGUAGE_CODE = 'en-US' // NOTE: important for automation - the format (BCP-47 IIRC) matters!
+const LANGUAGE_CODE = 'en'
 const TEST_VIDEO_DATA = {
   challengeData: {
     challenges: [
