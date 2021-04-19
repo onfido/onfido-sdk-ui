@@ -2170,8 +2170,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/axios/axios",
     "publisher": "Matt Zabriskie",
-    "path": "node_modules/chromedriver/node_modules/axios",
-    "licenseFile": "node_modules/chromedriver/node_modules/axios/LICENSE"
+    "path": "node_modules/axios",
+    "licenseFile": "node_modules/axios/LICENSE"
   },
   "babel-eslint@10.1.0": {
     "licenses": "MIT",
@@ -4902,8 +4902,8 @@
     "repository": "https://github.com/mrmlnc/fast-glob",
     "publisher": "Denis Malinochkin",
     "url": "https://mrmlnc.com",
-    "path": "node_modules/chromedriver/node_modules/fast-glob",
-    "licenseFile": "node_modules/chromedriver/node_modules/fast-glob/LICENSE"
+    "path": "node_modules/stylelint/node_modules/fast-glob",
+    "licenseFile": "node_modules/stylelint/node_modules/fast-glob/LICENSE"
   },
   "fast-glob@3.2.5": {
     "licenses": "MIT",
@@ -5168,16 +5168,7 @@
     "path": "node_modules/flush-write-stream",
     "licenseFile": "node_modules/flush-write-stream/LICENSE"
   },
-  "follow-redirects@1.13.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/follow-redirects/follow-redirects",
-    "publisher": "Ruben Verborgh",
-    "email": "ruben@verborgh.org",
-    "url": "https://ruben.verborgh.org/",
-    "path": "node_modules/chromedriver/node_modules/follow-redirects",
-    "licenseFile": "node_modules/chromedriver/node_modules/follow-redirects/LICENSE"
-  },
-  "follow-redirects@1.5.10": {
+  "follow-redirects@1.13.3": {
     "licenses": "MIT",
     "repository": "https://github.com/follow-redirects/follow-redirects",
     "publisher": "Ruben Verborgh",
@@ -5610,8 +5601,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/chromedriver/node_modules/globby",
-    "licenseFile": "node_modules/chromedriver/node_modules/globby/license"
+    "path": "node_modules/stylelint/node_modules/globby",
+    "licenseFile": "node_modules/stylelint/node_modules/globby/license"
   },
   "globby@11.0.2": {
     "licenses": "MIT",
@@ -5621,6 +5612,15 @@
     "url": "https://sindresorhus.com",
     "path": "node_modules/@typescript-eslint/parser/node_modules/globby",
     "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/globby/license"
+  },
+  "globby@11.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/globby",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "node_modules/chromedriver/node_modules/globby",
+    "licenseFile": "node_modules/chromedriver/node_modules/globby/license"
   },
   "globby@6.1.0": {
     "licenses": "MIT",
@@ -6441,7 +6441,7 @@
     "path": "node_modules/ip-regex",
     "licenseFile": "node_modules/ip-regex/license"
   },
-  "ip-regex@4.2.0": {
+  "ip-regex@4.3.0": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/ip-regex",
     "publisher": "Sindre Sorhus",
@@ -6854,7 +6854,7 @@
     "path": "node_modules/is-path-inside",
     "licenseFile": "node_modules/is-path-inside/license"
   },
-  "is-path-inside@3.0.2": {
+  "is-path-inside@3.0.3": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/is-path-inside",
     "publisher": "Sindre Sorhus",
@@ -8199,6 +8199,14 @@
     "url": "https://github.com/jonschlinkert",
     "path": "node_modules/jest-message-util/node_modules/micromatch",
     "licenseFile": "node_modules/jest-message-util/node_modules/micromatch/LICENSE"
+  },
+  "micromatch@4.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/micromatch/micromatch",
+    "publisher": "Jon Schlinkert",
+    "url": "https://github.com/jonschlinkert",
+    "path": "node_modules/chromedriver/node_modules/micromatch",
+    "licenseFile": "node_modules/chromedriver/node_modules/micromatch/LICENSE"
   },
   "miller-rabin@4.0.1": {
     "licenses": "MIT",
@@ -9569,7 +9577,7 @@
     "path": "node_modules/performance-now",
     "licenseFile": "node_modules/performance-now/license.txt"
   },
-  "picomatch@2.2.1": {
+  "picomatch@2.2.3": {
     "licenses": "MIT",
     "repository": "https://github.com/micromatch/picomatch",
     "publisher": "Jon Schlinkert",
