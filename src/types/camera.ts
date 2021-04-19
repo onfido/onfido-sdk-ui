@@ -4,11 +4,11 @@ import Webcam from 'react-webcam-onfido'
 import type { WithPermissionsFlowProps } from './hocs'
 import type { RenderFallbackProp } from './routers'
 
-export type ButtonType = 'photo' | 'video'
+export type ButtonType = 'photo' | 'video' | 'none'
 
 export type CameraProps = {
   audio?: boolean
-  buttonType?: ButtonType
+  buttonType: ButtonType
   className?: string
   containerClassName?: string
   docAutoCaptureFrame?: boolean
