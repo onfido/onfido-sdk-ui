@@ -33,7 +33,7 @@ type Props = CameraProps &
 
 const Camera: FunctionComponent<Props> = ({
   audio,
-  buttonType = 'photo',
+  buttonType,
   children,
   containerClassName,
   docAutoCaptureFrame = false,

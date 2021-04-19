@@ -140,6 +140,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     return (
       <Camera
         {...this.props}
+        buttonType="none"
         docAutoCaptureFrame
         webcamRef={(ref) => ref && (this.webcam = ref)}
         renderError={
