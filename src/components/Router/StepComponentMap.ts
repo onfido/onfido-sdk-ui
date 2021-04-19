@@ -29,10 +29,7 @@ import { getCountryDataForDocumentType } from '../../supported-documents'
 const SDK_ENV = process.env.SDK_ENV
 let AuthIntro
 let LazyAuth
-if (SDK_ENV === 'auth') {
-  AuthIntro = require('../Auth/AuthIntro')
-  LazyAuth = require('../Auth/Lazy')
-}
+
 import type {
   ExtendedStepTypes,
   ExtendedStepConfig,
@@ -110,6 +107,11 @@ const buildCaptureStepComponents = (
     (step) => step.type === 'document'
   ) as StepConfigDocument
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
+
+  /// #if SDK_ENV === 'auth'
+  AuthIntro = require('../Auth/AuthIntro')
+  LazyAuth = require('../Auth/Lazy')
+  /// #endif
 
   return {
     welcome: [Welcome],

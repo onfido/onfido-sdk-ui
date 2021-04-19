@@ -103,7 +103,7 @@ export class AuthCheckProcessor {
             this.success = true
 
             faceScanResultCallback.succeed()
-            this.nextStep()
+            // this.nextStep()
           } else if (responseObj.success === false) {
             this.success = false
 
@@ -114,7 +114,7 @@ export class AuthCheckProcessor {
 
             console.log('Unexpected API response, cancelling out.')
             faceScanResultCallback.cancel()
-            this.nextStep()
+            // this.nextStep()
           }
 
           this.events?.emit('complete', {
@@ -128,7 +128,7 @@ export class AuthCheckProcessor {
             'Exception while handling API response, cancelling out.'
           this.events?.emit('error', { type: 'exception', message })
           faceScanResultCallback.cancel()
-          this.nextStep()
+          // this.nextStep()
         }
       }
     }
@@ -154,16 +154,6 @@ export class AuthCheckProcessor {
     //
     const jsonStringToUpload = JSON.stringify(parameters)
     this.latestNetworkRequest.send(jsonStringToUpload)
-
-    //
-    // Part 9:  For better UX, update the User if the upload is taking a while.  You are free to customize and enhance this behavior to your liking.
-    //
-    setTimeout(() => {
-      if (this.latestNetworkRequest.readyState === XMLHttpRequest.DONE) {
-        return
-      }
-      faceScanResultCallback.uploadMessageOverride('Still Uploading...')
-    }, 6000)
   }
 
   //
@@ -173,13 +163,6 @@ export class AuthCheckProcessor {
     //
     // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after you signal the FaceTec SDK with success() or cancel().
     // Calling a custom function on the Sample App Controller is done for demonstration purposes to show you that here is where you get control back from the FaceTec SDK.
-    //
-    // this.sampleAppControllerReference.onComplete()
     console.log('complete!')
   }
-
-  //
-  // DEVELOPER NOTE:  This public convenience method is for demonstration purposes only so the Sample App can get information about what is happening in the processor.
-  // In your code, you may not even want or need to do this.
-  //
 }

@@ -28,9 +28,9 @@ const PRODUCTION_BUILD = NODE_ENV !== 'development'
 
 const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 
-const SDK_ENV = process.env.SDK_ENV.toLowerCase() || ''
+const SDK_ENV = process.env.SDK_ENV || 'idv'
 
-const baseRules = (hasAuth = false) => {
+const baseRules = (hasAuth = false, bundle) => {
   console.log(hasAuth)
   return [
     {
@@ -44,9 +44,10 @@ const baseRules = (hasAuth = false) => {
         resolve('node_modules/strip-ansi'),
         resolve('node_modules/ansi-regex'),
       ],
-      ...(!hasAuth && {
-        exclude: [resolve('src/components/Auth'), resolve('core-sdk')],
-      }),
+      ...(!hasAuth &&
+        bundle === 'npm' && {
+          exclude: [resolve('src/components/Auth'), resolve('core-sdk')],
+        }),
     },
   ]
 }
@@ -212,42 +213,52 @@ const formatDefineHash = (defineHash) =>
   )
 const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
-const basePlugins = (bundle_name) => [
-  new Visualizer({
-    filename: `./reports/statistics.html`,
-  }),
-  new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
-    openAnalyzer: false,
-    reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}${
-      bundle_name !== 'npm' ? '_dist' : ''
-    }_size.html`,
-    defaultSizes: 'gzip',
-  }),
-  new webpack.NoEmitOnErrorsPlugin(),
-  new webpack.DefinePlugin(
-    formatDefineHash({
-      ...CONFIG,
-      NODE_ENV,
-      SDK_ENV,
-      PRODUCTION_BUILD,
-      SDK_VERSION: packageJson.version,
-      // We use a Base 32 version string for the cross-device flow, to make URL
-      // string support easier...
-      // ref: https://en.wikipedia.org/wiki/Base32
-      // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
-      // the release script 🤖
-      BASE_32_VERSION: 'BW',
-      PRIVACY_FEATURE_ENABLED: false,
-      JWT_FACTORY: CONFIG.JWT_FACTORY,
-      US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
-      CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
-      SDK_TOKEN_FACTORY_SECRET,
-      WOOPRA_WINDOW_KEY,
-      WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`,
-    })
-  ),
-]
+const basePlugins = (bundle_name) => {
+  console.log(SDK_ENV)
+  return [
+    ...(SDK_ENV === 'idv' && bundle_name === 'npm'
+      ? [
+          new webpack.IgnorePlugin({
+            resourceRegExp: /^\.\/Auth$/,
+            contextRegExp: /components$/,
+          }),
+        ]
+      : []),
+    new Visualizer({
+      filename: `./reports/statistics.html`,
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}${
+        bundle_name !== 'npm' ? '_dist' : ''
+      }_size.html`,
+      defaultSizes: 'gzip',
+    }),
+    new webpack.DefinePlugin(
+      formatDefineHash({
+        ...CONFIG,
+        NODE_ENV,
+        SDK_ENV,
+        PRODUCTION_BUILD,
+        SDK_VERSION: packageJson.version,
+        // We use a Base 32 version string for the cross-device flow, to make URL
+        // string support easier...
+        // ref: https://en.wikipedia.org/wiki/Base32
+        // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
+        // the release script 🤖
+        BASE_32_VERSION: 'BW',
+        PRIVACY_FEATURE_ENABLED: false,
+        JWT_FACTORY: CONFIG.JWT_FACTORY,
+        US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
+        CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
+        SDK_TOKEN_FACTORY_SECRET,
+        WOOPRA_WINDOW_KEY,
+        WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`,
+      })
+    ),
+  ]
+}
 
 const baseConfig = {
   mode: PRODUCTION_BUILD ? 'production' : 'development',
@@ -415,7 +426,7 @@ const configNpmLib = (bundle_name = '') => ({
   },
   module: {
     rules: [
-      ...baseRules(bundle_name === 'auth'),
+      ...baseRules(bundle_name === 'auth', 'npm'),
       ...baseStyleRules({
         disableExtractToFile: true,
         withSourceMap: false,

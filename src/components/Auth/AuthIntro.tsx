@@ -19,10 +19,6 @@ const Intro: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
         title={translate('auth_intro.title')}
         subTitle={translate('auth_intro.subtitle')}
       />
-      {/* <InstructionsPure
-        listScreenReaderText={translate('selfie_intro.list_accessibility')}
-        instructions={instructions}
-      /> */}
       <h3>{translate('auth_intro.instructions.oval')}</h3>
       <h3>{translate('auth_intro.instructions.eyes')}</h3>
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
