@@ -13,6 +13,7 @@ import {
 
 let jwtToken = null
 
+const LANGUAGE_CODE = 'en-US' // NOTE: important for automation - the format (BCP-47 IIRC) matters!
 const TEST_VIDEO_DATA = {
   challengeData: {
     challenges: [
@@ -28,7 +29,7 @@ const TEST_VIDEO_DATA = {
     id: 'test-challenge-data',
     switchSeconds: 2021,
   },
-  language: 'en_US',
+  language: LANGUAGE_CODE,
   sdkMetadata: {},
 }
 
@@ -53,7 +54,7 @@ describe('API uploadLiveVideo endpoint', () => {
       { file_name: 'blob' },
       { file_type: testFileType },
       { challenge: TEST_VIDEO_DATA.challengeData.challenges },
-      { languages: [{ source: 'sdk', language_code: 'en_US' }] },
+      { languages: [{ source: 'sdk', language_code: LANGUAGE_CODE }] },
       ...COMMON_FILE_UPLOAD_PROPERTIES,
     ]
     expect.assertions(expectedProperties.length)
