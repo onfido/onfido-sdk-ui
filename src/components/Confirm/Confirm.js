@@ -112,8 +112,13 @@ class Confirm extends Component {
   }
 
   onApiSuccess = (apiResponse) => {
-    const { method, nextStep, actions } = this.props
+    const { videoCapture, method, nextStep, actions } = this.props
     const { capture } = this.state
+
+    // Multi-frame capture
+    if (capture.multiFrameCaptured) {
+      console.log({ videoCapture, apiResponse })
+    }
 
     const duration = Math.round(performance.now() - this.startTime)
     sendEvent('Completed upload', { duration, method })
@@ -243,11 +248,6 @@ class Confirm extends Component {
         this.onSubmitCallback(data, CALLBACK_TYPES.document)
       else {
         uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
-
-        // Multi-frame capture
-        if (capture.multiFrameCaptured) {
-          console.log(this.props.videoCapture)
-        }
       }
     } else if (variant === 'video') {
       const data = { challengeData, blob, language, sdkMetadata }
