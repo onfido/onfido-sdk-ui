@@ -30,8 +30,7 @@ const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 
 const SDK_ENV = process.env.SDK_ENV || 'idv'
 
-const baseRules = (hasAuth = false, bundle) => {
-  console.log(hasAuth)
+const baseRules = () => {
   return [
     {
       test: /\.(js|ts)x?$/,
@@ -44,10 +43,6 @@ const baseRules = (hasAuth = false, bundle) => {
         resolve('node_modules/strip-ansi'),
         resolve('node_modules/ansi-regex'),
       ],
-      ...(!hasAuth &&
-        bundle === 'npm' && {
-          exclude: [resolve('src/components/Auth'), resolve('core-sdk')],
-        }),
     },
   ]
 }
@@ -213,26 +208,17 @@ const formatDefineHash = (defineHash) =>
   )
 const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
-const basePlugins = (bundle_name) => {
-  console.log(SDK_ENV)
+const basePlugins = (bundle_name = '') => {
   return [
-    ...(SDK_ENV === 'idv' && bundle_name === 'npm'
-      ? [
-          new webpack.IgnorePlugin({
-            resourceRegExp: /^\.\/Auth$/,
-            contextRegExp: /components$/,
-          }),
-        ]
-      : []),
     new Visualizer({
       filename: `./reports/statistics.html`,
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false,
-      reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}${
-        bundle_name !== 'npm' ? '_dist' : ''
-      }_size.html`,
+      reportFilename: `${__dirname}/dist/reports/bundle_${
+        bundle_name === 'npm' ? 'npm_size.html' : `${SDK_ENV}_dist_size.html`
+      }`,
       defaultSizes: 'gzip',
     }),
     new webpack.DefinePlugin(
@@ -302,26 +288,26 @@ const baseConfig = {
   devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-cheap-source-map',
 }
 
-const configDist = (bundle_name = '') => ({
+const configDist = () => ({
   ...baseConfig,
 
   entry: {
-    [`onfido${bundle_name}`]: './index.tsx',
+    [`onfido${SDK_ENV}`]: './index.tsx',
     demo: './demo/demo.tsx',
     previewer: './demo/previewer.tsx',
   },
 
   output: {
-    library: `Onfido${bundle_name}`,
+    library: `Onfido${SDK_ENV}`,
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
     publicPath: CONFIG.PUBLIC_PATH,
     filename: '[name].min.js',
-    chunkFilename: `onfido${bundle_name}.[name].min.js`,
+    chunkFilename: `onfido${SDK_ENV}.[name].min.js`,
   },
   module: {
     rules: [
-      ...baseRules(bundle_name === 'auth'),
+      ...baseRules(),
       ...baseStyleRules(),
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
@@ -340,7 +326,7 @@ const configDist = (bundle_name = '') => ({
               sourceMap: true,
               terserOptions: {
                 output: {
-                  preamble: `/* Onfido${bundle_name} SDK ${packageJson.version} */`,
+                  preamble: `/* Onfido${SDK_ENV} SDK ${packageJson.version} */`,
                   comments: '/^!/',
                 },
               },
@@ -361,7 +347,7 @@ const configDist = (bundle_name = '') => ({
   },
 
   plugins: [
-    ...basePlugins(bundle_name || 'IDV'),
+    ...basePlugins(),
     ...(SDK_ENV === 'auth'
       ? [
           new CopyPlugin({
@@ -376,7 +362,7 @@ const configDist = (bundle_name = '') => ({
       : []),
     new MiniCssExtractPlugin({
       filename: 'style.css',
-      chunkFilename: `onfido${bundle_name}.[name].css`,
+      chunkFilename: `onfido${SDK_ENV}.[name].css`,
     }),
     new HtmlWebpackPlugin({
       template: './demo/demo.ejs',
@@ -416,7 +402,7 @@ const configDist = (bundle_name = '') => ({
   },
 })
 
-const configNpmLib = (bundle_name = '') => ({
+const configNpmLib = () => ({
   ...baseConfig,
   name: 'npm-library',
   output: {
@@ -426,7 +412,7 @@ const configNpmLib = (bundle_name = '') => ({
   },
   module: {
     rules: [
-      ...baseRules(bundle_name === 'auth', 'npm'),
+      ...baseRules(),
       ...baseStyleRules({
         disableExtractToFile: true,
         withSourceMap: false,
@@ -451,4 +437,4 @@ const configNpmLib = (bundle_name = '') => ({
 
 const smp = new SpeedMeasurePlugin()
 
-export default [smp.wrap(configDist(SDK_ENV)), configNpmLib(SDK_ENV)]
+export default [smp.wrap(configDist()), configNpmLib()]
