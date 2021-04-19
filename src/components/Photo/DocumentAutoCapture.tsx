@@ -26,6 +26,7 @@ type Props = {
   onError: () => void
   onValidCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
+  renderTitle?: h.JSX.Element | null
   token?: string
   triggerOnError: ErrorCallback
   urls: UrlsConfig
