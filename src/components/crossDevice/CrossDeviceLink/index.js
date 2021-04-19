@@ -350,9 +350,9 @@ class CrossDeviceLinkUI extends Component {
                   style[view.className]
                 )}
                 ref={(node) => (this.viewOptionBtn = node)}
-                onClick={() =>
-                  preventDefaultOnClick(this.handleViewOptionSelect(view.id))
-                }
+                onClick={preventDefaultOnClick(() =>
+                  this.handleViewOptionSelect(view.id)
+                )}
                 key={`view_${view.id}`}
               >
                 {translate(view.label)}

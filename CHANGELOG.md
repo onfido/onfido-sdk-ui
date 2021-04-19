@@ -10,6 +10,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 
+- Public: Fix Cross Device "Send Link" options link affecting host app/site's page routing on click
+- UI: Fixed flickering country list on SMS country dropdown. The fix involves updating `deviceHasCameraSupport` in the Redux store only when the value changes.
 - Internal: Fix Liveness Video upload payload to /live_videos API endpoint missing `challenge_switch_at` property and value
 - Internal: Fix incorrect format of `language_code` value in Liveness Video upload payload to /live_videos API endpoint
 
