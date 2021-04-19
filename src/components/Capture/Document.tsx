@@ -35,7 +35,7 @@ import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 const EXCEPTIONS = {
   DOC_TYPE_NOT_PROVIDED: 'Neither documentType nor poaDocumentType provided',
-  CAPTURE_SIDE_NOT_PROVIDED: 'Capture size was not provided',
+  CAPTURE_SIDE_NOT_PROVIDED: 'Capture side was not provided',
 }
 
 const getDocumentType = (

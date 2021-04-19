@@ -16,6 +16,7 @@ jest.mock('../withCrossDeviceWhenNoCamera')
 const DocumentFrontCapture = withCaptureVariant(Document, { side: 'front' })
 const DocumentBackCapture = withCaptureVariant(Document, { side: 'back' })
 const DocumentVideoCapture = withCaptureVariant(Document, {
+  side: 'front',
   requestedVariant: 'video',
 })
 
@@ -32,6 +33,7 @@ const defaultProps: StepComponentDocumentProps = {
   steps: [{ type: 'document' }],
   trackScreen: jest.fn(),
   triggerOnError: jest.fn(),
+  hasCamera: true,
   ...mockedReduxProps,
 }
 
