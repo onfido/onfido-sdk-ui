@@ -219,7 +219,7 @@ export const objectToFormData = (object: SubmitPayload): FormData => {
   forEach(object, (value, fieldName) => {
     if (
       typeof value === 'string' ||
-      typeof value === 'number' ||
+      typeof value === 'number' || // challenge_switch_at is a numerical value & required for video automation
       value instanceof Blob
     ) {
       formData.append(fieldName, value)
