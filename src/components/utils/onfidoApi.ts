@@ -36,6 +36,7 @@ type UploadDocumentPayload = {
 } & UploadPayload
 
 type UploadDocumentVideoMediaPayload = {
+  documentId: string
   file: Blob
 } & UploadPayload
 
@@ -111,10 +112,11 @@ export const uploadDocumentVideoMedia = (
   onSuccess?: SuccessCallback<DocumentImageResponse>,
   onError?: ErrorCallback
 ): Promise<DocumentImageResponse> => {
-  const { sdkMetadata, ...other } = payload
+  const { sdkMetadata, documentId, ...other } = payload
 
-  const data: SubmitPayload = {
+  const data = {
     ...other,
+    document_id: documentId,
     sdk_metadata: JSON.stringify(sdkMetadata),
   }
 
@@ -349,6 +351,8 @@ const sendFile = <T>(
     sdk_source: 'onfido_web_sdk',
     sdk_version: process.env.SDK_VERSION,
   }
+
+  console.log(payload)
 
   const requestParams: HttpRequestParams = {
     payload: objectToFormData(payload),

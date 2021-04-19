@@ -3,6 +3,7 @@ import { trackException, sendEvent } from '../../Tracker'
 import { isOfMimeType, mimeType } from '~utils/blob'
 import {
   uploadDocument,
+  uploadDocumentVideoMedia,
   uploadLivePhoto,
   uploadFaceVideo,
   sendMultiframeSelfie,
@@ -112,13 +113,8 @@ class Confirm extends Component {
   }
 
   onApiSuccess = (apiResponse) => {
-    const { videoCapture, method, nextStep, actions } = this.props
+    const { method, nextStep, actions } = this.props
     const { capture } = this.state
-
-    // Multi-frame capture
-    if (capture.multiFrameCaptured) {
-      console.log({ videoCapture, apiResponse })
-    }
 
     const duration = Math.round(performance.now() - this.startTime)
     sendEvent('Completed upload', { duration, method })
@@ -133,6 +129,38 @@ class Confirm extends Component {
     } else {
       this.setWarning(imageQualityWarning)
     }
+  }
+
+  onUploadDocumentSuccess = (apiResponse) => {
+    const { videoCapture, urls, token, actions } = this.props
+    const { capture } = this.state
+    const url = urls.onfido_api_url
+
+    // Standard document capture or face capture
+    if (!capture.multiFrameCaptured) {
+      this.onApiSuccess(apiResponse)
+      return
+    }
+
+    // Multi-frame document capture
+    const { blob: file, filename, sdkMetadata } = videoCapture
+    const data = {
+      documentId: apiResponse.id,
+      file,
+      filename,
+      sdkMetadata,
+    }
+
+    uploadDocumentVideoMedia(
+      data,
+      url,
+      token,
+      () => {
+        actions.deleteCapture({ method: 'document', variant: 'video' })
+        this.onApiSuccess(apiResponse)
+      },
+      () => this.onApiSuccess(apiResponse)
+    )
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
@@ -247,7 +275,13 @@ class Confirm extends Component {
       if (isDecoupledFromAPI)
         this.onSubmitCallback(data, CALLBACK_TYPES.document)
       else {
-        uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+        uploadDocument(
+          data,
+          url,
+          token,
+          this.onUploadDocumentSuccess,
+          this.onApiError
+        )
       }
     } else if (variant === 'video') {
       const data = { challengeData, blob, language, sdkMetadata }
@@ -284,7 +318,13 @@ class Confirm extends Component {
         })
 
         if (callbackName === CALLBACK_TYPES.document) {
-          uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+          uploadDocument(
+            data,
+            url,
+            token,
+            this.onUploadDocumentSuccess,
+            this.onApiError
+          )
           return
         }
 
