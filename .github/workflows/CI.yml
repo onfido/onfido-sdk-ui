@@ -25,21 +25,19 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      # - name: Use Docker
-      #   using: 'docker'
-      #   image: 'Dockerfile'
-      #   args:
-      #     - ${{ inputs.who-to-greet }}
-      # - name: Before Install
-      #   run:
-      #     tmpdaemon=$(mktemp)
-      #     sudo jq '."registry-mirrors" += ["https://mirror.gcr.io"]' /etc/docker/daemon.json > $tmpdaemon
-      #     sudo mv $tmpdaemon /etc/docker/daemon.json
-      #     sudo systemctl daemon-reload
-      #     sudo service docker restart
-      #     chmod ugo+x ./test/scripts/setup_test_environment.sh
-      #     sudo ./test/scripts/setup_test_environment.sh
-      #     docker system info
+      - name: Use Docker
+        using: 'docker'
+        image: 'Dockerfile'
+      - name: Before Install
+        run:
+          tmpdaemon=$(mktemp)
+          sudo jq '."registry-mirrors" += ["https://mirror.gcr.io"]' /etc/docker/daemon.json > $tmpdaemon
+          sudo mv $tmpdaemon /etc/docker/daemon.json
+          sudo systemctl daemon-reload
+          sudo service docker restart
+          chmod ugo+x ./test/scripts/setup_test_environment.sh
+          sudo ./test/scripts/setup_test_environment.sh
+          docker system info
 
       - name: Install Dependencies
         run: npm --production=false install
