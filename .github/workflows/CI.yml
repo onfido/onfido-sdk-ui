@@ -42,7 +42,7 @@ jobs:
       #     docker system info
 
       - name: Install Dependencies
-        run: npm --production=false ci
+        run: npm --production=false install
     
   
 
