@@ -35,9 +35,11 @@ console.log('SDK_ENV', SDK_ENV)
 if (process.env.SDK_ENV === 'auth') {
   try {
     import('../Auth/AuthIntro')
-      .then((auth) => (AuthIntro = auth))
+      .then((auth) => (AuthIntro = auth.default))
       .catch(() => {})
-    import('../Auth/Lazy').then((lazy) => (LazyAuth = lazy)).catch(() => null)
+    import('../Auth/Lazy')
+      .then((lazy) => (LazyAuth = lazy.default))
+      .catch(() => null)
   } catch (e) {
     console.log('there was an error')
   }
@@ -123,10 +125,12 @@ const buildCaptureStepComponents = (
 
   return {
     welcome: [Welcome],
-    userConsent: [UserConsent],
+    ...(SDK_ENV !== 'auth' && { userConsent: [UserConsent] }),
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     //@ts-ignore
-    ...(SDK_ENV === 'auth' && { auth: [AuthIntro, LazyAuth] }),
+    ...(SDK_ENV === 'auth' && {
+      auth: [AuthIntro, UserConsent, LazyAuth],
+    }),
     document: buildDocumentComponents(
       documentStep,
       documentType,

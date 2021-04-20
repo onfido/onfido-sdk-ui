@@ -14,7 +14,8 @@ export default class AuthCapture extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (
       Object.keys(prevState.authConfig).length === 0 &&
-      Object.keys(this.state.authConfig).length > 0
+      Object.keys(this.state.authConfig).length > 0 &&
+      FaceTecSDK.getStatus() === 0
     ) {
       this.initFaceTec()
     }
@@ -28,7 +29,6 @@ export default class AuthCapture extends Component {
       device_key_identifier,
       public_key,
     } = this.state.authConfig
-    console.log('trying to init...')
     FaceTecSDK.initializeInProductionMode(
       production_key_text,
       device_key_identifier,
@@ -40,17 +40,23 @@ export default class AuthCapture extends Component {
             sessionState: 'Initialized successfuly',
             sessionInit: true,
           })
+          this.onLivenessCheckPressed()
         }
       }
     )
   }
 
   componentDidMount() {
-    FaceTecSDK.setCustomization(Config.getAuthCustomization(FaceTecSDK, false))
-    FaceTecSDK.setDynamicDimmingCustomization(
-      Config.getAuthCustomization(FaceTecSDK, true)
-    )
-    this.getConfig(this)
+    console.log(FaceTecSDK.getStatus())
+    if (FaceTecSDK.getStatus() === 0) {
+      FaceTecSDK.setCustomization(
+        Config.getAuthCustomization(FaceTecSDK, false)
+      )
+      FaceTecSDK.setDynamicDimmingCustomization(
+        Config.getAuthCustomization(FaceTecSDK, true)
+      )
+      this.getConfig(this)
+    } else this.onLivenessCheckPressed()
   }
 
   getConfig = (ref) => {
@@ -85,26 +91,5 @@ export default class AuthCapture extends Component {
         this.props.events
       )
     }
-  }
-
-  render() {
-    return (
-      <div>
-        <div className="wrapping-box-container">
-          <div id="controls" className="controls">
-            <Button
-              disabled={!this.state.sessionInit}
-              id="liveness-button"
-              variant="primary"
-              kind="action"
-              onClick={() => this.onLivenessCheckPressed()}
-            >
-              {this.props.translate('auth_intro.button')}
-            </Button>
-            <p id="status">{String(this.state.sessionState)}</p>
-          </div>
-        </div>
-      </div>
-    )
   }
 }

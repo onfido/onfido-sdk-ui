@@ -9,7 +9,7 @@ export const FaceTecStrings = (translate) => ({
   FaceTec_feedback_move_away_web: translate(feedback('move_back')),
   FaceTec_feedback_move_phone_closer: translate(feedback('move_close')),
   FaceTec_feedback_move_phone_to_eye_level: translate(feedback('eye_level')),
-  FaceTec_feedback_move_to_eye_level_web: 'Look Straight Into Camera',
+  FaceTec_feedback_move_to_eye_level_web: translate(feedback('eye_level')),
   FaceTec_feedback_face_not_looking_straight_ahead: translate(
     feedback('not_looking_straight_ahead')
   ),
@@ -22,20 +22,16 @@ export const FaceTecStrings = (translate) => ({
   FaceTec_feedback_move_web_even_closer: translate(feedback('move_closer')),
   FaceTec_feedback_use_even_lighting: translate(feedback('even_lighting')),
 
-  FaceTec_instructions_header_ready: translate(
-    'auth_capture.capture_start.title'
+  FaceTec_instructions_header_ready_desktop: translate(
+    'auth_capture_start.title'
   ),
-  FaceTec_instructions_message_ready: translate(
-    'auth_capture.capture_start.body'
+  FaceTec_instructions_message_ready_desktop: translate(
+    'auth_capture_start.body'
   ),
-  FaceTec_action_im_ready: translate('auth_capture.start.button_primary'),
+  FaceTec_action_im_ready: translate('auth_capture_start.button_primary'),
 
-  FaceTec_result_facescan_upload_message: translate(
-    'auth_capture.progress_loader'
-  ),
-  FaceTec_result_idscan_upload_message: translate(
-    'auth_capture.progress_loader'
-  ),
+  FaceTec_result_facescan_upload_message: translate('auth_progress.loader'),
+  FaceTec_result_idscan_upload_message: translate('auth_progress.loader'),
 
   FaceTec_retry_header: translate('auth_retry.title'),
   FaceTec_retry_subheader_message: translate('auth_retry.subtitle'),
@@ -81,30 +77,8 @@ export const FaceTecStrings = (translate) => ({
     'Before we begin, please click the button below to open full screen mode',
   FaceTec_enter_fullscreen_action: 'Open Full Screen',
 
-  FaceTec_initializing_camera: 'Starting Camera...',
-  FaceTec_initializing_camera_still_loading: 'Encrypting Camera Feed...',
-
-  FaceTec_idscan_type_selection_header:
-    'Please Select Your<br>ID Document Type',
-  FaceTec_action_select_id_card: 'PHOTO ID',
-  FaceTec_action_select_passport: 'PASSPORT',
-  FaceTec_idscan_capture_id_card_front_instruction_message:
-    'Show Front of Photo ID',
-  FaceTec_idscan_capture_id_card_back_instruction_message:
-    'Show Back of Photo ID',
-  FaceTec_idscan_capture_passport_instruction_message:
-    'Show Passport Photo Page',
-  FaceTec_action_take_photo: 'TAKE PHOTO',
-  FaceTec_idscan_review_id_card_front_instruction_message:
-    'Confirm Photo is Clear & Legible',
-  FaceTec_idscan_review_id_card_back_instruction_message:
-    'Confirm Photo is Clear & Legible',
-  FaceTec_idscan_review_passport_instruction_message:
-    'Confirm Photo is Clear & Legible',
-  FaceTec_action_accept_photo: 'ACCEPT',
-  FaceTec_action_retake_photo: 'RETAKE',
-  FaceTec_result_idscan_unsuccess_message:
-    "ID Photo<br/>Did Not Match<br>User's Face",
+  FaceTec_initializing_camera: 'Starting Camera',
+  FaceTec_initializing_camera_still_loading: 'Encrypting Camera Feed',
 
   FaceTec_result_success_message: 'Success!',
 })

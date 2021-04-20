@@ -1,4 +1,55 @@
 {
+    "auth_intro": {
+        "title": "Welcome back!",
+        "subtitle": "To make sure it’s you, please scan your face",
+        "line1": "You’ll be asked to keep your face within an oval frame.",
+        "line2": "Make sure your eyes are clearly visible.",
+        "button_primary": "Start camera"
+    },
+    "auth_accessibility": {
+        "back_button": "Abbrechen"
+    },
+    "auth_capture_start": {
+        "body": "Positionieren Sie Ihr Gesicht innerhalb des ovalen Rahmens",
+        "button_primary": "Starten Sie mit dem Scannen des Gesichts",
+        "title": "Starten Sie mit dem Scannen des Gesichts"
+    },
+    "auth_capture": {
+        "feedback": {
+            "center_face": "Positionieren Sie Ihr Gesicht im Rahmen",
+            "even_lighting": "Stellen Sie sicher, dass Ihre Beleuchtung gleichmäßig ist",
+            "eye_level": "Halten Sie Ihre Kamera auf Augenhöhe",
+            "face_not_found": "Stellen Sie sicher, dass Ihr Gesicht sichtbar ist",
+            "head_not_upright": "Halten Sie Ihren Kopf aufrecht",
+            "move_back": "Gehen sie jetzt zurück",
+            "move_close": "Rücken Sie jetzt näher heran",
+            "move_closer": "Rücken Sie näher heran",
+            "not_looking_straight": "Schauen Sie nach vorne",
+            "steady": "Halten Sie still"
+        }
+    },
+    "auth_permission_denied": {
+        "body_cam": "Um fortzufahren, müssen Sie die Kameraberechtigungen in Ihren Geräteeinstellungen aktivieren.",
+        "button_primary_cam": "Einstellungen starten"
+    },
+    "auth_permission": {
+        "body_cam": "Um fortzufahren, müssen Sie bei Aufforderung die Kameraberechtigungen aktivieren.",
+        "button_primary_cam": "Kamera aktivieren",
+        "title_cam": "Zugriff auf Kamera erlauben"
+    },
+    "auth_progress": {
+        "loader": "Hochladen"
+    },
+    "auth_retry": {
+        "button_primary": "Kamera starten",
+        "list_item_eyes_visible": "Stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind.",
+        "list_item_face_in_frame": "Positionieren Sie Ihr Gesicht innerhalb des ovalen Rahmens.",
+        "subtitle": "Wir konnten Ihr Gesicht nicht ordnungsgemäß erfassen",
+        "title": "Scannen Sie Ihr Gesicht erneut"
+    },
+    "auth_upload_pass": {
+        "body": "Hochladen erfolgreich"
+    },
     "country_select": {
         "alert_dropdown": {
             "country_not_found": "Land nicht gefunden"

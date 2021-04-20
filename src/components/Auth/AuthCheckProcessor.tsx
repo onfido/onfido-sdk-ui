@@ -103,7 +103,7 @@ export class AuthCheckProcessor {
             this.success = true
 
             faceScanResultCallback.succeed()
-            // this.nextStep()
+            this.nextStep()
           } else if (responseObj.success === false) {
             this.success = false
 
@@ -114,13 +114,14 @@ export class AuthCheckProcessor {
 
             console.log('Unexpected API response, cancelling out.')
             faceScanResultCallback.cancel()
-            // this.nextStep()
+            this.nextStep()
           }
 
           this.events?.emit('complete', {
             type: 'complete',
             ...responseObj,
           })
+          FaceTecSDK.unload(() => {})
         } catch {
           // CASE:  Parsing the response into JSON failed --> You define your own API contracts with yourself and may choose to do something different here based on the error.  Solid server-side code should ensure you don't get to this case.
           this.success = null
@@ -128,7 +129,8 @@ export class AuthCheckProcessor {
             'Exception while handling API response, cancelling out.'
           this.events?.emit('error', { type: 'exception', message })
           faceScanResultCallback.cancel()
-          // this.nextStep()
+          this.nextStep()
+          FaceTecSDK.unload(() => {})
         }
       }
     }

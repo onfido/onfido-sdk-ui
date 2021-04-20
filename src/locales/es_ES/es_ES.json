@@ -1,4 +1,55 @@
 {
+    "auth_intro": {
+        "title": "Welcome back!",
+        "subtitle": "To make sure it's you, please scan your face",
+        "line1": "You'll be asked to keep your face within an oval frame.",
+        "line2": "Make sure your eyes are clearly visible.",
+        "button_primary": "Start camera"
+    },
+    "auth_accessibility": {
+        "back_button": "Cancelar"
+    },
+    "auth_capture_start": {
+        "body": "Coloque su rostro dentro del marco ovalado",
+        "button_primary": "Iniciar escaneo del rostro",
+        "title": "Iniciar escaneo del rostro"
+    },
+    "auth_capture": {
+        "feedback": {
+            "center_face": "Coloque su rostro en el marco",
+            "even_lighting": "Asegúrese de que la iluminación sea uniforme",
+            "eye_level": "Mantenga la cámara a la altura de los ojos",
+            "face_not_found": "Asegúrese que su cara sea visible",
+            "head_not_upright": "Mantenga la cabeza erguida",
+            "move_back": "Ahora muévase hacia atrás",
+            "move_close": "Ahora acérquese",
+            "move_closer": "Acérquese",
+            "not_looking_straight": "Mire hacia adelante",
+            "steady": "No se mueva"
+        }
+    },
+    "auth_permission_denied": {
+        "body_cam": "Para continuar, deberá conceder acceso a la cámara desde la configuración de su móvil.",
+        "button_primary_cam": "Acceder a la configuración"
+    },
+    "auth_permission": {
+        "body_cam": "Para continuar, deberá conceder acceso a la cámara cuando se le solicite.",
+        "button_primary_cam": "Conceder acceso a la cámara",
+        "title_cam": "Permitir acceso a la cámara"
+    },
+    "auth_progress": {
+        "loader": "Cargando"
+    },
+    "auth_retry": {
+        "button_primary": "Iniciar cámara",
+        "list_item_eyes_visible": "Asegúrese de que sus ojos se vean con claridad.",
+        "list_item_face_in_frame": "Mantenga su rostro dentro del marco ovalado.",
+        "subtitle": "No hemos podido capturar su rostro correctamente",
+        "title": "Vuelva a escanear su rostro"
+    },
+    "auth_upload_pass": {
+        "body": "Carga realizada correctamente"
+    },
     "country_select": {
         "alert_dropdown": {
             "country_not_found": "País no encontrado"

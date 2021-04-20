@@ -13,10 +13,11 @@ Alternative import styles:
 "commonjs" import style
 const Onfido = require('../index')
 "es" import style
-*/
 import * as Onfido from '../index'
+*/
 
-// const Onfido = window.Onfido
+const Onfido = window.Onfido
+
 type Props = {
   options: SdkOptions | UIConfigs
   regionCode: ServerRegions
@@ -43,10 +44,8 @@ const SdkMount: FunctionComponent<Props> = ({ options, regionCode, url }) => {
       )
     }
 
-    console.log(
-      'Calling `Onfido.iaaaanit` with the following options:',
-      options
-    )
+    console.log('Calling `Onfido.init` with the following options:', options)
+
     if (mountEl.current) {
       const sdk = Onfido.init({
         ...options,

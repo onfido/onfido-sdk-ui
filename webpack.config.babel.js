@@ -13,7 +13,6 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
 import { dirname, relative, resolve, basename, path } from 'path'
 import nodeExternals from 'webpack-node-externals'
-import { ProductionKeyText } from './Auth_SDK_Text.js'
 const CopyPlugin = require('copy-webpack-plugin')
 
 // NODE_ENV can be one of: development | staging | test | production
@@ -116,19 +115,6 @@ const baseStyleRules = ({
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
 const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
 
-const PublicFaceMapEncryptionKey =
-  '-----BEGIN PUBLIC KEY-----\n' +
-  'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5PxZ3DLj+zP6T6HFgzzk\n' +
-  'M77LdzP3fojBoLasw7EfzvLMnJNUlyRb5m8e5QyyJxI+wRjsALHvFgLzGwxM8ehz\n' +
-  'DqqBZed+f4w33GgQXFZOS4AOvyPbALgCYoLehigLAbbCNTkeY5RDcmmSI/sbp+s6\n' +
-  'mAiAKKvCdIqe17bltZ/rfEoL3gPKEfLXeN549LTj3XBp0hvG4loQ6eC1E1tRzSkf\n' +
-  'GJD4GIVvR+j12gXAaftj3ahfYxioBH7F7HQxzmWkwDyn3bqU54eaiB7f0ftsPpWM\n' +
-  'ceUaqkL2DZUvgN0efEJjnWy5y1/Gkq5GGWCROI9XG/SwXJ30BbVUehTbVcD70+ZF\n' +
-  '8QIDAQAB\n' +
-  '-----END PUBLIC KEY-----'
-
-const AUTH_PUBLIC_TEXT = ProductionKeyText
-
 const PROD_CONFIG = {
   ONFIDO_API_URL: 'https://api.onfido.com',
   ONFIDO_SDK_URL: 'https://sdk.onfido.com',
@@ -142,9 +128,7 @@ const PROD_CONFIG = {
   PUBLIC_PATH: `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
   OLD_AUTH: 'https://edge.api.onfido.com/v3',
-  AUTH_ENCRYPTION_KEY: PublicFaceMapEncryptionKey,
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
-  AUTH_PUBLIC_TEXT,
   WOOPRA_DOMAIN,
 }
 
@@ -180,7 +164,6 @@ const STAGING_CONFIG = {
   PUBLIC_PATH: '/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
-  AUTH_PUBLIC_TEXT,
 }
 
 const DEVELOPMENT_CONFIG = {
@@ -189,7 +172,6 @@ const DEVELOPMENT_CONFIG = {
   MOBILE_URL: '/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
-  AUTH_PUBLIC_TEXT,
 }
 
 const CONFIG_MAP = {
@@ -208,43 +190,42 @@ const formatDefineHash = (defineHash) =>
   )
 const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
-const basePlugins = (bundle_name = '') => {
-  return [
-    new Visualizer({
-      filename: `./reports/statistics.html`,
-    }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      openAnalyzer: false,
-      reportFilename: `${__dirname}/dist/reports/bundle_${
-        bundle_name === 'npm' ? 'npm_size.html' : `${SDK_ENV}_dist_size.html`
-      }`,
-      defaultSizes: 'gzip',
-    }),
-    new webpack.DefinePlugin(
-      formatDefineHash({
-        ...CONFIG,
-        NODE_ENV,
-        SDK_ENV,
-        PRODUCTION_BUILD,
-        SDK_VERSION: packageJson.version,
-        // We use a Base 32 version string for the cross-device flow, to make URL
-        // string support easier...
-        // ref: https://en.wikipedia.org/wiki/Base32
-        // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
-        // the release script 🤖
-        BASE_32_VERSION: 'BW',
-        PRIVACY_FEATURE_ENABLED: false,
-        JWT_FACTORY: CONFIG.JWT_FACTORY,
-        US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
-        CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
-        SDK_TOKEN_FACTORY_SECRET,
-        WOOPRA_WINDOW_KEY,
-        WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`,
-      })
-    ),
-  ]
-}
+const basePlugins = (bundle_name = '') => [
+  new Visualizer({
+    filename: `./reports/statistics.html`,
+  }),
+  new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    openAnalyzer: false,
+    reportFilename: `${__dirname}/dist/reports/bundle_${
+      bundle_name === 'npm' ? 'npm_size.html' : `${SDK_ENV}_dist_size.html`
+    }`,
+    defaultSizes: 'gzip',
+  }),
+  new webpack.NoEmitOnErrorsPlugin(),
+  new webpack.DefinePlugin(
+    formatDefineHash({
+      ...CONFIG,
+      NODE_ENV,
+      SDK_ENV,
+      PRODUCTION_BUILD,
+      SDK_VERSION: packageJson.version,
+      // We use a Base 32 version string for the cross-device flow, to make URL
+      // string support easier...
+      // ref: https://en.wikipedia.org/wiki/Base32
+      // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
+      // the release script 🤖
+      BASE_32_VERSION: 'CB',
+      PRIVACY_FEATURE_ENABLED: false,
+      JWT_FACTORY: CONFIG.JWT_FACTORY,
+      US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
+      CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
+      SDK_TOKEN_FACTORY_SECRET,
+      WOOPRA_WINDOW_KEY,
+      WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`,
+    })
+  ),
+]
 
 const baseConfig = {
   mode: PRODUCTION_BUILD ? 'production' : 'development',

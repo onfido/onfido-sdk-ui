@@ -19,11 +19,19 @@ const Intro: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
         title={translate('auth_intro.title')}
         subTitle={translate('auth_intro.subtitle')}
       />
-      <h3>{translate('auth_intro.instructions.oval')}</h3>
-      <h3>{translate('auth_intro.instructions.eyes')}</h3>
+      <div className={style.welcomeAuth} />
+      <div>
+        <p>{translate('auth_intro.line1')}</p>
+        <p>{translate('auth_intro.line2')}</p>
+      </div>
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
-        <Button variant="primary" kind="action" onClick={nextStep}>
-          {translate('auth_intro.button')}
+        <Button
+          variant="primary"
+          kind="action"
+          onClick={nextStep}
+          className={classNames(theme['button-centered'], theme['button-lg'])}
+        >
+          {translate('auth_intro.button_primary')}
         </Button>
       </div>
     </div>
@@ -32,6 +40,5 @@ const Intro: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
 
 export default trackComponent(
   //@ts-ignore
-  compose(localised, withCrossDeviceWhenNoCamera)(Intro),
-  'selfie_intro'
+  compose(localised, withCrossDeviceWhenNoCamera)(Intro)
 )

@@ -144,7 +144,11 @@ export const getInitSdkOptions = (): SdkOptions => {
       ? SAMPLE_LOCALE
       : queryParamToValueString.language
 
-  const steps: Array<StepConfig> = [{ type: 'welcome' }, { type: 'auth' }]
+  const steps: Array<StepConfig> = [
+    { type: 'welcome' },
+    { type: 'userConsent' },
+    { type: 'auth' },
+  ]
 
   if (queryParamToValueString.showUserConsent === 'true') {
     steps.push({ type: 'userConsent' })
