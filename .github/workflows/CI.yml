@@ -3,15 +3,23 @@ name: CI
 on:
   pull_request:
 
+env:
+  BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+  BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+
 jobs:
   mock-server:
     runs-on: ubuntu-latest
+    name: Build the Docker image
+    image: stefaniacardenas/onfido-web-sdk
+    ports:
+      - 8080:8080
     steps:
       - uses: actions/checkout@v2
-      - name: Build the Docker image
-        run: |
-          cd ./test/mock-server
-          docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
+        # run: |
+        #   cd ./test/mock-server
+        #   docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
+        #   docker run -d --init --rm -p 8080:8080 stefaniacardenas/onfido-web-sdk:ui-mock-server
   build:
     runs-on: ubuntu-latest
     needs: [mock-server]
@@ -19,9 +27,10 @@ jobs:
       matrix:
         include:
           - NODE_ENV: test
-          - NODE_ENV: production
+          # - NODE_ENV: production
     steps:
       - uses: actions/checkout@master
+
       - uses: actions/setup-node@v1
         with:
           # Match node version with .nvmrc
@@ -41,8 +50,10 @@ jobs:
       # - name: Run NPM Audit
       #   run: audit-ci --moderate
       - name: Run UI Tests
-        run: chmod ugo+x ./test.sh
-          ./test.sh
+        if: matrix.NODE_ENV == 'test'
+        # uses: nanasess/setup-chromedriver@master
+        run: npm run test:ui
+          npm run test:integration
 # after_success:
 #   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
 #   - chmod ugo+x ./deploy.sh
