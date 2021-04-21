@@ -2,12 +2,12 @@ FROM hayd/deno:1.5.2
 
 EXPOSE 8080
 
-WORKDIR /home/app
+WORKDIR /app
 
 USER deno
 
-COPY *.ts *.pem lock.json /home/app/
-COPY */frontend/* /home/app/frontend/
-RUN deno cache deps.ts --lock=lock.json
+COPY *.ts *.pem lock.json /app/
+
+RUN deno cache /app/deps.ts --lock=lock.json
 
 CMD ["run", "--allow-net", "--allow-read", "--allow-write", "server.ts"]

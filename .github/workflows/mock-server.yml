@@ -9,4 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
-        run: docker build ./test/mock-server/ --file ./test/mock-server/Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
+        run: |
+            cd ./test/mock-server
+            docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
