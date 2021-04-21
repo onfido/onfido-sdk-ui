@@ -4,8 +4,17 @@ on:
   pull_request:
 
 jobs:
+  mock-server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: |
+            cd ./test/mock-server
+            docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
   build:
     runs-on: ubuntu-latest
+    needs: [mock-server]
     strategy:
       matrix:
         include:
@@ -28,23 +37,15 @@ jobs:
 
       - name: Install Dependencies
         # TODO: Change this to use `npm ci`
-        run: npm --production=false install
-      # - name: Before Install
-      #   run:
-      #     tmpdaemon=$(mktemp)
-      #     sudo jq '."registry-mirrors" += ["https://mirror.gcr.io"]' /etc/docker/daemon.json > $tmpdaemon
-      #     sudo mv $tmpdaemon /etc/docker/daemon.json
-      #     sudo systemctl daemon-reload
-      #     sudo service docker restart
-      #     chmod ugo+x ./test/scripts/setup_test_environment.sh
-      #     sudo ./test/scripts/setup_test_environment.sh
-      #     docker system info
-# script:
-#   - if [ "${TRAVIS_PULL_REQUEST}" != "false" ] && [ "${NODE_ENV}" = "test" ]; then npm run mock-server:build; fi
-#   - if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then audit-ci --moderate; fi
-#   - npm run build
-#   - chmod ugo+x ./test.sh
-#   - ./test.sh
+        run: npm --production=false install      
+      # - name: Run NPM Audit
+      #   run: audit-ci --moderate     
+      - name: Run UI Tests
+        run:
+          chmod ugo+x ./test.sh
+          ./test.sh
+
+
 # after_success:
 #   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
 #   - chmod ugo+x ./deploy.sh
