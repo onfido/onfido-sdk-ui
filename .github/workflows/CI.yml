@@ -10,20 +10,13 @@ env:
 jobs:
   mock-server:
     runs-on: ubuntu-latest
-    build: ./
-    container_name: mock-server
-    image: stefaniacardenas/onfido-web-sdk
-    ports:
-      - 8080:8080
-  # mock-server:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #   ports: 8080:8080
-  #   run: |
-  #     cd ./test/mock-server
-  #     docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
-  #     docker run -d --init --rm -p 8080:8080 stefaniacardenas/onfido-web-sdk:ui-mock-server
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: |
+          cd ./test/mock-server
+          docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
+          docker run -d --init --rm -p 8080:8080 stefaniacardenas/onfido-web-sdk:latest
   build:
     runs-on: ubuntu-latest
     needs: [mock-server]
