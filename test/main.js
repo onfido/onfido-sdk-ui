@@ -154,6 +154,7 @@ const printTestInfo = (browser, testCase) => {
 }
 
 const runner = async () => {
+  await waitForMockServer()
   let totalFailures = 0
 
   await eachP(config.tests, async (testCase) => {

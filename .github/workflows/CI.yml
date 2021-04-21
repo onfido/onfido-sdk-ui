@@ -47,7 +47,7 @@ jobs:
       #   run: audit-ci --moderate
       - name: Run UI Tests
         if: matrix.NODE_ENV == 'test'
-        # uses: nanasess/setup-chromedriver@master
+        uses: nanasess/setup-chromedriver@master
         run: npm run test:ui
           npm run test:integration
 # after_success:
