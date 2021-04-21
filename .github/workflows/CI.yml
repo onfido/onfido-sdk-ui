@@ -8,9 +8,18 @@ env:
   BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
 
 jobs:
+  mock-server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: |
+          cd ./test/mock-server
+          docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
+          docker run -d --init --rm -p 8080:8080 stefaniacardenas/onfido-web-sdk:latest
   build:
     runs-on: ubuntu-latest
-    # needs: [mock-server]
+    needs: [mock-server]
     strategy:
       matrix:
         include:
@@ -38,13 +47,9 @@ jobs:
       #   run: audit-ci --moderate
       - name: Run UI Tests
         if: matrix.NODE_ENV == 'test'
-        run: |
-          cd ./test/mock-server
-          docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
-          cd ../..
-          npm run test:ui
+        # uses: nanasess/setup-chromedriver@master
+        run: npm run test:ui
           npm run test:integration
-
 # after_success:
 #   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
 #   - chmod ugo+x ./deploy.sh
