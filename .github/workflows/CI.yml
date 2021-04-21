@@ -25,22 +25,20 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Use Docker
-        using: 'docker'
-        image: 'Dockerfile'
-      - name: Before Install
-        run:
-          tmpdaemon=$(mktemp)
-          sudo jq '."registry-mirrors" += ["https://mirror.gcr.io"]' /etc/docker/daemon.json > $tmpdaemon
-          sudo mv $tmpdaemon /etc/docker/daemon.json
-          sudo systemctl daemon-reload
-          sudo service docker restart
-          chmod ugo+x ./test/scripts/setup_test_environment.sh
-          sudo ./test/scripts/setup_test_environment.sh
-          docker system info
 
       - name: Install Dependencies
+        # TODO: Change this to use `npm ci`
         run: npm --production=false install
+      # - name: Before Install
+      #   run:
+      #     tmpdaemon=$(mktemp)
+      #     sudo jq '."registry-mirrors" += ["https://mirror.gcr.io"]' /etc/docker/daemon.json > $tmpdaemon
+      #     sudo mv $tmpdaemon /etc/docker/daemon.json
+      #     sudo systemctl daemon-reload
+      #     sudo service docker restart
+      #     chmod ugo+x ./test/scripts/setup_test_environment.sh
+      #     sudo ./test/scripts/setup_test_environment.sh
+      #     docker system info
 # script:
 #   - if [ "${TRAVIS_PULL_REQUEST}" != "false" ] && [ "${NODE_ENV}" = "test" ]; then npm run mock-server:build; fi
 #   - if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then audit-ci --moderate; fi
