@@ -10,8 +10,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: |
-            cd ./test/mock-server
-            docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
+          cd ./test/mock-server
+          docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
   build:
     runs-on: ubuntu-latest
     needs: [mock-server]
@@ -37,15 +37,12 @@ jobs:
 
       - name: Install Dependencies
         # TODO: Change this to use `npm ci`
-        run: npm --production=false install      
+        run: npm --production=false install
       # - name: Run NPM Audit
-      #   run: audit-ci --moderate     
+      #   run: audit-ci --moderate
       - name: Run UI Tests
-        run:
-          chmod ugo+x ./test.sh
+        run: chmod ugo+x ./test.sh
           ./test.sh
-
-
 # after_success:
 #   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
 #   - chmod ugo+x ./deploy.sh
