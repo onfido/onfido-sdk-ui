@@ -1,0 +1,14 @@
+name: Docker
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run:
+          cd ./test/mock-server &&
+          docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
