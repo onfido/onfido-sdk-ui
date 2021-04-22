@@ -8,18 +8,19 @@ env:
   BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
 
 jobs:
-  mock-server:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build the Docker image
-        run: |
-          cd ./test/mock-server
-          docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
-          docker run -d --init --rm -p 8080:8080 stefaniacardenas/onfido-web-sdk:latest
+  # cd ./test/mock-server
+  # docker build . --file Dockerfile --tag stefaniacardenas/onfido-web-sdk:latest
+  # docker run -d --init --rm -p 8080:8080 stefaniacardenas/onfido-web-sdk:latest
+  # container:
+  #   runs-on: ubuntu-latest
+  #   services:
+  #     mock-server:
+  #       image: stefaniacardenas/onfido-web-sdk
+  #       ports:
+  #         - 8080/tcp
   build:
     runs-on: ubuntu-latest
-    needs: [mock-server]
+    # needs: [mock-server]
     strategy:
       matrix:
         include:
@@ -27,6 +28,10 @@ jobs:
           # - NODE_ENV: production
     steps:
       - uses: actions/checkout@master
+      - name: Reconfigure git to use HTTP authentication
+        run: >
+          git config --global url."https://github.com/".insteadOf
+          ssh://git@github.com/
       - uses: actions/setup-node@v1
         with:
           # Match node version with .nvmrc
@@ -39,12 +44,21 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
       - name: Install Dependencies
-        # TODO: Change this to use `npm ci`
-        run: npm --production=false install
+        run: npm ci
       # - name: Run NPM Audit
       #   run: audit-ci --moderate
+      - name: Mock Server
+        run: |
+          cd ./test/mock-server
+          docker build -t onfido-web-sdk:ui-mock-server .
+          npm run mock-server:run
+      - name: Connect to mock server
+        env:
+          MOCK_SERVER_URL: https://localhost:8080
+        run: |
+          echo $MOCK_SERVER_URL
+          curl $MOCK_SERVER_URL/api/ping
       - name: Run UI Tests
         if: matrix.NODE_ENV == 'test'
         run: npm run test:ui
