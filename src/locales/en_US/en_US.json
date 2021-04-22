@@ -85,16 +85,16 @@
         "list_item_doc_one": "Document uploaded",
         "list_item_selfie": "Selfie uploaded",
         "list_item_video": "Video uploaded",
-        "subtitle": "We're now ready to verify your identity",
-        "title": "Great, that's everything we need"
+        "subtitle": "We’re now ready to verify your identity",
+        "title": "Great, that’s everything we need"
     },
     "cross_device_error_desktop": {
         "subtitle": "The link only works on mobile devices",
-        "title": "Something's gone wrong"
+        "title": "Something’s gone wrong"
     },
     "cross_device_error_restart": {
-        "subtitle": "You'll need to restart your verification on your computer",
-        "title": "Something's gone wrong"
+        "subtitle": "You’ll need to restart your verification on your computer",
+        "title": "Something’s gone wrong"
     },
     "cross_device_intro": {
         "button_primary": "Get secure link",
@@ -102,7 +102,7 @@
         "list_item_finish": "Check back here to finish the submission",
         "list_item_open_link": "Open the link and complete the tasks",
         "list_item_send_phone": "Send a secure link to your phone",
-        "subtitle": "Here's how to do it:",
+        "subtitle": "Here’s how to do it:",
         "title": "Continue on your phone"
     },
     "cross_device_return": {
@@ -150,7 +150,7 @@
         "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
         "button_id": "Identity card",
         "button_id_detail": "Front and back",
-        "button_license": "Driver's license",
+        "button_license": "Driver’s license",
         "button_license_detail": "Front and back",
         "button_passport": "Passport",
         "button_passport_detail": "Face photo page",
@@ -225,7 +225,7 @@
             },
             "sms_failed": {
                 "instruction": "Copy the link to your phone",
-                "message": "Something's gone wrong"
+                "message": "Something’s gone wrong"
             },
             "sms_overuse": {
                 "instruction": "Copy the link to your phone",
@@ -347,8 +347,8 @@
         "list_matches_signup": "<strong>Matches<\/strong> the address you used on signup",
         "list_most_recent": "Is your most <strong>recent<\/strong> document",
         "list_shows_address": "Shows your <strong>current<\/strong> address",
-        "subtitle": "You'll need a document that:",
-        "title": "Let's verify your %{country} address"
+        "subtitle": "You’ll need a document that:",
+        "title": "Let’s verify your %{country} address"
     },
     "selfie_capture": {
         "alert": {
@@ -359,11 +359,11 @@
             },
             "camera_not_working": {
                 "detail": "It may be disconnected. <fallback>Try using your phone instead<\/fallback>.",
-                "detail_no_fallback": "Make sure your device's camera works",
+                "detail_no_fallback": "Make sure your device’s camera works",
                 "title": "Camera not working"
             },
             "timeout": {
-                "detail": "Remember to press stop when you're done. <fallback>Redo video actions<\/fallback>",
+                "detail": "Remember to press stop when you’re done. <fallback>Redo video actions<\/fallback>",
                 "title": "Looks like you took too long"
             }
         },
@@ -381,7 +381,7 @@
         "list_accessibility": "Tips to take a good selfie",
         "list_item_face_forward": "Face forward and make sure your eyes are clearly visible",
         "list_item_no_glasses": "Remove your glasses, if necessary",
-        "subtitle": "We'll compare it with your document",
+        "subtitle": "We’ll compare it with your document",
         "title": "Take a selfie"
     },
     "sms_sent": {
@@ -389,31 +389,33 @@
         "info_link_expire": "Your link will expire in one hour",
         "info_link_window": "Keep this window open while using your mobile",
         "link": "Resend link",
-        "subtitle": "We've sent a secure link to %{number}",
+        "subtitle": "We’ve sent a secure link to %{number}",
         "subtitle_minutes": "It may take a few minutes to arrive",
         "title": "Check your mobile"
     },
     "switch_phone": {
         "info": "Tips",
         "info_link_expire": "Your mobile link will expire in one hour",
-        "info_link_refresh": "Don't refresh this page",
+        "info_link_refresh": "Don’t refresh this page",
         "info_link_window": "Keep this window open while using your mobile",
         "link": "Cancel",
-        "subtitle": "Once you've finished we'll take you to the next step",
+        "subtitle": "Once you’ve finished we’ll take you to the next step",
         "title": "Connected to your mobile"
     },
     "upload_guide": {
         "button_primary": "Upload photo",
         "image_detail_blur_alt": "Example of a blurry document",
         "image_detail_blur_label": "All details must be clear — nothing blurry",
-        "image_detail_cutoff_alt": "Example of a cut-off document",
         "image_detail_cutoff_label": "Show all details — including the bottom 2 lines",
-        "image_detail_glare_alt": "Example of a document with glare",
         "image_detail_glare_label": "Move away from direct light — no glare",
-        "image_detail_good_alt": "Document example",
         "image_detail_good_label": "The photo should clearly show your document",
         "subtitle": "Scans and photocopies are not accepted",
         "title": "Upload passport photo page"
+    },
+    "user_consent_load_fail": {
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
     },
     "user_consent": {
         "button_primary": "Accept",
@@ -427,9 +429,9 @@
     },
     "video_capture": {
         "body": "Position your face in the oval",
-        "body_next": "When you're done, press next",
+        "body_next": "When you’re done, press next",
         "body_record": "Press record and follow the instructions",
-        "body_stop": "When you're done, press stop",
+        "body_stop": "When you’re done, press stop",
         "button_primary_next": "Next",
         "button_record_accessibility": "Start recording",
         "button_stop_accessibility": "Stop recording",
@@ -449,9 +451,9 @@
     "video_intro": {
         "button_primary": "Continue",
         "list_accessibility": "Actions to record a selfie video",
-        "list_item_actions": "We'll ask you to film yourself performing <strong>2 simple actions<\/strong>",
+        "list_item_actions": "We’ll ask you to film yourself performing <strong>2 simple actions<\/strong>",
         "list_item_speak": "One will involve <strong>speaking out loud<\/strong>",
-        "title": "Let's make sure nobody's impersonating you"
+        "title": "Let’s make sure nobody’s impersonating you"
     },
     "welcome": {
         "description_p_1": "To open a bank account, we will need to verify your identity.",

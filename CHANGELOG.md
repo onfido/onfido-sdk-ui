@@ -8,6 +8,28 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## Added
+
+- Internal: Add type defition for `borderRadiusSurfaceModal` customisation option.
+- Public: Add information about Lokalise CLI v2 in CONTRIBUTING doc
+- Internal: Refactor `useSdkOptions()` hook to return a tuple: `[options, { findStep }]`
+- Internal: Added default filename for all document uploads if filename is not present.
+- Public: Added user consent content reload screen
+
+### Changed
+
+### Fixed
+
+- Public: Get latest copy from Lokalise with various grammar, punctuation fixes. Also reverts French, Spanish translations for some Proof of Address copy in these languages' locale files (Proof of Address is only supported for English)
+
+## [6.7.1] - 2021-03-26
+
+### Fixed
+
+- UI: Fix host app/site's own link styling getting overridden by SDK's default theme styling
+
+## [6.7.0] - 2021-03-25
+
 ### Added
 
 - Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
@@ -21,25 +43,21 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Replaced some Sass variables with CSS variables to allow customization of colors and fonts.
 - Public: Added new enterprise feature `logoCobrand`. When purchased and enabled allows integrator to provide their own logo image to be displayed alongside the Onfido logo.
 - Internal: Use Node 14 LTS for Travis to be consistent with `.nvmrc` and `Dockerfile`.
-
-### Changed
+- Internal: Enable `strict` mode in tsconfig.json
 
 ### Fixed
 
 - UI: Fix Camera Permission icon not displaying on iOS devices on Selfie/Liveness capture flow
 
-## [6.6.0] - 2021-03-11
+## [6.6.0] - 2021-03-09
 
 ### Added
 
 - Internal: Added ScreenLayout component. This is currently used in the Welcome and Complete screens.
 - Public: Added user consent screen
 - Public: Added callbacks that are triggered on user media submission if the feature is enabled. Note - This is a premium enterprise feature.
-- Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
 - Internal: App component, Redux system, utils, HoCs & routers are now typed in TypeScript.
 - Internal: Use ScreenLayout component in Confirm screen.
-- Internal: Introduce `SdkOptionsProvider` component and `useSdkOptions()` hook for SDK options' single source of truth.
-- Internal: Enable `strict` mode in tsconfig.json
 
 ### Changed
 
@@ -929,7 +947,9 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.6.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.1...development
+[6.7.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.0...6.7.1
+[6.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.6.0...6.7.0
 [6.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.5.0...6.6.0
 [6.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.4.0...6.5.0
 [6.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.3.1...6.4.0

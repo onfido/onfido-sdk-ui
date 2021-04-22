@@ -7,6 +7,7 @@ import { Button } from '@onfido/castor-react'
 import { useSdkOptions } from '~contexts'
 import { useLocales } from '~locales'
 import { trackComponent } from '../../Tracker'
+import ReloadContent from './ReloadContent'
 import ScreenLayout from '../Theme/ScreenLayout'
 import { isButtonGroupStacked } from '../Theme/utils'
 import theme from '../Theme/style.scss'
@@ -78,7 +79,6 @@ const getConsentFile = (
     if (request.status === 200 || request.status === 201) {
       onSuccess(request.responseText)
     } else {
-      // TODO in CX-6197: if there is an error, we will display a reload screen
       onError(request)
     }
   }
@@ -90,9 +90,10 @@ const getConsentFile = (
 const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
 }) => {
-  const { containerEl, containerId, events } = useSdkOptions()
+  const [{ containerEl, containerId, events }] = useSdkOptions()
   const [consentHtml, setConsentHtml] = useState('')
   const [isModalOpen, setModalToOpen] = useState(false)
+  const [isContentLoadError, setContentLoadError] = useState(false)
 
   const openModal = () => setModalToOpen(true)
   const closeModal = () => setModalToOpen(false)
@@ -107,13 +108,30 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
     sdkContainer && unmountComponentAtNode(sdkContainer)
   }
 
-  useEffect(() => {
+  const onContentLoadSuccess = (html: string) => {
+    setContentLoadError(false)
+    setConsentHtml(html)
+  }
+
+  const onContentLoadFailed = (err: string) => {
+    console.error(err)
+    setContentLoadError(true)
+  }
+
+  const fetchConsentFile = () =>
     new Promise<string>((resolve, reject) => {
       getConsentFile(resolve, reject)
     })
-      .then((html) => setConsentHtml(html))
-      .catch((err) => console.error(err))
-  }, [])
+      .then(onContentLoadSuccess)
+      .catch(onContentLoadFailed)
+
+  useEffect(() => {
+    fetchConsentFile()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  if (isContentLoadError) {
+    return <ReloadContent onPrimaryButtonClick={fetchConsentFile} />
+  }
 
   return (
     <Fragment>

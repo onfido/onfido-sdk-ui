@@ -123,16 +123,16 @@
             "no_doc_detail": "Asegúrese de que todo el documento esté en la foto",
             "no_doc_title": "Documento no detectado"
         },
-        "body_bank_statement": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
-        "body_benefits_letter": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
-        "body_bill": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
+        "body_bank_statement": "Make sure details are clear to read, with no blur or glare",
+        "body_benefits_letter": "Make sure details are clear to read, with no blur or glare",
+        "body_bill": "Make sure details are clear to read, with no blur or glare",
         "body_id": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
         "body_image_medium": "Nos llevará más tiempo verificarle si no podemos leerla",
         "body_image_poor": "Para poder verificar que es usted, necesitamos una foto de mejor calidad",
         "body_license": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo",
         "body_passport": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo",
         "body_permit": "Asegúrese de que los detalles de su permiso sean legibles, la imagen sea nítida y que no tenga brillo",
-        "body_tax_letter": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
+        "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Cerrar",
         "button_primary_redo": "Reintentar",
         "button_primary_upload": "Confirmar",
@@ -150,7 +150,7 @@
         "button_bill_detail": "Gas, electricity, water, landline, or broadband",
         "button_government_letter": "Government Letter",
         "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
-        "button_id": "Tarjeta de identificación",
+        "button_id": "Documento Nacional de Identidad",
         "button_id_detail": "Frente y reverso",
         "button_license": "Licencia de conducir",
         "button_license_detail": "Frente y reverso",
@@ -295,7 +295,7 @@
         }
     },
     "outro": {
-        "body": "Gracias.",
+        "body": "Gracias",
         "title": "Verificación completa"
     },
     "permission_recovery": {
@@ -333,7 +333,7 @@
         "button_primary": "Continuar",
         "instructions": {
             "address": "Current address",
-            "full_name": "Nombre completo",
+            "full_name": "Full name",
             "issue_date": "Issue date or summary period",
             "label": "Make sure it clearly shows:",
             "logo": "Logo"
@@ -345,12 +345,12 @@
         "subtitle_tax_letter": "Must be issued in the <strong>last 12 months<\/strong>"
     },
     "poa_intro": {
-        "button_primary": "Iniciar la verificación",
+        "button_primary": "Start verification",
         "list_matches_signup": "<strong>Matches<\/strong> the address you used on signup",
         "list_most_recent": "Is your most <strong>recent<\/strong> document",
         "list_shows_address": "Shows your <strong>current<\/strong> address",
-        "subtitle": "You'll need a document that:",
-        "title": "Let's verify your %{country} address"
+        "subtitle": "You’ll need a document that:",
+        "title": "Let’s verify your %{country} address"
     },
     "selfie_capture": {
         "alert": {
@@ -369,7 +369,7 @@
                 "title": "Parece que ha demorado demasiado"
             }
         },
-        "button_accessibility": "Tome una foto",
+        "button_accessibility": "Tomar foto",
         "frame_accessibility": "Vista desde la cámara",
         "title": "Tome una selfie"
     },
@@ -407,15 +407,17 @@
     "upload_guide": {
         "button_primary": "Subir foto",
         "image_detail_blur_alt": "Ejemplo de un documento borroso",
-        "image_detail_blur_label": "Todos los detalles deben ser claros, nada borroso.",
-        "image_detail_cutoff_alt": "Ejemplo de un documento cortado",
+        "image_detail_blur_label": "Todos los detalles deben ser claros, nada borroso",
         "image_detail_cutoff_label": "Mostrar todos los detalles, incluidas las dos líneas inferiores",
-        "image_detail_glare_alt": "Ejemplo de un documento con reflejo",
         "image_detail_glare_label": "Aléjese de la luz directa, sin reflejos",
-        "image_detail_good_alt": "Ejemplo de documento",
         "image_detail_good_label": "La foto debe mostrar claramente su documento",
         "subtitle": "No se aceptan fotos escaneadas ni fotocopias",
         "title": "Subir la página del pasaporte con su foto"
+    },
+    "user_consent_load_fail": {
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
     },
     "user_consent": {
         "button_primary": "Accept",

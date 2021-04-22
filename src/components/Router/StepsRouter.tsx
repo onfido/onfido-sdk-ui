@@ -73,18 +73,14 @@ class StepsRouter extends Component<StepsRouterProps> {
       ? logoCobrand
       : globalUserOptions.enterpriseFeatures?.logoCobrand && logoCobrand
 
-    const logoCobrandStyle = logoCobrandLogic && {
-      backgroundImage: `url(${logoCobrandLogic.src})`,
-    }
-
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
         className={classNames(theme.step, {
           [theme.fullScreenStep]: isFullScreen,
           [theme.noLogo]: hideLogoLogic,
-          [theme.textCobrandLogo]: textCobrandLogic,
           [theme.logoCobrandImage]: logoCobrand,
+          [theme.onfidoCobrandLogo]: textCobrandLogic || logoCobrand,
           [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
         })}
         tabIndex={-1}
@@ -111,10 +107,7 @@ class StepsRouter extends Component<StepsRouterProps> {
             })}
           >
             {logoCobrandLogic ? (
-              <div
-                className={theme.logoCobrandImage}
-                style={logoCobrandStyle}
-              />
+              <div className={theme.logoCobrandImage} />
             ) : null}
             <div className={theme.cobrandLabel} aria-hidden="true">
               {textCobrandLogic ? (
