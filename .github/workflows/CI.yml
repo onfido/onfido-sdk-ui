@@ -9,21 +9,21 @@ env:
 
 jobs:
   # Attempt 1: Runs the docker build correctly but the port is not exposed
-  # mock-server:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Build docker for mock server
-  #       run: |
-  #         cd ./test/mock-server
-  #         docker build -t onfido-web-sdk:ui-mock-server .
-  # Attempt 2:
   mock-server:
     runs-on: ubuntu-latest
-    name: Build the Docker image
-    image: stefaniacardenas/onfido-web-sdk # This is the image on dockerhub, ideally we want to be using onfido-web-sdk:ui-mock-server
-    ports:
-      - 8080
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build docker for mock server
+        run: |
+          cd ./test/mock-server
+          docker build -t onfido-web-sdk:ui-mock-server .
+  # Attempt 2:
+  # mock-server:
+  #   runs-on: ubuntu-latest
+  #   - name: Build the Docker image
+  #     image: stefaniacardenas/onfido-web-sdk # This is the image on dockerhub, ideally we want to be using onfido-web-sdk:ui-mock-server
+  #     ports:
+  #       - 8080
   build:
     runs-on: ubuntu-latest
     needs: [mock-server]
