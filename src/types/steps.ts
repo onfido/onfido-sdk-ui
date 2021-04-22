@@ -75,6 +75,7 @@ export type StepOptionComplete = {
 type StepOptionsMap = {
   welcome: StepOptionWelcome
   userConsent: never
+  auth: StepOptionAuth
   document: StepOptionDocument
   poa: StepOptionPoA
   face: StepOptionFace
@@ -90,15 +91,11 @@ export type StepConfigMap = {
 
 export type StepConfigWelcome = StepConfigMap['welcome']
 export type StepConfigUserConsent = StepConfigMap['userConsent']
+export type StepConfigAuth = StepConfigMap['auth']
 export type StepConfigDocument = StepConfigMap['document']
 export type StepConfigPoa = StepConfigMap['poa']
 export type StepConfigFace = StepConfigMap['face']
 export type StepConfigComplete = StepConfigMap['complete']
-
-export type StepConfigAuth = {
-  type: typeof STEP_AUTH
-  options?: StepOptionAuth
-}
 
 export type StepConfig =
   | StepConfigWelcome
