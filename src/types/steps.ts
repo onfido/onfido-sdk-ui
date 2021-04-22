@@ -61,6 +61,7 @@ export type StepOptionPoA = {
 
 export type StepOptionFace = {
   useMultipleSelfieCapture?: boolean
+  photoCaptureFallback?: boolean
 } & CaptureOptions
 
 export type StepOptionComplete = {

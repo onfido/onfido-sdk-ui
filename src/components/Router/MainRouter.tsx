@@ -8,7 +8,7 @@ import { getWoopraCookie } from '../../Tracker'
 import HistoryRouter from './HistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
-import type { StepConfig } from '~types/steps'
+import type { StepConfig, StepConfigFace } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
@@ -94,7 +94,24 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
     const { hasCamera } = this.props
 
-    return !isDesktop && !hasCamera && shouldStrictlyUseCamera === true
+    const faceStep = steps.find(
+      (step) => step.type === 'face'
+    ) as StepConfigFace
+
+    const photoCaptureFallback =
+      faceStep?.options?.photoCaptureFallback == null
+        ? true
+        : faceStep?.options?.photoCaptureFallback
+
+    const canVideoFallbackToPhoto =
+      window.MediaRecorder != null || photoCaptureFallback
+
+    return (
+      !isDesktop &&
+      ((!hasCamera && shouldStrictlyUseCamera === true) ||
+        (!canVideoFallbackToPhoto &&
+          faceStep?.options?.requestedVariant === 'video'))
+    )
   }
 
   render(): h.JSX.Element {

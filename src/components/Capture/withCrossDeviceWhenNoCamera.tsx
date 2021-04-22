@@ -42,11 +42,12 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         hasCamera,
         requestedVariant,
         step,
-      } = this.props
-
+        photoCaptureFallback,
+      } = { ...this.props, photoCaptureFallback: true }
       const currentStep = componentsList[step]
       const cameraRequiredButNoneDetected =
-        !hasCamera &&
+        (!hasCamera ||
+          (window.MediaRecorder == null && !photoCaptureFallback)) &&
         (requestedVariant === 'video' || currentStep.step.type === 'face')
 
       if (cameraRequiredButNoneDetected) {

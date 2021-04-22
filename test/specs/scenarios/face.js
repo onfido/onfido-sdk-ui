@@ -222,6 +222,24 @@ export const faceScenarios = (lang) => {
       cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(copy)
     })
 
+    it('should be taken to the cross-device flow if browser does not have MediaRecorder API, liveness variant requested and photoCaptureFallback is disabled', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&liveness=true&photoCaptureFallback=false`
+      )
+      driver.executeScript('window.MediaRecorder = undefined')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      await sleep(2500)
+      crossDeviceIntro.verifyTitle(copy)
+    })
+
     it('should enter the liveness flow if I have a camera and liveness variant requested', async () => {
       goToPassportUploadScreen(
         driver,
