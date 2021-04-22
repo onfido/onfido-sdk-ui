@@ -1,13 +1,14 @@
 import { expect } from 'chai'
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
+const percySnapshot = require('@percy/selenium-webdriver')
 
 const options = {
   pageObjects: ['BasePage', 'Welcome'],
 }
 
 export const welcomeScenarios = async (lang) => {
-  describe(
+  describe.only(
     `WELCOME scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
@@ -26,6 +27,10 @@ export const welcomeScenarios = async (lang) => {
         welcome.verifySubtitle(copy)
         welcome.verifyIdentityButton(copy)
         welcome.verifyFooter(copy)
+        await percySnapshot(
+          driver,
+          `Onfido SDK UI elements on the welcome screen in ${lang}`
+        )
       })
     }
   )
