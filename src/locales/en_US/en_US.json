@@ -12,6 +12,18 @@
     "auth_capture_start": {
         "body": "Fit your face within the oval frame",
         "button_primary": "Start face scan",
+        "feedback": {
+            "center_face": "Frame your face",
+            "conditions_too_bright": "Find a less bright environment",
+            "conditions_too_dark": "Find a brighter environment",
+            "head_not_upright": "Keep your head upright",
+            "neutral_expression": "Keep a neutral expression",
+            "not_looking_straight": "Look forward",
+            "remove_sunglasses": "Remove your sunglasses",
+            "steady_count_1": "Keep still: 1",
+            "steady_count_2": "Keep still: 2",
+            "steady_count_3": "Keep still: 3"
+        },
         "title": "Start face scan"
     },
     "auth_capture": {
@@ -41,10 +53,11 @@
         "loader": "Uploading"
     },
     "auth_retry": {
+        "body_blur": "Clean your camera lens",
+        "body_neutral_expression": "Keep a neutral expression",
+        "body_too_bright": "Find a less bright environment",
         "button_primary": "Start camera",
-        "list_item_eyes_visible": "Make sure your eyes are clearly visible.",
-        "list_item_face_in_frame": "Keep your face within the oval frame.",
-        "subtitle": "We weren't able to capture your face properly",
+        "subtitle": "We weren’t able to capture your face properly",
         "title": "Scan your face again"
     },
     "auth_upload_pass": {

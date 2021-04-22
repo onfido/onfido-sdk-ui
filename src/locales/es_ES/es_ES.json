@@ -12,6 +12,18 @@
     "auth_capture_start": {
         "body": "Coloque su rostro dentro del marco ovalado",
         "button_primary": "Iniciar escaneo del rostro",
+        "feedback": {
+            "center_face": "Coloque su rostro en el marco",
+            "conditions_too_bright": "",
+            "conditions_too_dark": "",
+            "head_not_upright": "Mantenga la cabeza erguida",
+            "neutral_expression": "",
+            "not_looking_straight": "Mire hacia adelante",
+            "remove_sunglasses": "",
+            "steady_count_1": "",
+            "steady_count_2": "",
+            "steady_count_3": ""
+        },
         "title": "Iniciar escaneo del rostro"
     },
     "auth_capture": {
@@ -41,6 +53,9 @@
         "loader": "Cargando"
     },
     "auth_retry": {
+        "body_blur": "",
+        "body_neutral_expression": "",
+        "body_too_bright": "",
         "button_primary": "Iniciar cámara",
         "list_item_eyes_visible": "Asegúrese de que sus ojos se vean con claridad.",
         "list_item_face_in_frame": "Mantenga su rostro dentro del marco ovalado.",
