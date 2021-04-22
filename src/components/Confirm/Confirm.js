@@ -134,7 +134,7 @@ class Confirm extends Component {
   onUploadDocumentSuccess = (apiResponse) => {
     const { videoCapture, urls, token, actions } = this.props
     const { capture } = this.state
-    const url = urls.onfido_api_url
+    const url = urls.auth_url
 
     // Standard document capture or face capture
     if (!capture.multiFrameCaptured) {

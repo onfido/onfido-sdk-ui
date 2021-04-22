@@ -352,8 +352,6 @@ const sendFile = <T>(
     sdk_version: process.env.SDK_VERSION,
   }
 
-  console.log(payload)
-
   const requestParams: HttpRequestParams = {
     payload: objectToFormData(payload),
     endpoint,
