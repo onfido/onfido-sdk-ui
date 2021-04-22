@@ -251,38 +251,36 @@ const waitForMockServer = async () => {
   }
 }
 
-// exec('npm run mock-server:run', async (error, stdout) => {
-//   if (error) {
-//     console.error(chalk.yellow('Error running mock server:'), error)
-//     return
-//   }
+exec('npm run mock-server:run', async (error, stdout) => {
+  if (error) {
+    console.error(chalk.yellow('Error running mock server:'), error)
+    return
+  }
 
-//   const stdoutLines = stdout.split('\n').filter((line) => line)
-//   const dockerContainerId = stdoutLines[stdoutLines.length - 1]
+  const stdoutLines = stdout.split('\n').filter((line) => line)
+  const dockerContainerId = stdoutLines[stdoutLines.length - 1]
 
-//   console.log(
-//     chalk.green(
-//       `Mock server is running in docker container with id ${chalk.yellow(
-//         dockerContainerId
-//       )}`
-//     )
-//   )
+  console.log(
+    chalk.green(
+      `Mock server is running in docker container with id ${chalk.yellow(
+        dockerContainerId
+      )}`
+    )
+  )
 
-//   await waitForMockServer()
-//   runner()
+  await waitForMockServer()
+  runner()
 
-//   const cleanUp = () => {
-//     killMockServer(dockerContainerId)
-//   }
+  const cleanUp = () => {
+    killMockServer(dockerContainerId)
+  }
 
-//   process.on('exit', cleanUp) // Script stops normally
-//   process.on('SIGINT', cleanUp) // Script stops by Ctrl-C
-//   process.on('SIGUSR1', cleanUp) // Script stops by "kill pid"
-//   process.on('SIGUSR2', cleanUp) // Script stops by "kill pid"
-//   process.on('uncaughtException', cleanUp) // Script stops by uncaught exception
-// })
-// await waitForMockServer()
-runner()
+  process.on('exit', cleanUp) // Script stops normally
+  process.on('SIGINT', cleanUp) // Script stops by Ctrl-C
+  process.on('SIGUSR1', cleanUp) // Script stops by "kill pid"
+  process.on('SIGUSR2', cleanUp) // Script stops by "kill pid"
+  process.on('uncaughtException', cleanUp) // Script stops by uncaught exception
+})
 
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
 //ref: https://github.com/mochajs/mocha/wiki/Using-mocha-programmatically
