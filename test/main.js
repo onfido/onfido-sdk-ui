@@ -256,35 +256,6 @@ const waitForMockServer = async () => {
   }
 }
 
-/* const runMockServerAndTests = () => {
-  exec('npm run mock-server:run', async (error, stdout) => {
-    if (error) {
-      console.error(chalk.yellow('Error running mock server:'), error)
-      return
-    }
-
-    const stdoutLines = stdout.split('\n').filter((line) => line)
-    const dockerContainerId = stdoutLines[stdoutLines.length - 1]
-
-    runTests(dockerContainerId)
-  })
-} */
-
-const findMockServerId = (callback) =>
-  exec('docker ps | grep onfido-web-sdk:ui-mock-server', (error, stdout) => {
-    let dockerContainerId
-
-    if (!error) {
-      const parsed = stdout.split(/[\s\t]+/)
-
-      if (parsed.length) {
-        dockerContainerId = stdout.split(/[\s\t]+/)[0]
-      }
-    }
-
-    typeof callback === 'function' && callback(dockerContainerId)
-  })
-
 const runTests = async (dockerContainerId) => {
   if (dockerContainerId) {
     console.log(
@@ -310,8 +281,32 @@ const runTests = async (dockerContainerId) => {
   process.on('uncaughtException', cleanUp) // Script stops by uncaught exception
 }
 
-// runMockServerAndTests()
-findMockServerId(runTests)
+const findMockServerId = (callback) =>
+  exec('docker ps | grep onfido-web-sdk:ui-mock-server', (error, stdout) => {
+    let dockerContainerId
+
+    if (!error) {
+      const parsed = stdout.split(/[\s\t]+/)
+
+      if (parsed.length) {
+        dockerContainerId = stdout.split(/[\s\t]+/)[0]
+      }
+    }
+
+    typeof callback === 'function' && callback(dockerContainerId)
+  })
+
+const runMockServerAndTests = () =>
+  exec('npm run mock-server:run', (error) => {
+    if (error) {
+      console.error(chalk.yellow('Error running mock server:'), error)
+      return
+    }
+
+    findMockServerId(runTests)
+  })
+
+runMockServerAndTests()
 
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
 //ref: https://github.com/mochajs/mocha/wiki/Using-mocha-programmatically
