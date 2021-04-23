@@ -9,6 +9,12 @@
     "auth_accessibility": {
         "back_button": "Cancel"
     },
+    "auth_cam_encrypt": {
+        "loader": "Encrypting camera feed"
+    },
+    "auth_cam_start": {
+        "loader": "Starting camera"
+    },
     "auth_capture_start": {
         "body": "Fit your face within the oval frame",
         "button_primary": "Start face scan",
@@ -39,6 +45,30 @@
             "not_looking_straight": "Look forward",
             "steady": "Keep still"
         }
+    },
+    "auth_error": {
+        "cam_encryption": {
+            "body": "This app blocks suspicious webcam configurations. <a href='https:\/\/livenesscheckhelp.com\/' target='_blank' style='text-decoration:underline;'>Learn more<\/a>.",
+            "button_primary": "Try again",
+            "button_primary_firefox": "Try again",
+            "subtitle": "This system cannot be verified due to the following:",
+            "table_header_1": "Possible issue",
+            "table_header_2": "Fix",
+            "table_row_1_cell_1": "Camera already in use by another app.",
+            "table_row_1_cell_1_firefox": "Camera permissions not remembered in Firefox.",
+            "table_row_1_cell_2": "Close the other app.",
+            "table_row_1_cell_2_firefox": "Check Remember Permissions.",
+            "table_row_2_cell_1": "A 3rd-party app is modifying the video.",
+            "table_row_2_cell_2": "Close\/Uninstall the other app.",
+            "table_row_3_cell_1": "Hardware not capable of being secured.",
+            "table_row_3_cell_2": "Use a different device.",
+            "title": "<b>Issue Encrypting Camera Feed<\/b>"
+        }
+    },
+    "auth_full_screen": {
+        "body": "This will start the selfie capture in full screen mode",
+        "button_primary": "Open in full screen",
+        "title": "Full screen selfie mode"
     },
     "auth_permission_denied": {
         "body_cam": "To continue, you must enable camera permissions in your device settings.",

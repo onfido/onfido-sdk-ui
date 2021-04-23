@@ -9,20 +9,26 @@
     "auth_accessibility": {
         "back_button": "Cancelar"
     },
+    "auth_cam_encrypt": {
+        "loader": "Cifrado de transmisión de la cámara"
+    },
+    "auth_cam_start": {
+        "loader": "Iniciando cámara"
+    },
     "auth_capture_start": {
         "body": "Coloque su rostro dentro del marco ovalado",
         "button_primary": "Iniciar escaneo del rostro",
         "feedback": {
             "center_face": "Coloque su rostro en el marco",
-            "conditions_too_bright": "",
-            "conditions_too_dark": "",
+            "conditions_too_bright": "Busque un entorno con menos luz",
+            "conditions_too_dark": "Busque un entorno con más luz",
             "head_not_upright": "Mantenga la cabeza erguida",
-            "neutral_expression": "",
+            "neutral_expression": "Mantenga una expresión neutra",
             "not_looking_straight": "Mire hacia adelante",
-            "remove_sunglasses": "",
-            "steady_count_1": "",
-            "steady_count_2": "",
-            "steady_count_3": ""
+            "remove_sunglasses": "Quítese las gafas de sol",
+            "steady_count_1": "No se mueva: 1",
+            "steady_count_2": "No se mueva: 2",
+            "steady_count_3": "No se mueva: 3"
         },
         "title": "Iniciar escaneo del rostro"
     },
@@ -40,6 +46,30 @@
             "steady": "No se mueva"
         }
     },
+    "auth_error": {
+        "cam_encryption": {
+            "body": "Esta aplicación bloquea las configuraciones sospechosas de las cámaras web. <a href='https:\/\/livenesscheckhelp.com\/' target='_blank' style='text-decoration:underline;'>Más información<\/a>.",
+            "button_primary": "Intentar otra vez",
+            "button_primary_firefox": "Intentar otra vez",
+            "subtitle": "Este sistema no se puede verificar debido a lo siguiente:",
+            "table_header_1": "Posible problema",
+            "table_header_2": "Solución",
+            "table_row_1_cell_1": "La cámara ya está siendo utilizada por otra app.",
+            "table_row_1_cell_1_firefox": "Permisos de la cámara no recordados en Firefox.",
+            "table_row_1_cell_2": "Cierre la otra app.",
+            "table_row_1_cell_2_firefox": "Revise Recordar permisos.",
+            "table_row_2_cell_1": "Una app de terceros está modificando el vídeo.",
+            "table_row_2_cell_2": "Cierre\/desinstale la otra app.",
+            "table_row_3_cell_1": "No es posible asegurar el hardware.",
+            "table_row_3_cell_2": "Utilice un dispositivo diferente.",
+            "title": "<b>Problema de cifrado de transmisión de la cámara<\/b>"
+        }
+    },
+    "auth_full_screen": {
+        "body": "Esto iniciará la captura de selfies en modo de pantalla completa.",
+        "button_primary": "Abrir en pantalla completa",
+        "title": "Modo selfie en pantalla completa"
+    },
     "auth_permission_denied": {
         "body_cam": "Para continuar, deberá conceder acceso a la cámara desde la configuración de su móvil.",
         "button_primary_cam": "Acceder a la configuración"
@@ -53,12 +83,10 @@
         "loader": "Cargando"
     },
     "auth_retry": {
-        "body_blur": "",
-        "body_neutral_expression": "",
-        "body_too_bright": "",
+        "body_blur": "Limpie el objetivo de su cámara",
+        "body_neutral_expression": "Mantenga una expresión neutra",
+        "body_too_bright": "Busque un entorno con menos luz",
         "button_primary": "Iniciar cámara",
-        "list_item_eyes_visible": "Asegúrese de que sus ojos se vean con claridad.",
-        "list_item_face_in_frame": "Mantenga su rostro dentro del marco ovalado.",
         "subtitle": "No hemos podido capturar su rostro correctamente",
         "title": "Vuelva a escanear su rostro"
     },
