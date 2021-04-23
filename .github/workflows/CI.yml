@@ -10,13 +10,13 @@ env:
 jobs:
   # Attempt 1: Runs the docker build correctly but the port is not exposed
   # mock-server:
-    # runs-on: ubuntu-latest
-    # steps:
-      # - uses: actions/checkout@v2.3.4
-      # - name: Build docker for mock server
-        # run: |
-          # cd ./test/mock-server
-          # docker build -t onfido-web-sdk:ui-mock-server .
+  # runs-on: ubuntu-latest
+  # steps:
+  # - uses: actions/checkout@v2.3.4
+  # - name: Build docker for mock server
+  # run: |
+  # cd ./test/mock-server
+  # docker build -t onfido-web-sdk:ui-mock-server .
   # Attempt 2:
   # mock-server:
   #   runs-on: ubuntu-latest
