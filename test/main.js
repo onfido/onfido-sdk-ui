@@ -183,7 +183,12 @@ const runner = async () => {
 }
 
 const killMockServer = (dockerContainerId) => {
+  if (!dockerContainerId) {
+    return
+  }
+
   console.log(chalk.grey('Killing mock server'))
+
   exec(`docker stop ${dockerContainerId} -t0`, (error) => {
     if (error) {
       console.log(chalk.yellow('Error killing mock server:'), error)
@@ -251,22 +256,45 @@ const waitForMockServer = async () => {
   }
 }
 
-exec('npm run mock-server:run', async (error, stdout) => {
-  if (error) {
-    console.error(chalk.yellow('Error running mock server:'), error)
-    return
-  }
+/* const runMockServerAndTests = () => {
+  exec('npm run mock-server:run', async (error, stdout) => {
+    if (error) {
+      console.error(chalk.yellow('Error running mock server:'), error)
+      return
+    }
 
-  const stdoutLines = stdout.split('\n').filter((line) => line)
-  const dockerContainerId = stdoutLines[stdoutLines.length - 1]
+    const stdoutLines = stdout.split('\n').filter((line) => line)
+    const dockerContainerId = stdoutLines[stdoutLines.length - 1]
 
-  console.log(
-    chalk.green(
-      `Mock server is running in docker container with id ${chalk.yellow(
-        dockerContainerId
-      )}`
+    runTests(dockerContainerId)
+  })
+} */
+
+const findMockServerId = (callback) =>
+  exec('docker ps | grep onfido-web-sdk:ui-mock-server', (error, stdout) => {
+    let dockerContainerId
+
+    if (!error) {
+      const parsed = stdout.split(/[\s\t]+/)
+
+      if (parsed.length) {
+        dockerContainerId = stdout.split(/[\s\t]+/)[0]
+      }
+    }
+
+    typeof callback === 'function' && callback(dockerContainerId)
+  })
+
+const runTests = async (dockerContainerId) => {
+  if (dockerContainerId) {
+    console.log(
+      chalk.green(
+        `Mock server is running in docker container with id ${chalk.yellow(
+          dockerContainerId
+        )}`
+      )
     )
-  )
+  }
 
   await waitForMockServer()
   runner()
@@ -280,7 +308,10 @@ exec('npm run mock-server:run', async (error, stdout) => {
   process.on('SIGUSR1', cleanUp) // Script stops by "kill pid"
   process.on('SIGUSR2', cleanUp) // Script stops by "kill pid"
   process.on('uncaughtException', cleanUp) // Script stops by uncaught exception
-})
+}
+
+// runMockServerAndTests()
+findMockServerId(runTests)
 
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
 //ref: https://github.com/mochajs/mocha/wiki/Using-mocha-programmatically
