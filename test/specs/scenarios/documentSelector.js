@@ -1,5 +1,6 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
+import { takePercySnapshot } from './sharedFlows'
 
 const options = {
   pageObjects: ['Welcome', 'DocumentSelector', 'BasePage'],
@@ -21,6 +22,10 @@ export const documentSelectorScenarios = async (lang) => {
         documentSelector.verifyLabels(copy)
         documentSelector.verifyHints(copy)
         documentSelector.verifyIcons()
+        await takePercySnapshot(
+          driver,
+          `should verify UI elements on the document selection screen ${lang}`
+        )
       })
     }
   )
