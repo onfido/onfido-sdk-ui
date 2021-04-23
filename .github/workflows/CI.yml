@@ -9,16 +9,13 @@ env:
 
 jobs:
   # Attempt 1: Runs the docker build correctly but the port is not exposed
-  # mock-server:
-  # runs-on: ubuntu-latest
-  # steps:
-  # - uses: actions/checkout@v2.3.4
-  # - name: Build docker for mock server
-  # if: matrix.NODE_ENV == 'test'
-  # run: |
-  # npm run build:test
-  # cd ./test/mock-server
-  # docker build -t onfido-web-sdk:ui-mock-server .
+  mock-server:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2.3.4
+    - name: Build docker for mock server
+      if: matrix.NODE_ENV == 'test'
+      run: npm run build:test
   # Attempt 2:
   # mock-server:
   #   runs-on: ubuntu-latest
@@ -67,12 +64,9 @@ jobs:
       # TODO:
       # - name: Run NPM Audit
       #   run: audit-ci --moderate
-      - name: Build mock server
-        if: matrix.NODE_ENV == 'test'
-        run: |
-          npm run build:test
-          cd ./test/mock-server
-          docker build -t onfido-web-sdk:ui-mock-server .
+      # - name: Build mock server
+      # if: matrix.NODE_ENV == 'test'
+      # run: npm run build:test
       - name: Run UI Tests
         if: matrix.NODE_ENV == 'test'
         run: |
