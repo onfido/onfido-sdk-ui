@@ -8,24 +8,8 @@ env:
   BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
 
 jobs:
-  # Attempt 1: Runs the docker build correctly but the port is not exposed
-  mock-server:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2.3.4
-      - name: Build docker for mock server
-        if: matrix.NODE_ENV == 'test'
-        run: npm run build:test
-  # Attempt 2:
-  # mock-server:
-  #   runs-on: ubuntu-latest
-  #   - name: Build the Docker image
-  #     image: stefaniacardenas/onfido-web-sdk # This is the image on dockerhub, ideally we want to be using onfido-web-sdk:ui-mock-server
-  #     ports:
-  #       - 8080
   build:
     runs-on: ubuntu-latest
-    needs: [mock-server]
     strategy:
       matrix:
         include:
@@ -64,9 +48,9 @@ jobs:
       # TODO:
       # - name: Run NPM Audit
       #   run: audit-ci --moderate
-      # - name: Build mock server
-      # if: matrix.NODE_ENV == 'test'
-      # run: npm run build:test
+      - name: Build mock server
+        if: matrix.NODE_ENV == 'test'
+        run: npm run build:test
       - name: Run UI Tests
         if: matrix.NODE_ENV == 'test'
         run: |
