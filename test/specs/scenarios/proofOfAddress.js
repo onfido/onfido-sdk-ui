@@ -1,6 +1,7 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 import { uploadFileAndClickConfirmButton } from './sharedFlows.js'
+import percySnapshot from "@percy/selenium-webdriver";
 
 const options = {
   pageObjects: [
@@ -66,6 +67,10 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         )
         poaIntro.verifyThirdRequirement('Is your most recent document')
         poaIntro.verifyStartVerificationButton(copy)
+        await percySnapshot(
+          driver,
+          `Should verify UI elements of PoA Intro screen`
+        )
       })
 
       it('should verify UI elements of PoA Document Selection screen', async () => {
@@ -76,6 +81,8 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaDocumentSelection.verifyElementsUtilityBillCell(copy)
         poaDocumentSelection.verifyElementsCouncilTaxLetter(copy)
         poaDocumentSelection.verifyElementsBenefitsLetter(copy)
+        await percySnapshot(
+          driver, 'Select a UK document screen')
       })
 
       it('should verify UI elements of PoA Guidance for Bank Statement', async () => {
@@ -86,6 +93,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'bank_building_society_statement'
         )
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
+        await percySnapshot(driver, 'Submit Statement screen')
       })
 
       it('should verify UI elements of PoA Guidance for Utility Bill', async () => {
@@ -96,6 +104,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'utility_bill'
         )
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
+        await percySnapshot(driver, 'Submit bill screen')
       })
 
       it('should verify UI elements of PoA Guidance for Council Tax Letter', async () => {
@@ -106,6 +115,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'council_tax'
         )
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
+        await percySnapshot(driver, 'Submit council tax letter screen')
       })
 
       it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
@@ -116,6 +126,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'benefit_letters'
         )
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
+        await percySnapshot(driver, 'Submit benefit letter screen')
       })
 
       it("should skip country selection screen with a preselected driver's license document type on PoA flow", async () => {
@@ -124,6 +135,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaIntro.clickStartVerificationButton()
         poaDocumentSelection.clickOnCouncilTaxLetterIcon()
         poaGuidance.clickOnContinueButton()
+        await percySnapshot(driver, 'Submit letter upload screen')
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
@@ -237,11 +249,15 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaDocumentSelection.clickOnBankIcon()
         poaGuidance.clickOnContinueButton()
         documentUpload.switchToCrossDevice()
+        await percySnapshot(driver, 'Continue on your phone screen for PoA')
         crossDeviceIntro.continueToNextStep()
+        await percySnapshot(driver, 'Get your secure link screen') //this screen is not quite fully loaded...
         crossDeviceLink.switchToCopyLinkOption()
+        //Cant really take a screenshot here as the link changes
         copyCrossDeviceLinkAndOpenInNewTab()
         switchBrowserTab(0)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
+        await percySnapshot(driver, 'Connected to your mobile screen')
         switchBrowserTab(1)
         documentUpload.uploaderBtn().isDisplayed()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
@@ -256,6 +272,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         crossDeviceClientSuccess.verifyUIElements(copy)
         switchBrowserTab(0)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
+        await percySnapshot(driver, 'Great, that’s everything we need screen')
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)
       })

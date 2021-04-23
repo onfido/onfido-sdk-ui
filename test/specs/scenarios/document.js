@@ -4,6 +4,7 @@ import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
 } from './sharedFlows.js'
+import percySnapshot from "@percy/selenium-webdriver";
 
 const options = {
   pageObjects: [
@@ -40,6 +41,7 @@ export const documentScenarios = async (lang) => {
 
       const runThroughPassportUploadFlow = async () => {
         documentUpload.clickUploadButton()
+        await percySnapshot(driver, `Verify Upload passport photo page ${lang}`)
         passportUploadImageGuide.verifyPassportGuideUIElements(copy)
         uploadPassportImageFile('passport.jpg')
         confirm.verifyCheckReadabilityMessage(copy)
@@ -58,7 +60,15 @@ export const documentScenarios = async (lang) => {
           documentSelector,
           `?language=${lang}&useLiveDocumentCapture=true`
         )
+        await percySnapshot(
+          driver,
+          `Verify Submit passport photo page using LiveDocumentCapture=true ${lang}`
+        )
         runThroughPassportUploadFlow()
+        await percySnapshot(
+          driver,
+          `Verify Passport Check your image page using LiveDocumentCapture=true ${lang}`
+        )
       })
 
       it('should upload a passport and verify UI elements', async () => {
@@ -68,28 +78,54 @@ export const documentScenarios = async (lang) => {
           documentSelector,
           `?language=${lang}`
         )
+        await percySnapshot(driver, `Verify Submit passport photo page ${lang}`)
         runThroughPassportUploadFlow()
+        await percySnapshot(
+          driver,
+          `Verify Passport Check your image page ${lang}`
+        )
       })
 
       it('should upload driving licence and verify UI elements', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
+        await percySnapshot(
+          driver,
+          `Verify Select issuing country page ${lang}`
+        )
         countrySelector.selectSupportedCountry()
+        await percySnapshot(
+          driver,
+          `Verify Select issuing country page after country has been selected ${lang}`
+        )
         countrySelector.clickSubmitDocumentButton()
+        await percySnapshot(
+          driver,
+          `Verify Submit license (front) page ${lang}`
+        )
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
         documentUpload.getUploadInput()
         documentUpload.upload('uk_driving_licence.png')
+        await percySnapshot(
+          driver,
+          `Verify Check your image page (front) for driving license ${lang}`
+        )
         confirm.verifyCheckReadabilityMessage(copy)
         confirm.verifyMakeSureDrivingLicenceMessage(copy)
         confirm.clickConfirmButton()
+        await percySnapshot(driver, `Verify Submit license (back) page ${lang}`)
         documentUpload.verifyBackOfDrivingLicenceTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
         documentUpload.getUploadInput()
         documentUpload.upload('back_driving_licence.jpg')
+        await percySnapshot(
+          driver,
+          `Verify Check your image page (back) for driving license ${lang}`
+        )
         confirm.verifyCheckReadabilityMessage(copy)
         confirm.verifyMakeSureDrivingLicenceMessage(copy)
       })
@@ -100,6 +136,10 @@ export const documentScenarios = async (lang) => {
         documentSelector.clickOnIdentityCardIcon()
         countrySelector.selectSupportedCountry()
         countrySelector.clickSubmitDocumentButton()
+        await percySnapshot(
+          driver,
+          `Verify Submit identity card (front) page ${lang}`
+        )
         documentUpload.verifyFrontOfIdentityCardTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
@@ -108,11 +148,20 @@ export const documentScenarios = async (lang) => {
           confirm,
           'national_identity_card.jpg'
         )
+        //Need to have a test path where we can verify the Check your image for identity card
+        await percySnapshot(
+          driver,
+          `Verify Submit identity card (back) page ${lang}`
+        )
         documentUpload.verifyBackOfIdentityCardTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
         documentUpload.getUploadInput()
         documentUpload.upload('back_national_identity_card.jpg')
+        await percySnapshot(
+          driver,
+          `Verify Check your image page for back of identity card after upload ${lang}`
+        )
         confirm.verifyCheckReadabilityMessage(copy)
         confirm.verifyMakeSureIdentityCardMessage(copy)
       })
@@ -123,6 +172,10 @@ export const documentScenarios = async (lang) => {
         documentSelector.clickOnResidencePermitIcon()
         countrySelector.selectSupportedCountry()
         countrySelector.clickSubmitDocumentButton()
+        await percySnapshot(
+          driver,
+          `Verify Submit residence permit (front) page ${lang}`
+        )
         documentUpload.verifyFrontOfResidencePermitTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
@@ -131,11 +184,19 @@ export const documentScenarios = async (lang) => {
           confirm,
           'national_identity_card.jpg'
         )
+        await percySnapshot(
+          driver,
+          `Verify Submit residence permit (back) page ${lang}`
+        )
         documentUpload.verifyBackOfResidencePermitTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
         documentUpload.getUploadInput()
         documentUpload.upload('national_identity_card.jpg')
+        await percySnapshot(
+          driver,
+          `Verify Check your image page for back of residence permit card after upload ${lang}`
+        )
         confirm.verifyCheckReadabilityMessage(copy)
         confirm.verifyMakeSureResidencePermitMessage(copy)
       })
@@ -154,6 +215,10 @@ export const documentScenarios = async (lang) => {
           'llama.pdf'
         )
         confirm.verifyNoDocumentError(copy)
+        await percySnapshot(
+          driver,
+          `Verify No document detected message is seen after uploading non-doc image ${lang}`
+        )
       })
 
       it('should upload a document on retry after uploading a non-doc image', async () => {
@@ -170,6 +235,10 @@ export const documentScenarios = async (lang) => {
           'llama.pdf'
         )
         confirm.clickRedoButton()
+        await percySnapshot(
+          driver,
+          `Verify Upload passport photo page is seen ${lang}`
+        )
         uploadPassportImageFile('passport.jpg')
         confirm.verifyCheckReadabilityMessage(copy)
       })
@@ -184,6 +253,10 @@ export const documentScenarios = async (lang) => {
         documentUpload.clickUploadButton()
         uploadPassportImageFile('sample-pdf-10-mb.pdf')
         confirm.verifyFileSizeTooLargeError(copy)
+        await percySnapshot(
+          driver,
+          `Verify Upload passport photo page shows File size exceeded message ${lang}`
+        )
       })
 
       it('should upload a resized document image if file size is too large message', async () => {
@@ -230,6 +303,10 @@ export const documentScenarios = async (lang) => {
           confirm,
           'identity_card_with_cut-off.png'
         )
+        await percySnapshot(
+          driver,
+          `Verify Cut-off image detected message is seen ${lang}`
+        )
         confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
         confirm.clickRedoButton()
 
@@ -252,12 +329,16 @@ export const documentScenarios = async (lang) => {
             'identity_card_with_glare.jpg'
           )
           confirm.verifyImageQualityMessage(copy, 'glare')
+          await percySnapshot(
+            driver,
+            `Verify Glare detected message is seen with Upload anyway button ${lang}`
+          )
           // Proceed all the way
           confirm.confirmBtn().isDisplayed()
           confirm.clickConfirmButton()
         })
       })
-
+      //below is the back of the document ...repeated flow
       it('should return image quality message on back of doc', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()

@@ -1,5 +1,6 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
+import percySnapshot from '@percy/selenium-webdriver'
 
 const options = {
   pageObjects: ['Welcome', 'DocumentSelector', 'BasePage'],
@@ -21,6 +22,10 @@ export const documentSelectorScenarios = async (lang) => {
         documentSelector.verifyLabels(copy)
         documentSelector.verifyHints(copy)
         documentSelector.verifyIcons()
+        await percySnapshot(
+          driver,
+          `should verify UI elements on the document selection screen ${lang}`
+        )
       })
     }
   )

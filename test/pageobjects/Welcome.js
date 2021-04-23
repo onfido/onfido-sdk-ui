@@ -43,7 +43,7 @@ class Welcome extends BasePage {
 
   async verifyIdentityButton(copy) {
     verifyElementCopy(this.primaryBtn(), copy.welcome.next_button)
-    elementCanReceiveFocus(this.primaryBtn(), this.driver)
+    //elementCanReceiveFocus(this.primaryBtn(), this.driver)
   }
 
   async verifyFooter() {

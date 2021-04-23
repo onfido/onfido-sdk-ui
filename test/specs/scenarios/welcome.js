@@ -1,14 +1,15 @@
 import { expect } from 'chai'
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
-const percySnapshot = require('@percy/selenium-webdriver')
+import percySnapshot from '@percy/selenium-webdriver'
 
 const options = {
   pageObjects: ['BasePage', 'Welcome'],
 }
 
 export const welcomeScenarios = async (lang) => {
-  describe.only(
+  // eslint-disable-next-line jest/no-focused-tests
+  describe(
     `WELCOME scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {

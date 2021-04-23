@@ -5,6 +5,7 @@ import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
 } from './sharedFlows.js'
+import percySnapshot from '@percy/selenium-webdriver'
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -119,13 +120,17 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      await percySnapshot(driver, `Verify Take a selfie screen ${lang}`)
       selfieIntro.clickOnContinueButton()
       camera.verifySelfieTitle(copy)
       camera.verifyOnfidoFooterIsVisible()
+      await percySnapshot(driver, `Verify Take a selfie overlay screen ${lang}`)
       camera.takeSelfie()
+      await percySnapshot(driver, `Verify Check selfie preview screen ${lang}`)
       confirm.clickConfirmButton()
       verificationComplete.verifyUIElements(copy)
       verificationComplete.checkBackArrowIsNotDisplayed()
+      await percySnapshot(driver, `Verify Verification complete screen ${lang}`)
     })
 
     it('should complete the flow when snapshot is disabled', async () => {
@@ -239,7 +244,15 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
+      await percySnapshot(
+        driver,
+        `Verify Let’s make sure nobody’s impersonating you screen is seen ${lang}`
+      )
       livenessIntro.clickOnContinueButton()
+      await percySnapshot(
+        driver,
+        `Verify Position your face in the oval overlay screen is seen ${lang}`
+      )
     })
 
     it('should enter the liveness flow and display timeout notification after 10 seconds', async () => {
@@ -265,6 +278,10 @@ export const faceScenarios = (lang) => {
       assert.isFalse(
         camera.isOverlayPresent(),
         'Test Failed: Face overlay should not be displayed'
+      )
+      await percySnapshot(
+        driver,
+        `Verify is your camera working pop-up is displayed ${lang}`
       )
     })
 
@@ -295,6 +312,10 @@ export const faceScenarios = (lang) => {
         'Test Failed: Face overlay should be displayed'
       )
       camera.completeChallenges()
+      await percySnapshot(
+        driver,
+        `Verify Check selfie video screen is seen with time at 0:00 ${lang}`
+      )
       confirm.playVideoBeforeConfirm()
       confirm.clickConfirmButton()
       verificationComplete.backArrow().isDisplayed()
@@ -312,6 +333,10 @@ export const faceScenarios = (lang) => {
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
       )
+      await percySnapshot(
+        driver,
+        `Verify Submit passport photo page does not have onfido logo ${lang}`
+      )
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
@@ -319,13 +344,29 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       livenessIntro.checkLogoIsHidden()
+      await percySnapshot(
+        driver,
+        `Verify Let’s make sure nobody’s impersonating you screen does not have onfido logo ${lang}`
+      )
       livenessIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
+      await percySnapshot(
+        driver,
+        `Verify Position your face in the oval overlay screen does not have onfido logo ${lang}`
+      )
       camera.recordVideo()
       camera.completeChallenges()
       confirm.checkLogoIsHidden()
+      await percySnapshot(
+        driver,
+        `Verify Check selfie video screen does not have onfido logo ${lang}`
+      )
       confirm.clickConfirmButton()
       verificationComplete.checkLogoIsHidden()
+      await percySnapshot(
+        driver,
+        `Verify Verification complete screen does not have onfido logo ${lang}`
+      )
     })
 
     it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for liveness variant', async () => {
@@ -338,6 +379,10 @@ export const faceScenarios = (lang) => {
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
       )
+      await percySnapshot(
+        driver,
+        `Verify Submit passport photo page does has co-brand logo ${lang}`
+      )
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
@@ -345,13 +390,30 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       livenessIntro.checkCobrandIsVisible()
+
+      await percySnapshot(
+        driver,
+        `Verify Let’s make sure nobody’s impersonating you screen has co-brand logo ${lang}`
+      )
       livenessIntro.clickOnContinueButton()
       camera.checkCobrandIsVisible()
+      await percySnapshot(
+        driver,
+        `Verify Position your face in the oval overlay screen has co-brand logo ${lang}`
+      )
       camera.recordVideo()
       camera.completeChallenges()
       confirm.checkCobrandIsVisible()
+      await percySnapshot(
+        driver,
+        `Verify Check selfie video screen has co-brand logo ${lang}`
+      )
       confirm.clickConfirmButton()
       verificationComplete.checkCobrandIsVisible()
+      await percySnapshot(
+        driver,
+        `Verify Verification complete screen has co-brand logo ${lang}`
+      )
     })
 
     it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for liveness variant', async () => {
