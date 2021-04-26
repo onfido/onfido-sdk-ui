@@ -63,3 +63,12 @@ jobs:
 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Publish to Surge
+        if: $VERSION == $LATEST_TAG
+        uses: dswistowski/surge-sh-action@v1.0.1
+        with:
+          domain: 'latest-onfido-sdk-ui-onfido.surge.sh'
+          project: './dist/'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
