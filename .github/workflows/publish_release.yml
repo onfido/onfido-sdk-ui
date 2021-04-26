@@ -68,7 +68,7 @@ jobs:
         if: $VERSION == $LATEST_TAG
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
-          domain: 'latest-onfido-sdk-ui-onfido.surge.sh'
+          domain: 'https://latest-onfido-sdk-ui-onfido.surge.sh'
           project: './dist/'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
