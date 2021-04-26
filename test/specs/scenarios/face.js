@@ -236,7 +236,7 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      await sleep(2500)
+      driver.wait(until.elementIsVisible(crossDeviceIntro.title()), 2500)
       crossDeviceIntro.verifyTitle(copy)
     })
 

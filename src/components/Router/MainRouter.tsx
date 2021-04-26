@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 
 import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
+import { buildStepFinder } from '~utils/steps'
 import withTheme from '../Theme'
 import GenericError from '../GenericError'
 
@@ -8,7 +9,7 @@ import { getWoopraCookie } from '../../Tracker'
 import HistoryRouter from './HistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
-import type { StepConfig, StepConfigFace } from '~types/steps'
+import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
@@ -94,23 +95,21 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
     const { hasCamera } = this.props
 
-    const faceStep = steps.find(
-      (step) => step.type === 'face'
-    ) as StepConfigFace
+    const findStep = buildStepFinder(steps)
+    const faceStep = findStep('face')
 
-    const photoCaptureFallback =
-      faceStep?.options?.photoCaptureFallback == null
-        ? true
-        : faceStep?.options?.photoCaptureFallback
+    const photoCaptureFallback = faceStep?.options?.photoCaptureFallback ?? true
 
     const canVideoFallbackToPhoto =
       window.MediaRecorder != null || photoCaptureFallback
 
+    const isLivenessRequired =
+      !canVideoFallbackToPhoto &&
+      faceStep?.options?.requestedVariant === 'video'
+
     return (
       !isDesktop &&
-      ((!hasCamera && shouldStrictlyUseCamera === true) ||
-        (!canVideoFallbackToPhoto &&
-          faceStep?.options?.requestedVariant === 'video'))
+      ((!hasCamera && shouldStrictlyUseCamera === true) || isLivenessRequired)
     )
   }
 

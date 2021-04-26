@@ -7,7 +7,7 @@ import type {
 } from '~types/routers'
 
 type CaptureComponentProps =
-  | StepComponentDocumentProps
+  | (StepComponentDocumentProps & { photoCaptureFallback: never })
   | (StepComponentFaceProps & { forceCrossDevice: never })
 
 const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
@@ -43,11 +43,12 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         requestedVariant,
         step,
         photoCaptureFallback,
-      } = { ...this.props, photoCaptureFallback: true }
+      } = this.props
       const currentStep = componentsList[step]
+      const shouldSelfieFallbackBeDisabled =
+        window.MediaRecorder == null && !photoCaptureFallback
       const cameraRequiredButNoneDetected =
-        (!hasCamera ||
-          (window.MediaRecorder == null && !photoCaptureFallback)) &&
+        (!hasCamera || shouldSelfieFallbackBeDisabled) &&
         (requestedVariant === 'video' || currentStep.step.type === 'face')
 
       if (cameraRequiredButNoneDetected) {

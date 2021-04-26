@@ -143,10 +143,7 @@ const buildFaceComponents = (
 
   const videoCameraSupport = window.MediaRecorder != null
 
-  const photoCaptureFallback =
-    faceStep?.options?.photoCaptureFallback == null
-      ? true
-      : faceStep?.options?.photoCaptureFallback
+  const photoCaptureFallback = faceStep?.options?.photoCaptureFallback !== false
 
   const shouldUseVideo =
     faceStep?.options?.requestedVariant === 'video' &&
