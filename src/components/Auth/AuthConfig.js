@@ -2,7 +2,6 @@ import { loader } from './assets/loader'
 import { success } from './assets/success'
 import { color } from '@onfido/castor'
 import { FaceTecSDK } from '../../../core-sdk/FaceTecSDK.js/FaceTecSDK'
-// import { FaceTecVocalGuidanceMode } from '../../../core-sdk/FaceTecSDK.js/FaceTecPublicApi'
 
 export const Config = (function () {
   const BaseURL = process.env.OLD_AUTH
@@ -10,23 +9,21 @@ export const Config = (function () {
   function getAuthCustomization(FaceTecSDK, dimMode) {
     const accentColor = color('primary-500')
     const frameColor = dimMode ? '#000000' : '#fcfcfd'
-    const ovalColor = color(dimMode ? 'neutral-black' : 'neutral-white')
+    const ovalColor = dimMode ? '#000000' : '#F7F9FA'
     const retryScreenOvalColor = color('primary-500')
     const dualSpinnerColor = color('primary-500')
     const textColor = dimMode
       ? color('content-inverse-main')
       : color('content-main')
     const buttonCornerRadius = '4px'
-    const buttonTextColor = color(
-      dimMode ? 'content-main' : 'content-inverse-main'
-    )
-    const buttonColorNormal = color('primary-500')
+    const buttonTextColor = dimMode ? '#ffffff' : color('content-inverse-main')
+    const buttonColorNormal = dimMode ? '#5666f9' : color('primary-500')
     const buttonColorDisabled = color('background-disabled')
-    const buttonColorPressed = color('primary-400')
-    const feedbackBarColor = '#000000CC'
-    const feedbackBarTextColor = color(
-      dimMode ? 'content-main' : 'content-inverse-main'
-    )
+    const buttonColorPressed = dimMode ? '#232aad' : color('primary-400')
+    const feedbackBarColor = dimMode ? '#1e1e24' : '#000000CC'
+    const feedbackBarTextColor = dimMode
+      ? '#ffffff'
+      : color('content-inverse-main')
 
     // Set a default customization
     const defaultCustomization = new FaceTecSDK.FaceTecCustomization()
@@ -36,11 +33,14 @@ export const Config = (function () {
     defaultCustomization.cancelButtonCustomization.customLocation = {
       x: 16,
       y: 16,
-      width: 15,
-      height: 15,
+      width: dimMode ? 12 : 15,
+      height: dimMode ? 20 : 15,
     }
     defaultCustomization.cancelButtonCustomization.location =
       FaceTecSDK.FaceTecCancelButtonLocation.Custom
+    defaultCustomization.cancelButtonCustomization.customImage = dimMode
+      ? '../../../../core-sdk/FaceTec_images/FaceTec_cancel_alt.png'
+      : '../../../../core-sdk/FaceTec_images/FaceTec_cancel.png'
 
     // Set Frame Customization
     defaultCustomization.frameCustomization.backgroundColor = frameColor
@@ -51,9 +51,7 @@ export const Config = (function () {
     defaultCustomization.overlayCustomization.backgroundColor = frameColor
 
     // Set Guidance Customization
-    defaultCustomization.guidanceCustomization.backgroundColors = dimMode
-      ? '#000000'
-      : '#FCFCFD'
+    defaultCustomization.guidanceCustomization.backgroundColors = frameColor
     defaultCustomization.guidanceCustomization.foregroundColor = textColor
     defaultCustomization.guidanceCustomization.buttonBackgroundNormalColor = buttonColorNormal
     defaultCustomization.guidanceCustomization.buttonBackgroundDisabledColor = buttonColorDisabled
