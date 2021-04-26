@@ -6,6 +6,7 @@ on:
 env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
   BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+  PR_NUMBER: ${{ github.event.number }}
 
 jobs:
   build:
@@ -19,6 +20,7 @@ jobs:
       - uses: actions/checkout@v2.3.4
       # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
       # e.g. "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
+
       - name: Reconfigure git to use HTTP authentication
         run: >
           git config --global url."https://github.com/".insteadOf
@@ -27,6 +29,7 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
+
       - name: Cache node modules
         uses: actions/cache@v2
         with:
@@ -34,34 +37,53 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
       - name: Install Dependencies
         run: npm ci
+
       - name: npm audit action
         if: matrix.NODE_ENV == 'production'
         uses: oke-py/npm-audit-action@v1.7.0
         with:
           audit_level: moderate
+
       - name: Build mock server
         if: matrix.NODE_ENV == 'test'
         run: npm run build:test
+
       - name: Run UI Tests
         if: matrix.NODE_ENV == 'test'
         run: |
           npm run test:ui
           # npm run test:integration
-      - name: Build mock server
+
+      - name: Run production build
         if: matrix.NODE_ENV == 'production'
         run: npm run build
+
       - name: Run BundleWatch Check
         if: matrix.NODE_ENV == 'production'
         uses: jackyef/bundlewatch-gh-action@0.1.0
         with:
           bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
-      - name: Publish to surge
+
+      - name: Create Surge URL - production
+        if: matrix.NODE_ENV == 'production'
+        run: |
+          echo $PR_NUMBER
+          echo "SURGE_SUBDOMAIN=release-${PR_NUMBER}-pr" >> $GITHUB_ENV
+
+      - name: Create Surge URL - test
         if: matrix.NODE_ENV == 'test'
+        run: echo "SURGE_SUBDOMAIN=${PR_NUMBER}-pr" >> $GITHUB_ENV
+
+      - name: Publish to surge
         uses: dswistowski/surge-sh-action@v1.0.1
+        run: |
+          echo "SURGE_DOMAIN=https://${SURGE_SUBDOMAIN}-onfido-sdk-ui-onfido.surge.sh" >> $GITHUB_ENV
+          echo "Deploying domain: ${SURGE_DOMAIN}"
         with:
-          domain: 'stef-foo-bar.surge.sh'
+          domain: $SURGE_DOMAIN
           project: './dist/'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
