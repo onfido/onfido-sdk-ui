@@ -75,13 +75,13 @@ jobs:
 
       - name: Create Surge URL - test
         if: matrix.NODE_ENV == 'test'
-        run: echo "SURGE_SUBDOMAIN=${PR_NUMBER}-pr" >> $GITHUB_ENV
+        run: |
+          echo "SURGE_SUBDOMAIN=${PR_NUMBER}-pr" >> $GITHUB_ENV
+          echo "SURGE_DOMAIN=https://${SURGE_SUBDOMAIN}-onfido-sdk-ui-onfido.surge.sh" >> $GITHUB_ENV
+          echo "Deploying domain: ${SURGE_DOMAIN}"
 
       - name: Publish to surge
         uses: dswistowski/surge-sh-action@v1.0.1
-        run: |
-          echo "SURGE_DOMAIN=https://${SURGE_SUBDOMAIN}-onfido-sdk-ui-onfido.surge.sh" >> $GITHUB_ENV
-          echo "Deploying domain: ${SURGE_DOMAIN}"
         with:
           domain: $SURGE_DOMAIN
           project: './dist/'
