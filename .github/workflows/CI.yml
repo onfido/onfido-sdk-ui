@@ -14,7 +14,7 @@ jobs:
       matrix:
         include:
           - NODE_ENV: test
-          # - NODE_ENV: production // renable this once the action works
+          - NODE_ENV: production
     steps:
       - uses: actions/checkout@v2.3.4
       # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
@@ -27,15 +27,6 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
-      ## Also tried to login to docker but it doesn't work
-      # - name: Login to Docker Hub
-      #   env:
-      #       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      #       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-      #   uses: docker/login-action@v1
-      #   with:
-      #     username: ${DOCKER_HUB_USERNAME}
-      #     password: ${DOCKER_HUB_ACCESS_TOKEN}
       - name: Cache node modules
         uses: actions/cache@v2
         with:
@@ -45,9 +36,11 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install Dependencies
         run: npm ci
-      # TODO:
-      # - name: Run NPM Audit
-      #   run: audit-ci --moderate
+      - name: npm audit action
+        if: matrix.NODE_ENV == 'production'
+        uses: oke-py/npm-audit-action@v1.7.0
+        with:
+          audit_level: moderate
       - name: Build mock server
         if: matrix.NODE_ENV == 'test'
         run: npm run build:test
@@ -56,9 +49,19 @@ jobs:
         run: |
           npm run test:ui
           # npm run test:integration
-
-# TODO:
-# after_success:
-#   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
-#   - chmod ugo+x ./deploy.sh
-#   - ./deploy.sh
+      - name: Build mock server
+        if: matrix.NODE_ENV == 'production'
+        run: npm run build
+      - name: Run BundleWatch Check
+        if: matrix.NODE_ENV == 'production'
+        uses: jackyef/bundlewatch-gh-action@0.1.0
+        with:
+          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+      - name: Publish to surge
+        if: matrix.NODE_ENV == 'test'
+        uses: dswistowski/surge-sh-action@v1.0.1
+        with:
+          domain: 'stef-foo-bar.surge.sh'
+          project: './dist/'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
