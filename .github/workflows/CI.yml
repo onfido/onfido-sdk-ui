@@ -90,6 +90,6 @@ jobs:
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
           domain: $SURGE_DOMAIN
-          project: './dist/'
+          project: './dist'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
