@@ -77,7 +77,7 @@ export type HistoryRouterProps = {
   sendClientSuccess?: () => void
   step?: number
   stepIndexType?: StepIndexType
-  steps?: StepConfig[]
+  steps: StepConfig[]
 } & InternalRouterProps
 
 export type StepsRouterProps = {

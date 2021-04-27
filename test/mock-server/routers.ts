@@ -106,7 +106,7 @@ const buildDocumentsResponse = (
     }
   }
 
-  if (originalName === 'blob') {
+  if (originalName === 'blob' || originalName === 'document_capture.jpeg') {
     const { type, sdk_metadata } = formData.fields
     const sdkMetadata = JSON.parse(sdk_metadata)
 

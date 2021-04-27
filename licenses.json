@@ -2170,8 +2170,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/axios/axios",
     "publisher": "Matt Zabriskie",
-    "path": "node_modules/axios",
-    "licenseFile": "node_modules/axios/LICENSE"
+    "path": "node_modules/chromedriver/node_modules/axios",
+    "licenseFile": "node_modules/chromedriver/node_modules/axios/LICENSE"
   },
   "babel-eslint@10.1.0": {
     "licenses": "MIT",
@@ -5167,6 +5167,15 @@
     "url": "@mafintosh",
     "path": "node_modules/flush-write-stream",
     "licenseFile": "node_modules/flush-write-stream/LICENSE"
+  },
+  "follow-redirects@1.13.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/follow-redirects/follow-redirects",
+    "publisher": "Ruben Verborgh",
+    "email": "ruben@verborgh.org",
+    "url": "https://ruben.verborgh.org/",
+    "path": "node_modules/chromedriver/node_modules/follow-redirects",
+    "licenseFile": "node_modules/chromedriver/node_modules/follow-redirects/LICENSE"
   },
   "follow-redirects@1.13.3": {
     "licenses": "MIT",
