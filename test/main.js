@@ -50,7 +50,6 @@ const chromeOptions = {
     '--use-fake-ui-for-media-stream',
     `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`,
     '--ignore-certificate-errors',
-    '--headless',
   ],
 }
 // chromeOptions changed to goog:chromeOptions'
