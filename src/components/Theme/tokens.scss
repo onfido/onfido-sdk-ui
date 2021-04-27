@@ -28,12 +28,15 @@
   --font-family: 'Open Sans', sans-serif;
 
   --font-size-base: calc(16 * var(--unit));
-
   --font-size-large: calc(20 * var(--unit));
   --font-size-x-large: calc(30 * var(--unit));
   --font-size-small: calc(14 * var(--unit));
   --font-size-x-small: calc(11 * var(--unit));
 
+  /* Tokens that don't support customisation */
+  --color-background-button-custom: #d5dae0;
+
+  /* Tokens that support customisation */
   --osdk-font-family-title: var(--font-family);
   --osdk-font-size-title: var(--font-size-x-large);
   --osdk-font-weight-title: 600;
@@ -101,7 +104,6 @@
   --osdk-color-background-button-primary-active: rgba(
     var(--ods-color-background-action-active)
   );
-  --osdk-color-background-button-custom: #d5dae0;
 
   --osdk-color-border-button-primary: rgba(var(--ods-color-border-action));
 

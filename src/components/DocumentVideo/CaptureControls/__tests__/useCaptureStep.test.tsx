@@ -134,12 +134,12 @@ describe('DocumentVideo', () => {
             assertRecordState(wrapper, 'hideButton')
           })
 
-          it('transits to showButton state correctly', () => {
+          it('transitions to showButton state correctly', () => {
             simulateNextRecordState(wrapper, 1)
             assertRecordState(wrapper, 'showButton')
           })
 
-          it('transits to success state correctly', () => {
+          it('transitions to success state correctly', () => {
             simulateNextRecordState(wrapper, 2)
             assertRecordState(wrapper, 'success')
           })
@@ -212,17 +212,17 @@ describe('DocumentVideo', () => {
             assertRecordState(wrapper, 'hideButton')
           })
 
-          it('transits to showButton state correctly', () => {
+          it('transitions to showButton state correctly', () => {
             simulateNextRecordState(wrapper, 1)
             assertRecordState(wrapper, 'showButton')
           })
 
-          it('transits to holdStill state correctly', () => {
+          it('transitions to holdStill state correctly', () => {
             simulateNextRecordState(wrapper, 2)
             assertRecordState(wrapper, 'holdStill')
           })
 
-          it('transits to success state correctly', () => {
+          it('transitions to success state correctly', () => {
             simulateNextRecordState(wrapper, 3)
             assertRecordState(wrapper, 'success')
           })
