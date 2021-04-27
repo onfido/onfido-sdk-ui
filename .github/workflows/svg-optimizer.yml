@@ -3,7 +3,7 @@ on:
   # Disable the following line if you don't want the Action to run on PRs.
   pull_request:
     paths:
-    - "**.svg"
+      - '**.svg'
 # Enable the following line if you want the Action to run on regular pushes.
 #  push:
 # Enable the following lines if you want the Action to run on a schedule.
