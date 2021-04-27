@@ -30,10 +30,12 @@ jobs:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Cache node modules
+      - name: Cache node modules and dist
         uses: actions/cache@v2
         with:
-          path: ~/.npm
+          path: |
+            ~/.npm
+            ./dist
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
@@ -60,12 +62,6 @@ jobs:
       - name: Run production build
         if: matrix.NODE_ENV == 'production'
         run: npm run build
-
-      - name: Run BundleWatch Check
-        if: matrix.NODE_ENV == 'production'
-        uses: jackyef/bundlewatch-gh-action@0.1.0
-        with:
-          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
 
       - name: Create Surge Subdomain - production
         if: matrix.NODE_ENV == 'production'
