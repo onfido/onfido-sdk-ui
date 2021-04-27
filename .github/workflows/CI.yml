@@ -35,7 +35,6 @@ jobs:
         with:
           path: |
             ~/.npm
-            ./dist
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
@@ -55,7 +54,9 @@ jobs:
 
       - name: Run Tests
         if: matrix.NODE_ENV == 'test'
-        run: npm run test:all
+        run: |
+          npm run test:ui
+          npm run test:integration"
 
       - name: Run production build
         if: matrix.NODE_ENV == 'production'
@@ -79,13 +80,13 @@ jobs:
       - name: Print Surge Domain
         run: |
           ls -la .
-          echo "Deploying domain: $SURGE_DOMAIN $PR_NUMBER"
+          echo "Deploying domain: $SURGE_DOMAIN"
 
       - name: Publish to surge
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
-          domain: $SURGE_DOMAIN
-          project: ./dist
+          domain: echo "$SURGE_DOMAIN"
+          project: ./dist/
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
 
@@ -93,6 +94,5 @@ jobs:
         uses: mshick/add-pr-comment@v1
         with:
           message: |
-            $SURGE_DOMAIN
-            🚀
+            echo "$SURGE_DOMAIN 🚀"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
