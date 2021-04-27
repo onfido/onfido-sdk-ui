@@ -6,7 +6,7 @@ on:
 env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
   BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
-  PR_NUMBER: ${{ github.event.number }}
+  PR_NUMBER: ${{ github.event.pull_request.number }}
 
 jobs:
   build:
@@ -67,24 +67,29 @@ jobs:
         with:
           bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
 
-      - name: Create Surge URL - production
+      - name: Create Surge Subdomain - production
         if: matrix.NODE_ENV == 'production'
-        run: |
-          echo $PR_NUMBER
-          echo "SURGE_SUBDOMAIN=release-${PR_NUMBER}-pr" >> $GITHUB_ENV
-          echo "Deploying domain: ${SURGE_DOMAIN}"
+        run: echo "SURGE_SUBDOMAIN=release-${PR_NUMBER}-pr" >> $GITHUB_ENV
 
       - name: Create Surge URL - test
         if: matrix.NODE_ENV == 'test'
+        run: echo "SURGE_SUBDOMAIN=${PR_NUMBER}-pr" >> $GITHUB_ENV
+
+      - name: Create Surge Domain
         run: |
-          echo "SURGE_SUBDOMAIN=${PR_NUMBER}-pr" >> $GITHUB_ENV
-          echo "SURGE_DOMAIN=https://${SURGE_SUBDOMAIN}-${CI_REPO_NAME}-${CI_REPO_OWNER}.surge.sh" >> $GITHUB_ENV
-          echo "Deploying domain: ${SURGE_DOMAIN}"
+          IFS='/' read -ra REPO_SLUG_ARRAY <<< "$GITHUB_REPOSITORY"
+          REPO_OWNER=${REPO_SLUG_ARRAY[0]}
+          REPO_NAME=${REPO_SLUG_ARRAY[1]}
+          echo "SURGE_DOMAIN=https://${SURGE_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh" >> $GITHUB_ENV
+
+      - name: Print Surge Domain
+        run: |
+          echo "Deploying domain: $SURGE_DOMAIN $PR_NUMBER"
 
       - name: Publish to surge
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
-          domain: ${{ env.SURGE_DOMAIN }}
+          domain: $SURGE_DOMAIN
           project: './dist/'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
