@@ -85,14 +85,13 @@ jobs:
       - name: Publish to surge
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
-          domain: echo "$SURGE_DOMAIN"
-          project: ./dist/
+          domain: ${{ env.SURGE_DOMAIN }} 
+          project: ./dist
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
 
       - name: Add comment with Surge link to PR
         uses: mshick/add-pr-comment@v1
         with:
-          message: |
-            echo "$SURGE_DOMAIN 🚀"
+          message: ${{ env.SURGE_DOMAIN }} 🚀
           repo-token: ${{ secrets.GITHUB_TOKEN }}
