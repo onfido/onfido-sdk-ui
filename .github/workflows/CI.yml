@@ -73,7 +73,7 @@ jobs:
           REPO_NAME=${REPO_SLUG_ARRAY[1]}
           echo "SURGE_DOMAIN=https://${PR_NUMBER}-pr-${REPO_NAME}-${REPO_OWNER}.surge.sh" >> $GITHUB_ENV
 
-      - name: Publish to surge
+      - name: Publish to Surge
         if: matrix.NODE_ENV == 'production'
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
