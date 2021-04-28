@@ -46,12 +46,12 @@ const random = () => Math.random().toString(36).substring(7)
 const chromeCapabilities = Capabilities.chrome()
 const chromeOptions = {
   args: [
+    '--no-sandbox',
+    '--disable-dev-shm-usage',
     '--use-fake-device-for-media-stream',
     '--use-fake-ui-for-media-stream',
     `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`,
     '--ignore-certificate-errors',
-    '--no-sandbox',
-    '--disable-dev-shm-usage',
   ],
 }
 // chromeOptions changed to goog:chromeOptions'
