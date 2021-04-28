@@ -65,27 +65,16 @@ jobs:
         if: matrix.NODE_ENV == 'production'
         run: npm run build
 
-      - name: Create Surge Subdomain - production
-        if: matrix.NODE_ENV == 'production'
-        run: echo "SURGE_SUBDOMAIN=release-${PR_NUMBER}-pr" >> $GITHUB_ENV
-
-      - name: Create Surge URL - test
-        if: matrix.NODE_ENV == 'test'
-        run: echo "SURGE_SUBDOMAIN=${PR_NUMBER}-pr" >> $GITHUB_ENV
-
       - name: Create Surge Domain
+        if: matrix.NODE_ENV == 'production'
         run: |
           IFS='/' read -ra REPO_SLUG_ARRAY <<< "$GITHUB_REPOSITORY"
           REPO_OWNER=${REPO_SLUG_ARRAY[0]}
           REPO_NAME=${REPO_SLUG_ARRAY[1]}
-          echo "SURGE_DOMAIN=https://${SURGE_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh" >> $GITHUB_ENV
-
-      - name: Print Surge Domain
-        run: |
-          ls -la .
-          echo "Deploying domain: $SURGE_DOMAIN"
+          echo "SURGE_DOMAIN=https://${PR_NUMBER}-pr-${REPO_NAME}-${REPO_OWNER}.surge.sh" >> $GITHUB_ENV
 
       - name: Publish to surge
+        if: matrix.NODE_ENV == 'production'
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
           domain: ${{ env.SURGE_DOMAIN }}
@@ -94,6 +83,7 @@ jobs:
           token: ${{ secrets.SURGE_TOKEN }}
 
       - name: Add comment with Surge link to PR
+        if: matrix.NODE_ENV == 'production'
         uses: mshick/add-pr-comment@v1
         with:
           message: ${{ env.SURGE_DOMAIN }} 🚀
