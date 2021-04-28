@@ -63,7 +63,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-      - name: Publish to Surge
+      - name: Publish latest version to Surge
         if: ${{ env.VERSION == env.LATEST_TAG }}
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
