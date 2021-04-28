@@ -83,4 +83,21 @@ export type UICustomizationOptions = {
   // Camera Shutter Button (only customisable for hover, active states)
   colorBackgroundButtonCameraHover?: string
   colorBackgroundButtonCameraActive?: string
+
+  // Auth interface customization
+  authAccentColor?: string
+  authDualSpinnerColor?: string
+  authRetryScreenOvalColor?: string
+  authOvalColor?: string
+  authTextColor?: string
+  authButtonCornerRadius?: string
+  authFrameColor?: string
+  authButtonTextHighlightColor?: string
+  authButtonTextDisabledColor?: string
+  authButtonTextNormalColor?: string
+  authButtonColorNormal?: string
+  authButtonColorDisabled?: string
+  authButtonColorPressed?: string
+  authFeedbackBarColor?: string
+  authFeedbackBarTextColor?: string
 }
