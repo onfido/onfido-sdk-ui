@@ -53,10 +53,6 @@ jobs:
         if: matrix.NODE_ENV == 'test'
         run: npm run build:test
 
-      - name: Run unit tests
-        if: matrix.NODE_ENV == 'test'
-        run: npm run test
-
       - name: Run integration tests
         if: matrix.NODE_ENV == 'test'
         run: npm run test:integration
