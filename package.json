@@ -18,7 +18,7 @@
     "postbuild": "dts-bundle-generator src/types/index.ts --out-file lib/index.d.ts",
     "mkdirs": "mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
-    "prepare": "npm run clean",
+    "prepare": "npm run clean && npm run check && npm run build",
     "check": "npm run check:types && npm run check:es && npm run check:styles && npm run check:format",
     "check:types": "tsc --noEmit --jsx preserve",
     "check:es": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}'",
