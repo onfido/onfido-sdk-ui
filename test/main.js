@@ -47,6 +47,7 @@ const chromeCapabilities = Capabilities.chrome()
 const chromeOptions = {
   args: [
     '--headless',
+    '--window-size=1920,1080',
     '--use-fake-device-for-media-stream',
     '--use-fake-ui-for-media-stream',
     `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`,
