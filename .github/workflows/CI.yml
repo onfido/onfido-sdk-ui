@@ -52,11 +52,13 @@ jobs:
         if: matrix.NODE_ENV == 'test'
         run: npm run build:test
 
-      - name: Run Tests
+      - name: Run integration tests
         if: matrix.NODE_ENV == 'test'
-        run: |
-          npm run test:ui
-          npm run test:integration"
+        run: npm run test:integration
+
+      - name: Run UI tests
+        if: matrix.NODE_ENV == 'test'
+        run: npm run test:ui
 
       - name: Run production build
         if: matrix.NODE_ENV == 'production'
