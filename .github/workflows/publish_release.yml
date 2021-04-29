@@ -72,10 +72,11 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
       - name: Run build for Surge
+        # Legacy: Surge uses the NODE_ENV=test + TEST_ENV=deployment
         run: |
           if [ "$VERSION" == "$LATEST_TAG" ]
           then
-            TEST_ENV=deployment npm run build
+            TEST_ENV=deployment npm run build:test
           fi
 
       - name: Publish latest version to Surge
