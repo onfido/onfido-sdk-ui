@@ -62,7 +62,15 @@ jobs:
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      
+
+      - name: Send artifacts to Sentry
+        run: |
+          sentry-cli --auth-token $SENTRY_AUTH_TOKEN
+          sentry-cli releases new $LATEST_TAG --log-level=DEBUG
+          sentry-cli releases files $LATEST_TAG upload-sourcemaps ./dist/
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
       - name: Run build for Surge
         run: |
           if [ "$VERSION" == "$LATEST_TAG" ]
