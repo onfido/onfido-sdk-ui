@@ -19,6 +19,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Migrate CI build from TravisCI to Github Actions
+
 ### Fixed
 
 - Public: Get latest copy from Lokalise with various grammar, punctuation fixes. Also reverts French, Spanish translations for some Proof of Address copy in these languages' locale files (Proof of Address is only supported for English)
