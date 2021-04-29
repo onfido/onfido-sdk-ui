@@ -29,7 +29,6 @@ Our UI tests also run on BrowserStack. If you would like to run them on your Bro
 
 - `pageobjects/`contains files with page objects that map objects by css selectors and functions that use these page objects
 - `resources/`contains files needed for the upload tests
-- `scripts/` contains scripts to setup test environment on Travis CI
 - `specs/` contains files with the tests implemented
 - `utils/` contains util files with the set up for accessibility testing, browserstack and mocha
 - `config.json`contains configuration for the browsers on which the tests will run

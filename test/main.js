@@ -46,6 +46,8 @@ const random = () => Math.random().toString(36).substring(7)
 const chromeCapabilities = Capabilities.chrome()
 const chromeOptions = {
   args: [
+    '--headless',
+    '--window-size=1920,1080',
     '--use-fake-device-for-media-stream',
     '--use-fake-ui-for-media-stream',
     `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`,
@@ -154,6 +156,7 @@ const printTestInfo = (browser, testCase) => {
 }
 
 const runner = async () => {
+  await waitForMockServer()
   let totalFailures = 0
 
   await eachP(config.tests, async (testCase) => {
@@ -182,7 +185,12 @@ const runner = async () => {
 }
 
 const killMockServer = (dockerContainerId) => {
+  if (!dockerContainerId) {
+    return
+  }
+
   console.log(chalk.grey('Killing mock server'))
+
   exec(`docker stop ${dockerContainerId} -t0`, (error) => {
     if (error) {
       console.log(chalk.yellow('Error killing mock server:'), error)
@@ -250,22 +258,16 @@ const waitForMockServer = async () => {
   }
 }
 
-exec('npm run mock-server:run', async (error, stdout) => {
-  if (error) {
-    console.error(chalk.yellow('Error running mock server:'), error)
-    return
-  }
-
-  const stdoutLines = stdout.split('\n').filter((line) => line)
-  const dockerContainerId = stdoutLines[stdoutLines.length - 1]
-
-  console.log(
-    chalk.green(
-      `Mock server is running in docker container with id ${chalk.yellow(
-        dockerContainerId
-      )}`
+const runTests = async (dockerContainerId) => {
+  if (dockerContainerId) {
+    console.log(
+      chalk.green(
+        `Mock server is running in docker container with id ${chalk.yellow(
+          dockerContainerId
+        )}`
+      )
     )
-  )
+  }
 
   await waitForMockServer()
   runner()
@@ -279,7 +281,34 @@ exec('npm run mock-server:run', async (error, stdout) => {
   process.on('SIGUSR1', cleanUp) // Script stops by "kill pid"
   process.on('SIGUSR2', cleanUp) // Script stops by "kill pid"
   process.on('uncaughtException', cleanUp) // Script stops by uncaught exception
-})
+}
+
+const findMockServerId = (callback) =>
+  exec('docker ps | grep onfido-web-sdk:ui-mock-server', (error, stdout) => {
+    let dockerContainerId
+
+    if (!error) {
+      const parsed = stdout.split(/[\s\t]+/)
+
+      if (parsed.length) {
+        dockerContainerId = stdout.split(/[\s\t]+/)[0]
+      }
+    }
+
+    typeof callback === 'function' && callback(dockerContainerId)
+  })
+
+const runMockServerAndTests = () =>
+  exec('npm run mock-server:run', (error) => {
+    if (error) {
+      console.error(chalk.yellow('Error running mock server:'), error)
+      return
+    }
+
+    findMockServerId(runTests)
+  })
+
+runMockServerAndTests()
 
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
 //ref: https://github.com/mochajs/mocha/wiki/Using-mocha-programmatically
