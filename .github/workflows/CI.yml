@@ -61,9 +61,9 @@ jobs:
         if: matrix.NODE_ENV == 'test'
         run: npm run test:ui
 
-      - name: Run production build
+      - name: Run build
         if: matrix.NODE_ENV == 'production'
-        run: npm run build
+        run: TEST_ENV=deployment npm run build
 
       - name: Create Surge Domain
         if: matrix.NODE_ENV == 'production'

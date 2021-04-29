@@ -62,6 +62,13 @@ jobs:
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      
+      - name: Run build for Surge
+        run: |
+          if [ "$VERSION" == "$LATEST_TAG" ]
+          then
+            TEST_ENV=deployment npm run build
+          fi
 
       - name: Publish latest version to Surge
         if: ${{ env.VERSION == env.LATEST_TAG }}
