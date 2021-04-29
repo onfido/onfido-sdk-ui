@@ -5,7 +5,6 @@
 }
 
 .introIcon {
-  background-repeat: no-repeat;
   display: block;
   position: absolute;
   left: 0;
@@ -14,16 +13,22 @@
   height: 48 * $unit;
 }
 
+/* Follow icon styling in Uploader/style.scss for Selfie Intro icons */
 .selfieIcon {
-  @extend %icon-circle-background;
-  background-size: contain;
   background-image: url('./assets/selfie-picto.svg');
+  background-position: center;
+  background-color: var(--osdk-color-background-icon);
+  background-size: contain;
+  border-radius: 50%;
 }
 
 .glassesIcon {
-  @extend %icon-circle-background;
-  background-size: contain;
+  background-size: 48 * $unit;
   background-image: url('./assets/glasses-picto.svg');
+  background-position: center;
+  background-color: var(--osdk-color-background-icon);
+  background-size: contain;
+  border-radius: 50%;
 }
 
 .introBullet {
