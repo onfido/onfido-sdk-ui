@@ -7,6 +7,14 @@ class BasePage {
     this.driver = driver
   }
 
+  async expectCurrentUrlToMatchUrl(expectedUrl) {
+    assert.equal(
+      this.driver.getCurrentUrl(),
+      expectedUrl,
+      `Test Failed: Browser URL has been modified`
+    )
+  }
+
   async title() {
     return this.$('.onfido-sdk-ui-PageTitle-titleSpan')
   }
