@@ -4,3 +4,17 @@
   margin-top: 64 * $unit;
   margin-bottom: 80 * $unit;
 }
+
+.text2 {
+  flex: 1;
+  padding: 0 24 * $unit;
+  text-align: left;
+}
+
+.icon {
+  background-image: url('../Complete/assets/complete.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 24 * $unit;
+  height: 24 * $unit;
+}

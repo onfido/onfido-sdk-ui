@@ -60,15 +60,19 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
     ? nextButton
     : translate('welcome.next_button')
 
+  console.warn('TODO: Revert this change! For testing only!')
+
   return (
     <div className={theme.contentMargin}>
       <Button
-        variant="primary"
+        variant="secondary"
         className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={nextStep}
         data-onfido-qa="welcome-next-btn"
       >
-        {welcomeNextButton}
+        <span className={style.icon} />
+        <span className={style.text2}>{welcomeNextButton}</span>
+        <span className={style.icon} />
       </Button>
     </div>
   )
