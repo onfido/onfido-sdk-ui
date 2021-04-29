@@ -16,7 +16,7 @@ export type LocaleConfig = {
   mobilePhrases?: Record<string, unknown>
 }
 
-export type ParsedElement = string | h.JSX.Element
+export type ParsedElement = string | h.JSX.Element | null
 
 export type TranslatedTagHandler = (tag: {
   type: string
