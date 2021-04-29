@@ -969,7 +969,7 @@ Onfido.init({
   // Other options here
   enterpriseFeatures: {
     useCustomizedApiRequests: true,
-    onSubmitDocuments: (documentData) => {
+    onSubmitDocument: (documentData) => {
       // Your callback code here
     },
     onSubmitSelfie: (selfieData) => {

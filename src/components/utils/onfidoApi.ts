@@ -174,9 +174,14 @@ export const uploadLiveVideo = (
     switchSeconds: challenge_switch_at,
   } = challengeData || {}
 
+  // NOTE: important for automation - language_code string must be
+  //       either 2-letter ISO, i.e. "en", or BCP-47 IIRC format, i.e. "en-US".
+  const languageCodeForApi = language && language.split('_')[0]
   const payload: SubmitLiveVideoPayload = {
     file: blob,
-    languages: JSON.stringify([{ source: 'sdk', language_code: language }]),
+    languages: JSON.stringify([
+      { source: 'sdk', language_code: languageCodeForApi },
+    ]),
     challenge: JSON.stringify(challenge),
     challenge_id,
     challenge_switch_at,
@@ -217,7 +222,11 @@ export const objectToFormData = (object: SubmitPayload): FormData => {
   const formData = new FormData()
 
   forEach(object, (value, fieldName) => {
-    if (typeof value === 'string' || value instanceof Blob) {
+    if (
+      typeof value === 'string' ||
+      typeof value === 'number' || // challenge_switch_at is a numerical value & required for video automation
+      value instanceof Blob
+    ) {
       formData.append(fieldName, value)
     } else if (typeof value === 'object') {
       formData.append(fieldName, value.blob, value.filename)
