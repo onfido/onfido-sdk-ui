@@ -28,6 +28,7 @@ export type CapturePayload = {
   id?: string
   isPreviewCropped?: boolean
   method?: CaptureMethods
+  multiFrameCaptured?: boolean
   sdkMetadata: SdkMetadata
   variant?: RequestedVariant
 }

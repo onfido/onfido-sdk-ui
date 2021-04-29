@@ -8,6 +8,7 @@ import { randomId } from '~utils/string'
 import { appendToTracking, trackException } from '../../Tracker'
 import { localised } from '../../locales'
 import DocumentVideo from '../DocumentVideo'
+import DocumentMultiFrame from '../DocumentMultiFrame'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
@@ -26,6 +27,7 @@ import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
   HandleDocVideoCaptureProp,
+  HandleDocMultiFrameCaptureProp,
   RenderFallbackProp,
   StepComponentDocumentProps,
 } from '~types/routers'
@@ -111,6 +113,53 @@ class Document extends Component<Props> {
       id: randomId(),
       side: 'front',
     })
+
+    if (back) {
+      actions.createCapture({
+        ...back,
+        ...baseData,
+        id: randomId(),
+        side: 'back',
+      })
+    }
+
+    actions.createCapture({
+      ...video,
+      ...baseData,
+      id: randomId(),
+      variant: 'video',
+    })
+
+    nextStep()
+  }
+
+  handleMultiFrameCapture: HandleDocMultiFrameCaptureProp = (payload) => {
+    const { actions, documentType, mobileFlow, nextStep } = this.props
+    const { video, front, back } = payload
+
+    if (!documentType) {
+      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
+      throw new Error('documentType not provided')
+    }
+
+    const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
+      documentType,
+      method: 'document',
+      multiFrameCaptured: true,
+      sdkMetadata: addDeviceRelatedProperties(
+        video?.sdkMetadata || {},
+        mobileFlow
+      ),
+    }
+
+    if (front) {
+      actions.createCapture({
+        ...front,
+        ...baseData,
+        id: randomId(),
+        side: 'front',
+      })
+    }
 
     if (back) {
       actions.createCapture({
@@ -233,6 +282,19 @@ class Document extends Component<Props> {
           onCapture={this.handlePhotoCapture}
           renderFallback={renderFallback}
           renderTitle={renderTitle}
+          trackScreen={trackScreen}
+        />
+      )
+    }
+
+    // Beta: Document multi-frame capture
+    if (!isDesktop && documentType) {
+      return (
+        <DocumentMultiFrame
+          documentType={documentType}
+          onCapture={this.handleMultiFrameCapture}
+          renderFallback={renderFallback}
+          side={side}
           trackScreen={trackScreen}
         />
       )
