@@ -60,6 +60,8 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
     ? nextButton
     : translate('welcome.next_button')
 
+  console.warn('TODO: Revert this change! For testing only!')
+
   return (
     <div className={theme.contentMargin}>
       <Button
@@ -83,7 +85,6 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
 
   const actions = <WelcomeActions {...{ nextButton, nextStep }} />
   const welcomeTitle = title ? title : translate('welcome.title')
-  console.log('TODO: Revert this change! For testing only!')
 
   return (
     <ScreenLayout actions={actions}>
