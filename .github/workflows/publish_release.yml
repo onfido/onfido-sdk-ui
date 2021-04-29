@@ -60,6 +60,30 @@ jobs:
             echo Publishing next tag $VERSION
             npm publish --tag next
           fi
-
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Send artifacts to Sentry
+        run: |
+          sentry-cli --auth-token $SENTRY_AUTH_TOKEN
+          sentry-cli releases new $LATEST_TAG --log-level=DEBUG
+          sentry-cli releases files $LATEST_TAG upload-sourcemaps ./dist/
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
+      - name: Run build for Surge
+        # Legacy: Surge uses the NODE_ENV=test + TEST_ENV=deployment
+        run: |
+          if [ "$VERSION" == "$LATEST_TAG" ]
+          then
+            TEST_ENV=deployment npm run build:test
+          fi
+
+      - name: Publish latest version to Surge
+        if: ${{ env.VERSION == env.LATEST_TAG }}
+        uses: dswistowski/surge-sh-action@v1.0.1
+        with:
+          domain: 'https://latest-onfido-sdk-ui-onfido.surge.sh'
+          project: './dist/'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
