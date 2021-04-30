@@ -13,6 +13,7 @@ import {
 
 let jwtToken = null
 
+const LANGUAGE_CODE = 'en'
 const TEST_VIDEO_DATA = {
   challengeData: {
     challenges: [
@@ -28,7 +29,7 @@ const TEST_VIDEO_DATA = {
     id: 'test-challenge-data',
     switchSeconds: 2021,
   },
-  language: 'en_US',
+  language: LANGUAGE_CODE,
   sdkMetadata: {},
 }
 
@@ -42,7 +43,7 @@ const TEST_VIDEO_DATA = {
 
 describe('API uploadFaceVideo endpoint', () => {
   beforeEach(async () => {
-    jest.setTimeout(10000)
+    jest.setTimeout(15000)
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
   })
 
@@ -53,7 +54,7 @@ describe('API uploadFaceVideo endpoint', () => {
       { file_name: 'blob' },
       { file_type: testFileType },
       { challenge: TEST_VIDEO_DATA.challengeData.challenges },
-      { languages: [{ source: 'sdk', language_code: 'en_US' }] },
+      { languages: [{ source: 'sdk', language_code: LANGUAGE_CODE }] },
       ...COMMON_FILE_UPLOAD_PROPERTIES,
     ]
     expect.assertions(expectedProperties.length)
