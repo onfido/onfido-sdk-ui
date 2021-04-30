@@ -56,7 +56,7 @@ export type HandleCaptureProp = (payload: CapturePayload) => void
 export type RenderFallbackProp = (
   text: string,
   callback?: () => void
-) => h.JSX.Element
+) => h.JSX.Element | null
 
 export type ErrorProp = {
   name: ErrorNames

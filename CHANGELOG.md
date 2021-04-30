@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Refactor `useSdkOptions()` hook to return a tuple: `[options, { findStep }]`
 - Internal: Added default filename for all document uploads if filename is not present.
 - Public: Added user consent content reload screen
+- Internal: Refactor for better reusability of video capture components.
 
 ### Changed
 
@@ -23,6 +24,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Get latest copy from Lokalise with various grammar, punctuation fixes. Also reverts French, Spanish translations for some Proof of Address copy in these languages' locale files (Proof of Address is only supported for English)
+
+## [6.7.2] - 2021-04-26
+
+### Fixed
+
+- Public: Fix Cross Device "Send Link" options link affecting host app/site's page routing on click
+- UI: Fixed flickering country list on SMS country dropdown. The fix involves updating `deviceHasCameraSupport` in the Redux store only when the value changes.
+- Internal: Fix Liveness Video upload payload to `/live_videos` API endpoint missing `challenge_switch_at` property and value
+- Internal: Fix incorrect format of `language_code` value in Liveness Video upload payload to `/live_videos` API endpoint
 
 ## [6.7.1] - 2021-03-26
 
@@ -949,7 +959,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.2...development
+[6.7.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.1...6.7.2
 [6.7.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.0...6.7.1
 [6.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.6.0...6.7.0
 [6.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.5.0...6.6.0
