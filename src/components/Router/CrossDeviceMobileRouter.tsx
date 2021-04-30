@@ -293,12 +293,7 @@ export default class CrossDeviceMobileRouter extends Component<
     }
 
     if (crossDeviceError) {
-      return (
-        <WrappedError
-          disableNavigation={true}
-          error={this.state.crossDeviceError}
-        />
-      )
+      return <WrappedError disableNavigation={true} error={crossDeviceError} />
     }
 
     if (!hasCamera && shouldStrictlyUseCamera) {

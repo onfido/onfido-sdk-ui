@@ -34,11 +34,11 @@ const BaseFaceConfirm = (props) => <MapConfirm {...props} method="face" />
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
 const SelfieConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
-const VideoConfirm = appendToTracking(BaseFaceConfirm, 'video')
+const FaceVideoConfirm = appendToTracking(BaseFaceConfirm, 'video')
 
 export {
   DocumentFrontConfirm,
   DocumentBackConfirm,
   SelfieConfirm,
-  VideoConfirm,
+  FaceVideoConfirm,
 }
