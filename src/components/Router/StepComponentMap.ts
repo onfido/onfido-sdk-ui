@@ -238,20 +238,9 @@ const buildDocumentComponents = (
       return [...preCaptureComponents, ...videoCaptureComponents]
     }
 
-    /**
-     * ImageQualityGuide is only shown when the flow is:
-     *  - On desktop
-     *  - Without `useWebcam` or `useLiveDocumentCapture` flag enabled
-     *
-     * Otherwise, one of the capture component is used:
-     *  - DocumentMultiFrame (default)
-     *  - DocumentAutoCapture (with `useWebcam`)
-     *  - DocumentLiveCapture (with `useLiveDocumentCapture`)
-     */
-    const standardCaptureComponents =
-      shouldUseCamera || !isDesktop
-        ? [DocumentFrontCapture, DocumentFrontConfirm]
-        : [DocumentFrontCapture, ImageQualityGuide, DocumentFrontConfirm]
+    const standardCaptureComponents = shouldUseCamera
+      ? [DocumentFrontCapture, DocumentFrontConfirm]
+      : [DocumentFrontCapture, ImageQualityGuide, DocumentFrontConfirm]
 
     // @ts-ignore
     return [...preCaptureComponents, ...standardCaptureComponents]

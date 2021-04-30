@@ -8,7 +8,6 @@ import Confirm from './Confirm'
 
 const mapStateToProps = (state, { method, side }) => ({
   capture: state.captures[buildCaptureStateKey({ method, side })],
-  videoCapture: state.captures.document_video,
   isFullScreen: state.globals.isFullScreen,
   imageQualityRetries: state.globals.imageQualityRetries,
 })
