@@ -6,9 +6,7 @@ import type {
   StepComponentFaceProps,
 } from '~types/routers'
 
-type CaptureComponentProps =
-  | (StepComponentDocumentProps & { photoCaptureFallback: never })
-  | (StepComponentFaceProps & { forceCrossDevice: never })
+type CaptureComponentProps = StepComponentDocumentProps | StepComponentFaceProps
 
 const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
   WrappedComponent: ComponentType<P>
