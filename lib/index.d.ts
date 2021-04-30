@@ -128,6 +128,21 @@ export declare type UICustomizationOptions = {
 	colorBackgroundButtonIconActive?: string;
 	colorBackgroundButtonCameraHover?: string;
 	colorBackgroundButtonCameraActive?: string;
+	authAccentColor?: string;
+	authDualSpinnerColor?: string;
+	authRetryScreenOvalColor?: string;
+	authOvalColor?: string;
+	authTextColor?: string;
+	authButtonCornerRadius?: string;
+	authFrameColor?: string;
+	authButtonTextHighlightColor?: string;
+	authButtonTextDisabledColor?: string;
+	authButtonTextNormalColor?: string;
+	authButtonColorNormal?: string;
+	authButtonColorDisabled?: string;
+	authButtonColorPressed?: string;
+	authFeedbackBarColor?: string;
+	authFeedbackBarTextColor?: string;
 };
 export declare type DocumentSides = "front" | "back";
 export declare type UploadFileResponse = {
