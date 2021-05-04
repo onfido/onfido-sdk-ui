@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.8.0] - 2021-05-06
+
 ## Added
 
 - Internal: Add type defition for `borderRadiusSurfaceModal` customisation option.
