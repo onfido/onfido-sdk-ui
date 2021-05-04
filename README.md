@@ -827,6 +827,13 @@ A number of options are available to allow you to customize the SDK:
 
     When enabled, this feature allows the SDK to take additional selfie snapshots to help improve face similarity check accuracy. When disabled, only one selfie photo will be taken.
 
+  - `photoCaptureFallback` (boolean - default: `true`)
+
+    When enabled, this feature allows end-users to upload selfies if the requested variant is `video` and their browser does not support MediaRecorder.
+
+    When disabled, it will forward the user to the cross-device flow in order to attempt to capture a video in another device. If the user is already in a mobile device and it does not support
+    MediaRecorder, the unsupported browser error will be shown.
+
   ### complete
 
   This is the final completion step. You can use this to inform your users what is happening next. The custom options are:

@@ -709,6 +709,17 @@ Given user opened the link with `?uploadFallback=false` flag
    - You should see the document selector screen
 8. You should be able to complete the ID verification flow successfully
 
+### 37. Interrupt flow if selfie fallback is deactivated and MediaRecorder is not supported
+
+Given user opened the link with `?liveness=true&photoCaptureFallback=false` flags
+
+1. And user is on first page of cross-device flow
+2. Open the cross device link on mobile browsers that don't support MediaRecorder (i.e. Safari on iOS13.7 or earlier):
+   - user won't see the "use the native camera mode instead" link
+   - user should see `Unsupported browser` message
+   - user should see `Restart the process on the latest version of Safari/Chrome` message
+   - user should NOT be able to complete the cross-device flow successfully.
+
 ## Non-functional
 
 ### 1. Check analytics tracking

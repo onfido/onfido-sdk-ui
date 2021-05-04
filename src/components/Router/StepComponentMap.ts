@@ -143,12 +143,19 @@ const buildFaceComponents = (
   const shouldSelfieScreenUseCamera =
     !shouldDisplayUploader && deviceHasCameraSupport
 
+  const videoCameraSupport = window.MediaRecorder != null
+
+  const photoCaptureFallback = faceStep?.options?.photoCaptureFallback !== false
+
   const shouldUseVideo =
     faceStep?.options?.requestedVariant === 'video' &&
-    window.MediaRecorder != null
+    (videoCameraSupport || !photoCaptureFallback)
 
   return shouldUseVideo
-    ? buildRequiredVideoComponents(deviceHasCameraSupport, mobileFlow)
+    ? buildRequiredVideoComponents(
+        deviceHasCameraSupport && videoCameraSupport,
+        mobileFlow
+      )
     : buildRequiredSelfieComponents(shouldSelfieScreenUseCamera)
 }
 
