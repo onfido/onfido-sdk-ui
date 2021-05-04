@@ -12,22 +12,16 @@
 /*
  * NOTE: iOS Safari has a strange bug where SVG background images are not displayed on some iOS devices
  *       if margin, background image properties are not declared in a specific order together & before background-image
+ *       Best solution is to explicitly list out all background properties.
  *       ref: http://geoffmuskett.com/strange-bug-on-ios-svg-background-images-no-showing/
- *       Also avoiding using @extend %icon-circle-background here as it seems to affect the icon visibility
  */
 .icon {
   margin: 50 * $unit auto;
   height: 144 * $unit;
   width: 144 * $unit;
-  // border-radius: 50%;
-  // background-color: var(--osdk-color-background-icon);
-  // background-size: contain;
-  // background-image: url('./assets/return-to-computer-large.svg');
-
-  // ALT solution:
   background-size: 144 * $unit;
   background-image: url('./assets/return-to-computer-large.svg');
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-position: top center;
   background-color: var(--osdk-color-background-icon);
   border-radius: 50%;

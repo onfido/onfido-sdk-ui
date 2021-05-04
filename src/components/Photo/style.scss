@@ -15,19 +15,20 @@
 
 /* Follow icon styling in Uploader/style.scss for Selfie Intro icons */
 .selfieIcon {
+  background-size: 48 * $unit;
   background-image: url('./assets/selfie-picto.svg');
+  background-repeat: no-repeat;
   background-position: center;
   background-color: var(--osdk-color-background-icon);
-  background-size: contain;
   border-radius: 50%;
 }
 
 .glassesIcon {
   background-size: 48 * $unit;
   background-image: url('./assets/glasses-picto.svg');
+  background-repeat: no-repeat;
   background-position: center;
   background-color: var(--osdk-color-background-icon);
-  background-size: contain;
   border-radius: 50%;
 }
 
