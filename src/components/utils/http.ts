@@ -28,7 +28,13 @@ export const performHttpReq = <T>(
 
   request.onload = () => {
     if (request.status === 200 || request.status === 201) {
-      onSuccess(JSON.parse(request.response))
+      try {
+        const resp = JSON.parse(request.response)
+        onSuccess(resp)
+      } catch (error) {
+        console.warn('Unparseable response:', request.response)
+        onSuccess({} as T)
+      }
     } else {
       onError(request)
     }
