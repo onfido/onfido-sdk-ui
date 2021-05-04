@@ -374,7 +374,7 @@ onfidoOut.tearDown()
 
 ## Customising the SDK
 
-The Web SDK has multiple cutomizable features that provide flexibility, while also being easy to integrate. You can also read our [SDK Customization guide](https://developers.onfido.com/guide/sdk-customization).
+The Web SDK has multiple customizable features that provide flexibility, while also being easy to integrate. You can also read our [SDK Customization guide](https://developers.onfido.com/guide/sdk-customization).
 
 ### UI customization
 
@@ -553,7 +553,7 @@ The Web SDK supports customization options across the SDK screen including text,
   ```
   ##### Custom lanugages 
 
-  The SDK can also be displayed in a custom language for locales that Onfido does not currently support. To implement this pass an object containing the following keys:
+  The SDK can also be displayed in a custom language for locales that Onfido does not currently support. To implement this, pass an object containing the following keys:
 
   | Key | Description | Notes |
   | ---- | ---------- | ----- |
