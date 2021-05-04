@@ -183,7 +183,7 @@ Onfido.init({
 | ------------------------------------------------ |  ------------------------------------ |
 | `token` |string | **required** <br />Your Web SDK token                                 |
 | `containerId`|string         | **optional** <br />A string containing the ID of the container element that the UI will mount to. This must be an empty element. The default is `onfido-mount`. <br /> Alternatively, if your integration requires it, you can pass in the container element instead. Note that if `containerEl` is provided, then `containerId` will be ignored  |
-| `onComplete`  |  function | **optional** A callback function that executes after the applicant's document and face have both been captured and uploaded successfully|
+| `onComplete`  |  function | **optional** A [callback function](#handling-callbacks) that executes after the applicant's document and face have both been captured and uploaded successfully|
 | `steps`|  string or object | List of different steps corresponding to parts of the process the user will be presented with         |
 
 
@@ -197,7 +197,7 @@ Example `onComplete` callback:
 
 ```javascript
 Onfido.init({
-  token: '<YOUR-SDK_TOKEN>',
+  token: '<YOUR-SDK-TOKEN>',
   containerId: 'onfido-mount',
   onComplete: function (data) {
     console.log('everything is complete')
@@ -205,7 +205,7 @@ Onfido.init({
 })
 ```
 
-`data` is an object that contains properties representing the document and face images captured during the SDK flow. 
+`data` is an object that contains properties of the document and face images captured during the SDK flow. 
 
 For two-sided documents like `driving_licence` and `national_identity_card`, the object will also contain a `document_back` property representing the reverse side. 
 
@@ -268,7 +268,7 @@ The callback returns a string with the reason for leaving. For example, `'USER_C
 
 ```javascript
 Onfido.init({
-  token: 'your-jwt-token',
+  token: '<YOUR-JWT-TOKEN>',
   containerId: 'onfido-mount',
   onUserExit: function (userExitCode) {
     console.log(userExitCode)
