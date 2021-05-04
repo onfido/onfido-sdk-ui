@@ -865,7 +865,7 @@ The new options will be shallowly merged with the previous one. So one can pass 
 
 ## Creating checks
 
-The SDK is responsible for the capture of identity documents and selfie photos and videos. It doesn't perform the document and facial similarity checks against the [Onfido API](https://documentation.onfido.com/). You need to access the Onfido API in order to manage applicants and perform checks.
+The SDK is responsible for the capture of identity documents and selfie photos and videos. It doesn't perform any checks against the [Onfido API](https://documentation.onfido.com/). You need to access the Onfido API in order to manage applicants and perform checks.
 
 ### 1. Creating a check
 
@@ -873,7 +873,7 @@ For a walkthrough of how to create a document and facial similarity check using 
 
 For further details on how to [create a check](https://documentation.onfido.com/#create-check) with the Onfido API.
 
-Note: If you are testing with the sandbox token, please be aware that the results are pre-determined. You can learn more about [sandbox responses](https://documentation.onfido.com/#pre-determined-responses).
+Note: If you are testing with a sandbox token, please be aware that the results are pre-determined. You can learn more about [sandbox responses](https://documentation.onfido.com/#pre-determined-responses).
 
 Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
@@ -889,7 +889,7 @@ The SDK allows you to track a user's journey through the verification process vi
 
 ### Overriding the hook
 
-In order to expose the user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application. 
+In order to track a user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application. 
 
 For example:
 
@@ -941,7 +941,7 @@ The following features must be enabled for your account before they can be used.
 
 ### Customized API Requests 
 
-This premium enterprise feature enables you to control the data collected by the Onfido SDK through using callbacks that are invoked when the end user submits their captured media. The callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. 
+This premium enterprise feature enables you to control the data collected by the Onfido SDK by using callbacks that are invoked when the end user submits their captured media. The callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. 
 
 Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. Note: The callback for video is not supported yet.
 
