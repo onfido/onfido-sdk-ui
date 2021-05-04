@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Refactor `useSdkOptions()` hook to return a tuple: `[options, { findStep }]`
 - Internal: Added default filename for all document uploads if filename is not present.
 - Public: Added user consent content reload screen
+- Public: When `photoCaptureFallback` option is disabled in the face step, the requested variant is video and browser does not support MediaRecorder, attempt to redirect to the cross-device flow or display the unsupported browser error.
 - Internal: Refactor for better reusability of video capture components.
 - Public: Improvements in video capture steps.
 

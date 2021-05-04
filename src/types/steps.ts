@@ -50,6 +50,7 @@ export type StepOptionWelcome = {
 export type StepOptionDocument = {
   documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
   forceCrossDevice?: boolean
+  photoCaptureFallback?: never // for cross-compatibility with StepOptionFace in withCrossDeviceWhenNoCamera
   showCountrySelection?: boolean
   useLiveDocumentCapture?: boolean
 } & CaptureOptions
@@ -60,6 +61,8 @@ export type StepOptionPoA = {
 }
 
 export type StepOptionFace = {
+  forceCrossDevice?: never // for cross-compatibility with StepOptionDocument in withCrossDeviceWhenNoCamera
+  photoCaptureFallback?: boolean
   useMultipleSelfieCapture?: boolean
 } & CaptureOptions
 

@@ -7,9 +7,7 @@ import type {
   StepComponentFaceProps,
 } from '~types/routers'
 
-type CaptureComponentProps =
-  | StepComponentDocumentProps
-  | (StepComponentFaceProps & { forceCrossDevice: never })
+type CaptureComponentProps = StepComponentDocumentProps | StepComponentFaceProps
 
 const buildError = (message: string): ApiParsedError => {
   console.warn(message)
@@ -55,13 +53,15 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         requestedVariant,
         step,
         triggerOnError,
+        photoCaptureFallback,
       } = this.props
-
       const currentStep = componentsList[step]
       const docVideoRequested =
         requestedVariant === 'video' && currentStep.step.type === 'document'
+      const shouldSelfieFallbackBeDisabled =
+        window.MediaRecorder == null && !photoCaptureFallback
       const cameraRequiredButNoneDetected =
-        !hasCamera &&
+        (!hasCamera || shouldSelfieFallbackBeDisabled) &&
         (requestedVariant === 'video' || currentStep.step.type === 'face')
 
       if (cameraRequiredButNoneDetected) {

@@ -4,6 +4,7 @@ import { pick } from '~utils/object'
 import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
+import { buildStepFinder } from '~utils/steps'
 import withTheme from '../Theme'
 import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
 import Spinner from '../Spinner'
@@ -34,6 +35,24 @@ const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
     step.options?.uploadFallback === false &&
     (step.type === 'face' || step.options?.useLiveDocumentCapture === true)
   )
+}
+
+const isPhotoCaptureFallbackOffAndCannotUseVideo = (
+  step: StepConfig
+): boolean => {
+  if (!step.options || step.type !== 'face') {
+    return false
+  }
+
+  const photoCaptureFallback = step.options.photoCaptureFallback ?? true
+
+  const canVideoFallbackToPhoto =
+    window.MediaRecorder != null || photoCaptureFallback
+
+  const isLivenessRequired =
+    !canVideoFallbackToPhoto && step.options.requestedVariant === 'video'
+
+  return isLivenessRequired
 }
 
 // Wrap components with theme that include navigation and footer
@@ -288,6 +307,9 @@ export default class CrossDeviceMobileRouter extends Component<
     const shouldStrictlyUseCamera = steps?.some(
       isUploadFallbackOffAndShouldUseCamera
     )
+    const videoNotSupportedAndRequired = steps?.some(
+      isPhotoCaptureFallbackOffAndCannotUseVideo
+    )
 
     if (loading || !steps) {
       return <WrappedSpinner disableNavigation />
@@ -297,7 +319,10 @@ export default class CrossDeviceMobileRouter extends Component<
       return <WrappedError disableNavigation={true} error={crossDeviceError} />
     }
 
-    if (!hasCamera && shouldStrictlyUseCamera) {
+    if (
+      (!hasCamera && shouldStrictlyUseCamera) ||
+      videoNotSupportedAndRequired
+    ) {
       return (
         <WrappedError
           disableNavigation={true}
