@@ -33,6 +33,7 @@ export declare type StepOptionWelcome = {
 export declare type StepOptionDocument = {
 	documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>;
 	forceCrossDevice?: boolean;
+	photoCaptureFallback?: never;
 	showCountrySelection?: boolean;
 	useLiveDocumentCapture?: boolean;
 } & CaptureOptions;
@@ -41,6 +42,8 @@ export declare type StepOptionPoA = {
 	documentTypes?: Partial<Record<PoaTypes, boolean>>;
 };
 export declare type StepOptionFace = {
+	forceCrossDevice?: never;
+	photoCaptureFallback?: boolean;
 	useMultipleSelfieCapture?: boolean;
 } & CaptureOptions;
 export declare type StepOptionComplete = {

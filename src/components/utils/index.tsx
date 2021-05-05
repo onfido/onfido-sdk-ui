@@ -185,7 +185,7 @@ export const copyToClipboard = (
 
 export const addDeviceRelatedProperties = (
   sdkMetadata: SdkMetadata,
-  isCrossDeviceFlow: boolean
+  isCrossDeviceFlow?: boolean
 ): SdkMetadata => {
   const osInfo = detectSystem('os')
   const browserInfo = detectSystem('browser')

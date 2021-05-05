@@ -17,6 +17,10 @@
   overflow: hidden;
 }
 
+.docAutoCaptureFrame .container {
+  position: relative;
+}
+
 .container::before {
   content: '';
   display: block;
