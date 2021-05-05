@@ -27,7 +27,7 @@ class Confirm extends BasePage {
     return this.$('.onfido-sdk-ui-Error-instruction-text')
   }
   async uploadedVideo() {
-    return this.$('.onfido-sdk-ui-Confirm-CaptureViewer-video')
+    return this.$('.onfido-sdk-ui-CaptureViewer-video')
   }
 
   async verifyCheckReadabilityMessage(copy) {
