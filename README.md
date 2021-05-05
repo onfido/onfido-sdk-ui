@@ -35,6 +35,8 @@ The SDK offers a number of benefits to help you create the best identity verific
 
 ## Getting started 
 
+The following content assumes you're using our API v3 versions for backend calls. If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
+
 ### 1. Obtain an API token
 
 In order to start integrating, you'll need an [API token](https://documentation.onfido.com/#api-tokens). 
@@ -241,7 +243,7 @@ Callback that fires when an error occurs. The callback returns the following err
   - authorization
   - invalid token
 
-  This data can be used for debugging purpose.
+  This data can be used for debugging purposes.
 
 ```javascript
 {
