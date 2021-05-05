@@ -65,6 +65,7 @@ jobs:
 
       - name: Send artifacts to Sentry
         run: |
+          curl -sL https://sentry.io/get-cli/ | bash
           sentry-cli --auth-token $SENTRY_AUTH_TOKEN
           sentry-cli releases new $LATEST_TAG --log-level=DEBUG
           sentry-cli releases files $LATEST_TAG upload-sourcemaps ./dist/
