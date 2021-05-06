@@ -45,7 +45,7 @@ jobs:
 
       - name: npm audit action
         if: matrix.NODE_ENV == 'production'
-        uses: oke-py/npm-audit-action@v1.7.0
+        uses: oke-py/npm-audit-action@v1.7.2
         with:
           audit_level: moderate
           github_token: ${{ secrets.GITHUB_TOKEN }}
