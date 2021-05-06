@@ -23,7 +23,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - Internal: Migrate CI build from TravisCI to Github Actions
-- Internal: Upgraded socket.io-client to v4.0.1 to resolve npm security vulnerability 1665 (high)
+- Internal: Upgraded socket.io-client to v4.0.1 to resolve npm security vulnerability 1665 (high severity)
 
 ### Fixed
 
