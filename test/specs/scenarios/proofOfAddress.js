@@ -252,10 +252,21 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         documentUpload.switchToCrossDevice()
         await takePercySnapshot(driver, 'Continue on your phone screen for PoA')
         crossDeviceIntro.continueToNextStep()
-        await takePercySnapshot(driver, 'Get your secure link screen') //this screen is not quite fully loaded...
+        await takePercySnapshot(driver, 'Get your secure link screen')
+        /*await takePercySnapshot(driver, 'Get your secure link screen', {
+          percyCSS: `div.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer > svg { display: none; }`,
+        })*/
         crossDeviceLink.switchToCopyLinkOption()
-        //Cant really take a screenshot here as the link changes
+        await takePercySnapshot(driver, 'Copy the link to your mobile browser')
+        /*await takePercySnapshot(
+          driver,
+          'Copy the link to your mobile browser',
+          {
+            percyCSS: `span.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText { display: none; }`,
+          }
+        )*/
         copyCrossDeviceLinkAndOpenInNewTab()
+        await takePercySnapshot(driver, 'Submit statement')
         switchBrowserTab(0)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
         await takePercySnapshot(driver, 'Connected to your mobile screen')
@@ -273,7 +284,10 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         crossDeviceClientSuccess.verifyUIElements(copy)
         switchBrowserTab(0)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
-        await takePercySnapshot(driver, 'Great, that’s everything we need screen')
+        await takePercySnapshot(
+          driver,
+          'Great, that’s everything we need screen'
+        )
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)
       })

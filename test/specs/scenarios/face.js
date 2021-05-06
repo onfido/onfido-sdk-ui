@@ -126,9 +126,14 @@ export const faceScenarios = (lang) => {
       camera.verifyOnfidoFooterIsVisible()
       await takePercySnapshot(
         driver,
-        `Verify Take a selfie overlay screen ${lang}`
+        `Verify Take a selfie overlay screen ${lang}`,
+        {
+          percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }`,
+        }
       )
       camera.takeSelfie()
+      //Might need to remove a CSS component as the preview image would change
+      //onfido-sdk-ui-Confirm-CaptureViewer-imageWrapper
       await takePercySnapshot(
         driver,
         `Verify Check selfie preview screen ${lang}`
@@ -359,12 +364,21 @@ export const faceScenarios = (lang) => {
       )
       livenessIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
+      camera.enableCameraButton().click()
       await takePercySnapshot(
         driver,
-        `Verify Position your face in the oval overlay screen does not have onfido logo ${lang}`
+        `Verify Position your face in the oval overlay screen does not have onfido logo ${lang}`,
+        { percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }` }
       )
-      camera.recordVideo()
-      camera.completeChallenges()
+      camera.recordButton().click()
+      await takePercySnapshot(driver, `Movement challenge is given ${lang}`, {
+        percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }`,
+      })
+      camera.nextChallengeButton().click()
+      await takePercySnapshot(driver, `Vocal challenge is given ${lang}`, {
+        percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }`,
+      })
+      camera.stopButton().click()
       confirm.checkLogoIsHidden()
       await takePercySnapshot(
         driver,
@@ -405,11 +419,13 @@ export const faceScenarios = (lang) => {
       )
       livenessIntro.clickOnContinueButton()
       camera.checkCobrandIsVisible()
+      camera.enableCameraButton().click()
       await takePercySnapshot(
         driver,
-        `Verify Position your face in the oval overlay screen has co-brand logo ${lang}`
+        `Verify Position your face in the oval overlay screen has co-brand logo ${lang}`,
+        { percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }` }
       )
-      camera.recordVideo()
+      camera.recordButton().click()
       camera.completeChallenges()
       confirm.checkCobrandIsVisible()
       await takePercySnapshot(

@@ -25,7 +25,14 @@ export const uploadFileAndClickConfirmButton = async (
   confirm.clickConfirmButton()
 }
 
-export const takePercySnapshot = async (timeout = 1000, driver, text) => {
-  driver.sleep(timeout)
-  await percySnapshot(driver, text)
+export const takePercySnapshot = async (
+  driver,
+  text,
+  options = {},
+  timeout = 1000
+) => {
+  if (process.env.PERCY === 'true') {
+    driver.sleep(timeout)
+    await percySnapshot(driver, text, options)
+  }
 }
