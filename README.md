@@ -9,8 +9,8 @@
 - [Getting started](#getting-started)
 - [Handling callbacks](#handling-callbacks)
 - [Removing the SDK](#removing-the-sdk)
-- [Initilization options](#initilization-options) 
-- [Customising the SDK](#customising-the-sdk)
+- [Initialization options](#initialization-options) 
+- [Customizing the SDK](#customizing-the-sdk)
 - [Creating checks](#creating-checks)
 - [User Analytics](#user-analytics)
 - [Premium Enterprise Features](#premium-enterprise-features)
@@ -278,11 +278,11 @@ onfidoOut = Onfido.init({...})
 onfidoOut.tearDown()
 ```
 
-## Initilization options 
+## Initialization options 
 
 - **`token {String} required`**
 
-  A JWT is required in order to authorise with our WebSocket endpoint. If one isn’t present, an exception will be thrown.
+  A JWT is required in order to authorize with our WebSocket endpoint. If one isn’t present, an exception will be thrown.
 
 - **`useModal {Boolean} optional`**
 
@@ -324,7 +324,7 @@ onfidoOut.tearDown()
 
 - **`shouldCloseOnOverlayClick {Boolean} optional`**
 
-  If `useModal` is set to `true`, by default the user can close the SDK by clicking on the close button or on the background overlay. You can disable the user's ability to close the SDK by clicking the background overlay through setting `shouldCloseOnOverlayClick` to false.
+  If `useModal` is set to `true`, by default the user can close the SDK by clicking on the close button or on the background overlay. You can disable the user's ability to close the SDK by clicking the background overlay through setting `shouldCloseOnOverlayClick` to `false`.
 
 - **`containerId {String} optional`**
 
@@ -372,13 +372,13 @@ onfidoOut.tearDown()
   ```
   See [flow customization](#flow-customization) for details of the custom options for each step.
 
-## Customising the SDK
+## Customizing the SDK
 
-The Web SDK has multiple customizable features that provide flexibility, while also being easy to integrate. You can also read our [SDK Customization guide](https://developers.onfido.com/guide/sdk-customization).
+The Web SDK has multiple customizable features that provide flexibility, while also being easy to integrate. You can also read our [SDK customization guide](https://developers.onfido.com/guide/sdk-customization).
 
 ### UI customization
 
-The Web SDK supports customization options across the SDK screen including text, the SDK main container, buttons, links, icon background color and popups. For visualisations of the available options please see our [SDK customisation guide](https://developers.onfido.com/guide/sdk-customization#web).
+The Web SDK supports customization options across the SDK screen including text, the SDK main container, buttons, links, icon background color and popups. For visualizations of the available options please see our [SDK customization guide](https://developers.onfido.com/guide/sdk-customization#web).
 
 - **`customUI {Object} optional`**
 
@@ -760,7 +760,7 @@ The custom options are:
 
   The Web SDK offers a cross device flow where desktop users will be given the option to continue using their desktop browser or swap to using their mobile device browser to complete the capture process. If a user selects to use their mobile device they will be redirected via a secure link that they can receive by SMS or QR code to complete the flow. At the end of the capture process users will be redirected back to their desktop to complete the SDK flow.
 
-  When `forceCrossSevice` is set to `true`, the cross device flow is mandatory for all users. Desktop users will be required to complete the capture process on a mobile device browser. 
+  When `forceCrossDevice` is set to `true`, the cross device flow is mandatory for all users. Desktop users will be required to complete the capture process on a mobile device browser. 
   Configuring this option minimises the risk of fraudulent upload by ensuring a higher likelihood of live capture.
 
   ```javascript
