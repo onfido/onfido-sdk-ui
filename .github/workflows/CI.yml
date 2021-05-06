@@ -48,6 +48,9 @@ jobs:
         uses: oke-py/npm-audit-action@v1.7.0
         with:
           audit_level: moderate
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          issue_labels: vulnerability
+          dedupe_issues: true
 
       - name: Build mock server
         if: matrix.NODE_ENV == 'test'
