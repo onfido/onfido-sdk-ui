@@ -37,7 +37,6 @@ const baseRules = [
       resolve('node_modules/@onfido/castor-react'),
       resolve('node_modules/strip-ansi'),
       resolve('node_modules/ansi-regex'),
-      resolve('node_modules/engine.io-parser'),
     ],
   },
 ]
@@ -234,6 +233,9 @@ const baseConfig = {
       '~locales': `${__dirname}/src/locales`,
       '~types': `${__dirname}/src/types`,
       '~utils': `${__dirname}/src/components/utils`,
+      'socket.io-client': resolve(
+        'node_modules/socket.io-client/dist/socket.io.js'
+      ),
     },
   },
 
