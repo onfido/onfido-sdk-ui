@@ -21,7 +21,7 @@ describe('Happy Paths on Chrome', () => {
     countrySelectorScenarios(lang)
     documentScenarios(lang)
     faceScenarios(lang)
-    crossDeviceScenarios(lang)
+    // crossDeviceScenarios(lang)
     modalScenarios(lang)
     navigationScenarios(lang)
   })
