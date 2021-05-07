@@ -4,6 +4,8 @@ import { UIConfigs } from './demoUtils'
 
 import { ServerRegions, SdkHandle, SdkOptions } from '~types/sdk'
 
+import * as Onfido from '../index'
+
 /*
 The SDK can be consumed either via npm or via global window.
 Via npm there are also two ways, via commonjs require or via ES import.
@@ -15,8 +17,6 @@ const Onfido = require('../index')
 "es" import style
 import * as Onfido from '../index'
 */
-
-const Onfido = window.Onfido
 
 type Props = {
   options: SdkOptions | UIConfigs

@@ -27,8 +27,10 @@ import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '../../supported-documents'
-let LazyAuth
-let AuthIntro
+import type { WithTrackingProps, WithLocalisedProps } from '~types/hocs'
+
+let LazyAuth: ComponentType<Element & WithLocalisedProps>
+let AuthIntro: ComponentType<WithTrackingProps>
 
 const SDK_ENV = process.env.SDK_ENV
 

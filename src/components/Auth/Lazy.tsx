@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, ComponentType } from 'preact'
 import { localised } from '../../locales'
 import { asyncComponent } from '~utils/components'
 import style from './style.scss'
@@ -10,11 +10,12 @@ const Loading = localised(({ translate }) => (
 ))
 
 const AsyncCrossDevice = asyncComponent(
-  //@ts-ignore
-  () => import(/* webpackChunkName: "vendor" */ './Auth.js'),
+  () => import(/* webpackChunkName: "authVendor" */ './Auth.js'),
   Loading
 )
 
-const AuthLazy = (props) => <AsyncCrossDevice {...props} />
+const AuthLazy = (props: ComponentType<Element>) => (
+  <AsyncCrossDevice {...props} />
+)
 
 export default localised(AuthLazy)

@@ -49,7 +49,7 @@ export type StepOptionWelcome = {
   nextButton?: string
 }
 
-export type StepOptionAuth = { string: any }
+export type StepOptionAuth = { retries?: number }
 
 export type StepOptionDocument = {
   documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>

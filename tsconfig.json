@@ -9,7 +9,7 @@
     "lib": ["esnext", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "outDir": "./dist/",
     "paths": {
       "~jest/*": ["../test/utils/jest/*"],

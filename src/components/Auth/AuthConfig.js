@@ -6,7 +6,7 @@ export const Config = (function () {
   const BaseURL = process.env.OLD_AUTH
 
   function getAuthCustomization(FaceTecSDK, dimMode, customUi) {
-    const uiDef = {
+    const uiDefaults = {
       /* acccentColor, dualSpinnerColor, and retryScreenOvalColor
       should comply to the brand colors */
       accentColor: color('primary-500'),
@@ -42,12 +42,7 @@ export const Config = (function () {
         : color('background-overlay'),
       feedbackBarTextColor: color('neutral-white'),
     }
-    const customUiKeys = Object.keys(customUi)
-    if (customUiKeys.length > 0) {
-      customUiKeys.forEach((e) => {
-        if (Object.keys(uiDef).includes(e)) uiDef[e] = customUi[e]
-      })
-    }
+    const uiDef = { ...uiDefaults, ...customUi }
 
     // Set a default customization
     const defaultCustomization = new FaceTecSDK.FaceTecCustomization()

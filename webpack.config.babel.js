@@ -273,18 +273,18 @@ const configDist = () => ({
   ...baseConfig,
 
   entry: {
-    [`onfido${SDK_ENV === 'auth' ? SDK_ENV : ''}`]: './index.tsx',
+    [`onfido${SDK_ENV === 'auth' ? 'Auth' : ''}`]: './index.tsx',
     demo: './demo/demo.tsx',
     previewer: './demo/previewer.tsx',
   },
 
   output: {
-    library: `Onfido${SDK_ENV === 'auth' ? SDK_ENV : ''}`,
+    library: `Onfido${SDK_ENV === 'auth' ? 'Auth' : ''}`,
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
     publicPath: CONFIG.PUBLIC_PATH,
     filename: '[name].min.js',
-    chunkFilename: `onfido${SDK_ENV === 'auth' ? SDK_ENV : ''}.[name].min.js`,
+    chunkFilename: `onfido${SDK_ENV === 'auth' ? 'Auth' : ''}.[name].min.js`,
   },
   module: {
     rules: [
@@ -307,7 +307,9 @@ const configDist = () => ({
               sourceMap: true,
               terserOptions: {
                 output: {
-                  preamble: `/* Onfido${SDK_ENV} SDK ${packageJson.version} */`,
+                  preamble: `/* Onfido${
+                    SDK_ENV === 'auth' ? 'Auth' : 'IDV'
+                  } SDK ${packageJson.version} */`,
                   comments: '/^!/',
                 },
               },
@@ -343,7 +345,7 @@ const configDist = () => ({
       : []),
     new MiniCssExtractPlugin({
       filename: 'style.css',
-      chunkFilename: `onfido${SDK_ENV === 'auth' ? SDK_ENV : ''}.[name].css`,
+      chunkFilename: `onfido${SDK_ENV === 'auth' ? 'Auth' : ''}.[name].css`,
     }),
     new HtmlWebpackPlugin({
       template: './demo/demo.ejs',

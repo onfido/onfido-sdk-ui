@@ -2,4 +2,3 @@ test/*.conf.js
 node_modules
 test/mock-server/**/*.js
 coverage
-src/components/Auth/assets/animations.scss
