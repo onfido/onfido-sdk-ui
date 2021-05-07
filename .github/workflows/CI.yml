@@ -48,7 +48,7 @@ jobs:
         uses: oke-py/npm-audit-action@v1.7.2
         with:
           audit_level: moderate
-          json_flag: true
+          production_flag: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
           issue_assignees: kopijunkie
           issue_labels: vulnerability
