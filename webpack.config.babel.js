@@ -37,7 +37,7 @@ const baseRules = [
       resolve('node_modules/@onfido/castor-react'),
       resolve('node_modules/strip-ansi'),
       resolve('node_modules/ansi-regex'),
-      resolve('node_modules/socket.io-client'),
+      resolve('node_modules/engine.io-parser'),
     ],
   },
 ]
