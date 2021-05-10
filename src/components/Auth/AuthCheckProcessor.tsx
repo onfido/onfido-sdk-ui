@@ -1,14 +1,10 @@
-//
-// Welcome to the annotated FaceTec Device SDK core code for performing secure Liveness Checks!
-//
-
 import { Config } from './AuthConfig'
-import { FaceTecSDK } from '../../../core-sdk/FaceTecSDK.js/FaceTecSDK'
+import { FaceTecSDK } from '~auth/FaceTecSDK.js/FaceTecSDK'
 import type {
   FaceTecSessionResult,
   FaceTecFaceScanResultCallback,
   FaceTecFaceScanProcessor,
-} from '../../../core-sdk/FaceTecSDK.js/FaceTecPublicApi'
+} from '~auth/FaceTecSDK.js/FaceTecPublicApi'
 
 export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   latestNetworkRequest = new XMLHttpRequest()
@@ -170,6 +166,8 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
     //
     // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after you signal the FaceTec SDK with success() or cancel().
     // Calling a custom function on the Sample App Controller is done for demonstration purposes to show you that here is where you get control back from the FaceTec SDK.
-    console.info('FaceTecSDK session has finished. Session results are unknown.')
+    console.info(
+      'FaceTecSDK session has finished. Session results are unknown.'
+    )
   }
 }

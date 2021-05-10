@@ -18,7 +18,8 @@
       "~locales": ["locales/index"],
       "~types/*": ["types/*"],
       "~utils": ["components/utils/index"],
-      "~utils/*": ["components/utils/*"]
+      "~utils/*": ["components/utils/*"],
+      "~auth/*": ["../core-sdk/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
