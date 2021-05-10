@@ -9,22 +9,14 @@ import { compose } from '~utils/func'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 import { StepComponentBaseProps } from '~types/routers'
+import ScreenLayout from '../Theme/ScreenLayout'
 
 const Intro: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
   const { translate } = useLocales()
 
   return (
-    <div className={theme.fullHeightContainer}>
-      <PageTitle
-        title={translate('auth_intro.title')}
-        subTitle={translate('auth_intro.subtitle')}
-      />
-      <div className={style.welcomeAuth} />
-      <div>
-        <p>{translate('auth_intro.line1')}</p>
-        <p>{translate('auth_intro.line2')}</p>
-      </div>
-      <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
+    <ScreenLayout
+      actions={
         <Button
           variant="primary"
           kind="action"
@@ -33,12 +25,21 @@ const Intro: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
         >
           {translate('auth_intro.button_primary')}
         </Button>
+      }
+    >
+      <div className={theme.fullHeightContainer}>
+        <PageTitle
+          title={translate('auth_intro.title')}
+          subTitle={translate('auth_intro.subtitle')}
+        />
+        <div className={style.welcomeAuth} />
+        <div>
+          <p>{translate('auth_intro.line1')}</p>
+          <p>{translate('auth_intro.line2')}</p>
+        </div>
       </div>
-    </div>
+    </ScreenLayout>
   )
 }
 
-export default trackComponent(
-  //@ts-ignore
-  compose(localised, withCrossDeviceWhenNoCamera)(Intro)
-)
+export default trackComponent(withCrossDeviceWhenNoCamera(Intro))

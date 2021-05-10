@@ -4,8 +4,13 @@
 
 import { Config } from './AuthConfig'
 import { FaceTecSDK } from '../../../core-sdk/FaceTecSDK.js/FaceTecSDK'
+import type {
+  FaceTecSessionResult,
+  FaceTecFaceScanResultCallback,
+  FaceTecFaceScanProcessor,
+} from '../../../core-sdk/FaceTecSDK.js/FaceTecPublicApi'
 
-export class AuthCheckProcessor {
+export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   latestNetworkRequest = new XMLHttpRequest()
   success
   sdkToken
@@ -27,15 +32,15 @@ export class AuthCheckProcessor {
     //
     // Part 1:  Starting the FaceTec Session
     //
-    const facetecsession = new FaceTecSDK.FaceTecSession(this, sessionToken)
+    const faceTecSession = new FaceTecSDK.FaceTecSession(this, sessionToken)
   }
 
   //
   // Part 2:  Handling the Result of a FaceScan
   //
   processSessionResultWhileFaceTecSDKWaits(
-    sessionResult,
-    faceScanResultCallback
+    sessionResult: FaceTecSessionResult,
+    faceScanResultCallback: FaceTecFaceScanResultCallback
   ) {
     //
     // Part 3:  Handles early exit scenarios where there is no FaceScan to handle -- i.e. User Cancellation, Timeouts, etc.
@@ -110,7 +115,7 @@ export class AuthCheckProcessor {
             console.log('User needs to retry, invoking retry.')
             faceScanResultCallback.retry()
           } else {
-            this.success = null
+            this.success = false
 
             console.log('Unexpected API response, cancelling out.')
             faceScanResultCallback.cancel()
@@ -124,7 +129,7 @@ export class AuthCheckProcessor {
           FaceTecSDK.unload(() => {})
         } catch {
           // CASE:  Parsing the response into JSON failed --> You define your own API contracts with yourself and may choose to do something different here based on the error.  Solid server-side code should ensure you don't get to this case.
-          this.success = null
+          this.success = false
           const message =
             'Exception while handling API response, cancelling out.'
           this.events?.emit('error', { type: 'exception', message })
@@ -165,6 +170,6 @@ export class AuthCheckProcessor {
     //
     // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after you signal the FaceTec SDK with success() or cancel().
     // Calling a custom function on the Sample App Controller is done for demonstration purposes to show you that here is where you get control back from the FaceTec SDK.
-    console.log('complete!')
+    console.log('FaceTecSDK session has finished. Session results are unknown.')
   }
 }

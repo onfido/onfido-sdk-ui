@@ -1,93 +1,101 @@
 import { loader } from './assets/loader'
 import { success } from './assets/success'
 import { borderRadius, color } from '@onfido/castor'
+import { FaceTecCustomization } from '../../../core-sdk/FaceTecSDK.js/FaceTecCustomization'
+import { FaceTecSDK } from '../../../core-sdk/FaceTecSDK.js/FaceTecSDK'
+import { UICustomizationOptions } from '../../types/ui-customisation-options'
 
 export const Config = (function () {
   const BaseURL = process.env.OLD_AUTH
 
-  function getAuthCustomization(FaceTecSDK, dimMode, customUi) {
+  function getAuthCustomization(
+    dimMode: boolean,
+    customUi: UICustomizationOptions
+  ) {
     const uiDefaults = {
       /* acccentColor, dualSpinnerColor, and retryScreenOvalColor
       should comply to the brand colors */
-      accentColor: color('primary-500'),
-      dualSpinnerColor: color('primary-500'),
-      retryScreenOvalColor: color('primary-500'),
+      authAccentColor: color('primary-500'),
+      authDualSpinnerColor: color('primary-500'),
+      authRetryScreenOvalColor: color('primary-500'),
 
-      ovalColor: color('background-always-transparent'),
-      textColor: dimMode ? color('neutral-200') : color('content-main'),
-      buttonCornerRadius: borderRadius('medium'),
+      authOvalColor: '#FFFFFF',
+      authTextColor: dimMode ? color('neutral-200') : color('content-main'),
+      authButtonCornerRadius: borderRadius('medium'),
       //Dimming mode overrides the frameColor to #000000
-      frameColor: color('background-surface'),
+      authFrameColor: '#FFFFFF',
       //Button colors for night/dim mode + day
-      buttonTextHighlightColor: dimMode
+      authButtonTextHighlightColor: dimMode
         ? color('primary-500')
         : color('content-on-action'),
-      buttonTextDisabledColor: dimMode
+      authButtonTextDisabledColor: dimMode
         ? color('neutral-600')
         : color('content-disabled'),
-      buttonTextNormalColor: dimMode
+      authButtonTextNormalColor: dimMode
         ? color('primary-500')
         : color('content-on-action'),
-      buttonColorNormal: dimMode
+      authButtonColorNormal: dimMode
         ? color('neutral-200')
         : color('background-action'),
-      buttonColorDisabled: dimMode
+      authButtonColorDisabled: dimMode
         ? color('neutral-700')
         : color('background-disabled'),
-      buttonColorPressed: dimMode
+      authButtonColorPressed: dimMode
         ? color('primary-200')
         : color('background-action-active'),
-      feedbackBarColor: dimMode
+      authFeedbackBarColor: dimMode
         ? color('neutral-900')
         : color('background-overlay'),
-      feedbackBarTextColor: color('neutral-white'),
+      authFeedbackBarTextColor: color('neutral-white'),
     }
     const uiDef = { ...uiDefaults, ...customUi }
-
     // Set a default customization
-    const defaultCustomization = new FaceTecSDK.FaceTecCustomization()
-
+    const defaultCustomization: FaceTecCustomization = new FaceTecSDK.FaceTecCustomization()
     defaultCustomization.vocalGuidanceCustomization.mode = 2
     // Set Cancel Customization
-    defaultCustomization.cancelButtonCustomization.customLocation = {
-      x: 16,
-      y: 16,
-      width: dimMode ? 12 : 15,
-      height: dimMode ? 20 : 15,
-    }
     defaultCustomization.cancelButtonCustomization.location =
       FaceTecSDK.FaceTecCancelButtonLocation.Custom
+    defaultCustomization.cancelButtonCustomization.setCustomLocation(
+      16,
+      16,
+      dimMode ? 12 : 15,
+      dimMode ? 20 : 15
+    )
+
     defaultCustomization.cancelButtonCustomization.customImage = dimMode
       ? '../../../../core-sdk/FaceTec_images/FaceTec_cancel_alt.png'
       : '../../../../core-sdk/FaceTec_images/FaceTec_cancel.png'
 
     // Set Frame Customization
-    defaultCustomization.frameCustomization.backgroundColor = uiDef.frameColor
-    defaultCustomization.frameCustomization.borderColor = uiDef.frameColor
+    defaultCustomization.frameCustomization.backgroundColor =
+      uiDef.authFrameColor
+    defaultCustomization.frameCustomization.borderColor = uiDef.authFrameColor
 
     // Set Overlay Customization
     defaultCustomization.overlayCustomization.showBrandingImage = false
-    defaultCustomization.overlayCustomization.backgroundColor = uiDef.frameColor
+    defaultCustomization.overlayCustomization.backgroundColor =
+      uiDef.authFrameColor
 
     // Set Guidance Customization
     defaultCustomization.guidanceCustomization.backgroundColors =
-      uiDef.frameColor
-    defaultCustomization.guidanceCustomization.foregroundColor = uiDef.textColor
+      uiDef.authFrameColor
+    defaultCustomization.guidanceCustomization.foregroundColor =
+      uiDef.authTextColor
     defaultCustomization.guidanceCustomization.buttonBackgroundNormalColor =
-      uiDef.buttonColorNormal
+      uiDef.authButtonColorNormal
     defaultCustomization.guidanceCustomization.buttonBackgroundDisabledColor =
-      uiDef.buttonColorDisabled
+      uiDef.authButtonColorDisabled
     defaultCustomization.guidanceCustomization.buttonBackgroundHighlightColor =
-      uiDef.buttonColorPressed
+      uiDef.authButtonColorPressed
     defaultCustomization.guidanceCustomization.buttonTextNormalColor =
-      uiDef.buttonTextColor
+      uiDef.authButtonTextNormalColor
     defaultCustomization.guidanceCustomization.buttonTextDisabledColor =
-      uiDef.buttonTextColor
+      uiDef.authButtonTextDisabledColor
     defaultCustomization.guidanceCustomization.buttonTextHighlightColor =
-      uiDef.buttonTextColor
+      uiDef.authButtonTextHighlightColor
     defaultCustomization.guidanceCustomization.buttonRelativeWidth = '1f'
     defaultCustomization.guidanceCustomization.buttonCornerRadius =
-      uiDef.buttonCornerRadius
+      uiDef.authButtonCornerRadius
     defaultCustomization.guidanceCustomization.retryScreenImageBorderColor = color(
       'neutral-white'
     )
@@ -96,7 +104,7 @@ export const Config = (function () {
     defaultCustomization.guidanceCustomization.retryScreenImageCornerRadius =
       '0'
     defaultCustomization.guidanceCustomization.retryScreenOvalStrokeColor =
-      uiDef.retryScreenOvalColor
+      uiDef.authRetryScreenOvalColor
     // defaultCustomization.guidanceCustomization.retryScreenSlideshowImages = retryScreenSlideshowImages
     defaultCustomization.guidanceCustomization.retryScreenSlideshowInterval =
       '1500'
@@ -104,36 +112,34 @@ export const Config = (function () {
     defaultCustomization.guidanceCustomization.enableRetryScreenBulletedInstructions = true
 
     // Set Oval Customization
-    defaultCustomization.ovalCustomization.strokeColor = uiDef.ovalColor
+    defaultCustomization.ovalCustomization.strokeColor = uiDef.authOvalColor
     defaultCustomization.ovalCustomization.progressColor1 =
-      uiDef.dualSpinnerColor
+      uiDef.authDualSpinnerColor
     defaultCustomization.ovalCustomization.progressColor2 =
-      uiDef.dualSpinnerColor
+      uiDef.authDualSpinnerColor
 
     // Set Feedback Customization
     defaultCustomization.feedbackCustomization.backgroundColor =
-      uiDef.feedbackBarColor
+      uiDef.authFeedbackBarColor
     defaultCustomization.feedbackCustomization.textColor =
-      uiDef.feedbackBarTextColor
+      uiDef.authFeedbackBarTextColor
     defaultCustomization.feedbackCustomization.cornerRadius =
-      uiDef.buttonCornerRadius
+      uiDef.authButtonCornerRadius
     defaultCustomization.feedbackCustomization.relativeWidth = '1f'
 
     // Set Result Screen Customization
     defaultCustomization.resultScreenCustomization.backgroundColors =
-      uiDef.frameColor
+      uiDef.authFrameColor
     defaultCustomization.resultScreenCustomization.foregroundColor =
-      uiDef.textColor
+      uiDef.authTextColor
     defaultCustomization.resultScreenCustomization.activityIndicatorColor =
-      uiDef.accentColor
+      uiDef.authAccentColor
     defaultCustomization.resultScreenCustomization.resultAnimationBackgroundColor =
-      uiDef.accentColor
+      uiDef.authAccentColor
     defaultCustomization.resultScreenCustomization.resultAnimationForegroundColor =
-      uiDef.frameColor
+      uiDef.authFrameColor
     defaultCustomization.resultScreenCustomization.uploadProgressFillColor =
-      uiDef.accentColor
-
-    this.currentCustomization = defaultCustomization
+      uiDef.authAccentColor
 
     // Set Animated Customization
     const loaderSVG = document.createElementNS(
@@ -144,9 +150,9 @@ export const Config = (function () {
     loaderSVG.classList.add('experiment-svg')
     loaderSVG.innerHTML = loader
     defaultCustomization.initialLoadingAnimationCustomization.backgroundColor =
-      uiDef.frameColor
+      uiDef.authFrameColor
     defaultCustomization.initialLoadingAnimationCustomization.foregroundColor =
-      uiDef.textColor
+      uiDef.authTextColor
     defaultCustomization.initialLoadingAnimationCustomization.customAnimation = loaderSVG
 
     // Set Success Customization
