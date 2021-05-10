@@ -120,9 +120,8 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         welcome.verifyFocusManagement()
       })
 
-      // Cross Device Sync
-      // TODO: Re-enable once back end service upgraded
-      it.skip('should verify accessibility for the cross device intro screen', async () => {
+      //Cross Device Sync
+      it('should verify accessibility for the cross device intro screen', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -130,15 +129,13 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      // TODO: Re-enable once back end service upgraded
-      it.skip('should verify accessibility for the cross device screen', async () => {
+      it('should verify accessibility for the cross device screen', async () => {
         driver.get(baseUrl)
         goToCrossDeviceGetSecureLinkScreen()
         runAccessibilityTest(driver)
       })
 
-      // TODO: Re-enable once back end service upgraded
-      it.skip('should verify accessibility for the cross device mobile connected screen', async () => {
+      it('should verify accessibility for the cross device mobile connected screen', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -155,8 +152,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      // TODO: Re-enable once back end service upgraded
-      it.skip('should verify accessibility for the cross device mobile notification sent screen', async () => {
+      it('should verify accessibility for the cross device mobile notification sent screen', async () => {
         driver.get(baseUrl)
         goToCrossDeviceGetSecureLinkScreen()
         crossDeviceLink.switchToSendSmsOption()
