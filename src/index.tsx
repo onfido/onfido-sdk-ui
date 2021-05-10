@@ -53,7 +53,7 @@ const formatOptions = ({
   steps: (
     steps || [
       'welcome',
-      ...(process.env.SDK_ENV === 'auth' ? 'auth' : ''),
+      ...(process.env.SDK_ENV === 'Auth' ? 'auth' : ''),
       'document',
       'face',
       'complete',

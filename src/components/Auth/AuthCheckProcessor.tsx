@@ -49,7 +49,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
       sessionResult.status !==
       FaceTecSDK.FaceTecSessionStatus.SessionCompletedSuccessfully
     ) {
-      console.log(
+      console.info(
         `Session was not completed successfully, cancelling.  Status: ${sessionResult.status}`
       )
       this.latestNetworkRequest.abort()
@@ -112,12 +112,12 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
           } else if (responseObj.success === false) {
             this.success = false
 
-            console.log('User needs to retry, invoking retry.')
+            console.warn('User needs to retry, invoking retry.')
             faceScanResultCallback.retry()
           } else {
             this.success = false
 
-            console.log('Unexpected API response, cancelling out.')
+            console.error('Unexpected API response, cancelling out.')
             faceScanResultCallback.cancel()
             this.nextStep()
           }
@@ -144,7 +144,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
       // CASE:  Network Request itself is erroring --> You define your own API contracts with yourself and may choose to do something different here based on the error.
       const message = 'XHR error, cancelling.'
       this.events?.emit('error', { type: 'exception', message })
-      console.log(message)
+      console.error(message)
       faceScanResultCallback.cancel()
     }
 
@@ -170,6 +170,6 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
     //
     // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after you signal the FaceTec SDK with success() or cancel().
     // Calling a custom function on the Sample App Controller is done for demonstration purposes to show you that here is where you get control back from the FaceTec SDK.
-    console.log('FaceTecSDK session has finished. Session results are unknown.')
+    console.info('FaceTecSDK session has finished. Session results are unknown.')
   }
 }

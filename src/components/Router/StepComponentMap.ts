@@ -29,13 +29,12 @@ import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 import type { WithTrackingProps, WithLocalisedProps } from '~types/hocs'
 
-let LazyAuth: ComponentType<Element & WithLocalisedProps>
-let AuthIntro: ComponentType<WithTrackingProps>
+let LazyAuth: ComponentType<ComponentType<Element>>
+let AuthIntro: ComponentType<StepComponentBaseProps & WithTrackingProps>
 
 const SDK_ENV = process.env.SDK_ENV
 
-console.log('SDK_ENV', SDK_ENV)
-if (process.env.SDK_ENV === 'auth') {
+if (process.env.SDK_ENV === 'Auth') {
   try {
     import('../Auth/AuthIntro')
       .then((auth) => (AuthIntro = auth.default))
@@ -53,7 +52,11 @@ import type {
   ExtendedStepConfig,
   FlowVariants,
 } from '~types/commons'
-import type { StepComponentProps, ComponentStep } from '~types/routers'
+import type {
+  StepComponentProps,
+  ComponentStep,
+  StepComponentBaseProps,
+} from '~types/routers'
 import type {
   DocumentTypes,
   StepConfig,
@@ -127,10 +130,10 @@ const buildCaptureStepComponents = (
 
   return {
     welcome: [Welcome],
-    ...(SDK_ENV !== 'auth' && { userConsent: [UserConsent] }),
+    ...(SDK_ENV !== 'Auth' && { userConsent: [UserConsent] }),
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     //@ts-ignore
-    ...(SDK_ENV === 'auth' && {
+    ...(SDK_ENV === 'Auth' && {
       auth: [AuthIntro, UserConsent, LazyAuth],
     }),
     document: buildDocumentComponents(
