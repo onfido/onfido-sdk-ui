@@ -5,6 +5,7 @@ import MockedContainerDimensions from '~jest/MockedContainerDimensions'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import { fakeCapturePayload } from '~jest/captures'
+import { trackException } from 'Tracker'
 import DocumentOverlay, {
   Props as DocumentOverlayProps,
 } from '../../Overlay/DocumentOverlay'
@@ -23,6 +24,7 @@ import type { CaptureFlows } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
 
 jest.mock('~utils')
+jest.mock('Tracker')
 navigator.vibrate = jest.fn()
 
 const EXPECTED_VIDEO_CAPTURE = {
@@ -414,7 +416,13 @@ describe('DocumentVideo', () => {
   })
 
   describe('with empty payloads', () => {
+    const mockedTrackException = trackException as jest.MockedFunction<
+      typeof trackException
+    >
+
     beforeEach(() => {
+      console.error = jest.fn()
+
       wrapper = mount(
         <MockedReduxProvider>
           <MockedLocalised>
@@ -431,10 +439,12 @@ describe('DocumentVideo', () => {
         CaptureControls
       )
 
-      expect(() => {
-        captureControls.props().onSubmit()
-        wrapper.setProps({})
-      }).toThrowError('Missing frontPayload or videoPayload')
+      captureControls.props().onSubmit()
+      wrapper.setProps({})
+
+      expect(mockedTrackException).toHaveBeenCalledWith(
+        'Missing frontPayload or videoPayload'
+      )
 
       expect(defaultProps.onCapture).not.toHaveBeenCalled()
     })

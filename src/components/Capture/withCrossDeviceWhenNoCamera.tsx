@@ -50,10 +50,12 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         componentsList,
         forceCrossDevice,
         hasCamera,
+        mobileFlow,
+        photoCaptureFallback,
         requestedVariant,
         step,
         triggerOnError,
-        photoCaptureFallback,
+        uploadFallback,
       } = this.props
       const currentStep = componentsList[step]
       const docVideoRequested =
@@ -75,17 +77,17 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
       if (
         cameraRequiredButNoneDetected ||
         forceCrossDevice ||
-        // @TODO: remove this test when we fully support docVideo variant for both desktop & mobile web
-        docVideoRequested
+        // @TODO: remove this check when we fully support docVideo variant for both desktop & mobile web
+        (docVideoRequested && !mobileFlow)
       ) {
-        if (this.props.mobileFlow) {
+        if (mobileFlow) {
           triggerOnError(
             buildError('Already on cross device flow but no camera detected')
           )
           return
         }
 
-        if (this.props.mobileFlow && !this.props.uploadFallback) {
+        if (mobileFlow && !uploadFallback) {
           triggerOnError(
             buildError(
               'Unable to complete the flow: upload fallback not allowed'
