@@ -131,6 +131,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
 
       nextStep()
     } catch (errorResponse) {
+      console.error('Error:', errorResponse)
       setLoading(false)
       triggerOnError(errorResponse)
       setError({ name: 'REQUEST_ERROR', type: 'error' })

@@ -6,6 +6,7 @@ import Webcam from 'react-webcam-onfido'
 import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
 import { getInactiveError } from '~utils/inactiveError'
+import { trackException } from 'Tracker'
 import DocumentOverlay from '../Overlay/DocumentOverlay'
 import VideoCapture, { VideoOverlayProps } from '../VideoCapture'
 import PaperIdFlowSelector from './PaperIdFlowSelector'
@@ -102,7 +103,9 @@ const DocumentVideo: FunctionComponent<Props> = ({
     }
 
     if (!frontPayload || !videoPayload) {
-      throw new Error('Missing frontPayload or videoPayload')
+      console.error('Missing frontPayload or videoPayload')
+      trackException('Missing frontPayload or videoPayload')
+      return
     }
 
     if (documentType === 'passport') {
