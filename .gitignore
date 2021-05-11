@@ -9,8 +9,8 @@ es
 /dist/style.css.map
 /dist/onfido.min.js.map
 /dist/index.html
+/dist/auth-sdk
 /dist/images
-/dist/core-sdk
 test/tmp
 test/UITestsReport
 /dist/onfido.crossDevice.min.js

@@ -242,7 +242,7 @@ const baseConfig = {
       '~locales': `${__dirname}/src/locales`,
       '~types': `${__dirname}/src/types`,
       '~utils': `${__dirname}/src/components/utils`,
-      '~auth': `${__dirname}/core-sdk`,
+      '~auth-sdk': `${__dirname}/auth-sdk/FaceTec`,
     },
   },
 
@@ -337,8 +337,8 @@ const configDist = () => ({
           new CopyPlugin({
             patterns: [
               {
-                from: `${__dirname}/core-sdk`,
-                to: `${__dirname}/dist/core-sdk`,
+                from: `${__dirname}/auth-sdk`,
+                to: `${__dirname}/dist/auth-sdk`,
               },
             ],
           }),
