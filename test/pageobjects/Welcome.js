@@ -51,6 +51,7 @@ class Welcome extends BasePage {
   }
 
   async continueToNextStep() {
+    this.driver.sleep(100)
     this.primaryBtn().click()
   }
 
