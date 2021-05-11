@@ -9,6 +9,13 @@ import { useEffect, useState } from 'preact/hooks'
 
 type Props = StepComponentBaseProps & WithLocalisedProps
 
+type AuthConfigType = {
+  token: string,
+  production_key_text: string,
+  device_key_identifier: string,
+  public_key: string
+}
+
 const AuthCapture: FunctionComponent<Props> = ({
   token,
   nextStep,
@@ -16,13 +23,13 @@ const AuthCapture: FunctionComponent<Props> = ({
   events,
   customUI,
 }) => {
-  const [authConfig, setAuthConfig] = useState({
+  const [authConfig, setAuthConfig] = useState<AuthConfigType>({
     token: '',
     production_key_text: '',
     device_key_identifier: '',
     public_key: '',
   })
-  const [sessionInit, setSessionInit] = useState(false)
+  const [sessionInit, setSessionInit] = useState<Boolean>(false)
 
   useEffect(() => {
     if (FaceTecSDK.getStatus() === 0 && !sessionInit) {
