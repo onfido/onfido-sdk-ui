@@ -79,7 +79,7 @@ jobs:
           IFS='/' read -ra REPO_SLUG_ARRAY <<< "$GITHUB_REPOSITORY"
           REPO_OWNER=${REPO_SLUG_ARRAY[0]}
           REPO_NAME=${REPO_SLUG_ARRAY[1]}
-          if [ ${{ NODE_ENV }} == "production" ]
+          if [ ${{ matrix.NODE_ENV }} == "production" ]
           then
             echo "SURGE_DOMAIN=https://${PR_NUMBER}-pr-${REPO_NAME}-${REPO_OWNER}.surge.sh" >> $GITHUB_ENV
           else
