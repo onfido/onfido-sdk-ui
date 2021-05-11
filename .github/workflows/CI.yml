@@ -70,7 +70,7 @@ jobs:
 
       - name: Run UI tests
         if: matrix.NODE_ENV == 'test'
-        run: npm run test:ui      
+        run: npm run test:ui
 
       - name: Create Surge Domain - production
         if: ${{ matrix.NODE_ENV == 'production' || matrix.NODE_ENV == 'staging' }}
@@ -84,7 +84,7 @@ jobs:
           else
             echo "SURGE_DOMAIN=https://staging-${PR_NUMBER}-pr-${REPO_NAME}-${REPO_OWNER}.surge.sh" >> $GITHUB_ENV
           fi
-          
+
       - name: Publish to Surge
         if: ${{ matrix.NODE_ENV == 'production' || matrix.NODE_ENV == 'staging' }}
         uses: dswistowski/surge-sh-action@v1.0.1
