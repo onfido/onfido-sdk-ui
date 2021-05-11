@@ -10,7 +10,7 @@ export const Config = (function () {
 
   function getAuthCustomization(
     dimMode: boolean,
-    customUi: UICustomizationOptions
+    customUi?: UICustomizationOptions
   ) {
     const uiDefaults = {
       /* acccentColor, dualSpinnerColor, and retryScreenOvalColor

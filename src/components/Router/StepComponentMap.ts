@@ -27,7 +27,7 @@ import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '../../supported-documents'
-import type { WithTrackingProps, WithLocalisedProps } from '~types/hocs'
+import type { WithTrackingProps } from '~types/hocs'
 
 let LazyAuth: ComponentType<ComponentType<Element>>
 let AuthIntro: ComponentType<StepComponentBaseProps & WithTrackingProps>

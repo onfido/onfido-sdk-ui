@@ -47,19 +47,19 @@ const formatOptions = ({
   steps,
   smsNumberCountryCode,
   ...otherOptions
-}: SdkOptions): NormalisedSdkOptions => ({
-  ...otherOptions,
-  smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
-  steps: (
-    steps || [
-      'welcome',
-      ...(process.env.SDK_ENV === 'Auth' ? 'auth' : ''),
-      'document',
-      'face',
-      'complete',
-    ]
-  ).map(formatStep),
-})
+}: SdkOptions): NormalisedSdkOptions => {
+  const mandatorySteps: StepTypes[] = ['document', 'face', 'complete']
+  const defaultSteps: StepTypes[] =
+    process.env.SDK_ENV === 'Auth'
+      ? ['welcome', 'auth', ...mandatorySteps]
+      : ['welcome', ...mandatorySteps]
+
+  return {
+    ...otherOptions,
+    smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
+    steps: (steps || defaultSteps).map(formatStep),
+  }
+}
 
 const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
   const documentStep = buildStepFinder(steps)('document')

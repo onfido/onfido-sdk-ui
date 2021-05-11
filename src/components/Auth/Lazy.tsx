@@ -9,13 +9,11 @@ const Loading = localised(({ translate }) => (
   </div>
 ))
 
-const AsyncCrossDevice = asyncComponent(
-  () => import(/* webpackChunkName: "authVendor" */ './Auth.js'),
+const AuthCapture = asyncComponent(
+  () => import(/* webpackChunkName: "authVendor" */ './Auth'),
   Loading
 )
 
-const AuthLazy = (props: ComponentType<Element>) => (
-  <AsyncCrossDevice {...props} />
-)
+const AuthLazy = (props: ComponentType<Element>) => <AuthCapture {...props} />
 
 export default localised(AuthLazy)
