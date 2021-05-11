@@ -19,7 +19,7 @@
       "~types/*": ["types/*"],
       "~utils": ["components/utils/index"],
       "~utils/*": ["components/utils/*"],
-      "~auth/*": ["../core-sdk/*"]
+      "~auth-sdk/*": ["../core-sdk/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

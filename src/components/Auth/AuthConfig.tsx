@@ -1,8 +1,8 @@
 import { loader } from './assets/loader'
 import { success } from './assets/success'
 import { borderRadius, color } from '@onfido/castor'
-import { FaceTecCustomization } from '~auth/FaceTecSDK.js/FaceTecCustomization'
-import { FaceTecSDK } from '~auth/FaceTecSDK.js/FaceTecSDK'
+import { FaceTecCustomization } from '~auth-sdk/FaceTecSDK.js/FaceTecCustomization'
+import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
 import { UICustomizationOptions } from '../../types/ui-customisation-options'
 
 export const Config = (function () {
@@ -63,8 +63,8 @@ export const Config = (function () {
     )
 
     defaultCustomization.cancelButtonCustomization.customImage = dimMode
-      ? '../../../auth-sdk/FaceTec/FaceTec_images/FaceTec_cancel_alt.png'
-      : '../../../auth-sdk/FaceTec/FaceTec_images/FaceTec_cancel.png'
+      ? '../../../core-sdk/FaceTec_images/FaceTec_cancel_alt.png'
+      : '../../../core-sdk/FaceTec_images/FaceTec_cancel.png'
 
     // Set Frame Customization
     defaultCustomization.frameCustomization.backgroundColor =

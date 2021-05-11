@@ -10,9 +10,9 @@ import { useEffect, useState } from 'preact/hooks'
 type Props = StepComponentBaseProps & WithLocalisedProps
 
 type AuthConfigType = {
-  token: string,
-  production_key_text: string,
-  device_key_identifier: string,
+  token: string
+  production_key_text: string
+  device_key_identifier: string
   public_key: string
 }
 
@@ -29,7 +29,7 @@ const AuthCapture: FunctionComponent<Props> = ({
     device_key_identifier: '',
     public_key: '',
   })
-  const [sessionInit, setSessionInit] = useState<Boolean>(false)
+  const [sessionInit, setSessionInit] = useState(false)
 
   useEffect(() => {
     if (FaceTecSDK.getStatus() === 0 && !sessionInit) {
@@ -45,7 +45,7 @@ const AuthCapture: FunctionComponent<Props> = ({
   })
 
   const initFaceTec = () => {
-    const authAlias = '../../../../auth-sdk/FaceTec/'
+    const authAlias = '../../../../core-sdk/'
     FaceTecSDK.setResourceDirectory(`${authAlias}FaceTecSDK.js/resources`)
     FaceTecSDK.setImagesDirectory(`${authAlias}FaceTec_images`)
     const {

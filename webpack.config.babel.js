@@ -242,7 +242,7 @@ const baseConfig = {
       '~locales': `${__dirname}/src/locales`,
       '~types': `${__dirname}/src/types`,
       '~utils': `${__dirname}/src/components/utils`,
-      '~auth': `${__dirname}/core-sdk`,
+      '~auth-sdk': `${__dirname}/core-sdk`,
     },
   },
 
