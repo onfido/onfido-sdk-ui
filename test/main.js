@@ -71,10 +71,8 @@ const firefoxOptions = new firefox.Options()
   .setPreference('permissions.default.microphone', 1)
   .setPreference('permissions.default.camera', 1)
 
-const safariOptions = new safari.Options()
-  .setAcceptInsecureCerts(false)
+const safariOptions = new safari.Options().setAcceptInsecureCerts(false)
 
-//"browserName": "MicrosoftEdge"
 const edgeOptions = new edge.Options()
   .setEdgeChromium(true)
   .setAcceptInsecureCerts(true)

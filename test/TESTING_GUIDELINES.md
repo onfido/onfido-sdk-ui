@@ -6,10 +6,24 @@ Guide to UI tests for Web SDK.
 
 1. Google Chrome (latest version)
 2. Chromedriver (WebDriver for Chrome)
-
 - `brew cask install chromedriver`
 - **Note:** if you have chromedriver already installed, make sure it's the latest version: `brew cask upgrade chromedriver`
 
+If you would like to run the tests against other browsers...
+
+Firefox:
+- `npm install` should take care of installing Gekodriver (Webdriver for Firefox)
+- **Note:** if you have OSX Catalina installed, you will need to run `npm install -g geckodriver`<br/>
+
+Safari:
+- Simply having Safari installed on your machine is enough<br/>
+
+MicroSoft Edge:
+1. MicroSoft Edge 
+2. Microsoft Edge Driver (WedDriver for Edge)
+- **Note:** your Microsoft Edge Driver needs to match the Edge browser version you are running and needs to be installed
+to your path (i.e. on OSX `/usr/local/bin`)
+  
 ### Running tests locally
 
 Our UI tests also run on BrowserStack. If you would like to run them on your BrowserStack account, set an environment variable `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY`.
@@ -24,6 +38,21 @@ Our UI tests also run on BrowserStack. If you would like to run them on your Bro
   - Parse and load UI test scenarios from `test/config.json`.
   - Run the test server image with tag `onfido-web-sdk:ui-mock-server` and wait until it responds.
   - Run the test scenarios against test server at `https://localhost:8080`.
+
+#### Running against different browsers locally
+
+- Within `config.json` you simply need to modify the `browserName` value to any of the ones illustrated
+
+`"browsers": [
+        {
+          "browserName": "chrome | firefox | safari | MicrosoftEdge",
+          "remote": false
+        }`
+
+### BrowserStack notes
+
+- Specific to Safari on BrowserStack, you need to explicitly set the `localhostUrl` value in `config.json` to
+be read as `"localhostUrl": "https://bs-local.com:8080/",` this is due to the way Safari handles `https://localhost`.
 
 ### `test` directory structure
 
