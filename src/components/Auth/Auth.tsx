@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import { AuthCheckProcessor } from './AuthCheckProcessor'
-import { FaceTecSDK } from '../../../core-sdk/FaceTecSDK.js/FaceTecSDK'
+import { FaceTecSDK } from '../../../auth-sdk/FaceTec/FaceTecSDK.js/FaceTecSDK'
 import { Config } from './AuthConfig'
 import { FaceTecStrings } from './assets/FaceTecStrings'
 
