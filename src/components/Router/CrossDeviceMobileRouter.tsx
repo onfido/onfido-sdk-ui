@@ -91,7 +91,7 @@ export default class CrossDeviceMobileRouter extends Component<
       crossDeviceError: undefined,
       loading: true,
       roomId,
-      socket: createSocket(url),
+      socket: createSocket(url, props.options.crossDeviceSyncVersion),
       step: undefined,
       steps: undefined,
       token: undefined,

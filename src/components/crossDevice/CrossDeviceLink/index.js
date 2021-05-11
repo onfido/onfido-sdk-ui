@@ -62,7 +62,7 @@ class CrossDeviceLink extends Component {
 
     if (!props.socket) {
       const url = props.urls.sync_url
-      const socket = createSocket(url)
+      const socket = createSocket(url, props.crossDeviceSyncVersion)
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
         socket.emit('join', { roomId })

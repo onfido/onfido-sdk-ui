@@ -52,6 +52,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   containerId?: string
   containerEl?: HTMLElement | null
   language?: SupportedLanguages | LocaleConfig
+  crossDeviceSyncVersion?: string
   region?: ServerRegions
   smsNumberCountryCode?: string
   userDetails?: {

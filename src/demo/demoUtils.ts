@@ -48,6 +48,7 @@ export type QueryParams = {
   useCustomizedApiRequests?: StringifiedBoolean
   decoupleResponse?: DecoupleResponseOptions
   photoCaptureFallback?: StringifiedBoolean
+  syncVersion?: string
 }
 
 export type CheckData = {
@@ -145,6 +146,8 @@ export const getInitSdkOptions = (): SdkOptions => {
     queryParamToValueString.language === 'customTranslations'
       ? SAMPLE_LOCALE
       : queryParamToValueString.language
+
+  const crossDeviceSyncVersion = queryParamToValueString.syncVersion
 
   const steps: Array<StepConfig> = [{ type: 'welcome' }]
 
@@ -248,6 +251,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     shouldCloseOnOverlayClick:
       queryParamToValueString.shouldCloseOnOverlayClick !== 'true',
     language,
+    crossDeviceSyncVersion,
     disableAnalytics: queryParamToValueString.disableAnalytics === 'true',
     useMemoryHistory: queryParamToValueString.useMemoryHistory === 'true',
     steps,
