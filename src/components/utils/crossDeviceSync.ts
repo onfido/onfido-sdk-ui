@@ -17,7 +17,7 @@ export const createSocket = (url?: string, version?: string): Socket => {
     path: `${syncVersion}/socket.io`,
     upgrade: false, // default: true
     autoConnect: false,
-    transports: ['websocket', 'polling'], // default: ['polling', 'websocket']
+    transports: version === 'v1' ? ['polling'] : ['websocket', 'polling'],
   }
 
   return io(url, socketData)
