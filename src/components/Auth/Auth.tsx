@@ -76,7 +76,7 @@ export default class AuthCapture extends Component<Props, State> {
 
   getConfig = (): void => {
     const xhr = new XMLHttpRequest()
-    xhr.open('POST', `${process.env.OLD_AUTH}/auth_3d/session`)
+    xhr.open('POST', `${process.env.AUTH_URL}/auth_3d/session`)
     xhr.setRequestHeader('Authorization', `Bearer ${this.props.token}`)
     xhr.setRequestHeader('Application-Id', 'com.onfido.onfidoAuth')
     xhr.setRequestHeader('Content-Type', 'application/json')
