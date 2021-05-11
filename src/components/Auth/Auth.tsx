@@ -1,114 +1,92 @@
-import { h, Component } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import { AuthCheckProcessor } from './AuthCheckProcessor'
-import { FaceTecSDK } from '../../../auth-sdk/FaceTec/FaceTecSDK.js/FaceTecSDK'
+import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
 import { Config } from './AuthConfig'
 import { FaceTecStrings } from './assets/FaceTecStrings'
-
 import type { WithLocalisedProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
-
-type State = {
-  authConfig: {
-    device_key_identifier?: string
-    production_key_text?: string
-    public_key?: string
-    token?: string
-  }
-  sessionInit: boolean
-  sessionState: string
-}
+import { useEffect, useState } from 'preact/hooks'
 
 type Props = StepComponentBaseProps & WithLocalisedProps
 
-export default class AuthCapture extends Component<Props, State> {
-  state: State = {
-    authConfig: {},
-    sessionInit: false,
-    sessionState: 'Initializing...',
-  }
+const AuthCapture: FunctionComponent<Props> = ({
+  token,
+  nextStep,
+  translate,
+  events,
+  customUI,
+}) => {
+  const [authConfig, setAuthConfig] = useState({
+    token: '',
+    production_key_text: '',
+    device_key_identifier: '',
+    public_key: '',
+  })
+  const [sessionInit, setSessionInit] = useState(false)
 
-  componentDidUpdate(_prevProps: Props, prevState: State): void {
-    if (
-      Object.keys(prevState.authConfig).length === 0 &&
-      Object.keys(this.state.authConfig).length > 0 &&
-      FaceTecSDK.getStatus() === 0
-    ) {
-      this.initFaceTec()
-    }
-  }
-
-  componentDidMount(): void {
-    console.log(FaceTecSDK.getStatus())
-    if (FaceTecSDK.getStatus() === 0) {
-      FaceTecSDK.setCustomization(Config.getAuthCustomization(false))
-      FaceTecSDK.setDynamicDimmingCustomization(
-        Config.getAuthCustomization(true)
+  useEffect(() => {
+    if (FaceTecSDK.getStatus() === 0 && !sessionInit) {
+      FaceTecSDK.setCustomization(
+        Config.getAuthCustomization(false, customUI || {})
       )
-      this.getConfig()
-    } else this.onLivenessCheckPressed()
-  }
+      FaceTecSDK.setDynamicDimmingCustomization(
+        Config.getAuthCustomization(true, customUI || {})
+      )
+      if (authConfig.token && !sessionInit) initFaceTec()
+      else getConfig()
+    } else onLivenessCheckPressed()
+  })
 
-  initFaceTec = (): void => {
-    FaceTecSDK.setResourceDirectory('../../../core-sdk/FaceTecSDK.js/resources')
-    FaceTecSDK.setImagesDirectory('../../../core-sdk/FaceTec_images')
+  const initFaceTec = () => {
+    const authAlias = '../../../../auth-sdk/FaceTec/'
+    FaceTecSDK.setResourceDirectory(`${authAlias}FaceTecSDK.js/resources`)
+    FaceTecSDK.setImagesDirectory(`${authAlias}FaceTec_images`)
     const {
-      production_key_text = '',
-      device_key_identifier = '',
-      public_key = '',
-    } = this.state.authConfig
-
+      production_key_text,
+      device_key_identifier,
+      public_key,
+    } = authConfig
     FaceTecSDK.initializeInProductionMode(
       production_key_text,
       device_key_identifier,
       atob(public_key),
-      (initializedSuccessfully) => {
+      (initializedSuccessfully: boolean) => {
         if (initializedSuccessfully) {
-          FaceTecSDK.configureLocalization(FaceTecStrings(this.props.translate))
-          this.setState({
-            sessionState: 'Initialized successfuly',
-            sessionInit: true,
-          })
-          this.onLivenessCheckPressed()
+          FaceTecSDK.configureLocalization(FaceTecStrings(translate))
+          setSessionInit(true)
+          onLivenessCheckPressed()
         }
       }
     )
   }
 
-  getConfig = (): void => {
-    const xhr = new XMLHttpRequest()
-    xhr.open('POST', `${process.env.AUTH_URL}/auth_3d/session`)
-    xhr.setRequestHeader('Authorization', `Bearer ${this.props.token}`)
-    xhr.setRequestHeader('Application-Id', 'com.onfido.onfidoAuth')
-    xhr.setRequestHeader('Content-Type', 'application/json')
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        const response = JSON.parse(xhr.responseText)
-        return this.setState({
-          authConfig: {
-            ...response,
-            production_key_text: JSON.parse(atob(response.production_key_text)),
-          },
+  const getConfig = () => {
+    const XHR = new XMLHttpRequest()
+    XHR.open('POST', `${process.env.AUTH_URL}/auth_3d/session`)
+    XHR.setRequestHeader('Authorization', `Bearer ${token}`)
+    XHR.setRequestHeader('Application-Id', 'com.onfido.onfidoAuth')
+    XHR.setRequestHeader('Content-Type', 'application/json')
+    XHR.onreadystatechange = function () {
+      if (this.readyState === XMLHttpRequest.DONE) {
+        const response = JSON.parse(this.responseText)
+        return setAuthConfig({
+          ...response,
+          production_key_text: JSON.parse(atob(response.production_key_text)),
         })
       }
     }
     const body = {
       sdk_type: 'onfido_web_sdk',
     }
-    xhr.send(JSON.stringify(body))
+    XHR.send(JSON.stringify(body))
   }
 
-  onLivenessCheckPressed = (): void => {
-    if (this.state.authConfig.token) {
-      new AuthCheckProcessor(
-        this.state.authConfig.token,
-        this.props.token,
-        this.props.nextStep,
-        this.props.events
-      )
+  const onLivenessCheckPressed = () => {
+    if (authConfig.token && token && nextStep) {
+      new AuthCheckProcessor(authConfig.token, token, nextStep, events)
     }
   }
-
-  render(): h.JSX.Element | null {
-    return null
-  }
+  return null
 }
+
+export default AuthCapture

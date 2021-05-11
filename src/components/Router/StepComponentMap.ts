@@ -130,7 +130,7 @@ const buildCaptureStepComponents = (
 
   return {
     welcome: [Welcome],
-    ...(SDK_ENV !== 'Auth' && { userConsent: [UserConsent] }),
+    userConsent: [UserConsent],
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     //@ts-ignore
     ...(SDK_ENV === 'Auth' && {
