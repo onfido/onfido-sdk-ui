@@ -1,7 +1,7 @@
 import { io, Socket, ManagerOptions } from 'socket.io-client'
 
 const socketData: Partial<ManagerOptions> = {
-  path: '/v2/socket.io',
+  path: '/v3/socket.io',
   upgrade: false, // default: true
   autoConnect: false,
   transports: ['websocket', 'polling'], // default: ['polling', 'websocket']
