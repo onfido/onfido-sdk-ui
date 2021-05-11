@@ -61,7 +61,7 @@ jobs:
             TEST_ENV=deployment npm run build:test
           elif [ ${{ matrix.NODE_ENV }}  == "staging" ]
           then
-            npm run build
+            NODE_ENV=staging npm run build
           fi
 
       - name: Run integration tests
