@@ -1,12 +1,5 @@
 {
-    "auth_intro": {
-        "title": "Welcome back!",
-        "subtitle": "To make sure it's you, please scan your face",
-        "line1": "You'll be asked to keep your face within an oval frame.",
-        "line2": "Make sure your eyes are clearly visible.",
-        "button_primary": "Start camera"
-    },
-    "auth_accessibility": {
+   "auth_accessibility": {
         "back_button": "Annuler"
     },
     "auth_cam_encrypt": {

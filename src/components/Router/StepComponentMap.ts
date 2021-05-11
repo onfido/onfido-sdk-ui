@@ -27,18 +27,13 @@ import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '../../supported-documents'
-import type { WithTrackingProps, WithLocalisedProps } from '~types/hocs'
 
 let LazyAuth: ComponentType<ComponentType<Element>>
-let AuthIntro: ComponentType<StepComponentBaseProps & WithTrackingProps>
 
 const SDK_ENV = process.env.SDK_ENV
 
 if (process.env.SDK_ENV === 'Auth') {
   try {
-    import('../Auth/AuthIntro')
-      .then((auth) => (AuthIntro = auth.default))
-      .catch(() => {})
     import('../Auth/Lazy')
       .then((lazy) => (LazyAuth = lazy.default))
       .catch(() => null)
@@ -52,11 +47,7 @@ import type {
   ExtendedStepConfig,
   FlowVariants,
 } from '~types/commons'
-import type {
-  StepComponentProps,
-  ComponentStep,
-  StepComponentBaseProps,
-} from '~types/routers'
+import type { StepComponentProps, ComponentStep } from '~types/routers'
 import type {
   DocumentTypes,
   StepConfig,
@@ -134,7 +125,7 @@ const buildCaptureStepComponents = (
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     //@ts-ignore
     ...(SDK_ENV === 'Auth' && {
-      auth: [AuthIntro, UserConsent, LazyAuth],
+      auth: [UserConsent, LazyAuth],
     }),
     document: buildDocumentComponents(
       documentStep,
