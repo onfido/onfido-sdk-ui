@@ -1,4 +1,4 @@
-import { Builder, Capabilities } from 'selenium-webdriver'
+import { Builder } from 'selenium-webdriver'
 import remote from 'selenium-webdriver/remote'
 import config from './config.json'
 import Mocha from 'mocha'
@@ -63,8 +63,6 @@ const chromeOptions = new chrome.Options()
   .addArguments('--ignore-certificate-errors')
   .addArguments('--ignore-ssl-errors=yes')
 
-//You will need to install globally: 'npm -g install geckodriver' on OSX Catalina
-//https://github.com/mozilla/geckodriver/issues/1629
 const firefoxOptions = new firefox.Options()
   .setAcceptInsecureCerts(true)
   .setPreference('media.navigator.permission.disabled', true)

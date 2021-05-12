@@ -13,7 +13,9 @@ If you would like to run the tests against other browsers...
 
 Firefox:
 - `npm install` should take care of installing Gekodriver (Webdriver for Firefox)
-- **Note:** if you have OSX Catalina installed, you will need to run `npm install -g geckodriver`<br/>
+- **Note:** if you have OSX Catalina installed, you will need to run `npm install -g geckodriver`, this is due to this 
+  issue https://github.com/mozilla/geckodriver/issues/1629
+  <br/>
 
 Safari:
 - Simply having Safari installed on your machine is enough<br/>
