@@ -64,6 +64,9 @@ be read as `"localhostUrl": "https://bs-local.com:8080/",` this is due to the wa
 - `utils/` contains util files with the set up for accessibility testing, browserstack and mocha
 - `config.json`contains configuration for the browsers on which the tests will run
 
+- **Note:** you can now pass in an environment variable `CONFIG_FILE` if you wish to use a file other than `config.json`, 
+i.e. `CONFIG_FILE='mynewconfig.json' npm run test:ui`, if this is not specified, it will use the default `config.json`
+  
 ### Troubleshooting
 
 If you face issues regarding test setup or weird errors during test execution, there are some things to check:

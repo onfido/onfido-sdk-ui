@@ -1,6 +1,5 @@
 import { Builder } from 'selenium-webdriver'
 import remote from 'selenium-webdriver/remote'
-import config from './config.json'
 import Mocha from 'mocha'
 import {
   createBrowserStackLocal,
@@ -15,7 +14,15 @@ import firefox from 'selenium-webdriver/firefox'
 import safari from 'selenium-webdriver/safari'
 import edge from 'selenium-webdriver/edge'
 
+let config
 let browserStackFailures = 0
+
+if (!process.env.CONFIG_FILE) {
+  console.error('INFO: CONFIG_FILE not set, so using the default config.json')
+  config = require('./config')
+} else {
+  config = require(`./${process.env.CONFIG_FILE}`)
+}
 
 if (!process.env.BROWSERSTACK_USERNAME) {
   console.error('ERROR: BrowserStack username not set')
