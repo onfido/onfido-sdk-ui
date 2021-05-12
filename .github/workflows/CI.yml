@@ -43,7 +43,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm ci
-
+      #TODO: Re-enable this once the vulnerabilities are fixed
       # - name: npm audit action
       #   if: matrix.NODE_ENV == 'production'
       #   uses: oke-py/npm-audit-action@v1.7.0
