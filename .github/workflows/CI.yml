@@ -46,9 +46,14 @@ jobs:
       #TODO: Re-enable this once the vulnerabilities are fixed
       # - name: npm audit action
       #   if: matrix.NODE_ENV == 'production'
-      #   uses: oke-py/npm-audit-action@v1.7.0
+      #   uses: oke-py/npm-audit-action@v1.7.2
       #   with:
       #     audit_level: moderate
+      #     production_flag: true
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     issue_assignees: kopijunkie
+      #     issue_labels: vulnerability
+      #     dedupe_issues: true
 
       - name: Run build
         # Legacy: For "$NODE_ENV" == "production" Surge uses the NODE_ENV=test + TEST_ENV=deployment

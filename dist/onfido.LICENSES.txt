@@ -57,5 +57,3 @@ and limitations under the License.
   Based on code that is Copyright 2013-2015, Facebook, Inc.
   All rights reserved.
 */
-
-/*! https://mths.be/utf8js v2.1.2 by @mathias */
