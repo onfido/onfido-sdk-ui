@@ -543,33 +543,29 @@ A number of options are available to allow you to customize the SDK:
   | `colorBackgroundButtonCameraHover`  | Change background color of Live Selfie/Document Capture screens's Camera button on hover    |
   | `colorBackgroundButtonCameraActive` | Change background color of Live Selfie/Document Capture screen's Camera button on click/tap |
 
+  | Auth Module Colors (shared) | Description                                                                                                                                                                                                                                                                                                                                                                                |
+  | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | `authAccentColor`           | <ul><li>Change color of activity indicator animation shown during server-side work</li><li> Change background color of result animation</li><li> Change background color of the upload progress bar</li> </ul>                                                                                                                                                                             |
+  | `authFrameColor`            | <ul><li>Change the color of the border and background surrounding the oval outline Auth session</li><li>Change background color of the Auth Overlay.</li><li>Change background color for the New User Guidance and Retry Screens.</li><li> Change background color of Result screen and Result animation foreground</li><li>Change background color of initial loading animation</li></ul> |
+  | `authButtonCornerRadius`    | <ul><li>Change corner radius of the action button's border during the New User Guidance and Retry Screens.</li><li>Change corner radius of the Auth Feedback Bar.</li></ul>                                                                                                                                                                                                                |
 
-  | Auth Module Colors (shared)               | Description                                                                                 |
-  | ----------------------------------- | ------------------------------------------------------------------------------------------- |
-  | `authAccentColor`  | <ul><li>Change color of activity indicator animation shown during server-side work</li><li> Change background color of result animation</li><li> Change background color of the upload progress bar</li>    </ul> |
-  | `authFrameColor` | <ul><li>Change the color of the border and background surrounding the oval outline Auth session</li><li>Change background color of the Auth Overlay.</li><li>Change background color for the New User Guidance and Retry Screens.</li><li> Change background color of Result screen and Result animation foreground</li><li>Change background color of initial loading animation</li></ul> |
-  | `authButtonCornerRadius`| <ul><li>Change corner radius of the action button's border during the New User Guidance and Retry Screens.</li><li>Change corner radius of the Auth Feedback Bar.</li></ul> |
-  
+  | Auth Module Colors (unique) | Description                                                                                                              |
+  | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+  | `authDualSpinnercolor`      | Change animated Auth Progress Spinner strokes.                                                                           |
+  | `authRetryScreenovalcolor`  | Change oval's stroke that overlays the Ideal image example during the first Retry Screen.                                |
+  | `authOvalColor`             | Change color of Auth Oval outline                                                                                        |
+  | `authButtonColorNormal`     | Change background color of the action button during the New User Guidance and Retry Screens.                             |
+  | `authButtonColorDisabled`   | Change background color of the action button when the button is disabled during the New User Guidance and Retry Screens. |
+  | `authButtonColorPressed`    | Change background color of the action button when the button is pressed during the New User Guidance and Retry Screens.  |
+  | `authFeedbackBarColor`      | Change background color of the Auth Feedback Bar. Recommend making this have some transparency.                          |
 
-  | Auth Module Colors (unique)               | Description                                                                                 |
-  | ----------------------------------- | ------------------------------------------------------------------------------------------- |
-  | `authDualSpinnercolor`  | Change animated Auth Progress Spinner strokes.    |
-  | `authRetryScreenovalcolor` | Change oval's stroke that overlays the Ideal image example during the first Retry Screen. |
-  | `authOvalColor`| Change color of Auth Oval outline |
-  | `authButtonColorNormal`| Change background color of the action button during the New User Guidance and Retry Screens. |
-  | `authButtonColorDisabled`| Change background color of the action button when the button is disabled during the New User Guidance and Retry Screens. |
-  | `authButtonColorPressed`| Change background color of the action button when the button is pressed during the New User Guidance and Retry Screens.  |
-  | `authFeedbackBarColor`| Change background color of the Auth Feedback Bar. Recommend making this have some transparency. |
-
-  
-  | Auth Module Text Colors               | Description                                                                                 |
-  | ----------------------------------- | ------------------------------------------------------------------------------------------- |
-  | `authTextColor`| <ul><li>Change color of text displayed on the New User Guidance and Retry Screens (not including the action button text).</li><li>Change color of text displayed on the Result Screen.</li><li>Change color of loading spinner foreground fill and message text shown to the user while the camera loads.</li></ul> |
-  | `authButtonTextHighlightColor`| Change color of the action button's text when the button is pressed during the New User Guidance and Retry Screens. |
-  | `authButtonTextDisabledColor`| Change color of the action button's text when the button is disabled during the New User Guidance and Retry Screens. |
-  | `authButtonTextNormalColor`| Change color of the action button's text during the New User Guidance and Retry Screens |
-  | `authFeedbackBarTextColor`| Change color of text displayed within the Auth Browser SDK Feedback Bar |
-  
+  | Auth Module Text Colors        | Description                                                                                                                                                                                                                                                                                                         |
+  | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `authTextColor`                | <ul><li>Change color of text displayed on the New User Guidance and Retry Screens (not including the action button text).</li><li>Change color of text displayed on the Result Screen.</li><li>Change color of loading spinner foreground fill and message text shown to the user while the camera loads.</li></ul> |
+  | `authButtonTextHighlightColor` | Change color of the action button's text when the button is pressed during the New User Guidance and Retry Screens.                                                                                                                                                                                                 |
+  | `authButtonTextDisabledColor`  | Change color of the action button's text when the button is disabled during the New User Guidance and Retry Screens.                                                                                                                                                                                                |
+  | `authButtonTextNormalColor`    | Change color of the action button's text during the New User Guidance and Retry Screens                                                                                                                                                                                                                             |
+  | `authFeedbackBarTextColor`     | Change color of text displayed within the Auth Browser SDK Feedback Bar                                                                                                                                                                                                                                             |
 
 - **`steps {List} optional`**
 
