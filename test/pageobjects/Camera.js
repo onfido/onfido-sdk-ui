@@ -8,7 +8,7 @@ class Camera extends BasePage {
     return this.$('[data-onfido-qa="enable-camera-btn"]')
   }
   async allowCameraPermissionImage() {
-    return this.$('div.onfido-sdk-ui-CameraPermissions-Primer-graphic')
+    return this.$('.onfido-sdk-ui-CameraPermissions-Primer-graphic')
   }
   async nextChallengeButton() {
     return this.$('[data-onfido-qa="liveness-next-challenge-btn"]')
@@ -46,8 +46,8 @@ class Camera extends BasePage {
   async enableCameraAccessIfNecessary() {
     if (browserName === 'safari' || browserName === 'Safari') {
       if (
-        this.enableCameraButton().isDisplayed() === true &&
-        this.allowCameraPermissionImage().isDisplayed() === true
+        this.enableCameraButton().isDisplayed() &&
+        this.allowCameraPermissionImage().isDisplayed()
       ) {
         this.enableCameraButton().click()
       }

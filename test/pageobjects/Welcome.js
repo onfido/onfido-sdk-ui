@@ -51,6 +51,7 @@ class Welcome extends BasePage {
   }
 
   async continueToNextStep() {
+    //On rare occasions, there are cases when the page hasn't quite loaded, hence the need for the sleep
     this.driver.sleep(100)
     this.primaryBtn().click()
   }
