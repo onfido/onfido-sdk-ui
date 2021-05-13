@@ -106,8 +106,10 @@ export default class CrossDeviceMobileRouter extends Component<
     this.state.socket.on('connect', () => {
       this.state.socket.emit('join', { roomId: this.state.roomId })
     })
+    this.state.socket.on('joined', () => {
+      this.requestMobileConfig()
+    })
     this.state.socket.open()
-    this.requestMobileConfig()
 
     if (this.props.options.mobileFlow) {
       this.sendMessage('cross device start')
