@@ -233,6 +233,9 @@ const baseConfig = {
       '~locales': `${__dirname}/src/locales`,
       '~types': `${__dirname}/src/types`,
       '~utils': `${__dirname}/src/components/utils`,
+      'socket.io-client': resolve(
+        'node_modules/socket.io-client/dist/socket.io.js'
+      ),
     },
   },
 
