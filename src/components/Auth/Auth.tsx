@@ -45,7 +45,7 @@ const AuthCapture: FunctionComponent<Props> = ({
   })
 
   const initFaceTec = () => {
-    const authAlias = '../../../../core-sdk/'
+    const authAlias = '../../../../auth-sdk/FaceTec/'
     FaceTecSDK.setResourceDirectory(`${authAlias}FaceTecSDK.js/resources`)
     FaceTecSDK.setImagesDirectory(`${authAlias}FaceTec_images`)
     const {

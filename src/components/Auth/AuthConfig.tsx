@@ -63,8 +63,8 @@ export const Config = (function () {
     )
 
     defaultCustomization.cancelButtonCustomization.customImage = dimMode
-      ? '../../../core-sdk/FaceTec_images/FaceTec_cancel_alt.png'
-      : '../../../core-sdk/FaceTec_images/FaceTec_cancel.png'
+      ? '../../../auth-sdk/FaceTec/FaceTec_images/FaceTec_cancel_alt.png'
+      : '../../../auth-sdk/FaceTec/FaceTec_images/FaceTec_cancel.png'
 
     // Set Frame Customization
     defaultCustomization.frameCustomization.backgroundColor =
