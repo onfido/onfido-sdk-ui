@@ -16,7 +16,7 @@
       "browsers": [
         {
           "browserName": "Firefox",
-          "browser_version": "83",
+          "browser_version": "latest",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",
@@ -24,7 +24,7 @@
         },
         {
           "browserName": "Edge",
-          "browser_version": "87",
+          "browser_version": "latest",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",

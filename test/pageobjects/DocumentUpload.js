@@ -36,7 +36,7 @@ class DocumentUpload extends BasePage {
     //the below line...if safari AND Local, ignore it...otherwise file uploads will fail.
     if (browserName === 'safari' && isRemoteBrowser === false) {
       console.log(
-        'Not creating a remote File Detector as I am using safari, locally'
+        'Not creating a remote File Detector as I am uploading locally'
       )
     } else {
       // This will detect local file, ref: https://www.browserstack.com/automate/node#enhancements-uploads-downloads
@@ -48,9 +48,7 @@ class DocumentUpload extends BasePage {
       console.log(`File being uploaded is ${filePath}`)
       sendKeysToElement = input.sendKeys(path.join(filePath))
     } catch (err) {
-      console.log(
-        'You should only see this if you are uploading a file on safari, locally'
-      )
+      console.log('Just logging that I have caught an exception on upload')
     }
     return sendKeysToElement
   }
