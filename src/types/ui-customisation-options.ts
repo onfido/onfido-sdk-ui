@@ -4,6 +4,7 @@ export type UICustomizationOptions = {
   colorBorderSurfaceModal?: string
   borderWidthSurfaceModal?: string
   borderStyleSurfaceModal?: string
+  borderRadiusSurfaceModal?: string
 
   // Title Font
   fontFamilyTitle?: string

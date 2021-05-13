@@ -9,22 +9,23 @@ import {
   DocumentFrontCapture,
   DocumentBackCapture,
   SelfieCapture,
-  VideoCapture,
+  FaceVideoCapture,
 } from '../Capture'
 import {
   DocumentFrontConfirm,
   DocumentBackConfirm,
   SelfieConfirm,
-  VideoConfirm,
+  FaceVideoConfirm,
 } from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
-import VideoIntro from '../Video/Intro'
+import FaceVideoIntro from '../FaceVideo/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
-import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils'
+import { isDesktop, isHybrid } from '~utils'
+import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 
 import type {
@@ -80,7 +81,7 @@ const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
   hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
 const shouldUseCameraForDocumentCapture = (
-  documentStep: Optional<StepConfigDocument>,
+  documentStep?: StepConfigDocument,
   deviceHasCameraSupport?: boolean
 ): boolean => {
   const canUseLiveDocumentCapture =
@@ -98,11 +99,9 @@ const buildCaptureStepComponents = (
   steps: StepConfig[],
   deviceHasCameraSupport?: boolean
 ): ComponentsByStepType => {
-  const faceStep = steps.find((step) => step.type === 'face') as StepConfigFace
-
-  const documentStep = steps.find(
-    (step) => step.type === 'document'
-  ) as StepConfigDocument
+  const findStep = buildStepFinder(steps)
+  const faceStep = findStep('face')
+  const documentStep = findStep('document')
 
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
 
@@ -132,7 +131,7 @@ const buildCaptureStepComponents = (
 }
 
 const buildFaceComponents = (
-  faceStep: Optional<StepConfigFace>,
+  faceStep?: StepConfigFace,
   deviceHasCameraSupport?: boolean,
   mobileFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
@@ -142,12 +141,19 @@ const buildFaceComponents = (
   const shouldSelfieScreenUseCamera =
     !shouldDisplayUploader && deviceHasCameraSupport
 
+  const videoCameraSupport = window.MediaRecorder != null
+
+  const photoCaptureFallback = faceStep?.options?.photoCaptureFallback !== false
+
   const shouldUseVideo =
     faceStep?.options?.requestedVariant === 'video' &&
-    window.MediaRecorder != null
+    (videoCameraSupport || !photoCaptureFallback)
 
   return shouldUseVideo
-    ? buildRequiredVideoComponents(deviceHasCameraSupport, mobileFlow)
+    ? buildRequiredVideoComponents(
+        deviceHasCameraSupport && videoCameraSupport,
+        mobileFlow
+      )
     : buildRequiredSelfieComponents(shouldSelfieScreenUseCamera)
 }
 
@@ -155,8 +161,8 @@ const buildRequiredVideoComponents = (
   shouldUseCamera?: boolean,
   mobileFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
-  // @TODO: convert VideoIntro, VideoCapture, VideoConfirm to TS
-  const allVideoSteps = [VideoIntro, VideoCapture, VideoConfirm]
+  // @TODO: convert FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm to TS
+  const allVideoSteps = [FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm]
 
   if (mobileFlow && !shouldUseCamera) {
     // do not display intro on cross device flow
@@ -197,8 +203,8 @@ const buildNonPassportPreCaptureComponents = (
 }
 
 const buildDocumentComponents = (
-  documentStep: Optional<StepConfigDocument>,
-  documentType: Optional<DocumentTypes>,
+  documentStep: StepConfigDocument | undefined,
+  documentType: DocumentTypes | undefined,
   hasOnePreselectedDocument: boolean,
   shouldUseCamera: boolean
 ): ComponentType<StepComponentProps>[] => {

@@ -58,7 +58,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
       it('should verify UI elements of PoA Intro screen', async () => {
         driver.get(`${localhostUrl}?poa=true`)
         welcome.continueToNextStep()
-        poaIntro.verifyTitle("Let's verify your UK address")
+        poaIntro.verifyTitle('Let’s verify your UK address')
         poaIntro.verifyRequirementsHeader(copy)
         poaIntro.verifyFirstRequirement('Shows your current address')
         poaIntro.verifySecondRequirement(

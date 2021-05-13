@@ -19,7 +19,7 @@ class MobileFlow extends Component {
     this.props.socket.off('client success')
     this.props.socket.off('user analytics')
     const { socket, roomId, actions } = this.props
-    socket.emit('disconnecting', { roomId })
+    socket.emit('leave', { roomId })
     this.props.socket.off('cross device start')
     actions.mobileConnected(false)
   }

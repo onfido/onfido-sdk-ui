@@ -7,11 +7,6 @@ const parseUnit = require('parse-unit')
 
 import type { SdkMetadata, ErrorNames } from '~types/commons'
 import type { TranslatedTagParser } from '~types/locales'
-import type {
-  DocumentTypes,
-  StepConfig,
-  StepConfigDocument,
-} from '~types/steps'
 
 export const functionalSwitch = <T extends unknown>(
   key: string,
@@ -190,7 +185,7 @@ export const copyToClipboard = (
 
 export const addDeviceRelatedProperties = (
   sdkMetadata: SdkMetadata,
-  isCrossDeviceFlow: boolean
+  isCrossDeviceFlow?: boolean
 ): SdkMetadata => {
   const osInfo = detectSystem('os')
   const browserInfo = detectSystem('browser')
@@ -217,26 +212,6 @@ export const capitalise = (string: string): string => {
   }
 
   return string
-}
-
-export const hasOnePreselectedDocument = (steps: StepConfig[]): boolean =>
-  getEnabledDocuments(steps).length === 1
-
-export const getEnabledDocuments = (steps: StepConfig[]): DocumentTypes[] => {
-  const documentStep = steps.find(
-    (step) => step.type === 'document'
-  ) as StepConfigDocument
-
-  const docTypes =
-    documentStep && documentStep.options && documentStep.options.documentTypes
-
-  if (!docTypes) {
-    return []
-  }
-
-  const configuredDocTypes = Object.keys(docTypes) as DocumentTypes[]
-
-  return configuredDocTypes.filter((type) => docTypes[type])
 }
 
 /**

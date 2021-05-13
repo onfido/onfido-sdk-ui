@@ -47,8 +47,7 @@ In order to merge your pull request, you should get an approval from 2 Onfido te
 The current pull request checks are
 
 - Bundlewatch - Monitors SDK bundle size increase
-- CodeQL - Analysises SDK codebase for security vulnerabilities
-- Travis CI - Our continuous integration tool
+- Github Actions - To run our continuous integration build
 
 This project uses the following linters:
 
@@ -81,7 +80,7 @@ You should also manually test any change in all the supported browsers, both on 
 
 _This section applies to internal contributors only._
 
-The SDK supports several languages. To pull the translations from our localisation service run `npm run lokalise:download`.
+The SDK supports several languages. To pull the translations from our localisation service run `npm run lokalise:download`. Note that you will need to have the [Lokalise CLI](https://github.com/lokalise/lokalise-cli-2-go) tool installed.
 Every time you add, remove or edit a translation key or value, please remember to update [MIGRATION.md](MIGRATION.md) with the relevant key, so that the integrators that use language customisation can keep track of language changes. These changes will result in a MINOR version release.
 
 ### Accessibility

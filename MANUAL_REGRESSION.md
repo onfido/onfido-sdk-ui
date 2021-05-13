@@ -689,6 +689,37 @@ Given user opened the link with `?uploadFallback=false` flag
 2. The SDK will open inside a modal.
    - Repeat steps 2-8 from test case no. 35a
 
+### 36. User Consent screen can be reloaded if it failed to load due to loss of connection
+
+(on private mode on desktop and mobile browsers)
+
+1. Open link with additional GET parameter `?showUserConsent=true`
+2. Disconnect from your internet connection
+   - On desktop, either turn off your Wifi or disconnect from your wired connection.
+   - On mobile devices, switch to Airplane mode.
+3. Continue to the next step
+4. You should see `Content failed to load` screen
+5. Reconnect to your intenet connection
+   - On desktop, either turn on your Wifi or reconnect to your wired connection.
+   - On mobile devices, switch to Airplane mode.
+6. Click on `Reload screen` button
+   - You should see a consent screen with a list of FAQs
+   - When clicking on the links inside the screen content, they should open in a new tab
+7. Click on "Accept"
+   - You should see the document selector screen
+8. You should be able to complete the ID verification flow successfully
+
+### 37. Interrupt flow if selfie fallback is deactivated and MediaRecorder is not supported
+
+Given user opened the link with `?liveness=true&photoCaptureFallback=false` flags
+
+1. And user is on first page of cross-device flow
+2. Open the cross device link on mobile browsers that don't support MediaRecorder (i.e. Safari on iOS13.7 or earlier):
+   - user won't see the "use the native camera mode instead" link
+   - user should see `Unsupported browser` message
+   - user should see `Restart the process on the latest version of Safari/Chrome` message
+   - user should NOT be able to complete the cross-device flow successfully.
+
 ## Non-functional
 
 ### 1. Check analytics tracking
