@@ -20,15 +20,17 @@
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",
-          "remote": true
+          "remote": true,
+          "name": "multipleBrowsersDocumentUpload"
         },
         {
           "browserName": "Edge",
-          "browser_version": "latest",
+          "browser_version": "89",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",
-          "remote": true
+          "remote": true,
+          "name": "multipleBrowsersDocumentUpload"
         }
       ]
     }

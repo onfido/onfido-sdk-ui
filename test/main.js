@@ -16,6 +16,8 @@ import edge from 'selenium-webdriver/edge'
 
 let config
 let browserStackFailures = 0
+let localFailures = 0
+const totalFailures = browserStackFailures + localFailures
 
 if (!process.env.CONFIG_FILE) {
   console.error('INFO: CONFIG_FILE not set, so using the default config.json')
@@ -107,7 +109,7 @@ const createDriver = ({ name, localIdentifier }) => (browser) =>
         .setSafariOptions(safariOptions)
         .setEdgeOptions(edgeOptions)
 
-const createBrowser = async (browser, testCase) => {
+const createBrowser = async (browser) => {
   const localIdentifier = random()
 
   const bsLocal = browser.remote
@@ -118,7 +120,7 @@ const createBrowser = async (browser, testCase) => {
     : null
 
   const driver = await createDriver({
-    name: testCase.file,
+    name: browser.name,
     localIdentifier,
   })(browser).build()
 
@@ -180,17 +182,20 @@ const createMocha = (driver, testCase) => {
     //console.log(`The current test state is: ${currentTestState}`)
     //As we are running a 'single' test as test/specs/chrome.js, we will only be able to report a single error
     //i.e. if we have 3 failures...BS will only log the first one.
-    if (currentTestState === 'failed') {
+    if (isRemoteBrowser && currentTestState === 'failed') {
       browserStackFailures += 1
+    }
+    if (currentTestState === 'failed') {
+      localFailures += 1
     }
   })
   mocha.suite.afterAll('Report test failures to BrowserStack', function () {
-    if (browserStackFailures > 0 && isRemoteBrowser) {
+    if (browserStackFailures > 0 && isRemoteBrowser === true) {
       driver.executeScript(
         `browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "There were test failures!"}}`
       )
     }
-    if (browserStackFailures === 0 && isRemoteBrowser) {
+    if (browserStackFailures === 0 && isRemoteBrowser === true) {
       driver.executeScript(
         `browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "No tests failed!"}}`
       )
@@ -232,10 +237,19 @@ const runner = async () => {
         printTestInfo(browser, testCase)
 
         await mocha.runP()
-        console.log(
-          `Number of failures in ${currentBrowser} tests:`,
-          browserStackFailures
-        )
+
+        if (isRemoteBrowser === true) {
+          console.log(
+            `Number of failures in ${currentBrowser} tests:`,
+            browserStackFailures
+          )
+        } else {
+          console.log(
+            `Number of failures in ${currentBrowser} tests:`,
+            localFailures
+          )
+        }
+
         await driver.finish()
       } catch (e) {
         console.log(`Error executing ${currentBrowser} test case`, e)
@@ -245,7 +259,7 @@ const runner = async () => {
   })
 
   console.log(chalk.green('Tests finished'))
-  process.exit(browserStackFailures > 0 ? 1 : 0)
+  process.exit(totalFailures > 0 ? 1 : 0)
 }
 
 const killMockServer = (dockerContainerId) => {
