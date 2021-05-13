@@ -8,9 +8,9 @@ es
 /release/releaseSecret.js
 /dist/style.css.map
 /dist/onfido.min.js.map
+/dist/auth-sdk
 /dist/index.html
 /dist/images
-/dist/core-sdk
 test/tmp
 test/UITestsReport
 /dist/onfido.crossDevice.min.js

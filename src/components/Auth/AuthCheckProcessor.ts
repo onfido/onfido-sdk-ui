@@ -1,11 +1,11 @@
 import { EventEmitter2 } from 'eventemitter2'
 import { Config } from './AuthConfig'
-import { FaceTecSDK } from '~auth/FaceTecSDK.js/FaceTecSDK'
+import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
 import type {
   FaceTecSessionResult,
   FaceTecFaceScanResultCallback,
   FaceTecFaceScanProcessor,
-} from '~auth/FaceTecSDK.js/FaceTecPublicApi'
+} from '~auth-sdk/FaceTecSDK.js/FaceTecPublicApi'
 
 export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   latestNetworkRequest = new XMLHttpRequest()
