@@ -10,7 +10,7 @@ export const Config = (function () {
 
   function getAuthCustomization(
     dimMode: boolean,
-    customUi?: UICustomizationOptions
+    customUI?: UICustomizationOptions
   ) {
     const uiDefaults = {
       /* acccentColor, dualSpinnerColor, and retryScreenOvalColor
@@ -48,7 +48,7 @@ export const Config = (function () {
         : color('background-overlay'),
       authFeedbackBarTextColor: color('neutral-white'),
     }
-    const uiDef = { ...uiDefaults, ...customUi }
+    const uiDef = { ...uiDefaults, ...customUI }
     // Set a default customization
     const defaultCustomization: FaceTecCustomization = new FaceTecSDK.FaceTecCustomization()
     defaultCustomization.vocalGuidanceCustomization.mode = 2
