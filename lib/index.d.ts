@@ -32,7 +32,7 @@ export declare type StepOptionWelcome = {
 	nextButton?: string;
 };
 export declare type StepOptionAuth = {
-	string: any;
+	retries?: number;
 };
 export declare type StepOptionDocument = {
 	documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>;

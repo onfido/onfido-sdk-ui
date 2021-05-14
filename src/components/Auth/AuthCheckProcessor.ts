@@ -1,3 +1,4 @@
+import { EventEmitter2 } from 'eventemitter2'
 import { Config } from './AuthConfig'
 import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
 import type {
@@ -15,10 +16,9 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
 
   constructor(
     sessionToken: string,
-    sdkToken: string,
+    sdkToken: string | undefined,
     nextStep: () => void,
-    //@ts-ignore
-    events
+    events?: EventEmitter2.emitter
   ) {
     this.sdkToken = sdkToken
     this.success = false
@@ -28,16 +28,16 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
     //
     // Part 1:  Starting the FaceTec Session
     //
-    const faceTecSession = new FaceTecSDK.FaceTecSession(this, sessionToken)
+    new FaceTecSDK.FaceTecSession(this, sessionToken)
   }
 
   //
   // Part 2:  Handling the Result of a FaceScan
   //
-  processSessionResultWhileFaceTecSDKWaits(
+  processSessionResultWhileFaceTecSDKWaits = (
     sessionResult: FaceTecSessionResult,
     faceScanResultCallback: FaceTecFaceScanResultCallback
-  ) {
+  ): void => {
     //
     // Part 3:  Handles early exit scenarios where there is no FaceScan to handle -- i.e. User Cancellation, Timeouts, etc.
     //
@@ -162,7 +162,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   //
   // Part 10:  This function gets called after the FaceTec SDK is completely done.  There are no parameters because you have already been passed all data in the processSessionWhileFaceTecSDKWaits function and have already handled all of your own results.
   //
-  onFaceTecSDKCompletelyDone = () => {
+  onFaceTecSDKCompletelyDone = (): void => {
     //
     // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after you signal the FaceTec SDK with success() or cancel().
     // Calling a custom function on the Sample App Controller is done for demonstration purposes to show you that here is where you get control back from the FaceTec SDK.

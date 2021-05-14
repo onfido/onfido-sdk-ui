@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/). Breaking chan
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
 <!-- Update date and version value -->
+
 ## [next-next-version] - 2021-05-xx
 
 ### Changed

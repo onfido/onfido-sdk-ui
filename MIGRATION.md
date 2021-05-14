@@ -3,6 +3,7 @@
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
 <!-- Update this copy to actual version values -->
+
 ## `[prev-version]` -> `[next-version]`
 
 ### Added strings
@@ -68,6 +69,7 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `auth_upload_pass.body`
 
 <!-- Update this copy to actual next version value -->
+
 ## `6.6.0` -> `[next-version]`
 
 ### Added strings

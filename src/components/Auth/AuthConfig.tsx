@@ -10,7 +10,7 @@ export const Config = (function () {
 
   function getAuthCustomization(
     dimMode: boolean,
-    customUi: UICustomizationOptions
+    customUI?: UICustomizationOptions
   ) {
     const uiDefaults = {
       /* acccentColor, dualSpinnerColor, and retryScreenOvalColor
@@ -48,7 +48,7 @@ export const Config = (function () {
         : color('background-overlay'),
       authFeedbackBarTextColor: color('neutral-white'),
     }
-    const uiDef = { ...uiDefaults, ...customUi }
+    const uiDef = { ...uiDefaults, ...customUI }
     // Set a default customization
     const defaultCustomization: FaceTecCustomization = new FaceTecSDK.FaceTecCustomization()
     defaultCustomization.vocalGuidanceCustomization.mode = 2
@@ -63,8 +63,8 @@ export const Config = (function () {
     )
 
     defaultCustomization.cancelButtonCustomization.customImage = dimMode
-      ? '~auth-sdk/FaceTec_images/FaceTec_cancel_alt.png'
-      : '~auth-sdk/FaceTec_images/FaceTec_cancel.png'
+      ? '../../../auth-sdk/FaceTec/FaceTec_images/FaceTec_cancel_alt.png'
+      : '../../../auth-sdk/FaceTec/FaceTec_images/FaceTec_cancel.png'
 
     // Set Frame Customization
     defaultCustomization.frameCustomization.backgroundColor =
