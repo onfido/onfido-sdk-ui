@@ -44,7 +44,7 @@ class Camera extends BasePage {
   }
 
   async enableCameraAccessIfNecessary() {
-    if (browserName === 'safari' || browserName === 'Safari') {
+    if (browserName.toLowerCase() === 'safari') {
       if (
         this.enableCameraButton().isDisplayed() &&
         this.allowCameraPermissionImage().isDisplayed()
