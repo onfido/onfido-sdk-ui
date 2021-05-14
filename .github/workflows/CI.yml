@@ -54,7 +54,7 @@ jobs:
           issue_labels: vulnerability
           dedupe_issues: true
           # PR comment doesn't get created and job fails if vulnerabilites found in dev dependencies & json_flag is false (default)
-          json_flag: true 
+          json_flag: true
 
       - name: Run build
         # Legacy: For "$NODE_ENV" == "production" Surge uses the NODE_ENV=test + TEST_ENV=deployment
