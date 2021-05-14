@@ -206,7 +206,7 @@ const basePlugins = (bundle_name) => [
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'CC',
+      BASE_32_VERSION: 'CD',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
@@ -233,6 +233,9 @@ const baseConfig = {
       '~locales': `${__dirname}/src/locales`,
       '~types': `${__dirname}/src/types`,
       '~utils': `${__dirname}/src/components/utils`,
+      'socket.io-client': resolve(
+        'node_modules/socket.io-client/dist/socket.io.js'
+      ),
     },
   },
 
