@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "6.7.2",
+  "version": "6.8.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -137,7 +137,6 @@
     "@types/react-redux": "^7.1.15",
     "@types/react-router-dom": "^5.1.6",
     "@types/redux-mock-store": "^1.0.2",
-    "@types/socket.io-client": "^1.4.34",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "accessible-autocomplete": "^2.0.3",
@@ -233,7 +232,7 @@
     "pdfobject": "~2.0.201604172",
     "preact": "^10.5.4",
     "redux": "^4.0.5",
-    "socket.io-client": "~2.2.0",
+    "socket.io-client": "^4.0.1",
     "supports-webp": "~1.0.3",
     "visibilityjs": "~1.2.4"
   }
