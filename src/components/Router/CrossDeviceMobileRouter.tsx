@@ -4,7 +4,6 @@ import { pick } from '~utils/object'
 import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
-import { buildStepFinder } from '~utils/steps'
 import withTheme from '../Theme'
 import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
 import Spinner from '../Spinner'
@@ -23,6 +22,7 @@ import type {
   InternalRouterProps,
 } from '~types/routers'
 import type { StepConfig } from '~types/steps'
+import type { Socket } from 'socket.io-client'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -65,7 +65,7 @@ type State = {
   language?: SupportedLanguages | LocaleConfig
   loading?: boolean
   roomId?: string
-  socket: SocketIOClient.Socket
+  socket: Socket
   step?: number
   stepIndexType?: StepIndexType
   steps?: StepConfig[]
@@ -106,8 +106,10 @@ export default class CrossDeviceMobileRouter extends Component<
     this.state.socket.on('connect', () => {
       this.state.socket.emit('join', { roomId: this.state.roomId })
     })
+    this.state.socket.on('joined', () => {
+      this.requestMobileConfig()
+    })
     this.state.socket.open()
-    this.requestMobileConfig()
 
     if (this.props.options.mobileFlow) {
       this.sendMessage('cross device start')
