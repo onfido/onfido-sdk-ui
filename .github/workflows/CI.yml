@@ -48,11 +48,12 @@ jobs:
         uses: oke-py/npm-audit-action@v1.7.2
         with:
           audit_level: moderate
-          production_flag: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
           issue_assignees: kopijunkie
           issue_labels: vulnerability
           dedupe_issues: true
+          # PR comment doesn't get created and job fails if vulnerabilites found in dev dependencies & json_flag is false (default)
+          json_flag: true 
 
       - name: Build mock server
         if: matrix.NODE_ENV == 'test'
