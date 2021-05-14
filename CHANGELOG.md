@@ -8,6 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## Added
+
+## Changed
+
+- Internal: Include dev dependencies in `npm audit action` job in CI Github Action workflow
+
+## Fixed
+
 ## [6.8.0] - 2021-05-13
 
 ## Added
