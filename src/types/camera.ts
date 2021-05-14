@@ -1,24 +1,27 @@
 import { h, Ref } from 'preact'
 import Webcam from 'react-webcam-onfido'
 
+import type { WithPermissionsFlowProps } from './hocs'
 import type { RenderFallbackProp } from './routers'
 
-export type ButtonType = 'photo' | 'video'
+export type ButtonType = 'photo' | 'video' | 'none'
 
 export type CameraProps = {
-  buttonType?: ButtonType
-  children?: h.JSX.Element | h.JSX.Element[]
+  audio?: boolean
+  buttonType: ButtonType
   className?: string
   containerClassName?: string
+  docAutoCaptureFrame?: boolean
+  docLiveCaptureFrame?: boolean
   facing?: VideoFacingModeEnum
-  idealCameraHeight?: number
+  fallbackToDefaultWidth?: boolean
+  idealCameraWidth?: number
   isButtonDisabled?: boolean
-  isRecording?: boolean
   isUploadFallbackDisabled?: boolean
   onButtonClick?: () => void
-  renderError?: h.JSX.Element
-  renderTitle?: h.JSX.Element
+  renderError?: h.JSX.Element | null
   renderFallback: RenderFallbackProp
-  video?: boolean
+  renderTitle?: h.JSX.Element | null
+  renderVideoOverlay?: (props: WithPermissionsFlowProps) => h.JSX.Element
   webcamRef?: Ref<Webcam>
 }

@@ -22,6 +22,7 @@ import type {
   InternalRouterProps,
 } from '~types/routers'
 import type { StepConfig } from '~types/steps'
+import type { Socket } from 'socket.io-client'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -36,6 +37,24 @@ const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   )
 }
 
+const isPhotoCaptureFallbackOffAndCannotUseVideo = (
+  step: StepConfig
+): boolean => {
+  if (!step.options || step.type !== 'face') {
+    return false
+  }
+
+  const photoCaptureFallback = step.options.photoCaptureFallback ?? true
+
+  const canVideoFallbackToPhoto =
+    window.MediaRecorder != null || photoCaptureFallback
+
+  const isLivenessRequired =
+    !canVideoFallbackToPhoto && step.options.requestedVariant === 'video'
+
+  return isLivenessRequired
+}
+
 // Wrap components with theme that include navigation and footer
 const WrappedSpinner = withTheme(Spinner)
 const WrappedError = withTheme(GenericError)
@@ -46,7 +65,7 @@ type State = {
   language?: SupportedLanguages | LocaleConfig
   loading?: boolean
   roomId?: string
-  socket: SocketIOClient.Socket
+  socket: Socket
   step?: number
   stepIndexType?: StepIndexType
   steps?: StepConfig[]
@@ -87,8 +106,10 @@ export default class CrossDeviceMobileRouter extends Component<
     this.state.socket.on('connect', () => {
       this.state.socket.emit('join', { roomId: this.state.roomId })
     })
+    this.state.socket.on('joined', () => {
+      this.requestMobileConfig()
+    })
     this.state.socket.open()
-    this.requestMobileConfig()
 
     if (this.props.options.mobileFlow) {
       this.sendMessage('cross device start')
@@ -287,21 +308,22 @@ export default class CrossDeviceMobileRouter extends Component<
     const shouldStrictlyUseCamera = steps?.some(
       isUploadFallbackOffAndShouldUseCamera
     )
+    const videoNotSupportedAndRequired = steps?.some(
+      isPhotoCaptureFallbackOffAndCannotUseVideo
+    )
 
     if (loading || !steps) {
       return <WrappedSpinner disableNavigation />
     }
 
     if (crossDeviceError) {
-      return (
-        <WrappedError
-          disableNavigation={true}
-          error={this.state.crossDeviceError}
-        />
-      )
+      return <WrappedError disableNavigation={true} error={crossDeviceError} />
     }
 
-    if (!hasCamera && shouldStrictlyUseCamera) {
+    if (
+      (!hasCamera && shouldStrictlyUseCamera) ||
+      videoNotSupportedAndRequired
+    ) {
       return (
         <WrappedError
           disableNavigation={true}

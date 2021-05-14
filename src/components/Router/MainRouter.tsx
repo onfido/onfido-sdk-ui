@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 
 import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
+import { buildStepFinder } from '~utils/steps'
 import withTheme from '../Theme'
 import GenericError from '../GenericError'
 
@@ -94,7 +95,22 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
     const { hasCamera } = this.props
 
-    return !isDesktop && !hasCamera && shouldStrictlyUseCamera === true
+    const findStep = buildStepFinder(steps)
+    const faceStep = findStep('face')
+
+    const photoCaptureFallback = faceStep?.options?.photoCaptureFallback ?? true
+
+    const canVideoFallbackToPhoto =
+      window.MediaRecorder != null || photoCaptureFallback
+
+    const isLivenessRequired =
+      !canVideoFallbackToPhoto &&
+      faceStep?.options?.requestedVariant === 'video'
+
+    return (
+      !isDesktop &&
+      ((!hasCamera && shouldStrictlyUseCamera === true) || isLivenessRequired)
+    )
   }
 
   render(): h.JSX.Element {

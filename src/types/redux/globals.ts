@@ -5,6 +5,7 @@ import type {
   EnterpriseLogoCobranding,
 } from '~types/enterprise'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
+import type { Socket } from 'socket.io-client'
 
 export type SmsPayload = {
   number?: string
@@ -17,7 +18,7 @@ export type GlobalActions =
   | { type: typeof constants.RESET_ID_ISSUING_COUNTRY }
   | { type: typeof constants.SET_POA_DOCUMENT_TYPE; payload: PoaTypes }
   | { type: typeof constants.SET_ROOM_ID; payload: string }
-  | { type: typeof constants.SET_SOCKET; payload: SocketIOClient.Socket }
+  | { type: typeof constants.SET_SOCKET; payload: Socket }
   | { type: typeof constants.SET_MOBILE_NUMBER; payload: SmsPayload }
   | { type: typeof constants.SET_CLIENT_SUCCESS; payload: boolean }
   | { type: typeof constants.MOBILE_CONNECTED; payload: boolean }
@@ -42,7 +43,7 @@ export type GlobalState = {
   idDocumentIssuingCountry?: CountryData
   poaDocumentType?: PoaTypes
   roomId?: string
-  socket?: SocketIOClient.Socket
+  socket?: Socket
   sms: SmsPayload
   clientSuccess?: boolean
   mobileConnected?: boolean

@@ -1,4 +1,4 @@
-import { PoADocumentCapture as PoACapture } from '../Capture'
+import { PoACapture } from '../Capture'
 import PoAGuidance from './Guidance'
 import PoAIntro from './PoAIntro'
 

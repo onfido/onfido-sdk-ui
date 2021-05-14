@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.8.0] - 2021-05-13
+
 ## Added
 
 - Internal: Add type defition for `borderRadiusSurfaceModal` customisation option.
@@ -15,10 +17,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Refactor `useSdkOptions()` hook to return a tuple: `[options, { findStep }]`
 - Internal: Added default filename for all document uploads if filename is not present.
 - Public: Added user consent content reload screen
+- Public: When `photoCaptureFallback` option is disabled in the face step, the requested variant is video and browser does not support MediaRecorder, attempt to redirect to the cross-device flow or display the unsupported browser error.
+- Internal: Refactor for better reusability of video capture components.
 
 ### Changed
 
 - Internal: Migrate CI build from TravisCI to Github Actions
+- Internal: Upgraded socket.io-client to v4.0.1 to resolve npm security vulnerability 1665 (high severity)
 
 ### Fixed
 
@@ -958,7 +963,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.2...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.8.0...development
+[6.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.2...6.8.0
 [6.7.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.1...6.7.2
 [6.7.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.0...6.7.1
 [6.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.6.0...6.7.0
