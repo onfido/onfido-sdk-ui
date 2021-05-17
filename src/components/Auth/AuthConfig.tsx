@@ -147,7 +147,7 @@ export const Config = (function () {
       'svg'
     )
     loaderSVG.setAttribute('viewBox', '0 0 56 56')
-    loaderSVG.classList.add('loaderSvg')
+    loaderSVG.classList.add('onfidoLoaderSvg')
     loaderSVG.innerHTML = loader
     defaultCustomization.initialLoadingAnimationCustomization.backgroundColor =
       uiDef.authFrameColor
