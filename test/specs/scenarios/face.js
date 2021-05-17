@@ -120,6 +120,7 @@ export const faceScenarios = (lang) => {
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.verifySelfieTitle(copy)
       camera.verifyOnfidoFooterIsVisible()
       camera.takeSelfie()
@@ -143,6 +144,7 @@ export const faceScenarios = (lang) => {
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.takeSelfie()
       confirm.clickConfirmButton()
       verificationComplete.verifyUIElements(copy)
@@ -412,6 +414,7 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.takeSelfie()
       confirm.clickConfirmButton()
     })
@@ -430,6 +433,7 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.takeSelfie()
       confirm.clickConfirmButton()
     })

@@ -156,7 +156,7 @@ const STAGING_CONFIG = {
   MOBILE_URL: '/',
   SMS_DELIVERY_URL: 'https://telephony.eu-west-1.dev.onfido.xyz',
   PUBLIC_PATH: '/',
-  RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
+  RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 
   // @TODO: clean-up this config when v4 APIs are live
