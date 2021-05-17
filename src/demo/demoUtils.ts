@@ -34,6 +34,7 @@ export type QueryParams = {
   showCobrand?: StringifiedBoolean
   showLogoCobrand?: StringifiedBoolean
   showUserConsent?: StringifiedBoolean
+  showAuth?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
   snapshotInterval?: string
   uploadFallback?: StringifiedBoolean
@@ -148,8 +149,11 @@ export const getInitSdkOptions = (): SdkOptions => {
   const steps: Array<StepConfig> = [
     { type: 'welcome' },
     { type: 'userConsent' },
-    { type: 'auth' },
   ]
+
+  if (queryParamToValueString.showAuth === 'true') {
+    steps.push({ type: 'auth' })
+  }
 
   if (queryParamToValueString.showUserConsent === 'true') {
     steps.push({ type: 'userConsent' })

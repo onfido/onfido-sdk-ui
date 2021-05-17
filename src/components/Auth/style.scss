@@ -1,18 +1,11 @@
 @import '../Theme/constants';
 @import './assets/animations';
 
-.introCopy {
-  margin-bottom: auto;
-  overflow: auto;
-}
-
-.welcomeAuth {
-  background-image: url('./assets/auth_intro.svg');
-  max-width: 180px;
-  max-height: 180px;
-  width: 100%;
-  margin: 0 auto;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
+.loading {
+  width: 35px;
+  height: 35px;
+  margin-top: 112px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
 }
