@@ -48,7 +48,7 @@ export const Config = (function () {
         : color('background-overlay'),
       authFeedbackBarTextColor: color('neutral-white'),
     }
-    const uiDef = { ...uiDefaults, ...customUI }
+    const uiCustomization = { ...uiDefaults, ...customUI }
     // Set a default customization
     const defaultCustomization: FaceTecCustomization = new FaceTecSDK.FaceTecCustomization()
     defaultCustomization.vocalGuidanceCustomization.mode = 2
@@ -68,34 +68,35 @@ export const Config = (function () {
 
     // Set Frame Customization
     defaultCustomization.frameCustomization.backgroundColor =
-      uiDef.authFrameColor
-    defaultCustomization.frameCustomization.borderColor = uiDef.authFrameColor
+      uiCustomization.authFrameColor
+    defaultCustomization.frameCustomization.borderColor =
+      uiCustomization.authFrameColor
 
     // Set Overlay Customization
     defaultCustomization.overlayCustomization.showBrandingImage = false
     defaultCustomization.overlayCustomization.backgroundColor =
-      uiDef.authFrameColor
+      uiCustomization.authFrameColor
 
     // Set Guidance Customization
     defaultCustomization.guidanceCustomization.backgroundColors =
-      uiDef.authFrameColor
+      uiCustomization.authFrameColor
     defaultCustomization.guidanceCustomization.foregroundColor =
-      uiDef.authTextColor
+      uiCustomization.authTextColor
     defaultCustomization.guidanceCustomization.buttonBackgroundNormalColor =
-      uiDef.authButtonColorNormal
+      uiCustomization.authButtonColorNormal
     defaultCustomization.guidanceCustomization.buttonBackgroundDisabledColor =
-      uiDef.authButtonColorDisabled
+      uiCustomization.authButtonColorDisabled
     defaultCustomization.guidanceCustomization.buttonBackgroundHighlightColor =
-      uiDef.authButtonColorPressed
+      uiCustomization.authButtonColorPressed
     defaultCustomization.guidanceCustomization.buttonTextNormalColor =
-      uiDef.authButtonTextNormalColor
+      uiCustomization.authButtonTextNormalColor
     defaultCustomization.guidanceCustomization.buttonTextDisabledColor =
-      uiDef.authButtonTextDisabledColor
+      uiCustomization.authButtonTextDisabledColor
     defaultCustomization.guidanceCustomization.buttonTextHighlightColor =
-      uiDef.authButtonTextHighlightColor
+      uiCustomization.authButtonTextHighlightColor
     defaultCustomization.guidanceCustomization.buttonRelativeWidth = '1f'
     defaultCustomization.guidanceCustomization.buttonCornerRadius =
-      uiDef.authButtonCornerRadius
+      uiCustomization.authButtonCornerRadius
     defaultCustomization.guidanceCustomization.retryScreenImageBorderColor = color(
       'neutral-white'
     )
@@ -104,7 +105,7 @@ export const Config = (function () {
     defaultCustomization.guidanceCustomization.retryScreenImageCornerRadius =
       '0'
     defaultCustomization.guidanceCustomization.retryScreenOvalStrokeColor =
-      uiDef.authRetryScreenOvalColor
+      uiCustomization.authRetryScreenOvalColor
     // defaultCustomization.guidanceCustomization.retryScreenSlideshowImages = retryScreenSlideshowImages
     defaultCustomization.guidanceCustomization.retryScreenSlideshowInterval =
       '1500'
@@ -112,36 +113,40 @@ export const Config = (function () {
     defaultCustomization.guidanceCustomization.enableRetryScreenBulletedInstructions = true
 
     // Set Oval Customization
-    defaultCustomization.ovalCustomization.strokeColor = uiDef.authOvalColor
+    defaultCustomization.ovalCustomization.strokeColor =
+      uiCustomization.authOvalColor
     defaultCustomization.ovalCustomization.progressColor1 =
-      uiDef.authDualSpinnerColor
+      uiCustomization.authDualSpinnerColor
     defaultCustomization.ovalCustomization.progressColor2 =
-      uiDef.authDualSpinnerColor
+      uiCustomization.authDualSpinnerColor
 
     // Set Feedback Customization
     defaultCustomization.feedbackCustomization.backgroundColor =
-      uiDef.authFeedbackBarColor
+      uiCustomization.authFeedbackBarColor
     defaultCustomization.feedbackCustomization.textColor =
-      uiDef.authFeedbackBarTextColor
+      uiCustomization.authFeedbackBarTextColor
     defaultCustomization.feedbackCustomization.cornerRadius =
-      uiDef.authButtonCornerRadius
+      uiCustomization.authButtonCornerRadius
     defaultCustomization.feedbackCustomization.relativeWidth = '1f'
 
     // Set Result Screen Customization
     defaultCustomization.resultScreenCustomization.backgroundColors =
-      uiDef.authFrameColor
+      uiCustomization.authFrameColor
     defaultCustomization.resultScreenCustomization.foregroundColor =
-      uiDef.authTextColor
+      uiCustomization.authTextColor
     defaultCustomization.resultScreenCustomization.activityIndicatorColor =
-      uiDef.authAccentColor
+      uiCustomization.authAccentColor
     defaultCustomization.resultScreenCustomization.resultAnimationBackgroundColor =
-      uiDef.authAccentColor
+      uiCustomization.authAccentColor
     defaultCustomization.resultScreenCustomization.resultAnimationForegroundColor =
-      uiDef.authFrameColor
+      uiCustomization.authFrameColor
     defaultCustomization.resultScreenCustomization.uploadProgressFillColor =
-      uiDef.authAccentColor
+      uiCustomization.authAccentColor
 
     // Set Animated Customization
+    // DEVELOPER NOTE: This is the only method provided by FaceTec to create the SVGElement to be passed down.
+    // This implementation is good to go, as long as nothing that the user controls by url or by editing their profile, etc is passed on `loader`/`success`
+
     const loaderSVG = document.createElementNS(
       'http://www.w3.org/2000/svg',
       'svg'
@@ -150,9 +155,9 @@ export const Config = (function () {
     loaderSVG.classList.add('onfidoLoaderSvg')
     loaderSVG.innerHTML = loader
     defaultCustomization.initialLoadingAnimationCustomization.backgroundColor =
-      uiDef.authFrameColor
+      uiCustomization.authFrameColor
     defaultCustomization.initialLoadingAnimationCustomization.foregroundColor =
-      uiDef.authTextColor
+      uiCustomization.authTextColor
     defaultCustomization.initialLoadingAnimationCustomization.customAnimation = loaderSVG
 
     // Set Success Customization
