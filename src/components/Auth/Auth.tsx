@@ -6,6 +6,8 @@ import { FaceTecStrings } from './assets/FaceTecStrings'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
 import { useEffect, useState } from 'preact/hooks'
+import Loader from './assets/loadersvg'
+import style from './style.scss'
 
 type Props = StepComponentBaseProps & WithLocalisedProps
 
@@ -16,13 +18,7 @@ type AuthConfigType = {
   public_key: string
 }
 
-const AuthCapture: FunctionComponent<Props> = ({
-  token,
-  nextStep,
-  translate,
-  events,
-  customUI,
-}) => {
+const AuthCapture: FunctionComponent<Props> = (props) => {
   const [authConfig, setAuthConfig] = useState<AuthConfigType>({
     token: '',
     production_key_text: '',
@@ -34,10 +30,10 @@ const AuthCapture: FunctionComponent<Props> = ({
   useEffect(() => {
     if (FaceTecSDK.getStatus() === 0 && !sessionInit) {
       FaceTecSDK.setCustomization(
-        Config.getAuthCustomization(false, customUI || {})
+        Config.getAuthCustomization(false, props.customUI || {})
       )
       FaceTecSDK.setDynamicDimmingCustomization(
-        Config.getAuthCustomization(true, customUI || {})
+        Config.getAuthCustomization(true, props.customUI || {})
       )
       if (authConfig.token && !sessionInit) initFaceTec()
       else getConfig()
@@ -59,7 +55,7 @@ const AuthCapture: FunctionComponent<Props> = ({
       atob(public_key),
       (initializedSuccessfully: boolean) => {
         if (initializedSuccessfully) {
-          FaceTecSDK.configureLocalization(FaceTecStrings(translate))
+          FaceTecSDK.configureLocalization(FaceTecStrings(props.translate))
           setSessionInit(true)
           onLivenessCheckPressed()
         }
@@ -70,7 +66,7 @@ const AuthCapture: FunctionComponent<Props> = ({
   const getConfig = () => {
     const XHR = new XMLHttpRequest()
     XHR.open('POST', `${process.env.AUTH_URL}/auth_3d/session`)
-    XHR.setRequestHeader('Authorization', `Bearer ${token}`)
+    XHR.setRequestHeader('Authorization', `Bearer ${props.token}`)
     XHR.setRequestHeader('Application-Id', 'com.onfido.onfidoAuth')
     XHR.setRequestHeader('Content-Type', 'application/json')
     XHR.onreadystatechange = function () {
@@ -89,11 +85,21 @@ const AuthCapture: FunctionComponent<Props> = ({
   }
 
   const onLivenessCheckPressed = () => {
-    if (authConfig.token && token && nextStep) {
-      new AuthCheckProcessor(authConfig.token, token, nextStep, events)
+    if (authConfig.token && props.token && props.nextStep) {
+      new AuthCheckProcessor(
+        authConfig,
+        props.token,
+        props.nextStep,
+        props.events
+      )
     }
   }
-  return null
+
+  return (
+    <div className={style.loading}>
+      <Loader />
+    </div>
+  )
 }
 
 export default AuthCapture

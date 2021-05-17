@@ -4,7 +4,7 @@ The guides below are provided to ease the transition of existing applications us
 
 <!-- Update this copy to actual version values -->
 
-## `[prev-version]` -> `[next-version]`
+## `6.8.0` -> `[next-version]`
 
 ### Added strings
 
@@ -70,7 +70,7 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 
 <!-- Update this copy to actual next version value -->
 
-## `6.6.0` -> `[next-version]`
+## `6.6.0` -> `6.8.0`
 
 ### Added strings
 
