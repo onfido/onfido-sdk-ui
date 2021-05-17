@@ -1,8 +1,5 @@
-import path from 'path'
-import remote from 'selenium-webdriver/remote'
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import { browserName, isRemoteBrowser } from '../main'
 
 export default class PassportUploadImageGuide extends BasePage {
   async docExampleImgCutOff() {
@@ -45,30 +42,6 @@ export default class PassportUploadImageGuide extends BasePage {
       )
     }, input)
     return input
-  }
-
-  async upload(filename) {
-    // Input here cannot use the uploadInput() function above
-    const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
-    const pathToTestFiles = '../resources/'
-    //the below line...if safari AND Local, ignore it...otherwise file uploads will fail.
-    if (browserName === 'safari' && isRemoteBrowser === false) {
-      console.log(
-        'Not creating a remote File Detector as I am uploading locally'
-      )
-    } else {
-      // This will detect local file, ref: https://www.browserstack.com/automate/node#enhancements-uploads-downloads
-      this.driver.setFileDetector(new remote.FileDetector())
-    }
-    const filePath = path.join(__dirname, pathToTestFiles + filename)
-    let sendKeysToElement
-    try {
-      console.log(`File being uploaded is ${filePath}`)
-      sendKeysToElement = input.sendKeys(path.join(filePath))
-    } catch (err) {
-      console.log('Just logging that I have caught an exception on upload')
-    }
-    return sendKeysToElement
   }
 
   async verifyUploaderButtonLabel(copy) {

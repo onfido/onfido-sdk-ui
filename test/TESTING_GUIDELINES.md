@@ -24,8 +24,8 @@ Safari:
 
 Microsoft Edge:
 
-1. Microsoft Edge
-2. Microsoft Edge Driver (WebDriver for Edge)
+1. Microsoft Edge (https://www.microsoft.com/en-us/edge)
+2. Microsoft Edge Driver (WebDriver for Edge, https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
 
 - **Note:** your Microsoft Edge Driver needs to match the Edge browser version you are running and needs to be installed to your path (i.e. on OSX `/usr/local/bin`)
 

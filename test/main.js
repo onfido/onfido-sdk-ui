@@ -170,16 +170,18 @@ const createMocha = (driver, testCase) => {
   // By default `require` caches files, making it impossible to require the same file multiple times.
   // Since we want to execute the same tests against many browsers we need to prevent this behaviour by
   // clearing the require cache.
-  mocha.suite.beforeAll('Do something before everything', function () {
+  mocha.suite.beforeAll('Printing out browser config...', function () {
     global.isRemoteBrowser = isRemoteBrowser
     global.browserName = browserName
+    console.log(
+      `Just setting global variables...browser:${browserName}, are the tests running on BrowserStack ${isRemoteBrowser}`
+    )
   })
   mocha.suite.beforeEach('Set retry', function () {
     this.currentTest.retries(2)
   })
   mocha.suite.afterEach('Capture total number of test failures', function () {
     const currentTestState = this.currentTest.state
-    //console.log(`The current test state is: ${currentTestState}`)
     //As we are running a 'single' test as test/specs/chrome.js, we will only be able to report a single error
     //i.e. if we have 3 failures...BS will only log the first one.
     if (isRemoteBrowser && currentTestState === 'failed') {
