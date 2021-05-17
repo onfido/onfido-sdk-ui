@@ -41,7 +41,7 @@
     },
     "auth_error": {
         "cam_encryption": {
-            "body": "Esta aplicación bloquea las configuraciones sospechosas de las cámaras web. <a href='https:\/\/livenesscheckhelp.com\/' target='_blank' style='text-decoration:underline;'>Más información<\/a>.",
+            "body": "Esta aplicación bloquea las configuraciones sospechosas de las cámaras web. <fallback>Más información<\/fallback>.",
             "button_primary": "Intentar otra vez",
             "button_primary_firefox": "Intentar otra vez",
             "subtitle": "Este sistema no se puede verificar debido a lo siguiente:",

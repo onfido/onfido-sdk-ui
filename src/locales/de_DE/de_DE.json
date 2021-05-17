@@ -41,7 +41,7 @@
     },
     "auth_error": {
         "cam_encryption": {
-            "body": "Diese App blockiert verdächtige Webcam-Konfigurationen. <a href='https:\/\/livenesscheckhelp.com\/' target='_blank' style='text-decoration:underline;'>Mehr erfahren<\/a>.",
+            "body": "Diese App blockiert verdächtige Webcam-Konfigurationen. <fallback>Mehr erfahren<\/fallback>.",
             "button_primary": "Erneut versuchen",
             "button_primary_firefox": "Erneut versuchen",
             "subtitle": "Dieses System kann aufgrund des Folgenden nicht überprüft werden:",

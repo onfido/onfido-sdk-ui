@@ -1,5 +1,5 @@
 {
-   "auth_accessibility": {
+    "auth_accessibility": {
         "back_button": "Annuler"
     },
     "auth_cam_encrypt": {
@@ -41,7 +41,7 @@
     },
     "auth_error": {
         "cam_encryption": {
-            "body": "Cette application bloque les configurations de webcam suspectes. <a href='https:\/\/livenesscheckhelp.com\/' target='_blank' style='text-decoration:underline;'>En savoir plus<\/a>.",
+            "body": "Cette application bloque les configurations de webcam suspectes. <fallback>En savoir plus<\/fallback>.",
             "button_primary": "Réessayer",
             "button_primary_firefox": "Réessayer",
             "subtitle": "Ce système ne peut pas être vérifié pour les raisons suivantes :",
