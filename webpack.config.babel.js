@@ -162,6 +162,7 @@ const STAGING_CONFIG = {
   MOBILE_URL: '/',
   SMS_DELIVERY_URL: 'https://telephony.eu-west-1.dev.onfido.xyz',
   PUBLIC_PATH: '/',
+  AUTH_URL: 'https://api-gateway.eu-west-1.dev.onfido.xyz/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
