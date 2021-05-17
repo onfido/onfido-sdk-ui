@@ -71,7 +71,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
       low_quality_audit_trail_image: sessionResult.lowQualityAuditTrail[0],
       metadata: {
         sdk_source: 'onfido_web_sdk',
-        sdk_version: '1.0',
+        sdk_version: process.env.SDK_VERSION,
         sdk_metadata: {
           system: {
             fingerprint: '',
@@ -86,7 +86,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
     }
 
     //
-    // Part 5:  Make the Networking Call to Your Servers.
+    // Part 5:  Make the Networking Call to the Onfido Servers.
     //
     this.latestNetworkRequest = new XMLHttpRequest()
     this.latestNetworkRequest.open('POST', `${Config.BaseURL}/auth_3d`)
@@ -171,10 +171,10 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   }
 
   //
-  // Part 10:  This function gets called after the FaceTec SDK is completely done.  There are no parameters because you have already been passed all data in the processSessionWhileFaceTecSDKWaits function and have already handled all of your own results.
+  // Part 10:  This function gets called after the FaceTec SDK is completely done.
   //
   onFaceTecSDKCompletelyDone = (): void => {
-    // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after you signal the FaceTec SDK with success() or cancel().
+    // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after logic signals the FaceTec SDK with a success() or cancel().
     // Calling a custom function on the Sample App Controller is done for demonstration purposes to show you that here is where you get control back from the FaceTec SDK.
     console.info(
       'FaceTecSDK session has finished. Session results are unknown.'
