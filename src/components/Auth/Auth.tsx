@@ -6,7 +6,7 @@ import { FaceTecStrings } from './assets/FaceTecStrings'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
 import { useEffect, useState } from 'preact/hooks'
-import Loader from './assets/loadersvg'
+import Loader from './assets/loaderSvg'
 import style from './style.scss'
 
 type Props = StepComponentBaseProps & WithLocalisedProps
