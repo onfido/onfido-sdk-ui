@@ -9,7 +9,8 @@
 - [Getting started](#getting-started)
 - [Handling callbacks](#handling-callbacks)
 - [Removing the SDK](#removing-the-sdk)
-- [Customising the SDK](#customising-the-sdk)
+- [Initialization options](#initialization-options)
+- [Customizing the SDK](#customizing-the-sdk)
 - [Creating checks](#creating-checks)
 - [User Analytics](#user-analytics)
 - [Premium Enterprise Features](#premium-enterprise-features)
@@ -288,19 +289,15 @@ onfidoOut = Onfido.init({...})
 onfidoOut.tearDown()
 ```
 
-## Customising the SDK
-
-A number of options are available to allow you to customize the SDK:
+## Initialization options
 
 - **`token {String} required`**
 
-  A JWT is required in order to authorise with our WebSocket endpoint. If one isn’t present, an exception will be thrown.
+  A JWT is required in order to authorize with our WebSocket endpoint. If one isn’t present, an exception will be thrown.
 
 - **`useModal {Boolean} optional`**
 
   Turns the SDK into a modal, which fades the background and puts the SDK into a contained box.
-
-  Example:
 
   ```javascript
   <script>
@@ -332,13 +329,13 @@ A number of options are available to allow you to customize the SDK:
 
 - **`isModalOpen {Boolean} optional`**
 
-  In case `useModal` is set to `true`, this defines whether the modal is open or closed.
-  To change the state of the modal after calling `init()` you need to later use `setOptions()` to modify it.
-  The default value is `false`.
+  Defines whether the modal is open or closed, if `useModal` is set to `true`. The default value is `false`.
+
+  To change the state of the modal after calling `init()` you need to use `setOptions()`.
 
 - **`shouldCloseOnOverlayClick {Boolean} optional`**
 
-  In case `useModal` is set to `true`, the user by default can close the SDK by clicking on the close button or on the background overlay. You can disable the user from closing the SDK on background overlay click by setting the `shouldCloseOnOverlayClick` to false.
+  If `useModal` is set to `true`, by default the user can close the SDK by clicking on the close button or on the background overlay. You can disable the user's ability to close the SDK by clicking the background overlay through setting `shouldCloseOnOverlayClick` to `false`.
 
 - **`containerId {String} optional`**
 
@@ -348,44 +345,9 @@ A number of options are available to allow you to customize the SDK:
 
   The container element that the UI will mount to. This needs to be an empty element. This can be used as an alternative to passing in the container ID string previously described for `containerId`. Note that if `containerEl` is provided, then `containerId` will be ignored.
 
-- **`language {String || Object} optional`**
-
-  The SDK language can be customized by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
-  To leverage one of these languages, the `language` option should be passed as a string containing a supported language tag.
-
-  Example:
-
-  ```javascript
-  language: 'es_ES' | 'es'
-  ```
-
-  The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
-  The object should include the following keys:
-
-  - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-    You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
-    The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English, Spanish, French and German.
-
-  - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
-  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable.
-
-  ```javascript
-  language: {
-    locale: 'en_US',
-    phrases: { welcome: { title: 'My custom title' } },
-    mobilePhrases: {
-      'capture.driving_licence.instructions': 'This string will only appear on mobile'
-    }
-  }
-  ```
-
-  If `language` is not present the default copy will be in English.
-
 - **`smsNumberCountryCode {String} optional`**
 
-  The default country for the SMS number input can be customized by passing the `smsNumberCountryCode` option when the SDK is initialized. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
-
-  Example:
+  You can change the default country for the SMS number input by passing the `smsNumberCountryCode` option when the SDK is initialized. The value should be a string containing a 2-character ISO Country code. If empty, the SMS number country code will default to `GB`.
 
   ```javascript
   smsNumberCountryCode: 'US'
@@ -393,11 +355,9 @@ A number of options are available to allow you to customize the SDK:
 
 - **`userDetails {Object} optional`**
 
-  Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
+  The following user details can be specified ahead of time, so that the user doesn't need to provide the information themselves:
 
-  The following details can be used by the SDK:
-
-  - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
+  - `smsNumber` (optional) : The user's mobile number, which can be used for sending SMS messages to the user, for example, when a user requests to use their mobile devices to take photos. The value should be a string containing the mobile number with a country code.
 
   ```javascript
   userDetails: {
@@ -405,9 +365,36 @@ A number of options are available to allow you to customize the SDK:
   }
   ```
 
+- **`steps {List} optional`**
+
+  The list of the different steps to be shown in the SDK flow and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required).
+
+  ```javascript
+  steps: [
+    {
+      type: 'welcome',
+      options: {
+        title: 'Open your new bank account',
+      },
+    },
+    'document',
+    'face',
+  ]
+  ```
+
+  See [flow customization](#flow-customization) for details of the custom options for each step.
+
+## Customizing the SDK
+
+The Web SDK has multiple customizable features that provide flexibility, while also being easy to integrate. You can also read our [SDK customization guide](https://developers.onfido.com/guide/sdk-customization).
+
+### UI customization
+
+The Web SDK supports customization options across the SDK screen including text, the SDK main container, buttons, links, icon background color and popups. For visualizations of the available options please see our [SDK customization guide](https://developers.onfido.com/guide/sdk-customization#web).
+
 - **`customUI {Object} optional`**
 
-  If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA color values, border radius values) for the following options:
+  To customize the SDK, you can pass the corresponding CSS values to the `customUI` object for the following options:
 
   | Typography options     | Description                                                                        |
   | ---------------------- | ---------------------------------------------------------------------------------- |
@@ -424,7 +411,7 @@ A number of options are available to allow you to customize the SDK:
   | `colorContentSubtitle` | Change text color of the SDK screen subtitles                                      |
   | `colorContentBody`     | Change text color of the SDK screen content                                        |
 
-  Example configuration with the different CSS font related values that can be used:
+  Example configuration with typography options:
 
   ```javascript
   customUI: {
@@ -435,7 +422,7 @@ A number of options are available to allow you to customize the SDK:
   }
   ```
 
-  **Note:** If using a scalable font size unit like em/rem, the SDK's base font size is 16px. This is currently not customizable.
+  ⚠️ **Note:** If you're using a scalable font size unit like em/rem, the SDK's base font size is 16px. This is currently not customizable.
 
   | Modal (SDK main container)    | Description                          |
   | ----------------------------- | ------------------------------------ |
@@ -445,7 +432,7 @@ A number of options are available to allow you to customize the SDK:
   | `borderStyleSurfaceModal`     | Change border style of SDK modal     |
   | `borderRadiusSurfaceModal`    | Change border radius of SDK modal    |
 
-  Example configuration with the different CSS colour value variations, border style that can be used:
+  Example configuration with Modal options:
 
   ```javascript
   customUI: {
@@ -484,7 +471,7 @@ A number of options are available to allow you to customize the SDK:
   | ---------------------- | ------------------------------------------------------------------- |
   | `colorBackgroundIcon`  | Change color of the background circle of pictogram icons in the SDK |
 
-  Example configuration with the different CSS colour value variations that can be used:
+  Example configuration with Button options:
 
   ```javascript
   customUI: {
@@ -554,303 +541,337 @@ A number of options are available to allow you to customize the SDK:
   | `colorBackgroundButtonCameraHover`  | Change background color of Live Selfie/Document Capture screens's Camera button on hover    |
   | `colorBackgroundButtonCameraActive` | Change background color of Live Selfie/Document Capture screen's Camera button on click/tap |
 
-- **`steps {List} optional`**
+### Language Localization
 
-  List of the different steps and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required):
+- **`language {String || Object} optional`**
+
+  You can customize the language displayed on the SDK by passing a string or object. If `language` is not present the default copy will be in English.
+
+  ##### Supported languages
+
+  The SDK supports and maintains 4 languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
+
+  | Language          | Locale Tag |
+  | ----------------- | ---------- |
+  | English (default) | `en_US`    |
+  | German            | `de_DE`    |
+  | Spanish           | `es_ES`    |
+  | French            | `fr_FR`    |
+
+  Example:
 
   ```javascript
-  steps: [
-    {
-      type: 'welcome',
-      options: {
-        title: 'Open your new bank account',
-      },
-    },
-    'document',
-    'face',
-  ]
+  language: 'es_ES' | 'es'
   ```
 
-  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customized.
+  ##### Custom lanugages
 
-  The SDK can also be used to capture Proof of Address documents. This can be achieved by using the `poa` step.
+  The SDK can also be displayed in a custom language for locales that Onfido does not currently support. To implement this, pass an object containing the following keys:
 
-  Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
-
-  ### welcome
-
-  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified.
-
-  The custom options are:
-
-  - `title` (string)
-  - `descriptions` ([string])
-  - `nextButton` (string)
-
-  ### userConsent
-
-  This step contains a screen to collect the US user's privacy consent for Onfido and is an optional step in the SDK flow. It contains the consent language required when you offer your service to US users as well as links to Onfido's policies and terms of use. The user must click "Accept" to get past this step and continue with the flow. The content is available in English only, and is not translatable.
-
-  Note that this step does not automatically inform Onfido that the user has given their consent. At the end of the SDK flow, you still need to set the API parameter `privacy_notices_read_consent_given` outside of the SDK flow when [creating a check](#creating-checks).
-
-  If you choose to disable this step, you must incorporate the required consent language and links to Onfido's policies and terms of use into your own application's flow before your user starts interacting with the Onfido SDK.
-
-  For more information about this step, and how to collect user consent, please visit the [Onfido Privacy Notices and Consent](http://developers.onfido.com/guide/onfido-privacy-notices-and-consent) page.
-
-  **Note**: The `userConsent` step must be used in conjunction with the `onUserExit` callback. See the [Handling Callbacks](#handling-callbacks) section for more information.
-
-  ### document
-
-  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. For driving licence and national ID card types, the user will be able to see and select the document's issuing country from a list of supported countries. They will also have a chance to check the quality of the image(s) before confirming.
-
-  The custom options are:
-
-  - `documentTypes` (object)
-
-    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see either the document selection screen or the country selection screen and instead will be taken to the capture screen directly.
-
-    #### Configuring Country
-
-    The `country` configuration for a document type allows you to specify the issuing country of the document with a 3-letter ISO 3166-1 alpha-3 country code. Users will not see the country selection screen if this is set for a document type.
-
-    **Note**: You can set the country for all document types except **Passport**.
-
-    For example, if you would like to set the country as Spain (ESP) and skip the country selection screen for the driving licence document type only:
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              "driving_licence": {
-                "country": "ESP"
-              },
-              "national_identity_card": true,
-              "residence_permit": true
-            }
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-    If you would like to suppress the country selection screen for driving licence but do not want to set a country:
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              "driving_licence": {
-                "country": null
-              },
-              "passport": true,
-              "national_identity_card": true
-            }
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-  - `showCountrySelection` (boolean - default: `false`)
-
-    **Note**: Support for the `showCountrySelection` option will be deprecated soon in favour of the per document country configuration detailed above which offers integrators better control.
-
-    The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes` It has no effect when the SDK has been set up with multiple documents preselected.
-
-    The country selection screen is never displayed for a passport document.
-
-    By default, if only one document type is preselected, and the document type is not `passport`, the country selection screen will not be displayed. If you would like to have this screen displayed still, set `showCountrySelection` to `true`.
-
-    ```javascript
-    options: {
-      documentTypes: {
-        passport: boolean,
-        driving_licence: boolean,
-        national_identity_card: boolean,
-        residence_permit: boolean
-      },
-      showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
-    }
-    ```
-
-    #### Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour)
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              // Note that only 1 document type is selected here
-              "passport": false,
-              "driving_licence": false,
-              "national_identity_card": true
-            },
-            "showCountrySelection": false
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-    #### Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed
-
-    **Example 1**
-    All document type options enabled, `"showCountrySelection": false` has no effect
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              "passport": true,
-              "driving_licence": true,
-              "national_identity_card": true
-            },
-            "showCountrySelection": false (NOTE: has no effect)
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-    **Example 2**
-    2 document type options enabled, `"showCountrySelection": false` has no effect
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              "passport": true,
-              "national_identity_card": true,
-              "driving_licence": false
-            },
-            "showCountrySelection": false (NOTE: has no effect)
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-  - `forceCrossDevice` (boolean - default: `false`)
-
-    When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
-
-    ```javascript
-    options: {
-      forceCrossDevice: true
-    }
-    ```
-
-  - `useLiveDocumentCapture` (boolean - default: `false`)
-    **This BETA feature is only available on mobile devices.**
-
-    When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. For unsupported scenarios, see the `uploadFallback` section below.
-    Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
-
-  - `uploadFallback` (boolean - default: `true`)
-    Only available when `useLiveDocumentCapture` is enabled.
-
-    When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
-
-    This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
-
-    **Warning**: If the mobile device does not have a camera or there is no camera browser support, and `uploadFallback` is set to `false`, the user will not be able to complete the flow.
-
-    ```javascript
-    options: {
-      useLiveDocumentCapture: true,
-      uploadFallback: false
-    }
-    ```
-
-  ### poa
-
-  This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
-  The custom options are:
-
-  - `country` (default: `GBR`)
-  - `documentTypes`
+  | Key             | Description                                                                                | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+  | --------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `locale`        | **required** <br /> A locale tag.                                                          | This is required when providing phrases for an unsupported language. You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supports English, Spanish, French and German. |
+  | `phrases`       | **required** <br /> An object containing the keys you want to override and the new values. | The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.                                                                                                                                                                                                                                                                                                                                                                                   |
+  | `mobilePhrases` | **optional** <br /> An object containing the keys you want to override and the new values. | The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable.                                                                                                                                                                                                                                                                     |
 
   ```javascript
-  options: {
-    country: string,
-    documentTypes: {
-      bank_building_society_statement: boolean,
-      utility_bill: boolean,
-      council_tax: boolean, // GBR only
-      benefit_letters: boolean, // GBR only
-      government_letter: boolean // non-GBR only
+  language: {
+    locale: 'en_US',
+    phrases: { welcome: { title: 'My custom title' } },
+    mobilePhrases: {
+      'capture.driving_licence.instructions': 'This string will only appear on mobile'
     }
   }
   ```
 
-  **The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.**
+### Flow customization
 
-  ### face
+#### welcome
 
-  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming.
+This step is the introduction screen of the SDK. It displays a summary of the capture steps the user will pass through. These steps can be specified to match the flow required. This is an optional screen.
 
-  The custom options are:
+The custom options are:
 
-  - `requestedVariant` (string)
+- `title` (string)
+- `descriptions` ([string])
+- `nextButton` (string)
 
-    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check.
+#### userConsent
 
-  - `uploadFallback` (boolean - default: `true`)
+This step is a screen to collect US end users' privacy consent for Onfido. It contains the consent language required when you offer your service to US users as well as links to Onfido's policies and terms of use. This is an optional step in the SDK flow.
 
-    By default, the SDK will attempt to open an optimised camera UI for the user to take a live photo/video. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
+The user must click "Accept" to continue with the flow past this step. The content is available in English only, and is not translatable.
 
-    This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+⚠️ Note: this step does not automatically inform Onfido that the user has given their consent. At the end of the SDK flow, you still need to set the API parameter `privacy_notices_read_consent_given` outside of the SDK flow when [creating a check](#creating-checks).
 
-    **Warning**: If the mobile device does not have a camera or there is no camera browser support, and `uploadFallback` is set to `false`, the user will not be able to complete the flow.
+If you choose to disable this step, you must incorporate the required consent language and links to Onfido's policies and terms of use into your own application's flow before your user starts interacting with the Onfido SDK.
 
-    ```javascript
-    options: {
-      requestedVariant: 'standard' | 'video',
-      uploadFallback: false
-    }
-    ```
+For more information about this step, and how to collect user consent, please read [Onfido Privacy Notices and Consent](http://developers.onfido.com/guide/onfido-privacy-notices-and-consent).
 
-  - `useMultipleSelfieCapture` (boolean - default: `true`)
+**Note**: The `userConsent` step must be used in conjunction with the `onUserExit` callback. See the [Handling Callbacks](#handling-callbacks) for more information.
 
-    When enabled, this feature allows the SDK to take additional selfie snapshots to help improve face similarity check accuracy. When disabled, only one selfie photo will be taken.
+#### document
 
-  - `photoCaptureFallback` (boolean - default: `true`)
+This is the identity document capture step. Users will be asked to select the document type and its issuing country before providing images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
 
-    When enabled, this feature allows end-users to upload selfies if the requested variant is `video` and their browser does not support MediaRecorder.
+Document selection and country selection are both optional screens. These screens will only show to the end user if specific options are not configured to the SDK.
 
-    When disabled, it will forward the user to the cross-device flow in order to attempt to capture a video in another device. If the user is already in a mobile device and it does not support
-    MediaRecorder, the unsupported browser error will be shown.
+The custom options are:
 
-  ### complete
+- `documentTypes` (object)
 
-  This is the final completion step. You can use this to inform your users what is happening next. The custom options are:
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see either the document selection screen or the country selection screen and instead will be taken directly to the capture screen.
 
-  - `message` (string)
-  - `submessage` (string)
+- `country` (string)
+
+  Document country can be specified per document type. The `country` configuration for a document type allows you to specify the issuing country of the document as a string containing a 3-letter ISO 3166-1 alpha-3 country code.
+
+  If a document country is specified for a document type, or is passed as `null`, the country selection screen is not displayed to the end user.
+
+  ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information.
+
+  For example, if you would like to set the country as Spain (ESP) and skip the country selection screen for the driving licence document type only:
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            "driving_licence": {
+              "country": "ESP"
+            },
+            "national_identity_card": true,
+            "residence_permit": true
+          }
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
+
+  For example, if you would like to skip the country selection screen for driving licence but do not want to set a country:
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            "driving_licence": {
+              "country": null
+            },
+            "passport": true,
+            "national_identity_card": true
+          }
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
+
+- `showCountrySelection` (boolean - default: `false`)
+
+  ⚠️ **Note**: Support for the `showCountrySelection` option will be deprecated soon in favour of the per document country configuration detailed above which offers integrators better control.
+
+  The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes`. It has no effect when the SDK has been set up with multiple documents preselected.
+
+  The country selection screen is never displayed for a passport document.
+
+  By default, if only one document type is preselected, and the document type is not `passport`, the country selection screen will not be displayed. If you would like to have this screen displayed still, set `showCountrySelection` to `true`.
+
+  ```javascript
+  options: {
+    documentTypes: {
+      passport: boolean,
+      driving_licence: boolean,
+      national_identity_card: boolean,
+      residence_permit: boolean
+    },
+    showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
+  }
+  ```
+
+  Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour):
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            // Note that only 1 document type is selected here
+            "passport": false,
+            "driving_licence": false,
+            "national_identity_card": true
+          },
+          "showCountrySelection": false
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
+
+  Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed:
+
+  **Example 1**
+  All document type options enabled, `"showCountrySelection": false` has no effect
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            "passport": true,
+            "driving_licence": true,
+            "national_identity_card": true
+          },
+          "showCountrySelection": false (NOTE: has no effect)
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
+
+  **Example 2**
+  2 document type options enabled, `"showCountrySelection": false` has no effect
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            "passport": true,
+            "national_identity_card": true,
+            "driving_licence": false
+          },
+          "showCountrySelection": false (NOTE: has no effect)
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
+
+- `forceCrossDevice` (boolean - default: `false`)
+
+  The Web SDK offers a cross device flow where desktop users will be given the option to continue using their desktop browser or swap to using their mobile device browser to complete the capture process. If a user selects to use their mobile device they will be redirected via a secure link that they can receive by SMS or QR code to complete the flow. At the end of the capture process users will be redirected back to their desktop to complete the SDK flow.
+
+  When `forceCrossDevice` is set to `true`, the cross device flow is mandatory for all users. Desktop users will be required to complete the capture process on a mobile device browser.
+  Configuring this option minimises the risk of fraudulent upload by ensuring a higher likelihood of live capture.
+
+  ```javascript
+  options: {
+    forceCrossDevice: true
+  }
+  ```
+
+- `useLiveDocumentCapture` (boolean - default: `false`)
+  **This BETA feature is only available on mobile devices.**
+
+  When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. Configuring this option minimises the risk of fraudulent upload by bypassing the device's default camera application. For unsupported scenarios, see the `uploadFallback` section below.
+
+  Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
+
+- `uploadFallback` (boolean - default: `true`)
+  Only available when `useLiveDocumentCapture` is enabled.
+
+  When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo.
+
+  This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+
+  ⚠️ **Warning**: If the mobile device does not have a camera or lacks camera browser support the user will not be able to complete the flow if `uploadFallback` is set to `false`.
+
+  ```javascript
+  options: {
+    useLiveDocumentCapture: true,
+    uploadFallback: false
+  }
+  ```
+
+#### poa
+
+This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
+The custom options are:
+
+- `country` (default: `GBR`)
+- `documentTypes`
+
+```javascript
+options: {
+  country: string,
+  documentTypes: {
+    bank_building_society_statement: boolean,
+    utility_bill: boolean,
+    council_tax: boolean, // GBR only
+    benefit_letters: boolean, // GBR only
+    government_letter: boolean // non-GBR only
+  }
+}
+```
+
+**The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.**
+
+#### face
+
+This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photo or video before confirming.
+
+The custom options are:
+
+- `requestedVariant` (string)
+
+  A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, the SDK will try to fulfil this request depending on camera availability and device and browser support on the user's device. If a video cannot be taken, the face step will fallback to the `standard` photo option.
+
+  If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the [`onComplete` callback](#handling-callbacks) to request the correct report when creating a check.
+
+- `uploadFallback` (boolean - default: `true`)
+
+  By default, the SDK will attempt to open an optimised camera UI for the user to take a live photo or video. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
+
+  This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+
+  ⚠️ **Warning**: If the mobile device does not have a camera or lacks camera browser support the user will not be able to complete the flow if `uploadFallback` is set to `false`.
+
+  ```javascript
+  options: {
+    requestedVariant: 'standard' | 'video',
+    uploadFallback: false
+  }
+  ```
+
+- `useMultipleSelfieCapture` (boolean - default: `true`)
+
+  When enabled, this feature allows the SDK to take additional selfie snapshots to help improve face similarity check accuracy. When disabled, only one selfie photo will be taken.
+
+- `photoCaptureFallback` (boolean - default: `true`)
+
+  When enabled, this feature allows end-users to upload selfies if the requested variant is `video` and their browser does not support MediaRecorder.
+
+  When disabled, it will forward the user to the cross-device flow in order to attempt to capture a video in another device. If the user is already in a mobile device and it does not support
+  MediaRecorder, the unsupported browser error will be shown.
+
+#### complete
+
+This is the final completion step. The screen displays a completion message to signal the next steps to the user. This is an optional screen. The custom options are:
+
+- `message` (string)
+- `submessage` (string)
 
 ### Changing options in runtime
 
@@ -879,7 +900,7 @@ onfidoOut.setOptions({ token:"new token" });
 onfidoOut.setOptions({ isModalOpen:true });
 ```
 
-The new options will be shallowly merged with the previous one. So one can pass only the differences to a get a new flow.
+The new options will be shallowly merged with the previous one, so you can only pass the differences to a get a new flow.
 
 ## Creating checks
 
