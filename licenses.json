@@ -929,8 +929,8 @@
   "@nodelib/fs.stat@2.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.stat",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@nodelib/fs.stat",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@nodelib/fs.stat/LICENSE"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/@nodelib/fs.stat",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/@nodelib/fs.stat/LICENSE"
   },
   "@nodelib/fs.walk@1.2.4": {
     "licenses": "MIT",
@@ -945,14 +945,14 @@
     "path": "node_modules/@onfido/castor-icons",
     "licenseFile": "node_modules/@onfido/castor-icons/README.md"
   },
-  "@onfido/castor-react@1.1.2": {
+  "@onfido/castor-react@1.2.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
     "path": "node_modules/@onfido/castor-react",
     "licenseFile": "node_modules/@onfido/castor-react/README.md"
   },
-  "@onfido/castor@1.1.2": {
+  "@onfido/castor@1.2.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
@@ -1357,8 +1357,8 @@
   "@typescript-eslint/typescript-estree@4.17.0": {
     "licenses": "BSD-2-Clause",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/typescript-estree",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/typescript-estree/LICENSE"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/@typescript-eslint/typescript-estree",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/@typescript-eslint/typescript-estree/LICENSE"
   },
   "@typescript-eslint/visitor-keys@4.17.0": {
     "licenses": "MIT",
@@ -1907,8 +1907,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/array-union",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/array-union/license"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/array-union",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/array-union/license"
   },
   "array-uniq@1.0.3": {
     "licenses": "MIT",
@@ -3492,7 +3492,7 @@
     "path": "node_modules/crypto-browserify",
     "licenseFile": "node_modules/crypto-browserify/LICENSE"
   },
-  "css-loader@3.4.2": {
+  "css-loader@3.6.0": {
     "licenses": "MIT",
     "repository": "https://github.com/webpack-contrib/css-loader",
     "publisher": "Tobias Koppers @sokra",
@@ -3992,8 +3992,8 @@
     "publisher": "Kevin Mårtensson",
     "email": "kevinmartensson@gmail.com",
     "url": "github.com/kevva",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/dir-glob",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/dir-glob/license"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/dir-glob",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/dir-glob/license"
   },
   "discontinuous-range@1.0.0": {
     "licenses": "MIT",
@@ -4858,8 +4858,8 @@
     "repository": "https://github.com/mrmlnc/fast-glob",
     "publisher": "Denis Malinochkin",
     "url": "https://mrmlnc.com",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/fast-glob",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/fast-glob/LICENSE"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/fast-glob",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/fast-glob/LICENSE"
   },
   "fast-json-stable-stringify@2.1.0": {
     "licenses": "MIT",
@@ -5512,8 +5512,8 @@
     "publisher": "Gulp Team",
     "email": "team@gulpjs.com",
     "url": "https://gulpjs.com/",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/glob-parent",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/glob-parent/LICENSE"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/glob-parent",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/glob-parent/LICENSE"
   },
   "glob-to-regexp@0.3.0": {
     "licenses": "BSD*",
@@ -5615,8 +5615,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "https://sindresorhus.com",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/globby",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/globby/license"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/globby",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/globby/license"
   },
   "globby@11.0.3": {
     "licenses": "MIT",
@@ -6197,8 +6197,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/kaelzhang/node-ignore",
     "publisher": "kael",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/ignore",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/ignore/LICENSE-MIT"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/ignore",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/ignore/LICENSE-MIT"
   },
   "immediate@3.0.6": {
     "licenses": "MIT",
@@ -9119,7 +9119,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/sher.bhachu/Documents/Repo/Public/onfido-sdk-ui",
+    "path": "onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.1": {
@@ -9608,8 +9608,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/path-type",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/path-type/license"
+    "path": "node_modules/@typescript-eslint/parser/node_modules/path-type",
+    "licenseFile": "node_modules/@typescript-eslint/parser/node_modules/path-type/license"
   },
   "pathval@1.1.0": {
     "licenses": "MIT",
@@ -9840,14 +9840,14 @@
     "path": "node_modules/postcss-modules-extract-imports",
     "licenseFile": "node_modules/postcss-modules-extract-imports/LICENSE"
   },
-  "postcss-modules-local-by-default@3.0.2": {
+  "postcss-modules-local-by-default@3.0.3": {
     "licenses": "MIT",
     "repository": "https://github.com/css-modules/postcss-modules-local-by-default",
     "publisher": "Mark Dalgleish",
     "path": "node_modules/postcss-modules-local-by-default",
     "licenseFile": "node_modules/postcss-modules-local-by-default/LICENSE"
   },
-  "postcss-modules-scope@2.1.1": {
+  "postcss-modules-scope@2.2.0": {
     "licenses": "ISC",
     "repository": "https://github.com/css-modules/postcss-modules-scope",
     "publisher": "Glen Maddern",
@@ -9927,14 +9927,6 @@
     "path": "node_modules/postcss-value-parser",
     "licenseFile": "node_modules/postcss-value-parser/LICENSE"
   },
-  "postcss-value-parser@4.0.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/TrySound/postcss-value-parser",
-    "publisher": "Bogdan Chadkin",
-    "email": "trysound@yandex.ru",
-    "path": "node_modules/postcss-modules-local-by-default/node_modules/postcss-value-parser",
-    "licenseFile": "node_modules/postcss-modules-local-by-default/node_modules/postcss-value-parser/LICENSE"
-  },
   "postcss-value-parser@4.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/TrySound/postcss-value-parser",
@@ -9959,29 +9951,13 @@
     "path": "node_modules/postcss",
     "licenseFile": "node_modules/postcss/LICENSE"
   },
-  "postcss@7.0.27": {
-    "licenses": "MIT",
-    "repository": "https://github.com/postcss/postcss",
-    "publisher": "Andrey Sitnik",
-    "email": "andrey@sitnik.ru",
-    "path": "node_modules/icss-utils/node_modules/postcss",
-    "licenseFile": "node_modules/icss-utils/node_modules/postcss/LICENSE"
-  },
-  "postcss@7.0.32": {
+  "postcss@7.0.35": {
     "licenses": "MIT",
     "repository": "https://github.com/postcss/postcss",
     "publisher": "Andrey Sitnik",
     "email": "andrey@sitnik.ru",
     "path": "node_modules/stylelint-order/node_modules/postcss",
     "licenseFile": "node_modules/stylelint-order/node_modules/postcss/LICENSE"
-  },
-  "postcss@7.0.35": {
-    "licenses": "MIT",
-    "repository": "https://github.com/postcss/postcss",
-    "publisher": "Andrey Sitnik",
-    "email": "andrey@sitnik.ru",
-    "path": "node_modules/stylelint/node_modules/postcss",
-    "licenseFile": "node_modules/stylelint/node_modules/postcss/LICENSE"
   },
   "preact-render-to-string@4.1.0": {
     "licenses": "MIT",
@@ -10508,11 +10484,11 @@
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react/LICENSE"
   },
-  "react@16.13.0": {
+  "react@16.14.0": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
-    "path": "node_modules/mochawesome-report-generator/node_modules/react",
-    "licenseFile": "node_modules/mochawesome-report-generator/node_modules/react/LICENSE"
+    "path": "node_modules/react",
+    "licenseFile": "node_modules/react/LICENSE"
   },
   "read-all-stream@3.1.0": {
     "licenses": "MIT",
@@ -11241,21 +11217,13 @@
     "path": "node_modules/mini-css-extract-plugin/node_modules/schema-utils",
     "licenseFile": "node_modules/mini-css-extract-plugin/node_modules/schema-utils/LICENSE"
   },
-  "schema-utils@2.6.5": {
+  "schema-utils@2.7.1": {
     "licenses": "MIT",
     "repository": "https://github.com/webpack/schema-utils",
     "publisher": "webpack Contrib",
     "url": "https://github.com/webpack-contrib",
     "path": "node_modules/schema-utils",
     "licenseFile": "node_modules/schema-utils/LICENSE"
-  },
-  "schema-utils@2.7.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/webpack/schema-utils",
-    "publisher": "webpack Contrib",
-    "url": "https://github.com/webpack-contrib",
-    "path": "node_modules/sass-loader/node_modules/schema-utils",
-    "licenseFile": "node_modules/sass-loader/node_modules/schema-utils/LICENSE"
   },
   "schema-utils@3.0.0": {
     "licenses": "MIT",
@@ -12127,7 +12095,7 @@
     "path": "node_modules/style-search",
     "licenseFile": "node_modules/style-search/LICENSE"
   },
-  "stylelint-config-sass-guidelines@7.0.0": {
+  "stylelint-config-sass-guidelines@7.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/bjankord/stylelint-config-sass-guidelines",
     "publisher": "Brett Jankord",
