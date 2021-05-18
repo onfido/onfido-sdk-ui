@@ -9,7 +9,7 @@
 - [Getting started](#getting-started)
 - [Handling callbacks](#handling-callbacks)
 - [Removing the SDK](#removing-the-sdk)
-- [Initialization options](#initialization-options) 
+- [Initialization options](#initialization-options)
 - [Customizing the SDK](#customizing-the-sdk)
 - [Creating checks](#creating-checks)
 - [User Analytics](#user-analytics)
@@ -278,7 +278,7 @@ onfidoOut = Onfido.init({...})
 onfidoOut.tearDown()
 ```
 
-## Initialization options 
+## Initialization options
 
 - **`token {String} required`**
 
@@ -370,6 +370,7 @@ onfidoOut.tearDown()
     'face',
   ]
   ```
+
   See [flow customization](#flow-customization) for details of the custom options for each step.
 
 ## Customizing the SDK
@@ -534,32 +535,33 @@ The Web SDK supports customization options across the SDK screen including text,
 - **`language {String || Object} optional`**
 
   You can customize the language displayed on the SDK by passing a string or object. If `language` is not present the default copy will be in English.
-  
+
   ##### Supported languages
 
   The SDK supports and maintains 4 languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
-  
-  |Language| Locale Tag|
-  |--------|-----------|
-  | English (default)| `en_US` |
-  | German | `de_DE` |
-  | Spanish|`es_ES`|
-  |French| `fr_FR` |
+
+  | Language          | Locale Tag |
+  | ----------------- | ---------- |
+  | English (default) | `en_US`    |
+  | German            | `de_DE`    |
+  | Spanish           | `es_ES`    |
+  | French            | `fr_FR`    |
 
   Example:
 
   ```javascript
   language: 'es_ES' | 'es'
   ```
-  ##### Custom lanugages 
+
+  ##### Custom lanugages
 
   The SDK can also be displayed in a custom language for locales that Onfido does not currently support. To implement this, pass an object containing the following keys:
 
-  | Key | Description | Notes |
-  | ---- | ---------- | ----- |
-  | `locale` | **required** <br /> A locale tag. | This is required when providing phrases for an unsupported language. You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supports English, Spanish, French and German. |
-  | `phrases` | **required** <br /> An object containing the keys you want to override and the new values. | The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below. |
-  | `mobilePhrases` | **optional** <br /> An object containing the keys you want to override and the new values. | The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable. | 
+  | Key             | Description                                                                                | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+  | --------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `locale`        | **required** <br /> A locale tag.                                                          | This is required when providing phrases for an unsupported language. You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supports English, Spanish, French and German. |
+  | `phrases`       | **required** <br /> An object containing the keys you want to override and the new values. | The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.                                                                                                                                                                                                                                                                                                                                                                                   |
+  | `mobilePhrases` | **optional** <br /> An object containing the keys you want to override and the new values. | The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable.                                                                                                                                                                                                                                                                     |
 
   ```javascript
   language: {
@@ -573,7 +575,7 @@ The Web SDK supports customization options across the SDK screen including text,
 
 ### Flow customization
 
-#### welcome 
+#### welcome
 
 This step is the introduction screen of the SDK. It displays a summary of the capture steps the user will pass through. These steps can be specified to match the flow required. This is an optional screen.
 
@@ -611,11 +613,11 @@ The custom options are:
 
 - `country` (string)
 
-  Document country can be specified per document type. The `country` configuration for a document type allows you to specify the issuing country of the document as a string containing a 3-letter ISO 3166-1 alpha-3 country code. 
-  
+  Document country can be specified per document type. The `country` configuration for a document type allows you to specify the issuing country of the document as a string containing a 3-letter ISO 3166-1 alpha-3 country code.
+
   If a document country is specified for a document type, or is passed as `null`, the country selection screen is not displayed to the end user.
 
-  ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information. 
+  ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information.
 
   For example, if you would like to set the country as Spain (ESP) and skip the country selection screen for the driving licence document type only:
 
@@ -673,94 +675,94 @@ The custom options are:
 
   By default, if only one document type is preselected, and the document type is not `passport`, the country selection screen will not be displayed. If you would like to have this screen displayed still, set `showCountrySelection` to `true`.
 
-    ```javascript
-    options: {
-      documentTypes: {
-        passport: boolean,
-        driving_licence: boolean,
-        national_identity_card: boolean,
-        residence_permit: boolean
+  ```javascript
+  options: {
+    documentTypes: {
+      passport: boolean,
+      driving_licence: boolean,
+      national_identity_card: boolean,
+      residence_permit: boolean
+    },
+    showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
+  }
+  ```
+
+  Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour):
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            // Note that only 1 document type is selected here
+            "passport": false,
+            "driving_licence": false,
+            "national_identity_card": true
+          },
+          "showCountrySelection": false
+        }
       },
-      showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
-    }
-    ```
+      "complete"
+    ]
+  }
+  ```
 
-    Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour):
+  Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed:
 
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              // Note that only 1 document type is selected here
-              "passport": false,
-              "driving_licence": false,
-              "national_identity_card": true
-            },
-            "showCountrySelection": false
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
+  **Example 1**
+  All document type options enabled, `"showCountrySelection": false` has no effect
 
-    Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed:
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            "passport": true,
+            "driving_licence": true,
+            "national_identity_card": true
+          },
+          "showCountrySelection": false (NOTE: has no effect)
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
 
-    **Example 1**
-    All document type options enabled, `"showCountrySelection": false` has no effect
+  **Example 2**
+  2 document type options enabled, `"showCountrySelection": false` has no effect
 
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              "passport": true,
-              "driving_licence": true,
-              "national_identity_card": true
-            },
-            "showCountrySelection": false (NOTE: has no effect)
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-    **Example 2**
-    2 document type options enabled, `"showCountrySelection": false` has no effect
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              "passport": true,
-              "national_identity_card": true,
-              "driving_licence": false
-            },
-            "showCountrySelection": false (NOTE: has no effect)
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            "passport": true,
+            "national_identity_card": true,
+            "driving_licence": false
+          },
+          "showCountrySelection": false (NOTE: has no effect)
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
 
 - `forceCrossDevice` (boolean - default: `false`)
 
   The Web SDK offers a cross device flow where desktop users will be given the option to continue using their desktop browser or swap to using their mobile device browser to complete the capture process. If a user selects to use their mobile device they will be redirected via a secure link that they can receive by SMS or QR code to complete the flow. At the end of the capture process users will be redirected back to their desktop to complete the SDK flow.
 
-  When `forceCrossDevice` is set to `true`, the cross device flow is mandatory for all users. Desktop users will be required to complete the capture process on a mobile device browser. 
+  When `forceCrossDevice` is set to `true`, the cross device flow is mandatory for all users. Desktop users will be required to complete the capture process on a mobile device browser.
   Configuring this option minimises the risk of fraudulent upload by ensuring a higher likelihood of live capture.
 
   ```javascript
@@ -823,9 +825,9 @@ The custom options are:
 
 - `requestedVariant` (string)
 
-  A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, the SDK will try to fulfil this request depending on camera availability and device and browser support on the user's device. If a video cannot be taken, the face step will fallback to the `standard` photo option. 
-  
-  If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the [`onComplete` callback](#handling-callbacks) to request the correct report when creating a check. 
+  A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, the SDK will try to fulfil this request depending on camera availability and device and browser support on the user's device. If a video cannot be taken, the face step will fallback to the `standard` photo option.
+
+  If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the [`onComplete` callback](#handling-callbacks) to request the correct report when creating a check.
 
 - `uploadFallback` (boolean - default: `true`)
 
