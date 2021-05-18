@@ -23,3 +23,8 @@ export const uploadFileAndClickConfirmButton = async (
   documentUploadScreen.upload(fileName)
   confirm.clickConfirmButton()
 }
+
+export const switchBrowserTab = async (tab, driver) => {
+  const browserWindows = await driver.getAllWindowHandles()
+  await driver.switchTo().window(browserWindows[tab])
+}

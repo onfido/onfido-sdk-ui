@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
@@ -18,8 +19,8 @@ class ClientSuccess extends Component {
           title={translate('cross_device_return.title')}
           subTitle={translate('cross_device_return.subtitle')}
         />
-        <div>
-          <span className={`${theme.icon}  ${style.icon}`} />
+        <div className={style.iconContainer}>
+          <span className={classNames(theme.icon, style.icon)} />
           <div className={style.text}>
             {translate('cross_device_return.body')}
           </div>
