@@ -1,5 +1,3 @@
-import path from 'path'
-import remote from 'selenium-webdriver/remote'
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
@@ -44,18 +42,6 @@ export default class PassportUploadImageGuide extends BasePage {
       )
     }, input)
     return input
-  }
-
-  async upload(filename) {
-    // Input here cannot use the uploadInput() function above
-    const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
-    const pathToTestFiles = '../resources/'
-    // This will detect local file, ref: https://www.browserstack.com/automate/node#enhancements-uploads-downloads
-    this.driver.setFileDetector(new remote.FileDetector())
-    const sendKeysToElement = input.sendKeys(
-      path.join(__dirname, pathToTestFiles + filename)
-    )
-    return sendKeysToElement
   }
 
   async verifyUploaderButtonLabel(copy) {
