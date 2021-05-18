@@ -120,6 +120,7 @@ export const faceScenarios = (lang) => {
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.verifySelfieTitle(copy)
       camera.verifyOnfidoFooterIsVisible()
       camera.takeSelfie()
@@ -143,6 +144,7 @@ export const faceScenarios = (lang) => {
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.takeSelfie()
       confirm.clickConfirmButton()
       verificationComplete.verifyUIElements(copy)
@@ -220,6 +222,24 @@ export const faceScenarios = (lang) => {
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
       cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(copy)
+    })
+
+    it('should be taken to the cross-device flow if browser does not have MediaRecorder API, liveness variant requested and photoCaptureFallback is disabled', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&liveness=true&photoCaptureFallback=false`
+      )
+      driver.executeScript('window.MediaRecorder = undefined')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      driver.wait(until.elementIsVisible(crossDeviceIntro.title()), 2500)
+      crossDeviceIntro.verifyTitle(copy)
     })
 
     it('should enter the liveness flow if I have a camera and liveness variant requested', async () => {
@@ -394,6 +414,7 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.takeSelfie()
       confirm.clickConfirmButton()
     })
@@ -412,6 +433,7 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.takeSelfie()
       confirm.clickConfirmButton()
     })

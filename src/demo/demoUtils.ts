@@ -48,6 +48,7 @@ export type QueryParams = {
   customisedUI?: StringifiedBoolean
   useCustomizedApiRequests?: StringifiedBoolean
   decoupleResponse?: DecoupleResponseOptions
+  photoCaptureFallback?: StringifiedBoolean
 }
 
 export type CheckData = {
@@ -186,6 +187,8 @@ export const getInitSdkOptions = (): SdkOptions => {
       uploadFallback: queryParamToValueString.uploadFallback !== 'false',
       useMultipleSelfieCapture:
         queryParamToValueString.useMultipleSelfieCapture !== 'false',
+      photoCaptureFallback:
+        queryParamToValueString.photoCaptureFallback !== 'false',
     },
   })
 

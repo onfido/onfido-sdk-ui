@@ -7,6 +7,7 @@ import type {
 } from '~types/enterprise'
 import type { GlobalActions } from '~types/redux'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
+import type { Socket } from 'socket.io-client'
 
 export const setIdDocumentType = (payload: DocumentTypes): GlobalActions => ({
   type: constants.SET_ID_DOCUMENT_TYPE,
@@ -34,7 +35,7 @@ export const setRoomId = (payload: string): GlobalActions => ({
   payload,
 })
 
-export const setSocket = (payload: SocketIOClient.Socket): GlobalActions => ({
+export const setSocket = (payload: Socket): GlobalActions => ({
   type: constants.SET_SOCKET,
   payload,
 })
