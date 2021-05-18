@@ -1,17 +1,30 @@
 @import '../../Theme/constants';
 
+.iconContainer {
+  height: auto;
+  width: 100%;
+  flex: 2 1 1em;
+  min-height: 1em;
+  max-height: 9em;
+  margin: auto;
+}
+
+/*
+ * NOTE: iOS Safari has a strange bug where SVG background images are not displayed on some iOS devices
+ *       if margin, background image properties are not declared in a specific order together & before background-image
+ *       Best solution is to explicitly list out all background properties.
+ *       ref: http://geoffmuskett.com/strange-bug-on-ios-svg-background-images-no-showing/
+ */
 .icon {
-  @extend %icon-circle-background;
+  margin: 50 * $unit auto;
   height: 144 * $unit;
   width: 144 * $unit;
-  /*
-   * NOTE: iOS Safari has a strange bug where SVG background images are not displayed on some iOS devices
-   *       if margin, background image properties are not declared before the background-image
-   *       ref: http://geoffmuskett.com/strange-bug-on-ios-svg-background-images-no-showing/
-   */
-  margin: 50 * $unit auto;
-  background-size: contain;
+  background-size: 144 * $unit;
   background-image: url('./assets/return-to-computer-large.svg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-color: var(--osdk-color-background-icon);
+  border-radius: 50%;
 }
 
 .text {
