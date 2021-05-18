@@ -888,7 +888,7 @@ Note: If you are currently using API `v2` please refer to [this migration guide]
 
 Reports may not always return actual [results](https://documentation.onfido.com/#results) straightaway.
 
-You can [set up webhooks](https://developers.onfido.com/guide/get-started-integrating#set-up-a-webhook) to be notified upon completion of a check or report, or both. 
+You can [set up webhooks](https://developers.onfido.com/guide/get-started-integrating#set-up-a-webhook) to be notified upon completion of a check or report, or both.
 
 ## User Analytics
 
@@ -896,7 +896,7 @@ The SDK allows you to track a user's journey through the verification process vi
 
 ### Overriding the hook
 
-In order to track a user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application. 
+In order to track a user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application.
 
 For example:
 
@@ -908,10 +908,10 @@ The code inside of the `EventListener` will now be called when a particular even
 
 The parameter being passed in is an `Event` object. The details related to the user analytics event can be found at the path `event.detail` and are as follows:
 
-|       |        |
-| ----- | ------ |
-| `eventName` | **string** <br /> Indicates the type of event. This will always be returned as `"Screen"` as each tracked event is a user visiting a screen. |
-| `properties` | **map object** <br /> Contains the specific details of an event. For example, the name of the screen visited. |
+|              |                                                                                                                                              |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `eventName`  | **string** <br /> Indicates the type of event. This will always be returned as `"Screen"` as each tracked event is a user visiting a screen. |
+| `properties` | **map object** <br /> Contains the specific details of an event. For example, the name of the screen visited.                                |
 
 ### Using the data
 
@@ -946,9 +946,9 @@ UPLOAD - User's file is uploading
 
 The following features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
 
-### Customized API Requests 
+### Customized API Requests
 
-This premium enterprise feature enables you to control the data collected by the Onfido SDK by using callbacks that are invoked when the end user submits their captured media. The callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. 
+This premium enterprise feature enables you to control the data collected by the Onfido SDK by using callbacks that are invoked when the end user submits their captured media. The callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next.
 
 Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. Note: The callback for video is not supported yet.
 
@@ -1019,10 +1019,9 @@ You can choose to upload the data to Onfido yourself from your backend. We stron
 Authorization: Bearer <SDK token here>
 ```
 
-Once you have sent the request to Onfido yourself, you can supply the SDK with the response so it can determine what the end user should be presented with. In the case where a success response is received, the promise should be resolved with `onfidoSuccessResponse: <onfidoResponse>`. Otherwise reject the promise with the Onfido error response. 
+Once you have sent the request to Onfido yourself, you can supply the SDK with the response so it can determine what the end user should be presented with. In the case where a success response is received, the promise should be resolved with `onfidoSuccessResponse: <onfidoResponse>`. Otherwise reject the promise with the Onfido error response.
 
 Note: An error response could be returned due to image quality issues. In this case, the SDK will present the end user with the appropriate error message.
-
 
 ```javascript
 onSubmitDocument: (data) => {
@@ -1243,7 +1242,7 @@ paths:
                 type: object
 ```
 
-### Cross device URL 
+### Cross device URL
 
 This premium enterprise feature allows you to specify your own custom or whitelabel url that the cross device flow will redirect to instead of the Onfido default `id.onfido.com`. To use this feature generate an SDK token as shown below and use it to start the SDK.
 
@@ -1257,10 +1256,10 @@ $ curl https://api.onfido.com/v3/sdk_token \
 
 In addition to this, you must either:
 
-* Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`
-* Set up a server to host the Onfido Web SDK yourself at the provided URL
+- Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`
+- Set up a server to host the Onfido Web SDK yourself at the provided URL
 
-#### Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`. 
+#### Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`.
 
 You can do this by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido-hosted Web SDK.
 
@@ -1290,7 +1289,7 @@ FROM nginx:1.15.8-alpine
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 ```
 
-#### Set up a server to host the Onfido Web SDK yourself at the provided URL. 
+#### Set up a server to host the Onfido Web SDK yourself at the provided URL.
 
 This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
 
