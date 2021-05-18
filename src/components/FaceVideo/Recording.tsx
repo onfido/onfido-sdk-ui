@@ -28,16 +28,7 @@ const Recording: FunctionComponent<Props> = ({
   translate,
 }) => (
   <div>
-    <div className={style.caption}>
-      <div>
-        <div className={style.recordingIndicator}>
-          <span role="status" className={style.recordingIndicatorText}>
-            {translate('video_capture.status')}
-          </span>
-        </div>
-        {children}
-      </div>
-    </div>
+    <div className={style.caption}>{children}</div>
     <div className={style.actions}>
       <div className={style.captureActionsHint}>
         {translate(
