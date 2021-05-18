@@ -5,15 +5,31 @@
 }
 
 .introIcon {
-  @extend %icon-circle-background;
   display: block;
   position: absolute;
   left: 0;
   top: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
   width: 48 * $unit;
   height: 48 * $unit;
+}
+
+/* Follow icon styling in Uploader/style.scss for Selfie Intro icons */
+.selfieIcon {
+  background-size: 48 * $unit;
+  background-image: url('./assets/selfie-picto.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--osdk-color-background-icon);
+  border-radius: 50%;
+}
+
+.glassesIcon {
+  background-size: 48 * $unit;
+  background-image: url('./assets/glasses-picto.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--osdk-color-background-icon);
+  border-radius: 50%;
 }
 
 .introBullet {
@@ -64,16 +80,6 @@
   height: 48 * $unit;
   display: table-cell;
   vertical-align: middle;
-}
-
-.selfieIcon {
-  background-image: url('./assets/selfie-picto.svg');
-  background-size: contain;
-}
-
-.glassesIcon {
-  background-image: url('./assets/glasses-picto.svg');
-  background-size: contain;
 }
 
 .introCopy {
