@@ -20,7 +20,7 @@
 
 ## Overview
 
-The Onfido Web SDK provides a set of components for JavaScript applications to capture identity documents and selfie photos and videos for the purpose of identity verification. 
+The Onfido Web SDK provides a set of components for JavaScript applications to capture identity documents and selfie photos and videos for the purpose of identity verification.
 
 The SDK offers a number of benefits to help you create the best identity verification experience for your customers:
 
@@ -33,15 +33,15 @@ The SDK offers a number of benefits to help you create the best identity verific
 
 ![Various views from the SDK](demo/screenshots.jpg)
 
-## Getting started 
+## Getting started
 
 The following content assumes you're using our API v3 versions for backend calls. If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 ### 1. Obtain an API token
 
-In order to start integrating, you'll need an [API token](https://documentation.onfido.com/#api-tokens). 
+In order to start integrating, you'll need an [API token](https://documentation.onfido.com/#api-tokens).
 
-You can use our [sandbox](https://documentation.onfido.com/#sandbox-testing) environment to test your integration. To use the sandbox, you'll need to generate a sandbox API token in your [Onfido Dashboard](https://onfido.com/dashboard/api/tokens). 
+You can use our [sandbox](https://documentation.onfido.com/#sandbox-testing) environment to test your integration. To use the sandbox, you'll need to generate a sandbox API token in your [Onfido Dashboard](https://onfido.com/dashboard/api/tokens).
 
 #### 1.1 Regions
 
@@ -64,7 +64,7 @@ The JSON response will contain an `id` field containing an UUID that identifies 
 
 ### 3. Generate an SDK token
 
-The SDK is authenticated using SDK tokens. Each authenticated instance of the SDK will correspond to a single Onfido applicant. You’ll need to generate and include a new token each time you initialize the Web SDK. 
+The SDK is authenticated using SDK tokens. Each authenticated instance of the SDK will correspond to a single Onfido applicant. You’ll need to generate and include a new token each time you initialize the Web SDK.
 
 ⚠️ Note: You must never use API tokens in the frontend of your application or malicious users could discover them in your source code. You should only use them on your server.
 
@@ -77,14 +77,14 @@ $ curl https://api.onfido.com/v3/sdk_token \
   -F 'referrer=<REFERRER_PATTERN>'
 ```
 
-| Parameter     | Notes     |
-| -------------- | --------|
-| `applicant_id`  | **required** <br /> Specifies the applicant for the SDK instance    |
-| `referrer`    | **required** <br /> The referrer URL pattern                           |
+| Parameter      | Notes                                                            |
+| -------------- | ---------------------------------------------------------------- |
+| `applicant_id` | **required** <br /> Specifies the applicant for the SDK instance |
+| `referrer`     | **required** <br /> The referrer URL pattern                     |
 
 ⚠️ Note: SDK tokens expire after 90 minutes.
 
-#### 3.1 The referrer argument 
+#### 3.1 The referrer argument
 
 The referrer argument specifies the URL of the web page where the Web SDK will be used. The referrer sent by the browser must match the referrer URL pattern in the SDK token for the SDK to successfully authenticate.
 
@@ -98,21 +98,21 @@ error when trying to use the Web SDK.
 
 Permitted referrer patterns are as follows:
 
-| Section  | Format                                       | Example |
-| -------- | -------------------------------------------- | ------- |
+| Section  | Format                                       | Example                       |
+| -------- | -------------------------------------------- | ----------------------------- |
 | Referrer | `scheme://host/path`                         | `https://*.<DOMAIN>/<PATH>/*` |
-| Scheme   | `*` or `http` or `https`                     | `https` |
-| Host     | `*` or `*.` then any char except `/` and `*` | `*.<DOMAIN>` |
-| Path     | Any char or none                             | `<PATH>/*` |
+| Scheme   | `*` or `http` or `https`                     | `https`                       |
+| Host     | `*` or `*.` then any char except `/` and `*` | `*.<DOMAIN>`                  |
+| Path     | Any char or none                             | `<PATH>/*`                    |
 
-An example of a valid referrer is `https://*.example.com/example_page/*`. 
+An example of a valid referrer is `https://*.example.com/example_page/*`.
 
 ### 4. Import the library
 
 You can either:
 
-* import directly into your HTML page
-* use npm
+- import directly into your HTML page
+- use npm
 
 #### 4.1 HTML Script Tag Include
 
@@ -172,22 +172,16 @@ Onfido.init({
   onComplete: function (data) {
     console.log('everything is complete')
   },
-  steps: [
-        'welcome',
-        'document',
-        'face',
-        'complete'
-      ]
+  steps: ['welcome', 'document', 'face', 'complete'],
 })
 ```
 
-| Parameter           | Format                             |Notes                          |
-| ------------------------------------------------ |  ------------------------------------ |
-| `token` |string | **required** <br />Your Web SDK token                                 |
-| `containerId`|string         | **optional** <br />A string containing the ID of the container element that the UI will mount to. This must be an empty element. The default is `onfido-mount`. <br /> Alternatively, if your integration requires it, you can pass in the container element instead. Note that if `containerEl` is provided, then `containerId` will be ignored  |
-| `onComplete`  |  function | **optional** A [callback function](#handling-callbacks) that executes after the applicant's document and face have both been captured and uploaded successfully|
-| `steps`|  string or object | List of different steps corresponding to parts of the process the user will be presented with         |
-
+| Parameter     | Format           | Notes                                                                                                                                                                                                                                                                                                                                            |
+| ------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `token`       | string           | **required** <br />Your Web SDK token                                                                                                                                                                                                                                                                                                            |
+| `containerId` | string           | **optional** <br />A string containing the ID of the container element that the UI will mount to. This must be an empty element. The default is `onfido-mount`. <br /> Alternatively, if your integration requires it, you can pass in the container element instead. Note that if `containerEl` is provided, then `containerId` will be ignored |
+| `onComplete`  | function         | **optional** A [callback function](#handling-callbacks) that executes after the applicant's document and face have both been captured and uploaded successfully                                                                                                                                                                                  |
+| `steps`       | string or object | List of different steps corresponding to parts of the process the user will be presented with                                                                                                                                                                                                                                                    |
 
 ## Handling callbacks
 
@@ -207,9 +201,9 @@ Onfido.init({
 })
 ```
 
-`data` is an object that contains properties of the document and face images captured during the SDK flow. 
+`data` is an object that contains properties of the document and face images captured during the SDK flow.
 
-For two-sided documents like `driving_licence` and `national_identity_card`, the object will also contain a `document_back` property representing the reverse side. 
+For two-sided documents like `driving_licence` and `national_identity_card`, the object will also contain a `document_back` property representing the reverse side.
 
 For the face step an object is returned with the `variant` used for the face capture,`'standard' | 'video'`. This informs whether to specify a `facial_similarity_photo` or `facial_similarity_video` report during check creation.
 
@@ -264,7 +258,7 @@ Callback that fires when an error occurs. The callback returns the following err
 
 ### `onUserExit {Function} optional`
 
-Callback that fires when the user abandons the flow without completing it. 
+Callback that fires when the user abandons the flow without completing it.
 
 The callback returns a string with the reason for leaving. For example, `'USER_CONSENT_DENIED'` is returned when a user exits the flow because they declined the consent prompt.
 
