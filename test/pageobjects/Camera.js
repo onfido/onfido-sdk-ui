@@ -1,10 +1,14 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 import { assert } from 'chai'
+import { browserName } from '../main'
 
 class Camera extends BasePage {
   async enableCameraButton() {
     return this.$('[data-onfido-qa="enable-camera-btn"]')
+  }
+  async allowCameraPermissionImage() {
+    return this.$('.onfido-sdk-ui-CameraPermissions-Primer-graphic')
   }
   async nextChallengeButton() {
     return this.$('[data-onfido-qa="liveness-next-challenge-btn"]')
@@ -37,6 +41,17 @@ class Camera extends BasePage {
     // give some time for the stream to have a face
     this.driver.sleep(1000)
     this.shutterButton().click()
+  }
+
+  async enableCameraAccessIfNecessary() {
+    if (browserName.toLowerCase() === 'safari') {
+      if (
+        this.enableCameraButton().isDisplayed() &&
+        this.allowCameraPermissionImage().isDisplayed()
+      ) {
+        this.enableCameraButton().click()
+      }
+    }
   }
 
   async isOverlayPresent() {

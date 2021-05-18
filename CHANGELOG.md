@@ -19,6 +19,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added user consent content reload screen
 - Public: When `photoCaptureFallback` option is disabled in the face step, the requested variant is video and browser does not support MediaRecorder, attempt to redirect to the cross-device flow or display the unsupported browser error.
 - Internal: Refactor for better reusability of video capture components.
+- Internal: Added support for testing across multiple browsers.
 
 ### Changed
 
@@ -28,6 +29,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Get latest copy from Lokalise with various grammar, punctuation fixes. Also reverts French, Spanish translations for some Proof of Address copy in these languages' locale files (Proof of Address is only supported for English)
+- UI: Fix SVG icon on Cross Device Uploads Successful, Selfie Intro screens not displaying on some iOS devices, e.g. iPhone 12
 
 ## [6.7.2] - 2021-04-26
 

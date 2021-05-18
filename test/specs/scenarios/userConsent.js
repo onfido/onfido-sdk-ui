@@ -13,24 +13,23 @@ export const userConsentScenarios = async (lang = 'en_US') => {
       const { basePage, welcome, documentSelector, userConsent } = pageObjects
       const copy = basePage.copy(lang)
 
-      it('should verify UI elements on the consent screen', async () => {
+      beforeEach(async () => {
         driver.get(`${localhostUrl}?language=${lang}&showUserConsent=true`)
         welcome.continueToNextStep()
+      })
+
+      it('should verify UI elements on the consent screen', async () => {
         userConsent.verifyFrameTitle()
         userConsent.verifyAcceptButton(copy)
         userConsent.verifyDeclineButton(copy)
       })
 
       it('should accept user consent', async () => {
-        driver.get(`${localhostUrl}?language=${lang}&showUserConsent=true`)
-        welcome.continueToNextStep()
         userConsent.acceptUserConsent()
         documentSelector.verifyTitle(copy)
       })
 
       it('when clicking on decline it should show a modal', async () => {
-        driver.get(`${localhostUrl}?language=${lang}&showUserConsent=true`)
-        welcome.continueToNextStep()
         userConsent.declineUserConsent()
         userConsent.userConsentModalIsOpen()
         userConsent.verifyUserConsentDeclineModalTitle(copy)
@@ -39,8 +38,6 @@ export const userConsentScenarios = async (lang = 'en_US') => {
       })
 
       it('when clicking on the modal primary button the modal should be dismissed', async () => {
-        driver.get(`${localhostUrl}?language=${lang}&showUserConsent=true`)
-        welcome.continueToNextStep()
         userConsent.declineUserConsent()
         userConsent.userConsentModalIsOpen()
         userConsent.verifyUserConsentDeclineModalTitle(copy)
@@ -50,8 +47,6 @@ export const userConsentScenarios = async (lang = 'en_US') => {
       })
 
       it('when clicking on the secondary button the sdk should be unmounted', async () => {
-        driver.get(`${localhostUrl}?language=${lang}&showUserConsent=true`)
-        welcome.continueToNextStep()
         userConsent.declineUserConsent()
         userConsent.userConsentModalIsOpen()
         userConsent.verifyUserConsentDeclineModalTitle(copy)
