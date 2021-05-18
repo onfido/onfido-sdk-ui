@@ -938,14 +938,14 @@
     "path": "node_modules/@onfido/castor-icons",
     "licenseFile": "node_modules/@onfido/castor-icons/README.md"
   },
-  "@onfido/castor-react@1.1.2": {
+  "@onfido/castor-react@1.2.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
     "path": "node_modules/@onfido/castor-react",
     "licenseFile": "node_modules/@onfido/castor-react/README.md"
   },
-  "@onfido/castor@1.1.2": {
+  "@onfido/castor@1.2.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
@@ -1559,12 +1559,6 @@
     "repository": "https://github.com/acornjs/acorn-jsx",
     "path": "node_modules/acorn-jsx",
     "licenseFile": "node_modules/acorn-jsx/LICENSE"
-  },
-  "acorn-walk@7.1.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/acornjs/acorn",
-    "path": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk",
-    "licenseFile": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk/LICENSE"
   },
   "acorn-walk@7.2.0": {
     "licenses": "MIT",
@@ -3444,7 +3438,7 @@
     "path": "node_modules/crypto-browserify",
     "licenseFile": "node_modules/crypto-browserify/LICENSE"
   },
-  "css-loader@3.4.2": {
+  "css-loader@3.6.0": {
     "licenses": "MIT",
     "repository": "https://github.com/webpack-contrib/css-loader",
     "publisher": "Tobias Koppers @sokra",
@@ -9577,14 +9571,14 @@
     "path": "node_modules/postcss-modules-extract-imports",
     "licenseFile": "node_modules/postcss-modules-extract-imports/LICENSE"
   },
-  "postcss-modules-local-by-default@3.0.2": {
+  "postcss-modules-local-by-default@3.0.3": {
     "licenses": "MIT",
     "repository": "https://github.com/css-modules/postcss-modules-local-by-default",
     "publisher": "Mark Dalgleish",
     "path": "node_modules/postcss-modules-local-by-default",
     "licenseFile": "node_modules/postcss-modules-local-by-default/LICENSE"
   },
-  "postcss-modules-scope@2.1.1": {
+  "postcss-modules-scope@2.2.0": {
     "licenses": "ISC",
     "repository": "https://github.com/css-modules/postcss-modules-scope",
     "publisher": "Glen Maddern",
@@ -9664,14 +9658,6 @@
     "path": "node_modules/postcss-value-parser",
     "licenseFile": "node_modules/postcss-value-parser/LICENSE"
   },
-  "postcss-value-parser@4.0.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/TrySound/postcss-value-parser",
-    "publisher": "Bogdan Chadkin",
-    "email": "trysound@yandex.ru",
-    "path": "node_modules/postcss-modules-local-by-default/node_modules/postcss-value-parser",
-    "licenseFile": "node_modules/postcss-modules-local-by-default/node_modules/postcss-value-parser/LICENSE"
-  },
   "postcss-value-parser@4.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/TrySound/postcss-value-parser",
@@ -9696,29 +9682,13 @@
     "path": "node_modules/postcss",
     "licenseFile": "node_modules/postcss/LICENSE"
   },
-  "postcss@7.0.27": {
-    "licenses": "MIT",
-    "repository": "https://github.com/postcss/postcss",
-    "publisher": "Andrey Sitnik",
-    "email": "andrey@sitnik.ru",
-    "path": "node_modules/icss-utils/node_modules/postcss",
-    "licenseFile": "node_modules/icss-utils/node_modules/postcss/LICENSE"
-  },
-  "postcss@7.0.32": {
+  "postcss@7.0.35": {
     "licenses": "MIT",
     "repository": "https://github.com/postcss/postcss",
     "publisher": "Andrey Sitnik",
     "email": "andrey@sitnik.ru",
     "path": "node_modules/stylelint-order/node_modules/postcss",
     "licenseFile": "node_modules/stylelint-order/node_modules/postcss/LICENSE"
-  },
-  "postcss@7.0.35": {
-    "licenses": "MIT",
-    "repository": "https://github.com/postcss/postcss",
-    "publisher": "Andrey Sitnik",
-    "email": "andrey@sitnik.ru",
-    "path": "node_modules/stylelint/node_modules/postcss",
-    "licenseFile": "node_modules/stylelint/node_modules/postcss/LICENSE"
   },
   "preact-render-to-string@4.1.0": {
     "licenses": "MIT",
@@ -10236,11 +10206,11 @@
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react/LICENSE"
   },
-  "react@16.13.0": {
+  "react@16.14.0": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
-    "path": "node_modules/mochawesome-report-generator/node_modules/react",
-    "licenseFile": "node_modules/mochawesome-report-generator/node_modules/react/LICENSE"
+    "path": "node_modules/react",
+    "licenseFile": "node_modules/react/LICENSE"
   },
   "read-all-stream@3.1.0": {
     "licenses": "MIT",
@@ -10954,21 +10924,13 @@
     "path": "node_modules/mini-css-extract-plugin/node_modules/schema-utils",
     "licenseFile": "node_modules/mini-css-extract-plugin/node_modules/schema-utils/LICENSE"
   },
-  "schema-utils@2.6.5": {
+  "schema-utils@2.7.1": {
     "licenses": "MIT",
     "repository": "https://github.com/webpack/schema-utils",
     "publisher": "webpack Contrib",
     "url": "https://github.com/webpack-contrib",
     "path": "node_modules/schema-utils",
     "licenseFile": "node_modules/schema-utils/LICENSE"
-  },
-  "schema-utils@2.7.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/webpack/schema-utils",
-    "publisher": "webpack Contrib",
-    "url": "https://github.com/webpack-contrib",
-    "path": "node_modules/sass-loader/node_modules/schema-utils",
-    "licenseFile": "node_modules/sass-loader/node_modules/schema-utils/LICENSE"
   },
   "schema-utils@3.0.0": {
     "licenses": "MIT",
@@ -11831,7 +11793,7 @@
     "path": "node_modules/style-search",
     "licenseFile": "node_modules/style-search/LICENSE"
   },
-  "stylelint-config-sass-guidelines@7.0.0": {
+  "stylelint-config-sass-guidelines@7.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/bjankord/stylelint-config-sass-guidelines",
     "publisher": "Brett Jankord",
