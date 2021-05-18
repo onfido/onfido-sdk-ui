@@ -57,8 +57,7 @@ describe(
       )
     })
 
-    // @FIXME: the country selector is broken on Firefox
-    it.skip('should upload id document with PDF', async () => {
+    it('should upload id document with PDF', async () => {
       driver.get(localhostUrl)
       welcome.continueToNextStep()
       documentSelector.clickOnIdentityCardIcon()
