@@ -564,6 +564,7 @@ The Web SDK supports customization options across the SDK screen including text,
   | `authButtonTextDisabledColor`  | Change color of the action button's text when the button is disabled during the New User Guidance and Retry Screens.                                                                                                                                                                                                |
   | `authButtonTextNormalColor`    | Change color of the action button's text during the New User Guidance and Retry Screens                                                                                                                                                                                                                             |
   | `authFeedbackBarTextColor`     | Change color of text displayed within the Auth Browser SDK Feedback Bar                                                                                                                                                                                                                                             |
+
 ### Language Localization
 
 - **`language {String || Object} optional`**
