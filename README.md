@@ -123,6 +123,12 @@ You can include the library as a regular script tag on your page:
 <script src="dist/onfido.min.js"></script>
 ```
 
+⚠️ Note: The above import does **not** include the Auth module. To include it, use:
+
+```html
+<script src="dist/onfidoAuth.min.js"></script>
+```
+
 And the CSS styles:
 
 ```html
@@ -145,6 +151,15 @@ import { init } from 'onfido-sdk-ui'
 
 // commonjs style require
 var Onfido = require('onfido-sdk-ui')
+```
+⚠️ Note: The above import does **not** include the Auth module. To include it, use:
+
+```javascript
+// ES6 module import
+import { init } from 'onfido-sdk-ui/dist/onfidoAuth.min.js'
+
+// commonjs style require
+var Onfido = require('onfido-sdk-ui/dist/onfidoAuth.min.js')
 ```
 
 The CSS style will be included inline with the JS code when the library is imported.
@@ -227,6 +242,18 @@ For the face step an object is returned with the `variant` used for the face cap
     }
 ```
 
+For the Auth step a data object is returned with parameters `sucess`, `token`, `type`, and `uuid`. The `success` variable informs whether or not the user was authenticated successfuly, whereas `token` is a JWT that can be used to validate the user authentication.
+
+**Example of an auth `onComplete` data callback:**
+```javascript
+    {
+      "success": true,
+      "token": "eyJhbGciOiJSUz...",
+      "type": "complete",
+      "uuid": "b3b9142d-3071-401d-821b-17ab134d4798"
+    }
+```
+
 ### `onError {Function} optional`
 
 Callback that fires when an error occurs. The callback returns the following error types:
@@ -237,6 +264,8 @@ Callback that fires when an error occurs. The callback returns the following err
   - timeout and server errors
   - authorization
   - invalid token
+  - [Auth] exception handling API response
+  - [Auth] exception handling API response
 
   This data can be used for debugging purposes.
 
@@ -889,6 +918,17 @@ The custom options are:
 
   When disabled, it will forward the user to the cross-device flow in order to attempt to capture a video in another device. If the user is already in a mobile device and it does not support
   MediaRecorder, the unsupported browser error will be shown.
+
+#### auth
+
+This is Authentication step. If you have followed the guidelines specific to including auth, you'll have this step made available. In here, a loading screen is presented to the user to fetch all necessary resources to perform authentication.
+
+After all resources are loaded, the session is initialised, and the authentication check begins. An oval frame of the camera will be present (if camera permissions are provided) and actionable elements will render, asking the user to place their face in frame, followed up by a different set of instructions for them to follow to successfully authenticate the user.
+
+If the user is not a match, or conditions are not good to successfuly authenticate, they will be asked to retry authentication. If authentication is not possible, the page will rollback to the previous step.
+
+**The Authentication module is currently a BETA feature.**
+
 
 #### complete
 
