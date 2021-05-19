@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "6.8.0",
+  "version": "6.9.0-rc.1-test",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -16,10 +16,11 @@
     "build:auth": "SDK_ENV=Auth webpack --quiet --display-error-details --bail",
     "build:dev": "NODE_ENV=development npm run build",
     "build:test": "NODE_ENV=test npm run build && npm run mock-server:build",
+    "build:all": "npm run build && npm run build:auth",
     "postbuild": "dts-bundle-generator src/types/index.ts --out-file lib/index.d.ts",
     "mkdirs": "mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
-    "prepare": "npm run clean && npm run check && npm run build",
+    "prepare": "npm run clean",
     "check": "npm run check:types && npm run check:es && npm run check:styles && npm run check:format",
     "check:types": "tsc --noEmit --jsx preserve",
     "check:es": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}'",
