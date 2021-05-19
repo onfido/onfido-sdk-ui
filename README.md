@@ -152,6 +152,7 @@ import { init } from 'onfido-sdk-ui'
 // commonjs style require
 var Onfido = require('onfido-sdk-ui')
 ```
+
 ⚠️ Note: The above import does **not** include the Auth module. To include it, use:
 
 ```javascript
@@ -245,6 +246,7 @@ For the face step an object is returned with the `variant` used for the face cap
 For the Auth step a data object is returned with parameters `sucess`, `token`, `type`, and `uuid`. The `success` variable informs whether or not the user was authenticated successfuly, whereas `token` is a JWT that can be used to validate the user authentication.
 
 **Example of an auth `onComplete` data callback:**
+
 ```javascript
     {
       "success": true,
@@ -928,7 +930,6 @@ After all resources are loaded, the session is initialised, and the authenticati
 If the user is not a match, or conditions are not good to successfuly authenticate, they will be asked to retry authentication. If authentication is not possible, the page will rollback to the previous step.
 
 **The Authentication module is currently a BETA feature.**
-
 
 #### complete
 
