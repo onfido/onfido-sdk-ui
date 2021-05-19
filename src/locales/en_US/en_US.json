@@ -369,6 +369,7 @@
         "body_record": "Press record and follow the instructions",
         "body_stop": "When you’re done, press stop",
         "button_primary_next": "Next",
+        "button_primary_done": "Done",
         "button_record_accessibility": "Start recording",
         "button_stop_accessibility": "Stop recording",
         "frame_accessibility": "View from camera",

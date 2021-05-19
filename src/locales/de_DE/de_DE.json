@@ -369,6 +369,7 @@
         "body_record": "Drücken Sie auf Aufnahme und folgen Sie den Anweisungen",
         "body_stop": "Wenn Sie fertig sind, drücken Sie Stopp",
         "button_primary_next": "Weiter",
+        "button_primary_done": "Done",
         "button_primary_start": "Aufnahme starten",
         "button_record_accessibility": "Aufnahme starten",
         "button_stop_accessibility": "Aufnahme stoppen",

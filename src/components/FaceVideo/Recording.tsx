@@ -46,13 +46,15 @@ const Recording: FunctionComponent<Props> = ({
           {translate('video_capture.button_primary_next')}
         </Button>
       ) : (
-        <button
-          type="button"
-          aria-label={translate('video_capture.button_stop_accessibility')}
+        <Button
+          variant="primary"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
           disabled={disableInteraction}
           onClick={onStop}
-          className={classNames(style.btn, style.stopRecording)}
-        />
+          data-onfido-qa="liveness-stop-recording-btn"
+        >
+          {translate('video_capture.button_primary_done')}
+        </Button>
       )}
     </div>
   </div>

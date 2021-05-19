@@ -369,6 +369,7 @@
         "body_record": "Presione grabar y siga las instrucciones",
         "body_stop": "Cuando esté listo, presione parar",
         "button_primary_next": "Siguiente",
+        "button_primary_done": "Done",
         "button_primary_start": "Iniciar grabación",
         "button_record_accessibility": "Iniciar grabación",
         "button_stop_accessibility": "Parar grabación",
