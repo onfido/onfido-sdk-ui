@@ -1,0 +1,31 @@
+# Default state for all rules
+default: true
+
+# MD013/line-length - Line length
+MD013:
+  # Include tables
+  tables: false
+  # Strict length checking
+  strict: false
+  # Stern length checking
+  stern: false
+
+# MD024/no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
+MD024:
+  # Only check sibling headings
+  allow_different_nesting: true
+  # Only check sibling headings
+  siblings_only: true
+
+# MD029/ol-prefix - Ordered list item prefix
+MD029:
+  # List style
+  style: 'one_or_ordered'
+
+# MD034/no-bare-urls - Bare URL used
+MD034: false
+
+# MD046/code-block-style - Code block style
+MD046:
+  # Block style
+  style: 'fenced'
