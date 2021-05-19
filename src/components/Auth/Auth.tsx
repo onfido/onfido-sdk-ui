@@ -8,6 +8,7 @@ import type { StepComponentBaseProps } from '~types/routers'
 import { useCallback, useEffect, useState } from 'preact/hooks'
 import Loader from './assets/loaderSvg'
 import style from './style.scss'
+import { useLocales } from '~locales'
 
 type Props = StepComponentBaseProps & WithLocalisedProps
 
@@ -19,6 +20,8 @@ type AuthConfigType = {
 }
 
 const AuthCapture: FunctionComponent<Props> = (props) => {
+  const { translate } = useLocales()
+
   const [authConfig, setAuthConfig] = useState<AuthConfigType>({
     token: '',
     production_key_text: '',
@@ -37,7 +40,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
         props.events
       )
     }
-  }, [authConfig, props])
+  }, [authConfig, props.back, props.events, props.nextStep, props.token])
 
   useEffect(() => {
     const initFaceTec = () => {
@@ -55,7 +58,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
         atob(public_key),
         (initializedSuccessfully: boolean) => {
           if (initializedSuccessfully) {
-            FaceTecSDK.configureLocalization(FaceTecStrings(props.translate))
+            FaceTecSDK.configureLocalization(FaceTecStrings(translate))
             setSessionInit(true)
             onLivenessCheckPressed()
           }
@@ -82,7 +85,9 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
       }
       XHR.send(JSON.stringify(body))
     }
-    if (FaceTecSDK.getStatus() === 1) setSessionInit(true)
+    if (FaceTecSDK.getStatus() === 1) {
+      setSessionInit(true)
+    }
     if (FaceTecSDK.getStatus() === 0 && !sessionInit) {
       FaceTecSDK.setCustomization(
         Config.getAuthCustomization(false, props.customUI || {})
@@ -90,12 +95,22 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
       FaceTecSDK.setDynamicDimmingCustomization(
         Config.getAuthCustomization(true, props.customUI || {})
       )
-      if (authConfig.token && !sessionInit) initFaceTec()
-      else getConfig()
+      if (authConfig.token && !sessionInit) {
+        initFaceTec()
+      } else {
+        getConfig()
+      }
     } else if (authConfig.token.length === 0) {
       getConfig()
     }
-  }, [sessionInit, props, authConfig, props.translate, onLivenessCheckPressed])
+  }, [
+    sessionInit,
+    authConfig,
+    translate,
+    onLivenessCheckPressed,
+    props.token,
+    props.customUI,
+  ])
 
   useEffect(() => {
     if (authConfig.token && sessionInit) onLivenessCheckPressed()

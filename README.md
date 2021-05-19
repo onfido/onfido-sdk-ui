@@ -129,6 +129,8 @@ You can include the library as a regular script tag on your page:
 <script src="dist/onfidoAuth.min.js"></script>
 ```
 
+⚠️ **The Authentication module is currently a BETA feature.**
+
 And the CSS styles:
 
 ```html
@@ -575,26 +577,26 @@ The Web SDK supports customization options across the SDK screen including text,
   | Auth Module Colors (shared) | Description                                                                                                                                                                                                                                                                                                                                                                                |
   | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
   | `authAccentColor`           | <ul><li>Change color of activity indicator animation shown during server-side work</li><li> Change background color of result animation</li><li> Change background color of the upload progress bar</li> </ul>                                                                                                                                                                             |
-  | `authFrameColor`            | <ul><li>Change the color of the border and background surrounding the oval outline Auth session</li><li>Change background color of the Auth Overlay.</li><li>Change background color for the New User Guidance and Retry Screens.</li><li> Change background color of Result screen and Result animation foreground</li><li>Change background color of initial loading animation</li></ul> |
-  | `authButtonCornerRadius`    | <ul><li>Change corner radius of the action button's border during the New User Guidance and Retry Screens.</li><li>Change corner radius of the Auth Feedback Bar.</li></ul>                                                                                                                                                                                                                |
+  | `authFrameColor`            | <ul><li>Change the color of the border and background surrounding the oval outline Auth session</li><li>Change background color of the Auth Overlay.</li><li>Change background color for the New User Guidance and Retry screens.</li><li> Change background color of Result screen and Result animation foreground</li><li>Change background color of initial loading animation</li></ul> |
+  | `authButtonCornerRadius`    | <ul><li>Change corner radius of the action button's border during the New User Guidance and Retry screens.</li><li>Change corner radius of the Auth Feedback bar.</li></ul>                                                                                                                                                                                                                |
 
   | Auth Module Colors (unique) | Description                                                                                                              |
   | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
   | `authDualSpinnercolor`      | Change animated Auth Progress Spinner strokes.                                                                           |
   | `authRetryScreenovalcolor`  | Change oval's stroke that overlays the Ideal image example during the first Retry Screen.                                |
   | `authOvalColor`             | Change color of Auth Oval outline                                                                                        |
-  | `authButtonColorNormal`     | Change background color of the action button during the New User Guidance and Retry Screens.                             |
-  | `authButtonColorDisabled`   | Change background color of the action button when the button is disabled during the New User Guidance and Retry Screens. |
-  | `authButtonColorPressed`    | Change background color of the action button when the button is pressed during the New User Guidance and Retry Screens.  |
-  | `authFeedbackBarColor`      | Change background color of the Auth Feedback Bar. Recommend making this have some transparency.                          |
+  | `authButtonColorNormal`     | Change background color of the action button during the New User Guidance and Retry screens.                             |
+  | `authButtonColorDisabled`   | Change background color of the action button when the button is disabled during the New User Guidance and Retry screens. |
+  | `authButtonColorPressed`    | Change background color of the action button when the button is pressed during the New User Guidance and Retry screens.  |
+  | `authFeedbackBarColor`      | Change background color of the Auth Feedback bar. Recommend making this have some transparency.                          |
 
   | Auth Module Text Colors        | Description                                                                                                                                                                                                                                                                                                         |
   | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | `authTextColor`                | <ul><li>Change color of text displayed on the New User Guidance and Retry Screens (not including the action button text).</li><li>Change color of text displayed on the Result Screen.</li><li>Change color of loading spinner foreground fill and message text shown to the user while the camera loads.</li></ul> |
-  | `authButtonTextHighlightColor` | Change color of the action button's text when the button is pressed during the New User Guidance and Retry Screens.                                                                                                                                                                                                 |
-  | `authButtonTextDisabledColor`  | Change color of the action button's text when the button is disabled during the New User Guidance and Retry Screens.                                                                                                                                                                                                |
-  | `authButtonTextNormalColor`    | Change color of the action button's text during the New User Guidance and Retry Screens                                                                                                                                                                                                                             |
-  | `authFeedbackBarTextColor`     | Change color of text displayed within the Auth Browser SDK Feedback Bar                                                                                                                                                                                                                                             |
+  | `authTextColor`                | <ul><li>Change color of text displayed on the New User Guidance and Retry screens (not including the action button text).</li><li>Change color of text displayed on the Result Screen.</li><li>Change color of loading spinner foreground fill and message text shown to the user while the camera loads.</li></ul> |
+  | `authButtonTextHighlightColor` | Change color of the action button's text when the button is pressed during the New User Guidance and Retry screens.                                                                                                                                                                                                 |
+  | `authButtonTextDisabledColor`  | Change color of the action button's text when the button is disabled during the New User Guidance and Retry screens.                                                                                                                                                                                                |
+  | `authButtonTextNormalColor`    | Change color of the action button's text during the New User Guidance and Retry screens                                                                                                                                                                                                                             |
+  | `authFeedbackBarTextColor`     | Change color of text displayed within the Auth Browser SDK Feedback bar                                                                                                                                                                                                                                             |
 
 ### Language Localization
 
@@ -923,13 +925,11 @@ The custom options are:
 
 #### auth
 
-This is Authentication step. If you have followed the guidelines specific to including auth, you'll have this step made available. In here, a loading screen is presented to the user to fetch all necessary resources to perform authentication.
+This is the authentication step. If you have followed the guidelines specific to including authentication, you'll have this step made available. In here, a loading screen is presented to the user to fetch all necessary resources to perform authentication.
 
-After all resources are loaded, the session is initialised, and the authentication check begins. An oval frame of the camera will be present (if camera permissions are provided) and actionable elements will render, asking the user to place their face in frame, followed up by a different set of instructions for them to follow to successfully authenticate the user.
+After all resources are loaded, the session is initialized, and the authentication check begins. An oval frame of the camera will be present (if camera permissions are provided) and actionable elements will render, asking the user to place their face in the frame, followed up by a different set of instructions for them to follow to successfully authenticate the user.
 
-If the user is not a match, or conditions are not good to successfuly authenticate, they will be asked to retry authentication. If authentication is not possible, the page will rollback to the previous step.
-
-**The Authentication module is currently a BETA feature.**
+If the user is not a match, or conditions are not good enough to successfully authenticate, the user will be asked to retry authentication. If authentication is not possible, the page will rollback to the previous step.
 
 #### complete
 
