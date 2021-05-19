@@ -9,6 +9,7 @@ import { useCallback, useEffect, useState } from 'preact/hooks'
 import Loader from './assets/loaderSvg'
 import style from './style.scss'
 import { useLocales } from '~locales'
+import { useSdkOptions } from '~contexts'
 
 type Props = StepComponentBaseProps & WithLocalisedProps
 
@@ -20,7 +21,9 @@ type AuthConfigType = {
 }
 
 const AuthCapture: FunctionComponent<Props> = (props) => {
+  const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
+  const retries = findStep('auth')?.options?.retries || 3
 
   const [authConfig, setAuthConfig] = useState<AuthConfigType>({
     token: '',
@@ -34,6 +37,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
     if (authConfig.token && props.token && props.nextStep) {
       new AuthCheckProcessor(
         authConfig,
+        retries,
         props.token,
         props.nextStep,
         props.back,

@@ -22,9 +22,12 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   goBack
   events
   authConfig
+  retryCount
+  maxRetries
 
   constructor(
     authConfig: AuthConfigType,
+    maxRetries: number,
     sdkToken: string | undefined,
     nextStep: () => void,
     goBack: () => void,
@@ -37,7 +40,8 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
     this.events = events
 
     this.authConfig = authConfig
-
+    this.retryCount = 0
+    this.maxRetries = maxRetries
     //
     // Part 1:  Starting the FaceTec Session
     //
@@ -118,9 +122,12 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
             this.nextStep()
           } else if (responseObj.success === false) {
             this.success = false
+            this.retryCount = this.retryCount + 1
 
             console.warn('User needs to retry, invoking retry.')
-            faceScanResultCallback.retry()
+            if (this.retryCount < this.maxRetries) {
+              faceScanResultCallback.retry()
+            } else faceScanResultCallback.cancel()
           } else {
             this.success = false
 
