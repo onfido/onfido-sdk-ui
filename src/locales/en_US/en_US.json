@@ -376,7 +376,8 @@
             "challenge_digit_instructions": "Say each digit out loud",
             "challenge_turn_left": "left",
             "challenge_turn_right": "right",
-            "challenge_turn_template": "Look over your %{side} shoulder"
+            "challenge_turn_template": "Look over your %{side} shoulder",
+            "challenge_turn_next_step": "then face forward"
         },
         "status": "Recording"
     },

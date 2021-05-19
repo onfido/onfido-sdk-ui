@@ -11,17 +11,27 @@ import type { WithLocalisedProps } from '~types/hocs'
 type ChallengeContainerProps = {
   title: string
   renderInstructions: () => h.JSX.Element
+  movementChallengeSubTitle?: string
 }
 
 const ChallengeContainer: FunctionComponent<ChallengeContainerProps> = ({
   title,
   renderInstructions,
+  movementChallengeSubTitle,
 }) => (
   <div>
-    <PageTitle title={title} className={style.challengeTitle} />
+    {/* <PageTitle title={title} className={style.challengeTitle} /> */}
+    <span role="heading" aria-level="1" className={style.challengeTitle}>
+      {title}
+    </span>
     <div aria-level="2" className={style.challengeDescription}>
       {renderInstructions()}
     </div>
+    {movementChallengeSubTitle && (
+      <span role="heading" aria-level="1" className={style.challengeTitle}>
+        {movementChallengeSubTitle}
+      </span>
+    )}
   </div>
 )
 
@@ -60,6 +70,9 @@ const Challenge: FunctionComponent<Props> = ({ challenge, translate }) => {
               style[`movement-${challenge.query}`]
             )}
           />
+        )}
+        movementChallengeSubTitle={translate(
+          'video_capture.header.challenge_turn_next_step'
         )}
       />
     )
