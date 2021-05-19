@@ -928,62 +928,50 @@ The new options will be shallowly merged with the previous one, so you can only 
 
 ## Creating checks
 
-This SDK’s aim is to help with the document capture process. It does not actually perform the full document/face checks against our [API](https://documentation.onfido.com/).
-
-In order to perform a full document/face check, you need to call our [API](https://documentation.onfido.com/) to create a check for the applicant on your backend.
+The SDK is responsible for the capture of identity documents and selfie photos and videos. It doesn't perform any checks against the [Onfido API](https://documentation.onfido.com/). You need to access the Onfido API in order to manage applicants and perform checks.
 
 ### 1. Creating a check
 
-With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-reports).
-The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report.
-The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the report name you should include in your request.
-Example of data returned by the `onComplete` callback:
-`{face: {variant: 'standard' | 'video'}}`
+For a walkthrough of how to create a document and facial similarity check using the Web SDK read our [Web SDK Quick Start guide](https://developers.onfido.com/guide/web-sdk-quick-start).
 
-When the `variant` returned is `standard`, you should include `facial_similarity_photo` in the `report_names` array.
-If the `variant` returned is `video`, you should include `facial_similarity_video` in the `report_names` array.
+For further details on how to [create a check](https://documentation.onfido.com/#create-check) with the Onfido API.
 
-```shell
-$ curl https://api.onfido.com/v3/checks \
-    -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d '{
-      "applicant_id": "<APPLICANT_ID>",
-      "report_names": ["document", "facial_similarity_photo" | "facial_similarity_video"]
-    }'
-```
+Note: If you are testing with a sandbox token, please be aware that the results are pre-determined. You can learn more about [sandbox responses](https://documentation.onfido.com/#pre-determined-responses).
 
 Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
-You will receive a response containing the check id instantly. As document and facial similarity reports do not always return actual [results](https://documentation.onfido.com/#results) straightaway, you need to set up a webhook to get notified when the results are ready.
-
-Finally, as you are testing with the sandbox token, please be aware that the results are pre-determined. You can learn more about sandbox responses [here](https://documentation.onfido.com/#pre-determined-responses).
-
 ### 2. Setting up webhooks
 
-Refer to the [Webhooks](https://documentation.onfido.com/#webhooks) section in the API documentation for details.
+Reports may not always return actual [results](https://documentation.onfido.com/#results) straightaway.
+
+You can [set up webhooks](https://developers.onfido.com/guide/get-started-integrating#set-up-a-webhook) to be notified upon completion of a check or report, or both.
 
 ## User Analytics
 
-The SDK allows you to track the user's journey through the verification process via a dispatched event. This is meant to give some insight into how your user's make use of the SDK screens.
+The SDK allows you to track a user's journey through the verification process via a dispatched event. This gives insight into how your users make use of the SDK screens.
 
 ### Overriding the hook
 
-In order to expose the user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application and might look something like the following:
+In order to track a user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application.
+
+For example:
 
 ```javascript
 addEventListener('userAnalyticsEvent', (event) => /*Your code here*/);
 ```
 
-The code inside of the `EventListener` will now be called when a particular event is triggered, usually when the user reaches a new screen. For a full list of events see the bottom of this section.
+The code inside of the `EventListener` will now be called when a particular event is triggered. For a full list of events see [tracked events](#tracked-events).
 
-The parameter being passed in is an `Event` object, the details related to the user analytics event can be found at the path `event.detail` and are as follows:
+The parameter being passed in is an `Event` object. The details related to the user analytics event can be found at the path `event.detail` and are as follows:
 
-- `eventName`: A `String` indicating the type of event. Currently will always this return as `"Screen"` as each tracked event is a user visiting a screen. In the future more event types may become available for tracking.
-- `properties`: A `Map` object containing the specific details of an event. This will contain things such as the `name` of the screen visited.
+|              |                                                                                                                                              |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `eventName`  | **string** <br /> Indicates the type of event. This will always be returned as `"Screen"` as each tracked event is a user visiting a screen. |
+| `properties` | **map object** <br /> Contains the specific details of an event. For example, the name of the screen visited.                                |
 
 ### Using the data
 
-Currently we recommend using the above hook to keep track of how many user's reach each screen in your flow. This can be done by storing the count of users that reach each screen and comparing them to the amount of user's who've made it to the `Welcome` screen.
+You can use the data to monitor how many users reach each screen in your flow. You can do this by storing the number of users that reach each screen and comparing that to the number of users who reached the `Welcome` screen.
 
 ### Tracked events
 
@@ -1012,13 +1000,13 @@ UPLOAD - User's file is uploading
 
 ## Premium Enterprise Features
 
-These features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
+The following features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
 
-### Customized API Requests - Premium Enterprise Feature
+### Customized API Requests
 
-This premium enterprise feature enables you to control the data collected by the Onfido SDK through the use of callbacks that are invoked when the user submits their captured media. These callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. The callback for video is not supported yet.
+This premium enterprise feature enables you to control the data collected by the Onfido SDK by using callbacks that are invoked when the end user submits their captured media. The callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next.
 
-Example:
+Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. Note: The callback for video is not supported yet.
 
 ```javascript
 Onfido.init({
@@ -1039,7 +1027,7 @@ To enable callbacks on the cross-device flow you must also host the cross-device
 
 #### Callbacks Overview
 
-The callbacks will provide you with a FormData object including the information that the SDK would send to Onfido. These callbacks will be invoked when the user confirms their image on the UI and won’t send the request to Onfido unless requested in the response.
+The callbacks return a FormData object, including the information that the SDK would send to Onfido. The callbacks are invoked when the end user confirms their image through the user interface. The request will not be sent to Onfido unless requested in the response.
 
 **onSubmitDocument FormData Paramaters**
 
@@ -1068,11 +1056,9 @@ The callbacks will provide you with a FormData object including the information 
 
 ```
 
-**Allowing the SDK to upload data to Onfido**
+##### Allowing the SDK to upload data to Onfido
 
-If you would like the SDK to upload the user-submitted data to Onfido you can resolve the promise with an object containing `continueWithOnfidoUpload: true`
-
-Example:
+If you would like the SDK to upload the user-submitted data directly to Onfido you can resolve the promise with an object containing `continueWithOnfidoUpload: true`
 
 ```javascript
 onSubmitDocument: (data) => {
@@ -1081,19 +1067,17 @@ onSubmitDocument: (data) => {
 })
 ```
 
-**Providing the SDK with the Onfido response**
+##### Providing the SDK with the Onfido response
 
-If you would like to upload the data yourself from your backend, we strongly recommend that you add all of the data provided to you through the callbacks in your request to the appropriate endpoint - `/documents` or `/live_photos`. Additionally, you should use the SDK token created for each applicant in the `Authorization` header of the request as shown below. Please note, the SDK token is not included in the FormData provided by the callbacks. You may want to append this or some other unique identifier that is mapped to the applicant's SDK token on your backend before sending it off.
-
-Example:
+You can choose to upload the data to Onfido yourself from your backend. We strongly recommend that you add all of the data provided to you through the callbacks in your request to the appropriate endpoint - `/documents` or `/live_photos`. Additionally, you should use the SDK token created for each applicant in the `Authorization` header of the request as shown below. Note: The SDK token is not included in the FormData provided by the callbacks. You may want to append this, or a different unique identifier that is mapped to the applicant's SDK token, on your backend before sending it off.
 
 ```
 Authorization: Bearer <SDK token here>
 ```
 
-Once you have sent the request to Onfido yourself, you can supply the SDK with the response so it can determine what the user should be presented with. In the case where a success response is received, the promise should be resolved with `onfidoSuccessResponse: <onfidoResponse>`, otherwise reject the promise with the Onfido error response. Please note that an error response could be returned due to image quality issues and the SDK will present the user with the appropriate error message.
+Once you have sent the request to Onfido yourself, you can supply the SDK with the response so it can determine what the end user should be presented with. In the case where a success response is received, the promise should be resolved with `onfidoSuccessResponse: <onfidoResponse>`. Otherwise reject the promise with the Onfido error response.
 
-Example:
+Note: An error response could be returned due to image quality issues. In this case, the SDK will present the end user with the appropriate error message.
 
 ```javascript
 onSubmitDocument: (data) => {
@@ -1105,7 +1089,7 @@ onSubmitDocument: (data) => {
 
 ```
 
-Below is a sample openAPI YAML file you could use as an example to start your own proxy.
+This is a sample openAPI YAML file you could use as an example to start your own proxy.
 
 ```yaml
 openapi: 3.0.0
@@ -1314,9 +1298,9 @@ paths:
                 type: object
 ```
 
-### Cross device URL - Premium Enterprise Feature
+### Cross device URL
 
-This feature allows you to specify your own custom or whitelabel url that the cross device flow will redirect to instead of the Onfido default `id.onfido.com`. To use this feature generate a SDK token as shown below and use it to start the SDK.
+This premium enterprise feature allows you to specify your own custom or whitelabel url that the cross device flow will redirect to instead of the Onfido default `id.onfido.com`. To use this feature generate an SDK token as shown below and use it to start the SDK.
 
 ```shell
 $ curl https://api.onfido.com/v3/sdk_token \
@@ -1328,11 +1312,14 @@ $ curl https://api.onfido.com/v3/sdk_token \
 
 In addition to this, you must either:
 
-1. Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`. This can be done by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido-hosted Web SDK.
+- Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`
+- Set up a server to host the Onfido Web SDK yourself at the provided URL
 
-Below is an example set-up for a minimal nginx server using docker.
+#### Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`
 
-**Example**
+You can do this by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido-hosted Web SDK.
+
+An example set-up for a minimal nginx server using docker:
 
 nginx.conf
 
@@ -1358,13 +1345,11 @@ FROM nginx:1.15.8-alpine
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 ```
 
-2. Set up a server to host the Onfido Web SDK yourself at the provided URL. This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
+#### Set up a server to host the Onfido Web SDK yourself at the provided URL
 
-Below is an example of how you could host the Onfido Web SDK with minimal setup, but it does not have to be done this way.
+This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
 
-**Example**
-
-This example involves using docker and an nginx image to serve an html file which starts the Onfido Web SDK using just the minified js and css files from the dist directory. (`onfido-sdk-ui/dist/onfido.min.js` and `onfido-sdk-ui/dist/style.css`)
+This is an example of how you could host the Onfido Web SDK with minimal setup, but it does not have to be done this way. This example involves using docker and an nginx image to serve an html file which starts the Onfido Web SDK using just the minified js and css files from the dist directory. (`onfido-sdk-ui/dist/onfido.min.js` and `onfido-sdk-ui/dist/style.css`)
 
 To help with getting the correct version of the Web SDK, we append the Onfido files with the base32 version that is associated with each release. This value can be obtained from the first 2 characters in the appended path when using the cross-device flow. For example, if the current release appends a path that starts with `BW` we would rename the minified files `BW-onfido.min.js` and `BW-style.css` for this example to work.
 
@@ -1473,12 +1458,12 @@ index.html
 
 ## Going live
 
-Once you are happy with your integration and are ready to go live, please contact [client-support@onfido.com](mailto:client-support@onfido.com) to obtain live version of the API token. We will have to replace the sandbox token in your code with the live token.
+Once you are happy with your integration and are ready to go live, please contact [client-support@onfido.com](mailto:client-support@onfido.com) to obtain a live API token. You will have to replace the sandbox token in your code with the live token.
 
-A few things to check before you go live:
+Check the following before you go live:
 
-- Make sure you have set up webhooks to receive live events
-- Make sure you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
+- you have set up [webhooks](https://documentation.onfido.com/#webhooks) to receive live events
+- you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
 
 ## Accessibility
 
@@ -1491,20 +1476,18 @@ The Onfido SDK has been optimised to provide the following accessibility support
 
 Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
 
-### Note
-
-If you are making your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible color contrast ratios and dyslexic friendly fonts.
+⚠️ Note: If you make your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards. For example, accessible color contrast ratios and dyslexic friendly fonts.
 
 ## TypeScript
 
 From version `6.5.0`, TypeScript is officially supported, providing typings for:
 
-- `init()` method.
-- `options` argument (`SdkOptions`) and return object (`SdkHandle`) of `init()` method.
-- Arguments (`SdkResponse` and `SdkError`) for `onComplete()` and `onError()` callbacks.
-- `steps` option (`StepTypes` and `StepConfig`).
-- `language` option (`SupportedLanguages` and `LocaleConfig`).
-- `region` option (`ServerRegions`).
+- `init()` method
+- `options` argument (`SdkOptions`) and return object (`SdkHandle`) of `init()` method
+- Arguments (`SdkResponse` and `SdkError`) for `onComplete()` and `onError()` callbacks
+- `steps` option (`StepTypes` and `StepConfig`)
+- `language` option (`SupportedLanguages` and `LocaleConfig`)
+- `region` option (`ServerRegions`)
 
 ## More information
 
@@ -1520,7 +1503,7 @@ From version `6.5.0`, TypeScript is officially supported, providing typings for:
 
 #### Content Security Policy issues
 
-In order to mitigate potential cross-site scripting issues, most modern browsers use Content Security Policy (CSP). These policies might prevent the SDK from correctly displaying the images captured during the flow or to correctly load styles. If CSP is blocking some of the SDK functionalities, make sure you add the following snippet inside the `<head>` tag of your application.
+In order to mitigate potential cross-site scripting issues, most modern browsers use a Content Security Policy (CSP). These policies might prevent the SDK from correctly displaying the images captured during the flow or correctly load styles. If CSP is blocking some of the SDK functionalities, make sure you add the following snippet inside the `<head>` tag of your application.
 
 ```html
 <meta
@@ -1541,7 +1524,7 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
 #### SDK navigation issues
 
 In rare cases, the SDK back button might not work as expected within the application history. This is due to the interaction of `history/createBrowserHistory` with the browser history API.
-If you notice that by clicking on the SDK back button, you get redirected to the page that preceeded the SDK initialisation, you might want to consider using the following configuration option when initialising the SDK: `useMemoryHistory: true`. This option allows the SDK to use the `history/createMemoryHistory` function, instead of the default `history/createBrowserHistory`. This option is intended as workaround, while a more permanent fix is implemented.
+If you notice that by clicking on the SDK back button, you get redirected to the page that preceeded the SDK initialization, you might want to consider using the following configuration option when initialising the SDK: `useMemoryHistory: true`. This option allows the SDK to use the `history/createMemoryHistory` function, instead of the default `history/createBrowserHistory`. This option is intended as workaround, while a more permanent fix is implemented.
 
 Example:
 
@@ -1557,7 +1540,7 @@ Please open an issue through [GitHub](https://github.com/onfido/onfido-sdk-ui/is
 
 If you have any issues that contain sensitive information please send us an email with the ISSUE: at the start of the subject to [web-sdk@onfido.com](mailto:web-sdk@onfido.com).
 
-Previous version of the SDK will be supported for a month after a new major version release. Note that when the support period has expired for an SDK version, no bug fixes will be provided, but the SDK will keep functioning (until further notice).
+Previous versions of the SDK will be supported for a month after a new major version release. Note that when the support period has expired for an SDK version, no bug fixes will be provided, but the SDK will keep functioning (until further notice).
 
 ## How is the Onfido SDK licensed?
 
