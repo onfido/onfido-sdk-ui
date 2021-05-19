@@ -30,11 +30,6 @@ const Recording: FunctionComponent<Props> = ({
   <div>
     <div className={style.caption}>{children}</div>
     <div className={style.actions}>
-      <div className={style.captureActionsHint}>
-        {translate(
-          hasMoreSteps ? 'video_capture.body_next' : 'video_capture.body_stop'
-        )}
-      </div>
       {hasMoreSteps ? (
         <Button
           variant="primary"

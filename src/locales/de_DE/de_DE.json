@@ -365,14 +365,11 @@
     },
     "video_capture": {
         "body": "Positionieren Sie Ihr Gesicht im Oval",
-        "body_next": "Wenn Sie fertig sind, klicken Sie auf Weiter",
         "body_record": "Drücken Sie auf Aufnahme und folgen Sie den Anweisungen",
-        "body_stop": "Wenn Sie fertig sind, drücken Sie Stopp",
         "button_primary_finish": "Aufnahme beenden",
         "button_primary_next": "Nächster Schritt",
         "button_primary_start": "Aufnahme starten",
         "button_record_accessibility": "Aufnahme starten",
-        "button_stop_accessibility": "Aufnahme stoppen",
         "frame_accessibility": "Ansicht von der Kamera",
         "header": {
             "challenge_digit_instructions": "Sprechen Sie jede Ziffer laut aus",

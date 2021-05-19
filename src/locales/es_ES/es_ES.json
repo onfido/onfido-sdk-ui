@@ -365,14 +365,11 @@
     },
     "video_capture": {
         "body": "Coloque su cara en el óvalo",
-        "body_next": "Cuando esté listo, presione continuar",
         "body_record": "Presione grabar y siga las instrucciones",
-        "body_stop": "Cuando esté listo, presione parar",
         "button_primary_finish": "Finalizar grabación",
         "button_primary_next": "Siguiente paso",
         "button_primary_start": "Iniciar grabación",
         "button_record_accessibility": "Iniciar grabación",
-        "button_stop_accessibility": "Parar grabación",
         "frame_accessibility": "Vista desde la cámara",
         "header": {
             "challenge_digit_instructions": "Lea en voz alta cada dígito",
