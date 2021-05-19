@@ -4,10 +4,19 @@
   line-height: 2.25;
 }
 
-.challengeTitle {
+%_challenge-text {
   font-weight: 600;
   font-size: 20 * $unit;
+}
+
+.challengeTitle {
+  @extend %_challenge-text;
   line-height: 1.2;
+}
+
+.challengeSubTitle {
+  @extend %_challenge-text;
+  line-height: 2;
 }
 
 .introCopy {
