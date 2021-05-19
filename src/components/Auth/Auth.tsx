@@ -28,6 +28,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
   const [sessionInit, setSessionInit] = useState(false)
 
   useEffect(() => {
+    if (FaceTecSDK.getStatus() === 1) setSessionInit(true)
     if (FaceTecSDK.getStatus() === 0 && !sessionInit) {
       FaceTecSDK.setCustomization(
         Config.getAuthCustomization(false, props.customUI || {})
@@ -37,8 +38,14 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
       )
       if (authConfig.token && !sessionInit) initFaceTec()
       else getConfig()
-    } else onLivenessCheckPressed()
+    } else if (authConfig.token.length === 0) {
+      getConfig()
+    }
   })
+
+  useEffect(() => {
+    if (authConfig.token && sessionInit) onLivenessCheckPressed()
+  }, [authConfig.token])
 
   const initFaceTec = () => {
     const authAlias = '../../../../auth-sdk/FaceTec/'
@@ -90,6 +97,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
         authConfig,
         props.token,
         props.nextStep,
+        props.back,
         props.events
       )
     }

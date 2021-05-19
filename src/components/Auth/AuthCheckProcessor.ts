@@ -19,6 +19,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   success
   sdkToken
   nextStep
+  goBack
   events
   authConfig
 
@@ -26,11 +27,13 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
     authConfig: AuthConfigType,
     sdkToken: string | undefined,
     nextStep: () => void,
+    goBack: () => void,
     events?: EventEmitter2.emitter
   ) {
     this.sdkToken = sdkToken
     this.success = false
     this.nextStep = nextStep
+    this.goBack = goBack
     this.events = events
 
     this.authConfig = authConfig
@@ -133,7 +136,6 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
           const message =
             'Exception while handling API response, cancelling out.'
           this.events?.emit('error', { type: 'exception', message })
-          // FaceTecSDK.unload(() => {})
         } catch {
           this.success = false
           const message =
@@ -141,9 +143,6 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
           this.events?.emit('error', { type: 'exception', message })
           faceScanResultCallback.cancel()
           this.nextStep()
-          FaceTecSDK.unload(() => {
-            console.log('unload')
-          })
         }
       }
     }
@@ -176,6 +175,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   onFaceTecSDKCompletelyDone = (): void => {
     // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after logic signals the FaceTec SDK with a success() or cancel().
     // Calling a custom function on the Sample App Controller is done for demonstration purposes to show you that here is where you get control back from the FaceTec SDK.
+    this.goBack()
     console.info(
       'FaceTecSDK session has finished. Session results are unknown.'
     )
