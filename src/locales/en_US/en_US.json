@@ -299,7 +299,7 @@
                 "title": "Camera not working"
             },
             "timeout": {
-                "detail": "Remember to press stop when you’re done. <fallback>Redo video actions<\/fallback>",
+                "detail": "Remember to press the button when you’re done. <fallback>Redo video actions<\/fallback>",
                 "title": "Looks like you took too long"
             }
         },
@@ -374,12 +374,14 @@
         "frame_accessibility": "View from camera",
         "header": {
             "challenge_digit_instructions": "Say each digit out loud",
-            "challenge_turn_left": "left",
-            "challenge_turn_right": "right",
-            "challenge_turn_template": "Look over your %{side} shoulder",
-            "challenge_turn_next_step": "then face forward"
+            "challenge_turn_forward": "then face forward",
+            "challenge_turn_left": "Turn your head left",
+            "challenge_turn_right": "Turn your head right",
+            "challenge_turn_template": "Look over your %{side} shoulder"
         },
-        "status": "Recording"
+        "prompt": {
+            "header_timeout": "Looks like you took too long"
+        }
     },
     "video_confirmation": {
         "title": "Check selfie video",

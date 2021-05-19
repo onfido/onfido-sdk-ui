@@ -299,7 +299,7 @@
                 "title": "Su cámara no esta funcionando"
             },
             "timeout": {
-                "detail": "Recuerde presionar detener cuando esté listo. <fallback>Rehacer acciones<\/fallback>",
+                "detail": "Recuerde presionar el botón cuando haya terminado. <fallback>Rehacer acciones<\/fallback>",
                 "title": "Parece que ha demorado demasiado"
             }
         },
@@ -369,16 +369,20 @@
         "body_record": "Presione grabar y siga las instrucciones",
         "body_stop": "Cuando esté listo, presione parar",
         "button_primary_next": "Siguiente",
+        "button_primary_start": "Iniciar grabación",
         "button_record_accessibility": "Iniciar grabación",
         "button_stop_accessibility": "Parar grabación",
         "frame_accessibility": "Vista desde la cámara",
         "header": {
             "challenge_digit_instructions": "Lea en voz alta cada dígito",
-            "challenge_turn_left": "izquierdo",
-            "challenge_turn_right": "derecho",
+            "challenge_turn_forward": "luego vuelva a mirar hacia delante",
+            "challenge_turn_left": "Mire sobre su hombro izquierdo",
+            "challenge_turn_right": "Mire sobre su hombro derecho",
             "challenge_turn_template": "Mire sobre su hombro %{side}"
         },
-        "status": "Grabando"
+        "prompt": {
+            "header_timeout": "Parece que ha demorado demasiado"
+        }
     },
     "video_confirmation": {
         "title": "Verifique video",
