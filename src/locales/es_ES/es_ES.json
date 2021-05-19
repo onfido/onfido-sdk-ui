@@ -368,8 +368,8 @@
         "body_next": "Cuando esté listo, presione continuar",
         "body_record": "Presione grabar y siga las instrucciones",
         "body_stop": "Cuando esté listo, presione parar",
-        "button_primary_next": "Siguiente",
-        "button_primary_done": "Done",
+        "button_primary_finish": "Finalizar grabación",
+        "button_primary_next": "Siguiente paso",
         "button_primary_start": "Iniciar grabación",
         "button_record_accessibility": "Iniciar grabación",
         "button_stop_accessibility": "Parar grabación",
@@ -386,6 +386,9 @@
         }
     },
     "video_confirmation": {
+        "body": "Su video ha sido grabado",
+        "button_primary": "Enviar video",
+        "button_secondary": "Retomar el video",
         "title": "Verifique video",
         "video_accessibility": "Reproducir su video grabado"
     },

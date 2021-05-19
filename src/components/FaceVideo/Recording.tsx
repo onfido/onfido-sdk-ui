@@ -53,7 +53,7 @@ const Recording: FunctionComponent<Props> = ({
           onClick={onStop}
           data-onfido-qa="liveness-stop-recording-btn"
         >
-          {translate('video_capture.button_primary_done')}
+          {translate('video_capture.button_primary_finish')}
         </Button>
       )}
     </div>
