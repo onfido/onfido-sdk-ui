@@ -133,9 +133,6 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
             type: 'complete',
             ...responseObj,
           })
-          const message =
-            'Exception while handling API response, cancelling out.'
-          this.events?.emit('error', { type: 'exception', message })
         } catch {
           this.success = false
           const message =
