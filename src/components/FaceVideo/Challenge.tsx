@@ -1,12 +1,11 @@
 import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 
-import { localised } from '../../locales'
 import PageTitle from '../PageTitle'
+import { useLocales } from '~locales'
 import style from './style.scss'
 
 import type { ChallengePayload } from '~types/api'
-import type { WithLocalisedProps } from '~types/hocs'
 
 type ChallengeContainerProps = {
   title: string
@@ -39,9 +38,9 @@ type ChallengeProps = {
   challenge: ChallengePayload
 }
 
-type Props = ChallengeProps & WithLocalisedProps
+const Challenge: FunctionComponent<ChallengeProps> = ({ challenge }) => {
+  const { translate } = useLocales()
 
-const Challenge: FunctionComponent<Props> = ({ challenge, translate }) => {
   if (challenge.type === 'recite') {
     return (
       <ChallengeContainer
@@ -81,4 +80,4 @@ const Challenge: FunctionComponent<Props> = ({ challenge, translate }) => {
   return null
 }
 
-export default localised(Challenge)
+export default Challenge
