@@ -1291,7 +1291,7 @@ In addition to this, you must either:
 - Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`
 - Set up a server to host the Onfido Web SDK yourself at the provided URL
 
-#### Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`.
+#### Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`
 
 You can do this by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido-hosted Web SDK.
 
@@ -1321,7 +1321,7 @@ FROM nginx:1.15.8-alpine
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 ```
 
-#### Set up a server to host the Onfido Web SDK yourself at the provided URL.
+#### Set up a server to host the Onfido Web SDK yourself at the provided URL
 
 This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
 
