@@ -425,4 +425,6 @@ const configNpmLib = () => ({
 
 const smp = new SpeedMeasurePlugin()
 
-export default [smp.wrap(configDist()), configNpmLib()]
+export default SDK_ENV === 'Auth'
+  ? [smp.wrap(configDist())]
+  : [smp.wrap(configDist()), configNpmLib()]
