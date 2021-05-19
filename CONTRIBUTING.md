@@ -4,7 +4,8 @@
 
 The project requires few dependencies
 
-- Node.js v14+.
+- Node.js v14+
+  (Note that npm shouldbe be updated to v7 to produce `package-lock.json` in `lockfileVersion: 2`).
 - Docker for running the mock server for UI testing.
 - Linux, MacOS or Windows Subsystem for Linux (WSL)
   (Windows Powershell isn't supported yet).
