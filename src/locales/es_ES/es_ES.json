@@ -299,7 +299,7 @@
                 "title": "Su cámara no esta funcionando"
             },
             "timeout": {
-                "detail": "Recuerde presionar el botón cuando haya terminado. <fallback>Rehacer acciones<\/fallback>",
+                "detail": "Recuerde presionar detener cuando esté listo. <fallback>Rehacer acciones<\/fallback>",
                 "title": "Parece que ha demorado demasiado"
             }
         },
@@ -377,9 +377,6 @@
             "challenge_turn_left": "Mire sobre su hombro izquierdo",
             "challenge_turn_right": "Mire sobre su hombro derecho",
             "challenge_turn_template": "Mire sobre su hombro %{side}"
-        },
-        "prompt": {
-            "header_timeout": "Parece que ha demorado demasiado"
         }
     },
     "video_confirmation": {

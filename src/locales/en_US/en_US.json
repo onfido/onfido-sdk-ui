@@ -299,7 +299,7 @@
                 "title": "Camera not working"
             },
             "timeout": {
-                "detail": "Remember to press the button when you’re done. <fallback>Redo video actions<\/fallback>",
+                "detail": "Remember to press stop when you’re done. <fallback>Redo video actions<\/fallback>",
                 "title": "Looks like you took too long"
             }
         },
@@ -377,9 +377,6 @@
             "challenge_turn_left": "Turn your head left",
             "challenge_turn_right": "Turn your head right",
             "challenge_turn_template": "Look over your %{side} shoulder"
-        },
-        "prompt": {
-            "header_timeout": "Looks like you took too long"
         }
     },
     "video_confirmation": {

@@ -299,7 +299,7 @@
                 "title": "L’appareil photo ne fonctionne pas"
             },
             "timeout": {
-                "detail": "N'oubliez pas d'appuyer sur le bouton lorsque vous avez terminé. <fallback>Refaire la vidéo<\/fallback>",
+                "detail": "Rappelez-vous d’appuyer sur stop lorsque vous avez terminé. <fallback>Refaire la vidéo<\/fallback>",
                 "title": "Le temps est écoulé"
             }
         },
@@ -377,9 +377,6 @@
             "challenge_turn_left": "Tournez votre visage vers la gauche",
             "challenge_turn_right": "Tournez votre visage vers la droite",
             "challenge_turn_template": "Regardez par-dessus votre épaule %{side}"
-        },
-        "prompt": {
-            "header_timeout": "Le temps est écoulé"
         }
     },
     "video_confirmation": {
