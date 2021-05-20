@@ -119,7 +119,6 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
             this.success = true
 
             faceScanResultCallback.succeed()
-            this.nextStep()
           } else if (responseObj.success === false) {
             this.success = false
             this.retryCount = this.retryCount + 1
@@ -133,9 +132,9 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
 
             console.error('Unexpected API response, cancelling out.')
             faceScanResultCallback.cancel()
-            this.nextStep()
           }
 
+          this.nextStep()
           this.events?.emit('complete', {
             type: 'complete',
             ...responseObj,
@@ -179,7 +178,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   onFaceTecSDKCompletelyDone = (): void => {
     // DEVELOPER NOTE:  onFaceTecSDKCompletelyDone() is called after logic signals the FaceTec SDK with a success() or cancel().
     // Calling a custom function on the Sample App Controller is done for demonstration purposes to show you that here is where you get control back from the FaceTec SDK.
-    this.goBack()
+    if (!this.success) this.goBack()
     console.info(
       'FaceTecSDK session has finished. Session results are unknown.'
     )
