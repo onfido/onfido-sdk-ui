@@ -8,6 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## Added
+
+## Changed
+
+- UI: Update Face Liveness Video Challenge screen UI
+
+## Fixed
+
 ## [6.8.0] - 2021-05-13
 
 ## Added
