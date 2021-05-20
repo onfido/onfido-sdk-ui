@@ -150,7 +150,7 @@ export const getInitSdkOptions = (): SdkOptions => {
   const steps: Array<StepConfig> = [{ type: 'welcome' }]
 
   if (queryParamToValueString.showAuth === 'true') {
-    steps.push({ type: 'auth' })
+    steps.push({ type: 'auth', options: { retries: 10 } })
   }
 
   if (queryParamToValueString.showUserConsent === 'true') {

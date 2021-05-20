@@ -123,7 +123,6 @@ const buildCaptureStepComponents = (
     welcome: [Welcome],
     userConsent: [UserConsent],
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
-    //@ts-ignore
     ...(SDK_ENV === 'Auth' && {
       auth: [LazyAuth],
     }),

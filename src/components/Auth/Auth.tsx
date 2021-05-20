@@ -1,13 +1,16 @@
 import { h, FunctionComponent } from 'preact'
 import { AuthCheckProcessor } from './AuthCheckProcessor'
 import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
-import { Config } from './AuthConfig'
+import { getAuthCustomization } from './AuthConfig'
 import { FaceTecStrings } from './assets/FaceTecStrings'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
 import { useCallback, useEffect, useState } from 'preact/hooks'
 import Loader from './assets/loaderSvg'
 import style from './style.scss'
+import { useLocales } from '~locales'
+import { useSdkOptions } from '~contexts'
+import { getAuthConfig } from '~utils/http'
 
 type Props = StepComponentBaseProps & WithLocalisedProps
 
@@ -19,6 +22,10 @@ type AuthConfigType = {
 }
 
 const AuthCapture: FunctionComponent<Props> = (props) => {
+  const [, { findStep }] = useSdkOptions()
+  const { translate } = useLocales()
+  const retries = findStep('auth')?.options?.retries || 3
+
   const [authConfig, setAuthConfig] = useState<AuthConfigType>({
     token: '',
     production_key_text: '',
@@ -31,13 +38,21 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
     if (authConfig.token && props.token && props.nextStep) {
       new AuthCheckProcessor(
         authConfig,
+        retries,
         props.token,
         props.nextStep,
         props.back,
         props.events
       )
     }
-  }, [authConfig, props])
+  }, [
+    authConfig,
+    props.back,
+    props.events,
+    props.nextStep,
+    props.token,
+    retries,
+  ])
 
   useEffect(() => {
     const initFaceTec = () => {
@@ -55,7 +70,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
         atob(public_key),
         (initializedSuccessfully: boolean) => {
           if (initializedSuccessfully) {
-            FaceTecSDK.configureLocalization(FaceTecStrings(props.translate))
+            FaceTecSDK.configureLocalization(FaceTecStrings(translate))
             setSessionInit(true)
             onLivenessCheckPressed()
           }
@@ -63,42 +78,53 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
       )
     }
     const getConfig = () => {
-      const XHR = new XMLHttpRequest()
-      XHR.open('POST', `${process.env.AUTH_URL}/auth_3d/session`)
-      XHR.setRequestHeader('Authorization', `Bearer ${props.token}`)
-      XHR.setRequestHeader('Application-Id', 'com.onfido.onfidoAuth')
-      XHR.setRequestHeader('Content-Type', 'application/json')
-      XHR.onreadystatechange = function () {
-        if (this.readyState === XMLHttpRequest.DONE) {
-          const response = JSON.parse(this.responseText)
-          return setAuthConfig({
+      getAuthConfig(
+        `Bearer ${props.token}`,
+        (success) => {
+          const response = JSON.parse(success)
+          setAuthConfig({
             ...response,
             production_key_text: JSON.parse(atob(response.production_key_text)),
           })
+        },
+        (error) => {
+          if (error.status !== 200 && error.status !== 201)
+            console.error(error.response)
         }
-      }
-      const body = {
-        sdk_type: 'onfido_web_sdk',
-      }
-      XHR.send(JSON.stringify(body))
+      )
     }
-    if (FaceTecSDK.getStatus() === 1) setSessionInit(true)
+
+    if (FaceTecSDK.getStatus() === 1) {
+      setSessionInit(true)
+    }
     if (FaceTecSDK.getStatus() === 0 && !sessionInit) {
       FaceTecSDK.setCustomization(
-        Config.getAuthCustomization(false, props.customUI || {})
+        getAuthCustomization(false, props.customUI || {})
       )
       FaceTecSDK.setDynamicDimmingCustomization(
-        Config.getAuthCustomization(true, props.customUI || {})
+        getAuthCustomization(true, props.customUI || {})
       )
-      if (authConfig.token && !sessionInit) initFaceTec()
-      else getConfig()
+      if (authConfig.token && !sessionInit) {
+        initFaceTec()
+      } else {
+        getConfig()
+      }
     } else if (authConfig.token.length === 0) {
       getConfig()
     }
-  }, [sessionInit, props, authConfig, props.translate, onLivenessCheckPressed])
+  }, [
+    sessionInit,
+    authConfig,
+    translate,
+    onLivenessCheckPressed,
+    props.token,
+    props.customUI,
+  ])
 
   useEffect(() => {
-    if (authConfig.token && sessionInit) onLivenessCheckPressed()
+    if (authConfig.token && sessionInit) {
+      onLivenessCheckPressed()
+    }
   }, [authConfig.token, onLivenessCheckPressed, sessionInit])
 
   return (
