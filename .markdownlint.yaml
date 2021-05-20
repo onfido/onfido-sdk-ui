@@ -1,14 +1,19 @@
+# Rules Reference: https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md
+# Sample YAML Config: https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
+
 # Default state for all rules
 default: true
 
 # MD013/line-length - Line length
 MD013:
-  # Include tables
+  # Exclude headings
+  headings: false
+  # Exclude headers
+  headers: false
+  # Exclude tables
   tables: false
-  # Strict length checking
-  strict: false
-  # Stern length checking
-  stern: false
+  # Stern length checking (warn only)
+  stern: true
 
 # MD024/no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
 MD024:
