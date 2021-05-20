@@ -375,8 +375,7 @@
             "challenge_digit_instructions": "Lea en voz alta cada dígito",
             "challenge_turn_forward": "luego vuelva a mirar hacia delante",
             "challenge_turn_left": "Mire sobre su hombro izquierdo",
-            "challenge_turn_right": "Mire sobre su hombro derecho",
-            "challenge_turn_template": "Mire sobre su hombro %{side}"
+            "challenge_turn_right": "Mire sobre su hombro derecho"
         }
     },
     "video_confirmation": {

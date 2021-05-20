@@ -375,8 +375,7 @@
             "challenge_digit_instructions": "Sprechen Sie jede Ziffer laut aus",
             "challenge_turn_forward": "dann nach vorne schauen",
             "challenge_turn_left": "Kopf nach links drehen",
-            "challenge_turn_right": "Kopf nach rechts drehen",
-            "challenge_turn_template": "Schauen Sie über Ihre %{side} Schulter"
+            "challenge_turn_right": "Kopf nach rechts drehen"
         }
     },
     "video_confirmation": {

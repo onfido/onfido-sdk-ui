@@ -375,8 +375,7 @@
             "challenge_digit_instructions": "Say each digit out loud",
             "challenge_turn_forward": "then face forward",
             "challenge_turn_left": "Turn your head left",
-            "challenge_turn_right": "Turn your head right",
-            "challenge_turn_template": "Look over your %{side} shoulder"
+            "challenge_turn_right": "Turn your head right"
         }
     },
     "video_confirmation": {

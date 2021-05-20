@@ -375,8 +375,7 @@
             "challenge_digit_instructions": "Prononcez chaque chiffre à voix haute",
             "challenge_turn_forward": "puis regardez l’écran à nouveau",
             "challenge_turn_left": "Tournez votre visage vers la gauche",
-            "challenge_turn_right": "Tournez votre visage vers la droite",
-            "challenge_turn_template": "Regardez par-dessus votre épaule %{side}"
+            "challenge_turn_right": "Tournez votre visage vers la droite"
         }
     },
     "video_confirmation": {
