@@ -383,9 +383,6 @@
         }
     },
     "video_confirmation": {
-        "body": "Su video ha sido grabado",
-        "button_primary": "Enviar video",
-        "button_secondary": "Retomar el video",
         "title": "Verifique video",
         "video_accessibility": "Reproducir su video grabado"
     },
