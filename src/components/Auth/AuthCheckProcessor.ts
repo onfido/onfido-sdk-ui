@@ -1,5 +1,5 @@
 import { EventEmitter2 } from 'eventemitter2'
-import { Config } from './AuthConfig'
+import { BaseURL } from './AuthConfig'
 import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
 import type {
   FaceTecSessionResult,
@@ -96,7 +96,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
     // Part 5:  Make the Networking Call to the Onfido Servers.
     //
     this.latestNetworkRequest = new XMLHttpRequest()
-    this.latestNetworkRequest.open('POST', `${Config.BaseURL}/auth_3d`)
+    this.latestNetworkRequest.open('POST', `${BaseURL}/auth_3d`)
     this.latestNetworkRequest.setRequestHeader(
       'Authorization',
       `Bearer ${this.sdkToken}`

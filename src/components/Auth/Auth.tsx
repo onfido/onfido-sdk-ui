@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact'
 import { AuthCheckProcessor } from './AuthCheckProcessor'
 import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
-import { Config } from './AuthConfig'
+import { getAuthCustomization } from './AuthConfig'
 import { FaceTecStrings } from './assets/FaceTecStrings'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
@@ -99,10 +99,10 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
     }
     if (FaceTecSDK.getStatus() === 0 && !sessionInit) {
       FaceTecSDK.setCustomization(
-        Config.getAuthCustomization(false, props.customUI || {})
+        getAuthCustomization(false, props.customUI || {})
       )
       FaceTecSDK.setDynamicDimmingCustomization(
-        Config.getAuthCustomization(true, props.customUI || {})
+        getAuthCustomization(true, props.customUI || {})
       )
       if (authConfig.token && !sessionInit) {
         initFaceTec()
@@ -122,7 +122,9 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
   ])
 
   useEffect(() => {
-    if (authConfig.token && sessionInit) onLivenessCheckPressed()
+    if (authConfig.token && sessionInit) {
+      onLivenessCheckPressed()
+    }
   }, [authConfig.token, onLivenessCheckPressed, sessionInit])
 
   return (

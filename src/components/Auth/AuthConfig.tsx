@@ -5,18 +5,11 @@ import { FaceTecCustomization } from '~auth-sdk/FaceTecSDK.js/FaceTecCustomizati
 import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
 import { UICustomizationOptions } from '../../types/ui-customisation-options'
 
-const ConfigBuilder = () => {
-  const BaseURL = process.env.AUTH_URL
-  return {
-    BaseURL,
-    getAuthCustomization,
-  }
-}
-
-const getAuthCustomization = (
+export const BaseURL = process.env.AUTH_URL
+export const getAuthCustomization = (
   dimMode: boolean,
   customUI?: UICustomizationOptions
-) => {
+): FaceTecCustomization => {
   const uiDefaults = {
     /* acccentColor, dualSpinnerColor, and retryScreenOvalColor
     should comply to the brand colors */
@@ -175,5 +168,3 @@ const getAuthCustomization = (
 
   return defaultCustomization
 }
-
-export const Config = ConfigBuilder()

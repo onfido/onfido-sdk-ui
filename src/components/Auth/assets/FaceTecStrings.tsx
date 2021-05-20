@@ -27,7 +27,9 @@ const PRESESSION_FEEDBACK = {
   conditions_too_dark: 'auth_capture_start.feedback.conditions_too_dark',
 }
 
-export const FaceTecStrings = (translate: TranslateCallback) => ({
+export const FaceTecStrings = (
+  translate: TranslateCallback
+): Record<string, string> => ({
   FaceTec_accessibility_cancel_button: translate(
     'auth_accessibility.back_button'
   ),
