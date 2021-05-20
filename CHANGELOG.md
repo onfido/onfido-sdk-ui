@@ -18,7 +18,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [6.8.0] - 2021-05-13
 
-## Added
+### Added
 
 - Internal: Add type defition for `borderRadiusSurfaceModal` customisation option.
 - Public: Add information about Lokalise CLI v2 in CONTRIBUTING doc
