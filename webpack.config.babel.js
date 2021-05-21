@@ -37,7 +37,6 @@ const baseRules = () => {
       options: { configFile: resolve('.babelrc') },
       include: [
         resolve('src'),
-        ...(SDK_ENV === 'Auth' ? [resolve('auth-sdk')] : []),
         resolve('node_modules/@onfido/castor'),
         resolve('node_modules/@onfido/castor-react'),
         resolve('node_modules/strip-ansi'),
@@ -236,11 +235,7 @@ const baseConfig = {
 
   resolve: {
     extensions: ['.jsx', '.js', '.tsx', '.ts', '.scss', '.json'],
-    modules: [
-      `${__dirname}/node_modules`,
-      `${__dirname}/src`,
-      ...(SDK_ENV === 'Auth' ? [`${__dirname}/auth-sdk`] : []),
-    ],
+    modules: [`${__dirname}/node_modules`, `${__dirname}/src`],
     alias: {
       react: 'preact/compat',
       'react-dom': 'preact/compat',
