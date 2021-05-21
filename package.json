@@ -34,7 +34,6 @@
     "mock-server:build": "cd ./test/mock-server && ./prepare.sh && docker build -t onfido-web-sdk:ui-mock-server .",
     "mock-server:run": "docker run -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server",
     "bundle-analyzer": "webpack-bundle-analyzer",
-    "license-checker": "license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json",
     "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js"
   },
   "main": "lib/index.js",
@@ -177,7 +176,6 @@
     "jest-canvas-mock": "^2.2.0",
     "jest-cli": "^26.6.3",
     "jest-fetch-mock": "^3.0.3",
-    "license-checker-rseidelsohn": "^1.1.2",
     "mini-css-extract-plugin": "^0.5.0",
     "mocha": "^6.0.2",
     "mochawesome": "^4.1.0",
