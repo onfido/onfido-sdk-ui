@@ -3,7 +3,7 @@ import { trackException, sendEvent } from '../../Tracker'
 import { isOfMimeType, mimeType } from '~utils/blob'
 import {
   uploadDocument,
-  uploadLivePhoto,
+  uploadFacePhoto,
   uploadFaceVideo,
   sendMultiframeSelfie,
   objectToFormData,
@@ -149,7 +149,7 @@ class Confirm extends Component {
       // Captures that have been taken via the Uploader component do not have filename
       // and the blob is a File type
       const filePayload = filename ? { blob, filename } : blob
-      uploadLivePhoto(
+      uploadFacePhoto(
         { file: filePayload, sdkMetadata },
         url,
         token,

@@ -90,7 +90,7 @@ const findButton = (wrapper: ReactWrapper) =>
 const simulateNextStep = (wrapper: ReactWrapper) =>
   findButton(wrapper).simulate('click')
 
-const assertButton = (wrapper: ReactWrapper) => {
+const assertButtonDisplaysAfterTimeout = (wrapper: ReactWrapper) => {
   expect(findButton(wrapper).exists()).toBeFalsy()
   waitForTimeout(wrapper, 'button')
   expect(findButton(wrapper).exists()).toBeTruthy()
@@ -166,7 +166,7 @@ describe('DocumentVideo', () => {
       })
 
       it('hides button initially and displays after timeout', () =>
-        assertButton(wrapper))
+        assertButtonDisplaysAfterTimeout(wrapper))
 
       it('shows success state after click', () => {
         waitForTimeout(wrapper, 'button')
@@ -192,7 +192,7 @@ describe('DocumentVideo', () => {
       })
 
       it('hides button initially and displays after timeout', () =>
-        assertButton(wrapper))
+        assertButtonDisplaysAfterTimeout(wrapper))
 
       it('shows holdStill state after click', () => {
         waitForTimeout(wrapper, 'button')

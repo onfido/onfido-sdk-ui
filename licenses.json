@@ -1269,12 +1269,6 @@
     "path": "node_modules/@types/redux-mock-store",
     "licenseFile": "node_modules/@types/redux-mock-store/LICENSE"
   },
-  "@types/socket.io-client@1.4.36": {
-    "licenses": "MIT",
-    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-    "path": "node_modules/@types/socket.io-client",
-    "licenseFile": "node_modules/@types/socket.io-client/LICENSE"
-  },
   "@types/stack-utils@2.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",

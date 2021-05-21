@@ -100,7 +100,7 @@ export const uploadDocument = (
   )
 }
 
-export const uploadLivePhoto = (
+export const uploadFacePhoto = (
   { sdkMetadata, ...data }: UploadLivePhotoPayload,
   url: string | undefined,
   token: string | undefined,
@@ -154,7 +154,7 @@ export const sendMultiframeSelfie = (
       sendEvent('Snapshot upload completed')
       sendEvent('Starting live photo upload')
       const snapshot_uuids = JSON.stringify([res.uuid])
-      uploadLivePhoto(
+      uploadFacePhoto(
         { file: { blob, filename }, sdkMetadata, snapshot_uuids },
         url,
         token,
