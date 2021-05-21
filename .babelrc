@@ -31,5 +31,9 @@
     "@babel/plugin-proposal-throw-expressions",
     "@babel/plugin-proposal-export-namespace-from",
     "@babel/plugin-proposal-export-default-from"
-  ]
+  ],
+  "overrides": [{
+    "test": "./auth-sdk/FaceTec/**",
+    "compact": false
+  }]
 }
