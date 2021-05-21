@@ -24,7 +24,7 @@
   font-size: var(--font-size-base);
   margin-bottom: 8 * $unit;
 
-  @media (--medium-viewport) {
+  @media (--short-viewport) {
     font-size: var(--font-size-x-small);
     margin-bottom: 0;
   }
@@ -35,7 +35,7 @@
   font-size: 125%;
   font-weight: 600;
 
-  @media (--medium-viewport) {
+  @media (--short-viewport) {
     font-size: var(--font-size-large);
   }
 }
