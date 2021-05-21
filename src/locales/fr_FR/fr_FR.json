@@ -431,6 +431,8 @@
         "title": "Assurons-nous que personne ne se fait passer pour vous"
     },
     "welcome": {
+        "description_p_1": "Pour ouvrir un compte bancaire, nous devons vérifier votre identité.",
+        "description_p_2": "Cela ne prendra que quelques instants.",
         "doc_video_subtitle": "Cela ne prendra que quelques minutes",
         "list_header_doc_video": "Utilisez votre mobile pour enregistrer :",
         "list_item_doc": "votre pièce d'identité",

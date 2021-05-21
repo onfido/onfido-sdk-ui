@@ -431,6 +431,8 @@
         "title": "Lassen Sie uns sicherstellen, dass sich niemand für Sie ausgibt"
     },
     "welcome": {
+        "description_p_1": "Um ein Bankkonto zu eröffnen, müssen wir Ihre Identität überprüfen.",
+        "description_p_2": "Es wird nur ein paar Minuten dauern.",
         "doc_video_subtitle": "Es dauert nur einige wenige Minuten",
         "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
         "list_item_doc": "Ihr Ausweisdokument",
