@@ -156,7 +156,7 @@ const STAGING_CONFIG = {
   MOBILE_URL: '/',
   SMS_DELIVERY_URL: 'https://telephony.eu-west-1.dev.onfido.xyz',
   PUBLIC_PATH: '/',
-  RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
+  RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
 
@@ -206,7 +206,7 @@ const basePlugins = (bundle_name) => [
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'CB',
+      BASE_32_VERSION: 'CD',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
@@ -233,6 +233,9 @@ const baseConfig = {
       '~locales': `${__dirname}/src/locales`,
       '~types': `${__dirname}/src/types`,
       '~utils': `${__dirname}/src/components/utils`,
+      'socket.io-client': resolve(
+        'node_modules/socket.io-client/dist/socket.io.js'
+      ),
     },
   },
 

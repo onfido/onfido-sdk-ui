@@ -4,6 +4,7 @@ import {
   takePercySnapshot,
   uploadFileAndClickConfirmButton,
 } from './sharedFlows.js'
+import { assert } from "chai";
 
 const options = {
   pageObjects: [
@@ -252,19 +253,26 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         documentUpload.switchToCrossDevice()
         await takePercySnapshot(driver, 'Continue on your phone screen for PoA')
         crossDeviceIntro.continueToNextStep()
-        await takePercySnapshot(driver, 'Get your secure link screen')
-        /*await takePercySnapshot(driver, 'Get your secure link screen', {
-          percyCSS: `div.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer > svg { display: none; }`,
-        })*/
-        crossDeviceLink.switchToCopyLinkOption()
-        await takePercySnapshot(driver, 'Copy the link to your mobile browser')
-        /*await takePercySnapshot(
+        assert.isTrue(
+          crossDeviceLink.qrCode().isDisplayed(),
+          'Test Failed: QR Code should be visible'
+        )
+        await takePercySnapshot(
           driver,
-          'Copy the link to your mobile browser',
+          'Get your secure link screen - QR Code',
+          {
+            percyCSS: `div.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer > svg { display: none; }`,
+          }
+        )
+        crossDeviceLink.switchToCopyLinkOption()
+        crossDeviceLink.verifyCopyLinkTextContainer()
+        await takePercySnapshot(
+          driver,
+          'Get your secure link screen - Copy the link to your mobile browser',
           {
             percyCSS: `span.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText { display: none; }`,
           }
-        )*/
+        )
         copyCrossDeviceLinkAndOpenInNewTab()
         await takePercySnapshot(driver, 'Submit statement')
         switchBrowserTab(0)

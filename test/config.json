@@ -12,23 +12,25 @@
     },
     {
       "file": "test/specs/multipleBrowsersDocumentUpload.js",
-      "timeout": 50000,
+      "timeout": 75000,
       "browsers": [
         {
           "browserName": "Firefox",
-          "browser_version": "83",
+          "browser_version": "latest",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",
-          "remote": true
+          "remote": true,
+          "name": "multipleBrowsersDocumentUpload"
         },
         {
           "browserName": "Edge",
-          "browser_version": "87",
+          "browser_version": "89",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",
-          "remote": true
+          "remote": true,
+          "name": "multipleBrowsersDocumentUpload"
         }
       ]
     }

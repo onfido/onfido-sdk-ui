@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
-import { takePercySnapshot } from "./sharedFlows";
+import { takePercySnapshot } from './sharedFlows'
 
 const options = {
   pageObjects: ['BasePage', 'Welcome'],

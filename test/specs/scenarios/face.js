@@ -19,7 +19,7 @@ const options = {
     'DocumentSelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
-    'LivenessIntro',
+    'FaceVideoIntro',
     'SelfieIntro',
     'VerificationComplete',
     'BasePage',
@@ -37,7 +37,7 @@ export const faceScenarios = (lang) => {
       documentSelector,
       passportUploadImageGuide,
       documentUpload,
-      livenessIntro,
+      faceVideoIntro,
       selfieIntro,
       verificationComplete,
       basePage,
@@ -122,6 +122,7 @@ export const faceScenarios = (lang) => {
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       await takePercySnapshot(driver, `Verify Take a selfie screen ${lang}`)
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.verifySelfieTitle(copy)
       camera.verifyOnfidoFooterIsVisible()
       await takePercySnapshot(
@@ -162,6 +163,7 @@ export const faceScenarios = (lang) => {
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.takeSelfie()
       confirm.clickConfirmButton()
       verificationComplete.verifyUIElements(copy)
@@ -241,6 +243,24 @@ export const faceScenarios = (lang) => {
       cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(copy)
     })
 
+    it('should be taken to the cross-device flow if browser does not have MediaRecorder API, liveness variant requested and photoCaptureFallback is disabled', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&liveness=true&photoCaptureFallback=false`
+      )
+      driver.executeScript('window.MediaRecorder = undefined')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      driver.wait(until.elementIsVisible(crossDeviceIntro.title()), 2500)
+      crossDeviceIntro.verifyTitle(copy)
+    })
+
     it('should enter the liveness flow if I have a camera and liveness variant requested', async () => {
       goToPassportUploadScreen(
         driver,
@@ -257,12 +277,12 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
       await takePercySnapshot(
         driver,
         `Verify Let’s make sure nobody’s impersonating you screen is seen ${lang}`
       )
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.clickOnContinueButton()
       await takePercySnapshot(
         driver,
         `Verify Position your face in the oval overlay screen is seen ${lang}`
@@ -285,8 +305,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      faceVideoIntro.clickOnContinueButton()
       camera.enableCameraButton().click()
       driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
       assert.isFalse(
@@ -295,7 +315,8 @@ export const faceScenarios = (lang) => {
       )
       await takePercySnapshot(
         driver,
-        `Verify is your camera working pop-up is displayed ${lang}`
+        `Verify is your camera working pop-up is displayed ${lang}`,
+        { percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }` }
       )
     })
 
@@ -315,8 +336,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      faceVideoIntro.clickOnContinueButton()
       camera.enableCameraButton().click()
       camera.verifyVideoTitle(copy)
       camera.verifyOnfidoFooterIsVisible()
@@ -357,12 +378,12 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkLogoIsHidden()
+      faceVideoIntro.checkLogoIsHidden()
       await takePercySnapshot(
         driver,
         `Verify Let’s make sure nobody’s impersonating you screen does not have onfido logo ${lang}`
       )
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
       camera.enableCameraButton().click()
       await takePercySnapshot(
@@ -412,12 +433,12 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkCobrandIsVisible()
+      faceVideoIntro.checkCobrandIsVisible()
       await takePercySnapshot(
         driver,
         `Verify Let’s make sure nobody’s impersonating you screen has co-brand logo ${lang}`
       )
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.clickOnContinueButton()
       camera.checkCobrandIsVisible()
       camera.enableCameraButton().click()
       await takePercySnapshot(
@@ -456,8 +477,8 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkLogoIsHidden()
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.checkLogoIsHidden()
+      faceVideoIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
       camera.recordVideo()
       camera.completeChallenges()
@@ -480,6 +501,7 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.takeSelfie()
       confirm.clickConfirmButton()
     })
@@ -498,6 +520,7 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.takeSelfie()
       confirm.clickConfirmButton()
     })

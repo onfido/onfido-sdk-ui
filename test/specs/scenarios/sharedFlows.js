@@ -25,6 +25,11 @@ export const uploadFileAndClickConfirmButton = async (
   confirm.clickConfirmButton()
 }
 
+export const switchBrowserTab = async (tab, driver) => {
+  const browserWindows = await driver.getAllWindowHandles()
+  await driver.switchTo().window(browserWindows[tab])
+}
+
 export const takePercySnapshot = async (
   driver,
   text,

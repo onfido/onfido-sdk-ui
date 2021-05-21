@@ -3,6 +3,7 @@ import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
 import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
+  switchBrowserTab,
 } from './sharedFlows.js'
 import { runAccessibilityTest } from '../../utils/accessibility'
 import { until } from 'selenium-webdriver'
@@ -20,7 +21,7 @@ const options = {
     'CrossDeviceLink',
     'CrossDeviceMobileConnected',
     'CrossDeviceSubmit',
-    'LivenessIntro',
+    'FaceVideoIntro',
     'PoaDocumentSelection',
     'PoaGuidance',
     'PoaIntro',
@@ -46,7 +47,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         crossDeviceLink,
         crossDeviceMobileConnected,
         crossDeviceSubmit,
-        livenessIntro,
+        faceVideoIntro,
         poaDocumentSelection,
         poaIntro,
         basePage,
@@ -74,12 +75,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         crossDeviceIntro.continueToNextStep()
         crossDeviceLink.switchToCopyLinkOption()
         copyCrossDeviceLinkAndOpenInNewTab()
-        switchBrowserTab(0)
-      }
-
-      const switchBrowserTab = async (tab) => {
-        const browserWindows = driver.getAllWindowHandles()
-        driver.switchTo().window(browserWindows[tab])
+        switchBrowserTab(0, driver)
       }
 
       const copyCrossDeviceLinkAndOpenInNewTab = async () => {
@@ -87,7 +83,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           .copyLinkTextContainer()
           .getText()
         driver.executeScript("window.open('your url','_blank');")
-        switchBrowserTab(1)
+        switchBrowserTab(1, driver)
         driver.get(crossDeviceLinkText)
       }
 
@@ -102,10 +98,10 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         crossDeviceIntro.continueToNextStep()
         crossDeviceLink.switchToCopyLinkOption()
         copyCrossDeviceLinkAndOpenInNewTab()
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
         crossDeviceMobileConnected.verifyUIElements(copy)
-        switchBrowserTab(1)
+        switchBrowserTab(1, driver)
         driver.sleep(1000)
       }
 
@@ -179,7 +175,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         documentUpload.verifySelfieUploadTitle(copy)
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         runAccessibilityTest(driver)
       })
@@ -277,7 +273,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           confirm,
           'passport.jpg'
         )
-        livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
+        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
         runAccessibilityTest(driver)
       })
 
@@ -297,8 +293,8 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           confirm,
           'passport.jpg'
         )
-        livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-        livenessIntro.clickOnContinueButton()
+        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+        faceVideoIntro.clickOnContinueButton()
         runAccessibilityTest(driver)
       })
 
@@ -308,8 +304,8 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       //   driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       //   documentUpload.clickUploadButton()
       //   uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
-      //   livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      //   livenessIntro.clickOnContinueButton()
+      //   faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      //   faceVideoIntro.clickOnContinueButton()
       //   camera.startVideoRecording()
       //   runAccessibilityTest(driver)
       //   camera.completeChallenges()

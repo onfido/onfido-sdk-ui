@@ -1,0 +1,18 @@
+{
+  "tests": [
+    {
+      "file": "test/specs/percy.js",
+      "timeout": 75000,
+      "browsers": [
+        {
+          "browserName": "chrome",
+          "remote": false
+        }
+      ]
+    }
+  ],
+  "localhostUrl": "https://localhost:8080/",
+  "supportedLanguages": [],
+  "fullTestCoverageLanguages": ["en_US"],
+  "testDeviceMobileNumber": "07495 023357"
+}
