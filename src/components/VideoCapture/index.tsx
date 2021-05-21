@@ -127,18 +127,16 @@ export default class VideoCapture extends Component<Props, State> {
     { text, type },
     callback
   ) => {
-    switch (type) {
-      case 'timeout':
-        return String(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT)
-
-      default:
-        return (
-          <FallbackButton
-            text={text}
-            onClick={() => this.handleFallbackClick(callback)}
-          />
-        )
+    if (type === 'timeout') {
+      return String(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT)
     }
+
+    return (
+      <FallbackButton
+        text={text}
+        onClick={() => this.handleFallbackClick(callback)}
+      />
+    )
   }
 
   renderError = (): h.JSX.Element => {
