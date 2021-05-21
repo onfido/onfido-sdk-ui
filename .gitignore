@@ -8,6 +8,7 @@ es
 /release/releaseSecret.js
 /dist/style.css.map
 /dist/onfido.min.js.map
+/dist/auth-sdk
 /dist/index.html
 /dist/images
 test/tmp

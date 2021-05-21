@@ -18,6 +18,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 
+<!-- Update date and version value -->
+
+### Changed
+
+- Update to module on `tsconfig.json` from `es6` to `esnext`, to allow conditional imports of specific modules (especially useful for Auth/IDV bundle separation).
+
 ## [6.8.0] - 2021-05-13
 
 ### Added

@@ -2,7 +2,7 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `6.8.0` -> [next-version]
+## [latest-version] -> [next-version]
 
 ### Added strings
 
@@ -25,6 +25,70 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `video_capture.body_stop`
 - `video_capture.button_stop_accessibility`
 - `video_capture.header.challenge_turn_template`
+
+## `6.8.0` -> [latest-version]
+
+### Added strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has been added:
+
+- `auth_accessibility.back_button`
+- `auth_cam_encrypt.loader`
+- `auth_cam_start.loader`
+- `auth_capture_start.body`
+- `auth_capture_start.button_primary`
+- `auth_capture_start.title`
+- `auth_capture_start.feedback.center_face`
+- `auth_capture_start.feedback.conditions_too_bright`
+- `auth_capture_start.feedback.conditions_too_dark`
+- `auth_capture_start.feedback.head_not_upright`
+- `auth_capture_start.feedback.neutral_expression`
+- `auth_capture_start.feedback.not_looking_straight`
+- `auth_capture_start.feedback.remove_sunglasses`
+- `auth_capture_start.feedback.steady_count_1`
+- `auth_capture_start.feedback.steady_count_2`
+- `auth_capture_start.feedback.steady_count_3`
+- `auth_capture.feedback.center_face`
+- `auth_capture.feedback.even_lighting`
+- `auth_capture.feedback.eye_level`
+- `auth_capture.feedback.face_not_found`
+- `auth_capture.feedback.head_not_upright`
+- `auth_capture.feedback.move_back`
+- `auth_capture.feedback.move_close`
+- `auth_capture.feedback.move_closer`
+- `auth_capture.feedback.not_looking_straight`
+- `auth_capture.feedback.steady`
+- `auth_error.cam_encryption.body`
+- `auth_error.cam_encryption.button_primary`
+- `auth_error.cam_encryption.button_primary_firefox`
+- `auth_error.cam_encryption.subtitle`
+- `auth_error.cam_encryption.table_header_1`
+- `auth_error.cam_encryption.table_header_2`
+- `auth_error.cam_encryption.table_row_1_cell_1`
+- `auth_error.cam_encryption.table_row_1_cell_1_firefox`
+- `auth_error.cam_encryption.table_row_1_cell_2`
+- `auth_error.cam_encryption.table_row_1_cell_2_firefox`
+- `auth_error.cam_encryption.table_row_2_cell_1`
+- `auth_error.cam_encryption.table_row_2_cell_2`
+- `auth_error.cam_encryption.table_row_3_cell_1`
+- `auth_error.cam_encryption.table_row_3_cell_2`
+- `auth_error.cam_encryption.title`
+- `auth_full_screen.body`
+- `auth_full_screen.button_primary`
+- `auth_full_screen.title`
+- `auth_permission_denied.body_cam`
+- `auth_permission_denied.button_primary_cam`
+- `auth_permission.body_cam`
+- `auth_permission.button_primary_cam`
+- `auth_permission.title_cam`
+- `auth_progress.loader`
+- `auth_retry.body_blur`
+- `auth_retry.body_neutral_expression`
+- `auth_retry.body_too_bright`
+- `auth_retry.button_primary`
+- `auth_retry.subtitle`
+- `auth_retry.title`
+- `auth_upload_pass.body`
 
 ## `6.6.0` -> `6.8.0`
 
