@@ -2,6 +2,24 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `6.8.0` -> `next-version`
+
+### Added strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `welcome.doc_video_subtitle`
+- `welcome.list_header_doc_video`
+- `welcome.list_item_doc`
+- `welcome.list_item_doc_video_timeout`
+- `welcome.list_item_selfie`
+
+### Changed strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `welcome.title`
+
 ## `6.6.0` -> `6.8.0`
 
 ### Added strings
