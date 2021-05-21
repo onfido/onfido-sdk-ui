@@ -269,7 +269,6 @@ Callback that fires when an error occurs. The callback returns the following err
   - authorization
   - invalid token
   - [Auth] exception handling API response
-  - [Auth] exception handling API response
 
   This data can be used for debugging purposes.
 
