@@ -13,7 +13,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
 import { dirname, relative, resolve, basename, path } from 'path'
 import nodeExternals from 'webpack-node-externals'
-const CopyPlugin = require('copy-webpack-plugin')
+import CopyPlugin from 'copy-webpack-plugin'
 
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'
