@@ -9,7 +9,8 @@
 - [Getting started](#getting-started)
 - [Handling callbacks](#handling-callbacks)
 - [Removing the SDK](#removing-the-sdk)
-- [Customising the SDK](#customising-the-sdk)
+- [Initialization options](#initialization-options)
+- [Customizing the SDK](#customizing-the-sdk)
 - [Creating checks](#creating-checks)
 - [User Analytics](#user-analytics)
 - [Premium Enterprise Features](#premium-enterprise-features)
@@ -20,72 +21,115 @@
 
 ## Overview
 
-This SDK provides a set of components for JavaScript applications to allow capturing of identity documents and face photos/videos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding / identity verification experience for your customers:
+The Onfido Web SDK provides a set of components for JavaScript applications to capture identity documents and selfie photos and videos for the purpose of identity verification.
 
-- Carefully designed UI to guide your customers through the entire photo/video-capturing process
-- Modular design to help you seamlessly integrate the photo/video-capturing process into your application flow
+The SDK offers a number of benefits to help you create the best identity verification experience for your customers:
+
+- Carefully designed UI to guide your customers through the entire photo and video capture process
+- Modular design to help you seamlessly integrate the photo and video capture process into your application flow
 - Advanced image quality detection technology to ensure the quality of the captured images meets the requirement of the Onfido identity verification process, guaranteeing the best success rate
-- Direct image upload to the Onfido service, to simplify integration\*
+- Direct image upload to the Onfido service, to simplify integration
 
-Note: the SDK is only responsible for capturing photos/videos. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and checks.
-
-Users will be prompted to upload a file containing an image of their document. On handheld devices they can also use the native camera to take a photo of their document.
-
-Face step allows users to use their device cameras to capture their face using photos or videos.
+⚠️ Note: the SDK is only responsible for capturing photos and videos. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and perform checks.
 
 ![Various views from the SDK](demo/screenshots.jpg)
 
 ## Getting started
 
-### 1. Obtaining an API token
+The following content assumes you're using our API v3 versions for backend calls. If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
-In order to start integration, you will need the **API token**. You can use our [sandbox](https://documentation.onfido.com/#sandbox-testing) environment to test your integration, and you will find the sandbox token inside your [Onfido Dashboard](https://onfido.com/dashboard/api/tokens).
+### 1. Obtain an API token
+
+In order to start integrating, you'll need an [API token](https://documentation.onfido.com/#api-tokens).
+
+You can use our [sandbox](https://documentation.onfido.com/#sandbox-testing) environment to test your integration. To use the sandbox, you'll need to generate a sandbox API token in your [Onfido Dashboard](https://onfido.com/dashboard/api/tokens).
 
 #### 1.1 Regions
 
 Onfido offers region-specific environments. Refer to the [Regions](https://documentation.onfido.com/#regions) section in the API documentation for token format and API base URL information.
 
-### 2. Creating an applicant
+### 2. Create an applicant
 
-With your API token, you should create an applicant by making a request to the [create applicant endpoint](https://documentation.onfido.com/#create-applicant) from your server:
+To create an applicant from your backend server, make request to the ['create applicant' endpoint](https://documentation.onfido.com/#create-applicant), using a valid API token.
+
+⚠️ Note: Different report types have different minimum requirements for applicant data. For a Document or Facial Similarity report, the minimum applicant details required are `first_name` and `last_name`.
 
 ```shell
 $ curl https://api.onfido.com/v3/applicants \
-  -H 'Authorization: Token token=YOUR_API_TOKEN' \
+  -H 'Authorization: Token token=<YOUR_API_TOKEN>' \
   -d 'first_name=John' \
   -d 'last_name=Smith'
 ```
 
-Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
+The JSON response will contain an `id` field containing an UUID that identifies the applicant. Once you pass the applicant ID to the SDK, documents and live photos and videos uploaded by that instance of the SDK will be associated with that applicant.
 
-You will receive a response containing the applicant id which will be used to create a JSON Web Token.
+### 3. Generate an SDK token
 
-### 3. Generating an SDK token
+The SDK is authenticated using SDK tokens. Each authenticated instance of the SDK will correspond to a single Onfido applicant. You’ll need to generate and include a new token each time you initialize the Web SDK.
 
-For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialize the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
+⚠️ Note: You must never use API tokens in the frontend of your application or malicious users could discover them in your source code. You should only use them on your server.
+
+To generate an SDK token, make a request to the ['generate SDK token' endpoint](https://documentation.onfido.com/#generate-web-sdk-token), including the applicant ID and a valid referrer.
 
 ```shell
 $ curl https://api.onfido.com/v3/sdk_token \
-  -H 'Authorization: Token token=YOUR_API_TOKEN' \
-  -F 'applicant_id=YOUR_APPLICANT_ID' \
-  -F 'referrer=REFERRER_PATTERN'
+  -H 'Authorization: Token token=<YOUR_API_TOKEN>' \
+  -F 'applicant_id=<APPLICANT_ID>' \
+  -F 'referrer=<REFERRER_PATTERN>'
 ```
 
-Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
+| Parameter      | Notes                                                            |
+| -------------- | ---------------------------------------------------------------- |
+| `applicant_id` | **required** <br /> Specifies the applicant for the SDK instance |
+| `referrer`     | **required** <br /> The referrer URL pattern                     |
 
-Make a note of the `token` value in the response, as you will need it later on when initialising the SDK.
+⚠️ Note: SDK tokens expire after 90 minutes.
 
-\* Tokens expire 90 minutes after creation.
+#### 3.1 The referrer argument
 
-### 4. Including/Importing the library
+The referrer argument specifies the URL of the web page where the Web SDK will be used. The referrer sent by the browser must match the referrer URL pattern in the SDK token for the SDK to successfully authenticate.
+
+The referrer pattern guarantees that other malicious websites cannot reuse the SDK token in case it is lost. You can read more about referrer policy [in Mozilla's
+documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy).
+
+⚠️ Note: You must use a site referrer policy that lets the
+`Referer` header be sent. If your policy does not allow this (e.g.
+`Referrer-Policy: no-referrer`), then you'll receive a `401 bad_referrer`
+error when trying to use the Web SDK.
+
+Permitted referrer patterns are as follows:
+
+| Section  | Format                                       | Example                       |
+| -------- | -------------------------------------------- | ----------------------------- |
+| Referrer | `scheme://host/path`                         | `https://*.<DOMAIN>/<PATH>/*` |
+| Scheme   | `*` or `http` or `https`                     | `https`                       |
+| Host     | `*` or `*.` then any char except `/` and `*` | `*.<DOMAIN>`                  |
+| Path     | Any char or none                             | `<PATH>/*`                    |
+
+An example of a valid referrer is `https://*.example.com/example_page/*`.
+
+### 4. Import the library
+
+You can either:
+
+- import directly into your HTML page
+- use npm
 
 #### 4.1 HTML Script Tag Include
 
-Include it as a regular script tag on your page:
+You can include the library as a regular script tag on your page:
 
 ```html
 <script src="dist/onfido.min.js"></script>
 ```
+
+⚠️ Note: The above import does **not** include the Auth module. To include it, use:
+
+```html
+<script src="dist/onfidoAuth.min.js"></script>
+```
+
+⚠️ **The Authentication module is currently a BETA feature.**
 
 And the CSS styles:
 
@@ -93,20 +137,17 @@ And the CSS styles:
 <link rel="stylesheet" href="dist/style.css" />
 ```
 
-#### Example app
-
-[JSFiddle example here.](https://jsfiddle.net/gh/get/library/pure/onfido/onfido-sdk-ui/tree/master/demo/fiddle/)
-Simple example using script tags.
+You can see a [simple example using script tags](https://jsfiddle.net/gh/get/library/pure/onfido/onfido-sdk-ui/tree/master/demo/fiddle/).
 
 #### 4.2 NPM style import
 
-You can also import it as a module into your own JS build system (tested with Webpack).
+You can import the library as a module into your own JS build system (tested with Webpack):
 
-```sh
+```shell
 $ npm install --save onfido-sdk-ui
 ```
 
-```js
+```javascript
 // ES6 module import
 import { init } from 'onfido-sdk-ui'
 
@@ -114,162 +155,182 @@ import { init } from 'onfido-sdk-ui'
 var Onfido = require('onfido-sdk-ui')
 ```
 
-The **CSS style** will be included **inline with the JS code** when the library is imported.
+⚠️ Note: The above import does **not** include the Auth module. To include it, use:
 
-#### Note
+```javascript
+// ES6 module import
+import { init } from 'onfido-sdk-ui/dist/onfidoAuth.min.js'
 
-The library is **Browser only**, it does not support the **Node Context**.
+// commonjs style require
+var Onfido = require('onfido-sdk-ui/dist/onfidoAuth.min.js')
+```
 
-#### Example App
+In addition to the alternative way of importing Auth, you need to have an `auth-sdk/` folder in your public assets folder, and copy the contents of `node_modules/onfido-sdk-ui/dist/auth-sdk` into it.
 
-**[Webpack Sample App repository here](https://github.com/onfido/onfido-sdk-web-sample-app/).**
-Example app which uses the npm style of import.
+If you are using Webpack on your application, you can automate this by adding:
 
-### 5. Adding basic HTML markup
+```javascript
+new CopyPlugin({
+  patterns: [
+    {
+      from: `../../node_modules/onfido-sdk-ui/dist/auth-sdk`,
+      to: `${__dirname}/bin/src/auth-sdk`,
+    },
+  ],
+})
+```
 
-There is only one element required in your HTML, an empty element for the modal interface to mount itself on:
+This will fetch the core authentication technology from the SDK into your application. Using web workers for authentication enables the best performance achievable, without compromising on usability.
+
+The CSS style will be included inline with the JS code when the library is imported.
+
+⚠️ Note: The library is **Browser only**, it does not support the **Node Context**.
+
+You can see an [example app using npm style import](https://github.com/onfido/onfido-sdk-web-sample-app/).
+
+### 5. Add basic HTML markup
+
+Add an empty HTML element at the bottom of your page for the modal interface to mount itself on.
 
 ```html
-<!-- At the bottom of your page, you need an empty element where the
-verification component will be mounted. -->
 <div id="onfido-mount"></div>
 ```
 
-### 6. Initialising the SDK
+### 6. Initialize the SDK
 
-You are now ready to initialize the SDK:
+You can now initialize the SDK, using the SDK token.
 
-```js
+```javascript
 Onfido.init({
-  // the JWT token that you generated earlier on
-  token: 'YOUR_JWT_TOKEN',
-  // ID of the element you want to mount the component on
+  token: '<YOUR_SDK_TOKEN>',
   containerId: 'onfido-mount',
-  // ALTERNATIVE: if your integration requires it, you can pass in the container element instead
-  // (Note that if `containerEl` is provided, then `containerId` will be ignored)
-  containerEl: <div id="root" />,
+  containerEl: <div id="root" />, //ALTERNATIVE to `containerId`
   onComplete: function (data) {
     console.log('everything is complete')
-    // `data` will be an object that looks something like this:
-    //
-    // {
-    //   "document_front": {
-    //     "id": "5c7b8461-0e31-4161-9b21-34b1d35dde61",
-    //     "type": "passport",
-    //     "side": "front"
-    //   },
-    //   "face": {
-    //     "id": "0af77131-fd71-4221-a7c1-781f22aacd01",
-    //     "variant": "standard"
-    //   }
-    // }
-    //
-    // For two-sided documents like `driving_licence` and `national_identity_card`, the object will also
-    // contain a `document_back` property representing the reverse side:
-    //
-    // {
-    //   ...
-    //   "document_back": {
-    //     "id": "6f63bfff-066e-4152-8024-3427c5fbf45d",
-    //     "type": "driving_licence",
-    //     "side": "back"
-    // }
-    //
-    // You can now trigger your backend to start a new check
-    // `data.face.variant` will return the variant used for the face step
-    // this can be used to perform a facial similarity check on the applicant
+  },
+  steps: ['welcome', 'document', 'face', 'complete'],
+})
+```
+
+| Parameter     | Format           | Notes                                                                                                                                                                                                                                                                                                                                            |
+| ------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `token`       | string           | **required** <br />Your Web SDK token                                                                                                                                                                                                                                                                                                            |
+| `containerId` | string           | **optional** <br />A string containing the ID of the container element that the UI will mount to. This must be an empty element. The default is `onfido-mount`. <br /> Alternatively, if your integration requires it, you can pass in the container element instead. Note that if `containerEl` is provided, then `containerId` will be ignored |
+| `onComplete`  | function         | **optional** A [callback function](#handling-callbacks) that executes after the applicant's document and face have both been captured and uploaded successfully                                                                                                                                                                                  |
+| `steps`       | string or object | List of different steps corresponding to parts of the process the user will be presented with                                                                                                                                                                                                                                                    |
+
+## Handling callbacks
+
+### `onComplete {Function} optional`
+
+Callback that fires when both the document and face have been successfully captured and uploaded. You can then trigger your backend to [create a check](https://documentation.onfido.com/#create-check), using the associated applicant ID.
+
+Example `onComplete` callback:
+
+```javascript
+Onfido.init({
+  token: '<YOUR-SDK-TOKEN>',
+  containerId: 'onfido-mount',
+  onComplete: function (data) {
+    console.log('everything is complete')
   },
 })
 ```
 
-Congratulations! You have successfully started the flow. Carry on reading the next sections to learn how to:
+`data` is an object that contains properties of the document and face images captured during the SDK flow.
 
-- Handle callbacks
-- Remove the SDK from the page
-- Customize the SDK
-- Create checks
+For two-sided documents like `driving_licence` and `national_identity_card`, the object will also contain a `document_back` property representing the reverse side.
 
-## Handling callbacks
+For the face step an object is returned with the `variant` used for the face capture,`'standard' | 'video'`. This informs whether to specify a `facial_similarity_photo` or `facial_similarity_video` report during check creation.
 
-- **`onComplete {Function} optional`**
+```javascript
+    {
+       "document_front": {
+         "id": "<DOCUMENT_ID_FRONT>",
+         "type": "passport",
+         "side": "front"
+       },
+       "face": {
+         "id": "<FACE_ID>",
+         "variant": "standard"
+       },
+       "document_back": {
+         "id": "<DOCUMENT_ID_BACK>",
+         "type": "driving_licence",
+         "side": "back"
+       }
+    }
+```
 
-  Callback that fires when both the document and face have successfully been captured and uploaded.
-  At this point you can trigger your backend to create a check by making a request to the Onfido API [create check endpoint](https://documentation.onfido.com/#create-check).
-  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check. The data will be formatted as follows: `{face: {variant: 'standard' | 'video'}}`.
+For the Auth step a data object is returned with parameters `sucess`, `token`, `type`, and `uuid`. The `success` variable informs whether or not the user was authenticated successfuly, whereas `token` is a JWT that can be used to validate the user authentication.
 
-  Here is an `onComplete` callback example:
+**Example of an auth `onComplete` data callback:**
 
-  ```js
-  Onfido.init({
-    token: 'your-jwt-token',
-    containerId: 'onfido-mount',
-    onComplete: function (data) {
-      console.log('everything is complete')
-      // tell your backend service that it can create the check
-      // when creating a facial similarity check, you can specify
-      // whether you want to start a `facial_similarity_photo` check
-      // or a `facial_similarity_video` check based on the value within `data.face.variant`
-    },
-  })
-  ```
+```javascript
+    {
+      "success": true,
+      "token": "eyJhbGciOiJSUz...",
+      "type": "complete",
+      "uuid": "b3b9142d-3071-401d-821b-17ab134d4798"
+    }
+```
 
-  Based on the applicant id, you can then create a check for the user via your backend.
+### `onError {Function} optional`
 
-- **`onError {Function} optional`**
+Callback that fires when an error occurs. The callback returns the following error types:
 
-  Callback that fires when one an error occurs. The callback returns the following errors types:
+- `exception`
+  This will be returned for the following errors:
 
-  - `exception`
-    This type will be returned for the following errors:
+  - timeout and server errors
+  - authorization
+  - invalid token
+  - [Auth] exception handling API response
 
-    - Timeout and server errors
-    - Authorization
-    - Invalid token
+  This data can be used for debugging purposes.
 
-    The data returned by this type of error should be used for debugging purpose.
+```javascript
+{
+  type: "exception",
+  message: "The request could not be understood by the server, please check your request is correctly formatted"
+}
+```
 
-  - `expired_token`
-    This error will be returned when a token is expired. This error type can be used to provide a new token at runtime.
+- `expired_token`
+  This error will be returned when a token has expired. This error type can be used to provide a new token at runtime.
 
-  Here is an example of the data returned by the `onError` callback:
+```javascript
+{
+  type: "expired_token",
+  message: "The token has expired, please request a new one"
+}
+```
 
-  ```js
-  // Example of data returned for an `exception` error type
-  {
-    type: "exception",
-    message: "The request could not be understood by the server, please check your request is correctly formatted"
-  }
+### `onUserExit {Function} optional`
 
-  // Example of data returned for an `expired_token` error type
-  {
-    type: "expired_token",
-    message: "The token has expired, please request a new one"
-  }
-  ```
+Callback that fires when the user abandons the flow without completing it.
 
-- **`onUserExit {Function} optional`**
+The callback returns a string with the reason for leaving. For example, `'USER_CONSENT_DENIED'` is returned when a user exits the flow because they declined the consent prompt.
 
-  Callback that fires when the user abandons the flow without completing it. The callback returns a string with the reason for leaving. When the user exits the flow by declining the consent prompt the value returned will be `'USER_CONSENT_DENIED'`.
+```javascript
+Onfido.init({
+  token: '<YOUR-JWT-TOKEN>',
+  containerId: 'onfido-mount',
+  onUserExit: function (userExitCode) {
+    console.log(userExitCode)
+  },
+})
+```
 
-  ```js
-  Onfido.init({
-    token: 'your-jwt-token',
-    containerId: 'onfido-mount',
-    onUserExit: function (userExitCode) {
-      console.log(userExitCode)
-    },
-  })
-  ```
+### `onModalRequestClose {Function} optional`
 
-- **`onModalRequestClose {Function} optional`**
+Callback that fires when the user attempts to close the modal.
 
-  Callback that fires when the user attempts to close the modal.
-  It is your responsibility to decide then to close the modal or not
-  by changing the property `isModalOpen`.
+You can then decide to close the modal or keep it open by changing the property `isModalOpen`.
 
 ## Removing the SDK
 
-If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialize the SDK inside the same webpage later on.
+If you have embedded the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset the state and you can safely re-initialize the SDK inside the same webpage later on.
 
 ```javascript
 onfidoOut = Onfido.init({...})
@@ -277,19 +338,15 @@ onfidoOut = Onfido.init({...})
 onfidoOut.tearDown()
 ```
 
-## Customising the SDK
-
-A number of options are available to allow you to customize the SDK:
+## Initialization options
 
 - **`token {String} required`**
 
-  A JWT is required in order to authorise with our WebSocket endpoint. If one isn’t present, an exception will be thrown.
+  A JWT is required in order to authorize with our WebSocket endpoint. If one isn’t present, an exception will be thrown.
 
 - **`useModal {Boolean} optional`**
 
   Turns the SDK into a modal, which fades the background and puts the SDK into a contained box.
-
-  Example:
 
   ```javascript
   <script>
@@ -321,13 +378,13 @@ A number of options are available to allow you to customize the SDK:
 
 - **`isModalOpen {Boolean} optional`**
 
-  In case `useModal` is set to `true`, this defines whether the modal is open or closed.
-  To change the state of the modal after calling `init()` you need to later use `setOptions()` to modify it.
-  The default value is `false`.
+  Defines whether the modal is open or closed, if `useModal` is set to `true`. The default value is `false`.
+
+  To change the state of the modal after calling `init()` you need to use `setOptions()`.
 
 - **`shouldCloseOnOverlayClick {Boolean} optional`**
 
-  In case `useModal` is set to `true`, the user by default can close the SDK by clicking on the close button or on the background overlay. You can disable the user from closing the SDK on background overlay click by setting the `shouldCloseOnOverlayClick` to false.
+  If `useModal` is set to `true`, by default the user can close the SDK by clicking on the close button or on the background overlay. You can disable the user's ability to close the SDK by clicking the background overlay through setting `shouldCloseOnOverlayClick` to `false`.
 
 - **`containerId {String} optional`**
 
@@ -337,44 +394,9 @@ A number of options are available to allow you to customize the SDK:
 
   The container element that the UI will mount to. This needs to be an empty element. This can be used as an alternative to passing in the container ID string previously described for `containerId`. Note that if `containerEl` is provided, then `containerId` will be ignored.
 
-- **`language {String || Object} optional`**
-
-  The SDK language can be customized by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
-  To leverage one of these languages, the `language` option should be passed as a string containing a supported language tag.
-
-  Example:
-
-  ```javascript
-  language: 'es_ES' | 'es'
-  ```
-
-  The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
-  The object should include the following keys:
-
-  - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-    You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
-    The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English, Spanish, French and German.
-
-  - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
-  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable.
-
-  ```javascript
-  language: {
-    locale: 'en_US',
-    phrases: { welcome: { title: 'My custom title' } },
-    mobilePhrases: {
-      'capture.driving_licence.instructions': 'This string will only appear on mobile'
-    }
-  }
-  ```
-
-  If `language` is not present the default copy will be in English.
-
 - **`smsNumberCountryCode {String} optional`**
 
-  The default country for the SMS number input can be customized by passing the `smsNumberCountryCode` option when the SDK is initialized. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
-
-  Example:
+  You can change the default country for the SMS number input by passing the `smsNumberCountryCode` option when the SDK is initialized. The value should be a string containing a 2-character ISO Country code. If empty, the SMS number country code will default to `GB`.
 
   ```javascript
   smsNumberCountryCode: 'US'
@@ -382,11 +404,9 @@ A number of options are available to allow you to customize the SDK:
 
 - **`userDetails {Object} optional`**
 
-  Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
+  The following user details can be specified ahead of time, so that the user doesn't need to provide the information themselves:
 
-  The following details can be used by the SDK:
-
-  - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
+  - `smsNumber` (optional) : The user's mobile number, which can be used for sending SMS messages to the user, for example, when a user requests to use their mobile devices to take photos. The value should be a string containing the mobile number with a country code.
 
   ```javascript
   userDetails: {
@@ -394,9 +414,36 @@ A number of options are available to allow you to customize the SDK:
   }
   ```
 
+- **`steps {List} optional`**
+
+  The list of the different steps to be shown in the SDK flow and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required).
+
+  ```javascript
+  steps: [
+    {
+      type: 'welcome',
+      options: {
+        title: 'Open your new bank account',
+      },
+    },
+    'document',
+    'face',
+  ]
+  ```
+
+  See [flow customization](#flow-customization) for details of the custom options for each step.
+
+## Customizing the SDK
+
+The Web SDK has multiple customizable features that provide flexibility, while also being easy to integrate. You can also read our [SDK customization guide](https://developers.onfido.com/guide/sdk-customization).
+
+### UI customization
+
+The Web SDK supports customization options across the SDK screen including text, the SDK main container, buttons, links, icon background color and popups. For visualizations of the available options please see our [SDK customization guide](https://developers.onfido.com/guide/sdk-customization#web).
+
 - **`customUI {Object} optional`**
 
-  If you would like to customize the SDK, this can be done by providing the `customUI` option with an object with the corresponding CSS values (e.g. RGBA color values, border radius values) for the following options:
+  To customize the SDK, you can pass the corresponding CSS values to the `customUI` object for the following options:
 
   | Typography options     | Description                                                                        |
   | ---------------------- | ---------------------------------------------------------------------------------- |
@@ -413,7 +460,7 @@ A number of options are available to allow you to customize the SDK:
   | `colorContentSubtitle` | Change text color of the SDK screen subtitles                                      |
   | `colorContentBody`     | Change text color of the SDK screen content                                        |
 
-  Example configuration with the different CSS font related values that can be used:
+  Example configuration with typography options:
 
   ```javascript
   customUI: {
@@ -424,7 +471,7 @@ A number of options are available to allow you to customize the SDK:
   }
   ```
 
-  **Note:** If using a scalable font size unit like em/rem, the SDK's base font size is 16px. This is currently not customizable.
+  ⚠️ **Note:** If you're using a scalable font size unit like em/rem, the SDK's base font size is 16px. This is currently not customizable.
 
   | Modal (SDK main container)    | Description                          |
   | ----------------------------- | ------------------------------------ |
@@ -434,7 +481,7 @@ A number of options are available to allow you to customize the SDK:
   | `borderStyleSurfaceModal`     | Change border style of SDK modal     |
   | `borderRadiusSurfaceModal`    | Change border radius of SDK modal    |
 
-  Example configuration with the different CSS colour value variations, border style that can be used:
+  Example configuration with Modal options:
 
   ```javascript
   customUI: {
@@ -473,7 +520,7 @@ A number of options are available to allow you to customize the SDK:
   | ---------------------- | ------------------------------------------------------------------- |
   | `colorBackgroundIcon`  | Change color of the background circle of pictogram icons in the SDK |
 
-  Example configuration with the different CSS colour value variations that can be used:
+  Example configuration with Button options:
 
   ```javascript
   customUI: {
@@ -543,303 +590,373 @@ A number of options are available to allow you to customize the SDK:
   | `colorBackgroundButtonCameraHover`  | Change background color of Live Selfie/Document Capture screens's Camera button on hover    |
   | `colorBackgroundButtonCameraActive` | Change background color of Live Selfie/Document Capture screen's Camera button on click/tap |
 
-- **`steps {List} optional`**
+  | Auth Module Colors (shared) | Description                                                                                                                                                                                                                                                                                                                                                                                |
+  | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | `authAccentColor`           | <ul><li>Change color of activity indicator animation shown during server-side work</li><li> Change background color of result animation</li><li> Change background color of the upload progress bar</li> </ul>                                                                                                                                                                             |
+  | `authFrameColor`            | <ul><li>Change the color of the border and background surrounding the oval outline Auth session</li><li>Change background color of the Auth overlay.</li><li>Change background color for the New User Guidance and Retry screens.</li><li> Change background color of Result screen and Result animation foreground</li><li>Change background color of initial loading animation</li></ul> |
+  | `authButtonCornerRadius`    | <ul><li>Change corner radius of the action button's border during the New User Guidance and Retry screens.</li><li>Change corner radius of the Auth Feedback bar.</li></ul>                                                                                                                                                                                                                |
 
-  List of the different steps and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required):
+  | Auth Module Colors (unique) | Description                                                                                                              |
+  | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+  | `authDualSpinnercolor`      | Change animated Auth Progress Spinner strokes.                                                                           |
+  | `authRetryScreenovalcolor`  | Change oval's stroke that overlays the ideal image example during the first Retry screen.                                |
+  | `authOvalColor`             | Change color of Auth Oval outline                                                                                        |
+  | `authButtonColorNormal`     | Change background color of the action button during the New User Guidance and Retry screens.                             |
+  | `authButtonColorDisabled`   | Change background color of the action button when the button is disabled during the New User Guidance and Retry screens. |
+  | `authButtonColorPressed`    | Change background color of the action button when the button is pressed during the New User Guidance and Retry screens.  |
+  | `authFeedbackBarColor`      | Change background color of the Auth Feedback bar. Recommend making this have some transparency.                          |
+
+  | Auth Module Text Colors        | Description                                                                                                                                                                                                                                                                                                         |
+  | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `authTextColor`                | <ul><li>Change color of text displayed on the New User Guidance and Retry screens (not including the action button text).</li><li>Change color of text displayed on the Result screen.</li><li>Change color of loading spinner foreground fill and message text shown to the user while the camera loads.</li></ul> |
+  | `authButtonTextHighlightColor` | Change color of the action button's text when the button is pressed during the New User Guidance and Retry screens.                                                                                                                                                                                                 |
+  | `authButtonTextDisabledColor`  | Change color of the action button's text when the button is disabled during the New User Guidance and Retry screens.                                                                                                                                                                                                |
+  | `authButtonTextNormalColor`    | Change color of the action button's text during the New User Guidance and Retry screens                                                                                                                                                                                                                             |
+  | `authFeedbackBarTextColor`     | Change color of text displayed within the Auth Browser SDK Feedback bar                                                                                                                                                                                                                                             |
+
+### Language Localization
+
+- **`language {String || Object} optional`**
+
+  You can customize the language displayed on the SDK by passing a string or object. If `language` is not present the default copy will be in English.
+
+  ##### Supported languages
+
+  The SDK supports and maintains 4 languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
+
+  | Language          | Locale Tag |
+  | ----------------- | ---------- |
+  | English (default) | `en_US`    |
+  | German            | `de_DE`    |
+  | Spanish           | `es_ES`    |
+  | French            | `fr_FR`    |
+
+  Example:
 
   ```javascript
-  steps: [
-    {
-      type: 'welcome',
-      options: {
-        title: 'Open your new bank account',
-      },
-    },
-    'document',
-    'face',
-  ]
+  language: 'es_ES' | 'es'
   ```
 
-  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customized.
+  ##### Custom lanugages
 
-  The SDK can also be used to capture Proof of Address documents. This can be achieved by using the `poa` step.
+  The SDK can also be displayed in a custom language for locales that Onfido does not currently support. To implement this, pass an object containing the following keys:
 
-  Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
-
-  ### welcome
-
-  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified.
-
-  The custom options are:
-
-  - `title` (string)
-  - `descriptions` ([string])
-  - `nextButton` (string)
-
-  ### userConsent
-
-  This step contains a screen to collect the US user's privacy consent for Onfido and is an optional step in the SDK flow. It contains the consent language required when you offer your service to US users as well as links to Onfido's policies and terms of use. The user must click "Accept" to get past this step and continue with the flow. The content is available in English only, and is not translatable.
-
-  Note that this step does not automatically inform Onfido that the user has given their consent. At the end of the SDK flow, you still need to set the API parameter `privacy_notices_read_consent_given` outside of the SDK flow when [creating a check](#creating-checks).
-
-  If you choose to disable this step, you must incorporate the required consent language and links to Onfido's policies and terms of use into your own application's flow before your user starts interacting with the Onfido SDK.
-
-  For more information about this step, and how to collect user consent, please visit the [Onfido Privacy Notices and Consent](http://developers.onfido.com/guide/onfido-privacy-notices-and-consent) page.
-
-  **Note**: The `userConsent` step must be used in conjunction with the `onUserExit` callback. See the [Handling Callbacks](#handling-callbacks) section for more information.
-
-  ### document
-
-  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. For driving licence and national ID card types, the user will be able to see and select the document's issuing country from a list of supported countries. They will also have a chance to check the quality of the image(s) before confirming.
-
-  The custom options are:
-
-  - `documentTypes` (object)
-
-    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see either the document selection screen or the country selection screen and instead will be taken to the capture screen directly.
-
-    #### Configuring Country
-
-    The `country` configuration for a document type allows you to specify the issuing country of the document with a 3-letter ISO 3166-1 alpha-3 country code. Users will not see the country selection screen if this is set for a document type.
-
-    **Note**: You can set the country for all document types except **Passport**.
-
-    For example, if you would like to set the country as Spain (ESP) and skip the country selection screen for the driving licence document type only:
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              "driving_licence": {
-                "country": "ESP"
-              },
-              "national_identity_card": true,
-              "residence_permit": true
-            }
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-    If you would like to suppress the country selection screen for driving licence but do not want to set a country:
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              "driving_licence": {
-                "country": null
-              },
-              "passport": true,
-              "national_identity_card": true
-            }
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-  - `showCountrySelection` (boolean - default: `false`)
-
-    **Note**: Support for the `showCountrySelection` option will be deprecated soon in favour of the per document country configuration detailed above which offers integrators better control.
-
-    The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes` It has no effect when the SDK has been set up with multiple documents preselected.
-
-    The country selection screen is never displayed for a passport document.
-
-    By default, if only one document type is preselected, and the document type is not `passport`, the country selection screen will not be displayed. If you would like to have this screen displayed still, set `showCountrySelection` to `true`.
-
-    ```javascript
-    options: {
-      documentTypes: {
-        passport: boolean,
-        driving_licence: boolean,
-        national_identity_card: boolean,
-        residence_permit: boolean
-      },
-      showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
-    }
-    ```
-
-    #### Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour)
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              // Note that only 1 document type is selected here
-              "passport": false,
-              "driving_licence": false,
-              "national_identity_card": true
-            },
-            "showCountrySelection": false
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-    #### Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed
-
-    **Example 1**
-    All document type options enabled, `"showCountrySelection": false` has no effect
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              "passport": true,
-              "driving_licence": true,
-              "national_identity_card": true
-            },
-            "showCountrySelection": false (NOTE: has no effect)
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-    **Example 2**
-    2 document type options enabled, `"showCountrySelection": false` has no effect
-
-    ```json
-    {
-      "steps": [
-        "welcome",
-        {
-          "type": "document",
-          "options": {
-            "documentTypes": {
-              "passport": true,
-              "national_identity_card": true,
-              "driving_licence": false
-            },
-            "showCountrySelection": false (NOTE: has no effect)
-          }
-        },
-        "complete"
-      ]
-    }
-    ```
-
-  - `forceCrossDevice` (boolean - default: `false`)
-
-    When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
-
-    ```javascript
-    options: {
-      forceCrossDevice: true
-    }
-    ```
-
-  - `useLiveDocumentCapture` (boolean - default: `false`)
-    **This BETA feature is only available on mobile devices.**
-
-    When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. For unsupported scenarios, see the `uploadFallback` section below.
-    Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
-
-  - `uploadFallback` (boolean - default: `true`)
-    Only available when `useLiveDocumentCapture` is enabled.
-
-    When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
-
-    This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
-
-    **Warning**: If the mobile device does not have a camera or there is no camera browser support, and `uploadFallback` is set to `false`, the user will not be able to complete the flow.
-
-    ```javascript
-    options: {
-      useLiveDocumentCapture: true,
-      uploadFallback: false
-    }
-    ```
-
-  ### poa
-
-  This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
-  The custom options are:
-
-  - `country` (default: `GBR`)
-  - `documentTypes`
+  | Key             | Description                                                                                | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+  | --------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `locale`        | **required** <br /> A locale tag.                                                          | This is required when providing phrases for an unsupported language. You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supports English, Spanish, French and German. |
+  | `phrases`       | **required** <br /> An object containing the keys you want to override and the new values. | The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.                                                                                                                                                                                                                                                                                                                                                                                   |
+  | `mobilePhrases` | **optional** <br /> An object containing the keys you want to override and the new values. | The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable.                                                                                                                                                                                                                                                                     |
 
   ```javascript
-  options: {
-    country: string,
-    documentTypes: {
-      bank_building_society_statement: boolean,
-      utility_bill: boolean,
-      council_tax: boolean, // GBR only
-      benefit_letters: boolean, // GBR only
-      government_letter: boolean // non-GBR only
+  language: {
+    locale: 'en_US',
+    phrases: { welcome: { title: 'My custom title' } },
+    mobilePhrases: {
+      'capture.driving_licence.instructions': 'This string will only appear on mobile'
     }
   }
   ```
 
-  **The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.**
+### Flow customization
 
-  ### face
+#### welcome
 
-  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming.
+This step is the introduction screen of the SDK. It displays a summary of the capture steps the user will pass through. These steps can be specified to match the flow required. This is an optional screen.
 
-  The custom options are:
+The custom options are:
 
-  - `requestedVariant` (string)
+- `title` (string)
+- `descriptions` ([string])
+- `nextButton` (string)
 
-    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check.
+#### userConsent
 
-  - `uploadFallback` (boolean - default: `true`)
+This step is a screen to collect US end users' privacy consent for Onfido. It contains the consent language required when you offer your service to US users as well as links to Onfido's policies and terms of use. This is an optional step in the SDK flow.
 
-    By default, the SDK will attempt to open an optimised camera UI for the user to take a live photo/video. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
+The user must click "Accept" to continue with the flow past this step. The content is available in English only, and is not translatable.
 
-    This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+⚠️ Note: this step does not automatically inform Onfido that the user has given their consent. At the end of the SDK flow, you still need to set the API parameter `privacy_notices_read_consent_given` outside of the SDK flow when [creating a check](#creating-checks).
 
-    **Warning**: If the mobile device does not have a camera or there is no camera browser support, and `uploadFallback` is set to `false`, the user will not be able to complete the flow.
+If you choose to disable this step, you must incorporate the required consent language and links to Onfido's policies and terms of use into your own application's flow before your user starts interacting with the Onfido SDK.
 
-    ```javascript
-    options: {
-      requestedVariant: 'standard' | 'video',
-      uploadFallback: false
-    }
-    ```
+For more information about this step, and how to collect user consent, please read [Onfido Privacy Notices and Consent](http://developers.onfido.com/guide/onfido-privacy-notices-and-consent).
 
-  - `useMultipleSelfieCapture` (boolean - default: `true`)
+**Note**: The `userConsent` step must be used in conjunction with the `onUserExit` callback. See the [Handling Callbacks](#handling-callbacks) for more information.
 
-    When enabled, this feature allows the SDK to take additional selfie snapshots to help improve face similarity check accuracy. When disabled, only one selfie photo will be taken.
+#### document
 
-  - `photoCaptureFallback` (boolean - default: `true`)
+This is the identity document capture step. Users will be asked to select the document type and its issuing country before providing images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
 
-    When enabled, this feature allows end-users to upload selfies if the requested variant is `video` and their browser does not support MediaRecorder.
+Document selection and country selection are both optional screens. These screens will only show to the end user if specific options are not configured to the SDK.
 
-    When disabled, it will forward the user to the cross-device flow in order to attempt to capture a video in another device. If the user is already in a mobile device and it does not support
-    MediaRecorder, the unsupported browser error will be shown.
+The custom options are:
 
-  ### complete
+- `documentTypes` (object)
 
-  This is the final completion step. You can use this to inform your users what is happening next. The custom options are:
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see either the document selection screen or the country selection screen and instead will be taken directly to the capture screen.
 
-  - `message` (string)
-  - `submessage` (string)
+- `country` (string)
+
+  Document country can be specified per document type. The `country` configuration for a document type allows you to specify the issuing country of the document as a string containing a 3-letter ISO 3166-1 alpha-3 country code.
+
+  If a document country is specified for a document type, or is passed as `null`, the country selection screen is not displayed to the end user.
+
+  ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information.
+
+  For example, if you would like to set the country as Spain (ESP) and skip the country selection screen for the driving licence document type only:
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            "driving_licence": {
+              "country": "ESP"
+            },
+            "national_identity_card": true,
+            "residence_permit": true
+          }
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
+
+  For example, if you would like to skip the country selection screen for driving licence but do not want to set a country:
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            "driving_licence": {
+              "country": null
+            },
+            "passport": true,
+            "national_identity_card": true
+          }
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
+
+- `showCountrySelection` (boolean - default: `false`)
+
+  ⚠️ **Note**: Support for the `showCountrySelection` option will be deprecated soon in favour of the per document country configuration detailed above which offers integrators better control.
+
+  The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes`. It has no effect when the SDK has been set up with multiple documents preselected.
+
+  The country selection screen is never displayed for a passport document.
+
+  By default, if only one document type is preselected, and the document type is not `passport`, the country selection screen will not be displayed. If you would like to have this screen displayed still, set `showCountrySelection` to `true`.
+
+  ```javascript
+  options: {
+    documentTypes: {
+      passport: boolean,
+      driving_licence: boolean,
+      national_identity_card: boolean,
+      residence_permit: boolean
+    },
+    showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
+  }
+  ```
+
+  Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour):
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            // Note that only 1 document type is selected here
+            "passport": false,
+            "driving_licence": false,
+            "national_identity_card": true
+          },
+          "showCountrySelection": false
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
+
+  Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed:
+
+  **Example 1**
+  All document type options enabled, `"showCountrySelection": false` has no effect
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            "passport": true,
+            "driving_licence": true,
+            "national_identity_card": true
+          },
+          "showCountrySelection": false (NOTE: has no effect)
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
+
+  **Example 2**
+  2 document type options enabled, `"showCountrySelection": false` has no effect
+
+  ```json
+  {
+    "steps": [
+      "welcome",
+      {
+        "type": "document",
+        "options": {
+          "documentTypes": {
+            "passport": true,
+            "national_identity_card": true,
+            "driving_licence": false
+          },
+          "showCountrySelection": false (NOTE: has no effect)
+        }
+      },
+      "complete"
+    ]
+  }
+  ```
+
+- `forceCrossDevice` (boolean - default: `false`)
+
+  The Web SDK offers a cross device flow where desktop users will be given the option to continue using their desktop browser or swap to using their mobile device browser to complete the capture process. If a user selects to use their mobile device they will be redirected via a secure link that they can receive by SMS or QR code to complete the flow. At the end of the capture process users will be redirected back to their desktop to complete the SDK flow.
+
+  When `forceCrossDevice` is set to `true`, the cross device flow is mandatory for all users. Desktop users will be required to complete the capture process on a mobile device browser.
+  Configuring this option minimises the risk of fraudulent upload by ensuring a higher likelihood of live capture.
+
+  ```javascript
+  options: {
+    forceCrossDevice: true
+  }
+  ```
+
+- `useLiveDocumentCapture` (boolean - default: `false`)
+  **This BETA feature is only available on mobile devices.**
+
+  When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. Configuring this option minimises the risk of fraudulent upload by bypassing the device's default camera application. For unsupported scenarios, see the `uploadFallback` section below.
+
+  Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
+
+- `uploadFallback` (boolean - default: `true`)
+  Only available when `useLiveDocumentCapture` is enabled.
+
+  When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo.
+
+  This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+
+  ⚠️ **Warning**: If the mobile device does not have a camera or lacks camera browser support the user will not be able to complete the flow if `uploadFallback` is set to `false`.
+
+  ```javascript
+  options: {
+    useLiveDocumentCapture: true,
+    uploadFallback: false
+  }
+  ```
+
+#### poa
+
+This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
+The custom options are:
+
+- `country` (default: `GBR`)
+- `documentTypes`
+
+```javascript
+options: {
+  country: string,
+  documentTypes: {
+    bank_building_society_statement: boolean,
+    utility_bill: boolean,
+    council_tax: boolean, // GBR only
+    benefit_letters: boolean, // GBR only
+    government_letter: boolean // non-GBR only
+  }
+}
+```
+
+**The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.**
+
+#### face
+
+This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photo or video before confirming.
+
+The custom options are:
+
+- `requestedVariant` (string)
+
+  A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, the SDK will try to fulfil this request depending on camera availability and device and browser support on the user's device. If a video cannot be taken, the face step will fallback to the `standard` photo option.
+
+  If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the [`onComplete` callback](#handling-callbacks) to request the correct report when creating a check.
+
+- `uploadFallback` (boolean - default: `true`)
+
+  By default, the SDK will attempt to open an optimised camera UI for the user to take a live photo or video. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
+
+  This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+
+  ⚠️ **Warning**: If the mobile device does not have a camera or lacks camera browser support the user will not be able to complete the flow if `uploadFallback` is set to `false`.
+
+  ```javascript
+  options: {
+    requestedVariant: 'standard' | 'video',
+    uploadFallback: false
+  }
+  ```
+
+- `useMultipleSelfieCapture` (boolean - default: `true`)
+
+  When enabled, this feature allows the SDK to take additional selfie snapshots to help improve face similarity check accuracy. When disabled, only one selfie photo will be taken.
+
+- `photoCaptureFallback` (boolean - default: `true`)
+
+  When enabled, this feature allows end-users to upload selfies if the requested variant is `video` and their browser does not support MediaRecorder.
+
+  When disabled, it will forward the user to the cross-device flow in order to attempt to capture a video in another device. If the user is already in a mobile device and it does not support
+  MediaRecorder, the unsupported browser error will be shown.
+
+#### auth
+
+This is the authentication step. If you have followed the guidelines specific to including authentication, you'll have this step made available. In here, a loading screen is presented to the user to fetch all necessary resources to perform authentication.
+
+After all resources are loaded, the session is initialized, and the authentication check begins. An oval frame of the camera will be present (if camera permissions are provided) and actionable elements will render, asking the user to place their face in the frame, followed up by a different set of instructions for them to follow to successfully authenticate the user.
+
+If the user is not a match, or conditions are not good enough to successfully authenticate, the user will be asked to retry authentication. If authentication is not possible (i.e. user performing authentication is not a match, doesn't provide optimal light/environment conditions, or doesn't follow instructions on screen), the page will rollback to the previous step. Custom option is:
+
+- `retries` (number)
+
+This option allows the integrator to set the maximum number of retries until authentication session is cancelled. **Default maximum number of attempts is 3.**
+
+#### complete
+
+This is the final completion step. The screen displays a completion message to signal the next steps to the user. This is an optional screen. The custom options are:
+
+- `message` (string)
+- `submessage` (string)
 
 ### Changing options in runtime
 
@@ -868,66 +985,54 @@ onfidoOut.setOptions({ token:"new token" });
 onfidoOut.setOptions({ isModalOpen:true });
 ```
 
-The new options will be shallowly merged with the previous one. So one can pass only the differences to a get a new flow.
+The new options will be shallowly merged with the previous one, so you can only pass the differences to a get a new flow.
 
 ## Creating checks
 
-This SDK’s aim is to help with the document capture process. It does not actually perform the full document/face checks against our [API](https://documentation.onfido.com/).
-
-In order to perform a full document/face check, you need to call our [API](https://documentation.onfido.com/) to create a check for the applicant on your backend.
+The SDK is responsible for the capture of identity documents and selfie photos and videos. It doesn't perform any checks against the [Onfido API](https://documentation.onfido.com/). You need to access the Onfido API in order to manage applicants and perform checks.
 
 ### 1. Creating a check
 
-With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-reports).
-The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report.
-The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the report name you should include in your request.
-Example of data returned by the `onComplete` callback:
-`{face: {variant: 'standard' | 'video'}}`
+For a walkthrough of how to create a document and facial similarity check using the Web SDK read our [Web SDK Quick Start guide](https://developers.onfido.com/guide/web-sdk-quick-start).
 
-When the `variant` returned is `standard`, you should include `facial_similarity_photo` in the `report_names` array.
-If the `variant` returned is `video`, you should include `facial_similarity_video` in the `report_names` array.
+For further details on how to [create a check](https://documentation.onfido.com/#create-check) with the Onfido API.
 
-```shell
-$ curl https://api.onfido.com/v3/checks \
-    -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d '{
-      "applicant_id": "<APPLICANT_ID>",
-      "report_names": ["document", "facial_similarity_photo" | "facial_similarity_video"]
-    }'
-```
+Note: If you are testing with a sandbox token, please be aware that the results are pre-determined. You can learn more about [sandbox responses](https://documentation.onfido.com/#pre-determined-responses).
 
 Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
-You will receive a response containing the check id instantly. As document and facial similarity reports do not always return actual [results](https://documentation.onfido.com/#results) straightaway, you need to set up a webhook to get notified when the results are ready.
-
-Finally, as you are testing with the sandbox token, please be aware that the results are pre-determined. You can learn more about sandbox responses [here](https://documentation.onfido.com/#pre-determined-responses).
-
 ### 2. Setting up webhooks
 
-Refer to the [Webhooks](https://documentation.onfido.com/#webhooks) section in the API documentation for details.
+Reports may not always return actual [results](https://documentation.onfido.com/#results) straightaway.
+
+You can [set up webhooks](https://developers.onfido.com/guide/get-started-integrating#set-up-a-webhook) to be notified upon completion of a check or report, or both.
 
 ## User Analytics
 
-The SDK allows you to track the user's journey through the verification process via a dispatched event. This is meant to give some insight into how your user's make use of the SDK screens.
+The SDK allows you to track a user's journey through the verification process via a dispatched event. This gives insight into how your users make use of the SDK screens.
 
 ### Overriding the hook
 
-In order to expose the user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application and might look something like the following:
+In order to track a user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application.
+
+For example:
 
 ```javascript
 addEventListener('userAnalyticsEvent', (event) => /*Your code here*/);
 ```
 
-The code inside of the `EventListener` will now be called when a particular event is triggered, usually when the user reaches a new screen. For a full list of events see the bottom of this section.
+The code inside of the `EventListener` will now be called when a particular event is triggered. For a full list of events see [tracked events](#tracked-events).
 
-The parameter being passed in is an `Event` object, the details related to the user analytics event can be found at the path `event.detail` and are as follows:
+The parameter being passed in is an `Event` object. The details related to the user analytics event can be found at the path `event.detail` and are as follows:
 
-- `eventName`: A `String` indicating the type of event. Currently will always this return as `"Screen"` as each tracked event is a user visiting a screen. In the future more event types may become available for tracking.
-- `properties`: A `Map` object containing the specific details of an event. This will contain things such as the `name` of the screen visited.
+|              |                                                                                                                                              |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `eventName`  | **string** <br /> Indicates the type of event. This will always be returned as `"Screen"` as each tracked event is a user visiting a screen. |
+| `properties` | **map object** <br /> Contains the specific details of an event. For example, the name of the screen visited.                                |
 
 ### Using the data
 
-Currently we recommend using the above hook to keep track of how many user's reach each screen in your flow. This can be done by storing the count of users that reach each screen and comparing them to the amount of user's who've made it to the `Welcome` screen.
+You can use the data to monitor how many users reach each screen in your flow. You can do this by storing the number of users that reach each screen and comparing that to the number of users who reached the `Welcome` screen.
 
 ### Tracked events
 
@@ -956,13 +1061,13 @@ UPLOAD - User's file is uploading
 
 ## Premium Enterprise Features
 
-These features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
+The following features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
 
-### Customized API Requests - Premium Enterprise Feature
+### Customized API Requests
 
-This premium enterprise feature enables you to control the data collected by the Onfido SDK through the use of callbacks that are invoked when the user submits their captured media. These callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next. Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. The callback for video is not supported yet.
+This premium enterprise feature enables you to control the data collected by the Onfido SDK by using callbacks that are invoked when the end user submits their captured media. The callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next.
 
-Example:
+Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. Note: The callback for video is not supported yet.
 
 ```javascript
 Onfido.init({
@@ -983,7 +1088,7 @@ To enable callbacks on the cross-device flow you must also host the cross-device
 
 #### Callbacks Overview
 
-The callbacks will provide you with a FormData object including the information that the SDK would send to Onfido. These callbacks will be invoked when the user confirms their image on the UI and won’t send the request to Onfido unless requested in the response.
+The callbacks return a FormData object, including the information that the SDK would send to Onfido. The callbacks are invoked when the end user confirms their image through the user interface. The request will not be sent to Onfido unless requested in the response.
 
 **onSubmitDocument FormData Paramaters**
 
@@ -1012,11 +1117,9 @@ The callbacks will provide you with a FormData object including the information 
 
 ```
 
-**Allowing the SDK to upload data to Onfido**
+##### Allowing the SDK to upload data to Onfido
 
-If you would like the SDK to upload the user-submitted data to Onfido you can resolve the promise with an object containing `continueWithOnfidoUpload: true`
-
-Example:
+If you would like the SDK to upload the user-submitted data directly to Onfido you can resolve the promise with an object containing `continueWithOnfidoUpload: true`
 
 ```javascript
 onSubmitDocument: (data) => {
@@ -1025,19 +1128,17 @@ onSubmitDocument: (data) => {
 })
 ```
 
-**Providing the SDK with the Onfido response**
+##### Providing the SDK with the Onfido response
 
-If you would like to upload the data yourself from your backend, we strongly recommend that you add all of the data provided to you through the callbacks in your request to the appropriate endpoint - `/documents` or `/live_photos`. Additionally, you should use the SDK token created for each applicant in the `Authorization` header of the request as shown below. Please note, the SDK token is not included in the FormData provided by the callbacks. You may want to append this or some other unique identifier that is mapped to the applicant's SDK token on your backend before sending it off.
-
-Example:
+You can choose to upload the data to Onfido yourself from your backend. We strongly recommend that you add all of the data provided to you through the callbacks in your request to the appropriate endpoint - `/documents` or `/live_photos`. Additionally, you should use the SDK token created for each applicant in the `Authorization` header of the request as shown below. Note: The SDK token is not included in the FormData provided by the callbacks. You may want to append this, or a different unique identifier that is mapped to the applicant's SDK token, on your backend before sending it off.
 
 ```
 Authorization: Bearer <SDK token here>
 ```
 
-Once you have sent the request to Onfido yourself, you can supply the SDK with the response so it can determine what the user should be presented with. In the case where a success response is received, the promise should be resolved with `onfidoSuccessResponse: <onfidoResponse>`, otherwise reject the promise with the Onfido error response. Please note that an error response could be returned due to image quality issues and the SDK will present the user with the appropriate error message.
+Once you have sent the request to Onfido yourself, you can supply the SDK with the response so it can determine what the end user should be presented with. In the case where a success response is received, the promise should be resolved with `onfidoSuccessResponse: <onfidoResponse>`. Otherwise reject the promise with the Onfido error response.
 
-Example:
+Note: An error response could be returned due to image quality issues. In this case, the SDK will present the end user with the appropriate error message.
 
 ```javascript
 onSubmitDocument: (data) => {
@@ -1049,7 +1150,7 @@ onSubmitDocument: (data) => {
 
 ```
 
-Below is a sample openAPI YAML file you could use as an example to start your own proxy.
+This is a sample openAPI YAML file you could use as an example to start your own proxy.
 
 ```yaml
 openapi: 3.0.0
@@ -1258,9 +1359,9 @@ paths:
                 type: object
 ```
 
-### Cross device URL - Premium Enterprise Feature
+### Cross device URL
 
-This feature allows you to specify your own custom or whitelabel url that the cross device flow will redirect to instead of the Onfido default `id.onfido.com`. To use this feature generate a SDK token as shown below and use it to start the SDK.
+This premium enterprise feature allows you to specify your own custom or whitelabel url that the cross device flow will redirect to instead of the Onfido default `id.onfido.com`. To use this feature generate an SDK token as shown below and use it to start the SDK.
 
 ```shell
 $ curl https://api.onfido.com/v3/sdk_token \
@@ -1272,11 +1373,14 @@ $ curl https://api.onfido.com/v3/sdk_token \
 
 In addition to this, you must either:
 
-1. Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`. This can be done by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido-hosted Web SDK.
+- Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`
+- Set up a server to host the Onfido Web SDK yourself at the provided URL
 
-Below is an example set-up for a minimal nginx server using docker.
+#### Set up a server to forward the incoming HTTP request, including the path, to `https://id.onfido.com`
 
-**Example**
+You can do this by setting up a server as a reverse proxy so that the URL that the end-user sees is your selected URL but the content shown is the Onfido-hosted Web SDK.
+
+An example set-up for a minimal nginx server using docker:
 
 nginx.conf
 
@@ -1302,13 +1406,11 @@ FROM nginx:1.15.8-alpine
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 ```
 
-2. Set up a server to host the Onfido Web SDK yourself at the provided URL. This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
+#### Set up a server to host the Onfido Web SDK yourself at the provided URL
 
-Below is an example of how you could host the Onfido Web SDK with minimal setup, but it does not have to be done this way.
+This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
 
-**Example**
-
-This example involves using docker and an nginx image to serve an html file which starts the Onfido Web SDK using just the minified js and css files from the dist directory. (`onfido-sdk-ui/dist/onfido.min.js` and `onfido-sdk-ui/dist/style.css`)
+This is an example of how you could host the Onfido Web SDK with minimal setup, but it does not have to be done this way. This example involves using docker and an nginx image to serve an html file which starts the Onfido Web SDK using just the minified js and css files from the dist directory. (`onfido-sdk-ui/dist/onfido.min.js` and `onfido-sdk-ui/dist/style.css`)
 
 To help with getting the correct version of the Web SDK, we append the Onfido files with the base32 version that is associated with each release. This value can be obtained from the first 2 characters in the appended path when using the cross-device flow. For example, if the current release appends a path that starts with `BW` we would rename the minified files `BW-onfido.min.js` and `BW-style.css` for this example to work.
 
@@ -1417,12 +1519,12 @@ index.html
 
 ## Going live
 
-Once you are happy with your integration and are ready to go live, please contact [client-support@onfido.com](mailto:client-support@onfido.com) to obtain live version of the API token. We will have to replace the sandbox token in your code with the live token.
+Once you are happy with your integration and are ready to go live, please contact [client-support@onfido.com](mailto:client-support@onfido.com) to obtain a live API token. You will have to replace the sandbox token in your code with the live token.
 
-A few things to check before you go live:
+Check the following before you go live:
 
-- Make sure you have set up webhooks to receive live events
-- Make sure you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
+- you have set up [webhooks](https://documentation.onfido.com/#webhooks) to receive live events
+- you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
 
 ## Accessibility
 
@@ -1435,20 +1537,18 @@ The Onfido SDK has been optimised to provide the following accessibility support
 
 Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
 
-### Note
-
-If you are making your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards for such things like accessible color contrast ratios and dyslexic friendly fonts.
+⚠️ Note: If you make your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards. For example, accessible color contrast ratios and dyslexic friendly fonts.
 
 ## TypeScript
 
 From version `6.5.0`, TypeScript is officially supported, providing typings for:
 
-- `init()` method.
-- `options` argument (`SdkOptions`) and return object (`SdkHandle`) of `init()` method.
-- Arguments (`SdkResponse` and `SdkError`) for `onComplete()` and `onError()` callbacks.
-- `steps` option (`StepTypes` and `StepConfig`).
-- `language` option (`SupportedLanguages` and `LocaleConfig`).
-- `region` option (`ServerRegions`).
+- `init()` method
+- `options` argument (`SdkOptions`) and return object (`SdkHandle`) of `init()` method
+- Arguments (`SdkResponse` and `SdkError`) for `onComplete()` and `onError()` callbacks
+- `steps` option (`StepTypes` and `StepConfig`)
+- `language` option (`SupportedLanguages` and `LocaleConfig`)
+- `region` option (`ServerRegions`)
 
 ## More information
 
@@ -1464,7 +1564,7 @@ From version `6.5.0`, TypeScript is officially supported, providing typings for:
 
 #### Content Security Policy issues
 
-In order to mitigate potential cross-site scripting issues, most modern browsers use Content Security Policy (CSP). These policies might prevent the SDK from correctly displaying the images captured during the flow or to correctly load styles. If CSP is blocking some of the SDK functionalities, make sure you add the following snippet inside the `<head>` tag of your application.
+In order to mitigate potential cross-site scripting issues, most modern browsers use a Content Security Policy (CSP). These policies might prevent the SDK from correctly displaying the images captured during the flow or correctly load styles. If CSP is blocking some of the SDK functionalities, make sure you add the following snippet inside the `<head>` tag of your application.
 
 ```html
 <meta
@@ -1485,7 +1585,7 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
 #### SDK navigation issues
 
 In rare cases, the SDK back button might not work as expected within the application history. This is due to the interaction of `history/createBrowserHistory` with the browser history API.
-If you notice that by clicking on the SDK back button, you get redirected to the page that preceeded the SDK initialisation, you might want to consider using the following configuration option when initialising the SDK: `useMemoryHistory: true`. This option allows the SDK to use the `history/createMemoryHistory` function, instead of the default `history/createBrowserHistory`. This option is intended as workaround, while a more permanent fix is implemented.
+If you notice that by clicking on the SDK back button, you get redirected to the page that preceeded the SDK initialization, you might want to consider using the following configuration option when initialising the SDK: `useMemoryHistory: true`. This option allows the SDK to use the `history/createMemoryHistory` function, instead of the default `history/createBrowserHistory`. This option is intended as workaround, while a more permanent fix is implemented.
 
 Example:
 
@@ -1501,7 +1601,7 @@ Please open an issue through [GitHub](https://github.com/onfido/onfido-sdk-ui/is
 
 If you have any issues that contain sensitive information please send us an email with the ISSUE: at the start of the subject to [web-sdk@onfido.com](mailto:web-sdk@onfido.com).
 
-Previous version of the SDK will be supported for a month after a new major version release. Note that when the support period has expired for an SDK version, no bug fixes will be provided, but the SDK will keep functioning (until further notice).
+Previous versions of the SDK will be supported for a month after a new major version release. Note that when the support period has expired for an SDK version, no bug fixes will be provided, but the SDK will keep functioning (until further notice).
 
 ## How is the Onfido SDK licensed?
 

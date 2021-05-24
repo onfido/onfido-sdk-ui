@@ -5,6 +5,7 @@ import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
 import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
+  switchBrowserTab,
 } from './sharedFlows.js'
 
 const options = {
@@ -72,13 +73,8 @@ export const crossDeviceScenarios = async (lang) => {
           .copyLinkTextContainer()
           .getText()
         driver.executeScript("window.open('your url','_blank');")
-        switchBrowserTab(1)
+        switchBrowserTab(1, driver)
         driver.get(crossDeviceLinkText)
-      }
-
-      const switchBrowserTab = async (tab) => {
-        const browserWindows = driver.getAllWindowHandles()
-        driver.switchTo().window(browserWindows[tab])
       }
 
       const runThroughCrossDeviceFlow = async () => {
@@ -86,10 +82,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceIntro.continueToNextStep()
         crossDeviceLink.switchToCopyLinkOption()
         copyCrossDeviceLinkAndOpenInNewTab()
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
         crossDeviceMobileConnected.verifyUIElements(copy)
-        switchBrowserTab(1)
+        switchBrowserTab(1, driver)
         driver.sleep(1000)
       }
 
@@ -215,6 +211,7 @@ export const crossDeviceScenarios = async (lang) => {
 
       it('should send sms and navigate to "Check your mobile" screen ', async () => {
         driver.get(baseUrl)
+        driver.navigate().refresh()
         goToCrossDeviceScreen()
         crossDeviceLink.switchToSendSmsOption()
         crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
@@ -267,7 +264,7 @@ export const crossDeviceScenarios = async (lang) => {
         documentUpload.verifySelfieUploadTitle(copy)
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         crossDeviceSubmit.verifyUIElements(copy)
         crossDeviceSubmit.clickOnSubmitVerificationButton()
@@ -290,7 +287,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         driver.sleep(1000)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         crossDeviceSubmit.verifyUIElements(copy)
@@ -310,10 +307,11 @@ export const crossDeviceScenarios = async (lang) => {
           'passport.jpg'
         )
         selfieIntro.clickOnContinueButton()
+        camera.enableCameraAccessIfNecessary()
         camera.takeSelfie()
         confirm.clickConfirmButton()
         crossDeviceClientSuccess.verifyUIElements(copy)
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         assert.isFalse(
@@ -334,10 +332,11 @@ export const crossDeviceScenarios = async (lang) => {
           'passport.jpg'
         )
         selfieIntro.clickOnContinueButton()
+        camera.enableCameraAccessIfNecessary()
         camera.takeSelfie()
         confirm.clickConfirmButton()
         crossDeviceClientSuccess.verifyUIElements(copy)
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)
@@ -360,11 +359,12 @@ export const crossDeviceScenarios = async (lang) => {
         selfieIntro.checkLogoIsHidden()
         selfieIntro.clickOnContinueButton()
         camera.checkLogoIsHidden()
+        camera.enableCameraAccessIfNecessary()
         camera.takeSelfie()
         confirm.checkLogoIsHidden()
         confirm.clickConfirmButton()
         crossDeviceClientSuccess.checkLogoIsHidden()
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         crossDeviceSubmit.checkLogoIsHidden()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.checkLogoIsHidden()
@@ -387,11 +387,12 @@ export const crossDeviceScenarios = async (lang) => {
         selfieIntro.checkCobrandIsVisible()
         selfieIntro.clickOnContinueButton()
         camera.checkCobrandIsVisible()
+        camera.enableCameraAccessIfNecessary()
         camera.takeSelfie()
         confirm.checkCobrandIsVisible()
         confirm.clickConfirmButton()
         crossDeviceClientSuccess.checkCobrandIsVisible()
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         crossDeviceSubmit.checkCobrandIsVisible()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.checkCobrandIsVisible()
@@ -414,11 +415,12 @@ export const crossDeviceScenarios = async (lang) => {
         selfieIntro.checkLogoIsHidden()
         selfieIntro.clickOnContinueButton()
         camera.checkLogoIsHidden()
+        camera.enableCameraAccessIfNecessary()
         camera.takeSelfie()
         confirm.checkLogoIsHidden()
         confirm.clickConfirmButton()
         crossDeviceClientSuccess.checkLogoIsHidden()
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         crossDeviceSubmit.checkLogoIsHidden()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.checkLogoIsHidden()
@@ -440,11 +442,12 @@ export const crossDeviceScenarios = async (lang) => {
         selfieIntro.checkLogoCobrandIsVisible()
         selfieIntro.clickOnContinueButton()
         camera.checkLogoCobrandIsVisible()
+        camera.enableCameraAccessIfNecessary()
         camera.takeSelfie()
         confirm.checkLogoCobrandIsVisible()
         confirm.clickConfirmButton()
         crossDeviceClientSuccess.checkLogoCobrandIsVisible()
-        switchBrowserTab(0)
+        switchBrowserTab(0, driver)
         crossDeviceSubmit.checkLogoCobrandIsVisible()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.checkLogoCobrandIsVisible()

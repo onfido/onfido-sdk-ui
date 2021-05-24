@@ -24,7 +24,7 @@ jobs:
       - name: Build dist
         run: |
           npm install
-          npm run build
+          npm run build:all
 
       - name: Get version
         id: get_version

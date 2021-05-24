@@ -17,6 +17,7 @@ jobs:
         include:
           - NODE_ENV: test
           - NODE_ENV: production
+          - NODE_ENV: staging
     steps:
       - uses: actions/checkout@v2.3.4
       # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
@@ -41,7 +42,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: npm audit action
         if: matrix.NODE_ENV == 'production'
@@ -54,9 +55,19 @@ jobs:
           issue_labels: vulnerability
           dedupe_issues: true
 
-      - name: Build mock server
-        if: matrix.NODE_ENV == 'test'
-        run: npm run build:test
+      - name: Run build
+        # Legacy: For "$NODE_ENV" == "production" Surge uses the NODE_ENV=test + TEST_ENV=deployment
+        run: |
+          if [ ${{ matrix.NODE_ENV}} == "test" ]
+          then
+            npm run build:test
+          elif [ ${{ matrix.NODE_ENV }} == "production" ]
+          then
+            TEST_ENV=deployment npm run build:test
+          elif [ ${{ matrix.NODE_ENV }}  == "staging" ]
+          then
+            NODE_ENV=staging npm run build
+          fi
 
       - name: Run integration tests
         if: matrix.NODE_ENV == 'test'
@@ -66,21 +77,21 @@ jobs:
         if: matrix.NODE_ENV == 'test'
         run: npm run test:ui
 
-      - name: Run build - deployment
-        if: matrix.NODE_ENV == 'production'
-        # Legacy: Surge uses the NODE_ENV=test + TEST_ENV=deployment
-        run: TEST_ENV=deployment npm run build:test
-
       - name: Create Surge Domain
-        if: matrix.NODE_ENV == 'production'
+        if: ${{ matrix.NODE_ENV == 'production' || matrix.NODE_ENV == 'staging' }}
         run: |
           IFS='/' read -ra REPO_SLUG_ARRAY <<< "$GITHUB_REPOSITORY"
           REPO_OWNER=${REPO_SLUG_ARRAY[0]}
           REPO_NAME=${REPO_SLUG_ARRAY[1]}
-          echo "SURGE_DOMAIN=https://${PR_NUMBER}-pr-${REPO_NAME}-${REPO_OWNER}.surge.sh" >> $GITHUB_ENV
+          if [ ${{ matrix.NODE_ENV }} == "production" ]
+          then
+            echo "SURGE_DOMAIN=https://${PR_NUMBER}-pr-${REPO_NAME}-${REPO_OWNER}.surge.sh" >> $GITHUB_ENV
+          else
+            echo "SURGE_DOMAIN=https://staging-${PR_NUMBER}-pr-${REPO_NAME}-${REPO_OWNER}.surge.sh" >> $GITHUB_ENV
+          fi
 
       - name: Publish to Surge
-        if: matrix.NODE_ENV == 'production'
+        if: ${{ matrix.NODE_ENV == 'production' || matrix.NODE_ENV == 'staging' }}
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
           domain: ${{ env.SURGE_DOMAIN }}
@@ -89,7 +100,7 @@ jobs:
           token: ${{ secrets.SURGE_TOKEN }}
 
       - name: Add comment with Surge link to PR
-        if: matrix.NODE_ENV == 'production'
+        if: ${{ matrix.NODE_ENV == 'production' || matrix.NODE_ENV == 'staging' }}
         uses: mshick/add-pr-comment@v1
         with:
           message: ${{ env.SURGE_DOMAIN }} 🚀

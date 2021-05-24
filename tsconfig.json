@@ -7,7 +7,7 @@
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
     "lib": ["esnext", "dom"],
-    "module": "es6",
+    "module": "es2020",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "./dist/",
@@ -18,13 +18,14 @@
       "~locales": ["locales/index"],
       "~types/*": ["types/*"],
       "~utils": ["components/utils/index"],
-      "~utils/*": ["components/utils/*"]
+      "~utils/*": ["components/utils/*"],
+      "~auth-sdk/*": ["../auth-sdk/FaceTec/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
     "target": "es2019",
+    "strict": true,
+    "sourceMap": true,
     "types": ["jest"],
     "typeRoots": ["./typings", "./node_modules/@types"],
     "downlevelIteration": true

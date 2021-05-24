@@ -7,6 +7,8 @@ import 'custom-event-polyfill'
 //       But on PRs where the components that use these Array methods have been converted the polyfills seem to be included.
 //       Should be fine to remove when those PRs are merged in eventually.
 import 'array-flat-polyfill'
+import 'core-js/es/object/entries'
+import 'core-js/es/object/from-entries'
 
 import { noop } from '~utils/func'
 import { upperCase } from '~utils/string'
@@ -47,11 +49,19 @@ const formatOptions = ({
   steps,
   smsNumberCountryCode,
   ...otherOptions
-}: SdkOptions): NormalisedSdkOptions => ({
-  ...otherOptions,
-  smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
-  steps: (steps || ['welcome', 'document', 'face', 'complete']).map(formatStep),
-})
+}: SdkOptions): NormalisedSdkOptions => {
+  const mandatorySteps: StepTypes[] = ['document', 'face', 'complete']
+  const defaultSteps: StepTypes[] =
+    process.env.SDK_ENV === 'Auth'
+      ? ['welcome', 'auth', ...mandatorySteps]
+      : ['welcome', ...mandatorySteps]
+
+  return {
+    ...otherOptions,
+    smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
+    steps: (steps || defaultSteps).map(formatStep),
+  }
+}
 
 const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
   const documentStep = buildStepFinder(steps)('document')
