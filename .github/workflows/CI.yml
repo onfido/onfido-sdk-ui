@@ -8,7 +8,6 @@ env:
   BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
   PR_NUMBER: ${{ github.event.pull_request.number }}
   SDK_TOKEN_FACTORY_SECRET: ${{ secrets.SDK_TOKEN_FACTORY_SECRET}}
-  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
 jobs:
   build:
@@ -19,7 +18,6 @@ jobs:
           - NODE_ENV: test
           - NODE_ENV: production
           - NODE_ENV: staging
-          - NODE_ENV: percy
     steps:
       - uses: actions/checkout@v2.3.4
       # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
@@ -78,10 +76,6 @@ jobs:
       - name: Run UI tests
         if: matrix.NODE_ENV == 'test'
         run: npm run test:ui
-
-      - name: Run Percy tests
-        if: matrix.NODE_ENV == 'percy'
-        run: npm run test:percy
 
       - name: Create Surge Domain
         if: ${{ matrix.NODE_ENV == 'production' || matrix.NODE_ENV == 'staging' }}
