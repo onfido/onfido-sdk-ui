@@ -30,6 +30,20 @@ import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 
+let LazyAuth: ComponentType<ComponentType<Element>>
+
+const SDK_ENV = process.env.SDK_ENV
+
+if (process.env.SDK_ENV === 'Auth') {
+  try {
+    import('../Auth/Lazy')
+      .then((lazy) => (LazyAuth = lazy.default))
+      .catch(() => null)
+  } catch (e) {
+    console.log('there was an error')
+  }
+}
+
 import type {
   ExtendedStepTypes,
   ExtendedStepConfig,
@@ -111,6 +125,9 @@ const buildCaptureStepComponents = (
     welcome: [Welcome],
     userConsent: [UserConsent],
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
+    ...(SDK_ENV === 'Auth' && {
+      auth: [LazyAuth],
+    }),
     document: buildDocumentComponents(
       documentStep,
       documentType,

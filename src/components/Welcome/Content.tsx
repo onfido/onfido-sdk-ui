@@ -37,15 +37,16 @@ type DefaultContentProps = {
 }
 
 export const DefaultContent: FunctionComponent<DefaultContentProps> = ({
-  descriptions,
+  descriptions: customisedDescriptions,
 }) => {
-  if (!descriptions) {
-    return (
-      <div className={style.content}>
-        <Instructions className={style.marginTop} />
-      </div>
-    )
-  }
+  const { translate } = useLocales()
+
+  const defaultDescriptions = [
+    translate('welcome.description_p_1'),
+    translate('welcome.description_p_2'),
+  ]
+
+  const descriptions = customisedDescriptions || defaultDescriptions
 
   return (
     <div className={style.content}>

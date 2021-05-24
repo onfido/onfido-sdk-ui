@@ -17,6 +17,7 @@ import type {
   StepOptionPoA,
   StepOptionFace,
   StepOptionComplete,
+  StepOptionAuth,
   StepConfig,
 } from './steps'
 import type {
@@ -122,6 +123,7 @@ export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
+export type StepComponentAuthProps = StepOptionAuth & StepComponentBaseProps
 
 export type StepComponentProps =
   | StepComponentBaseProps
@@ -129,6 +131,7 @@ export type StepComponentProps =
   | StepComponentPoaProps
   | StepComponentFaceProps
   | StepComponentCompleteProps
+  | StepComponentAuthProps
 
 export type ComponentStep = {
   component: ComponentType<StepComponentProps>

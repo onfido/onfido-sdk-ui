@@ -69,6 +69,10 @@ const RECORDING_TIMEOUT_ERRORS_MAP: Record<CaptureMethods, ErrorProp> = {
     name: 'DOC_VIDEO_TIMEOUT',
     type: 'warning',
   },
+  auth: {
+    name: 'FACE_VIDEO_TIMEOUT',
+    type: 'warning',
+  },
 }
 
 export default class VideoCapture extends Component<Props, State> {
@@ -127,18 +131,16 @@ export default class VideoCapture extends Component<Props, State> {
     { text, type },
     callback
   ) => {
-    switch (type) {
-      case 'timeout':
-        return String(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT)
-
-      default:
-        return (
-          <FallbackButton
-            text={text}
-            onClick={() => this.handleFallbackClick(callback)}
-          />
-        )
+    if (type === 'timeout') {
+      return String(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT)
     }
+
+    return (
+      <FallbackButton
+        text={text}
+        onClick={() => this.handleFallbackClick(callback)}
+      />
+    )
   }
 
   renderError = (): h.JSX.Element => {

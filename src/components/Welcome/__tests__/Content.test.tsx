@@ -13,6 +13,12 @@ mockedTranslate.mockImplementation((str) => {
 })
 
 const assertDefaultContent = (wrapper: ReactWrapper) => {
+  const items = wrapper.find('.customDescriptions > p')
+  expect(items.at(0).text()).toEqual('welcome.description_p_1')
+  expect(items.at(1).text()).toEqual('welcome.description_p_2')
+}
+
+const assertDocVideoContent = (wrapper: ReactWrapper) => {
   expect(wrapper.find('.caption').text()).toEqual(
     'welcome.list_header_doc_video'
   )
@@ -69,7 +75,7 @@ describe('Welcome', () => {
       expect(wrapper.find('.subtitle').text()).toEqual(
         'welcome.doc_video_subtitle'
       )
-      assertDefaultContent(wrapper)
+      assertDocVideoContent(wrapper)
       expect(wrapper.find('.recordingLimit').text()).toEqual('timeout: 30')
     })
   })

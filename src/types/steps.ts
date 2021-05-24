@@ -4,6 +4,7 @@ const STEP_DOCUMENT = 'document'
 const STEP_POA = 'poa'
 const STEP_FACE = 'face'
 const STEP_COMPLETE = 'complete'
+const STEP_AUTH = 'auth'
 
 export type StepTypes =
   | typeof STEP_WELCOME
@@ -12,6 +13,7 @@ export type StepTypes =
   | typeof STEP_POA
   | typeof STEP_FACE
   | typeof STEP_COMPLETE
+  | typeof STEP_AUTH
 
 export type DocumentTypes =
   | 'passport'
@@ -47,6 +49,8 @@ export type StepOptionWelcome = {
   nextButton?: string
 }
 
+export type StepOptionAuth = { retries?: number }
+
 export type StepOptionDocument = {
   documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
   forceCrossDevice?: boolean
@@ -74,6 +78,7 @@ export type StepOptionComplete = {
 type StepOptionsMap = {
   welcome: StepOptionWelcome
   userConsent: never
+  auth: StepOptionAuth
   document: StepOptionDocument
   poa: StepOptionPoA
   face: StepOptionFace
@@ -89,6 +94,7 @@ export type StepConfigMap = {
 
 export type StepConfigWelcome = StepConfigMap['welcome']
 export type StepConfigUserConsent = StepConfigMap['userConsent']
+export type StepConfigAuth = StepConfigMap['auth']
 export type StepConfigDocument = StepConfigMap['document']
 export type StepConfigPoa = StepConfigMap['poa']
 export type StepConfigFace = StepConfigMap['face']
@@ -101,3 +107,4 @@ export type StepConfig =
   | StepConfigPoa
   | StepConfigFace
   | StepConfigComplete
+  | StepConfigAuth

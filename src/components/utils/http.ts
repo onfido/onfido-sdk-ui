@@ -43,3 +43,27 @@ export const performHttpReq = <T>(
 
   request.send(payload)
 }
+
+export const getAuthConfig = (
+  token: string,
+  onSuccess: SuccessCallback<string>,
+  onError: (error: ApiRawError) => void
+): void => {
+  const body = {
+    sdk_type: 'onfido_web_sdk',
+  }
+  const request = new XMLHttpRequest()
+
+  request.open('POST', `${process.env.AUTH_URL}/auth_3d/session`)
+
+  request.setRequestHeader('Authorization', token)
+  request.setRequestHeader('Application-Id', 'com.onfido.onfidoAuth')
+  request.setRequestHeader('Content-Type', 'application/json')
+
+  request.onreadystatechange = function () {
+    if (this.readyState === XMLHttpRequest.DONE) {
+      onSuccess(this.responseText)
+    } else onError(request)
+  }
+  request.send(JSON.stringify(body))
+}
