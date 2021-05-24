@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "6.8.0",
+  "version": "6.9.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -9,8 +9,8 @@
   },
   "license": "SEE LICENSE IN ./LICENSE",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
-    "dev:auth": "NODE_ENV=development SDK_ENV=Auth webpack-dev-server --inline --hot --progress --https",
+    "dev": "NODE_ENV=development webpack-dev-server --hot --progress --https",
+    "dev:auth": "NODE_ENV=development SDK_ENV=Auth webpack-dev-server --hot --progress --https",
     "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
     "build": "webpack --quiet --display-error-details --bail",
     "build:auth": "SDK_ENV=Auth webpack --quiet --display-error-details --bail",
@@ -87,7 +87,7 @@
     "files": [
       {
         "path": "./dist/onfido.min.js",
-        "maxSize": "215 kB"
+        "maxSize": "220 kB"
       },
       {
         "path": "./dist/onfido.crossDevice.min.js",
