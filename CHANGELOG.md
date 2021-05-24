@@ -8,7 +8,17 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## Fixed
+
+- Internal: Upgrade Preact from version `10.5.4` to `10.5.13` in order to resolve an unhandled exception on reinitialising the SDK after closing the SDK modal for some integrations when using Modal mode.
+
+## [6.9.0] - 2021-05-24
+
 ## Added
+
+- Public: Added Authentication module as a beta feature
+- Internal: Added support for testing across multiple browsers.
+- Internal: Added polyfills for `Object.entries` and `Object.fromEntries` for IE11.
 
 ### Changed
 
@@ -22,9 +32,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Update to module on `tsconfig.json` from `es6` to `esnext`, to allow conditional imports of specific modules (especially useful for Auth/IDV bundle separation).
 
-## Fixed
+### Fixed
 
-- Internal: Upgrade Preact from version `10.5.4` to `10.5.13` in order to resolve an unhandled exception on reinitialising the SDK after closing the SDK modal for some integrations when using Modal mode.
+- UI: Fix SVG icon on Cross Device Uploads Successful, Selfie Intro screens not displaying on some iOS devices, e.g. iPhone 12
 
 ## [6.8.0] - 2021-05-13
 
@@ -37,7 +47,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added user consent content reload screen
 - Public: When `photoCaptureFallback` option is disabled in the face step, the requested variant is video and browser does not support MediaRecorder, attempt to redirect to the cross-device flow or display the unsupported browser error.
 - Internal: Refactor for better reusability of video capture components.
-- Internal: Added support for testing across multiple browsers.
 
 ### Changed
 
@@ -47,7 +56,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Get latest copy from Lokalise with various grammar, punctuation fixes. Also reverts French, Spanish translations for some Proof of Address copy in these languages' locale files (Proof of Address is only supported for English)
-- UI: Fix SVG icon on Cross Device Uploads Successful, Selfie Intro screens not displaying on some iOS devices, e.g. iPhone 12
 
 ## [6.7.2] - 2021-04-26
 
@@ -983,7 +991,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.8.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...development
+[6.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.8.0...6.9.0
 [6.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.2...6.8.0
 [6.7.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.1...6.7.2
 [6.7.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.0...6.7.1

@@ -2,7 +2,7 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## [latest-version] -> [next-version]
+## `6.9.0` -> [latest-version]
 
 ### Added strings
 
@@ -26,7 +26,7 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `video_capture.button_stop_accessibility`
 - `video_capture.header.challenge_turn_template`
 
-## `6.8.0` -> [latest-version]
+## `6.8.0` -> `6.9.0`
 
 ### Added strings
 

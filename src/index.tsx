@@ -7,6 +7,8 @@ import 'custom-event-polyfill'
 //       But on PRs where the components that use these Array methods have been converted the polyfills seem to be included.
 //       Should be fine to remove when those PRs are merged in eventually.
 import 'array-flat-polyfill'
+import 'core-js/es/object/entries'
+import 'core-js/es/object/from-entries'
 
 import { noop } from '~utils/func'
 import { upperCase } from '~utils/string'
