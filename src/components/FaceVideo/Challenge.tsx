@@ -55,7 +55,7 @@ const Challenge: FunctionComponent<ChallengeProps> = ({ challenge }) => {
         title={translate(`video_capture.header.challenge_turn_${side}`)}
         renderChallenge={() => (
           <span
-            aria-hidden={true}
+            aria-hidden="true"
             className={classNames(
               style.movement,
               style[`movement-${challenge.query}`]
