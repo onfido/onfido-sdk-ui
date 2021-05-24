@@ -165,7 +165,9 @@ import { init } from 'onfido-sdk-ui/dist/onfidoAuth.min.js'
 var Onfido = require('onfido-sdk-ui/dist/onfidoAuth.min.js')
 ```
 
-In addition to the alternative way of importing Auth, you should also set the following code in the loader (Webpack) of your application:
+In addition to the alternative way of importing Auth, you need to have an `auth-sdk/` folder in your public assets folder, and copy the contents of `node_modules/onfido-sdk-ui/dist/auth-sdk` into it.
+
+If you are using Webpack on your application, you can automate this by adding:
 
 ```javascript
 new CopyPlugin({
