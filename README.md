@@ -165,6 +165,21 @@ import { init } from 'onfido-sdk-ui/dist/onfidoAuth.min.js'
 var Onfido = require('onfido-sdk-ui/dist/onfidoAuth.min.js')
 ```
 
+In addition to the alternative way of importing Auth, the integrator should also set the following code on the webpack/loader of their application:
+
+```javascript
+new CopyPlugin({
+  patterns: [
+    {
+      from: `../../node_modules/onfido-sdk-ui/dist/auth-sdk`,
+      to: `${__dirname}/bin/src/auth-sdk`,
+    },
+  ],
+})
+```
+
+This will fetch the core authentication technology from the SDK into your application. Using web workers for authentication enables the best performance achievable, without constraining the user usability.
+
 The CSS style will be included inline with the JS code when the library is imported.
 
 ⚠️ Note: The library is **Browser only**, it does not support the **Node Context**.
