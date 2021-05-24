@@ -96,7 +96,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
     // Part 5:  Make the Networking Call to the Onfido Servers.
     //
     this.latestNetworkRequest = new XMLHttpRequest()
-    this.latestNetworkRequest.open('POST', `${BaseURL}/auth_3d`)
+    this.latestNetworkRequest.open('POST', `${BaseURL}/v3/auth_3d`)
     this.latestNetworkRequest.setRequestHeader(
       'Authorization',
       `Bearer ${this.sdkToken}`
