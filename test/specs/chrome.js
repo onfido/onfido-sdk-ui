@@ -16,14 +16,14 @@ import { userConsentScenarios } from './scenarios/userConsent'
 describe('Happy Paths on Chrome', () => {
   // Multiple language scenarios
   fullTestCoverageLanguages.forEach((lang) => {
-    welcomeScenarios(lang)
-    documentSelectorScenarios(lang)
-    countrySelectorScenarios(lang)
-    documentScenarios(lang)
-    faceScenarios(lang)
-    crossDeviceScenarios(lang)
-    modalScenarios(lang)
-    navigationScenarios(lang)
+    //welcomeScenarios(lang)
+    //documentSelectorScenarios(lang)
+    //countrySelectorScenarios(lang)
+    //documentScenarios(lang)
+    //faceScenarios(lang)
+    //crossDeviceScenarios(lang)
+    //modalScenarios(lang)
+    //navigationScenarios(lang)
   })
   // Note: The SDK works also with language tags that do not include region (e.g. 'en', 'es')
   // We are passing the region here so we can fetch the right json file path (e.g. `en_US/en_US.json`).
@@ -31,8 +31,8 @@ describe('Happy Paths on Chrome', () => {
     welcomeScenarios(lang)
   })
   // PoA is only available in en
-  proofOfAddressScenarios()
-  accessibilityScenarios()
-  hostAppHistoryScenarios()
-  userConsentScenarios()
+  //proofOfAddressScenarios()
+  //accessibilityScenarios()
+  //hostAppHistoryScenarios()
+  //userConsentScenarios()
 })

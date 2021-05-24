@@ -187,11 +187,11 @@ const createMocha = (driver, testCase) => {
     //As we are running a 'single' test as test/specs/chrome.js, we will only be able to report a single error
     //i.e. if we have 3 failures...BS will only log the first one.
     if (isRemoteBrowser && currentTestState === 'failed') {
-      dict[browserName] = (dict[browserName] || 0) + 1
+      dict[browserName] = +1
       browserStackFailures += 1
     }
     if (isRemoteBrowser === false && currentTestState === 'failed') {
-      dict[browserName] = (dict[browserName] || 0) + 1
+      dict[browserName] = +1
       localFailures += 1
     }
   })
