@@ -42,7 +42,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: npm audit action
         if: matrix.NODE_ENV == 'production'

@@ -239,7 +239,7 @@ describe('VideoCapture', () => {
       })
 
       it('assign ref object correctly', () => {
-        const mockedWebcamRef: Ref<Webcam> = {}
+        const mockedWebcamRef: Ref<Webcam> = { current: null }
 
         wrapper = mount(
           <MockedReduxProvider>
