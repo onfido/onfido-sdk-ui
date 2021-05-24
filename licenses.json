@@ -9099,7 +9099,7 @@
     "licenseFile": "node_modules/jest-changed-files/node_modules/onetime/license"
   },
   "onfido-sdk-ui@6.8.0": {
-    "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
+    "licenses": "Custom: https://github.com/onfido/onfido-sdk-ui/LICENSE",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
@@ -9952,7 +9952,7 @@
     "path": "node_modules/preact-render-to-string",
     "licenseFile": "node_modules/preact-render-to-string/LICENSE"
   },
-  "preact@10.5.4": {
+  "preact@10.5.13": {
     "licenses": "MIT",
     "repository": "https://github.com/preactjs/preact",
     "path": "node_modules/preact",
