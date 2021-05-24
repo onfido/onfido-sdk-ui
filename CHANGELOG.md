@@ -6,11 +6,15 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+<!-- Update date and version value -->
+
 ## [next-version]
 
 ## Added
 
-## Changed
+### Changed
+
+- Update to module on `tsconfig.json` from `es6` to `esnext`, to allow conditional imports of specific modules (especially useful for Auth/IDV bundle separation).
 
 ## Fixed
 
@@ -37,6 +41,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Get latest copy from Lokalise with various grammar, punctuation fixes. Also reverts French, Spanish translations for some Proof of Address copy in these languages' locale files (Proof of Address is only supported for English)
+- UI: Fix SVG icon on Cross Device Uploads Successful, Selfie Intro screens not displaying on some iOS devices, e.g. iPhone 12
 
 ## [6.7.2] - 2021-04-26
 

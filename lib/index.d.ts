@@ -12,7 +12,8 @@ declare const STEP_DOCUMENT = "document";
 declare const STEP_POA = "poa";
 declare const STEP_FACE = "face";
 declare const STEP_COMPLETE = "complete";
-export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE;
+declare const STEP_AUTH = "auth";
+export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE | typeof STEP_AUTH;
 export declare type DocumentTypes = "passport" | "driving_licence" | "national_identity_card" | "residence_permit";
 export declare type PoaTypes = "bank_building_society_statement" | "utility_bill" | "council_tax" | "benefit_letters" | "government_letter";
 export declare type RequestedVariant = "standard" | "video";
@@ -29,6 +30,9 @@ export declare type StepOptionWelcome = {
 	title?: string;
 	descriptions?: string[];
 	nextButton?: string;
+};
+export declare type StepOptionAuth = {
+	retries?: number;
 };
 export declare type StepOptionDocument = {
 	documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>;
@@ -53,6 +57,7 @@ export declare type StepOptionComplete = {
 export declare type StepOptionsMap = {
 	welcome: StepOptionWelcome;
 	userConsent: never;
+	auth: StepOptionAuth;
 	document: StepOptionDocument;
 	poa: StepOptionPoA;
 	face: StepOptionFace;
@@ -66,11 +71,12 @@ export declare type StepConfigMap = {
 };
 export declare type StepConfigWelcome = StepConfigMap["welcome"];
 export declare type StepConfigUserConsent = StepConfigMap["userConsent"];
+export declare type StepConfigAuth = StepConfigMap["auth"];
 export declare type StepConfigDocument = StepConfigMap["document"];
 export declare type StepConfigPoa = StepConfigMap["poa"];
 export declare type StepConfigFace = StepConfigMap["face"];
 export declare type StepConfigComplete = StepConfigMap["complete"];
-export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoa | StepConfigFace | StepConfigComplete;
+export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoa | StepConfigFace | StepConfigComplete | StepConfigAuth;
 export declare type UICustomizationOptions = {
 	colorBackgroundSurfaceModal?: string;
 	colorBorderSurfaceModal?: string;
@@ -125,6 +131,21 @@ export declare type UICustomizationOptions = {
 	colorBackgroundButtonIconActive?: string;
 	colorBackgroundButtonCameraHover?: string;
 	colorBackgroundButtonCameraActive?: string;
+	authAccentColor?: string;
+	authDualSpinnerColor?: string;
+	authRetryScreenOvalColor?: string;
+	authOvalColor?: string;
+	authTextColor?: string;
+	authButtonCornerRadius?: string;
+	authFrameColor?: string;
+	authButtonTextHighlightColor?: string;
+	authButtonTextDisabledColor?: string;
+	authButtonTextNormalColor?: string;
+	authButtonColorNormal?: string;
+	authButtonColorDisabled?: string;
+	authButtonColorPressed?: string;
+	authFeedbackBarColor?: string;
+	authFeedbackBarTextColor?: string;
 };
 export declare type DocumentSides = "front" | "back";
 export declare type UploadFileResponse = {
