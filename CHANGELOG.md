@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Added Authentication module as a beta feature
 - Internal: Added support for testing across multiple browsers.
+- Internal: Added polyfills for `Object.entries` and `Object.fromEntries` for IE11.
 
 ### Changed
 
