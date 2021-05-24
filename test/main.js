@@ -18,6 +18,7 @@ let config
 let browserStackFailures = 0
 let localFailures = 0
 const totalFailures = browserStackFailures + localFailures
+const dict = {}
 
 if (!process.env.CONFIG_FILE) {
   console.error('INFO: CONFIG_FILE not set, so using the default config.json')
@@ -131,6 +132,7 @@ const createBrowser = async (browser) => {
 
   isRemoteBrowser = browser.remote
   browserName = browser.browserName
+  dict[browserName] = 0
 
   if (browser.remote) driver.setFileDetector(new remote.FileDetector())
   const quitAll = async () => {
@@ -185,9 +187,11 @@ const createMocha = (driver, testCase) => {
     //As we are running a 'single' test as test/specs/chrome.js, we will only be able to report a single error
     //i.e. if we have 3 failures...BS will only log the first one.
     if (isRemoteBrowser && currentTestState === 'failed') {
+      dict[browserName] = (dict[browserName] || 0) + 1
       browserStackFailures += 1
     }
-    if (currentTestState === 'failed') {
+    if (isRemoteBrowser === false && currentTestState === 'failed') {
+      dict[browserName] = (dict[browserName] || 0) + 1
       localFailures += 1
     }
   })
@@ -239,18 +243,10 @@ const runner = async () => {
         printTestInfo(browser, testCase)
 
         await mocha.runP()
-
-        if (isRemoteBrowser === true) {
-          console.log(
-            `Number of failures in ${currentBrowser} tests:`,
-            browserStackFailures
-          )
-        } else {
-          console.log(
-            `Number of failures in ${currentBrowser} tests:`,
-            localFailures
-          )
-        }
+        console.log(
+          `Number of failures in ${currentBrowser} tests:`,
+          dict[browserName]
+        )
 
         await driver.finish()
       } catch (e) {
