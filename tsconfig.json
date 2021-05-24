@@ -7,7 +7,7 @@
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
     "lib": ["esnext", "dom"],
-    "module": "esnext",
+    "module": "es2020",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "./dist/",
