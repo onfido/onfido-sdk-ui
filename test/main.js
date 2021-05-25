@@ -15,10 +15,8 @@ import safari from 'selenium-webdriver/safari'
 import edge from 'selenium-webdriver/edge'
 
 let config
-let browserStackFailures = 0
-let localFailures = 0
-const totalFailures = browserStackFailures + localFailures
 const browsersFailures = {}
+let totalFailures = 0
 
 if (!process.env.CONFIG_FILE) {
   console.error('INFO: CONFIG_FILE not set, so using the default config.json')
@@ -180,7 +178,7 @@ const createMocha = (driver, testCase) => {
     )
   })
   mocha.suite.beforeEach('Set retry', function () {
-    this.currentTest.retries(2)
+    //this.currentTest.retries(2)
   })
   mocha.suite.afterEach('Capture total number of test failures', function () {
     const currentTestState = this.currentTest.state
@@ -188,20 +186,18 @@ const createMocha = (driver, testCase) => {
     //i.e. if we have 3 failures...BS will only log the first one.
     if (isRemoteBrowser && currentTestState === 'failed') {
       browsersFailures[browserName] = +1
-      browserStackFailures += 1
     }
     if (isRemoteBrowser === false && currentTestState === 'failed') {
       browsersFailures[browserName] = +1
-      localFailures += 1
     }
   })
   mocha.suite.afterAll('Report test failures to BrowserStack', function () {
-    if (browserStackFailures > 0 && isRemoteBrowser === true) {
+    if (browsersFailures[browserName] > 0 && isRemoteBrowser === true) {
       driver.executeScript(
         `browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "There were test failures!"}}`
       )
     }
-    if (browserStackFailures === 0 && isRemoteBrowser === true) {
+    if (browsersFailures[browserName] === 0 && isRemoteBrowser === true) {
       driver.executeScript(
         `browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "No tests failed!"}}`
       )
@@ -255,6 +251,10 @@ const runner = async () => {
       }
     })
   })
+
+  for (const property in browsersFailures) {
+    totalFailures += browsersFailures[property]
+  }
 
   console.log(chalk.green('Tests finished'))
   process.exit(totalFailures > 0 ? 1 : 0)
