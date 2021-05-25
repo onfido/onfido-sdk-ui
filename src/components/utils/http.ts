@@ -48,7 +48,7 @@ export const getAuthConfig = (
   }
   const request = new XMLHttpRequest()
 
-  request.open('POST', `${process.env.AUTH_URL}/auth_3d/session`)
+  request.open('POST', `${process.env.AUTH_URL}/v3/auth_3d/session`)
 
   request.setRequestHeader('Authorization', token)
   request.setRequestHeader('Application-Id', 'com.onfido.onfidoAuth')
