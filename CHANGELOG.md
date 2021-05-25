@@ -8,6 +8,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## Added
+
+- Internal: Resolved inaccurate reporting on test automation failures.
+- Public: Improvements in video capture steps.
+
 ## Fixed
 
 - Internal: Upgrade Preact from version `10.5.4` to `10.5.13` in order to resolve an unhandled exception on reinitialising the SDK after closing the SDK modal for some integrations when using Modal mode.
@@ -49,8 +54,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Refactor for better reusability of video capture components.
 - Internal: Added support for testing across multiple browsers.
 - Internal: Added support for visual regression testing using Percy.
-- Internal: Resolved inaccurate reporting on test automation failures.
-- Public: Improvements in video capture steps.
 
 ### Changed
 
