@@ -371,7 +371,7 @@ export const faceScenarios = (lang) => {
       )
       await takePercySnapshot(
         driver,
-        `Verify Submit passport photo page does not have onfido logo ${lang}`
+        `Verify Submit passport photo screen does not have onfido logo ${lang}`
       )
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(
@@ -411,7 +411,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkLogoIsHidden()
       await takePercySnapshot(
         driver,
-        `Verify Verification complete screen does not have onfido logo ${lang}`
+        `Verify Verification complete screen does not have Onfido logo ${lang}`
       )
     })
 
@@ -427,7 +427,7 @@ export const faceScenarios = (lang) => {
       )
       await takePercySnapshot(
         driver,
-        `Verify Submit passport photo page does has co-brand logo ${lang}`
+        `Verify Submit passport photo screen does has co-brand logo ${lang}`
       )
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(

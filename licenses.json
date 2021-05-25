@@ -945,14 +945,14 @@
     "path": "node_modules/@onfido/castor-icons",
     "licenseFile": "node_modules/@onfido/castor-icons/README.md"
   },
-  "@onfido/castor-react@1.1.2": {
+  "@onfido/castor-react@1.3.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
     "path": "node_modules/@onfido/castor-react",
     "licenseFile": "node_modules/@onfido/castor-react/README.md"
   },
-  "@onfido/castor@1.1.2": {
+  "@onfido/castor@1.3.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
@@ -12122,7 +12122,7 @@
     "path": "node_modules/style-search",
     "licenseFile": "node_modules/style-search/LICENSE"
   },
-  "stylelint-config-sass-guidelines@7.0.0": {
+  "stylelint-config-sass-guidelines@8.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/bjankord/stylelint-config-sass-guidelines",
     "publisher": "Brett Jankord",
