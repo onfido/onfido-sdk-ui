@@ -1,7 +1,6 @@
 name: Percy Visual Regression Tests
 
-on:
-  [push, workflow_dispatch]
+on: [push, workflow_dispatch]
 
 env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
