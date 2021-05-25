@@ -13,7 +13,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
 import { dirname, relative, resolve, basename, path } from 'path'
 import nodeExternals from 'webpack-node-externals'
-const CopyPlugin = require('copy-webpack-plugin')
+import CopyPlugin from 'copy-webpack-plugin'
 
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'
@@ -127,7 +127,7 @@ const PROD_CONFIG = {
   SMS_DELIVERY_URL: 'https://telephony.onfido.com',
   PUBLIC_PATH: `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
-  AUTH_URL: 'https://edge.api.onfido.com/v3',
+  AUTH_URL: 'https://api.eu.onfido.com',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN,
 }
@@ -216,7 +216,7 @@ const basePlugins = (bundle_name = '') => [
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'CD',
+      BASE_32_VERSION: 'CF',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
