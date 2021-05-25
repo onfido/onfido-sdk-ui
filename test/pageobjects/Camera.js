@@ -43,14 +43,18 @@ class Camera extends BasePage {
     this.shutterButton().click()
   }
 
+  async enableCameraAccessForPercy() {
+    if (
+      this.enableCameraButton().isDisplayed() &&
+      this.allowCameraPermissionImage().isDisplayed()
+    ) {
+      this.enableCameraButton().click()
+    }
+  }
+
   async enableCameraAccessIfNecessary() {
     if (browserName.toLowerCase() === 'safari') {
-      if (
-        this.enableCameraButton().isDisplayed() &&
-        this.allowCameraPermissionImage().isDisplayed()
-      ) {
-        this.enableCameraButton().click()
-      }
+      this.enableCameraAccessForPercy()
     }
   }
 

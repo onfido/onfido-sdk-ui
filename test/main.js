@@ -178,7 +178,7 @@ const createMocha = (driver, testCase) => {
     )
   })
   mocha.suite.beforeEach('Set retry', function () {
-    this.currentTest.retries(2)
+    this.currentTest.retries(1)
   })
   mocha.suite.afterEach('Capture total number of test failures', function () {
     const currentTestState = this.currentTest.state
