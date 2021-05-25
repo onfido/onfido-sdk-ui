@@ -86,7 +86,7 @@ class Face extends Component {
     </CustomFileInput>
   )
 
-  renderCrossDeviceFallback = (text, callback) => (
+  renderCrossDeviceFallback = ({ text }, callback) => (
     <FallbackButton
       text={text}
       onClick={() => this.handleFallbackClick(callback)}
