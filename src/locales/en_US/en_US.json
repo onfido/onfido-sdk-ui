@@ -452,20 +452,17 @@
     },
     "video_capture": {
         "body": "Position your face in the oval",
-        "body_next": "When you’re done, press next",
         "body_record": "Press record and follow the instructions",
-        "body_stop": "When you’re done, press stop",
-        "button_primary_next": "Next",
+        "button_primary_finish": "Finish recording",
+        "button_primary_next": "Next step",
         "button_record_accessibility": "Start recording",
-        "button_stop_accessibility": "Stop recording",
         "frame_accessibility": "View from camera",
         "header": {
             "challenge_digit_instructions": "Say each digit out loud",
-            "challenge_turn_left": "left",
-            "challenge_turn_right": "right",
-            "challenge_turn_template": "Look over your %{side} shoulder"
-        },
-        "status": "Recording"
+            "challenge_turn_forward": "then face forward",
+            "challenge_turn_left": "Turn your head left",
+            "challenge_turn_right": "Turn your head right"
+        }
     },
     "video_confirmation": {
         "title": "Check selfie video",
