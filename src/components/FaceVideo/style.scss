@@ -4,10 +4,19 @@
   line-height: 2.25;
 }
 
-.challengeTitle {
+%_challenge-text {
   font-weight: 600;
   font-size: 20 * $unit;
+}
+
+.challengeTitle {
+  @extend %_challenge-text;
   line-height: 1.2;
+}
+
+.challengeSubTitle {
+  @extend %_challenge-text;
+  line-height: 2;
 }
 
 .introCopy {
@@ -114,28 +123,6 @@
   top: 64 * $unit;
   left: 0;
   right: 0;
-}
-
-.recordingIndicator {
-  text-align: center;
-  margin-bottom: 16 * $unit;
-
-  /* Red circle icon before video recording status text */
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 8 * $unit;
-    height: 8 * $unit;
-    margin-right: 5 * $unit;
-    background: $camera-recording-status-icon-color;
-    border-radius: 4 * $unit;
-    line-height: 120%;
-  }
-}
-
-.recordingIndicatorText {
-  font-size: var(--font-size-x-small);
-  line-height: 1.45;
 }
 
 @mixin _full-screen-rounded-icon() {

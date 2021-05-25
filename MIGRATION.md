@@ -2,6 +2,30 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `6.9.0` -> [latest-version]
+
+### Added strings
+
+- `video_capture.prompt.header_timeout`
+- `video_capture.header.challenge_turn_forward`
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+### Changed strings
+
+- `video_capture.button_primary_finish`
+- `video_capture.button_primary_next`
+- `video_capture.header.challenge_turn_left`
+- `video_capture.header.challenge_turn_right`
+
+### Removed strings
+
+- `video_capture.status`
+- `video_capture.body_next`
+- `video_capture.body_stop`
+- `video_capture.button_stop_accessibility`
+- `video_capture.header.challenge_turn_template`
+
 ## `6.8.0` -> `6.9.0`
 
 ### Added strings
@@ -81,6 +105,8 @@ The **English** copy for the following string(s) has been added:
 ## `6.5.0` -> `6.6.0`
 
 ### Added strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
 
 The **English** copy for the following string(s) has been added:
 

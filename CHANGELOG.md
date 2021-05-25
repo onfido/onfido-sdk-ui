@@ -22,6 +22,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- UI: Update Face Liveness Video Challenge screen UI
+- Internal: Upgrade sass (Dart Sass) from `1.26.9` to `1.33.0`
+- Internal: Upgrade stylelint from `13.6.1` to `13.13.1` as well as stylelint-config-sass-guidelines from `7.0.0` to `8.0.0` and stylelint-scss from `3.18.0` to `3.19.0`
+
+### Fixed
+
+### Changed
+
 - Update to module on `tsconfig.json` from `es6` to `esnext`, to allow conditional imports of specific modules (especially useful for Auth/IDV bundle separation).
 
 ### Fixed
@@ -30,7 +38,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [6.8.0] - 2021-05-13
 
-## Added
+### Added
 
 - Internal: Add type defition for `borderRadiusSurfaceModal` customisation option.
 - Public: Add information about Lokalise CLI v2 in CONTRIBUTING doc

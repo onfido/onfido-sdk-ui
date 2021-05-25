@@ -452,20 +452,17 @@
     },
     "video_capture": {
         "body": "Positionnez votre visage dans le cercle",
-        "body_next": "Lorsque vous avez terminé, appuyez sur suivant",
         "body_record": "Appuyez sur enregistrer et suivez les instructions",
-        "body_stop": "Lorsque vous avez terminé, appuyez sur stop",
-        "button_primary_next": "Suivant",
+        "button_primary_finish": "Terminer l’enregistrement",
+        "button_primary_next": "Étape suivante",
         "button_record_accessibility": "Démarrer l’enregistrement",
-        "button_stop_accessibility": "Arrêter l’enregistrement",
         "frame_accessibility": "Vue de la caméra",
         "header": {
             "challenge_digit_instructions": "Prononcez chaque chiffre à voix haute",
-            "challenge_turn_left": "gauche",
-            "challenge_turn_right": "droite",
-            "challenge_turn_template": "Regardez par-dessus votre épaule %{side}"
-        },
-        "status": "En cours d’enregistrement"
+            "challenge_turn_forward": "puis regardez l’écran à nouveau",
+            "challenge_turn_left": "Tournez votre visage vers la gauche",
+            "challenge_turn_right": "Tournez votre visage vers la droite"
+        }
     },
     "video_confirmation": {
         "title": "Veuillez vérifier votre vidéo",

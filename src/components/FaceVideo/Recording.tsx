@@ -28,22 +28,8 @@ const Recording: FunctionComponent<Props> = ({
   translate,
 }) => (
   <div>
-    <div className={style.caption}>
-      <div>
-        <div className={style.recordingIndicator}>
-          <span role="status" className={style.recordingIndicatorText}>
-            {translate('video_capture.status')}
-          </span>
-        </div>
-        {children}
-      </div>
-    </div>
+    <div className={style.caption}>{children}</div>
     <div className={style.actions}>
-      <div className={style.captureActionsHint}>
-        {translate(
-          hasMoreSteps ? 'video_capture.body_next' : 'video_capture.body_stop'
-        )}
-      </div>
       {hasMoreSteps ? (
         <Button
           variant="primary"
@@ -55,13 +41,15 @@ const Recording: FunctionComponent<Props> = ({
           {translate('video_capture.button_primary_next')}
         </Button>
       ) : (
-        <button
-          type="button"
-          aria-label={translate('video_capture.button_stop_accessibility')}
+        <Button
+          variant="primary"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
           disabled={disableInteraction}
           onClick={onStop}
-          className={classNames(style.btn, style.stopRecording)}
-        />
+          data-onfido-qa="liveness-stop-recording-btn"
+        >
+          {translate('video_capture.button_primary_finish')}
+        </Button>
       )}
     </div>
   </div>

@@ -951,14 +951,14 @@
     "path": "node_modules/@onfido/castor-icons",
     "licenseFile": "node_modules/@onfido/castor-icons/README.md"
   },
-  "@onfido/castor-react@1.2.0": {
+  "@onfido/castor-react@1.3.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
     "path": "node_modules/@onfido/castor-react",
     "licenseFile": "node_modules/@onfido/castor-react/README.md"
   },
-  "@onfido/castor@1.2.0": {
+  "@onfido/castor@1.3.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
@@ -1938,8 +1938,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-message-util/node_modules/ansi-regex",
-    "licenseFile": "node_modules/jest-message-util/node_modules/ansi-regex/license"
+    "path": "node_modules/cliui/node_modules/ansi-regex",
+    "licenseFile": "node_modules/cliui/node_modules/ansi-regex/license"
   },
   "ansi-styles@2.2.1": {
     "licenses": "MIT",
@@ -1965,8 +1965,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@jest/types/node_modules/ansi-styles",
-    "licenseFile": "node_modules/@jest/types/node_modules/ansi-styles/license"
+    "path": "node_modules/wrap-ansi/node_modules/ansi-styles",
+    "licenseFile": "node_modules/wrap-ansi/node_modules/ansi-styles/license"
   },
   "anymatch@2.0.0": {
     "licenses": "ISC",
@@ -3090,8 +3090,8 @@
     "repository": "https://github.com/paulmillr/chokidar",
     "publisher": "Paul Miller",
     "url": "https://paulmillr.com",
-    "path": "node_modules/watchpack-chokidar2/node_modules/chokidar",
-    "licenseFile": "node_modules/watchpack-chokidar2/node_modules/chokidar/README.md"
+    "path": "node_modules/@nicolo-ribaudo/chokidar-2/node_modules/chokidar",
+    "licenseFile": "node_modules/@nicolo-ribaudo/chokidar-2/node_modules/chokidar/README.md"
   },
   "chokidar@3.4.0": {
     "licenses": "MIT",
@@ -3335,8 +3335,8 @@
     "repository": "https://github.com/Qix-/color-convert",
     "publisher": "Heather Arthur",
     "email": "fayearthur@gmail.com",
-    "path": "node_modules/@jest/types/node_modules/color-convert",
-    "licenseFile": "node_modules/@jest/types/node_modules/color-convert/LICENSE"
+    "path": "node_modules/wrap-ansi/node_modules/color-convert",
+    "licenseFile": "node_modules/wrap-ansi/node_modules/color-convert/LICENSE"
   },
   "color-name@1.1.3": {
     "licenses": "MIT",
@@ -3351,8 +3351,8 @@
     "repository": "https://github.com/colorjs/color-name",
     "publisher": "DY",
     "email": "dfcreative@gmail.com",
-    "path": "node_modules/@jest/types/node_modules/color-name",
-    "licenseFile": "node_modules/@jest/types/node_modules/color-name/LICENSE"
+    "path": "node_modules/wrap-ansi/node_modules/color-name",
+    "licenseFile": "node_modules/wrap-ansi/node_modules/color-name/LICENSE"
   },
   "colorette@1.2.2": {
     "licenses": "MIT",
@@ -5295,8 +5295,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/find-up",
-    "licenseFile": "node_modules/jest-resolve/node_modules/find-up/license"
+    "path": "node_modules/yargs/node_modules/find-up",
+    "licenseFile": "node_modules/yargs/node_modules/find-up/license"
   },
   "findup-sync@2.0.0": {
     "licenses": "MIT",
@@ -8023,8 +8023,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/locate-path",
-    "licenseFile": "node_modules/jest-resolve/node_modules/locate-path/license"
+    "path": "node_modules/yargs/node_modules/locate-path",
+    "licenseFile": "node_modules/yargs/node_modules/locate-path/license"
   },
   "lodash.clonedeep@4.5.0": {
     "licenses": "MIT",
@@ -9569,8 +9569,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/p-locate",
-    "licenseFile": "node_modules/jest-resolve/node_modules/p-locate/license"
+    "path": "node_modules/yargs/node_modules/p-locate",
+    "licenseFile": "node_modules/yargs/node_modules/p-locate/license"
   },
   "p-map@2.1.0": {
     "licenses": "MIT",
@@ -9801,8 +9801,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/path-exists",
-    "licenseFile": "node_modules/jest-resolve/node_modules/path-exists/license"
+    "path": "node_modules/yargs/node_modules/path-exists",
+    "licenseFile": "node_modules/yargs/node_modules/path-exists/license"
   },
   "path-is-absolute@1.0.1": {
     "licenses": "MIT",
@@ -10767,7 +10767,13 @@
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react/LICENSE"
   },
-  "react@16.14.0": {
+  "react@16.13.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "node_modules/mochawesome-report-generator/node_modules/react",
+    "licenseFile": "node_modules/mochawesome-report-generator/node_modules/react/LICENSE"
+  },
+  "react@17.0.2": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
     "path": "node_modules/react",
@@ -11452,7 +11458,7 @@
     "path": "node_modules/sass-loader",
     "licenseFile": "node_modules/sass-loader/LICENSE"
   },
-  "sass@1.26.10": {
+  "sass@1.33.0": {
     "licenses": "MIT",
     "repository": "https://github.com/sass/dart-sass",
     "publisher": "Natalie Weizenbaum",
@@ -12395,7 +12401,7 @@
     "path": "node_modules/style-search",
     "licenseFile": "node_modules/style-search/LICENSE"
   },
-  "stylelint-config-sass-guidelines@7.1.0": {
+  "stylelint-config-sass-guidelines@8.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/bjankord/stylelint-config-sass-guidelines",
     "publisher": "Brett Jankord",
@@ -13511,12 +13517,6 @@
     "url": "http://www.berkeleytrue.com",
     "path": "node_modules/node-polyglot/node_modules/warning",
     "licenseFile": "node_modules/node-polyglot/node_modules/warning/LICENSE.md"
-  },
-  "watchpack-chokidar2@2.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/webpack/watchpack",
-    "publisher": "Tobias Koppers @sokra",
-    "path": "node_modules/watchpack-chokidar2"
   },
   "watchpack@1.7.2": {
     "licenses": "MIT",
