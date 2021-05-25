@@ -291,7 +291,6 @@ export default class CrossDeviceMobileRouter extends Component<
           'metadata',
           'method',
           'side',
-          'variant',
         ]
         // @TODO: replace this over-generic method with something easier to maintain
         // @ts-ignore
