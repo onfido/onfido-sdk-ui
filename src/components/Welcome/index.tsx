@@ -17,19 +17,20 @@ import type { StepComponentBaseProps } from '~types/routers'
 const localisedDescriptions = (translate: TranslateCallback) => [
   translate('welcome.description_p_1'),
   translate('welcome.description_p_2'),
+  translate('welcome.description_p_3'),
 ]
 
 type WelcomeContentProps = {
-  descriptions?: string[]
+  customDescriptions?: string[]
 }
 
 const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
-  descriptions,
+  customDescriptions,
 }) => {
   const { translate } = useLocales()
 
-  const welcomeDescriptions = descriptions
-    ? descriptions
+  const welcomeDescriptions = customDescriptions
+    ? customDescriptions
     : localisedDescriptions(translate)
 
   return (
@@ -85,11 +86,14 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
 
   const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep }} />
   const welcomeTitle = customTitle ? customTitle : translate('welcome.title')
+  const welcomeSubTitle = !customDescriptions
+    ? translate('welcome.subtitle')
+    : ''
 
   return (
     <ScreenLayout actions={actions}>
-      <PageTitle title={welcomeTitle} />
-      <WelcomeContent {...{ descriptions }} />
+      <PageTitle title={welcomeTitle} subTitle={welcomeSubTitle} />
+      <WelcomeContent {...{ customDescriptions }} />
     </ScreenLayout>
   )
 }
