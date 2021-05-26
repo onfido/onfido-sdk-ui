@@ -33,7 +33,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
 
   const dispatch = useDispatch<Dispatch<CombinedActions>>()
   const apiUrl = useSelector<RootState, string | undefined>(
-    (state) => state.globals.urls.auth_url
+    (state) => state.globals.urls.onfido_api_url
   )
   const documentFront = useSelector<RootState, DocumentCapture | undefined>(
     (state) => state.captures.document_front
