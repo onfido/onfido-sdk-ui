@@ -7,8 +7,6 @@ env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
   BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
   PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-  CONFIG_FILE: percy.json
-  PERCY: true
 
 jobs:
   build:
@@ -41,10 +39,5 @@ jobs:
       - name: Run build
         run: npm run build:test
 
-      - name: Output something
-        run: echo 'This is from percy_manual on the branch and not master'
-
       - name: Run Percy tests
-        uses: percy/exec-action@v0.3.1
-        with:
-          command: 'npm run test:percy'
+        run: npm run test:percy
