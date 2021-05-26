@@ -1,4 +1,4 @@
-import { describe, it } from '../../utils/mochaw'
+import { describe, it, verifyElementCopy } from "../../utils/mochaw";
 import { localhostUrl } from '../../config.json'
 import {
   takePercySnapshot,
@@ -232,7 +232,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
+      it.only('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
         const copyCrossDeviceLinkAndOpenInNewTab = async () => {
           const crossDeviceLinkText = crossDeviceLink
             .copyLinkTextContainer()
@@ -274,7 +274,11 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           }
         )
         copyCrossDeviceLinkAndOpenInNewTab()
-        await takePercySnapshot(driver, 'Submit statement', {}, 2000)
+        assert.isTrue(
+          crossDeviceLink.title().isDisplayed(),
+          'Test Failed: Submit statement title should be visible'
+        )
+        await takePercySnapshot(driver, 'Submit statement')
         switchBrowserTab(0)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
         await takePercySnapshot(driver, 'Connected to your mobile screen')
