@@ -1,9 +1,6 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import {
-  testFocusManagement,
-  elementCanReceiveFocus,
-} from '../utils/accessibility'
+import { testFocusManagement } from '../utils/accessibility'
 import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
