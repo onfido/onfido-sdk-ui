@@ -274,6 +274,10 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           }
         )
         copyCrossDeviceLinkAndOpenInNewTab()
+        assert.isTrue(
+          crossDeviceLink.title().isDisplayed(),
+          'Test Failed: Submit statement title should be visible'
+        )
         await takePercySnapshot(driver, 'Submit statement')
         switchBrowserTab(0)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
