@@ -1,6 +1,6 @@
 name: Percy Visual Regression Tests on PR
 
-on: [push, pull_request]
+on: pull_request
 
 env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
