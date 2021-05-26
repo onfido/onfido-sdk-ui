@@ -9,10 +9,11 @@ import type { DocumentTypes } from '~types/steps'
 
 type IdFlows = Extract<CaptureFlows, 'cardId' | 'paperId'>
 
+type SelectFlowProp = (captureFlow: IdFlows) => void
+
 type IdFlowButtonProps = {
   idType: IdFlows
-  onClick: () => void
-  title: string
+  onClick: SelectFlowProp
 }
 
 const TITLE_KEY_BY_DOCUMENT_TYPE: Partial<Record<DocumentTypes, string>> = {
@@ -28,18 +29,22 @@ const BUTTON_COPY_BY_ID_TYPE = {
 const IdFlowButton: FunctionComponent<IdFlowButtonProps> = ({
   idType,
   onClick,
-  title,
-}) => (
-  <button className={style[idType]} onClick={onClick}>
-    <span className={style.icon} />
-    <span className={style.text}>{title}</span>
-    <span className={style.chevron} />
-  </button>
-)
+}) => {
+  const { translate } = useLocales()
+  const { [idType]: titleKey } = BUTTON_COPY_BY_ID_TYPE
+
+  return (
+    <button className={style[idType]} onClick={() => onClick(idType)}>
+      <span className={style.icon} />
+      <span className={style.text}>{translate(titleKey)}</span>
+      <span className={style.chevron} />
+    </button>
+  )
+}
 
 export type Props = {
   documentType: DocumentTypes
-  onSelectFlow: (captureFlow: IdFlows) => void
+  onSelectFlow: SelectFlowProp
 }
 
 const PaperIdFlowSelector: FunctionComponent<Props> = ({
@@ -47,7 +52,6 @@ const PaperIdFlowSelector: FunctionComponent<Props> = ({
   onSelectFlow,
 }) => {
   const { translate } = useLocales()
-
   const { [documentType]: titleKey } = TITLE_KEY_BY_DOCUMENT_TYPE
 
   if (!titleKey) {
@@ -57,16 +61,8 @@ const PaperIdFlowSelector: FunctionComponent<Props> = ({
   return (
     <div className={style.paperIdFlowSelector}>
       <span className={style.title}>{translate(titleKey)}</span>
-      <IdFlowButton
-        idType="cardId"
-        onClick={() => onSelectFlow('cardId')}
-        title={translate('doc_capture.prompt.button_card')}
-      />
-      <IdFlowButton
-        idType="paperId"
-        onClick={() => onSelectFlow('paperId')}
-        title={translate('doc_capture.prompt.button_paper')}
-      />
+      <IdFlowButton idType="cardId" onClick={onSelectFlow} />
+      <IdFlowButton idType="paperId" onClick={onSelectFlow} />
     </div>
   )
 }
