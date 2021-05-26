@@ -1,6 +1,6 @@
 name: Percy Visual Regression Tests on PR
 
-on: [pull_request, workflow_dispatch]
+on: pull_request
 
 env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
@@ -43,4 +43,4 @@ jobs:
       - name: Run Percy tests
         uses: percy/exec-action@v0.3.1
         with:
-          command: 'npm run test:percy'
+          command: 'npm run test:ui'
