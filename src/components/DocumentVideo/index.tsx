@@ -32,7 +32,9 @@ const renamedCapture = (
   step: CaptureVariants
 ): CapturePayload => ({
   ...payload,
-  filename: `document_${step}.${mimeType(payload.blob)}`,
+  filename: [`document_${step}`, mimeType(payload.blob)]
+    .filter((str) => str != null)
+    .join('.'),
 })
 
 const getCaptureFlow = (
