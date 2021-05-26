@@ -25,11 +25,24 @@ export const welcomeScenarios = async (lang) => {
         driver.get(`${localhostUrl}?language=${lang}`)
         welcome.verifyTitle(copy)
         welcome.verifySubtitle(copy)
-        welcome.verifyIdentityButton(copy)
+        welcome.verifyDescriptions(copy)
+        welcome.verifyPrimaryButton(copy)
         welcome.verifyFooter(copy)
         await takePercySnapshot(
           driver,
           `Onfido SDK UI elements on the welcome screen in ${lang}`
+        )
+      })
+
+      it('should verify custom copy for UI elements on the welcome screen', async () => {
+        driver.get(`${localhostUrl}?customWelcomeScreenCopy=true`)
+        welcome.verifyCustomTitle(copy)
+        welcome.verifyCustomDescriptions(copy)
+        welcome.verifyCustomPrimaryButton(copy)
+        welcome.verifyFooter(copy)
+        await takePercySnapshot(
+          driver,
+          `Onfido SDK UI elements with custom copy on the welcome screen`
         )
       })
     }

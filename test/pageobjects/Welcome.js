@@ -30,19 +30,35 @@ class Welcome extends BasePage {
     verifyElementCopy(this.title(), copy.welcome.title)
   }
 
+  async verifyCustomTitle(copy) {
+    verifyElementCopy(this.title(), 'Open your new bank account')
+  }
+
   async verifyFocusManagement() {
     testFocusManagement(this.title(), this.driver)
   }
 
   async verifySubtitle(copy) {
+    verifyElementCopy(this.subtitle(), `${copy.welcome.subtitle}`)
+  }
+
+  async verifyDescriptions(copy) {
     verifyElementCopy(
       this.text(),
-      `${copy.welcome.description_p_1}\n${copy.welcome.description_p_2}`
+      `To open a bank account, we will need to verify your identity.\nIt will only take a couple of minutes.`
     )
   }
 
-  async verifyIdentityButton(copy) {
+  async verifyCustomDescriptions(copy) {
+    verifyElementCopy(this.title(), copy.welcome.title)
+  }
+
+  async verifyPrimaryButton(copy) {
     verifyElementCopy(this.primaryBtn(), copy.welcome.next_button)
+  }
+
+  async verifyCustomPrimaryButton(copy) {
+    verifyElementCopy(this.primaryBtn(), 'Verify Identity')
   }
 
   async verifyFooter() {
