@@ -274,7 +274,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           }
         )
         copyCrossDeviceLinkAndOpenInNewTab()
-        await takePercySnapshot(driver, 'Submit statement')
+        await takePercySnapshot(driver, 'Submit statement', {}, 2000)
         switchBrowserTab(0)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
         await takePercySnapshot(driver, 'Connected to your mobile screen')
