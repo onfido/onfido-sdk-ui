@@ -6,6 +6,10 @@
   justify-content: space-between;
 }
 
+.container.center {
+  justify-content: center;
+}
+
 .content {
   display: flex;
   flex-direction: column;
