@@ -14,25 +14,28 @@ import style from './style.scss'
 import type { TranslateCallback } from '~types/locales'
 import type { StepComponentBaseProps } from '~types/routers'
 
-const localisedDescriptions = (translate: TranslateCallback) => [
-  translate('welcome.description_p_1'),
-  translate('welcome.description_p_2'),
-  translate('welcome.description_p_3'),
-]
+const getLocalisedDescriptions = (
+  configuredIDVSteps: string[],
+  translate: TranslateCallback
+) => {
+  const requiredLocalisedDescriptions = [translate('welcome.description_p_1')]
+  const welcomeScreenLocalesMapping: Record<string, string> = {
+    document: translate('welcome.description_p_2'),
+    face: translate('welcome.description_p_3'),
+  }
+  configuredIDVSteps.forEach((idvStep) => {
+    requiredLocalisedDescriptions.push(welcomeScreenLocalesMapping[idvStep])
+  })
+  return requiredLocalisedDescriptions
+}
 
 type WelcomeContentProps = {
-  customDescriptions?: string[]
+  welcomeDescriptions: string[]
 }
 
 const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
-  customDescriptions,
+  welcomeDescriptions,
 }) => {
-  const { translate } = useLocales()
-
-  const welcomeDescriptions = customDescriptions
-    ? customDescriptions
-    : localisedDescriptions(translate)
-
   return (
     <div className={style.text}>
       {welcomeDescriptions.map((description) => (
@@ -73,7 +76,10 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   )
 }
 
-const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
+const Welcome: FunctionComponent<StepComponentBaseProps> = ({
+  steps,
+  nextStep,
+}) => {
   const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
   const {
@@ -88,10 +94,17 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
     ? translate('welcome.subtitle')
     : ''
 
+  const configuredIDVSteps = steps
+    .filter((step) => step.type === 'document' || step.type === 'face')
+    .map((stepConfig) => stepConfig.type)
+  const welcomeDescriptions = customDescriptions
+    ? customDescriptions
+    : getLocalisedDescriptions(configuredIDVSteps, translate)
+
   return (
     <ScreenLayout actions={actions}>
       <PageTitle title={welcomeTitle} subTitle={welcomeSubTitle} />
-      <WelcomeContent {...{ customDescriptions }} />
+      <WelcomeContent {...{ welcomeDescriptions }} />
     </ScreenLayout>
   )
 }
