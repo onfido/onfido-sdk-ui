@@ -34,14 +34,12 @@ const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
     : localisedDescriptions(translate)
 
   return (
-    <div>
-      <div className={style.text}>
-        {welcomeDescriptions.map((description) => (
-          <p key={`description_${buildIteratorKey(description)}`}>
-            {description}
-          </p>
-        ))}
-      </div>
+    <div className={style.text}>
+      {welcomeDescriptions.map((description) => (
+        <p key={`description_${buildIteratorKey(description)}`}>
+          {description}
+        </p>
+      ))}
     </div>
   )
 }
