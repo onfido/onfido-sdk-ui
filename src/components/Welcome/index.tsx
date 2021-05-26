@@ -46,18 +46,18 @@ const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
 }
 
 type WelcomeActionsProps = {
-  nextButton?: string
+  customNextButtonLabel?: string
   nextStep: () => void
 }
 
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
-  nextButton,
+  customNextButtonLabel,
   nextStep,
 }) => {
   const { translate } = useLocales()
 
-  const welcomeNextButton = nextButton
-    ? nextButton
+  const buttonLabel = customNextButtonLabel
+    ? customNextButtonLabel
     : translate('welcome.next_button')
 
   return (
@@ -68,7 +68,7 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
         onClick={nextStep}
         data-onfido-qa="welcome-next-btn"
       >
-        {welcomeNextButton}
+        {buttonLabel}
       </Button>
     </div>
   )
@@ -77,10 +77,14 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
 const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
   const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
-  const { title, descriptions, nextButton } = findStep('welcome')?.options || {}
+  const {
+    title: customTitle,
+    descriptions: customDescriptions,
+    nextButton: customNextButtonLabel,
+  } = findStep('welcome')?.options || {}
 
-  const actions = <WelcomeActions {...{ nextButton, nextStep }} />
-  const welcomeTitle = title ? title : translate('welcome.title')
+  const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep }} />
+  const welcomeTitle = customTitle ? customTitle : translate('welcome.title')
 
   return (
     <ScreenLayout actions={actions}>
