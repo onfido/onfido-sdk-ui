@@ -7,8 +7,6 @@ env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
   BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
   PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-  CONFIG_FILE: percy.json
-  PERCY: true
 
 jobs:
   build:
@@ -42,6 +40,4 @@ jobs:
         run: npm run build:test
 
       - name: Run Percy tests
-        uses: percy/exec-action@v0.3.1
-        with:
-          command: 'npm run test:percy'
+        run: npm run test:percy
