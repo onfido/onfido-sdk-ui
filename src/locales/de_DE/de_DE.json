@@ -494,19 +494,17 @@
     },
     "video_capture": {
         "body": "Positionieren Sie Ihr Gesicht im Oval",
-        "body_next": "Wenn Sie fertig sind, klicken Sie auf Weiter",
         "body_record": "Drücken Sie auf Aufnahme und folgen Sie den Anweisungen",
-        "body_stop": "Wenn Sie fertig sind, drücken Sie Stopp",
-        "button_primary_next": "Weiter",
         "button_primary_start": "Aufnahme starten",
+        "button_primary_finish": "Aufnahme beenden",
+        "button_primary_next": "Nächster Schritt",
         "button_record_accessibility": "Aufnahme starten",
-        "button_stop_accessibility": "Aufnahme stoppen",
         "frame_accessibility": "Ansicht von der Kamera",
         "header": {
             "challenge_digit_instructions": "Sprechen Sie jede Ziffer laut aus",
-            "challenge_turn_left": "links",
-            "challenge_turn_right": "rechts",
-            "challenge_turn_template": "Schauen Sie über Ihre %{side} Schulter"
+            "challenge_turn_forward": "dann nach vorne schauen",
+            "challenge_turn_left": "Kopf nach links drehen",
+            "challenge_turn_right": "Kopf nach rechts drehen"
         },
         "prompt": {
             "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht"

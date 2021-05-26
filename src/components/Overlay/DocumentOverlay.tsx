@@ -188,6 +188,40 @@ export type Props = {
   withPlaceholder?: boolean
 } & DocTypeParams
 
+/**
+ * Render a full-screen view with a SVG element
+ * drawing an overlay for the camera view.
+ * The SVG element contains 2 line draws: `inner` and `outer` in reversed direction:
+ *  - M: start point
+ *  - v<length>: draw a vertical line from the current point with <length>,
+ *               <length> < 0 means reversed direction.
+ *  - h<length>: draw a horizontal line from the current point with <length>,
+ *               <length> < 0 means reversed direction.
+ *
+ *       M(0,0)
+ *          ====>====>====>====>====>====>
+ *          ⇑                            ‖
+ *          ‖                            ‖
+ *          ‖                            ‖
+ *          ‖                            ‖
+ *          ‖                            ⇓
+ *          ⇑    <----<----<----<----    ‖
+ *          ‖    |                  ↑    ‖
+ *          ‖    |                  |    ‖
+ *          ‖    |                  |    ‖
+ *          ‖    ↓                  |    ⇓
+ *          ⇑    ---->---->---->---->    ‖
+ *          ‖ (inner                     ‖
+ *          ‖  start                     ‖
+ *          ‖  point)                    ‖
+ *          ‖                            ⇓
+ *          ⇑                            ‖
+ *          ‖                            ‖
+ *          ‖                            ‖
+ *          ‖                            ‖
+ *          ‖                            ⇓
+ *          <====<====<====<====<====<====
+ */
 const DocumentOverlay: FunctionComponent<Props> = ({
   ariaLabel,
   children,

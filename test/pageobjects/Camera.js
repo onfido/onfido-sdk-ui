@@ -20,7 +20,7 @@ class Camera extends BasePage {
     return this.$('.onfido-sdk-ui-FaceVideo-startRecording')
   }
   async stopButton() {
-    return this.$('.onfido-sdk-ui-FaceVideo-stopRecording')
+    return this.$('[data-onfido-qa="liveness-stop-recording-btn"]')
   }
   async warningMessage() {
     return this.$('.onfido-sdk-ui-Error-container-warning')
@@ -43,14 +43,18 @@ class Camera extends BasePage {
     this.shutterButton().click()
   }
 
+  async enableCameraAccessForPercy() {
+    if (
+      this.enableCameraButton().isDisplayed() &&
+      this.allowCameraPermissionImage().isDisplayed()
+    ) {
+      this.enableCameraButton().click()
+    }
+  }
+
   async enableCameraAccessIfNecessary() {
     if (browserName.toLowerCase() === 'safari') {
-      if (
-        this.enableCameraButton().isDisplayed() &&
-        this.allowCameraPermissionImage().isDisplayed()
-      ) {
-        this.enableCameraButton().click()
-      }
+      this.enableCameraAccessForPercy()
     }
   }
 

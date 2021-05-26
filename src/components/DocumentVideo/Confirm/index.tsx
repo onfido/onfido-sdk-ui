@@ -10,6 +10,7 @@ import { useLocales } from '~locales'
 import { uploadBinaryMedia, createV4Document } from '~utils/onfidoApi'
 import { actions } from 'components/ReduxAppWrapper/store/actions'
 import theme from 'components/Theme/style.scss'
+import ScreenLayout from 'components/Theme/ScreenLayout'
 import { appendToTracking, trackException } from 'Tracker'
 import Error from '../../Error'
 import Spinner from '../../Spinner'
@@ -32,7 +33,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
 
   const dispatch = useDispatch<Dispatch<CombinedActions>>()
   const apiUrl = useSelector<RootState, string | undefined>(
-    (state) => state.globals.urls.auth_url
+    (state) => state.globals.urls.onfido_api_url
   )
   const documentFront = useSelector<RootState, DocumentCapture | undefined>(
     (state) => state.captures.document_front
@@ -160,33 +161,44 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     return <Spinner />
   }
 
-  return (
-    <div className={style.container}>
-      {error ? <Error error={error} role="alert" /> : <div />}
-      {!error && <Content capture={documentVideo} previewing={previewing} />}
-      <div className={style.buttonsContainer}>
-        <Button
-          onClick={onUploadDocuments}
-          variant="primary"
-          className={classNames(theme['button-centered'], theme['button-lg'])}
-          data-onfido-qa="doc-video-confirm-primary-btn"
-        >
-          {translate('video_confirmation.button_primary')}
-        </Button>
-        <Button
-          onClick={onSecondaryClick}
-          variant="secondary"
-          className={classNames(theme['button-centered'], theme['button-lg'])}
-          data-onfido-qa="doc-video-confirm-secondary-btn"
-        >
-          {translate(
-            error || previewing
-              ? 'video_confirmation.button_secondary'
-              : 'doc_video_confirmation.button_secondary'
-          )}
-        </Button>
-      </div>
+  const buttons = (
+    <div className={style.buttonsContainer}>
+      <Button
+        onClick={onUploadDocuments}
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
+        data-onfido-qa="doc-video-confirm-primary-btn"
+      >
+        {translate('video_confirmation.button_primary')}
+      </Button>
+      <Button
+        onClick={onSecondaryClick}
+        variant="secondary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
+        data-onfido-qa="doc-video-confirm-secondary-btn"
+      >
+        {translate(
+          error || previewing
+            ? 'video_confirmation.button_secondary'
+            : 'doc_video_confirmation.button_secondary'
+        )}
+      </Button>
     </div>
+  )
+
+  return (
+    <ScreenLayout
+      actions={buttons}
+      className={classNames(style.container, {
+        [style.center]: !error && !previewing,
+      })}
+    >
+      {error ? (
+        <Error error={error} role="alert" />
+      ) : (
+        <Content capture={documentVideo} previewing={previewing} />
+      )}
+    </ScreenLayout>
   )
 }
 

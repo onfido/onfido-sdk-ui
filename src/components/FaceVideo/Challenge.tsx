@@ -1,27 +1,29 @@
 import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 
-import { localised } from '../../locales'
+import { useLocales } from '~locales'
 import PageTitle from '../PageTitle'
 import style from './style.scss'
 
 import type { ChallengePayload } from '~types/api'
-import type { WithLocalisedProps } from '~types/hocs'
 
 type ChallengeContainerProps = {
   title: string
-  renderInstructions: () => h.JSX.Element
+  renderChallenge: () => h.JSX.Element
+  nextMovementInstruction?: string
 }
 
 const ChallengeContainer: FunctionComponent<ChallengeContainerProps> = ({
   title,
-  renderInstructions,
+  renderChallenge,
+  nextMovementInstruction,
 }) => (
   <div>
     <PageTitle title={title} className={style.challengeTitle} />
-    <div aria-level="2" className={style.challengeDescription}>
-      {renderInstructions()}
-    </div>
+    <div className={style.challengeDescription}>{renderChallenge()}</div>
+    {nextMovementInstruction && (
+      <span className={style.challengeSubTitle}>{nextMovementInstruction}</span>
+    )}
   </div>
 )
 
@@ -29,15 +31,15 @@ type ChallengeProps = {
   challenge: ChallengePayload
 }
 
-type Props = ChallengeProps & WithLocalisedProps
+const Challenge: FunctionComponent<ChallengeProps> = ({ challenge }) => {
+  const { translate } = useLocales()
 
-const Challenge: FunctionComponent<Props> = ({ challenge, translate }) => {
   if (challenge.type === 'recite') {
     return (
       <ChallengeContainer
         title={translate('video_capture.header.challenge_digit_instructions')}
-        renderInstructions={() => (
-          <span className={style.recite}>
+        renderChallenge={() => (
+          <span aria-level="2" className={style.recite}>
             {challenge.query.join(' \u2013 ')}
           </span>
         )}
@@ -50,16 +52,18 @@ const Challenge: FunctionComponent<Props> = ({ challenge, translate }) => {
 
     return (
       <ChallengeContainer
-        title={translate('video_capture.header.challenge_turn_template', {
-          side: translate(`video_capture.header.challenge_turn_${side}`),
-        })}
-        renderInstructions={() => (
+        title={translate(`video_capture.header.challenge_turn_${side}`)}
+        renderChallenge={() => (
           <span
+            aria-hidden="true"
             className={classNames(
               style.movement,
               style[`movement-${challenge.query}`]
             )}
           />
+        )}
+        nextMovementInstruction={translate(
+          'video_capture.header.challenge_turn_forward'
         )}
       />
     )
@@ -68,4 +72,4 @@ const Challenge: FunctionComponent<Props> = ({ challenge, translate }) => {
   return null
 }
 
-export default localised(Challenge)
+export default Challenge

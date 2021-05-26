@@ -7,10 +7,3 @@
 @custom-media --short-viewport (max-height: 567px);
 /* For viewport larger than iPhone 5 in terms of height */
 @custom-media --long-viewport (min-height: 568px);
-
-@custom-media --hires only screen and (-webkit-min-device-pixel-ratio: 1.3),
-  only screen and (min--moz-device-pixel-ratio: 1.3),
-  only screen and (-o-min-device-pixel-ratio: 2.6/2),
-  /* returns 1.3: see Dev.Opera */ only screen and (min-device-pixel-ratio: 1.3),
-  only screen and (min-resolution: 124.8dpi),
-  only screen and (min-resolution: 1.3dppx);

@@ -1,6 +1,10 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
-import { uploadFileAndClickConfirmButton } from './sharedFlows.js'
+import {
+  takePercySnapshot,
+  uploadFileAndClickConfirmButton,
+} from './sharedFlows.js'
+import { assert } from 'chai'
 
 const options = {
   pageObjects: [
@@ -66,6 +70,10 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         )
         poaIntro.verifyThirdRequirement('Is your most recent document')
         poaIntro.verifyStartVerificationButton(copy)
+        await takePercySnapshot(
+          driver,
+          `Should verify UI elements of PoA Intro screen`
+        )
       })
 
       it('should verify UI elements of PoA Document Selection screen', async () => {
@@ -76,6 +84,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaDocumentSelection.verifyElementsUtilityBillCell(copy)
         poaDocumentSelection.verifyElementsCouncilTaxLetter(copy)
         poaDocumentSelection.verifyElementsBenefitsLetter(copy)
+        await takePercySnapshot(driver, 'Select a UK document screen')
       })
 
       it('should verify UI elements of PoA Guidance for Bank Statement', async () => {
@@ -86,6 +95,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'bank_building_society_statement'
         )
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
+        await takePercySnapshot(driver, 'Submit Statement screen')
       })
 
       it('should verify UI elements of PoA Guidance for Utility Bill', async () => {
@@ -96,6 +106,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'utility_bill'
         )
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
+        await takePercySnapshot(driver, 'Submit bill screen')
       })
 
       it('should verify UI elements of PoA Guidance for Council Tax Letter', async () => {
@@ -106,6 +117,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'council_tax'
         )
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
+        await takePercySnapshot(driver, 'Submit council tax letter screen')
       })
 
       it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
@@ -116,6 +128,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'benefit_letters'
         )
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
+        await takePercySnapshot(driver, 'Submit benefit letter screen')
       })
 
       it("should skip country selection screen with a preselected driver's license document type on PoA flow", async () => {
@@ -124,6 +137,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaIntro.clickStartVerificationButton()
         poaDocumentSelection.clickOnCouncilTaxLetterIcon()
         poaGuidance.clickOnContinueButton()
+        await takePercySnapshot(driver, 'Submit letter upload screen')
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
@@ -237,11 +251,33 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaDocumentSelection.clickOnBankIcon()
         poaGuidance.clickOnContinueButton()
         documentUpload.switchToCrossDevice()
+        await takePercySnapshot(driver, 'Continue on your phone screen for PoA')
         crossDeviceIntro.continueToNextStep()
+        assert.isTrue(
+          crossDeviceLink.qrCode().isDisplayed(),
+          'Test Failed: QR Code should be visible'
+        )
+        await takePercySnapshot(
+          driver,
+          'Get your secure link screen - QR Code',
+          {
+            percyCSS: `div.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer > svg { display: none; }`,
+          }
+        )
         crossDeviceLink.switchToCopyLinkOption()
+        crossDeviceLink.verifyCopyLinkTextContainer()
+        await takePercySnapshot(
+          driver,
+          'Get your secure link screen - Copy the link to your mobile browser',
+          {
+            percyCSS: `span.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText { display: none; }`,
+          }
+        )
         copyCrossDeviceLinkAndOpenInNewTab()
+        await takePercySnapshot(driver, 'Submit statement')
         switchBrowserTab(0)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
+        await takePercySnapshot(driver, 'Connected to your mobile screen')
         switchBrowserTab(1)
         documentUpload.uploaderBtn().isDisplayed()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
@@ -256,6 +292,10 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         crossDeviceClientSuccess.verifyUIElements(copy)
         switchBrowserTab(0)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
+        await takePercySnapshot(
+          driver,
+          'Great, that’s everything we need screen'
+        )
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)
       })

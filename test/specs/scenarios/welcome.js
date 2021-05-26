@@ -1,6 +1,7 @@
 import { expect } from 'chai'
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
+import { takePercySnapshot } from './sharedFlows'
 
 const options = {
   pageObjects: ['BasePage', 'Welcome'],
@@ -36,6 +37,10 @@ export const welcomeScenarios = async (lang) => {
         welcome.verifyRecordingLimit(copy)
         welcome.verifyIdentityButton(copy)
         welcome.verifyFooter(copy)
+        await takePercySnapshot(
+          driver,
+          `Onfido SDK UI elements on the welcome screen in ${lang}`
+        )
       })
     }
   )
