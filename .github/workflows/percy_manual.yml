@@ -42,7 +42,7 @@ jobs:
         run: npm run build:test
 
       - name: Output something
-        run : echo 'This is from percy_manual on the branch and not master'
+        run: echo 'This is from percy_manual on the branch and not master'
 
       - name: Run Percy tests
         uses: percy/exec-action@v0.3.1
