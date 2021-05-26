@@ -1,4 +1,4 @@
-import { describe, it, verifyElementCopy } from "../../utils/mochaw";
+import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 import {
   takePercySnapshot,
@@ -232,7 +232,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it.only('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
+      it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
         const copyCrossDeviceLinkAndOpenInNewTab = async () => {
           const crossDeviceLinkText = crossDeviceLink
             .copyLinkTextContainer()
