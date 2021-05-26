@@ -1,4 +1,4 @@
-name: Percy Visual Regression Tests on PR
+name: Percy Visual Regression Tests
 
 on:
   workflow_dispatch:
