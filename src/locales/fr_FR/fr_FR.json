@@ -476,9 +476,11 @@
         "title": "Assurons-nous que personne ne se fait passer pour vous"
     },
     "welcome": {
-        "description_p_1": "Pour ouvrir un compte bancaire, nous devons vérifier votre identité.",
-        "description_p_2": "Cela ne prendra que quelques instants.",
-        "next_button": "Vérification d'identité",
-        "title": "Ouvrez votre nouveau compte bancaire"
+        "next_button": "Vérifiez votre identité",
+        "title": "Vérification d’identité",
+        "subtitle": "It should take a few minutes",
+        "description_p_1": "Use your webcam or phone to photograph:",
+        "description_p_2": "1. your identity document",
+        "description_p_3": "2. your face"
     }
 }

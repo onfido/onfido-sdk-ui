@@ -476,9 +476,11 @@
         "title": "Lassen Sie uns sicherstellen, dass sich niemand für Sie ausgibt"
     },
     "welcome": {
-        "description_p_1": "Um ein Bankkonto zu eröffnen, müssen wir Ihre Identität überprüfen.",
-        "description_p_2": "Es wird nur ein paar Minuten dauern.",
         "next_button": "Identität überprüfen",
-        "title": "Eröffnen Sie Ihr neues Bankkonto"
+        "title": "Identität überprüfen",
+        "subtitle": "It should take a few minutes",
+        "description_p_1": "Use your webcam or phone to photograph:",
+        "description_p_2": "1. your identity document",
+        "description_p_3": "2. your face"
     }
 }
