@@ -1,4 +1,4 @@
-import { hmac256 } from './blob'
+import { hmac256, mimeType } from './blob'
 import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
@@ -233,7 +233,11 @@ export const uploadBinaryMedia = (
     try {
       const tokenData = parseJwt(token)
       const formData = new FormData()
-      formData.append('media', file, filename)
+      formData.append(
+        'media',
+        file,
+        filename || `document_capture.${mimeType(file)}`
+      )
       formData.append('sdk_metadata', JSON.stringify(sdkMetadata))
 
       if (!includeHmacAuth) {
