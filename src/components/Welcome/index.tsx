@@ -8,7 +8,7 @@ import theme from 'components/Theme/style.scss'
 import { trackComponent } from '../../Tracker'
 import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
-import { DefaultContent, DocVideoContent } from './Content'
+import Content from './Content'
 import style from './style.scss'
 
 import type { StepComponentBaseProps } from '~types/routers'
@@ -53,11 +53,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
   return (
     <ScreenLayout actions={actions} className={style.container}>
       <PageTitle title={welcomeTitle} />
-      {forDocVideo ? (
-        <DocVideoContent />
-      ) : (
-        <DefaultContent {...{ descriptions, translate }} />
-      )}
+      <Content descriptions={descriptions} withTimeout={forDocVideo} />
     </ScreenLayout>
   )
 }

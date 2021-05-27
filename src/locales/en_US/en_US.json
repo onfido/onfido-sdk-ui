@@ -516,13 +516,11 @@
         "title": "Let’s make sure nobody’s impersonating you"
     },
     "welcome": {
-        "description_p_1": "To open a bank account, we will need to verify your identity.",
-        "description_p_2": "It will only take a couple of minutes.",
-        "doc_video_subtitle": "It should take a few minutes",
-        "list_header_doc_video": "Use your device to record:",
-        "list_item_doc": "your identity document",
+        "subtitle": "It should take a few minutes",
+        "description_p_1": "Use your device to record:",
+        "description_p_2": "1. your identity document",
+        "description_p_3": "2. your face",
         "list_item_doc_video_timeout": "Recording is limited to <timeout><\/timeout> seconds",
-        "list_item_selfie": "your face",
         "next_button": "Verify identity",
         "title": "Verify your identity"
     }

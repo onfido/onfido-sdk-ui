@@ -55,8 +55,8 @@ describe('Welcome', () => {
 
       expect(wrapper.exists()).toBeTruthy()
       expect(wrapper.find('PageTitle').text()).toEqual('welcome.title')
-      expect(wrapper.find('DefaultContent').exists()).toBeTruthy()
-      expect(wrapper.find('DocVideoContent').exists()).toBeFalsy()
+      expect(wrapper.find('Content').exists()).toBeTruthy()
+      expect(wrapper.find('Content').prop('withTimeout')).toBeFalsy()
       expect(wrapper.find('WelcomeActions').exists()).toBeTruthy()
       expect(findButton(wrapper).text()).toEqual('welcome.next_button')
     })
@@ -117,8 +117,8 @@ describe('Welcome', () => {
 
         expect(wrapper.exists()).toBeTruthy()
         expect(wrapper.find('PageTitle').text()).toEqual('welcome.title')
-        expect(wrapper.find('DefaultContent').exists()).toBeFalsy()
-        expect(wrapper.find('DocVideoContent').exists()).toBeTruthy()
+        expect(wrapper.find('Content').exists()).toBeTruthy()
+        expect(wrapper.find('Content').prop('withTimeout')).toBeTruthy()
         expect(wrapper.find('WelcomeActions').exists()).toBeTruthy()
 
         expect(findButton(wrapper).text()).toEqual('welcome.next_button')

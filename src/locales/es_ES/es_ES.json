@@ -516,13 +516,11 @@
         "title": "Asegurémonos de que nadie se está haciendo pasar por usted"
     },
     "welcome": {
-        "description_p_1": "Para abrir una cuenta bancaria, necesitaremos verificar su identidad.",
-        "description_p_2": "Sólo tomará un par de minutos.",
-        "doc_video_subtitle": "Debería tomar unos minutos",
-        "list_header_doc_video": "Utilice su móvil para la grabación:",
-        "list_item_doc": "su documento de identidad",
+        "subtitle": "Debería tomar unos minutos",
+        "description_p_1": "Utilice su móvil para la grabación:",
+        "description_p_2": "1. su documento de identidad",
+        "description_p_3": "2. su rostro",
         "list_item_doc_video_timeout": "La grabación tiene un límite de <timeout><\/timeout> segundos",
-        "list_item_selfie": "su rostro",
         "next_button": "Verificar identidad",
         "title": "Verifique su identidad"
     }

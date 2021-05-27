@@ -32,11 +32,9 @@ The guides below are provided to ease the transition of existing applications us
 - `video_confirmation.body`
 - `video_confirmation.button_primary`
 - `video_confirmation.button_secondary`
-- `welcome.doc_video_subtitle`
-- `welcome.list_header_doc_video`
-- `welcome.list_item_doc`
+- `welcome.subtitle`
+- `welcome.description_p_3`
 - `welcome.list_item_doc_video_timeout`
-- `welcome.list_item_selfie`
 
 The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
 
@@ -46,6 +44,8 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `video_capture.button_primary_next`
 - `video_capture.header.challenge_turn_left`
 - `video_capture.header.challenge_turn_right`
+- `welcome.description_p_1`
+- `welcome.description_p_2`
 - `welcome.title`
 
 ### Removed strings
