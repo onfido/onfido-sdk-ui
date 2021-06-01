@@ -165,10 +165,22 @@ const createMocha = (driver, testCase) => {
       assetsDir: './dist/reports/UITestsReport',
     },
     timeout: testCase.timeout,
+    grep: process.env.MOCHA_GREP,
   })
   // By default `require` caches files, making it impossible to require the same file multiple times.
   // Since we want to execute the same tests against many browsers we need to prevent this behaviour by
   // clearing the require cache.
+  if (process.env.MOCHA_GREP) {
+    console.log(
+      `process.env.MOCHA_GREP is set, so running tests with the tags ${process.env.MOCHA_GREP}`
+    )
+  }
+  if (process.env.MOCHA_INVERT) {
+    console.log(
+      `process.env.MOCHA_INVERT is set, so not running tests with the tags ${process.env.MOCHA_INVERTO}`
+    )
+    mocha.grep(process.env.MOCHA_INVERT).invert()
+  }
   mocha.suite.beforeAll('Printing out browser config...', function () {
     global.isRemoteBrowser = isRemoteBrowser
     global.browserName = browserName
