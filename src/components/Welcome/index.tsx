@@ -14,16 +14,25 @@ import style from './style.scss'
 import type { TranslateCallback } from '~types/locales'
 import type { StepComponentBaseProps } from '~types/routers'
 
+const CAPTURE_STEP_TYPES: Set<string> = new Set([
+  'document',
+  'poa',
+  'face',
+  'auth',
+])
+
 const getLocalisedDescriptions = (
-  configuredIDVSteps: string[],
+  configuredCaptureSteps: string[],
   translate: TranslateCallback
 ) => {
   const requiredLocalisedDescriptions = [translate('welcome.description_p_1')]
   const welcomeScreenLocalesMapping: Record<string, string> = {
+    poa: translate('welcome.description_p_2'), // TODO: more appropriate default copy
     document: translate('welcome.description_p_2'),
     face: translate('welcome.description_p_3'),
+    auth: translate('welcome.description_p_3'), // TODO: more appropriate default copy
   }
-  configuredIDVSteps.forEach((idvStep) => {
+  configuredCaptureSteps.forEach((idvStep) => {
     requiredLocalisedDescriptions.push(welcomeScreenLocalesMapping[idvStep])
   })
   return requiredLocalisedDescriptions
@@ -93,13 +102,12 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   const welcomeSubTitle = !customDescriptions
     ? translate('welcome.subtitle')
     : ''
-
-  const configuredIDVSteps = steps
-    .filter((step) => step.type === 'document' || step.type === 'face')
+  const configuredCaptureSteps = steps
+    .filter((step) => CAPTURE_STEP_TYPES.has(step.type))
     .map((stepConfig) => stepConfig.type)
   const welcomeDescriptions = customDescriptions
     ? customDescriptions
-    : getLocalisedDescriptions(configuredIDVSteps, translate)
+    : getLocalisedDescriptions(configuredCaptureSteps, translate)
 
   return (
     <ScreenLayout actions={actions}>
