@@ -27,7 +27,7 @@ class Welcome extends BasePage {
     verifyElementCopy(this.title(), copy.welcome.title)
   }
 
-  async verifyCustomTitle(copy) {
+  async verifyCustomTitle() {
     verifyElementCopy(this.title(), 'Open your new bank account')
   }
 
@@ -42,19 +42,22 @@ class Welcome extends BasePage {
   async verifyDescriptions(copy) {
     verifyElementCopy(
       this.text(),
-      `To open a bank account, we will need to verify your identity.\nIt will only take a couple of minutes.`
+      `${copy.welcome.description_p_1}\n${copy.welcome.description_p_2}\n${copy.welcome.description_p_3}`
     )
   }
 
-  async verifyCustomDescriptions(copy) {
-    verifyElementCopy(this.title(), copy.welcome.title)
+  async verifyCustomDescriptions() {
+    verifyElementCopy(
+      this.title(),
+      `To open a bank account, we will need to verify your identity.\nIt will only take a couple of minutes.`
+    )
   }
 
   async verifyPrimaryButton(copy) {
     verifyElementCopy(this.primaryBtn(), copy.welcome.next_button)
   }
 
-  async verifyCustomPrimaryButton(copy) {
+  async verifyCustomPrimaryButton() {
     verifyElementCopy(this.primaryBtn(), 'Verify Identity')
   }
 
