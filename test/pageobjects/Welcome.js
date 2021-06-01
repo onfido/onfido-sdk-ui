@@ -48,7 +48,7 @@ class Welcome extends BasePage {
 
   async verifyCustomDescriptions() {
     verifyElementCopy(
-      this.title(),
+      this.text(),
       `To open a bank account, we will need to verify your identity.\nIt will only take a couple of minutes.`
     )
   }
