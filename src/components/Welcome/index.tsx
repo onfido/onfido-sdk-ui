@@ -30,7 +30,7 @@ const getLocalisedDescriptions = (
     poa: translate('welcome.description_p_2'), // TODO: more appropriate default copy
     document: translate('welcome.description_p_2'),
     face: translate('welcome.description_p_3'),
-    auth: translate('welcome.description_p_3'), // TODO: more appropriate default copy
+    auth: translate('welcome.description_p_3'),
   }
   configuredCaptureSteps.forEach((idvStep) => {
     requiredLocalisedDescriptions.push(welcomeScreenLocalesMapping[idvStep])
