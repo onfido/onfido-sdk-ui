@@ -177,7 +177,7 @@ const createMocha = (driver, testCase) => {
   }
   if (process.env.MOCHA_INVERT) {
     console.log(
-      `process.env.MOCHA_INVERT is set, so not running tests with the tags ${process.env.MOCHA_INVERTO}`
+      `process.env.MOCHA_INVERT is set, so not running tests with the tags ${process.env.MOCHA_INVERT}`
     )
     mocha.grep(process.env.MOCHA_INVERT).invert()
   }
