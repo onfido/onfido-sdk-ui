@@ -56,7 +56,7 @@ export const documentScenarios = async (lang) => {
         passportUploadImageGuide.upload(filename)
       }
 
-      it('should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled', async () => {
+      it('should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled @percy', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -74,7 +74,7 @@ export const documentScenarios = async (lang) => {
         )
       })
 
-      it('should upload a passport and verify UI elements', async () => {
+      it('should upload a passport and verify UI elements @percy', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -92,7 +92,7 @@ export const documentScenarios = async (lang) => {
         )
       })
 
-      it('should upload driving licence and verify UI elements', async () => {
+      it('should upload driving licence and verify UI elements @percy', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
@@ -139,7 +139,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyMakeSureDrivingLicenceMessage(copy)
       })
 
-      it('should upload identity card and verify UI elements', async () => {
+      it('should upload identity card and verify UI elements @percy', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
@@ -175,7 +175,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyMakeSureIdentityCardMessage(copy)
       })
 
-      it('should upload residence permit and verify UI elements', async () => {
+      it('should upload residence permit and verify UI elements @percy', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnResidencePermitIcon()
@@ -206,7 +206,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyMakeSureResidencePermitMessage(copy)
       })
 
-      it('should return no document message after uploading non-doc image', async () => {
+      it('should return no document message after uploading non-doc image @percy', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -226,7 +226,7 @@ export const documentScenarios = async (lang) => {
         )
       })
 
-      it('should upload a document on retry after uploading a non-doc image', async () => {
+      it('should upload a document on retry after uploading a non-doc image @percy', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -248,7 +248,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyCheckReadabilityMessage(copy)
       })
 
-      it('should return file size too large message for PDF document upload', async () => {
+      it('should return file size too large message for PDF document upload @percy', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -294,7 +294,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyUseAnotherFileError(copy)
       })
 
-      it('should return image quality message on front of doc', async () => {
+      it('should return image quality message on front of doc @percy', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
@@ -327,7 +327,7 @@ export const documentScenarios = async (lang) => {
         })
 
         // 2nd retake
-        it('should return a warning on the third attempt', async () => {
+        it('should return a warning on the third attempt @percy', async () => {
           uploadFileAndClickConfirmButton(
             documentUpload,
             confirm,
