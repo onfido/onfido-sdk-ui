@@ -34,7 +34,7 @@ export const welcomeScenarios = async (lang) => {
         )
       })
 
-      it('should verify custom copy for UI elements on the welcome screen', async () => {
+      it('should verify custom copy for UI elements on the welcome screen @percy', async () => {
         driver.get(
           `${localhostUrl}?language=${lang}&customWelcomeScreenCopy=true`
         )
