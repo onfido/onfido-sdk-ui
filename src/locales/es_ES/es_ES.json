@@ -453,7 +453,6 @@
     "video_capture": {
         "body": "Coloque su cara en el óvalo",
         "body_record": "",
-        "body_stop": "",
         "button_primary_finish": "Finalizar grabación",
         "button_primary_next": "Siguiente paso",
         "button_record_accessibility": "Iniciar grabación",

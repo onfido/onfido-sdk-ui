@@ -445,7 +445,6 @@
     "video_capture": {
         "body": "Position your face in the oval",
         "body_record": "Press the button when you're ready",
-        "body_stop": "Press stop when you’re done",
         "button_primary_finish": "Finish recording",
         "button_primary_next": "Next step",
         "button_record_accessibility": "Start recording",
