@@ -476,11 +476,12 @@
         "title": "Assurons-nous que personne ne se fait passer pour vous"
     },
     "welcome": {
+        "list_header_webcam": "Vérifiez votre identité",
+        "list_item_doc": "votre pièce d’identité",
+        "list_item_poa": "your proof of address",
+        "list_item_selfie": "votre visage",
         "next_button": "Vérifiez votre identité",
-        "title": "Vérification d’identité",
-        "subtitle": "It should take a few minutes",
-        "description_p_1": "Use your webcam or phone to photograph:",
-        "description_p_2": "1. your identity document",
-        "description_p_3": "2. your face"
+        "subtitle": "Cela ne prendra que quelques minutes",
+        "title": "Vérification d’identité"
     }
 }

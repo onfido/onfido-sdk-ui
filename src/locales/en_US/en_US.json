@@ -476,11 +476,12 @@
         "title": "Let’s make sure nobody’s impersonating you"
     },
     "welcome": {
-        "next_button": "Verify identity",
-        "title": "Verify your identity",
+        "list_header_webcam": "Use your webcam or phone to photograph:",
+        "list_item_doc": "your identity document",
+        "list_item_poa": "your proof of address",
+        "list_item_selfie": "your face",
+        "next_button": "Choose document",
         "subtitle": "It should take a few minutes",
-        "description_p_1": "Use your webcam or phone to photograph:",
-        "description_p_2": "1. your identity document",
-        "description_p_3": "2. your face"
+        "title": "Verify your identity"
     }
 }
