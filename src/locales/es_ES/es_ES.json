@@ -283,14 +283,6 @@
         "title": "Obtener enlace seguro",
         "url_field_label": "Copie el enlace al navegador de internet de su teléfono"
     },
-    "linked_computer": {
-        "button_primary": "Continuar",
-        "info": "Asegúrese de",
-        "list_item_desktop_open": "2. La ventana de su escritorio sigue abierta",
-        "list_item_sent_by_you": "1. Usted envió este enlace",
-        "subtitle": "Continúe la verificación",
-        "title": "Vinculado a su computadora"
-    },
     "mobilePhrases": {
         "photo_upload": {
             "body_id_back": "Tome una foto del reverso de su tarjeta",

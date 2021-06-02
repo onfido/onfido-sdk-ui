@@ -283,14 +283,6 @@
         "title": "Obtenez votre lien sécurisé",
         "url_field_label": "Copier le lien sur votre mobile"
     },
-    "linked_computer": {
-        "button_primary": "Continuer",
-        "info": "Veillez à ce que",
-        "list_item_desktop_open": "2. La fenêtre de votre bureau reste ouverte",
-        "list_item_sent_by_you": "1. Ce lien a été envoyé par vos soins",
-        "subtitle": "Poursuivre la vérification",
-        "title": "Lié à votre ordinateur"
-    },
     "mobilePhrases": {
         "photo_upload": {
             "body_id_back": "Prenez une photo du verso de votre carte",

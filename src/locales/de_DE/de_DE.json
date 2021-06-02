@@ -283,14 +283,6 @@
         "title": "Holen Sie sich Ihren Sicherheitslink",
         "url_field_label": "Kopieren Sie den Link in Ihren mobilen Browser"
     },
-    "linked_computer": {
-        "button_primary": "Fortfahren",
-        "info": "Stellen Sie sicher",
-        "list_item_desktop_open": "2. Ihr Desktop-Fenster bleibt geöffnet",
-        "list_item_sent_by_you": "1. Dieser Link wurde von Ihnen gesendet",
-        "subtitle": "Fahren Sie mit der Überprüfung fort",
-        "title": "Mit Ihrem Computer verbunden"
-    },
     "mobilePhrases": {
         "photo_upload": {
             "body_id_back": "Machen Sie ein Foto von der Rückseite Ihrer Karte",
