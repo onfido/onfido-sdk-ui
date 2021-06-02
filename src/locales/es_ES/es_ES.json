@@ -112,7 +112,7 @@
         "title": "Genial, eso es todo"
     },
     "cross_device_error_desktop": {
-        "subtitle": "Debe abrir este enlace en un dispositivo móvil.",
+        "subtitle": "Debe abrir este enlace en un dispositivo móvil",
         "title": "Algo salió mal"
     },
     "cross_device_error_restart": {
@@ -386,7 +386,7 @@
                 "title": "Su cámara no esta funcionando"
             },
             "timeout": {
-                "detail": "Recuerde presionar detener cuando esté listo. <fallback>Rehacer acciones<\/fallback>",
+                "detail": "Recuerde presionar el botón cuando haya terminado. <fallback>Rehacer acciones<\/fallback>",
                 "title": "Parece que ha demorado demasiado"
             }
         },
@@ -426,7 +426,7 @@
         "title": "Conectado con su móvil"
     },
     "upload_guide": {
-        "button_primary": "Subir foto",
+        "button_primary": "Enviar foto",
         "image_detail_blur_alt": "Ejemplo de un documento borroso",
         "image_detail_blur_label": "Todos los detalles deben ser claros, nada borroso",
         "image_detail_cutoff_label": "Mostrar todos los detalles, incluidas las dos líneas inferiores",
@@ -452,7 +452,8 @@
     },
     "video_capture": {
         "body": "Coloque su cara en el óvalo",
-        "body_record": "Presione grabar y siga las instrucciones",
+        "body_record": "",
+        "body_stop": "",
         "button_primary_finish": "Finalizar grabación",
         "button_primary_next": "Siguiente paso",
         "button_record_accessibility": "Iniciar grabación",
@@ -469,16 +470,17 @@
         "video_accessibility": "Reproducir su video grabado"
     },
     "video_intro": {
-        "button_primary": "Continuar",
+        "button_primary": "Grábese en un vídeo",
         "list_accessibility": "Acciones para grabar un video selfie",
         "list_item_actions": "Le pediremos que se grabe en video ejecutando <strong>dos simples acciones<\/strong>",
         "list_item_speak": "Una de ellas implicará <strong>hablar en voz alta<\/strong>",
         "title": "Asegurémonos de que nadie se está haciendo pasar por usted"
     },
     "welcome": {
-        "description_p_1": "Para abrir una cuenta bancaria, necesitaremos verificar su identidad.",
-        "description_p_2": "Sólo tomará un par de minutos.",
+        "list_header_webcam": "Verificar identidad",
+        "list_item_poa": "your proof of address",
         "next_button": "Verificar identidad",
-        "title": "Abra su nueva cuenta bancaria"
+        "subtitle": "Debería tomar unos minutos",
+        "title": "Verifique su identidad"
     }
 }

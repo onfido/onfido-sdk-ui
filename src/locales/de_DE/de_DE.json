@@ -386,7 +386,7 @@
                 "title": "Kamera funktioniert nicht"
             },
             "timeout": {
-                "detail": "Denken Sie daran, Stopp zu drücken, wenn Sie fertig sind. <fallback>Video-Aktionen wiederholen<\/fallback>.",
+                "detail": "Denken Sie daran, die Taste zu drücken, wenn Sie fertig sind. <fallback>Video-Aktionen wiederholen<\/fallback>.",
                 "title": "Sieht aus, als hätten Sie zu lange gebraucht"
             }
         },
@@ -426,7 +426,7 @@
         "title": "Mit Ihrem Mobiltelefon verbunden"
     },
     "upload_guide": {
-        "button_primary": "Foto hochladen",
+        "button_primary": "Foto einreichen",
         "image_detail_blur_alt": "Beispiel eines verschwommenen Dokuments",
         "image_detail_blur_label": "Alle Details müssen klar sein - nichts verschwommen",
         "image_detail_cutoff_label": "Alle Details anzeigen - einschließlich der unteren 2 Zeilen",
@@ -479,6 +479,6 @@
         "description_p_1": "Um ein Bankkonto zu eröffnen, müssen wir Ihre Identität überprüfen.",
         "description_p_2": "Es wird nur ein paar Minuten dauern.",
         "next_button": "Identität überprüfen",
-        "title": "Eröffnen Sie Ihr neues Bankkonto"
+        "title": "Identität überprüfen"
     }
 }

@@ -386,7 +386,7 @@
                 "title": "L’appareil photo ne fonctionne pas"
             },
             "timeout": {
-                "detail": "Rappelez-vous d’appuyer sur stop lorsque vous avez terminé. <fallback>Refaire la vidéo<\/fallback>",
+                "detail": "N'oubliez pas d'appuyer sur le bouton lorsque vous avez terminé. <fallback>Refaire la vidéo<\/fallback>",
                 "title": "Le temps est écoulé"
             }
         },
@@ -469,7 +469,7 @@
         "video_accessibility": "Rejouer la vidéo"
     },
     "video_intro": {
-        "button_primary": "Continuer",
+        "button_primary": "Commencer l'enregistrement",
         "list_accessibility": "Actions pour enregistrer une vidéo de votre visage",
         "list_item_actions": "Nous allons vous demander de vous filmer en train d’exécuter <strong>2 actions simples<\/strong>",
         "list_item_speak": "L’une d’entre elles consistera à <strong>parler à haute<\/strong> voix",
@@ -478,7 +478,7 @@
     "welcome": {
         "description_p_1": "Pour ouvrir un compte bancaire, nous devons vérifier votre identité.",
         "description_p_2": "Cela ne prendra que quelques instants.",
-        "next_button": "Vérification d'identité",
-        "title": "Ouvrez votre nouveau compte bancaire"
+        "next_button": "Vérifiez votre identité",
+        "title": "Vérification d’identité"
     }
 }
