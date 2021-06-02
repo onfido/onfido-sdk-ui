@@ -25,12 +25,14 @@ const getLocalisedDescriptions = (
   configuredCaptureSteps: string[],
   translate: TranslateCallback
 ) => {
-  const requiredLocalisedDescriptions = [translate('welcome.description_p_1')]
+  const requiredLocalisedDescriptions = [
+    translate('welcome.list_header_webcam'),
+  ]
   const welcomeScreenLocalesMapping: Record<string, string> = {
-    poa: translate('welcome.description_p_2'), // TODO: more appropriate default copy
-    document: translate('welcome.description_p_2'),
-    face: translate('welcome.description_p_3'),
-    auth: translate('welcome.description_p_3'),
+    poa: translate('welcome.list_item_poa'), // TODO: more appropriate default copy
+    document: translate('welcome.list_item_doc'),
+    face: translate('welcome.list_item_selfie'),
+    auth: translate('welcome.list_item_selfie'),
   }
   configuredCaptureSteps.forEach((idvStep) => {
     requiredLocalisedDescriptions.push(welcomeScreenLocalesMapping[idvStep])
