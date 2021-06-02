@@ -59,7 +59,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaIntro.clickStartVerificationButton()
       }
 
-      it('should verify UI elements of PoA Intro screen', async () => {
+      it('should verify UI elements of PoA Intro screen @percy', async () => {
         driver.get(`${localhostUrl}?poa=true`)
         welcome.continueToNextStep()
         poaIntro.verifyTitle('Let’s verify your UK address')
@@ -76,7 +76,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         )
       })
 
-      it('should verify UI elements of PoA Document Selection screen', async () => {
+      it('should verify UI elements of PoA Document Selection screen @percy', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.verifyTitle('Select a UK document')
         poaDocumentSelection.verifySubtitle(copy)
@@ -87,7 +87,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         await takePercySnapshot(driver, 'Select a UK document screen')
       })
 
-      it('should verify UI elements of PoA Guidance for Bank Statement', async () => {
+      it('should verify UI elements of PoA Guidance for Bank Statement @percy', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBankIcon()
         poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(
@@ -98,7 +98,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         await takePercySnapshot(driver, 'Submit Statement screen')
       })
 
-      it('should verify UI elements of PoA Guidance for Utility Bill', async () => {
+      it('should verify UI elements of PoA Guidance for Utility Bill @percy', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnUtilityBillIcon()
         poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(
@@ -109,7 +109,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         await takePercySnapshot(driver, 'Submit bill screen')
       })
 
-      it('should verify UI elements of PoA Guidance for Council Tax Letter', async () => {
+      it('should verify UI elements of PoA Guidance for Council Tax Letter @percy', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnCouncilTaxLetterIcon()
         poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(
@@ -120,7 +120,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         await takePercySnapshot(driver, 'Submit council tax letter screen')
       })
 
-      it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
+      it('should verify UI elements of PoA Guidance for Benefits Letter @percy', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBenefitsLetterIcon()
         poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(
@@ -131,7 +131,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         await takePercySnapshot(driver, 'Submit benefit letter screen')
       })
 
-      it("should skip country selection screen with a preselected driver's license document type on PoA flow", async () => {
+      it("should skip country selection screen with a preselected driver's license document type on PoA flow @percy", async () => {
         driver.get(`${localhostUrl}?poa=true&oneDoc=driving_licence`)
         welcome.continueToNextStep()
         poaIntro.clickStartVerificationButton()
@@ -232,7 +232,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
+      it('should succesfully complete cross device e2e flow with PoA document and selfie upload @percy', async () => {
         const copyCrossDeviceLinkAndOpenInNewTab = async () => {
           const crossDeviceLinkText = crossDeviceLink
             .copyLinkTextContainer()
