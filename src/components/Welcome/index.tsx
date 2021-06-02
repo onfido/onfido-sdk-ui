@@ -29,7 +29,7 @@ const getLocalisedDescriptions = (
     translate('welcome.list_header_webcam'),
   ]
   const welcomeScreenLocalesMapping: Record<string, string> = {
-    poa: translate('welcome.list_item_poa'), // TODO: more appropriate default copy
+    poa: translate('welcome.list_item_poa'),
     document: translate('welcome.list_item_doc'),
     face: translate('welcome.list_item_selfie'),
     auth: translate('welcome.list_item_selfie'),
