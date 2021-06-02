@@ -17,6 +17,34 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `video_capture.button_primary_next`
 - `video_capture.header.challenge_turn_left`
 - `video_capture.header.challenge_turn_right`
+- `cross_device_checklist.list_item_doc_multiple`
+- `cross_device_checklist.list_item_doc_one`
+- `cross_device_checklist.list_item_selfie`
+- `cross_device_checklist.list_item_video`
+- `cross_device_checklist.subtitle`
+- `cross_device_checklist.title`
+- `doc_confirmation.alert.no_doc_detail`
+- `doc_confirmation.alert.no_doc_title`
+- `doc_confirmation.body_id`
+- `doc_confirmation.body_license`
+- `doc_confirmation.body_passport`
+- `doc_confirmation.body_permit`
+- `doc_select.button_passport_detail`
+- `generic.errors.no_face.message`
+- `get_link.subtitle_url`
+- `outro.body`
+- `permission.body_cam`
+- `selfie_capture.alert.timeout.detail`
+- `selfie_capture.title`
+- `selfie_confirmation.subtitle`
+- `selfie_confirmation.title`
+- `selfie_intro.subtitle`
+- `upload_guide.button_primary`
+- `video_capture.body_record`
+- `video_confirmation.title`
+- `video_intro.button_primary`
+- `video_intro.list_item_actions`
+- `video_intro.list_item_speak`
 
 ### Removed strings
 
