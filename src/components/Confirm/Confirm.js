@@ -208,7 +208,6 @@ class Confirm extends Component {
     const {
       urls,
       capture,
-      videoCapture,
       method,
       side,
       token,
