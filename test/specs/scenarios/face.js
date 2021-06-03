@@ -112,7 +112,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should take one selfie using the camera stream', async () => {
+    it('should take one selfie using the camera stream @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -262,7 +262,7 @@ export const faceScenarios = (lang) => {
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should enter the liveness flow if I have a camera and liveness variant requested', async () => {
+    it('should enter the liveness flow if I have a camera and liveness variant requested @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -291,7 +291,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should enter the faceVideo flow and display timeout notification after 10 seconds', async () => {
+    it('should enter the liveness flow and display timeout notification after 10 seconds @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -321,7 +321,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should record a video with live challenge, play it and submit it', async () => {
+    it('should record a video with live challenge, play it and submit it @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -359,7 +359,11 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
+<<<<<<< HEAD
     it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for faceVideo variant', async () => {
+=======
+    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant @percy', async () => {
+>>>>>>> development
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -415,7 +419,11 @@ export const faceScenarios = (lang) => {
       )
     })
 
+<<<<<<< HEAD
     it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for faceVideo variant', async () => {
+=======
+    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for liveness variant @percy', async () => {
+>>>>>>> development
       goToPassportUploadScreen(
         driver,
         welcome,
