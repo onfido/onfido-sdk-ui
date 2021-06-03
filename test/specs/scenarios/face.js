@@ -359,11 +359,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-<<<<<<< HEAD
-    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for faceVideo variant', async () => {
-=======
     it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant @percy', async () => {
->>>>>>> development
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -419,11 +415,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-<<<<<<< HEAD
-    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for faceVideo variant', async () => {
-=======
     it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for liveness variant @percy', async () => {
->>>>>>> development
       goToPassportUploadScreen(
         driver,
         welcome,
