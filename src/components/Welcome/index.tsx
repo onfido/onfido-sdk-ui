@@ -104,7 +104,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   } = findStep('welcome')?.options || {}
 
   const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep }} />
-  const welcomeTitle = customTitle ? customTitle : translate('welcome.title')
+  const welcomeTitle = customTitle || translate('welcome.title')
   const welcomeSubTitle = !customDescriptions
     ? translate('welcome.subtitle')
     : ''
