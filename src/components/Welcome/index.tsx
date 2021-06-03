@@ -13,8 +13,9 @@ import style from './style.scss'
 
 import type { TranslateCallback } from '~types/locales'
 import type { StepComponentBaseProps } from '~types/routers'
+import type { StepTypes } from '~types/steps'
 
-const CAPTURE_STEP_TYPES: Set<string> = new Set([
+const CAPTURE_STEP_TYPES: Set<StepTypes> = new Set([
   'document',
   'poa',
   'face',
@@ -22,20 +23,23 @@ const CAPTURE_STEP_TYPES: Set<string> = new Set([
 ])
 
 const getLocalisedDescriptions = (
-  configuredCaptureSteps: string[],
+  configuredCaptureSteps: StepTypes[],
   translate: TranslateCallback
 ) => {
   const requiredLocalisedDescriptions = [
     translate('welcome.list_header_webcam'),
   ]
-  const welcomeScreenLocalesMapping: Record<string, string> = {
+  const welcomeScreenLocalesMapping: Partial<Record<StepTypes, string>> = {
     poa: translate('welcome.list_item_poa'),
     document: translate('welcome.list_item_doc'),
     face: translate('welcome.list_item_selfie'),
     auth: translate('welcome.list_item_selfie'),
   }
   configuredCaptureSteps.forEach((idvStep) => {
-    requiredLocalisedDescriptions.push(welcomeScreenLocalesMapping[idvStep])
+    const localeString = welcomeScreenLocalesMapping[idvStep]
+    if (localeString) {
+      requiredLocalisedDescriptions.push(localeString)
+    }
   })
   return requiredLocalisedDescriptions
 }
