@@ -8,17 +8,21 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## Changed
+### Added
+
+- Internal: Added note about lockfileVersion and npm version requirement for SDK contributors in CONTRIBUTING.md documentation.
+
+### Changed
 
 - Public: Updated SDK copy for English (en_US), Spanish (es_ES), French (fr_FR) and German (de_DE). For details on what keys/copy have changed please refer to the MIGRATION.md documentation.
 
-## Fixed
+### Fixed
 
 - Internal: Upgrade Preact from version `10.5.4` to `10.5.13` in order to resolve an unhandled exception on reinitialising the SDK after closing the SDK modal for some integrations when using Modal mode.
 
 ## [6.9.0] - 2021-05-24
 
-## Added
+### Added
 
 - Public: Added Authentication module as a beta feature
 - Internal: Added support for testing across multiple browsers.
@@ -29,11 +33,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Update Face Liveness Video Challenge screen UI
 - Internal: Upgrade sass (Dart Sass) from `1.26.9` to `1.33.0`
 - Internal: Upgrade stylelint from `13.6.1` to `13.13.1` as well as stylelint-config-sass-guidelines from `7.0.0` to `8.0.0` and stylelint-scss from `3.18.0` to `3.19.0`
-
-### Fixed
-
-### Changed
-
 - Update to module on `tsconfig.json` from `es6` to `esnext`, to allow conditional imports of specific modules (especially useful for Auth/IDV bundle separation).
 
 ### Fixed
