@@ -28,7 +28,6 @@ The guides below are provided to ease the transition of existing applications us
 - `doc_video_confirmation.title`
 - `video_capture.button_primary_start`
 - `video_capture.prompt.header_timeout`
-- `video_capture.status`
 - `video_confirmation.body`
 - `video_confirmation.button_primary`
 - `video_confirmation.button_secondary`
