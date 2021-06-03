@@ -516,11 +516,13 @@
         "title": "Assurons-nous que personne ne se fait passer pour vous"
     },
     "welcome": {
-        "subtitle": "Cela ne prendra que quelques minutes",
-        "description_p_1": "Utilisez votre mobile pour enregistrer :",
-        "description_p_2": "1. votre pièce d'identité",
-        "description_p_3": "2. votre visage",
+        "description_p_1": "Pour ouvrir un compte bancaire, nous devons vérifier votre identité.",
+        "description_p_2": "Cela ne prendra que quelques instants.",
+        "doc_video_subtitle": "Cela ne prendra que quelques minutes",
+        "list_header_doc_video": "Utilisez votre mobile pour enregistrer :",
+        "list_item_doc": "votre pièce d'identité",
         "list_item_doc_video_timeout": "L'enregistrement est limité à <timeout><\/timeout> secondes",
+        "list_item_selfie": "votre visage",
         "next_button": "Vérifiez votre identité",
         "title": "Vérification d'identité"
     }

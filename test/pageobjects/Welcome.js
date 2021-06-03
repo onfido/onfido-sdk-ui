@@ -41,13 +41,13 @@ class Welcome extends BasePage {
   }
 
   async verifySubtitle(copy) {
-    verifyElementCopy(this.subtitle(), copy.welcome.subtitle)
+    verifyElementCopy(this.subtitle(), copy.welcome.doc_video_subtitle)
   }
 
   async verifyInstructions(copy) {
     verifyElementCopy(
       this.instructions(),
-      `${copy.welcome.description_p_1}\n${copy.welcome.description_p_2}\n${copy.welcome.description_p_3}`
+      `${copy.welcome.list_header_doc_video}\n${copy.welcome.list_item_doc}\n${copy.welcome.list_item_selfie}`
     )
   }
 

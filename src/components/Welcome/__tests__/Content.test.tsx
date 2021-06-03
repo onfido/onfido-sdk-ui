@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised, { mockedTranslate } from '~jest/MockedLocalised'
-import Content from '../Content'
+import { DefaultContent, DocVideoContent } from '../Content'
 
 mockedTranslate.mockImplementation((str) => {
   if (str === 'welcome.list_item_doc_video_timeout') {
@@ -12,13 +12,19 @@ mockedTranslate.mockImplementation((str) => {
   return str
 })
 
-const assertDefaultDescriptions = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.subtitle').text()).toEqual('welcome.subtitle')
-
-  const items = wrapper.find('.descriptions > p')
+const assertDefaultContent = (wrapper: ReactWrapper) => {
+  const items = wrapper.find('.customDescriptions > p')
   expect(items.at(0).text()).toEqual('welcome.description_p_1')
   expect(items.at(1).text()).toEqual('welcome.description_p_2')
-  expect(items.at(2).text()).toEqual('welcome.description_p_3')
+}
+
+const assertDocVideoContent = (wrapper: ReactWrapper) => {
+  expect(wrapper.find('.caption').text()).toEqual(
+    'welcome.list_header_doc_video'
+  )
+  const items = wrapper.find('.instructions > ol li')
+  expect(items.at(0).text()).toEqual('welcome.list_item_doc')
+  expect(items.at(1).text()).toEqual('welcome.list_item_selfie')
 }
 
 describe('Welcome', () => {
@@ -26,18 +32,18 @@ describe('Welcome', () => {
     it('renders correct elements', () => {
       const wrapper = mount(
         <MockedLocalised>
-          <Content />
+          <DefaultContent />
         </MockedLocalised>
       )
 
       expect(wrapper.exists()).toBeTruthy()
-      assertDefaultDescriptions(wrapper)
+      assertDefaultContent(wrapper)
     })
 
     it('renders correct elements with custom descriptions', () => {
       const wrapper = mount(
         <MockedLocalised>
-          <Content
+          <DefaultContent
             descriptions={[
               'Fake description 1',
               'Fake description 2',
@@ -54,15 +60,22 @@ describe('Welcome', () => {
       expect(descriptions.at(1).text()).toMatch('Fake description 2')
       expect(descriptions.at(2).text()).toMatch('Fake description 3')
     })
+  })
 
-    it('renders correct elements for docVideo feature', () => {
+  describe('DocVideoContent', () => {
+    it('renders correct elements', () => {
       const wrapper = mount(
         <MockedLocalised>
-          <Content withTimeout />
+          <DocVideoContent />
         </MockedLocalised>
       )
 
-      assertDefaultDescriptions(wrapper)
+      expect(wrapper.exists()).toBeTruthy()
+
+      expect(wrapper.find('.subtitle').text()).toEqual(
+        'welcome.doc_video_subtitle'
+      )
+      assertDocVideoContent(wrapper)
       expect(wrapper.find('.recordingLimit').text()).toEqual('timeout: 30')
     })
   })

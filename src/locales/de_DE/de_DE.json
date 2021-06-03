@@ -516,11 +516,13 @@
         "title": "Lassen Sie uns sicherstellen, dass sich niemand für Sie ausgibt"
     },
     "welcome": {
-        "subtitle": "Es dauert nur einige wenige Minuten",
-        "description_p_1": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
-        "description_p_2": "1. Ihr Ausweisdokument",
-        "description_p_3": "2. Ihr Gesicht",
+        "description_p_1": "Um ein Bankkonto zu eröffnen, müssen wir Ihre Identität überprüfen.",
+        "description_p_2": "Es wird nur ein paar Minuten dauern.",
+        "doc_video_subtitle": "Es dauert nur einige wenige Minuten",
+        "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
+        "list_item_doc": "Ihr Ausweisdokument",
         "list_item_doc_video_timeout": "Die Aufnahme ist auf <timeout><\/timeout> Sekunden beschränkt",
+        "list_item_selfie": "Ihr Gesicht",
         "next_button": "Identität überprüfen",
         "title": "Identität überprüfen"
     }
