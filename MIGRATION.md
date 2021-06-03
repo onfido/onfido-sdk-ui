@@ -6,6 +6,7 @@ The guides below are provided to ease the transition of existing applications us
 
 ### Added strings
 
+- `video_capture.button_primary_start`
 - `video_capture.prompt.header_timeout`
 - `video_capture.header.challenge_turn_forward`
 
@@ -29,10 +30,14 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `doc_confirmation.body_license`
 - `doc_confirmation.body_passport`
 - `doc_confirmation.body_permit`
+- `doc_confirmation.button_primary_upload`
 - `doc_select.button_passport_detail`
+- `doc_select.title`
+- `generic.errors.no_face.instruction`
 - `generic.errors.no_face.message`
 - `get_link.subtitle_url`
 - `outro.body`
+- `outro.title`
 - `permission.body_cam`
 - `selfie_capture.alert.timeout.detail`
 - `selfie_capture.title`
@@ -40,6 +45,7 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `selfie_confirmation.title`
 - `selfie_intro.subtitle`
 - `upload_guide.button_primary`
+- `video_capture.body`
 - `video_capture.body_record`
 - `video_confirmation.title`
 - `video_intro.button_primary`
