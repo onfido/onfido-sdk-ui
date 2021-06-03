@@ -108,8 +108,8 @@
         "list_item_doc_one": "Dokument hochgeladen",
         "list_item_selfie": "Selfie hochgeladen",
         "list_item_video": "Video hochgeladen",
-        "subtitle": "",
-        "title": ""
+        "subtitle": "Wir sind jetzt bereit, Ihre Identität zu überprüfen",
+        "title": "Großartig, das ist alles, was wir brauchen"
     },
     "cross_device_error_desktop": {
         "subtitle": "Der Link funktioniert nur auf mobilen Geräten",
@@ -152,7 +152,7 @@
         "body_image_poor": "Um Sie reibungslos zu verifizieren, benötigen wir ein besseres Foto",
         "body_license": "Die Führerschein Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
         "body_passport": "Die Reisepass Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-        "body_permit": "",
+        "body_permit": "Die Details der Erlaubnis müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
         "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Schließen",
         "button_primary_redo": "Wiederholen",
@@ -270,7 +270,7 @@
         "info_qr_how": "So scannen Sie einen QR-Code",
         "info_qr_how_list_item_camera": "Richten Sie die Kamera Ihres Telefons auf den QR-Code",
         "info_qr_how_list_item_download": "Wenn es nicht funktioniert, laden Sie einen QR-Code-Scanner von Google Play oder aus dem App Store herunter",
-        "link_divider": "oder wählen Sie eine dieser Alternativen",
+        "link_divider": "oder",
         "link_qr": "QR-Code scannen",
         "link_sms": "Link per SMS erhalten",
         "link_url": "Link kopieren",
@@ -384,7 +384,7 @@
         },
         "button_accessibility": "Ein Foto machen",
         "frame_accessibility": "Ansicht von der Kamera",
-        "title": ""
+        "title": "Ein Selfie aufnehmen"
     },
     "selfie_confirmation": {
         "image_accessibility": "Foto von Ihrem Gesicht",
@@ -394,9 +394,9 @@
     "selfie_intro": {
         "button_primary": "Fortfahren",
         "list_accessibility": "Tipps für ein gutes Selfie",
-        "list_item_face_forward": "",
-        "list_item_no_glasses": "",
-        "subtitle": "",
+        "list_item_face_forward": "Richten Sie Ihr Gesicht nach vorne und stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
+        "list_item_no_glasses": "Nehmen Sie Ihre Brille ab, falls erforderlich",
+        "subtitle": "Wir werden es mit Ihrem Dokument vergleichen",
         "title": "Ein Selfie aufnehmen"
     },
     "sms_sent": {
@@ -444,7 +444,7 @@
     },
     "video_capture": {
         "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
-        "body_record": "",
+        "body_record": "Drücken Sie auf Aufnahme und folgen Sie den Anweisungen",
         "button_primary_finish": "Aufnahme beenden",
         "button_primary_next": "Nächster Schritt",
         "button_primary_start": "Aufnahme starten",
@@ -467,8 +467,8 @@
     "video_intro": {
         "button_primary": "Fortfahren",
         "list_accessibility": "Aktionen zum Aufzeichnen eines Selfie-Videos",
-        "list_item_actions": "",
-        "list_item_speak": "",
+        "list_item_actions": "Wir bitten Sie, sich bei der Durchführung von <strong>zwei einfachen Handlungen<\/strong> zu filmen",
+        "list_item_speak": "Eine Aktion wird sein, <strong>etwas laut auszusprechen<\/strong>",
         "title": "Lassen Sie uns sicherstellen, dass sich niemand für Sie ausgibt"
     },
     "welcome": {

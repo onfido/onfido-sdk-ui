@@ -108,8 +108,8 @@
         "list_item_doc_one": "Documento cargado",
         "list_item_selfie": "Selfie cargado",
         "list_item_video": "Video cargado",
-        "subtitle": "",
-        "title": ""
+        "subtitle": "Estamos listos para verificar su identidad",
+        "title": "Genial, eso es todo"
     },
     "cross_device_error_desktop": {
         "subtitle": "Debe abrir este enlace en un dispositivo móvil",
@@ -152,7 +152,7 @@
         "body_image_poor": "Para poder verificar que es usted, necesitamos una foto de mejor calidad",
         "body_license": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo",
         "body_passport": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo",
-        "body_permit": "",
+        "body_permit": "Asegúrese de que los detalles de su permiso sean legibles, la imagen sea nítida y que no tenga brillo",
         "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Cerrar",
         "button_primary_redo": "Reintentar",
@@ -270,7 +270,7 @@
         "info_qr_how": "Cómo escanear un código QR",
         "info_qr_how_list_item_camera": "Apunte la cámara de su teléfono al código QR",
         "info_qr_how_list_item_download": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store",
-        "link_divider": "o seleccione estas alternativas",
+        "link_divider": "u",
         "link_qr": "Escanear código QR",
         "link_sms": "Obtener enlace via mensaje de texto",
         "link_url": "Copiar enlace",
@@ -394,9 +394,9 @@
     "selfie_intro": {
         "button_primary": "Continuar",
         "list_accessibility": "Consejos para capturar un buen selfie",
-        "list_item_face_forward": "",
-        "list_item_no_glasses": "",
-        "subtitle": "",
+        "list_item_face_forward": "Por favor, mantenga una cara seria",
+        "list_item_no_glasses": "¿Lleva gafas? Asegúrese de que podamos ver claramente sus ojos",
+        "subtitle": "Compararemos la foto en su documento con su selfie",
         "title": "Tome una selfie"
     },
     "sms_sent": {
@@ -467,8 +467,8 @@
     "video_intro": {
         "button_primary": "Grábese en un vídeo",
         "list_accessibility": "Acciones para grabar un video selfie",
-        "list_item_actions": "",
-        "list_item_speak": "",
+        "list_item_actions": "Le pediremos que se grabe en video ejecutando <strong>dos simples acciones<\/strong>",
+        "list_item_speak": "Una de ellas implicará <strong>hablar en voz alta<\/strong>",
         "title": "Asegurémonos de que nadie se está haciendo pasar por usted"
     },
     "welcome": {

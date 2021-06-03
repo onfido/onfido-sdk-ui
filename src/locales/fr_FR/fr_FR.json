@@ -108,8 +108,8 @@
         "list_item_doc_one": "Document envoyé",
         "list_item_selfie": "Selfie envoyé",
         "list_item_video": "Vidéo envoyée",
-        "subtitle": "",
-        "title": ""
+        "subtitle": "Nous sommes maintenant prêts à vérifier votre identité",
+        "title": "Merci, c’est tout ce dont nous avons besoin"
     },
     "cross_device_error_desktop": {
         "subtitle": "Le lien ne fonctionne que sur les appareils mobiles",
@@ -152,7 +152,7 @@
         "body_image_poor": "Pour vous vérifier au mieux, nous avons besoin d’une meilleure photo",
         "body_license": "Assurez-vous que les détails de votre permis sont lisibles, sans flou ni reflets",
         "body_passport": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets",
-        "body_permit": "",
+        "body_permit": "Assurez-vous que votre carte est lisible, nette et sans reflets",
         "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Fermer",
         "button_primary_redo": "Recommencer",
@@ -444,7 +444,7 @@
     },
     "video_capture": {
         "body": "Gardez le visage dans le cercle",
-        "body_record": "",
+        "body_record": "Appuyez sur enregistrer et suivez les instructions",
         "button_primary_finish": "Terminer l’enregistrement",
         "button_primary_next": "Étape suivante",
         "button_primary_start": "Démarrer l’enregistrement",
@@ -467,8 +467,8 @@
     "video_intro": {
         "button_primary": "Commencer l'enregistrement",
         "list_accessibility": "Actions pour enregistrer une vidéo de votre visage",
-        "list_item_actions": "",
-        "list_item_speak": "",
+        "list_item_actions": "Nous allons vous demander de vous filmer en train d’exécuter <strong>2 actions simples<\/strong>",
+        "list_item_speak": "L’une d’entre elles consistera à <strong>parler à haute<\/strong> voix",
         "title": "Assurons-nous que personne ne se fait passer pour vous"
     },
     "welcome": {
