@@ -6,7 +6,7 @@ export const buildCaptureStateKey = (payload: {
   method?: CaptureMethods
   side?: DocumentSides
   variant?: RequestedVariant
-}): keyof CaptureState => {
+}): Exclude<keyof CaptureState, 'takesHistory'> => {
   const { method, side, variant } = payload
 
   if (method === 'face') return 'face'

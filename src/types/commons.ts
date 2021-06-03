@@ -57,6 +57,7 @@ export type SdkMetadata = {
     browser: string
     browser_version: string
   }
+  take_number?: number
 }
 
 export type CountryData = {
