@@ -114,7 +114,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   return (
     <ScreenLayout actions={actions}>
       <PageTitle title={welcomeTitle} subTitle={welcomeSubTitle} />
-      <WelcomeContent {...{ welcomeDescriptions }} />
+      <WelcomeContent welcomeDescriptions={welcomeDescriptions} />
     </ScreenLayout>
   )
 }
