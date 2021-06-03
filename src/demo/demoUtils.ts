@@ -148,22 +148,23 @@ export const getInitSdkOptions = (): SdkOptions => {
       ? SAMPLE_LOCALE
       : queryParamToValueString.language
 
-  const steps: Array<StepConfig> =
-    queryParamToValueString.customWelcomeScreenCopy === 'true'
-      ? [
-          {
-            type: 'welcome',
-            options: {
-              title: 'Open your new bank account',
-              descriptions: [
-                'To open a bank account, we will need to verify your identity.',
-                'It will only take a couple of minutes.',
-              ],
-              nextButton: 'Verify Identity',
-            },
-          },
-        ]
-      : [{ type: 'welcome' }]
+  const steps: Array<StepConfig> = []
+
+  if (queryParamToValueString.customWelcomeScreenCopy === 'true') {
+    steps.push({
+      type: 'welcome',
+      options: {
+        title: 'Open your new bank account',
+        descriptions: [
+          'To open a bank account, we will need to verify your identity.',
+          'It will only take a couple of minutes.',
+        ],
+        nextButton: 'Verify Identity',
+      },
+    })
+  } else {
+    steps.push({ type: 'welcome' })
+  }
 
   if (queryParamToValueString.showAuth === 'true') {
     steps.push({ type: 'auth', options: { retries: 10 } })
