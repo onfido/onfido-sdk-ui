@@ -461,9 +461,6 @@
         }
     },
     "video_confirmation": {
-        "body": "Ihr Video wurde aufgezeichnet",
-        "button_primary": "Video senden",
-        "button_secondary": "Video erneut aufnehmen",
         "title": "Selfie-Video prüfen",
         "video_accessibility": "Wiedergeben Ihres aufgezeichneten Videos"
     },
@@ -477,7 +474,6 @@
     "welcome": {
         "doc_video_subtitle": "Es dauert nur wenige Minuten",
         "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
-        "list_header_webcam": "",
         "list_item_doc": "Ihr Ausweisdokument",
         "list_item_doc_video_timeout": "Die Aufnahme ist auf <timeout><\/timeout> Sekunden beschränkt",
         "list_item_poa": "your proof of address",
