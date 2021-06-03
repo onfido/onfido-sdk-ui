@@ -96,7 +96,7 @@
         "button_primary": "Envoyer le document",
         "search": {
             "accessibility": "Choisissez le pays",
-            "input_placeholder": "ex : États-Unis",
+            "input_placeholder": "ex : France",
             "label": "Chercher un pays"
         },
         "title": "Sélectionnez votre pays"
@@ -108,8 +108,8 @@
         "list_item_doc_one": "Document envoyé",
         "list_item_selfie": "Selfie envoyé",
         "list_item_video": "Vidéo envoyée",
-        "subtitle": "Nous sommes maintenant prêts à vérifier votre identité",
-        "title": "Merci, c’est tout ce dont nous avons besoin"
+        "subtitle": "",
+        "title": ""
     },
     "cross_device_error_desktop": {
         "subtitle": "Le lien ne fonctionne que sur les appareils mobiles",
@@ -152,11 +152,11 @@
         "body_image_poor": "Pour vous vérifier au mieux, nous avons besoin d’une meilleure photo",
         "body_license": "Assurez-vous que les détails de votre permis sont lisibles, sans flou ni reflets",
         "body_passport": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets",
-        "body_permit": "Assurez-vous que votre carte est lisible, nette et sans reflets",
+        "body_permit": "",
         "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Fermer",
         "button_primary_redo": "Recommencer",
-        "button_primary_upload": "Confirmer",
+        "button_primary_upload": "Envoyer",
         "button_primary_upload_anyway": "Envoyer quand même",
         "button_secondary_redo": "Recommencer",
         "button_zoom": "Agrandir l’image",
@@ -185,7 +185,7 @@
         "list_accessibility": "Documents que vous pouvez utiliser pour vérifier votre identité",
         "subtitle": "Il doit s’agir d’une pièce d’identité officielle avec photo",
         "subtitle_poa": "These are the documents most likely to show your current home address",
-        "title": "Sélectionner un document",
+        "title": "Sélectionnez un document",
         "title_poa": "Select a %{country} document"
     },
     "doc_submit": {
@@ -239,7 +239,7 @@
                 "message": "Plusieurs visages détectés"
             },
             "no_face": {
-                "instruction": "Votre visage doit être visible sur le selfie",
+                "instruction": "Assurez-vous que votre visage est visible",
                 "message": "Aucun visage détecté"
             },
             "request_error": {
@@ -308,8 +308,8 @@
         }
     },
     "outro": {
-        "body": "Merci",
-        "title": "Vérification terminée"
+        "body": "",
+        "title": "Merci"
     },
     "permission_recovery": {
         "button_primary": "Actualiser",
@@ -384,7 +384,7 @@
         },
         "button_accessibility": "Prendre une photo",
         "frame_accessibility": "Vue de la caméra",
-        "title": "Prendre un selfie"
+        "title": "Gardez le visage dans le cercle"
     },
     "selfie_confirmation": {
         "image_accessibility": "Photo de votre visage",
@@ -443,10 +443,11 @@
         }
     },
     "video_capture": {
-        "body": "Positionnez votre visage dans le cercle",
-        "body_record": "Appuyez sur enregistrer et suivez les instructions",
+        "body": "Gardez le visage dans le cercle",
+        "body_record": "",
         "button_primary_finish": "Terminer l’enregistrement",
         "button_primary_next": "Étape suivante",
+        "button_primary_start": "Démarrer l’enregistrement",
         "button_record_accessibility": "Démarrer l’enregistrement",
         "frame_accessibility": "Vue de la caméra",
         "header": {
@@ -454,23 +455,35 @@
             "challenge_turn_forward": "puis regardez l’écran à nouveau",
             "challenge_turn_left": "Tournez votre visage vers la gauche",
             "challenge_turn_right": "Tournez votre visage vers la droite"
+        },
+        "prompt": {
+            "header_timeout": "Le temps est écoulé"
         }
     },
     "video_confirmation": {
+        "body": "Votre vidéo a été enregistrée",
+        "button_primary": "Envoyer la vidéo",
+        "button_secondary": "Reprendre une vidéo",
         "title": "Veuillez vérifier votre vidéo",
         "video_accessibility": "Rejouer la vidéo"
     },
     "video_intro": {
         "button_primary": "Commencer l'enregistrement",
         "list_accessibility": "Actions pour enregistrer une vidéo de votre visage",
-        "list_item_actions": "Nous allons vous demander de vous filmer en train d’exécuter <strong>2 actions simples<\/strong>",
-        "list_item_speak": "L’une d’entre elles consistera à <strong>parler à haute<\/strong> voix",
+        "list_item_actions": "",
+        "list_item_speak": "",
         "title": "Assurons-nous que personne ne se fait passer pour vous"
     },
     "welcome": {
-        "description_p_1": "Pour ouvrir un compte bancaire, nous devons vérifier votre identité.",
-        "description_p_2": "Cela ne prendra que quelques instants.",
+        "doc_video_subtitle": "Cela ne prendra que quelques minutes",
+        "list_header_doc_video": "Utilisez votre mobile pour enregistrer :",
+        "list_header_webcam": "",
+        "list_item_doc": "votre pièce d’identité",
+        "list_item_doc_video_timeout": "L’enregistrement est limité à <timeout><\/timeout> secondes",
+        "list_item_poa": "your proof of address",
+        "list_item_selfie": "votre visage",
         "next_button": "Vérifiez votre identité",
+        "subtitle": "Cela ne prendra que quelques minutes",
         "title": "Vérification d’identité"
     }
 }

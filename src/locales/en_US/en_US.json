@@ -156,7 +156,7 @@
         "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Close",
         "button_primary_redo": "Redo",
-        "button_primary_upload": "Confirm",
+        "button_primary_upload": "Upload",
         "button_primary_upload_anyway": "Upload anyway",
         "button_secondary_redo": "Redo",
         "button_zoom": "Enlarge image",
@@ -185,7 +185,7 @@
         "list_accessibility": "Documents you can use to verify your identity",
         "subtitle": "It must be an official photo ID",
         "subtitle_poa": "These are the documents most likely to show your current home address",
-        "title": "Choose document",
+        "title": "Choose your document",
         "title_poa": "Select a %{country} document"
     },
     "doc_submit": {
@@ -239,7 +239,7 @@
                 "message": "Multiple faces found"
             },
             "no_face": {
-                "instruction": "Your face is needed in the selfie",
+                "instruction": "Make sure your face is visible",
                 "message": "Face not detected"
             },
             "request_error": {
@@ -309,7 +309,7 @@
     },
     "outro": {
         "body": "That’s all we need to start verifying your identity",
-        "title": "Verification complete"
+        "title": "Thank you"
     },
     "permission_recovery": {
         "button_primary": "Refresh",
@@ -443,10 +443,11 @@
         }
     },
     "video_capture": {
-        "body": "Position your face in the oval",
+        "body": "Keep your face within the oval",
         "body_record": "Press the button when you're ready",
         "button_primary_finish": "Finish recording",
         "button_primary_next": "Next step",
+        "button_primary_start": "Start recording",
         "button_record_accessibility": "Start recording",
         "frame_accessibility": "View from camera",
         "header": {
@@ -454,9 +455,15 @@
             "challenge_turn_forward": "then face forward",
             "challenge_turn_left": "Turn your head left",
             "challenge_turn_right": "Turn your head right"
+        },
+        "prompt": {
+            "header_timeout": "Looks like you took too long"
         }
     },
     "video_confirmation": {
+        "body": "Your video has been recorded",
+        "button_primary": "Upload video",
+        "button_secondary": "Retake video",
         "title": "Check your video",
         "video_accessibility": "Replay your recorded video"
     },
@@ -470,6 +477,7 @@
     "welcome": {
         "description_p_1": "To open a bank account, we will need to verify your identity.",
         "description_p_2": "It will only take a couple of minutes.",
+        "list_header_webcam": "Use your webcam or phone to photograph:",
         "next_button": "Choose document",
         "title": "Verify your identity"
     }
