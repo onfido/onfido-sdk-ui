@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## Added
+
+- Internal: Added note about lockfileVersion and npm version requirement for SDK contributors in CONTRIBUTING.md documentation.
+
 ### Changed
 
 - UI: Updated default Welcome screen UI
