@@ -80,7 +80,6 @@ const firefoxOptions = new firefox.Options()
 const safariOptions = new safari.Options().setAcceptInsecureCerts(false)
 
 const edgeOptions = new edge.Options()
-  .setEdgeChromium(true)
   .setAcceptInsecureCerts(true)
   .addArguments('allow-file-access-from-files')
   .addArguments('use-fake-device-for-media-stream')
