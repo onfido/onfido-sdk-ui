@@ -439,7 +439,9 @@ The Web SDK has multiple customizable features that provide flexibility, while a
 
 ### UI customization
 
-Please refer to the [SDK UI customization documentation](UI_CUSTOMIZATION.md) for details of the supported UI customization options.
+- **`customUI {Object} optional`**
+
+  Please refer to the [SDK UI customization documentation](UI_CUSTOMIZATION.md) for details of the supported UI customization options that can be set in this property.
 
 ### Language Localization
 
