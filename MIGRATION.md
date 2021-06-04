@@ -59,6 +59,10 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `video_intro.list_item_actions`
 - `video_intro.list_item_speak`
 
+Only the **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `country_select.search.input_placeholder`
+
 ### Removed strings
 
 - `video_capture.status`
