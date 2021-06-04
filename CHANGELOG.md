@@ -14,9 +14,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- UI: Updated default Welcome screen UI
 - Public: Updated SDK copy for English (en_US), Spanish (es_ES), French (fr_FR) and German (de_DE). For details on what keys/copy have changed please refer to the MIGRATION.md documentation.
 
-### Fixed
+## Fixed
 
 - Internal: Upgrade Preact from version `10.5.4` to `10.5.13` in order to resolve an unhandled exception on reinitialising the SDK after closing the SDK modal for some integrations when using Modal mode.
 
