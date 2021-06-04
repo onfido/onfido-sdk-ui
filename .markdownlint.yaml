@@ -4,16 +4,8 @@
 # Default state for all rules
 default: true
 
-# MD013/line-length - Line length
-MD013:
-  # Exclude headings
-  headings: false
-  # Exclude headers
-  headers: false
-  # Exclude tables
-  tables: false
-  # Stern length checking (warn only)
-  stern: true
+# MD013/line-length - Disable line length rule (default: 80 characters per line)
+MD013: false
 
 # MD024/no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
 MD024:
