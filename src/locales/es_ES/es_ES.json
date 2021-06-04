@@ -308,7 +308,7 @@
         }
     },
     "outro": {
-        "body": "",
+        "body": "That’s all we need to start verifying your identity",
         "title": "Gracias"
     },
     "permission_recovery": {
@@ -444,7 +444,7 @@
     },
     "video_capture": {
         "body": "Mantenga la cara dentro del óvalo",
-        "body_record": "",
+        "body_record": "Presione grabar y siga las instrucciones",
         "button_primary_finish": "Finalizar grabación",
         "button_primary_next": "Siguiente paso",
         "button_primary_start": "Iniciar grabación",
