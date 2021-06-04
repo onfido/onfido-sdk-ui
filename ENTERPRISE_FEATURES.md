@@ -1,5 +1,11 @@
 # Premium Enterprise Features
 
+## Table of contents
+
+- [Customized API Requests](#customized-api-requests)
+- [Callbacks Overview](#callbacks-overview)
+- [Cross device URL](#cross-device-url)
+
 The following features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
 
 ## Customized API Requests
