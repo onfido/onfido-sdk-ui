@@ -31,9 +31,11 @@ The guides below are provided to ease the transition of existing applications us
 - `video_confirmation.body`
 - `video_confirmation.button_primary`
 - `video_confirmation.button_secondary`
-- `welcome.doc_video_subtitle`
-- `welcome.list_header_doc_video`
+- `video_capture.header.challenge_turn_forward`
+- `welcome.subtitle`
+- `welcome.list_header_webcam`
 - `welcome.list_item_doc`
+- `welcome.list_item_poa`
 - `welcome.list_item_doc_video_timeout`
 - `welcome.list_item_selfie`
 
@@ -46,6 +48,7 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `video_capture.header.challenge_turn_left`
 - `video_capture.header.challenge_turn_right`
 - `welcome.title`
+- `welcome.next_button`
 
 ### Removed strings
 
@@ -53,6 +56,8 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `video_capture.body_stop`
 - `video_capture.button_stop_accessibility`
 - `video_capture.header.challenge_turn_template`
+- `welcome.description_p_1`
+- `welcome.description_p_2`
 
 ## `6.8.0` -> `6.9.0`
 
