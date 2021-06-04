@@ -5,11 +5,10 @@ import { Button } from '@onfido/castor-react'
 import { useSdkOptions } from '~contexts'
 import { useLocales } from '~locales'
 import theme from 'components/Theme/style.scss'
-import { buildIteratorKey } from '~utils'
 import { trackComponent } from '../../Tracker'
 import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
-// import { DefaultContent, DocVideoContent } from './Content'
+import { DefaultContent, DocVideoContent } from './Content'
 import style from './style.scss'
 
 import type { TranslateCallback } from '~types/locales'
@@ -43,24 +42,6 @@ const getLocalisedDescriptions = (
     }
   })
   return requiredLocalisedDescriptions
-}
-
-type WelcomeContentProps = {
-  welcomeDescriptions: string[]
-}
-
-const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
-  welcomeDescriptions,
-}) => {
-  return (
-    <div className={style.text}>
-      {welcomeDescriptions.map((description) => (
-        <p key={`description_${buildIteratorKey(description)}`}>
-          {description}
-        </p>
-      ))}
-    </div>
-  )
 }
 
 type WelcomeActionsProps = {
@@ -99,28 +80,15 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
 
-  /* const welcomeStep = findStep('welcome')
-   const { title, descriptions, nextButton } = welcomeStep?.options || {}
-
-   const documentStep = findStep('document')
-   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
-
-   const actions = <WelcomeActions {...{ nextButton, nextStep }} />
-   const welcomeTitle = title || translate('welcome.title')
-
-   return (
-     <ScreenLayout actions={actions} className={style.container}>
-       <PageTitle title={welcomeTitle} />
-       {forDocVideo ? (
-         <DocVideoContent />
-         ) : (
-           <DefaultContent {...{ descriptions, translate }} />
-           )} */
+  const welcomeStep = findStep('welcome')
   const {
     title: customTitle,
     descriptions: customDescriptions,
     nextButton: customNextButtonLabel,
-  } = findStep('welcome')?.options || {}
+  } = welcomeStep?.options || {}
+
+  const documentStep = findStep('document')
+  const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
   const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep }} />
   const welcomeTitle = customTitle || translate('welcome.title')
@@ -135,9 +103,13 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
     : getLocalisedDescriptions(configuredCaptureSteps, translate)
 
   return (
-    <ScreenLayout actions={actions}>
+    <ScreenLayout actions={actions} className={style.container}>
       <PageTitle title={welcomeTitle} subTitle={welcomeSubTitle} />
-      <WelcomeContent welcomeDescriptions={welcomeDescriptions} />
+      {forDocVideo ? (
+        <DocVideoContent />
+      ) : (
+        <DefaultContent descriptions={welcomeDescriptions} />
+      )}
     </ScreenLayout>
   )
 }
