@@ -6,25 +6,49 @@ import { VIDEO_CAPTURE } from '~utils/constants'
 import { useLocales } from '~locales'
 import style from './style.scss'
 
-type InstructionsProps = {
-  className?: string
+import type { StepTypes } from '~types/steps'
+
+const getInstructionKeys = (configuredCaptureSteps: StepTypes[]) => {
+  const instructionKeys: string[] = []
+  const welcomeScreenLocalesMapping: Partial<Record<StepTypes, string>> = {
+    poa: 'welcome.list_item_poa',
+    document: 'welcome.list_item_doc',
+    face: 'welcome.list_item_selfie',
+    auth: 'welcome.list_item_selfie',
+  }
+
+  configuredCaptureSteps.forEach((idvStep) => {
+    const localeString = welcomeScreenLocalesMapping[idvStep]
+
+    if (localeString) {
+      instructionKeys.push(localeString)
+    }
+  })
+
+  return instructionKeys
 }
 
-const Instructions: FunctionComponent<InstructionsProps> = ({ className }) => {
+type BaseProps = {
+  captureSteps: StepTypes[]
+}
+
+type InstructionsProps = {
+  className?: string
+} & BaseProps
+
+const Instructions: FunctionComponent<InstructionsProps> = ({
+  className,
+  captureSteps,
+}) => {
   const { translate } = useLocales()
 
-  const instructionItemKeys = [
-    'welcome.list_item_doc',
-    'welcome.list_item_selfie',
-  ]
+  const instructionKeys = getInstructionKeys(captureSteps)
 
   return (
     <div className={classNames(style.instructions, className)}>
-      <span className={style.caption}>
-        {translate('welcome.list_header_webcam')}
-      </span>
+      <span>{translate('welcome.list_header_webcam')}</span>
       <ol>
-        {instructionItemKeys.map((itemKey) => (
+        {instructionKeys.map((itemKey) => (
           <li key={itemKey}>{translate(itemKey)}</li>
         ))}
       </ol>
@@ -34,24 +58,24 @@ const Instructions: FunctionComponent<InstructionsProps> = ({ className }) => {
 
 type DefaultContentProps = {
   descriptions?: string[]
-}
+} & BaseProps
 
 export const DefaultContent: FunctionComponent<DefaultContentProps> = ({
-  descriptions: customisedDescriptions,
+  captureSteps,
+  descriptions: customDescriptions,
 }) => {
-  const { translate } = useLocales()
-
-  const defaultDescriptions = [
-    translate('welcome.description_p_1'),
-    translate('welcome.description_p_2'),
-  ]
-
-  const descriptions = customisedDescriptions || defaultDescriptions
+  if (!customDescriptions) {
+    return (
+      <div className={style.content}>
+        <Instructions captureSteps={captureSteps} />
+      </div>
+    )
+  }
 
   return (
     <div className={style.content}>
       <div className={style.customDescriptions}>
-        {descriptions.map((description) => (
+        {customDescriptions.map((description) => (
           <p key={`description_${buildIteratorKey(description)}`}>
             {description}
           </p>
@@ -61,8 +85,10 @@ export const DefaultContent: FunctionComponent<DefaultContentProps> = ({
   )
 }
 
-export const DocVideoContent: FunctionComponent = () => {
-  const { parseTranslatedTags, translate } = useLocales()
+export const DocVideoContent: FunctionComponent<BaseProps> = ({
+  captureSteps,
+}) => {
+  const { parseTranslatedTags } = useLocales()
 
   const recordingLimit = parseTranslatedTags(
     'welcome.list_item_doc_video_timeout',
@@ -78,10 +104,7 @@ export const DocVideoContent: FunctionComponent = () => {
 
   return (
     <div className={style.content}>
-      <span className={style.subtitle}>
-        {translate('welcome.doc_video_subtitle')}
-      </span>
-      <Instructions />
+      <Instructions captureSteps={captureSteps} />
       <div className={style.recordingLimit}>
         <span className={style.timer} />
         <span className={style.text}>{recordingLimit}</span>

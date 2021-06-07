@@ -1,12 +1,5 @@
 @import '../Theme/constants';
 
-.subtitle {
-  align-self: center;
-  font-size: var(--font-size-small);
-  font-weight: bold;
-  margin-top: -24 * $unit;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -30,9 +23,7 @@
 }
 
 .instructions {
-  &.marginTop {
-    margin-top: 32 * $unit;
-  }
+  margin-top: 32 * $unit;
 
   > ol {
     list-style-position: inside;

@@ -5,7 +5,10 @@ import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
   async subtitle() {
-    return this.$('.onfido-sdk-ui-Welcome-subtitle')
+    return this.$('.onfido-sdk-ui-PageTitle-subTitle')
+  }
+  async customDescriptions() {
+    return this.$('.onfido-sdk-ui-Welcome-customDescriptions')
   }
   async instructions() {
     return this.$('.onfido-sdk-ui-Welcome-instructions')
@@ -45,9 +48,9 @@ class Welcome extends BasePage {
     verifyElementCopy(this.subtitle(), copy.welcome.subtitle)
   }
 
-  async verifyDescriptions(copy) {
+  async verifyInstructions(copy) {
     verifyElementCopy(
-      this.text(),
+      this.instructions(),
       `${copy.welcome.list_header_webcam}\n${copy.welcome.list_item_doc}\n${copy.welcome.list_item_selfie}`
     )
   }
@@ -64,7 +67,7 @@ class Welcome extends BasePage {
 
   async verifyCustomDescriptions() {
     verifyElementCopy(
-      this.text(),
+      this.customDescriptions(),
       `To open a bank account, we will need to verify your identity.\nIt will only take a couple of minutes.`
     )
   }

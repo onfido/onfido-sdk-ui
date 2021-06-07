@@ -11,7 +11,6 @@ import ScreenLayout from '../Theme/ScreenLayout'
 import { DefaultContent, DocVideoContent } from './Content'
 import style from './style.scss'
 
-import type { TranslateCallback } from '~types/locales'
 import type { StepComponentBaseProps } from '~types/routers'
 import type { StepTypes } from '~types/steps'
 
@@ -21,28 +20,6 @@ const CAPTURE_STEP_TYPES: Set<StepTypes> = new Set([
   'face',
   'auth',
 ])
-
-const getLocalisedDescriptions = (
-  configuredCaptureSteps: StepTypes[],
-  translate: TranslateCallback
-) => {
-  const requiredLocalisedDescriptions = [
-    translate('welcome.list_header_webcam'),
-  ]
-  const welcomeScreenLocalesMapping: Partial<Record<StepTypes, string>> = {
-    poa: translate('welcome.list_item_poa'),
-    document: translate('welcome.list_item_doc'),
-    face: translate('welcome.list_item_selfie'),
-    auth: translate('welcome.list_item_selfie'),
-  }
-  configuredCaptureSteps.forEach((idvStep) => {
-    const localeString = welcomeScreenLocalesMapping[idvStep]
-    if (localeString) {
-      requiredLocalisedDescriptions.push(localeString)
-    }
-  })
-  return requiredLocalisedDescriptions
-}
 
 type WelcomeActionsProps = {
   customNextButtonLabel?: string
@@ -95,20 +72,20 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   const welcomeSubTitle = !customDescriptions
     ? translate('welcome.subtitle')
     : ''
-  const configuredCaptureSteps = steps
+  const captureSteps = steps
     .filter((step) => CAPTURE_STEP_TYPES.has(step.type))
     .map((stepConfig) => stepConfig.type)
-  const welcomeDescriptions = customDescriptions
-    ? customDescriptions
-    : getLocalisedDescriptions(configuredCaptureSteps, translate)
 
   return (
     <ScreenLayout actions={actions} className={style.container}>
       <PageTitle title={welcomeTitle} subTitle={welcomeSubTitle} />
       {forDocVideo ? (
-        <DocVideoContent />
+        <DocVideoContent captureSteps={captureSteps} />
       ) : (
-        <DefaultContent descriptions={welcomeDescriptions} />
+        <DefaultContent
+          captureSteps={captureSteps}
+          descriptions={customDescriptions}
+        />
       )}
     </ScreenLayout>
   )
