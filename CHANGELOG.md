@@ -58,6 +58,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added support for testing across multiple browsers.
 - Internal: Added support for visual regression testing using Percy.
 - Internal: Resolved inaccurate reporting on test automation failures.
+- Internal: Added ability to execute/ignore tests via the use of tags/regex.
 
 ### Changed
 
