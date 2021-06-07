@@ -55,6 +55,17 @@ Our UI tests also run on BrowserStack. If you would like to run them on your Bro
 - Specific to Safari on BrowserStack, you need to explicitly set the `localhostUrl` value in `config.json` to
   be read as `"localhostUrl": "https://bs-local.com:8080/",` this is due to the way Safari handles `https://localhost`.
 
+### Running tests with or without specific tags
+
+- We can now run tests that contain, or do not contain certain tags in the following way...
+
+`MOCHA_GREP="@1|@2" npm run test:ui` will run tests that ONLY have the tag @1 OR @2.
+`MOCHA_GREP="@3" npm run test:ui` will run tests that ONLY have the tag @3.
+`MOCHA_GREP='@1.*@5' npm run test:ui`will run tests that ONLY have the tags @1 AND @5.
+`MOCHA_INVERT="@3" npm run test:ui` will NOT run tests that have the tag @3.
+`MOCHA_INVERT="@1|@2" npm run test:ui` will NOT run tests that have the tags @1 OR @2.
+`MOCHA_INVERT='@1.*@3' npm run test:ui` will NOT run tests that have the tags @1 AND @3.
+
 ### `test` directory structure
 
 - `pageobjects/`contains files with page objects that map objects by css selectors and functions that use these page objects
