@@ -24,9 +24,14 @@ export const welcomeScenarios = async (lang) => {
       it('should verify UI elements on the welcome screen @percy', async () => {
         driver.get(`${localhostUrl}?language=${lang}`)
         welcome.verifyTitle(copy)
-        welcome.verifyInstructions(copy)
-        welcome.verifyIdentityButton(copy)
-        welcome.verifyFooter(copy)
+        welcome.verifySubtitle(copy)
+        welcome.verifyDescriptions(copy)
+        welcome.verifyPrimaryButton(copy)
+        welcome.verifyFooter()
+        await takePercySnapshot(
+          driver,
+          `Onfido SDK UI elements on the welcome screen in ${lang}`
+        )
       })
 
       it('should verify UI elements on the welcome screen - doc liveness flow', async () => {
@@ -37,10 +42,6 @@ export const welcomeScenarios = async (lang) => {
         welcome.verifyRecordingLimit(copy)
         welcome.verifyPrimaryButton(copy)
         welcome.verifyFooter()
-        await takePercySnapshot(
-          driver,
-          `Onfido SDK UI elements on the welcome screen in ${lang}`
-        )
       })
 
       it('should verify custom copy for UI elements on the welcome screen @percy', async () => {
