@@ -30,9 +30,7 @@
 }
 
 .instructions {
-  &.marginTop {
-    margin-top: 32 * $unit;
-  }
+  margin-top: 32 * $unit;
 
   > ol {
     list-style-position: inside;
