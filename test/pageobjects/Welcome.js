@@ -5,7 +5,7 @@ import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
   async subtitle() {
-    return this.$('.onfido-sdk-ui-Welcome-subtitle')
+    return this.$('.onfido-sdk-ui-PageTitle-subTitle')
   }
   async customDescriptions() {
     return this.$('.onfido-sdk-ui-Welcome-customDescriptions')
