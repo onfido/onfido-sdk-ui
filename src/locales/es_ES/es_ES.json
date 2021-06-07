@@ -472,7 +472,7 @@
         "title": "Grábese en un vídeo"
     },
     "welcome": {
-        "list_header_webcam": "Verificar identidad",
+        "list_header_webcam": "Utilice su cámara web o su teléfono para fotografiar:",
         "list_item_doc": "su documento de identidad",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "su rostro",
