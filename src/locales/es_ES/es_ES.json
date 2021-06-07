@@ -418,7 +418,7 @@
         "title": "Conectado con su móvil"
     },
     "upload_guide": {
-        "button_primary": "Enviar foto",
+        "button_primary": "Subir foto",
         "image_detail_blur_alt": "Ejemplo de un documento borroso",
         "image_detail_blur_label": "Todos los detalles deben ser claros, nada borroso",
         "image_detail_cutoff_label": "Mostrar todos los detalles, incluidas las dos líneas inferiores",

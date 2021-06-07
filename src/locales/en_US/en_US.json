@@ -418,7 +418,7 @@
         "title": "Connected to your mobile"
     },
     "upload_guide": {
-        "button_primary": "Submit photo",
+        "button_primary": "Upload photo",
         "image_detail_blur_alt": "Example of a blurry document",
         "image_detail_blur_label": "All details must be clear — nothing blurry",
         "image_detail_cutoff_label": "Show all details — including the bottom 2 lines",

@@ -418,7 +418,7 @@
         "title": "Connecté à votre mobile"
     },
     "upload_guide": {
-        "button_primary": "Envoyer la photo",
+        "button_primary": "Envoyer une photo",
         "image_detail_blur_alt": "Exemple de document flou",
         "image_detail_blur_label": "Tous les détails doivent être clairs — rien ne doit être flou",
         "image_detail_cutoff_label": "Afficher tous les détails — y compris les deux dernières lignes",
