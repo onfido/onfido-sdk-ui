@@ -378,7 +378,7 @@
                 "title": "L’appareil photo ne fonctionne pas"
             },
             "timeout": {
-                "detail": "N'oubliez pas d'appuyer sur le bouton lorsque vous avez terminé. <fallback>Refaire la vidéo<\/fallback>",
+                "detail": "N’oubliez pas d’appuyer sur le bouton lorsque vous avez terminé. <fallback>Refaire la vidéo<\/fallback>",
                 "title": "Le temps est écoulé"
             }
         },
@@ -465,7 +465,7 @@
         "video_accessibility": "Rejouer la vidéo"
     },
     "video_intro": {
-        "button_primary": "Commencer l'enregistrement",
+        "button_primary": "Commencer l’enregistrement",
         "list_accessibility": "Actions pour enregistrer une vidéo de votre visage",
         "list_item_actions": "Vous avez 25 secondes pour terminer",
         "list_item_speak": "Suivez les instructions pour bouger ou parler",
