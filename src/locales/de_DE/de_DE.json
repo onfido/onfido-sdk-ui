@@ -108,8 +108,8 @@
         "list_item_doc_one": "Dokument hochgeladen",
         "list_item_selfie": "Selfie hochgeladen",
         "list_item_video": "Video hochgeladen",
-        "subtitle": "Wir sind jetzt bereit, Ihre Identität zu überprüfen",
-        "title": "Großartig, das ist alles, was wir brauchen"
+        "subtitle": "Hier ist alles, was Sie hochgeladen haben:",
+        "title": "Ein letzter Schritt"
     },
     "cross_device_error_desktop": {
         "subtitle": "Der Link funktioniert nur auf mobilen Geräten",
@@ -384,7 +384,7 @@
         },
         "button_accessibility": "Ein Foto machen",
         "frame_accessibility": "Ansicht von der Kamera",
-        "title": "Ein Selfie aufnehmen"
+        "title": "Positionieren Sie Ihr Gesicht im angezeigten Oval"
     },
     "selfie_confirmation": {
         "image_accessibility": "Foto von Ihrem Gesicht",
@@ -394,9 +394,9 @@
     "selfie_intro": {
         "button_primary": "Fortfahren",
         "list_accessibility": "Tipps für ein gutes Selfie",
-        "list_item_face_forward": "Richten Sie Ihr Gesicht nach vorne und stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
+        "list_item_face_forward": "Schauen Sie nach vorne und stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
         "list_item_no_glasses": "Nehmen Sie Ihre Brille ab, falls erforderlich",
-        "subtitle": "Wir werden es mit Ihrem Dokument vergleichen",
+        "subtitle": "Wir werden dies mit Ihrem Dokument vergleichen",
         "title": "Ein Selfie aufnehmen"
     },
     "sms_sent": {
@@ -444,7 +444,7 @@
     },
     "video_capture": {
         "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
-        "body_record": "Drücken Sie auf Aufnahme und folgen Sie den Anweisungen",
+        "body_record": "Drücken Sie die Taste, wenn Sie bereit sind",
         "button_primary_finish": "Aufnahme beenden",
         "button_primary_next": "Nächster Schritt",
         "button_primary_start": "Aufnahme starten",
@@ -467,9 +467,8 @@
     "video_intro": {
         "button_primary": "Fortfahren",
         "list_accessibility": "Aktionen zum Aufzeichnen eines Selfie-Videos",
-        "list_item_actions": "Wir bitten Sie, sich bei der Durchführung von <strong>zwei einfachen Handlungen<\/strong> zu filmen",
-        "list_item_speak": "Eine Aktion wird sein, <strong>etwas laut auszusprechen<\/strong>",
-        "title": "Lassen Sie uns sicherstellen, dass sich niemand für Sie ausgibt"
+        "list_item_actions": "Beenden Sie Aktionen in weniger als 25 Sekunden",
+        "list_item_speak": "Befolgen Sie die Anweisungen zur Bewegung oder zum Sprechen",
         "title": "Selfie-Video aufnehmen"
     },
     "welcome": {

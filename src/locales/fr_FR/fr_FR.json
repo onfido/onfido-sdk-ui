@@ -108,8 +108,8 @@
         "list_item_doc_one": "Document envoyé",
         "list_item_selfie": "Selfie envoyé",
         "list_item_video": "Vidéo envoyée",
-        "subtitle": "Nous sommes maintenant prêts à vérifier votre identité",
-        "title": "Merci, c’est tout ce dont nous avons besoin"
+        "subtitle": "Voici ce que vous avez téléversé :",
+        "title": "Dernière étape"
     },
     "cross_device_error_desktop": {
         "subtitle": "Le lien ne fonctionne que sur les appareils mobiles",
@@ -444,7 +444,7 @@
     },
     "video_capture": {
         "body": "Gardez le visage dans le cercle",
-        "body_record": "Appuyez sur enregistrer et suivez les instructions",
+        "body_record": "Appuyez sur le bouton lorsque vous êtes prêt(e)",
         "button_primary_finish": "Terminer l’enregistrement",
         "button_primary_next": "Étape suivante",
         "button_primary_start": "Démarrer l’enregistrement",
@@ -467,9 +467,8 @@
     "video_intro": {
         "button_primary": "Commencer l'enregistrement",
         "list_accessibility": "Actions pour enregistrer une vidéo de votre visage",
-        "list_item_actions": "Nous allons vous demander de vous filmer en train d’exécuter <strong>2 actions simples<\/strong>",
-        "list_item_speak": "L’une d’entre elles consistera à <strong>parler à haute<\/strong> voix",
-        "title": "Assurons-nous que personne ne se fait passer pour vous"
+        "list_item_actions": "Vous avez 25 secondes pour terminer",
+        "list_item_speak": "Suivez les instructions pour bouger ou parler",
         "title": "Enregistrez une vidéo de votre visage"
     },
     "welcome": {
