@@ -54,7 +54,10 @@ describe('Welcome', () => {
       )
 
       expect(wrapper.exists()).toBeTruthy()
-      expect(wrapper.find('PageTitle').text()).toEqual('welcome.title')
+      expect(wrapper.find('PageTitle .title').text()).toEqual('welcome.title')
+      expect(wrapper.find('PageTitle .subTitle').text()).toEqual(
+        'welcome.subtitle'
+      )
       expect(wrapper.find('DefaultContent').exists()).toBeTruthy()
       expect(wrapper.find('DocVideoContent').exists()).toBeFalsy()
       expect(wrapper.find('WelcomeActions').exists()).toBeTruthy()
@@ -73,7 +76,10 @@ describe('Welcome', () => {
       )
 
       expect(wrapper.exists()).toBeTruthy()
-      expect(wrapper.find('PageTitle').text()).toEqual('welcome.title')
+      expect(wrapper.find('PageTitle .title').text()).toEqual('welcome.title')
+      expect(wrapper.find('PageTitle .subTitle').text()).toEqual(
+        'welcome.subtitle'
+      )
     })
 
     it('renders correct PageTitle with custom title', () => {
@@ -92,7 +98,10 @@ describe('Welcome', () => {
       )
 
       expect(wrapper.exists()).toBeTruthy()
-      expect(wrapper.find('PageTitle').text()).toEqual('Fake title')
+      expect(wrapper.find('PageTitle .title').text()).toEqual('Fake title')
+      expect(wrapper.find('PageTitle .subTitle').text()).toEqual(
+        'welcome.subtitle'
+      )
     })
 
     describe('with document video step', () => {
@@ -116,7 +125,10 @@ describe('Welcome', () => {
         )
 
         expect(wrapper.exists()).toBeTruthy()
-        expect(wrapper.find('PageTitle').text()).toEqual('welcome.title')
+        expect(wrapper.find('PageTitle .title').text()).toEqual('welcome.title')
+        expect(wrapper.find('PageTitle .subTitle').text()).toEqual(
+          'welcome.subtitle'
+        )
         expect(wrapper.find('DefaultContent').exists()).toBeFalsy()
         expect(wrapper.find('DocVideoContent').exists()).toBeTruthy()
         expect(wrapper.find('WelcomeActions').exists()).toBeTruthy()

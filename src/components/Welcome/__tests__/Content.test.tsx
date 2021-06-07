@@ -19,9 +19,7 @@ const assertDefaultContent = (wrapper: ReactWrapper) => {
 }
 
 const assertDocVideoContent = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.caption').text()).toEqual(
-    'welcome.list_header_doc_video'
-  )
+  expect(wrapper.find('.caption').text()).toEqual('welcome.list_header_webcam')
   const items = wrapper.find('.instructions > ol li')
   expect(items.at(0).text()).toEqual('welcome.list_item_doc')
   expect(items.at(1).text()).toEqual('welcome.list_item_selfie')

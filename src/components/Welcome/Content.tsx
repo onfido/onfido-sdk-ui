@@ -21,7 +21,7 @@ const Instructions: FunctionComponent<InstructionsProps> = ({ className }) => {
   return (
     <div className={classNames(style.instructions, className)}>
       <span className={style.caption}>
-        {translate('welcome.list_header_doc_video')}
+        {translate('welcome.list_header_webcam')}
       </span>
       <ol>
         {instructionItemKeys.map((itemKey) => (
