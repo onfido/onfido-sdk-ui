@@ -13,51 +13,68 @@ import style from './style.scss'
 
 import type { TranslateCallback } from '~types/locales'
 import type { StepComponentBaseProps } from '~types/routers'
+import type { StepTypes } from '~types/steps'
 
-const localisedDescriptions = (translate: TranslateCallback) => [
-  translate('welcome.description_p_1'),
-  translate('welcome.description_p_2'),
-]
+const CAPTURE_STEP_TYPES: Set<StepTypes> = new Set([
+  'document',
+  'poa',
+  'face',
+  'auth',
+])
+
+const getLocalisedDescriptions = (
+  configuredCaptureSteps: StepTypes[],
+  translate: TranslateCallback
+) => {
+  const requiredLocalisedDescriptions = [
+    translate('welcome.list_header_webcam'),
+  ]
+  const welcomeScreenLocalesMapping: Partial<Record<StepTypes, string>> = {
+    poa: translate('welcome.list_item_poa'),
+    document: translate('welcome.list_item_doc'),
+    face: translate('welcome.list_item_selfie'),
+    auth: translate('welcome.list_item_selfie'),
+  }
+  configuredCaptureSteps.forEach((idvStep) => {
+    const localeString = welcomeScreenLocalesMapping[idvStep]
+    if (localeString) {
+      requiredLocalisedDescriptions.push(localeString)
+    }
+  })
+  return requiredLocalisedDescriptions
+}
 
 type WelcomeContentProps = {
-  descriptions?: string[]
+  welcomeDescriptions: string[]
 }
 
 const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
-  descriptions,
+  welcomeDescriptions,
 }) => {
-  const { translate } = useLocales()
-
-  const welcomeDescriptions = descriptions
-    ? descriptions
-    : localisedDescriptions(translate)
-
   return (
-    <div>
-      <div className={style.text}>
-        {welcomeDescriptions.map((description) => (
-          <p key={`description_${buildIteratorKey(description)}`}>
-            {description}
-          </p>
-        ))}
-      </div>
+    <div className={style.text}>
+      {welcomeDescriptions.map((description) => (
+        <p key={`description_${buildIteratorKey(description)}`}>
+          {description}
+        </p>
+      ))}
     </div>
   )
 }
 
 type WelcomeActionsProps = {
-  nextButton?: string
+  customNextButtonLabel?: string
   nextStep: () => void
 }
 
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
-  nextButton,
+  customNextButtonLabel,
   nextStep,
 }) => {
   const { translate } = useLocales()
 
-  const welcomeNextButton = nextButton
-    ? nextButton
+  const buttonLabel = customNextButtonLabel
+    ? customNextButtonLabel
     : translate('welcome.next_button')
 
   return (
@@ -68,24 +85,40 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
         onClick={nextStep}
         data-onfido-qa="welcome-next-btn"
       >
-        {welcomeNextButton}
+        {buttonLabel}
       </Button>
     </div>
   )
 }
 
-const Welcome: FunctionComponent<StepComponentBaseProps> = ({ nextStep }) => {
+const Welcome: FunctionComponent<StepComponentBaseProps> = ({
+  steps,
+  nextStep,
+}) => {
   const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
-  const { title, descriptions, nextButton } = findStep('welcome')?.options || {}
+  const {
+    title: customTitle,
+    descriptions: customDescriptions,
+    nextButton: customNextButtonLabel,
+  } = findStep('welcome')?.options || {}
 
-  const actions = <WelcomeActions {...{ nextButton, nextStep }} />
-  const welcomeTitle = title ? title : translate('welcome.title')
+  const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep }} />
+  const welcomeTitle = customTitle || translate('welcome.title')
+  const welcomeSubTitle = !customDescriptions
+    ? translate('welcome.subtitle')
+    : ''
+  const configuredCaptureSteps = steps
+    .filter((step) => CAPTURE_STEP_TYPES.has(step.type))
+    .map((stepConfig) => stepConfig.type)
+  const welcomeDescriptions = customDescriptions
+    ? customDescriptions
+    : getLocalisedDescriptions(configuredCaptureSteps, translate)
 
   return (
     <ScreenLayout actions={actions}>
-      <PageTitle title={welcomeTitle} />
-      <WelcomeContent {...{ descriptions, translate }} />
+      <PageTitle title={welcomeTitle} subTitle={welcomeSubTitle} />
+      <WelcomeContent welcomeDescriptions={welcomeDescriptions} />
     </ScreenLayout>
   )
 }
