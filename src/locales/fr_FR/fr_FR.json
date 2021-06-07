@@ -447,7 +447,6 @@
         "body_record": "Appuyez sur le bouton lorsque vous êtes prêt(e)",
         "button_primary_finish": "Terminer l’enregistrement",
         "button_primary_next": "Étape suivante",
-        "button_primary_start": "Démarrer l’enregistrement",
         "button_record_accessibility": "Démarrer l’enregistrement",
         "frame_accessibility": "Vue de la caméra",
         "header": {
@@ -455,9 +454,6 @@
             "challenge_turn_forward": "puis regardez l’écran à nouveau",
             "challenge_turn_left": "Tournez votre visage vers la gauche",
             "challenge_turn_right": "Tournez votre visage vers la droite"
-        },
-        "prompt": {
-            "header_timeout": "Le temps est écoulé"
         }
     },
     "video_confirmation": {

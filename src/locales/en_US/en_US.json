@@ -455,9 +455,6 @@
             "challenge_turn_forward": "then face forward",
             "challenge_turn_left": "Turn your head left",
             "challenge_turn_right": "Turn your head right"
-        },
-        "prompt": {
-            "header_timeout": "Looks like you took too long"
         }
     },
     "video_confirmation": {

@@ -7,7 +7,6 @@ The guides below are provided to ease the transition of existing applications us
 ### Added strings
 
 - `video_capture.button_primary_start`
-- `video_capture.prompt.header_timeout`
 - `video_capture.header.challenge_turn_forward`
 - `welcome.subtitle`
 - `welcome.list_header_webcam`

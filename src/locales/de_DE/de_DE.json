@@ -447,7 +447,6 @@
         "body_record": "Drücken Sie die Taste, wenn Sie bereit sind",
         "button_primary_finish": "Aufnahme beenden",
         "button_primary_next": "Nächster Schritt",
-        "button_primary_start": "Aufnahme starten",
         "button_record_accessibility": "Aufnahme starten",
         "frame_accessibility": "Ansicht von der Kamera",
         "header": {
@@ -455,9 +454,6 @@
             "challenge_turn_forward": "dann nach vorne schauen",
             "challenge_turn_left": "Kopf nach links drehen",
             "challenge_turn_right": "Kopf nach rechts drehen"
-        },
-        "prompt": {
-            "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht"
         }
     },
     "video_confirmation": {
