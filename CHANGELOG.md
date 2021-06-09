@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - UI: Updated default Welcome screen UI
+- Public: Move documentation for SDK UI Customizations and Premium Enterprise Features into separate Markdown files to reduce README size
 - Public: Updated SDK copy for English (en_US), Spanish (es_ES), French (fr_FR) and German (de_DE). For details on what keys/copy have changed please refer to the MIGRATION.md documentation.
 
 ### Fixed
