@@ -4,22 +4,12 @@
 # Default state for all rules
 default: true
 
-# MD013/line-length - Line length
-MD013:
-  # Exclude headings
-  headings: false
-  # Exclude headers
-  headers: false
-  # Exclude tables
-  tables: false
-  # Stern length checking (warn only)
-  stern: true
+# MD013/line-length - Disable line length rule (default: 80 characters per line)
+MD013: false
 
 # MD024/no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
 MD024:
-  # Only check sibling headings
-  allow_different_nesting: true
-  # Only check sibling headings
+  # Allow heading duplication for non-sibling headings
   siblings_only: true
 
 # MD029/ol-prefix - Ordered list item prefix
