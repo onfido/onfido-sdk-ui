@@ -104,12 +104,12 @@
     "cross_device_checklist": {
         "button_primary": "Submit verification",
         "info": "Tips",
-        "list_item_doc_multiple": "Documents uploaded",
-        "list_item_doc_one": "Document uploaded",
-        "list_item_selfie": "Selfie uploaded",
-        "list_item_video": "Video uploaded",
-        "subtitle": "We’re now ready to verify your identity",
-        "title": "Great, that’s everything we need"
+        "list_item_doc_multiple": "Documents",
+        "list_item_doc_one": "Document",
+        "list_item_selfie": "Selfie",
+        "list_item_video": "Video",
+        "subtitle": "Here’s everything you’ve uploaded:",
+        "title": "One final step"
     },
     "cross_device_error_desktop": {
         "subtitle": "The link only works on mobile devices",
@@ -153,22 +153,22 @@
             "crop_title": "Cut-off image detected",
             "glare_detail": "Move away from direct light",
             "glare_title": "Glare detected",
-            "no_doc_detail": "Make sure all of the document is in the photo",
-            "no_doc_title": "No document detected"
+            "no_doc_detail": "Make sure it’s fully in the frame",
+            "no_doc_title": "Document not detected"
         },
         "body_bank_statement": "Make sure details are clear to read, with no blur or glare",
         "body_benefits_letter": "Make sure details are clear to read, with no blur or glare",
         "body_bill": "Make sure details are clear to read, with no blur or glare",
-        "body_id": "Make sure your card details are clear to read, with no blur or glare",
+        "body_id": "Make sure your details are clear and unobstructed",
         "body_image_medium": "It’ll take longer to verify you if we can’t read it",
         "body_image_poor": "To smoothly verify you, we need a better photo",
-        "body_license": "Make sure your license details are clear to read, with no blur or glare",
-        "body_passport": "Make sure your passport details are clear to read, with no blur or glare",
-        "body_permit": "Make sure your permit details are clear to read, with no blur or glare",
+        "body_license": "Make sure your details are clear and unobstructed",
+        "body_passport": "Make sure your details are clear and unobstructed",
+        "body_permit": "Make sure your details are clear and unobstructed",
         "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Close",
         "button_primary_redo": "Redo",
-        "button_primary_upload": "Confirm",
+        "button_primary_upload": "Upload",
         "button_primary_upload_anyway": "Upload anyway",
         "button_secondary_redo": "Redo",
         "button_zoom": "Enlarge image",
@@ -188,7 +188,7 @@
         "button_license": "Driver’s license",
         "button_license_detail": "Front and back",
         "button_passport": "Passport",
-        "button_passport_detail": "Face photo page",
+        "button_passport_detail": "Photo page",
         "button_permit": "Residence permit",
         "button_permit_detail": "Front and back",
         "button_tax_letter": "Council Tax Letter",
@@ -197,7 +197,7 @@
         "list_accessibility": "Documents you can use to verify your identity",
         "subtitle": "It must be an official photo ID",
         "subtitle_poa": "These are the documents most likely to show your current home address",
-        "title": "Choose document",
+        "title": "Choose your document",
         "title_poa": "Select a %{country} document"
     },
     "doc_submit": {
@@ -271,8 +271,8 @@
                 "message": "Multiple faces found"
             },
             "no_face": {
-                "instruction": "Your face is needed in the selfie",
-                "message": "No face found"
+                "instruction": "Make sure your face is visible",
+                "message": "Face not detected"
             },
             "request_error": {
                 "instruction": "Please try again",
@@ -311,17 +311,9 @@
         "number_field_label": "Enter your mobile number:",
         "subtitle_qr": "Scan the QR code with your phone",
         "subtitle_sms": "Send this one-time link to your phone",
-        "subtitle_url": "Open the link on your mobile",
+        "subtitle_url": "Send this one-time link to your phone",
         "title": "Get your secure link",
         "url_field_label": "Copy the link to your mobile browser"
-    },
-    "linked_computer": {
-        "button_primary": "Continue",
-        "info": "Make sure",
-        "list_item_desktop_open": "2. Your desktop window stays open",
-        "list_item_sent_by_you": "1. This link was sent by you",
-        "subtitle": "Continue with the verification",
-        "title": "Linked to your computer"
     },
     "mobilePhrases": {
         "photo_upload": {
@@ -348,8 +340,8 @@
         }
     },
     "outro": {
-        "body": "Thank you",
-        "title": "Verification complete"
+        "body": "That’s all we need to start verifying your identity",
+        "title": "Thank you"
     },
     "permission_recovery": {
         "button_primary": "Refresh",
@@ -361,7 +353,7 @@
         "title_cam": "Camera access is denied"
     },
     "permission": {
-        "body_cam": "We cannot verify you without using your camera",
+        "body_cam": "We can’t verify you without your camera",
         "button_primary_cam": "Enable camera",
         "subtitle_cam": "When prompted, you must enable camera access to continue",
         "title_cam": "Allow camera access"
@@ -418,25 +410,25 @@
                 "title": "Camera not working"
             },
             "timeout": {
-                "detail": "Remember to press stop when you’re done. <fallback>Redo video actions<\/fallback>",
+                "detail": "Remember to press the button when you’re done. <fallback>Redo video actions<\/fallback>",
                 "title": "Looks like you took too long"
             }
         },
         "button_accessibility": "Take a photo",
         "frame_accessibility": "View from camera",
-        "title": "Take a selfie"
+        "title": "Keep your face within the oval"
     },
     "selfie_confirmation": {
         "image_accessibility": "Photo of your face",
-        "subtitle": "Make sure your selfie clearly shows your face",
-        "title": "Check selfie"
+        "subtitle": "Make sure your entire face is visible",
+        "title": "Check your selfie"
     },
     "selfie_intro": {
         "button_primary": "Continue",
         "list_accessibility": "Tips to take a good selfie",
         "list_item_face_forward": "Face forward and make sure your eyes are clearly visible",
         "list_item_no_glasses": "Remove your glasses, if necessary",
-        "subtitle": "We’ll compare it with your document",
+        "subtitle": "We’ll compare this with your document",
         "title": "Take a selfie"
     },
     "sms_sent": {
@@ -483,8 +475,8 @@
         }
     },
     "video_capture": {
-        "body": "Position your face in the oval",
-        "body_record": "Press record and follow the instructions",
+        "body": "Keep your face within the oval",
+        "body_record": "Press the button when you're ready",
         "button_primary_start": "Start recording",
         "button_primary_finish": "Finish recording",
         "button_primary_next": "Next step",
@@ -505,15 +497,15 @@
         "body": "Your video has been recorded",
         "button_primary": "Upload video",
         "button_secondary": "Retake video",
-        "title": "Check selfie video",
+        "title": "Check your video",
         "video_accessibility": "Replay your recorded video"
     },
     "video_intro": {
-        "button_primary": "Continue",
+        "button_primary": "Record video",
         "list_accessibility": "Actions to record a selfie video",
-        "list_item_actions": "We’ll ask you to film yourself performing <strong>2 simple actions<\/strong>",
-        "list_item_speak": "One will involve <strong>speaking out loud<\/strong>",
-        "title": "Let’s make sure nobody’s impersonating you"
+        "list_item_actions": "You have 25 seconds to finish",
+        "list_item_speak": "Follow the instructions to move or speak",
+        "title": "Record a video"
     },
     "welcome": {
         "list_header_webcam": "Use your webcam or phone to photograph:",
