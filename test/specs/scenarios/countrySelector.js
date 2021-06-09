@@ -132,7 +132,7 @@ export const countrySelectorScenarios = async (lang) => {
       })
 
       it('should show country selection screen when multiple documents enabled with boolean values (legacy config)', async () => {
-        driver.get(`${url}&multiDocBooleanWithCountrySelection=true`)
+        driver.get(`${url}&multiDocWithBooleanValues=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
         countrySelector.verifyTitle(copy)

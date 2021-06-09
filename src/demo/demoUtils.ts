@@ -25,7 +25,7 @@ export type QueryParams = {
   liveness?: StringifiedBoolean
   multiDocWithInvalidPresetCountry?: StringifiedBoolean
   multiDocWithPresetCountry?: StringifiedBoolean
-  multiDocBooleanWithCountrySelection?: StringifiedBoolean
+  multiDocWithBooleanValues?: StringifiedBoolean
   noCompleteStep?: StringifiedBoolean
   oneDoc?: DocumentTypes
   oneDocWithCountrySelection?: StringifiedBoolean
@@ -131,7 +131,7 @@ const getPreselectedDocumentTypes = (): Partial<
     }
   }
 
-  if (queryParamToValueString.multiDocBooleanWithCountrySelection === 'true') {
+  if (queryParamToValueString.multiDocWithBooleanValues === 'true') {
     return {
       driving_licence: true,
       national_identity_card: true,
