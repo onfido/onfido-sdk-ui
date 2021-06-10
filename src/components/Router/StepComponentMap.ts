@@ -268,6 +268,7 @@ const buildDocumentComponents = (
   const hasMultipleDocumentsWithUnsupportedCountry =
     !hasOnePreselectedDocument && !supportedCountry
   const hasCountryCodeOrDocumentTypeFlag =
+    countryCode !== null || configForDocumentType === true
   const showCountrySelection =
     showCountrySelectionForSinglePreselectedDocument ||
     (hasMultipleDocumentsWithUnsupportedCountry &&
