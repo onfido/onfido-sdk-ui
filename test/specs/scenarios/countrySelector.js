@@ -131,6 +131,20 @@ export const countrySelectorScenarios = async (lang) => {
         countrySelector.verifySubmitDocumentBtnIsDisabled()
       })
 
+      it('should show country selection screen when multiple documents enabled with boolean values (legacy config)', async () => {
+        driver.get(`${url}&multiDocWithBooleanValues=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnIdentityCardIcon()
+        countrySelector.verifyTitle(copy)
+        countrySelector.selectSupportedCountry()
+        countrySelector.clickSubmitDocumentButton()
+        documentUpload.verifyFrontOfIdentityCardTitle(copy)
+        documentUpload.getUploadInput()
+        documentUpload.upload('national_identity_card.jpg')
+        confirm.clickConfirmButton()
+        documentUpload.verifyBackOfIdentityCardTitle(copy)
+      })
+
       it('should go to document upload screen when a supported country is selected', async () => {
         driver.get(url)
         welcome.continueToNextStep()
