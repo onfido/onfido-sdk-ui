@@ -130,8 +130,8 @@ export const countrySelectorScenarios = async (lang) => {
         )
         countrySelector.verifySubmitDocumentBtnIsDisabled()
       })
-      // eslint-disable-next-line jest/no-disabled-tests
-      it.skip('should show country selection screen when multiple documents enabled with boolean values (legacy config)', async () => {
+
+      it('should show country selection screen when multiple documents enabled with boolean values (legacy config)', async () => {
         driver.get(`${url}&multiDocWithBooleanValues=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
@@ -139,6 +139,8 @@ export const countrySelectorScenarios = async (lang) => {
         countrySelector.selectSupportedCountry()
         countrySelector.clickSubmitDocumentButton()
         documentUpload.verifyFrontOfIdentityCardTitle(copy)
+        documentUpload.getUploadInput()
+        documentUpload.upload('national_identity_card.jpg')
         confirm.clickConfirmButton()
         documentUpload.verifyBackOfIdentityCardTitle(copy)
       })
