@@ -41,7 +41,7 @@ class Face extends Component {
   }
 
   handleCapture = (payload) => {
-    const { actions, nextStep, mobileFlow } = this.props
+    const { actions, mobileFlow } = this.props
     const id = randomId()
     const faceCaptureData = {
       ...defaultPayload,
@@ -49,8 +49,16 @@ class Face extends Component {
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
       id,
     }
-    actions.createCapture(faceCaptureData)
-    nextStep()
+
+    if (!this.props.captures.face) {
+      actions.createCapture(faceCaptureData)
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.captures.face) {
+      this.props.nextStep()
+    }
   }
 
   handleVideoCapture = (payload) =>
@@ -64,7 +72,7 @@ class Face extends Component {
 
   handleError = (error) => {
     this.props.triggerOnError(error)
-    this.props.actions.deleteCapture()
+    this.props.actions.deleteCapture({ method: 'face' })
   }
 
   handleFallbackClick = (callback) => {
