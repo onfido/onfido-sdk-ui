@@ -130,8 +130,8 @@ export const countrySelectorScenarios = async (lang) => {
         )
         countrySelector.verifySubmitDocumentBtnIsDisabled()
       })
-
-      it('should show country selection screen when multiple documents enabled with boolean values (legacy config)', async () => {
+      // eslint-disable-next-line jest/no-disabled-tests
+      it.skip('should show country selection screen when multiple documents enabled with boolean values (legacy config)', async () => {
         driver.get(`${url}&multiDocWithBooleanValues=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
