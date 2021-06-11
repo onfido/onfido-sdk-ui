@@ -255,6 +255,7 @@ describe('DocumentVideo', () => {
           simulateButtonClick(wrapper, 'primary')
 
           expect(console.error).toHaveBeenCalledWith(message)
+          expect(defaultProps.previousStep).toHaveBeenCalled()
         })
       })
     })
