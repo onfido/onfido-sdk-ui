@@ -499,7 +499,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.checkLogoCobrandIsVisible()
       })
 
-      it.only('should start the ANSII flow for Passport flow and attempts to upload', async () => {
+      it('should start the ANSII flow for Passport flow and attempts to upload', async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -519,8 +519,7 @@ export const crossDeviceScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
-      //Failing when trying to upload, user is shown connection lost?
-      it.skip('should start the ANSII flow for Identity card flow and attempts to upload', async () => {
+      it('should start the ANSII flow for Identity card flow and attempts to upload', async () => {
         userStartsCrossDeviceFlowForItalianIdCard(copy)
         documentVideoCapture.overlayPlaceholder().isDisplayed()
         documentVideoCapture.paperOrPlasticCardSelectorSeenForIdCard(copy)
@@ -535,8 +534,7 @@ export const crossDeviceScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
-      //Failing when trying to upload, user is shown connection lost?
-      it.skip('should start the ANSII flow for Drivers license flow and attempts to upload', async () => {
+      it('should start the ANSII flow for Drivers license flow and attempts to upload', async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
@@ -558,8 +556,7 @@ export const crossDeviceScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
-      //Failing when trying to upload, user is shown connection lost?
-      it.skip('should start the ANSII flow for Residence permit flow and attempts to upload', async () => {
+      it('should start the ANSII flow for Residence permit flow and attempts to upload', async () => {
         userStartsCrossDeviceFlowForUKResidentPermit()
         documentVideoCapture.cardOverlay().isDisplayed()
         documentVideoCapture.userIsToldToKeepTheFrontSideOfTheDocumentWithinTheFrame(copy)
