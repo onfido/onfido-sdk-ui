@@ -25,6 +25,10 @@ const options = {
     'VerificationComplete',
     'SelfieIntro',
     'BasePage',
+    'DocumentVideoCapture',
+    'DocumentVideoConfirm',
+    'DocumentVideoPreview',
+    'CountrySelector',
   ],
 }
 
@@ -49,6 +53,10 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete,
         selfieIntro,
         basePage,
+        documentVideoCapture,
+        documentVideoConfirm,
+        documentVideoPreview,
+        countrySelector,
       } = pageObjects
 
       const baseUrl = `${localhostUrl}?language=${lang}`
@@ -79,6 +87,10 @@ export const crossDeviceScenarios = async (lang) => {
 
       const runThroughCrossDeviceFlow = async () => {
         documentUpload.switchToCrossDevice()
+        runThroughCrossDeviceFlowForDocumentVideoCapture()
+      }
+
+      const runThroughCrossDeviceFlowForDocumentVideoCapture = async () => {
         crossDeviceIntro.continueToNextStep()
         crossDeviceLink.switchToCopyLinkOption()
         copyCrossDeviceLinkAndOpenInNewTab()
@@ -87,6 +99,40 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceMobileConnected.verifyUIElements(copy)
         switchBrowserTab(1, driver)
         driver.sleep(1000)
+      }
+
+      const userStartsCrossDeviceFlowForItalianIdCard = async (copy) => {
+        driver.get(`${baseUrl}&docVideo=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnIdentityCardIcon()
+        countrySelector.searchFor('Italy')
+        countrySelector.selectFirstOptionInDropdownMenu()
+        countrySelector.submitDocumentBtn().click()
+        runThroughCrossDeviceFlowForDocumentVideoCapture(copy)
+      }
+
+      const userStartsCrossDeviceFlowForUKResidentPermit = async (copy) => {
+        driver.get(`${baseUrl}&docVideo=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnResidencePermitIcon()
+        countrySelector.searchFor('United Kingdom')
+        countrySelector.selectFirstOptionInDropdownMenu()
+        countrySelector.submitDocumentBtn().click()
+        runThroughCrossDeviceFlowForDocumentVideoCapture(copy)
+      }
+
+      const userCompletesAnsiiFlowForUKResidentPermit = async (copy) => {
+        userStartsCrossDeviceFlowForUKResidentPermit()
+        documentVideoCapture.userCompletesAnsiiFlowForUKResidentPermit(copy)
+        documentVideoConfirm.userIsShownConfirmationDetails(copy)
+      }
+
+      const userFinishesRecordingAndIsTakenToConfirmationScreen = async (
+        copy
+      ) => {
+        documentVideoCapture.finishRecording(copy)
+        documentVideoCapture.successTick().isDisplayed()
+        documentVideoConfirm.userIsShownConfirmationDetails(copy)
       }
 
       it('should verify UI elements on the cross device intro screen', async () => {
@@ -451,6 +497,117 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceSubmit.checkLogoCobrandIsVisible()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.checkLogoCobrandIsVisible()
+      })
+
+      it.only('should start the ANSII flow for Passport flow and attempts to upload', async () => {
+        driver.get(`${baseUrl}&docVideo=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        runThroughCrossDeviceFlowForDocumentVideoCapture(copy)
+        documentVideoCapture.backArrow().isDisplayed()
+        documentVideoCapture.passportOverlay().isDisplayed()
+        documentVideoCapture.userIsToldToKeepPassportPhotoPageWithinFrame(copy)
+        documentVideoCapture.startRecording(copy)
+        documentVideoCapture.overlayPlaceholder().isDisplayed()
+        documentVideoCapture.userIsToldToKeepStill(copy)
+        documentVideoCapture.nextStepButtonIsNotSeen()
+        documentVideoCapture.nextStepButtonIsClicked(copy)
+        documentVideoCapture.userIsToldToHoldStill(copy)
+        documentVideoCapture.waitForLoadingBarToComplete()
+        documentVideoCapture.successTick().isDisplayed()
+        documentVideoConfirm.userIsShownConfirmationDetails(copy)
+        documentVideoConfirm.uploadAndWaitForSpinner(copy)
+      })
+
+      //Failing when trying to upload, user is shown connection lost?
+      it.skip('should start the ANSII flow for Identity card flow and attempts to upload', async () => {
+        userStartsCrossDeviceFlowForItalianIdCard(copy)
+        documentVideoCapture.overlayPlaceholder().isDisplayed()
+        documentVideoCapture.paperOrPlasticCardSelectorSeenForIdCard(copy)
+        documentVideoCapture.plasticCardButton().click()
+        documentVideoCapture.cardOverlay().isDisplayed()
+        documentVideoCapture.userStartsAndCompletesFirstPartOfCapture(copy)
+        documentVideoCapture.overlayPlaceholder().isDisplayed()
+        documentVideoCapture.progressSteps().isDisplayed()
+        documentVideoCapture.userIsToldToSlowlyTurnDocumentToShowTheBack(copy)
+        documentVideoCapture.userIsToldToKeepDocumentInFullViewAtAllTimes(copy)
+        userFinishesRecordingAndIsTakenToConfirmationScreen(copy)
+        documentVideoConfirm.uploadAndWaitForSpinner(copy)
+      })
+
+      //Failing when trying to upload, user is shown connection lost?
+      it.skip('should start the ANSII flow for Drivers license flow and attempts to upload', async () => {
+        driver.get(`${baseUrl}&docVideo=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.searchFor('France')
+        countrySelector.selectFirstOptionInDropdownMenu()
+        countrySelector.submitDocumentBtn().click()
+        runThroughCrossDeviceFlowForDocumentVideoCapture(copy)
+        documentVideoCapture.overlayPlaceholder().isDisplayed()
+        documentVideoCapture.paperOrPlasticCardSelectorSeenForDriversLicense(copy)
+        documentVideoCapture.paperDocumentButton().click()
+        documentVideoCapture.frenchPaperDrivingLicenseOverlay().isDisplayed()
+        documentVideoCapture.userIsGivenInstructionsForProfilePhotoSide(copy)
+        documentVideoCapture.userStartsAndCompletesFirstPartOfCapture(copy)
+        documentVideoCapture.overlayPlaceholder().isDisplayed()
+        documentVideoCapture.progressSteps().isDisplayed()
+        documentVideoCapture.userIsToldToTurnDocumentToShowTheOuterPages(copy)
+        documentVideoCapture.userIsToldToKeepDocumentInFullViewAtAllTimes(copy)
+        userFinishesRecordingAndIsTakenToConfirmationScreen(copy)
+        documentVideoConfirm.uploadAndWaitForSpinner(copy)
+      })
+
+      //Failing when trying to upload, user is shown connection lost?
+      it.skip('should start the ANSII flow for Residence permit flow and attempts to upload', async () => {
+        userStartsCrossDeviceFlowForUKResidentPermit()
+        documentVideoCapture.cardOverlay().isDisplayed()
+        documentVideoCapture.userIsToldToKeepTheFrontSideOfTheDocumentWithinTheFrame(copy)
+        documentVideoCapture.userStartsAndCompletesFirstPartOfCapture(copy)
+        documentVideoCapture.progressSteps().isDisplayed()
+        documentVideoCapture.userIsToldToSlowlyTurnDocumentToShowTheBack(copy)
+        documentVideoCapture.userIsToldToKeepDocumentInFullViewAtAllTimes(copy)
+        userFinishesRecordingAndIsTakenToConfirmationScreen(copy)
+        documentVideoConfirm.uploadAndWaitForSpinner(copy)
+      })
+
+      it('should show Camera not working error in ANSII flow', async () => {
+        userStartsCrossDeviceFlowForItalianIdCard(copy)
+        documentVideoCapture.overlayPlaceholder().isDisplayed()
+        documentVideoCapture.userIsShownCameraNotWorkingError(copy)
+        documentVideoCapture.userCanDismissError()
+      })
+
+      it('should show Looks like you took too long error in ANSII flow', async () => {
+        userStartsCrossDeviceFlowForUKResidentPermit()
+        documentVideoCapture.cardOverlay().isDisplayed()
+        documentVideoCapture.startRecording(copy)
+        documentVideoCapture.nextStepButtonIsSeen(copy)
+        documentVideoCapture.userIsShownLooksLikeYouTookTooLongError(copy)
+        documentVideoCapture.userCanStartAgain()
+        documentVideoCapture.startRecordingButtonIsSeen(copy)
+      })
+
+      it('should allow user to preview/retake video in ANSII flow', async () => {
+        userCompletesAnsiiFlowForUKResidentPermit(copy)
+        documentVideoConfirm.chooseToPreviewVideo(copy)
+        documentVideoPreview.checkYourVideoIsSeen(copy)
+        documentVideoPreview.chooseToRetakeVideo(copy)
+        documentVideoCapture.startRecordingButtonIsSeen(copy)
+      })
+
+      it('should allow user to bo back and retake video in ANSII flow after completed', async () => {
+        userCompletesAnsiiFlowForUKResidentPermit(copy)
+        documentVideoConfirm.backArrow().click()
+        documentVideoCapture.startRecordingButtonIsSeen(copy)
+      })
+
+      it('should show Connection lost error when connection is lost', async () => {
+        userCompletesAnsiiFlowForUKResidentPermit(copy)
+        documentVideoConfirm.chooseToPreviewVideo(copy)
+        documentVideoPreview.checkYourVideoIsSeen(copy)
+        documentVideoPreview.userChoosesToUpload(copy)
+        documentVideoPreview.userIsShownConnectionLostError(copy)
       })
     }
   )
