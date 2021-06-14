@@ -1,5 +1,7 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
+import { By } from 'selenium-webdriver'
+import { assert } from "chai";
 
 class DocumentVideoCapture extends BasePage {
   async errorTitleText() {
@@ -94,22 +96,14 @@ class DocumentVideoCapture extends BasePage {
     )
   }
 
-  async checkBackArrowIsNotDisplayed() {
-    try {
-      this.backArrow().isDisplayed()
-    } catch (e) {
-      console.log('Arrow is present:', e)
-      return false
-    }
-  }
-
   async nextStepButtonIsNotSeen() {
-    try {
-      this.captureButton().isDisplayed()
-    } catch (e) {
-      console.log('Next step button is present:', e)
-      return false
-    }
+    this.driver.sleep(1000)
+    const x = this.driver.getPageSource().toString()
+    const elementVisible = x.includes('doc-video-capture-btn')
+    assert.isFalse(
+      elementVisible,
+      'Test Failed: Did not expect to see the Next Button'
+    )
   }
 
   async nextStepButtonIsSeen(copy) {
