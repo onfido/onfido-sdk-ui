@@ -101,27 +101,27 @@ export const crossDeviceScenarios = async (lang) => {
         driver.sleep(1000)
       }
 
-      const userStartsCrossDeviceFlowForItalianIdCard = async (copy) => {
+      const userStartsCrossDeviceFlowForItalianIdCard = async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
         countrySelector.searchFor('Italy')
         countrySelector.selectFirstOptionInDropdownMenu()
         countrySelector.submitDocumentBtn().click()
-        runThroughCrossDeviceFlowForDocumentVideoCapture(copy)
+        runThroughCrossDeviceFlowForDocumentVideoCapture()
       }
 
-      const userStartsCrossDeviceFlowForUKResidentPermit = async (copy) => {
+      const userStartsCrossDeviceFlowForUKResidentPermit = async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnResidencePermitIcon()
         countrySelector.searchFor('United Kingdom')
         countrySelector.selectFirstOptionInDropdownMenu()
         countrySelector.submitDocumentBtn().click()
-        runThroughCrossDeviceFlowForDocumentVideoCapture(copy)
+        runThroughCrossDeviceFlowForDocumentVideoCapture()
       }
 
-      const userCompletesAnsiiFlowForUKResidentPermit = async (copy) => {
+      const userCompletesAnsiiFlowForUKResidentPermit = async () => {
         userStartsCrossDeviceFlowForUKResidentPermit()
         documentVideoCapture.userCompletesAnsiiFlowForUKResidentPermit(copy)
         documentVideoConfirm.userIsShownConfirmationDetails(copy)
@@ -132,7 +132,7 @@ export const crossDeviceScenarios = async (lang) => {
       ) => {
         documentVideoCapture.finishRecording(copy)
         documentVideoCapture.successTick().isDisplayed()
-        documentVideoConfirm.userIsShownConfirmationDetails(copy)
+        //documentVideoConfirm.userIsShownConfirmationDetails(copy)
       }
 
       it('should verify UI elements on the cross device intro screen', async () => {
@@ -306,7 +306,7 @@ export const crossDeviceScenarios = async (lang) => {
           confirm,
           'passport.jpg'
         )
-        runThroughCrossDeviceFlow()
+        runThroughCrossDeviceFlow(copy)
         documentUpload.verifySelfieUploadTitle(copy)
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)
