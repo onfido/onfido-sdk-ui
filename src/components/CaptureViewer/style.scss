@@ -64,6 +64,11 @@
 
   @media (--small-viewport) {
     width: 100%;
+    object-position: 50% 30%;
+  }
+
+  @media (--shorter-viewport) {
+    object-position: 50% 25%;
   }
 }
 

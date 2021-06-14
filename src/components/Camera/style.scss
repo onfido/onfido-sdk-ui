@@ -126,7 +126,8 @@
     }
 
     @media (--small-viewport) {
-      height: 100%;
+      height: auto;
+      width: 100%;
       top: -34%;
       padding-top: 0;
       margin: 50% auto;
