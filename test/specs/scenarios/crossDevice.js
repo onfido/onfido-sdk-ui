@@ -543,7 +543,9 @@ export const crossDeviceScenarios = async (lang) => {
         countrySelector.submitDocumentBtn().click()
         runThroughCrossDeviceFlowForDocumentVideoCapture(copy)
         documentVideoCapture.overlayPlaceholder().isDisplayed()
-        documentVideoCapture.paperOrPlasticCardSelectorSeenForDriversLicense(copy)
+        documentVideoCapture.paperOrPlasticCardSelectorSeenForDriversLicense(
+          copy
+        )
         documentVideoCapture.paperDocumentButton().click()
         documentVideoCapture.frenchPaperDrivingLicenseOverlay().isDisplayed()
         documentVideoCapture.userIsGivenInstructionsForProfilePhotoSide(copy)
@@ -559,7 +561,9 @@ export const crossDeviceScenarios = async (lang) => {
       it('should start the ANSII flow for Residence permit flow and attempts to upload', async () => {
         userStartsCrossDeviceFlowForUKResidentPermit()
         documentVideoCapture.cardOverlay().isDisplayed()
-        documentVideoCapture.userIsToldToKeepTheFrontSideOfTheDocumentWithinTheFrame(copy)
+        documentVideoCapture.userIsToldToKeepTheFrontSideOfTheDocumentWithinTheFrame(
+          copy
+        )
         documentVideoCapture.userStartsAndCompletesFirstPartOfCapture(copy)
         documentVideoCapture.progressSteps().isDisplayed()
         documentVideoCapture.userIsToldToSlowlyTurnDocumentToShowTheBack(copy)
