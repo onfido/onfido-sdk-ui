@@ -53,18 +53,17 @@
   object-fit: contain;
 }
 
-/* Only used for Doc Live Capture preview (mobile devices only) */
+/* Used for Doc Live Capture preview (mobile devices only) */
 /* For browser compatibility for object-fit, object-position see
     https://caniuse.com/#feat=object-fit
     https://caniuse.com/#feat=object-position */
 .croppedDocumentImage {
-  width: 100%;
+  width: 75%; // same width as $card-frame-width in src/components/Overlay/style.scss
   height: 15em;
   object-fit: cover;
-  object-position: 50% -13vh; // -13vh = start point of top border of document overlay which is top aligned
 
   @media (--small-viewport) {
-    height: 13em;
+    width: 100%;
   }
 }
 

@@ -32,7 +32,7 @@
 }
 
 $card-frame-height: 0%;
-$card-frame-width: 92%;
+$card-frame-width: 75%;
 
 /* ID1 = Driving Licence, National ID Card */
 .id1Card {
@@ -40,11 +40,19 @@ $card-frame-width: 92%;
 
   @extend %_overlay;
   bottom: initial;
-  top: 0%;
+  top: 0;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
   border-color: $color-white;
+
+  @media (--small-viewport) {
+    $card-frame-width: 80%;
+    width: $card-frame-width;
+    padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
+    top: -25%;
+    margin: 50% auto;
+  }
 }
 
 /* ID3 = Passport */
@@ -53,11 +61,19 @@ $card-frame-width: 92%;
 
   @extend %_overlay;
   bottom: initial;
-  top: -5%;
+  top: 0;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
   border-color: $color-white;
+
+  @media (--small-viewport) {
+    $card-frame-width: 80%;
+    width: $card-frame-width;
+    padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
+    top: -25%;
+    margin: 50% auto;
+  }
 }
 
 @mixin position-hole($scale) {

@@ -112,8 +112,25 @@
   }
 
   .docLiveCaptureFrame & {
-    height: auto;
-    margin: 0;
+    left: 0;
+
+    @media (orientation: portrait) {
+      height: 100%;
+      width: 100%;
+    }
+
+    @media (orientation: landscape) {
+      height: auto;
+      width: 100%;
+      top: 21.5%;
+    }
+
+    @media (--small-viewport) {
+      height: 100%;
+      top: -34%;
+      padding-top: 0;
+      margin: 50% auto;
+    }
   }
 
   /* Only apply styles on Edge where there is no `object-fit:cover` support for video */
