@@ -223,5 +223,15 @@ apiRouter
   .post('/v3/snapshots', (context) => {
     context.response.body = responses.api.v3.snapshots
   })
+  .post('/v4/binary_media', (context) => {
+    const isVideo = context.request.headers.get('x-video-auth') != null
+
+    context.response.body = isVideo
+      ? responses.api.v4.binary_media.video
+      : responses.api.v4.binary_media.image
+  })
+  .post('/v4/documents', (context) => {
+    context.response.body = responses.api.v4.documents
+  })
 
 export { apiRouter, telephonyRouter, tokenFactoryRouter }

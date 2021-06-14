@@ -279,5 +279,40 @@ export default {
         valid: false,
       },
     },
+    v4: {
+      binary_media: {
+        image: {
+          media_id: 'd2b07639-625b-4aa8-bab0-9d7ec6c5cfd9',
+          error: null,
+        },
+        video: {
+          media_id: '2bcb03dc-d026-42da-9d7e-2443cdb9fc79',
+          error: null,
+        },
+      },
+      documents: {
+        uuid: 'de79e389-0061-4b0e-974a-77b5f5a06153',
+        applicant_uuid: '89d6bbfa-6084-46c4-b116-291899eed8e8',
+        document_media: [
+          {
+            binary_media: {
+              uuid: 'd2b07639-625b-4aa8-bab0-9d7ec6c5cfd9',
+              content_type: 'image/png',
+              byte_size: 2615959,
+            },
+            document_fields: [],
+          },
+          {
+            binary_media: {
+              uuid: '2bcb03dc-d026-42da-9d7e-2443cdb9fc79',
+              content_type: 'video/webm',
+              byte_size: 9875579,
+            },
+            document_fields: [],
+          },
+        ],
+        document_type: 'IDENTITY_DOCUMENT',
+      },
+    },
   },
 }
