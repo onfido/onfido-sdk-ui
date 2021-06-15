@@ -22,6 +22,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Upgrade Preact from version `10.5.4` to `10.5.13` in order to resolve an unhandled exception on reinitialising the SDK after closing the SDK modal for some integrations when using Modal mode.
 - Public: Fix Country Selection screen not displaying when SDK is initialised with boolean `documentTypes` configuration.
+- UI: Fix camera view not lining up with Document Live Capture overlay.
 
 ## [6.9.0] - 2021-05-24
 
