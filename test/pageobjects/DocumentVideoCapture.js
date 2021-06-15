@@ -114,6 +114,24 @@ class DocumentVideoCapture extends BasePage {
     )
   }
 
+  async errorContainerIsNotSeen(assertString) {
+    const x = this.driver.getPageSource().toString()
+    const elementVisible = x.includes('onfido-sdk-ui-Error-container')
+    assert.isFalse(elementVisible, assertString)
+  }
+
+  async cameraNotWorkingErrorIsNotSeen() {
+    await this.errorContainerIsNotSeen(
+      'Test Failed: Did not expect to see the Camera not working error'
+    )
+  }
+
+  async looksLikeYouTookTooLongErrorIsNotSeen() {
+    await this.errorContainerIsNotSeen(
+      'Test Failed: Did not expect to see the Looks like you took too long error'
+    )
+  }
+
   async nextStepButtonIsSeen(copy) {
     verifyElementCopy(
       this.captureButton(),
