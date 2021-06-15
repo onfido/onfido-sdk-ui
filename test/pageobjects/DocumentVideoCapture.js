@@ -41,10 +41,7 @@ class DocumentVideoCapture extends BasePage {
     return this.$('.onfido-sdk-ui-DocumentVideo-reusables-title')
   }
   async documentVideoSubInstructions() {
-    //pending update on this identifier to make is less fragile.
-    return this.$(
-      '.onfido-sdk-ui-DocumentVideo-reusables-instructions > span:nth-child(2)'
-    )
+    return this.$('.onfido-sdk-ui-DocumentVideo-reusables-subtitle')
   }
   async loadingBar() {
     return this.$('.onfido-sdk-ui-DocumentVideo-reusables-active')
