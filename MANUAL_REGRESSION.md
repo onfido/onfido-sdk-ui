@@ -720,6 +720,76 @@ Given user opened the link with `?liveness=true&photoCaptureFallback=false` flag
    - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should NOT be able to complete the cross-device flow successfully.
 
+### 38. Cross Device for ANSII Document Liveness
+
+(on private mode of: Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+There are new journeys to explore, once at the ‘Choose document’ screen, they are the following:
+
+- Residence permit (this will invoke the Card Flow)
+- Passport (Any country will invoke this)
+- Identity Card > choose Italy from country list (we will test Paper Identity Card in this flow)
+- Drivers’ License > choose France from country list (we will test Paper Drivers’ License in this flow)
+
+1. Open the landing page with the additional GET parameters (language and docVideo)
+   `?language=en_US&docVideo=true`
+2. Choose one of the documents mentioned above (Residence permit (any country), Passport (any country), Identity Card (Italy) or Drivers License (France)
+3. Choose to continue on your phone by clicking on ‘Get secure Link’
+4. Choose to get the link via SMS, QR or Copy (you can use the steps in '4a.Cross-device with copied link' as a reference)
+5. Open the provided cross device URL in your mobile browser.
+
+Specific for Passport:
+
+- There is only a single step, you will only be requested to scan the front side / single side
+- The flash should not come on during the process
+- You will be shown a progress bar during the scan (after pressing ‘Next Step’)
+- You should not see any messages mentioning 'Step x of y'
+
+Specific for Residence permit, Drivers License:
+
+- These will have a 2 Step process and the messaging should reflect this
+- You should see messages mentioning 'Step x of y'
+- The flash should not come on
+- You should not see a progress bar
+
+Specific for Identity Card and Drivers License (As above, plus…):
+
+- You should see a 'options tile’ that appears at the start of the journey asking you if you have a Plastic card or Paper document.
+
+Common for all document types…
+
+- After pressing 'start recording' capture your document within the frame
+- Upon successful completion you will be taken to a 'success' screen with the heading of ‘That’s all we need to start verifying your identity’
+- From here you will be able to the following…
+  - Upload your video
+  - Preview your video (from here you can also choose to Upload or Retake)
+  - Go back by pressing the 'Back' arrow in the toolbar.
+
+Things to check for across all document types:
+
+- The messaging / hints on each type of journey make sense to that journey, i.e. you should not see Passport related messages when testing Driving License, etc
+- You should see 'Step x of y' messages where appropriate (you should NOT see this for Passport flows)
+
+- Try to capture the documents outside of the frame
+- Try to exceed the timeout for recording the video (this is currently set to 30 seconds), an appropriate message is seen.
+- Try to leave the flow mid way, letting your device lock and then unlock, does the app remember its state and continue as expected
+- Check the toolbar headings
+- Check the general messaging
+- Check that the overlays used make sense
+- Try pressing the buttons when they are ‘disabled’
+
+Things that would be nice to try and capture:
+
+- Memory used...is there significant memory usage when taking video?
+- Data used...is there excessive data being used when taking video?
+- If you are constantly retaking the video, does the app still perform? (will it crash?)
+- What happens if/when your data/Wi-Fi fails during uploading a video?
+- What happens when you try to rotate the device during the flows?
+
+Known Issues:
+
+- On Android, after completing the flow and attempting to play the video for the very first time, you’re unable to use the controls as expected. After its played for the first time, the controls are then usable. This is because we don't know the duration precisely until the video was loaded for the first time.
+
 ## Non-functional
 
 ### 1. Check analytics tracking
