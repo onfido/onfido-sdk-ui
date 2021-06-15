@@ -720,7 +720,7 @@ Given user opened the link with `?liveness=true&photoCaptureFallback=false` flag
    - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should NOT be able to complete the cross-device flow successfully.
 
-### 38. Cross Device for ANSII Document Liveness
+### 38. Cross Device for ANSSI Document Liveness
 
 (on private mode of: Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
 

@@ -104,8 +104,8 @@ class DocumentVideoCapture extends BasePage {
   }
 
   async nextStepButtonIsNotSeen() {
-    const x = this.driver.getPageSource().toString()
-    const elementVisible = x.includes('doc-video-capture-btn')
+    const pageSourceString = this.driver.getPageSource().toString()
+    const elementVisible = pageSourceString.includes('doc-video-capture-btn')
     assert.isFalse(
       elementVisible,
       'Test Failed: Did not expect to see the Next Button'
@@ -113,20 +113,22 @@ class DocumentVideoCapture extends BasePage {
   }
 
   async errorContainerIsNotSeen(assertString) {
-    const x = this.driver.getPageSource().toString()
-    const elementVisible = x.includes('onfido-sdk-ui-Error-container')
+    const pageSourceString = this.driver.getPageSource().toString()
+    const elementVisible = pageSourceString.includes(
+      'onfido-sdk-ui-Error-container'
+    )
     assert.isFalse(elementVisible, assertString)
   }
 
   async cameraNotWorkingErrorIsNotSeen() {
     await this.errorContainerIsNotSeen(
-      'Test Failed: Did not expect to see the Camera not working error'
+      'Test Failed: Did not expect to see the "Camera not working" error'
     )
   }
 
   async looksLikeYouTookTooLongErrorIsNotSeen() {
     await this.errorContainerIsNotSeen(
-      'Test Failed: Did not expect to see the Looks like you took too long error'
+      'Test Failed: Did not expect to see the "Looks like you took too long" error'
     )
   }
 
@@ -284,7 +286,7 @@ class DocumentVideoCapture extends BasePage {
     this.successTick().isDisplayed()
   }
 
-  async userCompletesAnsiiFlowForUKResidentPermit(copy) {
+  async userCompletesAnssiFlowForUKResidentPermit(copy) {
     this.startRecording(copy)
     this.progressSteps().isDisplayed()
     this.nextStepButtonIsClicked(copy)
