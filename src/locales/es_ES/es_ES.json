@@ -270,7 +270,7 @@
         "info_qr_how": "Cómo escanear un código QR",
         "info_qr_how_list_item_camera": "Apunte la cámara de su teléfono al código QR",
         "info_qr_how_list_item_download": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store",
-        "link_divider": "u",
+        "link_divider": "o seleccione estas alternativas",
         "link_qr": "Escanear código QR",
         "link_sms": "Obtener enlace via mensaje de texto",
         "link_url": "Copiar enlace",
@@ -343,7 +343,7 @@
         "title_selfie": "Selfie"
     },
     "poa_guidance": {
-        "button_primary": "Continuar",
+        "button_primary": "Continue",
         "instructions": {
             "address": "Current address",
             "full_name": "Full name",
@@ -447,6 +447,7 @@
         "body_record": "Presione el botón cuando esté listo",
         "button_primary_finish": "Finalizar grabación",
         "button_primary_next": "Siguiente paso",
+        "button_primary_start": "Iniciar grabación",
         "button_record_accessibility": "Iniciar grabación",
         "frame_accessibility": "Vista desde la cámara",
         "header": {

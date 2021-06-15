@@ -270,7 +270,7 @@
         "info_qr_how": "How to scan a QR code",
         "info_qr_how_list_item_camera": "Point your phone’s camera at the QR code",
         "info_qr_how_list_item_download": "If it doesn’t work, download a QR code scanner from Google Play or the App Store",
-        "link_divider": "or",
+        "link_divider": "or choose these alternatives",
         "link_qr": "Scan QR code",
         "link_sms": "Get link via SMS",
         "link_url": "Copy link",
@@ -384,7 +384,7 @@
         },
         "button_accessibility": "Take a photo",
         "frame_accessibility": "View from camera",
-        "title": "Keep your face within the oval"
+        "title": "Keep your face within the oval to start recording"
     },
     "selfie_confirmation": {
         "image_accessibility": "Photo of your face",
@@ -443,8 +443,8 @@
         }
     },
     "video_capture": {
-        "body": "Keep your face within the oval",
-        "body_record": "Press the button when you're ready",
+        "body": "Keep your face within the oval to start recording",
+        "body_record": "Press the button when you’re ready",
         "button_primary_finish": "Finish recording",
         "button_primary_next": "Next step",
         "button_primary_start": "Start recording",
