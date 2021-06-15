@@ -125,12 +125,19 @@
       top: 21.5%;
     }
 
-    @media (--small-viewport) {
+    @media (--small-viewport) and (--below-high-pixel-density) {
       height: auto;
       width: 100%;
       top: -34%;
-      padding-top: 0;
       margin: 50% auto;
+    }
+
+    @media (--high-pixel-density) and (orientation: portrait) {
+      top: -20%;
+    }
+
+    @media (--high-pixel-density) and (orientation: landscape) {
+      top: 0;
     }
   }
 

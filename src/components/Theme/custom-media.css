@@ -7,3 +7,7 @@
 @custom-media --short-viewport (max-height: 567px);
 /* For viewport larger than iPhone 5 in terms of height */
 @custom-media --long-viewport (min-height: 568px);
+
+@custom-media --high-pixel-density (-webkit-min-device-pixel-ratio: 3);
+
+@custom-media --below-high-pixel-density (-webkit-max-device-pixel-ratio: 2);
