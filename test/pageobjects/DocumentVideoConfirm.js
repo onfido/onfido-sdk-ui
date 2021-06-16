@@ -9,9 +9,7 @@ class DocumentVideoConfirm extends BasePage {
     return this.$('.onfido-sdk-ui-DocumentVideo-Confirm-title')
   }
   async documentVideoConfirmMessage() {
-    return this.$(
-      '.onfido-sdk-ui-DocumentVideo-Confirm-content > span:nth-child(3)'
-    )
+    return this.$('.onfido-sdk-ui-DocumentVideo-Confirm-body')
   }
   async documentVideoUploadButton() {
     return this.$('[data-onfido-qa="doc-video-confirm-primary-btn"]')
