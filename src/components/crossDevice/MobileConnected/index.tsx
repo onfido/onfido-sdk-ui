@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { preventDefaultOnClick } from '~utils/index'
@@ -6,7 +6,15 @@ import { localised } from '../../../locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
-const MobileConnected = ({ translate, back }) => (
+import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+
+type MobileConnectedProps = {
+  back: () => void
+}
+
+type Props = MobileConnectedProps & WithLocalisedProps & WithTrackingProps
+
+const MobileConnected: FunctionComponent<Props> = ({ translate, back }) => (
   <div>
     <PageTitle
       title={translate('switch_phone.title')}
