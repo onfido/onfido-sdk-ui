@@ -46,15 +46,19 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   )
 
   const onUploadDocuments = useCallback(async () => {
+    const catchException = (message: string) => {
+      console.error(message)
+      trackException(message)
+      previousStep()
+    }
+
     if (!documentFront) {
-      console.error('Front of document not captured')
-      trackException('Front of document not captured')
+      catchException('Front of document not captured')
       return
     }
 
     if (!documentVideo) {
-      console.error('Document video not captured')
-      trackException('Document video not captured')
+      catchException('Document video not captured')
       return
     }
 
@@ -139,6 +143,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
     }
   }, [
     nextStep,
+    previousStep,
     token,
     dispatch,
     apiUrl,

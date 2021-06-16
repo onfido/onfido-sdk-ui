@@ -10,3 +10,14 @@
 .buttonPlaceholder {
   height: 48 * $unit;
 }
+
+.progress {
+  align-self: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 4 * $unit;
+  color: $color-white;
+  font-size: var(--font-size-small);
+  margin-top: 16 * $unit;
+  padding: 4 * $unit 10 * $unit;
+  text-transform: uppercase;
+}

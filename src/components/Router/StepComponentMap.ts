@@ -289,9 +289,14 @@ const buildDocumentComponents = (
     countryCode,
     documentType
   )
+  const hasMultipleDocumentsWithUnsupportedCountry =
+    !hasOnePreselectedDocument && !supportedCountry
+  const hasCountryCodeOrDocumentTypeFlag =
+    countryCode !== null || configForDocumentType === true
   const showCountrySelection =
     showCountrySelectionForSinglePreselectedDocument ||
-    (!hasOnePreselectedDocument && !supportedCountry && countryCode !== null)
+    (hasMultipleDocumentsWithUnsupportedCountry &&
+      hasCountryCodeOrDocumentTypeFlag)
 
   const preCaptureComponents = buildNonPassportPreCaptureComponents(
     hasOnePreselectedDocument,

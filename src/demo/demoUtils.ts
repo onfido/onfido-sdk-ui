@@ -30,6 +30,7 @@ export type QueryParams = {
   faceVideo?: StringifiedBoolean
   multiDocWithInvalidPresetCountry?: StringifiedBoolean
   multiDocWithPresetCountry?: StringifiedBoolean
+  multiDocWithBooleanValues?: StringifiedBoolean
   noCompleteStep?: StringifiedBoolean
   oneDoc?: DocumentTypes
   oneDocWithCountrySelection?: StringifiedBoolean
@@ -132,6 +133,13 @@ const getPreselectedDocumentTypes = (): Partial<
       national_identity_card: {
         country: 'XYZ',
       },
+    }
+  }
+
+  if (queryParamToValueString.multiDocWithBooleanValues === 'true') {
+    return {
+      driving_licence: true,
+      national_identity_card: true,
     }
   }
 

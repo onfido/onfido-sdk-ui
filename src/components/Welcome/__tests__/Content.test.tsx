@@ -13,7 +13,9 @@ mockedTranslate.mockImplementation((str) => {
 })
 
 const assertDefaultContent = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.caption').text()).toEqual('welcome.list_header_webcam')
+  expect(wrapper.find('.instructions > span').text()).toEqual(
+    'welcome.list_header_webcam'
+  )
   const items = wrapper.find('.instructions > ol li')
   expect(items.at(0).text()).toEqual('welcome.list_item_doc')
   expect(items.at(1).text()).toEqual('welcome.list_item_selfie')

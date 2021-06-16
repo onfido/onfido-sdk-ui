@@ -241,6 +241,7 @@ export declare type DocumentResponse = {
 	id: string;
 	side: string;
 	type: string;
+	variant: RequestedVariant;
 };
 export declare type DocumentVideoResponse = {
 	id: string;
@@ -249,7 +250,7 @@ export declare type DocumentVideoResponse = {
 };
 export declare type FaceResponse = {
 	id: string;
-	variant: string;
+	variant: RequestedVariant;
 };
 export declare type SdkResponse = {
 	document_front?: DocumentResponse;

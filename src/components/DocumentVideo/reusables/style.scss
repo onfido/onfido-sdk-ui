@@ -1,16 +1,5 @@
 @import '../../Theme/constants';
 
-.progress {
-  align-self: center;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 4 * $unit;
-  color: $color-white;
-  font-size: var(--font-size-small);
-  margin-top: 16 * $unit;
-  padding: 4 * $unit 10 * $unit;
-  text-transform: uppercase;
-}
-
 .instructions {
   flex: 1;
   display: flex;
@@ -31,13 +20,16 @@
 }
 
 .instructions > .title {
-  font-size: 24 * $unit;
-  font-size: 125%;
+  font-size: 20 * $unit;
   font-weight: 600;
 
   @media (--short-viewport) {
     font-size: var(--font-size-large);
   }
+}
+
+.instructions > .subtitle {
+  font-weight: normal;
 }
 
 .instructions .success {

@@ -96,7 +96,7 @@
         "button_primary": "Enviar documento",
         "search": {
             "accessibility": "Seleccione el país",
-            "input_placeholder": "por ejemplo, Estados Unidos",
+            "input_placeholder": "por ejemplo, España",
             "label": "Buscar país"
         },
         "title": "Seleccione el país emisor"
@@ -108,11 +108,11 @@
         "list_item_doc_one": "Documento cargado",
         "list_item_selfie": "Selfie cargado",
         "list_item_video": "Video cargado",
-        "subtitle": "Estamos listos para verificar su identidad",
-        "title": "Genial, eso es todo"
+        "subtitle": "Aquí tiene todo lo que ha subido:",
+        "title": "Un último paso"
     },
     "cross_device_error_desktop": {
-        "subtitle": "Debe abrir este enlace en un dispositivo móvil.",
+        "subtitle": "Debe abrir este enlace en un dispositivo móvil",
         "title": "Algo salió mal"
     },
     "cross_device_error_restart": {
@@ -178,7 +178,7 @@
         "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Cerrar",
         "button_primary_redo": "Reintentar",
-        "button_primary_upload": "Confirmar",
+        "button_primary_upload": "Subir",
         "button_primary_upload_anyway": "Subir igualmente",
         "button_secondary_redo": "Reintentar",
         "button_zoom": "Ampliar imagen",
@@ -281,7 +281,7 @@
                 "message": "Múltiples caras encontradas"
             },
             "no_face": {
-                "instruction": "Su cara tiene que salir en la selfie",
+                "instruction": "Asegúrese que su cara sea visible",
                 "message": "Cara no encontrada"
             },
             "request_error": {
@@ -325,14 +325,6 @@
         "title": "Obtener enlace seguro",
         "url_field_label": "Copie el enlace al navegador de internet de su teléfono"
     },
-    "linked_computer": {
-        "button_primary": "Continuar",
-        "info": "Asegúrese de",
-        "list_item_desktop_open": "2. La ventana de su escritorio sigue abierta",
-        "list_item_sent_by_you": "1. Usted envió este enlace",
-        "subtitle": "Continúe la verificación",
-        "title": "Vinculado a su computadora"
-    },
     "mobilePhrases": {
         "photo_upload": {
             "body_id_back": "Tome una foto del reverso de su tarjeta",
@@ -358,8 +350,8 @@
         }
     },
     "outro": {
-        "body": "Gracias",
-        "title": "Verificación completa"
+        "body": "That’s all we need to start verifying your identity",
+        "title": "Gracias"
     },
     "permission_recovery": {
         "button_primary": "Actualizar",
@@ -428,13 +420,13 @@
                 "title": "Su cámara no esta funcionando"
             },
             "timeout": {
-                "detail": "Recuerde presionar detener cuando esté listo. <fallback>Rehacer acciones<\/fallback>",
+                "detail": "Recuerde presionar el botón cuando haya terminado. <fallback>Rehacer acciones<\/fallback>",
                 "title": "Parece que ha demorado demasiado"
             }
         },
         "button_accessibility": "Tomar foto",
         "frame_accessibility": "Vista desde la cámara",
-        "title": "Tome una selfie"
+        "title": "Mantenga la cara dentro del óvalo"
     },
     "selfie_confirmation": {
         "image_accessibility": "Foto de su cara",
@@ -444,9 +436,9 @@
     "selfie_intro": {
         "button_primary": "Continuar",
         "list_accessibility": "Consejos para capturar un buen selfie",
-        "list_item_face_forward": "Por favor, mantenga una cara seria",
-        "list_item_no_glasses": "¿Lleva gafas? Asegúrese de que podamos ver claramente sus ojos",
-        "subtitle": "Compararemos la foto en su documento con su selfie",
+        "list_item_face_forward": "Mire hacia delante y asegúrese de que sus ojos se vean con claridad",
+        "list_item_no_glasses": "Quítese las gafas si es necesario",
+        "subtitle": "Compararemos esto con su documento",
         "title": "Tome una selfie"
     },
     "sms_sent": {
@@ -493,8 +485,8 @@
         }
     },
     "video_capture": {
-        "body": "Coloque su cara en el óvalo",
-        "body_record": "Presione grabar y siga las instrucciones",
+        "body": "Mantenga la cara dentro del óvalo",
+        "body_record": "Presione el botón cuando esté listo",
         "button_primary_start": "Iniciar grabación",
         "button_primary_finish": "Finalizar grabación",
         "button_primary_next": "Siguiente paso",
@@ -519,14 +511,14 @@
         "video_accessibility": "Reproducir su video grabado"
     },
     "video_intro": {
-        "button_primary": "Continuar",
+        "button_primary": "Grábese en un vídeo",
         "list_accessibility": "Acciones para grabar un video selfie",
-        "list_item_actions": "Le pediremos que se grabe en video ejecutando <strong>dos simples acciones<\/strong>",
-        "list_item_speak": "Una de ellas implicará <strong>hablar en voz alta<\/strong>",
-        "title": "Asegurémonos de que nadie se está haciendo pasar por usted"
+        "list_item_actions": "Termine las instrucciones en 25 segundos",
+        "list_item_speak": "Siga las instrucciones para moverse o hablar",
+        "title": "Grábese en un vídeo"
     },
     "welcome": {
-        "list_header_webcam": "Verificar identidad",
+        "list_header_webcam": "Utilice su cámara web o su teléfono para fotografiar:",
         "list_item_doc": "su documento de identidad",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "su rostro",

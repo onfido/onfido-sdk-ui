@@ -5,6 +5,7 @@ import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
   takePercySnapshot,
+  takePercySnapshotWithoutOverlay,
 } from './sharedFlows.js'
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -44,12 +45,6 @@ export const faceScenarios = (lang) => {
     } = pageObjects
 
     const copy = basePage.copy(lang)
-
-    async function takePercySnapshotWithoutOverlay(driver, text) {
-      await takePercySnapshot(driver, text, {
-        percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }`,
-      })
-    }
 
     it('should return unsupported file type error for selfie', async () => {
       goToPassportUploadScreen(
