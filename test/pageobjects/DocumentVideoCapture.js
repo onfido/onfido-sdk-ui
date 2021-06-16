@@ -1,6 +1,5 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import { By } from 'selenium-webdriver'
 import { assert } from 'chai'
 
 class DocumentVideoCapture extends BasePage {

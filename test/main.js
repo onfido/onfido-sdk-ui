@@ -188,8 +188,11 @@ const createMocha = (driver, testCase) => {
       `Just setting global variables...browser:${browserName}, are the tests running on BrowserStack ${isRemoteBrowser}`
     )
   })
-  mocha.suite.beforeEach('Set retry', function () {
+  mocha.suite.beforeEach('Set retry and timeouts', function () {
     this.currentTest.retries(1)
+    if (this.currentTest.title.includes('@longtest')) {
+      this.currentTest.timeout(5000)
+    }
   })
   mocha.suite.afterEach('Capture total number of test failures', function () {
     const currentTestState = this.currentTest.state

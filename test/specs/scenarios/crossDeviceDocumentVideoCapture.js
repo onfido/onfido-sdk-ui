@@ -232,7 +232,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoCapture.cameraNotWorkingErrorIsNotSeen()
       })
 
-      it('should show "Looks like you took too long error" in ANSSI flow @percy', async () => {
+      it('should show "Looks like you took too long error" in ANSSI flow @percy @longtest', async () => {
         userStartsCrossDeviceFlowForUKResidentPermit()
         documentVideoCapture.cardOverlay().isDisplayed()
         documentVideoCapture.startRecording(copy)
