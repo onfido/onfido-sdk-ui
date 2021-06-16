@@ -30,6 +30,10 @@
   margin-bottom: 8 * $unit;
 }
 
+.content > .body {
+  font-weight: normal;
+}
+
 .preview .videoWrapper {
   margin-top: 16 * $unit;
   margin-bottom: 0;

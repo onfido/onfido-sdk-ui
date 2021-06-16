@@ -20,13 +20,16 @@
 }
 
 .instructions > .title {
-  font-size: 24 * $unit;
-  font-size: 125%;
+  font-size: 20 * $unit;
   font-weight: 600;
 
   @media (--short-viewport) {
     font-size: var(--font-size-large);
   }
+}
+
+.instructions > .subtitle {
+  font-weight: normal;
 }
 
 .instructions .success {
