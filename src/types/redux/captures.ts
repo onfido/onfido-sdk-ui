@@ -73,8 +73,6 @@ export type CaptureActions =
 export type CaptureState = {
   document_front?: DocumentCapture & MetadataState
   document_back?: DocumentCapture & MetadataState
-  // when is this used
-  // document?: DocumentCapture & MetadataState
   face?: FaceCapture & MetadataState
 }
 
