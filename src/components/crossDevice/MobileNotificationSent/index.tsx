@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { preventDefaultOnClick } from '~utils'
@@ -6,7 +6,27 @@ import { localised } from '../../../locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
-const MobileNotificationSent = ({ sms, translate, previousStep }) => (
+import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+
+type SmsInfo = {
+  number: string
+  valid: boolean
+}
+
+type MobileNotificationSentProps = {
+  sms: SmsInfo
+  previousStep: () => void
+}
+
+type Props = MobileNotificationSentProps &
+  WithLocalisedProps &
+  WithTrackingProps
+
+const MobileNotificationSent: FunctionComponent<Props> = ({
+  sms,
+  translate,
+  previousStep,
+}) => (
   <div>
     <PageTitle title={translate('sms_sent.title')} />
     <div>
