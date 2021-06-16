@@ -31,18 +31,18 @@ class DocumentVideoConfirm extends BasePage {
       this.documentVideoConfirmMessage(),
       copy.video_confirmation.body
     )
-    this.uploadVideoButton(copy)
-    this.previewVideoButton(copy)
+    this.verifyUploadVideoButtonLabel(copy)
+    this.verifyPreviewVideoButtonLabel(copy)
   }
 
-  async uploadVideoButton(copy) {
+  async verifyUploadVideoButtonLabel(copy) {
     verifyElementCopy(
       this.documentVideoUploadButton(),
       copy.video_confirmation.button_primary
     )
   }
 
-  async previewVideoButton(copy) {
+  async verifyPreviewVideoButtonLabel(copy) {
     verifyElementCopy(
       this.documentVideoSecondaryButton(),
       copy.doc_video_confirmation.button_secondary
@@ -50,12 +50,12 @@ class DocumentVideoConfirm extends BasePage {
   }
 
   async chooseToPreviewVideo(copy) {
-    this.previewVideoButton(copy)
+    this.verifyPreviewVideoButtonLabel(copy)
     this.documentVideoSecondaryButton().click()
   }
 
   async uploadAndWaitForSpinner(copy) {
-    this.uploadVideoButton(copy)
+    this.verifyUploadVideoButtonLabel(copy)
     this.documentVideoUploadButton().click()
     this.spinner().isDisplayed()
   }

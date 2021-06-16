@@ -735,7 +735,7 @@ There are new journeys to explore, once at the ‘Choose document’ screen, the
    `?language=en_US&docVideo=true`
 2. Choose one of the documents mentioned above (Residence permit (any country), Passport (any country), Identity Card (Italy) or Drivers License (France)
 3. Choose to continue on your phone by clicking on ‘Get secure Link’
-4. Choose to get the link via SMS, QR or Copy (you can use the steps in '4a.Cross-device with copied link' as a reference)
+4. Choose to get the link via SMS, QR Code or Copy (you can use the steps in '4a.Cross-device with copied link' as a reference)
 5. Open the provided cross device URL in your mobile browser.
 
 Specific for Passport:
@@ -745,7 +745,7 @@ Specific for Passport:
 - You will be shown a progress bar during the scan (after pressing ‘Next Step’)
 - You should not see any messages mentioning 'Step x of y'
 
-Specific for Residence permit, Drivers License:
+Specific for Residence Permit, Drivers License:
 
 - These will have a 2 Step process and the messaging should reflect this
 - You should see messages mentioning 'Step x of y'
@@ -788,7 +788,7 @@ Things that would be nice to try and capture:
 
 Known Issues:
 
-- On Android, after completing the flow and attempting to play the video for the very first time, you’re unable to use the controls as expected. After its played for the first time, the controls are then usable. This is because we don't know the duration precisely until the video was loaded for the first time.
+- On Android, after completing the flow and attempting to play the video for the very first time, you’re unable to use the controls as expected. After it is played for the first time, the controls are then usable. This is because we don't know the duration precisely until the video was loaded for the first time.
 
 ## Non-functional
 

@@ -2,12 +2,6 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class DocumentVideoPreview extends BasePage {
-  async errorTitleText() {
-    return this.$('.onfido-sdk-ui-Error-title-text')
-  }
-  async errorInstructionText() {
-    return this.$('.onfido-sdk-ui-Error-instruction-text')
-  }
   async documentVideoPreviewTitle() {
     return this.$('.onfido-sdk-ui-DocumentVideo-Confirm-title')
   }
@@ -24,14 +18,14 @@ class DocumentVideoPreview extends BasePage {
     return this.$('.onfido-sdk-ui-Spinner-inner')
   }
 
-  async uploadVideoButton(copy) {
+  async verifyUploadVideoButtonLabel(copy) {
     verifyElementCopy(
       this.documentVideoUploadButton(),
       copy.video_confirmation.button_primary
     )
   }
 
-  async retakeVideoButton(copy) {
+  async verifyRetakeVideoButtonLabel(copy) {
     verifyElementCopy(
       this.documentVideoRetakeVideoButton(),
       copy.video_confirmation.button_secondary
@@ -39,7 +33,7 @@ class DocumentVideoPreview extends BasePage {
   }
 
   async chooseToRetakeVideo(copy) {
-    this.retakeVideoButton(copy)
+    this.verifyRetakeVideoButtonLabel(copy)
     this.documentVideoRetakeVideoButton().click()
   }
 
@@ -50,25 +44,14 @@ class DocumentVideoPreview extends BasePage {
     )
     this.documentVideoPreview().isDisplayed()
     this.documentVideoRetakeVideoButton().isDisplayed()
-    this.retakeVideoButton(copy)
+    this.verifyRetakeVideoButtonLabel(copy)
     this.documentVideoUploadButton().isDisplayed()
-    this.uploadVideoButton(copy)
+    this.verifyUploadVideoButtonLabel(copy)
   }
 
-  async userChoosesToUpload(copy) {
-    this.uploadVideoButton(copy)
+  async uploadDocumentVideo(copy) {
+    this.verifyUploadVideoButtonLabel(copy)
     this.documentVideoUploadButton().click()
-  }
-
-  async userIsShownConnectionLostError(copy) {
-    verifyElementCopy(
-      this.errorTitleText(),
-      copy.generic.errors.request_error.message
-    )
-    verifyElementCopy(
-      this.errorInstructionText(),
-      copy.generic.errors.request_error.instruction
-    )
   }
 }
 

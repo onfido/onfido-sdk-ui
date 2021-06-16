@@ -12,7 +12,7 @@ class DocumentVideoCapture extends BasePage {
   async errorInstructions() {
     return this.$('.onfido-sdk-ui-Error-instruction-text')
   }
-  async errorDismissCross() {
+  async dismissErrorButton() {
     return this.$('.onfido-sdk-ui-Error-dismiss')
   }
   async errorFallbackButton() {
@@ -87,6 +87,11 @@ class DocumentVideoCapture extends BasePage {
   }
 
   async userIsToldToKeepStill(copy) {
+    this.documentVideoTitle().isDisplayed()
+    this.verifyUserIsToldToKeepStillLabel(copy)
+  }
+
+  async verifyUserIsToldToKeepStillLabel(copy) {
     verifyElementCopy(
       this.documentVideoTitle(),
       copy.doc_video_capture.header_step1
@@ -131,7 +136,7 @@ class DocumentVideoCapture extends BasePage {
     )
   }
 
-  async nextStepButtonIsSeen(copy) {
+  async verifyNextStepButtonLabel(copy) {
     verifyElementCopy(
       this.captureButton(),
       copy.doc_video_capture.button_primary_fallback
@@ -139,7 +144,7 @@ class DocumentVideoCapture extends BasePage {
   }
 
   async nextStepButtonIsClicked(copy) {
-    this.nextStepButtonIsSeen(copy)
+    this.verifyNextStepButtonLabel(copy)
     this.captureButton().click()
   }
 
@@ -164,11 +169,19 @@ class DocumentVideoCapture extends BasePage {
   }
 
   async startRecording(copy) {
-    this.startRecordingButtonIsSeen(copy)
+    this.verifyStartRecordingButtonLabel(copy)
     this.captureButton().click()
   }
 
+  async verifyStartRecordingButtonLabel(copy) {
+    verifyElementCopy(
+      this.captureButton(),
+      copy.video_capture.button_primary_start
+    )
+  }
+
   async startRecordingButtonIsSeen(copy) {
+    this.captureButton().isDisplayed()
     verifyElementCopy(
       this.captureButton(),
       copy.video_capture.button_primary_start
@@ -176,11 +189,11 @@ class DocumentVideoCapture extends BasePage {
   }
 
   async finishRecording(copy) {
-    this.finishRecordingButtonIsSeen(copy)
+    this.verifyFinishRecordingButtonLabel(copy)
     this.captureButton().click()
   }
 
-  async finishRecordingButtonIsSeen(copy) {
+  async verifyFinishRecordingButtonLabel(copy) {
     verifyElementCopy(
       this.captureButton(),
       copy.video_capture.button_primary_finish
@@ -268,7 +281,7 @@ class DocumentVideoCapture extends BasePage {
   }
 
   async userCanDismissError() {
-    this.errorDismissCross().click()
+    this.dismissErrorButton().click()
   }
 
   async userCanStartAgain() {
@@ -279,13 +292,13 @@ class DocumentVideoCapture extends BasePage {
     this.startRecording(copy)
     this.overlayPlaceholder().isDisplayed()
     this.progressSteps().isDisplayed()
-    this.userIsToldToKeepStill(copy)
+    this.verifyUserIsToldToKeepStillLabel(copy)
     this.nextStepButtonIsNotSeen()
     this.nextStepButtonIsClicked(copy)
     this.successTick().isDisplayed()
   }
 
-  async userCompletesAnssiFlowForUKResidentPermit(copy) {
+  async userCompletesAnssiFlowForResidentPermit(copy) {
     this.startRecording(copy)
     this.progressSteps().isDisplayed()
     this.nextStepButtonIsClicked(copy)

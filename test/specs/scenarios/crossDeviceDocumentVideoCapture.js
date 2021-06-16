@@ -53,7 +53,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         driver.sleep(1000)
       }
 
-      const userStartsCrossDeviceFlowForItalianIdCard = async () => {
+      const userStartsCrossDeviceFlowForIdCard = async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
@@ -63,7 +63,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         await runThroughCrossDeviceFlowForDocumentVideoCapture(copy)
       }
 
-      const userStartsCrossDeviceFlowForUKResidentPermit = async () => {
+      const userStartsCrossDeviceFlowForResidentPermit = async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnResidencePermitIcon()
@@ -74,8 +74,8 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
       }
 
       const userCompletesAnssiFlowForUKResidentPermit = async () => {
-        await userStartsCrossDeviceFlowForUKResidentPermit()
-        documentVideoCapture.userCompletesAnssiFlowForUKResidentPermit(copy)
+        await userStartsCrossDeviceFlowForResidentPermit()
+        documentVideoCapture.userCompletesAnssiFlowForResidentPermit(copy)
         documentVideoConfirm.userIsShownConfirmationDetails(copy)
       }
 
@@ -98,7 +98,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         }
       })
 
-      it('should start the ANSSI flow for Passport flow and attempts to upload @percy', async () => {
+      it('should start the ANSSI flow for Passport flow and attempt to upload @percy', async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -124,7 +124,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoCapture.successTick().isDisplayed()
         await takePercySnapshotWithoutOverlay(
           driver,
-          `User see's the success tick for Passport flow ${lang}`
+          `User sees the success tick for Passport flow ${lang}`
         )
         documentVideoConfirm.userIsShownConfirmationDetails(copy)
         await takePercySnapshot(
@@ -134,8 +134,8 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
-      it('should start the ANSSI flow for Identity card flow and attempts to upload @percy', async () => {
-        userStartsCrossDeviceFlowForItalianIdCard(copy)
+      it('should start the ANSSI flow for Identity Card flow and attempt to upload @percy', async () => {
+        userStartsCrossDeviceFlowForIdCard(copy)
         documentVideoCapture.overlayPlaceholder().isDisplayed()
         documentVideoCapture.paperOrPlasticCardSelectorSeenForIdCard(copy)
         await takePercySnapshotWithoutOverlay(
@@ -162,7 +162,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
-      it('should start the ANSSI flow for Drivers license flow and attempts to upload @percy', async () => {
+      it('should start the ANSSI flow for Drivers license flow and attempt to upload @percy', async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
@@ -198,8 +198,8 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
-      it('should start the ANSSI flow for Residence permit flow and attempts to upload @percy', async () => {
-        userStartsCrossDeviceFlowForUKResidentPermit()
+      it('should start the ANSSI flow for Residence permit flow and attempt to upload @percy', async () => {
+        userStartsCrossDeviceFlowForResidentPermit()
         documentVideoCapture.cardOverlay().isDisplayed()
         documentVideoCapture.userIsToldToKeepTheFrontSideOfTheDocumentWithinTheFrame(
           copy
@@ -221,7 +221,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
       })
 
       it('should show "Camera not working" error in ANSSI flow @percy', async () => {
-        userStartsCrossDeviceFlowForItalianIdCard(copy)
+        userStartsCrossDeviceFlowForIdCard(copy)
         documentVideoCapture.overlayPlaceholder().isDisplayed()
         documentVideoCapture.userIsShownCameraNotWorkingError(copy)
         await takePercySnapshotWithoutOverlay(
@@ -233,10 +233,10 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
       })
 
       it('should show "Looks like you took too long error" in ANSSI flow @percy @longtest', async () => {
-        userStartsCrossDeviceFlowForUKResidentPermit()
+        userStartsCrossDeviceFlowForResidentPermit()
         documentVideoCapture.cardOverlay().isDisplayed()
         documentVideoCapture.startRecording(copy)
-        documentVideoCapture.nextStepButtonIsSeen(copy)
+        documentVideoCapture.verifyNextStepButtonLabel(copy)
         documentVideoCapture.userIsShownLooksLikeYouTookTooLongError(copy)
         await takePercySnapshotWithoutOverlay(
           driver,
