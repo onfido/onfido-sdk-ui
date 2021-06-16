@@ -28,6 +28,7 @@ const MobileNotificationSent = ({ sms, translate, previousStep }) => (
       </div>
       <a
         href="#"
+        role="button"
         className={`${theme.link} ${style.cancel}`}
         onClick={preventDefaultOnClick(previousStep)}
       >
