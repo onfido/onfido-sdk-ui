@@ -23,6 +23,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Upgrade Preact from version `10.5.4` to `10.5.13` in order to resolve an unhandled exception on reinitialising the SDK after closing the SDK modal for some integrations when using Modal mode.
 - Public: Fix Country Selection screen not displaying when SDK is initialised with boolean `documentTypes` configuration.
+- Public: Fixed issue where `onComplete` callback was fired without the necessary data for the `face` step. Added exception to `onError` callback to inform that `onComplete` could not be fired due to missing data.
 
 ## [6.9.0] - 2021-05-24
 
