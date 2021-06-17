@@ -13,7 +13,7 @@ import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
-import type { ApiParsedError, ErrorCallback } from '~types/api'
+import type { ParsedError, ErrorCallback } from '~types/api'
 import type { ExtendedStepTypes, FlowVariants } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
 import type {
@@ -21,6 +21,7 @@ import type {
   ChangeFlowProp,
   HistoryRouterProps,
 } from '~types/routers'
+import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes } from '~types/steps'
 
 type FormattedError = {
@@ -134,18 +135,41 @@ export default class HistoryRouter extends Component<
   triggerOnComplete = (): void => {
     const { captures } = this.props
 
-    const data = (Object.keys(captures) as CaptureKeys[]).reduce(
+    const expectedCaptureKeys: CaptureKeys[] = [
+      'document_front',
+      'document_back',
+      'face',
+    ]
+
+    const data: SdkResponse = (Object.keys(captures) as CaptureKeys[]).reduce(
       (acc, key) => ({
         ...acc,
         [key]: captures[key]?.metadata,
       }),
       {}
     )
+    const keysWithMissingData: Array<string> = []
+
+    expectedCaptureKeys.forEach((key) => {
+      if (key in data && data[key] === undefined) {
+        keysWithMissingData.push(key)
+      }
+    })
+
+    if (keysWithMissingData.length) {
+      this.triggerOnError({
+        response: {
+          type: 'exception',
+          message: `The following keys have missing data: ${keysWithMissingData}`,
+        },
+      })
+      return
+    }
 
     this.props.options.events?.emit('complete', data)
   }
 
-  formattedError = ({ response, status }: ApiParsedError): FormattedError => {
+  formattedError = ({ response, status }: ParsedError): FormattedError => {
     const errorResponse = response.error || response || {}
 
     const isExpiredTokenError =

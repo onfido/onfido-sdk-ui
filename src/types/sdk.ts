@@ -15,9 +15,9 @@ type FaceResponse = {
 }
 
 export type SdkResponse = {
-  document_front: DocumentResponse
+  document_front?: DocumentResponse
   document_back?: DocumentResponse
-  face: FaceResponse
+  face?: FaceResponse
 }
 
 export type SdkError = {
