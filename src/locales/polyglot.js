@@ -29,7 +29,7 @@ const availableTranslations = {
   de_DE,
   fr_FR,
   it_IT,
-  pt_PT
+  pt_PT,
 }
 
 const mobilePhrases = () => {
