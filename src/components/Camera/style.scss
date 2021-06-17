@@ -60,7 +60,7 @@
   }
 
   // Set object-fit: cover if Live Doc Capture is being viewed from a desktop (e.g. responsive device emulator)
-  .docLiveCaptureFrameCoverFit {
+  .docLiveCaptureFrameCoverFit & {
     object-fit: cover;
   }
 }
