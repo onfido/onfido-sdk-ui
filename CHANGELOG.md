@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Internal: Added note about lockfileVersion and npm version requirement for SDK contributors in CONTRIBUTING.md documentation.
+- Public: Added support for Italian `it_IT` and Portuguese `pt_PT`.
 
 ### Changed
 
