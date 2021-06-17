@@ -41,7 +41,7 @@ class Face extends Component {
   }
 
   handleCapture = (payload) => {
-    const { actions, mobileFlow } = this.props
+    const { actions, nextStep, mobileFlow } = this.props
     const id = randomId()
     const faceCaptureData = {
       ...defaultPayload,
@@ -50,8 +50,7 @@ class Face extends Component {
       id,
     }
     actions.createCapture(faceCaptureData)
-
-    this.props.nextStep()
+    nextStep()
   }
 
   handleVideoCapture = (payload) =>

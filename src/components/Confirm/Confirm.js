@@ -339,7 +339,7 @@ class Confirm extends Component {
   }
 
   onRetake = () => {
-    const { actions, previousStep, method, side } = this.props
+    const { actions, previousStep } = this.props
 
     // Retake on image quality error, increase image quality retries
     const isImageQualityError = Object.keys(IMAGE_QUALITY_KEYS_MAP).find(
@@ -349,8 +349,6 @@ class Confirm extends Component {
     if (isImageQualityError && this.state.error.type === 'error') {
       actions.retryForImageQuality()
     }
-
-    actions.deleteCapture({ method, side })
 
     previousStep()
   }
