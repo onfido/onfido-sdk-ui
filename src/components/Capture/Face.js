@@ -49,16 +49,9 @@ class Face extends Component {
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
       id,
     }
+    actions.createCapture(faceCaptureData)
 
-    if (!this.props.captures.face) {
-      actions.createCapture(faceCaptureData)
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.props.captures.face) {
-      this.props.nextStep()
-    }
+    this.props.nextStep()
   }
 
   handleVideoCapture = (payload) =>
