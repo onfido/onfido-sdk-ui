@@ -8,6 +8,8 @@
 /* For viewport larger than iPhone 5 in terms of height */
 @custom-media --long-viewport (min-height: 568px);
 
+/* For devices with very high pixel density/ratio, e.g. iPhone 6+, 7+ and 8+, Google Pixel, Huawei P40 */
 @custom-media --high-pixel-density (-webkit-min-device-pixel-ratio: 3);
 
+/* For medium-lower spec devices with standard density/ratio */
 @custom-media --below-high-pixel-density (-webkit-max-device-pixel-ratio: 2);
