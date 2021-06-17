@@ -36,6 +36,7 @@ export default class SelfieCapture extends Component {
     hasCameraError: false,
     snapshotBuffer: [],
     isCaptureButtonDisabled: true,
+    isProcessingSelfie: false,
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -57,7 +58,7 @@ export default class SelfieCapture extends Component {
       ? { snapshot, ...selfie }
       : selfie
     this.props.onCapture(captureData)
-    this.setState({ isCaptureButtonDisabled: false })
+    this.setState({ isCaptureButtonDisabled: false, isProcessingSelfie: false })
   }
 
   handleSnapshot = (blob) => {
@@ -75,14 +76,18 @@ export default class SelfieCapture extends Component {
     const snapshot =
       this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
 
-    snapshot?.blob &&
+    if (
+      snapshot?.blob &&
       this.state.isCaptureButtonDisabled &&
+      !this.state.isProcessingSelfie
+    ) {
       this.setState({ isCaptureButtonDisabled: false })
+    }
     this.webcam && screenshot(this.webcam, this.handleSnapshot)
   }
 
   takeSelfie = () => {
-    this.setState({ isCaptureButtonDisabled: true })
+    this.setState({ isProcessingSelfie: true, isCaptureButtonDisabled: true })
     screenshot(this.webcam, this.handleSelfie)
   }
 

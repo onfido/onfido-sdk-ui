@@ -52,13 +52,13 @@ type ValidationError = {
   fields: Partial<Record<ValidationReasons, string[]>>
 }
 
-export type ApiParsedError = {
+export type ParsedError = {
   response: {
     error?: AuthorizationError | ExpiredTokenError | ValidationError
     type?: string
     message?: string
   }
-  status: number
+  status?: number
 }
 
 /* Responses */
@@ -163,4 +163,4 @@ export type ValidateDocumentResponse = {
 /* Callbacks */
 
 export type SuccessCallback<T> = (response: T) => void
-export type ErrorCallback = (error: ApiParsedError) => void
+export type ErrorCallback = (error: ParsedError) => void
