@@ -64,7 +64,7 @@ type UnknownError = {
   type: typeof API_ERROR_UNKNOWN
 } & ApiErrorPayload
 
-export type ApiParsedError = {
+export type ParsedError = {
   response: {
     error?:
       | AuthorizationError
@@ -75,7 +75,7 @@ export type ApiParsedError = {
     type?: string
     message?: string
   }
-  status: number
+  status?: number
 }
 
 /* Responses */
@@ -209,4 +209,4 @@ export type CreateV4DocumentResponse = {
 /* Callbacks */
 
 export type SuccessCallback<T> = (response: T) => void
-export type ErrorCallback = (error: ApiParsedError) => void
+export type ErrorCallback = (error: ParsedError) => void

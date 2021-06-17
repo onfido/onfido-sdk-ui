@@ -285,6 +285,7 @@ Callback that fires when an error occurs. The callback returns the following err
   - timeout and server errors
   - authorization
   - invalid token
+  - missing data in `onComplete` callback
   - [Auth] exception handling API response
 
   This data can be used for debugging purposes.

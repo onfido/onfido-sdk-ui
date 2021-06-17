@@ -1,7 +1,7 @@
 import { h, Component, ComponentType } from 'preact'
 import { isDesktop } from '~utils'
 
-import { ApiParsedError } from '~types/api'
+import { ParsedError } from '~types/api'
 import type {
   StepComponentDocumentProps,
   StepComponentFaceProps,
@@ -9,7 +9,7 @@ import type {
 
 type CaptureComponentProps = StepComponentDocumentProps | StepComponentFaceProps
 
-const buildError = (message: string): ApiParsedError => {
+const buildError = (message: string): ParsedError => {
   console.warn(message)
 
   return {
