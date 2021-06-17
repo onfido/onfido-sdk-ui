@@ -16,6 +16,7 @@ import type {
   WithTrackingProps,
   WithPermissionsFlowProps,
 } from '~types/hocs'
+import { isDesktop } from '~utils'
 
 // Specify just a camera width (no height) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
@@ -70,6 +71,7 @@ const Camera: FunctionComponent<Props> = ({
     <div
       className={classNames(style.camera, {
         [style.docLiveCaptureFrame]: docLiveCaptureFrame,
+        [style.docLiveCaptureFrameCoverFit]: docLiveCaptureFrame && isDesktop,
         [style.docAutoCaptureFrame]: docAutoCaptureFrame,
       })}
     >

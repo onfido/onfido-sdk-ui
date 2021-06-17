@@ -58,6 +58,11 @@
     //        See MDN documentation https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
     object-fit: initial; // set to browser default, setting to "none" still results in a zoomed in view
   }
+
+  // Set object-fit: cover if Live Doc Capture is being viewed from a desktop (e.g. responsive device emulator)
+  .docLiveCaptureFrameCoverFit {
+    object-fit: cover;
+  }
 }
 
 .actions {
