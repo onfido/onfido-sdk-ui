@@ -9,6 +9,10 @@ export type SupportedLanguages =
   | 'es'
   | 'fr_FR'
   | 'fr'
+  | 'it_IT'
+  | 'it'
+  | 'pt_PT'
+  | 'pt'
 
 export type LocaleConfig = {
   locale?: SupportedLanguages
