@@ -64,7 +64,7 @@ class Face extends Component {
 
   handleError = (error) => {
     this.props.triggerOnError(error)
-    this.props.actions.deleteCapture()
+    this.props.actions.deleteCapture({ method: 'face' })
   }
 
   handleFallbackClick = (callback) => {
