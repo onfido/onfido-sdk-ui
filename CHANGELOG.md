@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.10.0]
+
 ### Added
 
 - Internal: Added note about lockfileVersion and npm version requirement for SDK contributors in CONTRIBUTING.md documentation.
@@ -1003,7 +1005,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.0...development
+[6.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...6.10.0
 [6.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.8.0...6.9.0
 [6.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.2...6.8.0
 [6.7.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.1...6.7.2
