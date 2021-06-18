@@ -200,7 +200,9 @@ export type Props = {
  *
  * The boolean `upperScreen` param indicates whether
  * the overlay should be placed at the middle of screen
- * or slightly above (middle of the upper half of the screen)
+ * or slightly above (middle of the upper half of the screen).
+ * Theoretically we can make this dynamically (a number param instead of boolean),
+ * but it will lead to unnecessary complexity in SVG measurement computation.
  *
  *       M(0,0)
  *          ====>====>====>====>====>====>
