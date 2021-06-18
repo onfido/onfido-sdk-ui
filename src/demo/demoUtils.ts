@@ -516,10 +516,12 @@ export const createCheckIfNeeded = (
     ? submittedData?.document_video?.media_uuids
     : undefined
 
+  const documentReport = docVideo ? 'document_video_capture' : 'document'
+
   const body = {
     applicant_id: applicantId,
     report_names: [
-      poa ? 'proof_of_address' : 'document',
+      poa ? 'proof_of_address' : documentReport,
       faceVideo ? 'facial_similarity_video' : 'facial_similarity_photo',
     ],
     document_ids: documentIds,

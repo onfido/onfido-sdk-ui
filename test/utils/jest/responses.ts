@@ -1,7 +1,7 @@
 import {
-  ApiParsedError,
-  DocumentImageResponse,
   CreateV4DocumentResponse,
+  DocumentImageResponse,
+  ParsedError,
 } from '~types/api'
 
 /**
@@ -127,7 +127,7 @@ export const fakeDrivingLicenceBackResponse: DocumentImageResponse = {
   download_href: '/v3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d/download',
 }
 
-export const fakeNoDocumentError: ApiParsedError = {
+export const fakeNoDocumentError: ParsedError = {
   response: {
     error: {
       type: 'validation_error',
@@ -138,7 +138,7 @@ export const fakeNoDocumentError: ApiParsedError = {
   status: 422,
 }
 
-export const fakeUnknownError: ApiParsedError = {
+export const fakeUnknownError: ParsedError = {
   response: {
     error: {
       type: 'unknown',
@@ -174,7 +174,7 @@ export const fakeCreateV4DocumentResponse: CreateV4DocumentResponse = {
   document_type: 'IDENTITY_DOCUMENT',
 }
 
-export const fakeAccessDeniedError: ApiParsedError = {
+export const fakeAccessDeniedError: ParsedError = {
   response: {
     error: {
       type: 'ACCESS_DENIED',

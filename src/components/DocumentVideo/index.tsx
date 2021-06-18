@@ -5,6 +5,7 @@ import Webcam from 'react-webcam-onfido'
 
 import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
+import { DOC_VIDEO_CAPTURE } from '~utils/constants'
 import { getInactiveError } from '~utils/inactiveError'
 import { trackException } from 'Tracker'
 import DocumentOverlay from '../Overlay/DocumentOverlay'
@@ -76,7 +77,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const [captureFlow, setCaptureFlow] = useState(
     getCaptureFlow(documentType, issuingCountryData?.country_alpha2)
   )
-  const [showOverlayPlaceholder, setShowOverlayPlaceholder] = useState(false)
+  const [showOverlayPlaceholder, setShowOverlayPlaceholder] = useState(true)
   const [flowComplete, setFlowComplete] = useState(false)
 
   /**
@@ -98,6 +99,13 @@ const DocumentVideo: FunctionComponent<Props> = ({
     undefined
   )
   const webcamRef = useRef<Webcam>()
+
+  useEffect(() => {
+    setTimeout(
+      () => setShowOverlayPlaceholder(false),
+      DOC_VIDEO_CAPTURE.CAMERA_OVERLAY_TIMEOUT
+    )
+  }, [])
 
   useEffect(() => {
     if (!flowComplete) {
@@ -173,8 +181,11 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const captureControlsProps = {
     documentType,
     flowRestartTrigger,
-    onStepChange: (step: CaptureSteps) =>
-      setShowOverlayPlaceholder(step === 'intro'),
+    onStepChange: (step: CaptureSteps) => {
+      if (showOverlayPlaceholder && step !== 'intro') {
+        setShowOverlayPlaceholder(false)
+      }
+    },
     onSubmit: () => setFlowComplete(true),
   }
 

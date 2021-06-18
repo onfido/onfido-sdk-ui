@@ -91,4 +91,4 @@ export type CaptureState = {
   }
 }
 
-export type CaptureKeys = keyof CaptureState
+export type CaptureKeys = Exclude<keyof CaptureState, 'takesHistory'>

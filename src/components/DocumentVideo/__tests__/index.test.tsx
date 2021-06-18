@@ -35,9 +35,10 @@ const EXPECTED_VIDEO_CAPTURE = {
 
 const EXPECTED_DOC_VIDEO_CAPTURE = {
   BUTTON_VISIBILITY_TIMEOUT: 3000,
+  CAMERA_OVERLAY_TIMEOUT: 3000,
+  HOLDING_STILL_TIMEOUT: 6000,
   SUCCESS_STATE_TIMEOUT: 2000,
   SUCCESS_STATE_VIBRATION: 500,
-  HOLDING_STILL_TIMEOUT: 6000,
 }
 
 const defaultProps: DocumentVideoProps = {
@@ -207,8 +208,14 @@ describe('DocumentVideo', () => {
     it('renders the video capture by default', () =>
       assertIntroStep(wrapper, false))
 
-    it('renders overlay correctly', () =>
-      assertOverlay(wrapper, 'driving_licence', true))
+    it('renders overlay correctly', () => {
+      assertOverlay(wrapper, 'driving_licence', true)
+      jest.advanceTimersByTime(
+        EXPECTED_DOC_VIDEO_CAPTURE.CAMERA_OVERLAY_TIMEOUT
+      )
+      wrapper.update()
+      assertOverlay(wrapper, 'driving_licence', false)
+    })
 
     describe('when recording', () => {
       beforeEach(() => simulateButtonClick(wrapper))
