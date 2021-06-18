@@ -78,7 +78,14 @@ export type CaptureState = {
   document_video?: DocumentCapture & MetadataState
   face?: FaceCapture & MetadataState
 
-  // Timestamps of all the images taken within the current session
+  /**
+   * Timestamps of all the images taken within the current session
+   * A "take" means when a document was captured (not necessarily uploaded yet),
+   * while a "frame" is more about the data itself.
+   * Apparently "takes" are purely for analytics events,
+   * something we really want to know about when comparing across user sessions,
+   * such as how many times on average a user need to capture & upload a "good quality" document.
+   */
   takesHistory: {
     document_front: string[]
     document_back: string[]

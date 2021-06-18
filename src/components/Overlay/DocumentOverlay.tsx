@@ -198,6 +198,10 @@ export type Props = {
  *  - h<length>: draw a horizontal line from the current point with <length>,
  *               <length> < 0 means reversed direction.
  *
+ * The boolean `upperScreen` param indicates whether
+ * the overlay should be placed at the middle of screen
+ * or slightly above (middle of the upper half of the screen)
+ *
  *       M(0,0)
  *          ====>====>====>====>====>====>
  *          ⇑                            ‖
