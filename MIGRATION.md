@@ -76,8 +76,6 @@ Only the **Spanish**, **German**, and **French** copy for the following string(s
 
 ### Added strings
 
-The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has been added:
-
 - `auth_accessibility.back_button`
 - `auth_cam_encrypt.loader`
 - `auth_cam_start.loader`
