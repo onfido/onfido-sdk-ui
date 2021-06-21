@@ -270,7 +270,7 @@
         "info_qr_how": "So scannen Sie einen QR-Code",
         "info_qr_how_list_item_camera": "Richten Sie die Kamera Ihres Telefons auf den QR-Code",
         "info_qr_how_list_item_download": "Wenn es nicht funktioniert, laden Sie einen QR-Code-Scanner von Google Play oder aus dem App Store herunter",
-        "link_divider": "oder",
+        "link_divider": "oder wählen Sie eine dieser Alternativen",
         "link_qr": "QR-Code scannen",
         "link_sms": "Link per SMS erhalten",
         "link_url": "Link kopieren",
@@ -308,7 +308,7 @@
         }
     },
     "outro": {
-        "body": "That’s all we need to start verifying your identity",
+        "body": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen",
         "title": "Danke"
     },
     "permission_recovery": {
@@ -343,7 +343,7 @@
         "title_selfie": "Selfie"
     },
     "poa_guidance": {
-        "button_primary": "Fortfahren",
+        "button_primary": "Continue",
         "instructions": {
             "address": "Current address",
             "full_name": "Full name",
@@ -447,6 +447,7 @@
         "body_record": "Drücken Sie die Taste, wenn Sie bereit sind",
         "button_primary_finish": "Aufnahme beenden",
         "button_primary_next": "Nächster Schritt",
+        "button_primary_start": "Aufnahme starten",
         "button_record_accessibility": "Aufnahme starten",
         "frame_accessibility": "Ansicht von der Kamera",
         "header": {
