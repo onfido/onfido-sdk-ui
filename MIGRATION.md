@@ -74,6 +74,8 @@ Only the **Spanish**, **German**, and **French** copy for the following string(s
 
 ## `6.8.0` -> `6.9.0`
 
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
 ### Added strings
 
 - `auth_accessibility.back_button`
