@@ -150,8 +150,6 @@ The **English** copy for the following string(s) has been added:
 
 ### Added strings
 
-The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
-
 The **English** copy for the following string(s) has been added:
 
 `user_consent.button_primary`
