@@ -510,9 +510,9 @@
     "welcome": {
         "list_header_webcam": "Utilisez votre webcam ou mobile pour prendre en photo :",
         "list_item_doc": "votre document d’identité",
+        "list_item_doc_video_timeout": "L'enregistrement est limité à <timeout><\/timeout> secondes",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "votre visage",
-        "list_item_doc_video_timeout": "L'enregistrement est limité à <timeout><\/timeout> secondes",
         "next_button": "Sélectionner un document",
         "subtitle": "Cela ne prendra que quelques minutes",
         "title": "Vérification d’identité"

@@ -384,6 +384,7 @@
     "welcome": {
         "list_header_webcam": "Usa la webcam o il telefono per fotografare:",
         "list_item_doc": "il tuo documento d’identità",
+        "list_item_doc_video_timeout": "La registrazione ha un limite di <timeout><\/timeout> secondi",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "il tuo viso",
         "next_button": "Seleziona documento",
