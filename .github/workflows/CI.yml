@@ -56,14 +56,13 @@ jobs:
           dedupe_issues: true
 
       - name: Run build
-        # Legacy: For "$NODE_ENV" == "production" Surge uses the NODE_ENV=test + TEST_ENV=deployment
         run: |
           if [ ${{ matrix.NODE_ENV}} == "test" ]
           then
             npm run build:test
           elif [ ${{ matrix.NODE_ENV }} == "production" ]
           then
-            TEST_ENV=deployment npm run build:test
+            npm run build:deployment
           elif [ ${{ matrix.NODE_ENV }}  == "staging" ]
           then
             NODE_ENV=staging npm run build

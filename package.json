@@ -16,6 +16,7 @@
     "build:auth": "SDK_ENV=Auth webpack --quiet --display-error-details --bail",
     "build:dev": "NODE_ENV=development npm run build",
     "build:test": "NODE_ENV=test npm run build && npm run mock-server:build",
+    "build:deployment": "TEST_ENV=deployment NODE_ENV=test npm run build && npm run build:auth",
     "build:all": "npm run build && npm run build:auth",
     "postbuild": "dts-bundle-generator src/types/index.ts --out-file lib/index.d.ts",
     "mkdirs": "mkdir -p dist && mkdir -p lib",
