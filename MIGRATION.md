@@ -2,7 +2,7 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `6.9.0` -> [latest-version]
+## `6.9.0` -> `6.10.0`
 
 ### Added strings
 
@@ -74,9 +74,9 @@ Only the **Spanish**, **German**, and **French** copy for the following string(s
 
 ## `6.8.0` -> `6.9.0`
 
-### Added strings
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
 
-The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has been added:
+### Added strings
 
 - `auth_accessibility.back_button`
 - `auth_cam_encrypt.loader`
@@ -151,8 +151,6 @@ The **English** copy for the following string(s) has been added:
 ## `6.5.0` -> `6.6.0`
 
 ### Added strings
-
-The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
 
 The **English** copy for the following string(s) has been added:
 

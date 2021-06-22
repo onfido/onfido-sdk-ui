@@ -10,15 +10,30 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+### Changed
+
+- UI: Accessibility - Add ARIA role `button` to "Resend link" and "Cancel" links on Cross Device flow SMS Sent, Mobile Connected screens.
+
+### Fixed
+
+## [6.10.0]
+
+### Added
+
 - Internal: Added note about lockfileVersion and npm version requirement for SDK contributors in CONTRIBUTING.md documentation.
 - Public: Added support for Italian `it_IT` and Portuguese `pt_PT`.
+- Internal: Added support for visual regression testing using Percy.
+- Internal: Resolved inaccurate reporting on test automation failures.
+- Internal: Added ability to execute/ignore tests via the use of tags/regex.
 
 ### Changed
 
+- UI: Update Face Liveness Video Challenge screen UI
 - UI: Updated default Welcome screen UI
 - Public: Move documentation for SDK UI Customizations and Premium Enterprise Features into separate Markdown files to reduce README size
 - Public: Updated SDK copy for English (en_US), Spanish (es_ES), French (fr_FR) and German (de_DE). For details on what keys/copy have changed please refer to the MIGRATION.md documentation.
-- UI: Accessibility - Add ARIA role `button` to "Resend link" and "Cancel" links on Cross Device flow SMS Sent, Mobile Connected screens.
+- Internal: Upgrade sass (Dart Sass) from `1.26.9` to `1.33.0`
+- Internal: Upgrade stylelint from `13.6.1` to `13.13.1` as well as stylelint-config-sass-guidelines from `7.0.0` to `8.0.0` and stylelint-scss from `3.18.0` to `3.19.0`
 
 ### Fixed
 
@@ -36,9 +51,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
-- UI: Update Face Liveness Video Challenge screen UI
-- Internal: Upgrade sass (Dart Sass) from `1.26.9` to `1.33.0`
-- Internal: Upgrade stylelint from `13.6.1` to `13.13.1` as well as stylelint-config-sass-guidelines from `7.0.0` to `8.0.0` and stylelint-scss from `3.18.0` to `3.19.0`
 - Update to module on `tsconfig.json` from `es6` to `esnext`, to allow conditional imports of specific modules (especially useful for Auth/IDV bundle separation).
 
 ### Fixed
@@ -56,10 +68,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added user consent content reload screen
 - Public: When `photoCaptureFallback` option is disabled in the face step, the requested variant is video and browser does not support MediaRecorder, attempt to redirect to the cross-device flow or display the unsupported browser error.
 - Internal: Refactor for better reusability of video capture components.
-- Internal: Added support for testing across multiple browsers.
-- Internal: Added support for visual regression testing using Percy.
-- Internal: Resolved inaccurate reporting on test automation failures.
-- Internal: Added ability to execute/ignore tests via the use of tags/regex.
 
 ### Changed
 
@@ -1004,7 +1012,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.0...development
+[6.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...6.10.0
 [6.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.8.0...6.9.0
 [6.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.2...6.8.0
 [6.7.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.1...6.7.2
