@@ -383,22 +383,6 @@
       "country_alpha2": "AU",
       "country_alpha3": "AUS",
       "document_type": "DLD",
-      "id": 2951,
-      "region_iso": "QLD",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2010"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Australia",
-      "country_alpha2": "AU",
-      "country_alpha3": "AUS",
-      "document_type": "DLD",
       "id": 2952,
       "region_iso": "ACT",
       "usecases": [
@@ -909,42 +893,6 @@
       "country_alpha2": "AU",
       "country_alpha3": "AUS",
       "document_type": "DLD",
-      "id": 10066,
-      "municipality": null,
-      "region_iso": "QLD",
-      "region_name": "Queensland",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2010"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Australia",
-      "country_alpha2": "AU",
-      "country_alpha3": "AUS",
-      "document_type": "DLD",
-      "id": 10067,
-      "municipality": null,
-      "region_iso": "QLD",
-      "region_name": "Queensland",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2010 1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Australia",
-      "country_alpha2": "AU",
-      "country_alpha3": "AUS",
-      "document_type": "DLD",
       "id": 10068,
       "municipality": null,
       "region_iso": "ACT",
@@ -1089,14 +1037,14 @@
       "country_alpha2": "AU",
       "country_alpha3": "AUS",
       "document_type": "DLD",
-      "id": 10076,
+      "id": 10055,
       "municipality": null,
-      "region_iso": "QLD",
-      "region_name": "Queensland",
+      "region_iso": "VIC",
+      "region_name": "Victoria",
       "usecases": [
         "verify"
       ],
-      "version": "2010"
+      "version": "2"
     }
   },
   {
@@ -1107,14 +1055,68 @@
       "country_alpha2": "AU",
       "country_alpha3": "AUS",
       "document_type": "DLD",
-      "id": 10055,
+      "id": 2951,
       "municipality": null,
-      "region_iso": "VIC",
-      "region_name": "Victoria",
+      "region_iso": "QLD",
+      "region_name": "Queensland",
       "usecases": [
         "verify"
       ],
-      "version": "2"
+      "version": "2010 2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Australia",
+      "country_alpha2": "AU",
+      "country_alpha3": "AUS",
+      "document_type": "DLD",
+      "id": 10066,
+      "municipality": null,
+      "region_iso": "QLD",
+      "region_name": "Queensland",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010 2.1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Australia",
+      "country_alpha2": "AU",
+      "country_alpha3": "AUS",
+      "document_type": "DLD",
+      "id": 10067,
+      "municipality": null,
+      "region_iso": "QLD",
+      "region_name": "Queensland",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010 2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Australia",
+      "country_alpha2": "AU",
+      "country_alpha3": "AUS",
+      "document_type": "DLD",
+      "id": 10076,
+      "municipality": null,
+      "region_iso": "QLD",
+      "region_name": "Queensland",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010 2"
     }
   },
   {
@@ -3039,24 +3041,6 @@
       "country_alpha2": "EE",
       "country_alpha3": "EST",
       "document_type": "DLD",
-      "id": 4628,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2007"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Estonia | Eesti",
-      "country_alpha2": "EE",
-      "country_alpha3": "EST",
-      "document_type": "DLD",
       "id": 9428,
       "municipality": null,
       "region_iso": null,
@@ -3861,6 +3845,24 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
+      "country": "Guernsey",
+      "country_alpha2": "GG",
+      "country_alpha3": "GGY",
+      "document_type": "DLD",
+      "id": 10210,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
       "country": "Guinea | Guinée",
       "country_alpha2": "GN",
       "country_alpha3": "GIN",
@@ -4401,14 +4403,16 @@
   },
   {
     "sourceData": {
-      "back_required": false,
+      "back_required": true,
       "common_name": null,
       "country": "Jamaica",
       "country_alpha2": "JM",
       "country_alpha3": "JAM",
       "document_type": "DLD",
       "id": 5203,
+      "municipality": null,
       "region_iso": null,
+      "region_name": null,
       "usecases": [
         "verify"
       ],
@@ -7313,22 +7317,6 @@
       "country_alpha2": "PL",
       "country_alpha3": "POL",
       "document_type": "DLD",
-      "id": 4404,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Poland | Polska",
-      "country_alpha2": "PL",
-      "country_alpha3": "POL",
-      "document_type": "DLD",
       "id": 4172,
       "region_iso": null,
       "usecases": [
@@ -7353,6 +7341,24 @@
         "verify"
       ],
       "version": "1999"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Poland | Polska",
+      "country_alpha2": "PL",
+      "country_alpha3": "POL",
+      "document_type": "DLD",
+      "id": 10235,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
     }
   },
   {
@@ -7396,7 +7402,9 @@
       "country_alpha3": "PRI",
       "document_type": "DLD",
       "id": 5570,
+      "municipality": null,
       "region_iso": null,
+      "region_name": null,
       "usecases": [
         "verify"
       ],
@@ -8512,6 +8520,42 @@
   },
   {
     "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Ukraine | Ukraїna",
+      "country_alpha2": "UA",
+      "country_alpha3": "UKR",
+      "document_type": "DLD",
+      "id": 3961,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1998"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Ukraine | Ukraїna",
+      "country_alpha2": "UA",
+      "country_alpha3": "UKR",
+      "document_type": "DLD",
+      "id": 3962,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
       "back_required": false,
       "common_name": null,
       "country": "United Arab Emirates | الإمارات العربية المتحدة",
@@ -8771,6 +8815,114 @@
         "verify"
       ],
       "version": "2021"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "country_alpha2": "GB",
+      "country_alpha3": "GBR",
+      "document_type": "DLD",
+      "id": 10226,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "country_alpha2": "GB",
+      "country_alpha3": "GBR",
+      "document_type": "DLD",
+      "id": 10227,
+      "municipality": null,
+      "region_iso": "WLS",
+      "region_name": "Wales",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "country_alpha2": "GB",
+      "country_alpha3": "GBR",
+      "document_type": "DLD",
+      "id": 10228,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "country_alpha2": "GB",
+      "country_alpha3": "GBR",
+      "document_type": "DLD",
+      "id": 10229,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "country_alpha2": "GB",
+      "country_alpha3": "GBR",
+      "document_type": "DLD",
+      "id": 10230,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "country_alpha2": "GB",
+      "country_alpha3": "GBR",
+      "document_type": "DLD",
+      "id": 10231,
+      "municipality": null,
+      "region_iso": "WLS",
+      "region_name": "Wales",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
     }
   },
   {
@@ -9763,22 +9915,6 @@
         "verify"
       ],
       "version": "2016"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 5260,
-      "region_iso": "VT",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2019"
     }
   },
   {
@@ -14103,24 +14239,6 @@
       "country_alpha2": "US",
       "country_alpha3": "USA",
       "document_type": "DLD",
-      "id": 9068,
-      "municipality": null,
-      "region_iso": "MP",
-      "region_name": "Northern Mariana Islands",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2005"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
       "id": 9069,
       "municipality": null,
       "region_iso": "MP",
@@ -14200,6 +14318,60 @@
       "usecases": [
         "verify",
         "driving_information"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 9068,
+      "municipality": null,
+      "region_iso": "MP",
+      "region_name": "Northern Mariana Islands",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 5260,
+      "municipality": null,
+      "region_iso": "VT",
+      "region_name": "Vermont",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 10223,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
       ],
       "version": "2019"
     }
