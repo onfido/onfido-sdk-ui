@@ -217,24 +217,6 @@
       "country_alpha2": "AU",
       "country_alpha3": "AUS",
       "document_type": "NIC",
-      "id": 9830,
-      "municipality": null,
-      "region_iso": "QLD",
-      "region_name": "Queensland",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2010"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Australia",
-      "country_alpha2": "AU",
-      "country_alpha3": "AUS",
-      "document_type": "NIC",
       "id": 10077,
       "municipality": null,
       "region_iso": "WA",
@@ -375,6 +357,24 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
+      "country": "Australia",
+      "country_alpha2": "AU",
+      "country_alpha3": "AUS",
+      "document_type": "NIC",
+      "id": 9830,
+      "municipality": null,
+      "region_iso": "QLD",
+      "region_name": "Queensland",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010 1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
       "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
@@ -476,7 +476,9 @@
       "country_alpha3": "AZE",
       "document_type": "NIC",
       "id": 5871,
+      "municipality": null,
       "region_iso": null,
+      "region_name": null,
       "usecases": [
         "verify"
       ],
@@ -761,6 +763,24 @@
         "verify"
       ],
       "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 10214,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2020"
     }
   },
   {
@@ -3600,6 +3620,24 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
+      "country": "Kyrgyzstan | Кыргызстан",
+      "country_alpha2": "KG",
+      "country_alpha3": "KGZ",
+      "document_type": "NIC",
+      "id": 9883,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
       "country": "Latvia | Latvija",
       "country_alpha2": "LV",
       "country_alpha3": "LVA",
@@ -4528,7 +4566,7 @@
   },
   {
     "sourceData": {
-      "back_required": false,
+      "back_required": true,
       "common_name": "Overseas ",
       "country": "Pakistan | پاکستان",
       "country_alpha2": "PK",
@@ -5593,14 +5631,16 @@
   },
   {
     "sourceData": {
-      "back_required": false,
+      "back_required": true,
       "common_name": null,
       "country": "Thailand | ประเทศไทย",
       "country_alpha2": "TH",
       "country_alpha3": "THA",
       "document_type": "NIC",
       "id": 5179,
+      "municipality": null,
       "region_iso": null,
+      "region_name": null,
       "usecases": [
         "verify"
       ],
@@ -9619,6 +9659,24 @@
   },
   {
     "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Viet Nam | Việt Nam",
+      "country_alpha2": "VN",
+      "country_alpha3": "VNM",
+      "document_type": "NIC",
+      "id": 5182,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Viet Nam | Việt Nam",
@@ -9626,23 +9684,9 @@
       "country_alpha3": "VNM",
       "document_type": "NIC",
       "id": 5962,
+      "municipality": null,
       "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2012"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Viet Nam | Việt Nam",
-      "country_alpha2": "VN",
-      "country_alpha3": "VNM",
-      "document_type": "NIC",
-      "id": 5963,
-      "region_iso": null,
+      "region_name": null,
       "usecases": [
         "verify"
       ],
@@ -9657,14 +9701,14 @@
       "country_alpha2": "VN",
       "country_alpha3": "VNM",
       "document_type": "NIC",
-      "id": 5182,
+      "id": 5963,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
       "usecases": [
         "verify"
       ],
-      "version": null
+      "version": "3"
     }
   },
   {

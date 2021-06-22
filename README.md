@@ -460,6 +460,8 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   | German            | `de_DE`    |
   | Spanish           | `es_ES`    |
   | French            | `fr_FR`    |
+  | Italian           | `it_IT`    |
+  | Portuguese        | `pt_PT`    |
 
   Example:
 

@@ -302,7 +302,7 @@
         "info_qr_how": "Cómo escanear un código QR",
         "info_qr_how_list_item_camera": "Apunte la cámara de su teléfono al código QR",
         "info_qr_how_list_item_download": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store",
-        "link_divider": "u",
+        "link_divider": "o seleccione estas alternativas",
         "link_qr": "Escanear código QR",
         "link_sms": "Obtener enlace via mensaje de texto",
         "link_url": "Copiar enlace",
@@ -340,7 +340,7 @@
         }
     },
     "outro": {
-        "body": "That’s all we need to start verifying your identity",
+        "body": "Eso es todo lo que necesitamos para comenzar a verificar su identidad",
         "title": "Gracias"
     },
     "permission_recovery": {
@@ -375,7 +375,7 @@
         "title_selfie": "Selfie"
     },
     "poa_guidance": {
-        "button_primary": "Continuar",
+        "button_primary": "Continue",
         "instructions": {
             "address": "Current address",
             "full_name": "Full name",
