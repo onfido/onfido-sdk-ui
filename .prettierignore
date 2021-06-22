@@ -6,3 +6,4 @@
 /test/mock-server/frontend
 /coverage
 /auth-sdk/FaceTec
+.percy.yml

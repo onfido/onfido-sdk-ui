@@ -1,9 +1,6 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import {
-  testFocusManagement,
-  elementCanReceiveFocus,
-} from '../utils/accessibility'
+import { testFocusManagement } from '../utils/accessibility'
 import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
@@ -30,20 +27,38 @@ class Welcome extends BasePage {
     verifyElementCopy(this.title(), copy.welcome.title)
   }
 
+  async verifyCustomTitle() {
+    verifyElementCopy(this.title(), 'Open your new bank account')
+  }
+
   async verifyFocusManagement() {
     testFocusManagement(this.title(), this.driver)
   }
 
   async verifySubtitle(copy) {
+    verifyElementCopy(this.subtitle(), `${copy.welcome.subtitle}`)
+  }
+
+  async verifyDescriptions(copy) {
     verifyElementCopy(
       this.text(),
-      `${copy.welcome.description_p_1}\n${copy.welcome.description_p_2}`
+      `${copy.welcome.list_header_webcam}\n${copy.welcome.list_item_doc}\n${copy.welcome.list_item_selfie}`
     )
   }
 
-  async verifyIdentityButton(copy) {
+  async verifyCustomDescriptions() {
+    verifyElementCopy(
+      this.text(),
+      `To open a bank account, we will need to verify your identity.\nIt will only take a couple of minutes.`
+    )
+  }
+
+  async verifyPrimaryButton(copy) {
     verifyElementCopy(this.primaryBtn(), copy.welcome.next_button)
-    elementCanReceiveFocus(this.primaryBtn(), this.driver)
+  }
+
+  async verifyCustomPrimaryButton() {
+    verifyElementCopy(this.primaryBtn(), 'Verify Identity')
   }
 
   async verifyFooter() {

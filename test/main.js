@@ -15,9 +15,8 @@ import safari from 'selenium-webdriver/safari'
 import edge from 'selenium-webdriver/edge'
 
 let config
-let browserStackFailures = 0
-let localFailures = 0
-const totalFailures = browserStackFailures + localFailures
+const browsersFailures = {}
+let totalFailures = 0
 
 if (!process.env.CONFIG_FILE) {
   console.error('INFO: CONFIG_FILE not set, so using the default config.json')
@@ -81,7 +80,6 @@ const firefoxOptions = new firefox.Options()
 const safariOptions = new safari.Options().setAcceptInsecureCerts(false)
 
 const edgeOptions = new edge.Options()
-  .setEdgeChromium(true)
   .setAcceptInsecureCerts(true)
   .addArguments('allow-file-access-from-files')
   .addArguments('use-fake-device-for-media-stream')
@@ -131,6 +129,7 @@ const createBrowser = async (browser) => {
 
   isRemoteBrowser = browser.remote
   browserName = browser.browserName
+  browsersFailures[browserName] = 0
 
   if (browser.remote) driver.setFileDetector(new remote.FileDetector())
   const quitAll = async () => {
@@ -166,10 +165,22 @@ const createMocha = (driver, testCase) => {
       assetsDir: './dist/reports/UITestsReport',
     },
     timeout: testCase.timeout,
+    grep: process.env.MOCHA_GREP,
   })
   // By default `require` caches files, making it impossible to require the same file multiple times.
   // Since we want to execute the same tests against many browsers we need to prevent this behaviour by
   // clearing the require cache.
+  if (process.env.MOCHA_GREP) {
+    console.log(
+      `process.env.MOCHA_GREP is set, so running tests with the tags ${process.env.MOCHA_GREP}`
+    )
+  }
+  if (process.env.MOCHA_INVERT) {
+    console.log(
+      `process.env.MOCHA_INVERT is set, so not running tests with the tags ${process.env.MOCHA_INVERT}`
+    )
+    mocha.grep(process.env.MOCHA_INVERT).invert()
+  }
   mocha.suite.beforeAll('Printing out browser config...', function () {
     global.isRemoteBrowser = isRemoteBrowser
     global.browserName = browserName
@@ -178,26 +189,26 @@ const createMocha = (driver, testCase) => {
     )
   })
   mocha.suite.beforeEach('Set retry', function () {
-    this.currentTest.retries(2)
+    this.currentTest.retries(1)
   })
   mocha.suite.afterEach('Capture total number of test failures', function () {
     const currentTestState = this.currentTest.state
     //As we are running a 'single' test as test/specs/chrome.js, we will only be able to report a single error
     //i.e. if we have 3 failures...BS will only log the first one.
     if (isRemoteBrowser && currentTestState === 'failed') {
-      browserStackFailures += 1
+      browsersFailures[browserName] = +1
     }
-    if (currentTestState === 'failed') {
-      localFailures += 1
+    if (isRemoteBrowser === false && currentTestState === 'failed') {
+      browsersFailures[browserName] = +1
     }
   })
   mocha.suite.afterAll('Report test failures to BrowserStack', function () {
-    if (browserStackFailures > 0 && isRemoteBrowser === true) {
+    if (browsersFailures[browserName] > 0 && isRemoteBrowser === true) {
       driver.executeScript(
         `browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "There were test failures!"}}`
       )
     }
-    if (browserStackFailures === 0 && isRemoteBrowser === true) {
+    if (browsersFailures[browserName] === 0 && isRemoteBrowser === true) {
       driver.executeScript(
         `browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "No tests failed!"}}`
       )
@@ -239,18 +250,10 @@ const runner = async () => {
         printTestInfo(browser, testCase)
 
         await mocha.runP()
-
-        if (isRemoteBrowser === true) {
-          console.log(
-            `Number of failures in ${currentBrowser} tests:`,
-            browserStackFailures
-          )
-        } else {
-          console.log(
-            `Number of failures in ${currentBrowser} tests:`,
-            localFailures
-          )
-        }
+        console.log(
+          `Number of failures in ${currentBrowser} tests:`,
+          browsersFailures[browserName]
+        )
 
         await driver.finish()
       } catch (e) {
@@ -259,6 +262,10 @@ const runner = async () => {
       }
     })
   })
+
+  for (const property in browsersFailures) {
+    totalFailures += browsersFailures[property]
+  }
 
   console.log(chalk.green('Tests finished'))
   process.exit(totalFailures > 0 ? 1 : 0)

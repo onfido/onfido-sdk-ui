@@ -96,7 +96,7 @@
         "button_primary": "Dokument einreichen",
         "search": {
             "accessibility": "Land auswählen",
-            "input_placeholder": "z.B. Vereinigte Staaten",
+            "input_placeholder": "z.B. Deutschland",
             "label": "Suche nach Land"
         },
         "title": "Ausstellungsland auswählen"
@@ -108,8 +108,8 @@
         "list_item_doc_one": "Dokument hochgeladen",
         "list_item_selfie": "Selfie hochgeladen",
         "list_item_video": "Video hochgeladen",
-        "subtitle": "Wir sind jetzt bereit, Ihre Identität zu überprüfen",
-        "title": "Großartig, das ist alles, was wir brauchen"
+        "subtitle": "Hier ist alles, was Sie hochgeladen haben:",
+        "title": "Ein letzter Schritt"
     },
     "cross_device_error_desktop": {
         "subtitle": "Der Link funktioniert nur auf mobilen Geräten",
@@ -156,7 +156,7 @@
         "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Schließen",
         "button_primary_redo": "Wiederholen",
-        "button_primary_upload": "Bestätigen",
+        "button_primary_upload": "Hochladen",
         "button_primary_upload_anyway": "Trotzdem hochladen",
         "button_secondary_redo": "Wiederholen",
         "button_zoom": "Bild vergrößern",
@@ -239,7 +239,7 @@
                 "message": "Mehrere Gesichter gefunden"
             },
             "no_face": {
-                "instruction": "Ihr Gesicht muss im Selfie zu sehen sein",
+                "instruction": "Stellen Sie sicher, dass Ihr Gesicht sichtbar ist",
                 "message": "Kein Gesicht gefunden"
             },
             "request_error": {
@@ -270,7 +270,7 @@
         "info_qr_how": "So scannen Sie einen QR-Code",
         "info_qr_how_list_item_camera": "Richten Sie die Kamera Ihres Telefons auf den QR-Code",
         "info_qr_how_list_item_download": "Wenn es nicht funktioniert, laden Sie einen QR-Code-Scanner von Google Play oder aus dem App Store herunter",
-        "link_divider": "oder",
+        "link_divider": "oder wählen Sie eine dieser Alternativen",
         "link_qr": "QR-Code scannen",
         "link_sms": "Link per SMS erhalten",
         "link_url": "Link kopieren",
@@ -282,14 +282,6 @@
         "subtitle_url": "Öffnen Sie den Link auf Ihrem Mobiltelefon",
         "title": "Holen Sie sich Ihren Sicherheitslink",
         "url_field_label": "Kopieren Sie den Link in Ihren mobilen Browser"
-    },
-    "linked_computer": {
-        "button_primary": "Fortfahren",
-        "info": "Stellen Sie sicher",
-        "list_item_desktop_open": "2. Ihr Desktop-Fenster bleibt geöffnet",
-        "list_item_sent_by_you": "1. Dieser Link wurde von Ihnen gesendet",
-        "subtitle": "Fahren Sie mit der Überprüfung fort",
-        "title": "Mit Ihrem Computer verbunden"
     },
     "mobilePhrases": {
         "photo_upload": {
@@ -316,8 +308,8 @@
         }
     },
     "outro": {
-        "body": "Danke",
-        "title": "Verifizierung abgeschlossen"
+        "body": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen",
+        "title": "Danke"
     },
     "permission_recovery": {
         "button_primary": "Aktualisieren",
@@ -351,7 +343,7 @@
         "title_selfie": "Selfie"
     },
     "poa_guidance": {
-        "button_primary": "Fortfahren",
+        "button_primary": "Continue",
         "instructions": {
             "address": "Current address",
             "full_name": "Full name",
@@ -386,13 +378,13 @@
                 "title": "Kamera funktioniert nicht"
             },
             "timeout": {
-                "detail": "Denken Sie daran, Stopp zu drücken, wenn Sie fertig sind. <fallback>Video-Aktionen wiederholen<\/fallback>.",
+                "detail": "Denken Sie daran, die Taste zu drücken, wenn Sie fertig sind. <fallback>Video-Aktionen wiederholen<\/fallback>.",
                 "title": "Sieht aus, als hätten Sie zu lange gebraucht"
             }
         },
         "button_accessibility": "Ein Foto machen",
         "frame_accessibility": "Ansicht von der Kamera",
-        "title": "Ein Selfie aufnehmen"
+        "title": "Positionieren Sie Ihr Gesicht im angezeigten Oval"
     },
     "selfie_confirmation": {
         "image_accessibility": "Foto von Ihrem Gesicht",
@@ -402,9 +394,9 @@
     "selfie_intro": {
         "button_primary": "Fortfahren",
         "list_accessibility": "Tipps für ein gutes Selfie",
-        "list_item_face_forward": "Richten Sie Ihr Gesicht nach vorne und stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
+        "list_item_face_forward": "Schauen Sie nach vorne und stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
         "list_item_no_glasses": "Nehmen Sie Ihre Brille ab, falls erforderlich",
-        "subtitle": "Wir werden es mit Ihrem Dokument vergleichen",
+        "subtitle": "Wir werden dies mit Ihrem Dokument vergleichen",
         "title": "Ein Selfie aufnehmen"
     },
     "sms_sent": {
@@ -451,21 +443,19 @@
         }
     },
     "video_capture": {
-        "body": "Positionieren Sie Ihr Gesicht im Oval",
-        "body_next": "Wenn Sie fertig sind, klicken Sie auf Weiter",
-        "body_record": "Drücken Sie auf Aufnahme und folgen Sie den Anweisungen",
-        "body_stop": "Wenn Sie fertig sind, drücken Sie Stopp",
-        "button_primary_next": "Weiter",
+        "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
+        "body_record": "Drücken Sie die Taste, wenn Sie bereit sind",
+        "button_primary_finish": "Aufnahme beenden",
+        "button_primary_next": "Nächster Schritt",
+        "button_primary_start": "Aufnahme starten",
         "button_record_accessibility": "Aufnahme starten",
-        "button_stop_accessibility": "Aufnahme stoppen",
         "frame_accessibility": "Ansicht von der Kamera",
         "header": {
             "challenge_digit_instructions": "Sprechen Sie jede Ziffer laut aus",
-            "challenge_turn_left": "links",
-            "challenge_turn_right": "rechts",
-            "challenge_turn_template": "Schauen Sie über Ihre %{side} Schulter"
-        },
-        "status": "Aufnahme"
+            "challenge_turn_forward": "dann nach vorne schauen",
+            "challenge_turn_left": "Kopf nach links drehen",
+            "challenge_turn_right": "Kopf nach rechts drehen"
+        }
     },
     "video_confirmation": {
         "title": "Selfie-Video prüfen",
@@ -474,14 +464,17 @@
     "video_intro": {
         "button_primary": "Fortfahren",
         "list_accessibility": "Aktionen zum Aufzeichnen eines Selfie-Videos",
-        "list_item_actions": "Wir bitten Sie, sich bei der Durchführung von <strong>zwei einfachen Handlungen<\/strong> zu filmen",
-        "list_item_speak": "Eine Aktion wird sein, <strong>etwas laut auszusprechen<\/strong>",
-        "title": "Lassen Sie uns sicherstellen, dass sich niemand für Sie ausgibt"
+        "list_item_actions": "Beenden Sie Aktionen in weniger als 25 Sekunden",
+        "list_item_speak": "Befolgen Sie die Anweisungen zur Bewegung oder zum Sprechen",
+        "title": "Selfie-Video aufnehmen"
     },
     "welcome": {
-        "description_p_1": "Um ein Bankkonto zu eröffnen, müssen wir Ihre Identität überprüfen.",
-        "description_p_2": "Es wird nur ein paar Minuten dauern.",
+        "list_header_webcam": "Verwenden Sie Ihre Webcam oder Ihr Telefon zum Fotografieren:",
+        "list_item_doc": "Ihr Ausweisdokument",
+        "list_item_poa": "your proof of address",
+        "list_item_selfie": "Ihr Gesicht",
         "next_button": "Identität überprüfen",
-        "title": "Eröffnen Sie Ihr neues Bankkonto"
+        "subtitle": "Es dauert nur wenige Minuten",
+        "title": "Identität überprüfen"
     }
 }
