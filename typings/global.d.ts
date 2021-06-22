@@ -10,6 +10,9 @@ declare global {
       Onfido: {
         init: SdkInitMethod
       }
+      OnfidoAuth: {
+        init: SdkInitMethod
+      }
     }
   }
 

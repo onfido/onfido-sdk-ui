@@ -36,7 +36,7 @@ export type QueryParams = {
   showCobrand?: StringifiedBoolean
   showLogoCobrand?: StringifiedBoolean
   showUserConsent?: StringifiedBoolean
-  showAuth?: StringifiedBoolean
+  useAuth?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
   snapshotInterval?: string
   uploadFallback?: StringifiedBoolean
@@ -174,7 +174,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     steps.push({ type: 'welcome' })
   }
 
-  if (queryParamToValueString.showAuth === 'true') {
+  if (queryParamToValueString.useAuth === 'true') {
     steps.push({ type: 'auth', options: { retries: 10 } })
   }
 

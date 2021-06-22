@@ -80,7 +80,12 @@ const SdkDemo: FunctionComponent<Props> = ({
         </button>
       )}
       {token && regionCode && tokenUrl && (
-        <SdkMount options={options} regionCode={regionCode} url={tokenUrl} />
+        <SdkMount
+          options={options}
+          regionCode={regionCode}
+          url={tokenUrl}
+          useAuth={queryParamToValueString.useAuth === 'true'}
+        />
       )}
     </div>
   )

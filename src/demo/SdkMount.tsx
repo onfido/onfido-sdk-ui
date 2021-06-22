@@ -17,6 +17,7 @@ import * as Onfido from '../index'
 */
 
 const Onfido = window.Onfido
+const OnfidoAuth = window.OnfidoAuth
 /* 
   NOTE: For Auth local build, if you get a TypeError in the console saying "Cannot read property 'init' of undefined" 
         try using a different import method like import * as Onfido from '../index'
@@ -26,9 +27,16 @@ type Props = {
   options: SdkOptions | UIConfigs
   regionCode: ServerRegions
   url: string
+  useAuth: boolean
 }
 
-const SdkMount: FunctionComponent<Props> = ({ options, regionCode, url }) => {
+const SdkMount: FunctionComponent<Props> = ({
+  options,
+  regionCode,
+  url,
+  useAuth,
+}) => {
+  const onfidoHandle = useAuth ? OnfidoAuth : Onfido
   const [onfidoSdk, setOnfidoSdk] = useState<SdkHandle | undefined>(undefined)
   const mountEl = useRef(null)
 
@@ -48,10 +56,15 @@ const SdkMount: FunctionComponent<Props> = ({ options, regionCode, url }) => {
       )
     }
 
-    console.log('Calling `Onfido.init` with the following options:', options)
+    console.log(
+      `Calling ${
+        useAuth ? 'OnfidoAuth.init' : 'Onfido.init'
+      } with the following options: `,
+      options
+    )
 
     if (mountEl.current) {
-      const sdk = Onfido.init({
+      const sdk = onfidoHandle.init({
         ...options,
         containerEl: mountEl.current,
       })
