@@ -138,7 +138,17 @@
     }
 
     @media (--high-pixel-density) and (orientation: portrait) {
-      top: -20%;
+      height: auto;
+      width: 100%;
+      top: -25%;
+    }
+
+    @media (--short-viewport) and (--high-pixel-density) and (orientation: portrait) {
+      top: 0;
+    }
+
+    @media (--long-viewport) and (--high-pixel-density) and (orientation: portrait) {
+      top: 0;
     }
 
     @media (--high-pixel-density) and (orientation: landscape) {

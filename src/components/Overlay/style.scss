@@ -74,6 +74,10 @@ $card-frame-width: 75%;
     top: -25%;
     margin: 50% auto;
   }
+
+  @media (--long-viewport) and (--high-pixel-density) and (orientation: portrait) {
+    top: -30%;
+  }
 }
 
 @mixin position-hole($scale) {
