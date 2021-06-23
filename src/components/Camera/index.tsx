@@ -71,7 +71,6 @@ const Camera: FunctionComponent<Props> = ({
     <div
       className={classNames(style.camera, {
         [style.docLiveCaptureFrame]: docLiveCaptureFrame,
-        [style.docLiveCaptureFrameCoverFit]: docLiveCaptureFrame && isDesktop,
         [style.docAutoCaptureFrame]: docAutoCaptureFrame,
       })}
     >
