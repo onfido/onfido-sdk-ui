@@ -270,7 +270,7 @@
         "info_qr_how": "Comment scanner un QR code",
         "info_qr_how_list_item_camera": "Pointez l’appareil photo de votre mobile sur le QR code",
         "info_qr_how_list_item_download": "Si cela ne fonctionne pas, téléchargez un scanner de QR code sur Google Play ou l’App Store",
-        "link_divider": "ou",
+        "link_divider": "ou choisissez ces alternatives",
         "link_qr": "Scanner le QR code",
         "link_sms": "Obtenir le lien par SMS",
         "link_url": "Copier le lien",
@@ -308,7 +308,7 @@
         }
     },
     "outro": {
-        "body": "That’s all we need to start verifying your identity",
+        "body": "C’est tout ce dont nous avons besoin pour commencer à vérifier votre identité",
         "title": "Merci"
     },
     "permission_recovery": {
@@ -343,7 +343,7 @@
         "title_selfie": "Selfie"
     },
     "poa_guidance": {
-        "button_primary": "Continuer",
+        "button_primary": "Continue",
         "instructions": {
             "address": "Current address",
             "full_name": "Full name",
@@ -447,6 +447,7 @@
         "body_record": "Appuyez sur le bouton lorsque vous êtes prêt(e)",
         "button_primary_finish": "Terminer l’enregistrement",
         "button_primary_next": "Étape suivante",
+        "button_primary_start": "Démarrer l’enregistrement",
         "button_record_accessibility": "Démarrer l’enregistrement",
         "frame_accessibility": "Vue de la caméra",
         "header": {
@@ -469,10 +470,10 @@
     },
     "welcome": {
         "list_header_webcam": "Utilisez votre webcam ou mobile pour prendre en photo :",
-        "list_item_doc": "votre pièce d’identité",
+        "list_item_doc": "votre document d’identité",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "votre visage",
-        "next_button": "Vérifiez votre identité",
+        "next_button": "Sélectionner un document",
         "subtitle": "Cela ne prendra que quelques minutes",
         "title": "Vérification d’identité"
     }
