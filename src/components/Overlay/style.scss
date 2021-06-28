@@ -54,7 +54,7 @@ $card-frame-width: 75%;
     margin: 50% auto;
   }
 
-  @media (--high-pixel-density) and (orientation: portrait) {
+  @media (--long-viewport) and (--high-pixel-density) and (orientation: portrait) {
     top: -28%;
   }
 }
@@ -79,7 +79,7 @@ $card-frame-width: 75%;
     margin: 50% auto;
   }
 
-  @media (--high-pixel-density) and (orientation: portrait) {
+  @media (--long-viewport) and (--high-pixel-density) and (orientation: portrait) {
     top: -30%;
   }
 }
