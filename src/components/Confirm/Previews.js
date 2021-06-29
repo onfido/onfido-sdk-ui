@@ -128,7 +128,16 @@ const Previews = localised(
           <CaptureViewer
             {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }}
           />
-          {!isFullScreen && <p className={style.message}>{message}</p>}
+          <div style={{ color: '#f00', border: '#f00' }}>
+            <div>
+              DEBUG - file size: {capture.blob.size} bytes ({capture.blob.type})
+            </div>
+            <div>
+              DEBUG - camera video stream settings:
+              <br />
+              {JSON.stringify(capture.sdkMetadata.camera_settings)}
+            </div>
+          </div>
         </div>
       </ScreenLayout>
     )
