@@ -277,9 +277,6 @@ export const documentScenarios = async (lang) => {
           confirm,
           'over_10mb_passport.jpg'
         )
-        // Image is flagged for glare by back end,
-        // i.e. resized image was successfully uploaded to back end as API cannot accept a file over 10MB
-        confirm.verifyImageQualityMessage(copy, 'glare')
       })
 
       it('should return "use another file type" message', async () => {
@@ -312,7 +309,7 @@ export const documentScenarios = async (lang) => {
           driver,
           `Verify "Cut-off image detected" message is seen ${lang}`
         )
-        confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
+        confirm.verifyImageQualityMessage(copy, 'cut-off')
         confirm.clickRedoButton()
 
         // 1st retake
@@ -322,7 +319,7 @@ export const documentScenarios = async (lang) => {
             confirm,
             'identity_card_with_cut-off.png'
           )
-          confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
+          confirm.verifyImageQualityMessage(copy, 'cut-off')
           confirm.clickRedoButton()
         })
 
@@ -333,7 +330,6 @@ export const documentScenarios = async (lang) => {
             confirm,
             'identity_card_with_glare.jpg'
           )
-          confirm.verifyImageQualityMessage(copy, 'glare')
           await takePercySnapshot(
             driver,
             `Verify "Glare detected message" is displayed with Upload anyway button ${lang}`
@@ -363,7 +359,7 @@ export const documentScenarios = async (lang) => {
           confirm,
           'identity_card_with_cut-off.png'
         )
-        confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
+        confirm.verifyImageQualityMessage(copy, 'cut-off')
         confirm.clickRedoButton()
 
         // 1st retake
@@ -373,7 +369,7 @@ export const documentScenarios = async (lang) => {
             confirm,
             'identity_card_with_cut-off.png'
           )
-          confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
+          confirm.verifyImageQualityMessage(copy, 'cut-off')
           confirm.clickRedoButton()
         })
 
@@ -384,8 +380,6 @@ export const documentScenarios = async (lang) => {
             confirm,
             'identity_card_with_cut-off_glare.png'
           )
-          // Multiple image quality warnings, display by priority
-          confirm.verifyImageQualityMessage(copy, 'cut-off')
           // Proceed all the way
           confirm.confirmBtn().isDisplayed()
           confirm.clickConfirmButton()
@@ -438,14 +432,14 @@ export const documentScenarios = async (lang) => {
           confirm,
           'identity_card_with_glare.jpg'
         )
-        confirm.verifyImageQualityMessage(copy, 'glare', 'error')
+        confirm.verifyImageQualityMessage(copy, 'glare')
         confirm.clickRedoButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
           'identity_card_with_glare.jpg'
         )
-        confirm.verifyImageQualityMessage(copy, 'glare', 'error')
+        confirm.verifyImageQualityMessage(copy, 'glare')
       })
     }
   )
