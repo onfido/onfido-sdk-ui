@@ -452,7 +452,7 @@ The Web SDK has multiple customizable features that provide flexibility, while a
 
   ##### Supported languages
 
-  The SDK supports and maintains 4 languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
+  The SDK supports and maintains 6 languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
 
   | Language          | Locale Tag |
   | ----------------- | ---------- |
