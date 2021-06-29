@@ -312,7 +312,7 @@
         "info_qr_how": "So scannen Sie einen QR-Code",
         "info_qr_how_list_item_camera": "Richten Sie die Kamera Ihres Telefons auf den QR-Code",
         "info_qr_how_list_item_download": "Wenn es nicht funktioniert, laden Sie einen QR-Code-Scanner von Google Play oder aus dem App Store herunter",
-        "link_divider": "oder",
+        "link_divider": "oder wählen Sie eine dieser Alternativen",
         "link_qr": "QR-Code scannen",
         "link_sms": "Link per SMS erhalten",
         "link_url": "Link kopieren",
@@ -350,7 +350,7 @@
         }
     },
     "outro": {
-        "body": "That’s all we need to start verifying your identity",
+        "body": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen",
         "title": "Danke"
     },
     "permission_recovery": {
@@ -385,7 +385,7 @@
         "title_selfie": "Selfie"
     },
     "poa_guidance": {
-        "button_primary": "Fortfahren",
+        "button_primary": "Continue",
         "instructions": {
             "address": "Current address",
             "full_name": "Full name",
@@ -520,9 +520,9 @@
     "welcome": {
         "list_header_webcam": "Verwenden Sie Ihre Webcam oder Ihr Telefon zum Fotografieren:",
         "list_item_doc": "Ihr Ausweisdokument",
+        "list_item_doc_video_timeout": "Die Aufnahme ist auf <timeout><\/timeout> Sekunden beschränkt",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "Ihr Gesicht",
-        "list_item_doc_video_timeout": "Die Aufnahme ist auf <timeout><\/timeout> Sekunden beschränkt",
         "next_button": "Identität überprüfen",
         "subtitle": "Es dauert nur wenige Minuten",
         "title": "Identität überprüfen"
