@@ -1,5 +1,5 @@
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl } from '../../config.json'
+import { localhostUrl } from '../../main'
 import {
   goToPassportUploadScreen,
   takePercySnapshot,

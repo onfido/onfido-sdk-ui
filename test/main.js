@@ -17,12 +17,15 @@ import edge from 'selenium-webdriver/edge'
 let config
 const browsersFailures = {}
 let totalFailures = 0
+export let localhostUrl
 
 if (!process.env.CONFIG_FILE) {
   console.error('INFO: CONFIG_FILE not set, so using the default config.json')
   config = require('./config')
+  localhostUrl = config.localhostUrl
 } else {
   config = require(`./${process.env.CONFIG_FILE}`)
+  localhostUrl = config.localhostUrl
 }
 
 if (!process.env.BROWSERSTACK_USERNAME) {
@@ -47,6 +50,8 @@ const bsCapabilitiesDefault = {
   unexpectedAlertBehaviour: 'dismiss',
   unexpectedPromptBehaviour: 'dismiss',
   binarypath: './test/BrowserStackLocal',
+  'browserstack.console': 'errors',
+  'browserstack.networkLogs': true,
 }
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".

@@ -1,7 +1,8 @@
 import { assert } from 'chai'
 import { until } from 'selenium-webdriver'
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
+import { testDeviceMobileNumber } from '../../config.json'
+import { localhostUrl, isRemoteBrowser, browserName } from '../../main'
 import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
@@ -78,8 +79,13 @@ export const crossDeviceScenarios = async (lang) => {
       }
 
       const runThroughCrossDeviceFlow = async () => {
-        documentUpload.switchToCrossDevice()
-        crossDeviceIntro.continueToNextStep()
+        if (isRemoteBrowser === true && browserName === 'Firefox') {
+          driver.sleep(5000)
+          crossDeviceIntro.continueToNextStep()
+        } else {
+          documentUpload.switchToCrossDevice()
+          crossDeviceIntro.continueToNextStep()
+        }
         crossDeviceLink.switchToCopyLinkOption()
         copyCrossDeviceLinkAndOpenInNewTab()
         switchBrowserTab(0, driver)
@@ -247,7 +253,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceMobileNotificationSent.verifyTitle(copy)
       })
 
-      it('should succesfully complete cross device e2e flow with selfie upload', async () => {
+      it('should succesfully complete cross device e2e flow with selfie upload @e2e-latest', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
