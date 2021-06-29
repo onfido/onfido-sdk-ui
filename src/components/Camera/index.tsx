@@ -23,6 +23,7 @@ import type {
 // Using width here because on some special devices (e.g. Samsung Galaxy),
 // setting 720px in height results to 720x960 resolution instead of the desired 720x1280.
 const DEFAULT_CAMERA_WIDTH_IN_PX = 1280 // HD 720p
+// const DEFAULT_CAMERA_HEIGHT_IN_PX = 720 // Original value used for HD 720p
 
 type Props = CameraProps &
   WebcamProps &

@@ -101,7 +101,6 @@ const Previews = localised(
         }}
       />
     )
-
     return (
       <ScreenLayout actions={!isFullScreen && actions}>
         <div
@@ -128,8 +127,27 @@ const Previews = localised(
           <CaptureViewer
             {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }}
           />
-          {!isFullScreen && <p className={style.message}>{message}</p>}
+          <div style={{ color: '#f00', border: '#f00' }}>
+            <div>
+              DEBUG - file size: {capture.blob.size} bytes ({capture.blob.type})
+            </div>
+            <div>
+              DEBUG - SDK capture method:
+              <br />
+              {JSON.stringify(capture.sdkMetadata.captureMethod)}
+            </div>
+            <div>
+              DEBUG - image resized:{' '}
+              {capture.sdkMetadata.imageResizeInfo ? 'true' : 'false'}
+            </div>
+            <div>
+              DEBUG - device ({capture.sdkMetadata.deviceType}):
+              <br />
+              {JSON.stringify(capture.sdkMetadata.system)}
+            </div>
+          </div>
         </div>
+        {!isFullScreen && <p className={style.message}>{message}</p>}
       </ScreenLayout>
     )
   }
