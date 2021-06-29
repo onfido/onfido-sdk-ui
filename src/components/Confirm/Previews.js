@@ -137,6 +137,11 @@ const Previews = localised(
               {JSON.stringify(capture.sdkMetadata.captureMethod)}
             </div>
             <div>
+              DEBUG - camera video stream settings:
+              <br />
+              {JSON.stringify(capture.sdkMetadata.camera_settings)}
+            </div>
+            <div>
               DEBUG - image resized:{' '}
               {capture.sdkMetadata.imageResizeInfo ? 'true' : 'false'}
             </div>
