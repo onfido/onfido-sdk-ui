@@ -22,7 +22,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install docker
-        run: brew install docker
+      - run: brew install docker
 
       - name: Install Dependencies
       - run: npm install
