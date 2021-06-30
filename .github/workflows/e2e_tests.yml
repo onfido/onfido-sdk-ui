@@ -1,4 +1,4 @@
-name: End to End Tests - on PR
+name: End to End Tests (Local and BS) on PR
 
 on:
   pull_request:
@@ -9,7 +9,11 @@ env:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - NODE_ENV: e2e
 
     steps:
       - uses: actions/checkout@v2.3.4
@@ -28,8 +32,5 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      #- name: Run e2e tests on chrome (local) and firefox (BS)
-      #  run: npm run test:e2e
-
-      - name: Run e2e tests on chrome, safari and firefox (all local)
-        run: npm run test:e2e:local
+      - name: Run e2e tests on chrome (local) and Firefox (BS)
+        run: npm run test:e2e
