@@ -17,26 +17,16 @@ import type {
   WithPermissionsFlowProps,
 } from '~types/hocs'
 
-const getDefaultCameraWidthInPx = () => {
+const isWebmFormatSupported = () => {
   const webmMimeTypes: string[] = [
     'video/webm;codecs=vp9',
     'video/webm;codecs=vp8,opus',
     'video/webm;codecs=vp8',
     'video/webm',
   ]
-  const isWebmFormatSupported = webmMimeTypes.some((mimeType) =>
+  return webmMimeTypes.some((mimeType) =>
     MediaRecorder.isTypeSupported(mimeType)
   )
-  // Specify just a camera width (no height) because on safari if you specify both
-  // height and width you will hit an OverconstrainedError if the camera does not
-  // support the precise resolution.
-  // Using width here because on some special devices (e.g. Samsung Galaxy),
-  // setting 720px in height results to 720x960 resolution instead of the desired 720x1280.
-  //
-  // Resolution needs to be set to a lower value if WebM format is not supported
-  // as video formats like MP4 (Safari) result in larger video file sizes
-  // * Resolutions: 1280px = 720p, 480px = VGA (VGA is minimum we can go for automation + iOS is using VGA resolution)
-  return isWebmFormatSupported ? 1280 : 480
 }
 
 type Props = CameraProps &
@@ -68,12 +58,24 @@ const Camera: FunctionComponent<Props> = ({
   translate,
   webcamRef,
 }) => {
-  const defaultCameraWidthInPx = getDefaultCameraWidthInPx()
+  // Specify just a camera width (no height) because on safari if you specify both
+  // height and width you will hit an OverconstrainedError if the camera does not
+  // support the precise resolution.
+  // Using width here because on some special devices (e.g. Samsung Galaxy),
+  // setting 720px in height results to 720x960 resolution instead of the desired 720x1280.
+  //
+  // Resolution needs to be set to a lower value if WebM format is not supported
+  // as video formats like MP4 (Safari) result in larger video file sizes
+  // * Resolutions: 1280px = 720p, 480px = VGA (VGA is minimum we can go for automation + iOS is using VGA resolution)
+  const defaultCameraWidthInPx = isWebmFormatSupported() ? 1280 : 480
+
   const webcamProps = {
     audio,
     onFailure,
     onUserMedia,
-    className: style.video,
+    className: classNames(style.video, {
+      [style.adjustVideoWidth]: !isWebmFormatSupported(),
+    }),
     facingMode: facing,
     ref: webcamRef,
     width: idealCameraWidth || defaultCameraWidthInPx,
@@ -92,7 +94,9 @@ const Camera: FunctionComponent<Props> = ({
       {renderTitle}
       <div className={classNames(style.container, containerClassName)}>
         <div
-          className={style.webcamContainer}
+          className={classNames(style.webcamContainer, {
+            [style.adjustVideoWidth]: !isWebmFormatSupported(),
+          })}
           role="group"
           aria-describedby="cameraViewAriaLabel"
         >
