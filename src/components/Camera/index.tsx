@@ -17,12 +17,27 @@ import type {
   WithPermissionsFlowProps,
 } from '~types/hocs'
 
-// Specify just a camera width (no height) because on safari if you specify both
-// height and width you will hit an OverconstrainedError if the camera does not
-// support the precise resolution.
-// Using width here because on some special devices (e.g. Samsung Galaxy),
-// setting 720px in height results to 720x960 resolution instead of the desired 720x1280.
-const DEFAULT_CAMERA_WIDTH_IN_PX = 720 // 480p  (3:2)
+const getDefaultCameraWidthInPx = () => {
+  const webmMimeTypes: string[] = [
+    'video/webm;codecs=vp9',
+    'video/webm;codecs=vp8,opus',
+    'video/webm;codecs=vp8',
+    'video/webm',
+  ]
+  const isWebmFormatSupported = webmMimeTypes.some((mimeType) =>
+    MediaRecorder.isTypeSupported(mimeType)
+  )
+  // Specify just a camera width (no height) because on safari if you specify both
+  // height and width you will hit an OverconstrainedError if the camera does not
+  // support the precise resolution.
+  // Using width here because on some special devices (e.g. Samsung Galaxy),
+  // setting 720px in height results to 720x960 resolution instead of the desired 720x1280.
+  //
+  // Resolution needs to be set to a lower value if WebM format is not supported
+  // as video formats like MP4 (Safari) result in larger video file sizes
+  // * Resolutions: 1280px = 720p, 480px = VGA (VGA is minimum we can go for automation + iOS is using VGA resolution)
+  return isWebmFormatSupported ? 1280 : 480
+}
 
 type Props = CameraProps &
   WebcamProps &
@@ -53,6 +68,7 @@ const Camera: FunctionComponent<Props> = ({
   translate,
   webcamRef,
 }) => {
+  const defaultCameraWidthInPx = getDefaultCameraWidthInPx()
   const webcamProps = {
     audio,
     onFailure,
@@ -60,9 +76,9 @@ const Camera: FunctionComponent<Props> = ({
     className: style.video,
     facingMode: facing,
     ref: webcamRef,
-    width: idealCameraWidth || DEFAULT_CAMERA_WIDTH_IN_PX,
+    width: idealCameraWidth || defaultCameraWidthInPx,
     fallbackWidth: fallbackToDefaultWidth
-      ? DEFAULT_CAMERA_WIDTH_IN_PX
+      ? defaultCameraWidthInPx
       : fallbackHeight,
   }
 
