@@ -135,7 +135,7 @@
     },
     "doc_capture": {
         "detail": {
-            "folded_doc_front": "Asegúrese que su documento este completmente abierto (debe incluir su foto)"
+            "folded_doc_front": "Asegúrese que su documento este completamente abierto (debe incluir su foto)"
         },
         "header_folded_doc_front": "Lado con su foto",
         "prompt": {
@@ -235,7 +235,7 @@
     },
     "doc_video_confirmation": {
         "button_secondary": "Vista previa del vídeo",
-        "title": "Revise su vídeo"
+        "title": "Verifique video"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Reinicie el proceso en la versión más reciente de Google Chrome",
@@ -302,7 +302,7 @@
         "info_qr_how": "Cómo escanear un código QR",
         "info_qr_how_list_item_camera": "Apunte la cámara de su teléfono al código QR",
         "info_qr_how_list_item_download": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store",
-        "link_divider": "o seleccione estas alternativas",
+        "link_divider": "o elige un método alternativo",
         "link_qr": "Escanear código QR",
         "link_sms": "Obtener enlace via mensaje de texto",
         "link_url": "Copiar enlace",
@@ -310,7 +310,7 @@
         "number_field_input_placeholder": "Introduzca su número de móvil",
         "number_field_label": "Ingrese su número de teléfono móvil:",
         "subtitle_qr": "Escanear el código QR con su teléfono",
-        "subtitle_sms": "Enviar este enlace de un solo uso a su teléfono",
+        "subtitle_sms": "Abrir el enlace en su teléfono",
         "subtitle_url": "Abrir el enlace en su teléfono",
         "title": "Obtener enlace seguro",
         "url_field_label": "Copie el enlace al navegador de internet de su teléfono"
@@ -477,9 +477,9 @@
     "video_capture": {
         "body": "Mantenga la cara dentro del óvalo",
         "body_record": "Presione el botón cuando esté listo",
-        "button_primary_start": "Iniciar grabación",
         "button_primary_finish": "Finalizar grabación",
         "button_primary_next": "Siguiente paso",
+        "button_primary_start": "Iniciar grabación",
         "button_record_accessibility": "Iniciar grabación",
         "frame_accessibility": "Vista desde la cámara",
         "header": {
@@ -490,8 +490,7 @@
         },
         "prompt": {
             "header_timeout": "Parece que ha demorado demasiado"
-        },
-        "status": "Grabando"
+        }
     },
     "video_confirmation": {
         "body": "Su video ha sido grabado",
@@ -508,12 +507,14 @@
         "title": "Grábese en un vídeo"
     },
     "welcome": {
+        "doc_video_subtitle": "Debería tomar unos minutos",
+        "list_header_doc_video": "Utilice su móvil para la grabación:",
         "list_header_webcam": "Utilice su cámara web o su teléfono para fotografiar:",
         "list_item_doc": "su documento de identidad",
         "list_item_doc_video_timeout": "La grabación tiene un límite de <timeout><\/timeout> segundos",
         "list_item_poa": "your proof of address",
-        "list_item_selfie": "su rostro",
-        "next_button": "Verificar identidad",
+        "list_item_selfie": "su cara",
+        "next_button": "Seleccione un documento",
         "subtitle": "Debería tomar unos minutos",
         "title": "Verifique su identidad"
     }

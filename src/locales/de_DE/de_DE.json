@@ -235,7 +235,7 @@
     },
     "doc_video_confirmation": {
         "button_secondary": "Video-Vorschau",
-        "title": "Überprüfen Sie Ihr Video"
+        "title": "Selfie-Video prüfen"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Starten Sie den Prozess auf der neuesten Version von Google Chrome neu",
@@ -302,7 +302,7 @@
         "info_qr_how": "So scannen Sie einen QR-Code",
         "info_qr_how_list_item_camera": "Richten Sie die Kamera Ihres Telefons auf den QR-Code",
         "info_qr_how_list_item_download": "Wenn es nicht funktioniert, laden Sie einen QR-Code-Scanner von Google Play oder aus dem App Store herunter",
-        "link_divider": "oder wählen Sie eine dieser Alternativen",
+        "link_divider": "oder wählen Sie eine alternative Methode",
         "link_qr": "QR-Code scannen",
         "link_sms": "Link per SMS erhalten",
         "link_url": "Link kopieren",
@@ -310,7 +310,7 @@
         "number_field_input_placeholder": "Mobiltelefonnummer eingeben",
         "number_field_label": "Geben Sie Ihre Mobiltelefonnummer ein:",
         "subtitle_qr": "Scannen Sie den QR-Code mit Ihrem Mobiltelefon",
-        "subtitle_sms": "Senden Sie diesen einmaligen Link an Ihr Mobiltelefon",
+        "subtitle_sms": "Öffnen Sie den Link auf Ihrem Mobiltelefon",
         "subtitle_url": "Öffnen Sie den Link auf Ihrem Mobiltelefon",
         "title": "Holen Sie sich Ihren Sicherheitslink",
         "url_field_label": "Kopieren Sie den Link in Ihren mobilen Browser"
@@ -477,9 +477,9 @@
     "video_capture": {
         "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
         "body_record": "Drücken Sie die Taste, wenn Sie bereit sind",
-        "button_primary_start": "Aufnahme starten",
         "button_primary_finish": "Aufnahme beenden",
         "button_primary_next": "Nächster Schritt",
+        "button_primary_start": "Aufnahme starten",
         "button_record_accessibility": "Aufnahme starten",
         "frame_accessibility": "Ansicht von der Kamera",
         "header": {
@@ -490,8 +490,7 @@
         },
         "prompt": {
             "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht"
-        },
-        "status": "Aufnahme"
+        }
     },
     "video_confirmation": {
         "body": "Ihr Video wurde aufgezeichnet",
@@ -508,12 +507,14 @@
         "title": "Selfie-Video aufnehmen"
     },
     "welcome": {
+        "doc_video_subtitle": "Es dauert nur wenige Minuten",
+        "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
         "list_header_webcam": "Verwenden Sie Ihre Webcam oder Ihr Telefon zum Fotografieren:",
         "list_item_doc": "Ihr Ausweisdokument",
         "list_item_doc_video_timeout": "Die Aufnahme ist auf <timeout><\/timeout> Sekunden beschränkt",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "Ihr Gesicht",
-        "next_button": "Identität überprüfen",
+        "next_button": "Dokument auswählen",
         "subtitle": "Es dauert nur wenige Minuten",
         "title": "Identität überprüfen"
     }
