@@ -159,7 +159,7 @@ $parent-width: 432;
 
 .styledLabel {
   display: flex;
-  width: 50%;
+  width: 75%;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -170,8 +170,8 @@ $parent-width: 432;
 .styledLabel::after {
   content: '';
   border: 1px solid $color-divider;
-  margin: 0 24 * $unit 0 0;
-  flex: 1 0 24 * $unit;
+  margin: 0 18 * $unit 0 0;
+  flex: 1 0 18 * $unit;
 }
 
 .styledLabel::after {
