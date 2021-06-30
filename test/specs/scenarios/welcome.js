@@ -25,7 +25,7 @@ export const welcomeScenarios = async (lang) => {
         driver.get(`${localhostUrl}?language=${lang}`)
         welcome.verifyTitle(copy)
         welcome.verifySubtitle(copy)
-        welcome.verifyInstructions(copy)
+        welcome.verifyDefaultInstructions(copy)
         welcome.verifyPrimaryButton(copy)
         welcome.verifyFooter()
         await takePercySnapshot(
@@ -38,7 +38,7 @@ export const welcomeScenarios = async (lang) => {
         driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
         welcome.verifyTitle(copy)
         welcome.verifySubtitle(copy)
-        welcome.verifyInstructions(copy)
+        welcome.verifyDocVideoInstructions(copy)
         welcome.verifyRecordingLimit(copy)
         welcome.verifyPrimaryButton(copy)
         welcome.verifyFooter()
