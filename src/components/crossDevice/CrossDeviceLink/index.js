@@ -329,7 +329,11 @@ class CrossDeviceLinkUI extends Component {
           />
         )}
         <div className={style.secureLinkView}>
-          <div role="region" id="selectedLinkView">
+          <div
+            role="region"
+            id="selectedLinkView"
+            className={style.selectedLinkView}
+          >
             {currentViewRender()}
           </div>
           <p className={style.styledLabel}>

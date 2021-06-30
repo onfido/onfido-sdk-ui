@@ -13,7 +13,11 @@ $parent-width: 432;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
+}
+
+.selectedLinkView {
+  flex: 1;
 }
 
 .qrCodeSection {
@@ -159,7 +163,7 @@ $parent-width: 432;
 
 .styledLabel {
   display: flex;
-  width: 75%;
+  width: 90%;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -175,7 +179,7 @@ $parent-width: 432;
 }
 
 .styledLabel::after {
-  margin: 0 0 0 24 * $unit;
+  margin: 0 0 0 20 * $unit;
 }
 
 .viewOptionsGroup {
