@@ -8,6 +8,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.10.1]
+
+### Changed
+
+- Reduce resolution to VGA if browser does not support recording videos in WebM format (e.g. Safari 14.x that only supports MP4 format) to avoid large video files being created.
+
 ## [6.10.0]
 
 ### Added
