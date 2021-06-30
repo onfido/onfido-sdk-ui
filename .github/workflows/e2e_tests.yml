@@ -22,10 +22,10 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install docker
-      - run: brew install docker
+        run: brew install docker
 
       - name: Install Dependencies
-      - run: npm install
+        run: npm install
 
       - name: Run e2e tests on Chrome, Firefox and Safari (local)
         run: npm run test:e2e:local
