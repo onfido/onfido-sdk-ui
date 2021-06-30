@@ -21,14 +21,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install docker
+      - name: Install Docker
         run: brew install docker
-
-      - name: Start docker
-        run: systemctl start docker
 
       - name: Install Dependencies
         run: npm install
+
+      - name: Run build
+        run: npm run build:test
 
       - name: Run e2e tests on Chrome, Firefox and Safari (local)
         run: npm run test:e2e:local
