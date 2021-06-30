@@ -1,19 +1,11 @@
-name: End to End Tests (Local and BS) on PR
+name: End to End Tests on PR
 
 on:
   pull_request:
 
-env:
-  BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-  BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
-
 jobs:
   build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - NODE_ENV: e2e
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v2.3.4
@@ -29,8 +21,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install Dependencies
-        run: npm install
+      #- name: Install Dependencies
+      #  run: npm install
 
-      - name: Run e2e tests on chrome (local) and Firefox (BS)
-        run: npm run test:e2e
+      - name: Install docker
+        run: brew cask install docker
+
+      - name: Run e2e tests on Chrome, Firefox and Safari (local)
+        run: npm run test:e2e:local
