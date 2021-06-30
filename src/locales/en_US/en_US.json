@@ -507,7 +507,6 @@
         "title": "Record a video"
     },
     "welcome": {
-        "doc_video_subtitle": "It should take a few minutes",
         "list_header_doc_video": "Use your device to record:",
         "list_header_webcam": "Use your webcam or phone to photograph:",
         "list_item_doc": "your identity document",

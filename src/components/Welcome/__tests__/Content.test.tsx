@@ -12,9 +12,9 @@ mockedTranslate.mockImplementation((str) => {
   return str
 })
 
-const assertDefaultContent = (wrapper: ReactWrapper) => {
+const assertContent = (wrapper: ReactWrapper, forDocVideo: boolean) => {
   expect(wrapper.find('.instructions > span').text()).toEqual(
-    'welcome.list_header_webcam'
+    forDocVideo ? 'welcome.list_header_doc_video' : 'welcome.list_header_webcam'
   )
   const items = wrapper.find('.instructions > ol li')
   expect(items.at(0).text()).toEqual('welcome.list_item_doc')
@@ -31,7 +31,7 @@ describe('Welcome', () => {
       )
 
       expect(wrapper.exists()).toBeTruthy()
-      assertDefaultContent(wrapper)
+      assertContent(wrapper, false)
     })
 
     it('renders correct elements with custom descriptions', () => {
@@ -67,7 +67,7 @@ describe('Welcome', () => {
 
       expect(wrapper.exists()).toBeTruthy()
 
-      assertDefaultContent(wrapper)
+      assertContent(wrapper, true)
       expect(wrapper.find('.recordingLimit').text()).toEqual('timeout: 30')
     })
   })

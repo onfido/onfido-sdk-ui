@@ -420,7 +420,6 @@
         "title": "Registra un video"
     },
     "welcome": {
-        "doc_video_subtitle": "L’operazione richiederà pochi minuti",
         "list_header_doc_video": "Usa il dispositivo per registrare:",
         "list_header_webcam": "Usa la webcam o il telefono per fotografare:",
         "list_item_doc": "il tuo documento d’identità",

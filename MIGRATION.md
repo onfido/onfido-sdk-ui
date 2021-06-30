@@ -33,6 +33,7 @@ The guides below are provided to ease the transition of existing applications us
 - `video_confirmation.button_primary`
 - `video_confirmation.button_secondary`
 - `welcome.subtitle`
+- `welcome.list_header_doc_video`
 - `welcome.list_header_webcam`
 - `welcome.list_item_doc`
 - `welcome.list_item_poa`
