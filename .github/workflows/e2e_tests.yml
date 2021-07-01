@@ -41,6 +41,8 @@ jobs:
 
       #- name: Run build
       #  run: npm run build:test
+      - name: Install basic pre-reqs
+        run: npm install -g babel-cli
 
       - name: Run e2e tests on Chrome, Firefox and Safari (local)
         run: npm run test:e2e:local
