@@ -24,14 +24,20 @@ jobs:
       - name: Install Docker
         run: brew install --cask docker
 
-      - name: Open Docker
-        run: /Applications/Docker.app/Contents/MacOS/Docker &
+      - name: List contents of /usr/local/bin
+        run: ls -la /usr/local/bin
 
-      - name: Install Dependencies
-        run: npm install
+      #- name: Open Docker
+      #  run: /Applications/Docker.app/Contents/MacOS/Docker &
+
+      #- name: Create Docker alias
+      #  run: alias docker='/Applications/Docker.app/Contents/MacOS/Docker'
+
+      #- name: Install Dependencies
+      #  run: npm install
 
       #- name: Run build
       #  run: npm run build:test
 
-      - name: Run e2e tests on Chrome, Firefox and Safari (local)
-        run: npm run test:e2e:local
+      #- name: Run e2e tests on Chrome, Firefox and Safari (local)
+      #  run: npm run test:e2e:local
