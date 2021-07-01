@@ -24,14 +24,14 @@ jobs:
       - name: Install Docker
         run: brew install --cask docker
 
+      - name: Create Docker alias
+        run: alias docker='/Applications/Docker.app/Contents/Resources/bin/docker'
+
       - name: List contents of /usr/local/bin
         run: ls -la /usr/local/bin
 
       #- name: Open Docker
       #  run: /Applications/Docker.app/Contents/MacOS/Docker &
-
-      #- name: Create Docker alias
-      #  run: alias docker='/Applications/Docker.app/Contents/MacOS/Docker'
 
       #- name: Install Dependencies
       #  run: npm install
