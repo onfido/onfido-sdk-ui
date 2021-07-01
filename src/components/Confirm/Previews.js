@@ -128,6 +128,7 @@ const Previews = localised(
           <CaptureViewer
             {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }}
           />
+          {!isFullScreen && <p className={style.message}>{message}</p>}
         </div>
       </ScreenLayout>
     )
