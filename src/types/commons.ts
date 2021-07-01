@@ -58,10 +58,10 @@ export type SdkMetadata = {
     browser_version: string
   }
   camera_settings?: {
-    aspect_ratio: number | undefined
-    frame_rate: number | undefined
-    height: number | undefined
-    width: number | undefined
+    aspect_ratio?: number
+    frame_rate?: number
+    height?: number
+    width?: number
   }
 }
 
