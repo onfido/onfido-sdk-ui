@@ -38,13 +38,25 @@
         "list_item_finish": "Volte aqui para terminar a submissão",
         "list_item_open_link": "Abra a ligação e conclua as tarefas",
         "list_item_send_phone": "Enviar uma ligação segura para o seu telefone",
-        "subtitle": "Eis como o poderá fazer:",
+        "subtitle": "Veja como poderá fazer:",
         "title": "Continue no seu telefone"
     },
     "cross_device_return": {
         "body": "O seu computador poderá demorar alguns segundos a atualizar",
         "subtitle": "Já pode regressar ao computador para continuar",
         "title": "Carregamentos efetuados com sucesso"
+    },
+    "doc_capture": {
+        "detail": {
+            "folded_doc_front": "Coloque o documento de forma plana e inclua todas as páginas interiores (deve conter a sua fotografia)"
+        },
+        "header_folded_doc_front": "Lado da foto do perfil",
+        "prompt": {
+            "button_card": "Cartão de plástico",
+            "button_paper": "Documento em papel",
+            "title_id": "Que tipo de cartão de identidade tem?",
+            "title_license": "Que tipo de carta de condução tem?"
+        }
     },
     "doc_confirmation": {
         "alert": {
@@ -89,14 +101,14 @@
         "button_license": "Carta de condução",
         "button_license_detail": "Frente e verso",
         "button_passport": "Passaporte",
-        "button_passport_detail": "Página de fotos",
+        "button_passport_detail": "Página com fotografia",
         "button_permit": "Autorização de residência",
         "button_permit_detail": "Frente e verso",
         "button_tax_letter": "Council Tax Letter",
         "extra_estatements_ok": "e-statements accepted",
         "extra_no_mobile": "Sorry, no mobile phone bills",
         "list_accessibility": "Documentos que pode usar para verificar a sua identidade",
-        "subtitle": "Deve ser uma identificação oficial com foto",
+        "subtitle": "Deve ser uma identificação oficial com fotografia",
         "subtitle_poa": "These are the documents most likely to show your current home address",
         "title": "Escolha o seu documento",
         "title_poa": "Select a %{country} document"
@@ -113,10 +125,30 @@
         "title_id_front": "Submeter cartão de identidade (frente)",
         "title_license_back": "Submeter carta (verso)",
         "title_license_front": "Submeter carta (frente)",
-        "title_passport": "Submeta a página de fotografia do passaporte",
+        "title_passport": "Submeta a página com fotografia do passaporte",
         "title_permit_back": "Enviar autorização de residência (verso)",
         "title_permit_front": "Enviar autorização de residência (frente)",
         "title_tax_letter": "Submit letter"
+    },
+    "doc_video_capture": {
+        "button_primary_fallback": "Próximo passo",
+        "button_primary_fallback_end": "Acabar gravação",
+        "detail_step2": "Mantenha o documento sempre totalmente visível",
+        "header": "Segurando no documento, mantenha o lado frontal dentro da moldura",
+        "header_paper_doc_step2": "Vire lentamente o seu documento para mostrar as páginas exteriores",
+        "header_passport": "Segurando no passaporte, mantenha a página da fotografia dentro da moldura",
+        "header_passport_progress": "Mantenha o documento imóvel",
+        "header_step1": "Agora, mantenha o documento imóvel",
+        "header_step2": "Vire lentamente o seu documento para mostrar o verso",
+        "prompt": {
+            "detail_timeout": "A gravação de vídeo está limitada a <timeout><\/timeout> segundos. <fallback>Comece novamente<\/fallback>"
+        },
+        "stepper": "Passo <step><\/step> de <total><\/total>",
+        "success_accessibility": "Sucesso"
+    },
+    "doc_video_confirmation": {
+        "button_secondary": "Pré-visualizar vídeo",
+        "title": "Verifique o seu vídeo"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Reiniciar o processo na versão mais recente do Google Chrome",
@@ -183,7 +215,7 @@
         "info_qr_how": "Como ler um código QR",
         "info_qr_how_list_item_camera": "Aponte a câmara do telefone ao código QR",
         "info_qr_how_list_item_download": "Se não funcionar, transfira um leitor de códigos QR a partir do Google Play ou da App Store",
-        "link_divider": "ou escolha estas alternativas",
+        "link_divider": "ou escolha um método alternativo",
         "link_qr": "Ler código QR",
         "link_sms": "Obtenha a ligação por SMS",
         "link_url": "Copiar ligação",
@@ -202,7 +234,7 @@
             "body_id_front": "Tire uma foto da parte frontal do seu cartão",
             "body_license_back": "Tire uma foto do verso da sua carta",
             "body_license_front": "Tire uma foto da parte frontal da sua carta",
-            "body_passport": "Tire uma foto da página de fotografia do passaporte",
+            "body_passport": "Tire uma foto da página com fotografia do passaporte",
             "body_selfie": "Tire uma selfie que mostre o rosto"
         },
         "selfie_capture": {
@@ -217,7 +249,7 @@
         },
         "upload_guide": {
             "button_primary": "Tirar uma fotografia",
-            "title": "Página de fotografia do passaporte"
+            "title": "Página com fotografia do passaporte"
         }
     },
     "outro": {
@@ -302,7 +334,7 @@
     "selfie_confirmation": {
         "image_accessibility": "Foto do seu rosto",
         "subtitle": "Certifique-se de que todo o seu rosto está visível",
-        "title": "Verificar a sua selfie"
+        "title": "Verifique a sua selfie"
     },
     "selfie_intro": {
         "button_primary": "Continuar",
@@ -338,7 +370,7 @@
         "image_detail_glare_label": "Afaste-se da luz direta — sem encandeamento",
         "image_detail_good_label": "A fotografia deverá mostrar claramente o seu documento",
         "subtitle": "Digitalizações e fotocópias não são aceites",
-        "title": "Carregue a página de fotografia do passaporte"
+        "title": "Carregue a página com fotografia do passaporte"
     },
     "user_consent_load_fail": {
         "button_primary": "Reload screen",
@@ -368,9 +400,15 @@
             "challenge_turn_forward": "depois vire-o para a frente",
             "challenge_turn_left": "Vire a sua cabeça para a esquerda",
             "challenge_turn_right": "Vire a sua cabeça para a direita"
+        },
+        "prompt": {
+            "header_timeout": "Parece que demorou demasiado tempo"
         }
     },
     "video_confirmation": {
+        "body": "O seu vídeo foi gravado",
+        "button_primary": "Carregar vídeo",
+        "button_secondary": "Retomar vídeo",
         "title": "Verifique o seu vídeo",
         "video_accessibility": "Reproduzir o seu vídeo gravado"
     },
@@ -382,13 +420,14 @@
         "title": "Gravar um vídeo"
     },
     "welcome": {
-        "list_header_webcam": "Use a sua câmara ou telefone para fotografar:",
+        "list_header_doc_video": "Utilize o seu dispositivo para gravar:",
+        "list_header_webcam": "Utilize a sua câmara ou telefone para fotografar:",
         "list_item_doc": "o seu documento de identidade",
         "list_item_doc_video_timeout": "A gravação está limitada a <timeout><\/timeout> segundos",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "o seu rosto",
         "next_button": "Escolha o documento",
-        "subtitle": "Deve demorar alguns minutos",
-        "title": "Verificar a sua identidade"
+        "subtitle": "Pode demorar alguns minutos",
+        "title": "Verifique a sua identidade"
     }
 }

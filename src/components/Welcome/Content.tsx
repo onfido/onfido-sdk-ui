@@ -34,19 +34,24 @@ type BaseProps = {
 
 type InstructionsProps = {
   className?: string
+  forDocVideo?: boolean
 } & BaseProps
 
 const Instructions: FunctionComponent<InstructionsProps> = ({
   className,
   captureSteps,
+  forDocVideo = false,
 }) => {
   const { translate } = useLocales()
 
   const instructionKeys = getInstructionKeys(captureSteps)
+  const headerKey = forDocVideo
+    ? 'welcome.list_header_doc_video'
+    : 'welcome.list_header_webcam'
 
   return (
     <div className={classNames(style.instructions, className)}>
-      <span>{translate('welcome.list_header_webcam')}</span>
+      <span>{translate(headerKey)}</span>
       <ol>
         {instructionKeys.map((itemKey) => (
           <li key={itemKey}>{translate(itemKey)}</li>
@@ -104,7 +109,7 @@ export const DocVideoContent: FunctionComponent<BaseProps> = ({
 
   return (
     <div className={style.content}>
-      <Instructions captureSteps={captureSteps} />
+      <Instructions captureSteps={captureSteps} forDocVideo />
       <div className={style.recordingLimit}>
         <span className={style.timer} />
         <span className={style.text}>{recordingLimit}</span>

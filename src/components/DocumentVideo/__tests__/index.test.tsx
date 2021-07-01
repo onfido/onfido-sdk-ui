@@ -382,6 +382,15 @@ describe('DocumentVideo', () => {
           expect(wrapper.find('CaptureControls').exists()).toBeFalsy()
         })
 
+        it('renders overlay without automatically dismiss', () => {
+          assertOverlay(wrapper, documentType, true)
+          jest.advanceTimersByTime(
+            EXPECTED_DOC_VIDEO_CAPTURE.CAMERA_OVERLAY_TIMEOUT
+          )
+          wrapper.update()
+          assertOverlay(wrapper, documentType, true)
+        })
+
         possibleFlows.forEach((flow) => {
           describe(`when select ${flow} flow`, () => {
             beforeEach(() => simulateFlowClick(wrapper, flow))

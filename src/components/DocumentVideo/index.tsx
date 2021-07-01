@@ -101,11 +101,15 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const webcamRef = useRef<Webcam>()
 
   useEffect(() => {
+    if (captureFlow == null) {
+      return
+    }
+
     setTimeout(
       () => setShowOverlayPlaceholder(false),
       DOC_VIDEO_CAPTURE.CAMERA_OVERLAY_TIMEOUT
     )
-  }, [])
+  }, [captureFlow])
 
   useEffect(() => {
     if (!flowComplete) {

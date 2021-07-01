@@ -35,8 +35,8 @@
 }
 
 .preview .videoWrapper {
-  margin-top: 16 * $unit;
-  margin-bottom: 0;
+  width: 66%;
+  margin: 16 * $unit auto 0;
 }
 
 .buttonsContainer > button {

@@ -46,6 +46,18 @@
         "subtitle": "Ora puoi tornare al tuo computer per continuare",
         "title": "Caricamenti riusciti"
     },
+    "doc_capture": {
+        "detail": {
+            "folded_doc_front": "Appoggia il documento aperto sulle pagine interne (deve contenere la tua foto)"
+        },
+        "header_folded_doc_front": "Lato foto profilo",
+        "prompt": {
+            "button_card": "Card plastificata",
+            "button_paper": "Documento cartaceo",
+            "title_id": "Che tipo di carta d’identità hai?",
+            "title_license": "Che tipo di patente hai?"
+        }
+    },
     "doc_confirmation": {
         "alert": {
             "blur_detail": "Assicurati che tutto sia nitido",
@@ -118,6 +130,26 @@
         "title_permit_front": "Invia permesso di soggiorno (fronte)",
         "title_tax_letter": "Submit letter"
     },
+    "doc_video_capture": {
+        "button_primary_fallback": "Avanti",
+        "button_primary_fallback_end": "Termina registrazione",
+        "detail_step2": "Fai in modo che il documento resti sempre visibile",
+        "header": "Tieni in mano il documento con il lato frontale nella cornice",
+        "header_paper_doc_step2": "Gira lentamente il documento per mostrare le pagine esterne",
+        "header_passport": "Tieni in mano il passaporto con la pagina della foto nella cornice",
+        "header_passport_progress": "Resta immobile",
+        "header_step1": "Ora resta immobile",
+        "header_step2": "Gira lentamente il documento per mostrare il retro",
+        "prompt": {
+            "detail_timeout": "La registrazione video ha un limite di <timeout><\/timeout> secondi. <fallback>Ricomincia<\/fallback>"
+        },
+        "stepper": "Passaggio <step><\/step> di <total><\/total>",
+        "success_accessibility": "Riuscito"
+    },
+    "doc_video_confirmation": {
+        "button_secondary": "Anteprima video",
+        "title": "Controlla il video"
+    },
     "error_unsupported_browser": {
         "subtitle_android": "Riavvia il processo nell’ultima versione di Google Chrome",
         "subtitle_ios": "Riavvia il processo nell’ultima versione di Safari",
@@ -183,7 +215,7 @@
         "info_qr_how": "Come scansionare un QR code",
         "info_qr_how_list_item_camera": "Inquadra il QR code con la fotocamera del telefono",
         "info_qr_how_list_item_download": "Se non funziona, scarica un’app per la scansione di QR code da Google Play o App Store",
-        "link_divider": "o scegli fra queste alternative",
+        "link_divider": "o scegli un metodo alternativo",
         "link_qr": "Scansiona QR code",
         "link_sms": "Ricevi link via SMS",
         "link_url": "Copia link",
@@ -368,9 +400,15 @@
             "challenge_turn_forward": "poi guarda in avanti",
             "challenge_turn_left": "Gira la testa a sinistra",
             "challenge_turn_right": "Gira la testa a destra"
+        },
+        "prompt": {
+            "header_timeout": "Sembra che ci sia voluto troppo tempo"
         }
     },
     "video_confirmation": {
+        "body": "Il tuo video è stato registrato",
+        "button_primary": "Carica video",
+        "button_secondary": "Registra un altro video",
         "title": "Controlla il video",
         "video_accessibility": "Guarda il video registrato"
     },
@@ -382,6 +420,7 @@
         "title": "Registra un video"
     },
     "welcome": {
+        "list_header_doc_video": "Usa il dispositivo per registrare:",
         "list_header_webcam": "Usa la webcam o il telefono per fotografare:",
         "list_item_doc": "il tuo documento d’identità",
         "list_item_doc_video_timeout": "La registrazione ha un limite di <timeout><\/timeout> secondi",

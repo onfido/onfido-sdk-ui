@@ -525,7 +525,7 @@ export const createCheckIfNeeded = (
       faceVideo ? 'facial_similarity_video' : 'facial_similarity_photo',
     ],
     document_ids: documentIds,
-    api_version: docVideo ? 'v4' : 'v3',
+    // api_version: docVideo ? 'v4' : 'v3',
   }
 
   request.send(JSON.stringify(body))
