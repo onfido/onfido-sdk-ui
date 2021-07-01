@@ -242,7 +242,7 @@ const printTestInfo = (browser, testCase) => {
 }
 
 const runner = async () => {
-  await waitForMockServer()
+  //await waitForMockServer()
 
   await eachP(config.tests, async (testCase) => {
     await asyncForEach(testCase.browsers, async (browser) => {
@@ -275,7 +275,7 @@ const runner = async () => {
   console.log(chalk.green('Tests finished'))
   process.exit(totalFailures > 0 ? 1 : 0)
 }
-
+/*
 const killMockServer = (dockerContainerId) => {
   if (!dockerContainerId) {
     return
@@ -314,7 +314,7 @@ const pingMockServer = () => {
       .end()
   })
 }
-
+*/
 /**
  * There's always an amount of delay time for the mock server to be alive completely,
  * after the `docker run ...` command exits with the container ID.
@@ -323,6 +323,7 @@ const pingMockServer = () => {
  * Particularly the sleep(1000) is to defer the ping action to be run every 1 second,
  * instead of every process tick, which is unnecessarily wasteful.
  */
+/*
 const waitForMockServer = async () => {
   let isMockServerRunning = false
   let retries = 0
@@ -361,9 +362,9 @@ const runTests = async (dockerContainerId) => {
     )
   }
 
-  await waitForMockServer()
+  await waitForMockServer()*/
   runner()
-
+/*
   const cleanUp = () => {
     killMockServer(dockerContainerId)
   }
@@ -401,6 +402,6 @@ const runMockServerAndTests = () =>
   })
 
 runMockServerAndTests()
-
+*/
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
 //ref: https://github.com/mochajs/mocha/wiki/Using-mocha-programmatically

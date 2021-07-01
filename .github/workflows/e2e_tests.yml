@@ -21,26 +21,26 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install Docker
-        run: brew install --cask docker
+      #- name: Install Docker
+      #  run: brew install --cask docker
 
-      - name: Open Docker
-        run: /Applications/Docker.app/Contents/MacOS/Docker &
+      #- name: Open Docker
+      #  run: /Applications/Docker.app/Contents/MacOS/Docker &
 
-      - name: Create Docker alias
-        run: alias docker='/Applications/Docker.app/Contents/Resources/bin/docker'
+      #- name: Create Docker alias
+      #  run: alias docker='/Applications/Docker.app/Contents/Resources/bin/docker'
 
-      - name: Run Docker alias
-        run: docker
+      #- name: Run Docker alias
+      #  run: docker
 
       #- name: List contents of /usr/local/bin
       #  run: ls -la /usr/local/bin
 
-      - name: Install Dependencies
-        run: npm install
+      #- name: Install Dependencies
+      #  run: npm install
 
-      - name: Run build
-        run: npm run build:test
+      #- name: Run build
+      #  run: npm run build:test
 
       - name: Run e2e tests on Chrome, Firefox and Safari (local)
         run: npm run test:e2e:local
