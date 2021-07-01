@@ -24,8 +24,8 @@ jobs:
       - name: Install Docker
         run: brew install --cask docker
 
-      - name: Run full path for docker
-        run: /usr/local/bin/docker -v
+      - name: Open Docker
+        run: /Applications/Docker.app/Contents/MacOS/Docker
 
       #- name: Install Dependencies
       #  run: npm install
