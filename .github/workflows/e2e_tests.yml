@@ -27,11 +27,11 @@ jobs:
       - name: Open Docker
         run: /Applications/Docker.app/Contents/MacOS/Docker &
 
-      #- name: Install Dependencies
-      #  run: npm install
+      - name: Install Dependencies
+        run: npm install
 
       #- name: Run build
       #  run: npm run build:test
 
-      #- name: Run e2e tests on Chrome, Firefox and Safari (local)
-      #  run: npm run test:e2e:local
+      - name: Run e2e tests on Chrome, Firefox and Safari (local)
+        run: npm run test:e2e:local
