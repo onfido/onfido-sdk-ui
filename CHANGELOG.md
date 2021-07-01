@@ -10,6 +10,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+- UI: Accessibility - Add ARIA role `img` and an ARIA label for the generated cross device secure link QR code image
+
 ### Changed
 
 - UI: Accessibility - Add ARIA role `button` to "Resend link" and "Cancel" links on Cross Device flow SMS Sent, Mobile Connected screens.
