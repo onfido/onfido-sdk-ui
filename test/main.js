@@ -363,7 +363,7 @@ const runTests = async (dockerContainerId) => {
   }
 
   await waitForMockServer()*/
-  runner()
+runner()
 /*
   const cleanUp = () => {
     killMockServer(dockerContainerId)
