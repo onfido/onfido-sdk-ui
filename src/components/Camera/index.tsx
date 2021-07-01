@@ -66,7 +66,7 @@ const Camera: FunctionComponent<Props> = ({
   //
   // Resolution needs to be set to a lower value if WebM format is not supported
   // as video formats like MP4 (Safari) result in larger video file sizes
-  // * Resolutions: 1280px = 720p, 480px = VGA (VGA is minimum we can go for automation + iOS is using VGA resolution)
+  // * Resolutions: 1280px = 720p, 480px = VGA (VGA is minimum we can go for automation + iOS SDK is using VGA resolution)
   const defaultCameraWidthInPx = isWebmFormatSupported() ? 1280 : 480
 
   const webcamProps = {
