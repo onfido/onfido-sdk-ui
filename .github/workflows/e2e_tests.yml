@@ -36,13 +36,11 @@ jobs:
       #- name: List contents of /usr/local/bin
       #  run: ls -la /usr/local/bin
 
-      #- name: Install Dependencies
-      #  run: npm install
+      - name: Install Dependencies
+        run: npm install
 
       #- name: Run build
       #  run: npm run build:test
-      - name: Install basic pre-reqs
-        run: npm install -g babel-cli
-
+      -
       - name: Run e2e tests on Chrome, Firefox and Safari (local)
         run: npm run test:e2e:local
