@@ -24,11 +24,14 @@ jobs:
       - name: Install Docker
         run: brew install --cask docker
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Check docker is installed
+        run: docker -v
 
-      - name: Run build
-        run: npm run build:test
+      #- name: Install Dependencies
+      #  run: npm install
 
-      - name: Run e2e tests on Chrome, Firefox and Safari (local)
-        run: npm run test:e2e:local
+      #- name: Run build
+      #  run: npm run build:test
+
+      #- name: Run e2e tests on Chrome, Firefox and Safari (local)
+      #  run: npm run test:e2e:local
