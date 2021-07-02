@@ -84,7 +84,7 @@ export type DocumentImageResponse = {
   type: DocumentTypes | PoaTypes
   side: DocumentSides
   issuing_country?: string
-  sdk_warnings: ImageQualityWarnings
+  sdk_warnings?: ImageQualityWarnings
 } & UploadFileResponse
 
 const CHALLENGE_RECITE = 'recite'

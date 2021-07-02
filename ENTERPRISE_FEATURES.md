@@ -226,8 +226,6 @@ paths:
                     type: string
                   download_href:
                     type: string
-                  sdk_warnings:
-                    type: object
         '201':
           description: ''
           content:
