@@ -103,14 +103,6 @@ class Confirm extends Component {
     }
   }
 
-  onImageQualityWarning = (apiResponse) => {
-    const { sdk_warnings: warnings } = apiResponse
-    if (!warnings) {
-      return null
-    }
-    return this.imageQualityWarnings(warnings)
-  }
-
   onApiSuccess = (apiResponse) => {
     const { method, nextStep, actions } = this.props
     const { capture } = this.state
@@ -120,14 +112,8 @@ class Confirm extends Component {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const imageQualityWarning = this.onImageQualityWarning(apiResponse)
-
-    if (!imageQualityWarning) {
-      // wait a tick to ensure the action completes before progressing
-      setTimeout(nextStep, 0)
-    } else {
-      this.setWarning(imageQualityWarning)
-    }
+    // wait a tick to ensure the action completes before progressing
+    setTimeout(nextStep, 0)
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
