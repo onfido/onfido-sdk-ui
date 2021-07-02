@@ -279,6 +279,7 @@ export const documentScenarios = async (lang) => {
           confirm,
           'over_10mb_passport.jpg'
         )
+
         // Image is flagged for glare by back end,
         // i.e. resized image was successfully uploaded to back end as API cannot accept a file over 10MB
         confirm.verifyImageQualityMessage(copy, 'glare')
@@ -324,7 +325,7 @@ export const documentScenarios = async (lang) => {
             confirm,
             'identity_card_with_cut-off.png'
           )
-          confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
+          confirm.verifyImageQualityMessage(copy, 'cut-off')
           confirm.clickRedoButton()
         })
 
