@@ -73,11 +73,18 @@ export type UploadFileResponse = {
   download_href: string
 }
 
+type ImageQualityWarnings = {
+  detect_cutoff?: { valid: boolean }
+  detect_glare?: { valid: boolean }
+  detect_blur?: { valid: boolean }
+}
+
 export type DocumentImageResponse = {
   applicant_id: string
   type: DocumentTypes | PoaTypes
   side: DocumentSides
   issuing_country?: string
+  sdk_warnings?: ImageQualityWarnings
 } & UploadFileResponse
 
 const CHALLENGE_RECITE = 'recite'

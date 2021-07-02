@@ -25,6 +25,9 @@ export default {
           type: 'council_tax',
           side: 'front',
           issuing_country: 'GBR',
+          sdk_warnings: {
+            detect_glare: { valid: true },
+          },
           applicant_id: '<to-be-replaced>',
           href: '/v3/documents/35e2f9cb-b79a-460a-ae86-297af0dace7b',
           download_href:
@@ -39,6 +42,9 @@ export default {
           type: 'driving_licence',
           side: 'front',
           issuing_country: 'GBR',
+          sdk_warnings: {
+            detect_glare: { valid: true },
+          },
           applicant_id: '<to-be-replaced>',
           href: '/v3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d',
           download_href:
@@ -53,6 +59,11 @@ export default {
           type: 'passport',
           side: 'front',
           issuing_country: null,
+          sdk_warnings: {
+            detect_glare: { valid: false },
+            detect_cutoff: { valid: true },
+            detect_blur: { valid: true },
+          },
           applicant_id: '<to-be-replaced>',
           href: '/v3/documents/ef848773-a7a9-4758-91cf-bc1cb280f693',
           download_href:
@@ -67,6 +78,11 @@ export default {
           type: 'passport',
           side: 'front',
           issuing_country: null,
+          sdk_warnings: {
+            detect_glare: { valid: true },
+            detect_cutoff: { valid: true },
+            detect_blur: { valid: true },
+          },
           applicant_id: '<to-be-replaced>',
           href: '/v3/documents/a2910652-2ed9-42d9-82b5-0e0578ab57fb',
           download_href:
@@ -88,6 +104,11 @@ export default {
           type: 'passport',
           side: 'front',
           issuing_country: null,
+          sdk_warnings: {
+            detect_glare: { valid: true },
+            detect_cutoff: { valid: true },
+            detect_blur: { valid: true },
+          },
           applicant_id: '<to-be-replaced>',
           href: '/v3/documents/155c23b4-67cc-451b-900b-069e939b84f4',
           download_href:
