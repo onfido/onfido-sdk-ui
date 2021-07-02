@@ -180,6 +180,7 @@ Given webcam is connected to the computer
    - user should be taken to the selfie intro screen
 5. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
    - user should be taken to the liveness intro screen
+6. Complete the liveness video challenges
 
 Given webcam is not connected to the computer
 
@@ -189,6 +190,7 @@ Given webcam is not connected to the computer
    - user should be taken to the selfie intro screen
 4. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
    - user should be taken to the liveness intro screen
+5. Complete the liveness video challenges
 
 ### 10a. Check happy path flow for passports on other desktop browsers
 
