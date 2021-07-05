@@ -25,7 +25,7 @@ const isWebmFormatSupported = () => {
     'video/webm',
   ]
   return webmMimeTypes.some((mimeType) =>
-    MediaRecorder.isTypeSupported(mimeType)
+    window.MediaRecorder?.isTypeSupported(mimeType)
   )
 }
 
