@@ -5,6 +5,10 @@
       "timeout": 20000,
       "browsers": [
         {
+          "browserName": "chrome",
+          "remote": false
+        },
+        {
           "browserName": "safari",
           "remote": false
         }
