@@ -1,5 +1,5 @@
 import { describe } from '../utils/mochaw'
-import { fullTestCoverageLanguages } from '../prode2e.json'
+import { fullTestCoverageLanguages } from '../prode2elocal.json'
 import { faceScenarios } from './scenarios/face'
 import { crossDeviceScenarios } from './scenarios/crossDevice'
 

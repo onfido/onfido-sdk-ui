@@ -32,7 +32,6 @@
     "test:unit": "jest --coverage --verbose --testPathPattern=__tests__",
     "test:ui": "babel-node test/main.js",
     "test:percy": "MOCHA_GREP=@percy CONFIG_FILE=percy.json PERCY=true percy exec npm run test:ui",
-    "test:e2e": "MOCHA_GREP=@e2e-latest CONFIG_FILE=prode2e.json npm run test:ui",
     "test:e2e:local": "MOCK_SERVER=false MOCHA_GREP=@e2e-latest CONFIG_FILE=prode2elocal.json npm run test:ui",
     "mock-server:build": "cd ./test/mock-server && ./prepare.sh && docker build -t onfido-web-sdk:ui-mock-server .",
     "mock-server:run": "docker run -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server",
