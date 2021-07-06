@@ -57,6 +57,12 @@ export type SdkMetadata = {
     browser: string
     browser_version: string
   }
+  camera_settings?: {
+    aspect_ratio?: number
+    frame_rate?: number
+    height?: number
+    width?: number
+  }
 }
 
 export type CountryData = {
