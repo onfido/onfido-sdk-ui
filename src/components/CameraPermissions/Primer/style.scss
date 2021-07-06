@@ -17,14 +17,8 @@
   height: auto;
   width: 100%;
   font-size: var(--font-size-small);
-  display: flex;
-  flex-direction: column;
-  flex: 2 1 32 * $unit-x-small;
   min-height: 32 * $unit-x-small;
   max-width: 105.01 * $unit-x-small;
-  width: 100%;
-  padding: 10 * $unit-small;
-  margin: auto;
   @media (--small-viewport) {
     max-width: 79 * $unit-x-small;
   }
@@ -32,7 +26,6 @@
 
 .reasons {
   font-size: var(--font-size-small);
-
   text-align: center;
   min-height: 42 * $unit-small;
 }
@@ -53,7 +46,6 @@
   @media (--small-viewport) {
     background-size: contain;
     flex-grow: 1; // prevents container height collapsing on iOS devices
-    height: 100%;
   }
 }
 
