@@ -157,11 +157,23 @@ export declare type UploadFileResponse = {
 	href: string;
 	download_href: string;
 };
+export declare type ImageQualityWarnings = {
+	detect_cutoff?: {
+		valid: boolean;
+	};
+	detect_glare?: {
+		valid: boolean;
+	};
+	detect_blur?: {
+		valid: boolean;
+	};
+};
 export declare type DocumentImageResponse = {
 	applicant_id: string;
 	type: DocumentTypes | PoaTypes;
 	side: DocumentSides;
 	issuing_country?: string;
+	sdk_warnings?: ImageQualityWarnings;
 } & UploadFileResponse;
 declare const CHALLENGE_RECITE = "recite";
 declare const CHALLENGE_MOVEMENT = "movement";
