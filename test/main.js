@@ -52,6 +52,7 @@ const bsCapabilitiesDefault = {
   binarypath: './test/BrowserStackLocal',
   'browserstack.console': 'errors',
   'browserstack.networkLogs': true,
+  'browserstack.idleTimeout': '300',
 }
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".

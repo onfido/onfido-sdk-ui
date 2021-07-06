@@ -2,15 +2,16 @@
   "tests": [
     {
       "file": "test/specs/prod-e2e-latest-surge.js",
-      "timeout": 20000,
+      "timeout": 75000,
       "browsers": [
         {
-          "browserName": "chrome",
-          "remote": false
-        },
-        {
-          "browserName": "safari",
-          "remote": false
+          "browserName": "Firefox",
+          "browser_version": "latest",
+          "os": "Windows",
+          "os_version": "10",
+          "resolution": "1920x1080",
+          "remote": true,
+          "name": "prod-e2e-latest-surge-IE11"
         }
       ]
     }

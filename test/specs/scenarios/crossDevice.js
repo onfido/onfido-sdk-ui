@@ -83,7 +83,8 @@ export const crossDeviceScenarios = async (lang) => {
           isRemoteBrowser === true &&
           (browserName === 'Firefox' ||
             browserName === 'Edge' ||
-            browserName === 'Chrome')
+            browserName === 'Chrome' ||
+            browserName === 'IE')
         ) {
           driver.sleep(5000)
           crossDeviceIntro.continueToNextStep()
@@ -272,14 +273,14 @@ export const crossDeviceScenarios = async (lang) => {
           'passport.jpg'
         )
         runThroughCrossDeviceFlow()
-        //documentUpload.verifySelfieUploadTitle(copy)
-        //uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
-        //crossDeviceClientSuccess.verifyUIElements(copy)
-        //switchBrowserTab(0, driver)
-        //crossDeviceSubmit.documentUploadedMessage().isDisplayed()
-        //crossDeviceSubmit.verifyUIElements(copy)
-        //crossDeviceSubmit.clickOnSubmitVerificationButton()
-        //verificationComplete.verifyUIElements(copy)
+        documentUpload.verifySelfieUploadTitle(copy)
+        uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
+        crossDeviceClientSuccess.verifyUIElements(copy)
+        switchBrowserTab(0, driver)
+        crossDeviceSubmit.documentUploadedMessage().isDisplayed()
+        crossDeviceSubmit.verifyUIElements(copy)
+        crossDeviceSubmit.clickOnSubmitVerificationButton()
+        verificationComplete.verifyUIElements(copy)
       })
 
       it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
