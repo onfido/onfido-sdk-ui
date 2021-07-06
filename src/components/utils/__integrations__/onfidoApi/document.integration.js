@@ -45,6 +45,7 @@ describe('API uploadDocument endpoint', () => {
     const testFileType = 'jpg'
     const expectedProperties = [
       'applicant_id',
+      'sdk_warnings',
       { side: 'front' },
       { type: 'passport' },
       { issuing_country: null },
