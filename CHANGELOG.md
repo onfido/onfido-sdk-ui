@@ -10,13 +10,23 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+- UI: Accessibility - Add ARIA role `img` and an ARIA label for the generated cross device secure link QR code image
+
 ### Changed
 
 - UI: Accessibility - Add ARIA role `button` to "Resend link" and "Cancel" links on Cross Device flow SMS Sent, Mobile Connected screens.
+- Internal: Remove `image_quality` breakdowns from `sdk_warnings` response because the field will be soon deprecated.
+- Internal: Moved `geckodriver` from `dependencies` to `devDependencies`.
 
 ### Fixed
 
-## [6.10.0]
+## [6.10.1] - 2021-07-05
+
+### Changed
+
+- Reduce resolution to VGA if browser does not support recording videos in WebM format (e.g. Safari 14.x that only supports MP4 format) to avoid large video files being created.
+
+## [6.10.0] - 2021-06-22
 
 ### Added
 
@@ -1012,7 +1022,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.1...development
+[6.10.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.0...6.10.1
 [6.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...6.10.0
 [6.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.8.0...6.9.0
 [6.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.7.2...6.8.0

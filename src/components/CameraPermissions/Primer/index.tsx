@@ -1,5 +1,6 @@
 import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
+import ScreenLayout from 'components/Theme/ScreenLayout'
 import PageTitle from 'components/PageTitle'
 import { Button } from '@onfido/castor-react'
 import { trackComponent } from 'Tracker'
@@ -16,18 +17,8 @@ type PermissionsProps = {
 type Props = PermissionsProps & WithLocalisedProps & WithTrackingProps
 
 const Permissions: FunctionComponent<Props> = ({ onNext, translate }) => (
-  <div className={theme.fullHeightContainer}>
-    <PageTitle
-      title={translate('permission.title_cam')}
-      subTitle={translate('permission.subtitle_cam')}
-    />
-    <div className={classNames(style.bodyWrapper, theme.scrollableContent)}>
-      <div className={style.image}>
-        <div className={style.graphic} />
-      </div>
-      <p className={style.instructions}>{translate('permission.body_cam')}</p>
-    </div>
-    <div className={classNames(theme.contentMargin, style.actions)}>
+  <ScreenLayout
+    actions={
       <Button
         variant="primary"
         className={classNames(theme['button-centered'], theme['button-lg'])}
@@ -36,8 +27,21 @@ const Permissions: FunctionComponent<Props> = ({ onNext, translate }) => (
       >
         {translate('permission.button_primary_cam')}
       </Button>
+    }
+  >
+    <div className={theme.fullHeightContainer}>
+      <PageTitle
+        title={translate('permission.title_cam')}
+        subTitle={translate('permission.subtitle_cam')}
+      />
+      <div className={classNames(style.bodyWrapper)}>
+        <div className={style.image}>
+          <div className={style.graphic} />
+        </div>
+        <p className={style.instructions}>{translate('permission.body_cam')}</p>
+      </div>
     </div>
-  </div>
+  </ScreenLayout>
 )
 
 export default trackComponent(localised(Permissions))
