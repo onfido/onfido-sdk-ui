@@ -244,7 +244,7 @@ const printTestInfo = (browser, testCase) => {
 
 const runner = async () => {
   if (process.env.MOCK_SERVER === 'false') {
-    console.log('not waiting for mock server to start')
+    console.log('Not waiting for mock server to start')
   } else {
     await waitForMockServer()
   }
@@ -297,7 +297,7 @@ const killMockServer = (dockerContainerId) => {
 }
 
 if (process.env.MOCK_SERVER === 'false') {
-  console.log(chalk.bold.green('NOT Starting mock server'))
+  console.log(chalk.bold.green('You have chosen NOT to run the mock server'))
 } else {
   console.log(chalk.bold.green('Starting mock server'))
 }
@@ -409,7 +409,7 @@ const runMockServerAndTests = () =>
   })
 
 if (process.env.MOCK_SERVER === 'false') {
-  console.log('I wont run tests using the mock server')
+  console.log('Tests will run without the use of the mock server')
   runner()
 } else {
   runMockServerAndTests()

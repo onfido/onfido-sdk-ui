@@ -24,5 +24,5 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run e2e tests on Chrome, Firefox and Safari (local)
+      - name: Run e2e tests on Chrome, Safari and MS Edge (local) (Firefox to follow)
         run: npm run test:e2e:local

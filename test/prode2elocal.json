@@ -9,10 +9,6 @@
           "remote": false
         },
         {
-          "browserName": "firefox",
-          "remote": false
-        },
-        {
           "browserName": "safari",
           "remote": false
         },
