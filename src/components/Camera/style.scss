@@ -129,43 +129,20 @@
       width: 100%;
       top: 21.5%;
     }
-  }
 
-  /* Only apply styles on Edge where there is no `object-fit:cover` support for video */
-  @supports (-ms-ime-align: auto) {
-    left: 50%;
-    margin: auto;
-    transform: translate(-50%, 0%);
-  }
-}
-
-/* Subsequent media queries not getting compiled correctly in production build when nested */
-.webcamContainer {
-  .docLiveCaptureFrame & {
     @media (--small-viewport) and (--below-high-pixel-density) {
       height: auto;
       width: 100%;
       top: -34%;
       margin: 50% auto;
     }
-  }
-}
 
-.webcamContainer {
-  .docLiveCaptureFrame & {
     @media (--high-pixel-density) and (orientation: portrait) {
       height: auto;
       width: 100%;
       top: -25%;
     }
-    @media (--high-pixel-density) and (orientation: landscape) {
-      top: 0;
-    }
-  }
-}
 
-.webcamContainer {
-  .docLiveCaptureFrame & {
     @media (--short-viewport) and (--high-pixel-density) and (orientation: portrait) {
       top: 0;
     }
@@ -173,5 +150,16 @@
     @media (--long-viewport) and (--high-pixel-density) and (orientation: portrait) {
       top: 0;
     }
+
+    @media (--high-pixel-density) and (orientation: landscape) {
+      top: 0;
+    }
+  }
+
+  /* Only apply styles on Edge where there is no `object-fit:cover` support for video */
+  @supports (-ms-ime-align: auto) {
+    left: 50%;
+    margin: auto;
+    transform: translate(-50%, 0%);
   }
 }
