@@ -76,7 +76,9 @@ class Camera extends BasePage {
   }
 
   async completeChallenges() {
+    this.driver.sleep(500)
     this.nextChallengeButton().click()
+    this.driver.sleep(500)
     this.stopButton().click()
   }
 }

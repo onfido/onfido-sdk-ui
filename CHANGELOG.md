@@ -17,6 +17,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Add ARIA role `button` to "Resend link" and "Cancel" links on Cross Device flow SMS Sent, Mobile Connected screens.
 - Internal: Remove `image_quality` breakdowns from `sdk_warnings` response because the field will be soon deprecated.
 - Internal: Moved `geckodriver` from `dependencies` to `devDependencies`.
+- Internal: Added ability to run tests without the use of the mock server for the UI tests.
 
 ### Fixed
 
