@@ -340,7 +340,7 @@ export const faceScenarios = (lang) => {
       faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
       faceVideoIntro.clickOnContinueButton()
       camera.enableCameraButton().click()
-      //camera.verifyVideoTitle(copy) - copy difference
+      camera.verifyVideoTitle(copy)
       camera.verifyOnfidoFooterIsVisible()
       camera.recordButton().click()
       assert.isTrue(
