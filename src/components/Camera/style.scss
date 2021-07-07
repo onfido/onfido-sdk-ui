@@ -119,40 +119,38 @@
   .docLiveCaptureFrame & {
     left: 0;
 
-    @media (orientation: portrait) {
-      height: 100%;
-      width: 100%;
-    }
-
     @media (orientation: landscape) {
       height: auto;
       width: 100%;
       top: 21.5%;
     }
 
-    @media (--small-viewport) and (--below-high-pixel-density) {
-      height: auto;
+    @media (orientation: landscape) and (--high-pixel-density) {
+      top: 0;
+    }
+
+    @media (orientation: portrait) {
+      height: 100%;
       width: 100%;
+    }
+
+    @media (orientation: portrait) and (--small-viewport) and (--below-high-pixel-density) {
+      height: auto;
       top: -34%;
       margin: 50% auto;
     }
 
-    @media (--high-pixel-density) and (orientation: portrait) {
+    @media (orientation: portrait) and (--high-pixel-density) {
       height: auto;
-      width: 100%;
       top: -25%;
-    }
 
-    @media (--short-viewport) and (--high-pixel-density) and (orientation: portrait) {
-      top: 0;
-    }
+      @media (--short-viewport) {
+        top: 0;
+      }
 
-    @media (--long-viewport) and (--high-pixel-density) and (orientation: portrait) {
-      top: 0;
-    }
-
-    @media (--high-pixel-density) and (orientation: landscape) {
-      top: 0;
+      @media (--long-viewport) {
+        top: 0;
+      }
     }
   }
 
