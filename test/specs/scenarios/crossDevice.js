@@ -79,19 +79,8 @@ export const crossDeviceScenarios = async (lang) => {
       }
 
       const runThroughCrossDeviceFlow = async () => {
-        if (
-          isRemoteBrowser === true &&
-          (browserName === 'Firefox' ||
-            browserName === 'Edge' ||
-            browserName === 'Chrome' ||
-            browserName === 'IE')
-        ) {
-          driver.sleep(5000)
-          crossDeviceIntro.continueToNextStep()
-        } else {
-          documentUpload.switchToCrossDevice()
-          crossDeviceIntro.continueToNextStep()
-        }
+        documentUpload.switchToCrossDevice()
+        crossDeviceIntro.continueToNextStep()
         crossDeviceLink.switchToCopyLinkOption()
         copyCrossDeviceLinkAndOpenInNewTab()
         switchBrowserTab(0, driver)
