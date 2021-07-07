@@ -409,7 +409,9 @@ const runMockServerAndTests = () =>
   })
 
 if (process.env.MOCK_SERVER === 'false') {
-  console.log('Tests will run without the use of the mock server and against production')
+  console.log(
+    'Tests will run without the use of the mock server and against production'
+  )
   runner()
 } else {
   runMockServerAndTests()
