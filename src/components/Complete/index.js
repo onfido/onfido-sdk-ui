@@ -19,7 +19,7 @@ class Complete extends Component {
       ...parsedParams,
       firstName: parsedParams.firstName || 'john',
       lastName: parsedParams.lastName || 'doe',
-      callbackUrl: parsedParams.callbackUrl || 'localhost:3000',
+      callbackUrl: parsedParams.callbackUrl || 'http://localhost:3000',
     }
     console.log('parsedParams', parsedParams)
     console.log('queryParams', queryParams)
@@ -27,7 +27,7 @@ class Complete extends Component {
       qrCode: '',
       queryParams,
       pin: '',
-      errorCode: this.state.queryParams.error && 418,
+      errorCode: (queryParams.error && 418) || null,
       message: '',
       loading: true,
     }
@@ -40,9 +40,8 @@ class Complete extends Component {
 
   sendGskResponse = () => {
     const {
-      state: { queryParams, errorCode, message, callbackUrl },
+      state: { queryParams, errorCode, message },
     } = this
-    console.log('sending message to GSK')
     const payload = {
       // will return the default true if undefined
       'vc-issued':
@@ -52,14 +51,19 @@ class Complete extends Component {
       message,
       error: errorCode,
     }
+    console.log('sending message to GSK', queryParams.callbackUrl, payload)
     const config = {
       method: 'post',
-      url: callbackUrl,
+      url: queryParams.callbackUrl,
       data: payload,
     }
-    axios(config).then((response) => {
-      console.log('gsk call successful', response.data)
-    })
+    axios(config)
+      .then((response) => {
+        console.log('gsk call successful', response.data)
+      })
+      .catch((e) => {
+        console.log('something went wrong: ', e)
+      })
   }
 
   fetchQrCode = () => {
@@ -73,7 +77,7 @@ class Complete extends Component {
     }
     const config = {
       method: 'post',
-      url: 'http://localhost:3000/idv-qr-code',
+      url: 'http://localhost:3000/check',
       data,
     }
     console.log('inside fetchQrCode')
