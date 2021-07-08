@@ -41,7 +41,8 @@ const SdkDemo: FunctionComponent<Props> = ({
     ).toUpperCase() as ServerRegions
     setRegionCode(builtRegionCode)
 
-    const url = getTokenFactoryUrl(builtRegionCode)
+    // const url = getTokenFactoryUrl(builtRegionCode)
+    const url = 'http://localhost:3000/sdk-token'
     setTokenUrl(url)
 
     getToken(hasPreview, url, messagePort, (respondedToken) =>

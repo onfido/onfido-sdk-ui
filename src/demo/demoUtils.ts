@@ -379,14 +379,14 @@ export const getToken = (
   onSuccess: (message: string) => void
 ): void => {
   const request = new XMLHttpRequest()
-  request.open('GET', url, true)
-  request.setRequestHeader(
-    'Authorization',
-    `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
-  )
+  request.open('POST', url, true)
+
+  request.setRequestHeader('Access-Control-Allow-Origin', '*')
   request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
-      const data = JSON.parse(request.responseText)
+      console.log(request.responseText)
+
+      const data = request.responseText
       if (hasPreview && eventEmitter) {
         eventEmitter.postMessage({
           type: 'UPDATE_CHECK_DATA',
@@ -395,7 +395,7 @@ export const getToken = (
           },
         })
       }
-      onSuccess(data.message)
+      onSuccess(data)
     }
   }
   request.send()
