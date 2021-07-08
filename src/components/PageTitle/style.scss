@@ -29,6 +29,11 @@
 .titleWrapper {
   margin: 32 * $unit 0 16 * $unit;
   flex-shrink: 0;
+
+  // To fix Safari flexbox rendering issue by forcing the div to be rendered in a new composite layer,
+  // see https://stackoverflow.com/questions/65524383/flexbox-bug-on-safari -> https://stackoverflow.com/questions/19169089/weird-css-stretching-issue-in-ios7-safari-and-chrome
+  transform: translateZ(0);
+
   @media (--small-viewport) {
     margin: 0 0 16 * $unit;
   }
