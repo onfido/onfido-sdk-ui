@@ -1,5 +1,6 @@
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
+import { testDeviceMobileNumber } from '../../config.json'
+import { localhostUrl } from '../../main'
 import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
