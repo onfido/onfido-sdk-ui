@@ -17,8 +17,19 @@
   height: auto;
   width: 100%;
   font-size: var(--font-size-small);
+  display: flex;
+  flex-direction: column;
+  flex: 2 1 32 * $unit-x-small;
   min-height: 32 * $unit-x-small;
   max-width: 105.01 * $unit-x-small;
+  width: 100%;
+  padding: 10 * $unit-small;
+  margin: auto;
+
+  // To fix Safari flexbox rendering issue by forcing the div to be rendered in a new composite layer,
+  // see https://stackoverflow.com/questions/65524383/flexbox-bug-on-safari -> https://stackoverflow.com/questions/19169089/weird-css-stretching-issue-in-ios7-safari-and-chrome
+  transform: translateZ(0);
+
   @media (--small-viewport) {
     max-width: 79 * $unit-x-small;
   }
@@ -26,6 +37,7 @@
 
 .reasons {
   font-size: var(--font-size-small);
+
   text-align: center;
   min-height: 42 * $unit-small;
 }
@@ -46,6 +58,7 @@
   @media (--small-viewport) {
     background-size: contain;
     flex-grow: 1; // prevents container height collapsing on iOS devices
+    height: 100%;
   }
 }
 

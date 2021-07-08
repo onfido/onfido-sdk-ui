@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- UI: Fixed Camera Permissions Primer screen rendering issue on Safari 14.1 (desktop) without changing existing SDK layout structure.
+
 ## [6.10.1] - 2021-07-05
 
 ### Changed
