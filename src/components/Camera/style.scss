@@ -124,24 +124,16 @@
       width: 100%;
       top: 21.5%;
     }
-  }
-
-  .docLiveCaptureFrame & {
-    left: 0;
 
     @media (orientation: landscape) and (--high-pixel-density) {
       top: 0;
     }
-  }
 
-  .docLiveCaptureFrame & {
     @media (orientation: portrait) {
       height: 100%;
       width: 100%;
     }
-  }
 
-  .docLiveCaptureFrame & {
     @media (orientation: portrait) and (--small-viewport) and (--below-high-pixel-density) {
       height: auto;
       top: -34%;
