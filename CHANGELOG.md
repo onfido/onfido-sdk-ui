@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.10.2] - 2021-07-08
+
 ### Fixed
 
 - UI: Fixed Camera Permissions Primer screen rendering issue on Safari 14.1 (desktop) without changing existing SDK layout structure.
@@ -17,6 +19,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - Reduce resolution to VGA if browser does not support recording videos in WebM format (e.g. Safari 14.x that only supports MP4 format) to avoid large video files being created.
+- UI: Fixed Camera Permissions Primer screen rendering issue on Safari 14.1 (desktop) by using ScreenLayout wrapper component.
 
 ## [6.10.0] - 2021-06-22
 
@@ -1014,7 +1017,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.2...development
+[6.10.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.1...6.10.2
 [6.10.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.0...6.10.1
 [6.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...6.10.0
 [6.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.8.0...6.9.0
