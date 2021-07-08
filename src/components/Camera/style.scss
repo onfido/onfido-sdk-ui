@@ -140,17 +140,15 @@
       margin: 50% auto;
     }
 
-    @media (orientation: portrait) and (--high-pixel-density) {
+    @media (orientation: portrait) and (--high-pixel-density) and (--short-viewport),
+      (orientation: portrait) and (--high-pixel-density) and (--long-viewport) {
       height: auto;
       top: -25%;
+    }
 
-      @media (--short-viewport) {
-        top: 0;
-      }
-
-      @media (--long-viewport) {
-        top: 0;
-      }
+    @media (orientation: portrait) and (--high-pixel-density) and (--short-viewport),
+      (orientation: portrait) and (--high-pixel-density) and (--long-viewport) {
+      top: 0;
     }
   }
 
