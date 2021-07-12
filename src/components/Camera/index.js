@@ -13,10 +13,17 @@ import style from './style.css'
 import { compose } from '~utils/func'
 import { localised } from '../../locales'
 
-// Specify just a camera height (no width) because on safari if you specify both
-// height and width you will hit an OverconstrainedError if the camera does not
-// support the precise resolution.
-const cameraHeight = 720
+const isWebmFormatSupported = () => {
+  const webmMimeTypes: string[] = [
+    'video/webm;codecs=vp9',
+    'video/webm;codecs=vp8,opus',
+    'video/webm;codecs=vp8',
+    'video/webm',
+  ]
+  return webmMimeTypes.some((mimeType) =>
+    window.MediaRecorder?.isTypeSupported(mimeType)
+  )
+}
 
 export type Props = {
   translate: (string, ?{}) => string,
@@ -25,17 +32,17 @@ export type Props = {
   children?: React.Node,
   renderError?: React.Node,
   renderTitle?: React.Node,
-  onFailure?: Error => void,
+  onFailure?: (Error) => void,
   onUserMedia?: Function,
   webcamRef: React.Ref<typeof Webcam>,
   video?: boolean,
   isRecording?: boolean,
   facing?: 'user' | 'environment',
-  idealCameraHeight?: number,
+  idealCameraWidth?: number,
   buttonType?: string,
   onButtonClick: Function,
   isButtonDisabled: boolean,
-  hasGrantedPermission: boolean
+  hasGrantedPermission: boolean,
 }
 
 const CameraPure = ({
@@ -51,53 +58,69 @@ const CameraPure = ({
   isRecording,
   translate,
   facing = 'user',
-  idealCameraHeight,
+  idealCameraWidth,
   buttonType,
   onButtonClick,
   isButtonDisabled,
-  hasGrantedPermission
-}: Props) => (
-  <div className={classNames(style.camera, className)}>
-    {renderTitle}
-    <div className={classNames(style.container, containerClassName)}>
-      <div
-        className={style.webcamContainer}
-        role="group"
-        aria-describedby="cameraViewAriaLabel"
-      >
-        <Webcam
-          className={style.video}
-          audio={!!video}
-          height={idealCameraHeight || cameraHeight}
-          facingMode={facing}
-          {...{ onUserMedia, ref: webcamRef, onFailure }}
-        />
-      </div>
-      <div className={style.actions}>
-        {buttonType === 'photo' &&
-          <CameraButton
-            ariaLabel={translate('accessibility.shutter')}
+  hasGrantedPermission,
+}: Props) => {
+  // Specify just a camera width (no height) because on safari if you specify both
+  // height and width you will hit an OverconstrainedError if the camera does not
+  // support the precise resolution.
+  // Using width here because on some special devices (e.g. Samsung Galaxy),
+  // setting 720px in height results to 720x960 resolution instead of the desired 720x1280.
+  //
+  // Resolution needs to be set to a lower value if WebM format is not supported
+  // as video formats like MP4 (Safari) result in larger video file sizes
+  // * Resolutions: 1280px = 720p, 480px = VGA (VGA is minimum we can go for automation + iOS SDK is using VGA resolution)
+  const defaultCameraWidthInPx = isWebmFormatSupported() ? 1280 : 480
+  return (
+    <div className={classNames(style.camera, className)}>
+      {renderTitle}
+      <div className={classNames(style.container, containerClassName)}>
+        <div
+          className={classNames(style.webcamContainer, {
+            [style.adjustForReducedResolution]: !isWebmFormatSupported(),
+          })}
+          role="group"
+          aria-describedby="cameraViewAriaLabel"
+        >
+          <Webcam
+            className={style.video}
+            audio={!!video}
+            width={idealCameraWidth || defaultCameraWidthInPx}
+            facingMode={facing}
+            {...{ onUserMedia, ref: webcamRef, onFailure }}
+          />
+        </div>
+        <div className={style.actions}>
+          {buttonType === 'photo' && (
+            <CameraButton
+              ariaLabel={translate('accessibility.shutter')}
+              disableInteraction={!hasGrantedPermission || isButtonDisabled}
+              onClick={onButtonClick}
+              className={classNames(style.btn, {
+                [style.disabled]: !hasGrantedPermission || isButtonDisabled,
+              })}
+            />
+          )}
+        </div>
+        {buttonType === 'video' && !isRecording && (
+          <StartRecording
             disableInteraction={!hasGrantedPermission || isButtonDisabled}
-            onClick={onButtonClick}
-            className={classNames(style.btn, {
-              [style.disabled]: !hasGrantedPermission || isButtonDisabled
-            })}
-          />}
+            onStart={onButtonClick}
+          />
+        )}
+        <div
+          id="cameraViewAriaLabel"
+          aria-label={translate('accessibility.camera_view')}
+        ></div>
+        {children}
+        {renderError}
       </div>
-      {(buttonType === 'video' && !isRecording) &&
-        <StartRecording
-          disableInteraction={!hasGrantedPermission || isButtonDisabled}
-          onStart={onButtonClick}
-        />}
-      <div
-        id="cameraViewAriaLabel"
-        aria-label={translate('accessibility.camera_view')}
-      ></div>
-      {children}
-      {renderError}
     </div>
-  </div>
-)
+  )
+}
 
 export default compose(
   localised,

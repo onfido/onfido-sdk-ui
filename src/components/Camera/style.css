@@ -1,5 +1,5 @@
-@import (less) "../Theme/constants.css";
-@import (less) "../Theme/style.css";
+@import (less) '../Theme/constants.css';
+@import (less) '../Theme/style.css';
 
 .camera {
   width: 100%;
@@ -14,7 +14,7 @@
 }
 
 .container:before {
-  content: "";
+  content: '';
   display: block;
   padding-top: 70%;
 }
@@ -32,8 +32,8 @@
   height: 100%;
   z-index: 0;
   /* Use `object-fit: cover` on every browser but Edge */
-  @supports not (-ms-ime-align:auto) {
-    width:100%;
+  @supports not (-ms-ime-align: auto) {
+    width: 100%;
     top: 0;
     left: 0;
     margin: auto;
@@ -44,9 +44,9 @@
 .actions {
   position: absolute;
   z-index: 1000;
-  bottom: 48*@unit;
-  left: 16*@unit;
-  right: 16*@unit;
+  bottom: 48 * @unit;
+  left: 16 * @unit;
+  right: 16 * @unit;
 
   &.disabled {
     z-index: 0;
@@ -55,17 +55,17 @@
 
 .btn {
   cursor: pointer;
-  outline-offset: 6*@unit;
+  outline-offset: 6 * @unit;
   background-color: @color-camera-button;
   font-size: inherit;
   border-radius: 50%;
-  border: 3*@unit solid @color-black;
-  box-shadow: 0 0 0 4*@unit @color-white;
-  height: 56*@unit;
+  border: 3 * @unit solid @color-black;
+  box-shadow: 0 0 0 4 * @unit @color-white;
+  height: 56 * @unit;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  width: 56*@unit;
+  width: 56 * @unit;
 
   &:hover {
     background-color: @color-camera-button-hover;
@@ -81,13 +81,18 @@
   }
 }
 
-
 .webcamContainer {
   position: absolute;
   top: 0;
   height: 100%;
+
+  &.adjustForReducedResolution {
+    left: 0;
+    width: 100%;
+  }
+
   /* Only apply styles on Edge where there is no `object-fit:cover` support for video */
-  @supports (-ms-ime-align:auto) {
+  @supports (-ms-ime-align: auto) {
     left: 50%;
     margin: auto;
     transform: translate(-50%, 0%);
