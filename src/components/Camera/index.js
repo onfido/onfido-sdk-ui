@@ -20,9 +20,12 @@ const isWebmFormatSupported = () => {
     'video/webm;codecs=vp8',
     'video/webm',
   ]
-  return webmMimeTypes.some((mimeType) =>
-    window.MediaRecorder?.isTypeSupported(mimeType)
-  )
+  return webmMimeTypes.some((mimeType) => {
+    if (window.MediaRecorder) {
+      return window.MediaRecorder.isTypeSupported(mimeType)
+    }
+    return false
+  })
 }
 
 export type Props = {
