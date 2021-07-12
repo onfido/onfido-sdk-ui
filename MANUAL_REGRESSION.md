@@ -179,7 +179,8 @@ Given webcam is connected to the computer
 4. Open the cross device link on a mobile device that doesn't have media recorder API support (Chrome on iOS)
    - user should be taken to the selfie intro screen
 5. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
-   - user should be taken to the face video intro screen
+   - user should be taken to the liveness intro screen
+6. Complete the liveness video challenges
 
 Given webcam is not connected to the computer
 
@@ -188,7 +189,8 @@ Given webcam is not connected to the computer
 3. Open the cross device link on a mobile device that doesn't have media recorder API support (Chrome on iOS)
    - user should be taken to the selfie intro screen
 4. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
-   - user should be taken to the face video intro screen
+   - user should be taken to the liveness intro screen
+5. Complete the liveness video challenges
 
 ### 10a. Check happy path flow for passports on other desktop browsers
 
@@ -452,7 +454,7 @@ Given webcam is connected to the computer
 
 ### 26. Face video on desktop with webcam
 
-(on private mode of: Google Chrome and Firefox browsers)
+(on private mode of: Google Chrome and Firefox browsers and Safari 14+)
 
 Given webcam is connected to the computer
 
@@ -472,7 +474,7 @@ Given webcam is connected to the computer
 
 ### 27. Face video on desktop with webcam
 
-(on private mode of: Safari and Edge browsers - these browsers do not support video recording)
+(on private mode of: Safari (older than Safari 14) and older Edge browsers (EdgeHTML) - these browsers do not support video recording)
 
 Given webcam is connected to the computer
 
@@ -487,7 +489,7 @@ Given webcam is connected to the computer
 
 ### 28. Face video on desktop with no video support or no webcam
 
-(on private mode of: any browser with no webcam OR Safari and Edge browsers)
+(on private mode of: any browser with no webcam OR Safari versions older than 14 and IE11 browsers)
 
 Given there is no webcam connected to the computer
 

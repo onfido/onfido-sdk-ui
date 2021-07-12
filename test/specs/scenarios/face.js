@@ -67,7 +67,7 @@ export const faceScenarios = (lang) => {
       confirm.verifyUnsuppoertedFileError(copy)
     })
 
-    it('should upload selfie', async () => {
+    it('should upload selfie @e2e-latest', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -316,7 +316,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should record a video with live challenge, play it and submit it @percy', async () => {
+    it('should record a video with live challenge, play it and submit it @percy @e2e-latest', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,

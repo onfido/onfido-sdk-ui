@@ -1,4 +1,4 @@
-import { localhostUrl } from '../../config.json'
+import { localhostUrl } from '../../main'
 import percySnapshot from '@percy/selenium-webdriver'
 
 // TODO: this should be refactored in a way that each function can run without

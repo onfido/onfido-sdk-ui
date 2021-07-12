@@ -17,12 +17,15 @@ import edge from 'selenium-webdriver/edge'
 let config
 const browsersFailures = {}
 let totalFailures = 0
+export let localhostUrl
 
 if (!process.env.CONFIG_FILE) {
   console.error('INFO: CONFIG_FILE not set, so using the default config.json')
   config = require('./config')
+  localhostUrl = config.localhostUrl
 } else {
   config = require(`./${process.env.CONFIG_FILE}`)
+  localhostUrl = config.localhostUrl
 }
 
 if (!process.env.BROWSERSTACK_USERNAME) {
@@ -47,6 +50,9 @@ const bsCapabilitiesDefault = {
   unexpectedAlertBehaviour: 'dismiss',
   unexpectedPromptBehaviour: 'dismiss',
   binarypath: './test/BrowserStackLocal',
+  'browserstack.console': 'errors',
+  'browserstack.networkLogs': true,
+  'browserstack.idleTimeout': '300',
 }
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
@@ -240,8 +246,11 @@ const printTestInfo = (browser, testCase) => {
 }
 
 const runner = async () => {
-  await waitForMockServer()
-
+  if (process.env.MOCK_SERVER === 'false') {
+    console.log('Not waiting for mock server to start')
+  } else {
+    await waitForMockServer()
+  }
   await eachP(config.tests, async (testCase) => {
     await asyncForEach(testCase.browsers, async (browser) => {
       const currentBrowser = browser.browserName
@@ -290,7 +299,11 @@ const killMockServer = (dockerContainerId) => {
   })
 }
 
-console.log(chalk.bold.green('Starting mock server'))
+if (process.env.MOCK_SERVER === 'false') {
+  console.log(chalk.bold.green('You have chosen NOT to run the mock server'))
+} else {
+  console.log(chalk.bold.green('Starting mock server'))
+}
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -398,7 +411,13 @@ const runMockServerAndTests = () =>
     findMockServerId(runTests)
   })
 
-runMockServerAndTests()
-
+if (process.env.MOCK_SERVER === 'false') {
+  console.log(
+    'Tests will run without the use of the mock server and against production'
+  )
+  runner()
+} else {
+  runMockServerAndTests()
+}
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
 //ref: https://github.com/mochajs/mocha/wiki/Using-mocha-programmatically
