@@ -132,7 +132,7 @@ class Confirm extends Component {
   }
 
   onUploadDocumentSuccess = (apiResponse) => {
-    const { videoCapture, urls, token, actions } = this.props
+    const { documentVideoCapture, urls, token, actions } = this.props
     const { capture } = this.state
     const url = urls.onfido_api_url
 
@@ -143,7 +143,7 @@ class Confirm extends Component {
     }
 
     // Multi-frame document capture
-    const { blob: file, filename, sdkMetadata } = videoCapture
+    const { blob: file, filename, sdkMetadata } = documentVideoCapture
     const data = {
       documentId: apiResponse.id,
       file,

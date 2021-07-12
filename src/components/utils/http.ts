@@ -1,3 +1,4 @@
+import { trackException } from '../../Tracker'
 import type { ApiRawError, SuccessCallback } from '~types/api'
 
 export type HttpRequestParams = {
@@ -32,7 +33,7 @@ export const performHttpReq = <T>(
         const resp = JSON.parse(request.response)
         onSuccess(resp)
       } catch (error) {
-        console.warn('Unparseable response:', request.response)
+        trackException(`Unparseable response: ${request.response}`)
         onSuccess({} as T)
       }
     } else {
