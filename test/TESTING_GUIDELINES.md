@@ -66,6 +66,12 @@ Our UI tests also run on BrowserStack. If you would like to run them on your Bro
 `MOCHA_INVERT="@1|@2" npm run test:ui` will NOT run tests that have the tags @1 OR @2.
 `MOCHA_INVERT='@1.*@3' npm run test:ui` will NOT run tests that have the tags @1 AND @3.
 
+### Running tests without the mock server
+
+- We can now run tests by-passing the mock server in the following way...
+
+`MOCK_SERVER=false ...` will NOT run/start anything to do with the mock server, including creating/starting docker.
+
 ### `test` directory structure
 
 - `pageobjects/`contains files with page objects that map objects by css selectors and functions that use these page objects

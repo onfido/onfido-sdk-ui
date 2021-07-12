@@ -111,6 +111,11 @@
     left: -$smaller-text-margin;
   }
 
+  &.adjustForReducedResolution {
+    left: 0;
+    width: 100%;
+  }
+
   .docLiveCaptureFrame & {
     height: auto;
     margin: 0;

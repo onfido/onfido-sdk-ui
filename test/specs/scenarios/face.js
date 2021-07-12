@@ -67,7 +67,7 @@ export const faceScenarios = (lang) => {
       confirm.verifyUnsuppoertedFileError(copy)
     })
 
-    it('should upload selfie', async () => {
+    it('should upload selfie @e2e-latest', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,

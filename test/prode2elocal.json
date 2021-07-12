@@ -1,0 +1,26 @@
+{
+  "tests": [
+    {
+      "file": "test/specs/prod-e2e-latest-surge.js",
+      "timeout": 20000,
+      "browsers": [
+        {
+          "browserName": "chrome",
+          "remote": false
+        },
+        {
+          "browserName": "safari",
+          "remote": false
+        },
+        {
+          "browserName": "MicrosoftEdge",
+          "remote": false
+        }
+      ]
+    }
+  ],
+  "localhostUrl": "https://latest-onfido-sdk-ui-onfido.surge.sh/",
+  "supportedLanguages": [],
+  "fullTestCoverageLanguages": ["en_US"],
+  "testDeviceMobileNumber": "07495 023357"
+}
