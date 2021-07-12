@@ -316,7 +316,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should record a video with live challenge, play it and submit it @percy @e2e-latest', async () => {
+    it('should record a video with live challenge, play it and submit it @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
