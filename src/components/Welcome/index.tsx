@@ -1,89 +1,126 @@
 import { h, FunctionComponent } from 'preact'
+import { Button } from '@onfido/castor-react'
+import classNames from 'classnames'
+
+import { useSdkOptions } from '~contexts'
 import { buildIteratorKey } from '~utils'
-import PageTitle from '../PageTitle'
-import Button from '../Button'
+import { useLocales } from '~locales'
 import { trackComponent } from '../../Tracker'
-import { localised } from '../../locales'
+import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
+import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
 import type { TranslateCallback } from '~types/locales'
-import type { WithLocalisedProps } from '~types/hocs'
-import type { StepComponentWelcomeProps } from '~types/routers'
+import type { StepComponentBaseProps } from '~types/routers'
+import type { StepTypes } from '~types/steps'
 
-type Props = StepComponentWelcomeProps & WithLocalisedProps
+const CAPTURE_STEP_TYPES: Set<StepTypes> = new Set([
+  'document',
+  'poa',
+  'face',
+  'auth',
+])
 
-const localisedDescriptions = (translate: TranslateCallback) => [
-  translate('welcome.description_p_1'),
-  translate('welcome.description_p_2'),
-]
+const getLocalisedDescriptions = (
+  configuredCaptureSteps: StepTypes[],
+  translate: TranslateCallback
+) => {
+  const requiredLocalisedDescriptions = [
+    translate('welcome.list_header_webcam'),
+  ]
+  const welcomeScreenLocalesMapping: Partial<Record<StepTypes, string>> = {
+    poa: translate('welcome.list_item_poa'),
+    document: translate('welcome.list_item_doc'),
+    face: translate('welcome.list_item_selfie'),
+    auth: translate('welcome.list_item_selfie'),
+  }
+  configuredCaptureSteps.forEach((idvStep) => {
+    const localeString = welcomeScreenLocalesMapping[idvStep]
+    if (localeString) {
+      requiredLocalisedDescriptions.push(localeString)
+    }
+  })
+  return requiredLocalisedDescriptions
+}
 
 type WelcomeContentProps = {
-  descriptions: string[]
-  translate: TranslateCallback
+  welcomeDescriptions: string[]
 }
 
 const WelcomeContent: FunctionComponent<WelcomeContentProps> = ({
-  descriptions,
-  translate,
+  welcomeDescriptions,
 }) => {
-  const welcomeDescriptions = descriptions
-    ? descriptions
-    : localisedDescriptions(translate)
-
   return (
-    <div>
-      <div className={style.text}>
-        {welcomeDescriptions.map((description) => (
-          <p key={`description_${buildIteratorKey(description)}`}>
-            {description}
-          </p>
-        ))}
-      </div>
+    <div className={style.text}>
+      {welcomeDescriptions.map((description) => (
+        <p key={`description_${buildIteratorKey(description)}`}>
+          {description}
+        </p>
+      ))}
     </div>
   )
 }
 
 type WelcomeActionsProps = {
-  nextButton?: string
+  customNextButtonLabel?: string
   nextStep: () => void
-  translate: TranslateCallback
 }
 
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
-  nextButton,
+  customNextButtonLabel,
   nextStep,
-  translate,
 }) => {
-  const welcomeNextButton = nextButton
-    ? nextButton
+  const { translate } = useLocales()
+
+  const buttonLabel = customNextButtonLabel
+    ? customNextButtonLabel
     : translate('welcome.next_button')
 
   return (
-    <div>
-      <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
-        {welcomeNextButton}
+    <div className={theme.contentMargin}>
+      <Button
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
+        onClick={nextStep}
+        data-onfido-qa="welcome-next-btn"
+      >
+        {buttonLabel}
       </Button>
     </div>
   )
 }
 
-const Welcome: FunctionComponent<Props> = ({
-  title,
-  descriptions,
-  nextButton,
+const Welcome: FunctionComponent<StepComponentBaseProps> = ({
+  steps,
   nextStep,
-  translate,
 }) => {
-  const actions = <WelcomeActions {...{ nextButton, nextStep, translate }} />
-  const welcomeTitle = title ? title : translate('welcome.title')
+  const [, { findStep }] = useSdkOptions()
+  const { translate } = useLocales()
+  const {
+    title: customTitle,
+    descriptions: customDescriptions,
+    nextButton: customNextButtonLabel,
+  } = findStep('welcome')?.options || {}
+
+  const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep }} />
+  const welcomeTitle = customTitle || translate('welcome.title')
+  const welcomeSubTitle = !customDescriptions
+    ? translate('welcome.subtitle')
+    : ''
+  const configuredCaptureSteps = steps
+    .filter((step) => CAPTURE_STEP_TYPES.has(step.type))
+    .map((stepConfig) => stepConfig.type)
+  const welcomeDescriptions = customDescriptions
+    ? customDescriptions
+    : getLocalisedDescriptions(configuredCaptureSteps, translate)
 
   return (
     <ScreenLayout actions={actions}>
-      <PageTitle title={welcomeTitle} />
-      <WelcomeContent {...{ descriptions, translate }} />
+      <PageTitle title={welcomeTitle} subTitle={welcomeSubTitle} />
+      <WelcomeContent welcomeDescriptions={welcomeDescriptions} />
     </ScreenLayout>
   )
 }
 
-export default trackComponent(localised(Welcome))
+export default trackComponent(Welcome)

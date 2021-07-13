@@ -5,3 +5,5 @@
 /src/supported-documents/*.json
 /test/mock-server/frontend
 /coverage
+/auth-sdk/FaceTec
+.percy.yml

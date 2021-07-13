@@ -1,7 +1,6 @@
 @import '../Theme/constants';
 
 .errorContainer {
-  @extend %global-margin;
   left: 0;
   position: absolute;
   right: 0;
@@ -38,6 +37,7 @@
 }
 
 .errorMessage {
+  @extend %global-margin;
   top: 48 * $unit;
   left: 0;
   right: 0;

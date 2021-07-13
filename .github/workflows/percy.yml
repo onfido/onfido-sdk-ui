@@ -1,0 +1,43 @@
+name: Percy Visual Regression Tests on PR
+
+on:
+  pull_request:
+
+env:
+  BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+  BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - NODE_ENV: percy
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+      # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
+      # e.g. "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Percy
+        run: npm install --save-dev @percy/cli @percy/selenium-webdriver
+
+      - name: Run build
+        run: npm run build:test
+
+      - name: Run Percy tests
+        run: npm run test:percy

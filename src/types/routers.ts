@@ -1,4 +1,5 @@
 import { h, ComponentType } from 'preact'
+import { ActionCreatorsMapObject } from 'redux'
 
 import type { ErrorCallback } from './api'
 import type {
@@ -11,15 +12,25 @@ import type {
 } from './commons'
 import type { WithCameraDetectionProps, WithTrackingProps } from './hocs'
 import type {
-  StepOptionWelcome,
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
   StepOptionComplete,
+  StepOptionAuth,
   StepConfig,
 } from './steps'
-import type { CapturePayload } from './redux'
-import type { ReduxProps } from 'components/App/withConnect'
+import type {
+  CombinedActions,
+  CaptureState,
+  GlobalState,
+  CapturePayload,
+} from './redux'
+
+// @TODO: deprecate this props to consume `useSelector` and `useDispatch` hooks instead
+export type ReduxProps = {
+  actions: ActionCreatorsMapObject<CombinedActions>
+  captures: CaptureState
+} & GlobalState
 
 export type StepIndexType = 'client' | 'user'
 
@@ -45,33 +56,29 @@ export type HandleCaptureProp = (payload: CapturePayload) => void
 export type RenderFallbackProp = (
   text: string,
   callback?: () => void
-) => h.JSX.Element
+) => h.JSX.Element | null
 
 export type ErrorProp = {
   name: ErrorNames
   type?: ErrorTypes
 }
 
-export type WithSdkOptionsProps = {
-  options: NarrowSdkOptions
-}
-
-export type ExternalRouterProps = WithSdkOptionsProps &
-  ReduxProps &
-  WithCameraDetectionProps
+export type ExternalRouterProps = ReduxProps & WithCameraDetectionProps
 
 export type InternalRouterProps = {
   allowCrossDeviceFlow: boolean
   onFlowChange?: FlowChangeCallback
+  // @TODO: remove this prop completely to consume useSdkOptions() hook instead
+  options: NarrowSdkOptions
 } & ExternalRouterProps
 
 export type HistoryRouterProps = {
-  crossDeviceClientError?: (name?: string) => void
+  crossDeviceClientError?: (name?: ErrorNames) => void
   mobileConfig?: MobileConfig
   sendClientSuccess?: () => void
   step?: number
   stepIndexType?: StepIndexType
-  steps?: StepConfig[]
+  steps: StepConfig[]
 } & InternalRouterProps
 
 export type StepsRouterProps = {
@@ -81,15 +88,17 @@ export type StepsRouterProps = {
   disableNavigation: boolean
   nextStep: () => void
   previousStep: () => void
+  step: number
   triggerOnError: ErrorCallback
 } & HistoryRouterProps
 
-type StepComponentBaseProps = {
+export type StepComponentBaseProps = {
   resetSdkFocus: () => void
 } & Omit<
   StepsRouterProps,
   | 'disableNavigation'
   | 'cobrand'
+  | 'logoCobrand'
   | 'hideOnfidoLogo'
   | 'isFullScreen'
   | 'options'
@@ -97,23 +106,21 @@ type StepComponentBaseProps = {
   NarrowSdkOptions &
   WithTrackingProps
 
-export type StepComponentWelcomeProps = StepOptionWelcome &
-  StepComponentBaseProps
-export type StepComponentUserConsentProps = StepComponentBaseProps
 export type StepComponentDocumentProps = StepOptionDocument &
   StepComponentBaseProps
 export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
+export type StepComponentAuthProps = StepOptionAuth & StepComponentBaseProps
 
 export type StepComponentProps =
-  | StepComponentWelcomeProps
-  | StepComponentUserConsentProps
+  | StepComponentBaseProps
   | StepComponentDocumentProps
   | StepComponentPoaProps
   | StepComponentFaceProps
   | StepComponentCompleteProps
+  | StepComponentAuthProps
 
 export type ComponentStep = {
   component: ComponentType<StepComponentProps>

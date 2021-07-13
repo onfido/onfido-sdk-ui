@@ -9,7 +9,7 @@ import withPermissionsFlow from '../withPermissionsFlow'
 import type { WithTrackingProps } from '~types/hocs'
 import type { RenderFallbackProp } from '~types/routers'
 
-jest.mock('../../utils')
+jest.mock('~utils')
 
 type DummyProps = {
   renderFallback: RenderFallbackProp
@@ -47,7 +47,7 @@ describe('CameraPermissions', () => {
         const wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <WrappedComponent {...defaultProps} />
+              <WrappedComponent {...defaultProps} buttonType="none" />
             </MockedLocalised>
           </MockedReduxProvider>
         )
@@ -68,7 +68,7 @@ describe('CameraPermissions', () => {
         const wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <WrappedComponent {...defaultProps} />
+              <WrappedComponent {...defaultProps} buttonType="none" />
             </MockedLocalised>
           </MockedReduxProvider>
         )

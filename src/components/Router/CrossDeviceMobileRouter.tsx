@@ -5,6 +5,7 @@ import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import withTheme from '../Theme'
+import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 
@@ -21,18 +22,37 @@ import type {
   InternalRouterProps,
 } from '~types/routers'
 import type { StepConfig } from '~types/steps'
+import type { Socket } from 'socket.io-client'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
-  if (!step.options || (step.type != 'document' && step.type != 'face')) {
+  if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
     return false
   }
 
   return (
     step.options?.uploadFallback === false &&
-    (step.type === 'face' || step.options?.useLiveDocumentCapture)
+    (step.type === 'face' || step.options?.useLiveDocumentCapture === true)
   )
+}
+
+const isPhotoCaptureFallbackOffAndCannotUseVideo = (
+  step: StepConfig
+): boolean => {
+  if (!step.options || step.type !== 'face') {
+    return false
+  }
+
+  const photoCaptureFallback = step.options.photoCaptureFallback ?? true
+
+  const canVideoFallbackToPhoto =
+    window.MediaRecorder != null || photoCaptureFallback
+
+  const isLivenessRequired =
+    !canVideoFallbackToPhoto && step.options.requestedVariant === 'video'
+
+  return isLivenessRequired
 }
 
 // Wrap components with theme that include navigation and footer
@@ -45,7 +65,7 @@ type State = {
   language?: SupportedLanguages | LocaleConfig
   loading?: boolean
   roomId?: string
-  socket: SocketIOClient.Socket
+  socket: Socket
   step?: number
   stepIndexType?: StepIndexType
   steps?: StepConfig[]
@@ -56,24 +76,25 @@ export default class CrossDeviceMobileRouter extends Component<
   InternalRouterProps,
   State
 > {
-  private configTimeoutId?: number = null
-  private pingTimeoutId?: number = null
+  private configTimeoutId?: number
+  private pingTimeoutId?: number
 
   constructor(props: InternalRouterProps) {
     super(props)
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
     const url = props.urls.sync_url
+
     const roomId = window.location.pathname.substring(3) || props.options.roomId
 
     this.state = {
-      crossDeviceError: null,
+      crossDeviceError: undefined,
       loading: true,
       roomId,
       socket: createSocket(url),
-      step: null,
-      steps: null,
-      token: null,
+      step: undefined,
+      steps: undefined,
+      token: undefined,
     }
 
     if (restrictedXDevice && isDesktop) {
@@ -81,18 +102,20 @@ export default class CrossDeviceMobileRouter extends Component<
       return
     }
 
-    this.state.socket.on('config', this.setMobileConfig)
+    this.state.socket.on('config', this.setUpHostedSDKWithMobileConfig)
     this.state.socket.on('connect', () => {
       this.state.socket.emit('join', { roomId: this.state.roomId })
     })
+    this.state.socket.on('joined', () => {
+      this.requestMobileConfig()
+    })
     this.state.socket.open()
-    this.requestMobileConfig()
 
     if (this.props.options.mobileFlow) {
       this.sendMessage('cross device start')
-      addEventListener('userAnalyticsEvent', (event: CustomEvent) => {
+      addEventListener('userAnalyticsEvent', (event) => {
         this.sendMessage('user analytics', {
-          detail: { ...event.detail, isCrossDevice: true },
+          detail: { ...(event as CustomEvent).detail, isCrossDevice: true },
         })
       })
     }
@@ -122,17 +145,18 @@ export default class CrossDeviceMobileRouter extends Component<
     }, 10000)
   }
 
-  clearConfigTimeout = (): void =>
+  clearConfigTimeout = (): void => {
     this.configTimeoutId && clearTimeout(this.configTimeoutId)
+  }
 
   clearPingTimeout = (): void => {
     if (this.pingTimeoutId) {
       clearTimeout(this.pingTimeoutId)
-      this.pingTimeoutId = null
+      this.pingTimeoutId = undefined
     }
   }
 
-  setMobileConfig = (data: MobileConfig): void => {
+  setUpHostedSDKWithMobileConfig = (data: MobileConfig): void => {
     const {
       clientStepIndex,
       disableAnalytics,
@@ -146,11 +170,12 @@ export default class CrossDeviceMobileRouter extends Component<
       token,
       urls,
       woopraCookie,
+      customUI,
     } = data
 
     if (disableAnalytics) {
       uninstallWoopra()
-    } else {
+    } else if (woopraCookie) {
       setWoopraCookie(woopraCookie)
     }
 
@@ -166,7 +191,9 @@ export default class CrossDeviceMobileRouter extends Component<
       return this.setError()
     }
 
-    const isFaceStep = steps[clientStepIndex].type === 'face'
+    const isFaceStep = clientStepIndex
+      ? steps[clientStepIndex].type === 'face'
+      : false
 
     this.setState(
       {
@@ -174,7 +201,7 @@ export default class CrossDeviceMobileRouter extends Component<
         steps,
         step: isFaceStep ? clientStepIndex : userStepIndex,
         stepIndexType: isFaceStep ? 'client' : 'user',
-        crossDeviceError: null,
+        crossDeviceError: undefined,
         language,
       },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
@@ -188,12 +215,16 @@ export default class CrossDeviceMobileRouter extends Component<
 
     if (poaDocumentType) {
       this.props.actions.setPoADocumentType(poaDocumentType)
-    } else {
+    } else if (documentType) {
       this.props.actions.setIdDocumentType(documentType)
 
-      if (documentType !== 'passport') {
+      if (documentType !== 'passport' && idDocumentIssuingCountry) {
         this.props.actions.setIdDocumentIssuingCountry(idDocumentIssuingCountry)
       }
+    }
+
+    if (customUI) {
+      setUICustomizations(customUI)
     }
 
     if (enterpriseFeatures) {
@@ -204,16 +235,34 @@ export default class CrossDeviceMobileRouter extends Component<
         validEnterpriseFeatures?.hideOnfidoLogo
       ) {
         this.props.actions.hideOnfidoLogo(true)
+      } else if (
+        enterpriseFeatures.cobrand &&
+        validEnterpriseFeatures?.cobrand
+      ) {
+        this.props.actions.hideOnfidoLogo(false)
+        this.props.actions.showCobranding(enterpriseFeatures.cobrand)
       } else {
         this.props.actions.hideOnfidoLogo(false)
 
-        if (enterpriseFeatures.cobrand && validEnterpriseFeatures?.cobrand) {
-          this.props.actions.showCobranding(enterpriseFeatures.cobrand)
+        if (
+          enterpriseFeatures.logoCobrand &&
+          validEnterpriseFeatures?.logoCobrand
+        ) {
+          this.props.actions.showLogoCobranding(enterpriseFeatures.logoCobrand)
+          setCobrandingLogos(enterpriseFeatures.logoCobrand)
         }
+      }
+
+      if (
+        enterpriseFeatures.useCustomizedApiRequests &&
+        validEnterpriseFeatures?.useCustomizedApiRequests
+      ) {
+        this.props.actions.setDecoupleFromAPI(true)
       }
     } else {
       this.props.actions.hideOnfidoLogo(false)
       this.props.actions.showCobranding(null)
+      this.props.actions.showLogoCobranding(null)
     }
 
     this.props.actions.acceptTerms()
@@ -243,6 +292,8 @@ export default class CrossDeviceMobileRouter extends Component<
           'method',
           'side',
         ]
+        // @TODO: replace this over-generic method with something easier to maintain
+        // @ts-ignore
         return acc.concat(pick(this.props.captures[key], dataWhitelist))
       },
       []
@@ -251,26 +302,28 @@ export default class CrossDeviceMobileRouter extends Component<
     this.sendMessage('client success', { captures })
   }
 
-  renderLoadingOrErrors = (): h.JSX.Element => {
+  renderContent = (): h.JSX.Element => {
     const { hasCamera } = this.props
-    const { steps } = this.state
-    const shouldStrictlyUseCamera =
-      steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
+    const { crossDeviceError, loading, steps } = this.state
+    const shouldStrictlyUseCamera = steps?.some(
+      isUploadFallbackOffAndShouldUseCamera
+    )
+    const videoNotSupportedAndRequired = steps?.some(
+      isPhotoCaptureFallbackOffAndCannotUseVideo
+    )
 
-    if (this.state.loading) {
+    if (loading || !steps) {
       return <WrappedSpinner disableNavigation />
     }
 
-    if (this.state.crossDeviceError) {
-      return (
-        <WrappedError
-          disableNavigation={true}
-          error={this.state.crossDeviceError}
-        />
-      )
+    if (crossDeviceError) {
+      return <WrappedError disableNavigation={true} error={crossDeviceError} />
     }
 
-    if (!hasCamera && shouldStrictlyUseCamera) {
+    if (
+      (!hasCamera && shouldStrictlyUseCamera) ||
+      videoNotSupportedAndRequired
+    ) {
       return (
         <WrappedError
           disableNavigation={true}
@@ -279,7 +332,15 @@ export default class CrossDeviceMobileRouter extends Component<
       )
     }
 
-    return null
+    return (
+      <HistoryRouter
+        {...this.props}
+        {...this.state}
+        crossDeviceClientError={this.setError}
+        sendClientSuccess={this.sendClientSuccess}
+        steps={steps}
+      />
+    )
   }
 
   render(): h.JSX.Element {
@@ -287,14 +348,7 @@ export default class CrossDeviceMobileRouter extends Component<
 
     return (
       <LocaleProvider language={language}>
-        {this.renderLoadingOrErrors() || (
-          <HistoryRouter
-            {...this.props}
-            {...this.state}
-            crossDeviceClientError={this.setError}
-            sendClientSuccess={this.sendClientSuccess}
-          />
-        )}
+        {this.renderContent()}
       </LocaleProvider>
     )
   }

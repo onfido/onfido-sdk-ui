@@ -27,6 +27,7 @@ Run `VERSION=x.x.x node release/release.js`
 ## After the release
 
 1. Merge release/<release_version> PR to master
+   - Add Onfido technical writers as a reviewer to get changelog/release notes reviewed.
 2. Merge master to development
    - git checkout development && git pull
    - git checkout master && git pull -p

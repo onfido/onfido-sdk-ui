@@ -1,9 +1,13 @@
 import * as constants from '~types/redux/constants'
 
 import type { CountryData, UrlsConfig } from '~types/commons'
-import type { EnterpriseCobranding } from '~types/enterprise'
+import type {
+  EnterpriseCobranding,
+  EnterpriseLogoCobranding,
+} from '~types/enterprise'
 import type { GlobalActions } from '~types/redux'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
+import type { Socket } from 'socket.io-client'
 
 export const setIdDocumentType = (payload: DocumentTypes): GlobalActions => ({
   type: constants.SET_ID_DOCUMENT_TYPE,
@@ -31,7 +35,7 @@ export const setRoomId = (payload: string): GlobalActions => ({
   payload,
 })
 
-export const setSocket = (payload: SocketIOClient.Socket): GlobalActions => ({
+export const setSocket = (payload: Socket): GlobalActions => ({
   type: constants.SET_SOCKET,
   payload,
 })
@@ -87,6 +91,13 @@ export const showCobranding = (
   payload: EnterpriseCobranding
 ): GlobalActions => ({
   type: constants.SHOW_COBRANDING,
+  payload,
+})
+
+export const showLogoCobranding = (
+  payload: EnterpriseLogoCobranding
+): GlobalActions => ({
+  type: constants.SHOW_LOGO_COBRANDING,
   payload,
 })
 

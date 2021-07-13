@@ -7,11 +7,6 @@ const parseUnit = require('parse-unit')
 
 import type { SdkMetadata, ErrorNames } from '~types/commons'
 import type { TranslatedTagParser } from '~types/locales'
-import type {
-  DocumentTypes,
-  StepConfig,
-  StepConfigDocument,
-} from '~types/steps'
 
 export const functionalSwitch = <T extends unknown>(
   key: string,
@@ -101,7 +96,8 @@ const maxTouchPoints = navigator.maxTouchPoints || navigator.msMaxTouchPoints
 const isTouchable =
   'ontouchstart' in window ||
   maxTouchPoints > 0 ||
-  (window.matchMedia && matchMedia('(any-pointer: coarse)').matches)
+  (typeof window.matchMedia === 'function' &&
+    matchMedia('(any-pointer: coarse)').matches)
 
 // To detect hybrid desktop/mobile devices which have a rear facing camera such as the Surface
 export const isHybrid = isWindows && isTouchable
@@ -155,13 +151,19 @@ export const checkIfWebcamPermissionGranted = checkDevicesInfo((devices) =>
 export const parseTags: TranslatedTagParser = (str, handleTag) => {
   const parser = new DOMParser()
   const stringToXml = parser.parseFromString(`<l>${str}</l>`, 'application/xml')
-  const xmlToNodesArray = Array.from(stringToXml.firstChild.childNodes)
+  const xmlToNodesArray = Array.from(
+    stringToXml.firstChild?.childNodes || []
+  ) as Element[]
 
-  return xmlToNodesArray.map((node) =>
-    node.nodeType === document.TEXT_NODE
-      ? node.textContent
-      : handleTag({ type: (node as Element).tagName, text: node.textContent })
-  )
+  return xmlToNodesArray.map((node) => {
+    const textContent = node.textContent || ''
+
+    if (node.nodeType === document.TEXT_NODE) {
+      return textContent
+    }
+
+    return handleTag({ type: node.tagName, text: textContent })
+  })
 }
 
 export const currentSeconds = (): number => Math.floor(Date.now() / 1000)
@@ -183,7 +185,7 @@ export const copyToClipboard = (
 
 export const addDeviceRelatedProperties = (
   sdkMetadata: SdkMetadata,
-  isCrossDeviceFlow: boolean
+  isCrossDeviceFlow?: boolean
 ): SdkMetadata => {
   const osInfo = detectSystem('os')
   const browserInfo = detectSystem('browser')
@@ -210,26 +212,6 @@ export const capitalise = (string: string): string => {
   }
 
   return string
-}
-
-export const hasOnePreselectedDocument = (steps: StepConfig[]): boolean =>
-  getEnabledDocuments(steps).length === 1
-
-export const getEnabledDocuments = (steps: StepConfig[]): DocumentTypes[] => {
-  const documentStep = steps.find(
-    (step) => step.type === 'document'
-  ) as StepConfigDocument
-
-  const docTypes =
-    documentStep && documentStep.options && documentStep.options.documentTypes
-
-  if (!docTypes) {
-    return []
-  }
-
-  const configuredDocTypes = Object.keys(docTypes) as DocumentTypes[]
-
-  return configuredDocTypes.filter((type) => docTypes[type])
 }
 
 /**

@@ -17,6 +17,10 @@
   overflow: hidden;
 }
 
+.docAutoCaptureFrame .container {
+  position: relative;
+}
+
 .container::before {
   content: '';
   display: block;
@@ -71,7 +75,7 @@
 .btn {
   cursor: pointer;
   outline-offset: 6 * $unit;
-  background-color: $color-camera-button;
+  background-color: var(--color-background-button-camera);
   font-size: inherit;
   border-radius: 50%;
   border: 3 * $unit solid $color-black;
@@ -83,11 +87,11 @@
   width: 56 * $unit;
 
   &:hover {
-    background-color: $color-camera-button-hover;
+    background-color: var(--osdk-color-background-button-camera-hover);
   }
 
   &:active {
-    background-color: $color-camera-button-active;
+    background-color: var(--osdk-color-background-button-camera-active);
   }
 
   &:disabled {
@@ -105,6 +109,11 @@
   }
   @media (--smaller-viewport) {
     left: -$smaller-text-margin;
+  }
+
+  &.adjustForReducedResolution {
+    left: 0;
+    width: 100%;
   }
 
   .docLiveCaptureFrame & {

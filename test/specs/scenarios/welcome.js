@@ -1,6 +1,7 @@
 import { expect } from 'chai'
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
+import { takePercySnapshot } from './sharedFlows'
 
 const options = {
   pageObjects: ['BasePage', 'Welcome'],
@@ -20,12 +21,31 @@ export const welcomeScenarios = async (lang) => {
         expect(title).to.equal('Onfido SDK Demo')
       })
 
-      it('should verify UI elements on the welcome screen', async () => {
+      it('should verify UI elements on the welcome screen @percy', async () => {
         driver.get(`${localhostUrl}?language=${lang}`)
         welcome.verifyTitle(copy)
         welcome.verifySubtitle(copy)
-        welcome.verifyIdentityButton(copy)
-        welcome.verifyFooter(copy)
+        welcome.verifyDescriptions(copy)
+        welcome.verifyPrimaryButton(copy)
+        welcome.verifyFooter()
+        await takePercySnapshot(
+          driver,
+          `Onfido SDK UI elements on the welcome screen in ${lang}`
+        )
+      })
+
+      it('should verify custom copy for UI elements on the welcome screen @percy', async () => {
+        driver.get(
+          `${localhostUrl}?language=${lang}&customWelcomeScreenCopy=true`
+        )
+        welcome.verifyCustomTitle()
+        welcome.verifyCustomDescriptions()
+        welcome.verifyCustomPrimaryButton()
+        welcome.verifyFooter()
+        await takePercySnapshot(
+          driver,
+          `Onfido SDK UI elements with custom copy on the welcome screen`
+        )
       })
     }
   )

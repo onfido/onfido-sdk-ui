@@ -1,4 +1,5 @@
-import { localhostUrl } from '../../config.json'
+import { localhostUrl } from '../../main'
+import percySnapshot from '@percy/selenium-webdriver'
 
 // TODO: this should be refactored in a way that each function can run without
 // needing to receive `welcome`, `documentSelector`
@@ -22,4 +23,21 @@ export const uploadFileAndClickConfirmButton = async (
   documentUploadScreen.getUploadInput()
   documentUploadScreen.upload(fileName)
   confirm.clickConfirmButton()
+}
+
+export const switchBrowserTab = async (tab, driver) => {
+  const browserWindows = await driver.getAllWindowHandles()
+  await driver.switchTo().window(browserWindows[tab])
+}
+
+export const takePercySnapshot = async (
+  driver,
+  text,
+  options = {},
+  timeout = 1000
+) => {
+  if (process.env.PERCY === 'true') {
+    driver.sleep(timeout)
+    await percySnapshot(driver, text, options)
+  }
 }

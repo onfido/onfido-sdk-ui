@@ -2,6 +2,152 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `6.9.0` -> `6.10.0`
+
+### Added strings
+
+- `video_capture.button_primary_start`
+- `video_capture.header.challenge_turn_forward`
+- `welcome.subtitle`
+- `welcome.list_header_webcam`
+- `welcome.list_item_doc`
+- `welcome.list_item_poa`
+- `welcome.list_item_selfie`
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+### Changed strings
+
+- `video_capture.button_primary_finish`
+- `video_capture.button_primary_next`
+- `video_capture.header.challenge_turn_left`
+- `video_capture.header.challenge_turn_right`
+- `welcome.title`
+- `welcome.next_button`
+- `cross_device_checklist.list_item_doc_multiple`
+- `cross_device_checklist.list_item_doc_one`
+- `cross_device_checklist.list_item_selfie`
+- `cross_device_checklist.list_item_video`
+- `cross_device_checklist.subtitle`
+- `cross_device_checklist.title`
+- `doc_confirmation.alert.no_doc_detail`
+- `doc_confirmation.alert.no_doc_title`
+- `doc_confirmation.body_id`
+- `doc_confirmation.body_license`
+- `doc_confirmation.body_passport`
+- `doc_confirmation.body_permit`
+- `doc_confirmation.button_primary_upload`
+- `doc_select.button_passport_detail`
+- `doc_select.title`
+- `generic.errors.no_face.instruction`
+- `generic.errors.no_face.message`
+- `get_link.subtitle_url`
+- `outro.body`
+- `outro.title`
+- `permission.body_cam`
+- `selfie_capture.alert.timeout.detail`
+- `selfie_capture.title`
+- `selfie_confirmation.subtitle`
+- `selfie_confirmation.title`
+- `selfie_intro.subtitle`
+- `upload_guide.button_primary`
+- `video_capture.body`
+- `video_capture.body_record`
+- `video_confirmation.title`
+- `video_intro.button_primary`
+- `video_intro.list_item_actions`
+- `video_intro.list_item_speak`
+
+Only the **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `country_select.search.input_placeholder`
+
+### Removed strings
+
+- `video_capture.status`
+- `video_capture.body_next`
+- `video_capture.body_stop`
+- `video_capture.button_stop_accessibility`
+- `video_capture.header.challenge_turn_template`
+- `welcome.description_p_1`
+- `welcome.description_p_2`
+
+## `6.8.0` -> `6.9.0`
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+### Added strings
+
+- `auth_accessibility.back_button`
+- `auth_cam_encrypt.loader`
+- `auth_cam_start.loader`
+- `auth_capture_start.body`
+- `auth_capture_start.button_primary`
+- `auth_capture_start.title`
+- `auth_capture_start.feedback.center_face`
+- `auth_capture_start.feedback.conditions_too_bright`
+- `auth_capture_start.feedback.conditions_too_dark`
+- `auth_capture_start.feedback.head_not_upright`
+- `auth_capture_start.feedback.neutral_expression`
+- `auth_capture_start.feedback.not_looking_straight`
+- `auth_capture_start.feedback.remove_sunglasses`
+- `auth_capture_start.feedback.steady_count_1`
+- `auth_capture_start.feedback.steady_count_2`
+- `auth_capture_start.feedback.steady_count_3`
+- `auth_capture.feedback.center_face`
+- `auth_capture.feedback.even_lighting`
+- `auth_capture.feedback.eye_level`
+- `auth_capture.feedback.face_not_found`
+- `auth_capture.feedback.head_not_upright`
+- `auth_capture.feedback.move_back`
+- `auth_capture.feedback.move_close`
+- `auth_capture.feedback.move_closer`
+- `auth_capture.feedback.not_looking_straight`
+- `auth_capture.feedback.steady`
+- `auth_error.cam_encryption.body`
+- `auth_error.cam_encryption.button_primary`
+- `auth_error.cam_encryption.button_primary_firefox`
+- `auth_error.cam_encryption.subtitle`
+- `auth_error.cam_encryption.table_header_1`
+- `auth_error.cam_encryption.table_header_2`
+- `auth_error.cam_encryption.table_row_1_cell_1`
+- `auth_error.cam_encryption.table_row_1_cell_1_firefox`
+- `auth_error.cam_encryption.table_row_1_cell_2`
+- `auth_error.cam_encryption.table_row_1_cell_2_firefox`
+- `auth_error.cam_encryption.table_row_2_cell_1`
+- `auth_error.cam_encryption.table_row_2_cell_2`
+- `auth_error.cam_encryption.table_row_3_cell_1`
+- `auth_error.cam_encryption.table_row_3_cell_2`
+- `auth_error.cam_encryption.title`
+- `auth_full_screen.body`
+- `auth_full_screen.button_primary`
+- `auth_full_screen.title`
+- `auth_permission_denied.body_cam`
+- `auth_permission_denied.button_primary_cam`
+- `auth_permission.body_cam`
+- `auth_permission.button_primary_cam`
+- `auth_permission.title_cam`
+- `auth_progress.loader`
+- `auth_retry.body_blur`
+- `auth_retry.body_neutral_expression`
+- `auth_retry.body_too_bright`
+- `auth_retry.button_primary`
+- `auth_retry.subtitle`
+- `auth_retry.title`
+- `auth_upload_pass.body`
+
+## `6.6.0` -> `6.8.0`
+
+### Added strings
+
+The **English** copy for the following string(s) has been added:
+
+`user_consent_load_fail.button_primary`
+`user_consent_load_fail.detail`
+`user_consent_load_fail.prompt.title`
+
+**Note**: The consent screen copy is only available in **English**
+
 ## `6.5.0` -> `6.6.0`
 
 ### Added strings

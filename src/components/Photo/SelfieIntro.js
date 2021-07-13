@@ -1,7 +1,8 @@
 import { h } from 'preact'
-import PageTitle from '../PageTitle'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import Button from '../Button'
+import ScreenLayout from '../Theme/ScreenLayout'
+import PageTitle from '../PageTitle'
 import { localised } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
@@ -32,6 +33,17 @@ const InstructionsPure = ({ listScreenReaderText, instructions }) => (
   </div>
 )
 
+const Actions = ({ nextStep, translate }) => (
+  <Button
+    variant="primary"
+    className={classNames(theme['button-centered'], theme['button-lg'])}
+    onClick={nextStep}
+    data-onfido-qa="selfie-continue-btn"
+  >
+    {translate('selfie_intro.button_primary')}
+  </Button>
+)
+
 const Intro = ({ translate, nextStep }) => {
   const instructions = [
     {
@@ -43,23 +55,21 @@ const Intro = ({ translate, nextStep }) => {
       text: translate('selfie_intro.list_item_no_glasses'),
     },
   ]
+  const actions = <Actions {...{ nextStep, translate }} />
 
   return (
-    <div className={theme.fullHeightContainer}>
-      <PageTitle
-        title={translate('selfie_intro.title')}
-        subTitle={translate('selfie_intro.subtitle')}
-      />
-      <InstructionsPure
-        listScreenReaderText={translate('selfie_intro.list_accessibility')}
-        instructions={instructions}
-      />
-      <div className={classNames(style.buttonContainer)}>
-        <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
-          {translate('selfie_intro.button_primary')}
-        </Button>
+    <ScreenLayout actions={actions}>
+      <div className={theme.fullHeightContainer}>
+        <PageTitle
+          title={translate('selfie_intro.title')}
+          subTitle={translate('selfie_intro.subtitle')}
+        />
+        <InstructionsPure
+          listScreenReaderText={translate('selfie_intro.list_accessibility')}
+          instructions={instructions}
+        />
       </div>
-    </div>
+    </ScreenLayout>
   )
 }
 

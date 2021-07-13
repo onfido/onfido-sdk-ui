@@ -7,12 +7,13 @@ import {
   MemoryHistory,
 } from 'history'
 
+import { buildStepFinder } from '~utils/steps'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
-import type { ApiParsedError, ErrorCallback } from '~types/api'
+import type { ParsedError, ErrorCallback } from '~types/api'
 import type { ExtendedStepTypes, FlowVariants } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
 import type {
@@ -20,7 +21,8 @@ import type {
   ChangeFlowProp,
   HistoryRouterProps,
 } from '~types/routers'
-import type { DocumentTypes, StepConfigDocument } from '~types/steps'
+import type { SdkResponse } from '~types/sdk'
+import type { DocumentTypes } from '~types/steps'
 
 type FormattedError = {
   type: 'expired_token' | 'exception'
@@ -53,10 +55,7 @@ export default class HistoryRouter extends Component<
   constructor(props: HistoryRouterProps) {
     super(props)
 
-    const componentsList = this.getComponentsList(
-      { flow: 'captureSteps' },
-      this.props
-    )
+    const componentsList = this.getComponentsList('captureSteps', this.props)
 
     const stepIndex =
       this.props.stepIndexType === 'client'
@@ -85,9 +84,9 @@ export default class HistoryRouter extends Component<
     this.unlisten()
   }
 
-  getStepType = (step: number): Optional<ExtendedStepTypes> => {
+  getStepType = (step: number): ExtendedStepTypes | undefined => {
     const componentList = this.getComponentsList()
-    return componentList[step] ? componentList[step].step.type : null
+    return componentList[step] ? componentList[step].step.type : undefined
   }
 
   disableNavigation = (): boolean => {
@@ -107,16 +106,18 @@ export default class HistoryRouter extends Component<
     newStep = 0,
     excludeStepFromHistory = false
   ) => {
+    const { onFlowChange } = this.props
     const { flow: previousFlow, step: previousUserStepIndex } = this.state
     if (previousFlow === newFlow) return
 
     const previousUserStep = this.getComponentsList()[previousUserStepIndex]
 
-    this.props.onFlowChange(newFlow, newStep, previousFlow, {
-      userStepIndex: previousUserStepIndex,
-      clientStepIndex: previousUserStep.stepIndex,
-      clientStep: previousUserStep,
-    })
+    onFlowChange &&
+      onFlowChange(newFlow, newStep, previousFlow, {
+        userStepIndex: previousUserStepIndex,
+        clientStepIndex: previousUserStep.stepIndex,
+        clientStep: previousUserStep,
+      })
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
@@ -134,18 +135,41 @@ export default class HistoryRouter extends Component<
   triggerOnComplete = (): void => {
     const { captures } = this.props
 
-    const data = (Object.keys(captures) as CaptureKeys[]).reduce(
+    const expectedCaptureKeys: CaptureKeys[] = [
+      'document_front',
+      'document_back',
+      'face',
+    ]
+
+    const data: SdkResponse = (Object.keys(captures) as CaptureKeys[]).reduce(
       (acc, key) => ({
         ...acc,
-        [key]: captures[key].metadata,
+        [key]: captures[key]?.metadata,
       }),
       {}
     )
+    const keysWithMissingData: Array<string> = []
 
-    this.props.options.events.emit('complete', data)
+    expectedCaptureKeys.forEach((key) => {
+      if (key in data && data[key] === undefined) {
+        keysWithMissingData.push(key)
+      }
+    })
+
+    if (keysWithMissingData.length) {
+      this.triggerOnError({
+        response: {
+          type: 'exception',
+          message: `The following keys have missing data: ${keysWithMissingData}`,
+        },
+      })
+      return
+    }
+
+    this.props.options.events?.emit('complete', data)
   }
 
-  formattedError = ({ response, status }: ApiParsedError): FormattedError => {
+  formattedError = ({ response, status }: ParsedError): FormattedError => {
     const errorResponse = response.error || response || {}
 
     const isExpiredTokenError =
@@ -153,7 +177,7 @@ export default class HistoryRouter extends Component<
     const type = isExpiredTokenError ? 'expired_token' : 'exception'
     // `/validate_document` returns a string only. Example: "Token has expired."
     // Ticket in backlog to update all APIs to use signature similar to main Onfido API
-    const message = errorResponse.message || response.message
+    const message = errorResponse.message || response.message || 'Unknown error'
     return { type, message }
   }
 
@@ -164,7 +188,7 @@ export default class HistoryRouter extends Component<
 
     const error = this.formattedError({ response, status })
     const { type, message } = error
-    this.props.options.events.emit('error', { type, message })
+    this.props.options.events?.emit('error', { type, message })
     trackException(`${type} - ${message}`)
   }
 
@@ -196,34 +220,34 @@ export default class HistoryRouter extends Component<
   }
 
   getComponentsList = (
-    state: Partial<State> = this.state,
-    props: Partial<HistoryRouterProps> = this.props
+    flow?: FlowVariants,
+    props: HistoryRouterProps = this.props
   ): ComponentStep[] => {
-    const { flow } = state
     const {
       documentType,
-      poaDocumentType,
       steps,
       deviceHasCameraSupport,
       options: { mobileFlow },
     } = props
 
+    if (!steps) {
+      throw new Error('steps not provided')
+    }
+
     return buildComponentsList({
-      flow,
+      flow: flow || this.state.flow,
       documentType,
-      poaDocumentType,
       steps,
       mobileFlow,
       deviceHasCameraSupport,
     })
   }
 
-  getDocumentType = (): DocumentTypes => {
+  getDocumentType = (): DocumentTypes | undefined => {
     const { documentType, steps } = this.props
-    const documentStep = steps.find(
-      (step) => step.type === 'document'
-    ) as StepConfigDocument
 
+    const findStep = buildStepFinder(steps)
+    const documentStep = findStep('document')
     const documentTypes = documentStep?.options?.documentTypes || {}
     const enabledDocuments = Object.keys(documentTypes) as DocumentTypes[]
     const isSinglePreselectedDocument = enabledDocuments.length === 1

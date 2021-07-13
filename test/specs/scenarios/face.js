@@ -4,6 +4,7 @@ import { describe, it } from '../../utils/mochaw'
 import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
+  takePercySnapshot,
 } from './sharedFlows.js'
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -18,7 +19,7 @@ const options = {
     'DocumentSelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
-    'LivenessIntro',
+    'FaceVideoIntro',
     'SelfieIntro',
     'VerificationComplete',
     'BasePage',
@@ -36,13 +37,19 @@ export const faceScenarios = (lang) => {
       documentSelector,
       passportUploadImageGuide,
       documentUpload,
-      livenessIntro,
+      faceVideoIntro,
       selfieIntro,
       verificationComplete,
       basePage,
     } = pageObjects
 
     const copy = basePage.copy(lang)
+
+    async function takePercySnapshotWithoutOverlay(driver, text) {
+      await takePercySnapshot(driver, text, {
+        percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }`,
+      })
+    }
 
     it('should return unsupported file type error for selfie', async () => {
       goToPassportUploadScreen(
@@ -65,7 +72,7 @@ export const faceScenarios = (lang) => {
       confirm.verifyUnsuppoertedFileError(copy)
     })
 
-    it('should upload selfie', async () => {
+    it('should upload selfie @e2e-latest', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -105,7 +112,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should take one selfie using the camera stream', async () => {
+    it('should take one selfie using the camera stream @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -119,13 +126,27 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      await takePercySnapshot(driver, `Verify Take a selfie screen ${lang}`)
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.verifySelfieTitle(copy)
       camera.verifyOnfidoFooterIsVisible()
+      await takePercySnapshotWithoutOverlay(
+        driver,
+        `Verify Take a selfie overlay screen ${lang}`
+      )
       camera.takeSelfie()
+      await takePercySnapshot(
+        driver,
+        `Verify Check selfie preview screen ${lang}`
+      )
       confirm.clickConfirmButton()
       verificationComplete.verifyUIElements(copy)
       verificationComplete.checkBackArrowIsNotDisplayed()
+      await takePercySnapshot(
+        driver,
+        `Verify Verification complete screen ${lang}`
+      )
     })
 
     it('should complete the flow when snapshot is disabled', async () => {
@@ -143,6 +164,7 @@ export const faceScenarios = (lang) => {
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
       camera.takeSelfie()
       confirm.clickConfirmButton()
       verificationComplete.verifyUIElements(copy)
@@ -222,27 +244,25 @@ export const faceScenarios = (lang) => {
       cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(copy)
     })
 
-    it('should enter the liveness flow if I have a camera and liveness variant requested', async () => {
+    it('should be taken to the cross-device flow if browser does not have MediaRecorder API, liveness variant requested and photoCaptureFallback is disabled', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&liveness=true&photoCaptureFallback=false`
       )
-      driver.executeScript(
-        'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
-      )
+      driver.executeScript('window.MediaRecorder = undefined')
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
+      driver.wait(until.elementIsVisible(crossDeviceIntro.title()), 2500)
+      crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should enter the liveness flow and display timeout notification after 10 seconds', async () => {
+    it('should enter the liveness flow if I have a camera and liveness variant requested @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -258,17 +278,50 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
-      camera.continueButton().click()
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      await takePercySnapshot(
+        driver,
+        `Verify Let’s make sure nobody’s impersonating you screen is seen ${lang}`
+      )
+      faceVideoIntro.clickOnContinueButton()
+      camera.enableCameraAccessForPercy()
+      await takePercySnapshotWithoutOverlay(
+        driver,
+        `Verify Position your face in the oval overlay screen is seen ${lang}`
+      )
+    })
+
+    it('should enter the liveness flow and display timeout notification after 10 seconds @percy', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&liveness=true`
+      )
+      driver.executeScript(
+        'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
+      )
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      faceVideoIntro.clickOnContinueButton()
+      camera.enableCameraButton().click()
       driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
       assert.isFalse(
         camera.isOverlayPresent(),
         'Test Failed: Face overlay should not be displayed'
       )
+      await takePercySnapshotWithoutOverlay(
+        driver,
+        `Verify is your camera working pop-up is displayed ${lang}`
+      )
     })
 
-    it('should record a video with live challenge, play it and submit it', async () => {
+    it('should record a video with live challenge, play it and submit it @percy @e2e-latest', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -284,9 +337,9 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
-      camera.continueButton().click()
+      faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+      faceVideoIntro.clickOnContinueButton()
+      camera.enableCameraButton().click()
       camera.verifyVideoTitle(copy)
       camera.verifyOnfidoFooterIsVisible()
       camera.recordButton().click()
@@ -295,6 +348,10 @@ export const faceScenarios = (lang) => {
         'Test Failed: Face overlay should be displayed'
       )
       camera.completeChallenges()
+      await takePercySnapshot(
+        driver,
+        `Verify Check selfie video screen is seen with time at 0:00 ${lang}`
+      )
       confirm.playVideoBeforeConfirm()
       confirm.clickConfirmButton()
       verificationComplete.backArrow().isDisplayed()
@@ -302,7 +359,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant', async () => {
+    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -312,23 +369,53 @@ export const faceScenarios = (lang) => {
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
       )
+      await takePercySnapshot(
+        driver,
+        `Verify Submit passport photo screen does not have onfido logo ${lang}`
+      )
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkLogoIsHidden()
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.checkLogoIsHidden()
+      await takePercySnapshot(
+        driver,
+        `Verify Let’s make sure nobody’s impersonating you screen does not have onfido logo ${lang}`
+      )
+      faceVideoIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
-      camera.recordVideo()
-      camera.completeChallenges()
+      camera.enableCameraButton().click()
+      await takePercySnapshotWithoutOverlay(
+        driver,
+        `Verify Position your face in the oval overlay screen does not have onfido logo ${lang}`
+      )
+      camera.recordButton().click()
+      await takePercySnapshotWithoutOverlay(
+        driver,
+        `Movement challenge is given ${lang}`
+      )
+      camera.nextChallengeButton().click()
+      await takePercySnapshotWithoutOverlay(
+        driver,
+        `Vocal challenge is given ${lang}`
+      )
+      camera.stopButton().click()
       confirm.checkLogoIsHidden()
+      await takePercySnapshot(
+        driver,
+        `Verify Check selfie video screen does not have onfido logo ${lang}`
+      )
       confirm.clickConfirmButton()
       verificationComplete.checkLogoIsHidden()
+      await takePercySnapshot(
+        driver,
+        `Verify Verification complete screen does not have Onfido logo ${lang}`
+      )
     })
 
-    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for liveness variant', async () => {
+    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for liveness variant @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -338,20 +425,41 @@ export const faceScenarios = (lang) => {
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
       )
+      await takePercySnapshot(
+        driver,
+        `Verify Submit passport photo screen does has co-brand logo ${lang}`
+      )
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkCobrandIsVisible()
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.checkCobrandIsVisible()
+      await takePercySnapshot(
+        driver,
+        `Verify Let’s make sure nobody’s impersonating you screen has co-brand logo ${lang}`
+      )
+      faceVideoIntro.clickOnContinueButton()
       camera.checkCobrandIsVisible()
-      camera.recordVideo()
+      camera.enableCameraButton().click()
+      await takePercySnapshotWithoutOverlay(
+        driver,
+        `Verify Position your face in the oval overlay screen has co-brand logo ${lang}`
+      )
+      camera.recordButton().click()
       camera.completeChallenges()
       confirm.checkCobrandIsVisible()
+      await takePercySnapshot(
+        driver,
+        `Verify Check selfie video screen has co-brand logo ${lang}`
+      )
       confirm.clickConfirmButton()
       verificationComplete.checkCobrandIsVisible()
+      await takePercySnapshot(
+        driver,
+        `Verify Verification complete screen has co-brand logo ${lang}`
+      )
     })
 
     it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for liveness variant', async () => {
@@ -370,14 +478,52 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
-      livenessIntro.checkLogoIsHidden()
-      livenessIntro.clickOnContinueButton()
+      faceVideoIntro.checkLogoIsHidden()
+      faceVideoIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
       camera.recordVideo()
       camera.completeChallenges()
       confirm.checkLogoIsHidden()
       confirm.clickConfirmButton()
       verificationComplete.checkLogoIsHidden()
+    })
+
+    it('should continue through full flow without problems when using customized API requests but still uploading media to API as normal', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&useCustomizedApiRequests=true&decoupleResponse=onfido`
+      )
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
+      camera.takeSelfie()
+      confirm.clickConfirmButton()
+    })
+
+    it('should continue through full flow without problems when using customized API requests and success response is returned from callbacks', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&useCustomizedApiRequests=true&decoupleResponse=success`
+      )
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      selfieIntro.clickOnContinueButton()
+      camera.enableCameraAccessIfNecessary()
+      camera.takeSelfie()
+      confirm.clickConfirmButton()
     })
   })
 }

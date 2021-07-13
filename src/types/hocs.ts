@@ -19,7 +19,7 @@ export type WithLocalisedProps = {
 }
 
 export type WithCameraDetectionProps = {
-  hasCamera?: boolean
+  hasCamera?: boolean | null
 }
 
 export type WithFailureHandlingProps = {
@@ -49,4 +49,8 @@ export type WithThemeProps = {
 
 export type WithPermissionsFlowProps = {
   hasGrantedPermission?: boolean
+}
+
+export type WithBlobPreviewProps = {
+  blob: Blob
 }

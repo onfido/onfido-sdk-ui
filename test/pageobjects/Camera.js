@@ -1,19 +1,26 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 import { assert } from 'chai'
+import { browserName } from '../main'
 
 class Camera extends BasePage {
-  async continueButton() {
-    return this.$('.onfido-sdk-ui-Button-button-primary')
+  async enableCameraButton() {
+    return this.$('[data-onfido-qa="enable-camera-btn"]')
+  }
+  async allowCameraPermissionImage() {
+    return this.$('.onfido-sdk-ui-CameraPermissions-Primer-graphic')
+  }
+  async nextChallengeButton() {
+    return this.$('[data-onfido-qa="liveness-next-challenge-btn"]')
   }
   async shutterButton() {
     return this.$('.onfido-sdk-ui-Camera-btn')
   }
   async recordButton() {
-    return this.$('.onfido-sdk-ui-Video-startRecording')
+    return this.$('.onfido-sdk-ui-FaceVideo-startRecording')
   }
   async stopButton() {
-    return this.$('.onfido-sdk-ui-Video-stopRecording')
+    return this.$('[data-onfido-qa="liveness-stop-recording-btn"]')
   }
   async warningMessage() {
     return this.$('.onfido-sdk-ui-Error-container-warning')
@@ -36,6 +43,21 @@ class Camera extends BasePage {
     this.shutterButton().click()
   }
 
+  async enableCameraAccessForPercy() {
+    if (
+      this.enableCameraButton().isDisplayed() &&
+      this.allowCameraPermissionImage().isDisplayed()
+    ) {
+      this.enableCameraButton().click()
+    }
+  }
+
+  async enableCameraAccessIfNecessary() {
+    if (browserName.toLowerCase() === 'safari') {
+      this.enableCameraAccessForPercy()
+    }
+  }
+
   async isOverlayPresent() {
     const cameraClasses = this.faceOverlay().getAttribute('class').split(' ')
     return cameraClasses.includes('onfido-sdk-ui-Overlay-isWithoutHole')
@@ -49,12 +71,14 @@ class Camera extends BasePage {
   }
 
   async recordVideo() {
-    this.continueButton().click()
+    this.enableCameraButton().click()
     this.recordButton().click()
   }
 
   async completeChallenges() {
-    this.continueButton().click()
+    this.driver.sleep(500)
+    this.nextChallengeButton().click()
+    this.driver.sleep(500)
     this.stopButton().click()
   }
 }

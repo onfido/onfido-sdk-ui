@@ -1,9 +1,6 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import {
-  testFocusManagement,
-  elementCanReceiveFocus,
-} from '../utils/accessibility'
+import { testFocusManagement } from '../utils/accessibility'
 import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
@@ -14,7 +11,7 @@ class Welcome extends BasePage {
     return this.$('.onfido-sdk-ui-Theme-footer')
   }
   async primaryBtn() {
-    return this.$('.onfido-sdk-ui-Button-button')
+    return this.$('[data-onfido-qa="welcome-next-btn"]')
   }
   async sdkModal() {
     return this.$('.onfido-sdk-ui-Modal-inner')
@@ -30,20 +27,38 @@ class Welcome extends BasePage {
     verifyElementCopy(this.title(), copy.welcome.title)
   }
 
+  async verifyCustomTitle() {
+    verifyElementCopy(this.title(), 'Open your new bank account')
+  }
+
   async verifyFocusManagement() {
     testFocusManagement(this.title(), this.driver)
   }
 
   async verifySubtitle(copy) {
+    verifyElementCopy(this.subtitle(), `${copy.welcome.subtitle}`)
+  }
+
+  async verifyDescriptions(copy) {
     verifyElementCopy(
       this.text(),
-      `${copy.welcome.description_p_1}\n${copy.welcome.description_p_2}`
+      `${copy.welcome.list_header_webcam}\n${copy.welcome.list_item_doc}\n${copy.welcome.list_item_selfie}`
     )
   }
 
-  async verifyIdentityButton(copy) {
+  async verifyCustomDescriptions() {
+    verifyElementCopy(
+      this.text(),
+      `To open a bank account, we will need to verify your identity.\nIt will only take a couple of minutes.`
+    )
+  }
+
+  async verifyPrimaryButton(copy) {
     verifyElementCopy(this.primaryBtn(), copy.welcome.next_button)
-    elementCanReceiveFocus(this.primaryBtn(), this.driver)
+  }
+
+  async verifyCustomPrimaryButton() {
+    verifyElementCopy(this.primaryBtn(), 'Verify Identity')
   }
 
   async verifyFooter() {
@@ -51,6 +66,8 @@ class Welcome extends BasePage {
   }
 
   async continueToNextStep() {
+    //On rare occasions, there are cases when the page hasn't quite loaded, hence the need for the sleep
+    this.driver.sleep(100)
     this.primaryBtn().click()
   }
 

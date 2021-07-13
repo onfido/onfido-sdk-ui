@@ -13,11 +13,12 @@ import {
   formatError,
 } from '~utils/onfidoApi'
 import Confirm from '../Confirm'
-import { ApiRawError } from '~types/api'
 
-jest.mock('../../utils')
-jest.mock('../../utils/objectUrl')
-jest.mock('../../utils/onfidoApi')
+import type { ApiRawError } from '~types/api'
+
+jest.mock('~utils')
+jest.mock('~utils/objectUrl')
+jest.mock('~utils/onfidoApi')
 
 const defaultProps = {
   urls: {
@@ -30,6 +31,7 @@ const defaultProps = {
       switchSeconds: 0,
     },
     snapshot: new Blob(),
+    blob: new Blob(),
   },
   isDecoupledFromAPI: true,
   resetSdkFocus: jest.fn(),
@@ -151,7 +153,9 @@ describe('Confirm', () => {
               { [uploadFunction.name]: uploadFunction },
               uploadFunction.name
             )
-            wrapper.find('.button-primary').simulate('click')
+            wrapper
+              .find({ 'data-onfido-qa': 'confirm-action-btn' })
+              .simulate('click')
             await runAllPromises()
 
             expect(spyUpload).not.toHaveBeenCalled()
@@ -164,7 +168,9 @@ describe('Confirm', () => {
               defaultProps.actions,
               'setCaptureMetadata'
             )
-            wrapper.find('.button-primary').simulate('click')
+            wrapper
+              .find({ 'data-onfido-qa': 'confirm-action-btn' })
+              .simulate('click')
             await runAllPromises()
 
             expect(spyOnApiSuccess).toHaveBeenCalledTimes(1)
@@ -191,14 +197,18 @@ describe('Confirm', () => {
               { [uploadFunction.name]: uploadFunction },
               uploadFunction.name
             )
-            wrapper.find('.button-primary').simulate('click')
+            wrapper
+              .find({ 'data-onfido-qa': 'confirm-action-btn' })
+              .simulate('click')
             await runAllPromises()
 
             expect(spyUpload).not.toHaveBeenCalled()
           })
 
           it('correctly updates the state with the error', async () => {
-            wrapper.find('.button-primary').simulate('click')
+            wrapper
+              .find({ 'data-onfido-qa': 'confirm-action-btn' })
+              .simulate('click')
             await runAllPromises()
             const errorState = wrapper.find('Confirm').state('error')
 
@@ -225,7 +235,9 @@ describe('Confirm', () => {
               { [uploadFunction.name]: uploadFunction },
               uploadFunction.name
             )
-            wrapper.find('.button-primary').simulate('click')
+            wrapper
+              .find({ 'data-onfido-qa': 'confirm-action-btn' })
+              .simulate('click')
             await runAllPromises()
 
             expect(spyUpload).toHaveBeenCalledTimes(1)

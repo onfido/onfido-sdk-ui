@@ -12,29 +12,31 @@
     },
     {
       "file": "test/specs/multipleBrowsersDocumentUpload.js",
-      "timeout": 50000,
+      "timeout": 75000,
       "browsers": [
         {
           "browserName": "Firefox",
-          "browser_version": "83",
+          "browser_version": "latest",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",
-          "remote": true
+          "remote": true,
+          "name": "multipleBrowsersDocumentUpload"
         },
         {
           "browserName": "Edge",
-          "browser_version": "87",
+          "browser_version": "89",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",
-          "remote": true
+          "remote": true,
+          "name": "multipleBrowsersDocumentUpload"
         }
       ]
     }
   ],
   "localhostUrl": "https://localhost:8080/",
-  "supportedLanguages": ["en_US", "es_ES", "de_DE", "fr_FR"],
   "fullTestCoverageLanguages": ["en_US", "es_ES"],
+  "partialTestCoverageLanguages": ["de_DE", "fr_FR", "it_IT", "pt_PT"],
   "testDeviceMobileNumber": "07495 023357"
 }

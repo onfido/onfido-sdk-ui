@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 
 import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
+import { buildStepFinder } from '~utils/steps'
 import withTheme from '../Theme'
 import GenericError from '../GenericError'
 
@@ -12,13 +13,13 @@ import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
-  if (!step.options || (step.type != 'document' && step.type != 'face')) {
+  if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
     return false
   }
 
   return (
     step.options?.uploadFallback === false &&
-    (step.type === 'face' || step.options?.useLiveDocumentCapture)
+    (step.type === 'face' || step.options?.useLiveDocumentCapture === true)
   )
 }
 
@@ -31,14 +32,6 @@ type State = {
 }
 
 export default class MainRouter extends Component<InternalRouterProps, State> {
-  constructor(props: InternalRouterProps) {
-    super(props)
-
-    this.state = {
-      crossDeviceInitialStep: null,
-    }
-  }
-
   generateMobileConfig = (): MobileConfig => {
     const {
       documentType,
@@ -55,9 +48,14 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       language,
       disableAnalytics,
       enterpriseFeatures,
+      customUI,
     } = options
 
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
+
+    if (!steps) {
+      throw new Error('steps not provided')
+    }
 
     return {
       clientStepIndex: this.state.crossDeviceInitialClientStep,
@@ -65,6 +63,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       disableAnalytics,
       documentType,
       enterpriseFeatures,
+      customUI: customUI || null,
       idDocumentIssuingCountry,
       language,
       poaDocumentType,
@@ -96,14 +95,29 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
     const { hasCamera } = this.props
 
-    return !isDesktop && !hasCamera && shouldStrictlyUseCamera
+    const findStep = buildStepFinder(steps)
+    const faceStep = findStep('face')
+
+    const photoCaptureFallback = faceStep?.options?.photoCaptureFallback ?? true
+
+    const canVideoFallbackToPhoto =
+      window.MediaRecorder != null || photoCaptureFallback
+
+    const isLivenessRequired =
+      !canVideoFallbackToPhoto &&
+      faceStep?.options?.requestedVariant === 'video'
+
+    return (
+      !isDesktop &&
+      ((!hasCamera && shouldStrictlyUseCamera === true) || isLivenessRequired)
+    )
   }
 
   render(): h.JSX.Element {
     if (this.checkUnsupportedBrowserError()) {
       return (
         <WrappedError
-          disableNavigation={true}
+          disableNavigation
           error={{ name: getUnsupportedMobileBrowserError() }}
         />
       )

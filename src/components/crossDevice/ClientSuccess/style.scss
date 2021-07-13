@@ -1,14 +1,33 @@
 @import '../../Theme/constants';
 
+.iconContainer {
+  height: auto;
+  width: 100%;
+  flex: 2 1 1em;
+  min-height: 1em;
+  max-height: 9em;
+  margin: auto;
+}
+
+/*
+ * NOTE: iOS Safari has a strange bug where SVG background images are not displayed on some iOS devices
+ *       if margin, background image properties are not declared in a specific order together & before background-image
+ *       Best solution is to explicitly list out all background properties.
+ *       ref: http://geoffmuskett.com/strange-bug-on-ios-svg-background-images-no-showing/
+ */
 .icon {
+  margin: 50 * $unit auto;
   height: 144 * $unit;
-  background-size: contain;
+  width: 144 * $unit;
+  background-size: 144 * $unit;
   background-image: url('./assets/return-to-computer-large.svg');
-  margin-top: 50 * $unit;
-  margin-bottom: 50 * $unit;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-color: var(--osdk-color-background-icon);
+  border-radius: 50%;
 }
 
 .text {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   line-height: 1.43;
 }

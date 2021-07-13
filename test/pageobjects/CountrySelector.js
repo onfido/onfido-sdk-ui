@@ -24,6 +24,12 @@ class CountrySelector extends BasePage {
     return this.$('[data-onfido-qa="countrySelector"] #country-search')
   }
 
+  async countryFinderFirstResult() {
+    return this.$(
+      '[data-onfido-qa="countrySelector"] #country-search__option--0'
+    )
+  }
+
   async countryFinderNoResults() {
     return this.$(
       '[data-onfido-qa="countrySelector"] #country-search__listbox li'
@@ -43,8 +49,9 @@ class CountrySelector extends BasePage {
     this.selectFirstOptionInDropdownMenu()
   }
   async selectFirstOptionInDropdownMenu() {
+    this.driver.sleep(250)
     this.countryFinderInput().sendKeys(Key.DOWN)
-    this.countryFinderInput().sendKeys(Key.ENTER)
+    this.countryFinderFirstResult().click()
   }
 
   async searchFor(searchQuery) {

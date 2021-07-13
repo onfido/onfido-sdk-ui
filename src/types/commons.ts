@@ -3,9 +3,10 @@ import { EnterpriseFeatures } from './enterprise'
 import { SupportedLanguages, LocaleConfig } from './locales'
 import { DocumentTypes, PoaTypes, StepConfig, StepTypes } from './steps'
 import { SdkOptions } from './sdk'
+import { UICustomizationOptions } from './ui-customisation-options'
 
 export interface NormalisedSdkOptions extends SdkOptions {
-  steps?: StepConfig[]
+  steps: StepConfig[]
 }
 
 export type NarrowSdkOptions = Omit<
@@ -24,7 +25,7 @@ export type ExtendedStepConfig =
   | StepConfig
   | { type: typeof STEP_CROSS_DEVICE; options?: never }
 
-export type CaptureMethods = 'document' | 'face'
+export type CaptureMethods = 'document' | 'face' | 'auth'
 
 export type CaptureMethodVariants = 'live' | 'html5'
 
@@ -56,12 +57,18 @@ export type SdkMetadata = {
     browser: string
     browser_version: string
   }
+  camera_settings?: {
+    aspect_ratio?: number
+    frame_rate?: number
+    height?: number
+    width?: number
+  }
 }
 
 export type CountryData = {
-  country_alpha2?: string
-  country_alpha3?: string
-  name?: string
+  country_alpha2: string
+  country_alpha3: string
+  name: string
 }
 
 export type UrlsConfig = {
@@ -95,7 +102,7 @@ export type ErrorNames =
   | 'INVALID_CAPTURE'
   | 'INVALID_SIZE'
   | 'INVALID_TYPE'
-  | 'LIVENESS_TIMEOUT'
+  | 'FACE_VIDEO_TIMEOUT'
   | 'MULTIPLE_FACES_ERROR'
   | 'NO_FACE_ERROR'
   | 'REQUEST_ERROR'
@@ -108,17 +115,18 @@ export type ErrorNames =
 export type ErrorTypes = 'error' | 'warning'
 
 export type MobileConfig = {
-  clientStepIndex: number
-  deviceHasCameraSupport: boolean
-  disableAnalytics: boolean
-  documentType: DocumentTypes
-  enterpriseFeatures: EnterpriseFeatures
-  idDocumentIssuingCountry: CountryData
-  language: SupportedLanguages | LocaleConfig
-  poaDocumentType: PoaTypes
-  step: number
+  clientStepIndex?: number
+  deviceHasCameraSupport?: boolean
+  disableAnalytics?: boolean
+  documentType?: DocumentTypes
+  enterpriseFeatures?: EnterpriseFeatures
+  idDocumentIssuingCountry?: CountryData
+  language?: SupportedLanguages | LocaleConfig
+  poaDocumentType?: PoaTypes
+  step?: number
   steps: StepConfig[]
-  token: string
+  token?: string
   urls: UrlsConfig
-  woopraCookie: string
+  woopraCookie?: string | null
+  customUI: UICustomizationOptions | null
 }

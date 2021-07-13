@@ -10,6 +10,25 @@ Guide to UI tests for Web SDK.
 - `brew cask install chromedriver`
 - **Note:** if you have chromedriver already installed, make sure it's the latest version: `brew cask upgrade chromedriver`
 
+If you would like to run the tests against other browsers...
+
+Firefox:
+
+- `npm install` should take care of installing Gekodriver (Webdriver for Firefox)
+- **Note:** if you have macOS Catalina installed, you will need to run `npm install -g geckodriver`, this is due to this
+  issue https://github.com/mozilla/geckodriver/issues/1629
+
+Safari:
+
+- Simply having Safari installed on your machine is enough
+
+Microsoft Edge:
+
+1. Microsoft Edge (https://www.microsoft.com/en-us/edge)
+2. Microsoft Edge Driver (WebDriver for Edge, https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
+
+- **Note:** your Microsoft Edge Driver needs to match the Edge browser version you are running and needs to be installed to your path (i.e. on OSX `/usr/local/bin`)
+
 ### Running tests locally
 
 Our UI tests also run on BrowserStack. If you would like to run them on your BrowserStack account, set an environment variable `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY`.
@@ -25,14 +44,44 @@ Our UI tests also run on BrowserStack. If you would like to run them on your Bro
   - Run the test server image with tag `onfido-web-sdk:ui-mock-server` and wait until it responds.
   - Run the test scenarios against test server at `https://localhost:8080`.
 
+#### Running against different browsers locally
+
+- Within `config.json` you simply need to modify the `browserName` value to any of the ones illustrated
+
+`"browsers": [ { "browserName": "chrome | firefox | safari | MicrosoftEdge", "remote": false }`
+
+### BrowserStack notes
+
+- Specific to Safari on BrowserStack, you need to explicitly set the `localhostUrl` value in `config.json` to
+  be read as `"localhostUrl": "https://bs-local.com:8080/",` this is due to the way Safari handles `https://localhost`.
+
+### Running tests with or without specific tags
+
+- We can now run tests that contain, or do not contain certain tags in the following way...
+
+`MOCHA_GREP="@1|@2" npm run test:ui` will run tests that ONLY have the tag @1 OR @2.
+`MOCHA_GREP="@3" npm run test:ui` will run tests that ONLY have the tag @3.
+`MOCHA_GREP='@1.*@5' npm run test:ui`will run tests that ONLY have the tags @1 AND @5.
+`MOCHA_INVERT="@3" npm run test:ui` will NOT run tests that have the tag @3.
+`MOCHA_INVERT="@1|@2" npm run test:ui` will NOT run tests that have the tags @1 OR @2.
+`MOCHA_INVERT='@1.*@3' npm run test:ui` will NOT run tests that have the tags @1 AND @3.
+
+### Running tests without the mock server
+
+- We can now run tests by-passing the mock server in the following way...
+
+`MOCK_SERVER=false ...` will NOT run/start anything to do with the mock server, including creating/starting docker.
+
 ### `test` directory structure
 
 - `pageobjects/`contains files with page objects that map objects by css selectors and functions that use these page objects
 - `resources/`contains files needed for the upload tests
-- `scripts/` contains scripts to setup test environment on Travis CI
 - `specs/` contains files with the tests implemented
 - `utils/` contains util files with the set up for accessibility testing, browserstack and mocha
 - `config.json`contains configuration for the browsers on which the tests will run
+
+- **Note:** you can now pass in an environment variable `CONFIG_FILE` if you wish to use a file other than `config.json`,
+  i.e. `CONFIG_FILE='mynewconfig.json' npm run test:ui`, if this is not specified, it will use the default `config.json`
 
 ### Troubleshooting
 

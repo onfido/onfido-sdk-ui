@@ -4,6 +4,7 @@ const STEP_DOCUMENT = 'document'
 const STEP_POA = 'poa'
 const STEP_FACE = 'face'
 const STEP_COMPLETE = 'complete'
+const STEP_AUTH = 'auth'
 
 export type StepTypes =
   | typeof STEP_WELCOME
@@ -12,6 +13,7 @@ export type StepTypes =
   | typeof STEP_POA
   | typeof STEP_FACE
   | typeof STEP_COMPLETE
+  | typeof STEP_AUTH
 
 export type DocumentTypes =
   | 'passport'
@@ -31,7 +33,7 @@ export type RequestedVariant = 'standard' | 'video'
 export type DocumentTypeConfig =
   | boolean
   | {
-      country: string
+      country: string | null
     }
 
 export type CaptureOptions = {
@@ -47,9 +49,12 @@ export type StepOptionWelcome = {
   nextButton?: string
 }
 
+export type StepOptionAuth = { retries?: number }
+
 export type StepOptionDocument = {
   documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
   forceCrossDevice?: boolean
+  photoCaptureFallback?: never // for cross-compatibility with StepOptionFace in withCrossDeviceWhenNoCamera
   showCountrySelection?: boolean
   useLiveDocumentCapture?: boolean
 } & CaptureOptions
@@ -60,6 +65,8 @@ export type StepOptionPoA = {
 }
 
 export type StepOptionFace = {
+  forceCrossDevice?: never // for cross-compatibility with StepOptionDocument in withCrossDeviceWhenNoCamera
+  photoCaptureFallback?: boolean
   useMultipleSelfieCapture?: boolean
 } & CaptureOptions
 
@@ -68,40 +75,36 @@ export type StepOptionComplete = {
   submessage?: string
 }
 
-export type StepConfigWelcome = {
-  type: typeof STEP_WELCOME
-  options?: StepOptionWelcome
+type StepOptionsMap = {
+  welcome: StepOptionWelcome
+  userConsent: never
+  auth: StepOptionAuth
+  document: StepOptionDocument
+  poa: StepOptionPoA
+  face: StepOptionFace
+  complete: StepOptionComplete
 }
 
-export type StepConfigUserConsent = {
-  type: typeof STEP_USER_CONSENT
-  options?: never
+export type StepConfigMap = {
+  [Type in StepTypes]: {
+    type: Type
+    options?: StepOptionsMap[Type]
+  }
 }
 
-export type StepConfigDocument = {
-  type: typeof STEP_DOCUMENT
-  options?: StepOptionDocument
-}
-
-export type StepConfigPoA = {
-  type: typeof STEP_POA
-  options?: StepOptionPoA
-}
-
-export type StepConfigFace = {
-  type: typeof STEP_FACE
-  options?: StepOptionFace
-}
-
-export type StepConfigComplete = {
-  type: typeof STEP_COMPLETE
-  options?: StepOptionComplete
-}
+export type StepConfigWelcome = StepConfigMap['welcome']
+export type StepConfigUserConsent = StepConfigMap['userConsent']
+export type StepConfigAuth = StepConfigMap['auth']
+export type StepConfigDocument = StepConfigMap['document']
+export type StepConfigPoa = StepConfigMap['poa']
+export type StepConfigFace = StepConfigMap['face']
+export type StepConfigComplete = StepConfigMap['complete']
 
 export type StepConfig =
   | StepConfigWelcome
   | StepConfigUserConsent
   | StepConfigDocument
-  | StepConfigPoA
+  | StepConfigPoa
   | StepConfigFace
   | StepConfigComplete
+  | StepConfigAuth

@@ -1,4 +1,91 @@
 {
+    "auth_accessibility": {
+        "back_button": "Cancelar"
+    },
+    "auth_cam_encrypt": {
+        "loader": "Cifrado de transmisión de la cámara"
+    },
+    "auth_cam_start": {
+        "loader": "Iniciando cámara"
+    },
+    "auth_capture_start": {
+        "body": "Coloque su rostro dentro del marco ovalado",
+        "button_primary": "Iniciar escaneo del rostro",
+        "feedback": {
+            "center_face": "Coloque su rostro en el marco",
+            "conditions_too_bright": "Busque un entorno con menos luz",
+            "conditions_too_dark": "Busque un entorno con más luz",
+            "head_not_upright": "Mantenga la cabeza erguida",
+            "neutral_expression": "Mantenga una expresión neutra",
+            "not_looking_straight": "Mire hacia adelante",
+            "remove_sunglasses": "Quítese las gafas de sol",
+            "steady_count_1": "No se mueva: 1",
+            "steady_count_2": "No se mueva: 2",
+            "steady_count_3": "No se mueva: 3"
+        },
+        "title": "Iniciar escaneo del rostro"
+    },
+    "auth_capture": {
+        "feedback": {
+            "center_face": "Coloque su rostro en el marco",
+            "even_lighting": "Asegúrese de que la iluminación sea uniforme",
+            "eye_level": "Mantenga la cámara a la altura de los ojos",
+            "face_not_found": "Asegúrese que su cara sea visible",
+            "head_not_upright": "Mantenga la cabeza erguida",
+            "move_back": "Ahora muévase hacia atrás",
+            "move_close": "Ahora acérquese",
+            "move_closer": "Acérquese",
+            "not_looking_straight": "Mire hacia adelante",
+            "steady": "No se mueva"
+        }
+    },
+    "auth_error": {
+        "cam_encryption": {
+            "body": "Esta aplicación bloquea las configuraciones sospechosas de las cámaras web. <fallback>Más información<\/fallback>.",
+            "button_primary": "Intentar otra vez",
+            "button_primary_firefox": "Intentar otra vez",
+            "subtitle": "Este sistema no se puede verificar debido a lo siguiente:",
+            "table_header_1": "Posible problema",
+            "table_header_2": "Solución",
+            "table_row_1_cell_1": "La cámara ya está siendo utilizada por otra app.",
+            "table_row_1_cell_1_firefox": "Permisos de la cámara no recordados en Firefox.",
+            "table_row_1_cell_2": "Cierre la otra app.",
+            "table_row_1_cell_2_firefox": "Revise Recordar permisos.",
+            "table_row_2_cell_1": "Una app de terceros está modificando el vídeo.",
+            "table_row_2_cell_2": "Cierre\/desinstale la otra app.",
+            "table_row_3_cell_1": "No es posible asegurar el hardware.",
+            "table_row_3_cell_2": "Utilice un dispositivo diferente.",
+            "title": "<b>Problema de cifrado de transmisión de la cámara<\/b>"
+        }
+    },
+    "auth_full_screen": {
+        "body": "Esto iniciará la captura de selfies en modo de pantalla completa.",
+        "button_primary": "Abrir en pantalla completa",
+        "title": "Modo selfie en pantalla completa"
+    },
+    "auth_permission_denied": {
+        "body_cam": "Para continuar, deberá conceder acceso a la cámara desde la configuración de su móvil.",
+        "button_primary_cam": "Acceder a la configuración"
+    },
+    "auth_permission": {
+        "body_cam": "Para continuar, deberá conceder acceso a la cámara cuando se le solicite.",
+        "button_primary_cam": "Conceder acceso a la cámara",
+        "title_cam": "Permitir acceso a la cámara"
+    },
+    "auth_progress": {
+        "loader": "Cargando"
+    },
+    "auth_retry": {
+        "body_blur": "Limpie el objetivo de su cámara",
+        "body_neutral_expression": "Mantenga una expresión neutra",
+        "body_too_bright": "Busque un entorno con menos luz",
+        "button_primary": "Iniciar cámara",
+        "subtitle": "No hemos podido capturar su rostro correctamente",
+        "title": "Vuelva a escanear su rostro"
+    },
+    "auth_upload_pass": {
+        "body": "Carga realizada correctamente"
+    },
     "country_select": {
         "alert_dropdown": {
             "country_not_found": "País no encontrado"
@@ -9,7 +96,7 @@
         "button_primary": "Enviar documento",
         "search": {
             "accessibility": "Seleccione el país",
-            "input_placeholder": "por ejemplo, Estados Unidos",
+            "input_placeholder": "por ejemplo, España",
             "label": "Buscar país"
         },
         "title": "Seleccione el país emisor"
@@ -21,11 +108,11 @@
         "list_item_doc_one": "Documento cargado",
         "list_item_selfie": "Selfie cargado",
         "list_item_video": "Video cargado",
-        "subtitle": "Estamos listos para verificar su identidad",
-        "title": "Genial, eso es todo"
+        "subtitle": "Aquí tiene todo lo que ha subido:",
+        "title": "Un último paso"
     },
     "cross_device_error_desktop": {
-        "subtitle": "Debe abrir este enlace en un dispositivo móvil.",
+        "subtitle": "Debe abrir este enlace en un dispositivo móvil",
         "title": "Algo salió mal"
     },
     "cross_device_error_restart": {
@@ -57,19 +144,19 @@
             "no_doc_detail": "Asegúrese de que todo el documento esté en la foto",
             "no_doc_title": "Documento no detectado"
         },
-        "body_bank_statement": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
-        "body_benefits_letter": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
-        "body_bill": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
+        "body_bank_statement": "Make sure details are clear to read, with no blur or glare",
+        "body_benefits_letter": "Make sure details are clear to read, with no blur or glare",
+        "body_bill": "Make sure details are clear to read, with no blur or glare",
         "body_id": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
         "body_image_medium": "Nos llevará más tiempo verificarle si no podemos leerla",
         "body_image_poor": "Para poder verificar que es usted, necesitamos una foto de mejor calidad",
         "body_license": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo",
         "body_passport": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo",
         "body_permit": "Asegúrese de que los detalles de su permiso sean legibles, la imagen sea nítida y que no tenga brillo",
-        "body_tax_letter": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo",
+        "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
         "button_close": "Cerrar",
         "button_primary_redo": "Reintentar",
-        "button_primary_upload": "Confirmar",
+        "button_primary_upload": "Subir",
         "button_primary_upload_anyway": "Subir igualmente",
         "button_secondary_redo": "Reintentar",
         "button_zoom": "Ampliar imagen",
@@ -84,7 +171,7 @@
         "button_bill_detail": "Gas, electricity, water, landline, or broadband",
         "button_government_letter": "Government Letter",
         "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
-        "button_id": "Tarjeta de identificación",
+        "button_id": "Documento Nacional de Identidad",
         "button_id_detail": "Frente y reverso",
         "button_license": "Licencia de conducir",
         "button_license_detail": "Frente y reverso",
@@ -152,7 +239,7 @@
                 "message": "Múltiples caras encontradas"
             },
             "no_face": {
-                "instruction": "Su cara tiene que salir en la selfie",
+                "instruction": "Asegúrese que su cara sea visible",
                 "message": "Cara no encontrada"
             },
             "request_error": {
@@ -183,7 +270,7 @@
         "info_qr_how": "Cómo escanear un código QR",
         "info_qr_how_list_item_camera": "Apunte la cámara de su teléfono al código QR",
         "info_qr_how_list_item_download": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store",
-        "link_divider": "u",
+        "link_divider": "o seleccione estas alternativas",
         "link_qr": "Escanear código QR",
         "link_sms": "Obtener enlace via mensaje de texto",
         "link_url": "Copiar enlace",
@@ -195,14 +282,6 @@
         "subtitle_url": "Abrir el enlace en su teléfono",
         "title": "Obtener enlace seguro",
         "url_field_label": "Copie el enlace al navegador de internet de su teléfono"
-    },
-    "linked_computer": {
-        "button_primary": "Continuar",
-        "info": "Asegúrese de",
-        "list_item_desktop_open": "2. La ventana de su escritorio sigue abierta",
-        "list_item_sent_by_you": "1. Usted envió este enlace",
-        "subtitle": "Continúe la verificación",
-        "title": "Vinculado a su computadora"
     },
     "mobilePhrases": {
         "photo_upload": {
@@ -229,8 +308,8 @@
         }
     },
     "outro": {
-        "body": "Gracias.",
-        "title": "Verificación completa"
+        "body": "Eso es todo lo que necesitamos para comenzar a verificar su identidad",
+        "title": "Gracias"
     },
     "permission_recovery": {
         "button_primary": "Actualizar",
@@ -264,10 +343,10 @@
         "title_selfie": "Selfie"
     },
     "poa_guidance": {
-        "button_primary": "Continuar",
+        "button_primary": "Continue",
         "instructions": {
             "address": "Current address",
-            "full_name": "Nombre completo",
+            "full_name": "Full name",
             "issue_date": "Issue date or summary period",
             "label": "Make sure it clearly shows:",
             "logo": "Logo"
@@ -279,12 +358,12 @@
         "subtitle_tax_letter": "Must be issued in the <strong>last 12 months<\/strong>"
     },
     "poa_intro": {
-        "button_primary": "Iniciar la verificación",
+        "button_primary": "Start verification",
         "list_matches_signup": "<strong>Matches<\/strong> the address you used on signup",
         "list_most_recent": "Is your most <strong>recent<\/strong> document",
         "list_shows_address": "Shows your <strong>current<\/strong> address",
-        "subtitle": "You'll need a document that:",
-        "title": "Let's verify your %{country} address"
+        "subtitle": "You’ll need a document that:",
+        "title": "Let’s verify your %{country} address"
     },
     "selfie_capture": {
         "alert": {
@@ -299,13 +378,13 @@
                 "title": "Su cámara no esta funcionando"
             },
             "timeout": {
-                "detail": "Recuerde presionar detener cuando esté listo. <fallback>Rehacer acciones<\/fallback>",
+                "detail": "Recuerde presionar el botón cuando haya terminado. <fallback>Rehacer acciones<\/fallback>",
                 "title": "Parece que ha demorado demasiado"
             }
         },
-        "button_accessibility": "Tome una foto",
+        "button_accessibility": "Tomar foto",
         "frame_accessibility": "Vista desde la cámara",
-        "title": "Tome una selfie"
+        "title": "Mantenga la cara dentro del óvalo"
     },
     "selfie_confirmation": {
         "image_accessibility": "Foto de su cara",
@@ -315,9 +394,9 @@
     "selfie_intro": {
         "button_primary": "Continuar",
         "list_accessibility": "Consejos para capturar un buen selfie",
-        "list_item_face_forward": "Por favor, mantenga una cara seria",
-        "list_item_no_glasses": "¿Lleva gafas? Asegúrese de que podamos ver claramente sus ojos",
-        "subtitle": "Compararemos la foto en su documento con su selfie",
+        "list_item_face_forward": "Mire hacia delante y asegúrese de que sus ojos se vean con claridad",
+        "list_item_no_glasses": "Quítese las gafas si es necesario",
+        "subtitle": "Compararemos esto con su documento",
         "title": "Tome una selfie"
     },
     "sms_sent": {
@@ -341,15 +420,17 @@
     "upload_guide": {
         "button_primary": "Subir foto",
         "image_detail_blur_alt": "Ejemplo de un documento borroso",
-        "image_detail_blur_label": "Todos los detalles deben ser claros, nada borroso.",
-        "image_detail_cutoff_alt": "Ejemplo de un documento cortado",
+        "image_detail_blur_label": "Todos los detalles deben ser claros, nada borroso",
         "image_detail_cutoff_label": "Mostrar todos los detalles, incluidas las dos líneas inferiores",
-        "image_detail_glare_alt": "Ejemplo de un documento con reflejo",
         "image_detail_glare_label": "Aléjese de la luz directa, sin reflejos",
-        "image_detail_good_alt": "Ejemplo de documento",
         "image_detail_good_label": "La foto debe mostrar claramente su documento",
         "subtitle": "No se aceptan fotos escaneadas ni fotocopias",
         "title": "Subir la página del pasaporte con su foto"
+    },
+    "user_consent_load_fail": {
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
     },
     "user_consent": {
         "button_primary": "Accept",
@@ -362,37 +443,38 @@
         }
     },
     "video_capture": {
-        "body": "Coloque su cara en el óvalo",
-        "body_next": "Cuando esté listo, presione continuar",
-        "body_record": "Presione grabar y siga las instrucciones",
-        "body_stop": "Cuando esté listo, presione parar",
-        "button_primary_next": "Siguiente",
+        "body": "Mantenga la cara dentro del óvalo",
+        "body_record": "Presione el botón cuando esté listo",
+        "button_primary_finish": "Finalizar grabación",
+        "button_primary_next": "Siguiente paso",
+        "button_primary_start": "Iniciar grabación",
         "button_record_accessibility": "Iniciar grabación",
-        "button_stop_accessibility": "Parar grabación",
         "frame_accessibility": "Vista desde la cámara",
         "header": {
             "challenge_digit_instructions": "Lea en voz alta cada dígito",
-            "challenge_turn_left": "izquierdo",
-            "challenge_turn_right": "derecho",
-            "challenge_turn_template": "Mire sobre su hombro %{side}"
-        },
-        "status": "Grabando"
+            "challenge_turn_forward": "luego vuelva a mirar hacia delante",
+            "challenge_turn_left": "Mire sobre su hombro izquierdo",
+            "challenge_turn_right": "Mire sobre su hombro derecho"
+        }
     },
     "video_confirmation": {
         "title": "Verifique video",
         "video_accessibility": "Reproducir su video grabado"
     },
     "video_intro": {
-        "button_primary": "Continuar",
+        "button_primary": "Grábese en un vídeo",
         "list_accessibility": "Acciones para grabar un video selfie",
-        "list_item_actions": "Le pediremos que se grabe en video ejecutando <strong>dos simples acciones<\/strong>",
-        "list_item_speak": "Una de ellas implicará <strong>hablar en voz alta<\/strong>",
-        "title": "Asegurémonos de que nadie se está haciendo pasar por usted"
+        "list_item_actions": "Termine las instrucciones en 25 segundos",
+        "list_item_speak": "Siga las instrucciones para moverse o hablar",
+        "title": "Grábese en un vídeo"
     },
     "welcome": {
-        "description_p_1": "Para abrir una cuenta bancaria, necesitaremos verificar su identidad.",
-        "description_p_2": "Sólo tomará un par de minutos.",
+        "list_header_webcam": "Utilice su cámara web o su teléfono para fotografiar:",
+        "list_item_doc": "su documento de identidad",
+        "list_item_poa": "your proof of address",
+        "list_item_selfie": "su rostro",
         "next_button": "Verificar identidad",
-        "title": "Abra su nueva cuenta bancaria"
+        "subtitle": "Debería tomar unos minutos",
+        "title": "Verifique su identidad"
     }
 }

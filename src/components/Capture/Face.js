@@ -1,19 +1,25 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import Selfie from '../Photo/Selfie'
-import Video from '../Video'
+import FaceVideo from '../FaceVideo'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import GenericError from '../GenericError'
 import FallbackButton from '../Button/FallbackButton'
 import CustomFileInput from '../CustomFileInput'
-import { isDesktop, addDeviceRelatedProperties } from '~utils'
+import {
+  isDesktop,
+  addDeviceRelatedProperties,
+  getUnsupportedMobileBrowserError,
+} from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import { validateFile } from '~utils/file'
 import { getInactiveError } from '~utils/inactiveError'
 import { localised } from '../../locales'
+import withTheme from '../Theme'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const defaultPayload = {
@@ -22,12 +28,15 @@ const defaultPayload = {
   side: null,
 }
 
+const WrappedError = withTheme(GenericError)
+
 class Face extends Component {
   static defaultProps = {
     useUploader: false,
     requestedVariant: 'standard',
     uploadFallback: true,
     useMultipleSelfieCapture: true,
+    photoCaptureFallback: true,
     snapshotInterval: 500,
   }
 
@@ -55,7 +64,7 @@ class Face extends Component {
 
   handleError = (error) => {
     this.props.triggerOnError(error)
-    this.props.actions.deleteCapture()
+    this.props.actions.deleteCapture({ method: 'face' })
   }
 
   handleFallbackClick = (callback) => {
@@ -68,7 +77,7 @@ class Face extends Component {
 
   renderUploadFallback = (text) => (
     <CustomFileInput
-      className={style.uploadFallback}
+      className={theme.errorFallbackButton}
       onChange={this.handleFileSelected}
       accept="image/*"
       capture="user"
@@ -94,6 +103,7 @@ class Face extends Component {
       useMultipleSelfieCapture,
       snapshotInterval,
       uploadFallback,
+      photoCaptureFallback,
     } = this.props
     const title = translate('selfie_capture.title')
     const props = {
@@ -102,7 +112,7 @@ class Face extends Component {
     }
     const cameraProps = {
       renderTitle: <PageTitle title={title} smaller />,
-      containerClassName: style.faceContainer,
+      cameraClassName: style.faceContainer,
       renderFallback: isDesktop
         ? this.renderCrossDeviceFallback
         : this.renderUploadFallback,
@@ -117,21 +127,22 @@ class Face extends Component {
     // when we finally do get its value
     if (hasCamera === null) return
 
-    if (hasCamera) {
+    const isVideoCompatible = window.MediaRecorder != null
+
+    if (hasCamera && (isVideoCompatible || photoCaptureFallback)) {
       const ariaLabelForSelfieCameraView = translate(
         'selfie_capture.frame_accessibility'
       )
       if (requestedVariant === 'video') {
         return (
-          <Video
+          <FaceVideo
             {...cameraProps}
             onVideoCapture={this.handleVideoCapture}
-            ariaLabel={ariaLabelForSelfieCameraView}
           />
         )
       }
 
-      if (!this.props.useUploader) {
+      if (!this.props.useUploader && photoCaptureFallback) {
         return (
           <Selfie
             {...cameraProps}
@@ -142,6 +153,19 @@ class Face extends Component {
           />
         )
       }
+    }
+
+    if (
+      !isVideoCompatible &&
+      !photoCaptureFallback &&
+      requestedVariant === 'video'
+    ) {
+      return (
+        <WrappedError
+          disableNavigation={true}
+          error={{ name: getUnsupportedMobileBrowserError() }}
+        />
+      )
     }
 
     if ((this.props.useUploader || hasCamera === false) && uploadFallback) {

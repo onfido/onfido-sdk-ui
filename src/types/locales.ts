@@ -9,6 +9,10 @@ export type SupportedLanguages =
   | 'es'
   | 'fr_FR'
   | 'fr'
+  | 'it_IT'
+  | 'it'
+  | 'pt_PT'
+  | 'pt'
 
 export type LocaleConfig = {
   locale?: SupportedLanguages
@@ -16,7 +20,7 @@ export type LocaleConfig = {
   mobilePhrases?: Record<string, unknown>
 }
 
-export type ParsedElement = string | h.JSX.Element
+export type ParsedElement = string | h.JSX.Element | null
 
 export type TranslatedTagHandler = (tag: {
   type: string
