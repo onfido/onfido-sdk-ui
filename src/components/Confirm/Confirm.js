@@ -50,7 +50,7 @@ class Confirm extends Component {
     let errorKey
     const status = error.status || ''
     const response = error.response || {}
-    
+
     if (this.props.mobileFlow && status === 401) {
       this.props.triggerOnError({ status, response })
       return this.props.crossDeviceClientError()
@@ -76,7 +76,7 @@ class Confirm extends Component {
     actions.setCaptureMetadata({ capture, apiResponse })
 
     const warnings = apiResponse.sdk_warnings
-    if (warnings && !warnings.detect_glare.valid) {
+    if (warnings && warnings.detect_glare && !warnings.detect_glare.valid) {
       this.setState({ uploadInProgress: false })
       this.onGlareWarning()
     } else {
