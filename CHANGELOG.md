@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Reduce resolution to VGA if browser does not support recording videos in WebM format (e.g. Safari 14.x that only supports MP4 format) to avoid large video files being created.
 - Internal: Update SDK's Publish Release workflow to not use the now deprecated `set-env` command.
+- Internal: Fix cross-device SMS number input bundle import that broke when using newer versions of @babel/preset-env.
 
 ## [5.11.3] - 2020-07-27
 
