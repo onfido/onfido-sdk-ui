@@ -19,9 +19,9 @@ import type {
 
 const isWebmFormatSupported = () => {
   const webmMimeTypes: string[] = [
-    'video/webm;codecs=vp9',
     'video/webm;codecs=vp8,opus',
     'video/webm;codecs=vp8',
+    'video/webm;codecs=vp9',
     'video/webm',
   ]
   return webmMimeTypes.some((mimeType) =>
