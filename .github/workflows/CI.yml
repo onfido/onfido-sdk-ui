@@ -19,8 +19,7 @@ jobs:
           - NODE_ENV: production
           - NODE_ENV: staging
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.4
 
         # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
         # e.g. "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
