@@ -4,9 +4,9 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `6.10.x` -> `6.11.0`
 
-### Added strings
-
 The **English**, **Spanish**, **German**, **French**, **Italian** and **Portuguese** copy for the following string(s) has changed:
+
+### Added strings
 
 - `doc_capture.detail.folded_doc_front`
 - `doc_capture.header_folded_doc_front`
