@@ -58,17 +58,13 @@
     https://caniuse.com/#feat=object-fit
     https://caniuse.com/#feat=object-position */
 .croppedDocumentImage {
-  width: 75%; // same width as $card-frame-width in src/components/Overlay/style.scss
+  width: 100%;
   height: 15em;
   object-fit: cover;
+  object-position: center;
 
   @media (--small-viewport) {
-    width: 100%;
-    object-position: 50% 30%;
-  }
-
-  @media (--shorter-viewport) {
-    object-position: 50% 25%;
+    height: 13em;
   }
 }
 
