@@ -104,9 +104,11 @@
   top: 0;
   height: 100%;
   left: -$large-text-margin;
+
   @media (--small-viewport) {
     left: -$small-text-margin;
   }
+
   @media (--smaller-viewport) {
     left: -$smaller-text-margin;
   }
@@ -125,7 +127,7 @@
       top: 21.5%;
     }
 
-    @media (orientation: landscape) and (--high-pixel-density) {
+    @media (orientation: landscape) and (min-resolution: 3dppx) {
       top: 0;
     }
 
@@ -134,20 +136,20 @@
       width: 100%;
     }
 
-    @media (orientation: portrait) and (--small-viewport) and (--below-high-pixel-density) {
+    @media (orientation: portrait) and (max-width: 479px) and (max-resolution: 2dppx) {
       height: auto;
       top: -34%;
       margin: 50% auto;
     }
 
-    @media (orientation: portrait) and (--high-pixel-density) and (--short-viewport),
-      (orientation: portrait) and (--high-pixel-density) and (--long-viewport) {
+    @media (orientation: portrait) and (min-resolution: 3dppx) and (max-height: 567px),
+      (orientation: portrait) and (min-resolution: 3dppx) and (min-height: 568px) {
       height: auto;
       top: -25%;
     }
 
-    @media (orientation: portrait) and (--high-pixel-density) and (--short-viewport),
-      (orientation: portrait) and (--high-pixel-density) and (--long-viewport) {
+    @media (orientation: portrait) and (min-resolution: 3dppx) and (max-height: 567px),
+      (orientation: portrait) and (min-resolution: 3dppx) and (min-height: 568px) {
       top: 0;
     }
   }
