@@ -63,12 +63,12 @@ export const navigationScenarios = async (lang) => {
         welcome.checkBackArrowIsNotDisplayed()
       })
 
-      it('should display the liveness intro again on back button click when on the liveness flow and I have a camera', async () => {
+      it('should display the face video intro again on back button click when on the face video flow and I have a camera', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&liveness=true`
+          `?language=${lang}&faceVideo=true`
         )
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'

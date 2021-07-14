@@ -1,7 +1,8 @@
-import { h, Component } from 'preact'
+import { h, Component, Ref } from 'preact'
 import Webcam from 'react-webcam-onfido'
 
 import { getRecordedVideo } from '~utils/camera'
+import { VIDEO_CAPTURE } from '~utils/constants'
 
 import Timeout from '../Timeout'
 import Camera from '../Camera'
@@ -10,6 +11,7 @@ import FallbackButton from '../Button/FallbackButton'
 import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
 
+import type { CaptureMethods } from '~types/commons'
 import type { WithTrackingProps, WithPermissionsFlowProps } from '~types/hocs'
 import type {
   ErrorProp,
@@ -34,6 +36,7 @@ export type Props = {
   cameraClassName?: string
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
+  method: CaptureMethods
   onRecordingStart?: () => void
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
@@ -41,6 +44,7 @@ export type Props = {
   renderPhotoOverlay?: (props: PhotoOverlayProps) => h.JSX.Element
   renderVideoOverlay?: (props: VideoOverlayProps) => h.JSX.Element
   title?: string
+  webcamRef?: Ref<Webcam>
 } & WithTrackingProps
 
 type State = {
@@ -56,9 +60,19 @@ const initialStateWithoutMediaStream: Omit<State, 'hasMediaStream'> = {
   isRecording: false,
 }
 
-const recordingTooLongError: ErrorProp = {
-  name: 'FACE_VIDEO_TIMEOUT',
-  type: 'warning',
+const RECORDING_TIMEOUT_ERRORS_MAP: Record<CaptureMethods, ErrorProp> = {
+  face: {
+    name: 'FACE_VIDEO_TIMEOUT',
+    type: 'warning',
+  },
+  document: {
+    name: 'DOC_VIDEO_TIMEOUT',
+    type: 'warning',
+  },
+  auth: {
+    name: 'FACE_VIDEO_TIMEOUT',
+    type: 'warning',
+  },
 }
 
 export default class VideoCapture extends Component<Props, State> {
@@ -113,18 +127,29 @@ export default class VideoCapture extends Component<Props, State> {
     })
   }
 
-  renderRedoActionsFallback: RenderFallbackProp = (text, callback) => (
-    <FallbackButton
-      text={text}
-      onClick={() => this.handleFallbackClick(callback)}
-    />
-  )
+  renderRedoActionsFallback: RenderFallbackProp = (
+    { text, type },
+    callback
+  ) => {
+    if (type === 'timeout') {
+      return String(VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT)
+    }
+
+    return (
+      <FallbackButton
+        text={text}
+        onClick={() => this.handleFallbackClick(callback)}
+      />
+    )
+  }
 
   renderError = (): h.JSX.Element => {
-    const { inactiveError, renderFallback, trackScreen } = this.props
+    const { inactiveError, method, renderFallback, trackScreen } = this.props
+    const { [method]: recordingTimeoutError } = RECORDING_TIMEOUT_ERRORS_MAP
+
     const passedProps = this.state.hasRecordingTakenTooLong
       ? {
-          error: recordingTooLongError,
+          error: recordingTimeoutError,
           hasBackdrop: true,
           renderFallback: this.renderRedoActionsFallback,
         }
@@ -138,6 +163,7 @@ export default class VideoCapture extends Component<Props, State> {
   }
 
   renderInactivityTimeoutMessage = (): h.JSX.Element | null => {
+    const { method } = this.props
     const {
       hasBecomeInactive,
       hasCameraError,
@@ -151,9 +177,14 @@ export default class VideoCapture extends Component<Props, State> {
       return null
     }
 
+    const recordingTimeout =
+      method === 'document'
+        ? VIDEO_CAPTURE.DOC_VIDEO_TIMEOUT
+        : VIDEO_CAPTURE.FACE_VIDEO_TIMEOUT
+
     const passedProps = {
       key: isRecording ? 'recording' : 'notRecording',
-      seconds: isRecording ? 20 : 12,
+      seconds: isRecording ? recordingTimeout : VIDEO_CAPTURE.INACTIVE_TIMEOUT,
       onTimeout: isRecording
         ? this.handleRecordingTimeout
         : this.handleInactivityTimeout,
@@ -172,6 +203,7 @@ export default class VideoCapture extends Component<Props, State> {
       renderVideoOverlay,
       title,
       trackScreen,
+      webcamRef,
     } = this.props
 
     const {
@@ -198,6 +230,7 @@ export default class VideoCapture extends Component<Props, State> {
         buttonType="video"
         containerClassName={cameraClassName}
         facing={facing}
+        fallbackToDefaultWidth
         isButtonDisabled={disableRecording}
         onButtonClick={this.handleRecordingStart}
         onError={this.handleCameraError}
@@ -219,7 +252,21 @@ export default class VideoCapture extends Component<Props, State> {
         }
         renderTitle={!isRecording && title ? <PageTitle title={title} /> : null}
         trackScreen={trackScreen}
-        webcamRef={(ref) => ref && (this.webcam = ref)}
+        webcamRef={(webcam) => {
+          if (!webcam) {
+            return
+          }
+
+          this.webcam = webcam
+
+          if (webcamRef) {
+            if (typeof webcamRef === 'function') {
+              webcamRef(webcam)
+            } else {
+              webcamRef.current = webcam
+            }
+          }
+        }}
       >
         <ToggleFullScreen />
         {renderPhotoOverlay &&

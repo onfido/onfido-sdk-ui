@@ -7,6 +7,7 @@ import { randomId } from '~utils/string'
 
 import { appendToTracking, trackException } from '../../Tracker'
 import { localised } from '../../locales'
+import DocumentVideo from '../DocumentVideo'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
@@ -24,13 +25,15 @@ import type { WithLocalisedProps, WithCaptureVariantProps } from '~types/hocs'
 import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
+  HandleDocVideoCaptureProp,
+  RenderFallbackProp,
   StepComponentDocumentProps,
 } from '~types/routers'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 const EXCEPTIONS = {
   DOC_TYPE_NOT_PROVIDED: 'Neither documentType nor poaDocumentType provided',
-  CAPTURE_SIDE_NOT_PROVIDED: 'Capture size was not provided',
+  CAPTURE_SIDE_NOT_PROVIDED: 'Capture side was not provided',
 }
 
 const getDocumentType = (
@@ -55,13 +58,11 @@ type Props = StepComponentDocumentProps &
   WithCaptureVariantProps
 
 class Document extends Component<Props> {
-  static defaultProps: Partial<Props> = {
+  static defaultProps = {
     forceCrossDevice: false,
-    requestedVariant: 'standard',
-    side: 'front',
   }
 
-  handleCapture: HandleCaptureProp = ({ variant, ...payload }) => {
+  handlePhotoCapture: HandleCaptureProp = (payload) => {
     const {
       actions,
       documentType,
@@ -78,29 +79,73 @@ class Document extends Component<Props> {
       id: payload.id || randomId(),
       method: 'document',
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
-      side: variant === 'video' ? undefined : side,
-      variant: variant || 'standard',
+      side,
+      variant: 'standard',
     }
     actions.createCapture(documentCaptureData)
 
     nextStep()
   }
 
+  handleVideoCapture: HandleDocVideoCaptureProp = (payload) => {
+    const { actions, documentType, mobileFlow, nextStep } = this.props
+    const { video, front, back } = payload
+
+    if (!documentType) {
+      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
+      throw new Error('documentType not provided')
+    }
+
+    const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
+      documentType,
+      method: 'document',
+      sdkMetadata: addDeviceRelatedProperties(
+        video?.sdkMetadata || {},
+        mobileFlow
+      ),
+    }
+
+    actions.createCapture({
+      ...front,
+      ...baseData,
+      id: randomId(),
+      side: 'front',
+    })
+
+    if (back) {
+      actions.createCapture({
+        ...back,
+        ...baseData,
+        id: randomId(),
+        side: 'back',
+      })
+    }
+
+    actions.createCapture({
+      ...video,
+      ...baseData,
+      id: randomId(),
+      variant: 'video',
+    })
+
+    nextStep()
+  }
+
   handleUpload = (blob: Blob, imageResizeInfo?: ImageResizeInfo) =>
-    this.handleCapture({
+    this.handlePhotoCapture({
       blob,
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
 
   handleError = () => {
-    const { actions, side } = this.props
-    actions.deleteCapture({ method: 'document', side })
+    const { actions, side, requestedVariant: variant } = this.props
+    actions.deleteCapture({ method: 'document', side, variant })
   }
 
   handleFileSelected = (file: File) =>
     validateFile(file, this.handleUpload, this.handleError)
 
-  renderUploadFallback = (text: string) => (
+  renderUploadFallback: RenderFallbackProp = ({ text }) => (
     <CustomFileInput
       className={theme.warningFallbackButton}
       onChange={this.handleFileSelected}
@@ -111,7 +156,7 @@ class Document extends Component<Props> {
     </CustomFileInput>
   )
 
-  renderCrossDeviceFallback = (text: string) => (
+  renderCrossDeviceFallback: RenderFallbackProp = ({ text }) => (
     <FallbackButton
       text={text}
       onClick={() => this.props.changeFlowTo('crossDeviceSteps')}
@@ -124,12 +169,34 @@ class Document extends Component<Props> {
       hasCamera,
       isPoA,
       poaDocumentType,
+      requestedVariant,
       side,
+      trackScreen,
       translate,
       uploadFallback,
       useLiveDocumentCapture,
       useWebcam,
     } = this.props
+
+    const renderFallback = isDesktop
+      ? this.renderCrossDeviceFallback
+      : this.renderUploadFallback
+
+    if (hasCamera && requestedVariant === 'video') {
+      if (!documentType) {
+        trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
+        throw new Error('documentType not provided')
+      }
+
+      return (
+        <DocumentVideo
+          documentType={documentType}
+          onCapture={this.handleVideoCapture}
+          renderFallback={renderFallback}
+          trackScreen={trackScreen}
+        />
+      )
+    }
 
     if (!side) {
       trackException(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
@@ -143,9 +210,6 @@ class Document extends Component<Props> {
     )
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle title={title} smaller />
-    const renderFallback = isDesktop
-      ? this.renderCrossDeviceFallback
-      : this.renderUploadFallback
     const enableLiveDocumentCapture =
       useLiveDocumentCapture && (!isDesktop || isHybrid)
 
@@ -155,7 +219,7 @@ class Document extends Component<Props> {
           {...propsWithErrorHandling}
           renderFallback={renderFallback}
           renderTitle={renderTitle}
-          onValidCapture={this.handleCapture}
+          onValidCapture={this.handlePhotoCapture}
         />
       )
     }
@@ -163,12 +227,13 @@ class Document extends Component<Props> {
     if (hasCamera && enableLiveDocumentCapture) {
       return (
         <DocumentLiveCapture
-          {...propsWithErrorHandling}
           containerClassName={style.liveDocumentContainer}
+          documentType={documentType}
           isUploadFallbackDisabled={!uploadFallback}
-          onCapture={this.handleCapture}
+          onCapture={this.handlePhotoCapture}
           renderFallback={renderFallback}
           renderTitle={renderTitle}
+          trackScreen={trackScreen}
         />
       )
     }

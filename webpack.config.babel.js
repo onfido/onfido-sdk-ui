@@ -165,6 +165,9 @@ const STAGING_CONFIG = {
   AUTH_URL: 'https://api-gateway.eu-west-1.dev.onfido.xyz/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
+
+  // @TODO: clean-up this config when v4 APIs are live
+  USE_V4_APIS_FOR_DOC_VIDEO: process.env.USE_V4_APIS_FOR_DOC_VIDEO,
 }
 
 const DEVELOPMENT_CONFIG = {

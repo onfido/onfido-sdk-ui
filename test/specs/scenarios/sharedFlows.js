@@ -41,3 +41,9 @@ export const takePercySnapshot = async (
     await percySnapshot(driver, text, options)
   }
 }
+
+export const takePercySnapshotWithoutOverlay = async (driver, text) => {
+  await takePercySnapshot(driver, text, {
+    percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }`,
+  })
+}

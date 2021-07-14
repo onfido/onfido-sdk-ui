@@ -1,5 +1,6 @@
 import { h, FunctionComponent } from 'preact'
 import { LocaleContext } from '~locales'
+import { parseTags } from '~utils'
 
 import type { SupportedLanguages } from '~types/locales'
 
@@ -8,9 +9,6 @@ type Props = {
 }
 
 export const mockedTranslate = jest.fn().mockImplementation((str) => str)
-export const mockedParseTranslatedTags = jest
-  .fn()
-  .mockImplementation((key, handler) => [handler({ type: key, text: key })])
 
 const MockedLocalised: FunctionComponent<Props> = ({
   children,
@@ -19,7 +17,8 @@ const MockedLocalised: FunctionComponent<Props> = ({
   <LocaleContext.Provider
     value={{
       language,
-      parseTranslatedTags: mockedParseTranslatedTags,
+      parseTranslatedTags: (key, handler) =>
+        parseTags(mockedTranslate(key), handler),
       translate: mockedTranslate,
     }}
   >

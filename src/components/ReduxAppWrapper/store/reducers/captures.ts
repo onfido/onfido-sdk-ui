@@ -1,11 +1,10 @@
 import * as constants from '~types/redux/constants'
-import { cleanFalsy } from '~utils/array'
+import { buildCaptureStateKey } from '~utils/redux'
 
 import type { CaptureActions, CaptureState, CaptureKeys } from '~types/redux'
 
 export const initialState: CaptureState = {}
 
-const stateKey = (arr: Optional<string>[]) => cleanFalsy(arr).join('_')
 const getKeyByCaptureId = (captures: CaptureState = {}, captureId: string) => {
   const matched = Object.entries(captures).find(
     ([, value]) => value?.id === captureId
@@ -27,20 +26,13 @@ export default function captures(
   }
 
   if (action.type === constants.CAPTURE_DELETE) {
-    const key = stateKey([action.payload.method, action.payload.side])
-
-    return {
-      ...state,
-      [key]: undefined,
-    }
+    const key = buildCaptureStateKey(action.payload)
+    return { ...state, [key]: undefined }
   }
 
   if (action.type === constants.CAPTURE_CREATE) {
-    const key = stateKey([action.payload.method, action.payload.side])
-    return {
-      ...state,
-      [key]: action.payload,
-    }
+    const key = buildCaptureStateKey(action.payload)
+    return { ...state, [key]: action.payload }
   }
 
   if (action.type === constants.SET_CAPTURE_METADATA) {
