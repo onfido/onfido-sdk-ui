@@ -50,6 +50,16 @@
         "detail": {
             "folded_doc_front": "Appoggia il documento aperto sulle pagine interne (deve contenere la tua foto)"
         },
+        "header": {
+            "passport": "Passport photo page",
+            "license_front": "Front of driver’s license",
+            "license_back": "Back of driver’s license",
+            "id_front": "Front of ID card",
+            "id_back": "Back of ID card",
+            "permit_front": "Front of residence permit card",
+            "permit_back": "Back of residence permit card",
+            "progress": "Capturing your document..."
+        },
         "header_folded_doc_front": "Lato foto profilo",
         "prompt": {
             "button_card": "Card plastificata",
