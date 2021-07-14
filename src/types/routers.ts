@@ -58,6 +58,7 @@ export type HandleDocVideoCaptureProp = (payload: {
   back?: CapturePayload
   video: CapturePayload
 }) => void
+
 export type HandleDocMultiFrameCaptureProp = (payload: {
   front?: CapturePayload
   back?: CapturePayload
