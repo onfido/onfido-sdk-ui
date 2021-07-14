@@ -120,37 +120,18 @@
 
   .docLiveCaptureFrame & {
     left: 0;
+    top: 50%;
+    margin: auto;
+    transform: translate(0%, -50%);
 
     @media (orientation: landscape) {
       height: auto;
       width: 100%;
-      top: 21.5%;
-    }
-
-    @media (orientation: landscape) and (min-resolution: 3dppx) {
-      top: 0;
     }
 
     @media (orientation: portrait) {
-      height: 100%;
+      height: auto;
       width: 100%;
-    }
-
-    @media (orientation: portrait) and (--small-viewport) and (max-resolution: 2dppx) {
-      height: auto;
-      top: -34%;
-      margin: 50% auto;
-    }
-
-    @media (orientation: portrait) and (min-resolution: 3dppx) and (--short-viewport),
-      (orientation: portrait) and (min-resolution: 3dppx) and (--long-viewport) {
-      height: auto;
-      top: -25%;
-    }
-
-    @media (orientation: portrait) and (min-resolution: 3dppx) and (--short-viewport),
-      (orientation: portrait) and (min-resolution: 3dppx) and (--long-viewport) {
-      top: 0;
     }
   }
 
