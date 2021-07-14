@@ -2,9 +2,11 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `6.9.0` -> `6.10.0`
+## `6.10.x` -> `6.11.0`
 
 ### Added strings
+
+The **English**, **Spanish**, **German**, **French**, **Italian** and **Portuguese** copy for the following string(s) has changed:
 
 - `doc_capture.detail.folded_doc_front`
 - `doc_capture.header_folded_doc_front`
@@ -26,18 +28,23 @@ The guides below are provided to ease the transition of existing applications us
 - `doc_video_capture.success_accessibility`
 - `doc_video_confirmation.button_secondary`
 - `doc_video_confirmation.title`
-- `video_capture.button_primary_start`
 - `video_capture.prompt.header_timeout`
-- `video_capture.header.challenge_turn_forward`
 - `video_confirmation.body`
 - `video_confirmation.button_primary`
 - `video_confirmation.button_secondary`
-- `welcome.subtitle`
 - `welcome.list_header_doc_video`
+- `welcome.list_item_doc_video_timeout`
+
+## `6.9.0` -> `6.10.0`
+
+### Added strings
+
+- `video_capture.button_primary_start`
+- `video_capture.header.challenge_turn_forward`
+- `welcome.subtitle`
 - `welcome.list_header_webcam`
 - `welcome.list_item_doc`
 - `welcome.list_item_poa`
-- `welcome.list_item_doc_video_timeout`
 - `welcome.list_item_selfie`
 
 The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
@@ -160,10 +167,6 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `auth_retry.subtitle`
 - `auth_retry.title`
 - `auth_upload_pass.body`
-
-### Changed strings
-
-The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
 
 ## `6.6.0` -> `6.8.0`
 
