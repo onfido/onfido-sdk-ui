@@ -13,21 +13,21 @@ import CameraError from '../CameraError'
 import style from './style.scss'
 
 import type { SdkMetadata } from '~types/commons'
-import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 
-type Props = {
+export type Props = {
+  children?: h.JSX.Element
   className?: string
-  containerClassName: string
+  containerClassName?: string
   documentType?: DocumentTypes
   isUploadFallbackDisabled: boolean
   onCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
-  renderTitle: h.JSX.Element
-} & WithLocalisedProps &
-  WithTrackingProps
+  renderTitle?: h.JSX.Element
+} & WithTrackingProps
 
 type State = {
   hasAllowedCameraAccess: boolean
@@ -83,12 +83,13 @@ export default class DocumentLiveCapture extends Component<Props, State> {
 
   render(): h.JSX.Element {
     const {
-      trackScreen,
-      renderFallback,
-      isUploadFallbackDisabled,
+      children,
       containerClassName,
-      renderTitle,
       documentType,
+      isUploadFallbackDisabled,
+      renderFallback,
+      renderTitle,
+      trackScreen,
     } = this.props
 
     const {
@@ -133,7 +134,8 @@ export default class DocumentLiveCapture extends Component<Props, State> {
               <Timeout seconds={10} onTimeout={this.handleTimeout} />
             )}
             <ToggleFullScreen />
-            <DocumentOverlay type={documentType} />
+            <DocumentOverlay documentType={documentType} />
+            {children}
           </Camera>
         )}
       </div>

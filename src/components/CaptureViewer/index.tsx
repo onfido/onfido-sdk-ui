@@ -8,6 +8,7 @@ import type { CaptureMethods } from '~types/commons'
 import type { CapturePayload } from '~types/redux'
 
 type Props = {
+  className?: string
   capture: CapturePayload
   method: CaptureMethods
   isFullScreen?: boolean
@@ -16,6 +17,7 @@ type Props = {
 }
 
 const CaptureViewer: FunctionComponent<Props> = ({
+  className,
   capture: { blob, id, variant, isPreviewCropped },
   method,
   isFullScreen,
@@ -27,7 +29,13 @@ const CaptureViewer: FunctionComponent<Props> = ({
   }
 
   if (variant === 'video') {
-    return <CaptureVideoViewer ariaLabel={videoAriaLabel} blob={blob} />
+    return (
+      <CaptureVideoViewer
+        ariaLabel={videoAriaLabel}
+        blob={blob}
+        className={className}
+      />
+    )
   }
 
   return (

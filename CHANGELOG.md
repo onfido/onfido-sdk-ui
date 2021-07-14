@@ -11,6 +11,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - UI: Accessibility - Add ARIA role `img` and an ARIA label for the generated cross device secure link QR code image
+- Internal: Resolved inaccurate reporting on test automation failures.
+- Internal: Added note about lockfileVersion and npm version requirement for SDK contributors in CONTRIBUTING.md documentation.
+- Public: Improvements in video capture steps.
 
 ### Changed
 

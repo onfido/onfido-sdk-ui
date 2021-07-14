@@ -1,88 +1,72 @@
 @import '../Theme/constants';
 
-%_overlay {
-  border: 1px solid rgb(var(--ods-color-primary-500)); /* Doc Autocapture border colour */
+/* Document */
+
+.document {
+  border: 1px solid var(--ods-color-border-info); /* Doc Autocapture border colour */
   position: absolute;
-  bottom: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  /* 300*$unit box-shadow, so 600*$unit by 600*$unit, so as to definitely cover the modal */
-  box-shadow: 0 0 0 300 * $unit $color-camera-overlay;
-}
-
-.rectangle {
-  //default value of react-webcam https://github.com/cezary/react-webcam
-  $width-frame: 640;
-  $height-frame: 480;
-
-  //Spec of overlay
-  $width-percent: 80%;
-  $aspect-ratio: 1.57;
-
-  /*
-    From the equation below one can find out $height-percent
-    aspect-ratio = (width-frame * width-percent) / (height-frame * height-percent)
-   */
-  $height-percent: ($width-frame * $width-percent) /
-    ($height-frame * $aspect-ratio);
-
-  @extend %_overlay;
-  width: $width-percent;
-  height: $height-percent;
-}
-
-$card-frame-height: 0%;
-$card-frame-width: 75%;
-
-/* ID1 = Driving Licence, National ID Card */
-.id1Card {
-  $aspect-ratio: 1.586; /* ID1 card size - width: 85.60mm, height: 53.98mm */
-
-  @extend %_overlay;
-  bottom: initial;
+  bottom: 0;
+  left: 0;
+  right: 0;
   top: 0;
-  height: $card-frame-height;
-  width: $card-frame-width;
-  padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
-  border-color: $color-white;
+}
 
-  @media (--small-viewport) {
-    $card-frame-width: 80%;
-    width: $card-frame-width;
-    padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
-    top: -25%;
-    margin: 50% auto;
+.document svg {
+  height: 100%;
+  width: 100%;
+}
+
+.document svg > path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.document .fullScreen {
+  fill: $color-camera-overlay;
+  stroke: transparent;
+}
+
+.document .hollow {
+  fill: transparent;
+  stroke: $color-white;
+  stroke-width: 0.25;
+}
+
+.document .placeholder {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.card {
+    background-image: url('./assets/card-placeholder.svg');
   }
 
-  @media (--long-viewport) and (--high-pixel-density) and (orientation: portrait) {
-    top: -28%;
+  &.passport {
+    background-image: url('./assets/passport-placeholder.svg');
+  }
+
+  &.frPaperDl {
+    background-image: url('./assets/fr-dl-placeholder.svg');
+  }
+
+  &.itPaperId {
+    background-image: url('./assets/it-id-placeholder.svg');
   }
 }
 
-/* ID3 = Passport */
-.id3Card {
-  $aspect-ratio: 1.42; /* ID3 card size - width: 125mm, height: 88mm */
-
-  @extend %_overlay;
-  bottom: initial;
-  top: 0;
-  height: $card-frame-height;
-  width: $card-frame-width;
-  padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
-  border-color: $color-white;
-
-  @media (--small-viewport) {
-    $card-frame-width: 80%;
-    width: $card-frame-width;
-    padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
-    top: -25%;
-    margin: 50% auto;
-  }
-
-  @media (--long-viewport) and (--high-pixel-density) and (orientation: portrait) {
-    top: -30%;
-  }
+.document .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
 }
+
+/* Face */
 
 @mixin position-hole($scale) {
   $overlay-width: 740 * $unit;
@@ -114,4 +98,8 @@ $card-frame-width: 75%;
   .isWithoutHole & {
     background-image: url('./assets/face-without-hole.svg');
   }
+}
+
+.ariaLabel {
+  opacity: 0;
 }

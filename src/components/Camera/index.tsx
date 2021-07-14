@@ -19,9 +19,9 @@ import type {
 
 const isWebmFormatSupported = () => {
   const webmMimeTypes: string[] = [
-    'video/webm;codecs=vp9',
     'video/webm;codecs=vp8,opus',
     'video/webm;codecs=vp8',
+    'video/webm;codecs=vp9',
     'video/webm',
   ]
   return webmMimeTypes.some((mimeType) =>
@@ -102,8 +102,8 @@ const Camera: FunctionComponent<Props> = ({
         >
           <Webcam {...webcamProps} />
         </div>
-        <div className={style.actions}>
-          {buttonType === 'photo' && (
+        {buttonType === 'photo' && (
+          <div className={style.actions}>
             <CameraButton
               ariaLabel={translate('selfie_capture.button_accessibility')}
               disableInteraction={!hasGrantedPermission || isButtonDisabled}
@@ -112,19 +112,11 @@ const Camera: FunctionComponent<Props> = ({
                 [style.disabled]: !hasGrantedPermission || isButtonDisabled,
               })}
             />
-          )}
-        </div>
+          </div>
+        )}
         {buttonType === 'video' &&
           renderVideoOverlay &&
           renderVideoOverlay({ hasGrantedPermission })}
-        <div
-          id="cameraViewAriaLabel"
-          aria-label={
-            buttonType === 'video'
-              ? translate('video_capture.frame_accessibility')
-              : translate('selfie_capture.frame_accessibility')
-          }
-        />
         {children}
         {renderError}
       </div>

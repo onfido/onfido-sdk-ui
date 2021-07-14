@@ -1,0 +1,44 @@
+@import '../../Theme/constants';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container.center {
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 24 * $unit;
+  font-weight: bold;
+}
+
+.content > .icon {
+  background-image: url('../../Complete/assets/complete.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 32 * $unit;
+  width: 32 * $unit;
+  margin-bottom: 8 * $unit;
+}
+
+.content > .body {
+  font-weight: normal;
+}
+
+.preview .videoWrapper {
+  width: 66%;
+  margin: 16 * $unit auto 0;
+}
+
+.buttonsContainer > button {
+  margin-top: 16 * $unit;
+}
