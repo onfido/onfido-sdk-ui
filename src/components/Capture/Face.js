@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { appendToTracking } from '../../Tracker'
+import { appendToTracking, trackException } from '../../Tracker'
 import Selfie from '../Photo/Selfie'
 import Video from '../Video'
 import Uploader from '../Uploader'
@@ -11,6 +11,7 @@ import CustomFileInput from '../CustomFileInput'
 import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
+import { maxFileSizeAcceptedByAPI } from '~utils/file'
 import { getInactiveError } from '~utils/inactiveError.js'
 import { localised } from '../../locales'
 import style from './style.scss'
@@ -43,8 +44,16 @@ class Face extends Component {
     nextStep()
   }
 
-  handleVideoCapture = (payload) =>
+  handleVideoCapture = (payload) => {
+    if (payload.blob.size > maxFileSizeAcceptedByAPI) {
+      const type = 'exception'
+      const message = `Video file too large: ${payload.blob.size} bytes`
+      console.error(message)
+      trackException(`${type} - ${message}`)
+    }
+
     this.handleCapture({ ...payload, variant: 'video' })
+  }
 
   handleUpload = (blob) =>
     this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })

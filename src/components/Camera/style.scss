@@ -88,6 +88,12 @@
   position: absolute;
   top: 0;
   height: 100%;
+
+  &.adjustForReducedResolution {
+    left: 0;
+    width: 100%;
+  }
+
   /* Only apply styles on Edge where there is no `object-fit:cover` support for video */
   @supports (-ms-ime-align: auto) {
     left: 50%;
