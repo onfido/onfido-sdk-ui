@@ -19,3 +19,10 @@
 .pin {
   margin-bottom: 4px;
 }
+
+.buttonContainer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  color: pink;
+}
