@@ -2,7 +2,7 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `6.10.x` -> `6.11.1`
+## `6.10.x` -> `6.11.0`
 
 The **English**, **Spanish**, **German**, **French**, **Italian** and **Portuguese** copy for the following string(s) has changed:
 
