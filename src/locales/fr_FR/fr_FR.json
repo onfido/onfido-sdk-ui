@@ -133,6 +133,18 @@
         "subtitle": "Vous pouvez maintenant retourner sur votre ordinateur pour continuer",
         "title": "Envois réussis"
     },
+    "doc_capture": {
+        "detail": {
+            "folded_doc_front": "Dépliez votre document, prenez en photo les pages intérieures (qui contiennent votre photo)"
+        },
+        "header_folded_doc_front": "Côté contenant votre photo",
+        "prompt": {
+            "button_card": "Carte plastique",
+            "button_paper": "Document papier",
+            "title_id": "Quelle type de carte d’identité avez-vous ?",
+            "title_license": "Quel type de permis avez-vous ?"
+        }
+    },
     "doc_confirmation": {
         "alert": {
             "blur_detail": "Assurez-vous que tout est bien net",
@@ -205,6 +217,26 @@
         "title_permit_front": "Envoyer la carte de séjour (recto)",
         "title_tax_letter": "Submit letter"
     },
+    "doc_video_capture": {
+        "button_primary_fallback": "Étape suivante",
+        "button_primary_fallback_end": "Terminer l’enregistrement",
+        "detail_step2": "Gardez le document visible à tout moment",
+        "header": "En tenant votre document, gardez son recto dans le cadre",
+        "header_paper_doc_step2": "Tournez lentement votre pièce d’identité pour montrer les pages extérieures",
+        "header_passport": "En tenant votre passeport, gardez la page de la photo dans le cadre",
+        "header_passport_progress": "Restez immobile",
+        "header_step1": "Patientez",
+        "header_step2": "Tournez lentement votre pièce d’identité pour montrer le verso",
+        "prompt": {
+            "detail_timeout": "L’enregistrement vidéo est limité à <timeout> <\/timeout> secondes. <fallback> Recommencez <\/fallback>"
+        },
+        "stepper": "Étape <step> <\/step> sur <total> <\/total>",
+        "success_accessibility": "Succès"
+    },
+    "doc_video_confirmation": {
+        "button_secondary": "Aperçu de la vidéo",
+        "title": "Veuillez vérifier votre vidéo"
+    },
     "error_unsupported_browser": {
         "subtitle_android": "Redémarrez le processus sur la dernière version de Google Chrome",
         "subtitle_ios": "Redémarrer le processus sur la dernière version de Safari",
@@ -270,7 +302,7 @@
         "info_qr_how": "Comment scanner un QR code",
         "info_qr_how_list_item_camera": "Pointez l’appareil photo de votre mobile sur le QR code",
         "info_qr_how_list_item_download": "Si cela ne fonctionne pas, téléchargez un scanner de QR code sur Google Play ou l’App Store",
-        "link_divider": "ou choisissez ces alternatives",
+        "link_divider": "ou choisissez l’une de ces alternatives",
         "link_qr": "Scanner le QR code",
         "link_sms": "Obtenir le lien par SMS",
         "link_url": "Copier le lien",
@@ -278,7 +310,7 @@
         "number_field_input_placeholder": "Entrez votre numéro de mobile",
         "number_field_label": "Entrez votre numéro de mobile",
         "subtitle_qr": "Scannez le QR code avec votre mobile",
-        "subtitle_sms": "Envoyez ce lien unique vers votre mobile",
+        "subtitle_sms": "Ouvrez le lien sur votre mobile",
         "subtitle_url": "Ouvrez le lien sur votre mobile",
         "title": "Obtenez votre lien sécurisé",
         "url_field_label": "Copier le lien sur votre mobile"
@@ -404,8 +436,8 @@
         "info_link_expire": "Votre lien expirera dans une heure",
         "info_link_window": "Gardez cette fenêtre ouverte lorsque vous utilisez votre mobile",
         "link": "Renvoyer le lien",
-        "subtitle": "Nous avons envoyé un lien sécurisé à %{number}",
-        "subtitle_minutes": "Cela peut prendre quelques minutes pour arriver",
+        "subtitle": "Nous vous avons envoyé un lien sécurisé au numéro suivant : %{number}",
+        "subtitle_minutes": "Le délai de réception peut varier entre les différents opérateurs",
         "title": "Vérifiez votre mobile"
     },
     "switch_phone": {
@@ -414,7 +446,7 @@
         "info_link_refresh": "N’actualisez pas cette page",
         "info_link_window": "Gardez cette fenêtre ouverte lorsque vous utilisez votre mobile",
         "link": "Annuler",
-        "subtitle": "Une fois que vous aurez terminé, nous vous emmènerons à l’étape suivante",
+        "subtitle": "Une fois terminé, vous passerez à l’étape suivante",
         "title": "Connecté à votre mobile"
     },
     "upload_guide": {
@@ -455,9 +487,15 @@
             "challenge_turn_forward": "puis regardez l’écran à nouveau",
             "challenge_turn_left": "Tournez votre visage vers la gauche",
             "challenge_turn_right": "Tournez votre visage vers la droite"
+        },
+        "prompt": {
+            "header_timeout": "Le temps est écoulé"
         }
     },
     "video_confirmation": {
+        "body": "Votre vidéo a été enregistrée",
+        "button_primary": "Envoyer la vidéo",
+        "button_secondary": "Reprendre une vidéo",
         "title": "Veuillez vérifier votre vidéo",
         "video_accessibility": "Rejouer la vidéo"
     },
@@ -469,8 +507,10 @@
         "title": "Enregistrez une vidéo de votre visage"
     },
     "welcome": {
+        "list_header_doc_video": "Utilisez votre mobile pour enregistrer :",
         "list_header_webcam": "Utilisez votre webcam ou mobile pour prendre en photo :",
         "list_item_doc": "votre document d’identité",
+        "list_item_doc_video_timeout": "L’enregistrement est limité à <timeout><\/timeout> secondes",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "votre visage",
         "next_button": "Sélectionner un document",

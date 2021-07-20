@@ -9,7 +9,7 @@ import {
 } from './documentTypes'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 import { localised /* , type LocalisedType */ } from '../../locales'
-import { isDesktop } from '~utils/index'
+import { isDesktop } from '~utils'
 import style from './style.scss'
 
 /* type Props = {

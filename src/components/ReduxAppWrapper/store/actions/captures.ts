@@ -34,7 +34,7 @@ export const setCaptureMetadata = ({
     captureId: capture.id,
     metadata: omitBy(
       {
-        ...pick(apiResponse, ['id', 'side', 'type']),
+        ...pick(apiResponse, ['id', 'side', 'type', 'media_uuids']),
         variant: capture.variant,
       },
       // omit any null/undefined metadata values

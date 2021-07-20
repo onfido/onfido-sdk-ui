@@ -8,13 +8,21 @@ jobs:
   bundlewatch:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
+
+        # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
+        # e.g. "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
+      - name: Reconfigure git to use HTTP authentication
+        run: >
+          git config --global url."https://github.com/".insteadOf
+          ssh://git@github.com/
+
       - name: Use same Node.js version as .nvmrc
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
+
       - name: Install dependencies
         run: npm install
       - name: Run BundleWatch Check

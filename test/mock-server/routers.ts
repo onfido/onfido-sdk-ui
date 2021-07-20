@@ -5,6 +5,8 @@ import type { FormDataBody } from './deps.ts'
 import { generateToken } from './jwt.ts'
 import responses from './responses.ts'
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
 const applicantId = '742af521-2c8f-4b54-a8b7-01c962849d5b'
 
 /**
@@ -222,6 +224,18 @@ apiRouter
   })
   .post('/v3/snapshots', (context) => {
     context.response.body = responses.api.v3.snapshots
+  })
+  .post('/v4/binary_media', async (context) => {
+    await sleep(500)
+    const isVideo = context.request.headers.get('x-video-auth') != null
+
+    context.response.body = isVideo
+      ? responses.api.v4.binary_media.video
+      : responses.api.v4.binary_media.image
+  })
+  .post('/v4/documents', async (context) => {
+    await sleep(500)
+    context.response.body = responses.api.v4.documents
   })
 
 export { apiRouter, telephonyRouter, tokenFactoryRouter }

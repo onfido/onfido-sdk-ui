@@ -1,5 +1,5 @@
 import type { SupportedLanguages, LocaleConfig } from './locales'
-import type { StepConfig, StepTypes } from './steps'
+import type { RequestedVariant, StepConfig, StepTypes } from './steps'
 import type { EnterpriseFeatures } from './enterprise'
 import type { UICustomizationOptions } from './ui-customisation-options'
 
@@ -7,16 +7,24 @@ type DocumentResponse = {
   id: string
   side: string
   type: string
+  variant: RequestedVariant
+}
+
+type DocumentVideoResponse = {
+  id: string
+  media_uuids: string[]
+  variant: 'video'
 }
 
 type FaceResponse = {
   id: string
-  variant: string
+  variant: RequestedVariant
 }
 
 export type SdkResponse = {
   document_front?: DocumentResponse
   document_back?: DocumentResponse
+  document_video?: DocumentVideoResponse
   face?: FaceResponse
 }
 

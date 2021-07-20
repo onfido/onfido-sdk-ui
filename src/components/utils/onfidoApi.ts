@@ -1,3 +1,5 @@
+import { hmac256, mimeType } from './blob'
+import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
 
@@ -10,6 +12,8 @@ import type {
   FaceVideoResponse,
   VideoChallengeResponse,
   SnapshotResponse,
+  UploadBinaryMediaReponse,
+  CreateV4DocumentResponse,
   SuccessCallback,
   ErrorCallback,
 } from '~types/api'
@@ -96,7 +100,7 @@ export const uploadDocument = (
   )
 }
 
-export const uploadLivePhoto = (
+export const uploadFacePhoto = (
   { sdkMetadata, ...data }: UploadLivePhotoPayload,
   url: string | undefined,
   token: string | undefined,
@@ -150,7 +154,7 @@ export const sendMultiframeSelfie = (
       sendEvent('Snapshot upload completed')
       sendEvent('Starting live photo upload')
       const snapshot_uuids = JSON.stringify([res.uuid])
-      uploadLivePhoto(
+      uploadFacePhoto(
         { file: { blob, filename }, sdkMetadata, snapshot_uuids },
         url,
         token,
@@ -161,7 +165,7 @@ export const sendMultiframeSelfie = (
     .catch((err) => onError(err))
 }
 
-export const uploadLiveVideo = (
+export const uploadFaceVideo = (
   { challengeData, blob, language, sdkMetadata }: UploadVideoPayload,
   url: string | undefined,
   token: string | undefined,
@@ -217,6 +221,83 @@ export const requestChallenges = (
 
   performHttpReq(options, onSuccess, (request) => formatError(request, onError))
 }
+
+/* v4 APIs */
+export const uploadBinaryMedia = (
+  { file, filename, sdkMetadata }: UploadDocumentPayload,
+  url: string | undefined,
+  token: string | undefined,
+  includeHmacAuth = false
+): Promise<UploadBinaryMediaReponse> =>
+  new Promise((resolve, reject) => {
+    try {
+      const tokenData = parseJwt(token)
+      const formData = new FormData()
+      formData.append(
+        'media',
+        file,
+        filename || `document_capture.${mimeType(file)}`
+      )
+      formData.append('sdk_metadata', JSON.stringify(sdkMetadata))
+
+      if (!includeHmacAuth) {
+        const requestParams: HttpRequestParams = {
+          endpoint: `${url}/v4/binary_media`,
+          payload: formData,
+          token: `Bearer ${token}`,
+        }
+
+        performHttpReq(requestParams, resolve, (request) =>
+          formatError(request, reject)
+        )
+
+        return
+      }
+
+      file
+        .arrayBuffer()
+        .then((data) => hmac256(tokenData.uuid as string, data))
+        .then((hmac) => {
+          const requestParams: HttpRequestParams = {
+            endpoint: `${url}/v4/binary_media`,
+            headers: { 'X-Video-Auth': hmac },
+            payload: formData,
+            token: `Bearer ${token}`,
+          }
+
+          performHttpReq(requestParams, resolve, (request) =>
+            formatError(request, reject)
+          )
+        })
+        .catch(reject)
+    } catch (error) {
+      reject(error)
+    }
+  })
+
+export const createV4Document = (
+  mediaIds: string[],
+  url: string | undefined,
+  token: string | undefined
+): Promise<CreateV4DocumentResponse> =>
+  new Promise((resolve, reject) => {
+    try {
+      const requestParams: HttpRequestParams = {
+        contentType: 'application/json',
+        payload: JSON.stringify({
+          document_media: mediaIds.map((uuid) => ({ binary_media: { uuid } })),
+        }),
+        endpoint: `${url}/v4/documents`,
+        token: `Bearer ${token}`,
+      }
+
+      performHttpReq(requestParams, resolve, (request) =>
+        formatError(request, reject)
+      )
+    } catch (error) {
+      reject(error)
+    }
+  })
 
 export const objectToFormData = (object: SubmitPayload): FormData => {
   const formData = new FormData()

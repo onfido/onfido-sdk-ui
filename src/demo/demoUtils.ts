@@ -5,24 +5,29 @@ import type {
   StepConfig,
   StepTypes,
 } from '~types/steps'
-import type { ServerRegions, SdkOptions } from '~types/sdk'
+import type { ServerRegions, SdkOptions, SdkResponse } from '~types/sdk'
 import type { UICustomizationOptions } from '~types/ui-customisation-options'
+
+import type {
+  ApplicantData,
+  DecoupleResponseOptions,
+  StringifiedBoolean,
+} from './types'
 import customUIConfig from './custom-ui-config.json'
 import testDarkCobrandLogo from './assets/onfido-logo.svg'
 import testLightCobrandLogo from './assets/onfido-logo-light.svg'
 
-type StringifiedBoolean = 'true' | 'false'
-type DecoupleResponseOptions = 'success' | 'error' | 'onfido'
-
 export type QueryParams = {
   countryCode?: StringifiedBoolean
+  createCheck?: StringifiedBoolean
   disableAnalytics?: StringifiedBoolean
   forceCrossDevice?: StringifiedBoolean
   hideOnfidoLogo?: StringifiedBoolean
   language?: 'customTranslations' | SupportedLanguages
   customWelcomeScreenCopy?: StringifiedBoolean
   link_id?: string
-  liveness?: StringifiedBoolean
+  docVideo?: StringifiedBoolean
+  faceVideo?: StringifiedBoolean
   multiDocWithInvalidPresetCountry?: StringifiedBoolean
   multiDocWithPresetCountry?: StringifiedBoolean
   multiDocWithBooleanValues?: StringifiedBoolean
@@ -197,20 +202,22 @@ export const getInitSdkOptions = (): SdkOptions => {
       showCountrySelection:
         queryParamToValueString.oneDocWithCountrySelection === 'true',
       forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
+      requestedVariant:
+        queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
     },
   })
 
   steps.push({
     type: 'face',
     options: {
-      requestedVariant:
-        queryParamToValueString.liveness === 'true' ? 'video' : 'standard',
       useUploader: queryParamToValueString.useUploader === 'true',
       uploadFallback: queryParamToValueString.uploadFallback !== 'false',
       useMultipleSelfieCapture:
         queryParamToValueString.useMultipleSelfieCapture !== 'false',
       photoCaptureFallback:
         queryParamToValueString.photoCaptureFallback !== 'false',
+      requestedVariant:
+        queryParamToValueString.faceVideo === 'true' ? 'video' : 'standard',
     },
   })
 
@@ -300,7 +307,7 @@ export const getInitSdkOptions = (): SdkOptions => {
 export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
   standard: [],
 
-  liveness: [
+  faceVideo: [
     'welcome',
     'document',
     {
@@ -428,17 +435,38 @@ export const getTokenFactoryUrl = (region: ServerRegions): string => {
   throw new Error('No JWT_FACTORY env provided')
 }
 
+const buildTokenRequestParams = (applicantData?: ApplicantData): string => {
+  if (!applicantData) {
+    return ''
+  }
+
+  return Object.entries(applicantData)
+    .filter(([, value]) => value)
+    .map((pair) => pair.join('='))
+    .join('&')
+}
+
 export const getToken = (
   hasPreview: boolean,
   url: string,
+  applicantData: ApplicantData | undefined,
   eventEmitter: MessagePort | undefined,
-  onSuccess: (message: string) => void
+  onSuccess: (token: string, applicantId: string) => void
 ): void => {
   const request = new XMLHttpRequest()
-  request.open('GET', url, true)
 
-  request.setRequestHeader('Access-Control-Allow-Origin', '*')
-  request.onload = function () {
+  request.open(
+    'GET',
+    [url, buildTokenRequestParams(applicantData)].join('?'),
+    true
+  )
+
+  request.setRequestHeader(
+    'Authorization',
+    `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
+  )
+
+  request.onload = () => {
     if (request.status >= 200 && request.status < 400) {
       const data = JSON.parse(request.responseText)
       if (hasPreview && eventEmitter) {
@@ -449,8 +477,56 @@ export const getToken = (
           },
         })
       }
-      onSuccess(data.message)
+      onSuccess(data.message, data.applicant_id)
     }
   }
   request.send()
+}
+
+export const createCheckIfNeeded = (
+  tokenUrl?: string,
+  applicantId?: string,
+  submittedData?: SdkResponse
+): void => {
+  // Don't create check if createCheck flag isn't present
+  if (!queryParamToValueString.createCheck || !tokenUrl || !applicantId) {
+    return
+  }
+
+  const { poa, docVideo, faceVideo } = queryParamToValueString
+
+  const request = new XMLHttpRequest()
+
+  request.open('POST', tokenUrl.replace('sdk_token', 'check'), true)
+  request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+
+  request.setRequestHeader(
+    'Authorization',
+    `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
+  )
+
+  request.onload = () => {
+    if (request.status >= 200 && request.status < 400) {
+      const data = JSON.parse(request.responseText)
+      console.log('Check created!', data)
+    }
+  }
+
+  const documentIds = docVideo
+    ? submittedData?.document_video?.media_uuids
+    : undefined
+
+  const documentReport = docVideo ? 'document_video_capture' : 'document'
+
+  const body = {
+    applicant_id: applicantId,
+    report_names: [
+      poa ? 'proof_of_address' : documentReport,
+      faceVideo ? 'facial_similarity_video' : 'facial_similarity_photo',
+    ],
+    document_ids: documentIds,
+    // api_version: docVideo ? 'v4' : 'v3',
+  }
+
+  request.send(JSON.stringify(body))
 }

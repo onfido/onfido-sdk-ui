@@ -75,6 +75,10 @@ const errors: Record<ErrorNames, LocaleData> = {
     message: 'selfie_capture.alert.timeout.title',
     instruction: 'selfie_capture.alert.timeout.detail',
   },
+  DOC_VIDEO_TIMEOUT: {
+    message: 'video_capture.prompt.header_timeout',
+    instruction: 'doc_video_capture.prompt.detail_timeout',
+  },
   GENERIC_CLIENT_ERROR: {
     message: 'cross_device_error_restart.title',
     instruction: 'cross_device_error_restart.subtitle',

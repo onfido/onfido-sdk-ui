@@ -8,7 +8,7 @@ import MockedReduxProvider, {
 } from '~jest/MockedReduxProvider'
 import {
   uploadDocument,
-  uploadLiveVideo,
+  uploadFaceVideo,
   sendMultiframeSelfie,
   formatError,
 } from '~utils/onfidoApi'
@@ -120,7 +120,7 @@ const UPLOAD_TYPES = [
     type: 'video',
     method: 'face',
     variant: 'video',
-    uploadFunction: uploadLiveVideo,
+    uploadFunction: uploadFaceVideo,
   },
 ]
 

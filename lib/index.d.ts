@@ -172,7 +172,7 @@ export declare type DocumentImageResponse = {
 	applicant_id: string;
 	type: DocumentTypes | PoaTypes;
 	side: DocumentSides;
-	issuing_country?: string;
+	issuing_country: string | null | undefined;
 	sdk_warnings?: ImageQualityWarnings;
 } & UploadFileResponse;
 declare const CHALLENGE_RECITE = "recite";
@@ -216,14 +216,21 @@ export declare type DocumentResponse = {
 	id: string;
 	side: string;
 	type: string;
+	variant: RequestedVariant;
+};
+export declare type DocumentVideoResponse = {
+	id: string;
+	media_uuids: string[];
+	variant: "video";
 };
 export declare type FaceResponse = {
 	id: string;
-	variant: string;
+	variant: RequestedVariant;
 };
 export declare type SdkResponse = {
 	document_front?: DocumentResponse;
 	document_back?: DocumentResponse;
+	document_video?: DocumentVideoResponse;
 	face?: FaceResponse;
 };
 export declare type SdkError = {

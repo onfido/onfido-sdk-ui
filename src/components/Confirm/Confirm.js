@@ -3,8 +3,8 @@ import { trackException, sendEvent } from '../../Tracker'
 import { isOfMimeType, mimeType } from '~utils/blob'
 import {
   uploadDocument,
-  uploadLivePhoto,
-  uploadLiveVideo,
+  uploadFacePhoto,
+  uploadFaceVideo,
   sendMultiframeSelfie,
   objectToFormData,
   formatError,
@@ -149,7 +149,7 @@ class Confirm extends Component {
       // Captures that have been taken via the Uploader component do not have filename
       // and the blob is a File type
       const filePayload = filename ? { blob, filename } : blob
-      uploadLivePhoto(
+      uploadFacePhoto(
         { file: filePayload, sdkMetadata },
         url,
         token,
@@ -244,7 +244,7 @@ class Confirm extends Component {
     } else if (variant === 'video') {
       const data = { challengeData, blob, language, sdkMetadata }
       if (isDecoupledFromAPI) this.onSubmitCallback(data, CALLBACK_TYPES.video)
-      else uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
+      else uploadFaceVideo(data, url, token, this.onApiSuccess, this.onApiError)
     } else if (isDecoupledFromAPI) {
       this.onSubmitCallback(capture, CALLBACK_TYPES.selfie)
     } else this.handleSelfieUpload(capture, token)
@@ -281,7 +281,7 @@ class Confirm extends Component {
         }
 
         if (callbackName === CALLBACK_TYPES.video) {
-          uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
+          uploadFaceVideo(data, url, token, this.onApiSuccess, this.onApiError)
           return
         }
 

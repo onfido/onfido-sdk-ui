@@ -8,6 +8,7 @@ import SelfieIntro from '../Photo/SelfieIntro'
 import {
   DocumentFrontCapture,
   DocumentBackCapture,
+  DocumentVideoCapture,
   SelfieCapture,
   FaceVideoCapture,
 } from '../Capture'
@@ -17,6 +18,7 @@ import {
   SelfieConfirm,
   FaceVideoConfirm,
 } from '../Confirm'
+import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
@@ -236,6 +238,12 @@ const buildDocumentComponents = (
       ? options?.documentTypes[documentType]
       : undefined
 
+  const shouldUseVideo =
+    documentStep?.options?.requestedVariant === 'video' &&
+    window.MediaRecorder != null
+
+  const videoCaptureComponents = [DocumentVideoCapture, DocumentVideoConfirm]
+
   const doubleSidedDocs: DocumentTypes[] = [
     'driving_licence',
     'national_identity_card',
@@ -248,6 +256,11 @@ const buildDocumentComponents = (
     const preCaptureComponents = hasOnePreselectedDocument
       ? []
       : [SelectIdentityDocument]
+
+    if (shouldUseVideo) {
+      // @ts-ignore
+      return [...preCaptureComponents, ...videoCaptureComponents]
+    }
 
     const standardCaptureComponents = shouldUseCamera
       ? [DocumentFrontCapture, DocumentFrontConfirm]
@@ -278,6 +291,11 @@ const buildDocumentComponents = (
     hasOnePreselectedDocument,
     showCountrySelection
   )
+
+  if (shouldUseVideo) {
+    // @ts-ignore
+    return [...preCaptureComponents, ...videoCaptureComponents]
+  }
 
   const frontCaptureComponents = [
     ...preCaptureComponents,

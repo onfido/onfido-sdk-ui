@@ -1,12 +1,24 @@
 import { h, Component, ComponentType } from 'preact'
 import { isDesktop } from '~utils'
 
+import { ParsedError } from '~types/api'
 import type {
   StepComponentDocumentProps,
   StepComponentFaceProps,
 } from '~types/routers'
 
 type CaptureComponentProps = StepComponentDocumentProps | StepComponentFaceProps
+
+const buildError = (message: string): ParsedError => {
+  console.warn(message)
+
+  return {
+    response: {
+      message,
+    },
+    status: 499, // For placeholder purpose only
+  }
+}
 
 const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
   WrappedComponent: ComponentType<P>
@@ -38,11 +50,16 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         componentsList,
         forceCrossDevice,
         hasCamera,
+        mobileFlow,
+        photoCaptureFallback,
         requestedVariant,
         step,
-        photoCaptureFallback,
+        triggerOnError,
+        uploadFallback,
       } = this.props
       const currentStep = componentsList[step]
+      const docVideoRequested =
+        requestedVariant === 'video' && currentStep.step.type === 'document'
       const shouldSelfieFallbackBeDisabled =
         window.MediaRecorder == null && !photoCaptureFallback
       const cameraRequiredButNoneDetected =
@@ -50,20 +67,31 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         (requestedVariant === 'video' || currentStep.step.type === 'face')
 
       if (cameraRequiredButNoneDetected) {
-        console.warn(
-          'Camera required: Either device has no camera or browser is unable to detect camera'
+        triggerOnError(
+          buildError(
+            'Camera required: Either device has no camera or browser is unable to detect camera'
+          )
         )
       }
 
-      if (cameraRequiredButNoneDetected || forceCrossDevice) {
-        if (this.props.mobileFlow) {
-          console.warn('Already on cross device flow but no camera detected')
+      if (
+        cameraRequiredButNoneDetected ||
+        forceCrossDevice ||
+        // @TODO: remove this check when we fully support docVideo variant for both desktop & mobile web
+        (docVideoRequested && !mobileFlow)
+      ) {
+        if (mobileFlow) {
+          triggerOnError(
+            buildError('Already on cross device flow but no camera detected')
+          )
           return
         }
 
-        if (this.props.mobileFlow && !this.props.uploadFallback) {
-          console.error(
-            'Unable to complete the flow: upload fallback not allowed'
+        if (mobileFlow && !uploadFallback) {
+          triggerOnError(
+            buildError(
+              'Unable to complete the flow: upload fallback not allowed'
+            )
           )
           return
         }

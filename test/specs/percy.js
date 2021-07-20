@@ -5,6 +5,7 @@ import { documentSelectorScenarios } from './scenarios/documentSelector'
 import { documentScenarios } from './scenarios/document'
 import { faceScenarios } from './scenarios/face'
 import { proofOfAddressScenarios } from './scenarios/proofOfAddress'
+import { crossDeviceDocumentVideoCaptureScenarios } from './scenarios/crossDeviceDocumentVideoCapture'
 
 describe('Percy Visual Regression Tests', () => {
   fullTestCoverageLanguages.forEach((lang) => {
@@ -12,6 +13,7 @@ describe('Percy Visual Regression Tests', () => {
     documentSelectorScenarios(lang)
     documentScenarios(lang)
     faceScenarios(lang)
+    crossDeviceDocumentVideoCaptureScenarios(lang)
   })
   proofOfAddressScenarios()
 })

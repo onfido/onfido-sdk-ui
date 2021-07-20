@@ -133,6 +133,18 @@
         "subtitle": "Sie können nun zu Ihrem Computer zurückkehren, um fortzufahren",
         "title": "Uploads erfolgreich!"
     },
+    "doc_capture": {
+        "detail": {
+            "folded_doc_front": "Legen Sie Ihr Dokument flach hin, einschließlich aller Innenseiten (Ihr Foto muss enthalten sein)"
+        },
+        "header_folded_doc_front": "Profilfotoseite",
+        "prompt": {
+            "button_card": "Plastikkarte",
+            "button_paper": "Papierdokument",
+            "title_id": "Welche Art von Personalausweis haben Sie?",
+            "title_license": "Welche Art von Führerschein haben Sie?"
+        }
+    },
     "doc_confirmation": {
         "alert": {
             "blur_detail": "Stellen Sie sicher, dass alles klar ist",
@@ -205,6 +217,26 @@
         "title_permit_front": "Aufenthaltsgenehmigung einreichen (Vorderseite)",
         "title_tax_letter": "Submit letter"
     },
+    "doc_video_capture": {
+        "button_primary_fallback": "Nächster Schritt",
+        "button_primary_fallback_end": "Aufnahme beenden",
+        "detail_step2": "Sorgen Sie dafür, dass stets das gesamte Dokument zu sehen ist",
+        "header": "Halten Sie die Lichtbild-Seite innerhalb des Rahmens, während Sie Ihr Dokument halten",
+        "header_paper_doc_step2": "Drehen Sie Ihr Dokument langsam um, sodass die äußeren Seiten zu sehen sind",
+        "header_passport": "Halten Sie die Lichtbild-Seite innerhalb des Rahmens, während Sie Ihren Reisepass halten",
+        "header_passport_progress": "Halten Sie still",
+        "header_step1": "Halten Sie nun still",
+        "header_step2": "Drehen Sie Ihr Dokument langsam um, sodass die Rückseite zu sehen sind",
+        "prompt": {
+            "detail_timeout": "Die Videoaufnahme ist auf <timeout><\/timeout> Sekunden beschränkt. <fallback>Nochmal beginnen<\/fallback>"
+        },
+        "stepper": "Schritt <step><\/step> von <total><\/total>",
+        "success_accessibility": "Erfolg"
+    },
+    "doc_video_confirmation": {
+        "button_secondary": "Video-Vorschau",
+        "title": "Selfie-Video prüfen"
+    },
     "error_unsupported_browser": {
         "subtitle_android": "Starten Sie den Prozess auf der neuesten Version von Google Chrome neu",
         "subtitle_ios": "Starten Sie den Prozess mit der neuesten Version von Safari neu",
@@ -270,7 +302,7 @@
         "info_qr_how": "So scannen Sie einen QR-Code",
         "info_qr_how_list_item_camera": "Richten Sie die Kamera Ihres Telefons auf den QR-Code",
         "info_qr_how_list_item_download": "Wenn es nicht funktioniert, laden Sie einen QR-Code-Scanner von Google Play oder aus dem App Store herunter",
-        "link_divider": "oder wählen Sie eine dieser Alternativen",
+        "link_divider": "oder wählen Sie eine alternative Methode",
         "link_qr": "QR-Code scannen",
         "link_sms": "Link per SMS erhalten",
         "link_url": "Link kopieren",
@@ -278,7 +310,7 @@
         "number_field_input_placeholder": "Mobiltelefonnummer eingeben",
         "number_field_label": "Geben Sie Ihre Mobiltelefonnummer ein:",
         "subtitle_qr": "Scannen Sie den QR-Code mit Ihrem Mobiltelefon",
-        "subtitle_sms": "Senden Sie diesen einmaligen Link an Ihr Mobiltelefon",
+        "subtitle_sms": "Öffnen Sie den Link auf Ihrem Mobiltelefon",
         "subtitle_url": "Öffnen Sie den Link auf Ihrem Mobiltelefon",
         "title": "Holen Sie sich Ihren Sicherheitslink",
         "url_field_label": "Kopieren Sie den Link in Ihren mobilen Browser"
@@ -455,9 +487,15 @@
             "challenge_turn_forward": "dann nach vorne schauen",
             "challenge_turn_left": "Kopf nach links drehen",
             "challenge_turn_right": "Kopf nach rechts drehen"
+        },
+        "prompt": {
+            "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht"
         }
     },
     "video_confirmation": {
+        "body": "Ihr Video wurde aufgezeichnet",
+        "button_primary": "Video senden",
+        "button_secondary": "Video erneut aufnehmen",
         "title": "Selfie-Video prüfen",
         "video_accessibility": "Wiedergeben Ihres aufgezeichneten Videos"
     },
@@ -469,11 +507,13 @@
         "title": "Selfie-Video aufnehmen"
     },
     "welcome": {
+        "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
         "list_header_webcam": "Verwenden Sie Ihre Webcam oder Ihr Telefon zum Fotografieren:",
         "list_item_doc": "Ihr Ausweisdokument",
+        "list_item_doc_video_timeout": "Die Aufnahme ist auf <timeout><\/timeout> Sekunden beschränkt",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "Ihr Gesicht",
-        "next_button": "Identität überprüfen",
+        "next_button": "Dokument auswählen",
         "subtitle": "Es dauert nur wenige Minuten",
         "title": "Identität überprüfen"
     }
