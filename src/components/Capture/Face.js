@@ -75,7 +75,7 @@ class Face extends Component {
   handleFileSelected = (file) =>
     validateFile(file, this.handleUpload, this.handleError)
 
-  renderUploadFallback = (text) => (
+  renderUploadFallback = ({ text }) => (
     <CustomFileInput
       className={theme.errorFallbackButton}
       onChange={this.handleFileSelected}
@@ -86,7 +86,7 @@ class Face extends Component {
     </CustomFileInput>
   )
 
-  renderCrossDeviceFallback = (text, callback) => (
+  renderCrossDeviceFallback = ({ text }, callback) => (
     <FallbackButton
       text={text}
       onClick={() => this.handleFallbackClick(callback)}

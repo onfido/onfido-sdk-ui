@@ -1,4 +1,4 @@
-import { localhostUrl } from '../../config.json'
+import { localhostUrl } from '../../main'
 import percySnapshot from '@percy/selenium-webdriver'
 
 // TODO: this should be refactored in a way that each function can run without
@@ -40,4 +40,10 @@ export const takePercySnapshot = async (
     driver.sleep(timeout)
     await percySnapshot(driver, text, options)
   }
+}
+
+export const takePercySnapshotWithoutOverlay = async (driver, text) => {
+  await takePercySnapshot(driver, text, {
+    percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }`,
+  })
 }

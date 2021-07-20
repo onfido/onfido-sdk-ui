@@ -1,5 +1,5 @@
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl } from '../../config.json'
+import { localhostUrl } from '../../main'
 import {
   goToPassportUploadScreen,
   takePercySnapshot,
@@ -15,6 +15,7 @@ const options = {
     'DocumentUpload',
     'Confirm',
     'VerificationComplete',
+    'CrossDeviceIntro',
     'BasePage',
   ],
 }
@@ -32,6 +33,7 @@ export const documentScenarios = async (lang) => {
         documentUpload,
         confirm,
         verificationComplete,
+        crossDeviceIntro,
         basePage,
       } = pageObjects
 
@@ -277,6 +279,7 @@ export const documentScenarios = async (lang) => {
           confirm,
           'over_10mb_passport.jpg'
         )
+
         // Image is flagged for glare by back end,
         // i.e. resized image was successfully uploaded to back end as API cannot accept a file over 10MB
         confirm.verifyImageQualityMessage(copy, 'glare')
@@ -322,7 +325,7 @@ export const documentScenarios = async (lang) => {
             confirm,
             'identity_card_with_cut-off.png'
           )
-          confirm.verifyImageQualityMessage(copy, 'cut-off', 'error')
+          confirm.verifyImageQualityMessage(copy, 'cut-off')
           confirm.clickRedoButton()
         })
 
@@ -423,6 +426,24 @@ export const documentScenarios = async (lang) => {
         )
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
         verificationComplete.verifyUIElements(copy)
+      })
+
+      it('should be taken to the cross-device flow for video capture if there is no camera and docVideo variant requested', async () => {
+        driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
+        driver.executeScript(
+          'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])'
+        )
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        crossDeviceIntro.verifyTitle(copy)
+      })
+
+      // @TODO: remove this test when we fully support docVideo variant for both desktop & mobile web
+      it('should be taken to the cross-device flow for video capture docVideo variant requested', async () => {
+        driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        crossDeviceIntro.verifyTitle(copy)
       })
 
       it('should be able to retry document upload when using customized API requests feature and receiving an error response from the callback', async () => {

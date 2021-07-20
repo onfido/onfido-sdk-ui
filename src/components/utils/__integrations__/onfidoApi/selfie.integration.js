@@ -1,6 +1,6 @@
 import fs from 'fs'
 import {
-  uploadLivePhoto,
+  uploadFacePhoto,
   uploadSnapshot,
   sendMultiframeSelfie,
 } from '../../onfidoApi'
@@ -26,13 +26,13 @@ let jwtToken = null
           Work to address this will be done in a separate ticket (CX-6016)
  */
 
-describe('API uploadLivePhoto endpoint', () => {
+describe('API uploadFacePhoto endpoint', () => {
   beforeEach(async () => {
     jest.setTimeout(15000)
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
   })
 
-  test('uploadLivePhoto returns expected response on successful upload', (done) => {
+  test('uploadFacePhoto returns expected response on successful upload', (done) => {
     const testFileName = 'one_face.jpg'
     const testFileType = 'image/jpeg'
     const expectedProperties = [
@@ -54,7 +54,7 @@ describe('API uploadLivePhoto endpoint', () => {
       type: 'image/jpeg',
     })
     const selfieData = { file: testFile, sdkMetadata: {} }
-    uploadLivePhoto(
+    uploadFacePhoto(
       selfieData,
       API_URL,
       jwtToken,
@@ -63,7 +63,7 @@ describe('API uploadLivePhoto endpoint', () => {
     )
   })
 
-  test('uploadLivePhoto returns an error if request is made with an expired JWT token', (done) => {
+  test('uploadFacePhoto returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
       try {
@@ -79,7 +79,7 @@ describe('API uploadLivePhoto endpoint', () => {
       type: 'image/jpeg',
     })
     const selfieData = { file: testFile, sdkMetadata: {} }
-    uploadLivePhoto(
+    uploadFacePhoto(
       selfieData,
       API_URL,
       EXPIRED_JWT_TOKEN,
@@ -88,7 +88,7 @@ describe('API uploadLivePhoto endpoint', () => {
     )
   })
 
-  test('uploadLivePhoto returns an error on uploading an empty file', (done) => {
+  test('uploadFacePhoto returns an error on uploading an empty file', (done) => {
     expect.assertions(3)
     const onErrorCallback = (error) => {
       try {
@@ -103,7 +103,7 @@ describe('API uploadLivePhoto endpoint', () => {
       }
     }
     const selfieData = { file: createEmptyFile(), sdkMetadata: {} }
-    uploadLivePhoto(
+    uploadFacePhoto(
       selfieData,
       API_URL,
       jwtToken,
@@ -212,7 +212,7 @@ describe('API uploadSnapshot endpoint', () => {
   })
 })
 
-// FIXME: consistently fails with 403 error, as separate test suites uploadSnapshot, uploadLivePhoto tests work
+// FIXME: consistently fails with 403 error, as separate test suites uploadSnapshot, uploadFacePhoto tests work
 // eslint-disable-next-line jest/no-disabled-tests
 describe.skip('API sendMultiframeSelfie endpoint', () => {
   beforeEach(async () => {

@@ -48,7 +48,9 @@ class BasePage {
   async onfidoFooter() {
     return this.$('.onfido-sdk-ui-Theme-footer')
   }
-
+  async spinner() {
+    return this.$('.onfido-sdk-ui-Spinner-inner')
+  }
   copy(lang) {
     return locale(lang)
   }

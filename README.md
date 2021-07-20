@@ -452,7 +452,7 @@ The Web SDK has multiple customizable features that provide flexibility, while a
 
   ##### Supported languages
 
-  The SDK supports and maintains 4 languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
+  The SDK supports and maintains 6 languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
 
   | Language          | Locale Tag |
   | ----------------- | ---------- |
@@ -885,9 +885,9 @@ DOCUMENT_CAPTURE_CONFIRMATION_BACK - User reached the "document confirmation" sc
 FACIAL_INTRO - User reached the "selfie intro" screen
 FACIAL_CAPTURE - User reached the "selfie capture" screen
 FACIAL_CAPTURE_CONFIRMATION - User reached the "selfie confirmation" screen
-VIDEO_FACIAL_INTRO - User reached the "liveness intro" screen
-VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties
-VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "liveness video capture", challenge_type can be found in eventProperties
+VIDEO_FACIAL_INTRO - User reached the "face video intro" screen
+VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "face video capture", challenge_type can be found in eventProperties
+VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "face video capture", challenge_type can be found in eventProperties
 UPLOAD - User's file is uploading
 ```
 

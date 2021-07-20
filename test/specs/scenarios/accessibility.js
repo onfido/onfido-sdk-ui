@@ -1,5 +1,6 @@
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
+import { testDeviceMobileNumber } from '../../config.json'
+import { localhostUrl } from '../../main'
 import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
@@ -256,12 +257,12 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       //   runAccessibilityTest(driver)
       // })
 
-      it('should verify accessibility for liveness intro screen', async () => {
+      it('should verify accessibility for faceVideo intro screen', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&liveness=true`
+          `?language=${lang}&faceVideo=true`
         )
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -281,7 +282,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&liveness=true`
+          `?language=${lang}&faceVideo=true`
         )
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -298,8 +299,8 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       })
 
       //FIXME: This is commented out due to the color-contrast accessibility rule fail - CX-4214.
-      // it('should verify accessibility for liveness recording and liveness confirmation screens', async () => {
-      //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
+      // it('should verify accessibility for faceVideo recording and faceVideo confirmation screens', async () => {
+      //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&faceVideo=true`)
       //   driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       //   documentUpload.clickUploadButton()
       //   uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')

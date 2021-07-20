@@ -8,6 +8,22 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.11.1] - 2021-07-20
+
+### Added
+
+- UI: Accessibility - Add ARIA role `img` and an ARIA label for the generated cross device secure link QR code image
+- Internal: Resolved inaccurate reporting on test automation failures.
+- Internal: Added note about lockfileVersion and npm version requirement for SDK contributors in CONTRIBUTING.md documentation.
+- Public: Improvements in video capture steps.
+
+### Changed
+
+- UI: Accessibility - Add ARIA role `button` to "Resend link" and "Cancel" links on Cross Device flow SMS Sent, Mobile Connected screens.
+- Internal: Remove `image_quality` breakdowns from `sdk_warnings` response because the field will be soon deprecated.
+- Internal: Moved `geckodriver` from `dependencies` to `devDependencies`.
+- Internal: Added ability to run tests without the use of the mock server for the UI tests.
+
 ## [6.10.2] - 2021-07-08
 
 ### Fixed
@@ -1017,7 +1033,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.2...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.11.1...development
+[6.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.2...6.11.1
 [6.10.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.1...6.10.2
 [6.10.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.0...6.10.1
 [6.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...6.10.0

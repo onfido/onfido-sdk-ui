@@ -4,11 +4,20 @@ import { testFocusManagement } from '../utils/accessibility'
 import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
-  async text() {
-    return this.$('.onfido-sdk-ui-Welcome-text')
+  async subtitle() {
+    return this.$('.onfido-sdk-ui-PageTitle-subTitle')
+  }
+  async customDescriptions() {
+    return this.$('.onfido-sdk-ui-Welcome-customDescriptions')
+  }
+  async instructions() {
+    return this.$('.onfido-sdk-ui-Welcome-instructions')
   }
   async defaultFooter() {
     return this.$('.onfido-sdk-ui-Theme-footer')
+  }
+  async recordingLimit() {
+    return this.$('.onfido-sdk-ui-Welcome-recordingLimit')
   }
   async primaryBtn() {
     return this.$('[data-onfido-qa="welcome-next-btn"]')
@@ -36,19 +45,44 @@ class Welcome extends BasePage {
   }
 
   async verifySubtitle(copy) {
-    verifyElementCopy(this.subtitle(), `${copy.welcome.subtitle}`)
+    verifyElementCopy(this.subtitle(), copy.welcome.subtitle)
   }
 
-  async verifyDescriptions(copy) {
+  async verifyDefaultInstructions(copy) {
     verifyElementCopy(
-      this.text(),
-      `${copy.welcome.list_header_webcam}\n${copy.welcome.list_item_doc}\n${copy.welcome.list_item_selfie}`
+      this.instructions(),
+      [
+        copy.welcome.list_header_webcam,
+        copy.welcome.list_item_doc,
+        copy.welcome.list_item_selfie,
+      ].join('\n')
+    )
+  }
+
+  async verifyDocVideoInstructions(copy) {
+    verifyElementCopy(
+      this.instructions(),
+      [
+        copy.welcome.list_header_doc_video,
+        copy.welcome.list_item_doc,
+        copy.welcome.list_item_selfie,
+      ].join('\n')
+    )
+  }
+
+  async verifyRecordingLimit(copy) {
+    verifyElementCopy(
+      this.recordingLimit(),
+      copy.welcome.list_item_doc_video_timeout.replace(
+        '<timeout></timeout>',
+        30
+      )
     )
   }
 
   async verifyCustomDescriptions() {
     verifyElementCopy(
-      this.text(),
+      this.customDescriptions(),
       `To open a bank account, we will need to verify your identity.\nIt will only take a couple of minutes.`
     )
   }

@@ -133,6 +133,18 @@
         "subtitle": "You can now return to your computer to continue",
         "title": "Uploads successful"
     },
+    "doc_capture": {
+        "detail": {
+            "folded_doc_front": "Lay your document flat, include all inner pages (must contain your photo)"
+        },
+        "header_folded_doc_front": "Profile photo side",
+        "prompt": {
+            "button_card": "Plastic card",
+            "button_paper": "Paper document",
+            "title_id": "What type of identity card do you have?",
+            "title_license": "What type of license do you have?"
+        }
+    },
     "doc_confirmation": {
         "alert": {
             "blur_detail": "Make sure everything is clear",
@@ -205,6 +217,26 @@
         "title_permit_front": "Submit residence permit (front)",
         "title_tax_letter": "Submit letter"
     },
+    "doc_video_capture": {
+        "button_primary_fallback": "Next step",
+        "button_primary_fallback_end": "Finish recording",
+        "detail_step2": "Keep the document in full view at all times",
+        "header": "While holding your document, keep the front side within the frame",
+        "header_paper_doc_step2": "Slowly turn your document around to show the outer pages",
+        "header_passport": "While holding your passport, keep the photo page within the frame",
+        "header_passport_progress": "Hold still",
+        "header_step1": "Now, keep still",
+        "header_step2": "Slowly turn your document around to show the back",
+        "prompt": {
+            "detail_timeout": "Video recording is limited to <timeout><\/timeout> seconds. <fallback>Start again<\/fallback>"
+        },
+        "stepper": "Step <step><\/step> of <total><\/total>",
+        "success_accessibility": "Success"
+    },
+    "doc_video_confirmation": {
+        "button_secondary": "Preview video",
+        "title": "Check your video"
+    },
     "error_unsupported_browser": {
         "subtitle_android": "Restart the process on the latest version of Google Chrome",
         "subtitle_ios": "Restart the process on the latest version of Safari",
@@ -270,7 +302,7 @@
         "info_qr_how": "How to scan a QR code",
         "info_qr_how_list_item_camera": "Point your phone’s camera at the QR code",
         "info_qr_how_list_item_download": "If it doesn’t work, download a QR code scanner from Google Play or the App Store",
-        "link_divider": "or choose these alternatives",
+        "link_divider": "or choose an alternative method",
         "link_qr": "Scan QR code",
         "link_sms": "Get link via SMS",
         "link_url": "Copy link",
@@ -384,7 +416,7 @@
         },
         "button_accessibility": "Take a photo",
         "frame_accessibility": "View from camera",
-        "title": "Keep your face within the oval to start recording"
+        "title": "Keep your face within the oval"
     },
     "selfie_confirmation": {
         "image_accessibility": "Photo of your face",
@@ -443,7 +475,7 @@
         }
     },
     "video_capture": {
-        "body": "Keep your face within the oval to start recording",
+        "body": "Keep your face within the oval",
         "body_record": "Press the button when you’re ready",
         "button_primary_finish": "Finish recording",
         "button_primary_next": "Next step",
@@ -455,9 +487,15 @@
             "challenge_turn_forward": "then face forward",
             "challenge_turn_left": "Turn your head left",
             "challenge_turn_right": "Turn your head right"
+        },
+        "prompt": {
+            "header_timeout": "Looks like you took too long"
         }
     },
     "video_confirmation": {
+        "body": "Your video has been recorded",
+        "button_primary": "Upload video",
+        "button_secondary": "Retake video",
         "title": "Check your video",
         "video_accessibility": "Replay your recorded video"
     },
@@ -469,8 +507,10 @@
         "title": "Record a video"
     },
     "welcome": {
+        "list_header_doc_video": "Use your device to record:",
         "list_header_webcam": "Use your webcam or phone to photograph:",
         "list_item_doc": "your identity document",
+        "list_item_doc_video_timeout": "Recording is limited to <timeout><\/timeout> seconds",
         "list_item_poa": "your proof of address",
         "list_item_selfie": "your face",
         "next_button": "Choose document",

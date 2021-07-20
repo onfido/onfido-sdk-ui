@@ -112,14 +112,6 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     const url = urls.detect_document_url
     const data = JSON.stringify({ image: base64, id })
 
-    if (!url) {
-      throw new Error('detect_document_url not provided')
-    }
-
-    if (!token) {
-      throw new Error('token not provided')
-    }
-
     postToBackend(
       data,
       url,

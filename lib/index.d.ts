@@ -157,21 +157,6 @@ export declare type UploadFileResponse = {
 	href: string;
 	download_href: string;
 };
-export declare type ImageQualityBreakdown = {
-	max: number;
-	min: number;
-	score: number;
-	threshold: number;
-};
-export declare type ImageCutoffBreakdown = {
-	has_cutoff: boolean;
-} & ImageQualityBreakdown;
-export declare type ImageGlareBreakdown = {
-	has_glare: boolean;
-} & ImageQualityBreakdown;
-export declare type ImageBlurBreakdown = {
-	has_blur: boolean;
-} & ImageQualityBreakdown;
 export declare type ImageQualityWarnings = {
 	detect_cutoff?: {
 		valid: boolean;
@@ -182,23 +167,13 @@ export declare type ImageQualityWarnings = {
 	detect_blur?: {
 		valid: boolean;
 	};
-	image_quality: {
-		quality: string;
-		breakdown: {
-			cutoff?: ImageCutoffBreakdown;
-			glare?: ImageGlareBreakdown;
-			blur?: ImageBlurBreakdown;
-			has_document: boolean;
-		};
-		image_quality_uuid: string;
-	};
 };
 export declare type DocumentImageResponse = {
 	applicant_id: string;
 	type: DocumentTypes | PoaTypes;
 	side: DocumentSides;
-	issuing_country?: string;
-	sdk_warnings: ImageQualityWarnings;
+	issuing_country: string | null | undefined;
+	sdk_warnings?: ImageQualityWarnings;
 } & UploadFileResponse;
 declare const CHALLENGE_RECITE = "recite";
 declare const CHALLENGE_MOVEMENT = "movement";
@@ -241,14 +216,21 @@ export declare type DocumentResponse = {
 	id: string;
 	side: string;
 	type: string;
+	variant: RequestedVariant;
+};
+export declare type DocumentVideoResponse = {
+	id: string;
+	media_uuids: string[];
+	variant: "video";
 };
 export declare type FaceResponse = {
 	id: string;
-	variant: string;
+	variant: RequestedVariant;
 };
 export declare type SdkResponse = {
 	document_front?: DocumentResponse;
 	document_back?: DocumentResponse;
+	document_video?: DocumentVideoResponse;
 	face?: FaceResponse;
 };
 export declare type SdkError = {

@@ -5,6 +5,7 @@ import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
   takePercySnapshot,
+  takePercySnapshotWithoutOverlay,
 } from './sharedFlows.js'
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -45,12 +46,6 @@ export const faceScenarios = (lang) => {
 
     const copy = basePage.copy(lang)
 
-    async function takePercySnapshotWithoutOverlay(driver, text) {
-      await takePercySnapshot(driver, text, {
-        percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }`,
-      })
-    }
-
     it('should return unsupported file type error for selfie', async () => {
       goToPassportUploadScreen(
         driver,
@@ -72,7 +67,7 @@ export const faceScenarios = (lang) => {
       confirm.verifyUnsuppoertedFileError(copy)
     })
 
-    it('should upload selfie', async () => {
+    it('should upload selfie @e2e-latest', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -197,12 +192,12 @@ export const faceScenarios = (lang) => {
       confirm.verifyMultipleFacesError(copy)
     })
 
-    it('should be taken to the cross-device flow for selfie capture if there is no camera and liveness variant requested', async () => {
+    it('should be taken to the cross-device flow for selfie capture if there is no camera and faceVideo variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&faceVideo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])'
@@ -222,12 +217,12 @@ export const faceScenarios = (lang) => {
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {
+    it('should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&faceVideo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -267,7 +262,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&faceVideo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -296,7 +291,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&faceVideo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -326,7 +321,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true`
+        `?language=${lang}&faceVideo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -364,7 +359,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true&hideOnfidoLogo=true`
+        `?language=${lang}&faceVideo=true&hideOnfidoLogo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -420,7 +415,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true&showCobrand=true`
+        `?language=${lang}&faceVideo=true&showCobrand=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -462,12 +457,12 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for liveness variant', async () => {
+    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for faceVideo variant', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true&showCobrand=true&hideOnfidoLogo=true`
+        `?language=${lang}&faceVideo=true&showCobrand=true&hideOnfidoLogo=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'

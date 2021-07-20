@@ -290,7 +290,11 @@ class CrossDeviceLinkUI extends Component {
 
   renderQrCodeSection = () => (
     <div className={style.qrCodeSection}>
-      <div className={style.qrCodeContainer}>
+      <div
+        className={style.qrCodeContainer}
+        role="img"
+        aria-label="QR code image"
+      >
         <QRCodeGenerator url={this.getMobileUrl()} size={144} />
       </div>
       <QRCodeHowTo />
@@ -329,7 +333,11 @@ class CrossDeviceLinkUI extends Component {
           />
         )}
         <div className={style.secureLinkView}>
-          <div role="region" id="selectedLinkView">
+          <div
+            role="region"
+            id="selectedLinkView"
+            className={style.selectedLinkView}
+          >
             {currentViewRender()}
           </div>
           <p className={style.styledLabel}>
