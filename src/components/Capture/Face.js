@@ -79,8 +79,7 @@ class Face extends Component {
     <CustomFileInput
       className={theme.errorFallbackButton}
       onChange={this.handleFileSelected}
-      accept="image/*"
-      capture="user"
+      accept="image/*;capture=user"
     >
       {text}
     </CustomFileInput>

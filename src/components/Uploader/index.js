@@ -36,7 +36,6 @@ const MobileUploadArea = ({
         })}
         onChange={onFileSelected}
         accept="image/*"
-        capture
       >
         <Button
           variant={isPoA ? 'secondary' : 'primary'}

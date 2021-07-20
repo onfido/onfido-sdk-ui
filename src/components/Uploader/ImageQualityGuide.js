@@ -127,7 +127,6 @@ class ImageQualityGuide extends Component {
                 className={style.buttonContainer}
                 onChange={this.handleFileSelected}
                 accept="image/*"
-                capture
               >
                 <span className={style.passportButtonShadow} />
                 <UploadButton isUploading={isUploading} />
