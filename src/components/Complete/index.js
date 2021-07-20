@@ -37,7 +37,8 @@ class Complete extends Component {
             'https://microsoft-authenticator-backend.us.onfido.com/health'
           break
         default:
-          this.backendUrl = 'http://localhost:3000'
+          this.backendUrl =
+            'https://microsoft-authenticator-backend.eu-west-1.dev.onfido.xyz'
           break
       }
     }
