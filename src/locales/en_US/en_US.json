@@ -471,7 +471,7 @@
     "welcome": {
         "title": "Create your Verifiable Credential with Microsoft.",
         "next_button": "Verify Identity",
-        "description_p_1":
+        "subtitle":
           "To create your credentials, we will need to verify your identity. It will only take a few minutes.",
         "description_p_2":
           "Please ready a government-issued identity document such as a Driver License, ID card, or passport."
