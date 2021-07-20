@@ -38,9 +38,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Install Percy
-        run: npm install --save-dev @percy/cli @percy/selenium-webdriver
-
       - name: Run build
         run: npm run build:test
 
