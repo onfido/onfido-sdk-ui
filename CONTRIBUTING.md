@@ -120,7 +120,7 @@ Please refer to [this file](./src/demo/demoUtils.js) for more available options.
 
 ## WebSDK inside native or React Native apps
 
-To quickly verify a WebSDK hosted web application inside a native/React Native app, uses [React Native sample repo](https://github.com/onfido/onfido-sdk-web-sample-react-native)
+To quickly verify a WebSDK hosted web application inside a native/React Native app, use the [React Native sample repo](https://github.com/onfido/onfido-sdk-web-sample-react-native)
 
 ## Useful links
 
