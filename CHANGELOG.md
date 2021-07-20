@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- UI: Fix camera view not lining up with Document Live Capture overlay.
+
 ## [6.11.1] - 2021-07-20
 
 ### Added
