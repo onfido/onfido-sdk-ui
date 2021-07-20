@@ -149,7 +149,8 @@ class Document extends Component<Props> {
     <CustomFileInput
       className={theme.warningFallbackButton}
       onChange={this.handleFileSelected}
-      accept="image/*;capture=user"
+      accept="image/*"
+      capture="environment"
     >
       {text}
     </CustomFileInput>

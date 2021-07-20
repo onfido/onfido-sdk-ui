@@ -19,6 +19,7 @@ const MobileUploadArea = ({
   isPoA,
   translate,
   isUploading,
+  captureType,
 }) => (
   <div className={style.uploadArea}>
     {children}
@@ -36,6 +37,7 @@ const MobileUploadArea = ({
         })}
         onChange={onFileSelected}
         accept="image/*"
+        capture={captureType}
       >
         <Button
           variant={isPoA ? 'secondary' : 'primary'}
@@ -183,6 +185,7 @@ const UploadArea = (props) => {
     error,
     handleFileSelected,
     isUploading,
+    captureType,
   } = props
   const isPoA = uploadType === 'proof_of_address'
 
@@ -214,7 +217,7 @@ const UploadArea = (props) => {
     <MobileUploadArea
       onFileSelected={handleFileSelected}
       translate={translate}
-      {...{ isPoA, isUploading }}
+      {...{ isPoA, isUploading, captureType }}
     >
       <div className={style.instructions}>
         <div
@@ -271,6 +274,7 @@ class Uploader extends Component {
     } = this.props
     const isPassportUpload =
       uploadType !== 'face' && documentType === 'passport'
+    const captureType = uploadType === 'face' ? 'user' : 'environment'
     return (
       <div className={classNames(theme.fullHeightContainer, style.container)}>
         <PageTitle
@@ -289,6 +293,7 @@ class Uploader extends Component {
           ) : (
             <UploadArea
               {...this.props}
+              captureType={captureType}
               error={this.state.error}
               handleFileSelected={this.handleFileSelected}
               isUploading={this.state.isUploading}
