@@ -713,7 +713,7 @@ Given user opened the link with `?uploadFallback=false` flag
 
 ### 37. Interrupt flow if selfie fallback is deactivated and MediaRecorder is not supported
 
-Given user opened the link with `?liveness=true&photoCaptureFallback=false` flags
+Given user opened the link with `?faceVideo=true&photoCaptureFallback=false` flags
 
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browsers that don't support MediaRecorder (i.e. Safari on iOS13.7 or earlier):
