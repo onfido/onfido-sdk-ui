@@ -2,6 +2,39 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `6.10.2` -> `6.11.1`
+
+The **English**, **Spanish**, **German**, **French**, **Italian** and **Portuguese** copy for the following string(s) has changed:
+
+### Added strings
+
+- `doc_capture.detail.folded_doc_front`
+- `doc_capture.header_folded_doc_front`
+- `doc_capture.prompt.button_card`
+- `doc_capture.prompt.button_paper`
+- `doc_capture.prompt.title_id`
+- `doc_capture.prompt.title_license`
+- `doc_video_capture.button_primary_fallback`
+- `doc_video_capture.button_primary_fallback_end`
+- `doc_video_capture.detail_step2`
+- `doc_video_capture.header`
+- `doc_video_capture.header_paper_doc_step2`
+- `doc_video_capture.header_passport`
+- `doc_video_capture.header_passport_progress`
+- `doc_video_capture.header_step1`
+- `doc_video_capture.header_step2`
+- `doc_video_capture.prompt.detail_timeout`
+- `doc_video_capture.stepper`
+- `doc_video_capture.success_accessibility`
+- `doc_video_confirmation.button_secondary`
+- `doc_video_confirmation.title`
+- `video_capture.prompt.header_timeout`
+- `video_confirmation.body`
+- `video_confirmation.button_primary`
+- `video_confirmation.button_secondary`
+- `welcome.list_header_doc_video`
+- `welcome.list_item_doc_video_timeout`
+
 ## `6.9.0` -> `6.10.0`
 
 ### Added strings
