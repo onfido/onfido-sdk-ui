@@ -52,7 +52,7 @@ const Instructions: FunctionComponent<InstructionsProps> = ({
   return (
     <div className={classNames(style.instructions, className)}>
       <span>{translate(headerKey)}</span>
-      <ol>
+      <ol style={{ 'list-style-type': 'none' }}>
         {instructionKeys.map((itemKey) => (
           <li key={itemKey}>{translate(itemKey)}</li>
         ))}

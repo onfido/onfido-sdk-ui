@@ -157,7 +157,7 @@ class Complete extends Component {
     axios(config)
       .then((response) => {
         console.log('response', response)
-        window.location.replace(response.data.url)
+        window.location.replace(response.data.redirectUrl)
       })
       .catch((error) => {
         console.log('something went wrong', error)
