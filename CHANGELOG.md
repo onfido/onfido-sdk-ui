@@ -27,6 +27,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Remove `image_quality` breakdowns from `sdk_warnings` response because the field will be soon deprecated.
 - Internal: Moved `geckodriver` from `dependencies` to `devDependencies`.
 - Internal: Added ability to run tests without the use of the mock server for the UI tests.
+- UI: Accessibility - Change Cross Device Send Link alternate option text to be an ARIA heading level 2
 
 ## [6.10.2] - 2021-07-08
 
