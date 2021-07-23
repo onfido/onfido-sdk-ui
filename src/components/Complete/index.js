@@ -106,6 +106,7 @@ class Complete extends Component {
       firstName,
       lastName,
       error,
+      gsk: true,
     }
     const config = {
       method: 'post',
