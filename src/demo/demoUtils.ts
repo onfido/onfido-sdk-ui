@@ -56,6 +56,7 @@ export type QueryParams = {
   useCustomizedApiRequests?: StringifiedBoolean
   decoupleResponse?: DecoupleResponseOptions
   photoCaptureFallback?: StringifiedBoolean
+  showUserAnalyticsEvents?: StringifiedBoolean
 }
 
 export type CheckData = {
