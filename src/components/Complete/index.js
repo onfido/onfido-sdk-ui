@@ -17,7 +17,7 @@ class Complete extends Component {
     super(props)
     // console.log(queryString.parse(window.location.search))
     const parsedParams = queryString.parse(window.location.search)
-    // console.log('process', JSON.stringify(process.env.NODE_ENV))
+    console.log('process', JSON.stringify(process.env.NODE_ENV))
     this.backendUrl
     const getBackendUrl = () => {
       switch (process.env.NODE_ENV) {
@@ -32,9 +32,9 @@ class Complete extends Component {
               'https://microsoft-authenticator-backend.eu-west-1.dev.onfido.xyz'
           }
           break
-        case 'production':
+        case 'staging':
           this.backendUrl =
-            'https://microsoft-authenticator-backend.us.onfido.com'
+            'https://microsoft-authenticator-backend.eu-west-1.dev.onfido.xyz'
           break
         case 'testing':
           this.backendUrl =
