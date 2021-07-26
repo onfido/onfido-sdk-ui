@@ -96,6 +96,18 @@ const SdkDemo: FunctionComponent<Props> = ({
       console.log('onUserExit callback:', userExitCode),
     onModalRequestClose: () => setIsModalOpen(false),
     ...(sdkOptions || {}),
+    customUI: {
+      colorContentButtonPrimaryText: '#fff',
+      colorBackgroundButtonPrimary: '#f36633',
+      colorBorderButtonPrimary: '#f36633',
+      colorBackgroundButtonPrimaryHover: '#F67E7D',
+      colorBackgroundButtonPrimaryActive: '#843b62',
+      colorBorderDocTypeButtonHover: '#F36633',
+      colorBackgroundIcon: '#F36633',
+      fontFamilyTitle: 'Arial',
+      fontFamilySubtitle: 'Arial',
+      fontFamilyBody: 'Arial',
+    },
     language: {
       phrases: {
         welcome: {
