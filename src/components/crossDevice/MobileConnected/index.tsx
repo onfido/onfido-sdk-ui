@@ -24,7 +24,9 @@ const MobileConnected: FunctionComponent<Props> = ({ back }) => {
       />
       <div>
         <span className={`${theme.icon} ${style.icon}`} />
-        <div className={theme.header}>{translate('switch_phone.info')}</div>
+        <div className={theme.header} role="heading" aria-level="3">
+          {translate('switch_phone.info')}
+        </div>
         <div className={`${style.help} ${theme.help}`}>
           <ul
             className={theme.helpList}
