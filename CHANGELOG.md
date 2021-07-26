@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Fix camera view not lining up with Document Live Capture overlay.
 - Public: Fix file selector "capture" prop for WebSDK inside iOS WebView
+- UI: Update copy in Face Liveness Video intro screen from 25s to 20s to reflect the correct time limit
 
 ### Changed
 
