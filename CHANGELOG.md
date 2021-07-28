@@ -13,6 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Fix camera view not lining up with Document Live Capture overlay.
 - Public: Fix file selector "capture" prop for WebSDK inside iOS WebView
 - Public: Fix `CROSS_DEVICE_START` user analytic event for integrators never being dispatched when user switches to the Cross Device flow
+- Remove old locale key type definitions that are no longer used/exist in code base.
 
 ### Changed
 
