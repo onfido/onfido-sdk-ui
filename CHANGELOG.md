@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Fix camera view not lining up with Document Live Capture overlay.
 - Public: Fix file selector "capture" prop for WebSDK inside iOS WebView
+- Remove old locale key type definitions that are no longer used/exist in code base.
 
 ### Changed
 
