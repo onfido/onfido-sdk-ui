@@ -163,63 +163,63 @@ export const getInitSdkOptions = (): SdkOptions => {
 
   const steps: Array<StepConfig> = []
 
-  // if (queryParamToValueString.customWelcomeScreenCopy === 'true') {
-  //   steps.push({
-  //     type: 'welcome',
-  //     options: {
-  //       title: 'Open your new bank account',
-  //       descriptions: [
-  //         'To open a bank account, we will need to verify your identity.',
-  //         'It will only take a couple of minutes.',
-  //       ],
-  //       nextButton: 'Verify Identity',
-  //     },
-  //   })
-  // } else {
-  //   steps.push({ type: 'welcome' })
-  // }
+  if (queryParamToValueString.customWelcomeScreenCopy === 'true') {
+    steps.push({
+      type: 'welcome',
+      options: {
+        title: 'Open your new bank account',
+        descriptions: [
+          'To open a bank account, we will need to verify your identity.',
+          'It will only take a couple of minutes.',
+        ],
+        nextButton: 'Verify Identity',
+      },
+    })
+  } else {
+    steps.push({ type: 'welcome' })
+  }
 
-  // if (queryParamToValueString.showAuth === 'true') {
-  //   steps.push({ type: 'auth', options: { retries: 10 } })
-  // }
+  if (queryParamToValueString.showAuth === 'true') {
+    steps.push({ type: 'auth', options: { retries: 10 } })
+  }
 
-  // if (queryParamToValueString.showUserConsent === 'true') {
-  //   steps.push({ type: 'userConsent' })
-  // }
+  if (queryParamToValueString.showUserConsent === 'true') {
+    steps.push({ type: 'userConsent' })
+  }
 
-  // if (queryParamToValueString.poa === 'true') {
-  //   steps.push({ type: 'poa' })
-  // }
+  if (queryParamToValueString.poa === 'true') {
+    steps.push({ type: 'poa' })
+  }
 
-  // steps.push({
-  //   type: 'document',
-  //   options: {
-  //     useLiveDocumentCapture:
-  //       queryParamToValueString.useLiveDocumentCapture === 'true',
-  //     uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-  //     useWebcam: queryParamToValueString.useWebcam === 'true',
-  //     documentTypes: getPreselectedDocumentTypes(),
-  //     showCountrySelection:
-  //       queryParamToValueString.oneDocWithCountrySelection === 'true',
-  //     forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
-  //     requestedVariant:
-  //       queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
-  //   },
-  // })
+  steps.push({
+    type: 'document',
+    options: {
+      useLiveDocumentCapture:
+        queryParamToValueString.useLiveDocumentCapture === 'true',
+      uploadFallback: queryParamToValueString.uploadFallback !== 'false',
+      useWebcam: queryParamToValueString.useWebcam === 'true',
+      documentTypes: getPreselectedDocumentTypes(),
+      showCountrySelection:
+        queryParamToValueString.oneDocWithCountrySelection === 'true',
+      forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
+      requestedVariant:
+        queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
+    },
+  })
 
-  // steps.push({
-  //   type: 'face',
-  //   options: {
-  //     useUploader: queryParamToValueString.useUploader === 'true',
-  //     uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-  //     useMultipleSelfieCapture:
-  //       queryParamToValueString.useMultipleSelfieCapture !== 'false',
-  //     photoCaptureFallback:
-  //       queryParamToValueString.photoCaptureFallback !== 'false',
-  //     requestedVariant:
-  //       queryParamToValueString.faceVideo === 'true' ? 'video' : 'standard',
-  //   },
-  // })
+  steps.push({
+    type: 'face',
+    options: {
+      useUploader: queryParamToValueString.useUploader === 'true',
+      uploadFallback: queryParamToValueString.uploadFallback !== 'false',
+      useMultipleSelfieCapture:
+        queryParamToValueString.useMultipleSelfieCapture !== 'false',
+      photoCaptureFallback:
+        queryParamToValueString.photoCaptureFallback !== 'false',
+      requestedVariant:
+        queryParamToValueString.faceVideo === 'true' ? 'video' : 'standard',
+    },
+  })
 
   if (queryParamToValueString.noCompleteStep !== 'true') {
     steps.push({ type: 'complete' })
