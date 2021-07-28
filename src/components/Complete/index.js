@@ -34,7 +34,7 @@ class Complete extends Component {
           break
         case 'staging':
           this.backendUrl =
-            'https://microsoft-authenticator-backend.eu-west-1.pre-prod.onfido.xyz/'
+            'https://microsoft-authenticator-backend.eu-west-1.pre-prod.onfido.xyz'
           // 'https://microsoft-authenticator-backend.eu-west-1.dev.onfido.xyz'
           break
         case 'testing':
@@ -43,7 +43,7 @@ class Complete extends Component {
           break
         default:
           this.backendUrl =
-            'https://microsoft-authenticator-backend.eu-west-1.pre-prod.onfido.xyz/'
+            'https://microsoft-authenticator-backend.eu-west-1.pre-prod.onfido.xyz'
           break
       }
     }
