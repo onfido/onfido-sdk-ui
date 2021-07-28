@@ -34,7 +34,7 @@ class Complete extends Component {
           break
         case 'staging':
           this.backendUrl =
-            'https://microsoft-authenticator-backend.eu-west-1.dev.onfido.xyz'
+            'https://microsoft-authenticator-backend.eu-west-1.pre-prod.onfido.xyz/'
           break
         case 'testing':
           this.backendUrl =
