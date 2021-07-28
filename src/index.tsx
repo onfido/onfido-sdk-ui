@@ -33,6 +33,7 @@ const defaults: SdkOptions = {
   token: undefined,
   containerId: 'onfido-mount',
   onComplete: noop,
+  onUpload: noop,
   onError: noop,
   onUserExit: noop,
 }

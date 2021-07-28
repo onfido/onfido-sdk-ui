@@ -15,6 +15,7 @@ import Router from '../Router'
 import * as Tracker from '../../Tracker'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 
+import type { UploadFileResponse } from '~types/api';
 import type { NormalisedSdkOptions } from '~types/commons'
 import type {
   EnterpriseFeatures,
@@ -52,6 +53,7 @@ class ModalApp extends Component<Props> {
     }
     this.bindEvents(
       props.options.onComplete,
+      props.options.onUpload,
       props.options.onError,
       props.options.onUserExit
     )
@@ -116,10 +118,12 @@ class ModalApp extends Component<Props> {
 
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,
+    onUpload?: (document: UploadFileResponse) => void,
     onError?: (error: SdkError) => void,
     onUserExit?: (error: UserExitCode) => void
   ) => {
     onComplete && this.events.on('complete', onComplete)
+    onUpload && this.events.on('upload', onUpload)
     onError && this.events.on('error', onError)
     onUserExit && this.events.on('userExit', onUserExit)
   }
@@ -129,11 +133,13 @@ class ModalApp extends Component<Props> {
     newOptions: NormalisedSdkOptions
   ) => {
     oldOptions.onComplete && this.events.off('complete', oldOptions.onComplete)
+    oldOptions.onUpload && this.events.off('upload', oldOptions.onUpload)
     oldOptions.onError && this.events.off('error', oldOptions.onError)
     oldOptions.onUserExit && this.events.off('userExit', oldOptions.onUserExit)
 
     this.bindEvents(
       newOptions.onComplete,
+      newOptions.onUpload,
       newOptions.onError,
       newOptions.onUserExit
     )

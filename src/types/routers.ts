@@ -1,7 +1,7 @@
 import { h, ComponentType } from 'preact'
 import { ActionCreatorsMapObject } from 'redux'
 
-import type { ErrorCallback } from './api'
+import type { ErrorCallback, SuccessCallback, UploadFileResponse } from './api'
 import type {
   ExtendedStepConfig,
   FlowVariants,
@@ -96,6 +96,7 @@ export type StepsRouterProps = {
   previousStep: () => void
   step: number
   triggerOnError: ErrorCallback
+  triggerOnUpload: SuccessCallback<UploadFileResponse>
 } & HistoryRouterProps
 
 export type StepComponentBaseProps = {

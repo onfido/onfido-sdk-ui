@@ -3,6 +3,8 @@ import type { RequestedVariant, StepConfig, StepTypes } from './steps'
 import type { EnterpriseFeatures } from './enterprise'
 import type { UICustomizationOptions } from './ui-customisation-options'
 
+import { UploadFileResponse } from './api';
+
 type DocumentResponse = {
   id: string
   side: string
@@ -48,6 +50,7 @@ interface FunctionalConfigurations {
 export interface SdkOptions extends FunctionalConfigurations {
   // Callbacks
   onComplete?: (data: SdkResponse) => void
+  onUpload?: (document: UploadFileResponse) => void
   onError?: (error: SdkError) => void
   onUserExit?: (data: UserExitCode) => void
   onModalRequestClose?: () => void

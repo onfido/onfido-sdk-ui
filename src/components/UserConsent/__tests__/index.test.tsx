@@ -41,6 +41,7 @@ const defaultProps: StepComponentBaseProps = {
   nextStep: jest.fn(),
   previousStep: jest.fn(),
   triggerOnError: jest.fn(),
+  triggerOnUpload: jest.fn(),
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
   step: 0,

@@ -13,7 +13,7 @@ import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
-import type { ParsedError, ErrorCallback } from '~types/api'
+import type { ParsedError, ErrorCallback, SuccessCallback, UploadFileResponse } from '~types/api'
 import type { ExtendedStepTypes, FlowVariants } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
 import type {
@@ -188,6 +188,10 @@ export default class HistoryRouter extends Component<
     trackException(`${type} - ${message}`)
   }
 
+  triggerOnUpload: SuccessCallback<UploadFileResponse> = (uploadMetadata) => {
+    this.props.options.events?.emit('upload', uploadMetadata)
+  }
+
   previousStep = (): void => {
     const { step: currentStep } = this.state
     this.setStepIndex(currentStep - 1)
@@ -270,6 +274,7 @@ export default class HistoryRouter extends Component<
         previousStep={this.previousStep}
         step={this.state.step}
         triggerOnError={this.triggerOnError}
+        triggerOnUpload={this.triggerOnUpload}
       />
     )
   }

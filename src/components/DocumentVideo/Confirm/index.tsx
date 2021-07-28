@@ -24,6 +24,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   nextStep,
   previousStep,
   triggerOnError,
+  triggerOnUpload,
 }) => {
   const [{ token }] = useSdkOptions()
   const [loading, setLoading] = useState(false)
