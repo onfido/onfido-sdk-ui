@@ -2,6 +2,14 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `6.11.1` -> `next-version`
+
+The **English**, **Spanish**, **German**, **French**, **Italian** and **Portuguese** copy for the following string(s) has changed:
+
+### Changed strings
+
+- `video_intro.list_item_actions`
+
 ## `6.10.2` -> `6.11.1`
 
 The **English**, **Spanish**, **German**, **French**, **Italian** and **Portuguese** copy for the following string(s) has changed:
