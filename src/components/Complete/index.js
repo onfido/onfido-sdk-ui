@@ -37,12 +37,10 @@ class Complete extends Component {
             'https://microsoft-authenticator-backend.eu-west-1.pre-prod.onfido.xyz'
           break
         case 'testing':
-          this.backendUrl =
-            'https://microsoft-authenticator-backend.eu-west-1.prod.onfido.xyz'
+          this.backendUrl = 'https://microsoft-authenticator-backend.onfido.com'
           break
         default:
-          this.backendUrl =
-            'https://microsoft-authenticator-backend.eu-west-1.prod.onfido.xyz'
+          this.backendUrl = 'https://microsoft-authenticator-backend.onfido.com'
           break
       }
     }
