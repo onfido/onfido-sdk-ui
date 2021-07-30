@@ -204,8 +204,7 @@ export const getInitSdkOptions = (): SdkOptions => {
         passport: false,
         residence_permit: false,
       },
-      showCountrySelection:
-        queryParamToValueString.oneDocWithCountrySelection === 'true',
+      showCountrySelection: true,
       forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
       requestedVariant: 'standard',
     },
