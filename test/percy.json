@@ -13,6 +13,6 @@
   ],
   "localhostUrl": "https://localhost:8080/",
   "supportedLanguages": [],
-  "fullTestCoverageLanguages": ["en_US"],
+  "fullTestCoverageLanguages": ["en_US", "es_ES"],
   "testDeviceMobileNumber": "07495 023357"
 }
