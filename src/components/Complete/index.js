@@ -116,11 +116,11 @@ class Complete extends Component {
 
     const payload = {
       // will return the default true if undefined
-      'vc-issued':
+      vcIssued:
         queryParams['vc-issued'] === undefined
           ? true
           : queryParams['vc-issued'],
-      'error-code': errorCode,
+      errorCode,
       message,
     }
 
