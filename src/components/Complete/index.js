@@ -50,7 +50,8 @@ class Complete extends Component {
     const queryParams = {
       firstName: parsedParams['first-name'] || 'john',
       lastName: parsedParams['last-name'] || 'doe',
-      callbackUrl: parsedParams['callback-url'] || 'http://localhost:3000',
+      callbackUrl:
+        decodeURI(parsedParams['callback-url']) || 'http://localhost:3000',
     }
 
     console.log('parsedParams', parsedParams)
