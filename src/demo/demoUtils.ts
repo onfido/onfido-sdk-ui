@@ -198,12 +198,15 @@ export const getInitSdkOptions = (): SdkOptions => {
         queryParamToValueString.useLiveDocumentCapture === 'true',
       uploadFallback: queryParamToValueString.uploadFallback !== 'false',
       useWebcam: queryParamToValueString.useWebcam === 'true',
-      documentTypes: getPreselectedDocumentTypes(),
-      showCountrySelection:
-        queryParamToValueString.oneDocWithCountrySelection === 'true',
+      documentTypes: {
+        driving_licence: true,
+        national_identity_card: false,
+        passport: false,
+        residence_permit: false,
+      },
+      showCountrySelection: true,
       forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
-      requestedVariant:
-        queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
+      requestedVariant: 'standard',
     },
   })
 

@@ -990,3 +990,4 @@ Previous versions of the SDK will be supported for a month after a new major ver
 ## How is the Onfido SDK licensed?
 
 Please see [LICENSE](https://github.com/onfido/onfido-sdk-ui/blob/master/LICENSE) for licensing details.
+
