@@ -48,7 +48,6 @@ class Complete extends Component {
     getBackendUrl()
 
     const queryParams = {
-      ...parsedParams,
       firstName: parsedParams['first-name'] || 'john',
       lastName: parsedParams['last-name'] || 'doe',
       callbackUrl: parsedParams['callback-url'] || 'http://localhost:3000',
@@ -114,6 +113,7 @@ class Complete extends Component {
     const {
       state: { queryParams, errorCode, message },
     } = this
+
     const payload = {
       // will return the default true if undefined
       'vc-issued':
@@ -135,9 +135,7 @@ class Complete extends Component {
     axios(config)
       .then((response) => {
         // console.log('response', response)
-        // window.location.replace(response.data.redirectUrl)
-        // TO-DO: remove this when we have the gsk endpoint working
-        window.location.replace('https://www.gsk.com/en-gb/home/')
+        window.location.replace(response.data.url)
       })
       .catch((error) => {
         console.log('something went wrong', error)
