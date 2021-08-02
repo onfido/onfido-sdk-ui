@@ -512,7 +512,7 @@
     "video_intro": {
         "button_primary": "Grábese en un vídeo",
         "list_accessibility": "Acciones para grabar un video selfie",
-        "list_item_actions": "Termine las instrucciones en 25 segundos",
+        "list_item_actions": "Termine las instrucciones en 20 segundos",
         "list_item_speak": "Siga las instrucciones para moverse o hablar",
         "title": "Grábese en un vídeo"
     },

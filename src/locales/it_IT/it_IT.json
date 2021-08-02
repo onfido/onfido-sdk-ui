@@ -425,7 +425,7 @@
     "video_intro": {
         "button_primary": "Registra video",
         "list_accessibility": "Azioni per registrare un video selfie",
-        "list_item_actions": "Hai 25 secondi per terminare",
+        "list_item_actions": "Hai 20 secondi per terminare",
         "list_item_speak": "Muoviti o parla seguendo le istruzioni",
         "title": "Registra un video"
     },

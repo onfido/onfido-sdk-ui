@@ -512,7 +512,7 @@
     "video_intro": {
         "button_primary": "Fortfahren",
         "list_accessibility": "Aktionen zum Aufzeichnen eines Selfie-Videos",
-        "list_item_actions": "Beenden Sie Aktionen in weniger als 25 Sekunden",
+        "list_item_actions": "Beenden Sie Aktionen in weniger als 20 Sekunden",
         "list_item_speak": "Befolgen Sie die Anweisungen zur Bewegung oder zum Sprechen",
         "title": "Selfie-Video aufnehmen"
     },

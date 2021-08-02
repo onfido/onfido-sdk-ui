@@ -512,7 +512,7 @@
     "video_intro": {
         "button_primary": "Record video",
         "list_accessibility": "Actions to record a selfie video",
-        "list_item_actions": "You have 25 seconds to finish",
+        "list_item_actions": "You have 20 seconds to finish",
         "list_item_speak": "Follow the instructions to move or speak",
         "title": "Record a video"
     },

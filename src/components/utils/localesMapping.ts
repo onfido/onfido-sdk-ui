@@ -139,7 +139,6 @@ type ImageQualityResults = 'cutoff' | 'blur' | 'glare' | 'good'
 
 type ImageQualityGuideLocale = {
   label: string
-  alt: string
 }
 
 export const IMAGE_QUALITY_GUIDE_LOCALES_MAPPING: Record<
@@ -148,19 +147,15 @@ export const IMAGE_QUALITY_GUIDE_LOCALES_MAPPING: Record<
 > = {
   cutoff: {
     label: 'upload_guide.image_detail_cutoff_label',
-    alt: 'upload_guide.image_detail_cutoff_alt',
   },
   blur: {
     label: 'upload_guide.image_detail_blur_label',
-    alt: 'upload_guide.image_detail_blur_alt',
   },
   glare: {
     label: 'upload_guide.image_detail_glare_label',
-    alt: 'upload_guide.image_detail_glare_alt',
   },
   good: {
     label: 'upload_guide.image_detail_good_label',
-    alt: 'upload_guide.image_detail_good_alt',
   },
 }
 

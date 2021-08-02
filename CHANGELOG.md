@@ -8,6 +8,21 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- UI: Fix camera view not lining up with Document Live Capture overlay.
+- Public: Fix file selector "capture" prop for WebSDK inside iOS WebView
+- Public: Fix `CROSS_DEVICE_START` user analytic event for integrators never being dispatched when user switches to the Cross Device flow
+- UI: Update copy in Face Liveness Video intro screen from 25s to 20s to reflect the correct time limit
+- Remove old locale key type definitions that are no longer used/exist in code base.
+
+### Changed
+
+- UI: Accessibility - Make "Tips" heading in Cross Device SMS Sent and Mobile Connected screens a level 3 heading.
+- UI: Accessibility - Change Cross Device Send Link alternate option text to be an ARIA heading level 2
+
+## [6.11.1] - 2021-07-20
+
 ### Added
 
 - UI: Accessibility - Add ARIA role `img` and an ARIA label for the generated cross device secure link QR code image
@@ -21,10 +36,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Remove `image_quality` breakdowns from `sdk_warnings` response because the field will be soon deprecated.
 - Internal: Moved `geckodriver` from `dependencies` to `devDependencies`.
 - Internal: Added ability to run tests without the use of the mock server for the UI tests.
-
-### Fixed
-
-- UI: Fix camera view not lining up with Document Live Capture overlay.
 
 ## [6.10.2] - 2021-07-08
 
@@ -1035,7 +1046,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.2...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.11.1...development
+[6.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.2...6.11.1
 [6.10.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.1...6.10.2
 [6.10.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.0...6.10.1
 [6.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.9.0...6.10.0

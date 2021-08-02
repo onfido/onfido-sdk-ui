@@ -199,7 +199,7 @@ class Document extends Component<Props> {
       className={theme.warningFallbackButton}
       onChange={this.handleFileSelected}
       accept="image/*"
-      capture
+      capture="environment"
     >
       {text}
     </CustomFileInput>

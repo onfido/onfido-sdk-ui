@@ -425,7 +425,7 @@
     "video_intro": {
         "button_primary": "Gravar vídeo",
         "list_accessibility": "Ações para gravar um vídeo selfie",
-        "list_item_actions": "Tem 25 segundos para terminar",
+        "list_item_actions": "Tem 20 segundos para terminar",
         "list_item_speak": "Siga as instruções para se mover ou falar",
         "title": "Gravar um vídeo"
     },

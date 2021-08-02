@@ -512,7 +512,7 @@
     "video_intro": {
         "button_primary": "Commencer l’enregistrement",
         "list_accessibility": "Actions pour enregistrer une vidéo de votre visage",
-        "list_item_actions": "Vous avez 25 secondes pour terminer",
+        "list_item_actions": "Vous avez 20 secondes pour terminer",
         "list_item_speak": "Suivez les instructions pour bouger ou parler",
         "title": "Enregistrez une vidéo de votre visage"
     },
