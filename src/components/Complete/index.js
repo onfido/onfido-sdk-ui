@@ -15,7 +15,7 @@ import axios from 'axios'
 class Complete extends Component {
   constructor(props) {
     super(props)
-    // console.log(queryString.parse(window.location.search))
+    // console.log('process', JSON.stringify(process.env.NODE_ENV))
     const parsedParams = queryString.parse(window.location.search)
     console.log('process', JSON.stringify(process.env.NODE_ENV))
     this.backendUrl
@@ -44,15 +44,19 @@ class Complete extends Component {
           break
       }
     }
+
     getBackendUrl()
+
     const queryParams = {
       ...parsedParams,
-      firstName: parsedParams.firstName || 'john',
-      lastName: parsedParams.lastName || 'doe',
-      callbackUrl: parsedParams.callbackUrl || 'http://localhost:3000',
+      firstName: parsedParams['first-name'] || 'john',
+      lastName: parsedParams['last-name'] || 'doe',
+      callbackUrl: parsedParams['callback-url'] || 'http://localhost:3000',
     }
-    // console.log('parsedParams', parsedParams)
-    // console.log('queryParams', queryParams)
+
+    console.log('parsedParams', parsedParams)
+    console.log('queryParams', queryParams)
+
     this.state = {
       qrCode: '',
       queryParams,
