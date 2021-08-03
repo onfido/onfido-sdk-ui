@@ -48,8 +48,8 @@ class Complete extends Component {
     getBackendUrl()
 
     const queryParams = {
-      firstName: parsedParams['first-name'] || 'john',
-      lastName: parsedParams['last-name'] || 'doe',
+      firstName: parsedParams['first-name'] || 'John',
+      lastName: parsedParams['last-name'] || 'Doe',
       callbackUrl:
         decodeURI(parsedParams['callback-url']) || 'http://localhost:3000',
     }
@@ -145,19 +145,24 @@ class Complete extends Component {
 
   render({ message, submessage, translate }) {
     const {
-      state: { pin, loading, qrCode },
+      state: {
+        pin,
+        loading,
+        qrCode,
+        queryParams: { firstName, lastName },
+      },
     } = this
     const title = message || translate('outro.title')
-    const body = submessage || translate('outro.body')
-    // console.log('state', this.state)
+    const body = submessage || translate(`outro.body`)
+    const nameTitle = `Thanks ${firstName} ${lastName}, ` + title
     return (
       <div className={style.wrapper}>
         {loading ? (
           <Spinner />
         ) : (
           <ScreenLayout>
-            <span className={`${theme.icon}  ${style.icon}`} />
-            <PageTitle title={title} subTitle={body} />
+            <span className={`${theme.icon} ${style.icon}`} />
+            <PageTitle title={nameTitle} subTitle={body} />
             <p className={style.pin}>{pin}</p>
             <div className={style.buttonContainer}>
               <img className={style.msQrCode} src={qrCode} />
