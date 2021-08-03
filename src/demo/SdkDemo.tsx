@@ -90,6 +90,12 @@ const SdkDemo: FunctionComponent<Props> = ({
     ...getInitSdkOptions(),
     token,
     isModalOpen,
+    enterpriseFeatures: {
+      logoCobrand: {
+        lightLogoSrc: 'https://issuerpoc.azurewebsites.net/gsklogotrans.png',
+        darkLogoSrc: 'https://issuerpoc.azurewebsites.net/gsklogotrans.png',
+      },
+    },
     onComplete,
     onError: (error) => console.error('onError callback:', error),
     onUserExit: (userExitCode) =>
