@@ -122,6 +122,7 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   componentDidMount(): void {
+    this.state.socket.on('cross device start', this.onCrossBrowserStart)
     this.state.socket.on('custom disconnect', this.onDisconnect)
     this.state.socket.on('disconnect pong', this.onDisconnectPong)
   }
@@ -130,6 +131,17 @@ export default class CrossDeviceMobileRouter extends Component<
     this.clearConfigTimeout()
     this.clearPingTimeout()
     this.state.socket.close()
+  }
+
+  onCrossBrowserStart = (): void => {
+    dispatchEvent(
+      new CustomEvent('userAnalyticsEvent', {
+        detail: {
+          eventName: 'CROSS_DEVICE_START',
+          isCrossDevice: true,
+        },
+      })
+    )
   }
 
   sendMessage = (event: string, payload?: Record<string, unknown>): void => {
