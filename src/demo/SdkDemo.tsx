@@ -86,52 +86,112 @@ const SdkDemo: FunctionComponent<Props> = ({
     return <span>SDK has been torn down</span>
   }
 
-  const options: SdkOptions = {
-    ...getInitSdkOptions(),
-    token,
-    isModalOpen,
-    onComplete,
-    onError: (error) => console.error('onError callback:', error),
-    onUserExit: (userExitCode) =>
-      console.log('onUserExit callback:', userExitCode),
-    onModalRequestClose: () => setIsModalOpen(false),
-    ...(sdkOptions || {}),
-    customUI: {
-      colorContentButtonPrimaryText: '#fff',
-      colorBackgroundButtonPrimary: '#f36633',
-      colorBorderButtonPrimary: '#f36633',
-      colorBackgroundButtonPrimaryHover: '#F67E7D',
-      colorBackgroundButtonPrimaryActive: '#843b62',
-      colorBorderDocTypeButtonHover: '#F36633',
-      colorBackgroundIcon: '#F36633',
-      fontFamilyTitle: 'Arial',
-      fontFamilySubtitle: 'Arial',
-      fontFamilyBody: 'Arial',
-      colorBorderLinkUnderline: '#D5D1CE',
-      colorBackgroundLinkHover: '#544F40',
-    },
-    language: {
-      phrases: {
-        welcome: {
-          title: 'Create your Verifiable Credential with Microsoft.',
-          description_p_1:
-            'To create your credentials, we will need to verify your identity. It will only take a few minutes.',
-          description_p_2:
-            'Please ready a government-issued identity document such as a Driver License, ID card, or passport.',
-        },
-        generic: {
-          back: '',
-        },
-        cross_device_checklist: {
-          button_primary: 'Generate Verifiable Credential',
-        },
-        outro: {
-          title: 'Please Scan QR Code',
-          body:
-            'This will add your identity to the verifiable credential wallet.',
+  let options: SdkOptions
+
+  try {
+    options = {
+      ...getInitSdkOptions(),
+      token,
+      isModalOpen,
+      enterpriseFeatures: {
+        logoCobrand: {
+          lightLogoSrc: 'https://issuerpoc.azurewebsites.net/gsklogotrans.png',
+          darkLogoSrc: 'https://issuerpoc.azurewebsites.net/gsklogotrans.png',
         },
       },
-    },
+      onComplete,
+      onError: (error) => console.error('onError callback:', error),
+      onUserExit: (userExitCode) =>
+        console.log('onUserExit callback:', userExitCode),
+      onModalRequestClose: () => setIsModalOpen(false),
+      ...(sdkOptions || {}),
+      customUI: {
+        colorContentButtonPrimaryText: '#fff',
+        colorBackgroundButtonPrimary: '#f36633',
+        colorBorderButtonPrimary: '#f36633',
+        colorBackgroundButtonPrimaryHover: '#F67E7D',
+        colorBackgroundButtonPrimaryActive: '#843b62',
+        colorBorderDocTypeButtonHover: '#F36633',
+        colorBackgroundIcon: '#F36633',
+        fontFamilyTitle: 'Arial',
+        fontFamilySubtitle: 'Arial',
+        fontFamilyBody: 'Arial',
+        colorBorderLinkUnderline: '#D5D1CE',
+        colorBackgroundLinkHover: '#544F40',
+      },
+      language: {
+        phrases: {
+          welcome: {
+            title: 'Create your Verifiable Credential with Microsoft.',
+            description_p_1:
+              'To create your credentials, we will need to verify your identity. It will only take a few minutes.',
+            description_p_2:
+              'Please ready a government-issued identity document such as a Driver License, ID card, or passport.',
+          },
+          generic: {
+            back: '',
+          },
+          cross_device_checklist: {
+            button_primary: 'Generate Verifiable Credential',
+          },
+          outro: {
+            title: 'Please Scan QR Code',
+            body:
+              'This will add your identity to the verifiable credential wallet.',
+          },
+        },
+      },
+    }
+  } catch (err) {
+    console.log('Failed to load SDK with logoCobranding option', err)
+
+    options = {
+      ...getInitSdkOptions(),
+      token,
+      isModalOpen,
+      onComplete,
+      onError: (error) => console.error('onError callback:', error),
+      onUserExit: (userExitCode) =>
+        console.log('onUserExit callback:', userExitCode),
+      onModalRequestClose: () => setIsModalOpen(false),
+      ...(sdkOptions || {}),
+      customUI: {
+        colorContentButtonPrimaryText: '#fff',
+        colorBackgroundButtonPrimary: '#f36633',
+        colorBorderButtonPrimary: '#f36633',
+        colorBackgroundButtonPrimaryHover: '#F67E7D',
+        colorBackgroundButtonPrimaryActive: '#843b62',
+        colorBorderDocTypeButtonHover: '#F36633',
+        colorBackgroundIcon: '#F36633',
+        fontFamilyTitle: 'Arial',
+        fontFamilySubtitle: 'Arial',
+        fontFamilyBody: 'Arial',
+        colorBorderLinkUnderline: '#D5D1CE',
+        colorBackgroundLinkHover: '#544F40',
+      },
+      language: {
+        phrases: {
+          welcome: {
+            title: 'Create your Verifiable Credential with Microsoft.',
+            description_p_1:
+              'To create your credentials, we will need to verify your identity. It will only take a few minutes.',
+            description_p_2:
+              'Please ready a government-issued identity document such as a Driver License, ID card, or passport.',
+          },
+          generic: {
+            back: '',
+          },
+          cross_device_checklist: {
+            button_primary: 'Generate Verifiable Credential',
+          },
+          outro: {
+            title: 'Please Scan QR Code',
+            body:
+              'This will add your identity to the verifiable credential wallet.',
+          },
+        },
+      },
+    }
   }
 
   const applicantForm = applicantData ? (
