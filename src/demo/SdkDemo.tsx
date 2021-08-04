@@ -107,6 +107,8 @@ const SdkDemo: FunctionComponent<Props> = ({
       fontFamilyTitle: 'Arial',
       fontFamilySubtitle: 'Arial',
       fontFamilyBody: 'Arial',
+      colorBorderLinkUnderline: '#D5D1CE',
+      colorBackgroundLinkHover: '#544F40',
     },
     language: {
       phrases: {
