@@ -50,6 +50,8 @@ class Complete extends Component {
     const queryParams = {
       firstName: parsedParams['first-name'] || 'John',
       lastName: parsedParams['last-name'] || 'Doe',
+      email: parsedParams['email'] || 'testemail@gmail.com',
+      phoneNumber: parsedParams['phone-number'] || '123-456-6789',
       callbackUrl:
         decodeURI(parsedParams['callback-url']) || 'http://localhost:3000',
     }
@@ -75,13 +77,19 @@ class Complete extends Component {
   fetchQrCode = () => {
     const {
       state: {
-        queryParams: { firstName, lastName, error },
+        queryParams: { firstName, lastName, error, phoneNumber, email },
       },
     } = this
 
     const data = {
       firstName,
       lastName,
+      country:
+        this.props.idDocumentIssuingCountry === undefined
+          ? 'GBR'
+          : this.props.idDocumentIssuingCountry.country_alpha3,
+      phoneNumber,
+      email,
       error,
       gsk: true,
     }
@@ -90,13 +98,11 @@ class Complete extends Component {
       url: `${this.backendUrl}/check`,
       data,
     }
-    // console.log('inside fetchQrCode')
     axios(config)
       .then((response) => {
         const {
           data: { qrCode, pin, errorCode, message },
         } = response
-        // console.log('success', response.data)
         this.setState({
           qrCode,
           pin,
@@ -154,7 +160,7 @@ class Complete extends Component {
     } = this
     const title = message || translate('outro.title')
     const body = submessage || translate(`outro.body`)
-    const nameTitle = `Thanks ${firstName} ${lastName}, ` + title
+    const nameTitle = `Thanks ${firstName} ${lastName}, ${title}`
     return (
       <div className={style.wrapper}>
         {loading ? (
