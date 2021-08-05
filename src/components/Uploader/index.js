@@ -154,7 +154,7 @@ const PassportUploadIntro = ({
       >
         <button
           type="button"
-          className={classNames(theme['link'], style.buttonLinkUploadCopy)}
+          className={classNames(theme.link, style.buttonLinkUploadCopy)}
           data-onfido-qa="uploaderButtonLink"
           onClick={nextStep}
         >
