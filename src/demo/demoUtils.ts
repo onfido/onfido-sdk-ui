@@ -282,7 +282,7 @@ export const getInitSdkOptions = (): SdkOptions => {
 
   let visibleCrossDeviceMethods
   if (queryParamToValueString.limitedCrossDeviceOptions === 'true') {
-    visibleCrossDeviceMethods = ['copy', 'qrCode']
+    visibleCrossDeviceMethods = ['copy_link', 'qr_code']
   }
   if (queryParamToValueString.singleCrossDeviceOption === 'true') {
     visibleCrossDeviceMethods = ['sms']
