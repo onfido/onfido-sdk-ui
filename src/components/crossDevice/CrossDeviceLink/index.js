@@ -135,11 +135,13 @@ class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
 
+    const documentStep = props.steps.find(({ type }) => type === 'document')
+    const restrictedCrossDeviceLinkMethods = props._crossDeviceLinkMethods || []
+    const initialViewId =
+      restrictedCrossDeviceLinkMethods[0] ||
+      documentStep?.options?._initialCrossDeviceLinkView
     this.state = {
-      currentViewId: validatesViewIdWithFallback(
-        props.steps.find(({ type }) => type === 'document')?.options
-          ?._initialCrossDeviceLinkView
-      ),
+      currentViewId: validatesViewIdWithFallback(initialViewId),
       sending: false,
       error: {},
       validNumber: true,
