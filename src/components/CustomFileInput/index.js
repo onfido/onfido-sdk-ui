@@ -41,7 +41,7 @@ export default class CustomFileInput extends Component {
     return (
       <span
         onClick={this.handleClick}
-        className={classNames(style.container, style.uploadCopy, className)}
+        className={classNames(style.container, className)}
       >
         {children}
         <input

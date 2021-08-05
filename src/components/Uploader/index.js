@@ -202,7 +202,7 @@ const UploadArea = (props) => {
           {error && <UploadError {...{ error, translate }} />}
           <button
             type="button"
-            className={classNames(theme['link'], style.buttonLinkUploadCopy)}
+            className={classNames(theme.link, style.buttonLinkUploadCopy)}
             data-onfido-qa="uploaderButtonLink"
             disabled={isUploading}
           >
