@@ -118,7 +118,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceIntro.verifyTitle(copy)
       })
 
-      it('should verify UI elements on the cross device link screen default QR code view ', async () => {
+      it('should verify UI elements on the cross device link screen default QR code view', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
@@ -164,8 +164,8 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.switchToCopyLinkOption()
         crossDeviceLink.expectCurrentUrlToMatchUrl(baseUrl)
         crossDeviceLink.verifySubtitleUrl(copy)
-        crossDeviceLink.verifyCopyLinkInsteadLabel(copy)
-        crossDeviceLink.verifyCopyToClipboardBtn(copy)
+        crossDeviceLink.verifyCopyLinkLabel(copy)
+        crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
         crossDeviceLink.verifyCopyLinkTextContainer()
         crossDeviceLink.verifyDivider()
         crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy)
@@ -177,7 +177,44 @@ export const crossDeviceScenarios = async (lang) => {
         goToCrossDeviceScreen()
         crossDeviceLink.switchToCopyLinkOption()
         crossDeviceLink.copyToClipboardBtn().click()
-        crossDeviceLink.verifyCopyToClipboardBtnChangedState(copy)
+        crossDeviceLink.verifyCopyToClipboardBtnLabelChangedState(copy)
+      })
+
+      it('should display copy link view by default when limitedCrossDeviceOptions is enabled', async () => {
+        driver.get(`${baseUrl}?limitedCrossDeviceOptions=true`)
+        goToCrossDeviceScreen()
+        crossDeviceLink.verifyCopyLinkLabel(copy)
+        crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
+        crossDeviceLink.verifyCopyLinkTextContainer()
+        crossDeviceLink.verifyDivider()
+        assert.isTrue(
+          crossDeviceLink.switchToQrCodeOptionBtn.isDisplayed(),
+          'Test Failed: "Scan QR code" button should be displayed'
+        )
+        assert.isFalse(
+          crossDeviceLink.switchToCopyLinkOptionBtn.isDisplayed(),
+          'Test Failed: "Get link via SMS" button should not be displayed'
+        )
+      })
+
+      it('should display SMS link view only and no alternative options when singleCrossDeviceOption is enabled', async () => {
+        driver.get(`${baseUrl}?singleCrossDeviceOption=true`)
+        goToCrossDeviceScreen()
+        crossDeviceLink.verifyCopyLinkLabel(copy)
+        crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
+        crossDeviceLink.verifyCopyLinkTextContainer()
+        assert.isFalse(
+          crossDeviceLink.verifyDivider(),
+          'Test Failed: Cross Device alternative method divider should not be displayed'
+        )
+        assert.isFalse(
+          crossDeviceLink.switchToQrCodeOptionBtn.isDisplayed(),
+          'Test Failed: "Scan QR code" button should not be displayed'
+        )
+        assert.isFalse(
+          crossDeviceLink.switchToCopyLinkOptionBtn.isDisplayed(),
+          'Test Failed: "Copy link" button should not be displayed'
+        )
       })
 
       it('should display error when mobile number is not provided', async () => {

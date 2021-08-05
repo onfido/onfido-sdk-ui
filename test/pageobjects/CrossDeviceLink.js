@@ -39,7 +39,7 @@ class CrossDeviceLink extends BasePage {
   async sendLinkBtn() {
     return this.$('[data-onfido-qa="cross-device-send-link-btn"]')
   }
-  async copyLinkInsteadLabel() {
+  async copyLinkLabel() {
     return this.$(
       '.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyLinkSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label'
     )
@@ -115,11 +115,8 @@ class CrossDeviceLink extends BasePage {
     verifyElementCopy(this.sendLinkBtn(), copy.get_link.button_submit)
   }
 
-  async verifyCopyLinkInsteadLabel(copy) {
-    verifyElementCopy(
-      this.copyLinkInsteadLabel(),
-      copy.get_link.url_field_label
-    )
+  async verifyCopyLinkLabel(copy) {
+    verifyElementCopy(this.copyLinkLabel(), copy.get_link.url_field_label)
   }
 
   async verifyCopyToClipboardBtn(copy) {
