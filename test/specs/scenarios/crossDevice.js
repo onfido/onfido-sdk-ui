@@ -180,13 +180,16 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCopyToClipboardBtnLabelChangedState(copy)
       })
 
-      it('should display copy link view by default when limitedCrossDeviceOptions is enabled', async () => {
-        driver.get(`${baseUrl}?limitedCrossDeviceOptions=true`)
+      it('should display copy link view by default when excludeSmsCrossDeviceOption is enabled', async () => {
+        driver.get(`${baseUrl}?excludeSmsCrossDeviceOption=true`)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyCopyLinkLabel(copy)
         crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
         crossDeviceLink.verifyCopyLinkTextContainer()
-        crossDeviceLink.verifyDivider()
+        assert.isTrue(
+          crossDeviceLink.divider().isDisplayed(),
+          'Test Failed: Alternative methods divider should be displayed'
+        )
         assert.isTrue(
           crossDeviceLink.switchToQrCodeOptionBtn.isDisplayed(),
           'Test Failed: "Scan QR code" button should be displayed'

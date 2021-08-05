@@ -57,7 +57,7 @@ export type QueryParams = {
   decoupleResponse?: DecoupleResponseOptions
   photoCaptureFallback?: StringifiedBoolean
   showUserAnalyticsEvents?: StringifiedBoolean
-  limitedCrossDeviceOptions?: StringifiedBoolean
+  excludeSmsCrossDeviceOption?: StringifiedBoolean
   singleCrossDeviceOption?: StringifiedBoolean
 }
 
@@ -281,7 +281,7 @@ export const getInitSdkOptions = (): SdkOptions => {
   }
 
   let visibleCrossDeviceMethods
-  if (queryParamToValueString.limitedCrossDeviceOptions === 'true') {
+  if (queryParamToValueString.excludeSmsCrossDeviceOption === 'true') {
     visibleCrossDeviceMethods = ['copy_link', 'qr_code']
   }
   if (queryParamToValueString.singleCrossDeviceOption === 'true') {
