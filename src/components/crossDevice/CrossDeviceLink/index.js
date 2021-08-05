@@ -309,18 +309,38 @@ class CrossDeviceLinkUI extends Component {
     this.viewOptionBtn.blur()
   }
 
+  getRequiredViewRenders = () => {
+    const { _crossDeviceLinkMethods } = this.props
+    const defaultViewRendersMap = {
+      qr_code: this.renderQrCodeSection,
+      sms: this.renderSmsLinkSection,
+      copy_link: this.renderCopyLinkSection,
+    }
+    if (!_crossDeviceLinkMethods) {
+      return defaultViewRendersMap
+    }
+    const requiredViewRendersMap = _crossDeviceLinkMethods.reduce(
+      (result, viewId) => {
+        result[viewId] = defaultViewRendersMap[viewId]
+        return result
+      },
+      {}
+    )
+    return requiredViewRendersMap
+  }
+
   componentWillUnmount() {
     this.clearSendLinkClickTimeout()
   }
 
   render() {
-    const { translate, trackScreen } = this.props
+    const { translate, trackScreen, _crossDeviceLinkMethods } = this.props
     const { error, currentViewId } = this.state
-    const currentViewRender = {
-      qr_code: this.renderQrCodeSection,
-      sms: this.renderSmsLinkSection,
-      copy_link: this.renderCopyLinkSection,
-    }[currentViewId]
+    const requiredViewRenders = this.getRequiredViewRenders()
+    const currentViewRender = requiredViewRenders[currentViewId]
+    const visibleViewOptions = SECURE_LINK_VIEWS.filter(
+      (view) => (view = _crossDeviceLinkMethods.includes(view.id))
+    )
 
     return (
       <div className={style.container}>
@@ -330,7 +350,7 @@ class CrossDeviceLinkUI extends Component {
           <PageTitle
             title={translate('get_link.title')}
             subTitle={translate(
-              SECURE_LINK_VIEWS.find(({ id }) => id === currentViewId).subtitle
+              visibleViewOptions.find(({ id }) => id === currentViewId).subtitle
             )}
           />
         )}
@@ -342,32 +362,34 @@ class CrossDeviceLinkUI extends Component {
           >
             {currentViewRender()}
           </div>
-          <div role="heading" aria-level="2" className={style.styledLabel}>
-            {translate('get_link.link_divider')}
-          </div>
+          {visibleViewOptions.length > 1 && (
+            <div role="heading" aria-level="2" className={style.styledLabel}>
+              {translate('get_link.link_divider')}
+            </div>
+          )}
           <div
             className={style.viewOptionsGroup}
             aria-controls="selectedLinkView"
           >
-            {SECURE_LINK_VIEWS.filter(
-              (view) => view.id !== this.state.currentViewId
-            ).map((view) => (
-              <a
-                href="#"
-                className={classNames(
-                  theme.link,
-                  style.viewOption,
-                  style[view.className]
-                )}
-                ref={(node) => (this.viewOptionBtn = node)}
-                onClick={preventDefaultOnClick(() =>
-                  this.handleViewOptionSelect(view.id)
-                )}
-                key={`view_${view.id}`}
-              >
-                {translate(view.label)}
-              </a>
-            ))}
+            {visibleViewOptions
+              .filter((view) => view.id !== currentViewId)
+              .map((view) => (
+                <a
+                  href="#"
+                  className={classNames(
+                    theme.link,
+                    style.viewOption,
+                    style[view.className]
+                  )}
+                  ref={(node) => (this.viewOptionBtn = node)}
+                  onClick={preventDefaultOnClick(() =>
+                    this.handleViewOptionSelect(view.id)
+                  )}
+                  key={`view_${view.id}`}
+                >
+                  {translate(view.label)}
+                </a>
+              ))}
           </div>
         </div>
       </div>
