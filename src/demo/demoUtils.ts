@@ -57,6 +57,8 @@ export type QueryParams = {
   decoupleResponse?: DecoupleResponseOptions
   photoCaptureFallback?: StringifiedBoolean
   showUserAnalyticsEvents?: StringifiedBoolean
+  limitedCrossDeviceOptions?: StringifiedBoolean
+  singleCrossDeviceOption?: StringifiedBoolean
 }
 
 export type CheckData = {
@@ -278,6 +280,14 @@ export const getInitSdkOptions = (): SdkOptions => {
     }
   }
 
+  let visibleCrossDeviceMethods
+  if (queryParamToValueString.limitedCrossDeviceOptions === 'true') {
+    visibleCrossDeviceMethods = ['copy', 'qrCode']
+  }
+  if (queryParamToValueString.singleCrossDeviceOption === 'true') {
+    visibleCrossDeviceMethods = ['sms']
+  }
+
   const customUI =
     queryParamToValueString.customisedUI === 'true' ? customUIConfig : undefined
 
@@ -302,6 +312,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     },
     customUI: customUI as UICustomizationOptions,
     ...smsNumberCountryCode,
+    _crossDeviceLinkMethods: visibleCrossDeviceMethods,
   }
 }
 
