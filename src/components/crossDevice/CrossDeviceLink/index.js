@@ -338,9 +338,11 @@ class CrossDeviceLinkUI extends Component {
     const { error, currentViewId } = this.state
     const requiredViewRenders = this.getRequiredViewRenders()
     const currentViewRender = requiredViewRenders[currentViewId]
-    const visibleViewOptions = SECURE_LINK_VIEWS.filter(
-      (view) => (view = _crossDeviceLinkMethods.includes(view.id))
-    )
+    const visibleViewOptions = _crossDeviceLinkMethods
+      ? SECURE_LINK_VIEWS.filter(
+          (view) => (view = _crossDeviceLinkMethods.includes(view.id))
+        )
+      : SECURE_LINK_VIEWS
 
     return (
       <div className={style.container}>
