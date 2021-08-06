@@ -1,23 +1,26 @@
 @import '../Theme/constants';
 
 .wrapper {
-  margin-top: 50 * $unit;
+  margin-top: 30 * $unit;
 }
 
 .icon {
   height: 64 * $unit;
   background-size: contain;
   background-image: url('./assets/complete.svg');
-  margin-bottom: 24 * $unit;
 }
 
 .msQrCode {
-  max-height: 35%;
-  max-width: 35%;
+  max-height: 30%;
+  max-width: 30%;
 }
 
 .pin {
   margin-bottom: 4px;
+}
+
+.title {
+  font-size: 14px;
 }
 
 .buttonContainer {

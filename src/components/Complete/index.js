@@ -168,7 +168,11 @@ class Complete extends Component {
         ) : (
           <ScreenLayout>
             <span className={`${theme.icon} ${style.icon}`} />
-            <PageTitle title={nameTitle} subTitle={body} />
+            <PageTitle
+              className={`${style.title}`}
+              title={nameTitle}
+              subTitle={body}
+            />
             <p className={style.pin}>{pin}</p>
             <div className={style.buttonContainer}>
               <img className={style.msQrCode} src={qrCode} />
