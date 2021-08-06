@@ -181,7 +181,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       it('should display copy link view by default when excludeSmsCrossDeviceOption is enabled', async () => {
-        driver.get(`${baseUrl}?excludeSmsCrossDeviceOption=true`)
+        driver.get(`${baseUrl}&excludeSmsCrossDeviceOption=true`)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyCopyLinkLabel(copy)
         crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
@@ -191,7 +191,7 @@ export const crossDeviceScenarios = async (lang) => {
           'Test Failed: Alternative methods divider should be displayed'
         )
         assert.isTrue(
-          crossDeviceLink.switchToQrCodeOptionBtn.isDisplayed(),
+          crossDeviceLink.switchToQrCodeOptionBtn().isDisplayed(),
           'Test Failed: "Scan QR code" button should be displayed'
         )
         assert.isFalse(
@@ -201,7 +201,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       it('should display SMS link view only and no alternative options when singleCrossDeviceOption is enabled', async () => {
-        driver.get(`${baseUrl}?singleCrossDeviceOption=true`)
+        driver.get(`${baseUrl}&singleCrossDeviceOption=true`)
         goToCrossDeviceScreen()
         crossDeviceLink.verifySubtitleSms(copy)
         crossDeviceLink.verifyNumberInputLabel(copy)
