@@ -13,7 +13,7 @@ import QRCodeHowTo from '../../QRCode/HowTo'
 import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent, sendEvent } from '../../../Tracker'
-import { useLocales } from '~locales'
+import { localised } from '../../../locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
@@ -240,7 +240,7 @@ class CrossDeviceLinkUI extends Component {
   }
 
   renderSmsLinkSection = () => {
-    const { translate } = useLocales()
+    const { translate } = this.props
     const { sending, validNumber } = this.state
     const buttonCopyKey = sending
       ? 'get_link.loader_sending'
@@ -334,8 +334,7 @@ class CrossDeviceLinkUI extends Component {
   }
 
   render() {
-    const { translate } = useLocales()
-    const { trackScreen, _crossDeviceLinkMethods } = this.props
+    const { translate, trackScreen, _crossDeviceLinkMethods } = this.props
     const { error, currentViewId } = this.state
     const requiredViewRenders = this.getRequiredViewRenders()
     const currentViewRender = requiredViewRenders[currentViewId]
@@ -400,4 +399,4 @@ class CrossDeviceLinkUI extends Component {
   }
 }
 
-export default trackComponent(CrossDeviceLink, 'crossdevice_link')
+export default trackComponent(localised(CrossDeviceLink), 'crossdevice_link')
