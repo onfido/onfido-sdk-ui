@@ -340,7 +340,7 @@
         }
     },
     "outro": {
-        "body": "Please Scan QR Code",
+        "body": "use the Microsoft Authenticator app to scan the QR code below",
         "title": "This will add your identity to the verifiable credential wallet."
     },
     "permission_recovery": {

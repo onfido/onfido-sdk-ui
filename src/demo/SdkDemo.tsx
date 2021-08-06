@@ -135,9 +135,9 @@ const SdkDemo: FunctionComponent<Props> = ({
             button_primary: 'Generate Verifiable Credential',
           },
           outro: {
-            title: 'Please Scan QR Code',
-            body:
-              'This will add your identity to the verifiable credential wallet.',
+            title:
+              'use the Microsoft Authenticator app to scan the QR code below',
+            body: 'This will add your identity to the verifiable credential wallet.',
           },
         },
       },
