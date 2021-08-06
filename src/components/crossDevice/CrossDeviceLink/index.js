@@ -38,6 +38,21 @@ const SECURE_LINK_VIEWS = [
   },
 ]
 
+const configHasInvalidViewIds = (viewIdsInConfig) => {
+  const validViewIds = SECURE_LINK_VIEWS.map(({ id }) => id)
+  const invalidViewIds = viewIdsInConfig.filter(
+    (viewId) => !validViewIds.includes(viewId)
+  )
+  if (invalidViewIds.length > 0) {
+    console.log(
+      'Invalid SDK cross device link methods:',
+      invalidViewIds.join(', ')
+    )
+    return true
+  }
+  return false
+}
+
 const validatesViewIdWithFallback = (viewId) => {
   const validViewIds = SECURE_LINK_VIEWS.map(({ id }) => id)
 
@@ -316,9 +331,19 @@ class CrossDeviceLinkUI extends Component {
       sms: this.renderSmsLinkSection,
       copy_link: this.renderCopyLinkSection,
     }
-    if (!_crossDeviceLinkMethods) {
+    if (
+      !_crossDeviceLinkMethods ||
+      (_crossDeviceLinkMethods && _crossDeviceLinkMethods.length < 1)
+    ) {
       return defaultViewRendersMap
     }
+    if (
+      _crossDeviceLinkMethods &&
+      configHasInvalidViewIds(_crossDeviceLinkMethods)
+    ) {
+      return defaultViewRendersMap
+    }
+
     const requiredViewRendersMap = _crossDeviceLinkMethods.reduce(
       (result, viewId) => {
         result[viewId] = defaultViewRendersMap[viewId]
@@ -338,11 +363,9 @@ class CrossDeviceLinkUI extends Component {
     const { error, currentViewId } = this.state
     const requiredViewRenders = this.getRequiredViewRenders()
     const currentViewRender = requiredViewRenders[currentViewId]
-    const visibleViewOptions = _crossDeviceLinkMethods
-      ? SECURE_LINK_VIEWS.filter(
-          (view) => (view = _crossDeviceLinkMethods.includes(view.id))
-        )
-      : SECURE_LINK_VIEWS
+    const visibleViewOptions = SECURE_LINK_VIEWS.filter(
+      (view) => (view = Object.keys(requiredViewRenders).includes(view.id))
+    )
 
     return (
       <div className={style.container}>
