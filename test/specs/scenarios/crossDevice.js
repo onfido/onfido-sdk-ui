@@ -7,6 +7,7 @@ import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
   switchBrowserTab,
+  takePercySnapshot,
 } from './sharedFlows.js'
 
 const options = {
@@ -99,6 +100,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceIntro.verifySubTitle(copy)
         crossDeviceIntro.verifyIcons(copy)
         crossDeviceIntro.verifyMessages(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device Intro screen ${lang}`
+        )
       })
 
       it('should navigate to cross device when forceCrossDevice is enabled', async () => {
@@ -142,6 +147,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
         crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device - Scan QR Code method screen ${lang}`
+        )
       })
 
       it('should verify UI elements on the cross device link screen SMS view', async () => {
@@ -157,6 +166,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy)
         crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device - SMS Link method screen ${lang}`
+        )
       })
 
       it('should verify UI elements on the cross device link screen copy link view', async () => {
@@ -173,6 +186,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy)
         crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device - Copy Link method screen ${lang}`
+        )
       })
 
       it('should change the state of the copy to clipboard button after clicking', async () => {
@@ -191,6 +208,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCopyLinkTextContainer()
         crossDeviceLink.verifyCopyLinkDivider()
         crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device copy link screen excludes "send SMS" option when excludeSmsCrossDeviceOption enabled ${lang}`
+        )
         assert.isTrue(
           crossDeviceLink.alternativeMethodsSectionLabel().isDisplayed(),
           'Test Failed: Alternative methods section label should be displayed'
@@ -212,6 +233,9 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyNumberInputLabel(copy)
         crossDeviceLink.verifyNumberInput()
         crossDeviceLink.verifySendLinkBtn(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device only Send SMS UI displayed when singleCrossDeviceOption enabled ${lang}`
         )
         assert.isFalse(
           crossDeviceLink.alternativeMethodOptionsSection().isDisplayed(),
