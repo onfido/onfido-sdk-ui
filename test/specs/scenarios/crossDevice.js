@@ -167,7 +167,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCopyLinkLabel(copy)
         crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
         crossDeviceLink.verifyCopyLinkTextContainer()
-        crossDeviceLink.verifyDivider()
+        crossDeviceLink.verifyCopyLinkDivider()
         crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy)
         crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
       })
@@ -186,6 +186,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCopyLinkLabel(copy)
         crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
         crossDeviceLink.verifyCopyLinkTextContainer()
+        crossDeviceLink.verifyCopyLinkDivider()
         assert.isTrue(
           crossDeviceLink.divider().isDisplayed(),
           'Test Failed: Alternative methods divider should be displayed'

@@ -50,7 +50,7 @@ class CrossDeviceLink extends BasePage {
   async copyLinkTextContainer() {
     return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')
   }
-  async divider() {
+  async copyLinkDivider() {
     return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')
   }
   async checkNumberCorrectError() {
@@ -78,6 +78,13 @@ class CrossDeviceLink extends BasePage {
 
   async verifySwitchToSmsOptionBtn(copy) {
     verifyElementCopy(this.switchToSmsOptionBtn(), copy.get_link.link_sms)
+  }
+
+  async verifyAlternativeMethodsSectionLabel(copy) {
+    verifyElementCopy(
+      this.alternativeMethodsSectionLabel(),
+      copy.get_link.link_divider
+    )
   }
 
   async verifySwitchToCopyLinkOptionBtn(copy) {
@@ -119,7 +126,7 @@ class CrossDeviceLink extends BasePage {
     verifyElementCopy(this.copyLinkLabel(), copy.get_link.url_field_label)
   }
 
-  async verifyCopyToClipboardBtn(copy) {
+  async verifyCopyToClipboardBtnLabel(copy) {
     verifyElementCopy(this.copyToClipboardBtn(), copy.get_link.button_copy)
   }
 
@@ -131,8 +138,12 @@ class CrossDeviceLink extends BasePage {
     this.copyLinkTextContainer().isDisplayed()
   }
 
-  async verifyDivider() {
-    this.divider().isDisplayed()
+  async verifyCopyLinkDivider() {
+    return this.copyLinkDivider().isDisplayed()
+  }
+
+  async alternativeMethodsSectionLabel() {
+    return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-styledLabel')
   }
 
   async verifyCheckNumberCorrectError(copy) {
