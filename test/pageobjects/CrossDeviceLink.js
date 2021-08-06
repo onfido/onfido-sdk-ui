@@ -11,6 +11,25 @@ class CrossDeviceLink extends BasePage {
   async switchToQrCodeOptionBtn() {
     return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeLinkOption')
   }
+  async alternativeMethodOptionsSection() {
+    return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-viewOptionsGroup')
+  }
+  async alternativeMethodOptions() {
+    return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-viewOption')
+  }
+  async isOptionBtnPresent(option) {
+    const optionBtnClassMap = {
+      copy_link: 'copyLinkOption',
+      qr_code: 'qrCodeLinkOption',
+      sms: 'smsLinkOption',
+    }
+    const alternativeMethodOptionsClasses = this.alternativeMethodOptions()
+      .getAttribute('class')
+      .split(' ')
+    return alternativeMethodOptionsClasses.includes(
+      `onfido-sdk-ui-crossDevice-CrossDeviceLink-${optionBtnClassMap[option]}`
+    )
+  }
   async qrCode() {
     return this.$(
       '.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer svg'

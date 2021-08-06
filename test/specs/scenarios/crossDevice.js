@@ -139,6 +139,7 @@ export const crossDeviceScenarios = async (lang) => {
           crossDeviceLink.qrCodeHelpList().isDisplayed(),
           'Test Failed: QR Code help instructions should be hidden'
         )
+        crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
         crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
       })
@@ -153,6 +154,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyNumberInputLabel(copy)
         crossDeviceLink.verifyNumberInput()
         crossDeviceLink.verifySendLinkBtn(copy)
+        crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy)
         crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
       })
@@ -168,6 +170,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
         crossDeviceLink.verifyCopyLinkTextContainer()
         crossDeviceLink.verifyCopyLinkDivider()
+        crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy)
         crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
       })
@@ -187,16 +190,17 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
         crossDeviceLink.verifyCopyLinkTextContainer()
         crossDeviceLink.verifyCopyLinkDivider()
+        crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         assert.isTrue(
-          crossDeviceLink.divider().isDisplayed(),
-          'Test Failed: Alternative methods divider should be displayed'
+          crossDeviceLink.alternativeMethodsSectionLabel().isDisplayed(),
+          'Test Failed: Alternative methods section label should be displayed'
         )
         assert.isTrue(
-          crossDeviceLink.switchToQrCodeOptionBtn().isDisplayed(),
+          crossDeviceLink.isOptionBtnPresent('qr_code'),
           'Test Failed: "Scan QR code" button should be displayed'
         )
         assert.isFalse(
-          crossDeviceLink.switchToSmsOptionBtn.isDisplayed(),
+          crossDeviceLink.isOptionBtnPresent('sms'),
           'Test Failed: "Get link via SMS" button should not be displayed'
         )
       })
@@ -208,17 +212,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyNumberInputLabel(copy)
         crossDeviceLink.verifyNumberInput()
         crossDeviceLink.verifySendLinkBtn(copy)
-        assert.isFalse(
-          crossDeviceLink.verifyDivider(),
-          'Test Failed: Cross Device alternative method divider should not be displayed'
         )
         assert.isFalse(
-          crossDeviceLink.switchToQrCodeOptionBtn.isDisplayed(),
-          'Test Failed: "Scan QR code" button should not be displayed'
-        )
-        assert.isFalse(
-          crossDeviceLink.switchToCopyLinkOptionBtn.isDisplayed(),
-          'Test Failed: "Copy link" button should not be displayed'
+          crossDeviceLink.alternativeMethodOptionsSection().isDisplayed(),
+          'Test Failed: Cross Device alternative methods section should not be displayed'
         )
       })
 
