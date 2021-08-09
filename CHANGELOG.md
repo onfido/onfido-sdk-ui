@@ -16,6 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Update copy in Face Liveness Video intro screen from 25s to 20s to reflect the correct time limit
 - Remove old locale key type definitions that are no longer used/exist in code base.
 - UI: Fix QR Code link section rendering issue in Safari 14 on desktops
+- UI: Fixed the text placement to be below the primary button in the Document Upload screen.
 
 ### Changed
 

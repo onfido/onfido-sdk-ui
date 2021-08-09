@@ -154,7 +154,7 @@ const PassportUploadIntro = ({
       >
         <button
           type="button"
-          className={theme.link}
+          className={classNames(theme.link, style.buttonLinkUploadCopy)}
           data-onfido-qa="uploaderButtonLink"
           onClick={nextStep}
         >
@@ -202,7 +202,7 @@ const UploadArea = (props) => {
           {error && <UploadError {...{ error, translate }} />}
           <button
             type="button"
-            className={theme.link}
+            className={classNames(theme.link, style.buttonLinkUploadCopy)}
             data-onfido-qa="uploaderButtonLink"
             disabled={isUploading}
           >
