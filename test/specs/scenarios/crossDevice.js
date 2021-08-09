@@ -197,7 +197,7 @@ export const crossDeviceScenarios = async (lang) => {
         goToCrossDeviceScreen()
         crossDeviceLink.switchToCopyLinkOption()
         crossDeviceLink.copyToClipboardBtn().click()
-        crossDeviceLink.verifyCopyToClipboardBtnLabelChangedState(copy)
+        crossDeviceLink.verifyCopyToClipboardBtnChangedState(copy)
       })
 
       it('should display copy link view by default when excludeSmsCrossDeviceOption is enabled', async () => {
@@ -248,27 +248,16 @@ export const crossDeviceScenarios = async (lang) => {
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
         crossDeviceLink.verifySubtitleQr(copy)
-        crossDeviceLink.qrCodeHelpToggleBtn().click()
         assert.isTrue(
           crossDeviceLink.qrCode().isDisplayed(),
           'Test Failed: QR Code should be visible'
         )
         assert.isTrue(
-          crossDeviceLink.qrCodeHelpList().isDisplayed(),
-          'Test Failed: QR Code help instructions should be visible'
-        )
-        assert.isTrue(
           crossDeviceLink.alternativeMethodsSectionLabel().isDisplayed(),
           'Test Failed: Alternative methods section label should be displayed'
         )
-        assert.isTrue(
-          crossDeviceLink.isOptionBtnPresent('copy_link'),
-          'Test Failed: Copy link button should be displayed'
-        )
-        assert.isTrue(
-          crossDeviceLink.isOptionBtnPresent('sms'),
-          'Test Failed: SMS link button should be displayed'
-        )
+        crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
+        crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
       })
 
       it('should display error when mobile number is not provided', async () => {
