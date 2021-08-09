@@ -45,8 +45,11 @@ const configHasInvalidViewIds = (viewIdsInConfig) => {
   )
   if (invalidViewIds.length > 0) {
     console.log(
-      'Invalid SDK cross device link methods:',
+      'WARNING - Invalid properties in _crossDeviceLinkMethods option:',
       invalidViewIds.join(', ')
+    )
+    console.log(
+      '_crossDeviceLinkMethods must be an array with at least 1 of the following option: "qr_code", "copy_link", "sms"'
     )
     return true
   }
