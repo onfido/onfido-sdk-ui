@@ -243,7 +243,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      it('should display default cross device QR code link view when given invalid alternative methods @dev-test', async () => {
+      it('should display default cross device QR code link view when given invalid alternative methods', async () => {
         driver.get(`${baseUrl}&invalidCrossDeviceAlternativeMethods=true`)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
