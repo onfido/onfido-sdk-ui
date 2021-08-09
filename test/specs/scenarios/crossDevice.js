@@ -218,11 +218,11 @@ export const crossDeviceScenarios = async (lang) => {
         )
         assert.isTrue(
           crossDeviceLink.isOptionBtnPresent('qr_code'),
-          'Test Failed: "Scan QR code" button should be displayed'
+          'Test Failed: QR code button should be displayed'
         )
         assert.isFalse(
           crossDeviceLink.isOptionBtnPresent('sms'),
-          'Test Failed: "Get link via SMS" button should not be displayed'
+          'Test Failed: SMS link button should not be displayed'
         )
       })
 
