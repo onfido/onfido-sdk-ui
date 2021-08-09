@@ -59,6 +59,7 @@ export type QueryParams = {
   showUserAnalyticsEvents?: StringifiedBoolean
   excludeSmsCrossDeviceOption?: StringifiedBoolean
   singleCrossDeviceOption?: StringifiedBoolean
+  invalidCrossDeviceAlternativeMethods?: StringifiedBoolean
 }
 
 export type CheckData = {
@@ -286,6 +287,9 @@ export const getInitSdkOptions = (): SdkOptions => {
   }
   if (queryParamToValueString.singleCrossDeviceOption === 'true') {
     visibleCrossDeviceMethods = ['sms']
+  }
+  if (queryParamToValueString.invalidCrossDeviceAlternativeMethods === 'true') {
+    visibleCrossDeviceMethods = ['copy', 'qrCode', 'sms']
   }
 
   const customUI =

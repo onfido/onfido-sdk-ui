@@ -243,6 +243,34 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
+      it('should display default cross device QR code link view when given invalid alternative methods @dev-test', async () => {
+        driver.get(`${baseUrl}&invalidCrossDeviceAlternativeMethods=true`)
+        goToCrossDeviceScreen()
+        crossDeviceLink.verifyTitle(copy)
+        crossDeviceLink.verifySubtitleQr(copy)
+        crossDeviceLink.qrCodeHelpToggleBtn().click()
+        assert.isTrue(
+          crossDeviceLink.qrCode().isDisplayed(),
+          'Test Failed: QR Code should be visible'
+        )
+        assert.isTrue(
+          crossDeviceLink.qrCodeHelpList().isDisplayed(),
+          'Test Failed: QR Code help instructions should be visible'
+        )
+        assert.isTrue(
+          crossDeviceLink.alternativeMethodsSectionLabel().isDisplayed(),
+          'Test Failed: Alternative methods section label should be displayed'
+        )
+        assert.isTrue(
+          crossDeviceLink.isOptionBtnPresent('copy_link'),
+          'Test Failed: Copy link button should be displayed'
+        )
+        assert.isTrue(
+          crossDeviceLink.isOptionBtnPresent('sms'),
+          'Test Failed: SMS link button should be displayed'
+        )
+      })
+
       it('should display error when mobile number is not provided', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
