@@ -2,6 +2,9 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class CrossDeviceLink extends BasePage {
+  async alternativeMethodsSectionLabel() {
+    return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-styledLabel')
+  }
   async switchToSmsOptionBtn() {
     return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-smsLinkOption')
   }
@@ -159,10 +162,6 @@ class CrossDeviceLink extends BasePage {
 
   async verifyCopyLinkDivider() {
     return this.copyLinkDivider().isDisplayed()
-  }
-
-  async alternativeMethodsSectionLabel() {
-    return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-styledLabel')
   }
 
   async verifyCheckNumberCorrectError(copy) {
