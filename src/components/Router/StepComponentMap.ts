@@ -251,7 +251,7 @@ const buildDocumentComponents = (
   ]
   const isPassportDocument = documentType === 'passport'
 
-  // @TODO: convert SelectIdentityDocument, DocumentFrontCapture, DocumentFrontConfirm & ImageQualityGuide to TS
+  // @TODO: convert SelectIdentityDocument, DocumentFrontConfirm & ImageQualityGuide to TS
   if (isPassportDocument) {
     const preCaptureComponents = hasOnePreselectedDocument
       ? []
