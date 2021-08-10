@@ -328,20 +328,14 @@ class CrossDeviceLinkUI extends Component {
   }
 
   getRequiredViewRenders = () => {
-    const { _crossDeviceLinkMethods } = this.props
+    const { _crossDeviceLinkMethods = [] } = this.props
     const defaultViewRendersMap = {
       qr_code: this.renderQrCodeSection,
       sms: this.renderSmsLinkSection,
       copy_link: this.renderCopyLinkSection,
     }
     if (
-      !_crossDeviceLinkMethods ||
-      (_crossDeviceLinkMethods && _crossDeviceLinkMethods.length < 1)
-    ) {
-      return defaultViewRendersMap
-    }
-    if (
-      _crossDeviceLinkMethods &&
+      _crossDeviceLinkMethods.length < 1 ||
       configHasInvalidViewIds(_crossDeviceLinkMethods)
     ) {
       return defaultViewRendersMap
