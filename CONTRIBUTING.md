@@ -98,25 +98,31 @@ In order to perform a release, please follow the guidelines within [this documen
 Different SDK configuration options can be tested manually inside the previewer that can be found by using the `/previewer` path. E.g. https://localhost:8080/previewer.
 Some of the SDK configuration options can also be previewed in the demo app by using the following query strings:
 
-| QueryString                 | Values              | Default | Description                                                      |
-| --------------------------- | ------------------- | ------- | ---------------------------------------------------------------- |
-| `docVideo`                  | `true`,`false`      | `false` | Enable liveness video feature for the `document` step            |
-| `faceVideo`                 | `true`,`false`      | `false` | Enable liveness video feature for the `face` step                |
-| `useMultipleSelfieCapture`  | `true`,`false`      | `false` | Enable snapshot feature for the `face` step                      |
-| `useModal`                  | `true`,`false`      | `false` | Preview SDK as modal                                             |
-| `language`                  | `en`,`es`,`de`,`fr` | `en`    | Preview SDK in a different language                              |
-| `useWebcam`                 | `true`,`false`      | `false` | Enable the document auto capture feature for the `document` step |
-| `poa`                       | `true`,`false`      | `false` | Enable the `poa` flow                                            |
-| `oneDoc`                    | `true`,`false`      | `false` | Preselect `passport` as the only document type                   |
-| `region`                    | `US`,`CA`,`EU`      | `EU`    | Generate JWT for a supported region with SDK Token Factory       |
-| `useHistory`                | `true`,`false`      | `false` | Enable basic dummy host app history                              |
-| `customisedUI`              | `true`,`false`      | `false` | Enable customised SDK UI                                         |
-| `showUserConsent`           | `true`,`false`      | `false` | Enable user consent step                                         |
-| `customWelcomeScreenCopy`   | `true`,`false`      | `false` | Configure welcome screen with custom text                        |
-| `multiDocWithBooleanValues` | `true`,`false`      | `false` | Enable document types with boolean flags                         |
+| QueryString                 | Values              | Default | Description                                                                              |
+| --------------------------- | ------------------- | ------- | ---------------------------------------------------------------------------------------- |
+| `docVideo`                  | `true`,`false`      | `false` | Enable liveness video feature for the `document` step                                    |
+| `faceVideo`                 | `true`,`false`      | `false` | Enable liveness video feature for the `face` step                                        |
+| `useMultipleSelfieCapture`  | `true`,`false`      | `false` | Enable snapshot feature for the `face` step                                              |
+| `useModal`                  | `true`,`false`      | `false` | Preview SDK as modal                                                                     |
+| `language`                  | `en`,`es`,`de`,`fr` | `en`    | Preview SDK in a different language                                                      |
+| `useWebcam`                 | `true`,`false`      | `false` | Enable the document auto capture feature for the `document` step                         |
+| `useLiveDocumentCapture`    | `true`,`false`      | `false` | Enable the live capture feature for the `document` step                                  |
+| `poa`                       | `true`,`false`      | `false` | Enable the `poa` flow                                                                    |
+| `oneDoc`                    | `true`,`false`      | `false` | Preselect `passport` as the only document type                                           |
+| `region`                    | `US`,`CA`,`EU`      | `EU`    | Generate JWT for a supported region with SDK Token Factory                               |
+| `useHistory`                | `true`,`false`      | `false` | Enable basic dummy host app history                                                      |
+| `customisedUI`              | `true`,`false`      | `false` | Enable customised SDK UI                                                                 |
+| `showUserConsent`           | `true`,`false`      | `false` | Enable user consent step                                                                 |
+| `customWelcomeScreenCopy`   | `true`,`false`      | `false` | Configure welcome screen with custom text                                                |
+| `multiDocWithBooleanValues` | `true`,`false`      | `false` | Enable document types with boolean flags                                                 |
+| `showUserAnalyticsEvents`   | `true`,`false`      | `false` | Enable event listener for User Analytics custom events that are available to integrators |
 
 Usage example: https://localhost:8080?faceVideo=true&language=de
 Please refer to [this file](./src/demo/demoUtils.js) for more available options.
+
+## WebSDK inside native or React Native apps
+
+To quickly verify a WebSDK hosted web application inside a native/React Native app, use the [React Native sample repo](https://github.com/onfido/onfido-sdk-web-sample-react-native)
 
 ## Useful links
 

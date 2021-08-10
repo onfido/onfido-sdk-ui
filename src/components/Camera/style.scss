@@ -104,9 +104,11 @@
   top: 0;
   height: 100%;
   left: -$large-text-margin;
+
   @media (--small-viewport) {
     left: -$small-text-margin;
   }
+
   @media (--smaller-viewport) {
     left: -$smaller-text-margin;
   }
@@ -117,8 +119,12 @@
   }
 
   .docLiveCaptureFrame & {
+    left: 0;
+    top: 50%;
+    margin: auto;
+    transform: translate(0%, -50%);
     height: auto;
-    margin: 0;
+    width: 100%;
   }
 
   /* Only apply styles on Edge where there is no `object-fit:cover` support for video */

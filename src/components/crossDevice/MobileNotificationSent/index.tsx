@@ -38,7 +38,9 @@ const MobileNotificationSent: FunctionComponent<Props> = ({
           {translate('sms_sent.subtitle_minutes')}
         </div>
         <span className={`${theme.icon} ${style.icon}`} />
-        <div className={theme.header}>{translate('sms_sent.info')}</div>
+        <div role="heading" aria-level="2" className={theme.header}>
+          {translate('sms_sent.info')}
+        </div>
         <div className={`${style.help} ${theme.help}`}>
           <ul
             className={theme.helpList}
