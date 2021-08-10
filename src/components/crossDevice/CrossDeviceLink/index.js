@@ -362,7 +362,7 @@ class CrossDeviceLinkUI extends Component {
   }
 
   render() {
-    const { translate, trackScreen, _crossDeviceLinkMethods } = this.props
+    const { translate, trackScreen } = this.props
     const { error, currentViewId } = this.state
     const requiredViewRenders = this.getRequiredViewRenders()
     const currentViewRender = requiredViewRenders[currentViewId]
