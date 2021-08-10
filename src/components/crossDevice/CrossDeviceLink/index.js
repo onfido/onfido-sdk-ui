@@ -39,9 +39,9 @@ const SECURE_LINK_VIEWS = [
 ]
 
 const configHasInvalidViewIds = (viewIdsInConfig) => {
-  const validViewIds = SECURE_LINK_VIEWS.map(({ id }) => id)
+  const validViewIds = new Set(SECURE_LINK_VIEWS.map(({ id }) => id))
   const invalidViewIds = viewIdsInConfig.filter(
-    (viewId) => !validViewIds.includes(viewId)
+    (viewId) => !validViewIds.has(viewId)
   )
   if (invalidViewIds.length > 0) {
     console.warn(
