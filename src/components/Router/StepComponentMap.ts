@@ -180,7 +180,7 @@ const buildRequiredVideoComponents = (
   shouldUseCamera?: boolean,
   mobileFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
-  // @TODO: convert FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm to TS
+  // @TODO: convert FaceVideoCapture, FaceVideoConfirm to TS
   const allVideoSteps = [FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm]
 
   if (mobileFlow && !shouldUseCamera) {
