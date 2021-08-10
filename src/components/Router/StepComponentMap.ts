@@ -86,7 +86,10 @@ export const buildComponentsList = ({
         ),
         captureSteps
       )
-    : buildComponentsFromSteps(crossDeviceComponents, crossDeviceSteps(steps))
+    : buildComponentsFromSteps(
+        crossDeviceDesktopComponents,
+        crossDeviceSteps(steps)
+      )
 }
 
 const isComplete = (step: StepConfig): boolean => step.type === 'complete'
@@ -318,7 +321,7 @@ const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
 }
 
-const crossDeviceComponents: ComponentsByStepType = {
+const crossDeviceDesktopComponents: ComponentsByStepType = {
   // @TODO: convert CrossDeviceIntro into TS
   // @ts-ignore
   crossDevice: [CrossDeviceIntro, CrossDeviceLink, MobileFlow],
