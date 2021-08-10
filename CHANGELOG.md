@@ -21,6 +21,20 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Make "Tips" heading in Cross Device SMS Sent and Mobile Connected screens a level 3 heading.
 - UI: Accessibility - Change Cross Device Send Link alternate option text to be an ARIA heading level 2
 
+### Fixed
+
+- UI: Fix camera view not lining up with Document Live Capture overlay and fix image distortion on some devices' live camera view by maintaining camera view aspect ratio.
+- Public: Fix file selector "capture" prop for WebSDK inside iOS WebView
+- Public: Fix `CROSS_DEVICE_START` user analytic event for integrators never being dispatched when user switches to the Cross Device flow
+- UI: Update copy in Face Liveness Video intro screen from 25s to 20s to reflect the correct time limit
+- Remove old locale key type definitions that are no longer used/exist in code base.
+- UI: Fixed the text placement to be below the primary button in the Document Upload screen.
+
+### Changed
+
+- UI: Accessibility - Make "Tips" heading in Cross Device SMS Sent and Mobile Connected screens a level 3 heading.
+- UI: Accessibility - Change Cross Device Send Link alternate option text to be an ARIA heading level 2
+
 ## [6.11.1] - 2021-07-20
 
 ### Added
