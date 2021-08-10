@@ -44,11 +44,11 @@ const configHasInvalidViewIds = (viewIdsInConfig) => {
     (viewId) => !validViewIds.includes(viewId)
   )
   if (invalidViewIds.length > 0) {
-    console.log(
-      'WARNING - Invalid properties in _crossDeviceLinkMethods option:',
+    console.warn(
+      'Default settings applied. Invalid properties in _crossDeviceLinkMethods option:',
       invalidViewIds.join(', ')
     )
-    console.log(
+    console.warn(
       '_crossDeviceLinkMethods must be an array with at least 1 of the following option: "qr_code", "copy_link", "sms"'
     )
     return true
