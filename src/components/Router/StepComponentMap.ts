@@ -20,10 +20,11 @@ import {
 } from '../Confirm'
 import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
-import MobileFlow from '../crossDevice/MobileFlow'
-import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
-import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
+import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
+import MobileFlow from '../crossDevice/MobileFlow'
+import ClientSessionLinked from '../crossDevice/ClientSessionLinked'
+import ClientSuccess from '../crossDevice/ClientSuccess'
 import FaceVideoIntro from '../FaceVideo/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid } from '~utils'
@@ -74,7 +75,9 @@ export const buildComponentsList = ({
   mobileFlow?: boolean
   deviceHasCameraSupport?: boolean
 }): ComponentStep[] => {
-  const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
+  const captureSteps = mobileFlow
+    ? buildCrossDeviceClientCaptureSteps(steps)
+    : steps
 
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
@@ -96,8 +99,15 @@ const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
 
-const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
-  hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
+const buildCrossDeviceClientCaptureSteps = (
+  steps: StepConfig[]
+): StepConfig[] => {
+  // TODO: splice at actual index of document step
+  steps.splice(1, 0, {
+    type: 'crossDeviceSessionIntro',
+  })
+  return hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
+}
 
 const shouldUseCameraForDocumentCapture = (
   documentStep?: StepConfigDocument,
@@ -127,6 +137,7 @@ const buildCaptureStepComponents = (
   return {
     welcome: [Welcome],
     userConsent: [UserConsent],
+    crossDeviceSessionIntro: [ClientSessionLinked],
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     ...(SDK_ENV === 'Auth' && {
       auth: [LazyAuth],
