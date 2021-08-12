@@ -63,4 +63,7 @@ const ClientSessionLinked: FunctionComponent<Props> = ({ nextStep }) => {
   )
 }
 
-export default trackComponent(ClientSessionLinked, 'client_session_linked')
+export default trackComponent(
+  ClientSessionLinked,
+  'crossDevice_client_session_linked'
+)
