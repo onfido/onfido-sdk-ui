@@ -1,0 +1,43 @@
+@import '../../Theme/constants';
+
+.pageTitle {
+  margin-top: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.icon {
+  @extend %icon-circle-background;
+  height: 144 * $unit;
+  width: 144 * $unit;
+  background-size: contain;
+  background-image: url('./assets/connection-large.svg');
+  margin-top: 32 * $unit;
+  margin-bottom: 32 * $unit;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  //   display: inline-block;
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  top: 16 * $unit;
+}
+
+.help {
+  z-index: 0;
+  margin-bottom: 0;
+  font-size: var(--osdk-font-size-body);
+
+  @media (--shorter-viewport) {
+    font-size: var(--font-size-small);
+  }
+}

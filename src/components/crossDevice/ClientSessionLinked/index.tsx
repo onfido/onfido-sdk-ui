@@ -26,19 +26,38 @@ const ClientSessionLinked: FunctionComponent<Props> = ({ nextStep }) => {
           onClick={nextStep}
           data-onfido-qa="cross-device-linked-session-next-btn"
         >
-          {translate('cross_device_linked_computer.button_primary')}
+          {translate('cross_device_session_linked.button_primary')}
         </Button>
       }
       className={style.container}
     >
       <PageTitle
-        title={translate('cross_device_linked_computer.title')}
-        subTitle={translate('cross_device_linked_computer.subtitle')}
+        title={translate('cross_device_session_linked.title')}
+        subTitle={translate('cross_device_session_linked.subtitle')}
+        className={style.pageTitle}
       />
-      <div>
-        PLACEHOLDER SCREEN
-        <br />
-        TODO: Cross device spam warning - default screen
+      <div className={style.content}>
+        <div className={classNames(theme.icon, style.icon)} />
+        <div
+          className={classNames(theme.header, style.header)}
+          role="heading"
+          aria-level="3"
+        >
+          {translate('cross_device_session_linked.info')}
+        </div>
+        <div className={classNames(theme.help, style.help)}>
+          <ol
+            className={theme.helpList}
+            aria-label={translate('cross_device_session_linked.info')}
+          >
+            <li>
+              {translate('cross_device_session_linked.list_item_sent_by_you')}
+            </li>
+            <li>
+              {translate('cross_device_session_linked.list_item_desktop_open')}
+            </li>
+          </ol>
+        </div>
       </div>
     </ScreenLayout>
   )
