@@ -9,11 +9,11 @@ import { useLocales } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
-import type { WithTrackingProps } from '~types/hocs'
+import type { StepComponentBaseProps } from '~types/routers'
 
 type Props = {
   nextStep: () => void
-} & WithTrackingProps
+} & StepComponentBaseProps
 
 const ClientSessionLinked: FunctionComponent<Props> = ({ nextStep }) => {
   const { translate } = useLocales()
