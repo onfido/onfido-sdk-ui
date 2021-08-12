@@ -20,11 +20,10 @@ import {
 } from '../Confirm'
 import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
-import CrossDeviceIntro from '../crossDevice/Intro'
-import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import MobileFlow from '../crossDevice/MobileFlow'
-import ClientSessionLinked from '../crossDevice/ClientSessionLinked'
+import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
+import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid } from '~utils'
@@ -57,6 +56,7 @@ import type {
   StepConfigDocument,
   StepConfigFace,
 } from '~types/steps'
+import ClientSessionLinked from 'components/crossDevice/ClientSessionLinked'
 
 type ComponentsByStepType = Partial<
   Record<ExtendedStepTypes, ComponentType<StepComponentProps>[]>
@@ -75,9 +75,7 @@ export const buildComponentsList = ({
   mobileFlow?: boolean
   deviceHasCameraSupport?: boolean
 }): ComponentStep[] => {
-  const captureSteps = mobileFlow
-    ? buildCrossDeviceClientCaptureSteps(steps)
-    : steps
+  const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
 
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
@@ -99,15 +97,8 @@ const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
 
-const buildCrossDeviceClientCaptureSteps = (
-  steps: StepConfig[]
-): StepConfig[] => {
-  // TODO: splice at actual index of document step
-  steps.splice(1, 0, {
-    type: 'crossDeviceSessionIntro',
-  })
-  return hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
-}
+const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
+  hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
 const shouldUseCameraForDocumentCapture = (
   documentStep?: StepConfigDocument,
@@ -137,7 +128,6 @@ const buildCaptureStepComponents = (
   return {
     welcome: [Welcome],
     userConsent: [UserConsent],
-    crossDeviceSessionIntro: [ClientSessionLinked],
     face: buildFaceComponents(faceStep, deviceHasCameraSupport, mobileFlow),
     ...(SDK_ENV === 'Auth' && {
       auth: [LazyAuth],
@@ -146,7 +136,8 @@ const buildCaptureStepComponents = (
       documentStep,
       documentType,
       hasOnePreselectedDocument(steps),
-      shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport)
+      shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport),
+      mobileFlow
     ),
     // @TODO: convert PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm to TS
     poa: [
@@ -239,7 +230,8 @@ const buildDocumentComponents = (
   documentStep: StepConfigDocument | undefined,
   documentType: DocumentTypes | undefined,
   hasOnePreselectedDocument: boolean,
-  shouldUseCamera: boolean
+  shouldUseCamera: boolean,
+  mobileFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
   const options = documentStep?.options
 
@@ -273,7 +265,13 @@ const buildDocumentComponents = (
 
     if (shouldUseVideo) {
       // @ts-ignore
-      return [...preCaptureComponents, ...videoCaptureComponents]
+      return mobileFlow
+        ? [
+            ...preCaptureComponents,
+            ClientSessionLinked,
+            ...videoCaptureComponents,
+          ]
+        : [...preCaptureComponents, ...videoCaptureComponents]
     }
 
     const standardCaptureComponents = shouldUseCamera
@@ -281,7 +279,13 @@ const buildDocumentComponents = (
       : [DocumentFrontCapture, ImageQualityGuide, DocumentFrontConfirm]
 
     // @ts-ignore
-    return [...preCaptureComponents, ...standardCaptureComponents]
+    return mobileFlow
+      ? [
+          ...preCaptureComponents,
+          ClientSessionLinked,
+          ...standardCaptureComponents,
+        ]
+      : [...preCaptureComponents, ...standardCaptureComponents]
   }
 
   const countryCode =
@@ -308,14 +312,27 @@ const buildDocumentComponents = (
 
   if (shouldUseVideo) {
     // @ts-ignore
-    return [...preCaptureComponents, ...videoCaptureComponents]
+    return mobileFlow
+      ? [
+          ...preCaptureComponents,
+          ClientSessionLinked,
+          ...videoCaptureComponents,
+        ]
+      : [
+          ...preCaptureComponents,
+          ClientSessionLinked,
+          ...videoCaptureComponents,
+        ]
   }
 
-  const frontCaptureComponents = [
-    ...preCaptureComponents,
-    DocumentFrontCapture,
-    DocumentFrontConfirm,
-  ]
+  const frontCaptureComponents = mobileFlow
+    ? [
+        ...preCaptureComponents,
+        ClientSessionLinked,
+        DocumentFrontCapture,
+        DocumentFrontConfirm,
+      ]
+    : [...preCaptureComponents, DocumentFrontCapture, DocumentFrontConfirm]
 
   if (documentType && doubleSidedDocs.includes(documentType)) {
     // @ts-ignore
