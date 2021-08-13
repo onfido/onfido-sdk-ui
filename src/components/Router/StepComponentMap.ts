@@ -336,11 +336,20 @@ const buildDocumentComponents = (
 
   if (documentType && doubleSidedDocs.includes(documentType)) {
     // @ts-ignore
-    return [...frontCaptureComponents, DocumentBackCapture, DocumentBackConfirm]
+    return mobileFlow
+      ? [
+          ...frontCaptureComponents,
+          ClientSessionLinked,
+          DocumentBackCapture,
+          DocumentBackConfirm,
+        ]
+      : [...frontCaptureComponents, DocumentBackCapture, DocumentBackConfirm]
   }
 
   // @ts-ignore
-  return frontCaptureComponents
+  return mobileFlow
+    ? [ClientSessionLinked, ...frontCaptureComponents]
+    : frontCaptureComponents
 }
 
 const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
