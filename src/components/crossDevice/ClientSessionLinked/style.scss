@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: center;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
@@ -18,14 +18,25 @@
   width: 144 * $unit;
   background-size: contain;
   background-image: url('./assets/connection-large.svg');
-  margin-top: 32 * $unit;
-  margin-bottom: 32 * $unit;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
+
+  @media (--shorter-viewport) {
+    height: 120 * $unit;
+    width: 120 * $unit;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @media (--longer-viewport) {
+    margin-top: 32 * $unit;
+    margin-bottom: 32 * $unit;
+  }
 }
 
 .header {
-  //   display: inline-block;
   position: relative;
   z-index: 1;
   margin-top: 0;
@@ -39,5 +50,6 @@
 
   @media (--shorter-viewport) {
     font-size: var(--font-size-small);
+    padding: 24 * $unit 12 * $unit 12 * $unit;
   }
 }
