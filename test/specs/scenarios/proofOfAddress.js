@@ -17,6 +17,7 @@ const options = {
     'CrossDeviceIntro',
     'CrossDeviceLink',
     'CrossDeviceMobileConnected',
+    'CrossDeviceClientSessionLinked',
     'CrossDeviceClientSuccess',
     'CrossDeviceSubmit',
     'PoaDocumentSelection',
@@ -42,6 +43,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         crossDeviceIntro,
         crossDeviceLink,
         crossDeviceMobileConnected,
+        crossDeviceClientSessionLinked,
         crossDeviceClientSuccess,
         crossDeviceSubmit,
         poaDocumentSelection,
@@ -283,6 +285,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
         await takePercySnapshot(driver, 'Connected to your mobile screen')
         switchBrowserTab(1)
+        crossDeviceClientSessionLinked.continueToNextStep()
         documentUpload.uploaderBtn().isDisplayed()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
         documentSelector.clickOnPassportIcon()

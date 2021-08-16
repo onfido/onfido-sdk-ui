@@ -24,7 +24,7 @@ const ClientSessionLinked: FunctionComponent<Props> = ({ nextStep }) => {
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={nextStep}
-          data-onfido-qa="cross-device-linked-session-next-btn"
+          data-onfido-qa="client-session-linked-primary-btn"
         >
           {translate('cross_device_session_linked.button_primary')}
         </Button>
