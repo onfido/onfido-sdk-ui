@@ -417,6 +417,15 @@ export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
   ],
 }
 
+export const commonVisibleCrossDeviceLinkOptions: Record<string, string[]> = {
+  smsOnly: ['sms'],
+  copyLinkOnly: ['copy_link'],
+  qrCodeOnly: ['qr_code'],
+  excludeSms: ['copy_link', 'qr_code'],
+  reorderOptions: ['sms', 'copy_link', 'qr_code'],
+  invalidOptions: ['copy', 'qrCode', 'sms'],
+}
+
 export const commonLanguages: Record<
   string,
   SupportedLanguages | LocaleConfig
