@@ -356,12 +356,12 @@ class CrossDeviceLinkUI extends Component {
   }
 
   render() {
-    const { translate, trackScreen } = this.props
+    const { translate, trackScreen, _crossDeviceLinkMethods = [] } = this.props
     const { error, currentViewId } = this.state
     const requiredViewRenders = this.getRequiredViewRenders()
     const currentViewRender = requiredViewRenders[currentViewId]
-    const visibleViewOptions = SECURE_LINK_VIEWS.filter(
-      (view) => view.id in requiredViewRenders
+    const visibleViewOptions = _crossDeviceLinkMethods.map((viewId) =>
+      SECURE_LINK_VIEWS.find((view) => view.id === viewId)
     )
 
     return (
