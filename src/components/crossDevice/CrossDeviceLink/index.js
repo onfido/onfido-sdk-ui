@@ -353,7 +353,10 @@ class CrossDeviceLinkUI extends Component {
 
   getVisibleViewOptions = (requiredViewRenders) => {
     const { _crossDeviceLinkMethods } = this.props
-    if (_crossDeviceLinkMethods?.length) {
+    if (
+      _crossDeviceLinkMethods?.length &&
+      !configHasInvalidViewIds(_crossDeviceLinkMethods)
+    ) {
       return _crossDeviceLinkMethods.map((viewId) =>
         SECURE_LINK_VIEWS.find((view) => view.id === viewId)
       )
