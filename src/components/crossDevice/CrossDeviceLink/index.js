@@ -340,9 +340,9 @@ class CrossDeviceLinkUI extends Component {
           >
             {currentViewRender()}
           </div>
-          <p className={style.styledLabel}>
+          <div role="heading" aria-level="2" className={style.styledLabel}>
             {translate('get_link.link_divider')}
-          </p>
+          </div>
           <div
             className={style.viewOptionsGroup}
             aria-controls="selectedLinkView"
