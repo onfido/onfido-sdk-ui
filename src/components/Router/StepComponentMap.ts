@@ -355,18 +355,8 @@ const buildPoaComponents = (
   showClientSessionLinkedIntro: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
   // @TODO: convert PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm to TS
-  const preCaptureComponents = [
-    // @ts-ignore
-    PoAIntro,
-    SelectPoADocument,
-    // @ts-ignore
-    PoAGuidance,
-  ]
-  const captureComponents = [
-    // @ts-ignore
-    PoACapture,
-    DocumentFrontConfirm,
-  ]
+  const preCaptureComponents = [PoAIntro, SelectPoADocument, PoAGuidance]
+  const captureComponents = [PoACapture, DocumentFrontConfirm]
   // @ts-ignore
   return showClientSessionLinkedIntro
     ? [...preCaptureComponents, ClientSessionLinked, ...captureComponents]
