@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## Added
+
+- UI: Added new Intro screen when user begins the Cross Device flow on their mobile device.
+
 ### Fixed
 
 - UI: Fixed the text placement to be below the primary button in the Document Upload screen.
