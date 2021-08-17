@@ -129,6 +129,9 @@ const buildCaptureStepComponents = (
     captureStepTypes.has(step?.type)
   )[0]?.type
 
+  const poaPreCaptureComponents = [PoAIntro, SelectPoADocument, PoAGuidance]
+  const poaCaptureComponents = [PoACapture, DocumentFrontConfirm]
+
   return {
     welcome: [Welcome],
     userConsent: [UserConsent],
@@ -148,7 +151,17 @@ const buildCaptureStepComponents = (
       shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport),
       mobileFlow && firstCaptureStepType === 'document'
     ),
-    poa: buildPoaComponents(mobileFlow && firstCaptureStepType === 'poa'),
+    // FIXME: TS error when using this method - Types of property 'auth' are incompatible.
+    // poa: buildPoaComponents(mobileFlow && firstCaptureStepType === 'poa'),
+    // @ts-ignore
+    poa:
+      mobileFlow && firstCaptureStepType === 'poa'
+        ? [
+            ...poaPreCaptureComponents,
+            ClientSessionLinked,
+            ...poaCaptureComponents,
+          ]
+        : [...poaPreCaptureComponents, ...poaCaptureComponents],
     complete,
   }
 }
@@ -351,17 +364,17 @@ const buildDocumentComponents = (
     : frontCaptureComponents
 }
 
-const buildPoaComponents = (
-  showClientSessionLinkedIntro: boolean | undefined
-): ComponentType<StepComponentProps>[] => {
-  // @TODO: convert PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm to TS
-  const preCaptureComponents = [PoAIntro, SelectPoADocument, PoAGuidance]
-  const captureComponents = [PoACapture, DocumentFrontConfirm]
-  // @ts-ignore
-  return showClientSessionLinkedIntro
-    ? [...preCaptureComponents, ClientSessionLinked, ...captureComponents]
-    : [...preCaptureComponents, ...captureComponents]
-}
+// const buildPoaComponents = (
+//   showClientSessionLinkedIntro: boolean | undefined
+// ): ComponentType<StepComponentProps>[] => {
+//   // @TODO: convert PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm to TS
+//   const preCaptureComponents = [PoAIntro, SelectPoADocument, PoAGuidance]
+//   const captureComponents = [PoACapture, DocumentFrontConfirm]
+//   // @ts-ignore
+//   return showClientSessionLinkedIntro
+//     ? [...preCaptureComponents, ClientSessionLinked, ...captureComponents]
+//     : [...preCaptureComponents, ...captureComponents]
+// }
 
 const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
   const baseSteps: ExtendedStepConfig[] = [{ type: 'crossDevice' }]
