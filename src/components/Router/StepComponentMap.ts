@@ -31,20 +31,6 @@ import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 
-let LazyAuth: ComponentType<ComponentType<Element>>
-
-const SDK_ENV = process.env.SDK_ENV
-
-if (process.env.SDK_ENV === 'Auth') {
-  try {
-    import('../Auth/Lazy')
-      .then((lazy) => (LazyAuth = lazy.default))
-      .catch(() => null)
-  } catch (e) {
-    console.log('there was an error')
-  }
-}
-
 import type {
   ExtendedStepTypes,
   ExtendedStepConfig,
@@ -57,6 +43,20 @@ import type {
   StepConfigDocument,
   StepConfigFace,
 } from '~types/steps'
+
+let LazyAuth: ComponentType<StepComponentProps>
+
+const SDK_ENV = process.env.SDK_ENV
+
+if (process.env.SDK_ENV === 'Auth') {
+  try {
+    import('../Auth/Lazy')
+      .then((lazy) => (LazyAuth = lazy.default))
+      .catch(() => null)
+  } catch (e) {
+    console.log('there was an error')
+  }
+}
 
 type ComponentsByStepType = Partial<
   Record<ExtendedStepTypes, ComponentType<StepComponentProps>[]>
@@ -129,8 +129,27 @@ const buildCaptureStepComponents = (
     captureStepTypes.has(step?.type)
   )[0]?.type
 
-  const poaPreCaptureComponents = [PoAIntro, SelectPoADocument, PoAGuidance]
-  const poaCaptureComponents = [PoACapture, DocumentFrontConfirm]
+  // @TODO: convert PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm to TS
+  const poaPreCaptureComponents: ComponentType<StepComponentProps>[] = [
+    // @ts-ignore
+    PoAIntro,
+    SelectPoADocument,
+    // @ts-ignore
+    PoAGuidance,
+  ]
+  const poaCaptureComponents: ComponentType<StepComponentProps>[] = [
+    // @ts-ignore
+    PoACapture,
+    DocumentFrontConfirm,
+  ]
+  const poa =
+    mobileFlow && firstCaptureStepType === 'poa'
+      ? [
+          ...poaPreCaptureComponents,
+          ClientSessionLinked,
+          ...poaCaptureComponents,
+        ]
+      : [...poaPreCaptureComponents, ...poaCaptureComponents]
 
   return {
     welcome: [Welcome],
@@ -151,17 +170,7 @@ const buildCaptureStepComponents = (
       shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport),
       mobileFlow && firstCaptureStepType === 'document'
     ),
-    // FIXME: TS error when using this method - Types of property 'auth' are incompatible.
-    // poa: buildPoaComponents(mobileFlow && firstCaptureStepType === 'poa'),
-    // @ts-ignore
-    poa:
-      mobileFlow && firstCaptureStepType === 'poa'
-        ? [
-            ...poaPreCaptureComponents,
-            ClientSessionLinked,
-            ...poaCaptureComponents,
-          ]
-        : [...poaPreCaptureComponents, ...poaCaptureComponents],
+    poa,
     complete,
   }
 }
