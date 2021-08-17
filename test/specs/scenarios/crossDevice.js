@@ -261,6 +261,8 @@ export const crossDeviceScenarios = async (lang) => {
           driver,
           `should verify UI elements on the cross device linked session intro screen ${lang}`
         )
+        // Need to switch back to original tab otherwise subsequent tests get stuck
+        switchBrowserTab(0, driver)
       })
 
       it('should successfully complete cross device e2e flow with selfie upload @e2e-latest', async () => {
@@ -286,7 +288,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should succesfully complete cross device e2e flow with document and selfie upload @dev-test', async () => {
+      it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
