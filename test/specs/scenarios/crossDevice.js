@@ -2,11 +2,12 @@ import { assert } from 'chai'
 import { until } from 'selenium-webdriver'
 import { describe, it } from '../../utils/mochaw'
 import { testDeviceMobileNumber } from '../../config.json'
-import { localhostUrl, isRemoteBrowser, browserName } from '../../main'
+import { localhostUrl } from '../../main'
 import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
   switchBrowserTab,
+  takePercySnapshot,
 } from './sharedFlows.js'
 
 const options = {
@@ -99,6 +100,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceIntro.verifySubTitle(copy)
         crossDeviceIntro.verifyIcons(copy)
         crossDeviceIntro.verifyMessages(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device Intro screen ${lang}`
+        )
       })
 
       it('should navigate to cross device when forceCrossDevice is enabled', async () => {
@@ -118,7 +123,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceIntro.verifyTitle(copy)
       })
 
-      it('should verify UI elements on the cross device link screen default QR code view ', async () => {
+      it('should verify UI elements on the cross device link screen default QR code view', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
@@ -139,8 +144,13 @@ export const crossDeviceScenarios = async (lang) => {
           crossDeviceLink.qrCodeHelpList().isDisplayed(),
           'Test Failed: QR Code help instructions should be hidden'
         )
+        crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
         crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device - Scan QR Code method screen ${lang}`
+        )
       })
 
       it('should verify UI elements on the cross device link screen SMS view', async () => {
@@ -153,8 +163,13 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyNumberInputLabel(copy)
         crossDeviceLink.verifyNumberInput()
         crossDeviceLink.verifySendLinkBtn(copy)
+        crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy)
         crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device - SMS Link method screen ${lang}`
+        )
       })
 
       it('should verify UI elements on the cross device link screen copy link view', async () => {
@@ -164,12 +179,17 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.switchToCopyLinkOption()
         crossDeviceLink.expectCurrentUrlToMatchUrl(baseUrl)
         crossDeviceLink.verifySubtitleUrl(copy)
-        crossDeviceLink.verifyCopyLinkInsteadLabel(copy)
-        crossDeviceLink.verifyCopyToClipboardBtn(copy)
+        crossDeviceLink.verifyCopyLinkLabel(copy)
+        crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
         crossDeviceLink.verifyCopyLinkTextContainer()
-        crossDeviceLink.verifyDivider()
+        crossDeviceLink.verifyCopyLinkDivider()
+        crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy)
         crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device - Copy Link method screen ${lang}`
+        )
       })
 
       it('should change the state of the copy to clipboard button after clicking', async () => {
@@ -178,6 +198,66 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.switchToCopyLinkOption()
         crossDeviceLink.copyToClipboardBtn().click()
         crossDeviceLink.verifyCopyToClipboardBtnChangedState(copy)
+      })
+
+      it('should display copy link view by default when excludeSmsCrossDeviceOption is enabled', async () => {
+        driver.get(`${baseUrl}&excludeSmsCrossDeviceOption=true`)
+        goToCrossDeviceScreen()
+        crossDeviceLink.verifyCopyLinkLabel(copy)
+        crossDeviceLink.verifyCopyToClipboardBtnLabel(copy)
+        crossDeviceLink.verifyCopyLinkTextContainer()
+        crossDeviceLink.verifyCopyLinkDivider()
+        crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device copy link screen excludes "send SMS" option when excludeSmsCrossDeviceOption enabled ${lang}`
+        )
+        assert.isTrue(
+          crossDeviceLink.alternativeMethodsSectionLabel().isDisplayed(),
+          'Test Failed: Alternative methods section label should be displayed'
+        )
+        assert.isTrue(
+          crossDeviceLink.isOptionBtnPresent('qr_code'),
+          'Test Failed: QR code button should be displayed'
+        )
+        assert.isFalse(
+          crossDeviceLink.isOptionBtnPresent('sms'),
+          'Test Failed: SMS link button should not be displayed'
+        )
+      })
+
+      it('should display SMS link view only and no alternative options when singleCrossDeviceOption is enabled', async () => {
+        driver.get(`${baseUrl}&singleCrossDeviceOption=true`)
+        goToCrossDeviceScreen()
+        crossDeviceLink.verifySubtitleSms(copy)
+        crossDeviceLink.verifyNumberInputLabel(copy)
+        crossDeviceLink.verifyNumberInput()
+        crossDeviceLink.verifySendLinkBtn(copy)
+        await takePercySnapshot(
+          driver,
+          `Verify Cross Device only Send SMS UI displayed when singleCrossDeviceOption enabled ${lang}`
+        )
+        assert.isFalse(
+          crossDeviceLink.alternativeMethodOptionsSection().isDisplayed(),
+          'Test Failed: Cross Device alternative methods section should not be displayed'
+        )
+      })
+
+      it('should display default cross device QR code link view when given invalid alternative methods', async () => {
+        driver.get(`${baseUrl}&invalidCrossDeviceAlternativeMethods=true`)
+        goToCrossDeviceScreen()
+        crossDeviceLink.verifyTitle(copy)
+        crossDeviceLink.verifySubtitleQr(copy)
+        assert.isTrue(
+          crossDeviceLink.qrCode().isDisplayed(),
+          'Test Failed: QR Code should be visible'
+        )
+        assert.isTrue(
+          crossDeviceLink.alternativeMethodsSectionLabel().isDisplayed(),
+          'Test Failed: Alternative methods section label should be displayed'
+        )
+        crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
+        crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
       })
 
       it('should display error when mobile number is not provided', async () => {
@@ -426,7 +506,8 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.checkLogoIsHidden()
       })
-      it('should show the cobrand logo and onfido logo on all screens when showLogoCobrand is enabled and token has feature enabled', async () => {
+
+      it('should show the cobrand logo and Onfido logo on all screens when showLogoCobrand is enabled and token has feature enabled', async () => {
         driver.get(`${baseUrl}&showLogoCobrand=true`)
         welcome.checkLogoCobrandIsVisible()
         welcome.continueToNextStep()

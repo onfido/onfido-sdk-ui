@@ -2,6 +2,9 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class CrossDeviceLink extends BasePage {
+  async alternativeMethodsSectionLabel() {
+    return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-styledLabel')
+  }
   async switchToSmsOptionBtn() {
     return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-smsLinkOption')
   }
@@ -10,6 +13,25 @@ class CrossDeviceLink extends BasePage {
   }
   async switchToQrCodeOptionBtn() {
     return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeLinkOption')
+  }
+  async alternativeMethodOptionsSection() {
+    return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-viewOptionsGroup')
+  }
+  async alternativeMethodOptions() {
+    return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-viewOption')
+  }
+  async isOptionBtnPresent(option) {
+    const optionBtnClassMap = {
+      copy_link: 'copyLinkOption',
+      qr_code: 'qrCodeLinkOption',
+      sms: 'smsLinkOption',
+    }
+    const alternativeMethodOptionsClasses = this.alternativeMethodOptions()
+      .getAttribute('class')
+      .split(' ')
+    return alternativeMethodOptionsClasses.includes(
+      `onfido-sdk-ui-crossDevice-CrossDeviceLink-${optionBtnClassMap[option]}`
+    )
   }
   async qrCode() {
     return this.$(
@@ -39,7 +61,7 @@ class CrossDeviceLink extends BasePage {
   async sendLinkBtn() {
     return this.$('[data-onfido-qa="cross-device-send-link-btn"]')
   }
-  async copyLinkInsteadLabel() {
+  async copyLinkLabel() {
     return this.$(
       '.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyLinkSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label'
     )
@@ -50,7 +72,7 @@ class CrossDeviceLink extends BasePage {
   async copyLinkTextContainer() {
     return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')
   }
-  async divider() {
+  async copyLinkDivider() {
     return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')
   }
   async checkNumberCorrectError() {
@@ -78,6 +100,13 @@ class CrossDeviceLink extends BasePage {
 
   async verifySwitchToSmsOptionBtn(copy) {
     verifyElementCopy(this.switchToSmsOptionBtn(), copy.get_link.link_sms)
+  }
+
+  async verifyAlternativeMethodsSectionLabel(copy) {
+    verifyElementCopy(
+      this.alternativeMethodsSectionLabel(),
+      copy.get_link.link_divider
+    )
   }
 
   async verifySwitchToCopyLinkOptionBtn(copy) {
@@ -115,14 +144,11 @@ class CrossDeviceLink extends BasePage {
     verifyElementCopy(this.sendLinkBtn(), copy.get_link.button_submit)
   }
 
-  async verifyCopyLinkInsteadLabel(copy) {
-    verifyElementCopy(
-      this.copyLinkInsteadLabel(),
-      copy.get_link.url_field_label
-    )
+  async verifyCopyLinkLabel(copy) {
+    verifyElementCopy(this.copyLinkLabel(), copy.get_link.url_field_label)
   }
 
-  async verifyCopyToClipboardBtn(copy) {
+  async verifyCopyToClipboardBtnLabel(copy) {
     verifyElementCopy(this.copyToClipboardBtn(), copy.get_link.button_copy)
   }
 
@@ -134,8 +160,8 @@ class CrossDeviceLink extends BasePage {
     this.copyLinkTextContainer().isDisplayed()
   }
 
-  async verifyDivider() {
-    this.divider().isDisplayed()
+  async verifyCopyLinkDivider() {
+    return this.copyLinkDivider().isDisplayed()
   }
 
   async verifyCheckNumberCorrectError(copy) {
