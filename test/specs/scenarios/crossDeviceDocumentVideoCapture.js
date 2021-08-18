@@ -11,6 +11,7 @@ const options = {
     'DocumentSelector',
     'CrossDeviceIntro',
     'CrossDeviceLink',
+    'CrossDeviceClientSessionLinked',
     'BasePage',
     'DocumentVideoCapture',
     'DocumentVideoConfirm',
@@ -29,6 +30,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentSelector,
         crossDeviceIntro,
         crossDeviceLink,
+        crossDeviceClientSessionLinked,
         basePage,
         documentVideoCapture,
         documentVideoConfirm,
@@ -51,6 +53,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         driver.sleep(500)
         driver.get(linkText)
         driver.sleep(1000)
+        crossDeviceClientSessionLinked.continueToNextStep()
       }
 
       const userStartsCrossDeviceFlowForIdCard = async () => {
