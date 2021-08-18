@@ -277,15 +277,15 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         )
         copyCrossDeviceLinkAndOpenInNewTab()
         assert.isTrue(
-          crossDeviceLink.title().isDisplayed(),
-          'Test Failed: Submit statement title should be visible'
+          crossDeviceClientSessionLinked.title().isDisplayed(),
+          'Test Failed: Cross Device Client Session Intro title should be visible'
         )
-        await takePercySnapshot(driver, 'Submit statement')
         switchBrowserTab(0)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
         await takePercySnapshot(driver, 'Connected to your mobile screen')
         switchBrowserTab(1)
         crossDeviceClientSessionLinked.continueToNextStep()
+        await takePercySnapshot(driver, 'Submit statement')
         documentUpload.uploaderBtn().isDisplayed()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
         documentSelector.clickOnPassportIcon()
