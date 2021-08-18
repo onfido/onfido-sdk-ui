@@ -253,28 +253,17 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaDocumentSelection.clickOnBankIcon()
         poaGuidance.clickOnContinueButton()
         documentUpload.switchToCrossDevice()
-        await takePercySnapshot(driver, 'Continue on your phone screen for PoA')
+        await takePercySnapshot(
+          driver,
+          'Cross Device Intro screen for PoA flow'
+        )
         crossDeviceIntro.continueToNextStep()
         assert.isTrue(
           crossDeviceLink.qrCode().isDisplayed(),
           'Test Failed: QR Code should be visible'
         )
-        await takePercySnapshot(
-          driver,
-          'Get your secure link screen - QR Code',
-          {
-            percyCSS: `div.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer > svg { display: none; }`,
-          }
-        )
         crossDeviceLink.switchToCopyLinkOption()
         crossDeviceLink.verifyCopyLinkTextContainer()
-        await takePercySnapshot(
-          driver,
-          'Get your secure link screen - Copy the link to your mobile browser',
-          {
-            percyCSS: `span.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText { display: none; }`,
-          }
-        )
         copyCrossDeviceLinkAndOpenInNewTab()
         assert.isTrue(
           crossDeviceClientSessionLinked.title().isDisplayed(),
@@ -285,7 +274,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         await takePercySnapshot(driver, 'Connected to your mobile screen')
         switchBrowserTab(1)
         crossDeviceClientSessionLinked.continueToNextStep()
-        await takePercySnapshot(driver, 'Submit statement')
+        await takePercySnapshot(driver, 'Submit PoA bank statement')
         documentUpload.uploaderBtn().isDisplayed()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
         documentSelector.clickOnPassportIcon()
@@ -301,7 +290,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         await takePercySnapshot(
           driver,
-          'Great, that’s everything we need screen'
+          'Cross Device - Submit Verification screen'
         )
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)
