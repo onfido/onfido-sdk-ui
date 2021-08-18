@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - UI: Fixed the text placement to be below the primary button in the Document Upload screen.
+- Public: Fixed cross-device connection issue when cross-device link is accessed multiple times.
 - UI: Fix QR Code link section rendering issue in Safari 14 on desktops
 
 ## [6.12.0] - 2021-08-10
