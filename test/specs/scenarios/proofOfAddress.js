@@ -253,10 +253,6 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaDocumentSelection.clickOnBankIcon()
         poaGuidance.clickOnContinueButton()
         documentUpload.switchToCrossDevice()
-        await takePercySnapshot(
-          driver,
-          'Cross Device Intro screen for PoA flow'
-        )
         crossDeviceIntro.continueToNextStep()
         assert.isTrue(
           crossDeviceLink.qrCode().isDisplayed(),
