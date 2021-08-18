@@ -102,10 +102,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceIntro.verifySubTitle(copy)
         crossDeviceIntro.verifyIcons(copy)
         crossDeviceIntro.verifyMessages(copy)
-        await takePercySnapshot(
-          driver,
-          `Verify Cross Device Intro screen ${lang}`
-        )
+        await takePercySnapshot(driver, `Cross Device Intro screen ${lang}`)
       })
 
       it('should navigate to cross device when forceCrossDevice is enabled', async () => {
@@ -218,7 +215,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         await takePercySnapshot(
           driver,
-          `Verify Cross Device - Get your secure link screen configured to exclude "send SMS" option - copy link view ${lang}`,
+          `Cross Device - Get your secure link screen configured to exclude "send SMS" option - copy link view ${lang}`,
           {
             percyCSS: `span.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText { display: none; }`,
           }
@@ -246,7 +243,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifySendLinkBtn(copy)
         await takePercySnapshot(
           driver,
-          `Verify Cross Device - Get your secure link screen configured to only show Send SMS UI ${lang}`
+          `Cross Device - Get your secure link screen configured to only show Send SMS UI ${lang}`
         )
         assert.isFalse(
           crossDeviceLink.alternativeMethodOptionsSection().isDisplayed(),
@@ -347,7 +344,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceClientSessionLinked.verifyUIElements(copy)
         await takePercySnapshot(
           driver,
-          `Verify Cross Device Linked Session Intro screen ${lang}`
+          `Cross Device Linked Session Intro screen ${lang}`
         )
         // Need to switch back to original tab otherwise subsequent tests get stuck
         switchBrowserTab(0, driver)
