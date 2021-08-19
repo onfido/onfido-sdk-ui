@@ -78,7 +78,11 @@ class ModalApp extends Component<Props> {
   }
 
   componentWillUnmount() {
-    this.props.socket && this.props.socket.close()
+    const { roomId, socket } = this.props
+    if (socket) {
+      roomId && socket.emit('leave', { roomId })
+      socket.close()
+    }
     this.events.removeAllListeners(['complete', 'error'])
     Tracker.uninstall()
   }

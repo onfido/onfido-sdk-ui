@@ -3,9 +3,19 @@ import { buildCaptureStateKey } from '~utils/redux'
 
 import type { CaptureActions, CaptureState, CaptureKeys } from '~types/redux'
 
-export const initialState: CaptureState = {}
+export const initialState: CaptureState = {
+  takesHistory: {
+    document_front: [],
+    document_back: [],
+    document_video: [],
+    face: [],
+  },
+}
 
-const getKeyByCaptureId = (captures: CaptureState = {}, captureId: string) => {
+const getKeyByCaptureId = (
+  captures: CaptureState = initialState,
+  captureId: string
+) => {
   const matched = Object.entries(captures).find(
     ([, value]) => value?.id === captureId
   )
@@ -32,7 +42,27 @@ export default function captures(
 
   if (action.type === constants.CAPTURE_CREATE) {
     const key = buildCaptureStateKey(action.payload)
-    return { ...state, [key]: action.payload }
+
+    // Record a new capture created
+    const { [key]: currentTakesHistory } = state.takesHistory
+    const newTakesHistory = [...currentTakesHistory, new Date().toISOString()]
+
+    const newPayload = {
+      ...action.payload,
+      sdkMetadata: {
+        ...action.payload.sdkMetadata,
+        // Write latest `take_number` to `sdkMetadata`
+        take_number: newTakesHistory.length,
+      },
+    }
+
+    return {
+      ...state,
+      [key]: newPayload,
+
+      // Update `takesHistory` with latest data
+      takesHistory: { ...state.takesHistory, [key]: newTakesHistory },
+    }
   }
 
   if (action.type === constants.SET_CAPTURE_METADATA) {
