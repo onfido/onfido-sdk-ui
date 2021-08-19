@@ -68,6 +68,8 @@ export interface SdkOptions extends FunctionalConfigurations {
   steps?: Array<StepTypes | StepConfig>
   enterpriseFeatures?: EnterpriseFeatures
   customUI?: UICustomizationOptions | null
+  crossDeviceClientSessionIntroProductName?: string
+  crossDeviceClientSessionIntroProductLogoSrc?: string
   _crossDeviceLinkMethods?: Array<string> | null
 }
 
