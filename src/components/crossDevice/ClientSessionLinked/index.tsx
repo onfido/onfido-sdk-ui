@@ -11,7 +11,11 @@ import style from './style.scss'
 
 import type { StepComponentBaseProps } from '~types/routers'
 
-const ClientSessionLinked: FunctionComponent<StepComponentBaseProps> = () => {
+type Props = {
+  nextStep: () => void
+} & StepComponentBaseProps
+
+const ClientSessionLinked: FunctionComponent<Props> = ({ nextStep }) => {
   const { translate } = useLocales()
   return (
     <ScreenLayout
@@ -19,7 +23,7 @@ const ClientSessionLinked: FunctionComponent<StepComponentBaseProps> = () => {
         <Button
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
-          onClick={this.props.nextStep}
+          onClick={nextStep}
           data-onfido-qa="client-session-linked-primary-btn"
         >
           {translate('cross_device_session_linked.button_primary')}
