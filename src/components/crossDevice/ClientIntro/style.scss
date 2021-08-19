@@ -36,6 +36,24 @@
   }
 }
 
+.customIcon {
+  height: 144 * $unit;
+  width: 144 * $unit;
+  margin: 0 auto;
+
+  @media (--shorter-viewport) {
+    height: 120 * $unit;
+    width: 120 * $unit;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @media (--longer-viewport) {
+    margin-top: 32 * $unit;
+    margin-bottom: 32 * $unit;
+  }
+}
+
 .header {
   position: relative;
   z-index: 1;
