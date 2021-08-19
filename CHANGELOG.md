@@ -10,6 +10,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [6.13.0] - 2021-08-19
 
+### Added
+
+- Internal: New data field in metadata to track number of takes for each submitted image.
+
 ### Fixed
 
 - UI: Fixed the text placement to be below the primary button in the Document Upload screen.
@@ -31,10 +35,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Accessibility - Make "Tips" heading in Cross Device SMS Sent and Mobile Connected screens a level 3 heading.
 - UI: Accessibility - Change Cross Device Send Link alternate option text to be an ARIA heading level 2
-
-### Added
-
-- Internal: New data field in metadata to track number of takes for each submitted image.
 
 ## [6.11.1] - 2021-07-20
 
