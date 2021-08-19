@@ -2,7 +2,7 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-      - '*.*.*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - '*.*.*' # Push event for tags matching *.*.*, i.e. 6.10.2 (and 6.10.2-rc.1)
 
 name: Create Release in Github
 
