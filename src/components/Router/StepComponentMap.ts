@@ -22,7 +22,7 @@ import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
-import ClientSessionLinked from 'components/crossDevice/ClientSessionLinked'
+import CrossDeviceClientIntro from 'components/crossDevice/ClientIntro'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
@@ -198,7 +198,12 @@ const buildRequiredVideoComponents = (
 ): ComponentType<StepComponentProps>[] => {
   // @TODO: convert FaceVideoCapture, FaceVideoConfirm to TS
   const allVideoSteps = showCrossDeviceClientSessionIntro
-    ? [FaceVideoIntro, ClientSessionLinked, FaceVideoCapture, FaceVideoConfirm]
+    ? [
+        FaceVideoIntro,
+        CrossDeviceClientIntro,
+        FaceVideoCapture,
+        FaceVideoConfirm,
+      ]
     : [FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm]
 
   if (mobileFlow && !shouldUseCamera) {
@@ -217,7 +222,7 @@ const buildRequiredSelfieComponents = (
 ): ComponentType<StepComponentProps>[] => {
   // @TODO: convert SelfieIntro, SelfieCapture, SelfieConfirm to TS
   const allSelfieSteps = showCrossDeviceClientSessionIntro
-    ? [ClientSessionLinked, SelfieIntro, SelfieCapture, SelfieConfirm]
+    ? [CrossDeviceClientIntro, SelfieIntro, SelfieCapture, SelfieConfirm]
     : [SelfieIntro, SelfieCapture, SelfieConfirm]
 
   if (!deviceHasCameraSupport) {
@@ -284,7 +289,7 @@ const buildDocumentComponents = (
       return showCrossDeviceClientSessionIntro
         ? [
             ...preCaptureComponents,
-            ClientSessionLinked,
+            CrossDeviceClientIntro,
             ...videoCaptureComponents,
           ]
         : [...preCaptureComponents, ...videoCaptureComponents]
@@ -298,7 +303,7 @@ const buildDocumentComponents = (
     return showCrossDeviceClientSessionIntro
       ? [
           ...preCaptureComponents,
-          ClientSessionLinked,
+          CrossDeviceClientIntro,
           ...standardCaptureComponents,
         ]
       : [...preCaptureComponents, ...standardCaptureComponents]
@@ -331,7 +336,7 @@ const buildDocumentComponents = (
     return showCrossDeviceClientSessionIntro
       ? [
           ...preCaptureComponents,
-          ClientSessionLinked,
+          CrossDeviceClientIntro,
           ...videoCaptureComponents,
         ]
       : [...preCaptureComponents, ...videoCaptureComponents]
@@ -340,7 +345,7 @@ const buildDocumentComponents = (
   const frontCaptureComponents = showCrossDeviceClientSessionIntro
     ? [
         ...preCaptureComponents,
-        ClientSessionLinked,
+        CrossDeviceClientIntro,
         DocumentFrontCapture,
         DocumentFrontConfirm,
       ]
@@ -353,7 +358,11 @@ const buildDocumentComponents = (
 
   // @ts-ignore
   return showCrossDeviceClientSessionIntro
-    ? [ClientSessionLinked, ...frontCaptureComponents]
+    ? [
+        ...frontCaptureComponents,
+        CrossDeviceClientIntro,
+        ...frontCaptureComponents,
+      ]
     : frontCaptureComponents
 }
 
@@ -365,7 +374,7 @@ const buildPoaComponents = (
   const captureComponents = [PoACapture, DocumentFrontConfirm]
   // @ts-ignore
   return showCrossDeviceClientSessionIntro
-    ? [...preCaptureComponents, ClientSessionLinked, ...captureComponents]
+    ? [...preCaptureComponents, CrossDeviceClientIntro, ...captureComponents]
     : [...preCaptureComponents, ...captureComponents]
 }
 
