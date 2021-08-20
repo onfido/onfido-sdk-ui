@@ -82,9 +82,11 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     { userStepIndex, clientStepIndex }
   ) => {
     if (newFlow === 'crossDeviceSteps') {
+      // Cross Device flow on mobile client starts with an additional Intro screen (CX-5496)
+      // So userStepIndex, clientStepIndex needs to be adjusted by 1 to keep steps in sync
       this.setState({
-        crossDeviceInitialStep: userStepIndex,
-        crossDeviceInitialClientStep: clientStepIndex,
+        crossDeviceInitialStep: userStepIndex - 1,
+        crossDeviceInitialClientStep: clientStepIndex - 1,
       })
     }
   }
