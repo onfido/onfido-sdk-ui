@@ -18,7 +18,7 @@ const options = {
     'DocumentSelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
-    'CrossDeviceClientSessionLinked',
+    'CrossDeviceClientIntro',
     'CrossDeviceClientSuccess',
     'CrossDeviceIntro',
     'CrossDeviceLink',
@@ -43,7 +43,7 @@ export const crossDeviceScenarios = async (lang) => {
         documentSelector,
         passportUploadImageGuide,
         documentUpload,
-        crossDeviceClientSessionLinked,
+        crossDeviceClientIntro,
         crossDeviceClientSuccess,
         crossDeviceIntro,
         crossDeviceLink,
@@ -341,7 +341,7 @@ export const crossDeviceScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
         switchToCrossDeviceFlow()
-        crossDeviceClientSessionLinked.verifyUIElements(copy)
+        crossDeviceClientIntro.verifyUIElements(copy)
         await takePercySnapshot(
           driver,
           `Cross Device Linked Session Intro screen ${lang}`
@@ -381,7 +381,7 @@ export const crossDeviceScenarios = async (lang) => {
           `?language=${lang}&useUploader=true`
         )
         switchToCrossDeviceFlow()
-        crossDeviceClientSessionLinked.continueToNextStep()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
@@ -403,7 +403,7 @@ export const crossDeviceScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
         switchToCrossDeviceFlow()
-        crossDeviceClientSessionLinked.continueToNextStep()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
@@ -429,7 +429,7 @@ export const crossDeviceScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
         switchToCrossDeviceFlow()
-        crossDeviceClientSessionLinked.continueToNextStep()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
@@ -454,8 +454,8 @@ export const crossDeviceScenarios = async (lang) => {
         documentSelector.checkLogoIsHidden()
         documentSelector.clickOnPassportIcon()
         switchToCrossDeviceFlow()
-        crossDeviceClientSessionLinked.checkLogoIsHidden()
-        crossDeviceClientSessionLinked.continueToNextStep()
+        crossDeviceClientIntro.checkLogoIsHidden()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.checkLogoIsHidden()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
@@ -484,8 +484,8 @@ export const crossDeviceScenarios = async (lang) => {
         documentSelector.checkCobrandIsVisible()
         documentSelector.clickOnPassportIcon()
         switchToCrossDeviceFlow()
-        crossDeviceClientSessionLinked.checkCobrandIsVisible()
-        crossDeviceClientSessionLinked.continueToNextStep()
+        crossDeviceClientIntro.checkCobrandIsVisible()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.checkCobrandIsVisible()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
@@ -514,8 +514,8 @@ export const crossDeviceScenarios = async (lang) => {
         documentSelector.checkLogoIsHidden()
         documentSelector.clickOnPassportIcon()
         switchToCrossDeviceFlow()
-        crossDeviceClientSessionLinked.checkLogoIsHidden()
-        crossDeviceClientSessionLinked.continueToNextStep()
+        crossDeviceClientIntro.checkLogoIsHidden()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.checkLogoIsHidden()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
@@ -544,8 +544,8 @@ export const crossDeviceScenarios = async (lang) => {
         documentSelector.checkLogoCobrandIsVisible()
         documentSelector.clickOnPassportIcon()
         switchToCrossDeviceFlow()
-        crossDeviceClientSessionLinked.checkLogoCobrandIsVisible()
-        crossDeviceClientSessionLinked.continueToNextStep()
+        crossDeviceClientIntro.checkLogoCobrandIsVisible()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.checkLogoCobrandIsVisible()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(

@@ -17,7 +17,7 @@ const options = {
     'CrossDeviceIntro',
     'CrossDeviceLink',
     'CrossDeviceMobileConnected',
-    'CrossDeviceClientSessionLinked',
+    'CrossDeviceClientIntro',
     'CrossDeviceClientSuccess',
     'CrossDeviceSubmit',
     'PoaDocumentSelection',
@@ -43,7 +43,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         crossDeviceIntro,
         crossDeviceLink,
         crossDeviceMobileConnected,
-        crossDeviceClientSessionLinked,
+        crossDeviceClientIntro,
         crossDeviceClientSuccess,
         crossDeviceSubmit,
         poaDocumentSelection,
@@ -262,14 +262,14 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         crossDeviceLink.verifyCopyLinkTextContainer()
         copyCrossDeviceLinkAndOpenInNewTab()
         assert.isTrue(
-          crossDeviceClientSessionLinked.title().isDisplayed(),
+          crossDeviceClientIntro.title().isDisplayed(),
           'Test Failed: Cross Device Client Session Intro title should be visible'
         )
         switchBrowserTab(0)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
         await takePercySnapshot(driver, 'Connected to your mobile screen')
         switchBrowserTab(1)
-        crossDeviceClientSessionLinked.continueToNextStep()
+        crossDeviceClientIntro.continueToNextStep()
         await takePercySnapshot(driver, 'Submit PoA bank statement')
         documentUpload.uploaderBtn().isDisplayed()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')

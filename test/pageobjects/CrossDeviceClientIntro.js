@@ -2,17 +2,17 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 import { asyncForEach } from '../utils/async'
 
-class CrossDeviceClientSessionLinked extends BasePage {
+class CrossDeviceClientIntro extends BasePage {
   async icon() {
-    return this.$('.onfido-sdk-ui-crossDevice-ClientSessionLinked-icon')
+    return this.$('.onfido-sdk-ui-crossDevice-ClientIntro-icon')
   }
 
   async infoHeader() {
-    return this.$('.onfido-sdk-ui-crossDevice-ClientSessionLinked-header')
+    return this.$('.onfido-sdk-ui-crossDevice-ClientIntro-header')
   }
   async infoList() {
     return this.$(
-      '.onfido-sdk-ui-crossDevice-ClientSessionLinked-help .onfido-sdk-ui-Theme-helpList li'
+      '.onfido-sdk-ui-crossDevice-ClientIntro-help .onfido-sdk-ui-Theme-helpList li'
     )
   }
 
@@ -42,4 +42,4 @@ class CrossDeviceClientSessionLinked extends BasePage {
   }
 }
 
-export default CrossDeviceClientSessionLinked
+export default CrossDeviceClientIntro
