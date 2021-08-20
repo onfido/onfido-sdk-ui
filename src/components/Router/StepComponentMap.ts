@@ -128,6 +128,12 @@ const buildCaptureStepComponents = (
   const firstCaptureStepType = steps.filter((step) =>
     captureStepTypes.has(step?.type)
   )[0]?.type
+  const showCrossDeviceClientSessionIntroForFaceStep =
+    mobileFlow && firstCaptureStepType === 'face'
+  const showCrossDeviceClientSessionIntroForDocumentStep =
+    mobileFlow && firstCaptureStepType === 'document'
+  const showCrossDeviceClientSessionIntroForPoaStep =
+    mobileFlow && firstCaptureStepType === 'poa'
 
   return {
     welcome: [Welcome],
@@ -136,7 +142,7 @@ const buildCaptureStepComponents = (
       faceStep,
       deviceHasCameraSupport,
       mobileFlow,
-      mobileFlow && firstCaptureStepType === 'face'
+      showCrossDeviceClientSessionIntroForFaceStep
     ),
     ...(SDK_ENV === 'Auth' && {
       auth: [LazyAuth],
@@ -146,9 +152,9 @@ const buildCaptureStepComponents = (
       documentType,
       hasOnePreselectedDocument(steps),
       shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport),
-      mobileFlow && firstCaptureStepType === 'document'
+      showCrossDeviceClientSessionIntroForDocumentStep
     ),
-    poa: buildPoaComponents(mobileFlow && firstCaptureStepType === 'poa'),
+    poa: buildPoaComponents(showCrossDeviceClientSessionIntroForPoaStep),
     complete,
   }
 }
