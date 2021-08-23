@@ -22,7 +22,7 @@ jobs:
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2.0.0
         with:
-          validation_depth: 1
+          validation_depth: 0
           version: ${{ steps.tag_name.outputs.current_version }}
           path: ./CHANGELOG.md
       - name: Create Release
