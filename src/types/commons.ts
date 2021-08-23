@@ -63,6 +63,7 @@ export type SdkMetadata = {
     height?: number
     width?: number
   }
+  take_number?: number
 }
 
 export type CountryData = {

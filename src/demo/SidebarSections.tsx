@@ -10,6 +10,7 @@ import {
   commonLanguages,
   commonRegions,
   commonSteps,
+  commonVisibleCrossDeviceLinkOptions,
 } from './demoUtils'
 
 import { UICustomizationOptions } from '~types/ui-customisation-options'
@@ -115,6 +116,25 @@ export const SdkOptionsView: FunctionComponent<{
         />
       </div>
     </label>
+
+    <div className="label">
+      _crossDeviceLinkMethods
+      <div>
+        {Object.keys(commonVisibleCrossDeviceLinkOptions).map((key) => (
+          <input
+            type="button"
+            key={key}
+            value={key}
+            onClick={() =>
+              updateSdkOptions({
+                _crossDeviceLinkMethods:
+                  commonVisibleCrossDeviceLinkOptions[key],
+              })
+            }
+          />
+        ))}
+      </div>
+    </div>
 
     <div className="label">
       steps

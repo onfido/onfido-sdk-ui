@@ -38,6 +38,24 @@ const SECURE_LINK_VIEWS = [
   },
 ]
 
+const configHasInvalidViewIds = (viewIdsInConfig) => {
+  const validViewIds = new Set(SECURE_LINK_VIEWS.map(({ id }) => id))
+  const invalidViewIds = viewIdsInConfig.filter(
+    (viewId) => !validViewIds.has(viewId)
+  )
+  if (invalidViewIds.length > 0) {
+    console.warn(
+      'Default settings applied. Invalid properties in _crossDeviceLinkMethods option:',
+      invalidViewIds.join(', ')
+    )
+    console.warn(
+      '_crossDeviceLinkMethods must be an array with at least 1 of the following option: "qr_code", "copy_link", "sms"'
+    )
+    return true
+  }
+  return false
+}
+
 const validatesViewIdWithFallback = (viewId) => {
   const validViewIds = SECURE_LINK_VIEWS.map(({ id }) => id)
 
@@ -135,11 +153,13 @@ class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
 
+    const documentStep = props.steps.find(({ type }) => type === 'document')
+    const restrictedCrossDeviceLinkMethods = props._crossDeviceLinkMethods || []
+    const initialViewId =
+      restrictedCrossDeviceLinkMethods[0] ||
+      documentStep?.options?._initialCrossDeviceLinkView
     this.state = {
-      currentViewId: validatesViewIdWithFallback(
-        props.steps.find(({ type }) => type === 'document')?.options
-          ?._initialCrossDeviceLinkView
-      ),
+      currentViewId: validatesViewIdWithFallback(initialViewId),
       sending: false,
       error: {},
       validNumber: true,
@@ -307,6 +327,43 @@ class CrossDeviceLinkUI extends Component {
     this.viewOptionBtn.blur()
   }
 
+  getRequiredViewRenders = () => {
+    const { _crossDeviceLinkMethods = [] } = this.props
+    const defaultViewRendersMap = {
+      qr_code: this.renderQrCodeSection,
+      sms: this.renderSmsLinkSection,
+      copy_link: this.renderCopyLinkSection,
+    }
+    if (
+      _crossDeviceLinkMethods.length < 1 ||
+      configHasInvalidViewIds(_crossDeviceLinkMethods)
+    ) {
+      return defaultViewRendersMap
+    }
+
+    const requiredViewRendersMap = _crossDeviceLinkMethods.reduce(
+      (result, viewId) => {
+        result[viewId] = defaultViewRendersMap[viewId]
+        return result
+      },
+      {}
+    )
+    return requiredViewRendersMap
+  }
+
+  getVisibleViewOptions = (requiredViewRenders) => {
+    const { _crossDeviceLinkMethods } = this.props
+    if (
+      _crossDeviceLinkMethods?.length &&
+      !configHasInvalidViewIds(_crossDeviceLinkMethods)
+    ) {
+      return _crossDeviceLinkMethods.map((viewId) =>
+        SECURE_LINK_VIEWS.find((view) => view.id === viewId)
+      )
+    }
+    return SECURE_LINK_VIEWS.filter((view) => view.id in requiredViewRenders)
+  }
+
   componentWillUnmount() {
     this.clearSendLinkClickTimeout()
   }
@@ -314,11 +371,9 @@ class CrossDeviceLinkUI extends Component {
   render() {
     const { translate, trackScreen } = this.props
     const { error, currentViewId } = this.state
-    const currentViewRender = {
-      qr_code: this.renderQrCodeSection,
-      sms: this.renderSmsLinkSection,
-      copy_link: this.renderCopyLinkSection,
-    }[currentViewId]
+    const requiredViewRenders = this.getRequiredViewRenders()
+    const currentViewRender = requiredViewRenders[currentViewId]
+    const visibleViewOptions = this.getVisibleViewOptions(requiredViewRenders)
 
     return (
       <div className={style.container}>
@@ -328,7 +383,7 @@ class CrossDeviceLinkUI extends Component {
           <PageTitle
             title={translate('get_link.title')}
             subTitle={translate(
-              SECURE_LINK_VIEWS.find(({ id }) => id === currentViewId).subtitle
+              visibleViewOptions.find(({ id }) => id === currentViewId).subtitle
             )}
           />
         )}
@@ -340,32 +395,34 @@ class CrossDeviceLinkUI extends Component {
           >
             {currentViewRender()}
           </div>
-          <div role="heading" aria-level="2" className={style.styledLabel}>
-            {translate('get_link.link_divider')}
-          </div>
+          {visibleViewOptions.length > 1 && (
+            <div role="heading" aria-level="2" className={style.styledLabel}>
+              {translate('get_link.link_divider')}
+            </div>
+          )}
           <div
             className={style.viewOptionsGroup}
             aria-controls="selectedLinkView"
           >
-            {SECURE_LINK_VIEWS.filter(
-              (view) => view.id !== this.state.currentViewId
-            ).map((view) => (
-              <a
-                href="#"
-                className={classNames(
-                  theme.link,
-                  style.viewOption,
-                  style[view.className]
-                )}
-                ref={(node) => (this.viewOptionBtn = node)}
-                onClick={preventDefaultOnClick(() =>
-                  this.handleViewOptionSelect(view.id)
-                )}
-                key={`view_${view.id}`}
-              >
-                {translate(view.label)}
-              </a>
-            ))}
+            {visibleViewOptions
+              .filter((view) => view.id !== currentViewId)
+              .map((view) => (
+                <a
+                  href="#"
+                  className={classNames(
+                    theme.link,
+                    style.viewOption,
+                    style[view.className]
+                  )}
+                  ref={(node) => (this.viewOptionBtn = node)}
+                  onClick={preventDefaultOnClick(() =>
+                    this.handleViewOptionSelect(view.id)
+                  )}
+                  key={`view_${view.id}`}
+                >
+                  {translate(view.label)}
+                </a>
+              ))}
           </div>
         </div>
       </div>

@@ -14,6 +14,10 @@ $parent-width: 432;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  // To fix Safari flexbox rendering issue by forcing the div to be rendered in a new composite layer,
+  // see https://stackoverflow.com/questions/65524383/flexbox-bug-on-safari -> https://stackoverflow.com/questions/19169089/weird-css-stretching-issue-in-ios7-safari-and-chrome
+  transform: translateZ(0);
 }
 
 .selectedLinkView {
