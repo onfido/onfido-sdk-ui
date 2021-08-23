@@ -244,7 +244,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true&photoCaptureFallback=false`
+        `?language=${lang}&faceVideo=true&photoCaptureFallback=false`
       )
       driver.executeScript('window.MediaRecorder = undefined')
       documentUpload.clickUploadButton()
