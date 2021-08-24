@@ -130,31 +130,49 @@ const buildCaptureStepComponents = (
   )[0]?.type
   const showCrossDeviceClientIntroForFaceStep =
     mobileFlow && firstCaptureStepType === 'face'
+  const CrossDeviceClientIntroForFaceStep = showCrossDeviceClientIntroForFaceStep
+    ? [CrossDeviceClientIntro]
+    : []
   const showCrossDeviceClientIntroForDocumentStep =
     mobileFlow && firstCaptureStepType === 'document'
+  const CrossDeviceClientIntroForDocumentStep = showCrossDeviceClientIntroForFaceStep
+    ? [CrossDeviceClientIntro]
+    : []
   const showCrossDeviceClientIntroForPoaStep =
     mobileFlow && firstCaptureStepType === 'poa'
+  const CrossDeviceClientIntroForPoaStep = showCrossDeviceClientIntroForFaceStep
+    ? [CrossDeviceClientIntro]
+    : []
 
   return {
     welcome: [Welcome],
     userConsent: [UserConsent],
-    face: buildFaceComponents(
-      faceStep,
-      deviceHasCameraSupport,
-      mobileFlow,
-      showCrossDeviceClientIntroForFaceStep
-    ),
+    face: [
+      ...CrossDeviceClientIntroForFaceStep,
+      ...buildFaceComponents(
+        faceStep,
+        deviceHasCameraSupport,
+        mobileFlow,
+        showCrossDeviceClientIntroForFaceStep
+      ),
+    ],
     ...(SDK_ENV === 'Auth' && {
       auth: [LazyAuth],
     }),
-    document: buildDocumentComponents(
-      documentStep,
-      documentType,
-      hasOnePreselectedDocument(steps),
-      shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport),
-      showCrossDeviceClientIntroForDocumentStep
-    ),
-    poa: buildPoaComponents(showCrossDeviceClientIntroForPoaStep),
+    document: [
+      ...CrossDeviceClientIntroForDocumentStep,
+      ...buildDocumentComponents(
+        documentStep,
+        documentType,
+        hasOnePreselectedDocument(steps),
+        shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport),
+        showCrossDeviceClientIntroForDocumentStep
+      ),
+    ],
+    poa: [
+      ...CrossDeviceClientIntroForPoaStep,
+      ...buildPoaComponents(showCrossDeviceClientIntroForPoaStep),
+    ],
     complete,
   }
 }
