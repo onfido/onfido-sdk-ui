@@ -251,21 +251,10 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaDocumentSelection.clickOnBankIcon()
         poaGuidance.clickOnContinueButton()
         documentUpload.switchToCrossDevice()
-        await takePercySnapshot(
-          driver,
-          `Continue on your phone screen for PoA in ${lang}`
-        )
         crossDeviceIntro.continueToNextStep()
         assert.isTrue(
           crossDeviceLink.qrCode().isDisplayed(),
           'Test Failed: QR Code should be visible'
-        )
-        await takePercySnapshot(
-          driver,
-          `Get your secure link screen - QR Code in ${lang}`,
-          {
-            percyCSS: `div.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer > svg { display: none; }`,
-          }
         )
         crossDeviceLink.switchToCopyLinkOption()
         crossDeviceLink.verifyCopyLinkTextContainer()
