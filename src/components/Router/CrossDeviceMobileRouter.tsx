@@ -183,6 +183,8 @@ export default class CrossDeviceMobileRouter extends Component<
       urls,
       woopraCookie,
       customUI,
+      crossDeviceClientIntroProductName,
+      crossDeviceClientIntroProductLogoSrc,
     } = data
 
     if (disableAnalytics) {
@@ -237,6 +239,18 @@ export default class CrossDeviceMobileRouter extends Component<
 
     if (customUI) {
       setUICustomizations(customUI)
+    }
+
+    if (
+      crossDeviceClientIntroProductName ||
+      crossDeviceClientIntroProductLogoSrc
+    ) {
+      this.props.actions.setCrossDeviceClientIntroProductName(
+        crossDeviceClientIntroProductName
+      )
+      this.props.actions.setCrossDeviceClientIntroProductLogoSrc(
+        crossDeviceClientIntroProductLogoSrc
+      )
     }
 
     if (enterpriseFeatures) {

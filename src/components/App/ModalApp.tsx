@@ -32,6 +32,7 @@ import type { StepConfig, DocumentTypes } from '~types/steps'
 import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
+import { isDesktop } from '~utils'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
@@ -182,12 +183,21 @@ class ModalApp extends Component<Props> {
     prevOptions: NormalisedSdkOptions,
     options: NormalisedSdkOptions
   ) => {
-    const { token, userDetails: { smsNumber } = {}, steps, customUI } = options
+    const {
+      token,
+      userDetails: { smsNumber } = {},
+      steps,
+      customUI,
+      crossDeviceClientIntroProductName,
+      crossDeviceClientIntroProductLogoSrc,
+    } = options
     const {
       userDetails: { smsNumber: prevSmsNumber } = {},
       steps: prevSteps,
       token: prevToken,
       customUI: prevCustomUI,
+      crossDeviceClientIntroProductName: prevCrossDeviceClientIntroProductName,
+      crossDeviceClientIntroProductLogoSrc: prevCrossDeviceClientIntroProductLogoSrc,
     } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
@@ -216,6 +226,25 @@ class ModalApp extends Component<Props> {
 
     if (customUI && customUI !== prevCustomUI) {
       setUICustomizations(customUI)
+    }
+
+    if (
+      crossDeviceClientIntroProductName &&
+      crossDeviceClientIntroProductName !==
+        prevCrossDeviceClientIntroProductName
+    ) {
+      this.props.actions.setCrossDeviceClientIntroProductName(
+        crossDeviceClientIntroProductName
+      )
+    }
+    if (
+      crossDeviceClientIntroProductLogoSrc &&
+      crossDeviceClientIntroProductLogoSrc !==
+        prevCrossDeviceClientIntroProductLogoSrc
+    ) {
+      this.props.actions.setCrossDeviceClientIntroProductLogoSrc(
+        crossDeviceClientIntroProductLogoSrc
+      )
     }
   }
 

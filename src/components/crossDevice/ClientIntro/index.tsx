@@ -12,20 +12,20 @@ import style from './style.scss'
 import type { StepComponentBaseProps } from '~types/routers'
 
 type Props = {
-  crossDeviceClientSessionIntroProductName?: string
-  crossDeviceClientSessionIntroProductLogoSrc?: string
+  crossDeviceClientIntroProductName?: string
+  crossDeviceClientIntroProductLogoSrc?: string
   nextStep: () => void
 } & StepComponentBaseProps
 
 const CrossDeviceClientIntro: FunctionComponent<Props> = ({
   nextStep,
-  crossDeviceClientSessionIntroProductName,
-  crossDeviceClientSessionIntroProductLogoSrc,
+  crossDeviceClientIntroProductName,
+  crossDeviceClientIntroProductLogoSrc,
 }) => {
   const { translate } = useLocales()
   const defaultSubtitle = translate('cross_device_session_linked.subtitle')
-  const subtitle = crossDeviceClientSessionIntroProductName
-    ? `${defaultSubtitle} ${crossDeviceClientSessionIntroProductName}`
+  const subtitle = crossDeviceClientIntroProductName
+    ? `${defaultSubtitle} ${crossDeviceClientIntroProductName}`
     : defaultSubtitle
   return (
     <ScreenLayout
@@ -47,10 +47,10 @@ const CrossDeviceClientIntro: FunctionComponent<Props> = ({
         className={style.pageTitle}
       />
       <div className={style.content}>
-        {crossDeviceClientSessionIntroProductLogoSrc ? (
+        {crossDeviceClientIntroProductLogoSrc ? (
           <img
             className={classNames(theme.icon, style.customIcon)}
-            src={crossDeviceClientSessionIntroProductLogoSrc}
+            src={crossDeviceClientIntroProductLogoSrc}
             alt="Company logo"
           />
         ) : (
