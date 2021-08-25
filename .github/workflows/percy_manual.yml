@@ -1,4 +1,4 @@
-name: Percy Visual Regression Tests
+name: Percy Visual Regression Tests - All Languages
 
 on:
   workflow_dispatch:
@@ -41,5 +41,5 @@ jobs:
       - name: Run build
         run: npm run build:test
 
-      - name: Run Percy tests
-        run: npm run test:percy
+      - name: Run Percy tests in all languages
+        run: test:percy:all-languages
