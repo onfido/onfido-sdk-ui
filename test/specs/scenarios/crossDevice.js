@@ -336,7 +336,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceMobileNotificationSent.verifyTitle(copy)
       })
 
-      it('should verify UI elements on the cross device linked session intro screen @percy', async () => {
+      it('should verify UI elements on cross device mobile client intro screen @percy', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
