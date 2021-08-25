@@ -417,6 +417,36 @@ onfidoOut.tearDown()
   }
   ```
 
+- **`crossDeviceClientIntroProductName {String} optional`**
+
+  When a user switch to the SDK's Cross Device flow, they will see an intro screen when the SDK client loads on their mobile browser.
+  ![Default Cross Device Client Intro screen](demo/cross-device-client-intro.png)
+  You can customise the text by adding your company or product's name to the subtitle with this option. We recommend that you set this alongside the corresponding `crossDeviceClientIntroProductLogoSrc` below to make the user aware that this is part of a flow that was initiated on a desktop or laptop browser when they open the Cross Device link on their mobile browser. This is also an opportunity to include your branding in the SDK flow.
+
+  ```javascript
+  Onfido.init({
+    token: '<YOUR_SDK_TOKEN>',
+    customProductNameCrossDeviceClientIntro:
+      'for a [COMPANY/PRODUCT NAME] loan',
+  })
+  ```
+
+  ![Cross Device Client Intro screen with client product name and copy](demo/cross-device-client-intro-example-1.png)
+
+- **`crossDeviceClientIntroProductLogoSrc {String} optional`**
+
+  Similar to the `crossDeviceClientIntroProductName` above you can also have your company or product's logo displayed on the screen instead of the default SDK icon image with this option. We recommend that you set this alongside the corresponding `crossDeviceClientIntroProductName`.
+  The image used should be no more than 144px in both height and width.
+
+  ![Cross Device Client Intro screen with client product logo](demo/cross-device-client-intro-example-2.png)
+
+  ```javascript
+  Onfido.init({
+    token: '<YOUR_SDK_TOKEN>',
+    crossDeviceClientIntroProductLogoSrc: 'path://to/logo/image/file',
+  })
+  ```
+
 - **`steps {List} optional`**
 
   The list of the different steps to be shown in the SDK flow and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required).
@@ -435,15 +465,6 @@ onfidoOut.tearDown()
   ```
 
   See [flow customization](#flow-customization) for details of the custom options for each step.
-
-- **`customProductNameCrossDeviceClientIntro {String} optional`**
-
-```javascript
-Onfido.init({
-  token: '<YOUR_SDK_TOKEN>',
-  customProductNameCrossDeviceClientIntro: '',
-})
-```
 
 ## Customizing the SDK
 
