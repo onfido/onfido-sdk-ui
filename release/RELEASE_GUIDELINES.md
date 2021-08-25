@@ -12,6 +12,8 @@ When performing a new release, the `MIGRATION.md` file should be updated with th
 - All breaking changes, including code snippets whenever possible (for MAJOR versions)
 - A list of translation keys changes (for all versions)
 
+- Include Onfido technical writer(s) as a reviewer to get changelog/release notes reviewed in the release PR.
+
 ## Prerequisite
 
 In order to perform the release you need to:
@@ -27,8 +29,7 @@ Run `VERSION=x.x.x node release/release.js`
 ## After the release
 
 1. Merge release/<release_version> PR to master
-   - Add Onfido technical writers as a reviewer to get changelog/release notes reviewed.
-2. Merge master to development
+2. Merge `master` to `development`
    - git checkout development && git pull
    - git checkout master && git pull -p
    - git checkout -b post-release/merge-<release_version>-to-development
