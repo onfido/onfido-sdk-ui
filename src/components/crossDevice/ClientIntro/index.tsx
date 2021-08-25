@@ -51,7 +51,7 @@ const CrossDeviceClientIntro: FunctionComponent<Props> = ({
           <img
             className={classNames(theme.icon, style.customIcon)}
             src={crossDeviceClientIntroProductLogoSrc}
-            alt="Company logo"
+            alt="Brand logo"
           />
         ) : (
           <div className={classNames(theme.icon, style.icon)} />
