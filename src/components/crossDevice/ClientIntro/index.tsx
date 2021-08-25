@@ -47,15 +47,17 @@ const CrossDeviceClientIntro: FunctionComponent<Props> = ({
         className={style.pageTitle}
       />
       <div className={style.content}>
-        {crossDeviceClientIntroProductLogoSrc ? (
-          <img
-            className={classNames(theme.icon, style.customIcon)}
-            src={crossDeviceClientIntroProductLogoSrc}
-            alt="Company logo"
-          />
-        ) : (
-          <div className={classNames(theme.icon, style.icon)} />
-        )}
+        <div className={theme.iconContainer}>
+          {crossDeviceClientIntroProductLogoSrc ? (
+            <img
+              className={classNames(theme.icon, style.customIcon)}
+              src={crossDeviceClientIntroProductLogoSrc}
+              alt="Company logo"
+            />
+          ) : (
+            <div className={classNames(theme.icon, style.icon)} />
+          )}
+        </div>
         <div
           className={classNames(theme.header, style.header)}
           role="heading"
