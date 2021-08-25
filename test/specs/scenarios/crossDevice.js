@@ -344,8 +344,47 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceClientIntro.verifyUIElements(copy)
         await takePercySnapshot(
           driver,
-          `Cross Device Linked Session Intro screen ${lang}`
+          `Cross Device Mobile Client Intro screen ${lang}`
         )
+        // Need to switch back to original tab otherwise subsequent tests get stuck
+        switchBrowserTab(0, driver)
+      })
+
+      it('should verify all custom UI elements on customised cross device mobile client intro screen @percy', async () => {
+        driver.get(
+          `${baseUrl}&customProductNameCrossDeviceClientIntro=true&customProductLogoCrossDeviceClientIntro=true`
+        )
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.verifySubTitleWithCustomText(copy)
+        crossDeviceClientIntro.customIcon().isDisplayed()
+        await takePercySnapshot(
+          driver,
+          `Cross Device Mobile Client Intro screen (custom product text in subtitle, product logo)`
+        )
+        // Need to switch back to original tab otherwise subsequent tests get stuck
+        switchBrowserTab(0, driver)
+      })
+
+      it('should verify custom product name on customised cross device mobile client intro screen @percy', async () => {
+        driver.get(`${baseUrl}&customProductNameCrossDeviceClientIntro=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.verifySubTitleWithCustomText(copy)
+        crossDeviceClientIntro.icon().isDisplayed()
+        // Need to switch back to original tab otherwise subsequent tests get stuck
+        switchBrowserTab(0, driver)
+      })
+
+      it('should verify custom product logo on customised cross device mobile client intro screen @percy', async () => {
+        driver.get(`${baseUrl}&customProductLogoCrossDeviceClientIntro=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.verifySubTitle(copy)
+        crossDeviceClientIntro.customIcon().isDisplayed()
         // Need to switch back to original tab otherwise subsequent tests get stuck
         switchBrowserTab(0, driver)
       })
