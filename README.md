@@ -231,7 +231,7 @@ Example `onComplete` callback:
 
 ```javascript
 Onfido.init({
-  token: '<YOUR-SDK-TOKEN>',
+  token: '<YOUR_SDK_TOKEN>',
   containerId: 'onfido-mount',
   onComplete: function (data) {
     console.log('everything is complete')
@@ -317,7 +317,7 @@ The callback returns a string with the reason for leaving. For example, `'USER_C
 
 ```javascript
 Onfido.init({
-  token: '<YOUR-JWT-TOKEN>',
+  token: '<YOUR_SDK_TOKEN>',
   containerId: 'onfido-mount',
   onUserExit: function (userExitCode) {
     console.log(userExitCode)
@@ -363,7 +363,7 @@ onfidoOut.tearDown()
             // Update options with the state of the modal
             onfido.setOptions({isModalOpen: false})
           },
-          token: 'token',
+          token: '<YOUR_SDK_TOKEN>',
           onComplete: function(data) {
             // callback for when everything is complete
             console.log("everything is complete")
@@ -435,6 +435,15 @@ onfidoOut.tearDown()
   ```
 
   See [flow customization](#flow-customization) for details of the custom options for each step.
+
+- **`customProductNameCrossDeviceClientIntro {String} optional`**
+
+```javascript
+Onfido.init({
+  token: '<YOUR_SDK_TOKEN>',
+  customProductNameCrossDeviceClientIntro: '',
+})
+```
 
 ## Customizing the SDK
 
@@ -813,7 +822,7 @@ onfidoOut.setOptions({
 });
 ...
 //replace the jwt token
-onfidoOut.setOptions({ token:"new token" });
+onfidoOut.setOptions({ token: '<YOUR_NEW_SDK_TOKEN>' });
 ...
 //Open the modal
 onfidoOut.setOptions({ isModalOpen:true });
