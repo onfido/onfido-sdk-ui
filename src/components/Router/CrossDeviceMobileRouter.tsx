@@ -8,6 +8,7 @@ import withTheme from '../Theme'
 import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
+import CrossDeviceClientIntro from '../crossDevice/ClientIntro'
 
 import { setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
@@ -58,6 +59,7 @@ const isPhotoCaptureFallbackOffAndCannotUseVideo = (
 // Wrap components with theme that include navigation and footer
 const WrappedSpinner = withTheme(Spinner)
 const WrappedError = withTheme(GenericError)
+const WrappedCrossDeviceIntro = withTheme(CrossDeviceClientIntro)
 
 type State = {
   crossDeviceError?: ErrorProp
@@ -70,6 +72,9 @@ type State = {
   stepIndexType?: StepIndexType
   steps?: StepConfig[]
   token?: string
+  // this could be in the redux store if needed
+  // this could be renamed to something better
+  hasSeenIntroScreen: boolean
 }
 
 export default class CrossDeviceMobileRouter extends Component<
@@ -95,6 +100,7 @@ export default class CrossDeviceMobileRouter extends Component<
       step: undefined,
       steps: undefined,
       token: undefined,
+      hasSeenIntroScreen: false,
     }
 
     if (restrictedXDevice && isDesktop) {
@@ -313,6 +319,8 @@ export default class CrossDeviceMobileRouter extends Component<
 
     this.sendMessage('client success', { captures })
   }
+  // this could be renamed
+  onIntroScreenSeen = (): void => this.setState({ hasSeenIntroScreen: true })
 
   renderContent = (): h.JSX.Element => {
     const { hasCamera } = this.props
@@ -344,7 +352,13 @@ export default class CrossDeviceMobileRouter extends Component<
       )
     }
 
-    return (
+    return !this.state.hasSeenIntroScreen ? (
+      <WrappedCrossDeviceIntro
+        {...this.props}
+        disableNavigation={true}
+        onIntroScreenSeen={this.onIntroScreenSeen}
+      />
+    ) : (
       <HistoryRouter
         {...this.props}
         {...this.state}

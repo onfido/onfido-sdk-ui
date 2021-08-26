@@ -4,18 +4,17 @@ import { Button } from '@onfido/castor-react'
 
 import ScreenLayout from '../../Theme/ScreenLayout'
 import PageTitle from '../../PageTitle'
-import { trackComponent } from '../../../Tracker'
 import { useLocales } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
-import type { StepComponentBaseProps } from '~types/routers'
-
 type Props = {
-  nextStep: () => void
-} & StepComponentBaseProps
+  onIntroScreenSeen: () => void
+}
 
-const CrossDeviceClientIntro: FunctionComponent<Props> = ({ nextStep }) => {
+const CrossDeviceClientIntro: FunctionComponent<Props> = ({
+  onIntroScreenSeen,
+}) => {
   const { translate } = useLocales()
   return (
     <ScreenLayout
@@ -23,7 +22,7 @@ const CrossDeviceClientIntro: FunctionComponent<Props> = ({ nextStep }) => {
         <Button
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
-          onClick={nextStep}
+          onClick={onIntroScreenSeen}
           data-onfido-qa="client-session-linked-primary-btn"
         >
           {translate('cross_device_session_linked.button_primary')}
@@ -63,7 +62,5 @@ const CrossDeviceClientIntro: FunctionComponent<Props> = ({ nextStep }) => {
   )
 }
 
-export default trackComponent(
-  CrossDeviceClientIntro,
-  'crossDevice_client_intro'
-)
+//TODO: add tracking
+export default CrossDeviceClientIntro
