@@ -43,4 +43,4 @@ jobs:
         run: npm run build:test
 
       - name: Run Percy tests in multiple languages
-        run: test:percy:all-languages
+        run: npm run test:percy:all-languages
