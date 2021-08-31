@@ -417,35 +417,6 @@ onfidoOut.tearDown()
   }
   ```
 
-- **`crossDeviceClientIntroProductName {String} optional`**
-
-  When a user switches to the SDK's Cross Device flow, they will see an introductory screen when the SDK client loads on their mobile browser.
-  ![Default Cross Device Client Intro screen](demo/cross-device-client-intro.png)
-  You can customize the text by adding your company or product name to the subtitle with this option. We recommend that you set this, alongside the corresponding `crossDeviceClientIntroProductLogoSrc` below, to notify the user that this is part of a flow initiated on a desktop or laptop browser when they open the Cross Device link on their mobile browser. This is also an opportunity to include your branding in the SDK flow.
-
-  ```javascript
-  Onfido.init({
-    token: '<YOUR_SDK_TOKEN>',
-    crossDeviceClientIntroProductName: 'for a [COMPANY/PRODUCT NAME] loan',
-  })
-  ```
-
-  ![Cross Device Client Intro screen with client product name and copy](demo/cross-device-client-intro-example-1.png)
-
-- **`crossDeviceClientIntroProductLogoSrc {String} optional`**
-
-  You can customize the icon by adding your company or product's logo to be displayed instead of the default SDK icon image with this option. We recommend that you set this, alongside the corresponding `crossDeviceClientIntroProductName` above, to notify the user that this is part of a flow initiated on a desktop or laptop browser when they open the Cross Device link on their mobile browser. This is also an opportunity to include branding in the SDK flow.
-  The image used should be no more than 144px in both height and width.
-
-  ![Cross Device Client Intro screen with client product logo](demo/cross-device-client-intro-example-2.png)
-
-  ```javascript
-  Onfido.init({
-    token: '<YOUR_SDK_TOKEN>',
-    crossDeviceClientIntroProductLogoSrc: 'path://to/logo/image/file',
-  })
-  ```
-
 - **`steps {List} optional`**
 
   The list of different steps to be shown in the SDK flow and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required).
@@ -820,6 +791,38 @@ This is the final completion step. The screen displays a completion message to s
 
 - `message` (string)
 - `submessage` (string)
+
+#### Cross device - mobile client introductory screen
+
+When a user switches to the SDK's Cross Device flow, they will see an introductory screen when the SDK client loads on their mobile browser.
+![Default Cross device mobile client introductory screen](demo/cross-device-client-intro.png)
+
+- **`crossDeviceClientIntroProductName {String} optional`**
+
+  You can customize the text by adding your company or product name to the subtitle with this option. We recommend that you set this, alongside the corresponding `crossDeviceClientIntroProductLogoSrc` below, to notify the user that this is part of a flow initiated on a desktop or laptop browser when they open the Cross Device link on their mobile browser. This is also an opportunity to include your branding in the SDK flow.
+
+  ```javascript
+  Onfido.init({
+    token: '<YOUR_SDK_TOKEN>',
+    crossDeviceClientIntroProductName: 'for a [COMPANY/PRODUCT NAME] loan',
+  })
+  ```
+
+  ![Cross Device Client Intro screen with client product name and copy](demo/cross-device-client-intro-example-1.png)
+
+- **`crossDeviceClientIntroProductLogoSrc {String} optional`**
+
+  You can customize the icon by adding your company or product's logo to be displayed instead of the default SDK icon image with this option. We recommend that you set this, alongside the corresponding `crossDeviceClientIntroProductName` above, to notify the user that this is part of a flow initiated on a desktop or laptop browser when they open the Cross Device link on their mobile browser. This is also an opportunity to include branding in the SDK flow.
+  The image used should be no more than 144px in both height and width.
+
+  ```javascript
+  Onfido.init({
+    token: '<YOUR_SDK_TOKEN>',
+    crossDeviceClientIntroProductLogoSrc: 'path://to/logo/image/file',
+  })
+  ```
+
+  ![Cross Device Client Intro screen with client product logo](demo/cross-device-client-intro-example-2.png)
 
 ### Changing options in runtime
 
