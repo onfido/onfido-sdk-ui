@@ -86,19 +86,20 @@ export const buildComponentsList = ({
         ),
         captureSteps
       )
-    : buildComponentsFromSteps(crossDeviceComponents, crossDeviceSteps(steps))
+    : buildComponentsFromSteps(
+        crossDeviceDesktopFlowComponents,
+        crossDeviceSteps(steps)
+      )
 }
 
 const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
 
-const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] => {
-  console.log('buildClientCaptureSteps')
-  return hasCompleteStep(steps)
+const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
+  hasCompleteStep(steps)
     ? steps
     : [{ type: 'welcome' }, ...steps, { type: 'complete' }]
-}
 
 const shouldUseCameraForDocumentCapture = (
   documentStep?: StepConfigDocument,
@@ -322,7 +323,7 @@ const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
 }
 
-const crossDeviceComponents: ComponentsByStepType = {
+const crossDeviceDesktopFlowComponents: ComponentsByStepType = {
   // @TODO: convert CrossDeviceIntro into TS
   // @ts-ignore
   crossDevice: [CrossDeviceIntro, CrossDeviceLink, MobileFlow],
