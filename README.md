@@ -449,7 +449,7 @@ onfidoOut.tearDown()
 
 - **`steps {List} optional`**
 
-  The list of the different steps to be shown in the SDK flow and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required).
+  The list of different steps to be shown in the SDK flow and their custom options. Each step can either be specified as a string (when no customization is required) or an object (when customization is required).
 
   ```javascript
   steps: [
