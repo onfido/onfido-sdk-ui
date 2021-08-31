@@ -59,7 +59,7 @@ const isPhotoCaptureFallbackOffAndCannotUseVideo = (
 // Wrap components with theme that include navigation and footer
 const WrappedSpinner = withTheme(Spinner)
 const WrappedError = withTheme(GenericError)
-const WrappedCrossDeviceIntro = withTheme(CrossDeviceClientIntro)
+const WrappedCrossDeviceClientIntro = withTheme(CrossDeviceClientIntro)
 
 type State = {
   crossDeviceError?: ErrorProp
@@ -353,7 +353,7 @@ export default class CrossDeviceMobileRouter extends Component<
     }
 
     return !this.state.hasSeenIntroScreen ? (
-      <WrappedCrossDeviceIntro
+      <WrappedCrossDeviceClientIntro
         {...this.props}
         disableNavigation={true}
         onIntroScreenSeen={this.onIntroScreenSeen}
