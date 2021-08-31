@@ -32,7 +32,6 @@ import type { StepConfig, DocumentTypes } from '~types/steps'
 import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
-import { isDesktop } from '~utils'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
