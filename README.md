@@ -435,7 +435,7 @@ onfidoOut.tearDown()
 
 - **`crossDeviceClientIntroProductLogoSrc {String} optional`**
 
-  Similar to the `crossDeviceClientIntroProductName` above you can also have your company or product's logo displayed on the screen instead of the default SDK icon image with this option. We recommend that you set this alongside the corresponding `crossDeviceClientIntroProductName`.
+  Similar to the `crossDeviceClientIntroProductName` above you can also have your company or product logo displayed on the screen in place of the default SDK icon image with this option. We recommend that you set this alongside the corresponding `crossDeviceClientIntroProductName`.
   The image used should be no more than 144px in both height and width.
 
   ![Cross Device Client Intro screen with client product logo](demo/cross-device-client-intro-example-2.png)
