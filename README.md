@@ -419,7 +419,7 @@ onfidoOut.tearDown()
 
 - **`crossDeviceClientIntroProductName {String} optional`**
 
-  When a user switch to the SDK's Cross Device flow, they will see an intro screen when the SDK client loads on their mobile browser.
+  When a user switches to the SDK's Cross Device flow, they will see an introductory screen when the SDK client loads on their mobile browser.
   ![Default Cross Device Client Intro screen](demo/cross-device-client-intro.png)
   You can customise the text by adding your company or product's name to the subtitle with this option. We recommend that you set this alongside the corresponding `crossDeviceClientIntroProductLogoSrc` below to make the user aware that this is part of a flow that was initiated on a desktop or laptop browser when they open the Cross Device link on their mobile browser. This is also an opportunity to include your branding in the SDK flow.
 
