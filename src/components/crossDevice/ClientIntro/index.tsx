@@ -8,9 +8,9 @@ import { useLocales } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
-
 type Props = {
   onIntroScreenSeen: () => void
+}
 
 const CrossDeviceClientIntro: FunctionComponent<Props> = ({
   onIntroScreenSeen,
