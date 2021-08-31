@@ -118,7 +118,7 @@ Some of the SDK configuration options can also be previewed in the demo app by u
 | `showUserAnalyticsEvents`                 | `true`,`false`                   | `false`     | Enable event listener for User Analytics custom events that are available to integrators                                              |
 | `excludeSmsCrossDeviceOption`             | `true`,`false`                   | `false`     | Configure Cross Device - Send Link screen to show Copy Link view by default and QR Code as the alternative. Excludes SMS Link option. |
 | `singleCrossDeviceOption`                 | `true`,`false`                   | `false`     | Configure Cross Device - Send Link screen to show SMS Link view only. There will be no alternatives available.                        |
-| `crossDeviceClientIntroCustomProductName` | `string of company/product name` | `undefined` | Configure Cross Device Mobile Client Intro screen to show an example custom client product text.                                      |
+| `crossDeviceClientIntroCustomProductName` | `string of company/product name` | `undefined` | Configure Cross Device – Mobile Client Intro screen to show example custom client product text.                                      |
 | `crossDeviceClientIntroCustomProductLogo` | `string of URL or path to image` | `undefined` | Configure Cross Device Mobile Client Intro screen to show an example client company logo.                                             |
 
 Usage example: https://localhost:8080?faceVideo=true&language=de
