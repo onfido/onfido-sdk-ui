@@ -8,9 +8,11 @@ import { useLocales } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
+import type { StepComponentBaseProps } from '~types/routers'
+
 type Props = {
   onIntroScreenSeen: () => void
-}
+} & StepComponentBaseProps
 
 const CrossDeviceClientIntro: FunctionComponent<Props> = ({
   onIntroScreenSeen,

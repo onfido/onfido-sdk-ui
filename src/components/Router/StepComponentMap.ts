@@ -30,7 +30,7 @@ import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 
-let LazyAuth: ComponentType<ComponentType<Element>>
+let LazyAuth: ComponentType<StepComponentProps>
 
 const SDK_ENV = process.env.SDK_ENV
 
