@@ -421,13 +421,12 @@ onfidoOut.tearDown()
 
   When a user switches to the SDK's Cross Device flow, they will see an introductory screen when the SDK client loads on their mobile browser.
   ![Default Cross Device Client Intro screen](demo/cross-device-client-intro.png)
-  You can customise the subtitle text by adding your company or product name with this option. We recommend that you set this alongside the corresponding `crossDeviceClientIntroProductLogoSrc` below to inform the user that this mobile flow was initiated from the main desktop one, after opening the Cross Device link in their mobile browser. This is also an opportunity to include your branding in the SDK flow.
+  You can customize the text by adding your company or product name to the subtitle with this option. We recommend that you set this, alongside the corresponding `crossDeviceClientIntroProductLogoSrc` below, to notify the user that this is part of a flow initiated on a desktop or laptop browser when they open the Cross Device link on their mobile browser. This is also an opportunity to include your branding in the SDK flow.
 
   ```javascript
   Onfido.init({
     token: '<YOUR_SDK_TOKEN>',
-    customProductNameCrossDeviceClientIntro:
-      'for a [COMPANY/PRODUCT NAME] loan',
+    crossDeviceClientIntroProductName: 'for a [COMPANY/PRODUCT NAME] loan',
   })
   ```
 
@@ -435,7 +434,7 @@ onfidoOut.tearDown()
 
 - **`crossDeviceClientIntroProductLogoSrc {String} optional`**
 
-  Similar to the `crossDeviceClientIntroProductName` above you can also have your company or product logo displayed on the screen in place of the default SDK icon image with this option. We recommend that you set this alongside the corresponding `crossDeviceClientIntroProductName`.
+  You can customize the icon by adding your company or product's logo to be displayed instead of the default SDK icon image with this option. We recommend that you set this, alongside the corresponding `crossDeviceClientIntroProductName` above, to notify the user that this is part of a flow initiated on a desktop or laptop browser when they open the Cross Device link on their mobile browser. This is also an opportunity to include branding in the SDK flow.
   The image used should be no more than 144px in both height and width.
 
   ![Cross Device Client Intro screen with client product logo](demo/cross-device-client-intro-example-2.png)
