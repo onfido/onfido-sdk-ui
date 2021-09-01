@@ -18,6 +18,7 @@ class DocumentUpload extends BasePage {
   async uploadInput() {
     return this.$('.onfido-sdk-ui-CustomFileInput-input')
   }
+
   async getUploadInput() {
     const input = this.uploadInput()
     this.driver.executeScript((el) => {
@@ -86,4 +87,5 @@ class DocumentUpload extends BasePage {
     }
   }
 }
+
 export default DocumentUpload
