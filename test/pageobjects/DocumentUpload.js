@@ -1,5 +1,6 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
+import { browserName, isRemoteBrowser } from '../main'
 
 class DocumentUpload extends BasePage {
   async crossDeviceHeader() {
@@ -14,10 +15,10 @@ class DocumentUpload extends BasePage {
   async uploaderBtn() {
     return this.$('[data-onfido-qa="uploaderButtonLink"]')
   }
-
   async uploadInput() {
     return this.$('.onfido-sdk-ui-CustomFileInput-input')
   }
+
   async getUploadInput() {
     const input = this.uploadInput()
     this.driver.executeScript((el) => {
@@ -78,6 +79,12 @@ class DocumentUpload extends BasePage {
 
   async clickUploadButton() {
     this.uploaderBtn().click()
+  }
+
+  async clickUploadButtonIfRemoteIe() {
+    if (browserName === 'IE' && isRemoteBrowser === true) {
+      await this.clickUploadButton()
+    }
   }
 }
 
