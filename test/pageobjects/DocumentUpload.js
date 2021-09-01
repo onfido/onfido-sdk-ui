@@ -6,23 +6,18 @@ class DocumentUpload extends BasePage {
   async crossDeviceHeader() {
     return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')
   }
-
   async switchToCrossDeviceButton() {
     return this.$('.onfido-sdk-ui-Uploader-crossDeviceButton')
   }
-
   async uploaderIcon() {
     return this.$('.onfido-sdk-ui-Uploader-icon')
   }
-
   async uploaderBtn() {
     return this.$('[data-onfido-qa="uploaderButtonLink"]')
   }
-
   async uploadInput() {
     return this.$('.onfido-sdk-ui-CustomFileInput-input')
   }
-
   async getUploadInput() {
     const input = this.uploadInput()
     this.driver.executeScript((el) => {
