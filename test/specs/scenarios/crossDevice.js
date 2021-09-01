@@ -352,7 +352,7 @@ export const crossDeviceScenarios = async (lang) => {
 
       it('should verify all custom UI elements on customised cross device mobile client intro screen @percy', async () => {
         driver.get(
-          `${baseUrl}&customProductNameCrossDeviceClientIntro=true&customProductLogoCrossDeviceClientIntro=true`
+          `${baseUrl}&crossDeviceClientIntroCustomProductName=true&crossDeviceClientIntroCustomProductLogo=true`
         )
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -368,7 +368,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       it('should verify custom product name on customised cross device mobile client intro screen @percy', async () => {
-        driver.get(`${baseUrl}&customProductNameCrossDeviceClientIntro=true`)
+        driver.get(`${baseUrl}&crossDeviceClientIntroCustomProductName=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
         switchToCrossDeviceFlow()
@@ -379,7 +379,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       it('should verify custom product logo on customised cross device mobile client intro screen @percy', async () => {
-        driver.get(`${baseUrl}&customProductLogoCrossDeviceClientIntro=true`)
+        driver.get(`${baseUrl}&crossDeviceClientIntroCustomProductLogo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
         switchToCrossDeviceFlow()
