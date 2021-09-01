@@ -21,7 +21,7 @@
           "os_version": "10",
           "resolution": "1920x1080",
           "remote": true,
-          "name": "multipleBrowsersDocumentUpload"
+          "name": "Firefox - multipleBrowsersDocumentUpload"
         },
         {
           "browserName": "Edge",
@@ -30,7 +30,16 @@
           "os_version": "10",
           "resolution": "1920x1080",
           "remote": true,
-          "name": "multipleBrowsersDocumentUpload"
+          "name": "Edge - multipleBrowsersDocumentUpload"
+        },
+        {
+          "browserName": "IE",
+          "browser_version": "11.0",
+          "os": "Windows",
+          "os_version": "10",
+          "resolution": "1920x1080",
+          "remote": true,
+          "name": "IE - multipleBrowsersDocumentUpload"
         }
       ]
     }
