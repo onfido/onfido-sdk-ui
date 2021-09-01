@@ -130,25 +130,11 @@ const buildCaptureStepComponents = (
   )[0]?.type
   const showCrossDeviceClientIntroForFaceStep =
     mobileFlow && firstCaptureStepType === 'face'
-  const CrossDeviceClientIntroForFaceStep = showCrossDeviceClientIntroForFaceStep
-    ? [CrossDeviceClientIntro]
-    : []
-  const showCrossDeviceClientIntroForDocumentStep =
-    mobileFlow && firstCaptureStepType === 'document'
-  const CrossDeviceClientIntroForDocumentStep = showCrossDeviceClientIntroForDocumentStep
-    ? [CrossDeviceClientIntro]
-    : []
-  const showCrossDeviceClientIntroForPoaStep =
-    mobileFlow && firstCaptureStepType === 'poa'
-  const CrossDeviceClientIntroForPoaStep = showCrossDeviceClientIntroForPoaStep
-    ? [CrossDeviceClientIntro]
-    : []
 
   return {
     welcome: [Welcome],
     userConsent: [UserConsent],
     face: [
-      ...CrossDeviceClientIntroForFaceStep,
       ...buildFaceComponents(
         faceStep,
         deviceHasCameraSupport,
@@ -160,19 +146,16 @@ const buildCaptureStepComponents = (
       auth: [LazyAuth],
     }),
     document: [
-      ...CrossDeviceClientIntroForDocumentStep,
       ...buildDocumentComponents(
         documentStep,
         documentType,
         hasOnePreselectedDocument(steps),
         shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport),
-        showCrossDeviceClientIntroForDocumentStep
+        mobileFlow,
+        firstCaptureStepType === 'document'
       ),
     ],
-    poa: [
-      ...CrossDeviceClientIntroForPoaStep,
-      ...buildPoaComponents(showCrossDeviceClientIntroForPoaStep),
-    ],
+    poa: [...buildPoaComponents(mobileFlow, firstCaptureStepType === 'poa')],
     complete,
   }
 }
@@ -181,7 +164,7 @@ const buildFaceComponents = (
   faceStep?: StepConfigFace,
   deviceHasCameraSupport?: boolean,
   mobileFlow?: boolean,
-  showCrossDeviceClientSessionIntro?: boolean
+  isFirstCaptureStepInFlow?: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
   const shouldDisplayUploader = faceStep?.options?.useUploader
 
@@ -201,28 +184,22 @@ const buildFaceComponents = (
     ? buildRequiredVideoComponents(
         deviceHasCameraSupport && videoCameraSupport,
         mobileFlow,
-        showCrossDeviceClientSessionIntro
+        isFirstCaptureStepInFlow
       )
     : buildRequiredSelfieComponents(
         shouldSelfieScreenUseCamera,
-        showCrossDeviceClientSessionIntro
+        mobileFlow,
+        isFirstCaptureStepInFlow
       )
 }
 
 const buildRequiredVideoComponents = (
   shouldUseCamera?: boolean,
   mobileFlow?: boolean,
-  showCrossDeviceClientSessionIntro?: boolean
+  isFirstCaptureStepInFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
   // @TODO: convert FaceVideoCapture, FaceVideoConfirm to TS
-  const allVideoSteps = showCrossDeviceClientSessionIntro
-    ? [
-        FaceVideoIntro,
-        CrossDeviceClientIntro,
-        FaceVideoCapture,
-        FaceVideoConfirm,
-      ]
-    : [FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm]
+  const allVideoSteps = [FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm]
 
   if (mobileFlow && !shouldUseCamera) {
     // do not display intro on cross device flow
@@ -231,17 +208,19 @@ const buildRequiredVideoComponents = (
   }
 
   // @ts-ignore
-  return allVideoSteps
+  return mobileFlow && isFirstCaptureStepInFlow
+    ? // @ts-ignore
+      buildCrossDeviceClientComponents(allVideoSteps)
+    : allVideoSteps
 }
 
 const buildRequiredSelfieComponents = (
   deviceHasCameraSupport?: boolean,
-  showCrossDeviceClientSessionIntro?: boolean
+  mobileFlow?: boolean,
+  isFirstCaptureStepInFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
   // @TODO: convert SelfieIntro, SelfieCapture, SelfieConfirm to TS
-  const allSelfieSteps = showCrossDeviceClientSessionIntro
-    ? [CrossDeviceClientIntro, SelfieIntro, SelfieCapture, SelfieConfirm]
-    : [SelfieIntro, SelfieCapture, SelfieConfirm]
+  const allSelfieSteps = [SelfieIntro, SelfieCapture, SelfieConfirm]
 
   if (!deviceHasCameraSupport) {
     // do not display intro if camera cannot be used
@@ -250,7 +229,10 @@ const buildRequiredSelfieComponents = (
   }
 
   // @ts-ignore
-  return allSelfieSteps
+  return mobileFlow && isFirstCaptureStepInFlow
+    ? // @ts-ignore
+      buildCrossDeviceClientComponents(allSelfieSteps)
+    : allSelfieSteps
 }
 
 const buildNonPassportPreCaptureComponents = (
@@ -270,7 +252,8 @@ const buildDocumentComponents = (
   documentType: DocumentTypes | undefined,
   hasOnePreselectedDocument: boolean,
   shouldUseCamera: boolean,
-  showCrossDeviceClientSessionIntro: boolean | undefined
+  mobileFlow: boolean | undefined,
+  isFirstCaptureStepInFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
   const options = documentStep?.options
 
@@ -304,11 +287,10 @@ const buildDocumentComponents = (
 
     if (shouldUseVideo) {
       // @ts-ignore
-      return showCrossDeviceClientSessionIntro
+      return mobileFlow && isFirstCaptureStepInFlow
         ? [
-            ...preCaptureComponents,
-            CrossDeviceClientIntro,
-            ...videoCaptureComponents,
+            // @ts-ignore
+            ...buildCrossDeviceClientComponents(videoCaptureComponents),
           ]
         : [...preCaptureComponents, ...videoCaptureComponents]
     }
@@ -318,11 +300,10 @@ const buildDocumentComponents = (
       : [DocumentFrontCapture, ImageQualityGuide, DocumentFrontConfirm]
 
     // @ts-ignore
-    return showCrossDeviceClientSessionIntro
+    return mobileFlow && isFirstCaptureStepInFlow
       ? [
-          ...preCaptureComponents,
-          CrossDeviceClientIntro,
-          ...standardCaptureComponents,
+          // @ts-ignore
+          ...buildCrossDeviceClientComponents(standardCaptureComponents),
         ]
       : [...preCaptureComponents, ...standardCaptureComponents]
   }
@@ -351,48 +332,55 @@ const buildDocumentComponents = (
 
   if (shouldUseVideo) {
     // @ts-ignore
-    return showCrossDeviceClientSessionIntro
+    return mobileFlow && isFirstCaptureStepInFlow
       ? [
-          ...preCaptureComponents,
-          CrossDeviceClientIntro,
+          // @ts-ignore
+          ...buildCrossDeviceClientComponents(videoCaptureComponents),
           ...videoCaptureComponents,
         ]
       : [...preCaptureComponents, ...videoCaptureComponents]
   }
 
-  const frontCaptureComponents = showCrossDeviceClientSessionIntro
-    ? [
-        ...preCaptureComponents,
-        CrossDeviceClientIntro,
-        DocumentFrontCapture,
-        DocumentFrontConfirm,
-      ]
-    : [...preCaptureComponents, DocumentFrontCapture, DocumentFrontConfirm]
+  // @TODO: convert DocumentFrontCapture, DocumentFrontConfirm to TS
+  const frontCaptureComponents = [DocumentFrontCapture, DocumentFrontConfirm]
+  const requiredFrontCaptureComponents =
+    mobileFlow && isFirstCaptureStepInFlow
+      ? [
+          // @ts-ignore
+          ...buildCrossDeviceClientComponents(frontCaptureComponents),
+        ]
+      : [...preCaptureComponents, ...frontCaptureComponents]
 
   if (documentType && doubleSidedDocs.includes(documentType)) {
+    // @TODO: convert DocumentBackCapture, DocumentBackCapture to TS & remove all the @ts-ignore
     // @ts-ignore
-    return [...frontCaptureComponents, DocumentBackCapture, DocumentBackConfirm]
+    return [
+      // @ts-ignore
+      ...requiredFrontCaptureComponents,
+      // @ts-ignore
+      DocumentBackCapture,
+      // @ts-ignore
+      DocumentBackConfirm,
+    ]
   }
 
   // @ts-ignore
-  return showCrossDeviceClientSessionIntro
-    ? [
-        ...frontCaptureComponents,
-        CrossDeviceClientIntro,
-        ...frontCaptureComponents,
-      ]
-    : frontCaptureComponents
+  return requiredFrontCaptureComponents
 }
 
 const buildPoaComponents = (
-  showCrossDeviceClientSessionIntro: boolean | undefined
+  mobileFlow: boolean | undefined,
+  isFirstCaptureStepInFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
-  // @TODO: convert PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm to TS
+  // @TODO: convert PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm to TS & remove @ts-ignore
   const preCaptureComponents = [PoAIntro, SelectPoADocument, PoAGuidance]
   const captureComponents = [PoACapture, DocumentFrontConfirm]
   // @ts-ignore
-  return showCrossDeviceClientSessionIntro
-    ? [...preCaptureComponents, CrossDeviceClientIntro, ...captureComponents]
+  return mobileFlow && isFirstCaptureStepInFlow
+    ? [
+        // @ts-ignore
+        ...buildCrossDeviceClientComponents(captureComponents),
+      ]
     : [...preCaptureComponents, ...captureComponents]
 }
 
@@ -407,6 +395,12 @@ const crossDeviceDesktopComponents: ComponentsByStepType = {
   // @ts-ignore
   crossDevice: [CrossDeviceIntro, CrossDeviceLink, MobileFlow],
   complete: [Complete],
+}
+
+const buildCrossDeviceClientComponents = (
+  captureComponents: ComponentType<StepComponentProps>[]
+): ComponentType<StepComponentProps>[] => {
+  return [CrossDeviceClientIntro, ...captureComponents]
 }
 
 const buildComponentsFromSteps = (
