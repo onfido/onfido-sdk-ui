@@ -135,12 +135,12 @@ const buildCaptureStepComponents = (
     : []
   const showCrossDeviceClientIntroForDocumentStep =
     mobileFlow && firstCaptureStepType === 'document'
-  const CrossDeviceClientIntroForDocumentStep = showCrossDeviceClientIntroForFaceStep
+  const CrossDeviceClientIntroForDocumentStep = showCrossDeviceClientIntroForDocumentStep
     ? [CrossDeviceClientIntro]
     : []
   const showCrossDeviceClientIntroForPoaStep =
     mobileFlow && firstCaptureStepType === 'poa'
-  const CrossDeviceClientIntroForPoaStep = showCrossDeviceClientIntroForFaceStep
+  const CrossDeviceClientIntroForPoaStep = showCrossDeviceClientIntroForPoaStep
     ? [CrossDeviceClientIntro]
     : []
 
