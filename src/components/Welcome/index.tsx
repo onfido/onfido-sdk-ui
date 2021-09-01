@@ -62,6 +62,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
     title: customTitle,
     descriptions: customDescriptions,
     nextButton: customNextButtonLabel,
+    focused,
   } = welcomeStep?.options || {}
 
   const documentStep = findStep('document')
@@ -78,7 +79,10 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
 
   return (
     <ScreenLayout actions={actions} className={style.container}>
-      <PageTitle title={welcomeTitle} subTitle={welcomeSubTitle} />
+      <PageTitle
+        title={welcomeTitle}
+        subTitle={welcomeSubTitle}
+        focused={focused}/>
       {forDocVideo ? (
         <DocVideoContent captureSteps={captureSteps} />
       ) : (

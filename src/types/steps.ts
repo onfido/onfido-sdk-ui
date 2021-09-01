@@ -47,6 +47,7 @@ export type StepOptionWelcome = {
   title?: string
   descriptions?: string[]
   nextButton?: string
+  focused?: boolean
 }
 
 export type StepOptionAuth = { retries?: number }

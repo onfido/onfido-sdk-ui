@@ -12,6 +12,7 @@ type Props = {
   smaller?: boolean
   subTitle?: string
   title: string
+  focused?: boolean
 }
 
 const PageTitle: FunctionComponent<Props> = ({
@@ -19,6 +20,7 @@ const PageTitle: FunctionComponent<Props> = ({
   subTitle,
   smaller,
   className,
+  focused
 }) => {
   const isFullScreen = useSelector<RootState, boolean | undefined>(
     (state) => state.globals.isFullScreen
@@ -26,7 +28,7 @@ const PageTitle: FunctionComponent<Props> = ({
   const containerRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
-    containerRef.current && containerRef.current.focus()
+    containerRef.current && focused && containerRef.current.focus()
   }, [title, subTitle])
 
   return (

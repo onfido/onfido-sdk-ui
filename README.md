@@ -500,6 +500,7 @@ The custom options are:
 - `title` (string)
 - `descriptions` ([string])
 - `nextButton` (string)
+- `focused` (boolean)
 
 #### userConsent
 
