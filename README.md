@@ -812,7 +812,7 @@ When a user switches to the SDK's Cross Device flow, they will see an introducto
 
 - **`crossDeviceClientIntroProductLogoSrc {String} optional`**
 
-  You can customize the icon by adding your company or product's logo to be displayed instead of the default SDK icon image with this option. We recommend that you set this, alongside the corresponding `crossDeviceClientIntroProductName` above, to notify the user that this is part of a flow initiated on a desktop or laptop browser when they open the Cross Device link on their mobile browser. This is also an opportunity to include branding in the SDK flow.
+  You can customize the icon by adding your company or product logo to be displayed instead of the default SDK icon image with this option. We recommend that you set this, alongside the corresponding `crossDeviceClientIntroProductName` above, to notify the user that this is part of a flow initiated on a desktop or laptop browser when they open the Cross Device link on their mobile browser. This is also an opportunity to include your branding in the SDK flow.
   The image used should be no more than 144px in both height and width.
 
   ```javascript
