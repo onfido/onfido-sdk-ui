@@ -25,7 +25,7 @@ const CrossDeviceClientIntro: FunctionComponent<Props> = ({
   const { translate } = useLocales()
   const defaultSubtitle = translate('cross_device_session_linked.subtitle')
   const subtitle = crossDeviceClientIntroProductName
-    ? `${defaultSubtitle} ${crossDeviceClientIntroProductName}`
+    ? `[defaultSubtitle, crossDeviceClientIntroProductName].join(' ')`
     : defaultSubtitle
   return (
     <ScreenLayout
