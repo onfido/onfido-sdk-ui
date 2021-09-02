@@ -2,7 +2,8 @@ import { h, Component } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
-import { localised /* , type LocalisedType */ } from '../../locales'
+import { useLocales } from '~locales'
+/* import { type LocalisedType } from '../../locales' */
 import {
   getSupportedCountriesForDocument,
   /* type CountryData, */
@@ -34,12 +35,16 @@ const getFlagIconURL = (country) => {
   return `${flagsPath}${country.country_alpha2.toLowerCase()}.svg`
 }
 
-const getCountryOptionTemplate = (country) =>
-  `<i
+const getCountryOptionTemplate = (country) => {
+  if (country) {
+    return `<i
       role="presentation"
       class="${style.countryFlag}"
       style="background-image: url(${getFlagIconURL(country)})"></i>
-    <span class="${style.countryLabel}">${country.name}</span>`
+      <span class="${style.countryLabel}">${country.name}</span>`
+  }
+  return ''
+}
 
 class CountrySelection extends Component {
   state = {
@@ -47,6 +52,7 @@ class CountrySelection extends Component {
   }
 
   handleCountrySearchConfirm = (selectedCountry) => {
+    console.log('on confirm called!', selectedCountry)
     const { actions, idDocumentIssuingCountry } = this.props
     if (selectedCountry) {
       this.setState({
@@ -98,11 +104,13 @@ class CountrySelection extends Component {
     return hasOnePreselectedDocument(steps) && documentType !== 'passport'
   }
 
-  getNoResultsTextForDropdown = () =>
+  getNoResultsTextForDropdown = () => {
+    const { translate } = useLocales()
     parseTags(
-      this.props.translate('country_select.alert_dropdown.country_not_found'),
+      translate('country_select.alert_dropdown.country_not_found'),
       ({ text }) => text
     )
+  }
 
   trackChooseAnotherDocumentTypeClick = () => {
     const { trackScreen, previousStep } = this.props
@@ -111,9 +119,8 @@ class CountrySelection extends Component {
   }
 
   renderNoResultsError = () => {
-    const noResultsErrorCopy = this.props.translate(
-      'country_select.alert.another_doc'
-    )
+    const { translate } = useLocales()
+    const noResultsErrorCopy = translate('country_select.alert.another_doc')
 
     return (
       <div className={style.errorContainer}>
@@ -136,7 +143,8 @@ class CountrySelection extends Component {
   }
 
   render() {
-    const { translate, nextStep, idDocumentIssuingCountry } = this.props
+    const { translate } = useLocales()
+    const { nextStep, idDocumentIssuingCountry } = this.props
     return (
       <div className={theme.fullHeightContainer}>
         <PageTitle title={translate('country_select.title')} />
@@ -155,7 +163,7 @@ class CountrySelection extends Component {
               displayMenu="overlay"
               cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
               templates={{
-                inputValue: (country) => country && country.name,
+                inputValue: (country) => country?.name,
                 suggestion: (country) =>
                   country && getCountryOptionTemplate(country),
               }}
@@ -186,4 +194,4 @@ class CountrySelection extends Component {
   }
 }
 
-export default trackComponent(localised(CountrySelection), 'country_select')
+export default trackComponent(CountrySelection, 'country_select')
