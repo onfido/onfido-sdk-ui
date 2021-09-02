@@ -239,7 +239,7 @@ export const getInitSdkOptions = (): SdkOptions => {
   const hideOnfidoLogo = queryParamToValueString.hideOnfidoLogo === 'true'
   const cobrand =
     queryParamToValueString.showCobrand === 'true'
-      ? { text: 'Generic Company, Incorporated' }
+      ? { text: '[COMPANY/PRODUCT NAME]' }
       : undefined
   const logoCobrand =
     queryParamToValueString.showLogoCobrand === 'true'
