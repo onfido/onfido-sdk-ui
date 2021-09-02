@@ -3,11 +3,7 @@ import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
 import { useLocales } from '~locales'
-/* import { type LocalisedType } from '../../locales' */
-import {
-  getSupportedCountriesForDocument,
-  /* type CountryData, */
-} from '../../supported-documents'
+import { getSupportedCountriesForDocument } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags, preventDefaultOnClick } from '~utils'
 import { hasOnePreselectedDocument } from '~utils/steps'
@@ -16,26 +12,30 @@ import Autocomplete from 'accessible-autocomplete/preact'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
-/* type Props = {
-  documentType: string,
-  idDocumentIssuingCountry: CountryData,
-  previousStep: () => void,
-  nextStep: () => void,
-  translate: (string, ?{}) => string,
-  actions: Object,
-} & LocalisedType
+import type { CountryData } from '~types/commons'
+import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import type { StepComponentBaseProps } from '~types/routers'
+
+type Props = {
+  documentType: string
+  idDocumentIssuingCountry: CountryData
+  previousStep: () => void
+  nextStep: () => void
+} & WithLocalisedProps &
+  WithTrackingProps &
+  StepComponentBaseProps
 
 type State = {
-  showNoResultsError: Boolean,
-} */
+  showNoResultsError: boolean
+}
 
-const getFlagIconURL = (country) => {
+const getFlagIconURL = (country: CountryData) => {
   // NOTE: `flagsPath` is the same as what is returned by libphonenumber-js in PhoneNumberInput component
   const flagsPath = 'https://lipis.github.io/flag-icon-css/flags/4x3/'
   return `${flagsPath}${country.country_alpha2.toLowerCase()}.svg`
 }
 
-const getCountryOptionTemplate = (country) => {
+const getCountryOptionTemplate = (country: CountryData) => {
   if (country) {
     return `<i
       role="presentation"
@@ -46,20 +46,19 @@ const getCountryOptionTemplate = (country) => {
   return ''
 }
 
-class CountrySelection extends Component {
+class CountrySelection extends Component<Props, State> {
   state = {
     showNoResultsError: false,
   }
 
-  handleCountrySearchConfirm = (selectedCountry) => {
-    console.log('on confirm called!', selectedCountry)
+  handleCountrySearchConfirm = (selectedCountry: CountryData) => {
     const { actions, idDocumentIssuingCountry } = this.props
     if (selectedCountry) {
       this.setState({
         showNoResultsError: false,
       })
       actions.setIdDocumentIssuingCountry(selectedCountry)
-      setTimeout(() => document.getElementById('country-search').blur(), 0)
+      setTimeout(() => document.getElementById('country-search')?.blur(), 0)
     } else if (
       !selectedCountry &&
       (!idDocumentIssuingCountry || !idDocumentIssuingCountry.country_alpha3)
@@ -70,7 +69,10 @@ class CountrySelection extends Component {
     }
   }
 
-  suggestCountries = (query = '', populateResults) => {
+  suggestCountries = (
+    query = '',
+    populateResults: (results: CountryData[]) => string[]
+  ) => {
     const { documentType, idDocumentIssuingCountry, actions } = this.props
     if (idDocumentIssuingCountry && query !== idDocumentIssuingCountry.name) {
       actions.resetIdDocumentIssuingCountry()
@@ -90,7 +92,7 @@ class CountrySelection extends Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: Props) {
     if (
       prevProps.documentType &&
       this.props.documentType !== prevProps.documentType
@@ -106,7 +108,7 @@ class CountrySelection extends Component {
 
   getNoResultsTextForDropdown = () => {
     const { translate } = useLocales()
-    parseTags(
+    return parseTags(
       translate('country_select.alert_dropdown.country_not_found'),
       ({ text }) => text
     )
@@ -163,9 +165,9 @@ class CountrySelection extends Component {
               displayMenu="overlay"
               cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
               templates={{
-                inputValue: (country) => country?.name,
-                suggestion: (country) =>
-                  country && getCountryOptionTemplate(country),
+                inputValue: (country: CountryData) => country?.name,
+                suggestion: (country: CountryData) =>
+                  getCountryOptionTemplate(country),
               }}
               onConfirm={this.handleCountrySearchConfirm}
             />
