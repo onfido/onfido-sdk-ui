@@ -132,6 +132,7 @@ $_sdk-option-border-bottom: 0;
   position: relative;
   /* font size for form elements (input, select, textarea) must be at least 16px otherwise iOS Safari intervenes & forces UI to zoom in */
   font-size: var(--font-size-base);
+  color: $_sdk-text-color;
 }
 
 .custom__hint {

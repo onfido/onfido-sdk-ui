@@ -8,6 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+### Changed
+
+### Fixed
+
+- Public: Fix custom SDK body text color set in `customUI.colorContentBody` option not getting applied to Country Selector text input if an element level text colour has been set in host app/site's stylesheet.
+
 ## [6.13.0] - 2021-08-23
 
 ### Added
