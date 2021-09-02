@@ -37,11 +37,6 @@ export type UserExitCode = 'USER_CONSENT_DENIED'
 
 export type ServerRegions = 'US' | 'EU' | 'CA'
 
-export type CrossDeviceClientIntroOptions = {
-  productName?: string
-  ProductLogoSrc?: string
-}
-
 interface FunctionalConfigurations {
   disableAnalytics?: boolean
   mobileFlow?: boolean
@@ -73,7 +68,6 @@ export interface SdkOptions extends FunctionalConfigurations {
   steps?: Array<StepTypes | StepConfig>
   enterpriseFeatures?: EnterpriseFeatures
   customUI?: UICustomizationOptions | null
-  crossDeviceClientIntro?: CrossDeviceClientIntroOptions
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   _crossDeviceLinkMethods?: Array<string> | null
