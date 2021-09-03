@@ -92,6 +92,16 @@ class CountrySelection extends Component<Props, State> {
     if (this.props.idDocumentIssuingCountry) {
       this.props.actions.resetIdDocumentIssuingCountry()
     }
+    document.addEventListener('mousedown', (event: MouseEvent) => {
+      if (
+        event.target?.className.includes(
+          'onfido-sdk-ui-CountrySelector-custom__menu--visible'
+        )
+      ) {
+        // Intercept mouse click if event target is on the menu itself, i.e. scrollbar area
+        event.preventDefault()
+      }
+    })
   }
 
   componentDidUpdate(prevProps: Props) {
