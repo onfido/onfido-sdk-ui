@@ -1,6 +1,8 @@
 import { h, Component } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
+
+import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
 import { useLocales } from '~locales'
 import { getSupportedCountriesForDocument } from '../../supported-documents'
@@ -147,8 +149,25 @@ class CountrySelection extends Component<Props, State> {
   render() {
     const { translate } = useLocales()
     const { nextStep, idDocumentIssuingCountry } = this.props
+
     return (
-      <div className={theme.fullHeightContainer}>
+      <ScreenLayout
+        actions={
+          <Button
+            variant="primary"
+            className={classNames(theme['button-centered'], theme['button-lg'])}
+            disabled={
+              !idDocumentIssuingCountry ||
+              !idDocumentIssuingCountry.country_alpha3 ||
+              this.state.showNoResultsError
+            }
+            onClick={nextStep}
+            data-onfido-qa="countrySelectorNextStep"
+          >
+            {translate('country_select.button_primary')}
+          </Button>
+        }
+      >
         <PageTitle title={translate('country_select.title')} />
         <div className={classNames(theme.alignTextLeft, style.container)}>
           <div data-onfido-qa="countrySelector">
@@ -176,22 +195,7 @@ class CountrySelection extends Component<Props, State> {
             this.state.showNoResultsError &&
             this.renderNoResultsError()}
         </div>
-        <div>
-          <Button
-            variant="primary"
-            className={classNames(theme['button-centered'], theme['button-lg'])}
-            disabled={
-              !idDocumentIssuingCountry ||
-              !idDocumentIssuingCountry.country_alpha3 ||
-              this.state.showNoResultsError
-            }
-            onClick={nextStep}
-            data-onfido-qa="countrySelectorNextStep"
-          >
-            {translate('country_select.button_primary')}
-          </Button>
-        </div>
-      </div>
+      </ScreenLayout>
     )
   }
 }
