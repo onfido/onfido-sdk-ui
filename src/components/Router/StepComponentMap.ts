@@ -217,7 +217,8 @@ const buildNonPassportPreCaptureComponents = (
     ? []
     : [SelectIdentityDocument]
   const prependCountrySelector = showCountrySelection ? [CountrySelector] : []
-
+  // @ts-ignore
+  // TODO: convert DocumentSelector to TS
   return [...prependDocumentSelector, ...prependCountrySelector]
 }
 
