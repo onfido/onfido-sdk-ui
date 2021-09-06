@@ -88,20 +88,25 @@ class CountrySelection extends Component<Props, State> {
     populateResults(filteredResults)
   }
 
+  handleMenuMouseClick = (event: Event) => {
+    const target = event.target as HTMLUListElement
+    // Intercept mouse click if event target is the displayed menu, i.e. scrollbar area
+    // (mouse clicks in on the menu list options the target will be a different class)
+    // Otherwise accessible-autocomplete picks up a mouse click on scrollbar area as a confirm event
+    if (
+      target.className.includes(
+        'onfido-sdk-ui-CountrySelector-custom__menu--visible'
+      )
+    ) {
+      event.preventDefault()
+    }
+  }
+
   componentDidMount() {
     if (this.props.idDocumentIssuingCountry) {
       this.props.actions.resetIdDocumentIssuingCountry()
     }
-    document.addEventListener('mousedown', (event: MouseEvent) => {
-      if (
-        event.target?.className.includes(
-          'onfido-sdk-ui-CountrySelector-custom__menu--visible'
-        )
-      ) {
-        // Intercept mouse click if event target is on the menu itself, i.e. scrollbar area
-        event.preventDefault()
-      }
-    })
+    document.addEventListener('mousedown', this.handleMenuMouseClick)
   }
 
   componentDidUpdate(prevProps: Props) {
