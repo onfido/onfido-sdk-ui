@@ -239,12 +239,12 @@ export const faceScenarios = (lang) => {
       cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(copy)
     })
 
-    it('should be taken to the cross-device flow if browser does not have MediaRecorder API, liveness variant requested and photoCaptureFallback is disabled', async () => {
+    it('should be taken to the cross-device flow if browser does not have MediaRecorder API, facial liveness video variant requested and photoCaptureFallback is disabled', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&liveness=true&photoCaptureFallback=false`
+        `?language=${lang}&faceVideo=true&photoCaptureFallback=false`
       )
       driver.executeScript('window.MediaRecorder = undefined')
       documentUpload.clickUploadButton()
@@ -257,7 +257,7 @@ export const faceScenarios = (lang) => {
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should enter the liveness flow if I have a camera and liveness variant requested @percy', async () => {
+    it('should enter the facial liveness video flow if I have a camera and liveness video variant requested @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -286,7 +286,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should enter the liveness flow and display timeout notification after 10 seconds @percy', async () => {
+    it('should enter the facial liveness video flow and display timeout notification after 10 seconds @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -316,7 +316,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should record a video with live challenge, play it and submit it @percy', async () => {
+    it('should record a video with liveness challenge, play it and submit it @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -354,7 +354,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant @percy', async () => {
+    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for facial liveness video @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -410,7 +410,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for liveness variant @percy', async () => {
+    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for facial liveness video @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -457,7 +457,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for faceVideo variant', async () => {
+    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for facial liveness video', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,

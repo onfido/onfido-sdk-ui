@@ -2,6 +2,19 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `6.12.0` -> `[next-version]`
+
+The **English**, **Spanish**, **German**, **French**, **Italian** and **Portuguese** copy for the following string(s) has changed:
+
+### Added strings
+
+- `cross_device_session_linked.button_primary`
+- `cross_device_session_linked.info`
+- `cross_device_session_linked.list_item_desktop_open`
+- `cross_device_session_linked.list_item_sent_by_you`
+- `cross_device_session_linked.subtitle`
+- `cross_device_session_linked.title`
+
 ## `6.11.1` -> `6.12.0`
 
 The **English**, **Spanish**, **German**, **French**, **Italian** and **Portuguese** copy for the following string(s) has changed:

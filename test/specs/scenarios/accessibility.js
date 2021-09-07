@@ -94,7 +94,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         driver.switchTo().alert().accept()
       }
 
-      const runThroughCrossDeviceFlow = async () => {
+      const switchToCrossDeviceFlow = async () => {
         documentUpload.switchToCrossDevice()
         crossDeviceIntro.continueToNextStep()
         crossDeviceLink.switchToCopyLinkOption()
@@ -137,13 +137,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&useUploader=true`
-        )
-        documentUpload.clickUploadButton()
-        uploadFileAndClickConfirmButton(
-          passportUploadImageGuide,
-          confirm,
-          'passport.jpg'
+          `?language=${lang}`
         )
         goToCrossDeviceMobileConnectedScreen()
         runAccessibilityTest(driver)
@@ -171,7 +165,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           confirm,
           'passport.jpg'
         )
-        runThroughCrossDeviceFlow()
+        switchToCrossDeviceFlow()
         documentUpload.verifySelfieUploadTitle(copy)
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)

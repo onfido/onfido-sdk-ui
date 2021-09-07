@@ -203,16 +203,12 @@ export default class CrossDeviceMobileRouter extends Component<
       return this.setError()
     }
 
-    const isFaceStep = clientStepIndex
-      ? steps[clientStepIndex].type === 'face'
-      : false
-
     this.setState(
       {
         token,
         steps,
-        step: isFaceStep ? clientStepIndex : userStepIndex,
-        stepIndexType: isFaceStep ? 'client' : 'user',
+        step: clientStepIndex,
+        stepIndexType: 'client',
         crossDeviceError: undefined,
         language,
       },
