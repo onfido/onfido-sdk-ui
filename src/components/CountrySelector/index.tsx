@@ -18,7 +18,7 @@ import type { CountryData } from '~types/commons'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
 
-type Props = {
+export type Props = {
   documentType: string
   idDocumentIssuingCountry: CountryData
   previousStep: () => void
