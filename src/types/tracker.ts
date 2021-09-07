@@ -17,7 +17,6 @@ type MappedEventNames =
   | 'screen_document_country_select'
   | 'screen_crossDevice'
   | 'screen_crossDevice_crossdevice_link'
-  | 'screen_document_crossDevice_client_session_linked'
   | 'Starting upload'
 
 export type TrackedEventNames =
