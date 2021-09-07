@@ -118,6 +118,10 @@ class CountrySelection extends Component<Props, State> {
     }
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleMenuMouseClick)
+  }
+
   isDocumentPreselected() {
     const { steps, documentType } = this.props
     return hasOnePreselectedDocument(steps) && documentType !== 'passport'
