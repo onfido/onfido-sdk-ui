@@ -1,14 +1,5 @@
 @import '../../Theme/constants';
 
-.iconContainer {
-  height: auto;
-  width: 100%;
-  flex: 2 1 1em;
-  min-height: 1em;
-  max-height: 9em;
-  margin: auto;
-}
-
 /*
  * NOTE: iOS Safari has a strange bug where SVG background images are not displayed on some iOS devices
  *       if margin, background image properties are not declared in a specific order together & before background-image

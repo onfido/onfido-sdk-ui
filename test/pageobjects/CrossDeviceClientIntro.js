@@ -7,6 +7,10 @@ class CrossDeviceClientIntro extends BasePage {
     return this.$('.onfido-sdk-ui-crossDevice-ClientIntro-icon')
   }
 
+  async customIcon() {
+    return this.$('.onfido-sdk-ui-crossDevice-ClientIntro-customIcon')
+  }
+
   async infoHeader() {
     return this.$('.onfido-sdk-ui-crossDevice-ClientIntro-header')
   }
@@ -39,6 +43,20 @@ class CrossDeviceClientIntro extends BasePage {
       verifyElementCopy(item, expectedCopies[index])
     })
     verifyElementCopy(this.continueButton(), screenCopy.button_primary)
+  }
+
+  async verifySubTitle(copy) {
+    verifyElementCopy(
+      this.subtitle(),
+      copy.cross_device_session_linked.subtitle
+    )
+  }
+
+  async verifySubTitleWithCustomText(copy) {
+    verifyElementCopy(
+      this.subtitle(),
+      `${copy.cross_device_session_linked.subtitle} for a [COMPANY/PRODUCT NAME] loan`
+    )
   }
 }
 

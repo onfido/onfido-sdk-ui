@@ -75,7 +75,7 @@ class BasePage {
       this.cobrandLabel().isDisplayed(),
       'Test Failed: Cobrand text should be displayed'
     )
-    verifyElementCopy(this.cobrandText(), 'Planet Express, Incorporated')
+    verifyElementCopy(this.cobrandText(), '[COMPANY/PRODUCT NAME]')
     verifyElementCopy(this.poweredBy(), 'powered by')
   }
 
