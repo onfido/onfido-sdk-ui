@@ -61,6 +61,7 @@ const Previews = ({
   isFullScreen,
   isUploading,
   forceRetake,
+  onVideoError,
 }) => {
   const { translate } = useLocales()
   const methodNamespace = getNamespace(method, capture.variant)
@@ -131,6 +132,7 @@ const Previews = ({
             isFullScreen,
             imageAltTag,
             videoAriaLabel,
+            onVideoError,
           }}
         />
         {!isFullScreen && <p className={style.message}>{message}</p>}

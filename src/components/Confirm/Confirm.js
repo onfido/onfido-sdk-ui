@@ -30,6 +30,7 @@ const CALLBACK_TYPES = {
   video: 'onSubmitVideo',
   document: 'onSubmitDocument',
 }
+const UNEXPECTED_ERROR = 'REQUEST_ERROR'
 class Confirm extends Component {
   constructor(props) {
     super(props)
@@ -86,15 +87,17 @@ class Confirm extends Component {
       this.props.triggerOnError({ status, response })
       return this.props.crossDeviceClientError()
     } else if (status === 422) {
-      errorKey = this.onfidoErrorReduce(response.error) || 'REQUEST_ERROR'
+      errorKey = this.onfidoErrorReduce(response.error) || UNEXPECTED_ERROR
     } else {
       this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
-      errorKey = 'REQUEST_ERROR'
+      errorKey = UNEXPECTED_ERROR
     }
 
     this.setError(errorKey)
   }
+
+  onVideoPreviewError = () => this.setError(UNEXPECTED_ERROR)
 
   imageQualityWarnings = (warnings) => {
     for (const warnKey in IMAGE_QUALITY_KEYS_MAP) {
@@ -387,6 +390,7 @@ class Confirm extends Component {
         documentType={documentType}
         poaDocumentType={poaDocumentType}
         forceRetake={error.type === 'error'}
+        onVideoError={this.onVideoPreviewError}
       />
     )
   }
