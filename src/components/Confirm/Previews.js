@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import { localised } from '../../locales'
+import { useLocales } from '../../locales'
 import CaptureViewer from '../CaptureViewer'
 import Actions from './Actions'
 import PageTitle from '../PageTitle'
@@ -50,89 +50,93 @@ const getNamespace = (method, variant) => {
   return 'doc_confirmation'
 }
 
-const Previews = localised(
-  ({
-    capture,
-    retakeAction,
-    confirmAction,
-    error,
-    method,
-    documentType,
-    poaDocumentType,
-    translate,
-    isFullScreen,
-    isUploading,
-    forceRetake,
-  }) => {
-    const methodNamespace = getNamespace(method, capture.variant)
-    /**
-     * Possible locale keys for `title`:
-     *  - doc_confirmation.title
-     *  - selfie_confirmation.title
-     *  - video_confirmation.title
-     */
-    const title = translate(`${methodNamespace}.title`)
+const Previews = ({
+  capture,
+  retakeAction,
+  confirmAction,
+  error,
+  method,
+  documentType,
+  poaDocumentType,
+  isFullScreen,
+  isUploading,
+  forceRetake,
+}) => {
+  const { translate } = useLocales()
+  const methodNamespace = getNamespace(method, capture.variant)
+  /**
+   * Possible locale keys for `title`:
+   *  - doc_confirmation.title
+   *  - selfie_confirmation.title
+   *  - video_confirmation.title
+   */
+  const title = translate(`${methodNamespace}.title`)
 
-    /**
-     * Possible locale keys for `imageAltTag`:
-     *  - doc_confirmation.image_accessibility
-     *  - selfie_confirmation.image_accessibility
-     */
-    const imageAltTag = translate(`${methodNamespace}.image_accessibility`)
-    const videoAriaLabel = translate('video_confirmation.video_accessibility')
-    const message = translate(
-      getMessageKey({
-        capture,
-        documentType,
-        poaDocumentType,
+  /**
+   * Possible locale keys for `imageAltTag`:
+   *  - doc_confirmation.image_accessibility
+   *  - selfie_confirmation.image_accessibility
+   */
+  const imageAltTag = translate(`${methodNamespace}.image_accessibility`)
+  const videoAriaLabel = translate('video_confirmation.video_accessibility')
+  const message = translate(
+    getMessageKey({
+      capture,
+      documentType,
+      poaDocumentType,
+      error,
+      forceRetake,
+      method,
+    })
+  )
+  const actions = (
+    <Actions
+      {...{
+        retakeAction,
+        confirmAction,
+        isUploading,
         error,
         forceRetake,
-        method,
-      })
-    )
-    const actions = (
-      <Actions
-        {...{
-          retakeAction,
-          confirmAction,
-          isUploading,
-          error,
-          forceRetake,
-        }}
-      />
-    )
+      }}
+    />
+  )
 
-    return (
-      <ScreenLayout actions={!isFullScreen && actions}>
-        <div
-          className={classNames(
-            style.previewsContainer,
-            theme.fullHeightContainer,
-            {
-              [style.previewsContainerIsFullScreen]: isFullScreen,
-            }
-          )}
-        >
-          {isFullScreen ? null : error.type ? (
-            <Error
-              {...{
-                error,
-                withArrow: true,
-                role: 'alert',
-                focusOnMount: false,
-              }}
-            />
-          ) : (
-            <PageTitle title={title} smaller={true} className={style.title} />
-          )}
-          <CaptureViewer
-            {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }}
+  return (
+    <ScreenLayout actions={!isFullScreen && actions}>
+      <div
+        className={classNames(
+          style.previewsContainer,
+          theme.fullHeightContainer,
+          {
+            [style.previewsContainerIsFullScreen]: isFullScreen,
+          }
+        )}
+      >
+        {isFullScreen ? null : error.type ? (
+          <Error
+            {...{
+              error,
+              withArrow: true,
+              role: 'alert',
+              focusOnMount: false,
+            }}
           />
-          {!isFullScreen && <p className={style.message}>{message}</p>}
-        </div>
-      </ScreenLayout>
-    )
-  }
-)
+        ) : (
+          <PageTitle title={title} smaller={true} className={style.title} />
+        )}
+        <CaptureViewer
+          {...{
+            capture,
+            method,
+            isFullScreen,
+            imageAltTag,
+            videoAriaLabel,
+          }}
+        />
+        {!isFullScreen && <p className={style.message}>{message}</p>}
+      </div>
+    </ScreenLayout>
+  )
+}
 
 export default Previews
