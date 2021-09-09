@@ -73,7 +73,6 @@ jobs:
       - name: Create Github Release note
         uses: ncipollo/release-action@v1
         with:
-          artifacts: '*.tar.gz,*.zip'
           token: ${{ secrets.GITHUB_TOKEN }}
           draft: true
 
