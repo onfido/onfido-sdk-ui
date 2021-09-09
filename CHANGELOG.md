@@ -8,9 +8,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [6.14.0-rc.4-test] - 2021-09-13
+## [6.14.0] - 2021-09-13
 
-## Added
+### Added
 
 - UI: Added new Intro screen when user begins the Cross Device flow on their mobile device.
 - Public: Added SDK configuration options for integrators to customize product name, copy and/or logo image for the new Cross Device Mobile Client Intro screen.
