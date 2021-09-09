@@ -315,9 +315,6 @@ const configDist = () => ({
               sourceMap: true,
               terserOptions: {
                 output: {
-                  preamble: `/* Onfido${
-                    SDK_ENV === 'Auth' ? SDK_ENV : 'IDV'
-                  } SDK ${packageJson.version} */`,
                   comments: '/^!/',
                 },
               },
@@ -330,6 +327,13 @@ const configDist = () => ({
                 banner: (licenseFile) => {
                   return `License information can be found in ${licenseFile}`
                 },
+              },
+            }),
+            new webpack.BannerPlugin({
+              banner: () => {
+                return `Onfido${SDK_ENV === 'Auth' ? SDK_ENV : 'IDV'} SDK ${
+                  packageJson.version
+                }`
               },
             }),
           ]
