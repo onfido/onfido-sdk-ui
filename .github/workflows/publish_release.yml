@@ -70,10 +70,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-      - name: Create Github Release note
+      - name: Extract release notes from CHANGELOG
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v1
+
+      - name: Create Github Release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          body: ${{ steps.extract-release-notes.outputs.release_notes }}
           draft: true
 
       # FIXME: Temporarily disabled to allow release build to pass. To be fixed in CX-6470
