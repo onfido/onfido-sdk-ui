@@ -133,6 +133,14 @@
         "subtitle": "Sie können nun zu Ihrem Computer zurückkehren, um fortzufahren",
         "title": "Uploads erfolgreich!"
     },
+    "cross_device_session_linked": {
+        "button_primary": "Fortfahren",
+        "info": "Überprüfen Sie bitte",
+        "list_item_desktop_open": "Ihr Desktop-Fenster bleibt geöffnet",
+        "list_item_sent_by_you": "Dieser Link wurde von Ihnen gesendet - lassen Sie sich beraten, wenn Sie glauben, dass es sich um einen Betrug handeln könnte",
+        "subtitle": "Fahren Sie mit der Überprüfung fort",
+        "title": "Mit Ihrem Computer verbunden"
+    },
     "doc_capture": {
         "detail": {
             "folded_doc_front": "Legen Sie Ihr Dokument flach hin, einschließlich aller Innenseiten (Ihr Foto muss enthalten sein)"

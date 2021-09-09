@@ -133,6 +133,14 @@
         "subtitle": "Ahora puede volver a su computadora para continuar",
         "title": "Carga completa"
     },
+    "cross_device_session_linked": {
+        "button_primary": "Continuar",
+        "info": "Verificación doble",
+        "list_item_desktop_open": "La ventana del escritorio sigue abierta",
+        "list_item_sent_by_you": "Usted envío este enlace. Pida ayuda si cree que podría ser peligroso",
+        "subtitle": "Continúe con la verificación",
+        "title": "Vinculado a su ordenador"
+    },
     "doc_capture": {
         "detail": {
             "folded_doc_front": "Asegúrese que su documento este completamente abierto (debe incluir su foto)"

@@ -46,6 +46,14 @@
         "subtitle": "Ora puoi tornare al tuo computer per continuare",
         "title": "Caricamenti riusciti"
     },
+    "cross_device_session_linked": {
+        "button_primary": "Continua",
+        "info": "Assicurati di",
+        "list_item_desktop_open": "Tenere aperta la finestra del browser",
+        "list_item_sent_by_you": "Aver inviato tu il link — Cerca assistenza se pensi si possa trattare di una truffa",
+        "subtitle": "Continua la verifica",
+        "title": "Connesso al computer"
+    },
     "doc_capture": {
         "detail": {
             "folded_doc_front": "Appoggia il documento aperto sulle pagine interne (deve contenere la tua foto)"

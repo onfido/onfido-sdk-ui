@@ -133,6 +133,14 @@
         "subtitle": "You can now return to your computer to continue",
         "title": "Uploads successful"
     },
+    "cross_device_session_linked": {
+        "button_primary": "Continue",
+        "info": "Double-check",
+        "list_item_desktop_open": "Your desktop window remains open",
+        "list_item_sent_by_you": "This link was sent by you — seek advice if you think this could be a scam",
+        "subtitle": "Continue with the verification",
+        "title": "Mobile session linked to your computer"
+    },
     "doc_capture": {
         "detail": {
             "folded_doc_front": "Lay your document flat, include all inner pages (must contain your photo)"

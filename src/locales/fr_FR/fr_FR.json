@@ -133,6 +133,14 @@
         "subtitle": "Vous pouvez maintenant retourner sur votre ordinateur pour continuer",
         "title": "Envois réussis"
     },
+    "cross_device_session_linked": {
+        "button_primary": "Continuer",
+        "info": "Revérifier",
+        "list_item_desktop_open": "Votre fenêtre de bureau reste ouverte",
+        "list_item_sent_by_you": "Ce lien a été envoyé par vous. Demandez conseil si vous pensez qu'il s'agit d'une escroquerie.",
+        "subtitle": "Poursuivre la vérification",
+        "title": "Lié à votre ordinateur"
+    },
     "doc_capture": {
         "detail": {
             "folded_doc_front": "Dépliez votre document, prenez en photo les pages intérieures (qui contiennent votre photo)"
