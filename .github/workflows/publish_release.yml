@@ -70,6 +70,13 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
+      - name: Create Github Release note
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: '*.tar.gz,*.zip'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+
       # FIXME: Temporarily disabled to allow release build to pass. To be fixed in CX-6470
       # - name: Send artifacts to Sentry
       #   run: |
