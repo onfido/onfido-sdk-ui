@@ -14,6 +14,7 @@ type Props = {
   isFullScreen?: boolean
   imageAltTag?: string
   videoAriaLabel?: string
+  onVideoError: () => void
 }
 
 const CaptureViewer: FunctionComponent<Props> = ({
