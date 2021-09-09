@@ -13,7 +13,8 @@ declare const STEP_POA = "poa";
 declare const STEP_FACE = "face";
 declare const STEP_COMPLETE = "complete";
 declare const STEP_AUTH = "auth";
-export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE | typeof STEP_AUTH;
+declare const STEP_CROSS_DEVICE_SESSION_INTRO = "crossDeviceSessionIntro";
+export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE | typeof STEP_AUTH | typeof STEP_CROSS_DEVICE_SESSION_INTRO;
 export declare type DocumentTypes = "passport" | "driving_licence" | "national_identity_card" | "residence_permit";
 export declare type PoaTypes = "bank_building_society_statement" | "utility_bill" | "council_tax" | "benefit_letters" | "government_letter";
 export declare type RequestedVariant = "standard" | "video";
@@ -58,6 +59,7 @@ export declare type StepOptionsMap = {
 	welcome: StepOptionWelcome;
 	userConsent: never;
 	auth: StepOptionAuth;
+	crossDeviceSessionIntro: never;
 	document: StepOptionDocument;
 	poa: StepOptionPoA;
 	face: StepOptionFace;
@@ -72,11 +74,12 @@ export declare type StepConfigMap = {
 export declare type StepConfigWelcome = StepConfigMap["welcome"];
 export declare type StepConfigUserConsent = StepConfigMap["userConsent"];
 export declare type StepConfigAuth = StepConfigMap["auth"];
+export declare type StepConfigCrossDeviceSessionIntro = StepConfigMap["crossDeviceSessionIntro"];
 export declare type StepConfigDocument = StepConfigMap["document"];
 export declare type StepConfigPoa = StepConfigMap["poa"];
 export declare type StepConfigFace = StepConfigMap["face"];
 export declare type StepConfigComplete = StepConfigMap["complete"];
-export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoa | StepConfigFace | StepConfigComplete | StepConfigAuth;
+export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoa | StepConfigFace | StepConfigComplete | StepConfigAuth | StepConfigCrossDeviceSessionIntro;
 export declare type UICustomizationOptions = {
 	colorBackgroundSurfaceModal?: string;
 	colorBorderSurfaceModal?: string;
@@ -266,6 +269,8 @@ export interface SdkOptions extends FunctionalConfigurations {
 	steps?: Array<StepTypes | StepConfig>;
 	enterpriseFeatures?: EnterpriseFeatures;
 	customUI?: UICustomizationOptions | null;
+	crossDeviceClientIntroProductName?: string;
+	crossDeviceClientIntroProductLogoSrc?: string;
 	_crossDeviceLinkMethods?: Array<string> | null;
 }
 export declare type SdkHandle = {
