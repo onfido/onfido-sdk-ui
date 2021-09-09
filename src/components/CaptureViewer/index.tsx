@@ -14,7 +14,7 @@ type Props = {
   isFullScreen?: boolean
   imageAltTag?: string
   videoAriaLabel?: string
-  onVideoError: () => void
+  onVideoError?: () => void
 }
 
 const CaptureViewer: FunctionComponent<Props> = ({
@@ -24,7 +24,8 @@ const CaptureViewer: FunctionComponent<Props> = ({
   isFullScreen,
   imageAltTag,
   videoAriaLabel = 'Video preview',
-  onVideoError,
+  onVideoError = () =>
+    console.error('An unexpected Video Preview error has occurred'),
 }) => {
   if (isOfMimeType(['pdf'], blob)) {
     return <PdfViewer blob={blob} />
