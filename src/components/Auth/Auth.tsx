@@ -10,7 +10,6 @@ import Loader from './assets/loaderSvg'
 import style from './style.scss'
 import { useLocales } from '~locales'
 import { useSdkOptions } from '~contexts'
-import { getUrlsFromJWT } from '~utils/jwt'
 
 type Props = StepComponentBaseProps & WithLocalisedProps
 
@@ -25,7 +24,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
   const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
   const retries = findStep('auth')?.options?.retries || 3
-  const apiUrl = getUrlsFromJWT(props.token).onfido_api_url
+  const apiUrl = props.urls.onfido_api_url
 
   const [authConfig, setAuthConfig] = useState<AuthConfigType>({
     token: '',
