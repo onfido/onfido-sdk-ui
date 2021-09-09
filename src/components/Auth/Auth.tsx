@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact'
 import { AuthCheckProcessor } from './AuthCheckProcessor'
 import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
-import { getAuthCustomization } from './AuthConfig'
+import { getAuthCustomization, getAuthConfig } from './AuthConfig'
 import { FaceTecStrings } from './assets/FaceTecStrings'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
@@ -10,7 +10,7 @@ import Loader from './assets/loaderSvg'
 import style from './style.scss'
 import { useLocales } from '~locales'
 import { useSdkOptions } from '~contexts'
-import { getAuthConfig } from '~utils/http'
+import { getUrlsFromJWT } from '~utils/jwt'
 
 type Props = StepComponentBaseProps & WithLocalisedProps
 
@@ -25,6 +25,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
   const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
   const retries = findStep('auth')?.options?.retries || 3
+  const apiUrl = getUrlsFromJWT(props.token).onfido_api_url
 
   const [authConfig, setAuthConfig] = useState<AuthConfigType>({
     token: '',
@@ -37,6 +38,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
   const onLivenessCheckPressed = useCallback(() => {
     if (authConfig.token && props.token && props.nextStep) {
       new AuthCheckProcessor(
+        apiUrl,
         authConfig,
         retries,
         props.token,
@@ -79,6 +81,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
     }
     const getConfig = () => {
       getAuthConfig(
+        apiUrl,
         `Bearer ${props.token}`,
         (success) => {
           const response = JSON.parse(success)
