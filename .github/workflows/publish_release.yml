@@ -91,7 +91,6 @@ jobs:
         run: |
           if [ "$VERSION" == "$LATEST_TAG" ]
           then
-            echo Current NODE_ENV $NODE_ENV
             TEST_ENV=deployment npm run build:test
           fi
 
