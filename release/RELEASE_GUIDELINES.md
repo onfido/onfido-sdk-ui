@@ -37,7 +37,9 @@ Run `VERSION=x.x.x node release/release.js`
    - fix merging conflicts
    - git push --set-upstream origin post-release/merge-<release_version>-to-development
    - Create a PR against development
-3. Create a new release on GitHub, using release tag:
-   - title should be a version number <VERSION>
-   - as description use the entries for that version from CHANGELOG.md
+3. Publish the draft release created on GitHub by editing it, check that:
+   - title should be a version number <release_version>, if it is an LTS release title should be edited to include the `-LTS` suffix, e.g.
+     - title for LTS release 5.11.4 is `5.11.4-LTS` with tag `5.11.4`
+     - title for regular release 6.14.0 is `6.14.0` with tag `6.14.0`
+   - description should be all the entries for that version from CHANGELOG.md
 4. Create PR to update Sample App
