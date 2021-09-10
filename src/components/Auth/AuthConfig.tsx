@@ -170,7 +170,7 @@ export const getAuthCustomization = (
 }
 
 export const getAuthConfig = (
-  apiUrl: string,
+  apiUrl: string | undefined,
   token: string,
   onSuccess: SuccessCallback<string>,
   onError: (error: ApiRawError) => void

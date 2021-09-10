@@ -26,7 +26,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   maxRetries
 
   constructor(
-    apiUrl: string,
+    apiUrl: string | undefined,
     authConfig: AuthConfigType,
     maxRetries: number,
     sdkToken: string,
