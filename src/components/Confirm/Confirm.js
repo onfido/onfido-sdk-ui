@@ -31,6 +31,7 @@ const CALLBACK_TYPES = {
   document: 'onSubmitDocument',
 }
 const UNEXPECTED_ERROR = 'REQUEST_ERROR'
+
 class Confirm extends Component {
   constructor(props) {
     super(props)
