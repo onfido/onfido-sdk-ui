@@ -74,22 +74,21 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Check tag ${{ github.ref }} is a release version
-        id: check-tag
+        id: check-for-release-tag
         run: |
           if [[${{ github.ref }} =~ refs\/tags\/[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "::set-output name=run_jobs::true"
-            echo "CREATE_RELEASE=true" >> $GITHUB_ENV
+            echo "::set-output name=create_release::true"
           else
-            echo "CREATE_RELEASE=false" >> $GITHUB_ENV
+            echo "::set-output name=create_release::false"
           fi
 
       - name: Extract release notes from CHANGELOG
-        if: CREATE_RELEASE == 'true'
+        if: ${{ steps.check-for-release-tag.outputs.create_release }} == 'true'
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v1
 
       - name: Create Github Release
-        if: CREATE_RELEASE == 'true'
+        if: ${{ steps.check-for-release-tag.outputs.create_release }} == 'true'
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
