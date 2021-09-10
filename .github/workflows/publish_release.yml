@@ -73,22 +73,13 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-      - name: Check tag ${{ github.ref }} is a release version
-        id: check-for-release-tag
-        run: |
-          if [[${{ github.ref }} =~ refs\/tags\/[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "::set-output name=create_release::true"
-          else
-            echo "::set-output name=create_release::false"
-          fi
-
       - name: Extract release notes from CHANGELOG
-        if: ${{ steps.check-for-release-tag.outputs.create_release }} == 'true'
+        if: "!contains(github.ref, '-rc.')"
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v1
 
       - name: Create Github Release
-        if: ${{ steps.check-for-release-tag.outputs.create_release }} == 'true'
+        if: "!contains(github.ref, '-rc.')"
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -110,7 +101,6 @@ jobs:
         run: |
           if [ "$VERSION" == "$LATEST_TAG" ]
           then
-            echo Current Node env "$NODE_ENV"
             TEST_ENV=deployment npm run build:test
           fi
 
