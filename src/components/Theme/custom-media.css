@@ -7,3 +7,5 @@
 @custom-media --short-viewport (max-height: 567px);
 /* For viewport larger than iPhone 5 in terms of height */
 @custom-media --long-viewport (min-height: 568px);
+/* For viewport of taller phones, e.g. iPhone 6-8 Plus, X or Pixel 4 XL in terms of height */
+@custom-media --longer-viewport (min-height: 725px);

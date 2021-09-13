@@ -127,7 +127,6 @@ const PROD_CONFIG = {
   SMS_DELIVERY_URL: 'https://telephony.onfido.com',
   PUBLIC_PATH: `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
-  AUTH_URL: 'https://api.eu.onfido.com',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN,
 }
@@ -162,7 +161,6 @@ const STAGING_CONFIG = {
   MOBILE_URL: '/',
   SMS_DELIVERY_URL: 'https://telephony.eu-west-1.dev.onfido.xyz',
   PUBLIC_PATH: '/',
-  AUTH_URL: 'https://api-gateway.eu-west-1.dev.onfido.xyz/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 
@@ -219,7 +217,7 @@ const basePlugins = (bundle_name = '') => [
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'CN',
+      BASE_32_VERSION: 'CO',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
@@ -315,9 +313,6 @@ const configDist = () => ({
               sourceMap: true,
               terserOptions: {
                 output: {
-                  preamble: `/* Onfido${
-                    SDK_ENV === 'Auth' ? SDK_ENV : 'IDV'
-                  } SDK ${packageJson.version} */`,
                   comments: '/^!/',
                 },
               },
@@ -330,6 +325,13 @@ const configDist = () => ({
                 banner: (licenseFile) => {
                   return `License information can be found in ${licenseFile}`
                 },
+              },
+            }),
+            new webpack.BannerPlugin({
+              banner: () => {
+                return `Onfido${SDK_ENV === 'Auth' ? SDK_ENV : 'IDV'} SDK ${
+                  packageJson.version
+                }`
               },
             }),
           ]

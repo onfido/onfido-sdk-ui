@@ -91,6 +91,9 @@ const confirmDocumentationCorrect = async () => {
   console.log(
     '   - Review and update the relevant subpages under the Technology > SDK (Web & Mobile) section of the Onfido product documentation'
   )
+  console.log(
+    'The JSON files in /src/supported-documents have been updated with the latest Docupedia data.'
+  )
 
   await proceedYesNo('All of those files have been updated')
 }

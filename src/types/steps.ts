@@ -5,6 +5,7 @@ const STEP_POA = 'poa'
 const STEP_FACE = 'face'
 const STEP_COMPLETE = 'complete'
 const STEP_AUTH = 'auth'
+const STEP_CROSS_DEVICE_SESSION_INTRO = 'crossDeviceSessionIntro'
 
 export type StepTypes =
   | typeof STEP_WELCOME
@@ -14,6 +15,7 @@ export type StepTypes =
   | typeof STEP_FACE
   | typeof STEP_COMPLETE
   | typeof STEP_AUTH
+  | typeof STEP_CROSS_DEVICE_SESSION_INTRO
 
 export type DocumentTypes =
   | 'passport'
@@ -79,6 +81,7 @@ type StepOptionsMap = {
   welcome: StepOptionWelcome
   userConsent: never
   auth: StepOptionAuth
+  crossDeviceSessionIntro: never
   document: StepOptionDocument
   poa: StepOptionPoA
   face: StepOptionFace
@@ -95,6 +98,7 @@ export type StepConfigMap = {
 export type StepConfigWelcome = StepConfigMap['welcome']
 export type StepConfigUserConsent = StepConfigMap['userConsent']
 export type StepConfigAuth = StepConfigMap['auth']
+export type StepConfigCrossDeviceSessionIntro = StepConfigMap['crossDeviceSessionIntro']
 export type StepConfigDocument = StepConfigMap['document']
 export type StepConfigPoa = StepConfigMap['poa']
 export type StepConfigFace = StepConfigMap['face']
@@ -108,3 +112,4 @@ export type StepConfig =
   | StepConfigFace
   | StepConfigComplete
   | StepConfigAuth
+  | StepConfigCrossDeviceSessionIntro

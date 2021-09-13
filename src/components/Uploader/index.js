@@ -107,7 +107,7 @@ const DesktopUploadArea = ({
   isUploading,
 }) => (
   <div className={style.crossDeviceInstructionsContainer}>
-    <div className={style.iconContainer}>
+    <div className={classNames(theme.iconContainer, style.iconContainer)}>
       <i
         className={classNames(
           theme.icon,
@@ -166,7 +166,7 @@ const PassportUploadIntro = ({
   return (
     <PassportMobileUploadArea nextStep={nextStep} translate={translate}>
       <div className={style.instructions}>
-        <div className={style.iconContainer}>
+        <div className={classNames(theme.iconContainer, style.iconContainer)}>
           <span className={classNames(theme.icon, style.identityIcon)} />
         </div>
         <div className={style.instructionsCopy}>{instructions}</div>
@@ -221,7 +221,7 @@ const UploadArea = (props) => {
     >
       <div className={style.instructions}>
         <div
-          className={classNames(style.iconContainer, {
+          className={classNames(theme.iconContainer, style.iconContainer, {
             [style.poaIconContainer]: isPoA,
           })}
         >

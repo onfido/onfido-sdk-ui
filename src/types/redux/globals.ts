@@ -27,6 +27,14 @@ export type GlobalActions =
   | { type: typeof constants.SET_FULL_SCREEN; payload: boolean }
   | { type: typeof constants.SET_DEVICE_HAS_CAMERA_SUPPORT; payload: boolean }
   | { type: typeof constants.SET_URLS; payload: UrlsConfig }
+  | {
+      type: typeof constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_NAME
+      payload: string
+    }
+  | {
+      type: typeof constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_LOGO_SRC
+      payload: string
+    }
   | { type: typeof constants.HIDE_ONFIDO_LOGO; payload: boolean }
   | { type: typeof constants.SHOW_COBRANDING; payload: EnterpriseCobranding }
   | {
@@ -55,6 +63,8 @@ export type GlobalState = {
   hideOnfidoLogo?: boolean
   cobrand?: EnterpriseCobranding
   logoCobrand?: EnterpriseLogoCobranding
+  crossDeviceClientIntroProductName?: string
+  crossDeviceClientIntroProductLogoSrc?: string
   isDecoupledFromAPI?: boolean
   urls: UrlsConfig
   /**
