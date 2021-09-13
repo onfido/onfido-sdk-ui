@@ -74,12 +74,12 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Extract release notes from CHANGELOG
-        if: "!contains(github.ref, '-rc.')"
+        if: ${{ env.VERSION == env.LATEST_TAG }}
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v1
 
       - name: Create Github Release
-        if: "!contains(github.ref, '-rc.')"
+        if: ${{ env.VERSION == env.LATEST_TAG }}
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
