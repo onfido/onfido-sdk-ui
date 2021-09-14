@@ -13,12 +13,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Added new Intro screen when user begins the Cross Device flow on their mobile device.
 - Public: Added SDK configuration options for integrators to customize product name, copy and/or logo image for the new Cross Device Mobile Client Intro screen.
 
-### Changed
-
 ### Fixed
 
 - Public: Fixed custom SDK body text color set in `customUI.colorContentBody` option not getting applied to Country Selector text input if an element level text colour has been set in host app/site's stylesheet.
 - UI: Fixed Country Selector dropdown menu closing on clicking on scrollbar.
+- Public: Video element errors and validation errors returned by live_videos endpoint are handled by the Web SDK
 
 ## [6.13.0] - 2021-08-23
 
