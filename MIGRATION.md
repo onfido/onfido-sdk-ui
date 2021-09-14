@@ -15,6 +15,10 @@ The **English**, **Spanish**, **German**, **French**, **Italian** and **Portugue
 - `cross_device_session_linked.subtitle`
 - `cross_device_session_linked.title`
 
+### Changed strings
+
+- `generic.errors.request_error.message`
+
 ## `6.11.1` -> `6.12.0`
 
 The **English**, **Spanish**, **German**, **French**, **Italian** and **Portuguese** copy for the following string(s) has changed:
