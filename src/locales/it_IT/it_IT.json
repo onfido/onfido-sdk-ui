@@ -207,7 +207,7 @@
             },
             "request_error": {
                 "instruction": "Riprova",
-                "message": "Connessione interrotta"
+                "message": "Si è verificato un errore"
             },
             "sms_failed": {
                 "instruction": "Copia il link nel tuo telefono",

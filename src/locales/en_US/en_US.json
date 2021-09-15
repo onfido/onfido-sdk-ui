@@ -294,7 +294,7 @@
             },
             "request_error": {
                 "instruction": "Please try again",
-                "message": "Connection lost"
+                "message": "Something’s gone wrong"
             },
             "sms_failed": {
                 "instruction": "Copy the link to your phone",

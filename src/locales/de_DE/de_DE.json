@@ -294,7 +294,7 @@
             },
             "request_error": {
                 "instruction": "Bitte versuchen Sie es erneut",
-                "message": "Verbindung unterbrochen"
+                "message": "Etwas ist schiefgelaufen"
             },
             "sms_failed": {
                 "instruction": "Kopieren Sie den Link auf Ihr Mobiltelefon",
