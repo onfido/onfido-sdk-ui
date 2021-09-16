@@ -124,7 +124,12 @@ const Previews = localised(
               }}
             />
           ) : (
-            <PageTitle title={title} smaller={true} className={style.title} />
+            <PageTitle
+              title={title}
+              smaller={true}
+              className={style.title}
+              shouldAutoFocus={methodNamespace !== 'doc_confirmation'}
+            />
           )}
           <CaptureViewer
             {...{

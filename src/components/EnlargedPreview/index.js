@@ -57,8 +57,9 @@ class EnlargedPreview extends Component {
         isExpanded: !this.state.isExpanded,
       },
       () => {
-        if (this.previewContainer) {
-          this.previewContainer.focus()
+        // We want to return focus to the toggle button when image preview is not expanded
+        if (this.state.isExpanded) {
+          this.previewContainer?.focus()
         }
       }
     )
@@ -100,10 +101,14 @@ class EnlargedPreview extends Component {
           )}
         </div>
         <button
+          aria-labelledby="onfido-preview-button-label"
           className={classNames(style.button, style['button-overlay'])}
           onClick={this.toggle}
         >
-          <span className={style['button-text']}>
+          <span
+            id="onfido-preview-button-label"
+            className={style['button-text']}
+          >
             {isExpanded
               ? translate('doc_confirmation.button_close')
               : translate('doc_confirmation.button_zoom')}
