@@ -32,6 +32,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'warn',
     '@typescript-eslint/ban-ts-comment': 'warn',
     /* Temporary disabled rules for React development */
+    'react-hooks/rules-of-hooks': 'warn',
     'react/no-did-mount-set-state': 'warn',
     'react/no-did-update-set-state': 'warn',
     /* @TODO decide a better way for props validation: PropTypes or typing system? */
