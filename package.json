@@ -188,7 +188,7 @@
     "mocha": "^8.3.0",
     "mochawesome": "^4.1.0",
     "object-loops": "0.8.0",
-    "ora": "^3.0.0",
+    "ora": "^4.0.3",
     "postcss-base64": "^0.4.1",
     "postcss-custom-media": "^7.0.8",
     "postcss-loader": "^2.0.6",
