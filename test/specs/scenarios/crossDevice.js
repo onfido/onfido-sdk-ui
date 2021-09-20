@@ -123,6 +123,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceIntro.verifyTitle(copy)
       })
 
+      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should verify UI elements on the cross device link screen default QR code view', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -153,6 +154,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
+      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should verify UI elements on the cross device link screen SMS view', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -172,6 +174,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
+      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should verify UI elements on the cross device link screen copy link view', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -192,6 +195,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
+      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should change the state of the copy to clipboard button after clicking', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -200,6 +204,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCopyToClipboardBtnChangedState(copy)
       })
 
+      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should display copy link view by default when excludeSmsCrossDeviceOption is enabled', async () => {
         driver.get(`${baseUrl}&excludeSmsCrossDeviceOption=true`)
         goToCrossDeviceScreen()
@@ -226,6 +231,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
+      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should display SMS link view only and no alternative options when singleCrossDeviceOption is enabled', async () => {
         driver.get(`${baseUrl}&singleCrossDeviceOption=true`)
         goToCrossDeviceScreen()
@@ -243,6 +249,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
+      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should display default cross device QR code link view when given invalid alternative methods', async () => {
         driver.get(`${baseUrl}&invalidCrossDeviceAlternativeMethods=true`)
         goToCrossDeviceScreen()

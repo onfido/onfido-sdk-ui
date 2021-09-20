@@ -21,36 +21,47 @@ class BasePage {
   async title() {
     return this.$('.onfido-sdk-ui-PageTitle-titleSpan')
   }
+
   async subtitle() {
     return this.$('.onfido-sdk-ui-PageTitle-subTitle')
   }
+
   async backArrow() {
     return this.$('.onfido-sdk-ui-NavigationBar-iconBack')
   }
+
   async noLogo() {
     return this.$('.onfido-sdk-ui-Theme-noLogo')
   }
+
   async cobrandUI() {
     return this.$('.onfido-sdk-ui-Theme-cobrandFooter')
   }
+
   async cobrandLabel() {
     return this.$('.onfido-sdk-ui-Theme-cobrandLabel')
   }
+
   async cobrandText() {
     return this.$('.onfido-sdk-ui-Theme-cobrandText')
   }
+
   async cobrandLogo() {
     return this.$('.onfido-sdk-ui-Theme-logoCobrandImage')
   }
+
   async poweredBy() {
     return this.$('.onfido-sdk-ui-Theme-poweredBy')
   }
+
   async onfidoFooter() {
     return this.$('.onfido-sdk-ui-Theme-footer')
   }
+
   async spinner() {
     return this.$('.onfido-sdk-ui-Spinner-inner')
   }
+
   copy(lang) {
     return locale(lang)
   }

@@ -130,7 +130,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
         await takePercySnapshot(driver, 'Submit benefit letter screen')
       })
-
+      //these last 6 fail on IE
       it("should skip country selection screen with a preselected driver's license document type on PoA flow @percy", async () => {
         driver.get(`${localhostUrl}?poa=true&oneDoc=driving_licence`)
         welcome.continueToNextStep()

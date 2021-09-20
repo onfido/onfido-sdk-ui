@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "file": "test/specs/ie.js",
+      "timeout": 75000,
+      "browsers": [
+        {
+          "browserName": "IE",
+          "browser_version": "11.0",
+          "os": "Windows",
+          "os_version": "10",
+          "resolution": "1920x1080",
+          "remote": true,
+          "name": "IE - ALL TESTS",
+          "browserstack.selenium_version": "3.5.2"
+        }
+      ]
+    }
+  ],
+  "localhostUrl": "https://localhost:8080/",
+  "fullTestCoverageLanguages": ["en_US"],
+  "partialTestCoverageLanguages": ["de_DE", "fr_FR", "it_IT", "pt_PT"],
+  "testDeviceMobileNumber": "07495 023357"
+}

@@ -81,9 +81,21 @@ class DocumentUpload extends BasePage {
     this.uploaderBtn().click()
   }
 
+  async clickContinueOnPhoneButtonIfIe() {
+    if (browserName === 'IE' && isRemoteBrowser === true) {
+      this.switchToCrossDeviceButton().click()
+    }
+  }
+
   async clickUploadButtonIfRemoteIe() {
     if (browserName === 'IE' && isRemoteBrowser === true) {
       await this.clickUploadButton()
+    }
+  }
+
+  async clickCustomFileInputButtonIfIe() {
+    if (browserName === 'IE' && isRemoteBrowser === true) {
+      await this.uploadInput().click()
     }
   }
 }

@@ -9,6 +9,7 @@ const options = {
   pageObjects: [
     'Welcome',
     'DocumentSelector',
+    'DocumentUpload',
     'CrossDeviceIntro',
     'CrossDeviceLink',
     'BasePage',
@@ -30,6 +31,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         crossDeviceIntro,
         crossDeviceLink,
         basePage,
+        documentUpload,
         documentVideoCapture,
         documentVideoConfirm,
         documentVideoPreview,
@@ -97,11 +99,13 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
           await driver.switchTo().window(browserWindows[0])
         }
       })
-
+      //Not working on IE - After clicking the Get secure link button, you just see the endless spinner.
       it('should start the ANSSI flow for Passport flow and attempt to upload @percy', async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
+        //After clicking the below, you just see the endless spinner...nothing happens.
+        documentUpload.clickContinueOnPhoneButtonIfIe()
         runThroughCrossDeviceFlowForDocumentVideoCapture(copy)
         documentVideoCapture.backArrow().isDisplayed()
         documentVideoCapture.passportOverlay().isDisplayed()

@@ -46,6 +46,7 @@ export const faceScenarios = (lang) => {
 
     const copy = basePage.copy(lang)
 
+    //This is not passing on IE
     it('should return unsupported file type error for selfie', async () => {
       goToPassportUploadScreen(
         driver,
@@ -59,6 +60,7 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
+      //user is shown the Continue on your phone screen here?
       uploadFileAndClickConfirmButton(
         documentUpload,
         confirm,
@@ -67,6 +69,7 @@ export const faceScenarios = (lang) => {
       confirm.verifyUnsuppoertedFileError(copy)
     })
 
+    //This is not passing on IE
     it('should upload selfie @e2e-latest', async () => {
       goToPassportUploadScreen(
         driver,
@@ -75,6 +78,7 @@ export const faceScenarios = (lang) => {
         `?language=${lang}&useUploader=true`
       )
       documentUpload.clickUploadButton()
+      //user is shown the Continue on your phone screen here?
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
@@ -85,6 +89,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
+    //This is not passing on IE
     it('should successfully upload a resized image if selfie image file is too large', async () => {
       goToPassportUploadScreen(
         driver,
@@ -98,6 +103,7 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
+      //user is shown the Continue on your phone screen here?
       uploadFileAndClickConfirmButton(
         documentUpload,
         confirm,
