@@ -18,6 +18,7 @@ const options = {
     'DocumentSelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
+    'CrossDeviceClientIntro',
     'CrossDeviceClientSuccess',
     'CrossDeviceIntro',
     'CrossDeviceLink',
@@ -42,6 +43,7 @@ export const crossDeviceScenarios = async (lang) => {
         documentSelector,
         passportUploadImageGuide,
         documentUpload,
+        crossDeviceClientIntro,
         crossDeviceClientSuccess,
         crossDeviceIntro,
         crossDeviceLink,
@@ -79,7 +81,7 @@ export const crossDeviceScenarios = async (lang) => {
         driver.get(crossDeviceLinkText)
       }
 
-      const runThroughCrossDeviceFlow = async () => {
+      const switchToCrossDeviceFlow = async () => {
         documentUpload.switchToCrossDevice()
         crossDeviceIntro.continueToNextStep()
         crossDeviceLink.switchToCopyLinkOption()
@@ -100,10 +102,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceIntro.verifySubTitle(copy)
         crossDeviceIntro.verifyIcons(copy)
         crossDeviceIntro.verifyMessages(copy)
-        await takePercySnapshot(
-          driver,
-          `Verify Cross Device Intro screen ${lang}`
-        )
+        await takePercySnapshot(driver, `Cross Device Intro screen ${lang}`)
       })
 
       it('should navigate to cross device when forceCrossDevice is enabled', async () => {
@@ -149,7 +148,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
         await takePercySnapshot(
           driver,
-          `Verify Cross Device - Scan QR Code method screen ${lang}`
+          `Cross Device - Get your secure link screen - QR code ${lang}`,
+          {
+            percyCSS: `div.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer > svg { display: none; }`,
+          }
         )
       })
 
@@ -168,7 +170,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
         await takePercySnapshot(
           driver,
-          `Verify Cross Device - SMS Link method screen ${lang}`
+          `Cross Device - Get your secure link screen - Send link in SMS ${lang}`
         )
       })
 
@@ -188,7 +190,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
         await takePercySnapshot(
           driver,
-          `Verify Cross Device - Copy Link method screen ${lang}`
+          `Cross Device - Get your secure link screen - Copy link ${lang}`,
+          {
+            percyCSS: `span.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText { display: none; }`,
+          }
         )
       })
 
@@ -210,7 +215,10 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyAlternativeMethodsSectionLabel(copy)
         await takePercySnapshot(
           driver,
-          `Verify Cross Device copy link screen excludes "send SMS" option when excludeSmsCrossDeviceOption enabled ${lang}`
+          `Cross Device - Get your secure link screen configured to exclude "send SMS" option - copy link view ${lang}`,
+          {
+            percyCSS: `span.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText { display: none; }`,
+          }
         )
         assert.isTrue(
           crossDeviceLink.alternativeMethodsSectionLabel().isDisplayed(),
@@ -235,7 +243,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifySendLinkBtn(copy)
         await takePercySnapshot(
           driver,
-          `Verify Cross Device only Send SMS UI displayed when singleCrossDeviceOption enabled ${lang}`
+          `Cross Device - Get your secure link screen configured to only show Send SMS UI ${lang}`
         )
         assert.isFalse(
           crossDeviceLink.alternativeMethodOptionsSection().isDisplayed(),
@@ -328,6 +336,59 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceMobileNotificationSent.verifyTitle(copy)
       })
 
+      it('should verify UI elements on cross device mobile client intro screen @percy', async () => {
+        driver.get(baseUrl)
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.verifyUIElements(copy)
+        await takePercySnapshot(
+          driver,
+          `Cross Device Mobile Client Intro screen ${lang}`
+        )
+        // Need to switch back to original tab otherwise subsequent tests get stuck
+        switchBrowserTab(0, driver)
+      })
+
+      it('should verify all custom UI elements on customised cross device mobile client intro screen @percy', async () => {
+        driver.get(
+          `${baseUrl}&crossDeviceClientIntroCustomProductName=true&crossDeviceClientIntroCustomProductLogo=true`
+        )
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.verifySubTitleWithCustomText(copy)
+        crossDeviceClientIntro.customIcon().isDisplayed()
+        await takePercySnapshot(
+          driver,
+          `Cross Device Mobile Client Intro screen (custom product text in subtitle, product logo)`
+        )
+        // Need to switch back to original tab otherwise subsequent tests get stuck
+        switchBrowserTab(0, driver)
+      })
+
+      it('should verify custom product name on customised cross device mobile client intro screen @percy', async () => {
+        driver.get(`${baseUrl}&crossDeviceClientIntroCustomProductName=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.verifySubTitleWithCustomText(copy)
+        crossDeviceClientIntro.icon().isDisplayed()
+        // Need to switch back to original tab otherwise subsequent tests get stuck
+        switchBrowserTab(0, driver)
+      })
+
+      it('should verify custom product logo on customised cross device mobile client intro screen @percy', async () => {
+        driver.get(`${baseUrl}&crossDeviceClientIntroCustomProductLogo=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnPassportIcon()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.verifySubTitle(copy)
+        crossDeviceClientIntro.customIcon().isDisplayed()
+        // Need to switch back to original tab otherwise subsequent tests get stuck
+        switchBrowserTab(0, driver)
+      })
+
       it('should successfully complete cross device e2e flow with selfie upload @e2e-latest', async () => {
         goToPassportUploadScreen(
           driver,
@@ -341,8 +402,7 @@ export const crossDeviceScenarios = async (lang) => {
           confirm,
           'passport.jpg'
         )
-        runThroughCrossDeviceFlow()
-        documentUpload.verifySelfieUploadTitle(copy)
+        switchToCrossDeviceFlow()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)
         switchBrowserTab(0, driver)
@@ -359,7 +419,8 @@ export const crossDeviceScenarios = async (lang) => {
           documentSelector,
           `?language=${lang}&useUploader=true`
         )
-        runThroughCrossDeviceFlow()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
@@ -380,7 +441,8 @@ export const crossDeviceScenarios = async (lang) => {
         driver.get(`${baseUrl}&noCompleteStep=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
-        runThroughCrossDeviceFlow()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
@@ -405,7 +467,8 @@ export const crossDeviceScenarios = async (lang) => {
         driver.get(`${baseUrl}&region=US`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
-        runThroughCrossDeviceFlow()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
@@ -429,7 +492,9 @@ export const crossDeviceScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.checkLogoIsHidden()
         documentSelector.clickOnPassportIcon()
-        runThroughCrossDeviceFlow()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.checkLogoIsHidden()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.checkLogoIsHidden()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
@@ -457,7 +522,9 @@ export const crossDeviceScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.checkCobrandIsVisible()
         documentSelector.clickOnPassportIcon()
-        runThroughCrossDeviceFlow()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.checkCobrandIsVisible()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.checkCobrandIsVisible()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
@@ -485,7 +552,9 @@ export const crossDeviceScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.checkLogoIsHidden()
         documentSelector.clickOnPassportIcon()
-        runThroughCrossDeviceFlow()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.checkLogoIsHidden()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.checkLogoIsHidden()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
@@ -513,7 +582,9 @@ export const crossDeviceScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.checkLogoCobrandIsVisible()
         documentSelector.clickOnPassportIcon()
-        runThroughCrossDeviceFlow()
+        switchToCrossDeviceFlow()
+        crossDeviceClientIntro.checkLogoCobrandIsVisible()
+        crossDeviceClientIntro.continueToNextStep()
         documentUpload.checkLogoCobrandIsVisible()
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
