@@ -19,8 +19,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2.3.4
-        with:
-          ref: task/CX-6763-Add-Additional-Languages-To-Percy
 
         # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
         # e.g. "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
