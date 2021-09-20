@@ -32,7 +32,6 @@ export const SdkOptionsView: FunctionComponent<{
       />
       &nbsp;Display SDK as Modal
     </label>
-
     <label>
       <input
         type="checkbox"
@@ -49,7 +48,6 @@ export const SdkOptionsView: FunctionComponent<{
       <br />
       &nbsp;&nbsp;&nbsp;(refresh to reset)
     </label>
-
     <div className="label">
       Region
       <div>
@@ -63,7 +61,6 @@ export const SdkOptionsView: FunctionComponent<{
         ))}
       </div>
     </div>
-
     <div className="label">
       language
       <div>
@@ -81,7 +78,6 @@ export const SdkOptionsView: FunctionComponent<{
         ))}
       </div>
     </div>
-
     <label>
       smsNumberCountryCode
       <div>
@@ -96,7 +92,6 @@ export const SdkOptionsView: FunctionComponent<{
         />
       </div>
     </label>
-
     <label>
       userDetails.smsNumber
       <div>
@@ -116,8 +111,7 @@ export const SdkOptionsView: FunctionComponent<{
         />
       </div>
     </label>
-
-    <div className="label">
+    <label>
       _crossDeviceLinkMethods
       <div>
         {Object.keys(commonVisibleCrossDeviceLinkOptions).map((key) => (
@@ -134,8 +128,37 @@ export const SdkOptionsView: FunctionComponent<{
           />
         ))}
       </div>
-    </div>
-
+    </label>
+    <label>
+      crossDeviceClientIntroProductName
+      <div>
+        <input
+          type="text"
+          value={sdkOptions.crossDeviceClientIntroProductName || ''}
+          onChange={(e) =>
+            updateSdkOptions({
+              crossDeviceClientIntroProductName: (e.target as HTMLInputElement)
+                .value,
+            })
+          }
+        />
+      </div>
+    </label>
+    <label>
+      crossDeviceClientIntroProductLogoSrc (image URL)
+      <div>
+        <input
+          type="text"
+          value={sdkOptions.crossDeviceClientIntroProductLogoSrc || ''}
+          onChange={(e) =>
+            updateSdkOptions({
+              crossDeviceClientIntroProductLogoSrc: (e.target as HTMLInputElement)
+                .value,
+            })
+          }
+        />
+      </div>
+    </label>
     <div className="label">
       steps
       <div>

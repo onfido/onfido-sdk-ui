@@ -101,6 +101,20 @@ export const showLogoCobranding = (
   payload,
 })
 
+export const setCrossDeviceClientIntroProductName = (
+  payload: string
+): GlobalActions => ({
+  type: constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_NAME,
+  payload,
+})
+
+export const setCrossDeviceClientIntroProductLogoSrc = (
+  payload: string
+): GlobalActions => ({
+  type: constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_LOGO_SRC,
+  payload,
+})
+
 export const setDecoupleFromAPI = (payload: boolean): GlobalActions => ({
   type: constants.SET_DECOUPLE_FROM_API,
   payload,

@@ -43,10 +43,6 @@ export const documentScenarios = async (lang) => {
 
       const runThroughPassportUploadFlow = async () => {
         documentUpload.clickUploadButton()
-        await takePercySnapshot(
-          driver,
-          `Verify Upload passport photo screen ${lang}`
-        )
         passportUploadImageGuide.verifyPassportGuideUIElements(copy)
         uploadPassportImageFile('passport.jpg')
         confirm.verifyCheckReadabilityMessage(copy)
@@ -419,6 +415,10 @@ export const documentScenarios = async (lang) => {
         welcome.continueToNextStep(copy)
         documentUpload.verifyPassportTitle(copy)
         documentUpload.clickUploadButton()
+        await takePercySnapshot(
+          driver,
+          `Verify Upload passport photo screen ${lang}`
+        )
         uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
           confirm,

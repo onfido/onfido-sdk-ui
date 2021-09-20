@@ -10,7 +10,20 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
-- Internal: Added support for running visual regression tests across multiple languages.
+- Internal: Added configuration to support visual regression tests to run against multiple languages.
+
+## [6.14.0] - 2021-09-13
+
+### Added
+
+- UI: Added new Intro screen when user begins the Cross Device flow on their mobile device.
+- Public: Added SDK configuration options for integrators to customize product name, copy and/or logo image for the new Cross Device Mobile Client Intro screen.
+
+### Fixed
+
+- Public: Fixed custom SDK body text color set in `customUI.colorContentBody` option not getting applied to Country Selector text input if an element level text colour has been set in host app/site's stylesheet.
+- UI: Fixed Country Selector dropdown menu closing on clicking on scrollbar.
+- Internal: Auth - Fetch correct API URL from the Redux store
 
 ## [6.13.0] - 2021-08-23
 
@@ -1065,7 +1078,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.13.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.14.0...development
+[6.14.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.13.0...6.14.0
 [6.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.12.0...6.13.0
 [6.12.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.11.1...6.12.0
 [6.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.2...6.11.1
