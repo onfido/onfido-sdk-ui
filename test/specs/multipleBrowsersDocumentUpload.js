@@ -63,6 +63,7 @@ describe(
       documentSelector.clickOnIdentityCardIcon()
       countrySelector.selectSupportedCountry()
       countrySelector.clickSubmitDocumentButton()
+      documentUpload.clickUploadButtonIfRemoteIe()
       uploadFileAndClickConfirmButton(
         documentUpload,
         confirm,
