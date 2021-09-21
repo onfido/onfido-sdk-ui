@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Internal: Added configuration to support visual regression tests to run against multiple languages.
+
 ## [6.14.0] - 2021-09-13
 
 ### Added
