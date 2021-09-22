@@ -12,6 +12,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Added configuration to support visual regression tests to run against multiple languages.
 
+### Changed
+
+- Internal: Upgraded some dev dependencies to fix some npm security vulnerabilities, also upgraded socket.io-client dependency to v4.2.0 to resolve npm security vulnerability in ws@7.4.4
+
 ## [6.14.0] - 2021-09-13
 
 ### Added
