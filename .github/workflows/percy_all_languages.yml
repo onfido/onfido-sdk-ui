@@ -2,7 +2,7 @@ name: Percy Visual Regression Tests - All Languages
 
 on:
   schedule:
-    - cron: '30 20 * * *'
+    - cron: '30 20 * * 0'
 
 env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
