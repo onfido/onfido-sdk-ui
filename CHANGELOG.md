@@ -12,6 +12,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Added configuration to support visual regression tests to run against multiple languages.
 
+### Fixed
+
+- Public: Video element errors and validation errors returned by live_videos endpoint are handled by the Web SDK
+
 ## [6.14.0] - 2021-09-13
 
 ### Added

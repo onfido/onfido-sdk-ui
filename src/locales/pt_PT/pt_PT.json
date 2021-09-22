@@ -197,7 +197,7 @@
             },
             "request_error": {
                 "instruction": "Tente novamente",
-                "message": "Ligação perdida"
+                "message": "Ocorreu um erro"
             },
             "sms_failed": {
                 "instruction": "Copie a ligação para o seu telefone",
