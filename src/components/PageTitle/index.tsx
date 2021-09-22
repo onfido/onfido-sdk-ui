@@ -29,7 +29,7 @@ const PageTitle: FunctionComponent<Props> = ({
 
   useEffect(() => {
     containerRef.current && shouldAutoFocus && containerRef.current.focus()
-  }, [title, subTitle, shouldAutoFocus, isFullScreen])
+  }, [title, subTitle, shouldAutoFocus])
 
   return (
     <div

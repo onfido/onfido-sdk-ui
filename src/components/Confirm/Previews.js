@@ -126,7 +126,7 @@ const Previews = localised(
           ) : (
             <PageTitle
               title={title}
-              smaller={true}
+              smaller
               className={style.title}
               shouldAutoFocus={methodNamespace !== 'doc_confirmation'}
             />
