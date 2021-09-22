@@ -54,7 +54,7 @@ export const welcomeScenarios = async (lang) => {
         welcome.verifyFooter()
         await takePercySnapshot(
           driver,
-          `Onfido SDK UI elements with custom copy on the welcome screen`
+          `Onfido SDK UI elements with custom copy on the welcome screen in ${lang}`
         )
       })
     }
