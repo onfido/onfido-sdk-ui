@@ -524,5 +524,12 @@
         "next_button": "Choose document",
         "subtitle": "It should take a few minutes",
         "title": "Verify your identity"
+    },
+    "msvc_qr_code": {
+        "success_button": "I've scanned it.",
+        "title": "We've verified your identity",
+        "subtitle": "scan this QR code with the Microsoft Authenticator App:",
+        "alert": "If you don’t scan the QR code before leaving this page, you’ll have to verify your identity again",
+        "qrCodeSubtitle": "You’ll be asked for this PIN after scanning the QR code:"
     }
 }
