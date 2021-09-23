@@ -2,7 +2,6 @@ import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 import { Button } from '@onfido/castor-react'
 
-import { useSdkOptions } from '~contexts'
 import { useLocales } from '~locales'
 import theme from 'components/Theme/style.scss'
 import { trackComponent } from '../../Tracker'
@@ -11,23 +10,22 @@ import ScreenLayout from '../Theme/ScreenLayout'
 import style from './style.scss'
 import { qrCode } from './assets'
 import { performHttpReq, HttpRequestParams } from '~utils/http'
-import * as queryString from 'query-string'
 
 const pin = 1567
 
 type MsvcSuccessActionsProps = {
-  customNextButtonLabel?: string
+  onFinishFlow: () => void
 }
 
-const finishFlow = () => {
+const finishFlow = (rpToken: string) => {
   const completeUrl =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
       : 'https://microsoft-authenticator-backend.us.onfido.com'
   const options: HttpRequestParams = {
     endpoint: `${completeUrl}/complete`,
-    // We may want to get this from context instead of the url
-    token: `Bearer ${queryString.parse(window.location.search).token}`,
+    // this should be passed in as a set up variable
+    token: `Bearer ${rpToken}`,
   }
   performHttpReq(
     options,
@@ -42,53 +40,61 @@ const finishFlow = () => {
 }
 
 const MsvcSuccessActions: FunctionComponent<MsvcSuccessActionsProps> = ({
-  customNextButtonLabel,
+  onFinishFlow = finishFlow,
 }) => {
   const { translate } = useLocales()
-
-  const buttonLabel = customNextButtonLabel
-    ? customNextButtonLabel
-    : translate('msvc_qr_code.success_button')
 
   return (
     <div className={theme.contentMargin}>
       <Button
         variant="primary"
         className={classNames(theme['button-centered'], theme['button-lg'])}
-        onClick={() => { 
-          finishFlow({ redirectUrl: 'http://localhost:3000/health' })
+        onClick={() => {
+          onFinishFlow
         }}
         data-onfido-qa="MsvcSuccess-next-btn"
       >
-        {buttonLabel}
+        {translate('msvc_qr_code.success_button')}
       </Button>
     </div>
   )
 }
 
 const MsvcSuccess: FunctionComponent<StepComponentBaseProps> = ({
-  steps,
-  nextStep,
+  rpJwt,
+  msQrCode = qrCode,
+  msPin = pin,
 }) => {
   const { translate } = useLocales()
   return (
-    <ScreenLayout actions={<MsvcSuccessActions />} className={style.container}>
+    <ScreenLayout
+      actions={
+        <MsvcSuccessActions
+          onFinishFlow={() => {
+            finishFlow(rpJwt)
+          }}
+        />
+      }
+      className={style.container}
+    >
       <PageTitle
         title={translate('msvc_qr_code.title')}
         subTitle={translate('msvc_qr_code.subtitle')}
         className={`${style.title}`}
       />
-      <img className={style.msQrCode} src={qrCode} />
+      <img className={style.msQrCode} src={msQrCode} />
       <span>
         <div className={style.qrCodeText}>
           <i className={style.errorIcon} />
-          <div className={style.alertText}>{translate('msvc_qr_code.alert')}</div>
+          <div className={style.alertText}>
+            {translate('msvc_qr_code.alert')}
+          </div>
         </div>
       </span>
       <div className={style.qrCodeSubtitle}>
         {translate('msvc_qr_code.qrCodeSubtitle')}
       </div>
-      <div className={style.pin}>{pin}</div>
+      <div className={style.pin}>{msPin}</div>
     </ScreenLayout>
   )
 }
