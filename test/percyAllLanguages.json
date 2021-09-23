@@ -1,7 +1,7 @@
 {
   "tests": [
     {
-      "file": "test/specs/percy.js",
+      "file": "test/specs/percyAllLanguages.js",
       "timeout": 75000,
       "browsers": [
         {
