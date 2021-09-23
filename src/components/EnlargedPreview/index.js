@@ -56,12 +56,7 @@ class EnlargedPreview extends Component {
       {
         isExpanded: !this.state.isExpanded,
       },
-      () => {
-        // We want to return focus to the toggle button when image preview is not expanded
-        if (this.state.isExpanded) {
-          this.previewContainer?.focus()
-        }
-      }
+      () => this.previewContainer?.focus()
     )
 
   render() {
