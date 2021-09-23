@@ -140,8 +140,9 @@ class CountrySelection extends Component<Props, State> {
   }
 
   renderNoResultsError = () => {
-    const { translate } = useLocales()
-    const noResultsErrorCopy = translate('country_select.alert.another_doc')
+    const noResultsErrorCopy = this.props.translate(
+      'country_select.alert.another_doc'
+    )
 
     return (
       <div className={style.errorContainer}>
