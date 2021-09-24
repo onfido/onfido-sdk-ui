@@ -10,12 +10,19 @@ import ScreenLayout from '../Theme/ScreenLayout'
 import style from './style.scss'
 import { qrCode } from './assets'
 import { performHttpReq, HttpRequestParams } from '~utils/http'
+import { StepComponentBaseProps } from '~types/routers'
 
 const pin = 1567
 
 type MsvcSuccessActionsProps = {
   onFinishFlow: () => void
 }
+
+type Props = {
+  rpJwt: string
+  msQrCode: string
+  msPin: string
+} & StepComponentBaseProps
 
 const finishFlow = (rpToken: string) => {
   const completeUrl =
@@ -52,7 +59,7 @@ const MsvcSuccessActions: FunctionComponent<MsvcSuccessActionsProps> = ({
         onClick={() => {
           onFinishFlow
         }}
-        data-onfido-qa="MsvcSuccess-next-btn"
+        data-onfido-qa="msvcSuccess-next-btn"
       >
         {translate('msvc_qr_code.success_button')}
       </Button>
@@ -60,23 +67,22 @@ const MsvcSuccessActions: FunctionComponent<MsvcSuccessActionsProps> = ({
   )
 }
 
-const MsvcSuccess: FunctionComponent<StepComponentBaseProps> = ({
+const MsvcSuccess: FunctionComponent<Props> = ({
   rpJwt,
   msQrCode = qrCode,
   msPin = pin,
 }) => {
   const { translate } = useLocales()
+
+  const actions = (
+    <MsvcSuccessActions
+      onFinishFlow={() => {
+        finishFlow(rpJwt)
+      }}
+    />
+  )
   return (
-    <ScreenLayout
-      actions={
-        <MsvcSuccessActions
-          onFinishFlow={() => {
-            finishFlow(rpJwt)
-          }}
-        />
-      }
-      className={style.container}
-    >
+    <ScreenLayout actions={actions} className={style.container}>
       <PageTitle
         title={translate('msvc_qr_code.title')}
         subTitle={translate('msvc_qr_code.subtitle')}
