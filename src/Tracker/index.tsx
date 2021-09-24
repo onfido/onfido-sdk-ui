@@ -4,13 +4,16 @@ import { cleanFalsy, wrapArray } from '~utils/array'
 import WoopraTracker from './safeWoopra'
 import { map as mapObject } from '~utils/object'
 import { isOnfidoHostname } from '~utils/string'
+import { sendAnalyticsEvent, initializeOnfidoTracker } from './onfidoTracker'
 
 import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
 import type {
   TrackedEventNames,
+  TrackedEventTypes,
   UserAnalyticsEventNames,
   UserAnalyticsEventDetail,
 } from '~types/tracker'
+import type { NormalisedSdkOptions, ExtendedStepTypes } from '~types/commons'
 
 let shouldSendEvents = false
 
@@ -43,7 +46,8 @@ const integratorTrackedEvents = new Map<
   ['Starting upload', 'UPLOAD'],
 ])
 
-const setUp = (): void => {
+const setUp = (options: NormalisedSdkOptions): void => {
+  initializeOnfidoTracker(options)
   woopra = new WoopraTracker('onfidojssdkwoopra')
 
   woopra.init()
@@ -140,14 +144,18 @@ const userAnalyticsEvent = (
 
 const sendEvent = (
   eventName: TrackedEventNames,
+  eventType: TrackedEventTypes = 'screen',
   properties?: Record<string, unknown>
 ): void => {
   if (integratorTrackedEvents.has(eventName)) {
     userAnalyticsEvent(integratorTrackedEvents.get(eventName), properties)
   }
 
+  const formattedProperties = formatProperties()
+
   if (shouldSendEvents) {
-    woopra && woopra.track(eventName, formatProperties(properties))
+    woopra && woopra.track(eventName, formattedProperties)
+    sendAnalyticsEvent(eventName, eventType, formattedProperties)
   }
 }
 
@@ -158,8 +166,17 @@ const screeNameHierarchyFormat = (
 
 const sendScreen = (
   screeNameHierarchy: string[],
+  /* Most screens are part of a step
+  Therfore, most of the times you need specify the stepType to which this screen belongs
+  In rare cases, a screen might not be part of a steps eg. GenericError component
+  In that case you should pass 'none' */
+  stepType: ExtendedStepTypes | 'none',
   properties?: Record<string, unknown>
-): void => sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
+): void =>
+  sendEvent(screeNameHierarchyFormat(screeNameHierarchy), 'screen', {
+    ...properties,
+    step: stepType,
+  })
 
 const appendToTracking = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,

@@ -6,6 +6,7 @@ type JWT = {
   exp: number
   payload: {
     app: string
+    client_uuid: string
     ref: string
   }
   uuid: string

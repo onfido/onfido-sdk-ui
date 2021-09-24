@@ -47,7 +47,7 @@ class ModalApp extends Component<Props> {
     this.events = new EventEmitter2()
     this.events.on('complete', this.trackOnComplete)
     if (!props.options.disableAnalytics) {
-      Tracker.setUp()
+      Tracker.setUp(props.options)
       Tracker.install()
     }
     this.bindEvents(
@@ -67,7 +67,7 @@ class ModalApp extends Component<Props> {
       const trackedProperties = {
         is_custom_ui: hasCustomUIConfigured,
       }
-      Tracker.sendEvent('started flow', trackedProperties)
+      Tracker.sendEvent('started flow', 'flow', trackedProperties)
     }
   }
 
@@ -116,7 +116,7 @@ class ModalApp extends Component<Props> {
     Tracker.trackException(message)
   }
 
-  trackOnComplete = () => Tracker.sendEvent('completed flow')
+  trackOnComplete = () => Tracker.sendEvent('completed flow', 'flow')
 
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,

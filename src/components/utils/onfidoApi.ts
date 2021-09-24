@@ -2,6 +2,7 @@ import { hmac256, mimeType } from './blob'
 import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
+import { trackException } from '../../Tracker'
 
 import type {
   ImageQualityValidationPayload,
@@ -136,7 +137,11 @@ export const sendMultiframeSelfie = (
   url: string | undefined,
   onSuccess: SuccessCallback<UploadFileResponse>,
   onError: ErrorCallback,
-  sendEvent: (event: TrackedEventNames) => void
+  sendEvent: (
+    event: TrackedEventNames,
+    eventType: string,
+    properties?: Record<string, unknown>
+  ) => void
 ): void => {
   const snapshotData: UploadSnapshotPayload = {
     file: {
@@ -147,12 +152,12 @@ export const sendMultiframeSelfie = (
   const { blob, filename = 'selfie', sdkMetadata } = selfie
 
   new Promise<SnapshotResponse>((resolve, reject) => {
-    sendEvent('Starting snapshot upload')
+    sendEvent('Starting snapshot upload', 'action', { step: 'face' })
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
     .then((res) => {
-      sendEvent('Snapshot upload completed')
-      sendEvent('Starting live photo upload')
+      sendEvent('Snapshot upload completed', 'action', { step: 'face' })
+      sendEvent('Starting live photo upload', 'action', { step: 'face' })
       const snapshot_uuids = JSON.stringify([res.uuid])
       uploadFacePhoto(
         { file: { blob, filename }, sdkMetadata, snapshot_uuids },
@@ -347,4 +352,29 @@ const sendFile = <T>(
   performHttpReq(requestParams, onSuccess, (request) =>
     formatError(request, onError)
   )
+}
+
+export const sendAnalytics = (
+  url: string | undefined,
+  payload: string
+): void => {
+  const endpoint = `${url}/v3/analytics`
+  const request = new XMLHttpRequest()
+  request.open('POST', endpoint)
+  request.setRequestHeader('Content-Type', 'application/json')
+
+  request.onload = () => {
+    const isSuccessfulRequest = request.status === 200 || request.status === 201
+    if (!isSuccessfulRequest) {
+      trackException(
+        `analytics request error - status: ${request.status}, response: ${request.response}`
+      )
+    }
+  }
+  request.onerror = () =>
+    trackException(
+      `analytics request error - status: ${request.status}, response: ${request.response}`
+    )
+
+  request.send(payload)
 }

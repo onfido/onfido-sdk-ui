@@ -1,3 +1,5 @@
+import type { StepTypes } from './steps'
+
 export const USER_ANALYTICS_EVENT = 'userAnalyticsEvent'
 
 type MappedEventNames =
@@ -53,3 +55,5 @@ export type UserAnalyticsEventDetail = {
   isCrossDevice: boolean
   properties: Record<string, unknown>
 }
+
+export type TrackedEventTypes = 'screen' | 'action' | 'flow'

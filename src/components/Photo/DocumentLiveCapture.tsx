@@ -73,7 +73,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     }
 
     this.setState({ isCapturing: true })
-    sendEvent('Taking live photo of document')
+    sendEvent('Taking live photo of document', 'action', { step: 'document' })
     screenshot(this.webcam, this.captureDocument, 'image/jpeg')
   }
 

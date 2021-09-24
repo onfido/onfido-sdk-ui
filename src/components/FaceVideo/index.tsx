@@ -53,7 +53,7 @@ class FaceVideo extends Component<Props, State> {
 
   onRecordingStart = () => {
     this.setState({ startedAt: currentMilliseconds() })
-    sendScreen(['face_video_capture_step_1'])
+    sendScreen(['face_video_capture_step_1'], 'face')
   }
 
   onVideoCapture: HandleCaptureProp = (payload) => {
@@ -69,7 +69,7 @@ class FaceVideo extends Component<Props, State> {
 
     if (startedAt) {
       this.setState({ switchSeconds: currentMilliseconds() - startedAt })
-      sendScreen(['face_video_capture_step_2'])
+      sendScreen(['face_video_capture_step_2'], 'face')
     }
   }
 

@@ -120,7 +120,7 @@ class Confirm extends Component {
     const { capture } = this.state
 
     const duration = Math.round(performance.now() - this.startTime)
-    sendEvent('Completed upload', { duration, method })
+    sendEvent('Completed upload', 'flow', { duration, method, step: method })
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
@@ -190,7 +190,7 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     if (!isDecoupledFromAPI) {
       this.startTime = performance.now()
-      sendEvent('Starting upload', { method })
+      sendEvent('Starting upload', 'action', { method, step: method })
     }
     this.setState({ uploadInProgress: true })
     const {
@@ -259,7 +259,7 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     const formDataPayload = this.prepareCallbackPayload(data, callbackName)
 
-    sendEvent(`Triggering ${callbackName} callback`)
+    sendEvent(`Triggering ${callbackName} callback`, 'action', { step: method })
     try {
       const {
         continueWithOnfidoSubmission,
@@ -267,16 +267,19 @@ class Confirm extends Component {
       } = await enterpriseFeatures[callbackName](formDataPayload)
 
       if (onfidoSuccessResponse) {
-        sendEvent(`Success response from ${callbackName}`)
+        sendEvent(`Success response from ${callbackName}`, 'action', {
+          step: method,
+        })
         this.onApiSuccess(onfidoSuccessResponse)
         return
       }
 
       if (continueWithOnfidoSubmission) {
         this.startTime = performance.now()
-        sendEvent('Starting upload', {
+        sendEvent('Starting upload', 'action', {
           method,
           uploadAfterNetworkDecouple: true,
+          step: method,
         })
 
         if (callbackName === CALLBACK_TYPES.document) {
@@ -295,7 +298,9 @@ class Confirm extends Component {
         }
       }
     } catch (errorResponse) {
-      sendEvent(`Error response from ${callbackName}`)
+      sendEvent(`Error response from ${callbackName}`, 'screen', {
+        step: method,
+      })
       formatError(errorResponse, this.onApiError)
     }
   }
