@@ -347,6 +347,21 @@
             "title": "Passport photo page"
         }
     },
+    "msvc_error": {
+        "general": {
+            "subTitle": "Please try again later",
+            "title": "Something's gone wrong"
+        },
+        "restart": {
+            "subTitle": "Check that your connection is stable",
+            "title": "Restart verification"
+        },
+        "start_again_button": "Start again",
+        "unverifiable": {
+            "subTitle": "Make sure the ID is valid and all details are clearly visible",
+            "title": "We couldn't verify your identity"
+        }
+    },
     "outro": {
         "body": "That’s all we need to start verifying your identity",
         "title": "Thank you"

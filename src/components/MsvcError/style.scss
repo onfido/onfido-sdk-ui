@@ -1,0 +1,24 @@
+@import '../Theme/constants';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8 * $unit;
+}
+
+%_icon {
+  @extend %icon-circle-background;
+  height: 144 * $unit;
+  width: 144 * $unit;
+  background-size: contain;
+  margin-top: 56 * $unit;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.msvcErrorIcon {
+  @extend %_icon;
+  background-color: transparent;
+  background-image: url('./assets/error-cross-small.svg');
+  height: 54 * $unit;
+}
