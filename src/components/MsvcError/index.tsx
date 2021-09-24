@@ -12,6 +12,8 @@ import PageTitle from 'components/PageTitle'
 
 type MsvcErrorType = 'GENERAL' | 'RESTART' | 'UNVERIFIABLE'
 
+/* I attempted to use the lowerCase function before writing this one.
+   But, it gave me empty strings instead of lowercase type names. */
 const titleKey = (key: MsvcErrorType): string => {
   switch (key) {
     case 'UNVERIFIABLE':
