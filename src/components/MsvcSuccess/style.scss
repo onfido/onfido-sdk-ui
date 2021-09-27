@@ -1,0 +1,48 @@
+@import '../Theme/constants';
+
+.msQrCode {
+  max-height: 30%;
+  max-width: 30%;
+}
+
+%_icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: 13 * $unit;
+  width: 13 * $unit;
+  color: blue;
+  margin-right: 8 * $unit;
+}
+
+.errorIcon {
+  @extend %_icon;
+  background-image: url('assets/exclamation-icon.svg');
+  font-size: 30px;
+  margin-right: 0px;
+}
+
+.alertText {
+  font-size: 14px;
+  margin-bottom: 25px;
+  margin-left: 4px;
+}
+
+.qrCodeText {
+  display: flex;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.qrCodeSubtitle {
+  font-size: 14px;
+
+}
+
+.pin {
+  margin-top: 15px;
+  font-size: 30px;
+}
