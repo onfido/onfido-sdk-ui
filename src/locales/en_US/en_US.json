@@ -93,7 +93,7 @@
         "alert": {
             "another_doc": "Documents from that country are not currently supported — <fallback>try another document type<\/fallback>"
         },
-        "button_primary": "Submit document",
+        "button_primary": "Generate Verifiable Credential",
         "search": {
             "accessibility": "Select country",
             "input_placeholder": "e.g. United States",
@@ -132,14 +132,6 @@
         "body": "Your computer may take a few seconds to update",
         "subtitle": "You can now return to your computer to continue",
         "title": "Uploads successful"
-    },
-    "cross_device_session_linked": {
-        "button_primary": "Continue",
-        "info": "Double-check",
-        "list_item_desktop_open": "Your desktop window remains open",
-        "list_item_sent_by_you": "This link was sent by you — seek advice if you think this could be a scam",
-        "subtitle": "Continue with the verification",
-        "title": "Mobile session linked to your computer"
     },
     "doc_capture": {
         "detail": {
@@ -256,7 +248,7 @@
             "close_sdk_screen": "Close identity verification screen",
             "dismiss_alert": "Dismiss alert"
         },
-        "back": "back",
+        "back": "",
         "close": "close",
         "errors": {
             "interrupted_flow_error": {
@@ -347,24 +339,9 @@
             "title": "Passport photo page"
         }
     },
-    "msvc_error": {
-        "general": {
-            "subTitle": "Please try again later",
-            "title": "Something's gone wrong"
-        },
-        "restart": {
-            "subTitle": "Check that your connection is stable",
-            "title": "Restart verification"
-        },
-        "start_again_button": "Start again",
-        "unverifiable": {
-            "subTitle": "Make sure the ID is valid and all details are clearly visible",
-            "title": "We couldn't verify your identity"
-        }
-    },
     "outro": {
-        "body": "That’s all we need to start verifying your identity",
-        "title": "Thank you"
+        "body": "use the Microsoft Authenticator app to scan the QR code below",
+        "title": "This will add your identity to the verifiable credential wallet."
     },
     "permission_recovery": {
         "button_primary": "Refresh",
@@ -530,21 +507,11 @@
         "title": "Record a video"
     },
     "welcome": {
-        "list_header_doc_video": "Use your device to record:",
-        "list_header_webcam": "Use your webcam or phone to photograph:",
-        "list_item_doc": "your identity document",
-        "list_item_doc_video_timeout": "Recording is limited to <timeout><\/timeout> seconds",
-        "list_item_poa": "your proof of address",
-        "list_item_selfie": "your face",
-        "next_button": "Choose document",
-        "subtitle": "It should take a few minutes",
-        "title": "Verify your identity"
-    },
-    "msvc_qr_code": {
-        "alert": "If you don’t scan the QR code before leaving this page, you’ll have to verify your identity again",
-        "qrCodeSubtitle": "You’ll be asked for this PIN after scanning the QR code:",
-        "subtitle": "Scan this QR code with the Microsoft Authenticator App:",
-        "success_button": "I've scanned it.",
-        "title": "We've verified your identity"
-    }
+        "title": "Create your Verifiable Credential with Microsoft.",
+        "next_button": "Verify Identity",
+        "subtitle":
+          "To create your credentials, we will need to verify your identity. It will only take a few minutes.",
+        "description_p_2":
+          "Please ready a government-issued identity document such as a Driver License, ID card, or passport."
+      }
 }

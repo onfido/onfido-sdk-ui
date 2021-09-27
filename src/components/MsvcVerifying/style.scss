@@ -1,0 +1,23 @@
+@import '../Theme/constants';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8 * $unit;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.spinner {
+  height: fit-content;
+
+  * {
+    position: relative;
+  }
+}
