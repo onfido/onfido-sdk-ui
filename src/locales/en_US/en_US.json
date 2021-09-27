@@ -339,6 +339,10 @@
             "title": "Passport photo page"
         }
     },
+    "msvc_verifying": {
+      "title": "We're verifying your identity",
+      "subtitle": "Please wait, it shouldn't take long"
+    },
     "outro": {
         "body": "use the Microsoft Authenticator app to scan the QR code below",
         "title": "This will add your identity to the verifiable credential wallet."
