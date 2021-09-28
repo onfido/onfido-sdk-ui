@@ -362,6 +362,17 @@
             "title": "We couldn't verify your identity"
         }
     },
+    "msvc_qr_code": {
+        "alert": "If you don’t scan the QR code before leaving this page, you’ll have to verify your identity again",
+        "qrCodeSubtitle": "You’ll be asked for this PIN after scanning the QR code:",
+        "subtitle": "Scan this QR code with the Microsoft Authenticator App:",
+        "success_button": "I've scanned it.",
+        "title": "We've verified your identity"
+    },
+    "msvc_verifying": {
+        "title": "We're verifying your identity",
+        "subtitle": "Please wait, it shouldn't take long"
+      },
     "outro": {
         "body": "That’s all we need to start verifying your identity",
         "title": "Thank you"
@@ -539,12 +550,5 @@
         "next_button": "Choose document",
         "subtitle": "It should take a few minutes",
         "title": "Verify your identity"
-    },
-    "msvc_qr_code": {
-        "alert": "If you don’t scan the QR code before leaving this page, you’ll have to verify your identity again",
-        "qrCodeSubtitle": "You’ll be asked for this PIN after scanning the QR code:",
-        "subtitle": "Scan this QR code with the Microsoft Authenticator App:",
-        "success_button": "I've scanned it.",
-        "title": "We've verified your identity"
     }
 }
