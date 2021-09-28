@@ -91,6 +91,9 @@ const confirmDocumentationCorrect = async () => {
   console.log(
     '   - Review and update the relevant subpages under the Technology > SDK (Web & Mobile) section of the Onfido product documentation'
   )
+  console.log(
+    ' - JSON files in /src/supported-documents have been updated with the latest Docupedia data.'
+  )
 
   await proceedYesNo('All of those files have been updated')
 }
@@ -280,10 +283,13 @@ const publishTag = async () => {
   console.log(`Now check that: `)
   console.log(`- Github Actions have succeeded`)
   console.log(
-    `- The S3 folder for ${versionToPublish} includes style.css, onfido.min.js and onfido.crossDevice.min.js`
+    `- The S3 folder for ${versionToPublish} includes style.css, onfido.min.js and onfido.crossDevice.min.js with the correct SDK versions in the 1st line`
   )
   console.log(
-    `- The S3 folder for the new Base32 version includes style.css, onfido.min.js and onfido.crossDevice.min.js`
+    `- The S3 folder for the new Base32 version includes style.css, onfido.min.js and onfido.crossDevice.min.js with the correct SDK versions in the 1st line`
+  )
+  console.log(
+    `- The S3 folder for the new Base32 version includes onfidoAuth.6.css, onfidoAuth.6.min.js, onfidoAuth.authVendor.min.js and onfidoAuth.crossDevice.min.js with the correct SDK versions in the 1st line`
   )
   if (!config.data.versionRC) {
     console.log(`NPM has published the new tag`)
