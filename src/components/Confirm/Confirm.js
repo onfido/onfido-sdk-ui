@@ -295,9 +295,7 @@ class Confirm extends Component {
         }
       }
     } catch (errorResponse) {
-      sendEvent(`Error response from ${callbackName}`, 'screen', {
-        step: method,
-      })
+      sendEvent(`Error response from ${callbackName}`, 'screen')
       formatError(errorResponse, this.onApiError)
     }
   }
