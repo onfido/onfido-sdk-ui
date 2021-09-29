@@ -152,12 +152,12 @@ export const sendMultiframeSelfie = (
   const { blob, filename = 'selfie', sdkMetadata } = selfie
 
   new Promise<SnapshotResponse>((resolve, reject) => {
-    sendEvent('Starting snapshot upload', 'action', { step: 'face' })
+    sendEvent('Starting snapshot upload', 'action')
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
     .then((res) => {
-      sendEvent('Snapshot upload completed', 'action', { step: 'face' })
-      sendEvent('Starting live photo upload', 'action', { step: 'face' })
+      sendEvent('Snapshot upload completed', 'action')
+      sendEvent('Starting live photo upload', 'action')
       const snapshot_uuids = JSON.stringify([res.uuid])
       uploadFacePhoto(
         { file: { blob, filename }, sdkMetadata, snapshot_uuids },
