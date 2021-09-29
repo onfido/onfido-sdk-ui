@@ -127,3 +127,8 @@ export const retryForImageQuality = (): GlobalActions => ({
 export const resetImageQualityRetries = (): GlobalActions => ({
   type: constants.RESET_IMAGE_QUALITY_RETRIES,
 })
+
+export const setAnalyticsSessionUuid = (payload: string): GlobalActions => ({
+  type: constants.SET_ANALYTICS_SESSION_UUID,
+  payload,
+})

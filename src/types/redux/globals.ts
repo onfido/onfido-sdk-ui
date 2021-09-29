@@ -35,6 +35,7 @@ export type GlobalActions =
       type: typeof constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_LOGO_SRC
       payload: string
     }
+  | { type: typeof constants.SET_ANALYTICS_SESSION_UUID; payload: string }
   | { type: typeof constants.HIDE_ONFIDO_LOGO; payload: boolean }
   | { type: typeof constants.SHOW_COBRANDING; payload: EnterpriseCobranding }
   | {
@@ -73,4 +74,5 @@ export type GlobalState = {
    * After at most <MAX_IMAGE_QUALITY_RETRIES_WITH_ERROR> retries, the user will be allowed to proceed, as any image quality related validation from this point on will be treated as a warning.
    */
   imageQualityRetries: number
+  analyticsSessionUuid?: string
 }

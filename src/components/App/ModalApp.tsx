@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
+import { v4 as uuidv4 } from 'uuid'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
@@ -46,7 +47,9 @@ class ModalApp extends Component<Props> {
     super(props)
     this.events = new EventEmitter2()
     this.events.on('complete', this.trackOnComplete)
+    const { actions, analyticsSessionUuid } = props
     if (!props.options.disableAnalytics) {
+      !analyticsSessionUuid && actions.setAnalyticsSessionUuid(uuidv4())
       Tracker.setUp(props.options)
       Tracker.install()
     }

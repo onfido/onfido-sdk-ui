@@ -4,6 +4,12 @@ import { parseJwt } from '~utils/jwt'
 import detectSystem from '~utils/detectSystem'
 import type { NormalisedSdkOptions } from '~types/commons'
 import type { StepConfig } from '~types/steps'
+import type { RootState } from '~types/redux'
+import { reduxStore } from 'components/ReduxAppWrapper'
+
+let analyticsSessionUuid: string | undefined
+let options: NormalisedSdkOptions
+let token: string | undefined
 
 const osInfo = detectSystem('os')
 const browserInfo = detectSystem('browser')
@@ -12,9 +18,15 @@ const os_version = osInfo.version
 const browser_name = browserInfo.name
 const browser_version = browserInfo.version
 
-let sessionUuid: string | undefined
-let options: NormalisedSdkOptions
-let token: string | undefined
+const select = (state: RootState) => {
+  return state.globals.analyticsSessionUuid
+}
+
+const listener = () => {
+  analyticsSessionUuid = select(reduxStore.getState())
+}
+
+reduxStore.subscribe(listener)
 
 /* 
 Schema
@@ -71,7 +83,6 @@ const stepsArrToString = (steps: Array<StepConfig>) =>
 export const initializeOnfidoTracker = (
   sdkOptions: NormalisedSdkOptions
 ): void => {
-  sessionUuid = uuidv4()
   token = sdkOptions.token
   options = sdkOptions
 }
@@ -109,7 +120,7 @@ export const sendAnalyticsEvent = (
   const identificationProperties = {
     applicant_uuid,
     client_uuid,
-    session_uuid: sessionUuid,
+    session_uuid: analyticsSessionUuid,
   }
 
   const sdk_config = {

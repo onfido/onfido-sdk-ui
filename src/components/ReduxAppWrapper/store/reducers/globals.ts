@@ -34,6 +34,7 @@ export const initialState: GlobalState = {
    * After at most <MAX_RETRIES_FOR_IMAGE_QUALITY> retries and there's still warning, allow user to proceed.
    */
   imageQualityRetries: 0,
+  analyticsSessionUuid: undefined,
 }
 
 export default function globals(
@@ -163,6 +164,12 @@ export default function globals(
       return {
         ...state,
         imageQualityRetries: 0,
+      }
+
+    case constants.SET_ANALYTICS_SESSION_UUID:
+      return {
+        ...state,
+        analyticsSessionUuid: action.payload,
       }
 
     case constants.RESET_STORE:
