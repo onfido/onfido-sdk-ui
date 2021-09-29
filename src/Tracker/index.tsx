@@ -13,7 +13,7 @@ import type {
   UserAnalyticsEventNames,
   UserAnalyticsEventDetail,
 } from '~types/tracker'
-import type { NormalisedSdkOptions, ExtendedStepTypes } from '~types/commons'
+import type { NormalisedSdkOptions } from '~types/commons'
 
 let shouldSendEvents = false
 
