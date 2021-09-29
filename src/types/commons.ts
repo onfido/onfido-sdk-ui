@@ -66,6 +66,14 @@ export type SdkMetadata = {
   take_number?: number
 }
 
+export type TrackedEnvironmentData = {
+  device_type?: DeviceTypes
+  os: string
+  os_version: string
+  browser: string
+  browser_version: string
+}
+
 export type CountryData = {
   country_alpha2: string
   country_alpha3: string

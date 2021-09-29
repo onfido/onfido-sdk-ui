@@ -1,5 +1,5 @@
 import * as constants from './constants'
-import type { CountryData, UrlsConfig } from '~types/commons'
+import type { CountryData, UrlsConfig, ExtendedStepTypes} from '~types/commons'
 import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,
@@ -13,6 +13,7 @@ export type SmsPayload = {
 }
 
 export type GlobalActions =
+  | { type: typeof constants.SET_CURRENT_STEP_TYPE; payload: ExtendedStepTypes }
   | { type: typeof constants.SET_ID_DOCUMENT_TYPE; payload: DocumentTypes }
   | { type: typeof constants.SET_ID_ISSUING_COUNTRY; payload: CountryData }
   | { type: typeof constants.RESET_ID_ISSUING_COUNTRY }
@@ -48,6 +49,7 @@ export type GlobalActions =
   | { type: typeof constants.RESET_STORE }
 
 export type GlobalState = {
+  currentStepType?: ExtendedStepTypes
   documentType?: DocumentTypes
   idDocumentIssuingCountry?: CountryData
   poaDocumentType?: PoaTypes

@@ -21,7 +21,6 @@ class StepsRouter extends Component<StepsRouterProps> {
         step.type,
         ...(screenNameHierarchy ? wrapArray(screenNameHierarchy) : []),
       ],
-      step.type,
       {
         ...properties,
         ...step.options,

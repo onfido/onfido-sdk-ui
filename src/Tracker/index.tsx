@@ -151,7 +151,7 @@ const sendEvent = (
     userAnalyticsEvent(integratorTrackedEvents.get(eventName), properties)
   }
 
-  const formattedProperties = formatProperties()
+  const formattedProperties = formatProperties(properties)
 
   if (shouldSendEvents) {
     woopra && woopra.track(eventName, formattedProperties)
@@ -166,17 +166,9 @@ const screeNameHierarchyFormat = (
 
 const sendScreen = (
   screeNameHierarchy: string[],
-  /* Most screens are part of a step
-  Therfore, most of the times you need specify the stepType to which this screen belongs
-  In rare cases, a screen might not be part of a steps eg. GenericError component
-  In that case you should pass 'none' */
-  stepType: ExtendedStepTypes | 'none',
   properties?: Record<string, unknown>
 ): void =>
-  sendEvent(screeNameHierarchyFormat(screeNameHierarchy), 'screen', {
-    ...properties,
-    step: stepType,
-  })
+  sendEvent(screeNameHierarchyFormat(screeNameHierarchy), 'screen', properties)
 
 const appendToTracking = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,

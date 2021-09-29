@@ -1,29 +1,27 @@
 import { v4 as uuidv4 } from 'uuid'
 import { sendAnalytics } from '~utils/onfidoApi'
 import { parseJwt } from '~utils/jwt'
-import detectSystem from '~utils/detectSystem'
-import type { NormalisedSdkOptions } from '~types/commons'
+import { trackedEnvironmentData } from '~utils'
+import type { NormalisedSdkOptions, ExtendedStepTypes } from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { RootState } from '~types/redux'
 import { reduxStore } from 'components/ReduxAppWrapper'
 
+let currentStepType: ExtendedStepTypes | undefined
 let analyticsSessionUuid: string | undefined
 let options: NormalisedSdkOptions
 let token: string | undefined
-
-const osInfo = detectSystem('os')
-const browserInfo = detectSystem('browser')
-const os_name = osInfo.name
-const os_version = osInfo.version
-const browser_name = browserInfo.name
-const browser_version = browserInfo.version
+let mobileFlow: boolean | undefined
 
 const select = (state: RootState) => {
-  return state.globals.analyticsSessionUuid
+  return state.globals
 }
 
 const listener = () => {
-  analyticsSessionUuid = select(reduxStore.getState())
+  const globalsInStore = select(reduxStore.getState())
+  console.log(globalsInStore)
+  analyticsSessionUuid = globalsInStore.analyticsSessionUuid
+  currentStepType = globalsInStore.currentStepType
 }
 
 reduxStore.subscribe(listener)
@@ -85,6 +83,7 @@ export const initializeOnfidoTracker = (
 ): void => {
   token = sdkOptions.token
   options = sdkOptions
+  mobileFlow = sdkOptions.mobileFlow
 }
 
 export const sendAnalyticsEvent = (
@@ -92,6 +91,7 @@ export const sendAnalyticsEvent = (
   event_type: string,
   eventProperties: Optional<Record<string, unknown>>
 ): void => {
+  const environmentData = trackedEnvironmentData()
   const jwtData = parseJwt(token)
 
   const {
@@ -107,15 +107,14 @@ export const sendAnalyticsEvent = (
 
   const properties = {
     event_type,
+    step: currentStepType,
+    is_cross_device: mobileFlow,
     ...eventProperties,
   }
 
   const event_metadata = {
     domain: location.href,
-    os_name,
-    os_version,
-    browser_name,
-    browser_version,
+    ...environmentData,
   }
   const identificationProperties = {
     applicant_uuid,

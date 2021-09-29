@@ -60,7 +60,7 @@ const withChallenges = <P extends Props>(
           } = this.props
 
           requestChallenges(url, token, this.handleResponse, this.handleError)
-          sendScreen(['face_video_challenge_requested'], 'face')
+          sendScreen(['face_video_challenge_requested'])
         }
       )
     }
@@ -71,7 +71,7 @@ const withChallenges = <P extends Props>(
 
       this.setState({ challenges, challengesId, hasLoaded: true })
 
-      sendScreen(['face_video_challenge_loaded'], 'face', {
+      sendScreen(['face_video_challenge_loaded'], {
         challenge_loading_time: this.challengeLoadingTime(),
       })
     }
@@ -79,7 +79,7 @@ const withChallenges = <P extends Props>(
     handleError: ErrorCallback = (error) => {
       this.setState({ hasLoaded: true, hasError: true })
       this.props.triggerOnError(error)
-      sendScreen(['face_video_challenge_load_failed'], 'face', {
+      sendScreen(['face_video_challenge_load_failed'], {
         challenge_loading_time: this.challengeLoadingTime(),
       })
     }

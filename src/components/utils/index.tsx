@@ -5,7 +5,11 @@ import detectSystem from './detectSystem'
 // @TODO: parse-unit export doesn't work with TypeScript
 const parseUnit = require('parse-unit')
 
-import type { SdkMetadata, ErrorNames } from '~types/commons'
+import type {
+  SdkMetadata,
+  ErrorNames,
+  TrackedEnvironmentData,
+} from '~types/commons'
 import type { TranslatedTagParser } from '~types/locales'
 
 export const functionalSwitch = <T extends unknown>(
@@ -203,6 +207,20 @@ export const addDeviceRelatedProperties = (
     isCrossDeviceFlow,
     deviceType: isDesktop ? 'desktop' : 'mobile',
     system,
+  }
+}
+
+export const trackedEnvironmentData = (): TrackedEnvironmentData => {
+  const osInfo = detectSystem('os')
+  const browserInfo = detectSystem('browser')
+
+  return {
+    ...(osInfo && { os: osInfo.name, os_version: osInfo.version }),
+    ...(browserInfo && {
+      browser: browserInfo.name,
+      browser_version: browserInfo.version,
+    }),
+    device_type: isDesktop ? 'desktop' : 'mobile',
   }
 }
 

@@ -2,6 +2,7 @@ import * as constants from '~types/redux/constants'
 import type { GlobalActions, GlobalState } from '~types/redux'
 
 export const initialState: GlobalState = {
+  currentStepType: undefined,
   documentType: undefined,
   idDocumentIssuingCountry: undefined,
   poaDocumentType: undefined,
@@ -42,6 +43,11 @@ export default function globals(
   action: GlobalActions
 ): GlobalState {
   switch (action.type) {
+    case constants.SET_CURRENT_STEP_TYPE:
+      return {
+        ...state,
+        currentStepType: action.payload,
+      }
     case constants.SET_ID_DOCUMENT_TYPE:
       return {
         ...state,

@@ -120,7 +120,7 @@ class Confirm extends Component {
     const { capture } = this.state
 
     const duration = Math.round(performance.now() - this.startTime)
-    sendEvent('Completed upload', 'flow', { duration, method, step: method })
+    sendEvent('Completed upload', 'flow', { duration, method })
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
@@ -190,7 +190,7 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     if (!isDecoupledFromAPI) {
       this.startTime = performance.now()
-      sendEvent('Starting upload', 'action', { method, step: method })
+      sendEvent('Starting upload', 'action', { method })
     }
     this.setState({ uploadInProgress: true })
     const {
@@ -259,7 +259,7 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     const formDataPayload = this.prepareCallbackPayload(data, callbackName)
 
-    sendEvent(`Triggering ${callbackName} callback`, 'action', { step: method })
+    sendEvent(`Triggering ${callbackName} callback`, 'action')
     try {
       const {
         continueWithOnfidoSubmission,
@@ -267,9 +267,7 @@ class Confirm extends Component {
       } = await enterpriseFeatures[callbackName](formDataPayload)
 
       if (onfidoSuccessResponse) {
-        sendEvent(`Success response from ${callbackName}`, 'action', {
-          step: method,
-        })
+        sendEvent(`Success response from ${callbackName}`, 'action')
         this.onApiSuccess(onfidoSuccessResponse)
         return
       }
@@ -279,7 +277,6 @@ class Confirm extends Component {
         sendEvent('Starting upload', 'action', {
           method,
           uploadAfterNetworkDecouple: true,
-          step: method,
         })
 
         if (callbackName === CALLBACK_TYPES.document) {
