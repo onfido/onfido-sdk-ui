@@ -2,9 +2,14 @@ import { v4 as uuidv4 } from 'uuid'
 import { sendAnalytics } from '~utils/onfidoApi'
 import { parseJwt } from '~utils/jwt'
 import { trackedEnvironmentData } from '~utils'
-import type { NormalisedSdkOptions, ExtendedStepTypes } from '~types/commons'
+import type {
+  NormalisedSdkOptions,
+  ExtendedStepTypes,
+  UrlsConfig,
+} from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { RootState } from '~types/redux'
+import type { AnalyticsPayload, TrackedEventNames } from '~types/tracker'
 import { reduxStore } from 'components/ReduxAppWrapper'
 
 let currentStepType: ExtendedStepTypes | undefined
@@ -12,6 +17,7 @@ let analyticsSessionUuid: string | undefined
 let options: NormalisedSdkOptions
 let token: string | undefined
 let mobileFlow: boolean | undefined
+let urls: UrlsConfig
 
 const select = (state: RootState) => {
   return state.globals
@@ -19,51 +25,12 @@ const select = (state: RootState) => {
 
 const listener = () => {
   const globalsInStore = select(reduxStore.getState())
-  console.log(globalsInStore)
   analyticsSessionUuid = globalsInStore.analyticsSessionUuid
   currentStepType = globalsInStore.currentStepType
+  urls = globalsInStore.urls
 }
 
 reduxStore.subscribe(listener)
-
-/* 
-Schema
-
-{
-  "applicant_uuid": string,
-  "client_uuid": string,
-  "event": string, // required
-  "event_metadata": {
-      // Example fields
-      "domain": string,
-      "os_name": string,
-      "os_version": string,
-      "browser_name": string,
-      "browser_version": string,
-  }
-  "event_time": string, // required
-  "event_uuid": string, // required
-  "properties": {
-      "event_type": string,
-      "step": string,
-      // Example fields
-      "is_cross_device": boolean,
-      "is_custom_ui": boolean,
-      "status": string,
-  }
-  "session_uuid": string,
-  "source": string, // required,
-  "source_metadata": {
-      "platform": string,
-      "version": string,
-  }
-  "sdk_config": {
-      // Example fields
-      "expected_steps": string,
-      "steps_config": [],
-  }
-}
-*/
 
 const source_metadata = {
   platform: 'onfido_web_sdk',
@@ -87,7 +54,7 @@ export const initializeOnfidoTracker = (
 }
 
 export const sendAnalyticsEvent = (
-  event: string,
+  event: TrackedEventNames,
   event_type: string,
   eventProperties: Optional<Record<string, unknown>>
 ): void => {
@@ -123,20 +90,22 @@ export const sendAnalyticsEvent = (
   }
 
   const sdk_config = {
-    expected_steps: stepsArrToString(options?.steps),
-    steps_config: options?.steps,
+    expected_steps: stepsArrToString(options.steps),
+    steps_config: options.steps,
   }
 
-  const payload = JSON.stringify({
+  const analyticsPayload: AnalyticsPayload = {
     ...requiredFields,
     ...identificationProperties,
     event_metadata,
     source_metadata,
     properties,
     sdk_config,
-  })
+  }
 
-  const url = jwtData.urls.onfido_api_url
+  const payload = JSON.stringify(analyticsPayload)
+
+  const url = urls.onfido_api_url
 
   sendAnalytics(url, payload)
 }
