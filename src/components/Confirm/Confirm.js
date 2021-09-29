@@ -120,7 +120,7 @@ class Confirm extends Component {
     const { capture } = this.state
 
     const duration = Math.round(performance.now() - this.startTime)
-    sendEvent('Completed upload', 'flow', { duration, method })
+    sendEvent('Completed upload', 'action', { duration, method })
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
