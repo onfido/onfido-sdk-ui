@@ -19,6 +19,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Video element errors and validation errors returned by live_videos endpoint are handled by the Web SDK
+- Public: Fix grey oblong background appearing under the red cross icon on the Unsupported Browser error screen
+- Public: Remove grey circle background from SVG icon displayed on Generic Error screen so that custom circle background is visible
 
 ## [6.14.0] - 2021-09-13
 
