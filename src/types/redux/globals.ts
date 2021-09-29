@@ -1,5 +1,5 @@
 import * as constants from './constants'
-import type { CountryData, UrlsConfig, ExtendedStepTypes} from '~types/commons'
+import type { CountryData, UrlsConfig, ExtendedStepTypes } from '~types/commons'
 import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,

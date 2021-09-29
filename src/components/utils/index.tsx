@@ -5,11 +5,8 @@ import detectSystem from './detectSystem'
 // @TODO: parse-unit export doesn't work with TypeScript
 const parseUnit = require('parse-unit')
 
-import type {
-  SdkMetadata,
-  ErrorNames,
-  TrackedEnvironmentData,
-} from '~types/commons'
+import type { SdkMetadata, ErrorNames } from '~types/commons'
+import type { TrackedEnvironmentData } from '~types/tracker'
 import type { TranslatedTagParser } from '~types/locales'
 
 export const functionalSwitch = <T extends unknown>(

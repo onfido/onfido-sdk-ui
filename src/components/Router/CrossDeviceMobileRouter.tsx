@@ -185,7 +185,7 @@ export default class CrossDeviceMobileRouter extends Component<
       customUI,
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
-      analyticsSessionUuid
+      analyticsSessionUuid,
     } = data
 
     if (disableAnalytics) {
