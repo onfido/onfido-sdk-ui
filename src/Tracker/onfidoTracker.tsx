@@ -35,6 +35,7 @@ reduxStore.subscribe(listener)
 const source_metadata = {
   platform: process.env.SDK_SOURCE,
   version: process.env.SDK_VERSION,
+  sdk_environment: process.env.NODE_ENV,
 }
 
 const stepsArrToString = (steps: Array<StepConfig>) =>

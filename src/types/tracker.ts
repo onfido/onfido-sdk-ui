@@ -83,14 +83,15 @@ export type AnalyticsPayload = {
     is_custom_ui?: boolean
     status?: string
   }
-  session_uuid: string | undefined
+  session_uuid?: string
   source: string
   source_metadata: {
-    platform: string | undefined
-    version: string | undefined
+    platform?: string
+    version?: string
+    sdk_environment?: string
   }
   sdk_config: {
     expected_steps: string
-    steps_config: StepConfig[] | undefined
+    steps_config?: StepConfig[]
   }
 }
