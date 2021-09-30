@@ -15,6 +15,12 @@ import type {
 } from '~types/tracker'
 import type { NormalisedSdkOptions } from '~types/commons'
 
+const TRACKED_EVENT_TYPES: Record<string, TrackedEventTypes> = {
+  flow: 'flow',
+  action: 'action',
+  screen: 'screen',
+}
+
 let shouldSendEvents = false
 
 const client = window.location.hostname
@@ -275,4 +281,5 @@ export {
   appendToTracking,
   setWoopraCookie,
   getWoopraCookie,
+  TRACKED_EVENT_TYPES,
 }

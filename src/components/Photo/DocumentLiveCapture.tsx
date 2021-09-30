@@ -5,7 +5,7 @@ import { mimeType } from '~utils/blob'
 import { getInactiveError } from '~utils/inactiveError'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
-import { sendEvent } from '../../Tracker'
+import { sendEvent, TRACKED_EVENT_TYPES } from '../../Tracker'
 import Spinner from '../Spinner'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
@@ -73,8 +73,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     }
 
     this.setState({ isCapturing: true })
-    const eventType = 'action'
-    sendEvent('Taking live photo of document', eventType)
+    sendEvent('Taking live photo of document', TRACKED_EVENT_TYPES.action)
     screenshot(this.webcam, this.captureDocument, 'image/jpeg')
   }
 

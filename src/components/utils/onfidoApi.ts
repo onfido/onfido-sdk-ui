@@ -2,7 +2,7 @@ import { hmac256, mimeType } from './blob'
 import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
-import { trackException } from '../../Tracker'
+import { trackException, TRACKED_EVENT_TYPES } from '../../Tracker'
 
 import type {
   ImageQualityValidationPayload,
@@ -150,7 +150,7 @@ export const sendMultiframeSelfie = (
     },
   }
   const { blob, filename = 'selfie', sdkMetadata } = selfie
-  const eventType = 'action'
+  const eventType = TRACKED_EVENT_TYPES.action
 
   new Promise<SnapshotResponse>((resolve, reject) => {
     sendEvent('Starting snapshot upload', eventType)
