@@ -217,7 +217,7 @@ export const trackedEnvironmentData = (): TrackedEnvironmentData => {
       browser: browserInfo.name,
       browser_version: browserInfo.version,
     }),
-    device_type: isDesktop ? 'desktop' : 'mobile',
+    device: isDesktop ? 'desktop' : 'mobile',
   }
 }
 

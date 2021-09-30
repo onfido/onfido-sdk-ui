@@ -60,7 +60,7 @@ export type UserAnalyticsEventDetail = {
 export type TrackedEventTypes = 'screen' | 'action' | 'flow'
 
 export type TrackedEnvironmentData = {
-  device_type?: DeviceTypes
+  device?: DeviceTypes
   os: string
   os_version: string
   browser: string
