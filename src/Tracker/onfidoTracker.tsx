@@ -33,17 +33,15 @@ const listener = () => {
 reduxStore.subscribe(listener)
 
 const source_metadata = {
-  platform: 'onfido_web_sdk',
+  platform: process.env.SDK_SOURCE,
   version: process.env.SDK_VERSION,
 }
 
 const stepsArrToString = (steps: Array<StepConfig>) =>
   steps
-    ? steps
-        .map((step) => step['type'])
-        .join()
-        .toLowerCase()
-    : ''
+    ?.map((step) => step['type'])
+    .join()
+    .toLowerCase() || ''
 
 export const initializeOnfidoTracker = (
   sdkOptions: NormalisedSdkOptions

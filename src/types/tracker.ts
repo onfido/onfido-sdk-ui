@@ -86,7 +86,7 @@ export type AnalyticsPayload = {
   session_uuid: string | undefined
   source: string
   source_metadata: {
-    platform: string
+    platform: string | undefined
     version: string | undefined
   }
   sdk_config: {

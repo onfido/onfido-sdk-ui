@@ -150,14 +150,15 @@ export const sendMultiframeSelfie = (
     },
   }
   const { blob, filename = 'selfie', sdkMetadata } = selfie
+  const eventType = 'action'
 
   new Promise<SnapshotResponse>((resolve, reject) => {
-    sendEvent('Starting snapshot upload', 'action')
+    sendEvent('Starting snapshot upload', eventType)
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
     .then((res) => {
-      sendEvent('Snapshot upload completed', 'action')
-      sendEvent('Starting live photo upload', 'action')
+      sendEvent('Snapshot upload completed', eventType)
+      sendEvent('Starting live photo upload', eventType)
       const snapshot_uuids = JSON.stringify([res.uuid])
       uploadFacePhoto(
         { file: { blob, filename }, sdkMetadata, snapshot_uuids },
@@ -339,7 +340,7 @@ const sendFile = <T>(
 
   const payload: SubmitPayload = {
     ...data,
-    sdk_source: 'onfido_web_sdk',
+    sdk_source: process.env.SDK_SOURCE,
     sdk_version: process.env.SDK_VERSION,
   }
 

@@ -322,7 +322,8 @@ class CrossDeviceLinkUI extends Component {
   )
 
   handleViewOptionSelect = (newViewId) => {
-    sendEvent(`${newViewId.replace('_', ' ')} selected`, 'action')
+    const eventType = 'action'
+    sendEvent(`${newViewId.replace('_', ' ')} selected`, eventType)
     this.setState({ currentViewId: newViewId })
     this.viewOptionBtn.blur()
   }

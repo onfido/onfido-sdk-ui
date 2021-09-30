@@ -70,7 +70,8 @@ class ModalApp extends Component<Props> {
       const trackedProperties = {
         is_custom_ui: hasCustomUIConfigured,
       }
-      Tracker.sendEvent('started flow', 'flow', trackedProperties)
+      const eventType = 'flow'
+      Tracker.sendEvent('started flow', eventType, trackedProperties)
     }
   }
 
@@ -119,7 +120,10 @@ class ModalApp extends Component<Props> {
     Tracker.trackException(message)
   }
 
-  trackOnComplete = () => Tracker.sendEvent('completed flow', 'flow')
+  trackOnComplete = () => {
+    const eventType = 'flow'
+    Tracker.sendEvent('completed flow', eventType)
+  }
 
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,

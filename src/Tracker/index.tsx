@@ -151,9 +151,8 @@ const sendEvent = (
     userAnalyticsEvent(integratorTrackedEvents.get(eventName), properties)
   }
 
-  const formattedProperties = formatProperties(properties)
-
   if (shouldSendEvents) {
+    const formattedProperties = formatProperties(properties)
     woopra && woopra.track(eventName, formattedProperties)
     sendAnalyticsEvent(eventName, eventType, formattedProperties)
   }

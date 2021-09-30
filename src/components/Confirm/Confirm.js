@@ -120,7 +120,8 @@ class Confirm extends Component {
     const { capture } = this.state
 
     const duration = Math.round(performance.now() - this.startTime)
-    sendEvent('Completed upload', 'action', { duration, method })
+    const eventType = 'action'
+    sendEvent('Completed upload', eventType, { duration, method })
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
@@ -190,7 +191,8 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     if (!isDecoupledFromAPI) {
       this.startTime = performance.now()
-      sendEvent('Starting upload', 'action', { method })
+      const eventType = 'action'
+      sendEvent('Starting upload', eventType, { method })
     }
     this.setState({ uploadInProgress: true })
     const {
@@ -259,7 +261,8 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     const formDataPayload = this.prepareCallbackPayload(data, callbackName)
 
-    sendEvent(`Triggering ${callbackName} callback`, 'action')
+    const eventType = 'action'
+    sendEvent(`Triggering ${callbackName} callback`, eventType)
     try {
       const {
         continueWithOnfidoSubmission,
@@ -267,14 +270,14 @@ class Confirm extends Component {
       } = await enterpriseFeatures[callbackName](formDataPayload)
 
       if (onfidoSuccessResponse) {
-        sendEvent(`Success response from ${callbackName}`, 'action')
+        sendEvent(`Success response from ${callbackName}`, eventType)
         this.onApiSuccess(onfidoSuccessResponse)
         return
       }
 
       if (continueWithOnfidoSubmission) {
         this.startTime = performance.now()
-        sendEvent('Starting upload', 'action', {
+        sendEvent('Starting upload', eventType, {
           method,
           uploadAfterNetworkDecouple: true,
         })
@@ -295,7 +298,7 @@ class Confirm extends Component {
         }
       }
     } catch (errorResponse) {
-      sendEvent(`Error response from ${callbackName}`, 'screen')
+      sendEvent(`Error response from ${callbackName}`)
       formatError(errorResponse, this.onApiError)
     }
   }
@@ -336,7 +339,7 @@ class Confirm extends Component {
     }
     return objectToFormData({
       sdk_metadata: JSON.stringify(data.sdkMetadata),
-      sdk_source: 'onfido_web_sdk',
+      sdk_source: process.env.SDK_SOURCE,
       sdk_version: process.env.SDK_VERSION,
       ...payload,
     })
