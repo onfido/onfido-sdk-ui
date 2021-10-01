@@ -13,6 +13,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added configuration to support visual regression tests to run against multiple languages.
 - Internal: Send analytics events to `v3/analytics`. Analytics events are also sent to Woopra, until we are ready to discontinue the current Woopra integration.
 
+### Changed
+
+- UI: Accessibility - Return focus to Document capture image preview's "Enlarge image" toggle button when expanded image preview's "Close" toggle button is clicked.
+
 ### Fixed
 
 - Public: Video element errors and validation errors returned by live_videos endpoint are handled by the Web SDK
