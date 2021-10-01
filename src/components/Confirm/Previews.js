@@ -63,6 +63,7 @@ const Previews = localised(
     isFullScreen,
     isUploading,
     forceRetake,
+    onVideoError,
   }) => {
     const methodNamespace = getNamespace(method, capture.variant)
     /**
@@ -123,10 +124,22 @@ const Previews = localised(
               }}
             />
           ) : (
-            <PageTitle title={title} smaller={true} className={style.title} />
+            <PageTitle
+              title={title}
+              smaller
+              className={style.title}
+              shouldAutoFocus={methodNamespace !== 'doc_confirmation'}
+            />
           )}
           <CaptureViewer
-            {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }}
+            {...{
+              capture,
+              method,
+              isFullScreen,
+              imageAltTag,
+              videoAriaLabel,
+              onVideoError,
+            }}
           />
           {!isFullScreen && <p className={style.message}>{message}</p>}
         </div>

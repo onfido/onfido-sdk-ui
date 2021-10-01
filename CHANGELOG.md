@@ -14,6 +14,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- UI: Accessibility - Return focus to Document capture image preview's "Enlarge image" toggle button when expanded image preview's "Close" toggle button is clicked.
+
+### Fixed
+
+- Public: Video element errors and validation errors returned by live_videos endpoint are handled by the Web SDK
+- Public: Fix grey oblong background appearing under the red cross icon on the Unsupported Browser error screen
+- Public: Remove grey circle background from SVG icon displayed on Generic Error screen so that custom circle background is visible
 - Internal: Upgraded some dev dependencies to fix some npm security vulnerabilities, also upgraded socket.io-client dependency to v4.2.0 to resolve npm security vulnerability in ws@7.4.4
 
 ## [6.14.0] - 2021-09-13

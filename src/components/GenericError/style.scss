@@ -1,7 +1,6 @@
 @import '../Theme/constants';
 
 %_icon {
-  @extend %icon-circle-background;
   height: 144 * $unit;
   width: 144 * $unit;
   background-size: contain;
@@ -11,11 +10,13 @@
 }
 
 .genericErrorIcon {
+  @extend %icon-circle-background;
   @extend %_icon;
   background-image: url('./assets/connection-error-large.svg');
 }
 
 .flowInterruptedIcon {
+  @extend %icon-circle-background;
   @extend %_icon;
   background-image: url('./assets/interrupted-flow.svg');
 }
