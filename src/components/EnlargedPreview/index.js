@@ -56,11 +56,7 @@ class EnlargedPreview extends Component {
       {
         isExpanded: !this.state.isExpanded,
       },
-      () => {
-        if (this.previewContainer) {
-          this.previewContainer.focus()
-        }
-      }
+      () => this.previewContainer?.focus()
     )
 
   render() {
@@ -100,10 +96,14 @@ class EnlargedPreview extends Component {
           )}
         </div>
         <button
+          aria-labelledby="onfido-preview-button-label"
           className={classNames(style.button, style['button-overlay'])}
           onClick={this.toggle}
         >
-          <span className={style['button-text']}>
+          <span
+            id="onfido-preview-button-label"
+            className={style['button-text']}
+          >
             {isExpanded
               ? translate('doc_confirmation.button_close')
               : translate('doc_confirmation.button_zoom')}
