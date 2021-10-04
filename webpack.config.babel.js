@@ -233,6 +233,7 @@ const baseConfig = {
   mode: PRODUCTION_BUILD ? 'production' : 'development',
   context: `${__dirname}/src`,
   entry: './index.tsx',
+  bail: true,
 
   resolve: {
     extensions: ['.jsx', '.js', '.tsx', '.ts', '.scss', '.json'],
@@ -261,6 +262,7 @@ const baseConfig = {
     maxModules: Infinity,
     // Display bailout reasons
     optimizationBailout: false,
+    errorDetails: true,
   },
 
   node: {
@@ -388,10 +390,15 @@ const configDist = () => ({
   devServer: {
     port: process.env.PORT || 8080,
     host: '0.0.0.0',
-    publicPath: '/',
-    contentBase: './dist',
     historyApiFallback: true,
-    disableHostCheck: true, // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
+    allowedHosts: 'all', // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
+    devMiddleware: {
+      publicPath: '/',
+    },
+    static: {
+      directory: './dist',
+      publicPath: '/',
+    },
   },
 })
 
