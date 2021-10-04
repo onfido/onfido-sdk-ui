@@ -8,9 +8,8 @@ import customMedia from 'postcss-custom-media'
 import url from 'postcss-url'
 import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
-import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import Visualizer from 'webpack-visualizer-plugin'
+import Visualizer from 'webpack-visualizer-plugin2'
 import { dirname, relative, resolve, basename } from 'path'
 import nodeExternals from 'webpack-node-externals'
 import CopyPlugin from 'copy-webpack-plugin'
@@ -35,6 +34,7 @@ const baseRules = () => {
       test: /\.(js|ts)x?$/,
       loader: 'babel-loader',
       options: { configFile: resolve('.babelrc') },
+      resolve: { fullySpecified: false },
       include: [
         resolve('src'),
         resolve('node_modules/@onfido/castor'),
@@ -204,7 +204,6 @@ const basePlugins = (bundle_name = '') => [
     }`,
     defaultSizes: 'gzip',
   }),
-  new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(
     formatDefineHash({
       ...CONFIG,
@@ -254,12 +253,11 @@ const baseConfig = {
 
   optimization: {
     nodeEnv: false, // otherwise it gets set by mode, see: https://webpack.js.org/concepts/mode/
+    emitOnErrors: true,
   },
 
   stats: {
     colors: true,
-    // Examine all modules
-    maxModules: Infinity,
     // Display bailout reasons
     optimizationBailout: false,
     errorDetails: true,
@@ -267,11 +265,8 @@ const baseConfig = {
 
   node: {
     global: true,
-    process: false,
-    Buffer: false,
     __filename: false,
     __dirname: false,
-    setImmediate: false,
   },
 
   devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-cheap-source-map',
@@ -435,8 +430,6 @@ const configNpmLib = () => ({
   ],
 })
 
-const smp = new SpeedMeasurePlugin()
-
 export default SDK_ENV === 'Auth'
-  ? [smp.wrap(configDist())]
-  : [smp.wrap(configDist()), configNpmLib()]
+  ? [configDist()]
+  : [configDist(), configNpmLib()]
