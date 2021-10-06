@@ -11,7 +11,7 @@ import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
-import { dirname, relative, resolve, basename, path } from 'path'
+import { dirname, relative, resolve, basename } from 'path'
 import nodeExternals from 'webpack-node-externals'
 import CopyPlugin from 'copy-webpack-plugin'
 

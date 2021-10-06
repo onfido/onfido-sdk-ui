@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
-import { useLocales } from '~locales'
+import { localised } from '~locales'
 import { getSupportedCountriesForDocument } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags, preventDefaultOnClick } from '~utils'
@@ -127,13 +127,11 @@ class CountrySelection extends Component<Props, State> {
     return hasOnePreselectedDocument(steps) && documentType !== 'passport'
   }
 
-  getNoResultsTextForDropdown = () => {
-    const { translate } = useLocales()
-    return parseTags(
-      translate('country_select.alert_dropdown.country_not_found'),
+  getNoResultsTextForDropdown = () =>
+    parseTags(
+      this.props.translate('country_select.alert_dropdown.country_not_found'),
       ({ text }) => text
     )
-  }
 
   trackChooseAnotherDocumentTypeClick = () => {
     const { trackScreen, previousStep } = this.props
@@ -142,8 +140,9 @@ class CountrySelection extends Component<Props, State> {
   }
 
   renderNoResultsError = () => {
-    const { translate } = useLocales()
-    const noResultsErrorCopy = translate('country_select.alert.another_doc')
+    const noResultsErrorCopy = this.props.translate(
+      'country_select.alert.another_doc'
+    )
 
     return (
       <div className={style.errorContainer}>
@@ -166,8 +165,7 @@ class CountrySelection extends Component<Props, State> {
   }
 
   render() {
-    const { translate } = useLocales()
-    const { nextStep, idDocumentIssuingCountry } = this.props
+    const { translate, nextStep, idDocumentIssuingCountry } = this.props
 
     return (
       <ScreenLayout
@@ -219,4 +217,4 @@ class CountrySelection extends Component<Props, State> {
   }
 }
 
-export default trackComponent(CountrySelection, 'country_select')
+export default trackComponent(localised(CountrySelection), 'country_select')
