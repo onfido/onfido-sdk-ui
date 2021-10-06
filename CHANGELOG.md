@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Internal: Added configuration to support visual regression tests to run against multiple languages.
+- Internal: Send analytics events to `v3/analytics`. Analytics events are also sent to Woopra, until we are ready to discontinue the current Woopra integration.
 
 ### Changed
 

@@ -1,6 +1,6 @@
 import * as constants from '~types/redux/constants'
 
-import type { CountryData, UrlsConfig } from '~types/commons'
+import type { CountryData, UrlsConfig, ExtendedStepTypes } from '~types/commons'
 import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,
@@ -8,6 +8,13 @@ import type {
 import type { GlobalActions } from '~types/redux'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 import type { Socket } from 'socket.io-client'
+
+export const setCurrentStepType = (
+  payload: ExtendedStepTypes
+): GlobalActions => ({
+  type: constants.SET_CURRENT_STEP_TYPE,
+  payload,
+})
 
 export const setIdDocumentType = (payload: DocumentTypes): GlobalActions => ({
   type: constants.SET_ID_DOCUMENT_TYPE,
@@ -126,4 +133,9 @@ export const retryForImageQuality = (): GlobalActions => ({
 
 export const resetImageQualityRetries = (): GlobalActions => ({
   type: constants.RESET_IMAGE_QUALITY_RETRIES,
+})
+
+export const setAnalyticsSessionUuid = (payload: string): GlobalActions => ({
+  type: constants.SET_ANALYTICS_SESSION_UUID,
+  payload,
 })

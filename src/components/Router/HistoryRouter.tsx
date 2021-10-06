@@ -72,6 +72,8 @@ export default class HistoryRouter extends Component<
       : createBrowserHistory()
     this.unlisten = this.history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
+    const stepType = componentsList[this.state.step].step.type
+    this.props.actions.setCurrentStepType(stepType)
   }
 
   onHistoryChange: LocationListener<HistoryLocationState> = ({
@@ -129,6 +131,11 @@ export default class HistoryRouter extends Component<
       this.triggerOnComplete()
     } else {
       this.setStepIndex(newStepIndex)
+      const newStepType = componentsList[newStepIndex].step.type
+      const isNewStepType = this.props.currentStepType !== newStepType
+      if (isNewStepType) {
+        this.props.actions.setCurrentStepType(newStepType)
+      }
     }
   }
 

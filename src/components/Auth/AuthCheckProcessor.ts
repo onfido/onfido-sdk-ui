@@ -79,7 +79,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
       audit_trail_image: sessionResult.auditTrail[0],
       low_quality_audit_trail_image: sessionResult.lowQualityAuditTrail[0],
       metadata: {
-        sdk_source: 'onfido_web_sdk',
+        sdk_source: process.env.SDK_SOURCE,
         sdk_version: process.env.SDK_VERSION,
         sdk_metadata: {
           system: {

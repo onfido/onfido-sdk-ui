@@ -8,18 +8,18 @@ import type { CombinedActions, RootState } from '~types/redux'
 
 type StoreType = Store<RootState, CombinedActions>
 
+export const reduxStore = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__
+    ? window.__REDUX_DEVTOOLS_EXTENSION__()
+    : undefined
+)
+
 const ReduxAppWrapper: FunctionComponent = ({ children }) => {
   const [store, setStore] = useState<StoreType | undefined>(undefined)
 
   useEffect(() => {
-    const newStore = createStore(
-      reducer,
-      window.__REDUX_DEVTOOLS_EXTENSION__
-        ? window.__REDUX_DEVTOOLS_EXTENSION__()
-        : undefined
-    )
-
-    setStore(newStore)
+    setStore(reduxStore)
   }, [])
 
   if (store == null) {

@@ -176,7 +176,7 @@ export const getAuthConfig = (
   onError: (error: ApiRawError) => void
 ): void => {
   const body = {
-    sdk_type: 'onfido_web_sdk',
+    sdk_type: process.env.SDK_SOURCE,
   }
   const request = new XMLHttpRequest()
 
