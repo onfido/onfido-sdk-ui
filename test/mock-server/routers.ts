@@ -183,6 +183,10 @@ apiRouter
   .get('/ping', (context) => {
     context.response.body = { message: 'pong' }
   })
+  .post('/v3/analytics', async (context) => {
+    context.response.body = { message: 'success' }
+    context.response.status = Status.OK
+  })
   .post('/v3/documents', async (context) => {
     try {
       const body = context.request.body({ type: 'form-data' })

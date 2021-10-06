@@ -133,4 +133,5 @@ export type MobileConfig = {
   customUI: UICustomizationOptions | null
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
+  analyticsSessionUuid?: string
 }

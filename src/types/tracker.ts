@@ -1,3 +1,6 @@
+import type { DeviceTypes } from './commons'
+import type { StepConfig } from './steps'
+
 export const USER_ANALYTICS_EVENT = 'userAnalyticsEvent'
 
 type MappedEventNames =
@@ -52,4 +55,44 @@ export type UserAnalyticsEventDetail = {
   eventName: UserAnalyticsEventNames
   isCrossDevice: boolean
   properties: Record<string, unknown>
+}
+
+export type TrackedEventTypes = 'screen' | 'action' | 'flow'
+
+export type TrackedEnvironmentData = {
+  device?: DeviceTypes
+  os: string
+  os_version: string
+  browser: string
+  browser_version: string
+}
+
+export type AnalyticsPayload = {
+  applicant_uuid: string
+  client_uuid: string
+  event: TrackedEventNames
+  event_metadata: {
+    domain: string
+  } & TrackedEnvironmentData
+  event_time: string
+  event_uuid: string
+  properties: {
+    event_type: string
+    step?: string
+    is_cross_device?: boolean
+    is_custom_ui?: boolean
+    status?: string
+  }
+  session_uuid?: string
+  source: string
+  source_metadata: {
+    platform?: string
+    version?: string
+    sdk_environment?: string
+  }
+  sdk_config: {
+    expected_steps: string
+    steps_config?: StepConfig[]
+    sdk_token?: string
+  }
 }
