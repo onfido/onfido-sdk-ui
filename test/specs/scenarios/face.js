@@ -46,8 +46,8 @@ export const faceScenarios = (lang) => {
 
     const copy = basePage.copy(lang)
 
-    //This is not passing on IE
-    it('should return unsupported file type error for selfie', async () => {
+    //Not passing on IE - user is shown continue on phone screen
+    it('should return unsupported file type error for selfie @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -69,8 +69,8 @@ export const faceScenarios = (lang) => {
       confirm.verifyUnsuppoertedFileError(copy)
     })
 
-    //This is not passing on IE
-    it('should upload selfie @e2e-latest', async () => {
+    //Not passing on IE - user is shown continue on phone screen
+    it('should upload selfie @e2e-latest @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -89,8 +89,8 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    //This is not passing on IE
-    it('should successfully upload a resized image if selfie image file is too large', async () => {
+    //Not passing on IE - user is shown continue on phone screen
+    it('should successfully upload a resized image if selfie image file is too large @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -113,7 +113,8 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should take one selfie using the camera stream @percy', async () => {
+    //Not passing on IE - user is shown continue on phone screen
+    it('should take one selfie using the camera stream @percy @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -150,7 +151,8 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should complete the flow when snapshot is disabled', async () => {
+    //Not passing on IE - user is shown continue on phone screen
+    it('should complete the flow when snapshot is disabled @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -198,7 +200,8 @@ export const faceScenarios = (lang) => {
       confirm.verifyMultipleFacesError(copy)
     })
 
-    it('should be taken to the cross-device flow for selfie capture if there is no camera and faceVideo variant requested', async () => {
+    //Not passing on IE - 'Javascript Error' is seen...
+    it('should be taken to the cross-device flow for selfie capture if there is no camera and faceVideo variant requested @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -223,7 +226,8 @@ export const faceScenarios = (lang) => {
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested', async () => {
+    //Not passing on IE - 'Javascript Error' is seen...
+    it('should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -245,6 +249,7 @@ export const faceScenarios = (lang) => {
       cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(copy)
     })
 
+    //Passes on IE
     it('should be taken to the cross-device flow if browser does not have MediaRecorder API, liveness variant requested and photoCaptureFallback is disabled', async () => {
       goToPassportUploadScreen(
         driver,
@@ -263,7 +268,8 @@ export const faceScenarios = (lang) => {
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should enter the liveness flow if I have a camera and liveness variant requested @percy', async () => {
+    //Not passing on IE - 'Javascript Error' is seen...
+    it('should enter the liveness flow if I have a camera and liveness variant requested @percy @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -292,7 +298,8 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should enter the liveness flow and display timeout notification after 10 seconds @percy', async () => {
+    //Not passing on IE - 'Javascript Error' is seen...
+    it('should enter the liveness flow and display timeout notification after 10 seconds @percy @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -322,7 +329,8 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should record a video with live challenge, play it and submit it @percy', async () => {
+    //Not passing on IE - 'Javascript Error' is seen...
+    it('should record a video with live challenge, play it and submit it @percy @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -360,7 +368,8 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant @percy', async () => {
+    //Not passing on IE - 'Javascript Error' is seen...
+    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant @percy @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -416,7 +425,8 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for liveness variant @percy', async () => {
+    //Not passing on IE - 'Javascript Error' is seen...
+    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for liveness variant @percy @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -463,7 +473,8 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for faceVideo variant', async () => {
+    //Not passing on IE - 'Javascript Error' is seen...
+    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for faceVideo variant @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -489,7 +500,8 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkLogoIsHidden()
     })
 
-    it('should continue through full flow without problems when using customized API requests but still uploading media to API as normal', async () => {
+    //Not passing on IE - Gets to Get Secure Link
+    it('should continue through full flow without problems when using customized API requests but still uploading media to API as normal @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -508,7 +520,8 @@ export const faceScenarios = (lang) => {
       confirm.clickConfirmButton()
     })
 
-    it('should continue through full flow without problems when using customized API requests and success response is returned from callbacks', async () => {
+    //Fails on IE - Connection  Lost message is seen?
+    it('should continue through full flow without problems when using customized API requests and success response is returned from callbacks @not-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,

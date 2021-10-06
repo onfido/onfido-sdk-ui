@@ -43,6 +43,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
       const copy = basePage.copy(lang)
 
       const runThroughCrossDeviceFlowForDocumentVideoCapture = async () => {
+        documentUpload.clickContinueOnPhoneButtonIfIe()
         crossDeviceIntro.continueToNextStep()
         crossDeviceLink.switchToCopyLinkOption()
         const linkText = crossDeviceLink.copyLinkTextContainer().getText()
@@ -138,6 +139,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
+      //Fails on IE - even when explicitly choosing to continue on phone the spinner is just seen.
       it('should start the ANSSI flow for Identity Card flow and attempt to upload @percy', async () => {
         userStartsCrossDeviceFlowForIdCard(copy)
         documentVideoCapture.overlayPlaceholder().isDisplayed()
@@ -166,6 +168,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
+      //Not working on IE - After clicking the Get secure link button, you just see the endless spinner.
       it('should start the ANSSI flow for Drivers license flow and attempt to upload @percy', async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
@@ -202,6 +205,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
+      //Not working on IE - After clicking the Get secure link button, you just see the endless spinner.
       it('should start the ANSSI flow for Residence permit flow and attempt to upload @percy', async () => {
         userStartsCrossDeviceFlowForResidentPermit()
         documentVideoCapture.cardOverlay().isDisplayed()
@@ -224,6 +228,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
+      //Not working on IE - After clicking the Get secure link button, you just see the endless spinner.
       it('should show "Camera not working" error in ANSSI flow @percy', async () => {
         userStartsCrossDeviceFlowForIdCard(copy)
         documentVideoCapture.overlayPlaceholder().isDisplayed()
@@ -236,6 +241,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoCapture.cameraNotWorkingErrorIsNotSeen()
       })
 
+      //Not working on IE - After clicking the Get secure link button, you just see the endless spinner.
       it('should show "Looks like you took too long error" in ANSSI flow @percy @longtest', async () => {
         userStartsCrossDeviceFlowForResidentPermit()
         documentVideoCapture.cardOverlay().isDisplayed()
@@ -251,6 +257,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoCapture.startRecordingButtonIsSeen(copy)
       })
 
+      //Not working on IE - After clicking the Get secure link button, you just see the endless spinner.
       it('should allow user to preview/retake video in ANSSI flow @percy', async () => {
         userCompletesAnssiFlowForUKResidentPermit(copy)
         documentVideoConfirm.chooseToPreviewVideo(copy)
@@ -267,6 +274,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         )
       })
 
+      //Not working on IE - After clicking the Get secure link button, you just see the endless spinner.
       it('should allow user to go back and retake video in ANSSI flow after completing the flow @percy', async () => {
         userCompletesAnssiFlowForUKResidentPermit(copy)
         documentVideoConfirm.backArrow().click()
