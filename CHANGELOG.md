@@ -6,7 +6,7 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version]
+## [6.15.0]
 
 ### Added
 
@@ -1090,7 +1090,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.14.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.0...development
+[6.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.14.0...6.15.0
 [6.14.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.13.0...6.14.0
 [6.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.12.0...6.13.0
 [6.12.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.11.1...6.12.0
