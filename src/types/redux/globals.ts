@@ -1,5 +1,5 @@
 import * as constants from './constants'
-import type { CountryData, UrlsConfig } from '~types/commons'
+import type { CountryData, UrlsConfig, ExtendedStepTypes } from '~types/commons'
 import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,
@@ -13,6 +13,7 @@ export type SmsPayload = {
 }
 
 export type GlobalActions =
+  | { type: typeof constants.SET_CURRENT_STEP_TYPE; payload: ExtendedStepTypes }
   | { type: typeof constants.SET_ID_DOCUMENT_TYPE; payload: DocumentTypes }
   | { type: typeof constants.SET_ID_ISSUING_COUNTRY; payload: CountryData }
   | { type: typeof constants.RESET_ID_ISSUING_COUNTRY }
@@ -35,6 +36,7 @@ export type GlobalActions =
       type: typeof constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_LOGO_SRC
       payload: string
     }
+  | { type: typeof constants.SET_ANALYTICS_SESSION_UUID; payload: string }
   | { type: typeof constants.HIDE_ONFIDO_LOGO; payload: boolean }
   | { type: typeof constants.SHOW_COBRANDING; payload: EnterpriseCobranding }
   | {
@@ -47,6 +49,7 @@ export type GlobalActions =
   | { type: typeof constants.RESET_STORE }
 
 export type GlobalState = {
+  currentStepType?: ExtendedStepTypes
   documentType?: DocumentTypes
   idDocumentIssuingCountry?: CountryData
   poaDocumentType?: PoaTypes
@@ -73,4 +76,5 @@ export type GlobalState = {
    * After at most <MAX_IMAGE_QUALITY_RETRIES_WITH_ERROR> retries, the user will be allowed to proceed, as any image quality related validation from this point on will be treated as a warning.
    */
   imageQualityRetries: number
+  analyticsSessionUuid?: string
 }

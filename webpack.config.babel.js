@@ -212,6 +212,7 @@ const basePlugins = (bundle_name = '') => [
       SDK_ENV,
       PRODUCTION_BUILD,
       SDK_VERSION: packageJson.version,
+      SDK_SOURCE: 'onfido_web_sdk',
       // We use a Base 32 version string for the cross-device flow, to make URL
       // string support easier...
       // ref: https://en.wikipedia.org/wiki/Base32

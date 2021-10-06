@@ -89,7 +89,7 @@
     "files": [
       {
         "path": "./dist/onfido.min.js",
-        "maxSize": "235 kB"
+        "maxSize": "240 kB"
       },
       {
         "path": "./dist/onfido.crossDevice.min.js",
@@ -147,7 +147,7 @@
     "@types/react-router-dom": "^5.1.6",
     "@types/redux-mock-store": "^1.0.2",
     "@types/terser-webpack-plugin": "^5.0.2",
-    "@types/uuid": "^8.3.0",
+    "@types/uuid": "^8.3.1",
     "@types/webpack": "^4.41.26",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
@@ -163,7 +163,7 @@
     "browserstack-local": "^1.4.5",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
-    "chromedriver": "^92.0.0",
+    "chromedriver": "^94.0.0",
     "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^3.4.2",
     "dts-bundle-generator": "^5.5.0",
@@ -247,6 +247,7 @@
     "redux": "^4.0.5",
     "socket.io-client": "^4.0.1",
     "supports-webp": "~1.0.3",
+    "uuid": "^8.3.2",
     "visibilityjs": "~1.2.4"
   }
 }

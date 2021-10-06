@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
+import { v4 as uuidv4 } from 'uuid'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
@@ -46,8 +47,10 @@ class ModalApp extends Component<Props> {
     super(props)
     this.events = new EventEmitter2()
     this.events.on('complete', this.trackOnComplete)
+    const { actions, analyticsSessionUuid } = props
     if (!props.options.disableAnalytics) {
-      Tracker.setUp()
+      !analyticsSessionUuid && actions.setAnalyticsSessionUuid(uuidv4())
+      Tracker.setUp(props.options)
       Tracker.install()
     }
     this.bindEvents(
@@ -67,7 +70,11 @@ class ModalApp extends Component<Props> {
       const trackedProperties = {
         is_custom_ui: hasCustomUIConfigured,
       }
-      Tracker.sendEvent('started flow', trackedProperties)
+      Tracker.sendEvent(
+        'started flow',
+        Tracker.TRACKED_EVENT_TYPES.flow,
+        trackedProperties
+      )
     }
   }
 
@@ -116,7 +123,8 @@ class ModalApp extends Component<Props> {
     Tracker.trackException(message)
   }
 
-  trackOnComplete = () => Tracker.sendEvent('completed flow')
+  trackOnComplete = () =>
+    Tracker.sendEvent('completed flow', Tracker.TRACKED_EVENT_TYPES.flow)
 
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,

@@ -185,11 +185,13 @@ export default class CrossDeviceMobileRouter extends Component<
       customUI,
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
+      analyticsSessionUuid,
     } = data
 
     if (disableAnalytics) {
       uninstallWoopra()
     } else if (woopraCookie) {
+      this.props.actions.setAnalyticsSessionUuid(analyticsSessionUuid)
       setWoopraCookie(woopraCookie)
     }
 
