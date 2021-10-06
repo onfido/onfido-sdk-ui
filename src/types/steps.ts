@@ -98,7 +98,8 @@ export type StepConfigMap = {
 export type StepConfigWelcome = StepConfigMap['welcome']
 export type StepConfigUserConsent = StepConfigMap['userConsent']
 export type StepConfigAuth = StepConfigMap['auth']
-export type StepConfigCrossDeviceSessionIntro = StepConfigMap['crossDeviceSessionIntro']
+export type StepConfigCrossDeviceSessionIntro =
+  StepConfigMap['crossDeviceSessionIntro']
 export type StepConfigDocument = StepConfigMap['document']
 export type StepConfigPoa = StepConfigMap['poa']
 export type StepConfigFace = StepConfigMap['face']

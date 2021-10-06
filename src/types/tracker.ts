@@ -93,5 +93,6 @@ export type AnalyticsPayload = {
   sdk_config: {
     expected_steps: string
     steps_config?: StepConfig[]
+    sdk_token?: string
   }
 }

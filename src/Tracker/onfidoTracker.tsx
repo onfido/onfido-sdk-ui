@@ -39,10 +39,7 @@ const source_metadata = {
 }
 
 const stepsArrToString = (steps: Array<StepConfig>) =>
-  steps
-    ?.map((step) => step['type'])
-    .join()
-    .toLowerCase() || ''
+  steps?.map((step) => step['type']).join()
 
 export const initializeOnfidoTracker = (
   sdkOptions: NormalisedSdkOptions
@@ -91,6 +88,7 @@ export const sendAnalyticsEvent = (
   const sdk_config = {
     expected_steps: stepsArrToString(options.steps),
     steps_config: options.steps,
+    sdk_token: token,
   }
 
   const analyticsPayload: AnalyticsPayload = {
