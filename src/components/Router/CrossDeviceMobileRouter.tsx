@@ -341,7 +341,7 @@ export default class CrossDeviceMobileRouter extends Component<
     const { hasCamera } = this.props
     const { crossDeviceError, loading, steps } = this.state
 
-    if (loading || !steps) {
+    if (loading) {
       return <WrappedSpinner disableNavigation />
     }
 
@@ -367,13 +367,25 @@ export default class CrossDeviceMobileRouter extends Component<
       )
     }
 
+    if (steps) {
+      return (
+        <HistoryRouter
+          {...this.props}
+          {...this.state}
+          crossDeviceClientError={this.setError}
+          sendClientSuccess={this.sendClientSuccess}
+          steps={steps}
+        />
+      )
+    }
+
+    trackException(
+      'Unable to load Cross Device mobile flow - an unhandled error has occurred'
+    )
     return (
-      <HistoryRouter
-        {...this.props}
-        {...this.state}
-        crossDeviceClientError={this.setError}
-        sendClientSuccess={this.sendClientSuccess}
-        steps={steps}
+      <WrappedError
+        disableNavigation={true}
+        error={{ name: 'GENERIC_CLIENT_ERROR' }}
       />
     )
   }
