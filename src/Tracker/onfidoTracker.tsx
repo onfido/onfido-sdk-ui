@@ -54,6 +54,10 @@ export const sendAnalyticsEvent = (
   event_type: string,
   eventProperties: Optional<Record<string, unknown>>
 ): void => {
+  // Do not send requests without analyticsSessionUuid
+  // We need at least one identification property to identify the flow
+  if (!analyticsSessionUuid) return
+
   const environmentData = trackedEnvironmentData()
 
   const jwtData = parseJwt(token)
