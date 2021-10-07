@@ -182,7 +182,6 @@ export default class CrossDeviceMobileRouter extends Component<
       idDocumentIssuingCountry,
       language,
       poaDocumentType,
-      step: userStepIndex,
       steps,
       token,
       urls,
