@@ -68,8 +68,8 @@ export type TrackedEnvironmentData = {
 }
 
 export type AnalyticsPayload = {
-  applicant_uuid: string
-  client_uuid: string
+  applicant_uuid?: string
+  client_uuid?: string
   event: TrackedEventNames
   event_metadata: {
     domain: string

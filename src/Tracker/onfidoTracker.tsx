@@ -55,11 +55,11 @@ export const sendAnalyticsEvent = (
   eventProperties: Optional<Record<string, unknown>>
 ): void => {
   const environmentData = trackedEnvironmentData()
-  const jwtData = parseJwt(token)
 
-  const {
-    payload: { client_uuid, app: applicant_uuid },
-  } = jwtData
+  const jwtData = parseJwt(token)
+  const jwtPayload = jwtData?.payload
+
+  const { client_uuid, app: applicant_uuid } = jwtPayload
 
   const requiredFields = {
     event_uuid: uuidv4(),
