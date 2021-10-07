@@ -340,12 +340,6 @@ export default class CrossDeviceMobileRouter extends Component<
   renderContent = (): h.JSX.Element => {
     const { hasCamera } = this.props
     const { crossDeviceError, loading, steps } = this.state
-    const shouldStrictlyUseCamera = steps?.some(
-      isUploadFallbackOffAndShouldUseCamera
-    )
-    const videoNotSupportedAndRequired = steps?.some(
-      isPhotoCaptureFallbackOffAndCannotUseVideo
-    )
 
     if (loading || !steps) {
       return <WrappedSpinner disableNavigation />
@@ -355,6 +349,12 @@ export default class CrossDeviceMobileRouter extends Component<
       return <WrappedError disableNavigation={true} error={crossDeviceError} />
     }
 
+    const shouldStrictlyUseCamera = steps?.some(
+      isUploadFallbackOffAndShouldUseCamera
+    )
+    const videoNotSupportedAndRequired = steps?.some(
+      isPhotoCaptureFallbackOffAndCannotUseVideo
+    )
     if (
       (!hasCamera && shouldStrictlyUseCamera) ||
       videoNotSupportedAndRequired
