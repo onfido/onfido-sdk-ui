@@ -12582,14 +12582,6 @@
     "path": "node_modules/tr46",
     "licenseFile": "node_modules/tr46/LICENSE.md"
   },
-  "travis-weigh-in@1.0.2": {
-    "licenses": "Apache-2.0",
-    "repository": "https://github.com/danvk/travis-weigh-in",
-    "publisher": "Dan Vanderkam",
-    "url": "danvdk@gmail.com",
-    "path": "node_modules/travis-weigh-in",
-    "licenseFile": "node_modules/travis-weigh-in/LICENSE"
-  },
   "treeify@1.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/notatestuser/treeify",
