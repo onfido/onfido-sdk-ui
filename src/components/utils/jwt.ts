@@ -2,13 +2,15 @@ import { currentSeconds } from './index'
 import type { UrlsConfig } from '~types/commons'
 import type { EnterpriseFeatures } from '~types/enterprise'
 
+type JWTPayload = {
+  app?: string
+  client_uuid?: string
+  ref?: string
+}
+
 type JWT = {
   exp: number
-  payload: {
-    app: string
-    client_uuid: string
-    ref: string
-  }
+  payload: JWTPayload
   uuid: string
   enterprise_features: EnterpriseFeatures
   urls: UrlsConfig
@@ -52,4 +54,17 @@ export const getEnterpriseFeaturesFromJWT = (
     console.error('Invalid token:', err.message)
     return {}
   }
+}
+
+export const getPayloadFromJWT = (token: string): JWTPayload => {
+  const payload: JWTPayload = {}
+
+  try {
+    const jwt = parseJwt(token)
+    Object.assign(payload, jwt.payload)
+  } catch (err) {
+    console.error('Invalid token:', err.message)
+  }
+
+  return payload
 }

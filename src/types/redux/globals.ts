@@ -4,7 +4,7 @@ import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,
 } from '~types/enterprise'
-import type { DocumentTypes, PoaTypes } from '~types/steps'
+import type { DocumentTypes, PoaTypes, StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
 
 export type SmsPayload = {
@@ -28,6 +28,14 @@ export type GlobalActions =
   | { type: typeof constants.SET_FULL_SCREEN; payload: boolean }
   | { type: typeof constants.SET_DEVICE_HAS_CAMERA_SUPPORT; payload: boolean }
   | { type: typeof constants.SET_URLS; payload: UrlsConfig }
+  | { type: typeof constants.SET_TOKEN; payload: string }
+  | { type: typeof constants.SET_APPLICANT_UUID; payload: string }
+  | { type: typeof constants.SET_CLIENT_UUID; payload: string }
+  | {
+      type: typeof constants.SET_STEPS_CONFIG
+      payload: Array<StepConfig>
+    }
+  | { type: typeof constants.SET_IS_CROSS_DEVICE_CLIENT; payload: boolean }
   | {
       type: typeof constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_NAME
       payload: string
@@ -77,4 +85,9 @@ export type GlobalState = {
    */
   imageQualityRetries: number
   analyticsSessionUuid?: string
+  token?: string
+  isCrossDeviceClient: boolean
+  applicantUuid?: string
+  clientUuid?: string
+  stepsConfig: Array<StepConfig>
 }

@@ -6,7 +6,7 @@ import type {
   EnterpriseLogoCobranding,
 } from '~types/enterprise'
 import type { GlobalActions } from '~types/redux'
-import type { DocumentTypes, PoaTypes } from '~types/steps'
+import type { DocumentTypes, PoaTypes, StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
 
 export const setCurrentStepType = (
@@ -137,5 +137,30 @@ export const resetImageQualityRetries = (): GlobalActions => ({
 
 export const setAnalyticsSessionUuid = (payload: string): GlobalActions => ({
   type: constants.SET_ANALYTICS_SESSION_UUID,
+  payload,
+})
+
+export const setToken = (payload: string): GlobalActions => ({
+  type: constants.SET_TOKEN,
+  payload,
+})
+
+export const setApplicantUuid = (payload: string): GlobalActions => ({
+  type: constants.SET_APPLICANT_UUID,
+  payload,
+})
+
+export const setClientUuid = (payload: string): GlobalActions => ({
+  type: constants.SET_CLIENT_UUID,
+  payload,
+})
+
+export const setStepsConfig = (payload: Array<StepConfig>): GlobalActions => ({
+  type: constants.SET_STEPS_CONFIG,
+  payload,
+})
+
+export const setIsCrossDeviceClient = (payload: boolean): GlobalActions => ({
+  type: constants.SET_IS_CROSS_DEVICE_CLIENT,
   payload,
 })

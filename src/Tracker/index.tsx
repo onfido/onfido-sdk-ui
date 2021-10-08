@@ -4,7 +4,7 @@ import { cleanFalsy, wrapArray } from '~utils/array'
 import WoopraTracker from './safeWoopra'
 import { map as mapObject } from '~utils/object'
 import { isOnfidoHostname } from '~utils/string'
-import { sendAnalyticsEvent, initializeOnfidoTracker } from './onfidoTracker'
+import { sendAnalyticsEvent } from './onfidoTracker'
 
 import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
 import type {
@@ -53,7 +53,6 @@ const integratorTrackedEvents = new Map<
 ])
 
 const setUp = (options: NormalisedSdkOptions): void => {
-  initializeOnfidoTracker(options)
   woopra = new WoopraTracker('onfidojssdkwoopra')
 
   woopra.init()
