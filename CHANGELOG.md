@@ -6,6 +6,12 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [next-next-version]
+
+### Fixed
+
+- UI: Fix SDK only displaying a loading spinner instead of the "Something's gone wrong" error screen with messages "The link only works on mobile devices / You’ll need to restart your verification on your computer".
+
 ## [next-version]
 
 ### Added
