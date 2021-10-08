@@ -9,7 +9,7 @@ import { reduxStore } from 'components/ReduxAppWrapper'
 
 let currentStepType: ExtendedStepTypes | undefined
 let analyticsSessionUuid: string | undefined
-let steps: Array<StepConfig>
+let steps: StepConfig[]
 let token: string | undefined
 let urls: UrlsConfig
 let client_uuid: string | undefined

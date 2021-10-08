@@ -33,7 +33,7 @@ export type GlobalActions =
   | { type: typeof constants.SET_CLIENT_UUID; payload: string }
   | {
       type: typeof constants.SET_STEPS_CONFIG
-      payload: Array<StepConfig>
+      payload: StepConfig[]
     }
   | { type: typeof constants.SET_IS_CROSS_DEVICE_CLIENT; payload: boolean }
   | {
@@ -86,7 +86,7 @@ export type GlobalState = {
   imageQualityRetries: number
   analyticsSessionUuid?: string
   token?: string
-  isCrossDeviceClient: boolean
+  isCrossDeviceClient?: boolean
   applicantUuid?: string
   clientUuid?: string
   stepsConfig: Array<StepConfig>

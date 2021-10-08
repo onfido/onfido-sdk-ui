@@ -39,7 +39,8 @@ export const initialState: GlobalState = {
   token: undefined,
   applicantUuid: undefined,
   clientUuid: undefined,
-  stepsConfig: undefined,
+  stepsConfig: [],
+  isCrossDeviceClient: undefined,
 }
 
 export default function globals(

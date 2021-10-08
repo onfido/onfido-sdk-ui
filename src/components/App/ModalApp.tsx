@@ -206,8 +206,7 @@ class ModalApp extends Component<Props> {
       token: prevToken,
       customUI: prevCustomUI,
       crossDeviceClientIntroProductName: prevCrossDeviceClientIntroProductName,
-      crossDeviceClientIntroProductLogoSrc:
-        prevCrossDeviceClientIntroProductLogoSrc,
+      crossDeviceClientIntroProductLogoSrc: prevCrossDeviceClientIntroProductLogoSrc,
     } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
