@@ -51,11 +51,7 @@ export const useContainerDimensions = (): DOMRect => {
   const containerDimensions = useContext(ContainerDimensionsContext)
 
   if (!containerDimensions) {
-    console.error(
-      'containerDimensions is undefined, defaulting to window dimensions'
-    )
-    // throw new Error(`Container wasn't rendered!`)
-    return new DOMRect(0, 0, window.innerWidth, window.innerHeight)
+    throw new Error(`Container wasn't rendered!`)
   }
 
   return containerDimensions
