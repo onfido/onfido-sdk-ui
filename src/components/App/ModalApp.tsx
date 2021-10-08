@@ -51,7 +51,7 @@ class ModalApp extends Component<Props> {
     const { actions, analyticsSessionUuid } = props
     if (!props.options.disableAnalytics) {
       !analyticsSessionUuid && actions.setAnalyticsSessionUuid(uuidv4())
-      Tracker.setUp(props.options)
+      Tracker.setUp()
       Tracker.install()
     }
     this.bindEvents(

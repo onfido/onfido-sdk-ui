@@ -13,7 +13,6 @@ import type {
   UserAnalyticsEventNames,
   UserAnalyticsEventDetail,
 } from '~types/tracker'
-import type { NormalisedSdkOptions } from '~types/commons'
 
 const TRACKED_EVENT_TYPES: Record<string, TrackedEventTypes> = {
   flow: 'flow',
@@ -52,7 +51,7 @@ const integratorTrackedEvents = new Map<
   ['Starting upload', 'UPLOAD'],
 ])
 
-const setUp = (options: NormalisedSdkOptions): void => {
+const setUp = (): void => {
   woopra = new WoopraTracker('onfidojssdkwoopra')
 
   woopra.init()
