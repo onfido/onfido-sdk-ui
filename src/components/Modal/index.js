@@ -2,8 +2,9 @@ import ReactModal from 'react-modal'
 import { h } from 'preact'
 import classNames from 'classnames'
 import { withFullScreenState } from '../FullScreen'
-import { getCSSMillisecsValue, wrapWithClass } from '~utils'
-import { localised } from '../../locales'
+import { getCSSMillisecsValue } from '~utils'
+import { localised } from '~locales'
+import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
 import style from './style.scss'
 import styleConstants from '../Theme/constants.scss'
 import theme from '../Theme/style.scss'
@@ -40,19 +41,21 @@ const Modal = ({
     closeTimeoutMS={MODAL_ANIMATION_DURATION}
     appElement={containerEl || document.getElementById(containerId)}
   >
-    <button
-      type="button"
-      aria-label={translate('generic.accessibility.close_sdk_screen')}
-      onClick={onRequestClose}
-      className={classNames(style.closeButton, {
-        [style.closeButtonFullScreen]: isFullScreen,
-      })}
-    >
-      <span className={style.closeButtonLabel} aria-hidden="true">
-        {translate('generic.close')}
-      </span>
-    </button>
-    {children}
+    <ContainerDimensionsProvider>
+      <button
+        type="button"
+        aria-label={translate('generic.accessibility.close_sdk_screen')}
+        onClick={onRequestClose}
+        className={classNames(style.closeButton, {
+          [style.closeButtonFullScreen]: isFullScreen,
+        })}
+      >
+        <span className={style.closeButtonLabel} aria-hidden="true">
+          {translate('generic.close')}
+        </span>
+      </button>
+      {children}
+    </ContainerDimensionsProvider>
   </ReactModal>
 )
 
