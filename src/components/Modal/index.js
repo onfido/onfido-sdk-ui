@@ -3,8 +3,7 @@ import { h } from 'preact'
 import classNames from 'classnames'
 import { withFullScreenState } from '../FullScreen'
 import { getCSSMillisecsValue } from '~utils'
-import { localised } from '~locales'
-import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
+import { useLocales } from '~locales'
 import style from './style.scss'
 import styleConstants from '../Theme/constants.scss'
 import theme from '../Theme/style.scss'
@@ -13,35 +12,33 @@ const MODAL_ANIMATION_DURATION = getCSSMillisecsValue(
   styleConstants.modal_animation_duration
 )
 
-const Wrapper = ({ children }) => wrapWithClass(style.inner, children)
-
 const Modal = ({
-  translate,
   children,
   isOpen,
   isFullScreen,
   onRequestClose,
   containerId,
   containerEl,
-  shouldCloseOnOverlayClick,
-}) => (
-  <ReactModal
-    isOpen={isOpen}
-    onRequestClose={onRequestClose}
-    portalClassName={theme.portal}
-    overlayClassName={{
-      base: theme.modalOverlay,
-      afterOpen: theme['modalOverlay--after-open'],
-      beforeClose: theme['modalOverlay--before-close'],
-    }}
-    bodyOpenClassName={theme.modalBody}
-    className={classNames(theme.modalInner, style.inner)}
-    role={'dialog'}
-    shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-    closeTimeoutMS={MODAL_ANIMATION_DURATION}
-    appElement={containerEl || document.getElementById(containerId)}
-  >
-    <ContainerDimensionsProvider>
+  shouldCloseOnOverlayClick = true,
+}) => {
+  const { translate } = useLocales()
+  return (
+    <ReactModal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      portalClassName={theme.portal}
+      overlayClassName={{
+        base: theme.modalOverlay,
+        afterOpen: theme['modalOverlay--after-open'],
+        beforeClose: theme['modalOverlay--before-close'],
+      }}
+      bodyOpenClassName={theme.modalBody}
+      className={classNames(theme.modalInner, style.inner)}
+      role={'dialog'}
+      shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+      closeTimeoutMS={MODAL_ANIMATION_DURATION}
+      appElement={containerEl || document.getElementById(containerId)}
+    >
       <button
         type="button"
         aria-label={translate('generic.accessibility.close_sdk_screen')}
@@ -55,21 +52,17 @@ const Modal = ({
         </span>
       </button>
       {children}
-    </ContainerDimensionsProvider>
-  </ReactModal>
-)
-
-Modal.defaultProps = {
-  shouldCloseOnOverlayClick: true,
+    </ReactModal>
+  )
 }
 
-const LocalisedModal = withFullScreenState(localised(Modal))
+const ModalContainer = withFullScreenState(Modal)
 
 const WrappedModal = ({ useModal, children, ...otherProps }) =>
   useModal ? (
-    <LocalisedModal {...otherProps}>{children}</LocalisedModal>
+    <ModalContainer {...otherProps}>{children}</ModalContainer>
   ) : (
-    <Wrapper>{children}</Wrapper>
+    <div className={style.inner}>{children}</div>
   )
 
 export default WrappedModal
