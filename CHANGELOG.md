@@ -23,6 +23,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fix grey oblong background appearing under the red cross icon on the Unsupported Browser error screen
 - Public: Remove grey circle background from SVG icon displayed on Generic Error screen so that custom circle background is visible
 - Internal: Upgraded some dev dependencies to fix some npm security vulnerabilities, also upgraded socket.io-client dependency to v4.2.0 to resolve npm security vulnerability in ws@7.4.4
+- Public: Fix error when face step video variant was requested for users on mobile devices
 
 ## [6.14.0] - 2021-09-13
 
