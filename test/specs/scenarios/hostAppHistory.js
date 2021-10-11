@@ -39,7 +39,7 @@ export const hostAppHistoryScenarios = async (lang = 'en_US') => {
       })
 
       //Not working on IE - User is sent to Get secure link button
-      it('it can navigate forward and back when host app has history @not-ie', async () => {
+      it('it can navigate forward and back when host app has history @skip-for-ie', async () => {
         driver.get(`${localhostUrl}?useHistory=true&useUploader=true`)
         dummyHostApp.firstStepTextDisplayed()
         dummyHostApp.continueToNextStep()

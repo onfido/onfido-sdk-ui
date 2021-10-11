@@ -124,7 +124,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should verify UI elements on the cross device link screen default QR code view @not-ie', async () => {
+      it('should verify UI elements on the cross device link screen default QR code view @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
@@ -155,7 +155,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should verify UI elements on the cross device link screen SMS view @not-ie', async () => {
+      it('should verify UI elements on the cross device link screen SMS view @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
@@ -175,7 +175,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should verify UI elements on the cross device link screen copy link view @not-ie', async () => {
+      it('should verify UI elements on the cross device link screen copy link view @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
@@ -196,7 +196,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should change the state of the copy to clipboard button after clicking @not-ie', async () => {
+      it('should change the state of the copy to clipboard button after clicking @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.switchToCopyLinkOption()
@@ -205,7 +205,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should display copy link view by default when excludeSmsCrossDeviceOption is enabled @not-ie', async () => {
+      it('should display copy link view by default when excludeSmsCrossDeviceOption is enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&excludeSmsCrossDeviceOption=true`)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyCopyLinkLabel(copy)
@@ -232,7 +232,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should display SMS link view only and no alternative options when singleCrossDeviceOption is enabled @not-ie', async () => {
+      it('should display SMS link view only and no alternative options when singleCrossDeviceOption is enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&singleCrossDeviceOption=true`)
         goToCrossDeviceScreen()
         crossDeviceLink.verifySubtitleSms(copy)
@@ -250,7 +250,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should display default cross device QR code link view when given invalid alternative methods @not-ie', async () => {
+      it('should display default cross device QR code link view when given invalid alternative methods @skip-for-ie', async () => {
         driver.get(`${baseUrl}&invalidCrossDeviceAlternativeMethods=true`)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
@@ -268,7 +268,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should display error when mobile number is not provided @not-ie', async () => {
+      it('should display error when mobile number is not provided @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.switchToSendSmsOption()
@@ -278,7 +278,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should display error when mobile number is wrong @not-ie', async () => {
+      it('should display error when mobile number is wrong @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.switchToSendSmsOption()
@@ -289,7 +289,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should display error when mobile number is possible but not a valid mobile number @not-ie', async () => {
+      it('should display error when mobile number is possible but not a valid mobile number @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.switchToSendSmsOption()
@@ -301,7 +301,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should send sms and navigate to "Check your mobile" screen @not-ie', async () => {
+      it('should send sms and navigate to "Check your mobile" screen @skip-for-ie', async () => {
         driver.get(baseUrl)
         driver.navigate().refresh()
         goToCrossDeviceScreen()
@@ -326,7 +326,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should be able to resend sms @not-ie', async () => {
+      it('should be able to resend sms @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.switchToSendSmsOption()
@@ -341,7 +341,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //On IE User is shown Get secure link button instead of continuing flow as expected.
-      it('should successfully complete cross device e2e flow with selfie upload @e2e-latest @not-ie', async () => {
+      it('should successfully complete cross device e2e flow with selfie upload @e2e-latest @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -368,7 +368,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should succesfully complete cross device e2e flow with document and selfie upload @not-ie', async () => {
+      it('should succesfully complete cross device e2e flow with document and selfie upload @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -393,7 +393,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should check Submit Verification button can only be clicked once when there is no Complete step @not-ie', async () => {
+      it('should check Submit Verification button can only be clicked once when there is no Complete step @skip-for-ie', async () => {
         driver.get(`${baseUrl}&noCompleteStep=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -419,7 +419,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should complete cross device e2e flow with a US JWT @not-ie', async () => {
+      it('should complete cross device e2e flow with a US JWT @skip-for-ie', async () => {
         driver.get(`${baseUrl}&region=US`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -442,7 +442,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should hide logo on all screens when hideOnfidoLogo is enabled and given token has feature enabled @not-ie', async () => {
+      it('should hide logo on all screens when hideOnfidoLogo is enabled and given token has feature enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&hideOnfidoLogo=true`)
         welcome.checkLogoIsHidden()
         welcome.continueToNextStep()
@@ -471,7 +471,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should show the cobrand text and logo on all screens when showCobrand is enabled and token has feature enabled @not-ie', async () => {
+      it('should show the cobrand text and logo on all screens when showCobrand is enabled and token has feature enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&showCobrand=true`)
         welcome.checkCobrandIsVisible()
         welcome.continueToNextStep()
@@ -500,7 +500,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should not show any logo, including cobrand text and logo on all screens when showCobrand is enabled but hideOnfidoLogo is also enabled @not-ie', async () => {
+      it('should not show any logo, including cobrand text and logo on all screens when showCobrand is enabled but hideOnfidoLogo is also enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&showCobrand=true&hideOnfidoLogo=true`)
         welcome.checkLogoIsHidden()
         welcome.continueToNextStep()
@@ -529,7 +529,7 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
-      it('should show the cobrand logo and Onfido logo on all screens when showLogoCobrand is enabled and token has feature enabled @not-ie', async () => {
+      it('should show the cobrand logo and Onfido logo on all screens when showLogoCobrand is enabled and token has feature enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&showLogoCobrand=true`)
         welcome.checkLogoCobrandIsVisible()
         welcome.continueToNextStep()

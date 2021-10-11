@@ -130,14 +130,15 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
         await takePercySnapshot(driver, 'Submit benefit letter screen')
       })
-      //these last 6 fail on IE
-      it("should skip country selection screen with a preselected driver's license document type on PoA flow @percy @not-ie", async () => {
+
+      it("should skip country selection screen with a preselected driver's license document type on PoA flow @percy ", async () => {
         driver.get(`${localhostUrl}?poa=true&oneDoc=driving_licence`)
         welcome.continueToNextStep()
         poaIntro.clickStartVerificationButton()
         poaDocumentSelection.clickOnCouncilTaxLetterIcon()
         poaGuidance.clickOnContinueButton()
         await takePercySnapshot(driver, 'Submit letter upload screen')
+        documentUpload.clickUploadButtonIfRemoteIe()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
@@ -146,10 +147,13 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
       })
 
-      it('should upload Bank Statement and finish flow @not-ie', async () => {
+      //these last 5 fail on IE, on the face.jpg step...
+      //At this point on IE, user is shown 'Get Secure Link'
+      it('should upload Bank Statement and finish flow @skip-for-ie', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBankIcon()
         poaGuidance.clickOnContinueButton()
+        documentUpload.clickUploadButtonIfRemoteIe()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
@@ -166,7 +170,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should upload Utility Bill and finish flow @not-ie', async () => {
+      it('should upload Utility Bill and finish flow @skip-for-ie', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnUtilityBillIcon()
         poaGuidance.clickOnContinueButton()
@@ -186,7 +190,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should upload Council Tax Letter and finish flow @not-ie', async () => {
+      it('should upload Council Tax Letter and finish flow @skip-for-ie', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnCouncilTaxLetterIcon()
         poaGuidance.clickOnContinueButton()
@@ -212,7 +216,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should upload Benefits Letter and finish flow @not-ie', async () => {
+      it('should upload Benefits Letter and finish flow @skip-for-ie', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBenefitsLetterIcon()
         poaGuidance.clickOnContinueButton()
@@ -232,7 +236,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should succesfully complete cross device e2e flow with PoA document and selfie upload @percy @not-ie', async () => {
+      it('should succesfully complete cross device e2e flow with PoA document and selfie upload @percy @skip-for-ie', async () => {
         const copyCrossDeviceLinkAndOpenInNewTab = async () => {
           const crossDeviceLinkText = crossDeviceLink
             .copyLinkTextContainer()

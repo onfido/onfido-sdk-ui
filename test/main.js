@@ -130,7 +130,7 @@ const createBrowser = async (browser) => {
 
   await driver.manage().setTimeouts({
     implicit: 10000,
-    pageLoad: 30000,
+    pageLoad: 20000,
   })
 
   isRemoteBrowser = browser.remote
@@ -195,7 +195,7 @@ const createMocha = (driver, testCase) => {
     )
   })
   mocha.suite.beforeEach('Set retry and timeouts', function () {
-    //this.currentTest.retries(1)
+    this.currentTest.retries(1)
     if (this.currentTest.title.includes('@longtest')) {
       this.currentTest.timeout(40000)
     }

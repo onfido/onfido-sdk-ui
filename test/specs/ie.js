@@ -2,7 +2,7 @@ import { describe } from '../utils/mochaw'
 import {
   partialTestCoverageLanguages,
   fullTestCoverageLanguages,
-} from '../configie.json'
+} from '../config-ie.json'
 import { welcomeScenarios } from './scenarios/welcome'
 import { documentSelectorScenarios } from './scenarios/documentSelector'
 import { countrySelectorScenarios } from './scenarios/countrySelector'

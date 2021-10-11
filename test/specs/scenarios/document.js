@@ -257,7 +257,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyCheckReadabilityMessage(copy)
       })
       //This is not passing on IE - Java heap space
-      it('should return file size too large message for PDF document upload @percy @not-ie', async () => {
+      it('should return file size too large message for PDF document upload @percy @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -273,7 +273,7 @@ export const documentScenarios = async (lang) => {
         )
       })
       //This is not passing on IE - Java heap space
-      it('should upload a resized document image if file size is too large message @not-ie', async () => {
+      it('should upload a resized document image if file size is too large message @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -405,7 +405,7 @@ export const documentScenarios = async (lang) => {
         })
       })
       //This is not passing on IE
-      it('should be able to retry document upload @not-ie', async () => {
+      it('should be able to retry document upload @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -426,7 +426,7 @@ export const documentScenarios = async (lang) => {
       })
 
       //This is not passing on IE
-      it('should be able to submit a document without seeing the document selector screen @not-ie', async () => {
+      it('should be able to submit a document without seeing the document selector screen @skip-for-ie', async () => {
         driver.get(`${baseUrl}&oneDoc=passport&useUploader=true`)
         welcome.continueToNextStep(copy)
         documentUpload.verifyPassportTitle(copy)
@@ -442,7 +442,7 @@ export const documentScenarios = async (lang) => {
       })
 
       //This is not passing on IE - JavascriptError: JavaScript error
-      it('should be taken to the cross-device flow for video capture if there is no camera and docVideo variant requested @not-ie', async () => {
+      it('should be taken to the cross-device flow for video capture if there is no camera and docVideo variant requested @skip-for-ie', async () => {
         driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])'
@@ -454,7 +454,7 @@ export const documentScenarios = async (lang) => {
 
       //This is not passing on IE - doesnt seem to load anything
       // @TODO: remove this test when we fully support docVideo variant for both desktop & mobile web
-      it('should be taken to the cross-device flow for video capture docVideo variant requested @not-ie', async () => {
+      it('should be taken to the cross-device flow for video capture docVideo variant requested @skip-for-ie', async () => {
         driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
