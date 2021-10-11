@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
+import { v4 as uuidv4 } from 'uuid'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
@@ -8,6 +9,7 @@ import {
   parseJwt,
   getUrlsFromJWT,
   getEnterpriseFeaturesFromJWT,
+  getPayloadFromJWT,
 } from '~utils/jwt'
 import { buildStepFinder, getEnabledDocuments } from '~utils/steps'
 import Modal from '../Modal'
@@ -46,7 +48,9 @@ class ModalApp extends Component<Props> {
     super(props)
     this.events = new EventEmitter2()
     this.events.on('complete', this.trackOnComplete)
+    const { actions, analyticsSessionUuid } = props
     if (!props.options.disableAnalytics) {
+      !analyticsSessionUuid && actions.setAnalyticsSessionUuid(uuidv4())
       Tracker.setUp()
       Tracker.install()
     }
@@ -55,6 +59,7 @@ class ModalApp extends Component<Props> {
       props.options.onError,
       props.options.onUserExit
     )
+    actions.setIsCrossDeviceClient(props.options.mobileFlow)
   }
 
   componentDidMount() {
@@ -67,7 +72,11 @@ class ModalApp extends Component<Props> {
       const trackedProperties = {
         is_custom_ui: hasCustomUIConfigured,
       }
-      Tracker.sendEvent('started flow', trackedProperties)
+      Tracker.sendEvent(
+        'started flow',
+        Tracker.TRACKED_EVENT_TYPES.flow,
+        trackedProperties
+      )
     }
   }
 
@@ -116,7 +125,8 @@ class ModalApp extends Component<Props> {
     Tracker.trackException(message)
   }
 
-  trackOnComplete = () => Tracker.sendEvent('completed flow')
+  trackOnComplete = () =>
+    Tracker.sendEvent('completed flow', Tracker.TRACKED_EVENT_TYPES.flow)
 
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,
@@ -204,6 +214,8 @@ class ModalApp extends Component<Props> {
     }
 
     if (steps && steps !== prevSteps) {
+      this.props.actions.setStepsConfig(steps)
+
       const enabledDocs = getEnabledDocuments(steps) as DocumentTypes[]
 
       if (enabledDocs.length === 1) {
@@ -214,6 +226,11 @@ class ModalApp extends Component<Props> {
     }
 
     if (token && token !== prevToken) {
+      this.props.actions.setToken(token)
+      const tokenPayload = getPayloadFromJWT(token)
+      this.props.actions.setApplicantUuid(tokenPayload.app)
+      this.props.actions.setClientUuid(tokenPayload.client_uuid)
+
       const isDesktopFlow = !options.mobileFlow
       if (isDesktopFlow) {
         this.setUrls(token)

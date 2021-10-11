@@ -40,6 +40,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       deviceHasCameraSupport,
       options,
       urls,
+      analyticsSessionUuid,
     } = this.props
 
     const {
@@ -78,6 +79,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       token,
       urls,
       woopraCookie,
+      analyticsSessionUuid,
     }
   }
 

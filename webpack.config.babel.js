@@ -11,7 +11,7 @@ import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
-import { dirname, relative, resolve, basename, path } from 'path'
+import { dirname, relative, resolve, basename } from 'path'
 import nodeExternals from 'webpack-node-externals'
 import CopyPlugin from 'copy-webpack-plugin'
 
@@ -212,12 +212,13 @@ const basePlugins = (bundle_name = '') => [
       SDK_ENV,
       PRODUCTION_BUILD,
       SDK_VERSION: packageJson.version,
+      SDK_SOURCE: 'onfido_web_sdk',
       // We use a Base 32 version string for the cross-device flow, to make URL
       // string support easier...
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'CO',
+      BASE_32_VERSION: 'CP',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,

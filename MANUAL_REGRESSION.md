@@ -595,7 +595,7 @@ Given user opened the link with `?uploadFallback=false` flag
 1. Upload a document
 2. Click "Enlarge image"
 3. Click browser's back button while document is zoomed in
-   - "Check readability" text and back arrow retain the colour
+   - "Check your image" text and back arrow retain the colour
    - Back navigation in the browser doesn't cause any other UI changes in the SDK
 
 ### 34a. Check happy path flow of live document capture on mobile devices with media recorder API support

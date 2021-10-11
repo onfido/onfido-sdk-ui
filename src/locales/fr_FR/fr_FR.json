@@ -284,7 +284,7 @@
             },
             "request_error": {
                 "instruction": "Veuillez réessayer",
-                "message": "Connexion perdue"
+                "message": "Quelque chose ne va pas"
             },
             "sms_failed": {
                 "instruction": "Copier le lien sur votre mobile",
