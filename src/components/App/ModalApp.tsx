@@ -8,6 +8,7 @@ import {
   parseJwt,
   getUrlsFromJWT,
   getEnterpriseFeaturesFromJWT,
+  getPayloadFromJWT,
 } from '~utils/jwt'
 import { buildStepFinder, getEnabledDocuments } from '~utils/steps'
 import Modal from '../Modal'
@@ -49,7 +50,7 @@ class ModalApp extends Component<Props> {
     const { actions, analyticsSessionUuid } = props
     if (!props.options.disableAnalytics) {
       !analyticsSessionUuid && actions.setAnalyticsSessionUuid(uuidv4())
-      Tracker.setUp(props.options)
+      Tracker.setUp()
       Tracker.install()
     }
     this.bindEvents(
@@ -57,6 +58,7 @@ class ModalApp extends Component<Props> {
       props.options.onError,
       props.options.onUserExit
     )
+    actions.setIsCrossDeviceClient(props.options.mobileFlow)
   }
 
   componentDidMount() {
@@ -211,6 +213,8 @@ class ModalApp extends Component<Props> {
     }
 
     if (steps && steps !== prevSteps) {
+      this.props.actions.setStepsConfig(steps)
+
       const enabledDocs = getEnabledDocuments(steps) as DocumentTypes[]
 
       if (enabledDocs.length === 1) {
@@ -221,6 +225,11 @@ class ModalApp extends Component<Props> {
     }
 
     if (token && token !== prevToken) {
+      this.props.actions.setToken(token)
+      const tokenPayload = getPayloadFromJWT(token)
+      this.props.actions.setApplicantUuid(tokenPayload.app)
+      this.props.actions.setClientUuid(tokenPayload.client_uuid)
+
       const isDesktopFlow = !options.mobileFlow
       if (isDesktopFlow) {
         this.setUrls(token)

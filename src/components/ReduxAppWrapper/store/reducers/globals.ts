@@ -36,6 +36,11 @@ export const initialState: GlobalState = {
    */
   imageQualityRetries: 0,
   analyticsSessionUuid: undefined,
+  token: undefined,
+  applicantUuid: undefined,
+  clientUuid: undefined,
+  stepsConfig: [],
+  isCrossDeviceClient: undefined,
 }
 
 export default function globals(
@@ -176,6 +181,36 @@ export default function globals(
       return {
         ...state,
         analyticsSessionUuid: action.payload,
+      }
+
+    case constants.SET_TOKEN:
+      return {
+        ...state,
+        token: action.payload,
+      }
+
+    case constants.SET_APPLICANT_UUID:
+      return {
+        ...state,
+        applicantUuid: action.payload,
+      }
+
+    case constants.SET_CLIENT_UUID:
+      return {
+        ...state,
+        clientUuid: action.payload,
+      }
+
+    case constants.SET_STEPS_CONFIG:
+      return {
+        ...state,
+        stepsConfig: action.payload,
+      }
+
+    case constants.SET_IS_CROSS_DEVICE_CLIENT:
+      return {
+        ...state,
+        isCrossDeviceClient: action.payload,
       }
 
     case constants.RESET_STORE:
