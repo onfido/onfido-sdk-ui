@@ -4,7 +4,7 @@ import { cleanFalsy, wrapArray } from '~utils/array'
 import WoopraTracker from './safeWoopra'
 import { map as mapObject } from '~utils/object'
 import { isOnfidoHostname } from '~utils/string'
-import { sendAnalyticsEvent, initializeOnfidoTracker } from './onfidoTracker'
+import { sendAnalyticsEvent } from './onfidoTracker'
 
 import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
 import type {
@@ -13,7 +13,6 @@ import type {
   UserAnalyticsEventNames,
   UserAnalyticsEventDetail,
 } from '~types/tracker'
-import type { NormalisedSdkOptions } from '~types/commons'
 
 const TRACKED_EVENT_TYPES: Record<string, TrackedEventTypes> = {
   flow: 'flow',
@@ -52,8 +51,7 @@ const integratorTrackedEvents = new Map<
   ['Starting upload', 'UPLOAD'],
 ])
 
-const setUp = (options: NormalisedSdkOptions): void => {
-  initializeOnfidoTracker(options)
+const setUp = (): void => {
   woopra = new WoopraTracker('onfidojssdkwoopra')
 
   woopra.init()

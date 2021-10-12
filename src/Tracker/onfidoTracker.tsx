@@ -1,12 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { sendAnalytics } from '~utils/onfidoApi'
-import { parseJwt } from '~utils/jwt'
 import { trackedEnvironmentData } from '~utils'
-import type {
-  NormalisedSdkOptions,
-  ExtendedStepTypes,
-  UrlsConfig,
-} from '~types/commons'
+import type { ExtendedStepTypes, UrlsConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { RootState } from '~types/redux'
 import type { AnalyticsPayload, TrackedEventNames } from '~types/tracker'
@@ -14,20 +9,34 @@ import { reduxStore } from 'components/ReduxAppWrapper'
 
 let currentStepType: ExtendedStepTypes | undefined
 let analyticsSessionUuid: string | undefined
-let options: NormalisedSdkOptions
+let steps: StepConfig[]
 let token: string | undefined
-let mobileFlow: boolean | undefined
 let urls: UrlsConfig
+let client_uuid: string | undefined
+let applicant_uuid: string | undefined
+let isCrossDeviceClient: boolean | undefined
 
 const select = (state: RootState) => {
   return state.globals
 }
-
+// TODO: Convert `sendAnalyticsEvent` to react component so Context can be used
+// instead of redux store
+// this will allow us to remove multiple redux actions and reducers such as
+// token
+// isCrossDeviceClient
+// applicantUuid
+// clientUuid
+// stepsConfig
 const listener = () => {
   const globalsInStore = select(reduxStore.getState())
+  token = globalsInStore.token
   analyticsSessionUuid = globalsInStore.analyticsSessionUuid
   currentStepType = globalsInStore.currentStepType
   urls = globalsInStore.urls
+  client_uuid = globalsInStore.clientUuid
+  applicant_uuid = globalsInStore.applicantUuid
+  isCrossDeviceClient = globalsInStore.isCrossDeviceClient
+  steps = globalsInStore.stepsConfig
 }
 
 reduxStore.subscribe(listener)
@@ -38,28 +47,18 @@ const source_metadata = {
   sdk_environment: process.env.NODE_ENV,
 }
 
-const stepsArrToString = (steps: Array<StepConfig>) =>
-  steps?.map((step) => step['type']).join()
-
-export const initializeOnfidoTracker = (
-  sdkOptions: NormalisedSdkOptions
-): void => {
-  token = sdkOptions.token
-  options = sdkOptions
-  mobileFlow = sdkOptions.mobileFlow
-}
+const stepsArrToString = () => steps?.map((step) => step['type']).join()
 
 export const sendAnalyticsEvent = (
   event: TrackedEventNames,
   event_type: string,
   eventProperties: Optional<Record<string, unknown>>
 ): void => {
-  const environmentData = trackedEnvironmentData()
-  const jwtData = parseJwt(token)
+  // Do not send requests without analyticsSessionUuid
+  // We need at least one identification property to identify the flow
+  if (!analyticsSessionUuid) return
 
-  const {
-    payload: { client_uuid, app: applicant_uuid },
-  } = jwtData
+  const environmentData = trackedEnvironmentData()
 
   const requiredFields = {
     event_uuid: uuidv4(),
@@ -71,7 +70,7 @@ export const sendAnalyticsEvent = (
   const properties = {
     event_type,
     step: currentStepType,
-    is_cross_device: mobileFlow,
+    is_cross_device: isCrossDeviceClient,
     ...eventProperties,
   }
 
@@ -86,8 +85,8 @@ export const sendAnalyticsEvent = (
   }
 
   const sdk_config = {
-    expected_steps: stepsArrToString(options.steps),
-    steps_config: options.steps,
+    expected_steps: stepsArrToString(),
+    steps_config: steps,
     sdk_token: token,
   }
 

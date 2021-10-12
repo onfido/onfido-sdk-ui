@@ -2,7 +2,11 @@ import { h, Component } from 'preact'
 
 import { pick } from '~utils/object'
 import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
-import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
+import {
+  jwtExpired,
+  getEnterpriseFeaturesFromJWT,
+  getPayloadFromJWT,
+} from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import withTheme from '../Theme'
 import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
@@ -112,6 +116,7 @@ export default class CrossDeviceMobileRouter extends Component<
     this.state.socket.open()
 
     if (this.props.options.mobileFlow) {
+      props.actions.setIsCrossDeviceClient(true)
       this.sendMessage('cross device start')
       addEventListener('userAnalyticsEvent', (event) => {
         this.sendMessage('user analytics', {
@@ -219,6 +224,13 @@ export default class CrossDeviceMobileRouter extends Component<
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
     )
+
+    if (token) {
+      this.props.actions.setToken(token)
+      const tokenPayload = getPayloadFromJWT(token)
+      this.props.actions.setApplicantUuid(tokenPayload.app)
+      this.props.actions.setClientUuid(tokenPayload.client_uuid)
+    }
 
     if (urls) {
       this.props.actions.setUrls(urls)

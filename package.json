@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "6.14.0",
+  "version": "6.15.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -212,7 +212,6 @@
     "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-scss": "^3.19.0",
     "terser-webpack-plugin": "^1.2.2",
-    "travis-weigh-in": "^1.0.2",
     "ts-jest": "^26.4.4",
     "typescript": "^4.2.3",
     "webpack": "^4.42.0",
