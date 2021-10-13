@@ -10,6 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 
+- Public: Fix error when face step selfie/video variant was requested for users on mobile devices
 - UI: Fix SDK only displaying a loading spinner instead of the "Something's gone wrong" error screen with messages "The link only works on mobile devices / You’ll need to restart your verification on your computer".
 
 ## [6.15.0] - 2021-10-11
