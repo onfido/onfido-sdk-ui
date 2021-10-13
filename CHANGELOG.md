@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- Public: Fix error when face step selfie/video variant was requested for users on mobile devices
+
 ## [6.15.0] - 2021-10-11
 
 ### Added
