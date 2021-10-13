@@ -10,6 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 
+- Public: Fix error when face step selfie/video variant was requested for users on mobile devices
 - Public: Fixed Web SDK breaking with a `Container wasn't rendered!` console error on the Document live capture step when in Modal mode since v6.11.1
 
 ## [6.15.0] - 2021-10-11
