@@ -135,7 +135,6 @@ const TEST_DEPLOYMENT_CONFIG = {
   ...PROD_CONFIG,
   PUBLIC_PATH: '/',
   MOBILE_URL: '/',
-  RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
 
@@ -146,6 +145,7 @@ const TEST_E2E_CONFIG = {
   US_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
   CA_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
   SMS_DELIVERY_URL: 'https://localhost:8080/telephony',
+  RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
 }
 
 const STAGING_CONFIG = {
