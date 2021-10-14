@@ -33,7 +33,6 @@ export const navigationScenarios = async (lang) => {
       } = pageObjects
       const copy = basePage.copy(lang)
 
-      //Fails on IE - Taken to Get Secure Link
       it('should navigate to the second-last step of the flow and then go back to the beginning @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
@@ -64,7 +63,6 @@ export const navigationScenarios = async (lang) => {
         welcome.checkBackArrowIsNotDisplayed()
       })
 
-      //Fails on IE - Taken to Get Secure Link
       it('should display the face video intro again on back button click when on the face video flow and I have a camera @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,

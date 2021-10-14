@@ -123,7 +123,6 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceIntro.verifyTitle(copy)
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should verify UI elements on the cross device link screen default QR code view @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -154,7 +153,6 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should verify UI elements on the cross device link screen SMS view @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -174,7 +172,6 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should verify UI elements on the cross device link screen copy link view @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -195,7 +192,6 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should change the state of the copy to clipboard button after clicking @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -204,7 +200,6 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCopyToClipboardBtnChangedState(copy)
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should display copy link view by default when excludeSmsCrossDeviceOption is enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&excludeSmsCrossDeviceOption=true`)
         goToCrossDeviceScreen()
@@ -231,7 +226,6 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should display SMS link view only and no alternative options when singleCrossDeviceOption is enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&singleCrossDeviceOption=true`)
         goToCrossDeviceScreen()
@@ -249,7 +243,6 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should display default cross device QR code link view when given invalid alternative methods @skip-for-ie', async () => {
         driver.get(`${baseUrl}&invalidCrossDeviceAlternativeMethods=true`)
         goToCrossDeviceScreen()
@@ -267,7 +260,6 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should display error when mobile number is not provided @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -277,7 +269,6 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCheckNumberCorrectError(copy)
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should display error when mobile number is wrong @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -288,7 +279,6 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCheckNumberCorrectError(copy)
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should display error when mobile number is possible but not a valid mobile number @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -300,7 +290,6 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCheckNumberCorrectError(copy)
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should send sms and navigate to "Check your mobile" screen @skip-for-ie', async () => {
         driver.get(baseUrl)
         driver.navigate().refresh()
@@ -325,7 +314,6 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceMobileNotificationSent.verifyResendLink(copy)
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should be able to resend sms @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
@@ -340,7 +328,6 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceMobileNotificationSent.verifyTitle(copy)
       })
 
-      //On IE User is shown Get secure link button instead of continuing flow as expected.
       it('should successfully complete cross device e2e flow with selfie upload @e2e-latest @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
@@ -367,7 +354,6 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      //This is not passing on IE - seems to just see the spinner infinitely after pressing Get secure link
       it('should succesfully complete cross device e2e flow with document and selfie upload @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,

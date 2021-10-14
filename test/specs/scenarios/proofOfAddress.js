@@ -147,8 +147,6 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
       })
 
-      //these last 5 fail on IE, on the face.jpg step...
-      //At this point on IE, user is shown 'Get Secure Link'
       it('should upload Bank Statement and finish flow @skip-for-ie', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBankIcon()
