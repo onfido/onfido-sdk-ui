@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Fix error when face step selfie/video variant was requested for users on mobile devices
 - UI: Set all Button components as `type="button"` if not already set as that to prevent the Button component defaulting to a `submit` type button.
+- UI: Fix SDK only displaying a loading spinner instead of the "Something's gone wrong" error screen with messages "The link only works on mobile devices / You’ll need to restart your verification on your computer".
 - UI: Fix UI issue where a user returning to the Desktop tab after completing the capture on cross-device flow, sees "Document" in the confirmation list even when a document was not captured. 
 
 ## [6.15.0] - 2021-10-11
