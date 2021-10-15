@@ -167,6 +167,24 @@ Given user is on first page of cross-device flow
    - user should see `You must open this link on a mobile device` message
    - user should see the icon with the phone, screen and the red cross
 
+### 9. Flow can be completed when transitioning to cross device on the selfie capture step
+
+(on private mode of: Google Chrome, Firefox)
+
+Given webcam is not connected to the computer
+
+1. Go through the flow for document capture
+2. Upload the ID documents in the browser
+3. On the next step you should see the cross device introduction screen
+4. Choose to continue on your phone by clicking on ‘Get secure link’ button
+5. Open the cross device link on a mobile device with media recorder API support (Chrome on iOS or Android)
+   - user should be taken to the selfie intro screen
+6. Complete the selfie capture and return to the desktop browser
+7. Click on ‘Submit verification’ button to complete the flow
+8. The `Complete` screen should be displayed
+   - With the browser's Developer Tools (View > Developer > Developer Tools in Chrome desktop browser), check that you see a message that reads "Complete with data!" in the Console tab
+   - There should be no error in the Console tab that reads "onError callback" and/or "'The following keys have missing data: document_front'"
+
 ### 9. Cross device transition between browsers with different face video support
 
 (on private mode of: Google Chrome, Firefox)
@@ -816,7 +834,7 @@ Given local `.node_modules` folder is removed (not existing)
 
 ## Accessibility
 
-##### 1. Dynamic font size on iOS devices
+### 1. Dynamic font size on iOS devices
 
 1. Before launching the TestApp, go to Settings - (some iOS versions - General) - Accessibility - Larger text/Display & Text Size
 2. Turn ON `Larger Text` option
@@ -827,7 +845,7 @@ Given local `.node_modules` folder is removed (not existing)
    - If the whole text is not visible, you should have the possibility to scroll through the screen and be able to read the whole text
    - None of the strings is cut off
 
-##### 2. Dynamic font size on Android devices
+### 2. Dynamic font size on Android devices
 
 1. Before launching the TestApp, go to Settings and find the option within the Accessibility section for Font size. Location of such settings varies across the device models.
 2. Set text size picker to the largest one
@@ -837,7 +855,7 @@ Given local `.node_modules` folder is removed (not existing)
    - If the whole text is not visible, you should have the possibility to scroll through the screen and be able to read the whole text
    - None of the strings is cut off
 
-##### 3. Screen reader on iOS devices - VoiceOver
+### 3. Screen reader on iOS devices - VoiceOver
 
 Quick guide how to use VoiceOver - https://youtu.be/qDm7GiKra28
 
@@ -854,7 +872,7 @@ Quick guide how to use VoiceOver - https://youtu.be/qDm7GiKra28
    - While capturing the document the capture warnings are announced e.g. Glare is detected
    - You can complete document+selfie and document+video flows with VoiceOver
 
-##### 4. Screen reader on iOS devices - TalkBack
+### 4. Screen reader on iOS devices - TalkBack
 
 Quick guide how to use TalkBack - https://youtu.be/YJSWYLZD8EI
 
