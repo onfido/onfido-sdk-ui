@@ -39,6 +39,7 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   return (
     <div className={theme.contentMargin}>
       <Button
+        type="button"
         variant="primary"
         className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={nextStep}

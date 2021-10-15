@@ -75,7 +75,7 @@ export const buildComponentsList = ({
   mobileFlow?: boolean
   deviceHasCameraSupport?: boolean
 }): ComponentStep[] => {
-  const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
+  const captureSteps = mobileFlow ? buildCrossDeviceClientSteps(steps) : steps
 
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
@@ -89,7 +89,7 @@ export const buildComponentsList = ({
       )
     : buildComponentsFromSteps(
         crossDeviceDesktopComponents,
-        crossDeviceSteps(steps)
+        crossDeviceIntroSessionSteps(steps)
       )
 }
 
@@ -97,7 +97,7 @@ const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
 
-const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
+const buildCrossDeviceClientSteps = (steps: StepConfig[]): StepConfig[] =>
   hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
 const shouldUseCameraForDocumentCapture = (
@@ -385,7 +385,9 @@ const buildPoaComponents = (
     : [...preCaptureComponents, ...captureComponents]
 }
 
-const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
+const crossDeviceIntroSessionSteps = (
+  steps: StepConfig[]
+): ExtendedStepConfig[] => {
   const baseSteps: ExtendedStepConfig[] = [{ type: 'crossDevice' }]
   const completeStep = steps.find(isComplete) as ExtendedStepConfig
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps

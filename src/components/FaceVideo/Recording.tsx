@@ -32,6 +32,7 @@ const Recording: FunctionComponent<Props> = ({
     <div className={style.actions}>
       {hasMoreSteps ? (
         <Button
+          type="button"
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
           disabled={disableInteraction}
@@ -42,6 +43,7 @@ const Recording: FunctionComponent<Props> = ({
         </Button>
       ) : (
         <Button
+          type="button"
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
           disabled={disableInteraction}

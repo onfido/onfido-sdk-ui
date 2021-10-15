@@ -49,7 +49,7 @@ and limitations under the License.
  */
 
 /*!
- * Socket.IO v4.0.1
+ * Socket.IO v4.2.0
  * (c) 2014-2021 Guillermo Rauch
  * Released under the MIT License.
  */
@@ -64,17 +64,19 @@ and limitations under the License.
 
 /*! ./manager */
 
-/*! ./socket */
-
 /*! debug */
 
 /*! socket.io-parser */
+
+/*! ./socket */
 
 /*!**************************!*\
   !*** ./build/manager.js ***!
   \**************************/
 
 /*! engine.io-client */
+
+/*! engine.io-client/lib/util */
 
 /*! ./on */
 
@@ -142,6 +144,8 @@ and limitations under the License.
 
 /*! parseqs */
 
+/*! ./util */
+
 /*!********************************************************!*\
   !*** ./node_modules/engine.io-client/lib/transport.js ***!
   \********************************************************/
@@ -150,7 +154,7 @@ and limitations under the License.
   !*** ./node_modules/engine.io-client/lib/transports/index.js ***!
   \***************************************************************/
 
-/*! ../../contrib/xmlhttprequest-ssl/XMLHttpRequest */
+/*! xmlhttprequest-ssl */
 
 /*! ./polling-xhr */
 
@@ -194,13 +198,13 @@ and limitations under the License.
   !*** ./node_modules/engine.io-client/lib/util.js ***!
   \***************************************************/
 
+/*! ./globalThis */
+
 /*!*************************************************************!*\
   !*** ./node_modules/engine.io-client/lib/xmlhttprequest.js ***!
   \*************************************************************/
 
 /*! has-cors */
-
-/*! ./globalThis */
 
 /*!******************************************************!*\
   !*** ./node_modules/engine.io-parser/lib/commons.js ***!
@@ -266,9 +270,9 @@ and limitations under the License.
   !*** ./node_modules/yeast/index.js ***!
   \*************************************/
 
-/*! @license DOMPurify | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.2.2/LICENSE */
-
 /*! npm.im/supports-webp 1.0.7 */
+
+/*! @license DOMPurify | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.2.2/LICENSE */
 
 /*!
   Copyright (c) 2015 Jed Watson.

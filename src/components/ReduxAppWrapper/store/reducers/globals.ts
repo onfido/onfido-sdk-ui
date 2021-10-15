@@ -2,6 +2,7 @@ import * as constants from '~types/redux/constants'
 import type { GlobalActions, GlobalState } from '~types/redux'
 
 export const initialState: GlobalState = {
+  currentStepType: undefined,
   documentType: undefined,
   idDocumentIssuingCountry: undefined,
   poaDocumentType: undefined,
@@ -34,6 +35,12 @@ export const initialState: GlobalState = {
    * After at most <MAX_RETRIES_FOR_IMAGE_QUALITY> retries and there's still warning, allow user to proceed.
    */
   imageQualityRetries: 0,
+  analyticsSessionUuid: undefined,
+  token: undefined,
+  applicantUuid: undefined,
+  clientUuid: undefined,
+  stepsConfig: [],
+  isCrossDeviceClient: undefined,
 }
 
 export default function globals(
@@ -41,6 +48,11 @@ export default function globals(
   action: GlobalActions
 ): GlobalState {
   switch (action.type) {
+    case constants.SET_CURRENT_STEP_TYPE:
+      return {
+        ...state,
+        currentStepType: action.payload,
+      }
     case constants.SET_ID_DOCUMENT_TYPE:
       return {
         ...state,
@@ -163,6 +175,42 @@ export default function globals(
       return {
         ...state,
         imageQualityRetries: 0,
+      }
+
+    case constants.SET_ANALYTICS_SESSION_UUID:
+      return {
+        ...state,
+        analyticsSessionUuid: action.payload,
+      }
+
+    case constants.SET_TOKEN:
+      return {
+        ...state,
+        token: action.payload,
+      }
+
+    case constants.SET_APPLICANT_UUID:
+      return {
+        ...state,
+        applicantUuid: action.payload,
+      }
+
+    case constants.SET_CLIENT_UUID:
+      return {
+        ...state,
+        clientUuid: action.payload,
+      }
+
+    case constants.SET_STEPS_CONFIG:
+      return {
+        ...state,
+        stepsConfig: action.payload,
+      }
+
+    case constants.SET_IS_CROSS_DEVICE_CLIENT:
+      return {
+        ...state,
+        isCrossDeviceClient: action.payload,
       }
 
     case constants.RESET_STORE:

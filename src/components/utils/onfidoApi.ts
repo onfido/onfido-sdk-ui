@@ -2,6 +2,7 @@ import { hmac256, mimeType } from './blob'
 import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
+import { trackException, TRACKED_EVENT_TYPES } from '../../Tracker'
 
 import type {
   ImageQualityValidationPayload,
@@ -136,7 +137,11 @@ export const sendMultiframeSelfie = (
   url: string | undefined,
   onSuccess: SuccessCallback<UploadFileResponse>,
   onError: ErrorCallback,
-  sendEvent: (event: TrackedEventNames) => void
+  sendEvent: (
+    event: TrackedEventNames,
+    eventType: string,
+    properties?: Record<string, unknown>
+  ) => void
 ): void => {
   const snapshotData: UploadSnapshotPayload = {
     file: {
@@ -145,14 +150,15 @@ export const sendMultiframeSelfie = (
     },
   }
   const { blob, filename = 'selfie', sdkMetadata } = selfie
+  const eventType = TRACKED_EVENT_TYPES.action
 
   new Promise<SnapshotResponse>((resolve, reject) => {
-    sendEvent('Starting snapshot upload')
+    sendEvent('Starting snapshot upload', eventType)
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
     .then((res) => {
-      sendEvent('Snapshot upload completed')
-      sendEvent('Starting live photo upload')
+      sendEvent('Snapshot upload completed', eventType)
+      sendEvent('Starting live photo upload', eventType)
       const snapshot_uuids = JSON.stringify([res.uuid])
       uploadFacePhoto(
         { file: { blob, filename }, sdkMetadata, snapshot_uuids },
@@ -334,7 +340,7 @@ const sendFile = <T>(
 
   const payload: SubmitPayload = {
     ...data,
-    sdk_source: 'onfido_web_sdk',
+    sdk_source: process.env.SDK_SOURCE,
     sdk_version: process.env.SDK_VERSION,
   }
 
@@ -347,4 +353,29 @@ const sendFile = <T>(
   performHttpReq(requestParams, onSuccess, (request) =>
     formatError(request, onError)
   )
+}
+
+export const sendAnalytics = (
+  url: string | undefined,
+  payload: string
+): void => {
+  const endpoint = `${url}/v3/analytics`
+  const request = new XMLHttpRequest()
+  request.open('POST', endpoint)
+  request.setRequestHeader('Content-Type', 'application/json')
+
+  request.onload = () => {
+    const isSuccessfulRequest = request.status === 200 || request.status === 201
+    if (!isSuccessfulRequest) {
+      trackException(
+        `analytics request error - status: ${request.status}, response: ${request.response}`
+      )
+    }
+  }
+  request.onerror = () =>
+    trackException(
+      `analytics request error - status: ${request.status}, response: ${request.response}`
+    )
+
+  request.send(payload)
 }

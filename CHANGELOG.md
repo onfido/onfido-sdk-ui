@@ -8,13 +8,28 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- Public: Fix error when face step selfie/video variant was requested for users on mobile devices
+- UI: Set all Button components as `type="button"` if not already set as that to prevent the Button component defaulting to a `submit` type button.
+
+## [6.15.0] - 2021-10-11
+
 ### Added
 
 - Internal: Added configuration to support visual regression tests to run against multiple languages.
+- Internal: Send analytics events to `v3/analytics`. Analytics events are also sent to Woopra, until we are ready to discontinue the current Woopra integration.
+
+### Changed
+
+- UI: Accessibility - Return focus to Document capture image preview's "Enlarge image" toggle button when expanded image preview's "Close" toggle button is clicked.
 
 ### Fixed
 
 - Public: Video element errors and validation errors returned by live_videos endpoint are handled by the Web SDK
+- Public: Fix grey oblong background appearing under the red cross icon on the Unsupported Browser error screen
+- Public: Remove grey circle background from SVG icon displayed on Generic Error screen so that custom circle background is visible
+- Internal: Upgraded some dev dependencies to fix some npm security vulnerabilities, also upgraded socket.io-client dependency to v4.2.0 to resolve npm security vulnerability in ws@7.4.4
 
 ## [6.14.0] - 2021-09-13
 
@@ -1082,7 +1097,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.14.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.0...development
+[6.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.14.0...6.15.0
 [6.14.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.13.0...6.14.0
 [6.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.12.0...6.13.0
 [6.12.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.11.1...6.12.0
