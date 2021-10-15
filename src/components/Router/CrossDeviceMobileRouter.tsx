@@ -182,7 +182,6 @@ export default class CrossDeviceMobileRouter extends Component<
       idDocumentIssuingCountry,
       language,
       poaDocumentType,
-      step: userStepIndex,
       steps,
       token,
       urls,
@@ -341,14 +340,8 @@ export default class CrossDeviceMobileRouter extends Component<
   renderContent = (): h.JSX.Element => {
     const { hasCamera } = this.props
     const { crossDeviceError, loading, steps } = this.state
-    const shouldStrictlyUseCamera = steps?.some(
-      isUploadFallbackOffAndShouldUseCamera
-    )
-    const videoNotSupportedAndRequired = steps?.some(
-      isPhotoCaptureFallbackOffAndCannotUseVideo
-    )
 
-    if (loading || !steps) {
+    if (loading) {
       return <WrappedSpinner disableNavigation />
     }
 
@@ -356,6 +349,12 @@ export default class CrossDeviceMobileRouter extends Component<
       return <WrappedError disableNavigation={true} error={crossDeviceError} />
     }
 
+    const shouldStrictlyUseCamera = steps?.some(
+      isUploadFallbackOffAndShouldUseCamera
+    )
+    const videoNotSupportedAndRequired = steps?.some(
+      isPhotoCaptureFallbackOffAndCannotUseVideo
+    )
     if (
       (!hasCamera && shouldStrictlyUseCamera) ||
       videoNotSupportedAndRequired
@@ -368,13 +367,25 @@ export default class CrossDeviceMobileRouter extends Component<
       )
     }
 
+    if (steps) {
+      return (
+        <HistoryRouter
+          {...this.props}
+          {...this.state}
+          crossDeviceClientError={this.setError}
+          sendClientSuccess={this.sendClientSuccess}
+          steps={steps}
+        />
+      )
+    }
+
+    trackException(
+      'Unable to load Cross Device mobile flow - an unhandled error has occurred'
+    )
     return (
-      <HistoryRouter
-        {...this.props}
-        {...this.state}
-        crossDeviceClientError={this.setError}
-        sendClientSuccess={this.sendClientSuccess}
-        steps={steps}
+      <WrappedError
+        disableNavigation={true}
+        error={{ name: 'GENERIC_CLIENT_ERROR' }}
       />
     )
   }
