@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Fix SDK only displaying a loading spinner instead of the "Something's gone wrong" error screen with messages "The link only works on mobile devices / You’ll need to restart your verification on your computer".
 - Public: Fix error when face step selfie/video variant was requested for users on mobile devices
+- Public: Fix SDK displaying "The following keys have missing data: document_front" console error and not triggering the `onComplete` callback to integrator if user transitioned to Cross Device flow for the Face step
 
 ## [6.15.0] - 2021-10-11
 
