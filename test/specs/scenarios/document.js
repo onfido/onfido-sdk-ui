@@ -450,7 +450,6 @@ export const documentScenarios = async (lang) => {
         crossDeviceIntro.verifyTitle(copy)
       })
 
-      // https://onfido.atlassian.net/browse/CX-6997
       // @TODO: remove this test when we fully support docVideo variant for both desktop & mobile web
       it('should be taken to the cross-device flow for video capture docVideo variant requested @skip-for-ie', async () => {
         driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
