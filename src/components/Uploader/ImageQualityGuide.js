@@ -15,6 +15,7 @@ import style from './style.scss'
 
 const UploadButton = localised(({ translate, isUploading }) => (
   <Button
+    type="button"
     variant="primary"
     className={classNames(theme['button-centered'], theme['button-lg'])}
     disabled={isUploading}
