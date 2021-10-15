@@ -12,6 +12,7 @@ const options = {
     'DocumentUpload',
     'CrossDeviceIntro',
     'CrossDeviceLink',
+    'CrossDeviceClientIntro',
     'BasePage',
     'DocumentVideoCapture',
     'DocumentVideoConfirm',
@@ -30,6 +31,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentSelector,
         crossDeviceIntro,
         crossDeviceLink,
+        crossDeviceClientIntro,
         basePage,
         documentUpload,
         documentVideoCapture,
@@ -54,6 +56,8 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         driver.sleep(500)
         driver.get(linkText)
         driver.sleep(1000)
+        crossDeviceClientIntro.continueToNextStep()
+        driver.sleep(500)
       }
 
       const userStartsCrossDeviceFlowForIdCard = async () => {
@@ -100,7 +104,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
           await driver.switchTo().window(browserWindows[0])
         }
       })
-      it('should start the ANSSI flow for Passport flow and attempt to upload @percy', async () => {
+      it('should start the ANSSI flow for Passport flow and attempt to upload @percy @skip-for-ie', async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -138,7 +142,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
-      it('should start the ANSSI flow for Identity Card flow and attempt to upload @percy', async () => {
+      it('should start the ANSSI flow for Identity Card flow and attempt to upload @percy @skip-for-ie', async () => {
         userStartsCrossDeviceFlowForIdCard(copy)
         documentVideoCapture.overlayPlaceholder().isDisplayed()
         documentVideoCapture.paperOrPlasticCardSelectorSeenForIdCard(copy)
@@ -166,7 +170,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
-      it('should start the ANSSI flow for Drivers license flow and attempt to upload @percy', async () => {
+      it('should start the ANSSI flow for Drivers license flow and attempt to upload @percy @skip-for-ie', async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
@@ -202,7 +206,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
-      it('should start the ANSSI flow for Residence permit flow and attempt to upload @percy', async () => {
+      it('should start the ANSSI flow for Residence permit flow and attempt to upload @percy @skip-for-ie', async () => {
         userStartsCrossDeviceFlowForResidentPermit()
         documentVideoCapture.cardOverlay().isDisplayed()
         documentVideoCapture.userIsToldToKeepTheFrontSideOfTheDocumentWithinTheFrame(
@@ -224,7 +228,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoConfirm.uploadAndWaitForSpinner(copy)
       })
 
-      it('should show "Camera not working" error in ANSSI flow @percy', async () => {
+      it('should show "Camera not working" error in ANSSI flow @percy @skip-for-ie', async () => {
         userStartsCrossDeviceFlowForIdCard(copy)
         documentVideoCapture.overlayPlaceholder().isDisplayed()
         documentVideoCapture.userIsShownCameraNotWorkingError(copy)
@@ -236,7 +240,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoCapture.cameraNotWorkingErrorIsNotSeen()
       })
 
-      it('should show "Looks like you took too long error" in ANSSI flow @percy @longtest', async () => {
+      it('should show "Looks like you took too long error" in ANSSI flow @percy @longtest @skip-for-ie', async () => {
         userStartsCrossDeviceFlowForResidentPermit()
         documentVideoCapture.cardOverlay().isDisplayed()
         documentVideoCapture.startRecording(copy)
@@ -251,7 +255,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentVideoCapture.startRecordingButtonIsSeen(copy)
       })
 
-      it('should allow user to preview/retake video in ANSSI flow @percy', async () => {
+      it('should allow user to preview/retake video in ANSSI flow @percy @skip-for-ie', async () => {
         userCompletesAnssiFlowForUKResidentPermit(copy)
         documentVideoConfirm.chooseToPreviewVideo(copy)
         documentVideoPreview.checkYourVideoIsSeen(copy)
@@ -267,7 +271,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         )
       })
 
-      it('should allow user to go back and retake video in ANSSI flow after completing the flow @percy', async () => {
+      it('should allow user to go back and retake video in ANSSI flow after completing the flow @percy @skip-for-ie', async () => {
         userCompletesAnssiFlowForUKResidentPermit(copy)
         documentVideoConfirm.backArrow().click()
         documentVideoCapture.startRecordingButtonIsSeen(copy)

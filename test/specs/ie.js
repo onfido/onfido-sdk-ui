@@ -26,9 +26,9 @@ describe('Happy Paths on IE', () => {
     documentScenarios(lang) //6 tests fail on IE
     faceScenarios(lang) //Being sent to the Get Secure link screen
     crossDeviceScenarios(lang) //Being sent to the Get Secure link screen
-    //crossDeviceDocumentVideoCaptureScenarios(lang) //Camera needed?
+    crossDeviceDocumentVideoCaptureScenarios(lang) //Camera needed?
     modalScenarios(lang) //all ok
-    //navigationScenarios(lang) //Being sent to the Get Secure link screen
+    navigationScenarios(lang) //Being sent to the Get Secure link screen
   })
   // Note: The SDK works also with language tags that do not include region (e.g. 'en', 'es')
   // We are passing the region here so we can fetch the right json file path (e.g. `en_US/en_US.json`).

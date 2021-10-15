@@ -2,7 +2,7 @@
   "tests": [
     {
       "file": "test/specs/ie.js",
-      "timeout": 75000,
+      "timeout": 100000,
       "browsers": [
         {
           "browserName": "IE",

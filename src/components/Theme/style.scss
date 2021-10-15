@@ -243,6 +243,15 @@ $logo-height: 32 * $unit;
   text-align: left;
 }
 
+.iconContainer {
+  height: auto;
+  width: 100%;
+  flex: 2 1 16 * $unit;
+  min-height: 16 * $unit;
+  max-height: 144 * $unit;
+  margin: auto;
+}
+
 .icon {
   display: block;
   background-repeat: no-repeat;

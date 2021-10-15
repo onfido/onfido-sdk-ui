@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "6.13.0",
+  "version": "6.14.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -33,6 +33,7 @@
     "test:ui": "babel-node test/main.js",
     "test:ui:ie": "MOCHA_INVERT=@skip-for-ie CONFIG_FILE=config-ie.json babel-node test/main.js",
     "test:percy": "MOCHA_GREP=@percy CONFIG_FILE=percy.json PERCY=true percy exec npm run test:ui",
+    "test:percy:all-languages": "MOCHA_GREP=@percy CONFIG_FILE=percyAllLanguages.json PERCY=true percy exec npm run test:ui",
     "test:e2e:local": "MOCK_SERVER=false MOCHA_GREP=@e2e-latest CONFIG_FILE=prode2elocal.json npm run test:ui",
     "mock-server:build": "cd ./test/mock-server && ./prepare.sh && docker build -t onfido-web-sdk:ui-mock-server .",
     "mock-server:run": "docker run -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server",

@@ -18,6 +18,8 @@ export const initialState: GlobalState = {
   hideOnfidoLogo: true,
   cobrand: undefined,
   logoCobrand: undefined,
+  crossDeviceClientIntroProductName: undefined,
+  crossDeviceClientIntroProductLogoSrc: undefined,
   isDecoupledFromAPI: false,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
@@ -131,6 +133,18 @@ export default function globals(
       return {
         ...state,
         logoCobrand: action.payload,
+      }
+
+    case constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_NAME:
+      return {
+        ...state,
+        crossDeviceClientIntroProductName: action.payload,
+      }
+
+    case constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_LOGO_SRC:
+      return {
+        ...state,
+        crossDeviceClientIntroProductLogoSrc: action.payload,
       }
 
     case constants.SET_DECOUPLE_FROM_API:

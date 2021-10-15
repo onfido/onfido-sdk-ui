@@ -16,6 +16,7 @@ import type {
 import customUIConfig from './custom-ui-config.json'
 import testDarkCobrandLogo from './assets/onfido-logo.svg'
 import testLightCobrandLogo from './assets/onfido-logo-light.svg'
+import sampleCompanyLogo from './assets/sample-logo.svg'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
@@ -60,6 +61,8 @@ export type QueryParams = {
   excludeSmsCrossDeviceOption?: StringifiedBoolean
   singleCrossDeviceOption?: StringifiedBoolean
   invalidCrossDeviceAlternativeMethods?: StringifiedBoolean
+  crossDeviceClientIntroCustomProductName?: StringifiedBoolean
+  crossDeviceClientIntroCustomProductLogo?: StringifiedBoolean
 }
 
 export type CheckData = {
@@ -236,7 +239,7 @@ export const getInitSdkOptions = (): SdkOptions => {
   const hideOnfidoLogo = queryParamToValueString.hideOnfidoLogo === 'true'
   const cobrand =
     queryParamToValueString.showCobrand === 'true'
-      ? { text: 'Planet Express, Incorporated' }
+      ? { text: '[COMPANY/PRODUCT NAME]' }
       : undefined
   const logoCobrand =
     queryParamToValueString.showLogoCobrand === 'true'
@@ -295,6 +298,15 @@ export const getInitSdkOptions = (): SdkOptions => {
   const customUI =
     queryParamToValueString.customisedUI === 'true' ? customUIConfig : undefined
 
+  const crossDeviceClientIntroProductName =
+    queryParamToValueString.crossDeviceClientIntroCustomProductName === 'true'
+      ? 'for a [COMPANY/PRODUCT NAME] loan'
+      : undefined
+  const crossDeviceClientIntroProductLogoSrc =
+    queryParamToValueString.crossDeviceClientIntroCustomProductLogo === 'true'
+      ? sampleCompanyLogo
+      : undefined
+
   return {
     useModal: queryParamToValueString.useModal === 'true',
     shouldCloseOnOverlayClick:
@@ -315,6 +327,8 @@ export const getInitSdkOptions = (): SdkOptions => {
       ...decoupleCallbacks,
     },
     customUI: customUI as UICustomizationOptions,
+    crossDeviceClientIntroProductName,
+    crossDeviceClientIntroProductLogoSrc,
     ...smsNumberCountryCode,
     _crossDeviceLinkMethods: visibleCrossDeviceMethods,
   }

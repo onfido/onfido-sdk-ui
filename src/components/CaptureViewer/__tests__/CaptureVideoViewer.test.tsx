@@ -8,6 +8,7 @@ jest.mock('~utils/objectUrl')
 const defaultProps = {
   ariaLabel: 'Fake aria-label',
   blob: new Blob([]),
+  onVideoError: jest.fn(),
 }
 
 describe('CaptureViewer', () => {
