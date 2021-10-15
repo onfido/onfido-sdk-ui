@@ -41,14 +41,6 @@ export default function captures(
   }
 
   if (action.type === constants.CAPTURE_CREATE) {
-    // If user transitions to Cross Device after Document capture step, a CAPTURE_CREATE action with {} as the payload is fired
-    // This causes the current state's document_front to be updated with the {} payload and misreporting a 2nd document_front retake
-    // during Face capture on Cross Device flow.
-    // We want to return current state instead of proceeding with creating the capture if a CAPTURE_CREATE action's payload does not have a method
-    // as buildCaptureStateKey must return a key which by default is document_front
-    if (!action.payload.method) {
-      return state
-    }
     const key = buildCaptureStateKey(action.payload)
 
     // Record a new capture created

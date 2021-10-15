@@ -315,25 +315,23 @@ export default class CrossDeviceMobileRouter extends Component<
 
   sendClientSuccess = (): void => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-
-    const captures = (Object.keys(this.props.captures) as CaptureKeys[]).reduce(
-      (acc, key) => {
-        const dataWhitelist = [
-          'documentType',
-          'idDocumentIssuingCountry',
-          'poaDocumentType',
-          'id',
-          'metadata',
-          'method',
-          'side',
-        ]
-        // @TODO: replace this over-generic method with something easier to maintain
-        // @ts-ignore
-        return acc.concat(pick(this.props.captures[key], dataWhitelist))
-      },
-      []
+    const captureKeys = Object.keys(this.props.captures).filter(
+      (key) => key !== 'takesHistory'
     )
-
+    const captures = (captureKeys as CaptureKeys[]).reduce((acc, key) => {
+      const dataWhitelist = [
+        'documentType',
+        'idDocumentIssuingCountry',
+        'poaDocumentType',
+        'id',
+        'metadata',
+        'method',
+        'side',
+      ]
+      // @TODO: replace this over-generic method with something easier to maintain
+      // @ts-ignore
+      return acc.concat(pick(this.props.captures[key], dataWhitelist))
+    }, [])
     this.sendMessage('client success', { captures })
   }
 
