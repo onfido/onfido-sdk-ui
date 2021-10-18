@@ -17,26 +17,26 @@ export const modalScenarios = async (lang) => {
     const openAndCloseModal = async (useCloseBtn = false) => {
       await driver.get(`${localhostUrl}?language=${lang}&useModal=true`)
       driver.sleep(500)
-      welcome.clickOnOpenModalButton()
+      await welcome.clickOnOpenModalButton()
       driver.sleep(500)
       welcome.verifyTitle(copy)
       if (useCloseBtn) {
-        welcome.clickOnCloseModalButton()
+        await welcome.clickOnCloseModalButton()
       } else {
-        welcome.pressEscapeButton()
+        await welcome.pressEscapeButton()
       }
       driver.sleep(500)
-      welcome.clickOnOpenModalButton()
+      await welcome.clickOnOpenModalButton()
       driver.sleep(500)
       welcome.verifyTitle(copy)
     }
 
     it('should be able to open, close and re-open a modal view', async () => {
-      openAndCloseModal(closeModalMethod.CLOSE_BUTTON_CLICK)
+      await openAndCloseModal(closeModalMethod.CLOSE_BUTTON_CLICK)
     })
 
     it('should be able to close modal with ESC button', async () => {
-      openAndCloseModal()
+      await openAndCloseModal()
     })
   })
 }

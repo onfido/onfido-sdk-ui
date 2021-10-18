@@ -31,7 +31,6 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         documentSelector,
         crossDeviceIntro,
         crossDeviceLink,
-        crossDeviceClientIntro,
         basePage,
         documentUpload,
         documentVideoCapture,
@@ -55,9 +54,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         await driver.switchTo().window(lastWindow)
         driver.sleep(500)
         driver.get(linkText)
-        driver.sleep(1000)
-        crossDeviceClientIntro.continueToNextStep()
-        driver.sleep(500)
+        driver.sleep(1500)
       }
 
       const userStartsCrossDeviceFlowForIdCard = async () => {
@@ -108,8 +105,6 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
-        //After clicking the below, you just see the endless spinner...nothing happens.
-        documentUpload.clickContinueOnPhoneButtonIfIe()
         runThroughCrossDeviceFlowForDocumentVideoCapture(copy)
         documentVideoCapture.backArrow().isDisplayed()
         documentVideoCapture.passportOverlay().isDisplayed()
