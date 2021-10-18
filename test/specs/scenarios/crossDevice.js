@@ -76,23 +76,20 @@ export const crossDeviceScenarios = async (lang) => {
         const crossDeviceLinkText = crossDeviceLink
           .copyLinkTextContainer()
           .getText()
-        if (browserName === 'safari' && isRemoteBrowser === false) {
-          driver.sleep(1000)
-        }
         driver.executeScript("window.open('your url','_blank');")
         switchBrowserTab(1, driver)
         driver.get(crossDeviceLinkText)
       }
 
       const switchToCrossDeviceFlow = async () => {
-        documentUpload.switchToCrossDevice()
+        await documentUpload.switchToCrossDevice()
         crossDeviceIntro.continueToNextStep()
-        crossDeviceLink.switchToCopyLinkOption()
-        copyCrossDeviceLinkAndOpenInNewTab()
-        switchBrowserTab(0, driver)
-        crossDeviceMobileConnected.tipsHeader().isDisplayed()
+        await crossDeviceLink.switchToCopyLinkOption()
+        await copyCrossDeviceLinkAndOpenInNewTab()
+        await switchBrowserTab(0, driver)
+        await crossDeviceMobileConnected.tipsHeader().isDisplayed()
         crossDeviceMobileConnected.verifyUIElements(copy)
-        switchBrowserTab(1, driver)
+        await switchBrowserTab(1, driver)
         driver.sleep(1000)
       }
 
