@@ -64,6 +64,7 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
       </ol>
       <div className={classNames(theme.contentMargin, style.buttonContainer)}>
         <Button
+          type="button"
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={nextStep}

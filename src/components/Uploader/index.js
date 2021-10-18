@@ -40,6 +40,7 @@ const MobileUploadArea = ({
         capture={captureType}
       >
         <Button
+          type="button"
           variant={isPoA ? 'secondary' : 'primary'}
           className={
             isPoA
@@ -59,6 +60,7 @@ const MobileUploadArea = ({
           className={classNames({ [style.poaBtn]: isPoA })}
         >
           <Button
+            type="button"
             variant="primary"
             className={classNames(theme['button-sm'], {
               [theme.vertical]: isButtonGroupStacked(),
@@ -87,6 +89,7 @@ const PassportMobileUploadArea = ({
     {children}
     <div className={style.buttons}>
       <Button
+        type="button"
         variant="primary"
         className={classNames(theme['button-centered'], theme['button-lg'])}
         disabled={isUploading}
@@ -119,6 +122,7 @@ const DesktopUploadArea = ({
     <div>
       {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
         <Button
+          type="button"
           variant="primary"
           className={classNames(
             theme['button-centered'],
