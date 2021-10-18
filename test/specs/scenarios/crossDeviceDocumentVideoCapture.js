@@ -30,6 +30,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         welcome,
         documentSelector,
         crossDeviceIntro,
+        crossDeviceClientIntro,
         crossDeviceLink,
         basePage,
         documentUpload,
@@ -54,7 +55,9 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         await driver.switchTo().window(lastWindow)
         driver.sleep(500)
         driver.get(linkText)
-        driver.sleep(1500)
+        driver.sleep(1000)
+        crossDeviceClientIntro.continueToNextStep()
+        driver.sleep(500)
       }
 
       const userStartsCrossDeviceFlowForIdCard = async () => {

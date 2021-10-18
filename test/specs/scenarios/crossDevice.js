@@ -82,14 +82,14 @@ export const crossDeviceScenarios = async (lang) => {
       }
 
       const switchToCrossDeviceFlow = async () => {
-        await documentUpload.switchToCrossDevice()
+        documentUpload.switchToCrossDevice()
         crossDeviceIntro.continueToNextStep()
-        await crossDeviceLink.switchToCopyLinkOption()
-        await copyCrossDeviceLinkAndOpenInNewTab()
-        await switchBrowserTab(0, driver)
-        await crossDeviceMobileConnected.tipsHeader().isDisplayed()
+        crossDeviceLink.switchToCopyLinkOption()
+        copyCrossDeviceLinkAndOpenInNewTab()
+        switchBrowserTab(0, driver)
+        crossDeviceMobileConnected.tipsHeader().isDisplayed()
         crossDeviceMobileConnected.verifyUIElements(copy)
-        await switchBrowserTab(1, driver)
+        switchBrowserTab(1, driver)
         driver.sleep(1000)
       }
 
