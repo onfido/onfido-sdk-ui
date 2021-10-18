@@ -28,7 +28,17 @@ import type {
 import type { StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
 
-const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
+const RESTRICTED_CROSS_DEVICE = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
+
+const CAPTURE_DATA_WHITELIST = [
+  'documentType',
+  'idDocumentIssuingCountry',
+  'poaDocumentType',
+  'id',
+  'metadata',
+  'method',
+  'side',
+]
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
@@ -101,7 +111,7 @@ export default class CrossDeviceMobileRouter extends Component<
       token: undefined,
     }
 
-    if (restrictedXDevice && isDesktop) {
+    if (RESTRICTED_CROSS_DEVICE && isDesktop) {
       this.setError('FORBIDDEN_CLIENT_ERROR')
       return
     }
@@ -317,20 +327,11 @@ export default class CrossDeviceMobileRouter extends Component<
     this.state.socket.off('custom disconnect', this.onDisconnect)
     const captureKeys = Object.keys(this.props.captures).filter(
       (key) => key !== 'takesHistory'
-    )
-    const captures = (captureKeys as CaptureKeys[]).reduce((acc, key) => {
-      const dataWhitelist = [
-        'documentType',
-        'idDocumentIssuingCountry',
-        'poaDocumentType',
-        'id',
-        'metadata',
-        'method',
-        'side',
-      ]
+    ) as CaptureKeys[]
+    const captures = captureKeys.reduce((acc, key) => {
       // @TODO: replace this over-generic method with something easier to maintain
       // @ts-ignore
-      return acc.concat(pick(this.props.captures[key], dataWhitelist))
+      return acc.concat(pick(this.props.captures[key], CAPTURE_DATA_WHITELIST))
     }, [])
     this.sendMessage('client success', { captures })
   }
