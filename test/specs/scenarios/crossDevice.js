@@ -2,7 +2,7 @@ import { assert } from 'chai'
 import { until } from 'selenium-webdriver'
 import { describe, it } from '../../utils/mochaw'
 import { testDeviceMobileNumber } from '../../config.json'
-import { localhostUrl } from '../../main'
+import { browserName, isRemoteBrowser, localhostUrl } from '../../main'
 import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
@@ -76,6 +76,9 @@ export const crossDeviceScenarios = async (lang) => {
         const crossDeviceLinkText = crossDeviceLink
           .copyLinkTextContainer()
           .getText()
+        if (browserName === 'safari' && isRemoteBrowser === false) {
+          driver.sleep(1000)
+        }
         driver.executeScript("window.open('your url','_blank');")
         switchBrowserTab(1, driver)
         driver.get(crossDeviceLinkText)
