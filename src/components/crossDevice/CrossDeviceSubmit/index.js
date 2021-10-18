@@ -88,6 +88,7 @@ class CrossDeviceSubmit extends Component {
 
           <div>
             <Button
+              type="button"
               variant="primary"
               className={classNames(
                 theme['button-centered'],
