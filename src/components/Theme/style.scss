@@ -419,7 +419,8 @@ $logo-height: 32 * $unit;
   .portal & {
     z-index: -1;
     opacity: 0;
-    transition: opacity $modal-animation-duration;
+    transition: opacity $modal-animation-duration,
+      z-index 0s $modal-animation-duration;
   }
 
   .modalOverlay--after-open & {
