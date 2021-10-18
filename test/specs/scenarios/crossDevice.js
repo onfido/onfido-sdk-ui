@@ -2,7 +2,7 @@ import { assert } from 'chai'
 import { until } from 'selenium-webdriver'
 import { describe, it } from '../../utils/mochaw'
 import { testDeviceMobileNumber } from '../../config.json'
-import { browserName, isRemoteBrowser, localhostUrl } from '../../main'
+import { localhostUrl } from '../../main'
 import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
