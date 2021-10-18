@@ -185,7 +185,7 @@ Given webcam is not connected to the computer
    - With the browser's Developer Tools (View > Developer > Developer Tools in Chrome desktop browser), check that you see a message that reads "Complete with data!" in the Console tab
    - There should be no error in the Console tab that reads "onError callback" and/or "'The following keys have missing data: document_front'"
 
-### 9. Cross device transition between browsers with different face video support
+### 10. Cross device transition between browsers with different face video support
 
 (on private mode of: Google Chrome, Firefox)
 
@@ -210,42 +210,9 @@ Given webcam is not connected to the computer
    - user should be taken to the liveness intro screen
 5. Complete the liveness video challenges
 
-### 10a. Check happy path flow for passports on other desktop browsers
+### 11a. Check happy path flow for passports on other desktop browsers
 
 (on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
-
-Go through the flow looking for layout/usability inconsistencies between browsers:
-
-1. Select `passport` document
-   - everything should be displayed properly and layout should not be broken
-2. Upload document
-   - everything should be displayed properly and layout should not be broken
-3. Upload face photo
-   - everything should be displayed properly and layout should not be broken
-
-### 10b. Check happy path flow for other document types on other desktop browsers
-
-(on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
-
-Go through the flow looking for layout/usability inconsistencies between browsers:
-
-1. Select either `driver's license` or `identity card` document
-   - everything should be displayed properly and layout should not be broken
-2. Type "de" in the text input below `Search for country`
-   - everything should be displayed properly and layout should not be broken
-   - there should be a dropdown list with the following countries displayed in the dropdown options:
-     - Bangladesh, Denmark, Russia Federation, Sweden for `driver's license`
-     - Bangladesh, Russia Federation, Sweden for `identity card`
-3. Select a country from the list
-4. Click on `Submit document`
-5. Upload document
-   - everything should be displayed properly and layout should not be broken
-6. Upload face photo
-   - everything should be displayed properly and layout should not be broken
-
-### 11a. Check happy path flow for passports on mobile browsers
-
-(on private mode of: Android Google Chrome and iOS Safari browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
 
@@ -266,6 +233,39 @@ Go through the flow looking for layout/usability inconsistencies between browser
    - everything should be displayed properly and layout should not be broken
 2. Type "de" in the text input below `Search for country`
    - everything should be displayed properly and layout should not be broken
+   - there should be a dropdown list with the following countries displayed in the dropdown options:
+     - Bangladesh, Denmark, Russia Federation, Sweden for `driver's license`
+     - Bangladesh, Russia Federation, Sweden for `identity card`
+3. Select a country from the list
+4. Click on `Submit document`
+5. Upload document
+   - everything should be displayed properly and layout should not be broken
+6. Upload face photo
+   - everything should be displayed properly and layout should not be broken
+
+### 12a. Check happy path flow for passports on mobile browsers
+
+(on private mode of: Android Google Chrome and iOS Safari browsers)
+
+Go through the flow looking for layout/usability inconsistencies between browsers:
+
+1. Select `passport` document
+   - everything should be displayed properly and layout should not be broken
+2. Upload document
+   - everything should be displayed properly and layout should not be broken
+3. Upload face photo
+   - everything should be displayed properly and layout should not be broken
+
+### 12b. Check happy path flow for other document types on other desktop browsers
+
+(on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
+
+Go through the flow looking for layout/usability inconsistencies between browsers:
+
+1. Select either `driver's license` or `identity card` document
+   - everything should be displayed properly and layout should not be broken
+2. Type "de" in the text input below `Search for country`
+   - everything should be displayed properly and layout should not be broken
    - there should be a dropdown list with at least 1 country displayed
 3. Select a country from the list
 4. Click on `Submit document`
@@ -274,7 +274,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 6. Upload face photo
    - everything should be displayed properly and layout should not be broken
 
-### 12. Check the camera is mirroring
+### 13. Check the camera is mirroring
 
 (ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
 
@@ -282,14 +282,14 @@ Go through the flow looking for layout/usability inconsistencies between browser
 2. Move your face to the left
    - Make sure your face also moves to the left on camera feed (like looking at a mirror)
 
-### 13. Check the camera is fullscreen on mobile devices/small screens
+### 14. Check the camera is fullscreen on mobile devices/small screens
 
 (ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
 
 1. Go to the face step. If on desktop resize the window to less than 480px width wise (if the browser let's you reduce that far)
 2. The capture component should be fullscreen
 
-### 14. Check camera button cannot be clicked until camera permission is granted
+### 15. Check camera button cannot be clicked until camera permission is granted
 
 (ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
 
@@ -303,7 +303,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
    - Click on the camera button
    - User proceeds to next step with preview of photo taken
 
-### 15. Check that custom strings can be passed
+### 16. Check that custom strings can be passed
 
 (on any browser)
 
@@ -319,7 +319,7 @@ language: {
 
 3. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
 
-### 16. Overriding strings for a supported language
+### 17. Overriding strings for a supported language
 
 (on any browser)
 
@@ -336,7 +336,7 @@ language: {
 3. Then the title on the welcome screen should be 'A custom string'
 4. All the other strings should be in Spanish
 
-### 17. Overriding strings for a supported language on mobile
+### 18. Overriding strings for a supported language on mobile
 
 (on any browser)
 
@@ -356,7 +356,7 @@ language: {
 6. When you open the link on your mobile device, the title on the cross device client should be `A custom string`
 7. All the other strings should be in Spanish
 
-### 18. Upload a document in PDF format
+### 19. Upload a document in PDF format
 
 _Feature is available on desktop browsers only._
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
@@ -370,7 +370,7 @@ Outcome:
 - on Safari (and Chrome - this is automated) you should see a preview of the PDF
 - on Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
-### 19. Overriding the document options
+### 20. Overriding the document options
 
 1. Go to latest JSFiddle
 2. Add the following options to the initialisation params:
@@ -398,7 +398,7 @@ Outcome:
 
 - On the document selection screen only "Passport" and "Driver's License" options should be visible.
 
-### 20. Check permission priming screen displays when webcam is available and permission was not yet granted
+### 21. Check permission priming screen displays when webcam is available and permission was not yet granted
 
 (on Firefox, Safari and Microsoft Edge browsers)
 
@@ -409,7 +409,7 @@ Outcome:
 5. Click `Enable webcam`
 6. You should see the capture screen and camera permissions prompt
 
-### 21. Check permission priming screen does not display when webcam is available and permission was already granted
+### 22. Check permission priming screen does not display when webcam is available and permission was already granted
 
 (on Chrome)
 
@@ -418,7 +418,7 @@ Outcome:
 3. Click `Confirm`
 4. You should see the capture screen
 
-### 22. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
+### 23. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
 
 (on Chrome)
 
@@ -431,7 +431,7 @@ Outcome:
 7. Click `Block`
 8. You should see the permission denied / recovery screen
 
-### 23. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
+### 24. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
 
 (on Firefox, Safari and Microsoft Edge browsers)
 
@@ -442,7 +442,7 @@ Outcome:
 5. Click `Enable webcam`
 6. You should see the permission denied / recovery screen if the browser does not remember previous decision
 
-### 24. Live face capture fallback on Desktop
+### 25. Live face capture fallback on Desktop
 
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
@@ -457,7 +457,7 @@ Given webcam is connected to the computer
 4. Click on "Use your mobile"
    - You should be able to continue on mobile
 
-### 25. Live face capture fallback on mobile
+### 26. Live face capture fallback on mobile
 
 (on private mode of getUsermedia supported browser: latest Google Chrome on Android and Safari on iOS11+)
 
@@ -470,7 +470,7 @@ Given webcam is connected to the computer
 4. Click on "Try the basic camera mode instead"
    - You should be able to take a picture with your native camera
 
-### 26. Face video on desktop with webcam
+### 27. Face video on desktop with webcam
 
 (on private mode of: Google Chrome and Firefox browsers and Safari 14+)
 
@@ -490,7 +490,7 @@ Given webcam is connected to the computer
    - once completed, you should be able to see the video and to click on "Confirm"
    - you should see the complete screen
 
-### 27. Face video on desktop with webcam
+### 28. Face video on desktop with webcam
 
 (on private mode of: Safari (older than Safari 14) and older Edge browsers (EdgeHTML) - these browsers do not support video recording)
 
@@ -505,7 +505,7 @@ Given webcam is connected to the computer
    - Upload selfie
    - Confirm
 
-### 28. Face video on desktop with no video support or no webcam
+### 29. Face video on desktop with no video support or no webcam
 
 (on private mode of: any browser with no webcam OR Safari versions older than 14 and IE11 browsers)
 
@@ -541,7 +541,7 @@ ADDITIONAL TEST (for scenario where integrator sets `requestedVariant: 'video'` 
 
 3. Should see same flow as from steps 3-4 above
 
-### 29. Custom SMS country code and flag
+### 30. Custom SMS country code and flag
 
 (on one of the desktop browsers)
 
@@ -554,7 +554,7 @@ Given there is no webcam connected to the computer
    - user should see the option to send SMS
    - the SMS input flag should be the US flag
 
-### 30. Custom SMS with invalid country code
+### 31. Custom SMS with invalid country code
 
 (on one of the desktop browsers)
 
@@ -567,7 +567,7 @@ Given there is no webcam connected to the computer
    - user should see the option to send SMS
    - the SMS input flag should be the UK one
 
-### 31. Prevent upload fallback when requested
+### 32. Prevent upload fallback when requested
 
 Given user opened the link with `?uploadFallback=false` flag
 
@@ -594,7 +594,7 @@ Given user opened the link with `?uploadFallback=false` flag
    - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should see the icon with the phone, screen and the red cross
 
-### 32. Custom SMS number
+### 33. Custom SMS number
 
 (on one of the desktop browsers)
 
@@ -606,7 +606,7 @@ Given user opened the link with `?uploadFallback=false` flag
    - if the number is correct the user should be able to successfully send an SMS
    - if the number is invalid the user will see an error when clicking "Send link"
 
-### 33. Browse back after enlarging the document
+### 34. Browse back after enlarging the document
 
 (desktop and mobile browsers)
 
@@ -616,7 +616,7 @@ Given user opened the link with `?uploadFallback=false` flag
    - "Check your image" text and back arrow retain the colour
    - Back navigation in the browser doesn't cause any other UI changes in the SDK
 
-### 34a. Check happy path flow of live document capture on mobile devices with media recorder API support
+### 35a. Check happy path flow of live document capture on mobile devices with media recorder API support
 
 (on private mode of both Android Chrome and Safari on iOS11+ mobile browsers)
 
@@ -632,7 +632,7 @@ Given user opened the link with `?uploadFallback=false` flag
    - confirmation screen should eventually show up containing photo that was taken
    - user should be able to retake or continue with that photo
 
-### 34b. Live document capture fallback on mobile
+### 35b. Live document capture fallback on mobile
 
 (on private mode of Google Chrome on Android and Safari on iOS11+)
 
@@ -646,7 +646,7 @@ Given user opened the link with `?uploadFallback=false` flag
 5. Click on "Try the basic camera mode instead"
    - You should be able to take a picture with your native camera
 
-### 34c. Live document capture fallback on Hybrid
+### 35c. Live document capture fallback on Hybrid
 
 (private mode for browsers on Microsoft Surface or other hybrid device)
 
@@ -660,7 +660,7 @@ Given user opened the link with `?uploadFallback=false` flag
 5. Click on "continue verification on your phone"
    - You should be able to switch to the cross device flow and use a mobile device to capture a document
 
-### 34d. Live document capture facingMode: {exact: "environment"} constraint
+### 35d. Live document capture facingMode: {exact: "environment"} constraint
 
 (private mode for mobile browsers, browsers on Ipad, and browsers on Microsoft Surface or other hybrid device)
 
@@ -671,7 +671,7 @@ Given user opened the link with `?uploadFallback=false` flag
    - photo capture frame should display preview from camera
    - camera should be rear/environment facing
 
-### 34e. Live document capture attempt on non hybrid desktop
+### 35e. Live document capture attempt on non hybrid desktop
 
 (private mode for desktop browsers, not on Surface or other hybrid device, OR if on hybrid device, with rear camera disabled through device manager)
 
@@ -680,7 +680,7 @@ Given user opened the link with `?uploadFallback=false` flag
    - browser should disregard the request for live document capture
    - browser should direct to the normal desktop flow options of cross device or document upload
 
-### 35a. User Consent screen
+### 36a. User Consent screen
 
 (on private mode on desktop and mobile browsers)
 
@@ -701,7 +701,7 @@ Given user opened the link with `?uploadFallback=false` flag
 8. Click on "Yes, don't verify me"
    - The SDK should disappear and the flow will be over
 
-### 35b. User Consent screen inside a modal
+### 36b. User Consent screen inside a modal
 
 (on private mode on desktop and mobile browsers)
 
@@ -709,7 +709,7 @@ Given user opened the link with `?uploadFallback=false` flag
 2. The SDK will open inside a modal.
    - Repeat steps 2-8 from test case no. 35a
 
-### 36. User Consent screen can be reloaded if it failed to load due to loss of connection
+### 37. User Consent screen can be reloaded if it failed to load due to loss of connection
 
 (on private mode on desktop and mobile browsers)
 
@@ -729,7 +729,7 @@ Given user opened the link with `?uploadFallback=false` flag
    - You should see the document selector screen
 8. You should be able to complete the ID verification flow successfully
 
-### 37. Interrupt flow if selfie fallback is deactivated and MediaRecorder is not supported
+### 38. Interrupt flow if selfie fallback is deactivated and MediaRecorder is not supported
 
 Given user opened the link with `?faceVideo=true&photoCaptureFallback=false` flags
 
@@ -740,7 +740,7 @@ Given user opened the link with `?faceVideo=true&photoCaptureFallback=false` fla
    - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should NOT be able to complete the cross-device flow successfully.
 
-### 38. Cross Device for ANSSI Document Liveness
+### 39. Cross Device for ANSSI Document Liveness
 
 (on private mode of: Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
 
