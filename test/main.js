@@ -195,6 +195,9 @@ const createMocha = (driver, testCase) => {
     )
   })
   mocha.suite.beforeEach('Set retry and timeouts', function () {
+    if (browserName === 'safari') {
+      this.currentTest.retries(2)
+    }
     this.currentTest.retries(1)
     if (this.currentTest.title.includes('@longtest')) {
       this.currentTest.timeout(40000)

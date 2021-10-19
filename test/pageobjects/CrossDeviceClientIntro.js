@@ -30,19 +30,19 @@ class CrossDeviceClientIntro extends BasePage {
 
   async verifyUIElements(copy) {
     const screenCopy = copy.cross_device_session_linked
-    verifyElementCopy(this.title(), screenCopy.title)
-    verifyElementCopy(this.subtitle(), screenCopy.subtitle)
-    this.icon().isDisplayed()
-    verifyElementCopy(this.infoHeader(), screenCopy.info)
+    await verifyElementCopy(this.title(), screenCopy.title)
+    await verifyElementCopy(this.subtitle(), screenCopy.subtitle)
+    await this.icon().isDisplayed()
+    await verifyElementCopy(this.infoHeader(), screenCopy.info)
     const elements = [this.infoList()]
-    asyncForEach(elements, async (item, index) => {
+    await asyncForEach(elements, async (item, index) => {
       const expectedCopies = [
         screenCopy.list_item_sent_by_you,
         screenCopy.list_item_desktop_open,
       ]
-      verifyElementCopy(item, expectedCopies[index])
+      await verifyElementCopy(item, expectedCopies[index])
     })
-    verifyElementCopy(this.continueButton(), screenCopy.button_primary)
+    await verifyElementCopy(this.continueButton(), screenCopy.button_primary)
   }
 
   async verifySubTitle(copy) {

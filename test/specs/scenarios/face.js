@@ -84,7 +84,7 @@ export const faceScenarios = (lang) => {
       )
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
-      verificationComplete.checkBackArrowIsNotDisplayed()
+      await verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
     //Not passing on IE - user is shown continue on phone screen since IE11 has no support for getUserMedia

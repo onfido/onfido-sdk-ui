@@ -83,14 +83,14 @@ export const crossDeviceScenarios = async (lang) => {
       }
 
       const switchToCrossDeviceFlow = async () => {
-        documentUpload.switchToCrossDevice()
-        crossDeviceIntro.continueToNextStep()
-        crossDeviceLink.switchToCopyLinkOption()
-        copyCrossDeviceLinkAndOpenInNewTab()
-        switchBrowserTab(0, driver)
-        crossDeviceMobileConnected.tipsHeader().isDisplayed()
+        await documentUpload.switchToCrossDevice()
+        await crossDeviceIntro.continueToNextStep()
+        await crossDeviceLink.switchToCopyLinkOption()
+        await copyCrossDeviceLinkAndOpenInNewTab()
+        await switchBrowserTab(0, driver)
+        await crossDeviceMobileConnected.tipsHeader().isDisplayed()
         crossDeviceMobileConnected.verifyUIElements(copy)
-        switchBrowserTab(1, driver)
+        await switchBrowserTab(1, driver)
         driver.sleep(1000)
       }
 
@@ -345,8 +345,8 @@ export const crossDeviceScenarios = async (lang) => {
       it('should verify UI elements on cross device mobile client intro screen @percy @e2e-latest @skip-for-ie', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
-        documentSelector.clickOnPassportIcon()
-        switchToCrossDeviceFlow()
+        await documentSelector.clickOnPassportIcon()
+        await switchToCrossDeviceFlow()
         crossDeviceClientIntro.verifyUIElements(copy)
         await takePercySnapshot(
           driver,
@@ -388,26 +388,30 @@ export const crossDeviceScenarios = async (lang) => {
       })
 
       it('should successfully complete cross device e2e flow with selfie upload @e2e-latest @skip-for-ie', async () => {
-        goToPassportUploadScreen(
+        await goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
           `?language=${lang}&useUploader=true`
         )
-        documentUpload.clickUploadButton()
-        uploadFileAndClickConfirmButton(
+        await documentUpload.clickUploadButton()
+        await uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
           confirm,
           'passport.jpg'
         )
-        switchToCrossDeviceFlow()
-        documentUpload.verifySelfieUploadTitle(copy)
-        uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
+        await switchToCrossDeviceFlow()
+        await documentUpload.verifySelfieUploadTitle(copy)
+        await uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'face.jpeg'
+        )
         crossDeviceClientSuccess.verifyUIElements(copy)
-        switchBrowserTab(0, driver)
-        crossDeviceSubmit.documentUploadedMessage().isDisplayed()
+        await switchBrowserTab(0, driver)
+        await crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         crossDeviceSubmit.verifyUIElements(copy)
-        crossDeviceSubmit.clickOnSubmitVerificationButton()
+        await crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)
 
         // TODO: Additionally check that the onComplete callback did get triggered by expecting the console.log is called with a string containing 'Complete with data! '
