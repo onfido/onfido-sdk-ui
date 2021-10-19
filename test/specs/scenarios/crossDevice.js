@@ -8,6 +8,7 @@ import {
   uploadFileAndClickConfirmButton,
   switchBrowserTab,
   takePercySnapshot,
+  closeAllBrowserWindows,
 } from './sharedFlows.js'
 
 const options = {
@@ -92,6 +93,11 @@ export const crossDeviceScenarios = async (lang) => {
         switchBrowserTab(1, driver)
         driver.sleep(1000)
       }
+
+      afterEach(async () => {
+        //Close any unused tabs after each test
+        await closeAllBrowserWindows(driver)
+      })
 
       it('should verify UI elements on the cross device intro screen', async () => {
         driver.get(baseUrl)
@@ -346,8 +352,6 @@ export const crossDeviceScenarios = async (lang) => {
           driver,
           `Cross Device Mobile Client Intro screen ${lang}`
         )
-        // Need to switch back to original tab otherwise subsequent tests get stuck
-        switchBrowserTab(0, driver)
       })
 
       it('should verify all custom UI elements on customised cross device mobile client intro screen @percy @skip-for-ie', async () => {
@@ -363,8 +367,6 @@ export const crossDeviceScenarios = async (lang) => {
           driver,
           `Cross Device Mobile Client Intro screen (custom product text in subtitle, product logo)`
         )
-        // Need to switch back to original tab otherwise subsequent tests get stuck
-        switchBrowserTab(0, driver)
       })
 
       it('should verify custom product name on customised cross device mobile client intro screen @percy @skip-for-ie', async () => {
@@ -374,8 +376,6 @@ export const crossDeviceScenarios = async (lang) => {
         switchToCrossDeviceFlow()
         crossDeviceClientIntro.verifySubTitleWithCustomText(copy)
         crossDeviceClientIntro.icon().isDisplayed()
-        // Need to switch back to original tab otherwise subsequent tests get stuck
-        switchBrowserTab(0, driver)
       })
 
       it('should verify custom product logo on customised cross device mobile client intro screen @percy @skip-for-ie', async () => {
@@ -385,8 +385,6 @@ export const crossDeviceScenarios = async (lang) => {
         switchToCrossDeviceFlow()
         crossDeviceClientIntro.verifySubTitle(copy)
         crossDeviceClientIntro.customIcon().isDisplayed()
-        // Need to switch back to original tab otherwise subsequent tests get stuck
-        switchBrowserTab(0, driver)
       })
 
       it('should successfully complete cross device e2e flow with selfie upload @e2e-latest @skip-for-ie', async () => {

@@ -1,6 +1,7 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 import {
+  closeAllBrowserWindows,
   takePercySnapshot,
   takePercySnapshotWithoutOverlay,
 } from './sharedFlows.js'
@@ -45,11 +46,11 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
       const copy = basePage.copy(lang)
 
       const runThroughCrossDeviceFlowForDocumentVideoCapture = async () => {
-        documentUpload.clickContinueOnPhoneButtonIfIe()
-        crossDeviceIntro.continueToNextStep()
-        crossDeviceLink.switchToCopyLinkOption()
+        await documentUpload.clickContinueOnPhoneButtonIfIe()
+        await crossDeviceIntro.continueToNextStep()
+        await crossDeviceLink.switchToCopyLinkOption()
         const linkText = crossDeviceLink.copyLinkTextContainer().getText()
-        driver.executeScript("window.open('your url','_blank');")
+        await driver.executeScript("window.open('your url','_blank');")
         const browserWindows = await driver.getAllWindowHandles()
         const lastWindow = browserWindows[browserWindows.length - 1]
         await driver.switchTo().window(lastWindow)
@@ -96,14 +97,9 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
 
       afterEach(async () => {
         //Close any unused tabs after each test
-        const browserWindows = await driver.getAllWindowHandles()
-        if (browserWindows.length > 1) {
-          const lastWindow = browserWindows[browserWindows.length - 1]
-          await driver.switchTo().window(lastWindow)
-          driver.close()
-          await driver.switchTo().window(browserWindows[0])
-        }
+        await closeAllBrowserWindows(driver)
       })
+
       it('should start the ANSSI flow for Passport flow and attempt to upload @percy @skip-for-ie', async () => {
         driver.get(`${baseUrl}&docVideo=true`)
         welcome.continueToNextStep()
