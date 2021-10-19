@@ -13,6 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fix error when face step selfie/video variant was requested for users on mobile devices
 - UI: Set all Button components as `type="button"` if not already set as that to prevent the Button component defaulting to a `submit` type button.
 - UI: Fix SDK only displaying a loading spinner instead of the "Something's gone wrong" error screen with messages "The link only works on mobile devices / You’ll need to restart your verification on your computer".
+- Public: Fixed Web SDK breaking with a `Container wasn't rendered!` console error on the Document live capture step when in Modal mode since v6.11.1
 
 ## [6.15.0] - 2021-10-11
 

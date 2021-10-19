@@ -32,11 +32,6 @@ export const getCSSValue = (
 export const getCSSMillisecsValue = (cssUnit: string | number): number =>
   getCSSValue('ms', cssUnit)
 
-export const wrapWithClass = (
-  className: string,
-  children: h.JSX.Element
-): h.JSX.Element => <div className={className}>{children}</div>
-
 export const preventDefaultOnClick = (callback: () => void) => (
   event: Event
 ): void => {
