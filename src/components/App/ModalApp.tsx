@@ -3,7 +3,6 @@ import { EventEmitter2 } from 'eventemitter2'
 import { v4 as uuidv4 } from 'uuid'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
-import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
 import { LocaleProvider } from '~locales'
 import {
   parseJwt,
@@ -389,18 +388,16 @@ class ModalApp extends Component<Props> {
     return (
       <SdkOptionsProvider options={{ ...options, events: this.events }}>
         <LocaleProvider language={options.language}>
-          <ContainerDimensionsProvider>
-            <Modal
-              useModal={useModal}
-              isOpen={isModalOpen}
-              onRequestClose={onModalRequestClose}
-              containerId={containerId}
-              containerEl={containerEl}
-              shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-            >
-              <Router {...otherProps} />
-            </Modal>
-          </ContainerDimensionsProvider>
+          <Modal
+            useModal={useModal}
+            isOpen={isModalOpen}
+            onRequestClose={onModalRequestClose}
+            containerId={containerId}
+            containerEl={containerEl}
+            shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+          >
+            <Router {...otherProps} />
+          </Modal>
         </LocaleProvider>
       </SdkOptionsProvider>
     )
