@@ -147,10 +147,10 @@ export default class HistoryRouter extends Component<
       'document_back',
       'face',
     ]
-
     const data: SdkResponse = Object.entries(captures)
-      .filter(([, value]) => value != null)
+      .filter(([key, value]) => key !== 'takesHistory' && value != null)
       .reduce((acc, [key, value]) => ({ ...acc, [key]: value?.metadata }), {})
+
     const keysWithMissingData: Array<string> = []
 
     expectedCaptureKeys.forEach((key) => {
