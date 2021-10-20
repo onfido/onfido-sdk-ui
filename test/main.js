@@ -130,7 +130,7 @@ const createBrowser = async (browser) => {
 
   await driver.manage().setTimeouts({
     implicit: 10000,
-    pageLoad: 10000,
+    pageLoad: 20000,
   })
 
   isRemoteBrowser = browser.remote
