@@ -2,7 +2,7 @@ name: Internet Explorer - End to End Tests
 
 on:
   schedule:
-    - cron: '30 21 * * 0'
+    - cron: '30 21 * * *'
 
 env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}

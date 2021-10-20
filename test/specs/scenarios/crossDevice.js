@@ -78,7 +78,7 @@ export const crossDeviceScenarios = async (lang) => {
           .copyLinkTextContainer()
           .getText()
         driver.executeScript("window.open('your url','_blank');")
-        switchBrowserTab(1, driver)
+        await switchBrowserTab(1, driver)
         driver.get(crossDeviceLinkText)
       }
 
@@ -96,7 +96,13 @@ export const crossDeviceScenarios = async (lang) => {
 
       afterEach(async () => {
         //Close any unused tabs after each test
-        await closeAllBrowserWindows(driver)
+        try {
+          await closeAllBrowserWindows(driver)
+        } catch (err) {
+          console.log(
+            'Just logging that I have caught an exception when trying to close unused tabs'
+          )
+        }
       })
 
       it('should verify UI elements on the cross device intro screen', async () => {
