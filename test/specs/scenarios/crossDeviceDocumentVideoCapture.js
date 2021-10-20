@@ -3,6 +3,7 @@ import { localhostUrl } from '../../config.json'
 import {
   takePercySnapshot,
   takePercySnapshotWithoutOverlay,
+  closeAllBrowserWindows,
 } from './sharedFlows.js'
 
 const options = {
@@ -93,13 +94,7 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
 
       afterEach(async () => {
         //Close any unused tabs after each test
-        const browserWindows = await driver.getAllWindowHandles()
-        if (browserWindows.length > 1) {
-          const lastWindow = browserWindows[browserWindows.length - 1]
-          await driver.switchTo().window(lastWindow)
-          driver.close()
-          await driver.switchTo().window(browserWindows[0])
-        }
+        await closeAllBrowserWindows(driver)
       })
 
       it('should start the ANSSI flow for Passport flow and attempt to upload @percy @skip-for-ie', async () => {
