@@ -133,7 +133,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         await takePercySnapshot(driver, 'Submit benefit letter screen')
       })
 
-      it("should skip country selection screen with a preselected driver's license document type on PoA flow @percy", async () => {
+      it("should skip country selection screen with a preselected driver's license document type on PoA flow @percy @skip-for-ie", async () => {
         driver.get(`${localhostUrl}?poa=true&oneDoc=driving_licence`)
         welcome.continueToNextStep()
         poaIntro.clickStartVerificationButton()
@@ -148,7 +148,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
       })
 
-      it('should upload Bank Statement and finish flow', async () => {
+      it('should upload Bank Statement and finish flow @skip-for-ie', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBankIcon()
         poaGuidance.clickOnContinueButton()
@@ -168,7 +168,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should upload Utility Bill and finish flow', async () => {
+      it('should upload Utility Bill and finish flow @skip-for-ie', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnUtilityBillIcon()
         poaGuidance.clickOnContinueButton()
@@ -188,7 +188,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should upload Council Tax Letter and finish flow', async () => {
+      it('should upload Council Tax Letter and finish flow @skip-for-ie', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnCouncilTaxLetterIcon()
         poaGuidance.clickOnContinueButton()
@@ -214,7 +214,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should upload Benefits Letter and finish flow', async () => {
+      it('should upload Benefits Letter and finish flow @skip-for-ie', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBenefitsLetterIcon()
         poaGuidance.clickOnContinueButton()
@@ -234,7 +234,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should succesfully complete cross device e2e flow with PoA document and selfie upload @percy', async () => {
+      it('should successfully complete cross device e2e flow with PoA document and selfie upload @percy @skip-for-ie', async () => {
         const copyCrossDeviceLinkAndOpenInNewTab = async () => {
           const crossDeviceLinkText = crossDeviceLink
             .copyLinkTextContainer()

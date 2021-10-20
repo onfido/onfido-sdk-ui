@@ -38,7 +38,7 @@ export const hostAppHistoryScenarios = async (lang = 'en_US') => {
         welcome.continueToNextStep()
       })
 
-      it('it can navigate forward and back when host app has history', async () => {
+      it('it can navigate forward and back when host app has history @skip-for-ie', async () => {
         driver.get(`${localhostUrl}?useHistory=true&useUploader=true`)
         dummyHostApp.firstStepTextDisplayed()
         dummyHostApp.continueToNextStep()

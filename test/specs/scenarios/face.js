@@ -46,7 +46,7 @@ export const faceScenarios = (lang) => {
 
     const copy = basePage.copy(lang)
 
-    it('should return unsupported file type error for selfie', async () => {
+    it('should return unsupported file type error for selfie @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -67,7 +67,7 @@ export const faceScenarios = (lang) => {
       confirm.verifyUnsuppoertedFileError(copy)
     })
 
-    it('should upload selfie @e2e-latest', async () => {
+    it('should upload selfie @e2e-latest @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -85,7 +85,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should successfully upload a resized image if selfie image file is too large', async () => {
+    it('should successfully upload a resized image if selfie image file is too large @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -107,7 +107,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should take one selfie using the camera stream @percy', async () => {
+    it('should take one selfie using the camera stream @percy @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -144,7 +144,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should complete the flow when snapshot is disabled', async () => {
+    it('should complete the flow when snapshot is disabled @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -192,7 +192,7 @@ export const faceScenarios = (lang) => {
       confirm.verifyMultipleFacesError(copy)
     })
 
-    it('should be taken to the cross-device flow for selfie capture if there is no camera and faceVideo variant requested', async () => {
+    it('should be taken to the cross-device flow for selfie capture if there is no camera and faceVideo variant requested @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -217,7 +217,7 @@ export const faceScenarios = (lang) => {
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested', async () => {
+    it('should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -257,7 +257,7 @@ export const faceScenarios = (lang) => {
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should enter the facial liveness video flow if I have a camera and liveness video variant requested @percy', async () => {
+    it('should enter the facial liveness video flow if I have a camera and liveness video variant requested @percy @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -286,7 +286,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should enter the facial liveness video flow and display timeout notification after 10 seconds @percy', async () => {
+    it('should enter the facial liveness video flow and display timeout notification after 10 seconds @percy @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -316,7 +316,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should record a video with liveness challenge, play it and submit it @percy', async () => {
+    it('should record a video with liveness challenge, play it and submit it @percy @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -354,7 +354,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for facial liveness video @percy', async () => {
+    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for facial liveness video @percy @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -410,7 +410,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for facial liveness video @percy', async () => {
+    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for facial liveness video @percy @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -457,7 +457,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for facial liveness video', async () => {
+    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for facial liveness video @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -483,7 +483,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkLogoIsHidden()
     })
 
-    it('should continue through full flow without problems when using customized API requests but still uploading media to API as normal', async () => {
+    it('should continue through full flow without problems when using customized API requests but still uploading media to API as normal @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -502,7 +502,7 @@ export const faceScenarios = (lang) => {
       confirm.clickConfirmButton()
     })
 
-    it('should continue through full flow without problems when using customized API requests and success response is returned from callbacks', async () => {
+    it('should continue through full flow without problems when using customized API requests and success response is returned from callbacks @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,

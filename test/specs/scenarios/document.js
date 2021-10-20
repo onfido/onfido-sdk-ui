@@ -246,7 +246,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyCheckReadabilityMessage(copy)
       })
 
-      it('should return file size too large message for PDF document upload @percy', async () => {
+      it('should return file size too large message for PDF document upload @percy @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -262,7 +262,7 @@ export const documentScenarios = async (lang) => {
         )
       })
 
-      it('should upload a resized document image if file size is too large message', async () => {
+      it('should upload a resized document image if file size is too large message @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -391,7 +391,7 @@ export const documentScenarios = async (lang) => {
         })
       })
 
-      it('should be able to retry document upload', async () => {
+      it('should be able to retry document upload @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -410,7 +410,7 @@ export const documentScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should be able to submit a document without seeing the document selector screen', async () => {
+      it('should be able to submit a document without seeing the document selector screen @skip-for-ie', async () => {
         driver.get(`${baseUrl}&oneDoc=passport&useUploader=true`)
         welcome.continueToNextStep(copy)
         documentUpload.verifyPassportTitle(copy)
@@ -428,7 +428,7 @@ export const documentScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should be taken to the cross-device flow for video capture if there is no camera and docVideo variant requested', async () => {
+      it('should be taken to the cross-device flow for video capture if there is no camera and docVideo variant requested @skip-for-ie', async () => {
         driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])'
@@ -439,7 +439,7 @@ export const documentScenarios = async (lang) => {
       })
 
       // @TODO: remove this test when we fully support docVideo variant for both desktop & mobile web
-      it('should be taken to the cross-device flow for video capture docVideo variant requested', async () => {
+      it('should be taken to the cross-device flow for video capture docVideo variant requested @skip-for-ie', async () => {
         driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()

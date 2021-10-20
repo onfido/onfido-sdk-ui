@@ -122,7 +122,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceIntro.verifyTitle(copy)
       })
 
-      it('should verify UI elements on the cross device link screen default QR code view', async () => {
+      it('should verify UI elements on the cross device link screen default QR code view @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
@@ -155,7 +155,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      it('should verify UI elements on the cross device link screen SMS view', async () => {
+      it('should verify UI elements on the cross device link screen SMS view @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
@@ -174,7 +174,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      it('should verify UI elements on the cross device link screen copy link view', async () => {
+      it('should verify UI elements on the cross device link screen copy link view @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
@@ -197,7 +197,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      it('should change the state of the copy to clipboard button after clicking', async () => {
+      it('should change the state of the copy to clipboard button after clicking @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.switchToCopyLinkOption()
@@ -205,7 +205,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCopyToClipboardBtnChangedState(copy)
       })
 
-      it('should display copy link view by default when excludeSmsCrossDeviceOption is enabled', async () => {
+      it('should display copy link view by default when excludeSmsCrossDeviceOption is enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&excludeSmsCrossDeviceOption=true`)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyCopyLinkLabel(copy)
@@ -234,7 +234,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      it('should display SMS link view only and no alternative options when singleCrossDeviceOption is enabled', async () => {
+      it('should display SMS link view only and no alternative options when singleCrossDeviceOption is enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&singleCrossDeviceOption=true`)
         goToCrossDeviceScreen()
         crossDeviceLink.verifySubtitleSms(copy)
@@ -251,7 +251,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      it('should display default cross device QR code link view when given invalid alternative methods', async () => {
+      it('should display default cross device QR code link view when given invalid alternative methods @skip-for-ie', async () => {
         driver.get(`${baseUrl}&invalidCrossDeviceAlternativeMethods=true`)
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
@@ -268,7 +268,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
       })
 
-      it('should display error when mobile number is not provided', async () => {
+      it('should display error when mobile number is not provided @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.switchToSendSmsOption()
@@ -277,7 +277,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCheckNumberCorrectError(copy)
       })
 
-      it('should display error when mobile number is wrong', async () => {
+      it('should display error when mobile number is wrong @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.switchToSendSmsOption()
@@ -298,7 +298,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceLink.verifyCheckNumberCorrectError(copy)
       })
 
-      it('should send sms and navigate to "Check your mobile" screen ', async () => {
+      it('should send sms and navigate to "Check your mobile" screen @skip-for-ie', async () => {
         driver.get(baseUrl)
         driver.navigate().refresh()
         goToCrossDeviceScreen()
@@ -322,7 +322,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceMobileNotificationSent.verifyResendLink(copy)
       })
 
-      it('should be able to resend sms', async () => {
+      it('should be able to resend sms @skip-for-ie', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
         crossDeviceLink.switchToSendSmsOption()
@@ -336,7 +336,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceMobileNotificationSent.verifyTitle(copy)
       })
 
-      it('should verify UI elements on cross device mobile client intro screen @percy', async () => {
+      it('should verify UI elements on cross device mobile client intro screen @percy @skip-for-ie', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -350,7 +350,7 @@ export const crossDeviceScenarios = async (lang) => {
         switchBrowserTab(0, driver)
       })
 
-      it('should verify all custom UI elements on customised cross device mobile client intro screen @percy', async () => {
+      it('should verify all custom UI elements on customised cross device mobile client intro screen @percy @skip-for-ie', async () => {
         driver.get(
           `${baseUrl}&crossDeviceClientIntroCustomProductName=true&crossDeviceClientIntroCustomProductLogo=true`
         )
@@ -367,7 +367,7 @@ export const crossDeviceScenarios = async (lang) => {
         switchBrowserTab(0, driver)
       })
 
-      it('should verify custom product name on customised cross device mobile client intro screen @percy', async () => {
+      it('should verify custom product name on customised cross device mobile client intro screen @percy @skip-for-ie', async () => {
         driver.get(`${baseUrl}&crossDeviceClientIntroCustomProductName=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -378,7 +378,7 @@ export const crossDeviceScenarios = async (lang) => {
         switchBrowserTab(0, driver)
       })
 
-      it('should verify custom product logo on customised cross device mobile client intro screen @percy', async () => {
+      it('should verify custom product logo on customised cross device mobile client intro screen @percy @skip-for-ie', async () => {
         driver.get(`${baseUrl}&crossDeviceClientIntroCustomProductLogo=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -389,7 +389,7 @@ export const crossDeviceScenarios = async (lang) => {
         switchBrowserTab(0, driver)
       })
 
-      it('should successfully complete cross device e2e flow with selfie upload @e2e-latest', async () => {
+      it('should successfully complete cross device e2e flow with selfie upload @e2e-latest @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -414,7 +414,7 @@ export const crossDeviceScenarios = async (lang) => {
         // TODO: Additionally check that the onComplete callback did get triggered by expecting the console.log is called with a string containing 'Complete with data! '
       })
 
-      it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
+      it('should succesfully complete cross device e2e flow with document and selfie upload @skip-for-ie', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -439,7 +439,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should check Submit Verification button can only be clicked once when there is no Complete step', async () => {
+      it('should check Submit Verification button can only be clicked once when there is no Complete step @skip-for-ie', async () => {
         driver.get(`${baseUrl}&noCompleteStep=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -465,7 +465,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      it('should complete cross device e2e flow with a US JWT', async () => {
+      it('should complete cross device e2e flow with a US JWT @skip-for-ie', async () => {
         driver.get(`${baseUrl}&region=US`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -488,7 +488,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should hide logo on all screens when hideOnfidoLogo is enabled and given token has feature enabled', async () => {
+      it('should hide logo on all screens when hideOnfidoLogo is enabled and given token has feature enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&hideOnfidoLogo=true`)
         welcome.checkLogoIsHidden()
         welcome.continueToNextStep()
@@ -518,7 +518,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.checkLogoIsHidden()
       })
 
-      it('should show the cobrand text and logo on all screens when showCobrand is enabled and token has feature enabled', async () => {
+      it('should show the cobrand text and logo on all screens when showCobrand is enabled and token has feature enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&showCobrand=true`)
         welcome.checkCobrandIsVisible()
         welcome.continueToNextStep()
@@ -548,7 +548,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.checkCobrandIsVisible()
       })
 
-      it('should not show any logo, including cobrand text and logo on all screens when showCobrand is enabled but hideOnfidoLogo is also enabled', async () => {
+      it('should not show any logo, including cobrand text and logo on all screens when showCobrand is enabled but hideOnfidoLogo is also enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&showCobrand=true&hideOnfidoLogo=true`)
         welcome.checkLogoIsHidden()
         welcome.continueToNextStep()
@@ -578,7 +578,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.checkLogoIsHidden()
       })
 
-      it('should show the cobrand logo and Onfido logo on all screens when showLogoCobrand is enabled and token has feature enabled', async () => {
+      it('should show the cobrand logo and Onfido logo on all screens when showLogoCobrand is enabled and token has feature enabled @skip-for-ie', async () => {
         driver.get(`${baseUrl}&showLogoCobrand=true`)
         welcome.checkLogoCobrandIsVisible()
         welcome.continueToNextStep()
