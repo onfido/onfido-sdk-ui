@@ -8,12 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.15.1] - 2021-10-21
+
 ### Fixed
 
 - Public: Fix error when face step selfie/video variant was requested for users on mobile devices
 - UI: Set all Button components as `type="button"` if not already set as that to prevent the Button component defaulting to a `submit` type button.
 - UI: Fix SDK only displaying a loading spinner instead of the "Something's gone wrong" error screen with messages "The link only works on mobile devices / You’ll need to restart your verification on your computer".
-- Public: Fixed Web SDK breaking with a `Container wasn't rendered!` console error on the Document live capture step when in Modal mode since v6.11.1
+- Public: Fixed Web SDK breaking with a `Container wasn't rendered!` console error on the Document live capture step when in Modal mode since version `6.11.1`
 - Public: Fix SDK displaying "The following keys have missing data: document_front" console error and not triggering the `onComplete` callback to integrator if user transitioned to Cross Device flow for the Face step
 - UI: Fix UI issue where a user returning to the Desktop tab after completing the capture on cross-device flow, sees "Document" in the confirmation list even when a document was not captured.
 
@@ -1101,7 +1103,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.1...development
+[6.15.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.0...6.15.1
 [6.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.14.0...6.15.0
 [6.14.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.13.0...6.14.0
 [6.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.12.0...6.13.0
