@@ -46,6 +46,7 @@ export const faceScenarios = (lang) => {
 
     const copy = basePage.copy(lang)
 
+    //Many tests are being skipped for for IE since user is shown continue on phone screen, as IE11 has no support for getUserMedia
     it('should return unsupported file type error for selfie @skip-for-ie', async () => {
       goToPassportUploadScreen(
         driver,

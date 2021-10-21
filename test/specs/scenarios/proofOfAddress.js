@@ -140,6 +140,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaDocumentSelection.clickOnCouncilTaxLetterIcon()
         poaGuidance.clickOnContinueButton()
         await takePercySnapshot(driver, 'Submit letter upload screen')
+        documentUpload.clickUploadButtonIfRemoteIe()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
@@ -152,6 +153,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBankIcon()
         poaGuidance.clickOnContinueButton()
+        documentUpload.clickUploadButtonIfRemoteIe()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,

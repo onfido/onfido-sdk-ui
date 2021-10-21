@@ -51,6 +51,7 @@ export const documentScenarios = async (lang) => {
 
       const uploadPassportImageFile = async (filename) => {
         passportUploadImageGuide.getUploadInput()
+        documentUpload.clickCustomFileInputButtonIfIe()
         passportUploadImageGuide.upload(filename)
       }
 
@@ -112,6 +113,7 @@ export const documentScenarios = async (lang) => {
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
         documentUpload.getUploadInput()
+        documentUpload.clickUploadButtonIfRemoteIe()
         documentUpload.upload('uk_driving_licence.png')
         await takePercySnapshot(
           driver,
@@ -128,6 +130,7 @@ export const documentScenarios = async (lang) => {
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
         documentUpload.getUploadInput()
+        documentUpload.clickUploadButtonIfRemoteIe()
         documentUpload.upload('back_driving_licence.jpg')
         await takePercySnapshot(
           driver,
@@ -150,6 +153,7 @@ export const documentScenarios = async (lang) => {
         documentUpload.verifyFrontOfIdentityCardTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
+        documentUpload.clickUploadButtonIfRemoteIe()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
@@ -164,6 +168,7 @@ export const documentScenarios = async (lang) => {
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
         documentUpload.getUploadInput()
+        documentUpload.clickUploadButtonIfRemoteIe()
         documentUpload.upload('back_national_identity_card.jpg')
         await takePercySnapshot(
           driver,
@@ -186,6 +191,7 @@ export const documentScenarios = async (lang) => {
         documentUpload.verifyFrontOfResidencePermitTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
+        documentUpload.clickUploadButtonIfRemoteIe()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
@@ -199,6 +205,7 @@ export const documentScenarios = async (lang) => {
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
         documentUpload.getUploadInput()
+        documentUpload.clickUploadButtonIfRemoteIe()
         documentUpload.upload('national_identity_card.jpg')
         confirm.verifyCheckReadabilityMessage(copy)
         confirm.verifyMakeSureResidencePermitMessage(copy)
@@ -299,6 +306,7 @@ export const documentScenarios = async (lang) => {
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()
         countrySelector.clickSubmitDocumentButton()
+        documentUpload.clickUploadButtonIfRemoteIe()
         // first upload attempt should return an error if image quality is detected
         // FIXME: Image quality errors are only returned for cut-off images in these tests!
         // We should be able to define the error type for each request
@@ -349,6 +357,7 @@ export const documentScenarios = async (lang) => {
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()
         countrySelector.clickSubmitDocumentButton()
+        documentUpload.clickUploadButtonIfRemoteIe()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
@@ -357,6 +366,7 @@ export const documentScenarios = async (lang) => {
         // first upload attempt should return an error if image quality is detected
         // FIXME: Image quality errors are only returned for cut-off images in these tests!
         // We should be able to define the error type for each request
+        documentUpload.clickUploadButtonIfRemoteIe()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
