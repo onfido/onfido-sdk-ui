@@ -37,6 +37,7 @@ const Actions: FunctionComponent<ActionsProps> = ({
   return (
     <div className={classNames(style.actions, style.modalActions)}>
       <Button
+        type="button"
         variant="secondary"
         className={classNames(
           theme['button-centered'],
@@ -49,6 +50,7 @@ const Actions: FunctionComponent<ActionsProps> = ({
         {secondaryBtnCopy}
       </Button>
       <Button
+        type="button"
         variant="primary"
         className={classNames(theme['button-centered'], theme['button-sm'])}
         data-onfido-qa="userConsentDeclineModalBtnPrimary"

@@ -35,6 +35,7 @@ const InstructionsPure = ({ listScreenReaderText, instructions }) => (
 
 const Actions = ({ nextStep, translate }) => (
   <Button
+    type="button"
     variant="primary"
     className={classNames(theme['button-centered'], theme['button-lg'])}
     onClick={nextStep}

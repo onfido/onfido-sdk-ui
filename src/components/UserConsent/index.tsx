@@ -35,6 +35,7 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
       })}
     >
       <Button
+        type="button"
         variant="secondary"
         className={classNames(
           theme['button-sm'],
@@ -50,6 +51,7 @@ const Actions: FunctionComponent<ActionsProps> = ({ onAccept, onDecline }) => {
         {secondaryBtnCopy}
       </Button>
       <Button
+        type="button"
         variant="primary"
         className={classNames(theme['button-sm'], style.action, {
           [style.vertical]: isButtonGroupStacked(),

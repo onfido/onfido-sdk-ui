@@ -16,6 +16,15 @@ class CrossDeviceSubmit extends Component {
     }
   }
 
+  hasDocumentOrPoACaptureSteps = () => {
+    // FIX: PoA is currently using the same copy as documents -> "Document"
+    // PoA should use its own copy
+    // Also, this assumes that document and poa steps are not used as part of the same flow
+    return this.props.steps.some(
+      (step) => step.type === 'document' || step.type === 'poa'
+    )
+  }
+
   hasMultipleDocuments = () => {
     const { steps } = this.props
     const documentSteps = steps.filter((step) => step.type === 'document')
@@ -60,17 +69,19 @@ class CrossDeviceSubmit extends Component {
             className={style.uploadList}
             aria-label={translate('cross_device_checklist.info')}
           >
-            <li className={style.uploadListItem}>
-              <span className={`${theme.icon} ${style.icon}`} />
-              <span
-                className={classNames(
-                  style.listText,
-                  style.documentUploadedLabel
-                )}
-              >
-                {translate(documentCopy)}
-              </span>
-            </li>
+            {this.hasDocumentOrPoACaptureSteps() && (
+              <li className={style.uploadListItem}>
+                <span className={`${theme.icon} ${style.icon}`} />
+                <span
+                  className={classNames(
+                    style.listText,
+                    style.documentUploadedLabel
+                  )}
+                >
+                  {translate(documentCopy)}
+                </span>
+              </li>
+            )}
             {this.hasFaceCaptureStep() && (
               <li className={style.uploadListItem}>
                 <span className={`${theme.icon} ${style.icon}`} />
@@ -88,6 +99,7 @@ class CrossDeviceSubmit extends Component {
 
           <div>
             <Button
+              type="button"
               variant="primary"
               className={classNames(
                 theme['button-centered'],
