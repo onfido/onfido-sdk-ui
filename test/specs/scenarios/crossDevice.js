@@ -8,7 +8,6 @@ import {
   uploadFileAndClickConfirmButton,
   switchBrowserTab,
   takePercySnapshot,
-  closeAllBrowserWindows,
 } from './sharedFlows.js'
 
 const options = {
@@ -93,11 +92,6 @@ export const crossDeviceScenarios = async (lang) => {
         switchBrowserTab(1, driver)
         driver.sleep(1000)
       }
-
-      afterEach(async () => {
-        //Close any unused tabs after each test
-        await closeAllBrowserWindows(driver)
-      })
 
       it('should verify UI elements on the cross device intro screen', async () => {
         driver.get(baseUrl)

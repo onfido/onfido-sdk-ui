@@ -75,6 +75,7 @@ jobs:
         run: npm run test:integration
 
       - name: Run UI tests
+        timeout-minutes: 45
         if: matrix.NODE_ENV == 'test'
         run: npm run test:ui
 
