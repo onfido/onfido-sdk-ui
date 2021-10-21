@@ -47,19 +47,3 @@ export const takePercySnapshotWithoutOverlay = async (driver, text) => {
     percyCSS: `video.onfido-sdk-ui-Camera-video { display: none; }`,
   })
 }
-
-export const closeAllBrowserWindows = async (driver) => {
-  try {
-    const browserWindows = await driver.getAllWindowHandles()
-    if (browserWindows.length > 1) {
-      const lastWindow = browserWindows[browserWindows.length - 1]
-      await driver.switchTo().window(lastWindow)
-      driver.close()
-      await driver.switchTo().window(browserWindows[0])
-    }
-  } catch (err) {
-    console.log(
-      'Just logging that I have caught an exception when trying to close unused tabs'
-    )
-  }
-}
