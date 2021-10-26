@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- UI: Fix layout issues for Microsoft Surface tablets on some integrations, i.e. Country Selector text input height, camera stream view offset too far to the left in portrait orientation.
+
 ## [6.15.1] - 2021-10-21
 
 ### Fixed
