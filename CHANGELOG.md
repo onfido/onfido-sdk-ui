@@ -8,6 +8,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.15.2] - 2021-10-28
+
+### Changed
+
+- UI: Host country flag icons internally and fix flag icons not being displayed on Cross Device SMS Phone Number Input, 2-sided documents' Country Selector screens.
+
 ## [6.15.1] - 2021-10-21
 
 ### Fixed
