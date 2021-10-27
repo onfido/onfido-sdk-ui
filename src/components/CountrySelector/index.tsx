@@ -32,7 +32,7 @@ type State = {
 }
 
 const getFlagIconURL = (country: CountryData) =>
-  `https://assets.onfido.com/flags/4x3/${country.country_alpha2.toLowerCase()}.svg`
+  `https://assets.onfido.com/flags/1x1/${country.country_alpha2.toLowerCase()}.svg`
 
 const getCountryOptionTemplate = (country: CountryData) => {
   if (country) {
