@@ -414,7 +414,7 @@ export const crossDeviceScenarios = async (lang) => {
         // TODO: Additionally check that the onComplete callback did get triggered by expecting the console.log is called with a string containing 'Complete with data! '
       })
 
-      it('should succesfully complete cross device e2e flow with document and selfie upload @e2e-latest', async () => {
+      it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
