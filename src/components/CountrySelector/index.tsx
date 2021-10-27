@@ -31,11 +31,8 @@ type State = {
   showNoResultsError: boolean
 }
 
-const getFlagIconURL = (country: CountryData) => {
-  // NOTE: `flagsPath` is the same as what is returned by libphonenumber-js in PhoneNumberInput component
-  const flagsPath = 'https://lipis.github.io/flag-icon-css/flags/4x3/'
-  return `${flagsPath}${country.country_alpha2.toLowerCase()}.svg`
-}
+const getFlagIconURL = (country: CountryData) =>
+  `https://assets.onfido.com/flags/4x3/${country.country_alpha2.toLowerCase()}.svg`
 
 const getCountryOptionTemplate = (country: CountryData) => {
   if (country) {
