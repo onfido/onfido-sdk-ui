@@ -23,7 +23,7 @@ export const getCountryFlagSrc = (
   countryCode: string,
   flagShape: FlagShapes
 ): string =>
-  `https://assets.onfido.com/flags/${
+  `${process.env.COUNTRY_FLAGS_SRC}${
     FLAGS_FOLDER_BY_SHAPE[flagShape]
   }/${countryCode.toLowerCase()}.svg`
 

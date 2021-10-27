@@ -3,7 +3,7 @@ import PhoneInput from 'react-phone-number-input/native'
 import { parsePhoneNumberFromString } from 'libphonenumber-js/mobile'
 import classNames from 'classnames'
 import { localised } from '~locales'
-import { getCountryFlagSrc } from '../../supported-documents'
+import { getCountryFlagSrc } from '~supported-documents'
 import 'react-phone-number-input/style.css'
 import style from './style.scss'
 
