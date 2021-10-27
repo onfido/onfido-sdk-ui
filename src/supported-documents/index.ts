@@ -14,18 +14,18 @@ type SourceData = {
 
 type FlagShapes = 'rectangle' | 'square'
 
+const FLAGS_FOLDER_BY_SHAPE: Record<FlagShapes, string> = {
+  rectangle: '4x3',
+  square: '1x1',
+}
+
 export const getCountryFlagSrc = (
   countryCode: string,
   flagShape: FlagShapes
-): string => {
-  const flagsFolderByShape = {
-    rectangle: '4x3',
-    square: '1x1',
-  }
-  return `https://assets.onfido.com/flags/${
-    flagsFolderByShape[flagShape]
+): string =>
+  `https://assets.onfido.com/flags/${
+    FLAGS_FOLDER_BY_SHAPE[flagShape]
   }/${countryCode.toLowerCase()}.svg`
-}
 
 export const getCountryDataForDocumentType = (
   countryCode: Optional<string>,
