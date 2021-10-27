@@ -6,11 +6,11 @@ import { localised } from '../../locales'
 import 'react-phone-number-input/style.css'
 import style from './style.scss'
 
-const FlagComponent = ({ country, flagsPath }) => (
+const FlagComponent = ({ country }) => (
   <span
     className={classNames('react-phone-number-input__icon', style.flagIcon)}
     style={{
-      'background-image': `url(${flagsPath}${country.toLowerCase()}.svg)`,
+      'background-image': `url(https://assets.onfido.com/flags/4x3/${country.toLowerCase()}.svg)`,
     }}
   />
 )
