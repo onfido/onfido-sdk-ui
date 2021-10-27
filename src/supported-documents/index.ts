@@ -12,6 +12,21 @@ type SourceData = {
   country: string
 }
 
+type FlagShapes = 'rectangle' | 'square'
+
+export const getCountryFlagSrc = (
+  countryCode: string,
+  flagShape: FlagShapes
+): string => {
+  const flagsFolderByShape = {
+    rectangle: '4x3',
+    square: '1x1',
+  }
+  return `https://assets.onfido.com/flags/${
+    flagsFolderByShape[flagShape]
+  }/${countryCode.toLowerCase()}.svg`
+}
+
 export const getCountryDataForDocumentType = (
   countryCode: Optional<string>,
   documentType: Optional<DocumentTypes>

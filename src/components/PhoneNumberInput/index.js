@@ -2,7 +2,8 @@ import { h, Component } from 'preact'
 import PhoneInput from 'react-phone-number-input/native'
 import { parsePhoneNumberFromString } from 'libphonenumber-js/mobile'
 import classNames from 'classnames'
-import { localised } from '../../locales'
+import { localised } from '~locales'
+import { getCountryFlagSrc } from '../../supported-documents'
 import 'react-phone-number-input/style.css'
 import style from './style.scss'
 
@@ -10,7 +11,7 @@ const FlagComponent = ({ country }) => (
   <span
     className={classNames('react-phone-number-input__icon', style.flagIcon)}
     style={{
-      'background-image': `url(https://assets.onfido.com/flags/4x3/${country.toLowerCase()}.svg)`,
+      'background-image': `url(${getCountryFlagSrc(country, 'rectangle')})`,
     }}
   />
 )
