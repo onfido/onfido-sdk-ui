@@ -99,10 +99,12 @@
         "maxSize": "200 kB"
       }
     ],
-    "trackBranches": [
-      "master",
-      "development"
-    ]
+    "ci": {
+      "trackBranches": [
+        "master",
+        "development"
+      ]
+    }
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
