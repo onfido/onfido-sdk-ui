@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+- Update all Sass / division operation to use the new math.div() syntax to address Sass 2.0 deprecation warnings.
+
 ## [6.15.1] - 2021-10-21
 
 ### Fixed
