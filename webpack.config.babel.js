@@ -162,6 +162,8 @@ const STAGING_CONFIG = {
   MOBILE_URL: '/',
   SMS_DELIVERY_URL: 'https://telephony.eu-west-1.dev.onfido.xyz',
   PUBLIC_PATH: '/',
+  USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
+  COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 
