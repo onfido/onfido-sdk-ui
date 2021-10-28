@@ -30,3 +30,4 @@ jobs:
         with:
           build-script: npm run build
           bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+          branch-base: development
