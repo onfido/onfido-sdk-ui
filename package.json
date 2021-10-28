@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "6.15.1",
+  "version": "6.15.2-rc.1",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -72,6 +72,7 @@
       "^~locales(.*)$": "<rootDir>/src/locales$1",
       "^~types(.*)$": "<rootDir>/src/types$1",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
+      "^~supported-documents(.*)$": "<rootDir>/src/supported-documents$1",
       "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
       "^components(.*)$": "<rootDir>/src/components$1"
     },
