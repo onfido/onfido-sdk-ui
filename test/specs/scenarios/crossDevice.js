@@ -389,7 +389,7 @@ export const crossDeviceScenarios = async (lang) => {
         switchBrowserTab(0, driver)
       })
 
-      it('should successfully complete cross device e2e flow with selfie upload @e2e-latest', async () => {
+      it('should successfully complete cross device e2e flow with selfie upload', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
