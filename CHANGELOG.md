@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [6.15.2] - 2021-10-28
+## [6.15.2] - 2021-11-01
 
 ### Changed
 

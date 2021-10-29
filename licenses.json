@@ -9338,7 +9338,7 @@
     "path": "node_modules/jest-changed-files/node_modules/onetime",
     "licenseFile": "node_modules/jest-changed-files/node_modules/onetime/license"
   },
-  "onfido-sdk-ui@6.15.2-rc.1": {
+  "onfido-sdk-ui@6.15.2-rc.2": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
@@ -10643,7 +10643,7 @@
     "path": "node_modules/react-router",
     "licenseFile": "node_modules/react-router/LICENSE"
   },
-  "react-webcam-onfido@0.1.25": {
+  "react-webcam-onfido@0.1.26": {
     "licenses": "MIT",
     "repository": "https://github.com/onfido/react-webcam",
     "publisher": "Cezary Wojtkowski",
