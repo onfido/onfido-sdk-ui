@@ -14,6 +14,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Host country flag icons internally and fix flag icons not being displayed on Cross Device SMS Phone Number Input, 2-sided documents' Country Selector screens.
 
+### Fixed
+
+- Public: Use new version of `react-webcam-onfido` that includes fix to correctly apply the `muted` attribute to the `video` element. This will prevent the "Live Broadcast" screen to appear on some Safari iOS versions, which is the cause of the identical snapshot and live photos issue.
+
 ## [6.15.1] - 2021-10-21
 
 ### Fixed
