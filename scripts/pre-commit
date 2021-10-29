@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "*** Running pre-commit checks ***"
+
+npm run check:es && npm run check:styles && npm run check:format
+
+status=$?
+
+exit $status

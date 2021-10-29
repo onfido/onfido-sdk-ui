@@ -56,6 +56,10 @@ jobs:
           issue_labels: vulnerability
           dedupe_issues: true
 
+      - name: npm run check
+        if: matrix.NODE_ENV == 'test'
+        run: npm run check
+
       - name: Run build
         # Legacy: For "$NODE_ENV" == "production" Surge uses the NODE_ENV=test + TEST_ENV=deployment
         run: |
