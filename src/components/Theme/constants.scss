@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /* UNITS */
 
 /**
@@ -11,16 +13,16 @@
  * So each "unit" isn't a pixel, but it is when the parent font size is 16px,
  * and it's proportionate to the difference otherwise.
  */
-$unit: (1/16) * 1em;
+$unit: math.div(1, 16) * 1em;
 
 /*
  * We also need different units for when trying to do `px` "equivalents" when
  * our parent has a different font size.
  */
-$unit-x-large: (1/30) * 1em;
-$unit-large: (1/20) * 1em;
-$unit-small: (1/14) * 1em;
-$unit-x-small: (1/11) * 1em;
+$unit-x-large: math.div(1, 30) * 1em;
+$unit-large: math.div(1, 20) * 1em;
+$unit-small: math.div(1, 14) * 1em;
+$unit-x-small: math.div(1, 11) * 1em;
 
 /*
  * We also have a special unit for the react-phone-number-input library, so
@@ -119,7 +121,7 @@ $modal-animation-duration: 200ms;
 }
 
 @mixin width-parent-relative($base-width, $parent-width) {
-  width: 100% * ($base-width/$parent-width);
+  width: 100% * math.div($base-width, $parent-width);
 }
 
 %global-margin {
