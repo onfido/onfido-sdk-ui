@@ -20,7 +20,7 @@
     "build:all": "npm run build && npm run build:auth",
     "postbuild": "dts-bundle-generator src/types/index.ts --out-file lib/index.d.ts && npm run license-checker",
     "clean": "rimraf lib dist",
-    "prepublish": "npm run build:all",
+    "prepublishOnly": "npm run build:all",
     "check": "npm run check:types && npm run check:es && npm run check:styles && npm run check:format",
     "check:types": "tsc --noEmit --jsx preserve",
     "check:es": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}'",

@@ -45,7 +45,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: npm audit action
+      - name: Run dependencies audit
         if: matrix.NODE_ENV == 'production'
         uses: oke-py/npm-audit-action@v1.7.2
         with:
@@ -56,7 +56,7 @@ jobs:
           issue_labels: vulnerability
           dedupe_issues: true
 
-      - name: npm run check
+      - name: Run linters
         if: matrix.NODE_ENV == 'test'
         run: npm run check
 
