@@ -59,9 +59,7 @@
     "src"
   ],
   "pre-commit": [
-    "check:es",
-    "check:styles",
-    "check:format"
+    "check"
   ],
   "jest": {
     "setupFiles": [
