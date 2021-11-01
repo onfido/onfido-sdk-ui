@@ -13,6 +13,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Fix layout issues for Microsoft Surface tablets on some integrations, i.e. Country Selector text input height, camera stream view offset too far to the left in portrait orientation.
 - Update all Sass / division operation to use the new math.div() syntax to address Sass 2.0 deprecation warnings.
 
+## [6.15.2] - 2021-11-01
+
+### Changed
+
+- UI: Host country flag icons internally and fix flag icons not being displayed on Cross Device SMS Phone Number Input, 2-sided documents' Country Selector screens.
+
+### Fixed
+
+- Public: Use new version of `react-webcam-onfido` that includes fix to correctly apply the `muted` attribute to the `video` element. This will prevent the "Live Broadcast" screen to appear on some Safari iOS versions, which is the cause of the identical snapshot and live photos issue.
+
 ## [6.15.1] - 2021-10-21
 
 ### Fixed
@@ -1108,7 +1118,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...development
+[6.15.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.1...6.15.2
 [6.15.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.0...6.15.1
 [6.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.14.0...6.15.0
 [6.14.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.13.0...6.14.0

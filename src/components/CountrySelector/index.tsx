@@ -5,7 +5,10 @@ import classNames from 'classnames'
 import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
 import { localised } from '~locales'
-import { getSupportedCountriesForDocument } from '../../supported-documents'
+import {
+  getSupportedCountriesForDocument,
+  getCountryFlagSrc,
+} from '~supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags, preventDefaultOnClick } from '~utils'
 import { hasOnePreselectedDocument } from '~utils/steps'
@@ -31,18 +34,14 @@ type State = {
   showNoResultsError: boolean
 }
 
-const getFlagIconURL = (country: CountryData) => {
-  // NOTE: `flagsPath` is the same as what is returned by libphonenumber-js in PhoneNumberInput component
-  const flagsPath = 'https://lipis.github.io/flag-icon-css/flags/4x3/'
-  return `${flagsPath}${country.country_alpha2.toLowerCase()}.svg`
-}
-
 const getCountryOptionTemplate = (country: CountryData) => {
   if (country) {
+    const countryCode = country.country_alpha2
+    const countryFlagSrc = getCountryFlagSrc(countryCode, 'square')
     return `<i
       role="presentation"
       class="${style.countryFlag}"
-      style="background-image: url(${getFlagIconURL(country)})"></i>
+      style="background-image: url(${countryFlagSrc})"></i>
       <span class="${style.countryLabel}">${country.name}</span>`
   }
   return ''

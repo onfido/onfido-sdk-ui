@@ -12,6 +12,21 @@ type SourceData = {
   country: string
 }
 
+type FlagShapes = 'rectangle' | 'square'
+
+const FLAGS_FOLDER_BY_SHAPE: Record<FlagShapes, string> = {
+  rectangle: '4x3',
+  square: '1x1',
+}
+
+export const getCountryFlagSrc = (
+  countryCode: string,
+  flagShape: FlagShapes
+): string =>
+  `${process.env.COUNTRY_FLAGS_SRC}${
+    FLAGS_FOLDER_BY_SHAPE[flagShape]
+  }/${countryCode.toLowerCase()}.svg`
+
 export const getCountryDataForDocumentType = (
   countryCode: Optional<string>,
   documentType: Optional<DocumentTypes>
