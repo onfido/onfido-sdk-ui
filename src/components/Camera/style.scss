@@ -106,14 +106,6 @@
   height: 100%;
   width: 100%;
 
-  @media (--small-viewport) {
-    left: -$small-text-margin;
-  }
-
-  @media (--smaller-viewport) {
-    left: -$smaller-text-margin;
-  }
-
   .docLiveCaptureFrame & {
     left: 0;
     top: 50%;
