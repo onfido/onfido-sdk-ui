@@ -27,63 +27,10 @@
     display: block;
   }
 
-  .rrui__select__arrow {
-    color: var(--osdk-color-content-body);
-  }
-
-  .rrui__select__options:not(.rrui__select__options--menu) {
-    width: 438 * $unit;
-  }
-
-  /*
-   * We need to override the `rrui` styles from REM to EM, for our relative fonts
-   */
-  .rrui__input:not(.rrui__input--multiline),
-  .rrui__input-label {
-    height: 1.8 * $unit-rrui;
-  }
-
-  .rrui__select__native {
-    min-height: 1.8 * $unit-rrui;
-  }
-
-  .rrui__input-error {
-    margin-top: 0.3 * $unit-rrui;
-  }
-
-  .rrui__select__options {
-    padding-top: 0.6 * $unit-rrui;
-    padding-bottom: 0.6 * $unit-rrui;
-  }
-
-  .rrui__select__options--left-aligned {
-    left: -1.2 * $unit-rrui;
-  }
-
-  .rrui__select__options--right-aligned {
-    right: -1.2 * $unit-rrui;
-  }
-
-  .rrui__select__options:not(.rrui__select__options--menu) {
-    width: calc(100% + 2.4 * #{$unit-rrui});
-  }
-
-  .rrui__select__option {
-    padding-left: 1.2 * $unit-rrui;
-    padding-right: 1.2 * $unit-rrui;
-    padding-top: 0.3 * $unit-rrui;
-    padding-bottom: 0.3 * $unit-rrui;
-  }
-
-  .rrui__select__option-icon {
-    margin-right: 0.9 * $unit-rrui;
-  }
-
-  .rrui__select__close-icon {
-    margin-top: calc(#{0.6 * $unit-rrui} + 4px);
-    margin-right: calc(#{0.6 * $unit-rrui} + 4px);
-    width: 1.5 * $unit-rrui;
-    height: 1.5 * $unit-rrui;
+  /* stylelint-disable-next-line selector-class-pattern */
+  .PhoneInputCountryIcon--border {
+    background-color: transparent;
+    box-shadow: none;
   }
 }
 
