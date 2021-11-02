@@ -26,17 +26,16 @@ class PhoneNumberInput extends Component {
 
   injectForCountrySelectAriaLabel = () => {
     const { options = {} } = this.props
-    // HACK: This is necessary as react-phone-number-input library is not actually setting country select aria-label
-    const countrySelect = options.containerEl
-      ? options.containerEl.querySelectorAll(
-          '.react-phone-number-input__country-select'
-        )
-      : document.getElementsByClassName(
-          'react-phone-number-input__country-select'
-        )
+    // HACK: This is necessary as setting the ARIA label with react-phone-number-input library `labels` property
+    //       available in v3 loses the human readable country names.
+    //       Also not clear in library's CHANGELOG how to use `countrySelectProps` to set ARIA label for
+    //       country select component as suggested there.
+    const countrySelectEl = options.containerEl
+      ? options.containerEl.querySelectorAll('.PhoneInputCountrySelect')
+      : document.getElementsByClassName('PhoneInputCountrySelect')
 
-    if (countrySelect && countrySelect.length > 0) {
-      countrySelect[0].setAttribute(
+    if (countrySelectEl && countrySelectEl.length > 0) {
+      countrySelectEl[0].setAttribute(
         'aria-label',
         this.props.translate('country_select.search.accessibility')
       )
