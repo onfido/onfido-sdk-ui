@@ -20,6 +20,13 @@
 }
 
 .phoneNumberContainer :global {
+  /* stylelint-disable selector-class-pattern */
+  .PhoneInputCountryIcon--border,
+  .react-phone-number-input__icon {
+    height: 28.8 * $unit;
+    width: 28.8 * $unit;
+  }
+
   .react-phone-number-input__icon {
     height: 28.8 * $unit;
     width: 28.8 * $unit;
@@ -27,22 +34,20 @@
     display: block;
   }
 
-  /* stylelint-disable-next-line selector-class-pattern */
   .PhoneInputCountryIcon--border {
     background-color: transparent;
     box-shadow: none;
   }
+  /* stylelint-enable selector-class-pattern */
 }
 
 .phoneNumberContainer {
-  button {
-    border-bottom: 0;
-  }
-
   input {
     overflow: hidden;
     width: 100%;
-    border-bottom: 0;
+    height: 30 * $unit;
+    border: 0;
+    font-size: var(--font-size-base);
   }
 
   button:focus,
