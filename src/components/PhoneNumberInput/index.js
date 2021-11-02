@@ -73,7 +73,7 @@ class PhoneNumberInput extends Component {
           placeholder={placeholderLabel}
           value={sms.number || ''}
           onChange={this.onChange}
-          country={smsNumberCountryCode}
+          defaultCountry={smsNumberCountryCode}
           inputClassName={`${style.mobileInput}`}
           className={`${style.phoneNumberContainer}`}
           flagComponent={FlagComponent}
