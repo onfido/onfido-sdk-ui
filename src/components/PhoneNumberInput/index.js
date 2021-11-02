@@ -72,7 +72,6 @@ class PhoneNumberInput extends Component {
         <PhoneInput
           id="phoneNumberInput"
           className={`${style.phoneNumberContainer}`}
-          inputClassName={`${style.mobileInput}`} // FIXME: Removed in v3
           placeholder={placeholderLabel}
           value={sms.number || ''}
           onChange={this.onChange}
