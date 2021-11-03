@@ -81,7 +81,7 @@ const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
 const isSMSCountryCodeValid = (smsNumberCountryCode: string) => {
   // If you need to refactor this code, remember not to introduce large libraries such as
   // libphonenumber-js in the main bundle!
-  const countries = getCountries()
+  const countries = getCountries() as string[] // react-phone-number-input returns an array of CountryCode type contrary to documentation
   const isCodeValid = countries.includes(smsNumberCountryCode)
   if (!isCodeValid) {
     console.warn(
