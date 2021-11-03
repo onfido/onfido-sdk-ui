@@ -120,7 +120,6 @@ $_sdk-option-border-bottom: 0;
 
 .custom__hint,
 .custom__input {
-  height: 100%;
   border: $_sdk-input-border-style;
   border-radius: 4 * $unit;
   box-sizing: border-box;
@@ -129,6 +128,7 @@ $_sdk-option-border-bottom: 0;
 }
 
 .custom__input {
+  height: auto;
   background-color: transparent;
   position: relative;
   /* font size for form elements (input, select, textarea) must be at least 16px otherwise iOS Safari intervenes & forces UI to zoom in */
@@ -137,6 +137,7 @@ $_sdk-option-border-bottom: 0;
 }
 
 .custom__hint {
+  height: 100%;
   color: #b1b4b6;
   position: absolute;
 }
