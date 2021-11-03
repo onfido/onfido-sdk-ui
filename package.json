@@ -12,6 +12,7 @@
     "dev": "NODE_ENV=development webpack-dev-server --hot --progress --https",
     "dev:auth": "NODE_ENV=development SDK_ENV=Auth webpack-dev-server --hot --progress --https",
     "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
+    "prebuild": "npm run clean",
     "build": "webpack --quiet --display-error-details --bail",
     "build:auth": "SDK_ENV=Auth webpack --quiet --display-error-details --bail",
     "build:dev": "NODE_ENV=development npm run build",
@@ -19,7 +20,7 @@
     "build:all": "npm run build && npm run build:auth",
     "postbuild": "dts-bundle-generator src/types/index.ts --out-file lib/index.d.ts && npm run license-checker",
     "clean": "rimraf lib dist",
-    "prepare": "npm run clean && npm run check && npm run build:all",
+    "prepublishOnly": "npm run build:all",
     "check": "npm run check:types && npm run check:es && npm run check:styles && npm run check:format",
     "check:types": "tsc --noEmit --jsx preserve",
     "check:es": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}'",
@@ -56,6 +57,9 @@
     "dist",
     "lib",
     "src"
+  ],
+  "pre-commit": [
+    "check"
   ],
   "jest": {
     "setupFiles": [
@@ -192,6 +196,7 @@
     "postcss-custom-media": "^7.0.8",
     "postcss-loader": "^3.0.0",
     "postcss-url": "^8.0.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^2.2.1",
     "qrcode.react": "^1.0.0",
     "react-modal": "^3.11.2",
