@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Fix layout issues for Microsoft Surface tablets on some integrations, i.e. Country Selector text input height, camera stream view offset too far to the left in portrait orientation.
 - Update all Sass / division operation to use the new math.div() syntax to address Sass 2.0 deprecation warnings.
+- Upgrade `react-phone-number-input` to v3 latest version.
 
 ## [6.15.2] - 2021-11-01
 
