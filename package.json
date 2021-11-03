@@ -93,7 +93,7 @@
     "files": [
       {
         "path": "./dist/onfido.min.js",
-        "maxSize": "240 kB"
+        "maxSize": "280 kB"
       },
       {
         "path": "./dist/onfido.crossDevice.min.js",
@@ -101,7 +101,7 @@
       },
       {
         "path": "./dist/style.css",
-        "maxSize": "200 kB"
+        "maxSize": "100 kB"
       }
     ],
     "trackBranches": [
