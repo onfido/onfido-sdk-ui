@@ -160,6 +160,7 @@ export const crossDeviceScenarios = async (lang) => {
         goToCrossDeviceScreen()
         crossDeviceLink.verifyTitle(copy)
         crossDeviceLink.switchToSendSmsOption()
+        driver.sleep(5000)
         crossDeviceLink.expectCurrentUrlToMatchUrl(baseUrl)
         crossDeviceLink.verifySubtitleSms(copy)
         crossDeviceLink.verifyNumberInputLabel(copy)
