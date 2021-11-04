@@ -56,7 +56,9 @@ class CrossDeviceLink extends BasePage {
     )
   }
   async numberInput() {
-    return this.$('.onfido-sdk-ui-PhoneNumberInput-mobileInput')
+    return this.$(
+      '.onfido-sdk-ui-PhoneNumberInput-phoneNumberContainer #phoneNumberInput'
+    )
   }
   async sendLinkBtn() {
     return this.$('[data-onfido-qa="cross-device-send-link-btn"]')
