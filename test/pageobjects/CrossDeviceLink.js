@@ -81,7 +81,7 @@ class CrossDeviceLink extends BasePage {
     return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')
   }
   async countrySelect() {
-    return this.$('.react-phone-number-input__country-select')
+    return this.$('.PhoneInputCountrySelect')
   }
 
   async verifyTitle(copy) {
@@ -185,9 +185,9 @@ class CrossDeviceLink extends BasePage {
   async selectCountryOption(value) {
     const useSeleniumNativeClick = true
     this.countrySelect().click(useSeleniumNativeClick)
-    this.$(
-      `.react-phone-number-input__country-select>option[value="${value}"]`
-    ).click(useSeleniumNativeClick)
+    this.$(`.PhoneInputCountrySelect>option[value="${value}"]`).click(
+      useSeleniumNativeClick
+    )
     this.countrySelect().click(useSeleniumNativeClick)
   }
 
