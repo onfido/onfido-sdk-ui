@@ -1,3 +1,3 @@
-declare module 'react-phone-number-input/modules/countries' {
-  export function getCountryCodes(labels: Record<string, string>): string[]
+declare module 'react-phone-number-input/modules/helpers/countries' {
+  export function getCountries(): CountryCode[]
 }

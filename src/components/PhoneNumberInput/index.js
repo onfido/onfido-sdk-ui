@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import PhoneInput from 'react-phone-number-input/native'
+import PhoneInput from 'react-phone-number-input'
 import { parsePhoneNumberFromString } from 'libphonenumber-js/mobile'
 import classNames from 'classnames'
 import { localised } from '~locales'
@@ -71,12 +71,12 @@ class PhoneNumberInput extends Component {
       >
         <PhoneInput
           id="phoneNumberInput"
+          className={`${style.phoneNumberContainer}`}
+          inputClassName={`${style.mobileInput}`}
           placeholder={placeholderLabel}
           value={sms.number || ''}
           onChange={this.onChange}
-          country={smsNumberCountryCode}
-          inputClassName={`${style.mobileInput}`}
-          className={`${style.phoneNumberContainer}`}
+          defaultCountry={smsNumberCountryCode}
           flagComponent={FlagComponent}
           aria-label={placeholderLabel}
         />
