@@ -96,6 +96,8 @@ const validateSmsCountryCode = (
 ): string | undefined => {
   if (!smsNumberCountryCode) return 'GB'
   const upperCaseCode = upperCase(smsNumberCountryCode)
+  // FIXME: Console error on SDK load
+  //        Uncaught Error: [libphonenumber-js] `metadata` argument not passed. Check your arguments.
   return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'GB'
 }
 
