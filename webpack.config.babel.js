@@ -130,6 +130,8 @@ const PROD_CONFIG = {
   COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN,
+
+  APP_CLIP_TEST_URL: 'https://app-clip-test.onfido.com/',
 }
 
 const TEST_DEPLOYMENT_CONFIG = {
@@ -169,6 +171,8 @@ const STAGING_CONFIG = {
 
   // @TODO: clean-up this config when v4 APIs are live
   USE_V4_APIS_FOR_DOC_VIDEO: process.env.USE_V4_APIS_FOR_DOC_VIDEO,
+
+  APP_CLIP_TEST_URL: 'https://app-clip-test.onfido.com/',
 }
 
 const DEVELOPMENT_CONFIG = {

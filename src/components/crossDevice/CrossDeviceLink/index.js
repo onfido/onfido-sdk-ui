@@ -331,26 +331,23 @@ class CrossDeviceLinkUI extends Component {
     </div>
   )
 
-  renderAppClipQrCodeSection = () => {
-    const appClipTestURL = 'https://app-clip-test.onfido.com/'
-    return (
-      <div className={style.qrCodeSection}>
-        <p>
-          App Clip link:
-          <br />
-          <code>{appClipTestURL}</code>
-        </p>
-        <div
-          className={style.qrCodeContainer}
-          role="img"
-          aria-label="iOS App Clip QR code image"
-        >
-          <QRCodeGenerator url={appClipTestURL} size={144} />
-        </div>
-        <QRCodeHowTo />
+  renderAppClipQrCodeSection = () => (
+    <div className={style.qrCodeSection}>
+      <p>
+        App Clip link:
+        <br />
+        <code>{process.env.APP_CLIP_TEST_URL}</code>
+      </p>
+      <div
+        className={style.qrCodeContainer}
+        role="img"
+        aria-label="iOS App Clip QR code image"
+      >
+        <QRCodeGenerator url={process.env.APP_CLIP_TEST_URL} size={144} />
       </div>
-    )
-  }
+      <QRCodeHowTo />
+    </div>
+  )
 
   handleViewOptionSelect = (newViewId) => {
     sendEvent(
