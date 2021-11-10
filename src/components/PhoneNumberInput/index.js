@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import PhoneInput from 'react-phone-number-input/native'
+import PhoneInput from 'react-phone-number-input'
 import { parsePhoneNumberFromString } from 'libphonenumber-js/mobile'
 import classNames from 'classnames'
 import { localised } from '~locales'
