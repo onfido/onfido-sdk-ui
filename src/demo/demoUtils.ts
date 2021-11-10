@@ -63,6 +63,7 @@ export type QueryParams = {
   invalidCrossDeviceAlternativeMethods?: StringifiedBoolean
   crossDeviceClientIntroCustomProductName?: StringifiedBoolean
   crossDeviceClientIntroCustomProductLogo?: StringifiedBoolean
+  enableAppClipDemo?: StringifiedBoolean
 }
 
 export type CheckData = {
@@ -293,6 +294,9 @@ export const getInitSdkOptions = (): SdkOptions => {
   }
   if (queryParamToValueString.invalidCrossDeviceAlternativeMethods === 'true') {
     visibleCrossDeviceMethods = ['copy', 'qrCode', 'sms']
+  }
+  if (queryParamToValueString.enableAppClipDemo === 'true') {
+    visibleCrossDeviceMethods = ['app_clip_qr', 'qr_code', 'sms', 'copy_link']
   }
 
   const customUI =

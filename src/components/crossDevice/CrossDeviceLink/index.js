@@ -40,6 +40,12 @@ const SECURE_LINK_VIEWS = [
     label: 'get_link.link_url',
     subtitle: 'get_link.subtitle_url',
   },
+  {
+    id: 'app_clip_qr',
+    className: 'qrCodeLinkOption',
+    label: 'get_link.app_clip_qr',
+    subtitle: 'get_link.subtitle_app_clip_qr',
+  },
 ]
 
 const configHasInvalidViewIds = (viewIdsInConfig) => {
@@ -325,6 +331,27 @@ class CrossDeviceLinkUI extends Component {
     </div>
   )
 
+  renderAppClipQrCodeSection = () => {
+    const appClipTestURL = 'https://app-clip-test.onfido.com/'
+    return (
+      <div className={style.qrCodeSection}>
+        <p>
+          App Clip link:
+          <br />
+          <code>{appClipTestURL}</code>
+        </p>
+        <div
+          className={style.qrCodeContainer}
+          role="img"
+          aria-label="iOS App Clip QR code image"
+        >
+          <QRCodeGenerator url={appClipTestURL} size={144} />
+        </div>
+        <QRCodeHowTo />
+      </div>
+    )
+  }
+
   handleViewOptionSelect = (newViewId) => {
     sendEvent(
       `${newViewId.replace('_', ' ')} selected`,
@@ -340,6 +367,7 @@ class CrossDeviceLinkUI extends Component {
       qr_code: this.renderQrCodeSection,
       sms: this.renderSmsLinkSection,
       copy_link: this.renderCopyLinkSection,
+      app_clip_qr: this.renderAppClipQrCodeSection,
     }
     if (
       _crossDeviceLinkMethods.length < 1 ||
