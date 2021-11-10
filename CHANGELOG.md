@@ -8,6 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.15.3] - 2021-11-10
+
+### Fixed
+
+- UI: Fix layout issues for Microsoft Surface tablets on some integrations, i.e. Country Selector text input height, camera stream view offset too far to the left in portrait orientation.
+- Update all Sass / division operation to use the new math.div() syntax to address Sass 2.0 deprecation warnings.
+- Upgrade react-webcam-onfido to 0.1.27 to enforce default values for video/audio bitrate to ensure generated file size is not bigger than necessary.
+
 ## [6.15.2] - 2021-11-01
 
 ### Changed
@@ -1113,7 +1121,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...development
+[6.15.3]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...6.15.3
 [6.15.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.1...6.15.2
 [6.15.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.0...6.15.1
 [6.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.14.0...6.15.0

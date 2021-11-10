@@ -77,7 +77,7 @@
 
   background-size: ($overlay-width * $scale) ($overlay-height * $scale);
   background-position: 50%
-    calc(#{($hole-height - $overlay-height) * $scale / 2 + $offset-y});
+    calc(#{($hole-height - $overlay-height) * $scale * 0.5 + $offset-y});
 }
 
 .face {

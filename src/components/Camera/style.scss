@@ -102,21 +102,9 @@
 .webcamContainer {
   position: absolute;
   top: 0;
+  left: 0;
   height: 100%;
-  left: -$large-text-margin;
-
-  @media (--small-viewport) {
-    left: -$small-text-margin;
-  }
-
-  @media (--smaller-viewport) {
-    left: -$smaller-text-margin;
-  }
-
-  &.adjustForReducedResolution {
-    left: 0;
-    width: 100%;
-  }
+  width: 100%;
 
   .docLiveCaptureFrame & {
     left: 0;
