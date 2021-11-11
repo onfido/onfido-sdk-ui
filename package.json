@@ -131,7 +131,7 @@
     "@onfido/castor": "^1.2.0",
     "@onfido/castor-icons": "^2.0.0",
     "@onfido/castor-react": "^1.2.0",
-    "@percy/cli": "^1.0.0-beta.60",
+    "@percy/cli": "^1.0.0-beta.70",
     "@percy/selenium-webdriver": "^1.0.0",
     "@sentry/cli": "^1.51.1",
     "@types/blueimp-load-image": "^2.23.8",
