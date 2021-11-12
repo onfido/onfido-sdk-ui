@@ -1015,7 +1015,7 @@ Onfido.init({
 
 #### Iframe camera and microphone permission issues
 
-If embedded inside a cross-origin iframe, the SDK may fail to access the camera and microphone. This is a known issue on recent Chrome versions. You may need to add the following `allow` attribute to your iframe:
+If embedded inside a cross-origin iframe, the SDK may fail to access the camera and microphone. This is a known issue on recent Chrome versions where requests fail in a similar way as if a user had denied a permission prompt. You may need to add the following `allow` attribute to your iframe:
 
 ```html
 <iframe src="..." allow="camera;microphone"></iframe>
