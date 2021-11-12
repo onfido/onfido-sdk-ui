@@ -86,15 +86,14 @@ jobs:
           body: ${{ steps.extract-release-notes.outputs.release_notes }}
           draft: true
 
-      # FIXME: Temporarily disabled to allow release build to pass. To be fixed in CX-6470
-      # - name: Send artifacts to Sentry
-      #   run: |
-      #     curl -sL https://sentry.io/get-cli/ | bash
-      #     sentry-cli --auth-token $SENTRY_AUTH_TOKEN
-      #     sentry-cli releases new $LATEST_TAG --log-level=DEBUG
-      #     sentry-cli releases files $LATEST_TAG upload-sourcemaps ./dist/
-      #   env:
-      #     SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      - name: Send artifacts to Sentry
+        run: |
+          curl -sL https://sentry.io/get-cli/ | bash
+          sentry-cli --auth-token $SENTRY_AUTH_TOKEN
+          sentry-cli releases new $LATEST_TAG --log-level=DEBUG
+          sentry-cli releases files $LATEST_TAG upload-sourcemaps ./dist/
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
       - name: Run build for Surge
         # Legacy: Surge uses the NODE_ENV=test + TEST_ENV=deployment
