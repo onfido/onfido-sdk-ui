@@ -14,7 +14,7 @@ import { buildStepFinder, getEnabledDocuments } from '~utils/steps'
 import Modal from '../Modal'
 import Router from '../Router'
 import * as Tracker from '../../Tracker'
-import { getCountryDataForDocumentType } from '../../supported-documents'
+import { getCountryDataForDocumentType } from '~supported-documents'
 
 import type { NormalisedSdkOptions } from '~types/commons'
 import type {

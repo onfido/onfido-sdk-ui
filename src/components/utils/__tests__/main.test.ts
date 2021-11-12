@@ -1,4 +1,4 @@
-import { buildIteratorKey } from '../index'
+import { buildIteratorKey } from '~utils'
 
 test('buildIteratorKey', () => {
   expect(buildIteratorKey('Some normal Latin characters')).toBe(

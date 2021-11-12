@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 class Complete extends Component {
