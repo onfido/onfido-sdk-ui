@@ -8,7 +8,9 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 [{package.json,.*rc,*.yml}]
-indent_style = space
+indent_size = 2
+
+[{*.js, *.ts}]
 indent_size = 2
 
 [*.md]
