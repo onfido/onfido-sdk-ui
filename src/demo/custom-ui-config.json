@@ -17,6 +17,7 @@
   "colorBackgroundButtonSecondaryHover": "#ce6a85",
   "colorBackgroundButtonSecondaryActive": "#985277",
   "borderRadiusButton": "50px",
+  "textTransformButton": "uppercase",
   "buttonGroupStacked": true,
   "colorBorderDocTypeButton": "#5c374c",
   "colorBorderDocTypeButtonHover": "#f67e7d",

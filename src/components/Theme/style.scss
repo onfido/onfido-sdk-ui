@@ -7,6 +7,7 @@
 
   .ods-button {
     border-radius: var(--osdk-border-radius-button);
+    text-transform: var(--osdk-text-transform-button);
 
     /* stylelint-disable-next-line selector-class-pattern */
     &.-action--primary {

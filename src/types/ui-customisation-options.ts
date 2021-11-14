@@ -40,6 +40,7 @@ export type UICustomizationOptions = {
 
   // Applied to both Primary, Secondary Buttons
   borderRadiusButton?: string
+  textTransformButton?: string
 
   // Displays Primary, Secondary Button groups as stacked blocks instead of inline on the same row
   buttonGroupStacked?: boolean
