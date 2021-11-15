@@ -1,23 +1,21 @@
-import { h } from 'preact'
+import { trackComponent } from '../../../Tracker'
+import { useLocales } from '~locales'
+import { FunctionComponent, h } from 'preact'
+import { StepComponentProps } from '~types/routers'
+import theme from '../../Theme/style.scss'
+import PageTitle from '../../PageTitle'
+import style from './style.scss'
+import Graphic from './graphic'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import PageTitle from '../../PageTitle'
-import { trackComponent } from '../../../Tracker'
-import { localised } from '~locales'
 import { POA_GUIDANCE_LOCALES_MAPPING } from '~utils/localesMapping'
-import Graphic from './graphic'
-import theme from '../../Theme/style.scss'
-import style from './style.scss'
 
-const Guidance = ({
-  translate,
-  parseTranslatedTags,
-  poaDocumentType,
-  nextStep,
-}) => {
-  if (!poaDocumentType) {
-    return null
-  }
+type Props = StepComponentProps & {
+  poaDocumentType: string
+}
+
+const Guidance: FunctionComponent<Props> = ({ nextStep, poaDocumentType }) => {
+  const { translate, parseTranslatedTags } = useLocales()
 
   return (
     <div className={theme.fullHeightContainer} data-page-id={'PoAGuidance'}>
@@ -57,4 +55,4 @@ const Guidance = ({
   )
 }
 
-export default trackComponent(localised(Guidance))
+export default trackComponent(Guidance)

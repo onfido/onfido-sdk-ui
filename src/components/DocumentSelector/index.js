@@ -1,15 +1,11 @@
-import { h, Component } from 'preact'
-import { kebabCase } from '~utils/string'
-import { isEmpty } from '~utils/object'
+import {h, Component} from 'preact'
+import {kebabCase} from '~utils/string'
+import {isEmpty} from '~utils/object'
 import classNames from 'classnames'
-import {
-  idDocumentOptions,
-  poaDocumentOptions,
-  // type DocumentOptionsType,
-} from './documentTypes'
-import { getCountryDataForDocumentType } from '~supported-documents'
-import { localised /* , type LocalisedType */ } from '~locales'
-import { isDesktop } from '~utils'
+import {idDocumentOptions} from './documentTypes'
+import {getCountryDataForDocumentType} from '~supported-documents'
+import {localised} from '~locales'
+import {isDesktop} from '~utils'
 import style from './style.scss'
 
 /* type Props = {
@@ -119,7 +115,7 @@ class DocumentSelector extends Component {
 
 const LocalisedDocumentSelector = localised(DocumentSelector)
 
-const withDefaultOptions = (iconCopyDisplayOptionsByType) => {
+export const withDefaultOptions = (iconCopyDisplayOptionsByType) => {
   const DocumentSelectorWithDefaultOptions = (props) => (
     <LocalisedDocumentSelector
       {...props}
@@ -128,13 +124,13 @@ const withDefaultOptions = (iconCopyDisplayOptionsByType) => {
 
         return typeList.map((type) => {
           const {
-            icon = `icon-${kebabCase(type)}`,
-            labelKey,
-            detailKey,
-            warningKey,
-            eStatementsKey,
-            checkAvailableInCountry,
-          } = iconCopyDisplayOptionsByType[type]
+                  icon = `icon-${kebabCase(type)}`,
+                  labelKey,
+                  detailKey,
+                  warningKey,
+                  eStatementsKey,
+                  checkAvailableInCountry,
+                } = iconCopyDisplayOptionsByType[type]
 
           return {
             icon,
@@ -154,5 +150,3 @@ const withDefaultOptions = (iconCopyDisplayOptionsByType) => {
 }
 
 export const IdentityDocumentSelector = withDefaultOptions(idDocumentOptions)
-
-export const PoADocumentSelector = withDefaultOptions(poaDocumentOptions)
