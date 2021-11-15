@@ -1,18 +1,19 @@
-import { h, FunctionComponent, Ref } from 'preact'
-import { mount, shallow, ReactWrapper } from 'enzyme'
+import { FunctionComponent, h, Ref } from 'preact'
+import { mount, ReactWrapper, shallow } from 'enzyme'
 import Webcam from 'react-webcam-onfido'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import Camera from '../../Camera'
 import VideoCapture, {
-  VideoOverlayProps,
   Props as VideoCaptureProps,
+  VideoOverlayProps,
 } from '../index'
 
 import type { CameraProps } from '~types/camera'
 import type { CaptureMethods } from '~types/commons'
 import type { WithTrackingProps } from '~types/hocs'
+import { fakeCapturePayload } from '~jest/captures'
 
 jest.mock('~utils')
 
@@ -171,14 +172,9 @@ describe('VideoCapture', () => {
         wrapper.find('#record-video').simulate('click')
         expect(wrapper.find('#record-video').text()).toEqual('Start')
 
-        expect(defaultProps.onVideoCapture).toHaveBeenCalledWith({
-          blob: new Blob(),
-          sdkMetadata: {
-            camera_name: 'fake-video-track',
-            captureMethod: 'live',
-            microphone_name: 'fake-audio-track',
-          },
-        })
+        expect(defaultProps.onVideoCapture).toHaveBeenCalledWith(
+          fakeCapturePayload('video')
+        )
       })
 
       describe('when inactive timed out', () => {
