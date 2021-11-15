@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { trackException, sendEvent } from '../../Tracker'
+import { trackException, sendEvent, TRACKED_EVENT_TYPES } from '../../Tracker'
 import { isOfMimeType, mimeType } from '~utils/blob'
 import {
   uploadDocument,
@@ -30,6 +30,8 @@ const CALLBACK_TYPES = {
   video: 'onSubmitVideo',
   document: 'onSubmitDocument',
 }
+const UNEXPECTED_ERROR = 'REQUEST_ERROR'
+
 class Confirm extends Component {
   constructor(props) {
     super(props)
@@ -86,15 +88,17 @@ class Confirm extends Component {
       this.props.triggerOnError({ status, response })
       return this.props.crossDeviceClientError()
     } else if (status === 422) {
-      errorKey = this.onfidoErrorReduce(response.error) || 'REQUEST_ERROR'
+      errorKey = this.onfidoErrorReduce(response.error) || UNEXPECTED_ERROR
     } else {
       this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
-      errorKey = 'REQUEST_ERROR'
+      errorKey = UNEXPECTED_ERROR
     }
 
     this.setError(errorKey)
   }
+
+  onVideoPreviewError = () => this.setError(UNEXPECTED_ERROR)
 
   imageQualityWarnings = (warnings) => {
     for (const warnKey in IMAGE_QUALITY_KEYS_MAP) {
@@ -116,7 +120,10 @@ class Confirm extends Component {
     const { capture } = this.state
 
     const duration = Math.round(performance.now() - this.startTime)
-    sendEvent('Completed upload', { duration, method })
+    sendEvent('Completed upload', TRACKED_EVENT_TYPES.action, {
+      duration,
+      method,
+    })
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
@@ -186,7 +193,7 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     if (!isDecoupledFromAPI) {
       this.startTime = performance.now()
-      sendEvent('Starting upload', { method })
+      sendEvent('Starting upload', TRACKED_EVENT_TYPES.action, { method })
     }
     this.setState({ uploadInProgress: true })
     const {
@@ -255,7 +262,8 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     const formDataPayload = this.prepareCallbackPayload(data, callbackName)
 
-    sendEvent(`Triggering ${callbackName} callback`)
+    const eventType = TRACKED_EVENT_TYPES.action
+    sendEvent(`Triggering ${callbackName} callback`, eventType)
     try {
       const {
         continueWithOnfidoSubmission,
@@ -263,14 +271,14 @@ class Confirm extends Component {
       } = await enterpriseFeatures[callbackName](formDataPayload)
 
       if (onfidoSuccessResponse) {
-        sendEvent(`Success response from ${callbackName}`)
+        sendEvent(`Success response from ${callbackName}`, eventType)
         this.onApiSuccess(onfidoSuccessResponse)
         return
       }
 
       if (continueWithOnfidoSubmission) {
         this.startTime = performance.now()
-        sendEvent('Starting upload', {
+        sendEvent('Starting upload', eventType, {
           method,
           uploadAfterNetworkDecouple: true,
         })
@@ -332,7 +340,7 @@ class Confirm extends Component {
     }
     return objectToFormData({
       sdk_metadata: JSON.stringify(data.sdkMetadata),
-      sdk_source: 'onfido_web_sdk',
+      sdk_source: process.env.SDK_SOURCE,
       sdk_version: process.env.SDK_VERSION,
       ...payload,
     })
@@ -387,6 +395,7 @@ class Confirm extends Component {
         documentType={documentType}
         poaDocumentType={poaDocumentType}
         forceRetake={error.type === 'error'}
+        onVideoError={this.onVideoPreviewError}
       />
     )
   }

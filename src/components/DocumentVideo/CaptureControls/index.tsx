@@ -99,6 +99,7 @@ const CaptureControls: FunctionComponent<Props> = ({
 
   const action = (
     <Button
+      type="button"
       variant="primary"
       className={classNames(theme['button-centered'], theme['button-lg'])}
       disabled={disableInteraction}

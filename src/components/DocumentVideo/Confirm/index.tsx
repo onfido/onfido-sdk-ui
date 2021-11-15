@@ -169,16 +169,18 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   const buttons = (
     <div className={style.buttonsContainer}>
       <Button
-        onClick={onUploadDocuments}
+        type="button"
         variant="primary"
+        onClick={onUploadDocuments}
         className={classNames(theme['button-centered'], theme['button-lg'])}
         data-onfido-qa="doc-video-confirm-primary-btn"
       >
         {translate('video_confirmation.button_primary')}
       </Button>
       <Button
-        onClick={onSecondaryClick}
+        type="button"
         variant="secondary"
+        onClick={onSecondaryClick}
         className={classNames(theme['button-centered'], theme['button-lg'])}
         data-onfido-qa="doc-video-confirm-secondary-btn"
       >

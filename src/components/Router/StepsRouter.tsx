@@ -5,6 +5,7 @@ import { wrapArray } from '~utils/array'
 import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
+import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
 
 import type { TrackScreenCallback } from '~types/hocs'
 import type { StepComponentProps, StepsRouterProps } from '~types/routers'
@@ -75,54 +76,58 @@ class StepsRouter extends Component<StepsRouterProps> {
 
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
-      <div
-        className={classNames(theme.step, {
-          [theme.fullScreenStep]: isFullScreen,
-          [theme.noLogo]: hideLogoLogic,
-          [theme.logoCobrandImage]: logoCobrand,
-          [theme.onfidoCobrandLogo]: textCobrandLogic || logoCobrand,
-          [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
-        })}
-        tabIndex={-1}
-        ref={(node) => node && (this.container = node)}
-      >
-        <NavigationBar
-          id={stepId}
-          back={back}
-          disabled={disableNavigation}
-          className={theme.navigationBar}
-        />
+      <ContainerDimensionsProvider>
         <div
-          className={classNames(theme.content, {
-            [theme.fullScreenContentWrapper]: isFullScreen,
-            [theme.scrollableContent]: !isFullScreen,
+          className={classNames(theme.step, {
+            [theme.fullScreenStep]: isFullScreen,
+            [theme.noLogo]: hideLogoLogic,
+            [theme.logoCobrandImage]: logoCobrand,
+            [theme.onfidoCobrandLogo]: textCobrandLogic || logoCobrand,
+            [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
           })}
+          tabIndex={-1}
+          ref={(node) => node && (this.container = node)}
         >
-          <CurrentComponent {...passedProps} />
-        </div>
-        {!hideLogoLogic && (textCobrandLogic || logoCobrandLogic) ? (
+          <NavigationBar
+            id={stepId}
+            back={back}
+            disabled={disableNavigation}
+            className={theme.navigationBar}
+          />
           <div
-            className={classNames({
-              [theme.cobrandFooter]: textCobrandLogic || logoCobrandLogic,
+            className={classNames(theme.content, {
+              [theme.fullScreenContentWrapper]: isFullScreen,
+              [theme.scrollableContent]: !isFullScreen,
             })}
           >
-            {logoCobrandLogic ? (
-              <div className={theme.logoCobrandImage} />
-            ) : null}
-            <div className={theme.cobrandLabel} aria-hidden="true">
-              {textCobrandLogic ? (
-                <div className={theme.cobrandText}>{textCobrandLogic.text}</div>
+            <CurrentComponent {...passedProps} />
+          </div>
+          {!hideLogoLogic && (textCobrandLogic || logoCobrandLogic) ? (
+            <div
+              className={classNames({
+                [theme.cobrandFooter]: textCobrandLogic || logoCobrandLogic,
+              })}
+            >
+              {logoCobrandLogic ? (
+                <div className={theme.logoCobrandImage} />
               ) : null}
-              <div className={theme.poweredBy}>powered by</div>
+              <div className={theme.cobrandLabel} aria-hidden="true">
+                {textCobrandLogic ? (
+                  <div className={theme.cobrandText}>
+                    {textCobrandLogic.text}
+                  </div>
+                ) : null}
+                <div className={theme.poweredBy}>powered by</div>
+              </div>
+              <div className={theme.logo} />
             </div>
-            <div className={theme.logo} />
-          </div>
-        ) : (
-          <div className={theme.footer}>
-            <div className={theme.logo} />
-          </div>
-        )}
-      </div>
+          ) : (
+            <div className={theme.footer}>
+              <div className={theme.logo} />
+            </div>
+          )}
+        </div>
+      </ContainerDimensionsProvider>
     )
   }
 }

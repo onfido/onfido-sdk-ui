@@ -40,6 +40,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       deviceHasCameraSupport,
       options,
       urls,
+      analyticsSessionUuid,
     } = this.props
 
     const {
@@ -49,6 +50,8 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       disableAnalytics,
       enterpriseFeatures,
       customUI,
+      crossDeviceClientIntroProductName,
+      crossDeviceClientIntroProductLogoSrc,
     } = options
 
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
@@ -57,21 +60,26 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       throw new Error('steps not provided')
     }
 
+    const { crossDeviceInitialClientStep, crossDeviceInitialStep } = this.state
+
     return {
-      clientStepIndex: this.state.crossDeviceInitialClientStep,
+      clientStepIndex: crossDeviceInitialClientStep,
       deviceHasCameraSupport,
       disableAnalytics,
       documentType,
       enterpriseFeatures,
       customUI: customUI || null,
+      crossDeviceClientIntroProductName,
+      crossDeviceClientIntroProductLogoSrc,
       idDocumentIssuingCountry,
       language,
       poaDocumentType,
-      step: this.state.crossDeviceInitialStep,
+      step: crossDeviceInitialStep,
       steps,
       token,
       urls,
       woopraCookie,
+      analyticsSessionUuid,
     }
   }
 

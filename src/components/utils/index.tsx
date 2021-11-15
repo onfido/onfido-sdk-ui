@@ -6,6 +6,7 @@ import detectSystem from './detectSystem'
 const parseUnit = require('parse-unit')
 
 import type { SdkMetadata, ErrorNames } from '~types/commons'
+import type { TrackedEnvironmentData } from '~types/tracker'
 import type { TranslatedTagParser } from '~types/locales'
 
 export const functionalSwitch = <T extends unknown>(
@@ -30,11 +31,6 @@ export const getCSSValue = (
 
 export const getCSSMillisecsValue = (cssUnit: string | number): number =>
   getCSSValue('ms', cssUnit)
-
-export const wrapWithClass = (
-  className: string,
-  children: h.JSX.Element
-): h.JSX.Element => <div className={className}>{children}</div>
 
 export const preventDefaultOnClick = (callback: () => void) => (
   event: Event
@@ -203,6 +199,20 @@ export const addDeviceRelatedProperties = (
     isCrossDeviceFlow,
     deviceType: isDesktop ? 'desktop' : 'mobile',
     system,
+  }
+}
+
+export const trackedEnvironmentData = (): TrackedEnvironmentData => {
+  const osInfo = detectSystem('os')
+  const browserInfo = detectSystem('browser')
+
+  return {
+    ...(osInfo && { os: osInfo.name, os_version: osInfo.version }),
+    ...(browserInfo && {
+      browser: browserInfo.name,
+      browser_version: browserInfo.version,
+    }),
+    device: isDesktop ? 'desktop' : 'mobile',
   }
 }
 

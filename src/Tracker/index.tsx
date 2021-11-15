@@ -4,13 +4,21 @@ import { cleanFalsy, wrapArray } from '~utils/array'
 import WoopraTracker from './safeWoopra'
 import { map as mapObject } from '~utils/object'
 import { isOnfidoHostname } from '~utils/string'
+import { sendAnalyticsEvent } from './onfidoTracker'
 
 import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
 import type {
   TrackedEventNames,
+  TrackedEventTypes,
   UserAnalyticsEventNames,
   UserAnalyticsEventDetail,
 } from '~types/tracker'
+
+const TRACKED_EVENT_TYPES: Record<string, TrackedEventTypes> = {
+  flow: 'flow',
+  action: 'action',
+  screen: 'screen',
+}
 
 let shouldSendEvents = false
 
@@ -140,6 +148,7 @@ const userAnalyticsEvent = (
 
 const sendEvent = (
   eventName: TrackedEventNames,
+  eventType: TrackedEventTypes = 'screen',
   properties?: Record<string, unknown>
 ): void => {
   if (integratorTrackedEvents.has(eventName)) {
@@ -147,7 +156,9 @@ const sendEvent = (
   }
 
   if (shouldSendEvents) {
-    woopra && woopra.track(eventName, formatProperties(properties))
+    const formattedProperties = formatProperties(properties)
+    woopra && woopra.track(eventName, formattedProperties)
+    sendAnalyticsEvent(eventName, eventType, formattedProperties)
   }
 }
 
@@ -159,7 +170,8 @@ const screeNameHierarchyFormat = (
 const sendScreen = (
   screeNameHierarchy: string[],
   properties?: Record<string, unknown>
-): void => sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
+): void =>
+  sendEvent(screeNameHierarchyFormat(screeNameHierarchy), 'screen', properties)
 
 const appendToTracking = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,
@@ -267,4 +279,5 @@ export {
   appendToTracking,
   setWoopraCookie,
   getWoopraCookie,
+  TRACKED_EVENT_TYPES,
 }

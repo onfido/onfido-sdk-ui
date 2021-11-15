@@ -11,7 +11,7 @@ import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
-import { dirname, relative, resolve, basename, path } from 'path'
+import { dirname, relative, resolve, basename } from 'path'
 import nodeExternals from 'webpack-node-externals'
 import CopyPlugin from 'copy-webpack-plugin'
 
@@ -127,7 +127,7 @@ const PROD_CONFIG = {
   SMS_DELIVERY_URL: 'https://telephony.onfido.com',
   PUBLIC_PATH: `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
-  AUTH_URL: 'https://api.eu.onfido.com',
+  COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
   WOOPRA_DOMAIN,
 }
@@ -136,7 +136,6 @@ const TEST_DEPLOYMENT_CONFIG = {
   ...PROD_CONFIG,
   PUBLIC_PATH: '/',
   MOBILE_URL: '/',
-  RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
 
@@ -147,6 +146,7 @@ const TEST_E2E_CONFIG = {
   US_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
   CA_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
   SMS_DELIVERY_URL: 'https://localhost:8080/telephony',
+  RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
 }
 
 const STAGING_CONFIG = {
@@ -162,7 +162,8 @@ const STAGING_CONFIG = {
   MOBILE_URL: '/',
   SMS_DELIVERY_URL: 'https://telephony.eu-west-1.dev.onfido.xyz',
   PUBLIC_PATH: '/',
-  AUTH_URL: 'https://api-gateway.eu-west-1.dev.onfido.xyz/',
+  USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
+  COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 
@@ -214,12 +215,13 @@ const basePlugins = (bundle_name = '') => [
       SDK_ENV,
       PRODUCTION_BUILD,
       SDK_VERSION: packageJson.version,
+      SDK_SOURCE: 'onfido_web_sdk',
       // We use a Base 32 version string for the cross-device flow, to make URL
       // string support easier...
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'CK',
+      BASE_32_VERSION: 'CS',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
@@ -246,6 +248,7 @@ const baseConfig = {
       '~locales': `${__dirname}/src/locales`,
       '~types': `${__dirname}/src/types`,
       '~utils': `${__dirname}/src/components/utils`,
+      '~supported-documents': `${__dirname}/src/supported-documents`,
       '~auth-sdk': `${__dirname}/auth-sdk/FaceTec`,
       'socket.io-client': resolve(
         'node_modules/socket.io-client/dist/socket.io.js'
@@ -315,9 +318,6 @@ const configDist = () => ({
               sourceMap: true,
               terserOptions: {
                 output: {
-                  preamble: `/* Onfido${
-                    SDK_ENV === 'Auth' ? SDK_ENV : 'IDV'
-                  } SDK ${packageJson.version} */`,
                   comments: '/^!/',
                 },
               },
@@ -330,6 +330,13 @@ const configDist = () => ({
                 banner: (licenseFile) => {
                   return `License information can be found in ${licenseFile}`
                 },
+              },
+            }),
+            new webpack.BannerPlugin({
+              banner: () => {
+                return `Onfido${SDK_ENV === 'Auth' ? SDK_ENV : 'IDV'} SDK ${
+                  packageJson.version
+                }`
               },
             }),
           ]

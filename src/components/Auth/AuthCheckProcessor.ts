@@ -1,5 +1,4 @@
 import { EventEmitter2 } from 'eventemitter2'
-import { BaseURL } from './AuthConfig'
 import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
 import type {
   FaceTecSessionResult,
@@ -17,6 +16,7 @@ type AuthConfigType = {
 export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   latestNetworkRequest = new XMLHttpRequest()
   success
+  apiUrl
   sdkToken
   nextStep
   goBack
@@ -26,14 +26,16 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
   maxRetries
 
   constructor(
+    apiUrl: string | undefined,
     authConfig: AuthConfigType,
     maxRetries: number,
-    sdkToken: string | undefined,
+    sdkToken: string,
     nextStep: () => void,
     goBack: () => void,
     events?: EventEmitter2.emitter
   ) {
     this.sdkToken = sdkToken
+    this.apiUrl = apiUrl
     this.success = false
     this.nextStep = nextStep
     this.goBack = goBack
@@ -77,7 +79,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
       audit_trail_image: sessionResult.auditTrail[0],
       low_quality_audit_trail_image: sessionResult.lowQualityAuditTrail[0],
       metadata: {
-        sdk_source: 'onfido_web_sdk',
+        sdk_source: process.env.SDK_SOURCE,
         sdk_version: process.env.SDK_VERSION,
         sdk_metadata: {
           system: {
@@ -96,7 +98,7 @@ export class AuthCheckProcessor implements FaceTecFaceScanProcessor {
     // Part 5:  Make the Networking Call to the Onfido Servers.
     //
     this.latestNetworkRequest = new XMLHttpRequest()
-    this.latestNetworkRequest.open('POST', `${BaseURL}/v3/auth_3d`)
+    this.latestNetworkRequest.open('POST', `${this.apiUrl}/v3/auth_3d`)
     this.latestNetworkRequest.setRequestHeader(
       'Authorization',
       `Bearer ${this.sdkToken}`

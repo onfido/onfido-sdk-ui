@@ -57,22 +57,17 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         triggerOnError,
         uploadFallback,
       } = this.props
-      const currentStep = componentsList[step]
+      const currentStep = componentsList[step].step.type
       const docVideoRequested =
-        requestedVariant === 'video' && currentStep.step.type === 'document'
+        requestedVariant === 'video' && currentStep === 'document'
       const shouldSelfieFallbackBeDisabled =
-        window.MediaRecorder == null && !photoCaptureFallback
+        requestedVariant === 'video' &&
+        currentStep === 'face' &&
+        window.MediaRecorder == null &&
+        !photoCaptureFallback
       const cameraRequiredButNoneDetected =
         (!hasCamera || shouldSelfieFallbackBeDisabled) &&
-        (requestedVariant === 'video' || currentStep.step.type === 'face')
-
-      if (cameraRequiredButNoneDetected) {
-        triggerOnError(
-          buildError(
-            'Camera required: Either device has no camera or browser is unable to detect camera'
-          )
-        )
-      }
+        (requestedVariant === 'video' || currentStep === 'face')
 
       if (
         cameraRequiredButNoneDetected ||
@@ -97,6 +92,13 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         }
 
         if (!isDesktop) {
+          if (cameraRequiredButNoneDetected) {
+            triggerOnError(
+              buildError(
+                'Camera required: Either device has no camera or browser is unable to detect camera'
+              )
+            )
+          }
           // The cross device option should not be available when the user is already using a mobile device
           return
         }

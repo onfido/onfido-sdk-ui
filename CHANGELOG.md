@@ -8,10 +8,86 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.15.3] - 2021-11-10
+
 ### Fixed
 
-- UI: Fix camera view not lining up with Document Live Capture overlay.
+- UI: Fix layout issues for Microsoft Surface tablets on some integrations, i.e. Country Selector text input height, camera stream view offset too far to the left in portrait orientation.
+- Update all Sass / division operation to use the new math.div() syntax to address Sass 2.0 deprecation warnings.
+- Upgrade react-webcam-onfido to 0.1.27 to enforce default values for video/audio bitrate to ensure generated file size is not bigger than necessary.
+
+## [6.15.2] - 2021-11-01
+
+### Changed
+
+- UI: Host country flag icons internally and fix flag icons not being displayed on Cross Device SMS Phone Number Input, 2-sided documents' Country Selector screens.
+
+### Fixed
+
+- Public: Use new version of `react-webcam-onfido` that includes fix to correctly apply the `muted` attribute to the `video` element. This will prevent the "Live Broadcast" screen to appear on some Safari iOS versions, which is the cause of the identical snapshot and live photos issue.
+
+## [6.15.1] - 2021-10-21
+
+### Fixed
+
+- Public: Fix error when face step selfie/video variant was requested for users on mobile devices
+- UI: Set all Button components as `type="button"` if not already set as that to prevent the Button component defaulting to a `submit` type button.
+- UI: Fix SDK only displaying a loading spinner instead of the "Something's gone wrong" error screen with messages "The link only works on mobile devices / You’ll need to restart your verification on your computer".
+- Public: Fixed Web SDK breaking with a `Container wasn't rendered!` console error on the Document live capture step when in Modal mode since version `6.11.1`
+- Public: Fix SDK displaying "The following keys have missing data: document_front" console error and not triggering the `onComplete` callback to integrator if user transitioned to Cross Device flow for the Face step
+- UI: Fix UI issue where a user returning to the Desktop tab after completing the capture on cross-device flow, sees "Document" in the confirmation list even when a document was not captured.
+
+## [6.15.0] - 2021-10-11
+
+### Added
+
+- Internal: Added configuration to support visual regression tests to run against multiple languages.
+- Internal: Send analytics events to `v3/analytics`. Analytics events are also sent to Woopra, until we are ready to discontinue the current Woopra integration.
+
+### Changed
+
+- UI: Accessibility - Return focus to Document capture image preview's "Enlarge image" toggle button when expanded image preview's "Close" toggle button is clicked.
+
+### Fixed
+
+- Public: Video element errors and validation errors returned by live_videos endpoint are handled by the Web SDK
+- Public: Fix grey oblong background appearing under the red cross icon on the Unsupported Browser error screen
+- Public: Remove grey circle background from SVG icon displayed on Generic Error screen so that custom circle background is visible
+- Internal: Upgraded some dev dependencies to fix some npm security vulnerabilities, also upgraded socket.io-client dependency to v4.2.0 to resolve npm security vulnerability in ws@7.4.4
+
+## [6.14.0] - 2021-09-13
+
+### Added
+
+- UI: Added new Intro screen when user begins the Cross Device flow on their mobile device.
+- Public: Added SDK configuration options for integrators to customize product name, copy and/or logo image for the new Cross Device Mobile Client Intro screen.
+
+### Fixed
+
+- Public: Fixed custom SDK body text color set in `customUI.colorContentBody` option not getting applied to Country Selector text input if an element level text colour has been set in host app/site's stylesheet.
+- UI: Fixed Country Selector dropdown menu closing on clicking on scrollbar.
+- Internal: Auth - Fetch correct API URL from the Redux store
+
+## [6.13.0] - 2021-08-23
+
+### Added
+
+- Internal: New data field in metadata to track number of takes for each submitted image.
+
+### Fixed
+
+- UI: Fixed the text placement to be below the primary button in the Document Upload screen.
+- Public: Fixed cross-device connection issue when cross-device link is accessed multiple times.
+- UI: Fix QR Code link section rendering issue in Safari 14 on desktops
+- UI: The Cross Device link options visible to end users can be configured by passing an array of the link method IDs (`qr_code`, `sms`, `copy_link`) in the order of preference to `_crossDeviceLinkMethods` in SDK initialization configuration.
+
+## [6.12.0] - 2021-08-10
+
+### Fixed
+
+- UI: Fix camera view not lining up with Document Live Capture overlay and fix image distortion on some devices' live camera view by maintaining camera view aspect ratio.
 - Public: Fix file selector "capture" prop for WebSDK inside iOS WebView
+- Public: Fix `CROSS_DEVICE_START` user analytic event for integrators never being dispatched when user switches to the Cross Device flow
 - UI: Update copy in Face Liveness Video intro screen from 25s to 20s to reflect the correct time limit
 - Remove old locale key type definitions that are no longer used/exist in code base.
 
@@ -1045,7 +1121,14 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.11.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...development
+[6.15.3]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...6.15.3
+[6.15.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.1...6.15.2
+[6.15.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.0...6.15.1
+[6.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.14.0...6.15.0
+[6.14.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.13.0...6.14.0
+[6.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.12.0...6.13.0
+[6.12.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.11.1...6.12.0
 [6.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.2...6.11.1
 [6.10.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.1...6.10.2
 [6.10.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.10.0...6.10.1

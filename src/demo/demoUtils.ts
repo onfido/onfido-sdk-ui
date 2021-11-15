@@ -16,6 +16,7 @@ import type {
 import customUIConfig from './custom-ui-config.json'
 import testDarkCobrandLogo from './assets/onfido-logo.svg'
 import testLightCobrandLogo from './assets/onfido-logo-light.svg'
+import sampleCompanyLogo from './assets/sample-logo.svg'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
@@ -56,6 +57,12 @@ export type QueryParams = {
   useCustomizedApiRequests?: StringifiedBoolean
   decoupleResponse?: DecoupleResponseOptions
   photoCaptureFallback?: StringifiedBoolean
+  showUserAnalyticsEvents?: StringifiedBoolean
+  excludeSmsCrossDeviceOption?: StringifiedBoolean
+  singleCrossDeviceOption?: StringifiedBoolean
+  invalidCrossDeviceAlternativeMethods?: StringifiedBoolean
+  crossDeviceClientIntroCustomProductName?: StringifiedBoolean
+  crossDeviceClientIntroCustomProductLogo?: StringifiedBoolean
 }
 
 export type CheckData = {
@@ -235,7 +242,7 @@ export const getInitSdkOptions = (): SdkOptions => {
   const hideOnfidoLogo = queryParamToValueString.hideOnfidoLogo === 'true'
   const cobrand =
     queryParamToValueString.showCobrand === 'true'
-      ? { text: 'Planet Express, Incorporated' }
+      ? { text: '[COMPANY/PRODUCT NAME]' }
       : undefined
   const logoCobrand =
     queryParamToValueString.showLogoCobrand === 'true'
@@ -280,8 +287,28 @@ export const getInitSdkOptions = (): SdkOptions => {
     }
   }
 
+  let visibleCrossDeviceMethods
+  if (queryParamToValueString.excludeSmsCrossDeviceOption === 'true') {
+    visibleCrossDeviceMethods = ['copy_link', 'qr_code']
+  }
+  if (queryParamToValueString.singleCrossDeviceOption === 'true') {
+    visibleCrossDeviceMethods = ['sms']
+  }
+  if (queryParamToValueString.invalidCrossDeviceAlternativeMethods === 'true') {
+    visibleCrossDeviceMethods = ['copy', 'qrCode', 'sms']
+  }
+
   const customUI =
     queryParamToValueString.customisedUI === 'true' ? customUIConfig : undefined
+
+  const crossDeviceClientIntroProductName =
+    queryParamToValueString.crossDeviceClientIntroCustomProductName === 'true'
+      ? 'for a [COMPANY/PRODUCT NAME] loan'
+      : undefined
+  const crossDeviceClientIntroProductLogoSrc =
+    queryParamToValueString.crossDeviceClientIntroCustomProductLogo === 'true'
+      ? sampleCompanyLogo
+      : undefined
 
   return {
     useModal: queryParamToValueString.useModal === 'true',
@@ -303,7 +330,10 @@ export const getInitSdkOptions = (): SdkOptions => {
       ...decoupleCallbacks,
     },
     customUI: customUI as UICustomizationOptions,
+    crossDeviceClientIntroProductName,
+    crossDeviceClientIntroProductLogoSrc,
     ...smsNumberCountryCode,
+    _crossDeviceLinkMethods: visibleCrossDeviceMethods,
   }
 }
 
@@ -402,6 +432,15 @@ export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
     },
     'complete',
   ],
+}
+
+export const commonVisibleCrossDeviceLinkOptions: Record<string, string[]> = {
+  smsOnly: ['sms'],
+  copyLinkOnly: ['copy_link'],
+  qrCodeOnly: ['qr_code'],
+  excludeSms: ['copy_link', 'qr_code'],
+  reorderOptions: ['sms', 'copy_link', 'qr_code'],
+  invalidOptions: ['copy', 'qrCode', 'sms'],
 }
 
 export const commonLanguages: Record<

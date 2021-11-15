@@ -73,9 +73,7 @@ const Camera: FunctionComponent<Props> = ({
     audio,
     onFailure,
     onUserMedia,
-    className: classNames(style.video, {
-      [style.adjustForReducedResolution]: !isWebmFormatSupported(),
-    }),
+    className: style.video,
     facingMode: facing,
     ref: webcamRef,
     width: idealCameraWidth || defaultCameraWidthInPx,
@@ -94,9 +92,7 @@ const Camera: FunctionComponent<Props> = ({
       {renderTitle}
       <div className={classNames(style.container, containerClassName)}>
         <div
-          className={classNames(style.webcamContainer, {
-            [style.adjustForReducedResolution]: !isWebmFormatSupported(),
-          })}
+          className={style.webcamContainer}
           role="group"
           aria-describedby="cameraViewAriaLabel"
         >

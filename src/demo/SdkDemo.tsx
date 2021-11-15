@@ -45,6 +45,12 @@ const SdkDemo: FunctionComponent<Props> = ({
       return
     }
 
+    if (queryParamToValueString.showUserAnalyticsEvents) {
+      window.addEventListener('userAnalyticsEvent', (event) =>
+        console.info('* DEMO APP Custom User Analytics event:', event)
+      )
+    }
+
     const { region } = sdkOptions || {}
 
     const builtRegionCode = (

@@ -19,6 +19,7 @@
       "~types/*": ["types/*"],
       "~utils": ["components/utils/index"],
       "~utils/*": ["components/utils/*"],
+      "~supported-documents": ["supported-documents/index"],
       "~auth-sdk/*": ["../auth-sdk/FaceTec/*"]
     },
     "resolveJsonModule": true,
@@ -30,5 +31,5 @@
     "typeRoots": ["./typings", "./node_modules/@types"],
     "downlevelIteration": true
   },
-  "exclude": ["./test/mock-server"]
+  "exclude": ["./test/mock-server", "./lib"]
 }

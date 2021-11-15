@@ -19,6 +19,7 @@ const LoadError: FunctionComponent<ActionsProps> = ({
     <ScreenLayout
       actions={
         <Button
+          type="button"
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={onPrimaryButtonClick}

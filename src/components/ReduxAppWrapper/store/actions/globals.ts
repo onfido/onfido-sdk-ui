@@ -1,13 +1,20 @@
 import * as constants from '~types/redux/constants'
 
-import type { CountryData, UrlsConfig } from '~types/commons'
+import type { CountryData, UrlsConfig, ExtendedStepTypes } from '~types/commons'
 import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,
 } from '~types/enterprise'
 import type { GlobalActions } from '~types/redux'
-import type { DocumentTypes, PoaTypes } from '~types/steps'
+import type { DocumentTypes, PoaTypes, StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
+
+export const setCurrentStepType = (
+  payload: ExtendedStepTypes
+): GlobalActions => ({
+  type: constants.SET_CURRENT_STEP_TYPE,
+  payload,
+})
 
 export const setIdDocumentType = (payload: DocumentTypes): GlobalActions => ({
   type: constants.SET_ID_DOCUMENT_TYPE,
@@ -101,6 +108,20 @@ export const showLogoCobranding = (
   payload,
 })
 
+export const setCrossDeviceClientIntroProductName = (
+  payload: string
+): GlobalActions => ({
+  type: constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_NAME,
+  payload,
+})
+
+export const setCrossDeviceClientIntroProductLogoSrc = (
+  payload: string
+): GlobalActions => ({
+  type: constants.SET_CROSS_DEVICE_CLIENT_INTRO_PRODUCT_LOGO_SRC,
+  payload,
+})
+
 export const setDecoupleFromAPI = (payload: boolean): GlobalActions => ({
   type: constants.SET_DECOUPLE_FROM_API,
   payload,
@@ -112,4 +133,34 @@ export const retryForImageQuality = (): GlobalActions => ({
 
 export const resetImageQualityRetries = (): GlobalActions => ({
   type: constants.RESET_IMAGE_QUALITY_RETRIES,
+})
+
+export const setAnalyticsSessionUuid = (payload: string): GlobalActions => ({
+  type: constants.SET_ANALYTICS_SESSION_UUID,
+  payload,
+})
+
+export const setToken = (payload: string): GlobalActions => ({
+  type: constants.SET_TOKEN,
+  payload,
+})
+
+export const setApplicantUuid = (payload: string): GlobalActions => ({
+  type: constants.SET_APPLICANT_UUID,
+  payload,
+})
+
+export const setClientUuid = (payload: string): GlobalActions => ({
+  type: constants.SET_CLIENT_UUID,
+  payload,
+})
+
+export const setStepsConfig = (payload: StepConfig[]): GlobalActions => ({
+  type: constants.SET_STEPS_CONFIG,
+  payload,
+})
+
+export const setIsCrossDeviceClient = (payload: boolean): GlobalActions => ({
+  type: constants.SET_IS_CROSS_DEVICE_CLIENT,
+  payload,
 })

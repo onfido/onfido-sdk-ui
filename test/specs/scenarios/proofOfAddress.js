@@ -17,6 +17,7 @@ const options = {
     'CrossDeviceIntro',
     'CrossDeviceLink',
     'CrossDeviceMobileConnected',
+    'CrossDeviceClientIntro',
     'CrossDeviceClientSuccess',
     'CrossDeviceSubmit',
     'PoaDocumentSelection',
@@ -42,6 +43,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         crossDeviceIntro,
         crossDeviceLink,
         crossDeviceMobileConnected,
+        crossDeviceClientIntro,
         crossDeviceClientSuccess,
         crossDeviceSubmit,
         poaDocumentSelection,
@@ -251,38 +253,24 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaDocumentSelection.clickOnBankIcon()
         poaGuidance.clickOnContinueButton()
         documentUpload.switchToCrossDevice()
-        await takePercySnapshot(driver, 'Continue on your phone screen for PoA')
         crossDeviceIntro.continueToNextStep()
         assert.isTrue(
           crossDeviceLink.qrCode().isDisplayed(),
           'Test Failed: QR Code should be visible'
         )
-        await takePercySnapshot(
-          driver,
-          'Get your secure link screen - QR Code',
-          {
-            percyCSS: `div.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer > svg { display: none; }`,
-          }
-        )
         crossDeviceLink.switchToCopyLinkOption()
         crossDeviceLink.verifyCopyLinkTextContainer()
-        await takePercySnapshot(
-          driver,
-          'Get your secure link screen - Copy the link to your mobile browser',
-          {
-            percyCSS: `span.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText { display: none; }`,
-          }
-        )
         copyCrossDeviceLinkAndOpenInNewTab()
         assert.isTrue(
-          crossDeviceLink.title().isDisplayed(),
-          'Test Failed: Submit statement title should be visible'
+          crossDeviceClientIntro.title().isDisplayed(),
+          'Test Failed: Cross Device Client Session Intro title should be visible'
         )
-        await takePercySnapshot(driver, 'Submit statement')
         switchBrowserTab(0)
         crossDeviceMobileConnected.tipsHeader().isDisplayed()
         await takePercySnapshot(driver, 'Connected to your mobile screen')
         switchBrowserTab(1)
+        crossDeviceClientIntro.continueToNextStep()
+        await takePercySnapshot(driver, 'Submit PoA bank statement')
         documentUpload.uploaderBtn().isDisplayed()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
         documentSelector.clickOnPassportIcon()
@@ -298,7 +286,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         await takePercySnapshot(
           driver,
-          'Great, that’s everything we need screen'
+          'Cross Device - Submit Verification screen'
         )
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)

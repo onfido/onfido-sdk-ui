@@ -10,7 +10,6 @@ class MobileFlow extends Component {
     this.props.socket.on('get config', this.sendConfig)
     this.props.socket.on('client success', this.onClientSuccess)
     this.props.socket.on('user analytics', this.onUserAnalyticsEvent)
-    this.props.socket.on('cross device start', this.onCrossBrowserStart)
   }
 
   componentWillUnmount() {
@@ -18,9 +17,7 @@ class MobileFlow extends Component {
     this.props.socket.off('get config')
     this.props.socket.off('client success')
     this.props.socket.off('user analytics')
-    const { socket, roomId, actions } = this.props
-    socket.emit('leave', { roomId })
-    this.props.socket.off('cross device start')
+    const { actions } = this.props
     actions.mobileConnected(false)
   }
 
@@ -45,17 +42,6 @@ class MobileFlow extends Component {
     )
 
     this.props.actions.setClientSuccess(true)
-  }
-
-  onCrossBrowserStart = () => {
-    dispatchEvent(
-      new CustomEvent('userAnalyticsEvent', {
-        detail: {
-          eventName: 'CROSS_DEVICE_START',
-          isCrossDevice: true,
-        },
-      })
-    )
   }
 
   onUserAnalyticsEvent = (data) => {

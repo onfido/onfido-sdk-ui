@@ -1,11 +1,11 @@
 import { loader } from './assets/loader'
 import { success } from './assets/success'
 import { borderRadius, color } from '@onfido/castor'
+import type { ApiRawError, SuccessCallback } from '~types/api'
 import { FaceTecCustomization } from '~auth-sdk/FaceTecSDK.js/FaceTecCustomization'
 import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
 import { UICustomizationOptions } from '../../types/ui-customisation-options'
 
-export const BaseURL = process.env.AUTH_URL
 export const getAuthCustomization = (
   dimMode: boolean,
   customUI?: UICustomizationOptions
@@ -167,4 +167,29 @@ export const getAuthCustomization = (
   defaultCustomization.resultScreenCustomization.customActivityIndicatorAnimation = loaderSVG
 
   return defaultCustomization
+}
+
+export const getAuthConfig = (
+  apiUrl: string | undefined,
+  token: string,
+  onSuccess: SuccessCallback<string>,
+  onError: (error: ApiRawError) => void
+): void => {
+  const body = {
+    sdk_type: process.env.SDK_SOURCE,
+  }
+  const request = new XMLHttpRequest()
+
+  request.open('POST', `${apiUrl}/v3/auth_3d/session`)
+
+  request.setRequestHeader('Authorization', token)
+  request.setRequestHeader('Application-Id', 'com.onfido.onfidoAuth')
+  request.setRequestHeader('Content-Type', 'application/json')
+
+  request.onreadystatechange = function () {
+    if (this.readyState === XMLHttpRequest.DONE) {
+      onSuccess(this.responseText)
+    } else onError(request)
+  }
+  request.send(JSON.stringify(body))
 }

@@ -1,13 +1,14 @@
 import { h, Component } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
+import { v4 as uuidv4 } from 'uuid'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
-import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
 import { LocaleProvider } from '~locales'
 import {
   parseJwt,
   getUrlsFromJWT,
   getEnterpriseFeaturesFromJWT,
+  getPayloadFromJWT,
 } from '~utils/jwt'
 import { buildStepFinder, getEnabledDocuments } from '~utils/steps'
 import Modal from '../Modal'
@@ -46,7 +47,9 @@ class ModalApp extends Component<Props> {
     super(props)
     this.events = new EventEmitter2()
     this.events.on('complete', this.trackOnComplete)
+    const { actions, analyticsSessionUuid } = props
     if (!props.options.disableAnalytics) {
+      !analyticsSessionUuid && actions.setAnalyticsSessionUuid(uuidv4())
       Tracker.setUp()
       Tracker.install()
     }
@@ -55,6 +58,7 @@ class ModalApp extends Component<Props> {
       props.options.onError,
       props.options.onUserExit
     )
+    actions.setIsCrossDeviceClient(props.options.mobileFlow)
   }
 
   componentDidMount() {
@@ -67,7 +71,11 @@ class ModalApp extends Component<Props> {
       const trackedProperties = {
         is_custom_ui: hasCustomUIConfigured,
       }
-      Tracker.sendEvent('started flow', trackedProperties)
+      Tracker.sendEvent(
+        'started flow',
+        Tracker.TRACKED_EVENT_TYPES.flow,
+        trackedProperties
+      )
     }
   }
 
@@ -78,7 +86,11 @@ class ModalApp extends Component<Props> {
   }
 
   componentWillUnmount() {
-    this.props.socket && this.props.socket.close()
+    const { roomId, socket } = this.props
+    if (socket) {
+      roomId && socket.emit('leave', { roomId })
+      socket.close()
+    }
     this.events.removeAllListeners(['complete', 'error'])
     Tracker.uninstall()
   }
@@ -112,7 +124,8 @@ class ModalApp extends Component<Props> {
     Tracker.trackException(message)
   }
 
-  trackOnComplete = () => Tracker.sendEvent('completed flow')
+  trackOnComplete = () =>
+    Tracker.sendEvent('completed flow', Tracker.TRACKED_EVENT_TYPES.flow)
 
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,
@@ -178,12 +191,21 @@ class ModalApp extends Component<Props> {
     prevOptions: NormalisedSdkOptions,
     options: NormalisedSdkOptions
   ) => {
-    const { token, userDetails: { smsNumber } = {}, steps, customUI } = options
+    const {
+      token,
+      userDetails: { smsNumber } = {},
+      steps,
+      customUI,
+      crossDeviceClientIntroProductName,
+      crossDeviceClientIntroProductLogoSrc,
+    } = options
     const {
       userDetails: { smsNumber: prevSmsNumber } = {},
       steps: prevSteps,
       token: prevToken,
       customUI: prevCustomUI,
+      crossDeviceClientIntroProductName: prevCrossDeviceClientIntroProductName,
+      crossDeviceClientIntroProductLogoSrc: prevCrossDeviceClientIntroProductLogoSrc,
     } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
@@ -191,6 +213,8 @@ class ModalApp extends Component<Props> {
     }
 
     if (steps && steps !== prevSteps) {
+      this.props.actions.setStepsConfig(steps)
+
       const enabledDocs = getEnabledDocuments(steps) as DocumentTypes[]
 
       if (enabledDocs.length === 1) {
@@ -201,6 +225,11 @@ class ModalApp extends Component<Props> {
     }
 
     if (token && token !== prevToken) {
+      this.props.actions.setToken(token)
+      const tokenPayload = getPayloadFromJWT(token)
+      this.props.actions.setApplicantUuid(tokenPayload.app)
+      this.props.actions.setClientUuid(tokenPayload.client_uuid)
+
       const isDesktopFlow = !options.mobileFlow
       if (isDesktopFlow) {
         this.setUrls(token)
@@ -212,6 +241,25 @@ class ModalApp extends Component<Props> {
 
     if (customUI && customUI !== prevCustomUI) {
       setUICustomizations(customUI)
+    }
+
+    if (
+      crossDeviceClientIntroProductName &&
+      crossDeviceClientIntroProductName !==
+        prevCrossDeviceClientIntroProductName
+    ) {
+      this.props.actions.setCrossDeviceClientIntroProductName(
+        crossDeviceClientIntroProductName
+      )
+    }
+    if (
+      crossDeviceClientIntroProductLogoSrc &&
+      crossDeviceClientIntroProductLogoSrc !==
+        prevCrossDeviceClientIntroProductLogoSrc
+    ) {
+      this.props.actions.setCrossDeviceClientIntroProductLogoSrc(
+        crossDeviceClientIntroProductLogoSrc
+      )
     }
   }
 
@@ -340,18 +388,16 @@ class ModalApp extends Component<Props> {
     return (
       <SdkOptionsProvider options={{ ...options, events: this.events }}>
         <LocaleProvider language={options.language}>
-          <ContainerDimensionsProvider>
-            <Modal
-              useModal={useModal}
-              isOpen={isModalOpen}
-              onRequestClose={onModalRequestClose}
-              containerId={containerId}
-              containerEl={containerEl}
-              shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-            >
-              <Router {...otherProps} />
-            </Modal>
-          </ContainerDimensionsProvider>
+          <Modal
+            useModal={useModal}
+            isOpen={isModalOpen}
+            onRequestClose={onModalRequestClose}
+            containerId={containerId}
+            containerEl={containerEl}
+            shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+          >
+            <Router {...otherProps} />
+          </Modal>
         </LocaleProvider>
       </SdkOptionsProvider>
     )

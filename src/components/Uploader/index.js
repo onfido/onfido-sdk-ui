@@ -40,6 +40,7 @@ const MobileUploadArea = ({
         capture={captureType}
       >
         <Button
+          type="button"
           variant={isPoA ? 'secondary' : 'primary'}
           className={
             isPoA
@@ -59,6 +60,7 @@ const MobileUploadArea = ({
           className={classNames({ [style.poaBtn]: isPoA })}
         >
           <Button
+            type="button"
             variant="primary"
             className={classNames(theme['button-sm'], {
               [theme.vertical]: isButtonGroupStacked(),
@@ -87,6 +89,7 @@ const PassportMobileUploadArea = ({
     {children}
     <div className={style.buttons}>
       <Button
+        type="button"
         variant="primary"
         className={classNames(theme['button-centered'], theme['button-lg'])}
         disabled={isUploading}
@@ -107,7 +110,7 @@ const DesktopUploadArea = ({
   isUploading,
 }) => (
   <div className={style.crossDeviceInstructionsContainer}>
-    <div className={style.iconContainer}>
+    <div className={classNames(theme.iconContainer, style.iconContainer)}>
       <i
         className={classNames(
           theme.icon,
@@ -119,6 +122,7 @@ const DesktopUploadArea = ({
     <div>
       {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
         <Button
+          type="button"
           variant="primary"
           className={classNames(
             theme['button-centered'],
@@ -154,7 +158,7 @@ const PassportUploadIntro = ({
       >
         <button
           type="button"
-          className={theme.link}
+          className={classNames(theme.link, style.buttonLinkUploadCopy)}
           data-onfido-qa="uploaderButtonLink"
           onClick={nextStep}
         >
@@ -166,7 +170,7 @@ const PassportUploadIntro = ({
   return (
     <PassportMobileUploadArea nextStep={nextStep} translate={translate}>
       <div className={style.instructions}>
-        <div className={style.iconContainer}>
+        <div className={classNames(theme.iconContainer, style.iconContainer)}>
           <span className={classNames(theme.icon, style.identityIcon)} />
         </div>
         <div className={style.instructionsCopy}>{instructions}</div>
@@ -202,7 +206,7 @@ const UploadArea = (props) => {
           {error && <UploadError {...{ error, translate }} />}
           <button
             type="button"
-            className={theme.link}
+            className={classNames(theme.link, style.buttonLinkUploadCopy)}
             data-onfido-qa="uploaderButtonLink"
             disabled={isUploading}
           >
@@ -221,7 +225,7 @@ const UploadArea = (props) => {
     >
       <div className={style.instructions}>
         <div
-          className={classNames(style.iconContainer, {
+          className={classNames(theme.iconContainer, style.iconContainer, {
             [style.poaIconContainer]: isPoA,
           })}
         >

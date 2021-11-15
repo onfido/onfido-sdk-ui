@@ -63,6 +63,7 @@ export type SdkMetadata = {
     height?: number
     width?: number
   }
+  take_number?: number
 }
 
 export type CountryData = {
@@ -130,4 +131,7 @@ export type MobileConfig = {
   urls: UrlsConfig
   woopraCookie?: string | null
   customUI: UICustomizationOptions | null
+  crossDeviceClientIntroProductName?: string
+  crossDeviceClientIntroProductLogoSrc?: string
+  analyticsSessionUuid?: string
 }
