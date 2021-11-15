@@ -10,7 +10,7 @@ insert_final_newline = true
 [{package.json,.*rc,*.yml}]
 indent_size = 2
 
-[{*.js, *.ts}]
+[{*.js, *.ts, *.tsx}]
 indent_size = 2
 
 [*.md]
