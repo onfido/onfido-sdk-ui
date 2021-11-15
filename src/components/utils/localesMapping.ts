@@ -1,9 +1,5 @@
-import type {
-  CaptureFlows,
-  CaptureSteps,
-  InstructionLocale,
-} from '~types/docVideo'
-import type { DocumentTypes, PoaTypes } from '~types/steps'
+import type {CaptureFlows, CaptureSteps, InstructionLocale,} from '~types/docVideo'
+import type {DocumentTypes, PoaTypes} from '~types/steps'
 
 type CaptureSideLocale = {
   title: string
@@ -137,7 +133,7 @@ export const IMAGE_QUALITY_GUIDE_LOCALES_MAPPING: Record<
   },
 }
 
-export const POA_INTRO_LOCALES_MAPPING = {
+export const POA_INTRO_LOCALES_MAPPING: Record<string, string> = {
   shows_address: 'poa_intro.list_shows_address',
   matches_signup: 'poa_intro.list_matches_signup',
   most_recent: 'poa_intro.list_most_recent',
