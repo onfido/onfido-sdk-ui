@@ -93,32 +93,12 @@ const SdkDemo: FunctionComponent<Props> = ({
       ...getInitSdkOptions(),
       token,
       isModalOpen,
-      enterpriseFeatures: {
-        logoCobrand: {
-          lightLogoSrc: 'https://issuerpoc.azurewebsites.net/gsklogotrans.png',
-          darkLogoSrc: 'https://issuerpoc.azurewebsites.net/gsklogotrans.png',
-        },
-      },
       onComplete,
       onError: (error) => console.error('onError callback:', error),
       onUserExit: (userExitCode) =>
         console.log('onUserExit callback:', userExitCode),
       onModalRequestClose: () => setIsModalOpen(false),
       ...(sdkOptions || {}),
-      customUI: {
-        colorContentButtonPrimaryText: '#fff',
-        colorBackgroundButtonPrimary: '#f36633',
-        colorBorderButtonPrimary: '#f36633',
-        colorBackgroundButtonPrimaryHover: '#F67E7D',
-        colorBackgroundButtonPrimaryActive: '#843b62',
-        colorBorderDocTypeButtonHover: '#F36633',
-        colorBackgroundIcon: '#F36633',
-        fontFamilyTitle: 'Arial',
-        fontFamilySubtitle: 'Arial',
-        fontFamilyBody: 'Arial',
-        colorBorderLinkUnderline: '#D5D1CE',
-        colorBackgroundLinkHover: '#544F40',
-      },
       language: {
         phrases: {
           welcome: {
@@ -137,7 +117,8 @@ const SdkDemo: FunctionComponent<Props> = ({
           outro: {
             title:
               'use the Microsoft Authenticator app to scan the QR code below',
-            body: 'This will add your identity to the verifiable credential wallet.',
+            body:
+              'This will add your identity to the verifiable credential wallet.',
           },
         },
       },

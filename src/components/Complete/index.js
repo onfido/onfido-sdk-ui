@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-import { Fragment } from 'react'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 const queryString = require('query-string')
@@ -77,21 +76,22 @@ class Complete extends Component {
   fetchQrCode = () => {
     const {
       state: {
-        queryParams: { firstName, lastName, error, phoneNumber, email },
+        queryParams: { firstName, lastName, error },
       },
     } = this
 
     const data = {
       firstName,
       lastName,
-      country:
-        this.props.idDocumentIssuingCountry === undefined
-          ? 'GBR'
-          : this.props.idDocumentIssuingCountry.country_alpha3,
-      phoneNumber,
-      email,
+      // country:
+      //   this.props.idDocumentIssuingCountry === undefined
+      //     ? 'GBR'
+      //     : this.props.idDocumentIssuingCountry.country_alpha3,
+      // phoneNumber,
+      // email,
       error,
-      gsk: true,
+      gsk: false,
+      origin: 'msvc-dxc',
     }
     const config = {
       method: 'post',
