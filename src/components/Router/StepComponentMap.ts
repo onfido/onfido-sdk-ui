@@ -1,23 +1,12 @@
-import type { ComponentType } from 'preact'
+import type {ComponentType} from 'preact'
 import Welcome from '../Welcome'
 import UserConsent from '../UserConsent'
-import { SelectPoADocument, SelectIdentityDocument } from '../Select'
+import {SelectIdentityDocument} from '../Select'
 import CountrySelector from '../CountrySelector'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
-import {
-  DocumentFrontCapture,
-  DocumentBackCapture,
-  DocumentVideoCapture,
-  SelfieCapture,
-  FaceVideoCapture,
-} from '../Capture'
-import {
-  DocumentFrontConfirm,
-  DocumentBackConfirm,
-  SelfieConfirm,
-  FaceVideoConfirm,
-} from '../Confirm'
+import {DocumentBackCapture, DocumentFrontCapture, DocumentVideoCapture, FaceVideoCapture, PoACapture, SelfieCapture,} from '../Capture'
+import {DocumentBackConfirm, DocumentFrontConfirm, FaceVideoConfirm, SelfieConfirm,} from '../Confirm'
 import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -26,23 +15,16 @@ import CrossDeviceClientIntro from 'components/crossDevice/ClientIntro'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
-import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
-import { isDesktop, isHybrid } from '~utils'
-import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
-import { getCountryDataForDocumentType } from '~supported-documents'
+import {isDesktop, isHybrid} from '~utils'
+import {buildStepFinder, hasOnePreselectedDocument} from '~utils/steps'
+import {getCountryDataForDocumentType} from '~supported-documents'
 
-import type {
-  ExtendedStepTypes,
-  ExtendedStepConfig,
-  FlowVariants,
-} from '~types/commons'
-import type { StepComponentProps, ComponentStep } from '~types/routers'
-import type {
-  DocumentTypes,
-  StepConfig,
-  StepConfigDocument,
-  StepConfigFace,
-} from '~types/steps'
+import type {ExtendedStepConfig, ExtendedStepTypes, FlowVariants,} from '~types/commons'
+import type {ComponentStep, StepComponentProps} from '~types/routers'
+import type {DocumentTypes, StepConfig, StepConfigDocument, StepConfigFace,} from '~types/steps'
+import PoAClientIntro from '../ProofOfAddress/PoAClientIntro'
+import PoADocumentSelector from '../ProofOfAddress/PoADocumentSelect'
+import Guidance from '../ProofOfAddress/PoAGuidance'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -373,15 +355,18 @@ const buildPoaComponents = (
   mobileFlow: boolean | undefined,
   isFirstCaptureStepInFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
-  // @TODO: convert PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm to TS & remove @ts-ignore
-  const preCaptureComponents = [PoAIntro, SelectPoADocument, PoAGuidance]
-  const captureComponents = [PoACapture, DocumentFrontConfirm]
-  // @ts-ignore
+  const preCaptureComponents = [
+    PoAClientIntro,
+    PoADocumentSelector,
+    Guidance as ComponentType<StepComponentProps>,
+  ]
+  const captureComponents = [
+    PoACapture as ComponentType<StepComponentProps>,
+    DocumentFrontConfirm,
+  ]
+
   return mobileFlow && isFirstCaptureStepInFlow
-    ? [
-        // @ts-ignore
-        ...buildCrossDeviceClientComponents(captureComponents),
-      ]
+    ? [...buildCrossDeviceClientComponents(captureComponents)]
     : [...preCaptureComponents, ...captureComponents]
 }
 
