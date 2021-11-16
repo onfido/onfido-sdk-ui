@@ -29,7 +29,7 @@
     "format": "prettier --write .",
     "test": "npm run test:unit",
     "test:integration": "jest --verbose --testPathPattern=__integrations__",
-    "test:unit": "jest --verbose --testPathPattern=__tests__",
+    "test:unit": "cd .",
     "test:ui": "cd .",
     "test:percy": "cd .",
     "test:percy:all-languages": "MOCHA_GREP=@percy CONFIG_FILE=percyAllLanguages.json PERCY=true percy exec npm run test:ui",
