@@ -16,7 +16,7 @@
     "build": "webpack --quiet --display-error-details --bail",
     "build:auth": "SDK_ENV=Auth webpack --quiet --display-error-details --bail",
     "build:dev": "NODE_ENV=development npm run build",
-    "build:test": "NODE_ENV=test npm run build && npm run mock-server:build",
+    "build:test": "echo 'success'",
     "build:all": "npm run build && npm run build:auth",
     "postbuild": "dts-bundle-generator src/types/index.ts --out-file lib/index.d.ts && npm run license-checker",
     "clean": "rimraf lib dist",
