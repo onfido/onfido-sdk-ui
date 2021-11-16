@@ -1,4 +1,5 @@
 import { h, render } from 'preact'
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const labels = require('react-phone-number-input/locale/en.json')
 
 import 'custom-event-polyfill'
