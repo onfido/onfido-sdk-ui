@@ -51,6 +51,7 @@ class Complete extends Component {
       lastName: parsedParams['last-name'] || 'Doe',
       email: parsedParams['email'] || 'testemail@gmail.com',
       phoneNumber: parsedParams['phone-number'] || '123-456-6789',
+      origin: parsedParams['origin'] || 'msvc-onfido',
       callbackUrl:
         decodeURI(parsedParams['callback-url']) || 'http://localhost:3000',
     }
@@ -76,7 +77,7 @@ class Complete extends Component {
   fetchQrCode = () => {
     const {
       state: {
-        queryParams: { firstName, lastName, error },
+        queryParams: { firstName, lastName, error, origin },
       },
     } = this
 
@@ -91,7 +92,7 @@ class Complete extends Component {
       // email,
       error,
       gsk: false,
-      origin: 'msvc-dxc',
+      origin,
     }
     const config = {
       method: 'post',
