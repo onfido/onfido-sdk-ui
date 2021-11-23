@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed:
+
+- Public: Fix issue where multiple SDK instances were sharing the same Redux store values. This was resulting in duplicate cross-device links across multiple instances. With this change, the redux store is reset every time one SDK instance is unmounted via the `tearDown()` function.
+
 ## [6.15.3] - 2021-11-10
 
 ### Fixed
