@@ -107,7 +107,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should take one selfie using the camera stream @percy', async () => {
+    it.skip('should take one selfie using the camera stream @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -316,7 +316,7 @@ export const faceScenarios = (lang) => {
       )
     })
 
-    it('should record a video with liveness challenge, play it and submit it @percy', async () => {
+    it.skip('should record a video with liveness challenge, play it and submit it @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -354,7 +354,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for facial liveness video @percy', async () => {
+    it.skip('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for facial liveness video @percy', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
