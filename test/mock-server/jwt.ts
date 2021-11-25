@@ -29,4 +29,12 @@ const header: Header = {
   alg: 'HS256',
 }
 
-export const generateToken = () => create(header, payload, '')
+export const generateToken = async () => {
+  const key = await crypto.subtle.generateKey(
+    { name: 'HMAC', hash: 'SHA-256' },
+    true,
+    ['sign', 'verify']
+  )
+
+  return create(header, payload, key)
+}
