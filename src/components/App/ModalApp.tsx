@@ -86,13 +86,15 @@ class ModalApp extends Component<Props> {
   }
 
   componentWillUnmount() {
-    const { roomId, socket } = this.props
+    const { roomId, socket, actions } = this.props
+    // clean up event listeners, socket and redux store after tearDown is invoked and the SDK is unmounted
     if (socket) {
       roomId && socket.emit('leave', { roomId })
       socket.close()
     }
     this.events.removeAllListeners(['complete', 'error'])
     Tracker.uninstall()
+    actions.reset()
   }
 
   jwtValidation = (
