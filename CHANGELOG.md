@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- UI: Set the 'Send link' Button component on Cross Device Send SMS Link screen as `type="button"`to prevent the Button component defaulting to a `submit` type button when SDK is embedded within a `form` element.
+
 ## [6.15.4] - 2021-11-25
 
 ### Fixed
