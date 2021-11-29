@@ -31,6 +31,7 @@ const CrossDeviceClientIntro: FunctionComponent<Props> = ({
     <ScreenLayout
       actions={
         <Button
+          type="button"
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={nextStep}
