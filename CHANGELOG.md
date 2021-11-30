@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Upgrade `react-phone-number-input` to v3.1.38
+- UI: Fix live document capture overlay appearing very small compared to how it was in version `6.14.0`.
 
 ## [6.15.4] - 2021-11-25
 
