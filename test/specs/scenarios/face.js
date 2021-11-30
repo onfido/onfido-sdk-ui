@@ -450,6 +450,7 @@ export const faceScenarios = (lang) => {
         `Verify Check selfie video screen has co-brand logo ${lang}`
       )
       confirm.clickConfirmButton()
+      verificationComplete.verifyUIElements()
       verificationComplete.checkCobrandIsVisible()
       await takePercySnapshot(
         driver,
