@@ -63,6 +63,7 @@ export type QueryParams = {
   invalidCrossDeviceAlternativeMethods?: StringifiedBoolean
   crossDeviceClientIntroCustomProductName?: StringifiedBoolean
   crossDeviceClientIntroCustomProductLogo?: StringifiedBoolean
+  autoFocusOnInitialScreenTitle?: StringifiedBoolean
 }
 
 export type CheckData = {
@@ -331,6 +332,8 @@ export const getInitSdkOptions = (): SdkOptions => {
     crossDeviceClientIntroProductLogoSrc,
     ...smsNumberCountryCode,
     _crossDeviceLinkMethods: visibleCrossDeviceMethods,
+    autoFocusOnInitialScreenTitle:
+      queryParamToValueString.autoFocusOnInitialScreenTitle !== 'true',
   }
 }
 
