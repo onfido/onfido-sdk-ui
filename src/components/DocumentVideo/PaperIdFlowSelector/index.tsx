@@ -34,7 +34,11 @@ const IdFlowButton: FunctionComponent<IdFlowButtonProps> = ({
   const { [idType]: titleKey } = BUTTON_COPY_BY_ID_TYPE
 
   return (
-    <button className={style[idType]} onClick={() => onClick(idType)}>
+    <button
+      type="button"
+      className={style[idType]}
+      onClick={() => onClick(idType)}
+    >
       <span className={style.icon} />
       <span className={style.text}>{translate(titleKey)}</span>
       <span className={style.chevron} />

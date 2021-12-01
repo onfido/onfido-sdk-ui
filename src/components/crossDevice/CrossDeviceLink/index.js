@@ -286,6 +286,7 @@ class CrossDeviceLinkUI extends Component {
               />
             </div>
             <Button
+              type="button"
               variant="primary"
               className={classNames(style.btn, { [style.sending]: sending })}
               onClick={this.handleSendSmsLinkClick}

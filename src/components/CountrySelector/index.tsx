@@ -170,6 +170,7 @@ class CountrySelection extends Component<Props, State> {
       <ScreenLayout
         actions={
           <Button
+            type="button"
             variant="primary"
             className={classNames(theme['button-centered'], theme['button-lg'])}
             disabled={

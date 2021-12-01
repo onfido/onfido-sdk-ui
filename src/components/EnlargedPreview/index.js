@@ -96,6 +96,7 @@ class EnlargedPreview extends Component {
           )}
         </div>
         <button
+          type="button"
           aria-labelledby="onfido-preview-button-label"
           className={classNames(style.button, style['button-overlay'])}
           onClick={this.toggle}
