@@ -105,7 +105,7 @@ The Web SDK supports customization options across the SDK screen including text,
   | --------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
   | `borderRadiusButton`                    | `string`   | Change border radius value of Primary, Secondary and Document Type Option buttons                                                           |
   | `buttonGroupStacked` (default: `false`) | `boolean`  | Display Primary, Secondary button group in Document and Face capture confirmation screens are in separate rows instead of inline by default |
-  | `textTransformButton` (default: `none`) | `string` | Change text transform value of Primary, Secondary and Document Type Option buttons |
+  | `textTransformButton` (default: `none`) | `uppercase \| lowercase \| full-width \| none` | Change text transform value of Primary, Secondary and Document Type Option buttons |
 
   Example configuration:
 
