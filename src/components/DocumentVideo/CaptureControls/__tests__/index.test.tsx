@@ -49,6 +49,7 @@ const MockedDocumentVideo: FunctionComponent<MockedDocumentVideoProps> = ({
       />
       {withRestartButton && (
         <button
+          type="button"
           id="restartFlow"
           onClick={() =>
             setFlowRestartTrigger((prevTrigger) => prevTrigger + 1)
