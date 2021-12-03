@@ -9,8 +9,8 @@ import {
 import { API_URL, PATH_TO_RESOURCE_FILES } from '../helpers/testUrls'
 import {
   EXPIRED_JWT_TOKEN,
-  EXPECTED_EXPIRED_TOKEN_ERROR,
-} from '../helpers/mockExpiredJwt'
+  EMPTY_ERROR,
+} from '../helpers/mockExpiredJwtAndResponse'
 
 let jwtToken = null
 
@@ -83,7 +83,7 @@ describe('API uploadDocument endpoint', () => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
       try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+        expect(error).toEqual(EMPTY_ERROR)
         done()
       } catch (err) {
         done(err)

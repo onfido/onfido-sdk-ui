@@ -11,3 +11,8 @@ export const EXPECTED_EXPIRED_TOKEN_ERROR = {
     },
   },
 }
+
+export const EMPTY_ERROR = {
+  status: 0,
+  response: {},
+}
