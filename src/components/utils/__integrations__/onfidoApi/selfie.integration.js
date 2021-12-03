@@ -13,8 +13,8 @@ import {
 import { API_URL, PATH_TO_RESOURCE_FILES } from '../helpers/testUrls'
 import {
   EXPIRED_JWT_TOKEN,
+  ORIGINAL_EXPECTED_EXPIRED_TOKEN_ERROR,
   EXPECTED_EXPIRED_TOKEN_ERROR,
-  TEMP_EMPTY_ERROR,
 } from '../helpers/mockExpiredJwtAndResponse'
 
 let jwtToken = null
@@ -68,7 +68,7 @@ describe('API uploadFacePhoto endpoint', () => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
       try {
-        expect(error).toEqual(TEMP_EMPTY_ERROR)
+        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
         done()
       } catch (err) {
         done(err)
@@ -156,7 +156,7 @@ describe('API uploadSnapshot endpoint', () => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
       try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+        expect(error).toEqual(ORIGINAL_EXPECTED_EXPIRED_TOKEN_ERROR)
         done()
       } catch (err) {
         done(err)
@@ -277,7 +277,7 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
       try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+        expect(error).toEqual(ORIGINAL_EXPECTED_EXPIRED_TOKEN_ERROR)
         done()
       } catch (err) {
         done(err)
