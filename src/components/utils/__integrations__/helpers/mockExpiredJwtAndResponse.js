@@ -12,7 +12,12 @@ export const EXPECTED_EXPIRED_TOKEN_ERROR = {
   },
 }
 
-export const EMPTY_ERROR = {
+// FIXME: This expected empty response is intended as a temporary solution only to unblock CI builds.
+//        API endpoints for /documents, /live_photos, /live_videos was changed with the intention of
+//        returning the generic 'authorization_error' response, but currently is only an empty response
+//        when received by the SDK on error from the use of an expired token.
+//        To be fixed by IX team, see IX-1967
+export const TEMP_EMPTY_ERROR = {
   status: 0,
   response: {},
 }
