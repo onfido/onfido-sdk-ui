@@ -1,10 +1,10 @@
-import {FunctionComponent, h} from 'preact'
-import {trackComponent} from '../../../Tracker'
-import {StepComponentBaseProps} from '~types/routers'
+import { FunctionComponent, h } from 'preact'
+import { trackComponent } from '../../../Tracker'
+import { StepComponentBaseProps } from '~types/routers'
 import PageTitle from '../../PageTitle'
-import {useLocales} from '~locales'
-import {poaDocumentOptions} from '../../DocumentSelector/documentTypes'
-import {withDefaultOptions} from '../../DocumentSelector'
+import { useLocales } from '~locales'
+import { poaDocumentOptions } from '../../DocumentSelector/documentTypes'
+import { withDefaultOptions } from '../../DocumentSelector'
 
 const DocumentSelector = withDefaultOptions(poaDocumentOptions)
 
