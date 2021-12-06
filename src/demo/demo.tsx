@@ -9,7 +9,9 @@ const Step1: FunctionComponent = () => (
   <div>
     <p className="qa-first-step-text">This is the first step</p>
     <Link to="/dummy-step-2">
-      <button className="qa-step-two-btn">Start</button>
+      <button type="button" className="qa-step-two-btn">
+        Start
+      </button>
     </Link>
   </div>
 )
@@ -20,7 +22,9 @@ const Step2: FunctionComponent = () => (
       This is a dummy step added to the demo app history
     </p>
     <Link to="/id-verification">
-      <button className="qa-start-verification-btn">Go to SDK</button>
+      <button type="button" className="qa-start-verification-btn">
+        Go to SDK
+      </button>
     </Link>
   </div>
 )
