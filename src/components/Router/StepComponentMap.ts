@@ -1,12 +1,24 @@
-import type {ComponentType} from 'preact'
+import type { ComponentType } from 'preact'
 import Welcome from '../Welcome'
 import UserConsent from '../UserConsent'
-import {SelectIdentityDocument} from '../Select'
+import { SelectIdentityDocument } from '../Select'
 import CountrySelector from '../CountrySelector'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
-import {DocumentBackCapture, DocumentFrontCapture, DocumentVideoCapture, FaceVideoCapture, PoACapture, SelfieCapture,} from '../Capture'
-import {DocumentBackConfirm, DocumentFrontConfirm, FaceVideoConfirm, SelfieConfirm,} from '../Confirm'
+import {
+  DocumentBackCapture,
+  DocumentFrontCapture,
+  DocumentVideoCapture,
+  FaceVideoCapture,
+  PoACapture,
+  SelfieCapture,
+} from '../Capture'
+import {
+  DocumentBackConfirm,
+  DocumentFrontConfirm,
+  FaceVideoConfirm,
+  SelfieConfirm,
+} from '../Confirm'
 import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -15,13 +27,22 @@ import CrossDeviceClientIntro from 'components/crossDevice/ClientIntro'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
-import {isDesktop, isHybrid} from '~utils'
-import {buildStepFinder, hasOnePreselectedDocument} from '~utils/steps'
-import {getCountryDataForDocumentType} from '~supported-documents'
+import { isDesktop, isHybrid } from '~utils'
+import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
+import { getCountryDataForDocumentType } from '~supported-documents'
 
-import type {ExtendedStepConfig, ExtendedStepTypes, FlowVariants,} from '~types/commons'
-import type {ComponentStep, StepComponentProps} from '~types/routers'
-import type {DocumentTypes, StepConfig, StepConfigDocument, StepConfigFace,} from '~types/steps'
+import type {
+  ExtendedStepConfig,
+  ExtendedStepTypes,
+  FlowVariants,
+} from '~types/commons'
+import type { ComponentStep, StepComponentProps } from '~types/routers'
+import type {
+  DocumentTypes,
+  StepConfig,
+  StepConfigDocument,
+  StepConfigFace,
+} from '~types/steps'
 import PoAClientIntro from '../ProofOfAddress/PoAClientIntro'
 import PoADocumentSelector from '../ProofOfAddress/PoADocumentSelect'
 import Guidance from '../ProofOfAddress/PoAGuidance'

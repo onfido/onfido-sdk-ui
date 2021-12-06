@@ -1,11 +1,11 @@
-import {Component} from 'preact'
-import {kebabCase} from '~utils/string'
-import {isEmpty} from '~utils/object'
+import { Component } from 'preact'
+import { kebabCase } from '~utils/string'
+import { isEmpty } from '~utils/object'
 import classNames from 'classnames'
-import {idDocumentOptions,} from './documentTypes'
-import {getCountryDataForDocumentType} from '~supported-documents'
-import {localised} from '~locales'
-import {isDesktop} from '~utils'
+import { idDocumentOptions } from './documentTypes'
+import { getCountryDataForDocumentType } from '~supported-documents'
+import { localised } from '~locales'
+import { isDesktop } from '~utils'
 import style from './style.scss'
 
 /* type Props = {
@@ -27,14 +27,14 @@ const always = () => true
 // See https://documentation.onfido.com/#document-types
 class DocumentSelector extends Component {
   getOptions = () => {
-    const {documentTypes, defaultOptions, country = 'GBR'} = this.props
+    const { documentTypes, defaultOptions, country = 'GBR' } = this.props
     const defaultDocOptions = defaultOptions().filter(
-      ({checkAvailableInCountry = always}) => checkAvailableInCountry(country)
+      ({ checkAvailableInCountry = always }) => checkAvailableInCountry(country)
     )
     const checkAvailableType = isEmpty(documentTypes)
       ? always
       : (type) => documentTypes[type]
-    const options = defaultDocOptions.filter(({type}) =>
+    const options = defaultDocOptions.filter(({ type }) =>
       checkAvailableType(type)
     )
 
@@ -43,7 +43,7 @@ class DocumentSelector extends Component {
   }
 
   handleSelect = (documentType) => {
-    const {group, actions, documentTypes, nextStep} = this.props
+    const { group, actions, documentTypes, nextStep } = this.props
     if (group === 'proof_of_address') {
       actions.setPoADocumentType(documentType)
     } else {
@@ -82,7 +82,7 @@ class DocumentSelector extends Component {
         })}
         data-onfido-qa={option.type}
       >
-        <div className={`${style.icon} ${style[option.icon]}`}/>
+        <div className={`${style.icon} ${style[option.icon]}`} />
         <div className={style.content}>
           <div className={style.optionMain}>
             <p className={style.label}>{option.label}</p>
@@ -101,7 +101,7 @@ class DocumentSelector extends Component {
 
   render() {
     const documentOptions = this.getOptions()
-    const {className, translate} = this.props
+    const { className, translate } = this.props
     return (
       <ul
         aria-label={translate('doc_select.list_accessibility')}
@@ -124,13 +124,13 @@ export const withDefaultOptions = (iconCopyDisplayOptionsByType) => {
 
         return typeList.map((type) => {
           const {
-                  icon = `icon-${kebabCase(type)}`,
-                  labelKey,
-                  detailKey,
-                  warningKey,
-                  eStatementsKey,
-                  checkAvailableInCountry,
-                } = iconCopyDisplayOptionsByType[type]
+            icon = `icon-${kebabCase(type)}`,
+            labelKey,
+            detailKey,
+            warningKey,
+            eStatementsKey,
+            checkAvailableInCountry,
+          } = iconCopyDisplayOptionsByType[type]
 
           return {
             icon,

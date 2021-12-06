@@ -1,14 +1,14 @@
-import {trackComponent} from '../../../Tracker'
-import {useLocales} from '~locales'
-import {FunctionComponent, h} from 'preact'
-import {StepComponentProps} from '~types/routers'
+import { trackComponent } from '../../../Tracker'
+import { useLocales } from '~locales'
+import { FunctionComponent, h } from 'preact'
+import { StepComponentProps } from '~types/routers'
 import theme from '../../Theme/style.scss'
 import PageTitle from '../../PageTitle'
 import style from './style.scss'
 import Graphic from './graphic'
-import {Button} from '@onfido/castor-react'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import {POA_GUIDANCE_LOCALES_MAPPING} from '~utils/localesMapping'
+import { POA_GUIDANCE_LOCALES_MAPPING } from '~utils/localesMapping'
 
 type Props = StepComponentProps & {
   poaDocumentType: string

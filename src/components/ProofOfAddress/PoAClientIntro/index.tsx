@@ -1,12 +1,12 @@
-import {FunctionComponent, h} from 'preact'
+import { FunctionComponent, h } from 'preact'
 import theme from '../../Theme/style.scss'
 import PageTitle from '../../PageTitle'
-import {Button} from '@onfido/castor-react'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import {useLocales} from '~locales'
-import {POA_INTRO_LOCALES_MAPPING} from '~utils/localesMapping'
-import {trackComponent} from '../../../Tracker'
-import {StepComponentBaseProps} from '~types/routers'
+import { useLocales } from '~locales'
+import { POA_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
+import { trackComponent } from '../../../Tracker'
+import { StepComponentBaseProps } from '~types/routers'
 import style from './style.scss'
 
 type Props = {
