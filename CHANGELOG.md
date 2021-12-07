@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Public: Added support for Dutch `nl_NL`.
+
 ### Changed
 
 - Upgrade `react-phone-number-input` to v3.1.38
