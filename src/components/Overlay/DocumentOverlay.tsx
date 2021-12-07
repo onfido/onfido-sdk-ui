@@ -52,9 +52,9 @@ const getViewport = (containerDimensions: DOMRect): ViewportDimensions => {
   const width = 100
 
   // Hollow width ratio = 90% for smaller viewports
-  // and = 70% for bigger viewports
+  // and = 80% for bigger viewports
   const hollowWidthRatio =
-    containerDimensions.width < window.innerWidth ? 0.7 : 0.9
+    containerDimensions.width < window.innerWidth ? 0.8 : 0.9
 
   return {
     width,
