@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import { compose } from '~utils/func'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import style from './style.scss'
 
 class Spinner extends Component {

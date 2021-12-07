@@ -7,8 +7,8 @@ import {
   poaDocumentOptions,
   // type DocumentOptionsType,
 } from './documentTypes'
-import { getCountryDataForDocumentType } from '../../supported-documents'
-import { localised /* , type LocalisedType */ } from '../../locales'
+import { getCountryDataForDocumentType } from '~supported-documents'
+import { localised /* , type LocalisedType */ } from '~locales'
 import { isDesktop } from '~utils'
 import style from './style.scss'
 

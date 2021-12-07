@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 
 import { currentMilliseconds } from '~utils'
 import { sendScreen } from '../../Tracker'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import { FaceOverlay } from '../Overlay'
 import withChallenges from './withChallenges'
 import VideoCapture from '../VideoCapture'

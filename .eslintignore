@@ -3,3 +3,4 @@ node_modules
 test/mock-server/**/*.js
 coverage
 release/
+demo/fiddle/demo.js

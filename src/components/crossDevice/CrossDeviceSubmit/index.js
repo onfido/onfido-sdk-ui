@@ -4,7 +4,7 @@ import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { trackComponent } from '../../../Tracker'
 import PageTitle from '../../PageTitle'
-import { localised } from '../../../locales'
+import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
