@@ -3,6 +3,7 @@ import { IdentityDocumentSelector } from '../DocumentSelector'
 // import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
 import { localised } from '../../locales'
+import { h } from 'preact'
 
 /* type Props = {
   country: string,
