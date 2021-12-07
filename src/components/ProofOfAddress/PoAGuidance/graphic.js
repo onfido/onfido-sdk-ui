@@ -1,3 +1,4 @@
+import { h } from 'preact'
 import style from './style.scss'
 
 const Graphic = () => (
