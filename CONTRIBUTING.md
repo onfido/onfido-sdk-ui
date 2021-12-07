@@ -122,7 +122,7 @@ Some of the SDK configuration options can also be previewed in the demo app by u
 | `crossDeviceClientIntroCustomProductLogo` | `true`,`false`      | `false` | Configure Cross Device – Mobile Client Intro screen to show an example client company logo.                                           |
 
 Usage example: https://localhost:8080?faceVideo=true&language=de
-Please refer to [this file](./src/demo/demoUtils.js) for more available options.
+Please refer to [this file](./src/demo/demoUtils.ts) for more available options.
 
 ## WebSDK inside native or React Native apps
 

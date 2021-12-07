@@ -6,8 +6,7 @@ import {
 } from '../DocumentSelector'
 // import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
-import { localised /*, type LocalisedType */ } from '../../locales'
-import style from './style.scss'
+import { localised /*, type LocalisedType */ } from '~locales'
 
 /* type Props = {
   country: string,

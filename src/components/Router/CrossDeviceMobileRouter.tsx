@@ -14,7 +14,7 @@ import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 
 import { setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
-import { LocaleProvider } from '../../locales'
+import { LocaleProvider } from '~locales'
 import HistoryRouter from './HistoryRouter'
 
 import type { ErrorNames, MobileConfig } from '~types/commons'
