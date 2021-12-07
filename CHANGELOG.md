@@ -6,13 +6,12 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-next-version]
+## [next-version]
 
 ### Changed
 
 - Public: Added `autoFocusOnInitialScreenTitle` SDK configuration option for integrators to override SDK auto focusing on the SDK's initial screen title on loading. This default behaviour might not be desirable for some host apps or sites as this could cause the browser to focus on the SDK when there is content or form inputs outside of the SDK that the end user should see, fill in first.
-
-## [next-version]
+- Upgrade `react-phone-number-input` to v3.1.38
 
 ## [6.15.5] - 2021-12-2
 
