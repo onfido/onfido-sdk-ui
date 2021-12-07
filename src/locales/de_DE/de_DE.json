@@ -87,11 +87,11 @@
         "body": "Hochladen erfolgreich"
     },
     "country_select": {
-        "alert_dropdown": {
-            "country_not_found": "Land nicht gefunden"
-        },
         "alert": {
             "another_doc": "Dokumente aus diesem Land werden derzeit nicht unterstützt. <fallback>Versuchen Sie es mit einem anderen Dokumententyp<\/fallback>."
+        },
+        "alert_dropdown": {
+            "country_not_found": "Land nicht gefunden"
         },
         "button_primary": "Dokument einreichen",
         "search": {
@@ -351,6 +351,12 @@
         "body": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen",
         "title": "Danke"
     },
+    "permission": {
+        "body_cam": "Wir können Sie nicht verifizieren, ohne Ihre Kamera zu benutzen",
+        "button_primary_cam": "Kamera aktivieren",
+        "subtitle_cam": "Wenn Sie dazu aufgefordert werden, müssen Sie den Kamerazugriff aktivieren, um fortzufahren",
+        "title_cam": "Zugriff auf Kamera erlauben"
+    },
     "permission_recovery": {
         "button_primary": "Aktualisieren",
         "info": "Wiederherstellen",
@@ -359,12 +365,6 @@
         "list_item_how_to_cam": "Gewähren Sie den Zugriff auf Ihre Kamera über Ihre Browsereinstellungen",
         "subtitle_cam": "Kamerazugriff wiederherstellen, um Gesichtsverifizierung fortzusetzen",
         "title_cam": "Kamerazugriff wird verweigert"
-    },
-    "permission": {
-        "body_cam": "Wir können Sie nicht verifizieren, ohne Ihre Kamera zu benutzen",
-        "button_primary_cam": "Kamera aktivieren",
-        "subtitle_cam": "Wenn Sie dazu aufgefordert werden, müssen Sie den Kamerazugriff aktivieren, um fortzufahren",
-        "title_cam": "Zugriff auf Kamera erlauben"
     },
     "photo_upload": {
         "body_bank_statement": "Provide the whole document page for best results",
@@ -467,11 +467,6 @@
         "subtitle": "Scans und Fotokopien werden nicht akzeptiert",
         "title": "Fotoseite des Reisepasses hochladen"
     },
-    "user_consent_load_fail": {
-        "button_primary": "Reload screen",
-        "detail": "Check that your connection is stable, then try again",
-        "title": "Content failed to load"
-    },
     "user_consent": {
         "button_primary": "Accept",
         "button_secondary": "Do not accept",
@@ -481,6 +476,11 @@
             "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
             "no_consent_title": "Are you sure?"
         }
+    },
+    "user_consent_load_fail": {
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
     },
     "video_capture": {
         "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",

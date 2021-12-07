@@ -87,11 +87,11 @@
         "body": "Téléversement réussi"
     },
     "country_select": {
-        "alert_dropdown": {
-            "country_not_found": "Pays introuvable"
-        },
         "alert": {
             "another_doc": "Les documents de ce pays ne sont actuellement pas pris en charge — <fallback>essayez un autre type de document<\/fallback>"
+        },
+        "alert_dropdown": {
+            "country_not_found": "Pays introuvable"
         },
         "button_primary": "Envoyer le document",
         "search": {
@@ -351,6 +351,12 @@
         "body": "C’est tout ce dont nous avons besoin pour commencer à vérifier votre identité",
         "title": "Merci"
     },
+    "permission": {
+        "body_cam": "Nous ne pouvons pas vous vérifier sans utiliser votre appareil photo",
+        "button_primary_cam": "Activer l’appareil photo",
+        "subtitle_cam": "Lorsque vous y serez invité, vous devez autoriser l’accès à l’appareil photo pour continuer",
+        "title_cam": "Autoriser l’accès à l’appareil photo"
+    },
     "permission_recovery": {
         "button_primary": "Actualiser",
         "info": "Récupération",
@@ -359,12 +365,6 @@
         "list_item_how_to_cam": "Autorisez l’accès à l’appareil photo à partir des paramètres de votre navigateur",
         "subtitle_cam": "Récupérez l’accès à l’appareil photo pour continuer la vérification",
         "title_cam": "L’accès à l’appareil photo n’est pas autorisé"
-    },
-    "permission": {
-        "body_cam": "Nous ne pouvons pas vous vérifier sans utiliser votre appareil photo",
-        "button_primary_cam": "Activer l’appareil photo",
-        "subtitle_cam": "Lorsque vous y serez invité, vous devez autoriser l’accès à l’appareil photo pour continuer",
-        "title_cam": "Autoriser l’accès à l’appareil photo"
     },
     "photo_upload": {
         "body_bank_statement": "Provide the whole document page for best results",
@@ -467,11 +467,6 @@
         "subtitle": "Les scans et photocopies ne sont pas acceptés",
         "title": "Envoyez la page du passeport contenant votre photo"
     },
-    "user_consent_load_fail": {
-        "button_primary": "Reload screen",
-        "detail": "Check that your connection is stable, then try again",
-        "title": "Content failed to load"
-    },
     "user_consent": {
         "button_primary": "Accept",
         "button_secondary": "Do not accept",
@@ -481,6 +476,11 @@
             "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
             "no_consent_title": "Are you sure?"
         }
+    },
+    "user_consent_load_fail": {
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
     },
     "video_capture": {
         "body": "Gardez le visage dans le cercle",

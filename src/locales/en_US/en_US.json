@@ -87,11 +87,11 @@
         "body": "Upload successful"
     },
     "country_select": {
-        "alert_dropdown": {
-            "country_not_found": "Country not found"
-        },
         "alert": {
             "another_doc": "Documents from that country are not currently supported — <fallback>try another document type<\/fallback>"
+        },
+        "alert_dropdown": {
+            "country_not_found": "Country not found"
         },
         "button_primary": "Submit document",
         "search": {
@@ -351,6 +351,12 @@
         "body": "That’s all we need to start verifying your identity",
         "title": "Thank you"
     },
+    "permission": {
+        "body_cam": "We can’t verify you without your camera",
+        "button_primary_cam": "Enable camera",
+        "subtitle_cam": "When prompted, you must enable camera access to continue",
+        "title_cam": "Allow camera access"
+    },
     "permission_recovery": {
         "button_primary": "Refresh",
         "info": "Recovery",
@@ -359,12 +365,6 @@
         "list_item_how_to_cam": "Grant access to your camera from your browser settings",
         "subtitle_cam": "Recover camera access to continue face verification",
         "title_cam": "Camera access is denied"
-    },
-    "permission": {
-        "body_cam": "We can’t verify you without your camera",
-        "button_primary_cam": "Enable camera",
-        "subtitle_cam": "When prompted, you must enable camera access to continue",
-        "title_cam": "Allow camera access"
     },
     "photo_upload": {
         "body_bank_statement": "Provide the whole document page for best results",
@@ -467,11 +467,6 @@
         "subtitle": "Scans and photocopies are not accepted",
         "title": "Upload passport photo page"
     },
-    "user_consent_load_fail": {
-        "button_primary": "Reload screen",
-        "detail": "Check that your connection is stable, then try again",
-        "title": "Content failed to load"
-    },
     "user_consent": {
         "button_primary": "Accept",
         "button_secondary": "Do not accept",
@@ -481,6 +476,11 @@
             "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
             "no_consent_title": "Are you sure?"
         }
+    },
+    "user_consent_load_fail": {
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
     },
     "video_capture": {
         "body": "Keep your face within the oval",
