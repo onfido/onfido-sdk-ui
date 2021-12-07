@@ -68,6 +68,7 @@ const MockedCaptureControls: FunctionComponent<VideoOverlayProps> = ({
   onStop,
 }) => (
   <button
+    type="button"
     id="record-video"
     disabled={disableInteraction}
     onClick={isRecording ? onStop : onStart}

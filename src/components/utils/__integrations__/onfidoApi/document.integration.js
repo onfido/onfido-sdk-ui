@@ -10,7 +10,7 @@ import { API_URL, PATH_TO_RESOURCE_FILES } from '../helpers/testUrls'
 import {
   EXPIRED_JWT_TOKEN,
   EXPECTED_EXPIRED_TOKEN_ERROR,
-} from '../helpers/mockExpiredJwt'
+} from '../helpers/mockExpiredJwtAndResponse'
 
 let jwtToken = null
 

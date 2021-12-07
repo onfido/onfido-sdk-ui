@@ -354,9 +354,10 @@ const sendFile = <T>(
     token: `Bearer ${token}`,
   }
 
-  performHttpReq(requestParams, onSuccess, (request) =>
+  performHttpReq(requestParams, onSuccess, (request) => {
+    console.log('API error', request)
     formatError(request, onError)
-  )
+  })
 }
 
 export const sendAnalytics = (
