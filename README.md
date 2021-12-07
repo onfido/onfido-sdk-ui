@@ -452,9 +452,9 @@ The Web SDK has multiple customizable features that provide flexibility, while a
 
   You can customize the language displayed on the SDK by passing a string or object. If `language` is not present the default copy will be in English.
 
-  ##### Supported languages
+  #### Supported languages
 
-  The SDK supports and maintains 6 languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
+  The SDK supports and maintains the following languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
 
   | Language          | Locale Tag |
   | ----------------- | ---------- |
@@ -464,6 +464,7 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   | French            | `fr_FR`    |
   | Italian           | `it_IT`    |
   | Portuguese        | `pt_PT`    |
+  | Dutch             | `nl_NL`    |
 
   Example:
 
@@ -471,7 +472,7 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   language: 'es_ES' | 'es'
   ```
 
-  ##### Custom lanugages
+  #### Custom lanugages
 
   The SDK can also be displayed in a custom language for locales that Onfido does not currently support. To implement this, pass an object containing the following keys:
 
