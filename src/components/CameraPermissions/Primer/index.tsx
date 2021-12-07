@@ -29,6 +29,7 @@ const Permissions: FunctionComponent<Props> = ({ onNext, translate }) => (
     </div>
     <div className={classNames(theme.contentMargin, style.actions)}>
       <Button
+        type="button"
         variant="primary"
         className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={onNext}
