@@ -53,7 +53,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
     props.nextStep,
     props.token,
     retries,
-    apiUrl
+    apiUrl,
   ])
 
   useEffect(() => {
@@ -122,7 +122,7 @@ const AuthCapture: FunctionComponent<Props> = (props) => {
     onLivenessCheckPressed,
     props.token,
     props.customUI,
-    apiUrl
+    apiUrl,
   ])
 
   useEffect(() => {
