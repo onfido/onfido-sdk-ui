@@ -448,6 +448,7 @@ export const commonLanguages: Record<
   es: 'es',
   de: 'de',
   fr: 'fr',
+  nl: 'nl',
   custom: {
     phrases: { 'welcome.title': 'My custom title' },
     mobilePhrases: {
