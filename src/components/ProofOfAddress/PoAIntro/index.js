@@ -16,7 +16,7 @@ const PoAIntro = ({
   steps,
   autoFocusOnInitialScreenTitle,
 }) => {
-  const isFirstScreen = steps[0].type === 'face'
+  const isFirstScreen = steps[0].type === 'poa'
   return (
     <div className={theme.fullHeightContainer}>
       <PageTitle
