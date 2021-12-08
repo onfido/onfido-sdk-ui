@@ -237,9 +237,7 @@ class Confirm extends Component {
         filename || blob?.name || `document_capture.${mimeType(blob)}`
       const data = {
         file: { blob, filename: blobName },
-        // API does not support 'residence_permit' type but does accept 'unknown'
-        // See https://documentation.onfido.com/#document-types
-        type: type === 'residence_permit' ? 'unknown' : type,
+        type,
         side,
         validations,
         sdkMetadata,
