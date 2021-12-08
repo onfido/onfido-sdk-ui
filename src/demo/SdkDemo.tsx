@@ -10,6 +10,8 @@ import {
 } from './demoUtils'
 import SdkMount from './SdkMount'
 import ApplicantForm from './ApplicantForm'
+import io from 'socket.io-client'
+
 
 import type { ServerRegions, SdkOptions, SdkResponse } from '~types/sdk'
 import type { ApplicantData } from './types'
@@ -21,6 +23,26 @@ type Props = {
   messagePort?: MessagePort
   sdkOptions?: SdkOptions
   viewOptions?: UIConfigs
+}
+// const testWsJwt = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzUxMiIsImtpZCI6ImFsaWFzL3RmLW1pY3Jvc29mdC1hdXRoZW50aWNhdG9yLWJhY2tlbmQtand0LXNpZ25pbmctY21rIn0.eyJwYXlsb2FkIjp7ImZpcnN0TmFtZSI6InRlc3QiLCJsYXN0TmFtZSI6InVzZXIiLCJjb3VudHJ5IjoiVVNBIiwicGhvbmVOdW1iZXIiOiIxMjMtNDU2LTc4OTYiLCJlbWFpbCI6InRlc3RlbWFpbEBleGFtcGxlLmNvbSIsImNhbGxiYWNrVXJsIjoiaHR0cHM6Ly9haXItYWNjZXNzLmdzay5jb20vc29tZS1wYXRoL3NvbWV0aGluZz92YWx1ZTE9dHJ1ZSZ2YWx1ZTI9c29tZS1zdHJpbmciLCJyZWx5aW5nUGFydHkiOiJtc3ZjLWdzayIsImFwcGxpY2FudElkIjoiMTMyZDE0YzMtNWMzOS00ZGRmLWFkMzgtZDAxZTgxODM0ZDQwIn0sImlhdCI6MTYzODkwNTk2MiwiZXhwIjoxNjM4OTExMzYyfQ.MIGHAkFbASNWOuIMw37R9O19h-qx3kATnm5EEfuHesWnqoRutqd5hvzz_jRq0ZOPzYkSTDO36SMexFeOUFeARyY8ChuBcwJCAI2Z6WY-ktbujFzqccTmu78ggAiF1PGg9fW_8dwdu0VuuXL2NL1tTUdfF4nwHSmyXAq2BnYAYGkVj3pGRbNpx4Zm';
+const initSocket = (wsJwt: string) => {
+  // TO-DO: update this url to be env dependent
+  const socketOptions = io('http://localhost:3001', {
+    path: '/wss-connect',
+    reconnectionAttempts: 3,
+    query: { token: wsJwt },
+  })
+  socketOptions.on('connect_error', (err: Error) => {
+    console.log(`connect_error due to ${JSON.stringify(err)}, ${err}`)
+  })
+
+  socketOptions.on('connect', () => {
+    console.log('connected successfully')
+  })
+
+  socketOptions.emit('sdkCompleted', { wsJwt }, (data: string) => {
+    console.log('sdk completed, response: ', data)
+  })
 }
 
 const SdkDemo: FunctionComponent<Props> = ({
@@ -80,8 +102,9 @@ const SdkDemo: FunctionComponent<Props> = ({
       messagePort?.postMessage({ type: 'SDK_COMPLETE', data })
       return
     }
-
+    console.log('im completed');
     console.log('Complete with data!', data)
+    initSocket(testWsJwt)
     createCheckIfNeeded(tokenUrl, applicantId, data)
   }
 
