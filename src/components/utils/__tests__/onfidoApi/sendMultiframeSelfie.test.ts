@@ -155,11 +155,11 @@ describe('onfidoApi', () => {
             },
             (e) => {
               // @ts-ignore
-              const ex: TypeError = e as TypeError
+              const err: TypeError = e as TypeError
 
               try {
-                expect(ex.constructor.name).toEqual('TypeError')
-                expect(ex.message).toEqual(
+                expect(err.constructor.name).toEqual('TypeError')
+                expect(err.message).toEqual(
                   `Failed to execute 'append' on 'FormData': parameter 2 is not of type 'Blob'.`
                 )
 
@@ -174,6 +174,7 @@ describe('onfidoApi', () => {
           xhrMock.onload && xhrMock.onload(new ProgressEvent('Type error'))
 
           expect(xhrMock.send).not.toHaveBeenCalled()
+          expect(xhrMock.onerror).toHaveBeenCalled()
         })
       })
     })
