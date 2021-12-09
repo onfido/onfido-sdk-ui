@@ -136,19 +136,33 @@ jobs:
     strategy:
       matrix:
         include:
-          - NODE_ENV: test
           - NODE_ENV: production
           - NODE_ENV: staging
     steps:
+      - uses: actions/checkout@v2.3.4
+        with:
+          persist-credentials: false
+
+      - name: Reconfigure git to use HTTP authentication
+        run: >
+          git config --global url."https://github.com/".insteadOf
+          ssh://git@github.com/
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            ./node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
 
 
       - name: Run build
         # Legacy: For "$NODE_ENV" == "production" Surge uses the NODE_ENV=test + TEST_ENV=deployment
         run: |
-          if [ ${{ matrix.NODE_ENV}} == "test" ]
-          then
-            npm run build:test
-          elif [ ${{ matrix.NODE_ENV }} == "production" ]
+          if [ ${{ matrix.NODE_ENV }} == "production" ]
           then
             TEST_ENV=deployment npm run build:test
           elif [ ${{ matrix.NODE_ENV }}  == "staging" ]
