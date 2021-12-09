@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import PhoneInput from 'react-phone-number-input/native'
+import PhoneInput from 'react-phone-number-input'
 import { parsePhoneNumberFromString } from 'libphonenumber-js/mobile'
 import classNames from 'classnames'
 import { localised } from '~locales'
@@ -26,17 +26,16 @@ class PhoneNumberInput extends Component {
 
   injectForCountrySelectAriaLabel = () => {
     const { options = {} } = this.props
-    // HACK: This is necessary as react-phone-number-input library is not actually setting country select aria-label
-    const countrySelect = options.containerEl
-      ? options.containerEl.querySelectorAll(
-          '.react-phone-number-input__country-select'
-        )
-      : document.getElementsByClassName(
-          'react-phone-number-input__country-select'
-        )
+    // HACK: This is necessary as setting the ARIA label with react-phone-number-input library `labels` property
+    //       available in v3 loses the human readable country names.
+    //       Also not clear in library's CHANGELOG how to use `countrySelectProps` to set ARIA label for
+    //       country select component as suggested there.
+    const countrySelectEl = options.containerEl
+      ? options.containerEl.querySelectorAll('.PhoneInputCountrySelect')
+      : document.getElementsByClassName('PhoneInputCountrySelect')
 
-    if (countrySelect && countrySelect.length > 0) {
-      countrySelect[0].setAttribute(
+    if (countrySelectEl && countrySelectEl.length > 0) {
+      countrySelectEl[0].setAttribute(
         'aria-label',
         this.props.translate('country_select.search.accessibility')
       )
@@ -71,12 +70,11 @@ class PhoneNumberInput extends Component {
       >
         <PhoneInput
           id="phoneNumberInput"
+          className={`${style.phoneNumberContainer}`}
           placeholder={placeholderLabel}
           value={sms.number || ''}
           onChange={this.onChange}
-          country={smsNumberCountryCode}
-          inputClassName={`${style.mobileInput}`}
-          className={`${style.phoneNumberContainer}`}
+          defaultCountry={smsNumberCountryCode}
           flagComponent={FlagComponent}
           aria-label={placeholderLabel}
         />
