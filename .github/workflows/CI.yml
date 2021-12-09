@@ -140,7 +140,7 @@ jobs:
       - name: Run Browser tests ${{matrix.browser}}
         env:
           MOCK_SERVER: 'false'
-          LOCALHOST_URL: 'https://${PR_NUMBER}-pr-${REPO_NAME}-${REPO_OWNER}.surge.sh'
+          LOCALHOST_URL: https://${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh
         run: npm run test:ui
 
   build:
