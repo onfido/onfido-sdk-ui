@@ -8,3 +8,5 @@
 /auth-sdk/FaceTec
 .percy.yml
 /.idea/
+/test/config
+/.github
