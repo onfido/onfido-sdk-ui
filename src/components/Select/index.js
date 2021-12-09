@@ -2,8 +2,8 @@ import PageTitle from '../PageTitle'
 import { IdentityDocumentSelector } from '../DocumentSelector'
 // import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
-import { localised } from '../../locales'
 import { h } from 'preact'
+import { localised } from '~locales'
 
 /* type Props = {
   country: string,

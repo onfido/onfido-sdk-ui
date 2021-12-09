@@ -8,6 +8,17 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Changed
+
+- Upgrade `react-phone-number-input` to v3.1.38
+
+## [6.15.5] - 2021-12-2
+
+### Fixed
+
+- UI: Set the 'Send link' Button component on Cross Device Send SMS Link screen as `type="button"` to prevent the Button component defaulting to a `submit` type button when SDK is embedded within a `form` element.
+- UI: Fix live document capture overlay appearing very small compared to how it was in version `6.14.0`.
+
 ## [6.15.4] - 2021-11-25
 
 ### Fixed
@@ -1127,7 +1138,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...development
+[6.15.5]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...6.15.5
 [6.15.4]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...6.15.4
 [6.15.3]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...6.15.3
 [6.15.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.1...6.15.2

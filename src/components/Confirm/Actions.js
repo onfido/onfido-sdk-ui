@@ -1,13 +1,14 @@
 import { h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import { isButtonGroupStacked } from '../Theme/utils'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const RetakeAction = localised(({ retakeAction, translate, singleAction }) => (
   <Button
+    type="button"
     onClick={retakeAction}
     variant={singleAction ? 'primary' : 'secondary'}
     className={
@@ -30,6 +31,7 @@ const RetakeAction = localised(({ retakeAction, translate, singleAction }) => (
 const ConfirmAction = localised(
   ({ confirmAction, isUploading, translate, error }) => (
     <Button
+      type="button"
       variant="primary"
       className={classNames(theme['button-sm'], {
         [theme.vertical]: isButtonGroupStacked(),

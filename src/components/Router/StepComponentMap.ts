@@ -29,7 +29,7 @@ import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
 import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
-import { getCountryDataForDocumentType } from '../../supported-documents'
+import { getCountryDataForDocumentType } from '~supported-documents'
 
 import type {
   ExtendedStepConfig,

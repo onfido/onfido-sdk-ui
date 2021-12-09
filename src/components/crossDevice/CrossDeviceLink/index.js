@@ -17,7 +17,7 @@ import {
   sendEvent,
   TRACKED_EVENT_TYPES,
 } from '../../../Tracker'
-import { localised } from '../../../locales'
+import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
@@ -286,6 +286,7 @@ class CrossDeviceLinkUI extends Component {
               />
             </div>
             <Button
+              type="button"
               variant="primary"
               className={classNames(style.btn, { [style.sending]: sending })}
               onClick={this.handleSendSmsLinkClick}

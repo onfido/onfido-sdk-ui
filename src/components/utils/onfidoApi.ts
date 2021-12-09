@@ -168,7 +168,11 @@ export const sendMultiframeSelfie = (
         onError
       )
     })
-    .catch((err) => onError(err))
+    .catch((err) => {
+      // FIXME: the onError can also be a (e:Error) => void, as e.g. the test sendMultiframeSelfie - 'with invalid data' shows
+      // that the callback is a type error
+      onError(err)
+    })
 }
 
 export const uploadFaceVideo = (
@@ -350,9 +354,10 @@ const sendFile = <T>(
     token: `Bearer ${token}`,
   }
 
-  performHttpReq(requestParams, onSuccess, (request) =>
+  performHttpReq(requestParams, onSuccess, (request) => {
+    console.log('API error', request)
     formatError(request, onError)
-  )
+  })
 }
 
 export const sendAnalytics = (

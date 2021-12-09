@@ -1,5 +1,7 @@
 import { sendMultiframeSelfie } from '../../onfidoApi'
 import createMockXHR from '~jest/createMockXHR'
+import { TRACKED_EVENT_TYPES } from '../../../../Tracker'
+import { ParsedError } from '~types/api'
 
 const url = 'https://test.url.com'
 const jwtToken = 'fake.token'
@@ -18,25 +20,38 @@ const selfieData = {
 const mockedOnSuccess = jest.fn()
 const mockedOnError = jest.fn()
 const mockedTrackingCallback = jest.fn()
-
-const runAllPromises = () => new Promise(setImmediate)
+let xhrMock: XMLHttpRequest
 
 describe('onfidoApi', () => {
   describe('sendMultiframeSelfie', () => {
-    let mockXHR: XMLHttpRequest
-
     afterEach(() => {
       jest.clearAllMocks()
       jest.restoreAllMocks()
     })
 
     describe('with valid data', () => {
-      beforeEach(() => {
-        mockXHR = createMockXHR({ response: { payload: 'success' } })
-        jest.spyOn(window, 'XMLHttpRequest').mockImplementation(() => mockXHR)
-      })
-
       it('should send two XHR requests', async () => {
+        const snapShotsXhr: XMLHttpRequest = createMockXHR({
+          response: { payload: 'success' },
+        })
+        const livePhotoXhr = createMockXHR({ response: { payload: 'success' } })
+        let times = 0
+
+        // when send is called trigger the onload function
+        livePhotoXhr.send = () => {
+          times++
+          livePhotoXhr.onload &&
+            livePhotoXhr.onload(new ProgressEvent('upload live photo'))
+        }
+
+        const failXhr = createMockXHR({ response: { payload: 'fail' } })
+
+        const xhrs = [snapShotsXhr, livePhotoXhr]
+
+        jest.spyOn(window, 'XMLHttpRequest').mockImplementation(() => {
+          return xhrs.shift() || failXhr
+        })
+
         sendMultiframeSelfie(
           snapshotData,
           selfieData,
@@ -47,105 +62,120 @@ describe('onfidoApi', () => {
           mockedTrackingCallback
         )
 
-        mockXHR &&
-          mockXHR.onload &&
-          mockXHR.onload(new ProgressEvent('upload snapshots')) // Upload snapshots
-        await runAllPromises()
+        snapShotsXhr.onload &&
+          snapShotsXhr.onload(new ProgressEvent('upload snapshots')) // Upload snapshots
 
         expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Starting snapshot upload'
+          'Starting snapshot upload',
+          TRACKED_EVENT_TYPES.action
         )
-        expect(mockXHR.open).toHaveBeenCalledWith('POST', `${url}/v3/snapshots`)
-        expect(mockXHR.send).toHaveBeenCalled()
+        expect(snapShotsXhr.open).toHaveBeenCalledWith(
+          'POST',
+          `${url}/v3/snapshots`
+        )
+        expect(snapShotsXhr.send).toHaveBeenCalled()
 
-        mockXHR &&
-          mockXHR.onload &&
-          mockXHR.onload(new ProgressEvent('upload live photo')) // Upload live photo
-        await runAllPromises()
+        // as the sendMultiframeSelfie function is async with 2 calls, we need to give it some time, till the the open function is called
+        await (async () => {
+          return new Promise((r) => setTimeout(r, 100))
+        })
 
-        expect(mockXHR.open).toHaveBeenCalledWith(
+        expect(livePhotoXhr.open).toHaveBeenCalledWith(
           'POST',
           `${url}/v3/live_photos`
         )
-        expect(mockXHR.send).toHaveBeenCalledTimes(2)
+
+        expect(times).toBe(1)
         expect(mockedOnSuccess).toHaveBeenCalledWith({ payload: 'success' })
         expect(mockedOnError).not.toHaveBeenCalled()
 
         expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Snapshot upload completed'
+          'Snapshot upload completed',
+          TRACKED_EVENT_TYPES.action
         )
         expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Starting live photo upload'
+          'Starting live photo upload',
+          TRACKED_EVENT_TYPES.action
         )
       })
     })
 
     describe('with request error', () => {
-      beforeEach(() => {
-        mockXHR = createMockXHR({
-          status: 401,
-          response: { error: 'unauthorized' },
-        })
-        jest.spyOn(window, 'XMLHttpRequest').mockImplementation(() => mockXHR)
-      })
+      it('should call onError callback', () => {
+        return new Promise((okay, error) => {
+          const mockXHR = createMockXHR({
+            status: 401,
+            response: { error: 'unauthorized' },
+          })
+          jest.spyOn(window, 'XMLHttpRequest').mockImplementation(() => mockXHR)
 
-      it('should call onError callback', async () => {
-        sendMultiframeSelfie(
-          snapshotData,
-          selfieData,
-          jwtToken,
-          url,
-          mockedOnSuccess,
-          mockedOnError,
-          mockedTrackingCallback
-        )
+          sendMultiframeSelfie(
+            snapshotData,
+            selfieData,
+            jwtToken,
+            url,
+            () => {
+              error('success should not be called')
+            },
+            (e: ParsedError) => {
+              try {
+                expect(e.status).toEqual(401)
+                expect(e.response).toEqual({ error: 'unauthorized' })
+                okay(null)
+              } catch (e) {
+                error(e)
+              }
+            },
+            mockedTrackingCallback
+          )
 
-        mockXHR && mockXHR.onload && mockXHR.onload(new ProgressEvent('error'))
-        await runAllPromises()
+          mockXHR.onload && mockXHR.onload(new ProgressEvent('error'))
 
-        expect(mockXHR.send).toHaveBeenCalledTimes(1)
-        expect(mockedOnSuccess).not.toHaveBeenCalled()
-        expect(mockedOnError).toHaveBeenCalledWith({
-          status: 401,
-          response: { error: 'unauthorized' },
+          expect(mockXHR.send).toHaveBeenCalledTimes(1)
         })
       })
     })
 
     describe('with invalid data', () => {
-      beforeEach(() => {
-        mockXHR = createMockXHR({})
-        jest.spyOn(window, 'XMLHttpRequest').mockImplementation(() => mockXHR)
-      })
-
       it('should call onError callback with TypeError', async () => {
-        const invalidSnapshotData = { ...snapshotData, blob: {} as Blob }
-        const invalidSelfieData = { ...selfieData, blob: {} as Blob }
+        return new Promise((okay, error) => {
+          xhrMock = createMockXHR({})
+          jest.spyOn(window, 'XMLHttpRequest').mockImplementation(() => xhrMock)
 
-        sendMultiframeSelfie(
-          invalidSnapshotData,
-          invalidSelfieData,
-          jwtToken,
-          url,
-          mockedOnSuccess,
-          mockedOnError,
-          mockedTrackingCallback
-        )
+          const invalidSnapshotData = { ...snapshotData, blob: {} as Blob }
+          const invalidSelfieData = { ...selfieData, blob: {} as Blob }
 
-        mockXHR &&
-          mockXHR.onload &&
-          mockXHR.onload(new ProgressEvent('Type error'))
-        await runAllPromises()
+          sendMultiframeSelfie(
+            invalidSnapshotData,
+            invalidSelfieData,
+            jwtToken,
+            url,
+            () => {
+              error('success should not be invoked')
+            },
+            (e) => {
+              // @ts-ignore
+              const err: TypeError = e as TypeError
 
-        expect(mockXHR.send).not.toHaveBeenCalled()
-        expect(mockedOnSuccess).not.toHaveBeenCalled()
-        expect(mockedOnError).toHaveBeenCalledTimes(1)
+              try {
+                expect(err.constructor.name).toEqual('TypeError')
+                expect(err.message).toEqual(
+                  `Failed to execute 'append' on 'FormData': parameter 2 is not of type 'Blob'.`
+                )
 
-        const error = mockedOnError.mock.calls[0][0]
-        expect(error).toMatchObject(/TypeError/)
-        expect(error.message).toEqual(
-          `Failed to execute 'append' on 'FormData': parameter 2 is not of type 'Blob'.`
-        )
+                okay(null)
+              } catch (e) {
+                console.error(e)
+              }
+            },
+            mockedTrackingCallback
+          )
+
+          xhrMock.onload && xhrMock.onload(new ProgressEvent('Type error'))
+
+          expect(xhrMock.send).not.toHaveBeenCalled()
+          expect(xhrMock.onerror).toHaveBeenCalled()
+        })
       })
     })
   })

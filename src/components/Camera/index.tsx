@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact'
 import Webcam, { WebcamProps } from 'react-webcam-onfido'
 import classNames from 'classnames'
 
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
 
