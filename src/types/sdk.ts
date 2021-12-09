@@ -68,6 +68,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   steps?: Array<StepTypes | StepConfig>
   enterpriseFeatures?: EnterpriseFeatures
   customUI?: UICustomizationOptions | null
+  autoFocusOnInitialScreenTitle?: boolean
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   _crossDeviceLinkMethods?: Array<string> | null

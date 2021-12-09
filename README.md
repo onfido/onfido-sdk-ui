@@ -389,6 +389,10 @@ onfidoOut.tearDown()
 
   If `useModal` is set to `true`, by default the user can close the SDK by clicking on the close button or on the background overlay. You can disable the user's ability to close the SDK by clicking the background overlay through setting `shouldCloseOnOverlayClick` to `false`.
 
+- **`autoFocusOnInitialScreenTitle {Boolean} optional (default: true)`**
+
+  Set SDK to auto focus on the initial screen's title. By default it will auto focus on every screen's title. When disabled, auto focus will not be applied for the initial screen's title. SDK will still auto focus to subsequent screens' title as user goes through the steps.
+
 - **`containerId {String} optional`**
 
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`. If your integration needs to pass the container element itself, use `containerEl` as described next.
