@@ -34,7 +34,7 @@ jobs:
         id: cache
         with:
           path: |
-            ~/.npm
+            ./node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
@@ -75,7 +75,7 @@ jobs:
         id: cache
         with:
           path: |
-            ~/.npm
+            ./node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
@@ -117,7 +117,7 @@ jobs:
         id: cache
         with:
           path: |
-            ~/.npm
+            ./node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
