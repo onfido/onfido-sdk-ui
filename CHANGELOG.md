@@ -11,7 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - Upgrade `react-phone-number-input` to v3.1.38
-- Revert change to return document type as 'unknown' in `onComplete` callback payload if Residence Permit selected now that the API supports that document type for document uploads
+- Revert change which returns document type as 'unknown' in `onComplete` callback payload if Residence Permit selected. API now supports that document type for document uploads.
 
 ## [6.15.5] - 2021-12-2
 
