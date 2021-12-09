@@ -1,0 +1,18 @@
+{
+  "tests": [
+    {
+      "file": "test/specs/chrome.js",
+      "timeout": 20000,
+      "browsers": [
+        {
+          "browserName": "chrome",
+          "remote": false
+        }
+      ]
+    }
+  ],
+  "localhostUrl": "https://localhost:8080/",
+  "fullTestCoverageLanguages": ["en_US", "es_ES"],
+  "partialTestCoverageLanguages": ["de_DE", "fr_FR", "it_IT", "pt_PT"],
+  "testDeviceMobileNumber": "07495 023357"
+}
