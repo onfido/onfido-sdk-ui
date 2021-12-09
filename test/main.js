@@ -17,16 +17,16 @@ import edge from 'selenium-webdriver/edge'
 let config
 const browsersFailures = {}
 let totalFailures = 0
-export let localhostUrl
 
 if (!process.env.CONFIG_FILE) {
   console.error('INFO: CONFIG_FILE not set, so using the default config.json')
   config = require('./config')
-  localhostUrl = config.localhostUrl
 } else {
   config = require(`./${process.env.CONFIG_FILE}`)
-  localhostUrl = config.localhostUrl
 }
+export const localhostUrl = process.env.LOCALHOST_URL
+  ? process.env.LOCALHOST_URL
+  : config.localhostUrl
 
 if (!process.env.BROWSERSTACK_USERNAME) {
   console.error('ERROR: BrowserStack username not set')
