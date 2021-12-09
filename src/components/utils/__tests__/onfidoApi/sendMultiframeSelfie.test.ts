@@ -174,7 +174,6 @@ describe('onfidoApi', () => {
           xhrMock.onload && xhrMock.onload(new ProgressEvent('Type error'))
 
           expect(xhrMock.send).not.toHaveBeenCalled()
-          expect(xhrMock.onerror).toHaveBeenCalled()
         })
       })
     })
