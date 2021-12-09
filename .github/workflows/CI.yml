@@ -37,7 +37,7 @@ jobs:
             ~/.npm
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-npm-
+            ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
@@ -78,7 +78,7 @@ jobs:
             ~/.npm
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-npm-
+            ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
@@ -120,7 +120,7 @@ jobs:
             ~/.npm
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-npm-
+            ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
