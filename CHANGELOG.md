@@ -18,6 +18,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Upgrade `react-phone-number-input` to v3.1.38
 - Revert change which returns document type as 'unknown' in `onComplete` callback payload if Residence Permit selected. API now supports that document type for document uploads.
 
+### Fixed
+
+- UI: Fixed Live Document Capture flow's camera inactive warning not displaying the basic camera fallback option if not defined in SDK configuration.
+
 ## [6.15.5] - 2021-12-2
 
 ### Fixed
