@@ -229,7 +229,7 @@ class Document extends Component<Props> {
         <DocumentLiveCapture
           containerClassName={style.liveDocumentContainer}
           documentType={documentType}
-          isUploadFallbackDisabled={!uploadFallback}
+          isUploadFallbackDisabled={uploadFallback ? !uploadFallback : false}
           onCapture={this.handlePhotoCapture}
           renderFallback={renderFallback}
           renderTitle={renderTitle}
