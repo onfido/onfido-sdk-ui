@@ -157,7 +157,9 @@ const sendEvent = (
 const screeNameHierarchyFormat = (
   screeNameHierarchy: string[]
 ): LegacyTrackedEventNames =>
-  `screen_${cleanFalsy(screeNameHierarchy).join('_')}` as LegacyTrackedEventNames
+  `screen_${cleanFalsy(screeNameHierarchy).join(
+    '_'
+  )}` as LegacyTrackedEventNames
 
 const sendScreen = (
   screeNameHierarchy: string[],

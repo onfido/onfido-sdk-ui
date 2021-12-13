@@ -68,13 +68,11 @@ export const sendAnalyticsEvent = (
     source: 'sdk',
   }
 
-  const { eventType: event_type, ...otherProperties } = eventData?.properties
   const properties = {
-    event_type,
     step: currentStepType,
     is_cross_device: isCrossDeviceClient,
     ...eventProperties,
-    ...otherProperties,
+    ...eventData?.properties,
   }
 
   const event_metadata = {

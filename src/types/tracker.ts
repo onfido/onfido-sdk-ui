@@ -107,7 +107,7 @@ export type TrackedEnvironmentData = {
 }
 
 export type AnalyticsEventProperties = {
-  event_type: TrackedEventTypes
+  event_type?: TrackedEventTypes
   step?: string
   is_cross_device?: boolean
   is_custom_ui?: boolean
@@ -121,7 +121,7 @@ export type AnalyticsEventProperties = {
 export type AnalyticsPayload = {
   applicant_uuid?: string
   client_uuid?: string
-  event: LegacyTrackedEventNames
+  event?: AnalyticsTrackedEventNames
   event_metadata: {
     domain: string
   } & TrackedEnvironmentData

@@ -270,14 +270,14 @@ class Confirm extends Component {
       } = await enterpriseFeatures[callbackName](formDataPayload)
 
       if (onfidoSuccessResponse) {
-        sendEvent(`Success response from ${callbackName}`, eventType)
+        sendEvent(`Success response from ${callbackName}`)
         this.onApiSuccess(onfidoSuccessResponse)
         return
       }
 
       if (continueWithOnfidoSubmission) {
         this.startTime = performance.now()
-        sendEvent('Starting upload', eventType, {
+        sendEvent('Starting upload', {
           method,
           uploadAfterNetworkDecouple: true,
         })

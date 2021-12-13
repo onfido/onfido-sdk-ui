@@ -139,7 +139,6 @@ export const sendMultiframeSelfie = (
   onError: ErrorCallback,
   sendEvent: (
     event: LegacyTrackedEventNames,
-    eventType: string,
     properties?: Record<string, unknown>
   ) => void
 ): void => {

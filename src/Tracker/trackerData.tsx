@@ -43,7 +43,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'COMPLETE',
       properties: {
-        eventType: 'screen',
+        event_type: 'screen',
       },
     },
   ],
@@ -51,112 +51,112 @@ export const analyticsEventsMapping = new Map<
     'screen_complete_crossdevice_mobile_success',
     {
       eventName: 'COMPLETE_CROSS_DEVICE_MOBILE_SUCCESS',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_document_country_select',
     {
       eventName: 'COUNTRY_SELECTION',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_document_crossDevice_client_intro',
     {
       eventName: 'CROSS_DEVICE_CLIENT_INTRO',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_face_crossDevice_client_intro',
     {
       eventName: 'CROSS_DEVICE_CLIENT_INTRO',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_poa_crossDevice_client_intro',
     {
       eventName: 'CROSS_DEVICE_CLIENT_INTRO',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_crossDevice_desktop_submit',
     {
       eventName: 'CROSS_DEVICE_DESKTOP_SUBMIT',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_crossDevice_crossdevice_link',
     {
       eventName: 'CROSS_DEVICE_GET_LINK',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_crossDevice',
     {
       eventName: 'CROSS_DEVICE_INTRO',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'copy link selected',
     {
       eventName: 'CROSS_DEVICE_LINK_METHOD_SELECTED',
-      properties: { eventType: 'action', link_method_selected: 'copy' },
+      properties: { event_type: 'action', link_method_selected: 'copy' },
     },
   ],
   [
     'qr code selected',
     {
       eventName: 'CROSS_DEVICE_LINK_METHOD_SELECTED',
-      properties: { eventType: 'action', link_method_selected: 'qr_code' },
+      properties: { event_type: 'action', link_method_selected: 'qr_code' },
     },
   ],
   [
     'sms selected',
     {
       eventName: 'CROSS_DEVICE_LINK_METHOD_SELECTED',
-      properties: { eventType: 'action', link_method_selected: 'sms' },
+      properties: { event_type: 'action', link_method_selected: 'sms' },
     },
   ],
   [
     'screen_crossDevice_mobile_notification_sent',
     {
       eventName: 'CROSS_DEVICE_MOBILE_NOTIFICATION_SENT',
-      properties: { eventType: 'action' },
+      properties: { event_type: 'action' },
     },
   ],
   [
     'screen_crossDevice_mobile_connected',
     {
       eventName: 'CROSS_DEVICE_MOBILE_SUBMIT',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_crossDevice_sms_failed',
     {
       eventName: 'CROSS_DEVICE_SMS_FAILED',
-      properties: { eventType: 'view' },
+      properties: { event_type: 'view' },
     },
   ],
   [
     'Starting upload',
     {
       eventName: 'CUSTOM_API_REQUEST_STARTED',
-      properties: { eventType: 'flow' },
+      properties: { event_type: 'flow' },
     },
   ],
   [
     'screen_document_back_capture_camera_error',
     {
       eventName: 'DOCUMENT_CAMERA_ERROR',
-      properties: { eventType: 'view', document_side: 'back' },
+      properties: { event_type: 'view', document_side: 'back' },
     },
   ],
   [
@@ -164,7 +164,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_CAMERA_ERROR',
 
-      properties: { eventType: 'view', document_side: 'front' },
+      properties: { event_type: 'view', document_side: 'front' },
     },
   ],
   [
@@ -172,7 +172,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_CAMERA_SHUTTER_CLICK',
 
-      properties: { eventType: 'action', capture_method_rendered: 'camera' },
+      properties: { event_type: 'action', capture_method_rendered: 'camera' },
     },
   ],
   [
@@ -180,7 +180,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_CAPTURE',
 
-      properties: { eventType: 'screen', document_side: 'back' },
+      properties: { event_type: 'screen', document_side: 'back' },
     },
   ],
   [
@@ -188,7 +188,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_CAPTURE',
 
-      properties: { eventType: 'screen', document_side: 'front' },
+      properties: { event_type: 'screen', document_side: 'front' },
     },
   ],
   [
@@ -196,7 +196,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_CAPTURE',
 
-      properties: { eventType: 'screen', capture_method_rendered: 'upload' },
+      properties: { event_type: 'screen', capture_method_rendered: 'upload' },
     },
   ],
   [
@@ -204,7 +204,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_CAPTURE',
 
-      properties: { eventType: 'screen', document_side: 'front' },
+      properties: { event_type: 'screen', document_side: 'front' },
     },
   ],
   [
@@ -212,7 +212,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_CONFIRMATION',
 
-      properties: { eventType: 'screen', document_side: 'back' },
+      properties: { event_type: 'screen', document_side: 'back' },
     },
   ],
   [
@@ -220,28 +220,28 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_CONFIRMATION',
 
-      properties: { eventType: 'screen', document_side: 'front' },
+      properties: { event_type: 'screen', document_side: 'front' },
     },
   ],
   [
     'screen_document_fallback_clicked',
     {
       eventName: 'DOCUMENT_FALLBACK_CLICKED',
-      properties: { eventType: 'action' },
+      properties: { event_type: 'action' },
     },
   ],
   [
     'screen_document_image_quality_guide',
     {
       eventName: 'DOCUMENT_IMAGE_QUALITY_GUIDE',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_document_type_select',
     {
       eventName: 'DOCUMENT_TYPE_SELECTION',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
@@ -249,7 +249,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_VIDEO_CAPTURE',
 
-      properties: { eventType: 'screen', capture_method_rendered: 'upload' },
+      properties: { event_type: 'screen', capture_method_rendered: 'upload' },
     },
   ],
   [
@@ -257,25 +257,25 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_VIDEO_CAPTURE',
 
-      properties: { eventType: 'screen', capture_method_rendered: 'camera' },
+      properties: { event_type: 'screen', capture_method_rendered: 'camera' },
     },
   ],
   [
     'screen_document_document_video_capture_fallback_triggered',
     {
       eventName: 'DOCUMENT_VIDEO_FALLBACK_TRIGGERED',
-      properties: { eventType: 'action' },
+      properties: { event_type: 'action' },
     },
   ],
   [
     'screen_face_selfie_intro',
-    { eventName: 'FACE_INTRO', properties: { eventType: 'screen' } },
+    { eventName: 'FACE_INTRO', properties: { event_type: 'screen' } },
   ],
   [
     'screen_face_selfie_capture_camera_error',
     {
       eventName: 'FACE_SELFIE_CAMERA_ERROR',
-      properties: { eventType: 'view' },
+      properties: { event_type: 'view' },
     },
   ],
   [
@@ -283,7 +283,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_SELFIE_CAPTURE',
 
-      properties: { eventType: 'screen', capture_method_rendered: 'upload' },
+      properties: { event_type: 'screen', capture_method_rendered: 'upload' },
     },
   ],
   [
@@ -291,35 +291,35 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_SELFIE_CAPTURE',
 
-      properties: { eventType: 'screen', capture_method_rendered: 'camera' },
+      properties: { event_type: 'screen', capture_method_rendered: 'camera' },
     },
   ],
   [
     'screen_face_selfie_confirmation',
     {
       eventName: 'FACE_SELFIE_CONFIRMATION',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_face_selfie_capture_fallback_triggered',
     {
       eventName: 'FACE_SELFIE_FALLBACK_TRIGGERED',
-      properties: { eventType: 'action' },
+      properties: { event_type: 'action' },
     },
   ],
   [
     'Snapshot upload completed',
     {
       eventName: 'FACE_SELFIE_SNAPSHOT_UPLOAD_COMPLETED',
-      properties: { eventType: 'flow' },
+      properties: { event_type: 'flow' },
     },
   ],
   [
     'Starting snapshot upload',
     {
       eventName: 'FACE_SELFIE_SNAPSHOT_UPLOAD_STARTED',
-      properties: { eventType: 'flow' },
+      properties: { event_type: 'flow' },
     },
   ],
   [
@@ -327,14 +327,14 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_SELFIE_UPLOAD_STARTED',
 
-      properties: { eventType: 'flow', capture_method_rendered: 'camera' },
+      properties: { event_type: 'flow', capture_method_rendered: 'camera' },
     },
   ],
   [
     'screen_face_face_video_capture_camera_error',
     {
       eventName: 'FACE_VIDEO_CAMERA_ERROR',
-      properties: { eventType: 'view' },
+      properties: { event_type: 'view' },
     },
   ],
   [
@@ -342,7 +342,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_VIDEO_CAPTURE',
 
-      properties: { eventType: 'screen', capture_method_rendered: 'upload' },
+      properties: { event_type: 'screen', capture_method_rendered: 'upload' },
     },
   ],
   [
@@ -350,7 +350,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_VIDEO_CAPTURE',
 
-      properties: { eventType: 'screen', capture_method_rendered: 'camera' },
+      properties: { event_type: 'screen', capture_method_rendered: 'camera' },
     },
   ],
   [
@@ -358,7 +358,7 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_VIDEO_CAPTURE',
 
-      properties: { eventType: 'screen', video_capture_step: 'step1' },
+      properties: { event_type: 'screen', video_capture_step: 'step1' },
     },
   ],
   [
@@ -366,78 +366,78 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_VIDEO_CAPTURE',
 
-      properties: { eventType: 'screen', video_capture_step: 'step2' },
+      properties: { event_type: 'screen', video_capture_step: 'step2' },
     },
   ],
   [
     'screen_face_video_challenge_load_failed',
     {
       eventName: 'FACE_VIDEO_CHALLENGE_FETCH_ERROR',
-      properties: { eventType: 'flow' },
+      properties: { event_type: 'flow' },
     },
   ],
   [
     'screen_face_video_challenge_loaded',
     {
       eventName: 'FACE_VIDEO_CHALLENGE_LOADED',
-      properties: { eventType: 'flow' },
+      properties: { event_type: 'flow' },
     },
   ],
   [
     'screen_face_video_challenge_requested',
     {
       eventName: 'FACE_VIDEO_CHALLENGE_REQUESTED',
-      properties: { eventType: 'flow' },
+      properties: { event_type: 'flow' },
     },
   ],
   [
     'screen_face_face_video_confirmation',
     {
       eventName: 'FACE_VIDEO_CONFIRMATION',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_face_face_video_capture_fallback_triggered',
     {
       eventName: 'FACE_VIDEO_FALLBACK_TRIGGERED',
-      properties: { eventType: 'action' },
+      properties: { event_type: 'action' },
     },
   ],
   [
     'screen_face_video_intro',
     {
       eventName: 'FACE_VIDEO_INTRO',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'completed flow',
-    { eventName: 'FLOW_COMPLETED', properties: { eventType: 'flow' } },
+    { eventName: 'FLOW_COMPLETED', properties: { event_type: 'flow' } },
   ],
   [
     'started flow',
-    { eventName: 'FLOW_STARTED', properties: { eventType: 'flow' } },
+    { eventName: 'FLOW_STARTED', properties: { event_type: 'flow' } },
   ],
   [
     'screen_forbidden_client_error',
     {
       eventName: 'FORBIDDEN_CLIENT_ERROR',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_generic_client_error',
     {
       eventName: 'GENERIC_CLIENT_ERROR',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_interrupted_flow_error',
     {
       eventName: 'INTERRUPTED_FLOW_ERROR',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
@@ -445,61 +445,61 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'POA_CAPTURE',
 
-      properties: { eventType: 'screen', capture_method_rendered: 'upload' },
+      properties: { event_type: 'screen', capture_method_rendered: 'upload' },
     },
   ],
   [
     'screen_poa_poa',
     {
       eventName: 'POA_CAPTURE_POA',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_poa_front_confirmation',
     {
       eventName: 'POA_CONFIRMATION',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_poa_type_select',
     {
       eventName: 'POA_DOCUMENT_TYPE_SELECTION',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_poa',
-    { eventName: 'POA_INTRO', properties: { eventType: 'screen' } },
+    { eventName: 'POA_INTRO', properties: { event_type: 'screen' } },
   ],
   [
     'screen_unsupported_android_browser',
     {
       eventName: 'UNSUPPORTED_BROWSER',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_unsupported_ios_browser',
     {
       eventName: 'UNSUPPORTED_BROWSER',
-      properties: { eventType: 'screen' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'Completed upload',
     {
       eventName: 'UPLOAD_COMPLETED',
-      properties: { eventType: 'action' },
+      properties: { event_type: 'action' },
     },
   ],
   [
     'screen_userConsent',
-    { eventName: 'USER_CONSENT', properties: { eventType: 'screen' } },
+    { eventName: 'USER_CONSENT', properties: { event_type: 'screen' } },
   ],
   [
     'screen_welcome',
-    { eventName: 'WELCOME', properties: { eventType: 'screen' } },
+    { eventName: 'WELCOME', properties: { event_type: 'screen' } },
   ],
 ])
