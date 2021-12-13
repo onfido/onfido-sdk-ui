@@ -389,6 +389,10 @@ onfidoOut.tearDown()
 
   If `useModal` is set to `true`, by default the user can close the SDK by clicking on the close button or on the background overlay. You can disable the user's ability to close the SDK by clicking the background overlay through setting `shouldCloseOnOverlayClick` to `false`.
 
+- **`autoFocusOnInitialScreenTitle {Boolean} optional (default: true)`**
+
+  Set SDK to auto focus on the initial screen's title. By default it will auto focus on every screen's title. When disabled, auto focus will not be applied for the initial screen's title. SDK will still auto focus to subsequent screens' title as user goes through the steps.
+
 - **`containerId {String} optional`**
 
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`. If your integration needs to pass the container element itself, use `containerEl` as described next.
@@ -452,9 +456,9 @@ The Web SDK has multiple customizable features that provide flexibility, while a
 
   You can customize the language displayed on the SDK by passing a string or object. If `language` is not present the default copy will be in English.
 
-  ##### Supported languages
+  #### Supported languages
 
-  The SDK supports and maintains 6 languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
+  The SDK supports and maintains the following languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
 
   | Language          | Locale Tag |
   | ----------------- | ---------- |
@@ -464,6 +468,7 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   | French            | `fr_FR`    |
   | Italian           | `it_IT`    |
   | Portuguese        | `pt_PT`    |
+  | Dutch             | `nl_NL`    |
 
   Example:
 
@@ -471,7 +476,7 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   language: 'es_ES' | 'es'
   ```
 
-  ##### Custom lanugages
+  #### Custom lanugages
 
   The SDK can also be displayed in a custom language for locales that Onfido does not currently support. To implement this, pass an object containing the following keys:
 

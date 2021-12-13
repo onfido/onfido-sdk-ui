@@ -441,7 +441,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should check Submit Verification button can only be clicked once when there is no Complete step', async () => {
+      it.skip('should check Submit Verification button can only be clicked once when there is no Complete step', async () => {
         driver.get(`${baseUrl}&noCompleteStep=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -467,7 +467,7 @@ export const crossDeviceScenarios = async (lang) => {
         )
       })
 
-      it('should complete cross device e2e flow with a US JWT', async () => {
+      it.skip('should complete cross device e2e flow with a US JWT', async () => {
         driver.get(`${baseUrl}&region=US`)
         welcome.continueToNextStep()
         documentSelector.clickOnPassportIcon()
@@ -490,7 +490,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      it('should hide logo on all screens when hideOnfidoLogo is enabled and given token has feature enabled', async () => {
+      it.skip('should hide logo on all screens when hideOnfidoLogo is enabled and given token has feature enabled', async () => {
         driver.get(`${baseUrl}&hideOnfidoLogo=true`)
         welcome.checkLogoIsHidden()
         welcome.continueToNextStep()
@@ -520,7 +520,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.checkLogoIsHidden()
       })
 
-      it('should show the cobrand text and logo on all screens when showCobrand is enabled and token has feature enabled', async () => {
+      it.skip('should show the cobrand text and logo on all screens when showCobrand is enabled and token has feature enabled', async () => {
         driver.get(`${baseUrl}&showCobrand=true`)
         welcome.checkCobrandIsVisible()
         welcome.continueToNextStep()
@@ -550,7 +550,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.checkCobrandIsVisible()
       })
 
-      it('should not show any logo, including cobrand text and logo on all screens when showCobrand is enabled but hideOnfidoLogo is also enabled', async () => {
+      it.skip('should not show any logo, including cobrand text and logo on all screens when showCobrand is enabled but hideOnfidoLogo is also enabled', async () => {
         driver.get(`${baseUrl}&showCobrand=true&hideOnfidoLogo=true`)
         welcome.checkLogoIsHidden()
         welcome.continueToNextStep()
@@ -580,7 +580,7 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.checkLogoIsHidden()
       })
 
-      it('should show the cobrand logo and Onfido logo on all screens when showLogoCobrand is enabled and token has feature enabled', async () => {
+      it.skip('should show the cobrand logo and Onfido logo on all screens when showLogoCobrand is enabled and token has feature enabled', async () => {
         driver.get(`${baseUrl}&showLogoCobrand=true`)
         welcome.checkLogoCobrandIsVisible()
         welcome.continueToNextStep()
