@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.16.0] - 2021-12-14
+
 ### Added
 
 - Public: Added support for Dutch `nl_NL`.
@@ -1144,7 +1146,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...development
+[6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.16.0
 [6.15.5]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...6.15.5
 [6.15.4]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...6.15.4
 [6.15.3]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...6.15.3
