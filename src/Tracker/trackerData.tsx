@@ -28,8 +28,8 @@ export const integratorTrackedEvents = new Map<
   ['Starting upload', 'UPLOAD'],
 ])
 
-// TODO: Add typings using the objects in the comments
-// Using any becaus of this ts bug https://github.com/microsoft/TypeScript/pull/43396
+// FIXME: Using @ts-ignore here because of Map constructor argument bug
+// https://github.com/microsoft/TypeScript/pull/43396
 // @ts-ignore
 export const analyticsEventsMapping = new Map<
   LegacyTrackedEventNames,
