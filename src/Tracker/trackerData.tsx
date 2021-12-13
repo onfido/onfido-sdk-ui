@@ -1,12 +1,12 @@
 import type {
-  TrackedEventNames,
   UserAnalyticsEventNames,
-  LegacyAnalyticsTrackedEventNames,
-  NewEventStructure,
+  LegacyTrackedEventNames,
+  AnalyticsTrackedEventNames,
+  AnalyticsEventProperties,
 } from '~types/tracker'
 
 export const integratorTrackedEvents = new Map<
-  TrackedEventNames,
+  LegacyTrackedEventNames,
   UserAnalyticsEventNames
 >([
   ['screen_welcome', 'WELCOME'],
@@ -29,509 +29,477 @@ export const integratorTrackedEvents = new Map<
 ])
 
 // TODO: Add typings using the objects in the comments
-
+// Using any becaus of this ts bug https://github.com/microsoft/TypeScript/pull/43396
+// @ts-ignore
 export const analyticsEventsMapping = new Map<
-  LegacyAnalyticsTrackedEventNames,
-  NewEventStructure
+  LegacyTrackedEventNames,
+  {
+    eventName: AnalyticsTrackedEventNames
+    properties: AnalyticsEventProperties
+  }
 >([
   [
     'screen_complete',
-    { newEventName: 'COMPLETE', eventType: 'screen', properties: {} },
+    {
+      eventName: 'COMPLETE',
+      properties: {
+        eventType: 'screen',
+      },
+    },
   ],
   [
     'screen_complete_crossdevice_mobile_success',
     {
-      newEventName: 'COMPLETE_CROSS_DEVICE_MOBILE_SUCCESS',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'COMPLETE_CROSS_DEVICE_MOBILE_SUCCESS',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_document_country_select',
     {
-      newEventName: 'COUNTRY_SELECTION',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'COUNTRY_SELECTION',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_document_crossDevice_client_intro',
     {
-      newEventName: 'CROSS_DEVICE_CLIENT_INTRO',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'CROSS_DEVICE_CLIENT_INTRO',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_face_crossDevice_client_intro',
     {
-      newEventName: 'CROSS_DEVICE_CLIENT_INTRO',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'CROSS_DEVICE_CLIENT_INTRO',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_poa_crossDevice_client_intro',
     {
-      newEventName: 'CROSS_DEVICE_CLIENT_INTRO',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'CROSS_DEVICE_CLIENT_INTRO',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_crossDevice_desktop_submit',
     {
-      newEventName: 'CROSS_DEVICE_DESKTOP_SUBMIT',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'CROSS_DEVICE_DESKTOP_SUBMIT',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_crossDevice_crossdevice_link',
     {
-      newEventName: 'CROSS_DEVICE_GET_LINK',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'CROSS_DEVICE_GET_LINK',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_crossDevice',
     {
-      newEventName: 'CROSS_DEVICE_INTRO',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'CROSS_DEVICE_INTRO',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'copy link selected',
     {
-      newEventName: 'CROSS_DEVICE_LINK_METHOD_SELECTED',
-      eventType: 'action',
-      properties: { link_method_selected: 'copy' },
+      eventName: 'CROSS_DEVICE_LINK_METHOD_SELECTED',
+      properties: { eventType: 'action', link_method_selected: 'copy' },
     },
   ],
   [
     'qr code selected',
     {
-      newEventName: 'CROSS_DEVICE_LINK_METHOD_SELECTED',
-      eventType: 'action',
-      properties: { link_method_selected: 'qr_code' },
+      eventName: 'CROSS_DEVICE_LINK_METHOD_SELECTED',
+      properties: { eventType: 'action', link_method_selected: 'qr_code' },
     },
   ],
   [
     'sms selected',
     {
-      newEventName: 'CROSS_DEVICE_LINK_METHOD_SELECTED',
-      eventType: 'action',
-      properties: { link_method_selected: 'sms' },
+      eventName: 'CROSS_DEVICE_LINK_METHOD_SELECTED',
+      properties: { eventType: 'action', link_method_selected: 'sms' },
     },
   ],
   [
     'screen_crossDevice_mobile_notification_sent',
     {
-      newEventName: 'CROSS_DEVICE_MOBILE_NOTIFICATION_SENT',
-      eventType: 'action',
-      properties: {},
+      eventName: 'CROSS_DEVICE_MOBILE_NOTIFICATION_SENT',
+      properties: { eventType: 'action' },
     },
   ],
   [
     'screen_crossDevice_mobile_connected',
     {
-      newEventName: 'CROSS_DEVICE_MOBILE_SUBMIT',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'CROSS_DEVICE_MOBILE_SUBMIT',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_crossDevice_sms_failed',
     {
-      newEventName: 'CROSS_DEVICE_SMS_FAILED',
-      eventType: 'view',
-      properties: {},
+      eventName: 'CROSS_DEVICE_SMS_FAILED',
+      properties: { eventType: 'view' },
     },
   ],
   [
     'Starting upload',
     {
-      newEventName: 'CUSTOM_API_REQUEST_STARTED',
-      eventType: 'flow',
-      properties: {},
+      eventName: 'CUSTOM_API_REQUEST_STARTED',
+      properties: { eventType: 'flow' },
     },
   ],
   [
     'screen_document_back_capture_camera_error',
     {
-      newEventName: 'DOCUMENT_CAMERA_ERROR',
-      eventType: 'view',
-      properties: { document_side: 'back' },
+      eventName: 'DOCUMENT_CAMERA_ERROR',
+      properties: { eventType: 'view', document_side: 'back' },
     },
   ],
   [
     'screen_document_front_capture_camera_error',
     {
-      newEventName: 'DOCUMENT_CAMERA_ERROR',
-      eventType: 'view',
-      properties: { document_side: 'front' },
+      eventName: 'DOCUMENT_CAMERA_ERROR',
+
+      properties: { eventType: 'view', document_side: 'front' },
     },
   ],
   [
     'Taking live photo of document',
     {
-      newEventName: 'DOCUMENT_CAMERA_SHUTTER_CLICK',
-      eventType: 'action',
-      properties: { capture_method_rendered: 'camera' },
+      eventName: 'DOCUMENT_CAMERA_SHUTTER_CLICK',
+
+      properties: { eventType: 'action', capture_method_rendered: 'camera' },
     },
   ],
   [
     'screen_document_back_capture_file_upload',
     {
-      newEventName: 'DOCUMENT_CAPTURE',
-      eventType: 'screen',
-      properties: { document_side: 'back' },
+      eventName: 'DOCUMENT_CAPTURE',
+
+      properties: { eventType: 'screen', document_side: 'back' },
     },
   ],
   [
     'screen_document_back_capture',
     {
-      newEventName: 'DOCUMENT_CAPTURE',
-      eventType: 'screen',
-      properties: { document_side: 'front' },
+      eventName: 'DOCUMENT_CAPTURE',
+
+      properties: { eventType: 'screen', document_side: 'front' },
     },
   ],
   [
     'screen_document_front_capture_file_upload',
     {
-      newEventName: 'DOCUMENT_CAPTURE',
-      eventType: 'screen',
-      properties: { capture_method_rendered: 'upload' },
+      eventName: 'DOCUMENT_CAPTURE',
+
+      properties: { eventType: 'screen', capture_method_rendered: 'upload' },
     },
   ],
   [
     'screen_document_front_capture',
     {
-      newEventName: 'DOCUMENT_CAPTURE',
-      eventType: 'screen',
-      properties: { document_side: 'front' },
+      eventName: 'DOCUMENT_CAPTURE',
+
+      properties: { eventType: 'screen', document_side: 'front' },
     },
   ],
   [
     'screen_document_back_confirmation',
     {
-      newEventName: 'DOCUMENT_CONFIRMATION',
-      eventType: 'screen',
-      properties: { document_side: 'back' },
+      eventName: 'DOCUMENT_CONFIRMATION',
+
+      properties: { eventType: 'screen', document_side: 'back' },
     },
   ],
   [
     'screen_document_front_confirmation',
     {
-      newEventName: 'DOCUMENT_CONFIRMATION',
-      eventType: 'screen',
-      properties: { document_side: 'front' },
+      eventName: 'DOCUMENT_CONFIRMATION',
+
+      properties: { eventType: 'screen', document_side: 'front' },
     },
   ],
   [
     'screen_document_fallback_clicked',
     {
-      newEventName: 'DOCUMENT_FALLBACK_CLICKED',
-      eventType: 'action',
-      properties: {},
+      eventName: 'DOCUMENT_FALLBACK_CLICKED',
+      properties: { eventType: 'action' },
     },
   ],
   [
     'screen_document_image_quality_guide',
     {
-      newEventName: 'DOCUMENT_IMAGE_QUALITY_GUIDE',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'DOCUMENT_IMAGE_QUALITY_GUIDE',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_document_type_select',
     {
-      newEventName: 'DOCUMENT_TYPE_SELECTION',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'DOCUMENT_TYPE_SELECTION',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_document_document_video_capture_file_upload',
     {
-      newEventName: 'DOCUMENT_VIDEO_CAPTURE',
-      eventType: 'screen',
-      properties: { capture_method_rendered: 'upload' },
+      eventName: 'DOCUMENT_VIDEO_CAPTURE',
+
+      properties: { eventType: 'screen', capture_method_rendered: 'upload' },
     },
   ],
   [
     'screen_document_document_video_capture',
     {
-      newEventName: 'DOCUMENT_VIDEO_CAPTURE',
-      eventType: 'screen',
-      properties: { capture_method_rendered: 'camera' },
+      eventName: 'DOCUMENT_VIDEO_CAPTURE',
+
+      properties: { eventType: 'screen', capture_method_rendered: 'camera' },
     },
   ],
   [
     'screen_document_document_video_capture_fallback_triggered',
     {
-      newEventName: 'DOCUMENT_VIDEO_FALLBACK_TRIGGERED',
-      eventType: 'action',
-      properties: {},
+      eventName: 'DOCUMENT_VIDEO_FALLBACK_TRIGGERED',
+      properties: { eventType: 'action' },
     },
   ],
   [
     'screen_face_selfie_intro',
-    { newEventName: 'FACE_INTRO', eventType: 'screen', properties: {} },
+    { eventName: 'FACE_INTRO', properties: { eventType: 'screen' } },
   ],
   [
     'screen_face_selfie_capture_camera_error',
     {
-      newEventName: 'FACE_SELFIE_CAMERA_ERROR',
-      eventType: 'view',
-      properties: {},
+      eventName: 'FACE_SELFIE_CAMERA_ERROR',
+      properties: { eventType: 'view' },
     },
   ],
   [
     'screen_face_selfie_capture_file_upload',
     {
-      newEventName: 'FACE_SELFIE_CAPTURE',
-      eventType: 'screen',
-      properties: { capture_method_rendered: 'upload' },
+      eventName: 'FACE_SELFIE_CAPTURE',
+
+      properties: { eventType: 'screen', capture_method_rendered: 'upload' },
     },
   ],
   [
     'screen_face_selfie_capture',
     {
-      newEventName: 'FACE_SELFIE_CAPTURE',
-      eventType: 'screen',
-      properties: { capture_method_rendered: 'camera' },
+      eventName: 'FACE_SELFIE_CAPTURE',
+
+      properties: { eventType: 'screen', capture_method_rendered: 'camera' },
     },
   ],
   [
     'screen_face_selfie_confirmation',
     {
-      newEventName: 'FACE_SELFIE_CONFIRMATION',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'FACE_SELFIE_CONFIRMATION',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_face_selfie_capture_fallback_triggered',
     {
-      newEventName: 'FACE_SELFIE_FALLBACK_TRIGGERED',
-      eventType: 'action',
-      properties: {},
+      eventName: 'FACE_SELFIE_FALLBACK_TRIGGERED',
+      properties: { eventType: 'action' },
     },
   ],
   [
     'Snapshot upload completed',
     {
-      newEventName: 'FACE_SELFIE_SNAPSHOT_UPLOAD_COMPLETED',
-      eventType: 'flow',
-      properties: {},
+      eventName: 'FACE_SELFIE_SNAPSHOT_UPLOAD_COMPLETED',
+      properties: { eventType: 'flow' },
     },
   ],
   [
     'Starting snapshot upload',
     {
-      newEventName: 'FACE_SELFIE_SNAPSHOT_UPLOAD_STARTED',
-      eventType: 'flow',
-      properties: {},
+      eventName: 'FACE_SELFIE_SNAPSHOT_UPLOAD_STARTED',
+      properties: { eventType: 'flow' },
     },
   ],
   [
     'Starting live photo upload',
     {
-      newEventName: 'FACE_SELFIE_UPLOAD_STARTED',
-      eventType: 'flow',
-      properties: { capture_method_rendered: 'camera' },
+      eventName: 'FACE_SELFIE_UPLOAD_STARTED',
+
+      properties: { eventType: 'flow', capture_method_rendered: 'camera' },
     },
   ],
   [
     'screen_face_face_video_capture_camera_error',
     {
-      newEventName: 'FACE_VIDEO_CAMERA_ERROR',
-      eventType: 'view',
-      properties: {},
+      eventName: 'FACE_VIDEO_CAMERA_ERROR',
+      properties: { eventType: 'view' },
     },
   ],
   [
     'screen_face_face_video_capture_file_upload',
     {
-      newEventName: 'FACE_VIDEO_CAPTURE',
-      eventType: 'screen',
-      properties: { capture_method_rendered: 'upload' },
+      eventName: 'FACE_VIDEO_CAPTURE',
+
+      properties: { eventType: 'screen', capture_method_rendered: 'upload' },
     },
   ],
   [
     'screen_face_face_video_capture',
     {
-      newEventName: 'FACE_VIDEO_CAPTURE',
-      eventType: 'screen',
-      properties: { capture_method_rendered: 'camera' },
+      eventName: 'FACE_VIDEO_CAPTURE',
+
+      properties: { eventType: 'screen', capture_method_rendered: 'camera' },
     },
   ],
   [
     'screen_face_video_capture_step_1',
     {
-      newEventName: 'FACE_VIDEO_CAPTURE',
-      eventType: 'screen',
-      properties: { video_capture_step: 'step1' },
+      eventName: 'FACE_VIDEO_CAPTURE',
+
+      properties: { eventType: 'screen', video_capture_step: 'step1' },
     },
   ],
   [
     'screen_face_video_capture_step_2',
     {
-      newEventName: 'FACE_VIDEO_CAPTURE',
-      eventType: 'screen',
-      properties: { video_capture_step: 'step2' },
+      eventName: 'FACE_VIDEO_CAPTURE',
+
+      properties: { eventType: 'screen', video_capture_step: 'step2' },
     },
   ],
   [
     'screen_face_video_challenge_load_failed',
     {
-      newEventName: 'FACE_VIDEO_CHALLENGE_FETCH_ERROR',
-      eventType: 'flow',
-      properties: {},
+      eventName: 'FACE_VIDEO_CHALLENGE_FETCH_ERROR',
+      properties: { eventType: 'flow' },
     },
   ],
   [
     'screen_face_video_challenge_loaded',
     {
-      newEventName: 'FACE_VIDEO_CHALLENGE_LOADED',
-      eventType: 'flow',
-      properties: {},
+      eventName: 'FACE_VIDEO_CHALLENGE_LOADED',
+      properties: { eventType: 'flow' },
     },
   ],
   [
     'screen_face_video_challenge_requested',
     {
-      newEventName: 'FACE_VIDEO_CHALLENGE_REQUESTED',
-      eventType: 'flow',
-      properties: {},
+      eventName: 'FACE_VIDEO_CHALLENGE_REQUESTED',
+      properties: { eventType: 'flow' },
     },
   ],
   [
     'screen_face_face_video_confirmation',
     {
-      newEventName: 'FACE_VIDEO_CONFIRMATION',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'FACE_VIDEO_CONFIRMATION',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_face_face_video_capture_fallback_triggered',
     {
-      newEventName: 'FACE_VIDEO_FALLBACK_TRIGGERED',
-      eventType: 'action',
-      properties: {},
+      eventName: 'FACE_VIDEO_FALLBACK_TRIGGERED',
+      properties: { eventType: 'action' },
     },
   ],
   [
     'screen_face_video_intro',
     {
-      newEventName: 'FACE_VIDEO_INTRO',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'FACE_VIDEO_INTRO',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'completed flow',
-    { newEventName: 'FLOW_COMPLETED', eventType: 'flow', properties: {} },
+    { eventName: 'FLOW_COMPLETED', properties: { eventType: 'flow' } },
   ],
   [
     'started flow',
-    { newEventName: 'FLOW_STARTED', eventType: 'flow', properties: {} },
+    { eventName: 'FLOW_STARTED', properties: { eventType: 'flow' } },
   ],
   [
     'screen_forbidden_client_error',
     {
-      newEventName: 'FORBIDDEN_CLIENT_ERROR',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'FORBIDDEN_CLIENT_ERROR',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_generic_client_error',
     {
-      newEventName: 'GENERIC_CLIENT_ERROR',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'GENERIC_CLIENT_ERROR',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_interrupted_flow_error',
     {
-      newEventName: 'INTERRUPTED_FLOW_ERROR',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'INTERRUPTED_FLOW_ERROR',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_poa_poa_file_upload',
     {
-      newEventName: 'POA_CAPTURE',
-      eventType: 'screen',
-      properties: { capture_method_rendered: 'upload' },
+      eventName: 'POA_CAPTURE',
+
+      properties: { eventType: 'screen', capture_method_rendered: 'upload' },
     },
   ],
   [
     'screen_poa_poa',
     {
-      newEventName: 'POA_CAPTURE_POA',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'POA_CAPTURE_POA',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_poa_front_confirmation',
     {
-      newEventName: 'POA_CONFIRMATION',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'POA_CONFIRMATION',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_poa_type_select',
     {
-      newEventName: 'POA_DOCUMENT_TYPE_SELECTION',
-      eventType: 'screen',
-      properties: {},
+      eventName: 'POA_DOCUMENT_TYPE_SELECTION',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_poa',
-    { newEventName: 'POA_INTRO', eventType: 'screen', properties: {} },
+    { eventName: 'POA_INTRO', properties: { eventType: 'screen' } },
   ],
   [
     'screen_unsupported_android_browser',
     {
-      newEventName: 'UNSUPPORTED_BROWSER',
-      eventType: 'screen',
-      properties: { browser_os: 'android' },
+      eventName: 'UNSUPPORTED_BROWSER',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'screen_unsupported_ios_browser',
     {
-      newEventName: 'UNSUPPORTED_BROWSER',
-      eventType: 'screen',
-      properties: { browser_os: 'ios' },
+      eventName: 'UNSUPPORTED_BROWSER',
+      properties: { eventType: 'screen' },
     },
   ],
   [
     'Completed upload',
     {
-      newEventName: 'UPLOAD_COMPLETED',
-      eventType: 'action',
-      properties: {},
+      eventName: 'UPLOAD_COMPLETED',
+      properties: { eventType: 'action' },
     },
   ],
   [
     'screen_userConsent',
-    { newEventName: 'USER_CONSENT', eventType: 'screen', properties: {} },
+    { eventName: 'USER_CONSENT', properties: { eventType: 'screen' } },
   ],
   [
     'screen_welcome',
-    { newEventName: 'WELCOME', eventType: 'screen', properties: {} },
+    { eventName: 'WELCOME', properties: { eventType: 'screen' } },
   ],
 ])

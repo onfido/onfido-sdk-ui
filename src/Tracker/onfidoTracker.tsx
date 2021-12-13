@@ -4,8 +4,9 @@ import { trackedEnvironmentData } from '~utils'
 import type { ExtendedStepTypes, UrlsConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { RootState } from '~types/redux'
-import type { AnalyticsPayload, TrackedEventNames } from '~types/tracker'
+import type { AnalyticsPayload, LegacyTrackedEventNames } from '~types/tracker'
 import { reduxStore } from 'components/ReduxAppWrapper'
+import { analyticsEventsMapping } from './trackerData'
 
 let currentStepType: ExtendedStepTypes | undefined
 let analyticsSessionUuid: string | undefined
@@ -43,15 +44,14 @@ reduxStore.subscribe(listener)
 
 const source_metadata = {
   platform: process.env.SDK_SOURCE,
-  version: process.env.SDK_VERSION,
+  version: 'onfido-sdk-ui-test-naming',
   sdk_environment: process.env.NODE_ENV,
 }
 
 const stepsArrToString = () => steps?.map((step) => step['type']).join()
 
 export const sendAnalyticsEvent = (
-  event: TrackedEventNames,
-  event_type: string,
+  event: LegacyTrackedEventNames,
   eventProperties: Optional<Record<string, unknown>>
 ): void => {
   // Do not send requests without analyticsSessionUuid
@@ -59,19 +59,22 @@ export const sendAnalyticsEvent = (
   if (!analyticsSessionUuid) return
 
   const environmentData = trackedEnvironmentData()
+  const eventData = analyticsEventsMapping.get(event)
 
   const requiredFields = {
     event_uuid: uuidv4(),
-    event,
+    event: eventData?.eventName,
     event_time: new Date(Date.now()).toISOString(),
     source: 'sdk',
   }
 
+  const { eventType: event_type, ...otherProperties } = eventData?.properties
   const properties = {
     event_type,
     step: currentStepType,
     is_cross_device: isCrossDeviceClient,
     ...eventProperties,
+    ...otherProperties,
   }
 
   const event_metadata = {

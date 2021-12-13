@@ -8,17 +8,10 @@ import { sendAnalyticsEvent } from './onfidoTracker'
 
 import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
 import type {
-  TrackedEventNames,
-  TrackedEventTypes,
+  LegacyTrackedEventNames,
   UserAnalyticsEventNames,
   UserAnalyticsEventDetail,
 } from '~types/tracker'
-
-const TRACKED_EVENT_TYPES: Record<string, TrackedEventTypes> = {
-  flow: 'flow',
-  action: 'action',
-  screen: 'screen',
-}
 
 let shouldSendEvents = false
 
@@ -29,7 +22,7 @@ let sentryHub: Hub | undefined
 let woopra: WoopraTracker = null
 
 const integratorTrackedEvents = new Map<
-  TrackedEventNames,
+  LegacyTrackedEventNames,
   UserAnalyticsEventNames
 >([
   ['screen_welcome', 'WELCOME'],
@@ -147,8 +140,7 @@ const userAnalyticsEvent = (
 }
 
 const sendEvent = (
-  eventName: TrackedEventNames,
-  eventType: TrackedEventTypes = 'screen',
+  eventName: LegacyTrackedEventNames,
   properties?: Record<string, unknown>
 ): void => {
   if (integratorTrackedEvents.has(eventName)) {
@@ -158,20 +150,19 @@ const sendEvent = (
   if (shouldSendEvents) {
     const formattedProperties = formatProperties(properties)
     woopra && woopra.track(eventName, formattedProperties)
-    sendAnalyticsEvent(eventName, eventType, formattedProperties)
+    sendAnalyticsEvent(eventName, formattedProperties)
   }
 }
 
 const screeNameHierarchyFormat = (
   screeNameHierarchy: string[]
-): TrackedEventNames =>
-  `screen_${cleanFalsy(screeNameHierarchy).join('_')}` as TrackedEventNames
+): LegacyTrackedEventNames =>
+  `screen_${cleanFalsy(screeNameHierarchy).join('_')}` as LegacyTrackedEventNames
 
 const sendScreen = (
   screeNameHierarchy: string[],
   properties?: Record<string, unknown>
-): void =>
-  sendEvent(screeNameHierarchyFormat(screeNameHierarchy), 'screen', properties)
+): void => sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
 
 const appendToTracking = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,
@@ -279,5 +270,4 @@ export {
   appendToTracking,
   setWoopraCookie,
   getWoopraCookie,
-  TRACKED_EVENT_TYPES,
 }
