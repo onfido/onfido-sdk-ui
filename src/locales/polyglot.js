@@ -5,6 +5,7 @@ import de_DE from './de_DE/de_DE.json'
 import fr_FR from './fr_FR/fr_FR.json'
 import it_IT from './it_IT/it_IT.json'
 import pt_PT from './pt_PT/pt_PT.json'
+import nl_NL from './nl_NL/nl_NL.json'
 import { isDesktop } from '~utils'
 import { memoize } from '~utils/func'
 
@@ -17,6 +18,7 @@ const defaultTranslationWithNoRegion = {
   fr: fr_FR,
   it: it_IT,
   pt: pt_PT,
+  nl: nl_NL,
 }
 
 // Language tags should follow the IETF's BCP 47 guidelines, link below:
@@ -30,6 +32,7 @@ const availableTranslations = {
   fr_FR,
   it_IT,
   pt_PT,
+  nl_NL,
 }
 
 const mobilePhrases = () => {
