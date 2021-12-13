@@ -1,4 +1,4 @@
-import { Component } from 'preact'
+import { h, Component } from 'preact'
 import { kebabCase } from '~utils/string'
 import { isEmpty } from '~utils/object'
 import classNames from 'classnames'
