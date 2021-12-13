@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
-import { localised } from '../../../locales'
+import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 

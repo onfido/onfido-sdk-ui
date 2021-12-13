@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { buildCaptureStateKey } from '~utils/redux'
 import { trackComponentAndMode, appendToTracking } from '../../Tracker'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import Confirm from './Confirm'
 
 const mapStateToProps = (state, { method, side }) => ({
