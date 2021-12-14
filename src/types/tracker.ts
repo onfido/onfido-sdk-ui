@@ -96,7 +96,7 @@ export type UserAnalyticsEventDetail = {
   properties: Record<string, unknown>
 }
 
-export type TrackedEventTypes = 'screen' | 'action' | 'flow' | 'view'
+type TrackedEventTypes = 'screen' | 'action' | 'flow' | 'view'
 
 export type TrackedEnvironmentData = {
   device?: DeviceTypes
