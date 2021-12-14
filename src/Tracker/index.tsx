@@ -5,6 +5,7 @@ import WoopraTracker from './safeWoopra'
 import { map as mapObject } from '~utils/object'
 import { isOnfidoHostname } from '~utils/string'
 import { sendAnalyticsEvent } from './onfidoTracker'
+import { integratorTrackedEvents } from './trackerData'
 
 import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
 import type {
@@ -20,29 +21,6 @@ const sdk_version = process.env.SDK_VERSION
 let sentryClient: BrowserClient | undefined
 let sentryHub: Hub | undefined
 let woopra: WoopraTracker = null
-
-const integratorTrackedEvents = new Map<
-  LegacyTrackedEventNames,
-  UserAnalyticsEventNames
->([
-  ['screen_welcome', 'WELCOME'],
-  ['screen_userConsent', 'USER_CONSENT'],
-  ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
-  ['screen_document_front_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'],
-  ['screen_document_back_capture_file_upload', 'DOCUMENT_CAPTURE_BACK'],
-  ['screen_document_back_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_BACK'],
-  ['screen_face_selfie_intro', 'FACIAL_INTRO'],
-  ['screen_face_selfie_capture', 'FACIAL_CAPTURE'],
-  ['screen_face_selfie_confirmation', 'FACIAL_CAPTURE_CONFIRMATION'],
-  ['screen_face_video_intro', 'VIDEO_FACIAL_INTRO'],
-  ['screen_face_video_capture_step_1', 'VIDEO_FACIAL_CAPTURE_STEP_1'],
-  ['screen_face_video_capture_step_2', 'VIDEO_FACIAL_CAPTURE_STEP_2'],
-  ['screen_document_type_select', 'DOCUMENT_TYPE_SELECT'],
-  ['screen_document_country_select', 'ID_DOCUMENT_COUNTRY_SELECT'],
-  ['screen_crossDevice', 'CROSS_DEVICE_INTRO'],
-  ['screen_crossDevice_crossdevice_link', 'CROSS_DEVICE_GET_LINK'],
-  ['Starting upload', 'UPLOAD'],
-])
 
 const setUp = (): void => {
   woopra = new WoopraTracker('onfidojssdkwoopra')
