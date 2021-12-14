@@ -3,7 +3,7 @@ import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import { compose } from '~utils/func'
@@ -45,7 +45,12 @@ const Actions = ({ nextStep, translate }) => (
   </Button>
 )
 
-const Intro = ({ translate, nextStep }) => {
+const Intro = ({
+  translate,
+  nextStep,
+  steps,
+  autoFocusOnInitialScreenTitle,
+}) => {
   const instructions = [
     {
       key: 'selfie',
@@ -57,6 +62,7 @@ const Intro = ({ translate, nextStep }) => {
     },
   ]
   const actions = <Actions {...{ nextStep, translate }} />
+  const isFirstScreen = steps[0].type === 'face'
 
   return (
     <ScreenLayout actions={actions}>
@@ -64,6 +70,7 @@ const Intro = ({ translate, nextStep }) => {
         <PageTitle
           title={translate('selfie_intro.title')}
           subTitle={translate('selfie_intro.subtitle')}
+          shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
         />
         <InstructionsPure
           listScreenReaderText={translate('selfie_intro.list_accessibility')}

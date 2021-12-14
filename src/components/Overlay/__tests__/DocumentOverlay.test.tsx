@@ -58,7 +58,7 @@ describe('Overlay', () => {
         expect(wrapper.find('.document').exists()).toBeTruthy()
 
         assertHollowSize(wrapper, 'rectangle')
-        assertHollowDraw(wrapper, 70)
+        assertHollowDraw(wrapper, 80)
 
         const fullScreen = wrapper.find('.fullScreen')
         expect(fullScreen.exists()).toBeTruthy()

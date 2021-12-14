@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import { asyncComponent } from '~utils/components'
 import style from './style.scss'
 

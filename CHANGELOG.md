@@ -8,9 +8,22 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Public: Added support for Dutch `nl_NL`.
+
+### Changed
+
+- Public: Added `autoFocusOnInitialScreenTitle` SDK configuration option for integrators to override SDK auto focusing on the SDK's initial screen title on loading. This default behaviour might not be desirable for some host apps or sites as this could cause the browser to focus on the SDK when there is content or form inputs outside of the SDK that the end user should see, fill in first.
+- Upgrade `react-phone-number-input` to v3.1.38
+- Revert change which returns document type as 'unknown' in `onComplete` callback payload if Residence Permit selected. API now supports that document type for document uploads.
+- Change the behavior when `useMultipleSelfieCapture` feature is enable to stop capturing periodic snapshots once the final selfie is being captured.
+
+## [6.15.5] - 2021-12-2
+
 ### Fixed
 
-- UI: Set the 'Send link' Button component on Cross Device Send SMS Link screen as `type="button"`to prevent the Button component defaulting to a `submit` type button when SDK is embedded within a `form` element.
+- UI: Set the 'Send link' Button component on Cross Device Send SMS Link screen as `type="button"` to prevent the Button component defaulting to a `submit` type button when SDK is embedded within a `form` element.
 - UI: Fix live document capture overlay appearing very small compared to how it was in version `6.14.0`.
 
 ## [6.15.4] - 2021-11-25
@@ -1132,7 +1145,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...development
+[6.15.5]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...6.15.5
 [6.15.4]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...6.15.4
 [6.15.3]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...6.15.3
 [6.15.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.1...6.15.2

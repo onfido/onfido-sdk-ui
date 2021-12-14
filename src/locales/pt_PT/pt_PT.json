@@ -1,10 +1,10 @@
 {
     "country_select": {
-        "alert_dropdown": {
-            "country_not_found": "País não encontrado"
-        },
         "alert": {
             "another_doc": "Os documentos desse país não são atualmente suportados — <fallback>tente outro tipo de documento<\/fallback>"
+        },
+        "alert_dropdown": {
+            "country_not_found": "País não encontrado"
         },
         "button_primary": "Enviar documento",
         "search": {
@@ -264,6 +264,12 @@
         "body": "É tudo o que precisamos para começar a verificar a sua identidade",
         "title": "Obrigado"
     },
+    "permission": {
+        "body_cam": "Não o podemos verificar sem a sua câmara",
+        "button_primary_cam": "Ativar câmara",
+        "subtitle_cam": "Quando solicitado, deve permitir o acesso à câmara para continuar",
+        "title_cam": "Permitir o acesso à câmara"
+    },
     "permission_recovery": {
         "button_primary": "Atualizar",
         "info": "Recuperação",
@@ -272,12 +278,6 @@
         "list_item_how_to_cam": "Conceda acesso à sua câmara a partir das definições do navegador",
         "subtitle_cam": "Recupere o acesso à câmara para continuar a verificação da face",
         "title_cam": "O acesso à câmara é negado"
-    },
-    "permission": {
-        "body_cam": "Não o podemos verificar sem a sua câmara",
-        "button_primary_cam": "Ativar câmara",
-        "subtitle_cam": "Quando solicitado, deve permitir o acesso à câmara para continuar",
-        "title_cam": "Permitir o acesso à câmara"
     },
     "photo_upload": {
         "body_bank_statement": "Provide the whole document page for best results",
@@ -380,11 +380,6 @@
         "subtitle": "Digitalizações e fotocópias não são aceites",
         "title": "Carregue a página com fotografia do passaporte"
     },
-    "user_consent_load_fail": {
-        "button_primary": "Reload screen",
-        "detail": "Check that your connection is stable, then try again",
-        "title": "Content failed to load"
-    },
     "user_consent": {
         "button_primary": "Accept",
         "button_secondary": "Do not accept",
@@ -394,6 +389,11 @@
             "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
             "no_consent_title": "Are you sure?"
         }
+    },
+    "user_consent_load_fail": {
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
     },
     "video_capture": {
         "body": "Mantenha o seu rosto dentro da forma oval",

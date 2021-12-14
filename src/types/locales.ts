@@ -13,6 +13,8 @@ export type SupportedLanguages =
   | 'it'
   | 'pt_PT'
   | 'pt'
+  | 'nl_NL'
+  | 'nl'
 
 export type LocaleConfig = {
   locale?: SupportedLanguages

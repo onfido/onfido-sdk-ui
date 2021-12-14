@@ -6,8 +6,7 @@ import {
 } from '../DocumentSelector'
 // import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
-import { localised /*, type LocalisedType */ } from '../../locales'
-import style from './style.scss'
+import { localised /*, type LocalisedType */ } from '~locales'
 
 /* type Props = {
   country: string,
@@ -18,7 +17,8 @@ import style from './style.scss'
 
 const makeDocumentSelectorOfGroup = (group) => {
   const DocumentSelectorByGroup = (props) => {
-    const { translate, country } = props
+    const { translate, country, steps, autoFocusOnInitialScreenTitle } = props
+    const isFirstScreen = steps[0].type === 'document'
     const isPoA = group === 'proof_of_address'
     const DocumentSelector = isPoA
       ? PoADocumentSelector
@@ -36,6 +36,7 @@ const makeDocumentSelectorOfGroup = (group) => {
           subTitle={translate(
             isPoA ? 'doc_select.subtitle_poa' : 'doc_select.subtitle'
           )}
+          shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
         />
         <DocumentSelector {...{ ...props, group }} />
       </div>
