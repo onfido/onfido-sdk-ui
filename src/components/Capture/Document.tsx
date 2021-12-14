@@ -173,7 +173,7 @@ class Document extends Component<Props> {
       side,
       trackScreen,
       translate,
-      uploadFallback,
+      uploadFallback = false,
       useLiveDocumentCapture,
       useWebcam,
     } = this.props
@@ -229,7 +229,7 @@ class Document extends Component<Props> {
         <DocumentLiveCapture
           containerClassName={style.liveDocumentContainer}
           documentType={documentType}
-          isUploadFallbackDisabled={uploadFallback ? !uploadFallback : false}
+          isUploadFallbackDisabled={!uploadFallback}
           onCapture={this.handlePhotoCapture}
           renderFallback={renderFallback}
           renderTitle={renderTitle}
