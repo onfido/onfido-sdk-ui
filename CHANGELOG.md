@@ -17,6 +17,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added `autoFocusOnInitialScreenTitle` SDK configuration option for integrators to override SDK auto focusing on the SDK's initial screen title on loading. This default behaviour might not be desirable for some host apps or sites as this could cause the browser to focus on the SDK when there is content or form inputs outside of the SDK that the end user should see, fill in first.
 - Upgrade `react-phone-number-input` to v3.1.38
 - Revert change which returns document type as 'unknown' in `onComplete` callback payload if Residence Permit selected. API now supports that document type for document uploads.
+- Change the behavior when `useMultipleSelfieCapture` feature is enable to stop capturing periodic snapshots once the final selfie is being captured.
 
 ### Fixed
 
