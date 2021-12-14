@@ -67,7 +67,7 @@ export type LegacyTrackedEventNames =
   | 'screen_poa'
   | 'screen_unsupported_android_browser'
   | 'screen_unsupported_ios_browser'
-  | 'Completed uploa'
+  | 'Completed upload'
   | 'screen_userConsent'
   | 'screen_welcome'
 
