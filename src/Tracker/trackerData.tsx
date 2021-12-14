@@ -451,6 +451,7 @@ export const analyticsEventsMapping = new Map<
   [
     'screen_poa_poa',
     {
+      // TODO: once we remove Woopra and we figure out where this is triggered it will have to be renamed
       eventName: 'POA_CAPTURE_POA',
       properties: { event_type: 'screen' },
     },
