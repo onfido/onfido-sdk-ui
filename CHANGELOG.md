@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Public: Added support for Dutch `nl_NL`.
+- Internal: Added new analytics event naming convention for `v3/analytics`. Woopra will still receive the old events until we are ready to discontinue the integration.
 
 ### Changed
 

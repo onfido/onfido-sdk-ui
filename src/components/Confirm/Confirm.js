@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { trackException, sendEvent, TRACKED_EVENT_TYPES } from '../../Tracker'
+import { trackException, sendEvent } from '../../Tracker'
 import { isOfMimeType, mimeType } from '~utils/blob'
 import {
   uploadDocument,
@@ -120,7 +120,7 @@ class Confirm extends Component {
     const { capture } = this.state
 
     const duration = Math.round(performance.now() - this.startTime)
-    sendEvent('Completed upload', TRACKED_EVENT_TYPES.action, {
+    sendEvent('Completed upload', {
       duration,
       method,
     })
@@ -193,7 +193,7 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     if (!isDecoupledFromAPI) {
       this.startTime = performance.now()
-      sendEvent('Starting upload', TRACKED_EVENT_TYPES.action, { method })
+      sendEvent('Starting upload', { method })
     }
     this.setState({ uploadInProgress: true })
     const {
@@ -260,8 +260,7 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     const formDataPayload = this.prepareCallbackPayload(data, callbackName)
 
-    const eventType = TRACKED_EVENT_TYPES.action
-    sendEvent(`Triggering ${callbackName} callback`, eventType)
+    sendEvent(`Triggering ${callbackName} callback`)
     try {
       const {
         continueWithOnfidoSubmission,
@@ -269,14 +268,14 @@ class Confirm extends Component {
       } = await enterpriseFeatures[callbackName](formDataPayload)
 
       if (onfidoSuccessResponse) {
-        sendEvent(`Success response from ${callbackName}`, eventType)
+        sendEvent(`Success response from ${callbackName}`)
         this.onApiSuccess(onfidoSuccessResponse)
         return
       }
 
       if (continueWithOnfidoSubmission) {
         this.startTime = performance.now()
-        sendEvent('Starting upload', eventType, {
+        sendEvent('Starting upload', {
           method,
           uploadAfterNetworkDecouple: true,
         })

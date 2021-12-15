@@ -12,11 +12,7 @@ import QRCodeGenerator from '../../QRCode'
 import QRCodeHowTo from '../../QRCode/HowTo'
 import Error from '../../Error'
 import PageTitle from '../../PageTitle'
-import {
-  trackComponent,
-  sendEvent,
-  TRACKED_EVENT_TYPES,
-} from '../../../Tracker'
+import { trackComponent, sendEvent } from '../../../Tracker'
 import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
@@ -327,10 +323,7 @@ class CrossDeviceLinkUI extends Component {
   )
 
   handleViewOptionSelect = (newViewId) => {
-    sendEvent(
-      `${newViewId.replace('_', ' ')} selected`,
-      TRACKED_EVENT_TYPES.action
-    )
+    sendEvent(`${newViewId.replace('_', ' ')} selected`)
     this.setState({ currentViewId: newViewId })
     this.viewOptionBtn.blur()
   }

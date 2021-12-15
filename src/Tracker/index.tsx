@@ -5,20 +5,14 @@ import WoopraTracker from './safeWoopra'
 import { map as mapObject } from '~utils/object'
 import { isOnfidoHostname } from '~utils/string'
 import { sendAnalyticsEvent } from './onfidoTracker'
+import { integratorTrackedEvents } from './trackerData'
 
 import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
 import type {
-  TrackedEventNames,
-  TrackedEventTypes,
+  LegacyTrackedEventNames,
   UserAnalyticsEventNames,
   UserAnalyticsEventDetail,
 } from '~types/tracker'
-
-const TRACKED_EVENT_TYPES: Record<string, TrackedEventTypes> = {
-  flow: 'flow',
-  action: 'action',
-  screen: 'screen',
-}
 
 let shouldSendEvents = false
 
@@ -27,29 +21,6 @@ const sdk_version = process.env.SDK_VERSION
 let sentryClient: BrowserClient | undefined
 let sentryHub: Hub | undefined
 let woopra: WoopraTracker = null
-
-const integratorTrackedEvents = new Map<
-  TrackedEventNames,
-  UserAnalyticsEventNames
->([
-  ['screen_welcome', 'WELCOME'],
-  ['screen_userConsent', 'USER_CONSENT'],
-  ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
-  ['screen_document_front_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'],
-  ['screen_document_back_capture_file_upload', 'DOCUMENT_CAPTURE_BACK'],
-  ['screen_document_back_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_BACK'],
-  ['screen_face_selfie_intro', 'FACIAL_INTRO'],
-  ['screen_face_selfie_capture', 'FACIAL_CAPTURE'],
-  ['screen_face_selfie_confirmation', 'FACIAL_CAPTURE_CONFIRMATION'],
-  ['screen_face_video_intro', 'VIDEO_FACIAL_INTRO'],
-  ['screen_face_video_capture_step_1', 'VIDEO_FACIAL_CAPTURE_STEP_1'],
-  ['screen_face_video_capture_step_2', 'VIDEO_FACIAL_CAPTURE_STEP_2'],
-  ['screen_document_type_select', 'DOCUMENT_TYPE_SELECT'],
-  ['screen_document_country_select', 'ID_DOCUMENT_COUNTRY_SELECT'],
-  ['screen_crossDevice', 'CROSS_DEVICE_INTRO'],
-  ['screen_crossDevice_crossdevice_link', 'CROSS_DEVICE_GET_LINK'],
-  ['Starting upload', 'UPLOAD'],
-])
 
 const setUp = (): void => {
   woopra = new WoopraTracker('onfidojssdkwoopra')
@@ -147,8 +118,7 @@ const userAnalyticsEvent = (
 }
 
 const sendEvent = (
-  eventName: TrackedEventNames,
-  eventType: TrackedEventTypes = 'screen',
+  eventName: LegacyTrackedEventNames,
   properties?: Record<string, unknown>
 ): void => {
   if (integratorTrackedEvents.has(eventName)) {
@@ -158,20 +128,21 @@ const sendEvent = (
   if (shouldSendEvents) {
     const formattedProperties = formatProperties(properties)
     woopra && woopra.track(eventName, formattedProperties)
-    sendAnalyticsEvent(eventName, eventType, formattedProperties)
+    sendAnalyticsEvent(eventName, formattedProperties)
   }
 }
 
 const screeNameHierarchyFormat = (
   screeNameHierarchy: string[]
-): TrackedEventNames =>
-  `screen_${cleanFalsy(screeNameHierarchy).join('_')}` as TrackedEventNames
+): LegacyTrackedEventNames =>
+  `screen_${cleanFalsy(screeNameHierarchy).join(
+    '_'
+  )}` as LegacyTrackedEventNames
 
 const sendScreen = (
   screeNameHierarchy: string[],
   properties?: Record<string, unknown>
-): void =>
-  sendEvent(screeNameHierarchyFormat(screeNameHierarchy), 'screen', properties)
+): void => sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
 
 const appendToTracking = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,
@@ -279,5 +250,4 @@ export {
   appendToTracking,
   setWoopraCookie,
   getWoopraCookie,
-  TRACKED_EVENT_TYPES,
 }

@@ -1,6 +1,5 @@
 import { sendMultiframeSelfie } from '../../onfidoApi'
 import createMockXHR from '~jest/createMockXHR'
-import { TRACKED_EVENT_TYPES } from '../../../../Tracker'
 import { ParsedError } from '~types/api'
 
 const url = 'https://test.url.com'
@@ -66,8 +65,7 @@ describe('onfidoApi', () => {
           snapShotsXhr.onload(new ProgressEvent('upload snapshots')) // Upload snapshots
 
         expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Starting snapshot upload',
-          TRACKED_EVENT_TYPES.action
+          'Starting snapshot upload'
         )
         expect(snapShotsXhr.open).toHaveBeenCalledWith(
           'POST',
@@ -90,12 +88,10 @@ describe('onfidoApi', () => {
         expect(mockedOnError).not.toHaveBeenCalled()
 
         expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Snapshot upload completed',
-          TRACKED_EVENT_TYPES.action
+          'Snapshot upload completed'
         )
         expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Starting live photo upload',
-          TRACKED_EVENT_TYPES.action
+          'Starting live photo upload'
         )
       })
     })
