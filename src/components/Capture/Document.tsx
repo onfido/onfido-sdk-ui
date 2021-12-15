@@ -173,7 +173,7 @@ class Document extends Component<Props> {
       side,
       trackScreen,
       translate,
-      uploadFallback,
+      uploadFallback = true,
       useLiveDocumentCapture,
       useWebcam,
     } = this.props
