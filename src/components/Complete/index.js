@@ -29,18 +29,18 @@ class Complete extends Component {
             this.backendUrl = 'http://localhost:3000'
           } else {
             this.backendUrl =
-              'https://microsoft-authenticator-backend.eu-west-1.dev.onfido.xyz'
+              'https://microsoft-authenticator-demo-backend.eu-west-1.dev.onfido.xyz'
           }
           break
         case 'staging':
           this.backendUrl =
-            'https://microsoft-authenticator-backend.eu-west-1.pre-prod.onfido.xyz'
+            'https://microsoft-authenticator-demo-backend.eu-west-1.pre-prod.onfido.xyz'
           break
         case 'testing':
-          this.backendUrl = 'https://microsoft-authenticator-backend.onfido.com'
+          this.backendUrl = 'https://microsoft-authenticator-demo-backend.onfido.com'
           break
         default:
-          this.backendUrl = 'https://microsoft-authenticator-backend.onfido.com'
+          this.backendUrl = 'https://microsoft-authenticator-demo-backend.onfido.com'
           break
       }
     }
