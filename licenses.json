@@ -944,14 +944,14 @@
     "path": "node_modules/@npmcli/move-file",
     "licenseFile": "node_modules/@npmcli/move-file/LICENSE.md"
   },
-  "@oclif/command@1.8.0": {
+  "@oclif/command@1.8.11": {
     "licenses": "MIT",
     "repository": "https://github.com/oclif/command",
-    "publisher": "Jeff Dickey @jdxcode",
+    "publisher": "Salesforce",
     "path": "node_modules/@oclif/command",
     "licenseFile": "node_modules/@oclif/command/LICENSE"
   },
-  "@oclif/config@1.17.0": {
+  "@oclif/config@1.18.2": {
     "licenses": "MIT",
     "repository": "https://github.com/oclif/config",
     "publisher": "Jeff Dickey @jdxcode",
@@ -971,14 +971,14 @@
     "publisher": "Jeff Dickey",
     "path": "node_modules/@oclif/linewrap"
   },
-  "@oclif/parser@3.8.5": {
+  "@oclif/parser@3.8.6": {
     "licenses": "MIT",
     "repository": "https://github.com/oclif/parser",
     "publisher": "Jeff Dickey @jdxcode",
     "path": "node_modules/@oclif/parser",
     "licenseFile": "node_modules/@oclif/parser/LICENSE"
   },
-  "@oclif/plugin-help@3.2.4": {
+  "@oclif/plugin-help@3.2.17": {
     "licenses": "MIT",
     "repository": "https://github.com/oclif/plugin-help",
     "publisher": "Jeff Dickey @jdxcode",
@@ -3228,7 +3228,7 @@
     "path": "node_modules/chrome-trace-event",
     "licenseFile": "node_modules/chrome-trace-event/LICENSE.txt"
   },
-  "chromedriver@94.0.0": {
+  "chromedriver@96.0.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/giggio/node-chromedriver",
     "publisher": "Giovanni Bassi",
@@ -5984,8 +5984,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/history",
-    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/history",
+    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -7404,12 +7404,12 @@
     "path": "node_modules/@percy/config/node_modules/json-schema-traverse",
     "licenseFile": "node_modules/@percy/config/node_modules/json-schema-traverse/LICENSE"
   },
-  "json-schema@0.2.3": {
-    "licenses": ["AFLv2.1", "BSD"],
+  "json-schema@0.4.0": {
+    "licenses": "(AFL-2.1 OR BSD-3-Clause)",
     "repository": "https://github.com/kriszyp/json-schema",
     "publisher": "Kris Zyp",
     "path": "node_modules/json-schema",
-    "licenseFile": "node_modules/json-schema/README.md"
+    "licenseFile": "node_modules/json-schema/LICENSE"
   },
   "json-stable-stringify-without-jsonify@1.0.1": {
     "licenses": "MIT",
@@ -7478,7 +7478,7 @@
     "path": "node_modules/jsonparse",
     "licenseFile": "node_modules/jsonparse/LICENSE"
   },
-  "jsprim@1.4.1": {
+  "jsprim@1.4.2": {
     "licenses": "MIT",
     "repository": "https://github.com/joyent/node-jsprim",
     "path": "node_modules/jsprim",
@@ -8997,7 +8997,7 @@
     "path": "node_modules/jest-changed-files/node_modules/onetime",
     "licenseFile": "node_modules/jest-changed-files/node_modules/onetime/license"
   },
-  "onfido-sdk-ui@6.16.0-rc.1": {
+  "onfido-sdk-ui@6.16.0-rc.2": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
@@ -10702,8 +10702,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
   },
   "resolve-url@0.2.1": {
     "licenses": "MIT",
@@ -12702,8 +12702,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",
