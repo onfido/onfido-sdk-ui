@@ -5,7 +5,7 @@ import { compose } from '~utils/func'
 import { setNavigationDisabled } from '../ReduxAppWrapper/store/actions/globals'
 import { withFullScreenState } from '../FullScreen'
 import { isDesktop } from '~utils'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import style from './style.scss'
 
 export const withNavigationDisabledState = connect(
