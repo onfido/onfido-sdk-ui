@@ -55,7 +55,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   // SDK Configuration
   token?: string
   useModal?: boolean
-  useMSVC?: boolean
+  useMsvc?: boolean
   isModalOpen?: boolean
   shouldCloseOnOverlayClick?: boolean
   containerId?: string

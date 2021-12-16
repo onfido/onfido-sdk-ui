@@ -223,9 +223,8 @@ export default class HistoryRouter extends Component<
       documentType,
       steps,
       deviceHasCameraSupport,
-      options: { mobileFlow },
+      options: { mobileFlow, useMsvc },
     } = props
-
     if (!steps) {
       throw new Error('steps not provided')
     }
@@ -235,6 +234,7 @@ export default class HistoryRouter extends Component<
       documentType,
       steps,
       mobileFlow,
+      useMsvc,
       deviceHasCameraSupport,
     })
   }

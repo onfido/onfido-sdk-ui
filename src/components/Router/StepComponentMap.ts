@@ -18,6 +18,7 @@ import {
   SelfieConfirm,
   FaceVideoConfirm,
 } from '../Confirm'
+import MsvcVerifying from '../MsvcVerifying'
 import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -37,7 +38,8 @@ import type {
   FlowVariants,
 } from '~types/commons'
 import type { StepComponentProps, ComponentStep } from '~types/routers'
-import type {
+import type
+ {
   DocumentTypes,
   StepConfig,
   StepConfigDocument,
@@ -67,22 +69,24 @@ export const buildComponentsList = ({
   documentType,
   steps,
   mobileFlow,
+  useMsvc,
   deviceHasCameraSupport,
 }: {
   flow: FlowVariants
   documentType: DocumentTypes | undefined
   steps: StepConfig[]
   mobileFlow?: boolean
+  useMsvc: boolean
   deviceHasCameraSupport?: boolean
 }): ComponentStep[] => {
   const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
-
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
         buildCaptureStepComponents(
           documentType,
           mobileFlow,
           steps,
+          useMsvc,
           deviceHasCameraSupport
         ),
         captureSteps
@@ -117,13 +121,22 @@ const buildCaptureStepComponents = (
   documentType: DocumentTypes | undefined,
   mobileFlow: boolean | undefined,
   steps: StepConfig[],
+  useMsvc: boolean,
   deviceHasCameraSupport?: boolean
 ): ComponentsByStepType => {
   const findStep = buildStepFinder(steps)
   const faceStep = findStep('face')
   const documentStep = findStep('document')
+  const findComplete = () => {
+    if (useMsvc) {
+      return [MsvcVerifying]
+    } else if (mobileFlow) {
+      return [ClientSuccess]
+    }
+    return [Complete]
+  }
+  const complete = findComplete()
 
-  const complete = mobileFlow ? [ClientSuccess] : [Complete]
   const captureStepTypes = new Set(['document', 'poa', 'face'])
   const firstCaptureStepType = steps.filter((step) =>
     captureStepTypes.has(step?.type)
@@ -157,6 +170,7 @@ const buildCaptureStepComponents = (
     ],
     poa: [...buildPoaComponents(mobileFlow, firstCaptureStepType === 'poa')],
     complete,
+
   }
 }
 
