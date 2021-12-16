@@ -391,7 +391,7 @@ onfidoOut.tearDown()
 
 - **`autoFocusOnInitialScreenTitle {Boolean} optional (default: true)`**
 
-  Set SDK to auto focus on the initial screen's title. By default it will auto focus on every screen's title. When disabled, auto focus will not be applied for the initial screen's title. SDK will still auto focus to subsequent screens' title as user goes through the steps.
+  Sets the SDK to auto focus on the initial screen's title. By default the SDK will auto focus on every screen's title. When disabled, auto focus will not be applied for the initial screen's title. The SDK will still auto focus to all subsequent screens' titles as the user goes through the steps.
 
 - **`containerId {String} optional`**
 
