@@ -74,6 +74,10 @@ jobs:
             NODE_ENV=staging npm run build
           fi
 
+      - name: Run unit tests
+        if: matrix.NODE_ENV == 'test'
+        run: npm run test:unit
+
       - name: Run integration tests
         if: matrix.NODE_ENV == 'test'
         run: npm run test:integration

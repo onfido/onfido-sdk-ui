@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact'
 import classNames from 'classnames'
 
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import style from './style.scss'
 
 import type { WithLocalisedProps } from '~types/hocs'

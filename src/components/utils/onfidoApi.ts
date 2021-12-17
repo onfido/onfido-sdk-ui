@@ -2,7 +2,7 @@ import { hmac256, mimeType } from './blob'
 import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
-import { trackException, TRACKED_EVENT_TYPES } from '../../Tracker'
+import { trackException } from '../../Tracker'
 
 import type {
   ImageQualityValidationPayload,
@@ -20,7 +20,7 @@ import type {
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
-import type { TrackedEventNames } from '~types/tracker'
+import type { LegacyTrackedEventNames } from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 type UploadPayload = {
@@ -138,8 +138,7 @@ export const sendMultiframeSelfie = (
   onSuccess: SuccessCallback<UploadFileResponse>,
   onError: ErrorCallback,
   sendEvent: (
-    event: TrackedEventNames,
-    eventType: string,
+    event: LegacyTrackedEventNames,
     properties?: Record<string, unknown>
   ) => void
 ): void => {
@@ -150,15 +149,14 @@ export const sendMultiframeSelfie = (
     },
   }
   const { blob, filename = 'selfie', sdkMetadata } = selfie
-  const eventType = TRACKED_EVENT_TYPES.action
 
   new Promise<SnapshotResponse>((resolve, reject) => {
-    sendEvent('Starting snapshot upload', eventType)
+    sendEvent('Starting snapshot upload')
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
     .then((res) => {
-      sendEvent('Snapshot upload completed', eventType)
-      sendEvent('Starting live photo upload', eventType)
+      sendEvent('Snapshot upload completed')
+      sendEvent('Starting live photo upload')
       const snapshot_uuids = JSON.stringify([res.uuid])
       uploadFacePhoto(
         { file: { blob, filename }, sdkMetadata, snapshot_uuids },
@@ -168,7 +166,11 @@ export const sendMultiframeSelfie = (
         onError
       )
     })
-    .catch((err) => onError(err))
+    .catch((err) => {
+      // FIXME: the onError can also be a (e:Error) => void, as e.g. the test sendMultiframeSelfie - 'with invalid data' shows
+      // that the callback is a type error
+      onError(err)
+    })
 }
 
 export const uploadFaceVideo = (

@@ -6,7 +6,7 @@ import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 
 import { appendToTracking, trackException } from '../../Tracker'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import DocumentVideo from '../DocumentVideo'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
@@ -173,7 +173,7 @@ class Document extends Component<Props> {
       side,
       trackScreen,
       translate,
-      uploadFallback,
+      uploadFallback = true,
       useLiveDocumentCapture,
       useWebcam,
     } = this.props

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 import { identity, noop } from '~utils/func'
 import errors from '../strings/errors'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
