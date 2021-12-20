@@ -1,32 +1,61 @@
-import { FunctionComponent, h } from 'preact'
 import { trackComponent } from '../../../Tracker'
-import { StepComponentBaseProps } from '~types/routers'
-import PageTitle from '../../PageTitle'
-import { useLocales } from '~locales'
-import { poaDocumentOptions } from '../../DocumentSelector/documentTypes'
-import { withDefaultOptions } from '../../DocumentSelector'
+import {
+  DocumentOptions,
+  DocumentOptionsType,
+} from '../../DocumentSelector/documentTypes'
+import { DocumentSelectorBase } from '../../DocumentSelector'
+import { upperCase } from '~utils/string'
 
-const DocumentSelector = withDefaultOptions(poaDocumentOptions)
+class PoADocumentSelector extends DocumentSelectorBase {
+  handleDocumentTypeSelected(option: DocumentOptionsType): void {
+    this.props.actions.setPoADocumentType(option.type)
+  }
 
-type Props = {
-  country?: string | undefined
-} & StepComponentBaseProps
+  subTitleTranslationKey(): string {
+    return 'doc_select.subtitle_poa'
+  }
 
-const PoADocumentSelector: FunctionComponent<Props> = (props) => {
-  const { translate } = useLocales()
-  const { country } = { ...props }
+  titleTranslationKey(): string {
+    return 'doc_select.title_poa'
+  }
 
-  return (
-    <div>
-      <PageTitle
-        title={translate('doc_select.title_poa', {
-          country: !country || country === 'GBR' ? 'UK' : '',
-        })}
-        subTitle={translate('doc_select.subtitle_poa')}
-      />
-      <DocumentSelector {...{ ...props, translate }} />
-    </div>
-  )
+  getDefaultOptions(): DocumentOptions {
+    return poaDocumentOptions
+  }
+}
+
+const isUK = (code: string) => upperCase(code) === 'GBR'
+const isNonUK = (code: string) => upperCase(code) !== 'GBR'
+
+// REFACTOR: move this into the selector as soon as the
+export const poaDocumentOptions: DocumentOptions = {
+  bank_building_society_statement: {
+    labelKey: 'doc_select.button_bank_statement',
+    eStatementsKey: 'doc_select.extra_estatements_ok',
+  },
+  utility_bill: {
+    labelKey: 'doc_select.button_bill',
+    detailKey: 'doc_select.button_bill_detail',
+    warningKey: 'doc_select.extra_no_mobile',
+    eStatementsKey: 'doc_select.extra_estatements_ok',
+  },
+  council_tax: {
+    labelKey: 'doc_select.button_tax_letter',
+    icon: 'icon-letter',
+    checkAvailableInCountry: isUK,
+  },
+  benefit_letters: {
+    labelKey: 'doc_select.button_benefits_letter',
+    detailKey: 'doc_select.button_benefits_letter_detail',
+    icon: 'icon-letter',
+    checkAvailableInCountry: isUK,
+  },
+  government_letter: {
+    labelKey: 'doc_select.button_government_letter',
+    detailKey: 'doc_select.button_government_letter_detail',
+    icon: 'icon-letter',
+    checkAvailableInCountry: isNonUK,
+  },
 }
 
 export default trackComponent(PoADocumentSelector, 'type_select')
