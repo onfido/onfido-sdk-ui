@@ -1,7 +1,7 @@
 import type { ComponentType } from 'preact'
 import Welcome from '../Welcome'
 import UserConsent from '../UserConsent'
-import { SelectIdentityDocument } from '../Select'
+
 import CountrySelector from '../CountrySelector'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
@@ -46,6 +46,7 @@ import type {
 import PoAClientIntro from '../ProofOfAddress/PoAClientIntro'
 import PoADocumentSelector from '../ProofOfAddress/PoADocumentSelect'
 import Guidance from '../ProofOfAddress/PoAGuidance'
+import { SelectIdentityDocument } from '../Select/IdentityDocumentSelector'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -386,6 +387,7 @@ const buildPoaComponents = (
     DocumentFrontConfirm,
   ]
 
+  // @ts-ignore
   return mobileFlow && isFirstCaptureStepInFlow
     ? [...buildCrossDeviceClientComponents(captureComponents)]
     : [...preCaptureComponents, ...captureComponents]
