@@ -241,11 +241,16 @@ class Document extends Component<Props> {
     // Different upload types show different icons
     // return the right icon name for document
     // For document, the upload can be 'identity' or 'proof_of_address'
+
+    // TODO: why do we try to get the document type group from the document type again. It would make much more sense
+    //  to have the overall properties know about the current step and then just take the upload type from the current step
+
+    // @ts-ignore
     const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
     const instructions = translate(
       DOCUMENT_CAPTURE_LOCALES_MAPPING[
         getDocumentType(isPoA, documentType, poaDocumentType)
-      ][side]?.body || ''
+        ][side]?.body || ''
     )
 
     return (
