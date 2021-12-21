@@ -23,11 +23,11 @@ class DummyHostApp extends BasePage {
   }
 
   async firstStepTextDisplayed() {
-    this.firstStepText().isDisplayed()
+    await this.firstStepText().isDisplayed()
   }
 
   async secondStepTextDisplayed() {
-    this.secondStepText().isDisplayed()
+    await this.secondStepText().isDisplayed()
   }
 }
 

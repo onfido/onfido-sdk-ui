@@ -18,10 +18,10 @@ export const documentSelectorScenarios = async (lang) => {
         driver.get(`${localhostUrl}?language=${lang}`)
         welcome.continueToNextStep()
         documentSelector.verifyTitle(copy)
-        documentSelector.verifySubtitle(copy)
-        documentSelector.verifyLabels(copy)
-        documentSelector.verifyHints(copy)
-        documentSelector.verifyIcons()
+        await documentSelector.verifySubtitle(copy)
+        await documentSelector.verifyLabels(copy)
+        await documentSelector.verifyHints(copy)
+        await documentSelector.verifyIcons()
         await takePercySnapshot(
           driver,
           `should verify UI elements on the document selection screen ${lang}`

@@ -75,8 +75,8 @@ class BasePage {
       this.cobrandLabel().isDisplayed(),
       'Test Failed: Cobrand text should be displayed'
     )
-    verifyElementCopy(this.cobrandText(), '[COMPANY/PRODUCT NAME]')
-    verifyElementCopy(this.poweredBy(), 'powered by')
+    await verifyElementCopy(this.cobrandText(), '[COMPANY/PRODUCT NAME]')
+    await verifyElementCopy(this.poweredBy(), 'powered by')
   }
 
   async checkLogoCobrandIsVisible() {
@@ -92,7 +92,7 @@ class BasePage {
       this.cobrandLogo().isDisplayed(),
       'Test Failed: Cobrand logo should be displayed'
     )
-    verifyElementCopy(this.poweredBy(), 'powered by')
+    await verifyElementCopy(this.poweredBy(), 'powered by')
   }
 
   async upload(filename) {

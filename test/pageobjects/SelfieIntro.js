@@ -13,11 +13,14 @@ class SelfieIntro extends BasePage {
   }
 
   async verifyUIElementsOnTheSelfieIntroScreen(copy) {
-    this.title().isDisplayed()
-    verifyElementCopy(this.title(), copy.selfie_intro.title)
-    this.selfieIcon().isDisplayed()
-    this.glassesIcon().isDisplayed()
-    verifyElementCopy(this.continueButton(), copy.selfie_intro.button_primary)
+    await this.title().isDisplayed()
+    await verifyElementCopy(this.title(), copy.selfie_intro.title)
+    await this.selfieIcon().isDisplayed()
+    await this.glassesIcon().isDisplayed()
+    await verifyElementCopy(
+      this.continueButton(),
+      copy.selfie_intro.button_primary
+    )
   }
 
   async clickOnContinueButton() {

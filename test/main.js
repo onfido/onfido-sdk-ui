@@ -141,7 +141,7 @@ const createBrowser = async (browser) => {
   const quitAll = async () => {
     await Promise.all([
       driver.quit(),
-      ...(bsLocal ? [stopBrowserstackLocal(bsLocal)] : []),
+      ...(bsLocal ? [await stopBrowserstackLocal(bsLocal)] : []),
     ])
       .then(() => {
         console.log(chalk.green('Browser closed'))
@@ -373,7 +373,7 @@ const runTests = async (dockerContainerId) => {
   }
 
   await waitForMockServer()
-  runner()
+  await runner()
 
   const cleanUp = () => {
     killMockServer(dockerContainerId)

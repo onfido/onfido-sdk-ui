@@ -50,22 +50,31 @@ class PoaGuidance extends BasePage {
       benefit_letters: copy.doc_submit.title_benefits_letter,
       government_letter: copy.doc_submit.title_government_letter,
     }
-    verifyElementCopy(this.title(), poaGudanceTitleStrings[docType])
-    verifyElementCopy(this.makeSure(), copy.poa_guidance.instructions.label)
-    verifyElementCopy(this.logoText(), copy.poa_guidance.instructions.logo)
-    verifyElementCopy(this.continueButton(), copy.poa_guidance.button_primary)
+    await verifyElementCopy(this.title(), poaGudanceTitleStrings[docType])
+    await verifyElementCopy(
+      this.makeSure(),
+      copy.poa_guidance.instructions.label
+    )
+    await verifyElementCopy(
+      this.logoText(),
+      copy.poa_guidance.instructions.logo
+    )
+    await verifyElementCopy(
+      this.continueButton(),
+      copy.poa_guidance.button_primary
+    )
   }
 
   async verifyTextOfTheElementsForPoADocumentsGuidance(months) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.poaGuidanceSubtitle(),
       `Must be issued in the last ${months} months`
     )
-    verifyElementCopy(this.fullNameText(), 'Full name')
-    verifyElementCopy(this.currentText(), 'Current')
-    verifyElementCopy(this.addressText(), 'Address')
-    verifyElementCopy(this.issueDateText(), 'Issue date or')
-    verifyElementCopy(this.summaryPeriodText(), 'Summary period')
+    await verifyElementCopy(this.fullNameText(), 'Full name')
+    await verifyElementCopy(this.currentText(), 'Current')
+    await verifyElementCopy(this.addressText(), 'Address')
+    await verifyElementCopy(this.issueDateText(), 'Issue date or')
+    await verifyElementCopy(this.summaryPeriodText(), 'Summary period')
   }
 
   async clickOnContinueButton() {

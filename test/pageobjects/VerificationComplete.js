@@ -10,14 +10,14 @@ class VerificationComplete extends BasePage {
   }
 
   async verifyUIElements(copy) {
-    this.icon().isDisplayed()
-    verifyElementCopy(this.title(), copy.outro.title)
-    verifyElementCopy(this.subtitle(), copy.outro.body)
+    await this.icon().isDisplayed()
+    await verifyElementCopy(this.title(), copy.outro.title)
+    await verifyElementCopy(this.subtitle(), copy.outro.body)
   }
 
   async checkBackArrowIsNotDisplayed() {
     try {
-      this.backArrow().isDisplayed()
+      await this.backArrow().isDisplayed()
     } catch (e) {
       console.log('Arrow is present:', e)
       return false

@@ -13,11 +13,14 @@ class FaceVideoIntro extends BasePage {
   }
 
   async verifyUIElementsOnTheFaceVideoIntroScreen(copy) {
-    this.title().isDisplayed()
-    verifyElementCopy(this.title(), copy.video_intro.title)
-    this.cameraIcon().isDisplayed()
-    this.microphoneIcon().isDisplayed()
-    verifyElementCopy(this.continueButton(), copy.video_intro.button_primary)
+    await this.title().isDisplayed()
+    await verifyElementCopy(this.title(), copy.video_intro.title)
+    await this.cameraIcon().isDisplayed()
+    await this.microphoneIcon().isDisplayed()
+    await verifyElementCopy(
+      this.continueButton(),
+      copy.video_intro.button_primary
+    )
   }
   async clickOnContinueButton() {
     this.continueButton().click()

@@ -12,7 +12,7 @@ export const goToPassportUploadScreen = async (
 ) => {
   driver.get(localhostUrl + parameter)
   welcome.continueToNextStep()
-  documentSelector.clickOnPassportIcon()
+  await documentSelector.clickOnPassportIcon()
 }
 
 export const uploadFileAndClickConfirmButton = async (
@@ -20,9 +20,9 @@ export const uploadFileAndClickConfirmButton = async (
   confirm,
   fileName
 ) => {
-  documentUploadScreen.getUploadInput()
+  await documentUploadScreen.getUploadInput()
   documentUploadScreen.upload(fileName)
-  confirm.clickConfirmButton()
+  await confirm.clickConfirmButton()
 }
 
 export const switchBrowserTab = async (tab, driver) => {

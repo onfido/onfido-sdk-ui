@@ -14,14 +14,14 @@ class CameraPermissions extends BasePage {
 
   async verifyUIElementsOnTheCameraPermissionsScreen(copy) {
     this.driver.sleep(500)
-    verifyElementCopy(this.title(), copy.permission.title_cam)
-    verifyElementCopy(this.subtitle(), copy.permission.subtitle_cam)
-    verifyElementCopy(this.instructions(), copy.permission.body_cam)
-    verifyElementCopy(
+    await verifyElementCopy(this.title(), copy.permission.title_cam)
+    await verifyElementCopy(this.subtitle(), copy.permission.subtitle_cam)
+    await verifyElementCopy(this.instructions(), copy.permission.body_cam)
+    await verifyElementCopy(
       this.enableCameraButton(),
       copy.permission.button_primary_cam
     )
-    this.graphic().isDisplayed()
+    await this.graphic().isDisplayed()
   }
 
   async clickOnEnableCameraButton() {

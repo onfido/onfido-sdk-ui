@@ -19,39 +19,39 @@ export const userConsentScenarios = async (lang = 'en_US') => {
       })
 
       it('should verify UI elements on the consent screen', async () => {
-        userConsent.verifyFrameTitle()
-        userConsent.verifyAcceptButton(copy)
-        userConsent.verifyDeclineButton(copy)
+        await userConsent.verifyFrameTitle()
+        await userConsent.verifyAcceptButton(copy)
+        await userConsent.verifyDeclineButton(copy)
       })
 
       it('should accept user consent', async () => {
-        userConsent.acceptUserConsent()
+        await userConsent.acceptUserConsent()
         documentSelector.verifyTitle(copy)
       })
 
       it('when clicking on decline it should show a modal', async () => {
-        userConsent.declineUserConsent()
-        userConsent.userConsentModalIsOpen()
-        userConsent.verifyUserConsentDeclineModalTitle(copy)
-        userConsent.verifyUserConsentDeclineModalPrimaryBtn(copy)
-        userConsent.verifyUserConsentDeclineModalSecondaryBtn(copy)
+        await userConsent.declineUserConsent()
+        await userConsent.userConsentModalIsOpen()
+        await userConsent.verifyUserConsentDeclineModalTitle(copy)
+        await userConsent.verifyUserConsentDeclineModalPrimaryBtn(copy)
+        await userConsent.verifyUserConsentDeclineModalSecondaryBtn(copy)
       })
 
       it('when clicking on the modal primary button the modal should be dismissed', async () => {
-        userConsent.declineUserConsent()
-        userConsent.userConsentModalIsOpen()
-        userConsent.verifyUserConsentDeclineModalTitle(copy)
-        userConsent.userConsentDeclineModalPrimaryBtnClick()
+        await userConsent.declineUserConsent()
+        await userConsent.userConsentModalIsOpen()
+        await userConsent.verifyUserConsentDeclineModalTitle(copy)
+        await userConsent.userConsentDeclineModalPrimaryBtnClick()
         driver.sleep(500)
-        userConsent.userConsentModalIsClosed()
+        await userConsent.userConsentModalIsClosed()
       })
 
       it('when clicking on the secondary button the sdk should be unmounted', async () => {
-        userConsent.declineUserConsent()
-        userConsent.userConsentModalIsOpen()
-        userConsent.verifyUserConsentDeclineModalTitle(copy)
-        userConsent.userConsentDeclineModalSecondaryBtnClick()
-        userConsent.isConsentScreenUnmounted()
+        await userConsent.declineUserConsent()
+        await userConsent.userConsentModalIsOpen()
+        await userConsent.verifyUserConsentDeclineModalTitle(copy)
+        await userConsent.userConsentDeclineModalSecondaryBtnClick()
+        await userConsent.isConsentScreenUnmounted()
       })
     }
   )

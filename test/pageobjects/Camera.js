@@ -30,11 +30,11 @@ class Camera extends BasePage {
   }
 
   async verifySelfieTitle(copy) {
-    verifyElementCopy(this.title(), copy.selfie_capture.title)
+    await verifyElementCopy(this.title(), copy.selfie_capture.title)
   }
 
   async verifyVideoTitle(copy) {
-    verifyElementCopy(this.title(), copy.video_capture.body)
+    await verifyElementCopy(this.title(), copy.video_capture.body)
   }
 
   async takeSelfie() {
@@ -45,8 +45,8 @@ class Camera extends BasePage {
 
   async enableCameraAccessForPercy() {
     if (
-      this.enableCameraButton().isDisplayed() &&
-      this.allowCameraPermissionImage().isDisplayed()
+      (await this.enableCameraButton().isDisplayed()) &&
+      (await this.allowCameraPermissionImage().isDisplayed())
     ) {
       this.enableCameraButton().click()
     }
@@ -54,7 +54,7 @@ class Camera extends BasePage {
 
   async enableCameraAccessIfNecessary() {
     if (browserName.toLowerCase() === 'safari') {
-      this.enableCameraAccessForPercy()
+      await this.enableCameraAccessForPercy()
     }
   }
 

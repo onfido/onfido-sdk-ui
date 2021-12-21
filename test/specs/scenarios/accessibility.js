@@ -61,22 +61,22 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       const goToPoADocumentSelectionScreen = async () => {
         driver.get(`${localhostUrl}?poa=true`)
         welcome.continueToNextStep()
-        poaIntro.clickStartVerificationButton()
+        await poaIntro.clickStartVerificationButton()
       }
 
       const goToCrossDeviceGetSecureLinkScreen = async () => {
         welcome.continueToNextStep()
-        documentSelector.clickOnPassportIcon()
-        documentUpload.switchToCrossDevice()
+        await documentSelector.clickOnPassportIcon()
+        await documentUpload.switchToCrossDevice()
         crossDeviceIntro.continueToNextStep()
       }
 
       const goToCrossDeviceMobileConnectedScreen = async () => {
-        documentUpload.switchToCrossDevice()
+        await documentUpload.switchToCrossDevice()
         crossDeviceIntro.continueToNextStep()
-        crossDeviceLink.switchToCopyLinkOption()
-        copyCrossDeviceLinkAndOpenInNewTab()
-        switchBrowserTab(0, driver)
+        await crossDeviceLink.switchToCopyLinkOption()
+        await copyCrossDeviceLinkAndOpenInNewTab()
+        await switchBrowserTab(0, driver)
       }
 
       const copyCrossDeviceLinkAndOpenInNewTab = async () => {
@@ -84,113 +84,117 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           .copyLinkTextContainer()
           .getText()
         driver.executeScript("window.open('your url','_blank');")
-        switchBrowserTab(1, driver)
+        await switchBrowserTab(1, driver)
         driver.get(crossDeviceLinkText)
       }
 
       const waitForAlertToAppearAndSendSms = async () => {
-        crossDeviceLink.clickOnSendLinkButton()
+        await crossDeviceLink.clickOnSendLinkButton()
         driver.wait(until.alertIsPresent())
-        driver.switchTo().alert().accept()
+        await driver.switchTo().alert().accept()
       }
 
       const switchToCrossDeviceFlow = async () => {
-        documentUpload.switchToCrossDevice()
+        await documentUpload.switchToCrossDevice()
         crossDeviceIntro.continueToNextStep()
-        crossDeviceLink.switchToCopyLinkOption()
-        copyCrossDeviceLinkAndOpenInNewTab()
-        switchBrowserTab(0, driver)
-        crossDeviceMobileConnected.tipsHeader().isDisplayed()
+        await crossDeviceLink.switchToCopyLinkOption()
+        await copyCrossDeviceLinkAndOpenInNewTab()
+        await switchBrowserTab(0, driver)
+        await crossDeviceMobileConnected.tipsHeader().isDisplayed()
         crossDeviceMobileConnected.verifyUIElements(copy)
-        switchBrowserTab(1, driver)
+        await switchBrowserTab(1, driver)
         driver.sleep(1000)
       }
 
       //Welcome
       it('should verify accessibility for the welcome screen', async () => {
         driver.get(baseUrl)
-        runAccessibilityTest(driver)
+        await runAccessibilityTest(driver)
       })
 
       it('should verify focus management for the welcome screen', async () => {
         driver.get(baseUrl)
-        welcome.verifyFocusManagement()
+        await welcome.verifyFocusManagement()
       })
 
       //Cross Device Sync
       it('should verify accessibility for the cross device intro screen', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
-        documentSelector.clickOnPassportIcon()
-        documentUpload.switchToCrossDevice()
-        runAccessibilityTest(driver)
+        await documentSelector.clickOnPassportIcon()
+        await documentUpload.switchToCrossDevice()
+        await runAccessibilityTest(driver)
       })
 
       it('should verify accessibility for the cross device screen', async () => {
         driver.get(baseUrl)
-        goToCrossDeviceGetSecureLinkScreen()
-        runAccessibilityTest(driver)
+        await goToCrossDeviceGetSecureLinkScreen()
+        await runAccessibilityTest(driver)
       })
 
       it('should verify accessibility for the cross device mobile connected screen', async () => {
-        goToPassportUploadScreen(
+        await goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
           `?language=${lang}`
         )
-        goToCrossDeviceMobileConnectedScreen()
-        runAccessibilityTest(driver)
+        await goToCrossDeviceMobileConnectedScreen()
+        await runAccessibilityTest(driver)
       })
 
       it('should verify accessibility for the cross device mobile notification sent screen', async () => {
         driver.get(baseUrl)
-        goToCrossDeviceGetSecureLinkScreen()
-        crossDeviceLink.switchToSendSmsOption()
-        crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
-        waitForAlertToAppearAndSendSms()
-        runAccessibilityTest(driver)
+        await goToCrossDeviceGetSecureLinkScreen()
+        await crossDeviceLink.switchToSendSmsOption()
+        await crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
+        await waitForAlertToAppearAndSendSms()
+        await runAccessibilityTest(driver)
       })
 
       it('should verify accessibility for the cross device submit screen', async () => {
-        goToPassportUploadScreen(
+        await goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
           `?language=${lang}&useUploader=true`
         )
-        documentUpload.clickUploadButton()
-        uploadFileAndClickConfirmButton(
+        await documentUpload.clickUploadButton()
+        await uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
           confirm,
           'passport.jpg'
         )
-        switchToCrossDeviceFlow()
-        documentUpload.verifySelfieUploadTitle(copy)
-        uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
+        await switchToCrossDeviceFlow()
+        await documentUpload.verifySelfieUploadTitle(copy)
+        await uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'face.jpeg'
+        )
         crossDeviceClientSuccess.verifyUIElements(copy)
-        switchBrowserTab(0, driver)
-        crossDeviceSubmit.documentUploadedMessage().isDisplayed()
-        runAccessibilityTest(driver)
+        await switchBrowserTab(0, driver)
+        await crossDeviceSubmit.documentUploadedMessage().isDisplayed()
+        await runAccessibilityTest(driver)
       })
 
       // Document Selector
       it('should verify accessibility for the document selector screen', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
-        runAccessibilityTest(driver)
+        await runAccessibilityTest(driver)
       })
 
       // Document Upload
       it('should verify accessibility for the passport upload image guide screen', async () => {
-        goToPassportUploadScreen(
+        await goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
           `?language=${lang}`
         )
-        documentUpload.clickUploadButton()
-        runAccessibilityTest(driver)
+        await documentUpload.clickUploadButton()
+        await runAccessibilityTest(driver)
       })
 
       // @FIXME: Skip test for now as there is a bug in library reported here
@@ -198,47 +202,47 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       it.skip('should verify accessibility for the country selector screen', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
-        documentSelector.clickOnIdentityCardIcon()
-        runAccessibilityTest(driver)
+        await documentSelector.clickOnIdentityCardIcon()
+        await runAccessibilityTest(driver)
       })
 
       it('should verify accessibility for the document uploader screen', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
-        documentSelector.clickOnDrivingLicenceIcon()
-        countrySelector.selectSupportedCountry()
-        countrySelector.clickSubmitDocumentButton()
-        runAccessibilityTest(driver)
+        await documentSelector.clickOnDrivingLicenceIcon()
+        await countrySelector.selectSupportedCountry()
+        await countrySelector.clickSubmitDocumentButton()
+        await runAccessibilityTest(driver)
       })
 
       it('should verify accessibility for the document upload confirmation screen', async () => {
-        goToPassportUploadScreen(
+        await goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
           `?language=${lang}`
         )
-        documentUpload.clickUploadButton()
-        passportUploadImageGuide.getUploadInput()
+        await documentUpload.clickUploadButton()
+        await passportUploadImageGuide.getUploadInput()
         passportUploadImageGuide.upload('passport.jpg')
-        runAccessibilityTest(driver)
+        await runAccessibilityTest(driver)
       })
 
       // Face
       it('should verify accessibility for the take a selfie screen', async () => {
-        goToPassportUploadScreen(
+        await goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
           `?language=${lang}`
         )
-        documentUpload.clickUploadButton()
-        uploadFileAndClickConfirmButton(
+        await documentUpload.clickUploadButton()
+        await uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
           confirm,
           'passport.jpg'
         )
-        runAccessibilityTest(driver)
+        await runAccessibilityTest(driver)
       })
 
       //FIXME: This is commented out due to the color-contrast accessibility rule fail - CX-4214.
@@ -252,7 +256,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       // })
 
       it('should verify accessibility for faceVideo intro screen', async () => {
-        goToPassportUploadScreen(
+        await goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
@@ -261,18 +265,18 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
         )
-        documentUpload.clickUploadButton()
-        uploadFileAndClickConfirmButton(
+        await documentUpload.clickUploadButton()
+        await uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
           confirm,
           'passport.jpg'
         )
-        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
-        runAccessibilityTest(driver)
+        await faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+        await runAccessibilityTest(driver)
       })
 
       it('should verify accessibility for camera permission screen', async () => {
-        goToPassportUploadScreen(
+        await goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
@@ -281,15 +285,15 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
         )
-        documentUpload.clickUploadButton()
-        uploadFileAndClickConfirmButton(
+        await documentUpload.clickUploadButton()
+        await uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
           confirm,
           'passport.jpg'
         )
-        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
-        faceVideoIntro.clickOnContinueButton()
-        runAccessibilityTest(driver)
+        await faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+        await faceVideoIntro.clickOnContinueButton()
+        await runAccessibilityTest(driver)
       })
 
       //FIXME: This is commented out due to the color-contrast accessibility rule fail - CX-4214.
@@ -310,40 +314,44 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       it('should verify accessibility for verification complete screen', async () => {
         await driver.get(`${baseUrl}&oneDoc=passport&useUploader=true`)
         welcome.continueToNextStep()
-        documentUpload.verifyPassportTitle(copy)
-        documentUpload.clickUploadButton()
-        uploadFileAndClickConfirmButton(
+        await documentUpload.verifyPassportTitle(copy)
+        await documentUpload.clickUploadButton()
+        await uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
           confirm,
           'passport.jpg'
         )
-        uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
-        runAccessibilityTest(driver)
+        await uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'face.jpeg'
+        )
+        await runAccessibilityTest(driver)
       })
 
       //PoA
       it('should verify accessibility for PoA Intro screen', async () => {
         await driver.get(`${localhostUrl}?poa=true`)
         welcome.continueToNextStep()
-        runAccessibilityTest(driver)
+        await runAccessibilityTest(driver)
       })
 
       it('should verify accessibility for PoA Document Selection screen', async () => {
-        goToPoADocumentSelectionScreen()
-        runAccessibilityTest(driver)
+        await goToPoADocumentSelectionScreen()
+        await runAccessibilityTest(driver)
       })
 
       it('should verify accessibility for PoA Document Guidance screen', async () => {
-        goToPoADocumentSelectionScreen()
-        poaDocumentSelection.clickOnBenefitsLetterIcon()
-        runAccessibilityTest(driver)
+        await goToPoADocumentSelectionScreen()
+        await poaDocumentSelection.clickOnBenefitsLetterIcon()
+        await runAccessibilityTest(driver)
       })
 
       //Modal
       it('should verify accessibility for modal screen', async () => {
         driver.get(`${baseUrl}&useModal=true`)
-        welcome.clickOnOpenModalButton()
-        runAccessibilityTest(driver)
+        await welcome.clickOnOpenModalButton()
+        await runAccessibilityTest(driver)
       })
     }
   )

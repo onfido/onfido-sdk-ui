@@ -22,40 +22,40 @@ class DocumentVideoConfirm extends BasePage {
   }
 
   async userIsShownConfirmationDetails(copy) {
-    this.backArrow().isDisplayed()
-    this.documentVideoConfirmIcon().isDisplayed()
-    verifyElementCopy(this.documentVideoConfirmTitle(), copy.outro.body)
-    verifyElementCopy(
+    await this.backArrow().isDisplayed()
+    await this.documentVideoConfirmIcon().isDisplayed()
+    await verifyElementCopy(this.documentVideoConfirmTitle(), copy.outro.body)
+    await verifyElementCopy(
       this.documentVideoConfirmMessage(),
       copy.video_confirmation.body
     )
-    this.verifyUploadVideoButtonLabel(copy)
-    this.verifyPreviewVideoButtonLabel(copy)
+    await this.verifyUploadVideoButtonLabel(copy)
+    await this.verifyPreviewVideoButtonLabel(copy)
   }
 
   async verifyUploadVideoButtonLabel(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoUploadButton(),
       copy.video_confirmation.button_primary
     )
   }
 
   async verifyPreviewVideoButtonLabel(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoSecondaryButton(),
       copy.doc_video_confirmation.button_secondary
     )
   }
 
   async chooseToPreviewVideo(copy) {
-    this.verifyPreviewVideoButtonLabel(copy)
+    await this.verifyPreviewVideoButtonLabel(copy)
     this.documentVideoSecondaryButton().click()
   }
 
   async uploadAndWaitForSpinner(copy) {
-    this.verifyUploadVideoButtonLabel(copy)
+    await this.verifyUploadVideoButtonLabel(copy)
     this.documentVideoUploadButton().click()
-    this.spinner().isDisplayed()
+    await this.spinner().isDisplayed()
   }
 }
 

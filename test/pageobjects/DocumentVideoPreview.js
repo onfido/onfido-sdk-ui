@@ -19,38 +19,38 @@ class DocumentVideoPreview extends BasePage {
   }
 
   async verifyUploadVideoButtonLabel(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoUploadButton(),
       copy.video_confirmation.button_primary
     )
   }
 
   async verifyRetakeVideoButtonLabel(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoRetakeVideoButton(),
       copy.video_confirmation.button_secondary
     )
   }
 
   async chooseToRetakeVideo(copy) {
-    this.verifyRetakeVideoButtonLabel(copy)
+    await this.verifyRetakeVideoButtonLabel(copy)
     this.documentVideoRetakeVideoButton().click()
   }
 
   async checkYourVideoIsSeen(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoPreviewTitle(),
       copy.doc_video_confirmation.title
     )
-    this.documentVideoPreview().isDisplayed()
-    this.documentVideoRetakeVideoButton().isDisplayed()
-    this.verifyRetakeVideoButtonLabel(copy)
-    this.documentVideoUploadButton().isDisplayed()
-    this.verifyUploadVideoButtonLabel(copy)
+    await this.documentVideoPreview().isDisplayed()
+    await this.documentVideoRetakeVideoButton().isDisplayed()
+    await this.verifyRetakeVideoButtonLabel(copy)
+    await this.documentVideoUploadButton().isDisplayed()
+    await this.verifyUploadVideoButtonLabel(copy)
   }
 
   async uploadDocumentVideo(copy) {
-    this.verifyUploadVideoButtonLabel(copy)
+    await this.verifyUploadVideoButtonLabel(copy)
     this.documentVideoUploadButton().click()
   }
 }

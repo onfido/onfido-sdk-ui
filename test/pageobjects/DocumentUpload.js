@@ -28,49 +28,52 @@ class DocumentUpload extends BasePage {
   }
 
   async verifyCrossDeviceUIElements(copy) {
-    this.uploaderIcon().isDisplayed()
-    verifyElementCopy(this.subtitle(), copy.doc_submit.subtitle)
-    this.switchToCrossDeviceButton().isDisplayed()
-    verifyElementCopy(
+    await this.uploaderIcon().isDisplayed()
+    await verifyElementCopy(this.subtitle(), copy.doc_submit.subtitle)
+    await this.switchToCrossDeviceButton().isDisplayed()
+    await verifyElementCopy(
       this.switchToCrossDeviceButton(),
       copy.doc_submit.button_primary
     )
   }
 
   async verifyUploaderButton(copy) {
-    verifyElementCopy(this.uploaderBtn(), copy.doc_submit.button_link_upload)
+    await verifyElementCopy(
+      this.uploaderBtn(),
+      copy.doc_submit.button_link_upload
+    )
   }
 
   async verifyPassportTitle(copy) {
-    verifyElementCopy(this.title(), copy.doc_submit.title_passport)
+    await verifyElementCopy(this.title(), copy.doc_submit.title_passport)
   }
 
   async verifyFrontOfDrivingLicenceTitle(copy) {
-    verifyElementCopy(this.title(), copy.doc_submit.title_license_front)
+    await verifyElementCopy(this.title(), copy.doc_submit.title_license_front)
   }
 
   async verifyBackOfDrivingLicenceTitle(copy) {
-    verifyElementCopy(this.title(), copy.doc_submit.title_license_back)
+    await verifyElementCopy(this.title(), copy.doc_submit.title_license_back)
   }
 
   async verifyFrontOfIdentityCardTitle(copy) {
-    verifyElementCopy(this.title(), copy.doc_submit.title_id_front)
+    await verifyElementCopy(this.title(), copy.doc_submit.title_id_front)
   }
 
   async verifyBackOfIdentityCardTitle(copy) {
-    verifyElementCopy(this.title(), copy.doc_submit.title_id_back)
+    await verifyElementCopy(this.title(), copy.doc_submit.title_id_back)
   }
 
   async verifyFrontOfResidencePermitTitle(copy) {
-    verifyElementCopy(this.title(), copy.doc_submit.title_permit_front)
+    await verifyElementCopy(this.title(), copy.doc_submit.title_permit_front)
   }
 
   async verifyBackOfResidencePermitTitle(copy) {
-    verifyElementCopy(this.title(), copy.doc_submit.title_permit_back)
+    await verifyElementCopy(this.title(), copy.doc_submit.title_permit_back)
   }
 
   async verifySelfieUploadTitle(copy) {
-    verifyElementCopy(this.title(), copy.photo_upload.title_selfie)
+    await verifyElementCopy(this.title(), copy.photo_upload.title_selfie)
   }
 
   async switchToCrossDevice() {

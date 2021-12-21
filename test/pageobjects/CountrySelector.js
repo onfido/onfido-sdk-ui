@@ -45,8 +45,8 @@ class CountrySelector extends BasePage {
   }
 
   async selectSupportedCountry() {
-    this.searchFor('france')
-    this.selectFirstOptionInDropdownMenu()
+    await this.searchFor('france')
+    await this.selectFirstOptionInDropdownMenu()
   }
   async selectFirstOptionInDropdownMenu() {
     this.driver.sleep(250)
@@ -63,11 +63,14 @@ class CountrySelector extends BasePage {
   }
 
   async verifyTitle(copy) {
-    verifyElementCopy(this.title(), copy.country_select.title)
+    await verifyElementCopy(this.title(), copy.country_select.title)
   }
 
   async verifySelectorLabel(copy) {
-    verifyElementCopy(this.selectorLabel(), copy.country_select.search.label)
+    await verifyElementCopy(
+      this.selectorLabel(),
+      copy.country_select.search.label
+    )
   }
 
   async verifyCountryFinderDisplayed() {

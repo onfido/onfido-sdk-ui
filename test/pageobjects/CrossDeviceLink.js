@@ -85,81 +85,99 @@ class CrossDeviceLink extends BasePage {
   }
 
   async verifyTitle(copy) {
-    verifyElementCopy(this.title(), copy.get_link.title)
+    await verifyElementCopy(this.title(), copy.get_link.title)
   }
 
   async verifySubtitleQr(copy) {
-    verifyElementCopy(this.subtitle(), copy.get_link.subtitle_qr)
+    await verifyElementCopy(this.subtitle(), copy.get_link.subtitle_qr)
   }
 
   async verifySubtitleSms(copy) {
-    verifyElementCopy(this.subtitle(), copy.get_link.subtitle_sms)
+    await verifyElementCopy(this.subtitle(), copy.get_link.subtitle_sms)
   }
 
   async verifySubtitleUrl(copy) {
-    verifyElementCopy(this.subtitle(), copy.get_link.subtitle_url)
+    await verifyElementCopy(this.subtitle(), copy.get_link.subtitle_url)
   }
 
   async verifySwitchToSmsOptionBtn(copy) {
-    verifyElementCopy(this.switchToSmsOptionBtn(), copy.get_link.link_sms)
+    await verifyElementCopy(this.switchToSmsOptionBtn(), copy.get_link.link_sms)
   }
 
   async verifyAlternativeMethodsSectionLabel(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.alternativeMethodsSectionLabel(),
       copy.get_link.link_divider
     )
   }
 
   async verifySwitchToCopyLinkOptionBtn(copy) {
-    verifyElementCopy(this.switchToCopyLinkOptionBtn(), copy.get_link.link_url)
+    await verifyElementCopy(
+      this.switchToCopyLinkOptionBtn(),
+      copy.get_link.link_url
+    )
   }
 
   async verifySwitchToQrCodeOptionBtn(copy) {
-    verifyElementCopy(this.switchToQrCodeOptionBtn(), copy.get_link.link_qr)
+    await verifyElementCopy(
+      this.switchToQrCodeOptionBtn(),
+      copy.get_link.link_qr
+    )
   }
 
   async verifyQRCodeHelpToggleBtn(copy) {
-    verifyElementCopy(this.qrCodeHelpToggleBtn(), copy.get_link.info_qr_how)
+    await verifyElementCopy(
+      this.qrCodeHelpToggleBtn(),
+      copy.get_link.info_qr_how
+    )
   }
 
   async verifyQRCodeHelpInstructions(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.qrCodeHelpHowToStep1(),
       copy.get_link.info_qr_how_list_item_camera
     )
-    verifyElementCopy(
+    await verifyElementCopy(
       this.qrCodeHelpHowToStep2(),
       copy.get_link.info_qr_how_list_item_download
     )
   }
 
   async verifyNumberInputLabel(copy) {
-    verifyElementCopy(this.numberInputLabel(), copy.get_link.number_field_label)
+    await verifyElementCopy(
+      this.numberInputLabel(),
+      copy.get_link.number_field_label
+    )
   }
 
   async verifyNumberInput() {
-    this.numberInput().isDisplayed()
+    await this.numberInput().isDisplayed()
   }
 
   async verifySendLinkBtn(copy) {
-    verifyElementCopy(this.sendLinkBtn(), copy.get_link.button_submit)
+    await verifyElementCopy(this.sendLinkBtn(), copy.get_link.button_submit)
   }
 
   async verifyCopyLinkLabel(copy) {
-    verifyElementCopy(this.copyLinkLabel(), copy.get_link.url_field_label)
+    await verifyElementCopy(this.copyLinkLabel(), copy.get_link.url_field_label)
   }
 
   async verifyCopyToClipboardBtnLabel(copy) {
-    verifyElementCopy(this.copyToClipboardBtn(), copy.get_link.button_copy)
+    await verifyElementCopy(
+      this.copyToClipboardBtn(),
+      copy.get_link.button_copy
+    )
   }
 
   async verifyCopyToClipboardBtnChangedState(copy) {
-    verifyElementCopy(this.copyToClipboardBtn(), copy.get_link.button_copied)
+    await verifyElementCopy(
+      this.copyToClipboardBtn(),
+      copy.get_link.button_copied
+    )
   }
 
   async verifyCopyLinkTextContainer() {
-    this.copyLinkTextContainer().isDisplayed()
+    await this.copyLinkTextContainer().isDisplayed()
   }
 
   async verifyCopyLinkDivider() {
@@ -167,7 +185,7 @@ class CrossDeviceLink extends BasePage {
   }
 
   async verifyCheckNumberCorrectError(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.checkNumberCorrectError(),
       copy.get_link.alert_wrong_number
     )

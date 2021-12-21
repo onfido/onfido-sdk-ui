@@ -31,82 +31,82 @@ class Confirm extends BasePage {
   }
 
   async verifyCheckReadabilityMessage(copy) {
-    verifyElementCopy(this.title(), copy.doc_confirmation.title)
+    await verifyElementCopy(this.title(), copy.doc_confirmation.title)
   }
 
   async verifyMakeSurePassportMessage(copy) {
-    verifyElementCopy(this.message(), copy.doc_confirmation.body_passport)
+    await verifyElementCopy(this.message(), copy.doc_confirmation.body_passport)
   }
 
   async verifyMakeSureDrivingLicenceMessage(copy) {
-    verifyElementCopy(this.message(), copy.doc_confirmation.body_license)
+    await verifyElementCopy(this.message(), copy.doc_confirmation.body_license)
   }
 
   async verifyMakeSureIdentityCardMessage(copy) {
-    verifyElementCopy(this.message(), copy.doc_confirmation.body_id)
+    await verifyElementCopy(this.message(), copy.doc_confirmation.body_id)
   }
 
   async verifyMakeSureResidencePermitMessage(copy) {
-    verifyElementCopy(this.message(), copy.doc_confirmation.body_permit)
+    await verifyElementCopy(this.message(), copy.doc_confirmation.body_permit)
   }
 
   async verifyNoDocumentError(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.errorTitleText(),
       copy.doc_confirmation.alert.no_doc_title
     )
-    this.errorTitleIcon().isDisplayed()
-    verifyElementCopy(
+    await this.errorTitleIcon().isDisplayed()
+    await verifyElementCopy(
       this.errorInstruction(),
       copy.doc_confirmation.alert.no_doc_detail
     )
   }
 
   async verifyFileSizeTooLargeError(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.uploaderError(),
       `${copy.generic.errors.invalid_size.message} ${copy.generic.errors.invalid_size.instruction}`
     )
   }
 
   async verifyUseAnotherFileError(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.uploaderError(),
       `${copy.generic.errors.invalid_type.message} ${copy.generic.errors.invalid_type.instruction}`
     )
   }
 
   async verifyUnsuppoertedFileError(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.errorTitleText(),
       copy.generic.errors.unsupported_file.message
     )
-    this.errorTitleIcon().isDisplayed()
-    verifyElementCopy(
+    await this.errorTitleIcon().isDisplayed()
+    await verifyElementCopy(
       this.errorInstruction(),
       copy.generic.errors.unsupported_file.instruction
     )
   }
 
   async verifyNoFaceError(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.errorTitleText(),
       copy.generic.errors.no_face.message
     )
-    this.errorTitleIcon().isDisplayed()
-    verifyElementCopy(
+    await this.errorTitleIcon().isDisplayed()
+    await verifyElementCopy(
       this.errorInstruction(),
       copy.generic.errors.no_face.instruction
     )
   }
 
   async verifyMultipleFacesError(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.errorTitleText(),
       copy.generic.errors.multiple_faces.message
     )
-    this.errorTitleIcon().isDisplayed()
-    verifyElementCopy(
+    await this.errorTitleIcon().isDisplayed()
+    await verifyElementCopy(
       this.errorInstruction(),
       copy.generic.errors.multiple_faces.instruction
     )
@@ -134,16 +134,16 @@ class Confirm extends BasePage {
     }
 
     const { [reason]: error } = errorsMap
-    verifyElementCopy(this.errorTitleText(), error.title)
-    verifyElementCopy(this.errorInstruction(), error.detail)
+    await verifyElementCopy(this.errorTitleText(), error.title)
+    await verifyElementCopy(this.errorInstruction(), error.detail)
 
     errorType === 'warning'
-      ? this.warningTitleIcon().isDisplayed()
-      : this.errorTitleIcon().isDisplayed()
+      ? await this.warningTitleIcon().isDisplayed()
+      : await this.errorTitleIcon().isDisplayed()
   }
 
   async playVideoBeforeConfirm() {
-    this.uploadedVideo().isDisplayed()
+    await this.uploadedVideo().isDisplayed()
     this.driver.executeScript('arguments[0].play();', this.uploadedVideo())
   }
 

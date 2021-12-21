@@ -80,19 +80,19 @@ class DocumentVideoCapture extends BasePage {
     )
   }
   async userIsToldToKeepPassportPhotoPageWithinFrame(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoTitle(),
       copy.doc_video_capture.header_passport
     )
   }
 
   async userIsToldToKeepStill(copy) {
-    this.documentVideoTitle().isDisplayed()
-    this.verifyUserIsToldToKeepStillLabel(copy)
+    await this.documentVideoTitle().isDisplayed()
+    await this.verifyUserIsToldToKeepStillLabel(copy)
   }
 
   async verifyUserIsToldToKeepStillLabel(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoTitle(),
       copy.doc_video_capture.header_step1
     )
@@ -100,7 +100,7 @@ class DocumentVideoCapture extends BasePage {
 
   async checkBackArrowIsNotDisplayed() {
     try {
-      this.backArrow().isDisplayed()
+      await this.backArrow().isDisplayed()
     } catch (e) {
       console.log('Arrow is present:', e)
       return false
@@ -137,123 +137,126 @@ class DocumentVideoCapture extends BasePage {
   }
 
   async verifyNextStepButtonLabel(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.captureButton(),
       copy.doc_video_capture.button_primary_fallback
     )
   }
 
   async nextStepButtonIsClicked(copy) {
-    this.verifyNextStepButtonLabel(copy)
+    await this.verifyNextStepButtonLabel(copy)
     this.captureButton().click()
   }
 
   async userIsToldToHoldStill(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoTitle(),
       copy.doc_video_capture.header_passport_progress
     )
   }
 
   async userIsToldToSlowlyTurnDocumentToShowTheBack(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoTitle(),
       copy.doc_video_capture.header_step2
     )
   }
 
   async waitForLoadingBarToComplete() {
-    this.loadingBar().isDisplayed()
+    await this.loadingBar().isDisplayed()
     this.driver.sleep(5000)
-    this.loadingBar().isDisplayed()
+    await this.loadingBar().isDisplayed()
   }
 
   async startRecording(copy) {
-    this.verifyStartRecordingButtonLabel(copy)
+    await this.verifyStartRecordingButtonLabel(copy)
     this.captureButton().click()
   }
 
   async verifyStartRecordingButtonLabel(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.captureButton(),
       copy.video_capture.button_primary_start
     )
   }
 
   async startRecordingButtonIsSeen(copy) {
-    this.captureButton().isDisplayed()
-    verifyElementCopy(
+    await this.captureButton().isDisplayed()
+    await verifyElementCopy(
       this.captureButton(),
       copy.video_capture.button_primary_start
     )
   }
 
   async finishRecording(copy) {
-    this.verifyFinishRecordingButtonLabel(copy)
+    await this.verifyFinishRecordingButtonLabel(copy)
     this.captureButton().click()
   }
 
   async verifyFinishRecordingButtonLabel(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.captureButton(),
       copy.video_capture.button_primary_finish
     )
   }
 
   async paperOrPlasticCardSelectorSeenForDriversLicense(copy) {
-    this.paperOrPlasticCardSelectorIsSeen(copy)
-    verifyElementCopy(
+    await this.paperOrPlasticCardSelectorIsSeen(copy)
+    await verifyElementCopy(
       this.paperOrPlasticCardTitle(),
       copy.doc_capture.prompt.title_license
     )
   }
 
   async paperOrPlasticCardSelectorSeenForIdCard(copy) {
-    this.paperOrPlasticCardSelectorIsSeen(copy)
-    verifyElementCopy(
+    await this.paperOrPlasticCardSelectorIsSeen(copy)
+    await verifyElementCopy(
       this.paperOrPlasticCardTitle(),
       copy.doc_capture.prompt.title_id
     )
   }
 
   async paperOrPlasticCardSelectorIsSeen(copy) {
-    this.paperOrPlasticCard().isDisplayed()
-    this.plasticCardButton().isDisplayed()
-    this.paperDocumentButton().isDisplayed()
-    verifyElementCopy(
+    await this.paperOrPlasticCard().isDisplayed()
+    await this.plasticCardButton().isDisplayed()
+    await this.paperDocumentButton().isDisplayed()
+    await verifyElementCopy(
       this.plasticCardTitle(),
       copy.doc_capture.prompt.button_card
     )
-    verifyElementCopy(
+    await verifyElementCopy(
       this.paperDocumentTitle(),
       copy.doc_capture.prompt.button_paper
     )
   }
 
   async userIsToldToKeepTheFrontSideOfTheDocumentWithinTheFrame(copy) {
-    verifyElementCopy(this.documentVideoTitle(), copy.doc_video_capture.header)
+    await verifyElementCopy(
+      this.documentVideoTitle(),
+      copy.doc_video_capture.header
+    )
   }
 
   async userIsToldToKeepDocumentInFullViewAtAllTimes(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoSubInstructions(),
       copy.doc_video_capture.detail_step2
     )
   }
 
   async userIsGivenInstructionsForProfilePhotoSide(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoTitle(),
       copy.doc_capture.header_folded_doc_front
     )
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoSubInstructions(),
       copy.doc_capture.detail.folded_doc_front
     )
   }
 
   async userIsToldToTurnDocumentToShowTheOuterPages(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.documentVideoTitle(),
       copy.doc_video_capture.header_paper_doc_step2
     )
@@ -261,11 +264,11 @@ class DocumentVideoCapture extends BasePage {
 
   async userIsShownCameraNotWorkingError(copy) {
     this.driver.sleep(10000)
-    verifyElementCopy(
+    await verifyElementCopy(
       this.errorTitleText(),
       copy.selfie_capture.alert.camera_inactive.title
     )
-    verifyElementCopy(
+    await verifyElementCopy(
       this.errorInstructionText(),
       copy.selfie_capture.alert.camera_inactive.detail_no_fallback
     )
@@ -273,8 +276,8 @@ class DocumentVideoCapture extends BasePage {
 
   async userIsShownLooksLikeYouTookTooLongError(copy) {
     this.driver.sleep(25000)
-    this.errorInstructionText().isDisplayed()
-    verifyElementCopy(
+    await this.errorInstructionText().isDisplayed()
+    await verifyElementCopy(
       this.errorTitleText(),
       copy.selfie_capture.alert.timeout.title
     )
@@ -289,23 +292,23 @@ class DocumentVideoCapture extends BasePage {
   }
 
   async userStartsAndCompletesFirstPartOfCapture(copy) {
-    this.startRecording(copy)
-    this.overlayPlaceholder().isDisplayed()
-    this.progressSteps().isDisplayed()
-    this.verifyUserIsToldToKeepStillLabel(copy)
-    this.nextStepButtonIsNotSeen()
-    this.nextStepButtonIsClicked(copy)
-    this.successTick().isDisplayed()
+    await this.startRecording(copy)
+    await this.overlayPlaceholder().isDisplayed()
+    await this.progressSteps().isDisplayed()
+    await this.verifyUserIsToldToKeepStillLabel(copy)
+    await this.nextStepButtonIsNotSeen()
+    await this.nextStepButtonIsClicked(copy)
+    await this.successTick().isDisplayed()
   }
 
   async userCompletesAnssiFlowForResidentPermit(copy) {
-    this.startRecording(copy)
-    this.progressSteps().isDisplayed()
-    this.nextStepButtonIsClicked(copy)
-    this.successTick().isDisplayed()
-    this.progressSteps().isDisplayed()
-    this.finishRecording(copy)
-    this.successTick().isDisplayed()
+    await this.startRecording(copy)
+    await this.progressSteps().isDisplayed()
+    await this.nextStepButtonIsClicked(copy)
+    await this.successTick().isDisplayed()
+    await this.progressSteps().isDisplayed()
+    await this.finishRecording(copy)
+    await this.successTick().isDisplayed()
   }
 }
 

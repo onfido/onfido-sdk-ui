@@ -34,37 +34,37 @@ export const navigationScenarios = async (lang) => {
       const copy = basePage.copy(lang)
 
       it('should navigate to the second-last step of the flow and then go back to the beginning', async () => {
-        goToPassportUploadScreen(
+        await goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
           `?language=${lang}&useUploader=true`
         )
-        documentUpload.clickUploadButton()
-        uploadFileAndClickConfirmButton(
+        await documentUpload.clickUploadButton()
+        await uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
           confirm,
           'passport.jpg'
         )
-        documentUpload.getUploadInput()
+        await documentUpload.getUploadInput()
         documentUpload.upload('face.jpeg')
-        confirm.clickBackArrow()
-        documentUpload.verifySelfieUploadTitle(copy)
-        documentUpload.clickBackArrow()
-        confirm.verifyCheckReadabilityMessage(copy)
-        confirm.clickBackArrow()
+        await confirm.clickBackArrow()
+        await documentUpload.verifySelfieUploadTitle(copy)
+        await documentUpload.clickBackArrow()
+        await confirm.verifyCheckReadabilityMessage(copy)
+        await confirm.clickBackArrow()
         passportUploadImageGuide.verifyTitle(copy)
-        passportUploadImageGuide.clickBackArrow()
-        documentUpload.verifyPassportTitle(copy)
-        documentUpload.clickBackArrow()
+        await passportUploadImageGuide.clickBackArrow()
+        await documentUpload.verifyPassportTitle(copy)
+        await documentUpload.clickBackArrow()
         documentSelector.verifyTitle(copy)
-        documentSelector.clickBackArrow()
+        await documentSelector.clickBackArrow()
         welcome.verifyTitle(copy)
-        welcome.checkBackArrowIsNotDisplayed()
+        await welcome.checkBackArrowIsNotDisplayed()
       })
 
       it('should display the face video intro again on back button click when on the face video flow and I have a camera', async () => {
-        goToPassportUploadScreen(
+        await goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
@@ -73,17 +73,17 @@ export const navigationScenarios = async (lang) => {
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
         )
-        documentUpload.clickUploadButton()
-        uploadFileAndClickConfirmButton(
+        await documentUpload.clickUploadButton()
+        await uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
           confirm,
           'passport.jpg'
         )
-        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
-        faceVideoIntro.clickOnContinueButton()
-        camera.recordVideo()
-        camera.clickBackArrow()
-        faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+        await faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
+        await faceVideoIntro.clickOnContinueButton()
+        await camera.recordVideo()
+        await camera.clickBackArrow()
+        await faceVideoIntro.verifyUIElementsOnTheFaceVideoIntroScreen(copy)
       })
     }
   )

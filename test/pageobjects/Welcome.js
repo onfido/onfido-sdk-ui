@@ -33,23 +33,23 @@ class Welcome extends BasePage {
   }
 
   async verifyTitle(copy) {
-    verifyElementCopy(this.title(), copy.welcome.title)
+    await verifyElementCopy(this.title(), copy.welcome.title)
   }
 
   async verifyCustomTitle() {
-    verifyElementCopy(this.title(), 'Open your new bank account')
+    await verifyElementCopy(this.title(), 'Open your new bank account')
   }
 
   async verifyFocusManagement() {
-    testFocusManagement(this.title(), this.driver)
+    await testFocusManagement(this.title(), this.driver)
   }
 
   async verifySubtitle(copy) {
-    verifyElementCopy(this.subtitle(), copy.welcome.subtitle)
+    await verifyElementCopy(this.subtitle(), copy.welcome.subtitle)
   }
 
   async verifyDefaultInstructions(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.instructions(),
       [
         copy.welcome.list_header_webcam,
@@ -60,7 +60,7 @@ class Welcome extends BasePage {
   }
 
   async verifyDocVideoInstructions(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.instructions(),
       [
         copy.welcome.list_header_doc_video,
@@ -71,7 +71,7 @@ class Welcome extends BasePage {
   }
 
   async verifyRecordingLimit(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.recordingLimit(),
       copy.welcome.list_item_doc_video_timeout.replace(
         '<timeout></timeout>',
@@ -81,22 +81,22 @@ class Welcome extends BasePage {
   }
 
   async verifyCustomDescriptions() {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.customDescriptions(),
       `To open a bank account, we will need to verify your identity.\nIt will only take a couple of minutes.`
     )
   }
 
   async verifyPrimaryButton(copy) {
-    verifyElementCopy(this.primaryBtn(), copy.welcome.next_button)
+    await verifyElementCopy(this.primaryBtn(), copy.welcome.next_button)
   }
 
   async verifyCustomPrimaryButton() {
-    verifyElementCopy(this.primaryBtn(), 'Verify Identity')
+    await verifyElementCopy(this.primaryBtn(), 'Verify Identity')
   }
 
   async verifyFooter() {
-    this.defaultFooter().isDisplayed()
+    await this.defaultFooter().isDisplayed()
   }
 
   async continueToNextStep() {
@@ -119,7 +119,7 @@ class Welcome extends BasePage {
 
   async checkBackArrowIsNotDisplayed() {
     try {
-      this.backArrow().isDisplayed()
+      await this.backArrow().isDisplayed()
     } catch (e) {
       console.log('Arrow is present:', e)
       return false

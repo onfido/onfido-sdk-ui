@@ -45,51 +45,60 @@ class PoaDocumentSelection extends BasePage {
   }
 
   async verifyTitle(copy) {
-    verifyElementCopy(this.title(), copy)
+    await verifyElementCopy(this.title(), copy)
   }
 
   async verifySubtitle(copy) {
-    verifyElementCopy(this.subtitle(), copy.doc_select.subtitle_poa)
+    await verifyElementCopy(this.subtitle(), copy.doc_select.subtitle_poa)
   }
 
   async verifyElementsBankCell(copy) {
-    this.bankIcon().isDisplayed()
-    verifyElementCopy(this.bankLabel(), copy.doc_select.button_bank_statement)
-    verifyElementCopy(this.bankTag(), copy.doc_select.extra_estatements_ok)
+    await this.bankIcon().isDisplayed()
+    await verifyElementCopy(
+      this.bankLabel(),
+      copy.doc_select.button_bank_statement
+    )
+    await verifyElementCopy(
+      this.bankTag(),
+      copy.doc_select.extra_estatements_ok
+    )
   }
 
   async verifyElementsUtilityBillCell(copy) {
-    this.utilityBillIcon().isDisplayed()
-    verifyElementCopy(this.utilityBillLabel(), copy.doc_select.button_bill)
-    verifyElementCopy(
+    await this.utilityBillIcon().isDisplayed()
+    await verifyElementCopy(
+      this.utilityBillLabel(),
+      copy.doc_select.button_bill
+    )
+    await verifyElementCopy(
       this.utilityBillHint(),
       copy.doc_select.button_bill_detail
     )
-    verifyElementCopy(
+    await verifyElementCopy(
       this.utilityBillWarning(),
       copy.doc_select.extra_no_mobile
     )
-    verifyElementCopy(
+    await verifyElementCopy(
       this.utilityBillTag(),
       copy.doc_select.extra_estatements_ok
     )
   }
 
   async verifyElementsCouncilTaxLetter(copy) {
-    this.councilTaxLetterIcon().isDisplayed()
-    verifyElementCopy(
+    await this.councilTaxLetterIcon().isDisplayed()
+    await verifyElementCopy(
       this.councilTaxLetterLabel(),
       copy.doc_select.button_tax_letter
     )
   }
 
   async verifyElementsBenefitsLetter(copy) {
-    this.benefitsLetterIcon().isDisplayed()
-    verifyElementCopy(
+    await this.benefitsLetterIcon().isDisplayed()
+    await verifyElementCopy(
       this.benefitsLetterLabel(),
       copy.doc_select.button_benefits_letter
     )
-    verifyElementCopy(
+    await verifyElementCopy(
       this.benefitsLetterHint(),
       copy.doc_select.button_benefits_letter_detail
     )

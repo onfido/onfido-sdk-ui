@@ -29,29 +29,29 @@ class CrossDeviceIntro extends BasePage {
   }
 
   async verifyTitle(copy) {
-    verifyElementCopy(this.title(), copy.cross_device_intro.title)
+    await verifyElementCopy(this.title(), copy.cross_device_intro.title)
   }
 
   async verifySubTitle(copy) {
-    verifyElementCopy(this.subtitle(), copy.cross_device_intro.subtitle)
+    await verifyElementCopy(this.subtitle(), copy.cross_device_intro.subtitle)
   }
 
   async verifyIcons() {
-    this.smsIcon().isDisplayed()
-    this.takePhotosIcon().isDisplayed()
-    this.returnToComputerIcon().isDisplayed()
+    await this.smsIcon().isDisplayed()
+    await this.takePhotosIcon().isDisplayed()
+    await this.returnToComputerIcon().isDisplayed()
   }
 
   async verifyMessages(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.smsMessage(),
       copy.cross_device_intro.list_item_send_phone
     )
-    verifyElementCopy(
+    await verifyElementCopy(
       this.takePhotosMessage(),
       copy.cross_device_intro.list_item_open_link
     )
-    verifyElementCopy(
+    await verifyElementCopy(
       this.returnToComputerMessage(),
       copy.cross_device_intro.list_item_finish
     )

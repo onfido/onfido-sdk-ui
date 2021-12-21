@@ -25,27 +25,27 @@ class PoaIntro extends BasePage {
   }
 
   async verifyTitle(copy) {
-    verifyElementCopy(this.title(), copy)
+    await verifyElementCopy(this.title(), copy)
   }
 
   async verifyRequirementsHeader(copy) {
-    verifyElementCopy(this.requirementsHeader(), copy.poa_intro.subtitle)
+    await verifyElementCopy(this.requirementsHeader(), copy.poa_intro.subtitle)
   }
 
   async verifyFirstRequirement(copy) {
-    verifyElementCopy(this.firstRequirement(), copy)
+    await verifyElementCopy(this.firstRequirement(), copy)
   }
 
   async verifySecondRequirement(copy) {
-    verifyElementCopy(this.secondRequirement(), copy)
+    await verifyElementCopy(this.secondRequirement(), copy)
   }
 
   async verifyThirdRequirement(copy) {
-    verifyElementCopy(this.thirdRequirement(), copy)
+    await verifyElementCopy(this.thirdRequirement(), copy)
   }
 
   async verifyStartVerificationButton(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.startVerificationButton(),
       copy.poa_intro.button_primary
     )

@@ -16,18 +16,21 @@ class UserConsent extends BasePage {
   }
 
   async verifyFrameTitle() {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.consentFrameTitle(),
       "Onfido's privacy statement and Terms of Service"
     )
   }
 
   async verifyAcceptButton(copy) {
-    verifyElementCopy(this.acceptBtn(), copy.user_consent.button_primary)
+    await verifyElementCopy(this.acceptBtn(), copy.user_consent.button_primary)
   }
 
   async verifyDeclineButton(copy) {
-    verifyElementCopy(this.declineBtn(), copy.user_consent.button_secondary)
+    await verifyElementCopy(
+      this.declineBtn(),
+      copy.user_consent.button_secondary
+    )
   }
 
   async acceptUserConsent() {
@@ -61,21 +64,21 @@ class UserConsent extends BasePage {
   }
 
   async verifyUserConsentDeclineModalTitle(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.userConsentDeclineModalTitle(),
       copy.user_consent.prompt.no_consent_title
     )
   }
 
   async verifyUserConsentDeclineModalPrimaryBtn(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.userConsentDeclineModalPrimaryBtn(),
       copy.user_consent.prompt.button_primary
     )
   }
 
   async verifyUserConsentDeclineModalSecondaryBtn(copy) {
-    verifyElementCopy(
+    await verifyElementCopy(
       this.userConsentDeclineModalSecondaryBtn(),
       copy.user_consent.prompt.button_secondary
     )

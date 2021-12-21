@@ -45,38 +45,41 @@ export default class PassportUploadImageGuide extends BasePage {
   }
 
   async verifyUploaderButtonLabel(copy) {
-    verifyElementCopy(this.uploaderBtnText(), copy.upload_guide.button_primary)
+    await verifyElementCopy(
+      this.uploaderBtnText(),
+      copy.upload_guide.button_primary
+    )
   }
 
   async verifyTitle(copy) {
-    verifyElementCopy(this.title(), copy.upload_guide.title)
+    await verifyElementCopy(this.title(), copy.upload_guide.title)
   }
 
   async verifySubTitle(copy) {
-    verifyElementCopy(this.subtitle(), copy.upload_guide.subtitle)
+    await verifyElementCopy(this.subtitle(), copy.upload_guide.subtitle)
   }
 
   async verifyPassportGuideUIElements(copy) {
-    this.docExampleImgCutOff().isDisplayed()
-    verifyElementCopy(
+    await this.docExampleImgCutOff().isDisplayed()
+    await verifyElementCopy(
       this.docCutOffText(),
       copy.upload_guide.image_detail_cutoff_label
     )
 
-    this.docExampleImgBlur().isDisplayed()
-    verifyElementCopy(
+    await this.docExampleImgBlur().isDisplayed()
+    await verifyElementCopy(
       this.docBlurText(),
       copy.upload_guide.image_detail_blur_label
     )
 
-    this.docExampleImgGlare().isDisplayed()
-    verifyElementCopy(
+    await this.docExampleImgGlare().isDisplayed()
+    await verifyElementCopy(
       this.docGlareText(),
       copy.upload_guide.image_detail_glare_label
     )
 
-    this.docExampleImgGood().isDisplayed()
-    verifyElementCopy(
+    await this.docExampleImgGood().isDisplayed()
+    await verifyElementCopy(
       this.docIsGoodText(),
       copy.upload_guide.image_detail_good_label
     )

@@ -36,10 +36,10 @@ describe(
     const copy = basePage.copy()
 
     it('should upload document with JPG', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector)
-      documentUpload.clickUploadButton()
+      await goToPassportUploadScreen(driver, welcome, documentSelector)
+      await documentUpload.clickUploadButton()
       passportUploadImageGuide.verifyTitle(copy)
-      uploadFileAndClickConfirmButton(
+      await uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
         'passport.jpg'
@@ -47,10 +47,10 @@ describe(
     })
 
     it('should upload passport document with PDF', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector)
-      documentUpload.clickUploadButton()
+      await goToPassportUploadScreen(driver, welcome, documentSelector)
+      await documentUpload.clickUploadButton()
       passportUploadImageGuide.verifyTitle(copy)
-      uploadFileAndClickConfirmButton(
+      await uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
         'passport.pdf'
@@ -60,11 +60,11 @@ describe(
     it('should upload id document with PDF', async () => {
       driver.get(localhostUrl)
       welcome.continueToNextStep()
-      documentSelector.clickOnIdentityCardIcon()
-      countrySelector.selectSupportedCountry()
-      countrySelector.clickSubmitDocumentButton()
-      documentUpload.clickUploadButtonIfRemoteIe()
-      uploadFileAndClickConfirmButton(
+      await documentSelector.clickOnIdentityCardIcon()
+      await countrySelector.selectSupportedCountry()
+      await countrySelector.clickSubmitDocumentButton()
+      await documentUpload.clickUploadButtonIfRemoteIe()
+      await uploadFileAndClickConfirmButton(
         documentUpload,
         confirm,
         'national_identity_card.pdf'
@@ -72,22 +72,22 @@ describe(
     })
 
     it('should show cross device intro screen if camera not detected and uploadFallback disabled', async () => {
-      goToPassportUploadScreen(
+      await goToPassportUploadScreen(
         driver,
         welcome,
         documentSelector,
         `?uploadFallback=false`
       )
-      documentUpload.clickUploadButton()
+      await documentUpload.clickUploadButton()
       passportUploadImageGuide.verifyTitle(copy)
-      uploadFileAndClickConfirmButton(
+      await uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
         'passport.jpg'
       )
       crossDeviceIntro.verifyTitle(copy)
-      crossDeviceIntro.verifySubTitle(copy)
-      crossDeviceIntro.verifyMessages(copy)
+      await crossDeviceIntro.verifySubTitle(copy)
+      await crossDeviceIntro.verifyMessages(copy)
     })
   }
 )

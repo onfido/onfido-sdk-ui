@@ -24,10 +24,10 @@ export const welcomeScenarios = async (lang) => {
       it('should verify UI elements on the welcome screen @percy', async () => {
         driver.get(`${localhostUrl}?language=${lang}`)
         welcome.verifyTitle(copy)
-        welcome.verifySubtitle(copy)
-        welcome.verifyDefaultInstructions(copy)
-        welcome.verifyPrimaryButton(copy)
-        welcome.verifyFooter()
+        await welcome.verifySubtitle(copy)
+        await welcome.verifyDefaultInstructions(copy)
+        await welcome.verifyPrimaryButton(copy)
+        await welcome.verifyFooter()
         await takePercySnapshot(
           driver,
           `Onfido SDK UI elements on the welcome screen in ${lang}`
@@ -37,21 +37,21 @@ export const welcomeScenarios = async (lang) => {
       it('should verify UI elements on the welcome screen - doc liveness flow', async () => {
         driver.get(`${localhostUrl}?language=${lang}&docVideo=true`)
         welcome.verifyTitle(copy)
-        welcome.verifySubtitle(copy)
-        welcome.verifyDocVideoInstructions(copy)
-        welcome.verifyRecordingLimit(copy)
-        welcome.verifyPrimaryButton(copy)
-        welcome.verifyFooter()
+        await welcome.verifySubtitle(copy)
+        await welcome.verifyDocVideoInstructions(copy)
+        await welcome.verifyRecordingLimit(copy)
+        await welcome.verifyPrimaryButton(copy)
+        await welcome.verifyFooter()
       })
 
       it('should verify custom copy for UI elements on the welcome screen @percy', async () => {
         driver.get(
           `${localhostUrl}?language=${lang}&customWelcomeScreenCopy=true`
         )
-        welcome.verifyCustomTitle()
-        welcome.verifyCustomDescriptions()
-        welcome.verifyCustomPrimaryButton()
-        welcome.verifyFooter()
+        await welcome.verifyCustomTitle()
+        await welcome.verifyCustomDescriptions()
+        await welcome.verifyCustomPrimaryButton()
+        await welcome.verifyFooter()
         await takePercySnapshot(
           driver,
           `Onfido SDK UI elements with custom copy on the welcome screen in ${lang}`
