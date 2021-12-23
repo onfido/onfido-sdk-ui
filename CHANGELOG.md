@@ -22,6 +22,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Merged `dist/onfidoAuth.6.min.js` to `onfidoAuth.min.js`
 - Public: Rearranged `dependencies` & `devDependencies` in `package.json` to reflect correct usage
 - Internal: Upgrade `minimist` to `v1.2.6` to fix vulnerability
+- Internal: Handle errors by callback instead of `throw` for `requestChallenges` and `postToBackend`
 
 ## [6.19.0] - 2022-03-14
 
