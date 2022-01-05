@@ -22,7 +22,8 @@ export const buildReducer = <S extends string, A extends string>(
     return currentState
   }
 
-  return currentState
+  //TODO: check why currentState is not reset when reducer is re-created.
+  return spec.initialState
 }
 
 const useStateMachine = <S extends string, A extends string>(
