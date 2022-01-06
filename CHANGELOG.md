@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Changed
+
+- Vastly dereased bundle size by not publishing "webpack visualizer" file to NPM.
+
 ## [6.16.0] - 2021-12-15
 
 ### Added
