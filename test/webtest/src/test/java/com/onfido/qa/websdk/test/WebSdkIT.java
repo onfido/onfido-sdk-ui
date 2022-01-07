@@ -62,9 +62,26 @@ public abstract class WebSdkIT extends WebTest {
         return Property.properties();
     }
 
+    @SuppressWarnings("CallToSystemGetenv")
     @Override
     protected void extendCapabilities(DesiredCapabilities capabilities) {
         capabilities.setAcceptInsecureCerts(true);
+
+        // https://www.browserstack.com/docs/automate/selenium/debugging-options#network-logs
+
+        capabilities.setCapability("browserstack.debug", "true");
+        capabilities.setCapability("browserstack.console", "warnings");
+        capabilities.setCapability("browserstack.networkLogs", "true");
+
+        capabilities.setCapability("project", "web-sdk");
+        capabilities.setCapability("build", System.getenv("build"));
+
+
+        // TODO: pass app id to env variable
+        var appId = Property.get("BROWSERSTACK_APP_ID");
+        if (appId != null) {
+            capabilities.setCapability("app", appId);
+        }
     }
 
     @BeforeMethod
