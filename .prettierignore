@@ -4,6 +4,7 @@
 /src/locales/**/*.json
 /src/supported-documents/*.json
 /test/mock-server/frontend
+/test/webtest
 /coverage
 /auth-sdk/FaceTec
 .percy.yml
