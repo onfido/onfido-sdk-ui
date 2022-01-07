@@ -18,7 +18,7 @@ const PoAIntro = ({
 }) => {
   const isFirstScreen = steps[0].type === 'poa'
   return (
-    <div className={theme.fullHeightContainer}>
+    <div className={theme.fullHeightContainer} data-page-id={'PoAIntro'}>
       <PageTitle
         title={translate('poa_intro.title', {
           country: !country || country === 'GBR' ? 'UK' : '',
