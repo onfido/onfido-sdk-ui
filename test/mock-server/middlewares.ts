@@ -1,4 +1,4 @@
-import { Middleware, Router, send } from './deps.ts'
+import { Middleware, send } from './deps.ts'
 
 export const loggerMiddleware: Middleware = async (context, next) => {
   const start = Date.now()
@@ -12,11 +12,7 @@ export const loggerMiddleware: Middleware = async (context, next) => {
     `Pathname: ${context.request.url.pathname}`
   )
   console.log(
-    `[RESPONSE] ${context.response.status} ${JSON.stringify(
-      context.response.body,
-      null,
-      2
-    )}`
+    `[RESPONSE] ${context.response.status}`
   )
   console.groupEnd()
 }
