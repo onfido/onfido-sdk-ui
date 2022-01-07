@@ -4,6 +4,7 @@
 /src/locales/**/*.json
 /src/supported-documents/*.json
 /test/mock-server/frontend
+/test/mock-server/local
 /test/webtest
 /coverage
 /auth-sdk/FaceTec
