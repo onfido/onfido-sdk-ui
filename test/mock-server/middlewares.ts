@@ -1,4 +1,4 @@
-import { Middleware, send } from './deps.ts'
+import { Middleware, Router, send } from './deps.ts'
 
 export const loggerMiddleware: Middleware = async (context, next) => {
   const start = Date.now()
@@ -22,9 +22,15 @@ export const loggerMiddleware: Middleware = async (context, next) => {
 }
 
 export const frontendMiddleware: Middleware = async (context) => {
+  const pathname: string = context.request.url.pathname
+
+  const baseDir: string = pathname.match(/^\/local\//)
+    ? Deno.cwd()
+    : `${Deno.cwd()}/frontend`
+
   // Serve Preact app
-  await send(context, context.request.url.pathname, {
-    root: `${Deno.cwd()}/frontend`,
+  await send(context, pathname, {
+    root: baseDir,
     index: 'index.html',
   })
 }
