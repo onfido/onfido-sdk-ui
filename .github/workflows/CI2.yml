@@ -41,14 +41,14 @@ jobs:
           issue_labels: vulnerability
           dedupe_issues: true
 
-      - name: Run linters
-        run: npm run check
+      #- name: Run linters
+      #  run: npm run check
 
       - name: Run build
         run: npm run build
 
-      - name: Run unit tests
-        run: npm run test:unit
+      # - name: Run unit tests
+      #  run: npm run test:unit
 
       # FIXME: run the integration tests
       #      - name: Run integration tests
@@ -66,5 +66,7 @@ jobs:
         working-directory: ./test/webtest
         run: |
           docker-compose up -d && \
-          local=true mvn clean integration-test ; \
+          local=true mvn --no-transfer-progress clean integration-test ; \
           docker-compose down
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
