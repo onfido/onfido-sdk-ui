@@ -63,7 +63,8 @@ jobs:
           java-version: '11'
 
       - name: Run UI tests
+        working-directory: ./test/webtest
         run: |
           docker-compose up -d && \
-          local=true mvn clean integration-test ;; \
+          local=true mvn clean integration-test ; \
           docker-compose down
