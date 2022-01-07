@@ -143,13 +143,14 @@ class ModalApp extends Component<Props> {
     oldOptions.onComplete && this.events.off('complete', oldOptions.onComplete)
     oldOptions.onError && this.events.off('error', oldOptions.onError)
     oldOptions.onUserExit && this.events.off('userExit', oldOptions.onUserExit)
-    oldOptions.onCustomTask && this.events.off('customTask', oldOptions.onCustomTask)
+    oldOptions.onCustomTask &&
+      this.events.off('customTask', oldOptions.onCustomTask)
 
     this.bindEvents(
       newOptions.onComplete,
       newOptions.onError,
       newOptions.onUserExit,
-      newOptions.onCustomTask,
+      newOptions.onCustomTask
     )
   }
 

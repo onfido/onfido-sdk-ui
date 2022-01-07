@@ -104,7 +104,7 @@ const SdkDemo: FunctionComponent<Props> = ({
     applicantId,
     workflowRunId: '1234',
     workflowMock: '1234',
-    onCustomTask: () => console.log('custome task', ),
+    onCustomTask: () => console.log('custome task'),
   }
 
   const applicantForm = applicantData ? (
