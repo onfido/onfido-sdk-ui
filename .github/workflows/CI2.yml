@@ -66,7 +66,9 @@ jobs:
         working-directory: ./test/webtest
         run: |
           docker-compose up -d && \
-          local=true mvn --no-transfer-progress clean integration-test ; \
+          local=true mvn --no-transfer-progress clean integration-test
+          EXIT=$?
           docker-compose down
+          exit $EXIT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
