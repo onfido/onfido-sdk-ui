@@ -64,12 +64,8 @@ jobs:
 
       - name: Run UI tests in Chrome
         working-directory: ./test/webtest
-        run: |
-          docker-compose up -d && \
-          local=true mvn --no-transfer-progress -Denvironment=browserstack -Dbrowser=chrome -Dit.test='!PercyIT' clean integration-test
-          EXIT=$?
-          docker-compose down
-          exit $EXIT
+        run: ./run-ui-tests.sh "mvn --no-transfer-progress -Denvironment=browserstack -Dbrowser=chrome -Dit.test='!PercyIT' clean integration-test"
+        shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
