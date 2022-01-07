@@ -101,6 +101,10 @@ const SdkDemo: FunctionComponent<Props> = ({
       console.log('onUserExit callback:', userExitCode),
     onModalRequestClose: () => setIsModalOpen(false),
     ...(sdkOptions || {}),
+    applicantId,
+    workflowRunId: '1234',
+    workflowMock: '1234',
+    onCustomTask: () => console.log('custome task', ),
   }
 
   const applicantForm = applicantData ? (

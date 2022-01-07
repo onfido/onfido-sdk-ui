@@ -6,6 +6,9 @@ const STEP_FACE = 'face'
 const STEP_COMPLETE = 'complete'
 const STEP_AUTH = 'auth'
 const STEP_CROSS_DEVICE_SESSION_INTRO = 'crossDeviceSessionIntro'
+const STEP_PASS = 'pass'
+const STEP_REJECT = 'reject'
+const STEP_DATA = 'data'
 
 export type StepTypes =
   | typeof STEP_WELCOME
@@ -16,6 +19,9 @@ export type StepTypes =
   | typeof STEP_COMPLETE
   | typeof STEP_AUTH
   | typeof STEP_CROSS_DEVICE_SESSION_INTRO
+  | typeof STEP_PASS
+  | typeof STEP_REJECT
+  | typeof STEP_DATA
 
 export type DocumentTypes =
   | 'passport'
@@ -77,6 +83,37 @@ export type StepOptionComplete = {
   submessage?: string
 }
 
+export type StepOptionPass = {
+  // nothing
+}
+
+export type StepOptionReject = {
+  // nothing
+}
+
+export type StepOptionData = {
+  data: {
+    first_name?: string
+    last_name?: string
+    email?: string
+    dob?: string
+    address?: {
+      flat_number?: string
+      building_number?: string
+      building_name?: string
+      street?: string
+      sub_street?: string
+      town?: string
+      postcode?: string
+      country?: string
+      state?: string
+      line1?: string
+      line2?: string
+      line3?: string
+    }
+  }
+}
+
 type StepOptionsMap = {
   welcome: StepOptionWelcome
   userConsent: never
@@ -86,6 +123,9 @@ type StepOptionsMap = {
   poa: StepOptionPoA
   face: StepOptionFace
   complete: StepOptionComplete
+  pass: StepOptionPass
+  reject: StepOptionReject
+  data: StepOptionData
 }
 
 export type StepConfigMap = {
@@ -103,6 +143,9 @@ export type StepConfigDocument = StepConfigMap['document']
 export type StepConfigPoa = StepConfigMap['poa']
 export type StepConfigFace = StepConfigMap['face']
 export type StepConfigComplete = StepConfigMap['complete']
+export type StepConfigPass = StepConfigMap['pass']
+export type StepConfigReject = StepConfigMap['reject']
+export type StepConfigData = StepConfigMap['data']
 
 export type StepConfig =
   | StepConfigWelcome
@@ -113,3 +156,6 @@ export type StepConfig =
   | StepConfigComplete
   | StepConfigAuth
   | StepConfigCrossDeviceSessionIntro
+  | StepConfigPass
+  | StepConfigReject
+  | StepConfigData

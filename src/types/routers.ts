@@ -85,6 +85,7 @@ export type HistoryRouterProps = {
   step?: number
   stepIndexType?: StepIndexType
   steps: StepConfig[]
+  workflowRunId?: string
 } & InternalRouterProps
 
 export type StepsRouterProps = {
