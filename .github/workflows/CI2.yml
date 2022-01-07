@@ -72,3 +72,4 @@ jobs:
           exit $EXIT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TEST: 'foo-${{ GITHUB_RUN_ID }}'
