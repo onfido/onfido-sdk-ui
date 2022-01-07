@@ -15,13 +15,13 @@ app.use(tokenFactoryRouter.routes())
 app.use(tokenFactoryRouter.allowedMethods())
 app.use(telephonyRouter.routes())
 app.use(telephonyRouter.allowedMethods())
-
 /* Front-end routes */
+
 app.use(frontendMiddleware)
 
 await app.listen({
   certFile: 'cert.pem',
   keyFile: 'key.pem',
-  port: 8080,
+  port: 8081,
   secure: true,
 })
