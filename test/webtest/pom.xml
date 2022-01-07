@@ -148,6 +148,7 @@
                     <parallel>methods</parallel>
                     <threadCount>${threadCount}</threadCount>
                     <forkCount>${forkCount}</forkCount>
+                    <trimStackTrace>false</trimStackTrace>
                 </configuration>
             </plugin>
         </plugins>
