@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: Reconfigure git to use HTTP authentication
+        run: >
+          git config --global url."https://github.com/".insteadOf
+          ssh://git@github.com/
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run dependencies audit
+        uses: oke-py/npm-audit-action@v1.7.2
+        with:
+          audit_level: moderate
+          production_flag: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          issue_assignees: kopijunkie
+          issue_labels: vulnerability
+          dedupe_issues: true
+
+      - name: Run linters
+        run: npm run check
+
+      - name: Run build
+        run: npm run build
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Run integration tests
+        run: npm run test:integration
+
+      - name: Build test server
+        run: npm run test-server:build
+
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Run UI tests
+        run: |
+          docker-compose up -d && \
+          local=true mvn clean integration-test ;; \
+          docker-compose down
