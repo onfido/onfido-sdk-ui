@@ -30,3 +30,4 @@ coverage/
 /.idea/
 *.iml
 target/
+/test/webtest/src/test/resources/local.properties
