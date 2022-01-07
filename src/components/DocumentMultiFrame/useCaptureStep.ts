@@ -1,5 +1,5 @@
 //TODO: Update useCaptureStep from DocumentVideo and share it.
-import { useEffect } from 'preact/hooks'
+import { useCallback, useEffect } from 'preact/hooks'
 import useStateMachine, { MachineSpec } from '~utils/useStateMachine'
 
 export type CaptureStepActions = 'NEXT_CAPTURE_STEP' | 'RESET_CAPTURE_STEP'
@@ -35,18 +35,30 @@ const useCaptureStep = <
 
   useEffect(() => {
     dispatchRecordState('RESET_RECORD_STATE')
-  }, [captureStep]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [captureStep, dispatchRecordState])
 
   const possibleSteps = captureFlow //stepsByFlow[captureFlow]
   const totalSteps = possibleSteps.length - 1
   const stepNumber = possibleSteps.indexOf(captureStep)
 
+  const nextRecordState = useCallback(
+    () => dispatchRecordState('NEXT_RECORD_STATE'),
+    [dispatchRecordState]
+  )
+  const nextStep = useCallback(() => dispatchCaptureStep('NEXT_CAPTURE_STEP'), [
+    dispatchCaptureStep,
+  ])
+
+  const restart = useCallback(() => dispatchCaptureStep('RESET_CAPTURE_STEP'), [
+    dispatchCaptureStep,
+  ])
+
   return {
     captureStep,
-    nextRecordState: () => dispatchRecordState('NEXT_RECORD_STATE'),
-    nextStep: () => dispatchCaptureStep('NEXT_CAPTURE_STEP'),
+    nextRecordState,
+    nextStep,
     recordState,
-    restart: () => dispatchCaptureStep('RESET_CAPTURE_STEP'),
+    restart,
     stepNumber,
     totalSteps,
   }

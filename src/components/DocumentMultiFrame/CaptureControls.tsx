@@ -7,59 +7,64 @@ import { VideoOverlayProps } from 'components/VideoCapture'
 import { Fragment, FunctionComponent, h } from 'preact'
 import { memo, useEffect } from 'preact/compat'
 import { useLocales } from '~locales'
-import type { CaptureSteps } from '~types/docVideo'
+import { DocumentSides } from '~types/commons'
 import { DOC_VIDEO_CAPTURE } from '~utils/constants'
-import useMultiFrameCapture from './useMultiFrameCaptureStep'
+import { MultiFrameCaptureStepActions } from './useMultiFrameCaptureStep'
 
 export type Props = {
-  onStepChange?: (step: CaptureSteps) => void
+  side: DocumentSides
+  recordState: MultiFrameCaptureStepActions
+  nextStep: () => void
 } & VideoOverlayProps
 
-const CaptureControls: FunctionComponent<Props> = ({ onStart, onStop }) => {
-  const { nextRecordState, nextStep, recordState } = useMultiFrameCapture()
+const CaptureControls: FunctionComponent<Props> = ({
+  onStart,
+  onStop,
+  side,
+  recordState,
+  nextStep,
+}) => {
   const { translate } = useLocales()
 
   useEffect(() => {
-    switch (recordState) {
-      case 'scanning':
-        setTimeout(nextRecordState, 1500)
-        break
-      case 'success':
-        navigator.vibrate && navigator.vibrate(500)
-        setTimeout(onStop, 1500)
-        break
+    if (recordState === 'success') {
+      onStop()
     }
-  }, [recordState, nextRecordState, onStop])
+  }, [recordState, onStop])
 
-  return (
-    <Fragment>
-      {recordState === 'idle' ? (
+  switch (recordState) {
+    default:
+      return (
         <Fragment>
-          <div>Instructions</div>
+          <div>
+            Instructions {side === 'front' ? 'front side' : 'back side'}
+          </div>
           <CameraButton
             ariaLabel={'video_capture.button_accessibility'}
             onClick={() => {
-              onStart()
               nextStep()
+              onStart()
             }}
             className={''}
             disableInteraction={false}
           />
         </Fragment>
-      ) : undefined}
-      {recordState === 'scanning' ? (
+      )
+    case 'scanning':
+      return (
         <CaptureProgress
           duration={DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT}
           title={'scanning document'}
         />
-      ) : undefined}
-      {recordState === 'success' ? (
+      )
+    case 'success':
+    case 'submit':
+      return (
         <SuccessState
           ariaLabel={translate('doc_video_capture.success_accessibility')}
         />
-      ) : undefined}
-    </Fragment>
-  )
+      )
+  }
 }
 
 export default memo(CaptureControls)
