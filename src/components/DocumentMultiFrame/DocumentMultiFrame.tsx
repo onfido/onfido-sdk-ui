@@ -1,25 +1,39 @@
-import CameraButton from 'components/Button/CameraButton'
 import { DocumentOverlay } from 'components/Overlay'
-import VideoCapture from 'components/VideoCapture'
+import VideoCapture, { VideoOverlayProps } from 'components/VideoCapture'
 import { FunctionComponent, h } from 'preact'
-import { useRef } from 'preact/hooks'
-import { useSelector } from 'react-redux'
+import { useEffect, useRef, useState } from 'preact/hooks'
 import Webcam from 'react-webcam-onfido'
-import { CountryData } from '~types/commons'
+import { trackException } from 'Tracker'
+import { DocumentSides } from '~types/commons'
 import type { WithTrackingProps } from '~types/hocs'
-import { RootState } from '~types/redux'
+import { CapturePayload } from '~types/redux'
 import type {
-  HandleDocVideoCaptureProp,
+  HandleCaptureProp,
+  HandleDocMultiFrameCaptureProp,
   RenderFallbackProp,
 } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
+import { mimeType } from '~utils/blob'
+import { screenshot } from '~utils/camera'
+import { DOC_MULTIFRAME_CAPTURE } from '~utils/constants'
 import { getInactiveError } from '~utils/inactiveError'
+import CaptureControls from './CaptureControls'
+import useMultiFrameCaptureStep from './useMultiFrameCaptureStep'
+
+const appendFileName = (
+  payload: CapturePayload,
+  side: DocumentSides
+): CapturePayload => ({
+  ...payload,
+  filename: `document_${side}.${mimeType(payload.blob)}`,
+})
 
 export type DocumentMultiFrameProps = {
   cameraClassName?: string
   documentType: DocumentTypes
   renderFallback: RenderFallbackProp
-  onCapture: HandleDocVideoCaptureProp
+  onCapture: HandleDocMultiFrameCaptureProp
+  side: DocumentSides
 } & WithTrackingProps
 
 const DocumentMultiFrame: FunctionComponent<DocumentMultiFrameProps> = ({
@@ -27,52 +41,106 @@ const DocumentMultiFrame: FunctionComponent<DocumentMultiFrameProps> = ({
   documentType,
   trackScreen,
   renderFallback,
+  onCapture,
+  side,
 }) => {
   const webcamRef = useRef<Webcam>()
 
-  const issuingCountryData = useSelector<RootState, CountryData | undefined>(
-    (state) => state.globals.idDocumentIssuingCountry
+  const { nextRecordState, nextStep, recordState } = useMultiFrameCaptureStep()
+
+  const [photoPayload, setPhotoPayload] = useState<CapturePayload | undefined>(
+    undefined
   )
 
-  const onCapture = () => console.log('onCapture')
-  const onRecordingStart = () => console.log('onRecordingStart')
-  const onVideoCapture = () => console.log('onVideoCapture')
-  const onRedo = () => console.log('onRedo')
+  const [videoPayload, setVideoPayload] = useState<CapturePayload | undefined>(
+    undefined
+  )
+
+  useEffect(() => {
+    if (recordState === 'scanning') {
+      setTimeout(nextRecordState, DOC_MULTIFRAME_CAPTURE.SCANNING_TIMEOUT)
+    }
+  }, [recordState, nextRecordState])
+
+  useEffect(() => {
+    if (recordState === 'success') {
+      setTimeout(nextRecordState, DOC_MULTIFRAME_CAPTURE.SUCCESS_STATE_TIMEOUT)
+    }
+  }, [recordState, nextRecordState])
+
+  useEffect(() => {
+    if (recordState === 'submit') {
+      if (!photoPayload || !videoPayload) {
+        console.error('Missing photoPayload or videoPayload')
+        trackException('Missing photoPayload or videoPayload')
+        return
+      }
+
+      if (navigator.vibrate) {
+        navigator.vibrate(DOC_MULTIFRAME_CAPTURE.SUCCESS_STATE_VIBRATION)
+      }
+
+      onCapture({
+        [side]: photoPayload,
+        video: videoPayload,
+      })
+    }
+  }, [recordState, photoPayload, videoPayload, side, onCapture])
+
+  const onRecordingStart = () => {
+    screenshot(webcamRef.current, (blob, sdkMetadata) => {
+      setPhotoPayload(
+        appendFileName(
+          {
+            blob,
+            sdkMetadata,
+          },
+          side
+        )
+      )
+    })
+  }
+
+  const onVideoCapture: HandleCaptureProp = (payload) => {
+    setVideoPayload(appendFileName(payload, side))
+  }
+
+  const onRedo = () => {
+    setPhotoPayload(undefined)
+    setVideoPayload(undefined)
+  }
 
   const documentOverlayProps = {
     documentType,
-    issuingCountry: issuingCountryData?.country_alpha2,
-    marginBottom: 0.5,
+    side,
     upperScreen: true,
     video: true,
+    withPlaceholder: recordState === 'idle',
   }
 
-  const renderVideoOverlay = () => {
-    return (
-      <DocumentOverlay {...documentOverlayProps}>
-        <div>Instructions</div>
-        <CameraButton
-          ariaLabel={'video_capture.button_accessibility'}
-          onClick={onCapture}
-          className={''}
-          disableInteraction={false}
-        />
-      </DocumentOverlay>
-    )
-  }
+  const renderVideoOverlay = (videoOverlayProps: VideoOverlayProps) => (
+    <DocumentOverlay {...documentOverlayProps}>
+      <CaptureControls
+        {...videoOverlayProps}
+        side={side}
+        recordState={recordState}
+        nextStep={nextStep}
+      />
+    </DocumentOverlay>
+  )
   return (
     <VideoCapture
-      facing="environment"
-      method="document"
-      webcamRef={webcamRef}
       cameraClassName={cameraClassName}
+      facing="environment"
       inactiveError={getInactiveError(true)}
+      method="document"
       onRecordingStart={onRecordingStart}
       onRedo={onRedo}
       onVideoCapture={onVideoCapture}
       renderFallback={renderFallback}
       renderVideoOverlay={renderVideoOverlay}
       trackScreen={trackScreen}
+      webcamRef={webcamRef}
     />
   )
 }

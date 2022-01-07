@@ -59,6 +59,12 @@ export type HandleDocVideoCaptureProp = (payload: {
   video: CapturePayload
 }) => void
 
+export type HandleDocMultiFrameCaptureProp = (payload: {
+  front?: CapturePayload
+  back?: CapturePayload
+  video: CapturePayload
+}) => void
+
 export type RenderFallbackProp = (
   tag: ParsedTag,
   callback?: () => void

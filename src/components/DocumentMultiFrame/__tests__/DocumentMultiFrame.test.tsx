@@ -1,16 +1,24 @@
 import '@testing-library/jest-dom'
-
+import { act, render, screen } from '@testing-library/preact'
+import userEvent from '@testing-library/user-event'
 import { FunctionComponent, h } from 'preact'
-import { render, screen } from '@testing-library/preact'
-
+import { trackException } from 'Tracker'
+import { fakeCapturePayload } from '~jest/captures'
+import MockedContainerDimensions from '~jest/MockedContainerDimensions'
+import MockedLocalised from '~jest/MockedLocalised'
+import MockedReduxProvider from '~jest/MockedReduxProvider'
+import { DOC_MULTIFRAME_CAPTURE } from '~utils/constants'
 import DocumentMultiFrame, {
   DocumentMultiFrameProps,
 } from '../DocumentMultiFrame'
-import MockedReduxProvider from '~jest/MockedReduxProvider'
-import MockedLocalised from '~jest/MockedLocalised'
-import MockedContainerDimensions from '~jest/MockedContainerDimensions'
 
 jest.mock('~utils')
+jest.mock('Tracker')
+
+const onCapture = jest.fn()
+const mockedTrackException = trackException as jest.MockedFunction<
+  typeof trackException
+>
 
 const Wrapper: FunctionComponent = ({ children }) => {
   return (
@@ -25,12 +33,22 @@ const Wrapper: FunctionComponent = ({ children }) => {
 const documentMultiFrameProps: DocumentMultiFrameProps = {
   cameraClassName: 'fakeCameraClass',
   documentType: 'passport',
-  onCapture: jest.fn(),
+  side: 'front',
+  onCapture,
   renderFallback: jest.fn(),
   trackScreen: jest.fn(),
 }
 
 describe('Multi Frame Support', () => {
+  beforeAll(() => {
+    jest.useFakeTimers()
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+    jest.clearAllTimers()
+  })
+
   beforeEach(() => {
     render(
       <Wrapper>
@@ -39,7 +57,7 @@ describe('Multi Frame Support', () => {
     )
   })
 
-  it('should display the overlay, instructions and a button', () => {
+  it('displays the overlay, instructions and a button', () => {
     const overlay = screen.getByText(/video_capture.frame_accessibility/)
     const instructions = screen.getByText(/instructions/i)
     const button = screen.getByLabelText(/video_capture.button_accessibility/)
@@ -47,5 +65,39 @@ describe('Multi Frame Support', () => {
     expect(overlay).toBeInTheDocument()
     expect(instructions).toBeInTheDocument()
     expect(button).toBeInTheDocument()
+  })
+
+  it('hides layout placehold when capture starts', () => {
+    const button = screen.getByLabelText(/video_capture.button_accessibility/)
+    act(() => userEvent.click(button))
+  })
+
+  it('records a video and take a picture when capture is success', () => {
+    const capture = screen.getByLabelText(/video_capture.button_accessibility/)
+
+    act(() => {
+      userEvent.click(capture)
+    })
+
+    act(() => {
+      jest.advanceTimersByTime(DOC_MULTIFRAME_CAPTURE.SCANNING_TIMEOUT)
+    })
+
+    act(() => {
+      jest.advanceTimersByTime(DOC_MULTIFRAME_CAPTURE.SUCCESS_STATE_TIMEOUT)
+    })
+
+    expect(mockedTrackException).not.toBeCalled()
+
+    expect(onCapture).toHaveBeenNthCalledWith(1, {
+      front: {
+        ...fakeCapturePayload('standard'),
+        filename: 'document_front.jpeg',
+      },
+      video: {
+        ...fakeCapturePayload('video'),
+        filename: 'document_front.webm',
+      },
+    })
   })
 })
