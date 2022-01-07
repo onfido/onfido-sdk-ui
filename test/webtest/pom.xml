@@ -14,6 +14,9 @@
         <threadCount>5</threadCount>
         <kotlin.version>1.6.10</kotlin.version>
         <retrofit.version>2.9.0</retrofit.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <!-- https://github.com/jcansdale-test/maven-consume -->
