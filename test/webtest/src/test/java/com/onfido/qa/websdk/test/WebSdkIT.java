@@ -27,6 +27,7 @@ public abstract class WebSdkIT extends WebTest {
 
     private static final Logger log = LoggerFactory.getLogger(WebSdkIT.class);
 
+
     static ObjectMapper objectMapper = new ObjectMapper();
     protected final String language;
     protected final Copy copy;
@@ -41,17 +42,15 @@ public abstract class WebSdkIT extends WebTest {
     }
 
     @BeforeSuite(alwaysRun = true)
-    public static void setUp() {
+    public static void beforeSuite() {
 
-        var runOnCI = Boolean.parseBoolean(System.getenv().getOrDefault("CI", "false"));
-
-        if (!runOnCI) {
-            logEnvironmentVariables();
+        if (!System.getenv().containsKey("CI")) {
+            logProperties();
         }
     }
 
     @SuppressWarnings("HardcodedLineSeparator")
-    private static void logEnvironmentVariables() {
+    private static void logProperties() {
         log.debug("Properties: {}", Property.properties().entrySet()
                                             .stream()
                                             .map(x -> x.getKey() + "=" + x.getValue())
