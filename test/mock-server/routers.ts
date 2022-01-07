@@ -169,7 +169,7 @@ const tokenFactoryRouter = new Router({ prefix: '/token-factory' })
 tokenFactoryRouter.get('/sdk_token', async (context) => {
   context.response.body = {
     applicant_id: applicantId,
-    message: await generateToken(),
+    message: await generateToken(context),
   }
 })
 
