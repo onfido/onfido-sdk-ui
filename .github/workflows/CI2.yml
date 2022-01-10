@@ -64,7 +64,8 @@ jobs:
 
       - name: Run UI tests in Chrome
         working-directory: ./test/webtest
-        run: ./run-ui-tests.sh "mvn --no-transfer-progress -Denvironment=browserstack -Dbrowser=chrome verify"
+        run: ./run-ui-tests.sh "curl -k -v https://localhost:8081"
+        # run: ./run-ui-tests.sh "mvn --no-transfer-progress -Denvironment=browserstack -Dbrowser=chrome verify"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
