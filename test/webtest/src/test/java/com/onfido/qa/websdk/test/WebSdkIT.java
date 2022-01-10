@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.WebTest;
+import com.onfido.qa.webdriver.listener.BrowserStackListener;
 import com.onfido.qa.webdriver.listener.ScreenshotListener;
 import com.onfido.qa.websdk.Property;
 import com.onfido.qa.websdk.sdk.WebSdk;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 
 import static com.google.common.truth.Truth.assertThat;
 
-@Listeners(ScreenshotListener.class)
+@Listeners({ScreenshotListener.class, BrowserStackListener.class})
 public abstract class WebSdkIT extends WebTest {
 
     private static final Logger log = LoggerFactory.getLogger(WebSdkIT.class);
