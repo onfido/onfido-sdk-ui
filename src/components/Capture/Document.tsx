@@ -25,11 +25,13 @@ import type { WithLocalisedProps, WithCaptureVariantProps } from '~types/hocs'
 import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
+  HandleDocMultiFrameCaptureProp,
   HandleDocVideoCaptureProp,
   RenderFallbackProp,
   StepComponentDocumentProps,
 } from '~types/routers'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
+import DocumentMultiFrame from 'components/DocumentMultiFrame'
 
 const EXCEPTIONS = {
   DOC_TYPE_NOT_PROVIDED: 'Neither documentType nor poaDocumentType provided',
@@ -131,6 +133,50 @@ class Document extends Component<Props> {
     nextStep()
   }
 
+  handleMultiFrameCapture: HandleDocMultiFrameCaptureProp = (payload) => {
+    const { actions, documentType, mobileFlow, nextStep } = this.props
+    const { video, front, back } = payload
+
+    if (!documentType) {
+      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
+      throw new Error('documentType not provided')
+    }
+
+    const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
+      documentType,
+      method: 'document',
+      sdkMetadata: addDeviceRelatedProperties(
+        video?.sdkMetadata || {},
+        mobileFlow
+      ),
+    }
+
+    actions.createCapture({
+      ...front,
+      ...baseData,
+      id: randomId(),
+      side: 'front',
+    })
+
+    if (back) {
+      actions.createCapture({
+        ...back,
+        ...baseData,
+        id: randomId(),
+        side: 'back',
+      })
+    }
+
+    actions.createCapture({
+      ...video,
+      ...baseData,
+      id: randomId(),
+      variant: 'video',
+    })
+
+    nextStep()
+  }
+
   handleUpload = (blob: Blob, imageResizeInfo?: ImageResizeInfo) =>
     this.handlePhotoCapture({
       blob,
@@ -175,6 +221,7 @@ class Document extends Component<Props> {
       translate,
       uploadFallback = true,
       useLiveDocumentCapture,
+      useMultiFrameCapture,
       useWebcam,
     } = this.props
 
@@ -212,6 +259,8 @@ class Document extends Component<Props> {
     const renderTitle = <PageTitle title={title} smaller />
     const enableLiveDocumentCapture =
       useLiveDocumentCapture && (!isDesktop || isHybrid)
+    const enableMultiFrameCapture =
+      useMultiFrameCapture && (!isDesktop || isHybrid)
 
     if (hasCamera && useWebcam) {
       return (
@@ -234,6 +283,22 @@ class Document extends Component<Props> {
           renderFallback={renderFallback}
           renderTitle={renderTitle}
           trackScreen={trackScreen}
+        />
+      )
+    }
+
+    if (hasCamera && enableMultiFrameCapture) {
+      if (!documentType) {
+        trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
+        throw new Error('documentType not provided')
+      }
+      return (
+        <DocumentMultiFrame
+          documentType={documentType}
+          onCapture={this.handleMultiFrameCapture}
+          renderFallback={renderFallback}
+          trackScreen={trackScreen}
+          side={side}
         />
       )
     }

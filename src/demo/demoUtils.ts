@@ -48,6 +48,7 @@ export type QueryParams = {
   uploadFallback?: StringifiedBoolean
   useHistory?: StringifiedBoolean
   useLiveDocumentCapture?: StringifiedBoolean
+  useMultiFrameCapture?: StringifiedBoolean
   useMemoryHistory?: StringifiedBoolean
   useModal?: StringifiedBoolean
   useMultipleSelfieCapture?: StringifiedBoolean
@@ -204,6 +205,8 @@ export const getInitSdkOptions = (): SdkOptions => {
     options: {
       useLiveDocumentCapture:
         queryParamToValueString.useLiveDocumentCapture === 'true',
+      useMultiFrameCapture:
+        queryParamToValueString.useMultiFrameCapture === 'true',
       uploadFallback: queryParamToValueString.uploadFallback !== 'false',
       useWebcam: queryParamToValueString.useWebcam === 'true',
       documentTypes: getPreselectedDocumentTypes(),
@@ -394,6 +397,17 @@ export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
       type: 'document',
       options: {
         useLiveDocumentCapture: true,
+      },
+    },
+    'face',
+    'complete',
+  ],
+  'Multi-frame capture (BETA)': [
+    'welcome',
+    {
+      type: 'document',
+      options: {
+        useMultiFrameCapture: true,
       },
     },
     'face',

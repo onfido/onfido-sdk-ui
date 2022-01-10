@@ -78,6 +78,12 @@ const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
       '`useLiveDocumentCapture` is a beta feature and is still subject to ongoing changes'
     )
   }
+
+  if (documentStep?.options?.useMultiFrameCapture) {
+    console.warn(
+      '`useMultiFrameCapture` is a beta feature and is still subject to ongoing changes'
+    )
+  }
 }
 
 const isSMSCountryCodeValid = (smsNumberCountryCode: string) => {

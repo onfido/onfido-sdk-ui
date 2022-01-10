@@ -59,6 +59,7 @@ export type StepOptionDocument = {
   photoCaptureFallback?: never // for cross-compatibility with StepOptionFace in withCrossDeviceWhenNoCamera
   showCountrySelection?: boolean
   useLiveDocumentCapture?: boolean
+  useMultiFrameCapture?: boolean
 } & CaptureOptions
 
 export type StepOptionPoA = {
