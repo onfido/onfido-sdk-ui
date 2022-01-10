@@ -64,7 +64,9 @@ jobs:
 
       - name: Run UI tests in Chrome
         working-directory: ./test/webtest
-        run: ./run-ui-tests.sh "mvn --no-transfer-progress -Denvironment=browserstack -Dbrowser=chrome verify"
+
+        # TODO: increase thread count, when we have more parallel sessions
+        run: ./run-ui-tests.sh "mvn --no-transfer-progress -DthreadCount=1 -Denvironment=browserstack -Dbrowser=chrome verify"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
