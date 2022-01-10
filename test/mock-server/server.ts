@@ -1,6 +1,6 @@
 import { Application, oakCors } from './deps.ts'
 
-import { loggerMiddleware, frontendMiddleware } from './middlewares.ts'
+import { frontendMiddleware, loggerMiddleware } from './middlewares.ts'
 import { apiRouter, telephonyRouter, tokenFactoryRouter } from './routers.ts'
 
 const app = new Application()
@@ -19,9 +19,14 @@ app.use(telephonyRouter.allowedMethods())
 
 app.use(frontendMiddleware)
 
+// await app.listen({
+//   certFile: 'cert.pem',
+//   keyFile: 'key.pem',
+//   port: 8081,
+//   secure: true,
+// })
+
 await app.listen({
-  certFile: 'cert.pem',
-  keyFile: 'key.pem',
   port: 8081,
-  secure: true,
+  secure: false,
 })
