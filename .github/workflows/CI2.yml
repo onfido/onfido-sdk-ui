@@ -55,7 +55,7 @@ jobs:
       #        run: npm run test:integration
 
       - name: Build test server
-        run: npm run test-server:build
+        run: npm run test-server:prepare && npm run test-server:build
 
       - uses: actions/setup-java@v2
         with:
