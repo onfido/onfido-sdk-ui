@@ -8,16 +8,19 @@ import com.onfido.qa.webdriver.listener.BrowserStackListener;
 import com.onfido.qa.webdriver.listener.ScreenshotListener;
 import com.onfido.qa.websdk.Property;
 import com.onfido.qa.websdk.sdk.WebSdk;
+import io.percy.selenium.Percy;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -26,12 +29,16 @@ import static com.google.common.truth.Truth.assertThat;
 @Listeners({ScreenshotListener.class, BrowserStackListener.class})
 public abstract class WebSdkIT extends WebTest {
 
+    private static final int MIN = 500;
+    private static final int SLEEP_BEFORE_SNAPSHOT = 250;
+
     private static final Logger log = LoggerFactory.getLogger(WebSdkIT.class);
 
 
     static ObjectMapper objectMapper = new ObjectMapper();
     protected final String language;
     protected final Copy copy;
+    private ThreadLocal<Percy> percy = new ThreadLocal<>();
 
     protected WebSdkIT() {
         this(defaultLanguage());
@@ -56,6 +63,11 @@ public abstract class WebSdkIT extends WebTest {
                                             .stream()
                                             .map(x -> x.getKey() + "=" + x.getValue())
                                             .collect(Collectors.joining("\n")));
+    }
+
+    @DataProvider
+    public static Object[][] booleans() {
+        return new Object[][]{{true}, {false}};
     }
 
     @Override
@@ -87,6 +99,8 @@ public abstract class WebSdkIT extends WebTest {
 
     @BeforeMethod
     public void beforeMethod() {
+        percy.set(new Percy(driver()));
+
         driver().driver.manage().window().setPosition(new Point(0, 0));
         driver().maximize();
     }
@@ -136,5 +150,15 @@ public abstract class WebSdkIT extends WebTest {
 
     protected void verifyCopy(String actual, String path) {
         assertThat(actual).isEqualTo(copy.get(path));
+    }
+
+    protected void takePercySnapshot(String name) {
+        try {
+            Thread.sleep(SLEEP_BEFORE_SNAPSHOT);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        percy.get().snapshot(String.format("%s-%s", name, language), Arrays.asList(MIN));
     }
 }
