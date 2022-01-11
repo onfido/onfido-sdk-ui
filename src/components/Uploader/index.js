@@ -1,12 +1,12 @@
-import { h, Component } from 'preact'
-import { Button } from '@onfido/castor-react'
+import {Component} from 'preact'
+import {Button} from '@onfido/castor-react'
 import classNames from 'classnames'
-import { isDesktop } from '~utils'
-import { camelCase } from '~utils/string'
-import { validateFile } from '~utils/file'
-import { isButtonGroupStacked } from '../Theme/utils'
-import { trackComponentAndMode } from '../../Tracker'
-import { localised } from '~locales'
+import {isDesktop} from '~utils'
+import {camelCase} from '~utils/string'
+import {validateFile} from '~utils/file'
+import {isButtonGroupStacked} from '../Theme/utils'
+import {trackComponentAndMode} from '../../Tracker'
+import {localised} from '~locales'
 import CustomFileInput from '../CustomFileInput'
 import PageTitle from '../PageTitle'
 import UploadError from './Error'
@@ -20,8 +20,9 @@ const MobileUploadArea = ({
   translate,
   isUploading,
   captureType,
+  pageId,
 }) => (
-  <div className={style.uploadArea}>
+  <div className={style.uploadArea} data-page-id={pageId}>
     {children}
     <div
       className={classNames(style.buttons, {
@@ -84,8 +85,9 @@ const PassportMobileUploadArea = ({
   children,
   translate,
   isUploading,
+  pageId,
 }) => (
-  <div className={style.uploadArea}>
+  <div className={style.uploadArea} data-page-id={pageId}>
     {children}
     <div className={style.buttons}>
       <Button
@@ -168,7 +170,11 @@ const PassportUploadIntro = ({
     )
   }
   return (
-    <PassportMobileUploadArea nextStep={nextStep} translate={translate}>
+    <PassportMobileUploadArea
+      nextStep={nextStep}
+      translate={translate}
+      pageId={'PassportUploadIntro'}
+    >
       <div className={style.instructions}>
         <div className={classNames(theme.iconContainer, style.iconContainer)}>
           <span className={classNames(theme.icon, style.identityIcon)} />
@@ -275,12 +281,16 @@ class Uploader extends Component {
       translate,
       documentType,
       uploadType,
+      pageId,
     } = this.props
     const isPassportUpload =
       uploadType !== 'face' && documentType === 'passport'
     const captureType = uploadType === 'face' ? 'user' : 'environment'
     return (
-      <div className={classNames(theme.fullHeightContainer, style.container)}>
+      <div
+        className={classNames(theme.fullHeightContainer, style.container)}
+        data-page-id={'Uploader'}
+      >
         <PageTitle
           title={title}
           subTitle={

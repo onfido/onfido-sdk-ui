@@ -1,13 +1,13 @@
-import { h, Component } from 'preact'
-import { Button } from '@onfido/castor-react'
+import {Component} from 'preact'
+import {Button} from '@onfido/castor-react'
 import classNames from 'classnames'
-import { localised } from '~locales'
-import { trackComponentAndMode } from '../../Tracker'
-import { isDesktop, addDeviceRelatedProperties, capitalise } from '~utils'
+import {localised} from '~locales'
+import {trackComponentAndMode} from '../../Tracker'
+import {addDeviceRelatedProperties, capitalise, isDesktop} from '~utils'
 import UploadError from './Error'
-import { validateFile } from '~utils/file'
-import { IMAGE_QUALITY_GUIDE_LOCALES_MAPPING } from '~utils/localesMapping'
-import { randomId } from '~utils/string'
+import {validateFile} from '~utils/file'
+import {IMAGE_QUALITY_GUIDE_LOCALES_MAPPING} from '~utils/localesMapping'
+import {randomId} from '~utils/string'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
 import theme from '../Theme/style.scss'
@@ -95,7 +95,7 @@ class ImageQualityGuide extends Component {
     const { error, isUploading } = this.state
 
     return (
-      <div className={theme.fullHeightContainer}>
+      <div className={theme.fullHeightContainer} data-page-id={'ImageQualityGuide'}>
         <PageTitle
           title={translate('upload_guide.title')}
           subTitle={translate('upload_guide.subtitle')}
