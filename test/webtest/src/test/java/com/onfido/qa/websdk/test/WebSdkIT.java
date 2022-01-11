@@ -14,6 +14,7 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
@@ -40,7 +41,7 @@ public abstract class WebSdkIT extends WebTest {
     static ObjectMapper objectMapper = new ObjectMapper();
     protected final String language;
     protected final Copy copy;
-    private ThreadLocal<Percy> percy = new ThreadLocal<>();
+    private static final ThreadLocal<Percy> percy = new ThreadLocal<>();
 
     protected WebSdkIT() {
         this(defaultLanguage());
@@ -105,6 +106,11 @@ public abstract class WebSdkIT extends WebTest {
 
         driver().driver.manage().window().setPosition(new Point(0, 0));
         driver().maximize();
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+        percy.remove();
     }
 
     protected static String defaultLanguage() {
