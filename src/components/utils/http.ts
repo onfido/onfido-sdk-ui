@@ -1,20 +1,28 @@
 import type { ApiRawError, SuccessCallback } from '~types/api'
 
 export type HttpRequestParams = {
+  method?: 'GET' | 'POST' | 'PATCH'
   contentType?: string
   endpoint: string
   headers?: Record<string, string>
   payload?: string | FormData
-  token: string
+  token?: string
 }
 
 export const performHttpReq = <T>(
-  { contentType, endpoint, headers, payload, token }: HttpRequestParams,
+  {
+    method = 'POST',
+    contentType,
+    endpoint,
+    headers,
+    payload,
+    token,
+  }: HttpRequestParams,
   onSuccess: SuccessCallback<T>,
   onError: (error: ApiRawError) => void
 ): void => {
   const request = new XMLHttpRequest()
-  request.open('POST', endpoint)
+  request.open(method, endpoint)
 
   if (contentType) {
     request.setRequestHeader('Content-Type', contentType)
@@ -24,7 +32,9 @@ export const performHttpReq = <T>(
     request.setRequestHeader(key, value)
   )
 
-  request.setRequestHeader('Authorization', token)
+  if (token) {
+    request.setRequestHeader('Authorization', token)
+  }
 
   request.onload = () => {
     if (request.status === 200 || request.status === 201) {

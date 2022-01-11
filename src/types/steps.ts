@@ -125,7 +125,7 @@ type StepOptionsMap = {
   complete: StepOptionComplete
   pass: StepOptionPass
   reject: StepOptionReject
-  data: StepOptionData
+  data?: StepOptionData
 }
 
 export type StepConfigMap = {

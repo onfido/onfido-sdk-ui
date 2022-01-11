@@ -25,7 +25,7 @@ export type ExtendedStepConfig =
   | StepConfig
   | { type: typeof STEP_CROSS_DEVICE; options?: never }
 
-export type CaptureMethods = 'document' | 'face' | 'auth'
+export type CaptureMethods = 'document' | 'face' | 'auth' //| 'data'
 
 export type CaptureMethodVariants = 'live' | 'html5'
 
