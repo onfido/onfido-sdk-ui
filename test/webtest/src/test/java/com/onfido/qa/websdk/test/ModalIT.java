@@ -3,7 +3,6 @@ package com.onfido.qa.websdk.test;
 import com.onfido.qa.websdk.page.Modal;
 import com.onfido.qa.websdk.page.Welcome;
 import org.openqa.selenium.Keys;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static com.google.common.truth.Truth.assertThat;
@@ -11,11 +10,6 @@ import static com.google.common.truth.Truth.assertThat;
 public class ModalIT extends WebSdkIT {
 
     public static final int HALF_A_SECOND = 500;
-
-    @DataProvider
-    public static Object[][] booleans() {
-        return new Object[][]{{true}, {false}};
-    }
 
     @Test(description = "should be able to close modal with ESC button")
     public void testCloseModalWithEsc() throws InterruptedException {
