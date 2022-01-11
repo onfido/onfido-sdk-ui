@@ -78,3 +78,4 @@ jobs:
         if: always()
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
+          check_name: "UI Test results - Chrome"
