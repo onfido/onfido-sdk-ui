@@ -113,9 +113,9 @@ export const uploadDocumentVideoMedia = (
   payload: UploadDocumentVideoMediaPayload,
   url: string | undefined,
   token: string | undefined,
-  onSuccess?: SuccessCallback<DocumentImageResponse>,
+  onSuccess?: SuccessCallback<string>,
   onError?: ErrorCallback
-): Promise<DocumentImageResponse> => {
+): Promise<string> => {
   const { sdkMetadata, ...other } = payload
 
   const data: SubmitPayload = {

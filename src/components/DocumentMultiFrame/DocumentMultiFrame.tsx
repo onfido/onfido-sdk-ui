@@ -81,11 +81,11 @@ const DocumentMultiFrame: FunctionComponent<DocumentMultiFrameProps> = ({
       }
 
       onCapture({
-        [side]: photoPayload,
+        photo: photoPayload,
         video: videoPayload,
       })
     }
-  }, [recordState, photoPayload, videoPayload, side, onCapture])
+  }, [recordState, photoPayload, videoPayload, onCapture])
 
   const onRecordingStart = () => {
     screenshot(webcamRef.current, (blob, sdkMetadata) => {

@@ -134,8 +134,8 @@ class Document extends Component<Props> {
   }
 
   handleMultiFrameCapture: HandleDocMultiFrameCaptureProp = (payload) => {
-    const { actions, documentType, mobileFlow, nextStep } = this.props
-    const { video, front, back } = payload
+    const { actions, documentType, mobileFlow, side, nextStep } = this.props
+    const { video, photo } = payload
 
     if (!documentType) {
       trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
@@ -152,26 +152,18 @@ class Document extends Component<Props> {
     }
 
     actions.createCapture({
-      ...front,
+      ...photo,
       ...baseData,
       id: randomId(),
-      side: 'front',
+      side,
     })
-
-    if (back) {
-      actions.createCapture({
-        ...back,
-        ...baseData,
-        id: randomId(),
-        side: 'back',
-      })
-    }
 
     actions.createCapture({
       ...video,
       ...baseData,
       id: randomId(),
       variant: 'video',
+      side,
     })
 
     nextStep()
