@@ -1,6 +1,7 @@
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'
+//import Data from './Data'
 import withCaptureVariant from './withCaptureVariant'
 
 export const DocumentFrontCapture = appendToTracking(
@@ -33,3 +34,5 @@ export const FaceVideoCapture = appendToTracking(
   withCaptureVariant(Face, { requestedVariant: 'video' }),
   'face_video_capture'
 )
+
+//export const DataCapture = appendToTracking(Data, 'data_capture')

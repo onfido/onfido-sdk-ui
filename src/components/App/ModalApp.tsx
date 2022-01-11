@@ -62,7 +62,9 @@ class ModalApp extends Component<Props> {
   }
 
   componentDidMount() {
+    console.log('ho hoh o1')
     const { options } = this.props
+    console.log('ho options', options)
     this.prepareInitialStore({ steps: [] }, options)
     if (!options.mobileFlow) {
       const { customUI } = options

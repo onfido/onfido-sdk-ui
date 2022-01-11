@@ -158,3 +158,7 @@ export const init = (opts: SdkOptions): SdkHandle => {
     },
   }
 }
+
+export const workflowInit = (opts: SdkOptions): SdkHandle => {
+  return init(opts)
+}

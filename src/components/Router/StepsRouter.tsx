@@ -10,6 +10,21 @@ import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
 import type { TrackScreenCallback } from '~types/hocs'
 import type { StepComponentProps, StepsRouterProps } from '~types/routers'
 
+const getPrettyBackgroundTaskName = (taskName: string) => {
+  switch (taskName) {
+    case 'document_check':
+      return 'Performing: Document report'
+    case 'identity_check':
+      return 'Performing: Identity report'
+    case 'face_check':
+      return 'Performing: Facial similarity report'
+    case 'watchlist_check':
+      return 'Performing: Watchlist report'
+    default:
+      return `Performing workflow task: ${taskName}`
+  }
+}
+
 class StepsRouter extends Component<StepsRouterProps> {
   private container?: HTMLDivElement
 
@@ -42,6 +57,8 @@ class StepsRouter extends Component<StepsRouterProps> {
       disableNavigation,
       hideOnfidoLogo,
       isFullScreen,
+      isLoadingStep,
+      backgroundTask,
       options: { mobileFlow, ...globalUserOptions },
       ...otherProps
     } = this.props
@@ -100,7 +117,14 @@ class StepsRouter extends Component<StepsRouterProps> {
               [theme.scrollableContent]: !isFullScreen,
             })}
           >
-            <CurrentComponent {...passedProps} />
+            {isLoadingStep ? (
+              <div>
+                {'Loading...'}
+                {getPrettyBackgroundTaskName(backgroundTask || '')}
+              </div>
+            ) : (
+              <CurrentComponent {...passedProps} />
+            )}
           </div>
           {!hideLogoLogic && (textCobrandLogic || logoCobrandLogic) ? (
             <div

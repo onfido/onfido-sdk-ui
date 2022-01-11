@@ -18,6 +18,7 @@ const CAPTURE_STEP_TYPES: Set<StepTypes> = new Set([
   'document',
   'poa',
   'face',
+  //'data',
   'auth',
 ])
 

@@ -47,6 +47,11 @@ describe('Demo app', () => {
           setOptions: jest.fn(),
           tearDown: jest.fn(),
         })),
+        workflowInit: jest.fn().mockImplementation(() => ({
+          options: {},
+          setOptions: jest.fn(),
+          tearDown: jest.fn(),
+        })),
       }
 
       SdkDemo = require('../demo').SdkDemo // eslint-disable-line @typescript-eslint/no-var-requires
@@ -55,7 +60,7 @@ describe('Demo app', () => {
     it('mounts the Onfido SdkDemo without crashing', () => {
       const sdkDemo = mount(<SdkDemo />)
       expect(sdkDemo.exists()).toBeTruthy()
-      expect(window.Onfido.init).toHaveBeenCalled()
+      expect(window.Onfido.workflowInit).toHaveBeenCalled()
       expect(mockedConsole).toHaveBeenCalledWith(
         '* JWT Factory URL:',
         'https://token-factory.onfido.com/sdk_token',

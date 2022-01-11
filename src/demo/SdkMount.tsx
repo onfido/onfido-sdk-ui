@@ -51,7 +51,7 @@ const SdkMount: FunctionComponent<Props> = ({ options, regionCode, url }) => {
     console.log('Calling `Onfido.init` with the following options:', options)
 
     if (mountEl.current) {
-      const sdk = Onfido.init({
+      const sdk = Onfido.workflowInit({
         ...options,
         containerEl: mountEl.current,
       })

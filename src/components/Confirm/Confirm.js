@@ -118,6 +118,7 @@ class Confirm extends Component {
   onApiSuccess = (apiResponse) => {
     const { method, nextStep, actions } = this.props
     const { capture } = this.state
+    //this.props.setDocData(apiResponse)
 
     const duration = Math.round(performance.now() - this.startTime)
     sendEvent('Completed upload', {
