@@ -30,65 +30,6 @@ export const countrySelectorScenarios = async (lang) => {
       const copy = basePage.copy(lang)
       const url = `${localhostUrl}?language=${lang}`
 
-      const verifyInitialUIElements = async (copy) => {
-        countrySelector.verifyTitle(copy)
-        countrySelector.verifySelectorLabel(copy)
-        countrySelector.verifyCountryFinderDisplayed()
-        countrySelector.verifySubmitDocumentBtnIsDisabled()
-      }
-
-      it('should not display country selection screen when passport document type selected', async () => {
-        driver.get(url)
-        welcome.continueToNextStep()
-        documentSelector.clickOnPassportIcon()
-        documentUpload.verifyPassportTitle(copy)
-      })
-
-      it("should display country selection screen for driver's license document type", async () => {
-        driver.get(url)
-        welcome.continueToNextStep()
-        documentSelector.clickOnDrivingLicenceIcon()
-        verifyInitialUIElements(copy)
-      })
-
-      it('should display country selection screen for identity card document type', async () => {
-        driver.get(url)
-        welcome.continueToNextStep()
-        documentSelector.clickOnIdentityCardIcon()
-        verifyInitialUIElements(copy)
-      })
-
-      it('should skip country selection screen and successfully upload a document when only residence permit document type preselected', async () => {
-        driver.get(`${url}&oneDoc=residence_permit`)
-        welcome.continueToNextStep()
-        documentUpload.verifyFrontOfResidencePermitTitle(copy)
-        documentUpload.getUploadInput()
-        documentUpload.upload('uk_driving_licence.png')
-        confirm.verifyCheckReadabilityMessage(copy)
-        confirm.verifyMakeSureResidencePermitMessage(copy)
-        confirm.clickConfirmButton()
-        documentUpload.verifyBackOfResidencePermitTitle(copy)
-      })
-
-      it('should skip country selection screen and successfully upload a document when multiple document types have country preset', async () => {
-        driver.get(`${url}&multiDocWithPresetCountry=true`)
-        welcome.continueToNextStep()
-        documentSelector.clickOnDrivingLicenceIcon()
-        documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
-        documentUpload.clickBackArrow()
-        documentSelector.clickOnIdentityCardIcon()
-        documentUpload.verifyFrontOfIdentityCardTitle(copy)
-        documentUpload.clickBackArrow()
-        documentSelector.clickOnResidencePermitIcon()
-        documentUpload.verifyFrontOfResidencePermitTitle(copy)
-        documentUpload.getUploadInput()
-        documentUpload.upload('national_identity_card.jpg')
-        confirm.verifyCheckReadabilityMessage(copy)
-        confirm.verifyMakeSureResidencePermitMessage(copy)
-        confirm.clickConfirmButton()
-        documentUpload.verifyBackOfResidencePermitTitle(copy)
-      })
-
       it("should show country selection screen for driver's license and national ID given invalid country code", async () => {
         driver.get(`${url}&multiDocWithInvalidPresetCountry=true`)
         welcome.continueToNextStep()

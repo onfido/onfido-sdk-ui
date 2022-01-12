@@ -54,24 +54,6 @@ export const documentScenarios = async (lang) => {
         passportUploadImageGuide.upload(filename)
       }
 
-      it('should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled @percy', async () => {
-        goToPassportUploadScreen(
-          driver,
-          welcome,
-          documentSelector,
-          `?language=${lang}&useLiveDocumentCapture=true`
-        )
-        await takePercySnapshot(
-          driver,
-          `Verify Submit passport photo screen using LiveDocumentCapture=true ${lang}`
-        )
-        runThroughPassportUploadFlow()
-        await takePercySnapshot(
-          driver,
-          `Verify Passport Check your image screen using LiveDocumentCapture=true ${lang}`
-        )
-      })
-
       it('should upload a passport and verify UI elements @percy', async () => {
         goToPassportUploadScreen(
           driver,

@@ -16,7 +16,7 @@ public class IdDocumentSelector extends DocumentSelectorBase {
         return pageIdSelector("IdDocumentSelector");
     }
 
-    public  <T extends Page> T select(DocumentType documentType, Class<T> next) {
+    public <T extends Page> T select(DocumentType documentType, Class<T> next) {
         return super.select(documentType, next);
     }
 

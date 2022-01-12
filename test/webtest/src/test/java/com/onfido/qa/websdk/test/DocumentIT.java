@@ -42,6 +42,7 @@ public class DocumentIT extends WebSdkIT {
     )
     @Mobile
     @Browser(enableMicrophoneCameraAccess = true)
+//    @Browser(enableMicrophoneCameraAccess = true, fileForFakeVideoCapture = "../resources/test-stream.y4m")
     public void testPassportLiveCapture() {
 
         var capture = onfido()
