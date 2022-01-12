@@ -1,15 +1,17 @@
 import CameraButton from 'components/Button/CameraButton'
 import {
   CaptureProgress,
+  Instructions,
   SuccessState,
 } from 'components/DocumentVideo/reusables'
 import { VideoOverlayProps } from 'components/VideoCapture'
-import { Fragment, FunctionComponent, h } from 'preact'
+import { FunctionComponent, h } from 'preact'
 import { memo, useEffect } from 'preact/compat'
 import { useLocales } from '~locales'
 import { DocumentSides } from '~types/commons'
 import { DOC_VIDEO_CAPTURE } from '~utils/constants'
 import { MultiFrameCaptureStepActions } from './useMultiFrameCaptureStep'
+import style from './CaptureControls.scss'
 
 export type Props = {
   side: DocumentSides
@@ -35,20 +37,22 @@ const CaptureControls: FunctionComponent<Props> = ({
   switch (recordState) {
     default:
       return (
-        <Fragment>
-          <div>
-            Instructions {side === 'front' ? 'front side' : 'back side'}
-          </div>
+        <div className={style.controls}>
+          <Instructions
+            title={`Instructions ${
+              side === 'front' ? 'front side' : 'back side'
+            }`}
+          />
           <CameraButton
             ariaLabel={'video_capture.button_accessibility'}
             onClick={() => {
               nextStep()
               onStart()
             }}
-            className={''}
+            className={style.btn}
             disableInteraction={false}
           />
-        </Fragment>
+        </div>
       )
     case 'scanning':
       return (
