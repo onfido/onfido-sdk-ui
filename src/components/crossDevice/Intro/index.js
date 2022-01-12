@@ -34,6 +34,7 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
   return (
     <div
       className={classNames(theme.fullHeightMobileContainer, style.container)}
+      data-page-id={'CrossDeviceIntro'}
     >
       <PageTitle
         title={translate('cross_device_intro.title')}

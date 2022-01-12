@@ -65,7 +65,7 @@ const Intro = ({
   const isFirstScreen = steps[0].type === 'face'
 
   return (
-    <ScreenLayout actions={actions}>
+    <ScreenLayout actions={actions} pageId={'SelfieIntro'}>
       <div className={theme.fullHeightContainer}>
         <PageTitle
           title={translate('selfie_intro.title')}
