@@ -2,9 +2,13 @@
 
 .controls {
   flex: 1;
-  margin: 0 16 * $unit 48 * $unit;
+  margin: 32 * $unit 16 * $unit 48 * $unit;
   display: flex;
   flex-direction: column;
+}
+
+.instructions {
+  flex: 1;
 }
 
 .btn {
@@ -32,4 +36,9 @@
   &:disabled {
     display: none;
   }
+}
+
+.icon {
+  height: 64 * $unit;
+  background-image: url('./assets/icon-flip-back.svg');
 }

@@ -12,6 +12,7 @@ import { DocumentSides } from '~types/commons'
 import { DOC_VIDEO_CAPTURE } from '~utils/constants'
 import { MultiFrameCaptureStepActions } from './useMultiFrameCaptureStep'
 import style from './CaptureControls.scss'
+import theme from '../Theme/style.scss'
 
 export type Props = {
   side: DocumentSides
@@ -38,11 +39,14 @@ const CaptureControls: FunctionComponent<Props> = ({
     default:
       return (
         <div className={style.controls}>
-          <Instructions
-            title={`Instructions ${
-              side === 'front' ? 'front side' : 'back side'
-            }`}
-          />
+          <div className={style.instructions}>
+            {side === 'back' && (
+              <span className={`${theme.icon} ${style.icon}`} />
+            )}
+            <Instructions
+              title={`Position the ${side} of your document in the frame`}
+            />
+          </div>
           <CameraButton
             ariaLabel={'video_capture.button_accessibility'}
             onClick={() => {
