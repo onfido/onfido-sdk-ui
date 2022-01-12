@@ -90,7 +90,7 @@ describe('Multi Frame Support', () => {
     expect(mockedTrackException).not.toBeCalled()
 
     expect(onCapture).toHaveBeenNthCalledWith(1, {
-      front: {
+      photo: {
         ...fakeCapturePayload('standard'),
         filename: 'document_front.jpeg',
       },

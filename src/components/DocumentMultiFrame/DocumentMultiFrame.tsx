@@ -57,6 +57,12 @@ const DocumentMultiFrame: FunctionComponent<DocumentMultiFrameProps> = ({
   )
 
   useEffect(() => {
+    if (recordState === 'placeholder') {
+      setTimeout(nextRecordState, DOC_MULTIFRAME_CAPTURE.PLACEHOLDER_TIMEOUT)
+    }
+  }, [recordState, nextRecordState])
+
+  useEffect(() => {
     if (recordState === 'scanning') {
       setTimeout(nextRecordState, DOC_MULTIFRAME_CAPTURE.SCANNING_TIMEOUT)
     }
@@ -115,7 +121,7 @@ const DocumentMultiFrame: FunctionComponent<DocumentMultiFrameProps> = ({
     side,
     upperScreen: true,
     video: true,
-    withPlaceholder: recordState === 'idle',
+    withPlaceholder: recordState === 'placeholder',
   }
 
   const renderVideoOverlay = (videoOverlayProps: VideoOverlayProps) => (

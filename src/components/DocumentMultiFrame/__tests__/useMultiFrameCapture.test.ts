@@ -15,7 +15,7 @@ describe('useMultiFrameCaptureStep', () => {
 
   it('should return default record for each step', () => {
     const { result } = renderHook(() => useMultiFrameCaptureStep())
-    expect(result.current?.recordState).toBe('idle')
+    expect(result.current?.recordState).toBe('placeholder')
 
     act(() => result.current?.nextStep())
     expect(result.current?.recordState).toBe('scanning')

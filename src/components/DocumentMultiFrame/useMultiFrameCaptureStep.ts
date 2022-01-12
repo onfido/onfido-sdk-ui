@@ -1,6 +1,7 @@
 import useCaptureStep from './useCaptureStep'
 
 export type MultiFrameCaptureStepActions =
+  | 'placeholder'
   | 'idle'
   | 'scanning'
   | 'success'
@@ -28,10 +29,14 @@ const useMultiFrameCaptureStep = () => {
       switch (captureStep) {
         case 'intro':
           return {
-            initialState: 'idle',
+            initialState: 'placeholder',
             states: {
+              placeholder: {
+                NEXT_RECORD_STATE: 'idle',
+                RESET_RECORD_STATE: 'placeholder',
+              },
               idle: {
-                RESET_RECORD_STATE: 'idle',
+                RESET_RECORD_STATE: 'placeholder',
               },
             },
           }
