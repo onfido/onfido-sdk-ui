@@ -25,6 +25,7 @@ public class PoADocumentSelection extends DocumentSelectorBase {
         return new Option(name, hint, warning, eStatementAccepted);
 
     }
+
     private String getOptionalText(WebElement element, By by) {
 
         var elements = element.findElements(by);

@@ -26,6 +26,10 @@ public abstract class BasePage extends Page {
         click(CLOSE_MODAL);
     }
 
+    public boolean isLogoVisible() {
+        return !driver.isInDom(By.cssSelector(".onfido-sdk-ui-Theme-noLogo"));
+    }
+
     protected abstract By pageId();
 
     @Override

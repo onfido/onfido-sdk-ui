@@ -13,8 +13,10 @@ import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class WebSdk {
@@ -30,19 +32,10 @@ public class WebSdk {
         apiClient = new ApiClient(getTokenEndpoint());
     }
 
-    private static String getTokenEndpoint() {
-        try {
-            var url = new URL(Property.get("tokenUrl", Property.get("baseUrl")));
-
-            return new URL(url.getProtocol(), url.getHost(), url.getPort(), "/").toString();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     private final Map<String, Object> parameters = new HashMap<>();
     private final Driver driver;
     private boolean tokenSet;
+    private final List<Runnable> beforeInit = new ArrayList<>();
 
     public WebSdk(Driver driver) {
         this.driver = driver;
@@ -59,6 +52,11 @@ public class WebSdk {
 
     public WebSdk withShouldCloseOnOverlayClick(boolean shouldCloseOnOverlayClick) {
         return put("shouldCloseOnOverlayClick", shouldCloseOnOverlayClick);
+    }
+
+    public WebSdk beforeInit(Runnable run) {
+        beforeInit.add(run);
+        return this;
     }
 
     private void setupDefaultValues() {
@@ -81,6 +79,10 @@ public class WebSdk {
         return put("language", language);
     }
 
+    public WebSdk withEnterpriseFeatures(EnterpriseFeatures enterpriseFeatures) {
+        return put("enterpriseFeatures", enterpriseFeatures);
+    }
+
     public WebSdk withSteps(Object... steps) {
         return put("steps", Arrays.stream(steps).toArray());
     }
@@ -93,6 +95,9 @@ public class WebSdk {
 
         // navigate to the base url
         driver.get(Property.get("baseUrl"));
+
+        beforeInit.forEach(Runnable::run);
+
         // and wait for the page to be ready
         driver.waitFor(ExpectedConditions.pageReady());
         // then call the onfido.init method with the parameters
@@ -103,6 +108,16 @@ public class WebSdk {
         driver.executeScript("window.onfido = Onfido.init(" + parameters + ")");
 
         return new Onfido(driver);
+    }
+
+    private static String getTokenEndpoint() {
+        try {
+            var url = new URL(Property.get("tokenUrl", Property.get("baseUrl")));
+
+            return new URL(url.getProtocol(), url.getHost(), url.getPort(), "/").toString();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private String getToken() {

@@ -22,7 +22,9 @@ public class PercyIT extends WebSdkIT {
     @DataProvider(name = "poaDocumentTypes")
     public static Object[][] poaDocumentTypes() {
 
-        return Arrays.stream(PoADocumentType.values()).map(x-> {return new Object[]{x};}).toArray(Object[][]::new);
+        return Arrays.stream(PoADocumentType.values()).map(x -> {
+            return new Object[]{x};
+        }).toArray(Object[][]::new);
     }
 
     @Test(groups = {"percy"})

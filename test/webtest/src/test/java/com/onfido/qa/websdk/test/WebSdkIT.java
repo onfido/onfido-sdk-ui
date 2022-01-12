@@ -159,12 +159,16 @@ public abstract class WebSdkIT extends WebTest {
     }
 
     protected void takePercySnapshot(String name) {
+        takePercySnapshot(name, null);
+    }
+
+    protected void takePercySnapshot(String name, String css) {
         try {
             Thread.sleep(SLEEP_BEFORE_SNAPSHOT);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-        percy.get().snapshot(String.format("%s-%s", name, language), Arrays.asList(MIN));
+        percy.get().snapshot(String.format("%s-%s", name, language), Arrays.asList(MIN), null, false, css);
     }
 }
