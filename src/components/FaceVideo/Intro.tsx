@@ -33,7 +33,7 @@ const Intro: FunctionComponent<Props> = ({
 }) => {
   const isFirstScreen = steps[0].type === 'face'
   return (
-    <div className={theme.fullHeightContainer}>
+    <div className={theme.fullHeightContainer} data-page-id={'FaceVideoIntro'}>
       <PageTitle
         title={translate('video_intro.title')}
         shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}

@@ -289,7 +289,7 @@ class Uploader extends Component {
     return (
       <div
         className={classNames(theme.fullHeightContainer, style.container)}
-        data-page-id={'Uploader'}
+        data-page-id={pageId}
       >
         <PageTitle
           title={title}
