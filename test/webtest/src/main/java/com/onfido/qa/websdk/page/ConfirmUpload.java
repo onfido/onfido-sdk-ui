@@ -7,6 +7,7 @@ public class ConfirmUpload extends BasePage {
 
     public static final By MESSAGE = By.cssSelector(".onfido-sdk-ui-Confirm-message");
     public static final By BTN = By.cssSelector("[data-onfido-qa=\"confirm-action-btn\"]");
+    public static final int HALF_A_SECOND = 500;
 
     protected ConfirmUpload(Driver driver) {
         super(driver);
@@ -32,7 +33,8 @@ public class ConfirmUpload extends BasePage {
 
     public <T> T clickConfirmButton(Class<T> next) {
         click(BTN);
-        waitForLoaderToShow();
+
+        sleep(HALF_A_SECOND);
 
         return createComponent(next);
     }
