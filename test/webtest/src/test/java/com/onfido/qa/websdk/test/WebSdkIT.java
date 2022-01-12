@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 import static com.google.common.truth.Truth.assertThat;
 
 @Listeners({ScreenshotListener.class, BrowserStackListener.class})
-@Browser(fileForFakeVideoCapture = "../resources/test-stream.y4m")
+@Browser(acceptInsureCertificates = true)
 public abstract class WebSdkIT extends WebTest {
 
     private static final int MIN = 500;
@@ -81,8 +81,6 @@ public abstract class WebSdkIT extends WebTest {
     @SuppressWarnings("CallToSystemGetenv")
     @Override
     protected void extendCapabilities(DesiredCapabilities capabilities) {
-        capabilities.setAcceptInsecureCerts(true);
-
         // https://www.browserstack.com/docs/automate/selenium/debugging-options#network-logs
 
         capabilities.setCapability("browserstack.debug", "true");
