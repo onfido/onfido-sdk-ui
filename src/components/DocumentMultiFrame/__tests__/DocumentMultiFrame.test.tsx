@@ -60,7 +60,7 @@ describe('Multi Frame Support', () => {
   it('displays the overlay, instructions and a button', () => {
     const overlay = screen.getByText(/video_capture.frame_accessibility/)
     const instructions = screen.getByText(
-      /Position the front of your document in the frame/i
+      /doc_multi_frame_capture.instruction_front/
     )
     const button = screen.getByLabelText(/video_capture.button_accessibility/)
 

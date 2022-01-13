@@ -9,7 +9,7 @@ import { FunctionComponent, h } from 'preact'
 import { memo, useEffect } from 'preact/compat'
 import { useLocales } from '~locales'
 import { DocumentSides } from '~types/commons'
-import { DOC_VIDEO_CAPTURE } from '~utils/constants'
+import { DOC_MULTIFRAME_CAPTURE } from '~utils/constants'
 import { MultiFrameCaptureStepActions } from './useMultiFrameCaptureStep'
 import style from './CaptureControls.scss'
 import theme from '../Theme/style.scss'
@@ -44,7 +44,7 @@ const CaptureControls: FunctionComponent<Props> = ({
               <span className={`${theme.icon} ${style.icon}`} />
             )}
             <Instructions
-              title={`Position the ${side} of your document in the frame`}
+              title={translate(`doc_multi_frame_capture.instruction_${side}`)}
             />
           </div>
           <CameraButton
@@ -61,15 +61,15 @@ const CaptureControls: FunctionComponent<Props> = ({
     case 'scanning':
       return (
         <CaptureProgress
-          duration={DOC_VIDEO_CAPTURE.HOLDING_STILL_TIMEOUT}
-          title={'scanning document'}
+          duration={DOC_MULTIFRAME_CAPTURE.SCANNING_TIMEOUT}
+          title={translate(`doc_multi_frame_capture.scanning`)}
         />
       )
     case 'success':
     case 'submit':
       return (
         <SuccessState
-          ariaLabel={translate('doc_video_capture.success_accessibility')}
+          ariaLabel={translate('doc_multi_frame_capture.success_accessibility')}
         />
       )
   }
