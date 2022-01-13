@@ -1,6 +1,5 @@
 package com.onfido.qa.websdk.test;
 
-import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.DocumentType;
 import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.page.CountrySelector;
@@ -8,6 +7,7 @@ import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.DocumentStep;
+import com.onfido.qa.websdk.sdk.DocumentStep.Option;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -16,8 +16,12 @@ import static com.onfido.qa.websdk.DocumentType.DRIVING_LICENCE;
 import static com.onfido.qa.websdk.DocumentType.IDENTITY_CARD;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.DocumentType.RESIDENT_PERMIT;
+import static com.onfido.qa.websdk.UploadDocument.NATIONAL_IDENTITY_CARD_JPG;
+import static com.onfido.qa.websdk.UploadDocument.UK_DRIVING_LICENCE_PNG;
 
 public class CountrySelectorIT extends WebSdkIT {
+
+    public static final String SUPPORTED_COUNTRY = "france";
 
     @SuppressWarnings("unused")
     public CountrySelectorIT() {
@@ -48,7 +52,10 @@ public class CountrySelectorIT extends WebSdkIT {
             description = "should not display country selection screen for certain document type selected"
     )
     public void testCountryNotSelectionShown(DocumentType documentType) {
-        var upload = selectDocument(documentType, DocumentUpload.class);
+
+        var upload = onfido().init(Welcome.class)
+                             .continueToNextStep(IdDocumentSelector.class)
+                             .select(documentType, DocumentUpload.class);
 
         verifyCopy(upload.title(), "doc_submit.title_passport");
 
@@ -59,13 +66,17 @@ public class CountrySelectorIT extends WebSdkIT {
             description = "should display country selection screen for certain document type selected"
     )
     public void testCountrySelectionShown(DocumentType documentType) {
-        var countrySelector = selectDocument(documentType, CountrySelector.class);
+
+
+        var countrySelector = onfido().init(Welcome.class)
+                                      .continueToNextStep(IdDocumentSelector.class)
+                                      .select(documentType, CountrySelector.class);
 
         verifyCopy(countrySelector.title(), "country_select.title");
         verifyCopy(countrySelector.selectorLabel(), "country_select.search.label");
 
         assertThat(countrySelector.countryFinderInput().isDisplayed()).isTrue();
-        assertThat(countrySelector.submitDocumentBtn().isEnabled()).isFalse();
+        assertThat(countrySelector.isSubmitBtnEnabled()).isFalse();
 
     }
 
@@ -97,9 +108,9 @@ public class CountrySelectorIT extends WebSdkIT {
                         .withSteps(
                                 "welcome",
                                 new DocumentStep()
-                                        .withDocumentType(DRIVING_LICENCE, new DocumentStep.Option("ESP"))
-                                        .withDocumentType(IDENTITY_CARD, new DocumentStep.Option("MYS"))
-                                        .withDocumentType(RESIDENT_PERMIT, new DocumentStep.Option(null))
+                                        .withDocumentType(DRIVING_LICENCE, new Option("ESP"))
+                                        .withDocumentType(IDENTITY_CARD, new Option("MYS"))
+                                        .withDocumentType(RESIDENT_PERMIT, new Option(null))
                         )
                         .init(Welcome.class);
 
@@ -117,7 +128,7 @@ public class CountrySelectorIT extends WebSdkIT {
 
         verifyCopy(documentUpload.title(), "doc_submit.title_permit_front");
 
-        var confirm = documentUpload.upload(UploadDocument.NATIONAL_IDENTITY_CARD_JPG);
+        var confirm = documentUpload.upload(NATIONAL_IDENTITY_CARD_JPG);
         verifyCopy(confirm.title(), "doc_confirmation.title");
         verifyCopy(confirm.message(), "doc_confirmation.body_permit");
 
@@ -126,12 +137,79 @@ public class CountrySelectorIT extends WebSdkIT {
 
     }
 
-    private <T extends Page> T selectDocument(DocumentType documentType, Class<T> next) {
+    @Test(description = "should show country selection screen for driver's license and national ID given invalid country code")
+    public void testShowCountrySelectionWithInvalidCountryCode() {
 
-
-        return onfido().init(Welcome.class)
-                       .continueToNextStep(IdDocumentSelector.class)
-                       .select(documentType, next);
+        onfido()
+                .withSteps("welcome", new DocumentStep().withDocumentType(DRIVING_LICENCE, new Option("ES"))
+                                                        .withDocumentType(IDENTITY_CARD, new Option("XYZ")))
+                .init(Welcome.class)
+                .continueToNextStep(IdDocumentSelector.class).select(DRIVING_LICENCE, CountrySelector.class)
+                .back(IdDocumentSelector.class)
+                .select(IDENTITY_CARD, CountrySelector.class).select(SUPPORTED_COUNTRY, DocumentUpload.class)
+                .upload(NATIONAL_IDENTITY_CARD_JPG)
+                .clickConfirmButton(DocumentUpload.class);
     }
 
+    @Test(description = "should skip country selection screen and successfully upload document when only driver's license preselected with a valid country code")
+    public void testSkipCountrySelection() {
+
+        onfido()
+                .withSteps(new DocumentStep().withDocumentType(DRIVING_LICENCE, new Option("ESP")))
+                .init(DocumentUpload.class)
+                .upload(UK_DRIVING_LICENCE_PNG)
+                .clickConfirmButton(DocumentUpload.class);
+    }
+
+
+    @Test(description = "should show country selection screen with only driver's license preselected and showCountrySelection enabled")
+    public void testShowCountrySelectionWithShowCountrySelectionEnabled() {
+        var countrySelector = onfido()
+                .withSteps(new DocumentStep().withDocumentType(DRIVING_LICENCE, true).withShowCountrySelection(true))
+                .init(CountrySelector.class);
+
+        assertThat(countrySelector.isSubmitBtnEnabled()).isFalse();
+    }
+
+    @Test(description = "should show country selection screen when multiple documents enabled with boolean values (legacy config)")
+    public void testShowCountrySelectionWithMultipleDocsEnabled() {
+        var countrySelector = onfido()
+                .withSteps(new DocumentStep().withDocumentType(DRIVING_LICENCE, true).withDocumentType(IDENTITY_CARD, true))
+                .init(IdDocumentSelector.class)
+                        .select(IDENTITY_CARD, CountrySelector.class)
+                        .select(SUPPORTED_COUNTRY, DocumentUpload.class)
+                        .upload(NATIONAL_IDENTITY_CARD_JPG)
+                        .clickConfirmButton(DocumentUpload.class);
+    }
+
+    @Test(description = "should go to document upload screen when a supported country is selected")
+    public void testGoToUploadScreenWhenASupportedCountryIsSelected() {
+        onfido().withSteps("document")
+                .init(IdDocumentSelector.class)
+                .select(IDENTITY_CARD, CountrySelector.class)
+                .select(SUPPORTED_COUNTRY, DocumentUpload.class);
+    }
+
+    @Test(description = "should be able to select \"Hong Kong\" as a supported country option when searching with \"香\"")
+    public void testSelectHongKong() {
+        var countrySelector = onfido().withSteps("document")
+                                      .init(IdDocumentSelector.class)
+                                      .select(IDENTITY_CARD, CountrySelector.class)
+                                      .searchFor("香 ")
+                                      .selectFirstOptionInDropdownMenu();
+
+        assertThat(countrySelector.isSubmitBtnEnabled()).isTrue();
+
+    }
+
+    @Test(description = "should display \"Country not found\" message and error variant of help icon when searching for \"xyz\"")
+    public void testCountryNotFoundMessage() {
+        var countrySelector = onfido().withSteps("document")
+                                      .init(IdDocumentSelector.class)
+                                      .select(IDENTITY_CARD, CountrySelector.class)
+                                      .select("xyz");
+
+        assertThat(countrySelector.countryNotFoundMessageIdDisabled()).isTrue();
+    }
 }
+
