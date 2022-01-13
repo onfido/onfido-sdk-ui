@@ -1,4 +1,3 @@
-//TODO: Update useCaptureStep from DocumentVideo and share it.
 import { useCallback, useEffect } from 'preact/hooks'
 import useStateMachine, { MachineSpec } from '~utils/useStateMachine'
 
@@ -37,9 +36,8 @@ const useCaptureStep = <
     dispatchRecordState('RESET_RECORD_STATE')
   }, [captureStep, dispatchRecordState])
 
-  const possibleSteps = captureFlow //stepsByFlow[captureFlow]
-  const totalSteps = possibleSteps.length - 1
-  const stepNumber = possibleSteps.indexOf(captureStep)
+  const totalSteps = captureFlow.length - 1
+  const stepNumber = captureFlow.indexOf(captureStep)
 
   const nextRecordState = useCallback(
     () => dispatchRecordState('NEXT_RECORD_STATE'),

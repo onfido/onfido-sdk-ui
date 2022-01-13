@@ -59,7 +59,9 @@ describe('Multi Frame Support', () => {
 
   it('displays the overlay, instructions and a button', () => {
     const overlay = screen.getByText(/video_capture.frame_accessibility/)
-    const instructions = screen.getByText(/instructions/i)
+    const instructions = screen.getByText(
+      /Position the front of your document in the frame/i
+    )
     const button = screen.getByLabelText(/video_capture.button_accessibility/)
 
     expect(overlay).toBeInTheDocument()

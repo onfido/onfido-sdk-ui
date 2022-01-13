@@ -1,4 +1,4 @@
-import useCaptureStep from './useCaptureStep'
+import useCaptureStep from '../utils/useCaptureStep'
 
 export type MultiFrameCaptureStepActions =
   | 'placeholder'

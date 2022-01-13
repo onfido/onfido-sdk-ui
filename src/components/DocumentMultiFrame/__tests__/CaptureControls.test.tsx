@@ -21,7 +21,9 @@ const assertControls = (
 ) => {
   const button = screen.queryByLabelText(/video_capture.button_accessibility/)
   const instructions = screen.queryByText(
-    side === 'front' ? /instructions front side/i : /instructions back side/i
+    side === 'front'
+      ? /Position the front of your document in the frame/i
+      : /Position the back of your document in the frame/i
   )
   const progress = screen.queryByRole('progressbar')
   const success = screen.queryByLabelText(
