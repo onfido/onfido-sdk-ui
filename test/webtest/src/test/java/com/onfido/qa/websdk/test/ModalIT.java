@@ -58,6 +58,5 @@ public class ModalIT extends WebSdkIT {
 
         assertThat(modal.isShown()).isEqualTo(expectedCloseState);
 
-
     }
 }

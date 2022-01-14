@@ -1,6 +1,7 @@
 package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
+import com.onfido.qa.webdriver.common.Page;
 import org.openqa.selenium.By;
 
 public class ConfirmUpload extends BasePage {
@@ -11,7 +12,7 @@ public class ConfirmUpload extends BasePage {
     public static final By BTN = By.cssSelector("[data-onfido-qa=\"confirm-action-btn\"]");
     public static final By ERROR_TITLE = By.cssSelector(".onfido-sdk-ui-Error-title-text");
 
-    protected ConfirmUpload(Driver driver) {
+    public ConfirmUpload(Driver driver) {
         super(driver);
     }
 
@@ -42,7 +43,7 @@ public class ConfirmUpload extends BasePage {
         return text(MESSAGE);
     }
 
-    public <T> T clickConfirmButton(Class<T> next) {
+    public <T extends Page> T clickConfirmButton(Class<T> next) {
         click(BTN);
 
         sleep(HALF_A_SECOND);

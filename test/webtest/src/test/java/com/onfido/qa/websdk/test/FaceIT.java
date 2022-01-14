@@ -44,19 +44,6 @@ public class FaceIT extends WebSdkIT {
         };
     }
 
-    private void disableWebcam() {
-        driver().executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])");
-    }
-
-    private void provideVideoDevice() {
-        // TODO: check, if this is needed. The browsers itself have video
-        driver().executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: \"video\" }])");
-    }
-
-    private void disableMediaRecorder() {
-        driver().executeScript("delete window.MediaRecorder");
-    }
-
     @Test(description = "should be taken to the cross device screen if browser does not have Webcam Support")
     @Browser(enableMicrophoneCameraAccess = true)
     public void testFallbackToCrossDeviceWithoutWebcamSupport() {

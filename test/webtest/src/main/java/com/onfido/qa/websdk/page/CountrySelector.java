@@ -1,6 +1,7 @@
 package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
+import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.util.ByUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CountrySelector extends BasePage {
+
+    public static final String SUPPORTED_COUNTRY = "france";
 
     private static final Logger log = LoggerFactory.getLogger(CountrySelector.class);
 
@@ -21,17 +24,21 @@ public class CountrySelector extends BasePage {
         super(driver);
     }
 
+    public <T extends Page> T selectSupportedCountry(Class<T> next) {
+        return select(SUPPORTED_COUNTRY, next);
+    }
+
     public CountrySelector select(String search) {
         searchFor(search);
         return selectFirstOptionInDropdownMenu();
     }
 
-    public <T> T select(String search, Class<T> next) {
+    public <T extends Page> T select(String search, Class<T> next) {
         select(search);
         return submit(next);
     }
 
-    public <T> T submit(Class<T> next) {
+    public <T extends Page> T submit(Class<T> next) {
         click(SUBMIT_BUTTON);
         return createComponent(next);
     }

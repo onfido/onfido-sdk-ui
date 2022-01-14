@@ -64,7 +64,7 @@ public abstract class BasePage extends Page {
         return text(By.cssSelector(".onfido-sdk-ui-PageTitle-subTitle"));
     }
 
-    public <T> T back(Class<T> next) {
+    public <T extends Page> T back(Class<T> next) {
         click(By.cssSelector(".onfido-sdk-ui-NavigationBar-iconBack"));
         return createComponent(next);
     }

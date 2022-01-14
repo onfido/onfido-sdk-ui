@@ -21,8 +21,6 @@ import static com.onfido.qa.websdk.UploadDocument.UK_DRIVING_LICENCE_PNG;
 
 public class CountrySelectorIT extends WebSdkIT {
 
-    public static final String SUPPORTED_COUNTRY = "france";
-
     @SuppressWarnings("unused")
     public CountrySelectorIT() {
         super();
@@ -84,7 +82,7 @@ public class CountrySelectorIT extends WebSdkIT {
             description = "should skip country selection screen and successfully upload a document when only residence permit document type preselected"
     )
     public void testSkipCountryScreenForResidencePermit() {
-        var welcome = onfido(language).withSteps("welcome", new DocumentStep().withDocumentType(RESIDENT_PERMIT)).init(Welcome.class);
+        var welcome = onfido().withSteps("welcome", new DocumentStep().withDocumentType(RESIDENT_PERMIT)).init(Welcome.class);
         var documentUpload = welcome.continueToNextStep(DocumentUpload.class);
 
         verifyCopy(documentUpload.title(), "doc_submit.title_permit_front");
@@ -146,7 +144,7 @@ public class CountrySelectorIT extends WebSdkIT {
                 .init(Welcome.class)
                 .continueToNextStep(IdDocumentSelector.class).select(DRIVING_LICENCE, CountrySelector.class)
                 .back(IdDocumentSelector.class)
-                .select(IDENTITY_CARD, CountrySelector.class).select(SUPPORTED_COUNTRY, DocumentUpload.class)
+                .select(IDENTITY_CARD, CountrySelector.class).select(CountrySelector.SUPPORTED_COUNTRY, DocumentUpload.class)
                 .upload(NATIONAL_IDENTITY_CARD_JPG)
                 .clickConfirmButton(DocumentUpload.class);
     }
@@ -177,7 +175,7 @@ public class CountrySelectorIT extends WebSdkIT {
                 .withSteps(new DocumentStep().withDocumentType(DRIVING_LICENCE, true).withDocumentType(IDENTITY_CARD, true))
                 .init(IdDocumentSelector.class)
                         .select(IDENTITY_CARD, CountrySelector.class)
-                        .select(SUPPORTED_COUNTRY, DocumentUpload.class)
+                        .select(CountrySelector.SUPPORTED_COUNTRY, DocumentUpload.class)
                         .upload(NATIONAL_IDENTITY_CARD_JPG)
                         .clickConfirmButton(DocumentUpload.class);
     }
@@ -187,7 +185,7 @@ public class CountrySelectorIT extends WebSdkIT {
         onfido().withSteps("document")
                 .init(IdDocumentSelector.class)
                 .select(IDENTITY_CARD, CountrySelector.class)
-                .select(SUPPORTED_COUNTRY, DocumentUpload.class);
+                .select(CountrySelector.SUPPORTED_COUNTRY, DocumentUpload.class);
     }
 
     @Test(description = "should be able to select \"Hong Kong\" as a supported country option when searching with \"香\"")
