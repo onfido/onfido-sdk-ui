@@ -1,4 +1,4 @@
-import { Component } from 'preact'
+import { h, Component } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { localised } from '~locales'
