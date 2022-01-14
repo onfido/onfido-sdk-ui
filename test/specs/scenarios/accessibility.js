@@ -46,6 +46,8 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
 
       const baseUrl = `${localhostUrl}?language=${lang}`
 
+      // TODO: tony says the tests doesn't do what the description says
+
       // Face
       it('should verify accessibility for the take a selfie screen', async () => {
         goToPassportUploadScreen(
@@ -63,12 +65,6 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      //Modal
-      it('should verify accessibility for modal screen', async () => {
-        driver.get(`${baseUrl}&useModal=true`)
-        welcome.clickOnOpenModalButton()
-        runAccessibilityTest(driver)
-      })
     }
   )
 }
