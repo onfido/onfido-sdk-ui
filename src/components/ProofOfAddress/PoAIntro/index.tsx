@@ -7,6 +7,18 @@ import { localised } from '~locales'
 import { POA_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
+import { WithLocalisedProps } from '~types/hocs'
+import { StepComponentFaceProps } from '~types/routers'
+import { PoaIntroTypes } from '~types/steps'
+
+type PaOIntroProps = { country: string } & WithLocalisedProps &
+  StepComponentFaceProps
+
+const poaIntroTypes: PoaIntroTypes[] = [
+  'shows_address',
+  'matches_signup',
+  'most_recent',
+]
 
 const PoAIntro = ({
   country,
@@ -15,7 +27,7 @@ const PoAIntro = ({
   nextStep,
   steps,
   autoFocusOnInitialScreenTitle,
-}) => {
+}: PaOIntroProps) => {
   const isFirstScreen = steps[0].type === 'poa'
   return (
     <div className={theme.fullHeightContainer}>
@@ -29,7 +41,7 @@ const PoAIntro = ({
       />
       <div className={style.content}>
         <p className={style.requirements}>{translate('poa_intro.subtitle')}</p>
-        {['shows_address', 'matches_signup', 'most_recent'].map((key) => (
+        {poaIntroTypes.map((key) => (
           <div key={key} className={style.requirement}>
             <span>
               {parseTranslatedTags(

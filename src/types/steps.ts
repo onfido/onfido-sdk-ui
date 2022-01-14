@@ -30,6 +30,8 @@ export type PoaTypes =
   | 'benefit_letters'
   | 'government_letter'
 
+export type PoaIntroTypes = 'shows_address' | 'matches_signup' | 'most_recent'
+
 export type RequestedVariant = 'standard' | 'video'
 
 export type DocumentTypeConfig =

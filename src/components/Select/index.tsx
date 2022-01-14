@@ -1,22 +1,19 @@
 import { h } from 'preact'
-import PageTitle from '../PageTitle'
-import {
-  PoADocumentSelector,
-  IdentityDocumentSelector,
-} from '../DocumentSelector'
-// import type { GroupType } from '../DocumentSelector/documentTypes'
+import { localised } from '~locales'
+import { WithLocalisedProps } from '~types/hocs'
+import { StepComponentFaceProps } from '~types/routers'
 import { trackComponent } from '../../Tracker'
-import { localised /*, type LocalisedType */ } from '~locales'
+import {
+  IdentityDocumentSelector,
+  PoADocumentSelector,
+} from '../DocumentSelector'
+import PageTitle from '../PageTitle'
 
-/* type Props = {
-  country: string,
-  nextStep: (void) => void,
-  documentTypes?: Object,
-  actions: Object,
-} & LocalisedType */
+type DocumentSelectorByGroupProps = { country: string } & WithLocalisedProps &
+  StepComponentFaceProps
 
-const makeDocumentSelectorOfGroup = (group) => {
-  const DocumentSelectorByGroup = (props) => {
+const makeDocumentSelectorOfGroup = (group: string) => {
+  const DocumentSelectorByGroup = (props: DocumentSelectorByGroupProps) => {
     const { translate, country, steps, autoFocusOnInitialScreenTitle } = props
     const isFirstScreen = steps[0].type === 'document'
     const isPoA = group === 'proof_of_address'
