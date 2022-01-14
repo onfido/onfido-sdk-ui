@@ -4,7 +4,6 @@ import {
   fullTestCoverageLanguages,
 } from '../config.json'
 import { documentSelectorScenarios } from './scenarios/documentSelector'
-import { documentScenarios } from './scenarios/document'
 import { faceScenarios } from './scenarios/face'
 import { crossDeviceScenarios } from './scenarios/crossDevice'
 import { crossDeviceDocumentVideoCaptureScenarios } from './scenarios/crossDeviceDocumentVideoCapture'
@@ -17,7 +16,6 @@ describe('Happy Paths on Chrome', () => {
   // Multiple language scenarios
   fullTestCoverageLanguages.forEach((lang) => {
     documentSelectorScenarios(lang)
-    documentScenarios(lang)
     faceScenarios(lang)
     crossDeviceScenarios(lang)
     crossDeviceDocumentVideoCaptureScenarios(lang)

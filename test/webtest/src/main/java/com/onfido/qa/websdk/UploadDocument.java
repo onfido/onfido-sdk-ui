@@ -21,7 +21,7 @@ public enum UploadDocument {
     OVER_10MB_PASSPORT("over_10mb_passport.jpg"),
     PASSPORT_JPG("passport.jpg"),
     PASSPORT_PDF("passport.pdf"),
-    SAMPLE("sample-pdf-10-mb.pdf"),
+    SAMPLE_10MB_PDF("sample-pdf-10-mb.pdf"),
     TEST_STREAM("test-stream.y4m"),
     TEST_VIDEO("test-video.webm"),
     TWO_FACES("two_faces.jpg"),
