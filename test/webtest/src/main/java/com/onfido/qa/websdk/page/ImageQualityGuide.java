@@ -8,6 +8,11 @@ public class ImageQualityGuide extends DocumentUploadBasePage {
         super(driver);
     }
 
+
+    public String getErrorMessage() {
+        return text(By.cssSelector(".onfido-sdk-ui-Uploader-error"));
+    }
+
     @Override
     protected By pageId() {
         return pageIdSelector("ImageQualityGuide");

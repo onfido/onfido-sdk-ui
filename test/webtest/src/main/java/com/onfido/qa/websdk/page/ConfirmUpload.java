@@ -2,6 +2,7 @@ package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.common.Page;
+import com.onfido.qa.websdk.util.ByUtil;
 import org.openqa.selenium.By;
 
 public class ConfirmUpload extends BasePage {
@@ -16,19 +17,17 @@ public class ConfirmUpload extends BasePage {
         super(driver);
     }
 
+    public String getErrorTitle() {
+        return text(By.cssSelector(".onfido-sdk-ui-Error-title-text"));
+    }
 
-    @Override
-    protected By pageId() {
-        // TODO: add pageId
-        return null;
+    public String getInstructionText() {
+        return text(By.cssSelector(".onfido-sdk-ui-Error-instruction-text"));
     }
 
     @Override
-    protected void verifyPage(Driver driver) {
-        super.verifyPage(driver);
-
-        driver.waitFor.presence(BTN);
-
+    protected By pageId() {
+        return By.cssSelector(".onfido-sdk-ui-Confirm-previewsContainer");
     }
 
     public String errorTitle() {
@@ -50,4 +49,10 @@ public class ConfirmUpload extends BasePage {
 
         return createComponent(next);
     }
+
+    public <T extends Page> T clickRedoButton(Class<T> next) {
+        click(ByUtil.onfidoQa("redo-action-btn"));
+        return createComponent(next);
+    }
+
 }
