@@ -14,7 +14,7 @@ class ClientSuccess extends Component {
   render() {
     const { translate } = this.props
     return (
-      <div>
+      <div data-page-id={'CrossDeviceClientSuccess'}>
         <PageTitle
           title={translate('cross_device_return.title')}
           subTitle={translate('cross_device_return.subtitle')}
