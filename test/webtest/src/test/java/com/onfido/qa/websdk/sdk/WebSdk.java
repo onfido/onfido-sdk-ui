@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings({"SameParameterValue", "BooleanParameter"})
 public class WebSdk {
 
     private static final Logger log = LoggerFactory.getLogger(WebSdk.class);
@@ -62,6 +63,15 @@ public class WebSdk {
     private void setupDefaultValues() {
         withSteps("welcome", "document");
         put("containerId", "root");
+        withDisableAnalytics();
+    }
+
+    private void withDisableAnalytics() {
+        withDisableAnalytics(true);
+    }
+
+    private void withDisableAnalytics(boolean value) {
+        put("disableAnalytics", value);
     }
 
     public WebSdk withToken(String token) {

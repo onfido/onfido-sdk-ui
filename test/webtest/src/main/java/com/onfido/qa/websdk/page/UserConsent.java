@@ -2,6 +2,7 @@ package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.common.Component;
+import com.onfido.qa.webdriver.common.Page;
 import org.openqa.selenium.By;
 
 public class UserConsent extends BasePage {
@@ -42,7 +43,7 @@ public class UserConsent extends BasePage {
         return text(DECLINE);
     }
 
-    public <T> T acceptUserConsent(Class<T> next) {
+    public <T extends Page> T acceptUserConsent(Class<T> next) {
         click(ACCEPT);
         return createComponent(next);
     }

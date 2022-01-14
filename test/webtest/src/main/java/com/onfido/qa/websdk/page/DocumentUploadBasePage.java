@@ -1,6 +1,8 @@
 package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
+import com.onfido.qa.webdriver.common.Component;
+import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.util.Javascript;
 import org.openqa.selenium.By;
@@ -16,7 +18,7 @@ public abstract class DocumentUploadBasePage extends BasePage {
         super(driver);
     }
 
-    public ConfirmUpload upload(UploadDocument document) {
+    public <T extends Page> T upload(UploadDocument document, Class<T> next) {
 
         String path = path(document);
 
@@ -25,7 +27,16 @@ public abstract class DocumentUploadBasePage extends BasePage {
         new Javascript(driver).changeDisplayStyle(input, "block");
         input.sendKeys(path);
 
-        return new ConfirmUpload(driver);
+        return createComponent(next);
+    }
+
+    public ConfirmUpload upload(UploadDocument document) {
+        return upload(document, ConfirmUpload.class);
+    }
+
+    public CrossDeviceIntro switchToCrossDevice() {
+        click(By.cssSelector(".onfido-sdk-ui-Uploader-crossDeviceButton"));
+        return new CrossDeviceIntro(driver);
     }
 
     private String path(UploadDocument document) {

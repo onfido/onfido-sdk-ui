@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onfido.qa.annotation.Browser;
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.WebTest;
+import com.onfido.qa.webdriver.common.Component;
+import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.webdriver.listener.BrowserStackListener;
 import com.onfido.qa.webdriver.listener.ScreenshotListener;
 import com.onfido.qa.websdk.Property;
@@ -120,10 +122,6 @@ public abstract class WebSdkIT extends WebTest {
     }
 
     protected WebSdk onfido() {
-        return onfido(defaultLanguage());
-    }
-
-    protected WebSdk onfido(String language) {
         return new WebSdk(driver()).withLanguage(language);
     }
 
@@ -170,5 +168,22 @@ public abstract class WebSdkIT extends WebTest {
         }
 
         percy.get().snapshot(String.format("%s-%s", name, language), Arrays.asList(MIN), null, false, css);
+    }
+
+    protected <T extends Page> T verifyPage(Class<T> page) {
+        return Component.createComponent(driver(), page);
+    }
+
+    protected void disableWebcam() {
+        driver().executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])");
+    }
+
+    protected void provideVideoDevice() {
+        // TODO: check, if this is needed. The browsers itself have video
+        driver().executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: \"video\" }])");
+    }
+
+    protected void disableMediaRecorder() {
+        driver().executeScript("delete window.MediaRecorder");
     }
 }

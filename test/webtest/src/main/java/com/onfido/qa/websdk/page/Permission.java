@@ -1,6 +1,7 @@
 package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
+import com.onfido.qa.webdriver.common.Page;
 import org.openqa.selenium.By;
 
 public class Permission extends BasePage {
@@ -8,7 +9,7 @@ public class Permission extends BasePage {
         super(driver);
     }
 
-    public <T> T clickEnableCamera(Class<T> next) {
+    public <T extends Page> T clickEnableCamera(Class<T> next) {
         click(By.cssSelector("[data-onfido-qa='enable-camera-btn']"));
         return createComponent(next);
     }

@@ -1,6 +1,7 @@
 package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
+import com.onfido.qa.webdriver.common.Page;
 import org.openqa.selenium.By;
 
 public class Welcome extends BasePage {
@@ -20,7 +21,7 @@ public class Welcome extends BasePage {
         click(PRIMARY_BUTTON);
     }
 
-    public <T> T continueToNextStep(Class<T> tClass) {
+    public <T extends Page> T continueToNextStep(Class<T> tClass) {
         continueToNextStep();
         return createComponent(tClass);
     }

@@ -8,6 +8,12 @@ public class CrossDeviceIntro extends BasePage {
         super(driver);
     }
 
+    public CrossDeviceLink getSecureLink() {
+        click(By.cssSelector("[data-onfido-qa=\"cross-device-continue-btn\"]"));
+
+        return new CrossDeviceLink(driver);
+    }
+
     @Override
     protected By pageId() {
         return pageIdSelector("CrossDeviceIntro");
