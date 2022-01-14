@@ -2,7 +2,7 @@ package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.websdk.PoADocumentType;
 import com.onfido.qa.websdk.page.Complete;
-import com.onfido.qa.websdk.page.PoADocumentSelection.Option;
+import com.onfido.qa.websdk.model.Option;
 import com.onfido.qa.websdk.page.PoAIntro;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
