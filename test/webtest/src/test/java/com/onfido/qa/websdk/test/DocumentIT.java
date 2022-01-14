@@ -3,7 +3,9 @@ package com.onfido.qa.websdk.test;
 import com.onfido.qa.annotation.Browser;
 import com.onfido.qa.annotation.Mobile;
 import com.onfido.qa.websdk.DocumentType;
+import com.onfido.qa.websdk.PoADocumentType;
 import com.onfido.qa.websdk.UploadDocument;
+import com.onfido.qa.websdk.model.Option;
 import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.page.ConfirmUpload;
 import com.onfido.qa.websdk.page.CountrySelector;
@@ -19,15 +21,22 @@ import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.EnterpriseFeatures;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import com.onfido.qa.websdk.sdk.Raw;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.awt.*;
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.Map;
 
 import static com.google.common.truth.Truth.assertThat;
 import static com.onfido.qa.websdk.DocumentType.DRIVING_LICENCE;
 import static com.onfido.qa.websdk.DocumentType.IDENTITY_CARD;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.DocumentType.RESIDENT_PERMIT;
+import static com.onfido.qa.websdk.PoADocumentType.BANK_BUILDING_SOCIETY_STATEMENT;
+import static com.onfido.qa.websdk.PoADocumentType.BENEFIT_LETTERS;
+import static com.onfido.qa.websdk.PoADocumentType.COUNCIL_TAX;
+import static com.onfido.qa.websdk.PoADocumentType.UTILITY_BILL;
 import static com.onfido.qa.websdk.UploadDocument.BACK_DRIVING_LICENCE_JPG;
 import static com.onfido.qa.websdk.UploadDocument.BACK_NATIONAL_IDENTITY_CARD_JPG;
 import static com.onfido.qa.websdk.UploadDocument.FACE;
@@ -333,6 +342,28 @@ public class DocumentIT extends WebSdkIT {
                 .clickConfirmButton(null);
 
         // TODO: this test seem to have detected a real bug, the glare message stays, even if we uploaded a non glare image in the 2nd try
+    }
+
+    @Test(description = "should verify UI elements on the document selection screen", groups = ("percy"))
+    public void testShouldVerifyUiElementsOnTheDocumentSelectionScreen() {
+
+        var documentSelector = onfido().withSteps("document").init(IdDocumentSelector.class);
+
+
+        Map<DocumentType, Option> expectedOptions = new EnumMap<>(DocumentType.class);
+
+        expectedOptions.put(PASSPORT, new Option(copy.get("doc_select.button_passport"), copy.get("doc_select.button_passport_detail"), null, false));
+        expectedOptions.put(DRIVING_LICENCE, new Option(copy.get("doc_select.button_license"), copy.get("doc_select.button_license_detail"), null, false));
+        expectedOptions.put(IDENTITY_CARD, new Option(copy.get("doc_select.button_id"), copy.get("doc_select.button_id_detail"), null, false));
+        expectedOptions.put(RESIDENT_PERMIT, new Option(copy.get("doc_select.button_permit"), copy.get("doc_select.button_permit_detail"), null, false));
+
+
+        for (DocumentType documentType : DocumentType.values()) {
+            var option = documentSelector.getOption(documentType);
+            assertThat(option).isEqualTo(expectedOptions.get(documentType));
+
+        }
+
     }
 
 }
