@@ -1,8 +1,13 @@
 package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.websdk.PoADocumentType;
-import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.model.Option;
+import com.onfido.qa.websdk.page.Complete;
+import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
+import com.onfido.qa.websdk.page.CrossDeviceClientSuccess;
+import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
+import com.onfido.qa.websdk.page.CrossDeviceSubmit;
+import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.PoAIntro;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
@@ -12,13 +17,15 @@ import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.PoADocumentType.BANK_BUILDING_SOCIETY_STATEMENT;
 import static com.onfido.qa.websdk.PoADocumentType.BENEFIT_LETTERS;
 import static com.onfido.qa.websdk.PoADocumentType.COUNCIL_TAX;
 import static com.onfido.qa.websdk.PoADocumentType.UTILITY_BILL;
 import static com.onfido.qa.websdk.PoADocumentType.values;
 import static com.onfido.qa.websdk.UploadDocument.NATIONAL_IDENTITY_CARD_PDF;
+import static com.onfido.qa.websdk.UploadDocument.PASSPORT_JPG;
+import static com.onfido.qa.websdk.UploadDocument.UK_DRIVING_LICENCE_PNG;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SuppressWarnings("StaticCollection")
 public class ProofOfAddressIT extends WebSdkIT {
@@ -88,7 +95,52 @@ public class ProofOfAddressIT extends WebSdkIT {
         // TODO: why do the original tests now continue with the document upload?
     }
 
+    @Test(description = "should skip country selection screen with a preselected driver's license document type on PoA flow", groups = {"percy"})
+    public void testShouldSkipCountrySelectionScreenWithAPreselectedDriverSLicenseDocumentTypeOnPoAFlow() {
 
+        // TODO: stefania, the original test deeplinked ?poa=true&oneDoc=driving_licence, but poa comes before the document step, so the test description
+        // doesn't match what the test is testing
+
+        var upload = onfido().withSteps("poa").init(PoAIntro.class)
+                             .startVerification()
+                             .select(COUNCIL_TAX)
+                             .clickContinue();
+
+        takePercySnapshot("ProofOfAddress-SubmitLetter");
+
+        upload.upload(UK_DRIVING_LICENCE_PNG);
+
+    }
+
+    @Test(description = "should successfully complete cross device e2e flow with PoA document and selfie upload", groups = {"percy"})
+    public void testShouldSuccessfullyCompleteCrossDeviceE2EFFlowWithPoADDocumentAndSelfieUpload() {
+
+        // TODO: ask, why useUploader=true is used, which only has an effect on the face step
+
+        var crossDeviceLink = onfido().withSteps("poa", "complete").init(PoAIntro.class)
+                                      .startVerification()
+                                      .select(BANK_BUILDING_SOCIETY_STATEMENT)
+                                      .clickContinue().switchToCrossDevice()
+                                      .getSecureLink();
+
+        assertThat(crossDeviceLink.isQrCodeIsDisplayed()).isTrue();
+
+        openMobileScreen(crossDeviceLink.copyLink());
+
+        var intro = verifyPage(CrossDeviceClientIntro.class);
+
+        switchToMainScreen();
+        verifyPage(CrossDeviceMobileConnected.class);
+
+        switchToMobileScreen();
+        intro.clickContinue(DocumentUpload.class)
+             .upload(PASSPORT_JPG)
+             .clickConfirmButton(CrossDeviceClientSuccess.class);
+
+        switchToMainScreen();
+        verifyPage(CrossDeviceSubmit.class).submitVerification(Complete.class);
+
+    }
 
 
 }
