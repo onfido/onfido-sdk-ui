@@ -34,8 +34,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-import static com.google.common.truth.Truth.assertThat;
-import static com.google.common.truth.Truth.assertWithMessage;
+import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.DocumentType.DRIVING_LICENCE;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.sdk.FaceStep.Variant.VIDEO;
@@ -84,7 +83,7 @@ public class AccessibilityIT extends WebSdkIT {
         var violations = (ArrayNode) report.get("violations");
 
         //noinspection HardcodedLineSeparator
-        assertWithMessage("Found violations with axe\n\n" + result).that(violations).isEmpty();
+        assertThat(violations).withFailMessage(("Found violations with axe\n\n" + result)).isEmpty();
 
     }
 

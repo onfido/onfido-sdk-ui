@@ -2,8 +2,10 @@ package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.common.Page;
+import com.onfido.qa.websdk.util.ByUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +15,7 @@ public abstract class BasePage extends Page {
 
     private static final By SPINNER = By.cssSelector(".onfido-sdk-ui-Spinner-loader");
     private static final By CLOSE_MODAL = By.cssSelector(".onfido-sdk-ui-Modal-closeButton");
+    public static final By BACK_ARROW = By.cssSelector(".onfido-sdk-ui-NavigationBar-iconBack");
 
     protected BasePage(Driver driver) {
         super(driver);
@@ -65,11 +68,16 @@ public abstract class BasePage extends Page {
     }
 
     public <T extends Page> T back(Class<T> next) {
-        click(By.cssSelector(".onfido-sdk-ui-NavigationBar-iconBack"));
+        click(BACK_ARROW);
         return createComponent(next);
     }
 
-    protected By pageIdSelector(String pageId) {
-        return By.cssSelector("[data-page-id='" + pageId + "']");
+    public WebElement backArrow() {
+        return driver.findElement(BACK_ARROW);
     }
+
+    protected By pageIdSelector(String pageId) {
+        return ByUtil.pageId(pageId);
+    }
+
 }

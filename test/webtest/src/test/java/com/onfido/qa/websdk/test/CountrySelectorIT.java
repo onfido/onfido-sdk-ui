@@ -11,7 +11,7 @@ import com.onfido.qa.websdk.sdk.DocumentStep.Option;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static com.google.common.truth.Truth.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.DocumentType.DRIVING_LICENCE;
 import static com.onfido.qa.websdk.DocumentType.IDENTITY_CARD;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
