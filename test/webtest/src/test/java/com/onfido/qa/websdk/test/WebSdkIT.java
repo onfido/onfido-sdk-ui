@@ -29,11 +29,13 @@ import java.util.Arrays;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-import static com.google.common.truth.Truth.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Listeners({ScreenshotListener.class, BrowserStackListener.class})
 @Browser(acceptInsureCertificates = true)
 public abstract class WebSdkIT extends WebTest {
+
+    public static final String WITHOUT_VIDEO_CSS = "video.onfido-sdk-ui-Camera-video { display: none; }";
 
     private static final int MIN = 500;
     private static final int SLEEP_BEFORE_SNAPSHOT = 250;
@@ -171,6 +173,10 @@ public abstract class WebSdkIT extends WebTest {
         }
 
         percy.get().snapshot(String.format("%s-%s", name, language), Arrays.asList(MIN), null, false, css);
+    }
+
+    protected void takePercySnapshotWithoutVideo(String name) {
+        takePercySnapshot(name, WITHOUT_VIDEO_CSS);
     }
 
     protected <T extends Page> T verifyPage(Class<T> page) {

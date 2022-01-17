@@ -15,7 +15,7 @@ import com.onfido.qa.websdk.sdk.Raw;
 import com.onfido.qa.websdk.sdk.WebSdk;
 import org.testng.annotations.Test;
 
-import static com.google.common.truth.Truth.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.model.CrossDeviceLinkMethod.COPY_LINK;
 import static com.onfido.qa.websdk.model.CrossDeviceLinkMethod.QR_CODE;

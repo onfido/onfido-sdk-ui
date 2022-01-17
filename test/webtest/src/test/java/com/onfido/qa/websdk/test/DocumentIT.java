@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 
-import static com.google.common.truth.Truth.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.DocumentType.DRIVING_LICENCE;
 import static com.onfido.qa.websdk.DocumentType.IDENTITY_CARD;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;

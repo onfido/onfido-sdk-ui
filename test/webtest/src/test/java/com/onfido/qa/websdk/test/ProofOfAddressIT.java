@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 
-import static com.google.common.truth.Truth.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.PoADocumentType.BANK_BUILDING_SOCIETY_STATEMENT;
 import static com.onfido.qa.websdk.PoADocumentType.BENEFIT_LETTERS;
 import static com.onfido.qa.websdk.PoADocumentType.COUNCIL_TAX;
