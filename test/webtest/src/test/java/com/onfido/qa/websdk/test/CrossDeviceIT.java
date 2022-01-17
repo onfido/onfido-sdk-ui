@@ -8,6 +8,8 @@ import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
 import com.onfido.qa.websdk.page.CrossDeviceSubmit;
 import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
+import com.onfido.qa.websdk.page.ImageQualityGuide;
+import com.onfido.qa.websdk.page.SelfieUpload;
 import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.FaceStep;
@@ -15,11 +17,11 @@ import com.onfido.qa.websdk.sdk.Raw;
 import com.onfido.qa.websdk.sdk.WebSdk;
 import org.testng.annotations.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.model.CrossDeviceLinkMethod.COPY_LINK;
 import static com.onfido.qa.websdk.model.CrossDeviceLinkMethod.QR_CODE;
 import static com.onfido.qa.websdk.model.CrossDeviceLinkMethod.SMS;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CrossDeviceIT extends WebSdkIT {
 
@@ -165,7 +167,9 @@ public class CrossDeviceIT extends WebSdkIT {
         takePercySnapshot("CrossDeviceMobileConnected");
 
         switchToMobileScreen();
-        verifyPage(DocumentUpload.class).upload(UploadDocument.FACE).clickConfirmButton(null);
+        verifyPage(CrossDeviceClientIntro.class).clickContinue(DocumentUpload.class)
+                                                .clickUploadButton(ImageQualityGuide.class)
+                                                .upload(UploadDocument.FACE).clickConfirmButton(null);
 
         switchToMainScreen();
         takePercySnapshot("CrossDeviceSubmit");
