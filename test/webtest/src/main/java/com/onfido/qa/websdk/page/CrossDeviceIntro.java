@@ -14,6 +14,7 @@ public class CrossDeviceIntro extends BasePage {
         return new CrossDeviceLink(driver);
     }
 
+
     @Override
     protected By pageId() {
         return pageIdSelector("CrossDeviceIntro");

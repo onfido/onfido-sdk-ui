@@ -8,6 +8,7 @@ import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.webdriver.driver.ExpectedConditions;
 import com.onfido.qa.websdk.Property;
 import com.onfido.qa.websdk.api.ApiClient;
+import com.onfido.qa.websdk.model.CrossDeviceLinkMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,6 +58,31 @@ public class WebSdk {
 
     public WebSdk beforeInit(Runnable run) {
         beforeInit.add(run);
+        return this;
+    }
+
+    public WebSdk withCrossDeviceLinkMethods(CrossDeviceLinkMethod... methods) {
+        put("_crossDeviceLinkMethods", Arrays.asList(methods));
+        return this;
+    }
+
+    public WebSdk withCrossDeviceLinkMethods(String... methods) {
+        put("_crossDeviceLinkMethods", Arrays.asList(methods));
+        return this;
+    }
+
+    public WebSdk withCrossDeviceClientIntroProductName(String productName) {
+        put("crossDeviceClientIntroProductName", productName);
+        return this;
+    }
+
+    public WebSdk withCrossDeviceClientIntroProductLogoSrc(String url) {
+        put("crossDeviceClientIntroProductLogoSrc", url);
+        return this;
+    }
+
+    public WebSdk withOnComplete(Raw raw) {
+        put("onComplete", raw);
         return this;
     }
 
