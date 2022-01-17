@@ -1,6 +1,7 @@
 package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
+import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.util.ByUtil;
 import org.openqa.selenium.By;
 
@@ -23,5 +24,10 @@ public class CrossDeviceSubmit extends BasePage{
 
     public void submitVerification() {
         click(SUBMIT);
+    }
+
+    public <T extends Page> T submitVerification(Class<T> next) {
+        click(SUBMIT);
+        return createComponent(next);
     }
 }

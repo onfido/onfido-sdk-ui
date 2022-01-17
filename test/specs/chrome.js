@@ -7,7 +7,6 @@ import { faceScenarios } from './scenarios/face'
 import { crossDeviceScenarios } from './scenarios/crossDevice'
 import { crossDeviceDocumentVideoCaptureScenarios } from './scenarios/crossDeviceDocumentVideoCapture'
 import { navigationScenarios } from './scenarios/navigation'
-import { proofOfAddressScenarios } from './scenarios/proofOfAddress'
 import { hostAppHistoryScenarios } from './scenarios/hostAppHistory'
 import { accessibilityScenarios } from './scenarios/accessibility'
 
@@ -24,7 +23,6 @@ describe('Happy Paths on Chrome', () => {
   partialTestCoverageLanguages.forEach((lang) => {
   })
   // PoA is only available in en
-  proofOfAddressScenarios()
   accessibilityScenarios()
   hostAppHistoryScenarios()
 })
