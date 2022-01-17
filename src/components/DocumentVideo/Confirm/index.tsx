@@ -195,6 +195,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
 
   return (
     <ScreenLayout
+      pageId={'DocumentVideoConfirm'}
       actions={buttons}
       className={classNames(style.container, {
         [style.center]: !error && !previewing,
