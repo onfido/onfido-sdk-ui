@@ -50,7 +50,7 @@ public class ProofOfAddressIT extends WebSdkIT {
         expectedTitle.put(BANK_BUILDING_SOCIETY_STATEMENT, "doc_submit.title_bank_statement");
         expectedTitle.put(UTILITY_BILL, "doc_submit.title_bill");
         expectedTitle.put(COUNCIL_TAX, "doc_submit.title_tax_letter");
-        expectedTitle.put(BENEFIT_LETTERS, "doc_submit.title_government_letter");
+        expectedTitle.put(BENEFIT_LETTERS, "doc_submit.title_benefits_letter");
 
     }
 

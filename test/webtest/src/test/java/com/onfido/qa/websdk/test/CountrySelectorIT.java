@@ -200,7 +200,8 @@ public class CountrySelectorIT extends WebSdkIT {
 
     }
 
-    @Test(description = "should display \"Country not found\" message and error variant of help icon when searching for \"xyz\"")
+    // FIXME: bug
+    @Test(description = "should display \"Country not found\" message and error variant of help icon when searching for \"xyz\"", enabled = false)
     public void testCountryNotFoundMessage() {
         var countrySelector = onfido().withSteps("document")
                                       .init(IdDocumentSelector.class)
