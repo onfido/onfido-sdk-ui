@@ -2,20 +2,18 @@ package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.common.Page;
-import com.onfido.qa.websdk.DocumentType;
 import com.onfido.qa.websdk.IDocumentType;
-import com.onfido.qa.websdk.PoADocumentType;
 import com.onfido.qa.websdk.model.Option;
 import com.onfido.qa.websdk.util.ByUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public abstract class DocumentSelectorBase<D extends IDocumentType> extends BasePage {
+public abstract class DocumentSelectorBase extends BasePage {
     protected DocumentSelectorBase(Driver driver) {
         super(driver);
     }
 
-    public Option getOption(D documentType) {
+    protected Option _getOption(IDocumentType documentType) {
 
         var element = driver.findElement(ByUtil.onfidoQa(documentType.canonicalName()));
 

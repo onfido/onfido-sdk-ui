@@ -13,6 +13,7 @@ import com.onfido.qa.websdk.Property;
 import com.onfido.qa.websdk.sdk.WebSdk;
 import io.percy.selenium.Percy;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +45,8 @@ public abstract class WebSdkIT extends WebTest {
     protected final String language;
     protected final Copy copy;
     private static final ThreadLocal<Percy> percy = new ThreadLocal<>();
+    private String mainScreenHandle;
+    private String mobileScreenHandle;
 
     protected WebSdkIT() {
         this(defaultLanguage());
@@ -185,5 +188,23 @@ public abstract class WebSdkIT extends WebTest {
 
     protected void disableMediaRecorder() {
         driver().executeScript("delete window.MediaRecorder");
+    }
+
+    protected void switchToMobileScreen() {
+        driver().switchTo().window(mobileScreenHandle);
+    }
+
+    protected void switchToMainScreen() {
+        driver().switchTo().window(mainScreenHandle);
+    }
+
+    protected void openMobileScreen(String url) {
+
+        var driver = driver().driver;
+        mainScreenHandle = driver.getWindowHandle();
+
+        driver.switchTo().newWindow(WindowType.TAB);
+        mobileScreenHandle = driver.getWindowHandle();
+        driver().get(url);
     }
 }

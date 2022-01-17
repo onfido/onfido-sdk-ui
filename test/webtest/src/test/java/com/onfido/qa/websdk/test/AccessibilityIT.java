@@ -18,14 +18,12 @@ import com.onfido.qa.websdk.page.FaceVideo;
 import com.onfido.qa.websdk.page.FaceVideoIntro;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.ImageQualityGuide;
-import com.onfido.qa.websdk.page.Modal;
 import com.onfido.qa.websdk.page.PoAIntro;
 import com.onfido.qa.websdk.page.SelfieCamera;
 import com.onfido.qa.websdk.page.SelfieIntro;
 import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -40,7 +38,6 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
 import static com.onfido.qa.websdk.DocumentType.DRIVING_LICENCE;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
-import static com.onfido.qa.websdk.page.CountrySelector.SUPPORTED_COUNTRY;
 import static com.onfido.qa.websdk.sdk.FaceStep.Variant.VIDEO;
 
 // TODO: add tests for all pages. e.g. run the report from other tests or add tests here. Same as with percy
@@ -156,27 +153,21 @@ public class AccessibilityIT extends WebSdkIT {
         // TODO: would be good to test it on a real device without the useUploader=true option
 
         var link = onfido().withSteps(new FaceStep().withUseUploader(true))
-                        .init(DocumentUpload.class)
-                        .continueOnPhone()
-                        .getSecureLink()
-                        .copyLink();
+                           .init(DocumentUpload.class)
+                           .continueOnPhone()
+                           .getSecureLink()
+                           .copyLink();
 
-        var driver = driver().driver;
-        var mainScreen = driver.getWindowHandle();
-
-        driver.switchTo().newWindow(WindowType.TAB);
-        var mobileScreen = driver.getWindowHandle();
+        openMobileScreen(link);
         driver().get(link);
 
-        driver.switchTo().window(mainScreen);
+        switchToMainScreen();
         verifyPage(CrossDeviceMobileConnected.class);
 
-        driver.switchTo().window(mobileScreen);
-
+        switchToMobileScreen();
         verifyPage(DocumentUpload.class).upload(UploadDocument.FACE).clickConfirmButton(null);
 
-        driver.switchTo().window(mainScreen);
-
+        switchToMainScreen();
         verifyPage(CrossDeviceSubmit.class);
 
         verifyAxeReport();
@@ -235,8 +226,8 @@ public class AccessibilityIT extends WebSdkIT {
     @Browser(enableMicrophoneCameraAccess = true)
     public void testShouldVerifyAccessibilityForTheSelfieConfirmationScreen() {
         var selfieCamera = onfido().withSteps("face")
-                           .init(SelfieIntro.class)
-                           .clickContinue(SelfieCamera.class);
+                                   .init(SelfieIntro.class)
+                                   .clickContinue(SelfieCamera.class);
 
         verifyAxeReport();
 
@@ -271,10 +262,10 @@ public class AccessibilityIT extends WebSdkIT {
     @Browser(enableMicrophoneCameraAccess = true)
     public void testShouldVerifyAccessibilityForFaceVideoRecordingAndFaceVideoConfirmationScreens() {
         var camera = onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
-                                .beforeInit(this::provideVideoDevice)
-                                .init(FaceVideoIntro.class)
-                                .recordVideo()
-                                .clickEnableCamera(FaceVideo.class);
+                             .beforeInit(this::provideVideoDevice)
+                             .init(FaceVideoIntro.class)
+                             .recordVideo()
+                             .clickEnableCamera(FaceVideo.class);
 
         verifyAxeReport();
 
