@@ -99,7 +99,7 @@ public class DocumentIT extends WebSdkIT {
         var confirm = capture.takePhoto();
         takePercySnapshot("document-confirm-passport useLiveDocumentCapture=true");
 
-        confirm.clickConfirmButton(Complete.class);
+        confirm.clickConfirmButton(null);
 
     }
 

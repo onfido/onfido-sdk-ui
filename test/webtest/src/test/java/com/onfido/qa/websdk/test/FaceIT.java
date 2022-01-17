@@ -59,7 +59,7 @@ public class FaceIT extends WebSdkIT {
 
         onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
                 .beforeInit(this::disableMediaRecorder)
-                .init(SelfieIntro.class);
+                .init(CrossDeviceIntro.class);
     }
 
     @Test(description = "should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested")
@@ -210,7 +210,7 @@ public class FaceIT extends WebSdkIT {
                                                          .withOnSubmitSelfie(decoupleResponse)
                                                          .withOnSubmitVideo(decoupleResponse);
 
-        onfido().withSteps(new FaceStep(), "confirm")
+        onfido().withSteps(new FaceStep(), "complete")
                 .withEnterpriseFeatures(enterpriseFeatures)
                 .init(SelfieIntro.class)
                 .clickContinue(SelfieCamera.class)
@@ -231,7 +231,7 @@ public class FaceIT extends WebSdkIT {
                                                          .withOnSubmitSelfie(successResponse)
                                                          .withOnSubmitVideo(successResponse);
 
-        onfido().withSteps(new FaceStep(), "confirm")
+        onfido().withSteps(new FaceStep(), "complete")
                 .withEnterpriseFeatures(enterpriseFeatures)
                 .init(SelfieIntro.class)
                 .clickContinue(SelfieCamera.class)
