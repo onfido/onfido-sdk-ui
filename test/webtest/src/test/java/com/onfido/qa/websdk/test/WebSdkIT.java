@@ -93,6 +93,7 @@ public abstract class WebSdkIT extends WebTest {
         capabilities.setCapability("browserstack.debug", "true");
         capabilities.setCapability("browserstack.console", "warnings");
         capabilities.setCapability("browserstack.networkLogs", "true");
+        capabilities.setCapability("browserstack.wsLocalSupport", "true");
 
         capabilities.setCapability("project", "web-sdk");
         capabilities.setCapability("build", System.getenv("BUILD"));
@@ -109,6 +110,7 @@ public abstract class WebSdkIT extends WebTest {
     public void beforeMethod() {
         percy.set(new Percy(driver()));
 
+        driver().waitFor.timeout(2);
         driver().driver.manage().window().setPosition(new Point(0, 0));
         driver().maximize();
     }
