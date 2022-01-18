@@ -7,19 +7,19 @@ const STEPS_BY_FLOW: Record<CaptureFlows, CaptureSteps[]> = {
   paperId: ['intro', 'front', 'back'],
 }
 
-export type MultiFrameCaptureStepActions =
+export type VideoCaptureStepActions =
   | 'showButton'
   | 'hideButton'
   | 'holdStill'
   | 'success'
   | 'submit'
 
-export type MultiFrameCaptureSteps = 'intro' | 'front' | 'back'
+export type VideoCaptureSteps = 'intro' | 'front' | 'back'
 
 const useVideoCaptureStep = (
   captureFlow: 'passport' | 'cardId' | 'paperId'
 ) => {
-  return useCaptureStep<MultiFrameCaptureSteps, MultiFrameCaptureStepActions>(
+  return useCaptureStep<VideoCaptureSteps, VideoCaptureStepActions>(
     STEPS_BY_FLOW[captureFlow],
     () => {
       if (captureFlow === 'passport') {
