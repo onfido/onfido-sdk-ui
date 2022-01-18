@@ -70,7 +70,7 @@ const SdkDemo: FunctionComponent<Props> = ({
       setToken(queryParamToValueString.token)
       setApplicantId(queryParamToValueString.applicantId)
     } else {
-     getToken(
+      getToken(
         hasPreview,
         url,
         applicantData,
@@ -110,7 +110,7 @@ const SdkDemo: FunctionComponent<Props> = ({
     onModalRequestClose: () => setIsModalOpen(false),
     applicantId,
     workflowRunId: queryParamToValueString.workflowRunId,
-   // onCustomTask,
+    // onCustomTask,
     ...(sdkOptions || {}),
   }
 
@@ -129,7 +129,12 @@ const SdkDemo: FunctionComponent<Props> = ({
       )}
       {token && queryParamToValueString.createCheck && applicantForm}
       {token && regionCode && tokenUrl && (
-        <SdkMount options={options} regionCode={regionCode} url={tokenUrl} workflow={!!workflowRunId}/>
+        <SdkMount
+          options={options}
+          regionCode={regionCode}
+          url={tokenUrl}
+          workflow={!!workflowRunId}
+        />
       )}
     </div>
   )

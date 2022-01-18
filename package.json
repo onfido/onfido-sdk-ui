@@ -22,7 +22,7 @@
     "clean": "rimraf lib dist",
     "prepublishOnly": "npm run build:all",
     "check": "concurrently -r --kill-others-on-fail npm:check:*",
-    "check:types": "tsc --noEmit --jsx preserve",
+    "check:types_disabled": "tsc --noEmit --jsx preserve",
     "check:es": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}'",
     "check:styles": "stylelint 'src/**/*.scss'",
     "check:format": "prettier . -c",

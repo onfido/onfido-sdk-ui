@@ -8,7 +8,11 @@ import {
 } from 'history'
 
 import { buildStepFinder, findFirstIndex } from '~utils/steps'
-import { getWorkflow, completeWorkflow, getWorkflowServiceUrl } from '~utils/onfidoApi'
+import {
+  getWorkflow,
+  completeWorkflow,
+  getWorkflowServiceUrl,
+} from '~utils/onfidoApi'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import Error from '../Error'
@@ -352,7 +356,6 @@ export default class WorkflowHistoryRouter extends Component<
       )
     })
   }
-
 
   triggerOnComplete = (): void => {
     const { captures } = this.props

@@ -190,8 +190,8 @@ export type WorkflowResponse = {
   task_id: string
   task_def_id: string
   config: {
-    [name: string]: unknown;
-  } | null;
+    [name: string]: unknown
+  } | null
   finished: boolean
   outcome: boolean | null
   error: string | null
