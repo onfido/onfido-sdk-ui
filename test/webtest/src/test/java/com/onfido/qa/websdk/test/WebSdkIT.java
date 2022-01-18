@@ -110,7 +110,7 @@ public abstract class WebSdkIT extends WebTest {
     public void beforeMethod() {
         percy.set(new Percy(driver()));
 
-        driver().waitFor.timeout(2);
+        driver().waitFor.timeout(5);
         driver().driver.manage().window().setPosition(new Point(0, 0));
         driver().maximize();
     }
