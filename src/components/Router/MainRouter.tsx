@@ -35,7 +35,6 @@ type State = {
 export default class MainRouter extends Component<InternalRouterProps, State> {
   useWorkflowFun = (): boolean => {
     const { useWorkflow } = this.props.options
-    console.log(' this is the final workflow', !!useWorkflow)
     return !!useWorkflow
   }
 
@@ -61,9 +60,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       crossDeviceClientIntroProductLogoSrc,
       useWorkflow,
     } = options
-    console.log('inside the main router', options)
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
-    console.log('inside the main router useWorkflow', useWorkflow)
     if (!steps) {
       throw new Error('steps not provided')
     }

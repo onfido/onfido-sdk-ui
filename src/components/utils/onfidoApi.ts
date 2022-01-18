@@ -19,7 +19,12 @@ import type {
   ErrorCallback,
   WorkflowResponse,
 } from '~types/api'
-import type { DocumentSides, SdkMetadata, FilePayload, UrlsConfig } from '~types/commons'
+import type {
+  DocumentSides,
+  SdkMetadata,
+  FilePayload,
+  UrlsConfig,
+} from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
 import type { LegacyTrackedEventNames } from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
@@ -391,7 +396,6 @@ export const getWorkflow = (
   workflowRunId: string,
   applicantId: string
 ): Promise<WorkflowResponse> => {
-
   return new Promise((resolve, reject) => {
     try {
       const requestParams: HttpRequestParams = {
@@ -457,12 +461,10 @@ export const completeWorkflow = (
   })
 }
 
-
 export const getWorkflowServiceUrl = (
   urls: UrlsConfig,
-  isMfe: boolean,
-):string => {
-
+  isMfe: boolean
+): string => {
   let workflowServiceUrl = `${urls.onfido_api_url}/v4` // this will be used in MFE mode always, and need v4 added
 
   const standaloneWorkflowServiceUrls = {
@@ -478,5 +480,4 @@ export const getWorkflowServiceUrl = (
   }
 
   return workflowServiceUrl
-
 }

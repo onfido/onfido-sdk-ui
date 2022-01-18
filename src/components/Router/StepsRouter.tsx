@@ -103,7 +103,11 @@ class StepsRouter extends Component<StepsRouterProps> {
           >
             {isLoadingStep ? (
               <div>
-                <Spinner captionKey={`workflow.background_task_progress.${backgroundTask || "default"}`}/>
+                <Spinner
+                  captionKey={`workflow.background_task_progress.${
+                    backgroundTask || 'default'
+                  }`}
+                />
               </div>
             ) : (
               <CurrentComponent {...passedProps} />
