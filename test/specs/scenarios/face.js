@@ -219,6 +219,5 @@ export const faceScenarios = (lang) => {
         `Verify Verification complete screen has co-brand logo ${lang}`
       )
     })
-
   })
 }

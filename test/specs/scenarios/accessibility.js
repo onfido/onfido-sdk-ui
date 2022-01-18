@@ -64,7 +64,6 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         )
         runAccessibilityTest(driver)
       })
-
     }
   )
 }

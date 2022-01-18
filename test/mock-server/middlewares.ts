@@ -11,9 +11,7 @@ export const loggerMiddleware: Middleware = async (context, next) => {
     `[REQUEST] ${context.request.method} ${context.request.url} - ${ms}ms`,
     `Pathname: ${context.request.url.pathname}`
   )
-  console.log(
-    `[RESPONSE] ${context.response.status}`
-  )
+  console.log(`[RESPONSE] ${context.response.status}`)
   console.groupEnd()
 }
 

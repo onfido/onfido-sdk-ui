@@ -28,7 +28,8 @@ const CrossDeviceClientIntro: FunctionComponent<Props> = ({
     ? [defaultSubtitle, crossDeviceClientIntroProductName].join(' ')
     : defaultSubtitle
   return (
-    <ScreenLayout pageId={'CrossDeviceClientIntro'}
+    <ScreenLayout
+      pageId={'CrossDeviceClientIntro'}
       actions={
         <Button
           type="button"
