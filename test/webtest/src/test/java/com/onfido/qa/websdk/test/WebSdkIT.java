@@ -191,7 +191,7 @@ public abstract class WebSdkIT extends WebTest {
 
     protected void provideVideoDevice() {
         // TODO: check, if this is needed. The browsers itself have video
-        driver().executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: \"video\" }])");
+        driver().executeScript("window.navigator.mediaDevices =  window.navigator.mediaDevices || {}; window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: \"video\" }])");
     }
 
     protected void disableMediaRecorder() {
