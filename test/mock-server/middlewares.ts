@@ -6,13 +6,10 @@ export const loggerMiddleware: Middleware = async (context, next) => {
   const ms = Date.now() - start
 
   // Serve API requests
-  console.group('\n----------')
   console.log(
-    `[REQUEST] ${context.request.method} ${context.request.url} - ${ms}ms`,
+    `${context.response.status} - ${context.request.method} ${context.request.url} - ${ms}ms`,
     `Pathname: ${context.request.url.pathname}`
   )
-  console.log(`[RESPONSE] ${context.response.status}`)
-  console.groupEnd()
 }
 
 export const frontendMiddleware: Middleware = async (context) => {
