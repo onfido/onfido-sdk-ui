@@ -9,12 +9,13 @@ import com.onfido.qa.websdk.page.CrossDeviceSubmit;
 import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.ImageQualityGuide;
-import com.onfido.qa.websdk.page.SelfieUpload;
+import com.onfido.qa.websdk.page.MobileNotificationSent;
 import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import com.onfido.qa.websdk.sdk.Raw;
 import com.onfido.qa.websdk.sdk.WebSdk;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
@@ -145,13 +146,60 @@ public class CrossDeviceIT extends WebSdkIT {
     @Test(description = "should display error when mobile number is wrong")
     public void testShouldDisplayErrorWhenMobileNumberIsWrong() {
 
-        var crossDeviceLink = gotoCrossDeviceScreen();
-        crossDeviceLink.clickSmsOption();
-        crossDeviceLink.typeSmsNumber("123456789");
-        crossDeviceLink.clickSendSms();
+        var crossDeviceLink = gotoCrossDeviceScreen()
+                .clickSmsOption()
+                .typeSmsNumber("123456789")
+                .clickSendSms();
 
         assertThat(crossDeviceLink.isPhoneNumberErrorShown()).isTrue();
 
+    }
+
+    @Test(description = "should display error when mobile number is possible but not a valid mobile number")
+    public void testShouldDisplayErrorWhenMobileNumberIsPossibleButNotAValidMobileNumber() {
+        var crossDeviceLink = gotoCrossDeviceScreen()
+                .clickSmsOption()
+                .selectCountry("HK")
+                .typeSmsNumber("99999999")
+                .clickSendSms();
+
+        assertThat(crossDeviceLink.isPhoneNumberErrorShown()).isTrue();
+    }
+
+    @Test(description = "should send sms and navigate to \"Check your mobile\" screen ")
+    public void testShouldSendSmsAndNavigateToCheckYourMobileScreen() {
+
+        gotoCrossDeviceScreen()
+                .clickSmsOption()
+                .typeSmsNumber(properties().getProperty("testDevicePhoneNumber"))
+                .clickSendSms();
+
+        driver().waitFor(ExpectedConditions.alertIsPresent());
+        driver().switchTo().alert().accept();
+
+        verifyPage(MobileNotificationSent.class);
+    }
+
+    @Test(description = "should be able to resend sms")
+    public void testShouldBeAbleToResendSms() {
+
+        gotoCrossDeviceScreen()
+                .clickSmsOption()
+                .typeSmsNumber(properties().getProperty("testDevicePhoneNumber"))
+                .clickSendSms();
+
+        driver().waitFor(ExpectedConditions.alertIsPresent());
+        driver().switchTo().alert().accept();
+
+        verifyPage(MobileNotificationSent.class)
+                .clickResentLink()
+                .clickSmsOption()
+                .clickSendSms();
+
+        driver().waitFor(ExpectedConditions.alertIsPresent());
+        driver().switchTo().alert().accept();
+
+        verifyPage(MobileNotificationSent.class);
     }
 
     @Test(description = "should verify UI elements on cross device mobile client intro screen", groups = {"percy"})
