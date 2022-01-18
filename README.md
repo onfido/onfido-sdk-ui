@@ -705,10 +705,15 @@ The custom options are:
 
   Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
 
-- `uploadFallback` (boolean - default: `true`)
-  Only available when `useLiveDocumentCapture` is enabled.
+- `useMultiFrameCapture` (boolean - default: `false`)
+  **This BETA feature is only available on mobile devices.**
 
-  When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo.
+  When set to `true`, the live capture is enabled and additional video will be recorded with the photo. Configuring this option reduces the percentage of documents rejection for poor image quality.
+
+- `uploadFallback` (boolean - default: `true`)
+  Only available when `useLiveDocumentCapture` or `useMultiFrameCapture` is enabled.
+
+  When `useLiveDocumentCapture` or `useMultiFrameCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo.
 
   This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
 
