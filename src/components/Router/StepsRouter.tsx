@@ -107,6 +107,7 @@ class StepsRouter extends Component<StepsRouterProps> {
                   captionKey={`workflow.background_task_progress.${
                     backgroundTask || 'default'
                   }`}
+                  captionParam={backgroundTask}
                 />
               </div>
             ) : (

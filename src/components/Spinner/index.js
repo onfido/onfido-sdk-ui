@@ -11,7 +11,10 @@ class Spinner extends Component {
 
   render = ({ translate }) => (
     <div>
-      {this.props.captionKey && translate(this.props.captionKey)}
+      {this.props.captionKey &&
+        translate(this.props.captionKey, {
+          param: this.props.captionParam ? this.props.captionParam : '',
+        })}
       <div
         className={style.loader}
         aria-live="assertive"
