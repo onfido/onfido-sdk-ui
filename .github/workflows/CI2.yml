@@ -50,9 +50,10 @@ jobs:
       # - name: Run unit tests
       #  run: npm run test:unit
 
-      # FIXME: run the integration tests
-      #      - name: Run integration tests
-      #        run: npm run test:integration
+      - name: Run integration tests
+        run: npm run test:integration
+        env:
+          SDK_TOKEN_FACTORY_SECRET: ${{ secrets.SDK_TOKEN_FACTORY_SECRET }}
 
       # TODO: we're building the whole sdk again with NODE_ENV=test, just because some properties e.g. MOBILE_URL are different.
       # We could skip this if this option can be passed as option while bootstrapping
