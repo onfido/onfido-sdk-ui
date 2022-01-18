@@ -135,6 +135,8 @@
                             <value>${threadCount}</value>
                         </property>
                     </properties>
+                    <useFile>false</useFile>
+                    <trimStackTrace>false</trimStackTrace>
                     <disableXmlReport>false</disableXmlReport>
                     <reportsDirectory>target/surefire-reports</reportsDirectory>
                     <parallel>methods</parallel>
