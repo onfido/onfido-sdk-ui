@@ -8,6 +8,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.X509TrustManager;
@@ -44,10 +45,8 @@ public class ApiClient {
 
     }
 
-    public SdkToken sdkToken() {
-
-        return execute(api.getToken());
-
+    public SdkToken sdkToken(String origin) {
+        return execute(api.getToken(origin));
     }
 
     private <T> T execute(Call<T> call) {
@@ -70,7 +69,7 @@ public class ApiClient {
     public interface Api {
 
         @GET("/token-factory/sdk_token")
-        Call<SdkToken> getToken();
+        Call<SdkToken> getToken(@Query("origin") String origin);
 
     }
 

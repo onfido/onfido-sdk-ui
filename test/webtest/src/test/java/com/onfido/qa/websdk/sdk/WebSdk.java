@@ -157,7 +157,7 @@ public class WebSdk {
     }
 
     private String getToken() {
-        return apiClient.sdkToken().token();
+        return apiClient.sdkToken(Property.get("tokenOrigin", "")).token();
     }
 
     public <T extends Page> T init(Class<T> pageClass) {
