@@ -44,7 +44,7 @@ const TEST_VIDEO_DATA = {
 describe('API uploadFaceVideo endpoint', () => {
   beforeEach(async () => {
     jest.setTimeout(15000)
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('uploadFaceVideo returns expected response on successful upload', (done) => {
@@ -142,7 +142,7 @@ describe('API uploadFaceVideo endpoint', () => {
 
 describe('API requestChallenges endpoint', () => {
   beforeEach(async () => {
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', async () => {

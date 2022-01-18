@@ -29,7 +29,7 @@ let jwtToken = null
 describe('API uploadFacePhoto endpoint', () => {
   beforeEach(async () => {
     jest.setTimeout(15000)
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('uploadFacePhoto returns expected response on successful upload', (done) => {
@@ -115,7 +115,7 @@ describe('API uploadFacePhoto endpoint', () => {
 
 describe('API uploadSnapshot endpoint', () => {
   beforeEach(async () => {
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('uploadSnapshot returns expected response on successful upload', (done) => {
@@ -216,7 +216,7 @@ describe('API uploadSnapshot endpoint', () => {
 // eslint-disable-next-line jest/no-disabled-tests
 describe.skip('API sendMultiframeSelfie endpoint', () => {
   beforeEach(async () => {
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('sendMultiframeSelfie returns expected response on successful upload', (done) => {
