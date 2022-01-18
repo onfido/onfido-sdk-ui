@@ -41,14 +41,14 @@ jobs:
           issue_labels: vulnerability
           dedupe_issues: true
 
-      #- name: Run linters
-      #  run: npm run check
+      - name: Run linters
+        run: npm run check
 
       - name: Run build
         run: npm run build
 
-      # - name: Run unit tests
-      #  run: npm run test:unit
+      - name: Run unit tests
+      - run: npm run test:unit
 
       - name: Run integration tests
         run: npm run test:integration
