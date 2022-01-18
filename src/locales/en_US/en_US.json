@@ -1,4 +1,13 @@
 {
+    "workflow": {
+        "background_task_progress": {
+            "document_check": "Performing: Document report xxx",
+            "identity_check": "Performing: Identity report",
+            "face_check": "Performing: Facial similarity report",
+            "watchlist_check" : "Performing: Watchlist report",
+            "default": "Performing workflow task: ${taskName}"
+        }
+    },
     "auth_accessibility": {
         "back_button": "Cancel"
     },

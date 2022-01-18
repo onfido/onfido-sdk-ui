@@ -43,6 +43,7 @@ interface FunctionalConfigurations {
   roomId?: string
   tearDown?: boolean
   useMemoryHistory?: boolean
+  useWorkflow?: boolean
 }
 
 export interface SdkOptions extends FunctionalConfigurations {
@@ -75,7 +76,6 @@ export interface SdkOptions extends FunctionalConfigurations {
   _crossDeviceLinkMethods?: Array<string> | null
   applicantId?: string
   workflowRunId?: string
-  workflowMock?: any
 }
 
 export type SdkHandle = {

@@ -16,7 +16,7 @@ import type {
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
-  StepOptionData,
+  //StepOptionData,
   StepOptionComplete,
   StepOptionAuth,
   StepConfig,
@@ -120,7 +120,7 @@ export type StepComponentDocumentProps = StepOptionDocument &
   StepComponentBaseProps
 export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
-export type StepComponentDataProps = StepOptionData & StepComponentBaseProps
+//export type StepComponentDataProps = StepOptionData & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
 export type StepComponentAuthProps = StepOptionAuth & StepComponentBaseProps
@@ -130,7 +130,7 @@ export type StepComponentProps =
   | StepComponentDocumentProps
   | StepComponentPoaProps
   | StepComponentFaceProps
-  | StepComponentDataProps
+  //| StepComponentDataProps
   | StepComponentCompleteProps
   | StepComponentAuthProps
 
@@ -138,4 +138,20 @@ export type ComponentStep = {
   component: ComponentType<StepComponentProps>
   step: ExtendedStepConfig
   stepIndex: number
+}
+
+export type HistoryLocationState = {
+  step: number
+  flow: FlowVariants
+}
+
+export type StepperState = {
+  loadingStep: boolean
+  steps: StepConfig[]
+  backgroundTask: string | null
+  taskId: string | null
+  completed: boolean
+  serviceError: string | null
+  personalData: any
+  docData: any
 }

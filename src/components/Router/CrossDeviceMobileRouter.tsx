@@ -16,7 +16,7 @@ import GenericError from '../GenericError'
 import { setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
 import { LocaleProvider } from '~locales'
 import HistoryRouter from './HistoryRouter'
-
+import WorkflowHistoryRouter from './WorkflowHistoryRouter'
 import type { ErrorNames, MobileConfig } from '~types/commons'
 import type { SupportedLanguages, LocaleConfig } from '~types/locales'
 import type { CaptureKeys } from '~types/redux'
@@ -84,6 +84,7 @@ type State = {
   stepIndexType?: StepIndexType
   steps?: StepConfig[]
   token?: string
+  useWorkflow?: boolean
 }
 
 export default class CrossDeviceMobileRouter extends Component<
@@ -98,7 +99,7 @@ export default class CrossDeviceMobileRouter extends Component<
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
     const url = props.urls.sync_url
-
+    const useWorkflow = !!props.options.useWorkflow
     const roomId = window.location.pathname.substring(3) || props.options.roomId
 
     this.state = {
@@ -109,6 +110,7 @@ export default class CrossDeviceMobileRouter extends Component<
       step: undefined,
       steps: undefined,
       token: undefined,
+      useWorkflow,
     }
 
     if (RESTRICTED_CROSS_DEVICE && isDesktop) {
@@ -338,7 +340,7 @@ export default class CrossDeviceMobileRouter extends Component<
 
   renderContent = (): h.JSX.Element => {
     const { hasCamera } = this.props
-    const { crossDeviceError, loading, steps } = this.state
+    const { crossDeviceError, loading, steps, useWorkflow } = this.state
 
     if (loading) {
       return <WrappedSpinner disableNavigation />
@@ -366,9 +368,9 @@ export default class CrossDeviceMobileRouter extends Component<
       )
     }
 
-    if (steps) {
+    if (useWorkflow) {
       return (
-        <HistoryRouter
+        <WorkflowHistoryRouter
           {...this.props}
           {...this.state}
           crossDeviceClientError={this.setError}
@@ -376,6 +378,18 @@ export default class CrossDeviceMobileRouter extends Component<
           steps={steps}
         />
       )
+    } else {
+      if (steps) {
+        return (
+          <HistoryRouter
+            {...this.props}
+            {...this.state}
+            crossDeviceClientError={this.setError}
+            sendClientSuccess={this.sendClientSuccess}
+            steps={steps}
+          />
+        )
+      }
     }
 
     trackException(

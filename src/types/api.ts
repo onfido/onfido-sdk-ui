@@ -189,10 +189,10 @@ export type WorkflowResponse = {
   task_type: 'INTERACTIVE' | 'SYNC' | 'ASYNC' | 'FINAL' | 'CUSTOM'
   task_id: string
   task_def_id: string
-  configuration: {
-    [name: string]: any
-  }
+  config: {
+    [name: string]: unknown;
+  } | null;
   finished: boolean
-  outcome: boolean
+  outcome: boolean | null
   error: string | null
 }

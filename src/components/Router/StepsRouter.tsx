@@ -6,24 +6,9 @@ import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
-
+import Spinner from '../Spinner'
 import type { TrackScreenCallback } from '~types/hocs'
 import type { StepComponentProps, StepsRouterProps } from '~types/routers'
-
-const getPrettyBackgroundTaskName = (taskName: string) => {
-  switch (taskName) {
-    case 'document_check':
-      return 'Performing: Document report'
-    case 'identity_check':
-      return 'Performing: Identity report'
-    case 'face_check':
-      return 'Performing: Facial similarity report'
-    case 'watchlist_check':
-      return 'Performing: Watchlist report'
-    default:
-      return `Performing workflow task: ${taskName}`
-  }
-}
 
 class StepsRouter extends Component<StepsRouterProps> {
   private container?: HTMLDivElement
@@ -62,7 +47,6 @@ class StepsRouter extends Component<StepsRouterProps> {
       options: { mobileFlow, ...globalUserOptions },
       ...otherProps
     } = this.props
-
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
@@ -119,8 +103,7 @@ class StepsRouter extends Component<StepsRouterProps> {
           >
             {isLoadingStep ? (
               <div>
-                {'Loading...'}
-                {getPrettyBackgroundTaskName(backgroundTask || '')}
+                <Spinner captionKey={`workflow.background_task_progress.${backgroundTask || "default"}`}/>
               </div>
             ) : (
               <CurrentComponent {...passedProps} />

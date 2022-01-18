@@ -7,54 +7,31 @@ import {
   MemoryHistory,
 } from 'history'
 
-import { buildStepFinder } from '~utils/steps'
+import { buildStepFinder, findFirstIndex } from '~utils/steps'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
 import type { ParsedError, ErrorCallback } from '~types/api'
-import type { ExtendedStepTypes, FlowVariants } from '~types/commons'
+import type {
+  ExtendedStepTypes,
+  FlowVariants,
+  FormattedError,
+} from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
 import type {
   ComponentStep,
   ChangeFlowProp,
   HistoryRouterProps,
+  HistoryLocationState,
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
-import type { StepConfig, DocumentTypes } from '~types/steps'
-
-type FormattedError = {
-  type: 'expired_token' | 'exception'
-  message: string
-}
-
-type HistoryLocationState = {
-  step: number
-  flow: FlowVariants
-}
-
-type StepperState = {
-  loadingStep: boolean
-  steps: StepConfig[]
-  backgroundTask: string | null
-  taskId: string | null
-  completed: boolean
-  serviceError: string | null
-  workflowMockStep: number
-  personalData: any
-  docData: any
-}
+import type { DocumentTypes } from '~types/steps'
 
 type State = {
   initialStep: number
-} & HistoryLocationState &
-  StepperState
-
-const findFirstIndex = (
-  componentsList: ComponentStep[],
-  clientStepIndex: number
-) => componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
+} & HistoryLocationState
 
 export default class HistoryRouter extends Component<
   HistoryRouterProps,
@@ -79,24 +56,12 @@ export default class HistoryRouter extends Component<
       flow: 'captureSteps',
       step: stepIndex,
       initialStep: stepIndex,
-      // workflow stepper
-      backgroundTask: null,
-      loadingStep: false,
-      steps: this.props.steps,
-      taskId: null,
-      completed: false,
-      serviceError: null,
-      workflowMockStep: 0,
-      personalData: {},
-      docData: [],
     }
     this.history = this.props.options.useMemoryHistory
       ? createMemoryHistory()
       : createBrowserHistory()
     this.unlisten = this.history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
-    const stepType = componentsList[this.state.step].step.type
-    this.props.actions.setCurrentStepType(stepType)
   }
 
   onHistoryChange: LocationListener<HistoryLocationState> = ({
@@ -147,19 +112,13 @@ export default class HistoryRouter extends Component<
   }
 
   nextStep = (): void => {
-    const { step: currentStep, taskId, completed } = this.state
+    const { step: currentStep } = this.state
     const componentsList = this.getComponentsList()
     const newStepIndex = currentStep + 1
-
     if (componentsList.length === newStepIndex) {
       this.triggerOnComplete()
     } else {
       this.setStepIndex(newStepIndex)
-      const newStepType = componentsList[newStepIndex].step.type
-      const isNewStepType = this.props.currentStepType !== newStepType
-      if (isNewStepType) {
-        this.props.actions.setCurrentStepType(newStepType)
-      }
     }
   }
 
@@ -170,12 +129,11 @@ export default class HistoryRouter extends Component<
       'document_front',
       'document_back',
       'face',
-      //'data',
     ]
-    const data: SdkResponse = Object.entries(captures)
-      .filter(([key, value]) => key !== 'takesHistory' && value != null)
-      .reduce((acc, [key, value]) => ({ ...acc, [key]: value?.metadata }), {})
 
+    const data: SdkResponse = Object.entries(captures)
+      .filter(([, value]) => value != null)
+      .reduce((acc, [key, value]) => ({ ...acc, [key]: value?.metadata }), {})
     const keysWithMissingData: Array<string> = []
 
     expectedCaptureKeys.forEach((key) => {
@@ -289,17 +247,6 @@ export default class HistoryRouter extends Component<
 
   render(): h.JSX.Element {
     const documentType = this.getDocumentType()
-    const { serviceError } = this.state
-
-    if (serviceError) {
-      return (
-        <div>
-          <p>There was a server error!</p>
-          <p>{serviceError}</p>
-          <p>Please try reloading the app, and try again.</p>
-        </div>
-      )
-    }
 
     return (
       <StepsRouter
@@ -313,10 +260,6 @@ export default class HistoryRouter extends Component<
         previousStep={this.previousStep}
         step={this.state.step}
         triggerOnError={this.triggerOnError}
-        isLoadingStep={this.state.loadingStep}
-        backgroundTask={this.state.backgroundTask}
-        // setPersonalData={this.setPersonalData}
-        // setDocData={this.setDocData}
       />
     )
   }
