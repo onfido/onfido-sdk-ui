@@ -4,12 +4,12 @@ import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.websdk.model.CrossDeviceLinkMethod;
 import com.onfido.qa.websdk.util.ByUtil;
 import org.openqa.selenium.By;
-
-import java.util.Arrays;
+import org.openqa.selenium.support.ui.Select;
 
 public class CrossDeviceLink extends BasePage {
 
     public static final By PHONE_NUMBER = By.cssSelector(".onfido-sdk-ui-PhoneNumberInput-phoneNumberContainer #phoneNumberInput");
+    public static final By COUNTRY_SELECTOR = By.cssSelector(".PhoneInputCountrySelect");
 
     public CrossDeviceLink(Driver driver) {
         super(driver);
@@ -54,6 +54,16 @@ public class CrossDeviceLink extends BasePage {
 
     public boolean isPhoneNumberErrorShown() {
         return driver.findElement(By.cssSelector(".onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError")).isDisplayed();
+    }
+
+    public CrossDeviceLink selectCountry(String countryCode) {
+
+        driver.waitFor.presence(COUNTRY_SELECTOR);
+
+        new Select(driver.findElement(COUNTRY_SELECTOR))
+                .selectByValue(countryCode);
+
+        return this;
     }
 
     private boolean isDisplayed(By by) {
