@@ -1,6 +1,6 @@
+import { h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import { h } from 'preact'
 import { localised } from '~locales'
 import { WithLocalisedProps } from '~types/hocs'
 import { TranslateCallback } from '~types/locales'
