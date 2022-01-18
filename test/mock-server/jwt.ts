@@ -9,7 +9,7 @@ const header: Header = {
 }
 
 export const generateToken = async (context: any) => {
-  const origin = context.request.url.origin
+  const origin = context.request.url.searchParams.get('origin') || context.request.url.origin
 
   const payload = {
     exp: getNumericDate(EXP_IN_SECONDS),
