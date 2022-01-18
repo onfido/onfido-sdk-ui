@@ -13,7 +13,7 @@ import QRCodeHowTo from '../../QRCode/HowTo'
 import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent, sendEvent } from '../../../Tracker'
-import { localised } from '../../../locales'
+import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 

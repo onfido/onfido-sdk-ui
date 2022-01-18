@@ -4,7 +4,7 @@ import { borderRadius, color } from '@onfido/castor'
 import type { ApiRawError, SuccessCallback } from '~types/api'
 import { FaceTecCustomization } from '~auth-sdk/FaceTecSDK.js/FaceTecCustomization'
 import { FaceTecSDK } from '~auth-sdk/FaceTecSDK.js/FaceTecSDK'
-import { UICustomizationOptions } from '../../types/ui-customisation-options'
+import { UICustomizationOptions } from '~types/ui-customisation-options'
 
 export const getAuthCustomization = (
   dimMode: boolean,
