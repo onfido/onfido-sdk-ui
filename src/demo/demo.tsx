@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { queryParamToValueString } from './demoUtils'
 import SdkDemo from './SdkDemo'
 
-const Header: FunctionComponent = () => <h1>Onfido SDK UI Demo X</h1>
+const Header: FunctionComponent = () => <h1>Onfido SDK UI Demo</h1>
 
 const Step1: FunctionComponent = () => (
   <div>
