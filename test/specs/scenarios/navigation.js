@@ -32,8 +32,6 @@ export const navigationScenarios = async (lang) => {
         basePage,
       } = pageObjects
       const copy = basePage.copy(lang)
-
-
     }
   )
 }
