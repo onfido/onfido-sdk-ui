@@ -95,7 +95,7 @@ public abstract class WebSdkIT extends WebTest {
         capabilities.setCapability("browserstack.networkLogs", "true");
 
         capabilities.setCapability("project", "web-sdk");
-        capabilities.setCapability("build", System.getenv("build"));
+        capabilities.setCapability("build", System.getenv("BUILD"));
 
 
         // TODO: pass app id to env variable

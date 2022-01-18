@@ -54,6 +54,9 @@ jobs:
       #      - name: Run integration tests
       #        run: npm run test:integration
 
+      # TODO: we're building the whole sdk again with NODE_ENV=test, just because some properties e.g. MOBILE_URL are different.
+      # We could skip this if this option can be passed as option while bootstrapping
+
       - name: Build test server
         run: npm run build:test
 
@@ -72,6 +75,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BUILD: ${{ github.ref }}-${{ github.run_id }}
 
       - name: Publish Senelium Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1
