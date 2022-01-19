@@ -84,9 +84,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
       <PageTitle
         title={welcomeTitle}
         subTitle={welcomeSubTitle}
-        shouldAutoFocus={
-          (isFirstScreen && autoFocusOnInitialScreenTitle) || !isFirstScreen
-        }
+        shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
       />
       {forDocVideo ? (
         <DocVideoContent captureSteps={captureSteps} />

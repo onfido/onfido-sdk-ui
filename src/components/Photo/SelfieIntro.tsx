@@ -87,9 +87,7 @@ const Intro = ({
         <PageTitle
           title={translate('selfie_intro.title')}
           subTitle={translate('selfie_intro.subtitle')}
-          shouldAutoFocus={
-            (isFirstScreen && autoFocusOnInitialScreenTitle) || !isFirstScreen
-          }
+          shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
         />
         <InstructionsPure
           listScreenReaderText={translate('selfie_intro.list_accessibility')}
