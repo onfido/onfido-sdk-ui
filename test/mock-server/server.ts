@@ -19,14 +19,9 @@ app.use(telephonyRouter.allowedMethods())
 
 app.use(frontendMiddleware)
 
-// await app.listen({
-//   certFile: 'cert.pem',
-//   keyFile: 'key.pem',
-//   port: 8081,
-//   secure: true,
-// })
-
 await app.listen({
+  certFile: 'cert.pem',
+  keyFile: 'key.pem',
   port: 8081,
-  secure: false,
+  secure: true,
 })

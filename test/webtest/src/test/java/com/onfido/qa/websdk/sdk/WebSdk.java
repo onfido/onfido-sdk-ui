@@ -7,13 +7,10 @@ import com.onfido.qa.webdriver.common.Component;
 import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.webdriver.driver.ExpectedConditions;
 import com.onfido.qa.websdk.Property;
-import com.onfido.qa.websdk.api.ApiClient;
 import com.onfido.qa.websdk.model.CrossDeviceLinkMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -25,13 +22,9 @@ public class WebSdk {
 
     private static final Logger log = LoggerFactory.getLogger(WebSdk.class);
     private final static ObjectMapper objectMapper;
-    private final static ApiClient apiClient;
 
     static {
         objectMapper = new ObjectMapper();
-
-        // TODO: configure the endpoint for api usage
-        apiClient = new ApiClient(getTokenEndpoint());
     }
 
     private final Map<String, Object> parameters = new HashMap<>();
@@ -125,12 +118,12 @@ public class WebSdk {
 
     public Onfido init() {
 
+        // navigate to the base url
+        driver.get(Property.get("baseUrl"));
+
         if (!tokenSet) {
             withToken(getToken());
         }
-
-        // navigate to the base url
-        driver.get(Property.get("baseUrl"));
 
         beforeInit.forEach(Runnable::run);
 
@@ -146,18 +139,9 @@ public class WebSdk {
         return new Onfido(driver);
     }
 
-    private static String getTokenEndpoint() {
-        try {
-            var url = new URL(Property.get("tokenUrl", Property.get("baseUrl")));
-
-            return new URL(url.getProtocol(), url.getHost(), url.getPort(), "/").toString();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     private String getToken() {
-        return apiClient.sdkToken(Property.get("tokenOrigin", "")).token();
+
+        return (String) driver.executeAsyncScript("var callback = arguments[arguments.length - 1]; window.getToken(callback)");
     }
 
     public <T extends Page> T init(Class<T> pageClass) {
