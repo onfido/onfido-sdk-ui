@@ -70,7 +70,7 @@ jobs:
         working-directory: ./test/webtest
 
         # TODO: increase thread count, when we have more parallel sessions
-        run: ./run-ui-tests.sh "mvn --no-transfer-progress -DscreenshotListener.enabled=false -Dit.test=FaceIT#testFallbackToCrossDeviceWithoutWebcamSupport -DthreadCount=1 -Denvironment=browserstack -Dbrowser=chrome verify"
+        run: ./run-ui-tests.sh "mvn --no-transfer-progress -DscreenshotListener.enabled=false -DthreadCount=1 -Denvironment=browserstack -Dbrowser=chrome verify"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
