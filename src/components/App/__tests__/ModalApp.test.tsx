@@ -14,6 +14,7 @@ const defaultOptions: NormalisedSdkOptions = {
     { type: 'welcome' },
     { type: 'document' },
     { type: 'face' },
+    { type: 'data' },
     { type: 'complete' },
   ],
 }

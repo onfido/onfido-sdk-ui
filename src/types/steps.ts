@@ -8,7 +8,7 @@ const STEP_AUTH = 'auth'
 const STEP_CROSS_DEVICE_SESSION_INTRO = 'crossDeviceSessionIntro'
 const STEP_PASS = 'pass'
 const STEP_REJECT = 'reject'
-//const STEP_DATA = 'data'
+const STEP_DATA = 'data'
 
 export type StepTypes =
   | typeof STEP_WELCOME
@@ -21,7 +21,7 @@ export type StepTypes =
   | typeof STEP_CROSS_DEVICE_SESSION_INTRO
   | typeof STEP_PASS
   | typeof STEP_REJECT
-//| typeof STEP_DATA
+  | typeof STEP_DATA
 
 export type DocumentTypes =
   | 'passport'
@@ -90,7 +90,7 @@ export type StepOptionPass = {
 export type StepOptionReject = {
   // nothing
 }
-/** 
+
 export type StepOptionData = {
   data: {
     first_name?: string
@@ -113,7 +113,7 @@ export type StepOptionData = {
     }
   }
 }
-*/
+
 type StepOptionsMap = {
   welcome: StepOptionWelcome
   userConsent: never
@@ -125,7 +125,7 @@ type StepOptionsMap = {
   complete: StepOptionComplete
   pass: StepOptionPass
   reject: StepOptionReject
-  //data?: StepOptionData
+  data: StepOptionData
 }
 
 export type StepConfigMap = {
@@ -145,7 +145,7 @@ export type StepConfigFace = StepConfigMap['face']
 export type StepConfigComplete = StepConfigMap['complete']
 export type StepConfigPass = StepConfigMap['pass']
 export type StepConfigReject = StepConfigMap['reject']
-//export type StepConfigData = StepConfigMap['data']
+export type StepConfigData = StepConfigMap['data']
 
 export type StepConfig =
   | StepConfigWelcome
@@ -158,4 +158,4 @@ export type StepConfig =
   | StepConfigCrossDeviceSessionIntro
   | StepConfigPass
   | StepConfigReject
-//| StepConfigData
+  | StepConfigData
