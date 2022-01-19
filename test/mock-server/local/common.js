@@ -9,5 +9,17 @@
       roomId: parameters.get(name).replace(/^CV/, '')
     });
   }
+
+  window.getToken = function(callback) {
+
+    fetch('/token-factory/sdk_token')
+      .then(response => response.json())
+      .then(json => {
+        callback(json.message)
+      })
+      .catch(error => {
+        callback('error');
+      });
+  }
 })();
 
