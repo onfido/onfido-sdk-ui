@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - UI: Fixed Live Document Capture flow's camera inactive warning not displaying the basic camera fallback option if `uploadFallback` is not defined for SDK configuration's Document step.
+- UI: Fixed auto focus on Step that can be initial Step.
 
 ## [6.16.0] - 2021-12-15
 

@@ -23,7 +23,9 @@ const PoAIntro = ({
         title={translate('poa_intro.title', {
           country: !country || country === 'GBR' ? 'UK' : '',
         })}
-        shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
+        shouldAutoFocus={
+          (isFirstScreen && autoFocusOnInitialScreenTitle) || !isFirstScreen
+        }
       />
       <div className={style.content}>
         <p className={style.requirements}>{translate('poa_intro.subtitle')}</p>

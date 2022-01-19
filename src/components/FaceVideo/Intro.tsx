@@ -36,7 +36,9 @@ const Intro: FunctionComponent<Props> = ({
     <div className={theme.fullHeightContainer}>
       <PageTitle
         title={translate('video_intro.title')}
-        shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
+        shouldAutoFocus={
+          (isFirstScreen && autoFocusOnInitialScreenTitle) || !isFirstScreen
+        }
       />
       <div className={style.introCopy}>
         <ul

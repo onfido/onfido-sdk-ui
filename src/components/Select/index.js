@@ -36,7 +36,9 @@ const makeDocumentSelectorOfGroup = (group) => {
           subTitle={translate(
             isPoA ? 'doc_select.subtitle_poa' : 'doc_select.subtitle'
           )}
-          shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
+          shouldAutoFocus={
+            (isFirstScreen && autoFocusOnInitialScreenTitle) || !isFirstScreen
+          }
         />
         <DocumentSelector {...{ ...props, group }} />
       </div>
