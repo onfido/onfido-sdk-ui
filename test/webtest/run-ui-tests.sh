@@ -3,7 +3,7 @@ set -e
 set -x
 
 echo "starting container"
-docker-compose up
+docker-compose up -d
 
 set +e
 $1

@@ -6,5 +6,6 @@ services:
       context: test/mock-server
     ports:
       - '8081:8081'
+      - '8082:8082'
     volumes:
       - ./test/mock-server/local:/app/local
