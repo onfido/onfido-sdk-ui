@@ -116,9 +116,28 @@ jobs:
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
           BUILD: ${{ github.ref }}-${{ github.run_id }}
 
-      - name: Publish Senelium Test Results - Firefox
+      - name: Publish Senelium Test Results - Edge
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: ${{ steps.edge.outcome == 'success' || steps.edge.outcome == 'failure' }}
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Edge"
+
+      - name: Run UI tests in Safari
+        working-directory: ./test/webtest
+        id: safari
+        if: always()
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -Dbrowser=safari -DbrowserVersion=15.1"
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BUILD: ${{ github.ref }}-${{ github.run_id }}
+
+      - name: Publish Senelium Test Results - Safari
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: ${{ steps.safari.outcome == 'success' || steps.safari.outcome == 'failure' }}
+        with:
+          files: test/webtest/target/surefire-reports/junitreports/*.xml
+          check_name: "UI Test results - Safari"
