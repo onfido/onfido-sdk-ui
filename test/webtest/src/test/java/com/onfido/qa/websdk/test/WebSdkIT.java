@@ -3,13 +3,10 @@ package com.onfido.qa.websdk.test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onfido.qa.annotation.Browser;
-import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.WebTest;
-import com.onfido.qa.webdriver.common.Component;
-import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.webdriver.listener.BrowserStackListener;
 import com.onfido.qa.webdriver.listener.ScreenshotListener;
-import com.onfido.qa.websdk.Property;
+import com.onfido.qa.configuration.Property;
 import com.onfido.qa.websdk.sdk.WebSdk;
 import io.percy.selenium.Percy;
 import org.openqa.selenium.Point;
@@ -87,7 +84,7 @@ public abstract class WebSdkIT extends WebTest {
 
     @SuppressWarnings("CallToSystemGetenv")
     @Override
-    protected void extendCapabilities(DesiredCapabilities capabilities) {
+    protected DesiredCapabilities extendCapabilities(DesiredCapabilities capabilities) {
         // https://www.browserstack.com/docs/automate/selenium/debugging-options#network-logs
 
         capabilities.setCapability("browserstack.debug", "true");
@@ -104,6 +101,8 @@ public abstract class WebSdkIT extends WebTest {
         if (appId != null) {
             capabilities.setCapability("app", appId);
         }
+
+        return capabilities;
     }
 
     @BeforeMethod
@@ -122,10 +121,6 @@ public abstract class WebSdkIT extends WebTest {
 
     protected static String defaultLanguage() {
         return Property.get("defaultLanguage", "en_US");
-    }
-
-    protected Driver driver() {
-        return WebTest.d();
     }
 
     protected WebSdk onfido() {
@@ -179,19 +174,6 @@ public abstract class WebSdkIT extends WebTest {
 
     protected void takePercySnapshotWithoutVideo(String name) {
         takePercySnapshot(name, WITHOUT_VIDEO_CSS);
-    }
-
-    protected <T extends Page> T verifyPage(Class<T> page) {
-        return Component.createComponent(driver(), page);
-    }
-
-    private void disableWebcam() {
-
-    }
-
-    private void provideVideoDevice() {
-        // TODO: check, if this is needed. The browsers itself have video
-
     }
 
     protected void disableMediaRecorder() {
