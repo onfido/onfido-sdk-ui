@@ -60,6 +60,7 @@ jobs:
 
       - name: Build test server
         run: npm run build:test
+        id: testserver
 
       - uses: actions/setup-java@v2
         with:
@@ -69,6 +70,7 @@ jobs:
       - name: Run UI tests in Chrome
         working-directory: ./test/webtest
         id: chrome
+        if: steps.testserver.outcome == 'success'
         # TODO: increase thread count, when we have more parallel sessions
         run: ./run-ui-tests.sh "-Dbrowser=chrome"
         shell: bash
@@ -80,14 +82,14 @@ jobs:
 
       - name: Publish Senelium Test Results - Chrome
         uses: EnricoMi/publish-unit-test-result-action@v1
-        if: ${{ steps.chrome.outcome == 'success' || steps.chrome.outcome == 'failure' }}
+        if: always()
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Chrome"
 
       - name: Run UI tests in Firefox
         id: firefox
-        if: always()
+        if: steps.testserver.outcome == 'success'
         working-directory: ./test/webtest
         run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -Dbrowser=firefox"
         shell: bash
@@ -99,7 +101,7 @@ jobs:
 
       - name: Publish Senelium Test Results - Firefox
         uses: EnricoMi/publish-unit-test-result-action@v1
-        if: ${{ steps.firefox.outcome == 'success' || steps.firefox.outcome == 'failure' }}
+        if: steps.firefox.outcome == 'success' || steps.firefox.outcome == 'failure'
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Firefox"
@@ -107,7 +109,7 @@ jobs:
       - name: Run UI tests in Edge
         working-directory: ./test/webtest
         id: edge
-        if: always()
+        if: steps.testserver.outcome == 'success'
         run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -Dbrowser=edge"
         shell: bash
         env:
@@ -118,7 +120,7 @@ jobs:
 
       - name: Publish Senelium Test Results - Edge
         uses: EnricoMi/publish-unit-test-result-action@v1
-        if: ${{ steps.edge.outcome == 'success' || steps.edge.outcome == 'failure' }}
+        if: steps.edge.outcome == 'success' || steps.edge.outcome == 'failure'
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Edge"
@@ -126,7 +128,7 @@ jobs:
       - name: Run UI tests in Safari
         working-directory: ./test/webtest
         id: safari
-        if: always()
+        if: steps.testserver.outcome == 'success'
         run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -Dbrowser=safari -DbrowserVersion=15.1"
         shell: bash
         env:
@@ -137,7 +139,7 @@ jobs:
 
       - name: Publish Senelium Test Results - Safari
         uses: EnricoMi/publish-unit-test-result-action@v1
-        if: ${{ steps.safari.outcome == 'success' || steps.safari.outcome == 'failure' }}
+        if: steps.safari.outcome == 'success' || steps.safari.outcome == 'failure'
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Safari"
