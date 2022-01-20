@@ -1,6 +1,7 @@
 package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.websdk.UploadDocument;
+import com.onfido.qa.websdk.page.CountrySelector;
 import com.onfido.qa.websdk.page.CrossDeviceIntro;
 import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
@@ -44,7 +45,8 @@ public class MultipleBrowsersDocumentUploadIT extends WebSdkIT {
     public void testShouldUploadIdDocumentWithPdf() {
         onfido().withSteps("document", "complete")
                 .init(IdDocumentSelector.class)
-                .select(IDENTITY_CARD, DocumentUpload.class)
+                .select(IDENTITY_CARD, CountrySelector.class)
+                .selectSupportedCountry(DocumentUpload.class)
                 .upload(UploadDocument.NATIONAL_IDENTITY_CARD_PDF)
                 .clickConfirmButton(null);
     }
