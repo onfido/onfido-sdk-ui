@@ -1,4 +1,4 @@
-(() => {
+(function(window) {
   var parameters = new URLSearchParams(location.search);
   const name = 'link_id';
 
@@ -12,12 +12,16 @@
 
   window.getToken = function() {
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/token-factory/sdk_token', false);
-    xhr.send();
+    try {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/token-factory/sdk_token', false);
+      xhr.send();
 
-    return JSON.parse(xhr.responseText).message;
+      return JSON.parse(xhr.responseText).message;
+    } catch (e) {
+      return "error";
+    }
   }
-})();
+})(window);
 
                                                                                                               b
