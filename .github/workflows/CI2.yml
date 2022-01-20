@@ -68,9 +68,9 @@ jobs:
 
       - name: Run UI tests in Chrome
         working-directory: ./test/webtest
-
+        id: chrome
         # TODO: increase thread count, when we have more parallel sessions
-        run: ./run-ui-tests.sh "mvn --no-transfer-progress -DscreenshotListener.enabled=false -DthreadCount=1 -Denvironment=browserstack -Dbrowser=chrome verify"
+        run: ./run-ui-tests.sh "-Dbrowser=chrome"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -78,9 +78,47 @@ jobs:
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
           BUILD: ${{ github.ref }}-${{ github.run_id }}
 
-      - name: Publish Senelium Test Results
+      - name: Publish Senelium Test Results - Chrome
         uses: EnricoMi/publish-unit-test-result-action@v1
-        if: always()
+        if: ${{ steps.chrome.outcome == 'success' || steps.chrome.outcome == 'failure' }}
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Chrome"
+
+      - name: Run UI tests in Firefox
+        id: firefox
+        if: always()
+        working-directory: ./test/webtest
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -Dbrowser=firefox"
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BUILD: ${{ github.ref }}-${{ github.run_id }}
+
+      - name: Publish Senelium Test Results - Firefox
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: ${{ steps.firefox.outcome == 'success' || steps.firefox.outcome == 'failure' }}
+        with:
+          files: test/webtest/target/surefire-reports/junitreports/*.xml
+          check_name: "UI Test results - Firefox"
+
+      - name: Run UI tests in Edge
+        working-directory: ./test/webtest
+        id: edge
+        if: always()
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -Dbrowser=edge"
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BUILD: ${{ github.ref }}-${{ github.run_id }}
+
+      - name: Publish Senelium Test Results - Firefox
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: ${{ steps.edge.outcome == 'success' || steps.edge.outcome == 'failure' }}
+        with:
+          files: test/webtest/target/surefire-reports/junitreports/*.xml
+          check_name: "UI Test results - Edge"
