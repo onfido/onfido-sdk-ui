@@ -1,18 +1,44 @@
-import { h, Component } from 'preact'
-import { trackException, sendEvent } from '../../Tracker'
+import { Component, h } from 'preact'
+import { sendEvent, trackException } from '../../Tracker'
 import { isOfMimeType, mimeType } from '~utils/blob'
 import {
+  formatError,
+  objectToFormData,
+  sendMultiframeSelfie,
   uploadDocument,
   uploadDocumentVideoMedia,
+  UploadDocumentPayload,
   uploadFacePhoto,
   uploadFaceVideo,
-  sendMultiframeSelfie,
-  objectToFormData,
-  formatError,
+  UploadVideoPayload,
+  UploadDocumentVideoMediaPayload,
 } from '~utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
+import { ErrorProp, StepComponentBaseProps } from '~types/routers'
+import { CapturePayload, DocumentCapture, FaceCapture } from '~types/redux'
+import { CaptureMethods, DocumentSides, ErrorNames } from '~types/commons'
+import {
+  DocumentImageResponse,
+  FaceVideoResponse,
+  ImageQualityValidationPayload,
+  ImageQualityValidationTypes,
+  ImageQualityWarnings,
+  ParsedError,
+  UploadFileResponse,
+  ValidationError,
+  ValidationReasons,
+} from '~types/api'
+import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+
+type ImageQualityValidationNames =
+  | 'CUTOFF_DETECTED'
+  | 'GLARE_DETECTED'
+  | 'BLUR_DETECTED'
+
+type CallbackTypes = 'selfie' | 'video' | 'document'
+type CallbackNames = 'onSubmitSelfie' | 'onSubmitVideo' | 'onSubmitDocument'
 
 // The number of additional image quality retries
 // that should return an error if an image quality validation is detected.
@@ -21,30 +47,50 @@ import Previews from './Previews'
 // From the third attempt, if image quality validations are detected, the user will see a warning
 // and they use can choose to proceed regardless of the image quality warning
 const MAX_IMAGE_QUALITY_RETRIES_WITH_ERROR = 1
-const IMAGE_QUALITY_KEYS_MAP = {
+
+const IMAGE_QUALITY_KEYS_MAP: Partial<
+  Record<ImageQualityValidationTypes, ImageQualityValidationNames>
+> = {
   detect_cutoff: 'CUTOFF_DETECTED', // error with the heighest priority
   detect_glare: 'GLARE_DETECTED',
   detect_blur: 'BLUR_DETECTED',
 }
-const CALLBACK_TYPES = {
+const CALLBACK_TYPES: Record<CallbackTypes, CallbackNames> = {
   selfie: 'onSubmitSelfie',
   video: 'onSubmitVideo',
   document: 'onSubmitDocument',
 }
 const REQUEST_ERROR = 'REQUEST_ERROR'
 
-class Confirm extends Component {
-  constructor(props) {
+export type ConfirmProps = {
+  isFullScreen: boolean
+  capture: DocumentCapture | FaceCapture
+  method: CaptureMethods
+  country: string
+  side: DocumentSides
+  error: string // for trackComponentAndMode
+} & StepComponentBaseProps &
+  WithLocalisedProps &
+  WithTrackingProps
+
+type ConfirmState = {
+  uploadInProgress: boolean
+  error?: ErrorProp
+  capture?: CapturePayload
+}
+
+class Confirm extends Component<ConfirmProps, ConfirmState> {
+  startTime = 0
+
+  constructor(props: ConfirmProps) {
     super(props)
     this.state = {
       uploadInProgress: false,
-      error: {},
-      capture: null,
     }
   }
 
-  setError = (name, errorMessage) => {
-    const error = { name, type: 'error' }
+  setError = (name: ErrorNames, errorMessage?: unknown) => {
+    const error: ErrorProp = { name, type: 'error' }
     if (errorMessage) {
       error.properties = { error_message: errorMessage }
     }
@@ -53,12 +99,12 @@ class Confirm extends Component {
     this.props.resetSdkFocus()
   }
 
-  setWarning = (name) => {
-    this.setState({ error: { name, type: 'warn' }, uploadInProgress: false })
+  setWarning = (name: ErrorNames) => {
+    this.setState({ error: { name, type: 'warning' }, uploadInProgress: false })
     this.props.resetSdkFocus()
   }
 
-  onfidoErrorFieldMap = ([key, val]) => {
+  onfidoErrorFieldMap = ([key, val]: [ValidationReasons, string[]]) => {
     if (key === 'document_detection') return 'DOCUMENT_DETECTION'
     // on corrupted PDF or other unsupported file types
     if (key === 'file') return 'INVALID_TYPE'
@@ -72,29 +118,40 @@ class Confirm extends Component {
     }
   }
 
-  handleImageQualityError = (errorField) => {
-    for (const errorKey in IMAGE_QUALITY_KEYS_MAP) {
+  handleImageQualityError = (errorField: ValidationError['fields']) => {
+    const imageQualityKeys = Object.keys(IMAGE_QUALITY_KEYS_MAP) as Array<
+      keyof typeof IMAGE_QUALITY_KEYS_MAP
+    >
+    for (const errorKey of imageQualityKeys) {
       if (Object.keys(errorField).includes(errorKey))
         return IMAGE_QUALITY_KEYS_MAP[errorKey]
     }
   }
 
-  onfidoErrorReduce = ({ fields }) => {
+  onfidoErrorReduce = ({ fields }: ValidationError) => {
     const imageQualityError = this.handleImageQualityError(fields)
-    const [first] = Object.entries(fields).map(this.onfidoErrorFieldMap)
+    const entriesOfFields = Object.entries(fields) as Array<
+      [ValidationReasons, string[]]
+    >
+
+    const [first] = entriesOfFields.map(this.onfidoErrorFieldMap)
     return first || imageQualityError
   }
 
-  onApiError = (error) => {
+  onApiError = (error: ParsedError) => {
     let errorKey, errorMessage
-    const status = error.status || ''
+    const status = error.status || 0
     const response = error.response || {}
 
     if (this.props.mobileFlow && status === 401) {
       this.props.triggerOnError({ status, response })
-      return this.props.crossDeviceClientError()
+      if (this.props.crossDeviceClientError) {
+        return this.props.crossDeviceClientError()
+      }
     } else if (status === 422) {
-      errorKey = this.onfidoErrorReduce(response.error) || REQUEST_ERROR
+      errorKey = response?.error
+        ? this.onfidoErrorReduce(response.error as ValidationError)
+        : REQUEST_ERROR
     } else {
       this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
@@ -102,19 +159,27 @@ class Confirm extends Component {
       errorMessage = response?.error?.message
     }
 
+    //@ts-ignore
     this.setError(errorKey, errorMessage)
   }
 
+  //@ts-ignore
   onVideoPreviewError = () => this.setError('VIDEO_ERROR')
 
-  imageQualityWarnings = (warnings) => {
-    for (const warnKey in IMAGE_QUALITY_KEYS_MAP) {
-      if (Object.keys(warnings).includes(warnKey) && !warnings[warnKey].valid)
+  imageQualityWarnings = (warnings: ImageQualityWarnings) => {
+    const imageQualityKeys = Object.keys(IMAGE_QUALITY_KEYS_MAP) as Array<
+      keyof typeof IMAGE_QUALITY_KEYS_MAP
+    >
+
+    const warningsKey = Object.keys(warnings) as Array<keyof typeof warnings>
+
+    for (const warnKey of imageQualityKeys) {
+      if (warningsKey.includes(warnKey) && !warnings[warnKey]?.valid)
         return IMAGE_QUALITY_KEYS_MAP[warnKey]
     }
   }
 
-  onImageQualityWarning = (apiResponse) => {
+  onImageQualityWarning = (apiResponse: DocumentImageResponse) => {
     const { sdk_warnings: warnings } = apiResponse
     if (!warnings) {
       return null
@@ -122,7 +187,9 @@ class Confirm extends Component {
     return this.imageQualityWarnings(warnings)
   }
 
-  onApiSuccess = (apiResponse) => {
+  onApiSuccess = (
+    apiResponse: DocumentImageResponse | FaceVideoResponse | UploadFileResponse
+  ) => {
     const { method, nextStep, actions } = this.props
     const { capture } = this.state
 
@@ -134,7 +201,9 @@ class Confirm extends Component {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const imageQualityWarning = this.onImageQualityWarning(apiResponse)
+    const imageQualityWarning = this.onImageQualityWarning(
+      apiResponse as DocumentImageResponse
+    )
 
     if (!imageQualityWarning) {
       // wait a tick to ensure the action completes before progressing
@@ -144,7 +213,10 @@ class Confirm extends Component {
     }
   }
 
-  handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
+  handleSelfieUpload = (
+    { snapshot, ...selfie }: FaceCapture,
+    token: string
+  ) => {
     const url = this.props.urls.onfido_api_url
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
@@ -175,7 +247,7 @@ class Confirm extends Component {
 
   getIssuingCountry = () => {
     const { idDocumentIssuingCountry, poaDocumentType, country } = this.props
-    const isPoA = poaDocumentTypes.includes(poaDocumentType)
+    const isPoA = poaDocumentType && poaDocumentTypes.includes(poaDocumentType)
     if (isPoA) {
       return { issuing_country: country || 'GBR' }
     }
@@ -197,24 +269,23 @@ class Confirm extends Component {
       imageQualityRetries,
       isDecoupledFromAPI,
     } = this.props
+
+    if (!token) {
+      throw new Error('token not provided')
+    }
+
     const url = urls.onfido_api_url
     if (!isDecoupledFromAPI) {
       this.startTime = performance.now()
       sendEvent('Starting upload', { method })
     }
     this.setState({ uploadInProgress: true })
-    const {
-      blob,
-      filename,
-      documentType: type,
-      variant,
-      challengeData,
-      sdkMetadata,
-    } = capture
+    const { blob, filename, variant, challengeData, sdkMetadata } = capture
     this.setState({ capture })
 
     if (method === 'document') {
-      const isPoA = poaDocumentTypes.includes(poaDocumentType)
+      const isPoA =
+        poaDocumentType && poaDocumentTypes.includes(poaDocumentType)
       const shouldPerformImageQualityValidations =
         !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
@@ -223,7 +294,7 @@ class Confirm extends Component {
       const imageQualityErrorType = shouldReturnErrorForImageQuality
         ? 'error'
         : 'warn'
-      const validations = {
+      const validations: ImageQualityValidationPayload = {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
         ...(shouldPerformImageQualityValidations
           ? {
@@ -241,8 +312,11 @@ class Confirm extends Component {
       // alternatively use default filename
       //
       const blobName =
+        // @ts-ignore todo issue with blob type
         filename || blob?.name || `document_capture.${mimeType(blob)}`
-      const data = {
+      const { documentType: type } = capture as DocumentCapture
+      const data: UploadDocumentPayload = {
+        //@ts-ignore todo issue with blob type
         file: { blob, filename: blobName },
         type,
         side,
@@ -264,7 +338,8 @@ class Confirm extends Component {
                 sdkMetadata,
               } = this.props.captures.document_video
 
-              const data = {
+              const data: UploadDocumentVideoMediaPayload = {
+                //@ts-ignore todo issue with blob type
                 file: { blob, filename },
                 sdkMetadata,
                 document_id: res.id,
@@ -278,27 +353,52 @@ class Confirm extends Component {
           .catch(this.onApiError)
       }
     } else if (variant === 'video') {
-      const data = { challengeData, blob, language, sdkMetadata }
+      const data: UploadVideoPayload = {
+        challengeData,
+        blob,
+        language,
+        sdkMetadata,
+      }
       if (isDecoupledFromAPI) this.onSubmitCallback(data, CALLBACK_TYPES.video)
       else uploadFaceVideo(data, url, token, this.onApiSuccess, this.onApiError)
     } else if (isDecoupledFromAPI) {
       this.onSubmitCallback(capture, CALLBACK_TYPES.selfie)
-    } else this.handleSelfieUpload(capture, token)
+    } else this.handleSelfieUpload(capture as FaceCapture, token)
   }
 
-  onSubmitCallback = async (data, callbackName) => {
+  onSubmitCallback = async (
+    data: FaceCapture | UploadVideoPayload | UploadDocumentPayload,
+    callbackName: CallbackNames
+  ) => {
     const { enterpriseFeatures, method, token, urls } = this.props
+
+    if (!token) {
+      throw new Error('token not provided')
+    }
+
+    if (!enterpriseFeatures) {
+      throw new Error('no enterprise features')
+    }
+
     const url = urls.onfido_api_url
     const formDataPayload = this.prepareCallbackPayload(data, callbackName)
 
+    // @ts-ignore
     sendEvent(`Triggering ${callbackName} callback`)
     try {
+      const enterpriseFeaturesCallback = enterpriseFeatures[callbackName]
+
+      if (!enterpriseFeaturesCallback) {
+        throw new Error('no enterprise features')
+      }
+
       const {
         continueWithOnfidoSubmission,
         onfidoSuccessResponse,
-      } = await enterpriseFeatures[callbackName](formDataPayload)
+      } = await enterpriseFeaturesCallback(formDataPayload)
 
       if (onfidoSuccessResponse) {
+        // @ts-ignore
         sendEvent(`Success response from ${callbackName}`)
         this.onApiSuccess(onfidoSuccessResponse)
       } else if (continueWithOnfidoSubmission) {
@@ -309,32 +409,48 @@ class Confirm extends Component {
         })
 
         if (callbackName === CALLBACK_TYPES.document) {
-          uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+          uploadDocument(
+            data as UploadDocumentPayload,
+            url,
+            token,
+            this.onApiSuccess,
+            this.onApiError
+          )
           return
         }
 
         if (callbackName === CALLBACK_TYPES.video) {
-          uploadFaceVideo(data, url, token, this.onApiSuccess, this.onApiError)
+          uploadFaceVideo(
+            data as UploadVideoPayload,
+            url,
+            token,
+            this.onApiSuccess,
+            this.onApiError
+          )
           return
         }
 
         if (callbackName === CALLBACK_TYPES.selfie) {
-          this.handleSelfieUpload(data, token)
+          this.handleSelfieUpload(data as FaceCapture, token)
           return
         }
       } else {
         console.error(`Invalid return statement from ${callbackName}`)
       }
     } catch (errorResponse) {
+      // @ts-ignore
       sendEvent(`Error response from ${callbackName}`)
       formatError(errorResponse, this.onApiError)
     }
   }
 
-  prepareCallbackPayload = (data, callbackName) => {
+  prepareCallbackPayload = (
+    data: FaceCapture | UploadVideoPayload | UploadDocumentPayload,
+    callbackName: CallbackNames
+  ) => {
     let payload
     if (callbackName === CALLBACK_TYPES.selfie) {
-      const { blob, filename, snapshot } = data
+      const { blob, filename, snapshot } = data as FaceCapture
       payload = {
         file: filename ? { blob, filename } : blob,
         snapshot,
@@ -344,11 +460,14 @@ class Confirm extends Component {
         blob,
         language,
         challengeData: {
+          //@ts-ignore
           challenges: challenge,
+          //@ts-ignore
           id: challenge_id,
+          //@ts-ignore
           switchSeconds: challenge_switch_at,
         },
-      } = data
+      } = data as UploadVideoPayload
       payload = {
         file: blob,
         challenge: JSON.stringify(challenge),
@@ -357,7 +476,7 @@ class Confirm extends Component {
         languages: JSON.stringify([{ source: 'sdk', language_code: language }]),
       }
     } else if (callbackName === CALLBACK_TYPES.document) {
-      const { file, side, type, validations } = data
+      const { file, side, type, validations } = data as UploadDocumentPayload
       payload = {
         file,
         side,
@@ -376,12 +495,15 @@ class Confirm extends Component {
   onRetake = () => {
     const { actions, previousStep } = this.props
 
+    const imageQualitiesKeys = Object.keys(IMAGE_QUALITY_KEYS_MAP) as Array<
+      keyof typeof IMAGE_QUALITY_KEYS_MAP
+    >
     // Retake on image quality error, increase image quality retries
-    const isImageQualityError = Object.keys(IMAGE_QUALITY_KEYS_MAP).find(
-      (key) => IMAGE_QUALITY_KEYS_MAP[key] === this.state.error.name
+    const isImageQualityError = imageQualitiesKeys.find(
+      (key) => IMAGE_QUALITY_KEYS_MAP[key] === this.state.error?.name
     )
 
-    if (isImageQualityError && this.state.error.type === 'error') {
+    if (isImageQualityError && this.state.error?.type === 'error') {
       actions.retryForImageQuality()
     }
 
@@ -389,7 +511,7 @@ class Confirm extends Component {
   }
 
   onConfirm = () => {
-    if (this.state.error.type === 'warn') {
+    if (this.state.error?.type === 'warning') {
       this.props.actions.resetImageQualityRetries()
       this.props.nextStep()
     } else {
@@ -404,7 +526,7 @@ class Confirm extends Component {
     poaDocumentType,
     isFullScreen,
     trackScreen,
-  }) => {
+  }: ConfirmProps) => {
     const { error, uploadInProgress } = this.state
 
     if (uploadInProgress) {
@@ -421,9 +543,11 @@ class Confirm extends Component {
         error={error}
         trackScreen={trackScreen}
         method={method}
+        //@ts-ignore todo optional in Previews
         documentType={documentType}
+        //@ts-ignore todo optional in Previews
         poaDocumentType={poaDocumentType}
-        forceRetake={error.type === 'error'}
+        forceRetake={error?.type === 'error'}
         onVideoError={this.onVideoPreviewError}
       />
     )

@@ -24,12 +24,12 @@ import type { SupportedLanguages } from '~types/locales'
 import type { LegacyTrackedEventNames } from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
-type UploadPayload = {
+export type UploadPayload = {
   filename?: string
   sdkMetadata: SdkMetadata
 }
 
-type UploadDocumentPayload = {
+export type UploadDocumentPayload = {
   file: Blob
   issuing_country?: string
   side?: DocumentSides
@@ -37,20 +37,20 @@ type UploadDocumentPayload = {
   validations?: ImageQualityValidationPayload
 } & UploadPayload
 
-type UploadDocumentVideoMediaPayload = {
+export type UploadDocumentVideoMediaPayload = {
   file: Blob
   document_id: string
   sdk_source?: string
   sdk_version?: string
 } & Omit<UploadPayload, 'filename'>
 
-type UploadVideoPayload = {
+export type UploadVideoPayload = {
   blob: Blob
   challengeData?: ChallengeData
   language?: SupportedLanguages
 } & UploadPayload
 
-type UploadSnapshotPayload = {
+export type UploadSnapshotPayload = {
   file: Blob | FilePayload
 }
 
