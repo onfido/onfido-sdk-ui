@@ -10,16 +10,14 @@
     });
   }
 
-  window.getToken = function(callback) {
+  window.getToken = function() {
 
-    fetch('/token-factory/sdk_token')
-      .then(response => response.json())
-      .then(json => {
-        callback(json.message)
-      })
-      .catch(error => {
-        callback('error');
-      });
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/token-factory/sdk_token', false);
+    xhr.send();
+
+    return JSON.parse(xhr.responseText).message;
   }
 })();
 
+                                                                                                              b

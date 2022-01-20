@@ -172,7 +172,7 @@ public class WebSdk {
 
     private String getToken() {
 
-        return (String) driver.executeAsyncScript("var callback = arguments[arguments.length - 1]; window.getToken(callback)");
+        return (String) driver.executeScript("return window.getToken()");
     }
 
     public <T extends Page> T init(Class<T> pageClass) {
