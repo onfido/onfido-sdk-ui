@@ -80,7 +80,6 @@ public class DocumentIT extends WebSdkIT {
     @Test(groups = {"percy"}, description = "should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled")
     @Mobile
     @Browser(enableMicrophoneCameraAccess = true)
-//    @Browser(enableMicrophoneCameraAccess = true, fileForFakeVideoCapture = "../resources/test-stream.y4m")
     public void testPassportLiveCapture() {
 
         var capture = onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true), "complete")
@@ -284,7 +283,6 @@ public class DocumentIT extends WebSdkIT {
     @Test(description = "should be able to retry document upload")
     public void testShouldBeAbleToRetryDocumentUpload() {
         onfido().withSteps(new FaceStep().withUseUploader(true))
-                 .beforeInit(this::provideVideoDevice)
                 .init(SelfieUpload.class)
                 .upload(PASSPORT_JPG)
                 .clickRedoButton(SelfieUpload.class)
@@ -300,7 +298,7 @@ public class DocumentIT extends WebSdkIT {
     @Test(description = "should be taken to the cross-device flow for video capture if there is no camera and docVideo variant requested")
     public void testShouldBeTakenToTheCrossDeviceFlowForVideoCaptureIfThereIsNoCameraAndDocVideoVariantRequested() {
         onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
-                .beforeInit(this::disableWebcam)
+                .withDisableWebcam()
                 .init(IdDocumentSelector.class)
                 .select(PASSPORT, CrossDeviceIntro.class);
     }

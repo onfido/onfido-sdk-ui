@@ -48,7 +48,7 @@ public class FaceIT extends WebSdkIT {
     public void testFallbackToCrossDeviceWithoutWebcamSupport() {
 
         onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
-                .beforeInit(this::disableWebcam)
+                .withDisableWebcam()
                 .init(CrossDeviceIntro.class);
 
     }
@@ -127,7 +127,6 @@ public class FaceIT extends WebSdkIT {
     public void testSelfieScreenIfNoMediaRecorderAvailableAndFaceVideoVariantRequested() {
 
         onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
-                .beforeInit(this::provideVideoDevice)
                 .beforeInit(this::disableMediaRecorder)
                 .init(SelfieIntro.class)
                 .clickContinue(Permission.class);
@@ -147,7 +146,6 @@ public class FaceIT extends WebSdkIT {
     @Browser(enableMicrophoneCameraAccess = true)
     public void testFacialLivenessVideo() {
         var intro = onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
-                            .beforeInit(this::provideVideoDevice)
                             .init(FaceVideoIntro.class);
 
         takePercySnapshot("face-video-intro");
@@ -162,7 +160,6 @@ public class FaceIT extends WebSdkIT {
     @Browser(enableMicrophoneCameraAccess = true)
     public void testFacialVideoTimeout() {
         var faceVideo = onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
-                                .beforeInit(this::provideVideoDevice)
                                 .init(FaceVideoIntro.class)
                                 .recordVideo()
                                 .clickEnableCamera(FaceVideo.class);
@@ -183,7 +180,6 @@ public class FaceIT extends WebSdkIT {
 
         var videoIntro = onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO), "complete")
                                  .withEnterpriseFeatures(enterpriseFeatures)
-                                 .beforeInit(this::provideVideoDevice)
                                  .init(FaceVideoIntro.class);
 
         assertThat(videoIntro.isLogoVisible()).isFalse();
