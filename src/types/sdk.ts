@@ -6,7 +6,7 @@ import type { UICustomizationOptions } from './ui-customisation-options'
 type DocumentResponse = {
   id: string
   side: string
-  type: string
+  type: DocumentTypes
   variant: RequestedVariant
 }
 
