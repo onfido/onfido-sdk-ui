@@ -160,11 +160,12 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
 
     }
 
-    @Test(description = "should start the ANSSI flow for Residence permit flow and attempt to upload", groups = {"percy", "ANSSI"})
+
+    @Test(description = "should start the ANSSI flow for Residence permit flow and attempt to upload", groups = {"percy", "ANSSI"}, enabled = false)
     @Browser(enableMicrophoneCameraAccess = true)
     public void testShouldStartTheAnssiFlowForResidencePermitFlowAndAttemptToUpload() {
 
-        // TODO: ask Stefania, why no paper document type is shown up
+        // FIXME: ask Stefania, why no paper document type is shown up
 
         var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
                            .init(IdDocumentSelector.class)

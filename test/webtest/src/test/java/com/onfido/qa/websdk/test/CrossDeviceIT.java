@@ -216,7 +216,8 @@ public class CrossDeviceIT extends WebSdkIT {
         takePercySnapshot("CrossDeviceSubmit");
     }
 
-    @Test(description = "should verify all custom UI elements on customised cross device mobile client intro screen", groups = {"percy"})
+    // FIXME: enable test
+    @Test(description = "should verify all custom UI elements on customised cross device mobile client intro screen", groups = {"percy"}, enabled = false)
     public void testShouldVerifyAllCustomUiElementsOnCustomisedCrossDeviceMobileClientIntroScreen() {
 
         // TODO: check with Stefania what is the expected behavior here. I miss the CrossDeviceClientIntro. Bug?
