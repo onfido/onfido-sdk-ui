@@ -31,6 +31,7 @@ public class WebSdk {
     private final Driver driver;
     private boolean tokenSet;
     private final List<Runnable> beforeInit = new ArrayList<>();
+    private boolean enableWebcam = true;
 
     public WebSdk(Driver driver) {
         this.driver = driver;
@@ -79,10 +80,21 @@ public class WebSdk {
         return this;
     }
 
+    public WebSdk withEnableWebcam() {
+        enableWebcam = true;
+        return this;
+    }
+
+    public WebSdk withDisableWebcam() {
+        enableWebcam = false;
+        return this;
+    }
+
     private void setupDefaultValues() {
         withSteps("welcome", "document");
         put("containerId", "root");
         withDisableAnalytics();
+        withEnableWebcam();
     }
 
     private void withDisableAnalytics() {
@@ -125,6 +137,15 @@ public class WebSdk {
             withToken(getToken());
         }
 
+        if (enableWebcam) {
+            if (getVideoDeviceCount() == 0) {
+                driver.executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: \"video\" }])");
+            }
+
+        } else {
+            driver.executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])");
+        }
+
         beforeInit.forEach(Runnable::run);
 
         // and wait for the page to be ready
@@ -137,6 +158,15 @@ public class WebSdk {
         driver.executeScript("window.onfido = Onfido.init(" + parameters + ")");
 
         return new Onfido(driver);
+    }
+
+    private Long getVideoDeviceCount() {
+        return (Long) driver.executeAsyncScript("var callback = arguments[arguments.length - 1];" +
+                "window.navigator.mediaDevices.enumerateDevices()" +
+                ".then(devices => { " +
+                "callback(devices.filter(x => x.kind.indexOf('video') !== -1).length)" +
+                "})" +
+                ".catch(() => callback(0))");
     }
 
     private String getToken() {

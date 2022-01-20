@@ -34,10 +34,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.DocumentType.DRIVING_LICENCE;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.sdk.FaceStep.Variant.VIDEO;
+import static org.assertj.core.api.Assertions.assertThat;
 
 // TODO: add tests for all pages. e.g. run the report from other tests or add tests here. Same as with percy
 
@@ -241,7 +241,6 @@ public class AccessibilityIT extends WebSdkIT {
     public void testShouldVerifyAccessibilityForFaceVideoIntroScreen() {
 
         onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
-                .beforeInit(this::provideVideoDevice)
                 .init(FaceVideoIntro.class);
 
         verifyAxeReport();
@@ -251,7 +250,6 @@ public class AccessibilityIT extends WebSdkIT {
     public void testShouldVerifyAccessibilityForCameraPermissionScreen() {
 
         onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
-                .beforeInit(this::provideVideoDevice)
                 .init(FaceVideoIntro.class)
                 .recordVideo();
 
@@ -264,7 +262,6 @@ public class AccessibilityIT extends WebSdkIT {
     @Browser(enableMicrophoneCameraAccess = true)
     public void testShouldVerifyAccessibilityForFaceVideoRecordingAndFaceVideoConfirmationScreens() {
         var camera = onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
-                             .beforeInit(this::provideVideoDevice)
                              .init(FaceVideoIntro.class)
                              .recordVideo()
                              .clickEnableCamera(FaceVideo.class);

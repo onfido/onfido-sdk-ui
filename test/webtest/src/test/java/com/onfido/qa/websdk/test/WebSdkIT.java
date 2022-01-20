@@ -185,13 +185,13 @@ public abstract class WebSdkIT extends WebTest {
         return Component.createComponent(driver(), page);
     }
 
-    protected void disableWebcam() {
-        driver().executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])");
+    private void disableWebcam() {
+
     }
 
-    protected void provideVideoDevice() {
+    private void provideVideoDevice() {
         // TODO: check, if this is needed. The browsers itself have video
-        driver().executeScript("window.navigator.mediaDevices =  window.navigator.mediaDevices || {}; window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: \"video\" }])");
+
     }
 
     protected void disableMediaRecorder() {

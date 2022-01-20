@@ -1,15 +1,12 @@
 package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.annotation.Browser;
-import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.page.ConfirmUpload;
 import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.FaceVideo;
 import com.onfido.qa.websdk.page.FaceVideoIntro;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.ImageQualityGuide;
-import com.onfido.qa.websdk.page.PassportUploaderIntro;
-import com.onfido.qa.websdk.page.SelfieIntro;
 import com.onfido.qa.websdk.page.SelfieUpload;
 import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.FaceStep;
@@ -51,7 +48,6 @@ public class NavigationIT extends WebSdkIT{
     @Browser(enableMicrophoneCameraAccess = true)
     public void testShouldDisplayTheFaceVideoIntroAgainOnBackButtonClickWhenOnTheFaceVideoFlowAndIHaveACamera() {
         onfido().withSteps("document", new FaceStep().withRequestedVariant(VIDEO))
-                .beforeInit(this::provideVideoDevice)
                 .init(IdDocumentSelector.class)
                 .select(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
