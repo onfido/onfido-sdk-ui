@@ -3,7 +3,6 @@ package com.onfido.qa.websdk.test;
 import com.onfido.qa.annotation.Browser;
 import com.onfido.qa.annotation.Mobile;
 import com.onfido.qa.websdk.DocumentType;
-import com.onfido.qa.websdk.PoADocumentType;
 import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.model.Option;
 import com.onfido.qa.websdk.page.Complete;
@@ -21,22 +20,15 @@ import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.EnterpriseFeatures;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import com.onfido.qa.websdk.sdk.Raw;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.DocumentType.DRIVING_LICENCE;
 import static com.onfido.qa.websdk.DocumentType.IDENTITY_CARD;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.DocumentType.RESIDENT_PERMIT;
-import static com.onfido.qa.websdk.PoADocumentType.BANK_BUILDING_SOCIETY_STATEMENT;
-import static com.onfido.qa.websdk.PoADocumentType.BENEFIT_LETTERS;
-import static com.onfido.qa.websdk.PoADocumentType.COUNCIL_TAX;
-import static com.onfido.qa.websdk.PoADocumentType.UTILITY_BILL;
 import static com.onfido.qa.websdk.UploadDocument.BACK_DRIVING_LICENCE_JPG;
 import static com.onfido.qa.websdk.UploadDocument.BACK_NATIONAL_IDENTITY_CARD_JPG;
 import static com.onfido.qa.websdk.UploadDocument.FACE;
@@ -51,6 +43,7 @@ import static com.onfido.qa.websdk.UploadDocument.UK_DRIVING_LICENCE_PNG;
 import static com.onfido.qa.websdk.UploadDocument.UNSUPPORTED_FILE_TYPE;
 import static com.onfido.qa.websdk.sdk.DocumentStep.Variant.VIDEO;
 import static java.lang.String.format;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 // TODO: revisit the percy stuff, as we capture too often the same screens
@@ -291,6 +284,7 @@ public class DocumentIT extends WebSdkIT {
     @Test(description = "should be able to retry document upload")
     public void testShouldBeAbleToRetryDocumentUpload() {
         onfido().withSteps(new FaceStep().withUseUploader(true))
+                 .beforeInit(this::provideVideoDevice)
                 .init(SelfieUpload.class)
                 .upload(PASSPORT_JPG)
                 .clickRedoButton(SelfieUpload.class)
