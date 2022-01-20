@@ -6,7 +6,7 @@ echo "starting container"
 docker-compose up -d
 
 set +e
-mvn --no-transfer-progress -DscreenshotListener.enabled=false -DthreadCount=1 -Denvironment=browserstack "$1" clean verify
+mvn --no-transfer-progress -DscreenshotListener.enabled=false -DthreadCount=1 -Denvironment=browserstack $1 clean verify
 EXIT=$?
 
 echo "shutting down container"
