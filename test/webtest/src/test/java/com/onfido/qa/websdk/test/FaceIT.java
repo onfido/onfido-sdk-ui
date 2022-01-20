@@ -150,7 +150,7 @@ public class FaceIT extends WebSdkIT {
 
         takePercySnapshot("face-video-intro");
 
-        intro.recordVideo().clickEnableCamera(FaceVideo.class);
+        intro.recordVideo(FaceVideo.class);
 
         takePercySnapshotWithoutVideo("face-video-record");
 
@@ -161,8 +161,7 @@ public class FaceIT extends WebSdkIT {
     public void testFacialVideoTimeout() {
         var faceVideo = onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
                                 .init(FaceVideoIntro.class)
-                                .recordVideo()
-                                .clickEnableCamera(FaceVideo.class);
+                                .recordVideo(FaceVideo.class);
 
         faceVideo.waitForWarningMessage(12);
 
@@ -184,10 +183,7 @@ public class FaceIT extends WebSdkIT {
 
         assertThat(videoIntro.isLogoVisible()).isFalse();
 
-        var permission = videoIntro.recordVideo();
-        assertThat(permission.isLogoVisible()).isFalse();
-
-        var faceVideo = permission.clickEnableCamera(FaceVideo.class);
+        var faceVideo = videoIntro.recordVideo(FaceVideo.class);
         assertThat(faceVideo.isLogoVisible()).isFalse();
 
         var confirmUpload = faceVideo.record();
