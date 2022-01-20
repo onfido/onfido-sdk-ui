@@ -6,7 +6,7 @@ import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.common.Component;
 import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.webdriver.driver.ExpectedConditions;
-import com.onfido.qa.websdk.Property;
+import com.onfido.qa.configuration.Property;
 import com.onfido.qa.websdk.model.CrossDeviceLinkMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
