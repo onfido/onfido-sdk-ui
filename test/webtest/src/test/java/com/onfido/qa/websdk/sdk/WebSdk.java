@@ -139,6 +139,7 @@ public class WebSdk {
 
         if (enableWebcam) {
             if (getVideoDeviceCount() == 0) {
+                log.info("Faking enumerateDevices to return a video device");
                 driver.executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: \"video\" }])");
             }
 
