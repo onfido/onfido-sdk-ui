@@ -5,7 +5,7 @@ import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.util.ByUtil;
 import org.openqa.selenium.By;
 
-public class CrossDeviceClientIntro extends BasePage{
+public class CrossDeviceClientIntro extends BasePage {
     public CrossDeviceClientIntro(Driver driver) {
         super(driver);
     }

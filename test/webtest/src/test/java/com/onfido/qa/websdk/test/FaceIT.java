@@ -18,11 +18,11 @@ import com.onfido.qa.websdk.sdk.Raw;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.UploadDocument.FACE;
 import static com.onfido.qa.websdk.UploadDocument.NATIONAL_IDENTITY_CARD_PDF;
 import static com.onfido.qa.websdk.UploadDocument.OVER_10MB_FACE;
 import static com.onfido.qa.websdk.sdk.FaceStep.Variant.VIDEO;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FaceIT extends WebSdkIT {
 

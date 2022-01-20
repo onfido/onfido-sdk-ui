@@ -11,13 +11,13 @@ import com.onfido.qa.websdk.sdk.DocumentStep.Option;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static com.onfido.qa.websdk.DocumentType.DRIVING_LICENCE;
 import static com.onfido.qa.websdk.DocumentType.IDENTITY_CARD;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.DocumentType.RESIDENT_PERMIT;
 import static com.onfido.qa.websdk.UploadDocument.NATIONAL_IDENTITY_CARD_JPG;
 import static com.onfido.qa.websdk.UploadDocument.UK_DRIVING_LICENCE_PNG;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CountrySelectorIT extends WebSdkIT {
 
@@ -162,13 +162,13 @@ public class CountrySelectorIT extends WebSdkIT {
 
     @Test(description = "should show country selection screen when multiple documents enabled with boolean values (legacy config)")
     public void testShowCountrySelectionWithMultipleDocsEnabled() {
-        var countrySelector = onfido()
+        onfido()
                 .withSteps(new DocumentStep().withDocumentType(DRIVING_LICENCE, true).withDocumentType(IDENTITY_CARD, true))
                 .init(IdDocumentSelector.class)
-                        .select(IDENTITY_CARD, CountrySelector.class)
-                        .select(CountrySelector.SUPPORTED_COUNTRY, DocumentUpload.class)
-                        .upload(NATIONAL_IDENTITY_CARD_JPG)
-                        .clickConfirmButton(DocumentUpload.class);
+                .select(IDENTITY_CARD, CountrySelector.class)
+                .select(CountrySelector.SUPPORTED_COUNTRY, DocumentUpload.class)
+                .upload(NATIONAL_IDENTITY_CARD_JPG)
+                .clickConfirmButton(DocumentUpload.class);
     }
 
     @Test(description = "should go to document upload screen when a supported country is selected")
