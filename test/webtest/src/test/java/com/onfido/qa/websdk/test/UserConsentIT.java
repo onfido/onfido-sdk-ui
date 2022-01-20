@@ -11,13 +11,6 @@ public class UserConsentIT extends WebSdkIT {
 
     public static final String CONSENT_FRAME_TITLE = "Onfido's privacy statement and Terms of Service";
 
-    public UserConsentIT() {
-    }
-
-    public UserConsentIT(String language) {
-        super(language);
-    }
-
     private UserConsent init() {
         return onfido().withSteps("userConsent", "document").init(UserConsent.class);
     }

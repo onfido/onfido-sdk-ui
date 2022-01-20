@@ -28,13 +28,6 @@ public class FaceIT extends WebSdkIT {
 
     public static final String BRAND_NAME = "[COMPANY/PRODUCT NAME]";
 
-    public FaceIT() {
-    }
-
-    public FaceIT(String language) {
-        super(language);
-    }
-
     @DataProvider
     public static Object[][] faceJpegs() {
         return new Object[][]{

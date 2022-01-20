@@ -23,13 +23,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CrossDeviceDocumentVideoIT extends WebSdkIT {
 
-    public CrossDeviceDocumentVideoIT() {
-    }
-
-    public CrossDeviceDocumentVideoIT(String language) {
-        super(language);
-    }
-
     @DataProvider(name = "documentTypes")
     public static Object[][] documentTypes() {
 

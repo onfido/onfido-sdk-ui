@@ -29,13 +29,6 @@ public class CrossDeviceIT extends WebSdkIT {
     public static final String PRODUCT_NAME = "for a [COMPANY/PRODUCT NAME] loan";
     public static final String LOGO_URL = "https://assets.onfido.com/web-sdk-releases/6.16.0/images/sample-logo_2hXI-.svg";
 
-    public CrossDeviceIT() {
-    }
-
-    public CrossDeviceIT(String language) {
-        super(language);
-    }
-
     @Test(description = "should verify UI elements on the cross device intro screen", groups = {"percy"})
     public void testShouldVerifyUiElementsOnTheCrossDeviceIntroScreen() {
         gotoCrossDeviceScreen();
