@@ -1,7 +1,6 @@
 package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
-import com.onfido.qa.webdriver.common.Component;
 import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.util.Javascript;

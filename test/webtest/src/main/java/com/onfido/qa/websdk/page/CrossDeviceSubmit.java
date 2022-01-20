@@ -5,7 +5,7 @@ import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.util.ByUtil;
 import org.openqa.selenium.By;
 
-public class CrossDeviceSubmit extends BasePage{
+public class CrossDeviceSubmit extends BasePage {
 
     public static final By SUBMIT = ByUtil.onfidoQa("cross-device-submit-btn");
 

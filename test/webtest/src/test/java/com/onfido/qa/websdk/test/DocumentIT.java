@@ -322,8 +322,8 @@ public class DocumentIT extends WebSdkIT {
         verifyConfirmErrorMessage(confirmUpload, "glare");
 
         confirmUpload.clickRedoButton(ImageQualityGuide.class)
-                .upload(NATIONAL_IDENTITY_CARD_JPG)
-                .clickConfirmButton(null);
+                     .upload(NATIONAL_IDENTITY_CARD_JPG)
+                     .clickConfirmButton(null);
 
         // TODO: this test seem to have detected a real bug, the glare message stays, even if we uploaded a non glare image in the 2nd try
     }

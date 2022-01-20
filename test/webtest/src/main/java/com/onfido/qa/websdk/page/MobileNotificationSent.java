@@ -3,7 +3,7 @@ package com.onfido.qa.websdk.page;
 import com.onfido.qa.webdriver.Driver;
 import org.openqa.selenium.By;
 
-public class MobileNotificationSent extends BasePage{
+public class MobileNotificationSent extends BasePage {
     public MobileNotificationSent(Driver driver) {
         super(driver);
     }
