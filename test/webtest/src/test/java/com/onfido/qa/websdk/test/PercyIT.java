@@ -12,13 +12,6 @@ import java.util.Arrays;
 
 public class PercyIT extends WebSdkIT {
 
-    public PercyIT() {
-    }
-
-    public PercyIT(String language) {
-        super(language);
-    }
-
     @DataProvider(name = "poaDocumentTypes")
     public static Object[][] poaDocumentTypes() {
 

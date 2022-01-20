@@ -44,14 +44,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SuppressWarnings("RedundantFieldInitialization")
 public class AccessibilityIT extends WebSdkIT {
 
-    protected AccessibilityIT() {
-        super();
-    }
-
-    protected AccessibilityIT(String language) {
-        super(language);
-    }
-
     static String axe = null;
     static String axeConfig = null;
     static final ObjectMapper objectMapper = new ObjectMapper();

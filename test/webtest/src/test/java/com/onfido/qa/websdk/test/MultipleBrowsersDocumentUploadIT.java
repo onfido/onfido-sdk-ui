@@ -16,13 +16,6 @@ import static com.onfido.qa.websdk.UploadDocument.PASSPORT_JPG;
 
 public class MultipleBrowsersDocumentUploadIT extends WebSdkIT {
 
-    public MultipleBrowsersDocumentUploadIT() {
-    }
-
-    public MultipleBrowsersDocumentUploadIT(String language) {
-        super(language);
-    }
-
     @DataProvider
     public static Object[][] passportDocuments() {
         return new Object[][]{

@@ -17,14 +17,7 @@ import static com.onfido.qa.websdk.UploadDocument.FACE;
 import static com.onfido.qa.websdk.UploadDocument.PASSPORT_JPG;
 import static com.onfido.qa.websdk.sdk.FaceStep.Variant.VIDEO;
 
-public class NavigationIT extends WebSdkIT{
-
-    public NavigationIT() {
-    }
-
-    public NavigationIT(String language) {
-        super(language);
-    }
+public class NavigationIT extends WebSdkIT {
 
     @Test(description = "should navigate to the second-last step of the flow and then go back to the beginning")
     public void testNavigateToSecondLastStepAndThenBackToBeginning() {

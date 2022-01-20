@@ -50,14 +50,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DocumentIT extends WebSdkIT {
 
-    public DocumentIT() {
-    }
-
-    public DocumentIT(String language) {
-        super(language);
-    }
-
-
     private ImageQualityGuide gotoPassportUpload() {
         return onfido().withSteps("document", "complete")
                        .init(IdDocumentSelector.class)

@@ -21,15 +21,6 @@ import static com.onfido.qa.websdk.UploadDocument.UK_DRIVING_LICENCE_PNG;
 
 public class CountrySelectorIT extends WebSdkIT {
 
-    @SuppressWarnings("unused")
-    public CountrySelectorIT() {
-        super();
-    }
-
-    public CountrySelectorIT(String language) {
-        super(language);
-    }
-
     @DataProvider
     public static Object[][] documentTypesWithCountrySelection() {
         return new Object[][]{
