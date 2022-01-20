@@ -46,8 +46,7 @@ public class NavigationIT extends WebSdkIT {
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(PASSPORT_JPG)
                 .clickConfirmButton(FaceVideoIntro.class)
-                .recordVideo()
-                .clickEnableCamera(FaceVideo.class)
+                .recordVideo(FaceVideo.class)
                 .back(FaceVideoIntro.class);
 
     }
