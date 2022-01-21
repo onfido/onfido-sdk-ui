@@ -15,7 +15,6 @@ stages:
   - prepare
   - check
   - build
-  - deploy
 
 .node:
   image: node:${NODE_VERSION}
@@ -80,18 +79,3 @@ preview:
     paths: [public]
   only: [branches]
   except: [main]
-
-preview:deploy:
-  extends: .deploy-s3-preview-branch
-  needs:
-    - preview
-  rules:
-    - if: $CI_COMMIT_REF_NAME == 'main'
-      when: never
-    - when: on_success
-
-stop_review:
-  rules:
-    - if: $CI_COMMIT_REF_NAME == 'main'
-      when: never
-    - when: on_success
