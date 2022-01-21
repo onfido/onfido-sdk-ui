@@ -186,7 +186,7 @@ export type ErrorCallback = (error: ParsedError) => void
 export type WorkflowResponse = {
   id: string
   applicant_id: string
-  task_type: 'INTERACTIVE' | 'SYNC' | 'ASYNC' | 'FINAL' | 'CUSTOM'
+  task_type: 'START' | 'INTERACTIVE' | 'SYNC' | 'ASYNC' | 'FINAL' | 'CUSTOM'
   task_id: string
   task_def_id: string
   config: {

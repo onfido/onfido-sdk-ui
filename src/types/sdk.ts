@@ -58,6 +58,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   token?: string
   useModal?: boolean
   isModalOpen?: boolean
+  isMfe?: boolean
   shouldCloseOnOverlayClick?: boolean
   containerId?: string
   containerEl?: HTMLElement | null

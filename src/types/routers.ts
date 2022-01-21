@@ -100,6 +100,7 @@ export type StepsRouterProps = {
   triggerOnError: ErrorCallback
   isLoadingStep?: boolean
   backgroundTask?: string | null
+  setDocData?: (data: unknown, callback?: () => void) => void 
 } & HistoryRouterProps
 
 export type StepComponentBaseProps = {

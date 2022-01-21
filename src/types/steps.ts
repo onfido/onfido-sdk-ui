@@ -123,8 +123,8 @@ type StepOptionsMap = {
   poa: StepOptionPoA
   face: StepOptionFace
   complete: StepOptionComplete
-  pass: StepOptionPass
-  reject: StepOptionReject
+  pass: never
+  reject: never
   //data?: StepOptionData
 }
 

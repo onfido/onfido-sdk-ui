@@ -9,7 +9,7 @@
   },
   "license": "SEE LICENSE IN ./LICENSE",
   "scripts": {
-    "dev": "NODE_ENV=devlopment webpack-dev-server --hot --progress --https",
+    "dev": "NODE_ENV=staging webpack-dev-server --hot --progress --https",
     "dev:auth": "NODE_ENV=development SDK_ENV=Auth webpack-dev-server --hot --progress --https",
     "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
     "prebuild": "npm run clean",
