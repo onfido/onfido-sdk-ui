@@ -1,5 +1,9 @@
 import { h } from 'preact'
 import { useState } from 'preact/compat'
+import { localised } from '~locales'
+import classNames from 'classnames'
+import theme from '../Theme/style.scss'
+import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
 import {
   Field,
@@ -9,7 +13,7 @@ import {
   Button,
   Asterisk,
 } from '@onfido/castor-react'
-//import CountrySelector from './CountrySelector'
+import CountrySelector from './CountrySelector'
 
 import type { StepComponentDataProps } from '~types/routers'
 
@@ -25,6 +29,7 @@ const Data = ({
   data,
   nextStep,
   setPersonalData,
+  translate,
 }: DataProps): JSX.Element => {
   const [submitData, setSubmitData] = useState(data)
   const [validation, setValidation] = useState(
@@ -61,9 +66,18 @@ const Data = ({
     }
   }
 
+  const actions = (
+    <Button
+      onClick={handleSubmit}
+      className={classNames(theme['button-centered'], theme['button-lg'])}
+    >
+      {translate('profile_data.button_submit')}
+    </Button>
+  )
+
   return (
-    <div>
-      <PageTitle title={title} />
+    <ScreenLayout actions={actions}>
+      <PageTitle title={translate(`profile_data.${title}`) || title} />
       {Object.entries(submitData).map(([key, value]) => {
         const isRequired = !['state'].includes(key)
 
@@ -71,17 +85,16 @@ const Data = ({
           <Field key={key}>
             <FieldLabel>
               <span>
-                {translations[key] || key}
+                {translate(`profile_data.${key}`) || key}
                 {isRequired && <Asterisk aria-label="required" />}
               </span>
               {key === 'country' ? (
-                <Input
-                type={getType(key) as any}
-                value={`${value}`}
-                invalid={validation[key]}
-                required={isRequired}
-                onChange={(e) => handleChange(key, e.target.value)}
-              />
+                <CountrySelector
+                  value={`${value}`}
+                  error={validation[key]}
+                  required
+                  onChange={(value: string) => handleChange(key, value)}
+                />
               ) : (
                 <Input
                   type={getType(key) as any}
@@ -93,36 +106,16 @@ const Data = ({
               )}
               {validation[key] && (
                 <Validation state="error" withIcon>
-                  This field is required
+                  {translate('profile_data.required_error')}
                 </Validation>
               )}
             </FieldLabel>
           </Field>
-        );
+        )
       })}
-      <br />
-      <Button onClick={handleSubmit}>Next</Button>
-    </div>
+    </ScreenLayout>
   )
 }
-
-const translations = {
-  first_name: 'First name',
-  last_name: 'Last name',
-  dob: 'Date of birth',
-  flat_number: 'Flat number',
-  building_number: 'Building number',
-  building_name: 'Building name',
-  street: 'Street',
-  sub_street: 'Sub-street',
-  town: 'Town',
-  postcode: 'Postcode',
-  country: 'Country',
-  state: 'State (US only)',
-  line1: 'Line 1',
-  line2: 'Line 2',
-  line3: 'Line 3',
-} as const
 
 const getType = (key: string) => {
   switch (key) {
@@ -133,4 +126,4 @@ const getType = (key: string) => {
   }
 }
 
-export default Data
+export default localised(Data)
