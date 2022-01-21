@@ -98,7 +98,7 @@ export default class CrossDeviceMobileRouter extends Component<
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
     const url = props.urls.sync_url
-   
+
     const roomId = window.location.pathname.substring(3) || props.options.roomId
 
     this.state = {
@@ -365,7 +365,7 @@ export default class CrossDeviceMobileRouter extends Component<
         />
       )
     }
-    
+
     if (steps) {
       return (
         <HistoryRouter
@@ -377,7 +377,6 @@ export default class CrossDeviceMobileRouter extends Component<
         />
       )
     }
-    
 
     trackException(
       'Unable to load Cross Device mobile flow - an unhandled error has occurred'

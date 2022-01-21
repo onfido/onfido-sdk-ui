@@ -56,7 +56,7 @@ const formatOptions = ({
   const mandatorySteps: StepTypes[] = useWorkflow
     ? []
     : ['document', 'face', 'complete']
-  
+
   const defaultSteps: StepTypes[] =
     process.env.SDK_ENV === 'Auth'
       ? ['welcome', 'auth', ...mandatorySteps]
