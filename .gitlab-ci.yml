@@ -75,7 +75,7 @@ preview:
     NODE_ENV: 'development'
     CI_PREFIX_PATH: ${CI_PROJECT_PATH}/${CI_COMMIT_REF_SLUG}/
     CI_PREFIX_URL: https://deploy-previews.eu-west-1.dev.onfido.xyz/${CI_PROJECT_PATH}/${CI_COMMIT_REF_SLUG}/
-  script: npm run build:preview -- --dist-dir public --public-url $CI_PREFIX_URL
+  script: npm run build:all -- --dist-dir public --public-url $CI_PREFIX_URL
   artifacts:
     paths: [public]
   only: [branches]
