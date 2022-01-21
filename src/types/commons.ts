@@ -16,7 +16,7 @@ export type NarrowSdkOptions = Omit<
   | 'shouldCloseOnOverlayClick'
   | 'useModal'
 > & {
-  events?: EventEmitter2.emitter,
+  events?: EventEmitter2.emitter
 }
 
 const STEP_CROSS_DEVICE = 'crossDevice'

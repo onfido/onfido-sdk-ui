@@ -28,8 +28,6 @@ type WelcomeActionsProps = {
   workflowButtonLabel?: string
 }
 
-
-
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   customNextButtonLabel,
   nextStep,
@@ -38,7 +36,9 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   const { translate } = useLocales()
   const buttonLabel = customNextButtonLabel
     ? customNextButtonLabel
-    : workflowButtonLabel? workflowButtonLabel : translate('welcome.next_button')
+    : workflowButtonLabel
+    ? workflowButtonLabel
+    : translate('welcome.next_button')
 
   return (
     <div className={theme.contentMargin}>
@@ -60,13 +60,16 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
   autoFocusOnInitialScreenTitle,
 }) => {
-  const [{ applicantId, workflowRunId, useWorkflow }, { findStep }] = useSdkOptions()
+  const [
+    { applicantId, workflowRunId, useWorkflow },
+    { findStep },
+  ] = useSdkOptions()
   const { translate } = useLocales()
-  const workflowButtonLabel = useWorkflow ? localStorage.getItem(`a_${applicantId}:w_${workflowRunId}`) ===
-  'started'
-    ? 'Continue'
-    : 'Start'
-  : ''
+  const workflowButtonLabel = useWorkflow
+    ? localStorage.getItem(`a_${applicantId}:w_${workflowRunId}`) === 'started'
+      ? 'Continue'
+      : 'Start'
+    : ''
 
   const welcomeStep = findStep('welcome')
   const {
@@ -79,7 +82,11 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   const documentStep = findStep('document')
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
-  const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep, workflowButtonLabel }} />
+  const actions = (
+    <WelcomeActions
+      {...{ customNextButtonLabel, nextStep, workflowButtonLabel }}
+    />
+  )
   const welcomeTitle = customTitle || translate('welcome.title')
   const welcomeSubTitle = !customDescriptions
     ? translate('welcome.subtitle')

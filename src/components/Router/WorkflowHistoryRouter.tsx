@@ -139,9 +139,12 @@ export default class WorkflowHistoryRouter extends Component<
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
-  getWorkFlowStep = (taskId: string, configuration: {
-    [name: string]: unknown
-  } | null) => {
+  getWorkFlowStep = (
+    taskId: string,
+    configuration: {
+      [name: string]: unknown
+    } | null
+  ) => {
     console.log(`requested step for task ${taskId}`)
 
     switch (taskId) {
