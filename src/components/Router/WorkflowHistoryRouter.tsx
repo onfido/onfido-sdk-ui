@@ -87,25 +87,28 @@ export default class WorkflowHistoryRouter extends Component<
       }
     )
   }
-  
+
   clearDocData = (): void => {
     this.setState({
       ...this.state,
       docData: [],
     })
   }
-  
+
   setPersonalData = (data: any, callback?: () => void): void => {
-    this.setState({
-      ...this.state,
-      personalData: {
-        ...this.state.personalData,
-        ...data,
+    console.log('data>>>', data)
+    console.log('this.state.personalData>>>', this.state.personalData)
+    this.setState(
+      {
+        ...this.state,
+        personalData: {
+          ...this.state.personalData,
+          ...data,
+        },
       },
-    },
-    () => {
-      callback?.() // this is possible next step call, but we need to make sure personal data is set
-     }
+      () => {
+        callback?.() // this is possible next step call, but we need to make sure personal data is set
+      }
     )
   }
 

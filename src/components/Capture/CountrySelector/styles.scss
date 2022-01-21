@@ -1,0 +1,31 @@
+@import '../../Theme/constants';
+@import '../../CountrySelector/style';
+//:global {
+// $flag-icon-css-path: '../../../../node_modules/flag-icon-css/flags';
+//  @import '../../../../node_modules/flag-icon-css/sass/flag-icon';
+//}
+
+.countrySelector {
+  :global(.ods-select) {
+    max-width: unset;
+  }
+}
+
+.countryFlag {
+  position: absolute;
+  left: 12 * $unit;
+  top: 8 * $unit;
+  width: 24 * $unit;
+  height: 24 * $unit;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.countryLabel {
+  padding-left: 35 * $unit;
+  display: flex;
+  align-items: center;
+}
