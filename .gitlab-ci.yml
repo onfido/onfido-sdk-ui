@@ -1,5 +1,4 @@
 include:
-  - template: 'Workflows/Branch-Pipelines.gitlab-ci.yml'
   - project: onfido/DevOps/pipeline
     file: deploy/s3.yml
 
@@ -32,37 +31,31 @@ install:
     <<: *cache
     policy: pull-push
 
-lint_commit:
+check_types:
   extends: .node
   stage: check
   before_script:
     - git fetch origin main
   script:
-    - npm run lint:commit
+    - npm run check:types
 
-lint_style:
+check_style:
   extends: .node
   stage: check
   script:
-    - npm run lint:style
+    - npm run check:styles
 
-lint_es:
+check_es:
   extends: .node
   stage: check
   script:
-    - npm run lint:es
+    - npm run check:es
 
-lint_ts:
+check_format:
   extends: .node
   stage: check
   script:
-    - npm run lint:ts
-
-lint_format:
-  extends: .node
-  stage: check
-  script:
-    - npm run lint:format
+    - npm run check:format
 
 test:
   extends: .node
