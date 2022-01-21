@@ -60,7 +60,7 @@ describe('Demo app', () => {
     it('mounts the Onfido SdkDemo without crashing', () => {
       const sdkDemo = mount(<SdkDemo />)
       expect(sdkDemo.exists()).toBeTruthy()
-      expect(window.Onfido.workflowInit).toHaveBeenCalled()
+      expect(window.Onfido.init).toHaveBeenCalled()
       expect(mockedConsole).toHaveBeenCalledWith(
         '* JWT Factory URL:',
         'https://token-factory.onfido.com/sdk_token',

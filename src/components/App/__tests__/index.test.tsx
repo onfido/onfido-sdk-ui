@@ -13,6 +13,8 @@ const defaultOptions: NormalisedSdkOptions = {
     { type: 'document' },
     { type: 'face' },
     { type: 'complete' },
+    { type: 'pass' },
+    { type: 'reject' },
   ],
 }
 
