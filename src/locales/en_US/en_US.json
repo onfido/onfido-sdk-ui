@@ -248,7 +248,7 @@
     "doc_multi_frame_capture": {
         "instruction_front": "Position the front of your document in the frame",
         "instruction_back": "Position the back of your document in the frame",
-        "scanning": "scanning document"
+        "scanning": "Scanning document"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Restart the process on the latest version of Google Chrome",
