@@ -125,6 +125,13 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_capture_validation_error',
+    {
+      eventName: 'CAPTURE_VALIDATION_ERROR',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_crossDevice_mobile_notification_sent',
     {
       eventName: 'CROSS_DEVICE_MOBILE_NOTIFICATION_SENT',

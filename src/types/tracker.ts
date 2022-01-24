@@ -16,6 +16,7 @@ export type LegacyTrackedEventNames =
   | 'copy link selected'
   | 'qr code selected'
   | 'sms selected'
+  | 'screen_capture_validation_error'
   | 'screen_crossDevice_mobile_notification_sent'
   | 'screen_crossDevice_mobile_connected'
   | 'screen_crossDevice_sms_failed'
@@ -143,6 +144,7 @@ export type AnalyticsPayload = {
 }
 
 export type AnalyticsTrackedEventNames =
+  | 'CAPTURE_VALIDATION_ERROR'
   | 'COMPLETE'
   | 'COMPLETE_CROSS_DEVICE_MOBILE_SUCCESS'
   | 'COUNTRY_SELECTION'

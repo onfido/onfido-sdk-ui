@@ -89,6 +89,8 @@ class Confirm extends Component {
       return this.props.crossDeviceClientError()
     } else if (status === 422) {
       errorKey = this.onfidoErrorReduce(response.error) || UNEXPECTED_ERROR
+      // TODO: decide event name, properties & if 1 or multiple events (one for each type)
+      sendEvent(`screen_capture_validation_error`, { error: errorKey })
     } else {
       this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
