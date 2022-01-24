@@ -13,15 +13,18 @@ import {
   Button,
   Asterisk,
 } from '@onfido/castor-react'
+import type { WithLocalisedProps } from '~types/hocs'
 import CountrySelector from './CountrySelector'
 
 import type { StepComponentDataProps } from '~types/routers'
+import { StepOptionData } from '~types/steps'
 
 type DataProps = StepComponentDataProps & {
   title: string
   dataPath: string
+  data: StepOptionData
   setPersonalData: (data: any, callback: () => void) => void
-}
+} & WithLocalisedProps
 
 const Data = ({
   title,

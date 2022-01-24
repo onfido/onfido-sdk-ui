@@ -166,7 +166,6 @@ class CountrySelection extends Component<Props, State> {
 
   render() {
     const { translate, nextStep, idDocumentIssuingCountry } = this.props
-    console.log('{this.suggestCountries}', this.suggestCountries)
     return (
       <ScreenLayout
         actions={
