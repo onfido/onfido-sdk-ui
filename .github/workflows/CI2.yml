@@ -1,5 +1,4 @@
 # TODO: adjust when the CI job is executed
-# TODO: stefania add percy token
 
 name: CI
 
@@ -154,3 +153,22 @@ jobs:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Safari"
           fail_on: "nothing"
+
+      - name: Verify test results
+        if: steps.testserver.outcome == 'success'
+        shell: bash
+        run: |
+          set -x
+
+          CHROME=${{ steps.chrome.outputs.exit_code }}
+          FIREFOX=${{ steps.firefox.outputs.exit_code }}
+          EDGE=${{ steps.edge.outputs.exit_code }}
+          SAFARI=${{ steps.safari.outputs.exit_code }}
+
+          if [[ "$CHROME" != "0" || "$FIREFOX" != "0" || "$EDGE" != "0" || "$SAFARI" != "0" ]]
+          then
+            exit 1
+          fi
+
+
+# TODO: build publish to surge
