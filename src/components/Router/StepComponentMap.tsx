@@ -23,7 +23,6 @@ import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
 import Pass from '../Pass'
 import Reject from '../Reject'
-//import Review from '../Review'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import CrossDeviceClientIntro from 'components/crossDevice/ClientIntro'
@@ -40,7 +39,11 @@ import type {
   ExtendedStepConfig,
   FlowVariants,
 } from '~types/commons'
-import type { StepComponentProps, ComponentStep } from '~types/routers'
+import type {
+  StepComponentProps,
+  ComponentStep,
+  StepComponentDataProps,
+} from '~types/routers'
 import type {
   DocumentTypes,
   StepConfig,
@@ -166,14 +169,13 @@ const buildCaptureStepComponents = (
     complete,
     pass: [Pass],
     reject: [Reject],
-    //review: [Review],
   }
 }
 
 const buildDataComponents = (
   dataStep?: StepConfigData
 ): ComponentType<StepComponentProps>[] => {
-  const Personal = (props) => {
+  const Personal = (props: any) => {
     return (
       <DataCapture
         title="personal_detials_title"
@@ -186,7 +188,7 @@ const buildDataComponents = (
       />
     )
   }
-  const Address = (props) => {
+  const Address = (props: any) => {
     return (
       <DataCapture
         title="address_detials_title"
@@ -211,7 +213,7 @@ const buildDataComponents = (
     )
   }
 
-  return [Address, Personal]
+  return [Personal, Address]
 }
 
 const buildFaceComponents = (

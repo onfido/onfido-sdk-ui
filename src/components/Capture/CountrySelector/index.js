@@ -3,7 +3,7 @@ import { useState, useEffect } from 'preact/compat'
 import Autocomplete from 'accessible-autocomplete/preact'
 import { omit } from 'lodash/fp'
 import { allCountriesList, countryTranslations } from './countries'
-import { CountryData } from '~types/commons'
+import { Icon } from '@onfido/castor-react'
 import { getCountryFlagSrc } from '~supported-documents'
 import styles from '../../CountrySelector/style.scss'
 
@@ -30,14 +30,14 @@ const findEntry = (value) =>
     (entry) => entry.countryCode === value || entry.isoAlpha3 === value
   )
 
-const defaultCountry = 'GBR'
+//const defaultCountry = 'GBR'
 
 const CountrySelector = ({ value, error, onChange, ...props }) => {
   const [currentValue, setCurrentValue] = useState()
   //findEntry(value || defaultCountry)
 
   useEffect(() => {
-    if (!value) onChange?.(defaultCountry)
+    //if (!value) onChange?.(defaultCountry)
   }, [])
 
   const handleChange = (selectedCountry) => {
@@ -57,10 +57,14 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
   return (
     <div className={styles.countrySelector}>
       <Autocomplete
-        id="country-search"
+        id="country"
+        name="country"
+        required={true}
         source={suggestCountries}
         showAllValues
-        dropdownArrow={() => <i className={styles.dropdownIcon} />}
+        dropdownArrow={() => (
+          <Icon name="chevron-down" className={styles.chevronIcon} />
+        )}
         // placeholder={translate('country_select.search.input_placeholder')}
         //    tNoResults={() => this.getNoResultsTextForDropdown()}
         displayMenu="overlay"
@@ -71,6 +75,7 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
         }}
         onConfirm={handleChange}
         confirmOnBlur={false}
+        defaultValue={currentValue}
       />
     </div>
   )

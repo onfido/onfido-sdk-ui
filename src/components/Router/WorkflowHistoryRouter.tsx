@@ -102,8 +102,6 @@ export default class WorkflowHistoryRouter extends Component<
   }
 
   setPersonalData = (data: any, callback?: () => void): void => {
-    console.log('data>>>', data)
-    console.log('this.state.personalData>>>', this.state.personalData)
     this.setState(
       {
         ...this.state,
@@ -202,7 +200,7 @@ export default class WorkflowHistoryRouter extends Component<
             last_name: '',
             // email: '',
             dob: '',
-            address: {
+            addresses: {
               // flat_number: '',
               // building_number: '',
               // building_name: '',
