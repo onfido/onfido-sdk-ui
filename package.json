@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "6.16.0",
+  "version": "6.17.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -21,7 +21,7 @@
     "postbuild": "dts-bundle-generator src/types/index.ts --out-file lib/index.d.ts && npm run license-checker",
     "clean": "rimraf lib dist",
     "prepublishOnly": "npm run build:all",
-    "check": "echo \"Running pre-commit checks...\" && npm run check:types && npm run check:es && npm run check:styles && npm run check:format",
+    "check": "concurrently -r --kill-others-on-fail npm:check:*",
     "check:types": "tsc --noEmit --jsx preserve",
     "check:es": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}'",
     "check:styles": "stylelint 'src/**/*.scss'",
@@ -165,6 +165,7 @@
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
     "chromedriver": "^96.0.0",
+    "concurrently": "^6.4.0",
     "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^3.4.2",
     "dts-bundle-generator": "^5.5.0",

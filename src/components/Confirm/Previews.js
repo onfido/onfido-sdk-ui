@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import CaptureViewer from '../CaptureViewer'
 import Actions from './Actions'
 import PageTitle from '../PageTitle'

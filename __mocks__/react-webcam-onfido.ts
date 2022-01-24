@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { Component, h } from 'preact'
 import type { WebcamProps } from 'react-webcam-onfido'
 
 export default class Webcam extends Component<WebcamProps> {
@@ -16,7 +16,14 @@ export default class Webcam extends Component<WebcamProps> {
     getAudioTracks: jest.fn().mockReturnValue([{ label: 'fake-audio-track' }]),
     getTrackById: jest.fn(),
     getTracks: jest.fn(),
-    getVideoTracks: jest.fn().mockReturnValue([{ label: 'fake-video-track' }]),
+    getVideoTracks: jest.fn().mockReturnValue([
+      {
+        label: 'fake-video-track',
+        getSettings(): MediaTrackSettings {
+          return {}
+        },
+      },
+    ]),
     onaddtrack: jest.fn(),
     onremovetrack: jest.fn(),
     removeEventListener: jest.fn(),

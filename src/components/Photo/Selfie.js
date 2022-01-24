@@ -87,6 +87,9 @@ export default class SelfieCapture extends Component {
   }
 
   takeSelfie = () => {
+    // If we are already taking the selfie, we should stop taking snapshots to prevent them from being the
+    // same as the Selfie itself, causing the multiframe feature to fail.
+    this.stopSnapshots()
     this.setState({ isProcessingSelfie: true, isCaptureButtonDisabled: true })
     screenshot(this.webcam, this.handleSelfie)
   }
@@ -107,13 +110,17 @@ export default class SelfieCapture extends Component {
     }
   }
 
-  componentWillUnmount() {
+  stopSnapshots() {
     if (this.snapshotIntervalId) {
       clearInterval(this.snapshotIntervalId)
     }
     if (this.initialSnapshotTimeoutId) {
       clearTimeout(this.initialSnapshotTimeoutId)
     }
+  }
+
+  componentWillUnmount() {
+    this.stopSnapshots()
   }
 
   render() {
