@@ -12,7 +12,8 @@ set +e
 if [[ -z "${PERCY_TOKEN}" ]]; then
   $CMD
 else
-  percy exec -- "$CMD"
+  # shellcheck disable=SC2086
+  percy exec -- $CMD
 fi
 
 $CMD
