@@ -6,6 +6,7 @@ import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.page.ConfirmUpload;
 import com.onfido.qa.websdk.page.CrossDeviceIntro;
+import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.FaceVideo;
 import com.onfido.qa.websdk.page.FaceVideoIntro;
 import com.onfido.qa.websdk.page.Permission;
@@ -19,6 +20,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static com.onfido.qa.websdk.UploadDocument.FACE;
+import static com.onfido.qa.websdk.UploadDocument.LLAMA_JPG;
 import static com.onfido.qa.websdk.UploadDocument.NATIONAL_IDENTITY_CARD_PDF;
 import static com.onfido.qa.websdk.UploadDocument.OVER_10MB_FACE;
 import static com.onfido.qa.websdk.sdk.FaceStep.Variant.VIDEO;
@@ -224,5 +226,14 @@ public class FaceIT extends WebSdkIT {
                 .clickConfirmButton(Complete.class);
 
         // TODO: we should verify, that the media is correctly uploaded
+    }
+
+    @Test(description = "should return no face found error for selfie")
+    public void testShouldReturnNoFaceFoundErrorForSelfie() {
+        var upload = onfido().withSteps(new FaceStep().withUseUploader(true)).init(DocumentUpload.class)
+                             .upload(LLAMA_JPG)
+                             .clickConfirmButton(ConfirmUpload.class);
+
+        verifyCopy(upload.getErrorTitle(), "generic.errors.no_face.message");
     }
 }
