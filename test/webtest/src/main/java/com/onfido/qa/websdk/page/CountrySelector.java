@@ -50,7 +50,7 @@ public class CountrySelector extends BasePage {
 
     public CountrySelector selectFirstOptionInDropdownMenu() {
         sleep(250);
-        driver.findElement(SEARCH).sendKeys(Keys.DOWN, Keys.ENTER);
+        driver.actions().sendKeys(Keys.DOWN, Keys.ENTER).perform();
 
         return this;
     }
