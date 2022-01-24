@@ -310,5 +310,11 @@ public class AccessibilityIT extends WebSdkIT {
 
     }
 
+    @Test(description = "should verify accessibility for the take a selfie screen")
+    public void testShouldVerifyAccessibilityForTheTakeASelfieScreen() {
+        onfido().withSteps("face").init();
+        verifyAxeReport();
+    }
+
 
 }
