@@ -23,6 +23,7 @@ import static com.onfido.qa.websdk.UploadDocument.FACE;
 import static com.onfido.qa.websdk.UploadDocument.LLAMA_JPG;
 import static com.onfido.qa.websdk.UploadDocument.NATIONAL_IDENTITY_CARD_PDF;
 import static com.onfido.qa.websdk.UploadDocument.OVER_10MB_FACE;
+import static com.onfido.qa.websdk.UploadDocument.TWO_FACES;
 import static com.onfido.qa.websdk.sdk.FaceStep.Variant.VIDEO;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -235,5 +236,14 @@ public class FaceIT extends WebSdkIT {
                              .clickConfirmButton(ConfirmUpload.class);
 
         verifyCopy(upload.getErrorTitle(), "generic.errors.no_face.message");
+    }
+
+    @Test(description = "should return multiple faces error")
+    public void testShouldReturnMultipleFacesError() {
+        var upload = onfido().withSteps(new FaceStep().withUseUploader(true)).init(DocumentUpload.class)
+                             .upload(TWO_FACES)
+                             .clickConfirmButton(ConfirmUpload.class);
+
+        verifyCopy(upload.getErrorTitle(), "generic.errors.multiple_faces.message");
     }
 }

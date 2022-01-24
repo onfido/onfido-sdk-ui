@@ -141,7 +141,16 @@ export default {
             type: 'face_detection',
             message: 'There was a validation error on this request',
             fields: {
-              face_detection: ['no_face']
+              face_detection: ['no_face'],
+            },
+          },
+        },
+        multiple_face: {
+          error: {
+            type: 'face_detection',
+            message: 'There was a validation error on this request',
+            fields: {
+              face_detection: ['Multiple faces'],
             },
           },
         },

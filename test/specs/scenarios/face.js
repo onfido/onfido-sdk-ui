@@ -46,19 +46,6 @@ export const faceScenarios = (lang) => {
 
     const copy = basePage.copy(lang)
 
-    // @TODO: Bring back these tests once the face detection service is re-enabled
-    it.skip('should return multiple faces error', async () => {
-      goToPassportUploadScreen(
-        driver,
-        welcome,
-        documentSelector,
-        `?language=${lang}&useUploader=true`
-      )
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
-      confirm.verifyMultipleFacesError(copy)
-    })
-
     // FIXME: To be fixed in CX-7126
     it.skip('should record a video with liveness challenge, play it and submit it @percy', async () => {
       goToPassportUploadScreen(
