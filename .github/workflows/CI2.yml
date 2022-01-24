@@ -1,3 +1,6 @@
+# TODO: adjust when the CI job is executed
+# TODO: stefania add percy token
+
 name: CI
 
 on:
@@ -41,19 +44,19 @@ jobs:
           issue_labels: vulnerability
           dedupe_issues: true
 
-#      - name: Run linters
-#        run: npm run check
-#
-#      - name: Run build
-#        run: npm run build
-#
-#      - name: Run unit tests
-#        run: npm run test:unit
-#
-#      - name: Run integration tests
-#        run: npm run test:integration
-#        env:
-#          SDK_TOKEN_FACTORY_SECRET: ${{ secrets.SDK_TOKEN_FACTORY_SECRET }}
+      - name: Run linters
+        run: npm run check
+
+      - name: Run build
+        run: npm run build
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Run integration tests
+        run: npm run test:integration
+        env:
+          SDK_TOKEN_FACTORY_SECRET: ${{ secrets.SDK_TOKEN_FACTORY_SECRET }}
 
       # TODO: we're building the whole sdk again with NODE_ENV=test, just because some properties e.g. MOBILE_URL are different.
       # We could skip this if this option can be passed as option while bootstrapping
