@@ -65,6 +65,9 @@ jobs:
         run: npm run build:test
         id: testserver
 
+      - name: Install Percy
+        run: npm install -g @percy/cli
+
       - uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
@@ -82,6 +85,7 @@ jobs:
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
           BUILD: ${{ github.ref }}-${{ github.run_id }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_JAVA }}
 
       - name: Publish Senelium Test Results - Chrome
         uses: EnricoMi/publish-unit-test-result-action@v1

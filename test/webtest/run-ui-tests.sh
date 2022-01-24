@@ -5,8 +5,17 @@ set -x
 echo "starting container"
 docker-compose up -d
 
+CMD="mvn --no-transfer-progress -DscreenshotListener.enabled=false -DthreadCount=1 -Denvironment=browserstack $1 clean verify"
+
 set +e
-mvn --no-transfer-progress -DscreenshotListener.enabled=false -DthreadCount=1 -Denvironment=browserstack $1 clean verify
+
+if [[ -z "${PERCY_TOKEN}" ]]; then
+  $CMD
+else
+  percy exec -- "$CMD"
+fi
+
+$CMD
 EXIT=$?
 
 echo "shutting down container"
