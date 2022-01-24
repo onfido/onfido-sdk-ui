@@ -47,19 +47,6 @@ export const faceScenarios = (lang) => {
     const copy = basePage.copy(lang)
 
     // @TODO: Bring back these tests once the face detection service is re-enabled
-    it.skip('should return no face found error for selfie', async () => {
-      goToPassportUploadScreen(
-        driver,
-        welcome,
-        documentSelector,
-        `?language=${lang}&useUploader=true`
-      )
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
-      confirm.verifyNoFaceError(copy)
-    })
-
-    // @TODO: Bring back these tests once the face detection service is re-enabled
     it.skip('should return multiple faces error', async () => {
       goToPassportUploadScreen(
         driver,

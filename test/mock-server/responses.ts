@@ -136,6 +136,15 @@ export default {
             },
           },
         },
+        no_face: {
+          error: {
+            type: 'face_detection',
+            message: 'There was a validation error on this request',
+            fields: {
+              face_detection: ['no_face']
+            },
+          },
+        },
       },
       live_video_challenge: {
         data: {
