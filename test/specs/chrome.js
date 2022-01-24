@@ -7,7 +7,6 @@ import { faceScenarios } from './scenarios/face'
 import { crossDeviceScenarios } from './scenarios/crossDevice'
 import { crossDeviceDocumentVideoCaptureScenarios } from './scenarios/crossDeviceDocumentVideoCapture'
 import { hostAppHistoryScenarios } from './scenarios/hostAppHistory'
-import { accessibilityScenarios } from './scenarios/accessibility'
 
 describe('Happy Paths on Chrome', () => {
   // Multiple language scenarios
@@ -20,6 +19,6 @@ describe('Happy Paths on Chrome', () => {
   // We are passing the region here so we can fetch the right json file path (e.g. `en_US/en_US.json`).
   partialTestCoverageLanguages.forEach((lang) => {})
   // PoA is only available in en
-  accessibilityScenarios()
+
   hostAppHistoryScenarios()
 })
