@@ -29,7 +29,9 @@ const isWebmFormatSupported = () => {
   )
 }
 
-type Props = CameraProps &
+type Props = {
+  pageId?: string
+} & CameraProps &
   WebcamProps &
   WithLocalisedProps &
   WithFailureHandlingProps &
@@ -57,6 +59,7 @@ const Camera: FunctionComponent<Props> = ({
   renderVideoOverlay,
   translate,
   webcamRef,
+  pageId,
 }) => {
   // Specify just a camera width (no height) because on safari if you specify both
   // height and width you will hit an OverconstrainedError if the camera does not
@@ -88,6 +91,7 @@ const Camera: FunctionComponent<Props> = ({
         [style.docLiveCaptureFrame]: docLiveCaptureFrame,
         [style.docAutoCaptureFrame]: docAutoCaptureFrame,
       })}
+      data-page-id={pageId}
     >
       {renderTitle}
       <div className={classNames(style.container, containerClassName)}>

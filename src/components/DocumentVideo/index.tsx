@@ -225,6 +225,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
       renderVideoOverlay={renderVideoOverlay}
       trackScreen={trackScreen}
       webcamRef={webcamRef}
+      pageId={'DocumentVideoCapture'}
     />
   )
 }

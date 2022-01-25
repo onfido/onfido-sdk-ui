@@ -124,7 +124,7 @@ export default class SelfieCapture extends Component {
   }
 
   render() {
-    const { trackScreen, renderFallback, inactiveError } = this.props
+    const { trackScreen, renderFallback, inactiveError, pageId } = this.props
     const {
       hasBecomeInactive,
       hasCameraError,
@@ -148,6 +148,7 @@ export default class SelfieCapture extends Component {
         buttonType="photo"
         onButtonClick={this.takeSelfie}
         isButtonDisabled={isCaptureButtonDisabled}
+        pageId={pageId}
       >
         {!isCaptureButtonDisabled && !hasCameraError && (
           <Timeout seconds={10} onTimeout={this.handleTimeout} />

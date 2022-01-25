@@ -100,7 +100,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     } = this.state
 
     return (
-      <div className={style.container}>
+      <div className={style.container} data-page-id={'DocumentLiveCapture'}>
         {this.state.isCapturing ? (
           <Spinner />
         ) : (

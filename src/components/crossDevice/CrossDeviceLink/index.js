@@ -377,7 +377,7 @@ class CrossDeviceLinkUI extends Component {
     const visibleViewOptions = this.getVisibleViewOptions(requiredViewRenders)
 
     return (
-      <div className={style.container}>
+      <div className={style.container} data-page-id={'CrossDeviceLink'}>
         {error.type ? (
           <SmsError error={error} trackScreen={trackScreen} />
         ) : (
