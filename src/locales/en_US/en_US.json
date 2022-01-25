@@ -246,9 +246,9 @@
         "title": "Check your video"
     },
     "doc_multi_frame_capture": {
-        "instruction_front": "Position the front of your document in the frame",
-        "instruction_back": "Position the back of your document in the frame",
-        "scanning": "Scanning document"
+        "instructions_title_front": "Position the front of your document in the frame",
+        "instructions_title_back": "Position the back of your document in the frame",
+        "capture_progress_title": "Scanning document"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Restart the process on the latest version of Google Chrome",

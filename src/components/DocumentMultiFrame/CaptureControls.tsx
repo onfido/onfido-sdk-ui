@@ -44,7 +44,9 @@ const CaptureControls: FunctionComponent<Props> = ({
               <span className={`${theme.icon} ${style.icon}`} />
             )}
             <Instructions
-              title={translate(`doc_multi_frame_capture.instruction_${side}`)}
+              title={translate(
+                `doc_multi_frame_capture.instructions_title_${side}`
+              )}
             />
           </div>
           <CameraButton
@@ -62,7 +64,7 @@ const CaptureControls: FunctionComponent<Props> = ({
       return (
         <CaptureProgress
           duration={DOC_MULTIFRAME_CAPTURE.SCANNING_TIMEOUT}
-          title={translate(`doc_multi_frame_capture.scanning`)}
+          title={translate(`doc_multi_frame_capture.capture_progress_title`)}
         />
       )
     case 'success':
