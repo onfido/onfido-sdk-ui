@@ -95,7 +95,7 @@ jobs:
 
       - name: Run Percy tests
         working-directory: ./test/webtest
-        id: chrome
+        id: percy
         if: ${{ steps.testserver.outcome == 'success' }}
         # TODO: increase thread count, when we have more parallel sessions
         run: ./run-ui-tests.sh "-Dbrowser=chrome -Dgroups=percy"
@@ -185,8 +185,9 @@ jobs:
           FIREFOX=${{ steps.firefox.outputs.exit_code }}
           EDGE=${{ steps.edge.outputs.exit_code }}
           SAFARI=${{ steps.safari.outputs.exit_code }}
+          PERCY=${{ steps.percy.outputs.exit_code }}
 
-          if [[ "$CHROME" != "0" || "$FIREFOX" != "0" || "$EDGE" != "0" || "$SAFARI" != "0" ]]
+          if [[ "$CHROME" != "0" || "$FIREFOX" != "0" || "$EDGE" != "0" || "$SAFARI" != "0" || "$PERCY" != "0" ]]
           then
             exit 1
           fi
