@@ -1,7 +1,9 @@
 package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.websdk.UploadDocument;
+import com.onfido.qa.websdk.page.BasePage;
 import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
+import com.onfido.qa.websdk.page.CrossDeviceClientSuccess;
 import com.onfido.qa.websdk.page.CrossDeviceIntro;
 import com.onfido.qa.websdk.page.CrossDeviceLink;
 import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
@@ -12,6 +14,8 @@ import com.onfido.qa.websdk.page.ImageQualityGuide;
 import com.onfido.qa.websdk.page.MobileNotificationSent;
 import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.DocumentStep;
+import com.onfido.qa.websdk.sdk.EnterpriseFeatures;
+import com.onfido.qa.websdk.sdk.EnterpriseFeatures.EnterpriseCobranding;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import com.onfido.qa.websdk.sdk.Raw;
 import com.onfido.qa.websdk.sdk.WebSdk;
@@ -28,6 +32,7 @@ public class CrossDeviceIT extends WebSdkIT {
 
     public static final String PRODUCT_NAME = "for a [COMPANY/PRODUCT NAME] loan";
     public static final String LOGO_URL = "https://assets.onfido.com/web-sdk-releases/6.16.0/images/sample-logo_2hXI-.svg";
+
 
     @Test(description = "should verify UI elements on the cross device intro screen", groups = {"percy"})
     public void testShouldVerifyUiElementsOnTheCrossDeviceIntroScreen() {
@@ -274,4 +279,97 @@ public class CrossDeviceIT extends WebSdkIT {
 
         assertThat(crossDeviceSubmit.submitVerificationEnabled()).isFalse();
     }
+
+    @Test(description = "should hide logo on all screens when hideOnfidoLogo is enabled and given token has feature enabled")
+    public void testShouldHideLogoOnAllScreensWhenHideOnfidoLogoIsEnabledAndGivenTokenHasFeatureEnabled() {
+        var welcome = onfido().withEnterpriseFeatures(new EnterpriseFeatures().withHideOnfidoLogo(true))
+                              .withSteps("welcome", "document").init(Welcome.class);
+
+
+        testCrossDeviceFlow(welcome, new Verifier() {
+            @Override
+            public <T extends BasePage> T verifyPage(T page) {
+                assertThat(page.isLogoVisible()).isFalse();
+                return page;
+            }
+        });
+
+    }
+
+    @Test(description = "should not show any logo, including cobrand text and logo on all screens when showCobrand is enabled but hideOnfidoLogo is also enabled")
+    public void testShouldNotShowAnyLogoIncludingCobrandTextAndLogoOnAllScreensWhenShowCobrandIsEnabledButHideOnfidoLogoIsAlsoEnabled() {
+
+        var welcome = onfido().withEnterpriseFeatures(new EnterpriseFeatures().withHideOnfidoLogo(true)
+                                                                              .withCobrand(new EnterpriseCobranding("foobar")))
+                              .withSteps("welcome", "document").init(Welcome.class);
+
+        testCrossDeviceFlow(welcome, new Verifier() {
+            @Override
+            public <T extends BasePage> T verifyPage(T page) {
+                assertThat(page.isLogoVisible()).isFalse();
+                return page;
+            }
+        });
+
+    }
+
+    @Test(description = "should show the cobrand text and logo on all screens when showCobrand is enabled and token has feature enabled")
+    public void testShouldShowTheCobrandTextAndLogoOnAllScreensWhenShowCobrandIsEnabledAndTokenHasFeatureEnabled() {
+
+        var welcome = onfido().withEnterpriseFeatures(new EnterpriseFeatures().withCobrand(new EnterpriseCobranding("foobar")))
+                              .withSteps("welcome", "document").init(Welcome.class);
+
+        testCrossDeviceFlow(welcome, new Verifier() {
+            @Override
+            public <T extends BasePage> T verifyPage(T page) {
+                assertThat(page.isCobrandDisplayed()).isTrue();
+                return page;
+            }
+        });
+
+    }
+
+    @Test(description = "should show the cobrand logo and Onfido logo on all screens when showLogoCobrand is enabled and token has feature enabled")
+    public void testShouldShowTheCobrandLogoAndOnfidoLogoOnAllScreensWhenShowLogoCobrandIsEnabledAndTokenHasFeatureEnabled() {
+        var src = "data:image/png";
+        var welcome = onfido().withEnterpriseFeatures(new EnterpriseFeatures().withLogoCobrand(new EnterpriseFeatures.EnterpriseLogo().withDarkLogoSrc(src).withLightLogoSrc(src)))
+                              .withSteps("welcome", "document").init(Welcome.class);
+
+        testCrossDeviceFlow(welcome, new Verifier() {
+            @Override
+            public <T extends BasePage> T verifyPage(T page) {
+                assertThat(page.isCobrandLogoDisplayed()).isTrue();
+                return page;
+            }
+        });
+    }
+
+    private void testCrossDeviceFlow(Welcome welcome, Verifier verifier) {
+
+        verifier.verifyPage(welcome);
+
+        var documentSelector = verifier.verifyPage(welcome.continueToNextStep(IdDocumentSelector.class));
+
+        var link = documentSelector.select(PASSPORT, DocumentUpload.class)
+                                   .switchToCrossDevice()
+                                   .getSecureLink().copyLink();
+
+        openMobileScreen(link);
+
+        var crossDeviceClientIntro = verifier.verifyPage(verifyPage(CrossDeviceClientIntro.class));
+
+        var upload = verifier.verifyPage(crossDeviceClientIntro.clickContinue(DocumentUpload.class));
+
+        var imageQualityGuide = verifier.verifyPage(upload.clickUploadButton(ImageQualityGuide.class));
+        imageQualityGuide.upload(UploadDocument.PASSPORT_JPG).clickConfirmButton(CrossDeviceClientSuccess.class);
+
+        switchToMainScreen();
+        verifier.verifyPage(verifyPage(CrossDeviceSubmit.class));
+    }
+
+    private interface Verifier {
+        <T extends BasePage> T verifyPage(T page);
+    }
+
+
 }

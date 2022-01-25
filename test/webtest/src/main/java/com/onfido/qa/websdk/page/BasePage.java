@@ -15,7 +15,7 @@ public abstract class BasePage extends Page {
 
     private static final By SPINNER = By.cssSelector(".onfido-sdk-ui-Spinner-loader");
     private static final By CLOSE_MODAL = By.cssSelector(".onfido-sdk-ui-Modal-closeButton");
-    public static final By BACK_ARROW = By.cssSelector(".onfido-sdk-ui-NavigationBar-iconBack");
+    private static final By BACK_ARROW = By.cssSelector(".onfido-sdk-ui-NavigationBar-iconBack");
 
     protected BasePage(Driver driver) {
         super(driver);
@@ -31,6 +31,14 @@ public abstract class BasePage extends Page {
 
     public boolean isLogoVisible() {
         return !driver.isInDom(By.cssSelector(".onfido-sdk-ui-Theme-noLogo"));
+    }
+
+    public boolean isCobrandDisplayed() {
+        return driver.findElement(By.cssSelector(".onfido-sdk-ui-Theme-cobrandFooter")).isDisplayed();
+    }
+
+    public boolean isCobrandLogoDisplayed() {
+        return driver.findElement(By.cssSelector(".onfido-sdk-ui-Theme-logoCobrandImage")).isDisplayed();
     }
 
     protected abstract By pageId();

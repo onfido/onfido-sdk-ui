@@ -75,7 +75,7 @@ public class EnterpriseFeatures {
 
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private static class EnterpriseLogo {
+    public static class EnterpriseLogo {
 
         @JsonProperty
         private String lightLogoSrc;

@@ -3,16 +3,12 @@ import {
   partialTestCoverageLanguages,
   fullTestCoverageLanguages,
 } from '../config.json'
-import { faceScenarios } from './scenarios/face'
-import { crossDeviceScenarios } from './scenarios/crossDevice'
 import { crossDeviceDocumentVideoCaptureScenarios } from './scenarios/crossDeviceDocumentVideoCapture'
 import { hostAppHistoryScenarios } from './scenarios/hostAppHistory'
 
 describe('Happy Paths on Chrome', () => {
   // Multiple language scenarios
   fullTestCoverageLanguages.forEach((lang) => {
-    faceScenarios(lang)
-    crossDeviceScenarios(lang)
     crossDeviceDocumentVideoCaptureScenarios(lang)
   })
   // Note: The SDK works also with language tags that do not include region (e.g. 'en', 'es')
