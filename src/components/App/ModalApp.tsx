@@ -33,6 +33,7 @@ import type { StepConfig, DocumentTypes } from '~types/steps'
 import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
+import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
@@ -383,20 +384,26 @@ class ModalApp extends Component<Props> {
     } = options
 
     return (
-      <SdkOptionsProvider options={{ ...options, events: this.events }}>
-        <LocaleProvider language={options.language}>
-          <Modal
-            useModal={useModal}
-            isOpen={isModalOpen}
-            onRequestClose={onModalRequestClose}
-            containerId={containerId}
-            containerEl={containerEl}
-            shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-          >
-            <Router {...otherProps} />
-          </Modal>
-        </LocaleProvider>
-      </SdkOptionsProvider>
+      <SdkConfigurationServiceProvider
+        url={this.props.urls.onfido_api_url}
+        token={this.props.token}
+        sdkVersion={process.env.SDK_VERSION}
+      >
+        <SdkOptionsProvider options={{ ...options, events: this.events }}>
+          <LocaleProvider language={options.language}>
+            <Modal
+              useModal={useModal}
+              isOpen={isModalOpen}
+              onRequestClose={onModalRequestClose}
+              containerId={containerId}
+              containerEl={containerEl}
+              shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+            >
+              <Router {...otherProps} />
+            </Modal>
+          </LocaleProvider>
+        </SdkOptionsProvider>
+      </SdkConfigurationServiceProvider>
     )
   }
 }

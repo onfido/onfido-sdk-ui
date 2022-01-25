@@ -17,6 +17,7 @@ import type {
   CreateV4DocumentResponse,
   SuccessCallback,
   ErrorCallback,
+  SdkConfiguration,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
@@ -225,6 +226,7 @@ export const requestChallenges = (
     endpoint: `${url}/v3/live_video_challenge`,
     contentType: 'application/json',
     token: `Bearer ${token}`,
+    method: 'POST',
   }
 
   performHttpReq(options, onSuccess, (request) => formatError(request, onError))
@@ -253,6 +255,7 @@ export const uploadBinaryMedia = (
           endpoint: `${url}/v4/binary_media`,
           payload: formData,
           token: `Bearer ${token}`,
+          method: 'POST',
         }
 
         performHttpReq(requestParams, resolve, (request) =>
@@ -271,6 +274,7 @@ export const uploadBinaryMedia = (
             headers: { 'X-Video-Auth': hmac },
             payload: formData,
             token: `Bearer ${token}`,
+            method: 'POST',
           }
 
           performHttpReq(requestParams, resolve, (request) =>
@@ -297,6 +301,7 @@ export const createV4Document = (
         }),
         endpoint: `${url}/v4/documents`,
         token: `Bearer ${token}`,
+        method: 'POST',
       }
 
       performHttpReq(requestParams, resolve, (request) =>
@@ -350,6 +355,7 @@ const sendFile = <T>(
     payload: objectToFormData(payload),
     endpoint,
     token: `Bearer ${token}`,
+    method: 'POST',
   }
 
   performHttpReq(requestParams, onSuccess, (request) => {
@@ -382,3 +388,24 @@ export const sendAnalytics = (
 
   request.send(payload)
 }
+
+export const getSdkConfiguration = (
+  url: string,
+  token: string,
+  sdkVersion: string
+): Promise<SdkConfiguration> =>
+  new Promise((resolve, reject) => {
+    try {
+      const requestParams: HttpRequestParams = {
+        endpoint: `${url}/v3/sdk/configurations?sdk_source=onfido-web-sdk&sdk_version=${sdkVersion}`,
+        token: `Bearer ${token}`,
+        method: 'GET',
+      }
+
+      performHttpReq(requestParams, resolve, (request) =>
+        formatError(request, reject)
+      )
+    } catch (error) {
+      reject(error)
+    }
+  })

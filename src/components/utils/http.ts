@@ -6,15 +6,16 @@ export type HttpRequestParams = {
   headers?: Record<string, string>
   payload?: string | FormData
   token: string
+  method: 'GET' | 'POST'
 }
 
 export const performHttpReq = <T>(
-  { contentType, endpoint, headers, payload, token }: HttpRequestParams,
+  { contentType, endpoint, headers, payload, token, method }: HttpRequestParams,
   onSuccess: SuccessCallback<T>,
   onError: (error: ApiRawError) => void
 ): void => {
   const request = new XMLHttpRequest()
-  request.open('POST', endpoint)
+  request.open(method, endpoint)
 
   if (contentType) {
     request.setRequestHeader('Content-Type', contentType)
