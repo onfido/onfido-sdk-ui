@@ -91,7 +91,6 @@ jobs:
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Chrome"
-          fail_on: "nothing"
 
       - name: Run UI tests in Firefox
         id: firefox
@@ -112,7 +111,6 @@ jobs:
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Firefox"
-          fail_on: "nothing"
 
       - name: Run UI tests in Edge
         working-directory: ./test/webtest
@@ -133,7 +131,6 @@ jobs:
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Edge"
-          fail_on: "nothing"
 
       - name: Run UI tests in Safari
         working-directory: ./test/webtest
@@ -154,7 +151,6 @@ jobs:
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Safari"
-          fail_on: "nothing"
 
       - name: Verify test results
         if: ${{ steps.testserver.outcome == 'success' }}
