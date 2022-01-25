@@ -16,7 +16,6 @@ else
   percy exec -- $CMD
 fi
 
-$CMD
 EXIT=$?
 
 echo "shutting down container"
