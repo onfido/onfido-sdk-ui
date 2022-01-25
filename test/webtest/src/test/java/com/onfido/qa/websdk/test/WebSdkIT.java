@@ -44,8 +44,9 @@ public abstract class WebSdkIT extends WebTest {
     protected final String language;
     protected final Copy copy;
     private static final ThreadLocal<Percy> percy = new ThreadLocal<>();
-    private String mainScreenHandle;
-    private String mobileScreenHandle;
+
+    private static final ThreadLocal<String> mainScreenHandle = new ThreadLocal<>();
+    private static final ThreadLocal<String> mobileScreenHandle = new ThreadLocal<>();
 
     protected WebSdkIT() {
         this(defaultLanguage());
@@ -105,13 +106,14 @@ public abstract class WebSdkIT extends WebTest {
         return capabilities;
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
-        percy.set(new Percy(driver()));
 
         driver().waitFor.timeout(10);
         driver().driver.manage().window().setPosition(new Point(0, 0));
         driver().maximize();
+
+        percy.set(new Percy(driver()));
     }
 
     @AfterMethod(alwaysRun = true)
@@ -181,20 +183,20 @@ public abstract class WebSdkIT extends WebTest {
     }
 
     protected void switchToMobileScreen() {
-        driver().switchTo().window(mobileScreenHandle);
+        driver().switchTo().window(mobileScreenHandle.get());
     }
 
     protected void switchToMainScreen() {
-        driver().switchTo().window(mainScreenHandle);
+        driver().switchTo().window(mainScreenHandle.get());
     }
 
     protected void openMobileScreen(String url) {
 
         var driver = driver().driver;
-        mainScreenHandle = driver.getWindowHandle();
+        mainScreenHandle.set(driver.getWindowHandle());
 
         driver.switchTo().newWindow(WindowType.TAB);
-        mobileScreenHandle = driver.getWindowHandle();
+        mobileScreenHandle.set(driver.getWindowHandle());
         driver().get(url);
     }
 }
