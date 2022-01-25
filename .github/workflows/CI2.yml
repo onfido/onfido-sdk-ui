@@ -85,8 +85,6 @@ jobs:
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
           BUILD: ${{ github.ref }}-${{ github.run_id }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_JAVA }}
 
