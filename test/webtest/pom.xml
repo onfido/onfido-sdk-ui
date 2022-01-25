@@ -17,6 +17,9 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <groups/>
+        <excludeGroups />
     </properties>
 
     <!-- https://github.com/jcansdale-test/maven-consume -->
@@ -135,6 +138,8 @@
                             <value>${threadCount}</value>
                         </property>
                     </properties>
+                    <groups>${groups}</groups>
+                    <excludedGroups>${excludeGroups}</excludedGroups>
                     <useFile>false</useFile>
                     <trimStackTrace>false</trimStackTrace>
                     <disableXmlReport>false</disableXmlReport>

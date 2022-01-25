@@ -77,7 +77,28 @@ jobs:
         id: chrome
         if: ${{ steps.testserver.outcome == 'success' }}
         # TODO: increase thread count, when we have more parallel sessions
-        run: ./run-ui-tests.sh "-Dbrowser=chrome"
+        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dit.test=!MultipleBrowsersDocumentUploadIT -DexcludeGroups=percy"
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BUILD: ${{ github.ref }}-${{ github.run_id }}
+
+      - name: Publish Senelium Test Results - Chrome
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          files: test/webtest/target/surefire-reports/junitreports/*.xml
+          check_name: "UI Test results - Chrome"
+          fail_on: "nothing"
+
+      - name: Run Percy tests
+        working-directory: ./test/webtest
+        id: chrome
+        if: ${{ steps.testserver.outcome == 'success' }}
+        # TODO: increase thread count, when we have more parallel sessions
+        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dgroups=percy"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
