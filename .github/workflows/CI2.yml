@@ -47,9 +47,6 @@ jobs:
       - name: Run linters
         run: npm run check
 
-      - name: Run build
-        run: npm run build
-
       - name: Run unit tests
         run: npm run test:unit
 
@@ -177,5 +174,8 @@ jobs:
             exit 1
           fi
 
+# TODO: build and upload the artifact
 
-# TODO: build publish to surge
+#      - name: Run build
+#        run: npm run build
+
