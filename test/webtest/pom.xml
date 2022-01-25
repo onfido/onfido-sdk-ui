@@ -147,6 +147,9 @@
                     <parallel>methods</parallel>
                     <threadCount>${threadCount}</threadCount>
                     <forkCount>${forkCount}</forkCount>
+                    <argLine>
+                        --add-opens java.base/java.lang.invoke=ALL-UNNAMED
+                    </argLine>
                 </configuration>
             </plugin>
         </plugins>
