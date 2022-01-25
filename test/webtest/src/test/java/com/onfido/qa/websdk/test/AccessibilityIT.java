@@ -52,7 +52,7 @@ public class AccessibilityIT extends WebSdkIT {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     @SuppressWarnings("ConstantConditions")
     public static void beforeClass() throws IOException, URISyntaxException {
         axe = Files.readString(Paths.get(AccessibilityIT.class.getClassLoader().getResource("axe.min.js").toURI()));
