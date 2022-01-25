@@ -139,7 +139,7 @@ public class AccessibilityIT extends WebSdkIT {
         verifyAxeReport();
     }
 
-    @Test(description = "should verify accessibility for the cross device submit screen")
+    @Test(description = "should verify accessibility for the cross device submit screen", groups = {"tabs"})
     public void testShouldVerifyAccessibilityForTheCrossDeviceSubmitScreen() {
 
         // TODO: would be good to test it on a real device without the useUploader=true option
