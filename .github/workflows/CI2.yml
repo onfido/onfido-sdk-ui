@@ -30,6 +30,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+
       - name: Install Dependencies
         run: npm install
 
@@ -72,12 +73,15 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
+      - name: Setup Chromedriver
+        uses: nanasess/setup-chromedriver@v1
+
       - name: Run UI tests in Chrome
         working-directory: ./test/webtest
         id: chrome
         if: ${{ steps.testserver.outcome == 'success' }}
         # TODO: increase thread count, when we have more parallel sessions
-        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dit.test=!MultipleBrowsersDocumentUploadIT"
+        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dit.test=!MultipleBrowsersDocumentUploadIT -DthreadCount=10 -Denvironment=headless"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -98,7 +102,7 @@ jobs:
         id: firefox
         if: ${{ steps.testserver.outcome == 'success' }}
         working-directory: ./test/webtest
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -Dbrowser=firefox"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=firefox"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -118,7 +122,7 @@ jobs:
         working-directory: ./test/webtest
         id: edge
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -Dbrowser=edge"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=edge"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -138,7 +142,7 @@ jobs:
         working-directory: ./test/webtest
         id: safari
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -Dbrowser=safari -DbrowserVersion=15.1"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=safari -DbrowserVersion=15.1"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
