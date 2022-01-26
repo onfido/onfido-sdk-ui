@@ -214,13 +214,77 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
         openMobileScreen(link);
         var videoCapture = verifyPage(CrossDeviceClientIntro.class).clickContinue(DocumentVideoCapture.class);
 
-        videoCapture.waitForCameraHint();
+        videoCapture.waitForCameraHint(15);
         verifyCopy(videoCapture.getErrorTitleText(), "selfie_capture.alert.camera_inactive.title");
 
         takePercySnapshotWithoutVideo("DocumentVideoCapture-CameraHint");
         videoCapture.dismissError();
         assertThat(videoCapture.getCameraHint()).isEmpty();
 
+    }
+
+    @Test(description = "should show \"Looks like you took too long error\" in ANSSI flow", groups = {"percy"})
+    @Browser(enableMicrophoneCameraAccess = true)
+    public void testShouldShowLooksLikeYouTookTooLongErrorInAnssiFlow() {
+        uploadUkResidentPermitCrossDevice();
+
+        var documentVideoCapture = verifyPage(CrossDeviceClientIntro.class)
+                .clickContinue(DocumentVideoCapture.class)
+                .clickRecordButton()
+                .waitForCaptureButton()
+                .clickRecordButton()
+                .waitForCaptureButton()
+                .waitForCameraHint(35);
+
+        takePercySnapshotWithoutVideo("DocumentVideoCapture-tooLong");
+
+        documentVideoCapture.clickStartAgain()
+                            .clickRecordButton();
+
+    }
+
+    @Test(description = "should allow user to preview/retake video in ANSSI flow", groups = {"percy"})
+    @Browser(enableMicrophoneCameraAccess = true)
+    public void testShouldAllowUserToPreviewRetakeVideoInAnssiFlow() {
+        uploadUkResidentPermitCrossDevice()
+                .clickContinue(DocumentVideoCapture.class)
+                .clickRecordButton()
+                .waitForCaptureButton()
+                .clickRecordButton()
+                .waitForCaptureButton()
+                .clickRecordButton();
+
+        verifyPage(DocumentVideoConfirm.class).previewVideo()
+                .retakeVideo();
+    }
+
+    @Test(description = "should allow user to go back and retake video in ANSSI flow after completing the flow", groups = {"percy"})
+    @Browser(enableMicrophoneCameraAccess = true)
+    public void testShouldAllowUserToGoBackAndRetakeVideoInAnssiFlowAfterCompletingTheFlow() {
+        uploadUkResidentPermitCrossDevice()
+                .clickContinue(DocumentVideoCapture.class)
+                .clickRecordButton()
+                .waitForCaptureButton()
+                .clickRecordButton()
+                .waitForCaptureButton()
+                .clickRecordButton();
+
+        verifyPage(DocumentVideoConfirm.class).back(DocumentVideoCapture.class)
+                .clickRecordButton();
+    }
+
+    private CrossDeviceClientIntro uploadUkResidentPermitCrossDevice() {
+        var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
+                           .init(IdDocumentSelector.class)
+                           .select(RESIDENT_PERMIT, CountrySelector.class)
+                           .select("United Kingdom")
+                           .submit(CrossDeviceIntro.class)
+                           .getSecureLink()
+                           .copyLink();
+
+        openMobileScreen(link);
+
+        return verifyPage(CrossDeviceClientIntro.class);
     }
 
 }

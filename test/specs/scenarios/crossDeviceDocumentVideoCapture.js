@@ -102,42 +102,6 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
         }
       })
 
-      it('should show "Looks like you took too long error" in ANSSI flow @percy @longtest', async () => {
-        userStartsCrossDeviceFlowForResidentPermit()
-        documentVideoCapture.cardOverlay().isDisplayed()
-        documentVideoCapture.startRecording(copy)
-        documentVideoCapture.verifyNextStepButtonLabel(copy)
-        documentVideoCapture.userIsShownLooksLikeYouTookTooLongError(copy)
-        await takePercySnapshotWithoutOverlay(
-          driver,
-          `User is shown "Looks like you took too long" error ${lang}`
-        )
-        documentVideoCapture.userCanStartAgain()
-        documentVideoCapture.looksLikeYouTookTooLongErrorIsNotSeen()
-        documentVideoCapture.startRecordingButtonIsSeen(copy)
-      })
-
-      it('should allow user to preview/retake video in ANSSI flow @percy', async () => {
-        userCompletesAnssiFlowForUKResidentPermit(copy)
-        documentVideoConfirm.chooseToPreviewVideo(copy)
-        documentVideoPreview.checkYourVideoIsSeen(copy)
-        await takePercySnapshotWithoutOverlay(
-          driver,
-          `User is shown Check your video screen ${lang}`
-        )
-        documentVideoPreview.chooseToRetakeVideo(copy)
-        documentVideoCapture.startRecordingButtonIsSeen(copy)
-        await takePercySnapshotWithoutOverlay(
-          driver,
-          `User is taken back to the start of the flow after choosing to retake video ${lang}`
-        )
-      })
-
-      it('should allow user to go back and retake video in ANSSI flow after completing the flow @percy', async () => {
-        userCompletesAnssiFlowForUKResidentPermit(copy)
-        documentVideoConfirm.backArrow().click()
-        documentVideoCapture.startRecordingButtonIsSeen(copy)
-      })
     }
   )
 }

@@ -91,8 +91,8 @@ public class DocumentVideoCapture extends BasePage {
         return driver.findElementIfAvailable(By.cssSelector(".onfido-sdk-ui-Error-container"));
     }
 
-    public DocumentVideoCapture waitForCameraHint() {
-        driver.waitFor(15).visibility(ERROR_TITLE);
+    public DocumentVideoCapture waitForCameraHint(int timeout) {
+        driver.waitFor(timeout).visibility(ERROR_TITLE);
         return this;
     }
 
@@ -102,6 +102,11 @@ public class DocumentVideoCapture extends BasePage {
 
     public DocumentVideoCapture dismissError() {
         click(By.cssSelector(".onfido-sdk-ui-Error-dismiss"));
+        return this;
+    }
+
+    public DocumentVideoCapture clickStartAgain() {
+        click(By.cssSelector(".onfido-sdk-ui-Button-fallbackButton"));
         return this;
     }
 
