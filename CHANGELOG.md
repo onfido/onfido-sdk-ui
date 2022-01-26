@@ -12,6 +12,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Vastly dereased bundle size by not publishing "webpack visualizer" files to NPM.
 
+## [6.17.0] - 2022-01-24
+
+### Changed
+
+- Change the behavior when `useMultipleSelfieCapture` feature is enable to stop capturing periodic snapshots once the final selfie is being captured.
+
+### Fixed
+
+- UI: Fixed Live Document Capture flow's camera inactive warning not displaying the basic camera fallback option if `uploadFallback` is not defined for SDK configuration's Document step.
+
 ## [6.16.0] - 2021-12-15
 
 ### Added
