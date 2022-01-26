@@ -5,7 +5,7 @@ set -x
 echo "starting container"
 docker-compose up -d
 
-CMD="mvn --no-transfer-progress -DscreenshotListener.enabled=false $1 clean verify"
+CMD="mvn --no-transfer-progress $1 clean verify"
 
 set +e
 

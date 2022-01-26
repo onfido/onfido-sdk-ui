@@ -85,6 +85,14 @@ jobs:
           BUILD: ${{ github.ref }}-${{ github.run_id }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_JAVA }}
 
+      - name: Upload screenshot reports
+        uses: actions/upload-artifact@v2
+        if: ${{ steps.chrome.outcome == 'failure' }}
+        with:
+          name: chrome-testrun-report
+          path: test/webtest/target/screenShot
+          retention-days: 5
+
       - name: Publish Senelium Test Results - Chrome
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
@@ -97,7 +105,7 @@ jobs:
         if: ${{ steps.testserver.outcome == 'success' }}
         working-directory: ./test/webtest
         continue-on-error: true
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=firefox"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=firefox -DscreenshotListener.enabled=false"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -117,7 +125,7 @@ jobs:
         continue-on-error: true
         id: edge
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=edge"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=edge -DscreenshotListener.enabled=false"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -137,7 +145,7 @@ jobs:
         continue-on-error: true
         id: safari
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=safari -DbrowserVersion=15.1"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=safari -DbrowserVersion=15.1 -DscreenshotListener.enabled=false"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
