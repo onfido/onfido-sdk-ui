@@ -10,6 +10,7 @@ import com.onfido.qa.websdk.PoADocumentType;
 import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.page.CountrySelector;
+import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
 import com.onfido.qa.websdk.page.CrossDeviceLink;
 import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
 import com.onfido.qa.websdk.page.CrossDeviceSubmit;
@@ -121,13 +122,14 @@ public class AccessibilityIT extends WebSdkIT {
         verifyAxeReport();
     }
 
-    // FIXME: bug
-    @Test(description = "should verify accessibility for the cross device mobile connected screen", enabled = false)
+    @Test(description = "should verify accessibility for the cross device mobile connected screen")
     public void testShouldVerifyAccessibilityForTheCrossDeviceMobileConnectedScreen() {
         var link = gotoCrossDeviceLinkScreen().copyLink();
 
         driver().driver.switchTo().newWindow(WindowType.TAB);
         driver().get(link);
+
+        verifyPage(CrossDeviceClientIntro.class);
 
         verifyAxeReport();
     }
@@ -249,21 +251,18 @@ public class AccessibilityIT extends WebSdkIT {
 
     }
 
-    // FIXME: bug
-    @Test(description = "should verify accessibility for faceVideo recording and faceVideo confirmation screens", enabled = false)
+    @Test(description = "should verify accessibility for faceVideo recording and faceVideo confirmation screens")
     @Browser(enableMicrophoneCameraAccess = true)
     public void testShouldVerifyAccessibilityForFaceVideoRecordingAndFaceVideoConfirmationScreens() {
         var camera = onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO))
                              .init(FaceVideoIntro.class)
-                             .recordVideo()
-                             .clickEnableCamera(FaceVideo.class);
+                             .recordVideo(FaceVideo.class);
 
         verifyAxeReport();
 
         camera.record();
 
         verifyAxeReport();
-
 
     }
 
