@@ -200,7 +200,7 @@ public class CrossDeviceIT extends WebSdkIT {
         verifyPage(MobileNotificationSent.class);
     }
 
-    @Test(description = "should verify UI elements on cross device mobile client intro screen", groups = {"percy"})
+    @Test(description = "should verify UI elements on cross device mobile client intro screen", groups = {"percy", "tabs"})
     public void testShouldVerifyUiElementsOnCrossDeviceMobileClientIntroScreen() {
 
         var link = gotoCrossDeviceScreen(onfido().withSteps(new FaceStep().withUseUploader(true))).copyLink();
@@ -222,7 +222,7 @@ public class CrossDeviceIT extends WebSdkIT {
     }
 
     // FIXME: enable test
-    @Test(description = "should verify all custom UI elements on customised cross device mobile client intro screen", groups = {"percy"}, enabled = false)
+    @Test(description = "should verify all custom UI elements on customised cross device mobile client intro screen", groups = {"percy", "tabs"}, enabled = false)
     public void testShouldVerifyAllCustomUiElementsOnCustomisedCrossDeviceMobileClientIntroScreen() {
 
         // TODO: check with Stefania what is the expected behavior here. I miss the CrossDeviceClientIntro. Bug?
@@ -252,7 +252,7 @@ public class CrossDeviceIT extends WebSdkIT {
 
     }
 
-    @Test(description = "should successfully complete cross device e2e flow with selfie upload")
+    @Test(description = "should successfully complete cross device e2e flow with selfie upload", groups = {"tabs"})
     public void testShouldSuccessfullyCompleteCrossDeviceE2EFlowWithSelfieUpload() {
 
         var link = onfido().withSteps(new FaceStep().withUseUploader(true))

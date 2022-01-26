@@ -5,7 +5,7 @@ set -x
 echo "starting container"
 docker-compose up -d
 
-CMD="mvn --no-transfer-progress -DscreenshotListener.enabled=false -DthreadCount=1 -Denvironment=browserstack $1 clean verify"
+CMD="mvn --no-transfer-progress -DscreenshotListener.enabled=false $1 clean verify"
 
 set +e
 
@@ -16,7 +16,6 @@ else
   percy exec -- $CMD
 fi
 
-$CMD
 EXIT=$?
 
 echo "shutting down container"

@@ -52,7 +52,7 @@ public class AccessibilityIT extends WebSdkIT {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     @SuppressWarnings("ConstantConditions")
     public static void beforeClass() throws IOException, URISyntaxException {
         axe = Files.readString(Paths.get(AccessibilityIT.class.getClassLoader().getResource("axe.min.js").toURI()));
@@ -139,7 +139,7 @@ public class AccessibilityIT extends WebSdkIT {
         verifyAxeReport();
     }
 
-    @Test(description = "should verify accessibility for the cross device submit screen")
+    @Test(description = "should verify accessibility for the cross device submit screen", groups = {"tabs"})
     public void testShouldVerifyAccessibilityForTheCrossDeviceSubmitScreen() {
 
         // TODO: would be good to test it on a real device without the useUploader=true option
