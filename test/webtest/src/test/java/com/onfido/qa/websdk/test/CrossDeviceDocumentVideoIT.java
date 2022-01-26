@@ -161,11 +161,9 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
     }
 
 
-    @Test(description = "should start the ANSSI flow for Residence permit flow and attempt to upload", groups = {"percy", "ANSSI"}, enabled = false)
+    @Test(description = "should start the ANSSI flow for Residence permit flow and attempt to upload", groups = {"percy", "ANSSI"})
     @Browser(enableMicrophoneCameraAccess = true)
     public void testShouldStartTheAnssiFlowForResidencePermitFlowAndAttemptToUpload() {
-
-        // FIXME: ask Stefania, why no paper document type is shown up
 
         var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
                            .init(IdDocumentSelector.class)
@@ -177,8 +175,7 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
         openMobileScreen(link);
         var videoCapture = verifyPage(CrossDeviceClientIntro.class).clickContinue(DocumentVideoCapture.class);
 
-        videoCapture.paperDocumentButton().click();
-        assertThat(videoCapture.frenchDriverLicenseOverlay().isDisplayed()).isTrue();
+        assertThat(videoCapture.cardOverlay().isDisplayed()).isTrue();
 
         takePercySnapshotWithoutVideo("DocumentVideoCapture-ResidentPermit-Cardoverlay");
 
@@ -188,7 +185,7 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
         videoCapture.clickRecordButton();
 
         videoCapture.waitForTickToDisappear();
-        verifyCopy(videoCapture.videoTitle(), "doc_video_capture.header_paper_doc_step2");
+        verifyCopy(videoCapture.videoTitle(), "doc_video_capture.header_step2");
         takePercySnapshotWithoutVideo("DocumentVideoCapture-ResidentPermit-2nd-Step");
 
         videoCapture.clickRecordButton();
