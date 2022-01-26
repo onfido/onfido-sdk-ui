@@ -101,7 +101,6 @@ export const crossDeviceDocumentVideoCaptureScenarios = async (lang) => {
           await driver.switchTo().window(browserWindows[0])
         }
       })
-
     }
   )
 }
