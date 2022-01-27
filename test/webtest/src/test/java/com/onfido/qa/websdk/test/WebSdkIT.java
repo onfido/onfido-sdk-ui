@@ -109,7 +109,7 @@ public abstract class WebSdkIT extends WebTest {
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
 
-        driver().waitFor.timeout(10);
+        driver().waitFor.timeout(15);
         driver().driver.manage().window().setPosition(new Point(0, 0));
         driver().maximize();
 
