@@ -206,7 +206,6 @@ export default class CrossDeviceMobileRouter extends Component<
       analyticsSessionUuid,
       useWorkflow,
     } = data
-    console.log('mobile confige cross', data)
     if (disableAnalytics) {
       uninstallWoopra()
     } else if (woopraCookie) {
@@ -331,7 +330,6 @@ export default class CrossDeviceMobileRouter extends Component<
   onDisconnectPong = (): void => this.clearPingTimeout()
 
   sendClientSuccess = (): void => {
-    console.log('on client success send')
     this.state.socket.off('custom disconnect', this.onDisconnect)
     const { docPayload } = this.state
     const captureKeys = Object.keys(this.props.captures).filter(
@@ -346,11 +344,9 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   sendDocData = (data: unknown, callback?: () => void): void => {
-    console.log('setdocdata', data)
     this.setState({
       docPayload: [...this.state.docPayload, data],
     })
-    // this.sendMessage('cross device oayload', { data })
   }
 
   renderContent = (): h.JSX.Element => {
