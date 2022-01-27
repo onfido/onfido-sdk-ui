@@ -100,16 +100,6 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     { userStepIndex, clientStepIndex },
     workflowSteps
   ) => {
-    console.log('hola', workflowSteps)
-    console.log('newFlow', newFlow)
-    console.log('_newStep', _newStep)
-    console.log('_previousFlow', _previousFlow)
-    console.log(
-      'userStepIndex, clientStepIndex',
-      userStepIndex,
-      clientStepIndex
-    )
-
     if (newFlow === 'crossDeviceSteps') {
       this.setState({
         crossDeviceInitialStep: userStepIndex,
