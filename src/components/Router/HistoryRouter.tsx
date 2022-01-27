@@ -99,7 +99,9 @@ export default class HistoryRouter extends Component<
     const { onFlowChange } = this.props
     const { flow: previousFlow, step: previousUserStepIndex } = this.state
     if (previousFlow === newFlow) return
+
     const previousUserStep = this.getComponentsList()[previousUserStepIndex]
+
     onFlowChange &&
       onFlowChange(newFlow, newStep, previousFlow, {
         userStepIndex: previousUserStepIndex,
@@ -218,6 +220,7 @@ export default class HistoryRouter extends Component<
     if (!steps) {
       throw new Error('steps not provided')
     }
+
     return buildComponentsList({
       flow: flow || this.state.flow,
       documentType,
@@ -258,7 +261,6 @@ export default class HistoryRouter extends Component<
         previousStep={this.previousStep}
         step={this.state.step}
         triggerOnError={this.triggerOnError}
-        setDocData={this.props.setDocData}
       />
     )
   }
