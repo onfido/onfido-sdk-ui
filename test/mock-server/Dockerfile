@@ -9,7 +9,7 @@ USER deno
 
 COPY cert.pem key.pem /app/
 COPY *.ts lock.json /app/
-COPY /local/index.html /frontend/* /app/frontend/
+COPY /frontend /app/frontend
 RUN deno cache deps.ts --lock=lock.json
 
 CMD ["run", "--allow-net", "--allow-read", "--allow-write", "server.ts"]
