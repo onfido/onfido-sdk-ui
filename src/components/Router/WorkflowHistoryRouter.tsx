@@ -65,7 +65,6 @@ export default class WorkflowHistoryRouter extends Component<
       step: stepIndex,
       initialStep: stepIndex,
       // workflow stepper
-      backgroundTask: null,
       loadingStep: false,
       steps: this.props.steps,
       taskId: null,
@@ -124,23 +123,40 @@ export default class WorkflowHistoryRouter extends Component<
     newStep = 0,
     excludeStepFromHistory = false
   ) => {
-    const { onFlowChange } = this.props
+    console.log('change-flow 1')
+    const { onFlowChange, mobileConfig } = this.props
+    const { step: currentStep, steps } = this.state
+    console.log('change-flow currentStep', currentStep, steps)
+    console.log('change-flow mobileConfig', mobileConfig)
+    console.log('change-flow 2', onFlowChange)
     const { flow: previousFlow, step: previousUserStepIndex } = this.state
+    console.log('change-flow : previousFlow', previousFlow)
+    console.log('change-flow step', previousUserStepIndex)
+    console.log('change-flow newFlow', newFlow)
     if (previousFlow === newFlow) return
-
+    console.log(
+      'change-flow this.getComponentsList()',
+      this.getComponentsList()
+    )
     const previousUserStep = this.getComponentsList()[previousUserStepIndex]
-
+    console.log('change-flow previousUserStep', previousUserStep)
     onFlowChange &&
-      onFlowChange(newFlow, newStep, previousFlow, {
-        userStepIndex: previousUserStepIndex,
-        clientStepIndex: previousUserStep.stepIndex,
-        clientStep: previousUserStep,
-      })
+      onFlowChange(
+        newFlow,
+        newStep,
+        previousFlow,
+        {
+          userStepIndex: previousUserStepIndex,
+          clientStepIndex: previousUserStep.stepIndex,
+          clientStep: previousUserStep,
+        },
+        steps
+      )
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
   getWorkFlowStep = (
-    taskId: string,
+    taskId: string | undefined,
     configuration: {
       [name: string]: unknown
     } | null
@@ -209,6 +225,7 @@ export default class WorkflowHistoryRouter extends Component<
   }
 
   nextWorkflowStep = async (): Promise<void> => {
+    console.log('Yesssssssss')
     console.log('next step requested')
 
     const { options, urls } = this.props
@@ -249,7 +266,7 @@ export default class WorkflowHistoryRouter extends Component<
 
     // otherwise display a loading screen
     this.setState((state) => ({ ...state, loadingStep: true }))
-
+    console.log(`about to call complete for : ${taskId}`)
     // if step has started - complete it
     if (taskId) {
       // we don't need to complete sanbox mocks
@@ -308,7 +325,6 @@ export default class WorkflowHistoryRouter extends Component<
         this.setState(
           (state) => ({
             ...state,
-            backgroundTask: null,
             loadingStep: false,
             steps: [formatStep(workflow?.outcome ? 'pass' : 'reject')],
             step: 0, // start again from 1st step,
@@ -329,12 +345,11 @@ export default class WorkflowHistoryRouter extends Component<
 
       this.setState((state) => ({
         ...state,
-        backgroundTask: workflow?.task_def_id,
       }))
 
       // continue polling until interactive task is found
-      if (workflow.task_type !== 'INTERACTIVE') {
-        console.log(`workflow task type is ${workflow.task_type} so polling`)
+      if (workflow?.task_type !== 'INTERACTIVE') {
+        console.log(`Non interactive workflow task, keep polling`)
         poll(1500)
         return
       }
@@ -348,6 +363,7 @@ export default class WorkflowHistoryRouter extends Component<
       this.setState(
         (state) => ({
           ...state,
+          flow: 'captureSteps',
           loadingStep: false,
           steps: [formatStep(step)],
           taskId: workflow?.task_id,
@@ -460,7 +476,14 @@ export default class WorkflowHistoryRouter extends Component<
     if (!steps) {
       throw new Error('steps not provided')
     }
-
+    console.log('buildComponentsList')
+    console.log(
+      flow || this.state.flow,
+      documentType,
+      steps,
+      mobileFlow,
+      deviceHasCameraSupport
+    )
     return buildComponentsList({
       flow: flow || this.state.flow,
       documentType,
@@ -513,7 +536,6 @@ export default class WorkflowHistoryRouter extends Component<
         step={this.state.step}
         triggerOnError={this.triggerOnError}
         isLoadingStep={this.state.loadingStep}
-        backgroundTask={this.state.backgroundTask}
         // setPersonalData={this.setPersonalData}
         setDocData={this.setDocData}
       />
