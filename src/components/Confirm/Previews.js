@@ -64,6 +64,7 @@ const Previews = localised(
     isUploading,
     forceRetake,
     onVideoError,
+    trackScreen,
   }) => {
     const methodNamespace = getNamespace(method, capture.variant)
     /**
@@ -114,23 +115,27 @@ const Previews = localised(
             }
           )}
         >
-          {isFullScreen ? null : error.type ? (
-            <Error
-              {...{
-                error,
-                withArrow: true,
-                role: 'alert',
-                focusOnMount: false,
-              }}
-            />
-          ) : (
+          {error.type && (
+            <span style={isFullScreen ? { display: 'none' } : null}>
+              <Error
+                {...{
+                  error,
+                  withArrow: true,
+                  role: 'alert',
+                  focusOnMount: false,
+                  trackScreen,
+                }}
+              />
+            </span>
+          )}
+          {!isFullScreen && !error.type ? (
             <PageTitle
               title={title}
               smaller
               className={style.title}
               shouldAutoFocus={methodNamespace !== 'doc_confirmation'}
             />
-          )}
+          ) : null}
           <CaptureViewer
             {...{
               capture,
