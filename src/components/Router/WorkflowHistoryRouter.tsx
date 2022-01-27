@@ -123,23 +123,11 @@ export default class WorkflowHistoryRouter extends Component<
     newStep = 0,
     excludeStepFromHistory = false
   ) => {
-    console.log('change-flow 1')
-    const { onFlowChange, mobileConfig } = this.props
+    const { onFlowChange } = this.props
     const { step: currentStep, steps } = this.state
-    console.log('change-flow currentStep', currentStep, steps)
-    console.log('change-flow mobileConfig', mobileConfig)
-    console.log('change-flow 2', onFlowChange)
     const { flow: previousFlow, step: previousUserStepIndex } = this.state
-    console.log('change-flow : previousFlow', previousFlow)
-    console.log('change-flow step', previousUserStepIndex)
-    console.log('change-flow newFlow', newFlow)
     if (previousFlow === newFlow) return
-    console.log(
-      'change-flow this.getComponentsList()',
-      this.getComponentsList()
-    )
     const previousUserStep = this.getComponentsList()[previousUserStepIndex]
-    console.log('change-flow previousUserStep', previousUserStep)
     onFlowChange &&
       onFlowChange(
         newFlow,
@@ -225,7 +213,6 @@ export default class WorkflowHistoryRouter extends Component<
   }
 
   nextWorkflowStep = async (): Promise<void> => {
-    console.log('Yesssssssss')
     console.log('next step requested')
 
     const { options, urls } = this.props
@@ -266,7 +253,7 @@ export default class WorkflowHistoryRouter extends Component<
 
     // otherwise display a loading screen
     this.setState((state) => ({ ...state, loadingStep: true }))
-    console.log(`about to call complete for : ${taskId}`)
+
     // if step has started - complete it
     if (taskId) {
       // we don't need to complete sanbox mocks
@@ -363,7 +350,7 @@ export default class WorkflowHistoryRouter extends Component<
       this.setState(
         (state) => ({
           ...state,
-          flow: 'captureSteps',
+          flow: 'captureSteps', //to make sure to reset incase of cross device
           loadingStep: false,
           steps: [formatStep(step)],
           taskId: workflow?.task_id,
@@ -476,14 +463,7 @@ export default class WorkflowHistoryRouter extends Component<
     if (!steps) {
       throw new Error('steps not provided')
     }
-    console.log('buildComponentsList')
-    console.log(
-      flow || this.state.flow,
-      documentType,
-      steps,
-      mobileFlow,
-      deviceHasCameraSupport
-    )
+
     return buildComponentsList({
       flow: flow || this.state.flow,
       documentType,

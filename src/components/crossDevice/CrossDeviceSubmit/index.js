@@ -43,8 +43,6 @@ class CrossDeviceSubmit extends Component {
 
   handleSubmitButtonClick = () => {
     this.setState({ isSubmitDisabled: true })
-    console.log('about to submit>>>>>>>>', this.props)
-    this.props.setDocData(this.props.captures)
     this.props.nextStep()
   }
 
