@@ -6,11 +6,18 @@ export type HttpRequestParams = {
   headers?: Record<string, string>
   payload?: string | FormData
   token: string
-  method: 'GET' | 'POST'
+  method?: 'GET' | 'POST'
 }
 
 export const performHttpReq = <T>(
-  { contentType, endpoint, headers, payload, token, method }: HttpRequestParams,
+  {
+    contentType,
+    endpoint,
+    headers,
+    payload,
+    token,
+    method = 'POST',
+  }: HttpRequestParams,
   onSuccess: SuccessCallback<T>,
   onError: (error: ApiRawError) => void
 ): void => {

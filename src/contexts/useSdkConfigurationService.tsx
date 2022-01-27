@@ -1,53 +1,45 @@
 import { getSdkConfiguration } from '~utils/onfidoApi'
 import { useContext, useEffect, useState } from 'preact/compat'
-import { h, ComponentChildren, createContext } from 'preact'
+import { h, ComponentChildren, createContext, Fragment } from 'preact'
 import { SdkConfiguration } from '~types/api'
 
 type SdkConfigurationServiceProviderProps = {
   children: ComponentChildren
   url?: string
   token?: string
-  sdkVersion?: string
+  fallback?: ComponentChildren
 }
 
-const SdkConfigurationServiceContext = createContext<
-  SdkConfiguration | undefined
->(undefined)
+const SdkConfigurationServiceContext = createContext<SdkConfiguration>({})
 
 export const SdkConfigurationServiceProvider = ({
   children,
   url,
   token,
-  sdkVersion,
+  fallback,
 }: SdkConfigurationServiceProviderProps) => {
   const [settings, setSettings] = useState<SdkConfiguration | undefined>(
     undefined
   )
 
   useEffect(() => {
-    if (!url || !token || !sdkVersion) {
+    if (!url || !token) {
       return
     }
-    getSdkConfiguration(url, token, sdkVersion)
-      .then((res) => setSettings(res))
-      .catch(() => setSettings({}))
-  }, [url, token, sdkVersion])
+    getSdkConfiguration(url, token).then(setSettings)
+  }, [url, token])
 
   return settings ? (
     <SdkConfigurationServiceContext.Provider value={settings}>
       {children}
     </SdkConfigurationServiceContext.Provider>
-  ) : null
+  ) : (
+    <Fragment>{fallback}</Fragment>
+  )
 }
 
 const useSdkConfigurationService = () => {
-  const configuration = useContext(SdkConfigurationServiceContext)
-
-  if (!configuration) {
-    throw new Error(`SDK Configuration wasn't initialized!`)
-  }
-
-  return configuration
+  return useContext(SdkConfigurationServiceContext)
 }
 
 export default useSdkConfigurationService

@@ -34,6 +34,7 @@ import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
+import Spinner from '../Spinner'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
@@ -42,7 +43,7 @@ export type ModalAppProps = {
 type Props = ModalAppProps & ReduxProps
 
 class ModalApp extends Component<Props> {
-  private events: EventEmitter2.emitter
+  private readonly events: EventEmitter2.emitter
 
   constructor(props: Props) {
     super(props)
@@ -381,16 +382,18 @@ class ModalApp extends Component<Props> {
       containerId,
       containerEl,
       shouldCloseOnOverlayClick,
+      autoFocusOnInitialScreenTitle,
+      token,
     } = options
 
     return (
-      <SdkConfigurationServiceProvider
-        url={this.props.urls.onfido_api_url}
-        token={this.props.token}
-        sdkVersion={process.env.SDK_VERSION}
-      >
-        <SdkOptionsProvider options={{ ...options, events: this.events }}>
-          <LocaleProvider language={options.language}>
+      <LocaleProvider language={options.language}>
+        <SdkConfigurationServiceProvider
+          url={otherProps.urls.onfido_api_url}
+          token={token}
+          fallback={<Spinner shouldAutoFocus={autoFocusOnInitialScreenTitle} />}
+        >
+          <SdkOptionsProvider options={{ ...options, events: this.events }}>
             <Modal
               useModal={useModal}
               isOpen={isModalOpen}
@@ -401,9 +404,9 @@ class ModalApp extends Component<Props> {
             >
               <Router {...otherProps} />
             </Modal>
-          </LocaleProvider>
-        </SdkOptionsProvider>
-      </SdkConfigurationServiceProvider>
+          </SdkOptionsProvider>
+        </SdkConfigurationServiceProvider>
+      </LocaleProvider>
     )
   }
 }
