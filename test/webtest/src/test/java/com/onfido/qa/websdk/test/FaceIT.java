@@ -83,6 +83,9 @@ public class FaceIT extends WebSdkIT {
 
     @Test(description = "should upload selfie", dataProvider = "faceJpegs")
     public void testUploadForSelfie(UploadDocument document) {
+
+        driver().waitFor.timeout(30);
+
         onfido().withSteps(new FaceStep().withUseUploader(true), "complete")
                 .init(SelfieUpload.class)
                 .upload(document)
