@@ -182,6 +182,7 @@ public class DocumentIT extends WebSdkIT {
 
     @Test(description = "should upload a resized document image if file size is too large message")
     public void testShouldUploadAResizedDocumentImageIfFileSizeIsTooLargeMessage() {
+        driver().waitFor.timeout(30);
         var confirmUpload = gotoPassportUpload().upload(OVER_10MB_PASSPORT, ConfirmUpload.class).clickConfirmButton(ConfirmUpload.class);
 
         verifyConfirmErrorMessage(confirmUpload, "glare");
