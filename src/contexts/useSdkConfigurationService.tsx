@@ -2,6 +2,7 @@ import { getSdkConfiguration } from '~utils/onfidoApi'
 import { useContext, useEffect, useState } from 'preact/compat'
 import { h, ComponentChildren, createContext, Fragment } from 'preact'
 import { SdkConfiguration } from '~types/api'
+import deepmerge from 'deepmerge'
 
 type SdkConfigurationServiceProviderProps = {
   children: ComponentChildren
@@ -10,7 +11,11 @@ type SdkConfigurationServiceProviderProps = {
   fallback?: ComponentChildren
 }
 
-const SdkConfigurationServiceContext = createContext<SdkConfiguration>({})
+const defaultConfiguration: SdkConfiguration = {}
+
+const SdkConfigurationServiceContext = createContext<SdkConfiguration>(
+  defaultConfiguration
+)
 
 export const SdkConfigurationServiceProvider = ({
   children,
@@ -18,19 +23,32 @@ export const SdkConfigurationServiceProvider = ({
   token,
   fallback,
 }: SdkConfigurationServiceProviderProps) => {
-  const [settings, setSettings] = useState<SdkConfiguration | undefined>(
-    undefined
-  )
+  const [configuration, setConfiguration] = useState<
+    SdkConfiguration | undefined
+  >(undefined)
 
   useEffect(() => {
     if (!url || !token) {
       return
     }
-    getSdkConfiguration(url, token).then(setSettings)
+    getSdkConfiguration(url, token)
+      .then((configuration) => {
+        let mergedConfiguration = deepmerge(defaultConfiguration, configuration)
+
+        if (process.env.NODE_ENV === 'development') {
+          mergedConfiguration = deepmerge(
+            mergedConfiguration,
+            process.env.SDK_CONFIGURATION as SdkConfiguration
+          )
+        }
+
+        setConfiguration(mergedConfiguration)
+      })
+      .catch(() => setConfiguration(defaultConfiguration))
   }, [url, token])
 
-  return settings ? (
-    <SdkConfigurationServiceContext.Provider value={settings}>
+  return configuration ? (
+    <SdkConfigurationServiceContext.Provider value={configuration}>
       {children}
     </SdkConfigurationServiceContext.Provider>
   ) : (

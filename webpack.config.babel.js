@@ -176,6 +176,7 @@ const DEVELOPMENT_CONFIG = {
   PUBLIC_PATH: '/',
   MOBILE_URL: '/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
+  SDK_CONFIGURATION: {},
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
 
@@ -276,8 +277,7 @@ const baseConfig = {
     __dirname: false,
     setImmediate: false,
   },
-
-  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-cheap-source-map',
+  devtool: PRODUCTION_BUILD ? 'source-map' : 'cheap-module-source-map',
 }
 
 const configDist = () => ({

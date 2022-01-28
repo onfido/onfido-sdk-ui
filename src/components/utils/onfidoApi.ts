@@ -389,9 +389,15 @@ export const getSdkConfiguration = (
   token: string
 ): Promise<SdkConfiguration> =>
   new Promise((resolve, reject) => {
+    if (!process.env.SDK_SOURCE) {
+      throw new Error('SDK_SOURCE not defined')
+    }
+
+    const sdk_source = process.env.SDK_SOURCE.replaceAll('_', '-')
+
     try {
       const requestParams: HttpRequestParams = {
-        endpoint: `${url}/v3/sdk/configurations?sdk_source=${process.env.SDK_SOURCE}&sdk_version=${process.env.SDK_VERSION}`,
+        endpoint: `${url}/v3/sdk/configurations?sdk_source=${sdk_source}&sdk_version=${process.env.SDK_VERSION}`,
         token: `Bearer ${token}`,
         method: 'GET',
       }
