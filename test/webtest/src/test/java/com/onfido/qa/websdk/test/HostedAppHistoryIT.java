@@ -113,6 +113,8 @@ public class HostedAppHistoryIT extends WebSdkIT {
             driver.get(properties.getProperty("hostedUrl") + "?useUploader=true" +
                     (useHistory ? "&useHistory=true" : "") +
                     (useMemoryHistory ? "&useMemoryHistory=true" : ""));
+
+            driver.executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: \"video\" }])");
         }
     }
 }
