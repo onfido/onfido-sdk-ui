@@ -83,7 +83,7 @@ export type CaptureState = {
     document_back: string[]
     document_video: string[]
     face: string[]
-    data: string[]
+
     // Fields for backwards-compatible with other capture state
     id?: never
     metadata?: never

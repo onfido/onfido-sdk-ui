@@ -15,7 +15,6 @@ export type NarrowSdkOptions = Omit<
   | 'onModalRequestClose'
   | 'shouldCloseOnOverlayClick'
   | 'useModal'
-  | 'isMfe'
 > & {
   events?: EventEmitter2.emitter
 }

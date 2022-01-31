@@ -51,6 +51,7 @@ import type {
   StepConfigFace,
   StepConfigData,
 } from '~types/steps'
+import { data } from '../../../release/releaseConfig'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -180,9 +181,9 @@ const buildDataComponents = (
       <DataCapture
         title="personal_detials_title"
         data={{
-          first_name: dataStep?.options?.first_name,
-          last_name: dataStep?.options?.last_name,
-          dob: dataStep?.options?.dob,
+          first_name: dataStep?.options?.data.first_name,
+          last_name: dataStep?.options?.data.last_name,
+          dob: dataStep?.options?.data.dob,
         }}
         {...props}
       />
@@ -200,9 +201,9 @@ const buildDataComponents = (
           // street: dataStep?.options?.address?.street,
           // sub_street: dataStep?.options?.address?.sub_street,
           // town: dataStep?.options?.address?.town,
-          postcode: dataStep?.options?.addresses?.postcode,
-          country: dataStep?.options?.addresses?.country,
-          state: dataStep?.options?.addresses?.state,
+          postcode: dataStep?.options?.data.addresses?.postcode,
+          country: dataStep?.options?.data.addresses?.country,
+          state: dataStep?.options?.data.addresses?.state,
           // state: dataStep?.options?.address?.state,
           // line1: dataStep?.options?.address?.line1,
           // line2: dataStep?.options?.address?.line2,

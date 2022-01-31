@@ -1,13 +1,4 @@
 {
-    "workflow": {
-        "background_task_progress": {
-            "document_check": "Performing: Document report",
-            "identity_check": "Performing: Identity report",
-            "face_check": "Performing: Facial similarity report",
-            "watchlist_check" : "Performing: Watchlist report",
-            "default": "Performing workflow task: %{param}"
-        }
-    },
     "profile_data": {
         "personal_detials_title": "Add your personal information",
         "address_detials_title": "Add your address",

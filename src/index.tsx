@@ -36,7 +36,6 @@ const defaults: SdkOptions = {
   onComplete: noop,
   onError: noop,
   onUserExit: noop,
-  onCustomTask: noop,
 }
 
 export const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {
@@ -52,25 +51,15 @@ const formatOptions = ({
   smsNumberCountryCode,
   ...otherOptions
 }: SdkOptions): NormalisedSdkOptions => {
-  const { applicantId, workflowRunId, useWorkflow } = otherOptions
+  const { useWorkflow } = otherOptions
   const mandatorySteps: StepTypes[] = useWorkflow
     ? []
     : ['document', 'face', 'complete']
-  const welcomeStep = {
-    type: 'welcome',
-    options: {
-      nextButton:
-        localStorage.getItem(`a_${applicantId}:w_${workflowRunId}`) ===
-        'started'
-          ? 'Continue'
-          : 'Start',
-    },
-  }
 
   const defaultSteps: StepTypes[] =
     process.env.SDK_ENV === 'Auth'
-      ? [welcomeStep, 'auth', ...mandatorySteps]
-      : [welcomeStep, ...mandatorySteps]
+      ? ['welcome', 'auth', ...mandatorySteps]
+      : ['welcome', ...mandatorySteps]
 
   return {
     ...otherOptions,
@@ -137,13 +126,11 @@ const getContainerElementById = (containerId: string) => {
 export const init = (opts: SdkOptions): SdkHandle => {
   console.log('onfido_sdk_version', process.env.SDK_VERSION)
   const options = formatOptions({ ...defaults, ...opts })
-  console.log('opts', opts)
-  console.log('defaults', defaults)
+
   experimentalFeatureWarnings(options)
   cssVarsPonyfill()
 
   let containerEl: HTMLElement
-  console.log(options)
 
   if (options.containerEl) {
     containerEl = options.containerEl

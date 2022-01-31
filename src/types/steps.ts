@@ -92,23 +92,25 @@ export type StepOptionReject = {
 }
 
 export type StepOptionData = {
-  first_name?: string
-  last_name?: string
-  email?: string
-  dob?: string
-  addresses?: {
-    flat_number?: string
-    building_number?: string
-    building_name?: string
-    street?: string
-    sub_street?: string
-    town?: string
-    postcode?: string
-    country?: string
-    state?: string
-    line1?: string
-    line2?: string
-    line3?: string
+  data: {
+    first_name?: string
+    last_name?: string
+    email?: string
+    dob?: string
+    addresses?: {
+      flat_number?: string
+      building_number?: string
+      building_name?: string
+      street?: string
+      sub_street?: string
+      town?: string
+      postcode?: string
+      country?: string
+      state?: string
+      line1?: string
+      line2?: string
+      line3?: string
+    }
   }
 }
 

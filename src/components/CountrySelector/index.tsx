@@ -84,7 +84,6 @@ class CountrySelection extends Component<Props, State> {
       const country = result.name
       return country.toLowerCase().includes(query.trim().toLowerCase())
     })
-    console.log('1.', populateResults(filteredResults))
     populateResults(filteredResults)
   }
 

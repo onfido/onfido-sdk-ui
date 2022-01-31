@@ -15,7 +15,6 @@ import {
 } from '~utils/onfidoApi'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
-import Error from '../Error'
 import { formatStep } from '../..'
 
 import { trackException } from '../../Tracker'
@@ -66,7 +65,6 @@ export default class WorkflowHistoryRouter extends Component<
       step: stepIndex,
       initialStep: stepIndex,
       // workflow stepper
-      backgroundTask: null,
       loadingStep: false,
       steps: this.props.steps,
       taskId: null,
@@ -82,7 +80,7 @@ export default class WorkflowHistoryRouter extends Component<
     this.setStepIndex(this.state.step, this.state.flow)
   }
 
-  setDocData = (data: any, callback?: () => void): void => {
+  setDocData = (data: unknown, callback?: () => void): void => {
     this.setState(
       {
         ...this.state,
@@ -162,7 +160,12 @@ export default class WorkflowHistoryRouter extends Component<
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
-  getWorkFlowStep = (taskId: string, configuration = {}) => {
+  getWorkFlowStep = (
+    taskId: string | undefined,
+    configuration: {
+      [name: string]: unknown
+    } | null
+  ) => {
     console.log(`requested step for task ${taskId}`)
 
     switch (taskId) {
@@ -235,7 +238,7 @@ export default class WorkflowHistoryRouter extends Component<
     const componentsList = this.getComponentsList()
     const newStepIndex = currentStep + 1
 
-    const workflowServiceUrl = getWorkflowServiceUrl(urls, options.isMfe)
+    const workflowServiceUrl = getWorkflowServiceUrl(urls, !!options.isMfe)
 
     console.log('Using workflow service URL: ', workflowServiceUrl)
 
@@ -274,7 +277,7 @@ export default class WorkflowHistoryRouter extends Component<
       if (workflowRunId !== 'sandbox') {
         try {
           await completeWorkflow(
-            options.isMfe,
+            !!options.isMfe,
             options.token,
             workflowServiceUrl,
             workflowRunId,
@@ -304,7 +307,7 @@ export default class WorkflowHistoryRouter extends Component<
 
       try {
         workflow = await getWorkflow(
-          options.isMfe,
+          !!options.isMfe,
           options.token,
           workflowServiceUrl,
           workflowRunId,
@@ -326,7 +329,6 @@ export default class WorkflowHistoryRouter extends Component<
         this.setState(
           (state) => ({
             ...state,
-            backgroundTask: null,
             loadingStep: false,
             steps: [formatStep(workflow?.outcome ? 'pass' : 'reject')],
             step: 0, // start again from 1st step,
@@ -347,12 +349,11 @@ export default class WorkflowHistoryRouter extends Component<
 
       this.setState((state) => ({
         ...state,
-        backgroundTask: workflow?.task_def_id,
       }))
 
       // continue polling until interactive task is found
       if (workflow.task_type !== 'INTERACTIVE') {
-        console.log(`workflow task type is ${workflow.task_type} so polling`)
+        console.log(`Non interactive workflow task, keep polling`)
         poll(1500)
         return
       }
@@ -473,10 +474,8 @@ export default class WorkflowHistoryRouter extends Component<
       options: { mobileFlow },
     } = props
 
-    console.log('props.steps', props.steps)
-    console.log('this.state?.steps ', this.state?.steps)
     const steps = this.state?.steps || props.steps
-    console.log('steps', steps)
+
     if (!steps) {
       throw new Error('steps not provided')
     }
@@ -523,7 +522,6 @@ export default class WorkflowHistoryRouter extends Component<
     return (
       <StepsRouter
         {...this.props}
-        back={this.back}
         changeFlowTo={this.changeFlowTo}
         componentsList={this.getComponentsList()}
         disableNavigation={true}
@@ -533,7 +531,6 @@ export default class WorkflowHistoryRouter extends Component<
         step={this.state.step}
         triggerOnError={this.triggerOnError}
         isLoadingStep={this.state.loadingStep}
-        backgroundTask={this.state.backgroundTask}
         setPersonalData={this.setPersonalData}
         setDocData={this.setDocData}
       />

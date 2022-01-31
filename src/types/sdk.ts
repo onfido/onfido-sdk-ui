@@ -52,12 +52,12 @@ export interface SdkOptions extends FunctionalConfigurations {
   onError?: (error: SdkError) => void
   onUserExit?: (data: UserExitCode) => void
   onModalRequestClose?: () => void
-  onCustomTask?: (data: any, callback: (data: any) => void) => void
 
   // SDK Configuration
   token?: string
   useModal?: boolean
   isModalOpen?: boolean
+  isMfe?: boolean
   shouldCloseOnOverlayClick?: boolean
   containerId?: string
   containerEl?: HTMLElement | null

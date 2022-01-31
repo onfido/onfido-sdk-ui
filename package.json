@@ -9,7 +9,7 @@
   },
   "license": "SEE LICENSE IN ./LICENSE",
   "scripts": {
-    "dev": "NODE_ENV=staging webpack-dev-server --hot --progress --https",
+    "dev": "NODE_ENV=development webpack-dev-server --hot --progress --https",
     "dev:auth": "NODE_ENV=development SDK_ENV=Auth webpack-dev-server --hot --progress --https",
     "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
     "prebuild": "npm run clean",
@@ -22,7 +22,7 @@
     "clean": "rimraf lib dist",
     "prepublishOnly": "npm run build:all",
     "check": "concurrently -r --kill-others-on-fail npm:check:*",
-    "check:types_disabled": "tsc --noEmit --jsx preserve",
+    "check:types": "tsc --noEmit --jsx preserve",
     "check:es": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}'",
     "check:styles": "stylelint 'src/**/*.scss'",
     "check:format": "prettier . -c",
