@@ -49,7 +49,6 @@ export const postToBackend = (
     endpoint,
     token,
     contentType: 'application/json',
-    method: 'POST',
   }
 
   performHttpReq(options, onSuccess, (error) =>

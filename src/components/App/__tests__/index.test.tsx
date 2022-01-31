@@ -18,13 +18,13 @@ const defaultOptions: NormalisedSdkOptions = {
 
 describe('App', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<App options={defaultOptions} />)
+    const wrapper = shallow(<App options={defaultOptions} configuration={{}} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 
   describe('when mounted', () => {
     it('renders without crashing', () => {
-      const wrapper = mount(<App options={defaultOptions} />)
+      const wrapper = mount(<App options={defaultOptions} configuration={{}} />)
       expect(wrapper.exists()).toBeTruthy()
       expect(wrapper.find('ModalApp').exists()).toBeTruthy()
     })

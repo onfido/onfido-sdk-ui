@@ -6,13 +6,13 @@ import deepmerge from 'deepmerge'
 
 type SdkConfigurationServiceProviderProps = {
   children: ComponentChildren
+  localConfiguration: SdkConfiguration
   url?: string
   token?: string
   fallback?: ComponentChildren
 }
 
 const defaultConfiguration: SdkConfiguration = {}
-const envConfiguration = process.env.SDK_CONFIGURATION as SdkConfiguration
 
 const SdkConfigurationServiceContext = createContext<SdkConfiguration>(
   defaultConfiguration
@@ -23,6 +23,7 @@ export const SdkConfigurationServiceProvider = ({
   url,
   token,
   fallback,
+  localConfiguration,
 }: SdkConfigurationServiceProviderProps) => {
   const [configuration, setConfiguration] = useState<
     SdkConfiguration | undefined
@@ -33,13 +34,8 @@ export const SdkConfigurationServiceProvider = ({
       return
     }
     getSdkConfiguration(url, token)
-      .then((configuration) =>
-        setConfiguration(
-          deepmerge(
-            deepmerge(defaultConfiguration, configuration),
-            envConfiguration
-          )
-        )
+      .then((apiConfiguration) =>
+        setConfiguration(deepmerge(defaultConfiguration, apiConfiguration))
       )
       .catch(() => setConfiguration(defaultConfiguration))
   }, [url, token])
@@ -49,7 +45,9 @@ export const SdkConfigurationServiceProvider = ({
   }
 
   return (
-    <SdkConfigurationServiceContext.Provider value={configuration}>
+    <SdkConfigurationServiceContext.Provider
+      value={deepmerge(configuration, localConfiguration)}
+    >
       {children}
     </SdkConfigurationServiceContext.Provider>
   )

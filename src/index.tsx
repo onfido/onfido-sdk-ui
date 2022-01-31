@@ -15,6 +15,7 @@ import { noop } from '~utils/func'
 import { upperCase } from '~utils/string'
 import { buildStepFinder } from '~utils/steps'
 import { cssVarsPonyfill } from '~utils/cssVarsPonyfill'
+import { SdkConfiguration } from '~types/api'
 import type { NormalisedSdkOptions } from '~types/commons'
 import type { SdkOptions, SdkHandle } from '~types/sdk'
 import type { StepConfig, StepTypes } from '~types/steps'
@@ -26,9 +27,10 @@ if (process.env.NODE_ENV === 'development') {
 
 const onfidoRender = (
   options: NormalisedSdkOptions,
+  configuration: SdkConfiguration,
   el: Element | Document | ShadowRoot | DocumentFragment,
   merge?: Element | Text
-) => render(<App options={options} />, el, merge)
+) => render(<App options={options} configuration={configuration} />, el, merge)
 
 const defaults: SdkOptions = {
   token: undefined,
@@ -117,9 +119,10 @@ const getContainerElementById = (containerId: string) => {
   )
 }
 
-export const init = (opts: SdkOptions): SdkHandle => {
+export const init = (opts: SdkOptions, conf?: SdkConfiguration): SdkHandle => {
   console.log('onfido_sdk_version', process.env.SDK_VERSION)
   const options = formatOptions({ ...defaults, ...opts })
+  const configuration = conf ?? {}
 
   experimentalFeatureWarnings(options)
   cssVarsPonyfill()
@@ -128,14 +131,15 @@ export const init = (opts: SdkOptions): SdkHandle => {
 
   if (options.containerEl) {
     containerEl = options.containerEl
-    onfidoRender(options, containerEl)
+    onfidoRender(options, configuration, containerEl)
   } else if (options.containerId) {
     containerEl = getContainerElementById(options.containerId)
-    onfidoRender(options, containerEl)
+    onfidoRender(options, configuration, containerEl)
   }
 
   return {
     options,
+    configuration,
     setOptions(changedOptions) {
       this.options = formatOptions({ ...this.options, ...changedOptions })
       if (
@@ -149,8 +153,25 @@ export const init = (opts: SdkOptions): SdkHandle => {
       ) {
         containerEl = getContainerElementById(changedOptions.containerId)
       }
-      onfidoRender(this.options as NormalisedSdkOptions, containerEl)
+      onfidoRender(
+        this.options as NormalisedSdkOptions,
+        this.configuration,
+        containerEl
+      )
       return this.options
+    },
+    setSdkConfiguration(changedConfiguration: SdkConfiguration) {
+      if (!this.options.containerEl) {
+        return
+      }
+
+      this.configuration = changedConfiguration
+
+      onfidoRender(
+        this.options as NormalisedSdkOptions,
+        this.configuration,
+        this.options.containerEl
+      )
     },
     tearDown() {
       render(null, containerEl)

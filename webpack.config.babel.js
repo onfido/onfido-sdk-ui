@@ -129,7 +129,6 @@ const PROD_CONFIG = {
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
   COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
-  SDK_CONFIGURATION: {},
   WOOPRA_DOMAIN,
 }
 
