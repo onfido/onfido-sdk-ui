@@ -70,6 +70,28 @@ export type LegacyTrackedEventNames =
   | 'Completed upload'
   | 'screen_userConsent'
   | 'screen_welcome'
+  // TODO: Sort in list above in proper place after events are reviewed
+  | 'screen_face_face_video_capture_face_video_timeout'
+  | 'screen_document_document_video_capture_doc_video_timeout'
+  | 'screen_face_face_video_capture_camera_not_working'
+  | 'screen_document_front_capture_camera_not_working'
+  | 'screen_document_back_capture_camera_not_working'
+  | 'screen_face_selfie_capture_camera_not_working'
+  | 'screen_face_face_video_capture_camera_not_working_no_fallback'
+  | 'screen_document_front_capture_camera_not_working_no_fallback'
+  | 'screen_document_back_capture_camera_not_working_no_fallback'
+  | 'screen_face_selfie_capture_camera_not_working_no_fallback'
+  | 'screen_face_face_video_capture_camera_inactive'
+  | 'screen_document_front_capture_camera_inactive'
+  | 'screen_document_back_capture_camera_inactive'
+  | 'screen_face_selfie_capture_camera_inactive'
+  | 'screen_face_face_video_camera_inactive_no_fallback'
+  | 'screen_document_front_capture_camera_inactive_no_fallback'
+  | 'screen_document_back_capture_camera_inactive_no_fallback'
+  | 'screen_face_selfie_capture_camera_inactive_no_fallback'
+  | 'screen_crossDevice_sms_overuse'
+  | 'screen_document_front_capture_request_error'
+  | 'screen_document_back_capture_request_error'
 
 export type UserAnalyticsEventNames =
   | 'WELCOME'
@@ -116,6 +138,9 @@ export type AnalyticsEventProperties = {
   document_side?: 'front' | 'back'
   video_capture_step?: 'step1' | 'step2'
   link_method_selected?: 'copy' | 'qr_code' | 'sms'
+  ui_alerts?: {
+    [key: string]: 'error' | 'warning' | null
+  }
 }
 
 export type AnalyticsPayload = {
@@ -194,3 +219,25 @@ export type AnalyticsTrackedEventNames =
   | 'UPLOAD_COMPLETED'
   | 'USER_CONSENT'
   | 'WELCOME'
+  // TODO: Sort in list above after events are reviewed
+  | 'FACE_VIDEO_CAPTURE_ERROR'
+  | 'DOCUMENT_VIDEO_CAPTURE_ERROR'
+  | 'FACE_VIDEO_CAPTURE_ERROR'
+  | 'DOCUMENT_CAPTURE_ERROR'
+  | 'DOCUMENT_CAPTURE_ERROR'
+  | 'FACE_SELFIE_CAPTURE_ERROR'
+  | 'FACE_VIDEO_CAPTURE_ERROR'
+  | 'DOCUMENT_CAPTURE_ERROR'
+  | 'DOCUMENT_CAPTURE_ERROR'
+  | 'FACE_SELFIE_CAPTURE_ERROR'
+  | 'FACE_VIDEO_CAPTURE_ERROR'
+  | 'DOCUMENT_CAPTURE_ERROR'
+  | 'DOCUMENT_CAPTURE_ERROR'
+  | 'FACE_SELFIE_CAPTURE_ERROR'
+  | 'FACE_VIDEO_CAPTURE_ERROR'
+  | 'DOCUMENT_CAPTURE_ERROR'
+  | 'DOCUMENT_CAPTURE_ERROR'
+  | 'FACE_SELFIE_CAPTURE_ERROR'
+  | 'CROSS_DEVICE_SMS_OVERUSE'
+  | 'DOCUMENT_CAPTURE_ERROR'
+  | 'DOCUMENT_CAPTURE_ERROR'

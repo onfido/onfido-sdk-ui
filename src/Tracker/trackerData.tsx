@@ -503,4 +503,229 @@ export const analyticsEventsMapping = new Map<
     'screen_welcome',
     { eventName: 'WELCOME', properties: { event_type: 'screen' } },
   ],
+  // TODO: Sort in list above after events are reviewed
+  [
+    'screen_face_face_video_capture_face_video_timeout',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { face_video_timeout: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_document_document_video_capture_doc_video_timeout',
+    {
+      eventName: 'DOCUMENT_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { doc_video_timeout: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_not_working',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_not_working',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_not_working',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_not_working',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+
+  [
+    'screen_face_face_video_capture_camera_not_working_no_fallback',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { camera_not_working_no_fallback: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_not_working_no_fallback',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { camera_not_working_no_fallback: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_not_working_no_fallback',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { camera_not_working_no_fallback: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_not_working_no_fallback',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { camera_not_working_no_fallback: 'error' },
+      },
+    },
+  ],
+
+  [
+    'screen_face_face_video_capture_camera_inactive',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { camera_inactive: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_inactive',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { camera_inactive: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_inactive',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { camera_inactive: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_inactive',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { camera_inactive: 'error' },
+      },
+    },
+  ],
+
+  [
+    'screen_face_face_video_camera_inactive_no_fallback',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { camera_inactive_no_fallback: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_inactive_no_fallback',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { camera_inactive_no_fallback: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_inactive_no_fallback',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { camera_inactive_no_fallback: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_inactive_no_fallback',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { camera_inactive_no_fallback: 'error' },
+      },
+    },
+  ],
+
+  [
+    'screen_crossDevice_sms_overuse',
+    {
+      eventName: 'CROSS_DEVICE_SMS_OVERUSE',
+      properties: {
+        event_type: 'view',
+      },
+    },
+  ],
+
+  [
+    'screen_document_front_capture_request_error',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { request_error: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_request_error',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { request_error: 'error' },
+      },
+    },
+  ],
 ])
