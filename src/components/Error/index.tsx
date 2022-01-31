@@ -3,11 +3,12 @@ import classNames from 'classnames'
 
 import { identity, noop } from '~utils/func'
 import errors from '../strings/errors'
+import { lowerCase } from '~utils/string'
 import { localised } from '~locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-import type { WithLocalisedProps } from '~types/hocs'
+import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { ParsedElement } from '~types/locales'
 import type { ErrorProp } from '~types/routers'
 
@@ -25,7 +26,7 @@ type ErrorProps = {
   withArrow?: boolean
 }
 
-type Props = ErrorProps & WithLocalisedProps
+type Props = ErrorProps & WithLocalisedProps & WithTrackingProps
 
 class Error extends Component<Props> {
   private container?: HTMLDivElement
@@ -34,6 +35,8 @@ class Error extends Component<Props> {
     if (this.props.focusOnMount && this.container) {
       this.container.focus()
     }
+
+    this.props.trackScreen(lowerCase(this.props.error.name))
   }
 
   render() {

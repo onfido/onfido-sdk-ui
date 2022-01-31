@@ -18,7 +18,7 @@ type Props = GenericErrorProps & WithLocalisedProps
 
 class GenericError extends Component<Props> {
   componentDidMount() {
-    sendScreen([`${lowerCase(this.props.error.name)}`])
+    sendScreen([lowerCase(this.props.error.name)])
   }
 
   render() {

@@ -66,14 +66,6 @@ const validatesViewIdWithFallback = (viewId) => {
   return 'qr_code'
 }
 
-class SmsError extends Component {
-  componentDidMount() {
-    const errorName = this.props.error.name.toLowerCase()
-    this.props.trackScreen([errorName])
-  }
-  render = ({ error }) => <Error role="alert" {...{ error }} />
-}
-
 class CrossDeviceLink extends Component {
   constructor(props) {
     super(props)
@@ -379,7 +371,7 @@ class CrossDeviceLinkUI extends Component {
     return (
       <div className={style.container}>
         {error.type ? (
-          <SmsError error={error} trackScreen={trackScreen} />
+          <Error role="alert" error={error} trackScreen={trackScreen} />
         ) : (
           <PageTitle
             title={translate('get_link.title')}

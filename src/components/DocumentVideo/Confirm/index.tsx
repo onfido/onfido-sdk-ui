@@ -24,6 +24,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   nextStep,
   previousStep,
   triggerOnError,
+  trackScreen,
 }) => {
   const [{ token }] = useSdkOptions()
   const [loading, setLoading] = useState(false)
@@ -201,7 +202,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       })}
     >
       {error ? (
-        <Error error={error} role="alert" />
+        <Error trackScreen={trackScreen} error={error} role="alert" />
       ) : (
         <Content capture={documentVideo} previewing={previewing} />
       )}
