@@ -92,6 +92,8 @@ export type LegacyTrackedEventNames =
   | 'screen_crossDevice_sms_overuse'
   | 'screen_document_front_capture_request_error'
   | 'screen_document_back_capture_request_error'
+  | 'screen_document_image_quality_guide_invalid_type'
+  | 'screen_document_image_quality_guide_invalid_size'
 
 export type UserAnalyticsEventNames =
   | 'WELCOME'
@@ -241,3 +243,4 @@ export type AnalyticsTrackedEventNames =
   | 'CROSS_DEVICE_SMS_OVERUSE'
   | 'DOCUMENT_CAPTURE_ERROR'
   | 'DOCUMENT_CAPTURE_ERROR'
+  | 'DOCUMENT_IMAGE_QUALITY_ERROR'

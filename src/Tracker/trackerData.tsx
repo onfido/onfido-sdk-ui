@@ -728,4 +728,25 @@ export const analyticsEventsMapping = new Map<
       },
     },
   ],
+
+  [
+    'screen_document_image_quality_guide_invalid_type',
+    {
+      eventName: 'DOCUMENT_IMAGE_QUALITY_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { invalid_type: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_image_quality_guide_invalid_size',
+    {
+      eventName: 'DOCUMENT_IMAGE_QUALITY_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { invalid_size: 'error' },
+      },
+    },
+  ],
 ])
