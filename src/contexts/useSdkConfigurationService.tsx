@@ -12,6 +12,7 @@ type SdkConfigurationServiceProviderProps = {
 }
 
 const defaultConfiguration: SdkConfiguration = {}
+const envConfiguration = process.env.SDK_CONFIGURATION as SdkConfiguration
 
 const SdkConfigurationServiceContext = createContext<SdkConfiguration>(
   defaultConfiguration
@@ -32,27 +33,25 @@ export const SdkConfigurationServiceProvider = ({
       return
     }
     getSdkConfiguration(url, token)
-      .then((configuration) => {
-        let mergedConfiguration = deepmerge(defaultConfiguration, configuration)
-
-        if (process.env.NODE_ENV === 'development') {
-          mergedConfiguration = deepmerge(
-            mergedConfiguration,
-            process.env.SDK_CONFIGURATION as SdkConfiguration
+      .then((configuration) =>
+        setConfiguration(
+          deepmerge(
+            deepmerge(defaultConfiguration, configuration),
+            envConfiguration
           )
-        }
-
-        setConfiguration(mergedConfiguration)
-      })
+        )
+      )
       .catch(() => setConfiguration(defaultConfiguration))
   }, [url, token])
 
-  return configuration ? (
+  if (!configuration) {
+    return <Fragment>{fallback}</Fragment>
+  }
+
+  return (
     <SdkConfigurationServiceContext.Provider value={configuration}>
       {children}
     </SdkConfigurationServiceContext.Provider>
-  ) : (
-    <Fragment>{fallback}</Fragment>
   )
 }
 
