@@ -110,7 +110,6 @@ const SdkDemo: FunctionComponent<Props> = ({
     onModalRequestClose: () => setIsModalOpen(false),
     applicantId,
     workflowRunId: queryParamToValueString.workflowRunId,
-    // onCustomTask,
     ...(sdkOptions || {}),
   }
 

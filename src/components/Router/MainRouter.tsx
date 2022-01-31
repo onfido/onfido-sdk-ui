@@ -33,7 +33,7 @@ type State = {
 }
 
 export default class MainRouter extends Component<InternalRouterProps, State> {
-  useWorkflowFun = (): boolean => {
+  useWorkflowRun = (): boolean => {
     const { useWorkflow } = this.props.options
     return !!useWorkflow
   }
@@ -136,7 +136,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       )
     }
 
-    return this.useWorkflowFun() ? (
+    return this.useWorkflowRun() ? (
       <WorkflowHistoryRouter
         {...this.props}
         mobileConfig={this.generateMobileConfig()}
