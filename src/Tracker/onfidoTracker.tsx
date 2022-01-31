@@ -60,7 +60,7 @@ export const sendAnalyticsEvent = (
 
   const environmentData = trackedEnvironmentData()
   const eventData = analyticsEventsMapping.get(event)
-
+  console.log('[Analytics]', { event, eventProperties, eventData })
   const requiredFields = {
     event_uuid: uuidv4(),
     event: eventData?.eventName,

@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import Error from '../Error'
 import classNames from 'classnames'
 import { parseTags } from '~utils'
+import { lowerCase } from '~utils/string'
 import style from './style.scss'
 
 import type { WithTrackingProps } from '~types/hocs'
@@ -24,9 +25,7 @@ export default class CameraError extends Component<Props, State> {
   }
 
   componentDidMount(): void {
-    if (this.props.error.type === 'error') {
-      this.props.trackScreen('camera_error')
-    }
+    this.props.trackScreen(lowerCase(this.props.error.name))
   }
 
   componentDidUpdate(prevProps: Props): void {
