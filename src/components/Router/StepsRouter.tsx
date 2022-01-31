@@ -43,7 +43,6 @@ class StepsRouter extends Component<StepsRouterProps> {
       hideOnfidoLogo,
       isFullScreen,
       isLoadingStep,
-      backgroundTask,
       options: { mobileFlow, ...globalUserOptions },
       ...otherProps
     } = this.props
@@ -103,12 +102,7 @@ class StepsRouter extends Component<StepsRouterProps> {
           >
             {isLoadingStep ? (
               <div>
-                <Spinner
-                  captionKey={`workflow.background_task_progress.${
-                    backgroundTask || 'default'
-                  }`}
-                  captionParam={backgroundTask}
-                />
+                <Spinner />
               </div>
             ) : (
               <CurrentComponent {...passedProps} />

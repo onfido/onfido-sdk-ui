@@ -12,6 +12,7 @@ const Router: FunctionComponent<ExternalRouterProps> = (props) => {
   const [options] = useSdkOptions()
   const { mobileFlow } = options
   const RouterComponent = mobileFlow ? CrossDeviceMobileRouter : MainRouter
+
   return (
     <RouterComponent
       {...props}

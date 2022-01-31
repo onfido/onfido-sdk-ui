@@ -10,25 +10,19 @@ class Spinner extends Component {
   }
 
   render = ({ translate }) => (
-    <div>
-      {this.props.captionKey &&
-        translate(this.props.captionKey, {
-          param: this.props.captionParam ? this.props.captionParam : '',
-        })}
-      <div
-        className={style.loader}
-        aria-live="assertive"
-        tabIndex="-1"
-        // role="progressbar" fixes issues on iOS where the aria-live="assertive" is not announced
-        role="progressbar"
-        ref={(ref) => (this.container = ref)}
-        aria-label={translate('generic.loading')}
-      >
-        <div className={style.inner}>
-          <div />
-          <div />
-          <div />
-        </div>
+    <div
+      className={style.loader}
+      aria-live="assertive"
+      tabIndex="-1"
+      // role="progressbar" fixes issues on iOS where the aria-live="assertive" is not announced
+      role="progressbar"
+      ref={(ref) => (this.container = ref)}
+      aria-label={translate('generic.loading')}
+    >
+      <div className={style.inner}>
+        <div />
+        <div />
+        <div />
       </div>
     </div>
   )

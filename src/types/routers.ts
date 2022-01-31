@@ -99,7 +99,6 @@ export type StepsRouterProps = {
   step: number
   triggerOnError: ErrorCallback
   isLoadingStep?: boolean
-  backgroundTask?: string | null
   setDocData?: (data: unknown, callback?: () => void) => void
 } & HistoryRouterProps
 
@@ -149,7 +148,6 @@ export type HistoryLocationState = {
 export type StepperState = {
   loadingStep: boolean
   steps: StepConfig[]
-  backgroundTask: string | null
   taskId: string | null
   completed: boolean
   serviceError: string | null

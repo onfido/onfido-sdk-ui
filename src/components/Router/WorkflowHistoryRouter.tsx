@@ -65,7 +65,6 @@ export default class WorkflowHistoryRouter extends Component<
       step: stepIndex,
       initialStep: stepIndex,
       // workflow stepper
-      backgroundTask: null,
       loadingStep: false,
       steps: this.props.steps,
       taskId: null,
@@ -140,7 +139,7 @@ export default class WorkflowHistoryRouter extends Component<
   }
 
   getWorkFlowStep = (
-    taskId: string,
+    taskId: string | undefined,
     configuration: {
       [name: string]: unknown
     } | null
@@ -308,7 +307,6 @@ export default class WorkflowHistoryRouter extends Component<
         this.setState(
           (state) => ({
             ...state,
-            backgroundTask: null,
             loadingStep: false,
             steps: [formatStep(workflow?.outcome ? 'pass' : 'reject')],
             step: 0, // start again from 1st step,
@@ -329,12 +327,11 @@ export default class WorkflowHistoryRouter extends Component<
 
       this.setState((state) => ({
         ...state,
-        backgroundTask: workflow?.task_def_id,
       }))
 
       // continue polling until interactive task is found
       if (workflow.task_type !== 'INTERACTIVE') {
-        console.log(`workflow task type is ${workflow.task_type} so polling`)
+        console.log(`Non interactive workflow task, keep polling`)
         poll(1500)
         return
       }
@@ -513,7 +510,6 @@ export default class WorkflowHistoryRouter extends Component<
         step={this.state.step}
         triggerOnError={this.triggerOnError}
         isLoadingStep={this.state.loadingStep}
-        backgroundTask={this.state.backgroundTask}
         // setPersonalData={this.setPersonalData}
         setDocData={this.setDocData}
       />
