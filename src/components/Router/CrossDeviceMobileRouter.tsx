@@ -350,7 +350,7 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   renderContent = (): h.JSX.Element => {
-    const { hasCamera, useWorkflow } = this.props
+    const { hasCamera } = this.props
     const { crossDeviceError, loading, steps } = this.state
 
     if (loading) {
