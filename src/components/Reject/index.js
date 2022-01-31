@@ -11,9 +11,9 @@ class Reject extends Component {
     this.props.nextStep()
   }
 
-  render() {
-    const title = 'Rejected'
-    const body = "We haven't been able to verify your identity"
+  render({ translate }) {
+    const title = translate('workflow_complete.reject.description')
+    const body = translate('workflow_complete.reject.description')
 
     return (
       <ScreenLayout>

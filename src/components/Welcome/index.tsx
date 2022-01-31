@@ -56,7 +56,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
   autoFocusOnInitialScreenTitle,
 }) => {
-  const [ { useWorkflow },{ findStep },] = useSdkOptions()
+  const [{ useWorkflow }, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
 
   const welcomeStep = findStep('welcome')
@@ -70,11 +70,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   const documentStep = findStep('document')
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
-  const actions = (
-    <WelcomeActions
-      {...{ customNextButtonLabel, nextStep }}
-    />
-  )
+  const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep }} />
   const welcomeTitle = customTitle || translate('welcome.title')
   const welcomeSubTitle = !customDescriptions
     ? translate('welcome.subtitle')

@@ -1,4 +1,14 @@
 {
+    "workflow_complete": {
+        "pass": {
+            "title": "Passed",
+            "description": "We have been able to verify your identity"
+        },
+        "reject": {
+            "title": "Rejected",
+            "description": "We haven't been able to verify your identity"
+        }
+    },
     "auth_accessibility": {
         "back_button": "Cancel"
     },
