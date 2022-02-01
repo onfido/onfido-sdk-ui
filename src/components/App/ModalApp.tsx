@@ -39,7 +39,7 @@ import { SdkConfiguration } from '~types/api'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
-  configuration: SdkConfiguration
+  internalConfiguration: SdkConfiguration
 }
 
 type Props = ModalAppProps & ReduxProps
@@ -376,7 +376,7 @@ class ModalApp extends Component<Props> {
   }
 
   render() {
-    const { options, configuration, ...otherProps } = this.props
+    const { options, internalConfiguration, ...otherProps } = this.props
     const {
       useModal,
       isModalOpen,
@@ -393,7 +393,7 @@ class ModalApp extends Component<Props> {
         <SdkConfigurationServiceProvider
           url={otherProps.urls.onfido_api_url}
           token={token}
-          localConfiguration={configuration}
+          internalConfiguration={internalConfiguration}
           fallback={<Spinner shouldAutoFocus={autoFocusOnInitialScreenTitle} />}
         >
           <SdkOptionsProvider options={{ ...options, events: this.events }}>

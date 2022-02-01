@@ -78,9 +78,9 @@ export interface SdkOptions extends FunctionalConfigurations {
 export type SdkHandle = {
   containerId?: string
   options: SdkOptions
-  configuration: SdkConfiguration
+  internalConfiguration: SdkConfiguration
   setOptions(options: SdkOptions): void
-  setSdkConfiguration(configuration: SdkConfiguration): void
+  setInternalConfiguration(internalConfiguration: SdkConfiguration): void
   tearDown(): void
 }
 

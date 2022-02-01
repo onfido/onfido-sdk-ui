@@ -26,7 +26,7 @@ describe('ModalApp', () => {
   it('renders without crashing', () => {
     const wrapper = mount(
       <MockedReduxProvider>
-        <ModalApp options={defaultOptions} configuration={{}} />
+        <ModalApp options={defaultOptions} internalConfiguration={{}} />
       </MockedReduxProvider>
     )
 
