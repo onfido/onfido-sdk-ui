@@ -6,7 +6,6 @@ import deepmerge from 'deepmerge'
 
 type SdkConfigurationServiceProviderProps = {
   children: ComponentChildren
-  internalConfiguration: SdkConfiguration
   url?: string
   token?: string
   fallback?: ComponentChildren
@@ -23,7 +22,6 @@ export const SdkConfigurationServiceProvider = ({
   url,
   token,
   fallback,
-  internalConfiguration,
 }: SdkConfigurationServiceProviderProps) => {
   const [configuration, setConfiguration] = useState<
     SdkConfiguration | undefined
@@ -45,9 +43,7 @@ export const SdkConfigurationServiceProvider = ({
   }
 
   return (
-    <SdkConfigurationServiceContext.Provider
-      value={deepmerge(configuration, internalConfiguration)}
-    >
+    <SdkConfigurationServiceContext.Provider value={configuration}>
       {children}
     </SdkConfigurationServiceContext.Provider>
   )

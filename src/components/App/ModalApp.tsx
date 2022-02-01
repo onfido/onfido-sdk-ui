@@ -35,11 +35,9 @@ import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 import withConnect from './withConnect'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
 import Spinner from '../Spinner'
-import { SdkConfiguration } from '~types/api'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
-  internalConfiguration: SdkConfiguration
 }
 
 type Props = ModalAppProps & ReduxProps
@@ -376,7 +374,7 @@ class ModalApp extends Component<Props> {
   }
 
   render() {
-    const { options, internalConfiguration, ...otherProps } = this.props
+    const { options, ...otherProps } = this.props
     const {
       useModal,
       isModalOpen,
@@ -393,7 +391,6 @@ class ModalApp extends Component<Props> {
         <SdkConfigurationServiceProvider
           url={otherProps.urls.onfido_api_url}
           token={token}
-          internalConfiguration={internalConfiguration}
           fallback={<Spinner shouldAutoFocus={autoFocusOnInitialScreenTitle} />}
         >
           <SdkOptionsProvider options={{ ...options, events: this.events }}>

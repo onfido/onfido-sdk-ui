@@ -15,7 +15,6 @@ import { noop } from '~utils/func'
 import { upperCase } from '~utils/string'
 import { buildStepFinder } from '~utils/steps'
 import { cssVarsPonyfill } from '~utils/cssVarsPonyfill'
-import { SdkConfiguration } from '~types/api'
 import type { NormalisedSdkOptions } from '~types/commons'
 import type { SdkOptions, SdkHandle } from '~types/sdk'
 import type { StepConfig, StepTypes } from '~types/steps'
@@ -25,20 +24,11 @@ if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
 }
 
-const isTestOrDevelopment =
-  process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development'
-
 const onfidoRender = (
   options: NormalisedSdkOptions,
-  internalConfiguration: SdkConfiguration,
   el: Element | Document | ShadowRoot | DocumentFragment,
   merge?: Element | Text
-) =>
-  render(
-    <App options={options} internalConfiguration={internalConfiguration} />,
-    el,
-    merge
-  )
+) => render(<App options={options} />, el, merge)
 
 const defaults: SdkOptions = {
   token: undefined,
@@ -127,16 +117,9 @@ const getContainerElementById = (containerId: string) => {
   )
 }
 
-export const init = (opts: SdkOptions, conf?: SdkConfiguration): SdkHandle => {
-  if (conf && !isTestOrDevelopment) {
-    throw new Error(
-      'Sdk Configuration override can only be used in "test" or "development" environments'
-    )
-  }
-
+export const init = (opts: SdkOptions): SdkHandle => {
   console.log('onfido_sdk_version', process.env.SDK_VERSION)
   const options = formatOptions({ ...defaults, ...opts })
-  const internalConfiguration = conf ?? {}
 
   experimentalFeatureWarnings(options)
   cssVarsPonyfill()
@@ -145,15 +128,14 @@ export const init = (opts: SdkOptions, conf?: SdkConfiguration): SdkHandle => {
 
   if (options.containerEl) {
     containerEl = options.containerEl
-    onfidoRender(options, internalConfiguration, containerEl)
+    onfidoRender(options, containerEl)
   } else if (options.containerId) {
     containerEl = getContainerElementById(options.containerId)
-    onfidoRender(options, internalConfiguration, containerEl)
+    onfidoRender(options, containerEl)
   }
 
   return {
     options,
-    internalConfiguration,
     setOptions(changedOptions) {
       this.options = formatOptions({ ...this.options, ...changedOptions })
       if (
@@ -167,25 +149,8 @@ export const init = (opts: SdkOptions, conf?: SdkConfiguration): SdkHandle => {
       ) {
         containerEl = getContainerElementById(changedOptions.containerId)
       }
-      onfidoRender(
-        this.options as NormalisedSdkOptions,
-        isTestOrDevelopment ? this.internalConfiguration : {},
-        containerEl
-      )
+      onfidoRender(this.options as NormalisedSdkOptions, containerEl)
       return this.options
-    },
-    setInternalConfiguration(changedConfiguration: SdkConfiguration) {
-      if (!this.options.containerEl) {
-        return
-      }
-
-      this.internalConfiguration = changedConfiguration
-
-      onfidoRender(
-        this.options as NormalisedSdkOptions,
-        isTestOrDevelopment ? this.internalConfiguration : {},
-        this.options.containerEl
-      )
     },
     tearDown() {
       render(null, containerEl)

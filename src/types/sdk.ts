@@ -2,7 +2,6 @@ import type { SupportedLanguages, LocaleConfig } from './locales'
 import type { RequestedVariant, StepConfig, StepTypes } from './steps'
 import type { EnterpriseFeatures } from './enterprise'
 import type { UICustomizationOptions } from './ui-customisation-options'
-import { SdkConfiguration } from '~types/api'
 
 type DocumentResponse = {
   id: string
@@ -78,13 +77,8 @@ export interface SdkOptions extends FunctionalConfigurations {
 export type SdkHandle = {
   containerId?: string
   options: SdkOptions
-  internalConfiguration: SdkConfiguration
   setOptions(options: SdkOptions): void
-  setInternalConfiguration(internalConfiguration: SdkConfiguration): void
   tearDown(): void
 }
 
-export type SdkInitMethod = (
-  options: SdkOptions,
-  configuration?: SdkConfiguration
-) => SdkHandle
+export type SdkInitMethod = (options: SdkOptions) => SdkHandle
