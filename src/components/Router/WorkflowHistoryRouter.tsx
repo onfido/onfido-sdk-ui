@@ -522,6 +522,7 @@ export default class WorkflowHistoryRouter extends Component<
     return (
       <StepsRouter
         {...this.props}
+        back={this.back}
         changeFlowTo={this.changeFlowTo}
         componentsList={this.getComponentsList()}
         disableNavigation={true}

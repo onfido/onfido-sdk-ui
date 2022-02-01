@@ -61,25 +61,23 @@ export declare type StepOptionComplete = {
 export declare type StepOptionPass = {};
 export declare type StepOptionReject = {};
 export declare type StepOptionData = {
-	data: {
-		first_name?: string;
-		last_name?: string;
-		email?: string;
-		dob?: string;
-		address?: {
-			flat_number?: string;
-			building_number?: string;
-			building_name?: string;
-			street?: string;
-			sub_street?: string;
-			town?: string;
-			postcode?: string;
-			country?: string;
-			state?: string;
-			line1?: string;
-			line2?: string;
-			line3?: string;
-		};
+	first_name?: string;
+	last_name?: string;
+	email?: string;
+	dob?: string;
+	addresses?: {
+		flat_number?: string;
+		building_number?: string;
+		building_name?: string;
+		street?: string;
+		sub_street?: string;
+		town?: string;
+		postcode?: string;
+		country?: string;
+		state?: string;
+		line1?: string;
+		line2?: string;
+		line3?: string;
 	};
 };
 export declare type StepOptionsMap = {
@@ -93,7 +91,7 @@ export declare type StepOptionsMap = {
 	complete: StepOptionComplete;
 	pass: StepOptionPass;
 	reject: StepOptionReject;
-	data?: StepOptionData;
+	data: StepOptionData;
 };
 export declare type StepConfigMap = {
 	[Type in StepTypes]: {
@@ -268,6 +266,7 @@ export declare type SdkResponse = {
 	document_back?: DocumentResponse;
 	document_video?: DocumentVideoResponse;
 	face?: FaceResponse;
+	data?: any;
 };
 export declare type SdkError = {
 	type: "exception" | "expired_token";
@@ -281,16 +280,17 @@ export interface FunctionalConfigurations {
 	roomId?: string;
 	tearDown?: boolean;
 	useMemoryHistory?: boolean;
+	useWorkflow?: boolean;
 }
 export interface SdkOptions extends FunctionalConfigurations {
 	onComplete?: (data: SdkResponse) => void;
 	onError?: (error: SdkError) => void;
 	onUserExit?: (data: UserExitCode) => void;
 	onModalRequestClose?: () => void;
-	onCustomTask?: (data: any, callback: (data: any) => void) => void;
 	token?: string;
 	useModal?: boolean;
 	isModalOpen?: boolean;
+	isMfe?: boolean;
 	shouldCloseOnOverlayClick?: boolean;
 	containerId?: string;
 	containerEl?: HTMLElement | null;
@@ -309,7 +309,6 @@ export interface SdkOptions extends FunctionalConfigurations {
 	_crossDeviceLinkMethods?: Array<string> | null;
 	applicantId?: string;
 	workflowRunId?: string;
-	workflowMock?: any;
 }
 export declare type SdkHandle = {
 	containerId?: string;

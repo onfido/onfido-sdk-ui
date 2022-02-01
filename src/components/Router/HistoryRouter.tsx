@@ -129,6 +129,7 @@ export default class HistoryRouter extends Component<
       'document_front',
       'document_back',
       'face',
+      'data',
     ]
 
     const data: SdkResponse = Object.entries(captures)
