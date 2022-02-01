@@ -25,6 +25,9 @@ if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
 }
 
+const isTestOrDevelopment =
+  process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development'
+
 const onfidoRender = (
   options: NormalisedSdkOptions,
   internalConfiguration: SdkConfiguration,
@@ -125,11 +128,7 @@ const getContainerElementById = (containerId: string) => {
 }
 
 export const init = (opts: SdkOptions, conf?: SdkConfiguration): SdkHandle => {
-  if (
-    conf &&
-    process.env.NODE_ENV !== 'test' &&
-    process.env.NODE_ENV !== 'development'
-  ) {
+  if (conf && !isTestOrDevelopment) {
     throw new Error(
       'Sdk Configuration override can only be used in "test" or "development" environments'
     )
@@ -170,7 +169,7 @@ export const init = (opts: SdkOptions, conf?: SdkConfiguration): SdkHandle => {
       }
       onfidoRender(
         this.options as NormalisedSdkOptions,
-        this.internalConfiguration,
+        isTestOrDevelopment ? this.internalConfiguration : {},
         containerEl
       )
       return this.options
@@ -184,7 +183,7 @@ export const init = (opts: SdkOptions, conf?: SdkConfiguration): SdkHandle => {
 
       onfidoRender(
         this.options as NormalisedSdkOptions,
-        this.internalConfiguration,
+        isTestOrDevelopment ? this.internalConfiguration : {},
         this.options.containerEl
       )
     },
