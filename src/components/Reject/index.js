@@ -12,7 +12,7 @@ class Reject extends Component {
   }
 
   render({ translate }) {
-    const title = translate('workflow_complete.reject.description')
+    const title = translate('workflow_complete.reject.title')
     const body = translate('workflow_complete.reject.description')
 
     return (
