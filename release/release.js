@@ -181,6 +181,19 @@ const incrementVersionInJSFiddle = async () => {
   console.log('✅ Success!')
 }
 
+const addBase32ToMapping = async () => {
+  stepTitle('Add base32 version to mapping')
+
+  console.log(
+    `Please update the ${chalk.bold('BASE_32_VERSION_MAPPING.md')} file with the following data:`
+  )
+  console.log(`- Newly generated Base32 version: ${config.data.base32Version}`)
+  console.log(`- New SDK version: ${VERSION}`)
+  console.log('_ The expected release date')
+
+  await proceedYesNo('All of those fields have been updated?')
+}
+
 const npmInstallAndBuild = async () => {
   stepTitle('🌍 Making sure our NPM dependencies are up to date...')
 
@@ -348,6 +361,9 @@ const main = async () => {
   await checkoutOrCreateBranch()
   await incrementPackageJsonVersion()
   await incrementVersionInJSFiddle()
+  if (config.data.isFirstReleaseIteration) {
+    await addBase32ToMapping()
+  }
   await npmInstallAndBuild()
   await happyWithChanges()
   await makeReleaseCommit()
