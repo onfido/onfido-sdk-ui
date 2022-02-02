@@ -160,6 +160,26 @@ jobs:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - Safari"
 
+      - name: Run UI tests in IE
+        working-directory: ./test/webtest
+        continue-on-error: true
+        id: ie
+        if: ${{ steps.testserver.outcome == 'success' }}
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -DnetworkLogs=false -Denvironment=browserstack -Dbrowser=ie -DbrowserVersion=11 -DscreenshotListener.enabled=false"
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BUILD: ${{ github.ref }}-${{ github.run_id }}
+
+      - name: Publish Senelium Test Results - IE
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: ${{ steps.ie.outcome == 'success' || steps.ie.outcome == 'failure' }}
+        with:
+          files: test/webtest/target/surefire-reports/junitreports/*.xml
+          check_name: "UI Test results - IE"
+
       - name: Verify test results
         if: ${{ steps.testserver.outcome == 'success' }}
         shell: bash
@@ -170,8 +190,9 @@ jobs:
           FIREFOX=${{ steps.firefox.outputs.exit_code }}
           EDGE=${{ steps.edge.outputs.exit_code }}
           SAFARI=${{ steps.safari.outputs.exit_code }}
+          IE=${{ steps.ie.outputs.exit_code }}
 
-          if [[ "$CHROME" != "0" || "$FIREFOX" != "0" || "$EDGE" != "0" || "$SAFARI" != "0" ]]
+          if [[ "$CHROME" != "0" || "$FIREFOX" != "0" || "$EDGE" != "0" || "$SAFARI" != "0" || "$IE" != "0" ]]
           then
             exit 1
           fi
