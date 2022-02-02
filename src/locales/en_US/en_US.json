@@ -36,7 +36,7 @@
         }
     },
     "profile_data": {
-        "personal_detials_title": "Add your personal information",
+        "personal_details_title": "Add your personal information",
         "address_detials_title": "Add your address",
         "first_name": "First name",
         "last_name": "Last name",
