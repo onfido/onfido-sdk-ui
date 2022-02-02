@@ -90,7 +90,7 @@ public abstract class WebSdkIT extends WebTest {
 
         capabilities.setCapability("browserstack.debug", "true");
         capabilities.setCapability("browserstack.console", "warnings");
-        capabilities.setCapability("browserstack.networkLogs", "true");
+        capabilities.setCapability("browserstack.networkLogs", properties().getProperty("networkLogs", "true"));
         capabilities.setCapability("browserstack.wsLocalSupport", "true");
 
         capabilities.setCapability("project", "web-sdk");
