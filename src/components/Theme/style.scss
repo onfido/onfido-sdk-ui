@@ -18,9 +18,13 @@
         background-color: var(--osdk-color-background-button-primary-active);
       }
 
-      &:hover {
-        background-color: var(--osdk-color-background-button-primary-hover);
+      /* stylelint-disable max-nesting-depth */
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--osdk-color-background-button-primary-hover);
+        }
       }
+      /* stylelint-enable max-nesting-depth */
 
       &:disabled {
         background-color: rgba(var(--ods-color-neutral-300));
@@ -39,10 +43,14 @@
         border-color: var(--osdk-color-border-button-secondary);
       }
 
-      &:hover {
-        background-color: var(--osdk-color-background-button-secondary-hover);
-        border-color: var(--osdk-color-border-button-secondary);
+      /* stylelint-disable max-nesting-depth */
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--osdk-color-background-button-secondary-hover);
+          border-color: var(--osdk-color-border-button-secondary);
+        }
       }
+      /* stylelint-enable max-nesting-depth */
     }
   }
 }
@@ -291,10 +299,14 @@ $logo-height: 32 * $unit;
   color: var(--osdk-color-content-body);
 
   &:not(:disabled) {
-    &:hover {
-      background-color: var(--osdk-color-background-link-hover);
-      color: var(--osdk-color-content-link-text-hover);
+    /* stylelint-disable max-nesting-depth */
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--osdk-color-background-link-hover);
+        color: var(--osdk-color-content-link-text-hover);
+      }
     }
+    /* stylelint-enable max-nesting-depth */
 
     &:active {
       background-color: var(--osdk-color-background-link-active);
@@ -328,8 +340,10 @@ $logo-height: 32 * $unit;
   border: 1px solid transparent;
   border-bottom-color: var(--osdk-color-content-alert-info);
 
-  &:hover {
-    background-color: var(--osdk-color-background-alert-info-link-hover);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--osdk-color-background-alert-info-link-hover);
+    }
   }
 
   &:active {
@@ -349,8 +363,10 @@ $logo-height: 32 * $unit;
     color: var(--osdk-color-content-alert-error);
   }
 
-  &:hover {
-    background-color: var(--osdk-color-background-alert-error-link-hover);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--osdk-color-background-alert-error-link-hover);
+    }
   }
 
   &:active {
