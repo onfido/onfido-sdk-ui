@@ -178,7 +178,7 @@ const buildDataComponents = (
   const Personal = (props: any) => {
     return (
       <DataCapture
-        title="personal_detials_title"
+        title="personal_details_title"
         data={{
           first_name: dataStep?.options?.first_name,
           last_name: dataStep?.options?.last_name,
