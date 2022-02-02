@@ -1006,21 +1006,28 @@
     "path": "node_modules/@oclif/plugin-help",
     "licenseFile": "node_modules/@oclif/plugin-help/LICENSE"
   },
-  "@onfido/castor-icons@2.0.0": {
+  "@onfido/castor-icons@2.8.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor-icons",
     "publisher": "Onfido",
     "path": "node_modules/@onfido/castor-icons",
     "licenseFile": "node_modules/@onfido/castor-icons/README.md"
   },
-  "@onfido/castor-react@1.3.0": {
+  "@onfido/castor-react@2.0.3": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
     "path": "node_modules/@onfido/castor-react",
     "licenseFile": "node_modules/@onfido/castor-react/README.md"
   },
-  "@onfido/castor@1.3.0": {
+  "@onfido/castor-tokens@1.0.0-beta.5": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/onfido/castor-tokens",
+    "publisher": "Onfido",
+    "path": "node_modules/@onfido/castor-tokens",
+    "licenseFile": "node_modules/@onfido/castor-tokens/README.md"
+  },
+  "@onfido/castor@2.0.3": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
@@ -3890,7 +3897,7 @@
     "path": "node_modules/cssstyle",
     "licenseFile": "node_modules/cssstyle/LICENSE"
   },
-  "csstype@3.0.6": {
+  "csstype@3.0.10": {
     "licenses": "MIT",
     "repository": "https://github.com/frenic/csstype",
     "publisher": "Fredrik Nicol",
@@ -10247,11 +10254,11 @@
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react-dom",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react-dom/LICENSE"
   },
-  "react-dom@16.13.0": {
+  "react-dom@16.14.0": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
-    "path": "node_modules/mochawesome-report-generator/node_modules/react-dom",
-    "licenseFile": "node_modules/mochawesome-report-generator/node_modules/react-dom/LICENSE"
+    "path": "node_modules/react-dom",
+    "licenseFile": "node_modules/react-dom/LICENSE"
   },
   "react-is@16.13.0": {
     "licenses": "MIT",
@@ -10339,11 +10346,11 @@
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react/LICENSE"
   },
-  "react@16.13.0": {
+  "react@16.14.0": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
-    "path": "node_modules/mochawesome-report-generator/node_modules/react",
-    "licenseFile": "node_modules/mochawesome-report-generator/node_modules/react/LICENSE"
+    "path": "node_modules/react",
+    "licenseFile": "node_modules/react/LICENSE"
   },
   "read-installed@4.0.3": {
     "licenses": "ISC",
@@ -10938,7 +10945,7 @@
     "path": "node_modules/saxes",
     "licenseFile": "node_modules/saxes/README.md"
   },
-  "scheduler@0.19.0": {
+  "scheduler@0.19.1": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
     "path": "node_modules/scheduler",
