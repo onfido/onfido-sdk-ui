@@ -79,6 +79,10 @@ const errors: Record<ErrorNames, LocaleData> = {
     message: 'video_capture.prompt.header_timeout',
     instruction: 'doc_video_capture.prompt.detail_timeout',
   },
+  PROFILE_DATA_TIMEOUT: {
+    message: 'profile_data.prompt.header_timeout',
+    instruction: 'profile_data.prompt.detail_timeout',
+  },
   GENERIC_CLIENT_ERROR: {
     message: 'cross_device_error_restart.title',
     instruction: 'cross_device_error_restart.subtitle',

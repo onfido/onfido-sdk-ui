@@ -29,7 +29,11 @@
         "line2": "Line 2",
         "line3": "Line 3",
         "button_submit": "Next",
-        "required_error": "This field is required"
+        "required_error": "This field is required",
+        "prompt": {
+            "header_timeout": "Looks like you took too long",
+            "detail_timeout": "Start again"
+        }
     },
     "auth_accessibility": {
         "back_button": "Cancel"
