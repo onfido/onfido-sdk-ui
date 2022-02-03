@@ -34,7 +34,7 @@ const baseRules = () => {
     {
       test: /\.(js|ts)x?$/,
       loader: 'babel-loader',
-      options: { configFile: resolve('babel.config.js') },
+      options: { configFile: resolve('.babelrc') },
       include: [
         resolve('src'),
         resolve('node_modules/@onfido/castor'),
