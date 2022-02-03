@@ -84,6 +84,9 @@
       "^.+\\.(js|jsx)$": "babel-jest",
       "^.+\\.(ts|tsx)$": "ts-jest"
     },
+    "transformIgnorePatterns": [
+      "node_modules/(?!@onfido/castor)"
+    ],
     "testMatch": [
       "**/__tests__/**/*.[jt]s?(x)",
       "**/__integrations__/**/*.integration.[jt]s?(x)"
