@@ -10,7 +10,9 @@ es
 /lib/index.js
 /lib/index.js.map
 /dist/style.css.map
-/dist/onfido.min.js.map
+dist/onfido.min.js.map
+lib/index.js
+lib/index.js.map
 /dist/auth-sdk
 /dist/index.html
 /dist/images
@@ -28,4 +30,5 @@ dist/*~*
 test/mock-server/*.pem
 test/mock-server/frontend/
 coverage/
+licenses.json
 /.idea/
