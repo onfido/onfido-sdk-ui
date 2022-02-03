@@ -131,7 +131,7 @@ export const init = (opts: SdkOptions): SdkHandle => {
   cssVarsPonyfill()
 
   let containerEl: HTMLElement
-  let workflowOps = { useWorkflow: false }
+  const workflowOps = { useWorkflow: false }
 
   if (options.containerEl) {
     containerEl = options.containerEl
