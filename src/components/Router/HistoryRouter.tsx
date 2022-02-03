@@ -7,41 +7,31 @@ import {
   MemoryHistory,
 } from 'history'
 
-import { buildStepFinder } from '~utils/steps'
+import { buildStepFinder, findFirstIndex } from '~utils/steps'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
 import type { ParsedError, ErrorCallback } from '~types/api'
-import type { ExtendedStepTypes, FlowVariants } from '~types/commons'
+import type {
+  ExtendedStepTypes,
+  FlowVariants,
+  FormattedError,
+} from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
 import type {
   ComponentStep,
   ChangeFlowProp,
   HistoryRouterProps,
+  HistoryLocationState,
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes } from '~types/steps'
 
-type FormattedError = {
-  type: 'expired_token' | 'exception'
-  message: string
-}
-
-type HistoryLocationState = {
-  step: number
-  flow: FlowVariants
-}
-
 type State = {
   initialStep: number
 } & HistoryLocationState
-
-const findFirstIndex = (
-  componentsList: ComponentStep[],
-  clientStepIndex: number
-) => componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
 
 export default class HistoryRouter extends Component<
   HistoryRouterProps,
@@ -72,8 +62,6 @@ export default class HistoryRouter extends Component<
       : createBrowserHistory()
     this.unlisten = this.history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
-    const stepType = componentsList[this.state.step].step.type
-    this.props.actions.setCurrentStepType(stepType)
   }
 
   onHistoryChange: LocationListener<HistoryLocationState> = ({
@@ -131,11 +119,6 @@ export default class HistoryRouter extends Component<
       this.triggerOnComplete()
     } else {
       this.setStepIndex(newStepIndex)
-      const newStepType = componentsList[newStepIndex].step.type
-      const isNewStepType = this.props.currentStepType !== newStepType
-      if (isNewStepType) {
-        this.props.actions.setCurrentStepType(newStepType)
-      }
     }
   }
 
@@ -147,6 +130,7 @@ export default class HistoryRouter extends Component<
       'document_back',
       'face',
     ]
+
     const data: SdkResponse = Object.entries(captures)
       .filter(([key, value]) => key !== 'takesHistory' && value != null)
       .reduce((acc, [key, value]) => ({ ...acc, [key]: value?.metadata }), {})

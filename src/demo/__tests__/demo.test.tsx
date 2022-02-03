@@ -47,6 +47,11 @@ describe('Demo app', () => {
           setOptions: jest.fn(),
           tearDown: jest.fn(),
         })),
+        workflowInit: jest.fn().mockImplementation(() => ({
+          options: {},
+          setOptions: jest.fn(),
+          tearDown: jest.fn(),
+        })),
       }
 
       SdkDemo = require('../demo').SdkDemo // eslint-disable-line @typescript-eslint/no-var-requires

@@ -7,6 +7,7 @@ import GenericError from '../GenericError'
 
 import { getWoopraCookie } from '../../Tracker'
 import HistoryRouter from './HistoryRouter'
+import WorkflowHistoryRouter from './WorkflowHistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
@@ -32,6 +33,11 @@ type State = {
 }
 
 export default class MainRouter extends Component<InternalRouterProps, State> {
+  useWorkflowRun = (): boolean => {
+    const { useWorkflow } = this.props.options
+    return !!useWorkflow
+  }
+
   generateMobileConfig = (): MobileConfig => {
     const {
       documentType,
@@ -52,10 +58,9 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       customUI,
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
+      useWorkflow,
     } = options
-
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
-
     if (!steps) {
       throw new Error('steps not provided')
     }
@@ -131,7 +136,15 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       )
     }
 
-    return (
+    return this.useWorkflowRun() ? (
+      <WorkflowHistoryRouter
+        {...this.props}
+        mobileConfig={this.generateMobileConfig()}
+        onFlowChange={this.onFlowChange}
+        stepIndexType="user"
+        steps={this.props.options.steps}
+      />
+    ) : (
       <HistoryRouter
         {...this.props}
         mobileConfig={this.generateMobileConfig()}

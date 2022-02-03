@@ -25,7 +25,7 @@ export type ExtendedStepConfig =
   | StepConfig
   | { type: typeof STEP_CROSS_DEVICE; options?: never }
 
-export type CaptureMethods = 'document' | 'face' | 'auth'
+export type CaptureMethods = 'document' | 'face' | 'auth' //| 'data'
 
 export type CaptureMethodVariants = 'live' | 'html5'
 
@@ -120,6 +120,7 @@ export type MobileConfig = {
   clientStepIndex?: number
   deviceHasCameraSupport?: boolean
   disableAnalytics?: boolean
+  useWorkflow?: boolean
   documentType?: DocumentTypes
   enterpriseFeatures?: EnterpriseFeatures
   idDocumentIssuingCountry?: CountryData
@@ -134,4 +135,9 @@ export type MobileConfig = {
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   analyticsSessionUuid?: string
+}
+
+export type FormattedError = {
+  type: 'expired_token' | 'exception'
+  message: string
 }

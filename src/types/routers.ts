@@ -16,6 +16,7 @@ import type {
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
+  //StepOptionData,
   StepOptionComplete,
   StepOptionAuth,
   StepConfig,
@@ -85,6 +86,7 @@ export type HistoryRouterProps = {
   step?: number
   stepIndexType?: StepIndexType
   steps: StepConfig[]
+  workflowRunId?: string
 } & InternalRouterProps
 
 export type StepsRouterProps = {
@@ -96,6 +98,8 @@ export type StepsRouterProps = {
   previousStep: () => void
   step: number
   triggerOnError: ErrorCallback
+  isLoadingStep?: boolean
+  setDocData?: (data: unknown, callback?: () => void) => void
 } & HistoryRouterProps
 
 export type StepComponentBaseProps = {
@@ -116,6 +120,7 @@ export type StepComponentDocumentProps = StepOptionDocument &
   StepComponentBaseProps
 export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
+//export type StepComponentDataProps = StepOptionData & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
 export type StepComponentAuthProps = StepOptionAuth & StepComponentBaseProps
@@ -125,6 +130,7 @@ export type StepComponentProps =
   | StepComponentDocumentProps
   | StepComponentPoaProps
   | StepComponentFaceProps
+  //| StepComponentDataProps
   | StepComponentCompleteProps
   | StepComponentAuthProps
 
@@ -132,4 +138,19 @@ export type ComponentStep = {
   component: ComponentType<StepComponentProps>
   step: ExtendedStepConfig
   stepIndex: number
+}
+
+export type HistoryLocationState = {
+  step: number
+  flow: FlowVariants
+}
+
+export type StepperState = {
+  loadingStep: boolean
+  steps: StepConfig[]
+  taskId: string | null
+  completed: boolean
+  serviceError: string | null
+  personalData: any
+  docData: any
 }

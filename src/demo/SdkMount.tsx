@@ -26,9 +26,15 @@ type Props = {
   options: SdkOptions | UIConfigs
   regionCode: ServerRegions
   url: string
+  workflow: boolean
 }
 
-const SdkMount: FunctionComponent<Props> = ({ options, regionCode, url }) => {
+const SdkMount: FunctionComponent<Props> = ({
+  options,
+  regionCode,
+  url,
+  workflow,
+}) => {
   const [onfidoSdk, setOnfidoSdk] = useState<SdkHandle | undefined>(undefined)
   const mountEl = useRef(null)
 
@@ -51,10 +57,19 @@ const SdkMount: FunctionComponent<Props> = ({ options, regionCode, url }) => {
     console.log('Calling `Onfido.init` with the following options:', options)
 
     if (mountEl.current) {
-      const sdk = Onfido.init({
-        ...options,
-        containerEl: mountEl.current,
-      })
+      let sdk
+      if (workflow) {
+        sdk = Onfido.workflowInit({
+          ...options,
+          containerEl: mountEl.current,
+        })
+      } else {
+        sdk = Onfido.init({
+          ...options,
+          containerEl: mountEl.current,
+        })
+      }
+
       setOnfidoSdk(sdk)
 
       window.onfidoSdkHandle = sdk

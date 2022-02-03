@@ -14,7 +14,9 @@ declare const STEP_FACE = "face";
 declare const STEP_COMPLETE = "complete";
 declare const STEP_AUTH = "auth";
 declare const STEP_CROSS_DEVICE_SESSION_INTRO = "crossDeviceSessionIntro";
-export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE | typeof STEP_AUTH | typeof STEP_CROSS_DEVICE_SESSION_INTRO;
+declare const STEP_PASS = "pass";
+declare const STEP_REJECT = "reject";
+export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE | typeof STEP_AUTH | typeof STEP_CROSS_DEVICE_SESSION_INTRO | typeof STEP_PASS | typeof STEP_REJECT;
 export declare type DocumentTypes = "passport" | "driving_licence" | "national_identity_card" | "residence_permit";
 export declare type PoaTypes = "bank_building_society_statement" | "utility_bill" | "council_tax" | "benefit_letters" | "government_letter";
 export declare type RequestedVariant = "standard" | "video";
@@ -55,6 +57,30 @@ export declare type StepOptionComplete = {
 	message?: string;
 	submessage?: string;
 };
+/**
+export type StepOptionData = {
+  data: {
+	first_name?: string
+	last_name?: string
+	email?: string
+	dob?: string
+	address?: {
+	  flat_number?: string
+	  building_number?: string
+	  building_name?: string
+	  street?: string
+	  sub_street?: string
+	  town?: string
+	  postcode?: string
+	  country?: string
+	  state?: string
+	  line1?: string
+	  line2?: string
+	  line3?: string
+	}
+  }
+}
+*/
 export declare type StepOptionsMap = {
 	welcome: StepOptionWelcome;
 	userConsent: never;
@@ -64,6 +90,8 @@ export declare type StepOptionsMap = {
 	poa: StepOptionPoA;
 	face: StepOptionFace;
 	complete: StepOptionComplete;
+	pass: never;
+	reject: never;
 };
 export declare type StepConfigMap = {
 	[Type in StepTypes]: {
@@ -79,7 +107,9 @@ export declare type StepConfigDocument = StepConfigMap["document"];
 export declare type StepConfigPoa = StepConfigMap["poa"];
 export declare type StepConfigFace = StepConfigMap["face"];
 export declare type StepConfigComplete = StepConfigMap["complete"];
-export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoa | StepConfigFace | StepConfigComplete | StepConfigAuth | StepConfigCrossDeviceSessionIntro;
+export declare type StepConfigPass = StepConfigMap["pass"];
+export declare type StepConfigReject = StepConfigMap["reject"];
+export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoa | StepConfigFace | StepConfigComplete | StepConfigAuth | StepConfigCrossDeviceSessionIntro | StepConfigPass | StepConfigReject;
 export declare type UICustomizationOptions = {
 	colorBackgroundSurfaceModal?: string;
 	colorBorderSurfaceModal?: string;
@@ -248,6 +278,7 @@ export interface FunctionalConfigurations {
 	roomId?: string;
 	tearDown?: boolean;
 	useMemoryHistory?: boolean;
+	useWorkflow?: boolean;
 }
 export interface SdkOptions extends FunctionalConfigurations {
 	onComplete?: (data: SdkResponse) => void;
@@ -257,6 +288,7 @@ export interface SdkOptions extends FunctionalConfigurations {
 	token?: string;
 	useModal?: boolean;
 	isModalOpen?: boolean;
+	isMfe?: boolean;
 	shouldCloseOnOverlayClick?: boolean;
 	containerId?: string;
 	containerEl?: HTMLElement | null;
@@ -273,6 +305,8 @@ export interface SdkOptions extends FunctionalConfigurations {
 	crossDeviceClientIntroProductName?: string;
 	crossDeviceClientIntroProductLogoSrc?: string;
 	_crossDeviceLinkMethods?: Array<string> | null;
+	applicantId?: string;
+	workflowRunId?: string;
 }
 export declare type SdkHandle = {
 	containerId?: string;
@@ -282,5 +316,6 @@ export declare type SdkHandle = {
 };
 export declare type SdkInitMethod = (options: SdkOptions) => SdkHandle;
 export declare const init: SdkInitMethod;
+export declare const workflowInit: SdkInitMethod;
 
 export {};

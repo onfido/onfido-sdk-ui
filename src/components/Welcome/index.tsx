@@ -10,7 +10,7 @@ import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
 import { DefaultContent, DocVideoContent } from './Content'
 import style from './style.scss'
-
+import balanceSrc from './assets/balance.svg'
 import type { StepComponentBaseProps } from '~types/routers'
 import type { StepTypes } from '~types/steps'
 
@@ -18,6 +18,7 @@ const CAPTURE_STEP_TYPES: Set<StepTypes> = new Set([
   'document',
   'poa',
   'face',
+  //'data',
   'auth',
 ])
 
@@ -31,7 +32,6 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   nextStep,
 }) => {
   const { translate } = useLocales()
-
   const buttonLabel = customNextButtonLabel
     ? customNextButtonLabel
     : translate('welcome.next_button')
@@ -56,7 +56,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
   autoFocusOnInitialScreenTitle,
 }) => {
-  const [, { findStep }] = useSdkOptions()
+  const [{ useWorkflow }, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
 
   const welcomeStep = findStep('welcome')
@@ -86,7 +86,11 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
         subTitle={welcomeSubTitle}
         shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
       />
-      {forDocVideo ? (
+      {useWorkflow ? (
+        <div className={style.balanceContainer}>
+          <div className={style.balance} />
+        </div>
+      ) : forDocVideo ? (
         <DocVideoContent captureSteps={captureSteps} />
       ) : (
         <DefaultContent

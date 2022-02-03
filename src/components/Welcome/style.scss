@@ -63,6 +63,21 @@
   }
 }
 
+.balanceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 310px;
+
+  > .balance {
+    background: url('./assets/balance.svg') center no-repeat;
+    background-size: 60%;
+    width: 100%;
+    height: 100%;
+    align-self: stretch;
+  }
+}
+
 /* .text {
   margin-top: 64 * $unit;
 } */

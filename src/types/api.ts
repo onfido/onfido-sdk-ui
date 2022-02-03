@@ -181,3 +181,18 @@ export type CreateV4DocumentResponse = {
 
 export type SuccessCallback<T> = (response: T) => void
 export type ErrorCallback = (error: ParsedError) => void
+
+/* Workflows */
+export type WorkflowResponse = {
+  id: string
+  applicant_id: string
+  task_type: 'START' | 'INTERACTIVE' | 'SYNC' | 'ASYNC' | 'FINAL' | 'CUSTOM'
+  task_id: string
+  task_def_id: string
+  config: {
+    [name: string]: unknown
+  } | null
+  finished: boolean
+  outcome: boolean | null
+  error: string | null
+}

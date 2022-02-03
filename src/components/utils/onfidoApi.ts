@@ -17,8 +17,14 @@ import type {
   CreateV4DocumentResponse,
   SuccessCallback,
   ErrorCallback,
+  WorkflowResponse,
 } from '~types/api'
-import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
+import type {
+  DocumentSides,
+  SdkMetadata,
+  FilePayload,
+  UrlsConfig,
+} from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
 import type { LegacyTrackedEventNames } from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
@@ -381,4 +387,97 @@ export const sendAnalytics = (
     )
 
   request.send(payload)
+}
+
+export const getWorkflow = (
+  isMfe: boolean,
+  token: string | undefined,
+  url: string | undefined,
+  workflowRunId: string,
+  applicantId: string
+): Promise<WorkflowResponse> => {
+  return new Promise((resolve, reject) => {
+    try {
+      const requestParams: HttpRequestParams = {
+        method: 'GET',
+        contentType: 'application/json',
+        endpoint: `${url}/workflow_runs/${workflowRunId}`,
+      }
+
+      if (!isMfe) {
+        requestParams.headers = { 'x-onfido-applicant-id': applicantId }
+      }
+      if (token) {
+        requestParams.token = `Bearer ${token}`
+      }
+
+      performHttpReq(requestParams, resolve, (request) =>
+        formatError(request, reject)
+      )
+    } catch (error) {
+      console.log('API error: ', error)
+      reject(error)
+    }
+  })
+}
+
+export const completeWorkflow = (
+  isMfe: boolean,
+  token: string | undefined,
+  url: string | undefined,
+  workflowRunId: string,
+  taskId: string,
+  applicantId: string,
+  personalData?: any,
+  docData?: any
+): Promise<WorkflowResponse> => {
+  console.log('complete workflow call to API')
+
+  return new Promise((resolve, reject) => {
+    try {
+      const requestParams: HttpRequestParams = {
+        method: 'POST',
+        contentType: 'application/json',
+        payload: JSON.stringify({
+          task_id: taskId,
+          data: docData.length ? docData : personalData || {},
+        }),
+        endpoint: `${url}/workflow_runs/${workflowRunId}/complete`,
+      }
+
+      if (!isMfe) {
+        requestParams.headers = { 'x-onfido-applicant-id': applicantId }
+      }
+      if (token) {
+        requestParams.token = `Bearer ${token}`
+      }
+
+      performHttpReq(requestParams, resolve, (request) =>
+        formatError(request, reject)
+      )
+    } catch (error) {
+      reject(error)
+    }
+  })
+}
+
+export const getWorkflowServiceUrl = (
+  urls: UrlsConfig,
+  isMfe: boolean
+): string => {
+  let workflowServiceUrl = `${urls.onfido_api_url}/v4` // this will be used in MFE mode always, and need v4 added
+
+  const standaloneWorkflowServiceUrls = {
+    development: 'https://api.onfido.com/v4', //'http://localhost:5000',
+    staging: 'https://workflow-api.eu-west-1.dev.onfido.xyz',
+    'pre-prod': 'https://workflow-api.eu-west-1.pre-prod.onfido.xyz',
+  }
+
+  // standalone service URLs set only when _not_ in MFE mode
+  const env: null | 'development' | 'staging' | 'pre-prod' = 'development' // null is "production" build
+  if (!isMfe && env && standaloneWorkflowServiceUrls[env]) {
+    workflowServiceUrl = standaloneWorkflowServiceUrls[env]
+  }
+
+  return workflowServiceUrl
 }

@@ -9,6 +9,7 @@ declare global {
     interface Global {
       Onfido: {
         init: SdkInitMethod
+        workflowInit: SdkInitMethod
       }
     }
   }
