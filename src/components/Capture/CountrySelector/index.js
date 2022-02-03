@@ -1,9 +1,10 @@
 import { h } from 'preact'
-import { useState, useEffect } from 'preact/compat'
+import { useState } from 'preact/compat'
 import Autocomplete from 'accessible-autocomplete/preact'
+import { localised } from '~locales'
 import { omit } from 'lodash/fp'
 import { allCountriesList, countryTranslations } from './countries'
-import { Icon } from '@onfido/castor-react'
+import { IconChevronDown } from '@onfido/castor-icons'
 import { getCountryFlagSrc } from '~supported-documents'
 import styles from '../../CountrySelector/style.scss'
 
@@ -25,23 +26,11 @@ const options = allCountriesList.map((country) => ({
   label: countryTranslations[country.labelKey.replace('countriesList.', '')],
 }))
 
-const findEntry = (value) =>
-  options.find(
-    (entry) => entry.countryCode === value || entry.isoAlpha3 === value
-  )
-
-//const defaultCountry = 'GBR'
-
 const CountrySelector = ({ value, error, onChange, ...props }) => {
+  const { translate } = props
   const [currentValue, setCurrentValue] = useState()
-  //findEntry(value || defaultCountry)
-
-  useEffect(() => {
-    //if (!value) onChange?.(defaultCountry)
-  }, [])
 
   const handleChange = (selectedCountry) => {
-    console.log(selectedCountry)
     setCurrentValue(selectedCountry.isoAlpha3)
     onChange?.(selectedCountry.isoAlpha3)
   }
@@ -62,11 +51,8 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
         required={true}
         source={suggestCountries}
         showAllValues
-        dropdownArrow={() => (
-          <Icon name="chevron-down" className={styles.chevronIcon} />
-        )}
-        // placeholder={translate('country_select.search.input_placeholder')}
-        //    tNoResults={() => this.getNoResultsTextForDropdown()}
+        dropdownArrow={() => <IconChevronDown className={styles.chevronIcon} />}
+        placeholder={translate('profile_data.country_placeholder')}
         displayMenu="overlay"
         cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
         templates={{
@@ -81,4 +67,4 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
   )
 }
 
-export default CountrySelector
+export default localised(CountrySelector)

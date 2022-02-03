@@ -193,7 +193,7 @@ const buildDataComponents = (
     return (
       <DataCapture
         title="address_detials_title"
-        dataPath="addresses"
+        dataPath="address"
         data={{
           // flat_number: dataStep?.options?.address?.flat_number,
           // building_number: dataStep?.options?.address?.building_number,
@@ -201,9 +201,9 @@ const buildDataComponents = (
           // street: dataStep?.options?.address?.street,
           // sub_street: dataStep?.options?.address?.sub_street,
           // town: dataStep?.options?.address?.town,
-          postcode: dataStep?.options?.addresses?.postcode,
-          country: dataStep?.options?.addresses?.country,
-          state: dataStep?.options?.addresses?.state,
+          postcode: dataStep?.options?.address?.postcode,
+          country: dataStep?.options?.address?.country,
+          state: dataStep?.options?.address?.state,
           // state: dataStep?.options?.address?.state,
           // line1: dataStep?.options?.address?.line1,
           // line2: dataStep?.options?.address?.line2,

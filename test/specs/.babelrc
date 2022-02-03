@@ -1,4 +1,4 @@
 {
-  "extends": "../../.babelrc",
+  "extends": "../../babel.config",
   "plugins": ["auto-await"]
 }

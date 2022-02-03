@@ -1,5 +1,5 @@
 {
-  "extends": "../.babelrc",
+  "extends": "../babel.config",
   "presets": [
     [
       "@babel/preset-env",
