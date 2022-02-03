@@ -8,11 +8,7 @@ import {
 } from 'history'
 
 import { buildStepFinder, findFirstIndex } from '~utils/steps'
-import {
-  getWorkflow,
-  completeWorkflow,
-  getWorkflowServiceUrl,
-} from '~utils/onfidoApi'
+import { getWorkflow, completeWorkflow } from '~utils/onfidoApi'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import { formatStep } from '../..'
@@ -34,8 +30,8 @@ import type {
   StepperState,
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
-import type { StepConfig, DocumentTypes } from '~types/steps'
-import { CancelFunc, poller, PollFunc } from '~utils/poller'
+import type { DocumentTypes } from '~types/steps'
+import { poller, PollFunc } from '~utils/poller'
 
 type State = {
   initialStep: number
@@ -124,17 +120,22 @@ export default class WorkflowHistoryRouter extends Component<
     excludeStepFromHistory = false
   ) => {
     const { onFlowChange } = this.props
+    const { step: currentStep, steps } = this.state
     const { flow: previousFlow, step: previousUserStepIndex } = this.state
     if (previousFlow === newFlow) return
-
     const previousUserStep = this.getComponentsList()[previousUserStepIndex]
-
     onFlowChange &&
-      onFlowChange(newFlow, newStep, previousFlow, {
-        userStepIndex: previousUserStepIndex,
-        clientStepIndex: previousUserStep.stepIndex,
-        clientStep: previousUserStep,
-      })
+      onFlowChange(
+        newFlow,
+        newStep,
+        previousFlow,
+        {
+          userStepIndex: previousUserStepIndex,
+          clientStepIndex: previousUserStep.stepIndex,
+          clientStep: previousUserStep,
+        },
+        steps
+      )
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
@@ -211,14 +212,12 @@ export default class WorkflowHistoryRouter extends Component<
     console.log('next step requested')
 
     const { options, urls } = this.props
-    const { applicantId, workflowRunId } = options
+    const { workflowRunId } = options
     const { step: currentStep, taskId, completed } = this.state
     const componentsList = this.getComponentsList()
     const newStepIndex = currentStep + 1
 
-    const workflowServiceUrl = getWorkflowServiceUrl(urls, !!options.isMfe)
-
-    console.log('Using workflow service URL: ', workflowServiceUrl)
+    const workflowServiceUrl = `${urls.onfido_api_url}/v4`
 
     // in case a step is consisting of multiple components, just continue the flow
     if (componentsList.length !== newStepIndex) {
@@ -229,13 +228,6 @@ export default class WorkflowHistoryRouter extends Component<
 
     if (completed) return // that's it, we're done
 
-    if (!applicantId) {
-      this.setState((state) => ({
-        ...state,
-        serviceError: 'Applicant ID is not set.',
-      }))
-      return
-    }
     if (!workflowRunId) {
       this.setState((state) => ({
         ...state,
@@ -253,12 +245,10 @@ export default class WorkflowHistoryRouter extends Component<
     if (taskId) {
       try {
         await completeWorkflow(
-          !!options.isMfe,
           options.token,
           workflowServiceUrl,
           workflowRunId,
           taskId,
-          applicantId,
           this.state.personalData,
           this.state.docData
         )
@@ -271,7 +261,6 @@ export default class WorkflowHistoryRouter extends Component<
         }))
         return
       }
-      localStorage.setItem(`a_${applicantId}:w_${workflowRunId}`, 'started')
       this.setState((state) => ({ ...state, taskId: null }))
     }
 
@@ -282,11 +271,9 @@ export default class WorkflowHistoryRouter extends Component<
 
       try {
         workflow = await getWorkflow(
-          !!options.isMfe,
           options.token,
           workflowServiceUrl,
-          workflowRunId,
-          applicantId
+          workflowRunId
         )
       } catch {
         this.setState((state) => ({
@@ -309,6 +296,7 @@ export default class WorkflowHistoryRouter extends Component<
         this.setState(
           (state) => ({
             ...state,
+            flow: 'captureSteps',
             loadingStep: false,
             steps: [formatStep(workflow?.outcome ? 'pass' : 'reject')],
             step: 0, // start again from 1st step,
@@ -318,10 +306,6 @@ export default class WorkflowHistoryRouter extends Component<
             this.triggerOnComplete()
             console.log('starting workflow step: ', this.getComponentsList()[0])
             this.setStepIndex(0)
-            localStorage.setItem(
-              `a_${applicantId}:w_${workflowRunId}`,
-              'finished'
-            )
           }
         )
         return
@@ -332,7 +316,7 @@ export default class WorkflowHistoryRouter extends Component<
       }))
 
       // continue polling until interactive task is found
-      if (workflow.task_type !== 'INTERACTIVE') {
+      if (workflow?.task_type !== 'INTERACTIVE') {
         console.log(`Non interactive workflow task, keep polling`)
         poll(1500)
         return
@@ -347,6 +331,7 @@ export default class WorkflowHistoryRouter extends Component<
       this.setState(
         (state) => ({
           ...state,
+          flow: 'captureSteps', //to make sure to reset incase of cross device
           loadingStep: false,
           steps: [formatStep(step)],
           taskId: workflow?.task_id,

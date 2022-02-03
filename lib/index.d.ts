@@ -288,7 +288,6 @@ export interface SdkOptions extends FunctionalConfigurations {
 	token?: string;
 	useModal?: boolean;
 	isModalOpen?: boolean;
-	isMfe?: boolean;
 	shouldCloseOnOverlayClick?: boolean;
 	containerId?: string;
 	containerEl?: HTMLElement | null;
@@ -305,7 +304,6 @@ export interface SdkOptions extends FunctionalConfigurations {
 	crossDeviceClientIntroProductName?: string;
 	crossDeviceClientIntroProductLogoSrc?: string;
 	_crossDeviceLinkMethods?: Array<string> | null;
-	applicantId?: string;
 	workflowRunId?: string;
 }
 export declare type SdkHandle = {

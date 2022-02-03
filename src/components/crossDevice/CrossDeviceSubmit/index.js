@@ -20,8 +20,10 @@ class CrossDeviceSubmit extends Component {
     // FIX: PoA is currently using the same copy as documents -> "Document"
     // PoA should use its own copy
     // Also, this assumes that document and poa steps are not used as part of the same flow
-    return this.props.steps.some(
-      (step) => step.type === 'document' || step.type === 'poa'
+    return (
+      this.props.steps.some(
+        (step) => step.type === 'document' || step.type === 'poa'
+      ) || this.props.mobileConfig.steps[0].type === 'document'
     )
   }
 

@@ -84,6 +84,8 @@ type State = {
   stepIndexType?: StepIndexType
   steps?: StepConfig[]
   token?: string
+  useWorkflow?: boolean
+  docPayload?: Record<string, unknown>[]
 }
 
 export default class CrossDeviceMobileRouter extends Component<
@@ -109,6 +111,8 @@ export default class CrossDeviceMobileRouter extends Component<
       step: undefined,
       steps: undefined,
       token: undefined,
+      useWorkflow: false,
+      docPayload: [],
     }
 
     if (RESTRICTED_CROSS_DEVICE && isDesktop) {
@@ -200,8 +204,8 @@ export default class CrossDeviceMobileRouter extends Component<
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
       analyticsSessionUuid,
+      useWorkflow,
     } = data
-
     if (disableAnalytics) {
       uninstallWoopra()
     } else if (woopraCookie) {
@@ -229,6 +233,8 @@ export default class CrossDeviceMobileRouter extends Component<
         stepIndexType: 'client',
         crossDeviceError: undefined,
         language,
+        useWorkflow,
+        docPayload: [],
       },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
       // Once a fix is released, it should be done in CX-2571
@@ -325,6 +331,7 @@ export default class CrossDeviceMobileRouter extends Component<
 
   sendClientSuccess = (): void => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
+    const { docPayload } = this.state
     const captureKeys = Object.keys(this.props.captures).filter(
       (key) => key !== 'takesHistory'
     ) as CaptureKeys[]
@@ -333,7 +340,20 @@ export default class CrossDeviceMobileRouter extends Component<
       // @ts-ignore
       return acc.concat(pick(this.props.captures[key], CAPTURE_DATA_WHITELIST))
     }, [])
-    this.sendMessage('client success', { captures })
+    this.sendMessage('client success', { captures, docPayload })
+  }
+
+  sendDocData = (data: unknown, callback?: () => void): void => {
+    this.setState(
+      {
+        ...this.state,
+        // @ts-ignore
+        docPayload: [...this.state.docPayload, data],
+      },
+      () => {
+        callback?.() // this is possible next step call, but we need to make sure doc data is set
+      }
+    )
   }
 
   renderContent = (): h.JSX.Element => {
@@ -374,6 +394,7 @@ export default class CrossDeviceMobileRouter extends Component<
           crossDeviceClientError={this.setError}
           sendClientSuccess={this.sendClientSuccess}
           steps={steps}
+          setDocData={this.sendDocData}
         />
       )
     }

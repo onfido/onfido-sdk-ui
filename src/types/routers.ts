@@ -44,7 +44,8 @@ export type FlowChangeCallback = (
     userStepIndex: number
     clientStepIndex: number
     clientStep: ComponentStep
-  }
+  },
+  workflowSteps?: StepConfig[]
 ) => void
 
 export type ChangeFlowProp = (
@@ -87,6 +88,7 @@ export type HistoryRouterProps = {
   stepIndexType?: StepIndexType
   steps: StepConfig[]
   workflowRunId?: string
+  setDocData?: (data: unknown, callback?: () => void) => void
 } & InternalRouterProps
 
 export type StepsRouterProps = {
