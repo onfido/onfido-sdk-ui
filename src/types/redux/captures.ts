@@ -7,12 +7,8 @@ import type {
   FilePayload,
   SdkMetadata,
 } from '~types/commons'
-import type {
-  DocumentTypes,
-  PoaTypes,
-  RequestedVariant,
-  StepOptionData,
-} from '~types/steps'
+import type { DocumentTypes, PoaTypes, RequestedVariant } from '~types/steps'
+import { StepOptionData } from '~types/steps'
 
 export type CaptureMetadata = {
   id?: string

@@ -19,12 +19,7 @@ import type {
   ErrorCallback,
   WorkflowResponse,
 } from '~types/api'
-import type {
-  DocumentSides,
-  SdkMetadata,
-  FilePayload,
-  UrlsConfig,
-} from '~types/commons'
+import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
 import type { LegacyTrackedEventNames } from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
@@ -390,11 +385,9 @@ export const sendAnalytics = (
 }
 
 export const getWorkflow = (
-  isMfe: boolean,
   token: string | undefined,
   url: string | undefined,
-  workflowRunId: string,
-  applicantId: string
+  workflowRunId: string
 ): Promise<WorkflowResponse> => {
   return new Promise((resolve, reject) => {
     try {
@@ -404,9 +397,6 @@ export const getWorkflow = (
         endpoint: `${url}/workflow_runs/${workflowRunId}`,
       }
 
-      if (!isMfe) {
-        requestParams.headers = { 'x-onfido-applicant-id': applicantId }
-      }
       if (token) {
         requestParams.token = `Bearer ${token}`
       }
@@ -422,12 +412,10 @@ export const getWorkflow = (
 }
 
 export const completeWorkflow = (
-  isMfe: boolean,
   token: string | undefined,
   url: string | undefined,
   workflowRunId: string,
   taskId: string,
-  applicantId: string,
   personalData?: any,
   docData?: any
 ): Promise<WorkflowResponse> => {
@@ -445,9 +433,6 @@ export const completeWorkflow = (
         endpoint: `${url}/workflow_runs/${workflowRunId}/complete`,
       }
 
-      if (!isMfe) {
-        requestParams.headers = { 'x-onfido-applicant-id': applicantId }
-      }
       if (token) {
         requestParams.token = `Bearer ${token}`
       }
@@ -459,25 +444,4 @@ export const completeWorkflow = (
       reject(error)
     }
   })
-}
-
-export const getWorkflowServiceUrl = (
-  urls: UrlsConfig,
-  isMfe: boolean
-): string => {
-  let workflowServiceUrl = `${urls.onfido_api_url}/v4` // this will be used in MFE mode always, and need v4 added
-
-  const standaloneWorkflowServiceUrls = {
-    development: 'https://api.onfido.com/v4', //'http://localhost:5000',
-    staging: 'https://workflow-api.eu-west-1.dev.onfido.xyz',
-    'pre-prod': 'https://workflow-api.eu-west-1.pre-prod.onfido.xyz',
-  }
-
-  // standalone service URLs set only when _not_ in MFE mode
-  const env: null | 'development' | 'staging' | 'pre-prod' = 'development' // null is "production" build
-  if (!isMfe && env && standaloneWorkflowServiceUrls[env]) {
-    workflowServiceUrl = standaloneWorkflowServiceUrls[env]
-  }
-
-  return workflowServiceUrl
 }
