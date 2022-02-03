@@ -57,30 +57,28 @@ export declare type StepOptionComplete = {
 	message?: string;
 	submessage?: string;
 };
-/**
-export type StepOptionData = {
-  data: {
-	first_name?: string
-	last_name?: string
-	email?: string
-	dob?: string
-	address?: {
-	  flat_number?: string
-	  building_number?: string
-	  building_name?: string
-	  street?: string
-	  sub_street?: string
-	  town?: string
-	  postcode?: string
-	  country?: string
-	  state?: string
-	  line1?: string
-	  line2?: string
-	  line3?: string
-	}
-  }
-}
-*/
+export declare type StepOptionPass = {};
+export declare type StepOptionReject = {};
+export declare type StepOptionData = {
+	first_name?: string;
+	last_name?: string;
+	email?: string;
+	dob?: string;
+	addresses?: {
+		flat_number?: string;
+		building_number?: string;
+		building_name?: string;
+		street?: string;
+		sub_street?: string;
+		town?: string;
+		postcode?: string;
+		country?: string;
+		state?: string;
+		line1?: string;
+		line2?: string;
+		line3?: string;
+	};
+};
 export declare type StepOptionsMap = {
 	welcome: StepOptionWelcome;
 	userConsent: never;
@@ -265,6 +263,7 @@ export declare type SdkResponse = {
 	document_back?: DocumentResponse;
 	document_video?: DocumentVideoResponse;
 	face?: FaceResponse;
+	data?: any;
 };
 export declare type SdkError = {
 	type: "exception" | "expired_token";
@@ -288,6 +287,7 @@ export interface SdkOptions extends FunctionalConfigurations {
 	token?: string;
 	useModal?: boolean;
 	isModalOpen?: boolean;
+	isMfe?: boolean;
 	shouldCloseOnOverlayClick?: boolean;
 	containerId?: string;
 	containerEl?: HTMLElement | null;

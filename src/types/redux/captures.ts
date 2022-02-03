@@ -7,7 +7,12 @@ import type {
   FilePayload,
   SdkMetadata,
 } from '~types/commons'
-import type { DocumentTypes, PoaTypes, RequestedVariant } from '~types/steps'
+import type {
+  DocumentTypes,
+  PoaTypes,
+  RequestedVariant,
+  StepOptionData,
+} from '~types/steps'
 
 export type CaptureMetadata = {
   id?: string
@@ -45,6 +50,8 @@ export type FaceCapture = {
   snapshot?: FilePayload
 } & CapturePayload
 
+export type DataCapture = StepOptionData & CapturePayload
+
 export type DeleteCapturePayload = {
   method: CaptureMethods
   side?: DocumentSides
@@ -76,7 +83,7 @@ export type CaptureState = {
   document_back?: DocumentCapture & MetadataState
   document_video?: DocumentCapture & MetadataState
   face?: FaceCapture & MetadataState
-
+  data?: DataCapture & MetadataState
   // Timestamps of all the images taken within the current session
   takesHistory: {
     document_front: string[]
