@@ -108,7 +108,6 @@ const SdkDemo: FunctionComponent<Props> = ({
     onUserExit: (userExitCode) =>
       console.log('onUserExit callback:', userExitCode),
     onModalRequestClose: () => setIsModalOpen(false),
-    applicantId,
     workflowRunId: queryParamToValueString.workflowRunId,
     ...(sdkOptions || {}),
   }
