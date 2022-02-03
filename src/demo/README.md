@@ -16,4 +16,4 @@ in of custom SDK options, if the sidebar isn't precise enough.
 
 You can put in query params to quickly configure the SDK as you like. You can
 see the params that have an impact easily in `getInitSdkOptions`, in the
-`demoUtils.js` file.
+`demoUtils.ts` file.
