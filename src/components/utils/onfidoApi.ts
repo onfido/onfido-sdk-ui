@@ -386,7 +386,7 @@ export const sendAnalytics = (
 
 export const getWorkflow = (
   token: string | undefined,
-  url: string,
+  url: string | undefined,
   workflowRunId: string
 ): Promise<WorkflowResponse> => {
   return new Promise((resolve, reject) => {

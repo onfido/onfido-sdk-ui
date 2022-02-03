@@ -1,4 +1,4 @@
-import type { ComponentType } from 'preact'
+import { h, ComponentType } from 'preact'
 import Welcome from '../Welcome'
 import UserConsent from '../UserConsent'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
@@ -10,6 +10,7 @@ import {
   DocumentBackCapture,
   DocumentVideoCapture,
   SelfieCapture,
+  DataCapture,
   FaceVideoCapture,
 } from '../Capture'
 import {
@@ -31,20 +32,26 @@ import FaceVideoIntro from '../FaceVideo/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
-import { getCountryDataForDocumentType } from '~supported-documents'
+import { getCountryDataForDocumentType } from '../../supported-documents'
 
 import type {
   ExtendedStepTypes,
   ExtendedStepConfig,
   FlowVariants,
 } from '~types/commons'
-import type { StepComponentProps, ComponentStep } from '~types/routers'
+import type {
+  StepComponentProps,
+  ComponentStep,
+  StepComponentDataProps,
+} from '~types/routers'
 import type {
   DocumentTypes,
   StepConfig,
   StepConfigDocument,
   StepConfigFace,
+  StepConfigData,
 } from '~types/steps'
+import { data } from '../../../release/releaseConfig'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -77,7 +84,7 @@ export const buildComponentsList = ({
   mobileFlow?: boolean
   deviceHasCameraSupport?: boolean
 }): ComponentStep[] => {
-  const captureSteps = mobileFlow ? buildCrossDeviceClientSteps(steps) : steps
+  const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
 
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
@@ -91,7 +98,7 @@ export const buildComponentsList = ({
       )
     : buildComponentsFromSteps(
         crossDeviceDesktopComponents,
-        crossDeviceIntroSessionSteps(steps)
+        crossDeviceSteps(steps)
       )
 }
 
@@ -99,7 +106,7 @@ const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
 
-const buildCrossDeviceClientSteps = (steps: StepConfig[]): StepConfig[] =>
+const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
   hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
 const shouldUseCameraForDocumentCapture = (
@@ -124,9 +131,10 @@ const buildCaptureStepComponents = (
   const findStep = buildStepFinder(steps)
   const faceStep = findStep('face')
   const documentStep = findStep('document')
+  const dataStep = findStep('data')
 
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
-  const captureStepTypes = new Set(['document', 'poa', 'face'])
+  const captureStepTypes = new Set(['document', 'poa', 'face', 'data'])
   const firstCaptureStepType = steps.filter((step) =>
     captureStepTypes.has(step?.type)
   )[0]?.type
@@ -157,11 +165,56 @@ const buildCaptureStepComponents = (
         firstCaptureStepType === 'document'
       ),
     ],
+    data: [...buildDataComponents(dataStep)],
     poa: [...buildPoaComponents(mobileFlow, firstCaptureStepType === 'poa')],
     complete,
     pass: [Pass],
     reject: [Reject],
   }
+}
+
+const buildDataComponents = (
+  dataStep?: StepConfigData
+): ComponentType<StepComponentProps>[] => {
+  const Personal = (props: any) => {
+    return (
+      <DataCapture
+        title="personal_details_title"
+        data={{
+          first_name: dataStep?.options?.first_name,
+          last_name: dataStep?.options?.last_name,
+          dob: dataStep?.options?.dob,
+        }}
+        {...props}
+      />
+    )
+  }
+  const Address = (props: any) => {
+    return (
+      <DataCapture
+        title="address_detials_title"
+        dataPath="address"
+        data={{
+          // flat_number: dataStep?.options?.address?.flat_number,
+          // building_number: dataStep?.options?.address?.building_number,
+          // building_name: dataStep?.options?.address?.building_name,
+          // street: dataStep?.options?.address?.street,
+          // sub_street: dataStep?.options?.address?.sub_street,
+          // town: dataStep?.options?.address?.town,
+          postcode: dataStep?.options?.address?.postcode,
+          country: dataStep?.options?.address?.country,
+          state: dataStep?.options?.address?.state,
+          // state: dataStep?.options?.address?.state,
+          // line1: dataStep?.options?.address?.line1,
+          // line2: dataStep?.options?.address?.line2,
+          // line3: dataStep?.options?.address?.line3,
+        }}
+        {...props}
+      />
+    )
+  }
+
+  return [Personal, Address]
 }
 
 const buildFaceComponents = (
@@ -389,9 +442,7 @@ const buildPoaComponents = (
     : [...preCaptureComponents, ...captureComponents]
 }
 
-const crossDeviceIntroSessionSteps = (
-  steps: StepConfig[]
-): ExtendedStepConfig[] => {
+const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
   const baseSteps: ExtendedStepConfig[] = [{ type: 'crossDevice' }]
   const completeStep = steps.find(isComplete) as ExtendedStepConfig
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps

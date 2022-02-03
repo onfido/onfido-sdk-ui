@@ -87,14 +87,36 @@ export default class WorkflowHistoryRouter extends Component<
       }
     )
   }
-  /** 
+
   clearDocData = (): void => {
     this.setState({
       ...this.state,
       docData: [],
     })
   }
-*/
+
+  setPersonalData = (data: any, callback?: () => void): void => {
+    this.setState(
+      {
+        ...this.state,
+        personalData: {
+          ...this.state.personalData,
+          ...data,
+        },
+      },
+      () => {
+        callback?.() // this is possible next step call, but we need to make sure personal data is set
+      }
+    )
+  }
+
+  clearPersonalData = (): void => {
+    this.setState({
+      ...this.state,
+      personalData: {},
+    })
+  }
+
   onHistoryChange: LocationListener<HistoryLocationState> = ({
     state: historyState,
   }) => {
@@ -252,8 +274,8 @@ export default class WorkflowHistoryRouter extends Component<
           this.state.personalData,
           this.state.docData
         )
-        //this.clearPersonalData()
-        //this.clearDocData()
+        this.clearPersonalData()
+        this.clearDocData()
       } catch {
         this.setState((state) => ({
           ...state,
@@ -352,7 +374,7 @@ export default class WorkflowHistoryRouter extends Component<
       'document_front',
       'document_back',
       'face',
-      //'data',
+      'data',
     ]
     const data: SdkResponse = Object.entries(captures)
       .filter(([key, value]) => key !== 'takesHistory' && value != null)
@@ -497,7 +519,7 @@ export default class WorkflowHistoryRouter extends Component<
         step={this.state.step}
         triggerOnError={this.triggerOnError}
         isLoadingStep={this.state.loadingStep}
-        // setPersonalData={this.setPersonalData}
+        setPersonalData={this.setPersonalData}
         setDocData={this.setDocData}
       />
     )

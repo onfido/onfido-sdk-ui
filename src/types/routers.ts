@@ -16,7 +16,7 @@ import type {
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
-  //StepOptionData,
+  StepOptionData,
   StepOptionComplete,
   StepOptionAuth,
   StepConfig,
@@ -102,6 +102,7 @@ export type StepsRouterProps = {
   triggerOnError: ErrorCallback
   isLoadingStep?: boolean
   setDocData?: (data: unknown, callback?: () => void) => void
+  setPersonalData?: (data: unknown, callback?: () => void) => void
 } & HistoryRouterProps
 
 export type StepComponentBaseProps = {
@@ -122,7 +123,7 @@ export type StepComponentDocumentProps = StepOptionDocument &
   StepComponentBaseProps
 export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
-//export type StepComponentDataProps = StepOptionData & StepComponentBaseProps
+export type StepComponentDataProps = StepOptionData & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
 export type StepComponentAuthProps = StepOptionAuth & StepComponentBaseProps
@@ -132,7 +133,7 @@ export type StepComponentProps =
   | StepComponentDocumentProps
   | StepComponentPoaProps
   | StepComponentFaceProps
-  //| StepComponentDataProps
+  | StepComponentDataProps
   | StepComponentCompleteProps
   | StepComponentAuthProps
 
