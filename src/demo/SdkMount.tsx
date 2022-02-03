@@ -59,7 +59,7 @@ const SdkMount: FunctionComponent<Props> = ({
     if (mountEl.current) {
       let sdk
       if (workflow) {
-        sdk = Onfido.workflowInit({
+        sdk = Onfido.init({
           ...options,
           containerEl: mountEl.current,
         })

@@ -25,16 +25,22 @@ const CAPTURE_STEP_TYPES: Set<StepTypes> = new Set([
 type WelcomeActionsProps = {
   customNextButtonLabel?: string
   nextStep: () => void
+  useWorkflow?: boolean
 }
 
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   customNextButtonLabel,
   nextStep,
+  useWorkflow,
 }) => {
   const { translate } = useLocales()
   const buttonLabel = customNextButtonLabel
     ? customNextButtonLabel
-    : translate('welcome.next_button')
+    : translate(
+        `${
+          useWorkflow ? 'welcome.start_workflow_button' : 'welcome.next_button'
+        }`
+      )
 
   return (
     <div className={theme.contentMargin}>
@@ -70,7 +76,9 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   const documentStep = findStep('document')
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
-  const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep }} />
+  const actions = (
+    <WelcomeActions {...{ customNextButtonLabel, nextStep, useWorkflow }} />
+  )
   const welcomeTitle = customTitle || translate('welcome.title')
   const welcomeSubTitle = !customDescriptions
     ? translate('welcome.subtitle')

@@ -131,6 +131,7 @@ export const init = (opts: SdkOptions): SdkHandle => {
   cssVarsPonyfill()
 
   let containerEl: HTMLElement
+  const workflowOps = { useWorkflow: false }
 
   if (options.containerEl) {
     containerEl = options.containerEl
@@ -140,10 +141,18 @@ export const init = (opts: SdkOptions): SdkHandle => {
     onfidoRender(options, containerEl)
   }
 
+  if (options.workflowRunId) {
+    workflowOps.useWorkflow = true
+  }
+
   return {
     options,
     setOptions(changedOptions) {
-      this.options = formatOptions({ ...this.options, ...changedOptions })
+      this.options = formatOptions({
+        ...this.options,
+        ...changedOptions,
+        ...workflowOps,
+      })
       if (
         this.options.containerEl !== changedOptions.containerEl &&
         changedOptions.containerEl
@@ -162,9 +171,4 @@ export const init = (opts: SdkOptions): SdkHandle => {
       render(null, containerEl)
     },
   }
-}
-
-export const workflowInit = (opts: SdkOptions): SdkHandle => {
-  const workflowOps = { useWorkflow: true }
-  return init({ ...workflowOps, ...opts })
 }
