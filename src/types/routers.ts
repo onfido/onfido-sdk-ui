@@ -16,7 +16,7 @@ import type {
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
-  //StepOptionData,
+  StepOptionData,
   StepOptionComplete,
   StepOptionAuth,
   StepConfig,
@@ -122,7 +122,7 @@ export type StepComponentDocumentProps = StepOptionDocument &
   StepComponentBaseProps
 export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
-//export type StepComponentDataProps = StepOptionData & StepComponentBaseProps
+export type StepComponentDataProps = StepOptionData & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
 export type StepComponentAuthProps = StepOptionAuth & StepComponentBaseProps
@@ -132,7 +132,7 @@ export type StepComponentProps =
   | StepComponentDocumentProps
   | StepComponentPoaProps
   | StepComponentFaceProps
-  //| StepComponentDataProps
+  | StepComponentDataProps
   | StepComponentCompleteProps
   | StepComponentAuthProps
 
