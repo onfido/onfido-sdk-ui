@@ -314,6 +314,7 @@ export default class WorkflowHistoryRouter extends Component<
         this.setState(
           (state) => ({
             ...state,
+            flow: 'captureSteps',
             loadingStep: false,
             steps: [formatStep(workflow?.outcome ? 'pass' : 'reject')],
             step: 0, // start again from 1st step,
