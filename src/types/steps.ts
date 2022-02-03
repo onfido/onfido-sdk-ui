@@ -96,7 +96,7 @@ export type StepOptionData = {
   last_name?: string
   email?: string
   dob?: string
-  addresses?: {
+  address?: {
     flat_number?: string
     building_number?: string
     building_name?: string
