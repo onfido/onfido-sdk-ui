@@ -124,17 +124,22 @@ export default class WorkflowHistoryRouter extends Component<
     excludeStepFromHistory = false
   ) => {
     const { onFlowChange } = this.props
+    const { step: currentStep, steps } = this.state
     const { flow: previousFlow, step: previousUserStepIndex } = this.state
     if (previousFlow === newFlow) return
-
     const previousUserStep = this.getComponentsList()[previousUserStepIndex]
-
     onFlowChange &&
-      onFlowChange(newFlow, newStep, previousFlow, {
-        userStepIndex: previousUserStepIndex,
-        clientStepIndex: previousUserStep.stepIndex,
-        clientStep: previousUserStep,
-      })
+      onFlowChange(
+        newFlow,
+        newStep,
+        previousFlow,
+        {
+          userStepIndex: previousUserStepIndex,
+          clientStepIndex: previousUserStep.stepIndex,
+          clientStep: previousUserStep,
+        },
+        steps
+      )
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
@@ -309,6 +314,7 @@ export default class WorkflowHistoryRouter extends Component<
         this.setState(
           (state) => ({
             ...state,
+            flow: 'captureSteps',
             loadingStep: false,
             steps: [formatStep(workflow?.outcome ? 'pass' : 'reject')],
             step: 0, // start again from 1st step,
@@ -332,7 +338,7 @@ export default class WorkflowHistoryRouter extends Component<
       }))
 
       // continue polling until interactive task is found
-      if (workflow.task_type !== 'INTERACTIVE') {
+      if (workflow?.task_type !== 'INTERACTIVE') {
         console.log(`Non interactive workflow task, keep polling`)
         poll(1500)
         return
@@ -347,6 +353,7 @@ export default class WorkflowHistoryRouter extends Component<
       this.setState(
         (state) => ({
           ...state,
+          flow: 'captureSteps', //to make sure to reset incase of cross device
           loadingStep: false,
           steps: [formatStep(step)],
           taskId: workflow?.task_id,
