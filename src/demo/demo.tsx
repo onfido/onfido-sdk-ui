@@ -65,7 +65,7 @@ const renderDemoApp = () => {
   }
 
   window.addEventListener('message', (event) => {
-    if (event.data === 'workflowInit' && !messagePort) {
+    if (event.data === 'init' && !messagePort) {
       messagePort = event.ports[0]
       messagePort.onmessage = onMessage
     }

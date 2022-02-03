@@ -316,6 +316,5 @@ export declare type SdkHandle = {
 };
 export declare type SdkInitMethod = (options: SdkOptions) => SdkHandle;
 export declare const init: SdkInitMethod;
-export declare const workflowInit: SdkInitMethod;
 
 export {};
