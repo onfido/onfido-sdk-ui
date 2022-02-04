@@ -17,7 +17,8 @@
   if (parameters.has(name)) {
     window.onfido = Onfido.init({
       mobileFlow: true,
-      roomId: parameters.get(name).replace(/^\w{2}/, '')
+      roomId: parameters.get(name).replace(/^\w{2}/, ''),
+      containerId: "root"
     });
   }
 
