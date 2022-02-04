@@ -11,8 +11,12 @@ public class Javascript {
         this.driver = driver;
     }
 
-    public Javascript changeDisplayStyle(WebElement element, String display) {
-        executeScriptOnElement(String.format("arguments[0].style.display = '%s'", display), element);
+    public Javascript makeElementVisible(WebElement element, String display) {
+
+        executeScriptOnElement(String.format("arguments[0].style.setProperty('display', '%s', 'important')", display), element);
+        executeScriptOnElement("arguments[0].style.setProperty('width', '1px', 'important')", element);
+        executeScriptOnElement("arguments[0].style.setProperty('height', '1px', 'important')", element);
+
         return this;
     }
 

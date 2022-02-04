@@ -23,7 +23,8 @@ public abstract class DocumentUploadBasePage extends BasePage {
 
         var input = driver.findElement(FILE_INPUT);
 
-        new Javascript(driver).changeDisplayStyle(input, "block");
+        new Javascript(driver).makeElementVisible(input, "block");
+
         input.sendKeys(path);
 
         return createComponent(next);
