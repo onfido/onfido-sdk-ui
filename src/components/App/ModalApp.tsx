@@ -88,7 +88,8 @@ class ModalApp extends Component<Props> {
       roomId && socket.emit('leave', { roomId })
       socket.close()
     }
-    this.events.removeAllListeners(['complete', 'error'])
+    this.events.removeAllListeners('complete')
+    this.events.removeAllListeners('error')
     Tracker.uninstall()
     actions.reset()
   }
