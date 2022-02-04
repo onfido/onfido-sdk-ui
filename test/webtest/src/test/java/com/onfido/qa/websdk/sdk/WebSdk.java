@@ -137,14 +137,8 @@ public class WebSdk {
             withToken(getToken());
         }
 
-        if (enableWebcam) {
-            if (getVideoDeviceCount() == 0) {
-                log.info("Faking enumerateDevices to return a video device");
-                driver.executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: \"video\" }])");
-            }
-
-        } else {
-            driver.executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])");
+        if (!driver.driver.getCapabilities().getBrowserName().equalsIgnoreCase("internet explorer")) {
+            setupWebcam();
         }
 
         beforeInit.forEach(Runnable::run);
@@ -159,6 +153,18 @@ public class WebSdk {
         driver.executeScript("window.onfido = Onfido.init(" + parameters + ")");
 
         return new Onfido(driver);
+    }
+
+    private void setupWebcam() {
+        if (enableWebcam) {
+            if (getVideoDeviceCount() == 0) {
+                log.info("Faking enumerateDevices to return a video device");
+                driver.executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: \"video\" }])");
+            }
+
+        } else {
+            driver.executeScript("window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])");
+        }
     }
 
     private Long getVideoDeviceCount() {
