@@ -55,6 +55,25 @@ public abstract class BasePage extends Page {
         super.verifyPage(driver);
     }
 
+    @Override
+    protected WebElement input(By by, String value) {
+
+        if (driver.driver.getCapabilities().getBrowserName().equalsIgnoreCase("internet explorer")) {
+            var chars = value.split("");
+            var input = driver.waitFor.clickable(by);
+            input.clear();
+            for (String c : chars) {
+                input.sendKeys(c);
+                sleep(50);
+            }
+
+            return input;
+        } else {
+            return super.input(by, value);
+        }
+
+    }
+
     public void waitForLoaderDisappears(Driver driver) {
         driver.waitFor.invisible(SPINNER);
     }
