@@ -265,18 +265,26 @@
         "title": "Grazie"
     },
     "permission": {
+        "body_both": "Impossibile verificare la tua identità senza usare sia la fotocamera che il microfono",
         "body_cam": "Impossibile verificare la tua identità senza la fotocamera",
+        "button_primary_both": "Abilita entrambi",
         "button_primary_cam": "Abilita la fotocamera",
+        "subtitle_both": "Per continuare è necessario abilitare l’accesso a entrambi quando richiesto",
         "subtitle_cam": "Per continuare è necessario abilitare l’accesso alla fotocamera quando richiesto",
+        "title_both": "Consenti l’accesso alla fotocamera e al microfono",
         "title_cam": "Consenti l’accesso alla fotocamera"
     },
     "permission_recovery": {
         "button_primary": "Ricarica",
         "info": "Ripristino",
+        "list_header_both": "Segui questi passaggi per ripristinare l’accesso alla entrambi:",
         "list_header_cam": "Segui questi passaggi per ripristinare l’accesso alla fotocamera:",
         "list_item_action_cam": "Ricarica la pagina per riavviare il processo di verifica dell’identità",
+        "list_item_how_to_both": "Consenti l’accesso alla fotocamera e al microfono dalle impostazioni del browser",
         "list_item_how_to_cam": "Consenti l’accesso alla fotocamera dalle impostazioni del browser",
-        "subtitle_cam": "Ripristina l’accesso alla fotocamera per continuare il processo di verifica",
+        "subtitle_both": "Ripristina l’accesso alla fotocamera e al microfono per registrare un video e completare il processo di verifica",
+        "subtitle_cam": "Ripristina l’accesso alla fotocamera per continuare la verifica",
+        "title_both": "Accesso alla fotocamera e al microfono negato",
         "title_cam": "Accesso alla fotocamera negato"
     },
     "photo_upload": {
