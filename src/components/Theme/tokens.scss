@@ -6,6 +6,8 @@
  *
  *  2) Castor theme tokens = CSS variables with --ods- prefix.
  *
+ *  3) Internal theme tokens = CSS variables with --onf- prefix.
+ *
  *  Wherever it makes sense for color token mappings, the relevant Day theme design tokens from Castor should be used.
  *  See the Castor Day theme file for available tokens:
  *  https://github.com/onfido/castor/blob/main/packages/core/src/theme/themes/day.scss
@@ -22,33 +24,33 @@
 /* stylelint-disable function-parentheses-space-inside */
 
 @mixin tokens() {
-  --unit: (1/16) * 1em;
+  --onf-unit: (1/16) * 1em;
 
   /* Font settings */
-  --osdk-font-family: 'Open Sans', sans-serif;
+  --onf-font-family: 'Open Sans', sans-serif;
 
-  --osdk-font-size-base: calc(16 * var(--unit));
-  --osdk-font-size-large: calc(20 * var(--unit));
-  --osdk-font-size-x-large: calc(30 * var(--unit));
-  --osdk-font-size-small: calc(14 * var(--unit));
-  --osdk-font-size-x-small: calc(11 * var(--unit));
+  --onf-font-size-base: calc(16 * var(--onf-unit));
+  --onf-font-size-large: calc(20 * var(--onf-unit));
+  --onf-font-size-x-large: calc(30 * var(--onf-unit));
+  --onf-font-size-small: calc(14 * var(--onf-unit));
+  --onf-font-size-x-small: calc(11 * var(--onf-unit));
 
   /* Tokens that don't support customisation */
-  --color-background-button-custom: #d5dae0;
+  --onf---onf-color-background-button-custom: #d5dae0;
 
   /* Tokens that support customisation */
-  --osdk-font-family-title: var(--osdk-font-family);
-  --osdk-font-size-title: var(--osdk-font-size-x-large);
+  --osdk-font-family-title: var(--onf-font-family);
+  --osdk-font-size-title: var(--onf-font-size-x-large);
   --osdk-font-weight-title: 600;
   --osdk-color-content-title: rgba(var(--ods-color-content-main));
 
-  --osdk-font-family-subtitle: var(--osdk-font-family);
-  --osdk-font-size-subtitle: var(--osdk-font-size-base);
+  --osdk-font-family-subtitle: var(--onf-font-family);
+  --osdk-font-size-subtitle: var(--onf-font-size-base);
   --osdk-font-weight-subtitle: 600;
   --osdk-color-content-subtitle: rgba(var(--ods-color-content-main));
 
-  --osdk-font-family-body: var(--font-family);
-  --osdk-font-size-body: var(--osdk-font-size-base);
+  --osdk-font-family-body: var(--onf-font-family);
+  --osdk-font-size-body: var(--onf-font-size-base);
   --osdk-font-weight-body: 500;
   --osdk-color-content-body: rgba(var(--ods-color-content-main));
 

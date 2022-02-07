@@ -10,11 +10,11 @@
 .instructions > span {
   color: $color-white;
   font-family: var(--osdk-font-family-body);
-  font-size: var(--osdk-font-size-base);
+  font-size: var(--onf-font-size-base);
   margin-bottom: 8 * $unit;
 
   @media (--short-viewport) {
-    font-size: var(--osdk-font-size-x-small);
+    font-size: var(--onf-font-size-x-small);
     margin-bottom: 0;
   }
 }
@@ -24,7 +24,7 @@
   font-weight: 600;
 
   @media (--short-viewport) {
-    font-size: var(--osdk-font-size-large);
+    font-size: var(--onf-font-size-large);
   }
 }
 
@@ -66,7 +66,7 @@
 
   > .background {
     width: 100%;
-    background-color: var(--color-background-button-custom);
+    background-color: var(----onf-color-background-button-custom);
     opacity: 0.15;
     animation: captureProgress forwards linear reverse;
   }
