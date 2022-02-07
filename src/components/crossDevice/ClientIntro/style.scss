@@ -67,7 +67,7 @@
   font-size: var(--osdk-font-size-body);
 
   @media (--shorter-viewport) {
-    font-size: var(--font-size-small);
+    font-size: var(--osdk-font-size-small);
     padding: 24 * $unit 12 * $unit 12 * $unit;
   }
 }

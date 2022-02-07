@@ -311,7 +311,7 @@ $logo-height: 32 * $unit;
 .link,
 .textButton {
   cursor: pointer;
-  font-size: var(--font-size-small);
+  font-size: var(--osdk-font-size-small);
   line-height: 1.43;
   margin: auto;
   padding: 2px;
@@ -363,7 +363,7 @@ $logo-height: 32 * $unit;
 }
 
 .button-lg {
-  font-size: var(--font-size-small);
+  font-size: var(--osdk-font-size-small);
   width: $lg-btn-width-lg-screen;
   @media (--small-viewport) {
     width: $lg-btn-width-sm-screen;
@@ -371,7 +371,7 @@ $logo-height: 32 * $unit;
 }
 
 .button-sm {
-  font-size: var(--font-size-small);
+  font-size: var(--osdk-font-size-small);
   width: $sm-btn-width-lg-screen;
   @media (--small-viewport) {
     width: $sm-btn-width-sm-screen;

@@ -107,7 +107,7 @@
 .label {
   visibility: hidden;
   margin: 0 7 * $unit;
-  font-size: var(--font-size-small);
+  font-size: var(--osdk-font-size-small);
 
   @media (--small-viewport) {
     display: none;

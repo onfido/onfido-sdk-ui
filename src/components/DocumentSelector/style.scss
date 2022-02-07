@@ -76,20 +76,20 @@ $selector-button-box-shadow: 0 0 0 2px;
 .hint {
   color: var(--osdk-color-content-body);
   font-weight: 500;
-  font-size: var(--font-size-small);
+  font-size: var(--osdk-font-size-small);
   margin-bottom: 4 * $unit-small;
 }
 
 .warning {
   font-weight: 600;
-  font-size: var(--font-size-small);
+  font-size: var(--osdk-font-size-small);
   margin-bottom: 6 * $unit-small;
 }
 
 /* .tag class used for PoA document type buttons, i.e. "e-statements accepted" text */
 .tag {
   display: inline-block;
-  font-size: var(--font-size-small);
+  font-size: var(--osdk-font-size-small);
   padding: 0 12 * $unit-small;
   margin-left: -12 * $unit-small;
   margin-top: 2 * $unit-small;

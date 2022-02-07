@@ -24,11 +24,11 @@
 
 .instructionsCopy {
   margin: 14 * $unit-small 24 * $unit-small;
-  font-size: var(--font-size-small);
+  font-size: var(--osdk-font-size-small);
   line-height: 1.43;
 
   @media (--small-viewport) {
-    font-size: var(--font-size-base);
+    font-size: var(--osdk-font-size-base);
     margin: 14 * $unit 24 * $unit;
   }
 }
