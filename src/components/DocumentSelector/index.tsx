@@ -63,6 +63,8 @@ export abstract class DocumentSelectorBase extends Component<Props> {
 
   abstract subTitleTranslationKey(): string
 
+  abstract pageId(): string
+
   protected shouldAutoFocus(): boolean {
     return false
   }
@@ -87,7 +89,7 @@ export abstract class DocumentSelectorBase extends Component<Props> {
           const options = this.getOptions(translate)
 
           return (
-            <div>
+            <div data-page-id={this.pageId()}>
               <PageTitle
                 title={title}
                 subTitle={subTitle}
@@ -116,7 +118,7 @@ export abstract class DocumentSelectorBase extends Component<Props> {
         })}
         data-onfido-qa={option.type}
       >
-        <div className={`${style.icon} ${style[option.icon]}`}/>
+        <div className={`${style.icon} ${style[option.icon]}`} />
         <div className={style.content}>
           <div className={style.optionMain}>
             <p className={style.label}>{option.label}</p>
