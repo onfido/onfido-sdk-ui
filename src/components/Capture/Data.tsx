@@ -66,7 +66,7 @@ const Data = ({
 
   const handleSubmit = () => {
     if (validate()) {
-      if (dataPath) setPersonalData({ [dataPath]: [submitData] }, nextStep)
+      if (dataPath) setPersonalData({ [dataPath]: submitData }, nextStep)
       else setPersonalData(submitData, nextStep)
     }
   }
