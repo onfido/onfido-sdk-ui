@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - UI: Fixed Stick Hover State for buttons on iOS Safari
+- Fixed CSS variable naming for internal tokens
 
 ## [6.17.0] - 2022-01-24
 
