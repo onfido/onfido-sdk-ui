@@ -255,6 +255,7 @@ class Document extends Component<Props> {
         onUpload={this.handleUpload}
         title={title}
         instructions={instructions}
+        pageId={'DocumentUploader'}
       />
     )
   }

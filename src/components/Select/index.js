@@ -25,7 +25,7 @@ const makeDocumentSelectorOfGroup = (group) => {
       : IdentityDocumentSelector
 
     return (
-      <div>
+      <div data-page-id={isPoA ? 'PoaDocumentSelector' : 'IdDocumentSelector'}>
         <PageTitle
           title={translate(
             isPoA ? 'doc_select.title_poa' : 'doc_select.title',
