@@ -66,9 +66,8 @@ const SdkDemo: FunctionComponent<Props> = ({
     const url = getTokenFactoryUrl(builtRegionCode)
     setTokenUrl(url)
 
-    if (queryParamToValueString.token && queryParamToValueString.applicantId) {
+    if (queryParamToValueString.token) {
       setToken(queryParamToValueString.token)
-      setApplicantId(queryParamToValueString.applicantId)
     } else {
       getToken(
         hasPreview,
