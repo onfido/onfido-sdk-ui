@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added new analytics events for confirmation errors
 - Internal: Added new analytics events for camera, upload, http requests and sms errors
 - Internal: Update FaceTec SDK on Auth step from `9.3.4` to `9.4.5`. Removed 3 hardcoded custom properties defined on Auth component UI.
+- Internal: Added events for video preview and face video recording/next buttons
 
 ### Fixed
 
