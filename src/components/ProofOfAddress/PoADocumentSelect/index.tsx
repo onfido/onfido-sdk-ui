@@ -22,6 +22,10 @@ class PoADocumentSelector extends DocumentSelectorBase {
   getDefaultOptions(): DocumentOptions {
     return poaDocumentOptions
   }
+
+  pageId(): string {
+    return 'PoaDocumentSelector'
+  }
 }
 
 const isUK = (code: string) => upperCase(code) === 'GBR'

@@ -78,6 +78,10 @@ class _IdentityDocumentSelector extends DocumentSelectorBase {
 
     return !!autoFocusOnInitialScreenTitle && steps[0].type === 'document'
   }
+
+  pageId(): string {
+    return 'IdDocumentSelector'
+  }
 }
 
 export const SelectIdentityDocument = trackComponent(
