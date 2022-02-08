@@ -30,7 +30,7 @@ import type {
   StepperState,
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
-import type { DocumentTypes } from '~types/steps'
+import type { DocumentTypes, StepTypes } from '~types/steps'
 import { poller, PollFunc } from '~utils/poller'
 
 type State = {
@@ -130,6 +130,14 @@ export default class WorkflowHistoryRouter extends Component<
   getStepType = (step: number): ExtendedStepTypes | undefined => {
     const componentList = this.getComponentsList()
     return componentList[step] ? componentList[step].step.type : undefined
+  }
+
+  getOutcomeStep = (workflow: WorkflowResponse): StepTypes => {
+    return !workflow.has_remaining_interactive_task
+      ? 'complete'
+      : workflow.outcome
+      ? 'pass'
+      : 'reject'
   }
 
   initialStep = (): boolean =>
@@ -314,13 +322,13 @@ export default class WorkflowHistoryRouter extends Component<
 
       console.log('workflow loaded: ', workflow)
 
-      if (workflow.finished) {
+      if (workflow.finished || !workflow.has_remaining_interactive_task) {
         this.setState(
           (state) => ({
             ...state,
             flow: 'captureSteps',
             loadingStep: false,
-            steps: [formatStep(workflow?.outcome ? 'pass' : 'reject')],
+            steps: [formatStep(this.getOutcomeStep(workflow))],
             step: 0, // start again from 1st step,
             completed: true, // indicate that we have completed the workflow
           }),

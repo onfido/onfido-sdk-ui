@@ -195,4 +195,5 @@ export type WorkflowResponse = {
   finished: boolean
   outcome: boolean | null
   error: string | null
+  has_remaining_interactive_task: boolean
 }
