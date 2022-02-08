@@ -209,6 +209,7 @@ jobs:
         with:
           files: test/webtest/target/surefire-reports/junitreports/*.xml
           check_name: "UI Test results - IE"
+          fail_on: "nothing"
 
       - name: Verify test results
         if: ${{ steps.testserver.outcome == 'success' }}
