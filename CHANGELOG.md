@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - UI: Fixed Stick Hover State for buttons on iOS Safari
+- Public: Fix locale key mismatch for the title of the `CAMERA_NOT_WORKING_NO_FALLBACK` error
 
 ## [6.17.0] - 2022-01-24
 
