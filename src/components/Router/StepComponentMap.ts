@@ -107,13 +107,8 @@ const shouldUseCameraForDocumentCapture = (
   const canUseLiveDocumentCapture =
     (!isDesktop || isHybrid) && documentStep?.options?.useLiveDocumentCapture
 
-  const canUseMultiFrameCapture =
-    (!isDesktop || isHybrid) && documentStep?.options?.useMultiFrameCapture
-
   return (
-    (canUseLiveDocumentCapture ||
-      canUseMultiFrameCapture ||
-      documentStep?.options?.useWebcam === true) &&
+    (canUseLiveDocumentCapture || documentStep?.options?.useWebcam === true) &&
     deviceHasCameraSupport === true
   )
 }

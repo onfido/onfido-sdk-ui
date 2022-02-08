@@ -19,9 +19,7 @@ const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
 
   return (
     step.options?.uploadFallback === false &&
-    (step.type === 'face' ||
-      step.options?.useMultiFrameCapture === true ||
-      step.options?.useLiveDocumentCapture === true)
+    (step.type === 'face' || step.options?.useLiveDocumentCapture === true)
   )
 }
 
