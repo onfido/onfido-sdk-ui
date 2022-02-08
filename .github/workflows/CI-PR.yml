@@ -1,9 +1,7 @@
-# TODO: adjust when the CI job is executed
-
 name: CI
 
 on:
-  push:
+  pull_request:
 
 jobs:
   build:
@@ -29,7 +27,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
 
       - name: Install Dependencies
         run: npm install
@@ -65,8 +62,30 @@ jobs:
         with:
           bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
 
-      - name: Copy artifact
-        run: cp -r dist artifact
+      - name: Publish to Surge
+        uses: dswistowski/surge-sh-action@v1.0.1
+        with:
+          domain: "https://${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh"
+          project: './dist'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
+
+      - name: Build artifact
+        run: NODE_ENV=staging npm run build
+
+      - name: Publish to Surge
+        uses: dswistowski/surge-sh-action@v1.0.1
+        with:
+          domain: "https://staging-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh"
+          project: './dist'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
+
+      - name: Add comment with Surge link to PR
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: "https://${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀\nhttps://staging-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build test server
         run: npm run build:test
@@ -206,9 +225,4 @@ jobs:
           then
             exit 1
           fi
-
-# TODO: build and upload the artifact
-
-#      - name: Run build
-#        run: npm run build
 
