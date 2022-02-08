@@ -1,4 +1,4 @@
-name: Percy Visual Regression Tests - All Languages
+name: Percy Visual Regression Tests - Master
 
 on:
   schedule:
@@ -7,7 +7,6 @@ on:
 env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
   BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
-  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
 jobs:
   build:
@@ -36,11 +35,26 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run build
+      - name: Build test server
         run: npm run build:test
+        id: testserver
 
-      - name: Run Percy tests in multiple languages
-        run: npm run test:percy:all-languages
+      - name: Install Percy
+        run: npm install -g @percy/cli
+
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Setup Chromedriver
+        uses: nanasess/setup-chromedriver@v1
+
+      - name: Run percy tests in Chrome
+        working-directory: ./test/webtest
+        id: chrome
+        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dgroups=percy -DthreadCount=10 -Denvironment=headless"
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_JAVA }}
