@@ -57,6 +57,16 @@ jobs:
 
       # TODO: we're building the whole sdk again with NODE_ENV=test, just because some properties e.g. MOBILE_URL are different.
       # We could skip this if this option can be passed as option while bootstrapping
+      - name: Build artifact
+        run: npm run build
+
+      - name: Run BundleWatch Check
+        uses: jackyef/bundlewatch-gh-action@0.1.0
+        with:
+          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+
+      - name: Copy artifact
+        run: cp -r dist artifact
 
       - name: Build test server
         run: npm run build:test
