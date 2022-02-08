@@ -8,6 +8,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- UI: Fixed Stick Hover State for buttons on iOS Safari
+
+## [6.17.0] - 2022-01-24
+
 ### Changed
 
 - Change the behavior when `useMultipleSelfieCapture` feature is enable to stop capturing periodic snapshots once the final selfie is being captured.
