@@ -250,7 +250,7 @@ class Document extends Component<Props> {
     const instructions = translate(
       DOCUMENT_CAPTURE_LOCALES_MAPPING[
         getDocumentType(isPoA, documentType, poaDocumentType)
-        ][side]?.body || ''
+      ][side]?.body || ''
     )
 
     return (

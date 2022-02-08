@@ -147,6 +147,20 @@ const buildLivePhotosResponse = (
     }
   }
 
+  if (matchUploadedFile(originalName, ['llama.jpg'])) {
+    return {
+      body: responses.api.v3.live_photos.no_face,
+      status: Status.UnprocessableEntity,
+    }
+  }
+
+  if (matchUploadedFile(originalName, ['two_faces.jpg'])) {
+    return {
+      body: responses.api.v3.live_photos.multiple_face,
+      status: Status.UnprocessableEntity,
+    }
+  }
+
   if (originalName === 'blob') {
     const { sdk_metadata } = formData.fields
     const sdkMetadata = JSON.parse(sdk_metadata)
@@ -169,7 +183,7 @@ const tokenFactoryRouter = new Router({ prefix: '/token-factory' })
 tokenFactoryRouter.get('/sdk_token', async (context) => {
   context.response.body = {
     applicant_id: applicantId,
-    message: await generateToken(),
+    message: await generateToken(context),
   }
 })
 

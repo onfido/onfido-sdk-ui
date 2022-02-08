@@ -142,9 +142,9 @@ const TEST_DEPLOYMENT_CONFIG = {
 const TEST_E2E_CONFIG = {
   ...TEST_DEPLOYMENT_CONFIG,
   ONFIDO_API_URL: 'https://localhost:8080/api',
-  JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
-  US_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
-  CA_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
+  JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
+  US_JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
+  CA_JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
   SMS_DELIVERY_URL: 'https://localhost:8080/telephony',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
 }
