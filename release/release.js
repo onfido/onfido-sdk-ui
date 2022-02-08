@@ -185,7 +185,9 @@ const addBase32ToMapping = async () => {
   stepTitle('Add base32 version to mapping')
 
   console.log(
-    `Please update the ${chalk.bold('BASE_32_VERSION_MAPPING.md')} file with the following data:`
+    `Please update the ${chalk.bold(
+      'BASE_32_VERSION_MAPPING.md'
+    )} file with the following data:`
   )
   console.log(`- Newly generated Base32 version: ${config.data.base32Version}`)
   console.log(`- New SDK version: ${VERSION}`)
