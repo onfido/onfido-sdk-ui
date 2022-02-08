@@ -116,6 +116,12 @@ export type LegacyTrackedEventNames =
   | 'Completed upload'
   | 'screen_userConsent'
   | 'screen_welcome'
+  | 'Triggering onSubmitSelfie callback'
+  | 'Triggering onSubmitVideo callback'
+  | 'Triggering onSubmitDocument callback'
+  | 'Error response from onSubmitSelfie'
+  | 'Error response from onSubmitVideo'
+  | 'Error response from onSubmitDocument'
 
 export type UserAnalyticsEventNames =
   | 'WELCOME'
@@ -185,6 +191,7 @@ export type AnalyticsEventProperties = {
   ui_alerts?: {
     [key in UIAlerts]?: 'error' | 'warning' | null
   }
+  callback_name?: string
 }
 
 export type AnalyticsPayload = {
@@ -225,6 +232,9 @@ export type AnalyticsTrackedEventNames =
   | 'CROSS_DEVICE_SMS_FAILED'
   | 'CROSS_DEVICE_SMS_OVERUSE'
   | 'CUSTOM_API_REQUEST_STARTED'
+  | 'CUSTOM_CALLBACK_TRIGGERED'
+  | 'CUSTOM_CALLBACK_ERROR'
+  | 'DOCUMENT_CAMERA_ERROR'
   | 'DOCUMENT_CAMERA_SHUTTER_CLICK'
   | 'DOCUMENT_CAPTURE'
   | 'DOCUMENT_CAPTURE_ERROR'
