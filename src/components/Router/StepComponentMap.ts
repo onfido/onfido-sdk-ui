@@ -43,9 +43,9 @@ import type {
   StepConfigDocument,
   StepConfigFace,
 } from '~types/steps'
-import PoAClientIntro from '../ProofOfAddress/PoAClientIntro'
+import PoAClientIntro from '../ProofOfAddress/PoAIntro'
 import PoADocumentSelector from '../ProofOfAddress/PoADocumentSelect'
-import Guidance from '../ProofOfAddress/PoAGuidance'
+import Guidance from '../ProofOfAddress/Guidance'
 import { SelectIdentityDocument } from '../Select/IdentityDocumentSelector'
 
 let LazyAuth: ComponentType<StepComponentProps>
