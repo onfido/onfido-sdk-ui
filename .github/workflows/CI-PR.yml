@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  push:
+  pull_request:
 
 jobs:
   build:
@@ -76,7 +76,7 @@ jobs:
       - name: Publish to Surge
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
-          domain: "https://staging-${{ github.run_id }}-pr-onfido-sdk-ui-onfido.surge.sh"
+          domain: "https://staging-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh"
           project: './dist'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
@@ -84,7 +84,7 @@ jobs:
       - name: Add comment with Surge link to PR
         uses: mshick/add-pr-comment@v1
         with:
-          message: "https://${{ github.run_id }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀\nhttps://staging-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀"
+          message: "https://${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀\nhttps://staging-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build test server
