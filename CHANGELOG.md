@@ -10,7 +10,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [7.0.0-alpha.1] - 2022-02-08
 
+- Minor fixes
+
 ## [7.0.0-alpha.0] - 2022-02-01
+
+- Original solution added
 
 ## [6.17.0] - 2022-01-24
 
