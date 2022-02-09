@@ -246,8 +246,11 @@ class CrossDeviceLinkUI extends Component {
     const mobileUrl = cross_device_url || hosted_sdk_url
     // This lets us test the cross device flow locally and on Surge.
     // We use the same location to test the same bundle as the desktop flow.
+
+    // TODO: review this change
+
     return process.env.MOBILE_URL === '/'
-      ? `${window.location.origin}?link_id=${this.linkId}`
+      ? `${window.location.origin}${window.location.pathname}?link_id=${this.linkId}`
       : `${mobileUrl}/${this.linkId}`
   }
 
@@ -377,7 +380,7 @@ class CrossDeviceLinkUI extends Component {
     const visibleViewOptions = this.getVisibleViewOptions(requiredViewRenders)
 
     return (
-      <div className={style.container}>
+      <div className={style.container} data-page-id={'CrossDeviceLink'}>
         {error.type ? (
           <SmsError error={error} trackScreen={trackScreen} />
         ) : (

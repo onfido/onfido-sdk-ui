@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact'
+import { FunctionComponent, h } from 'preact'
 import classNames from 'classnames'
 import PageTitle from 'components/PageTitle'
 import { Button } from '@onfido/castor-react'
@@ -16,7 +16,7 @@ type PermissionsProps = {
 type Props = PermissionsProps & WithLocalisedProps & WithTrackingProps
 
 const Permissions: FunctionComponent<Props> = ({ onNext, translate }) => (
-  <div className={theme.fullHeightContainer}>
+  <div className={theme.fullHeightContainer} data-page-id={'Permission'}>
     <PageTitle
       title={translate('permission.title_cam')}
       subTitle={translate('permission.subtitle_cam')}
