@@ -1456,6 +1456,12 @@
     "path": "node_modules/@types/prop-types",
     "licenseFile": "node_modules/@types/prop-types/LICENSE"
   },
+  "@types/react-dom@17.0.11": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/react-dom",
+    "licenseFile": "node_modules/@types/react-dom/LICENSE"
+  },
   "@types/react-modal@3.12.0": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
@@ -6025,8 +6031,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/history",
-    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
+    "path": "node_modules/react-router/node_modules/history",
+    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -9044,7 +9050,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/carlagoncalves/Work/onfido-sdk-ui",
+    "path": "/Users/nicolas/Dev/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.2": {
@@ -10099,7 +10105,7 @@
     "path": "node_modules/qr.js",
     "licenseFile": "node_modules/qr.js/LICENSE"
   },
-  "qrcode.react@1.0.0": {
+  "qrcode.react@1.0.1": {
     "licenses": "ISC",
     "repository": "https://github.com/zpao/qrcode.react",
     "publisher": "Paul O’Shannessy",
@@ -10743,8 +10749,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
   },
   "resolve-url@0.2.1": {
     "licenses": "MIT",
@@ -12768,8 +12774,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",
