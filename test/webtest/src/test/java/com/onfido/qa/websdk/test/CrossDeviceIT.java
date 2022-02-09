@@ -1,7 +1,9 @@
 package com.onfido.qa.websdk.test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.page.BasePage;
+import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
 import com.onfido.qa.websdk.page.CrossDeviceClientSuccess;
 import com.onfido.qa.websdk.page.CrossDeviceIntro;
@@ -12,6 +14,7 @@ import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.ImageQualityGuide;
 import com.onfido.qa.websdk.page.MobileNotificationSent;
+import com.onfido.qa.websdk.page.PoAIntro;
 import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.EnterpriseFeatures;
@@ -23,6 +26,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
+import static com.onfido.qa.websdk.PoADocumentType.BANK_BUILDING_SOCIETY_STATEMENT;
+import static com.onfido.qa.websdk.UploadDocument.PASSPORT_JPG;
 import static com.onfido.qa.websdk.model.CrossDeviceLinkMethod.COPY_LINK;
 import static com.onfido.qa.websdk.model.CrossDeviceLinkMethod.QR_CODE;
 import static com.onfido.qa.websdk.model.CrossDeviceLinkMethod.SMS;
@@ -345,6 +350,32 @@ public class CrossDeviceIT extends WebSdkIT {
         });
     }
 
+    @Test(description = "Poa together Document")
+    public void testPoaTogetherDocument() throws JsonProcessingException {
+
+        onfido().withSteps("poa", "document", "complete")
+                .withOnComplete(new Raw("(result) => {window.result = result;}"))
+                .init(PoAIntro.class)
+                .startVerification()
+                .select(BANK_BUILDING_SOCIETY_STATEMENT)
+                .clickContinue()
+                .upload(UploadDocument.NATIONAL_IDENTITY_CARD_JPG)
+                .clickConfirmButton(IdDocumentSelector.class)
+                .select(PASSPORT, DocumentUpload.class)
+                .clickUploadButton(ImageQualityGuide.class)
+                .upload(PASSPORT_JPG)
+                .clickConfirmButton(Complete.class);
+
+        var result = (String) driver().executeScript("return JSON.stringify(window.result)");
+
+        var json = objectMapper.readTree(result);
+
+        assertThat(json.has("document_front")).withFailMessage("expect a document front").isTrue();
+        assertThat(json.has("poa_front")).withFailMessage("expect a poa front").isTrue();
+
+
+    }
+
     private void testCrossDeviceFlow(Welcome welcome, Verifier verifier) {
 
         verifier.verifyPage(welcome);
@@ -362,7 +393,7 @@ public class CrossDeviceIT extends WebSdkIT {
         var upload = verifier.verifyPage(crossDeviceClientIntro.clickContinue(DocumentUpload.class));
 
         var imageQualityGuide = verifier.verifyPage(upload.clickUploadButton(ImageQualityGuide.class));
-        imageQualityGuide.upload(UploadDocument.PASSPORT_JPG).clickConfirmButton(CrossDeviceClientSuccess.class);
+        imageQualityGuide.upload(PASSPORT_JPG).clickConfirmButton(CrossDeviceClientSuccess.class);
 
         switchToMainScreen();
         verifier.verifyPage(verifyPage(CrossDeviceSubmit.class));
