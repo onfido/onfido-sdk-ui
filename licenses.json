@@ -5928,8 +5928,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@jest/types/node_modules/has-flag",
-    "licenseFile": "node_modules/@jest/types/node_modules/has-flag/license"
+    "path": "node_modules/istanbul-lib-report/node_modules/has-flag",
+    "licenseFile": "node_modules/istanbul-lib-report/node_modules/has-flag/license"
   },
   "has-symbols@1.0.1": {
     "licenses": "MIT",
@@ -7086,8 +7086,8 @@
     "publisher": "Julian Gruber",
     "email": "mail@juliangruber.com",
     "url": "http://juliangruber.com",
-    "path": "node_modules/unset-value/node_modules/isarray",
-    "licenseFile": "node_modules/unset-value/node_modules/isarray/README.md"
+    "path": "node_modules/readable-stream/node_modules/isarray",
+    "licenseFile": "node_modules/readable-stream/node_modules/isarray/README.md"
   },
   "isexe@2.0.0": {
     "licenses": "ISC",
@@ -9047,7 +9047,7 @@
     "path": "node_modules/jest-changed-files/node_modules/onetime",
     "licenseFile": "node_modules/jest-changed-files/node_modules/onetime/license"
   },
-  "onfido-sdk-ui@7.0.0-alpha.1": {
+  "onfido-sdk-ui@7.0.0-alpha.2": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
@@ -11924,8 +11924,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@jest/types/node_modules/supports-color",
-    "licenseFile": "node_modules/@jest/types/node_modules/supports-color/license"
+    "path": "node_modules/istanbul-lib-report/node_modules/supports-color",
+    "licenseFile": "node_modules/istanbul-lib-report/node_modules/supports-color/license"
   },
   "supports-color@8.1.1": {
     "licenses": "MIT",
