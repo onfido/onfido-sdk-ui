@@ -1,6 +1,6 @@
 import { DocumentOverlay } from 'components/Overlay'
 import VideoCapture, { VideoOverlayProps } from 'components/VideoCapture'
-import { FunctionComponent, h } from 'preact'
+import { h } from 'preact'
 import { useEffect, useRef, useState } from 'preact/hooks'
 import Webcam from 'react-webcam-onfido'
 import { trackException } from 'Tracker'
@@ -19,6 +19,7 @@ import { DOC_MULTIFRAME_CAPTURE } from '~utils/constants'
 import { getInactiveError } from '~utils/inactiveError'
 import CaptureControls from './CaptureControls'
 import useMultiFrameCaptureStep from './useMultiFrameCaptureStep'
+import CaptureInstructions from './CaptureInstructions'
 
 const appendFileName = (
   payload: CapturePayload,
@@ -36,14 +37,14 @@ export type DocumentMultiFrameProps = {
   side: DocumentSides
 } & WithTrackingProps
 
-const DocumentMultiFrame: FunctionComponent<DocumentMultiFrameProps> = ({
+const DocumentMultiFrame = ({
   cameraClassName,
   documentType,
   trackScreen,
   renderFallback,
   onCapture,
   side,
-}) => {
+}: DocumentMultiFrameProps) => {
   const webcamRef = useRef<Webcam>()
 
   const { nextRecordState, nextStep, recordState } = useMultiFrameCaptureStep()
@@ -117,23 +118,25 @@ const DocumentMultiFrame: FunctionComponent<DocumentMultiFrameProps> = ({
   }
 
   const documentOverlayProps = {
-    documentType,
     side,
-    upperScreen: true,
+    documentType,
     video: true,
     withPlaceholder: recordState === 'placeholder',
   }
 
-  const renderVideoOverlay = (videoOverlayProps: VideoOverlayProps) => (
-    <DocumentOverlay {...documentOverlayProps}>
-      <CaptureControls
-        {...videoOverlayProps}
-        side={side}
-        recordState={recordState}
-        nextStep={nextStep}
+  const renderVideoOverlay = (videoOverlayProps: VideoOverlayProps) => {
+    const instructionsProps = { recordState, side }
+    const controlsProps = { ...videoOverlayProps, recordState, nextStep }
+
+    return (
+      <DocumentOverlay
+        {...documentOverlayProps}
+        header={<CaptureInstructions {...instructionsProps} />}
+        footer={<CaptureControls {...controlsProps} />}
       />
-    </DocumentOverlay>
-  )
+    )
+  }
+
   return (
     <VideoCapture
       cameraClassName={cameraClassName}

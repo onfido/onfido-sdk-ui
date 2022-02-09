@@ -1,21 +1,17 @@
 import CameraButton from 'components/Button/CameraButton'
 import {
   CaptureProgress,
-  Instructions,
   SuccessState,
 } from 'components/DocumentVideo/reusables'
 import { VideoOverlayProps } from 'components/VideoCapture'
 import { FunctionComponent, h } from 'preact'
 import { memo, useEffect } from 'preact/compat'
 import { useLocales } from '~locales'
-import { DocumentSides } from '~types/commons'
 import { DOC_MULTIFRAME_CAPTURE } from '~utils/constants'
 import { MultiFrameCaptureStepActions } from './useMultiFrameCaptureStep'
 import style from './CaptureControls.scss'
-import theme from '../Theme/style.scss'
 
 export type Props = {
-  side: DocumentSides
   recordState: MultiFrameCaptureStepActions
   nextStep: () => void
 } & VideoOverlayProps
@@ -23,7 +19,6 @@ export type Props = {
 const CaptureControls: FunctionComponent<Props> = ({
   onStart,
   onStop,
-  side,
   recordState,
   nextStep,
 }) => {
@@ -36,19 +31,10 @@ const CaptureControls: FunctionComponent<Props> = ({
   }, [recordState, onStop])
 
   switch (recordState) {
-    default:
+    case 'idle':
+    case 'placeholder':
       return (
         <div className={style.controls}>
-          <div className={style.instructions}>
-            {side === 'back' && (
-              <span className={`${theme.icon} ${style.icon}`} />
-            )}
-            <Instructions
-              title={translate(
-                `doc_multi_frame_capture.instructions_title_${side}`
-              )}
-            />
-          </div>
           <CameraButton
             ariaLabel={'video_capture.button_accessibility'}
             onClick={() => {

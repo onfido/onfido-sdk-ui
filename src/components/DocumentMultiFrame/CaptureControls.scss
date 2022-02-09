@@ -7,10 +7,6 @@
   flex-direction: column;
 }
 
-.instructions {
-  flex: 1;
-}
-
 .btn {
   cursor: pointer;
   outline-offset: 6 * $unit;
@@ -36,9 +32,4 @@
   &:disabled {
     display: none;
   }
-}
-
-.icon {
-  height: 64 * $unit;
-  background-image: url('./assets/icon-flip-back.svg');
 }
