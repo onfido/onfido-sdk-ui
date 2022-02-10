@@ -17,6 +17,7 @@ import type {
   CreateV4DocumentResponse,
   SuccessCallback,
   ErrorCallback,
+  SdkConfiguration,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
@@ -382,3 +383,23 @@ export const sendAnalytics = (
 
   request.send(payload)
 }
+
+export const getSdkConfiguration = (
+  url: string,
+  token: string
+): Promise<SdkConfiguration> =>
+  new Promise((resolve, reject) => {
+    try {
+      const requestParams: HttpRequestParams = {
+        endpoint: `${url}/v3/sdk/configurations?sdk_source=${process.env.SDK_SOURCE}&sdk_version=${process.env.SDK_VERSION}`,
+        token: `Bearer ${token}`,
+        method: 'GET',
+      }
+
+      performHttpReq(requestParams, resolve, (request) =>
+        formatError(request, reject)
+      )
+    } catch (error) {
+      reject(error)
+    }
+  })
