@@ -277,7 +277,7 @@ const baseConfig = {
     setImmediate: false,
   },
 
-  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-cheap-source-map',
+  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-cheap-module-source-map',
 }
 
 const configDist = () => ({
