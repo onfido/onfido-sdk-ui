@@ -111,8 +111,6 @@ public class ProofOfAddressIT extends WebSdkIT {
     @Test(description = "should successfully complete cross device e2e flow with PoA document and selfie upload", groups = {"percy", "tabs"})
     public void testShouldSuccessfullyCompleteCrossDeviceE2EFFlowWithPoADDocumentAndSelfieUpload() {
 
-        // TODO: ask, why useUploader=true is used, which only has an effect on the face step
-
         var crossDeviceLink = onfido().withSteps("poa", "complete").init(PoAIntro.class)
                                       .startVerification()
                                       .select(BANK_BUILDING_SOCIETY_STATEMENT)
