@@ -13,9 +13,6 @@ public class FaceStep extends Step {
         private Boolean useUploader;
 
         @JsonProperty
-        private Boolean useWebcam;
-
-        @JsonProperty
         private Boolean forceCrossDevice;
 
         @JsonProperty
@@ -63,11 +60,6 @@ public class FaceStep extends Step {
 
     public FaceStep withUseUploader(boolean useUploader) {
         this.options.useUploader = useUploader;
-        return this;
-    }
-
-    public FaceStep withUseWebcam(boolean useWebcam) {
-        this.options.useWebcam = useWebcam;
         return this;
     }
 
