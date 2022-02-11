@@ -331,6 +331,7 @@ export default class WorkflowHistoryRouter extends Component<
             ...state,
             flow: 'captureSteps',
             loadingStep: false,
+            taskId: workflow?.task_id,
             //@ts-ignore
             steps: [formatStep(this.getOutcomeStep(workflow))],
             step: 0, // start again from 1st step,
