@@ -72,7 +72,6 @@ public class CountrySelector extends BasePage {
 
     @Override
     protected By pageId() {
-        // TODO: add pageId
         return BASE;
     }
 
