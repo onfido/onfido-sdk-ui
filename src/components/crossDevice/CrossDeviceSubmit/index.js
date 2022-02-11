@@ -34,7 +34,10 @@ class CrossDeviceSubmit extends Component {
   }
 
   hasFaceCaptureStep = () => {
-    return this.props.steps.some((step) => step.type === 'face')
+    return (
+      this.props.steps.some((step) => step.type === 'face') ||
+      this.props.mobileConfig.steps[0].type === 'face'
+    )
   }
 
   getFaceCaptureVariant = () => {
