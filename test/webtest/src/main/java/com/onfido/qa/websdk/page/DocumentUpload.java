@@ -20,7 +20,6 @@ public class DocumentUpload extends DocumentUploadBasePage {
 
     @Override
     protected By pageId() {
-        // TODO: add page id
         return ICON;
     }
 
