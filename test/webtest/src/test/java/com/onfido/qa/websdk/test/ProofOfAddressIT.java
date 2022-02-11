@@ -92,14 +92,10 @@ public class ProofOfAddressIT extends WebSdkIT {
 
         upload.upload(NATIONAL_IDENTITY_CARD_PDF).clickConfirmButton(Complete.class);
 
-        // TODO: why do the original tests now continue with the document upload?
     }
 
     @Test(description = "should skip country selection screen with a preselected driver's license document type on PoA flow", groups = {"percy"})
     public void testShouldSkipCountrySelectionScreenWithAPreselectedDriverSLicenseDocumentTypeOnPoAFlow() {
-
-        // TODO: stefania, the original test deeplinked ?poa=true&oneDoc=driving_licence, but poa comes before the document step, so the test description
-        // doesn't match what the test is testing
 
         var upload = onfido().withSteps("poa").init(PoAIntro.class)
                              .startVerification()
