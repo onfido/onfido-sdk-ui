@@ -2,7 +2,7 @@ package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.websdk.PoADocumentType;
-import com.onfido.qa.websdk.model.Option;
+import com.onfido.qa.websdk.model.DocumentOption;
 import org.openqa.selenium.By;
 
 public class PoADocumentSelection extends DocumentSelectorBase {
@@ -11,7 +11,7 @@ public class PoADocumentSelection extends DocumentSelectorBase {
     }
 
 
-    public Option getOption(PoADocumentType documentType) {
+    public DocumentOption getOption(PoADocumentType documentType) {
         return _getOption(documentType);
     }
 

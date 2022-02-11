@@ -4,7 +4,7 @@ import com.onfido.qa.annotation.Browser;
 import com.onfido.qa.annotation.Mobile;
 import com.onfido.qa.websdk.DocumentType;
 import com.onfido.qa.websdk.UploadDocument;
-import com.onfido.qa.websdk.model.Option;
+import com.onfido.qa.websdk.model.DocumentOption;
 import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.page.ConfirmUpload;
 import com.onfido.qa.websdk.page.CountrySelector;
@@ -335,12 +335,12 @@ public class DocumentIT extends WebSdkIT {
         var documentSelector = onfido().withSteps("document").init(IdDocumentSelector.class);
 
 
-        Map<DocumentType, Option> expectedOptions = new EnumMap<>(DocumentType.class);
+        Map<DocumentType, DocumentOption> expectedOptions = new EnumMap<>(DocumentType.class);
 
-        expectedOptions.put(PASSPORT, new Option(copy.get("doc_select.button_passport"), copy.get("doc_select.button_passport_detail"), null, false));
-        expectedOptions.put(DRIVING_LICENCE, new Option(copy.get("doc_select.button_license"), copy.get("doc_select.button_license_detail"), null, false));
-        expectedOptions.put(IDENTITY_CARD, new Option(copy.get("doc_select.button_id"), copy.get("doc_select.button_id_detail"), null, false));
-        expectedOptions.put(RESIDENT_PERMIT, new Option(copy.get("doc_select.button_permit"), copy.get("doc_select.button_permit_detail"), null, false));
+        expectedOptions.put(PASSPORT, new DocumentOption(copy.get("doc_select.button_passport"), copy.get("doc_select.button_passport_detail"), null, false));
+        expectedOptions.put(DRIVING_LICENCE, new DocumentOption(copy.get("doc_select.button_license"), copy.get("doc_select.button_license_detail"), null, false));
+        expectedOptions.put(IDENTITY_CARD, new DocumentOption(copy.get("doc_select.button_id"), copy.get("doc_select.button_id_detail"), null, false));
+        expectedOptions.put(RESIDENT_PERMIT, new DocumentOption(copy.get("doc_select.button_permit"), copy.get("doc_select.button_permit_detail"), null, false));
 
 
         for (DocumentType documentType : DocumentType.values()) {

@@ -1,7 +1,7 @@
 package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.websdk.PoADocumentType;
-import com.onfido.qa.websdk.model.Option;
+import com.onfido.qa.websdk.model.DocumentOption;
 import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
 import com.onfido.qa.websdk.page.CrossDeviceClientSuccess;
@@ -38,14 +38,14 @@ public class ProofOfAddressIT extends WebSdkIT {
         }).toArray(Object[][]::new);
     }
 
-    final static Map<PoADocumentType, Option> expectedOptions = new EnumMap<>(PoADocumentType.class);
+    final static Map<PoADocumentType, DocumentOption> expectedOptions = new EnumMap<>(PoADocumentType.class);
     final static Map<PoADocumentType, String> expectedTitle = new EnumMap<>(PoADocumentType.class);
 
     static {
-        expectedOptions.put(BANK_BUILDING_SOCIETY_STATEMENT, new Option("Bank or building society statement", null, null, true));
-        expectedOptions.put(UTILITY_BILL, new Option("Utility Bill", "Gas, electricity, water, landline, or broadband", "Sorry, no mobile phone bills", true));
-        expectedOptions.put(COUNCIL_TAX, new Option("Council Tax Letter", null, null, false));
-        expectedOptions.put(BENEFIT_LETTERS, new Option("Benefits Letter", "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits", null, false));
+        expectedOptions.put(BANK_BUILDING_SOCIETY_STATEMENT, new DocumentOption("Bank or building society statement", null, null, true));
+        expectedOptions.put(UTILITY_BILL, new DocumentOption("Utility Bill", "Gas, electricity, water, landline, or broadband", "Sorry, no mobile phone bills", true));
+        expectedOptions.put(COUNCIL_TAX, new DocumentOption("Council Tax Letter", null, null, false));
+        expectedOptions.put(BENEFIT_LETTERS, new DocumentOption("Benefits Letter", "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits", null, false));
 
         expectedTitle.put(BANK_BUILDING_SOCIETY_STATEMENT, "doc_submit.title_bank_statement");
         expectedTitle.put(UTILITY_BILL, "doc_submit.title_bill");

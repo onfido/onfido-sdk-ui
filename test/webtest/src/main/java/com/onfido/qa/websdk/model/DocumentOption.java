@@ -2,14 +2,15 @@ package com.onfido.qa.websdk.model;
 
 import java.util.Objects;
 
-public class Option {
+public class DocumentOption {
 
     public final String name;
     public final String hint;
     public final String warning;
     public final boolean eStatementAccepted;
 
-    public Option(String name, String hint, String warning, boolean eStatementAccepted) {
+    @SuppressWarnings("BooleanParameter")
+    public DocumentOption(String name, String hint, String warning, boolean eStatementAccepted) {
         this.name = name;
         this.hint = hint;
         this.warning = warning;
@@ -20,7 +21,7 @@ public class Option {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Option option = (Option) o;
+        DocumentOption option = (DocumentOption) o;
         //noinspection OverlyComplexBooleanExpression
         return eStatementAccepted == option.eStatementAccepted && name.equals(option.name) && Objects.equals(hint, option.hint) && Objects.equals(warning, option.warning);
     }

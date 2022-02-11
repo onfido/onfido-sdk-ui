@@ -3,7 +3,7 @@ package com.onfido.qa.websdk.page;
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.IDocumentType;
-import com.onfido.qa.websdk.model.Option;
+import com.onfido.qa.websdk.model.DocumentOption;
 import com.onfido.qa.websdk.util.ByUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,7 +13,7 @@ public abstract class DocumentSelectorBase extends BasePage {
         super(driver);
     }
 
-    protected Option _getOption(IDocumentType documentType) {
+    protected DocumentOption _getOption(IDocumentType documentType) {
 
         var element = driver.findElement(ByUtil.onfidoQa(documentType.canonicalName()));
 
@@ -22,7 +22,7 @@ public abstract class DocumentSelectorBase extends BasePage {
         var hint = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-DocumentSelector-hint"));
         var warning = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-DocumentSelector-warning"));
 
-        return new Option(name, hint, warning, eStatementAccepted);
+        return new DocumentOption(name, hint, warning, eStatementAccepted);
 
     }
 

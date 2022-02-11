@@ -3,7 +3,7 @@ package com.onfido.qa.websdk.page;
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.DocumentType;
-import com.onfido.qa.websdk.model.Option;
+import com.onfido.qa.websdk.model.DocumentOption;
 import org.openqa.selenium.By;
 
 public class IdDocumentSelector extends DocumentSelectorBase {
@@ -12,7 +12,7 @@ public class IdDocumentSelector extends DocumentSelectorBase {
         super(driver);
     }
 
-    public Option getOption(DocumentType documentType) {
+    public DocumentOption getOption(DocumentType documentType) {
         return _getOption(documentType);
     }
 
