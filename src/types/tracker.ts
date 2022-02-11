@@ -29,6 +29,18 @@ export type LegacyTrackedEventNames =
   | 'screen_document_front_capture'
   | 'screen_document_back_confirmation'
   | 'screen_document_front_confirmation'
+  | 'screen_document_front_confirmation_cutoff_detected'
+  | 'screen_document_back_confirmation_cutoff_detected'
+  | 'screen_document_front_confirmation_blur_detected'
+  | 'screen_document_back_confirmation_blur_detected'
+  | 'screen_document_front_confirmation_glare_detected'
+  | 'screen_document_back_confirmation_glare_detected'
+  | 'screen_document_front_confirmation_request_error'
+  | 'screen_document_back_confirmation_request_error'
+  | 'screen_document_front_confirmation_document_detection'
+  | 'screen_document_back_confirmation_document_detection'
+  | 'screen_document_front_confirmation_invalid_type'
+  | 'screen_document_back_confirmation_invalid_type'
   | 'screen_document_fallback_clicked'
   | 'screen_document_image_quality_guide'
   | 'screen_document_type_select'
@@ -40,6 +52,10 @@ export type LegacyTrackedEventNames =
   | 'screen_face_selfie_capture_file_upload'
   | 'screen_face_selfie_capture'
   | 'screen_face_selfie_confirmation'
+  | 'screen_face_selfie_confirmation_no_face_error'
+  | 'screen_face_selfie_confirmation_multiple_faces_error'
+  | 'screen_face_selfie_confirmation_request_error'
+  | 'screen_face_selfie_confirmation_unsupported_file'
   | 'screen_face_selfie_capture_fallback_triggered'
   | 'Snapshot upload completed'
   | 'Starting snapshot upload'
@@ -53,6 +69,8 @@ export type LegacyTrackedEventNames =
   | 'screen_face_video_challenge_loaded'
   | 'screen_face_video_challenge_requested'
   | 'screen_face_face_video_confirmation'
+  | 'screen_face_face_video_confirmation_request_error'
+  | 'screen_face_face_video_confirmation_video_error'
   | 'screen_face_face_video_capture_fallback_triggered'
   | 'screen_face_video_intro'
   | 'completed flow'
@@ -106,6 +124,25 @@ export type TrackedEnvironmentData = {
   browser_version: string
 }
 
+type UIAlerts =
+  | 'cutoff'
+  | 'blur'
+  | 'glare'
+  | 'request_error'
+  | 'invalid_capture'
+  | 'invalid_type'
+  | 'invalid_size'
+  | 'no_face'
+  | 'multiple_faces'
+  | 'document_capture'
+  | 'document_detection'
+  | 'face_video_timeout'
+  | 'doc_video_timeout'
+  | 'unsupported_file'
+  | 'camera_not_working'
+  | 'camera_inactive'
+  | 'video_error'
+
 export type AnalyticsEventProperties = {
   event_type?: TrackedEventTypes
   step?: string
@@ -116,6 +153,9 @@ export type AnalyticsEventProperties = {
   document_side?: 'front' | 'back'
   video_capture_step?: 'step1' | 'step2'
   link_method_selected?: 'copy' | 'qr_code' | 'sms'
+  ui_alerts?: {
+    [key in UIAlerts]?: 'error' | 'warning' | null
+  }
 }
 
 export type AnalyticsPayload = {
@@ -159,6 +199,7 @@ export type AnalyticsTrackedEventNames =
   | 'DOCUMENT_CAMERA_SHUTTER_CLICK'
   | 'DOCUMENT_CAPTURE'
   | 'DOCUMENT_CONFIRMATION'
+  | 'DOCUMENT_CONFIRMATION_ERROR'
   | 'DOCUMENT_FALLBACK_CLICKED'
   | 'DOCUMENT_IMAGE_QUALITY_GUIDE'
   | 'DOCUMENT_TYPE_SELECTION'
@@ -168,6 +209,7 @@ export type AnalyticsTrackedEventNames =
   | 'FACE_SELFIE_CAMERA_ERROR'
   | 'FACE_SELFIE_CAPTURE'
   | 'FACE_SELFIE_CONFIRMATION'
+  | 'FACE_SELFIE_CONFIRMATION_ERROR'
   | 'FACE_SELFIE_FALLBACK_TRIGGERED'
   | 'FACE_SELFIE_SNAPSHOT_UPLOAD_COMPLETED'
   | 'FACE_SELFIE_SNAPSHOT_UPLOAD_STARTED'
@@ -178,6 +220,8 @@ export type AnalyticsTrackedEventNames =
   | 'FACE_VIDEO_CHALLENGE_LOADED'
   | 'FACE_VIDEO_CHALLENGE_REQUESTED'
   | 'FACE_VIDEO_CONFIRMATION'
+  | 'FACE_VIDEO_CONFIRMATION_ERROR'
+  | 'FACE_VIDEO_CONFIRMATION_VIDEO_ERROR'
   | 'FACE_VIDEO_FALLBACK_TRIGGERED'
   | 'FACE_VIDEO_INTRO'
   | 'FLOW_COMPLETED'

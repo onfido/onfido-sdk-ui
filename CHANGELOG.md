@@ -16,6 +16,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Fixed Stick Hover State for buttons on iOS Safari
 
+### Changes
+
+- Internal: Added new analytics events for confirmation errors
+
 ## [6.17.0] - 2022-01-24
 
 ### Changed
