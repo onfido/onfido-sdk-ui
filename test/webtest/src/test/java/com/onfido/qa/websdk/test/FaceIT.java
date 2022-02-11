@@ -130,8 +130,6 @@ public class FaceIT extends WebSdkIT {
                 .init(SelfieIntro.class)
                 .clickContinue(Permission.class);
 
-        // TODO: this test actually doesn't test what the description says
-
     }
 
     @Test(description = "should be taken to the cross-device flow if browser does not have MediaRecorder API, facial liveness video variant requested and photoCaptureFallback is disabled")
