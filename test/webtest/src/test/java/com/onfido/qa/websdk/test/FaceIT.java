@@ -226,8 +226,6 @@ public class FaceIT extends WebSdkIT {
                 .clickContinue(SelfieCamera.class)
                 .record()
                 .clickConfirmButton(Complete.class);
-
-        // TODO: we should verify, that the media is correctly uploaded
     }
 
     @Test(description = "should return no face found error for selfie")
