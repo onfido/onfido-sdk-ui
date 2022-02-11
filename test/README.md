@@ -1,7 +1,7 @@
 # Webtest
 
 We're migrating the end to end tests to java based on [TestNG](https://testng.org/doc/). A common part of testing is 
-moved to [a library](https://github.com/it-ony/webtest). 
+moved to the [Webtest library](https://github.com/it-ony/webtest). 
                 
 The tests are bootstrapping the web-sdk as part of the test run.
           

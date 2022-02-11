@@ -153,7 +153,7 @@ public class CrossDeviceIT extends WebSdkIT {
 
     }
 
-    @Test(description = "should display error when mobile number is possible but not a valid mobile number")
+    @Test(description = "should display error when mobile number is provided but not a valid mobile number")
     public void testShouldDisplayErrorWhenMobileNumberIsPossibleButNotAValidMobileNumber() {
         var crossDeviceLink = gotoCrossDeviceScreen()
                 .clickSmsOption()
