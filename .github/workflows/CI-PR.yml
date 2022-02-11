@@ -38,7 +38,7 @@ jobs:
           audit_level: moderate
           production_flag: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          issue_assignees: kopijunkie
+          issue_assignees: stefaniacardenas
           issue_labels: vulnerability
           dedupe_issues: true
 
