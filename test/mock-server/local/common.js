@@ -12,12 +12,10 @@
   }
 
   var parameters = new URLSearchParams(location.search);
-  var name = 'link_id';
-
-  if (parameters.has(name)) {
+  if (parameters.has('link_id')) {
     window.onfido = Onfido.init({
       mobileFlow: true,
-      roomId: parameters.get(name).replace(/^\w{2}/, ''),
+      roomId: parameters.get('link_id').replace(/^\w{2}/, ''),
       containerId: "root"
     });
   }
