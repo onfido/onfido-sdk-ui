@@ -28,6 +28,9 @@ local=true
 browserPath=/usr/local/bin/chromedriver
 ```
 
+Please check the correct path after installing chromedriver. You might even leave this setting out, if chromedriver is 
+in your path anyway.
+
 ## Local testing
 
 Local testing will spin up a browser instance locally. Set the property `local=true` To control local chrome browsers, a 
