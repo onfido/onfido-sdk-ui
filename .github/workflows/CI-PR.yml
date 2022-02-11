@@ -123,7 +123,7 @@ jobs:
           path: test/webtest/target/screenShot
           retention-days: 5
 
-      - name: Publish Senelium Test Results - Chrome
+      - name: Publish Selenium Test Results - Chrome
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
