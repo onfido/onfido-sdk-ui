@@ -113,7 +113,7 @@ public class ProofOfAddressIT extends WebSdkIT {
     }
 
     @Test(description = "should successfully complete cross device e2e flow with PoA document and selfie upload", groups = {"percy", "tabs"})
-    public void testShouldSuccessfullyCompleteCrossDeviceE2EFFlowWithPoADDocumentAndSelfieUpload() {
+    public void testShouldSuccessfullyCompleteCrossDeviceE2EFlowWithPoADocumentAndSelfieUpload() {
 
         // TODO: ask, why useUploader=true is used, which only has an effect on the face step
 
