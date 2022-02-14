@@ -1,13 +1,13 @@
 @import '../../Theme/constants';
 
 .instructions {
-  font-size: var(--font-size-small);
+  font-size: var(--onf-font-size-small);
   text-align: left;
   margin: 30 * $unit-small 0 24 * $unit-small;
   position: relative;
   padding: 24 * $unit-small 24 * $unit-small 12 * $unit-small;
   @media (--small-viewport) and (--short-viewport) {
-    font-size: var(--font-size-x-small);
+    font-size: var(--onf-font-size-x-small);
   }
   @media (--small-viewport) {
     margin: 24 * $unit-small 0 12 * $unit-small;
