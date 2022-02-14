@@ -12,6 +12,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Added `SdkConfigurationServiceProvider` and `useSdkConfigurationService` to retrieve and use feature flags.
 - Vastly dereased bundle size by not publishing "webpack visualizer" files to NPM.
+- Internal: Added new analytics events for confirmation errors
+- Internal: Added new analytics events for camera, upload, http requests and sms errors
 
 ### Fixed
 

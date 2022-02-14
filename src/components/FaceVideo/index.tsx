@@ -29,9 +29,10 @@ type FaceVideoProps = {
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
-} & StepComponentFaceProps
+}
 
 type Props = FaceVideoProps &
+  StepComponentFaceProps &
   WithChallengesProps &
   WithLocalisedProps &
   WithTrackingProps
