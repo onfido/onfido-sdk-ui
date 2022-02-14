@@ -196,6 +196,7 @@ const UploadArea = (props) => {
     handleFileSelected,
     isUploading,
     captureType,
+    trackScreen,
   } = props
   const isPoA = uploadType === 'proof_of_address'
 
@@ -209,7 +210,7 @@ const UploadArea = (props) => {
         isUploading={isUploading}
       >
         <CustomFileInput onChange={handleFileSelected}>
-          {error && <UploadError {...{ error, translate }} />}
+          {error && <UploadError {...{ error, trackScreen, translate }} />}
           <button
             type="button"
             className={classNames(theme.link, style.buttonLinkUploadCopy)}
@@ -244,7 +245,7 @@ const UploadArea = (props) => {
           />
         </div>
         {error ? (
-          <UploadError {...{ error, translate }} />
+          <UploadError {...{ error, trackScreen, translate }} />
         ) : (
           <div className={style.instructionsCopy}>{instructions}</div>
         )}
@@ -282,6 +283,7 @@ class Uploader extends Component {
       documentType,
       uploadType,
       pageId,
+      trackScreen,
     } = this.props
     const isPassportUpload =
       uploadType !== 'face' && documentType === 'passport'
@@ -309,6 +311,7 @@ class Uploader extends Component {
               {...this.props}
               captureType={captureType}
               error={this.state.error}
+              trackScreen={trackScreen}
               handleFileSelected={this.handleFileSelected}
               isUploading={this.state.isUploading}
             />
