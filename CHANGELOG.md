@@ -11,10 +11,19 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - Internal: Added `SdkConfigurationServiceProvider` and `useSdkConfigurationService` to retrieve and use feature flags.
+- Vastly dereased bundle size by not publishing "webpack visualizer" files to NPM.
+- Internal: Added new analytics events for confirmation errors
+- Internal: Added new analytics events for camera, upload, http requests and sms errors
 
 ### Fixed
 
 - UI: Fixed Stick Hover State for buttons on iOS Safari
+- Upgrade `eventemitter2` to v2.2.2
+- Fix usage of `removeAllListeners` in `ModalApp`
+
+### Changes
+
+- Internal: Added new analytics events for confirmation errors
 
 ## [6.17.0] - 2022-01-24
 
