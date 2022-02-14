@@ -31,6 +31,12 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Build artifact
+        run: npm run build
+
+      - name: Build artifact
+        run: NODE_ENV=staging npm run build
+
       - name: Build test server
         run: npm run build:test
         id: testserver
