@@ -46,7 +46,7 @@ jobs:
           path: webtest
 
       - name: Build webtest
-        run: cd webtest && mvn clean install && cd ..
+        run: cd webtest && mvn --no-transfer-progress clean install && cd ..
 
       - name: Setup Chromedriver
         uses: nanasess/setup-chromedriver@v1
@@ -58,7 +58,7 @@ jobs:
         working-directory: ./test/webtest
         id: chrome
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dit.test=CrossDeviceIT -DthreadCount=10 -Denvironment=headless"
+        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dit.test=!MultipleBrowsersDocumentUploadIT -DthreadCount=10 -Denvironment=headless"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
