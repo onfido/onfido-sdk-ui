@@ -59,7 +59,7 @@ class CrossDeviceSubmit extends Component {
         : 'cross_device_checklist.list_item_selfie'
 
     return (
-      <div>
+      <div data-page-id={'CrossDeviceSubmit'}>
         <PageTitle
           title={translate('cross_device_checklist.title')}
           subTitle={translate('cross_device_checklist.subtitle')}

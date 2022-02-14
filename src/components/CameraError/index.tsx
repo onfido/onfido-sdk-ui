@@ -64,6 +64,7 @@ export default class CameraError extends Component<Props, State> {
           role="alertdialog"
           className={style.errorMessage}
           error={error}
+          trackScreen={() => {}} // TODO: replace camera_error in PR 1683
           focusOnMount={true}
           isDismissible={isDismissible}
           onDismiss={this.handleDismiss}

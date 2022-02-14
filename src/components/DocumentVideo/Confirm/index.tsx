@@ -24,6 +24,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   nextStep,
   previousStep,
   triggerOnError,
+  trackScreen,
 }) => {
   const [{ token }] = useSdkOptions()
   const [loading, setLoading] = useState(false)
@@ -195,13 +196,14 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
 
   return (
     <ScreenLayout
+      pageId={'DocumentVideoConfirm'}
       actions={buttons}
       className={classNames(style.container, {
         [style.center]: !error && !previewing,
       })}
     >
       {error ? (
-        <Error error={error} role="alert" />
+        <Error error={error} trackScreen={trackScreen} role="alert" />
       ) : (
         <Content capture={documentVideo} previewing={previewing} />
       )}

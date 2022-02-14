@@ -33,6 +33,8 @@ import type { StepConfig, DocumentTypes } from '~types/steps'
 import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
+import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
+import Spinner from '../Spinner'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
@@ -41,7 +43,7 @@ export type ModalAppProps = {
 type Props = ModalAppProps & ReduxProps
 
 class ModalApp extends Component<Props> {
-  private events: EventEmitter2.emitter
+  private readonly events: EventEmitter2.emitter
 
   constructor(props: Props) {
     super(props)
@@ -381,23 +383,31 @@ class ModalApp extends Component<Props> {
       containerId,
       containerEl,
       shouldCloseOnOverlayClick,
+      autoFocusOnInitialScreenTitle,
+      token,
     } = options
 
     return (
-      <SdkOptionsProvider options={{ ...options, events: this.events }}>
-        <LocaleProvider language={options.language}>
-          <Modal
-            useModal={useModal}
-            isOpen={isModalOpen}
-            onRequestClose={onModalRequestClose}
-            containerId={containerId}
-            containerEl={containerEl}
-            shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-          >
-            <Router {...otherProps} />
-          </Modal>
-        </LocaleProvider>
-      </SdkOptionsProvider>
+      <LocaleProvider language={options.language}>
+        <SdkConfigurationServiceProvider
+          url={otherProps.urls.onfido_api_url}
+          token={token}
+          fallback={<Spinner shouldAutoFocus={autoFocusOnInitialScreenTitle} />}
+        >
+          <SdkOptionsProvider options={{ ...options, events: this.events }}>
+            <Modal
+              useModal={useModal}
+              isOpen={isModalOpen}
+              onRequestClose={onModalRequestClose}
+              containerId={containerId}
+              containerEl={containerEl}
+              shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+            >
+              <Router {...otherProps} />
+            </Modal>
+          </SdkOptionsProvider>
+        </SdkConfigurationServiceProvider>
+      </LocaleProvider>
     )
   }
 }

@@ -144,7 +144,7 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
         onAbandonFlow={triggerUserExit}
         containerEl={sdkContainer}
       />
-      <ScreenLayout actions={actions}>
+      <ScreenLayout actions={actions} pageId={'UserConsent'}>
         <div
           className={style.consentFrame}
           data-onfido-qa="userConsentFrameWrapper"
