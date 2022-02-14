@@ -163,7 +163,6 @@ export const analyticsEventsMapping = new Map<
     'screen_document_front_capture_camera_error',
     {
       eventName: 'DOCUMENT_CAMERA_ERROR',
-
       properties: { event_type: 'view', document_side: 'front' },
     },
   ],
@@ -171,7 +170,6 @@ export const analyticsEventsMapping = new Map<
     'Taking live photo of document',
     {
       eventName: 'DOCUMENT_CAMERA_SHUTTER_CLICK',
-
       properties: { event_type: 'action', capture_method_rendered: 'camera' },
     },
   ],
@@ -179,7 +177,6 @@ export const analyticsEventsMapping = new Map<
     'screen_document_back_capture_file_upload',
     {
       eventName: 'DOCUMENT_CAPTURE',
-
       properties: { event_type: 'screen', document_side: 'back' },
     },
   ],
@@ -187,7 +184,6 @@ export const analyticsEventsMapping = new Map<
     'screen_document_back_capture',
     {
       eventName: 'DOCUMENT_CAPTURE',
-
       properties: { event_type: 'screen', document_side: 'front' },
     },
   ],
@@ -195,7 +191,6 @@ export const analyticsEventsMapping = new Map<
     'screen_document_front_capture_file_upload',
     {
       eventName: 'DOCUMENT_CAPTURE',
-
       properties: { event_type: 'screen', capture_method_rendered: 'upload' },
     },
   ],
@@ -203,7 +198,6 @@ export const analyticsEventsMapping = new Map<
     'screen_document_front_capture',
     {
       eventName: 'DOCUMENT_CAPTURE',
-
       properties: { event_type: 'screen', document_side: 'front' },
     },
   ],
@@ -211,7 +205,6 @@ export const analyticsEventsMapping = new Map<
     'screen_document_back_confirmation',
     {
       eventName: 'DOCUMENT_CONFIRMATION',
-
       properties: { event_type: 'screen', document_side: 'back' },
     },
   ],
@@ -219,7 +212,6 @@ export const analyticsEventsMapping = new Map<
     'screen_document_front_confirmation',
     {
       eventName: 'DOCUMENT_CONFIRMATION',
-
       properties: { event_type: 'screen', document_side: 'front' },
     },
   ],
@@ -248,7 +240,6 @@ export const analyticsEventsMapping = new Map<
     'screen_document_document_video_capture_file_upload',
     {
       eventName: 'DOCUMENT_VIDEO_CAPTURE',
-
       properties: { event_type: 'screen', capture_method_rendered: 'upload' },
     },
   ],
@@ -256,7 +247,6 @@ export const analyticsEventsMapping = new Map<
     'screen_document_document_video_capture',
     {
       eventName: 'DOCUMENT_VIDEO_CAPTURE',
-
       properties: { event_type: 'screen', capture_method_rendered: 'camera' },
     },
   ],
@@ -282,7 +272,6 @@ export const analyticsEventsMapping = new Map<
     'screen_face_selfie_capture_file_upload',
     {
       eventName: 'FACE_SELFIE_CAPTURE',
-
       properties: { event_type: 'screen', capture_method_rendered: 'upload' },
     },
   ],
@@ -290,7 +279,6 @@ export const analyticsEventsMapping = new Map<
     'screen_face_selfie_capture',
     {
       eventName: 'FACE_SELFIE_CAPTURE',
-
       properties: { event_type: 'screen', capture_method_rendered: 'camera' },
     },
   ],
@@ -326,7 +314,6 @@ export const analyticsEventsMapping = new Map<
     'Starting live photo upload',
     {
       eventName: 'FACE_SELFIE_UPLOAD_STARTED',
-
       properties: { event_type: 'flow', capture_method_rendered: 'camera' },
     },
   ],
@@ -341,7 +328,6 @@ export const analyticsEventsMapping = new Map<
     'screen_face_face_video_capture_file_upload',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
-
       properties: { event_type: 'screen', capture_method_rendered: 'upload' },
     },
   ],
@@ -349,15 +335,20 @@ export const analyticsEventsMapping = new Map<
     'screen_face_face_video_capture',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
-
       properties: { event_type: 'screen', capture_method_rendered: 'camera' },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_video_error',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_VIDEO_ERROR',
+      properties: { event_type: 'view', ui_alerts: { video_error: 'warning' } },
     },
   ],
   [
     'screen_face_video_capture_step_1',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
-
       properties: { event_type: 'screen', video_capture_step: 'step1' },
     },
   ],
@@ -365,7 +356,6 @@ export const analyticsEventsMapping = new Map<
     'screen_face_video_capture_step_2',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
-
       properties: { event_type: 'screen', video_capture_step: 'step2' },
     },
   ],
@@ -444,7 +434,6 @@ export const analyticsEventsMapping = new Map<
     'screen_poa_poa_file_upload',
     {
       eventName: 'POA_CAPTURE',
-
       properties: { event_type: 'screen', capture_method_rendered: 'upload' },
     },
   ],
@@ -502,5 +491,187 @@ export const analyticsEventsMapping = new Map<
   [
     'screen_welcome',
     { eventName: 'WELCOME', properties: { event_type: 'screen' } },
+  ],
+  [
+    'screen_document_front_confirmation_cutoff_detected',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { cutoff: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_cutoff_detected',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { cutoff: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_blur_detected',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { blur: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_blur_detected',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { blur: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_glare_detected',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { glare: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_glare_detected',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { glare: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_confirmation_no_face_error',
+    {
+      eventName: 'FACE_SELFIE_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { no_face: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_confirmation_multiple_faces_error',
+    {
+      eventName: 'FACE_SELFIE_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { multiple_faces: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_request_error',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { request_error: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_request_error',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { request_error: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_request_error',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { request_error: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_confirmation_request_error',
+    {
+      eventName: 'FACE_SELFIE_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { request_error: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_document_detection',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { document_detection: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_document_detection',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { document_detection: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_invalid_type',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { invalid_type: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_invalid_type',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { invalid_type: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_confirmation_unsupported_file',
+    {
+      eventName: 'FACE_SELFIE_CONFIRMATION_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { unsupported_file: 'error' },
+      },
+    },
   ],
 ])

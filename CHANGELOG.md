@@ -8,10 +8,19 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Changed
+
+- Internal: Added `SdkConfigurationServiceProvider` and `useSdkConfigurationService` to retrieve and use feature flags.
+- Vastly dereased bundle size by not publishing "webpack visualizer" files to NPM.
+
 ### Fixed
 
 - UI: Fixed Stick Hover State for buttons on iOS Safari
 - Fixed CSS variables naming for internal tokens
+
+### Changes
+
+- Internal: Added new analytics events for confirmation errors
 
 ## [6.17.0] - 2022-01-24
 

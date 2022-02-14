@@ -44,6 +44,10 @@ In order to start integrating, you'll need an [API token](https://documentation.
 
 You can use our [sandbox](https://documentation.onfido.com/#sandbox-testing) environment to test your integration. To use the sandbox, you'll need to generate a sandbox API token in your [Onfido Dashboard](https://onfido.com/dashboard/api/tokens).
 
+⚠️ **Note: You must never use API tokens in the frontend of your
+application or malicious users could discover them in your source code. You
+should only use them on your server.**
+
 #### 1.1 Regions
 
 Onfido offers region-specific environments. Refer to the [Regions](https://documentation.onfido.com/#regions) section in the API documentation for token format and API base URL information.
