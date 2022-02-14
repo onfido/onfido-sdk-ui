@@ -18,6 +18,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - UI: Fixed Stick Hover State for buttons on iOS Safari
+- Upgrade `eventemitter2` to v2.2.2
+- Fix usage of `removeAllListeners` in `ModalApp`
 
 ### Changes
 
