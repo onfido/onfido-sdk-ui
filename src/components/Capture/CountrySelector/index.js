@@ -48,11 +48,12 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
       <Autocomplete
         id="country"
         name="country"
-        required={true}
         source={suggestCountries}
         showAllValues
         dropdownArrow={() => <IconChevronDown className={styles.chevronIcon} />}
-        placeholder={translate('profile_data.country_placeholder')}
+        tNoResults={() =>
+          translate('country_select.alert_dropdown.country_not_found')
+        }
         displayMenu="overlay"
         cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
         templates={{
@@ -61,7 +62,7 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
         }}
         onConfirm={handleChange}
         confirmOnBlur={false}
-        defaultValue={currentValue}
+        autoselect={true}
       />
     </div>
   )
