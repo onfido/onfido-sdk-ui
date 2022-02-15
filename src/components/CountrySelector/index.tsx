@@ -84,6 +84,7 @@ class CountrySelection extends Component<Props, State> {
       const country = result.name
       return country.toLowerCase().includes(query.trim().toLowerCase())
     })
+    console.log('1.', populateResults(filteredResults))
     populateResults(filteredResults)
   }
 
@@ -165,7 +166,7 @@ class CountrySelection extends Component<Props, State> {
 
   render() {
     const { translate, nextStep, idDocumentIssuingCountry } = this.props
-
+    console.log('{this.suggestCountries}', this.suggestCountries)
     return (
       <ScreenLayout
         actions={

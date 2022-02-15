@@ -3,8 +3,11 @@
 @import './constants';
 
 :global {
-  @include castor.Button();
+  @include castor.components();
 
+  .ods-field-label {
+    text-align: left;
+  }
   .ods-button {
     border-radius: var(--osdk-border-radius-button);
 
