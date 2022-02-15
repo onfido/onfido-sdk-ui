@@ -30,6 +30,7 @@ const WrappedError = withTheme(GenericError)
 type State = {
   crossDeviceInitialClientStep?: number
   crossDeviceInitialStep?: number
+  workflowSteps?: StepConfig[]
 }
 
 export default class MainRouter extends Component<InternalRouterProps, State> {
@@ -65,7 +66,11 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       throw new Error('steps not provided')
     }
 
-    const { crossDeviceInitialClientStep, crossDeviceInitialStep } = this.state
+    const {
+      crossDeviceInitialClientStep,
+      crossDeviceInitialStep,
+      workflowSteps,
+    } = this.state
 
     return {
       clientStepIndex: crossDeviceInitialClientStep,
@@ -80,7 +85,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       language,
       poaDocumentType,
       step: crossDeviceInitialStep,
-      steps,
+      steps: workflowSteps ? workflowSteps : steps,
       token,
       urls,
       woopraCookie,
@@ -92,13 +97,29 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     newFlow,
     _newStep,
     _previousFlow,
-    { userStepIndex, clientStepIndex }
+    { userStepIndex, clientStepIndex },
+    workflowSteps
   ) => {
+    console.log('hola', workflowSteps)
+    console.log('newFlow', newFlow)
+    console.log('_newStep', _newStep)
+    console.log('_previousFlow', _previousFlow)
+    console.log(
+      'userStepIndex, clientStepIndex',
+      userStepIndex,
+      clientStepIndex
+    )
+
     if (newFlow === 'crossDeviceSteps') {
       this.setState({
         crossDeviceInitialStep: userStepIndex,
         crossDeviceInitialClientStep: clientStepIndex,
       })
+      if (this.useWorkflowRun()) {
+        this.setState({
+          workflowSteps: workflowSteps,
+        })
+      }
     }
   }
 

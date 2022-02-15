@@ -28,7 +28,9 @@ const getStageIcon = (key, isFace) => {
 }
 
 const Intro = ({ translate, nextStep, mobileConfig }) => {
-  const isFace = previousComponentType(mobileConfig) === 'face'
+  console.log('cross device')
+  console.log('cross device')
+  const isFace = false //previousComponentType(mobileConfig) === 'face'
   const stageList = Object.keys(CROSS_DEVICE_INTRO_LOCALES_MAPPING)
 
   return (

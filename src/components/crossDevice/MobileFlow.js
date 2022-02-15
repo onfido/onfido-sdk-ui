@@ -22,7 +22,9 @@ class MobileFlow extends Component {
   }
 
   sendConfig = (data) => {
+    console.log('we are in mobike flowjs')
     const { roomId, mobileConfig, socket, actions } = this.props
+    console.log('we are in mobike flowjs')
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', { roomId })
     }
@@ -37,11 +39,14 @@ class MobileFlow extends Component {
 
   // prettier-ignore
   onClientSuccess = (data) => {
+    
     (data.captures || []).forEach((capture) =>
       this.props.actions.createCapture(capture)
     )
 
     this.props.actions.setClientSuccess(true)
+    this.props.setDocData(data.docPayload[0])
+    console.log("inside success", data.docPayload[0])
   }
 
   onUserAnalyticsEvent = (data) => {

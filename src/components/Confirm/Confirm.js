@@ -118,7 +118,8 @@ class Confirm extends Component {
   onApiSuccess = (apiResponse) => {
     const { method, nextStep, actions, setDocData } = this.props
     const { capture } = this.state
-
+    console.log('we are in confirm js')
+    console.log('we are in confirm js', this.props)
     const duration = Math.round(performance.now() - this.startTime)
     sendEvent('Completed upload', {
       duration,
@@ -128,6 +129,7 @@ class Confirm extends Component {
     actions.setCaptureMetadata({ capture, apiResponse })
 
     if (setDocData) {
+      console.log('confirmjs ', apiResponse)
       setDocData(apiResponse)
     }
 
