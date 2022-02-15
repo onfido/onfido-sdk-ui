@@ -176,10 +176,12 @@ export interface FaceTecSessionResult {
     lowQualityAuditTrail: string[];
     sessionId: string | null;
     status: FaceTecSessionStatus;
+    isCompletelyDone: boolean;
     [key: string]: string | FaceTecSessionStatus | null | {};
 }
 /** Callback functions for the FaceTecFaceScanProcessor */
 export declare class FaceTecFaceScanResultCallback {
+    proceedToNextStep: (scanResultBlob: string, idScanNextStep?: FaceTecIDScanNextStep) => void;
     succeed: (idScanNextStep?: FaceTecIDScanNextStep) => void;
     retry: (retryScreen?: FaceTecRetryScreen) => void;
     cancel: () => void;
@@ -229,19 +231,18 @@ export declare enum FaceTecIDScanStatus {
 /** ID Scan Result object */
 export interface FaceTecIDScanResult {
     status: FaceTecIDScanStatus;
-    idType: FaceTecIDType;
     idScan: string | null;
     frontImages: string[];
     backImages: string[];
     sessionId: string | null;
+    isCompletelyDone: boolean;
 }
 /** Callback functions for FaceTecIDScanProcessor */
 export declare class FaceTecIDScanResultCallback {
-    succeed: () => void;
-    retry: (idScanRetryMode: FaceTecIDScanRetryMode, unsuccessMessage?: string) => void;
     cancel: () => void;
     uploadProgress: (uploadedPercent: number) => void;
     uploadMessageOverride: (uploadMessageOverride: string) => void;
+    proceedToNextStep: (scanResultBlob: string, idScanNextStep?: FaceTecIDScanNextStep) => void;
 }
 /** Abstract class for developer to override for processing FaceTec ID Scans. */
 export declare abstract class FaceTecIDScanProcessor {
@@ -249,52 +250,22 @@ export declare abstract class FaceTecIDScanProcessor {
     abstract processSessionResultWhileFaceTecSDKWaits: (sessionResult: FaceTecSessionResult, faceScanResultCallback: FaceTecFaceScanResultCallback) => void;
     abstract processIDScanResultWhileFaceTecSDKWaits: (idScanResult: FaceTecIDScanResult, idCheckResultCallback: FaceTecIDScanResultCallback) => void;
 }
-/** Represents the options available for retrying part or all of the ID Scan process */
-export declare enum FaceTecIDScanRetryMode {
-    Front = 0,
-    Back = 1,
-    FrontAndBack = 2
-}
-/** Type of ID Scan selected by user */
-export declare enum FaceTecIDType {
-    /**
-     ID card type
-    */
-    IDCard = 0,
-    /**
-     Passport type
-    */
-    Passport = 1,
-    /**
-     ID type was not selected
-    */
-    NotSelected = 2
-}
 /**
  * Describes the next step to go into during the Photo ID Match process.
  * By default, when FaceTecFaceScanProcessor.succeed() is called, the User is taken to the ID Document Type Selection Screen.
- * Passing different values of FaceTecIDScanNextStep as a parameter for FaceTecFaceScanProcessor.succeed() allows you to control whether you want to skip directly to either the ID Card (with Front and Back) capture process, or the Passport capture process, or to skip the ID Scan process altogether.
- * You may want to skip directly to a specific type of ID Scan if you know that your Users are only using one particular type of ID.
+ * Passing different values of FaceTecIDScanNextStep as a parameter for FaceTecFaceScanResultCallback.succeed() allows you to control whether to take the User to the ID Document Type Selection Screen or to  skip the ID Scan process altogether.
  * You may want to skip the ID Scan process altogether if you have custom server-side logic that in some cases deems the Photo ID Match flow as not necessary.
  */
 export declare enum FaceTecIDScanNextStep {
     /**
-     * Start ID Scan process with showing the Selection Screen, allowing the user to select their ID document type.
+     * Start ID Scan process with showing the Selection Screen.
      * This is default behavior.
      */
     SelectionScreen = 0,
     /**
-     * Start ID Scan process with the Capture Screen, pre-configured for an ID card document-type, skipping the Selection Screen.
-     */
-    SelectIDCard = 1,
-    /**
-     * Start ID Scan process with the Capture Screen, pre-configured for a passport document-type, skipping the Selection Screen.
-     */
-    SelectPassport = 2,
-    /**
      * Skip the entire ID Scan process, exiting from the FaceTec Browser SDK interface after a successful Session.
      */
-    Skip = 3
+    Skip = 1
 }
 /**
  * Vocal Guidance Modes
@@ -310,4 +281,12 @@ export declare enum FaceTecVocalGuidanceMode {
  */
 export interface InitializeCallback {
     (result: boolean): void;
+}
+/**
+ * Max Audit Trail Images To Return
+ * By default one audit trail image will be returned
+ */
+export declare enum FaceTecAuditTrailImagesToReturn {
+    ONE = "1",
+    UP_TO_SIX = "6"
 }
