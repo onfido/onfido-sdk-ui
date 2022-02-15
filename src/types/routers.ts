@@ -102,6 +102,7 @@ export type StepsRouterProps = {
   triggerOnError: ErrorCallback
   isLoadingStep?: boolean
   setDocData?: (data: unknown, callback?: () => void) => void
+  setPersonalData?: (data: unknown, callback?: () => void) => void
 } & HistoryRouterProps
 
 export type StepComponentBaseProps = {

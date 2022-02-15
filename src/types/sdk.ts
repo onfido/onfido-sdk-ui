@@ -26,6 +26,7 @@ export type SdkResponse = {
   document_back?: DocumentResponse
   document_video?: DocumentVideoResponse
   face?: FaceResponse
+  data?: any
 }
 
 export type SdkError = {
