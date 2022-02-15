@@ -251,30 +251,27 @@ export default class WorkflowHistoryRouter extends Component<
 
     // if step has started - complete it
     if (taskId) {
-      // we don't need to complete sanbox mocks
-      if (workflowRunId !== 'sandbox') {
-        try {
-          await completeWorkflow(
-            !!options.isMfe,
-            options.token,
-            workflowServiceUrl,
-            workflowRunId,
-            taskId,
-            applicantId,
-            this.state.personalData,
-            this.state.docData
-          )
-          //this.clearPersonalData()
-          //this.clearDocData()
-        } catch {
-          this.setState((state) => ({
-            ...state,
-            serviceError: 'Could not complete workflow task.',
-          }))
-          return
-        }
-        localStorage.setItem(`a_${applicantId}:w_${workflowRunId}`, 'started')
+      try {
+        await completeWorkflow(
+          !!options.isMfe,
+          options.token,
+          workflowServiceUrl,
+          workflowRunId,
+          taskId,
+          applicantId,
+          this.state.personalData,
+          this.state.docData
+        )
+        //this.clearPersonalData()
+        //this.clearDocData()
+      } catch {
+        this.setState((state) => ({
+          ...state,
+          serviceError: 'Could not complete workflow task.',
+        }))
+        return
       }
+      localStorage.setItem(`a_${applicantId}:w_${workflowRunId}`, 'started')
       this.setState((state) => ({ ...state, taskId: null }))
     }
 
@@ -291,7 +288,12 @@ export default class WorkflowHistoryRouter extends Component<
           workflowRunId,
           applicantId
         )
-      } catch {}
+      } catch {
+        this.setState((state) => ({
+          ...state,
+          serviceError: 'Could not retrieve workflow task.',
+        }))
+      }
 
       if (!workflow) {
         this.setState((state) => ({
