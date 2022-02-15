@@ -49,6 +49,7 @@
         "town": "Town",
         "postcode": "Postcode",
         "country": "Country",
+        "country_placeholder": "e.g. United States",
         "state": "State (US only)",
         "line1": "Line 1",
         "line2": "Line 2",
