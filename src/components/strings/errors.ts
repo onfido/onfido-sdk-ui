@@ -7,7 +7,7 @@ type LocaleData = {
 }
 
 const errors: Record<ErrorNames, LocaleData> = {
-  INVALID_CAPTURE: {
+  DOCUMENT_DETECTION: {
     message: 'doc_confirmation.alert.no_doc_title',
     instruction: 'doc_confirmation.alert.no_doc_detail',
   },
