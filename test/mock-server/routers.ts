@@ -197,6 +197,10 @@ apiRouter
   .get('/ping', (context) => {
     context.response.body = { message: 'pong' }
   })
+  .get('/v3/sdk/configurations', async (context) => {
+    context.response.body = responses.api.v3.sdk_configurations
+    context.response.status = Status.OK
+  })
   .post('/v3/analytics', async (context) => {
     context.response.body = { message: 'success' }
     context.response.status = Status.OK

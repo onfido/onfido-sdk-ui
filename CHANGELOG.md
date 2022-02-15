@@ -8,9 +8,17 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Changed
+
+- Internal: Added `SdkConfigurationServiceProvider` and `useSdkConfigurationService` to retrieve and use feature flags.
+
 ### Fixed
 
 - UI: Fixed Stick Hover State for buttons on iOS Safari
+
+### Changes
+
+- Internal: Added new analytics events for confirmation errors
 
 ## [6.17.0] - 2022-01-24
 

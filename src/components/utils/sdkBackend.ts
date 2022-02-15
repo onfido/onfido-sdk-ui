@@ -1,4 +1,4 @@
-import { performHttpReq } from './http'
+import { HttpRequestParams, performHttpReq } from './http'
 import { formatError } from './onfidoApi'
 import { trackException } from '../../Tracker'
 
@@ -44,7 +44,7 @@ export const postToBackend = (
 
   const endpoint = `${url}/validate_document`
 
-  const options = {
+  const options: HttpRequestParams = {
     payload,
     endpoint,
     token,
