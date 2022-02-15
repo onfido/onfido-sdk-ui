@@ -204,7 +204,7 @@ export default class WorkflowHistoryRouter extends Component<
             last_name: '',
             // email: '',
             dob: '',
-            address: {
+            addresses: {
               // flat_number: '',
               // building_number: '',
               // building_name: '',
