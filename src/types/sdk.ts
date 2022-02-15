@@ -51,6 +51,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   onError?: (error: SdkError) => void
   onUserExit?: (data: UserExitCode) => void
   onModalRequestClose?: () => void
+  onCustomTask?: (data: any, callback: (data: any) => void) => void
 
   // SDK Configuration
   token?: string
@@ -72,6 +73,9 @@ export interface SdkOptions extends FunctionalConfigurations {
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   _crossDeviceLinkMethods?: Array<string> | null
+  applicantId?: string
+  workflowRunId?: string
+  workflowMock?: any
 }
 
 export type SdkHandle = {

@@ -36,6 +36,7 @@ const defaults: SdkOptions = {
   onComplete: noop,
   onError: noop,
   onUserExit: noop,
+  onCustomTask: noop
 }
 
 const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {

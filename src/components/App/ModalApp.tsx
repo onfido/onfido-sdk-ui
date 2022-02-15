@@ -127,11 +127,13 @@ class ModalApp extends Component<Props> {
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,
     onError?: (error: SdkError) => void,
-    onUserExit?: (error: UserExitCode) => void
+    onUserExit?: (error: UserExitCode) => void,
+    onCustomTask?: (data: any, callback: (data: any) => void) => void
   ) => {
     onComplete && this.events.on('complete', onComplete)
     onError && this.events.on('error', onError)
     onUserExit && this.events.on('userExit', onUserExit)
+    onCustomTask && this.events.on('customTask', onCustomTask)
   }
 
   rebindEvents = (
@@ -141,11 +143,13 @@ class ModalApp extends Component<Props> {
     oldOptions.onComplete && this.events.off('complete', oldOptions.onComplete)
     oldOptions.onError && this.events.off('error', oldOptions.onError)
     oldOptions.onUserExit && this.events.off('userExit', oldOptions.onUserExit)
+    oldOptions.onCustomTask && this.events.off('customTask', oldOptions.onCustomTask)
 
     this.bindEvents(
       newOptions.onComplete,
       newOptions.onError,
-      newOptions.onUserExit
+      newOptions.onUserExit,
+      newOptions.onCustomTask,
     )
   }
 
