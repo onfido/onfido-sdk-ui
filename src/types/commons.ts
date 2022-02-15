@@ -15,6 +15,7 @@ export type NarrowSdkOptions = Omit<
   | 'onModalRequestClose'
   | 'shouldCloseOnOverlayClick'
   | 'useModal'
+  | 'isMfe'
 > & {
   events?: EventEmitter2.emitter
 }
@@ -120,6 +121,7 @@ export type MobileConfig = {
   clientStepIndex?: number
   deviceHasCameraSupport?: boolean
   disableAnalytics?: boolean
+  useWorkflow?: boolean
   documentType?: DocumentTypes
   enterpriseFeatures?: EnterpriseFeatures
   idDocumentIssuingCountry?: CountryData
@@ -134,4 +136,9 @@ export type MobileConfig = {
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   analyticsSessionUuid?: string
+}
+
+export type FormattedError = {
+  type: 'expired_token' | 'exception'
+  message: string
 }

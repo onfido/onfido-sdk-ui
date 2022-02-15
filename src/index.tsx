@@ -39,7 +39,7 @@ const defaults: SdkOptions = {
   onCustomTask: noop,
 }
 
-const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {
+export const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {
   if (typeof typeOrStep === 'string') {
     return { type: typeOrStep }
   }
@@ -52,16 +52,32 @@ const formatOptions = ({
   smsNumberCountryCode,
   ...otherOptions
 }: SdkOptions): NormalisedSdkOptions => {
-  const mandatorySteps: StepTypes[] = ['document', 'face', 'complete']
+  const { applicantId, workflowRunId, useWorkflow } = otherOptions
+  const mandatorySteps: StepTypes[] = useWorkflow
+    ? []
+    : ['document', 'face', 'complete']
+  const welcomeStep = {
+    type: 'welcome',
+    options: {
+      nextButton:
+        localStorage.getItem(`a_${applicantId}:w_${workflowRunId}`) ===
+        'started'
+          ? 'Continue'
+          : 'Start',
+    },
+  }
+
   const defaultSteps: StepTypes[] =
     process.env.SDK_ENV === 'Auth'
-      ? ['welcome', 'auth', ...mandatorySteps]
-      : ['welcome', ...mandatorySteps]
+      ? [welcomeStep, 'auth', ...mandatorySteps]
+      : [welcomeStep, ...mandatorySteps]
 
   return {
     ...otherOptions,
     smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
-    steps: (steps || defaultSteps).map(formatStep),
+    steps: useWorkflow
+      ? defaultSteps.map(formatStep)
+      : (steps || defaultSteps).map(formatStep),
   }
 }
 
@@ -121,11 +137,13 @@ const getContainerElementById = (containerId: string) => {
 export const init = (opts: SdkOptions): SdkHandle => {
   console.log('onfido_sdk_version', process.env.SDK_VERSION)
   const options = formatOptions({ ...defaults, ...opts })
-
+  console.log('opts', opts)
+  console.log('defaults', defaults)
   experimentalFeatureWarnings(options)
   cssVarsPonyfill()
 
   let containerEl: HTMLElement
+  console.log(options)
 
   if (options.containerEl) {
     containerEl = options.containerEl
@@ -160,5 +178,6 @@ export const init = (opts: SdkOptions): SdkHandle => {
 }
 
 export const workflowInit = (opts: SdkOptions): SdkHandle => {
-  return init(opts)
+  const workflowOps = { useWorkflow: true }
+  return init({ ...workflowOps, ...opts })
 }

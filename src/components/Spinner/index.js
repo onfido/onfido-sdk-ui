@@ -2,14 +2,17 @@ import { h, Component } from 'preact'
 import { compose } from '~utils/func'
 import { localised } from '~locales'
 import style from './style.scss'
-
+import { c } from '@onfido/castor'
+const captionKey = "hello world"
 class Spinner extends Component {
   componentDidUpdate() {
     // element.focus() is more reliable than `autoFocus` for accessibility focus management
     this.container && this.container.focus()
   }
-
+ 
   render = ({ translate }) => (
+    <div>
+    {this.props.captionKey && translate(this.props.captionKey)}
     <div
       className={style.loader}
       aria-live="assertive"
@@ -19,11 +22,13 @@ class Spinner extends Component {
       ref={(ref) => (this.container = ref)}
       aria-label={translate('generic.loading')}
     >
+     
       <div className={style.inner}>
         <div />
         <div />
         <div />
       </div>
+    </div>
     </div>
   )
 }

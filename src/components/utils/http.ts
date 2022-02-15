@@ -36,6 +36,11 @@ export const performHttpReq = <T>(
     request.setRequestHeader('Authorization', token)
   }
 
+  //request.setRequestHeader("Access-Control-Allow-Origin", "*");
+  //request.setRequestHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  //  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,
+  //  Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+
   request.onload = () => {
     if (request.status === 200 || request.status === 201) {
       onSuccess(JSON.parse(request.response))
