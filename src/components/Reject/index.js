@@ -11,15 +11,9 @@ class Reject extends Component {
     this.props.nextStep()
   }
 
-<<<<<<< HEAD
-  render() {
-    const title = 'Rejected'
-    const body = "We haven't been able to verify your identity"
-=======
   render({ translate }) {
     const title = translate('workflow_complete.reject.title')
     const body = translate('workflow_complete.reject.description')
->>>>>>> b2a217a8 (filter historykey reverted and review feedback clean up)
 
     return (
       <ScreenLayout>

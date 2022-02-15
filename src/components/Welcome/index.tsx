@@ -77,13 +77,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
   const actions = (
-<<<<<<< HEAD
-    <WelcomeActions
-      {...{ customNextButtonLabel, nextStep }}
-    />
-=======
     <WelcomeActions {...{ customNextButtonLabel, nextStep, useWorkflow }} />
->>>>>>> 2db5b980 (removing the workflowInit entry and setting up workflow flaf based on workflowRunId)
   )
   const welcomeTitle = customTitle || translate('welcome.title')
   const welcomeSubTitle = !customDescriptions

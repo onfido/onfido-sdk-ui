@@ -3948,11 +3948,7 @@
     "path": "node_modules/date-fns",
     "licenseFile": "node_modules/date-fns/LICENSE.md"
   },
-<<<<<<< HEAD
-  "dateformat@3.0.3": {
-=======
   "dateformat@4.6.3": {
->>>>>>> 9685c990 (refactoring the poller)
     "licenses": "MIT",
     "repository": "https://github.com/felixge/node-dateformat",
     "publisher": "Steven Levithan",
@@ -9057,11 +9053,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-<<<<<<< HEAD
-    "path": "/Users/carlagoncalves/Work/onfido-sdk-ui",
-=======
     "path": "/Users/zoeazhdariradkani/work/Orchestration/Solution/onfido-sdk-ui",
->>>>>>> 9685c990 (refactoring the poller)
     "licenseFile": "LICENSE"
   },
   "opener@1.5.2": {
@@ -13230,13 +13222,8 @@
     "repository": "https://github.com/yargs/y18n",
     "publisher": "Ben Coe",
     "email": "bencoe@gmail.com",
-<<<<<<< HEAD
-    "path": "node_modules/concurrently/node_modules/y18n",
-    "licenseFile": "node_modules/concurrently/node_modules/y18n/LICENSE"
-=======
     "path": "node_modules/mochawesome-report-generator/node_modules/y18n",
     "licenseFile": "node_modules/mochawesome-report-generator/node_modules/y18n/LICENSE"
->>>>>>> 9685c990 (refactoring the poller)
   },
   "yallist@2.1.2": {
     "licenses": "ISC",
@@ -13313,8 +13300,6 @@
     "path": "node_modules/concurrently/node_modules/yargs-parser",
     "licenseFile": "node_modules/concurrently/node_modules/yargs-parser/LICENSE.txt"
   },
-<<<<<<< HEAD
-=======
   "yargs-parser@21.0.0": {
     "licenses": "ISC",
     "repository": "https://github.com/yargs/yargs-parser",
@@ -13323,7 +13308,6 @@
     "path": "node_modules/mochawesome-report-generator/node_modules/yargs-parser",
     "licenseFile": "node_modules/mochawesome-report-generator/node_modules/yargs-parser/LICENSE.txt"
   },
->>>>>>> 9685c990 (refactoring the poller)
   "yargs-unparser@2.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/yargs/yargs-unparser",
@@ -13349,15 +13333,12 @@
     "repository": "https://github.com/yargs/yargs",
     "path": "node_modules/concurrently/node_modules/yargs",
     "licenseFile": "node_modules/concurrently/node_modules/yargs/LICENSE"
-<<<<<<< HEAD
-=======
   },
   "yargs@17.3.1": {
     "licenses": "MIT",
     "repository": "https://github.com/yargs/yargs",
     "path": "node_modules/mochawesome-report-generator/node_modules/yargs",
     "licenseFile": "node_modules/mochawesome-report-generator/node_modules/yargs/LICENSE"
->>>>>>> 9685c990 (refactoring the poller)
   },
   "yauzl@2.10.0": {
     "licenses": "MIT",
