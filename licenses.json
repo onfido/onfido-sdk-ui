@@ -1006,7 +1006,7 @@
     "path": "node_modules/@oclif/plugin-help",
     "licenseFile": "node_modules/@oclif/plugin-help/LICENSE"
   },
-  "@onfido/castor-icons@2.0.0": {
+  "@onfido/castor-icons@2.8.1": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor-icons",
     "publisher": "Onfido",
@@ -1651,8 +1651,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/xtuc/webassemblyjs",
     "publisher": "Sven Sauleau",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/ast",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/ast/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/ast",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/ast/LICENSE"
   },
   "@webassemblyjs/ast@1.9.0": {
     "licenses": "MIT",
@@ -1691,8 +1691,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/xtuc/webassemblyjs",
     "publisher": "Sven Sauleau",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/helper-buffer",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/helper-buffer/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/helper-buffer",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/helper-buffer/LICENSE"
   },
   "@webassemblyjs/helper-buffer@1.9.0": {
     "licenses": "MIT",
@@ -1732,8 +1732,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/xtuc/webassemblyjs",
     "publisher": "Sven Sauleau",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/helper-wasm-bytecode",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/helper-wasm-bytecode/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/helper-wasm-bytecode",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/helper-wasm-bytecode/LICENSE"
   },
   "@webassemblyjs/helper-wasm-bytecode@1.9.0": {
     "licenses": "MIT",
@@ -1746,8 +1746,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/xtuc/webassemblyjs",
     "publisher": "Sven Sauleau",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/helper-wasm-section",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/helper-wasm-section/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/helper-wasm-section",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/helper-wasm-section/LICENSE"
   },
   "@webassemblyjs/helper-wasm-section@1.9.0": {
     "licenses": "MIT",
@@ -1758,8 +1758,8 @@
   },
   "@webassemblyjs/ieee754@1.11.0": {
     "licenses": "MIT",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/ieee754",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/ieee754/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/ieee754",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/ieee754/LICENSE"
   },
   "@webassemblyjs/ieee754@1.9.0": {
     "licenses": "MIT",
@@ -1768,8 +1768,8 @@
   },
   "@webassemblyjs/leb128@1.11.0": {
     "licenses": "Apache-2.0",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/leb128",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/leb128/LICENSE.txt"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/leb128",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/leb128/LICENSE.txt"
   },
   "@webassemblyjs/leb128@1.9.0": {
     "licenses": "MIT",
@@ -1780,8 +1780,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/xtuc/webassemblyjs",
     "publisher": "Sven Sauleau",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/utf8",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/utf8/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/utf8",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/utf8/LICENSE"
   },
   "@webassemblyjs/utf8@1.9.0": {
     "licenses": "MIT",
@@ -1794,8 +1794,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/xtuc/webassemblyjs",
     "publisher": "Sven Sauleau",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/wasm-edit",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/wasm-edit/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/wasm-edit",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/wasm-edit/LICENSE"
   },
   "@webassemblyjs/wasm-edit@1.9.0": {
     "licenses": "MIT",
@@ -1808,8 +1808,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/xtuc/webassemblyjs",
     "publisher": "Sven Sauleau",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/wasm-gen",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/wasm-gen/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/wasm-gen",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/wasm-gen/LICENSE"
   },
   "@webassemblyjs/wasm-gen@1.9.0": {
     "licenses": "MIT",
@@ -1822,8 +1822,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/xtuc/webassemblyjs",
     "publisher": "Sven Sauleau",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/wasm-opt",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/wasm-opt/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/wasm-opt",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/wasm-opt/LICENSE"
   },
   "@webassemblyjs/wasm-opt@1.9.0": {
     "licenses": "MIT",
@@ -1836,8 +1836,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/xtuc/webassemblyjs",
     "publisher": "Sven Sauleau",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/wasm-parser",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/wasm-parser/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/wasm-parser",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/wasm-parser/LICENSE"
   },
   "@webassemblyjs/wasm-parser@1.9.0": {
     "licenses": "MIT",
@@ -1857,8 +1857,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/xtuc/webassemblyjs",
     "publisher": "Sven Sauleau",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/wast-printer",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/@webassemblyjs/wast-printer/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/wast-printer",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/@webassemblyjs/wast-printer/LICENSE"
   },
   "@webassemblyjs/wast-printer@1.9.0": {
     "licenses": "MIT",
@@ -1963,8 +1963,8 @@
   "acorn@8.2.4": {
     "licenses": "MIT",
     "repository": "https://github.com/acornjs/acorn",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/acorn",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/acorn/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/acorn",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/acorn/LICENSE"
   },
   "adm-zip@0.5.5": {
     "licenses": "MIT",
@@ -3774,7 +3774,7 @@
     "path": "node_modules/create-hmac",
     "licenseFile": "node_modules/create-hmac/LICENSE"
   },
-  "cross-fetch@3.0.6": {
+  "cross-fetch@3.1.5": {
     "licenses": "MIT",
     "repository": "https://github.com/lquixada/cross-fetch",
     "publisher": "Leonardo Quixada",
@@ -4566,8 +4566,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/webpack/enhanced-resolve",
     "publisher": "Tobias Koppers @sokra",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/enhanced-resolve",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/enhanced-resolve/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/enhanced-resolve",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/enhanced-resolve/LICENSE"
   },
   "enquirer@2.3.6": {
     "licenses": "MIT",
@@ -4825,8 +4825,8 @@
     "repository": "https://github.com/eslint/eslint-visitor-keys",
     "publisher": "Toru Nagashima",
     "url": "https://github.com/mysticatea",
-    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/eslint-visitor-keys",
-    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/eslint-visitor-keys/LICENSE"
+    "path": "node_modules/eslint/node_modules/eslint-visitor-keys",
+    "licenseFile": "node_modules/eslint/node_modules/eslint-visitor-keys/LICENSE"
   },
   "eslint@7.32.0": {
     "licenses": "MIT",
@@ -5049,8 +5049,8 @@
     "repository": "https://github.com/jonschlinkert/extend-shallow",
     "publisher": "Jon Schlinkert",
     "url": "https://github.com/jonschlinkert",
-    "path": "node_modules/braces/node_modules/extend-shallow",
-    "licenseFile": "node_modules/braces/node_modules/extend-shallow/LICENSE"
+    "path": "node_modules/set-value/node_modules/extend-shallow",
+    "licenseFile": "node_modules/set-value/node_modules/extend-shallow/LICENSE"
   },
   "extend-shallow@3.0.2": {
     "licenses": "MIT",
@@ -5278,8 +5278,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/find-up",
-    "licenseFile": "node_modules/jest-resolve/node_modules/find-up/license"
+    "path": "node_modules/@istanbuljs/load-nyc-config/node_modules/find-up",
+    "licenseFile": "node_modules/@istanbuljs/load-nyc-config/node_modules/find-up/license"
   },
   "find-up@5.0.0": {
     "licenses": "MIT",
@@ -5701,8 +5701,8 @@
     "repository": "https://github.com/fitzgen/glob-to-regexp",
     "publisher": "Nick Fitzgerald",
     "email": "fitzgen@gmail.com",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/glob-to-regexp",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/glob-to-regexp/README.md"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/glob-to-regexp",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/glob-to-regexp/README.md"
   },
   "glob@5.0.15": {
     "licenses": "ISC",
@@ -7719,8 +7719,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/webpack/loader-runner",
     "publisher": "Tobias Koppers @sokra",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/loader-runner",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/loader-runner/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/loader-runner",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/loader-runner/LICENSE"
   },
   "loader-utils@0.2.17": {
     "licenses": "MIT",
@@ -7758,8 +7758,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/locate-path",
-    "licenseFile": "node_modules/jest-resolve/node_modules/locate-path/license"
+    "path": "node_modules/@istanbuljs/load-nyc-config/node_modules/locate-path",
+    "licenseFile": "node_modules/@istanbuljs/load-nyc-config/node_modules/locate-path/license"
   },
   "locate-path@6.0.0": {
     "licenses": "MIT",
@@ -8171,8 +8171,8 @@
     "repository": "https://github.com/micromatch/micromatch",
     "publisher": "Jon Schlinkert",
     "url": "https://github.com/jonschlinkert",
-    "path": "node_modules/fast-glob/node_modules/micromatch",
-    "licenseFile": "node_modules/fast-glob/node_modules/micromatch/LICENSE"
+    "path": "node_modules/liftup/node_modules/micromatch",
+    "licenseFile": "node_modules/liftup/node_modules/micromatch/LICENSE"
   },
   "miller-rabin@4.0.1": {
     "licenses": "MIT",
@@ -8543,7 +8543,7 @@
     "path": "node_modules/nanoid",
     "licenseFile": "node_modules/nanoid/LICENSE"
   },
-  "nanoid@3.1.30": {
+  "nanoid@3.2.0": {
     "licenses": "MIT",
     "repository": "https://github.com/ai/nanoid",
     "publisher": "Andrey Sitnik",
@@ -8618,7 +8618,7 @@
     "path": "node_modules/node-environment-flags",
     "licenseFile": "node_modules/node-environment-flags/LICENSE"
   },
-  "node-fetch@2.6.1": {
+  "node-fetch@2.6.7": {
     "licenses": "MIT",
     "repository": "https://github.com/bitinn/node-fetch",
     "publisher": "David Frank",
@@ -9047,13 +9047,13 @@
     "path": "node_modules/jest-changed-files/node_modules/onetime",
     "licenseFile": "node_modules/jest-changed-files/node_modules/onetime/license"
   },
-  "onfido-sdk-ui@6.17.0": {
+  "onfido-sdk-ui@7.0.0-alpha.1": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/zoeazhdariradkani/work/Orchestration/Solution/onfido-sdk-ui",
+    "path": "/Users/zoeazhdariradkani/work/Orchestration/Solution/github/web-sdk",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.2": {
@@ -9207,8 +9207,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/p-locate",
-    "licenseFile": "node_modules/jest-resolve/node_modules/p-locate/license"
+    "path": "node_modules/@istanbuljs/load-nyc-config/node_modules/p-locate",
+    "licenseFile": "node_modules/@istanbuljs/load-nyc-config/node_modules/p-locate/license"
   },
   "p-locate@5.0.0": {
     "licenses": "MIT",
@@ -9430,8 +9430,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/path-exists",
-    "licenseFile": "node_modules/jest-resolve/node_modules/path-exists/license"
+    "path": "node_modules/@istanbuljs/load-nyc-config/node_modules/path-exists",
+    "licenseFile": "node_modules/@istanbuljs/load-nyc-config/node_modules/path-exists/license"
   },
   "path-is-absolute@1.0.1": {
     "licenses": "MIT",
@@ -10263,6 +10263,12 @@
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react-dom",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react-dom/LICENSE"
   },
+  "react-dom@16.14.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "node_modules/react-dom",
+    "licenseFile": "node_modules/react-dom/LICENSE"
+  },
   "react-is@16.13.0": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
@@ -10348,6 +10354,12 @@
     "repository": "https://github.com/facebook/react",
     "path": "node_modules/webpack-visualizer-plugin/node_modules/react",
     "licenseFile": "node_modules/webpack-visualizer-plugin/node_modules/react/LICENSE"
+  },
+  "react@16.14.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "node_modules/react",
+    "licenseFile": "node_modules/react/LICENSE"
   },
   "read-installed@4.0.3": {
     "licenses": "ISC",
@@ -10941,6 +10953,12 @@
     "email": "ldd@lddubeau.com",
     "path": "node_modules/saxes",
     "licenseFile": "node_modules/saxes/README.md"
+  },
+  "scheduler@0.19.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "node_modules/scheduler",
+    "licenseFile": "node_modules/scheduler/LICENSE"
   },
   "schema-utils@1.0.0": {
     "licenses": "MIT",
@@ -11972,8 +11990,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/webpack/tapable",
     "publisher": "Tobias Koppers @sokra",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/tapable",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/tapable/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/tapable",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/tapable/LICENSE"
   },
   "tar@4.4.13": {
     "licenses": "ISC",
@@ -12044,8 +12062,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/webpack-contrib/terser-webpack-plugin",
     "publisher": "webpack Contrib Team",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/terser-webpack-plugin",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/terser-webpack-plugin/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/terser-webpack-plugin",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/terser-webpack-plugin/LICENSE"
   },
   "terser@4.8.0": {
     "licenses": "BSD-2-Clause",
@@ -12062,8 +12080,8 @@
     "publisher": "Mihai Bazon",
     "email": "mihai.bazon@gmail.com",
     "url": "http://lisperator.net/",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/terser",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/terser/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/terser",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/terser/LICENSE"
   },
   "test-exclude@6.0.0": {
     "licenses": "ISC",
@@ -12236,6 +12254,13 @@
     "email": "jstash@gmail.com",
     "path": "node_modules/jsdom/node_modules/tough-cookie",
     "licenseFile": "node_modules/jsdom/node_modules/tough-cookie/LICENSE"
+  },
+  "tr46@0.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Sebmaster/tr46.js",
+    "publisher": "Sebastian Mayr",
+    "email": "npm@smayr.name",
+    "path": "node_modules/node-fetch/node_modules/tr46"
   },
   "tr46@2.0.2": {
     "licenses": "MIT",
@@ -12849,8 +12874,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/webpack/watchpack",
     "publisher": "Tobias Koppers @sokra",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/watchpack",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/watchpack/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/watchpack",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/watchpack/LICENSE"
   },
   "wbuf@1.7.3": {
     "licenses": "MIT",
@@ -12866,6 +12891,15 @@
     "publisher": "Tim Oxley",
     "path": "node_modules/wcwidth",
     "licenseFile": "node_modules/wcwidth/LICENSE"
+  },
+  "webidl-conversions@3.0.1": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/jsdom/webidl-conversions",
+    "publisher": "Domenic Denicola",
+    "email": "d@domenic.me",
+    "url": "https://domenic.me/",
+    "path": "node_modules/node-fetch/node_modules/webidl-conversions",
+    "licenseFile": "node_modules/node-fetch/node_modules/webidl-conversions/LICENSE.md"
   },
   "webidl-conversions@5.0.0": {
     "licenses": "BSD-2-Clause",
@@ -12940,8 +12974,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/webpack/webpack-sources",
     "publisher": "Tobias Koppers @sokra",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/webpack-sources",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/webpack-sources/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/webpack-sources",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/webpack-sources/LICENSE"
   },
   "webpack-visualizer-plugin@0.1.11": {
     "licenses": "MIT",
@@ -12962,8 +12996,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/webpack/webpack",
     "publisher": "Tobias Koppers @sokra",
-    "path": "node_modules/@types/terser-webpack-plugin/node_modules/webpack",
-    "licenseFile": "node_modules/@types/terser-webpack-plugin/node_modules/webpack/LICENSE"
+    "path": "node_modules/@types/mini-css-extract-plugin/node_modules/webpack",
+    "licenseFile": "node_modules/@types/mini-css-extract-plugin/node_modules/webpack/LICENSE"
   },
   "websocket-driver@0.7.4": {
     "licenses": "Apache-2.0",
@@ -13006,6 +13040,14 @@
     "url": "https://domenic.me/",
     "path": "node_modules/whatwg-mimetype",
     "licenseFile": "node_modules/whatwg-mimetype/LICENSE.txt"
+  },
+  "whatwg-url@5.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/whatwg-url",
+    "publisher": "Sebastian Mayr",
+    "email": "github@smayr.name",
+    "path": "node_modules/node-fetch/node_modules/whatwg-url",
+    "licenseFile": "node_modules/node-fetch/node_modules/whatwg-url/LICENSE.txt"
   },
   "whatwg-url@8.4.0": {
     "licenses": "MIT",
@@ -13249,8 +13291,8 @@
     "publisher": "Isaac Z. Schlueter",
     "email": "i@izs.me",
     "url": "http://blog.izs.me/",
-    "path": "node_modules/jest-snapshot/node_modules/yallist",
-    "licenseFile": "node_modules/jest-snapshot/node_modules/yallist/LICENSE"
+    "path": "node_modules/minipass/node_modules/yallist",
+    "licenseFile": "node_modules/minipass/node_modules/yallist/LICENSE"
   },
   "yaml@1.10.2": {
     "licenses": "ISC",
