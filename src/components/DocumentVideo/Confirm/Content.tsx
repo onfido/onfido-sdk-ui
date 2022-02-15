@@ -6,13 +6,18 @@ import CaptureViewer from '../../CaptureViewer'
 import style from './style.scss'
 
 import type { DocumentCapture } from '~types/redux'
+import { WithTrackingProps } from '~types/hocs'
 
 type Props = {
   capture?: DocumentCapture
   previewing: boolean
-}
+} & WithTrackingProps
 
-const Content: FunctionComponent<Props> = ({ capture, previewing }) => {
+const Content: FunctionComponent<Props> = ({
+  capture,
+  previewing,
+  trackScreen,
+}) => {
   const { translate } = useLocales()
 
   if (!capture) {
@@ -26,7 +31,7 @@ const Content: FunctionComponent<Props> = ({ capture, previewing }) => {
           {translate('doc_video_confirmation.title')}
         </span>
         <CaptureViewer
-          capture={capture}
+          {...{ capture, trackScreen }}
           className={style.videoWrapper}
           method="document"
         />

@@ -210,7 +210,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       {error ? (
         <Error error={error} trackScreen={trackScreen} role="alert" />
       ) : (
-        <Content capture={documentVideo} previewing={previewing} />
+        <Content capture={documentVideo} {...{ previewing, trackScreen }} />
       )}
     </ScreenLayout>
   )
