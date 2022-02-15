@@ -22,7 +22,7 @@ const CaptureVideoViewer: FunctionComponent<CaptureVideoViewerProps> = ({
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  const onPlay = () => trackScreen('play')
+  const onPlay = () => trackScreen('play_clicked')
   const onEnded = () => trackScreen('playback_finished')
   const onPause = () => {
     // onPause gets triggered just before onEnded too, the check prevents useles video_pause events
@@ -31,7 +31,7 @@ const CaptureVideoViewer: FunctionComponent<CaptureVideoViewerProps> = ({
       videoRef.current &&
       videoRef.current?.currentTime < videoRef.current?.duration
     ) {
-      trackScreen('pause')
+      trackScreen('pause_clicked')
     }
   }
 

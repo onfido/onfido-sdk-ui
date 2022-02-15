@@ -878,16 +878,16 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
-    'screen_face_face_video_confirmation_play',
+    'screen_face_face_video_confirmation_play_clicked',
     {
-      eventName: 'FACE_VIDEO_CONFIRMATION_PLAY',
+      eventName: 'FACE_VIDEO_CONFIRMATION_PLAY_CLICKED',
       properties: { event_type: 'action' },
     },
   ],
   [
-    'screen_face_face_video_confirmation_pause',
+    'screen_face_face_video_confirmation_pause_clicked',
     {
-      eventName: 'FACE_VIDEO_CONFIRMATION_PAUSE',
+      eventName: 'FACE_VIDEO_CONFIRMATION_PAUSE_CLICKED',
       properties: { event_type: 'action' },
     },
   ],
@@ -941,16 +941,16 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
-    'screen_document_confirmation_video_play',
+    'screen_document_confirmation_video_play_clicked',
     {
-      eventName: 'DOCUMENT_VIDEO_CONFIRMATION_PLAY',
+      eventName: 'DOCUMENT_VIDEO_CONFIRMATION_PLAY_CLICKED',
       properties: { event_type: 'action' },
     },
   ],
   [
-    'screen_document_confirmation_video_pause',
+    'screen_document_confirmation_video_pause_clicked',
     {
-      eventName: 'DOCUMENT_VIDEO_CONFIRMATION_PAUSE',
+      eventName: 'DOCUMENT_VIDEO_CONFIRMATION_PAUSE_CLICKED',
       properties: { event_type: 'action' },
     },
   ],
