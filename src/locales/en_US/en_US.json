@@ -35,32 +35,6 @@
             "detail_timeout": "Start again"
         }
     },
-    "profile_data": {
-        "personal_details_title": "Add your personal information",
-        "address_detials_title": "Add your address",
-        "first_name": "First name",
-        "last_name": "Last name",
-        "dob": "Date of birth",
-        "flat_number": "Flat number",
-        "building_number": "Building number",
-        "building_name": "Building name",
-        "street": "Street",
-        "sub_street": "Sub-street",
-        "town": "Town",
-        "postcode": "Postcode",
-        "country": "Country",
-        "country_placeholder": "e.g. United States",
-        "state": "State (US only)",
-        "line1": "Line 1",
-        "line2": "Line 2",
-        "line3": "Line 3",
-        "button_submit": "Next",
-        "required_error": "This field is required",
-        "prompt": {
-            "header_timeout": "Looks like you took too long",
-            "detail_timeout": "Start again"
-        }
-    },
     "auth_accessibility": {
         "back_button": "Cancel"
     },

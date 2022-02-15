@@ -51,6 +51,7 @@ import type {
   StepConfigFace,
   StepConfigData,
 } from '~types/steps'
+import { data } from '../../../release/releaseConfig'
 
 let LazyAuth: ComponentType<StepComponentProps>
 

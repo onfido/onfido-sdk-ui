@@ -11,9 +11,9 @@ class Pass extends Component {
     this.props.nextStep()
   }
 
-  render() {
-    const title = 'Passed'
-    const body = 'We have been able to verify your identity'
+  render({ translate }) {
+    const title = translate('workflow_complete.pass.title')
+    const body = translate('workflow_complete.pass.description')
 
     return (
       <ScreenLayout>
