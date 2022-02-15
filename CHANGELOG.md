@@ -11,14 +11,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - Internal: Added `SdkConfigurationServiceProvider` and `useSdkConfigurationService` to retrieve and use feature flags.
+- Vastly dereased bundle size by not publishing "webpack visualizer" files to NPM.
+- Internal: Added new analytics events for confirmation errors
+- Internal: Added new analytics events for camera, upload, http requests and sms errors
+- Internal: Update FaceTec SDK on Auth step from `9.3.4` to `9.4.5`. Removed 3 hardcoded custom properties defined on Auth component UI.
 
 ### Fixed
 
 - UI: Fixed Stick Hover State for buttons on iOS Safari
-
-### Changes
-
-- Internal: Added new analytics events for confirmation errors
+- Upgrade `eventemitter2` to v2.2.2
+- Fix usage of `removeAllListeners` in `ModalApp`
 
 ## [6.17.0] - 2022-01-24
 
@@ -1169,7 +1171,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.17.0...development
+[6.17.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...6.17.0
 [6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.16.0
 [6.15.5]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...6.15.5
 [6.15.4]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...6.15.4

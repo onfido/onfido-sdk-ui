@@ -88,10 +88,8 @@ class ImageQualityGuide extends Component {
     this.props.nextStep()
   }
 
-  handleFileError = (error) => this.setError(error)
-
   render() {
-    const { translate } = this.props
+    const { translate, trackScreen } = this.props
     const { error, isUploading } = this.state
 
     return (
@@ -115,7 +113,7 @@ class ImageQualityGuide extends Component {
             </div>
           </div>
           <div>
-            {error && <UploadError {...{ error, translate }} />}
+            {error && <UploadError {...{ error, trackScreen, translate }} />}
             {isDesktop ? (
               <CustomFileInput
                 className={classNames(

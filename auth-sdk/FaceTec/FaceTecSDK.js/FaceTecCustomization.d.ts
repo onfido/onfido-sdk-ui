@@ -1,5 +1,4 @@
 import { FaceTecVocalGuidanceMode } from "./FaceTecPublicApi";
-import { LightModeState } from "./LightModeState";
 export declare enum FaceTecExitAnimationStyle {
     None = 0,
     RippleOut = 1,
@@ -28,11 +27,8 @@ export interface FaceTecFeedbackBarCustomization {
     backgroundColor: string;
     cornerRadius: string;
     textFont: string;
-    textSpacing: string;
-    textSize: string;
     textColor: string;
     enablePulsatingText: boolean;
-    relativeWidth: string;
 }
 export interface FaceTecInitialLoadingAnimationCustomization {
     customAnimation: SVGElement | null;
@@ -41,8 +37,6 @@ export interface FaceTecInitialLoadingAnimationCustomization {
     foregroundColor: string;
     messageTextColor: string;
     messageFont: string;
-    messageTextSpacing: string;
-    messageTextSize: string;
 }
 export interface FaceTecFrameCustomization {
     shadow: string;
@@ -66,8 +60,6 @@ export interface FaceTecSessionTimerCustomization {
 }
 export interface FaceTecGuidanceCustomization {
     buttonFont: string;
-    buttonTextSpacing: string;
-    buttonTextSize: string;
     buttonBorderWidth: string;
     buttonBorderColor: string;
     buttonCornerRadius: string;
@@ -77,33 +69,19 @@ export interface FaceTecGuidanceCustomization {
     buttonBackgroundNormalColor: string;
     buttonBackgroundHighlightColor: string;
     buttonBackgroundDisabledColor: string;
-    buttonRelativeWidth: string;
-    buttonRelativeWidthOnDesktop: string;
     headerFont: string;
-    headerTextSpacing: string;
-    headerTextSize: string;
     subtextFont: string;
-    subtextTextSpacing: string;
-    subtextTextSize: string;
     readyScreenHeaderFont: string;
-    readyScreenHeaderTextSpacing: string;
     readyScreenHeaderTextColor: string;
-    readyScreenHeaderTextSize: string;
     readyScreenHeaderAttributedString: string;
     readyScreenSubtextFont: string;
-    readyScreenSubtextTextSpacing: string;
     readyScreenSubtextTextColor: string;
-    readyScreenSubtextTextSize: string;
     readyScreenSubtextAttributedString: string;
     retryScreenHeaderFont: string;
-    retryScreenHeaderTextSpacing: string;
     retryScreenHeaderTextColor: string;
-    retryScreenHeaderTextSize: string;
     retryScreenHeaderAttributedString: string;
     retryScreenSubtextFont: string;
-    retryScreenSubtextTextSpacing: string;
     retryScreenSubtextTextColor: string;
-    retryScreenSubtextTextSize: string;
     retryScreenSubtextAttributedString: string;
     backgroundColors: string;
     foregroundColor: string;
@@ -118,12 +96,10 @@ export interface FaceTecGuidanceCustomization {
     retryScreenImageBorderWidth: string;
     retryScreenImageCornerRadius: string;
     retryScreenOvalStrokeColor: string;
-    enableRetryScreenBulletedInstructions: boolean;
     cameraPermissionsScreenImage: string;
 }
 export interface FaceTecEnterFullScreenCustomization {
     buttonFont: string;
-    buttonTextSpacing: string;
     buttonBorderWidth: string;
     buttonBorderColor: string;
     buttonCornerRadius: string;
@@ -136,9 +112,7 @@ export interface FaceTecEnterFullScreenCustomization {
     buttonRelativeWidth: string;
     buttonRelativeWidthOnDesktop: string;
     headerFont: string;
-    headerTextSpacing: string;
     subtextFont: string;
-    subtextTextSpacing: string;
     backgroundColors: string;
     foregroundColor: string;
     enterFullScreenImage: string;
@@ -158,8 +132,6 @@ export interface FaceTecResultScreenCustomization {
     customResultAnimationSuccess: SVGElement | null;
     customResultAnimationUnsuccess: SVGElement | null;
     messageFont: string;
-    messageTextSpacing: string;
-    messageTextSize: string;
     activityIndicatorColor: string;
     customActivityIndicatorImage: string;
     customActivityIndicatorRotationInterval: string;
@@ -214,51 +186,15 @@ export interface FaceTecIDScanCustomization {
      */
     headerFont: string;
     /**
-     * Spacing between the characters of the title's text during the Identity Document Type Selection Screen.
-     * Accepts any value assignable to the letterSpacing CSS attribute.
-     * Default is 'normal'.
-     */
-    headerTextSpacing: string;
-    /**
-     * Size of the title text during the Identity Document Type Selection Screen.
-     * Accepts any value assignable to the fontSize CSS attribute.
-     * Default is dynamically configured per device at runtime.
-     */
-    headerTextSize: string;
-    /**
      * Font of the message text during the Identity Document Capture and Review Screens.
      * Accepts any value assignable to the fontFamily CSS attribute.
      */
     subtextFont: string;
     /**
-     * Spacing between the characters of the title's subtext and messages during the Identity Document Capture and Review Screens.
-     * Accepts any value assignable to the letterSpacing CSS attribute.
-     * Default is 'normal'.
-     */
-    subtextTextSpacing: string;
-    /**
-     * Size of the message text during the Identity Document Capture and Review Screens.
-     * Accepts any value assignable to the fontSize CSS attribute.
-     * Default is dynamically configured per device at runtime.
-     */
-    subtextTextSize: string;
-    /**
      * Font of the action button's text during the Photo ID Match Screens.
      * Accepts any value assignable to the fontFamily CSS attribute.
      */
     buttonFont: string;
-    /**
-     * Spacing between the characters of the action button's text during the Photo ID Match Screens.
-     * Accepts any value assignable to the letterSpacing CSS attribute.
-     * Default is 'normal'.
-     */
-    buttonTextSpacing: string;
-    /**
-     * Size of the action button's text during the Photo ID Match Screens.
-     * Accepts any value assignable to the fontSize CSS attribute.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonTextSize: string;
     /**
      * Thickness of the action button's border during the Photo ID Match Screens.
      * Default is dynamically configured per device at runtime.
@@ -304,24 +240,6 @@ export interface FaceTecIDScanCustomization {
      * Default is custom FaceTec Browser SDK color.
      */
     buttonBackgroundDisabledColor: string;
-    /**
-     * Control the percent of the available FaceTec Browser SDK Frame width to use for the action button during the Photo ID Match Screens for mobile browsers.
-     * Relative width percent is represented in decimal notation, ranging from 0.0 to 1.0.
-     * If the value configured is equal to or greater than 1.0, the action button will be drawn to at max width within the FaceTec Browser SDK Frame.
-     * If the value configured results in a width that is less than the action button's height, the action button's width will equal its height.
-     * Note: The Identity Document Review Screen action buttons will be drawn at half the configured width.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonRelativeWidth: string;
-    /**
-     * Control the percent of the available FaceTec Browser SDK Frame width to use for the action button during the Photo ID Match Screens for desktop browsers.
-     * Relative width percent is represented in decimal notation, ranging from 0.0 to 1.0.
-     * If the value configured is equal to or greater than 1.0, the action button will be drawn to at max width within the FaceTec Browser SDK Frame.
-     * If the value configured results in a width that is less than the action button's height, the action button's width will equal its height.
-     * Note: The Identity Document Review Screen action buttons will be drawn at half the configured width.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonRelativeWidthOnDesktop: string;
     /**
      * Color of the Identity Document Type Selection Screen background.
      * Default is white.
@@ -460,6 +378,38 @@ export interface FaceTecIDScanCustomization {
      */
     captureScreenPassportCheckmarkImage: string;
 }
+export interface FaceTecOCRConfirmationCustomization {
+    backgroundColors: string;
+    mainHeaderDividerLineColor: string;
+    mainHeaderDividerLineWidth: string;
+    mainHeaderFont: string;
+    mainHeaderTextColor: string;
+    sectionHeaderFont: string;
+    sectionHeaderTextColor: string;
+    fieldLabelFont: string;
+    fieldLabelTextColor: string;
+    fieldValueFont: string;
+    fieldValueTextColor: string;
+    inputFieldBackgroundColor: string;
+    inputFieldFont: string;
+    inputFieldTextColor: string;
+    inputFieldBorderColor: string;
+    inputFieldBorderWidth: string;
+    inputFieldCornerRadius: string;
+    inputFieldPlaceholderFont: string;
+    inputFieldPlaceholderTextColor: string;
+    showInputFieldBottomBorderOnly: boolean;
+    buttonFont: string;
+    buttonBorderWidth: string;
+    buttonBorderColor: string;
+    buttonCornerRadius: string;
+    buttonTextNormalColor: string;
+    buttonTextHighlightColor: string;
+    buttonTextDisabledColor: string;
+    buttonBackgroundNormalColor: string;
+    buttonBackgroundHighlightColor: string;
+    buttonBackgroundDisabledColor: string;
+}
 export interface FaceTecSecurityWatermarkCustomization {
     securityWatermarkImage: FaceTecSecurityWatermarkImage;
 }
@@ -491,6 +441,8 @@ export declare class FaceTecCustomization {
     resultScreenCustomization: FaceTecResultScreenCustomization;
     /** Customize the FaceTec Browser SDK Photo ID Match Screens. */
     idScanCustomization: FaceTecIDScanCustomization;
+    /** Customize the FaceTec Browser SDK User OCR Confirmation Screen. */
+    ocrConfirmationCustomization: FaceTecOCRConfirmationCustomization;
     /** Customize the FaceTec Browser SDK IFrame Enter Full Screen User Interface.
      * This customization is only active when the FaceTec Browser SDK is loaded in an IFrame.
      * Permission from FaceTec is required to run the FaceTec Browser SDK in an iFrame.
@@ -512,12 +464,30 @@ export declare class FaceTecCustomization {
     /** For non-production instances, display the clickable Development Mode Tag link during the Result Screen. */
     enableDevelopmentModeTag: boolean;
     /**
-     * This function allows special runtime control of the success message shown when the success animation occurs.
+     * Control whether strings on the Ready Screen and Retry Screen are limited to a max character count.
+     * Note: This functionality is not available by default, and must be requested from FaceTec in order to enable.
+     * Default is false (disabled).
+     */
+    enableUnconstrainedGuidanceStringLengths: boolean;
+    /**
+     * This function allows special runtime control of the success message shown when the success animation occurs for a FaceScan.
      * Please note that you can also customize this string via the standard customization/localization methods provided by the FaceTec Browser SDK.
      * Special runtime access is enabled to this text because the developer may wish to change this text depending on the FaceTec Browser SDK's mode of operation.
+     * This method does not update the success message for an ID Scan. For runtime control over the result messages displayed for an ID Scan, use the method setIDScanResultScreenMessageOverrides.
      * Default is in the customizable localization string "FaceTec_result_success_message".
      */
     static setOverrideResultScreenSuccessMessage: (message: string) => void;
+    /**
+     * This function allows special runtime control of the various possible result messages shown when the result animation occurs for an ID Scan Session.<br>
+     * Please note that you can also customize these strings via the standard customization/localization methods provided.<br>
+     */
+    static setIDScanResultScreenMessageOverrides: (successFrontSide: string, successFrontSideBackNext: string, successBackSide: string, successUserConfirmation: string, retryFaceDidNotMatch: string, retryIDNotFullyVisible: string, retryOCRResultsNotGoodEnough: string, retryIDTypeNotSupported?: string) => void;
+    /**
+     * This function allows special runtime control of the various possible upload messages shown when the Result Screen's upload progress content is shown for an ID Scan Session.
+     * If this method is used, any values configured with FaceTecIDScanResultCallback.uploadMessageOverride will be overridden with the applicable value configured with this method.
+     * Please note that for proper behavior of these dynamic upload message values, it is required that there is appropriate use of FaceTecIDScanResultCallback.uploadProgress to track the progress of the request body being uploaded to the Sever.
+     */
+    static setIDScanUploadMessageOverrides: (frontSideUploadStarted: string, frontSideStillUploading: string, frontSideUploadCompleteAwaitingResponse: string, frontSideUploadCompleteAwaitingProcessing: string, backSideUploadStarted: string, backSideStillUploading: string, backSideUploadCompleteAwaitingResponse: string, backSideUploadCompleteAwaitingProcessing: string, userConfirmedInfoUploadStarted: string, userConfirmedInfoStillUploading: string, userConfirmedInfoUploadCompleteAwaitingResponse: string, userConfirmedInfoUploadCompleteAwaitingProcessing: string) => void;
     /**
      * Constructor for FaceTecCustomization object.
      *
@@ -528,7 +498,7 @@ export declare class FaceTecCustomization {
     }[] | any[]);
     [key: string]: {
         key: string;
-    }[] | boolean | FaceTecVocalGuidanceCustomization | FaceTecSecurityWatermarkCustomization | FaceTecEnterFullScreenCustomization | FaceTecIDScanCustomization | FaceTecOvalCustomization | FaceTecFeedbackBarCustomization | FaceTecFrameCustomization | FaceTecExitAnimationCustomization | FaceTecCancelButtonCustomization | FaceTecSessionTimerCustomization | FaceTecInitialLoadingAnimationCustomization | FaceTecGuidanceCustomization | FaceTecOverlayCustomization | FaceTecResultScreenCustomization | string;
+    }[] | boolean | FaceTecVocalGuidanceCustomization | FaceTecSecurityWatermarkCustomization | FaceTecEnterFullScreenCustomization | FaceTecOCRConfirmationCustomization | FaceTecIDScanCustomization | FaceTecOvalCustomization | FaceTecFeedbackBarCustomization | FaceTecFrameCustomization | FaceTecExitAnimationCustomization | FaceTecCancelButtonCustomization | FaceTecSessionTimerCustomization | FaceTecInitialLoadingAnimationCustomization | FaceTecGuidanceCustomization | FaceTecOverlayCustomization | FaceTecResultScreenCustomization | string;
 }
 /**
  * DEPRECATED
@@ -671,18 +641,6 @@ export declare class FaceTecFeedbackBarCustomization {
      */
     textFont: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the text displayed within the FaceTec Browser SDK Feedback Bar.
-     * Default is 'normal'.
-     */
-    textSpacing: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Feedback Bar text size will be automatically resized to best utilize available space per device.
-     * Size of the text displayed within the FaceTec Browser SDK Feedback Bar.
-     * Default is dynamically configured per device at runtime.
-     */
-    textSize: string;
-    /**
      * Corner radius of the FaceTec Browser SDK Feedback Bar.
      * Default is dynamically configured per device at runtime.
      */
@@ -698,18 +656,6 @@ export declare class FaceTecFeedbackBarCustomization {
      * Default is true (enabled).
      */
     enablePulsatingText: boolean;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Feedback Bar width will be dynamically configured to best utilize available space per device.
-     * Percent of the available FaceTec Browser SDK Frame width to use for the FaceTec Browser SDK Feedback Bar's width on desktop browsers.
-     * Default is dynamically configured per device at runtime.
-     */
-    relativeWidthOnDesktop: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Feedback Bar width will be dynamically configured to best utilize available space per device.
-     * Percent of the available FaceTec Browser SDK Frame width to use for the FaceTec Browser SDK Feedback Bar's width on mobile browsers.
-     * Default is dynamically configured per device at runtime.
-     */
-    relativeWidth: string;
     /** Constructor for FaceTecFeedbackBarCustomization object. */
     constructor();
 }
@@ -756,18 +702,6 @@ export declare class FaceTecInitialLoadingAnimationCustomization {
      * Accepts any value assignable to the fontFamily CSS attribute.
      */
     messageFont: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the message text shown to the user while the camera loads.
-     * Default is 'normal'.
-     */
-    messageTextSpacing: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the message text shown to the user while the camera loads.
-     * Default is dynamically configured per device at runtime.
-     */
-    messageTextSize: string;
     /** Constructor for FaceTecInitialLoadingAnimationCustomization object. */
     constructor();
 }
@@ -829,35 +763,11 @@ export declare class FaceTecGuidanceCustomization {
      */
     headerFont: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the title's text during the New User Guidance and Retry Screens.
-     * Default is 'normal'.
-     */
-    headerTextSpacing: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the title's text during the New User Guidance and Retry Screens.
-     * Default is dynamically configured per device at runtime.
-     */
-    headerTextSize: string;
-    /**
      * Font of the title's subtext and messages during the New User Guidance and Retry Screens.
      * Note: This customization can be overridden for specific text using FaceTecGuidanceCustomization.readyScreenSubtextFont and/or .retryScreenSubtextFont.
      * Accepts any value assignable to the fontFamily CSS attribute.
      */
     subtextFont: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the title's subtext and messages during the New User Guidance and Retry Screens.
-     * Default is 'normal'.
-     */
-    subtextTextSpacing: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the title's subtext and messages during the New User Guidance and Retry Screens.
-     * Default is dynamically configured per device at runtime.
-     */
-    subtextTextSize: string;
     /**
      * Font of the title's text displayed on the Get Ready To FaceTec Browser SDK Screen during the New User Guidance and Retry Screens.
      * Note: This will override the header font configured with FaceTecGuidanceCustomization.headerFont for the Get Ready To FaceTec Browser SDK Screen.
@@ -867,24 +777,12 @@ export declare class FaceTecGuidanceCustomization {
      */
     readyScreenHeaderFont: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the title's text displayed on the Get Ready To FaceTec Browser SDK Screen during the New User Guidance and Retry Screens.
-     * Default value is 'normal'.
-     */
-    readyScreenHeaderTextSpacing: string;
-    /**
      * Color of the header text displayed on the Get Ready To FaceTec Browser SDK Screen during the New User Guidance and Retry Screens.
      * Note: This will override the header text color configured with FaceTecGuidanceCustomization.foregroundColor for the Get Ready To FaceTec Browser SDK Screen.
      * If this value is an empty string, FaceTecGuidanceCustomization.foregroundColor will be used for the color of the title's text displayed on the Get Ready To FaceTec Browser SDK Screen.
      * Default value is an empty string.
      */
     readyScreenHeaderTextColor: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size the title's text displayed on the Get Ready To FaceTec Browser SDK Screen during the New User Guidance and Retry Screens.
-     * Default value is an empty string.
-     */
-    readyScreenHeaderTextSize: string;
     /**
      * Specify an html-attributed string to use instead of the localized string for the text of the title displayed on the Get Ready To FaceTec Browser SDK Screen during the New User Guidance and Retry Screens.
      * If this value is an empty string, the localized string, FaceTec_instructions_header_ready, will be used for the text of the title displayed on the Get Ready To FaceTec Browser SDK Screen during the New User Guidance and Retry Screens.
@@ -900,24 +798,12 @@ export declare class FaceTecGuidanceCustomization {
      */
     readyScreenSubtextFont: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the title's subtext displayed on the Get Ready for Video Selfie Screen during the New User Guidance and Retry Screens.
-     * Default value is 'normal'.
-     */
-    readyScreenSubtextTextSpacing: string;
-    /**
      * Color of the title's subtext displayed on the Get Ready for Video Selfie Screen during the New User Guidance and Retry Screens.
      * Note: This will override the title's subtext color configured with FaceTecGuidanceCustomization.foregroundColor for the Get Ready for Video Selfie Screen.
      * If this value is an empty string, FaceTecGuidanceCustomization.foregroundColor will be used for the color of the title's subtext displayed on the Get Ready for Video Selfie Screen.
      * Default value is an empty string.
      */
     readyScreenSubtextTextColor: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the title's subtext displayed on the Get Ready for Video Selfie Screen during the New User Guidance and Retry Screens.
-     * Default value is an empty string.
-     */
-    readyScreenSubtextTextSize: string;
     /**
      * Specify an html-attributed string to use instead of the localized string for the text of the title's subtext displayed on the Get Ready for Video Selfie Screen during the New User Guidance and Retry Screens.
      * If this value is an empty string, the localized string, FaceTec_instructions_message_ready, will be used for the text of the title's subtext displayed on the Get Ready for Video Selfie Screen during the New User Guidance and Retry Screens.
@@ -933,24 +819,12 @@ export declare class FaceTecGuidanceCustomization {
      */
     retryScreenHeaderFont: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the title's text displayed on the first Retry Screen.
-     * Default value is 'normal'.
-     */
-    retryScreenHeaderTextSpacing: string;
-    /**
      * Color of the header text displayed on the first Retry Screen.
      * Note: This will override the header text color configured with FaceTecGuidanceCustomization.foregroundColor for the first Retry Screen.
      * If this value is an empty string, FaceTecGuidanceCustomization.foregroundColor will be used for the color of the title's text displayed on the first Retry Screen.
      * Default value is an empty string.
      */
     retryScreenHeaderTextColor: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the title's text displayed on the first Retry Screen.
-     * Default value is an empty string.
-     */
-    retryScreenHeaderTextSize: string;
     /**
      * Specify an html-attributed string to use instead of the localized string for the text of the title displayed on the first Retry Screen.
      * If this value is an empty string, the localized string, FaceTec_retry_header, will be used for the text of the title displayed on the first Retry Screen.
@@ -966,24 +840,12 @@ export declare class FaceTecGuidanceCustomization {
      */
     retryScreenSubtextFont: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the title's subtext and messages displayed on the first Retry Screen.
-     * Default value is 'normal'.
-     */
-    retryScreenSubtextTextSpacing: string;
-    /**
      * Color of the title's subtext and messages displayed on the first Retry Screen.
      * Note: This will override the title's subtext and message color configured with FaceTecGuidanceCustomization.foregroundColor for the first Retry Screen.
      * If this value is an empty string, FaceTecGuidanceCustomization.foregroundColor will be used for the color of the title's subtext displayed on the first Retry Screen.
      * Default value is an empty string.
      */
     retryScreenSubtextTextColor: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the title's subtext and messages displayed on the first Retry Screen.
-     * Default value is dynamically configured per device at runtime.
-     */
-    retryScreenSubtextTextSize: string;
     /**
      * Specify an html-attributed string to use instead of the localized string for the text of the title's subtext displayed on the first Retry Screen.
      * If this value is an empty string, the localized strings, FaceTec_retry_subheader_message, will be used for the text of the title's subtext displayed on the first Retry Screen.
@@ -996,30 +858,6 @@ export declare class FaceTecGuidanceCustomization {
      * Default is a bold system font.
      */
     buttonFont: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the action button's text during the New User Guidance and Retry Screens.
-     * Default is 'normal'.
-     */
-    buttonTextSpacing: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the action button's text during the New User Guidance and Retry Screens.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonTextSize: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Control the percent of the available FaceTec Browser SDK Frame width to use for the action button during the New User Guidance and Retry Screens for mobile browsers.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonRelativeWidth: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Control the percent of the available FaceTec Browser SDK Frame width to use for the action button during the New User Guidance and Retry Screens for desktop browsers.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonRelativeWidthOnDesktop: string;
     /**
      * Color of the background for the New User Guidance and Retry Screens.
      * Default is white.
@@ -1090,13 +928,6 @@ export declare class FaceTecGuidanceCustomization {
      */
     retryScreenOvalStrokeColor: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. All instruction messages will be concatenated into a multi-line string.
-     * Control whether to layout the Retry Screen's instruction messages using bullet-points.
-     * Applicable localized instruction message strings include: FaceTec_retry_instruction_message_1 and FaceTec_retry_instruction_message_2.
-     * Default is false (disabled).
-     */
-    enableRetryScreenBulletedInstructions: boolean;
-    /**
      * Image displayed on the Camera Permissions Screen.
      * Default is configured to use image named 'FaceTec_camera' located in '/FaceTec_images/' directory (or custom configured default directory for FaceTec Browser SDK images).
      */
@@ -1164,50 +995,14 @@ export declare class FaceTecEnterFullScreenCustomization {
      */
     headerFont: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the title's text during the Enter Full Screen Page.
-     * Default is 'normal'.
-     */
-    headerTextSpacing: string;
-    /**
      * Font of the title's subtext and messages during the Enter Full Screen Page.
      */
     subtextFont: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the title's subtext and messages during the Enter Full Screen Page.
-     * Default is 'normal'.
-     */
-    subtextTextSpacing: string;
     /**
      * Font of the title's subtext during the Enter Full Screen Page.
      * Default is a bold system font.
      */
     buttonFont: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the action button's text during the Enter Full Screen Page.
-     * Default is 'normal'.
-     */
-    buttonTextSpacing: string;
-    /**
-     * Size of the action button's text during the Enter Full Screen Page.
-     * Accepts any value assignable to the fontSize CSS attribute.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonTextSize: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Control the percent of the available FaceTec Browser SDK Frame width to use for the action button during the Enter Full Screen Page for mobile browsers.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonRelativeWidth: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Control the percent of the available FaceTec Browser SDK Frame width to use for the action button during the Enter Full Screen Page for desktop browsers.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonRelativeWidthOnDesktop: string;
     /**
      * Color of the background for the Enter Full Screen Page.
      * Default is white.
@@ -1336,18 +1131,6 @@ export declare class FaceTecResultScreenCustomization {
      */
     messageFont: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the message text displayed on the Result Screen.
-     * Default is 'normal'.
-     */
-    messageTextSpacing: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the message text displayed on the Result Screen.
-     * Default is dynamically configured per device at runtime.
-     */
-    messageTextSize: string;
-    /**
      * Color of the activity indicator animation shown during server-side work.
      * Default is custom FaceTec Browser SDK color.
      */
@@ -1401,7 +1184,6 @@ export declare class FaceTecResultScreenCustomization {
 }
 /**
  * Customize the FaceTec Photo ID Match Screens.
- * .selectionScreenBackgroundColors will be implemented in an upcoming release of the FaceTec Browser SDK.
  * .reviewScreenForegroundColor will be implemented in an upcoming release of the FaceTec Browser SDK.
  * .reviewScreenTextBackgroundColor will be implemented in an upcoming release of the FaceTec Browser SDK.
  * .reviewScreenTextBackgroundBorderColor will be implemented in an upcoming release of the FaceTec Browser SDK.
@@ -1433,51 +1215,15 @@ export declare class FaceTecIDScanCustomization {
      */
     headerFont: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the title's text during the Identity Document Type Selection Screen.
-     * Default is 'normal'.
-     */
-    headerTextSpacing: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the title text during the Identity Document Type Selection Screen.
-     * Default is dynamically configured per device at runtime.
-     */
-    headerTextSize: string;
-    /**
      * Font of the message text during the Identity Document Capture and Review Screens.
      * Accepts any value assignable to the fontFamily CSS attribute.
      */
     subtextFont: string;
     /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the title's subtext and messages during the Identity Document Capture and Review Screens.
-     * Default is 'normal'.
-     */
-    subtextTextSpacing: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the message text during the Identity Document Capture and Review Screens.
-     * Default is dynamically configured per device at runtime.
-     */
-    subtextTextSize: string;
-    /**
      * Font of the action button's text during the Photo ID Match Screens.
      * Accepts any value assignable to the fontFamily CSS attribute.
      */
     buttonFont: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Spacing between the characters of the action button's text during the Photo ID Match Screens.
-     * Default is 'normal'.
-     */
-    buttonTextSpacing: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK. Text size will be automatically resized to best utilize available space per device.
-     * Size of the action button's text during the Photo ID Match Screens.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonTextSize: string;
     /**
      * Thickness of the action button's border during the Photo ID Match Screens.
      * Default is dynamically configured per device at runtime.
@@ -1523,18 +1269,6 @@ export declare class FaceTecIDScanCustomization {
      * Default is custom FaceTec Browser SDK color.
      */
     buttonBackgroundDisabledColor: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Control the percent of the available FaceTec Browser SDK Frame width to use for the action button during the Photo ID Match Screens for mobile browsers.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonRelativeWidth: string;
-    /**
-     * @deprecated This API customization is now a no-op and will be removed in an upcoming version of the FaceTec Browser SDK.
-     * Control the percent of the available FaceTec Browser SDK Frame width to use for the action button during the Photo ID Match Screens for desktop browsers.
-     * Default is dynamically configured per device at runtime.
-     */
-    buttonRelativeWidthOnDesktop: string;
     /**
      * Color of the Identity Document Type Selection Screen background.
      * Default is white.
@@ -1676,6 +1410,167 @@ export declare class FaceTecIDScanCustomization {
     constructor();
     [key: string]: string | boolean;
 }
+export declare class FaceTecOCRConfirmationCustomization {
+    /**
+     * Color of the User OCR Confirmation Screen background.
+     * Default is white.
+     */
+    backgroundColors: string;
+    /**
+     * Color of the line below the main header on the User OCR Confirmation Screen.
+     * Default is custom color.
+     */
+    mainHeaderDividerLineColor: string;
+    /**
+     * Thickness of the line below the main header on the User OCR Confirmation Screen.
+     * Default is dynamically configured per device at runtime.
+     */
+    mainHeaderDividerLineWidth: string;
+    /**
+     * Font of the the main header text on the User OCR Confirmation Screen.
+     * Accepts any value assignable to the fontFamily CSS attribute.
+     */
+    mainHeaderFont: string;
+    /**
+     * Color of the main header text on the User OCR Confirmation Screen.
+     * Default is custom color.
+     */
+    mainHeaderTextColor: string;
+    /**
+     * Font of the section headers' text on the User OCR Confirmation Screen.
+     * Accepts any value assignable to the fontFamily CSS attribute.
+     */
+    sectionHeaderFont: string;
+    /**
+     * Color of the section headers' text on the User OCR Confirmation Screen.
+     * Default is off-black.
+     */
+    sectionHeaderTextColor: string;
+    /**
+     * Font of the field labels' text on the User OCR Confirmation Screen.
+     * Accepts any value assignable to the fontFamily CSS attribute.
+     */
+    fieldLabelFont: string;
+    /**
+     * Color of the field labels' text on the User OCR Confirmation Screen.
+     * Default is off-black.
+     */
+    fieldLabelTextColor: string;
+    /**
+     * Font of the field values' text on the User OCR Confirmation Screen.
+     * Accepts any value assignable to the fontFamily CSS attribute.
+     */
+    fieldValueFont: string;
+    /**
+     * Color of the field values' text on the User OCR Confirmation Screen.
+     * Default is off-black.
+     */
+    fieldValueTextColor: string;
+    /**
+     * Color of the input fields' backgrounds on the User OCR Confirmation Screen.
+     * Default is transparent.
+     */
+    inputFieldBackgroundColor: string;
+    /**
+     * Font of the input fields' text on the User OCR Confirmation Screen.
+     * Accepts any value assignable to the fontFamily CSS attribute.
+     * If this value is an empty string, the value configured for .fieldValueFont will be used.
+     * Default is an empty string.
+     */
+    inputFieldFont: string;
+    /**
+     * Color of the input fields' text on the User OCR Confirmation Screen.
+     * If this value is an empty string, the value configured for .fieldValueTextColor will be used.
+     * Default is an empty string.
+     */
+    inputFieldTextColor: string;
+    /**
+     * Color of the input fields' borders on the User OCR Confirmation Screen.
+     * Default is off-black.
+     */
+    inputFieldBorderColor: string;
+    /**
+     * Thickness of the input fields' borders on the User OCR Confirmation Screen.
+     * Default is dynamically configured per device at runtime.
+     */
+    inputFieldBorderWidth: string;
+    /**
+     * Corner radius of the input fields' borders on the User OCR Confirmation Screen.
+     * Default is dynamically configured per device at runtime.
+     */
+    inputFieldCornerRadius: string;
+    /**
+     * Font of the input fields' placeholder text on the User OCR Confirmation Screen.
+     * Accepts any value assignable to the fontFamily CSS attribute.
+     * If this value is an empty string, the value configured for .inputFieldFont will be used unless that value is an empty string, in which case the value configured for .fieldValueFont will be used.
+     * Default is an empty string.
+     */
+    inputFieldPlaceholderFont: string;
+    /**
+     * Color of the input fields' placeholder text on the User OCR Confirmation Screen.
+     * If this value is an empty string, the value configured for .inputFieldTextColor will be used with a 0.4 alpha component unless that value is an empty string, in which case the value configured for .fieldValueFont will be used with a 0.4 alpha component.
+     * Default is an empty string.
+     */
+    inputFieldPlaceholderTextColor: string;
+    /**
+     * Control whether the input fields' borders are only displayed along the bottom bounds, or if they are displayed as a full box around the input fields on the User OCR Confirmation Screen.<br>
+     * Default is false (showing full border box around input fields).
+     */
+    showInputFieldBottomBorderOnly: boolean;
+    /**
+     * Font of the action button's text during the User OCR Confirmation Screen.
+     * Accepts any value assignable to the fontFamily CSS attribute.
+     */
+    buttonFont: string;
+    /**
+     * Thickness of the action button's border during the User OCR Confirmation Screen.
+     * Default is dynamically configured per device at runtime.
+     */
+    buttonBorderWidth: string;
+    /**
+     * Color of the action button's border during the User OCR Confirmation Screen.
+     * Default is transparent.
+     */
+    buttonBorderColor: string;
+    /**
+     * Corner radius of the action button's border during the User OCR Confirmation Screen.
+     * Default is dynamically configured per device at runtime.
+     */
+    buttonCornerRadius: string;
+    /**
+     * Color of the action button's text during the User OCR Confirmation Screen.
+     * Default is white.
+     */
+    buttonTextNormalColor: string;
+    /**
+     * Color of the action button's text when the button is pressed during the User OCR Confirmation Screen.
+     * Default is white.
+     */
+    buttonTextHighlightColor: string;
+    /**
+     * Color of the action button's text when the button is disabled during the User OCR Confirmation Screen.
+     * Default is white.
+     */
+    buttonTextDisabledColor: string;
+    /**
+     * Color of the action button's background during the User OCR Confirmation Screen.
+     * Default is custom FaceTec Browser SDK color.
+     */
+    buttonBackgroundNormalColor: string;
+    /**
+     * Color of the action button's background when the button is pressed during the User OCR Confirmation Screen.
+     * Default is custom FaceTec Browser SDK color.
+     */
+    buttonBackgroundHighlightColor: string;
+    /**
+     * Color of the action button's background when the button is disabled during the User OCR Confirmation Screen.
+     * Default is custom FaceTec Browser SDK color.
+     */
+    buttonBackgroundDisabledColor: string;
+    /** Constructor for FaceTecOCRConfirmationCustomization object. */
+    constructor();
+    [key: string]: string | boolean;
+}
 export declare class FaceTecSecurityWatermarkCustomization {
     securityWatermarkImage: FaceTecSecurityWatermarkImage;
     constructor();
@@ -1721,6 +1616,33 @@ export declare class FaceTecVocalGuidanceCustomization {
     constructor();
 }
 export declare var FaceTecCustomizations: {
+    idScanResultScreenMessageOverrides: {
+        0?: string | null | undefined;
+        1?: string | null | undefined;
+        2?: string | null | undefined;
+        3?: string | null | undefined;
+        4?: string | null | undefined;
+        5?: string | null | undefined;
+        6?: string | null | undefined;
+        7?: string | null | undefined;
+        8?: string | null | undefined;
+        9?: string | null | undefined;
+    };
+    idScanUploadMessageOverrides: {
+        0?: string | null | undefined;
+        1?: string | null | undefined;
+        2?: string | null | undefined;
+        3?: string | null | undefined;
+        4?: string | null | undefined;
+        5?: string | null | undefined;
+        6?: string | null | undefined;
+        7?: string | null | undefined;
+        8?: string | null | undefined;
+        9?: string | null | undefined;
+        10?: string | null | undefined;
+        11?: string | null | undefined;
+        12?: string | null | undefined;
+    };
     overrideResultScreenSuccessMessageObject: {
         message: string;
     };
@@ -1732,10 +1654,6 @@ export declare var FaceTecCustomizations: {
     currentCustomization: FaceTecCustomization;
     currentLowLightCustomization: () => FaceTecCustomization | null;
     currentDynamicDimmingCustomization: () => FaceTecCustomization | null;
-    activeLightMode: () => LightModeState;
-    setActiveLightMode: (lightMode: LightModeState) => void;
-    shouldUseLowLightCustomization: () => boolean;
-    shouldUseDynamicDimmingCustomization: () => boolean;
     setImagesDirectory: (directory: string) => void;
     verifyColorCustomizations: (latestCustomization: FaceTecCustomization) => void;
     FaceTecOvalCustomization: typeof FaceTecOvalCustomization;
