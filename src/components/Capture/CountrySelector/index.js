@@ -26,11 +26,31 @@ const options = allCountriesList.map((country) => ({
   label: countryTranslations[country.labelKey.replace('countriesList.', '')],
 }))
 
+<<<<<<< HEAD
 const CountrySelector = ({ value, error, onChange, ...props }) => {
   const { translate } = props
   const [currentValue, setCurrentValue] = useState()
 
   const handleChange = (selectedCountry) => {
+=======
+const findEntry = (value) =>
+  options.find(
+    (entry) => entry.countryCode === value || entry.isoAlpha3 === value
+  )
+
+const defaultCountry = 'GBR'
+
+const CountrySelector = ({ value, error, onChange, ...props }) => {
+  const [currentValue, setCurrentValue] = useState()
+  //findEntry(value || defaultCountry)
+
+  useEffect(() => {
+    if (!value) onChange?.(defaultCountry)
+  }, [])
+
+  const handleChange = (selectedCountry) => {
+    console.log(selectedCountry)
+>>>>>>> 4c3c6efb (countryselector added)
     setCurrentValue(selectedCountry.isoAlpha3)
     onChange?.(selectedCountry.isoAlpha3)
   }
@@ -46,6 +66,7 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
   return (
     <div className={styles.countrySelector}>
       <Autocomplete
+<<<<<<< HEAD
         id="country"
         name="country"
         required={true}
@@ -53,6 +74,14 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
         showAllValues
         dropdownArrow={() => <IconChevronDown className={styles.chevronIcon} />}
         placeholder={translate('profile_data.country_placeholder')}
+=======
+        id="country-search"
+        source={suggestCountries}
+        showAllValues
+        dropdownArrow={() => <i className={styles.dropdownIcon} />}
+        // placeholder={translate('country_select.search.input_placeholder')}
+        //    tNoResults={() => this.getNoResultsTextForDropdown()}
+>>>>>>> 4c3c6efb (countryselector added)
         displayMenu="overlay"
         cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
         templates={{
@@ -61,10 +90,17 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
         }}
         onConfirm={handleChange}
         confirmOnBlur={false}
+<<<<<<< HEAD
         defaultValue={currentValue}
+=======
+>>>>>>> 4c3c6efb (countryselector added)
       />
     </div>
   )
 }
 
+<<<<<<< HEAD
 export default localised(CountrySelector)
+=======
+export default CountrySelector
+>>>>>>> 4c3c6efb (countryselector added)

@@ -87,7 +87,7 @@ export default class WorkflowHistoryRouter extends Component<
       }
     )
   }
-  
+
   clearDocData = (): void => {
     this.setState({
       ...this.state,

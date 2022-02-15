@@ -15,18 +15,29 @@ import {
   Button,
   Asterisk,
 } from '@onfido/castor-react'
+<<<<<<< HEAD
 import type { WithLocalisedProps } from '~types/hocs'
 import CountrySelector from './CountrySelector'
 
 import type { StepComponentDataProps } from '~types/routers'
 import { StepOptionData } from '~types/steps'
+=======
+import CountrySelector from './CountrySelector'
+
+import type { StepComponentDataProps } from '~types/routers'
+>>>>>>> 4c3c6efb (countryselector added)
 
 type DataProps = StepComponentDataProps & {
   title: string
   dataPath: string
+<<<<<<< HEAD
   data: StepOptionData
   setPersonalData: (data: any, callback: () => void) => void
 } & WithLocalisedProps
+=======
+  setPersonalData: (data: any, callback: () => void) => void
+}
+>>>>>>> 4c3c6efb (countryselector added)
 
 const Data = ({
   title,
@@ -110,8 +121,12 @@ const Data = ({
                 />
               )}
               {validation[key] && (
+<<<<<<< HEAD
                 <Validation state="error">
                   <IconError fill={color('error-500')} />
+=======
+                <Validation state="error" withIcon>
+>>>>>>> 4c3c6efb (countryselector added)
                   {translate('profile_data.required_error')}
                 </Validation>
               )}
