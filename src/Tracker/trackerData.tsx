@@ -863,7 +863,41 @@ export const analyticsEventsMapping = new Map<
       },
     },
   ],
-
+  [
+    'screen_face_face_video_capture_record_button_click',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_RECORD_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_recording_next_click',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_play_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_PLAY_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_pause_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_PAUSE_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_playback_finished',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_PLAYBACK_FINISHED',
+      properties: { event_type: 'action' },
+    },
+  ],
   [
     'screen_document_front_capture_request_error',
     {
@@ -904,6 +938,27 @@ export const analyticsEventsMapping = new Map<
         event_type: 'view',
         ui_alerts: { invalid_size: 'error' },
       },
+    },
+  ],
+  [
+    'screen_document_confirmation_video_play_clicked',
+    {
+      eventName: 'DOCUMENT_VIDEO_CONFIRMATION_PLAY_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_document_confirmation_video_pause_clicked',
+    {
+      eventName: 'DOCUMENT_VIDEO_CONFIRMATION_PAUSE_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_document_confirmation_video_playback_finished',
+    {
+      eventName: 'DOCUMENT_VIDEO_CONFIRMATION_PLAYBACK_FINISHED',
+      properties: { event_type: 'action' },
     },
   ],
 ])

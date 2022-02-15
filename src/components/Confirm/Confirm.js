@@ -390,12 +390,12 @@ class Confirm extends Component {
     return (
       <Previews
         isFullScreen={isFullScreen}
-        trackScreen={trackScreen}
         capture={capture}
         retakeAction={this.onRetake}
         confirmAction={this.onConfirm}
         isUploading={uploadInProgress}
         error={error}
+        trackScreen={trackScreen}
         method={method}
         documentType={documentType}
         poaDocumentType={poaDocumentType}

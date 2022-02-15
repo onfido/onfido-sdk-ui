@@ -6,6 +6,7 @@ import CaptureVideoViewer from './CaptureVideoViewer'
 
 import type { CaptureMethods } from '~types/commons'
 import type { CapturePayload } from '~types/redux'
+import { WithTrackingProps } from '~types/hocs'
 
 type Props = {
   className?: string
@@ -15,7 +16,7 @@ type Props = {
   imageAltTag?: string
   videoAriaLabel?: string
   onVideoError?: () => void
-}
+} & WithTrackingProps
 
 const CaptureViewer: FunctionComponent<Props> = ({
   className,
@@ -24,6 +25,7 @@ const CaptureViewer: FunctionComponent<Props> = ({
   isFullScreen,
   imageAltTag,
   videoAriaLabel = 'Video preview',
+  trackScreen,
   onVideoError = () =>
     console.error('An unexpected Video Preview error has occurred'),
 }) => {
@@ -38,6 +40,7 @@ const CaptureViewer: FunctionComponent<Props> = ({
         blob={blob}
         className={className}
         onVideoError={onVideoError}
+        trackScreen={trackScreen}
       />
     )
   }
