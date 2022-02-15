@@ -2484,7 +2484,7 @@
     "path": "node_modules/audit-ci",
     "licenseFile": "node_modules/audit-ci/LICENSE"
   },
-  "autoprefixer@9.8.6": {
+  "autoprefixer@9.8.8": {
     "licenses": "MIT",
     "repository": "https://github.com/postcss/autoprefixer",
     "publisher": "Andrey Sitnik",
@@ -5362,7 +5362,7 @@
     "path": "node_modules/flush-write-stream",
     "licenseFile": "node_modules/flush-write-stream/LICENSE"
   },
-  "follow-redirects@1.14.4": {
+  "follow-redirects@1.14.7": {
     "licenses": "MIT",
     "repository": "https://github.com/follow-redirects/follow-redirects",
     "publisher": "Ruben Verborgh",
@@ -10997,7 +10997,7 @@
     "licenseFile": "node_modules/selenium-webdriver/LICENSE",
     "noticeFile": "node_modules/selenium-webdriver/NOTICE"
   },
-  "selfsigned@1.10.8": {
+  "selfsigned@1.10.14": {
     "licenses": "MIT",
     "repository": "https://github.com/jfromaniello/selfsigned",
     "publisher": "José F. Romaniello",
