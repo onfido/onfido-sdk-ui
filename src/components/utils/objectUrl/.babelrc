@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
   "extends": "../../../../babel.config.js"
+=======
+  "extends": "../../../../babel.config"
+>>>>>>> 3620be6c2 (review: fixed icons, address object)
 }

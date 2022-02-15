@@ -3,7 +3,13 @@
 @import './constants';
 
 :global {
-  @include castor.components();
+  @include castor.Field();
+  @include castor.FieldLabel();
+  @include castor.Button();
+  @include castor.Validation();
+  @include castor.Asterisk();
+  @include castor.Input();
+  @include castor.Icon();
 
   .ods-field-label {
     text-align: left;
