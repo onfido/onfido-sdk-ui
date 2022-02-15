@@ -12,6 +12,7 @@ import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.ImageQualityGuide;
 import com.onfido.qa.websdk.page.MobileNotificationSent;
+import com.onfido.qa.websdk.page.SelfieUpload;
 import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.EnterpriseFeatures;
@@ -221,11 +222,8 @@ public class CrossDeviceIT extends WebSdkIT {
         takePercySnapshot("CrossDeviceSubmit");
     }
 
-    // FIXME: enable test
     @Test(description = "should verify all custom UI elements on customised cross device mobile client intro screen", groups = {"percy", "tabs"}, enabled = false)
     public void testShouldVerifyAllCustomUiElementsOnCustomisedCrossDeviceMobileClientIntroScreen() {
-
-        // TODO: check with Stefania what is the expected behavior here. I miss the CrossDeviceClientIntro. Bug?
 
         var link = onfido().withSteps("welcome", new FaceStep().withUseUploader(true))
                            .withCrossDeviceClientIntroProductName(PRODUCT_NAME)
@@ -243,10 +241,10 @@ public class CrossDeviceIT extends WebSdkIT {
         takePercySnapshot("CrossDeviceMobileConnected");
 
         switchToMobileScreen();
-        var crossDeviceClientIntro = verifyPage(CrossDeviceClientIntro.class);
+        var selfieUpload = verifyPage(SelfieUpload.class);
 
-        assertThat(crossDeviceClientIntro.subTitle()).contains(PRODUCT_NAME);
-        assertThat(crossDeviceClientIntro.isCustomIconDisplayed()).isTrue();
+        // FIXME: bug, the sub title doesn't contain the product name
+        assertThat(selfieUpload.subTitle()).contains(PRODUCT_NAME);
 
         takePercySnapshot("CrossDeviceClientIntro-customProductName");
 
