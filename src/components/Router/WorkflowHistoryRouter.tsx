@@ -133,7 +133,7 @@ export default class WorkflowHistoryRouter extends Component<
   }
 
   getOutcomeStep = (workflow: WorkflowResponse): StepTypes => {
-    return !workflow.has_remaining_interactive_task
+    return !workflow.has_remaining_interactive_tasks
       ? 'complete'
       : workflow.outcome
       ? 'pass'
@@ -322,12 +322,16 @@ export default class WorkflowHistoryRouter extends Component<
 
       console.log('workflow loaded: ', workflow)
 
-      if (workflow.finished || !workflow.has_remaining_interactive_task) {
+      if (
+        workflow.finished ||
+        workflow.has_remaining_interactive_tasks === false
+      ) {
         this.setState(
           (state) => ({
             ...state,
             flow: 'captureSteps',
             loadingStep: false,
+            //@ts-ignore
             steps: [formatStep(this.getOutcomeStep(workflow))],
             step: 0, // start again from 1st step,
             completed: true, // indicate that we have completed the workflow
