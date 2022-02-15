@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // can't be `.babelrc` because Jest won't work with it: https://github.com/facebook/jest/issues/10256
-
-=======
->>>>>>> 3620be6c (review: fixed icons, address object)
 module.exports = {
   sourceMaps: true,
   presets: [
