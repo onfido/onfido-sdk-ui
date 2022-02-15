@@ -1,7 +1,7 @@
 import { FaceTecCustomization, FaceTecOvalCustomization, FaceTecCancelButtonCustomization, FaceTecFeedbackBarCustomization, FaceTecFrameCustomization, FaceTecExitAnimationCustomization, FaceTecSessionTimerCustomization, FaceTecExitAnimationStyle, FaceTecCancelButtonLocation, FaceTecOverlayCustomization, FaceTecGuidanceCustomization, FaceTecResultScreenCustomization, FaceTecEnterFullScreenCustomization, FaceTecSecurityWatermarkImage, FaceTecSecurityWatermarkCustomization } from "./FaceTecCustomization";
 import { FaceTecLoggingMode } from "./FaceTecLogging";
 import { FaceTecSession, FaceTecSessionFromIFrame } from "./FaceTecSession";
-import { FaceTecAuditTrailType, FaceTecSDKStatus, FaceTecSessionStatus, FaceTecIDScanStatus, FaceTecFaceScanProcessor, FaceTecIDScanProcessor, FaceTecIDScanRetryMode, FaceTecIDScanNextStep, FaceTecFaceScanResultCallback, FaceTecIDScanResultCallback, FaceTecRetryScreen, InitializeCallback } from "./FaceTecPublicApi";
+import { FaceTecAuditTrailType, FaceTecSDKStatus, FaceTecSessionStatus, FaceTecIDScanStatus, FaceTecFaceScanProcessor, FaceTecIDScanProcessor, FaceTecIDScanNextStep, FaceTecFaceScanResultCallback, FaceTecIDScanResultCallback, FaceTecRetryScreen, InitializeCallback, FaceTecAuditTrailImagesToReturn } from "./FaceTecPublicApi";
 export declare var FaceTecSDK: {
     /**
     * Initialize FaceTecSDK in development mode using a Device Identifier Key - HTTPS Log mode.
@@ -56,12 +56,8 @@ export declare var FaceTecSDK: {
     **/
     getFriendlyDescriptionForFaceTecIDScanStatus: (enumValue: FaceTecIDScanStatus) => string;
     /**
-      * FaceTecIDSCan retry front, back or both.
-    **/
-    FaceTecIDScanRetryMode: typeof FaceTecIDScanRetryMode;
-    /**
       * FaceTec SDK ID Scan process behavior on starting.
-      * Configure whether to show the ID Type Selection Screen, go directly to the ID Capture Screen for a specified ID type, or skip the entire ID Scan process and exit.
+      * Configure whether to show the ID Type Selection Screen, or skip the entire ID Scan process and exit.
     **/
     FaceTecIDScanNextStep: typeof FaceTecIDScanNextStep;
     /**
@@ -182,9 +178,25 @@ export declare var FaceTecSDK: {
         [key: string]: string;
     }) => void;
     /**
+     * Configure the custom localized strings to be used for groups, fields, and placeholder text on ID Scan's User OCR Confirmation Screen.
+     * @param ocrLocalizationJSON Optional object created from a JSON that follows our template file of configurable groups, fields, and placeholder texts: "FaceTec_OCR_Customization.json".  By default, this is null and the strings used will be our internal defaults.
+    */
+    configureOCRLocalization: (ocrLocalizationJSON: {
+        [key: string]: any;
+    }) => void;
+    /**
       * Set the desired FaceTecSDK audit trail behavior.
     **/
     auditTrailType: FaceTecAuditTrailType;
+    /**
+      * Set the maximum number of FaceTecSDK audit trail images to return. Valid values are ONE or UP_TO_SIX, default is ONE.
+    **/
+    setMaxAuditTrailImages: (auditTrailImagesToReturn: FaceTecAuditTrailImagesToReturn) => void;
+    /**
+      * Maximum number of Audit Trail images to return.
+      * Default is ONE.
+    **/
+    FaceTecAuditTrailImagesToReturn: typeof FaceTecAuditTrailImagesToReturn;
     /**
       * Unload FaceTecSDK and all its resources.
     **/
