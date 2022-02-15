@@ -23,6 +23,7 @@ import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
 import Pass from '../Pass'
 import Reject from '../Reject'
+import Review from '../Review'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import CrossDeviceClientIntro from 'components/crossDevice/ClientIntro'
@@ -169,6 +170,7 @@ const buildCaptureStepComponents = (
     complete,
     pass: [Pass],
     reject: [Reject],
+    review: [Review],
   }
 }
 
