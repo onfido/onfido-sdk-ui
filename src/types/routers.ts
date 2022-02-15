@@ -88,7 +88,7 @@ export type HistoryRouterProps = {
   stepIndexType?: StepIndexType
   steps: StepConfig[]
   workflowRunId?: string
-  setDocData?: () => void
+  setDocData?: (data: unknown, callback?: () => void) => void
 } & InternalRouterProps
 
 export type StepsRouterProps = {

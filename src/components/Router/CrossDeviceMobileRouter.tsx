@@ -85,7 +85,7 @@ type State = {
   steps?: StepConfig[]
   token?: string
   useWorkflow?: boolean
-  docPayload?: any[]
+  docPayload?: Record<string, unknown>[]
 }
 
 export default class CrossDeviceMobileRouter extends Component<
@@ -344,9 +344,16 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   sendDocData = (data: unknown, callback?: () => void): void => {
-    this.setState({
-      docPayload: [...this.state.docPayload, data],
-    })
+    this.setState(
+      {
+        ...this.state,
+        // @ts-ignore
+        docPayload: [...this.state.docPayload, data],
+      },
+      () => {
+        callback?.() // this is possible next step call, but we need to make sure doc data is set
+      }
+    )
   }
 
   renderContent = (): h.JSX.Element => {
