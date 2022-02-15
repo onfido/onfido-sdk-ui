@@ -62,7 +62,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
   autoFocusOnInitialScreenTitle,
 }) => {
-  const [ { useWorkflow },{ findStep },] = useSdkOptions()
+  const [{ useWorkflow }, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
 
   const welcomeStep = findStep('welcome')

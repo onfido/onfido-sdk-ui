@@ -68,8 +68,4 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
   )
 }
 
-<<<<<<< HEAD
 export default localised(CountrySelector)
-=======
-export default localised(CountrySelector)
->>>>>>> 3620be6c (review: fixed icons, address object)
