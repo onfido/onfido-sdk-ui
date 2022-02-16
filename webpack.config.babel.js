@@ -188,8 +188,6 @@ const CONFIG_MAP = {
 
 const CONFIG = CONFIG_MAP[NODE_ENV]
 
-console.log(CONFIG)
-
 const formatDefineHash = (defineHash) =>
   mapObject(
     mapKeys(defineHash, (key) => `process.env.${key}`),
