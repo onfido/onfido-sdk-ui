@@ -8,6 +8,29 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.17.0] - 2022-01-24
+
+### Changed
+
+- Change the behavior when `useMultipleSelfieCapture` feature is enable to stop capturing periodic snapshots once the final selfie is being captured.
+
+### Fixed
+
+- UI: Fixed Live Document Capture flow's camera inactive warning not displaying the basic camera fallback option if `uploadFallback` is not defined for SDK configuration's Document step.
+
+## [6.16.0] - 2021-12-15
+
+### Added
+
+- Public: Added support for Dutch `nl_NL`.
+- Internal: Added new analytics event naming convention for `v3/analytics`. Woopra will still receive the old events until we are ready to discontinue the integration.
+
+### Changed
+
+- Public: Added `autoFocusOnInitialScreenTitle` SDK configuration option for integrators to override the SDK auto focusing on the initial screen's title on loading. The default behaviour may not be desirable for some host apps or sites as it could cause the browser to focus on the SDK, rather than content or form inputs outside of the SDK that the end user should see and fill in first.
+- Upgrade `react-phone-number-input` to v3.1.38
+- Revert change which returns document type as 'unknown' in `onComplete` callback payload if Residence Permit is selected. The API now supports Residence Permit as a document type for document uploads.
+
 ## [6.15.5] - 2021-12-2
 
 ### Fixed
@@ -1134,7 +1157,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...development
+[6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.16.0
 [6.15.5]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...6.15.5
 [6.15.4]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...6.15.4
 [6.15.3]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...6.15.3

@@ -14,7 +14,7 @@ import { buildStepFinder, getEnabledDocuments } from '~utils/steps'
 import Modal from '../Modal'
 import Router from '../Router'
 import * as Tracker from '../../Tracker'
-import { getCountryDataForDocumentType } from '../../supported-documents'
+import { getCountryDataForDocumentType } from '~supported-documents'
 
 import type { NormalisedSdkOptions } from '~types/commons'
 import type {
@@ -71,11 +71,7 @@ class ModalApp extends Component<Props> {
       const trackedProperties = {
         is_custom_ui: hasCustomUIConfigured,
       }
-      Tracker.sendEvent(
-        'started flow',
-        Tracker.TRACKED_EVENT_TYPES.flow,
-        trackedProperties
-      )
+      Tracker.sendEvent('started flow', trackedProperties)
     }
   }
 
@@ -126,8 +122,7 @@ class ModalApp extends Component<Props> {
     Tracker.trackException(message)
   }
 
-  trackOnComplete = () =>
-    Tracker.sendEvent('completed flow', Tracker.TRACKED_EVENT_TYPES.flow)
+  trackOnComplete = () => Tracker.sendEvent('completed flow')
 
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,

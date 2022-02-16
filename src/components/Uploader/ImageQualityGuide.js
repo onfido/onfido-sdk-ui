@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import { localised } from '../../locales'
+import { localised } from '~locales'
 import { trackComponentAndMode } from '../../Tracker'
 import { isDesktop, addDeviceRelatedProperties, capitalise } from '~utils'
 import UploadError from './Error'

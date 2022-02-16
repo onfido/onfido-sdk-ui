@@ -1,6 +1,7 @@
 import { h, render } from 'preact'
-import { getCountryCodes } from 'react-phone-number-input/modules/countries'
-import labels from 'react-phone-number-input/locale/default.json'
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
+const labels = require('react-phone-number-input/locale/en.json')
+
 import 'custom-event-polyfill'
 
 // TODO: These IE11 polyfills are missing in `development` after the Typescript conversion.
@@ -82,7 +83,8 @@ const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
 const isSMSCountryCodeValid = (smsNumberCountryCode: string) => {
   // If you need to refactor this code, remember not to introduce large libraries such as
   // libphonenumber-js in the main bundle!
-  const countries = getCountryCodes(labels)
+  // HACK: Not using react-phone-number-input's getCountries() method as it requires a metadata object from libphonenumber-js
+  const countries = Object.keys(labels)
   const isCodeValid = countries.includes(smsNumberCountryCode)
   if (!isCodeValid) {
     console.warn(

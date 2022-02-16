@@ -1,16 +1,27 @@
 import { h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import ScreenLayout from '../Theme/ScreenLayout'
-import PageTitle from '../PageTitle'
-import { localised } from '../../locales'
+import { localised } from '~locales'
+import { WithLocalisedProps } from '~types/hocs'
+import { TranslateCallback } from '~types/locales'
+import { StepComponentFaceProps } from '~types/routers'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
-import { compose } from '~utils/func'
+import PageTitle from '../PageTitle'
+import ScreenLayout from '../Theme/ScreenLayout'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-const InstructionsPure = ({ listScreenReaderText, instructions }) => (
+type Instruction = { key: string; text: string }
+type IntroProps = WithLocalisedProps & StepComponentFaceProps
+
+const InstructionsPure = ({
+  listScreenReaderText,
+  instructions,
+}: {
+  listScreenReaderText: string
+  instructions: Instruction[]
+}) => (
   <div className={theme.scrollableContent}>
     <ul className={style.introBullets} aria-label={listScreenReaderText}>
       {instructions.map((instruction) => (
@@ -33,7 +44,13 @@ const InstructionsPure = ({ listScreenReaderText, instructions }) => (
   </div>
 )
 
-const Actions = ({ nextStep, translate }) => (
+const Actions = ({
+  nextStep,
+  translate,
+}: {
+  nextStep: () => void
+  translate: TranslateCallback
+}) => (
   <Button
     type="button"
     variant="primary"
@@ -45,8 +62,13 @@ const Actions = ({ nextStep, translate }) => (
   </Button>
 )
 
-const Intro = ({ translate, nextStep }) => {
-  const instructions = [
+const Intro = ({
+  translate,
+  nextStep,
+  steps,
+  autoFocusOnInitialScreenTitle,
+}: IntroProps) => {
+  const instructions: Array<Instruction> = [
     {
       key: 'selfie',
       text: translate('selfie_intro.list_item_face_forward'),
@@ -57,6 +79,7 @@ const Intro = ({ translate, nextStep }) => {
     },
   ]
   const actions = <Actions {...{ nextStep, translate }} />
+  const isFirstScreen = steps[0].type === 'face'
 
   return (
     <ScreenLayout actions={actions}>
@@ -64,6 +87,7 @@ const Intro = ({ translate, nextStep }) => {
         <PageTitle
           title={translate('selfie_intro.title')}
           subTitle={translate('selfie_intro.subtitle')}
+          shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
         />
         <InstructionsPure
           listScreenReaderText={translate('selfie_intro.list_accessibility')}
@@ -75,6 +99,6 @@ const Intro = ({ translate, nextStep }) => {
 }
 
 export default trackComponent(
-  compose(localised, withCrossDeviceWhenNoCamera)(Intro),
+  localised(withCrossDeviceWhenNoCamera(Intro)),
   'selfie_intro'
 )
