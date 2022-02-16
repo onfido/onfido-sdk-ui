@@ -427,8 +427,9 @@ const configNpmLib = () => ({
   externals: [
     nodeExternals({
       modulesFromFile: {
-        include: ['dependencies'],
+        excludeFromBundle: ['dependencies'],
       },
+      allowlist: ['custom-event-polyfill', 'node-polyglot'],
     }),
   ],
 })
