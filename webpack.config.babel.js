@@ -6,8 +6,6 @@ import TerserPlugin from 'terser-webpack-plugin'
 import autoprefixer from 'autoprefixer'
 import customMedia from 'postcss-custom-media'
 import url from 'postcss-url'
-import mapObject from 'object-loops/map'
-import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
@@ -188,11 +186,13 @@ const CONFIG_MAP = {
 
 const CONFIG = CONFIG_MAP[NODE_ENV]
 
-const formatDefineHash = (defineHash) =>
-  mapObject(
-    mapKeys(defineHash, (key) => `process.env.${key}`),
-    (value) => JSON.stringify(value)
-  )
+const formatDefineHash = (defineHash) => {
+  const formatted = {}
+  Object.entries(defineHash).forEach(([key, value]) => {
+    formatted[`process.env.${key}`] = JSON.stringify(value)
+  })
+  return formatted
+}
 const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
 const basePlugins = (bundle_name = '') => [
