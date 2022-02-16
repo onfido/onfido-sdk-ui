@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Public: Updated supported documents list to include Curaçao and other countries.
+
 ### Changed
 
 - Internal: Added `SdkConfigurationServiceProvider` and `useSdkConfigurationService` to retrieve and use feature flags.
@@ -15,10 +19,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added new analytics events for confirmation errors
 - Internal: Added new analytics events for camera, upload, http requests and sms errors
 - Internal: Update FaceTec SDK on Auth step from `9.3.4` to `9.4.5`. Removed 3 hardcoded custom properties defined on Auth component UI.
+- Internal: Added events for video preview and face video recording/next buttons
 
 ### Fixed
 
 - UI: Fixed Stick Hover State for buttons on iOS Safari
+- Public: Fix locale key mismatch for the title of the `CAMERA_NOT_WORKING_NO_FALLBACK` error
 - Upgrade `eventemitter2` to v2.2.2
 - Fix usage of `removeAllListeners` in `ModalApp`
 
