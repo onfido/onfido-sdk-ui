@@ -141,7 +141,7 @@ const TEST_DEPLOYMENT_CONFIG = {
 
 const TEST_E2E_CONFIG = {
   ...TEST_DEPLOYMENT_CONFIG,
-  ONFIDO_API_URL: 'https://localhost:8080/api',
+  ONFIDO_API_URL: 'https://localhost:8082/api',
   JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
   US_JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
   CA_JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
@@ -187,6 +187,8 @@ const CONFIG_MAP = {
 }
 
 const CONFIG = CONFIG_MAP[NODE_ENV]
+
+console.log(CONFIG)
 
 const formatDefineHash = (defineHash) =>
   mapObject(
