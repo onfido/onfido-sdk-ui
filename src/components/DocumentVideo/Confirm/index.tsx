@@ -137,10 +137,15 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
 
       nextStep()
     } catch (errorResponse) {
-      console.error('Error:', errorResponse)
       setLoading(false)
       triggerOnError(errorResponse)
-      setError({ name: 'REQUEST_ERROR', type: 'error' })
+
+      // @TODO: Handle catches with typescript
+      setError({
+        name: 'REQUEST_ERROR',
+        type: 'error',
+        properties: { error_message: errorResponse?.response?.message },
+      })
     }
   }, [
     nextStep,
@@ -205,7 +210,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       {error ? (
         <Error error={error} trackScreen={trackScreen} role="alert" />
       ) : (
-        <Content capture={documentVideo} previewing={previewing} />
+        <Content capture={documentVideo} {...{ previewing, trackScreen }} />
       )}
     </ScreenLayout>
   )

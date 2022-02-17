@@ -29,9 +29,10 @@ type FaceVideoProps = {
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
-} & StepComponentFaceProps
+}
 
 type Props = FaceVideoProps &
+  StepComponentFaceProps &
   WithChallengesProps &
   WithLocalisedProps &
   WithTrackingProps
@@ -65,6 +66,9 @@ class FaceVideo extends Component<Props, State> {
 
   handleNextChallenge = () => {
     const { startedAt, currentIndex } = this.state
+    const { trackScreen } = this.props
+
+    trackScreen('recording_next_click')
     this.setState({ currentIndex: currentIndex + 1 })
 
     if (startedAt) {

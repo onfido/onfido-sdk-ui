@@ -153,20 +153,6 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
-    'screen_document_back_capture_camera_error',
-    {
-      eventName: 'DOCUMENT_CAMERA_ERROR',
-      properties: { event_type: 'view', document_side: 'back' },
-    },
-  ],
-  [
-    'screen_document_front_capture_camera_error',
-    {
-      eventName: 'DOCUMENT_CAMERA_ERROR',
-      properties: { event_type: 'view', document_side: 'front' },
-    },
-  ],
-  [
     'Taking live photo of document',
     {
       eventName: 'DOCUMENT_CAMERA_SHUTTER_CLICK',
@@ -262,13 +248,6 @@ export const analyticsEventsMapping = new Map<
     { eventName: 'FACE_INTRO', properties: { event_type: 'screen' } },
   ],
   [
-    'screen_face_selfie_capture_camera_error',
-    {
-      eventName: 'FACE_SELFIE_CAMERA_ERROR',
-      properties: { event_type: 'view' },
-    },
-  ],
-  [
     'screen_face_selfie_capture_file_upload',
     {
       eventName: 'FACE_SELFIE_CAPTURE',
@@ -315,13 +294,6 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_SELFIE_UPLOAD_STARTED',
       properties: { event_type: 'flow', capture_method_rendered: 'camera' },
-    },
-  ],
-  [
-    'screen_face_face_video_capture_camera_error',
-    {
-      eventName: 'FACE_VIDEO_CAMERA_ERROR',
-      properties: { event_type: 'view' },
     },
   ],
   [
@@ -672,6 +644,321 @@ export const analyticsEventsMapping = new Map<
         event_type: 'view',
         ui_alerts: { unsupported_file: 'error' },
       },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_face_video_timeout',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { face_video_timeout: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_document_document_video_capture_doc_video_timeout',
+    {
+      eventName: 'DOCUMENT_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { doc_video_timeout: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_not_working',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        has_fallback: true,
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_not_working',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        has_fallback: true,
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_not_working',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        has_fallback: true,
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_not_working',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        has_fallback: true,
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+
+  [
+    'screen_face_face_video_capture_camera_not_working_no_fallback',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        has_fallback: false,
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_not_working_no_fallback',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        has_fallback: false,
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_not_working_no_fallback',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        has_fallback: false,
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_not_working_no_fallback',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        has_fallback: false,
+        ui_alerts: { camera_not_working: 'error' },
+      },
+    },
+  ],
+
+  [
+    'screen_face_face_video_capture_camera_inactive',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        has_fallback: true,
+        ui_alerts: { camera_inactive: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_inactive',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        has_fallback: true,
+        ui_alerts: { camera_inactive: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_inactive',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        has_fallback: true,
+        ui_alerts: { camera_inactive: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_inactive',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        has_fallback: true,
+        ui_alerts: { camera_inactive: 'warning' },
+      },
+    },
+  ],
+
+  [
+    'screen_face_face_video_camera_inactive_no_fallback',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        has_fallback: false,
+        ui_alerts: { camera_inactive: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_inactive_no_fallback',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        has_fallback: false,
+        ui_alerts: { camera_inactive: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_inactive_no_fallback',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        has_fallback: false,
+        ui_alerts: { camera_inactive: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_inactive_no_fallback',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        has_fallback: false,
+        ui_alerts: { camera_inactive: 'warning' },
+      },
+    },
+  ],
+
+  [
+    'screen_crossDevice_sms_overuse',
+    {
+      eventName: 'CROSS_DEVICE_SMS_OVERUSE',
+      properties: {
+        event_type: 'view',
+      },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_record_button_click',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_RECORD_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_recording_next_click',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_play_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_PLAY_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_pause_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_PAUSE_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_playback_finished',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_PLAYBACK_FINISHED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_document_front_capture_request_error',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: { request_error: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_request_error',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: { request_error: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_image_quality_guide_invalid_type',
+    {
+      eventName: 'DOCUMENT_IMAGE_QUALITY_GUIDE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { invalid_type: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_image_quality_guide_invalid_size',
+    {
+      eventName: 'DOCUMENT_IMAGE_QUALITY_GUIDE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { invalid_size: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_confirmation_video_play_clicked',
+    {
+      eventName: 'DOCUMENT_VIDEO_CONFIRMATION_PLAY_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_document_confirmation_video_pause_clicked',
+    {
+      eventName: 'DOCUMENT_VIDEO_CONFIRMATION_PAUSE_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_document_confirmation_video_playback_finished',
+    {
+      eventName: 'DOCUMENT_VIDEO_CONFIRMATION_PLAYBACK_FINISHED',
+      properties: { event_type: 'action' },
     },
   ],
 ])
