@@ -1,15 +1,8 @@
 import fs from 'fs'
-import { requestChallenges, uploadFaceVideo } from '../../onfidoApi'
-import {
-  getTestJwtToken,
-  checkForExpectedFileUploadProperties,
-  COMMON_FILE_UPLOAD_PROPERTIES,
-} from '../helpers'
-import { API_URL, PATH_TO_RESOURCE_FILES } from '../helpers/testUrls'
-import {
-  EXPIRED_JWT_TOKEN,
-  EXPECTED_EXPIRED_TOKEN_ERROR,
-} from '../helpers/mockExpiredJwtAndResponse'
+import {requestChallenges, uploadFaceVideo} from '../../onfidoApi'
+import {checkForExpectedFileUploadProperties, COMMON_FILE_UPLOAD_PROPERTIES, getTestJwtToken,} from '../helpers'
+import {API_URL, PATH_TO_RESOURCE_FILES} from '../helpers/testUrls'
+import {ASSERT_EXPIRED_JWT_ERROR, EXPIRED_JWT_TOKEN,} from '../helpers/mockExpiredJwtAndResponse'
 
 let jwtToken = null
 
@@ -51,10 +44,10 @@ describe('API uploadFaceVideo endpoint', () => {
     const testFileName = 'test-video.webm'
     const testFileType = 'video/webm'
     const expectedProperties = [
-      { file_name: 'blob' },
-      { file_type: testFileType },
-      { challenge: TEST_VIDEO_DATA.challengeData.challenges },
-      { languages: [{ source: 'sdk', language_code: LANGUAGE_CODE }] },
+      {file_name: 'blob'},
+      {file_type: testFileType},
+      {challenge: TEST_VIDEO_DATA.challengeData.challenges},
+      {languages: [{source: 'sdk', language_code: LANGUAGE_CODE}]},
       ...COMMON_FILE_UPLOAD_PROPERTIES,
     ]
     expect.assertions(expectedProperties.length)
@@ -85,14 +78,6 @@ describe('API uploadFaceVideo endpoint', () => {
 
   test('uploadFaceVideo returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
-    const onErrorCallback = (error) => {
-      try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-        done()
-      } catch (err) {
-        done(err)
-      }
-    }
     const testFileName = 'test-video.webm'
     const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
     const testFile = new File([data], testFileName, {
@@ -107,7 +92,7 @@ describe('API uploadFaceVideo endpoint', () => {
       API_URL,
       EXPIRED_JWT_TOKEN,
       () => done(),
-      onErrorCallback
+      (e) => ASSERT_EXPIRED_JWT_ERROR(done, e)
     )
   })
 
@@ -125,7 +110,7 @@ describe('API uploadFaceVideo endpoint', () => {
         done(err)
       }
     }
-    const emptyVideoBlob = new Blob([], { type: 'video/webm' })
+    const emptyVideoBlob = new Blob([], {type: 'video/webm'})
     const videoData = {
       blob: emptyVideoBlob,
       ...TEST_VIDEO_DATA,
@@ -148,7 +133,7 @@ describe('API requestChallenges endpoint', () => {
   test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', async () => {
     expect.assertions(2)
     const onSuccessCallback = (response, resolve) => {
-      const { challenge } = response.data
+      const {challenge} = response.data
       expect(challenge).toHaveLength(2)
       // Example challenge response (order of challenge types is random):
       // [{"query": "turnLeft", "type": "movement"}, {"query": [1, 9, 0], "type": "recite"}]
@@ -179,19 +164,12 @@ describe('API requestChallenges endpoint', () => {
 
   test('requestChallenges returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
-    const onErrorCallback = (error) => {
-      try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-        done()
-      } catch (err) {
-        done(err)
-      }
-    }
+
     requestChallenges(
       API_URL,
       EXPIRED_JWT_TOKEN,
       (response) => response,
-      onErrorCallback
+      (e) => ASSERT_EXPIRED_JWT_ERROR(done, e)
     )
   })
 })
