@@ -1,8 +1,15 @@
 import fs from 'fs'
-import {requestChallenges, uploadFaceVideo} from '../../onfidoApi'
-import {checkForExpectedFileUploadProperties, COMMON_FILE_UPLOAD_PROPERTIES, getTestJwtToken,} from '../helpers'
-import {API_URL, PATH_TO_RESOURCE_FILES} from '../helpers/testUrls'
-import {ASSERT_EXPIRED_JWT_ERROR, EXPIRED_JWT_TOKEN,} from '../helpers/mockExpiredJwtAndResponse'
+import { requestChallenges, uploadFaceVideo } from '../../onfidoApi'
+import {
+  checkForExpectedFileUploadProperties,
+  COMMON_FILE_UPLOAD_PROPERTIES,
+  getTestJwtToken,
+} from '../helpers'
+import { API_URL, PATH_TO_RESOURCE_FILES } from '../helpers/testUrls'
+import {
+  ASSERT_EXPIRED_JWT_ERROR,
+  EXPIRED_JWT_TOKEN,
+} from '../helpers/mockExpiredJwtAndResponse'
 
 let jwtToken = null
 
@@ -44,10 +51,10 @@ describe('API uploadFaceVideo endpoint', () => {
     const testFileName = 'test-video.webm'
     const testFileType = 'video/webm'
     const expectedProperties = [
-      {file_name: 'blob'},
-      {file_type: testFileType},
-      {challenge: TEST_VIDEO_DATA.challengeData.challenges},
-      {languages: [{source: 'sdk', language_code: LANGUAGE_CODE}]},
+      { file_name: 'blob' },
+      { file_type: testFileType },
+      { challenge: TEST_VIDEO_DATA.challengeData.challenges },
+      { languages: [{ source: 'sdk', language_code: LANGUAGE_CODE }] },
       ...COMMON_FILE_UPLOAD_PROPERTIES,
     ]
     expect.assertions(expectedProperties.length)
@@ -110,7 +117,7 @@ describe('API uploadFaceVideo endpoint', () => {
         done(err)
       }
     }
-    const emptyVideoBlob = new Blob([], {type: 'video/webm'})
+    const emptyVideoBlob = new Blob([], { type: 'video/webm' })
     const videoData = {
       blob: emptyVideoBlob,
       ...TEST_VIDEO_DATA,
@@ -133,7 +140,7 @@ describe('API requestChallenges endpoint', () => {
   test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', async () => {
     expect.assertions(2)
     const onSuccessCallback = (response, resolve) => {
-      const {challenge} = response.data
+      const { challenge } = response.data
       expect(challenge).toHaveLength(2)
       // Example challenge response (order of challenge types is random):
       // [{"query": "turnLeft", "type": "movement"}, {"query": [1, 9, 0], "type": "recite"}]
