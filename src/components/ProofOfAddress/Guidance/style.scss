@@ -9,7 +9,7 @@
 }
 
 .subTitle {
-  font-size: var(--onf-font-size-small);
+  font-size: var(--onfido-font-size-small);
 
   &::before {
     content: '';
@@ -61,5 +61,5 @@
 
 .label {
   fill: var(--osdk-color-content-body);
-  font-size: var(--onf-font-size-small);
+  font-size: var(--onfido-font-size-small);
 }

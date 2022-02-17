@@ -6,7 +6,7 @@
  *
  *  2) Castor theme tokens = CSS variables with --ods- prefix.
  *
- *  3) Internal theme tokens = CSS variables with --onf- prefix.
+ *  3) Internal theme tokens = CSS variables with --onfido- prefix.
  *
  *  Wherever it makes sense for color token mappings, the relevant Day theme design tokens from Castor should be used.
  *  See the Castor Day theme file for available tokens:
@@ -24,33 +24,33 @@
 /* stylelint-disable function-parentheses-space-inside */
 
 @mixin tokens() {
-  --onf-unit: (1/16) * 1em;
+  --onfido-unit: (1/16) * 1em;
 
   /* Font settings */
-  --onf-font-family: 'Open Sans', sans-serif;
+  --onfido-font-family: 'Open Sans', sans-serif;
 
-  --onf-font-size-base: calc(16 * var(--onf-unit));
-  --onf-font-size-large: calc(20 * var(--onf-unit));
-  --onf-font-size-x-large: calc(30 * var(--onf-unit));
-  --onf-font-size-small: calc(14 * var(--onf-unit));
-  --onf-font-size-x-small: calc(11 * var(--onf-unit));
+  --onfido-font-size-base: calc(16 * var(--onfido-unit));
+  --onfido-font-size-large: calc(20 * var(--onfido-unit));
+  --onfido-font-size-x-large: calc(30 * var(--onfido-unit));
+  --onfido-font-size-small: calc(14 * var(--onfido-unit));
+  --onfido-font-size-x-small: calc(11 * var(--onfido-unit));
 
   /* Tokens that don't support customisation */
-  --onf-color-background-button-custom: #d5dae0;
+  --onfido-color-background-button-custom: #d5dae0;
 
   /* Tokens that support customisation */
-  --osdk-font-family-title: var(--onf-font-family);
-  --osdk-font-size-title: var(--onf-font-size-x-large);
+  --osdk-font-family-title: var(--onfido-font-family);
+  --osdk-font-size-title: var(--onfido-font-size-x-large);
   --osdk-font-weight-title: 600;
   --osdk-color-content-title: rgba(var(--ods-color-content-main));
 
-  --osdk-font-family-subtitle: var(--onf-font-family);
-  --osdk-font-size-subtitle: var(--onf-font-size-base);
+  --osdk-font-family-subtitle: var(--onfido-font-family);
+  --osdk-font-size-subtitle: var(--onfido-font-size-base);
   --osdk-font-weight-subtitle: 600;
   --osdk-color-content-subtitle: rgba(var(--ods-color-content-main));
 
-  --osdk-font-family-body: var(--onf-font-family);
-  --osdk-font-size-body: var(--onf-font-size-base);
+  --osdk-font-family-body: var(--onfido-font-family);
+  --osdk-font-size-body: var(--onfido-font-size-base);
   --osdk-font-weight-body: 500;
   --osdk-color-content-body: rgba(var(--ods-color-content-main));
 
@@ -145,7 +145,7 @@
   --osdk-color-background-button-icon-active: rgb(var(--ods-color-neutral-600));
 
   /* Selfie Camera button colors */
-  --onf-color-background-button-camera: rgb(var(--ods-color-neutral-white));
+  --onfido-color-background-button-camera: rgb(var(--ods-color-neutral-white));
   --osdk-color-background-button-camera-hover: rgb(
     var(--ods-color-primary-400)
   );

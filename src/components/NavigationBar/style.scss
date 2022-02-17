@@ -107,7 +107,7 @@
 .label {
   visibility: hidden;
   margin: 0 7 * $unit;
-  font-size: var(--onf-font-size-small);
+  font-size: var(--onfido-font-size-small);
 
   @media (--small-viewport) {
     display: none;
