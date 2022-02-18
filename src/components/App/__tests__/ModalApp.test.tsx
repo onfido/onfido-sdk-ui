@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { ComponentChildren, h } from 'preact'
 import { mount } from 'enzyme'
 
 import MockedReduxProvider from '~jest/MockedReduxProvider'
@@ -8,6 +8,10 @@ import ModalApp from '../ModalApp'
 import type { NormalisedSdkOptions } from '~types/commons'
 
 jest.mock('Tracker/safeWoopra')
+jest.mock(
+  '~contexts/useSdkConfigurationService',
+  () => (children: ComponentChildren) => children
+)
 
 const defaultOptions: NormalisedSdkOptions = {
   steps: [

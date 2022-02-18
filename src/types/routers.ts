@@ -67,6 +67,7 @@ export type RenderFallbackProp = (
 export type ErrorProp = {
   name: ErrorNames
   type?: ErrorTypes
+  properties?: Record<string, unknown>
 }
 
 export type ExternalRouterProps = ReduxProps & WithCameraDetectionProps

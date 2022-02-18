@@ -7,7 +7,7 @@ type LocaleData = {
 }
 
 const errors: Record<ErrorNames, LocaleData> = {
-  INVALID_CAPTURE: {
+  DOCUMENT_DETECTION: {
     message: 'doc_confirmation.alert.no_doc_title',
     instruction: 'doc_confirmation.alert.no_doc_detail',
   },
@@ -60,7 +60,7 @@ const errors: Record<ErrorNames, LocaleData> = {
     instruction: 'selfie_capture.alert.camera_not_working.detail',
   },
   CAMERA_NOT_WORKING_NO_FALLBACK: {
-    message: 'generic.errors.camera_not_working.message',
+    message: 'selfie_capture.alert.camera_not_working.title',
     instruction: 'selfie_capture.alert.camera_not_working.detail_no_fallback',
   },
   CAMERA_INACTIVE: {

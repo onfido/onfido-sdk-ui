@@ -9,6 +9,7 @@ const defaultProps = {
   ariaLabel: 'Fake aria-label',
   blob: new Blob([]),
   onVideoError: jest.fn(),
+  trackScreen: jest.fn(),
 }
 
 describe('CaptureViewer', () => {
