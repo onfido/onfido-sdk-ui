@@ -383,30 +383,21 @@ class ModalApp extends Component<Props> {
       containerId,
       containerEl,
       shouldCloseOnOverlayClick,
-      autoFocusOnInitialScreenTitle,
-      token,
     } = options
-
     return (
       <LocaleProvider language={options.language}>
-        <SdkConfigurationServiceProvider
-          url={otherProps.urls.onfido_api_url}
-          token={token}
-          fallback={<Spinner shouldAutoFocus={autoFocusOnInitialScreenTitle} />}
-        >
-          <SdkOptionsProvider options={{ ...options, events: this.events }}>
-            <Modal
-              useModal={useModal}
-              isOpen={isModalOpen}
-              onRequestClose={onModalRequestClose}
-              containerId={containerId}
-              containerEl={containerEl}
-              shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-            >
-              <Router {...otherProps} />
-            </Modal>
-          </SdkOptionsProvider>
-        </SdkConfigurationServiceProvider>
+        <SdkOptionsProvider options={{ ...options, events: this.events }}>
+          <Modal
+            useModal={useModal}
+            isOpen={isModalOpen}
+            onRequestClose={onModalRequestClose}
+            containerId={containerId}
+            containerEl={containerEl}
+            shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+          >
+            <Router {...otherProps} />
+          </Modal>
+        </SdkOptionsProvider>
       </LocaleProvider>
     )
   }
