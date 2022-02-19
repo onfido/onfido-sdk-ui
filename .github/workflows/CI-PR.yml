@@ -58,6 +58,11 @@ jobs:
       - name: Build test
         run: NODE_ENV=test npm run build
 
+      - name: Run BundleWatch Check
+        uses: jackyef/bundlewatch-gh-action@0.1.0
+        with:
+          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+
       - uses: actions/upload-artifact@master
         with:
           name: build-${{ github.run_id }}
@@ -92,11 +97,6 @@ jobs:
 
       - name: Build artifact
         run: NODE_ENV=test TEST_ENV=deployment npm run build
-
-      - name: Run BundleWatch Check
-        uses: jackyef/bundlewatch-gh-action@0.1.0
-        with:
-          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
 
       - name: Publish to Surge
         uses: dswistowski/surge-sh-action@v1.0.1
