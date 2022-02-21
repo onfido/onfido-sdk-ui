@@ -7,6 +7,7 @@ import type { RootState } from '~types/redux'
 import type { AnalyticsPayload, LegacyTrackedEventNames } from '~types/tracker'
 import { reduxStore } from 'components/ReduxAppWrapper'
 import { analyticsEventsMapping } from './trackerData'
+import { trackException } from './'
 
 let currentStepType: ExtendedStepTypes | undefined
 let analyticsSessionUuid: string | undefined
@@ -61,9 +62,14 @@ export const sendAnalyticsEvent = (
   const environmentData = trackedEnvironmentData()
   const eventData = analyticsEventsMapping.get(event)
 
+  if (!eventData?.eventName) {
+    trackException(`Legacy event is not mapped - ${event}`)
+    return
+  }
+
   const requiredFields = {
     event_uuid: uuidv4(),
-    event: eventData?.eventName,
+    event: eventData.eventName,
     event_time: new Date(Date.now()).toISOString(),
     source: 'sdk',
   }
