@@ -276,10 +276,7 @@ class Confirm extends Component {
       if (onfidoSuccessResponse) {
         sendEvent(`Success response from ${callbackName}`)
         this.onApiSuccess(onfidoSuccessResponse)
-        return
-      }
-
-      if (continueWithOnfidoSubmission) {
+      } else if (continueWithOnfidoSubmission) {
         this.startTime = performance.now()
         sendEvent('Starting upload', {
           method,
@@ -300,6 +297,8 @@ class Confirm extends Component {
           this.handleSelfieUpload(data, token)
           return
         }
+      } else {
+        console.error(`Invalid return statement from ${callbackName}`)
       }
     } catch (errorResponse) {
       sendEvent(`Error response from ${callbackName}`)
