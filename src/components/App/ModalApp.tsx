@@ -90,7 +90,8 @@ class ModalApp extends Component<Props> {
       roomId && socket.emit('leave', { roomId })
       socket.close()
     }
-    this.events.removeAllListeners(['complete', 'error'])
+    this.events.removeAllListeners('complete')
+    this.events.removeAllListeners('error')
     Tracker.uninstall()
     actions.reset()
   }
@@ -382,30 +383,21 @@ class ModalApp extends Component<Props> {
       containerId,
       containerEl,
       shouldCloseOnOverlayClick,
-      autoFocusOnInitialScreenTitle,
-      token,
     } = options
-
     return (
       <LocaleProvider language={options.language}>
-        <SdkConfigurationServiceProvider
-          url={otherProps.urls.onfido_api_url}
-          token={token}
-          fallback={<Spinner shouldAutoFocus={autoFocusOnInitialScreenTitle} />}
-        >
-          <SdkOptionsProvider options={{ ...options, events: this.events }}>
-            <Modal
-              useModal={useModal}
-              isOpen={isModalOpen}
-              onRequestClose={onModalRequestClose}
-              containerId={containerId}
-              containerEl={containerEl}
-              shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-            >
-              <Router {...otherProps} />
-            </Modal>
-          </SdkOptionsProvider>
-        </SdkConfigurationServiceProvider>
+        <SdkOptionsProvider options={{ ...options, events: this.events }}>
+          <Modal
+            useModal={useModal}
+            isOpen={isModalOpen}
+            onRequestClose={onModalRequestClose}
+            containerId={containerId}
+            containerEl={containerEl}
+            shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+          >
+            <Router {...otherProps} />
+          </Modal>
+        </SdkOptionsProvider>
       </LocaleProvider>
     )
   }

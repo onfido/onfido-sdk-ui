@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { Component, h } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import { screenshot } from '~utils/camera'
 import { mimeType } from '~utils/blob'

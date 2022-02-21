@@ -84,6 +84,9 @@ export default class VideoCapture extends Component<Props, State> {
   state = { ...initialStateWithoutMediaStream, hasMediaStream: false }
 
   startRecording = (): void => {
+    const { trackScreen } = this.props
+    trackScreen('record_button_click')
+
     this.webcam && this.webcam.startRecording()
     this.setState({ isRecording: true, hasBecomeInactive: false })
   }

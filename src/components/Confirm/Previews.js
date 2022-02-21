@@ -144,6 +144,7 @@ const Previews = localised(
               imageAltTag,
               videoAriaLabel,
               onVideoError,
+              trackScreen,
             }}
           />
           {!isFullScreen && <p className={style.message}>{message}</p>}
