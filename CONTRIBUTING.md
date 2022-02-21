@@ -71,7 +71,7 @@ For internal contributors, all the PR checks must pass.
 
 ## Testing
 
-The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [testing guidelines](./test/TESTING_GUIDELINES.md).
+The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [testing guidelines](./test/README.md).
 Once your environment is ready, you can run `npm run build:test && npm run travis` to create the build and start up the server, and `npm run test:ui` to run the UI tests.
 The Web SDK has partial coverage of unit tests that can be executed with `npm run test`.
 You can also run a type checker and linter by running `npm run check`.

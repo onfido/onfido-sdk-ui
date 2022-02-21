@@ -8,6 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Public: Updated supported documents list to include Curaçao and other countries.
+
 ### Changed
 
 - Internal: Added `SdkConfigurationServiceProvider` and `useSdkConfigurationService` to retrieve and use feature flags.
@@ -23,6 +27,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - UI: Fixed Stick Hover State for buttons on iOS Safari
+- Public: Fix locale key mismatch for the title of the `CAMERA_NOT_WORKING_NO_FALLBACK` error
 - Upgrade `eventemitter2` to v2.2.2
 - Fix usage of `removeAllListeners` in `ModalApp`
 
