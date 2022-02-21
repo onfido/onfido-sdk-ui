@@ -27,7 +27,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fix locale key mismatch for the title of the `CAMERA_NOT_WORKING_NO_FALLBACK` error
 - Upgrade `eventemitter2` to v2.2.2
 - Fix usage of `removeAllListeners` in `ModalApp`
-- Fixed CSS variables naming for internal tokens
+- Public: Fixed CSS variables naming for internal tokens
 
 ## [6.17.0] - 2022-01-24
 
