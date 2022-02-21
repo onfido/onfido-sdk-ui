@@ -9,10 +9,3 @@ discovery:
   allowedHostnames: []
   networkIdleTimeout: 100
   disableCache: false
-upload:
-  files: "**/*.{png,jpg,jpeg}"
-  ignore: ""
-static:
-  baseUrl: /
-  files: "**/*.{html,htm}"
-  ignore: ""
