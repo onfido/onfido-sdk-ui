@@ -236,7 +236,7 @@
     "hoist-non-react-statics": "^3.3.2",
     "node-polyglot": "^2.2.2",
     "parse-unit": "~1.0.1",
-    "pdfobject": "~2.0.201604172",
+    "pdfobject": "^2.2.7",
     "preact": "^10.5.13",
     "redux": "^4.0.5",
     "socket.io-client": "^4.2.0",
