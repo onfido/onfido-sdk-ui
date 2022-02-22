@@ -200,6 +200,7 @@ class Face extends Component<FaceProps> {
     if ((this.props.useUploader || hasCamera === false) && uploadFallback) {
       return (
         <Uploader
+          {...this.props}
           onError={this.handleError}
           uploadType="face"
           onUpload={this.handleUpload}
