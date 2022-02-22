@@ -8,7 +8,11 @@ import Camera from '../Camera'
 import CameraError from '../CameraError'
 import { SdkMetadata } from '~types/commons'
 import Webcam from 'react-webcam-onfido'
-import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import {
+  WithLocalisedProps,
+  WithPageIdProps,
+  WithTrackingProps,
+} from '~types/hocs'
 import { ErrorProp, RenderFallbackProp } from '~types/routers'
 import { CapturePayload } from '~types/redux'
 import { CameraProps } from '~types/camera'
@@ -26,7 +30,8 @@ type Props = {
   useMultipleSelfieCapture: boolean
   snapshotInterval: number
 } & WithTrackingProps &
-  WithLocalisedProps
+  WithLocalisedProps &
+  WithPageIdProps
 
 export default class SelfieCapture extends Component<Props, State> {
   webcam?: Webcam

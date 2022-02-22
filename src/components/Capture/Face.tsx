@@ -20,7 +20,11 @@ import { localised } from '~locales'
 import withTheme from '../Theme'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
-import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import {
+  WithLocalisedProps,
+  WithPageIdProps,
+  WithTrackingProps,
+} from '~types/hocs'
 import { StepComponentFaceProps } from '~types/routers'
 import { CapturePayload } from '~types/redux'
 import { ImageResizeInfo } from '~types/commons'
@@ -40,7 +44,8 @@ type FaceProps = {
   snapshotInterval: number
 } & StepComponentFaceProps &
   WithLocalisedProps &
-  WithTrackingProps
+  WithTrackingProps &
+  WithPageIdProps
 
 class Face extends Component<FaceProps> {
   static defaultProps: Partial<FaceProps> = {
