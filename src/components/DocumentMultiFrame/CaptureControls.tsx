@@ -21,6 +21,7 @@ const CaptureControls: FunctionComponent<Props> = ({
   onStop,
   recordState,
   nextStep,
+  disableInteraction,
 }) => {
   const { translate } = useLocales()
 
@@ -42,7 +43,7 @@ const CaptureControls: FunctionComponent<Props> = ({
               onStart()
             }}
             className={style.btn}
-            disableInteraction={false}
+            disableInteraction={disableInteraction || recordState !== 'idle'}
           />
         </div>
       )

@@ -121,7 +121,7 @@ const DocumentMultiFrame = ({
     side,
     documentType,
     video: true,
-    withPlaceholder: recordState === 'placeholder',
+    withPlaceholder: recordState === 'placeholder' && side === 'front',
   }
 
   const renderVideoOverlay = (videoOverlayProps: VideoOverlayProps) => {

@@ -75,6 +75,10 @@ describe('Multi Frame Support', () => {
   })
 
   it('records a video and take a picture when capture is success', () => {
+    act(() => {
+      jest.advanceTimersByTime(DOC_MULTIFRAME_CAPTURE.PLACEHOLDER_TIMEOUT)
+    })
+
     const capture = screen.getByLabelText(/video_capture.button_accessibility/)
 
     act(() => {
