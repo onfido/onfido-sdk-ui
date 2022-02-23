@@ -220,7 +220,7 @@
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.2",
-    "webpack-node-externals": "^1.7.2",
+    "webpack-node-externals": "^3.0.0",
     "webpack-visualizer-plugin": "^0.1.11",
     "wpt": "Woopra/browser-tracker.git#v5.1.20",
     "yn": "^3.0.0"
