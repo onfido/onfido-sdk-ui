@@ -8,6 +8,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- Public: Add compatibility with Salesforce
+
+## [6.18.0] - in progress
+
 ### Added
 
 - Public: Updated supported documents list to include Curaçao and other countries.
