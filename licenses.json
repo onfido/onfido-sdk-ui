@@ -2144,8 +2144,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-message-util/node_modules/ansi-regex",
-    "licenseFile": "node_modules/jest-message-util/node_modules/ansi-regex/license"
+    "path": "node_modules/cliui/node_modules/ansi-regex",
+    "licenseFile": "node_modules/cliui/node_modules/ansi-regex/license"
   },
   "ansi-styles@2.2.1": {
     "licenses": "MIT",
@@ -2171,8 +2171,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@jest/types/node_modules/ansi-styles",
-    "licenseFile": "node_modules/@jest/types/node_modules/ansi-styles/license"
+    "path": "node_modules/wrap-ansi/node_modules/ansi-styles",
+    "licenseFile": "node_modules/wrap-ansi/node_modules/ansi-styles/license"
   },
   "anymatch@2.0.0": {
     "licenses": "ISC",
@@ -3456,8 +3456,8 @@
     "repository": "https://github.com/Qix-/color-convert",
     "publisher": "Heather Arthur",
     "email": "fayearthur@gmail.com",
-    "path": "node_modules/@jest/types/node_modules/color-convert",
-    "licenseFile": "node_modules/@jest/types/node_modules/color-convert/LICENSE"
+    "path": "node_modules/wrap-ansi/node_modules/color-convert",
+    "licenseFile": "node_modules/wrap-ansi/node_modules/color-convert/LICENSE"
   },
   "color-name@1.1.3": {
     "licenses": "MIT",
@@ -3472,8 +3472,8 @@
     "repository": "https://github.com/colorjs/color-name",
     "publisher": "DY",
     "email": "dfcreative@gmail.com",
-    "path": "node_modules/@jest/types/node_modules/color-name",
-    "licenseFile": "node_modules/@jest/types/node_modules/color-name/LICENSE"
+    "path": "node_modules/wrap-ansi/node_modules/color-name",
+    "licenseFile": "node_modules/wrap-ansi/node_modules/color-name/LICENSE"
   },
   "colorette@1.2.2": {
     "licenses": "MIT",
@@ -4946,7 +4946,7 @@
     "path": "node_modules/event-stream",
     "licenseFile": "node_modules/event-stream/LICENCE"
   },
-  "eventemitter2@2.1.3": {
+  "eventemitter2@2.2.2": {
     "licenses": "MIT",
     "repository": "https://github.com/hij1nx/EventEmitter2",
     "publisher": "hij1nx",
@@ -5292,8 +5292,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/find-up",
-    "licenseFile": "node_modules/jest-resolve/node_modules/find-up/license"
+    "path": "node_modules/yargs/node_modules/find-up",
+    "licenseFile": "node_modules/yargs/node_modules/find-up/license"
   },
   "find-up@5.0.0": {
     "licenses": "MIT",
@@ -6031,8 +6031,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/history",
-    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/history",
+    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -7755,8 +7755,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/locate-path",
-    "licenseFile": "node_modules/jest-resolve/node_modules/locate-path/license"
+    "path": "node_modules/yargs/node_modules/locate-path",
+    "licenseFile": "node_modules/yargs/node_modules/locate-path/license"
   },
   "locate-path@6.0.0": {
     "licenses": "MIT",
@@ -9204,8 +9204,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/p-locate",
-    "licenseFile": "node_modules/jest-resolve/node_modules/p-locate/license"
+    "path": "node_modules/yargs/node_modules/p-locate",
+    "licenseFile": "node_modules/yargs/node_modules/p-locate/license"
   },
   "p-locate@5.0.0": {
     "licenses": "MIT",
@@ -9427,8 +9427,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/jest-resolve/node_modules/path-exists",
-    "licenseFile": "node_modules/jest-resolve/node_modules/path-exists/license"
+    "path": "node_modules/yargs/node_modules/path-exists",
+    "licenseFile": "node_modules/yargs/node_modules/path-exists/license"
   },
   "path-is-absolute@1.0.1": {
     "licenses": "MIT",
@@ -9547,14 +9547,14 @@
     "path": "node_modules/pbkdf2",
     "licenseFile": "node_modules/pbkdf2/LICENSE"
   },
-  "pdfobject@2.0.201604172": {
+  "pdfobject@2.2.7": {
     "licenses": "MIT",
     "repository": "git+https://pipwerks@github.com/pipwerks/PDFObject",
     "publisher": "Philip Hutchison",
     "email": "philip@pipwerks.com",
     "url": "http://pipwerks.com",
     "path": "node_modules/pdfobject",
-    "licenseFile": "node_modules/pdfobject/readme.md"
+    "licenseFile": "node_modules/pdfobject/LICENSE.md"
   },
   "pend@1.2.0": {
     "licenses": "MIT",
@@ -10749,8 +10749,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
   },
   "resolve-url@0.2.1": {
     "licenses": "MIT",
@@ -12774,8 +12774,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",
