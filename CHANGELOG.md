@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Add compatibility with Salesforce
+- Public: Add type `DocumentTypes` to `DocumentResponse`
 
 ## [6.18.0] - in progress
 
