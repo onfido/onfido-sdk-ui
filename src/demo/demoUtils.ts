@@ -18,6 +18,23 @@ import testDarkCobrandLogo from './assets/onfido-logo.svg'
 import testLightCobrandLogo from './assets/onfido-logo-light.svg'
 import sampleCompanyLogo from './assets/sample-logo.svg'
 
+navigator.mediaDevices.getUserMedia({video: { width: 640 }}).then(() => {
+  alert('success')
+  navigator.mediaDevices.enumerateDevices().then(devices => {
+    const labels = []
+    devices.forEach(device => {
+      labels.push(device.labels)
+    })
+  
+    alert(labels.join(', '))
+  })
+  
+}).catch((e) => console.log('error', e))
+
+
+
+
+
 export type QueryParams = {
   countryCode?: StringifiedBoolean
   createCheck?: StringifiedBoolean
