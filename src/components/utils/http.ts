@@ -36,7 +36,12 @@ export const performHttpReq = <T>(
 
   request.onload = () => {
     if (request.status === 200 || request.status === 201) {
-      onSuccess(JSON.parse(request.response))
+      const contentType = request.getResponseHeader('content-type')
+      if (contentType && contentType.startsWith('application/json')) {
+        onSuccess(JSON.parse(request.response))
+      } else {
+        onSuccess(request.response)
+      }
     } else {
       onError(request)
     }
