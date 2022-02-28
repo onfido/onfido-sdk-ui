@@ -1,29 +1,27 @@
-import { h } from 'preact'
+import { FunctionComponent, h } from 'preact'
+import theme from '../../Theme/style.scss'
+import PageTitle from '../../PageTitle'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import PageTitle from '../../PageTitle'
-import { trackComponent } from '../../../Tracker'
-import { localised } from '~locales'
+import { useLocales } from '~locales'
 import { POA_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
-import theme from '../../Theme/style.scss'
+import { trackComponent } from '../../../Tracker'
+import { StepComponentBaseProps } from '~types/routers'
 import style from './style.scss'
 
-const PoAIntro = ({
-  country,
-  translate,
-  parseTranslatedTags,
-  nextStep,
-  steps,
-  autoFocusOnInitialScreenTitle,
-}) => {
-  const isFirstScreen = steps[0].type === 'poa'
+type Props = {
+  country?: string | undefined
+} & StepComponentBaseProps
+
+const PoAClientIntro: FunctionComponent<Props> = ({ country, nextStep }) => {
+  const { translate, parseTranslatedTags } = useLocales()
+
   return (
     <div className={theme.fullHeightContainer} data-page-id={'PoAIntro'}>
       <PageTitle
         title={translate('poa_intro.title', {
           country: !country || country === 'GBR' ? 'UK' : '',
         })}
-        shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
       />
       <div className={style.content}>
         <p className={style.requirements}>{translate('poa_intro.subtitle')}</p>
@@ -55,4 +53,4 @@ const PoAIntro = ({
   )
 }
 
-export default trackComponent(localised(PoAIntro))
+export default trackComponent(PoAClientIntro, 'poa_client_intro')

@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact'
+import { FunctionComponent, h } from 'preact'
 import { useEffect, useRef } from 'preact/compat'
 import { useSelector } from 'react-redux'
 import classNames from 'classnames'
@@ -10,7 +10,7 @@ import type { RootState } from '~types/redux'
 type Props = {
   className?: string
   smaller?: boolean
-  subTitle?: string
+  subTitle?: string | JSX.Element
   title: string
   shouldAutoFocus?: boolean
 }
