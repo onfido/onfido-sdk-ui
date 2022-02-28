@@ -5,6 +5,8 @@ import style from './style.scss'
 type CustomFileInputProps = {
   children: ComponentChildren
   className: string
+  accept?: string
+  capture?: boolean | string
   onClick: () => void
   onChange: (file: File) => void
 }
