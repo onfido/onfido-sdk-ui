@@ -58,3 +58,11 @@ export type WithPermissionsFlowProps = {
 export type WithBlobPreviewProps = {
   blob: Blob
 }
+
+export type WithNavigationDisabledStateProps = {
+  isNavigationDisabled: boolean
+}
+
+export type WithNavigationDisabledActionProps = {
+  setNavigationDisabled: (value: boolean) => void
+}

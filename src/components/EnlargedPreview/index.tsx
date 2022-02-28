@@ -6,32 +6,47 @@ import {
   withNavigationDisabledState,
   withNavigationDisableAction,
 } from '../NavigationBar'
-import { withFullScreenState, withFullScreenAction } from '../FullScreen'
-import { compose } from '~utils/func'
+import {
+  withFullScreenState,
+  withFullScreenAction,
+  WithFullScreenActionProps,
+  WithFullScreenStateProps,
+} from '../FullScreen'
 import style from './style.scss'
+import {
+  WithLocalisedProps,
+  WithNavigationDisabledActionProps,
+  WithNavigationDisabledStateProps,
+} from '~types/hocs'
 
-/* type Props = {
-  src: string,
-  altTag: string,
-  isNavigationDisabled: boolean,
-  isFullScreen: boolean,
-  setNavigationDisabled: (boolean) => void,
-  setFullScreen: (boolean) => void,
-} & LocalisedType
+type EnlargedPreviewProps = {
+  src?: string
+  altTag?: string
+} & WithLocalisedProps &
+  WithFullScreenActionProps &
+  WithFullScreenStateProps &
+  WithNavigationDisabledStateProps &
+  WithNavigationDisabledActionProps
 
-type State = {
-  isExpanded: boolean,
-} */
+type EnlargedPreviewState = {
+  isExpanded: boolean
+}
 
-class EnlargedPreview extends Component {
-  previewContainer
-  image
+class EnlargedPreview extends Component<
+  EnlargedPreviewProps,
+  EnlargedPreviewState
+> {
+  previewContainer: HTMLDivElement | null = null
+  image: HTMLDivElement | null = null
 
   state = {
     isExpanded: false,
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate(
+    nextProps: EnlargedPreviewProps,
+    nextState: EnlargedPreviewState
+  ) {
     if (nextState.isExpanded !== nextProps.isNavigationDisabled) {
       this.props.setNavigationDisabled(nextState.isExpanded)
     }
@@ -47,6 +62,7 @@ class EnlargedPreview extends Component {
 
   handleImageLoad = () => {
     if (this.image) {
+      //@ts-ignore wait for Pannable
       this.image.center()
     }
   }
@@ -81,7 +97,7 @@ class EnlargedPreview extends Component {
         >
           {isExpanded && (
             <Pannable
-              ref={(node) => (this.image = node)}
+              ref={(node: HTMLDivElement | null) => (this.image = node)}
               className={style.imageContainer}
             >
               {/* The screen reader will announce the alt tag inside the parent div as the group has role="img"
@@ -115,10 +131,9 @@ class EnlargedPreview extends Component {
   }
 }
 
-export default compose(
-  withNavigationDisabledState,
-  withNavigationDisableAction,
-  withFullScreenState,
-  withFullScreenAction,
-  localised
-)(EnlargedPreview)
+export default withNavigationDisabledState(
+  withNavigationDisableAction(
+    // @ts-ignore wait for NavigationBar
+    withFullScreenState(withFullScreenAction(localised(EnlargedPreview)))
+  )
+)
