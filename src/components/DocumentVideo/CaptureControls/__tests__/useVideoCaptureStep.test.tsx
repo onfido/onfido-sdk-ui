@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact'
 import { shallow, ShallowWrapper } from 'enzyme'
-import useCaptureStep from '../useCaptureStep'
+import useCaptureStep from '../useVideoCaptureStep'
 
 import type { CaptureFlows, CaptureSteps, RecordState } from '~types/docVideo'
 

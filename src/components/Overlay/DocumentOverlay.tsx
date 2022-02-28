@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact'
+import { h } from 'preact'
 import { memo } from 'preact/compat'
 import classNames from 'classnames'
 
@@ -186,6 +186,8 @@ export type Props = {
   upperScreen?: boolean
   video?: boolean
   withPlaceholder?: boolean
+  header?: JSX.Element
+  footer?: JSX.Element
 } & DocTypeParams
 
 /**
@@ -222,14 +224,15 @@ export type Props = {
  *          ‖                            ⇓
  *          <====<====<====<====<====<====
  */
-const DocumentOverlay: FunctionComponent<Props> = ({
+const DocumentOverlay = ({
   ariaLabel,
-  children,
   upperScreen = false,
   video,
   withPlaceholder,
+  header,
+  footer,
   ...docTypeParams
-}) => {
+}: Props) => {
   const { translate } = useLocales()
   const containerDimensions = useContainerDimensions()
 
@@ -269,6 +272,17 @@ const DocumentOverlay: FunctionComponent<Props> = ({
         <path className={style.hollow} d={inner} />
       </svg>
       <div
+        className={style.header}
+        style={{
+          top: 0,
+          bottom:
+            (hollowRect.bottom * containerDimensions.width) / viewport.width,
+        }}
+      >
+        {header}
+      </div>
+
+      <div
         className={classNames(style.placeholder, {
           [style[getPlaceholder(docTypeParams)]]: withPlaceholder,
         })}
@@ -284,7 +298,7 @@ const DocumentOverlay: FunctionComponent<Props> = ({
           top: (hollowRect.bottom * containerDimensions.width) / viewport.width,
         }}
       >
-        {children}
+        {footer}
       </div>
     </div>
   )

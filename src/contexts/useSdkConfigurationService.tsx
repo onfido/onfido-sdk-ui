@@ -11,7 +11,11 @@ type SdkConfigurationServiceProviderProps = {
   fallback?: ComponentChildren
 }
 
-const defaultConfiguration: SdkConfiguration = {}
+const defaultConfiguration: SdkConfiguration = {
+  experimental_features: {
+    enable_multi_frame_capture: false,
+  },
+}
 
 const SdkConfigurationServiceContext = createContext<SdkConfiguration>(
   defaultConfiguration

@@ -9,7 +9,7 @@ import { DOC_VIDEO_INSTRUCTIONS_MAPPING } from '~utils/localesMapping'
 import theme from 'components/Theme/style.scss'
 import StepProgress from './StepProgress'
 import { CaptureProgress, Instructions, SuccessState } from '../reusables'
-import useCaptureStep from './useCaptureStep'
+import useVideoCaptureStep from './useVideoCaptureStep'
 import style from './style.scss'
 
 import type { CaptureFlows, CaptureSteps } from '~types/docVideo'
@@ -40,7 +40,7 @@ const CaptureControls: FunctionComponent<Props> = ({
     restart: restartFlow,
     stepNumber,
     totalSteps,
-  } = useCaptureStep(captureFlow)
+  } = useVideoCaptureStep(captureFlow)
 
   const { [captureStep]: instructionKeys } = DOC_VIDEO_INSTRUCTIONS_MAPPING[
     captureFlow
