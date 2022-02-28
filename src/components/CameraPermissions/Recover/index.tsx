@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { FunctionComponent, h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { trackComponent } from 'Tracker'
@@ -6,8 +6,11 @@ import { localised } from '~locales'
 import PageTitle from 'components/PageTitle'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
+import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 
-const Recover = ({ translate }) => (
+const Recover: FunctionComponent<WithLocalisedProps & WithTrackingProps> = ({
+  translate,
+}) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle
       title={translate('permission_recovery.title_cam')}
