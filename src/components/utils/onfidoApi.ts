@@ -2,7 +2,7 @@ import { hmac256, mimeType } from './blob'
 import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
-import { trackException, TRACKED_EVENT_TYPES } from '../../Tracker'
+import { trackException } from '../../Tracker'
 
 import type {
   ImageQualityValidationPayload,
@@ -17,10 +17,11 @@ import type {
   CreateV4DocumentResponse,
   SuccessCallback,
   ErrorCallback,
+  SdkConfiguration,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
-import type { TrackedEventNames } from '~types/tracker'
+import type { LegacyTrackedEventNames } from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 type UploadPayload = {
@@ -35,6 +36,13 @@ type UploadDocumentPayload = {
   type?: DocumentTypes | PoaTypes | 'unknown'
   validations?: ImageQualityValidationPayload
 } & UploadPayload
+
+type UploadDocumentVideoMediaPayload = {
+  file: Blob
+  document_id: string
+  sdk_source?: string
+  sdk_version?: string
+} & Omit<UploadPayload, 'filename'>
 
 type UploadVideoPayload = {
   blob: Blob
@@ -55,6 +63,7 @@ type SelfiePayload = { blob: Blob } & UploadPayload
 
 type SubmitPayload = Omit<UploadPayload, 'sdkMetadata'> & {
   file?: Blob | FilePayload
+  document_id?: string
   sdk_metadata?: string
   sdk_source?: string
   sdk_validations?: string
@@ -101,6 +110,27 @@ export const uploadDocument = (
   )
 }
 
+export const uploadDocumentVideoMedia = (
+  payload: UploadDocumentVideoMediaPayload,
+  url: string | undefined,
+  token: string | undefined,
+  onSuccess?: SuccessCallback<string>,
+  onError?: ErrorCallback
+): Promise<string> => {
+  const { sdkMetadata, ...other } = payload
+
+  const data: SubmitPayload = {
+    ...other,
+    sdk_metadata: JSON.stringify(sdkMetadata),
+  }
+
+  const endpoint = `${url}/v3/document_video_media`
+
+  return new Promise((resolve, reject) =>
+    sendFile(endpoint, data, token, onSuccess || resolve, onError || reject)
+  )
+}
+
 export const uploadFacePhoto = (
   { sdkMetadata, ...data }: UploadLivePhotoPayload,
   url: string | undefined,
@@ -138,8 +168,7 @@ export const sendMultiframeSelfie = (
   onSuccess: SuccessCallback<UploadFileResponse>,
   onError: ErrorCallback,
   sendEvent: (
-    event: TrackedEventNames,
-    eventType: string,
+    event: LegacyTrackedEventNames,
     properties?: Record<string, unknown>
   ) => void
 ): void => {
@@ -150,15 +179,14 @@ export const sendMultiframeSelfie = (
     },
   }
   const { blob, filename = 'selfie', sdkMetadata } = selfie
-  const eventType = TRACKED_EVENT_TYPES.action
 
   new Promise<SnapshotResponse>((resolve, reject) => {
-    sendEvent('Starting snapshot upload', eventType)
+    sendEvent('Starting snapshot upload')
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
     .then((res) => {
-      sendEvent('Snapshot upload completed', eventType)
-      sendEvent('Starting live photo upload', eventType)
+      sendEvent('Snapshot upload completed')
+      sendEvent('Starting live photo upload')
       const snapshot_uuids = JSON.stringify([res.uuid])
       uploadFacePhoto(
         { file: { blob, filename }, sdkMetadata, snapshot_uuids },
@@ -168,7 +196,11 @@ export const sendMultiframeSelfie = (
         onError
       )
     })
-    .catch((err) => onError(err))
+    .catch((err) => {
+      // FIXME: the onError can also be a (e:Error) => void, as e.g. the test sendMultiframeSelfie - 'with invalid data' shows
+      // that the callback is a type error
+      onError(err)
+    })
 }
 
 export const uploadFaceVideo = (
@@ -380,3 +412,23 @@ export const sendAnalytics = (
 
   request.send(payload)
 }
+
+export const getSdkConfiguration = (
+  url: string,
+  token: string
+): Promise<SdkConfiguration> =>
+  new Promise((resolve, reject) => {
+    try {
+      const requestParams: HttpRequestParams = {
+        endpoint: `${url}/v3/sdk/configurations?sdk_source=${process.env.SDK_SOURCE}&sdk_version=${process.env.SDK_VERSION}`,
+        token: `Bearer ${token}`,
+        method: 'GET',
+      }
+
+      performHttpReq(requestParams, resolve, (request) =>
+        formatError(request, reject)
+      )
+    } catch (error) {
+      reject(error)
+    }
+  })

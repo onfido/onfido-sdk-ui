@@ -17,14 +17,15 @@ import { localised /*, type LocalisedType */ } from '~locales'
 
 const makeDocumentSelectorOfGroup = (group) => {
   const DocumentSelectorByGroup = (props) => {
-    const { translate, country } = props
+    const { translate, country, steps, autoFocusOnInitialScreenTitle } = props
+    const isFirstScreen = steps[0].type === 'document'
     const isPoA = group === 'proof_of_address'
     const DocumentSelector = isPoA
       ? PoADocumentSelector
       : IdentityDocumentSelector
 
     return (
-      <div>
+      <div data-page-id={isPoA ? 'PoaDocumentSelector' : 'IdDocumentSelector'}>
         <PageTitle
           title={translate(
             isPoA ? 'doc_select.title_poa' : 'doc_select.title',
@@ -35,6 +36,7 @@ const makeDocumentSelectorOfGroup = (group) => {
           subTitle={translate(
             isPoA ? 'doc_select.subtitle_poa' : 'doc_select.subtitle'
           )}
+          shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
         />
         <DocumentSelector {...{ ...props, group }} />
       </div>

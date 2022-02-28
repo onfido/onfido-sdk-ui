@@ -11,6 +11,8 @@ import type {
   GlobalState,
 } from '~types/redux'
 import type { ReduxProps } from '~types/routers'
+import { actions } from '../../../src/components/ReduxAppWrapper/store/actions'
+import { ActionCreatorsMapObject } from 'redux'
 
 export type MockedStore = MockStoreEnhanced<RootState, CombinedActions>
 
@@ -20,36 +22,14 @@ type Props = {
   storeRef?: (store: MockedStore) => void
 }
 
+const mockedActions: ActionCreatorsMapObject = {}
+
+Object.keys(actions).forEach((key) => {
+  mockedActions[key] = jest.fn()
+})
+
 export const mockedReduxProps: ReduxProps = {
-  actions: {
-    /* common actions */
-    reset: jest.fn(),
-    /* `captures` actions */
-    createCapture: jest.fn(),
-    deleteCapture: jest.fn(),
-    setCaptureMetadata: jest.fn(),
-    /* `globals` actions */
-    setIdDocumentType: jest.fn(),
-    setIdDocumentIssuingCountry: jest.fn(),
-    resetIdDocumentIssuingCountry: jest.fn(),
-    setPoADocumentType: jest.fn(),
-    setRoomId: jest.fn(),
-    setSocket: jest.fn(),
-    setClientSuccess: jest.fn(),
-    setMobileNumber: jest.fn(),
-    mobileConnected: jest.fn(),
-    acceptTerms: jest.fn(),
-    setNavigationDisabled: jest.fn(),
-    setFullScreen: jest.fn(),
-    setDeviceHasCameraSupport: jest.fn(),
-    setUrls: jest.fn(),
-    hideOnfidoLogo: jest.fn(),
-    showCobranding: jest.fn(),
-    showLogoCobranding: jest.fn(),
-    setDecoupleFromAPI: jest.fn(),
-    retryForImageQuality: jest.fn(),
-    resetImageQualityRetries: jest.fn(),
-  },
+  actions: mockedActions,
   captures,
   ...globals,
 }

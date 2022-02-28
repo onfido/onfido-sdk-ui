@@ -71,7 +71,7 @@ For internal contributors, all the PR checks must pass.
 
 ## Testing
 
-The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [testing guidelines](./test/TESTING_GUIDELINES.md).
+The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [testing guidelines](./test/README.md).
 Once your environment is ready, you can run `npm run build:test && npm run travis` to create the build and start up the server, and `npm run test:ui` to run the UI tests.
 The Web SDK has partial coverage of unit tests that can be executed with `npm run test`.
 You can also run a type checker and linter by running `npm run check`.
@@ -98,28 +98,29 @@ In order to perform a release, please follow the guidelines within [this documen
 Different SDK configuration options can be tested manually inside the previewer that can be found by using the `/previewer` path. E.g. https://localhost:8080/previewer.
 Some of the SDK configuration options can also be previewed in the demo app by using the following query strings:
 
-| QueryString                               | Values              | Default | Description                                                                                                                           |
-| ----------------------------------------- | ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `docVideo`                                | `true`,`false`      | `false` | Enable liveness video feature for the `document` step                                                                                 |
-| `faceVideo`                               | `true`,`false`      | `false` | Enable liveness video feature for the `face` step                                                                                     |
-| `useMultipleSelfieCapture`                | `true`,`false`      | `false` | Enable snapshot feature for the `face` step                                                                                           |
-| `useModal`                                | `true`,`false`      | `false` | Preview SDK as modal                                                                                                                  |
-| `language`                                | `en`,`es`,`de`,`fr` | `en`    | Preview SDK in a different language                                                                                                   |
-| `useWebcam`                               | `true`,`false`      | `false` | Enable the document auto capture feature for the `document` step                                                                      |
-| `useLiveDocumentCapture`                  | `true`,`false`      | `false` | Enable the live capture feature for the `document` step                                                                               |
-| `poa`                                     | `true`,`false`      | `false` | Enable the `poa` flow                                                                                                                 |
-| `oneDoc`                                  | `true`,`false`      | `false` | Preselect `passport` as the only document type                                                                                        |
-| `region`                                  | `US`,`CA`,`EU`      | `EU`    | Generate JWT for a supported region with SDK Token Factory                                                                            |
-| `useHistory`                              | `true`,`false`      | `false` | Enable basic dummy host app history                                                                                                   |
-| `customisedUI`                            | `true`,`false`      | `false` | Enable customised SDK UI                                                                                                              |
-| `showUserConsent`                         | `true`,`false`      | `false` | Enable user consent step                                                                                                              |
-| `customWelcomeScreenCopy`                 | `true`,`false`      | `false` | Configure welcome screen with custom text                                                                                             |
-| `multiDocWithBooleanValues`               | `true`,`false`      | `false` | Enable document types with boolean flags                                                                                              |
-| `showUserAnalyticsEvents`                 | `true`,`false`      | `false` | Enable event listener for User Analytics custom events that are available to integrators                                              |
-| `excludeSmsCrossDeviceOption`             | `true`,`false`      | `false` | Configure Cross Device - Send Link screen to show Copy Link view by default and QR Code as the alternative. Excludes SMS Link option. |
-| `singleCrossDeviceOption`                 | `true`,`false`      | `false` | Configure Cross Device - Send Link screen to show SMS Link view only. There will be no alternatives available.                        |
-| `crossDeviceClientIntroCustomProductName` | `true`,`false`      | `false` | Configure Cross Device – Mobile Client Intro screen to show example custom client product text.                                       |
-| `crossDeviceClientIntroCustomProductLogo` | `true`,`false`      | `false` | Configure Cross Device – Mobile Client Intro screen to show an example client company logo.                                           |
+| QueryString                               | Values              | Default | Description                                                                                                                            |
+| ----------------------------------------- | ------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `docVideo`                                | `true`,`false`      | `false` | Enable liveness video feature for the `document` step                                                                                  |
+| `faceVideo`                               | `true`,`false`      | `false` | Enable liveness video feature for the `face` step                                                                                      |
+| `useMultipleSelfieCapture`                | `true`,`false`      | `false` | Enable snapshot feature for the `face` step                                                                                            |
+| `useModal`                                | `true`,`false`      | `false` | Preview SDK as modal                                                                                                                   |
+| `language`                                | `en`,`es`,`de`,`fr` | `en`    | Preview SDK in a different language                                                                                                    |
+| `useWebcam`                               | `true`,`false`      | `false` | Enable the document auto capture feature for the `document` step                                                                       |
+| `useLiveDocumentCapture`                  | `true`,`false`      | `false` | Enable the live capture feature for the `document` step                                                                                |
+| `poa`                                     | `true`,`false`      | `false` | Enable the `poa` flow                                                                                                                  |
+| `oneDoc`                                  | `true`,`false`      | `false` | Preselect `passport` as the only document type                                                                                         |
+| `region`                                  | `US`,`CA`,`EU`      | `EU`    | Generate JWT for a supported region with SDK Token Factory                                                                             |
+| `useHistory`                              | `true`,`false`      | `false` | Enable basic dummy host app history                                                                                                    |
+| `customisedUI`                            | `true`,`false`      | `false` | Enable customised SDK UI                                                                                                               |
+| `showUserConsent`                         | `true`,`false`      | `false` | Enable user consent step                                                                                                               |
+| `customWelcomeScreenCopy`                 | `true`,`false`      | `false` | Configure welcome screen with custom text                                                                                              |
+| `multiDocWithBooleanValues`               | `true`,`false`      | `false` | Enable document types with boolean flags                                                                                               |
+| `showUserAnalyticsEvents`                 | `true`,`false`      | `false` | Enable event listener for User Analytics custom events that are available to integrators                                               |
+| `excludeSmsCrossDeviceOption`             | `true`,`false`      | `false` | Configure Cross Device - Send Link screen to show Copy Link view by default and QR Code as the alternative. Excludes SMS Link option.  |
+| `singleCrossDeviceOption`                 | `true`,`false`      | `false` | Configure Cross Device - Send Link screen to show SMS Link view only. There will be no alternatives available.                         |
+| `crossDeviceClientIntroCustomProductName` | `true`,`false`      | `false` | Configure Cross Device – Mobile Client Intro screen to show example custom client product text.                                        |
+| `crossDeviceClientIntroCustomProductLogo` | `true`,`false`      | `false` | Configure Cross Device – Mobile Client Intro screen to show an example client company logo.                                            |
+| `autoFocusOnInitialScreenTitle`           | `true`,`false`      | `true`  | Override SDK's default focus behaviour to auto focus on each screen's title. This override only applies to the initial screen's title. |
 
 Usage example: https://localhost:8080?faceVideo=true&language=de
 Please refer to [this file](./src/demo/demoUtils.ts) for more available options.

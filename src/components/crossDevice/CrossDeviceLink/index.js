@@ -12,11 +12,7 @@ import QRCodeGenerator from '../../QRCode'
 import QRCodeHowTo from '../../QRCode/HowTo'
 import Error from '../../Error'
 import PageTitle from '../../PageTitle'
-import {
-  trackComponent,
-  sendEvent,
-  TRACKED_EVENT_TYPES,
-} from '../../../Tracker'
+import { trackComponent, sendEvent } from '../../../Tracker'
 import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
@@ -68,14 +64,6 @@ const validatesViewIdWithFallback = (viewId) => {
   }
 
   return 'qr_code'
-}
-
-class SmsError extends Component {
-  componentDidMount() {
-    const errorName = this.props.error.name.toLowerCase()
-    this.props.trackScreen([errorName])
-  }
-  render = ({ error }) => <Error role="alert" {...{ error }} />
 }
 
 class CrossDeviceLink extends Component {
@@ -250,8 +238,11 @@ class CrossDeviceLinkUI extends Component {
     const mobileUrl = cross_device_url || hosted_sdk_url
     // This lets us test the cross device flow locally and on Surge.
     // We use the same location to test the same bundle as the desktop flow.
+
+    // TODO: review this change
+
     return process.env.MOBILE_URL === '/'
-      ? `${window.location.origin}?link_id=${this.linkId}`
+      ? `${window.location.origin}${window.location.pathname}?link_id=${this.linkId}`
       : `${mobileUrl}/${this.linkId}`
   }
 
@@ -327,10 +318,7 @@ class CrossDeviceLinkUI extends Component {
   )
 
   handleViewOptionSelect = (newViewId) => {
-    sendEvent(
-      `${newViewId.replace('_', ' ')} selected`,
-      TRACKED_EVENT_TYPES.action
-    )
+    sendEvent(`${newViewId.replace('_', ' ')} selected`)
     this.setState({ currentViewId: newViewId })
     this.viewOptionBtn.blur()
   }
@@ -384,9 +372,9 @@ class CrossDeviceLinkUI extends Component {
     const visibleViewOptions = this.getVisibleViewOptions(requiredViewRenders)
 
     return (
-      <div className={style.container}>
+      <div className={style.container} data-page-id={'CrossDeviceLink'}>
         {error.type ? (
-          <SmsError error={error} trackScreen={trackScreen} />
+          <Error role="alert" error={error} trackScreen={trackScreen} />
         ) : (
           <PageTitle
             title={translate('get_link.title')}

@@ -9,6 +9,10 @@ import type { DocumentCapture } from '~types/redux'
 
 jest.mock('~utils/objectUrl')
 
+const defaultProps = {
+  trackScreen: jest.fn(),
+}
+
 const fakeCapture: DocumentCapture = {
   documentType: 'passport',
   id: 'fake-capture-id',
@@ -20,7 +24,7 @@ describe('DocumentVideo', () => {
   describe('Confirm', () => {
     describe('Content', () => {
       it('renders without crashing', () => {
-        const wrapper = shallow(<Content previewing />)
+        const wrapper = shallow(<Content {...defaultProps} previewing />)
         expect(wrapper.exists()).toBeTruthy()
       })
 
@@ -28,7 +32,7 @@ describe('DocumentVideo', () => {
         it('renders nothing without capture', () => {
           const wrapper = mount(
             <MockedLocalised>
-              <Content previewing />
+              <Content {...defaultProps} previewing />
             </MockedLocalised>
           )
           expect(wrapper.find('Content').children().exists()).toBeFalsy()
@@ -37,7 +41,11 @@ describe('DocumentVideo', () => {
         it('render texts when not previewing', () => {
           const wrapper = mount(
             <MockedLocalised>
-              <Content capture={fakeCapture} previewing={false} />
+              <Content
+                {...defaultProps}
+                capture={fakeCapture}
+                previewing={false}
+              />
             </MockedLocalised>
           )
 
@@ -51,7 +59,7 @@ describe('DocumentVideo', () => {
           const wrapper = mount(
             <MockedReduxProvider>
               <MockedLocalised>
-                <Content capture={fakeCapture} previewing />
+                <Content {...defaultProps} capture={fakeCapture} previewing />
               </MockedLocalised>
             </MockedReduxProvider>
           )

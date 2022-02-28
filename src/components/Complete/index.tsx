@@ -27,7 +27,7 @@ class Complete extends Component<Props> {
     const body = this.props.submessage || translate('outro.body')
 
     return (
-      <ScreenLayout>
+      <ScreenLayout pageId={'Complete'}>
         <div className={style.wrapper}>
           <span className={`${theme.icon}  ${style.icon}`} />
           <PageTitle title={title} subTitle={body} />

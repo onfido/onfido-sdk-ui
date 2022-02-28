@@ -1,8 +1,9 @@
 import { h, Component } from 'preact'
-import { trackException, sendEvent, TRACKED_EVENT_TYPES } from '../../Tracker'
+import { trackException, sendEvent } from '../../Tracker'
 import { isOfMimeType, mimeType } from '~utils/blob'
 import {
   uploadDocument,
+  uploadDocumentVideoMedia,
   uploadFacePhoto,
   uploadFaceVideo,
   sendMultiframeSelfie,
@@ -30,7 +31,7 @@ const CALLBACK_TYPES = {
   video: 'onSubmitVideo',
   document: 'onSubmitDocument',
 }
-const UNEXPECTED_ERROR = 'REQUEST_ERROR'
+const REQUEST_ERROR = 'REQUEST_ERROR'
 
 class Confirm extends Component {
   constructor(props) {
@@ -42,8 +43,13 @@ class Confirm extends Component {
     }
   }
 
-  setError = (name) => {
-    this.setState({ error: { name, type: 'error' }, uploadInProgress: false })
+  setError = (name, errorMessage) => {
+    const error = { name, type: 'error' }
+    if (errorMessage) {
+      error.properties = { error_message: errorMessage }
+    }
+
+    this.setState({ error, uploadInProgress: false })
     this.props.resetSdkFocus()
   }
 
@@ -53,7 +59,7 @@ class Confirm extends Component {
   }
 
   onfidoErrorFieldMap = ([key, val]) => {
-    if (key === 'document_detection') return 'INVALID_CAPTURE'
+    if (key === 'document_detection') return 'DOCUMENT_DETECTION'
     // on corrupted PDF or other unsupported file types
     if (key === 'file') return 'INVALID_TYPE'
     // hit on PDF/invalid file type submission for face detection
@@ -80,7 +86,7 @@ class Confirm extends Component {
   }
 
   onApiError = (error) => {
-    let errorKey
+    let errorKey, errorMessage
     const status = error.status || ''
     const response = error.response || {}
 
@@ -88,17 +94,18 @@ class Confirm extends Component {
       this.props.triggerOnError({ status, response })
       return this.props.crossDeviceClientError()
     } else if (status === 422) {
-      errorKey = this.onfidoErrorReduce(response.error) || UNEXPECTED_ERROR
+      errorKey = this.onfidoErrorReduce(response.error) || REQUEST_ERROR
     } else {
       this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
-      errorKey = UNEXPECTED_ERROR
+      errorKey = REQUEST_ERROR
+      errorMessage = response?.error?.message
     }
 
-    this.setError(errorKey)
+    this.setError(errorKey, errorMessage)
   }
 
-  onVideoPreviewError = () => this.setError(UNEXPECTED_ERROR)
+  onVideoPreviewError = () => this.setError('VIDEO_ERROR')
 
   imageQualityWarnings = (warnings) => {
     for (const warnKey in IMAGE_QUALITY_KEYS_MAP) {
@@ -120,7 +127,7 @@ class Confirm extends Component {
     const { capture } = this.state
 
     const duration = Math.round(performance.now() - this.startTime)
-    sendEvent('Completed upload', TRACKED_EVENT_TYPES.action, {
+    sendEvent('Completed upload', {
       duration,
       method,
     })
@@ -193,7 +200,7 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     if (!isDecoupledFromAPI) {
       this.startTime = performance.now()
-      sendEvent('Starting upload', TRACKED_EVENT_TYPES.action, { method })
+      sendEvent('Starting upload', { method })
     }
     this.setState({ uploadInProgress: true })
     const {
@@ -237,17 +244,39 @@ class Confirm extends Component {
         filename || blob?.name || `document_capture.${mimeType(blob)}`
       const data = {
         file: { blob, filename: blobName },
-        // API does not support 'residence_permit' type but does accept 'unknown'
-        // See https://documentation.onfido.com/#document-types
-        type: type === 'residence_permit' ? 'unknown' : type,
+        type,
         side,
         validations,
         sdkMetadata,
         ...issuingCountry,
       }
-      if (isDecoupledFromAPI)
+
+      if (isDecoupledFromAPI) {
         this.onSubmitCallback(data, CALLBACK_TYPES.document)
-      else uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+      } else {
+        uploadDocument(data, url, token)
+          .then((res) => {
+            // Multi Frame Capture video
+            if (this.props.captures.document_video) {
+              const {
+                blob,
+                filename,
+                sdkMetadata,
+              } = this.props.captures.document_video
+
+              const data = {
+                file: { blob, filename },
+                sdkMetadata,
+                document_id: res.id,
+              }
+              return uploadDocumentVideoMedia(data, url, token).then(() => res)
+            }
+
+            return res
+          })
+          .then(this.onApiSuccess)
+          .catch(this.onApiError)
+      }
     } else if (variant === 'video') {
       const data = { challengeData, blob, language, sdkMetadata }
       if (isDecoupledFromAPI) this.onSubmitCallback(data, CALLBACK_TYPES.video)
@@ -262,8 +291,7 @@ class Confirm extends Component {
     const url = urls.onfido_api_url
     const formDataPayload = this.prepareCallbackPayload(data, callbackName)
 
-    const eventType = TRACKED_EVENT_TYPES.action
-    sendEvent(`Triggering ${callbackName} callback`, eventType)
+    sendEvent(`Triggering ${callbackName} callback`)
     try {
       const {
         continueWithOnfidoSubmission,
@@ -271,14 +299,11 @@ class Confirm extends Component {
       } = await enterpriseFeatures[callbackName](formDataPayload)
 
       if (onfidoSuccessResponse) {
-        sendEvent(`Success response from ${callbackName}`, eventType)
+        sendEvent(`Success response from ${callbackName}`)
         this.onApiSuccess(onfidoSuccessResponse)
-        return
-      }
-
-      if (continueWithOnfidoSubmission) {
+      } else if (continueWithOnfidoSubmission) {
         this.startTime = performance.now()
-        sendEvent('Starting upload', eventType, {
+        sendEvent('Starting upload', {
           method,
           uploadAfterNetworkDecouple: true,
         })
@@ -297,6 +322,8 @@ class Confirm extends Component {
           this.handleSelfieUpload(data, token)
           return
         }
+      } else {
+        console.error(`Invalid return statement from ${callbackName}`)
       }
     } catch (errorResponse) {
       sendEvent(`Error response from ${callbackName}`)
@@ -376,6 +403,7 @@ class Confirm extends Component {
     documentType,
     poaDocumentType,
     isFullScreen,
+    trackScreen,
   }) => {
     const { error, uploadInProgress } = this.state
 
@@ -391,6 +419,7 @@ class Confirm extends Component {
         confirmAction={this.onConfirm}
         isUploading={uploadInProgress}
         error={error}
+        trackScreen={trackScreen}
         method={method}
         documentType={documentType}
         poaDocumentType={poaDocumentType}

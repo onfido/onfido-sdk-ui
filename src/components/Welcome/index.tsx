@@ -54,6 +54,7 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
 const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   steps,
   nextStep,
+  autoFocusOnInitialScreenTitle,
 }) => {
   const [, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
@@ -64,6 +65,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
     descriptions: customDescriptions,
     nextButton: customNextButtonLabel,
   } = welcomeStep?.options || {}
+  const isFirstScreen = steps[0].type === 'welcome'
 
   const documentStep = findStep('document')
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
@@ -78,8 +80,16 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
     .map((stepConfig) => stepConfig.type)
 
   return (
-    <ScreenLayout actions={actions} className={style.container}>
-      <PageTitle title={welcomeTitle} subTitle={welcomeSubTitle} />
+    <ScreenLayout
+      actions={actions}
+      className={style.container}
+      pageId={'Welcome'}
+    >
+      <PageTitle
+        title={welcomeTitle}
+        subTitle={welcomeSubTitle}
+        shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
+      />
       {forDocVideo ? (
         <DocVideoContent captureSteps={captureSteps} />
       ) : (

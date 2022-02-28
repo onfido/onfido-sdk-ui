@@ -33,7 +33,11 @@ type Props = {
 } & WithTrackingProps
 
 type State = {
-  hasError: boolean
+  error?: ErrorProp
+}
+
+const initialState: State = {
+  error: undefined,
 }
 
 export default class DocumentAutoCapture extends Component<Props, State> {
@@ -41,9 +45,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
   private interval?: number
   private captureIds: string[] = []
 
-  state = {
-    hasError: false,
-  }
+  state = { ...initialState }
 
   componentDidMount(): void {
     this.start()
@@ -129,14 +131,21 @@ export default class DocumentAutoCapture extends Component<Props, State> {
   }
 
   handleValidationError: ErrorCallback = (error) => {
-    this.setState({ hasError: true })
+    this.setState({
+      error: {
+        ...requestError,
+        properties: {
+          error_message: error?.response?.message,
+        },
+      },
+    })
     this.props.triggerOnError(error)
     this.props.onError()
   }
 
   render(): h.JSX.Element {
-    const { hasError } = this.state
     const { trackScreen, renderFallback } = this.props
+    const { error } = this.state
 
     return (
       <Camera
@@ -145,11 +154,8 @@ export default class DocumentAutoCapture extends Component<Props, State> {
         docAutoCaptureFrame
         webcamRef={(ref) => ref && (this.webcam = ref)}
         renderError={
-          hasError ? (
-            <CameraError
-              error={requestError}
-              {...{ trackScreen, renderFallback }}
-            />
+          error ? (
+            <CameraError error={error} {...{ trackScreen, renderFallback }} />
           ) : null
         }
       >

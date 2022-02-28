@@ -33,6 +33,8 @@ import type { StepConfig, DocumentTypes } from '~types/steps'
 import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
+import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
+import Spinner from '../Spinner'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
@@ -41,7 +43,7 @@ export type ModalAppProps = {
 type Props = ModalAppProps & ReduxProps
 
 class ModalApp extends Component<Props> {
-  private events: EventEmitter2.emitter
+  private readonly events: EventEmitter2.emitter
 
   constructor(props: Props) {
     super(props)
@@ -71,11 +73,7 @@ class ModalApp extends Component<Props> {
       const trackedProperties = {
         is_custom_ui: hasCustomUIConfigured,
       }
-      Tracker.sendEvent(
-        'started flow',
-        Tracker.TRACKED_EVENT_TYPES.flow,
-        trackedProperties
-      )
+      Tracker.sendEvent('started flow', trackedProperties)
     }
   }
 
@@ -92,7 +90,8 @@ class ModalApp extends Component<Props> {
       roomId && socket.emit('leave', { roomId })
       socket.close()
     }
-    this.events.removeAllListeners(['complete', 'error'])
+    this.events.removeAllListeners('complete')
+    this.events.removeAllListeners('error')
     Tracker.uninstall()
     actions.reset()
   }
@@ -126,8 +125,7 @@ class ModalApp extends Component<Props> {
     Tracker.trackException(message)
   }
 
-  trackOnComplete = () =>
-    Tracker.sendEvent('completed flow', Tracker.TRACKED_EVENT_TYPES.flow)
+  trackOnComplete = () => Tracker.sendEvent('completed flow')
 
   bindEvents = (
     onComplete?: (data: SdkResponse) => void,
@@ -386,10 +384,9 @@ class ModalApp extends Component<Props> {
       containerEl,
       shouldCloseOnOverlayClick,
     } = options
-
     return (
-      <SdkOptionsProvider options={{ ...options, events: this.events }}>
-        <LocaleProvider language={options.language}>
+      <LocaleProvider language={options.language}>
+        <SdkOptionsProvider options={{ ...options, events: this.events }}>
           <Modal
             useModal={useModal}
             isOpen={isModalOpen}
@@ -400,8 +397,8 @@ class ModalApp extends Component<Props> {
           >
             <Router {...otherProps} />
           </Modal>
-        </LocaleProvider>
-      </SdkOptionsProvider>
+        </SdkOptionsProvider>
+      </LocaleProvider>
     )
   }
 }
