@@ -64,12 +64,17 @@ The callbacks return a FormData object, including the information that the SDK w
 
 #### Allowing the SDK to upload data to Onfido
 
-If you would like the SDK to upload the user-submitted data directly to Onfido you can resolve the promise with an object containing `continueWithOnfidoUpload: true`
+If you would like the SDK to upload the user-submitted data directly to Onfido you can resolve the promise with an object containing `continueWithOnfidoSubmission: true`
 
 ```javascript
 onSubmitDocument: (data) => {
+  // Note: data is a FormData object, to view the contents you can use:
+  for(const [key, value] of data.entries()) {
+    console.log('data (key,value): ', key, value);
+  }
+
   // Send data to your backend then resolve promise,
-  return Promise.resolve({ continueWithOnfidoUpload: true })
+  return Promise.resolve({ continueWithOnfidoSubmission: true })
 })
 ```
 
@@ -89,7 +94,7 @@ Note: An error response could be returned due to image quality issues. In this c
 onSubmitDocument: (data) => {
   // Send request to Onfido API /documents via your backend proxy
   .then(onfidoSuccessResponse =>
-    Promise.resolve({ onfidoSuccessResponse }))
+    Promise.resolve({ onfidoSuccessResponse: <onfidoResponse> }))
   .catch(onfidoError => Promise.reject(onfidoError))
 }
 ```

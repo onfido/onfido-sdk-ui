@@ -8,6 +8,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+
+- Public: Add compatibility with Salesforce
+- Public: Add type `DocumentTypes` to `DocumentResponse`
+
+## [6.18.0] - in progress
+
 ### Added
 
 - Public: Updated supported documents list to include Curaçao and other countries.
@@ -20,6 +27,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added new analytics events for camera, upload, http requests and sms errors
 - Internal: Update FaceTec SDK on Auth step from `9.3.4` to `9.4.5`. Removed 3 hardcoded custom properties defined on Auth component UI.
 - Internal: Added events for video preview and face video recording/next buttons
+- Internal: Added new analytics events for custom callbacks
+- Internal: Prevent analytics events without mapping from being send to our api
+- Public: Update documentation for custom callbacks
 
 ### Fixed
 
@@ -27,6 +37,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fix locale key mismatch for the title of the `CAMERA_NOT_WORKING_NO_FALLBACK` error
 - Upgrade `eventemitter2` to v2.2.2
 - Fix usage of `removeAllListeners` in `ModalApp`
+- Public: Fixed CSS variables naming for internal tokens
 
 ## [6.17.0] - 2022-01-24
 

@@ -88,7 +88,7 @@
     "files": [
       {
         "path": "./dist/onfido.min.js",
-        "maxSize": "252 kB"
+        "maxSize": "255 kB"
       },
       {
         "path": "./dist/onfido.crossDevice.min.js",
@@ -129,6 +129,11 @@
     "@percy/cli": "^1.0.0-beta.70",
     "@percy/selenium-webdriver": "^1.0.0",
     "@sentry/cli": "^1.51.1",
+    "@testing-library/dom": "^8.11.1",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/preact": "^2.0.1",
+    "@testing-library/preact-hooks": "^1.1.0",
+    "@testing-library/user-event": "^13.5.0",
     "@types/blueimp-load-image": "^2.23.8",
     "@types/classnames": "^2.2.11",
     "@types/dom-mediacapture-record": "^1.0.7",
@@ -215,7 +220,7 @@
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.2",
-    "webpack-node-externals": "^1.7.2",
+    "webpack-node-externals": "^3.0.0",
     "webpack-visualizer-plugin": "^0.1.11",
     "wpt": "Woopra/browser-tracker.git#v5.1.20",
     "yn": "^3.0.0"
@@ -236,7 +241,7 @@
     "hoist-non-react-statics": "^3.3.2",
     "node-polyglot": "^2.2.2",
     "parse-unit": "~1.0.1",
-    "pdfobject": "~2.0.201604172",
+    "pdfobject": "^2.2.7",
     "preact": "^10.5.13",
     "redux": "^4.0.5",
     "socket.io-client": "^4.2.0",

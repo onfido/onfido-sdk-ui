@@ -961,4 +961,46 @@ export const analyticsEventsMapping = new Map<
       properties: { event_type: 'action' },
     },
   ],
+  [
+    'Triggering onSubmitSelfie callback',
+    {
+      eventName: 'CUSTOM_CALLBACK_TRIGGERED',
+      properties: { event_type: 'flow', callback_name: 'onSubmitSelfie' },
+    },
+  ],
+  [
+    'Triggering onSubmitVideo callback',
+    {
+      eventName: 'CUSTOM_CALLBACK_TRIGGERED',
+      properties: { event_type: 'flow', callback_name: 'onSubmitVideo' },
+    },
+  ],
+  [
+    'Triggering onSubmitDocument callback',
+    {
+      eventName: 'CUSTOM_CALLBACK_TRIGGERED',
+      properties: { event_type: 'flow', callback_name: 'onSubmitDocument' },
+    },
+  ],
+  [
+    'Error response from onSubmitSelfie',
+    {
+      eventName: 'CUSTOM_CALLBACK_ERROR',
+      properties: { event_type: 'flow', callback_name: 'onSubmitSelfie' },
+    },
+  ],
+  [
+    'Error response from onSubmitVideo',
+    {
+      eventName: 'CUSTOM_CALLBACK_ERROR',
+      properties: { event_type: 'flow', callback_name: 'onSubmitVideo' },
+    },
+  ],
+  [
+    'Error response from onSubmitDocument',
+    {
+      eventName: 'CUSTOM_CALLBACK_ERROR',
+      properties: { event_type: 'flow', callback_name: 'onSubmitDocument' },
+    },
+  ],
 ])
