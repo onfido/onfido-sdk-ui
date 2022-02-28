@@ -141,10 +141,10 @@ const TEST_DEPLOYMENT_CONFIG = {
 
 const TEST_E2E_CONFIG = {
   ...TEST_DEPLOYMENT_CONFIG,
-  ONFIDO_API_URL: 'https://localhost:8080/api',
-  JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
-  US_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
-  CA_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
+  ONFIDO_API_URL: 'https://localhost:8082/api',
+  JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
+  US_JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
+  CA_JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
   SMS_DELIVERY_URL: 'https://localhost:8080/telephony',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
 }
@@ -221,7 +221,7 @@ const basePlugins = (bundle_name = '') => [
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'DA',
+      BASE_32_VERSION: 'DE',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
@@ -277,7 +277,7 @@ const baseConfig = {
     setImmediate: false,
   },
 
-  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-cheap-source-map',
+  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-cheap-module-source-map',
 }
 
 const configDist = () => ({

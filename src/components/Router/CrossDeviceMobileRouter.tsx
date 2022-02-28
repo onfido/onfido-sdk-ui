@@ -27,6 +27,7 @@ import type {
 } from '~types/routers'
 import type { StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
+import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
 
 const RESTRICTED_CROSS_DEVICE = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -99,7 +100,9 @@ export default class CrossDeviceMobileRouter extends Component<
     // the cross device flow without running nginx
     const url = props.urls.sync_url
 
-    const roomId = window.location.pathname.substring(3) || props.options.roomId
+    // TODO: review this change
+
+    const roomId = props.options.roomId || window.location.pathname.substring(3)
 
     this.state = {
       crossDeviceError: undefined,
@@ -368,13 +371,19 @@ export default class CrossDeviceMobileRouter extends Component<
 
     if (steps) {
       return (
-        <HistoryRouter
-          {...this.props}
-          {...this.state}
-          crossDeviceClientError={this.setError}
-          sendClientSuccess={this.sendClientSuccess}
-          steps={steps}
-        />
+        <SdkConfigurationServiceProvider
+          url={this.props.urls.onfido_api_url}
+          token={this.state.token}
+          fallback={<WrappedSpinner disableNavigation />}
+        >
+          <HistoryRouter
+            {...this.props}
+            {...this.state}
+            crossDeviceClientError={this.setError}
+            sendClientSuccess={this.sendClientSuccess}
+            steps={steps}
+          />
+        </SdkConfigurationServiceProvider>
       )
     }
 

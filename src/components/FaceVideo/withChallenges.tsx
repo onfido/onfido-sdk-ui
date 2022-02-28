@@ -27,7 +27,7 @@ type Props = {
 type State = {
   challengesId: string
   challenges: ChallengePayload[]
-  hasError: boolean
+  error?: ErrorProp
   hasLoaded: boolean
   challengeRequestedAt: number
 }
@@ -36,7 +36,7 @@ const initialState: State = {
   challengesId: '',
   challenges: [],
   hasLoaded: false,
-  hasError: false,
+  error: undefined,
   challengeRequestedAt: 0,
 }
 
@@ -58,7 +58,6 @@ const withChallenges = <P extends Props>(
             token,
             urls: { onfido_api_url: url },
           } = this.props
-
           requestChallenges(url, token, this.handleResponse, this.handleError)
           sendScreen(['face_video_challenge_requested'])
         }
@@ -77,7 +76,15 @@ const withChallenges = <P extends Props>(
     }
 
     handleError: ErrorCallback = (error) => {
-      this.setState({ hasLoaded: true, hasError: true })
+      this.setState({
+        hasLoaded: true,
+        error: {
+          ...requestError,
+          properties: {
+            error_message: error?.response?.message,
+          },
+        },
+      })
       this.props.triggerOnError(error)
       sendScreen(['face_video_challenge_load_failed'], {
         challenge_loading_time: this.challengeLoadingTime(),
@@ -87,20 +94,9 @@ const withChallenges = <P extends Props>(
     challengeLoadingTime = () =>
       currentMilliseconds() - this.state.challengeRequestedAt
 
-    renderError = () => {
-      const { trackScreen, renderFallback } = this.props
-
-      return (
-        <CameraError
-          {...{ trackScreen, renderFallback }}
-          error={requestError}
-          hasBackdrop
-        />
-      )
-    }
-
     render() {
-      const { hasLoaded, hasError, challenges, challengesId } = this.state
+      const { trackScreen, renderFallback } = this.props
+      const { hasLoaded, error, challenges, challengesId } = this.state
 
       if (!hasLoaded) {
         return <Spinner />
@@ -116,7 +112,14 @@ const withChallenges = <P extends Props>(
         <WrappedVideo
           {...passedProps}
           onRedo={this.loadChallenges}
-          renderError={hasError && this.renderError()}
+          renderError={
+            error ? (
+              <CameraError
+                {...{ error, trackScreen, renderFallback }}
+                hasBackdrop
+              />
+            ) : null
+          }
         />
       )
     }

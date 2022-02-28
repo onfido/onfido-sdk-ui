@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { Component, h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { isDesktop } from '~utils'
@@ -20,8 +20,9 @@ const MobileUploadArea = ({
   translate,
   isUploading,
   captureType,
+  pageId,
 }) => (
-  <div className={style.uploadArea}>
+  <div className={style.uploadArea} data-page-id={pageId}>
     {children}
     <div
       className={classNames(style.buttons, {
@@ -84,8 +85,9 @@ const PassportMobileUploadArea = ({
   children,
   translate,
   isUploading,
+  pageId,
 }) => (
-  <div className={style.uploadArea}>
+  <div className={style.uploadArea} data-page-id={pageId}>
     {children}
     <div className={style.buttons}>
       <Button
@@ -168,7 +170,11 @@ const PassportUploadIntro = ({
     )
   }
   return (
-    <PassportMobileUploadArea nextStep={nextStep} translate={translate}>
+    <PassportMobileUploadArea
+      nextStep={nextStep}
+      translate={translate}
+      pageId={'PassportUploadIntro'}
+    >
       <div className={style.instructions}>
         <div className={classNames(theme.iconContainer, style.iconContainer)}>
           <span className={classNames(theme.icon, style.identityIcon)} />
@@ -190,6 +196,7 @@ const UploadArea = (props) => {
     handleFileSelected,
     isUploading,
     captureType,
+    trackScreen,
   } = props
   const isPoA = uploadType === 'proof_of_address'
 
@@ -203,7 +210,7 @@ const UploadArea = (props) => {
         isUploading={isUploading}
       >
         <CustomFileInput onChange={handleFileSelected}>
-          {error && <UploadError {...{ error, translate }} />}
+          {error && <UploadError {...{ error, trackScreen, translate }} />}
           <button
             type="button"
             className={classNames(theme.link, style.buttonLinkUploadCopy)}
@@ -238,7 +245,7 @@ const UploadArea = (props) => {
           />
         </div>
         {error ? (
-          <UploadError {...{ error, translate }} />
+          <UploadError {...{ error, trackScreen, translate }} />
         ) : (
           <div className={style.instructionsCopy}>{instructions}</div>
         )}
@@ -275,12 +282,17 @@ class Uploader extends Component {
       translate,
       documentType,
       uploadType,
+      pageId,
+      trackScreen,
     } = this.props
     const isPassportUpload =
       uploadType !== 'face' && documentType === 'passport'
     const captureType = uploadType === 'face' ? 'user' : 'environment'
     return (
-      <div className={classNames(theme.fullHeightContainer, style.container)}>
+      <div
+        className={classNames(theme.fullHeightContainer, style.container)}
+        data-page-id={pageId}
+      >
         <PageTitle
           title={title}
           subTitle={
@@ -299,6 +311,7 @@ class Uploader extends Component {
               {...this.props}
               captureType={captureType}
               error={this.state.error}
+              trackScreen={trackScreen}
               handleFileSelected={this.handleFileSelected}
               isUploading={this.state.isUploading}
             />

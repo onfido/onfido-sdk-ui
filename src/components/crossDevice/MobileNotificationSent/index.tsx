@@ -26,7 +26,7 @@ const MobileNotificationSent: FunctionComponent<Props> = ({
 }) => {
   const { translate } = useLocales()
   return (
-    <div>
+    <div data-page-id={'MobileNotificationSent'}>
       <PageTitle title={translate('sms_sent.title')} />
       <div>
         <div className={style.submessage}>

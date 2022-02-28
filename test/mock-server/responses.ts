@@ -136,6 +136,24 @@ export default {
             },
           },
         },
+        no_face: {
+          error: {
+            type: 'face_detection',
+            message: 'There was a validation error on this request',
+            fields: {
+              face_detection: ['no_face'],
+            },
+          },
+        },
+        multiple_face: {
+          error: {
+            type: 'face_detection',
+            message: 'There was a validation error on this request',
+            fields: {
+              face_detection: ['Multiple faces'],
+            },
+          },
+        },
       },
       live_video_challenge: {
         data: {
@@ -172,6 +190,54 @@ export default {
         id: 'ru18be',
         is_document: false,
         valid: false,
+      },
+      sdk_configurations: {
+        biometrics_liveness: {
+          active: {
+            enabled: false,
+            video_settings: {
+              bitrate: 5000000,
+              codec: 'H264',
+              codec_profile: 30,
+              duration: 15000,
+              exposure_lock: true,
+              focus_lock: true,
+              framerate: 25,
+              white_balance_lock: true,
+            },
+          },
+          passive: {
+            enabled: false,
+            video_settings: {
+              bitrate: 8000000,
+              codec: 'H264',
+              duration: 8000,
+              exposure_lock: true,
+              focus_lock: true,
+              framerate: 25,
+              white_balance_lock: true,
+            },
+          },
+        },
+        document_capture: {
+          torch_turn_on_time_ms: -1,
+          video_bitrate: 5000000,
+          video_length_ms: 1500,
+        },
+        experimental_features: {
+          enable_image_quality_service: false,
+          enable_multi_frame_capture: false,
+        },
+        sdk_features: { enable_on_device_face_detection: true },
+        validations: {
+          on_device: {
+            blur: {
+              applies_to: [{ doc_type: 'ALL' }],
+              max_total_retries: 2,
+              threshold: 150,
+            },
+          },
+        },
       },
     },
     v4: {

@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { Component, h } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import { screenshot } from '~utils/camera'
 import { mimeType } from '~utils/blob'
@@ -100,7 +100,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     } = this.state
 
     return (
-      <div className={style.container}>
+      <div className={style.container} data-page-id={'DocumentLiveCapture'}>
         {this.state.isCapturing ? (
           <Spinner />
         ) : (

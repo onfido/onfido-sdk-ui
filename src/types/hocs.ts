@@ -42,6 +42,10 @@ export type WithCaptureVariantProps = {
   side?: DocumentSides
 }
 
+export type WithPageIdProps = {
+  pageId?: string
+}
+
 export type WithThemeProps = {
   back?: () => void
   disableNavigation?: boolean

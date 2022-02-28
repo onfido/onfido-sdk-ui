@@ -20,7 +20,7 @@ const Guidance = ({
   }
 
   return (
-    <div className={theme.fullHeightContainer}>
+    <div className={theme.fullHeightContainer} data-page-id={'PoAGuidance'}>
       <PageTitle
         title={translate(POA_GUIDANCE_LOCALES_MAPPING[poaDocumentType].title)}
         subTitle={

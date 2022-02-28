@@ -3,7 +3,7 @@ import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { localised } from '~locales'
 import { trackComponentAndMode } from '../../Tracker'
-import { isDesktop, addDeviceRelatedProperties, capitalise } from '~utils'
+import { addDeviceRelatedProperties, capitalise, isDesktop } from '~utils'
 import UploadError from './Error'
 import { validateFile } from '~utils/file'
 import { IMAGE_QUALITY_GUIDE_LOCALES_MAPPING } from '~utils/localesMapping'
@@ -88,14 +88,15 @@ class ImageQualityGuide extends Component {
     this.props.nextStep()
   }
 
-  handleFileError = (error) => this.setError(error)
-
   render() {
-    const { translate } = this.props
+    const { translate, trackScreen } = this.props
     const { error, isUploading } = this.state
 
     return (
-      <div className={theme.fullHeightContainer}>
+      <div
+        className={theme.fullHeightContainer}
+        data-page-id={'ImageQualityGuide'}
+      >
         <PageTitle
           title={translate('upload_guide.title')}
           subTitle={translate('upload_guide.subtitle')}
@@ -112,7 +113,7 @@ class ImageQualityGuide extends Component {
             </div>
           </div>
           <div>
-            {error && <UploadError {...{ error, translate }} />}
+            {error && <UploadError {...{ error, trackScreen, translate }} />}
             {isDesktop ? (
               <CustomFileInput
                 className={classNames(

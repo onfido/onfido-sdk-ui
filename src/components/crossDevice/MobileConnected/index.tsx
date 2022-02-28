@@ -17,7 +17,7 @@ type Props = MobileConnectedProps & WithTrackingProps
 const MobileConnected: FunctionComponent<Props> = ({ back }) => {
   const { translate } = useLocales()
   return (
-    <div>
+    <div data-page-id={'CrossDeviceMobileConnected'}>
       <PageTitle
         title={translate('switch_phone.title')}
         subTitle={translate('switch_phone.subtitle')}

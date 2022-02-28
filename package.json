@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "6.17.0",
+  "version": "6.18.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -10,13 +10,13 @@
   "license": "SEE LICENSE IN ./LICENSE",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --hot --progress --https",
+    "dev-insecure": "NODE_ENV=development webpack-dev-server --hot --progress",
     "dev:auth": "NODE_ENV=development SDK_ENV=Auth webpack-dev-server --hot --progress --https",
-    "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
     "prebuild": "npm run clean",
     "build": "webpack --quiet --display-error-details --bail",
     "build:auth": "SDK_ENV=Auth webpack --quiet --display-error-details --bail",
     "build:dev": "NODE_ENV=development npm run build",
-    "build:test": "NODE_ENV=test npm run build && npm run mock-server:build",
+    "build:test": "NODE_ENV=test npm run build && npm run test-server:prepare && npm run test-server:build",
     "build:all": "npm run build && npm run build:auth",
     "postbuild": "dts-bundle-generator src/types/index.ts --out-file lib/index.d.ts && npm run license-checker",
     "clean": "rimraf lib dist",
@@ -30,15 +30,13 @@
     "test": "npm run test:unit",
     "test:integration": "jest --verbose --testPathPattern=__integrations__",
     "test:unit": "jest --coverage --verbose --testPathPattern=__tests__",
-    "test:ui": "babel-node test/main.js",
-    "test:percy": "MOCHA_GREP=@percy CONFIG_FILE=percy.json PERCY=true percy exec npm run test:ui",
-    "test:percy:all-languages": "MOCHA_GREP=@percy CONFIG_FILE=percyAllLanguages.json PERCY=true percy exec npm run test:ui",
-    "test:e2e:local": "MOCK_SERVER=false MOCHA_GREP=@e2e-latest CONFIG_FILE=prode2elocal.json npm run test:ui",
-    "mock-server:build": "cd ./test/mock-server && ./prepare.sh && docker build -t onfido-web-sdk:ui-mock-server .",
-    "mock-server:run": "docker run -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server",
     "bundle-analyzer": "webpack-bundle-analyzer",
     "license-checker": "license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json",
-    "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js"
+    "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js",
+    "test-server": "npm run build && npm run test-server:prepare && ",
+    "test-server:run": "docker-compose up --abort-on-container-exit",
+    "test-server:build": "docker-compose up --build --no-start",
+    "test-server:prepare": "rm -rf ./test/mock-server/frontend && cp -r dist test/mock-server/frontend"
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -57,9 +55,6 @@
     "dist",
     "lib",
     "src"
-  ],
-  "pre-commit": [
-    "check"
   ],
   "jest": {
     "setupFiles": [
@@ -93,7 +88,7 @@
     "files": [
       {
         "path": "./dist/onfido.min.js",
-        "maxSize": "245 kB"
+        "maxSize": "252 kB"
       },
       {
         "path": "./dist/onfido.crossDevice.min.js",
@@ -128,9 +123,9 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.13.0",
     "@babel/register": "^7.8.6",
-    "@onfido/castor": "^1.2.0",
-    "@onfido/castor-icons": "^2.0.0",
-    "@onfido/castor-react": "^1.2.0",
+    "@onfido/castor": "^2.0.3",
+    "@onfido/castor-icons": "^2.8.0",
+    "@onfido/castor-react": "^2.0.3",
     "@percy/cli": "^1.0.0-beta.70",
     "@percy/selenium-webdriver": "^1.0.0",
     "@sentry/cli": "^1.51.1",
@@ -144,6 +139,7 @@
     "@types/mini-css-extract-plugin": "^1.2.2",
     "@types/parse-unit": "^1.0.1",
     "@types/pdfobject": "^2.0.6",
+    "@types/react-dom": "^17.0.11",
     "@types/react-modal": "^3.12.0",
     "@types/react-redux": "^7.1.15",
     "@types/react-router-dom": "^5.1.6",
@@ -161,10 +157,8 @@
     "axe-webdriverjs": "^2.2.0",
     "babel-loader": "^8.0.0",
     "babel-plugin-auto-await": "^0.4.2",
-    "browserstack-local": "^1.4.5",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
-    "chromedriver": "^96.0.0",
     "concurrently": "^6.4.0",
     "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^3.4.2",
@@ -178,7 +172,6 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "file-loader": "^6.2.0",
-    "geckodriver": "^2.0.4",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.13.0",
     "imports-loader": "^0.8.0",
@@ -196,9 +189,8 @@
     "postcss-custom-media": "^7.0.8",
     "postcss-loader": "^3.0.0",
     "postcss-url": "^8.0.0",
-    "pre-commit": "^1.2.2",
     "prettier": "^2.2.1",
-    "qrcode.react": "^1.0.0",
+    "qrcode.react": "^1.0.1",
     "react-modal": "^3.11.2",
     "react-native-listener": "1.0.1",
     "react-phone-number-input": "^3.1.38",
@@ -210,7 +202,6 @@
     "rimraf": "^2.5.4",
     "sass": "^1.43.4",
     "sass-loader": "^9.0.3",
-    "selenium-webdriver": "^4.0.0-alpha.7",
     "source-map-loader": "^0.1.5",
     "speed-measure-webpack-plugin": "^1.3.0",
     "style-loader": "^1.1.3",
@@ -237,9 +228,10 @@
     "blueimp-load-image": "~2.29.0",
     "classnames": "~2.2.5",
     "custom-event-polyfill": "^1.0.7",
+    "deepmerge": "^4.2.2",
     "dompurify": "^2.2.6",
     "enumerate-devices": "^1.1.0",
-    "eventemitter2": "~2.1.3",
+    "eventemitter2": "~2.2.2",
     "history": "~4.5.1",
     "hoist-non-react-statics": "^3.3.2",
     "node-polyglot": "^2.2.2",
