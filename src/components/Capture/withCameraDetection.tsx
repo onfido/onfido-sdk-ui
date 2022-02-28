@@ -20,6 +20,7 @@ export default function withCameraDetection<P extends Props>(
     useEffect(() => {
       const checkCameraSupport = () =>
         checkIfHasWebcam((cameraState: boolean) => {
+          console.log(cameraState)
           if (hasCamera !== cameraState) {
             props.actions.setDeviceHasCameraSupport(cameraState)
             setHasCamera(cameraState)

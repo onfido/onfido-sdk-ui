@@ -12,6 +12,8 @@ import PageTitle from '../PageTitle'
 import UploadError from './Error'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
+import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
+
 
 const MobileUploadArea = ({
   onFileSelected,

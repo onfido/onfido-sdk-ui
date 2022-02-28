@@ -18,19 +18,28 @@ import testDarkCobrandLogo from './assets/onfido-logo.svg'
 import testLightCobrandLogo from './assets/onfido-logo-light.svg'
 import sampleCompanyLogo from './assets/sample-logo.svg'
 
-navigator.mediaDevices.getUserMedia({video: { width: 640 }}).then(() => {
-  alert('success')
-  navigator.mediaDevices.enumerateDevices().then(devices => {
-    const labels = []
-    devices.forEach(device => {
-      labels.push(device.labels)
-    })
+// navigator.mediaDevices.getUserMedia({video: true, audio: true }).then(() => {
+//   // alert('success')
+//   navigator.mediaDevices.enumerateDevices().then(devices => {
+//     const labels = []
+//     devices.forEach(device => {
+//       labels.push(device.label)
+//     })
   
-    alert(labels.join(', '))
-  })
+//     alert(labels.join(', '))
+//   })
   
-}).catch((e) => console.log('error', e))
+// }).catch((e) => console.log('error', e))
 
+// navigator.mediaDevices.enumerateDevices().then(devices => {
+//   const labels = []
+//   devices.forEach(device => {
+//     labels.push(device.label)
+//     // console.log(device)
+//   })
+
+//   alert(labels.join(', '))
+// })
 
 
 

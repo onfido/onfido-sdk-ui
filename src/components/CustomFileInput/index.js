@@ -2,6 +2,7 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
+import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 
 /* type Props = {
   children: ?React.Node,
@@ -12,7 +13,7 @@ import style from './style.scss'
 
 const noop = () => {}
 
-export default class CustomFileInput extends Component {
+class CustomFileInput extends Component {
   static defaultProps = {
     children: null,
     className: '',
@@ -23,10 +24,12 @@ export default class CustomFileInput extends Component {
   input
 
   handleClick = () => {
+    // alert(!!this.input?.click)
     if (this.input) {
-      this.input.click()
+      // this.input.click()
+      // this.input.click()
     }
-    this.props.onClick()
+    // this.props.onClick()
   }
 
   handleChange = (event) => {
@@ -36,11 +39,32 @@ export default class CustomFileInput extends Component {
     event.currentTarget.value = '' // Allow re-uplading the same file
   }
 
+  hasPermission = false
+
+  beforeClick = () => {
+    if(this.hasPermission){ 
+      this.handleClick()
+      return
+    }
+    // alert('gainPermissions')
+
+    navigator.mediaDevices
+      .getUserMedia({ video: true })
+      .then(() => {
+        this.hasPermission = true
+        // alert('access')
+        this.handleClick()
+      })
+      .catch((e) => {
+        alert(e.message)
+      })
+  }
+
   render = () => {
     const { children, className, onClick, onChange, ...other } = this.props // eslint-disable-line no-unused-vars
     return (
       <span
-        onClick={this.handleClick}
+        onClick={this.beforeClick}
         className={classNames(style.container, className)}
       >
         {children}
@@ -55,3 +79,5 @@ export default class CustomFileInput extends Component {
     )
   }
 }
+
+export default CustomFileInput
