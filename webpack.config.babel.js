@@ -228,7 +228,7 @@ const basePlugins = (bundle_name = '') => [
       CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
       SDK_TOKEN_FACTORY_SECRET,
       WOOPRA_WINDOW_KEY,
-      WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`,
+      WOOPRA_IMPORT: `imports-loader?this=>Window.prototype["${WOOPRA_WINDOW_KEY}"],window=>Window.prototype["${WOOPRA_WINDOW_KEY}"]!wpt/wpt.js`,
     })
   ),
 ]
@@ -427,8 +427,9 @@ const configNpmLib = () => ({
   externals: [
     nodeExternals({
       modulesFromFile: {
-        include: ['dependencies'],
+        excludeFromBundle: ['dependencies'],
       },
+      allowlist: ['custom-event-polyfill', 'node-polyglot'],
     }),
   ],
 })

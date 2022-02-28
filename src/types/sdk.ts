@@ -1,12 +1,17 @@
 import type { SupportedLanguages, LocaleConfig } from './locales'
-import type { RequestedVariant, StepConfig, StepTypes } from './steps'
 import type { EnterpriseFeatures } from './enterprise'
 import type { UICustomizationOptions } from './ui-customisation-options'
+import type {
+  RequestedVariant,
+  StepConfig,
+  StepTypes,
+  DocumentTypes,
+} from './steps'
 
 type DocumentResponse = {
   id: string
   side: string
-  type: string
+  type: DocumentTypes
   variant: RequestedVariant
 }
 

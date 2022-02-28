@@ -15,6 +15,7 @@ const createMockXHR = ({
     open: jest.fn(),
     send: jest.fn(),
     setRequestHeader: jest.fn(),
+    getResponseHeader: jest.fn().mockReturnValue('application/json'),
     status,
     response: JSON.stringify(response),
   }

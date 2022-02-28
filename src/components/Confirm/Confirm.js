@@ -3,6 +3,7 @@ import { trackException, sendEvent } from '../../Tracker'
 import { isOfMimeType, mimeType } from '~utils/blob'
 import {
   uploadDocument,
+  uploadDocumentVideoMedia,
   uploadFacePhoto,
   uploadFaceVideo,
   sendMultiframeSelfie,
@@ -249,9 +250,33 @@ class Confirm extends Component {
         sdkMetadata,
         ...issuingCountry,
       }
-      if (isDecoupledFromAPI)
+
+      if (isDecoupledFromAPI) {
         this.onSubmitCallback(data, CALLBACK_TYPES.document)
-      else uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+      } else {
+        uploadDocument(data, url, token)
+          .then((res) => {
+            // Multi Frame Capture video
+            if (this.props.captures.document_video) {
+              const {
+                blob,
+                filename,
+                sdkMetadata,
+              } = this.props.captures.document_video
+
+              const data = {
+                file: { blob, filename },
+                sdkMetadata,
+                document_id: res.id,
+              }
+              return uploadDocumentVideoMedia(data, url, token).then(() => res)
+            }
+
+            return res
+          })
+          .then(this.onApiSuccess)
+          .catch(this.onApiError)
+      }
     } else if (variant === 'video') {
       const data = { challengeData, blob, language, sdkMetadata }
       if (isDecoupledFromAPI) this.onSubmitCallback(data, CALLBACK_TYPES.video)

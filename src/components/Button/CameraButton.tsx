@@ -1,6 +1,13 @@
-import { h } from 'preact'
+import { FunctionComponent, h } from 'preact'
 
-const CameraButton = ({
+type Props = {
+  ariaLabel: string
+  disableInteraction: boolean | undefined
+  onClick?: () => void
+  className?: string | undefined
+}
+
+const CameraButton: FunctionComponent<Props> = ({
   disableInteraction,
   onClick,
   ariaLabel,

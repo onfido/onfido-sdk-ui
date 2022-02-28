@@ -207,9 +207,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
       />
     )
 
-    return (
-      <DocumentOverlay {...docOverlayProps}>{overlayFooter}</DocumentOverlay>
-    )
+    return <DocumentOverlay {...docOverlayProps} footer={overlayFooter} />
   }
 
   return (
