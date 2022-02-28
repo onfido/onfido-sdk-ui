@@ -141,10 +141,10 @@ const TEST_DEPLOYMENT_CONFIG = {
 
 const TEST_E2E_CONFIG = {
   ...TEST_DEPLOYMENT_CONFIG,
-  ONFIDO_API_URL: 'https://localhost:8080/api',
-  JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
-  US_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
-  CA_JWT_FACTORY: 'https://localhost:8080/token-factory/sdk_token',
+  ONFIDO_API_URL: 'https://localhost:8082/api',
+  JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
+  US_JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
+  CA_JWT_FACTORY: 'https://localhost:8082/token-factory/sdk_token',
   SMS_DELIVERY_URL: 'https://localhost:8080/telephony',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
 }
@@ -228,7 +228,7 @@ const basePlugins = (bundle_name = '') => [
       CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
       SDK_TOKEN_FACTORY_SECRET,
       WOOPRA_WINDOW_KEY,
-      WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`,
+      WOOPRA_IMPORT: `imports-loader?this=>Window.prototype["${WOOPRA_WINDOW_KEY}"],window=>Window.prototype["${WOOPRA_WINDOW_KEY}"]!wpt/wpt.js`,
     })
   ),
 ]
@@ -427,8 +427,9 @@ const configNpmLib = () => ({
   externals: [
     nodeExternals({
       modulesFromFile: {
-        include: ['dependencies'],
+        excludeFromBundle: ['dependencies'],
       },
+      allowlist: ['custom-event-polyfill', 'node-polyglot'],
     }),
   ],
 })
