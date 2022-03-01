@@ -36,6 +36,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Install Dependencies
+        run: npm install
+
       - name: Build test server
         run: npm run build:test
         id: testserver
