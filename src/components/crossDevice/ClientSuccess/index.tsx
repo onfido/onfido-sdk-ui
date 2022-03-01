@@ -2,17 +2,22 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
-import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
+import { useLocales } from '~locales'
+import type { StepComponentBaseProps } from '~types/routers'
 
-class ClientSuccess extends Component {
+export type Props = {
+  sendClientSuccess: () => void
+} & StepComponentBaseProps
+
+class ClientSuccess extends Component<Props> {
   componentDidMount() {
     this.props.sendClientSuccess()
   }
 
   render() {
-    const { translate } = this.props
+    const { translate } = useLocales();
     return (
       <div data-page-id={'CrossDeviceClientSuccess'}>
         <PageTitle
@@ -31,6 +36,6 @@ class ClientSuccess extends Component {
 }
 
 export default trackComponent(
-  localised(ClientSuccess),
+  ClientSuccess,
   'crossdevice_mobile_success'
 )
