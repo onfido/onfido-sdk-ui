@@ -5,11 +5,11 @@ import { trackComponent } from '../../../Tracker'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 import { useLocales } from '~locales'
-import type { StepComponentBaseProps } from '~types/routers'
+import type { StepComponentProps } from '~types/routers'
 
 export type Props = {
   sendClientSuccess: () => void
-} & StepComponentBaseProps
+} & StepComponentProps
 
 class ClientSuccess extends Component<Props> {
   componentDidMount() {
