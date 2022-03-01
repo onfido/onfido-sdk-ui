@@ -170,7 +170,7 @@ public class DocumentIT extends WebSdkIT {
 
     }
 
-    @Test(description = "should return file size too large message for PDF document upload")
+    @Test(description = "should return file size too large message for PDF document upload", groups = {"percy"})
     public void testShouldReturnFileSizeTooLargeMessageForPdfDocumentUpload() {
         var imageQualityGuide = gotoPassportUpload().upload(SAMPLE_10MB_PDF, ImageQualityGuide.class);
 
