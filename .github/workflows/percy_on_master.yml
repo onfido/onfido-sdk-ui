@@ -8,10 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - NODE_ENV: percy
 
     steps:
       - uses: actions/checkout@v2.3.4
