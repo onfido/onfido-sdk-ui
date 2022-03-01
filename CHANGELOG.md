@@ -12,7 +12,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Add compatibility with Salesforce
 - Public: Add type `DocumentTypes` to `DocumentResponse`
-- Internal: Migrate `NavigationBar` to typescript
+- Internal: Migrated `NavigationBar` to typescript
+- Internal: Migrated `Pannable` to typescript
 
 ## [6.18.0] - in progress
 
