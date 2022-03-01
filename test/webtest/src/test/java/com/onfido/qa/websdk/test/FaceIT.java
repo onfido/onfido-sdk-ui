@@ -58,7 +58,7 @@ public class FaceIT extends WebSdkIT {
                 .init(CrossDeviceIntro.class);
     }
 
-    @Test(description = "should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested")
+    @Test(description = "should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested", groups = {"mobile"})
     @Browser(enableMicrophoneCameraAccess = true)
     @Mobile
     public void testFallbackToSelfieScreenWithoutMediaRecorderSupport() {
@@ -121,7 +121,7 @@ public class FaceIT extends WebSdkIT {
                 .clickConfirmButton(Complete.class);
     }
 
-    @Test(description = "should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested")
+    @Test(description = "should be taken to the selfie screen if browser does not have MediaRecorder API and faceVideo variant requested", groups = {"mobile"})
     @Mobile
     public void testSelfieScreenIfNoMediaRecorderAvailableAndFaceVideoVariantRequested() {
 
@@ -250,7 +250,7 @@ public class FaceIT extends WebSdkIT {
     @Browser(enableMicrophoneCameraAccess = true)
     public void testShouldRecordAVideoWithLivenessChallengePlayItAndSubmitIt() {
         var video = onfido().withSteps(new FaceStep().withRequestedVariant(VIDEO), "complete").init(FaceVideoIntro.class)
-                                .recordVideo(FaceVideo.class);
+                            .recordVideo(FaceVideo.class);
 
         takePercySnapshotWithoutVideo("face liveness");
 

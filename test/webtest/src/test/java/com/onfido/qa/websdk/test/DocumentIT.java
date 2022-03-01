@@ -57,7 +57,7 @@ public class DocumentIT extends WebSdkIT {
                        .clickUploadButton(ImageQualityGuide.class);
     }
 
-    @Test(groups = {"percy"})
+    @Test(groups = {"percy", "mobile"})
     @Mobile
     public void testPermissionDialogIsShown() {
         var permission = onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true))
@@ -69,7 +69,7 @@ public class DocumentIT extends WebSdkIT {
     }
 
 
-    @Test(groups = {"percy"}, description = "should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled")
+    @Test(groups = {"percy", "mobile"}, description = "should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled")
     @Mobile
     @Browser(enableMicrophoneCameraAccess = true)
     public void testPassportLiveCapture() {
@@ -87,7 +87,7 @@ public class DocumentIT extends WebSdkIT {
 
     }
 
-    @Test(description = "should upload a passport and verify UI elements", groups = {"percy"})
+    @Test(description = "should upload a passport and verify UI elements", groups = {"percy", "mobile"})
     @Mobile
     public void testPassportUploadScreen() {
 
