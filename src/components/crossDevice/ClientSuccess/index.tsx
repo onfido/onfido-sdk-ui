@@ -13,7 +13,7 @@ export type Props = {
 } & StepComponentProps
 
 const ClientSuccess: FunctionComponent<Props> = ({ sendClientSuccess }) => {
-  useEffect(sendClientSuccess)
+  useEffect(() => sendClientSuccess())
 
   const { translate } = useLocales()
   return (
