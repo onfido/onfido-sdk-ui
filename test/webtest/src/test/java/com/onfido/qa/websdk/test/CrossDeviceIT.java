@@ -39,7 +39,7 @@ public class CrossDeviceIT extends WebSdkIT {
     public void testShouldVerifyUiElementsOnTheCrossDeviceIntroScreen() {
         gotoCrossDeviceScreen();
 
-        takePercySnapshot("CrossDeviceIntro");
+        takePercySnapshotWithoutQRCode("CrossDeviceIntro");
     }
 
     @Test(description = "should navigate to cross device when forceCrossDevice is enabled")
@@ -77,7 +77,7 @@ public class CrossDeviceIT extends WebSdkIT {
 
         assertThat(crossDeviceLink.isQrHelpListDisplayed()).isTrue();
 
-        takePercySnapshot("CrossDeviceIntro-QR");
+        takePercySnapshotWithoutQRCode("CrossDeviceIntro-QR");
     }
 
     @Test(description = "should verify UI elements on the cross device link screen SMS view", groups = {"percy"})
