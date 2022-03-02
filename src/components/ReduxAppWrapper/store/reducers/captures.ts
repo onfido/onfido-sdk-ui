@@ -9,6 +9,7 @@ export const initialState: CaptureState = {
     document_back: [],
     document_video: [],
     face: [],
+    poa: [],
   },
 }
 
