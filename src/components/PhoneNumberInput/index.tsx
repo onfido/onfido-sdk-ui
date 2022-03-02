@@ -1,13 +1,16 @@
 import { h, Component } from 'preact'
-import PhoneInput from 'react-phone-number-input'
+import PhoneInput, { Country } from 'react-phone-number-input'
 import { parsePhoneNumberFromString } from 'libphonenumber-js/mobile'
 import classNames from 'classnames'
 import { localised } from '~locales'
 import { getCountryFlagSrc } from '~supported-documents'
 import 'react-phone-number-input/style.css'
 import style from './style.scss'
+import { ReduxProps } from '~types/routers'
+import { WithLocalisedProps } from '~types/hocs'
+import type { SdkOptions } from '~types/sdk'
 
-const FlagComponent = ({ country }) => (
+const FlagComponent = ({ country }: { country: string }) => (
   <span
     className={classNames('react-phone-number-input__icon', style.flagIcon)}
     style={{
@@ -16,11 +19,19 @@ const FlagComponent = ({ country }) => (
   />
 )
 
-class PhoneNumberInput extends Component {
+export type PhoneNumberInputProps = {
+  sms: { number: string }
+  smsNumberCountryCode: Country
+  options: SdkOptions
+  clearErrors: () => void
+} & ReduxProps &
+  WithLocalisedProps
+
+class PhoneNumberInput extends Component<PhoneNumberInputProps> {
   componentDidMount() {
-    const { sms, actions } = this.props
+    const { sms } = this.props
     const initialNumber = sms.number ? sms.number : ''
-    this.validateNumber(initialNumber, actions)
+    this.validateNumber(initialNumber)
     this.injectForCountrySelectAriaLabel()
   }
 
@@ -42,14 +53,15 @@ class PhoneNumberInput extends Component {
     }
   }
 
-  onChange = (number) => {
-    const { clearErrors, actions } = this.props
+  onChange = (number: string) => {
+    const { clearErrors } = this.props
     clearErrors()
     const numberString = number ? number : ''
-    this.validateNumber(numberString, actions)
+    this.validateNumber(numberString)
   }
 
-  validateNumber = (number, actions) => {
+  validateNumber = (number: string) => {
+    const { actions } = this.props
     const parsedNumber = parsePhoneNumberFromString(number)
     if (parsedNumber) {
       actions.setMobileNumber(parsedNumber.number, parsedNumber.isValid())
@@ -59,7 +71,7 @@ class PhoneNumberInput extends Component {
   }
 
   render() {
-    const { translate, smsNumberCountryCode, sms = {} } = this.props
+    const { translate, smsNumberCountryCode, sms } = this.props
     const placeholderLabel = translate(
       'get_link.number_field_input_placeholder'
     )
@@ -72,7 +84,7 @@ class PhoneNumberInput extends Component {
           id="phoneNumberInput"
           className={`${style.phoneNumberContainer}`}
           placeholder={placeholderLabel}
-          value={sms.number || ''}
+          value={sms?.number || ''}
           onChange={this.onChange}
           defaultCountry={smsNumberCountryCode}
           flagComponent={FlagComponent}
