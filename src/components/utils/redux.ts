@@ -9,7 +9,9 @@ export const buildCaptureStateKey = (payload: {
 }): Exclude<keyof CaptureState, 'takesHistory'> => {
   const { method, side, variant } = payload
 
+  if (method === 'poa') return 'poa'
   if (method === 'face') return 'face'
   if (variant === 'video') return 'document_video'
+
   return side === 'back' ? 'document_back' : 'document_front'
 }

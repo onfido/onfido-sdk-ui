@@ -1,3 +1,4 @@
+import { WithTrackingProps } from '~types/hocs'
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'
@@ -25,14 +26,14 @@ export const PoACapture = appendToTracking(
   'poa'
 )
 
-export const SelfieCapture = appendToTracking(
+export const SelfieCapture = appendToTracking<WithTrackingProps>(
   withCaptureVariant(Face, {
     requestedVariant: 'standard',
     pageId: 'SelfieCapture',
   }),
   'selfie_capture'
 )
-export const FaceVideoCapture = appendToTracking(
+export const FaceVideoCapture = appendToTracking<WithTrackingProps>(
   withCaptureVariant(Face, {
     requestedVariant: 'video',
     pageId: 'FaceVideoCapture',
