@@ -264,6 +264,10 @@ For the face step an object is returned with the `variant` used for the face cap
          "id": "<DOCUMENT_ID_BACK>",
          "type": "driving_licence",
          "side": "back"
+       },
+       "poa": {
+         "id": "<POA_DOCUMENT_ID>"
+         "type": "utility_bill"
        }
     }
 ```
@@ -742,7 +746,7 @@ options: {
 }
 ```
 
-**The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.**
+**The Proof of Address document capture is currently a BETA feature. Using it in conjunction with the document and face steps as part of a single SDK flow may result in unforeseen behavior.**
 
 #### face
 

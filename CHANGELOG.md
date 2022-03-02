@@ -16,6 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Migrated `Pannable` to typescript
 - Internal: Migrated `QRCode` to typescript
 - Internal: Migrated `PhoneNumberInput` to typescript
+- Public: Fix issue where `poa` and `document` steps cannot be used at the same time, due to steps overwriting data from one another. Adds `poa` key to `onComplete` callback, when `poa` step is used.
 
 ### Changed
 
