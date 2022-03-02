@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useState } from 'preact/compat'
-import { localised } from '~locales'
+import { useLocales } from '~locales'
 import { color } from '@onfido/castor'
 import { IconError } from '@onfido/castor-icons'
 import classNames from 'classnames'
@@ -14,6 +14,7 @@ import {
   Input,
   Button,
   Asterisk,
+  InputProps,
 } from '@onfido/castor-react'
 import type { WithLocalisedProps } from '~types/hocs'
 import CountrySelector from './CountrySelector'
@@ -25,7 +26,8 @@ type DataProps = StepComponentDataProps & {
   title: string
   dataPath: string
   data: StepOptionData
-  setPersonalData: (data: any, callback: () => void) => void
+  nextStep: () => void
+  setPersonalData: (data: StepOptionData, callback: () => void) => void
 } & WithLocalisedProps
 
 const Data = ({
@@ -34,12 +36,12 @@ const Data = ({
   data,
   nextStep,
   setPersonalData,
-  translate,
 }: DataProps): JSX.Element => {
   const [submitData, setSubmitData] = useState(data)
   const [validation, setValidation] = useState(
-    Object.fromEntries(Object.entries(data).map(([key, value]) => [key, false]))
+    Object.fromEntries(Object.entries(data).map(([key]) => [key, false]))
   )
+  const { translate } = useLocales()
 
   const validate = (): boolean => {
     let valid = true
@@ -102,7 +104,7 @@ const Data = ({
                 />
               ) : (
                 <Input
-                  type={getType(key) as any}
+                  type={getType(key) as InputProps['type']}
                   value={`${value}`}
                   invalid={validation[key]}
                   required={isRequired}
@@ -132,4 +134,4 @@ const getType = (key: string) => {
   }
 }
 
-export default localised(Data)
+export default Data

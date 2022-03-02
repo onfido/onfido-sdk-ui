@@ -9,6 +9,14 @@
             "description": "We haven't been able to verify your identity"
         }
     },
+    "workflow_erros": {
+        "task_not_supported": "Task is currently not supported.",
+        "task_not_completed": "Could not complete workflow task.",
+        "task_not_retrieved": "Could not retrieve workflow task.",
+        "no_workflow_run_id": "Workflow run ID is not set.",
+        "generic_title": "There was a server error!",
+        "reload_app": "Please try reloading the app, and try again."
+    },
     "profile_data": {
         "personal_details_title": "Add your personal information",
         "address_detials_title": "Add your address",
