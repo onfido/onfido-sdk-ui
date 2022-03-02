@@ -78,10 +78,10 @@ public class DocumentIT extends WebSdkIT {
                               .init(IdDocumentSelector.class)
                               .select(PASSPORT, DocumentLiveCapture.class);
 
-        takePercySnapshot("document-submit-passport useLiveDocumentCapture=true");
+        takePercySnapshotWithoutVideo("document-submit-passport useLiveDocumentCapture=true");
 
         var confirm = capture.takePhoto();
-        takePercySnapshot("document-confirm-passport useLiveDocumentCapture=true");
+        takePercySnapshotWithoutVideo("document-confirm-passport useLiveDocumentCapture=true");
 
         confirm.clickConfirmButton(null);
 
