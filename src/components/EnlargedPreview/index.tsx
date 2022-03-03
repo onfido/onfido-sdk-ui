@@ -130,9 +130,12 @@ class EnlargedPreview extends Component<
   }
 }
 
-export default withNavigationDisabledState(
-  withNavigationDisableAction(
-    // @ts-ignore wait for NavigationBar
-    withFullScreenState(withFullScreenAction(localised(EnlargedPreview)))
+// Redux incompatibility with Preact ExoticComponent
+// Can be removed when moving to a functional component
+const Wrapper = (props: EnlargedPreviewProps) => <EnlargedPreview {...props} />
+
+export default withFullScreenState(
+  withFullScreenAction(
+    localised(withNavigationDisabledState(withNavigationDisableAction(Wrapper)))
   )
 )
