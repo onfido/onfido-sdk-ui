@@ -1,4 +1,4 @@
-import { Component, h } from 'preact'
+import { Component, ComponentChildren, h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { isDesktop } from '~utils'
@@ -12,6 +12,74 @@ import PageTitle from '../PageTitle'
 import UploadError from './Error'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
+import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import { ErrorProp, StepComponentBaseProps } from '~types/routers'
+import { ErrorNames, ImageResizeInfo } from '~types/commons'
+import { DocumentTypes } from '~types/steps'
+
+type UploadType = 'proof_of_address' | 'face' | 'identity'
+type OnUploadHandler = (blob: Blob, imageResizeInfo?: ImageResizeInfo) => void
+
+type MobileUploadAreaProps = {
+  captureType: 'environment' | 'user'
+  children: ComponentChildren
+  isPoA: boolean
+  isUploading: boolean
+  onFileSelected: OnUploadHandler
+  pageId?: string
+} & Pick<WithLocalisedProps, 'translate'>
+
+type PassportMobileUploadAreaProps = {
+  children: ComponentChildren
+  isUploading?: boolean
+  pageId: string
+} & Pick<WithLocalisedProps, 'translate'> &
+  Pick<StepComponentBaseProps, 'nextStep'>
+
+type DesktopUploadAreaProps = {
+  children: ComponentChildren
+  isUploading?: boolean
+  mobileFlow?: boolean
+  uploadType: UploadType
+} & Pick<WithLocalisedProps, 'translate'> &
+  Pick<StepComponentBaseProps, 'changeFlowTo'>
+
+type PassportUploadIntroProps = {
+  instructions: string
+  mobileFlow?: boolean
+  uploadType: UploadType
+} & Pick<WithLocalisedProps, 'translate'> &
+  Pick<StepComponentBaseProps, 'nextStep' | 'changeFlowTo'>
+
+type UploadAreaProps = {
+  captureType: 'environment' | 'user'
+  error?: ErrorProp
+  handleFileSelected: OnUploadHandler
+  instructions: string
+  isUploading: boolean
+  mobileFlow?: boolean
+  uploadType: UploadType
+} & WithLocalisedProps &
+  StepComponentBaseProps &
+  WithTrackingProps
+
+type UploaderProps = {
+  allowCrossDeviceFlow: boolean
+  documentType?: DocumentTypes
+  instructions: string
+  onUpload: OnUploadHandler
+  pageId: string
+  subTitle?: string
+  title: string
+  uploadType: UploadType
+} & WithLocalisedProps &
+  StepComponentBaseProps &
+  WithTrackingProps
+
+type UploaderState = {
+  error?: ErrorProp
+  isUploading: boolean
+}
 
 const MobileUploadArea = ({
   onFileSelected,
@@ -21,7 +89,7 @@ const MobileUploadArea = ({
   isUploading,
   captureType,
   pageId,
-}) => (
+}: MobileUploadAreaProps) => (
   <div className={style.uploadArea} data-page-id={pageId}>
     {children}
     <div
@@ -86,7 +154,7 @@ const PassportMobileUploadArea = ({
   translate,
   isUploading,
   pageId,
-}) => (
+}: PassportMobileUploadAreaProps) => (
   <div className={style.uploadArea} data-page-id={pageId}>
     {children}
     <div className={style.buttons}>
@@ -110,7 +178,7 @@ const DesktopUploadArea = ({
   mobileFlow,
   children,
   isUploading,
-}) => (
+}: DesktopUploadAreaProps) => (
   <div className={style.crossDeviceInstructionsContainer}>
     <div className={classNames(theme.iconContainer, style.iconContainer)}>
       <i
@@ -149,7 +217,7 @@ const PassportUploadIntro = ({
   translate,
   mobileFlow,
   nextStep,
-}) => {
+}: PassportUploadIntroProps) => {
   if (isDesktop) {
     return (
       <DesktopUploadArea
@@ -185,7 +253,7 @@ const PassportUploadIntro = ({
   )
 }
 
-const UploadArea = (props) => {
+const UploadArea = (props: UploadAreaProps) => {
   const {
     changeFlowTo,
     uploadType,
@@ -228,7 +296,9 @@ const UploadArea = (props) => {
     <MobileUploadArea
       onFileSelected={handleFileSelected}
       translate={translate}
-      {...{ isPoA, isUploading, captureType }}
+      isPoA={isPoA}
+      isUploading={isUploading}
+      captureType={captureType}
     >
       <div className={style.instructions}>
         <div
@@ -254,21 +324,17 @@ const UploadArea = (props) => {
   )
 }
 
-class Uploader extends Component {
+class Uploader extends Component<UploaderProps, UploaderState> {
   static defaultProps = {
     onUpload: () => {},
   }
 
-  state = {
-    error: null,
-    isUploading: false,
-  }
+  setError = (name: ErrorNames) =>
+    this.setState({ error: { name }, isUploading: false })
 
-  setError = (name) => this.setState({ error: { name }, isUploading: false })
-
-  handleFileSelected = (file) => {
+  handleFileSelected = (file: Blob) => {
     this.setState({
-      error: null,
+      error: undefined,
       isUploading: true,
     })
     validateFile(file, this.props.onUpload, this.setError)
@@ -325,5 +391,6 @@ class Uploader extends Component {
 export default trackComponentAndMode(
   localised(Uploader),
   'file_upload',
+  // @ts-ignore
   'error'
 )
