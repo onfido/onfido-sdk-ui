@@ -6,11 +6,6 @@ import type {
   TranslateCallback,
 } from './locales'
 import type { RequestedVariant } from './steps'
-import { Connect, ConnectedProps } from 'react-redux'
-import {
-  withNavigationDisableAction,
-  withNavigationDisabledState,
-} from '../components/NavigationBar'
 
 export type WithChallengesProps = {
   challenges: ChallengePayload[]
@@ -64,10 +59,10 @@ export type WithBlobPreviewProps = {
   blob: Blob
 }
 
-export type WithNavigationDisabledStateProps = ConnectedProps<
-  typeof withNavigationDisabledState
->
+export type WithNavigationDisabledStateProps = {
+  isNavigationDisabled?: boolean
+}
 
-export type WithNavigationDisabledActionProps = ConnectedProps<
-  typeof withNavigationDisableAction
->
+export type WithNavigationDisabledActionProps = {
+  setNavigationDisabled: (value: boolean) => void
+}

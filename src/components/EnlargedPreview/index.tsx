@@ -130,12 +130,8 @@ class EnlargedPreview extends Component<
   }
 }
 
-// Redux incompatibility with Preact ExoticComponent
-// Can be removed when moving to a functional component
-const Wrapper = (props: EnlargedPreviewProps) => <EnlargedPreview {...props} />
-
-export default withFullScreenState(
-  withFullScreenAction(
-    localised(withNavigationDisabledState(withNavigationDisableAction(Wrapper)))
+export default withNavigationDisabledState(
+  withNavigationDisableAction(
+    withFullScreenState(withFullScreenAction(localised(EnlargedPreview)))
   )
 )
