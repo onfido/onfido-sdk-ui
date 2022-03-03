@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import Pannable from '../Pannable'
-import { localised /* , type LocalisedType */ } from '~locales'
+import { localised } from '~locales'
 import {
   withNavigationDisabledState,
   withNavigationDisableAction,
@@ -37,7 +37,7 @@ class EnlargedPreview extends Component<
   EnlargedPreviewState
 > {
   previewContainer: HTMLDivElement | null = null
-  image: HTMLDivElement | null = null
+  image: Pannable | null = null
 
   state = {
     isExpanded: false,
@@ -62,7 +62,6 @@ class EnlargedPreview extends Component<
 
   handleImageLoad = () => {
     if (this.image) {
-      //@ts-ignore wait for Pannable
       this.image.center()
     }
   }
@@ -97,7 +96,7 @@ class EnlargedPreview extends Component<
         >
           {isExpanded && (
             <Pannable
-              ref={(node: HTMLDivElement | null) => (this.image = node)}
+              ref={(node: Pannable) => (this.image = node)}
               className={style.imageContainer}
             >
               {/* The screen reader will announce the alt tag inside the parent div as the group has role="img"
