@@ -23,6 +23,10 @@ const errors: Record<ErrorNames, LocaleData> = {
     message: 'generic.errors.invalid_size.message',
     instruction: 'generic.errors.invalid_size.instruction',
   },
+  INVALID_IMAGE_SIZE: {
+    message: 'generic.errors.invalid_size.message',
+    instruction: 'generic.errors.invalid_size.instruction',
+  },
   NO_FACE_ERROR: {
     message: 'generic.errors.no_face.message',
     instruction: 'generic.errors.no_face.instruction',

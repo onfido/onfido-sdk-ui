@@ -126,11 +126,15 @@ class CountrySelection extends Component<Props, State> {
     return hasOnePreselectedDocument(steps) && documentType !== 'passport'
   }
 
-  getNoResultsTextForDropdown = () =>
-    parseTags(
+  getNoResultsTextForDropdown = () => {
+    if (typeof this.props.translate === undefined) {
+      return
+    }
+    return parseTags(
       this.props.translate('country_select.alert_dropdown.country_not_found'),
       ({ text }) => text
     )
+  }
 
   trackChooseAnotherDocumentTypeClick = () => {
     const { trackScreen, previousStep } = this.props
