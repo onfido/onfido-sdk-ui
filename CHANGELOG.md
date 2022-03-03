@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Add type `DocumentTypes` to `DocumentResponse`
 - Internal: Migrated `Pannable` to typescript
 - Internal: Migrated `QRCode` to typescript
+- Internal: Migrated `PhoneNumberInput` to typescript
 
 ## [6.18.0] - 2022-02-28
 
