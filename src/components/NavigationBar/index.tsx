@@ -1,26 +1,42 @@
-import { h, Component } from 'preact'
+import { h, Component, createRef } from 'preact'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
-import { compose } from '~utils/func'
 import { setNavigationDisabled } from '../ReduxAppWrapper/store/actions/globals'
 import { withFullScreenState } from '../FullScreen'
 import { isDesktop } from '~utils'
 import { localised } from '~locales'
 import style from './style.scss'
+import { WithLocalisedProps } from '~types/hocs'
+import { GlobalState } from '~types/redux'
 
 export const withNavigationDisabledState = connect(
-  ({ globals: { isNavigationDisabled } }) => ({ isNavigationDisabled })
+  ({ globals: { isNavigationDisabled } }: { globals: GlobalState }) => ({
+    isNavigationDisabled,
+  })
 )
 
 export const withNavigationDisableAction = connect(null, (dispatch) => ({
-  setNavigationDisabled: (value) => dispatch(setNavigationDisabled(value)),
+  setNavigationDisabled: (value: boolean) =>
+    dispatch(setNavigationDisabled(value)),
 }))
 
-class NavigationBar extends Component {
-  componentDidUpdate(prevProps) {
+type NavProps = {
+  id?: string
+  back?: () => void
+  disabled?: boolean
+  isFullScreen?: boolean
+  className?: string
+}
+
+type Props = NavProps & WithLocalisedProps
+
+class NavigationBar extends Component<Props> {
+  private backBtn = createRef<HTMLButtonElement>()
+
+  componentDidUpdate(prevProps: Props) {
     const hasIdChanged = prevProps.id !== this.props.id
-    if (this.backBtn && hasIdChanged) {
-      this.backBtn.focus()
+    if (this.backBtn.current && hasIdChanged) {
+      this.backBtn.current.focus()
     }
   }
 
@@ -35,7 +51,7 @@ class NavigationBar extends Component {
         <button
           type="button"
           aria-label={translate('generic.back')}
-          ref={(node) => (this.backBtn = node)}
+          ref={this.backBtn}
           onClick={back}
           className={classNames(style.back, {
             [style.disabled]: disabled,
@@ -52,4 +68,4 @@ class NavigationBar extends Component {
   }
 }
 
-export default compose(withFullScreenState, localised)(NavigationBar)
+export default withFullScreenState(localised(NavigationBar))

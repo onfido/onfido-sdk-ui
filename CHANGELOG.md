@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Add compatibility with Salesforce
 - Public: Add type `DocumentTypes` to `DocumentResponse`
+- Internal: Migrated `NavigationBar` to typescript
 - Internal: Migrated `Pannable` to typescript
 - Internal: Migrated `QRCode` to typescript
 - Internal: Migrated `PhoneNumberInput` to typescript
