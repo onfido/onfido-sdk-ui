@@ -22,7 +22,7 @@ export const buildReducer = <S extends string, A extends string>(
     return currentState
   }
 
-  return currentState
+  return spec.initialState
 }
 
 const useStateMachine = <S extends string, A extends string>(

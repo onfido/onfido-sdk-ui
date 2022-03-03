@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  mock:
+    container_name: web-sdk-mock
+    build:
+      context: test/mock-server
+    ports:
+      - '8081:8081'
+      - '8082:8082'
+    volumes:
+      - ./test/mock-server/local:/app/local

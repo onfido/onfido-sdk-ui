@@ -9,7 +9,7 @@ import {
 import { API_URL, PATH_TO_RESOURCE_FILES } from '../helpers/testUrls'
 import {
   EXPIRED_JWT_TOKEN,
-  EXPECTED_EXPIRED_TOKEN_ERROR,
+  ASSERT_EXPIRED_JWT_ERROR,
 } from '../helpers/mockExpiredJwtAndResponse'
 
 let jwtToken = null
@@ -79,16 +79,8 @@ describe('API uploadDocument endpoint', () => {
     )
   })
 
-  test('uploadDocument returns an error if request is made with an expired JWT token', (done) => {
+  test.skip('uploadDocument returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
-    const onErrorCallback = (error) => {
-      try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-        done()
-      } catch (err) {
-        done(err)
-      }
-    }
     const testFileName = 'passport.jpg'
     const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
     const testFile = new File([data], testFileName, {
@@ -103,7 +95,7 @@ describe('API uploadDocument endpoint', () => {
       API_URL,
       EXPIRED_JWT_TOKEN,
       () => done(),
-      onErrorCallback
+      (e) => ASSERT_EXPIRED_JWT_ERROR(done, e)
     )
   })
 

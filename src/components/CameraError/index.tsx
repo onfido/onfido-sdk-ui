@@ -23,12 +23,6 @@ export default class CameraError extends Component<Props, State> {
     isDimissed: false,
   }
 
-  componentDidMount(): void {
-    if (this.props.error.type === 'error') {
-      this.props.trackScreen('camera_error')
-    }
-  }
-
   componentDidUpdate(prevProps: Props): void {
     if (prevProps.error.name !== this.props.error.name) {
       this.setState({ isDimissed: false })
@@ -44,7 +38,13 @@ export default class CameraError extends Component<Props, State> {
   handleDismiss = (): void => this.setState({ isDimissed: true })
 
   render(): h.JSX.Element | null {
-    const { error, hasBackdrop, renderFallback, isDismissible } = this.props
+    const {
+      error,
+      hasBackdrop,
+      renderFallback,
+      isDismissible,
+      trackScreen,
+    } = this.props
 
     if (this.state.isDimissed) {
       return null
@@ -64,6 +64,7 @@ export default class CameraError extends Component<Props, State> {
           role="alertdialog"
           className={style.errorMessage}
           error={error}
+          trackScreen={trackScreen}
           focusOnMount={true}
           isDismissible={isDismissible}
           onDismiss={this.handleDismiss}

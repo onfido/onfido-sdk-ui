@@ -1,19 +1,19 @@
 import fs from 'fs'
 import {
+  sendMultiframeSelfie,
   uploadFacePhoto,
   uploadSnapshot,
-  sendMultiframeSelfie,
 } from '../../onfidoApi'
 import {
-  getTestJwtToken,
-  createEmptyFile,
   checkForExpectedFileUploadProperties,
   COMMON_FILE_UPLOAD_PROPERTIES,
+  createEmptyFile,
+  getTestJwtToken,
 } from '../helpers'
 import { API_URL, PATH_TO_RESOURCE_FILES } from '../helpers/testUrls'
 import {
+  ASSERT_EXPIRED_JWT_ERROR,
   EXPIRED_JWT_TOKEN,
-  EXPECTED_EXPIRED_TOKEN_ERROR,
 } from '../helpers/mockExpiredJwtAndResponse'
 
 let jwtToken = null
@@ -63,16 +63,9 @@ describe('API uploadFacePhoto endpoint', () => {
     )
   })
 
-  test('uploadFacePhoto returns an error if request is made with an expired JWT token', (done) => {
+  test.skip('uploadFacePhoto returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
-    const onErrorCallback = (error) => {
-      try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-        done()
-      } catch (err) {
-        done(err)
-      }
-    }
+
     const testFileName = 'one_face.jpg'
     const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
     const testFile = new File([data], testFileName, {
@@ -84,7 +77,7 @@ describe('API uploadFacePhoto endpoint', () => {
       API_URL,
       EXPIRED_JWT_TOKEN,
       () => done(),
-      onErrorCallback
+      (e) => ASSERT_EXPIRED_JWT_ERROR(done, e)
     )
   })
 
@@ -153,14 +146,7 @@ describe('API uploadSnapshot endpoint', () => {
 
   test('uploadSnapshot returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
-    const onErrorCallback = (error) => {
-      try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-        done()
-      } catch (err) {
-        done(err)
-      }
-    }
+
     const testFileName = 'one_face.png'
     const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
     const testBlob = new Blob([data], {
@@ -177,7 +163,7 @@ describe('API uploadSnapshot endpoint', () => {
       API_URL,
       EXPIRED_JWT_TOKEN,
       () => done(),
-      onErrorCallback
+      (e) => ASSERT_EXPIRED_JWT_ERROR(done, e)
     )
   })
 
@@ -274,14 +260,7 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
 
   test('sendMultiframeSelfie returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
-    const onErrorCallback = (error) => {
-      try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-        done()
-      } catch (err) {
-        done(err)
-      }
-    }
+
     const testFileName = 'one_face.png'
     const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
     const testSnapshot = new Blob([data], {
@@ -311,7 +290,7 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
       API_URL,
       EXPIRED_JWT_TOKEN,
       () => done(),
-      onErrorCallback,
+      (e) => ASSERT_EXPIRED_JWT_ERROR(done, e),
       (eventString) => console.log(eventString)
     )
   })

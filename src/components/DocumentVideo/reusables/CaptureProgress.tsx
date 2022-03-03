@@ -13,7 +13,7 @@ const CaptureProgress: FunctionComponent<Props> = ({
 }) => (
   <div className={style.instructions}>
     {title && <span className={style.title}>{title}</span>}
-    <span className={style.loading}>
+    <span className={style.loading} role="progressbar" aria-live="assertive">
       <span
         className={style.active}
         style={{ animationDuration: `${duration}ms` }}

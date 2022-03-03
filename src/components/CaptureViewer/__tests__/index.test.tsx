@@ -26,11 +26,19 @@ const fakeImageCapture: CapturePayload = {
   variant: 'standard',
 }
 
+const defaultProps = {
+  trackScreen: jest.fn(),
+}
+
 describe('CaptureViewer', () => {
   describe('with PDFs', () => {
     it('renders items correctly', () => {
       const wrapper = mount(
-        <CaptureViewer capture={fakePdfCapture} method="document" />
+        <CaptureViewer
+          {...defaultProps}
+          capture={fakePdfCapture}
+          method="document"
+        />
       )
       expect(wrapper.exists()).toBeTruthy()
       expect(wrapper.find('PdfViewer').exists()).toBeTruthy()
@@ -43,7 +51,11 @@ describe('CaptureViewer', () => {
     describe('for faces', () => {
       it('renders items correctly', () => {
         const wrapper = mount(
-          <CaptureViewer capture={fakeVideoCapture} method="face" />
+          <CaptureViewer
+            {...defaultProps}
+            capture={fakeVideoCapture}
+            method="face"
+          />
         )
         expect(wrapper.exists()).toBeTruthy()
         expect(wrapper.find('PdfViewer').exists()).toBeFalsy()
@@ -57,7 +69,11 @@ describe('CaptureViewer', () => {
     describe('for faces', () => {
       it('renders items correctly', () => {
         const wrapper = mount(
-          <CaptureViewer capture={fakeImageCapture} method="face" />
+          <CaptureViewer
+            {...defaultProps}
+            capture={fakeImageCapture}
+            method="face"
+          />
         )
         expect(wrapper.exists()).toBeTruthy()
         expect(wrapper.find('PdfViewer').exists()).toBeFalsy()
@@ -74,7 +90,11 @@ describe('CaptureViewer', () => {
         const wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <CaptureViewer capture={fakeImageCapture} method="document" />
+              <CaptureViewer
+                {...defaultProps}
+                capture={fakeImageCapture}
+                method="document"
+              />
             </MockedLocalised>
           </MockedReduxProvider>
         )
