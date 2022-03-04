@@ -1,13 +1,12 @@
-import { h } from 'preact'
 import enumerateDevices, { DeviceData } from 'enumerate-devices'
 import detectSystem from './detectSystem'
-
-// @TODO: parse-unit export doesn't work with TypeScript
-const parseUnit = require('parse-unit')
-
-import type { SdkMetadata, ErrorNames } from '~types/commons'
+import type { ErrorNames, SdkMetadata } from '~types/commons'
 import type { TrackedEnvironmentData } from '~types/tracker'
 import type { TranslatedTagParser } from '~types/locales'
+
+// @TODO: parse-unit export doesn't work with TypeScript
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const parseUnit = require('parse-unit')
 
 export const functionalSwitch = <T extends unknown>(
   key: string,

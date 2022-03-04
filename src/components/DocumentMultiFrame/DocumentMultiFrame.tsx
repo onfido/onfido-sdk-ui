@@ -1,6 +1,6 @@
 import { DocumentOverlay } from 'components/Overlay'
 import VideoCapture, { VideoOverlayProps } from 'components/VideoCapture'
-import { h } from 'preact'
+import { ComponentChild, h } from 'preact'
 import { useEffect, useRef, useState } from 'preact/hooks'
 import Webcam from 'react-webcam-onfido'
 import { trackException } from 'Tracker'
@@ -44,7 +44,7 @@ const DocumentMultiFrame = ({
   renderFallback,
   onCapture,
   side,
-}: DocumentMultiFrameProps) => {
+}: DocumentMultiFrameProps): ComponentChild => {
   const webcamRef = useRef<Webcam>()
 
   const { nextRecordState, nextStep, recordState } = useMultiFrameCaptureStep()

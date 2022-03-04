@@ -1,6 +1,6 @@
-import { h } from 'preact'
+import { ComponentChild, h } from 'preact'
 
-const Loader = () => {
+const Loader = (): ComponentChild => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

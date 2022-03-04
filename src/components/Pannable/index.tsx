@@ -1,4 +1,4 @@
-import { h, Component, createRef } from 'preact'
+import { Component, ComponentChild, createRef, h } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
 import { JSXInternal } from 'preact/src/jsx'
@@ -21,16 +21,18 @@ export default class Pannable extends Component<Props, State> {
     clientY: 0,
   }
 
-  handleTouchStart = (
+  private handleTouchStart = (
     event: JSXInternal.TargetedTouchEvent<HTMLDivElement>
-  ) => {
+  ): void => {
     if (event.touches.length === 1) {
       const { clientX, clientY } = event.touches[0]
       this.setState({ clientX, clientY })
     }
   }
 
-  handleTouchMove = (event: JSXInternal.TargetedTouchEvent<HTMLDivElement>) => {
+  private handleTouchMove = (
+    event: JSXInternal.TargetedTouchEvent<HTMLDivElement>
+  ) => {
     event.preventDefault()
     if (event.touches.length === 1) {
       const { clientX, clientY } = event.touches[0]
@@ -39,14 +41,14 @@ export default class Pannable extends Component<Props, State> {
     }
   }
 
-  handlePan = (deltaX: number, deltaY: number) => {
+  private handlePan = (deltaX: number, deltaY: number) => {
     if (this.container.current) {
       this.container.current.scrollLeft += deltaX
       this.container.current.scrollTop += deltaY
     }
   }
 
-  center() {
+  private center() {
     if (this.container.current) {
       const {
         clientWidth,
@@ -59,7 +61,7 @@ export default class Pannable extends Component<Props, State> {
     }
   }
 
-  render() {
+  render(): ComponentChild {
     const { children, className } = this.props
 
     return (

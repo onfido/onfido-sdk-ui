@@ -1,4 +1,4 @@
-import useCaptureStep from '../../utils/useCaptureStep'
+import useCaptureStep, { UseCaptureStepType } from '../../utils/useCaptureStep'
 import type { CaptureFlows, CaptureSteps } from '~types/docVideo'
 
 const STEPS_BY_FLOW: Record<CaptureFlows, CaptureSteps[]> = {
@@ -18,7 +18,7 @@ export type VideoCaptureSteps = 'intro' | 'front' | 'back'
 
 const useVideoCaptureStep = (
   captureFlow: 'passport' | 'cardId' | 'paperId'
-) => {
+): UseCaptureStepType<VideoCaptureSteps, VideoCaptureStepActions> => {
   return useCaptureStep<VideoCaptureSteps, VideoCaptureStepActions>(
     STEPS_BY_FLOW[captureFlow],
     () => {

@@ -326,7 +326,8 @@ const UploadArea = (props: UploadAreaProps) => {
 
 class Uploader extends Component<UploaderProps, UploaderState> {
   static defaultProps = {
-    onUpload: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    onUpload: (): void => {},
   }
 
   setError = (name: ErrorNames) =>

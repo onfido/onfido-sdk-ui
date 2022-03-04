@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { ComponentChild, h } from 'preact'
 import { useLocales } from '~locales'
 import style from './style.scss'
 import { useEffect, useRef } from 'preact/compat'
@@ -7,7 +7,7 @@ type SpinnerProps = {
   shouldAutoFocus?: boolean
 }
 
-const Spinner = ({ shouldAutoFocus }: SpinnerProps) => {
+const Spinner = ({ shouldAutoFocus }: SpinnerProps): ComponentChild => {
   const { translate } = useLocales()
   const containerRef = useRef<HTMLDivElement>(null)
 

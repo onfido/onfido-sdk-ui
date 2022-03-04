@@ -1,6 +1,12 @@
 import { getSdkConfiguration } from '~utils/onfidoApi'
 import { useContext, useEffect, useState } from 'preact/compat'
-import { h, ComponentChildren, createContext, Fragment } from 'preact'
+import {
+  h,
+  ComponentChildren,
+  createContext,
+  Fragment,
+  ComponentChild,
+} from 'preact'
 import { SdkConfiguration } from '~types/api'
 import deepmerge from 'deepmerge'
 
@@ -26,7 +32,7 @@ export const SdkConfigurationServiceProvider = ({
   url,
   token,
   fallback,
-}: SdkConfigurationServiceProviderProps) => {
+}: SdkConfigurationServiceProviderProps): ComponentChild => {
   const [configuration, setConfiguration] = useState<
     SdkConfiguration | undefined
   >(undefined)
@@ -53,7 +59,7 @@ export const SdkConfigurationServiceProvider = ({
   )
 }
 
-const useSdkConfigurationService = () => {
+const useSdkConfigurationService = (): SdkConfiguration => {
   return useContext(SdkConfigurationServiceContext)
 }
 

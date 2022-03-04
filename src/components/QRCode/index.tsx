@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { ComponentChild, h } from 'preact'
 import QRCode, { BaseQRCodeProps } from 'qrcode.react'
 
 type Props = {
@@ -7,7 +7,11 @@ type Props = {
   size: number
 }
 
-const QRCodeGenerator = ({ url, level = 'Q', size = 100 }: Props) => (
+const QRCodeGenerator = ({
+  url,
+  level = 'Q',
+  size = 100,
+}: Props): ComponentChild => (
   <QRCode renderAs="svg" size={size} level={level} value={url} />
 )
 

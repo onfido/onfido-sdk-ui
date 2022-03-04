@@ -1,4 +1,5 @@
 import useCaptureStep from '../utils/useCaptureStep'
+import { ComponentChild } from 'preact'
 
 export type MultiFrameCaptureStepActions =
   | 'placeholder'
@@ -9,7 +10,7 @@ export type MultiFrameCaptureStepActions =
 
 export type MultiFrameCaptureSteps = 'intro' | 'capture'
 
-const useMultiFrameCaptureStep = () => {
+const useMultiFrameCaptureStep = (): ComponentChild => {
   return useCaptureStep<MultiFrameCaptureSteps, MultiFrameCaptureStepActions>(
     ['intro', 'capture'],
     () => {

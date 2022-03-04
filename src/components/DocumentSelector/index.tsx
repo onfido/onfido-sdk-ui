@@ -1,4 +1,4 @@
-import { Component, h } from 'preact'
+import { Component, ComponentChild, h } from 'preact'
 import { kebabCase } from '~utils/string'
 import { isEmpty } from '~utils/object'
 import classNames from 'classnames'
@@ -50,7 +50,7 @@ export abstract class DocumentSelectorBase extends Component<Props> {
     return options.length ? options : defaultDocOptions
   }
 
-  handleSelect = (option: DocumentOptionsType) => {
+  private handleSelect = (option: DocumentOptionsType) => {
     this.handleDocumentTypeSelected(option)
     this.props.nextStep()
   }
@@ -69,7 +69,7 @@ export abstract class DocumentSelectorBase extends Component<Props> {
     return false
   }
 
-  render() {
+  render(): ComponentChild {
     const { className, country } = this.props
 
     return (
@@ -108,7 +108,7 @@ export abstract class DocumentSelectorBase extends Component<Props> {
     )
   }
 
-  renderOption = (option: DocumentOptionsType) => (
+  private renderOption = (option: DocumentOptionsType) => (
     <li>
       <button
         type="button"

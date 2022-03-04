@@ -28,8 +28,8 @@ class PoADocumentSelector extends DocumentSelectorBase {
   }
 }
 
-const isUK = (code: string) => upperCase(code) === 'GBR'
-const isNonUK = (code: string) => upperCase(code) !== 'GBR'
+const isUK = (code: string): boolean => upperCase(code) === 'GBR'
+const isNonUK = (code: string): boolean => upperCase(code) !== 'GBR'
 
 // REFACTOR: move this into the selector as soon as the
 export const poaDocumentOptions: DocumentOptions = {

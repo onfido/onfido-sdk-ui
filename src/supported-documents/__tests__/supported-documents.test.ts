@@ -45,6 +45,7 @@ describe('getSupportedCountriesForDocument', () => {
   it('should show a console error and return an empty array if given unsupported document type', () => {
     const consoleError = jest
       .spyOn(console, 'error')
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       .mockImplementation(() => {})
     const supportedCountries = getSupportedCountriesForDocument(
       'unknown_document' as DocumentTypes

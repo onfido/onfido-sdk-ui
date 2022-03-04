@@ -4,7 +4,7 @@ import useStateMachine, { MachineSpec } from '~utils/useStateMachine'
 export type CaptureStepActions = 'NEXT_CAPTURE_STEP' | 'RESET_CAPTURE_STEP'
 export type RecordStateActions = 'NEXT_RECORD_STATE' | 'RESET_RECORD_STATE'
 
-type UseCaptureStepType<CaptureSteps, RecordState> = {
+export type UseCaptureStepType<CaptureSteps, RecordState> = {
   nextStep: () => void
   nextRecordState: () => void
   restart: () => void

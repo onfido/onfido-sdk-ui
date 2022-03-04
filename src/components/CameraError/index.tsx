@@ -25,7 +25,8 @@ export default class CameraError extends Component<Props, State> {
 
   componentDidUpdate(prevProps: Props): void {
     if (prevProps.error.name !== this.props.error.name) {
-      this.setState({ isDimissed: false })
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ isDimissed: false }) // see https://reactjs.org/docs/react-component.html#componentdidupdate
     }
   }
 

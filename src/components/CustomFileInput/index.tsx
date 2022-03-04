@@ -1,4 +1,4 @@
-import { h, Component, ComponentChildren } from 'preact'
+import { h, Component, ComponentChildren, ComponentChild } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
 
@@ -12,7 +12,7 @@ type CustomFileInputProps = {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const noop = () => {}
+const noop = (): void => {}
 
 export default class CustomFileInput extends Component<CustomFileInputProps> {
   static defaultProps = {
@@ -24,14 +24,14 @@ export default class CustomFileInput extends Component<CustomFileInputProps> {
 
   input: HTMLInputElement | null = null
 
-  handleClick = () => {
+  private handleClick = () => {
     if (this.input) {
       this.input.click()
     }
     this.props.onClick()
   }
 
-  handleChange = (event: Event) => {
+  private handleChange = (event: Event) => {
     if (this.input && this.input.files) {
       this.props.onChange(this.input.files[0])
     }
@@ -42,7 +42,7 @@ export default class CustomFileInput extends Component<CustomFileInputProps> {
     }
   }
 
-  render = () => {
+  render = (): ComponentChild => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { children, className, onClick, onChange, ...other } = this.props
     return (

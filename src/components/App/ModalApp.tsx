@@ -33,8 +33,6 @@ import type { StepConfig, DocumentTypes } from '~types/steps'
 import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
-import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
-import Spinner from '../Spinner'
 
 export type ModalAppProps = {
   options: NormalisedSdkOptions
