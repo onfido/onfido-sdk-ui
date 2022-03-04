@@ -37,7 +37,6 @@ class Face extends Component {
     uploadFallback: true,
     useMultipleSelfieCapture: true,
     photoCaptureFallback: true,
-    snapshotInterval: 500,
     pageId: undefined,
   }
 
@@ -102,7 +101,6 @@ class Face extends Component {
       requestedVariant,
       translate,
       useMultipleSelfieCapture,
-      snapshotInterval,
       uploadFallback,
       photoCaptureFallback,
       pageId,
@@ -150,7 +148,6 @@ class Face extends Component {
             {...cameraProps}
             onCapture={this.handleCapture}
             useMultipleSelfieCapture={useMultipleSelfieCapture}
-            snapshotInterval={snapshotInterval}
             ariaLabel={ariaLabelForSelfieCameraView}
             pageId={pageId}
           />
