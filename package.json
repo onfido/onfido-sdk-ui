@@ -126,7 +126,6 @@
     "@onfido/castor": "^2.0.3",
     "@onfido/castor-icons": "^2.8.0",
     "@onfido/castor-react": "^2.0.3",
-    "@sentry/cli": "^1.51.1",
     "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/preact": "^2.0.1",
