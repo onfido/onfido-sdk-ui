@@ -1,24 +1,61 @@
-import { h, Component, createRef } from 'preact'
-import { connect } from 'react-redux'
+import {
+  Component,
+  ComponentType,
+  createRef,
+  FunctionComponent,
+  h,
+} from 'preact'
+import { useDispatch, useSelector } from 'react-redux'
 import classNames from 'classnames'
 import { setNavigationDisabled } from '../ReduxAppWrapper/store/actions/globals'
 import { withFullScreenState } from '../FullScreen'
 import { isDesktop } from '~utils'
 import { localised } from '~locales'
 import style from './style.scss'
-import { WithLocalisedProps } from '~types/hocs'
-import { GlobalState } from '~types/redux'
+import {
+  WithLocalisedProps,
+  WithNavigationDisabledActionProps,
+  WithNavigationDisabledStateProps,
+} from '~types/hocs'
+import { GlobalActions, RootState } from '~types/redux'
+import { Dispatch } from 'redux'
 
-export const withNavigationDisabledState = connect(
-  ({ globals: { isNavigationDisabled } }: { globals: GlobalState }) => ({
-    isNavigationDisabled,
-  })
-)
+export function withNavigationDisabledState<P>(
+  WrappedComponent: ComponentType<WithNavigationDisabledStateProps & P>
+): ComponentType<P> {
+  const WithNavigationDisabledStateComponent: FunctionComponent<P> = (
+    props
+  ) => {
+    const state = useSelector<RootState, WithNavigationDisabledStateProps>(
+      ({ globals: { isNavigationDisabled } }) => ({ isNavigationDisabled })
+    )
 
-export const withNavigationDisableAction = connect(null, (dispatch) => ({
-  setNavigationDisabled: (value: boolean) =>
-    dispatch(setNavigationDisabled(value)),
-}))
+    return <WrappedComponent {...props} {...state} />
+  }
+
+  return WithNavigationDisabledStateComponent
+}
+
+export function withNavigationDisableAction<P>(
+  WrappedComponent: ComponentType<WithNavigationDisabledActionProps & P>
+): ComponentType<P> {
+  const WithNavigationDisableActionComponent: FunctionComponent<P> = (
+    props
+  ) => {
+    const dispatch = useDispatch<Dispatch<GlobalActions>>()
+
+    return (
+      <WrappedComponent
+        {...props}
+        setNavigationDisabled={(value: boolean) => {
+          dispatch(setNavigationDisabled(value))
+        }}
+      />
+    )
+  }
+
+  return WithNavigationDisableActionComponent
+}
 
 type NavProps = {
   id?: string
