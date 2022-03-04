@@ -78,10 +78,10 @@ public class DocumentIT extends WebSdkIT {
                               .init(IdDocumentSelector.class)
                               .select(PASSPORT, DocumentLiveCapture.class);
 
-        takePercySnapshot("document-submit-passport useLiveDocumentCapture=true");
+        takePercySnapshotWithoutVideo("document-submit-passport useLiveDocumentCapture=true");
 
         var confirm = capture.takePhoto();
-        takePercySnapshot("document-confirm-passport useLiveDocumentCapture=true");
+        takePercySnapshotWithoutVideo("document-confirm-passport useLiveDocumentCapture=true");
 
         confirm.clickConfirmButton(null);
 
@@ -170,7 +170,7 @@ public class DocumentIT extends WebSdkIT {
 
     }
 
-    @Test(description = "should return file size too large message for PDF document upload")
+    @Test(description = "should return file size too large message for PDF document upload", groups = {"percy"})
     public void testShouldReturnFileSizeTooLargeMessageForPdfDocumentUpload() {
         var imageQualityGuide = gotoPassportUpload().upload(SAMPLE_10MB_PDF, ImageQualityGuide.class);
 

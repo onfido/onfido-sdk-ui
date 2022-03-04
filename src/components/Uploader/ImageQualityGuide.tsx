@@ -1,65 +1,92 @@
 import { h, Component } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import { localised } from '~locales'
+import { localised, useLocales } from '~locales'
 import { trackComponentAndMode } from '../../Tracker'
 import { addDeviceRelatedProperties, capitalise, isDesktop } from '~utils'
 import UploadError from './Error'
-import { validateFile } from '~utils/file'
+import { ImageValidationTypes, validateFile } from '~utils/file'
 import { IMAGE_QUALITY_GUIDE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
+import { ImageResizeInfo } from '~types/commons'
+import { WithLocalisedProps } from '~types/hocs'
+import { ErrorProp, StepComponentBaseProps } from '~types/routers'
+import { CapturePayload } from '~types/redux'
 
-const UploadButton = localised(({ translate, isUploading }) => (
-  <Button
-    type="button"
-    variant="primary"
-    className={classNames(theme['button-centered'], theme['button-lg'])}
-    disabled={isUploading}
-    data-onfido-qa="image-guide-doc-upload-btn"
-  >
-    {translate('upload_guide.button_primary')}
-  </Button>
-))
+type UploadButtonProps = {
+  isUploading: boolean
+}
 
-const DocumentExample = localised(({ translate, type }) => (
-  <div className={style.documentExampleCol}>
-    {/* FIXME Unable to use an <img alt="" /> element as expected with image path as source,
-              can only be done as background image on stylesheets (ticket to fix CX-5267) */}
-    <div
-      role="presentation"
-      className={classNames(
-        style.documentExampleImg,
-        style[`documentExampleImg${capitalise(type)}`]
-      )}
-    />
-    <div
-      role="listitem"
-      className={style.documentExampleLabel}
-      data-onfido-qa={`documentExampleLabel${capitalise(type)}`}
+type DocumentExampleProps = {
+  type: string
+}
+
+type ImageQualityGuideProps = StepComponentBaseProps & WithLocalisedProps
+
+type ImageQualityGuideState = {
+  error?: ErrorProp
+  isUploading: boolean
+}
+
+const UploadButton = ({ isUploading }: UploadButtonProps) => {
+  const { translate } = useLocales()
+  return (
+    <Button
+      type="button"
+      variant="primary"
+      className={classNames(theme['button-centered'], theme['button-lg'])}
+      disabled={isUploading}
+      data-onfido-qa="image-guide-doc-upload-btn"
     >
-      {translate(IMAGE_QUALITY_GUIDE_LOCALES_MAPPING[type].label)}
+      {translate('upload_guide.button_primary')}
+    </Button>
+  )
+}
+
+const DocumentExample = ({ type }: DocumentExampleProps) => {
+  const { translate } = useLocales()
+  return (
+    <div className={style.documentExampleCol}>
+      {/* FIXME Unable to use an <img alt="" /> element as expected with image path as source,
+              can only be done as background image on stylesheets (ticket to fix CX-5267) */}
+      <div
+        role="presentation"
+        className={classNames(
+          style.documentExampleImg,
+          style[`documentExampleImg${capitalise(type)}`]
+        )}
+      />
+      <div
+        role="listitem"
+        className={style.documentExampleLabel}
+        data-onfido-qa={`documentExampleLabel${capitalise(type)}`}
+      >
+        {
+          //@ts-ignore
+          translate(IMAGE_QUALITY_GUIDE_LOCALES_MAPPING[type].label)
+        }
+      </div>
     </div>
-  </div>
-))
+  )
+}
 
-class ImageQualityGuide extends Component {
-  static defaultProps = {
-    onUpload: () => {},
-  }
-
-  state = {
-    error: null,
+class ImageQualityGuide extends Component<
+  ImageQualityGuideProps,
+  ImageQualityGuideState
+> {
+  state: ImageQualityGuideState = {
     isUploading: false,
   }
 
-  setError = (name) => this.setState({ error: { name }, isUploading: false })
+  setError = (name: ImageValidationTypes) =>
+    this.setState({ error: { name }, isUploading: false })
 
-  createCapture = (file, imageResizeInfo) => {
-    const payload = {
+  createCapture = (file: Blob, imageResizeInfo?: ImageResizeInfo) => {
+    const payload: CapturePayload = {
       blob: file,
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     }
@@ -75,15 +102,18 @@ class ImageQualityGuide extends Component {
     actions.createCapture(documentCaptureData)
   }
 
-  handleFileSelected = (file) => {
+  handleFileSelected = (file: Blob) => {
     this.setState({
-      error: null,
+      error: undefined,
       isUploading: true,
     })
     validateFile(file, this.createCaptureDataForFile, this.setError)
   }
 
-  createCaptureDataForFile = (blob, imageResizeInfo) => {
+  createCaptureDataForFile = (
+    blob: Blob,
+    imageResizeInfo?: ImageResizeInfo
+  ) => {
     this.createCapture(blob, imageResizeInfo)
     this.props.nextStep()
   }
@@ -113,7 +143,7 @@ class ImageQualityGuide extends Component {
             </div>
           </div>
           <div>
-            {error && <UploadError {...{ error, trackScreen, translate }} />}
+            {error && <UploadError error={error} trackScreen={trackScreen} />}
             {isDesktop ? (
               <CustomFileInput
                 className={classNames(
@@ -145,5 +175,6 @@ class ImageQualityGuide extends Component {
 export default trackComponentAndMode(
   localised(ImageQualityGuide),
   'image_quality_guide',
+  // @ts-ignore
   'error'
 )

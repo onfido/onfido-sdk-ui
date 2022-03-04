@@ -19,7 +19,7 @@ const INVALID_IMAGE_SIZE = 'INVALID_IMAGE_SIZE'
 const INVALID_SIZE = 'INVALID_SIZE'
 const INVALID_TYPE = 'INVALID_TYPE'
 
-type ImageValidationTypes =
+export type ImageValidationTypes =
   | typeof INVALID_IMAGE_SIZE
   | typeof INVALID_SIZE
   | typeof INVALID_TYPE
