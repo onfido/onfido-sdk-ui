@@ -181,7 +181,6 @@
     "mini-css-extract-plugin": "^0.5.0",
     "object-loops": "0.8.0",
     "ora": "^4.0.3",
-    "postcss-base64": "^0.7.1",
     "postcss-custom-media": "^7.0.8",
     "postcss-loader": "^3.0.0",
     "postcss-url": "^8.0.0",
