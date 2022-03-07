@@ -39,7 +39,7 @@ public class CrossDeviceIT extends WebSdkIT {
     public void testShouldVerifyUiElementsOnTheCrossDeviceIntroScreen() {
         gotoCrossDeviceScreen();
 
-        takePercySnapshot("CrossDeviceIntro");
+        takePercySnapshotWithoutQRCode("CrossDeviceIntro");
     }
 
     @Test(description = "should navigate to cross device when forceCrossDevice is enabled")
@@ -77,10 +77,10 @@ public class CrossDeviceIT extends WebSdkIT {
 
         assertThat(crossDeviceLink.isQrHelpListDisplayed()).isTrue();
 
-        takePercySnapshot("CrossDeviceIntro-QR");
+        takePercySnapshotWithoutQRCode("CrossDeviceIntro-QR");
     }
 
-    @Test(description = "should verify UI elements on the cross device link screen SMS view")
+    @Test(description = "should verify UI elements on the cross device link screen SMS view", groups = {"percy"})
     public void testShouldVerifyUiElementsOnTheCrossDeviceLinkScreenSmsView() {
 
         var crossDeviceLink = gotoCrossDeviceScreen();
@@ -89,7 +89,7 @@ public class CrossDeviceIT extends WebSdkIT {
         takePercySnapshot("CrossDeviceIntro-Sms");
     }
 
-    @Test(description = "should change the state of the copy to clipboard button after clicking")
+    @Test(description = "should change the state of the copy to clipboard button after clicking", groups = {"percy"})
     public void testShouldVerifyUiElementsOnTheCrossDeviceLinkScreenCopyLinkView() {
         var crossDeviceLink = gotoCrossDeviceScreen().clickLinkOption();
 

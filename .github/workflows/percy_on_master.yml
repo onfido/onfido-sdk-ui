@@ -1,20 +1,13 @@
 name: Percy Visual Regression Tests - Master
 
 on:
-  schedule:
-    - cron: '30 20 * * 0'
-
-env:
-  BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-  BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+  push:
+    branches:
+      - master
 
 jobs:
-  build:
+  percy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - NODE_ENV: percy
 
     steps:
       - uses: actions/checkout@v2.3.4
@@ -35,6 +28,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Install Dependencies
+        run: npm install
+
       - name: Build test server
         run: npm run build:test
         id: testserver
@@ -46,6 +42,14 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '11'
+
+      - uses: actions/checkout@v2
+        with:
+          repository: it-ony/webtest
+          path: webtest
+
+      - name: Build webtest
+        run: cd webtest && mvn --no-transfer-progress clean install && cd ..
 
       - name: Setup Chromedriver
         uses: nanasess/setup-chromedriver@v1

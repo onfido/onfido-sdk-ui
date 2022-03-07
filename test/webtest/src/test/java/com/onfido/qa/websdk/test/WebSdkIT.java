@@ -32,7 +32,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Browser(acceptInsureCertificates = true)
 public abstract class WebSdkIT extends WebTest {
 
-    public static final String WITHOUT_VIDEO_CSS = "video.onfido-sdk-ui-Camera-video { display: none; }";
+    private static final String WITHOUT_VIDEO_CSS = "video.onfido-sdk-ui-Camera-video { display: none; }";
+    private static final String HIDE_QR_CODE = ".onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer {visibility: hidden}";
 
     private static final int MIN = 500;
     private static final int SLEEP_BEFORE_SNAPSHOT = 250;
@@ -162,6 +163,10 @@ public abstract class WebSdkIT extends WebTest {
 
     protected void takePercySnapshot(String name) {
         takePercySnapshot(name, null);
+    }
+
+    protected void takePercySnapshotWithoutQRCode(String name) {
+        takePercySnapshot(name, HIDE_QR_CODE);
     }
 
     protected void takePercySnapshot(String name, String css) {
