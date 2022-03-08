@@ -17,6 +17,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Migrated `QRCode` to typescript
 - Internal: Migrated `PhoneNumberInput` to typescript
 
+### Changed
+
+- Internal: Refactor selfie capture step to ensure camera is ready before enabling any capture
+- Internal: Update `multipleSelfieCapture` feature to ensure snapshot is taken at a different time than the selfie
+
 ## [6.18.0] - 2022-02-28
 
 ### Added

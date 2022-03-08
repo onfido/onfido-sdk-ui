@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { screenshot } from '~utils/camera'
+import { screenshot, isCameraReady } from '~utils/camera'
 import { mimeType } from '~utils/blob'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
@@ -23,20 +23,16 @@ type Props = {
   trackScreen: Function,
   inactiveError: Object,
   useMultipleSelfieCapture: boolean,
-  snapshotInterval: number,
 } */
 
 export default class SelfieCapture extends Component {
   webcam = null
-  snapshotIntervalId = null
-  initialSnapshotTimeoutId = null
 
   state = {
     hasBecomeInactive: false,
     hasCameraError: false,
-    snapshotBuffer: [],
     isCaptureButtonDisabled: true,
-    isProcessingSelfie: false,
+    snapshot: null,
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -50,77 +46,41 @@ export default class SelfieCapture extends Component {
       sdkMetadata,
       filename: `applicant_selfie.${mimeType(blob)}`,
     }
-    /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
-       to have a snapshot, even if it's not an ideal one */
-    const snapshot =
-      this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
-    const captureData = this.props.useMultipleSelfieCapture
-      ? { snapshot, ...selfie }
-      : selfie
+    const snapshot = this.state.snapshot
+    const captureData = snapshot ? { snapshot, ...selfie } : selfie
     this.props.onCapture(captureData)
-    this.setState({ isCaptureButtonDisabled: false, isProcessingSelfie: false })
   }
 
   handleSnapshot = (blob) => {
-    // Always try to get the older snapshot to ensure
-    // it's different enough from the user initiated selfie
-    this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
-      snapshotBuffer: [
-        newestSnapshot,
-        { blob, filename: `applicant_snapshot.${mimeType(blob)}` },
-      ],
-    }))
+    this.setState({
+      snapshot: { blob, filename: `applicant_snapshot.${mimeType(blob)}` },
+    })
   }
 
   takeSnapshot = () => {
-    const snapshot =
-      this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
-
-    if (
-      snapshot?.blob &&
-      this.state.isCaptureButtonDisabled &&
-      !this.state.isProcessingSelfie
-    ) {
-      this.setState({ isCaptureButtonDisabled: false })
-    }
-    this.webcam && screenshot(this.webcam, this.handleSnapshot)
+    screenshot(this.webcam, this.handleSnapshot)
   }
 
   takeSelfie = () => {
-    // If we are already taking the selfie, we should stop taking snapshots to prevent them from being the
-    // same as the Selfie itself, causing the multiframe feature to fail.
-    this.stopSnapshots()
-    this.setState({ isProcessingSelfie: true, isCaptureButtonDisabled: true })
+    this.setState({ isCaptureButtonDisabled: true })
     screenshot(this.webcam, this.handleSelfie)
   }
 
-  onUserMedia = () => {
-    if (this.props.useMultipleSelfieCapture) {
-      // A timeout is required for this.webcam to load, else 'webcam is null' console error is displayed
-      const initialSnapshotTimeout = 0
-      this.initialSnapshotTimeoutId = setTimeout(() => {
+  waitCameraFeed = () => {
+    if (isCameraReady(this.webcam)) {
+      if (this.props.useMultipleSelfieCapture) {
         this.takeSnapshot()
-      }, initialSnapshotTimeout)
-      this.snapshotIntervalId = setInterval(
-        this.takeSnapshot,
-        this.props.snapshotInterval
-      )
-    } else {
+      }
       this.setState({ isCaptureButtonDisabled: false })
+    } else {
+      setTimeout(() => {
+        this.waitCameraFeed()
+      }, 50)
     }
   }
 
-  stopSnapshots() {
-    if (this.snapshotIntervalId) {
-      clearInterval(this.snapshotIntervalId)
-    }
-    if (this.initialSnapshotTimeoutId) {
-      clearTimeout(this.initialSnapshotTimeoutId)
-    }
-  }
-
-  componentWillUnmount() {
-    this.stopSnapshots()
+  onUserMedia = () => {
+    this.waitCameraFeed()
   }
 
   render() {
