@@ -7,7 +7,7 @@ import GenericError from '../GenericError'
 
 import { getWoopraCookie } from '../../Tracker'
 import HistoryRouter from './HistoryRouter'
-import WorkflowHistoryRouter from './WorkflowHistoryRouter'
+import WorkflowHistoryRouter from '../WorkflowEngine/WorkflowHistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'

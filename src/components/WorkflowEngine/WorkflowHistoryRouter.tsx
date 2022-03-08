@@ -9,8 +9,8 @@ import {
 
 import { buildStepFinder, findFirstIndex } from '~utils/steps'
 import { getWorkflow, completeWorkflow } from '~utils/onfidoApi'
-import { buildComponentsList } from './StepComponentMap'
-import StepsRouter from './StepsRouter'
+import { buildComponentsList } from '../Router/StepComponentMap'
+import StepsRouter from '../Router/StepsRouter'
 import { formatStep } from '../..'
 
 import { trackException } from '../../Tracker'
