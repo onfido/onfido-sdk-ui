@@ -28,4 +28,11 @@ dist/*~*
 test/mock-server/*.pem
 test/mock-server/frontend/
 coverage/
+
+
 /.idea/
+*.iml
+target/
+/test/webtest/src/test/resources/local.properties
+/test/webtest/src/test/resources/_*.properties
+out/

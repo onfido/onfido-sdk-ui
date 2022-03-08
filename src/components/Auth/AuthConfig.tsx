@@ -92,7 +92,6 @@ export const getAuthCustomization = (
     uiCustomization.authButtonTextDisabledColor
   defaultCustomization.guidanceCustomization.buttonTextHighlightColor =
     uiCustomization.authButtonTextHighlightColor
-  defaultCustomization.guidanceCustomization.buttonRelativeWidth = '1f'
   defaultCustomization.guidanceCustomization.buttonCornerRadius =
     uiCustomization.authButtonCornerRadius
   defaultCustomization.guidanceCustomization.retryScreenImageBorderColor = color(
@@ -106,7 +105,6 @@ export const getAuthCustomization = (
   defaultCustomization.guidanceCustomization.retryScreenSlideshowInterval =
     '1500'
   defaultCustomization.guidanceCustomization.enableRetryScreenSlideshowShuffle = true
-  defaultCustomization.guidanceCustomization.enableRetryScreenBulletedInstructions = true
 
   // Set Oval Customization
   defaultCustomization.ovalCustomization.strokeColor =
@@ -123,7 +121,6 @@ export const getAuthCustomization = (
     uiCustomization.authFeedbackBarTextColor
   defaultCustomization.feedbackCustomization.cornerRadius =
     uiCustomization.authButtonCornerRadius
-  defaultCustomization.feedbackCustomization.relativeWidth = '1f'
 
   // Set Result Screen Customization
   defaultCustomization.resultScreenCustomization.backgroundColors =

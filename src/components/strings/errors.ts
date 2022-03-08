@@ -7,7 +7,7 @@ type LocaleData = {
 }
 
 const errors: Record<ErrorNames, LocaleData> = {
-  INVALID_CAPTURE: {
+  DOCUMENT_DETECTION: {
     message: 'doc_confirmation.alert.no_doc_title',
     instruction: 'doc_confirmation.alert.no_doc_detail',
   },
@@ -20,6 +20,10 @@ const errors: Record<ErrorNames, LocaleData> = {
     instruction: 'generic.errors.unsupported_file.instruction',
   },
   INVALID_SIZE: {
+    message: 'generic.errors.invalid_size.message',
+    instruction: 'generic.errors.invalid_size.instruction',
+  },
+  INVALID_IMAGE_SIZE: {
     message: 'generic.errors.invalid_size.message',
     instruction: 'generic.errors.invalid_size.instruction',
   },
@@ -60,7 +64,7 @@ const errors: Record<ErrorNames, LocaleData> = {
     instruction: 'selfie_capture.alert.camera_not_working.detail',
   },
   CAMERA_NOT_WORKING_NO_FALLBACK: {
-    message: 'generic.errors.camera_not_working.message',
+    message: 'selfie_capture.alert.camera_not_working.title',
     instruction: 'selfie_capture.alert.camera_not_working.detail_no_fallback',
   },
   CAMERA_INACTIVE: {

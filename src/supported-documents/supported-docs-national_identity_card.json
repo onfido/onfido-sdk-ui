@@ -261,7 +261,7 @@
   },
   {
     "sourceData": {
-      "back_required": false,
+      "back_required": true,
       "common_name": null,
       "country": "Aruba",
       "country_alpha2": "AW",
@@ -272,11 +272,11 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
-      "version": null
+      "version": "2003"
     }
   },
   {
@@ -679,6 +679,46 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
+      "country": "Bahrain | البحرين",
+      "country_alpha2": "BH",
+      "country_alpha3": "BHR",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10404,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bahrain | البحرين",
+      "country_alpha2": "BH",
+      "country_alpha3": "BHR",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10405,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007 3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
       "country": "Bangladesh | বাংলাদেশ",
       "country_alpha2": "BD",
       "country_alpha3": "BGD",
@@ -713,26 +753,6 @@
         "verify"
       ],
       "version": "2016 "
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Belgium | België",
-      "country_alpha2": "BE",
-      "country_alpha3": "BEL",
-      "document_type": "NIC",
-      "has_nfc": false,
-      "id": 3023,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2003"
     }
   },
   {
@@ -993,6 +1013,26 @@
         "verify"
       ],
       "version": "2020"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 3023,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
     }
   },
   {
@@ -2777,6 +2817,26 @@
   },
   {
     "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Curaçao | Curaçao",
+      "country_alpha2": "CW",
+      "country_alpha3": "CUW",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10326,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Cyprus | Κύπρος",
@@ -2959,6 +3019,26 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
+      "country": "Czech Republic | Česko",
+      "country_alpha2": "CZ",
+      "country_alpha3": "CZE",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10397,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
       "country": "Dominican Republic | República Dominicana",
       "country_alpha2": "DO",
       "country_alpha3": "DOM",
@@ -3099,6 +3179,26 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
+      "country": "Ecuador",
+      "country_alpha2": "EC",
+      "country_alpha3": "ECU",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10362,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
       "country": "El Salvador",
       "country_alpha2": "SV",
       "country_alpha3": "SLV",
@@ -3132,7 +3232,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "1"
+      "version": "2017"
     }
   },
   {
@@ -3308,7 +3408,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier1",
       "usecases": [
         "verify"
       ],
@@ -3504,11 +3604,31 @@
       "country_alpha3": "GIB",
       "document_type": "NIC",
       "has_nfc": false,
-      "id": 5129,
+      "id": 6079,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
       "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Gibraltar",
+      "country_alpha2": "GI",
+      "country_alpha3": "GIB",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 5129,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
       "usecases": [
         "verify"
       ],
@@ -3524,15 +3644,15 @@
       "country_alpha3": "GIB",
       "document_type": "NIC",
       "has_nfc": false,
-      "id": 6079,
+      "id": 10359,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier1",
       "usecases": [
         "verify"
       ],
-      "version": "2000"
+      "version": "2021"
     }
   },
   {
@@ -3693,6 +3813,46 @@
         "verify"
       ],
       "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Honduras",
+      "country_alpha2": "HN",
+      "country_alpha3": "HND",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10342,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Honduras",
+      "country_alpha2": "HN",
+      "country_alpha3": "HND",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10343,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1990"
     }
   },
   {
@@ -3934,6 +4094,26 @@
   {
     "sourceData": {
       "back_required": false,
+      "common_name": null,
+      "country": "Hungary | Magyarország",
+      "country_alpha2": "HU",
+      "country_alpha3": "HUN",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10340,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
       "common_name": "Aadhaar Card",
       "country": "India | भारत",
       "country_alpha2": "IN",
@@ -4075,6 +4255,26 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
+      "country": "India | भारत",
+      "country_alpha2": "IN",
+      "country_alpha3": "IND",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10383,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier4",
+      "usecases": [
+        "verify"
+      ],
+      "version": "9"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
       "country": "Indonesia",
       "country_alpha2": "ID",
       "country_alpha3": "IDN",
@@ -4156,26 +4356,6 @@
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "NIC",
-      "has_nfc": true,
-      "id": 3446,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": "tier1",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2016"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Italy | Italia",
-      "country_alpha2": "IT",
-      "country_alpha3": "ITA",
-      "document_type": "NIC",
       "has_nfc": false,
       "id": 4342,
       "municipality": null,
@@ -4186,6 +4366,26 @@
         "verify"
       ],
       "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "NIC",
+      "has_nfc": true,
+      "id": 3446,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
     }
   },
   {
@@ -4372,7 +4572,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Kosovo, Republic of",
+      "country": "Kosovo, Republic of | Kosova",
       "country_alpha2": "XK",
       "country_alpha3": "RKS",
       "document_type": "NIC",
@@ -5200,6 +5400,26 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
+      "country": "Montenegro | Crna Gora",
+      "country_alpha2": "ME",
+      "country_alpha3": "MNE",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10398,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2020"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
       "country": "Morocco | المغرب",
       "country_alpha2": "MA",
       "country_alpha3": "MAR",
@@ -5414,6 +5634,26 @@
         "verify"
       ],
       "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Nicaragua",
+      "country_alpha2": "NI",
+      "country_alpha3": "NIC",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10347,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
     }
   },
   {
@@ -5658,6 +5898,26 @@
   },
   {
     "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Panama | Panamá",
+      "country_alpha2": "PA",
+      "country_alpha3": "PAN",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10349,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Paraguay | Paraguái",
@@ -5895,6 +6155,26 @@
         "right_to_work"
       ],
       "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Poland | Polska",
+      "country_alpha2": "PL",
+      "country_alpha3": "POL",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10392,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
     }
   },
   {
@@ -6200,6 +6480,26 @@
   {
     "sourceData": {
       "back_required": true,
+      "common_name": null,
+      "country": "Romania | România",
+      "country_alpha2": "RO",
+      "country_alpha3": "ROU",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10273,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
       "common_name": "Internal Passport",
       "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
@@ -6354,7 +6654,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "2019"
+      "version": "2016"
     }
   },
   {
@@ -6759,6 +7059,26 @@
   },
   {
     "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Spain | España",
+      "country_alpha2": "ES",
+      "country_alpha3": "ESP",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10376,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021-1"
+    }
+  },
+  {
+    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Sri Lanka | ශ්‍රී ලංකාව",
@@ -6774,7 +7094,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "1"
+      "version": "2017"
     }
   },
   {
@@ -6855,6 +7175,26 @@
         "verify"
       ],
       "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Sweden | Sverige",
+      "country_alpha2": "SE",
+      "country_alpha3": "SWE",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10358,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
     }
   },
   {
@@ -11483,26 +11823,6 @@
   },
   {
     "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "NIC",
-      "has_nfc": false,
-      "id": 7844,
-      "municipality": null,
-      "region_iso": "TX",
-      "region_name": "Texas",
-      "tier": "tier1",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2020"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": false,
       "common_name": "Real ID",
       "country": "United States of America",
@@ -11823,6 +12143,46 @@
   },
   {
     "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 7844,
+      "municipality": null,
+      "region_iso": "TX",
+      "region_name": "Texas",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2020"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10357,
+      "municipality": null,
+      "region_iso": "NV",
+      "region_name": "Nevada",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
+    }
+  },
+  {
+    "sourceData": {
       "back_required": false,
       "common_name": null,
       "country": "Uruguay",
@@ -11979,6 +12339,26 @@
         "verify"
       ],
       "version": "4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Viet Nam | Việt Nam",
+      "country_alpha2": "VN",
+      "country_alpha3": "VNM",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10353,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "5"
     }
   },
   {

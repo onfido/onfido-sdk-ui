@@ -42,6 +42,10 @@ export type WithCaptureVariantProps = {
   side?: DocumentSides
 }
 
+export type WithPageIdProps = {
+  pageId?: string
+}
+
 export type WithThemeProps = {
   back?: () => void
   disableNavigation?: boolean
@@ -53,4 +57,12 @@ export type WithPermissionsFlowProps = {
 
 export type WithBlobPreviewProps = {
   blob: Blob
+}
+
+export type WithNavigationDisabledStateProps = {
+  isNavigationDisabled?: boolean
+}
+
+export type WithNavigationDisabledActionProps = {
+  setNavigationDisabled: (value: boolean) => void
 }

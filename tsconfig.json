@@ -31,5 +31,5 @@
     "typeRoots": ["./typings", "./node_modules/@types"],
     "downlevelIteration": true
   },
-  "exclude": ["./test/mock-server", "./lib"]
+  "exclude": ["./test/mock-server", "./lib", "test/webtest", "out"]
 }

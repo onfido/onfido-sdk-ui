@@ -45,6 +45,7 @@ export type Props = {
   renderVideoOverlay?: (props: VideoOverlayProps) => h.JSX.Element
   title?: string
   webcamRef?: Ref<Webcam>
+  pageId?: string
 } & WithTrackingProps
 
 type State = {
@@ -59,6 +60,8 @@ const initialStateWithoutMediaStream: Omit<State, 'hasMediaStream'> = {
   hasRecordingTakenTooLong: false,
   isRecording: false,
 }
+
+const IDEAL_CAMERA_WIDTH_IN_PX = 1080 // Full HD 1080p
 
 const RECORDING_TIMEOUT_ERRORS_MAP: Record<CaptureMethods, ErrorProp> = {
   face: {
@@ -85,6 +88,9 @@ export default class VideoCapture extends Component<Props, State> {
   state = { ...initialStateWithoutMediaStream, hasMediaStream: false }
 
   startRecording = (): void => {
+    const { trackScreen } = this.props
+    trackScreen('record_button_click')
+
     this.webcam && this.webcam.startRecording()
     this.setState({ isRecording: true, hasBecomeInactive: false })
   }
@@ -208,6 +214,7 @@ export default class VideoCapture extends Component<Props, State> {
       title,
       trackScreen,
       webcamRef,
+      pageId,
     } = this.props
 
     const {
@@ -230,6 +237,7 @@ export default class VideoCapture extends Component<Props, State> {
 
     return (
       <Camera
+        idealCameraWidth={IDEAL_CAMERA_WIDTH_IN_PX}
         audio={audio}
         buttonType="video"
         containerClassName={cameraClassName}
@@ -256,6 +264,7 @@ export default class VideoCapture extends Component<Props, State> {
         }
         renderTitle={!isRecording && title ? <PageTitle title={title} /> : null}
         trackScreen={trackScreen}
+        pageId={pageId}
         webcamRef={(webcam) => {
           if (!webcam) {
             return

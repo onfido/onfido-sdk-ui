@@ -1,14 +1,14 @@
 import fs from 'fs'
 import { requestChallenges, uploadFaceVideo } from '../../onfidoApi'
 import {
-  getTestJwtToken,
   checkForExpectedFileUploadProperties,
   COMMON_FILE_UPLOAD_PROPERTIES,
+  getTestJwtToken,
 } from '../helpers'
 import { API_URL, PATH_TO_RESOURCE_FILES } from '../helpers/testUrls'
 import {
+  ASSERT_EXPIRED_JWT_ERROR,
   EXPIRED_JWT_TOKEN,
-  EXPECTED_EXPIRED_TOKEN_ERROR,
 } from '../helpers/mockExpiredJwtAndResponse'
 
 let jwtToken = null
@@ -44,7 +44,7 @@ const TEST_VIDEO_DATA = {
 describe('API uploadFaceVideo endpoint', () => {
   beforeEach(async () => {
     jest.setTimeout(15000)
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('uploadFaceVideo returns expected response on successful upload', (done) => {
@@ -83,16 +83,8 @@ describe('API uploadFaceVideo endpoint', () => {
     )
   })
 
-  test('uploadFaceVideo returns an error if request is made with an expired JWT token', (done) => {
+  test.skip('uploadFaceVideo returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
-    const onErrorCallback = (error) => {
-      try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-        done()
-      } catch (err) {
-        done(err)
-      }
-    }
     const testFileName = 'test-video.webm'
     const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
     const testFile = new File([data], testFileName, {
@@ -107,7 +99,7 @@ describe('API uploadFaceVideo endpoint', () => {
       API_URL,
       EXPIRED_JWT_TOKEN,
       () => done(),
-      onErrorCallback
+      (e) => ASSERT_EXPIRED_JWT_ERROR(done, e)
     )
   })
 
@@ -142,7 +134,7 @@ describe('API uploadFaceVideo endpoint', () => {
 
 describe('API requestChallenges endpoint', () => {
   beforeEach(async () => {
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', async () => {
@@ -179,19 +171,12 @@ describe('API requestChallenges endpoint', () => {
 
   test('requestChallenges returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
-    const onErrorCallback = (error) => {
-      try {
-        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-        done()
-      } catch (err) {
-        done(err)
-      }
-    }
+
     requestChallenges(
       API_URL,
       EXPIRED_JWT_TOKEN,
       (response) => response,
-      onErrorCallback
+      (e) => ASSERT_EXPIRED_JWT_ERROR(done, e)
     )
   })
 })

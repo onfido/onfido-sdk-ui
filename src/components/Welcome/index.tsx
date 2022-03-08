@@ -88,7 +88,11 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
     .map((stepConfig) => stepConfig.type)
 
   return (
-    <ScreenLayout actions={actions} className={style.container}>
+    <ScreenLayout
+      actions={actions}
+      className={style.container}
+      pageId={'Welcome'}
+    >
       <PageTitle
         title={welcomeTitle}
         subTitle={welcomeSubTitle}

@@ -38,11 +38,11 @@ export type PoaTypes =
 
 export type RequestedVariant = 'standard' | 'video'
 
-export type DocumentTypeConfig =
-  | boolean
-  | {
-      country: string | null
-    }
+export type DocumentTypeConfig = boolean | CountryConfig
+
+export type CountryConfig = {
+  country: string | null
+}
 
 export type CaptureOptions = {
   requestedVariant?: RequestedVariant

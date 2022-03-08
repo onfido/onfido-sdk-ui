@@ -12,6 +12,8 @@ import WorkflowHistoryRouter from './WorkflowHistoryRouter'
 import type { MobileConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
+import Spinner from '../Spinner'
+import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
@@ -147,22 +149,34 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       )
     }
 
-    return this.useWorkflowRun() ? (
-      <WorkflowHistoryRouter
-        {...this.props}
-        mobileConfig={this.generateMobileConfig()}
-        onFlowChange={this.onFlowChange}
-        stepIndexType="user"
-        steps={this.props.options.steps}
-      />
-    ) : (
-      <HistoryRouter
-        {...this.props}
-        mobileConfig={this.generateMobileConfig()}
-        onFlowChange={this.onFlowChange}
-        stepIndexType="user"
-        steps={this.props.options.steps}
-      />
+    const { token, options, urls } = this.props
+
+    return (
+      <SdkConfigurationServiceProvider
+        url={urls.onfido_api_url}
+        token={token}
+        fallback={
+          <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
+        }
+      >
+        {this.useWorkflowRun() ? (
+          <WorkflowHistoryRouter
+            {...this.props}
+            mobileConfig={this.generateMobileConfig()}
+            onFlowChange={this.onFlowChange}
+            stepIndexType="user"
+            steps={this.props.options.steps}
+          />
+        ) : (
+          <HistoryRouter
+            {...this.props}
+            mobileConfig={this.generateMobileConfig()}
+            onFlowChange={this.onFlowChange}
+            stepIndexType="user"
+            steps={this.props.options.steps}
+          />
+        )}
+      </SdkConfigurationServiceProvider>
     )
   }
 }

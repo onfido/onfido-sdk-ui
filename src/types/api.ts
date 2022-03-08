@@ -182,6 +182,80 @@ export type CreateV4DocumentResponse = {
 export type SuccessCallback<T> = (response: T) => void
 export type ErrorCallback = (error: ParsedError) => void
 
+/* Sdk Configuration Service */
+
+export interface ApplyFilter {
+  doc_type?: string
+}
+
+export interface BiometricsLiveness {
+  active?: BiometricsLivenessActive
+  passive?: BiometricsLivenessPassive
+}
+
+export interface BiometricsLivenessActive {
+  enabled?: boolean
+  video_settings?: BiometricsLivenessActiveVideoSettings
+}
+
+export interface BiometricsLivenessActiveVideoSettings {
+  framerate?: number
+  bitrate?: number
+  duration?: number
+  focusLock?: boolean
+  white_balanceLock?: boolean
+  exposure_lock?: boolean
+  codec?: string
+  codec_profile?: number
+}
+
+export interface BiometricsLivenessPassive {
+  enabled?: boolean
+  video_settings?: BiometricsLivenessPassiveVideoSettings
+}
+
+export interface BiometricsLivenessPassiveVideoSettings {
+  framerate?: number
+  bitrate?: number
+  duration?: number
+  focus_lock?: boolean
+  white_balance_lock?: boolean
+  exposure_lock?: boolean
+  codec?: string
+}
+
+export interface DocumentCapture {
+  torch_turn_on_timeMs?: number
+  video_length_ms?: number
+  video_bitrate?: number
+}
+
+export interface ExperimentalFeatures {
+  enable_image_quality_service?: boolean
+  enable_multi_frame_capture?: boolean
+}
+
+export interface OnDeviceValidation {
+  max_total_retries?: number
+  threshold?: number
+  applies_to?: ApplyFilter[]
+}
+
+export interface SdkConfigurationValidations {
+  on_device?: SdkConfigurationValidationsOnDevice
+}
+
+export interface SdkConfigurationValidationsOnDevice {
+  blur?: OnDeviceValidation
+}
+
+export type SdkConfiguration = {
+  validations?: SdkConfigurationValidations
+  experimental_features?: ExperimentalFeatures
+  document_capture?: DocumentCapture
+  biometrics_liveness?: BiometricsLiveness
+}
+
 /* Workflows */
 export type WorkflowResponse = {
   id: string

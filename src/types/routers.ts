@@ -61,6 +61,11 @@ export type HandleDocVideoCaptureProp = (payload: {
   video: CapturePayload
 }) => void
 
+export type HandleDocMultiFrameCaptureProp = (payload: {
+  photo: CapturePayload
+  video: CapturePayload
+}) => void
+
 export type RenderFallbackProp = (
   tag: ParsedTag,
   callback?: () => void
@@ -69,6 +74,7 @@ export type RenderFallbackProp = (
 export type ErrorProp = {
   name: ErrorNames
   type?: ErrorTypes
+  properties?: Record<string, unknown>
 }
 
 export type ExternalRouterProps = ReduxProps & WithCameraDetectionProps

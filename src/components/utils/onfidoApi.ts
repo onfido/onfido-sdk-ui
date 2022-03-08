@@ -18,6 +18,7 @@ import type {
   SuccessCallback,
   ErrorCallback,
   WorkflowResponse,
+  SdkConfiguration,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
@@ -36,6 +37,13 @@ type UploadDocumentPayload = {
   type?: DocumentTypes | PoaTypes | 'unknown'
   validations?: ImageQualityValidationPayload
 } & UploadPayload
+
+type UploadDocumentVideoMediaPayload = {
+  file: Blob
+  document_id: string
+  sdk_source?: string
+  sdk_version?: string
+} & Omit<UploadPayload, 'filename'>
 
 type UploadVideoPayload = {
   blob: Blob
@@ -56,6 +64,7 @@ type SelfiePayload = { blob: Blob } & UploadPayload
 
 type SubmitPayload = Omit<UploadPayload, 'sdkMetadata'> & {
   file?: Blob | FilePayload
+  document_id?: string
   sdk_metadata?: string
   sdk_source?: string
   sdk_validations?: string
@@ -96,6 +105,27 @@ export const uploadDocument = (
   }
 
   const endpoint = `${url}/v3/documents`
+
+  return new Promise((resolve, reject) =>
+    sendFile(endpoint, data, token, onSuccess || resolve, onError || reject)
+  )
+}
+
+export const uploadDocumentVideoMedia = (
+  payload: UploadDocumentVideoMediaPayload,
+  url: string | undefined,
+  token: string | undefined,
+  onSuccess?: SuccessCallback<string>,
+  onError?: ErrorCallback
+): Promise<string> => {
+  const { sdkMetadata, ...other } = payload
+
+  const data: SubmitPayload = {
+    ...other,
+    sdk_metadata: JSON.stringify(sdkMetadata),
+  }
+
+  const endpoint = `${url}/v3/document_video_media`
 
   return new Promise((resolve, reject) =>
     sendFile(endpoint, data, token, onSuccess || resolve, onError || reject)
@@ -445,3 +475,23 @@ export const completeWorkflow = (
     }
   })
 }
+
+export const getSdkConfiguration = (
+  url: string,
+  token: string
+): Promise<SdkConfiguration> =>
+  new Promise((resolve, reject) => {
+    try {
+      const requestParams: HttpRequestParams = {
+        endpoint: `${url}/v3/sdk/configurations?sdk_source=${process.env.SDK_SOURCE}&sdk_version=${process.env.SDK_VERSION}`,
+        token: `Bearer ${token}`,
+        method: 'GET',
+      }
+
+      performHttpReq(requestParams, resolve, (request) =>
+        formatError(request, reject)
+      )
+    } catch (error) {
+      reject(error)
+    }
+  })

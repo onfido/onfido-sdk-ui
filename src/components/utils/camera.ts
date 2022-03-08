@@ -25,6 +25,30 @@ export const screenshot = (
   canvasToBlob(canvas, (blob) => callback(blob, sdkMetadata), mimeType)
 }
 
+export const isCameraReady = (webcam: Webcam): boolean => {
+  if (!webcam) {
+    return false
+  }
+
+  const canvas = webcam.getCanvas()
+
+  if (!canvas || !canvas.width || !canvas.height) {
+    return false
+  }
+
+  // Check if the canvas is still blank
+  const context = canvas.getContext('2d')
+  if (context) {
+    const pixelBuffer = new Uint32Array(
+      context.getImageData(0, 0, canvas.width, canvas.height).data.buffer
+    )
+
+    return pixelBuffer.some((color) => color !== 0)
+  } else {
+    return false
+  }
+}
+
 export const getRecordedVideo = (
   webcam: Webcam,
   callback: HandleCaptureProp
