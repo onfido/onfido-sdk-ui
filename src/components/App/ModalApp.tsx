@@ -198,7 +198,6 @@ class ModalApp extends Component<Props> {
       customUI,
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
-      useWorkflow,
     } = options
     const {
       userDetails: { smsNumber: prevSmsNumber } = {},

@@ -31,7 +31,7 @@ import type {
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes, StepTypes } from '~types/steps'
-import { poller, PollFunc } from '~utils/poller'
+import { poller, PollFunc } from 'components/WorkflowEngine/poller'
 
 type State = {
   initialStep: number
