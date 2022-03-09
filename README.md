@@ -484,7 +484,7 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   language: 'es_ES' | 'es'
   ```
 
-  #### Custom lanugages
+  #### Custom languages
 
   The SDK can also be displayed in a custom language for locales that Onfido does not currently support. To implement this, pass an object containing the following keys:
 
