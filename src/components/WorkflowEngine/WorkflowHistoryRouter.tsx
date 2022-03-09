@@ -8,14 +8,15 @@ import {
 } from 'history'
 
 import { buildStepFinder, findFirstIndex } from '~utils/steps'
-import { getWorkflow, completeWorkflow } from '~utils/onfidoApi'
 import { buildComponentsList } from '../Router/StepComponentMap'
 import StepsRouter from '../Router/StepsRouter'
 import { formatStep } from '../..'
 
 import { trackException } from '../../Tracker'
 
-import type { ParsedError, ErrorCallback, WorkflowResponse } from '~types/api'
+import type { ParsedError, ErrorCallback } from '~types/api'
+import { getWorkflow, completeWorkflow, getWorkFlowStep } from './engine' //remove after refactoring router
+import type { WorkflowResponse } from './engine' //remove after refactoring router
 import type {
   ExtendedStepTypes,
   FlowVariants,
@@ -31,7 +32,7 @@ import type {
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes, StepTypes } from '~types/steps'
-import { poller, PollFunc } from 'components/WorkflowEngine/poller'
+import { CancelFunc, poller, PollFunc } from './utils'
 
 type State = {
   initialStep: number
@@ -169,80 +170,11 @@ export default class WorkflowHistoryRouter extends Component<
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
-  getWorkFlowStep = (
-    taskId: string | undefined,
-    configuration: {
-      [name: string]: unknown
-    } | null
-  ) => {
-    console.log(`requested step for task ${taskId}`)
-
-    switch (taskId) {
-      case 'upload_document':
-      case 'upload_document_photo':
-        return {
-          type: 'document',
-          options: configuration,
-        }
-      case 'upload_face_photo':
-        return {
-          type: 'face',
-          options: {
-            ...configuration,
-            requestedVariant: 'standard',
-            uploadFallback: false,
-          },
-        }
-      case 'upload_face_video':
-        return {
-          type: 'face',
-          options: {
-            ...configuration,
-            requestedVariant: 'video',
-            uploadFallback: false,
-            photoCaptureFallback: false,
-          },
-        }
-      case 'profile_data':
-        return {
-          type: 'data',
-          options: {
-            ...configuration,
-            first_name: '',
-            last_name: '',
-            // email: '',
-            dob: '',
-            address: {
-              // flat_number: '',
-              // building_number: '',
-              // building_name: '',
-              // street: '',
-              // sub_street: '',
-              // town: '',
-              postcode: '',
-              country: '',
-              state: '',
-              // state: '',
-              // line1: '',
-              // line2: '',
-              // line3: '',
-            },
-          },
-        }
-      default:
-        this.setState((state) => ({
-          ...state,
-          serviceError: 'Task is currently not supported.',
-        }))
-        return
-    }
-  }
-
   nextWorkflowStep = async (): Promise<void> => {
     console.log('next step requested')
 
     const { options, urls } = this.props
-    const { workflowRunId } = options
+    const { workflowRunId, token } = options
     const { step: currentStep, taskId, completed } = this.state
     const componentsList = this.getComponentsList()
     const newStepIndex = currentStep + 1
@@ -300,11 +232,11 @@ export default class WorkflowHistoryRouter extends Component<
       let workflow: WorkflowResponse | undefined
 
       try {
-        workflow = await getWorkflow(
-          options.token,
+        workflow = await getWorkflow({
+          workflowRunId,
+          token,
           workflowServiceUrl,
-          workflowRunId
-        )
+        })
       } catch {
         this.setState((state) => ({
           ...state,
@@ -357,11 +289,15 @@ export default class WorkflowHistoryRouter extends Component<
         return
       }
 
-      const step = this.getWorkFlowStep(
-        workflow.task_def_id,
-        workflow.config
-      ) as any
-      if (!step) return
+      const step = getWorkFlowStep(workflow.task_def_id, workflow.config) as any
+      if (!step) {
+        this.setState((state) => ({
+          ...state,
+          serviceError: 'Task is currently not supported.',
+        }))
+
+        return
+      }
 
       this.setState(
         (state) => ({

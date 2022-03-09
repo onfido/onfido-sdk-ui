@@ -17,7 +17,6 @@ import type {
   CreateV4DocumentResponse,
   SuccessCallback,
   ErrorCallback,
-  WorkflowResponse,
   SdkConfiguration,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
@@ -412,68 +411,6 @@ export const sendAnalytics = (
     )
 
   request.send(payload)
-}
-
-export const getWorkflow = (
-  token: string | undefined,
-  url: string | undefined,
-  workflowRunId: string
-): Promise<WorkflowResponse> => {
-  return new Promise((resolve, reject) => {
-    try {
-      const requestParams: HttpRequestParams = {
-        method: 'GET',
-        contentType: 'application/json',
-        endpoint: `${url}/workflow_runs/${workflowRunId}`,
-      }
-
-      if (token) {
-        requestParams.token = `Bearer ${token}`
-      }
-
-      performHttpReq(requestParams, resolve, (request) =>
-        formatError(request, reject)
-      )
-    } catch (error) {
-      console.log('API error: ', error)
-      reject(error)
-    }
-  })
-}
-
-export const completeWorkflow = (
-  token: string | undefined,
-  url: string,
-  workflowRunId: string,
-  taskId: string,
-  personalData?: any,
-  docData?: any
-): Promise<WorkflowResponse> => {
-  console.log('complete workflow call to API')
-
-  return new Promise((resolve, reject) => {
-    try {
-      const requestParams: HttpRequestParams = {
-        method: 'POST',
-        contentType: 'application/json',
-        payload: JSON.stringify({
-          task_id: taskId,
-          data: docData.length ? docData : personalData || {},
-        }),
-        endpoint: `${url}/workflow_runs/${workflowRunId}/complete`,
-      }
-
-      if (token) {
-        requestParams.token = `Bearer ${token}`
-      }
-
-      performHttpReq(requestParams, resolve, (request) =>
-        formatError(request, reject)
-      )
-    } catch (error) {
-      reject(error)
-    }
-  })
 }
 
 export const getSdkConfiguration = (

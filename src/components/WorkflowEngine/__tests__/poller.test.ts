@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals'
-import { poller } from '../poller'
+import { poller } from '../utils/poller'
 
 describe('poller', () => {
   it('should poll after the specified delay', () => {
