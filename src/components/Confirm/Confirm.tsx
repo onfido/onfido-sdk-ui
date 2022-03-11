@@ -225,8 +225,7 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
         token,
         url,
         this.onApiSuccess,
-        this.onApiError,
-        sendEvent
+        this.onApiError
       )
     } else {
       const { blob, filename, sdkMetadata } = selfie

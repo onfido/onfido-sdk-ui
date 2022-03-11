@@ -297,6 +297,13 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'Live photo upload completed',
+    {
+      eventName: 'FACE_SELFIE_UPLOAD_COMPLETED',
+      properties: { event_type: 'flow', capture_method_rendered: 'camera' },
+    },
+  ],
+  [
     'screen_face_face_video_capture_file_upload',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
@@ -1001,6 +1008,48 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'CUSTOM_CALLBACK_ERROR',
       properties: { event_type: 'flow', callback_name: 'onSubmitDocument' },
+    },
+  ],
+  [
+    'document_upload_started',
+    {
+      eventName: 'DOCUMENT_UPLOAD_STARTED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'document_upload_completed',
+    {
+      eventName: 'DOCUMENT_UPLOAD_COMPLETED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'document_video_upload_started',
+    {
+      eventName: 'DOCUMENT_VIDEO_UPLOAD_STARTED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'document_video_upload_completed',
+    {
+      eventName: 'DOCUMENT_VIDEO_UPLOAD_COMPLETED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'face_video_upload_started',
+    {
+      eventName: 'FACE_VIDEO_UPLOAD_STARTED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'face_video_upload_completed',
+    {
+      eventName: 'FACE_VIDEO_UPLOAD_COMPLETED',
+      properties: { event_type: 'flow' },
     },
   ],
 ])

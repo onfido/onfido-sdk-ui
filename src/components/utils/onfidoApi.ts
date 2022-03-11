@@ -2,7 +2,7 @@ import { hmac256, mimeType } from './blob'
 import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
-import { trackException } from '../../Tracker'
+import { sendEvent, trackException } from '../../Tracker'
 import detectSystem from './detectSystem'
 
 import type {
@@ -103,12 +103,22 @@ export const uploadDocument = (
     sdk_metadata: JSON.stringify(sdkMetadata),
     sdk_validations: JSON.stringify(validations),
   }
-
+  const analyticsEvents: LegacyTrackedEventNames[] = [
+    'document_upload_started',
+    'document_upload_completed',
+  ]
   const endpoint = `${url}/v3/documents`
 
-  return new Promise((resolve, reject) =>
-    sendFile(endpoint, data, token, onSuccess || resolve, onError || reject)
-  )
+  return new Promise((resolve, reject) => {
+    sendFile(
+      endpoint,
+      data,
+      token,
+      analyticsEvents,
+      onSuccess || resolve,
+      onError || reject
+    )
+  })
 }
 
 export const uploadDocumentVideoMedia = (
@@ -124,11 +134,22 @@ export const uploadDocumentVideoMedia = (
     ...other,
     sdk_metadata: JSON.stringify(sdkMetadata),
   }
+  const analyticsEvents: LegacyTrackedEventNames[] = [
+    'document_video_upload_started',
+    'document_video_upload_completed',
+  ]
 
   const endpoint = `${url}/v3/document_video_media`
 
   return new Promise((resolve, reject) =>
-    sendFile(endpoint, data, token, onSuccess || resolve, onError || reject)
+    sendFile(
+      endpoint,
+      data,
+      token,
+      analyticsEvents,
+      onSuccess || resolve,
+      onError || reject
+    )
   )
 }
 
@@ -140,11 +161,16 @@ export const uploadFacePhoto = (
   onError: ErrorCallback
 ): void => {
   const endpoint = `${url}/v3/live_photos`
+  const analyticsEvents: LegacyTrackedEventNames[] = [
+    'Starting live photo upload',
+    'Live photo upload completed',
+  ]
 
   sendFile(
     endpoint,
     { ...data, sdk_metadata: JSON.stringify(sdkMetadata) },
     token,
+    analyticsEvents,
     onSuccess,
     onError
   )
@@ -158,7 +184,11 @@ export const uploadSnapshot = (
   onError: ErrorCallback
 ): void => {
   const endpoint = `${url}/v3/snapshots`
-  sendFile(endpoint, payload, token, onSuccess, onError)
+  const analyticsEvents: LegacyTrackedEventNames[] = [
+    'Starting snapshot upload',
+    'Snapshot upload completed',
+  ]
+  sendFile(endpoint, payload, token, analyticsEvents, onSuccess, onError)
 }
 
 export const sendMultiframeSelfie = (
@@ -167,11 +197,7 @@ export const sendMultiframeSelfie = (
   token: string | undefined,
   url: string | undefined,
   onSuccess: SuccessCallback<UploadFileResponse>,
-  onError: ErrorCallback,
-  sendEvent: (
-    event: LegacyTrackedEventNames,
-    properties?: Record<string, unknown>
-  ) => void
+  onError: ErrorCallback
 ): void => {
   const snapshotData: UploadSnapshotPayload = {
     file: {
@@ -182,12 +208,9 @@ export const sendMultiframeSelfie = (
   const { blob, filename = 'selfie', sdkMetadata } = selfie
 
   new Promise<SnapshotResponse>((resolve, reject) => {
-    sendEvent('Starting snapshot upload')
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
     .then((res) => {
-      sendEvent('Snapshot upload completed')
-      sendEvent('Starting live photo upload')
       const snapshot_uuids = JSON.stringify([res.uuid])
       uploadFacePhoto(
         { file: { blob, filename }, sdkMetadata, snapshot_uuids },
@@ -230,11 +253,22 @@ export const uploadFaceVideo = (
     challenge_switch_at,
     sdk_metadata: JSON.stringify(sdkMetadata),
   }
+  const analyticsEvents: LegacyTrackedEventNames[] = [
+    'face_video_upload_started',
+    'face_video_upload_completed',
+  ]
 
   const endpoint = `${url}/v3/live_videos`
 
   return new Promise((resolve, reject) =>
-    sendFile(endpoint, payload, token, onSuccess || resolve, onError || reject)
+    sendFile(
+      endpoint,
+      payload,
+      token,
+      analyticsEvents,
+      onSuccess || resolve,
+      onError || reject
+    )
   )
 }
 
@@ -368,6 +402,7 @@ const sendFile = <T>(
   endpoint: string | undefined,
   data: SubmitPayload,
   token: string | undefined,
+  analyticsEvents: LegacyTrackedEventNames[],
   onSuccess: SuccessCallback<T>,
   onError: ErrorCallback
 ) => {
@@ -391,10 +426,25 @@ const sendFile = <T>(
     token: `Bearer ${token}`,
   }
 
-  performHttpReq(requestParams, onSuccess, (request) => {
-    console.log('API error', request)
-    formatError(request, onError)
-  })
+  const startTime = performance.now()
+  // Sends upload_started event
+  sendEvent(analyticsEvents[0])
+  performHttpReq(
+    requestParams,
+    (response: T) => {
+      // Sends upload_completed event
+      sendEvent(analyticsEvents[1], {
+        duration: Math.ceil(performance.now() - startTime),
+      })
+      if (onSuccess) {
+        onSuccess(response)
+      }
+    },
+    (request) => {
+      console.log('API error', request)
+      formatError(request, onError)
+    }
+  )
 }
 
 export const sendAnalytics = (
