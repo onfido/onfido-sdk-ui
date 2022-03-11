@@ -21,6 +21,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Refactor selfie capture step to ensure camera is ready before enabling any capture
 - Internal: Update `multipleSelfieCapture` feature to ensure snapshot is taken at a different time than the selfie
+- Internal: Migrate `SdkConfiguration` to `v3.3`
 
 ## [6.18.0] - 2022-02-28
 
