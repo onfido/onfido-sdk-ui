@@ -27,6 +27,8 @@ import type {
   GlobalState,
   CapturePayload,
 } from './redux'
+import { SdkOptions } from '~types/sdk'
+import { UrlsConfig } from './commons'
 
 // @TODO: deprecate this props to consume `useSelector` and `useDispatch` hooks instead
 export type ReduxProps = {
@@ -45,7 +47,7 @@ export type FlowChangeCallback = (
     clientStepIndex: number
     clientStep: ComponentStep
   },
-  workflowSteps?: StepConfig[]
+  workflowSteps: StepConfig[]
 ) => void
 
 export type ChangeFlowProp = (
@@ -92,9 +94,8 @@ export type HistoryRouterProps = {
   sendClientSuccess?: () => void
   step?: number
   stepIndexType?: StepIndexType
-  steps: StepConfig[]
   workflowRunId?: string
-  setDocData?: (data: unknown, callback?: () => void) => void
+  useStepsProvider: StepsProvider
 } & InternalRouterProps
 
 export type StepsRouterProps = {
@@ -107,8 +108,7 @@ export type StepsRouterProps = {
   step: number
   triggerOnError: ErrorCallback
   isLoadingStep?: boolean
-  setDocData?: (data: unknown, callback?: () => void) => void
-  setPersonalData?: (data: unknown, callback?: () => void) => void
+  completeStep: (data: unknown) => Promise<void>
 } & HistoryRouterProps
 
 export type StepComponentBaseProps = {
@@ -162,4 +162,20 @@ export type StepperState = {
   serviceError: string | null
   personalData: any
   docData: any
+}
+
+export type StepsProviderStatus =
+  | 'idle'
+  | 'loading'
+  | 'success'
+  | 'finished'
+  | 'error'
+  | 'complete'
+
+export type StepsProvider = () => {
+  loadNextStep: (p: () => void) => void
+  completeStep: (docData: unknown) => Promise<void>
+  status: StepsProviderStatus
+  steps: StepConfig[]
+  error: string | undefined
 }

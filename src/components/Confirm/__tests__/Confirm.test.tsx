@@ -36,6 +36,8 @@ const defaultProps = {
   isDecoupledFromAPI: true,
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
+  completeStep: jest.fn().mockResolvedValue(undefined),
+  nextStep: jest.fn(),
   actions: {
     ...mockedReduxProps.actions,
   },

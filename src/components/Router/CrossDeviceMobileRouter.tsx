@@ -15,7 +15,7 @@ import GenericError from '../GenericError'
 
 import { setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
 import { LocaleProvider } from '~locales'
-import HistoryRouter from './HistoryRouter'
+import { HistoryRouter } from './HistoryRouter'
 
 import type { ErrorNames, MobileConfig } from '~types/commons'
 import type { SupportedLanguages, LocaleConfig } from '~types/locales'
@@ -28,6 +28,7 @@ import type {
 import type { StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
+import { createCrossDeviceStepsProvider } from './useCrossDeviceStepsProvider'
 
 const RESTRICTED_CROSS_DEVICE = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -346,17 +347,12 @@ export default class CrossDeviceMobileRouter extends Component<
     this.sendMessage('client success', { captures, docPayload })
   }
 
-  sendDocData = (data: unknown, callback?: () => void): void => {
-    this.setState(
-      {
-        ...this.state,
-        // @ts-ignore
-        docPayload: [...this.state.docPayload, data],
-      },
-      () => {
-        callback?.() // this is possible next step call, but we need to make sure doc data is set
-      }
-    )
+  onCompleteStep = (data: unknown): void => {
+    this.setState({
+      ...this.state,
+      // @ts-ignore
+      docPayload: [...this.state.docPayload, data],
+    })
   }
 
   renderContent = (): h.JSX.Element => {
@@ -401,8 +397,10 @@ export default class CrossDeviceMobileRouter extends Component<
             {...this.state}
             crossDeviceClientError={this.setError}
             sendClientSuccess={this.sendClientSuccess}
-            steps={steps}
-            setDocData={this.sendDocData}
+            useStepsProvider={createCrossDeviceStepsProvider(
+              steps,
+              this.onCompleteStep
+            )}
           />
         </SdkConfigurationServiceProvider>
       )

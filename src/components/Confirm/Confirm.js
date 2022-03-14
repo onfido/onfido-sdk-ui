@@ -123,7 +123,7 @@ class Confirm extends Component {
   }
 
   onApiSuccess = (apiResponse) => {
-    const { method, nextStep, actions, setDocData } = this.props
+    const { method, nextStep, completeStep, actions } = this.props
     const { capture } = this.state
     const duration = Math.round(performance.now() - this.startTime)
     sendEvent('Completed upload', {
@@ -133,15 +133,10 @@ class Confirm extends Component {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    if (setDocData) {
-      setDocData(apiResponse)
-    }
-
     const imageQualityWarning = this.onImageQualityWarning(apiResponse)
 
     if (!imageQualityWarning) {
-      // wait a tick to ensure the action completes before progressing
-      setTimeout(nextStep, 0)
+      completeStep(apiResponse).then(nextStep)
     } else {
       this.setWarning(imageQualityWarning)
     }

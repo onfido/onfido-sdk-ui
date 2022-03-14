@@ -9,6 +9,7 @@ import UserConsent from '../index'
 
 import type { NarrowSdkOptions } from '~types/commons'
 import type { StepComponentBaseProps } from '~types/routers'
+import { createOptionsStepsProvider } from '../../Router/useOptionsStepsProvider'
 
 jest.mock('dompurify')
 
@@ -44,6 +45,8 @@ const defaultProps: StepComponentBaseProps = {
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
   step: 0,
+  useStepsProvider: createOptionsStepsProvider(defaultOptions),
+  completeStep: jest.fn(),
 }
 
 describe('UserConsent', () => {

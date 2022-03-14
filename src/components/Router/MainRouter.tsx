@@ -6,14 +6,15 @@ import withTheme from '../Theme'
 import GenericError from '../GenericError'
 
 import { getWoopraCookie } from '../../Tracker'
-import HistoryRouter from './HistoryRouter'
-import WorkflowHistoryRouter from './WorkflowHistoryRouter'
+import { HistoryRouter } from './HistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 import Spinner from '../Spinner'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
+import { createOptionsStepsProvider } from './useOptionsStepsProvider'
+import { createWorkflowStepsProvider } from './useWorkflowStepsProvider'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
@@ -159,23 +160,17 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
           <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
         }
       >
-        {this.useWorkflowRun() ? (
-          <WorkflowHistoryRouter
-            {...this.props}
-            mobileConfig={this.generateMobileConfig()}
-            onFlowChange={this.onFlowChange}
-            stepIndexType="user"
-            steps={this.props.options.steps}
-          />
-        ) : (
-          <HistoryRouter
-            {...this.props}
-            mobileConfig={this.generateMobileConfig()}
-            onFlowChange={this.onFlowChange}
-            stepIndexType="user"
-            steps={this.props.options.steps}
-          />
-        )}
+        <HistoryRouter
+          {...this.props}
+          mobileConfig={this.generateMobileConfig()}
+          onFlowChange={this.onFlowChange}
+          stepIndexType="user"
+          useStepsProvider={
+            this.useWorkflowRun()
+              ? createWorkflowStepsProvider(options, urls)
+              : createOptionsStepsProvider(options)
+          }
+        />
       </SdkConfigurationServiceProvider>
     )
   }

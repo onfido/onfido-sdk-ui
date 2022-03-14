@@ -42,10 +42,7 @@ class MobileFlow extends Component {
     )
 
     this.props.actions.setClientSuccess(true)
-    if (this.props.setDocData) {
-      this.props.setDocData(data.docPayload[0])
-    }
-    
+    this.props.completeStep(data.docPayload[0])
   }
 
   onUserAnalyticsEvent = (data) => {

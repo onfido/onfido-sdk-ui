@@ -1,11 +1,4 @@
-import { h, Component } from 'preact'
-import {
-  createMemoryHistory,
-  createBrowserHistory,
-  History,
-  LocationListener,
-  MemoryHistory,
-} from 'history'
+import { h } from 'preact'
 
 import { buildStepFinder, findFirstIndex } from '~utils/steps'
 import { buildComponentsList } from './StepComponentMap'
@@ -13,125 +6,203 @@ import StepsRouter from './StepsRouter'
 
 import { trackException } from '../../Tracker'
 
-import type { ParsedError, ErrorCallback } from '~types/api'
-import type {
-  ExtendedStepTypes,
-  FlowVariants,
-  FormattedError,
-} from '~types/commons'
+import type { ErrorCallback, ParsedError } from '~types/api'
+import type { FlowVariants, FormattedError } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
 import type {
-  ComponentStep,
   ChangeFlowProp,
-  HistoryRouterProps,
+  ComponentStep,
   HistoryLocationState,
+  HistoryRouterProps,
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
-import type { DocumentTypes } from '~types/steps'
+import type { DocumentTypes, StepConfig } from '~types/steps'
+import { useCallback, useEffect, useState } from 'preact/hooks'
+import { useHistory } from './useHistory'
 
-type State = {
+type HistoryRouterState = {
   initialStep: number
 } & HistoryLocationState
 
-export default class HistoryRouter extends Component<
-  HistoryRouterProps,
-  State
-> {
-  private history:
-    | MemoryHistory<HistoryLocationState>
-    | History<HistoryLocationState>
-  private unlisten: () => void
+const formattedError = ({ response, status }: ParsedError): FormattedError => {
+  const errorResponse = response.error || response || {}
 
-  constructor(props: HistoryRouterProps) {
-    super(props)
+  const isExpiredTokenError =
+    status === 401 && errorResponse.type === 'expired_token'
+  const type = isExpiredTokenError ? 'expired_token' : 'exception'
+  // `/validate_document` returns a string only. Example: "Token has expired."
+  // Ticket in backlog to update all APIs to use signature similar to main Onfido API
+  const message = errorResponse.message || response.message || 'Unknown error'
+  return { type, message }
+}
 
-    const componentsList = this.getComponentsList('captureSteps', this.props)
+export const HistoryRouter = (props: HistoryRouterProps) => {
+  const {
+    currentStepType,
+    actions,
+    isNavigationDisabled,
+    onFlowChange,
+    captures,
+    options,
+    documentType,
+    step: defaultStep,
+    stepIndexType,
+    deviceHasCameraSupport,
+    options: { mobileFlow, useMemoryHistory },
+    useStepsProvider,
+  } = props
+
+  const getComponentsList = (
+    steps: StepConfig[],
+    flow?: FlowVariants
+  ): ComponentStep[] => {
+    if (!steps) {
+      throw new Error('steps not provided')
+    }
+
+    return buildComponentsList({
+      flow: flow || state.flow,
+      documentType,
+      steps,
+      mobileFlow,
+      deviceHasCameraSupport,
+    })
+  }
+
+  const { history, push } = useHistory(({ state: historyState }) => {
+    setState({ ...state, ...historyState })
+  }, useMemoryHistory)
+
+  const {
+    loadNextStep,
+    completeStep,
+    error,
+    status,
+    steps,
+  } = useStepsProvider()
+
+  const [state, setState] = useState<HistoryRouterState>(() => {
+    const componentsList = getComponentsList(steps, 'captureSteps')
 
     const stepIndex =
-      this.props.stepIndexType === 'client'
-        ? findFirstIndex(componentsList, this.props.step || 0)
-        : this.props.step || 0
+      stepIndexType === 'client'
+        ? findFirstIndex(componentsList, defaultStep || 0)
+        : defaultStep || 0
 
-    this.state = {
+    push({
+      flow: 'captureSteps',
+      step: stepIndex,
+    })
+
+    const stepType = componentsList[stepIndex].step.type
+    actions.setCurrentStepType(stepType)
+
+    return {
       flow: 'captureSteps',
       step: stepIndex,
       initialStep: stepIndex,
     }
-    this.history = this.props.options.useMemoryHistory
-      ? createMemoryHistory()
-      : createBrowserHistory()
-    this.unlisten = this.history.listen(this.onHistoryChange)
-    this.setStepIndex(this.state.step, this.state.flow)
+  })
+
+  const setStepIndex = (
+    newStepIndex: number,
+    newFlow?: FlowVariants,
+    excludeStepFromHistory?: boolean
+  ): void => {
+    const { flow: currentFlow } = state
+    const newState = {
+      step: newStepIndex,
+      flow: newFlow || currentFlow,
+    }
+    if (excludeStepFromHistory) {
+      setState({ ...state, ...newState })
+    } else {
+      push(newState)
+    }
   }
 
-  onHistoryChange: LocationListener<HistoryLocationState> = ({
-    state: historyState,
-  }) => {
-    this.setState({ ...historyState })
-  }
+  const disableNavigation = (): boolean => {
+    const getInitialStep = () => {
+      return state.initialStep === state.step && state.flow === 'captureSteps'
+    }
 
-  componentWillUnmount(): void {
-    this.unlisten()
-  }
+    const getStepType = (step: number) => {
+      const componentList = getComponentsList(steps)
+      return componentList[step] ? componentList[step].step.type : undefined
+    }
 
-  getStepType = (step: number): ExtendedStepTypes | undefined => {
-    const componentList = this.getComponentsList()
-    return componentList[step] ? componentList[step].step.type : undefined
-  }
-
-  disableNavigation = (): boolean => {
     return (
-      this.props.isNavigationDisabled ||
-      this.initialStep() ||
-      this.getStepType(this.state.step) === 'complete'
+      isNavigationDisabled ||
+      getInitialStep() ||
+      getStepType(state.step) === 'complete'
     )
   }
 
-  initialStep = (): boolean =>
-    this.state.initialStep === this.state.step &&
-    this.state.flow === 'captureSteps'
-
-  changeFlowTo: ChangeFlowProp = (
+  const changeFlowTo: ChangeFlowProp = (
     newFlow,
     newStep = 0,
     excludeStepFromHistory = false
   ) => {
-    const { onFlowChange } = this.props
-    const { flow: previousFlow, step: previousUserStepIndex } = this.state
+    const { flow: previousFlow, step: previousUserStepIndex } = state
     if (previousFlow === newFlow) return
 
-    const previousUserStep = this.getComponentsList()[previousUserStepIndex]
+    const previousUserStep = getComponentsList(steps)[previousUserStepIndex]
 
     onFlowChange &&
-      onFlowChange(newFlow, newStep, previousFlow, {
-        userStepIndex: previousUserStepIndex,
-        clientStepIndex: previousUserStep.stepIndex,
-        clientStep: previousUserStep,
-      })
-    this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
+      onFlowChange(
+        newFlow,
+        newStep,
+        previousFlow,
+        {
+          userStepIndex: previousUserStepIndex,
+          clientStepIndex: previousUserStep.stepIndex,
+          clientStep: previousUserStep,
+        },
+        steps
+      )
+    setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
-  nextStep = (): void => {
-    const { step: currentStep } = this.state
-    const componentsList = this.getComponentsList()
+  const nextStep = () => {
+    const { step: currentStep } = state
+    const componentsList = getComponentsList(steps)
     const newStepIndex = currentStep + 1
-    if (componentsList.length === newStepIndex) {
-      this.triggerOnComplete()
-    } else {
-      this.setStepIndex(newStepIndex)
+
+    if (componentsList.length > newStepIndex) {
+      setStepIndex(newStepIndex)
+      const newStepType = componentsList[newStepIndex].step.type
+      const isNewStepType = currentStepType !== newStepType
+      if (isNewStepType) {
+        actions.setCurrentStepType(newStepType)
+      }
+    } else if (status !== 'finished') {
+      loadNextStep(() => {
+        setStepIndex(0, 'captureSteps')
+      })
     }
   }
 
-  triggerOnComplete = (): void => {
-    const { captures } = this.props
+  const triggerOnError: ErrorCallback = useCallback(
+    ({ response, status }) => {
+      if (status === 0) {
+        return
+      }
 
+      const error = formattedError({ response, status })
+      const { type, message } = error
+      options.events?.emit('error', { type, message })
+      trackException(`${type} - ${message}`)
+    },
+    [options.events]
+  )
+
+  const triggerOnComplete = useCallback(() => {
     const expectedCaptureKeys: CaptureKeys[] = [
       'document_front',
       'document_back',
       'face',
       'data',
     ]
-
     const data: SdkResponse = Object.entries(captures)
       .filter(([key, value]) => key !== 'takesHistory' && value != null)
       .reduce((acc, [key, value]) => ({ ...acc, [key]: value?.metadata }), {})
@@ -145,7 +216,7 @@ export default class HistoryRouter extends Component<
     })
 
     if (keysWithMissingData.length) {
-      this.triggerOnError({
+      triggerOnError({
         response: {
           type: 'exception',
           message: `The following keys have missing data: ${keysWithMissingData}`,
@@ -154,86 +225,19 @@ export default class HistoryRouter extends Component<
       return
     }
 
-    this.props.options.events?.emit('complete', data)
+    options.events?.emit('complete', data)
+  }, [captures, options.events, triggerOnError])
+
+  const previousStep = () => {
+    const { step: currentStep } = state
+    setStepIndex(currentStep - 1)
   }
 
-  formattedError = ({ response, status }: ParsedError): FormattedError => {
-    const errorResponse = response.error || response || {}
-
-    const isExpiredTokenError =
-      status === 401 && errorResponse.type === 'expired_token'
-    const type = isExpiredTokenError ? 'expired_token' : 'exception'
-    // `/validate_document` returns a string only. Example: "Token has expired."
-    // Ticket in backlog to update all APIs to use signature similar to main Onfido API
-    const message = errorResponse.message || response.message || 'Unknown error'
-    return { type, message }
+  const back = () => {
+    history.goBack()
   }
 
-  triggerOnError: ErrorCallback = ({ response, status }) => {
-    if (status === 0) {
-      return
-    }
-
-    const error = this.formattedError({ response, status })
-    const { type, message } = error
-    this.props.options.events?.emit('error', { type, message })
-    trackException(`${type} - ${message}`)
-  }
-
-  previousStep = (): void => {
-    const { step: currentStep } = this.state
-    this.setStepIndex(currentStep - 1)
-  }
-
-  back = (): void => {
-    this.history.goBack()
-  }
-
-  setStepIndex = (
-    newStepIndex: number,
-    newFlow?: FlowVariants,
-    excludeStepFromHistory?: boolean
-  ): void => {
-    const { flow: currentFlow } = this.state
-    const newState = {
-      step: newStepIndex,
-      flow: newFlow || currentFlow,
-    }
-    if (excludeStepFromHistory) {
-      this.setState(newState)
-    } else {
-      const path = `${location.pathname}${location.search}${location.hash}`
-      this.history.push(path, newState)
-    }
-  }
-
-  getComponentsList = (
-    flow?: FlowVariants,
-    props: HistoryRouterProps = this.props
-  ): ComponentStep[] => {
-    const {
-      documentType,
-      steps,
-      deviceHasCameraSupport,
-      options: { mobileFlow },
-    } = props
-
-    if (!steps) {
-      throw new Error('steps not provided')
-    }
-
-    return buildComponentsList({
-      flow: flow || this.state.flow,
-      documentType,
-      steps,
-      mobileFlow,
-      deviceHasCameraSupport,
-    })
-  }
-
-  getDocumentType = (): DocumentTypes | undefined => {
-    const { documentType, steps } = this.props
-
+  const getDocumentType = () => {
     const findStep = buildStepFinder(steps)
     const documentStep = findStep('document')
     const documentTypes = documentStep?.options?.documentTypes || {}
@@ -247,22 +251,36 @@ export default class HistoryRouter extends Component<
     return documentType
   }
 
-  render(): h.JSX.Element {
-    const documentType = this.getDocumentType()
+  useEffect(() => {
+    if (status === 'finished') {
+      triggerOnComplete()
+    }
+  }, [status, triggerOnComplete])
 
+  if (status === 'error') {
     return (
-      <StepsRouter
-        {...this.props}
-        back={this.back}
-        changeFlowTo={this.changeFlowTo}
-        componentsList={this.getComponentsList()}
-        disableNavigation={this.disableNavigation()}
-        documentType={documentType}
-        nextStep={this.nextStep}
-        previousStep={this.previousStep}
-        step={this.state.step}
-        triggerOnError={this.triggerOnError}
-      />
+      <div>
+        <p>There was a server error!</p>
+        <p>{error}</p>
+        <p>Please try reloading the app, and try again.</p>
+      </div>
     )
   }
+
+  return (
+    <StepsRouter
+      {...props}
+      completeStep={completeStep}
+      back={back}
+      changeFlowTo={changeFlowTo}
+      componentsList={getComponentsList(steps)}
+      disableNavigation={disableNavigation()}
+      documentType={getDocumentType()}
+      nextStep={nextStep}
+      previousStep={previousStep}
+      step={state.step}
+      triggerOnError={triggerOnError}
+      isLoadingStep={status === 'loading'}
+    />
+  )
 }
