@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 
 import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
 import { validateFile } from '~utils/file'
@@ -6,7 +6,7 @@ import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 
 import { appendToTracking, trackException } from '../../Tracker'
-import { localised } from '~locales'
+import { useLocales } from '~locales'
 import DocumentVideo from '../DocumentVideo'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
@@ -21,15 +21,18 @@ import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import style from './style.scss'
 
 import type { ImageResizeInfo } from '~types/commons'
-import type { WithLocalisedProps, WithCaptureVariantProps } from '~types/hocs'
+import type { WithCaptureVariantProps } from '~types/hocs'
 import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
+  HandleDocMultiFrameCaptureProp,
   HandleDocVideoCaptureProp,
   RenderFallbackProp,
   StepComponentDocumentProps,
 } from '~types/routers'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
+import DocumentMultiFrame from 'components/DocumentMultiFrame'
+import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
 
 const EXCEPTIONS = {
   DOC_TYPE_NOT_PROVIDED: 'Neither documentType nor poaDocumentType provided',
@@ -53,16 +56,13 @@ const getDocumentType = (
   throw new Error(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
 }
 
-type Props = StepComponentDocumentProps &
-  WithLocalisedProps &
-  WithCaptureVariantProps
+type Props = StepComponentDocumentProps & WithCaptureVariantProps
 
-class Document extends Component<Props> {
-  static defaultProps = {
-    forceCrossDevice: false,
-  }
+const Document = (props: Props) => {
+  const { translate } = useLocales()
+  const sdkConfiguration = useSdkConfigurationService()
 
-  handlePhotoCapture: HandleCaptureProp = (payload) => {
+  const handlePhotoCapture: HandleCaptureProp = (payload) => {
     const {
       actions,
       documentType,
@@ -71,7 +71,7 @@ class Document extends Component<Props> {
       nextStep,
       poaDocumentType,
       side,
-    } = this.props
+    } = props
 
     const documentCaptureData: DocumentCapture = {
       ...payload,
@@ -87,8 +87,8 @@ class Document extends Component<Props> {
     nextStep()
   }
 
-  handleVideoCapture: HandleDocVideoCaptureProp = (payload) => {
-    const { actions, documentType, mobileFlow, nextStep } = this.props
+  const handleVideoCapture: HandleDocVideoCaptureProp = (payload) => {
+    const { actions, documentType, mobileFlow, nextStep } = props
     const { video, front, back } = payload
 
     if (!documentType) {
@@ -131,24 +131,60 @@ class Document extends Component<Props> {
     nextStep()
   }
 
-  handleUpload = (blob: Blob, imageResizeInfo?: ImageResizeInfo) =>
-    this.handlePhotoCapture({
+  const handleMultiFrameCapture: HandleDocMultiFrameCaptureProp = (payload) => {
+    const { actions, documentType, mobileFlow, side, nextStep } = props
+    const { video, photo } = payload
+
+    if (!documentType) {
+      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
+      throw new Error('documentType not provided')
+    }
+
+    const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
+      documentType,
+      method: 'document',
+      sdkMetadata: addDeviceRelatedProperties(
+        video?.sdkMetadata || {},
+        mobileFlow
+      ),
+    }
+
+    actions.createCapture({
+      ...photo,
+      ...baseData,
+      id: randomId(),
+      side,
+    })
+
+    actions.createCapture({
+      ...video,
+      ...baseData,
+      id: randomId(),
+      variant: 'video',
+      side,
+    })
+
+    nextStep()
+  }
+
+  const handleUpload = (blob: Blob, imageResizeInfo?: ImageResizeInfo) =>
+    handlePhotoCapture({
       blob,
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
 
-  handleError = () => {
-    const { actions, side, requestedVariant: variant } = this.props
+  const handleError = () => {
+    const { actions, side, requestedVariant: variant } = props
     actions.deleteCapture({ method: 'document', side, variant })
   }
 
-  handleFileSelected = (file: File) =>
-    validateFile(file, this.handleUpload, this.handleError)
+  const handleFileSelected = (file: File) =>
+    validateFile(file, handleUpload, handleError)
 
-  renderUploadFallback: RenderFallbackProp = ({ text }) => (
+  const renderUploadFallback: RenderFallbackProp = ({ text }) => (
     <CustomFileInput
       className={theme.warningFallbackButton}
-      onChange={this.handleFileSelected}
+      onChange={handleFileSelected}
       accept="image/*"
       capture="environment"
     >
@@ -156,111 +192,135 @@ class Document extends Component<Props> {
     </CustomFileInput>
   )
 
-  renderCrossDeviceFallback: RenderFallbackProp = ({ text }) => (
-    <FallbackButton
-      text={text}
-      onClick={() => this.props.changeFlowTo('crossDeviceSteps')}
-    />
-  )
-
-  render() {
-    const {
-      documentType,
-      hasCamera,
-      isPoA,
-      poaDocumentType,
-      requestedVariant,
-      side,
-      trackScreen,
-      translate,
-      uploadFallback = true,
-      useLiveDocumentCapture,
-      useWebcam,
-    } = this.props
-
-    const renderFallback = isDesktop
-      ? this.renderCrossDeviceFallback
-      : this.renderUploadFallback
-
-    if (hasCamera && requestedVariant === 'video') {
-      if (!documentType) {
-        trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
-        throw new Error('documentType not provided')
-      }
-
-      return (
-        <DocumentVideo
-          documentType={documentType}
-          onCapture={this.handleVideoCapture}
-          renderFallback={renderFallback}
-          trackScreen={trackScreen}
-        />
-      )
-    }
-
-    if (!side) {
-      trackException(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
-      throw new Error(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
-    }
-
-    const title = translate(
-      DOCUMENT_CAPTURE_LOCALES_MAPPING[
-        getDocumentType(isPoA, documentType, poaDocumentType)
-      ][side]?.title || ''
-    )
-    const propsWithErrorHandling = { ...this.props, onError: this.handleError }
-    const renderTitle = <PageTitle title={title} smaller />
-    const enableLiveDocumentCapture =
-      useLiveDocumentCapture && (!isDesktop || isHybrid)
-
-    if (hasCamera && useWebcam) {
-      return (
-        <DocumentAutoCapture
-          {...propsWithErrorHandling}
-          renderFallback={renderFallback}
-          renderTitle={renderTitle}
-          onValidCapture={this.handlePhotoCapture}
-        />
-      )
-    }
-
-    if (hasCamera && enableLiveDocumentCapture) {
-      return (
-        <DocumentLiveCapture
-          containerClassName={style.liveDocumentContainer}
-          documentType={documentType}
-          isUploadFallbackDisabled={!uploadFallback}
-          onCapture={this.handlePhotoCapture}
-          renderFallback={renderFallback}
-          renderTitle={renderTitle}
-          trackScreen={trackScreen}
-        />
-      )
-    }
-
-    // Different upload types show different icons
-    // return the right icon name for document
-    // For document, the upload can be 'identity' or 'proof_of_address'
-    const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
-    const instructions = translate(
-      DOCUMENT_CAPTURE_LOCALES_MAPPING[
-        getDocumentType(isPoA, documentType, poaDocumentType)
-      ][side]?.body || ''
-    )
-
+  const renderCrossDeviceFallback: RenderFallbackProp = ({ text }) => {
+    const { changeFlowTo } = props
     return (
-      <Uploader
-        {...propsWithErrorHandling}
-        uploadType={uploadType}
-        onUpload={this.handleUpload}
-        title={title}
-        instructions={instructions}
-        pageId={'DocumentUploader'}
+      <FallbackButton
+        text={text}
+        onClick={() => changeFlowTo('crossDeviceSteps')}
       />
     )
   }
+
+  const {
+    documentType,
+    hasCamera,
+    isPoA,
+    poaDocumentType,
+    requestedVariant,
+    side,
+    trackScreen,
+    uploadFallback = true,
+    useLiveDocumentCapture,
+    useWebcam,
+  } = props
+
+  const renderFallback = isDesktop
+    ? renderCrossDeviceFallback
+    : renderUploadFallback
+
+  if (hasCamera && requestedVariant === 'video') {
+    if (!documentType) {
+      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
+      throw new Error('documentType not provided')
+    }
+
+    return (
+      <DocumentVideo
+        documentType={documentType}
+        onCapture={handleVideoCapture}
+        renderFallback={renderFallback}
+        trackScreen={trackScreen}
+      />
+    )
+  }
+
+  if (!side) {
+    trackException(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
+    throw new Error(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
+  }
+
+  const title = translate(
+    DOCUMENT_CAPTURE_LOCALES_MAPPING[
+      getDocumentType(isPoA, documentType, poaDocumentType)
+    ][side]?.title || ''
+  )
+  const propsWithErrorHandling = {
+    ...props,
+    forceCrossDevice: props.forceCrossDevice ?? false,
+    onError: handleError,
+  }
+  const renderTitle = <PageTitle title={title} smaller />
+  const enableLiveDocumentCapture =
+    useLiveDocumentCapture && (!isDesktop || isHybrid)
+
+  if (hasCamera && useWebcam) {
+    return (
+      <DocumentAutoCapture
+        {...propsWithErrorHandling}
+        renderFallback={renderFallback}
+        renderTitle={renderTitle}
+        onValidCapture={handlePhotoCapture}
+      />
+    )
+  }
+
+  if (hasCamera && enableLiveDocumentCapture) {
+    if (!documentType) {
+      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
+      throw new Error('documentType not provided')
+    }
+
+    if (sdkConfiguration.experimental_features?.enable_multi_frame_capture) {
+      return (
+        <DocumentMultiFrame
+          documentType={documentType}
+          onCapture={handleMultiFrameCapture}
+          renderFallback={renderFallback}
+          trackScreen={trackScreen}
+          side={side}
+        />
+      )
+    }
+
+    return (
+      <DocumentLiveCapture
+        containerClassName={style.liveDocumentContainer}
+        documentType={documentType}
+        isUploadFallbackDisabled={!uploadFallback}
+        onCapture={handlePhotoCapture}
+        renderFallback={renderFallback}
+        renderTitle={renderTitle}
+        trackScreen={trackScreen}
+      />
+    )
+  }
+
+  // Different upload types show different icons
+  // return the right icon name for document
+  // For document, the upload can be 'identity' or 'proof_of_address'
+
+  // TODO: why do we try to get the document type group from the document type again. It would make much more sense
+  //  to have the overall properties know about the current step and then just take the upload type from the current step
+
+  // @ts-ignore
+  const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
+  const instructions = translate(
+    DOCUMENT_CAPTURE_LOCALES_MAPPING[
+      getDocumentType(isPoA, documentType, poaDocumentType)
+    ][side]?.body || ''
+  )
+
+  return (
+    <Uploader
+      {...propsWithErrorHandling}
+      uploadType={uploadType}
+      onUpload={handleUpload}
+      title={title}
+      instructions={instructions}
+      pageId={'DocumentUploader'}
+    />
+  )
 }
 
-export default appendToTracking(
-  localised(withCrossDeviceWhenNoCamera(Document))
-)
+export default appendToTracking(withCrossDeviceWhenNoCamera(Document))

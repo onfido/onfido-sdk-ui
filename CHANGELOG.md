@@ -8,6 +8,22 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.19.0] - 2022-03-14
+
+### Fixed
+
+- Public: Add compatibility with Salesforce
+- Public: Add type `DocumentTypes` to `DocumentResponse`
+- Internal: Migrated `NavigationBar` to typescript
+- Internal: Migrated `Pannable` to typescript
+- Internal: Migrated `QRCode` to typescript
+- Internal: Migrated `PhoneNumberInput` to typescript
+
+### Changed
+
+- Internal: Refactor selfie capture step to ensure camera is ready before enabling any capture
+- Internal: Update `multipleSelfieCapture` feature to ensure snapshot is taken at a different time than the selfie
+
 ## [6.18.0] - 2022-02-28
 
 ### Added
@@ -1183,7 +1199,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.19.0...development
+[6.19.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...6.19.0
 [6.18.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.17.0...6.18.0
 [6.17.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...6.17.0
 [6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.16.0

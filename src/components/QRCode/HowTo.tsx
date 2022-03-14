@@ -3,8 +3,14 @@ import classNames from 'classnames'
 import { localised } from '~locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
+import { WithLocalisedProps } from '~types/hocs'
 
-class QRCodeHowTo extends Component {
+type Props = WithLocalisedProps
+type State = {
+  isExpanded: boolean
+}
+
+class QRCodeHowTo extends Component<Props, State> {
   constructor() {
     super()
     this.state = {
