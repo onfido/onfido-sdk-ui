@@ -18,7 +18,8 @@ export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT |
 export declare type DocumentTypes = "passport" | "driving_licence" | "national_identity_card" | "residence_permit";
 export declare type PoaTypes = "bank_building_society_statement" | "utility_bill" | "council_tax" | "benefit_letters" | "government_letter";
 export declare type RequestedVariant = "standard" | "video";
-export declare type DocumentTypeConfig = boolean | {
+export declare type DocumentTypeConfig = boolean | CountryConfig;
+export declare type CountryConfig = {
 	country: string | null;
 };
 export declare type CaptureOptions = {
@@ -218,7 +219,7 @@ export declare type EnterpriseFeatures = {
 export declare type DocumentResponse = {
 	id: string;
 	side: string;
-	type: string;
+	type: DocumentTypes;
 	variant: RequestedVariant;
 };
 export declare type DocumentVideoResponse = {
