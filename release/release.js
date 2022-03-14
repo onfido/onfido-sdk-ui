@@ -313,7 +313,7 @@ const publishTag = async () => {
       `- https://latest-onfido-sdk-ui-onfido.surge.sh/ is using ${VERSION}`
     )
   } else {
-    console.log(`NPM has published the tag as 'next'`)
+    console.log(`NPM has published the tag as 'rc'`)
   }
   await proceedYesNo('Is it all good?')
 }

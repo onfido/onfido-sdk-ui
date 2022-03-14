@@ -63,7 +63,7 @@ describe('API uploadFacePhoto endpoint', () => {
     )
   })
 
-  test.skip('uploadFacePhoto returns an error if request is made with an expired JWT token', (done) => {
+  test('uploadFacePhoto returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
 
     const testFileName = 'one_face.jpg'
