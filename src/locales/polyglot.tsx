@@ -64,18 +64,18 @@ const mobileTranslations = mobilePhrases()
 const defaultLanguage = () => {
   const polyglot = new Polyglot({ onMissingKey: undefined }) as PolyglotExtended
   return extendPolyglot(
-    defaultLocaleTag,
     polyglot,
     availableTranslations[defaultLocaleTag],
-    mobileTranslations[defaultLocaleTag]
+    mobileTranslations[defaultLocaleTag],
+    defaultLocaleTag
   )
 }
 
 const extendPolyglot = (
-  locale: SupportedLanguages,
   polyglot: PolyglotExtended,
   phrases: LocaleConfig['phrases'],
-  mobilePhrases: LocaleConfig['mobilePhrases']
+  mobilePhrases: LocaleConfig['mobilePhrases'],
+  locale?: SupportedLanguages
 ): PolyglotExtended => {
   polyglot.locale(locale)
   polyglot.extend(phrases)
@@ -128,15 +128,15 @@ const verifyKeysPresence = (
 }
 
 const trySupportedLanguage = (
-  language: SupportedLanguages,
-  polyglot: PolyglotExtended
+  polyglot: PolyglotExtended,
+  language?: SupportedLanguages
 ): PolyglotExtended | undefined => {
-  if (availableTranslations[language]) {
+  if (language && availableTranslations[language]) {
     return extendPolyglot(
-      language,
       polyglot,
       availableTranslations[language],
-      mobileTranslations[language]
+      mobileTranslations[language],
+      language
     )
   }
   console.warn('Locale not supported')
@@ -148,8 +148,8 @@ const withCustomLanguage = (
 ): PolyglotExtended => {
   const { locale, phrases, mobilePhrases } = customLanguageConfig
   verifyKeysPresence(customLanguageConfig, polyglot)
-  const newPolyglot = trySupportedLanguage(locale, polyglot) || polyglot
-  return extendPolyglot(locale, newPolyglot, phrases, mobilePhrases)
+  const newPolyglot = trySupportedLanguage(polyglot, locale) || polyglot
+  return extendPolyglot(newPolyglot, phrases, mobilePhrases, locale)
 }
 
 const overrideTranslations = (
@@ -157,7 +157,7 @@ const overrideTranslations = (
   polyglot: PolyglotExtended
 ): PolyglotExtended | undefined => {
   if (typeof language === 'string') {
-    return trySupportedLanguage(language, polyglot)
+    return trySupportedLanguage(polyglot, language)
   }
   return withCustomLanguage(language, polyglot)
 }

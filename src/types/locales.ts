@@ -17,7 +17,7 @@ export type SupportedLanguages =
   | 'nl'
 
 export type LocaleConfig = {
-  locale: SupportedLanguages
+  locale?: SupportedLanguages
   phrases: Record<string, unknown>
   mobilePhrases?: Record<string, unknown>
 }

@@ -458,7 +458,6 @@ export const commonLanguages: Record<
   fr: 'fr',
   nl: 'nl',
   custom: {
-    locale: 'en',
     phrases: { 'welcome.title': 'My custom title' },
     mobilePhrases: {
       'capture.driving_licence.back.instructions': 'Custom instructions',
