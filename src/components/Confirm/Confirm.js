@@ -213,7 +213,7 @@ class Confirm extends Component {
     } = capture
     this.setState({ capture })
 
-    if (method === 'document') {
+    if (method === 'document' || method === 'poa') {
       const isPoA = poaDocumentTypes.includes(poaDocumentType)
       const shouldPerformImageQualityValidations =
         !isOfMimeType(['pdf'], blob) && !isPoA
