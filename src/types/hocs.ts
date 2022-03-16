@@ -13,7 +13,7 @@ export type WithChallengesProps = {
 }
 
 export type WithLocalisedProps = {
-  language: SupportedLanguages
+  language?: SupportedLanguages
   parseTranslatedTags: TranslatedTagParser
   translate: TranslateCallback
 }

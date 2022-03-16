@@ -7,7 +7,8 @@ type ComposeFunction<T> = (param: T) => T
 export const compose = <T>(...fns: ComposeFunction<T>[]): ComposeFunction<T> =>
   fns.reduceRight((prev, next) => (...args) => next(prev(...args)), identity)
 
-type MemoizeFunction<T> = (...params: unknown[]) => T
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type MemoizeFunction<T> = (...params: any[]) => T
 
 export const memoize = <T>(fn: MemoizeFunction<T>): MemoizeFunction<T> => {
   const cache: Record<string, T> = {}

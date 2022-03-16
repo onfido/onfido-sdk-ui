@@ -32,6 +32,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Migrated `Pannable` to typescript
 - Internal: Migrated `QRCode` to typescript
 - Internal: Migrated `PhoneNumberInput` to typescript
+- Internal: Migrated `locales/polyglot` to typescript
 
 ### Changed
 
