@@ -27,7 +27,7 @@ export const ContainerDimensionsProvider: FunctionComponent<Props> = ({
     }
 
     const handleResize = () => {
-      const wrappedElement = containerRef.current.base
+      const wrappedElement = containerRef.current?.base
 
       if (wrappedElement && wrappedElement instanceof Element) {
         setDimensions(wrappedElement.getBoundingClientRect())

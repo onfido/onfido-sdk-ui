@@ -8,6 +8,20 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Changed
+
+- Internal: Upgraded to webpack 5
+- Internal: Upgraded `eslint`, `mocha`, `jest`
+- Internal: Resolved all deprecated & vulnerability issues by removing and upgrading packages
+- Internal: Added more pollyfills for IE11
+- Internal: Upgraded `react-webcam-onfido` to `1.0.0`
+- Internal: Removed `dist` & `lib` from repo and added to `.gitignore` file
+- Public: Removed `*.LICENSE.txt` files from `lib` & `dist`, see `licenses.json` instead
+- Public: Fixed `CrossDeviceInfo` screen layout to prevent scrolling
+- Public: Merged `dist/onfido.vendors~crossDevice.min.js` into `dist/onfido.crossDevice.min.js`
+- Public: Merged `dist/onfidoAuth.6.min.js` to `onfidoAuth.min.js`
+- Public: Rearranged `dependencies` & `devDependencies` in `package.json` to reflect correct usage
+
 ## [6.19.0] - 2022-03-14
 
 ### Fixed

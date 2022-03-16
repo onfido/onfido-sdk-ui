@@ -26,14 +26,6 @@ const TEST_DOCUMENT_DATA = {
   type: 'passport',
 }
 
-/* eslint jest/no-test-callback: 0 */
-/*
- *  NOTE: This rule is disabled for these integration tests as onfidoApi.js were implemented using callbacks.
-          Hence it is necessary to use Jest' done() callback function as per Jest's documentation for
-          testing asynchronous code written with the callback pattern https://jestjs.io/docs/en/asynchronous
-          Work to address this will be done in a separate ticket (CX-6016)
- */
-
 describe('API uploadDocument endpoint', () => {
   beforeEach(async () => {
     jest.setTimeout(15000)

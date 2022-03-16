@@ -98,7 +98,7 @@ const DocumentVideo: FunctionComponent<Props> = ({
   const [videoPayload, setVideoPayload] = useState<CapturePayload | undefined>(
     undefined
   )
-  const webcamRef = useRef<Webcam>()
+  const webcamRef = useRef<Webcam | null>(null)
 
   useEffect(() => {
     if (captureFlow == null) {
@@ -137,17 +137,19 @@ const DocumentVideo: FunctionComponent<Props> = ({
   }, [flowComplete]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const onRecordingStart = () => {
-    screenshot(webcamRef.current, (blob, sdkMetadata) => {
-      const frontCapture = renamedCapture(
-        {
-          blob,
-          sdkMetadata,
-        },
-        'front'
-      )
+    if (webcamRef.current) {
+      screenshot(webcamRef.current, (blob, sdkMetadata) => {
+        const frontCapture = renamedCapture(
+          {
+            blob,
+            sdkMetadata,
+          },
+          'front'
+        )
 
-      setFrontPayload(frontCapture)
-    })
+        setFrontPayload(frontCapture)
+      })
+    }
   }
 
   const onVideoCapture: HandleCaptureProp = (payload) => {
@@ -158,17 +160,19 @@ const DocumentVideo: FunctionComponent<Props> = ({
       return
     }
 
-    screenshot(webcamRef.current, (blob, sdkMetadata) => {
-      const backCapture = renamedCapture(
-        {
-          blob,
-          sdkMetadata,
-        },
-        'back'
-      )
+    if (webcamRef.current) {
+      screenshot(webcamRef.current, (blob, sdkMetadata) => {
+        const backCapture = renamedCapture(
+          {
+            blob,
+            sdkMetadata,
+          },
+          'back'
+        )
 
-      setBackPayload(backCapture)
-    })
+        setBackPayload(backCapture)
+      })
+    }
   }
 
   const issuingCountry = issuingCountryData?.country_alpha2
