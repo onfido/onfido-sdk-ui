@@ -1,6 +1,8 @@
 package com.onfido.qa.websdk.test;
 
+import com.onfido.qa.websdk.DocumentType;
 import com.onfido.qa.websdk.PoADocumentType;
+import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.model.DocumentOption;
 import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
@@ -8,7 +10,11 @@ import com.onfido.qa.websdk.page.CrossDeviceClientSuccess;
 import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
 import com.onfido.qa.websdk.page.CrossDeviceSubmit;
 import com.onfido.qa.websdk.page.DocumentUpload;
+import com.onfido.qa.websdk.page.IdDocumentSelector;
+import com.onfido.qa.websdk.page.ImageQualityGuide;
+import com.onfido.qa.websdk.page.PoADocumentSelection;
 import com.onfido.qa.websdk.page.PoAIntro;
+import com.onfido.qa.websdk.sdk.Raw;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -25,6 +31,7 @@ import static com.onfido.qa.websdk.PoADocumentType.values;
 import static com.onfido.qa.websdk.UploadDocument.NATIONAL_IDENTITY_CARD_PDF;
 import static com.onfido.qa.websdk.UploadDocument.PASSPORT_JPG;
 import static com.onfido.qa.websdk.UploadDocument.UK_DRIVING_LICENCE_PNG;
+import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SuppressWarnings("StaticCollection")
@@ -91,7 +98,6 @@ public class ProofOfAddressIT extends WebSdkIT {
         var upload = guidance.clickContinue();
 
         upload.upload(NATIONAL_IDENTITY_CARD_PDF).clickConfirmButton(Complete.class);
-
     }
 
     @Test(description = "should skip country selection screen with a preselected driver's license document type on PoA flow", groups = {"percy"})
@@ -136,5 +142,21 @@ public class ProofOfAddressIT extends WebSdkIT {
 
     }
 
+    @Test(description = "should allow PoA together with Document")
+    public void testPoaTogetherWithDocument() {
+        onfido().withSteps("poa", "document", "complete")
+                .withOnComplete(new Raw("(data) => window.areDocsCorrect = data.poa && data.document_front && data.poa.id !== data.document_front.id"))
+                .init(PoAIntro.class)
+                .startVerification()
+                .select(BANK_BUILDING_SOCIETY_STATEMENT)
+                .clickContinue()
+                .upload(NATIONAL_IDENTITY_CARD_PDF)
+                .clickConfirmButton(IdDocumentSelector.class)
+                .select(PASSPORT, DocumentUpload.class)
+                .clickUploadButton(ImageQualityGuide.class)
+                .upload(PASSPORT_JPG)
+                .clickConfirmButton(Complete.class);
 
+        assertThat((Boolean) driver().executeScript("return window.areDocsCorrect")).isTrue();
+    }
 }
