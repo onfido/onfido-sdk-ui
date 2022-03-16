@@ -1,3 +1,4 @@
+///!!!!!!!!!!!DELETE THIS AFTER JOININF WITH WORKDLOWSTEP PROVIDER
 import { h, Component } from 'preact'
 import {
   createMemoryHistory,
@@ -15,8 +16,8 @@ import { formatStep } from '../..'
 import { trackException } from '../../Tracker'
 
 import type { ParsedError, ErrorCallback } from '~types/api'
-import { getWorkflow, completeWorkflow, getWorkFlowStep } from './engine' //remove after refactoring router
-import type { WorkflowResponse } from './engine' //remove after refactoring router
+
+import type { WorkflowResponse } from './utils/WorkflowTypes' //remove after refactoring router
 import type {
   ExtendedStepTypes,
   FlowVariants,
@@ -32,7 +33,7 @@ import type {
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes, StepTypes } from '~types/steps'
-import { CancelFunc, poller, PollFunc } from './utils'
+import { CancelFunc, poller, PollFunc, workflowEngine } from '.'
 
 type State = {
   initialStep: number
@@ -133,14 +134,6 @@ export default class WorkflowHistoryRouter extends Component<
     return componentList[step] ? componentList[step].step.type : undefined
   }
 
-  getOutcomeStep = (workflow: WorkflowResponse): StepTypes => {
-    return !workflow.has_remaining_interactive_tasks
-      ? 'complete'
-      : workflow.outcome
-      ? 'pass'
-      : 'reject'
-  }
-
   initialStep = (): boolean =>
     this.state.initialStep === this.state.step &&
     this.state.flow === 'captureSteps'
@@ -206,14 +199,11 @@ export default class WorkflowHistoryRouter extends Component<
     // if step has started - complete it
     if (taskId) {
       try {
-        await completeWorkflow(
-          options.token,
+        await workflowEngine({
+          token,
           workflowServiceUrl,
           workflowRunId,
-          taskId,
-          this.state.personalData,
-          this.state.docData
-        )
+        }).completeWorkflow(taskId, this.state.personalData, this.state.docData)
         this.clearPersonalData()
         this.clearDocData()
       } catch {
@@ -232,11 +222,11 @@ export default class WorkflowHistoryRouter extends Component<
       let workflow: WorkflowResponse | undefined
 
       try {
-        workflow = await getWorkflow({
+        workflow = await workflowEngine({
           workflowRunId,
           token,
           workflowServiceUrl,
-        })
+        }).getWorkflow()
       } catch {
         this.setState((state) => ({
           ...state,
@@ -265,7 +255,15 @@ export default class WorkflowHistoryRouter extends Component<
             loadingStep: false,
             taskId: workflow?.task_id,
             //@ts-ignore
-            steps: [formatStep(this.getOutcomeStep(workflow))],
+            steps: [
+              formatStep(
+                workflowEngine({
+                  workflowRunId,
+                  token,
+                  workflowServiceUrl,
+                }).getOutcomeStep(workflow)
+              ),
+            ],
             step: 0, // start again from 1st step,
             completed: true, // indicate that we have completed the workflow
           }),
@@ -289,7 +287,11 @@ export default class WorkflowHistoryRouter extends Component<
         return
       }
 
-      const step = getWorkFlowStep(workflow.task_def_id, workflow.config) as any
+      const step = workflowEngine({
+        workflowRunId,
+        token,
+        workflowServiceUrl,
+      }).getWorkFlowStep(workflow.task_def_id, workflow.config) as any
       if (!step) {
         this.setState((state) => ({
           ...state,
@@ -298,6 +300,10 @@ export default class WorkflowHistoryRouter extends Component<
 
         return
       }
+
+      console.log('step before format', step)
+
+      console.log('step after format', [formatStep(step)])
 
       this.setState(
         (state) => ({
