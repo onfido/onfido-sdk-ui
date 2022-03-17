@@ -7,14 +7,10 @@ import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
 import type { WithTrackingProps } from '~types/hocs'
-
-type SmsInfo = {
-  number: string
-  valid: boolean
-}
+import { SmsPayload } from '~types/redux'
 
 type MobileNotificationSentProps = {
-  sms: SmsInfo
+  sms: SmsPayload
   previousStep: () => void
 }
 
@@ -31,7 +27,7 @@ const MobileNotificationSent: FunctionComponent<Props> = ({
       <div>
         <div className={style.submessage}>
           {translate('sms_sent.subtitle', {
-            number: sms.number,
+            number: sms?.number,
           })}
         </div>
         <div className={style.boldMessage}>

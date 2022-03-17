@@ -7,13 +7,26 @@ import PageTitle from '../../PageTitle'
 import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
+import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import { StepsRouterProps } from '~types/routers'
+import { StepConfig } from '~types/steps'
+import { CaptureState } from '~types/redux'
 
-class CrossDeviceSubmit extends Component {
-  constructor() {
-    super()
-    this.state = {
-      isSubmitDisabled: false,
-    }
+type CrossDeviceSubmitProps = {
+  captures: CaptureState
+  steps: StepConfig[]
+  nextStep: StepsRouterProps['nextStep']
+}
+
+type Props = CrossDeviceSubmitProps & WithLocalisedProps & WithTrackingProps
+
+type State = {
+  isSubmitDisabled: boolean
+}
+
+class CrossDeviceSubmit extends Component<Props, State> {
+  state = {
+    isSubmitDisabled: false,
   }
 
   hasDocumentCaptureStep = () => {
@@ -41,9 +54,9 @@ class CrossDeviceSubmit extends Component {
   }
 
   getFaceCaptureVariant = () => {
-    const { captures = {} } = this.props
-    const { face = {} } = captures
-    return face && face.metadata ? face.metadata.variant : 'standard'
+    const { captures } = this.props
+    const { face } = captures
+    return face && face?.metadata ? face?.metadata?.variant : 'standard'
   }
 
   handleSubmitButtonClick = () => {
@@ -142,8 +155,11 @@ class CrossDeviceSubmit extends Component {
   }
 }
 
-const mapStateToProps = ({ captures }) => ({ captures })
+const mapStateToProps = ({ captures }: { captures: CaptureState }) => ({
+  captures,
+})
 
 export default connect(mapStateToProps)(
+  // @ts-ignore
   trackComponent(localised(CrossDeviceSubmit), 'desktop_submit')
 )
