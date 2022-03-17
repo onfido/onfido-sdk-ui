@@ -8,6 +8,7 @@ import type { AnalyticsPayload, LegacyTrackedEventNames } from '~types/tracker'
 import { reduxStore } from 'components/ReduxAppWrapper'
 import { analyticsEventsMapping } from './trackerData'
 import { trackException } from './'
+import { pick } from '~utils/object'
 
 let currentStepType: ExtendedStepTypes | undefined
 let analyticsSessionUuid: string | undefined
@@ -40,7 +41,7 @@ const listener = () => {
   applicant_uuid = globalsInStore.applicantUuid
   anonymous_uuid = globalsInStore.anonymousUuid
   isCrossDeviceClient = globalsInStore.isCrossDeviceClient
-  steps = globalsInStore.stepsConfig
+  steps = cleanStepsForConfig(globalsInStore.stepsConfig)
 }
 
 reduxStore.subscribe(listener)
@@ -52,6 +53,40 @@ const source_metadata = {
 }
 
 const stepsArrToString = () => steps?.map((step) => step['type']).join()
+
+const keys = [
+  'documentTypes',
+  'showCountrySelection',
+  'forceCrossDevice',
+  'useLiveDocumentCapture',
+  'uploadFallback',
+  'country',
+  'requestedVariant',
+  'useMultipleSelfieCapture',
+  'photoCaptureFallback',
+  'retries',
+  'useUploader',
+  'useWebcam',
+]
+
+const cleanStepsForConfig = (steps: StepConfig[]): StepConfig[] =>
+  steps.map(
+    (step): StepConfig => {
+      const options = pick(
+        { ...step.options } as Partial<Record<string, unknown>>,
+        keys
+      )
+      const newStep: StepConfig = { ...step }
+
+      if (Object.keys(options).length) {
+        newStep.options = options
+      } else {
+        delete newStep.options
+      }
+
+      return newStep
+    }
+  )
 
 export const sendAnalyticsEvent = (
   event: LegacyTrackedEventNames,
