@@ -1,176 +1,81 @@
-import { h, Component } from 'preact'
-import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
+import { Component, createRef, h } from 'preact'
+import { sendEvent } from 'Tracker'
+import { ParsedError } from '~types/api'
+import { ErrorNames } from '~types/commons'
+import { ErrorProp } from '~types/routers'
 import { preventDefaultOnClick } from '~utils'
 import { performHttpReq } from '~utils/http'
 import { formatError } from '~utils/onfidoApi'
-import { createSocket } from '~utils/crossDeviceSync'
-import Spinner from '../../Spinner'
-import CopyLink from './CopyLink'
+
+import {
+  validatesViewIdWithFallback,
+  configHasInvalidViewIds,
+  SECURE_LINK_VIEWS,
+  SecureLinkViewType,
+} from './utils'
+import theme from '../../Theme/style.scss'
+import style from './style.scss'
+import { Button } from '@onfido/castor-react'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import QRCodeGenerator from '../../QRCode'
 import QRCodeHowTo from '../../QRCode/HowTo'
 import Error from '../../Error'
-import PageTitle from '../../PageTitle'
-import { trackComponent, sendEvent } from '../../../Tracker'
-import { localised } from '~locales'
-import theme from '../../Theme/style.scss'
-import style from './style.scss'
+import PageTitle from 'components/PageTitle'
+import CopyLink from './CopyLink'
+import { LegacyTrackedEventNames } from '~types/tracker'
+import { CrossDeviceLinkProps } from '.'
+import { Country } from 'react-phone-number-input'
 
-const SECURE_LINK_VIEWS = [
-  {
-    id: 'qr_code',
-    className: 'qrCodeLinkOption',
-    label: 'get_link.link_qr',
-    subtitle: 'get_link.subtitle_qr',
-  },
-  {
-    id: 'sms',
-    className: 'smsLinkOption',
-    label: 'get_link.link_sms',
-    subtitle: 'get_link.subtitle_sms',
-  },
-  {
-    id: 'copy_link',
-    className: 'copyLinkOption',
-    label: 'get_link.link_url',
-    subtitle: 'get_link.subtitle_url',
-  },
-]
-
-const configHasInvalidViewIds = (viewIdsInConfig) => {
-  const validViewIds = new Set(SECURE_LINK_VIEWS.map(({ id }) => id))
-  const invalidViewIds = viewIdsInConfig.filter(
-    (viewId) => !validViewIds.has(viewId)
-  )
-  if (invalidViewIds.length > 0) {
-    console.warn(
-      'Default settings applied. Invalid properties in _crossDeviceLinkMethods option:',
-      invalidViewIds.join(', ')
-    )
-    console.warn(
-      '_crossDeviceLinkMethods must be an array with at least 1 of the following option: "qr_code", "copy_link", "sms"'
-    )
-    return true
-  }
-  return false
+type viewRendersMapType = Record<string, () => JSX.Element>
+type CrossDeviceLinkUIProps = {
+  _crossDeviceLinkMethods?: Array<string> | null
 }
 
-const validatesViewIdWithFallback = (viewId) => {
-  const validViewIds = SECURE_LINK_VIEWS.map(({ id }) => id)
+type Props = CrossDeviceLinkUIProps & CrossDeviceLinkProps
 
-  if (validViewIds.includes(viewId)) {
-    return viewId
-  }
-
-  return 'qr_code'
+type State = {
+  currentViewId: string
+  validNumber: boolean
+  sending: boolean
+  error?: ErrorProp
 }
 
-class CrossDeviceLink extends Component {
-  constructor(props) {
-    super(props)
+class CrossDeviceLinkUI extends Component<Props, State> {
+  private sendLinkClickTimeoutId?: NodeJS.Timeout = undefined
+  private viewOptionBtn = createRef<HTMLAnchorElement>()
 
-    if (!props.socket) {
-      const url = props.urls.sync_url
-      const socket = createSocket(url)
-      socket.on('connect', () => {
-        const roomId = this.props.roomId || null
-        socket.emit('join', { roomId })
-      })
-      socket.on('joined', this.onJoined)
-      socket.open()
-      props.actions.setSocket(socket)
-    }
-  }
-
-  componentDidMount() {
-    this.listen(this.props.socket)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.socket !== this.props.socket) {
-      this.unlisten(this.props.socket)
-      this.listen(nextProps.socket)
-    }
-  }
-
-  componentWillUnmount() {
-    this.unlisten(this.props.socket)
-  }
-
-  unlisten = (socket) => {
-    if (!socket) return
-    socket.off('get config', this.onGetConfig)
-    socket.off('client success', this.onClientSuccess)
-  }
-
-  listen = (socket) => {
-    if (!socket) return
-    socket.on('get config', this.onGetConfig)
-    socket.on('client success', this.onClientSuccess)
-  }
-
-  onJoined = (data) => {
-    const { actions, roomId } = this.props
-    if (!roomId) {
-      actions.setRoomId(data.roomId)
-    }
-  }
-
-  onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket, actions, nextStep } = this.props
-    if (roomId && roomId !== data.roomId) {
-      socket.emit('leave', { roomId })
-    }
-    actions.mobileConnected(true)
-    this.sendMessage('config', data.roomId, mobileConfig)
-    nextStep()
-  }
-
-  onClientSuccess = () => {
-    const { actions } = this.props
-    actions.setClientSuccess(true)
-    this.props.nextStep()
-  }
-
-  sendMessage = (event, roomId, payload) => {
-    this.props.socket.emit('message', { event, payload, roomId })
-  }
-
-  render = () =>
-    this.props.roomId ? <CrossDeviceLinkUI {...this.props} /> : <Spinner />
-}
-
-class CrossDeviceLinkUI extends Component {
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
 
     const documentStep = props.steps.find(({ type }) => type === 'document')
     const restrictedCrossDeviceLinkMethods = props._crossDeviceLinkMethods || []
     const initialViewId =
       restrictedCrossDeviceLinkMethods[0] ||
+      // @ts-ignore
       documentStep?.options?._initialCrossDeviceLinkView
     this.state = {
       currentViewId: validatesViewIdWithFallback(initialViewId),
       sending: false,
-      error: {},
+      error: undefined,
       validNumber: true,
     }
   }
 
   linkId = `${process.env.BASE_32_VERSION}${this.props.roomId}`
 
-  setError = (name) => this.setState({ error: { name, type: 'error' } })
+  setError = (name: ErrorNames) =>
+    this.setState({ error: { name, type: 'error' } })
 
   clearErrors = () => {
     this.clearSendLinkClickTimeout()
     this.setState({
-      error: {},
+      error: undefined,
       validNumber: true,
     })
   }
 
-  handleResponse = (response) => {
+  handleResponse = (response: { status: string }) => {
     this.clearSendLinkClickTimeout()
     this.setState({ sending: false })
     if (response.status === 'OK') {
@@ -180,11 +85,13 @@ class CrossDeviceLinkUI extends Component {
     }
   }
 
-  handleSMSError = (error) => {
+  handleSMSError = (error: ParsedError) => {
     this.clearSendLinkClickTimeout()
     this.setState({ sending: false })
     this.props.triggerOnError(error)
-    status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
+    error.status === 429
+      ? this.setError('SMS_OVERUSE')
+      : this.setError('SMS_FAILED')
   }
 
   handleSendSmsLinkClick = () => {
@@ -222,7 +129,7 @@ class CrossDeviceLinkUI extends Component {
       payload: JSON.stringify({
         to: sms.number,
         id: this.linkId,
-        language: language.substring(0, 2),
+        language: language?.substring(0, 2),
       }),
       endpoint: `${url}/v1/cross_device_sms`,
       contentType: 'application/json',
@@ -252,7 +159,7 @@ class CrossDeviceLinkUI extends Component {
     }
   }
 
-  renderSmsLinkSection = () => {
+  renderSmsLinkSection = (): JSX.Element => {
     const { translate } = this.props
     const { sending, validNumber } = this.state
     const buttonCopyKey = sending
@@ -273,6 +180,10 @@ class CrossDeviceLinkUI extends Component {
             >
               <PhoneNumberInputLazy
                 {...this.props}
+                smsNumberCountryCode={
+                  this.props.smsNumberCountryCode as Country
+                }
+                options={this.props}
                 clearErrors={this.clearErrors}
               />
             </div>
@@ -302,9 +213,11 @@ class CrossDeviceLinkUI extends Component {
     )
   }
 
-  renderCopyLinkSection = () => <CopyLink mobileUrl={this.getMobileUrl()} />
+  renderCopyLinkSection = (): JSX.Element => (
+    <CopyLink mobileUrl={this.getMobileUrl()} />
+  )
 
-  renderQrCodeSection = () => (
+  renderQrCodeSection = (): JSX.Element => (
     <div className={style.qrCodeSection}>
       <div
         className={style.qrCodeContainer}
@@ -317,45 +230,54 @@ class CrossDeviceLinkUI extends Component {
     </div>
   )
 
-  handleViewOptionSelect = (newViewId) => {
-    sendEvent(`${newViewId.replace('_', ' ')} selected`)
+  handleViewOptionSelect = (newViewId: string) => {
+    sendEvent(
+      `${newViewId.replace('_', ' ')} selected` as LegacyTrackedEventNames
+    )
     this.setState({ currentViewId: newViewId })
-    this.viewOptionBtn.blur()
+    if (this.viewOptionBtn.current) {
+      this.viewOptionBtn.current.blur()
+    }
   }
 
-  getRequiredViewRenders = () => {
+  getRequiredViewRenders = (): viewRendersMapType => {
     const { _crossDeviceLinkMethods = [] } = this.props
-    const defaultViewRendersMap = {
+    const defaultViewRendersMap: viewRendersMapType = {
       qr_code: this.renderQrCodeSection,
       sms: this.renderSmsLinkSection,
       copy_link: this.renderCopyLinkSection,
     }
     if (
+      _crossDeviceLinkMethods === null ||
       _crossDeviceLinkMethods.length < 1 ||
       configHasInvalidViewIds(_crossDeviceLinkMethods)
     ) {
       return defaultViewRendersMap
     }
 
-    const requiredViewRendersMap = _crossDeviceLinkMethods.reduce(
-      (result, viewId) => {
+    return _crossDeviceLinkMethods.reduce(
+      (result: viewRendersMapType, viewId: string) => {
         result[viewId] = defaultViewRendersMap[viewId]
         return result
       },
       {}
     )
-    return requiredViewRendersMap
   }
 
-  getVisibleViewOptions = (requiredViewRenders) => {
+  getVisibleViewOptions = (
+    requiredViewRenders: viewRendersMapType
+  ): SecureLinkViewType => {
     const { _crossDeviceLinkMethods } = this.props
     if (
       _crossDeviceLinkMethods?.length &&
       !configHasInvalidViewIds(_crossDeviceLinkMethods)
     ) {
-      return _crossDeviceLinkMethods.map((viewId) =>
-        SECURE_LINK_VIEWS.find((view) => view.id === viewId)
-      )
+      const result = _crossDeviceLinkMethods
+        .map((viewId: string) =>
+          SECURE_LINK_VIEWS.find((view) => view.id === viewId)
+        )
+        .filter(Boolean)
+      return result as SecureLinkViewType
     }
     return SECURE_LINK_VIEWS.filter((view) => view.id in requiredViewRenders)
   }
@@ -373,13 +295,14 @@ class CrossDeviceLinkUI extends Component {
 
     return (
       <div className={style.container} data-page-id={'CrossDeviceLink'}>
-        {error.type ? (
+        {error?.type ? (
           <Error role="alert" error={error} trackScreen={trackScreen} />
         ) : (
           <PageTitle
             title={translate('get_link.title')}
             subTitle={translate(
-              visibleViewOptions.find(({ id }) => id === currentViewId).subtitle
+              visibleViewOptions.find(({ id }) => id === currentViewId)
+                ?.subtitle as string
             )}
           />
         )}
@@ -410,7 +333,7 @@ class CrossDeviceLinkUI extends Component {
                     style.viewOption,
                     style[view.className]
                   )}
-                  ref={(node) => (this.viewOptionBtn = node)}
+                  ref={this.viewOptionBtn}
                   onClick={preventDefaultOnClick(() =>
                     this.handleViewOptionSelect(view.id)
                   )}
@@ -426,4 +349,4 @@ class CrossDeviceLinkUI extends Component {
   }
 }
 
-export default trackComponent(localised(CrossDeviceLink), 'crossdevice_link')
+export default CrossDeviceLinkUI

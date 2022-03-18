@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-
 import MobileConnected from './MobileConnected'
 import CrossDeviceSubmit from './CrossDeviceSubmit'
 import MobileNotificationSent from './MobileNotificationSent'
@@ -57,11 +56,8 @@ class MobileFlow extends Component<Props> {
     roomId: string
     captures: (DocumentCapture | FaceCapture)[]
   }) => {
-    // eslint-disable-next-line prettier/prettier
-    ;(data.captures || []).forEach((capture) =>
-      this.props.actions.createCapture(capture)
-    )
-
+    const captures = data.captures || []
+    captures.forEach((capture) => this.props.actions.createCapture(capture))
     this.props.actions.setClientSuccess(true)
   }
 

@@ -8,14 +8,17 @@ import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import { CaptureState } from '~types/redux'
 import { StepsRouterProps } from '~types/routers'
 import { StepConfig } from '~types/steps'
-import { CaptureState } from '~types/redux'
+import { MobileConfig } from '~types/commons'
+import ScreenLayout from 'components/Theme/ScreenLayout'
 
 type CrossDeviceSubmitProps = {
   captures: CaptureState
   steps: StepConfig[]
   nextStep: StepsRouterProps['nextStep']
+  mobileConfig: MobileConfig
 }
 
 type Props = CrossDeviceSubmitProps & WithLocalisedProps & WithTrackingProps
@@ -25,8 +28,11 @@ type State = {
 }
 
 class CrossDeviceSubmit extends Component<Props, State> {
-  state = {
-    isSubmitDisabled: false,
+  constructor() {
+    super()
+    this.state = {
+      isSubmitDisabled: false,
+    }
   }
 
   hasDocumentCaptureStep = () => {
@@ -54,9 +60,8 @@ class CrossDeviceSubmit extends Component<Props, State> {
   }
 
   getFaceCaptureVariant = () => {
-    const { captures } = this.props
-    const { face } = captures
-    return face && face?.metadata ? face?.metadata?.variant : 'standard'
+    const { face } = this.props.captures
+    return face && face.metadata ? face.metadata.variant : 'standard'
   }
 
   handleSubmitButtonClick = () => {
@@ -82,75 +87,70 @@ class CrossDeviceSubmit extends Component<Props, State> {
     // FIX: PoA copy currently only has English copy, need to update copy in other languages
     const poaCopy = 'cross_device_checklist.list_item_poa'
 
+    const actions = (
+      <Button
+        type="button"
+        variant="primary"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
+        onClick={this.handleSubmitButtonClick}
+        disabled={this.state.isSubmitDisabled}
+        data-onfido-qa="cross-device-submit-btn"
+      >
+        {translate('cross_device_checklist.button_primary')}
+      </Button>
+    )
+
     return (
-      <div data-page-id={'CrossDeviceSubmit'}>
+      <ScreenLayout pageId="CrossDeviceSubmit" actions={actions}>
         <PageTitle
           title={translate('cross_device_checklist.title')}
           subTitle={translate('cross_device_checklist.subtitle')}
         />
-        <div>
-          <ul
-            className={style.uploadList}
-            aria-label={translate('cross_device_checklist.info')}
-          >
-            {this.hasPoACaptureSteps() && (
-              <li className={style.uploadListItem}>
-                <span className={`${theme.icon} ${style.icon}`} />
-                <span
-                  className={classNames(
-                    style.listText,
-                    style.documentUploadedLabel
-                  )}
-                >
-                  {translate(poaCopy)}
-                </span>
-              </li>
-            )}
-            {this.hasDocumentCaptureStep() && (
-              <li className={style.uploadListItem}>
-                <span className={`${theme.icon} ${style.icon}`} />
-                <span
-                  className={classNames(
-                    style.listText,
-                    style.documentUploadedLabel
-                  )}
-                >
-                  {translate(documentCopy)}
-                </span>
-              </li>
-            )}
-            {this.hasFaceCaptureStep() && (
-              <li className={style.uploadListItem}>
-                <span className={`${theme.icon} ${style.icon}`} />
-                <span
-                  className={classNames(
-                    style.listText,
-                    style[`${faceCaptureVariant}UploadedLabel`]
-                  )}
-                >
-                  {translate(selfieCopy)}
-                </span>
-              </li>
-            )}
-          </ul>
-
-          <div>
-            <Button
-              type="button"
-              variant="primary"
-              className={classNames(
-                theme['button-centered'],
-                theme['button-lg']
-              )}
-              onClick={this.handleSubmitButtonClick}
-              disabled={this.state.isSubmitDisabled}
-              data-onfido-qa="cross-device-submit-btn"
-            >
-              {translate('cross_device_checklist.button_primary')}
-            </Button>
-          </div>
-        </div>
-      </div>
+        <ul
+          className={style.uploadList}
+          aria-label={translate('cross_device_checklist.info')}
+        >
+          {this.hasPoACaptureSteps() && (
+            <li className={style.uploadListItem}>
+              <span className={`${theme.icon} ${style.icon}`} />
+              <span
+                className={classNames(
+                  style.listText,
+                  style.documentUploadedLabel
+                )}
+              >
+                {translate(poaCopy)}
+              </span>
+            </li>
+          )}
+          {this.hasDocumentCaptureStep() && (
+            <li className={style.uploadListItem}>
+              <span className={`${theme.icon} ${style.icon}`} />
+              <span
+                className={classNames(
+                  style.listText,
+                  style.documentUploadedLabel
+                )}
+              >
+                {translate(documentCopy)}
+              </span>
+            </li>
+          )}
+          {this.hasFaceCaptureStep() && (
+            <li className={style.uploadListItem}>
+              <span className={`${theme.icon} ${style.icon}`} />
+              <span
+                className={classNames(
+                  style.listText,
+                  style[`${faceCaptureVariant}UploadedLabel`]
+                )}
+              >
+                {translate(selfieCopy)}
+              </span>
+            </li>
+          )}
+        </ul>
+      </ScreenLayout>
     )
   }
 }
