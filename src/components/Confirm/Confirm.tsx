@@ -70,8 +70,7 @@ export type ConfirmProps = {
   side: DocumentSides
   error: string // for trackComponentAndMode
 } & StepComponentBaseProps &
-  WithLocalisedProps &
-  WithTrackingProps
+  WithLocalisedProps
 
 type ConfirmState = {
   uploadInProgress: boolean
