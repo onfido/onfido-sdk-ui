@@ -274,6 +274,15 @@ and limitations under the License.
 
 /*! @license DOMPurify | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.2.2/LICENSE */
 
+/**
+ *  PDFObject v2.2.7
+ *  https://github.com/pipwerks/PDFObject
+ *  @license
+ *  Copyright (c) 2008-2021 Philip Hutchison
+ *  MIT-style license: http://pipwerks.mit-license.org/
+ *  UMD module pattern from https://github.com/umdjs/umd/blob/master/templates/returnExports.js
+ */
+
 /*!
   Copyright (c) 2015 Jed Watson.
   Based on code that is Copyright 2013-2015, Facebook, Inc.

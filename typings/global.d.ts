@@ -7,6 +7,9 @@ declare global {
 
   namespace NodeJS {
     interface Global {
+      OnfidoAuth: {
+        init: SdkInitMethod
+      }
       Onfido: {
         init: SdkInitMethod
       }

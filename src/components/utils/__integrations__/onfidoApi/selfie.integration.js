@@ -18,18 +18,10 @@ import {
 
 let jwtToken = null
 
-/* eslint jest/no-test-callback: 0 */
-/*
- *  NOTE: This rule is disabled for these integration tests as onfidoApi.js were implemented using callbacks.
-          Hence it is necessary to use Jest' done() callback function as per Jest's documentation for
-          testing asynchronous code written with the callback pattern https://jestjs.io/docs/en/asynchronous
-          Work to address this will be done in a separate ticket (CX-6016)
- */
-
 describe('API uploadFacePhoto endpoint', () => {
   beforeEach(async () => {
     jest.setTimeout(15000)
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('uploadFacePhoto returns expected response on successful upload', (done) => {
@@ -63,7 +55,7 @@ describe('API uploadFacePhoto endpoint', () => {
     )
   })
 
-  test.skip('uploadFacePhoto returns an error if request is made with an expired JWT token', (done) => {
+  test('uploadFacePhoto returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
 
     const testFileName = 'one_face.jpg'
@@ -108,7 +100,7 @@ describe('API uploadFacePhoto endpoint', () => {
 
 describe('API uploadSnapshot endpoint', () => {
   beforeEach(async () => {
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('uploadSnapshot returns expected response on successful upload', (done) => {
@@ -202,7 +194,7 @@ describe('API uploadSnapshot endpoint', () => {
 // eslint-disable-next-line jest/no-disabled-tests
 describe.skip('API sendMultiframeSelfie endpoint', () => {
   beforeEach(async () => {
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('sendMultiframeSelfie returns expected response on successful upload', (done) => {

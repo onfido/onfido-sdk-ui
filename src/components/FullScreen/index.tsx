@@ -6,7 +6,7 @@ import { setFullScreen } from '../ReduxAppWrapper/store/actions/globals'
 import type { Dispatch } from 'redux'
 import type { CombinedActions, GlobalActions, RootState } from '~types/redux'
 
-type WithFullScreenStateProps = {
+export type WithFullScreenStateProps = {
   isFullScreen?: boolean
 }
 
@@ -25,7 +25,7 @@ export function withFullScreenState<P>(
   return WithFullScreenComponent
 }
 
-type WithFullScreenActionProps = {
+export type WithFullScreenActionProps = {
   setFullScreen: (value: boolean) => void
 }
 

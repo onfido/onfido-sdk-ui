@@ -5,14 +5,15 @@ import errors from '../strings/errors'
 import { ErrorProp } from '~types/routers'
 import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import { lowerCase } from '~utils/string'
+import { localised } from '~locales'
+import { appendToTracking } from '../../Tracker'
 
 type UploadErrorProps = {
   error: ErrorProp
-}
+} & WithTrackingProps &
+  WithLocalisedProps
 
-type Props = UploadErrorProps & WithTrackingProps & WithLocalisedProps
-
-class UploadError extends Component<Props> {
+class UploadError extends Component<UploadErrorProps> {
   componentDidMount() {
     this.props.trackScreen(lowerCase(this.props.error.name))
   }
@@ -29,4 +30,4 @@ class UploadError extends Component<Props> {
   }
 }
 
-export default UploadError
+export default appendToTracking(localised(UploadError))

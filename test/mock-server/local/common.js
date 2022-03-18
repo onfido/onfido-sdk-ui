@@ -19,7 +19,4 @@
       containerId: "root"
     });
   }
-
-
 })(window);
-
