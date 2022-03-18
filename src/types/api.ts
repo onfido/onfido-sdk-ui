@@ -40,15 +40,17 @@ type ExpiredTokenError = {
   type: typeof API_ERROR_EXPIRED_TOKEN
 } & ApiErrorPayload
 
-type ValidationReasons =
+export type ValidationReasons =
   | 'attachment_content_type'
   | 'attachment'
   | 'document_detection'
   | 'detect_cutoff'
   | 'detect_glare'
   | 'detect_blur'
+  | 'face_detection'
+  | 'file'
 
-type ValidationError = {
+export type ValidationError = {
   type: typeof API_ERROR_VALIDATION
   message: string
   fields: Partial<Record<ValidationReasons, string[]>>
@@ -90,11 +92,9 @@ export type UploadFileResponse = {
   download_href: string
 }
 
-type ImageQualityWarnings = {
-  detect_cutoff?: { valid: boolean }
-  detect_glare?: { valid: boolean }
-  detect_blur?: { valid: boolean }
-}
+export type ImageQualityWarnings = Partial<
+  Record<ImageQualityValidationTypes, { valid: boolean }>
+>
 
 export type DocumentImageResponse = {
   applicant_id: string
