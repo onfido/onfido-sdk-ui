@@ -63,6 +63,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Public: Updated supported documents list to include Curaçao and other countries.
+- Public: Updated document capture experience for better image quality (multi-frame capture)
 
 ### Changed
 
