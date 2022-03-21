@@ -1,8 +1,10 @@
 package com.onfido.qa.websdk.test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.onfido.qa.websdk.DocumentType;
 import com.onfido.qa.websdk.PoADocumentType;
 import com.onfido.qa.websdk.UploadDocument;
+import com.onfido.qa.websdk.model.CompleteData;
 import com.onfido.qa.websdk.model.DocumentOption;
 import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
@@ -143,9 +145,9 @@ public class ProofOfAddressIT extends WebSdkIT {
     }
 
     @Test(description = "should allow PoA together with Document")
-    public void testPoaTogetherWithDocument() {
+    public void testPoaTogetherWithDocument() throws JsonProcessingException {
         onfido().withSteps("poa", "document", "complete")
-                .withOnComplete(new Raw("(data) => window.areDocsCorrect = data.poa && data.document_front && data.poa.id !== data.document_front.id"))
+                .withOnComplete(new Raw("(data) => {window.onCompleteData = data}"))
                 .init(PoAIntro.class)
                 .startVerification()
                 .select(BANK_BUILDING_SOCIETY_STATEMENT)
@@ -157,6 +159,18 @@ public class ProofOfAddressIT extends WebSdkIT {
                 .upload(PASSPORT_JPG)
                 .clickConfirmButton(Complete.class);
 
-        assertThat((Boolean) driver().executeScript("return window.areDocsCorrect")).isTrue();
+        var json = (String) driver().executeScript("return JSON.stringify(window.onCompleteData)");
+        var completeData = objectMapper.readValue(json, CompleteData.class);
+
+        var poa = completeData.poa;
+        var documentFront = completeData.document_front;
+
+        assertThat(poa).isNotNull();
+        assertThat(documentFront).isNotNull();
+        assertThat(completeData.document_back).isNull();
+        assertThat(poa.id).isNotEqualTo(documentFront.id);
+
+        assertThat(poa.type).isEqualTo("passport");
+        assertThat(documentFront.type).isEqualTo("passport");
     }
 }
