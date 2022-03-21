@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h, Component, createRef } from 'preact'
 import { screenshot, isCameraReady } from '~utils/camera'
 import { mimeType } from '~utils/blob'
 import { FaceOverlay } from '../Overlay'
@@ -33,7 +33,7 @@ type Props = {
   WithPageIdProps
 
 export default class SelfieCapture extends Component<Props, State> {
-  webcam?: Webcam
+  webcam = createRef<Webcam>()
 
   state: State = {
     hasBecomeInactive: false,
@@ -65,28 +65,28 @@ export default class SelfieCapture extends Component<Props, State> {
   }
 
   takeSnapshot = () => {
-    if (!this.webcam) {
+    if (!this.webcam.current) {
       return
     }
 
-    screenshot(this.webcam, this.handleSnapshot)
+    screenshot(this.webcam.current, this.handleSnapshot)
   }
 
   takeSelfie = () => {
-    if (!this.webcam) {
+    if (!this.webcam.current) {
       return
     }
 
     this.setState({ isCaptureButtonDisabled: true })
-    screenshot(this.webcam, this.handleSelfie)
+    screenshot(this.webcam.current, this.handleSelfie)
   }
 
   waitCameraFeed = () => {
-    if (!this.webcam) {
+    if (!this.webcam.current) {
       return
     }
 
-    if (isCameraReady(this.webcam)) {
+    if (isCameraReady(this.webcam.current)) {
       if (this.props.useMultipleSelfieCapture) {
         this.takeSnapshot()
       }
@@ -113,7 +113,7 @@ export default class SelfieCapture extends Component<Props, State> {
     return (
       <Camera
         {...this.props}
-        webcamRef={(ref) => ref && (this.webcam = ref)}
+        webcamRef={this.webcam}
         onUserMedia={this.onUserMedia}
         onError={this.handleCameraError}
         renderError={
