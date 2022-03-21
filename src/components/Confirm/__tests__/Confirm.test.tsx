@@ -1,5 +1,4 @@
 import { h } from 'preact'
-import { FunctionComponent } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
@@ -7,53 +6,89 @@ import MockedReduxProvider, {
   mockedReduxProps,
 } from '~jest/MockedReduxProvider'
 import {
+  formatError,
+  sendMultiframeSelfie,
   uploadDocument,
   uploadFaceVideo,
-  sendMultiframeSelfie,
-  formatError,
 } from '~utils/onfidoApi'
-import Confirm from '../Confirm'
+import Confirm, { ConfirmProps } from '../Confirm'
 
 import type { ApiRawError } from '~types/api'
+import { CaptureMethods } from '~types/commons'
+import { RequestedVariant } from '~types/steps'
+import { CapturePayload, DocumentCapture, FaceCapture } from '~types/redux'
+import { StepComponentBaseProps } from '~types/routers'
+import Welcome from '../../Welcome'
+import { WithLocalisedProps } from '~types/hocs'
+import { EnterpriseCallbackResponse } from '~types/enterprise'
 
 jest.mock('~utils')
 jest.mock('~utils/objectUrl')
 jest.mock('~utils/onfidoApi')
 
-const defaultProps = {
-  urls: {
-    onfido_api_url: '',
-  },
-  capture: {
-    challengeData: {
-      challenges: '',
-      id: '',
-      switchSeconds: 0,
-    },
-    snapshot: new Blob(),
-    blob: new Blob(),
-  },
-  isDecoupledFromAPI: true,
+const defaultStepComponentBaseProps: StepComponentBaseProps = {
+  ...mockedReduxProps,
+  steps: [{ type: 'welcome' }, { type: 'document' }],
+  allowCrossDeviceFlow: true,
+  back: jest.fn(),
+  changeFlowTo: jest.fn(),
+  componentsList: [
+    { component: Welcome, step: { type: 'welcome' }, stepIndex: 0 },
+  ],
+  nextStep: jest.fn(),
+  previousStep: jest.fn(),
+  triggerOnError: jest.fn(),
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
-  actions: {
-    ...mockedReduxProps.actions,
+  step: 0,
+}
+
+const defaultLocalisedProps: WithLocalisedProps = {
+  parseTranslatedTags: jest.fn(),
+  language: 'en_US',
+  translate: jest.fn(),
+}
+
+const defaultCapture: CapturePayload = {
+  blob: new Blob(),
+  sdkMetadata: {},
+  challengeData: {
+    id: '',
+    challenges: [],
   },
 }
 
+const defaultFaceCapture: FaceCapture = {
+  ...defaultCapture,
+  id: 'fakeFaceCaptureId',
+  snapshot: { filename: '', blob: new Blob() },
+}
+
+const defaultDocumentCapture: DocumentCapture = {
+  ...defaultCapture,
+  id: 'fakeDocumentCaptureId',
+  documentType: 'passport',
+}
+
 type MockedConfirmType = {
-  method: string
+  method: CaptureMethods
   mockVariant: 'success' | 'error' | 'continue'
-  variant: string
+  variant: RequestedVariant
 }
 
 const ENTERPRISE_CALLBACKS_BY_VARIANT: Record<
   'success' | 'error' | 'continue',
-  unknown
+  Record<
+    'onSubmitDocument' | 'onSubmitSelfie' | 'onSubmitVideo',
+    (data: FormData) => Promise<EnterpriseCallbackResponse>
+  >
 > = {
   success: {
+    //@ts-ignore
     onSubmitDocument: () => onfidoSuccessResponse,
+    //@ts-ignore
     onSubmitSelfie: () => onfidoSuccessResponse,
+    //@ts-ignore
     onSubmitVideo: () => onfidoSuccessResponse,
   },
   error: {
@@ -68,16 +103,23 @@ const ENTERPRISE_CALLBACKS_BY_VARIANT: Record<
   },
 }
 
-const MockedConfirm: FunctionComponent<MockedConfirmType> = ({
-  method,
-  mockVariant,
-  variant,
-}) => {
-  const props = {
-    ...defaultProps,
+const MockedConfirm = ({ method, mockVariant, variant }: MockedConfirmType) => {
+  const props: ConfirmProps = {
+    ...defaultStepComponentBaseProps,
+    ...defaultLocalisedProps,
+    actions: mockedReduxProps.actions,
+    isFullScreen: false,
+    side: 'back',
+    country: '',
+    error: '',
+    isDecoupledFromAPI: true,
     method,
-    capture: { ...defaultProps.capture, variant },
+    capture: {
+      variant,
+      ...(method === 'face' ? defaultFaceCapture : defaultDocumentCapture),
+    },
     enterpriseFeatures: ENTERPRISE_CALLBACKS_BY_VARIANT[mockVariant],
+    token: 'fake_token',
   }
 
   return (
@@ -104,11 +146,19 @@ const continueWithOnfidoSubmission = Promise.resolve({
   continueWithOnfidoSubmission: true,
 })
 
-const UPLOAD_TYPES = [
+const UPLOAD_TYPES: Array<{
+  type: string
+  method: CaptureMethods
+  variant: RequestedVariant
+  uploadFunction:
+    | typeof uploadDocument
+    | typeof sendMultiframeSelfie
+    | typeof uploadFaceVideo
+}> = [
   {
     type: 'document',
     method: 'document',
-    variant: '',
+    variant: 'standard',
     uploadFunction: uploadDocument,
   },
   {
@@ -166,7 +216,7 @@ describe('Confirm', () => {
             // Spying on prop setCaptureMetadata called within onApiSuccess because we
             // can't directly spy on onApiSuccess when using arrow function for class property
             const spyOnApiSuccess = jest.spyOn(
-              defaultProps.actions,
+              mockedReduxProps.actions,
               'setCaptureMetadata'
             )
             wrapper

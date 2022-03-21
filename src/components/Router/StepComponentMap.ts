@@ -385,7 +385,8 @@ const buildPoaComponents = (
 
   // @ts-ignore
   return mobileFlow && isFirstCaptureStepInFlow
-    ? [...buildCrossDeviceClientComponents(captureComponents)]
+    ? // @ts-ignore
+      [...buildCrossDeviceClientComponents(captureComponents)]
     : [...preCaptureComponents, ...captureComponents]
 }
 
