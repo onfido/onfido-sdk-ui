@@ -15,12 +15,12 @@ import {
 } from '~types/hocs'
 import { ErrorProp, RenderFallbackProp } from '~types/routers'
 import { CapturePayload } from '~types/redux'
-import { CameraProps } from '~types/camera'
 
 type State = {
   hasBecomeInactive: boolean
   hasCameraError: boolean
   isCaptureButtonDisabled: boolean
+  snapshot?: { blob: Blob; filename: string }
 }
 
 type Props = {
@@ -28,7 +28,6 @@ type Props = {
   renderFallback: RenderFallbackProp
   inactiveError: ErrorProp
   useMultipleSelfieCapture: boolean
-  snapshotInterval: number
 } & WithTrackingProps &
   WithLocalisedProps &
   WithPageIdProps
@@ -40,7 +39,7 @@ export default class SelfieCapture extends Component<Props, State> {
     hasBecomeInactive: false,
     hasCameraError: false,
     isCaptureButtonDisabled: true,
-    snapshot: null,
+    snapshot: undefined,
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -111,18 +110,9 @@ export default class SelfieCapture extends Component<Props, State> {
       isCaptureButtonDisabled, // Capture Button is disabled until camera access is allowed + userMedia stream is ready
     } = this.state
 
-    const cameraProps: Omit<CameraProps, 'buttonType'> = {
-      ...this.props,
-    }
-
-    const withTrackingProps: WithTrackingProps = {
-      ...this.props,
-    }
-
     return (
       <Camera
-        {...cameraProps}
-        {...withTrackingProps}
+        {...this.props}
         webcamRef={(ref) => ref && (this.webcam = ref)}
         onUserMedia={this.onUserMedia}
         onError={this.handleCameraError}

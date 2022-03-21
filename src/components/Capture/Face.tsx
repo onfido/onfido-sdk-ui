@@ -30,6 +30,7 @@ import { CapturePayload } from '~types/redux'
 import { ImageResizeInfo } from '~types/commons'
 import { ParsedTag } from '~types/locales'
 import { CameraProps } from '~types/camera'
+import { SdkError } from '~types/sdk'
 
 const defaultPayload = {
   method: 'face',
@@ -79,8 +80,9 @@ class Face extends Component<FaceProps> {
       sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
 
-  handleError = (error: ImageValidationTypes) => {
-    this.props.triggerOnError({ response: { message: error } })
+  handleError = (error: ImageValidationTypes | SdkError) => {
+    const response = typeof error === 'string' ? { message: error } : error
+    this.props.triggerOnError({ response })
     this.props.actions.deleteCapture({ method: 'face' })
   }
 
@@ -125,24 +127,11 @@ class Face extends Component<FaceProps> {
     const title = translate('selfie_capture.title')
 
     const cameraProps: Omit<CameraProps, 'buttonType'> = {
-      ...this.props,
       renderTitle: <PageTitle title={title} smaller />,
       renderFallback: isDesktop
         ? this.renderCrossDeviceFallback
         : this.renderUploadFallback,
       isUploadFallbackDisabled: this.isUploadFallbackDisabled(),
-    }
-
-    const withLocalisedProps: WithLocalisedProps = {
-      ...this.props,
-    }
-
-    const withTrackingProps: WithTrackingProps = {
-      ...this.props,
-    }
-
-    const stepComponentFaceProps: StepComponentFaceProps = {
-      ...this.props,
     }
 
     // `hasCamera` is `true`/`false`, or `null` if the logic is still loading
@@ -157,10 +146,8 @@ class Face extends Component<FaceProps> {
       if (requestedVariant === 'video') {
         return (
           <FaceVideo
+            {...this.props}
             {...cameraProps}
-            {...withLocalisedProps}
-            {...withTrackingProps}
-            {...stepComponentFaceProps}
             cameraClassName={style.faceContainer}
             onVideoCapture={this.handleVideoCapture}
             inactiveError={getInactiveError(this.isUploadFallbackDisabled())}
@@ -172,9 +159,8 @@ class Face extends Component<FaceProps> {
       if (!this.props.useUploader && photoCaptureFallback) {
         return (
           <Selfie
+            {...this.props}
             {...cameraProps}
-            {...withLocalisedProps}
-            {...withTrackingProps}
             onCapture={this.handleCapture}
             useMultipleSelfieCapture={useMultipleSelfieCapture}
             inactiveError={getInactiveError(this.isUploadFallbackDisabled())}
