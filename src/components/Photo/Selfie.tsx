@@ -27,6 +27,7 @@ type Props = {
   onCapture: (payload: CapturePayload) => void
   renderFallback: RenderFallbackProp
   inactiveError: ErrorProp
+  idealCameraWidth: number
   useMultipleSelfieCapture: boolean
 } & WithTrackingProps &
   WithLocalisedProps &
