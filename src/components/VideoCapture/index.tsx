@@ -31,7 +31,7 @@ export type VideoOverlayProps = {
   onStop: () => void
 } & WithPermissionsFlowProps
 
-export type Props = {
+export type VideoCaptureProps = {
   audio?: boolean
   cameraClassName?: string
   facing?: VideoFacingModeEnum
@@ -78,7 +78,7 @@ const RECORDING_TIMEOUT_ERRORS_MAP: Record<CaptureMethods, ErrorProp> = {
   },
 }
 
-export default class VideoCapture extends Component<Props, State> {
+export default class VideoCapture extends Component<VideoCaptureProps, State> {
   private webcam?: Webcam
 
   state = { ...initialStateWithoutMediaStream, hasMediaStream: false }

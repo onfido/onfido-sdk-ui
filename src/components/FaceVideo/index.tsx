@@ -23,7 +23,7 @@ import type {
   StepComponentFaceProps,
 } from '~types/routers'
 
-type FaceVideoProps = {
+export type FaceVideoProps = {
   cameraClassName: string
   inactiveError: ErrorProp
   onRedo: () => void

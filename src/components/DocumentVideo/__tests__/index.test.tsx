@@ -12,7 +12,7 @@ import DocumentOverlay, {
 import FallbackButton, {
   Props as FallbackButtonProps,
 } from '../../Button/FallbackButton'
-import VideoCapture, { Props as VideoCaptureProps } from '../../VideoCapture'
+import VideoCapture, { VideoCaptureProps } from '../../VideoCapture'
 
 import DocumentVideo, { Props as DocumentVideoProps } from '../index'
 import CaptureControls, {
