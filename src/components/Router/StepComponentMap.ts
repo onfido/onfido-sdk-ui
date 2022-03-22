@@ -122,7 +122,9 @@ const buildCaptureStepComponents = (
   const faceStep = findStep('face')
   const documentStep = findStep('document')
 
-  const complete = mobileFlow ? [ClientSuccess] : [Complete]
+  const complete = mobileFlow
+    ? [ClientSuccess as ComponentType<StepComponentProps>]
+    : [Complete]
   const captureStepTypes = new Set(['document', 'poa', 'face'])
   const firstCaptureStepType = steps.filter((step) =>
     captureStepTypes.has(step?.type)
