@@ -115,7 +115,7 @@ export type StepComponentBaseProps = {
   | 'isFullScreen'
   | 'options'
 > &
-  NarrowSdkOptions &
+  Omit<NarrowSdkOptions, 'language'> &
   WithTrackingProps
 
 export type StepComponentDocumentProps = StepOptionDocument &

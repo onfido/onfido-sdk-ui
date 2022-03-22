@@ -2,14 +2,18 @@ import { h } from 'preact'
 import { connect } from 'react-redux'
 
 import { buildCaptureStateKey } from '~utils/redux'
-import { trackComponentAndMode, appendToTracking } from '../../Tracker'
+import { appendToTracking, trackComponentAndMode } from '../../Tracker'
 import { localised } from '~locales'
-import Confirm from './Confirm'
+import Confirm, { ConfirmProps } from './Confirm'
+import { RootState } from '~types/redux'
 
-const mapStateToProps = (state, { method, side }) => ({
-  capture: state.captures[buildCaptureStateKey({ method, side })],
-  isFullScreen: state.globals.isFullScreen,
-  imageQualityRetries: state.globals.imageQualityRetries,
+const mapStateToProps = (
+  { captures, globals: { isFullScreen, imageQualityRetries } }: RootState,
+  { method, side }: ConfirmProps
+) => ({
+  capture: captures[buildCaptureStateKey({ method, side })],
+  isFullScreen,
+  imageQualityRetries,
 })
 
 const TrackedConfirmComponent = trackComponentAndMode(
@@ -18,17 +22,20 @@ const TrackedConfirmComponent = trackComponentAndMode(
   'error'
 )
 
+//@ts-ignore
 const MapConfirm = connect(mapStateToProps)(localised(TrackedConfirmComponent))
 
-const DocumentFrontWrapper = (props) => (
+const DocumentFrontWrapper = (props: ConfirmProps) => (
   <MapConfirm {...props} method="document" side="front" />
 )
 
-const DocumentBackWrapper = (props) => (
+const DocumentBackWrapper = (props: ConfirmProps) => (
   <MapConfirm {...props} method="document" side="back" />
 )
 
-const BaseFaceConfirm = (props) => <MapConfirm {...props} method="face" />
+const BaseFaceConfirm = (props: ConfirmProps) => (
+  <MapConfirm {...props} method="face" />
+)
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')

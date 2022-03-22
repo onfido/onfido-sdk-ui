@@ -3,6 +3,7 @@ import { parseJwt } from './jwt'
 import { performHttpReq, HttpRequestParams } from './http'
 import { forEach } from './object'
 import { trackException } from '../../Tracker'
+import detectSystem from './detectSystem'
 
 import type {
   ImageQualityValidationPayload,
@@ -24,12 +25,12 @@ import type { SupportedLanguages } from '~types/locales'
 import type { LegacyTrackedEventNames } from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
-type UploadPayload = {
+export type UploadPayload = {
   filename?: string
   sdkMetadata: SdkMetadata
 }
 
-type UploadDocumentPayload = {
+export type UploadDocumentPayload = {
   file: Blob
   issuing_country?: string
   side?: DocumentSides
@@ -37,20 +38,20 @@ type UploadDocumentPayload = {
   validations?: ImageQualityValidationPayload
 } & UploadPayload
 
-type UploadDocumentVideoMediaPayload = {
+export type UploadDocumentVideoMediaPayload = {
   file: Blob
   document_id: string
   sdk_source?: string
   sdk_version?: string
 } & Omit<UploadPayload, 'filename'>
 
-type UploadVideoPayload = {
+export type UploadVideoPayload = {
   blob: Blob
   challengeData?: ChallengeData
   language?: SupportedLanguages
 } & UploadPayload
 
-type UploadSnapshotPayload = {
+export type UploadSnapshotPayload = {
   file: Blob | FilePayload
 }
 
@@ -244,11 +245,19 @@ export const requestChallenges = (
   onError: ErrorCallback
 ): void => {
   if (!url) {
-    throw new Error('onfido_api_url not provided')
+    return onError({
+      response: {
+        message: 'onfido_api_url not provided',
+      },
+    })
   }
 
   if (!token) {
-    throw new Error('token not provided')
+    return onError({
+      response: {
+        message: 'token not provided',
+      },
+    })
   }
 
   const options: HttpRequestParams = {
@@ -419,10 +428,23 @@ export const getSdkConfiguration = (
 ): Promise<SdkConfiguration> =>
   new Promise((resolve, reject) => {
     try {
+      const browserInfo = detectSystem('browser')
+
       const requestParams: HttpRequestParams = {
-        endpoint: `${url}/v3/sdk/configurations?sdk_source=${process.env.SDK_SOURCE}&sdk_version=${process.env.SDK_VERSION}`,
+        endpoint: `${url}/v3.3/sdk/configurations`,
         token: `Bearer ${token}`,
-        method: 'GET',
+        contentType: 'application/json',
+        method: 'POST',
+        payload: JSON.stringify({
+          sdk_source: process.env.SDK_SOURCE,
+          sdk_version: process.env.SDK_VERSION,
+          sdk_metadata: {
+            system: {
+              browser: browserInfo.name,
+              browser_version: browserInfo.version,
+            },
+          },
+        }),
       }
 
       performHttpReq(requestParams, resolve, (request) =>

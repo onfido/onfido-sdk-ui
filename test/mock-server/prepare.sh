@@ -14,5 +14,6 @@ cp ../../dist/onfido.min.js{,.map} ./frontend/
 cp ../../dist/onfido.crossDevice.min.js{,.map} ./frontend/
 cp ../../dist/onfido.vendors~crossDevice.min.js{,.map} ./frontend/
 
+cp ../../dist/onfido.crossDevice.css{,.map} ./frontend/
 cp ../../dist/onfido.vendors~crossDevice.css{,.map} ./frontend/
 cp ../../dist/style.css{,.map} ./frontend/

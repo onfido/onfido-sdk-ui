@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h, Component, createRef } from 'preact'
 import { screenshot, isCameraReady } from '~utils/camera'
 import { mimeType } from '~utils/blob'
 import { FaceOverlay } from '../Overlay'
@@ -6,33 +6,40 @@ import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
+import { SdkMetadata } from '~types/commons'
+import Webcam from 'react-webcam-onfido'
+import {
+  WithLocalisedProps,
+  WithPageIdProps,
+  WithTrackingProps,
+} from '~types/hocs'
+import { ErrorProp, RenderFallbackProp } from '~types/routers'
+import { CapturePayload } from '~types/redux'
 
-/* type State = {
-  hasBecomeInactive: boolean,
-  hasCameraError: boolean,
-  snapshotBuffer: Array<{
-    blob: Blob,
-  }>,
-  isCaptureButtonDisabled: boolean,
+type State = {
+  hasBecomeInactive: boolean
+  hasCameraError: boolean
+  isCaptureButtonDisabled: boolean
+  snapshot?: { blob: Blob; filename: string }
 }
 
 type Props = {
-  translate: (string, ?{}) => string,
-  onCapture: Function,
-  renderFallback: Function,
-  trackScreen: Function,
-  inactiveError: Object,
-  useMultipleSelfieCapture: boolean,
-} */
+  onCapture: (payload: CapturePayload) => void
+  renderFallback: RenderFallbackProp
+  inactiveError: ErrorProp
+  useMultipleSelfieCapture: boolean
+} & WithTrackingProps &
+  WithLocalisedProps &
+  WithPageIdProps
 
-export default class SelfieCapture extends Component {
-  webcam = null
+export default class SelfieCapture extends Component<Props, State> {
+  webcam = createRef<Webcam>()
 
-  state = {
+  state: State = {
     hasBecomeInactive: false,
     hasCameraError: false,
     isCaptureButtonDisabled: true,
-    snapshot: null,
+    snapshot: undefined,
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -40,7 +47,7 @@ export default class SelfieCapture extends Component {
   handleCameraError = () =>
     this.setState({ hasCameraError: true, isCaptureButtonDisabled: true })
 
-  handleSelfie = (blob, sdkMetadata) => {
+  handleSelfie = (blob: Blob, sdkMetadata: SdkMetadata) => {
     const selfie = {
       blob,
       sdkMetadata,
@@ -51,23 +58,35 @@ export default class SelfieCapture extends Component {
     this.props.onCapture(captureData)
   }
 
-  handleSnapshot = (blob) => {
+  handleSnapshot = (blob: Blob) => {
     this.setState({
       snapshot: { blob, filename: `applicant_snapshot.${mimeType(blob)}` },
     })
   }
 
   takeSnapshot = () => {
-    screenshot(this.webcam, this.handleSnapshot)
+    if (!this.webcam.current) {
+      return
+    }
+
+    screenshot(this.webcam.current, this.handleSnapshot)
   }
 
   takeSelfie = () => {
+    if (!this.webcam.current) {
+      return
+    }
+
     this.setState({ isCaptureButtonDisabled: true })
-    screenshot(this.webcam, this.handleSelfie)
+    screenshot(this.webcam.current, this.handleSelfie)
   }
 
   waitCameraFeed = () => {
-    if (isCameraReady(this.webcam)) {
+    if (!this.webcam.current) {
+      return
+    }
+
+    if (isCameraReady(this.webcam.current)) {
       if (this.props.useMultipleSelfieCapture) {
         this.takeSnapshot()
       }
@@ -90,10 +109,11 @@ export default class SelfieCapture extends Component {
       hasCameraError,
       isCaptureButtonDisabled, // Capture Button is disabled until camera access is allowed + userMedia stream is ready
     } = this.state
+
     return (
       <Camera
         {...this.props}
-        webcamRef={(c) => (this.webcam = c)}
+        webcamRef={this.webcam}
         onUserMedia={this.onUserMedia}
         onError={this.handleCameraError}
         renderError={

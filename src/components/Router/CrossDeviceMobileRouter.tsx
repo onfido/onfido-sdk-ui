@@ -99,9 +99,6 @@ export default class CrossDeviceMobileRouter extends Component<
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
     const url = props.urls.sync_url
-
-    // TODO: review this change
-
     const roomId = props.options.roomId || window.location.pathname.substring(3)
 
     this.state = {
