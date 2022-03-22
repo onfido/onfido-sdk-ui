@@ -25,7 +25,11 @@ export const integratorTrackedEvents = new Map<
   ['screen_document_country_select', 'ID_DOCUMENT_COUNTRY_SELECT'],
   ['screen_crossDevice', 'CROSS_DEVICE_INTRO'],
   ['screen_crossDevice_crossdevice_link', 'CROSS_DEVICE_GET_LINK'],
-  ['Starting upload', 'UPLOAD'],
+  ['document_upload_started', 'UPLOAD'],
+  ['document_video_upload_started', 'UPLOAD'],
+  ['face_video_upload_started', 'UPLOAD'],
+  ['Starting snapshot upload', 'UPLOAD'],
+  ['Starting live photo upload', 'UPLOAD'],
 ])
 
 // FIXME: Using @ts-ignore here because of Map constructor argument bug
@@ -149,6 +153,13 @@ export const analyticsEventsMapping = new Map<
     'Starting upload',
     {
       eventName: 'CUSTOM_API_REQUEST_STARTED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'Completed upload',
+    {
+      eventName: 'CUSTOM_API_REQUEST_COMPLETED',
       properties: { event_type: 'flow' },
     },
   ],
@@ -454,13 +465,6 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'UNSUPPORTED_BROWSER',
       properties: { event_type: 'screen' },
-    },
-  ],
-  [
-    'Completed upload',
-    {
-      eventName: 'UPLOAD_COMPLETED',
-      properties: { event_type: 'action' },
     },
   ],
   [

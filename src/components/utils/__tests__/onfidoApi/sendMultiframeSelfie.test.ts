@@ -90,7 +90,9 @@ describe('onfidoApi', () => {
         expect(sendEvent).toHaveBeenNthCalledWith(
           2,
           'Snapshot upload completed',
-          { duration: 1 }
+          expect.objectContaining({
+            duration: expect.any(Number),
+          })
         )
         expect(sendEvent).toHaveBeenNthCalledWith(
           3,
@@ -99,7 +101,9 @@ describe('onfidoApi', () => {
         expect(sendEvent).toHaveBeenNthCalledWith(
           4,
           'Live photo upload completed',
-          { duration: 1 }
+          expect.objectContaining({
+            duration: expect.any(Number),
+          })
         )
       })
     })

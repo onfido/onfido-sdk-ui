@@ -434,7 +434,7 @@ const sendFile = <T>(
     (response: T) => {
       // Sends upload_completed event
       sendEvent(analyticsEvents[1], {
-        duration: Math.ceil(performance.now() - startTime),
+        duration: Math.round(performance.now() - startTime),
       })
       if (onSuccess) {
         onSuccess(response)

@@ -26,6 +26,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added a "microphone & camera" permission screen
 - Internal: Handle errors by callback instead of `throw` for `requestChallenges` and `postToBackend`
 - Internal: Migrated `ClientSuccess` to typescript
+- Internal: Added individual analytics `*_upload_started` & `*_upload_completed` events for all uploads
+- Internal: Fixed behavior for analytics event `CUSTOM_API_REQUEST_COMPLETED` & added `CUSTOM_API_REQUEST_COMPLETED`
+- Internal: Updated `integratorTrackedEvents` with multiple triggers for `UPLOAD` to reflect analytics upload events changes
 
 ### Fixed
 
