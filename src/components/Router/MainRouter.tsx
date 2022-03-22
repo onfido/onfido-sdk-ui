@@ -43,6 +43,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       options,
       urls,
       analyticsSessionUuid,
+      anonymousUuid,
     } = this.props
 
     const {
@@ -81,6 +82,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       token,
       urls,
       woopraCookie,
+      anonymousUuid,
       analyticsSessionUuid,
     }
   }

@@ -140,6 +140,11 @@ export const setAnalyticsSessionUuid = (payload: string): GlobalActions => ({
   payload,
 })
 
+export const setAnonymousUuid = (payload: string): GlobalActions => ({
+  type: constants.SET_ANONYMOUS_UUID,
+  payload,
+})
+
 export const setToken = (payload: string): GlobalActions => ({
   type: constants.SET_TOKEN,
   payload,

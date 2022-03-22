@@ -45,6 +45,7 @@ export type GlobalActions =
       payload: string
     }
   | { type: typeof constants.SET_ANALYTICS_SESSION_UUID; payload: string }
+  | { type: typeof constants.SET_ANONYMOUS_UUID; payload: string }
   | { type: typeof constants.HIDE_ONFIDO_LOGO; payload: boolean }
   | { type: typeof constants.SHOW_COBRANDING; payload: EnterpriseCobranding }
   | {
@@ -88,6 +89,7 @@ export type GlobalState = {
   token?: string
   isCrossDeviceClient?: boolean
   applicantUuid?: string
+  anonymousUuid?: string
   clientUuid?: string
   stepsConfig: Array<StepConfig>
 }
