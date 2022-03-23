@@ -357,18 +357,26 @@
         "title": "Thank you"
     },
     "permission": {
+        "body_both": "We can’t verify you without using both your camera and microphone",
         "body_cam": "We can’t verify you without your camera",
+        "button_primary_both": "Enable both",
         "button_primary_cam": "Enable camera",
+        "subtitle_both": "When prompted, you must enable access for both to continue",
         "subtitle_cam": "When prompted, you must enable camera access to continue",
+        "title_both": "Allow camera and microphone access",
         "title_cam": "Allow camera access"
     },
     "permission_recovery": {
         "button_primary": "Refresh",
         "info": "Recovery",
+        "list_header_both": "Follow these steps to recover access for both:",
         "list_header_cam": "Follow these steps to recover camera access:",
         "list_item_action_cam": "Refresh this page to restart the identity verification process",
+        "list_item_how_to_both": "Grant access to your camera and microphone from your browser settings",
         "list_item_how_to_cam": "Grant access to your camera from your browser settings",
-        "subtitle_cam": "Recover camera access to continue face verification",
+        "subtitle_both": "Recover camera and microphone access to take a video and complete the verification process",
+        "subtitle_cam": "Recover camera access to continue your verification",
+        "title_both": "Camera and microphone access denied",
         "title_cam": "Camera access is denied"
     },
     "photo_upload": {
