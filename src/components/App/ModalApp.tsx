@@ -33,6 +33,7 @@ import type { StepConfig, DocumentTypes } from '~types/steps'
 import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
+import { setupAnalyticsCookie, uninstallAnalyticsCookie } from '../../Tracker'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
 import Spinner from '../Spinner'
 
@@ -52,8 +53,14 @@ class ModalApp extends Component<Props> {
     const { actions, analyticsSessionUuid } = props
     if (!props.options.disableAnalytics) {
       !analyticsSessionUuid && actions.setAnalyticsSessionUuid(uuidv4())
+      setupAnalyticsCookie(
+        this.props.actions.setAnonymousUuid,
+        this.props.anonymousUuid
+      )
       Tracker.setUp()
       Tracker.install()
+    } else {
+      uninstallAnalyticsCookie(this.props.actions.setAnonymousUuid)
     }
     this.bindEvents(
       props.options.onComplete,
