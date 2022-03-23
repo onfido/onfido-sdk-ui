@@ -38,6 +38,7 @@ export const initialState: GlobalState = {
   analyticsSessionUuid: undefined,
   token: undefined,
   applicantUuid: undefined,
+  anonymousUuid: undefined,
   clientUuid: undefined,
   stepsConfig: [],
   isCrossDeviceClient: undefined,
@@ -193,6 +194,12 @@ export default function globals(
       return {
         ...state,
         applicantUuid: action.payload,
+      }
+
+    case constants.SET_ANONYMOUS_UUID:
+      return {
+        ...state,
+        anonymousUuid: action.payload,
       }
 
     case constants.SET_CLIENT_UUID:
