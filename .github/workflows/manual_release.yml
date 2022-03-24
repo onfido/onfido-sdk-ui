@@ -1,30 +1,84 @@
-# This is a basic workflow that is manually triggered
-
 name: Manual Release
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
     inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
+      release_version:
+        description: 'Release version:'
         required: true
+        type: string
+      base32_version:
+        description: 'Base32 version'
+        required: true
+        type: string
+      is_lts:
+        description: 'LTS release'
+        required: true
+        type: boolean
+        default: false
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  deploy:
     runs-on: ubuntu-latest
+    env:
+      GIT_TERMINAL_PROMPT: 0
+      RELEASE_VERSION: ${{ github.event.inputs.release_version }}
+      BASE32_VERSION: ${{ github.event.inputs.base32_version }}
+      IS_LTS: ${{ github.event.inputs.is_lts }}
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+      - uses: actions/checkout@v3
+
+      - name: Setup Env
+        run: |
+          # @TODO: Rename to release once workflow is completed
+          echo "BRANCH_NAME=poc-release/$RELEASE_VERSION" >> $GITHUB_ENV
+    
+      - name: Setup Git
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
+          git config --global --add url."https://github.com/".insteadOf ssh://git@github.com/
+
+      - name: Validate Input
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { RELEASE_VERSION, BASE32_VERSION } = process.env
+            const validReleaseVersion = /^\d{1,2}\.\d{1,2}\.\d{1,2}(\-rc\.\d{1,2})?$/.test(RELEASE_VERSION)
+            const validBase32 = /^[A-Z]{2}$/.test(BASE32_VERSION)
+            
+            if(!validReleaseVersion){
+              core.setFailed("Invalid release version, use format: major.minor.patch(-rc.*) (6.20.0 / 6.20.0-rc.1)");
+            }
+            if(!validBase32){
+              core.setFailed("Invalid base32 version, use two capital letters. Like: AA")
+            }
+          
+      - name: Checkout & pull release branch
+        run: |        
+          git fetch origin
+          git checkout -b $BRANCH_NAME
+
+          existed_in_remote=$(git ls-remote --heads origin refs/heads/$branch_name)
+          echo "existed_in_remote: ${existed_in_remote}"
+          if [[ $existed_in_remote ]] 
+          then
+            git pull origin $BRANCH_NAME
+          fi
+
+      - name: Create & commit PoC file
+        run: |
+          touch input-poc.txt
+          echo release_version="$RELEASE_VERSION" >> input-poc.txt
+          echo base32_version="$BASE32_VERSION" >> input-poc.txt
+          echo is_lts="$IS_LTS" >> input-poc.txt
+
+          git add input-poc.txt
+          git commit -m "Add poc file"
+        
+      - name: Push commits
+        run: |
+          # git push --set-upstream origin poc-release/1.0.4
+          git push origin $BRANCH_NAME

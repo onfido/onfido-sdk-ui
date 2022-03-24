@@ -30,6 +30,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added individual analytics `*_upload_started` & `*_upload_completed` events for all uploads
 - Internal: Fixed behavior for analytics event `CUSTOM_API_REQUEST_COMPLETED` & added `CUSTOM_API_REQUEST_COMPLETED`
 - Internal: Updated `integratorTrackedEvents` with multiple triggers for `UPLOAD` to reflect analytics upload events changes
+- Internal: PoC for manual release trigger with inputs
 
 ### Fixed
 
