@@ -46,6 +46,7 @@ export type VideoCaptureProps = {
   title?: string
   webcamRef?: Ref<Webcam>
   pageId?: string
+  isUploadFallbackDisabled?: boolean
 } & WithTrackingProps
 
 type State = {
@@ -240,6 +241,7 @@ export default class VideoCapture extends Component<VideoCaptureProps, State> {
         facing={facing}
         fallbackToDefaultWidth
         isButtonDisabled={disableRecording}
+        isUploadFallbackDisabled={this.props.isUploadFallbackDisabled}
         onButtonClick={this.handleRecordingStart}
         onError={this.handleCameraError}
         onUserMedia={this.handleMediaStream}
