@@ -27,6 +27,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Handle errors by callback instead of `throw` for `requestChallenges` and `postToBackend`
 - Internal: Migrated `ClientSuccess` to typescript
 
+### Fixed
+
+- Internal: Set ideal photo width for selfie step to ensure consistency across mobile devices
+
 ## [6.19.0] - 2022-03-14
 
 ### Fixed
