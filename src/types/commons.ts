@@ -131,6 +131,7 @@ export type MobileConfig = {
   token?: string
   urls: UrlsConfig
   woopraCookie?: string | null
+  anonymousUuid?: string
   customUI: UICustomizationOptions | null
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string

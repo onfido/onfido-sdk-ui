@@ -352,18 +352,26 @@
         "title": "Danke"
     },
     "permission": {
+        "body_both": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon und Ihre Kamera zuzugreifen",
         "body_cam": "Wir können Sie nicht verifizieren, ohne Ihre Kamera zu benutzen",
+        "button_primary_both": "Beides aktivieren",
         "button_primary_cam": "Kamera aktivieren",
+        "subtitle_both": "Wenn Sie dazu aufgefordert werden, müssen Sie den Zugriff auf beide Komponenten aktivieren, um fortzufahren",
         "subtitle_cam": "Wenn Sie dazu aufgefordert werden, müssen Sie den Kamerazugriff aktivieren, um fortzufahren",
+        "title_both": "Zugriff auf Kamera und Mikrofon erlauben",
         "title_cam": "Zugriff auf Kamera erlauben"
     },
     "permission_recovery": {
         "button_primary": "Aktualisieren",
         "info": "Wiederherstellen",
+        "list_header_both": "Befolgen Sie diese Schritte, um den Zugriff auf beides wiederherzustellen:",
         "list_header_cam": "Befolgen Sie diese Schritte, um den Kamerazugriff wiederherzustellen:",
+        "list_item_how_to_both": "Gewähren Sie den Zugriff auf Ihre Kamera und Ihr Mikrofon über Ihre Browsereinstellungen",
         "list_item_action_cam": "Aktualisieren Sie diese Seite, um den Identitätsüberprüfungsprozess neu zu starten",
         "list_item_how_to_cam": "Gewähren Sie den Zugriff auf Ihre Kamera über Ihre Browsereinstellungen",
-        "subtitle_cam": "Kamerazugriff wiederherstellen, um Gesichtsverifizierung fortzusetzen",
+        "subtitle_both": "Stellen Sie den Zugriff auf Kamera und Mikrofon wieder her, um ein Video aufzunehmen und den Überprüfungsprozess abzuschließen",
+        "subtitle_cam": "Kamerazugriff wiederherstellen, um Verifizierung fortzusetzen",
+        "title_both": "Kamera- und Mikrofonzugriff verweigert",
         "title_cam": "Kamerazugriff wird verweigert"
     },
     "photo_upload": {

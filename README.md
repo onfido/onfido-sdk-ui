@@ -746,8 +746,6 @@ options: {
 }
 ```
 
-**The Proof of Address document capture is currently a BETA feature. Using it in conjunction with the document and face steps as part of a single SDK flow may result in unforeseen behavior.**
-
 #### face
 
 This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photo or video before confirming.

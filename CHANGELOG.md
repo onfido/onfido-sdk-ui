@@ -21,6 +21,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Merged `dist/onfido.vendors~crossDevice.min.js` into `dist/onfido.crossDevice.min.js`
 - Public: Merged `dist/onfidoAuth.6.min.js` to `onfidoAuth.min.js`
 - Public: Rearranged `dependencies` & `devDependencies` in `package.json` to reflect correct usage
+- Public: Added a cookie with anonymous uuid for analytics purposes
+- Internal: Upgrade `minimist` to `v1.2.6` to fix vulnerability
+- Public: Added a "microphone & camera" permission screen
+- Internal: Handle errors by callback instead of `throw` for `requestChallenges` and `postToBackend`
+- Internal: Migrated `ClientSuccess` to typescript
+- Public: Fix issue where `poa` and `document` steps cannot be used at the same time, due to steps overwriting data from one another. Adds `poa` key to `onComplete` callback, when `poa` step is used.
 
 ## [6.19.0] - 2022-03-14
 
@@ -33,7 +39,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Migrated `QRCode` to typescript
 - Internal: Migrated `PhoneNumberInput` to typescript
 - Internal: Migrated `locales/polyglot` to typescript
-- Public: Fix issue where `poa` and `document` steps cannot be used at the same time, due to steps overwriting data from one another. Adds `poa` key to `onComplete` callback, when `poa` step is used.
 
 ### Changed
 

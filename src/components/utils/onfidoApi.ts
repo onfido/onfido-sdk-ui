@@ -245,11 +245,19 @@ export const requestChallenges = (
   onError: ErrorCallback
 ): void => {
   if (!url) {
-    throw new Error('onfido_api_url not provided')
+    return onError({
+      response: {
+        message: 'onfido_api_url not provided',
+      },
+    })
   }
 
   if (!token) {
-    throw new Error('token not provided')
+    return onError({
+      response: {
+        message: 'token not provided',
+      },
+    })
   }
 
   const options: HttpRequestParams = {
