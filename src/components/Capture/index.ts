@@ -26,14 +26,14 @@ export const PoACapture = appendToTracking(
   'poa'
 )
 
-export const SelfieCapture = appendToTracking<WithTrackingProps>(
+export const SelfieCapture = appendToTracking(
   withCaptureVariant(Face, {
     requestedVariant: 'standard',
     pageId: 'SelfieCapture',
   }),
   'selfie_capture'
 )
-export const FaceVideoCapture = appendToTracking<WithTrackingProps>(
+export const FaceVideoCapture = appendToTracking(
   withCaptureVariant(Face, {
     requestedVariant: 'video',
     pageId: 'FaceVideoCapture',
