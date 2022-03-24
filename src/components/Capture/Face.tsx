@@ -38,6 +38,8 @@ const defaultPayload = {
   side: null,
 }
 
+const IDEAL_CAMERA_WIDTH_IN_PX = 1280
+
 const WrappedError = withTheme(GenericError)
 
 type FaceProps = {
@@ -164,6 +166,7 @@ class Face extends Component<FaceProps> {
             onCapture={this.handleCapture}
             useMultipleSelfieCapture={useMultipleSelfieCapture}
             inactiveError={getInactiveError(this.isUploadFallbackDisabled())}
+            idealCameraWidth={IDEAL_CAMERA_WIDTH_IN_PX}
             pageId={pageId}
           />
         )

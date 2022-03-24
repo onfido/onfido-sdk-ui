@@ -28,6 +28,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Migrated `ClientSuccess` to typescript
 - Public: Fix issue where `poa` and `document` steps cannot be used at the same time, due to steps overwriting data from one another. Adds `poa` key to `onComplete` callback, when `poa` step is used.
 
+### Fixed
+
+- Internal: Set ideal photo width for selfie step to ensure consistency across mobile devices
+- Internal: Prevent Face step (variant: video) from falling back to selfie upon camera error when `uploadFallback: false` is provided
+
 ## [6.19.0] - 2022-03-14
 
 ### Fixed
