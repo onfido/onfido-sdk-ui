@@ -1,9 +1,7 @@
 package com.onfido.qa.websdk.test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.onfido.qa.websdk.DocumentType;
 import com.onfido.qa.websdk.PoADocumentType;
-import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.model.CompleteData;
 import com.onfido.qa.websdk.model.DocumentOption;
 import com.onfido.qa.websdk.page.Complete;
@@ -14,8 +12,8 @@ import com.onfido.qa.websdk.page.CrossDeviceSubmit;
 import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.ImageQualityGuide;
-import com.onfido.qa.websdk.page.PoADocumentSelection;
 import com.onfido.qa.websdk.page.PoAIntro;
+import com.onfido.qa.websdk.sdk.PoAStep;
 import com.onfido.qa.websdk.sdk.Raw;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
@@ -24,7 +22,9 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.PoADocumentType.BANK_BUILDING_SOCIETY_STATEMENT;
 import static com.onfido.qa.websdk.PoADocumentType.BENEFIT_LETTERS;
 import static com.onfido.qa.websdk.PoADocumentType.COUNCIL_TAX;
@@ -33,7 +33,6 @@ import static com.onfido.qa.websdk.PoADocumentType.values;
 import static com.onfido.qa.websdk.UploadDocument.NATIONAL_IDENTITY_CARD_PDF;
 import static com.onfido.qa.websdk.UploadDocument.PASSPORT_JPG;
 import static com.onfido.qa.websdk.UploadDocument.UK_DRIVING_LICENCE_PNG;
-import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SuppressWarnings("StaticCollection")
@@ -60,6 +59,31 @@ public class ProofOfAddressIT extends WebSdkIT {
         expectedTitle.put(UTILITY_BILL, "doc_submit.title_bill");
         expectedTitle.put(COUNCIL_TAX, "doc_submit.title_tax_letter");
         expectedTitle.put(BENEFIT_LETTERS, "doc_submit.title_benefits_letter");
+
+    }
+
+    @DataProvider
+    public static Object[][] countries() {
+        return new Object[][]{
+                {"GBR"},
+                {"GER"}
+        };
+    }
+
+    @Test(description = "verify that only available options for PoA are shown", dataProvider = "countries")
+    public void testVerifyThatOnlyAvailableOptionsForPoAAreShown(String countryCode) {
+
+        var availableDocumentTypes = Arrays.stream(values())
+                                           .filter(x -> x.availableInCountry(countryCode))
+                                           .collect(Collectors.toList());
+
+        var documentSelection = onfido().withSteps(new PoAStep().withCountry(countryCode)).init(PoAIntro.class)
+                                        .startVerification();
+
+        var options = documentSelection.getOptions();
+
+        assertThat(options).hasSize(availableDocumentTypes.size());
+        assertThat(options).hasSameElementsAs(availableDocumentTypes);
 
     }
 
