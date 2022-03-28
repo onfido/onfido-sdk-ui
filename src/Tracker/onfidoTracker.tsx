@@ -16,6 +16,7 @@ let token: string | undefined
 let urls: UrlsConfig
 let client_uuid: string | undefined
 let applicant_uuid: string | undefined
+let anonymous_uuid: string | undefined
 let isCrossDeviceClient: boolean | undefined
 
 const select = (state: RootState) => {
@@ -37,6 +38,7 @@ const listener = () => {
   urls = globalsInStore.urls
   client_uuid = globalsInStore.clientUuid
   applicant_uuid = globalsInStore.applicantUuid
+  anonymous_uuid = globalsInStore.anonymousUuid
   isCrossDeviceClient = globalsInStore.isCrossDeviceClient
   steps = globalsInStore.stepsConfig
 }
@@ -87,6 +89,7 @@ export const sendAnalyticsEvent = (
   }
   const identificationProperties = {
     applicant_uuid,
+    anonymous_uuid,
     client_uuid,
     session_uuid: analyticsSessionUuid,
   }

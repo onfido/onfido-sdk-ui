@@ -13,7 +13,13 @@ import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 
-import { setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
+import {
+  setupAnalyticsCookie,
+  setWoopraCookie,
+  trackException,
+  uninstallAnalyticsCookie,
+  uninstallWoopra,
+} from '../../Tracker'
 import { LocaleProvider } from '~locales'
 import HistoryRouter from './HistoryRouter'
 
@@ -192,6 +198,7 @@ export default class CrossDeviceMobileRouter extends Component<
       token,
       urls,
       woopraCookie,
+      anonymousUuid,
       customUI,
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
@@ -200,9 +207,11 @@ export default class CrossDeviceMobileRouter extends Component<
 
     if (disableAnalytics) {
       uninstallWoopra()
+      uninstallAnalyticsCookie(this.props.actions.setAnonymousUuid)
     } else if (woopraCookie) {
       this.props.actions.setAnalyticsSessionUuid(analyticsSessionUuid)
       setWoopraCookie(woopraCookie)
+      setupAnalyticsCookie(this.props.actions.setAnonymousUuid, anonymousUuid)
     }
 
     if (!token) {

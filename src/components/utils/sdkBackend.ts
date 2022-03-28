@@ -35,11 +35,19 @@ export const postToBackend = (
   errorCallback: ErrorCallback
 ): void => {
   if (!url) {
-    throw new Error('detect_document_url not provided')
+    return errorCallback({
+      response: {
+        message: 'detect_document_url not provided',
+      },
+    })
   }
 
   if (!token) {
-    throw new Error('token not provided')
+    return errorCallback({
+      response: {
+        message: 'token not provided',
+      },
+    })
   }
 
   const endpoint = `${url}/validate_document`
