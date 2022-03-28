@@ -108,6 +108,7 @@
         "list_item_doc_one": "Document",
         "list_item_selfie": "Selfie",
         "list_item_video": "Video",
+        "list_item_poa": "Proof of Address",
         "subtitle": "Here’s everything you’ve uploaded:",
         "title": "One final step"
     },
