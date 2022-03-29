@@ -17,7 +17,7 @@ class CrossDeviceSubmit extends Component {
   }
 
   hasDocumentCaptureStep = () => {
-    return this.props.some((step) => step.type === 'document')
+    return this.props.steps.some((step) => step.type === 'document')
   }
 
   hasPoACaptureSteps = () => {
