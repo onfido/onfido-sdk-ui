@@ -189,14 +189,8 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
   onApiSuccess = (
     apiResponse: DocumentImageResponse | FaceVideoResponse | UploadFileResponse
   ) => {
-    const { method, nextStep, actions } = this.props
+    const { nextStep, actions } = this.props
     const { capture } = this.state
-
-    const duration = Math.round(performance.now() - this.startTime)
-    sendEvent('Completed upload', {
-      duration,
-      method,
-    })
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
@@ -225,8 +219,7 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
         token,
         url,
         this.onApiSuccess,
-        this.onApiError,
-        sendEvent
+        this.onApiError
       )
     } else {
       const { blob, filename, sdkMetadata } = selfie
@@ -274,10 +267,6 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
     }
 
     const url = urls.onfido_api_url
-    if (!isDecoupledFromAPI) {
-      this.startTime = performance.now()
-      sendEvent('Starting upload', { method })
-    }
     this.setState({ uploadInProgress: true })
     const { blob, filename, variant, challengeData, sdkMetadata } = capture
     this.setState({ capture })
@@ -382,8 +371,11 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
     const url = urls.onfido_api_url
     const formDataPayload = this.prepareCallbackPayload(data, callbackName)
 
+    const startTime = performance.now()
     // @ts-ignore
     sendEvent(`Triggering ${callbackName} callback`)
+    sendEvent('Starting upload', { method })
+
     try {
       const enterpriseFeaturesCallback = enterpriseFeatures[callbackName]
 
@@ -399,14 +391,12 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
       if (onfidoSuccessResponse) {
         // @ts-ignore
         sendEvent(`Success response from ${callbackName}`)
+        sendEvent('Completed upload', {
+          method,
+          duration: Math.round(performance.now() - startTime),
+        })
         this.onApiSuccess(onfidoSuccessResponse)
       } else if (continueWithOnfidoSubmission) {
-        this.startTime = performance.now()
-        sendEvent('Starting upload', {
-          method,
-          uploadAfterNetworkDecouple: true,
-        })
-
         if (callbackName === CALLBACK_TYPES.document) {
           uploadDocument(
             data as UploadDocumentPayload,
