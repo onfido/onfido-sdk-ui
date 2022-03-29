@@ -39,7 +39,7 @@ const validateFileTypeAndSize = (
     ImageValidationTypes,
     ImageValidationCallback
   > = {
-    INVALID_TYPE: (file) => !isOfMimeType(acceptedTypes, file),
+    INVALID_TYPE: (file) => false,//!isOfMimeType(acceptedTypes, file),
     INVALID_IMAGE_SIZE: (file) =>
       file.type.match(/image.*/) != null &&
       file.size > MAX_IMAGE_FILE_SIZE_ACCEPTED,
