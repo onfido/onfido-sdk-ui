@@ -1,6 +1,9 @@
-import { sendMultiframeSelfie } from '../../onfidoApi'
+import { sendEvent } from '../../../../Tracker'
 import createMockXHR from '~jest/createMockXHR'
 import { ParsedError } from '~types/api'
+import { sendMultiframeSelfie } from '../../onfidoApi'
+
+jest.mock('../../../../Tracker')
 
 const url = 'https://test.url.com'
 const jwtToken = 'fake.token'
@@ -18,7 +21,6 @@ const selfieData = {
 
 const mockedOnSuccess = jest.fn()
 const mockedOnError = jest.fn()
-const mockedTrackingCallback = jest.fn()
 let xhrMock: XMLHttpRequest
 
 describe('onfidoApi', () => {
@@ -57,16 +59,13 @@ describe('onfidoApi', () => {
           jwtToken,
           url,
           mockedOnSuccess,
-          mockedOnError,
-          mockedTrackingCallback
+          mockedOnError
         )
 
         snapShotsXhr.onload &&
           snapShotsXhr.onload(new ProgressEvent('upload snapshots')) // Upload snapshots
 
-        expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Starting snapshot upload'
-        )
+        expect(sendEvent).toHaveBeenCalledWith('Starting snapshot upload')
         expect(snapShotsXhr.open).toHaveBeenCalledWith(
           'POST',
           `${url}/v3/snapshots`
@@ -87,11 +86,24 @@ describe('onfidoApi', () => {
         expect(mockedOnSuccess).toHaveBeenCalledWith({ payload: 'success' })
         expect(mockedOnError).not.toHaveBeenCalled()
 
-        expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Snapshot upload completed'
+        expect(sendEvent).toHaveBeenNthCalledWith(1, 'Starting snapshot upload')
+        expect(sendEvent).toHaveBeenNthCalledWith(
+          2,
+          'Snapshot upload completed',
+          expect.objectContaining({
+            duration: expect.any(Number),
+          })
         )
-        expect(mockedTrackingCallback).toHaveBeenCalledWith(
+        expect(sendEvent).toHaveBeenNthCalledWith(
+          3,
           'Starting live photo upload'
+        )
+        expect(sendEvent).toHaveBeenNthCalledWith(
+          4,
+          'Live photo upload completed',
+          expect.objectContaining({
+            duration: expect.any(Number),
+          })
         )
       })
     })
@@ -121,8 +133,7 @@ describe('onfidoApi', () => {
               } catch (e) {
                 error(e)
               }
-            },
-            mockedTrackingCallback
+            }
           )
 
           mockXHR.onload && mockXHR.onload(new ProgressEvent('error'))
@@ -149,7 +160,7 @@ describe('onfidoApi', () => {
             () => {
               error('success should not be invoked')
             },
-            (e) => {
+            (e: ParsedError) => {
               // @ts-ignore
               const err: TypeError = e as TypeError
 
@@ -163,8 +174,7 @@ describe('onfidoApi', () => {
               } catch (e) {
                 console.error(e)
               }
-            },
-            mockedTrackingCallback
+            }
           )
 
           xhrMock.onload && xhrMock.onload(new ProgressEvent('Type error'))
