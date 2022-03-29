@@ -8,6 +8,7 @@ import type { AnalyticsPayload, LegacyTrackedEventNames } from '~types/tracker'
 import { reduxStore } from 'components/ReduxAppWrapper'
 import { analyticsEventsMapping } from './trackerData'
 import { trackException } from './'
+import { cleanStepsForConfig } from './steps'
 
 let currentStepType: ExtendedStepTypes | undefined
 let analyticsSessionUuid: string | undefined
@@ -40,7 +41,7 @@ const listener = () => {
   applicant_uuid = globalsInStore.applicantUuid
   anonymous_uuid = globalsInStore.anonymousUuid
   isCrossDeviceClient = globalsInStore.isCrossDeviceClient
-  steps = globalsInStore.stepsConfig
+  steps = cleanStepsForConfig(globalsInStore.stepsConfig)
 }
 
 reduxStore.subscribe(listener)

@@ -34,6 +34,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Set ideal photo width for selfie step to ensure consistency across mobile devices
 - Internal: Prevent Face step (variant: video) from falling back to selfie upon camera error when `uploadFallback: false` is provided
+- Internal: Remove duplicated config and strip out custom locales from analytics events
 
 ## [6.19.0] - 2022-03-14
 
