@@ -16,7 +16,7 @@ import Router from '../Router'
 import * as Tracker from '../../Tracker'
 import { getCountryDataForDocumentType } from '~supported-documents'
 
-import type { NormalisedSdkOptions, UpdatedSDKOptions } from '~types/commons'
+import type { NormalisedSdkOptions, SDKOptionsWithRenderData } from '~types/commons'
 import type {
   EnterpriseFeatures,
   EnterpriseCobranding,
@@ -36,7 +36,7 @@ import withConnect from './withConnect'
 import { setupAnalyticsCookie, uninstallAnalyticsCookie } from '../../Tracker'
 
 export type ModalAppProps = {
-  options: UpdatedSDKOptions
+  options: SDKOptionsWithRenderData
 }
 
 type Props = ModalAppProps & ReduxProps
@@ -103,8 +103,8 @@ class ModalApp extends Component<Props> {
   }
 
   jwtValidation = (
-    prevOptions: UpdatedSDKOptions,
-    newOptions: UpdatedSDKOptions
+    prevOptions: SDKOptionsWithRenderData,
+    newOptions: SDKOptionsWithRenderData
   ) => {
     if (prevOptions.token !== newOptions.token) {
       try {
@@ -144,8 +144,8 @@ class ModalApp extends Component<Props> {
   }
 
   rebindEvents = (
-    oldOptions: UpdatedSDKOptions,
-    newOptions: UpdatedSDKOptions
+    oldOptions: SDKOptionsWithRenderData,
+    newOptions: SDKOptionsWithRenderData
   ) => {
     oldOptions.onComplete && this.events.off('complete', oldOptions.onComplete)
     oldOptions.onError && this.events.off('error', oldOptions.onError)
@@ -194,8 +194,8 @@ class ModalApp extends Component<Props> {
   }
 
   prepareInitialStore = (
-    prevOptions: UpdatedSDKOptions,
-    options: UpdatedSDKOptions
+    prevOptions: SDKOptionsWithRenderData,
+    options: SDKOptionsWithRenderData
   ) => {
     const {
       token,

@@ -2,12 +2,12 @@ import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
 import App from '../index'
-import type { UpdatedSDKOptions } from '~types/commons'
+import type { SDKOptionsWithRenderData } from '~types/commons'
 
 jest.mock('Tracker/safeWoopra')
 jest.mock('~utils')
 
-const defaultOptions: UpdatedSDKOptions = {
+const defaultOptions: SDKOptionsWithRenderData = {
   steps: [
     { type: 'welcome' },
     { type: 'document' },

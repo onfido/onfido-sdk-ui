@@ -5,7 +5,7 @@ import MockedReduxProvider from '~jest/MockedReduxProvider'
 import { LocaleProvider } from '~locales'
 import ModalApp from '../ModalApp'
 
-import type { UpdatedSDKOptions } from '~types/commons'
+import type { SDKOptionsWithRenderData } from '~types/commons'
 
 jest.mock('Tracker/safeWoopra')
 jest.mock(
@@ -13,7 +13,7 @@ jest.mock(
   () => (children: ComponentChildren) => children
 )
 
-const defaultOptions: UpdatedSDKOptions = {
+const defaultOptions: SDKOptionsWithRenderData = {
   steps: [
     { type: 'welcome' },
     { type: 'document' },

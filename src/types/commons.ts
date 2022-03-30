@@ -9,7 +9,7 @@ export interface NormalisedSdkOptions extends SdkOptions {
   steps: StepConfig[]
 }
 
-export interface UpdatedSDKOptions extends NormalisedSdkOptions {
+export interface SDKOptionsWithRenderData extends NormalisedSdkOptions {
   containerId: string | 'onfido-mount'
   containerEl: HTMLElement
 }
