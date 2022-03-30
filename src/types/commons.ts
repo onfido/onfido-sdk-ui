@@ -9,6 +9,11 @@ export interface NormalisedSdkOptions extends SdkOptions {
   steps: StepConfig[]
 }
 
+export interface UpdatedSDKOptions extends NormalisedSdkOptions {
+  containerId: string | 'onfido-mount'
+  containerEl: HTMLElement
+}
+
 export type NarrowSdkOptions = Omit<
   NormalisedSdkOptions,
   | 'isModalOpen'

@@ -2,18 +2,20 @@ import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 
 import App from '../index'
-import type { NormalisedSdkOptions } from '~types/commons'
+import type { UpdatedSDKOptions } from '~types/commons'
 
 jest.mock('Tracker/safeWoopra')
 jest.mock('~utils')
 
-const defaultOptions: NormalisedSdkOptions = {
+const defaultOptions: UpdatedSDKOptions = {
   steps: [
     { type: 'welcome' },
     { type: 'document' },
     { type: 'face' },
     { type: 'complete' },
   ],
+  containerId: 'onfido-mount',
+  containerEl: document.createElement('div'),
 }
 
 describe('App', () => {

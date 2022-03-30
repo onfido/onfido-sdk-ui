@@ -5,7 +5,7 @@ import MockedReduxProvider from '~jest/MockedReduxProvider'
 import { LocaleProvider } from '~locales'
 import ModalApp from '../ModalApp'
 
-import type { NormalisedSdkOptions } from '~types/commons'
+import type { UpdatedSDKOptions } from '~types/commons'
 
 jest.mock('Tracker/safeWoopra')
 jest.mock(
@@ -13,13 +13,15 @@ jest.mock(
   () => (children: ComponentChildren) => children
 )
 
-const defaultOptions: NormalisedSdkOptions = {
+const defaultOptions: UpdatedSDKOptions = {
   steps: [
     { type: 'welcome' },
     { type: 'document' },
     { type: 'face' },
     { type: 'complete' },
   ],
+  containerId: 'onfido-mount',
+  containerEl: document.createElement('div'),
 }
 
 describe('ModalApp', () => {
