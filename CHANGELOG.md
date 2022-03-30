@@ -1237,6 +1237,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 [6.17.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...6.17.0
 [6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.16.0
 [6.15.5]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...6.15.5
+[6.15.5-rc]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...6.15.5-rc
 [6.15.4]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...6.15.4
 [6.15.3]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...6.15.3
 [6.15.2]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.1...6.15.2
