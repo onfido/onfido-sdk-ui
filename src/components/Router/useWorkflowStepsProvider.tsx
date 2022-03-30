@@ -127,7 +127,7 @@ export const createWorkflowStepsProvider = (
           workflowRunId,
           taskId,
           undefined,
-          docData
+          [docData]
         )
         setState((state) => ({
           ...state,
