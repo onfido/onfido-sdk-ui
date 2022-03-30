@@ -80,9 +80,9 @@ export type StepOptionComplete = {
 
 type StepOptionsMap = {
   welcome: StepOptionWelcome
-  userConsent: never
+  userConsent: unknown
   auth: StepOptionAuth
-  crossDeviceSessionIntro: never
+  crossDeviceSessionIntro: unknown
   document: StepOptionDocument
   poa: StepOptionPoA
   face: StepOptionFace
@@ -92,7 +92,7 @@ type StepOptionsMap = {
 export type StepConfigMap = {
   [Type in StepTypes]: {
     type: Type
-    options?: StepOptionsMap[Type]
+    options?: { excludeFromHistory?: boolean } & StepOptionsMap[Type]
   }
 }
 

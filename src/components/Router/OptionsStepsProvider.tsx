@@ -14,7 +14,10 @@ export const OptionsStepsProvider = ({
   const { enabled, consents } = useUserConsent()
 
   if (enabled && consents.some((c) => c.required && !c.granted)) {
-    const userConsent: StepConfig = { type: 'userConsent' }
+    const userConsent: StepConfig = {
+      type: 'userConsent',
+      options: { excludeFromHistory: true },
+    }
     const welcomeIndex = steps.findIndex(({ type }) => type === 'welcome')
     const userConsentIndex = welcomeIndex === -1 ? 0 : welcomeIndex + 1
 

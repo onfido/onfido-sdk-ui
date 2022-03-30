@@ -210,11 +210,15 @@ export default class HistoryRouter extends Component<
     excludeStepFromHistory?: boolean
   ): void => {
     const { flow: currentFlow } = this.state
+    const { steps } = this.props
     const newState = {
       step: newStepIndex,
       flow: newFlow || currentFlow,
     }
-    if (excludeStepFromHistory) {
+    if (
+      excludeStepFromHistory ||
+      steps[newStepIndex]?.options?.excludeFromHistory
+    ) {
       this.setState(newState)
     } else {
       const path = `${location.pathname}${location.search}${location.hash}`
