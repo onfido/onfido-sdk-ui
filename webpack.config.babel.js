@@ -30,7 +30,7 @@ const baseRules = () => {
         'thread-loader',
         {
           loader: 'babel-loader',
-          options: { configFile: resolve('.babelrc') },
+          options: { configFile: resolve('babel.config.js') },
         },
       ],
       resolve: {
@@ -40,6 +40,7 @@ const baseRules = () => {
         resolve('src'),
         resolve('node_modules/@onfido/castor'),
         resolve('node_modules/@onfido/castor-react'),
+        resolve('node_modules/@onfido/castor-icons'),
         resolve('node_modules/strip-ansi'),
         resolve('node_modules/ansi-regex'),
       ],
