@@ -83,6 +83,9 @@
       "^.+\\.(ts|tsx|json)$": "ts-jest"
     },
     "testEnvironment": "jsdom",
+    "transformIgnorePatterns": [
+      "node_modules/(?!@onfido/castor)"
+    ],
     "testMatch": [
       "**/__tests__/**/*.[jt]s?(x)",
       "**/__integrations__/**/*.integration.[jt]s?(x)"
