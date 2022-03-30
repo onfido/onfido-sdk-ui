@@ -1,6 +1,8 @@
 package com.onfido.qa.websdk.test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.onfido.qa.websdk.PoADocumentType;
+import com.onfido.qa.websdk.model.CompleteData;
 import com.onfido.qa.websdk.model.DocumentOption;
 import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
@@ -8,7 +10,11 @@ import com.onfido.qa.websdk.page.CrossDeviceClientSuccess;
 import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
 import com.onfido.qa.websdk.page.CrossDeviceSubmit;
 import com.onfido.qa.websdk.page.DocumentUpload;
+import com.onfido.qa.websdk.page.IdDocumentSelector;
+import com.onfido.qa.websdk.page.ImageQualityGuide;
 import com.onfido.qa.websdk.page.PoAIntro;
+import com.onfido.qa.websdk.sdk.PoAStep;
+import com.onfido.qa.websdk.sdk.Raw;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,7 +22,9 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.PoADocumentType.BANK_BUILDING_SOCIETY_STATEMENT;
 import static com.onfido.qa.websdk.PoADocumentType.BENEFIT_LETTERS;
 import static com.onfido.qa.websdk.PoADocumentType.COUNCIL_TAX;
@@ -51,6 +59,31 @@ public class ProofOfAddressIT extends WebSdkIT {
         expectedTitle.put(UTILITY_BILL, "doc_submit.title_bill");
         expectedTitle.put(COUNCIL_TAX, "doc_submit.title_tax_letter");
         expectedTitle.put(BENEFIT_LETTERS, "doc_submit.title_benefits_letter");
+
+    }
+
+    @DataProvider
+    public static Object[][] countries() {
+        return new Object[][]{
+                {"GBR"},
+                {"GER"}
+        };
+    }
+
+    @Test(description = "verify that only available options for PoA are shown", dataProvider = "countries")
+    public void testVerifyThatOnlyAvailableOptionsForPoAAreShown(String countryCode) {
+
+        var availableDocumentTypes = Arrays.stream(values())
+                                           .filter(x -> x.availableInCountry(countryCode))
+                                           .collect(Collectors.toList());
+
+        var documentSelection = onfido().withSteps(new PoAStep().withCountry(countryCode)).init(PoAIntro.class)
+                                        .startVerification();
+
+        var options = documentSelection.getOptions();
+
+        assertThat(options).hasSize(availableDocumentTypes.size());
+        assertThat(options).hasSameElementsAs(availableDocumentTypes);
 
     }
 
@@ -91,7 +124,6 @@ public class ProofOfAddressIT extends WebSdkIT {
         var upload = guidance.clickContinue();
 
         upload.upload(NATIONAL_IDENTITY_CARD_PDF).clickConfirmButton(Complete.class);
-
     }
 
     @Test(description = "should skip country selection screen with a preselected driver's license document type on PoA flow", groups = {"percy"})
@@ -136,5 +168,33 @@ public class ProofOfAddressIT extends WebSdkIT {
 
     }
 
+    @Test(description = "should allow PoA together with Document")
+    public void testPoaTogetherWithDocument() throws JsonProcessingException {
+        onfido().withSteps("poa", "document", "complete")
+                .withOnComplete(new Raw("(data) => {window.onCompleteData = data}"))
+                .init(PoAIntro.class)
+                .startVerification()
+                .select(BANK_BUILDING_SOCIETY_STATEMENT)
+                .clickContinue()
+                .upload(NATIONAL_IDENTITY_CARD_PDF)
+                .clickConfirmButton(IdDocumentSelector.class)
+                .select(PASSPORT, DocumentUpload.class)
+                .clickUploadButton(ImageQualityGuide.class)
+                .upload(PASSPORT_JPG)
+                .clickConfirmButton(Complete.class);
 
+        var json = (String) driver().executeScript("return JSON.stringify(window.onCompleteData)");
+        var completeData = objectMapper.readValue(json, CompleteData.class);
+
+        var poa = completeData.poa;
+        var documentFront = completeData.document_front;
+
+        assertThat(poa).isNotNull();
+        assertThat(documentFront).isNotNull();
+        assertThat(completeData.document_back).isNull();
+        assertThat(poa.id).isNotEqualTo(documentFront.id);
+
+        assertThat(poa.type).isEqualTo("passport");
+        assertThat(documentFront.type).isEqualTo("passport");
+    }
 }

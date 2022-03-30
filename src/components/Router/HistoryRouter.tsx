@@ -146,6 +146,7 @@ export default class HistoryRouter extends Component<
       'document_front',
       'document_back',
       'face',
+      'poa',
     ]
     const data: SdkResponse = Object.entries(captures)
       .filter(([key, value]) => key !== 'takesHistory' && value != null)

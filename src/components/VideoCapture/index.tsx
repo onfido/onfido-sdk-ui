@@ -36,7 +36,7 @@ export type VideoCaptureProps = {
   cameraClassName?: string
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
-  method: CaptureMethods
+  method: Exclude<CaptureMethods, 'poa'>
   onRecordingStart?: () => void
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
@@ -64,7 +64,10 @@ const initialStateWithoutMediaStream: Omit<State, 'hasMediaStream'> = {
 
 const IDEAL_CAMERA_WIDTH_IN_PX = 1080 // Full HD 1080p
 
-const RECORDING_TIMEOUT_ERRORS_MAP: Record<CaptureMethods, ErrorProp> = {
+const RECORDING_TIMEOUT_ERRORS_MAP: Record<
+  Exclude<CaptureMethods, 'poa'>,
+  ErrorProp
+> = {
   face: {
     name: 'FACE_VIDEO_TIMEOUT',
     type: 'warning',

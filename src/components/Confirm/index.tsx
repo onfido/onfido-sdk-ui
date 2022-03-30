@@ -25,6 +25,10 @@ const TrackedConfirmComponent = trackComponentAndMode(
 //@ts-ignore
 const MapConfirm = connect(mapStateToProps)(localised(TrackedConfirmComponent))
 
+const PoAFrontWrapper = (props: ConfirmProps) => (
+  <MapConfirm {...props} method="poa" side="front" />
+)
+
 const DocumentFrontWrapper = (props: ConfirmProps) => (
   <MapConfirm {...props} method="document" side="front" />
 )
@@ -41,10 +45,12 @@ const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
 const SelfieConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
 const FaceVideoConfirm = appendToTracking(BaseFaceConfirm, 'face_video')
+const PoAConfirm = appendToTracking(PoAFrontWrapper, 'poa')
 
 export {
   DocumentFrontConfirm,
   DocumentBackConfirm,
   SelfieConfirm,
   FaceVideoConfirm,
+  PoAConfirm,
 }

@@ -77,7 +77,7 @@ const Document = (props: Props) => {
       ...payload,
       documentType: getDocumentType(isPoA, documentType, poaDocumentType),
       id: payload.id || randomId(),
-      method: 'document',
+      method: isPoA ? 'poa' : 'document',
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
       side,
       variant: 'standard',

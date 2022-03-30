@@ -17,6 +17,7 @@ import {
   DocumentBackConfirm,
   DocumentFrontConfirm,
   FaceVideoConfirm,
+  PoAConfirm,
   SelfieConfirm,
 } from '../Confirm'
 import DocumentVideoConfirm from '../DocumentVideo/Confirm'
@@ -381,7 +382,7 @@ const buildPoaComponents = (
   ]
   const captureComponents = [
     PoACapture as ComponentType<StepComponentProps>,
-    DocumentFrontConfirm,
+    PoAConfirm,
   ]
 
   // @ts-ignore
