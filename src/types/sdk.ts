@@ -8,6 +8,7 @@ import type {
   PublicStepConfig,
 } from './steps'
 import { NormalisedSdkOptions } from '~types/commons'
+import { SdkConfiguration } from '~types/api'
 
 type DocumentResponse = {
   id: string
@@ -78,6 +79,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   _crossDeviceLinkMethods?: Array<string> | null
+  overrideSdkConfiguration?: Partial<SdkConfiguration>
 }
 
 export type SdkHandle = {
