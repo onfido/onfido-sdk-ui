@@ -11,7 +11,6 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Ignore
 public class UserConsentIT extends WebSdkIT {
 
     public static final String CONSENT_FRAME_TITLE = "Onfido's privacy statement and Terms of Service";

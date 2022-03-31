@@ -1,5 +1,10 @@
 import { h, FunctionComponent, Fragment } from 'preact'
-import { useEffect, useState, unmountComponentAtNode } from 'preact/compat'
+import {
+  useEffect,
+  useState,
+  unmountComponentAtNode,
+  useCallback,
+} from 'preact/compat'
 import classNames from 'classnames'
 import { sanitize } from 'dompurify'
 import { Button } from '@onfido/castor-react'
@@ -17,6 +22,8 @@ import style from './style.scss'
 
 import type { StepComponentBaseProps } from '~types/routers'
 import type { ApiRawError, SuccessCallback } from '~types/api'
+import Spinner from '../Spinner'
+import useUserConsent from '~contexts/useUserConsent'
 
 type ActionsProps = {
   onAccept(): void
@@ -93,6 +100,8 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
 }) => {
   const [{ containerEl, containerId, events }] = useSdkOptions()
+  const { grantConsents } = useUserConsent()
+  const [loading, setLoading] = useState(false)
   const [consentHtml, setConsentHtml] = useState('')
   const [isModalOpen, setModalToOpen] = useState(false)
   const [isContentLoadError, setContentLoadError] = useState(false)
@@ -102,8 +111,6 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
 
   const sdkContainer =
     containerEl || document.getElementById(containerId || '') || undefined
-
-  const actions = <Actions onAccept={nextStep} onDecline={openModal} />
 
   const triggerUserExit = () => {
     events?.emit('userExit', 'USER_CONSENT_DENIED')
@@ -120,19 +127,36 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
     setContentLoadError(true)
   }
 
-  const fetchConsentFile = () =>
-    new Promise<string>((resolve, reject) => {
-      getConsentFile(resolve, reject)
-    })
-      .then(onContentLoadSuccess)
+  const fetchConsentFile = useCallback(
+    () =>
+      new Promise<string>((resolve, reject) => {
+        getConsentFile(resolve, reject)
+      })
+        .then(onContentLoadSuccess)
+        .catch(onContentLoadFailed),
+    []
+  )
+
+  const onAccept = () => {
+    setLoading(true)
+    grantConsents()
+      .then(nextStep)
       .catch(onContentLoadFailed)
+      .finally(() => setLoading(false))
+  }
 
   useEffect(() => {
     fetchConsentFile()
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [fetchConsentFile])
+
+  const actions = <Actions onAccept={onAccept} onDecline={openModal} />
 
   if (isContentLoadError) {
     return <ReloadContent onPrimaryButtonClick={fetchConsentFile} />
+  }
+
+  if (loading) {
+    return <Spinner />
   }
 
   return (

@@ -148,6 +148,15 @@ export type ValidateDocumentResponse = {
   valid: boolean
 }
 
+export type ApplicantConsent = {
+  name: string
+  granted: boolean
+}
+
+export type ApplicantConsentStatus = ApplicantConsent & {
+  required: boolean
+}
+
 /* v4 APIs */
 export type UploadBinaryMediaReponse = {
   media_id: string

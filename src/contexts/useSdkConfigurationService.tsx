@@ -21,7 +21,7 @@ const defaultConfiguration: SdkConfiguration = {
   },
 }
 
-const SdkConfigurationServiceContext = createContext<SdkConfiguration>(
+export const SdkConfigurationServiceContext = createContext<SdkConfiguration>(
   defaultConfiguration
 )
 

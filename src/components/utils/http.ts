@@ -6,7 +6,7 @@ export type HttpRequestParams = {
   headers?: Record<string, string>
   payload?: string | FormData
   token: string
-  method?: 'GET' | 'POST'
+  method?: 'GET' | 'POST' | 'PATCH'
 }
 
 export const performHttpReq = <T>(
