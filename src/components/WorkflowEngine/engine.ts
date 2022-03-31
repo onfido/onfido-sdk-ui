@@ -17,9 +17,9 @@ export interface EngineInterface {
 }
 
 export type EngineProps = {
-  token: string | undefined
+  token: string 
   workflowRunId: string
-  workflowServiceUrl: string | undefined
+  workflowServiceUrl: string
   // configuration: EngineConfiguration
 }
 

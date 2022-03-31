@@ -1,20 +1,12 @@
-import { WorkflowResponse } from '~types/api'
 import { StepConfig, StepTypes } from '~types/steps'
 import { useCallback, useState } from 'preact/hooks'
-import { completeWorkflow, getWorkflow } from '~utils/onfidoApi'
-import { poller, PollFunc } from '~utils/poller'
+
 import { formatStep } from '../../index'
 import { SdkOptions } from '~types/sdk'
 import { UrlsConfig } from '~types/commons'
 import { StepsProviderStatus, StepsProvider } from '~types/routers'
-
-const getOutcomeStep = (workflow: WorkflowResponse): StepTypes => {
-  return !workflow.has_remaining_interactive_tasks
-    ? 'complete'
-    : workflow.outcome
-    ? 'pass'
-    : 'reject'
-}
+import { CancelFunc, poller, PollFunc, Engine  } from '../WorkflowEngine'
+import type { WorkflowResponse } from '../WorkflowEngine/utils/WorkflowTypes'
 
 type StepsProviderState = {
   status: StepsProviderStatus
@@ -40,6 +32,9 @@ export const createWorkflowStepsProvider = (
   })
 
   const { taskId, status, error, steps } = state
+  const workflowServiceUrl = `${onfido_api_url}/v4`
+
+  let workflowEngine =  new Engine({ token, workflowRunId, workflowServiceUrl })
 
   const pollStep = useCallback((cb: () => void) => {
     if (!workflowRunId) return
@@ -50,11 +45,7 @@ export const createWorkflowStepsProvider = (
       let workflow: WorkflowResponse | undefined
 
       try {
-        workflow = await getWorkflow(
-          token,
-          `${onfido_api_url}/v4`,
-          workflowRunId
-        )
+        workflow = await workflowEngine.getWorkflow()
       } catch {
         setState((state) => ({
           ...state,
@@ -80,7 +71,7 @@ export const createWorkflowStepsProvider = (
           status: 'finished',
           taskId: workflow?.task_id,
           // @ts-ignore
-          steps: [formatStep(getOutcomeStep(workflow))],
+          steps: [formatStep(workflowEngine.getOutcomeStep(workflow))],
         }))
         cb()
         return
@@ -93,7 +84,7 @@ export const createWorkflowStepsProvider = (
         return
       }
 
-      const step = getWorkFlowStep(workflow.task_def_id, workflow.config) as any
+      const step = workflowEngine.getWorkFlowStep(workflow.task_def_id, workflow.config) as any
 
       if (!step) {
         return
@@ -121,10 +112,7 @@ export const createWorkflowStepsProvider = (
       }))
 
       try {
-        await completeWorkflow(
-          token,
-          `${onfido_api_url}/v4`,
-          workflowRunId,
+        await workflowEngine.completeWorkflow(
           taskId,
           undefined,
           [docData]
@@ -147,74 +135,6 @@ export const createWorkflowStepsProvider = (
     [taskId]
   )
 
-  const getWorkFlowStep = (
-    taskId: string | undefined,
-    configuration: {
-      [name: string]: unknown
-    } | null
-  ) => {
-    console.log(`requested step for task ${taskId}`)
-
-    switch (taskId) {
-      case 'upload_document':
-      case 'upload_document_photo':
-        return {
-          type: 'document',
-          options: configuration,
-        }
-      case 'upload_face_photo':
-        return {
-          type: 'face',
-          options: {
-            ...configuration,
-            requestedVariant: 'standard',
-            uploadFallback: false,
-          },
-        }
-      case 'upload_face_video':
-        return {
-          type: 'face',
-          options: {
-            ...configuration,
-            requestedVariant: 'video',
-            uploadFallback: false,
-            photoCaptureFallback: false,
-          },
-        }
-      case 'profile_data':
-        return {
-          type: 'data',
-          options: {
-            ...configuration,
-            first_name: '',
-            last_name: '',
-            // email: '',
-            dob: '',
-            address: {
-              // flat_number: '',
-              // building_number: '',
-              // building_name: '',
-              // street: '',
-              // sub_street: '',
-              // town: '',
-              postcode: '',
-              country: '',
-              state: '',
-              // state: '',
-              // line1: '',
-              // line2: '',
-              // line3: '',
-            },
-          },
-        }
-      default:
-        setState((state) => ({
-          ...state,
-          error: 'Task is currently not supported.',
-        }))
-        return
-    }
-  }
 
   const loadNextStep = useCallback(
     (cb: () => void) => {
