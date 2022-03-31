@@ -38,7 +38,7 @@ const defaultOptions: NarrowSdkOptions = {
   steps: [{ type: 'welcome' }],
 }
 
-const defaultUserConsentContextValue = {
+const defaultUserConsentContextValue: ConsentContextValue = {
   enabled: true,
   consents: [
     {
@@ -47,7 +47,7 @@ const defaultUserConsentContextValue = {
       required: true,
     },
   ],
-  grantConsents: () => Promise.resolve(),
+  updateConsents: () => Promise.resolve(),
 }
 
 describe('OptionsStepsProvider', () => {

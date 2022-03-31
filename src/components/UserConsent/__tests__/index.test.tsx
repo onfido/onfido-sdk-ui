@@ -53,7 +53,7 @@ const defaultProps: StepComponentBaseProps = {
   step: 0,
 }
 
-const mockGrantConsents = jest.fn()
+const mockUpdateConsent = jest.fn()
 
 describe('UserConsent', () => {
   beforeEach(() => {
@@ -65,7 +65,7 @@ describe('UserConsent', () => {
           value={{
             enabled: true,
             consents: [],
-            grantConsents: () => Promise.resolve().then(mockGrantConsents),
+            updateConsents: (v) => Promise.resolve(v).then(mockUpdateConsent),
           }}
         >
           <MockedLocalised>
@@ -85,9 +85,17 @@ describe('UserConsent', () => {
     expect(screen.getByRole('dialog')).toBeVisible()
   })
 
-  it('updates applicant consents', async () => {
+  it('grant applicant consents', async () => {
     userEvent.click(screen.getByText(/user_consent.button_primary/))
     expect(await screen.findByRole('progressbar')).toBeInTheDocument()
-    expect(mockGrantConsents).toHaveBeenCalled()
+    expect(mockUpdateConsent).toHaveBeenCalledWith(true)
+  })
+
+  it('reject applicant consents', async () => {
+    userEvent.click(screen.getByText(/user_consent.button_secondary/))
+    expect(screen.getByRole('dialog')).toBeVisible()
+    userEvent.click(screen.getByText(/user_consent.prompt.button_secondary/))
+    expect(await screen.findByRole('progressbar')).toBeInTheDocument()
+    expect(mockUpdateConsent).toHaveBeenCalledWith(false)
   })
 })
