@@ -255,19 +255,3 @@ export type SdkConfiguration = {
   document_capture?: DocumentCapture
   biometrics_liveness?: BiometricsLiveness
 }
-
-/* Workflows */
-export type WorkflowResponse = {
-  id: string
-  applicant_id: string
-  task_type?: 'START' | 'INTERACTIVE' | 'SYNC' | 'ASYNC' | 'FINAL' | 'CUSTOM'
-  task_id?: string | undefined
-  task_def_id?: string | undefined
-  config: {
-    [name: string]: unknown
-  } | null
-  finished: boolean
-  outcome: boolean | null
-  error: string | null
-  has_remaining_interactive_tasks: boolean
-}
