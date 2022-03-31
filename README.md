@@ -510,20 +510,6 @@ The custom options are:
 - `descriptions` ([string])
 - `nextButton` (string)
 
-#### userConsent
-
-This step is a screen to collect US end users' privacy consent for Onfido. It contains the consent language required when you offer your service to US users as well as links to Onfido's policies and terms of use. This is an optional step in the SDK flow.
-
-The user must click "Accept" to continue with the flow past this step. The content is available in English only, and is not translatable.
-
-⚠️ Note: this step does not automatically inform Onfido that the user has given their consent. At the end of the SDK flow, you still need to set the API parameter `privacy_notices_read_consent_given` outside of the SDK flow when [creating a check](#creating-checks).
-
-If you choose to disable this step, you must incorporate the required consent language and links to Onfido's policies and terms of use into your own application's flow before your user starts interacting with the Onfido SDK.
-
-For more information about this step, and how to collect user consent, please read [Onfido Privacy Notices and Consent](http://developers.onfido.com/guide/onfido-privacy-notices-and-consent).
-
-**Note**: The `userConsent` step must be used in conjunction with the `onUserExit` callback. See the [Handling Callbacks](#handling-callbacks) for more information.
-
 #### document
 
 This is the identity document capture step. Users will be asked to select the document type and its issuing country before providing images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.

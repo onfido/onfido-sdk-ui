@@ -3,10 +3,12 @@ package com.onfido.qa.websdk.test;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.UserConsent;
 import org.openqa.selenium.By;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Ignore
 public class UserConsentIT extends WebSdkIT {
 
     public static final String CONSENT_FRAME_TITLE = "Onfido's privacy statement and Terms of Service";
