@@ -235,6 +235,10 @@ export interface ExperimentalFeatures {
   enable_multi_frame_capture?: boolean
 }
 
+export interface SdkFeatures {
+  enable_applicant_consents?: boolean
+}
+
 export interface OnDeviceValidation {
   max_total_retries?: number
   threshold?: number
@@ -254,4 +258,5 @@ export type SdkConfiguration = {
   experimental_features?: ExperimentalFeatures
   document_capture?: DocumentCapture
   biometrics_liveness?: BiometricsLiveness
+  sdk_features?: SdkFeatures
 }

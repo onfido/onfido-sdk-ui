@@ -9,11 +9,15 @@ type SdkConfigurationServiceProviderProps = {
   url?: string
   token?: string
   fallback?: ComponentChildren
+  overrideConfiguration?: SdkConfiguration
 }
 
 const defaultConfiguration: SdkConfiguration = {
   experimental_features: {
     enable_multi_frame_capture: false,
+  },
+  sdk_features: {
+    enable_applicant_consents: false,
   },
 }
 
@@ -26,10 +30,13 @@ export const SdkConfigurationServiceProvider = ({
   url,
   token,
   fallback,
+  overrideConfiguration = {},
 }: SdkConfigurationServiceProviderProps) => {
   const [configuration, setConfiguration] = useState<
     SdkConfiguration | undefined
   >(undefined)
+
+  const [overrideConfigurationState] = useState(overrideConfiguration)
 
   useEffect(() => {
     if (!url || !token) {
@@ -37,10 +44,15 @@ export const SdkConfigurationServiceProvider = ({
     }
     getSdkConfiguration(url, token)
       .then((apiConfiguration) =>
-        setConfiguration(deepmerge(defaultConfiguration, apiConfiguration))
+        setConfiguration(
+          deepmerge(
+            deepmerge(defaultConfiguration, apiConfiguration),
+            overrideConfigurationState
+          )
+        )
       )
       .catch(() => setConfiguration(defaultConfiguration))
-  }, [url, token])
+  }, [url, token, overrideConfigurationState])
 
   if (!configuration) {
     return <Fragment>{fallback}</Fragment>
