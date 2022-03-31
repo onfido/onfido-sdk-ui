@@ -28,7 +28,7 @@ export type EngineConfiguration = {
 }
 
 export class Engine implements EngineInterface {
-  private engineProps: EngineProps
+  public engineProps: EngineProps
 
   constructor(engineProps: EngineProps) {
     this.engineProps = engineProps

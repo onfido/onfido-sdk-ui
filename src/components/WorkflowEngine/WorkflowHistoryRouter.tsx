@@ -33,7 +33,8 @@ import type {
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes, StepTypes } from '~types/steps'
-import { CancelFunc, poller, PollFunc, workflowEngine } from '.'
+import { CancelFunc, poller, PollFunc, Engine  } from '.'
+//import { EngineInterface, EngineProps, Engine, workflowEngine } from './engine'
 
 type State = {
   initialStep: number
@@ -195,15 +196,13 @@ export default class WorkflowHistoryRouter extends Component<
 
     // otherwise display a loading screen
     this.setState((state) => ({ ...state, loadingStep: true }))
+    let workflowEngine =  new Engine({ token, workflowRunId, workflowServiceUrl })
+  
 
     // if step has started - complete it
     if (taskId) {
       try {
-        await workflowEngine({
-          token,
-          workflowServiceUrl,
-          workflowRunId,
-        }).completeWorkflow(taskId, this.state.personalData, this.state.docData)
+        await workflowEngine.completeWorkflow(taskId, this.state.personalData, this.state.docData)
         this.clearPersonalData()
         this.clearDocData()
       } catch {
@@ -222,11 +221,7 @@ export default class WorkflowHistoryRouter extends Component<
       let workflow: WorkflowResponse | undefined
 
       try {
-        workflow = await workflowEngine({
-          workflowRunId,
-          token,
-          workflowServiceUrl,
-        }).getWorkflow()
+        workflow = await workflowEngine.getWorkflow()
       } catch {
         this.setState((state) => ({
           ...state,
@@ -257,11 +252,7 @@ export default class WorkflowHistoryRouter extends Component<
             //@ts-ignore
             steps: [
               formatStep(
-                workflowEngine({
-                  workflowRunId,
-                  token,
-                  workflowServiceUrl,
-                }).getOutcomeStep(workflow)
+                workflowEngine.getOutcomeStep(workflow)
               ),
             ],
             step: 0, // start again from 1st step,
@@ -287,11 +278,7 @@ export default class WorkflowHistoryRouter extends Component<
         return
       }
 
-      const step = workflowEngine({
-        workflowRunId,
-        token,
-        workflowServiceUrl,
-      }).getWorkFlowStep(workflow.task_def_id, workflow.config) as any
+      const step = workflowEngine.getWorkFlowStep(workflow.task_def_id, workflow.config) as any
       if (!step) {
         this.setState((state) => ({
           ...state,
