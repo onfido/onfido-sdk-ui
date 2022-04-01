@@ -230,7 +230,7 @@ export default {
         },
         sdk_features: {
           enable_on_device_face_detection: true,
-          enable_applicant_consents: false,
+          enable_require_applicant_consents: false,
         },
         validations: {
           on_device: {

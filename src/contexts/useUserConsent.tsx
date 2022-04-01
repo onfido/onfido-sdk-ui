@@ -52,7 +52,7 @@ export const UserConsentProvider = ({
     ApplicantConsentStatus[] | undefined
   >()
 
-  const enabled = sdk_features?.enable_applicant_consents ?? false
+  const enabled = sdk_features?.enable_require_applicant_consents ?? false
 
   const updateConsents = useCallback(
     (granted: boolean) => {

@@ -245,7 +245,7 @@ export interface ExperimentalFeatures {
 }
 
 export interface SdkFeatures {
-  enable_applicant_consents?: boolean
+  enable_require_applicant_consents?: boolean
 }
 
 export interface OnDeviceValidation {
