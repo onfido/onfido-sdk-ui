@@ -271,7 +271,7 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
     const { blob, filename, variant, challengeData, sdkMetadata } = capture
     this.setState({ capture })
 
-    if (method === 'document') {
+    if (method === 'document' || method === 'poa') {
       const isPoA =
         poaDocumentType && poaDocumentTypes.includes(poaDocumentType)
       const shouldPerformImageQualityValidations =

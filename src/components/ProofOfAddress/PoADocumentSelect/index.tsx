@@ -30,6 +30,7 @@ class PoADocumentSelector extends DocumentSelectorBase {
 
 const isUK = (code: string) => upperCase(code) === 'GBR'
 const isNonUK = (code: string) => upperCase(code) !== 'GBR'
+const unavailable = (code: string) => false
 
 // REFACTOR: move this into the selector as soon as the
 export const poaDocumentOptions: DocumentOptions = {
@@ -58,7 +59,7 @@ export const poaDocumentOptions: DocumentOptions = {
     labelKey: 'doc_select.button_government_letter',
     detailKey: 'doc_select.button_government_letter_detail',
     icon: 'icon-letter',
-    checkAvailableInCountry: isNonUK,
+    checkAvailableInCountry: unavailable,
   },
 }
 
