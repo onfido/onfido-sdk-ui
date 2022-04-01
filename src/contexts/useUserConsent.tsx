@@ -21,13 +21,13 @@ type ConsentProviderProps = {
 export type ConsentContextValue = {
   enabled: boolean
   consents: ApplicantConsentStatus[]
-  grantConsents: () => Promise<void>
+  updateConsents: (granted: boolean) => Promise<void>
 }
 
 export const UserConsentContext = createContext<ConsentContextValue>({
   enabled: false,
   consents: [],
-  grantConsents: Promise.resolve,
+  updateConsents: () => Promise.resolve(),
 })
 
 export const UserConsentProvider = ({
@@ -54,22 +54,25 @@ export const UserConsentProvider = ({
 
   const enabled = sdk_features?.enable_applicant_consents ?? false
 
-  const grantConsents = useCallback(() => {
-    if (!consents) {
-      throw new Error('no consents available')
-    }
+  const updateConsents = useCallback(
+    (granted: boolean) => {
+      if (!consents) {
+        throw new Error('no consents available')
+      }
 
-    if (!applicantUUID) {
-      throw new Error('applicant UUID not provided')
-    }
+      if (!applicantUUID) {
+        throw new Error('applicant UUID not provided')
+      }
 
-    const grantedConsents: ApplicantConsent[] = consents.map(({ name }) => ({
-      name,
-      granted: true,
-    }))
+      const grantedConsents: ApplicantConsent[] = consents.map(({ name }) => ({
+        name,
+        granted,
+      }))
 
-    return updateApplicantConsents(applicantUUID, grantedConsents, url, token)
-  }, [applicantUUID, consents, token, url])
+      return updateApplicantConsents(applicantUUID, grantedConsents, url, token)
+    },
+    [applicantUUID, consents, token, url]
+  )
 
   useEffect(() => {
     if (!enabled || !applicantUUID) {
@@ -96,7 +99,7 @@ export const UserConsentProvider = ({
       value={{
         enabled,
         consents,
-        grantConsents,
+        updateConsents,
       }}
     >
       {children}

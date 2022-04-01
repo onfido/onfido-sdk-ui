@@ -100,7 +100,7 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
 }) => {
   const [{ containerEl, containerId, events }] = useSdkOptions()
-  const { grantConsents } = useUserConsent()
+  const { updateConsents } = useUserConsent()
   const [loading, setLoading] = useState(false)
   const [consentHtml, setConsentHtml] = useState('')
   const [isModalOpen, setModalToOpen] = useState(false)
@@ -139,10 +139,12 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
 
   const onAccept = () => {
     setLoading(true)
-    grantConsents()
-      .then(nextStep)
-      .catch(onContentLoadFailed)
-      .finally(() => setLoading(false))
+    updateConsents(true).then(nextStep).catch(onContentLoadFailed)
+  }
+
+  const onReject = () => {
+    setLoading(true)
+    updateConsents(false).then(triggerUserExit).catch(onContentLoadFailed)
   }
 
   useEffect(() => {
@@ -165,7 +167,7 @@ const UserConsent: FunctionComponent<StepComponentBaseProps> = ({
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         onDismissModal={closeModal}
-        onAbandonFlow={triggerUserExit}
+        onAbandonFlow={onReject}
         containerEl={sdkContainer}
       />
       <ScreenLayout actions={actions} pageId={'UserConsent'}>
