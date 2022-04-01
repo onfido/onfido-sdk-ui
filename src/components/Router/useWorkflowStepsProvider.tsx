@@ -5,7 +5,7 @@ import { formatStep } from '../../index'
 import { SdkOptions } from '~types/sdk'
 import { UrlsConfig } from '~types/commons'
 import { StepsProviderStatus, StepsProvider } from '~types/routers'
-import { CancelFunc, poller, PollFunc, Engine  } from '../WorkflowEngine'
+import { CancelFunc, poller, PollFunc, Engine } from '../WorkflowEngine'
 import type { WorkflowResponse } from '../WorkflowEngine/utils/WorkflowTypes'
 
 type StepsProviderState = {
@@ -34,7 +34,7 @@ export const createWorkflowStepsProvider = (
   const { taskId, status, error, steps } = state
   const workflowServiceUrl = `${onfido_api_url}/v4`
 
-  let workflowEngine =  new Engine({ token, workflowRunId, workflowServiceUrl })
+  let workflowEngine = new Engine({ token, workflowRunId, workflowServiceUrl })
 
   const pollStep = useCallback((cb: () => void) => {
     if (!workflowRunId) return
@@ -84,9 +84,17 @@ export const createWorkflowStepsProvider = (
         return
       }
 
-      const step = workflowEngine.getWorkFlowStep(workflow.task_def_id, workflow.config) as any
+      const step = workflowEngine.getWorkFlowStep(
+        workflow.task_def_id,
+        workflow.config
+      ) as any
 
       if (!step) {
+        setState((state) => ({
+          ...state,
+          status: 'error',
+          error: 'Task is currently not supported.',
+        }))
         return
       }
 
@@ -112,11 +120,7 @@ export const createWorkflowStepsProvider = (
       }))
 
       try {
-        await workflowEngine.completeWorkflow(
-          taskId,
-          undefined,
-          [docData]
-        )
+        await workflowEngine.completeWorkflow(taskId, undefined, [docData])
         setState((state) => ({
           ...state,
           taskId: undefined,
@@ -134,7 +138,6 @@ export const createWorkflowStepsProvider = (
     },
     [taskId]
   )
-
 
   const loadNextStep = useCallback(
     (cb: () => void) => {

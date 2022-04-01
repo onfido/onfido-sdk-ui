@@ -6,7 +6,7 @@ import type {
 } from '../utils/WorkflowTypes'
 
 export class MockEngine implements EngineInterface {
-  private engineProps: EngineProps
+  public engineProps: EngineProps
 
   constructor(engineProps: EngineProps) {
     this.engineProps = engineProps
