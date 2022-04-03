@@ -350,25 +350,27 @@ const releaseComplete = () => {
 }
 
 const main = async () => {
-  welcomeMessage()
-  checkRequiredParams()
-  await checkWorkspaceIsClean()
-  await confirmReleaseVersion()
-  await confirmDocumentationCorrect()
+  // welcomeMessage()
+  // checkRequiredParams()
+  // await checkWorkspaceIsClean()
+  // await confirmReleaseVersion()
+  // await confirmDocumentationCorrect()
 
-  letsGetStarted()
+  // letsGetStarted()
 
-  await checkoutAndPullLatestCode()
-  await incrementBase32Version()
-  await checkoutOrCreateBranch()
-  await incrementPackageJsonVersion()
-  await incrementVersionInJSFiddle()
-  if (config.data.isFirstReleaseIteration) {
-    await addBase32ToMapping()
-  }
-  await npmInstallAndBuild()
+  // await checkoutAndPullLatestCode()
+  // await incrementBase32Version()
+  // await checkoutOrCreateBranch()
+  // await incrementPackageJsonVersion()
+  // await incrementVersionInJSFiddle()
+  // if (config.data.isFirstReleaseIteration) {
+    // await addBase32ToMapping()
+  // }
+  // await npmInstallAndBuild()
   await happyWithChanges()
-  await makeReleaseCommit()
+  // await makeReleaseCommit()
+
+
   await publishTag()
   await upgradeDemoAppToTag()
   if (config.data.versionRC) {

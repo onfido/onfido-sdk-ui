@@ -1,8 +1,8 @@
 {
 
         "inputs": {
-            "release_version": "1.0.87",
-            "base32_version": "AA",
+            "release_version": "6.20.0",
+            "base32_version": "DG",
             "is_lts": false
         }
 

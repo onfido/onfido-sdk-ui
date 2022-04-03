@@ -152,6 +152,7 @@ export declare type UICustomizationOptions = {
 	authFeedbackBarTextColor?: string;
 };
 export declare type DocumentSides = "front" | "back";
+export declare type ImageQualityValidationTypes = "detect_document" | "detect_cutoff" | "detect_glare" | "detect_blur";
 export declare type UploadFileResponse = {
 	id: string;
 	created_at: string;
@@ -161,17 +162,9 @@ export declare type UploadFileResponse = {
 	href: string;
 	download_href: string;
 };
-export declare type ImageQualityWarnings = {
-	detect_cutoff?: {
-		valid: boolean;
-	};
-	detect_glare?: {
-		valid: boolean;
-	};
-	detect_blur?: {
-		valid: boolean;
-	};
-};
+export declare type ImageQualityWarnings = Partial<Record<ImageQualityValidationTypes, {
+	valid: boolean;
+}>>;
 export declare type DocumentImageResponse = {
 	applicant_id: string;
 	type: DocumentTypes | PoaTypes;
@@ -205,7 +198,7 @@ export declare type EnterpriseLogoCobranding = {
 };
 export declare type EnterpriseCallbackResponse = {
 	continueWithOnfidoSubmission?: boolean;
-	onfidoSuccess?: DocumentImageResponse | UploadFileResponse | FaceVideoResponse;
+	onfidoSuccessResponse?: DocumentImageResponse | UploadFileResponse | FaceVideoResponse;
 };
 export declare type EnterpriseFeatures = {
 	hideOnfidoLogo?: boolean;
