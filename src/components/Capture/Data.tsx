@@ -19,7 +19,7 @@ import {
 import type { WithLocalisedProps } from '~types/hocs'
 import CountrySelector from './CountrySelector'
 
-import type { StepComponentDataProps } from '~types/routers'
+import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
 import { StepOptionData } from '~types/steps'
 
 type DataProps = StepComponentDataProps & {
@@ -27,7 +27,7 @@ type DataProps = StepComponentDataProps & {
   dataPath: string
   data: StepOptionData
   nextStep: () => void
-  setPersonalData: (data: StepOptionData, callback: () => void) => void
+  completeStep: (data: CompleteStepValue) => void
 } & WithLocalisedProps
 
 const Data = ({
@@ -35,7 +35,7 @@ const Data = ({
   dataPath,
   data,
   nextStep,
-  setPersonalData,
+  completeStep,
 }: DataProps): JSX.Element => {
   const [submitData, setSubmitData] = useState(data)
   const [validation, setValidation] = useState(
@@ -68,8 +68,10 @@ const Data = ({
 
   const handleSubmit = () => {
     if (validate()) {
-      if (dataPath) setPersonalData({ [dataPath]: submitData }, nextStep)
-      else setPersonalData(submitData, nextStep)
+      if (dataPath) completeStep({ [dataPath]: submitData })
+      else completeStep(submitData)
+
+      nextStep()
     }
   }
 

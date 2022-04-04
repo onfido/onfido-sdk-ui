@@ -354,11 +354,11 @@ export default class CrossDeviceMobileRouter extends Component<
     this.sendMessage('client success', { captures, docPayload })
   }
 
-  onCompleteStep = (data: unknown): void => {
+  onCompleteStep = (docData: unknown[]): void => {
     this.setState({
       ...this.state,
       // @ts-ignore
-      docPayload: [...this.state.docPayload, data],
+      docPayload: [...this.state.docPayload, ...docData],
     })
   }
 

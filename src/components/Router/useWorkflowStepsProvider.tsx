@@ -1,11 +1,15 @@
-import { StepConfig, StepTypes } from '~types/steps'
-import { useCallback, useState } from 'preact/hooks'
+import { StepConfig } from '~types/steps'
+import { useCallback, useRef, useState } from 'preact/hooks'
 
 import { formatStep } from '../../index'
 import { SdkOptions } from '~types/sdk'
 import { UrlsConfig } from '~types/commons'
-import { StepsProviderStatus, StepsProvider } from '~types/routers'
-import { CancelFunc, poller, PollFunc, Engine } from '../WorkflowEngine'
+import {
+  StepsProviderStatus,
+  StepsProvider,
+  CompleteStepValue,
+} from '~types/routers'
+import { poller, PollFunc, Engine } from '../WorkflowEngine'
 import type { WorkflowResponse } from '../WorkflowEngine/utils/WorkflowTypes'
 
 type StepsProviderState = {
@@ -32,16 +36,26 @@ export const createWorkflowStepsProvider = (
   })
 
   const { taskId, status, error, steps } = state
-  const workflowServiceUrl = `${onfido_api_url}/v4`
 
-  let workflowEngine = new Engine({ token, workflowRunId, workflowServiceUrl })
+  const docData = useRef<Array<unknown>>([])
+  const personalData = useRef({})
 
   const pollStep = useCallback((cb: () => void) => {
-    if (!workflowRunId) return
+    if (!token) {
+      throw new Error('No token provided')
+    }
+
+    if (!workflowRunId) {
+      throw new Error('No workflowRunId provided')
+    }
+
+    const workflowEngine = new Engine({
+      token,
+      workflowRunId,
+      workflowServiceUrl: `${onfido_api_url}/v4`,
+    })
 
     poller(async (poll: PollFunc) => {
-      if (!workflowRunId) return
-
       let workflow: WorkflowResponse | undefined
 
       try {
@@ -87,7 +101,7 @@ export const createWorkflowStepsProvider = (
       const step = workflowEngine.getWorkFlowStep(
         workflow.task_def_id,
         workflow.config
-      ) as any
+      )
 
       if (!step) {
         setState((state) => ({
@@ -108,46 +122,22 @@ export const createWorkflowStepsProvider = (
     })
   }, [])
 
-  const completeStep = useCallback(
-    async (docData: unknown) => {
-      if (!workflowRunId || !taskId) {
-        return
-      }
-
-      setState((state) => ({
-        ...state,
-        status: 'loading',
-      }))
-
-      try {
-        await workflowEngine.completeWorkflow(taskId, undefined, [docData])
-        setState((state) => ({
-          ...state,
-          taskId: undefined,
-          status: 'complete',
-          docData: [],
-          personalData: {},
-        }))
-      } catch {
-        setState((state) => ({
-          ...state,
-          status: 'error',
-          error: 'Could not complete workflow task.',
-        }))
-      }
-    },
-    [taskId]
-  )
+  const completeStep = useCallback((data: CompleteStepValue) => {
+    if (Array.isArray(data)) {
+      docData.current = [...docData.current, ...data]
+    } else {
+      personalData.current = { ...personalData.current, ...data }
+    }
+  }, [])
 
   const loadNextStep = useCallback(
     (cb: () => void) => {
       if (!workflowRunId) {
-        setState((state) => ({
-          ...state,
-          status: 'error',
-          error: 'Workflow run ID is not set.',
-        }))
-        return
+        throw new Error('No token provided')
+      }
+
+      if (!token) {
+        throw new Error('No token provided')
       }
 
       setState((state) => ({
@@ -155,9 +145,37 @@ export const createWorkflowStepsProvider = (
         status: 'loading',
       }))
 
-      pollStep(cb)
+      if (!taskId) {
+        pollStep(cb)
+        return
+      }
+
+      const workflowEngine = new Engine({
+        token,
+        workflowRunId,
+        workflowServiceUrl: `${onfido_api_url}/v4`,
+      })
+
+      workflowEngine
+        .completeWorkflow(taskId, personalData.current, docData.current)
+        .then(() => {
+          setState((state) => ({
+            ...state,
+            taskId: undefined,
+          }))
+          docData.current = []
+          personalData.current = {}
+        })
+        .catch(() =>
+          setState((state) => ({
+            ...state,
+            status: 'error',
+            error: 'Could not complete workflow task.',
+          }))
+        )
+        .finally(() => pollStep(cb))
     },
-    [pollStep]
+    [pollStep, docData, personalData, taskId]
   )
 
   return {

@@ -11,10 +11,7 @@ export const createOptionsStepsProvider = (
 
   return {
     loadNextStep: useCallback(() => setStatus('finished'), []),
-    completeStep: useCallback(
-      () => Promise.resolve().then(() => setStatus('complete')),
-      []
-    ),
+    completeStep: useCallback(() => ({}), []),
     error: undefined,
     status,
     steps,

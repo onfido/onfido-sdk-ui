@@ -40,8 +40,9 @@ const defaultStepComponentBaseProps: StepComponentBaseProps = {
   triggerOnError: jest.fn(),
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
-  completeStep: jest.fn().mockResolvedValue(undefined),
+  completeStep: jest.fn(),
   step: 0,
+  useStepsProvider: jest.fn(),
 }
 
 const defaultLocalisedProps: WithLocalisedProps = {

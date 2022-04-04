@@ -27,8 +27,6 @@ import type {
   GlobalState,
   CapturePayload,
 } from './redux'
-import { SdkOptions } from '~types/sdk'
-import { UrlsConfig } from './commons'
 
 // @TODO: deprecate this props to consume `useSelector` and `useDispatch` hooks instead
 export type ReduxProps = {
@@ -108,7 +106,7 @@ export type StepsRouterProps = {
   step: number
   triggerOnError: ErrorCallback
   isLoadingStep?: boolean
-  completeStep: (data: unknown) => Promise<void>
+  completeStep: (data: CompleteStepValue) => void
 } & HistoryRouterProps
 
 export type StepComponentBaseProps = {
@@ -170,11 +168,12 @@ export type StepsProviderStatus =
   | 'success'
   | 'finished'
   | 'error'
-  | 'complete'
+
+export type CompleteStepValue = unknown[] | Record<string, unknown>
 
 export type StepsProvider = () => {
   loadNextStep: (p: () => void) => void
-  completeStep: (docData: unknown) => Promise<void>
+  completeStep: (data: CompleteStepValue) => void
   status: StepsProviderStatus
   steps: StepConfig[]
   error: string | undefined

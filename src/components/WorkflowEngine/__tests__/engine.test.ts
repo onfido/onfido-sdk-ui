@@ -1,6 +1,7 @@
 import { jwtToken } from '~jest/responses'
-import { EngineInterface, EngineProps, Engine } from '../engine'
+import { Engine } from '../engine'
 import { workflowEngine } from '../'
+import { StepConfigFace } from '~types/steps'
 
 const fakeUrl = 'https://fake-api.onfido.com'
 
@@ -25,8 +26,8 @@ describe('Workflow Engine', () => {
     })
   })
 
-  describe('with Workflow Outocme', () => {
-    it('should return outcome step: "complete" ', async () => {
+  describe('with Workflow Outcome', () => {
+    it('should return outcome step: "complete"', async () => {
       const workflow = {
         id: 'Xec9013ea',
         applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
@@ -42,7 +43,7 @@ describe('Workflow Engine', () => {
       expect(outcomeStep).toEqual('complete')
     })
 
-    it('should return outcome step as: "Pass" ', async () => {
+    it('should return outcome step as: "Pass"', async () => {
       const workflow1 = {
         id: 'Xec9013ea',
         applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
@@ -58,7 +59,7 @@ describe('Workflow Engine', () => {
       expect(outcomeStep).toEqual('pass')
     })
 
-    it('should return outcome step as: "Reject" ', async () => {
+    it('should return outcome step as: "Reject"', async () => {
       const workflow2 = {
         id: 'Xec9013ea',
         applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
@@ -108,9 +109,10 @@ describe('Workflow Engine', () => {
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
         workflowFacCaptureStep.config
-      )
-      expect(workflowStep?.type).toEqual('face')
-      expect(workflowStep?.options?.requestedVariant).toEqual('standard')
+      ) as StepConfigFace
+
+      expect(workflowStep.type).toEqual('face')
+      expect(workflowStep.options?.requestedVariant).toEqual('standard')
     })
 
     it('should return face capture video Step', async () => {
@@ -123,7 +125,8 @@ describe('Workflow Engine', () => {
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
         workflowFacCaptureStep.config
-      )
+      ) as StepConfigFace
+
       expect(workflowStep?.type).toEqual('face')
       expect(workflowStep?.options?.requestedVariant).toEqual('video')
     })

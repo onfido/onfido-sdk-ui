@@ -68,8 +68,8 @@ export class Engine implements EngineInterface {
 
   completeWorkflow = async (
     taskId: string,
-    personalData?: any,
-    docData?: any
+    personalData: unknown,
+    docData: unknown[]
   ): Promise<WorkflowResponse> => {
     console.log('complete workflow call to API')
     const { token, workflowRunId, workflowServiceUrl } = this.engineProps
@@ -103,7 +103,7 @@ export class Engine implements EngineInterface {
     configuration: {
       [name: string]: unknown
     } | null
-  ) => {
+  ): StepConfig | undefined => {
     console.log(`requested step for task ${taskId}`)
     console.log(`configuration`, configuration)
 
@@ -112,7 +112,7 @@ export class Engine implements EngineInterface {
       case 'upload_document_photo':
         return {
           type: 'document',
-          options: configuration,
+          options: { ...configuration },
         }
       case 'upload_face_photo':
         return {
