@@ -6,7 +6,7 @@
     "jsx": "react",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
-    "lib": ["esnext", "dom", "dom.iterable"],
+    "lib": ["esnext", "dom"],
     "module": "es2020",
     "moduleResolution": "node",
     "noImplicitAny": true,

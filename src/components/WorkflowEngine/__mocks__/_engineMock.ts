@@ -3,6 +3,7 @@ import type {
   WorkflowResponse,
   OutcomeStepKeys,
   GetWorkflowFunc,
+  WorkflowStepConfig,
 } from '../utils/WorkflowTypes'
 
 export class MockEngine implements EngineInterface {
@@ -34,16 +35,16 @@ export class MockEngine implements EngineInterface {
       // updated_at:"2022-03-16T12:09:11.972281",
       // version_id:5,
       // workflow_id:"5600f9cc-ea4d-4d29-9d23-355005dc7946"
-      outcome: null,
-      error: null,
+      outcome: false,
+      error: 'error',
       has_remaining_interactive_tasks: true,
     }
   }
 
   completeWorkflow = async (
     taskId: string,
-    personalData?: any,
-    docData?: any
+    personalData?: unknown,
+    docData?: unknown[]
   ): Promise<WorkflowResponse> => {
     return {
       id: 'Xec9013ea',
@@ -66,9 +67,7 @@ export class MockEngine implements EngineInterface {
 
   getWorkFlowStep = (
     taskId: string | undefined,
-    configuration: {
-      [name: string]: unknown
-    } | null
+    configuration: WorkflowStepConfig
   ) => {
     switch (taskId) {
       case 'upload_document':

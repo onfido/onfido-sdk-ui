@@ -1,9 +1,5 @@
 @import '../../Theme/constants';
 @import '../../CountrySelector/style';
-//:global {
-// $flag-icon-css-path: '../../../../node_modules/flag-icon-css/flags';
-//  @import '../../../../node_modules/flag-icon-css/sass/flag-icon';
-//}
 
 .countrySelector {
   :global(.ods-select) {

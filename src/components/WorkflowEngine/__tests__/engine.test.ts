@@ -35,8 +35,8 @@ describe('Workflow Engine', () => {
         finished: true,
         task_def_id: 'upload_document_photo',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
-        outcome: null,
-        error: null,
+        outcome: undefined,
+        error: undefined,
         has_remaining_interactive_tasks: false,
       }
       const outcomeStep = workflowEngine1.getOutcomeStep(workflow)
@@ -52,7 +52,7 @@ describe('Workflow Engine', () => {
         task_def_id: 'upload_document_photo',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
         outcome: true,
-        error: null,
+        error: undefined,
         has_remaining_interactive_tasks: true,
       }
       const outcomeStep = workflowEngine1.getOutcomeStep(workflow1)
@@ -67,8 +67,8 @@ describe('Workflow Engine', () => {
         finished: true,
         task_def_id: 'upload_document_photo',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
-        outcome: false,
-        error: null,
+        outcome: undefined,
+        error: undefined,
         has_remaining_interactive_tasks: true,
       }
       const outcomeStep = workflowEngine1.getOutcomeStep(workflow2)

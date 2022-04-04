@@ -2,7 +2,7 @@ import { WithTrackingProps } from '~types/hocs'
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'
-import Data from './Data'
+import ProfileData from './ProfileData'
 import withCaptureVariant from './withCaptureVariant'
 
 export const DocumentFrontCapture = appendToTracking(
@@ -42,4 +42,4 @@ export const FaceVideoCapture = appendToTracking(
   'face_video_capture'
 )
 
-export const DataCapture = appendToTracking(Data, 'data_capture')
+export const DataCapture = appendToTracking(ProfileData, 'data_capture')

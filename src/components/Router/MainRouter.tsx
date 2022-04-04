@@ -37,10 +37,7 @@ type State = {
 }
 
 export default class MainRouter extends Component<InternalRouterProps, State> {
-  useWorkflowRun = (): boolean => {
-    const { useWorkflow } = this.props.options
-    return !!useWorkflow
-  }
+  useWorkflowRun = () => !!this.props.options.useWorkflow
 
   generateMobileConfig = (): MobileConfig => {
     const {
@@ -63,7 +60,6 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       customUI,
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
-      useWorkflow,
     } = options
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
     if (!steps) {

@@ -30,6 +30,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added individual analytics `*_upload_started` & `*_upload_completed` events for all uploads
 - Internal: Fixed behavior for analytics event `CUSTOM_API_REQUEST_COMPLETED` & added `CUSTOM_API_REQUEST_COMPLETED`
 - Internal: Updated `integratorTrackedEvents` with multiple triggers for `UPLOAD` to reflect analytics upload events changes
+- Internal: Upgrade `minimist` to v1.2.6
+- Internal: Set `acceptSslCerts` to `true` for browserstack CI test to avoid "This connection is not private" screens
 
 ### Fixed
 
@@ -56,13 +58,31 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Update `multipleSelfieCapture` feature to ensure snapshot is taken at a different time than the selfie
 - Internal: Migrate `SdkConfiguration` to `v3.3`
 
-## [7.0.0-alpha.2] - 2022-02-08
+## [6.18.0] - 2022-02-28
 
-- Minor fixes
+### Added
 
-## [7.0.0-alpha.0] - 2022-02-01
+- Public: Updated supported documents list to include Curaçao and other countries.
 
-- Original solution added
+### Changed
+
+- Internal: Added `SdkConfigurationServiceProvider` and `useSdkConfigurationService` to retrieve and use feature flags.
+- Vastly dereased bundle size by not publishing "webpack visualizer" files to NPM.
+- Internal: Added new analytics events for confirmation errors
+- Internal: Added new analytics events for camera, upload, http requests and sms errors
+- Internal: Update FaceTec SDK on Auth step from `9.3.4` to `9.4.5`. Removed 3 hardcoded custom properties defined on Auth component UI.
+- Internal: Added events for video preview and face video recording/next buttons
+- Internal: Added new analytics events for custom callbacks
+- Internal: Prevent analytics events without mapping from being send to our api
+- Public: Update documentation for custom callbacks
+
+### Fixed
+
+- UI: Fixed Stick Hover State for buttons on iOS Safari
+- Public: Fix locale key mismatch for the title of the `CAMERA_NOT_WORKING_NO_FALLBACK` error
+- Internal: Upgrade `eventemitter2` to v2.2.2
+- Public: Fix usage of `removeAllListeners` in `ModalApp`
+- Public: Fixed CSS variables naming for internal tokens
 
 ## [6.17.0] - 2022-01-24
 

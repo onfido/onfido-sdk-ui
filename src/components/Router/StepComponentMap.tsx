@@ -196,19 +196,9 @@ const buildDataComponents = (
         title="address_detials_title"
         dataPath="address"
         data={{
-          // flat_number: dataStep?.options?.address?.flat_number,
-          // building_number: dataStep?.options?.address?.building_number,
-          // building_name: dataStep?.options?.address?.building_name,
-          // street: dataStep?.options?.address?.street,
-          // sub_street: dataStep?.options?.address?.sub_street,
-          // town: dataStep?.options?.address?.town,
           postcode: dataStep?.options?.address?.postcode,
           country: dataStep?.options?.address?.country,
           state: dataStep?.options?.address?.state,
-          // state: dataStep?.options?.address?.state,
-          // line1: dataStep?.options?.address?.line1,
-          // line2: dataStep?.options?.address?.line2,
-          // line3: dataStep?.options?.address?.line3,
         }}
         {...props}
       />

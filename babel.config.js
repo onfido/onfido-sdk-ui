@@ -1,4 +1,5 @@
 // can't be `.babelrc` because Jest won't work with it: https://github.com/facebook/jest/issues/10256
+
 module.exports = {
   sourceMaps: true,
   presets: [

@@ -158,8 +158,8 @@ export type StepperState = {
   taskId: string | null
   completed: boolean
   serviceError: string | null
-  personalData: any
-  docData: any
+  personalData: unknown
+  docData: unknown[]
 }
 
 export type StepsProviderStatus =

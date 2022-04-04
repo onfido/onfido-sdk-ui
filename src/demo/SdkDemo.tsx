@@ -29,7 +29,7 @@ const SdkDemo: FunctionComponent<Props> = ({
   sdkOptions,
   viewOptions,
 }) => {
-  const [workflow, setWorkflow] = useState<any>(null)
+  const [workflow, setWorkflow] = useState<any>(undefined)
   const [token, setToken] = useState<string | undefined>(undefined)
   const [tokenUrl, setTokenUrl] = useState<string | undefined>(undefined)
   const [regionCode, setRegionCode] = useState<ServerRegions | undefined>(

@@ -1819,15 +1819,6 @@
     "path": "node_modules/agent-base",
     "licenseFile": "node_modules/agent-base/README.md"
   },
-  "agent-base@6.0.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/TooTallNate/node-agent-base",
-    "publisher": "Nathan Rajlich",
-    "email": "nathan@tootallnate.net",
-    "url": "http://n8.io/",
-    "path": "node_modules/chromedriver/node_modules/agent-base",
-    "licenseFile": "node_modules/chromedriver/node_modules/agent-base/README.md"
-  },
   "aggregate-error@3.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/aggregate-error",
@@ -3965,8 +3956,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@istanbuljs/load-nyc-config/node_modules/find-up",
-    "licenseFile": "node_modules/@istanbuljs/load-nyc-config/node_modules/find-up/license"
+    "path": "node_modules/yargs/node_modules/find-up",
+    "licenseFile": "node_modules/yargs/node_modules/find-up/license"
   },
   "find-up@5.0.0": {
     "licenses": "MIT",
@@ -4343,12 +4334,12 @@
     "path": "node_modules/grunt-known-options",
     "licenseFile": "node_modules/grunt-known-options/LICENSE"
   },
-  "gzip-size@5.1.1": {
+  "gzip-size@6.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/sindresorhus/gzip-size",
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com",
+    "url": "https://sindresorhus.com",
     "path": "node_modules/gzip-size",
     "licenseFile": "node_modules/gzip-size/license"
   },
@@ -4467,15 +4458,6 @@
     "url": "https://github.com/doowb",
     "path": "node_modules/homedir-polyfill",
     "licenseFile": "node_modules/homedir-polyfill/LICENSE"
-  },
-  "hoopy@0.1.4": {
-    "licenses": "MIT",
-    "repository": "git+https://gitlab.com/philbooth/hoopy",
-    "publisher": "Phil Booth",
-    "email": "pmbooth@gmail.com",
-    "url": "https://philbooth.me/",
-    "path": "node_modules/hoopy",
-    "licenseFile": "node_modules/hoopy/LICENSE"
   },
   "hosted-git-info@2.8.9": {
     "licenses": "ISC",
@@ -5661,8 +5643,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@istanbuljs/load-nyc-config/node_modules/locate-path",
-    "licenseFile": "node_modules/@istanbuljs/load-nyc-config/node_modules/locate-path/license"
+    "path": "node_modules/yargs/node_modules/locate-path",
+    "licenseFile": "node_modules/yargs/node_modules/locate-path/license"
   },
   "locate-path@6.0.0": {
     "licenses": "MIT",
@@ -6564,8 +6546,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@istanbuljs/load-nyc-config/node_modules/p-locate",
-    "licenseFile": "node_modules/@istanbuljs/load-nyc-config/node_modules/p-locate/license"
+    "path": "node_modules/yargs/node_modules/p-locate",
+    "licenseFile": "node_modules/yargs/node_modules/p-locate/license"
   },
   "p-locate@5.0.0": {
     "licenses": "MIT",
@@ -6723,8 +6705,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/@istanbuljs/load-nyc-config/node_modules/path-exists",
-    "licenseFile": "node_modules/@istanbuljs/load-nyc-config/node_modules/path-exists/license"
+    "path": "node_modules/yargs/node_modules/path-exists",
+    "licenseFile": "node_modules/yargs/node_modules/path-exists/license"
   },
   "path-is-absolute@1.0.1": {
     "licenses": "MIT",
@@ -7953,6 +7935,15 @@
     "path": "node_modules/signal-exit",
     "licenseFile": "node_modules/signal-exit/LICENSE.txt"
   },
+  "sirv@1.0.17": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lukeed/sirv",
+    "publisher": "Luke Edwards",
+    "email": "luke@lukeed.com",
+    "url": "https://lukeed.com",
+    "path": "node_modules/sirv",
+    "licenseFile": "node_modules/sirv/readme.md"
+  },
   "sisteransi@1.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/terkelg/sisteransi",
@@ -8801,14 +8792,6 @@
     "email": "opensrc@ryanzim.com",
     "path": "node_modules/universalify",
     "licenseFile": "node_modules/universalify/LICENSE"
-  },
-  "universalify@2.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/RyanZim/universalify",
-    "publisher": "Ryan Zimmerman",
-    "email": "opensrc@ryanzim.com",
-    "path": "node_modules/fs-extra/node_modules/universalify",
-    "licenseFile": "node_modules/fs-extra/node_modules/universalify/LICENSE"
   },
   "unpipe@1.0.0": {
     "licenses": "MIT",

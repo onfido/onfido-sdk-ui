@@ -1,16 +1,13 @@
-import type { StepConfig } from '~types/steps'
 export type GetWorkflowFunc = () => Promise<WorkflowResponse>
 export type CompleteWorkflowFunc = (
   taskId: string,
-  personalData?: any,
-  docData?: any
+  personalData?: unknown,
+  docData?: unknown[]
 ) => Promise<WorkflowResponse>
 
 export type GetFlowStepFunc = (
   taskId: string | undefined,
-  configuration: {
-    [name: string]: unknown
-  } | null
+  configuration: WorkflowStepConfig
 ) => unknown
 
 export type WorklowTaskStepKeys = string
@@ -21,13 +18,17 @@ export type WorkflowResponse = {
   id: string
   applicant_id: string
   task_type?: 'START' | 'INTERACTIVE' | 'SYNC' | 'ASYNC' | 'FINAL' | 'CUSTOM'
-  task_id?: string | undefined
+  task_id?: string
   task_def_id?: string | undefined
-  config: {
-    [name: string]: unknown
-  } | null
+  config: WorkflowStepConfig
   finished: boolean
-  outcome: boolean | null
-  error: string | null
+  outcome: boolean | undefined
+  error: string | undefined
   has_remaining_interactive_tasks: boolean
 }
+
+export type WorkflowStepConfig =
+  | {
+      [name: string]: unknown
+    }
+  | undefined

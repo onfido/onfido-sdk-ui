@@ -7,6 +7,7 @@ import type {
   GetWorkflowFunc,
   CompleteWorkflowFunc,
   GetFlowStepFunc,
+  WorkflowStepConfig,
 } from './utils/WorkflowTypes'
 
 export interface EngineInterface {
@@ -20,7 +21,6 @@ export type EngineProps = {
   token: string | undefined
   workflowRunId: string | undefined
   workflowServiceUrl: string
-  // configuration: EngineConfiguration
 }
 
 export type EngineConfiguration = {
@@ -44,6 +44,10 @@ export class Engine implements EngineInterface {
 
   getWorkflow: GetWorkflowFunc = async (): Promise<WorkflowResponse> => {
     const { token, workflowRunId, workflowServiceUrl } = this.engineProps
+    if (!token) {
+      throw new Error('token not provided')
+    }
+
     return new Promise((resolve, reject) => {
       try {
         const requestParams: HttpRequestParams = {
@@ -69,10 +73,15 @@ export class Engine implements EngineInterface {
   completeWorkflow = async (
     taskId: string,
     personalData: unknown,
-    docData: unknown[]
+    docData: unknown[] | undefined
   ): Promise<WorkflowResponse> => {
     console.log('complete workflow call to API')
     const { token, workflowRunId, workflowServiceUrl } = this.engineProps
+
+    if (!token) {
+      throw new Error('token not provided')
+    }
+
     return new Promise((resolve, reject) => {
       try {
         const requestParams: HttpRequestParams = {
@@ -80,7 +89,7 @@ export class Engine implements EngineInterface {
           contentType: 'application/json',
           payload: JSON.stringify({
             task_id: taskId,
-            data: docData.length ? docData : personalData || {},
+            data: docData?.length ? docData : personalData || {},
           }),
           endpoint: `${workflowServiceUrl}/workflow_runs/${workflowRunId}/complete`,
         }
@@ -100,9 +109,7 @@ export class Engine implements EngineInterface {
 
   getWorkFlowStep = (
     taskId: string | undefined,
-    configuration: {
-      [name: string]: unknown
-    } | null
+    configuration: WorkflowStepConfig
   ): StepConfig | undefined => {
     console.log(`requested step for task ${taskId}`)
     console.log(`configuration`, configuration)
@@ -147,22 +154,11 @@ export class Engine implements EngineInterface {
             ...configuration,
             first_name: '',
             last_name: '',
-            // email: '',
             dob: '',
             address: {
-              // flat_number: '',
-              // building_number: '',
-              // building_name: '',
-              // street: '',
-              // sub_street: '',
-              // town: '',
               postcode: '',
               country: '',
               state: '',
-              // state: '',
-              // line1: '',
-              // line2: '',
-              // line3: '',
             },
           },
         }

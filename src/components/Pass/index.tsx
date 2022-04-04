@@ -3,15 +3,24 @@ import { trackComponent } from '../../Tracker'
 import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
 import { localised } from '../../locales'
+import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import { StepComponentBaseProps } from '~types/routers'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-class Pass extends Component {
+type Props = {
+  nextStep?: () => void
+} & WithLocalisedProps &
+  WithTrackingProps &
+  StepComponentBaseProps
+
+class Pass extends Component<Props> {
   componentDidMount() {
     this.props.nextStep()
   }
 
-  render({ translate }) {
+  render() {
+    const { translate } = this.props
     const title = translate('workflow_complete.pass.title')
     const body = translate('workflow_complete.pass.description')
 

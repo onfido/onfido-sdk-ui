@@ -1,4 +1,0 @@
-{
-  "extends": "../../babel.config.js",
-  "plugins": ["auto-await"]
-}

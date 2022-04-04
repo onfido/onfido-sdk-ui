@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import { useState } from 'preact/compat'
 import { useLocales } from '~locales'
 import { color } from '@onfido/castor'
@@ -22,7 +22,7 @@ import CountrySelector from './CountrySelector'
 import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
 import { StepOptionData } from '~types/steps'
 
-type DataProps = StepComponentDataProps & {
+type ProfileDataProps = StepComponentDataProps & {
   title: string
   dataPath: string
   data: StepOptionData
@@ -30,13 +30,13 @@ type DataProps = StepComponentDataProps & {
   completeStep: (data: CompleteStepValue) => void
 } & WithLocalisedProps
 
-const Data = ({
+const ProfileData = ({
   title,
   dataPath,
   data,
   nextStep,
   completeStep,
-}: DataProps): JSX.Element => {
+}: ProfileDataProps) => {
   const [submitData, setSubmitData] = useState(data)
   const [validation, setValidation] = useState(
     Object.fromEntries(Object.entries(data).map(([key]) => [key, false]))
@@ -101,7 +101,6 @@ const Data = ({
                 <CountrySelector
                   value={`${value}`}
                   error={validation[key]}
-                  required
                   onChange={(value: string) => handleChange(key, value)}
                 />
               ) : (
@@ -136,4 +135,4 @@ const getType = (key: string) => {
   }
 }
 
-export default Data
+export default ProfileData

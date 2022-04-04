@@ -189,7 +189,7 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
   onApiSuccess = (
     apiResponse: DocumentImageResponse | FaceVideoResponse | UploadFileResponse
   ) => {
-    const { method, nextStep, completeStep, actions } = this.props
+    const { nextStep, completeStep, actions } = this.props
     const { capture } = this.state
 
     actions.setCaptureMetadata({ capture, apiResponse })

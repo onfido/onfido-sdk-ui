@@ -1,41 +1,63 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import { useState } from 'preact/compat'
-import Autocomplete from 'accessible-autocomplete/preact'
-import { localised } from '~locales'
 import { omit } from 'lodash/fp'
+import { localised } from '~locales'
+import Autocomplete from 'accessible-autocomplete/preact'
+
+import { useLocales } from '~locales'
 import { allCountriesList, countryTranslations } from './countries'
 import { IconChevronDown } from '@onfido/castor-icons'
 import { getCountryFlagSrc } from '~supported-documents'
+import type { WithLocalisedProps } from '~types/hocs'
 import styles from '../../CountrySelector/style.scss'
+import { appendToTracking } from 'Tracker'
 
-const getCountryOptionTemplate = (country) => {
+type CountryData = {
+  countryCode: string
+  labelKey?: string
+  isoAlpha3: string
+  label?: string
+}
+
+type Props = {
+  value: string | undefined
+  error: boolean
+  onChange: (value: string) => void
+} & WithLocalisedProps
+
+const getCountryOptionTemplate = (country: CountryData) => {
   if (country) {
     const countryCode = country.countryCode
     const countryFlagSrc = getCountryFlagSrc(countryCode, 'square')
     return `<i
-      role="presentation"
-      class="${styles.countryFlag}"
-      style="background-image: url(${countryFlagSrc})"></i>
-      <span class="${styles.countryLabel}">${country.label}</span>`
+        role="presentation"
+        class="${styles.countryFlag}"
+        style="background-image: url(${countryFlagSrc})"></i>
+        <span class="${styles.countryLabel}">${country.label}</span>`
   }
   return ''
 }
 
-const options = allCountriesList.map((country) => ({
+const options = allCountriesList.map((country: CountryData) => ({
   ...omit('labelKey', country),
+  //@ts-ignore
   label: countryTranslations[country.labelKey.replace('countriesList.', '')],
 }))
 
-const CountrySelector = ({ value, error, onChange, ...props }) => {
-  const { translate } = props
-  const [currentValue, setCurrentValue] = useState()
+const CountrySelector: FunctionComponent<Props> = ({
+  value,
+  error,
+  onChange,
+}) => {
+  const { translate } = useLocales()
+  const [currentValue, setCurrentValue] = useState('')
 
-  const handleChange = (selectedCountry) => {
+  const handleChange = (selectedCountry: CountryData) => {
     setCurrentValue(selectedCountry.isoAlpha3)
     onChange?.(selectedCountry.isoAlpha3)
   }
 
-  const suggestCountries = (query, populateResults) => {
+  const suggestCountries = (query: string, populateResults: any) => {
     const filteredResults = options.filter((result) => {
       const country = result.label
       return country.toLowerCase().includes(query.trim().toLowerCase())
@@ -57,8 +79,9 @@ const CountrySelector = ({ value, error, onChange, ...props }) => {
         displayMenu="overlay"
         cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
         templates={{
-          inputValue: (country) => country?.label,
-          suggestion: (country) => getCountryOptionTemplate(country),
+          inputValue: (country: CountryData) => country?.label,
+          suggestion: (country: CountryData) =>
+            getCountryOptionTemplate(country),
         }}
         onConfirm={handleChange}
         confirmOnBlur={false}
