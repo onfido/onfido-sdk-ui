@@ -191,7 +191,7 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
   ) => {
     const { method, nextStep, completeStep, actions } = this.props
     const { capture } = this.state
-    
+
     actions.setCaptureMetadata({ capture, apiResponse })
 
     const imageQualityWarning = this.onImageQualityWarning(
