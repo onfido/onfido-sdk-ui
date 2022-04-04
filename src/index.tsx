@@ -1,15 +1,13 @@
 import { h, render } from 'preact'
-/* eslint-disable-next-line @typescript-eslint/no-var-requires */
-const labels = require('react-phone-number-input/locale/en.json')
-
+import labels from 'react-phone-number-input/locale/en.json'
 import 'custom-event-polyfill'
 
-// TODO: These IE11 polyfills are missing in `development` after the Typescript conversion.
-//       But on PRs where the components that use these Array methods have been converted the polyfills seem to be included.
-//       Should be fine to remove when those PRs are merged in eventually.
-import 'array-flat-polyfill'
+// Note: IE11 needs a couple of polyfills on top of being compiled to es5
 import 'core-js/es/object/entries'
 import 'core-js/es/object/from-entries'
+import 'core-js/stable/url'
+import 'core-js/stable/array'
+import 'whatwg-fetch'
 
 import { noop } from '~utils/func'
 import { upperCase } from '~utils/string'

@@ -25,7 +25,7 @@ export type ExtendedStepConfig =
   | StepConfig
   | { type: typeof STEP_CROSS_DEVICE; options?: never }
 
-export type CaptureMethods = 'document' | 'face' | 'auth' | 'data'
+export type CaptureMethods = 'poa' | 'document' | 'face' | 'auth' | 'data'
 
 export type CaptureMethodVariants = 'live' | 'html5'
 
@@ -133,6 +133,7 @@ export type MobileConfig = {
   token?: string
   urls: UrlsConfig
   woopraCookie?: string | null
+  anonymousUuid?: string
   customUI: UICustomizationOptions | null
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string

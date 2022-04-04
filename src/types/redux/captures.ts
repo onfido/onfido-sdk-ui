@@ -82,6 +82,7 @@ export type CaptureState = {
   document_front?: DocumentCapture & MetadataState
   document_back?: DocumentCapture & MetadataState
   document_video?: DocumentCapture & MetadataState
+  poa?: DocumentCapture & MetadataState
   face?: FaceCapture & MetadataState
   data?: DataCapture & MetadataState
   // Timestamps of all the images taken within the current session
@@ -91,6 +92,8 @@ export type CaptureState = {
     document_video: string[]
     face: string[]
     data: string[]
+    poa: string[]
+
     // Fields for backwards-compatible with other capture state
     id?: never
     metadata?: never

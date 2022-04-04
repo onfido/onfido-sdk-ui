@@ -45,7 +45,7 @@ const DocumentMultiFrame = ({
   onCapture,
   side,
 }: DocumentMultiFrameProps) => {
-  const webcamRef = useRef<Webcam>()
+  const webcamRef = useRef<Webcam | null>(null)
 
   const { nextRecordState, nextStep, recordState } = useMultiFrameCaptureStep()
 
@@ -95,17 +95,19 @@ const DocumentMultiFrame = ({
   }, [recordState, photoPayload, videoPayload, onCapture])
 
   const onRecordingStart = () => {
-    screenshot(webcamRef.current, (blob, sdkMetadata) => {
-      setPhotoPayload(
-        appendFileName(
-          {
-            blob,
-            sdkMetadata,
-          },
-          side
+    if (webcamRef.current) {
+      screenshot(webcamRef.current, (blob, sdkMetadata) => {
+        setPhotoPayload(
+          appendFileName(
+            {
+              blob,
+              sdkMetadata,
+            },
+            side
+          )
         )
-      )
-    })
+      })
+    }
   }
 
   const onVideoCapture: HandleCaptureProp = (payload) => {

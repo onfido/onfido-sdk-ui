@@ -16,7 +16,7 @@ const Onfido = require('../index')
 import * as Onfido from '../index'
 */
 
-const Onfido = window.Onfido
+const Onfido = window.Onfido || window.OnfidoAuth
 /* 
   NOTE: For Auth local build, if you get a TypeError in the console saying "Cannot read property 'init' of undefined" 
         try using a different import method like import * as Onfido from '../index'

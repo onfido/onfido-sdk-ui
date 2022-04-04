@@ -5,10 +5,7 @@ import Webcam from 'react-webcam-onfido'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 import Camera from '../../Camera'
-import VideoCapture, {
-  Props as VideoCaptureProps,
-  VideoOverlayProps,
-} from '../index'
+import VideoCapture, { VideoCaptureProps, VideoOverlayProps } from '../index'
 
 import type { CameraProps } from '~types/camera'
 import type { CaptureMethods } from '~types/commons'

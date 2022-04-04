@@ -44,9 +44,7 @@ In order to start integrating, you'll need an [API token](https://documentation.
 
 You can use our [sandbox](https://documentation.onfido.com/#sandbox-testing) environment to test your integration. To use the sandbox, you'll need to generate a sandbox API token in your [Onfido Dashboard](https://onfido.com/dashboard/api/tokens).
 
-⚠️ **Note: You must never use API tokens in the frontend of your
-application or malicious users could discover them in your source code. You
-should only use them on your server.**
+⚠️ **Note: You must never use API tokens in the frontend of your application or malicious users could discover them in your source code. You should only use them on your server.**
 
 #### 1.1 Regions
 
@@ -264,6 +262,10 @@ For the face step an object is returned with the `variant` used for the face cap
          "id": "<DOCUMENT_ID_BACK>",
          "type": "driving_licence",
          "side": "back"
+       },
+       "poa": {
+         "id": "<POA_DOCUMENT_ID>"
+         "type": "utility_bill"
        }
     }
 ```
@@ -480,7 +482,7 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   language: 'es_ES' | 'es'
   ```
 
-  #### Custom lanugages
+  #### Custom languages
 
   The SDK can also be displayed in a custom language for locales that Onfido does not currently support. To implement this, pass an object containing the following keys:
 
@@ -741,8 +743,6 @@ options: {
   }
 }
 ```
-
-**The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.**
 
 #### face
 

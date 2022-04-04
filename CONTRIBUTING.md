@@ -19,7 +19,7 @@ To start contributing to the Onfido Web SDK, clone this repository and run the f
 
 The SDK will be running on https://localhost:8080.
 
-Note: The SDK runs on `https`, which is needed to support the camera functionality.
+Note: The SDK runs on `https`, which is needed to support the camera functionality. When using chrome you can enable `chrome://flags/#allow-insecure-localhost` to allow requests to localhost over HTTPS even when an invalid certificate is presented.
 
 You can also run it using `docker` and `docker-compose` by running the following command: `docker-compose -f docker-compose.dev.yml up`.
 

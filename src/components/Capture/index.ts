@@ -1,3 +1,4 @@
+import { WithTrackingProps } from '~types/hocs'
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'

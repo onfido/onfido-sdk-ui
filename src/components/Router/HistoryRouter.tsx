@@ -202,6 +202,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       'document_back',
       'face',
       'data',
+      'poa',
     ]
     const data: SdkResponse = Object.entries(captures)
       .filter(([key, value]) => key !== 'takesHistory' && value != null)

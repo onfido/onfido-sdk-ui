@@ -8,7 +8,53 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [7.0.0-alpha.3] - 2022-02-09
+### Changed
+
+- Internal: Upgraded to webpack 5
+- Internal: Upgraded `eslint`, `mocha`, `jest`
+- Internal: Resolved all deprecated & vulnerability issues by removing and upgrading packages
+- Internal: Added more pollyfills for IE11
+- Internal: Upgraded `react-webcam-onfido` to `1.0.0`
+- Internal: Removed `dist` & `lib` from repo and added to `.gitignore` file
+- Public: Removed `*.LICENSE.txt` files from `lib` & `dist`, see `licenses.json` instead
+- Public: Fixed `CrossDeviceInfo` screen layout to prevent scrolling
+- Public: Merged `dist/onfido.vendors~crossDevice.min.js` into `dist/onfido.crossDevice.min.js`
+- Public: Merged `dist/onfidoAuth.6.min.js` to `onfidoAuth.min.js`
+- Public: Rearranged `dependencies` & `devDependencies` in `package.json` to reflect correct usage
+- Internal: `CrossDeviceMobileRouter` always connects to desktop to gather the config
+- Public: Added a cookie with anonymous uuid for analytics purposes
+- Internal: Upgrade `minimist` to `v1.2.6` to fix vulnerability
+- Public: Added a "microphone & camera" permission screen
+- Internal: Handle errors by callback instead of `throw` for `requestChallenges` and `postToBackend`
+- Internal: Migrated `ClientSuccess` to typescript
+- Internal: Added individual analytics `*_upload_started` & `*_upload_completed` events for all uploads
+- Internal: Fixed behavior for analytics event `CUSTOM_API_REQUEST_COMPLETED` & added `CUSTOM_API_REQUEST_COMPLETED`
+- Internal: Updated `integratorTrackedEvents` with multiple triggers for `UPLOAD` to reflect analytics upload events changes
+
+### Fixed
+
+- Internal: Set ideal photo width for selfie step to ensure consistency across mobile devices
+- Internal: Prevent Face step (variant: video) from falling back to selfie upon camera error when `uploadFallback: false` is provided
+- Internal: Remove duplicated config and strip out custom locales from analytics events
+- Public: Fix issue where `poa` and `document` steps cannot be used at the same time. Adds `poa` key to `onComplete` callback.
+
+## [6.19.0] - 2022-03-14
+
+### Fixed
+
+- Public: Add compatibility with Salesforce
+- Public: Add type `DocumentTypes` to `DocumentResponse`
+- Internal: Migrated `NavigationBar` to typescript
+- Internal: Migrated `Pannable` to typescript
+- Internal: Migrated `QRCode` to typescript
+- Internal: Migrated `PhoneNumberInput` to typescript
+- Internal: Migrated `locales/polyglot` to typescript
+
+### Changed
+
+- Internal: Refactor selfie capture step to ensure camera is ready before enabling any capture
+- Internal: Update `multipleSelfieCapture` feature to ensure snapshot is taken at a different time than the selfie
+- Internal: Migrate `SdkConfiguration` to `v3.3`
 
 ## [7.0.0-alpha.2] - 2022-02-08
 
@@ -1167,7 +1213,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.19.0...development
+[6.19.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...6.19.0
 [6.18.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.17.0...6.18.0
 [6.17.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...6.17.0
 [6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.16.0

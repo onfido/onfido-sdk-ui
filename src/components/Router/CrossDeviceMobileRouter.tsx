@@ -13,7 +13,13 @@ import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 
-import { setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
+import {
+  setupAnalyticsCookie,
+  setWoopraCookie,
+  trackException,
+  uninstallAnalyticsCookie,
+  uninstallWoopra,
+} from '../../Tracker'
 import { LocaleProvider } from '~locales'
 import { HistoryRouter } from './HistoryRouter'
 
@@ -102,9 +108,6 @@ export default class CrossDeviceMobileRouter extends Component<
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
     const url = props.urls.sync_url
-
-    // TODO: review this change
-
     const roomId = props.options.roomId || window.location.pathname.substring(3)
 
     this.state = {
@@ -119,12 +122,8 @@ export default class CrossDeviceMobileRouter extends Component<
       docPayload: [],
     }
 
-    if (RESTRICTED_CROSS_DEVICE && isDesktop) {
-      this.setError('FORBIDDEN_CLIENT_ERROR')
-      return
-    }
-
     this.state.socket.on('config', this.setUpHostedSDKWithMobileConfig)
+
     this.state.socket.on('connect', () => {
       this.state.socket.emit('join', { roomId: this.state.roomId })
     })
@@ -204,6 +203,7 @@ export default class CrossDeviceMobileRouter extends Component<
       token,
       urls,
       woopraCookie,
+      anonymousUuid,
       customUI,
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
@@ -212,9 +212,11 @@ export default class CrossDeviceMobileRouter extends Component<
     } = data
     if (disableAnalytics) {
       uninstallWoopra()
+      uninstallAnalyticsCookie(this.props.actions.setAnonymousUuid)
     } else if (woopraCookie) {
       this.props.actions.setAnalyticsSessionUuid(analyticsSessionUuid)
       setWoopraCookie(woopraCookie)
+      setupAnalyticsCookie(this.props.actions.setAnonymousUuid, anonymousUuid)
     }
 
     if (!token) {
@@ -244,6 +246,11 @@ export default class CrossDeviceMobileRouter extends Component<
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
     )
+
+    if (RESTRICTED_CROSS_DEVICE && isDesktop) {
+      this.setError('FORBIDDEN_CLIENT_ERROR')
+      return
+    }
 
     if (token) {
       this.props.actions.setToken(token)
