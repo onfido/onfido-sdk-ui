@@ -8,6 +8,7 @@ import { localised } from '~locales'
 import {
   getSupportedCountriesForDocument,
   getCountryFlagSrc,
+  getSupportedCountriesForProofOfAddress,
 } from '~supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags, preventDefaultOnClick } from '~utils'
@@ -53,17 +54,32 @@ class CountrySelection extends Component<Props, State> {
   }
 
   handleCountrySearchConfirm = (selectedCountry: CountryData) => {
-    const { actions, idDocumentIssuingCountry } = this.props
+    const {
+      actions,
+      idDocumentIssuingCountry,
+      poaDocumentCountry,
+      documentType,
+    } = this.props
+
+    const hasNoIssuingCountry =
+      !selectedCountry &&
+      (!idDocumentIssuingCountry || !idDocumentIssuingCountry.country_alpha3)
+
+    const hasNoPoaCountry =
+      !selectedCountry &&
+      (!poaDocumentCountry || !poaDocumentCountry.country_alpha3)
+
     if (selectedCountry) {
       this.setState({
         showNoResultsError: false,
       })
-      actions.setIdDocumentIssuingCountry(selectedCountry)
+      if (documentType) {
+        actions.setIdDocumentIssuingCountry(selectedCountry)
+      } else {
+        actions.setPoADocumentCountry(selectedCountry)
+      }
       setTimeout(() => document.getElementById('country-search')?.blur(), 0)
-    } else if (
-      !selectedCountry &&
-      (!idDocumentIssuingCountry || !idDocumentIssuingCountry.country_alpha3)
-    ) {
+    } else if (hasNoIssuingCountry && hasNoPoaCountry) {
       this.setState({
         showNoResultsError: true,
       })
@@ -74,12 +90,33 @@ class CountrySelection extends Component<Props, State> {
     query = '',
     populateResults: (results: CountryData[]) => string[]
   ) => {
-    const { documentType, idDocumentIssuingCountry, actions } = this.props
-    if (idDocumentIssuingCountry && query !== idDocumentIssuingCountry.name) {
+    const {
+      documentType,
+      idDocumentIssuingCountry,
+      poaDocumentCountry,
+      actions,
+    } = this.props
+
+    if (
+      documentType &&
+      idDocumentIssuingCountry &&
+      query !== idDocumentIssuingCountry.name
+    ) {
       actions.resetIdDocumentIssuingCountry()
     }
 
-    const countries = getSupportedCountriesForDocument(documentType)
+    if (
+      !documentType &&
+      poaDocumentCountry &&
+      query !== poaDocumentCountry.name
+    ) {
+      actions.resetPoADocumentCountry()
+    }
+
+    const countries = documentType
+      ? getSupportedCountriesForDocument(documentType)
+      : getSupportedCountriesForProofOfAddress()
+
     const filteredResults = countries.filter((result) => {
       const country = result.name
       return country.toLowerCase().includes(query.trim().toLowerCase())
@@ -104,6 +141,9 @@ class CountrySelection extends Component<Props, State> {
   componentDidMount() {
     if (this.props.idDocumentIssuingCountry) {
       this.props.actions.resetIdDocumentIssuingCountry()
+    }
+    if (this.props.poaDocumentCountry) {
+      this.props.actions.resetPoADocumentCountry()
     }
     document.addEventListener('mousedown', this.handleMenuMouseClick)
   }
@@ -168,7 +208,18 @@ class CountrySelection extends Component<Props, State> {
   }
 
   render() {
-    const { translate, nextStep, idDocumentIssuingCountry } = this.props
+    const {
+      translate,
+      nextStep,
+      idDocumentIssuingCountry,
+      poaDocumentCountry,
+    } = this.props
+
+    const hasNoIssuingCountry =
+      !idDocumentIssuingCountry || !idDocumentIssuingCountry.country_alpha3
+
+    const hasNoPoaCountry =
+      !poaDocumentCountry || !poaDocumentCountry.country_alpha3
 
     return (
       <ScreenLayout
@@ -178,8 +229,7 @@ class CountrySelection extends Component<Props, State> {
             variant="primary"
             className={classNames(theme['button-centered'], theme['button-lg'])}
             disabled={
-              !idDocumentIssuingCountry ||
-              !idDocumentIssuingCountry.country_alpha3 ||
+              (hasNoIssuingCountry && hasNoPoaCountry) ||
               this.state.showNoResultsError
             }
             onClick={nextStep}

@@ -5,6 +5,7 @@ export const initialState: GlobalState = {
   currentStepType: undefined,
   documentType: undefined,
   idDocumentIssuingCountry: undefined,
+  poaDocumentCountry: undefined,
   poaDocumentType: undefined,
   roomId: undefined,
   socket: undefined,
@@ -77,6 +78,12 @@ export default function globals(
       return {
         ...state,
         poaDocumentType: action.payload,
+      }
+
+    case constants.SET_POA_DOCUMENT_COUNTRY:
+      return {
+        ...state,
+        poaDocumentCountry: action.payload,
       }
 
     case constants.SET_ROOM_ID:

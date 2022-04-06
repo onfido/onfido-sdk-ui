@@ -376,6 +376,7 @@ const buildPoaComponents = (
   isFirstCaptureStepInFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
   const preCaptureComponents = [
+    CountrySelector,
     PoAClientIntro,
     PoADocumentSelector,
     Guidance as ComponentType<StepComponentProps>,

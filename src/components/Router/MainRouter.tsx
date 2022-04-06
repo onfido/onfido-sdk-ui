@@ -38,6 +38,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     const {
       documentType,
       idDocumentIssuingCountry,
+      poaDocumentCountry,
       poaDocumentType,
       deviceHasCameraSupport,
       options,
@@ -75,6 +76,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
       idDocumentIssuingCountry,
+      poaDocumentCountry,
       language,
       poaDocumentType,
       step: crossDeviceInitialStep,

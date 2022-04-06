@@ -124,6 +124,7 @@ export type MobileConfig = {
   documentType?: DocumentTypes
   enterpriseFeatures?: EnterpriseFeatures
   idDocumentIssuingCountry?: CountryData
+  poaDocumentCountry?: CountryData
   language?: SupportedLanguages | LocaleConfig
   poaDocumentType?: PoaTypes
   step?: number

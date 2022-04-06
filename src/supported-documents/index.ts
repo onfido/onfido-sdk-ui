@@ -2,6 +2,7 @@
 const supportedDrivingLicences = require('./supported-docs-driving_licence.json')
 const supportedNationalIDCards = require('./supported-docs-national_identity_card.json')
 const supportedResidencePermit = require('./supported-docs-residence_permit.json')
+const supportedProofOfAddress = require('./supported-countries-poa.json')
 
 import type { CountryData } from '~types/commons'
 import type { DocumentTypes } from '~types/steps'
@@ -42,6 +43,30 @@ export const getCountryDataForDocumentType = (
     return country
   }
   return null
+}
+
+export const getSupportedCountriesForProofOfAddress = (): CountryData[] => {
+  const countriesList: CountryData[] = supportedProofOfAddress.map(
+    (countryData: {
+      country_alpha2: string
+      country_alpha3: string
+      country: string
+    }) => {
+      return {
+        country_alpha2: countryData.country_alpha2,
+        country_alpha3: countryData.country_alpha3,
+        name: countryData.country,
+      }
+    }
+  )
+
+  const uniqueCountriesList = [
+    ...new Map(
+      countriesList.map((country) => [country.country_alpha3, country])
+    ).values(),
+  ]
+
+  return uniqueCountriesList.sort((a, b) => a.name.localeCompare(b.name))
 }
 
 export const getSupportedCountriesForDocument = (

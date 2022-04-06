@@ -42,7 +42,7 @@ export const CROSS_DEVICE_INTRO_LOCALES_MAPPING = {
 }
 
 export const DOCUMENT_CAPTURE_LOCALES_MAPPING: Record<
-  DocumentTypes | PoaTypes,
+  DocumentTypes,
   CaptureLocale
 > = {
   passport: {
@@ -81,6 +81,9 @@ export const DOCUMENT_CAPTURE_LOCALES_MAPPING: Record<
       body: 'photo_upload.body_permit_back',
     },
   },
+}
+
+export const POA_CAPTURE_LOCALES_MAPPING: Record<PoaTypes, CaptureLocale> = {
   bank_building_society_statement: {
     front: {
       title: 'doc_submit.title_bank_statement',

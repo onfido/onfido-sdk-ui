@@ -30,24 +30,16 @@ import type {
   RenderFallbackProp,
   StepComponentDocumentProps,
 } from '~types/routers'
-import type { DocumentTypes, PoaTypes } from '~types/steps'
+import type { DocumentTypes } from '~types/steps'
 import DocumentMultiFrame from 'components/DocumentMultiFrame'
 import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
 
 const EXCEPTIONS = {
-  DOC_TYPE_NOT_PROVIDED: 'Neither documentType nor poaDocumentType provided',
+  DOC_TYPE_NOT_PROVIDED: 'documentType was not provided',
   CAPTURE_SIDE_NOT_PROVIDED: 'Capture side was not provided',
 }
 
-const getDocumentType = (
-  isPoA?: boolean,
-  documentType?: DocumentTypes,
-  poaDocumentType?: PoaTypes
-): DocumentTypes | PoaTypes => {
-  if (isPoA && poaDocumentType) {
-    return poaDocumentType
-  }
-
+const getDocumentType = (documentType?: DocumentTypes): DocumentTypes => {
   if (documentType) {
     return documentType
   }
@@ -63,21 +55,13 @@ const Document = (props: Props) => {
   const sdkConfiguration = useSdkConfigurationService()
 
   const handlePhotoCapture: HandleCaptureProp = (payload) => {
-    const {
-      actions,
-      documentType,
-      isPoA,
-      mobileFlow,
-      nextStep,
-      poaDocumentType,
-      side,
-    } = props
+    const { actions, documentType, mobileFlow, nextStep, side } = props
 
     const documentCaptureData: DocumentCapture = {
       ...payload,
-      documentType: getDocumentType(isPoA, documentType, poaDocumentType),
+      documentType: getDocumentType(documentType),
       id: payload.id || randomId(),
-      method: isPoA ? 'poa' : 'document',
+      method: 'document',
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
       side,
       variant: 'standard',
@@ -205,8 +189,6 @@ const Document = (props: Props) => {
   const {
     documentType,
     hasCamera,
-    isPoA,
-    poaDocumentType,
     requestedVariant,
     side,
     trackScreen,
@@ -241,9 +223,8 @@ const Document = (props: Props) => {
   }
 
   const title = translate(
-    DOCUMENT_CAPTURE_LOCALES_MAPPING[
-      getDocumentType(isPoA, documentType, poaDocumentType)
-    ][side]?.title || ''
+    DOCUMENT_CAPTURE_LOCALES_MAPPING[getDocumentType(documentType)][side]
+      ?.title || ''
   )
   const propsWithErrorHandling = {
     ...props,
@@ -306,9 +287,8 @@ const Document = (props: Props) => {
   // @ts-ignore
   const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
   const instructions = translate(
-    DOCUMENT_CAPTURE_LOCALES_MAPPING[
-      getDocumentType(isPoA, documentType, poaDocumentType)
-    ][side]?.body || ''
+    DOCUMENT_CAPTURE_LOCALES_MAPPING[getDocumentType(documentType)][side]
+      ?.body || ''
   )
 
   return (

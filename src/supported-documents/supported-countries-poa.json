@@ -1,0 +1,247 @@
+[
+	{
+		"country_alpha3": "GBR",
+		"country_alpha2": "GB",
+		"country": "United Kingdom of Great Britain and Northern Ireland",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill",
+			"council_tax",
+			"benefit_letters"
+		]
+	},
+	{
+		"country_alpha3": "AUT",
+		"country_alpha2": "AT",
+		"country": "Austria",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "BEL",
+		"country_alpha2": "BE",
+		"country": "Belgium",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "HRV",
+		"country_alpha2": "HR",
+		"country": "Croatia",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "CZE",
+		"country_alpha2": "CZ",
+		"country": "Czech Republic",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "DNK",
+		"country_alpha2": "DK",
+		"country": "Denmark",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "EST",
+		"country_alpha2": "EE",
+		"country": "Estonia",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "FIN",
+		"country_alpha2": "FI",
+		"country": "Finland",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "FRA",
+		"country_alpha2": "FR",
+		"country": "France",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "DEU",
+		"country_alpha2": "DE",
+		"country": "Germany",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "HUN",
+		"country_alpha2": "HU",
+		"country": "Hungary",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "IRL",
+		"country_alpha2": "IE",
+		"country": "Ireland",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "ITA",
+		"country_alpha2": "IT",
+		"country": "Italy",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "LVA",
+		"country_alpha2": "LV",
+		"country": "Latvia",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "LTU",
+		"country_alpha2": "LT",
+		"country": "Lithuania",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "LUX",
+		"country_alpha2": "LU",
+		"country": "Luxembourg",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "MLT",
+		"country_alpha2": "MT",
+		"country": "Malta",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "NLD",
+		"country_alpha2": "NL",
+		"country": "Netherlands",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "POL",
+		"country_alpha2": "PL",
+		"country": "Poland",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "PRT",
+		"country_alpha2": "PT",
+		"country": "Portugal",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "ROU",
+		"country_alpha2": "RO",
+		"country": "Romania",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "SVK",
+		"country_alpha2": "SK",
+		"country": "Slovakia",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "SVN",
+		"country_alpha2": "SI",
+		"country": "Slovenia",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "ESP",
+		"country_alpha2": "ES",
+		"country": "Spain",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "SWE",
+		"country_alpha2": "SE",
+		"country": "Sweden",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "USA",
+		"country_alpha2": "US",
+		"country": "United States of America",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	},
+	{
+		"country_alpha3": "CAN",
+		"country_alpha2": "CA",
+		"country": "Canada",
+		"document_types": [
+			"bank_building_society_statement",
+			"utility_bill"
+		]
+	}
+]

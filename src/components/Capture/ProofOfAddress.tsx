@@ -1,15 +1,13 @@
 import { h } from 'preact'
 
-import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
+import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { validateFile } from '~utils/file'
-import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
+import { POA_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 
 import { appendToTracking, trackException } from '../../Tracker'
 import { useLocales } from '~locales'
-import DocumentVideo from '../DocumentVideo'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
-import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
@@ -18,38 +16,25 @@ import FallbackButton from '../Button/FallbackButton'
 import theme from '../Theme/style.scss'
 
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
-import style from './style.scss'
 
 import type { ImageResizeInfo } from '~types/commons'
 import type { WithCaptureVariantProps } from '~types/hocs'
 import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
-  HandleDocMultiFrameCaptureProp,
-  HandleDocVideoCaptureProp,
   RenderFallbackProp,
   StepComponentDocumentProps,
 } from '~types/routers'
-import type { DocumentTypes, PoaTypes } from '~types/steps'
-import DocumentMultiFrame from 'components/DocumentMultiFrame'
-import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
+import type { PoaTypes } from '~types/steps'
 
 const EXCEPTIONS = {
-  DOC_TYPE_NOT_PROVIDED: 'Neither documentType nor poaDocumentType provided',
+  DOC_TYPE_NOT_PROVIDED: 'poaDocumentType was not provided',
   CAPTURE_SIDE_NOT_PROVIDED: 'Capture side was not provided',
 }
 
-const getDocumentType = (
-  isPoA?: boolean,
-  documentType?: DocumentTypes,
-  poaDocumentType?: PoaTypes
-): DocumentTypes | PoaTypes => {
-  if (isPoA && poaDocumentType) {
+const getDocumentType = (poaDocumentType?: PoaTypes): PoaTypes => {
+  if (poaDocumentType) {
     return poaDocumentType
-  }
-
-  if (documentType) {
-    return documentType
   }
 
   trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
@@ -60,109 +45,19 @@ type Props = StepComponentDocumentProps & WithCaptureVariantProps
 
 const Document = (props: Props) => {
   const { translate } = useLocales()
-  const sdkConfiguration = useSdkConfigurationService()
 
   const handlePhotoCapture: HandleCaptureProp = (payload) => {
-    const {
-      actions,
-      documentType,
-      isPoA,
-      mobileFlow,
-      nextStep,
-      poaDocumentType,
-      side,
-    } = props
+    const { actions, mobileFlow, nextStep, poaDocumentType } = props
 
     const documentCaptureData: DocumentCapture = {
       ...payload,
-      documentType: getDocumentType(isPoA, documentType, poaDocumentType),
+      documentType: getDocumentType(poaDocumentType),
       id: payload.id || randomId(),
-      method: isPoA ? 'poa' : 'document',
+      method: 'poa',
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
-      side,
       variant: 'standard',
     }
     actions.createCapture(documentCaptureData)
-
-    nextStep()
-  }
-
-  const handleVideoCapture: HandleDocVideoCaptureProp = (payload) => {
-    const { actions, documentType, mobileFlow, nextStep } = props
-    const { video, front, back } = payload
-
-    if (!documentType) {
-      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
-      throw new Error('documentType not provided')
-    }
-
-    const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
-      documentType,
-      method: 'document',
-      sdkMetadata: addDeviceRelatedProperties(
-        video?.sdkMetadata || {},
-        mobileFlow
-      ),
-    }
-
-    actions.createCapture({
-      ...front,
-      ...baseData,
-      id: randomId(),
-      side: 'front',
-    })
-
-    if (back) {
-      actions.createCapture({
-        ...back,
-        ...baseData,
-        id: randomId(),
-        side: 'back',
-      })
-    }
-
-    actions.createCapture({
-      ...video,
-      ...baseData,
-      id: randomId(),
-      variant: 'video',
-    })
-
-    nextStep()
-  }
-
-  const handleMultiFrameCapture: HandleDocMultiFrameCaptureProp = (payload) => {
-    const { actions, documentType, mobileFlow, side, nextStep } = props
-    const { video, photo } = payload
-
-    if (!documentType) {
-      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
-      throw new Error('documentType not provided')
-    }
-
-    const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
-      documentType,
-      method: 'document',
-      sdkMetadata: addDeviceRelatedProperties(
-        video?.sdkMetadata || {},
-        mobileFlow
-      ),
-    }
-
-    actions.createCapture({
-      ...photo,
-      ...baseData,
-      id: randomId(),
-      side,
-    })
-
-    actions.createCapture({
-      ...video,
-      ...baseData,
-      id: randomId(),
-      variant: 'video',
-      side,
-    })
 
     nextStep()
   }
@@ -202,38 +97,11 @@ const Document = (props: Props) => {
     )
   }
 
-  const {
-    documentType,
-    hasCamera,
-    isPoA,
-    poaDocumentType,
-    requestedVariant,
-    side,
-    trackScreen,
-    uploadFallback = true,
-    useLiveDocumentCapture,
-    useWebcam,
-  } = props
+  const { hasCamera, poaDocumentType, useWebcam, side } = props
 
   const renderFallback = isDesktop
     ? renderCrossDeviceFallback
     : renderUploadFallback
-
-  if (hasCamera && requestedVariant === 'video') {
-    if (!documentType) {
-      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
-      throw new Error('documentType not provided')
-    }
-
-    return (
-      <DocumentVideo
-        documentType={documentType}
-        onCapture={handleVideoCapture}
-        renderFallback={renderFallback}
-        trackScreen={trackScreen}
-      />
-    )
-  }
 
   if (!side) {
     trackException(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
@@ -241,9 +109,8 @@ const Document = (props: Props) => {
   }
 
   const title = translate(
-    DOCUMENT_CAPTURE_LOCALES_MAPPING[
-      getDocumentType(isPoA, documentType, poaDocumentType)
-    ][side]?.title || ''
+    POA_CAPTURE_LOCALES_MAPPING[getDocumentType(poaDocumentType)][side]
+      ?.title || ''
   )
   const propsWithErrorHandling = {
     ...props,
@@ -251,8 +118,6 @@ const Document = (props: Props) => {
     onError: handleError,
   }
   const renderTitle = <PageTitle title={title} smaller />
-  const enableLiveDocumentCapture =
-    useLiveDocumentCapture && (!isDesktop || isHybrid)
 
   if (hasCamera && useWebcam) {
     return (
@@ -261,37 +126,6 @@ const Document = (props: Props) => {
         renderFallback={renderFallback}
         renderTitle={renderTitle}
         onValidCapture={handlePhotoCapture}
-      />
-    )
-  }
-
-  if (hasCamera && enableLiveDocumentCapture) {
-    if (!documentType) {
-      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
-      throw new Error('documentType not provided')
-    }
-
-    if (sdkConfiguration.experimental_features?.enable_multi_frame_capture) {
-      return (
-        <DocumentMultiFrame
-          documentType={documentType}
-          onCapture={handleMultiFrameCapture}
-          renderFallback={renderFallback}
-          trackScreen={trackScreen}
-          side={side}
-        />
-      )
-    }
-
-    return (
-      <DocumentLiveCapture
-        containerClassName={style.liveDocumentContainer}
-        documentType={documentType}
-        isUploadFallbackDisabled={!uploadFallback}
-        onCapture={handlePhotoCapture}
-        renderFallback={renderFallback}
-        renderTitle={renderTitle}
-        trackScreen={trackScreen}
       />
     )
   }
@@ -306,9 +140,8 @@ const Document = (props: Props) => {
   // @ts-ignore
   const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
   const instructions = translate(
-    DOCUMENT_CAPTURE_LOCALES_MAPPING[
-      getDocumentType(isPoA, documentType, poaDocumentType)
-    ][side]?.body || ''
+    POA_CAPTURE_LOCALES_MAPPING[getDocumentType(poaDocumentType)][side]?.body ||
+      ''
   )
 
   return (
