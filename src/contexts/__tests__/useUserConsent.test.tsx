@@ -5,7 +5,7 @@ import { SdkConfigurationServiceContext } from '~contexts/useSdkConfigurationSer
 
 const applicantConsents = [
   {
-    name: 'privacy_notices_read_consent_given',
+    name: 'privacy_notices_read',
     granted: false,
     required: true,
   },

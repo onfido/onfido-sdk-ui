@@ -11,7 +11,7 @@ import {
   useState,
 } from 'preact/compat'
 import { ComponentChildren, createContext, Fragment, h } from 'preact'
-import { ApplicantConsent, ApplicantConsentStatus } from '~types/api'
+import { ApplicantConsentStatus } from '~types/api'
 import { getPayloadFromJWT } from '~utils/jwt'
 import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
 
@@ -97,9 +97,15 @@ export const UserConsentProvider = ({
       updateApplicantLocation(applicantUUID, url, token),
     ])
       .then(([response]) => setConsents(response))
-      .catch(() => {
-        throw new Error('unable to start consent process')
-      })
+      .catch(() =>
+        setConsents([
+          {
+            name: 'privacy_notices_read',
+            granted: false,
+            required: true,
+          },
+        ])
+      )
   }, [url, token, applicantUUID, enabled])
 
   if (!consents) {
