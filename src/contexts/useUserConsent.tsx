@@ -1,4 +1,8 @@
-import { getApplicantConsents, updateApplicantConsents } from '~utils/onfidoApi'
+import {
+  getApplicantConsents,
+  updateApplicantConsents,
+  updateApplicantLocation,
+} from '~utils/onfidoApi'
 import {
   useCallback,
   useContext,
@@ -89,8 +93,8 @@ export const UserConsentProvider = ({
     }
 
     Promise.all([
-      getApplicantConsents(url, token, applicantUUID),
-      updateApplicantConsents(applicantUUID, undefined, url, token),
+      getApplicantConsents(applicantUUID, url, token),
+      updateApplicantLocation(applicantUUID, url, token),
     ])
       .then(([response]) => setConsents(response))
       .catch(() => {
