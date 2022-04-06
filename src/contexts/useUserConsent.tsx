@@ -92,11 +92,9 @@ export const UserConsentProvider = ({
       return
     }
 
-    Promise.all([
-      getApplicantConsents(applicantUUID, url, token),
-      updateApplicantLocation(applicantUUID, url, token),
-    ])
-      .then(([response]) => setConsents(response))
+    updateApplicantLocation(applicantUUID, url, token)
+      .then(() => getApplicantConsents(applicantUUID, url, token))
+      .then((applicantConsents) => setConsents(applicantConsents))
       .catch(() =>
         setConsents([
           {
