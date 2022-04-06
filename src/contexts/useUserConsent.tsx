@@ -50,7 +50,7 @@ export const UserConsentProvider = ({
 
   const [consents, setConsents] = useState<
     ApplicantConsentStatus[] | undefined
-  >()
+  >(undefined)
 
   const enabled = sdk_features?.enable_require_applicant_consents ?? false
 
@@ -64,12 +64,20 @@ export const UserConsentProvider = ({
         throw new Error('applicant UUID not provided')
       }
 
-      const grantedConsents: ApplicantConsent[] = consents.map(({ name }) => ({
-        name,
-        granted,
-      }))
+      const grantedConsents: ApplicantConsentStatus[] = consents.map(
+        ({ name, required }) => ({
+          name,
+          granted,
+          required,
+        })
+      )
 
-      return updateApplicantConsents(applicantUUID, grantedConsents, url, token)
+      return updateApplicantConsents(
+        applicantUUID,
+        grantedConsents,
+        url,
+        token
+      ).then(() => setConsents(grantedConsents))
     },
     [applicantUUID, consents, token, url]
   )

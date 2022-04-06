@@ -126,12 +126,23 @@ export default class HistoryRouter extends Component<
   nextStep = (): void => {
     const { step: currentStep } = this.state
     const componentsList = this.getComponentsList()
-    const newStepIndex = currentStep + 1
-    if (componentsList.length === newStepIndex) {
+
+    const nextStepComponent = componentsList
+      .slice(currentStep + 1)
+      .find((c) => !c.step.options?.skip)
+
+    if (!nextStepComponent) {
       this.triggerOnComplete()
     } else {
-      this.setStepIndex(newStepIndex)
-      const newStepType = componentsList[newStepIndex].step.type
+      const newStepIndex = componentsList.indexOf(nextStepComponent)
+
+      this.setStepIndex(
+        newStepIndex,
+        undefined,
+        nextStepComponent.step.options?.excludeFromHistory
+      )
+
+      const newStepType = nextStepComponent.step.type
       const isNewStepType = this.props.currentStepType !== newStepType
       if (isNewStepType) {
         this.props.actions.setCurrentStepType(newStepType)
@@ -211,15 +222,11 @@ export default class HistoryRouter extends Component<
     excludeStepFromHistory?: boolean
   ): void => {
     const { flow: currentFlow } = this.state
-    const { steps } = this.props
     const newState = {
       step: newStepIndex,
       flow: newFlow || currentFlow,
     }
-    if (
-      excludeStepFromHistory ||
-      steps[newStepIndex]?.options?.excludeFromHistory
-    ) {
+    if (excludeStepFromHistory) {
       this.setState(newState)
     } else {
       const path = `${location.pathname}${location.search}${location.hash}`

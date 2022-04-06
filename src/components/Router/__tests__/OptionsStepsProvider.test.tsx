@@ -86,36 +86,4 @@ describe('OptionsStepsProvider', () => {
     )
     verifyUserConsentStepIndex(-1)
   })
-
-  it('does not add "userConsent" step if there is no consent to grand', async () => {
-    render(
-      <Wrapper
-        userConsentContextValue={{
-          ...defaultUserConsentContextValue,
-          consents: [],
-        }}
-        options={{ ...defaultOptions }}
-      />
-    )
-    verifyUserConsentStepIndex(-1)
-  })
-
-  it('does not add "userConsent" step if all consents are already granted', async () => {
-    render(
-      <Wrapper
-        userConsentContextValue={{
-          ...defaultUserConsentContextValue,
-          consents: [
-            {
-              name: 'privacy_notices_read_consent_given',
-              granted: true,
-              required: true,
-            },
-          ],
-        }}
-        options={defaultOptions}
-      />
-    )
-    verifyUserConsentStepIndex(-1)
-  })
 })
