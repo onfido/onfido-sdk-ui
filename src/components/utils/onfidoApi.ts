@@ -319,30 +319,20 @@ export const getApplicantConsents = (
   }
 
   const options: HttpRequestParams = {
-    endpoint: `${url}/v3/applicants/${applicantUUID}/consents`,
+    endpoint: `${url}/v3.3/applicants/${applicantUUID}/consents`,
     contentType: 'application/json',
     token: `Bearer ${token}`,
     method: 'GET',
   }
 
-  return new Promise<ApplicantConsentStatus[]>((resolve) =>
-    setTimeout(
-      () =>
-        resolve([
-          {
-            name: 'privacy_notices_read_consent_given',
-            granted: false,
-            required: true,
-          },
-        ]),
-      2000
-    )
-  )
+  return new Promise<ApplicantConsentStatus[]>((resolve, reject) => {
+    performHttpReq(options, resolve, (request) => formatError(request, reject))
+  })
 }
 
 export const updateApplicantConsents = (
   applicantUUID: string,
-  applicantConsents?: ApplicantConsent[],
+  applicantConsents: ApplicantConsent[],
   url?: string,
   token?: string
 ): Promise<void> => {
@@ -355,16 +345,41 @@ export const updateApplicantConsents = (
   }
 
   const options: HttpRequestParams = {
-    endpoint: `${url}/v3/applicants/${applicantUUID}`,
-    payload: applicantConsents
-      ? JSON.stringify({ consents: applicantConsents })
-      : undefined,
+    endpoint: `${url}/v3.3/applicants/${applicantUUID}/consents`,
+    payload: JSON.stringify(applicantConsents),
     contentType: 'application/json',
     token: `Bearer ${token}`,
     method: 'PATCH',
   }
 
-  return new Promise<void>((r) => setTimeout(r, 2000))
+  return new Promise((resolve, reject) => {
+    performHttpReq(options, resolve, (request) => formatError(request, reject))
+  })
+}
+
+export const updateApplicantLocation = (
+  applicantUUID: string,
+  url?: string,
+  token?: string
+): Promise<void> => {
+  if (!url) {
+    throw new Error('onfido_api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
+  const options: HttpRequestParams = {
+    endpoint: `${url}/v3.3/applicants/${applicantUUID}/location`,
+    contentType: 'application/json',
+    token: `Bearer ${token}`,
+    method: 'PATCH',
+  }
+
+  return new Promise<void>((resolve, reject) => {
+    performHttpReq(options, resolve, (request) => formatError(request, reject))
+  })
 }
 
 export const uploadBinaryMedia = (

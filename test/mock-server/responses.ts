@@ -242,6 +242,13 @@ export default {
           },
         },
       },
+      applicant_consents: [
+        {
+          name: 'privacy_notices_read_consent_given',
+          granted: false,
+          required: true,
+        },
+      ],
     },
     v4: {
       binary_media: {

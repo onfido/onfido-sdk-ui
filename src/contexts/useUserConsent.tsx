@@ -1,4 +1,8 @@
-import { getApplicantConsents, updateApplicantConsents } from '~utils/onfidoApi'
+import {
+  getApplicantConsents,
+  updateApplicantConsents,
+  updateApplicantLocation,
+} from '~utils/onfidoApi'
 import {
   useCallback,
   useContext,
@@ -64,7 +68,7 @@ export const UserConsentProvider = ({
         throw new Error('applicant UUID not provided')
       }
 
-      const grantedConsents: ApplicantConsentStatus[] = consents.map(
+      const grantedConsentsStatus: ApplicantConsentStatus[] = consents.map(
         ({ name, required }) => ({
           name,
           granted,
@@ -72,12 +76,17 @@ export const UserConsentProvider = ({
         })
       )
 
+      const grantedConsents: ApplicantConsent[] = consents.map(({ name }) => ({
+        name,
+        granted,
+      }))
+
       return updateApplicantConsents(
         applicantUUID,
         grantedConsents,
         url,
         token
-      ).then(() => setConsents(grantedConsents))
+      ).then(() => setConsents(grantedConsentsStatus))
     },
     [applicantUUID, consents, token, url]
   )
@@ -88,14 +97,18 @@ export const UserConsentProvider = ({
       return
     }
 
-    Promise.all([
-      getApplicantConsents(url, token, applicantUUID),
-      updateApplicantConsents(applicantUUID, undefined, url, token),
-    ])
-      .then(([response]) => setConsents(response))
-      .catch(() => {
-        throw new Error('unable to start consent process')
-      })
+    updateApplicantLocation(applicantUUID, url, token)
+      .then(() => getApplicantConsents(applicantUUID, url, token))
+      .then((applicantConsents) => setConsents(applicantConsents))
+      .catch(() =>
+        setConsents([
+          {
+            name: 'privacy_notices_read',
+            granted: false,
+            required: true,
+          },
+        ])
+      )
   }, [url, token, applicantUUID, enabled])
 
   if (!consents) {
