@@ -37,6 +37,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Prevent Face step (variant: video) from falling back to selfie upon camera error when `uploadFallback: false` is provided
 - Internal: Remove duplicated config and strip out custom locales from analytics events
 - Public: Fix issue where `poa` and `document` steps cannot be used at the same time. Adds `poa` key to `onComplete` callback.
+- Public: Fix mis-aligned text for IE11 on Welcome screen
+- Internal: Fix polyglot to hide missing locales and add warning when in development
 
 ## [6.19.0] - 2022-03-14
 
