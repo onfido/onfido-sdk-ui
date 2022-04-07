@@ -33,6 +33,7 @@ import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '~supported-documents'
 
 import type {
+  CountryData,
   ExtendedStepConfig,
   ExtendedStepTypes,
   FlowVariants,
@@ -68,9 +69,11 @@ export const buildComponentsList = ({
   steps,
   mobileFlow,
   deviceHasCameraSupport,
+  poaDocumentCountry,
 }: {
   flow: FlowVariants
   documentType: DocumentTypes | undefined
+  poaDocumentCountry?: CountryData | undefined
   steps: StepConfig[]
   mobileFlow?: boolean
   deviceHasCameraSupport?: boolean
@@ -80,6 +83,7 @@ export const buildComponentsList = ({
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
         buildCaptureStepComponents(
+          poaDocumentCountry,
           documentType,
           mobileFlow,
           steps,
@@ -114,6 +118,7 @@ const shouldUseCameraForDocumentCapture = (
 }
 
 const buildCaptureStepComponents = (
+  poaDocumentCountry: CountryData | undefined,
   documentType: DocumentTypes | undefined,
   mobileFlow: boolean | undefined,
   steps: StepConfig[],
@@ -157,7 +162,13 @@ const buildCaptureStepComponents = (
         firstCaptureStepType === 'document'
       ),
     ],
-    poa: [...buildPoaComponents(mobileFlow, firstCaptureStepType === 'poa')],
+    poa: [
+      ...buildPoaComponents(
+        poaDocumentCountry,
+        mobileFlow,
+        firstCaptureStepType === 'poa'
+      ),
+    ],
     complete,
   }
 }
@@ -372,12 +383,13 @@ const buildDocumentComponents = (
 }
 
 const buildPoaComponents = (
+  poaDocumentCountry: CountryData | undefined,
   mobileFlow: boolean | undefined,
   isFirstCaptureStepInFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
   const preCaptureComponents = [
-    CountrySelector,
     PoAClientIntro,
+    CountrySelector,
     PoADocumentSelector,
     Guidance as ComponentType<StepComponentProps>,
   ]

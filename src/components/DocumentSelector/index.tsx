@@ -25,11 +25,15 @@ export type Props = {
 // See https://documentation.onfido.com/#document-types
 export abstract class DocumentSelectorBase extends Component<Props> {
   private defaultOptions: DocumentOptionsType[] | undefined = undefined
+  protected country: string | undefined = undefined
 
   private getOptions = (
     translate: (key: string, options?: Record<string, unknown>) => string
   ) => {
-    const { documentTypes, country = 'GBR' } = this.props
+    const { documentTypes, country } = this.props
+    const countryCode = country || this.country || 'GBR'
+
+    console.log('Props: ', this.props)
 
     if (!this.defaultOptions) {
       this.defaultOptions = generateDefaultOptions(
@@ -38,8 +42,11 @@ export abstract class DocumentSelectorBase extends Component<Props> {
       )
     }
 
+    console.log('Default Options: ', this.defaultOptions)
+
     const defaultDocOptions = this.defaultOptions.filter(
-      ({ checkAvailableInCountry = always }) => checkAvailableInCountry(country)
+      ({ checkAvailableInCountry = always }) =>
+        checkAvailableInCountry(countryCode)
     )
     const checkAvailableType = isEmpty(documentTypes)
       ? always
@@ -71,6 +78,7 @@ export abstract class DocumentSelectorBase extends Component<Props> {
 
   render() {
     const { className, country } = this.props
+    const countryCode = country || this.country || 'GBR'
 
     return (
       <LocaleContext.Consumer>
@@ -82,7 +90,7 @@ export abstract class DocumentSelectorBase extends Component<Props> {
           const { translate } = injectedProps
 
           const title = translate(this.titleTranslationKey(), {
-            country: !country || country === 'GBR' ? 'UK' : '',
+            country: !countryCode || countryCode === 'GBR' ? 'UK' : '',
           })
 
           const subTitle = translate(this.subTitleTranslationKey())

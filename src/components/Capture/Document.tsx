@@ -285,7 +285,7 @@ const Document = (props: Props) => {
   //  to have the overall properties know about the current step and then just take the upload type from the current step
 
   // @ts-ignore
-  const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
+  const uploadType = getDocumentTypeGroup(documentType)
   const instructions = translate(
     DOCUMENT_CAPTURE_LOCALES_MAPPING[getDocumentType(documentType)][side]
       ?.body || ''
