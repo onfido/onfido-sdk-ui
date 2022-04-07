@@ -177,7 +177,6 @@ public class WebSdk {
     }
 
     private String getToken() {
-
         return (String) driver.executeScript("return window.getToken()");
     }
 
