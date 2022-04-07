@@ -11,7 +11,7 @@ import {
   useState,
 } from 'preact/compat'
 import { ComponentChildren, createContext, Fragment, h } from 'preact'
-import { ApplicantConsentStatus } from '~types/api'
+import { ApplicantConsent, ApplicantConsentStatus } from '~types/api'
 import { getPayloadFromJWT } from '~utils/jwt'
 import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
 
@@ -68,7 +68,7 @@ export const UserConsentProvider = ({
         throw new Error('applicant UUID not provided')
       }
 
-      const grantedConsents: ApplicantConsentStatus[] = consents.map(
+      const grantedConsentsStatus: ApplicantConsentStatus[] = consents.map(
         ({ name, required }) => ({
           name,
           granted,
@@ -76,12 +76,17 @@ export const UserConsentProvider = ({
         })
       )
 
+      const grantedConsents: ApplicantConsent[] = consents.map(({ name }) => ({
+        name,
+        granted,
+      }))
+
       return updateApplicantConsents(
         applicantUUID,
         grantedConsents,
         url,
         token
-      ).then(() => setConsents(grantedConsents))
+      ).then(() => setConsents(grantedConsentsStatus))
     },
     [applicantUUID, consents, token, url]
   )
