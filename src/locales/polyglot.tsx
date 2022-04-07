@@ -62,7 +62,15 @@ const mobilePhrases = (): LocaleTypeObj => {
 const mobileTranslations = mobilePhrases()
 
 const defaultLanguage = () => {
-  const polyglot = new Polyglot({ onMissingKey: undefined }) as PolyglotExtended
+  const polyglot = new Polyglot({
+    // Note: The empty onMissingKey hides missing keys instead of being display in front-end
+    // @ts-ignore
+    onMissingKey: (key) => {
+      if (process.env.NODE_ENV === 'development') {
+        console.error(`The locale ${key} is missing`)
+      }
+    },
+  }) as PolyglotExtended
   return extendPolyglot(
     polyglot,
     availableTranslations[defaultLocaleTag],
