@@ -83,36 +83,29 @@ export const DOCUMENT_CAPTURE_LOCALES_MAPPING: Record<
   },
 }
 
-export const POA_CAPTURE_LOCALES_MAPPING: Record<PoaTypes, CaptureLocale> = {
+export const POA_CAPTURE_LOCALES_MAPPING: Record<
+  PoaTypes,
+  CaptureSideLocale
+> = {
   bank_building_society_statement: {
-    front: {
-      title: 'doc_submit.title_bank_statement',
-      body: 'photo_upload.body_bank_statement',
-    },
+    title: 'doc_submit.title_bank_statement',
+    body: 'photo_upload.body_bank_statement',
   },
   utility_bill: {
-    front: {
-      title: 'doc_submit.title_bill',
-      body: 'photo_upload.body_bill',
-    },
+    title: 'doc_submit.title_bill',
+    body: 'photo_upload.body_bill',
   },
   council_tax: {
-    front: {
-      title: 'doc_submit.title_tax_letter',
-      body: 'photo_upload.body_tax_letter',
-    },
+    title: 'doc_submit.title_tax_letter',
+    body: 'photo_upload.body_tax_letter',
   },
   benefit_letters: {
-    front: {
-      title: 'doc_submit.title_benefits_letter',
-      body: 'photo_upload.body_benefits_letter',
-    },
+    title: 'doc_submit.title_benefits_letter',
+    body: 'photo_upload.body_benefits_letter',
   },
   government_letter: {
-    front: {
-      title: 'doc_submit.title_government_letter',
-      body: 'photo_upload.body_government_letter',
-    },
+    title: 'doc_submit.title_government_letter',
+    body: 'photo_upload.body_government_letter',
   },
 }
 

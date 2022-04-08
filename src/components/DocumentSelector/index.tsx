@@ -33,16 +33,12 @@ export abstract class DocumentSelectorBase extends Component<Props> {
     const { documentTypes, country } = this.props
     const countryCode = country || this.country || 'GBR'
 
-    console.log('Props: ', this.props)
-
     if (!this.defaultOptions) {
       this.defaultOptions = generateDefaultOptions(
         this.getDefaultOptions(),
         translate
       )
     }
-
-    console.log('Default Options: ', this.defaultOptions)
 
     const defaultDocOptions = this.defaultOptions.filter(
       ({ checkAvailableInCountry = always }) =>

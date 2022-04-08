@@ -29,7 +29,6 @@ import type { PoaTypes } from '~types/steps'
 
 const EXCEPTIONS = {
   DOC_TYPE_NOT_PROVIDED: 'poaDocumentType was not provided',
-  CAPTURE_SIDE_NOT_PROVIDED: 'Capture side was not provided',
 }
 
 const getDocumentType = (poaDocumentType?: PoaTypes): PoaTypes => {
@@ -69,8 +68,8 @@ const Document = (props: Props) => {
     })
 
   const handleError = () => {
-    const { actions, side, requestedVariant: variant } = props
-    actions.deleteCapture({ method: 'document', side, variant })
+    const { actions, requestedVariant: variant } = props
+    actions.deleteCapture({ method: 'poa', variant })
   }
 
   const handleFileSelected = (file: File) =>
@@ -97,20 +96,14 @@ const Document = (props: Props) => {
     )
   }
 
-  const { hasCamera, poaDocumentType, useWebcam, side } = props
+  const { hasCamera, poaDocumentType, useWebcam } = props
 
   const renderFallback = isDesktop
     ? renderCrossDeviceFallback
     : renderUploadFallback
 
-  if (!side) {
-    trackException(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
-    throw new Error(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
-  }
-
   const title = translate(
-    POA_CAPTURE_LOCALES_MAPPING[getDocumentType(poaDocumentType)][side]
-      ?.title || ''
+    POA_CAPTURE_LOCALES_MAPPING[getDocumentType(poaDocumentType)]?.title || ''
   )
   const propsWithErrorHandling = {
     ...props,
@@ -140,8 +133,7 @@ const Document = (props: Props) => {
   // @ts-ignore
   const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
   const instructions = translate(
-    POA_CAPTURE_LOCALES_MAPPING[getDocumentType(poaDocumentType)][side]?.body ||
-      ''
+    POA_CAPTURE_LOCALES_MAPPING[getDocumentType(poaDocumentType)]?.body || ''
   )
 
   return (
