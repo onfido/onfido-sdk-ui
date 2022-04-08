@@ -46,14 +46,9 @@ class PoADocumentSelector extends DocumentSelectorBase {
 }
 
 const isValidForCountry = (documentType: PoaTypes) => (code: string) => {
-  console.log('Checking: ', documentType)
-  console.log('Against: ', code)
-
   const result = supportedCountries
     .find((country: CountryData) => country.country_alpha3 === code)
     ?.document_types.includes(documentType)
-
-  console.log('Result: ', result)
 
   return result
 }
