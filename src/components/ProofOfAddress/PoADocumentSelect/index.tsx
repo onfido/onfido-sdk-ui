@@ -7,14 +7,15 @@ import { DocumentSelectorBase, Props } from '../../DocumentSelector'
 import { upperCase } from '~utils/string'
 import { PoaTypes } from '~types/steps'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const supportedCountries = require('../../../supported-documents/supported-countries-poa.json')
+
 type CountryData = {
   country_alpha3: string
   country_alpha2: string
   country: string
   document_types: PoaTypes[]
 }
-
-const supportedCountries = require('../../../supported-documents/supported-countries-poa.json')
 
 class PoADocumentSelector extends DocumentSelectorBase {
   constructor(props: Props) {
