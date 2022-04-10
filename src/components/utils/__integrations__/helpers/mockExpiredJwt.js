@@ -6,6 +6,17 @@ export const EXPECTED_EXPIRED_TOKEN_ERROR = {
   response: {
     error: {
       fields: {},
+      message: 'Authorization error: please re-check your credentials',
+      type: 'authorization_error',
+    },
+  },
+}
+
+export const EXPECTED_EXPIRED_TOKEN_ERROR_2 = {
+  status: 401,
+  response: {
+    error: {
+      fields: {},
       message: 'The token has expired, please request a new one',
       type: 'expired_token',
     },
