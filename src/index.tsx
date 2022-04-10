@@ -1,5 +1,5 @@
 import { h, render } from 'preact'
-import { getCountries } from 'react-phone-number-input'
+import { getCountries, Country } from 'react-phone-number-input'
 import 'custom-event-polyfill'
 
 // TODO: These IE11 polyfills are missing in `development` after the Typescript conversion.
@@ -82,7 +82,7 @@ const isSMSCountryCodeValid = (smsNumberCountryCode: string) => {
   // If you need to refactor this code, remember not to introduce large libraries such as
   // libphonenumber-js in the main bundle!
   const countries = getCountries()
-  const isCodeValid = countries.includes(smsNumberCountryCode)
+  const isCodeValid = countries.includes(smsNumberCountryCode as Country)
   if (!isCodeValid) {
     console.warn(
       "`smsNumberCountryCode` must be a valid two-characters ISO Country Code. 'GB' will be used instead."
