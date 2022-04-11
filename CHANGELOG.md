@@ -33,6 +33,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Upgrade `minimist` to v1.2.6
 - Internal: Set `acceptSslCerts` to `true` for browserstack CI test to avoid "This connection is not private" screens
 - Internal: Migrate `ModalApp` to typescript
+- Internal: Upgrade `node-fetch@2.6.7` & `node-forge@1.3.1`
 
 ### Fixed
 
