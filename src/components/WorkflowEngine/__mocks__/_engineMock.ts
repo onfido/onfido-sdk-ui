@@ -59,8 +59,8 @@ export class MockEngine implements EngineInterface {
       // updated_at:"2022-03-16T12:09:11.972281",
       // version_id:5,
       // workflow_id:"5600f9cc-ea4d-4d29-9d23-355005dc7946"
-      outcome: null,
-      error: null,
+      outcome: undefined,
+      error: undefined,
       has_remaining_interactive_tasks: true,
     }
   }
