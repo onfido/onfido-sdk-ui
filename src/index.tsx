@@ -13,7 +13,10 @@ import { noop } from '~utils/func'
 import { upperCase } from '~utils/string'
 import { buildStepFinder } from '~utils/steps'
 import { cssVarsPonyfill } from '~utils/cssVarsPonyfill'
-import type { NormalisedSdkOptions, SDKOptionsWithRenderData } from '~types/commons'
+import type {
+  NormalisedSdkOptions,
+  SDKOptionsWithRenderData,
+} from '~types/commons'
 import type { SdkOptions, SdkHandle } from '~types/sdk'
 import type { StepConfig, StepTypes } from '~types/steps'
 import App from './components/App'

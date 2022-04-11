@@ -16,7 +16,10 @@ import Router from '../Router'
 import * as Tracker from '../../Tracker'
 import { getCountryDataForDocumentType } from '~supported-documents'
 
-import type { NormalisedSdkOptions, SDKOptionsWithRenderData } from '~types/commons'
+import type {
+  NormalisedSdkOptions,
+  SDKOptionsWithRenderData,
+} from '~types/commons'
 import type {
   EnterpriseFeatures,
   EnterpriseCobranding,
