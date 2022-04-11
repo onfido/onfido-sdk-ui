@@ -1,16 +1,14 @@
 import { h, FunctionComponent } from 'preact'
 import { useState } from 'preact/compat'
 import { omit } from 'lodash/fp'
-import { localised } from '~locales'
+import { localised, useLocales } from '~locales'
 import Autocomplete from 'accessible-autocomplete/preact'
 
-import { useLocales } from '~locales'
 import { allCountriesList, countryTranslations } from './countries'
 import { IconChevronDown } from '@onfido/castor-icons'
 import { getCountryFlagSrc } from '~supported-documents'
 import type { WithLocalisedProps } from '~types/hocs'
 import styles from '../../CountrySelector/style.scss'
-import { appendToTracking } from 'Tracker'
 
 type CountryData = {
   countryCode: string
