@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import { useState } from 'preact/compat'
 import { useLocales } from '~locales'
 import { color } from '@onfido/castor'
-import { IconError } from '@onfido/castor-icons'
+// import { IconError } from '@onfido/castor-icons'
 import classNames from 'classnames'
 import theme from '../Theme/style.scss'
 import ScreenLayout from '../Theme/ScreenLayout'
@@ -114,8 +114,10 @@ const ProfileData = ({
               )}
               {validation[key] && (
                 <Validation state="error">
-                  <IconError fill={color('error-500')} />
-                  {translate('profile_data.required_error')}
+                  {
+                    // <IconError fill={color('error-500')} />
+                    translate('profile_data.required_error')
+                  }
                 </Validation>
               )}
             </FieldLabel>
