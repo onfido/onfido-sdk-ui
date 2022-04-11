@@ -1,4 +1,4 @@
-import AxeBuilder from 'axe-webdriverjs'
+import AxeBuilder from '@axe-core/webdriverjs'
 import { expect } from 'chai'
 import { Key } from 'selenium-webdriver'
 
