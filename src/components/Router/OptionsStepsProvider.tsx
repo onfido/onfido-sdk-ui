@@ -17,7 +17,6 @@ export const OptionsStepsProvider = ({
     const userConsent: StepConfig = {
       type: 'userConsent',
       options: {
-        excludeFromHistory: true,
         skip: consents.every((c) => c.required && c.granted),
       },
     }

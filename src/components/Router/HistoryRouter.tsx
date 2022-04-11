@@ -79,7 +79,16 @@ export default class HistoryRouter extends Component<
   onHistoryChange: LocationListener<HistoryLocationState> = ({
     state: historyState,
   }) => {
-    this.setState({ ...historyState })
+    if (
+      historyState &&
+      this.getComponentsList()[historyState.step].step.options?.skip
+    ) {
+      historyState.step < this.state.step
+        ? this.history.goBack()
+        : this.history.goForward()
+    } else {
+      this.setState({ ...historyState })
+    }
   }
 
   componentWillUnmount(): void {
@@ -95,9 +104,15 @@ export default class HistoryRouter extends Component<
     return (
       this.props.isNavigationDisabled ||
       this.initialStep() ||
-      this.getStepType(this.state.step) === 'complete'
+      this.getStepType(this.state.step) === 'complete' ||
+      this.firstEnabledStep()
     )
   }
+
+  firstEnabledStep = () =>
+    this.getComponentsList()
+      .slice(0, this.state.step)
+      .every((c) => c.step.options?.skip)
 
   initialStep = (): boolean =>
     this.state.initialStep === this.state.step &&
@@ -136,11 +151,7 @@ export default class HistoryRouter extends Component<
     } else {
       const newStepIndex = componentsList.indexOf(nextStepComponent)
 
-      this.setStepIndex(
-        newStepIndex,
-        undefined,
-        nextStepComponent.step.options?.excludeFromHistory
-      )
+      this.setStepIndex(newStepIndex)
 
       const newStepType = nextStepComponent.step.type
       const isNewStepType = this.props.currentStepType !== newStepType

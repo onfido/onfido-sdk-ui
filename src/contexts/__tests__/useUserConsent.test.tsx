@@ -2,6 +2,13 @@ import { h } from 'preact'
 import { renderHook } from '@testing-library/preact-hooks'
 import useUserConsent, { UserConsentProvider } from '../useUserConsent'
 import { SdkConfigurationServiceContext } from '~contexts/useSdkConfigurationService'
+import { getApplicantConsents } from '~utils/onfidoApi'
+
+jest.mock('~utils/onfidoApi')
+
+const getApplicantConsentsMock = getApplicantConsents as jest.MockedFn<
+  typeof getApplicantConsents
+>
 
 const applicantConsents = [
   {
@@ -10,13 +17,6 @@ const applicantConsents = [
     required: true,
   },
 ]
-
-jest.mock('~utils/onfidoApi', () => {
-  return {
-    getApplicantConsents: () => Promise.resolve(applicantConsents),
-    updateApplicantLocation: () => Promise.resolve(),
-  }
-})
 
 const url = 'http://localhost'
 const token =
@@ -38,6 +38,9 @@ const wrapper = ({ children, enable_require_applicant_consents }) => (
 )
 
 describe('useUserConsent', () => {
+  beforeAll(() => {
+    getApplicantConsentsMock.mockResolvedValue(applicantConsents)
+  })
   it('does not retrieve consents if Feature Flag is off', () => {
     const { result } = renderHook(() => useUserConsent(), {
       // @ts-ignore
@@ -59,6 +62,36 @@ describe('useUserConsent', () => {
     await waitForNextUpdate()
 
     expect(result.current?.enabled).toEqual(true)
+    expect(result.current?.consents).toEqual(applicantConsents)
+  })
+
+  it('updates consents status', async () => {
+    const { result, waitForNextUpdate } = renderHook(() => useUserConsent(), {
+      // @ts-ignore
+      wrapper,
+      initialProps: { enable_require_applicant_consents: true },
+    })
+
+    await waitForNextUpdate()
+
+    result.current?.updateConsents(true)
+    expect(result.current?.consents?.every(({ granted }) => !!granted))
+
+    result.current?.updateConsents(false)
+    expect(result.current?.consents?.every(({ granted }) => !granted))
+  })
+
+  it('enable consents if network calls fail', async () => {
+    getApplicantConsentsMock.mockRejectedValue(undefined)
+
+    const { result, waitForNextUpdate } = renderHook(() => useUserConsent(), {
+      // @ts-ignore
+      wrapper,
+      initialProps: { enable_require_applicant_consents: true },
+    })
+
+    await waitForNextUpdate()
+
     expect(result.current?.consents).toEqual(applicantConsents)
   })
 })
