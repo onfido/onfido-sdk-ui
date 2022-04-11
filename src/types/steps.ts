@@ -93,7 +93,6 @@ export type StepConfigMap = {
   [Type in StepTypes]: {
     type: Type
     options?: {
-      excludeFromHistory?: boolean
       skip?: boolean
     } & StepOptionsMap[Type]
   }
