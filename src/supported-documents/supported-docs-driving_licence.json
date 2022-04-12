@@ -488,26 +488,6 @@
       "country_alpha3": "ABW",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 9844,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Aruba",
-      "country_alpha2": "AW",
-      "country_alpha3": "ABW",
-      "document_type": "DLD",
-      "has_nfc": false,
       "id": 10294,
       "municipality": null,
       "region_iso": null,
@@ -537,6 +517,26 @@
         "verify"
       ],
       "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Aruba",
+      "country_alpha2": "AW",
+      "country_alpha3": "ABW",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 9844,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
     }
   },
   {
@@ -1403,6 +1403,26 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
+      "country": "Australia",
+      "country_alpha2": "AU",
+      "country_alpha3": "AUS",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10499,
+      "municipality": null,
+      "region_iso": "ACT",
+      "region_name": "Australian Capital Territory",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
       "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
@@ -1815,6 +1835,26 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
+      "country": "Belarus | Беларусь",
+      "country_alpha2": "BY",
+      "country_alpha3": "BLR",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10511,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
       "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
@@ -2116,46 +2156,6 @@
       "country_alpha3": "BRA",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 760,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2002"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Brazil | Brasil",
-      "country_alpha2": "BR",
-      "country_alpha3": "BRA",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 761,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2005"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Brazil | Brasil",
-      "country_alpha2": "BR",
-      "country_alpha3": "BRA",
-      "document_type": "DLD",
-      "has_nfc": false,
       "id": 5047,
       "municipality": null,
       "region_iso": null,
@@ -2176,15 +2176,55 @@
       "country_alpha3": "BRA",
       "document_type": "DLD",
       "has_nfc": false,
+      "id": 760,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Brazil | Brasil",
+      "country_alpha2": "BR",
+      "country_alpha3": "BRA",
+      "document_type": "DLD",
+      "has_nfc": false,
       "id": 7715,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier4",
       "usecases": [
         "verify"
       ],
       "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Brazil | Brasil",
+      "country_alpha2": "BR",
+      "country_alpha3": "BRA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 761,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
     }
   },
   {
@@ -2728,26 +2768,6 @@
       "country_alpha3": "CAN",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 5531,
-      "municipality": null,
-      "region_iso": "BC",
-      "region_name": "British Columbia",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "has_nfc": false,
       "id": 5545,
       "municipality": null,
       "region_iso": "NL",
@@ -2943,6 +2963,46 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5531,
+      "municipality": null,
+      "region_iso": "BC",
+      "region_name": "British Columbia",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013 1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10494,
+      "municipality": null,
+      "region_iso": "BC",
+      "region_name": "British Columbia",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
       "country": "Central African Republic | République Centrafricaine",
       "country_alpha2": "CF",
       "country_alpha3": "CAF",
@@ -3112,7 +3172,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
@@ -3141,7 +3201,7 @@
   },
   {
     "sourceData": {
-      "back_required": false,
+      "back_required": true,
       "common_name": null,
       "country": "Colombia",
       "country_alpha2": "CO",
@@ -3152,7 +3212,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
@@ -3172,7 +3232,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
@@ -3192,7 +3252,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
@@ -3201,7 +3261,7 @@
   },
   {
     "sourceData": {
-      "back_required": false,
+      "back_required": true,
       "common_name": null,
       "country": "Colombia",
       "country_alpha2": "CO",
@@ -3212,7 +3272,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
@@ -4108,7 +4168,7 @@
       "country_alpha3": "FRA",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 4108,
+      "id": 3302,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -4116,7 +4176,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "2015"
+      "version": "2013"
     }
   },
   {
@@ -4128,7 +4188,7 @@
       "country_alpha3": "FRA",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 3302,
+      "id": 4288,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -4136,7 +4196,27 @@
       "usecases": [
         "verify"
       ],
-      "version": "2013"
+      "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "France",
+      "country_alpha2": "FR",
+      "country_alpha3": "FRA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 4108,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
     }
   },
   {
@@ -4400,7 +4480,7 @@
       "country_alpha3": "DEU",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 887,
+      "id": 6070,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -4408,7 +4488,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "2013"
+      "version": "2007"
     }
   },
   {
@@ -4420,7 +4500,7 @@
       "country_alpha3": "DEU",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 6070,
+      "id": 887,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -4428,7 +4508,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "2007"
+      "version": "2013"
     }
   },
   {
@@ -5148,26 +5228,6 @@
       "country_alpha3": "IDN",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 4127,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2019"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Indonesia",
-      "country_alpha2": "ID",
-      "country_alpha3": "IDN",
-      "document_type": "DLD",
-      "has_nfc": false,
       "id": 4128,
       "municipality": null,
       "region_iso": null,
@@ -5217,6 +5277,26 @@
         "verify"
       ],
       "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Indonesia",
+      "country_alpha2": "ID",
+      "country_alpha3": "IDN",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 4127,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
     }
   },
   {
@@ -5824,7 +5904,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Kosovo, Republic of | Kosova",
+      "country": "Kosovo, Republic of",
       "country_alpha2": "XK",
       "country_alpha3": "RKS",
       "document_type": "DLD",
@@ -5844,7 +5924,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Kosovo, Republic of | Kosova",
+      "country": "Kosovo, Republic of",
       "country_alpha2": "XK",
       "country_alpha3": "RKS",
       "document_type": "DLD",
@@ -6505,130 +6585,10 @@
       "country_alpha3": "MEX",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 5074,
-      "municipality": null,
-      "region_iso": "BCN",
-      "region_name": "Baja California",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": ""
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5075,
-      "municipality": null,
-      "region_iso": "BCS",
-      "region_name": "Baja California Sur",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5076,
-      "municipality": null,
-      "region_iso": "CAM",
-      "region_name": "Campeche",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
       "id": 5077,
       "municipality": null,
       "region_iso": "CHH",
       "region_name": "Chihuahua",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5078,
-      "municipality": null,
-      "region_iso": "COA",
-      "region_name": "Coahuila",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5079,
-      "municipality": null,
-      "region_iso": "COL",
-      "region_name": "Colima",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5081,
-      "municipality": null,
-      "region_iso": "DUR",
-      "region_name": "Durango",
       "tier": null,
       "usecases": [
         "verify"
@@ -6654,626 +6614,6 @@
         "verify"
       ],
       "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5083,
-      "municipality": null,
-      "region_iso": "GUA",
-      "region_name": "Guanajuato",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5084,
-      "municipality": null,
-      "region_iso": "GRO",
-      "region_name": "Guerrero",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5085,
-      "municipality": null,
-      "region_iso": "HID",
-      "region_name": "Hidalgo",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5086,
-      "municipality": null,
-      "region_iso": "JAL",
-      "region_name": "Jalisco",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5087,
-      "municipality": null,
-      "region_iso": "MIC",
-      "region_name": "Michoacán",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5088,
-      "municipality": null,
-      "region_iso": "MOR",
-      "region_name": "Morelos",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5089,
-      "municipality": null,
-      "region_iso": "NAY",
-      "region_name": "Nayarit",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5091,
-      "municipality": null,
-      "region_iso": "PUE",
-      "region_name": "Puebla",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5092,
-      "municipality": null,
-      "region_iso": "QUE",
-      "region_name": "Querétaro",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5095,
-      "municipality": null,
-      "region_iso": "SIN",
-      "region_name": "Sinaloa",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5096,
-      "municipality": null,
-      "region_iso": "SON",
-      "region_name": "Sonora",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2016"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5097,
-      "municipality": null,
-      "region_iso": "TAB",
-      "region_name": "Tabasco",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5098,
-      "municipality": null,
-      "region_iso": "TAM",
-      "region_name": "Tamaulipas",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5099,
-      "municipality": null,
-      "region_iso": "TLA",
-      "region_name": "Tlaxcala",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5100,
-      "municipality": null,
-      "region_iso": "VER",
-      "region_name": "Veracruz",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5101,
-      "municipality": null,
-      "region_iso": "YUC",
-      "region_name": "Yucatán",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5102,
-      "municipality": null,
-      "region_iso": "ZAC",
-      "region_name": "Zacatecas",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5204,
-      "municipality": null,
-      "region_iso": "CHP",
-      "region_name": "Chiapas",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5205,
-      "municipality": null,
-      "region_iso": "CHH",
-      "region_name": "Chihuahua",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5206,
-      "municipality": null,
-      "region_iso": "GRO",
-      "region_name": "Guerrero",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2015"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5208,
-      "municipality": null,
-      "region_iso": "OAX",
-      "region_name": "Oaxaca",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5209,
-      "municipality": null,
-      "region_iso": "ROO",
-      "region_name": "Quintana Roo",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5210,
-      "municipality": null,
-      "region_iso": "SLP",
-      "region_name": "San Luis Potosí",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5276,
-      "municipality": null,
-      "region_iso": "CMX",
-      "region_name": "Ciudad de México",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 8108,
-      "municipality": null,
-      "region_iso": "HID",
-      "region_name": "Hidalgo",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2019"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 8570,
-      "municipality": null,
-      "region_iso": "CMX",
-      "region_name": "Ciudad de México",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10022,
-      "municipality": null,
-      "region_iso": "AGU",
-      "region_name": "Aguascalientes",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10058,
-      "municipality": null,
-      "region_iso": "MOR",
-      "region_name": "Morelos",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10122,
-      "municipality": null,
-      "region_iso": "AGU",
-      "region_name": "Aguascalientes",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "3"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10123,
-      "municipality": null,
-      "region_iso": "AGU",
-      "region_name": "Aguascalientes",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "4"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10124,
-      "municipality": null,
-      "region_iso": "BCN",
-      "region_name": "Baja California",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
     }
   },
   {
@@ -7345,46 +6685,6 @@
       "country_alpha3": "MEX",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 10128,
-      "municipality": null,
-      "region_iso": "CHH",
-      "region_name": "Chihuahua",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10129,
-      "municipality": null,
-      "region_iso": "CHH",
-      "region_name": "Chihuahua",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "3"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
       "id": 10130,
       "municipality": null,
       "region_iso": "MEX",
@@ -7394,306 +6694,6 @@
         "verify"
       ],
       "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10131,
-      "municipality": null,
-      "region_iso": "CMX",
-      "region_name": "Ciudad de México",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "3"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10132,
-      "municipality": null,
-      "region_iso": "CMX",
-      "region_name": "Ciudad de México",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10133,
-      "municipality": null,
-      "region_iso": "CMX",
-      "region_name": "Ciudad de México",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "4"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10134,
-      "municipality": null,
-      "region_iso": "CMX",
-      "region_name": "Ciudad de México",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "5"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10135,
-      "municipality": null,
-      "region_iso": "MIC",
-      "region_name": "Michoacán",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10136,
-      "municipality": null,
-      "region_iso": "MIC",
-      "region_name": "Michoacán",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10137,
-      "municipality": null,
-      "region_iso": "MOR",
-      "region_name": "Morelos",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10138,
-      "municipality": null,
-      "region_iso": "MOR",
-      "region_name": "Morelos",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "3"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10139,
-      "municipality": null,
-      "region_iso": "NLE",
-      "region_name": "Nuevo León",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10140,
-      "municipality": null,
-      "region_iso": "NLE",
-      "region_name": "Nuevo León",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10141,
-      "municipality": null,
-      "region_iso": "PUE",
-      "region_name": "Puebla",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10142,
-      "municipality": null,
-      "region_iso": "PUE",
-      "region_name": "Puebla",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "7"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10143,
-      "municipality": null,
-      "region_iso": "PUE",
-      "region_name": "Puebla",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10144,
-      "municipality": null,
-      "region_iso": "PUE",
-      "region_name": "Puebla",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "3"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10145,
-      "municipality": null,
-      "region_iso": "PUE",
-      "region_name": "Puebla",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "4"
     }
   },
   {
@@ -7725,26 +6725,6 @@
       "country_alpha3": "MEX",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 10147,
-      "municipality": null,
-      "region_iso": "QUE",
-      "region_name": "Querétaro",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
       "id": 10148,
       "municipality": null,
       "region_iso": "SIN",
@@ -7754,486 +6734,6 @@
         "verify"
       ],
       "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10149,
-      "municipality": null,
-      "region_iso": "SIN",
-      "region_name": "Sinaloa",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10150,
-      "municipality": null,
-      "region_iso": "SIN",
-      "region_name": "Sinaloa",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "3"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10151,
-      "municipality": null,
-      "region_iso": "TAM",
-      "region_name": "Tamaulipas",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10152,
-      "municipality": null,
-      "region_iso": "TAM",
-      "region_name": "Tamaulipas",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10153,
-      "municipality": null,
-      "region_iso": "VER",
-      "region_name": "Veracruz",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10154,
-      "municipality": null,
-      "region_iso": "VER",
-      "region_name": "Veracruz",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10155,
-      "municipality": null,
-      "region_iso": "VER",
-      "region_name": "Veracruz",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "3"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10156,
-      "municipality": null,
-      "region_iso": "VER",
-      "region_name": "Veracruz",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "4"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10157,
-      "municipality": null,
-      "region_iso": "ZAC",
-      "region_name": "Zacatecas",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10158,
-      "municipality": null,
-      "region_iso": "ZAC",
-      "region_name": "Zacatecas",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10159,
-      "municipality": null,
-      "region_iso": "ZAC",
-      "region_name": "Zacatecas",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10181,
-      "municipality": null,
-      "region_iso": "GRO",
-      "region_name": "Guerrero",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10182,
-      "municipality": null,
-      "region_iso": "GRO",
-      "region_name": "Guerrero",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10183,
-      "municipality": null,
-      "region_iso": "GRO",
-      "region_name": "Guerrero",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10184,
-      "municipality": null,
-      "region_iso": "GRO",
-      "region_name": "Guerrero",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "3"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10185,
-      "municipality": null,
-      "region_iso": "GRO",
-      "region_name": "Guerrero",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "4"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10186,
-      "municipality": null,
-      "region_iso": "GRO",
-      "region_name": "Guerrero",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "5"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10187,
-      "municipality": null,
-      "region_iso": "GRO",
-      "region_name": "Guerrero",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10188,
-      "municipality": null,
-      "region_iso": "GUA",
-      "region_name": "Guanajuato",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10189,
-      "municipality": null,
-      "region_iso": "GUA",
-      "region_name": "Guanajuato",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10190,
-      "municipality": null,
-      "region_iso": "GUA",
-      "region_name": "Guanajuato",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "3"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10191,
-      "municipality": null,
-      "region_iso": "JAL",
-      "region_name": "Jalisco",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 10192,
-      "municipality": null,
-      "region_iso": "JAL",
-      "region_name": "Jalisco",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5073,
-      "municipality": null,
-      "region_iso": "AGU",
-      "region_name": "Aguascalientes",
-      "tier": "tier2",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
     }
   },
   {
@@ -8305,15 +6805,1635 @@
       "country_alpha3": "MEX",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 5207,
+      "id": 10455,
       "municipality": null,
-      "region_iso": "NLE",
-      "region_name": "Nuevo León",
-      "tier": null,
+      "region_iso": "SIN",
+      "region_name": "Sinaloa",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10151,
+      "municipality": null,
+      "region_iso": "TAM",
+      "region_name": "Tamaulipas",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5073,
+      "municipality": null,
+      "region_iso": "AGU",
+      "region_name": "Aguascalientes",
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
       "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5078,
+      "municipality": null,
+      "region_iso": "COA",
+      "region_name": "Coahuila",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5079,
+      "municipality": null,
+      "region_iso": "COL",
+      "region_name": "Colima",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5081,
+      "municipality": null,
+      "region_iso": "DUR",
+      "region_name": "Durango",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5083,
+      "municipality": null,
+      "region_iso": "GUA",
+      "region_name": "Guanajuato",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5084,
+      "municipality": null,
+      "region_iso": "GRO",
+      "region_name": "Guerrero",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5085,
+      "municipality": null,
+      "region_iso": "HID",
+      "region_name": "Hidalgo",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5086,
+      "municipality": null,
+      "region_iso": "JAL",
+      "region_name": "Jalisco",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5087,
+      "municipality": null,
+      "region_iso": "MIC",
+      "region_name": "Michoacán",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5088,
+      "municipality": null,
+      "region_iso": "MOR",
+      "region_name": "Morelos",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5089,
+      "municipality": null,
+      "region_iso": "NAY",
+      "region_name": "Nayarit",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5091,
+      "municipality": null,
+      "region_iso": "PUE",
+      "region_name": "Puebla",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5092,
+      "municipality": null,
+      "region_iso": "QUE",
+      "region_name": "Querétaro",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5095,
+      "municipality": null,
+      "region_iso": "SIN",
+      "region_name": "Sinaloa",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5096,
+      "municipality": null,
+      "region_iso": "SON",
+      "region_name": "Sonora",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5097,
+      "municipality": null,
+      "region_iso": "TAB",
+      "region_name": "Tabasco",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5098,
+      "municipality": null,
+      "region_iso": "TAM",
+      "region_name": "Tamaulipas",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "5"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5099,
+      "municipality": null,
+      "region_iso": "TLA",
+      "region_name": "Tlaxcala",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5100,
+      "municipality": null,
+      "region_iso": "VER",
+      "region_name": "Veracruz",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5101,
+      "municipality": null,
+      "region_iso": "YUC",
+      "region_name": "Yucatán",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5102,
+      "municipality": null,
+      "region_iso": "ZAC",
+      "region_name": "Zacatecas",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5206,
+      "municipality": null,
+      "region_iso": "GRO",
+      "region_name": "Guerrero",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5207,
+      "municipality": null,
+      "region_iso": "NLE",
+      "region_name": "Nuevo León",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5208,
+      "municipality": null,
+      "region_iso": "OAX",
+      "region_name": "Oaxaca",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5209,
+      "municipality": null,
+      "region_iso": "ROO",
+      "region_name": "Quintana Roo",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5210,
+      "municipality": null,
+      "region_iso": "SLP",
+      "region_name": "San Luis Potosí",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5276,
+      "municipality": null,
+      "region_iso": "CMX",
+      "region_name": "Ciudad de México",
+      "tier": "tier3",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 8108,
+      "municipality": null,
+      "region_iso": "HID",
+      "region_name": "Hidalgo",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 8570,
+      "municipality": null,
+      "region_iso": "CMX",
+      "region_name": "Ciudad de México",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10022,
+      "municipality": null,
+      "region_iso": "AGU",
+      "region_name": "Aguascalientes",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "5"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10058,
+      "municipality": null,
+      "region_iso": "MOR",
+      "region_name": "Morelos",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10122,
+      "municipality": null,
+      "region_iso": "AGU",
+      "region_name": "Aguascalientes",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10123,
+      "municipality": null,
+      "region_iso": "AGU",
+      "region_name": "Aguascalientes",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10131,
+      "municipality": null,
+      "region_iso": "CMX",
+      "region_name": "Ciudad de México",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10132,
+      "municipality": null,
+      "region_iso": "CMX",
+      "region_name": "Ciudad de México",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10133,
+      "municipality": null,
+      "region_iso": "CMX",
+      "region_name": "Ciudad de México",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10134,
+      "municipality": null,
+      "region_iso": "CMX",
+      "region_name": "Ciudad de México",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "5"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10135,
+      "municipality": null,
+      "region_iso": "MIC",
+      "region_name": "Michoacán",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10136,
+      "municipality": null,
+      "region_iso": "MIC",
+      "region_name": "Michoacán",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10137,
+      "municipality": null,
+      "region_iso": "MOR",
+      "region_name": "Morelos",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10138,
+      "municipality": null,
+      "region_iso": "MOR",
+      "region_name": "Morelos",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10139,
+      "municipality": null,
+      "region_iso": "NLE",
+      "region_name": "Nuevo León",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10140,
+      "municipality": null,
+      "region_iso": "NLE",
+      "region_name": "Nuevo León",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10141,
+      "municipality": null,
+      "region_iso": "PUE",
+      "region_name": "Puebla",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10142,
+      "municipality": null,
+      "region_iso": "PUE",
+      "region_name": "Puebla",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "7"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10143,
+      "municipality": null,
+      "region_iso": "PUE",
+      "region_name": "Puebla",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10144,
+      "municipality": null,
+      "region_iso": "PUE",
+      "region_name": "Puebla",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10145,
+      "municipality": null,
+      "region_iso": "PUE",
+      "region_name": "Puebla",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10147,
+      "municipality": null,
+      "region_iso": "QUE",
+      "region_name": "Querétaro",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10149,
+      "municipality": null,
+      "region_iso": "SIN",
+      "region_name": "Sinaloa",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10150,
+      "municipality": null,
+      "region_iso": "SIN",
+      "region_name": "Sinaloa",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10152,
+      "municipality": null,
+      "region_iso": "TAM",
+      "region_name": "Tamaulipas",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2 1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10153,
+      "municipality": null,
+      "region_iso": "VER",
+      "region_name": "Veracruz",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10154,
+      "municipality": null,
+      "region_iso": "VER",
+      "region_name": "Veracruz",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10155,
+      "municipality": null,
+      "region_iso": "VER",
+      "region_name": "Veracruz",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10156,
+      "municipality": null,
+      "region_iso": "VER",
+      "region_name": "Veracruz",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10157,
+      "municipality": null,
+      "region_iso": "ZAC",
+      "region_name": "Zacatecas",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10158,
+      "municipality": null,
+      "region_iso": "ZAC",
+      "region_name": "Zacatecas",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10159,
+      "municipality": null,
+      "region_iso": "ZAC",
+      "region_name": "Zacatecas",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10181,
+      "municipality": null,
+      "region_iso": "GRO",
+      "region_name": "Guerrero",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10182,
+      "municipality": null,
+      "region_iso": "GRO",
+      "region_name": "Guerrero",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10183,
+      "municipality": null,
+      "region_iso": "GRO",
+      "region_name": "Guerrero",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10184,
+      "municipality": null,
+      "region_iso": "GRO",
+      "region_name": "Guerrero",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10185,
+      "municipality": null,
+      "region_iso": "GRO",
+      "region_name": "Guerrero",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10186,
+      "municipality": null,
+      "region_iso": "GRO",
+      "region_name": "Guerrero",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "5"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10187,
+      "municipality": null,
+      "region_iso": "GRO",
+      "region_name": "Guerrero",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10188,
+      "municipality": null,
+      "region_iso": "GUA",
+      "region_name": "Guanajuato",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10189,
+      "municipality": null,
+      "region_iso": "GUA",
+      "region_name": "Guanajuato",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10190,
+      "municipality": null,
+      "region_iso": "GUA",
+      "region_name": "Guanajuato",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10191,
+      "municipality": null,
+      "region_iso": "JAL",
+      "region_name": "Jalisco",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10192,
+      "municipality": null,
+      "region_iso": "JAL",
+      "region_name": "Jalisco",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5074,
+      "municipality": null,
+      "region_iso": "BCN",
+      "region_name": "Baja California",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5075,
+      "municipality": null,
+      "region_iso": "BCS",
+      "region_name": "Baja California Sur",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5076,
+      "municipality": null,
+      "region_iso": "CAM",
+      "region_name": "Campeche",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5204,
+      "municipality": null,
+      "region_iso": "CHP",
+      "region_name": "Chiapas",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5205,
+      "municipality": null,
+      "region_iso": "CHH",
+      "region_name": "Chihuahua",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10124,
+      "municipality": null,
+      "region_iso": "BCN",
+      "region_name": "Baja California",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10128,
+      "municipality": null,
+      "region_iso": "CHH",
+      "region_name": "Chihuahua",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10129,
+      "municipality": null,
+      "region_iso": "CHH",
+      "region_name": "Chihuahua",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10496,
+      "municipality": null,
+      "region_iso": "VER",
+      "region_name": "Veracruz",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "6"
     }
   },
   {
@@ -8574,26 +8694,6 @@
   },
   {
     "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Netherlands | Nederland",
-      "country_alpha2": "NL",
-      "country_alpha3": "NLD",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 3676,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2014"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": false,
       "common_name": null,
       "country": "Netherlands | Nederland",
@@ -8610,6 +8710,26 @@
         "verify"
       ],
       "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Netherlands | Nederland",
+      "country_alpha2": "NL",
+      "country_alpha3": "NLD",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 3676,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
     }
   },
   {
@@ -9241,7 +9361,7 @@
       "country_alpha3": "PRT",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 3792,
+      "id": 3793,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -9249,7 +9369,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "1999"
+      "version": "2013"
     }
   },
   {
@@ -9261,7 +9381,7 @@
       "country_alpha3": "PRT",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 3793,
+      "id": 3792,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -9269,7 +9389,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "2013"
+      "version": "1999"
     }
   },
   {
@@ -9474,7 +9594,7 @@
   },
   {
     "sourceData": {
-      "back_required": true,
+      "back_required": false,
       "common_name": null,
       "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
@@ -9494,7 +9614,7 @@
   },
   {
     "sourceData": {
-      "back_required": true,
+      "back_required": false,
       "common_name": null,
       "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
@@ -9510,6 +9630,26 @@
         "verify"
       ],
       "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Russian Federation | Россия",
+      "country_alpha2": "RU",
+      "country_alpha3": "RUS",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10500,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier3",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
     }
   },
   {
@@ -10615,7 +10755,27 @@
   },
   {
     "sourceData": {
-      "back_required": true,
+      "back_required": false,
+      "common_name": null,
+      "country": "Ukraine | Ukraїna",
+      "country_alpha2": "UA",
+      "country_alpha3": "UKR",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 4630,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
       "common_name": null,
       "country": "Ukraine | Ukraїna",
       "country_alpha2": "UA",
@@ -10635,7 +10795,7 @@
   },
   {
     "sourceData": {
-      "back_required": true,
+      "back_required": false,
       "common_name": null,
       "country": "Ukraine | Ukraїna",
       "country_alpha2": "UA",
@@ -10655,7 +10815,7 @@
   },
   {
     "sourceData": {
-      "back_required": true,
+      "back_required": false,
       "common_name": null,
       "country": "Ukraine | Ukraїna",
       "country_alpha2": "UA",
@@ -10675,7 +10835,7 @@
   },
   {
     "sourceData": {
-      "back_required": true,
+      "back_required": false,
       "common_name": null,
       "country": "Ukraine | Ukraїna",
       "country_alpha2": "UA",
@@ -10695,7 +10855,7 @@
   },
   {
     "sourceData": {
-      "back_required": true,
+      "back_required": false,
       "common_name": null,
       "country": "Ukraine | Ukraїna",
       "country_alpha2": "UA",
@@ -10711,26 +10871,6 @@
         "verify"
       ],
       "version": "2015"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Ukraine | Ukraїna",
-      "country_alpha2": "UA",
-      "country_alpha3": "UKR",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 4630,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2016"
     }
   },
   {
@@ -11183,6 +11323,26 @@
       "country_alpha3": "GBR",
       "document_type": "DLD",
       "has_nfc": false,
+      "id": 10394,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021 2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "country_alpha2": "GB",
+      "country_alpha3": "GBR",
+      "document_type": "DLD",
+      "has_nfc": false,
       "id": 10393,
       "municipality": null,
       "region_iso": null,
@@ -11203,7 +11363,7 @@
       "country_alpha3": "GBR",
       "document_type": "DLD",
       "has_nfc": false,
-      "id": 10394,
+      "id": 10474,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -11211,7 +11371,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "2021 2"
+      "version": "2021 4"
     }
   },
   {
@@ -12668,26 +12828,6 @@
   },
   {
     "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5216,
-      "municipality": null,
-      "region_iso": "ID",
-      "region_name": "Idaho",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2017"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "United States of America",
@@ -12724,26 +12864,6 @@
         "verify"
       ],
       "version": "2019"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5220,
-      "municipality": null,
-      "region_iso": "KY",
-      "region_name": "Kentucky",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2012"
     }
   },
   {
@@ -13544,46 +13664,6 @@
         "verify"
       ],
       "version": "2012"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5626,
-      "municipality": null,
-      "region_iso": "KY",
-      "region_name": "Kentucky",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2012"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 5627,
-      "municipality": null,
-      "region_iso": "KY",
-      "region_name": "Kentucky",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2004"
     }
   },
   {
@@ -16308,26 +16388,6 @@
   },
   {
     "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "has_nfc": false,
-      "id": 6858,
-      "municipality": null,
-      "region_iso": "OH",
-      "region_name": "Ohio",
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2018"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "United States of America",
@@ -17767,6 +17827,306 @@
         "verify"
       ],
       "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10407,
+      "municipality": null,
+      "region_iso": "SC",
+      "region_name": "South Carolina",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10419,
+      "municipality": null,
+      "region_iso": "RI",
+      "region_name": "Rhode Island",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10421,
+      "municipality": null,
+      "region_iso": "AR",
+      "region_name": "Arkansas",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 6858,
+      "municipality": null,
+      "region_iso": "OH",
+      "region_name": "Ohio",
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10454,
+      "municipality": null,
+      "region_iso": "NC",
+      "region_name": "North Carolina",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5220,
+      "municipality": null,
+      "region_iso": "KY",
+      "region_name": "Kentucky",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5626,
+      "municipality": null,
+      "region_iso": "KY",
+      "region_name": "Kentucky",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5627,
+      "municipality": null,
+      "region_iso": "KY",
+      "region_name": "Kentucky",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10463,
+      "municipality": null,
+      "region_iso": "KY",
+      "region_name": "Kentucky",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10464,
+      "municipality": null,
+      "region_iso": "KY",
+      "region_name": "Kentucky",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10467,
+      "municipality": null,
+      "region_iso": "ND",
+      "region_name": "North Dakota",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10482,
+      "municipality": null,
+      "region_iso": "NE",
+      "region_name": "Nebraska",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 5216,
+      "municipality": null,
+      "region_iso": "ID",
+      "region_name": "Idaho",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10504,
+      "municipality": null,
+      "region_iso": "SD",
+      "region_name": "South Dakota",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "has_nfc": false,
+      "id": 10501,
+      "municipality": null,
+      "region_iso": "MI",
+      "region_name": "Michigan",
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
     }
   },
   {

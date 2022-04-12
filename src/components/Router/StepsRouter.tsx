@@ -24,7 +24,6 @@ class StepsRouter extends Component<StepsRouterProps> {
       ],
       {
         ...properties,
-        ...step.options,
       }
     )
   }

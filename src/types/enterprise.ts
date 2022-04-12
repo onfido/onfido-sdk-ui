@@ -15,7 +15,10 @@ export type EnterpriseLogoCobranding = {
 
 export type EnterpriseCallbackResponse = {
   continueWithOnfidoSubmission?: boolean
-  onfidoSuccess?: DocumentImageResponse | UploadFileResponse | FaceVideoResponse
+  onfidoSuccessResponse?:
+    | DocumentImageResponse
+    | UploadFileResponse
+    | FaceVideoResponse
 }
 
 export type EnterpriseFeatures = {

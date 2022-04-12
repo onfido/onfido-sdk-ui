@@ -21,6 +21,7 @@
         "list_item_doc_one": "Document",
         "list_item_selfie": "Selfie",
         "list_item_video": "Filmpje",
+        "list_item_poa": "Proof of Address",
         "subtitle": "Hier ziet u alles wat u geüpload hebt:",
         "title": "Eén laatste stap"
     },
@@ -267,18 +268,26 @@
         "title": "Dank u"
     },
     "permission": {
+        "body_both": "We kunnen u niet verifiëren zonder uw camera en microfoon te gebruiken",
         "body_cam": "We kunnen u niet verifiëren zonder camera",
+        "button_primary_both": "Allebei inschakelen",
         "button_primary_cam": "Camera inschakelen",
+        "subtitle_both": "Als u daarom gevraagd wordt, moet u toegang tot zowel de camera als de microfoon inschakelen om door te gaan",
         "subtitle_cam": "Als u daarom gevraagd wordt, moet u toegang tot de camera inschakelen om door te gaan",
+        "title_both": "Sta toegang toe tot camera en microfoon",
         "title_cam": "Toegang tot camera toestaan"
     },
     "permission_recovery": {
         "button_primary": "Verversen",
         "info": "Herstellen",
+        "list_header_both": "Volg deze stappen om de toegang voor beide te herstellen:",
         "list_header_cam": "Volg deze stappen om toegang tot de camera te herstellen:",
         "list_item_action_cam": "Ververs deze pagina om het proces voor de verificatie van uw identiteit opnieuw te starten",
+        "list_item_how_to_both": "Verleen via uw browserinstellingen toegang tot uw camera en microfoon",
         "list_item_how_to_cam": "Schakel toegang tot uw camera in vanuit de browserinstellingen",
-        "subtitle_cam": "Herstel toegang tot de camera om door te gaan met de verificatie van uw gezicht",
+        "subtitle_both": "Herstel toegang tot de camera en de microfoon om een filmpje op te nemen en de verificatie van uw gezicht te voltooien",
+        "subtitle_cam": "Herstel de cameratoegang om uw verificatie voort te zetten",
+        "title_both": "Toegang tot camera en microfoon geweigerd",
         "title_cam": "Toegang tot camera is geweigerd"
     },
     "photo_upload": {

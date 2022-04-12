@@ -21,6 +21,7 @@
         "list_item_doc_one": "Documento",
         "list_item_selfie": "Selfie",
         "list_item_video": "Vídeo",
+        "list_item_poa": "Proof of Address",
         "subtitle": "Aqui está tudo o que carregou:",
         "title": "Um passo final"
     },
@@ -265,18 +266,26 @@
         "title": "Obrigado"
     },
     "permission": {
+        "body_both": "Não podemos verificá-lo sem utilizar a sua câmara e microfone",
         "body_cam": "Não o podemos verificar sem a sua câmara",
+        "button_primary_both": "Permitir ambos",
         "button_primary_cam": "Ativar câmara",
+        "subtitle_both": "Quando solicitado, deve permitir o acesso de ambos para continuar",
         "subtitle_cam": "Quando solicitado, deve permitir o acesso à câmara para continuar",
+        "title_both": "Permitir acesso ao microfone e câmara",
         "title_cam": "Permitir o acesso à câmara"
     },
     "permission_recovery": {
         "button_primary": "Atualizar",
         "info": "Recuperação",
+        "list_header_both": "Siga estes passos para recuperar o acesso a ambos:",
         "list_header_cam": "Siga estes passos para recuperar o acesso à câmara:",
         "list_item_action_cam": "Atualize esta página para reiniciar o processo de verificação de identidade",
+        "list_item_how_to_both": "Conceda acesso à sua câmara e ao microfone a partir das definições do navegador",
         "list_item_how_to_cam": "Conceda acesso à sua câmara a partir das definições do navegador",
-        "subtitle_cam": "Recupere o acesso à câmara para continuar a verificação da face",
+        "subtitle_both": "Recuperar o acesso à câmara e ao microfone para tirar um vídeo e completar o processo de verificação",
+        "subtitle_cam": "Recupere o acesso à câmara para continuar a sua verificação",
+        "title_both": "Acesso à câmara e ao microfone negado",
         "title_cam": "O acesso à câmara é negado"
     },
     "photo_upload": {

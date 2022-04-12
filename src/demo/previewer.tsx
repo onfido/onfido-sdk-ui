@@ -71,7 +71,9 @@ const SdkPreviewer = () => {
 
     const onIFrameLoad = () => {
       // Transfer port2 to the iframe
-      iframe.current.contentWindow?.postMessage('init', '*', [channel.port2])
+      if (iframe.current?.contentWindow) {
+        iframe.current.contentWindow?.postMessage('init', '*', [channel.port2])
+      }
     }
 
     window.updateOptions = ({ onComplete, ...sdkOptions }) => {
