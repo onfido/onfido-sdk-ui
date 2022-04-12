@@ -258,7 +258,9 @@ export default class CrossDeviceMobileRouter extends Component<
 
     if (poaDocumentType) {
       this.props.actions.setPoADocumentType(poaDocumentType)
-    } else if (documentType) {
+    }
+
+    if (documentType) {
       this.props.actions.setIdDocumentType(documentType)
 
       if (documentType !== 'passport' && idDocumentIssuingCountry) {

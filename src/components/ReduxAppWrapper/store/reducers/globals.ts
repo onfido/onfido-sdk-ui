@@ -59,7 +59,6 @@ export default function globals(
       return {
         ...state,
         documentType: action.payload,
-        poaDocumentType: undefined,
       }
 
     case constants.SET_ID_ISSUING_COUNTRY:
