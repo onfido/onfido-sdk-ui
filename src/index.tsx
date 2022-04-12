@@ -13,7 +13,10 @@ import { noop } from '~utils/func'
 import { upperCase } from '~utils/string'
 import { buildStepFinder } from '~utils/steps'
 import { cssVarsPonyfill } from '~utils/cssVarsPonyfill'
-import type { NormalisedSdkOptions } from '~types/commons'
+import type {
+  NormalisedSdkOptions,
+  SDKOptionsWithRenderData,
+} from '~types/commons'
 import type { SdkOptions, SdkHandle } from '~types/sdk'
 import type { StepConfig, StepTypes } from '~types/steps'
 import App from './components/App'
@@ -23,7 +26,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const onfidoRender = (
-  options: NormalisedSdkOptions,
+  options: SDKOptionsWithRenderData,
   el: Element | Document | ShadowRoot | DocumentFragment,
   merge?: Element | Text
 ) => render(<App options={options} />, el, merge)
@@ -129,10 +132,10 @@ export const init = (opts: SdkOptions): SdkHandle => {
 
   if (options.containerEl) {
     containerEl = options.containerEl
-    onfidoRender(options, containerEl)
+    onfidoRender(options as SDKOptionsWithRenderData, containerEl)
   } else if (options.containerId) {
     containerEl = getContainerElementById(options.containerId)
-    onfidoRender(options, containerEl)
+    onfidoRender(options as SDKOptionsWithRenderData, containerEl)
   }
 
   return {
@@ -150,7 +153,7 @@ export const init = (opts: SdkOptions): SdkHandle => {
       ) {
         containerEl = getContainerElementById(changedOptions.containerId)
       }
-      onfidoRender(this.options as NormalisedSdkOptions, containerEl)
+      onfidoRender(this.options as SDKOptionsWithRenderData, containerEl)
       return this.options
     },
     tearDown() {
