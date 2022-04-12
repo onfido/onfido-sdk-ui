@@ -10,6 +10,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Public: Removed `userConsent` step option. User Consent is controlled by Onfido API.
+
+## [6.20.0] - 2022-04-12
+
+### Changed
+
 - Internal: Upgraded to webpack 5
 - Internal: Upgraded `eslint`, `mocha`, `jest`
 - Internal: Resolved all deprecated & vulnerability issues by removing and upgrading packages
