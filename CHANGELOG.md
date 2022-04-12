@@ -10,6 +10,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Set `acceptSslCerts` to `true` for browserstack CI test to avoid "This connection is not private" screens
+- Internal: Migrate `ModalApp` to typescript
+
+## [6.20.0] - 2022-04-12
+
+### Changed
+
 - Internal: Upgraded to webpack 5
 - Internal: Upgraded `eslint`, `mocha`, `jest`
 - Internal: Resolved all deprecated & vulnerability issues by removing and upgrading packages
@@ -31,8 +38,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Fixed behavior for analytics event `CUSTOM_API_REQUEST_COMPLETED` & added `CUSTOM_API_REQUEST_COMPLETED`
 - Internal: Updated `integratorTrackedEvents` with multiple triggers for `UPLOAD` to reflect analytics upload events changes
 - Internal: Upgrade `minimist` to v1.2.6
-- Internal: Set `acceptSslCerts` to `true` for browserstack CI test to avoid "This connection is not private" screens
-- Internal: Migrate `ModalApp` to typescript
 - Internal: Upgrade `node-fetch@2.6.7` & `node-forge@1.3.1`
 
 ### Fixed
@@ -41,6 +46,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Prevent Face step (variant: video) from falling back to selfie upon camera error when `uploadFallback: false` is provided
 - Internal: Remove duplicated config and strip out custom locales from analytics events
 - Public: Fix issue where `poa` and `document` steps cannot be used at the same time. Adds `poa` key to `onComplete` callback.
+- Public: Fix mis-aligned text for IE11 on Welcome screen
+- Internal: Fix polyglot to hide missing locales and add warning when in development
 
 ## [6.19.0] - 2022-03-14
 
@@ -65,6 +72,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Public: Updated supported documents list to include Curaçao and other countries.
+- Public: Updated document capture experience for better image quality (multi-frame capture)
 
 ### Changed
 
@@ -1235,7 +1243,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.19.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...development
+[6.20.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.19.0...6.20.0
 [6.19.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...6.19.0
 [6.18.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.17.0...6.18.0
 [6.17.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...6.17.0

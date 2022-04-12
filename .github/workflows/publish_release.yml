@@ -30,6 +30,7 @@ jobs:
 
       - name: Build dist
         run: |
+          npm install -g npm@8.5.2 
           npm install
           npm run build:all
 
