@@ -16,7 +16,10 @@ import Router from '../Router'
 import * as Tracker from '../../Tracker'
 import { getCountryDataForDocumentType } from '~supported-documents'
 
-import type { NormalisedSdkOptions } from '~types/commons'
+import type {
+  NormalisedSdkOptions,
+  SDKOptionsWithRenderData,
+} from '~types/commons'
 import type {
   EnterpriseFeatures,
   EnterpriseCobranding,
@@ -34,11 +37,9 @@ import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
 import withConnect from './withConnect'
 import { setupAnalyticsCookie, uninstallAnalyticsCookie } from '../../Tracker'
-import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
-import Spinner from '../Spinner'
 
 export type ModalAppProps = {
-  options: NormalisedSdkOptions
+  options: SDKOptionsWithRenderData
 }
 
 type Props = ModalAppProps & ReduxProps
@@ -72,7 +73,8 @@ class ModalApp extends Component<Props> {
 
   componentDidMount() {
     const { options } = this.props
-    this.prepareInitialStore({ steps: [] }, options)
+    const { containerEl, containerId } = options
+    this.prepareInitialStore({ steps: [], containerEl, containerId }, options)
     if (!options.mobileFlow) {
       const { customUI } = options
       const hasCustomUIConfigured =
@@ -104,8 +106,8 @@ class ModalApp extends Component<Props> {
   }
 
   jwtValidation = (
-    prevOptions: NormalisedSdkOptions,
-    newOptions: NormalisedSdkOptions
+    prevOptions: SDKOptionsWithRenderData,
+    newOptions: SDKOptionsWithRenderData
   ) => {
     if (prevOptions.token !== newOptions.token) {
       try {
@@ -145,8 +147,8 @@ class ModalApp extends Component<Props> {
   }
 
   rebindEvents = (
-    oldOptions: NormalisedSdkOptions,
-    newOptions: NormalisedSdkOptions
+    oldOptions: SDKOptionsWithRenderData,
+    newOptions: SDKOptionsWithRenderData
   ) => {
     oldOptions.onComplete && this.events.off('complete', oldOptions.onComplete)
     oldOptions.onError && this.events.off('error', oldOptions.onError)
@@ -195,8 +197,8 @@ class ModalApp extends Component<Props> {
   }
 
   prepareInitialStore = (
-    prevOptions: NormalisedSdkOptions,
-    options: NormalisedSdkOptions
+    prevOptions: SDKOptionsWithRenderData,
+    options: SDKOptionsWithRenderData
   ) => {
     const {
       token,
