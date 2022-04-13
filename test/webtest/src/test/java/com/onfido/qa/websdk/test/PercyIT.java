@@ -36,9 +36,11 @@ public class PercyIT extends WebSdkIT {
         var intro = onfido().withSteps("poa").init(PoAIntro.class);
         takePercySnapshot("PoAIntro");
 
-        intro.startVerification();
-        takePercySnapshot("PoADocumentSelection");
+        var countrySelect = intro.startVerification();
+        takePercySnapshot("PoACountrySelect");
 
+        countrySelect.select("United", PoADocumentSelection.class);
+        takePercySnapshot("PoADocumentSelection");
     }
 
     @Test(dataProvider = "poaDocumentTypes", groups = {"percy"})
