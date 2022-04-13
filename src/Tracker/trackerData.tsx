@@ -267,6 +267,13 @@ export const analyticsEventsMapping = new Map<
     { eventName: 'FACE_SELFIE_INTRO', properties: { event_type: 'screen' } },
   ],
   [
+    'screen_face_selfie_intro_take_selfie_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_INTRO_TAKE_SELFIE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_face_selfie_capture_file_upload',
     {
       eventName: 'FACE_SELFIE_CAPTURE',
