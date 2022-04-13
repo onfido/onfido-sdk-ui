@@ -680,56 +680,7 @@ Given user opened the link with `?uploadFallback=false` flag
    - browser should disregard the request for live document capture
    - browser should direct to the normal desktop flow options of cross device or document upload
 
-### 36a. User Consent screen
-
-(on private mode on desktop and mobile browsers)
-
-1. Open link with additional GET parameter `?showUserConsent=true`
-2. Continue to the next step
-   - You should see a consent screen with a list of FAQs
-   - When clicking on the links inside the screen content, they should open in a new tab
-3. Click on "Accept"
-   - You should see the document selector screen
-4. Click on the back button
-   - You should see the consent screen again
-5. Click on "Do not accept"
-   - You should see a modal with the title "Are you sure?"
-6. Click on "Review again"
-   - The modal should disappear
-7. Click on "Do not accept"
-   - You should see a modal with the title "Are you sure?"
-8. Click on "Yes, don't verify me"
-   - The SDK should disappear and the flow will be over
-
-### 36b. User Consent screen inside a modal
-
-(on private mode on desktop and mobile browsers)
-
-1. Open link with additional GET parameter `?showUserConsent=true&useModal=true`
-2. The SDK will open inside a modal.
-   - Repeat steps 2-8 from test case no. 35a
-
-### 37. User Consent screen can be reloaded if it failed to load due to loss of connection
-
-(on private mode on desktop and mobile browsers)
-
-1. Open link with additional GET parameter `?showUserConsent=true`
-2. Disconnect from your internet connection
-   - On desktop, either turn off your Wifi or disconnect from your wired connection.
-   - On mobile devices, switch to Airplane mode.
-3. Continue to the next step
-4. You should see `Content failed to load` screen
-5. Reconnect to your intenet connection
-   - On desktop, either turn on your Wifi or reconnect to your wired connection.
-   - On mobile devices, switch to Airplane mode.
-6. Click on `Reload screen` button
-   - You should see a consent screen with a list of FAQs
-   - When clicking on the links inside the screen content, they should open in a new tab
-7. Click on "Accept"
-   - You should see the document selector screen
-8. You should be able to complete the ID verification flow successfully
-
-### 38. Interrupt flow if selfie fallback is deactivated and MediaRecorder is not supported
+### 36. Interrupt flow if selfie fallback is deactivated and MediaRecorder is not supported
 
 Given user opened the link with `?faceVideo=true&photoCaptureFallback=false` flags
 
@@ -740,7 +691,7 @@ Given user opened the link with `?faceVideo=true&photoCaptureFallback=false` fla
    - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should NOT be able to complete the cross-device flow successfully.
 
-### 39. Cross Device for ANSSI Document Liveness
+### 37. Cross Device for ANSSI Document Liveness
 
 (on private mode of: Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
 
@@ -809,6 +760,320 @@ Things that would be nice to try and capture:
 Known Issues:
 
 - On Android, after completing the flow and attempting to play the video for the very first time, you’re unable to use the controls as expected. After it is played for the first time, the controls are then usable. This is because we don't know the duration precisely until the video was loaded for the first time.
+
+### 40a. Proof of Address with 'upload photo'
+
+(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
+
+1. Start the proof of address verification. To include Proof of Address flow step, there are two options:
+   - Add ?poa=true to the end of the url. Using this option, the flow will be composed of: PoA + Doc + Face. E.g: https://latest-onfido-sdk-ui-onfido.surge.sh/?poa=true.
+   - On the Developer Tools > Console, run `onfidoSdkHandle.setOptions({steps: [{type: 'poa'}]})`. This will run the flow with PoA as the only step.
+   - Until we finish the development of the issuing country screen selector, we have UK has the default one. To override it go to the Developer Tools > Console and run, for example
+     `onfidoSdkHandle.setOptions({steps: [{type: 'poa', options: {country: 'PRT'}}]})` where 'PRT' can be replaced by any other supported country (3 letter iso country codes).
+   - supported issuing countries are United Kingdom, USA, Canada and European Union countries - except Bulgaria, Republic of Cyprus and Greece
+2. Advance to document submission
+   - if it's a UK document: accepted document types are `Bank or building society statement`, `Utility bill`, `Council tax letter` and `Benefits letter`
+   - if it's NOT a UK document: accepted document types are `Bank statement` and `Utility bill`
+3. Pick one of the supported document types
+   - `Bank or building society statement` and `Utility bill`, should state a 3 months validity
+   - `Council tax letter` and `Benefits letter` should state a 12 months validity
+4. Continue
+   - options to `continue on phone` or `upload photo` are presented
+5. Choose to `upload photo` and continue after seeing the recommendations
+   - file explorer is displayed so the user can select the photo
+6. Select a valid document photo (image or pdf)
+   - image preview can be seen and enlarged
+   - image upload can be redone
+7. Click on `Upload document`
+   - submission confirmation screen is displayed
+8. Click on `Submit verification`
+   - user must see a screen representing the end of the flow
+
+### 40b. Proof of Address with 'upload photo' - other desktop browsers
+
+Go through the flow looking for layout/usability inconsistencies between browsers:
+
+1. Repeat the test `40a. Proof of Address with 'upload photo'` in a different browser
+   - everything should be displayed properly and layout should not be broken
+
+### 40c. Proof of Address with 'upload photo' - supported document types
+
+1. Repeat the test `40a. Proof of Address with 'upload photo'` for each of the supported document types
+   - `Bank or building society statement`, `Utility bill`, `Council tax letter` and `Benefits letter`
+
+### 40d. Proof of Address with 'upload photo' - non-UK countries
+
+1. Repeat the test `40a. Proof of Address with 'upload photo'` for any country other than UK
+   - accepted document types are `Bank statement` and `Utility bill`
+
+### 40e. Proof of Address with 'upload photo' - supported files
+
+1. Repeat the test `40a. Proof of Address with 'upload photo'` for all supported file types (images and PDF)
+
+### 40f. Proof of Address with 'upload photo' - previous screen
+
+1. Repeat the test `40a. Proof of Address with 'upload photo'` and make sure the user is able to go back in all of the screens
+
+### 40g. Proof of Address with 'upload photo' - redo
+
+1. Repeat the test `40a. Proof of Address with 'upload photo'` and make sure the user is able to redo the document upload on step 7
+
+### 40h. Proof of Address with 'upload photo' - failures
+
+1. Repeat the test `40a. Proof of Address with 'upload photo'` with invalid documents
+2. Repeat the test `40a. Proof of Address with 'upload photo'` and disconnect the internet in some steps (e.g: at the document submission)
+
+### 41a. Proof of Address cross-device with QR code (Upload)
+
+(on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+
+Given user is on proof of address document submission page
+
+1. Click on `Continue on phone` button to start cross-device flow
+   - user should see `Continue on your phone` screen
+2. Click on `Get secure link` button
+   - user should see a QR code below the `Scan the QR code with your phone` sub-title
+   - user should also see `How to scan a QR code` help button below the QR code
+3. Clicking on `How to scan a QR code` button should display help instructions
+4. Using the mobile phone's Camera app, scan the QR code and open the link on the browser
+5. Mobile browser should load link
+   - user should see `Submit document` screen with `Upload` and `Take photo` buttons
+6. Switch to the first tab
+   - user should see `Connected to your mobile` screen
+   - user should see an option to cancel
+7. Switch to the second tab upload the document with the option `Upload`
+   - user should be able to upload a document from a mobile device
+8. Switch to the first tab again
+   - user should see `Great, that’s everything we need` screen
+   - list of items uploaded should be displayed as
+     - `Proof of address uploaded`
+   - user should see the `Submit verification` button
+9. Submit verification
+   - user should see `Verification complete` screen
+
+### 41b. Proof of Address cross-device with QR code (Take photo)
+
+(on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+
+Given user is on proof of address document submission page
+
+1. Click on `Continue on phone` button to start cross-device flow
+   - user should see `Continue on your phone` screen
+2. Click on `Get secure link` button
+   - user should see a QR code below the `Scan the QR code with your phone` sub-title
+   - user should also see `How to scan a QR code` help button below the QR code
+3. Clicking on `How to scan a QR code` button should display help instructions
+4. Using the mobile phone's Camera app, scan the QR code and open the link on the browser
+5. Mobile browser should load link
+   - user should see `Submit document` screen with `Upload` and `Take photo` buttons
+6. Switch to the first tab
+   - user should see `Connected to your mobile` screen
+   - user should see an option to cancel
+7. Switch to the second tab upload the document with the option `Take photo`
+   - user should be able to upload a document from a mobile device
+8. Switch to the first tab again
+   - user should see `Great, that’s everything we need` screen
+   - list of items uploaded should be displayed as
+     - `Proof of address uploaded`
+   - user should see the `Submit verification` button
+9. Submit verification
+   - user should see `Verification complete` screen
+
+### 41c. Proof of Address cross-device with QR code - cancel
+
+(on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+
+Given user is on proof of address document submission page
+
+1. Click on `Continue on phone` button to start cross-device flow
+   - user should see `Continue on your phone` screen
+2. Click on `Get secure link` button
+   - user should see a QR code below the `Scan the QR code with your phone` sub-title
+   - user should also see `How to scan a QR code` help button below the QR code
+3. Clicking on `How to scan a QR code` button should display help instructions
+4. Using the mobile phone's Camera app, scan the QR code and open the link on the browser
+5. Mobile browser should load link
+   - user should see `Submit document` screen with `Upload` and `Take photo` buttons
+6. Switch to the first tab
+   - user should see `Connected to your mobile` screen
+   - user should see an option to cancel
+7. Click `Cancel`
+   - user should be able to cancel the flow
+
+### 41d. Proof of Address cross-device with QR code (Upload - redo)
+
+(on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+
+Given user is on proof of address document submission page
+
+1. Click on `Continue on phone` button to start cross-device flow
+   - user should see `Continue on your phone` screen
+2. Click on `Get secure link` button
+   - user should see a QR code below the `Scan the QR code with your phone` sub-title
+   - user should also see `How to scan a QR code` help button below the QR code
+3. Clicking on `How to scan a QR code` button should display help instructions
+4. Using the mobile phone's Camera app, scan the QR code and open the link on the browser
+5. Mobile browser should load link
+   - user should see `Submit document` screen with `Upload` and `Take photo` buttons
+6. Switch to the first tab
+   - user should see `Connected to your mobile` screen
+   - user should see an option to cancel
+7. Switch to the second tab upload the document with the option `Upload`
+   - user should be able to upload a document from a mobile device
+8. Click `Redo` and repeat the previous step
+9. Switch to the first tab again
+   - user should see `Great, that’s everything we need` screen
+   - list of items uploaded should be displayed as
+     - `Proof of address uploaded`
+   - user should see the `Submit verification` button
+10. Submit verification
+    - user should see `Verification complete` screen
+
+### 41e. Proof of Address cross-device with QR code (Take photo - redo)
+
+(on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+
+Given user is on proof of address document submission page
+
+1. Click on `Continue on phone` button to start cross-device flow
+   - user should see `Continue on your phone` screen
+2. Click on `Get secure link` button
+   - user should see a QR code below the `Scan the QR code with your phone` sub-title
+   - user should also see `How to scan a QR code` help button below the QR code
+3. Clicking on `How to scan a QR code` button should display help instructions
+4. Using the mobile phone's Camera app, scan the QR code and open the link on the browser
+5. Mobile browser should load link
+   - user should see `Submit document` screen with `Upload` and `Take photo` buttons
+6. Switch to the first tab
+   - user should see `Connected to your mobile` screen
+   - user should see an option to cancel
+7. Switch to the second tab upload the document with the option `Take photo`
+   - user should be able to upload a document from a mobile device
+8. Click `Redo` and repeat the previous step
+9. Switch to the first tab again
+   - user should see `Great, that’s everything we need` screen
+   - list of items uploaded should be displayed as
+     - `Proof of address uploaded`
+   - user should see the `Submit verification` button
+10. Submit verification
+
+- user should see `Verification complete` screen
+
+### 42a. Proof of Address cross-device with copied link (Upload)
+
+(on private mode of: Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+Given user is on proof of address document submission page
+
+1. Click on `Continue on phone` button to start cross-device flow
+   - user should see `Continue on your phone` screen
+2. Click on `Get secure link` button
+   - user should see options to either `Get link via SMS` or `Copy link`
+3. Click on `Copy link` option
+4. Click on `Copy` button to copy the link
+5. Open new tab and paste the copied link
+   - user should see `Submit document` screen with `Upload` and `Take photo` buttons
+6. Switch to the first tab
+   - user should see `Connected to your mobile` screen
+   - user should see an option to cancel
+7. Switch to the second tab upload the document with the option `Upload`
+   - user should be able to upload a document from a mobile device
+8. Switch to the first tab again
+   - user should see `Great, that’s everything we need` screen
+   - list of items uploaded should be displayed as
+     - `Proof of address uploaded`
+   - user should see the `Submit verification` button
+9. Submit verification
+   - user should see `Verification complete` screen
+
+### 42b. Proof of Address cross-device with copied link (Take photo)
+
+(on private mode of: Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+Given user is on proof of address document submission page
+
+1. Click on `Continue on phone` button to start cross-device flow
+   - user should see `Continue on your phone` screen
+2. Click on `Get secure link` button
+   - user should see options to either `Get link via SMS` or `Copy link`
+3. Click on `Copy link` option
+4. Click on `Copy` button to copy the link
+5. Open new tab and paste the copied link
+   - user should see `Submit document` screen with `Upload` and `Take photo` buttons
+6. Switch to the first tab
+   - user should see `Connected to your mobile` screen
+   - user should see an option to cancel
+7. Switch to the second tab upload the document with the option `Take photo`
+   - user should be able to upload a document from a mobile device
+8. Switch to the first tab again
+   - user should see `Great, that’s everything we need` screen
+   - list of items uploaded should be displayed as
+     - `Proof of address uploaded`
+   - user should see the `Submit verification` button
+9. Submit verification
+   - user should see `Verification complete` screen
+
+### 43a. Proof of Address cross-device with SMS (Upload)
+
+(on one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+
+Given user is on proof of address document submission page
+
+1. Click on `Continue on phone` button to start cross-device flow
+   - user should see `Continue on your phone` screen
+   - user should be able to continue to next screen and provide mobile number from any country
+   - user should see the option to send SMS
+   - user should see option to copy link
+2. Type valid mobile number connected to mobile test device and click on `Send link` button
+   - user should see `Check your mobile` screen
+   - user should see option to resend link
+   - user should receive SMS on a mobile device
+     a. _Additional test:_ Double click on `Send link` button - subsequent steps should be same as above and not skip straight to `Complete` screen
+3. Open link on mobile device (for each mobile browser)
+   - user should see `Submit document` screen with `Upload` and `Take photo` buttons
+4. Switch to the first tab
+   - user should see `Connected to your mobile` screen
+   - user should see an option to cancel
+5. Switch to the second tab upload the document with the option `Upload`
+   - user should be able to upload a document from a mobile device
+6. Switch to the first tab again
+   - user should see `Great, that’s everything we need` screen
+   - list of items uploaded should be displayed as
+     - `Proof of address uploaded`
+   - user should see the `Submit verification` button
+7. Submit verification
+   - user should see `Verification complete` screen
+
+### 43b. Proof of Address cross-device with SMS (Take photo)
+
+(on one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+
+Given user is on proof of address document submission page
+
+1. Click on `Continue on phone` button to start cross-device flow
+   - user should see `Continue on your phone` screen
+   - user should be able to continue to next screen and provide mobile number from any country
+   - user should see the option to send SMS
+   - user should see option to copy link
+2. Type valid mobile number connected to mobile test device and click on `Send link` button
+   - user should see `Check your mobile` screen
+   - user should see option to resend link
+   - user should receive SMS on a mobile device
+     a. _Additional test:_ Double click on `Send link` button - subsequent steps should be same as above and not skip straight to `Complete` screen
+3. Open link on mobile device (for each mobile browser)
+   - user should see `Submit document` screen with `Upload` and `Take photo` buttons
+4. Switch to the first tab
+   - user should see `Connected to your mobile` screen
+   - user should see an option to cancel
+5. Switch to the second tab upload the document with the option `Take photo`
+   - user should be able to upload a document from a mobile device
+6. Switch to the first tab again
+   - user should see `Great, that’s everything we need` screen
+   - list of items uploaded should be displayed as
+     - `Proof of address uploaded`
+   - user should see the `Submit verification` button
+7. Submit verification
+   - user should see `Verification complete` screen
 
 ## Non-functional
 

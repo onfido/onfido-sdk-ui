@@ -443,6 +443,46 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10423,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021 2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "REP",
+      "has_nfc": true,
+      "id": 6014,
+      "municipality": null,
+      "region_iso": "VLG",
+      "region_name": "Flanders",
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
       "country": "Brazil | Brasil",
       "country_alpha2": "BR",
       "country_alpha3": "BRA",
@@ -476,7 +516,7 @@
       "usecases": [
         "verify"
       ],
-      "version": null
+      "version": "1"
     }
   },
   {
@@ -532,11 +572,71 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier1",
       "usecases": [
         "verify"
       ],
-      "version": "2013"
+      "version": "2010a"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bulgaria | България",
+      "country_alpha2": "BG",
+      "country_alpha3": "BGR",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10540,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010b"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bulgaria | България",
+      "country_alpha2": "BG",
+      "country_alpha3": "BGR",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10541,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bulgaria | България",
+      "country_alpha2": "BG",
+      "country_alpha3": "BGR",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10542,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
     }
   },
   {
@@ -612,7 +712,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier1",
       "usecases": [
         "verify"
       ],
@@ -1195,6 +1295,26 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
+      "country": "Finland | Suomi",
+      "country_alpha2": "FI",
+      "country_alpha3": "FIN",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10425,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2020 1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
       "country": "France",
       "country_alpha2": "FR",
       "country_alpha3": "FRA",
@@ -1293,66 +1413,6 @@
   },
   {
     "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Germany | Deutschland",
-      "country_alpha2": "DE",
-      "country_alpha3": "DEU",
-      "document_type": "REP",
-      "has_nfc": false,
-      "id": 4293,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2005"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Germany | Deutschland",
-      "country_alpha2": "DE",
-      "country_alpha3": "DEU",
-      "document_type": "REP",
-      "has_nfc": false,
-      "id": 4296,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2007"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Germany | Deutschland",
-      "country_alpha2": "DE",
-      "country_alpha3": "DEU",
-      "document_type": "REP",
-      "has_nfc": false,
-      "id": 6075,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2011 2"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Germany | Deutschland",
@@ -1369,26 +1429,6 @@
         "verify"
       ],
       "version": "2019"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Germany | Deutschland",
-      "country_alpha2": "DE",
-      "country_alpha3": "DEU",
-      "document_type": "REP",
-      "has_nfc": false,
-      "id": 8867,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2011 1"
     }
   },
   {
@@ -1429,6 +1469,86 @@
         "verify"
       ],
       "version": "2019 1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Germany | Deutschland",
+      "country_alpha2": "DE",
+      "country_alpha3": "DEU",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 6075,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011 2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Germany | Deutschland",
+      "country_alpha2": "DE",
+      "country_alpha3": "DEU",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 8867,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier3",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011 1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Germany | Deutschland",
+      "country_alpha2": "DE",
+      "country_alpha3": "DEU",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 4293,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Germany | Deutschland",
+      "country_alpha2": "DE",
+      "country_alpha3": "DEU",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 4296,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
     }
   },
   {
@@ -1927,6 +2047,26 @@
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "REP",
+      "has_nfc": false,
+      "id": 10440,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "REP",
       "has_nfc": true,
       "id": 3451,
       "municipality": null,
@@ -1983,7 +2123,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Kosovo, Republic of | Kosova",
+      "country": "Kosovo, Republic of",
       "country_alpha2": "XK",
       "country_alpha3": "RKS",
       "document_type": "REP",
@@ -2037,6 +2177,46 @@
         "verify"
       ],
       "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10244,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10438,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
     }
   },
   {
@@ -2377,62 +2557,42 @@
   },
   {
     "sourceData": {
-      "back_required": false,
+      "back_required": true,
       "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
+      "country": "Malta",
+      "country_alpha2": "MT",
+      "country_alpha3": "MLT",
       "document_type": "REP",
       "has_nfc": false,
-      "id": 9970,
+      "id": 10435,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier1",
       "usecases": [
         "verify"
       ],
-      "version": "2010"
+      "version": "2021"
     }
   },
   {
     "sourceData": {
-      "back_required": false,
+      "back_required": true,
       "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
+      "country": "Malta",
+      "country_alpha2": "MT",
+      "country_alpha3": "MLT",
       "document_type": "REP",
-      "has_nfc": false,
-      "id": 9971,
+      "has_nfc": true,
+      "id": 10461,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier3",
       "usecases": [
         "verify"
       ],
-      "version": "2010"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "REP",
-      "has_nfc": false,
-      "id": 9972,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2010"
+      "version": "2021 document"
     }
   },
   {
@@ -2444,7 +2604,47 @@
       "country_alpha3": "MEX",
       "document_type": "REP",
       "has_nfc": false,
-      "id": 10370,
+      "id": 9970,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010 3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 9971,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010 2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 9972,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -2464,7 +2664,7 @@
       "country_alpha3": "MEX",
       "document_type": "REP",
       "has_nfc": false,
-      "id": 10371,
+      "id": 10211,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -2484,7 +2684,27 @@
       "country_alpha3": "MEX",
       "document_type": "REP",
       "has_nfc": false,
-      "id": 10372,
+      "id": 10370,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010 4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10371,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -2493,6 +2713,26 @@
         "verify"
       ],
       "version": "6"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10372,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "7"
     }
   },
   {
@@ -2593,6 +2833,26 @@
         "verify"
       ],
       "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Monaco",
+      "country_alpha2": "MC",
+      "country_alpha3": "MCO",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10480,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
     }
   },
   {
@@ -3768,7 +4028,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier3",
       "usecases": [
         "verify"
       ],
@@ -4033,6 +4293,26 @@
         "verify"
       ],
       "version": "2021"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United Arab Emirates | الإمارات العربية المتحدة",
+      "country_alpha2": "AE",
+      "country_alpha3": "ARE",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10546,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021 1"
     }
   },
   {

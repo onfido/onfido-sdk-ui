@@ -21,3 +21,4 @@ out/
 
 dist
 lib
+.env

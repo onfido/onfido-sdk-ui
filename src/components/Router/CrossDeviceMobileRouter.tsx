@@ -381,6 +381,7 @@ export default class CrossDeviceMobileRouter extends Component<
     if (steps) {
       return (
         <SdkConfigurationServiceProvider
+          overrideConfiguration={this.props.options.overrideSdkConfiguration}
           url={this.props.urls.onfido_api_url}
           token={this.state.token}
           fallback={<WrappedSpinner disableNavigation />}

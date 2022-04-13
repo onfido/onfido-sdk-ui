@@ -197,8 +197,18 @@ apiRouter
   .get('/ping', (context) => {
     context.response.body = { message: 'pong' }
   })
-  .get('/v3/sdk/configurations', async (context) => {
+  .post('/v3.3/sdk/configurations', async (context) => {
     context.response.body = responses.api.v3.sdk_configurations
+    context.response.status = Status.OK
+  })
+  .patch('/v3.3/applicants/:id/location', async (context) => {
+    context.response.status = Status.OK
+  })
+  .patch('/v3.3/applicants/:id/consents', async (context) => {
+    context.response.status = Status.OK
+  })
+  .get('/v3.3/applicants/:id/consents', async (context) => {
+    context.response.body = responses.api.v3.applicant_consents
     context.response.status = Status.OK
   })
   .post('/v3/analytics', async (context) => {

@@ -1,9 +1,13 @@
 package com.onfido.qa.websdk.test;
 
+import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.UserConsent;
+import com.onfido.qa.websdk.page.Welcome;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,8 +15,12 @@ public class UserConsentIT extends WebSdkIT {
 
     public static final String CONSENT_FRAME_TITLE = "Onfido's privacy statement and Terms of Service";
 
+    public <T extends Page> T init(Class<T> pageClass, Object... steps) {
+        return onfido().withSdkConfiguration(Map.of("sdk_features", Map.of("enable_require_applicant_consents", true))).withSteps(steps).init(pageClass);
+    }
+
     private UserConsent init() {
-        return onfido().withSteps("userConsent", "document").init(UserConsent.class);
+        return init(UserConsent.class,"document");
     }
 
     @Test(description = "should verify UI elements on the consent screen")
@@ -55,5 +63,27 @@ public class UserConsentIT extends WebSdkIT {
     public void testSecondaryClickOnDeclineModalUnmountsSdK() {
         init().declineUserConsent().clickSecondaryButton();
         assertThat(driver().findElements(By.id("#root > *"))).isEmpty();
+    }
+
+    @Test(description = "remove consents from navigation once accepted")
+    public void testRemoveConsentsFromNavigationOnceAccepted() {
+        var documentSelector = init().acceptUserConsent(IdDocumentSelector.class);
+
+        verifyCopy(documentSelector.title(), "doc_select.title");
+        assertThat(documentSelector.backArrow().isDisplayed()).isFalse();
+    }
+
+    @Test(description = "remove consents from history once accepted")
+    public void testRemoveConsentsFromHistoryOnceAccepted() {
+        var documentSelector = init(Welcome.class,"welcome", "document")
+                .continueToNextStep(UserConsent.class)
+                .acceptUserConsent(IdDocumentSelector.class);
+
+        verifyCopy(documentSelector.title(), "doc_select.title");
+        assertThat(documentSelector.backArrow().isDisplayed()).isTrue();
+
+        var welcome = documentSelector.back(Welcome.class);
+
+        verifyCopy(welcome.title(), "welcome.title");
     }
 }
