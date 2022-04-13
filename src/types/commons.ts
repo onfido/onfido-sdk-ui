@@ -5,7 +5,7 @@ import { DocumentTypes, PoaTypes, StepConfig, StepTypes } from './steps'
 import { SdkOptions } from './sdk'
 import { UICustomizationOptions } from './ui-customisation-options'
 
-export interface NormalisedSdkOptions extends SdkOptions {
+export interface NormalisedSdkOptions extends Omit<SdkOptions, 'steps'> {
   steps: StepConfig[]
 }
 

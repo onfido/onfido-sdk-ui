@@ -1,14 +1,21 @@
+import '@testing-library/jest-dom'
 import { h } from 'preact'
-import { mount, shallow } from 'enzyme'
 import { sanitize } from 'dompurify'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
-import MockedLocalised from '~jest/MockedLocalised'
 import { mockedReduxProps } from '~jest/MockedReduxProvider'
 import UserConsent from '../index'
 
 import type { NarrowSdkOptions } from '~types/commons'
 import type { StepComponentBaseProps } from '~types/routers'
+import { render, screen, configure } from '@testing-library/preact'
+import userEvent from '@testing-library/user-event'
+import MockedLocalised from '~jest/MockedLocalised'
+import { UserConsentContext } from '~contexts/useUserConsent'
+
+configure({
+  testIdAttribute: 'data-onfido-qa',
+})
 
 jest.mock('dompurify')
 
@@ -46,61 +53,49 @@ const defaultProps: StepComponentBaseProps = {
   step: 0,
 }
 
+const mockUpdateConsent = jest.fn()
+
 describe('UserConsent', () => {
-  it('renders without crashing', () => {
-    const wrapper = shallow(<UserConsent {...defaultProps} />)
-    expect(wrapper.exists()).toBeTruthy()
+  beforeEach(() => {
+    const sanitizer = sanitize as jest.Mock
+    sanitizer.mockReturnValueOnce(xhrMock.response)
+    render(
+      <SdkOptionsProvider options={defaultOptions}>
+        <UserConsentContext.Provider
+          value={{
+            enabled: true,
+            consents: [],
+            updateConsents: (v) => Promise.resolve(v).then(mockUpdateConsent),
+          }}
+        >
+          <MockedLocalised>
+            <UserConsent {...defaultProps} />
+          </MockedLocalised>
+        </UserConsentContext.Provider>
+      </SdkOptionsProvider>
+    )
   })
 
-  describe('when mounted', () => {
-    beforeEach(() => {
-      const sanitizer = sanitize as jest.Mock
-      sanitizer.mockReturnValueOnce(xhrMock.response)
-    })
+  it('renders UserConsent sanitized HTML', async () => {
+    expect(await screen.findByText('My Sanitized Header')).toBeInTheDocument()
+  })
 
-    it('renders UserConsent with actions', () => {
-      const wrapper = mount(
-        <SdkOptionsProvider options={defaultOptions}>
-          <MockedLocalised>
-            <UserConsent {...defaultProps} />
-          </MockedLocalised>
-        </SdkOptionsProvider>
-      )
+  it('displays the decline dialog', () => {
+    userEvent.click(screen.getByText(/user_consent.button_secondary/))
+    expect(screen.getByRole('dialog')).toBeVisible()
+  })
 
-      expect(wrapper.exists()).toBeTruthy()
-      expect(wrapper.find('Actions').exists()).toBeTruthy()
-    })
+  it('grant applicant consents', async () => {
+    userEvent.click(screen.getByText(/user_consent.button_primary/))
+    expect(await screen.findByRole('progressbar')).toBeInTheDocument()
+    expect(mockUpdateConsent).toHaveBeenCalledWith(true)
+  })
 
-    it('renders UserConsent sanitized HTML', () => {
-      const wrapper = mount(
-        <SdkOptionsProvider options={defaultOptions}>
-          <MockedLocalised>
-            <UserConsent {...defaultProps} />
-          </MockedLocalised>
-        </SdkOptionsProvider>
-      )
-      // In Enzyme v3 you need to use `render()` to see the HTML inside `dangerouslySetInnerHTML`
-      // See the following issues https://github.com/enzymejs/enzyme/issues/419 and https://github.com/enzymejs/enzyme/issues/1297
-
-      expect(wrapper.find('ScreenLayout').render().html()).toContain(
-        xhrMock.response
-      )
-    })
-
-    it('renders the DeclineModal component', () => {
-      const wrapper = mount(
-        <SdkOptionsProvider options={defaultOptions}>
-          <MockedLocalised>
-            <UserConsent {...defaultProps} />
-          </MockedLocalised>
-        </SdkOptionsProvider>
-      )
-      const secondaryBtn = wrapper.find({
-        'data-onfido-qa': 'userConsentBtnSecondary',
-      })
-      expect(secondaryBtn.exists()).toBeTruthy()
-      secondaryBtn.simulate('click')
-      expect(wrapper.find('DeclineModal').exists()).toBeTruthy()
-    })
+  it('reject applicant consents', async () => {
+    userEvent.click(screen.getByText(/user_consent.button_secondary/))
+    expect(screen.getByRole('dialog')).toBeVisible()
+    userEvent.click(screen.getByText(/user_consent.prompt.button_secondary/))
+    expect(await screen.findByRole('progressbar')).toBeInTheDocument()
+    expect(mockUpdateConsent).toHaveBeenCalledWith(false)
   })
 })

@@ -53,6 +53,7 @@ const formatOptions = ({
   ...otherOptions
 }: SdkOptions): NormalisedSdkOptions => {
   const mandatorySteps: StepTypes[] = ['document', 'face', 'complete']
+  const internalSteps: StepTypes[] = ['userConsent']
   const defaultSteps: StepTypes[] =
     process.env.SDK_ENV === 'Auth'
       ? ['welcome', 'auth', ...mandatorySteps]
@@ -61,7 +62,9 @@ const formatOptions = ({
   return {
     ...otherOptions,
     smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
-    steps: (steps || defaultSteps).map(formatStep),
+    steps: (steps || defaultSteps)
+      .map(formatStep)
+      .filter(({ type }) => !internalSteps.includes(type)),
   }
 }
 
@@ -137,8 +140,8 @@ export const init = (opts: SdkOptions): SdkHandle => {
 
   return {
     options,
-    setOptions(changedOptions: SDKOptionsWithRenderData) {
-      this.options = formatOptions({ ...this.options, ...changedOptions })
+    setOptions(changedOptions) {
+      this.options = { ...this.options, ...formatOptions(changedOptions) }
       if (
         this.options.containerEl !== changedOptions.containerEl &&
         changedOptions.containerEl
