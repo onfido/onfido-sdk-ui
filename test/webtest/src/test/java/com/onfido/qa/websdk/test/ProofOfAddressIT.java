@@ -141,6 +141,7 @@ public class ProofOfAddressIT extends WebSdkIT {
         upload.upload(NATIONAL_IDENTITY_CARD_PDF).clickConfirmButton(Complete.class);
     }
 
+    /*
     @Test(description = "should skip country selection screen with a preselected driver's license document type on PoA flow", groups = {"percy"})
     public void testShouldSkipCountrySelectionScreenWithAPreselectedDriverSLicenseDocumentTypeOnPoAFlow() {
 
@@ -155,6 +156,7 @@ public class ProofOfAddressIT extends WebSdkIT {
         upload.upload(UK_DRIVING_LICENCE_PNG);
 
     }
+    */
 
     @Test(description = "should successfully complete cross device e2e flow with PoA document and selfie upload", groups = {"percy", "tabs"})
     public void testShouldSuccessfullyCompleteCrossDeviceE2EFlowWithPoADocumentAndSelfieUpload() {

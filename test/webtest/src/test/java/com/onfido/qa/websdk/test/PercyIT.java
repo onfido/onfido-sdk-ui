@@ -2,6 +2,7 @@ package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.websdk.PoADocumentType;
 import com.onfido.qa.websdk.page.Complete;
+import com.onfido.qa.websdk.page.PoADocumentSelection;
 import com.onfido.qa.websdk.page.PoAIntro;
 import com.onfido.qa.websdk.page.Welcome;
 import org.testng.SkipException;
@@ -50,6 +51,7 @@ public class PercyIT extends WebSdkIT {
 
         onfido().withSteps("poa").init(PoAIntro.class)
                 .startVerification()
+                .select("United", PoADocumentSelection.class)
                 .select(documentType);
 
         takePercySnapshot("PoAGuidance-" + documentType.canonicalName());
