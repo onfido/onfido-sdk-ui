@@ -264,7 +264,7 @@ export const analyticsEventsMapping = new Map<
   ],
   [
     'screen_face_selfie_intro',
-    { eventName: 'FACE_INTRO', properties: { event_type: 'screen' } },
+    { eventName: 'FACE_SELFIE_INTRO', properties: { event_type: 'screen' } },
   ],
   [
     'screen_face_selfie_capture_file_upload',
