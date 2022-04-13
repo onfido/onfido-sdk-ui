@@ -212,7 +212,7 @@ Onfido.init({
   onComplete: function (data) {
     console.log('everything is complete')
   },
-  steps: ['welcome', 'document', 'face', 'complete'],
+  steps: ['welcome', 'poa', 'document', 'face', 'complete'],
 })
 ```
 
@@ -711,24 +711,7 @@ The custom options are:
 
 #### poa
 
-This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
-The custom options are:
-
-- `country` (default: `GBR`)
-- `documentTypes`
-
-```javascript
-options: {
-  country: string,
-  documentTypes: {
-    bank_building_society_statement: boolean,
-    utility_bill: boolean,
-    council_tax: boolean, // GBR only
-    benefit_letters: boolean, // GBR only
-    government_letter: boolean // non-GBR only
-  }
-}
-```
+This is the Proof of Address capture step. Users will be asked to select the issuing country of their document, the document type, and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming. There are no custom options for this step.
 
 #### face
 
