@@ -111,7 +111,7 @@ public class ProofOfAddressIT extends WebSdkIT {
 
         var intro = onfido().withSteps("poa", "complete").init(PoAIntro.class);
 
-        assertThat(intro.title()).isEqualTo("Let’s verify your UK address");
+        assertThat(intro.title()).isEqualTo("Let’s verify your address");
 
         verifyCopy(intro.requirementsHeader(), "poa_intro.subtitle");
         assertThat(intro.firstRequirement()).isEqualTo("Shows your current address");
