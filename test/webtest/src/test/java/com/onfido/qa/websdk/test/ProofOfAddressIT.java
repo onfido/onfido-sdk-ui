@@ -12,6 +12,7 @@ import com.onfido.qa.websdk.page.CrossDeviceSubmit;
 import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.ImageQualityGuide;
+import com.onfido.qa.websdk.page.PoADocumentSelection;
 import com.onfido.qa.websdk.page.PoAIntro;
 import com.onfido.qa.websdk.sdk.PoAStep;
 import com.onfido.qa.websdk.sdk.Raw;
@@ -62,23 +63,36 @@ public class ProofOfAddressIT extends WebSdkIT {
 
     }
 
+    private static class SimpleCountry {
+        public String code;
+        public String name;
+
+        public SimpleCountry(String name, String code) {
+            this.name = name;
+            this.code = code;
+        }
+    }
+
     @DataProvider
-    public static Object[][] countries() {
-        return new Object[][]{
-                {"GBR"},
-                {"GER"}
+    public static Object[] countries() {
+        return new SimpleCountry[]{
+                new SimpleCountry("United", "GBR"),
+                new SimpleCountry("Germany", "GER")
         };
     }
 
     @Test(description = "verify that only available options for PoA are shown", dataProvider = "countries")
-    public void testVerifyThatOnlyAvailableOptionsForPoAAreShown(String countryCode) {
+    public void testVerifyThatOnlyAvailableOptionsForPoAAreShown(SimpleCountry country) {
 
         var availableDocumentTypes = Arrays.stream(values())
-                                           .filter(x -> x.availableInCountry(countryCode))
+                                           .filter(x -> x.availableInCountry(country.code))
                                            .collect(Collectors.toList());
 
-        var documentSelection = onfido().withSteps(new PoAStep().withCountry(countryCode)).init(PoAIntro.class)
-                                        .startVerification();
+        var documentSelection = onfido()
+                .withSteps(new PoAStep())
+                .init(PoAIntro.class)
+                .startVerification()
+                .select(country.name, PoADocumentSelection.class);
 
         var options = documentSelection.getOptions();
 
@@ -106,7 +120,8 @@ public class ProofOfAddressIT extends WebSdkIT {
 
         verifyCopy(intro.startVerificationButtonText(), "poa_intro.button_primary");
 
-        var documentSelection = intro.startVerification();
+        var countrySelector = intro.startVerification();
+        var documentSelection = countrySelector.select("United", PoADocumentSelection.class);
 
         assertThat(documentSelection.title()).isEqualTo("Select a UK document");
         verifyCopy(documentSelection.subTitle(), "doc_select.subtitle_poa");
@@ -131,6 +146,7 @@ public class ProofOfAddressIT extends WebSdkIT {
 
         var upload = onfido().withSteps("poa").init(PoAIntro.class)
                              .startVerification()
+                             .select("United", PoADocumentSelection.class)
                              .select(COUNCIL_TAX)
                              .clickContinue();
 
@@ -145,6 +161,7 @@ public class ProofOfAddressIT extends WebSdkIT {
 
         var crossDeviceLink = onfido().withSteps("poa", "complete").init(PoAIntro.class)
                                       .startVerification()
+                                      .select("United", PoADocumentSelection.class)
                                       .select(BANK_BUILDING_SOCIETY_STATEMENT)
                                       .clickContinue().switchToCrossDevice()
                                       .getSecureLink();
@@ -174,6 +191,7 @@ public class ProofOfAddressIT extends WebSdkIT {
                 .withOnComplete(new Raw("(data) => {window.onCompleteData = data}"))
                 .init(PoAIntro.class)
                 .startVerification()
+                .select("United", PoADocumentSelection.class)
                 .select(BANK_BUILDING_SOCIETY_STATEMENT)
                 .clickContinue()
                 .upload(NATIONAL_IDENTITY_CARD_PDF)
