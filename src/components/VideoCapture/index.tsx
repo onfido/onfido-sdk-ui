@@ -31,12 +31,12 @@ export type VideoOverlayProps = {
   onStop: () => void
 } & WithPermissionsFlowProps
 
-export type Props = {
+export type VideoCaptureProps = {
   audio?: boolean
   cameraClassName?: string
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
-  method: CaptureMethods
+  method: Exclude<CaptureMethods, 'poa'>
   onRecordingStart?: () => void
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
@@ -46,6 +46,7 @@ export type Props = {
   title?: string
   webcamRef?: Ref<Webcam>
   pageId?: string
+  isUploadFallbackDisabled?: boolean
 } & WithTrackingProps
 
 type State = {
@@ -61,7 +62,12 @@ const initialStateWithoutMediaStream: Omit<State, 'hasMediaStream'> = {
   isRecording: false,
 }
 
-const RECORDING_TIMEOUT_ERRORS_MAP: Record<CaptureMethods, ErrorProp> = {
+const IDEAL_CAMERA_WIDTH_IN_PX = 1080 // Full HD 1080p
+
+const RECORDING_TIMEOUT_ERRORS_MAP: Record<
+  Exclude<CaptureMethods, 'poa'>,
+  ErrorProp
+> = {
   face: {
     name: 'FACE_VIDEO_TIMEOUT',
     type: 'warning',
@@ -76,7 +82,7 @@ const RECORDING_TIMEOUT_ERRORS_MAP: Record<CaptureMethods, ErrorProp> = {
   },
 }
 
-export default class VideoCapture extends Component<Props, State> {
+export default class VideoCapture extends Component<VideoCaptureProps, State> {
   private webcam?: Webcam
 
   state = { ...initialStateWithoutMediaStream, hasMediaStream: false }
@@ -231,12 +237,14 @@ export default class VideoCapture extends Component<Props, State> {
 
     return (
       <Camera
+        idealCameraWidth={IDEAL_CAMERA_WIDTH_IN_PX}
         audio={audio}
         buttonType="video"
         containerClassName={cameraClassName}
         facing={facing}
         fallbackToDefaultWidth
         isButtonDisabled={disableRecording}
+        isUploadFallbackDisabled={this.props.isUploadFallbackDisabled}
         onButtonClick={this.handleRecordingStart}
         onError={this.handleCameraError}
         onUserMedia={this.handleMediaStream}

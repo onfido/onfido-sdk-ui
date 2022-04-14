@@ -23,9 +23,10 @@ import type {
   StepComponentFaceProps,
 } from '~types/routers'
 
-type FaceVideoProps = {
+export type FaceVideoProps = {
   cameraClassName: string
   inactiveError: ErrorProp
+  isUploadFallbackDisabled?: boolean
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
   renderFallback: RenderFallbackProp
@@ -84,6 +85,7 @@ class FaceVideo extends Component<Props, State> {
       inactiveError,
       onRedo,
       renderFallback,
+      isUploadFallbackDisabled,
       trackScreen,
       translate,
     } = this.props
@@ -99,6 +101,7 @@ class FaceVideo extends Component<Props, State> {
         audio
         cameraClassName={cameraClassName}
         inactiveError={inactiveError}
+        isUploadFallbackDisabled={isUploadFallbackDisabled}
         method="face"
         onRecordingStart={this.onRecordingStart}
         onRedo={onRedo}

@@ -50,7 +50,7 @@ export const useLocales = (): WithLocalisedProps => {
   return context
 }
 
-export const localised = <P extends unknown>(
+export const localised = <P,>(
   WrappedComponent: ComponentType<P & WithLocalisedProps>
 ): ComponentType<P> => {
   const LocalisedComponent: FunctionComponent<P> = (props) => (

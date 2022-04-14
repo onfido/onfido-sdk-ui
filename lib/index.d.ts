@@ -18,7 +18,8 @@ export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT |
 export declare type DocumentTypes = "passport" | "driving_licence" | "national_identity_card" | "residence_permit";
 export declare type PoaTypes = "bank_building_society_statement" | "utility_bill" | "council_tax" | "benefit_letters" | "government_letter";
 export declare type RequestedVariant = "standard" | "video";
-export declare type DocumentTypeConfig = boolean | {
+export declare type DocumentTypeConfig = boolean | CountryConfig;
+export declare type CountryConfig = {
 	country: string | null;
 };
 export declare type CaptureOptions = {
@@ -151,6 +152,7 @@ export declare type UICustomizationOptions = {
 	authFeedbackBarTextColor?: string;
 };
 export declare type DocumentSides = "front" | "back";
+export declare type ImageQualityValidationTypes = "detect_document" | "detect_cutoff" | "detect_glare" | "detect_blur";
 export declare type UploadFileResponse = {
 	id: string;
 	created_at: string;
@@ -160,17 +162,9 @@ export declare type UploadFileResponse = {
 	href: string;
 	download_href: string;
 };
-export declare type ImageQualityWarnings = {
-	detect_cutoff?: {
-		valid: boolean;
-	};
-	detect_glare?: {
-		valid: boolean;
-	};
-	detect_blur?: {
-		valid: boolean;
-	};
-};
+export declare type ImageQualityWarnings = Partial<Record<ImageQualityValidationTypes, {
+	valid: boolean;
+}>>;
 export declare type DocumentImageResponse = {
 	applicant_id: string;
 	type: DocumentTypes | PoaTypes;
@@ -204,7 +198,7 @@ export declare type EnterpriseLogoCobranding = {
 };
 export declare type EnterpriseCallbackResponse = {
 	continueWithOnfidoSubmission?: boolean;
-	onfidoSuccess?: DocumentImageResponse | UploadFileResponse | FaceVideoResponse;
+	onfidoSuccessResponse?: DocumentImageResponse | UploadFileResponse | FaceVideoResponse;
 };
 export declare type EnterpriseFeatures = {
 	hideOnfidoLogo?: boolean;
@@ -218,7 +212,7 @@ export declare type EnterpriseFeatures = {
 export declare type DocumentResponse = {
 	id: string;
 	side: string;
-	type: string;
+	type: DocumentTypes;
 	variant: RequestedVariant;
 };
 export declare type DocumentVideoResponse = {
@@ -235,6 +229,7 @@ export declare type SdkResponse = {
 	document_back?: DocumentResponse;
 	document_video?: DocumentVideoResponse;
 	face?: FaceResponse;
+	poa?: DocumentResponse;
 };
 export declare type SdkError = {
 	type: "exception" | "expired_token";

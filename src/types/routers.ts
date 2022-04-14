@@ -59,6 +59,11 @@ export type HandleDocVideoCaptureProp = (payload: {
   video: CapturePayload
 }) => void
 
+export type HandleDocMultiFrameCaptureProp = (payload: {
+  photo: CapturePayload
+  video: CapturePayload
+}) => void
+
 export type RenderFallbackProp = (
   tag: ParsedTag,
   callback?: () => void
@@ -110,7 +115,7 @@ export type StepComponentBaseProps = {
   | 'isFullScreen'
   | 'options'
 > &
-  NarrowSdkOptions &
+  Omit<NarrowSdkOptions, 'language'> &
   WithTrackingProps
 
 export type StepComponentDocumentProps = StepOptionDocument &

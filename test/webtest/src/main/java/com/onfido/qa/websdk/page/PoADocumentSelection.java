@@ -5,11 +5,24 @@ import com.onfido.qa.websdk.PoADocumentType;
 import com.onfido.qa.websdk.model.DocumentOption;
 import org.openqa.selenium.By;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class PoADocumentSelection extends DocumentSelectorBase {
     protected PoADocumentSelection(Driver driver) {
         super(driver);
     }
 
+    public List<PoADocumentType> getOptions() {
+
+        return driver.findElements(By.cssSelector(".onfido-sdk-ui-DocumentSelector-list > li > button"))
+              .stream()
+              .map(x -> {
+                  return PoADocumentType.fromCanonicalName(x.getAttribute("data-onfido-qa"));
+              })
+              .collect(Collectors.toList());
+
+    }
 
     public DocumentOption getOption(PoADocumentType documentType) {
         return _getOption(documentType);

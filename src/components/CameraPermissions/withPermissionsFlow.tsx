@@ -68,14 +68,14 @@ export default <P extends Props>(
         hasGrantedPermission,
         checkingWebcamPermissions,
       } = this.state
-      const { trackScreen } = this.props
+      const { trackScreen, audio } = this.props
 
       // while checking if we have permission or not, don't render anything
       // otherwise we'll see a flicker, after we do work out what's what
       if (checkingWebcamPermissions) return null
 
       if (hasGrantedPermission === false) {
-        return <PermissionsRecover {...{ trackScreen }} />
+        return <PermissionsRecover {...{ trackScreen, audio }} />
       }
 
       if (hasGrantedPermission || hasSeenPermissionsPrimer) {
@@ -91,7 +91,7 @@ export default <P extends Props>(
 
       return (
         <PermissionsPrimer
-          {...{ trackScreen }}
+          {...{ trackScreen, audio }}
           onNext={this.setPermissionsPrimerSeen}
         />
       )

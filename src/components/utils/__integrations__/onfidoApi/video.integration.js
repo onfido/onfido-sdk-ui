@@ -33,18 +33,10 @@ const TEST_VIDEO_DATA = {
   sdkMetadata: {},
 }
 
-/* eslint jest/no-test-callback: 0 */
-/*
- *  NOTE: This rule is disabled for these integration tests as onfidoApi.js were implemented using callbacks.
-          Hence it is necessary to use Jest' done() callback function as per Jest's documentation for
-          testing asynchronous code written with the callback pattern https://jestjs.io/docs/en/asynchronous
-          Work to address this will be done in a separate ticket (CX-6016)
- */
-
 describe('API uploadFaceVideo endpoint', () => {
   beforeEach(async () => {
     jest.setTimeout(15000)
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('uploadFaceVideo returns expected response on successful upload', (done) => {
@@ -83,7 +75,7 @@ describe('API uploadFaceVideo endpoint', () => {
     )
   })
 
-  test.skip('uploadFaceVideo returns an error if request is made with an expired JWT token', (done) => {
+  test('uploadFaceVideo returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
     const testFileName = 'test-video.webm'
     const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
@@ -134,7 +126,7 @@ describe('API uploadFaceVideo endpoint', () => {
 
 describe('API requestChallenges endpoint', () => {
   beforeEach(async () => {
-    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+    jwtToken = await getTestJwtToken()
   })
 
   test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', async () => {

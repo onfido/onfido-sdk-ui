@@ -108,6 +108,7 @@
         "list_item_doc_one": "Document envoyé",
         "list_item_selfie": "Selfie envoyé",
         "list_item_video": "Vidéo envoyée",
+        "list_item_poa": "Proof of Address",
         "subtitle": "Voici ce que vous avez téléversé :",
         "title": "Dernière étape"
     },
@@ -352,18 +353,26 @@
         "title": "Merci"
     },
     "permission": {
+        "body_both": "Nous ne pouvons pas vous vérifier sans utiliser votre appareil photo et votre micro",
         "body_cam": "Nous ne pouvons pas vous vérifier sans utiliser votre appareil photo",
+        "button_primary_both": "Activer les deux",
         "button_primary_cam": "Activer l’appareil photo",
+        "subtitle_both": "Autorisez l’accès aux deux pour continuer",
         "subtitle_cam": "Lorsque vous y serez invité, vous devez autoriser l’accès à l’appareil photo pour continuer",
+        "title_both": "Autoriser l’accès à l’appareil photo et au micro",
         "title_cam": "Autoriser l’accès à l’appareil photo"
     },
     "permission_recovery": {
         "button_primary": "Actualiser",
         "info": "Récupération",
+        "list_header_both": "Suivez ces étapes pour autoriser l’accès à l'un et à l'autre :",
         "list_header_cam": "Suivez ces étapes pour autoriser l’accès à l’appareil photo :",
         "list_item_action_cam": "Actualisez cette page pour redémarrer la vérification d’identité",
+        "list_item_how_to_both": "Autorisez l’accès à l’appareil photo et au micro à partir des paramètres de votre navigateur",
         "list_item_how_to_cam": "Autorisez l’accès à l’appareil photo à partir des paramètres de votre navigateur",
+        "subtitle_both": "Autorisez l’accès à l’appareil photo et au micro pour prendre une vidéo et compléter votre vérification d’identité",
         "subtitle_cam": "Récupérez l’accès à l’appareil photo pour continuer la vérification",
+        "title_both": "L’accès à l’appareil photo et au micro n’est pas autorisé",
         "title_cam": "L’accès à l’appareil photo n’est pas autorisé"
     },
     "photo_upload": {

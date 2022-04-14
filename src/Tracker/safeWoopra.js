@@ -6,6 +6,8 @@ the global window object.
 */
 
 function SafeWindow() {
+  const propertyKeys = new Set()
+
   /*
   For loop is being used instead of Object.keys()
   This is because depending on the browser,
@@ -16,6 +18,15 @@ function SafeWindow() {
   */
   /* eslint-disable guard-for-in */
   for (const key in window) {
+    propertyKeys.add(key)
+  }
+
+  /* In Salesforce, some needed properties are not returned by ForIn */
+  for (const key of Object.getOwnPropertyNames(window)) {
+    propertyKeys.add(key)
+  }
+
+  for (const key of propertyKeys) {
     Object.defineProperty(this, key, {
       get: () => {
         const value = window[key]

@@ -8,6 +8,7 @@ import type { AnalyticsPayload, LegacyTrackedEventNames } from '~types/tracker'
 import { reduxStore } from 'components/ReduxAppWrapper'
 import { analyticsEventsMapping } from './trackerData'
 import { trackException } from './'
+import { cleanStepsForConfig } from './steps'
 
 let currentStepType: ExtendedStepTypes | undefined
 let analyticsSessionUuid: string | undefined
@@ -16,6 +17,7 @@ let token: string | undefined
 let urls: UrlsConfig
 let client_uuid: string | undefined
 let applicant_uuid: string | undefined
+let anonymous_uuid: string | undefined
 let isCrossDeviceClient: boolean | undefined
 
 const select = (state: RootState) => {
@@ -37,8 +39,9 @@ const listener = () => {
   urls = globalsInStore.urls
   client_uuid = globalsInStore.clientUuid
   applicant_uuid = globalsInStore.applicantUuid
+  anonymous_uuid = globalsInStore.anonymousUuid
   isCrossDeviceClient = globalsInStore.isCrossDeviceClient
-  steps = globalsInStore.stepsConfig
+  steps = cleanStepsForConfig(globalsInStore.stepsConfig)
 }
 
 reduxStore.subscribe(listener)
@@ -87,6 +90,7 @@ export const sendAnalyticsEvent = (
   }
   const identificationProperties = {
     applicant_uuid,
+    anonymous_uuid,
     client_uuid,
     session_uuid: analyticsSessionUuid,
   }

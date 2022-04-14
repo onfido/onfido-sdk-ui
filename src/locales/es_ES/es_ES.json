@@ -108,6 +108,7 @@
         "list_item_doc_one": "Documento cargado",
         "list_item_selfie": "Selfie cargado",
         "list_item_video": "Video cargado",
+        "list_item_poa": "Proof of Address",
         "subtitle": "Aquí tiene todo lo que ha subido:",
         "title": "Un último paso"
     },
@@ -352,18 +353,26 @@
         "title": "Gracias"
     },
     "permission": {
+        "body_both": "No lo podemos verificar sin acceso a su cámara y micrófono",
         "body_cam": "No le podemos verificar sin usar su cámara",
+        "button_primary_both": "Conceder acceso a ambos",
         "button_primary_cam": "Activar cámara",
+        "subtitle_both": "Deberá conceder acceso a ambos para continuar",
         "subtitle_cam": "Deberá activar la cámara para continuar",
+        "title_both": "Permitir acceso a la cámara y al micrófono",
         "title_cam": "Permitir acceso a la cámara"
     },
     "permission_recovery": {
         "button_primary": "Actualizar",
         "info": "Recuperación",
+        "list_header_both": "Siga estos pasos para recuperar acceso a ambos:",
         "list_header_cam": "Siga estos pasos para recuperar acceso a la cámara:",
         "list_item_action_cam": "Actualice esta página para reiniciar el proceso de verificación",
+        "list_item_how_to_both": "Autorice acceso a la cámara y el micrófono desde los ajustes del navegador",
         "list_item_how_to_cam": "Autorice acceso a su cámara desde los ajustes del navegador",
-        "subtitle_cam": "Recupere acceso a la cámara para continuar la verificación facial",
+        "subtitle_both": "Recupere acceso a la cámara y el micrófono para grabar un video y completar el proceso de verificación",
+        "subtitle_cam": "Recupere acceso a la cámara para continuar la verificación",
+        "title_both": "Acceso denegado a la cámara y al micrófono",
         "title_cam": "Acceso a la cámara no permitido"
     },
     "photo_upload": {

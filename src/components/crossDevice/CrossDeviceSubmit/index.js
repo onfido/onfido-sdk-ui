@@ -16,13 +16,12 @@ class CrossDeviceSubmit extends Component {
     }
   }
 
-  hasDocumentOrPoACaptureSteps = () => {
-    // FIX: PoA is currently using the same copy as documents -> "Document"
-    // PoA should use its own copy
-    // Also, this assumes that document and poa steps are not used as part of the same flow
-    return this.props.steps.some(
-      (step) => step.type === 'document' || step.type === 'poa'
-    )
+  hasDocumentCaptureStep = () => {
+    return this.props.steps.some((step) => step.type === 'document')
+  }
+
+  hasPoACaptureSteps = () => {
+    return this.props.steps.some((step) => step.type === 'poa')
   }
 
   hasMultipleDocuments = () => {
@@ -48,15 +47,21 @@ class CrossDeviceSubmit extends Component {
 
   render() {
     const { translate } = this.props
+
     const documentCopy = this.hasMultipleDocuments()
       ? 'cross_device_checklist.list_item_doc_multiple'
       : 'cross_device_checklist.list_item_doc_one'
+
     const faceCaptureVariant =
       this.getFaceCaptureVariant() === 'standard' ? 'selfie' : 'video'
+
     const selfieCopy =
       faceCaptureVariant === 'video'
         ? 'cross_device_checklist.list_item_video'
         : 'cross_device_checklist.list_item_selfie'
+
+    // FIX: PoA copy currently only has English copy, need to update copy in other languages
+    const poaCopy = 'cross_device_checklist.list_item_poa'
 
     return (
       <div data-page-id={'CrossDeviceSubmit'}>
@@ -69,7 +74,20 @@ class CrossDeviceSubmit extends Component {
             className={style.uploadList}
             aria-label={translate('cross_device_checklist.info')}
           >
-            {this.hasDocumentOrPoACaptureSteps() && (
+            {this.hasPoACaptureSteps() && (
+              <li className={style.uploadListItem}>
+                <span className={`${theme.icon} ${style.icon}`} />
+                <span
+                  className={classNames(
+                    style.listText,
+                    style.documentUploadedLabel
+                  )}
+                >
+                  {translate(poaCopy)}
+                </span>
+              </li>
+            )}
+            {this.hasDocumentCaptureStep() && (
               <li className={style.uploadListItem}>
                 <span className={`${theme.icon} ${style.icon}`} />
                 <span

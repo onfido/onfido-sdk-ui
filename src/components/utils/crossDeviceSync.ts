@@ -11,6 +11,5 @@ export const createSocket = (url?: string): Socket => {
   if (!url) {
     throw new Error('sync_url not provided')
   }
-
   return io(url, socketData)
 }
