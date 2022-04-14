@@ -13,24 +13,25 @@ export const OptionsSteps = ({
 }: OptionsStepsProps) => {
   const { enabled, consents } = useUserConsent()
 
-  if (enabled) {
-    const userConsent: StepConfig = {
-      type: 'userConsent',
-      skip: consents.every((c) => !c.required || (c.required && c.granted)),
-    }
-    const welcomeIndex = steps.findIndex(({ type }) => type === 'welcome')
-    const userConsentIndex = welcomeIndex === -1 ? 0 : welcomeIndex + 1
-
-    return (
-      <Fragment>
-        {children([
-          ...steps.slice(0, userConsentIndex),
-          userConsent,
-          ...steps.slice(userConsentIndex),
-        ])}
-      </Fragment>
-    )
+  if (!enabled || consents.every(({ required }) => !required)) {
+    return <Fragment>{children(steps)}</Fragment>
   }
 
-  return <Fragment>{children(steps)}</Fragment>
+  const userConsent: StepConfig = {
+    type: 'userConsent',
+    skip: consents.every((c) => !c.required || (c.required && c.granted)),
+  }
+
+  const welcomeIndex = steps.findIndex(({ type }) => type === 'welcome')
+  const userConsentIndex = welcomeIndex === -1 ? 0 : welcomeIndex + 1
+
+  return (
+    <Fragment>
+      {children([
+        ...steps.slice(0, userConsentIndex),
+        userConsent,
+        ...steps.slice(userConsentIndex),
+      ])}
+    </Fragment>
+  )
 }

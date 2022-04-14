@@ -51,16 +51,6 @@ const defaultUserConsentContextValue: ConsentContextValue = {
 }
 
 describe('OptionsSteps', () => {
-  it('adds "userConsent" step if consents are not already granted', async () => {
-    render(
-      <Wrapper
-        userConsentContextValue={defaultUserConsentContextValue}
-        options={defaultOptions}
-      />
-    )
-    verifyUserConsentStepIndex(1)
-  })
-
   it('adds "userConsent" after "welcome" step', async () => {
     render(
       <Wrapper
@@ -72,6 +62,68 @@ describe('OptionsSteps', () => {
       />
     )
     verifyUserConsentStepIndex(2)
+  })
+
+  it('adds "userConsent" and does not skips step if required consents not granted', async () => {
+    render(
+      <Wrapper
+        userConsentContextValue={{
+          ...defaultUserConsentContextValue,
+          consents: [
+            {
+              name: 'privacy_notices_read_consent_given',
+              granted: false,
+              required: true,
+            },
+            {
+              name: 'other_consent',
+              granted: false,
+              required: false,
+            },
+            {
+              name: 'other_consent',
+              granted: true,
+              required: false,
+            },
+          ],
+        }}
+        options={{ ...defaultOptions }}
+      />
+    )
+
+    verifyUserConsentStepIndex(1)
+    expect(providedSteps[1].skip).toBeFalsy()
+  })
+
+  it('adds "userConsent" and skips step if required consents already granted', async () => {
+    render(
+      <Wrapper
+        userConsentContextValue={{
+          ...defaultUserConsentContextValue,
+          consents: [
+            {
+              name: 'privacy_notices_read_consent_given',
+              granted: true,
+              required: true,
+            },
+            {
+              name: 'other_consent',
+              granted: false,
+              required: false,
+            },
+            {
+              name: 'other_consent',
+              granted: true,
+              required: false,
+            },
+          ],
+        }}
+        options={{ ...defaultOptions }}
+      />
+    )
+
+    verifyUserConsentStepIndex(1)
+    expect(providedSteps[1].skip).toBeTruthy()
   })
 
   it('does not add "userConsent" step if Feature Flag is not enabled', async () => {
@@ -87,35 +139,20 @@ describe('OptionsSteps', () => {
     verifyUserConsentStepIndex(-1)
   })
 
-  it('skips "userConsent" step if consents already granted', async () => {
+  it('does not add "userConsent" step if consents not required', async () => {
     render(
       <Wrapper
         userConsentContextValue={{
           ...defaultUserConsentContextValue,
           consents: [
             {
-              name: 'privacy_notices_read_consent_given',
+              name: 'privacy_notices_read',
               granted: true,
-              required: true,
+              required: false,
             },
-          ],
-        }}
-        options={{ ...defaultOptions }}
-      />
-    )
-
-    expect(providedSteps[1].skip).toBeTruthy()
-  })
-
-  it('skips "userConsent" step if consents not required', async () => {
-    render(
-      <Wrapper
-        userConsentContextValue={{
-          ...defaultUserConsentContextValue,
-          consents: [
             {
-              name: 'privacy_notices_read_consent_given',
-              granted: true,
+              name: 'other_consent',
+              granted: false,
               required: false,
             },
           ],
@@ -124,6 +161,6 @@ describe('OptionsSteps', () => {
       />
     )
 
-    expect(providedSteps[1].skip).toBeTruthy()
+    verifyUserConsentStepIndex(-1)
   })
 })
