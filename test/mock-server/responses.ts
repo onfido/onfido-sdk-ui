@@ -228,7 +228,10 @@ export default {
           enable_image_quality_service: false,
           enable_multi_frame_capture: false,
         },
-        sdk_features: { enable_on_device_face_detection: true },
+        sdk_features: {
+          enable_on_device_face_detection: true,
+          enable_require_applicant_consents: false,
+        },
         validations: {
           on_device: {
             blur: {
@@ -239,6 +242,13 @@ export default {
           },
         },
       },
+      applicant_consents: [
+        {
+          name: 'privacy_notices_read_consent_given',
+          granted: false,
+          required: true,
+        },
+      ],
     },
     v4: {
       binary_media: {

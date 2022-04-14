@@ -26,12 +26,7 @@ import type {
   EnterpriseLogoCobranding,
 } from '~types/enterprise'
 import type { ReduxProps } from '~types/routers'
-import type {
-  SdkOptions,
-  SdkError,
-  SdkResponse,
-  UserExitCode,
-} from '~types/sdk'
+import type { SdkError, SdkResponse, UserExitCode } from '~types/sdk'
 import type { StepConfig, DocumentTypes } from '~types/steps'
 import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
 
@@ -274,7 +269,7 @@ class ModalApp extends Component<Props> {
 
   setConfiguredEnterpriseFeatures = (
     validEnterpriseFeatures: EnterpriseFeatures,
-    options: SdkOptions
+    options: NormalisedSdkOptions
   ) => {
     const hideOnfidoLogo = options.enterpriseFeatures?.hideOnfidoLogo
     if (hideOnfidoLogo) {

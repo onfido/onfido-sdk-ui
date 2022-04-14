@@ -148,6 +148,15 @@ export type ValidateDocumentResponse = {
   valid: boolean
 }
 
+export type ApplicantConsent = {
+  name: string
+  granted: boolean
+}
+
+export type ApplicantConsentStatus = ApplicantConsent & {
+  required: boolean
+}
+
 /* v4 APIs */
 export type UploadBinaryMediaReponse = {
   media_id: string
@@ -235,6 +244,10 @@ export interface ExperimentalFeatures {
   enable_multi_frame_capture?: boolean
 }
 
+export interface SdkFeatures {
+  enable_require_applicant_consents?: boolean
+}
+
 export interface OnDeviceValidation {
   max_total_retries?: number
   threshold?: number
@@ -254,4 +267,5 @@ export type SdkConfiguration = {
   experimental_features?: ExperimentalFeatures
   document_capture?: DocumentCapture
   biometrics_liveness?: BiometricsLiveness
+  sdk_features?: SdkFeatures
 }

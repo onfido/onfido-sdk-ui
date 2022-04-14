@@ -10,9 +10,8 @@ const STEP_PASS = 'pass'
 const STEP_REJECT = 'reject'
 const STEP_DATA = 'data'
 
-export type StepTypes =
+export type PublicStepTypes =
   | typeof STEP_WELCOME
-  | typeof STEP_USER_CONSENT
   | typeof STEP_DOCUMENT
   | typeof STEP_POA
   | typeof STEP_FACE
@@ -22,6 +21,8 @@ export type StepTypes =
   | typeof STEP_PASS
   | typeof STEP_REJECT
   | typeof STEP_DATA
+
+export type StepTypes = PublicStepTypes | typeof STEP_USER_CONSENT
 
 export type DocumentTypes =
   | 'passport'
@@ -114,9 +115,9 @@ export type StepOptionData = {
 
 type StepOptionsMap = {
   welcome: StepOptionWelcome
-  userConsent: never
+  userConsent: unknown
   auth: StepOptionAuth
-  crossDeviceSessionIntro: never
+  crossDeviceSessionIntro: unknown
   document: StepOptionDocument
   poa: StepOptionPoA
   face: StepOptionFace
@@ -129,7 +130,9 @@ type StepOptionsMap = {
 export type StepConfigMap = {
   [Type in StepTypes]: {
     type: Type
-    options?: StepOptionsMap[Type]
+    options?: {
+      skip?: boolean
+    } & StepOptionsMap[Type]
   }
 }
 
@@ -145,9 +148,8 @@ export type StepConfigPass = StepConfigMap['pass']
 export type StepConfigReject = StepConfigMap['reject']
 export type StepConfigData = StepConfigMap['data']
 
-export type StepConfig =
+export type PublicStepConfig =
   | StepConfigWelcome
-  | StepConfigUserConsent
   | StepConfigDocument
   | StepConfigPoa
   | StepConfigFace
@@ -157,3 +159,5 @@ export type StepConfig =
   | StepConfigPass
   | StepConfigReject
   | StepConfigData
+
+export type StepConfig = PublicStepConfig | StepConfigUserConsent

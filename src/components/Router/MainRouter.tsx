@@ -15,6 +15,7 @@ import Spinner from '../Spinner'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
 import { createOptionsStepsProvider } from './useOptionsStepsProvider'
 import { createWorkflowStepsProvider } from './useWorkflowStepsProvider'
+import { UserConsentProvider } from '~contexts/useUserConsent'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
@@ -152,23 +153,32 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
 
     return (
       <SdkConfigurationServiceProvider
+        overrideConfiguration={this.props.options.overrideSdkConfiguration}
         url={urls.onfido_api_url}
         token={token}
         fallback={
           <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
         }
       >
-        <HistoryRouter
-          {...this.props}
-          mobileConfig={this.generateMobileConfig()}
-          onFlowChange={this.onFlowChange}
-          stepIndexType="user"
-          useStepsProvider={
-            this.useWorkflowRun()
-              ? createWorkflowStepsProvider(options, urls)
-              : createOptionsStepsProvider(options)
+        <UserConsentProvider
+          url={urls.onfido_api_url}
+          token={token}
+          fallback={
+            <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
           }
-        />
+        >
+          <HistoryRouter
+            {...this.props}
+            mobileConfig={this.generateMobileConfig()}
+            onFlowChange={this.onFlowChange}
+            stepIndexType="user"
+            useStepsProvider={
+              this.useWorkflowRun()
+                ? createWorkflowStepsProvider(options, urls)
+                : createOptionsStepsProvider(options)
+            }
+          />
+        </UserConsentProvider>
       </SdkConfigurationServiceProvider>
     )
   }

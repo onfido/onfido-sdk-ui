@@ -70,7 +70,14 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
   }
 
   const { history, push } = useHistory(({ state: historyState }) => {
-    setState({ ...state, ...historyState })
+    if (
+      historyState &&
+      getComponentsList(steps)[historyState.step].step.options?.skip
+    ) {
+      historyState.step < state.step ? history.goBack() : history.goForward()
+    } else {
+      setState({ ...state, ...historyState })
+    }
   }, useMemoryHistory)
 
   const {
@@ -134,9 +141,15 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     return (
       isNavigationDisabled ||
       getInitialStep() ||
-      getStepType(state.step) === 'complete'
+      getStepType(state.step) === 'complete' ||
+      firstEnabledStep()
     )
   }
+
+  const firstEnabledStep = () =>
+    getComponentsList(steps)
+      .slice(0, state.step)
+      .every((c) => c.step.options?.skip)
 
   const changeFlowTo: ChangeFlowProp = (
     newFlow,
@@ -166,11 +179,17 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
   const nextStep = () => {
     const { step: currentStep } = state
     const componentsList = getComponentsList(steps)
-    const newStepIndex = currentStep + 1
 
-    if (componentsList.length > newStepIndex) {
+    const nextStepComponent = componentsList
+      .slice(currentStep + 1)
+      .find((c) => !c.step.options?.skip)
+
+    if (nextStepComponent) {
+      const newStepIndex = componentsList.indexOf(nextStepComponent)
+
       setStepIndex(newStepIndex)
-      const newStepType = componentsList[newStepIndex].step.type
+
+      const newStepType = nextStepComponent.step.type
       const isNewStepType = currentStepType !== newStepType
       if (isNewStepType) {
         actions.setCurrentStepType(newStepType)

@@ -3,10 +3,12 @@ import type { EnterpriseFeatures } from './enterprise'
 import type { UICustomizationOptions } from './ui-customisation-options'
 import type {
   RequestedVariant,
-  StepConfig,
-  StepTypes,
   DocumentTypes,
+  PublicStepTypes,
+  PublicStepConfig,
 } from './steps'
+import { NormalisedSdkOptions } from '~types/commons'
+import { SdkConfiguration } from '~types/api'
 
 type DocumentResponse = {
   id: string
@@ -73,19 +75,20 @@ export interface SdkOptions extends FunctionalConfigurations {
   userDetails?: {
     smsNumber?: string
   }
-  steps?: Array<StepTypes | StepConfig>
+  steps?: Array<PublicStepTypes | PublicStepConfig>
   enterpriseFeatures?: EnterpriseFeatures
   customUI?: UICustomizationOptions | null
   autoFocusOnInitialScreenTitle?: boolean
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   _crossDeviceLinkMethods?: Array<string> | null
+  overrideSdkConfiguration?: Partial<SdkConfiguration>
   workflowRunId?: string
 }
 
 export type SdkHandle = {
   containerId?: string
-  options: SdkOptions
+  options: NormalisedSdkOptions
   setOptions(options: SdkOptions): void
   tearDown(): void
 }

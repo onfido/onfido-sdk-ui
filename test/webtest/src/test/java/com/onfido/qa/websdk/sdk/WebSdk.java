@@ -111,6 +111,11 @@ public class WebSdk {
         return this;
     }
 
+    public WebSdk withSdkConfiguration(Map<String,Object> sdkConfiguration) {
+       parameters.put("overrideSdkConfiguration", sdkConfiguration);
+       return this;
+    }
+
     private WebSdk put(String key, Object value) {
         parameters.put(key, value);
         return this;

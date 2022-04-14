@@ -2,8 +2,7 @@ import { StepConfig } from '~types/steps'
 import { useCallback, useRef, useState } from 'preact/hooks'
 
 import { formatStep } from '../../index'
-import { SdkOptions } from '~types/sdk'
-import { UrlsConfig } from '~types/commons'
+import { NarrowSdkOptions, UrlsConfig } from '~types/commons'
 import {
   StepsProviderStatus,
   StepsProvider,
@@ -11,6 +10,7 @@ import {
 } from '~types/routers'
 import { poller, PollFunc, Engine } from '../WorkflowEngine'
 import type { WorkflowResponse } from '../WorkflowEngine/utils/WorkflowTypes'
+import useUserConsent from '~contexts/useUserConsent'
 
 type StepsProviderState = {
   status: StepsProviderStatus
@@ -27,12 +27,32 @@ const defaultState: StepsProviderState = {
 }
 
 export const createWorkflowStepsProvider = (
-  { token, workflowRunId, ...options }: SdkOptions,
+  { token, workflowRunId, ...options }: NarrowSdkOptions,
   { onfido_api_url }: UrlsConfig
 ): StepsProvider => () => {
-  const [state, setState] = useState<StepsProviderState>({
-    ...defaultState,
-    steps: options.steps as StepConfig[],
+  const { enabled, consents } = useUserConsent()
+
+  const [state, setState] = useState<StepsProviderState>(() => {
+    if (!enabled) {
+      return { ...defaultState, steps: options.steps }
+    }
+
+    //@todo: We should move the logic of enforcing the steps from index.ts here
+    return {
+      ...defaultState,
+      steps: [
+        ...options.steps.slice(0, 1),
+        {
+          type: 'userConsent',
+          options: {
+            skip: consents.every(
+              (c) => !c.required || (c.required && c.granted)
+            ),
+          },
+        },
+        ...options.steps.slice(1),
+      ],
+    }
   })
 
   const { taskId, status, error, steps } = state
