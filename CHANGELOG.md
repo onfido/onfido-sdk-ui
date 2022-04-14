@@ -14,6 +14,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
 - Internal: Added test case configs to our demo app with queryString `testCase`
 - Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
+- Internal: Add a css root scope to our SDK
+- Public: Scope our customization of castor components to our SDK css root
+- Public: Strip away `color-scheme` to prevent interference with customer styles
 
 ## [8.0.0] - 2022-04-21
 

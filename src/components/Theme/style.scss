@@ -14,14 +14,16 @@
   @include castor.Icon();
 }
 
-.root {
+:root {
+  // Note: color-scheme from castor.day is stripped away by webpack
   @include castor.day();
   @include onfidoSdk.tokens();
+}
 
+.root {
   /*
     Note: The WebSDK is used in Onfido's workflow builder, which also uses castor.
     The prevent interference we scope our adjusted castor classes to our root.
-
     The :global classes endup like .onfido-sdk-ui-Theme-root .ods-button in the compiled css.
   */
   :global(.ods-field-label) {

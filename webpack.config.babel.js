@@ -70,6 +70,15 @@ const baseStyleLoaders = (modules, withSourceMap) => [
         : modules,
     },
   },
+  // ref: https://github.com/onfido/onfido-sdk-ui/issues/1804
+  // Note: The css vars polyfill (IE11) seems to only support :root vars
+  {
+    loader: 'string-replace-loader',
+    options: {
+      search: /color-scheme: light;/,
+      replace: '',
+    },
+  },
   ...(modules
     ? [
         {
