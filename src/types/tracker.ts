@@ -134,6 +134,8 @@ export type LegacyTrackedEventNames =
   | 'face_video_upload_started'
   | 'face_video_upload_completed'
   | 'screen_workflow_retry'
+  | 'navigation_back_button_clicked'
+  | 'navigation_close_button_clicked'
 
 export type UserAnalyticsEventNames =
   | 'WELCOME'
@@ -310,6 +312,8 @@ export type AnalyticsTrackedEventNames =
   | 'DATA_CAPTURE_ERROR'
   | 'WELCOME'
   | 'WORKFLOW_RETRY'
+  | 'NAVIGATION_BACK_BUTTON_CLICKED'
+  | 'NAVIGATION_CLOSE_BUTTON_CLICKED'
   | 'DOCUMENT_UPLOAD_STARTED'
   | 'DOCUMENT_UPLOAD_COMPLETED'
   | 'DOCUMENT_VIDEO_UPLOAD_STARTED'

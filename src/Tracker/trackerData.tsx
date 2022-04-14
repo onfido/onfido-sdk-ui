@@ -1096,4 +1096,18 @@ export const analyticsEventsMapping = new Map<
       properties: { event_type: 'flow' },
     },
   ],
+  [
+    'navigation_back_button_clicked',
+    {
+      eventName: 'NAVIGATION_BACK_BUTTON_CLICKED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'navigation_close_button_clicked',
+    {
+      eventName: 'NAVIGATION_CLOSE_BUTTON_CLICKED',
+      properties: { event_type: 'flow' },
+    },
+  ],
 ])
