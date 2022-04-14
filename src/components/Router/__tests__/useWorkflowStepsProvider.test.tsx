@@ -81,7 +81,7 @@ describe('useWorkflowSteps', () => {
       },
     ])
 
-    expect(result.current?.steps[1].options?.skip).toBeTruthy()
+    expect(result.current?.steps[1].skip).toBeTruthy()
   })
 
   it('skips "userConsent" step if consents not required', async () => {
@@ -93,6 +93,6 @@ describe('useWorkflowSteps', () => {
       },
     ])
 
-    expect(result.current?.steps[1].options?.skip).toBeTruthy()
+    expect(result.current?.steps[1].skip).toBeTruthy()
   })
 })

@@ -115,9 +115,9 @@ export type StepOptionData = {
 
 type StepOptionsMap = {
   welcome: StepOptionWelcome
-  userConsent: unknown
+  userConsent: never
   auth: StepOptionAuth
-  crossDeviceSessionIntro: unknown
+  crossDeviceSessionIntro: never
   document: StepOptionDocument
   poa: StepOptionPoA
   face: StepOptionFace
@@ -130,9 +130,7 @@ type StepOptionsMap = {
 export type StepConfigMap = {
   [Type in StepTypes]: {
     type: Type
-    options?: {
-      skip?: boolean
-    } & StepOptionsMap[Type]
+    options?: StepOptionsMap[Type]
   }
 }
 
@@ -160,4 +158,7 @@ export type PublicStepConfig =
   | StepConfigReject
   | StepConfigData
 
-export type StepConfig = PublicStepConfig | StepConfigUserConsent
+type PrivateStepConfig = { skip?: boolean }
+
+export type StepConfig = (PublicStepConfig | StepConfigUserConsent) &
+  PrivateStepConfig

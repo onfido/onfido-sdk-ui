@@ -18,9 +18,7 @@ export const createOptionsStepsProvider = (
 
     const userConsent: StepConfig = {
       type: 'userConsent',
-      options: {
-        skip: consents.every((c) => !c.required || (c.required && c.granted)),
-      },
+      skip: consents.every((c) => !c.required || (c.required && c.granted)),
     }
 
     const welcomeIndex = options.steps.findIndex(

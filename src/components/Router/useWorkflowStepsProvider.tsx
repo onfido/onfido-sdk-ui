@@ -37,18 +37,14 @@ export const createWorkflowStepsProvider = (
       return { ...defaultState, steps: options.steps }
     }
 
-    //@todo: We should move the logic of enforcing the steps from index.ts here
+    //@todo: We should move the logic of enforcing the `welcome` step from index.ts here
     return {
       ...defaultState,
       steps: [
         ...options.steps.slice(0, 1),
         {
           type: 'userConsent',
-          options: {
-            skip: consents.every(
-              (c) => !c.required || (c.required && c.granted)
-            ),
-          },
+          skip: consents.every((c) => !c.required || (c.required && c.granted)),
         },
         ...options.steps.slice(1),
       ],
