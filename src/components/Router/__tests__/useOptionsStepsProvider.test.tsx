@@ -44,16 +44,6 @@ const renderOptionsStepsProviderHook = (steps, enabled, consents) =>
   })
 
 describe('useOptionsSteps', () => {
-  it('adds "userConsent" step if consents are required and not already granted', () => {
-    const { result } = renderOptionsStepsProviderHook(
-      defaultSteps,
-      true,
-      defaultConsents
-    )
-
-    verifyUserConsentStepIndex(result.current?.steps, 0)
-  })
-
   it('adds "userConsent" after "welcome" step', () => {
     const { result } = renderOptionsStepsProviderHook(
       [{ type: 'welcome' }, ...defaultSteps],
@@ -62,6 +52,50 @@ describe('useOptionsSteps', () => {
     )
 
     verifyUserConsentStepIndex(result.current?.steps, 1)
+  })
+
+  it('adds "userConsent" and does not skips step if required consents not granted', async () => {
+    const { result } = renderOptionsStepsProviderHook(defaultSteps, true, [
+      {
+        name: 'privacy_notices_read_consent_given',
+        granted: false,
+        required: true,
+      },
+      {
+        name: 'other_consent',
+        granted: false,
+        required: false,
+      },
+      {
+        name: 'other_consent',
+        granted: true,
+        required: false,
+      },
+    ])
+
+    verifyUserConsentStepIndex(result.current?.steps, 0)
+  })
+
+  it('adds "userConsent" and skips step if required consents already granted', async () => {
+    const { result } = renderOptionsStepsProviderHook(defaultSteps, true, [
+      {
+        name: 'privacy_notices_read_consent_given',
+        granted: true,
+        required: true,
+      },
+      {
+        name: 'other_consent',
+        granted: false,
+        required: false,
+      },
+      {
+        name: 'other_consent',
+        granted: true,
+        required: false,
+      },
+    ])
+
+    expect(result.current?.steps[0].skip).toBeTruthy()
   })
 
   it('does not add "userConsent" step if Feature Flag is not enabled', async () => {
@@ -74,27 +108,20 @@ describe('useOptionsSteps', () => {
     verifyUserConsentStepIndex(result.current?.steps, -1)
   })
 
-  it('skips "userConsent" step if consents already granted', async () => {
-    const { result } = renderOptionsStepsProviderHook(defaultSteps, true, [
-      {
-        name: 'privacy_notices_read',
-        granted: true,
-        required: true,
-      },
-    ])
-
-    expect(result.current?.steps[0].skip).toBeTruthy()
-  })
-
-  it('skips "userConsent" step if consents not required', async () => {
+  it('does not add "userConsent" step if consents not required', async () => {
     const { result } = renderOptionsStepsProviderHook(defaultSteps, true, [
       {
         name: 'privacy_notices_read',
         granted: true,
         required: false,
       },
+      {
+        name: 'other_consent',
+        granted: false,
+        required: false,
+      },
     ])
 
-    expect(result.current?.steps[0].skip).toBeTruthy()
+    verifyUserConsentStepIndex(result.current?.steps, -1)
   })
 })

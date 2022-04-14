@@ -12,7 +12,7 @@ export const createOptionsStepsProvider = (
   const [steps, setSteps] = useState<StepConfig[]>(options.steps)
 
   useEffect(() => {
-    if (!enabled) {
+    if (!enabled || consents.every(({ required }) => !required)) {
       return
     }
 
@@ -24,7 +24,6 @@ export const createOptionsStepsProvider = (
     const welcomeIndex = options.steps.findIndex(
       ({ type }) => type === 'welcome'
     )
-
     const userConsentIndex = welcomeIndex === -1 ? 0 : welcomeIndex + 1
 
     setSteps([

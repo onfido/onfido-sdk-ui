@@ -32,20 +32,22 @@ export const createWorkflowStepsProvider = (
 ): StepsProvider => () => {
   const { enabled, consents } = useUserConsent()
 
+  //@todo: We should move the logic of enforcing the `welcome` step from index.ts here
   const [state, setState] = useState<StepsProviderState>(() => {
-    if (!enabled) {
+    if (!enabled || consents.every(({ required }) => !required)) {
       return { ...defaultState, steps: options.steps }
     }
 
-    //@todo: We should move the logic of enforcing the `welcome` step from index.ts here
+    const userConsent: StepConfig = {
+      type: 'userConsent',
+      skip: consents.every((c) => !c.required || (c.required && c.granted)),
+    }
+
     return {
       ...defaultState,
       steps: [
         ...options.steps.slice(0, 1),
-        {
-          type: 'userConsent',
-          skip: consents.every((c) => !c.required || (c.required && c.granted)),
-        },
+        userConsent,
         ...options.steps.slice(1),
       ],
     }
