@@ -6,7 +6,7 @@ export type HttpRequestParams = {
   headers?: Record<string, string>
   payload?: string | FormData
   token: string
-  method?: 'GET' | 'POST'
+  method?: 'GET' | 'POST' | 'PATCH'
 }
 
 export const performHttpReq = <T>(
@@ -35,7 +35,11 @@ export const performHttpReq = <T>(
   request.setRequestHeader('Authorization', token)
 
   request.onload = () => {
-    if (request.status === 200 || request.status === 201) {
+    if (
+      request.status === 200 ||
+      request.status === 201 ||
+      request.status === 204
+    ) {
       const contentType = request.getResponseHeader('content-type')
       if (contentType && contentType.startsWith('application/json')) {
         onSuccess(JSON.parse(request.response))

@@ -1,5 +1,5 @@
 import ReactModal from 'react-modal'
-import { h } from 'preact'
+import { h, ComponentChildren } from 'preact'
 import classNames from 'classnames'
 import { withFullScreenState } from '../FullScreen'
 import { getCSSMillisecsValue } from '~utils'
@@ -12,6 +12,20 @@ const MODAL_ANIMATION_DURATION = getCSSMillisecsValue(
   styleConstants.modal_animation_duration
 )
 
+type ModalProps = {
+  children: ComponentChildren
+  isOpen?: boolean
+  isFullScreen?: boolean
+  onRequestClose?: () => void
+  containerId: string
+  containerEl: HTMLElement
+  shouldCloseOnOverlayClick?: boolean
+}
+
+type WrappedModalProps = {
+  useModal?: boolean
+} & ModalProps
+
 const Modal = ({
   children,
   isOpen,
@@ -20,11 +34,11 @@ const Modal = ({
   containerId,
   containerEl,
   shouldCloseOnOverlayClick = true,
-}) => {
+}: ModalProps) => {
   const { translate } = useLocales()
   return (
     <ReactModal
-      isOpen={isOpen}
+      isOpen={!!isOpen}
       onRequestClose={onRequestClose}
       portalClassName={theme.portal}
       overlayClassName={{
@@ -58,7 +72,11 @@ const Modal = ({
 
 const ModalContainer = withFullScreenState(Modal)
 
-const WrappedModal = ({ useModal, children, ...otherProps }) =>
+const WrappedModal = ({
+  useModal,
+  children,
+  ...otherProps
+}: WrappedModalProps) =>
   useModal ? (
     <ModalContainer {...otherProps}>{children}</ModalContainer>
   ) : (
