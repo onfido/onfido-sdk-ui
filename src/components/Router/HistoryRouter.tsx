@@ -79,10 +79,13 @@ export default class HistoryRouter extends Component<
   onHistoryChange: LocationListener<HistoryLocationState> = ({
     state: historyState,
   }) => {
-    if (
-      historyState &&
-      this.getComponentsList()[historyState.step].step.options?.skip
-    ) {
+    if (!historyState) {
+      return
+    }
+
+    const { step } = this.getComponentsList()[historyState.step]
+
+    if (step.skip) {
       historyState.step < this.state.step
         ? this.history.goBack()
         : this.history.goForward()
@@ -112,7 +115,7 @@ export default class HistoryRouter extends Component<
   firstEnabledStep = () =>
     this.getComponentsList()
       .slice(0, this.state.step)
-      .every((c) => c.step.options?.skip)
+      .every((c) => c.step.skip)
 
   initialStep = (): boolean =>
     this.state.initialStep === this.state.step &&
@@ -144,7 +147,7 @@ export default class HistoryRouter extends Component<
 
     const nextStepComponent = componentsList
       .slice(currentStep + 1)
-      .find((c) => !c.step.options?.skip)
+      .find((c) => !c.step.skip)
 
     if (!nextStepComponent) {
       this.triggerOnComplete()

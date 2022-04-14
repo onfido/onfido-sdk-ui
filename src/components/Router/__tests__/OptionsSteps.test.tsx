@@ -3,7 +3,7 @@ import { h } from 'preact'
 
 import type { NarrowSdkOptions } from '~types/commons'
 import { render } from '@testing-library/preact'
-import { OptionsStepsProvider } from '../OptionsStepsProvider'
+import { OptionsSteps } from '../OptionsSteps'
 import { StepConfig } from '~types/steps'
 import {
   ConsentContextValue,
@@ -25,12 +25,12 @@ const Wrapper = ({
   options: NarrowSdkOptions
 }) => (
   <UserConsentContext.Provider value={userConsentContextValue}>
-    <OptionsStepsProvider options={options}>
+    <OptionsSteps options={options}>
       {(steps) => {
         providedSteps = steps
         return undefined
       }}
-    </OptionsStepsProvider>
+    </OptionsSteps>
   </UserConsentContext.Provider>
 )
 
@@ -50,7 +50,7 @@ const defaultUserConsentContextValue: ConsentContextValue = {
   updateConsents: () => Promise.resolve(),
 }
 
-describe('OptionsStepsProvider', () => {
+describe('OptionsSteps', () => {
   it('adds "userConsent" step if consents are not already granted', async () => {
     render(
       <Wrapper
@@ -85,5 +85,45 @@ describe('OptionsStepsProvider', () => {
       />
     )
     verifyUserConsentStepIndex(-1)
+  })
+
+  it('skips "userConsent" step if consents already granted', async () => {
+    render(
+      <Wrapper
+        userConsentContextValue={{
+          ...defaultUserConsentContextValue,
+          consents: [
+            {
+              name: 'privacy_notices_read_consent_given',
+              granted: true,
+              required: true,
+            },
+          ],
+        }}
+        options={{ ...defaultOptions }}
+      />
+    )
+
+    expect(providedSteps[1].skip).toBeTruthy()
+  })
+
+  it('skips "userConsent" step if consents not required', async () => {
+    render(
+      <Wrapper
+        userConsentContextValue={{
+          ...defaultUserConsentContextValue,
+          consents: [
+            {
+              name: 'privacy_notices_read_consent_given',
+              granted: true,
+              required: false,
+            },
+          ],
+        }}
+        options={{ ...defaultOptions }}
+      />
+    )
+
+    expect(providedSteps[1].skip).toBeTruthy()
   })
 })

@@ -7,7 +7,7 @@ type OptionsStepsProps = {
   children: (steps: StepConfig[]) => React.ReactNode
   options: NarrowSdkOptions
 }
-export const OptionsStepsProvider = ({
+export const OptionsSteps = ({
   children,
   options: { steps },
 }: OptionsStepsProps) => {
@@ -16,9 +16,7 @@ export const OptionsStepsProvider = ({
   if (enabled) {
     const userConsent: StepConfig = {
       type: 'userConsent',
-      options: {
-        skip: consents.every((c) => c.required && c.granted),
-      },
+      skip: consents.every((c) => !c.required || (c.required && c.granted)),
     }
     const welcomeIndex = steps.findIndex(({ type }) => type === 'welcome')
     const userConsentIndex = welcomeIndex === -1 ? 0 : welcomeIndex + 1

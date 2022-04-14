@@ -13,7 +13,7 @@ import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 import Spinner from '../Spinner'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
-import { OptionsStepsProvider } from './OptionsStepsProvider'
+import { OptionsSteps } from './OptionsSteps'
 import { UserConsentProvider } from '~contexts/useUserConsent'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
@@ -155,7 +155,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
             <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
           }
         >
-          <OptionsStepsProvider options={this.props.options}>
+          <OptionsSteps options={this.props.options}>
             {(steps) => (
               <HistoryRouter
                 {...this.props}
@@ -165,7 +165,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
                 steps={steps}
               />
             )}
-          </OptionsStepsProvider>
+          </OptionsSteps>
         </UserConsentProvider>
       </SdkConfigurationServiceProvider>
     )
