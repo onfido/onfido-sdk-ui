@@ -2,7 +2,6 @@ import type { ComponentType } from 'preact'
 import Welcome from '../Welcome'
 import UserConsent from '../UserConsent'
 
-import CountrySelector from '../CountrySelector'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
 import {
@@ -49,6 +48,8 @@ import PoAClientIntro from '../ProofOfAddress/PoAIntro'
 import PoADocumentSelector from '../ProofOfAddress/PoADocumentSelect'
 import Guidance from '../ProofOfAddress/Guidance'
 import { SelectIdentityDocument } from '../Select/IdentityDocumentSelector'
+import DocumentCountrySelector from 'components/CountrySelector/DocumentCountrySelector'
+import PoACountrySelector from 'components/CountrySelector/PoACountrySelector'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -255,7 +256,9 @@ const buildNonPassportPreCaptureComponents = (
   const prependDocumentSelector = hasOnePreselectedDocument
     ? []
     : [SelectIdentityDocument]
-  const prependCountrySelector = showCountrySelection ? [CountrySelector] : []
+  const prependCountrySelector = showCountrySelection
+    ? [DocumentCountrySelector]
+    : []
   // @ts-ignore
   // TODO: convert DocumentSelector to TS
   return [...prependDocumentSelector, ...prependCountrySelector]
@@ -389,7 +392,7 @@ const buildPoaComponents = (
 ): ComponentType<StepComponentProps>[] => {
   const preCaptureComponents = [
     PoAClientIntro,
-    CountrySelector,
+    PoACountrySelector,
     PoADocumentSelector,
     Guidance as ComponentType<StepComponentProps>,
   ]
