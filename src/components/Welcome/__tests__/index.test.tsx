@@ -10,7 +10,7 @@ import Welcome from '../index'
 
 import type { NarrowSdkOptions } from '~types/commons'
 import type { StepComponentBaseProps } from '~types/routers'
-import { createOptionsStepsProvider } from '../../Router/useOptionsStepsProvider'
+import { createOptionsSteps } from '../../Router/useOptionsSteps'
 
 const defaultOptions: NarrowSdkOptions = {
   steps: [{ type: 'welcome' }, { type: 'document' }],
@@ -31,7 +31,7 @@ const defaultProps: StepComponentBaseProps = {
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
   step: 0,
-  useStepsProvider: createOptionsStepsProvider(defaultOptions),
+  useSteps: createOptionsSteps(defaultOptions),
   completeStep: jest.fn(),
 }
 

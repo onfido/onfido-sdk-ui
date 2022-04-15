@@ -13,8 +13,8 @@ import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 import Spinner from '../Spinner'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
-import { createOptionsStepsProvider } from './useOptionsStepsProvider'
-import { createWorkflowStepsProvider } from './useWorkflowStepsProvider'
+import { createOptionsSteps } from './useOptionsSteps'
+import { createWorkflowSteps } from './useWorkflowSteps'
 import { UserConsentProvider } from '~contexts/useUserConsent'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
@@ -172,10 +172,10 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
             mobileConfig={this.generateMobileConfig()}
             onFlowChange={this.onFlowChange}
             stepIndexType="user"
-            useStepsProvider={
+            useSteps={
               this.useWorkflowRun()
-                ? createWorkflowStepsProvider(options, urls)
-                : createOptionsStepsProvider(options)
+                ? createWorkflowSteps(options, urls)
+                : createOptionsSteps(options)
             }
           />
         </UserConsentProvider>

@@ -16,7 +16,7 @@ import { UserConsentContext } from '~contexts/useUserConsent'
 configure({
   testIdAttribute: 'data-onfido-qa',
 })
-import { createOptionsStepsProvider } from '../../Router/useOptionsStepsProvider'
+import { createOptionsSteps } from '../../Router/useOptionsSteps'
 
 jest.mock('dompurify')
 
@@ -52,7 +52,7 @@ const defaultProps: StepComponentBaseProps = {
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
   step: 0,
-  useStepsProvider: createOptionsStepsProvider(defaultOptions),
+  useSteps: createOptionsSteps(defaultOptions),
   completeStep: jest.fn(),
 }
 

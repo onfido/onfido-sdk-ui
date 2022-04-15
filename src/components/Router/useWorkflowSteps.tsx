@@ -4,36 +4,36 @@ import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
 import { formatStep } from '../../index'
 import { NarrowSdkOptions, UrlsConfig } from '~types/commons'
 import {
-  StepsProviderStatus,
-  StepsProvider,
+  StepsLoadingStatus,
+  StepsHook,
   CompleteStepValue,
 } from '~types/routers'
 import { poller, PollFunc, Engine } from '../WorkflowEngine'
 import type { WorkflowResponse } from '../WorkflowEngine/utils/WorkflowTypes'
 import useUserConsent from '~contexts/useUserConsent'
 
-type StepsProviderState = {
-  status: StepsProviderStatus
+type WorkflowStepsState = {
+  status: StepsLoadingStatus
   steps: StepConfig[]
   taskId: string | undefined
   error: string | undefined
 }
 
-const defaultState: StepsProviderState = {
+const defaultState: WorkflowStepsState = {
   status: 'idle',
   taskId: undefined,
   error: undefined,
   steps: [],
 }
 
-export const createWorkflowStepsProvider = (
+export const createWorkflowSteps = (
   { token, workflowRunId, ...options }: NarrowSdkOptions,
   { onfido_api_url }: UrlsConfig
-): StepsProvider => () => {
+): StepsHook => () => {
   const { addUserConsentStep } = useUserConsent()
 
   //@todo: We should move the logic of enforcing the `welcome` step from index.ts here
-  const [state, setState] = useState<StepsProviderState>({
+  const [state, setState] = useState<WorkflowStepsState>({
     ...defaultState,
     steps: options.steps,
   })

@@ -1,12 +1,12 @@
 import { useCallback, useState } from 'preact/hooks'
-import { StepsProvider, StepsProviderStatus } from '~types/routers'
+import { StepsHook, StepsLoadingStatus } from '~types/routers'
 import { StepConfig } from '~types/steps'
 
-export const createCrossDeviceStepsProvider = (
+export const createCrossDeviceSteps = (
   defaultSteps: StepConfig[],
   onCompleteStep: (docData: unknown[]) => void
-): StepsProvider => () => {
-  const [status, setStatus] = useState<StepsProviderStatus>('idle')
+): StepsHook => () => {
+  const [status, setStatus] = useState<StepsLoadingStatus>('idle')
   const [steps] = useState(defaultSteps)
 
   return {

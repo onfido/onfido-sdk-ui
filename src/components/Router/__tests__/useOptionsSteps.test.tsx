@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { FunctionComponent, h } from 'preact'
 import { renderHook } from '@testing-library/preact-hooks'
-import { createOptionsStepsProvider } from '../useOptionsStepsProvider'
+import { createOptionsSteps } from '../useOptionsSteps'
 import { UserConsentContext } from '~contexts/useUserConsent'
 
 const addUserConsentStepMock = jest.fn()
@@ -27,7 +27,7 @@ const wrapper: FunctionComponent = ({ children }) => (
 
 describe('useOptionsSteps', () => {
   it('calls addUserConsentStep', async () => {
-    renderHook(() => createOptionsStepsProvider({ steps: [] })(), {
+    renderHook(() => createOptionsSteps({ steps: [] })(), {
       wrapper,
     })
 

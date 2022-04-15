@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { FunctionComponent, h } from 'preact'
 import { renderHook } from '@testing-library/preact-hooks'
 import { UserConsentContext } from '~contexts/useUserConsent'
-import { createWorkflowStepsProvider } from '../useWorkflowStepsProvider'
+import { createWorkflowSteps } from '../useWorkflowSteps'
 import { StepConfig } from '~types/steps'
 
 const addUserConsentStepMock = jest.fn()
@@ -26,13 +26,9 @@ const wrapper: FunctionComponent = ({ children }) => (
   </UserConsentContext.Provider>
 )
 
-const renderWorkflowStepsProviderHook = (steps: StepConfig[]) =>
+const renderWorkflowStepsHook = (steps: StepConfig[]) =>
   renderHook(
-    () =>
-      createWorkflowStepsProvider(
-        { token: '', workflowRunId: '', steps },
-        {}
-      )(),
+    () => createWorkflowSteps({ token: '', workflowRunId: '', steps }, {})(),
     {
       wrapper,
     }
@@ -40,13 +36,13 @@ const renderWorkflowStepsProviderHook = (steps: StepConfig[]) =>
 
 describe('useWorkflowSteps', () => {
   it('calls addUserConsentStep', () => {
-    renderWorkflowStepsProviderHook([{ type: 'welcome' }])
+    renderWorkflowStepsHook([{ type: 'welcome' }])
     expect(addUserConsentStepMock).toHaveBeenCalled()
   })
 
   it('does not call addUserConsentStep if there is no `welcome` step', () => {
     addUserConsentStepMock.mockReset()
-    renderWorkflowStepsProviderHook([{ type: 'document' }])
+    renderWorkflowStepsHook([{ type: 'document' }])
     expect(addUserConsentStepMock).not.toHaveBeenCalled()
   })
 })

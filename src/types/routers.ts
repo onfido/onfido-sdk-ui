@@ -93,7 +93,7 @@ export type HistoryRouterProps = {
   step?: number
   stepIndexType?: StepIndexType
   workflowRunId?: string
-  useStepsProvider: StepsProvider
+  useSteps: StepsHook
 } & InternalRouterProps
 
 export type StepsRouterProps = {
@@ -162,7 +162,7 @@ export type StepperState = {
   docData: unknown[]
 }
 
-export type StepsProviderStatus =
+export type StepsLoadingStatus =
   | 'idle'
   | 'loading'
   | 'success'
@@ -171,10 +171,10 @@ export type StepsProviderStatus =
 
 export type CompleteStepValue = unknown[] | Record<string, unknown>
 
-export type StepsProvider = () => {
+export type StepsHook = () => {
   loadNextStep: (p: () => void) => void
   completeStep: (data: CompleteStepValue) => void
-  status: StepsProviderStatus
+  status: StepsLoadingStatus
   steps: StepConfig[]
   error: string | undefined
 }

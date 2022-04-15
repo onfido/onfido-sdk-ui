@@ -49,7 +49,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     stepIndexType,
     deviceHasCameraSupport,
     options: { mobileFlow, useMemoryHistory },
-    useStepsProvider,
+    useSteps,
   } = props
 
   const getComponentsList = (
@@ -83,13 +83,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     }
   }, useMemoryHistory)
 
-  const {
-    loadNextStep,
-    completeStep,
-    error,
-    status,
-    steps,
-  } = useStepsProvider()
+  const { loadNextStep, completeStep, error, status, steps } = useSteps()
 
   const [state, setState] = useState<HistoryRouterState>(() => {
     const componentsList = getComponentsList(steps, 'captureSteps')

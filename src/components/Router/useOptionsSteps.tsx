@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'preact/hooks'
-import { StepsProvider, StepsProviderStatus } from '~types/routers'
+import { StepsHook, StepsLoadingStatus } from '~types/routers'
 import { StepConfig } from '~types/steps'
 import useUserConsent from '~contexts/useUserConsent'
 import { NarrowSdkOptions } from '~types/commons'
 
-export const createOptionsStepsProvider = (
+export const createOptionsSteps = (
   options: NarrowSdkOptions
-): StepsProvider => () => {
+): StepsHook => () => {
   const { addUserConsentStep } = useUserConsent()
-  const [status, setStatus] = useState<StepsProviderStatus>('idle')
+  const [status, setStatus] = useState<StepsLoadingStatus>('idle')
   const [steps, setSteps] = useState<StepConfig[]>(options.steps)
 
   useEffect(() => {
