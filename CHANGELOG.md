@@ -16,6 +16,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add support for `.env` file
 - Public: Update Proof of Address flow to present Country Select
 
+### Fixed
+
+- Public: Fix useLiveDocumentCapture onComplete not working (cross device capture `variant` missing)
+
 ## [6.20.0] - 2022-04-12
 
 ### Changed

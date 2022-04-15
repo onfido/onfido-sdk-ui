@@ -42,6 +42,7 @@ const CAPTURE_DATA_WHITELIST = [
   'idDocumentIssuingCountry',
   'poaDocumentType',
   'id',
+  'variant',
   'metadata',
   'method',
   'side',
