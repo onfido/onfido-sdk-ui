@@ -69,6 +69,7 @@ describe('UserConsent', () => {
             enabled: true,
             consents: [],
             updateConsents: (v) => Promise.resolve(v).then(mockUpdateConsent),
+            addUserConsentStep: () => [],
           }}
         >
           <MockedLocalised>

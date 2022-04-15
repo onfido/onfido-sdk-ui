@@ -14,6 +14,7 @@ import { ComponentChildren, createContext, Fragment, h } from 'preact'
 import { ApplicantConsent, ApplicantConsentStatus } from '~types/api'
 import { getPayloadFromJWT } from '~utils/jwt'
 import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
+import { StepConfig } from '~types/steps'
 
 type ConsentProviderProps = {
   children: ComponentChildren
@@ -26,12 +27,14 @@ export type ConsentContextValue = {
   enabled: boolean
   consents: ApplicantConsentStatus[]
   updateConsents: (granted: boolean) => Promise<void>
+  addUserConsentStep: (steps: StepConfig[]) => StepConfig[]
 }
 
 export const UserConsentContext = createContext<ConsentContextValue>({
   enabled: false,
   consents: [],
   updateConsents: () => Promise.resolve(),
+  addUserConsentStep: () => [],
 })
 
 export const UserConsentProvider = ({
@@ -91,6 +94,33 @@ export const UserConsentProvider = ({
     [applicantUUID, consents, token, url]
   )
 
+  const addUserConsentStep = useCallback(
+    (steps: StepConfig[]) => {
+      if (
+        !enabled ||
+        !consents ||
+        consents.every(({ required }) => !required)
+      ) {
+        return steps
+      }
+
+      const userConsent: StepConfig = {
+        type: 'userConsent',
+        skip: consents.every((c) => !c.required || (c.required && c.granted)),
+      }
+
+      const welcomeIndex = steps.findIndex(({ type }) => type === 'welcome')
+      const userConsentIndex = welcomeIndex === -1 ? 0 : welcomeIndex + 1
+
+      return [
+        ...steps.slice(0, userConsentIndex),
+        userConsent,
+        ...steps.slice(userConsentIndex),
+      ]
+    },
+    [consents, enabled]
+  )
+
   useEffect(() => {
     if (!enabled || !applicantUUID) {
       setConsents([])
@@ -121,6 +151,7 @@ export const UserConsentProvider = ({
         enabled,
         consents,
         updateConsents,
+        addUserConsentStep,
       }}
     >
       {children}

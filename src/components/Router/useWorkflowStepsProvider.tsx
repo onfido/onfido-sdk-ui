@@ -1,5 +1,5 @@
 import { StepConfig } from '~types/steps'
-import { useCallback, useRef, useState } from 'preact/hooks'
+import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
 
 import { formatStep } from '../../index'
 import { NarrowSdkOptions, UrlsConfig } from '~types/commons'
@@ -30,28 +30,25 @@ export const createWorkflowStepsProvider = (
   { token, workflowRunId, ...options }: NarrowSdkOptions,
   { onfido_api_url }: UrlsConfig
 ): StepsProvider => () => {
-  const { enabled, consents } = useUserConsent()
+  const { addUserConsentStep } = useUserConsent()
 
   //@todo: We should move the logic of enforcing the `welcome` step from index.ts here
-  const [state, setState] = useState<StepsProviderState>(() => {
-    if (!enabled || consents.every(({ required }) => !required)) {
-      return { ...defaultState, steps: options.steps }
-    }
-
-    const userConsent: StepConfig = {
-      type: 'userConsent',
-      skip: consents.every((c) => !c.required || (c.required && c.granted)),
-    }
-
-    return {
-      ...defaultState,
-      steps: [
-        ...options.steps.slice(0, 1),
-        userConsent,
-        ...options.steps.slice(1),
-      ],
-    }
+  const [state, setState] = useState<StepsProviderState>({
+    ...defaultState,
+    steps: options.steps,
   })
+
+  useEffect(() => {
+    // We only inject this step in the first workflow task
+    if (options.steps.every(({ type }) => type !== 'welcome')) {
+      return
+    }
+
+    setState((state) => ({
+      ...state,
+      steps: addUserConsentStep(options.steps),
+    }))
+  }, [addUserConsentStep])
 
   const { taskId, status, error, steps } = state
 

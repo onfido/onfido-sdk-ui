@@ -7,31 +7,13 @@ import { NarrowSdkOptions } from '~types/commons'
 export const createOptionsStepsProvider = (
   options: NarrowSdkOptions
 ): StepsProvider => () => {
-  const { enabled, consents } = useUserConsent()
+  const { addUserConsentStep } = useUserConsent()
   const [status, setStatus] = useState<StepsProviderStatus>('idle')
   const [steps, setSteps] = useState<StepConfig[]>(options.steps)
 
   useEffect(() => {
-    if (!enabled || consents.every(({ required }) => !required)) {
-      return
-    }
-
-    const userConsent: StepConfig = {
-      type: 'userConsent',
-      skip: consents.every((c) => !c.required || (c.required && c.granted)),
-    }
-
-    const welcomeIndex = options.steps.findIndex(
-      ({ type }) => type === 'welcome'
-    )
-    const userConsentIndex = welcomeIndex === -1 ? 0 : welcomeIndex + 1
-
-    setSteps([
-      ...options.steps.slice(0, userConsentIndex),
-      userConsent,
-      ...options.steps.slice(userConsentIndex),
-    ] as StepConfig[])
-  }, [consents, enabled])
+    setSteps(addUserConsentStep(options.steps))
+  }, [addUserConsentStep])
 
   return {
     loadNextStep: useCallback(() => setStatus('finished'), []),

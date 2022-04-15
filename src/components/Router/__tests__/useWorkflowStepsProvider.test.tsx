@@ -1,40 +1,32 @@
 import '@testing-library/jest-dom'
-import { h } from 'preact'
-import * as assert from 'assert'
+import { FunctionComponent, h } from 'preact'
 import { renderHook } from '@testing-library/preact-hooks'
-import { createOptionsStepsProvider } from '../useOptionsStepsProvider'
-import { StepConfig } from '~types/steps'
 import { UserConsentContext } from '~contexts/useUserConsent'
-import { ApplicantConsentStatus } from '~types/api'
 import { createWorkflowStepsProvider } from '../useWorkflowStepsProvider'
+import { StepConfig } from '~types/steps'
 
-const defaultSteps: StepConfig[] = [{ type: 'welcome' }, { type: 'auth' }]
+const addUserConsentStepMock = jest.fn()
 
-const defaultConsents: ApplicantConsentStatus[] = [
-  {
-    name: 'privacy_notices_read',
-    granted: false,
-    required: true,
-  },
-]
-
-const verifyUserConsentStepIndex = (
-  steps: StepConfig[] | undefined,
-  index: number
-) => {
-  assert(steps)
-  expect(steps.findIndex(({ type }) => type === 'userConsent')).toEqual(index)
-}
-
-// @ts-ignore
-const wrapper = ({ children, enabled, consents, updateConsents }) => (
-  <UserConsentContext.Provider value={{ enabled, consents, updateConsents }}>
+const wrapper: FunctionComponent = ({ children }) => (
+  <UserConsentContext.Provider
+    value={{
+      consents: [
+        {
+          name: 'privacy_notices_read',
+          granted: false,
+          required: true,
+        },
+      ],
+      enabled: true,
+      updateConsents: Promise.resolve,
+      addUserConsentStep: addUserConsentStepMock,
+    }}
+  >
     {children}
   </UserConsentContext.Provider>
 )
 
-// @ts-ignore
-const renderWorkflowStepsProviderHook = (steps, enabled, consents) =>
+const renderWorkflowStepsProviderHook = (steps: StepConfig[]) =>
   renderHook(
     () =>
       createWorkflowStepsProvider(
@@ -42,108 +34,19 @@ const renderWorkflowStepsProviderHook = (steps, enabled, consents) =>
         {}
       )(),
     {
-      // @ts-ignore
       wrapper,
-      initialProps: {
-        enabled,
-        consents,
-      },
     }
   )
 
 describe('useWorkflowSteps', () => {
-  it('adds "userConsent" step if consents are required and not already granted', () => {
-    const { result } = renderWorkflowStepsProviderHook(defaultSteps, true, [
-      {
-        name: 'privacy_notices_read_consent_given',
-        granted: false,
-        required: true,
-      },
-      {
-        name: 'other_consent',
-        granted: false,
-        required: false,
-      },
-      {
-        name: 'other_consent',
-        granted: true,
-        required: false,
-      },
-    ])
-
-    verifyUserConsentStepIndex(result.current?.steps, 1)
+  it('calls addUserConsentStep', () => {
+    renderWorkflowStepsProviderHook([{ type: 'welcome' }])
+    expect(addUserConsentStepMock).toHaveBeenCalled()
   })
 
-  it('adds "userConsent" and does not skips step if required consents not granted', async () => {
-    const { result } = renderWorkflowStepsProviderHook(defaultSteps, true, [
-      {
-        name: 'privacy_notices_read_consent_given',
-        granted: false,
-        required: true,
-      },
-      {
-        name: 'other_consent',
-        granted: false,
-        required: false,
-      },
-      {
-        name: 'other_consent',
-        granted: true,
-        required: false,
-      },
-    ])
-
-    verifyUserConsentStepIndex(result.current?.steps, 1)
-    expect(result.current?.steps[1].skip).toBeFalsy()
-  })
-
-  it('adds "userConsent" and skips step if required consents already granted', async () => {
-    const { result } = renderWorkflowStepsProviderHook(defaultSteps, true, [
-      {
-        name: 'privacy_notices_read_consent_given',
-        granted: true,
-        required: true,
-      },
-      {
-        name: 'other_consent',
-        granted: false,
-        required: false,
-      },
-      {
-        name: 'other_consent',
-        granted: true,
-        required: false,
-      },
-    ])
-
-    verifyUserConsentStepIndex(result.current?.steps, 1)
-    expect(result.current?.steps[1].skip).toBeTruthy()
-  })
-
-  it('does not add "userConsent" step if Feature Flag is not enabled', async () => {
-    const { result } = renderWorkflowStepsProviderHook(
-      defaultSteps,
-      false,
-      defaultConsents
-    )
-
-    verifyUserConsentStepIndex(result.current?.steps, -1)
-  })
-
-  it('does not add "userConsent" step if consents not required', async () => {
-    const { result } = renderWorkflowStepsProviderHook(defaultSteps, true, [
-      {
-        name: 'privacy_notices_read',
-        granted: true,
-        required: false,
-      },
-      {
-        name: 'other_consent',
-        granted: false,
-        required: false,
-      },
-    ])
-
-    verifyUserConsentStepIndex(result.current?.steps, -1)
+  it('does not call addUserConsentStep if there is no `welcome` step', () => {
+    addUserConsentStepMock.mockReset()
+    renderWorkflowStepsProviderHook([{ type: 'document' }])
+    expect(addUserConsentStepMock).not.toHaveBeenCalled()
   })
 })
