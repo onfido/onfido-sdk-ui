@@ -19,11 +19,7 @@ const PoAClientIntro: FunctionComponent<Props> = ({ nextStep }) => {
 
   return (
     <div className={theme.fullHeightContainer} data-page-id={'PoAIntro'}>
-      <PageTitle
-        title={translate('poa_intro.title', {
-          country: '',
-        })}
-      />
+      <PageTitle title={translate('poa_intro.title')} />
       <div className={style.content}>
         <p className={style.requirements}>{translate('poa_intro.subtitle')}</p>
         {['shows_address', 'matches_signup', 'most_recent'].map((key) => (

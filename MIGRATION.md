@@ -2,7 +2,7 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `6.19.0` -> `7.0.0`
+## `6.19.0` -> `6.20.0`
 
 ### Change in UX flow for Proof of Address Step
 

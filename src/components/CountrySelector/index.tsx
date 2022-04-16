@@ -175,11 +175,6 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
     const { translate, nextStep } = this.props
 
     const hasNoCountry = !documentCountry || !documentCountry.country_alpha3
-    const isPreselected = !this.isDocumentPreselected()
-    const showNoResultsState = this.state.showNoResultsError
-
-    console.log('Is Preselected: ', isPreselected)
-    console.log('Show No Results: ', showNoResultsState)
 
     return (
       <ScreenLayout

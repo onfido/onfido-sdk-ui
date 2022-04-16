@@ -103,8 +103,6 @@ const SdkDemo: FunctionComponent<Props> = ({
     ...(sdkOptions || {}),
   }
 
-  options.steps = ['welcome', 'poa', 'document', 'complete']
-
   const applicantForm = applicantData ? (
     'Loading ...'
   ) : (
