@@ -195,9 +195,9 @@ export default {
           ],
         },
         {
-          country_alpha3: 'AUT',
-          country_alpha2: 'AT',
-          country: 'Austria',
+          country_alpha3: 'DEU',
+          country_alpha2: 'DE',
+          country: 'Germany',
           document_types: ['bank_building_society_statement', 'utility_bill'],
         },
       ],
