@@ -20,6 +20,7 @@ import { DocumentTypes, PoaTypes } from '~types/steps'
 export type Props = {
   previousStep: () => void
   nextStep: () => void
+  countryList?: Array<CountryData>
 } & WithLocalisedProps &
   WithTrackingProps &
   StepComponentBaseProps
@@ -31,7 +32,6 @@ export type DocumentProps = {
 
 type State = {
   showNoResultsError: boolean
-  countries: CountryData[]
 }
 
 const getCountryOptionTemplate = (country: CountryData) => {
@@ -48,24 +48,19 @@ const getCountryOptionTemplate = (country: CountryData) => {
 }
 
 export abstract class CountrySelectionBase extends Component<Props, State> {
+  state = {
+    showNoResultsError: false,
+  }
+
   abstract getDocumentProps: () => DocumentProps
   abstract updateCountry: (selectedCountry: CountryData) => void
   abstract resetCountry: () => void
 
   abstract getSupportedCountries: (
     documentType: Optional<PoaTypes | DocumentTypes>
-  ) => Promise<CountryData[]>
+  ) => CountryData[]
 
   abstract hasChanges: (prevProps: Props) => boolean | undefined
-
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      showNoResultsError: false,
-      countries: [],
-    }
-  }
 
   handleCountrySearchConfirm = (selectedCountry: CountryData) => {
     const { documentCountry } = this.getDocumentProps()
@@ -86,12 +81,13 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
     query = '',
     populateResults: (results: CountryData[]) => string[]
   ) => {
-    const { documentCountry } = this.getDocumentProps()
-    const { countries } = this.state
+    const { documentCountry, documentType } = this.getDocumentProps()
 
     if (documentCountry && query !== documentCountry.name) {
       this.resetCountry()
     }
+
+    const countries = this.getSupportedCountries(documentType)
 
     const filteredResults = countries.filter((country) =>
       country.name.toLowerCase().includes(query.trim().toLowerCase())
@@ -114,12 +110,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   }
 
   componentDidMount() {
-    const { documentType } = this.props
     this.resetCountry()
-
-    this.getSupportedCountries(documentType).then((countries) => {
-      this.setState({ countries })
-    })
 
     document.addEventListener('mousedown', this.handleMenuMouseClick)
   }
@@ -137,6 +128,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   isDocumentPreselected() {
     const { documentType } = this.getDocumentProps()
     const { steps } = this.props
+
     return hasOnePreselectedDocument(steps) && documentType !== 'passport'
   }
 
