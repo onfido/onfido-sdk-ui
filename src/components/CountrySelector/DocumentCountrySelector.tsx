@@ -43,8 +43,10 @@ class CountrySelection extends CountrySelectionBase {
 
   getSupportedCountries = (
     documentType: Optional<PoaTypes | DocumentTypes>
-  ): CountryData[] => {
-    return getSupportedCountriesForDocument(documentType as DocumentTypes)
+  ): Promise<CountryData[]> => {
+    return Promise.resolve(
+      getSupportedCountriesForDocument(documentType as DocumentTypes)
+    )
   }
 }
 

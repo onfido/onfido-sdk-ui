@@ -21,6 +21,7 @@ import type {
   SdkConfiguration,
   ApplicantConsent,
   ApplicantConsentStatus,
+  PoASupportedCountry,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
@@ -89,6 +90,10 @@ export const formatError = (
   } catch {
     onError({ status, response: {} })
   }
+}
+
+export const uploadPoADocument = () => {
+  // TODO: Implement and Use
 }
 
 export const uploadDocument = (
@@ -303,6 +308,27 @@ export const requestChallenges = (
   }
 
   performHttpReq(options, onSuccess, (request) => formatError(request, onError))
+}
+
+export const getPoASupportedCountries = (url?: string, token?: string) => {
+  if (!url) {
+    throw new Error('onfido_api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
+  const options: HttpRequestParams = {
+    endpoint: `${url}/v3.3/report_types/proof_of_address/supported_countries`,
+    contentType: 'application/json',
+    token: `Bearer ${token}`,
+    method: 'GET',
+  }
+
+  return new Promise<PoASupportedCountry[]>((resolve, reject) => {
+    performHttpReq(options, resolve, (request) => formatError(request, reject))
+  })
 }
 
 export const getApplicantConsents = (

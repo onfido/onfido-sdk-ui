@@ -31,6 +31,7 @@ export type DocumentProps = {
 
 type State = {
   showNoResultsError: boolean
+  countries: CountryData[]
 }
 
 const getCountryOptionTemplate = (country: CountryData) => {
@@ -47,19 +48,24 @@ const getCountryOptionTemplate = (country: CountryData) => {
 }
 
 export abstract class CountrySelectionBase extends Component<Props, State> {
-  state = {
-    showNoResultsError: false,
-  }
-
   abstract getDocumentProps: () => DocumentProps
   abstract updateCountry: (selectedCountry: CountryData) => void
   abstract resetCountry: () => void
 
   abstract getSupportedCountries: (
     documentType: Optional<PoaTypes | DocumentTypes>
-  ) => CountryData[]
+  ) => Promise<CountryData[]>
 
   abstract hasChanges: (prevProps: Props) => boolean | undefined
+
+  constructor(props: Props) {
+    super(props)
+
+    this.state = {
+      showNoResultsError: false,
+      countries: [],
+    }
+  }
 
   handleCountrySearchConfirm = (selectedCountry: CountryData) => {
     const { documentCountry } = this.getDocumentProps()
@@ -80,13 +86,12 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
     query = '',
     populateResults: (results: CountryData[]) => string[]
   ) => {
-    const { documentCountry, documentType } = this.getDocumentProps()
+    const { documentCountry } = this.getDocumentProps()
+    const { countries } = this.state
 
-    if (documentType && documentCountry && query !== documentCountry.name) {
+    if (documentCountry && query !== documentCountry.name) {
       this.resetCountry()
     }
-
-    const countries = this.getSupportedCountries(documentType)
 
     const filteredResults = countries.filter((country) =>
       country.name.toLowerCase().includes(query.trim().toLowerCase())
@@ -109,7 +114,13 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   }
 
   componentDidMount() {
+    const { documentType } = this.props
     this.resetCountry()
+
+    this.getSupportedCountries(documentType).then((countries) => {
+      this.setState({ countries })
+    })
+
     document.addEventListener('mousedown', this.handleMenuMouseClick)
   }
 
