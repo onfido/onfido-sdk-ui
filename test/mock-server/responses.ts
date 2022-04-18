@@ -182,6 +182,25 @@ export default {
       snapshots: {
         uuid: '422e1061-a479-4356-b64a-78d53b4ea217',
       },
+      poa_countries: [
+        {
+          country_alpha3: 'GBR',
+          country_alpha2: 'GB',
+          country: 'United Kingdom of Great Britain and Northern Ireland',
+          document_types: [
+            'bank_building_society_statement',
+            'utility_bill',
+            'council_tax',
+            'benefit_letters',
+          ],
+        },
+        {
+          country_alpha3: 'AUT',
+          country_alpha2: 'AT',
+          country: 'Austria',
+          document_types: ['bank_building_society_statement', 'utility_bill'],
+        },
+      ],
       validate_document: {
         breakdown: {
           document_confidence: 0.00010868642129935324,
