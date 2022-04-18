@@ -40,7 +40,7 @@ export const PoASupportedCountriesProvider = ({
     getPoASupportedCountries(url, token)
       .then((countries) => setCountries(countries))
       .catch(() => setCountries([]))
-  }, [url, token, countries])
+  }, [url, token])
 
   if (!countries) {
     return <Fragment>{fallback}</Fragment>
