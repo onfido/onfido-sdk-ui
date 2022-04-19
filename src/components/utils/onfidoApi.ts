@@ -131,7 +131,7 @@ export const uploadDocument = (
   onError?: ErrorCallback
 ): Promise<DocumentImageResponse> => {
   const { sdkMetadata, validations = {}, ...other } = payload
-  const endpoint = `${url}/v3/documents`
+  const endpoint = `${url}/v3.3/documents`
 
   const data: SubmitPayload = {
     ...other,

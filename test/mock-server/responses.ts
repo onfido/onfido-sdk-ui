@@ -29,9 +29,9 @@ export default {
             detect_glare: { valid: true },
           },
           applicant_id: '<to-be-replaced>',
-          href: '/v3/documents/35e2f9cb-b79a-460a-ae86-297af0dace7b',
+          href: '/v3.3/documents/35e2f9cb-b79a-460a-ae86-297af0dace7b',
           download_href:
-            '/v3/documents/35e2f9cb-b79a-460a-ae86-297af0dace7b/download',
+            '/v3.3/documents/35e2f9cb-b79a-460a-ae86-297af0dace7b/download',
         },
         driving_licence_back: {
           id: '8bf3b39b-2a0e-4755-bb40-72da002d259d',
@@ -46,9 +46,9 @@ export default {
             detect_glare: { valid: true },
           },
           applicant_id: '<to-be-replaced>',
-          href: '/v3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d',
+          href: '/v3.3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d',
           download_href:
-            '/v3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d/download',
+            '/v3.3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d/download',
         },
         glare: {
           id: 'ef848773-a7a9-4758-91cf-bc1cb280f693',
@@ -65,9 +65,9 @@ export default {
             detect_blur: { valid: true },
           },
           applicant_id: '<to-be-replaced>',
-          href: '/v3/documents/ef848773-a7a9-4758-91cf-bc1cb280f693',
+          href: '/v3.3/documents/ef848773-a7a9-4758-91cf-bc1cb280f693',
           download_href:
-            '/v3/documents/ef848773-a7a9-4758-91cf-bc1cb280f693/download',
+            '/v3.3/documents/ef848773-a7a9-4758-91cf-bc1cb280f693/download',
         },
         id_card: {
           id: 'a2910652-2ed9-42d9-82b5-0e0578ab57fb',
@@ -84,9 +84,9 @@ export default {
             detect_blur: { valid: true },
           },
           applicant_id: '<to-be-replaced>',
-          href: '/v3/documents/a2910652-2ed9-42d9-82b5-0e0578ab57fb',
+          href: '/v3.3/documents/a2910652-2ed9-42d9-82b5-0e0578ab57fb',
           download_href:
-            '/v3/documents/a2910652-2ed9-42d9-82b5-0e0578ab57fb/download',
+            '/v3.3/documents/a2910652-2ed9-42d9-82b5-0e0578ab57fb/download',
         },
         no_doc: {
           error: {
@@ -110,9 +110,9 @@ export default {
             detect_blur: { valid: true },
           },
           applicant_id: '<to-be-replaced>',
-          href: '/v3/documents/155c23b4-67cc-451b-900b-069e939b84f4',
+          href: '/v3.3/documents/155c23b4-67cc-451b-900b-069e939b84f4',
           download_href:
-            '/v3/documents/155c23b4-67cc-451b-900b-069e939b84f4/download',
+            '/v3.3/documents/155c23b4-67cc-451b-900b-069e939b84f4/download',
         },
       },
       live_photos: {

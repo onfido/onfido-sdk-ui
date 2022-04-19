@@ -222,7 +222,7 @@ apiRouter
     context.response.body = { message: 'success' }
     context.response.status = Status.OK
   })
-  .post('/v3/documents', async (context) => {
+  .post('/v3.3/documents', async (context) => {
     try {
       const body = context.request.body({ type: 'form-data' })
       const formData = await body.value.read()
