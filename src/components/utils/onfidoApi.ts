@@ -92,13 +92,9 @@ export const formatError = (
   }
 }
 
-export const uploadPoADocument = () => {
-  // TODO: Implement and Use
-}
-
-export const uploadDocument = (
+const uploadDocumentMain = (
   payload: UploadDocumentPayload,
-  url: string | undefined,
+  completeUrl: string | undefined,
   token: string | undefined,
   onSuccess?: SuccessCallback<DocumentImageResponse>,
   onError?: ErrorCallback
@@ -114,11 +110,10 @@ export const uploadDocument = (
     'document_upload_started',
     'document_upload_completed',
   ]
-  const endpoint = `${url}/v3/documents`
 
   return new Promise((resolve, reject) => {
     sendFile(
-      endpoint,
+      completeUrl,
       data,
       token,
       analyticsEvents,
@@ -126,6 +121,30 @@ export const uploadDocument = (
       onError || reject
     )
   })
+}
+
+export const uploadPoADocument = (
+  payload: UploadDocumentPayload,
+  url: string | undefined,
+  token: string | undefined,
+  onSuccess?: SuccessCallback<DocumentImageResponse>,
+  onError?: ErrorCallback
+): Promise<DocumentImageResponse> => {
+  const endpoint = `${url}/v3.3/documents`
+
+  return uploadDocumentMain(payload, endpoint, token, onSuccess, onError)
+}
+
+export const uploadDocument = (
+  payload: UploadDocumentPayload,
+  url: string | undefined,
+  token: string | undefined,
+  onSuccess?: SuccessCallback<DocumentImageResponse>,
+  onError?: ErrorCallback
+): Promise<DocumentImageResponse> => {
+  const endpoint = `${url}/v3/documents`
+
+  return uploadDocumentMain(payload, endpoint, token, onSuccess, onError)
 }
 
 export const uploadDocumentVideoMedia = (
