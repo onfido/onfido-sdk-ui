@@ -87,6 +87,10 @@
         "body": "Téléversement réussi"
     },
     "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Nous sommes désolés. Nous travaillons à prendre en charge plus de pays."
+        },
         "alert": {
             "another_doc": "Les documents de ce pays ne sont actuellement pas pris en charge — <fallback>essayez un autre type de document<\/fallback>"
         },

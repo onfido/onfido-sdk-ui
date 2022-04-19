@@ -53,8 +53,9 @@ class CountrySelection extends CountrySelectionBase {
   }
 
   renderNoResultsMessage = (): h.JSX.Element => {
-    const noResultsErrorCopy = this.props.translate(
-      'country_select.alert.another_doc'
+    const errorIntro = this.props.translate('country_select.poa_alert.intro')
+    const errorDescription = this.props.translate(
+      'country_select.poa_alert.country_not_found'
     )
 
     return (
@@ -63,12 +64,8 @@ class CountrySelection extends CountrySelectionBase {
           <i className={style.helpIcon} />
         </div>
         <div>
-          <span className={style.fallbackText}>
-            {`Can't find your country?`}
-          </span>
-          <div className={style.descriptionText}>
-            {`Sorry about that. We are working on supporting more countries`}
-          </div>
+          <span className={style.fallbackText}>{errorIntro}</span>
+          <div className={style.descriptionText}>{errorDescription}</div>
         </div>
       </div>
     )

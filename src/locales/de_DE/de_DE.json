@@ -87,6 +87,10 @@
         "body": "Hochladen erfolgreich"
     },
     "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Entschuldigen Sie bitte. Wir arbeiten an der Unterstützung von mehr Ländern."
+        },
         "alert": {
             "another_doc": "Dokumente aus diesem Land werden derzeit nicht unterstützt. <fallback>Versuchen Sie es mit einem anderen Dokumententyp<\/fallback>."
         },

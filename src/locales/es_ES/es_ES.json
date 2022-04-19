@@ -87,6 +87,10 @@
         "body": "Carga realizada correctamente"
     },
     "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Lo sentimos. Estamos trabajando para ampliar los países de servicio."
+        },
         "alert": {
             "another_doc": "Actualmente no se admiten documentos de ese país: <fallback> pruebe con otro tipo de documento <\/fallback>"
         },

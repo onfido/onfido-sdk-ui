@@ -87,6 +87,10 @@
         "body": "Upload successful"
     },
     "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Sorry about that. We are working on supporting more countries."
+        },
         "alert": {
             "another_doc": "Documents from that country are not currently supported — <fallback>try another document type<\/fallback>"
         },

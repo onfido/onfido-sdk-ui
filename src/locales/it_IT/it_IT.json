@@ -1,5 +1,9 @@
 {
     "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Siamo spiacenti. Stiamo lavorando per supportare più Paesi."
+        },
         "alert": {
             "another_doc": "I documenti di questo paese non sono supportati al momento. <fallback>Prova con un altro tipo di documento<\/fallback>"
         },
