@@ -27,7 +27,8 @@ export const fakePassportImageResponse: DocumentImageResponse = {
   },
   applicant_id: '<to-be-replaced>',
   href: '/v3.3/documents/a2910652-2ed9-42d9-82b5-0e0578ab57fb',
-  download_href: '/v3.3/documents/a2910652-2ed9-42d9-82b5-0e0578ab57fb/download',
+  download_href:
+    '/v3.3/documents/a2910652-2ed9-42d9-82b5-0e0578ab57fb/download',
 }
 
 export const fakeDrivingLicenceFrontResponse: DocumentImageResponse = {
@@ -44,7 +45,8 @@ export const fakeDrivingLicenceFrontResponse: DocumentImageResponse = {
   },
   applicant_id: '<to-be-replaced>',
   href: '/v3.3/documents/35e2f9cb-b79a-460a-ae86-297af0dace7b',
-  download_href: '/v3.3/documents/35e2f9cb-b79a-460a-ae86-297af0dace7b/download',
+  download_href:
+    '/v3.3/documents/35e2f9cb-b79a-460a-ae86-297af0dace7b/download',
 }
 
 export const fakeDrivingLicenceBackResponse: DocumentImageResponse = {
@@ -61,7 +63,8 @@ export const fakeDrivingLicenceBackResponse: DocumentImageResponse = {
   },
   applicant_id: '<to-be-replaced>',
   href: '/v3.3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d',
-  download_href: '/v3.3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d/download',
+  download_href:
+    '/v3.3/documents/8bf3b39b-2a0e-4755-bb40-72da002d259d/download',
 }
 
 export const fakeNoDocumentError: ParsedError = {
