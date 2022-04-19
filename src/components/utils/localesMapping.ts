@@ -42,7 +42,7 @@ export const CROSS_DEVICE_INTRO_LOCALES_MAPPING = {
 }
 
 export const DOCUMENT_CAPTURE_LOCALES_MAPPING: Record<
-  DocumentTypes | PoaTypes,
+  DocumentTypes,
   CaptureLocale
 > = {
   passport: {
@@ -81,35 +81,31 @@ export const DOCUMENT_CAPTURE_LOCALES_MAPPING: Record<
       body: 'photo_upload.body_permit_back',
     },
   },
+}
+
+export const POA_CAPTURE_LOCALES_MAPPING: Record<
+  PoaTypes,
+  CaptureSideLocale
+> = {
   bank_building_society_statement: {
-    front: {
-      title: 'doc_submit.title_bank_statement',
-      body: 'photo_upload.body_bank_statement',
-    },
+    title: 'doc_submit.title_bank_statement',
+    body: 'photo_upload.body_bank_statement',
   },
   utility_bill: {
-    front: {
-      title: 'doc_submit.title_bill',
-      body: 'photo_upload.body_bill',
-    },
+    title: 'doc_submit.title_bill',
+    body: 'photo_upload.body_bill',
   },
   council_tax: {
-    front: {
-      title: 'doc_submit.title_tax_letter',
-      body: 'photo_upload.body_tax_letter',
-    },
+    title: 'doc_submit.title_tax_letter',
+    body: 'photo_upload.body_tax_letter',
   },
   benefit_letters: {
-    front: {
-      title: 'doc_submit.title_benefits_letter',
-      body: 'photo_upload.body_benefits_letter',
-    },
+    title: 'doc_submit.title_benefits_letter',
+    body: 'photo_upload.body_benefits_letter',
   },
   government_letter: {
-    front: {
-      title: 'doc_submit.title_government_letter',
-      body: 'photo_upload.body_government_letter',
-    },
+    title: 'doc_submit.title_government_letter',
+    body: 'photo_upload.body_government_letter',
   },
 }
 
@@ -164,6 +160,13 @@ export const POA_GUIDANCE_LOCALES_MAPPING: Record<PoaTypes, TitleLocale> = {
     title: 'doc_submit.title_government_letter',
     subtitle: 'poa_guidance.subtitle_government_letter',
   },
+}
+
+export const POA_REQUIREMENTS_LOCALES_MAPPING: Record<string, string> = {
+  address: 'poa_guidance.instructions.address',
+  full_name: 'poa_guidance.instructions.full_name',
+  issue_date: 'poa_guidance.instructions.issue_date',
+  logo: 'poa_guidance.instructions.logo',
 }
 
 export type VideoIntroTypes = 'actions' | 'speak'

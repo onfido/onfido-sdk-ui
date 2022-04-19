@@ -87,6 +87,10 @@
         "body": "Upload successful"
     },
     "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Sorry about that. We are working on supporting more countries."
+        },
         "alert": {
             "another_doc": "Documents from that country are not currently supported — <fallback>try another document type<\/fallback>"
         },
@@ -402,14 +406,14 @@
             "address": "Current address",
             "full_name": "Full name",
             "issue_date": "Issue date or summary period",
-            "label": "Make sure it clearly shows:",
+            "label": "Capture the entire document and make sure it clearly shows:",
             "logo": "Logo"
         },
-        "subtitle_bank_statement": "Must be issued in the <strong>last 3 months<\/strong>",
-        "subtitle_benefits_letter": "Must be issued in the <strong>last 12 months<\/strong>",
-        "subtitle_bill": "Must be issued in the <strong>last 3 months<\/strong>",
-        "subtitle_government_letter": "Must be issued in the <strong>last 12 months<\/strong>",
-        "subtitle_tax_letter": "Must be issued in the <strong>last 12 months<\/strong>"
+        "subtitle_bank_statement": "Must have been issued in the <strong>last 3 months<\/strong>",
+        "subtitle_benefits_letter": "Must have been issued in the <strong>last 12 months<\/strong>",
+        "subtitle_bill": "Must have been issued in the <strong>last 3 months<\/strong>",
+        "subtitle_government_letter": "Must have been issued in the <strong>last 12 months<\/strong>",
+        "subtitle_tax_letter": "Must have been issued in the <strong>last 12 months<\/strong>"
     },
     "poa_intro": {
         "button_primary": "Start verification",
@@ -417,7 +421,7 @@
         "list_most_recent": "Is your most <strong>recent<\/strong> document",
         "list_shows_address": "Shows your <strong>current<\/strong> address",
         "subtitle": "You’ll need a document that:",
-        "title": "Let’s verify your %{country} address"
+        "title": "Let’s verify your address"
     },
     "selfie_capture": {
         "alert": {

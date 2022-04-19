@@ -59,6 +59,25 @@
   bottom: 0;
 }
 
+.requirement {
+  display: flex;
+  padding-bottom: 16 * $unit;
+  padding-left: 16 * $unit;
+  position: relative;
+
+  &::before {
+    content: '';
+    background-color: var(--osdk-color-background-alert-info);
+    border-radius: 50%;
+    display: inline-block;
+    height: 6 * $unit;
+    width: 6 * $unit;
+    position: absolute;
+    left: 0;
+    top: 6 * $unit;
+  }
+}
+
 .label {
   fill: var(--osdk-color-content-body);
   font-size: var(--onfido-font-size-small);

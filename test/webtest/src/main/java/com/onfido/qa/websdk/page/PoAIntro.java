@@ -44,9 +44,9 @@ public class PoAIntro extends BasePage {
         return text(START_VERIFICATION);
     }
 
-    public PoADocumentSelection startVerification() {
+    public CountrySelector startVerification() {
         click(START_VERIFICATION);
 
-        return new PoADocumentSelection(driver);
+        return new CountrySelector(driver);
     }
 }

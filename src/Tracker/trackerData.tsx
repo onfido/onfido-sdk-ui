@@ -450,6 +450,13 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_poa_poa_country_select',
+    {
+      eventName: 'POA_COUNTRY_SELECTION',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
     'screen_poa',
     { eventName: 'POA_INTRO', properties: { event_type: 'screen' } },
   ],

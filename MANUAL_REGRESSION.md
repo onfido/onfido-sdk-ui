@@ -768,25 +768,24 @@ Known Issues:
 1. Start the proof of address verification. To include Proof of Address flow step, there are two options:
    - Add ?poa=true to the end of the url. Using this option, the flow will be composed of: PoA + Doc + Face. E.g: https://latest-onfido-sdk-ui-onfido.surge.sh/?poa=true.
    - On the Developer Tools > Console, run `onfidoSdkHandle.setOptions({steps: [{type: 'poa'}]})`. This will run the flow with PoA as the only step.
-   - Until we finish the development of the issuing country screen selector, we have UK has the default one. To override it go to the Developer Tools > Console and run, for example
-     `onfidoSdkHandle.setOptions({steps: [{type: 'poa', options: {country: 'PRT'}}]})` where 'PRT' can be replaced by any other supported country (3 letter iso country codes).
-   - supported issuing countries are United Kingdom, USA, Canada and European Union countries - except Bulgaria, Republic of Cyprus and Greece
-2. Advance to document submission
-   - if it's a UK document: accepted document types are `Bank or building society statement`, `Utility bill`, `Council tax letter` and `Benefits letter`
-   - if it's NOT a UK document: accepted document types are `Bank statement` and `Utility bill`
-3. Pick one of the supported document types
+2. Advance to Country Select Screen
+   - choose a country from the list
+3. Advance to document submission
+   - if the country selected was the UK: accepted document types are `Bank or building society statement`, `Utility bill`, `Council tax letter` and `Benefits letter`
+   - if the country selected was not the UK: accepted document types are `Bank statement` and `Utility bill`
+4. Pick one of the supported document types
    - `Bank or building society statement` and `Utility bill`, should state a 3 months validity
    - `Council tax letter` and `Benefits letter` should state a 12 months validity
-4. Continue
+5. Continue
    - options to `continue on phone` or `upload photo` are presented
-5. Choose to `upload photo` and continue after seeing the recommendations
+6. Choose to `upload photo` and continue after seeing the recommendations
    - file explorer is displayed so the user can select the photo
-6. Select a valid document photo (image or pdf)
+7. Select a valid document photo (image or pdf)
    - image preview can be seen and enlarged
    - image upload can be redone
-7. Click on `Upload document`
+8. Click on `Upload document`
    - submission confirmation screen is displayed
-8. Click on `Submit verification`
+9. Click on `Submit verification`
    - user must see a screen representing the end of the flow
 
 ### 40b. Proof of Address with 'upload photo' - other desktop browsers

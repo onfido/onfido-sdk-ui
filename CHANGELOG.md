@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Set `acceptSslCerts` to `true` for browserstack CI test to avoid "This connection is not private" screens
 - Internal: Migrate `ModalApp` to typescript
 - Internal: Add support for `.env` file
+- Public: Update Proof of Address flow to present Country Select
 
 ### Fixed
 

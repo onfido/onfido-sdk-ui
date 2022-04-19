@@ -251,6 +251,7 @@ export default class HistoryRouter extends Component<
   ): ComponentStep[] => {
     const {
       documentType,
+      poaDocumentCountry,
       steps,
       deviceHasCameraSupport,
       options: { mobileFlow },
@@ -263,6 +264,7 @@ export default class HistoryRouter extends Component<
     return buildComponentsList({
       flow: flow || this.state.flow,
       documentType,
+      poaDocumentCountry,
       steps,
       mobileFlow,
       deviceHasCameraSupport,
