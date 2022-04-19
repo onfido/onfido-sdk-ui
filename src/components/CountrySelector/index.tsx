@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
 import { getCountryFlagSrc } from '~supported-documents'
-import { parseTags, preventDefaultOnClick } from '~utils'
+import { parseTags } from '~utils'
 import { hasOnePreselectedDocument } from '~utils/steps'
 
 import Autocomplete from 'accessible-autocomplete/preact'
@@ -55,6 +55,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   abstract getDocumentProps: () => DocumentProps
   abstract updateCountry: (selectedCountry: CountryData) => void
   abstract resetCountry: () => void
+  abstract renderNoResultsMessage: () => h.JSX.Element
 
   abstract getSupportedCountries: (
     documentType: Optional<PoaTypes | DocumentTypes>
@@ -148,31 +149,6 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
     previousStep()
   }
 
-  renderNoResultsError = () => {
-    const noResultsErrorCopy = this.props.translate(
-      'country_select.alert.another_doc'
-    )
-
-    return (
-      <div className={style.errorContainer}>
-        <i className={style.errorIcon} />
-        <span className={style.fallbackText}>
-          {parseTags(noResultsErrorCopy, ({ text }) => (
-            <a
-              href="#"
-              className={classNames(theme.link, style.fallbackLink)}
-              onClick={preventDefaultOnClick(
-                this.trackChooseAnotherDocumentTypeClick
-              )}
-            >
-              {text}
-            </a>
-          ))}
-        </span>
-      </div>
-    )
-  }
-
   render() {
     const { documentCountry } = this.getDocumentProps()
     const { translate, nextStep } = this.props
@@ -219,7 +195,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
           </div>
           {!this.isDocumentPreselected() &&
             this.state.showNoResultsError &&
-            this.renderNoResultsError()}
+            this.renderNoResultsMessage()}
         </div>
       </ScreenLayout>
     )

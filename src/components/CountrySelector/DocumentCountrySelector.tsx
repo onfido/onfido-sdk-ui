@@ -1,12 +1,18 @@
+import { h } from 'preact'
 import { localised } from '~locales'
 import { getSupportedCountriesForDocument } from '~supported-documents'
 import { trackComponent } from 'Tracker'
+import theme from 'components/Theme/style.scss'
+import classNames from 'classnames'
 
 import type { CountryData } from '~types/commons'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
 import { CountrySelectionBase, DocumentProps, Props } from '.'
 import { DocumentTypes, PoaTypes } from '~types/steps'
+
+import style from './style.scss'
+import { parseTags, preventDefaultOnClick } from '~utils'
 
 export type DocProps = {
   documentType: string
@@ -45,6 +51,31 @@ class CountrySelection extends CountrySelectionBase {
     documentType: Optional<PoaTypes | DocumentTypes>
   ): CountryData[] => {
     return getSupportedCountriesForDocument(documentType as DocumentTypes)
+  }
+
+  renderNoResultsMessage = (): h.JSX.Element => {
+    const noResultsErrorCopy = this.props.translate(
+      'country_select.alert.another_doc'
+    )
+
+    return (
+      <div className={style.errorContainer}>
+        <i className={style.errorIcon} />
+        <span className={style.fallbackText}>
+          {parseTags(noResultsErrorCopy, ({ text }) => (
+            <a
+              href="#"
+              className={classNames(theme.link, style.fallbackLink)}
+              onClick={preventDefaultOnClick(
+                this.trackChooseAnotherDocumentTypeClick
+              )}
+            >
+              {text}
+            </a>
+          ))}
+        </span>
+      </div>
+    )
   }
 }
 

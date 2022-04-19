@@ -1,5 +1,9 @@
 {
     "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Siamo spiacenti. Stiamo lavorando per supportare più Paesi."
+        },
         "alert": {
             "another_doc": "I documenti di questo paese non sono supportati al momento. <fallback>Prova con un altro tipo di documento<\/fallback>"
         },
@@ -21,7 +25,7 @@
         "list_item_doc_one": "Documento",
         "list_item_selfie": "Selfie",
         "list_item_video": "Video",
-        "list_item_poa": "Proof of Address",
+        "list_item_poa": "Prova dell'indirizzo",
         "subtitle": "Ecco tutto quello che hai caricato:",
         "title": "Ultimo passaggio"
     },
@@ -78,16 +82,17 @@
             "no_doc_detail": "Assicurati che sia ben inquadrato",
             "no_doc_title": "Documento non rilevato"
         },
-        "body_bank_statement": "Make sure details are clear to read, with no blur or glare",
-        "body_benefits_letter": "Make sure details are clear to read, with no blur or glare",
-        "body_bill": "Make sure details are clear to read, with no blur or glare",
+        "body": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
+        "body_bank_statement": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
+        "body_benefits_letter": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
+        "body_bill": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
         "body_id": "Assicurati che i tuoi dati siano chiari e non coperti",
         "body_image_medium": "La verifica richiederà più tempo se non riusciremo a leggere i dati",
         "body_image_poor": "Per completare rapidamente la verifica ci serve una foto migliore",
         "body_license": "Assicurati che i tuoi dati siano chiari e non coperti",
         "body_passport": "Assicurati che i tuoi dati siano chiari e non coperti",
         "body_permit": "Assicurati che i tuoi dati siano chiari e non coperti",
-        "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
+        "body_tax_letter": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
         "button_close": "Chiudi",
         "button_primary_redo": "Ripeti",
         "button_primary_upload": "Carica",
@@ -98,11 +103,12 @@
         "title": "Controlla l’immagine"
     },
     "doc_select": {
-        "button_bank_statement": "Bank or building society statement",
-        "button_benefits_letter": "Benefits Letter",
-        "button_benefits_letter_detail": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
-        "button_bill": "Utility Bill",
-        "button_bill_detail": "Gas, electricity, water, landline, or broadband",
+        "button_bank_statement": "Estratto conto della banca o istituto di credito",
+        "button_bank_statement_non_uk": "Estratto conto della banca",
+        "button_benefits_letter": "Lettera sulle prestazioni previdenziali",
+        "button_benefits_letter_detail": "Prestazioni previdenziali autorizzate dal governo, come sussidio di disoccupazione, indennità di alloggio o credito d'imposta",
+        "button_bill": "Bolletta",
+        "button_bill_detail": "Gas, elettricità, acqua, telefono fisso o Internet",
         "button_government_letter": "Government Letter",
         "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
         "button_id": "Carta d’identità",
@@ -113,22 +119,22 @@
         "button_passport_detail": "Pagina della foto",
         "button_permit": "Permesso di soggiorno",
         "button_permit_detail": "Fronte e retro",
-        "button_tax_letter": "Council Tax Letter",
-        "extra_estatements_ok": "e-statements accepted",
-        "extra_no_mobile": "Sorry, no mobile phone bills",
+        "button_tax_letter": "Lettera sull'imposta locale",
+        "extra_estatements_ok": "sono accettati gli estratti conto elettronici",
+        "extra_no_mobile": "Non sono ammesse le bollette di telefonia mobile",
         "list_accessibility": "Documenti che puoi utilizzare per verificare la tua identità",
         "subtitle": "Deve essere un documento d’identità ufficiale con foto",
-        "subtitle_poa": "These are the documents most likely to show your current home address",
+        "subtitle_poa": "Questi sono i documenti che più probabilmente mostrano il tuo indirizzo attuale",
         "title": "Seleziona il tuo documento",
-        "title_poa": "Select a %{country} document"
+        "title_poa": "Seleziona un documento %{country}"
     },
     "doc_submit": {
         "button_link_upload": "o carica foto (no scansioni o fotocopie)",
         "button_primary": "Continua sul telefono",
         "subtitle": "Scatta una foto con il tuo telefono",
-        "title_bank_statement": "Submit statement",
-        "title_benefits_letter": "Submit letter",
-        "title_bill": "Submit bill",
+        "title_bank_statement": "Invia estratto conto",
+        "title_benefits_letter": "Invia lettera",
+        "title_bill": "Invia bolletta",
         "title_government_letter": "Government Letter",
         "title_id_back": "Invia carta d’identità (retro)",
         "title_id_front": "Invia carta d’identità (fronte)",
@@ -137,7 +143,7 @@
         "title_passport": "Invia la pagina con foto del passaporto",
         "title_permit_back": "Invia permesso di soggiorno (retro)",
         "title_permit_front": "Invia permesso di soggiorno (fronte)",
-        "title_tax_letter": "Submit letter"
+        "title_tax_letter": "Invia lettera"
     },
     "doc_video_capture": {
         "button_primary_fallback": "Avanti",
@@ -289,9 +295,9 @@
         "title_cam": "Accesso alla fotocamera negato"
     },
     "photo_upload": {
-        "body_bank_statement": "Provide the whole document page for best results",
-        "body_benefits_letter": "Provide the whole document page for best results",
-        "body_bill": "Provide the whole document page for best results",
+        "body_bank_statement": "Invia l'intera pagina del documento per un risultato ottimale",
+        "body_benefits_letter": "Invia l'intera pagina del documento per un risultato ottimale",
+        "body_bill": "Invia l'intera pagina del documento per un risultato ottimale",
         "body_government_letter": "Provide the whole document page for best results",
         "body_id_back": "Carica il retro della carta d’identità dal tuo computer",
         "body_id_front": "Carica il fronte della carta d’identità dal tuo computer",
@@ -299,33 +305,32 @@
         "body_license_front": "Carica il fronte della patente dal tuo computer",
         "body_passport": "Carica la pagina con foto del passaporto dal tuo computer",
         "body_selfie": "Carica un selfie dal tuo computer",
-        "body_tax_letter": "Provide the whole document page for best results",
+        "body_tax_letter": "Invia l'intera pagina del documento per un risultato ottimale",
         "button_take_photo": "Scatta foto",
         "button_upload": "Carica",
         "title_selfie": "Selfie"
     },
     "poa_guidance": {
-        "button_primary": "Continue",
+        "button_primary": "Continua",
         "instructions": {
-            "address": "Current address",
-            "full_name": "Full name",
-            "issue_date": "Issue date or summary period",
-            "label": "Make sure it clearly shows:",
+            "address": "Indirizzo attuale",
+            "full_name": "Nome e cognome",
+            "issue_date": "Data di emissione o periodo di riepilogo",
+            "label": "Riporta l'intero documento assicurandoti che mostri chiaramente:",
             "logo": "Logo"
         },
-        "subtitle_bank_statement": "Must have been issued in the <strong>last 3 months<\/strong>",
-        "subtitle_benefits_letter": "Must have been issued in the <strong>last 12 months<\/strong>",
-        "subtitle_bill": "Must have been issued in the <strong>last 3 months<\/strong>",
-        "subtitle_government_letter": "Must have been issued in the <strong>last 12 months<\/strong>",
-        "subtitle_tax_letter": "Must have been issued in the <strong>last 12 months<\/strong>"
+        "subtitle_bank_statement": "Deve essere stato emesso negli <strong>ultimi 3 mesi<\/strong>",
+        "subtitle_benefits_letter": "Deve essere stata emessa negli <strong>ultimi 12 mesi<\/strong>",
+        "subtitle_bill": "Deve essere stato emesso negli <strong>ultimi 3 mesi<\/strong>",
+        "subtitle_tax_letter": "Deve essere stato emesso negli <strong>ultimi 12 mesi<\/strong>"
     },
     "poa_intro": {
-        "button_primary": "Start verification",
-        "list_matches_signup": "<strong>Matches<\/strong> the address you used on signup",
-        "list_most_recent": "Is your most <strong>recent<\/strong> document",
-        "list_shows_address": "Shows your <strong>current<\/strong> address",
-        "subtitle": "You’ll need a document that:",
-        "title": "Let’s verify your address"
+        "button_primary": "Inizia la verifica",
+        "list_matches_signup": "<strong>Corrisponde<\/strong> all'indirizzo utilizzato per la registrazione",
+        "list_most_recent": "È il tuo documento più <strong>recente<\/strong>",
+        "list_shows_address": "Mostra il tuo indirizzo <strong>attuale<\/strong>",
+        "subtitle": "Ti servirà un documento che:",
+        "title": "Verifichiamo il tuo indirizzo"
     },
     "selfie_capture": {
         "alert": {
@@ -441,7 +446,7 @@
         "list_header_webcam": "Usa la webcam o il telefono per fotografare:",
         "list_item_doc": "il tuo documento d’identità",
         "list_item_doc_video_timeout": "La registrazione ha un limite di <timeout><\/timeout> secondi",
-        "list_item_poa": "your proof of address",
+        "list_item_poa": "la tua prova dell'indirizzo",
         "list_item_selfie": "il tuo viso",
         "next_button": "Seleziona documento",
         "subtitle": "L’operazione richiederà pochi minuti",

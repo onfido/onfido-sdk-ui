@@ -1,12 +1,16 @@
 import { h } from 'preact'
 import { localised } from '~locales'
 import { trackComponent } from 'Tracker'
+import theme from 'components/Theme/style.scss'
+import style from './style.scss'
 
 import type { CountryData } from '~types/commons'
 import { CountrySelectionBase, DocumentProps, Props } from '.'
 import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import { StepComponentBaseProps } from '~types/routers'
 import usePoASupportedCountries from '~contexts/usePoASupportedCountries'
+import { parseTags, preventDefaultOnClick } from '~utils'
+import classNames from 'classnames'
 
 export type PoaProps = {
   poaDocumentType: string
@@ -43,6 +47,25 @@ class CountrySelection extends CountrySelectionBase {
 
   getSupportedCountries = (): CountryData[] => {
     return this.props.countryList || []
+  }
+
+  renderNoResultsMessage = (): h.JSX.Element => {
+    const errorIntro = this.props.translate('country_select.poa_alert.intro')
+    const errorDescription = this.props.translate(
+      'country_select.poa_alert.country_not_found'
+    )
+
+    return (
+      <div className={style.errorContainer}>
+        <div>
+          <i className={style.helpIcon} />
+        </div>
+        <div>
+          <span className={style.fallbackText}>{errorIntro}</span>
+          <div className={style.descriptionText}>{errorDescription}</div>
+        </div>
+      </div>
+    )
   }
 }
 

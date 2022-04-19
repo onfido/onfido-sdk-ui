@@ -162,6 +162,13 @@ export const POA_GUIDANCE_LOCALES_MAPPING: Record<PoaTypes, TitleLocale> = {
   },
 }
 
+export const POA_REQUIREMENTS_LOCALES_MAPPING: Record<string, string> = {
+  address: 'poa_guidance.instructions.address',
+  full_name: 'poa_guidance.instructions.full_name',
+  issue_date: 'poa_guidance.instructions.issue_date',
+  logo: 'poa_guidance.instructions.logo',
+}
+
 export type VideoIntroTypes = 'actions' | 'speak'
 
 type VideoIntroLocale = {

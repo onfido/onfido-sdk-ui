@@ -87,6 +87,10 @@
         "body": "Upload successful"
     },
     "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Sorry about that. We are working on supporting more countries."
+        },
         "alert": {
             "another_doc": "Documents from that country are not currently supported — <fallback>try another document type<\/fallback>"
         },
@@ -402,7 +406,7 @@
             "address": "Current address",
             "full_name": "Full name",
             "issue_date": "Issue date or summary period",
-            "label": "Make sure it clearly shows:",
+            "label": "Capture the entire document and make sure it clearly shows:",
             "logo": "Logo"
         },
         "subtitle_bank_statement": "Must have been issued in the <strong>last 3 months<\/strong>",
