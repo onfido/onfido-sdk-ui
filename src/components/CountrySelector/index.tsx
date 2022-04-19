@@ -32,6 +32,7 @@ export type DocumentProps = {
 
 type State = {
   showNoResultsError: boolean
+  alwaysShowEmptyMessage: boolean
 }
 
 const getCountryOptionTemplate = (country: CountryData) => {
@@ -50,6 +51,7 @@ const getCountryOptionTemplate = (country: CountryData) => {
 export abstract class CountrySelectionBase extends Component<Props, State> {
   state = {
     showNoResultsError: false,
+    alwaysShowEmptyMessage: false,
   }
 
   abstract getDocumentProps: () => DocumentProps
@@ -193,8 +195,8 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
               onConfirm={this.handleCountrySearchConfirm}
             />
           </div>
-          {!this.isDocumentPreselected() &&
-            this.state.showNoResultsError &&
+          {((!this.isDocumentPreselected() && this.state.showNoResultsError) ||
+            this.state.alwaysShowEmptyMessage) &&
             this.renderNoResultsMessage()}
         </div>
       </ScreenLayout>

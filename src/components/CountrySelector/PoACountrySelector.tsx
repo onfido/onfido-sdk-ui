@@ -21,6 +21,15 @@ export type PoaProps = {
   StepComponentBaseProps
 
 class CountrySelection extends CountrySelectionBase {
+  constructor(props: Props) {
+    super(props)
+
+    this.state = {
+      showNoResultsError: false,
+      alwaysShowEmptyMessage: true,
+    }
+  }
+
   hasChanges = (prevProps: Props): boolean | undefined => {
     return (
       prevProps.poaDocumentType &&

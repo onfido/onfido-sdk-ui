@@ -85,6 +85,12 @@ export default function globals(
         poaDocumentCountry: action.payload,
       }
 
+    case constants.RESET_POA_DOCUMENT_COUNTRY:
+      return {
+        ...state,
+        poaDocumentCountry: initialState.poaDocumentCountry,
+      }
+
     case constants.SET_ROOM_ID:
       return { ...state, roomId: action.payload }
 
