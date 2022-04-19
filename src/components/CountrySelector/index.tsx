@@ -192,7 +192,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
           </div>
           {!this.isDocumentPreselected() &&
             this.state.showNoResultsError &&
-            this.returnNoResultsMessage()}
+            this.renderNoResultsMessage()}
         </div>
       </ScreenLayout>
     )
