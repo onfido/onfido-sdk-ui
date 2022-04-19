@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { localised, useLocales } from '~locales'
-import { trackComponentAndMode } from '../../Tracker'
+import { trackComponent } from '../../Tracker'
 import { addDeviceRelatedProperties, capitalise, isDesktop } from '~utils'
 import UploadError from './Error'
 import { ImageValidationTypes, validateFile } from '~utils/file'
@@ -172,9 +172,7 @@ class ImageQualityGuide extends Component<
   }
 }
 
-export default trackComponentAndMode(
+export default trackComponent(
   localised(ImageQualityGuide),
-  'image_quality_guide',
-  // @ts-ignore
-  'error'
+  'image_quality_guide'
 )

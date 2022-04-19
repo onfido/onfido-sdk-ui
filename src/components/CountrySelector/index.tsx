@@ -113,8 +113,11 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   }
 
   componentDidMount() {
-    this.resetCountry()
+    this.props.trackScreen(undefined, {
+      document_type: this.props.documentType,
+    })
 
+    this.resetCountry()
     document.addEventListener('mousedown', this.handleMenuMouseClick)
   }
 
