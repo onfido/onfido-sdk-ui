@@ -406,7 +406,7 @@
             "address": "Current address",
             "full_name": "Full name",
             "issue_date": "Issue date or summary period",
-            "label": "Make sure it clearly shows:",
+            "label": "Capture the entire document and make sure it clearly shows:",
             "logo": "Logo"
         },
         "subtitle_bank_statement": "Must have been issued in the <strong>last 3 months<\/strong>",
