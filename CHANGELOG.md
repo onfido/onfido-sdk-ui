@@ -92,6 +92,39 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Fixed Live Document Capture flow's camera inactive warning not displaying the basic camera fallback option if `uploadFallback` is not defined for SDK configuration's Document step.
 
+## [6.16.1] - 2022-20-4
+
+### Changed
+
+- Internal: Upgraded to webpack 5
+- Internal: Upgraded `eslint`, `mocha`, `jest`
+- Internal: Resolved all deprecated & vulnerability issues by removing and upgrading packages
+- Internal: Added more pollyfills for IE11
+- Internal: Upgraded `react-webcam-onfido` to `1.0.0`
+- Internal: Removed `dist` & `lib` from repo and added to `.gitignore` file
+- Public: Removed `*.LICENSE.txt` files from `lib` & `dist`, see `licenses.json` instead
+- Public: Fixed `CrossDeviceInfo` screen layout to prevent scrolling
+- Public: Merged `dist/onfido.vendors~crossDevice.min.js` into `dist/onfido.crossDevice.min.js`
+- Public: Merged `dist/onfidoAuth.6.min.js` to `onfidoAuth.min.js`
+- Public: Rearranged `dependencies` & `devDependencies` in `package.json` to reflect correct usage
+- Internal: `CrossDeviceMobileRouter` always connects to desktop to gather the config
+- Public: Added a cookie with anonymous uuid for analytics purposes
+- Internal: Upgrade `minimist` to `v1.2.6` to fix vulnerability
+- Public: Added a "microphone & camera" permission screen
+- Internal: Handle errors by callback instead of `throw` for `requestChallenges` and `postToBackend`
+- Internal: Migrated `ClientSuccess` to typescript
+- Internal: Added individual analytics `*_upload_started` & `*_upload_completed` events for all uploads
+- Internal: Fixed behavior for analytics event `CUSTOM_API_REQUEST_COMPLETED` & added `CUSTOM_API_REQUEST_COMPLETED`
+- Internal: Updated `integratorTrackedEvents` with multiple triggers for `UPLOAD` to reflect analytics upload events changes
+- Internal: PoC for manual release trigger with inputs
+
+### Fixed
+
+- Internal: Set ideal photo width for selfie step to ensure consistency across mobile devices
+- Internal: Prevent Face step (variant: video) from falling back to selfie upon camera error when `uploadFallback: false` is provided
+- Internal: Remove duplicated config and strip out custom locales from analytics events
+
+
 ## [6.16.0] - 2021-12-15
 
 ### Added

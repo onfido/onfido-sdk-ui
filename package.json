@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "6.20.0",
+  "version": "6.19.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -117,6 +117,7 @@
     ]
   },
   "devDependencies": {
+    "@actions/core": "^1.6.0",
     "@axe-core/webdriverjs": "^4.4.0",
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.8.7",
