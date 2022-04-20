@@ -13,11 +13,18 @@ export type GetFlowStepFunc = (
 export type WorklowTaskStepKeys = string
 export type OutcomeStepKeys = 'pass' | 'reject' | 'complete'
 export type StepKeys = 'loading' | WorklowTaskStepKeys | OutcomeStepKeys
+export type WorkflowTaskTypes =
+  | 'START'
+  | 'INTERACTIVE'
+  | 'SYNC'
+  | 'ASYNC'
+  | 'FINAL'
+  | 'CUSTOM'
 
 export type WorkflowResponse = {
   id: string
   applicant_id: string
-  task_type?: 'START' | 'INTERACTIVE' | 'SYNC' | 'ASYNC' | 'FINAL' | 'CUSTOM'
+  task_type?: WorkflowTaskTypes
   task_id?: string
   task_def_id?: string | undefined
   config: WorkflowStepConfig

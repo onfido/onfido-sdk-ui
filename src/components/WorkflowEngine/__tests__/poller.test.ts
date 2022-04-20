@@ -16,6 +16,7 @@ describe('poller', () => {
 
       const duration = Date.now() - start
       expect(duration).toBeGreaterThan(count * delay)
+      expect(count).toBeLessThan(3)
     })
   })
 

@@ -18,7 +18,7 @@ export interface EngineInterface {
 }
 
 export type EngineProps = {
-  token: string | undefined
+  token: string
   workflowRunId: string | undefined
   workflowServiceUrl: string
 }
@@ -54,10 +54,7 @@ export class Engine implements EngineInterface {
           method: 'GET',
           contentType: 'application/json',
           endpoint: `${workflowServiceUrl}/workflow_runs/${workflowRunId}`,
-        }
-
-        if (token) {
-          requestParams.token = `Bearer ${token}`
+          token: `Bearer ${token}`,
         }
 
         performHttpReq(requestParams, resolve, (request) =>
@@ -92,10 +89,7 @@ export class Engine implements EngineInterface {
             data: docData?.length ? docData : personalData || {},
           }),
           endpoint: `${workflowServiceUrl}/workflow_runs/${workflowRunId}/complete`,
-        }
-
-        if (token) {
-          requestParams.token = `Bearer ${token}`
+          token: `Bearer ${token}`,
         }
 
         performHttpReq(requestParams, resolve, (request) =>

@@ -6,7 +6,7 @@ export type HttpRequestParams = {
   endpoint: string
   headers?: Record<string, string>
   payload?: string | FormData
-  token?: string
+  token: string
 }
 
 export const performHttpReq = <T>(
