@@ -5,7 +5,7 @@ import { localised, useLocales } from '~locales'
 import Autocomplete from 'accessible-autocomplete/preact'
 
 import { allCountriesList, countryTranslations } from './countries'
-//import { IconChevronDown } from '@onfido/castor-icons'
+import { IconChevronDown } from '@onfido/castor-icons'
 import { getCountryFlagSrc } from '~supported-documents'
 import type { WithLocalisedProps } from '~types/hocs'
 import styles from '../../CountrySelector/style.scss'
@@ -70,7 +70,7 @@ const CountrySelector: FunctionComponent<Props> = ({
         name="country"
         source={suggestCountries}
         showAllValues
-        // dropdownArrow={() => <IconChevronDown className={styles.chevronIcon} />}
+        dropdownArrow={() => <IconChevronDown className={styles.chevronIcon} />}
         tNoResults={() =>
           translate('country_select.alert_dropdown.country_not_found')
         }
