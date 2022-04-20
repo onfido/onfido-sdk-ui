@@ -31,6 +31,6 @@ describe('useOptionsSteps', () => {
       wrapper,
     })
 
-    expect(addUserConsentStepMock).toHaveBeenCalled()
+    expect(addUserConsentStepMock).toHaveBeenCalledTimes(1)
   })
 })
