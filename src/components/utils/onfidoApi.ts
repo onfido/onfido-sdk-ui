@@ -92,37 +92,6 @@ export const formatError = (
   }
 }
 
-const uploadDocumentMain = (
-  payload: UploadDocumentPayload,
-  completeUrl: string | undefined,
-  token: string | undefined,
-  onSuccess?: SuccessCallback<DocumentImageResponse>,
-  onError?: ErrorCallback
-): Promise<DocumentImageResponse> => {
-  const { sdkMetadata, validations = {}, ...other } = payload
-
-  const data: SubmitPayload = {
-    ...other,
-    sdk_metadata: JSON.stringify(sdkMetadata),
-    sdk_validations: JSON.stringify(validations),
-  }
-  const analyticsEvents: LegacyTrackedEventNames[] = [
-    'document_upload_started',
-    'document_upload_completed',
-  ]
-
-  return new Promise((resolve, reject) => {
-    sendFile(
-      completeUrl,
-      data,
-      token,
-      analyticsEvents,
-      onSuccess || resolve,
-      onError || reject
-    )
-  })
-}
-
 export const uploadDocument = (
   payload: UploadDocumentPayload,
   url: string | undefined,
