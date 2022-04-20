@@ -156,6 +156,8 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
     const { translate, nextStep } = this.props
 
     const hasNoCountry = !documentCountry || !documentCountry.country_alpha3
+    const hasCountrySelectError =
+      !this.isDocumentPreselected() && this.state.showNoResultsError
 
     return (
       <ScreenLayout
@@ -195,8 +197,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
               onConfirm={this.handleCountrySearchConfirm}
             />
           </div>
-          {((!this.isDocumentPreselected() && this.state.showNoResultsError) ||
-            this.state.alwaysShowEmptyMessage) &&
+          {(hasCountrySelectError || this.state.alwaysShowEmptyMessage) &&
             this.renderNoResultsMessage()}
         </div>
       </ScreenLayout>

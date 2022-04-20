@@ -24,10 +24,7 @@ class CountrySelection extends CountrySelectionBase {
   constructor(props: Props) {
     super(props)
 
-    this.state = {
-      showNoResultsError: false,
-      alwaysShowEmptyMessage: true,
-    }
+    this.state.alwaysShowEmptyMessage = true
   }
 
   hasChanges = (prevProps: Props): boolean | undefined => {
