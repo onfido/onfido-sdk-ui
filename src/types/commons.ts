@@ -28,7 +28,7 @@ const STEP_CROSS_DEVICE = 'crossDevice'
 export type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
 export type ExtendedStepConfig =
   | StepConfig
-  | { type: typeof STEP_CROSS_DEVICE; options?: never }
+  | { type: typeof STEP_CROSS_DEVICE; options?: never; skip?: boolean }
 
 export type CaptureMethods = 'poa' | 'document' | 'face' | 'auth'
 
