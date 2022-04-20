@@ -4,13 +4,8 @@ import classNames from 'classnames'
 
 import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
-import { localised } from '~locales'
-import {
-  getSupportedCountriesForDocument,
-  getCountryFlagSrc,
-} from '~supported-documents'
-import { trackComponent } from 'Tracker'
-import { parseTags, preventDefaultOnClick } from '~utils'
+import { getCountryFlagSrc } from '~supported-documents'
+import { parseTags } from '~utils'
 import { hasOnePreselectedDocument } from '~utils/steps'
 
 import Autocomplete from 'accessible-autocomplete/preact'
@@ -20,15 +15,19 @@ import style from './style.scss'
 import type { CountryData } from '~types/commons'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
+import { DocumentTypes, PoaTypes } from '~types/steps'
 
 export type Props = {
-  documentType: string
-  idDocumentIssuingCountry: CountryData
   previousStep: () => void
   nextStep: () => void
 } & WithLocalisedProps &
   WithTrackingProps &
   StepComponentBaseProps
+
+export type DocumentProps = {
+  documentCountry: CountryData | undefined
+  documentType: PoaTypes | DocumentTypes | undefined
+}
 
 type State = {
   showNoResultsError: boolean
@@ -47,26 +46,34 @@ const getCountryOptionTemplate = (country: CountryData) => {
   return ''
 }
 
-class CountrySelection extends Component<Props, State> {
+export abstract class CountrySelectionBase extends Component<Props, State> {
   state = {
     showNoResultsError: false,
   }
 
+  abstract getDocumentProps: () => DocumentProps
+  abstract updateCountry: (selectedCountry: CountryData) => void
+  abstract resetCountry: () => void
+  abstract renderNoResultsMessage: () => h.JSX.Element
+
+  abstract getSupportedCountries: (
+    documentType: Optional<PoaTypes | DocumentTypes>
+  ) => CountryData[]
+
+  abstract hasChanges: (prevProps: Props) => boolean | undefined
+
   handleCountrySearchConfirm = (selectedCountry: CountryData) => {
-    const { actions, idDocumentIssuingCountry } = this.props
+    const { documentCountry } = this.getDocumentProps()
+
+    const hasNoCountry =
+      !selectedCountry && (!documentCountry || !documentCountry.country_alpha3)
+
     if (selectedCountry) {
-      this.setState({
-        showNoResultsError: false,
-      })
-      actions.setIdDocumentIssuingCountry(selectedCountry)
+      this.setState({ showNoResultsError: false })
+      this.updateCountry(selectedCountry)
       setTimeout(() => document.getElementById('country-search')?.blur(), 0)
-    } else if (
-      !selectedCountry &&
-      (!idDocumentIssuingCountry || !idDocumentIssuingCountry.country_alpha3)
-    ) {
-      this.setState({
-        showNoResultsError: true,
-      })
+    } else if (hasNoCountry) {
+      this.setState({ showNoResultsError: true })
     }
   }
 
@@ -74,16 +81,17 @@ class CountrySelection extends Component<Props, State> {
     query = '',
     populateResults: (results: CountryData[]) => string[]
   ) => {
-    const { documentType, idDocumentIssuingCountry, actions } = this.props
-    if (idDocumentIssuingCountry && query !== idDocumentIssuingCountry.name) {
-      actions.resetIdDocumentIssuingCountry()
+    const { documentCountry, documentType } = this.getDocumentProps()
+
+    if (documentType && documentCountry && query !== documentCountry.name) {
+      this.resetCountry()
     }
 
-    const countries = getSupportedCountriesForDocument(documentType)
-    const filteredResults = countries.filter((result) => {
-      const country = result.name
-      return country.toLowerCase().includes(query.trim().toLowerCase())
-    })
+    const countries = this.getSupportedCountries(documentType)
+
+    const filteredResults = countries.filter((country) =>
+      country.name.toLowerCase().includes(query.trim().toLowerCase())
+    )
     populateResults(filteredResults)
   }
 
@@ -102,18 +110,13 @@ class CountrySelection extends Component<Props, State> {
   }
 
   componentDidMount() {
-    if (this.props.idDocumentIssuingCountry) {
-      this.props.actions.resetIdDocumentIssuingCountry()
-    }
+    this.resetCountry()
     document.addEventListener('mousedown', this.handleMenuMouseClick)
   }
 
   componentDidUpdate(prevProps: Props) {
-    if (
-      prevProps.documentType &&
-      this.props.documentType !== prevProps.documentType
-    ) {
-      this.props.actions.resetIdDocumentIssuingCountry()
+    if (this.hasChanges(prevProps)) {
+      this.resetCountry()
     }
   }
 
@@ -122,7 +125,8 @@ class CountrySelection extends Component<Props, State> {
   }
 
   isDocumentPreselected() {
-    const { steps, documentType } = this.props
+    const { documentType } = this.getDocumentProps()
+    const { steps } = this.props
     return hasOnePreselectedDocument(steps) && documentType !== 'passport'
   }
 
@@ -142,33 +146,11 @@ class CountrySelection extends Component<Props, State> {
     previousStep()
   }
 
-  renderNoResultsError = () => {
-    const noResultsErrorCopy = this.props.translate(
-      'country_select.alert.another_doc'
-    )
-
-    return (
-      <div className={style.errorContainer}>
-        <i className={style.errorIcon} />
-        <span className={style.fallbackText}>
-          {parseTags(noResultsErrorCopy, ({ text }) => (
-            <a
-              href="#"
-              className={classNames(theme.link, style.fallbackLink)}
-              onClick={preventDefaultOnClick(
-                this.trackChooseAnotherDocumentTypeClick
-              )}
-            >
-              {text}
-            </a>
-          ))}
-        </span>
-      </div>
-    )
-  }
-
   render() {
-    const { translate, nextStep, idDocumentIssuingCountry } = this.props
+    const { documentCountry } = this.getDocumentProps()
+    const { translate, nextStep } = this.props
+
+    const hasNoCountry = !documentCountry || !documentCountry.country_alpha3
 
     return (
       <ScreenLayout
@@ -177,11 +159,7 @@ class CountrySelection extends Component<Props, State> {
             type="button"
             variant="primary"
             className={classNames(theme['button-centered'], theme['button-lg'])}
-            disabled={
-              !idDocumentIssuingCountry ||
-              !idDocumentIssuingCountry.country_alpha3 ||
-              this.state.showNoResultsError
-            }
+            disabled={hasNoCountry || this.state.showNoResultsError}
             onClick={nextStep}
             data-onfido-qa="countrySelectorNextStep"
           >
@@ -214,11 +192,9 @@ class CountrySelection extends Component<Props, State> {
           </div>
           {!this.isDocumentPreselected() &&
             this.state.showNoResultsError &&
-            this.renderNoResultsError()}
+            this.renderNoResultsMessage()}
         </div>
       </ScreenLayout>
     )
   }
 }
-
-export default trackComponent(localised(CountrySelection), 'country_select')

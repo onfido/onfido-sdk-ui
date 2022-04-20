@@ -4,6 +4,12 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `6.19.0` -> `6.20.0`
 
+### Change in UX flow for Proof of Address Step
+
+- Proof of Address step now has an Issuing Country Selection screen before the Document Type Selection screen.
+
+## `6.19.0` -> `6.20.0`
+
 The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the follinw string(s) has changed:
 
 ### Added strings
