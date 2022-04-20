@@ -21,6 +21,7 @@ import type {
   SdkConfiguration,
   ApplicantConsent,
   ApplicantConsentStatus,
+  PoASupportedCountry,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
@@ -99,6 +100,7 @@ export const uploadDocument = (
   onError?: ErrorCallback
 ): Promise<DocumentImageResponse> => {
   const { sdkMetadata, validations = {}, ...other } = payload
+  const endpoint = `${url}/v3.3/documents`
 
   const data: SubmitPayload = {
     ...other,
@@ -109,7 +111,6 @@ export const uploadDocument = (
     'document_upload_started',
     'document_upload_completed',
   ]
-  const endpoint = `${url}/v3/documents`
 
   return new Promise((resolve, reject) => {
     sendFile(
@@ -303,6 +304,27 @@ export const requestChallenges = (
   }
 
   performHttpReq(options, onSuccess, (request) => formatError(request, onError))
+}
+
+export const getPoASupportedCountries = (url?: string, token?: string) => {
+  if (!url) {
+    throw new Error('onfido_api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
+  const options: HttpRequestParams = {
+    endpoint: `${url}/v3.3/report_types/proof_of_address/supported_countries`,
+    contentType: 'application/json',
+    token: `Bearer ${token}`,
+    method: 'GET',
+  }
+
+  return new Promise<PoASupportedCountry[]>((resolve, reject) => {
+    performHttpReq(options, resolve, (request) => formatError(request, reject))
+  })
 }
 
 export const getApplicantConsents = (

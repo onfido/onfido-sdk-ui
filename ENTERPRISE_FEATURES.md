@@ -181,7 +181,7 @@ components:
           format: binary
           description: Uploaded snapshot taken by the Web SDK to improve fraud analysis.
 paths:
-  /onfido/v3/documents:
+  /onfido/v3.3/documents:
     post:
       operationId: OnfidoController documents
       parameters:
@@ -200,7 +200,7 @@ paths:
       responses:
         '200':
           description: >-
-            The response received from Onfido v3/documents API call. The
+            The response received from Onfido v3.3/documents API call. The
             response format might slightly vary with the use case. Forward it
             without modifications as the callback response.
           content:

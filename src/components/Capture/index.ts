@@ -20,7 +20,6 @@ export const DocumentVideoCapture = appendToTracking(
 export const PoACapture = appendToTracking(
   withCaptureVariant(ProofOfAddress, {
     forceCrossDevice: false,
-    side: 'front',
   }),
   'poa'
 )

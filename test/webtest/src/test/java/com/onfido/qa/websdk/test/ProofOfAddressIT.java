@@ -77,7 +77,7 @@ public class ProofOfAddressIT extends WebSdkIT {
     public static Object[] countries() {
         return new SimpleCountry[]{
                 new SimpleCountry("United", "GBR"),
-                new SimpleCountry("Germany", "GER")
+                new SimpleCountry("Germany", "DEU")
         };
     }
 
