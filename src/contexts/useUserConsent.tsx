@@ -97,8 +97,7 @@ export const UserConsentProvider = ({
   const addUserConsentStep = useCallback(
     (steps: StepConfig[]) => {
       if (
-        !enabled ||
-        !consents ||
+        !(enabled && consents) ||
         consents.every(({ required }) => !required)
       ) {
         return steps

@@ -32,7 +32,6 @@ export const createWorkflowSteps = (
 ): StepsHook => () => {
   const { addUserConsentStep } = useUserConsent()
 
-  //@todo: We should move the logic of enforcing the `welcome` step from index.ts here
   const [state, setState] = useState<WorkflowStepsState>({
     ...defaultState,
     steps: options.steps,
@@ -76,14 +75,6 @@ export const createWorkflowSteps = (
       try {
         workflow = await workflowEngine.getWorkflow()
       } catch {
-        setState((state) => ({
-          ...state,
-          status: 'error',
-          error: 'Workflow run ID is not set.',
-        }))
-      }
-
-      if (!workflow) {
         setState((state) => ({
           ...state,
           status: 'error',
