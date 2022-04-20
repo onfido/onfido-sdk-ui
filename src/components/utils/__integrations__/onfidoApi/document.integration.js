@@ -97,10 +97,7 @@ describe('API uploadDocument endpoint', () => {
       try {
         expect(error.status).toBe(422)
         expect(error.response.error.type).toBe('validation_error')
-        // @TODO: Re-add the line below
-        // expect(error.response.error.fields).toHaveProperty('file')
-        // @TODO: and remove this line below when https://onfido.atlassian.net/browse/IQ-775 is completed
-        expect(error.response.error.fields).toBe('upload_errors')
+        expect(error.response.error.fields).toHaveProperty('file')
         done()
       } catch (err) {
         done(err)

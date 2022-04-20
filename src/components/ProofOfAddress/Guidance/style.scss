@@ -1,15 +1,22 @@
 @import '../../Theme/constants';
 
 .content {
+  font-size: var(--onfido-font-size-base);
   position: relative;
   margin-bottom: 16 * $unit;
   flex: 1;
   flex-direction: column;
   display: flex;
+  margin: 0 48 * $unit auto;
+
+  @media (--small-viewport) {
+    margin: 0 0 auto;
+  }
 }
 
 .subTitle {
-  font-size: var(--onfido-font-size-small);
+  font-size: var(--onfido-font-size-large);
+  font-weight: 400;
 
   &::before {
     content: '';
@@ -33,10 +40,7 @@
   color: var(--osdk-color-content-body);
   font-weight: 600;
   margin-bottom: 8 * $unit;
-
-  @media (--small-viewport) {
-    text-align: left;
-  }
+  text-align: left;
 }
 
 .docImageContainer {

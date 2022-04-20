@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Migrate `ModalApp` to typescript
 - Internal: Add support for `.env` file
 - Public: Update Proof of Address flow to present Country Select
+- Public: Determine Proof of Address document options from endpoint
 
 ### Fixed
 

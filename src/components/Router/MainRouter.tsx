@@ -15,6 +15,7 @@ import Spinner from '../Spinner'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
 import { OptionsSteps } from './OptionsSteps'
 import { UserConsentProvider } from '~contexts/useUserConsent'
+import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
@@ -157,17 +158,27 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
             <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
           }
         >
-          <OptionsSteps options={this.props.options}>
-            {(steps) => (
-              <HistoryRouter
-                {...this.props}
-                mobileConfig={this.generateMobileConfig()}
-                onFlowChange={this.onFlowChange}
-                stepIndexType="user"
-                steps={steps}
+          <PoASupportedCountriesProvider
+            url={urls.onfido_api_url}
+            token={token}
+            fallback={
+              <Spinner
+                shouldAutoFocus={options.autoFocusOnInitialScreenTitle}
               />
-            )}
-          </OptionsSteps>
+            }
+          >
+            <OptionsSteps options={this.props.options}>
+              {(steps) => (
+                <HistoryRouter
+                  {...this.props}
+                  mobileConfig={this.generateMobileConfig()}
+                  onFlowChange={this.onFlowChange}
+                  stepIndexType="user"
+                  steps={steps}
+                />
+              )}
+            </OptionsSteps>
+          </PoASupportedCountriesProvider>
         </UserConsentProvider>
       </SdkConfigurationServiceProvider>
     )

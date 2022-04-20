@@ -1,15 +1,14 @@
 import { h } from 'preact'
 import { localised } from '~locales'
-import { getSupportedCountriesForProofOfAddress } from '~supported-documents'
 import { trackComponent } from 'Tracker'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
 import type { CountryData } from '~types/commons'
 import { CountrySelectionBase, DocumentProps, Props } from '.'
-import { DocumentTypes, PoaTypes } from '~types/steps'
 import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import { StepComponentBaseProps } from '~types/routers'
+import usePoASupportedCountries from '~contexts/usePoASupportedCountries'
 import { parseTags, preventDefaultOnClick } from '~utils'
 import classNames from 'classnames'
 
@@ -22,6 +21,12 @@ export type PoaProps = {
   StepComponentBaseProps
 
 class CountrySelection extends CountrySelectionBase {
+  constructor(props: Props) {
+    super(props)
+
+    this.state.alwaysShowEmptyMessage = true
+  }
+
   hasChanges = (prevProps: Props): boolean | undefined => {
     return (
       prevProps.poaDocumentType &&
@@ -46,10 +51,8 @@ class CountrySelection extends CountrySelectionBase {
     this.props.actions.resetPoADocumentCountry()
   }
 
-  getSupportedCountries = (
-    documentType: Optional<PoaTypes | DocumentTypes>
-  ): CountryData[] => {
-    return getSupportedCountriesForProofOfAddress(documentType as PoaTypes)
+  getSupportedCountries = (): CountryData[] => {
+    return this.props.countryList || []
   }
 
   renderNoResultsMessage = (): h.JSX.Element => {
@@ -72,4 +75,19 @@ class CountrySelection extends CountrySelectionBase {
   }
 }
 
-export default trackComponent(localised(CountrySelection), 'poa_country_select')
+const PoACountrySelection = (props: Props) => {
+  const poaCountries = usePoASupportedCountries()
+
+  const countries: CountryData[] = poaCountries.map((country) => ({
+    country_alpha2: country.country_alpha2,
+    country_alpha3: country.country_alpha3,
+    name: country.country,
+  }))
+
+  return <CountrySelection {...props} countryList={countries} />
+}
+
+export default trackComponent(
+  localised(PoACountrySelection),
+  'poa_country_select'
+)

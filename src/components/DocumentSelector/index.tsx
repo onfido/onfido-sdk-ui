@@ -10,6 +10,7 @@ import { TranslateCallback } from '~types/locales'
 import PageTitle from '../PageTitle'
 import { LocaleContext } from '~locales'
 import { DocumentTypeConfig, DocumentTypes, PoaTypes } from '~types/steps'
+import { PoASupportedCountry } from '~types/api'
 
 const always = () => true
 
@@ -19,6 +20,7 @@ export type Props = {
   country?: string
   type: DocumentTypes | PoaTypes
   autoFocusOnInitialScreenTitle?: boolean
+  countryList?: PoASupportedCountry[]
 } & StepComponentBaseProps
 
 // The 'type' value of these options must match the API document types.

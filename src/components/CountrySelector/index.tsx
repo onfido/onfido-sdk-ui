@@ -20,6 +20,7 @@ import { DocumentTypes, PoaTypes } from '~types/steps'
 export type Props = {
   previousStep: () => void
   nextStep: () => void
+  countryList?: Array<CountryData>
 } & WithLocalisedProps &
   WithTrackingProps &
   StepComponentBaseProps
@@ -31,6 +32,7 @@ export type DocumentProps = {
 
 type State = {
   showNoResultsError: boolean
+  alwaysShowEmptyMessage: boolean
 }
 
 const getCountryOptionTemplate = (country: CountryData) => {
@@ -49,6 +51,7 @@ const getCountryOptionTemplate = (country: CountryData) => {
 export abstract class CountrySelectionBase extends Component<Props, State> {
   state = {
     showNoResultsError: false,
+    alwaysShowEmptyMessage: false,
   }
 
   abstract getDocumentProps: () => DocumentProps
@@ -83,7 +86,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   ) => {
     const { documentCountry, documentType } = this.getDocumentProps()
 
-    if (documentType && documentCountry && query !== documentCountry.name) {
+    if (documentCountry && query !== documentCountry.name) {
       this.resetCountry()
     }
 
@@ -111,6 +114,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
 
   componentDidMount() {
     this.resetCountry()
+
     document.addEventListener('mousedown', this.handleMenuMouseClick)
   }
 
@@ -127,6 +131,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   isDocumentPreselected() {
     const { documentType } = this.getDocumentProps()
     const { steps } = this.props
+
     return hasOnePreselectedDocument(steps) && documentType !== 'passport'
   }
 
@@ -151,6 +156,8 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
     const { translate, nextStep } = this.props
 
     const hasNoCountry = !documentCountry || !documentCountry.country_alpha3
+    const hasCountrySelectError =
+      !this.isDocumentPreselected() && this.state.showNoResultsError
 
     return (
       <ScreenLayout
@@ -190,8 +197,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
               onConfirm={this.handleCountrySearchConfirm}
             />
           </div>
-          {!this.isDocumentPreselected() &&
-            this.state.showNoResultsError &&
+          {(hasCountrySelectError || this.state.alwaysShowEmptyMessage) &&
             this.renderNoResultsMessage()}
         </div>
       </ScreenLayout>

@@ -1,3 +1,4 @@
+import { h } from 'preact'
 import { trackComponent } from '../../../Tracker'
 import {
   DocumentOptions,
@@ -6,9 +7,8 @@ import {
 import { DocumentSelectorBase, Props } from '../../DocumentSelector'
 import { upperCase } from '~utils/string'
 import { PoaTypes } from '~types/steps'
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const supportedCountries = require('../../../supported-documents/supported-countries-poa.json')
+import usePoASupportedCountries from '~contexts/usePoASupportedCountries'
+import { map, omitBy } from '~utils/object'
 
 type CountryData = {
   country_alpha3: string
@@ -37,7 +37,18 @@ class PoADocumentSelector extends DocumentSelectorBase {
   }
 
   getDefaultOptions(): DocumentOptions {
-    return poaDocumentOptions
+    const { countryList } = this.props || []
+
+    const options = map(poaDocumentOptions, (config, key) => ({
+      ...config,
+      checkAvailableInCountry: (code: string) => {
+        return countryList
+          ?.find((country) => country.country_alpha3 === code)
+          ?.document_types.includes(key as PoaTypes)
+      },
+    }))
+
+    return options as DocumentOptions
   }
 
   pageId(): string {
@@ -45,12 +56,10 @@ class PoADocumentSelector extends DocumentSelectorBase {
   }
 }
 
-const isValidForCountry = (documentType: PoaTypes) => (code: string) => {
-  const result = supportedCountries
-    .find((country: CountryData) => country.country_alpha3 === code)
-    ?.document_types.includes(documentType)
+const PoADocumentSelection = (props: Props) => {
+  const countries = usePoASupportedCountries()
 
-  return result
+  return <PoADocumentSelector {...props} countryList={countries} />
 }
 
 // REFACTOR: move this into the selector as soon as the
@@ -58,34 +67,27 @@ export const poaDocumentOptions: DocumentOptions = {
   bank_building_society_statement: {
     labelKey: 'doc_select.button_bank_statement',
     eStatementsKey: 'doc_select.extra_estatements_ok',
-    checkAvailableInCountry: isValidForCountry(
-      'bank_building_society_statement'
-    ),
   },
   utility_bill: {
     labelKey: 'doc_select.button_bill',
     detailKey: 'doc_select.button_bill_detail',
     warningKey: 'doc_select.extra_no_mobile',
     eStatementsKey: 'doc_select.extra_estatements_ok',
-    checkAvailableInCountry: isValidForCountry('utility_bill'),
   },
   council_tax: {
     labelKey: 'doc_select.button_tax_letter',
     icon: 'icon-letter',
-    checkAvailableInCountry: isValidForCountry('council_tax'),
   },
   benefit_letters: {
     labelKey: 'doc_select.button_benefits_letter',
     detailKey: 'doc_select.button_benefits_letter_detail',
     icon: 'icon-letter',
-    checkAvailableInCountry: isValidForCountry('benefit_letters'),
   },
   government_letter: {
     labelKey: 'doc_select.button_government_letter',
     detailKey: 'doc_select.button_government_letter_detail',
     icon: 'icon-letter',
-    checkAvailableInCountry: isValidForCountry('government_letter'),
   },
 }
 
-export default trackComponent(PoADocumentSelector, 'type_select')
+export default trackComponent(PoADocumentSelection, 'type_select')
