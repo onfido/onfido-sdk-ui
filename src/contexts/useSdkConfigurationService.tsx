@@ -47,7 +47,10 @@ export const SdkConfigurationServiceProvider = ({
         setConfiguration(
           deepmerge(
             deepmerge(defaultConfiguration, apiConfiguration),
-            overrideConfigurationState
+            // TODO: Cleanup the overrideConfigurationState and add it to the mock server
+            process.env.NODE_ENV === 'production'
+              ? {}
+              : overrideConfigurationState
           )
         )
       )
