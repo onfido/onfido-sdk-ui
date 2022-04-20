@@ -136,6 +136,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     }
 
     const firstEnabledStep = () =>
+      state.step > 0 &&
       getComponentsList(steps)
         .slice(0, state.step)
         .every((c) => c.step.skip)
