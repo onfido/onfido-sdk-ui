@@ -1,14 +1,13 @@
 package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.webdriver.common.Page;
-import com.onfido.qa.websdk.page.IdDocumentSelector;
-import com.onfido.qa.websdk.page.UserConsent;
-import com.onfido.qa.websdk.page.Welcome;
+import com.onfido.qa.websdk.page.*;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import java.util.Map;
 
+import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserConsentIT extends WebSdkIT {
@@ -75,14 +74,18 @@ public class UserConsentIT extends WebSdkIT {
 
     @Test(description = "remove consents from history once accepted")
     public void testRemoveConsentsFromHistoryOnceAccepted() {
-        var documentSelector = init(Welcome.class,"welcome", "document")
+        var crossDevice = init(Welcome.class,"welcome", "document")
                 .continueToNextStep(UserConsent.class)
-                .acceptUserConsent(IdDocumentSelector.class);
+                .acceptUserConsent(IdDocumentSelector.class)
+                .select(PASSPORT, DocumentUpload.class)
+                     .switchToCrossDevice();
 
-        verifyCopy(documentSelector.title(), "doc_select.title");
-        assertThat(documentSelector.backArrow().isDisplayed()).isTrue();
+        assertThat(crossDevice.backArrow().isDisplayed()).isTrue();
 
-        var welcome = documentSelector.back(Welcome.class);
+        var welcome = crossDevice
+                .back(DocumentUpload.class)
+                .back(IdDocumentSelector.class)
+                .back(Welcome.class);
 
         verifyCopy(welcome.title(), "welcome.title");
     }

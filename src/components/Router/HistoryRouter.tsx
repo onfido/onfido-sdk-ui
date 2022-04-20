@@ -83,7 +83,9 @@ export default class HistoryRouter extends Component<
       return
     }
 
-    const { step } = this.getComponentsList()[historyState.step]
+    const { step } = this.getComponentsList(historyState.flow)[
+      historyState.step
+    ]
 
     if (step.skip) {
       historyState.step < this.state.step
@@ -113,6 +115,7 @@ export default class HistoryRouter extends Component<
   }
 
   firstEnabledStep = () =>
+    this.state.step > 0 &&
     this.getComponentsList()
       .slice(0, this.state.step)
       .every((c) => c.step.skip)

@@ -2,6 +2,12 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `6.20.0` -> `7.0.0`
+
+### Change in SDK Options
+
+- The `userConsent` step can't be added in the `steps` options anymore. This step is now enabled from your Onfido Dashboard.
+
 ## `6.19.0` -> `6.20.0`
 
 ### Change in UX flow for Proof of Address Step
