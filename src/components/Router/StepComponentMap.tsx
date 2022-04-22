@@ -23,8 +23,6 @@ import {
 } from '../Confirm'
 import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
-import Pass from '../Pass'
-import Reject from '../Reject'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import CrossDeviceClientIntro from 'components/crossDevice/ClientIntro'
@@ -169,8 +167,8 @@ const buildCaptureStepComponents = (
     data: [...buildDataComponents(dataStep)],
     poa: [...buildPoaComponents(mobileFlow, firstCaptureStepType === 'poa')],
     complete,
-    pass: [Pass],
-    reject: [Reject],
+    pass: [Complete],
+    reject: [Complete],
   }
 }
 
