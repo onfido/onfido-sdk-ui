@@ -1106,7 +1106,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Public: The documentType in the capture object now corresponds to the API document_types.
 - Public: Fixed bug where URL path was removed between steps.
 
-## [0.11.1] - Hotfix
+## [0.11.1]
 
 ### Fixed
 
@@ -1170,7 +1170,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 ## [0.8.2]
 
-## Fixed
+### Fixed
 
 - Fixed bug of a broken layout on the document selection step. Always reproducible on IE and on other browsers too, but only when going back a step on certain conditions.
 - Fixed bug where on IE an unnecessary scrollbar appeared and the scrolling area was bigger than it should have been.
@@ -1181,7 +1181,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 ## [0.8.1]
 
-## Fixed
+### Fixed
 
 - `Object.assign` was being used but not polyfilled. Its occurrence was replaced with an es6 object construction.
 - UI disappeared if the browser's windows width was smaller than 481px;

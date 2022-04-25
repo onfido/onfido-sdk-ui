@@ -1,0 +1,6 @@
+{
+    "inputs": {
+        "release_version": "7.0.0",
+        "is_lts": false
+    }
+}

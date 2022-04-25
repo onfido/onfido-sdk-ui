@@ -1,30 +1,112 @@
-# This is a basic workflow that is manually triggered
-
+# TODO: Rename to pre-release workflow
 name: Manual Release
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
     inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
+      release_version:
+        description: 'Release version:'
         required: true
+        type: string
+      is_lts:
+        description: 'LTS release'
+        required: true
+        type: boolean
+        default: false
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# TODO: remove _DANNY onces ready for testing with prod aws
+env: 
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DANNY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DANNY }}
+  AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_DANNY }}
+  AWS_DEFAULT_REGION: 'eu-west-1'
+
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  deploy:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    env:
+      GIT_TERMINAL_PROMPT: 0
+      RELEASE_VERSION: ${{ github.event.inputs.release_version }}
+      BASE_32_VERSION: ${{ github.event.inputs.base32_version }}
+      IS_LTS: ${{ github.event.inputs.is_lts }}
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+      - uses: actions/checkout@v3
+      - uses: unfor19/install-aws-cli-action@v1.0.2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup Git
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
+          git config --global --add url."https://github.com/".insteadOf ssh://git@github.com/
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: |
+          npm config set registry https://registry.npmjs.org/
+          npm install
+
+      # @TODO: Rename branch to 'release' once workflow is ready to merge
+      - name: Setup env
+        run: |
+          clean_release_version=$(echo $RELEASE_VERSION | sed -e 's/-.*//g')
+          echo "RELEASE_BRANCH_NAME=poc-release/$clean_release_version" >> $GITHUB_ENV
+
+      - name: Validate Input
+        run: node release/validateInput.js
+
+      - name: Checkout & Pull
+        run: node release/checkoutReleaseBranch.js
+
+      # TODO: Wait for new token from devOps
+      - name: Setup base32
+        run: node release/base32.js
+
+      - name: Add base32 to env
+        run: |
+          source ./release/githubActions/workflows.config
+          echo "BASE_32_VERSION=${BASE_32_VERSION}" >> $GITHUB_ENV
+
+      - name: Update CHANGELOG.md
+        run: node release/updateChangeLog.js
+
+      - name: Update files
+        run: node release/updateReleaseFiles.js
+
+      - name: Format
+        run: npm run format
+
+      - name: Build
+        run: npm run build:all
+
+      - name: Remote branch exists
+        run: |
+          if [[ $(git branch --all --list $RELEASE_BRANCH_NAME) ]] 
+          then
+            echo "REMOTE_BRANCH_EXIST=true >> $GITHUB_ENV"
+          fi
+
+      - name: Make release commit & push
+        run: |
+          git add .
+          git commit -m "Bumping version to ${RELEASE_VERSION} "
+          git push origin HEAD
+
+      - name: Create Pull Request
+        if: ${{ env.REMOTE_BRANCH_EXIST != true }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            require('./release/createPullRequest.js')(github, context)

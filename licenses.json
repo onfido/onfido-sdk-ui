@@ -3329,6 +3329,12 @@
     "path": "node_modules/dot-case",
     "licenseFile": "node_modules/dot-case/LICENSE"
   },
+  "dotenv@16.0.0": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/motdotla/dotenv",
+    "path": "node_modules/dotenv",
+    "licenseFile": "node_modules/dotenv/LICENSE"
+  },
   "dts-bundle-generator@5.5.0": {
     "licenses": "MIT",
     "repository": "https://github.com/timocov/dts-bundle-generator",

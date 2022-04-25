@@ -53,11 +53,6 @@
     "identity",
     "verification"
   ],
-  "files": [
-    "dist",
-    "lib",
-    "src"
-  ],
   "jest": {
     "setupFiles": [
       "./jest.env.js",
@@ -116,6 +111,7 @@
     ]
   },
   "devDependencies": {
+    "@actions/core": "^1.6.0",
     "@axe-core/webdriverjs": "^4.4.0",
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.8.7",
@@ -166,6 +162,7 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-auto-await": "^0.4.2",
     "chalk": "^2.4.2",
+    "changelog-parser": "^2.8.1",
     "concurrently": "^6.4.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
@@ -192,6 +189,7 @@
     "jest-fetch-mock": "^3.0.3",
     "license-checker-rseidelsohn": "^1.1.2",
     "mini-css-extract-plugin": "^2.5.3",
+    "moment": "^2.29.3",
     "node-polyglot": "^2.2.2",
     "ora": "^4.0.3",
     "postcss": "^8.4.6",
@@ -211,6 +209,7 @@
     "rimraf": "^2.5.4",
     "sass": "^1.43.4",
     "sass-loader": "^12.6.0",
+    "semver-sort": "^1.0.0",
     "speed-measure-webpack-plugin": "^1.5.0",
     "style-loader": "^3.3.1",
     "stylelint": "^14.0.1",
