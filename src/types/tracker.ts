@@ -118,6 +118,7 @@ export type LegacyTrackedEventNames =
   | 'screen_unsupported_ios_browser'
   | 'screen_userConsent'
   | 'screen_welcome'
+  | 'screen_data_capture'
   | 'Triggering onSubmitSelfie callback'
   | 'Triggering onSubmitVideo callback'
   | 'Triggering onSubmitDocument callback'
@@ -134,6 +135,7 @@ export type LegacyTrackedEventNames =
 export type UserAnalyticsEventNames =
   | 'WELCOME'
   | 'USER_CONSENT'
+  | 'DATA_CAPTURE'
   | 'DOCUMENT_CAPTURE_FRONT'
   | 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'
   | 'DOCUMENT_CAPTURE_BACK'
@@ -298,6 +300,7 @@ export type AnalyticsTrackedEventNames =
   | 'UNSUPPORTED_BROWSER'
   | 'UPLOAD_COMPLETED'
   | 'USER_CONSENT'
+  | 'DATA_CAPTURE'
   | 'WELCOME'
   | 'DOCUMENT_UPLOAD_STARTED'
   | 'DOCUMENT_UPLOAD_COMPLETED'

@@ -42,11 +42,7 @@ const options = allCountriesList.map((country: CountryData) => ({
   label: countryTranslations[country.labelKey.replace('countriesList.', '')],
 }))
 
-const CountrySelector: FunctionComponent<Props> = ({
-  value,
-  error,
-  onChange,
-}) => {
+const CountrySelector: FunctionComponent<Props> = ({ onChange }) => {
   const { translate } = useLocales()
   const [currentValue, setCurrentValue] = useState('')
 

@@ -100,9 +100,7 @@ class StepsRouter extends Component<StepsRouterProps> {
             })}
           >
             {isLoadingStep ? (
-              <div>
-                <Spinner />
-              </div>
+              <Spinner />
             ) : (
               <CurrentComponent {...passedProps} />
             )}

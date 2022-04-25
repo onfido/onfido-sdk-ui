@@ -30,7 +30,7 @@ import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
 import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
-import { getCountryDataForDocumentType } from '../../supported-documents'
+import { getCountryDataForDocumentType } from '~supported-documents'
 
 import type {
   CountryData,
@@ -38,11 +38,7 @@ import type {
   ExtendedStepTypes,
   FlowVariants,
 } from '~types/commons'
-import type {
-  StepComponentProps,
-  ComponentStep,
-  StepComponentDataProps,
-} from '~types/routers'
+import type { StepComponentProps, ComponentStep } from '~types/routers'
 import type {
   DocumentTypes,
   StepConfig,

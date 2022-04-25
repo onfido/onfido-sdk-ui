@@ -11,6 +11,7 @@ export const integratorTrackedEvents = new Map<
 >([
   ['screen_welcome', 'WELCOME'],
   ['screen_userConsent', 'USER_CONSENT'],
+  ['screen_data_capture', 'DATA_CAPTURE'],
   ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
   ['screen_document_front_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'],
   ['screen_document_back_capture_file_upload', 'DOCUMENT_CAPTURE_BACK'],
@@ -473,6 +474,10 @@ export const analyticsEventsMapping = new Map<
       eventName: 'UNSUPPORTED_BROWSER',
       properties: { event_type: 'screen' },
     },
+  ],
+  [
+    'screen_data_capture',
+    { eventName: 'DATA_CAPTURE', properties: { event_type: 'screen' } },
   ],
   [
     'screen_userConsent',
