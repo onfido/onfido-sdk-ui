@@ -92,15 +92,15 @@ describe('API uploadDocument endpoint', () => {
   })
 
   test('uploadDocument returns an error on uploading an empty file', (done) => {
-    expect.assertions(3)
+    expect.assertions(4)
     const onErrorCallback = (error) => {
       try {
         expect(error.status).toBe(422)
         expect(error.response.error.type).toBe('validation_error')
-        // @TODO: Re-add the line below
-        // expect(error.response.error.fields).toHaveProperty('file')
-        // @TODO: and remove this line below when https://onfido.atlassian.net/browse/IQ-775 is completed
-        expect(error.response.error.fields).toBe('upload_errors')
+        expect(error.response.error.fields).toHaveProperty('file')
+        expect(error.response.error.fields.file).toContain(
+          'incorrect file type'
+        )
         done()
       } catch (err) {
         done(err)
