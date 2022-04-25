@@ -2,7 +2,6 @@ import { h, ComponentType } from 'preact'
 import Welcome from '../Welcome'
 import UserConsent from '../UserConsent'
 
-import CountrySelector from '../CountrySelector'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
 import {
@@ -34,6 +33,7 @@ import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '../../supported-documents'
 
 import type {
+  CountryData,
   ExtendedStepConfig,
   ExtendedStepTypes,
   FlowVariants,
@@ -54,6 +54,8 @@ import PoAClientIntro from '../ProofOfAddress/PoAIntro'
 import PoADocumentSelector from '../ProofOfAddress/PoADocumentSelect'
 import Guidance from '../ProofOfAddress/Guidance'
 import { SelectIdentityDocument } from '../Select/IdentityDocumentSelector'
+import DocumentCountrySelector from 'components/CountrySelector/DocumentCountrySelector'
+import PoACountrySelector from 'components/CountrySelector/PoACountrySelector'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -74,9 +76,11 @@ export const buildComponentsList = ({
   steps,
   mobileFlow,
   deviceHasCameraSupport,
+  poaDocumentCountry,
 }: {
   flow: FlowVariants
   documentType: DocumentTypes | undefined
+  poaDocumentCountry?: CountryData | undefined
   steps: StepConfig[]
   mobileFlow?: boolean
   deviceHasCameraSupport?: boolean
@@ -86,6 +90,7 @@ export const buildComponentsList = ({
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
         buildCaptureStepComponents(
+          poaDocumentCountry,
           documentType,
           mobileFlow,
           steps,
@@ -120,6 +125,7 @@ const shouldUseCameraForDocumentCapture = (
 }
 
 const buildCaptureStepComponents = (
+  poaDocumentCountry: CountryData | undefined,
   documentType: DocumentTypes | undefined,
   mobileFlow: boolean | undefined,
   steps: StepConfig[],
@@ -165,7 +171,13 @@ const buildCaptureStepComponents = (
       ),
     ],
     data: [...buildDataComponents(dataStep)],
-    poa: [...buildPoaComponents(mobileFlow, firstCaptureStepType === 'poa')],
+    poa: [
+      ...buildPoaComponents(
+        poaDocumentCountry,
+        mobileFlow,
+        firstCaptureStepType === 'poa'
+      ),
+    ],
     complete,
     pass: [Complete],
     reject: [Complete],
@@ -288,7 +300,9 @@ const buildNonPassportPreCaptureComponents = (
   const prependDocumentSelector = hasOnePreselectedDocument
     ? []
     : [SelectIdentityDocument]
-  const prependCountrySelector = showCountrySelection ? [CountrySelector] : []
+  const prependCountrySelector = showCountrySelection
+    ? [DocumentCountrySelector]
+    : []
   // @ts-ignore
   // TODO: convert DocumentSelector to TS
   return [...prependDocumentSelector, ...prependCountrySelector]
@@ -416,11 +430,13 @@ const buildDocumentComponents = (
 }
 
 const buildPoaComponents = (
+  poaDocumentCountry: CountryData | undefined,
   mobileFlow: boolean | undefined,
   isFirstCaptureStepInFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
   const preCaptureComponents = [
     PoAClientIntro,
+    PoACountrySelector,
     PoADocumentSelector,
     Guidance as ComponentType<StepComponentProps>,
   ]

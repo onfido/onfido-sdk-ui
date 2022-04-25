@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PoADocumentSelection extends DocumentSelectorBase {
-    protected PoADocumentSelection(Driver driver) {
+    public PoADocumentSelection(Driver driver) {
         super(driver);
     }
 

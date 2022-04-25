@@ -92,7 +92,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
@@ -112,11 +112,31 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
       "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Angola | Ngola",
+      "country_alpha2": "AO",
+      "country_alpha3": "AGO",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10560,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1 "
     }
   },
   {
@@ -4516,26 +4536,6 @@
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "NIC",
-      "has_nfc": false,
-      "id": 4342,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2004"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Italy | Italia",
-      "country_alpha2": "IT",
-      "country_alpha3": "ITA",
-      "document_type": "NIC",
       "has_nfc": true,
       "id": 10489,
       "municipality": null,
@@ -4566,6 +4566,27 @@
         "verify"
       ],
       "version": "2016 3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "data_validation_reviewed": true,
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 4342,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
     }
   },
   {
@@ -4830,26 +4851,6 @@
   },
   {
     "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Kyrgyzstan | Кыргызстан",
-      "country_alpha2": "KG",
-      "country_alpha3": "KGZ",
-      "document_type": "NIC",
-      "has_nfc": true,
-      "id": 9869,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Kyrgyzstan | Кыргызстан",
@@ -4870,18 +4871,60 @@
   },
   {
     "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Kyrgyzstan | Кыргызстан",
+      "country_alpha2": "KG",
+      "country_alpha3": "KGZ",
+      "document_type": "NIC",
+      "has_nfc": true,
+      "id": 9869,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Latvia | Latvija",
       "country_alpha2": "LV",
       "country_alpha3": "LVA",
+      "data_validation_reviewed": true,
+      "document_type": "NIC",
+      "has_nfc": true,
+      "id": 4142,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
+      "data_validation_reviewed": true,
       "document_type": "NIC",
       "has_nfc": true,
       "id": 4143,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier1",
       "usecases": [
         "verify"
       ],
@@ -4895,28 +4938,9 @@
       "country": "Latvia | Latvija",
       "country_alpha2": "LV",
       "country_alpha3": "LVA",
+      "data_validation_reviewed": true,
       "document_type": "NIC",
-      "has_nfc": false,
-      "id": 10439,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": "tier1",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2021"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Latvia | Latvija",
-      "country_alpha2": "LV",
-      "country_alpha3": "LVA",
-      "document_type": "NIC",
-      "has_nfc": false,
+      "has_nfc": true,
       "id": 10447,
       "municipality": null,
       "region_iso": null,
@@ -4925,27 +4949,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "2022"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Latvia | Latvija",
-      "country_alpha2": "LV",
-      "country_alpha3": "LVA",
-      "document_type": "NIC",
-      "has_nfc": false,
-      "id": 4142,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2019"
+      "version": "2021"
     }
   },
   {
@@ -5359,6 +5363,26 @@
   {
     "sourceData": {
       "back_required": false,
+      "common_name": "MyTentera",
+      "country": "Malaysia",
+      "country_alpha2": "MY",
+      "country_alpha3": "MYS",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 5910,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
       "common_name": "MyKAD",
       "country": "Malaysia",
       "country_alpha2": "MY",
@@ -5369,7 +5393,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
@@ -5389,31 +5413,11 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier2",
       "usecases": [
         "verify"
       ],
       "version": "2012"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": "MyTentera",
-      "country": "Malaysia",
-      "country_alpha2": "MY",
-      "country_alpha3": "MYS",
-      "document_type": "NIC",
-      "has_nfc": false,
-      "id": 5910,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
     }
   },
   {
@@ -5854,6 +5858,26 @@
         "verify"
       ],
       "version": "1994"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Namibia",
+      "country_alpha2": "NA",
+      "country_alpha3": "NAM",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10553,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021"
     }
   },
   {
@@ -6389,7 +6413,7 @@
       "municipality": null,
       "region_iso": null,
       "region_name": null,
-      "tier": null,
+      "tier": "tier3",
       "usecases": [
         "verify"
       ],
@@ -7304,9 +7328,31 @@
       "country": "Slovenia | Slovenija",
       "country_alpha2": "SI",
       "country_alpha3": "SVN",
+      "data_validation_reviewed": true,
       "document_type": "NIC",
       "has_nfc": false,
       "id": 4592,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1998"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Slovenia | Slovenija",
+      "country_alpha2": "SI",
+      "country_alpha3": "SVN",
+      "data_validation_reviewed": false,
+      "document_type": "NIC",
+      "has_nfc": true,
+      "id": 10564,
       "municipality": null,
       "region_iso": null,
       "region_name": null,
@@ -7314,7 +7360,7 @@
       "usecases": [
         "verify"
       ],
-      "version": "1998"
+      "version": "2022"
     }
   },
   {

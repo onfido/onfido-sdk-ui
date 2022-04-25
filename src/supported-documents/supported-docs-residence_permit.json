@@ -447,26 +447,6 @@
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "REP",
-      "has_nfc": false,
-      "id": 10423,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": "tier1",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2021 2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Belgium | België",
-      "country_alpha2": "BE",
-      "country_alpha3": "BEL",
-      "document_type": "REP",
       "has_nfc": true,
       "id": 6014,
       "municipality": null,
@@ -477,6 +457,26 @@
         "verify"
       ],
       "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10423,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2021 2"
     }
   },
   {
@@ -1149,26 +1149,6 @@
         "verify"
       ],
       "version": "2018"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Estonia | Eesti",
-      "country_alpha2": "EE",
-      "country_alpha3": "EST",
-      "document_type": "REP",
-      "has_nfc": false,
-      "id": 4858,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2016"
     }
   },
   {
@@ -2161,26 +2141,6 @@
   },
   {
     "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Latvia | Latvija",
-      "country_alpha2": "LV",
-      "country_alpha3": "LVA",
-      "document_type": "REP",
-      "has_nfc": false,
-      "id": 8373,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": "tier1",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2019"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Latvia | Latvija",
@@ -2217,6 +2177,50 @@
         "verify"
       ],
       "version": "2021"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
+      "data_validation_reviewed": true,
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 8373,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "sop_status": "REVIEWED",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
+      "data_validation_reviewed": true,
+      "document_type": "REP",
+      "has_nfc": true,
+      "id": 10439,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "sop_status": "REVIEWED",
+      "tier": "tier1",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
     }
   },
   {
@@ -3657,6 +3661,27 @@
   },
   {
     "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Romania | România",
+      "country_alpha2": "RO",
+      "country_alpha3": "ROU",
+      "data_validation_reviewed": true,
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10543,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
       "back_required": false,
       "common_name": null,
       "country": "Saudi Arabia | السعودية",
@@ -4177,26 +4202,6 @@
   },
   {
     "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Ukraine | Ukraїna",
-      "country_alpha2": "UA",
-      "country_alpha3": "UKR",
-      "document_type": "REP",
-      "has_nfc": false,
-      "id": 9890,
-      "municipality": null,
-      "region_iso": null,
-      "region_name": null,
-      "tier": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Ukraine | Ukraїna",
@@ -4213,6 +4218,46 @@
         "verify"
       ],
       "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Ukraine | Ukraїna",
+      "country_alpha2": "UA",
+      "country_alpha3": "UKR",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 9890,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Ukraine | Ukraїna",
+      "country_alpha2": "UA",
+      "country_alpha3": "UKR",
+      "document_type": "REP",
+      "has_nfc": false,
+      "id": 10559,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier2",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
     }
   },
   {

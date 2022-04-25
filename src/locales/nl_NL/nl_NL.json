@@ -1,5 +1,9 @@
 {
     "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Excuses daarvoor. We werken eraan om meer landen te ondersteunen."
+        },
         "alert": {
             "another_doc": "Documenten uit dat land worden momenteel niet ondersteund - <fallback>probeer een ander documenttype<\/fallback>"
         },
@@ -21,7 +25,7 @@
         "list_item_doc_one": "Document",
         "list_item_selfie": "Selfie",
         "list_item_video": "Filmpje",
-        "list_item_poa": "Proof of Address",
+        "list_item_poa": "Adresbewijs",
         "subtitle": "Hier ziet u alles wat u geüpload hebt:",
         "title": "Eén laatste stap"
     },
@@ -79,16 +83,17 @@
             "no_doc_detail": "Zorg dat het volledig in het kader geplaatst is",
             "no_doc_title": "Document niet gedetecteerd"
         },
-        "body_bank_statement": "Make sure details are clear to read, with no blur or glare",
-        "body_benefits_letter": "Make sure details are clear to read, with no blur or glare",
-        "body_bill": "Make sure details are clear to read, with no blur or glare",
+        "body": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+        "body_bank_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+        "body_benefits_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+        "body_bill": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
         "body_id": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
         "body_image_medium": "Het duurt langer u te verifiëren als we deze niet kunnen lezen",
         "body_image_poor": "Om u gemakkelijk te kunnen verifiëren, hebben we een betere foto nodig",
         "body_license": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
         "body_passport": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
         "body_permit": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
-        "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
+        "body_tax_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
         "button_close": "Sluiten",
         "button_primary_redo": "Opnieuw uitvoeren",
         "button_primary_upload": "Uploaden",
@@ -99,11 +104,12 @@
         "title": "Controleer uw afbeelding"
     },
     "doc_select": {
-        "button_bank_statement": "Bank or building society statement",
-        "button_benefits_letter": "Benefits Letter",
-        "button_benefits_letter_detail": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
-        "button_bill": "Utility Bill",
-        "button_bill_detail": "Gas, electricity, water, landline, or broadband",
+        "button_bank_statement": "Afschriften van de bank of bouwvereniging",
+        "button_bank_statement_non_uk": "Bankafschrift",
+        "button_benefits_letter": "Brief voordelen",
+        "button_benefits_letter_detail": "Door de overheid toegestane uitkeringen voor huishoudens, bv. uitkering voor werkzoekenden, huursubsidie, belastingkredieten",
+        "button_bill": "Energierekening",
+        "button_bill_detail": "Gas, elektriciteit, water, vaste telefoonlijn of breedband",
         "button_government_letter": "Government Letter",
         "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
         "button_id": "Identiteitskaart",
@@ -114,23 +120,23 @@
         "button_passport_detail": "Fotopagina",
         "button_permit": "Verblijfsvergunning",
         "button_permit_detail": "Voor- en achterkant",
-        "button_tax_letter": "Council Tax Letter",
-        "extra_estatements_ok": "e-statements accepted",
-        "extra_no_mobile": "Sorry, no mobile phone bills",
+        "button_tax_letter": "Brief gemeentelijke belastingen",
+        "extra_estatements_ok": "Elektronische afschriften geaccepteerd",
+        "extra_no_mobile": "Sorry, geen rekening voor mobiele telefoon",
         "list_accessibility": "Document die u kunt gebruiken voor het verifiëren van uw identiteit",
         "pill": "snelst",
         "subtitle": "Het moet een officieel identiteitsbewijs met foto zijn",
-        "subtitle_poa": "These are the documents most likely to show your current home address",
+        "subtitle_poa": "Dit zijn de meest waarschijnlijke documenten waaruit uw huidige adres blijkt",
         "title": "Kies uw document",
-        "title_poa": "Select a %{country} document"
+        "title_poa": "Kies een %{country} document"
     },
     "doc_submit": {
         "button_link_upload": "of upload een foto - geen scans of kopieën",
         "button_primary": "Ga door op telefoon",
         "subtitle": "Neem een foto met uw telefoon",
-        "title_bank_statement": "Submit statement",
-        "title_benefits_letter": "Submit letter",
-        "title_bill": "Submit bill",
+        "title_bank_statement": "Afschrift indienen",
+        "title_benefits_letter": "Brief indienen",
+        "title_bill": "Factuur indienen",
         "title_government_letter": "Government Letter",
         "title_id_back": "Verzend identiteitskaart (achterkant)",
         "title_id_front": "Verzend identiteitskaart (voorkant)",
@@ -139,7 +145,7 @@
         "title_passport": "Verstuur de fotopagina van uw paspoort",
         "title_permit_back": "Verzend verblijfsvergunning (achterkant)",
         "title_permit_front": "Verzend verblijfsvergunning (voorkant)",
-        "title_tax_letter": "Submit letter"
+        "title_tax_letter": "Brief indienen"
     },
     "doc_video_capture": {
         "button_primary_fallback": "Volgende stap",
@@ -291,9 +297,9 @@
         "title_cam": "Toegang tot camera is geweigerd"
     },
     "photo_upload": {
-        "body_bank_statement": "Provide the whole document page for best results",
-        "body_benefits_letter": "Provide the whole document page for best results",
-        "body_bill": "Provide the whole document page for best results",
+        "body_bank_statement": "Verstrek de hele documentpagina voor de beste resultaten",
+        "body_benefits_letter": "Verstrek de hele documentpagina voor de beste resultaten",
+        "body_bill": "Verstrek de hele documentpagina voor de beste resultaten",
         "body_government_letter": "Provide the whole document page for best results",
         "body_id_back": "Upload de achterkant van uw kaart vanaf uw computer",
         "body_id_front": "Upload de voorkant van uw kaart vanaf uw computer",
@@ -301,33 +307,32 @@
         "body_license_front": "Upload de voorkant van uw rijbewijs vanaf uw computer",
         "body_passport": "Upload de fotopagina van uw paspoort vanaf uw computer",
         "body_selfie": "Upload een selfie vanaf uw computer",
-        "body_tax_letter": "Provide the whole document page for best results",
+        "body_tax_letter": "Geef de hele documentpagina voor de beste resultaten",
         "button_take_photo": "Neem een foto",
         "button_upload": "Uploaden",
         "title_selfie": "Selfie"
     },
     "poa_guidance": {
-        "button_primary": "Continue",
+        "button_primary": "Doorgaan",
         "instructions": {
-            "address": "Current address",
-            "full_name": "Full name",
-            "issue_date": "Issue date or summary period",
-            "label": "Make sure it clearly shows:",
+            "address": "Huidig adres",
+            "full_name": "Volledige naam",
+            "issue_date": "Afgiftedatum of samenvattende periode",
+            "label": "Leg het hele document vast en zorg ervoor dat het duidelijk te zien is:",
             "logo": "Logo"
         },
-        "subtitle_bank_statement": "Must be issued in the <strong>last 3 months<\/strong>",
-        "subtitle_benefits_letter": "Must be issued in the <strong>last 12 months<\/strong>",
-        "subtitle_bill": "Must be issued in the <strong>last 3 months<\/strong>",
-        "subtitle_government_letter": "Must be issued in the <strong>last 12 months<\/strong>",
-        "subtitle_tax_letter": "Must be issued in the <strong>last 12 months<\/strong>"
+        "subtitle_bank_statement": "Moet in de <strong>laatste 3 maanden<\/strong> zijn afgegeven",
+        "subtitle_benefits_letter": "Moet in de <strong>laatste 12 maanden<\/strong> zijn afgegeven",
+        "subtitle_bill": "Moet in de <strong>laatste 3 maanden<\/strong> zijn afgegeven",
+        "subtitle_tax_letter": "Moet in de <strong>laatste 12 maanden<\/strong> zijn afgegeven"
     },
     "poa_intro": {
-        "button_primary": "Start verification",
-        "list_matches_signup": "<strong>Matches<\/strong> the address you used on signup",
-        "list_most_recent": "Is your most <strong>recent<\/strong> document",
-        "list_shows_address": "Shows your <strong>current<\/strong> address",
-        "subtitle": "You’ll need a document that:",
-        "title": "Let’s verify your %{country} address"
+        "button_primary": "Start verificatie",
+        "list_matches_signup": "<strong>Komt overeen<\/strong> met het adres dat u bij de registratie heeft gebruikt",
+        "list_most_recent": "Is uw meest <strong>recente<\/strong> document...",
+        "list_shows_address": "Toont uw <strong>huidig<\/strong> adres",
+        "subtitle": "U heeft een document nodig dat:",
+        "title": "Laten we uw adres verifiëren"
     },
     "selfie_capture": {
         "alert": {
@@ -447,7 +452,7 @@
         "list_header_webcam": "Gebruik uw webcam of telefoon om te fotograferen:",
         "list_item_doc": "uw identiteitsbewijs",
         "list_item_doc_video_timeout": "Opnemen is beperkt tot <timeout><\/timeout> seconden",
-        "list_item_poa": "your proof of address",
+        "list_item_poa": "uw adresbewijs",
         "list_item_selfie": "uw gezicht",
         "next_button": "Kies een document",
         "subtitle": "Dat duurt maar een paar minuten",

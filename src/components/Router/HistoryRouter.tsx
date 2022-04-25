@@ -74,7 +74,9 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       return
     }
 
-    const { step } = getComponentsList(steps)[historyState.step]
+    const { step } = getComponentsList(steps, historyState.flow)[
+      historyState.step
+    ]
 
     if (step.skip) {
       historyState.step < state.step ? history.goBack() : history.goForward()

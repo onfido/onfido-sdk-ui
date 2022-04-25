@@ -211,11 +211,18 @@ apiRouter
     context.response.body = responses.api.v3.applicant_consents
     context.response.status = Status.OK
   })
+  .get(
+    '/v3.3/report_types/proof_of_address/supported_countries',
+    async (context) => {
+      context.response.body = responses.api.v3.poa_countries
+      context.response.status = Status.OK
+    }
+  )
   .post('/v3/analytics', async (context) => {
     context.response.body = { message: 'success' }
     context.response.status = Status.OK
   })
-  .post('/v3/documents', async (context) => {
+  .post('/v3.3/documents', async (context) => {
     try {
       const body = context.request.body({ type: 'form-data' })
       const formData = await body.value.read()

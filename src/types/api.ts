@@ -157,6 +157,13 @@ export type ApplicantConsentStatus = ApplicantConsent & {
   required: boolean
 }
 
+export type PoASupportedCountry = {
+  country_alpha3: string
+  country_alpha2: string
+  country: string
+  document_types: PoaTypes[]
+}
+
 /* v4 APIs */
 export type UploadBinaryMediaReponse = {
   media_id: string

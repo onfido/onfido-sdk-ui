@@ -19,9 +19,15 @@
 
 .errorContainer {
   margin-top: 8 * $unit;
+  display: flex;
 }
 
 .fallbackText {
+  @extend %_text;
+  font-weight: bold;
+}
+
+.descriptionText {
   @extend %_text;
 }
 
