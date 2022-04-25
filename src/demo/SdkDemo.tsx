@@ -11,7 +11,13 @@ import {
 import SdkMount from './SdkMount'
 import ApplicantForm from './ApplicantForm'
 
-import type { ServerRegions, SdkOptions, SdkResponse } from '~types/sdk'
+import type {
+  ServerRegions,
+  SdkOptions,
+  SdkResponse,
+  SdkError,
+  UserExitCode,
+} from '~types/sdk'
 import type { ApplicantData } from './types'
 
 const DEFAULT_REGION: ServerRegions = 'EU'
@@ -40,6 +46,7 @@ const SdkDemo: FunctionComponent<Props> = ({
     undefined
   )
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const initSdkOptions = getInitSdkOptions()
 
   const { workflowRunId } = queryParamToValueString
 
@@ -88,8 +95,20 @@ const SdkDemo: FunctionComponent<Props> = ({
       return
     }
 
+    if (initSdkOptions.onComplete) initSdkOptions.onComplete(data)
+
     console.log('Complete with data!', data)
     createCheckIfNeeded(tokenUrl, applicantId, data)
+  }
+
+  const onError = (error: SdkError) => {
+    if (initSdkOptions.onError) initSdkOptions.onError(error)
+    console.error('onError callback:', error)
+  }
+
+  const onUserExit = (userExitCode: UserExitCode) => {
+    if (initSdkOptions.onUserExit) initSdkOptions.onUserExit(userExitCode)
+    console.log('onUserExit callback:', userExitCode)
   }
 
   const { tearDown } = viewOptions || {}
@@ -99,13 +118,12 @@ const SdkDemo: FunctionComponent<Props> = ({
   }
 
   const options: SdkOptions = {
-    ...getInitSdkOptions(),
+    ...initSdkOptions,
     token,
     isModalOpen,
     onComplete,
-    onError: (error) => console.error('onError callback:', error),
-    onUserExit: (userExitCode) =>
-      console.log('onUserExit callback:', userExitCode),
+    onError,
+    onUserExit,
     onModalRequestClose: () => setIsModalOpen(false),
     workflowRunId: queryParamToValueString.workflowRunId,
     ...(sdkOptions || {}),
