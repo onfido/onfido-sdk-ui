@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact'
 import { useState } from 'preact/compat'
-import { omit } from 'lodash/fp'
+import { omit } from '../../utils/object'
 import { localised, useLocales } from '~locales'
 import Autocomplete from 'accessible-autocomplete/preact'
 
@@ -12,7 +12,7 @@ import styles from '../../CountrySelector/style.scss'
 
 type CountryData = {
   countryCode: string
-  labelKey?: string
+  labelKey: string
   isoAlpha3: string
   label?: string
 }
@@ -37,7 +37,8 @@ const getCountryOptionTemplate = (country: CountryData) => {
 }
 
 const options = allCountriesList.map((country: CountryData) => ({
-  ...omit('labelKey', country),
+  //@ts-ignore
+  ...omit(country, 'labelKey'),
   //@ts-ignore
   label: countryTranslations[country.labelKey.replace('countriesList.', '')],
 }))

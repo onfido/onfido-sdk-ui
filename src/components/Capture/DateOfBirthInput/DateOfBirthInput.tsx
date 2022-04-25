@@ -1,7 +1,6 @@
 import { h, FunctionComponent } from 'preact'
 import { useEffect } from 'preact/compat'
 import { Input } from '@onfido/castor-react'
-import { isUndefined } from 'lodash/fp'
 import classNames from 'classnames'
 import { localised } from '~locales'
 import { useValidation } from '../ProfileData'
@@ -135,7 +134,7 @@ export const makeInputName = (
 export const makeFieldValue = (
   value: DateOfBirthInputProps['value'],
   fallback: string
-): string => (!isUndefined(value) ? `${value}` : fallback)
+): string => (value !== undefined ? `${value}` : fallback)
 
 export const makeFullFieldValue = (
   yyyy = '',
