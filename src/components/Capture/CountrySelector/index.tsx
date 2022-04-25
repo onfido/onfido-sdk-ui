@@ -37,8 +37,7 @@ const getCountryOptionTemplate = (country: CountryData) => {
 }
 
 const options = allCountriesList.map((country: CountryData) => ({
-  //@ts-ignore
-  ...omit(country, 'labelKey'),
+  ...omit(country, ['labelKey']),
   //@ts-ignore
   label: countryTranslations[country.labelKey.replace('countriesList.', '')],
 }))
