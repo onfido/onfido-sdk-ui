@@ -70,10 +70,6 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
   }
 
   const { back, forward, push } = useHistory(({ state: historyState }) => {
-    if (!historyState) {
-      return
-    }
-
     const { step } = getComponentsList(steps, historyState.flow)[
       historyState.step
     ]
