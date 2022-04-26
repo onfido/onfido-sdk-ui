@@ -13,8 +13,8 @@ import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 import Spinner from '../Spinner'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
-import { createOptionsSteps } from './useOptionsSteps'
-import { createWorkflowSteps } from './useWorkflowSteps'
+import { createOptionsStepsHook } from './createOptionsStepsHook'
+import { createWorkflowStepsHook } from './createWorkflowStepsHook'
 import { UserConsentProvider } from '~contexts/useUserConsent'
 import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
 
@@ -186,8 +186,8 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
               stepIndexType="user"
               useSteps={
                 this.useWorkflowRun()
-                  ? createWorkflowSteps(options, urls)
-                  : createOptionsSteps(options)
+                  ? createWorkflowStepsHook(options, urls)
+                  : createOptionsStepsHook(options)
               }
             />
           </PoASupportedCountriesProvider>

@@ -26,7 +26,7 @@ const defaultState: WorkflowStepsState = {
   steps: [],
 }
 
-export const createWorkflowSteps = (
+export const createWorkflowStepsHook = (
   { token, workflowRunId, ...options }: NarrowSdkOptions,
   { onfido_api_url }: UrlsConfig
 ): StepsHook => () => {

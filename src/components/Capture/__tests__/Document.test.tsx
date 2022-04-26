@@ -10,7 +10,7 @@ import Document from '../Document'
 import withCaptureVariant from '../withCaptureVariant'
 
 import type { StepComponentDocumentProps } from '~types/routers'
-import { createOptionsSteps } from '../../Router/useOptionsSteps'
+import { createOptionsStepsHook } from '../../Router/createOptionsStepsHook'
 import { NarrowSdkOptions } from '~types/commons'
 
 jest.mock('../withCrossDeviceWhenNoCamera')
@@ -40,7 +40,7 @@ const defaultProps: StepComponentDocumentProps = {
   trackScreen: jest.fn(),
   triggerOnError: jest.fn(),
   hasCamera: true,
-  useSteps: createOptionsSteps(defaultOptions),
+  useSteps: createOptionsStepsHook(defaultOptions),
   completeStep: jest.fn(),
   ...mockedReduxProps,
 }

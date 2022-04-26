@@ -29,5 +29,9 @@ export const useHistory = (
     [history]
   )
 
-  return { history, push }
+  const back = useCallback(() => history.goBack(), [history])
+
+  const forward = useCallback(() => history.goForward(), [history])
+
+  return { push, back, forward }
 }

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 import { mockedReduxProps } from '~jest/MockedReduxProvider'
 
-import { createOptionsSteps } from '../../Router/useOptionsSteps'
+import { createOptionsStepsHook } from '../../Router/createOptionsStepsHook'
 import { NarrowSdkOptions } from '~types/commons'
 
 const defaultOptions: NarrowSdkOptions = {
@@ -35,7 +35,7 @@ const defaultProps: CountrySelectorProps = {
   triggerOnError: jest.fn(),
   hasCamera: true,
   allowCrossDeviceFlow: true,
-  useSteps: createOptionsSteps(defaultOptions),
+  useSteps: createOptionsStepsHook(defaultOptions),
   completeStep: jest.fn(),
   ...mockedReduxProps,
 }

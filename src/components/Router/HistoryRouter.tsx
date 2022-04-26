@@ -69,7 +69,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     })
   }
 
-  const { history, push } = useHistory(({ state: historyState }) => {
+  const { back, forward, push } = useHistory(({ state: historyState }) => {
     if (!historyState) {
       return
     }
@@ -79,7 +79,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     ]
 
     if (step.skip) {
-      historyState.step < state.step ? history.goBack() : history.goForward()
+      historyState.step < state.step ? back() : forward()
     } else {
       setState({ ...state, ...historyState })
     }
@@ -251,10 +251,6 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
   const previousStep = () => {
     const { step: currentStep } = state
     setStepIndex(currentStep - 1)
-  }
-
-  const back = () => {
-    history.goBack()
   }
 
   const getDocumentType = () => {

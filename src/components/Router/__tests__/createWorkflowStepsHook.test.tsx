@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { FunctionComponent, h } from 'preact'
 import { renderHook } from '@testing-library/preact-hooks'
 import { UserConsentContext } from '~contexts/useUserConsent'
-import { createWorkflowSteps } from '../useWorkflowSteps'
+import { createWorkflowStepsHook } from '../createWorkflowStepsHook'
 import { StepConfig } from '~types/steps'
 
 const addUserConsentStepMock = jest.fn()
@@ -28,7 +28,8 @@ const wrapper: FunctionComponent = ({ children }) => (
 
 const renderWorkflowStepsHook = (steps: StepConfig[]) =>
   renderHook(
-    () => createWorkflowSteps({ token: '', workflowRunId: '', steps }, {})(),
+    () =>
+      createWorkflowStepsHook({ token: '', workflowRunId: '', steps }, {})(),
     {
       wrapper,
     }

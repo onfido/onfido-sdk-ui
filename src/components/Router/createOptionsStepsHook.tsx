@@ -4,7 +4,7 @@ import { StepConfig } from '~types/steps'
 import useUserConsent from '~contexts/useUserConsent'
 import { NarrowSdkOptions } from '~types/commons'
 
-export const createOptionsSteps = (
+export const createOptionsStepsHook = (
   options: NarrowSdkOptions
 ): StepsHook => () => {
   const { addUserConsentStep } = useUserConsent()

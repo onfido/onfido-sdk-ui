@@ -34,7 +34,7 @@ import type {
 import type { StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
-import { createCrossDeviceSteps } from './useCrossDeviceSteps'
+import { createCrossDeviceStepsHook } from './createCrossDeviceStepsHook'
 
 const RESTRICTED_CROSS_DEVICE = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -408,7 +408,7 @@ export default class CrossDeviceMobileRouter extends Component<
             {...this.state}
             crossDeviceClientError={this.setError}
             sendClientSuccess={this.sendClientSuccess}
-            useSteps={createCrossDeviceSteps(steps, this.onCompleteStep)}
+            useSteps={createCrossDeviceStepsHook(steps, this.onCompleteStep)}
           />
         </SdkConfigurationServiceProvider>
       )

@@ -2,7 +2,7 @@ import { useCallback, useState } from 'preact/hooks'
 import { StepsHook, StepsLoadingStatus } from '~types/routers'
 import { StepConfig } from '~types/steps'
 
-export const createCrossDeviceSteps = (
+export const createCrossDeviceStepsHook = (
   defaultSteps: StepConfig[],
   onCompleteStep: (docData: unknown[]) => void
 ): StepsHook => () => {
