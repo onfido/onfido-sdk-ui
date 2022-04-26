@@ -680,6 +680,16 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_data_capture_profile_data_timeout',
+    {
+      eventName: 'DATA_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { profile_data_timeout: 'warning' },
+      },
+    },
+  ],
+  [
     'screen_document_document_video_capture_doc_video_timeout',
     {
       eventName: 'DOCUMENT_VIDEO_CAPTURE_ERROR',

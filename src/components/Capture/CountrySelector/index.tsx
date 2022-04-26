@@ -44,7 +44,7 @@ const options = allCountriesList.map((country: CountryData) => ({
 
 const CountrySelector: FunctionComponent<Props> = ({ onChange }) => {
   const { translate } = useLocales()
-  const [currentValue, setCurrentValue] = useState('')
+  const [, setCurrentValue] = useState('')
 
   const handleChange = (selectedCountry: CountryData) => {
     setCurrentValue(selectedCountry.isoAlpha3)

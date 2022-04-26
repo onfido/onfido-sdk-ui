@@ -10,7 +10,6 @@ import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
 import { DefaultContent, DocVideoContent } from './Content'
 import style from './style.scss'
-import balanceSrc from './assets/balance.svg'
 import type { StepComponentBaseProps } from '~types/routers'
 import type { StepTypes } from '~types/steps'
 
