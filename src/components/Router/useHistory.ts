@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from 'preact/hooks'
+import { useCallback, useEffect, useMemo, useRef } from 'preact/hooks'
 import {
   createBrowserHistory,
   createMemoryHistory,
@@ -19,7 +19,19 @@ export const useHistory = (
     [useMemoryHistory]
   )
 
-  useEffect(() => history.listen(listener))
+  const listenerRef = useRef<LocationListener<HistoryLocationState>>()
+
+  useEffect(() => {
+    listenerRef.current = listener
+  }, [listener])
+
+  useEffect(() => {
+    return history.listen((location, action) => {
+      if (location.state) {
+        listenerRef.current(location, action)
+      }
+    })
+  }, [history])
 
   const push = useCallback(
     (state: HistoryLocationState) => {
