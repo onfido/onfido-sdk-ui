@@ -3,7 +3,7 @@ import {
   makeInputName,
   makeFieldValue,
   makeFullFieldValue,
-} from '../DateOfBirthInput'
+} from '../index'
 
 describe('getMaxDay', () => {
   it('should return max day when year and month are provided', () => {
