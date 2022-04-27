@@ -17,6 +17,7 @@ import Confirm from '../index'
 
 import type { NarrowSdkOptions } from '~types/commons'
 import type { StepComponentDocumentProps } from '~types/routers'
+import { createOptionsStepsHook } from '../../../Router/createOptionsStepsHook'
 
 jest.mock('~utils/objectUrl')
 jest.mock('~utils/onfidoApi')
@@ -51,6 +52,8 @@ const defaultProps: StepComponentDocumentProps = {
   steps: [{ type: 'document' }],
   trackScreen: jest.fn(),
   triggerOnError: jest.fn(),
+  useSteps: createOptionsStepsHook(defaultOptions),
+  completeStep: jest.fn(),
   ...mockedReduxProps,
 }
 

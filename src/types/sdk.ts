@@ -33,6 +33,7 @@ export type SdkResponse = {
   document_back?: DocumentResponse
   document_video?: DocumentVideoResponse
   face?: FaceResponse
+  data?: any
   poa?: DocumentResponse
 }
 
@@ -51,6 +52,7 @@ interface FunctionalConfigurations {
   roomId?: string
   tearDown?: boolean
   useMemoryHistory?: boolean
+  useWorkflow?: boolean
 }
 
 export interface SdkOptions extends FunctionalConfigurations {
@@ -81,6 +83,7 @@ export interface SdkOptions extends FunctionalConfigurations {
   crossDeviceClientIntroProductLogoSrc?: string
   _crossDeviceLinkMethods?: Array<string> | null
   overrideSdkConfiguration?: Partial<SdkConfiguration>
+  workflowRunId?: string
 }
 
 export type SdkHandle = {

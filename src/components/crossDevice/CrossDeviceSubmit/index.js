@@ -17,7 +17,10 @@ class CrossDeviceSubmit extends Component {
   }
 
   hasDocumentCaptureStep = () => {
-    return this.props.steps.some((step) => step.type === 'document')
+    return (
+      this.props.steps.some((step) => step.type === 'document') ||
+      this.props.mobileConfig.steps[0].type === 'document'
+    )
   }
 
   hasPoACaptureSteps = () => {
@@ -31,7 +34,10 @@ class CrossDeviceSubmit extends Component {
   }
 
   hasFaceCaptureStep = () => {
-    return this.props.steps.some((step) => step.type === 'face')
+    return (
+      this.props.steps.some((step) => step.type === 'face') ||
+      this.props.mobileConfig.steps[0].type === 'face'
+    )
   }
 
   getFaceCaptureVariant = () => {

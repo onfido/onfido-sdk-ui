@@ -1,4 +1,48 @@
 {
+    "workflow_complete": {
+        "pass": {
+            "title": "Passed",
+            "description": "We have been able to verify your identity"
+        },
+        "reject": {
+            "title": "Rejected",
+            "description": "We haven't been able to verify your identity"
+        }
+    },
+    "workflow_erros": {
+        "task_not_supported": "Task is currently not supported.",
+        "task_not_completed": "Could not complete workflow task.",
+        "task_not_retrieved": "Could not retrieve workflow task.",
+        "no_workflow_run_id": "Workflow run ID is not set.",
+        "generic_title": "There was a server error!",
+        "reload_app": "Please try reloading the app, and try again."
+    },
+    "profile_data": {
+        "personal_details_title": "Add your personal information",
+        "address_detials_title": "Add your address",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "dob": "Date of birth",
+        "flat_number": "Flat number",
+        "building_number": "Building number",
+        "building_name": "Building name",
+        "street": "Street",
+        "sub_street": "Sub-street",
+        "town": "Town",
+        "postcode": "Postcode",
+        "country": "Country",
+        "country_placeholder": "e.g. United States",
+        "state": "State (US only)",
+        "line1": "Line 1",
+        "line2": "Line 2",
+        "line3": "Line 3",
+        "button_submit": "Next",
+        "required_error": "This field is required",
+        "prompt": {
+            "header_timeout": "Looks like you took too long",
+            "detail_timeout": "Start again"
+        }
+    },
     "auth_accessibility": {
         "back_button": "Cancel"
     },
@@ -540,6 +584,7 @@
         "list_item_poa": "your proof of address",
         "list_item_selfie": "your face",
         "next_button": "Choose document",
+        "start_workflow_button": "Start verfication",
         "subtitle": "It should take a few minutes",
         "title": "Verify your identity"
     }

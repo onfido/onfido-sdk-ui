@@ -100,7 +100,7 @@ $_sdk-line-height: 18 * $unit-small;
 $_sdk-text-color: var(--osdk-color-content-body);
 
 $_sdk-input-border-style: 1px solid rgba(var(--ods-color-border-input));
-$_sdk-input-horizontal-padding: 8 * $unit-small;
+$_sdk-input-horizontal-padding: 10 * $unit-small;
 $_sdk-input-vertical-padding: 12 * $unit-small;
 $_sdk-input-icon-padding: 34 * $unit-small;
 $_sdk-search-icon-size: 24 * $unit-small;
@@ -161,6 +161,14 @@ $_sdk-option-border-bottom: 0;
 
 .dropdownIcon {
   @extend %_sdk-search-icon;
+  height: $_sdk-search-icon-size;
+  width: $_sdk-search-icon-size;
+  position: absolute;
+  top: 3 * $unit-small;
+  right: 4 * $unit-small;
+}
+
+.chevronIcon {
   height: $_sdk-search-icon-size;
   width: $_sdk-search-icon-size;
   position: absolute;

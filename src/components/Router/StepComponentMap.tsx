@@ -1,4 +1,4 @@
-import type { ComponentType } from 'preact'
+import { h, ComponentType } from 'preact'
 import Welcome from '../Welcome'
 import UserConsent from '../UserConsent'
 
@@ -8,6 +8,7 @@ import {
   DocumentBackCapture,
   DocumentFrontCapture,
   DocumentVideoCapture,
+  DataCapture,
   FaceVideoCapture,
   PoACapture,
   SelfieCapture,
@@ -37,12 +38,13 @@ import type {
   ExtendedStepTypes,
   FlowVariants,
 } from '~types/commons'
-import type { ComponentStep, StepComponentProps } from '~types/routers'
+import type { StepComponentProps, ComponentStep } from '~types/routers'
 import type {
   DocumentTypes,
   StepConfig,
   StepConfigDocument,
   StepConfigFace,
+  StepConfigData,
 } from '~types/steps'
 import PoAClientIntro from '../ProofOfAddress/PoAIntro'
 import PoADocumentSelector from '../ProofOfAddress/PoADocumentSelect'
@@ -79,7 +81,7 @@ export const buildComponentsList = ({
   mobileFlow?: boolean
   deviceHasCameraSupport?: boolean
 }): ComponentStep[] => {
-  const captureSteps = mobileFlow ? buildCrossDeviceClientSteps(steps) : steps
+  const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
 
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
@@ -94,7 +96,7 @@ export const buildComponentsList = ({
       )
     : buildComponentsFromSteps(
         crossDeviceDesktopComponents,
-        crossDeviceIntroSessionSteps(steps)
+        crossDeviceSteps(steps)
       )
 }
 
@@ -102,7 +104,7 @@ const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
 
-const buildCrossDeviceClientSteps = (steps: StepConfig[]): StepConfig[] =>
+const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
   hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
 const shouldUseCameraForDocumentCapture = (
@@ -128,11 +130,12 @@ const buildCaptureStepComponents = (
   const findStep = buildStepFinder(steps)
   const faceStep = findStep('face')
   const documentStep = findStep('document')
+  const dataStep = findStep('data')
 
   const complete = mobileFlow
     ? [ClientSuccess as ComponentType<StepComponentProps>]
     : [Complete]
-  const captureStepTypes = new Set(['document', 'poa', 'face'])
+  const captureStepTypes = new Set(['document', 'poa', 'face', 'data'])
   const firstCaptureStepType = steps.filter((step) =>
     captureStepTypes.has(step?.type)
   )[0]?.type
@@ -163,6 +166,7 @@ const buildCaptureStepComponents = (
         firstCaptureStepType === 'document'
       ),
     ],
+    data: [...buildDataComponents(dataStep)],
     poa: [
       ...buildPoaComponents(
         poaDocumentCountry,
@@ -171,7 +175,43 @@ const buildCaptureStepComponents = (
       ),
     ],
     complete,
+    pass: [Complete],
+    reject: [Complete],
   }
+}
+
+const buildDataComponents = (
+  dataStep?: StepConfigData
+): ComponentType<StepComponentProps>[] => {
+  const Personal = (props: any) => {
+    return (
+      <DataCapture
+        title="personal_details_title"
+        data={{
+          first_name: dataStep?.options?.first_name,
+          last_name: dataStep?.options?.last_name,
+          dob: dataStep?.options?.dob,
+        }}
+        {...props}
+      />
+    )
+  }
+  const Address = (props: any) => {
+    return (
+      <DataCapture
+        title="address_detials_title"
+        dataPath="address"
+        data={{
+          postcode: dataStep?.options?.address?.postcode,
+          country: dataStep?.options?.address?.country,
+          state: dataStep?.options?.address?.state,
+        }}
+        {...props}
+      />
+    )
+  }
+
+  return [Personal, Address]
 }
 
 const buildFaceComponents = (
@@ -408,9 +448,7 @@ const buildPoaComponents = (
     : [...preCaptureComponents, ...captureComponents]
 }
 
-const crossDeviceIntroSessionSteps = (
-  steps: StepConfig[]
-): ExtendedStepConfig[] => {
+const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
   const baseSteps: ExtendedStepConfig[] = [{ type: 'crossDevice' }]
   const completeStep = steps.find(isComplete) as ExtendedStepConfig
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
