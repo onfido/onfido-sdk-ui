@@ -6,9 +6,9 @@ const STEP_FACE = 'face'
 const STEP_COMPLETE = 'complete'
 const STEP_AUTH = 'auth'
 const STEP_CROSS_DEVICE_SESSION_INTRO = 'crossDeviceSessionIntro'
-const STEP_PASS = 'pass'
-const STEP_REJECT = 'reject'
-const STEP_DATA = 'data'
+const STEP_WORKFLOW_PASS = 'pass'
+const STEP_WORKFLOW_REJECT = 'reject'
+const STEP_DATA_CAPTURE = 'data'
 
 export type PublicStepTypes =
   | typeof STEP_WELCOME
@@ -18,9 +18,9 @@ export type PublicStepTypes =
   | typeof STEP_COMPLETE
   | typeof STEP_AUTH
   | typeof STEP_CROSS_DEVICE_SESSION_INTRO
-  | typeof STEP_PASS
-  | typeof STEP_REJECT
-  | typeof STEP_DATA
+  | typeof STEP_WORKFLOW_PASS
+  | typeof STEP_WORKFLOW_REJECT
+  | typeof STEP_DATA_CAPTURE
 
 export type StepTypes = PublicStepTypes | typeof STEP_USER_CONSENT
 

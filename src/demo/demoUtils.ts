@@ -62,6 +62,7 @@ export type QueryParams = {
   invalidCrossDeviceAlternativeMethods?: StringifiedBoolean
   crossDeviceClientIntroCustomProductName?: StringifiedBoolean
   crossDeviceClientIntroCustomProductLogo?: StringifiedBoolean
+  autoFocusOnInitialScreenTitle?: StringifiedBoolean
   token?: string
   applicantId?: StringifiedBoolean
   workflowRunId?: StringifiedBoolean
@@ -305,6 +306,12 @@ export const getInitSdkOptions = (): SdkOptions => {
       ? sampleCompanyLogo
       : undefined
 
+  let autoFocusOnInitialScreenTitle = true
+  if (queryParamToValueString.autoFocusOnInitialScreenTitle) {
+    autoFocusOnInitialScreenTitle =
+      queryParamToValueString.autoFocusOnInitialScreenTitle === 'true'
+  }
+
   return {
     useModal: queryParamToValueString.useModal === 'true',
     shouldCloseOnOverlayClick:
@@ -329,6 +336,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     crossDeviceClientIntroProductLogoSrc,
     ...smsNumberCountryCode,
     _crossDeviceLinkMethods: visibleCrossDeviceMethods,
+    autoFocusOnInitialScreenTitle,
   }
 }
 
