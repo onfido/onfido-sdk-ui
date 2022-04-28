@@ -187,8 +187,8 @@ public class ProofOfAddressIT extends WebSdkIT {
 
     }
 
-    @Test(description = "should allow PoA together with Document")
-    public void testPoaTogetherWithDocument() throws JsonProcessingException {
+    @Test(description = "should allow allo PoA then Document")
+    public void testPoaFollowedByDocument() throws JsonProcessingException {
         onfido().withSteps("poa", "document", "complete")
                 .withOnComplete(new Raw("(data) => {window.onCompleteData = data}"))
                 .init(PoAIntro.class)
@@ -216,5 +216,28 @@ public class ProofOfAddressIT extends WebSdkIT {
 
         assertThat(poa.type).isEqualTo("passport");
         assertThat(documentFront.type).isEqualTo("passport");
+    }
+
+    @Test(description = "should allow Document (Passport) then PoA")
+    public void testPassportDocFollowedByPoa() throws JsonProcessingException {
+        onfido().withSteps("document", "poa", "complete")
+                .withOnComplete(new Raw("(data) => {window.onCompleteData = data}"))
+                .init(IdDocumentSelector.class)
+                .select(PASSPORT, DocumentUpload.class)
+                .clickUploadButton(ImageQualityGuide.class)
+                .upload(PASSPORT_JPG)
+                .clickConfirmButton(PoAIntro.class)
+                .startVerification()
+                .select("United", PoADocumentSelection.class)
+                .select(BANK_BUILDING_SOCIETY_STATEMENT)
+                .clickContinue()
+                .upload(NATIONAL_IDENTITY_CARD_PDF)
+                .clickConfirmButton(Complete.class);
+
+        var json = (String) driver().executeScript("return JSON.stringify(window.onCompleteData)");
+        var completeData = objectMapper.readValue(json, CompleteData.class);
+        var poa = completeData.poa;
+
+        assertThat(poa).isNotNull();
     }
 }
