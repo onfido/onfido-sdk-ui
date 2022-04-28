@@ -65,7 +65,7 @@
                 "too_long_postcode": "Postcode is too long"
             },
             "usa_specific": {
-                "required_state": "Please enter your state",
+                "required_state": "Please select a state",
                 "required_postcode": "Please enter your zip code",
                 "too_short_postcode": "Zip code is too short",
                 "too_long_postcode": "Zip code is too long"
@@ -183,6 +183,9 @@
             "label": "Search for country"
         },
         "title": "Select issuing country"
+    },
+    "state_select": {
+        "placeholder": "Select a state"
     },
     "cross_device_checklist": {
         "button_primary": "Submit verification",

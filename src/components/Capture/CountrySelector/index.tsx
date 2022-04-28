@@ -1,12 +1,13 @@
 import { h, FunctionComponent } from 'preact'
 import { useState } from 'preact/compat'
+import { Icon } from '@onfido/castor-react'
 import { omit } from '../../utils/object'
 import { localised, useLocales } from '~locales'
 import Autocomplete from 'accessible-autocomplete/preact'
 
 import { allCountriesList, countryTranslations } from './countries'
-import { IconChevronDown } from '@onfido/castor-icons'
 import { getCountryFlagSrc } from '~supported-documents'
+
 import type { WithLocalisedProps } from '~types/hocs'
 import styles from '../../CountrySelector/style.scss'
 
@@ -59,28 +60,31 @@ const CountrySelector: FunctionComponent<Props> = ({ onChange }) => {
   }
 
   return (
-    <div className={styles.countrySelector}>
-      <Autocomplete
-        id="country"
-        name="country"
-        source={suggestCountries}
-        showAllValues
-        dropdownArrow={() => <IconChevronDown className={styles.chevronIcon} />}
-        tNoResults={() =>
-          translate('country_select.alert_dropdown.country_not_found')
-        }
-        displayMenu="overlay"
-        cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
-        templates={{
-          inputValue: (country: CountryData) => country?.label,
-          suggestion: (country: CountryData) =>
-            getCountryOptionTemplate(country),
-        }}
-        onConfirm={handleChange}
-        confirmOnBlur={false}
-        autoselect={true}
-      />
-    </div>
+    <Autocomplete
+      id="country"
+      name="country"
+      source={suggestCountries}
+      showAllValues
+      dropdownArrow={() => (
+        <Icon
+          name="chevron-down"
+          className={styles.chevronIcon}
+          aria-hidden="true"
+        />
+      )}
+      tNoResults={() =>
+        translate('country_select.alert_dropdown.country_not_found')
+      }
+      displayMenu="overlay"
+      cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
+      templates={{
+        inputValue: (country: CountryData) => country?.label,
+        suggestion: (country: CountryData) => getCountryOptionTemplate(country),
+      }}
+      onConfirm={handleChange}
+      confirmOnBlur={false}
+      autoselect={true}
+    />
   )
 }
 

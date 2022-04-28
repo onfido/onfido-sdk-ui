@@ -16,6 +16,7 @@ import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
 import theme from '../Theme/style.scss'
 import CountrySelector from './CountrySelector'
+import { StateSelector } from './StateSelector'
 import { DateOfBirthInput, getMaxDay } from './DateOfBirthInput'
 import style from './style.scss'
 
@@ -235,6 +236,8 @@ const getFieldComponent = (
   switch (type) {
     case 'country':
       return <CountrySelector {...props} />
+    case 'state':
+      return <StateSelector {...props} />
     case 'dob':
       return <DateOfBirthInput {...props} />
     case 'postcode':
