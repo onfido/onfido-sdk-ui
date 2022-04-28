@@ -202,9 +202,13 @@ const buildDataComponents = (
         title="address_detials_title"
         dataPath="address"
         data={{
-          postcode: dataStep?.options?.address?.postcode,
           country: dataStep?.options?.address?.country,
+          line1: dataStep?.options?.address?.line1,
+          line2: dataStep?.options?.address?.line2,
+          line3: dataStep?.options?.address?.line3,
+          town: dataStep?.options?.address?.town,
           state: dataStep?.options?.address?.state,
+          postcode: dataStep?.options?.address?.postcode,
         }}
         {...props}
       />
