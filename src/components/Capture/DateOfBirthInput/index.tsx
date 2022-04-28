@@ -4,7 +4,7 @@ import { Input } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { localised } from '~locales'
 import { useValidation } from '../ProfileData'
-import styles from './DateOfBirthInput.scss'
+import styles from './styles.scss'
 
 export type DateOfBirthInputProps = {
   fieldKey: string
