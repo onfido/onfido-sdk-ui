@@ -738,8 +738,7 @@ options: {
     bank_building_society_statement: boolean,
     utility_bill: boolean,
     council_tax: boolean, // GBR only
-    benefit_letters: boolean, // GBR only
-    government_letter: boolean // non-GBR only
+    benefit_letters: boolean // GBR only
   }
 }
 ```
