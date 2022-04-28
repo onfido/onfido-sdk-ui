@@ -9,6 +9,7 @@ import classNames from 'classnames'
 import {
   Field,
   FieldLabel,
+  HelperText,
   Validation,
   Input,
   InputProps,
@@ -26,6 +27,7 @@ import style from './style.scss'
 import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
 import type { FlatStepOptionData } from '~types/steps'
 import type { WithLocalisedProps } from '~types/hocs'
+import { TranslateCallback } from '~types/locales'
 
 const validationContext = createContext({} as ValidationState)
 const ValidationProvider = validationContext.Provider
@@ -183,15 +185,16 @@ const FieldComponent = ({
     <Field>
       <FieldLabel>
         <span>
-          {translate(`profile_data.${type}`)}
+          {getTranslatedFieldLabel(translate, type, selectedCountry)}
           {isRequired ? (
             <Asterisk aria-label="required" />
           ) : (
             <span className={style['optional']}>
-              {` ${translate('profile_data.optional')}`}
+              {` ${translate('profile_data.field_optional')}`}
             </span>
           )}
         </span>
+        {getTranslatedFieldHelperText(translate, type, selectedCountry)}
         {getFieldComponent(type, {
           value,
           invalid: formSubmitted && invalid,
@@ -225,6 +228,45 @@ const getFieldComponent = (
     default:
       return <Input type="text" {...props} />
   }
+}
+
+const getTranslatedFieldLabel = (
+  translate: TranslateCallback,
+  type: fieldType,
+  country?: string
+) => {
+  let specificCountry = ''
+
+  if (country) {
+    switch (type) {
+      case 'town':
+        if (country === 'GBR') specificCountry = 'gbr_specific.'
+        break
+      case 'state':
+        if (country === 'USA') specificCountry = 'usa_specific.'
+        break
+      case 'postcode':
+        if (['GBR', 'USA'].includes(country))
+          specificCountry = `${country.toLowerCase()}_specific.`
+        break
+    }
+  }
+
+  return translate(`profile_data.field_labels.${specificCountry}${type}`)
+}
+
+const getTranslatedFieldHelperText = (
+  translate: TranslateCallback,
+  type: fieldType,
+  country?: string
+) => {
+  if (country !== 'USA' || !['line1', 'line2'].includes(type)) return null
+
+  return (
+    <HelperText>
+      {translate(`profile_data.field_labels.usa_specific.${type}_helper_text`)}
+    </HelperText>
+  )
 }
 
 const isFieldRequired = (type: fieldType, country?: string) => {
