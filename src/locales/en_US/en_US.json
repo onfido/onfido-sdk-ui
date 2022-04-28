@@ -41,9 +41,38 @@
                 "postcode": "Zip code"
             }
         },
+        "field_validation": {
+            "required_first_name": "Please enter your first name",
+            "required_last_name": "Please enter your last name",
+            "required_dob": "Please enter your date of birth",
+            "required_country": "Please select a country",
+            "required_line1": "Please enter your address",
+            "required_postcode": "Please enter your postal code",
+            "invalid": "Please check for invalid characters or symbols",
+            "invalid_dob": "Please enter a valid date of birth",
+            "too_short_last_name": "Last name is too short",
+            "too_short_postcode": "Postal code is too short",
+            "too_long_first_name": "First name is too long",
+            "too_long_last_name": "Last name is too long",
+            "too_long_line1": "Address line is too long",
+            "too_long_line2": "Address line is too long",
+            "too_long_line3": "Address line is too long",
+            "too_long_town": "Town is too long",
+            "too_long_postcode": "Postal code is too long",
+            "gbr_specific": {
+                "required_postcode": "Please enter your postcode",
+                "too_short_postcode": "Postcode is too short",
+                "too_long_postcode": "Postcode is too long"
+            },
+            "usa_specific": {
+                "required_state": "Please enter your state",
+                "required_postcode": "Please enter your zip code",
+                "too_short_postcode": "Zip code is too short",
+                "too_long_postcode": "Zip code is too long"
+            }
+        },
         "field_optional": "(optional)",
         "button_submit": "Continue",
-        "required_error": "This field is required",
         "prompt": {
             "header_timeout": "Looks like you took too long",
             "detail_timeout": "Start again"
