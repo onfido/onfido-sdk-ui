@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import { useCallback, useEffect, useState } from 'preact/compat'
 import classNames from 'classnames'
+import { space } from '@onfido/castor'
 import {
   Field,
   FieldLabel,
@@ -235,6 +236,8 @@ const getFieldComponent = (
       return <CountrySelector {...props} />
     case 'dob':
       return <DateOfBirthInput {...props} />
+    case 'postcode':
+      return <Input {...props} type="text" style={{ width: space(22) }} />
     default:
       return <Input {...props} type="text" />
   }
