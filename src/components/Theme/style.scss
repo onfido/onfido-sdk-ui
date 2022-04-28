@@ -5,9 +5,10 @@
 :global {
   @include castor.Field();
   @include castor.FieldLabel();
-  @include castor.Button();
+  @include castor.HelperText();
   @include castor.Validation();
   @include castor.Asterisk();
+  @include castor.Button();
   @include castor.Input();
   @include castor.Icon();
 
