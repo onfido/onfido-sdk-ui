@@ -58,6 +58,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   abstract updateCountry: (selectedCountry: CountryData) => void
   abstract resetCountry: () => void
   abstract renderNoResultsMessage: () => h.JSX.Element
+  protected trackScreen?: () => void
 
   abstract getSupportedCountries: (
     documentType: Optional<PoaTypes | DocumentTypes>
@@ -113,10 +114,9 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   }
 
   componentDidMount() {
-    this.props.trackScreen(undefined, {
-      document_type: this.props.documentType,
-    })
-
+    if (this.trackScreen) {
+      this.trackScreen()
+    }
     this.resetCountry()
     document.addEventListener('mousedown', this.handleMenuMouseClick)
   }
