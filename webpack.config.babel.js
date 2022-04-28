@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import webpack from 'webpack'
 import packageJson from './package.json'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'

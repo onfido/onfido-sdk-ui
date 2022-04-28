@@ -5,10 +5,12 @@ import { StepComponentProps } from '~types/routers'
 import theme from '../../Theme/style.scss'
 import PageTitle from '../../PageTitle'
 import style from './style.scss'
-import Graphic from './graphic'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import { POA_GUIDANCE_LOCALES_MAPPING } from '~utils/localesMapping'
+import {
+  POA_GUIDANCE_LOCALES_MAPPING,
+  POA_REQUIREMENTS_LOCALES_MAPPING,
+} from '~utils/localesMapping'
 
 type Props = StepComponentProps & {
   poaDocumentType: string
@@ -36,9 +38,18 @@ const Guidance: FunctionComponent<Props> = ({ nextStep, poaDocumentType }) => {
         <div className={style.makeSure}>
           {translate('poa_guidance.instructions.label')}
         </div>
-        <div className={style.docImageContainer}>
-          <Graphic />
-        </div>
+        {['logo', 'full_name', 'address', 'issue_date'].map((key) => (
+          <div key={key} className={style.requirement}>
+            <span>
+              {parseTranslatedTags(
+                POA_REQUIREMENTS_LOCALES_MAPPING[key],
+                ({ text }) => (
+                  <span className={style.bolder}>{text}</span>
+                )
+              )}
+            </span>
+          </div>
+        ))}
       </div>
       <div className={theme.contentMargin}>
         <Button

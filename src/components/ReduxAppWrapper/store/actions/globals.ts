@@ -37,6 +37,15 @@ export const setPoADocumentType = (payload: PoaTypes): GlobalActions => ({
   payload,
 })
 
+export const setPoADocumentCountry = (payload: CountryData): GlobalActions => ({
+  type: constants.SET_POA_DOCUMENT_COUNTRY,
+  payload,
+})
+
+export const resetPoADocumentCountry = (): GlobalActions => ({
+  type: constants.RESET_POA_DOCUMENT_COUNTRY,
+})
+
 export const setRoomId = (payload: string): GlobalActions => ({
   type: constants.SET_ROOM_ID,
   payload,

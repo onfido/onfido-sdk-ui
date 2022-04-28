@@ -6,13 +6,17 @@ import withTheme from '../Theme'
 import GenericError from '../GenericError'
 
 import { getWoopraCookie } from '../../Tracker'
-import HistoryRouter from './HistoryRouter'
+import { HistoryRouter } from './HistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 import Spinner from '../Spinner'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
+import { createOptionsStepsHook } from './createOptionsStepsHook'
+import { createWorkflowStepsHook } from './createWorkflowStepsHook'
+import { UserConsentProvider } from '~contexts/useUserConsent'
+import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
@@ -31,13 +35,17 @@ const WrappedError = withTheme(GenericError)
 type State = {
   crossDeviceInitialClientStep?: number
   crossDeviceInitialStep?: number
+  workflowSteps?: StepConfig[]
 }
 
 export default class MainRouter extends Component<InternalRouterProps, State> {
+  useWorkflowRun = () => !!this.props.options.useWorkflow
+
   generateMobileConfig = (): MobileConfig => {
     const {
       documentType,
       idDocumentIssuingCountry,
+      poaDocumentCountry,
       poaDocumentType,
       deviceHasCameraSupport,
       options,
@@ -56,14 +64,16 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
     } = options
-
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
-
     if (!steps) {
       throw new Error('steps not provided')
     }
 
-    const { crossDeviceInitialClientStep, crossDeviceInitialStep } = this.state
+    const {
+      crossDeviceInitialClientStep,
+      crossDeviceInitialStep,
+      workflowSteps,
+    } = this.state
 
     return {
       clientStepIndex: crossDeviceInitialClientStep,
@@ -75,10 +85,11 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
       idDocumentIssuingCountry,
+      poaDocumentCountry,
       language,
       poaDocumentType,
       step: crossDeviceInitialStep,
-      steps,
+      steps: workflowSteps ? workflowSteps : steps,
       token,
       urls,
       woopraCookie,
@@ -91,13 +102,19 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     newFlow,
     _newStep,
     _previousFlow,
-    { userStepIndex, clientStepIndex }
+    { userStepIndex, clientStepIndex },
+    workflowSteps
   ) => {
     if (newFlow === 'crossDeviceSteps') {
       this.setState({
         crossDeviceInitialStep: userStepIndex,
         crossDeviceInitialClientStep: clientStepIndex,
       })
+      if (this.useWorkflowRun()) {
+        this.setState({
+          workflowSteps: workflowSteps,
+        })
+      }
     }
   }
 
@@ -139,19 +156,42 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
 
     return (
       <SdkConfigurationServiceProvider
+        overrideConfiguration={this.props.options.overrideSdkConfiguration}
         url={urls.onfido_api_url}
         token={token}
         fallback={
           <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
         }
       >
-        <HistoryRouter
-          {...this.props}
-          mobileConfig={this.generateMobileConfig()}
-          onFlowChange={this.onFlowChange}
-          stepIndexType="user"
-          steps={this.props.options.steps}
-        />
+        <UserConsentProvider
+          url={urls.onfido_api_url}
+          token={token}
+          fallback={
+            <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
+          }
+        >
+          <PoASupportedCountriesProvider
+            url={urls.onfido_api_url}
+            token={token}
+            fallback={
+              <Spinner
+                shouldAutoFocus={options.autoFocusOnInitialScreenTitle}
+              />
+            }
+          >
+            <HistoryRouter
+              {...this.props}
+              mobileConfig={this.generateMobileConfig()}
+              onFlowChange={this.onFlowChange}
+              stepIndexType="user"
+              useSteps={
+                this.useWorkflowRun()
+                  ? createWorkflowStepsHook(options, urls)
+                  : createOptionsStepsHook(options)
+              }
+            />
+          </PoASupportedCountriesProvider>
+        </UserConsentProvider>
       </SdkConfigurationServiceProvider>
     )
   }

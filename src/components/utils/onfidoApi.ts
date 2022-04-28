@@ -19,6 +19,9 @@ import type {
   SuccessCallback,
   ErrorCallback,
   SdkConfiguration,
+  ApplicantConsent,
+  ApplicantConsentStatus,
+  PoASupportedCountry,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
@@ -97,6 +100,7 @@ export const uploadDocument = (
   onError?: ErrorCallback
 ): Promise<DocumentImageResponse> => {
   const { sdkMetadata, validations = {}, ...other } = payload
+  const endpoint = `${url}/v3.3/documents`
 
   const data: SubmitPayload = {
     ...other,
@@ -107,7 +111,6 @@ export const uploadDocument = (
     'document_upload_started',
     'document_upload_completed',
   ]
-  const endpoint = `${url}/v3/documents`
 
   return new Promise((resolve, reject) => {
     sendFile(
@@ -303,7 +306,104 @@ export const requestChallenges = (
   performHttpReq(options, onSuccess, (request) => formatError(request, onError))
 }
 
-/* v4 APIs */
+export const getPoASupportedCountries = (url?: string, token?: string) => {
+  if (!url) {
+    throw new Error('onfido_api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
+  const options: HttpRequestParams = {
+    endpoint: `${url}/v3.3/report_types/proof_of_address/supported_countries`,
+    contentType: 'application/json',
+    token: `Bearer ${token}`,
+    method: 'GET',
+  }
+
+  return new Promise<PoASupportedCountry[]>((resolve, reject) => {
+    performHttpReq(options, resolve, (request) => formatError(request, reject))
+  })
+}
+
+export const getApplicantConsents = (
+  applicantUUID: string,
+  url?: string,
+  token?: string
+) => {
+  if (!url) {
+    throw new Error('onfido_api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
+  const options: HttpRequestParams = {
+    endpoint: `${url}/v3.3/applicants/${applicantUUID}/consents`,
+    contentType: 'application/json',
+    token: `Bearer ${token}`,
+    method: 'GET',
+  }
+
+  return new Promise<ApplicantConsentStatus[]>((resolve, reject) => {
+    performHttpReq(options, resolve, (request) => formatError(request, reject))
+  })
+}
+
+export const updateApplicantConsents = (
+  applicantUUID: string,
+  applicantConsents: ApplicantConsent[],
+  url?: string,
+  token?: string
+): Promise<void> => {
+  if (!url) {
+    throw new Error('onfido_api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
+  const options: HttpRequestParams = {
+    endpoint: `${url}/v3.3/applicants/${applicantUUID}/consents`,
+    payload: JSON.stringify(applicantConsents),
+    contentType: 'application/json',
+    token: `Bearer ${token}`,
+    method: 'PATCH',
+  }
+
+  return new Promise((resolve, reject) => {
+    performHttpReq(options, resolve, (request) => formatError(request, reject))
+  })
+}
+
+export const updateApplicantLocation = (
+  applicantUUID: string,
+  url?: string,
+  token?: string
+): Promise<void> => {
+  if (!url) {
+    throw new Error('onfido_api_url not provided')
+  }
+
+  if (!token) {
+    throw new Error('token not provided')
+  }
+
+  const options: HttpRequestParams = {
+    endpoint: `${url}/v3.3/applicants/${applicantUUID}/location`,
+    contentType: 'application/json',
+    token: `Bearer ${token}`,
+    method: 'PATCH',
+  }
+
+  return new Promise<void>((resolve, reject) => {
+    performHttpReq(options, resolve, (request) => formatError(request, reject))
+  })
+}
+
 export const uploadBinaryMedia = (
   { file, filename, sdkMetadata }: UploadDocumentPayload,
   url: string | undefined,

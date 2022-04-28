@@ -5,8 +5,13 @@ import { DocumentTypes, PoaTypes, StepConfig, StepTypes } from './steps'
 import { SdkOptions } from './sdk'
 import { UICustomizationOptions } from './ui-customisation-options'
 
-export interface NormalisedSdkOptions extends SdkOptions {
+export interface NormalisedSdkOptions extends Omit<SdkOptions, 'steps'> {
   steps: StepConfig[]
+}
+
+export interface SDKOptionsWithRenderData extends NormalisedSdkOptions {
+  containerId: string | 'onfido-mount'
+  containerEl: HTMLElement
 }
 
 export type NarrowSdkOptions = Omit<
@@ -23,9 +28,9 @@ const STEP_CROSS_DEVICE = 'crossDevice'
 export type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
 export type ExtendedStepConfig =
   | StepConfig
-  | { type: typeof STEP_CROSS_DEVICE; options?: never }
+  | { type: typeof STEP_CROSS_DEVICE; options?: never; skip?: boolean }
 
-export type CaptureMethods = 'poa' | 'document' | 'face' | 'auth'
+export type CaptureMethods = 'poa' | 'document' | 'face' | 'auth' | 'data'
 
 export type CaptureMethodVariants = 'live' | 'html5'
 
@@ -98,6 +103,7 @@ export type ErrorNames =
   | 'CUTOFF_DETECTED'
   | 'DOC_VIDEO_TIMEOUT'
   | 'FACE_VIDEO_TIMEOUT'
+  | 'PROFILE_DATA_TIMEOUT'
   | 'FORBIDDEN_CLIENT_ERROR'
   | 'GENERIC_CLIENT_ERROR'
   | 'GLARE_DETECTED'
@@ -121,9 +127,11 @@ export type MobileConfig = {
   clientStepIndex?: number
   deviceHasCameraSupport?: boolean
   disableAnalytics?: boolean
+  useWorkflow?: boolean
   documentType?: DocumentTypes
   enterpriseFeatures?: EnterpriseFeatures
   idDocumentIssuingCountry?: CountryData
+  poaDocumentCountry?: CountryData
   language?: SupportedLanguages | LocaleConfig
   poaDocumentType?: PoaTypes
   step?: number
@@ -136,4 +144,9 @@ export type MobileConfig = {
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   analyticsSessionUuid?: string
+}
+
+export type FormattedError = {
+  type: 'expired_token' | 'exception'
+  message: string
 }

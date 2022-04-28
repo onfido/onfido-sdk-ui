@@ -2,8 +2,8 @@ import type { LocaleConfig, SupportedLanguages } from '~types/locales'
 import type {
   DocumentTypes,
   DocumentTypeConfig,
-  StepConfig,
-  StepTypes,
+  PublicStepConfig,
+  PublicStepTypes,
 } from '~types/steps'
 import type { ServerRegions, SdkOptions, SdkResponse } from '~types/sdk'
 import type { UICustomizationOptions } from '~types/ui-customisation-options'
@@ -41,7 +41,6 @@ export type QueryParams = {
   shouldCloseOnOverlayClick?: StringifiedBoolean
   showCobrand?: StringifiedBoolean
   showLogoCobrand?: StringifiedBoolean
-  showUserConsent?: StringifiedBoolean
   showAuth?: StringifiedBoolean
   smsNumber?: StringifiedBoolean
   snapshotInterval?: string
@@ -64,6 +63,9 @@ export type QueryParams = {
   crossDeviceClientIntroCustomProductName?: StringifiedBoolean
   crossDeviceClientIntroCustomProductLogo?: StringifiedBoolean
   autoFocusOnInitialScreenTitle?: StringifiedBoolean
+  token?: string
+  applicantId?: StringifiedBoolean
+  workflowRunId?: StringifiedBoolean
 }
 
 export type CheckData = {
@@ -169,7 +171,7 @@ export const getInitSdkOptions = (): SdkOptions => {
       ? SAMPLE_LOCALE
       : queryParamToValueString.language
 
-  const steps: Array<StepConfig> = []
+  const steps: Array<PublicStepConfig> = []
 
   if (queryParamToValueString.customWelcomeScreenCopy === 'true') {
     steps.push({
@@ -189,10 +191,6 @@ export const getInitSdkOptions = (): SdkOptions => {
 
   if (queryParamToValueString.showAuth === 'true') {
     steps.push({ type: 'auth', options: { retries: 10 } })
-  }
-
-  if (queryParamToValueString.showUserConsent === 'true') {
-    steps.push({ type: 'userConsent' })
   }
 
   if (queryParamToValueString.poa === 'true') {
@@ -342,7 +340,10 @@ export const getInitSdkOptions = (): SdkOptions => {
   }
 }
 
-export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
+export const commonSteps: Record<
+  string,
+  Array<PublicStepTypes | PublicStepConfig>
+> = {
   standard: [],
 
   faceVideo: [

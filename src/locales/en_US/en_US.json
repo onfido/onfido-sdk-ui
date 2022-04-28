@@ -1,4 +1,83 @@
 {
+    "workflow_complete": {
+        "pass": {
+            "title": "Passed",
+            "description": "We have been able to verify your identity"
+        },
+        "reject": {
+            "title": "Rejected",
+            "description": "We haven't been able to verify your identity"
+        }
+    },
+    "workflow_erros": {
+        "task_not_supported": "Task is currently not supported.",
+        "task_not_completed": "Could not complete workflow task.",
+        "task_not_retrieved": "Could not retrieve workflow task.",
+        "no_workflow_run_id": "Workflow run ID is not set.",
+        "generic_title": "There was a server error!",
+        "reload_app": "Please try reloading the app, and try again."
+    },
+    "profile_data": {
+        "personal_details_title": "Add your personal information",
+        "address_detials_title": "Add your address",
+        "field_labels": {
+            "first_name": "First name",
+            "last_name": "Last name",
+            "dob": "Date of birth",
+            "country": "Country",
+            "line1": "Address line 1",
+            "line2": "Address line 2",
+            "line3": "Address line 3",
+            "town": "Town",
+            "postcode": "Postal code",
+            "gbr_specific": {
+                "town": "City/Town",
+                "postcode": "Postcode"
+            },
+            "usa_specific": {
+                "line1_helper_text": "Street address, for example: 200 Albert Street",
+                "line2_helper_text": "Apartment, suite, unit, etc.",
+                "state": "State",
+                "postcode": "Zip code"
+            }
+        },
+        "field_validation": {
+            "required_first_name": "Please enter your first name",
+            "required_last_name": "Please enter your last name",
+            "required_dob": "Please enter your date of birth",
+            "required_country": "Please select a country",
+            "required_line1": "Please enter your address",
+            "required_postcode": "Please enter your postal code",
+            "invalid": "Please check for invalid characters or symbols",
+            "invalid_dob": "Please enter a valid date of birth",
+            "too_short_last_name": "Last name is too short",
+            "too_short_postcode": "Postal code is too short",
+            "too_long_first_name": "First name is too long",
+            "too_long_last_name": "Last name is too long",
+            "too_long_line1": "Address line is too long",
+            "too_long_line2": "Address line is too long",
+            "too_long_line3": "Address line is too long",
+            "too_long_town": "Town is too long",
+            "too_long_postcode": "Postal code is too long",
+            "gbr_specific": {
+                "required_postcode": "Please enter your postcode",
+                "too_short_postcode": "Postcode is too short",
+                "too_long_postcode": "Postcode is too long"
+            },
+            "usa_specific": {
+                "required_state": "Please enter your state",
+                "required_postcode": "Please enter your zip code",
+                "too_short_postcode": "Zip code is too short",
+                "too_long_postcode": "Zip code is too long"
+            }
+        },
+        "field_optional": "(optional)",
+        "button_submit": "Continue",
+        "prompt": {
+            "header_timeout": "Looks like you took too long",
+            "detail_timeout": "Start again"
+        }
+    },
     "auth_accessibility": {
         "back_button": "Cancel"
     },
@@ -87,6 +166,10 @@
         "body": "Upload successful"
     },
     "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Sorry about that. We are working on supporting more countries."
+        },
         "alert": {
             "another_doc": "Documents from that country are not currently supported — <fallback>try another document type<\/fallback>"
         },
@@ -402,14 +485,14 @@
             "address": "Current address",
             "full_name": "Full name",
             "issue_date": "Issue date or summary period",
-            "label": "Make sure it clearly shows:",
+            "label": "Capture the entire document and make sure it clearly shows:",
             "logo": "Logo"
         },
-        "subtitle_bank_statement": "Must be issued in the <strong>last 3 months<\/strong>",
-        "subtitle_benefits_letter": "Must be issued in the <strong>last 12 months<\/strong>",
-        "subtitle_bill": "Must be issued in the <strong>last 3 months<\/strong>",
-        "subtitle_government_letter": "Must be issued in the <strong>last 12 months<\/strong>",
-        "subtitle_tax_letter": "Must be issued in the <strong>last 12 months<\/strong>"
+        "subtitle_bank_statement": "Must have been issued in the <strong>last 3 months<\/strong>",
+        "subtitle_benefits_letter": "Must have been issued in the <strong>last 12 months<\/strong>",
+        "subtitle_bill": "Must have been issued in the <strong>last 3 months<\/strong>",
+        "subtitle_government_letter": "Must have been issued in the <strong>last 12 months<\/strong>",
+        "subtitle_tax_letter": "Must have been issued in the <strong>last 12 months<\/strong>"
     },
     "poa_intro": {
         "button_primary": "Start verification",
@@ -417,7 +500,7 @@
         "list_most_recent": "Is your most <strong>recent<\/strong> document",
         "list_shows_address": "Shows your <strong>current<\/strong> address",
         "subtitle": "You’ll need a document that:",
-        "title": "Let’s verify your %{country} address"
+        "title": "Let’s verify your address"
     },
     "selfie_capture": {
         "alert": {
@@ -536,6 +619,7 @@
         "list_item_poa": "your proof of address",
         "list_item_selfie": "your face",
         "next_button": "Choose document",
+        "start_workflow_button": "Start verfication",
         "subtitle": "It should take a few minutes",
         "title": "Verify your identity"
     }

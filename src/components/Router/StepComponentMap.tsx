@@ -1,14 +1,14 @@
-import type { ComponentType } from 'preact'
+import { h, ComponentType } from 'preact'
 import Welcome from '../Welcome'
 import UserConsent from '../UserConsent'
 
-import CountrySelector from '../CountrySelector'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
 import {
   DocumentBackCapture,
   DocumentFrontCapture,
   DocumentVideoCapture,
+  DataCapture,
   FaceVideoCapture,
   PoACapture,
   SelfieCapture,
@@ -33,21 +33,25 @@ import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 import { getCountryDataForDocumentType } from '~supported-documents'
 
 import type {
+  CountryData,
   ExtendedStepConfig,
   ExtendedStepTypes,
   FlowVariants,
 } from '~types/commons'
-import type { ComponentStep, StepComponentProps } from '~types/routers'
+import type { StepComponentProps, ComponentStep } from '~types/routers'
 import type {
   DocumentTypes,
   StepConfig,
   StepConfigDocument,
   StepConfigFace,
+  StepConfigData,
 } from '~types/steps'
 import PoAClientIntro from '../ProofOfAddress/PoAIntro'
 import PoADocumentSelector from '../ProofOfAddress/PoADocumentSelect'
 import Guidance from '../ProofOfAddress/Guidance'
 import { SelectIdentityDocument } from '../Select/IdentityDocumentSelector'
+import DocumentCountrySelector from 'components/CountrySelector/DocumentCountrySelector'
+import PoACountrySelector from 'components/CountrySelector/PoACountrySelector'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -68,18 +72,21 @@ export const buildComponentsList = ({
   steps,
   mobileFlow,
   deviceHasCameraSupport,
+  poaDocumentCountry,
 }: {
   flow: FlowVariants
   documentType: DocumentTypes | undefined
+  poaDocumentCountry?: CountryData | undefined
   steps: StepConfig[]
   mobileFlow?: boolean
   deviceHasCameraSupport?: boolean
 }): ComponentStep[] => {
-  const captureSteps = mobileFlow ? buildCrossDeviceClientSteps(steps) : steps
+  const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
 
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
         buildCaptureStepComponents(
+          poaDocumentCountry,
           documentType,
           mobileFlow,
           steps,
@@ -89,7 +96,7 @@ export const buildComponentsList = ({
       )
     : buildComponentsFromSteps(
         crossDeviceDesktopComponents,
-        crossDeviceIntroSessionSteps(steps)
+        crossDeviceSteps(steps)
       )
 }
 
@@ -97,7 +104,7 @@ const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
 
-const buildCrossDeviceClientSteps = (steps: StepConfig[]): StepConfig[] =>
+const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
   hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
 const shouldUseCameraForDocumentCapture = (
@@ -114,6 +121,7 @@ const shouldUseCameraForDocumentCapture = (
 }
 
 const buildCaptureStepComponents = (
+  poaDocumentCountry: CountryData | undefined,
   documentType: DocumentTypes | undefined,
   mobileFlow: boolean | undefined,
   steps: StepConfig[],
@@ -122,11 +130,12 @@ const buildCaptureStepComponents = (
   const findStep = buildStepFinder(steps)
   const faceStep = findStep('face')
   const documentStep = findStep('document')
+  const dataStep = findStep('data')
 
   const complete = mobileFlow
     ? [ClientSuccess as ComponentType<StepComponentProps>]
     : [Complete]
-  const captureStepTypes = new Set(['document', 'poa', 'face'])
+  const captureStepTypes = new Set(['document', 'poa', 'face', 'data'])
   const firstCaptureStepType = steps.filter((step) =>
     captureStepTypes.has(step?.type)
   )[0]?.type
@@ -157,9 +166,52 @@ const buildCaptureStepComponents = (
         firstCaptureStepType === 'document'
       ),
     ],
-    poa: [...buildPoaComponents(mobileFlow, firstCaptureStepType === 'poa')],
+    data: [...buildDataComponents(dataStep)],
+    poa: [
+      ...buildPoaComponents(
+        poaDocumentCountry,
+        mobileFlow,
+        firstCaptureStepType === 'poa'
+      ),
+    ],
     complete,
+    pass: [Complete],
+    reject: [Complete],
   }
+}
+
+const buildDataComponents = (
+  dataStep?: StepConfigData
+): ComponentType<StepComponentProps>[] => {
+  const Personal = (props: any) => (
+    <DataCapture
+      title="personal_details_title"
+      data={{
+        first_name: dataStep?.options?.first_name,
+        last_name: dataStep?.options?.last_name,
+        dob: dataStep?.options?.dob,
+      }}
+      {...props}
+    />
+  )
+  const Address = (props: any) => (
+    <DataCapture
+      title="address_detials_title"
+      dataSubPath="address"
+      data={{
+        country: dataStep?.options?.address?.country,
+        line1: dataStep?.options?.address?.line1,
+        line2: dataStep?.options?.address?.line2,
+        line3: dataStep?.options?.address?.line3,
+        town: dataStep?.options?.address?.town,
+        state: dataStep?.options?.address?.state,
+        postcode: dataStep?.options?.address?.postcode,
+      }}
+      {...props}
+    />
+  )
+
+  return [Personal, Address]
 }
 
 const buildFaceComponents = (
@@ -244,7 +296,9 @@ const buildNonPassportPreCaptureComponents = (
   const prependDocumentSelector = hasOnePreselectedDocument
     ? []
     : [SelectIdentityDocument]
-  const prependCountrySelector = showCountrySelection ? [CountrySelector] : []
+  const prependCountrySelector = showCountrySelection
+    ? [DocumentCountrySelector]
+    : []
   // @ts-ignore
   // TODO: convert DocumentSelector to TS
   return [...prependDocumentSelector, ...prependCountrySelector]
@@ -372,11 +426,13 @@ const buildDocumentComponents = (
 }
 
 const buildPoaComponents = (
+  poaDocumentCountry: CountryData | undefined,
   mobileFlow: boolean | undefined,
   isFirstCaptureStepInFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
   const preCaptureComponents = [
     PoAClientIntro,
+    PoACountrySelector,
     PoADocumentSelector,
     Guidance as ComponentType<StepComponentProps>,
   ]
@@ -392,9 +448,7 @@ const buildPoaComponents = (
     : [...preCaptureComponents, ...captureComponents]
 }
 
-const crossDeviceIntroSessionSteps = (
-  steps: StepConfig[]
-): ExtendedStepConfig[] => {
+const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
   const baseSteps: ExtendedStepConfig[] = [{ type: 'crossDevice' }]
   const completeStep = steps.find(isComplete) as ExtendedStepConfig
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps

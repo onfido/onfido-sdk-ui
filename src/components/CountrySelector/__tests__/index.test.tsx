@@ -3,7 +3,14 @@ import { shallow } from 'enzyme'
 
 import { mockedReduxProps } from '~jest/MockedReduxProvider'
 
-import CountrySelector, { Props as CountrySelectorProps } from '../index'
+import { createOptionsStepsHook } from '../../Router/createOptionsStepsHook'
+import { NarrowSdkOptions } from '~types/commons'
+
+const defaultOptions: NarrowSdkOptions = {
+  steps: [{ type: 'welcome' }],
+}
+import { Props as CountrySelectorProps } from '../index'
+import DocumentCountrySelector from '../DocumentCountrySelector'
 
 const defaultProps: CountrySelectorProps = {
   documentType: 'driving_licence',
@@ -28,12 +35,14 @@ const defaultProps: CountrySelectorProps = {
   triggerOnError: jest.fn(),
   hasCamera: true,
   allowCrossDeviceFlow: true,
+  useSteps: createOptionsStepsHook(defaultOptions),
+  completeStep: jest.fn(),
   ...mockedReduxProps,
 }
 
 describe('CountrySelector', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<CountrySelector {...defaultProps} />)
+    const wrapper = shallow(<DocumentCountrySelector {...defaultProps} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 })

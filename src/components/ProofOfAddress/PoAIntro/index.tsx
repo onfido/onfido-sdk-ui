@@ -8,21 +8,18 @@ import { POA_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
 import { trackComponent } from '../../../Tracker'
 import { StepComponentBaseProps } from '~types/routers'
 import style from './style.scss'
+import { CountryData } from '~types/commons'
 
 type Props = {
-  country?: string | undefined
+  poaDocumentCountry?: CountryData | undefined
 } & StepComponentBaseProps
 
-const PoAClientIntro: FunctionComponent<Props> = ({ country, nextStep }) => {
+const PoAClientIntro: FunctionComponent<Props> = ({ nextStep }) => {
   const { translate, parseTranslatedTags } = useLocales()
 
   return (
     <div className={theme.fullHeightContainer} data-page-id={'PoAIntro'}>
-      <PageTitle
-        title={translate('poa_intro.title', {
-          country: !country || country === 'GBR' ? 'UK' : '',
-        })}
-      />
+      <PageTitle title={translate('poa_intro.title')} />
       <div className={style.content}>
         <p className={style.requirements}>{translate('poa_intro.subtitle')}</p>
         {['shows_address', 'matches_signup', 'most_recent'].map((key) => (

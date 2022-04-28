@@ -189,7 +189,7 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
   onApiSuccess = (
     apiResponse: DocumentImageResponse | FaceVideoResponse | UploadFileResponse
   ) => {
-    const { nextStep, actions } = this.props
+    const { nextStep, completeStep, actions } = this.props
     const { capture } = this.state
 
     actions.setCaptureMetadata({ capture, apiResponse })
@@ -199,8 +199,8 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
     )
 
     if (!imageQualityWarning) {
-      // wait a tick to ensure the action completes before progressing
-      setTimeout(nextStep, 0)
+      completeStep([apiResponse])
+      nextStep()
     } else {
       this.setWarning(imageQualityWarning)
     }
@@ -238,10 +238,16 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
   }
 
   getIssuingCountry = () => {
-    const { idDocumentIssuingCountry, poaDocumentType, country } = this.props
+    const {
+      idDocumentIssuingCountry,
+      poaDocumentType,
+      poaDocumentCountry,
+    } = this.props
+
     const isPoA = poaDocumentType && poaDocumentTypes.includes(poaDocumentType)
+
     if (isPoA) {
-      return { issuing_country: country || 'GBR' }
+      return { issuing_country: poaDocumentCountry?.country_alpha3 || 'GBR' }
     }
     if (idDocumentIssuingCountry && idDocumentIssuingCountry.country_alpha3) {
       return { issuing_country: idDocumentIssuingCountry.country_alpha3 }

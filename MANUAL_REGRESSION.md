@@ -680,56 +680,7 @@ Given user opened the link with `?uploadFallback=false` flag
    - browser should disregard the request for live document capture
    - browser should direct to the normal desktop flow options of cross device or document upload
 
-### 36a. User Consent screen
-
-(on private mode on desktop and mobile browsers)
-
-1. Open link with additional GET parameter `?showUserConsent=true`
-2. Continue to the next step
-   - You should see a consent screen with a list of FAQs
-   - When clicking on the links inside the screen content, they should open in a new tab
-3. Click on "Accept"
-   - You should see the document selector screen
-4. Click on the back button
-   - You should see the consent screen again
-5. Click on "Do not accept"
-   - You should see a modal with the title "Are you sure?"
-6. Click on "Review again"
-   - The modal should disappear
-7. Click on "Do not accept"
-   - You should see a modal with the title "Are you sure?"
-8. Click on "Yes, don't verify me"
-   - The SDK should disappear and the flow will be over
-
-### 36b. User Consent screen inside a modal
-
-(on private mode on desktop and mobile browsers)
-
-1. Open link with additional GET parameter `?showUserConsent=true&useModal=true`
-2. The SDK will open inside a modal.
-   - Repeat steps 2-8 from test case no. 35a
-
-### 37. User Consent screen can be reloaded if it failed to load due to loss of connection
-
-(on private mode on desktop and mobile browsers)
-
-1. Open link with additional GET parameter `?showUserConsent=true`
-2. Disconnect from your internet connection
-   - On desktop, either turn off your Wifi or disconnect from your wired connection.
-   - On mobile devices, switch to Airplane mode.
-3. Continue to the next step
-4. You should see `Content failed to load` screen
-5. Reconnect to your intenet connection
-   - On desktop, either turn on your Wifi or reconnect to your wired connection.
-   - On mobile devices, switch to Airplane mode.
-6. Click on `Reload screen` button
-   - You should see a consent screen with a list of FAQs
-   - When clicking on the links inside the screen content, they should open in a new tab
-7. Click on "Accept"
-   - You should see the document selector screen
-8. You should be able to complete the ID verification flow successfully
-
-### 38. Interrupt flow if selfie fallback is deactivated and MediaRecorder is not supported
+### 36. Interrupt flow if selfie fallback is deactivated and MediaRecorder is not supported
 
 Given user opened the link with `?faceVideo=true&photoCaptureFallback=false` flags
 
@@ -740,7 +691,7 @@ Given user opened the link with `?faceVideo=true&photoCaptureFallback=false` fla
    - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should NOT be able to complete the cross-device flow successfully.
 
-### 39. Cross Device for ANSSI Document Liveness
+### 37. Cross Device for ANSSI Document Liveness
 
 (on private mode of: Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
 
@@ -817,25 +768,24 @@ Known Issues:
 1. Start the proof of address verification. To include Proof of Address flow step, there are two options:
    - Add ?poa=true to the end of the url. Using this option, the flow will be composed of: PoA + Doc + Face. E.g: https://latest-onfido-sdk-ui-onfido.surge.sh/?poa=true.
    - On the Developer Tools > Console, run `onfidoSdkHandle.setOptions({steps: [{type: 'poa'}]})`. This will run the flow with PoA as the only step.
-   - Until we finish the development of the issuing country screen selector, we have UK has the default one. To override it go to the Developer Tools > Console and run, for example
-     `onfidoSdkHandle.setOptions({steps: [{type: 'poa', options: {country: 'PRT'}}]})` where 'PRT' can be replaced by any other supported country (3 letter iso country codes).
-   - supported issuing countries are United Kingdom, USA, Canada and European Union countries - except Bulgaria, Republic of Cyprus and Greece
-2. Advance to document submission
-   - if it's a UK document: accepted document types are `Bank or building society statement`, `Utility bill`, `Council tax letter` and `Benefits letter`
-   - if it's NOT a UK document: accepted document types are `Bank statement` and `Utility bill`
-3. Pick one of the supported document types
+2. Advance to Country Select Screen
+   - choose a country from the list
+3. Advance to document submission
+   - if the country selected was the UK: accepted document types are `Bank or building society statement`, `Utility bill`, `Council tax letter` and `Benefits letter`
+   - if the country selected was not the UK: accepted document types are `Bank statement` and `Utility bill`
+4. Pick one of the supported document types
    - `Bank or building society statement` and `Utility bill`, should state a 3 months validity
    - `Council tax letter` and `Benefits letter` should state a 12 months validity
-4. Continue
+5. Continue
    - options to `continue on phone` or `upload photo` are presented
-5. Choose to `upload photo` and continue after seeing the recommendations
+6. Choose to `upload photo` and continue after seeing the recommendations
    - file explorer is displayed so the user can select the photo
-6. Select a valid document photo (image or pdf)
+7. Select a valid document photo (image or pdf)
    - image preview can be seen and enlarged
    - image upload can be redone
-7. Click on `Upload document`
+8. Click on `Upload document`
    - submission confirmation screen is displayed
-8. Click on `Submit verification`
+9. Click on `Submit verification`
    - user must see a screen representing the end of the flow
 
 ### 40b. Proof of Address with 'upload photo' - other desktop browsers

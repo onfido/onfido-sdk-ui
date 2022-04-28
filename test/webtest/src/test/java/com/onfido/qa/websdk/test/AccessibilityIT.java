@@ -19,6 +19,7 @@ import com.onfido.qa.websdk.page.FaceVideo;
 import com.onfido.qa.websdk.page.FaceVideoIntro;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.ImageQualityGuide;
+import com.onfido.qa.websdk.page.PoADocumentSelection;
 import com.onfido.qa.websdk.page.PoAIntro;
 import com.onfido.qa.websdk.page.SelfieCamera;
 import com.onfido.qa.websdk.page.SelfieIntro;
@@ -281,7 +282,11 @@ public class AccessibilityIT extends WebSdkIT {
 
     @Test(description = "should verify accessibility for PoA Document Selection screen")
     public void testShouldVerifyAccessibilityForPoADocumentSelectionScreen() {
-        onfido().withSteps("poa").init(PoAIntro.class).startVerification();
+        onfido()
+                .withSteps("poa")
+                .init(PoAIntro.class)
+                .startVerification()
+                .select("United", PoADocumentSelection.class);
 
         verifyAxeReport();
     }
@@ -291,6 +296,7 @@ public class AccessibilityIT extends WebSdkIT {
 
         onfido().withSteps("poa").init(PoAIntro.class)
                 .startVerification()
+                .select("United", PoADocumentSelection.class)
                 .select(PoADocumentType.BENEFIT_LETTERS);
 
         verifyAxeReport();

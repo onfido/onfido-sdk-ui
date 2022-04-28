@@ -18,6 +18,8 @@ export type GlobalActions =
   | { type: typeof constants.SET_ID_ISSUING_COUNTRY; payload: CountryData }
   | { type: typeof constants.RESET_ID_ISSUING_COUNTRY }
   | { type: typeof constants.SET_POA_DOCUMENT_TYPE; payload: PoaTypes }
+  | { type: typeof constants.SET_POA_DOCUMENT_COUNTRY; payload: CountryData }
+  | { type: typeof constants.RESET_POA_DOCUMENT_COUNTRY }
   | { type: typeof constants.SET_ROOM_ID; payload: string }
   | { type: typeof constants.SET_SOCKET; payload: Socket }
   | { type: typeof constants.SET_MOBILE_NUMBER; payload: SmsPayload }
@@ -61,6 +63,7 @@ export type GlobalState = {
   currentStepType?: ExtendedStepTypes
   documentType?: DocumentTypes
   idDocumentIssuingCountry?: CountryData
+  poaDocumentCountry?: CountryData
   poaDocumentType?: PoaTypes
   roomId?: string
   socket?: Socket

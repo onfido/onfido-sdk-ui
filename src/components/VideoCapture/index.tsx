@@ -80,6 +80,10 @@ const RECORDING_TIMEOUT_ERRORS_MAP: Record<
     name: 'FACE_VIDEO_TIMEOUT',
     type: 'warning',
   },
+  data: {
+    name: 'PROFILE_DATA_TIMEOUT',
+    type: 'warning',
+  },
 }
 
 export default class VideoCapture extends Component<VideoCaptureProps, State> {

@@ -6,6 +6,10 @@ export const uploadSnapshot = jest.fn()
 export const sendMultiframeSelfie = jest.fn()
 export const uploadDocumentVideo = jest.fn()
 export const uploadFaceVideo = jest.fn()
+export const getPoASupportedCountries = jest.fn().mockResolvedValue([])
+export const getApplicantConsents = jest.fn().mockResolvedValue([])
+export const updateApplicantConsents = jest.fn().mockResolvedValue(undefined)
+export const updateApplicantLocation = jest.fn().mockResolvedValue(undefined)
 
 // v4 APIs
 export const uploadBinaryMedia = jest.fn()

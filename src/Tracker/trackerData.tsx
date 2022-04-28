@@ -11,6 +11,7 @@ export const integratorTrackedEvents = new Map<
 >([
   ['screen_welcome', 'WELCOME'],
   ['screen_userConsent', 'USER_CONSENT'],
+  ['screen_data_capture', 'DATA_CAPTURE'],
   ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
   ['screen_document_front_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'],
   ['screen_document_back_capture_file_upload', 'DOCUMENT_CAPTURE_BACK'],
@@ -450,6 +451,13 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_poa_poa_country_select',
+    {
+      eventName: 'POA_COUNTRY_SELECTION',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
     'screen_poa',
     { eventName: 'POA_INTRO', properties: { event_type: 'screen' } },
   ],
@@ -466,6 +474,10 @@ export const analyticsEventsMapping = new Map<
       eventName: 'UNSUPPORTED_BROWSER',
       properties: { event_type: 'screen' },
     },
+  ],
+  [
+    'screen_data_capture',
+    { eventName: 'DATA_CAPTURE', properties: { event_type: 'screen' } },
   ],
   [
     'screen_userConsent',
@@ -664,6 +676,16 @@ export const analyticsEventsMapping = new Map<
       properties: {
         event_type: 'view',
         ui_alerts: { face_video_timeout: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_data_capture_profile_data_timeout',
+    {
+      eventName: 'DATA_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { profile_data_timeout: 'warning' },
       },
     },
   ],

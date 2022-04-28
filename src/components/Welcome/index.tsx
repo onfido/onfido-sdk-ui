@@ -10,7 +10,6 @@ import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
 import { DefaultContent, DocVideoContent } from './Content'
 import style from './style.scss'
-
 import type { StepComponentBaseProps } from '~types/routers'
 import type { StepTypes } from '~types/steps'
 
@@ -18,23 +17,29 @@ const CAPTURE_STEP_TYPES: Set<StepTypes> = new Set([
   'document',
   'poa',
   'face',
+  'data',
   'auth',
 ])
 
 type WelcomeActionsProps = {
   customNextButtonLabel?: string
   nextStep: () => void
+  useWorkflow?: boolean
 }
 
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   customNextButtonLabel,
   nextStep,
+  useWorkflow,
 }) => {
   const { translate } = useLocales()
-
   const buttonLabel = customNextButtonLabel
     ? customNextButtonLabel
-    : translate('welcome.next_button')
+    : translate(
+        `${
+          useWorkflow ? 'welcome.start_workflow_button' : 'welcome.next_button'
+        }`
+      )
 
   return (
     <div className={theme.contentMargin}>
@@ -56,7 +61,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   nextStep,
   autoFocusOnInitialScreenTitle,
 }) => {
-  const [, { findStep }] = useSdkOptions()
+  const [{ useWorkflow }, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
 
   const welcomeStep = findStep('welcome')
@@ -70,7 +75,9 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   const documentStep = findStep('document')
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
-  const actions = <WelcomeActions {...{ customNextButtonLabel, nextStep }} />
+  const actions = (
+    <WelcomeActions {...{ customNextButtonLabel, nextStep, useWorkflow }} />
+  )
   const welcomeTitle = customTitle || translate('welcome.title')
   const welcomeSubTitle = !customDescriptions
     ? translate('welcome.subtitle')
@@ -90,7 +97,11 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
         subTitle={welcomeSubTitle}
         shouldAutoFocus={isFirstScreen && autoFocusOnInitialScreenTitle}
       />
-      {forDocVideo ? (
+      {useWorkflow ? (
+        <div className={style.balanceContainer}>
+          <div className={style.balance} />
+        </div>
+      ) : forDocVideo ? (
         <DocVideoContent captureSteps={captureSteps} />
       ) : (
         <DefaultContent

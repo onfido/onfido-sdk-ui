@@ -29,6 +29,7 @@ const SdkDemo: FunctionComponent<Props> = ({
   sdkOptions,
   viewOptions,
 }) => {
+  const [workflow, setWorkflow] = useState<any>(undefined)
   const [token, setToken] = useState<string | undefined>(undefined)
   const [tokenUrl, setTokenUrl] = useState<string | undefined>(undefined)
   const [regionCode, setRegionCode] = useState<ServerRegions | undefined>(
@@ -39,6 +40,8 @@ const SdkDemo: FunctionComponent<Props> = ({
     undefined
   )
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const { workflowRunId } = queryParamToValueString
 
   useEffect(() => {
     if (queryParamToValueString.createCheck && !applicantData) {
@@ -63,16 +66,20 @@ const SdkDemo: FunctionComponent<Props> = ({
     const url = getTokenFactoryUrl(builtRegionCode)
     setTokenUrl(url)
 
-    getToken(
-      hasPreview,
-      url,
-      applicantData,
-      messagePort,
-      (respondedToken, responedApplicantId) => {
-        setToken(respondedToken)
-        setApplicantId(responedApplicantId)
-      }
-    )
+    if (queryParamToValueString.token) {
+      setToken(queryParamToValueString.token)
+    } else {
+      getToken(
+        hasPreview,
+        url,
+        applicantData,
+        messagePort,
+        (respondedToken, responedApplicantId) => {
+          setToken(respondedToken)
+          setApplicantId(responedApplicantId)
+        }
+      )
+    }
   }, [hasPreview, applicantData, messagePort, sdkOptions])
 
   const onComplete = (data: SdkResponse) => {
@@ -100,6 +107,7 @@ const SdkDemo: FunctionComponent<Props> = ({
     onUserExit: (userExitCode) =>
       console.log('onUserExit callback:', userExitCode),
     onModalRequestClose: () => setIsModalOpen(false),
+    workflowRunId: queryParamToValueString.workflowRunId,
     ...(sdkOptions || {}),
   }
 
@@ -116,9 +124,14 @@ const SdkDemo: FunctionComponent<Props> = ({
           Verify identity
         </button>
       )}
-      {!token && queryParamToValueString.createCheck && applicantForm}
+      {token && queryParamToValueString.createCheck && applicantForm}
       {token && regionCode && tokenUrl && (
-        <SdkMount options={options} regionCode={regionCode} url={tokenUrl} />
+        <SdkMount
+          options={options}
+          regionCode={regionCode}
+          url={tokenUrl}
+          workflow={!!workflowRunId}
+        />
       )}
     </div>
   )
