@@ -226,11 +226,20 @@ export default class HistoryRouter extends Component<
 
   previousStep = (): void => {
     const { step: currentStep } = this.state
-    this.setStepIndex(currentStep - 1)
+    const prevStepIndex = currentStep - 1
+
+    if (prevStepIndex < 0) {
+      // If this happens, we have a major problem
+    }
+
+    const prevStepType = this.getStepType(prevStepIndex)
+
+    this.props.actions.setCurrentStepType(prevStepType)
+    this.setStepIndex(prevStepIndex)
   }
 
   back = (): void => {
-    this.history.goBack()
+    this.previousStep()
   }
 
   setStepIndex = (
