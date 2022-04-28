@@ -98,20 +98,18 @@ export type StepOptionData = {
   email?: string
   dob?: string
   address?: {
-    flat_number?: string
-    building_number?: string
-    building_name?: string
-    street?: string
-    sub_street?: string
-    town?: string
-    postcode?: string
     country?: string
-    state?: string
     line1?: string
     line2?: string
     line3?: string
+    town?: string
+    state?: string
+    postcode?: string
   }
 }
+
+export type FlatStepOptionData = Omit<StepOptionData, 'address'> &
+  StepOptionData['address']
 
 type StepOptionsMap = {
   welcome: StepOptionWelcome

@@ -150,9 +150,13 @@ export class Engine implements EngineInterface {
             last_name: '',
             dob: '',
             address: {
-              postcode: '',
               country: '',
+              line1: '',
+              line2: '',
+              line3: '',
+              town: '',
               state: '',
+              postcode: '',
             },
           },
         }

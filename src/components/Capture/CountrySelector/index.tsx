@@ -18,9 +18,8 @@ type CountryData = {
 }
 
 type Props = {
-  value: string | undefined
-  error: boolean
-  onChange: (value: string) => void
+  value?: number | string
+  onChange?: (ev: { target: { value: string } }) => void
 } & WithLocalisedProps
 
 const getCountryOptionTemplate = (country: CountryData) => {
@@ -48,7 +47,7 @@ const CountrySelector: FunctionComponent<Props> = ({ onChange }) => {
 
   const handleChange = (selectedCountry: CountryData) => {
     setCurrentValue(selectedCountry.isoAlpha3)
-    onChange?.(selectedCountry.isoAlpha3)
+    onChange?.({ target: { value: selectedCountry.isoAlpha3 } })
   }
 
   const suggestCountries = (query: string, populateResults: any) => {

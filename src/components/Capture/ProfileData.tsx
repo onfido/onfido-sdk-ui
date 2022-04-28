@@ -5,27 +5,27 @@ import {
   useState,
   StateUpdater,
 } from 'preact/compat'
-import { useLocales } from '~locales'
-import { color } from '@onfido/castor'
-import { IconError } from '@onfido/castor-icons'
 import classNames from 'classnames'
-import theme from '../Theme/style.scss'
-import ScreenLayout from '../Theme/ScreenLayout'
-import PageTitle from '../PageTitle'
 import {
   Field,
   FieldLabel,
   Validation,
   Input,
+  InputProps,
   Button,
   Asterisk,
 } from '@onfido/castor-react'
-import type { WithLocalisedProps } from '~types/hocs'
+import { useLocales } from '~locales'
+import ScreenLayout from '../Theme/ScreenLayout'
+import PageTitle from '../PageTitle'
+import theme from '../Theme/style.scss'
 import CountrySelector from './CountrySelector'
 import { DateOfBirthInput } from './DateOfBirthInput'
+import style from './style.scss'
 
 import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
-import { StepOptionData } from '~types/steps'
+import type { FlatStepOptionData } from '~types/steps'
+import type { WithLocalisedProps } from '~types/hocs'
 
 const validationContext = createContext({} as ValidationState)
 const ValidationProvider = validationContext.Provider
@@ -42,7 +42,7 @@ interface ValidationState {
 type ProfileDataProps = StepComponentDataProps & {
   title: string
   dataPath: string
-  data: StepOptionData
+  data: FlatStepOptionData
   nextStep: () => void
   completeStep: (data: CompleteStepValue) => void
 } & WithLocalisedProps
@@ -77,7 +77,7 @@ const ProfileData = ({
     return valid
   }
 
-  const handleChange = (key: string, value: string) => {
+  const handleChange = (key: fieldType, value: InputProps['value']) => {
     if (validation[key]) {
       setValidation((validation) => ({ ...validation, [key]: false }))
     }
@@ -108,52 +108,140 @@ const ProfileData = ({
     <ScreenLayout actions={actions}>
       <PageTitle title={translate(`profile_data.${title}`) || title} />
       <ValidationProvider value={{ validation, setValidation }}>
-        {Object.entries(submitData).map(([key, value]) => {
-          const isRequired = !['state'].includes(key)
-
-          return (
-            <Field key={key}>
-              <FieldLabel>
-                <span>
-                  {translate(`profile_data.${key}`) || key}
-                  {isRequired && <Asterisk aria-label="required" />}
-                </span>
-                {key === 'country' ? (
-                  <CountrySelector
-                    value={`${value}`}
-                    error={formSubmitted && validation[key]}
-                    onChange={(value: string) => handleChange(key, value)}
-                  />
-                ) : key === 'dob' ? (
-                  <DateOfBirthInput
-                    fieldKey={key}
-                    name={key}
-                    value={`${value}`}
-                    invalid={formSubmitted && validation[key]}
-                    onChange={(e) => handleChange(key, e.target.value)}
-                  />
-                ) : (
-                  <Input
-                    type="text"
-                    value={`${value}`}
-                    invalid={formSubmitted && validation[key]}
-                    required={isRequired}
-                    onChange={(e) => handleChange(key, e.target.value)}
-                  />
-                )}
-                {formSubmitted && validation[key] && (
-                  <Validation state="error">
-                    <IconError fill={color('error-500')} />
-                    {translate('profile_data.required_error')}
-                  </Validation>
-                )}
-              </FieldLabel>
-            </Field>
-          )
-        })}
+        {Object.entries(submitData).map(([type, value]) => (
+          <FieldComponent
+            key={type}
+            type={type as fieldType}
+            value={value as FieldComponentProps['value']}
+            invalid={validation[type]}
+            formSubmitted={formSubmitted}
+            selectedCountry={submitData.country}
+            onChange={handleChange}
+          />
+        ))}
       </ValidationProvider>
     </ScreenLayout>
   )
+}
+
+type fieldType =
+  | 'first_name'
+  | 'last_name'
+  | 'dob'
+  | 'country'
+  | 'line1'
+  | 'line2'
+  | 'line3'
+  | 'town'
+  | 'state'
+  | 'postcode'
+
+type FieldValueChangeFunc = (
+  type: FieldComponentProps['type'],
+  value: FieldComponentProps['value']
+) => void
+
+type FieldComponentProps = {
+  type: fieldType
+  value: number | string
+  invalid?: boolean
+  formSubmitted?: boolean
+  selectedCountry?: ProfileDataProps['data']['country']
+  onChange: FieldValueChangeFunc
+}
+
+const FieldComponent = ({
+  type,
+  value,
+  invalid,
+  formSubmitted,
+  selectedCountry,
+  onChange,
+}: FieldComponentProps) => {
+  const { translate } = useLocales()
+
+  const isRequired = isFieldRequired(type, selectedCountry)
+
+  const handleChange = ({
+    target: { value },
+  }: {
+    target: { value: FieldComponentProps['value'] }
+  }): void => {
+    onChange(type, value)
+  }
+
+  // edge cases when field component should not be rendered at all
+  if (
+    (type === 'line3' && selectedCountry === 'USA') ||
+    (type === 'state' && selectedCountry !== 'USA')
+  ) {
+    if (value) onChange(type, '')
+    return null
+  }
+
+  return (
+    <Field>
+      <FieldLabel>
+        <span>
+          {translate(`profile_data.${type}`)}
+          {isRequired ? (
+            <Asterisk aria-label="required" />
+          ) : (
+            <span className={style['optional']}>
+              {` ${translate('profile_data.optional')}`}
+            </span>
+          )}
+        </span>
+        {getFieldComponent(type, {
+          value,
+          invalid: formSubmitted && invalid,
+          required: isRequired,
+          onChange: handleChange,
+        })}
+        {formSubmitted && invalid && (
+          <Validation state="error">
+            {translate('profile_data.required_error')}
+          </Validation>
+        )}
+      </FieldLabel>
+    </Field>
+  )
+}
+
+const getFieldComponent = (
+  type: fieldType,
+  props: {
+    value: FieldComponentProps['value']
+    invalid: InputProps['invalid']
+    required: InputProps['required']
+    onChange: (ev: { target: { value: string } }) => void
+  }
+) => {
+  switch (type) {
+    case 'country':
+      return <CountrySelector {...props} />
+    case 'dob':
+      return <DateOfBirthInput fieldKey={type} {...props} />
+    default:
+      return <Input type="text" {...props} />
+  }
+}
+
+const isFieldRequired = (type: fieldType, country?: string) => {
+  const requiredFields = [
+    'first_name',
+    'last_name',
+    'dob',
+    'country',
+    'line1',
+    'postcode',
+  ]
+
+  if (country === 'USA') {
+    requiredFields.push('state')
+  }
+
+  return requiredFields.includes(type)
 }
 
 export default ProfileData
