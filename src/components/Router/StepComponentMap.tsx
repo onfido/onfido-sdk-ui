@@ -183,37 +183,33 @@ const buildCaptureStepComponents = (
 const buildDataComponents = (
   dataStep?: StepConfigData
 ): ComponentType<StepComponentProps>[] => {
-  const Personal = (props: any) => {
-    return (
-      <DataCapture
-        title="personal_details_title"
-        data={{
-          first_name: dataStep?.options?.first_name,
-          last_name: dataStep?.options?.last_name,
-          dob: dataStep?.options?.dob,
-        }}
-        {...props}
-      />
-    )
-  }
-  const Address = (props: any) => {
-    return (
-      <DataCapture
-        title="address_detials_title"
-        dataPath="address"
-        data={{
-          country: dataStep?.options?.address?.country,
-          line1: dataStep?.options?.address?.line1,
-          line2: dataStep?.options?.address?.line2,
-          line3: dataStep?.options?.address?.line3,
-          town: dataStep?.options?.address?.town,
-          state: dataStep?.options?.address?.state,
-          postcode: dataStep?.options?.address?.postcode,
-        }}
-        {...props}
-      />
-    )
-  }
+  const Personal = (props: any) => (
+    <DataCapture
+      title="personal_details_title"
+      data={{
+        first_name: dataStep?.options?.first_name,
+        last_name: dataStep?.options?.last_name,
+        dob: dataStep?.options?.dob,
+      }}
+      {...props}
+    />
+  )
+  const Address = (props: any) => (
+    <DataCapture
+      title="address_detials_title"
+      dataSubPath="address"
+      data={{
+        country: dataStep?.options?.address?.country,
+        line1: dataStep?.options?.address?.line1,
+        line2: dataStep?.options?.address?.line2,
+        line3: dataStep?.options?.address?.line3,
+        town: dataStep?.options?.address?.town,
+        state: dataStep?.options?.address?.state,
+        postcode: dataStep?.options?.address?.postcode,
+      }}
+      {...props}
+    />
+  )
 
   return [Personal, Address]
 }
