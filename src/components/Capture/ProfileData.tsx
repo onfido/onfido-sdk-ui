@@ -76,17 +76,8 @@ const ProfileData = ({
     nextStep()
   }
 
-  const actions = (
-    <Button
-      onClick={handleSubmit}
-      className={classNames(theme['button-centered'], theme['button-lg'])}
-    >
-      {translate('profile_data.button_submit')}
-    </Button>
-  )
-
   return (
-    <ScreenLayout actions={actions}>
+    <ScreenLayout>
       <PageTitle title={translate(`profile_data.${title}`)} />
       {Object.entries(formData).map(([type, value]) => (
         <FieldComponent
@@ -99,6 +90,16 @@ const ProfileData = ({
           onChange={handleChange}
         />
       ))}
+      <Button
+        onClick={handleSubmit}
+        className={classNames(
+          theme['button-centered'],
+          theme['button-lg'],
+          style['submit-button']
+        )}
+      >
+        {translate('profile_data.button_submit')}
+      </Button>
     </ScreenLayout>
   )
 }
