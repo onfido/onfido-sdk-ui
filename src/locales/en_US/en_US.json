@@ -20,18 +20,29 @@
     "profile_data": {
         "personal_details_title": "Add your personal information",
         "address_detials_title": "Add your address",
-        "first_name": "First name",
-        "last_name": "Last name",
-        "dob": "Date of birth",
-        "country": "Country",
-        "line1": "Address line 1",
-        "line2": "Address line 2",
-        "line3": "Address line 3",
-        "town": "Town",
-        "state": "State",
-        "postcode": "Postcode",
+        "field_labels": {
+            "first_name": "First name",
+            "last_name": "Last name",
+            "dob": "Date of birth",
+            "country": "Country",
+            "line1": "Address line 1",
+            "line2": "Address line 2",
+            "line3": "Address line 3",
+            "town": "Town",
+            "postcode": "Postal code",
+            "gbr_specific": {
+                "town": "City/Town",
+                "postcode": "Postcode"
+            },
+            "usa_specific": {
+                "line1_helper_text": "Street address, for example: 200 Albert Street",
+                "line2_helper_text": "Apartment, suite, unit, etc.",
+                "state": "State",
+                "postcode": "Zip code"
+            }
+        },
+        "field_optional": "(optional)",
         "button_submit": "Continue",
-        "optional": "(optional)",
         "required_error": "This field is required",
         "prompt": {
             "header_timeout": "Looks like you took too long",
