@@ -18,6 +18,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Determine Proof of Address document options from endpoint
 - Internal: Added test case configs to our demo app with queryString `testCase`
 - Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
+- Internal: Host our PR build files & demo app on AWS
 
 ## [6.20.1] - 2022-04-28
 
