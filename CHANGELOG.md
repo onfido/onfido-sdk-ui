@@ -18,6 +18,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Determine Proof of Address document options from endpoint
 - Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
 - Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
+- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
 
 ### Fixed
 
