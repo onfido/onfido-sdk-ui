@@ -71,7 +71,10 @@ const renderDemoApp = () => {
     }
   })
 
-  if (window.location.pathname === '/') {
+  console.log('public path: ', process.env.PUBLIC_PATH)
+  console.log('location pathname: ', window.location.pathname)
+
+  if (window.location.pathname === process.env.PUBLIC_PATH) {
     render(
       useHistory ? (
         <Router>

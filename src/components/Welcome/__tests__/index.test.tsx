@@ -10,6 +10,7 @@ import Welcome from '../index'
 
 import type { NarrowSdkOptions } from '~types/commons'
 import type { StepComponentBaseProps } from '~types/routers'
+import { createOptionsStepsHook } from '../../Router/createOptionsStepsHook'
 
 const defaultOptions: NarrowSdkOptions = {
   steps: [{ type: 'welcome' }, { type: 'document' }],
@@ -30,6 +31,8 @@ const defaultProps: StepComponentBaseProps = {
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
   step: 0,
+  useSteps: createOptionsStepsHook(defaultOptions),
+  completeStep: jest.fn(),
 }
 
 const findButton = (wrapper: ReactWrapper) =>

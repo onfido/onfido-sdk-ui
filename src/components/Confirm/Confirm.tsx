@@ -189,7 +189,7 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
   onApiSuccess = (
     apiResponse: DocumentImageResponse | FaceVideoResponse | UploadFileResponse
   ) => {
-    const { nextStep, actions } = this.props
+    const { nextStep, completeStep, actions } = this.props
     const { capture } = this.state
 
     actions.setCaptureMetadata({ capture, apiResponse })
@@ -199,8 +199,8 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
     )
 
     if (!imageQualityWarning) {
-      // wait a tick to ensure the action completes before progressing
-      setTimeout(nextStep, 0)
+      completeStep([apiResponse])
+      nextStep()
     } else {
       this.setWarning(imageQualityWarning)
     }

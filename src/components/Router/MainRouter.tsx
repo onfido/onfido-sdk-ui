@@ -6,14 +6,15 @@ import withTheme from '../Theme'
 import GenericError from '../GenericError'
 
 import { getWoopraCookie } from '../../Tracker'
-import HistoryRouter from './HistoryRouter'
+import { HistoryRouter } from './HistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 import Spinner from '../Spinner'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
-import { OptionsSteps } from './OptionsSteps'
+import { createOptionsStepsHook } from './createOptionsStepsHook'
+import { createWorkflowStepsHook } from './createWorkflowStepsHook'
 import { UserConsentProvider } from '~contexts/useUserConsent'
 import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
 
@@ -34,9 +35,12 @@ const WrappedError = withTheme(GenericError)
 type State = {
   crossDeviceInitialClientStep?: number
   crossDeviceInitialStep?: number
+  workflowSteps?: StepConfig[]
 }
 
 export default class MainRouter extends Component<InternalRouterProps, State> {
+  useWorkflowRun = () => !!this.props.options.useWorkflow
+
   generateMobileConfig = (): MobileConfig => {
     const {
       documentType,
@@ -60,14 +64,16 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
     } = options
-
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
-
     if (!steps) {
       throw new Error('steps not provided')
     }
 
-    const { crossDeviceInitialClientStep, crossDeviceInitialStep } = this.state
+    const {
+      crossDeviceInitialClientStep,
+      crossDeviceInitialStep,
+      workflowSteps,
+    } = this.state
 
     return {
       clientStepIndex: crossDeviceInitialClientStep,
@@ -83,7 +89,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       language,
       poaDocumentType,
       step: crossDeviceInitialStep,
-      steps,
+      steps: workflowSteps ? workflowSteps : steps,
       token,
       urls,
       woopraCookie,
@@ -96,13 +102,19 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     newFlow,
     _newStep,
     _previousFlow,
-    { userStepIndex, clientStepIndex }
+    { userStepIndex, clientStepIndex },
+    workflowSteps
   ) => {
     if (newFlow === 'crossDeviceSteps') {
       this.setState({
         crossDeviceInitialStep: userStepIndex,
         crossDeviceInitialClientStep: clientStepIndex,
       })
+      if (this.useWorkflowRun()) {
+        this.setState({
+          workflowSteps: workflowSteps,
+        })
+      }
     }
   }
 
@@ -167,17 +179,17 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
               />
             }
           >
-            <OptionsSteps options={this.props.options}>
-              {(steps) => (
-                <HistoryRouter
-                  {...this.props}
-                  mobileConfig={this.generateMobileConfig()}
-                  onFlowChange={this.onFlowChange}
-                  stepIndexType="user"
-                  steps={steps}
-                />
-              )}
-            </OptionsSteps>
+            <HistoryRouter
+              {...this.props}
+              mobileConfig={this.generateMobileConfig()}
+              onFlowChange={this.onFlowChange}
+              stepIndexType="user"
+              useSteps={
+                this.useWorkflowRun()
+                  ? createWorkflowStepsHook(options, urls)
+                  : createOptionsStepsHook(options)
+              }
+            />
           </PoASupportedCountriesProvider>
         </UserConsentProvider>
       </SdkConfigurationServiceProvider>

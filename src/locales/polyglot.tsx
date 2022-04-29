@@ -125,7 +125,7 @@ const verifyKeysPresence = (
   // Only return the warning for missing keys if mobilePhrases are not present in phrases or as a separate object.
   const customMobilePhrases = Object.assign(
     {},
-    phrases.mobilePhrases,
+    phrases?.mobilePhrases,
     mobilePhrases
   )
   const customKeys = polyglotFormatKeys({

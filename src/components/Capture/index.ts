@@ -1,6 +1,7 @@
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'
+import ProfileData from './ProfileData'
 import ProofOfAddress from './ProofOfAddress'
 import withCaptureVariant from './withCaptureVariant'
 
@@ -38,3 +39,5 @@ export const FaceVideoCapture = appendToTracking(
   }),
   'face_video_capture'
 )
+
+export const DataCapture = appendToTracking(ProfileData, 'data_capture')

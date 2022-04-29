@@ -30,7 +30,7 @@ export type ExtendedStepConfig =
   | StepConfig
   | { type: typeof STEP_CROSS_DEVICE; options?: never; skip?: boolean }
 
-export type CaptureMethods = 'poa' | 'document' | 'face' | 'auth'
+export type CaptureMethods = 'poa' | 'document' | 'face' | 'auth' | 'data'
 
 export type CaptureMethodVariants = 'live' | 'html5'
 
@@ -103,6 +103,7 @@ export type ErrorNames =
   | 'CUTOFF_DETECTED'
   | 'DOC_VIDEO_TIMEOUT'
   | 'FACE_VIDEO_TIMEOUT'
+  | 'PROFILE_DATA_TIMEOUT'
   | 'FORBIDDEN_CLIENT_ERROR'
   | 'GENERIC_CLIENT_ERROR'
   | 'GLARE_DETECTED'
@@ -126,6 +127,7 @@ export type MobileConfig = {
   clientStepIndex?: number
   deviceHasCameraSupport?: boolean
   disableAnalytics?: boolean
+  useWorkflow?: boolean
   documentType?: DocumentTypes
   enterpriseFeatures?: EnterpriseFeatures
   idDocumentIssuingCountry?: CountryData
@@ -142,4 +144,9 @@ export type MobileConfig = {
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   analyticsSessionUuid?: string
+}
+
+export type FormattedError = {
+  type: 'expired_token' | 'exception'
+  message: string
 }

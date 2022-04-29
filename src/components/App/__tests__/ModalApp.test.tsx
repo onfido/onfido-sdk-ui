@@ -14,6 +14,7 @@ const defaultOptions: SDKOptionsWithRenderData = {
     { type: 'welcome' },
     { type: 'document' },
     { type: 'face' },
+    { type: 'data' },
     { type: 'complete' },
   ],
   containerId: 'onfido-mount',

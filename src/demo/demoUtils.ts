@@ -63,6 +63,9 @@ export type QueryParams = {
   crossDeviceClientIntroCustomProductName?: StringifiedBoolean
   crossDeviceClientIntroCustomProductLogo?: StringifiedBoolean
   autoFocusOnInitialScreenTitle?: StringifiedBoolean
+  token?: string
+  applicantId?: StringifiedBoolean
+  workflowRunId?: StringifiedBoolean
 }
 
 export type CheckData = {

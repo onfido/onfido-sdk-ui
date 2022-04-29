@@ -68,6 +68,8 @@
     "moduleNameMapper": {
       "^react$": "preact/compat",
       "^react-dom$": "preact/compat",
+      "^react/jsx-runtime$": "preact/jsx-runtime",
+      "^react-dom/test-utils$": "preact/test-utils",
       "\\.(scss|css)$": "<rootDir>/src/unit_tests/mocks/styleMock.js",
       "^~jest(.*)$": "<rootDir>/test/utils/jest$1",
       "^~contexts(.*)$": "<rootDir>/src/contexts$1",
@@ -95,7 +97,7 @@
     "files": [
       {
         "path": "./dist/onfido.min.js",
-        "maxSize": "285 kB"
+        "maxSize": "320 kB"
       },
       {
         "path": "./dist/onfido.crossDevice.min.js",

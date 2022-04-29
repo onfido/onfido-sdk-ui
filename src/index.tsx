@@ -39,7 +39,7 @@ const defaults: SdkOptions = {
   onUserExit: noop,
 }
 
-const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {
+export const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {
   if (typeof typeOrStep === 'string') {
     return { type: typeOrStep }
   }
@@ -52,7 +52,11 @@ const formatOptions = ({
   smsNumberCountryCode,
   ...otherOptions
 }: SdkOptions): NormalisedSdkOptions => {
-  const mandatorySteps: StepTypes[] = ['document', 'face', 'complete']
+  const useWorkflow = Boolean(otherOptions.workflowRunId)
+
+  const mandatorySteps: StepTypes[] = useWorkflow
+    ? []
+    : ['document', 'face', 'complete']
   const internalSteps: StepTypes[] = ['userConsent']
   const defaultSteps: StepTypes[] =
     process.env.SDK_ENV === 'Auth'
@@ -62,9 +66,12 @@ const formatOptions = ({
   return {
     ...otherOptions,
     smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
-    steps: (steps || defaultSteps)
-      .map(formatStep)
-      .filter(({ type }) => !internalSteps.includes(type)),
+    useWorkflow,
+    steps: useWorkflow
+      ? defaultSteps.map(formatStep)
+      : (steps || defaultSteps)
+          .map(formatStep)
+          .filter(({ type }) => !internalSteps.includes(type)),
   }
 }
 
