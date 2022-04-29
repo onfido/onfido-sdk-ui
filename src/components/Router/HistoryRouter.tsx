@@ -234,7 +234,13 @@ export default class HistoryRouter extends Component<
   }
 
   back = (): void => {
-    this.previousStep()
+    const { flow } = this.state
+
+    if (flow === 'captureSteps') {
+      this.previousStep()
+    } else {
+      this.history.goBack()
+    }
   }
 
   setStepIndex = (
