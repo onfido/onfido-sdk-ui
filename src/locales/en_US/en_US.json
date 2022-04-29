@@ -73,6 +73,14 @@
         },
         "field_optional": "(optional)",
         "button_submit": "Continue",
+        "components": {
+            "country_select": {
+                "placeholder": "Select a country"
+            },
+            "state_select": {
+                "placeholder": "Select a state"
+            }
+        },
         "prompt": {
             "header_timeout": "Looks like you took too long",
             "detail_timeout": "Start again"
@@ -183,9 +191,6 @@
             "label": "Search for country"
         },
         "title": "Select issuing country"
-    },
-    "state_select": {
-        "placeholder": "Select a state"
     },
     "cross_device_checklist": {
         "button_primary": "Submit verification",

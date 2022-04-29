@@ -1,10 +1,21 @@
 @import '../../Theme/constants';
-@import '../../CountrySelector/style';
+
+.countrySelector {
+  :global(.ods-select) {
+    max-width: unset;
+  }
+}
+
+.countrySelector {
+  :global(.ods-select-output) {
+    display: flex;
+  }
+}
 
 .countryFlag {
   position: absolute;
+  top: 12 * $unit;
   left: 12 * $unit;
-  top: 8 * $unit;
   width: 24 * $unit;
   height: 24 * $unit;
   background-color: transparent;
@@ -15,7 +26,7 @@
 }
 
 .countryLabel {
-  padding-left: 35 * $unit;
+  padding-left: 30 * $unit;
   display: flex;
   align-items: center;
 }
