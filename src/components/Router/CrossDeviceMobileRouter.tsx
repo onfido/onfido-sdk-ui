@@ -351,7 +351,7 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   renderContent = (): h.JSX.Element => {
-    const { hasCamera } = this.props
+    const { hasCamera, token, options, urls } = this.props
     const { crossDeviceError, loading, steps } = this.state
 
     if (loading) {
@@ -388,7 +388,15 @@ export default class CrossDeviceMobileRouter extends Component<
           token={this.state.token}
           fallback={<WrappedSpinner disableNavigation />}
         >
-          <PoASupportedCountriesProvider>
+          <PoASupportedCountriesProvider
+            url={urls.onfido_api_url}
+            token={token}
+            fallback={
+              <Spinner
+                shouldAutoFocus={options.autoFocusOnInitialScreenTitle}
+              />
+            }
+          >
             <HistoryRouter
               {...this.props}
               {...this.state}
