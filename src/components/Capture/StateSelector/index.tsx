@@ -18,7 +18,7 @@ export const StateSelector = (props: StateSelectorProps) => {
     <div className={styles.stateSelector}>
       <Select {...props}>
         <Option hidden value="">
-          {translate('state_select.placeholder')}
+          {translate('profile_data.components.state_select.placeholder')}
         </Option>
         {allStatesList.map(({ name, abbreviation }) => (
           <Option key={abbreviation} value={abbreviation}>
