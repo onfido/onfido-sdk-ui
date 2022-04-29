@@ -2120,7 +2120,7 @@
     "path": "node_modules/astral-regex",
     "licenseFile": "node_modules/astral-regex/license"
   },
-  "async@2.6.3": {
+  "async@2.6.4": {
     "licenses": "MIT",
     "repository": "https://github.com/caolan/async",
     "publisher": "Caolan McMahon",
@@ -2455,8 +2455,8 @@
   "chalk@3.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/chalk/chalk",
-    "path": "node_modules/@testing-library/jest-dom/node_modules/chalk",
-    "licenseFile": "node_modules/@testing-library/jest-dom/node_modules/chalk/license"
+    "path": "node_modules/ora/node_modules/chalk",
+    "licenseFile": "node_modules/ora/node_modules/chalk/license"
   },
   "chalk@4.1.0": {
     "licenses": "MIT",
@@ -3328,6 +3328,12 @@
     "url": "http://blakeembrey.me",
     "path": "node_modules/dot-case",
     "licenseFile": "node_modules/dot-case/LICENSE"
+  },
+  "dotenv@16.0.0": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/motdotla/dotenv",
+    "path": "node_modules/dotenv",
+    "licenseFile": "node_modules/dotenv/LICENSE"
   },
   "dts-bundle-generator@5.5.0": {
     "licenses": "MIT",
@@ -4422,8 +4428,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/history",
-    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
+    "path": "node_modules/react-router/node_modules/history",
+    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -6422,13 +6428,13 @@
     "path": "node_modules/onetime",
     "licenseFile": "node_modules/onetime/license"
   },
-  "onfido-sdk-ui@6.20.0": {
+  "onfido-sdk-ui@9.0.0-beta.1": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/danny/Onfido/onfido-sdk-ui",
+    "path": "/Users/zoeazhdariradkani/work/Orchestration/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "open@8.4.0": {
@@ -7543,8 +7549,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
   },
   "resolve.exports@1.1.0": {
     "licenses": "MIT",
@@ -8843,8 +8849,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",
