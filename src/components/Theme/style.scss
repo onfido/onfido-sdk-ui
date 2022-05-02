@@ -10,10 +10,15 @@
   @include castor.Asterisk();
   @include castor.Button();
   @include castor.Input();
+  @include castor.Select();
   @include castor.Icon();
 
   .ods-field-label {
     text-align: left;
+  }
+
+  .ods-popover {
+    max-width: unset;
   }
 
   .ods-button {

@@ -1,13 +1,10 @@
 import { h, FunctionComponent } from 'preact'
-import { useEffect } from 'preact/compat'
 import { Input } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { localised } from '~locales'
-import { useValidation } from '../ProfileData'
-import styles from './DateOfBirthInput.scss'
+import styles from './styles.scss'
 
 export type DateOfBirthInputProps = {
-  fieldKey: string
   name?: string
   value?: number | string
   invalid?: boolean
@@ -15,52 +12,15 @@ export type DateOfBirthInputProps = {
 }
 
 const DateOfBirthInputComponent: FunctionComponent<DateOfBirthInputProps> = ({
-  fieldKey,
   name,
   value,
   onChange,
   ...restInputProps
 }) => {
-  const { setValidation } = useValidation()
-
   const [yyyy = '', mm = '', dd = ''] = `${value}`.split('-')
 
-  const minDd = 1
   const maxDd = getMaxDay(yyyy, mm)
-
-  const minMm = 1
-  const maxMm = 12
-
-  const minYyyy = 1900
   const maxYyyy = new Date().getFullYear()
-
-  useEffect(() => {
-    const validity = {
-      yyyy: true,
-      mm: true,
-      dd: true,
-    }
-
-    const parsedDd = parseInt(dd, 10)
-    if (!parsedDd || parsedDd < minDd || parsedDd > maxDd) {
-      validity.dd = false
-    }
-
-    const parsedMm = parseInt(mm, 10)
-    if (!parsedMm || parsedMm < minMm || parsedMm > maxMm) {
-      validity.mm = false
-    }
-
-    const parsedYyyy = parseInt(yyyy, 10)
-    if (!parsedYyyy || parsedYyyy < minYyyy || parsedYyyy > maxYyyy) {
-      validity.yyyy = false
-    }
-
-    setValidation((validation) => ({
-      ...validation,
-      [fieldKey]: !Object.values(validity).every(Boolean),
-    }))
-  }, [fieldKey, yyyy, mm, dd, maxDd, maxYyyy, setValidation])
 
   const changeFieldValue = (
     type: 'yyyy' | 'mm' | 'dd',
@@ -82,8 +42,8 @@ const DateOfBirthInputComponent: FunctionComponent<DateOfBirthInputProps> = ({
           name={makeInputName('month', name)}
           placeholder="MM"
           value={mm}
-          min={minMm}
-          max={maxMm}
+          min={1}
+          max={12}
           onChange={({ target: { value } }) => changeFieldValue('mm', value)}
         />
       </div>
@@ -94,7 +54,7 @@ const DateOfBirthInputComponent: FunctionComponent<DateOfBirthInputProps> = ({
           name={makeInputName('day', name)}
           placeholder="DD"
           value={dd}
-          min={minDd}
+          min={1}
           max={maxDd}
           onChange={({ target: { value } }) => changeFieldValue('dd', value)}
         />
@@ -106,7 +66,7 @@ const DateOfBirthInputComponent: FunctionComponent<DateOfBirthInputProps> = ({
           name={makeInputName('year', name)}
           placeholder="YYYY"
           value={yyyy}
-          min={minYyyy}
+          min={1900}
           max={maxYyyy}
           onChange={({ target: { value } }) => changeFieldValue('yyyy', value)}
         />

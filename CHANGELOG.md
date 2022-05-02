@@ -17,6 +17,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Update Proof of Address flow to present Country Select
 - Public: Determine Proof of Address document options from endpoint
 - Internal: Added test case configs to our demo app with queryString `testCase`
+- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
+
+## [6.20.1] - 2022-04-28
 
 ### Fixed
 
@@ -1252,7 +1255,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...development
+[6.20.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...6.20.1
 [6.20.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.19.0...6.20.0
 [6.19.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...6.19.0
 [6.18.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.17.0...6.18.0
