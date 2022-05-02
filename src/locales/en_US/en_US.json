@@ -65,7 +65,7 @@
                 "too_long_postcode": "Postcode is too long"
             },
             "usa_specific": {
-                "required_state": "Please enter your state",
+                "required_state": "Please select a state",
                 "required_postcode": "Please enter your zip code",
                 "too_short_postcode": "Zip code is too short",
                 "too_long_postcode": "Zip code is too long"
@@ -73,6 +73,14 @@
         },
         "field_optional": "(optional)",
         "button_submit": "Continue",
+        "components": {
+            "country_select": {
+                "placeholder": "Select a country"
+            },
+            "state_select": {
+                "placeholder": "Select a state"
+            }
+        },
         "prompt": {
             "header_timeout": "Looks like you took too long",
             "detail_timeout": "Start again"
