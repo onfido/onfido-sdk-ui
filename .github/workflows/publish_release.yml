@@ -59,7 +59,7 @@ jobs:
 
       - name: Upload Release to S3
         run: |
-          aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --exclude "*.html" --recursive --acl public-read
+          aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --recursive --acl public-read
 
       - name: Publish to NPM
         run: |
@@ -97,19 +97,14 @@ jobs:
       #   env:
       #     SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
-      - name: Run build for Surge
-        # Legacy: Surge uses the NODE_ENV=test + TEST_ENV=deployment
+      - name: Run build
+        # Legacy: Demo app uses the NODE_ENV=test + TEST_ENV=deployment
         run: |
           if [ "$VERSION" == "$LATEST_TAG" ]
           then
             TEST_ENV=deployment npm run build:test
           fi
 
-      - name: Publish latest version to Surge
+      - name: Publish latest version to AWS
         if: ${{ env.VERSION == env.LATEST_TAG }}
-        uses: dswistowski/surge-sh-action@v1.0.1
-        with:
-          domain: 'https://latest-onfido-sdk-ui-onfido.surge.sh'
-          project: './dist/'
-          login: ${{ secrets.SURGE_LOGIN }}
-          token: ${{ secrets.SURGE_TOKEN }}
+        run: aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/web-sdk-releases/latest/ --recursive --acl public-read
