@@ -5,7 +5,7 @@ import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
 import { validateFile } from '~utils/file'
 import { isButtonGroupStacked } from '../Theme/utils'
-import { trackComponentAndMode } from '../../Tracker'
+import { appendToTracking, trackComponent } from '../../Tracker'
 import { localised } from '~locales'
 import CustomFileInput from '../CustomFileInput'
 import PageTitle from '../PageTitle'
@@ -72,6 +72,7 @@ type UploaderProps = {
   subTitle?: string
   title: string
   uploadType: UploadType
+  countryCode?: string
 } & WithLocalisedProps &
   StepComponentBaseProps &
   WithTrackingProps
@@ -329,6 +330,14 @@ class Uploader extends Component<UploaderProps, UploaderState> {
     onUpload: () => {},
   }
 
+  componentDidMount = () => {
+    const { countryCode } = this.props
+    this.props.trackScreen(
+      undefined,
+      countryCode ? { country_code: countryCode } : undefined
+    )
+  }
+
   setError = (name: ErrorNames) =>
     this.setState({ error: { name }, isUploading: false })
 
@@ -388,9 +397,4 @@ class Uploader extends Component<UploaderProps, UploaderState> {
   }
 }
 
-export default trackComponentAndMode(
-  localised(Uploader),
-  'file_upload',
-  // @ts-ignore
-  'error'
-)
+export default appendToTracking(localised(Uploader), 'file_upload')

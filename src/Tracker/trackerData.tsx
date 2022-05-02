@@ -175,9 +175,14 @@ export const analyticsEventsMapping = new Map<
     'screen_document_back_capture_file_upload',
     {
       eventName: 'DOCUMENT_CAPTURE',
-      properties: { event_type: 'screen', document_side: 'back' },
+      properties: {
+        event_type: 'screen',
+        document_side: 'back',
+        capture_method_rendered: 'upload',
+      },
     },
   ],
+  // Note: Only the _file_upload ones for DOCUMENT_CAPTURE seem to be used
   [
     'screen_document_back_capture',
     {
@@ -189,7 +194,11 @@ export const analyticsEventsMapping = new Map<
     'screen_document_front_capture_file_upload',
     {
       eventName: 'DOCUMENT_CAPTURE',
-      properties: { event_type: 'screen', capture_method_rendered: 'upload' },
+      properties: {
+        event_type: 'screen',
+        capture_method_rendered: 'upload',
+        document_side: 'front',
+      },
     },
   ],
   [

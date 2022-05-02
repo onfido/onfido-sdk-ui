@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { localised } from '~locales'
 import { getSupportedCountriesForDocument } from '~supported-documents'
-import { trackComponent } from 'Tracker'
+import { appendToTracking } from 'Tracker'
 import theme from 'components/Theme/style.scss'
 import classNames from 'classnames'
 
@@ -23,6 +23,11 @@ export type DocProps = {
   StepComponentBaseProps
 
 class CountrySelection extends CountrySelectionBase {
+  trackScreen = () => {
+    this.props.trackScreen(undefined, {
+      document_type: this.props.documentType,
+    })
+  }
   hasChanges = (prevProps: Props): boolean | undefined => {
     return (
       prevProps.documentType &&
@@ -79,4 +84,4 @@ class CountrySelection extends CountrySelectionBase {
   }
 }
 
-export default trackComponent(localised(CountrySelection), 'country_select')
+export default appendToTracking(localised(CountrySelection), 'country_select')

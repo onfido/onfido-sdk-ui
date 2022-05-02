@@ -16,6 +16,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add support for `.env` file
 - Public: Update Proof of Address flow to present Country Select
 - Public: Determine Proof of Address document options from endpoint
+- Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
+- Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
 - Internal: Added test case configs to our demo app with queryString `testCase`
 - Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
 

@@ -182,38 +182,6 @@ const trackComponent = <P extends WithTrackingProps>(
     render = () => <WrappedComponent {...this.props} />
   }
 
-const trackComponentMode = <P extends WithTrackingProps>(
-  WrappedComponent: ComponentType<P>,
-  propKey: keyof P
-): ComponentType<P> =>
-  class TrackedComponentWithMode extends Component<P> {
-    componentDidMount() {
-      this.trackScreen(this.props)
-    }
-
-    trackScreen(props: P) {
-      const propValue = props[propKey]
-      propValue
-        ? this.props.trackScreen(propKey as string, { [propKey]: propValue })
-        : this.props.trackScreen()
-    }
-
-    componentWillReceiveProps(nextProps: P) {
-      if (this.props[propKey] !== nextProps[propKey]) {
-        this.trackScreen(nextProps)
-      }
-    }
-
-    render = () => <WrappedComponent {...this.props} />
-  }
-
-const trackComponentAndMode = <P extends WithTrackingProps>(
-  WrappedComponent: ComponentType<P>,
-  screenName: string,
-  propKey: keyof P
-): ComponentType<P> =>
-  appendToTracking(trackComponentMode(WrappedComponent, propKey), screenName)
-
 const trackException = (message: string, extra?: EventHint): void => {
   sentryHub?.captureException(new Error(message), extra)
 }
@@ -298,7 +266,6 @@ export {
   sendEvent,
   sendScreen,
   trackComponent,
-  trackComponentAndMode,
   appendToTracking,
   setWoopraCookie,
   getWoopraCookie,
