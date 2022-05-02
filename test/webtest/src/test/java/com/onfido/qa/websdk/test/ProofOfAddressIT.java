@@ -187,7 +187,7 @@ public class ProofOfAddressIT extends WebSdkIT {
 
     }
 
-    @Test(description = "should allow allo PoA then Document")
+    @Test(description = "should allow PoA then Document")
     public void testPoaFollowedByDocument() throws JsonProcessingException {
         onfido().withSteps("poa", "document", "complete")
                 .withOnComplete(new Raw("(data) => {window.onCompleteData = data}"))
