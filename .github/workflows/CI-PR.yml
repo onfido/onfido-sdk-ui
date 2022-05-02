@@ -166,7 +166,7 @@ jobs:
         working-directory: ./test/webtest
         id: chrome
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dit.test=!MultipleBrowsersDocumentUploadIT -DthreadCount=10 -Denvironment=headless"
+        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dit.test=!MultipleBrowsersDocumentUploadIT,!ReleaseIT -DthreadCount=10 -Denvironment=headless"
         shell: bash
         continue-on-error: true
         env:
