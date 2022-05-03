@@ -206,7 +206,7 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
     )
 
     if (!imageQualityWarning) {
-      completeStep([apiResponse])
+      completeStep([{ id: apiResponse.id }])
       nextStep()
     } else {
       this.setWarning(imageQualityWarning)
