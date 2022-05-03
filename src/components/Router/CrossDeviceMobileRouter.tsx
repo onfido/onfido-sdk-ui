@@ -390,7 +390,7 @@ export default class CrossDeviceMobileRouter extends Component<
         >
           <PoASupportedCountriesProvider
             url={urls.onfido_api_url}
-            token={token}
+            token={this.state.token}
             fallback={
               <Spinner
                 shouldAutoFocus={options.autoFocusOnInitialScreenTitle}
