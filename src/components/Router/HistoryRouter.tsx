@@ -92,6 +92,11 @@ export default class HistoryRouter extends Component<
         ? this.history.goBack()
         : this.history.goForward()
     } else {
+      const isNewStepType = this.props.currentStepType !== step.type
+
+      if (isNewStepType) {
+        this.props.actions.setCurrentStepType(step.type)
+      }
       this.setState({ ...historyState })
     }
   }
@@ -158,12 +163,6 @@ export default class HistoryRouter extends Component<
       const newStepIndex = componentsList.indexOf(nextStepComponent)
 
       this.setStepIndex(newStepIndex)
-
-      const newStepType = nextStepComponent.step.type
-      const isNewStepType = this.props.currentStepType !== newStepType
-      if (isNewStepType) {
-        this.props.actions.setCurrentStepType(newStepType)
-      }
     }
   }
 

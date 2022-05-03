@@ -350,10 +350,16 @@ class Uploader extends Component<UploaderProps, UploaderState> {
       uploadType,
       pageId,
       trackScreen,
+      currentStepType,
     } = this.props
+
     const isPassportUpload =
-      uploadType !== 'face' && documentType === 'passport'
+      uploadType !== 'face' &&
+      documentType === 'passport' &&
+      currentStepType !== 'poa'
+
     const captureType = uploadType === 'face' ? 'user' : 'environment'
+
     return (
       <div
         className={classNames(theme.fullHeightContainer, style.container)}
