@@ -1,8 +1,8 @@
 export type GetWorkflowFunc = () => Promise<WorkflowResponse>
 export type CompleteWorkflowFunc = (
   taskId: string,
-  personalData?: unknown,
-  docData?: unknown[]
+  personalData: Record<string, unknown>,
+  docData: Array<{ id: string }>
 ) => Promise<WorkflowResponse>
 
 export type GetFlowStepFunc = (
