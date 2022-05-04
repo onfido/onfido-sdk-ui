@@ -31,7 +31,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fix useLiveDocumentCapture onComplete not working (cross device capture `variant` missing)
 
 ## [6.20.1] - 2022-04-28
->>>>>>>>> Temporary merge branch 2
 
 ### Fixed
 
