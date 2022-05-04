@@ -51,8 +51,8 @@ export const createWorkflowStepsHook = (
 
   const { taskId, status, error, steps } = state
 
-  const docData = useRef<Array<unknown>>([])
-  const personalData = useRef({})
+  const docData = useRef<Array<{ id: string }>>([])
+  const personalData = useRef<Record<string, unknown>>({})
 
   const pollStep = useCallback((cb: () => void) => {
     if (!token) {
