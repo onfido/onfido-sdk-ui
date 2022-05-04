@@ -1,3 +1,4 @@
+@use '~@onfido/castor';
 @import '../Theme/constants';
 
 .documentContainer {
@@ -7,4 +8,12 @@
 
 .faceContainer {
   position: static;
+}
+
+.optional {
+  color: castor.color('content-secondary');
+}
+
+.submit-button {
+  margin-top: castor.space(4);
 }

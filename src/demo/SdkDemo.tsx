@@ -11,7 +11,13 @@ import {
 import SdkMount from './SdkMount'
 import ApplicantForm from './ApplicantForm'
 
-import type { ServerRegions, SdkOptions, SdkResponse } from '~types/sdk'
+import type {
+  ServerRegions,
+  SdkOptions,
+  SdkResponse,
+  SdkError,
+  UserExitCode,
+} from '~types/sdk'
 import type { ApplicantData } from './types'
 
 const DEFAULT_REGION: ServerRegions = 'EU'
@@ -29,6 +35,7 @@ const SdkDemo: FunctionComponent<Props> = ({
   sdkOptions,
   viewOptions,
 }) => {
+  const [workflow, setWorkflow] = useState<any>(undefined)
   const [token, setToken] = useState<string | undefined>(undefined)
   const [tokenUrl, setTokenUrl] = useState<string | undefined>(undefined)
   const [regionCode, setRegionCode] = useState<ServerRegions | undefined>(
@@ -39,6 +46,9 @@ const SdkDemo: FunctionComponent<Props> = ({
     undefined
   )
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const initSdkOptions = getInitSdkOptions()
+
+  const { workflowRunId } = queryParamToValueString
 
   useEffect(() => {
     if (queryParamToValueString.createCheck && !applicantData) {
@@ -63,16 +73,20 @@ const SdkDemo: FunctionComponent<Props> = ({
     const url = getTokenFactoryUrl(builtRegionCode)
     setTokenUrl(url)
 
-    getToken(
-      hasPreview,
-      url,
-      applicantData,
-      messagePort,
-      (respondedToken, responedApplicantId) => {
-        setToken(respondedToken)
-        setApplicantId(responedApplicantId)
-      }
-    )
+    if (queryParamToValueString.token) {
+      setToken(queryParamToValueString.token)
+    } else {
+      getToken(
+        hasPreview,
+        url,
+        applicantData,
+        messagePort,
+        (respondedToken, responedApplicantId) => {
+          setToken(respondedToken)
+          setApplicantId(responedApplicantId)
+        }
+      )
+    }
   }, [hasPreview, applicantData, messagePort, sdkOptions])
 
   const onComplete = (data: SdkResponse) => {
@@ -81,8 +95,20 @@ const SdkDemo: FunctionComponent<Props> = ({
       return
     }
 
+    if (initSdkOptions.onComplete) initSdkOptions.onComplete(data)
+
     console.log('Complete with data!', data)
     createCheckIfNeeded(tokenUrl, applicantId, data)
+  }
+
+  const onError = (error: SdkError) => {
+    if (initSdkOptions.onError) initSdkOptions.onError(error)
+    console.error('onError callback:', error)
+  }
+
+  const onUserExit = (userExitCode: UserExitCode) => {
+    if (initSdkOptions.onUserExit) initSdkOptions.onUserExit(userExitCode)
+    console.log('onUserExit callback:', userExitCode)
   }
 
   const { tearDown } = viewOptions || {}
@@ -92,14 +118,14 @@ const SdkDemo: FunctionComponent<Props> = ({
   }
 
   const options: SdkOptions = {
-    ...getInitSdkOptions(),
+    ...initSdkOptions,
     token,
     isModalOpen,
     onComplete,
-    onError: (error) => console.error('onError callback:', error),
-    onUserExit: (userExitCode) =>
-      console.log('onUserExit callback:', userExitCode),
+    onError,
+    onUserExit,
     onModalRequestClose: () => setIsModalOpen(false),
+    workflowRunId: queryParamToValueString.workflowRunId,
     ...(sdkOptions || {}),
   }
 
@@ -116,9 +142,14 @@ const SdkDemo: FunctionComponent<Props> = ({
           Verify identity
         </button>
       )}
-      {!token && queryParamToValueString.createCheck && applicantForm}
+      {token && queryParamToValueString.createCheck && applicantForm}
       {token && regionCode && tokenUrl && (
-        <SdkMount options={options} regionCode={regionCode} url={tokenUrl} />
+        <SdkMount
+          options={options}
+          regionCode={regionCode}
+          url={tokenUrl}
+          workflow={!!workflowRunId}
+        />
       )}
     </div>
   )

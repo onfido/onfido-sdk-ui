@@ -6,6 +6,15 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [next-version]
+
+### Changed
+
+- Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
+- Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
+- Internal: Added test case configs to our demo app with queryString `testCase`
+- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
+
 ## [8.0.0] - 2022-04-21
 
 ### Changed
@@ -22,6 +31,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fix useLiveDocumentCapture onComplete not working (cross device capture `variant` missing)
 
 ## [6.20.1] - 2022-04-28
+>>>>>>>>> Temporary merge branch 2
 
 ### Fixed
 

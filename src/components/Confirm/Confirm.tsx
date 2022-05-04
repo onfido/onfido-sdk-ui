@@ -30,7 +30,7 @@ import {
   ValidationError,
   ValidationReasons,
 } from '~types/api'
-import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import { WithLocalisedProps } from '~types/hocs'
 
 type ImageQualityValidationNames =
   | 'CUTOFF_DETECTED'
@@ -68,7 +68,7 @@ export type ConfirmProps = {
   method: CaptureMethods
   country: string
   side: DocumentSides
-  error: string // for trackComponentAndMode
+  error: string
 } & StepComponentBaseProps &
   WithLocalisedProps
 
@@ -86,6 +86,13 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
     this.state = {
       uploadInProgress: false,
     }
+  }
+
+  componentDidMount = () => {
+    this.props.trackScreen(undefined, {
+      document_type: this.props.documentType,
+      country_code: this.props.idDocumentIssuingCountry?.country_alpha2,
+    })
   }
 
   setError = (name: ErrorNames, errorMessage?: unknown) => {
@@ -189,7 +196,7 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
   onApiSuccess = (
     apiResponse: DocumentImageResponse | FaceVideoResponse | UploadFileResponse
   ) => {
-    const { nextStep, actions } = this.props
+    const { nextStep, completeStep, actions } = this.props
     const { capture } = this.state
 
     actions.setCaptureMetadata({ capture, apiResponse })
@@ -199,8 +206,8 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
     )
 
     if (!imageQualityWarning) {
-      // wait a tick to ensure the action completes before progressing
-      setTimeout(nextStep, 0)
+      completeStep([apiResponse])
+      nextStep()
     } else {
       this.setWarning(imageQualityWarning)
     }

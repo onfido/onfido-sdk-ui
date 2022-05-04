@@ -16,6 +16,7 @@ import type {
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
+  StepOptionData,
   StepOptionComplete,
   StepOptionAuth,
   StepConfig,
@@ -43,7 +44,8 @@ export type FlowChangeCallback = (
     userStepIndex: number
     clientStepIndex: number
     clientStep: ComponentStep
-  }
+  },
+  workflowSteps: StepConfig[]
 ) => void
 
 export type ChangeFlowProp = (
@@ -90,7 +92,8 @@ export type HistoryRouterProps = {
   sendClientSuccess?: () => void
   step?: number
   stepIndexType?: StepIndexType
-  steps: StepConfig[]
+  workflowRunId?: string
+  useSteps: StepsHook
 } & InternalRouterProps
 
 export type StepsRouterProps = {
@@ -102,6 +105,8 @@ export type StepsRouterProps = {
   previousStep: () => void
   step: number
   triggerOnError: ErrorCallback
+  isLoadingStep?: boolean
+  completeStep: (data: CompleteStepValue) => void
 } & HistoryRouterProps
 
 export type StepComponentBaseProps = {
@@ -122,6 +127,7 @@ export type StepComponentDocumentProps = StepOptionDocument &
   StepComponentBaseProps
 export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
+export type StepComponentDataProps = StepOptionData & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
 export type StepComponentAuthProps = StepOptionAuth & StepComponentBaseProps
@@ -131,6 +137,7 @@ export type StepComponentProps =
   | StepComponentDocumentProps
   | StepComponentPoaProps
   | StepComponentFaceProps
+  | StepComponentDataProps
   | StepComponentCompleteProps
   | StepComponentAuthProps
 
@@ -138,4 +145,36 @@ export type ComponentStep = {
   component: ComponentType<StepComponentProps>
   step: ExtendedStepConfig
   stepIndex: number
+}
+
+export type HistoryLocationState = {
+  step: number
+  flow: FlowVariants
+}
+
+export type StepperState = {
+  loadingStep: boolean
+  steps: StepConfig[]
+  taskId: string | null
+  completed: boolean
+  serviceError: string | null
+  personalData: unknown
+  docData: unknown[]
+}
+
+export type StepsLoadingStatus =
+  | 'idle'
+  | 'loading'
+  | 'success'
+  | 'finished'
+  | 'error'
+
+export type CompleteStepValue = unknown[] | Record<string, unknown>
+
+export type StepsHook = () => {
+  loadNextStep: (p: () => void) => void
+  completeStep: (data: CompleteStepValue) => void
+  status: StepsLoadingStatus
+  steps: StepConfig[]
+  error: string | undefined
 }

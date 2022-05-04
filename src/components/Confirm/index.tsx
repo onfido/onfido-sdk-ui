@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { connect } from 'react-redux'
 
 import { buildCaptureStateKey } from '~utils/redux'
-import { appendToTracking, trackComponentAndMode } from '../../Tracker'
+import { appendToTracking } from '../../Tracker'
 import { localised } from '~locales'
 import Confirm, { ConfirmProps } from './Confirm'
 import { RootState } from '~types/redux'
@@ -16,13 +16,8 @@ const mapStateToProps = (
   imageQualityRetries,
 })
 
-const TrackedConfirmComponent = trackComponentAndMode(
-  Confirm,
-  'confirmation',
-  'error'
-)
-
-//@ts-ignore
+const TrackedConfirmComponent = appendToTracking(Confirm, 'confirmation')
+// @ts-ignore
 const MapConfirm = connect(mapStateToProps)(localised(TrackedConfirmComponent))
 
 const PoAFrontWrapper = (props: ConfirmProps) => (
