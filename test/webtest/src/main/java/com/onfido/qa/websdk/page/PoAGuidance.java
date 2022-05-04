@@ -16,7 +16,7 @@ public class PoAGuidance extends BasePage {
     }
 
     public String logoText() {
-        return text(By.cssSelector(".onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(7)"));
+        return text(By.cssSelector(".onfido-sdk-ui-ProofOfAddress-Guidance-requirement"));
     }
 
     public String continueButtonText() {

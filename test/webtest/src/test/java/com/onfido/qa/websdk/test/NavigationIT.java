@@ -50,4 +50,15 @@ public class NavigationIT extends WebSdkIT {
                 .back(FaceVideoIntro.class);
 
     }
+
+    @Test(description = "should go back after attempting to continue on phone")
+    private void testNavigateToContinueOnMobileAndGoBack() {
+        onfido().withSteps("welcome", "document")
+                .init(Welcome.class)
+                .continueToNextStep(IdDocumentSelector.class)
+                .select(PASSPORT, DocumentUpload.class)
+                .continueOnPhone()
+                .back(DocumentUpload.class);
+
+    }
 }

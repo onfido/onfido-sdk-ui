@@ -6,7 +6,20 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version]
+## [8.0.0] - 2022-04-21
+
+### Changed
+
+- Public: Removed `userConsent` step option. User Consent is controlled by Onfido API.
+- Internal: Set `acceptSslCerts` to `true` for browserstack CI test to avoid "This connection is not private" screens
+- Internal: Migrate `ModalApp` to typescript
+- Internal: Add support for `.env` file
+- Public: Update Proof of Address flow to present Country Select
+- Public: Determine Proof of Address document options from endpoint
+
+### Fixed
+
+- Public: Fix useLiveDocumentCapture onComplete not working (cross device capture `variant` missing)
 
 ## [6.20.1] - 2022-04-28
 
@@ -38,6 +51,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added individual analytics `*_upload_started` & `*_upload_completed` events for all uploads
 - Internal: Fixed behavior for analytics event `CUSTOM_API_REQUEST_COMPLETED` & added `CUSTOM_API_REQUEST_COMPLETED`
 - Internal: Updated `integratorTrackedEvents` with multiple triggers for `UPLOAD` to reflect analytics upload events changes
+- Internal: Upgrade `minimist` to v1.2.6
 - Internal: Upgrade `node-fetch@2.6.7` & `node-forge@1.3.1`
 
 ### Fixed

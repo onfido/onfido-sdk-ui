@@ -3329,6 +3329,12 @@
     "path": "node_modules/dot-case",
     "licenseFile": "node_modules/dot-case/LICENSE"
   },
+  "dotenv@16.0.0": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/motdotla/dotenv",
+    "path": "node_modules/dotenv",
+    "licenseFile": "node_modules/dotenv/LICENSE"
+  },
   "dts-bundle-generator@5.5.0": {
     "licenses": "MIT",
     "repository": "https://github.com/timocov/dts-bundle-generator",
@@ -6422,13 +6428,13 @@
     "path": "node_modules/onetime",
     "licenseFile": "node_modules/onetime/license"
   },
-  "onfido-sdk-ui@6.20.1": {
+  "onfido-sdk-ui@8.0.0": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/danny/Onfido/onfido-sdk-ui",
+    "path": "/Users/nicolas/Dev/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "open@8.4.0": {

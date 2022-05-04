@@ -9,15 +9,19 @@ type SdkConfigurationServiceProviderProps = {
   url?: string
   token?: string
   fallback?: ComponentChildren
+  overrideConfiguration?: SdkConfiguration
 }
 
 const defaultConfiguration: SdkConfiguration = {
   experimental_features: {
     enable_multi_frame_capture: false,
   },
+  sdk_features: {
+    enable_require_applicant_consents: true,
+  },
 }
 
-const SdkConfigurationServiceContext = createContext<SdkConfiguration>(
+export const SdkConfigurationServiceContext = createContext<SdkConfiguration>(
   defaultConfiguration
 )
 
@@ -26,10 +30,13 @@ export const SdkConfigurationServiceProvider = ({
   url,
   token,
   fallback,
+  overrideConfiguration = {},
 }: SdkConfigurationServiceProviderProps) => {
   const [configuration, setConfiguration] = useState<
     SdkConfiguration | undefined
   >(undefined)
+
+  const [overrideConfigurationState] = useState(overrideConfiguration)
 
   useEffect(() => {
     if (!url || !token) {
@@ -37,10 +44,18 @@ export const SdkConfigurationServiceProvider = ({
     }
     getSdkConfiguration(url, token)
       .then((apiConfiguration) =>
-        setConfiguration(deepmerge(defaultConfiguration, apiConfiguration))
+        setConfiguration(
+          deepmerge(
+            deepmerge(defaultConfiguration, apiConfiguration),
+            // TODO: Cleanup the overrideConfigurationState and add it to the mock server
+            process.env.NODE_ENV === 'production'
+              ? {}
+              : overrideConfigurationState
+          )
+        )
       )
       .catch(() => setConfiguration(defaultConfiguration))
-  }, [url, token])
+  }, [url, token, overrideConfigurationState])
 
   if (!configuration) {
     return <Fragment>{fallback}</Fragment>

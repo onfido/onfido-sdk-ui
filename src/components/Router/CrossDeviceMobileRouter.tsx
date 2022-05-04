@@ -34,6 +34,7 @@ import type {
 import type { StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
+import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
 
 const RESTRICTED_CROSS_DEVICE = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -259,7 +260,9 @@ export default class CrossDeviceMobileRouter extends Component<
 
     if (poaDocumentType) {
       this.props.actions.setPoADocumentType(poaDocumentType)
-    } else if (documentType) {
+    }
+
+    if (documentType) {
       this.props.actions.setIdDocumentType(documentType)
 
       if (documentType !== 'passport' && idDocumentIssuingCountry) {
@@ -348,7 +351,7 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   renderContent = (): h.JSX.Element => {
-    const { hasCamera } = this.props
+    const { hasCamera, token, options, urls } = this.props
     const { crossDeviceError, loading, steps } = this.state
 
     if (loading) {
@@ -380,17 +383,28 @@ export default class CrossDeviceMobileRouter extends Component<
     if (steps) {
       return (
         <SdkConfigurationServiceProvider
+          overrideConfiguration={this.props.options.overrideSdkConfiguration}
           url={this.props.urls.onfido_api_url}
           token={this.state.token}
           fallback={<WrappedSpinner disableNavigation />}
         >
-          <HistoryRouter
-            {...this.props}
-            {...this.state}
-            crossDeviceClientError={this.setError}
-            sendClientSuccess={this.sendClientSuccess}
-            steps={steps}
-          />
+          <PoASupportedCountriesProvider
+            url={urls.onfido_api_url}
+            token={this.state.token}
+            fallback={
+              <Spinner
+                shouldAutoFocus={options.autoFocusOnInitialScreenTitle}
+              />
+            }
+          >
+            <HistoryRouter
+              {...this.props}
+              {...this.state}
+              crossDeviceClientError={this.setError}
+              sendClientSuccess={this.sendClientSuccess}
+              steps={steps}
+            />
+          </PoASupportedCountriesProvider>
         </SdkConfigurationServiceProvider>
       )
     }

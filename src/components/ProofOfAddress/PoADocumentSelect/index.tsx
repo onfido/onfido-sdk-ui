@@ -1,12 +1,29 @@
+import { h } from 'preact'
 import { trackComponent } from '../../../Tracker'
 import {
   DocumentOptions,
   DocumentOptionsType,
 } from '../../DocumentSelector/documentTypes'
-import { DocumentSelectorBase } from '../../DocumentSelector'
+import { DocumentSelectorBase, Props } from '../../DocumentSelector'
 import { upperCase } from '~utils/string'
+import { PoaTypes } from '~types/steps'
+import usePoASupportedCountries from '~contexts/usePoASupportedCountries'
+import { map, omitBy } from '~utils/object'
+
+type CountryData = {
+  country_alpha3: string
+  country_alpha2: string
+  country: string
+  document_types: PoaTypes[]
+}
 
 class PoADocumentSelector extends DocumentSelectorBase {
+  constructor(props: Props) {
+    super(props)
+
+    this.country = upperCase(props.poaDocumentCountry?.country_alpha3) || 'GBR'
+  }
+
   handleDocumentTypeSelected(option: DocumentOptionsType): void {
     this.props.actions.setPoADocumentType(option.type)
   }
@@ -20,7 +37,18 @@ class PoADocumentSelector extends DocumentSelectorBase {
   }
 
   getDefaultOptions(): DocumentOptions {
-    return poaDocumentOptions
+    const { countryList } = this.props || []
+
+    const options = map(poaDocumentOptions, (config, key) => ({
+      ...config,
+      checkAvailableInCountry: (code: string) => {
+        return countryList
+          ?.find((country) => country.country_alpha3 === code)
+          ?.document_types.includes(key as PoaTypes)
+      },
+    }))
+
+    return options as DocumentOptions
   }
 
   pageId(): string {
@@ -28,9 +56,11 @@ class PoADocumentSelector extends DocumentSelectorBase {
   }
 }
 
-const isUK = (code: string) => upperCase(code) === 'GBR'
-const isNonUK = (code: string) => upperCase(code) !== 'GBR'
-const unavailable = (code: string) => false
+const PoADocumentSelection = (props: Props) => {
+  const countries = usePoASupportedCountries()
+
+  return <PoADocumentSelector {...props} countryList={countries} />
+}
 
 // REFACTOR: move this into the selector as soon as the
 export const poaDocumentOptions: DocumentOptions = {
@@ -47,20 +77,17 @@ export const poaDocumentOptions: DocumentOptions = {
   council_tax: {
     labelKey: 'doc_select.button_tax_letter',
     icon: 'icon-letter',
-    checkAvailableInCountry: isUK,
   },
   benefit_letters: {
     labelKey: 'doc_select.button_benefits_letter',
     detailKey: 'doc_select.button_benefits_letter_detail',
     icon: 'icon-letter',
-    checkAvailableInCountry: isUK,
   },
   government_letter: {
     labelKey: 'doc_select.button_government_letter',
     detailKey: 'doc_select.button_government_letter_detail',
     icon: 'icon-letter',
-    checkAvailableInCountry: unavailable,
   },
 }
 
-export default trackComponent(PoADocumentSelector, 'type_select')
+export default trackComponent(PoADocumentSelection, 'type_select')

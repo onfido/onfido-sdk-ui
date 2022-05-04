@@ -1,7 +1,7 @@
-import { WithTrackingProps } from '~types/hocs'
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'
+import ProofOfAddress from './ProofOfAddress'
 import withCaptureVariant from './withCaptureVariant'
 
 export const DocumentFrontCapture = appendToTracking(
@@ -18,10 +18,8 @@ export const DocumentVideoCapture = appendToTracking(
 )
 
 export const PoACapture = appendToTracking(
-  withCaptureVariant(Document, {
-    isPoA: true,
+  withCaptureVariant(ProofOfAddress, {
     forceCrossDevice: false,
-    side: 'front',
   }),
   'poa'
 )

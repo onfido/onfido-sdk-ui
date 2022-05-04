@@ -13,11 +13,17 @@ const previousComponentType = ({
   flow = 'captureSteps',
   documentType,
   poaDocumentType,
+  poaDocumentCountry,
   steps,
   step,
 }) =>
-  buildComponentsList({ flow, documentType, poaDocumentType, steps })[step || 0]
-    .step.type
+  buildComponentsList({
+    flow,
+    documentType,
+    poaDocumentType,
+    poaDocumentCountry,
+    steps,
+  })[step || 0].step.type
 
 const getStageIcon = (key, isFace) => {
   const iconPrefix = 'stageIcon'

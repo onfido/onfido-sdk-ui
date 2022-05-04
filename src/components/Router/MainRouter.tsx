@@ -13,6 +13,9 @@ import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 import Spinner from '../Spinner'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
+import { OptionsSteps } from './OptionsSteps'
+import { UserConsentProvider } from '~contexts/useUserConsent'
+import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
@@ -38,6 +41,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     const {
       documentType,
       idDocumentIssuingCountry,
+      poaDocumentCountry,
       poaDocumentType,
       deviceHasCameraSupport,
       options,
@@ -75,6 +79,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
       idDocumentIssuingCountry,
+      poaDocumentCountry,
       language,
       poaDocumentType,
       step: crossDeviceInitialStep,
@@ -139,19 +144,42 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
 
     return (
       <SdkConfigurationServiceProvider
+        overrideConfiguration={this.props.options.overrideSdkConfiguration}
         url={urls.onfido_api_url}
         token={token}
         fallback={
           <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
         }
       >
-        <HistoryRouter
-          {...this.props}
-          mobileConfig={this.generateMobileConfig()}
-          onFlowChange={this.onFlowChange}
-          stepIndexType="user"
-          steps={this.props.options.steps}
-        />
+        <UserConsentProvider
+          url={urls.onfido_api_url}
+          token={token}
+          fallback={
+            <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
+          }
+        >
+          <PoASupportedCountriesProvider
+            url={urls.onfido_api_url}
+            token={token}
+            fallback={
+              <Spinner
+                shouldAutoFocus={options.autoFocusOnInitialScreenTitle}
+              />
+            }
+          >
+            <OptionsSteps options={this.props.options}>
+              {(steps) => (
+                <HistoryRouter
+                  {...this.props}
+                  mobileConfig={this.generateMobileConfig()}
+                  onFlowChange={this.onFlowChange}
+                  stepIndexType="user"
+                  steps={steps}
+                />
+              )}
+            </OptionsSteps>
+          </PoASupportedCountriesProvider>
+        </UserConsentProvider>
       </SdkConfigurationServiceProvider>
     )
   }

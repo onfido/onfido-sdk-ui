@@ -5,8 +5,13 @@ import { DocumentTypes, PoaTypes, StepConfig, StepTypes } from './steps'
 import { SdkOptions } from './sdk'
 import { UICustomizationOptions } from './ui-customisation-options'
 
-export interface NormalisedSdkOptions extends SdkOptions {
+export interface NormalisedSdkOptions extends Omit<SdkOptions, 'steps'> {
   steps: StepConfig[]
+}
+
+export interface SDKOptionsWithRenderData extends NormalisedSdkOptions {
+  containerId: string | 'onfido-mount'
+  containerEl: HTMLElement
 }
 
 export type NarrowSdkOptions = Omit<
@@ -23,7 +28,7 @@ const STEP_CROSS_DEVICE = 'crossDevice'
 export type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
 export type ExtendedStepConfig =
   | StepConfig
-  | { type: typeof STEP_CROSS_DEVICE; options?: never }
+  | { type: typeof STEP_CROSS_DEVICE; options?: never; skip?: boolean }
 
 export type CaptureMethods = 'poa' | 'document' | 'face' | 'auth'
 
@@ -124,6 +129,7 @@ export type MobileConfig = {
   documentType?: DocumentTypes
   enterpriseFeatures?: EnterpriseFeatures
   idDocumentIssuingCountry?: CountryData
+  poaDocumentCountry?: CountryData
   language?: SupportedLanguages | LocaleConfig
   poaDocumentType?: PoaTypes
   step?: number

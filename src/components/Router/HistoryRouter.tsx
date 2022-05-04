@@ -79,7 +79,26 @@ export default class HistoryRouter extends Component<
   onHistoryChange: LocationListener<HistoryLocationState> = ({
     state: historyState,
   }) => {
-    this.setState({ ...historyState })
+    if (!historyState) {
+      return
+    }
+
+    const { step } = this.getComponentsList(historyState.flow)[
+      historyState.step
+    ]
+
+    if (step.skip) {
+      historyState.step < this.state.step
+        ? this.history.goBack()
+        : this.history.goForward()
+    } else {
+      const isNewStepType = this.props.currentStepType !== step.type
+
+      if (isNewStepType) {
+        this.props.actions.setCurrentStepType(step.type)
+      }
+      this.setState({ ...historyState })
+    }
   }
 
   componentWillUnmount(): void {
@@ -95,9 +114,16 @@ export default class HistoryRouter extends Component<
     return (
       this.props.isNavigationDisabled ||
       this.initialStep() ||
-      this.getStepType(this.state.step) === 'complete'
+      this.getStepType(this.state.step) === 'complete' ||
+      this.firstEnabledStep()
     )
   }
+
+  firstEnabledStep = () =>
+    this.state.step > 0 &&
+    this.getComponentsList()
+      .slice(0, this.state.step)
+      .every((c) => c.step.skip)
 
   initialStep = (): boolean =>
     this.state.initialStep === this.state.step &&
@@ -126,16 +152,17 @@ export default class HistoryRouter extends Component<
   nextStep = (): void => {
     const { step: currentStep } = this.state
     const componentsList = this.getComponentsList()
-    const newStepIndex = currentStep + 1
-    if (componentsList.length === newStepIndex) {
+
+    const nextStepComponent = componentsList
+      .slice(currentStep + 1)
+      .find((c) => !c.step.skip)
+
+    if (!nextStepComponent) {
       this.triggerOnComplete()
     } else {
+      const newStepIndex = componentsList.indexOf(nextStepComponent)
+
       this.setStepIndex(newStepIndex)
-      const newStepType = componentsList[newStepIndex].step.type
-      const isNewStepType = this.props.currentStepType !== newStepType
-      if (isNewStepType) {
-        this.props.actions.setCurrentStepType(newStepType)
-      }
     }
   }
 
@@ -229,6 +256,7 @@ export default class HistoryRouter extends Component<
   ): ComponentStep[] => {
     const {
       documentType,
+      poaDocumentCountry,
       steps,
       deviceHasCameraSupport,
       options: { mobileFlow },
@@ -241,6 +269,7 @@ export default class HistoryRouter extends Component<
     return buildComponentsList({
       flow: flow || this.state.flow,
       documentType,
+      poaDocumentCountry,
       steps,
       mobileFlow,
       deviceHasCameraSupport,
