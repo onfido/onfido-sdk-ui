@@ -20,6 +20,7 @@ import type {
   StepOptionComplete,
   StepOptionAuth,
   StepConfig,
+  StepOptionRetry,
 } from './steps'
 import type {
   CombinedActions,
@@ -131,6 +132,7 @@ export type StepComponentDataProps = StepOptionData & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
 export type StepComponentAuthProps = StepOptionAuth & StepComponentBaseProps
+export type StepComponentRetryProps = StepOptionRetry & StepComponentBaseProps
 
 export type StepComponentProps =
   | StepComponentBaseProps
@@ -140,6 +142,7 @@ export type StepComponentProps =
   | StepComponentDataProps
   | StepComponentCompleteProps
   | StepComponentAuthProps
+  | StepComponentRetryProps
 
 export type ComponentStep = {
   component: ComponentType<StepComponentProps>

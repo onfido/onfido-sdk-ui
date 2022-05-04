@@ -61,9 +61,11 @@ export type StepOptionWelcome = {
 }
 
 export type StepOptionRetry = {
-  title?: string
-  descriptions?: string[]
-  nextButton?: string
+  text?: {
+    headline?: string
+    description?: string
+    button_title?: string
+  }
 }
 
 export type StepOptionAuth = { retries?: number }

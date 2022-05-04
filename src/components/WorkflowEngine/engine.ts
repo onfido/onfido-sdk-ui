@@ -114,12 +114,7 @@ export class Engine implements EngineInterface {
         return {
           type: 'document',
           options: {
-            textConfig: {
-              headline: 'Your document has expired',
-              description:
-                'Please try again with a valid photo ID and make sure your information is clearly visible',
-              button_title: 'Try again',
-            },
+            ...configuration,
           },
         }
       case 'upload_face_photo':
