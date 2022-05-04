@@ -9,6 +9,7 @@ const STEP_CROSS_DEVICE_SESSION_INTRO = 'crossDeviceSessionIntro'
 const STEP_WORKFLOW_PASS = 'pass'
 const STEP_WORKFLOW_REJECT = 'reject'
 const STEP_DATA_CAPTURE = 'data'
+const STEP_WORKFLOW_RETRY = 'retry'
 
 export type PublicStepTypes =
   | typeof STEP_WELCOME
@@ -21,6 +22,7 @@ export type PublicStepTypes =
   | typeof STEP_WORKFLOW_PASS
   | typeof STEP_WORKFLOW_REJECT
   | typeof STEP_DATA_CAPTURE
+  | typeof STEP_WORKFLOW_RETRY
 
 export type StepTypes = PublicStepTypes | typeof STEP_USER_CONSENT
 
@@ -53,6 +55,12 @@ export type CaptureOptions = {
 }
 
 export type StepOptionWelcome = {
+  title?: string
+  descriptions?: string[]
+  nextButton?: string
+}
+
+export type StepOptionRetry = {
   title?: string
   descriptions?: string[]
   nextButton?: string
@@ -123,6 +131,7 @@ type StepOptionsMap = {
   pass: StepOptionPass
   reject: StepOptionReject
   data: StepOptionData
+  retry: StepOptionRetry
 }
 
 export type StepConfigMap = {
@@ -143,6 +152,7 @@ export type StepConfigComplete = StepConfigMap['complete']
 export type StepConfigPass = StepConfigMap['pass']
 export type StepConfigReject = StepConfigMap['reject']
 export type StepConfigData = StepConfigMap['data']
+export type StepConfigRetry = StepConfigMap['retry']
 
 export type PublicStepConfig =
   | StepConfigWelcome
@@ -155,6 +165,7 @@ export type PublicStepConfig =
   | StepConfigPass
   | StepConfigReject
   | StepConfigData
+  | StepConfigRetry
 
 type PrivateStepConfig = { skip?: boolean }
 

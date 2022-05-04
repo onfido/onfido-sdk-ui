@@ -113,7 +113,14 @@ export class Engine implements EngineInterface {
       case 'upload_document_photo':
         return {
           type: 'document',
-          options: { ...configuration },
+          options: {
+            textConfig: {
+              headline: 'Your document has expired',
+              description:
+                'Please try again with a valid photo ID and make sure your information is clearly visible',
+              button_title: 'Try again',
+            },
+          },
         }
       case 'upload_face_photo':
         return {
@@ -157,6 +164,19 @@ export class Engine implements EngineInterface {
               town: '',
               state: '',
               postcode: '',
+            },
+          },
+        }
+      case 'retry':
+        return {
+          type: 'retry',
+          options: {
+            ...configuration,
+            text: {
+              headline: 'Your document has expired',
+              description:
+                'Please try again with a valid photo ID and make sure your information is clearly visible',
+              button_title: 'Try again',
             },
           },
         }

@@ -132,9 +132,11 @@ export type LegacyTrackedEventNames =
   | 'document_video_upload_completed'
   | 'face_video_upload_started'
   | 'face_video_upload_completed'
+  | 'screen_workflow_retry'
 
 export type UserAnalyticsEventNames =
   | 'WELCOME'
+  | 'WORKFLOW_RETRY'
   | 'USER_CONSENT'
   | 'DATA_CAPTURE'
   | 'DOCUMENT_CAPTURE_FRONT'
@@ -305,6 +307,7 @@ export type AnalyticsTrackedEventNames =
   | 'DATA_CAPTURE'
   | 'DATA_CAPTURE_ERROR'
   | 'WELCOME'
+  | 'WORKFLOW_RETRY'
   | 'DOCUMENT_UPLOAD_STARTED'
   | 'DOCUMENT_UPLOAD_COMPLETED'
   | 'DOCUMENT_VIDEO_UPLOAD_STARTED'
