@@ -288,6 +288,13 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_face_selfie_capture_capture_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_CAPTURE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_face_selfie_confirmation',
     {
       eventName: 'FACE_SELFIE_CONFIRMATION',
