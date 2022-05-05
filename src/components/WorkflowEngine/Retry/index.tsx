@@ -10,13 +10,13 @@ import { WithTrackingProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
 
 type RetryTextConfigProps = {
-  headline: string
-  description: string
-  button_title: string
+  headline?: string 
+  description?: string
+  button_title?: string
 }
 
 type RetryProps = StepComponentBaseProps & {
-  text: RetryTextConfigProps
+  text?: RetryTextConfigProps
 } & WithTrackingProps
 
 const Retry: FunctionComponent<RetryProps> = ({ text, nextStep }) => {
@@ -28,7 +28,7 @@ const Retry: FunctionComponent<RetryProps> = ({ text, nextStep }) => {
       onClick={nextStep}
       data-onfido-qa="retry-btn"
     >
-      {text.button_title}
+      {text?.button_title || 'test'}
     </Button>
   )
 
@@ -39,8 +39,8 @@ const Retry: FunctionComponent<RetryProps> = ({ text, nextStep }) => {
       pageId={'Retry'}
     >
       <PageTitle
-        title={text.headline}
-        subTitle={text.description}
+        title={text?.headline || 'test'}
+        subTitle={text?.description || 'test'}
         shouldAutoFocus={true}
       />
     </ScreenLayout>

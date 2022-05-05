@@ -167,12 +167,6 @@ export class Engine implements EngineInterface {
           type: 'retry',
           options: {
             ...configuration,
-            text: {
-              headline: 'Your document has expired',
-              description:
-                'Please try again with a valid photo ID and make sure your information is clearly visible',
-              button_title: 'Try again',
-            },
           },
         }
       default:
