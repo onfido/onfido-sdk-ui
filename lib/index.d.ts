@@ -14,7 +14,8 @@ declare const STEP_FACE = "face";
 declare const STEP_COMPLETE = "complete";
 declare const STEP_AUTH = "auth";
 declare const STEP_CROSS_DEVICE_SESSION_INTRO = "crossDeviceSessionIntro";
-export declare type StepTypes = typeof STEP_WELCOME | typeof STEP_USER_CONSENT | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE | typeof STEP_AUTH | typeof STEP_CROSS_DEVICE_SESSION_INTRO;
+export declare type PublicStepTypes = typeof STEP_WELCOME | typeof STEP_DOCUMENT | typeof STEP_POA | typeof STEP_FACE | typeof STEP_COMPLETE | typeof STEP_AUTH | typeof STEP_CROSS_DEVICE_SESSION_INTRO;
+export declare type StepTypes = PublicStepTypes | typeof STEP_USER_CONSENT;
 export declare type DocumentTypes = "passport" | "driving_licence" | "national_identity_card" | "residence_permit";
 export declare type PoaTypes = "bank_building_society_statement" | "utility_bill" | "council_tax" | "benefit_letters" | "government_letter";
 export declare type RequestedVariant = "standard" | "video";
@@ -80,7 +81,11 @@ export declare type StepConfigDocument = StepConfigMap["document"];
 export declare type StepConfigPoa = StepConfigMap["poa"];
 export declare type StepConfigFace = StepConfigMap["face"];
 export declare type StepConfigComplete = StepConfigMap["complete"];
-export declare type StepConfig = StepConfigWelcome | StepConfigUserConsent | StepConfigDocument | StepConfigPoa | StepConfigFace | StepConfigComplete | StepConfigAuth | StepConfigCrossDeviceSessionIntro;
+export declare type PublicStepConfig = StepConfigWelcome | StepConfigDocument | StepConfigPoa | StepConfigFace | StepConfigComplete | StepConfigAuth | StepConfigCrossDeviceSessionIntro;
+export declare type PrivateStepConfig = {
+	skip?: boolean;
+};
+export declare type StepConfig = (PublicStepConfig | StepConfigUserConsent) & PrivateStepConfig;
 export declare type UICustomizationOptions = {
 	colorBackgroundSurfaceModal?: string;
 	colorBorderSurfaceModal?: string;
@@ -151,6 +156,9 @@ export declare type UICustomizationOptions = {
 	authFeedbackBarColor?: string;
 	authFeedbackBarTextColor?: string;
 };
+export interface NormalisedSdkOptions extends Omit<SdkOptions, "steps"> {
+	steps: StepConfig[];
+}
 export declare type DocumentSides = "front" | "back";
 export declare type ImageQualityValidationTypes = "detect_document" | "detect_cutoff" | "detect_glare" | "detect_blur";
 export declare type UploadFileResponse = {
@@ -189,6 +197,70 @@ export declare type FaceVideoResponse = {
 	challenge: ChallengePayload[];
 	languages: VideoChallengeLanguage[];
 } & UploadFileResponse;
+export interface ApplyFilter {
+	doc_type?: string;
+}
+export interface BiometricsLiveness {
+	active?: BiometricsLivenessActive;
+	passive?: BiometricsLivenessPassive;
+}
+export interface BiometricsLivenessActive {
+	enabled?: boolean;
+	video_settings?: BiometricsLivenessActiveVideoSettings;
+}
+export interface BiometricsLivenessActiveVideoSettings {
+	framerate?: number;
+	bitrate?: number;
+	duration?: number;
+	focusLock?: boolean;
+	white_balanceLock?: boolean;
+	exposure_lock?: boolean;
+	codec?: string;
+	codec_profile?: number;
+}
+export interface BiometricsLivenessPassive {
+	enabled?: boolean;
+	video_settings?: BiometricsLivenessPassiveVideoSettings;
+}
+export interface BiometricsLivenessPassiveVideoSettings {
+	framerate?: number;
+	bitrate?: number;
+	duration?: number;
+	focus_lock?: boolean;
+	white_balance_lock?: boolean;
+	exposure_lock?: boolean;
+	codec?: string;
+}
+export interface DocumentCapture {
+	torch_turn_on_timeMs?: number;
+	video_length_ms?: number;
+	video_bitrate?: number;
+}
+export interface ExperimentalFeatures {
+	enable_image_quality_service?: boolean;
+	enable_multi_frame_capture?: boolean;
+}
+export interface SdkFeatures {
+	enable_require_applicant_consents?: boolean;
+}
+export interface OnDeviceValidation {
+	max_total_retries?: number;
+	threshold?: number;
+	applies_to?: ApplyFilter[];
+}
+export interface SdkConfigurationValidations {
+	on_device?: SdkConfigurationValidationsOnDevice;
+}
+export interface SdkConfigurationValidationsOnDevice {
+	blur?: OnDeviceValidation;
+}
+export declare type SdkConfiguration = {
+	validations?: SdkConfigurationValidations;
+	experimental_features?: ExperimentalFeatures;
+	document_capture?: DocumentCapture;
+	biometrics_liveness?: BiometricsLiveness;
+	sdk_features?: SdkFeatures;
+};
 export declare type EnterpriseCobranding = {
 	text: string;
 };
@@ -261,17 +333,18 @@ export interface SdkOptions extends FunctionalConfigurations {
 	userDetails?: {
 		smsNumber?: string;
 	};
-	steps?: Array<StepTypes | StepConfig>;
+	steps?: Array<PublicStepTypes | PublicStepConfig>;
 	enterpriseFeatures?: EnterpriseFeatures;
 	customUI?: UICustomizationOptions | null;
 	autoFocusOnInitialScreenTitle?: boolean;
 	crossDeviceClientIntroProductName?: string;
 	crossDeviceClientIntroProductLogoSrc?: string;
 	_crossDeviceLinkMethods?: Array<string> | null;
+	overrideSdkConfiguration?: Partial<SdkConfiguration>;
 }
 export declare type SdkHandle = {
 	containerId?: string;
-	options: SdkOptions;
+	options: NormalisedSdkOptions;
 	setOptions(options: SdkOptions): void;
 	tearDown(): void;
 };
