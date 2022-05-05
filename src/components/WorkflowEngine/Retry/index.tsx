@@ -10,7 +10,7 @@ import { WithTrackingProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
 
 type RetryTextConfigProps = {
-  headline?: string 
+  headline?: string
   description?: string
   button_title?: string
 }
