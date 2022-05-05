@@ -10,6 +10,13 @@
   position: static;
 }
 
+.form {
+  display: grid;
+  gap: castor.space(2);
+  grid: auto-flow / 1fr;
+  width: 100%;
+}
+
 .optional {
   color: castor.color('content-secondary');
 }
