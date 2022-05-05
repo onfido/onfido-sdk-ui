@@ -19,9 +19,6 @@ const DateOfBirthInputComponent: FunctionComponent<DateOfBirthInputProps> = ({
 }) => {
   const [yyyy = '', mm = '', dd = ''] = `${value}`.split('-')
 
-  const maxDd = getMaxDay(yyyy, mm)
-  const maxYyyy = new Date().getFullYear()
-
   const changeFieldValue = (
     type: 'yyyy' | 'mm' | 'dd',
     value: number | string
@@ -38,36 +35,33 @@ const DateOfBirthInputComponent: FunctionComponent<DateOfBirthInputProps> = ({
       <div className={classNames(styles['inputContainer'], styles['small'])}>
         <Input
           {...restInputProps}
-          type="number"
+          type="text"
           name={makeInputName('month', name)}
           placeholder="MM"
           value={mm}
-          min={1}
-          max={12}
+          maxLength={2}
           onChange={({ target: { value } }) => changeFieldValue('mm', value)}
         />
       </div>
       <div className={classNames(styles['inputContainer'], styles['small'])}>
         <Input
           {...restInputProps}
-          type="number"
+          type="text"
           name={makeInputName('day', name)}
           placeholder="DD"
           value={dd}
-          min={1}
-          max={maxDd}
+          maxLength={2}
           onChange={({ target: { value } }) => changeFieldValue('dd', value)}
         />
       </div>
       <div className={classNames(styles['inputContainer'], styles['large'])}>
         <Input
           {...restInputProps}
-          type="number"
+          type="text"
           name={makeInputName('year', name)}
           placeholder="YYYY"
           value={yyyy}
-          min={1900}
-          max={maxYyyy}
+          maxLength={4}
           onChange={({ target: { value } }) => changeFieldValue('yyyy', value)}
         />
       </div>
