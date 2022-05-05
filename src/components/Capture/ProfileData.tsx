@@ -80,27 +80,29 @@ const ProfileData = ({
   return (
     <ScreenLayout>
       <PageTitle title={translate(`profile_data.${title}`)} />
-      {Object.entries(formData).map(([type, value]) => (
-        <FieldComponent
-          key={type}
-          type={type as FieldComponentProps['type']}
-          value={value as FieldComponentProps['value']}
-          selectedCountry={formData.country}
-          setToucher={setToucher}
-          removeToucher={removeToucher}
-          onChange={handleChange}
-        />
-      ))}
-      <Button
-        onClick={handleSubmit}
-        className={classNames(
-          theme['button-centered'],
-          theme['button-lg'],
-          style['submit-button']
-        )}
-      >
-        {translate('profile_data.button_submit')}
-      </Button>
+      <div className={style['form']}>
+        {Object.entries(formData).map(([type, value]) => (
+          <FieldComponent
+            key={type}
+            type={type as FieldComponentProps['type']}
+            value={value as FieldComponentProps['value']}
+            selectedCountry={formData.country}
+            setToucher={setToucher}
+            removeToucher={removeToucher}
+            onChange={handleChange}
+          />
+        ))}
+        <Button
+          onClick={handleSubmit}
+          className={classNames(
+            theme['button-centered'],
+            theme['button-lg'],
+            style['submit-button']
+          )}
+        >
+          {translate('profile_data.button_submit')}
+        </Button>
+      </div>
     </ScreenLayout>
   )
 }
