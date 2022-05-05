@@ -28,7 +28,7 @@ const Retry: FunctionComponent<RetryProps> = ({ text, nextStep }) => {
       onClick={nextStep}
       data-onfido-qa="retry-btn"
     >
-      {text?.button_title || 'test'}
+      {text?.button_title}
     </Button>
   )
 
@@ -39,8 +39,8 @@ const Retry: FunctionComponent<RetryProps> = ({ text, nextStep }) => {
       pageId={'Retry'}
     >
       <PageTitle
-        title={text?.headline || 'test'}
-        subTitle={text?.description || 'test'}
+        title={text?.headline || ''}
+        subTitle={text?.description}
         shouldAutoFocus={true}
       />
     </ScreenLayout>
