@@ -420,9 +420,9 @@ const translateSpecific = (
       return 'field_labels.usa_specific.state'
     case 'label_postcode_usa':
       return 'field_labels.usa_specific.postcode'
-    case 'helper_text_line_1_usa':
+    case 'helper_text_line1_usa':
       return 'field_labels.usa_specific.line1_helper_text'
-    case 'helper_text_line_2_usa':
+    case 'helper_text_line2_usa':
       return 'field_labels.usa_specific.line2_helper_text'
     case 'validation_required_postcode_gbr':
       return 'field_validation.gbr_specific.required_postcode'
