@@ -22,9 +22,12 @@ export type PublicStepTypes =
   | typeof STEP_WORKFLOW_PASS
   | typeof STEP_WORKFLOW_REJECT
   | typeof STEP_DATA_CAPTURE
-  | typeof STEP_WORKFLOW_RETRY
 
-export type StepTypes = PublicStepTypes | typeof STEP_USER_CONSENT
+export type PrivateStepTypes =
+  | typeof STEP_WORKFLOW_RETRY
+  | typeof STEP_USER_CONSENT
+
+export type StepTypes = PublicStepTypes | PrivateStepTypes
 
 export type DocumentTypes =
   | 'passport'
