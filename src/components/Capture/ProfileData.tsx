@@ -267,9 +267,20 @@ const getTranslatedFieldHelperText = (
 ) => {
   const specificTranslation = translateSpecific('helper_text', type, country)
 
-  return specificTranslation ? (
-    <HelperText>{translate(`profile_data.${specificTranslation}`)}</HelperText>
-  ) : null
+  if (specificTranslation) {
+    return (
+      <HelperText>
+        {translate(`profile_data.${specificTranslation}`)}
+      </HelperText>
+    )
+  }
+
+  switch (type) {
+    case 'dob':
+      return <HelperText>MM / DD / YYYY</HelperText>
+    default:
+      return null
+  }
 }
 
 const isFieldRequired = (
