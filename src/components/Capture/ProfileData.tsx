@@ -41,9 +41,7 @@ const ProfileData = ({
   completeStep,
 }: ProfileDataProps) => {
   const { translate } = useLocales()
-  const [formData, setFormData] = useState<{
-    [key: string]: string | undefined
-  }>(data)
+  const [formData, setFormData] = useState<{ [key: string]: string }>(data)
   // Touchers are a set of functions that can be executed to "touch" fields.
   // Upon touching a field, it can "invalidate" itself.
   // They also return a field validity state, so a form can check if fields
@@ -73,7 +71,14 @@ const ProfileData = ({
 
     if (!isFormValid) return
 
-    completeStep(dataSubPath ? { [dataSubPath]: formData } : formData)
+    const cleanedFormData = Object.fromEntries(
+      // do not send empty values to API, instead remove those entries
+      Object.entries(formData).filter(([, value]) => value !== '')
+    )
+
+    completeStep(
+      dataSubPath ? { [dataSubPath]: cleanedFormData } : cleanedFormData
+    )
     nextStep()
   }
 
