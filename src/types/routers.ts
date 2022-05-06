@@ -172,7 +172,7 @@ export type StepsLoadingStatus =
   | 'finished'
   | 'error'
 
-export type CompleteStepValue = unknown[] | Record<string, unknown>
+export type CompleteStepValue = Array<{ id: string }> | Record<string, unknown>
 
 export type StepsHook = () => {
   loadNextStep: (p: () => void) => void

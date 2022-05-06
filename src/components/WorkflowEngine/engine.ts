@@ -67,12 +67,11 @@ export class Engine implements EngineInterface {
     })
   }
 
-  completeWorkflow = async (
-    taskId: string,
-    personalData: unknown,
-    docData: unknown[] | undefined
+  completeWorkflow: CompleteWorkflowFunc = async (
+    taskId,
+    personalData,
+    docData
   ): Promise<WorkflowResponse> => {
-    console.log('complete workflow call to API')
     const { token, workflowRunId, workflowServiceUrl } = this.engineProps
 
     if (!token) {
@@ -86,7 +85,7 @@ export class Engine implements EngineInterface {
           contentType: 'application/json',
           payload: JSON.stringify({
             task_id: taskId,
-            data: docData?.length ? docData : personalData || {},
+            data: docData.length ? docData : personalData,
           }),
           endpoint: `${workflowServiceUrl}/workflow_runs/${workflowRunId}/complete`,
           token: `Bearer ${token}`,

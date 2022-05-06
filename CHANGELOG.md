@@ -10,16 +10,25 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
+- Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
+- Internal: Added test case configs to our demo app with queryString `testCase`
+- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
+
+## [8.0.0] - 2022-04-21
+
+### Changed
+
 - Public: Removed `userConsent` step option. User Consent is controlled by Onfido API.
 - Internal: Set `acceptSslCerts` to `true` for browserstack CI test to avoid "This connection is not private" screens
 - Internal: Migrate `ModalApp` to typescript
 - Internal: Add support for `.env` file
 - Public: Update Proof of Address flow to present Country Select
 - Public: Determine Proof of Address document options from endpoint
-- Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
-- Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
-- Internal: Added test case configs to our demo app with queryString `testCase`
-- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
+
+### Fixed
+
+- Public: Fix useLiveDocumentCapture onComplete not working (cross device capture `variant` missing)
 
 ## [6.20.1] - 2022-04-28
 
