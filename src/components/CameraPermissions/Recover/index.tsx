@@ -71,4 +71,4 @@ const Recover: FunctionComponent<Props> = ({ translate, audio }) => {
   )
 }
 
-export default trackComponent(localised(Recover))
+export default trackComponent(localised(Recover), 'camera_access_denied')
