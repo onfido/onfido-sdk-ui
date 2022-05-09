@@ -52,10 +52,8 @@ class CountrySelection extends CountrySelectionBase {
     this.props.actions.resetIdDocumentIssuingCountry()
   }
 
-  getSupportedCountries = (
-    documentType: Optional<PoaTypes | DocumentTypes>
-  ): CountryData[] => {
-    return getSupportedCountriesForDocument(documentType as DocumentTypes)
+  getSupportedCountries = (): CountryData[] => {
+    return getSupportedCountriesForDocument()
   }
 
   renderNoResultsMessage = (): h.JSX.Element => {

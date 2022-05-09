@@ -303,7 +303,7 @@ const buildNonPassportPreCaptureComponents = (
     : []
   // @ts-ignore
   // TODO: convert DocumentSelector to TS
-  return [...prependDocumentSelector, ...prependCountrySelector]
+  return [...prependCountrySelector, ...prependDocumentSelector]
 }
 
 const buildDocumentComponents = (

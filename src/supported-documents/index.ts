@@ -33,9 +33,7 @@ export const getCountryDataForDocumentType = (
 ): Optional<CountryData> => {
   // Consistent with API, which accepts a 3-letter ISO country code for issuing_country param value
   if (countryCode && countryCode.length === 3) {
-    const supportedCountriesList = getSupportedCountriesForDocument(
-      documentType
-    )
+    const supportedCountriesList = getSupportedCountriesForDocument()
     const country = supportedCountriesList.find(
       (countryData) => countryData.country_alpha3 === countryCode
     )
@@ -44,20 +42,12 @@ export const getCountryDataForDocumentType = (
   return null
 }
 
-export const getSupportedCountriesForDocument = (
-  documentType: Optional<DocumentTypes>
-): CountryData[] => {
-  switch (documentType) {
-    case 'driving_licence':
-      return getCountriesList(supportedDrivingLicences)
-    case 'national_identity_card':
-      return getCountriesList(supportedNationalIDCards)
-    case 'residence_permit':
-      return getCountriesList(supportedResidencePermit)
-    default:
-      console.error('Unsupported documentType:', documentType)
-      return []
-  }
+export const getSupportedCountriesForDocument = (): CountryData[] => {
+  const allSupportedSocumentTypes = supportedDrivingLicences
+    .concat(supportedNationalIDCards)
+    .concat(supportedResidencePermit)
+  console.log('::::', getCountriesList(allSupportedSocumentTypes))
+  return getCountriesList(allSupportedSocumentTypes)
 }
 
 const getCountriesList = (supportedDocsData: { sourceData: SourceData }[]) => {

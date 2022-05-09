@@ -3,9 +3,7 @@ import { getSupportedCountriesForDocument } from '../index'
 
 describe('getSupportedCountriesForDocument', () => {
   it('should not contain any duplicate countries', () => {
-    const supportedCountries = getSupportedCountriesForDocument(
-      'driving_licence'
-    )
+    const supportedCountries = getSupportedCountriesForDocument()
     const countryCount = supportedCountries.filter(
       (country) => country.name === 'Singapore'
     ).length
@@ -13,11 +11,14 @@ describe('getSupportedCountriesForDocument', () => {
   })
 
   it('should return countries sorted alphabetically', () => {
-    const supportedCountries = getSupportedCountriesForDocument(
-      'national_identity_card'
-    )
+    const supportedCountries = getSupportedCountriesForDocument()
     const firstFourCountries = supportedCountries.slice(0, 4)
     const expectedResult = [
+      {
+        country_alpha2: 'AX',
+        country_alpha3: 'ALA',
+        name: 'Åland Islands',
+      },
       {
         country_alpha2: 'AL',
         country_alpha3: 'ALB',
@@ -29,27 +30,11 @@ describe('getSupportedCountriesForDocument', () => {
         name: 'Algeria | الجزائر',
       },
       {
-        country_alpha2: 'AO',
-        country_alpha3: 'AGO',
-        name: 'Angola | Ngola',
-      },
-      {
-        country_alpha2: 'AR',
-        country_alpha3: 'ARG',
-        name: 'Argentina',
+        country_alpha2: 'AS',
+        country_alpha3: 'ASM',
+        name: 'American Samoa',
       },
     ]
     expect(firstFourCountries).toEqual(expectedResult)
-  })
-
-  it('should show a console error and return an empty array if given unsupported document type', () => {
-    const consoleError = jest
-      .spyOn(console, 'error')
-      .mockImplementation(() => {})
-    const supportedCountries = getSupportedCountriesForDocument(
-      'unknown_document' as DocumentTypes
-    )
-    expect(consoleError).toHaveBeenCalled()
-    expect(supportedCountries).toEqual([])
   })
 })

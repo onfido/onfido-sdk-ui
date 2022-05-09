@@ -60,9 +60,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   abstract renderNoResultsMessage: () => h.JSX.Element
   protected trackScreen?: () => void
 
-  abstract getSupportedCountries: (
-    documentType: Optional<PoaTypes | DocumentTypes>
-  ) => CountryData[]
+  abstract getSupportedCountries: () => CountryData[]
 
   abstract hasChanges: (prevProps: Props) => boolean | undefined
 
@@ -91,7 +89,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
       this.resetCountry()
     }
 
-    const countries = this.getSupportedCountries(documentType)
+    const countries = this.getSupportedCountries()
 
     const filteredResults = countries.filter((country) =>
       country.name.toLowerCase().includes(query.trim().toLowerCase())
