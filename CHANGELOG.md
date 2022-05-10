@@ -10,6 +10,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Add `video_instruction_type` property to analytics event `FACE_VIDEO_CAPTURE` and `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
+- Internal: Rename analytics event `FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED` to `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
+- Internal: Add `ui_alerts` properties to `FALLBACK_TRIGGERED` analytics events
+- Internal: Add many new analytics events `CAMERA_ACCESS_*`, `CAPTURE_*`, `CONFIRMATION_*`
+- Internal: Add new analytics events `NAVIGATION_BACK_BUTTON_CLICKED` and `NAVIGATION_CLOSE_BUTTON_CLICKED`
+- Internal: Rename analytics event `FACE_INTRO` to `FACE_SELFIE_INTRO`
 - Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
 - Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
 - Internal: Added test case configs to our demo app with queryString `testCase`
