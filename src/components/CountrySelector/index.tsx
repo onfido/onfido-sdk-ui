@@ -159,11 +159,6 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
     const hasNoCountry = !documentCountry || !documentCountry.country_alpha3
     const hasCountrySelectError =
       !this.isDocumentPreselected() && this.state.showNoResultsError
-    console.log('error hasCountrySelectError', hasCountrySelectError)
-    console.log(
-      'error this.state.alwaysShowEmptyMessage',
-      this.state.alwaysShowEmptyMessage
-    )
     return (
       <ScreenLayout
         actions={

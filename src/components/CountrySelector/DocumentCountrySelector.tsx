@@ -52,18 +52,17 @@ class CountrySelection extends CountrySelectionBase {
     this.props.actions.resetIdDocumentIssuingCountry()
   }
 
-  getSupportedCountries = (): CountryData[] => {
-    const { document_selection } = this.props
-    const countryFilter =
-      document_selection &&
-      document_selection.filter((value, index, self) => {
-        return (
-          self.findIndex((v) => v.issuing_country === value.issuing_country) ===
-          index
-        )
-      })
+  countryFilter = (): documentSelectionType[] | undefined =>
+    this.props.document_selection &&
+    this.props.document_selection.filter((value, index, self) => {
+      return (
+        self.findIndex((v) => v.issuing_country === value.issuing_country) ===
+        index
+      )
+    })
 
-    return getSupportedCountriesForDocument(countryFilter)
+  getSupportedCountries = (): CountryData[] => {
+    return getSupportedCountriesForDocument(this.countryFilter())
   }
 
   renderNoResultsMessage = (): h.JSX.Element => {
