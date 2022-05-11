@@ -5,11 +5,10 @@ import { appendToTracking } from 'Tracker'
 import theme from 'components/Theme/style.scss'
 import classNames from 'classnames'
 
-import type { CountryData } from '~types/commons'
+import type { CountryData, documentSelectionType } from '~types/commons'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
 import { CountrySelectionBase, DocumentProps, Props } from '.'
-import { DocumentTypes, PoaTypes } from '~types/steps'
 
 import style from './style.scss'
 import { parseTags, preventDefaultOnClick } from '~utils'
@@ -17,6 +16,7 @@ import { parseTags, preventDefaultOnClick } from '~utils'
 export type DocProps = {
   documentType: string
   idDocumentIssuingCountry: CountryData
+  document_selection?: documentSelectionType[] | undefined
 } & Props &
   WithLocalisedProps &
   WithTrackingProps &
@@ -53,7 +53,17 @@ class CountrySelection extends CountrySelectionBase {
   }
 
   getSupportedCountries = (): CountryData[] => {
-    return getSupportedCountriesForDocument()
+    const { document_selection } = this.props
+    const countryFilter =
+      document_selection &&
+      document_selection.filter((value, index, self) => {
+        return (
+          self.findIndex((v) => v.issuing_country === value.issuing_country) ===
+          index
+        )
+      })
+
+    return getSupportedCountriesForDocument(countryFilter)
   }
 
   renderNoResultsMessage = (): h.JSX.Element => {

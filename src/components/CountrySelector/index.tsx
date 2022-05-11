@@ -83,7 +83,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
     query = '',
     populateResults: (results: CountryData[]) => string[]
   ) => {
-    const { documentCountry, documentType } = this.getDocumentProps()
+    const { documentCountry } = this.getDocumentProps()
 
     if (documentCountry && query !== documentCountry.name) {
       this.resetCountry()
@@ -159,7 +159,11 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
     const hasNoCountry = !documentCountry || !documentCountry.country_alpha3
     const hasCountrySelectError =
       !this.isDocumentPreselected() && this.state.showNoResultsError
-
+    console.log('error hasCountrySelectError', hasCountrySelectError)
+    console.log(
+      'error this.state.alwaysShowEmptyMessage',
+      this.state.alwaysShowEmptyMessage
+    )
     return (
       <ScreenLayout
         actions={
