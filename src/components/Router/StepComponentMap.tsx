@@ -67,6 +67,15 @@ type ComponentsByStepType = Partial<
   Record<ExtendedStepTypes, ComponentType<StepComponentProps>[]>
 >
 
+export type ComponentsListProps = {
+  flow: FlowVariants
+  documentType: DocumentTypes | undefined
+  poaDocumentCountry?: CountryData | undefined
+  steps: StepConfig[]
+  mobileFlow?: boolean
+  deviceHasCameraSupport?: boolean
+}
+
 export const buildComponentsList = ({
   flow,
   documentType,
@@ -74,14 +83,7 @@ export const buildComponentsList = ({
   mobileFlow,
   deviceHasCameraSupport,
   poaDocumentCountry,
-}: {
-  flow: FlowVariants
-  documentType: DocumentTypes | undefined
-  poaDocumentCountry?: CountryData | undefined
-  steps: StepConfig[]
-  mobileFlow?: boolean
-  deviceHasCameraSupport?: boolean
-}): ComponentStep[] => {
+}: ComponentsListProps): ComponentStep[] => {
   const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
 
   return flow === 'captureSteps'

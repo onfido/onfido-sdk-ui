@@ -2,10 +2,14 @@ import { h, Component } from 'preact'
 import MobileConnected from './MobileConnected'
 import CrossDeviceSubmit from './CrossDeviceSubmit'
 import MobileNotificationSent from './MobileNotificationSent'
-import { ReduxProps, StepComponentProps } from '~types/routers'
 import { MobileConfig } from '~types/commons'
 import { UserAnalyticsEventDetail } from '~types/tracker'
 import { FaceCapture, DocumentCapture } from '~types/redux/captures'
+import {
+  CompleteStepValue,
+  ReduxProps,
+  StepComponentProps,
+} from '~types/routers'
 
 type MobileFlowProps = {
   mobileConfig: MobileConfig
@@ -55,10 +59,13 @@ class MobileFlow extends Component<Props> {
   onClientSuccess = (data: {
     roomId: string
     captures: (DocumentCapture | FaceCapture)[]
+    docPayload: CompleteStepValue
   }) => {
     const captures = data.captures || []
     captures.forEach((capture) => this.props.actions.createCapture(capture))
+
     this.props.actions.setClientSuccess(true)
+    this.props.completeStep(data.docPayload)
   }
 
   onUserAnalyticsEvent = (data: {
@@ -82,13 +89,7 @@ class MobileFlow extends Component<Props> {
     return this.props.mobileConnected ? (
       <MobileConnected {...this.props} />
     ) : (
-      <MobileNotificationSent
-        {...{
-          sms: this.props.sms,
-          previousStep: this.props.previousStep,
-          trackScreen: this.props.trackScreen,
-        }}
-      />
+      <MobileNotificationSent {...this.props} />
     )
   }
 }
