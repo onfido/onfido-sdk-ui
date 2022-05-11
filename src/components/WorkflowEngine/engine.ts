@@ -112,7 +112,9 @@ export class Engine implements EngineInterface {
       case 'upload_document_photo':
         return {
           type: 'document',
-          options: { ...configuration },
+          options: {
+            ...configuration,
+          },
         }
       case 'upload_face_photo':
         return {
@@ -157,6 +159,13 @@ export class Engine implements EngineInterface {
               state: '',
               postcode: '',
             },
+          },
+        }
+      case 'retry':
+        return {
+          type: 'retry',
+          options: {
+            ...configuration,
           },
         }
       default:

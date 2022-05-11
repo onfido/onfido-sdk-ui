@@ -14,6 +14,7 @@ const defaultOptions: SDKOptionsWithRenderData = {
     { type: 'face' },
     { type: 'data' },
     { type: 'complete' },
+    { type: 'retry' },
     { type: 'pass' },
     { type: 'reject' },
   ],

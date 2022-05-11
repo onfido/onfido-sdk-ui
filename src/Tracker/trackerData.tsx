@@ -10,6 +10,7 @@ export const integratorTrackedEvents = new Map<
   UserAnalyticsEventNames
 >([
   ['screen_welcome', 'WELCOME'],
+  ['screen_workflow_retry', 'WORKFLOW_RETRY'],
   ['screen_userConsent', 'USER_CONSENT'],
   ['screen_data_capture', 'DATA_CAPTURE'],
   ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
@@ -495,6 +496,10 @@ export const analyticsEventsMapping = new Map<
   [
     'screen_welcome',
     { eventName: 'WELCOME', properties: { event_type: 'screen' } },
+  ],
+  [
+    'screen_workflow_retry',
+    { eventName: 'WORKFLOW_RETRY', properties: { event_type: 'screen' } },
   ],
   [
     'screen_document_front_confirmation_cutoff_detected',

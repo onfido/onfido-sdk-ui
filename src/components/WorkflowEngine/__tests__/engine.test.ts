@@ -158,5 +158,19 @@ describe('Workflow Engine', () => {
       )
       expect(workflowStep?.type).toEqual('data')
     })
+
+    it('should return Retry Step', async () => {
+      const workflowFacCaptureStep = {
+        config: { name: 'timeout', value: 1209600 },
+        task_type: 'INTERACTIVE',
+        task_def_id: 'retry',
+        task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
+      }
+      const workflowStep = workflowEngine1.getWorkFlowStep(
+        workflowFacCaptureStep.task_def_id,
+        workflowFacCaptureStep.config
+      )
+      expect(workflowStep?.type).toEqual('retry')
+    })
   })
 })

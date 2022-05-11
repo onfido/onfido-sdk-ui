@@ -41,9 +41,7 @@ const ProfileData = ({
   completeStep,
 }: ProfileDataProps) => {
   const { translate } = useLocales()
-  const [formData, setFormData] = useState<{
-    [key: string]: string | undefined
-  }>(data)
+  const [formData, setFormData] = useState<{ [key: string]: string }>(data)
   // Touchers are a set of functions that can be executed to "touch" fields.
   // Upon touching a field, it can "invalidate" itself.
   // They also return a field validity state, so a form can check if fields
@@ -73,34 +71,43 @@ const ProfileData = ({
 
     if (!isFormValid) return
 
-    completeStep(dataSubPath ? { [dataSubPath]: formData } : formData)
+    const cleanedFormData = Object.fromEntries(
+      // do not send empty values to API, instead remove those entries
+      Object.entries(formData).filter(([, value]) => value !== '')
+    )
+
+    completeStep(
+      dataSubPath ? { [dataSubPath]: cleanedFormData } : cleanedFormData
+    )
     nextStep()
   }
 
   return (
     <ScreenLayout>
       <PageTitle title={translate(`profile_data.${title}`)} />
-      {Object.entries(formData).map(([type, value]) => (
-        <FieldComponent
-          key={type}
-          type={type as FieldComponentProps['type']}
-          value={value as FieldComponentProps['value']}
-          selectedCountry={formData.country}
-          setToucher={setToucher}
-          removeToucher={removeToucher}
-          onChange={handleChange}
-        />
-      ))}
-      <Button
-        onClick={handleSubmit}
-        className={classNames(
-          theme['button-centered'],
-          theme['button-lg'],
-          style['submit-button']
-        )}
-      >
-        {translate('profile_data.button_submit')}
-      </Button>
+      <div className={style['form']}>
+        {Object.entries(formData).map(([type, value]) => (
+          <FieldComponent
+            key={type}
+            type={type as FieldComponentProps['type']}
+            value={value as FieldComponentProps['value']}
+            selectedCountry={formData.country}
+            setToucher={setToucher}
+            removeToucher={removeToucher}
+            onChange={handleChange}
+          />
+        ))}
+        <Button
+          onClick={handleSubmit}
+          className={classNames(
+            theme['button-centered'],
+            theme['button-lg'],
+            style['submit-button']
+          )}
+        >
+          {translate('profile_data.button_submit')}
+        </Button>
+      </div>
     </ScreenLayout>
   )
 }
@@ -265,9 +272,20 @@ const getTranslatedFieldHelperText = (
 ) => {
   const specificTranslation = translateSpecific('helper_text', type, country)
 
-  return specificTranslation ? (
-    <HelperText>{translate(`profile_data.${specificTranslation}`)}</HelperText>
-  ) : null
+  if (specificTranslation) {
+    return (
+      <HelperText>
+        {translate(`profile_data.${specificTranslation}`)}
+      </HelperText>
+    )
+  }
+
+  switch (type) {
+    case 'dob':
+      return <HelperText>MM / DD / YYYY</HelperText>
+    default:
+      return null
+  }
 }
 
 const isFieldRequired = (
@@ -407,9 +425,9 @@ const translateSpecific = (
       return 'field_labels.usa_specific.state'
     case 'label_postcode_usa':
       return 'field_labels.usa_specific.postcode'
-    case 'helper_text_line_1_usa':
+    case 'helper_text_line1_usa':
       return 'field_labels.usa_specific.line1_helper_text'
-    case 'helper_text_line_2_usa':
+    case 'helper_text_line2_usa':
       return 'field_labels.usa_specific.line2_helper_text'
     case 'validation_required_postcode_gbr':
       return 'field_validation.gbr_specific.required_postcode'

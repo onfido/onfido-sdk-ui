@@ -38,6 +38,7 @@ const defaultOptions: NarrowSdkOptions = {
     { type: 'document', options: { forceCrossDevice: true } },
     { type: 'face' },
     { type: 'complete' },
+    { type: 'retry' },
   ],
   events: new EventEmitter2(),
 }

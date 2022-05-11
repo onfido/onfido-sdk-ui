@@ -222,7 +222,7 @@ const basePlugins = (bundle_name = '') => [
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'DI',
+      BASE_32_VERSION: 'DJ',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
@@ -422,13 +422,13 @@ const configNpmLib = () => ({
   },
   target: ['web', 'es5'],
   externals: [
-    /* 
+    /*
       Note: These packages need to be bundled and are located
       in devDepencencies instead of dependencies in package.json
 
-      When not bundled into the `lib/index.js` these packages will 
+      When not bundled into the `lib/index.js` these packages will
       cause errors due to multiple causes.
-    
+
       @onfido/castor
       @onfido/castor-icons
       @onfido/castor-react
