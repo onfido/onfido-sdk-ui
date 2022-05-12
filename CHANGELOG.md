@@ -17,6 +17,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add a css root scope to our SDK
 - Public: Scope our customization of castor components to our SDK css root
 - Public: Strip away `color-scheme` to prevent interference with customer styles
+- Internal: Upgrade `@sentry/browser@6.19.7`
+- Internal: Fix Sentry artifacts CI upload
 
 ## [8.0.0] - 2022-04-21
 

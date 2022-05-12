@@ -97,7 +97,7 @@
     "files": [
       {
         "path": "./dist/onfido.min.js",
-        "maxSize": "320 kB"
+        "maxSize": "330 kB"
       },
       {
         "path": "./dist/onfido.crossDevice.min.js",
@@ -234,7 +234,7 @@
     "yn": "^3.0.0"
   },
   "dependencies": {
-    "@sentry/browser": "^5.14.2",
+    "@sentry/browser": "^6.19.7",
     "blueimp-load-image": "~2.29.0",
     "classnames": "~2.2.5",
     "core-js": "^3.21.1",
