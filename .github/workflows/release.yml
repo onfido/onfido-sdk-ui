@@ -10,9 +10,9 @@ on:
 
 # TODO: remove _DANNY onces ready for testing with prod aws
 env:
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DANNY }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DANNY }}
-  AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_DANNY }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
   AWS_DEFAULT_REGION: 'eu-west-1'
 
 jobs:
@@ -68,11 +68,14 @@ jobs:
 
       - name: Upload Base32 to S3
         run: |
-          aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE_32_VERSION/ --exclude "*.html" --recursive --acl public-read
+          echo $BASE_32_VERSION
+          aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-base32-releases/TEST/ --exclude "*.html" --recursive --acl public-read
+        # aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE_32_VERSION/ --exclude "*.html" --recursive --acl public-read
 
       - name: Upload Release to S3
         run: |
-          aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --exclude "*.html" --recursive --acl public-read
+          aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-releases/TEST/ --exclude "*.html" --recursive --acl public-read
+        # aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --exclude "*.html" --recursive --acl public-read
 
       # TODO: Remove --dry-run when ready to test with prod
       - name: Publish to NPM
@@ -101,6 +104,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: ${{ steps.extract-release-notes.outputs.release_notes }}
+          name: ${{  steps.extract-release-notes.outputs.release_name }}
           generateReleaseNotes: false
           draft: true
 
@@ -112,22 +116,22 @@ jobs:
             TEST_ENV=deployment npm run build:test
           fi
 
-      - name: Publish latest version to Surge
-        if: ${{ env.VERSION == env.LATEST_TAG }}
-        uses: dswistowski/surge-sh-action@v1.0.1
-        with:
-          domain: 'https://latest-onfido-sdk-ui-onfido.surge.sh'
-          project: './dist/'
-          login: ${{ secrets.SURGE_LOGIN }}
-          token: ${{ secrets.SURGE_TOKEN }}
+      # - name: Publish latest version to Surge
+      #   if: ${{ env.VERSION == env.LATEST_TAG }}
+      #   uses: dswistowski/surge-sh-action@v1.0.1
+      #   with:
+      #     domain: 'https://latest-onfido-sdk-ui-onfido.surge.sh'
+      #     project: './dist/'
+      #     login: ${{ secrets.SURGE_LOGIN }}
+      #     token: ${{ secrets.SURGE_TOKEN }}
 
-      - name: Publish to Surge
-        uses: dswistowski/surge-sh-action@v1.0.1
-        with:
-          domain: "https://${{ env.RELEASE_VERSION }}-onfido-sdk-ui-onfido.surge.sh"
-          project: './dist'
-          login: ${{ secrets.SURGE_LOGIN }}
-          token: ${{ secrets.SURGE_TOKEN }}
+      # - name: Publish to Surge
+      #   uses: dswistowski/surge-sh-action@v1.0.1
+      #   with:
+      #     domain: "https://${{ env.RELEASE_VERSION }}-onfido-sdk-ui-onfido.surge.sh"
+      #     project: './dist'
+      #     login: ${{ secrets.SURGE_LOGIN }}
+      #     token: ${{ secrets.SURGE_TOKEN }}
 
       - name: Post-release checks
         uses: actions/github-script@v6
@@ -135,7 +139,6 @@ jobs:
           script: |
             require('./release/postReleaseFlow.js')(github, context)
 
-      # TODO: test before run in prod somehow.
       - name: Update demo app
         if: ${{ env.VERSION == env.LATEST_TAG }}
         run: node release/updateDemoApp.js

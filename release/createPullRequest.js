@@ -1,6 +1,6 @@
 const { debug } = require('./util/logging')
 const parseChangelog = require('changelog-parser')
-const { replaceInFile } = require('./util/file')
+const { replaceInFile, readFile } = require('./util/file')
 const {
   GITHUB_ACTOR,
   RELEASE_VERSION,
@@ -46,10 +46,10 @@ module.exports = async (github, context) => {
 
   const reviewers = [
     'DannyvanderJagt',
-    'Phoebe-B',
-    'zoeradkani',
-    'it-ony',
-    'nulrich',
+    // 'Phoebe-B',
+    // 'zoeradkani',
+    // 'it-ony',
+    // 'nulrich',
   ].filter((s) => s.toLowerCase() !== GITHUB_ACTOR.toLowerCase())
 
   debug('Creating PR')
@@ -68,7 +68,7 @@ module.exports = async (github, context) => {
     /^PULL_REQUEST_NUMBER\s*=.*$/gm,
     `PULL_REQUEST_NUMBER=${result.data.number}`
   )
-
+  
   debug('Adding reviewers')
   await github.rest.pulls.requestReviewers({
     owner,
