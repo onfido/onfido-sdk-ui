@@ -14,6 +14,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
 - Internal: Added test case configs to our demo app with queryString `testCase`
 - Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
+- Internal: Upgrade `@sentry/browser@6.19.7`
+- Internal: Fix Sentry artifacts CI upload
 
 ## [8.0.0] - 2022-04-21
 
