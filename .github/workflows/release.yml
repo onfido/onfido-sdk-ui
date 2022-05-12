@@ -101,6 +101,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: ${{ steps.extract-release-notes.outputs.release_notes }}
+          name: ${{  steps.extract-release-notes.outputs.release_name }}
           generateReleaseNotes: false
           draft: true
 
