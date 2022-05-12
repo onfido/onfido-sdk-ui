@@ -28,6 +28,8 @@ const checkoutReleaseBranch = async () => {
 
   if (remoteBranchExists) {
     await execute(`git pull origin ${RELEASE_BRANCH_NAME}`)
+  } else {
+    await execute(`git push origin ${RELEASE_BRANCH_NAME}`)
   }
 }
 

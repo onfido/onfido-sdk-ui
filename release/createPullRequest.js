@@ -1,12 +1,7 @@
 const { debug } = require('./util/logging')
 const parseChangelog = require('changelog-parser')
-const { replaceInFile } = require('./util/file')
-const {
-  GITHUB_ACTOR,
-  RELEASE_VERSION,
-  GITHUB_REF,
-  RELEASE_BRANCH_NAME,
-} = process.env
+const { replaceInFile, readFile } = require('./util/file')
+const { GITHUB_ACTOR, RELEASE_VERSION, RELEASE_BRANCH_NAME } = process.env
 
 module.exports = async (github, context) => {
   const changelogData = await parseChangelog('CHANGELOG.md')
