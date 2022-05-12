@@ -22,7 +22,7 @@ exports.execute = async (script, cwd) =>
   // eslint-disable-next-line no-async-promise-executor
   new Promise(async (resolve, reject) => {
     try {
-      console.log('execute: ', script, cwd)
+      console.log('execute script=', script, ' cwd=', cwd)
       const output = await promiseExec(script, cwd && { cwd })
       resolve(output)
     } catch (e) {
