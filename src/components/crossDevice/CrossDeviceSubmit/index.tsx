@@ -8,7 +8,7 @@ import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
-import { CaptureState } from '~types/redux'
+import { CaptureState, RootState } from '~types/redux'
 import { StepsRouterProps } from '~types/routers'
 import { StepConfig } from '~types/steps'
 import { MobileConfig } from '~types/commons'
@@ -155,7 +155,7 @@ class CrossDeviceSubmit extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = ({ captures }: { captures: CaptureState }) => ({
+const mapStateToProps = ({ captures }: RootState) => ({
   captures,
 })
 
