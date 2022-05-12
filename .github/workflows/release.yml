@@ -4,15 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       npm_release_tag:
-        description: 'NPM release tag'
+        description: 'NPM release tag (optional)'
         required: false
         type: string
 
-# TODO: remove _DANNY onces ready for testing with prod aws
 env:
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DANNY }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DANNY }}
-  AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_DANNY }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
   AWS_DEFAULT_REGION: 'eu-west-1'
 
 jobs:
@@ -27,8 +26,8 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-        # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
-        # e.g. "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
+      # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
+      # e.g. "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
       - name: Setup Git
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
@@ -55,8 +54,9 @@ jobs:
 
       - name: Tag commit
         run: |
-          git tag $RELEASE_VERSION -m "Release ${RELEASE_VERSION}"  
-          git push $RELEASE_VERSION
+          git fetch --tags
+          git tag $RELEASE_VERSION -m "Release ${RELEASE_VERSION}"
+          git push origin $RELEASE_VERSION
 
       # Stores latest full release as $LATEST_TAG
       - name: Determine release type
@@ -68,22 +68,22 @@ jobs:
 
       - name: Upload Base32 to S3
         run: |
+          echo $BASE_32_VERSION
           aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE_32_VERSION/ --exclude "*.html" --recursive --acl public-read
 
       - name: Upload Release to S3
         run: |
           aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --exclude "*.html" --recursive --acl public-read
 
-      # TODO: Remove --dry-run when ready to test with prod
       - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
           if [ $NPM_PUBLISH_TAG ]
           then
-            npm publish --dry-run --tag $NPM_PUBLISH_TAG
+            npm publish --tag $NPM_PUBLISH_TAG
           else
-            npm publish --dry-run
+            npm publish
           fi
 
       - name: Extract release notes
@@ -94,15 +94,22 @@ jobs:
           script: |
             require('./release/extractReleaseNotes.js')(core)
 
-      # TODO: Remove draft when ready to test in prod
+      - name: log
+        env: 
+          body: ${{ steps.extract-release-notes.outputs.release_notes }}
+          name: ${{  steps.extract-release-notes.outputs.release_name }}
+        run: |
+          echo $body
+          echo $name
+
       - name: Create Github Release
         if: ${{ env.RELEASE_VERSION == env.LATEST_TAG }}
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: ${{ steps.extract-release-notes.outputs.release_notes }}
+          name: ${{  steps.extract-release-notes.outputs.release_name }}
           generateReleaseNotes: false
-          draft: true
 
       - name: Run build for Surge
         # Legacy: Surge uses the NODE_ENV=test + TEST_ENV=deployment
@@ -135,7 +142,6 @@ jobs:
           script: |
             require('./release/postReleaseFlow.js')(github, context)
 
-      # TODO: test before run in prod somehow.
       - name: Update demo app
         if: ${{ env.VERSION == env.LATEST_TAG }}
         run: node release/updateDemoApp.js

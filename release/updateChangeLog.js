@@ -78,7 +78,11 @@ const generateChangeLog = async (data) => {
       const isNextVersion = index === 0
       const isLastEntry = index === data.versions.length - 1
 
-      const previous = isLastEntry ? '0.4.0' : data.versions[index + 1]?.version
+      // Latest release in changelog is 0.5.0, we need one version before to generate the diff link
+      const baseRelease = '0.4.0'
+      const previous = isLastEntry
+        ? baseRelease
+        : data.versions[index + 1]?.version
       const current = isNextVersion ? 'development' : i?.version
       const version = isNextVersion ? 'next-version' : i?.version
 

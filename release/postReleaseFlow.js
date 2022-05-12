@@ -1,5 +1,5 @@
 const { error } = require('./util/logging')
-const { isFullVersion } = require('./util/helpers')
+const { isRCVersion } = require('./util/helpers')
 const { execute } = require('./util/terminal')
 const { RELEASE_VERSION, BASE_32_VERSION, PULL_REQUEST_NUMBER } = process.env
 
@@ -32,7 +32,7 @@ const addSlackMessageToPR = async (github, context) => {
     '### We have published a new version! :tada:',
     `- Version: \`${RELEASE_VERSION}\``,
     `- Surge: https://${RELEASE_VERSION}-onfido-sdk-ui-onfido.surge.sh`,
-    isFullVersion(RELEASE_VERSION) ? `\n${slack}` : '',
+    isRCVersion(RELEASE_VERSION) ? '' : `\n${slack}`,
   ].join('\n')
 
   await github.rest.issues.createComment({

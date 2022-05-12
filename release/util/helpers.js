@@ -8,6 +8,7 @@ exports.cleanVersionIfRC = (version) => {
 }
 
 exports.isFullVersion = (version) => !version.match(/-.*\..*/g)
+exports.isRCVersion = (version) => version.match(/-rc.*/g)
 
 // TODO: Check! I don't think we're using true base32 hashes.
 // This is a custom method to generate next 2 char hashes
