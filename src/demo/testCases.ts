@@ -1,26 +1,27 @@
 import { SdkOptions } from '~types/sdk'
 
+// See https://docs.google.com/spreadsheets/d/1uTsCgydn4_zeNTWuRcbd4UkcXGHcsjMCM2g88HcMSBU/edit#gid=594602246
 const testCases: { [x: string]: SdkOptions } = {
-  'TC-39': {
+  'TC-20': {
     language: {
       locale: 'fr',
       phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' },
     },
   },
-  'TC-40': {
+  'TC-21': {
     language: {
       locale: 'es',
       phrases: { 'welcome.title': 'A custom string' },
     },
   },
-  'TC-41': {
+  'TC-22': {
     language: {
       locale: 'es',
       phrases: {},
       mobilePhrases: { 'capture.passport.front.title': 'A custom string' },
     },
   },
-  'TC-45': {
+  'TC-24': {
     steps: [
       'welcome',
       {
@@ -36,7 +37,7 @@ const testCases: { [x: string]: SdkOptions } = {
       'complete',
     ],
   },
-  'TC-64': {
+  'TC-34': {
     steps: [
       'welcome',
       {
@@ -48,7 +49,7 @@ const testCases: { [x: string]: SdkOptions } = {
       'complete',
     ],
   },
-  'TC-102': {
+  'TC-65': {
     onComplete: () => alert('Completed'),
     steps: [
       'welcome',
