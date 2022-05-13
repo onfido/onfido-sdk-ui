@@ -47,7 +47,7 @@ const Modal = ({
         beforeClose: theme['modalOverlay--before-close'],
       }}
       bodyOpenClassName={theme.modalBody}
-      className={classNames(theme.modalInner, style.inner)}
+      className={classNames(theme.root, theme.modalInner, style.inner)}
       role={'dialog'}
       shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
       closeTimeoutMS={MODAL_ANIMATION_DURATION}
@@ -80,7 +80,7 @@ const WrappedModal = ({
   useModal ? (
     <ModalContainer {...otherProps}>{children}</ModalContainer>
   ) : (
-    <div className={style.inner}>{children}</div>
+    <div className={classNames(theme.root, style.inner)}>{children}</div>
   )
 
 export default WrappedModal
