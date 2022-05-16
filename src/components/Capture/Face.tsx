@@ -1,5 +1,5 @@
 import { Component, h } from 'preact'
-import { appendToTracking } from '../../Tracker'
+import { trackComponent } from '../../Tracker'
 import Selfie from '../Photo/Selfie'
 import FaceVideo from '../FaceVideo'
 import Uploader from '../Uploader'
@@ -204,4 +204,4 @@ class Face extends Component<FaceProps> {
   }
 }
 
-export default appendToTracking(localised(withCrossDeviceWhenNoCamera(Face)))
+export default trackComponent(localised(withCrossDeviceWhenNoCamera(Face)))
