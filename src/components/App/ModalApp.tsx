@@ -29,7 +29,6 @@ import type { ReduxProps } from '~types/routers'
 import type { SdkError, SdkResponse, UserExitCode } from '~types/sdk'
 import type { StepConfig, DocumentTypes } from '~types/steps'
 import { setCobrandingLogos, setUICustomizations } from '../Theme/utils'
-
 import withConnect from './withConnect'
 import { setupAnalyticsCookie, uninstallAnalyticsCookie } from '../../Tracker'
 

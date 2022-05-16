@@ -1,16 +1,27 @@
-import { h, Component } from 'preact'
+import { h, Component, createRef } from 'preact'
 import classNames from 'classnames'
 import { copyToClipboard } from '~utils'
 import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
+import { WithLocalisedProps } from '~types/hocs'
 
-class CopyLink extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      copySuccess: false,
-    }
+type CopyLinkProps = {
+  mobileUrl: string
+}
+
+type Props = CopyLinkProps & WithLocalisedProps
+
+type State = {
+  copySuccess: boolean
+}
+
+class CopyLink extends Component<Props, State> {
+  private linkCopiedTimeoutId?: NodeJS.Timeout = undefined
+  private linkText = createRef<HTMLSpanElement>()
+
+  state = {
+    copySuccess: false,
   }
 
   onCopySuccess = () => {
@@ -21,8 +32,8 @@ class CopyLink extends Component {
 
       // move focus away from Copy button to prevent screen readers announcing
       // text changing back from "Copied" to "Copy"
-      if (this.linkText) {
-        this.linkText.focus()
+      if (this.linkText.current) {
+        this.linkText.current.focus()
       }
     }, 5000)
   }
@@ -50,10 +61,7 @@ class CopyLink extends Component {
             copySuccess && style.copySuccess
           )}
         >
-          <span
-            className={style.linkText}
-            ref={(element) => (this.linkText = element)}
-          >
+          <span className={style.linkText} ref={this.linkText}>
             {mobileUrl}
           </span>
           {document.queryCommandSupported('copy') && (

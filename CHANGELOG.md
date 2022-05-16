@@ -19,6 +19,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Strip away `color-scheme` to prevent interference with customer styles
 - Internal: Upgrade `@sentry/browser@6.19.7`
 - Internal: Fix Sentry artifacts CI upload
+- Internal: Migrated `MobileFlow` & `CrossDeviceSubmit` to typescript
+- Internal: Migrated `MobileFlow`, `CrossDeviceLink` & `CrossDeviceSubmit` to typescript
+- Internal: Added `ScreenLayout` to CrossDeviceSubmit
 
 ## [8.0.0] - 2022-04-21
 
