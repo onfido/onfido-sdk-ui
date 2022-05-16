@@ -10,7 +10,8 @@ const IEPdfBlobLink: FunctionComponent<WithBlobPreviewProps> = ({ blob }) => {
   // Object urls created from Blobs don't work on IE11 and Edge, so we use this component as a fallback
   // Without this component PdfObject would display an error instead of the expected PdfObject link fallback.
   const downloadPdf = () => {
-    window.navigator.msSaveOrOpenBlob(blob, 'document.pdf')
+    if (window.navigator.msSaveOrOpenBlob)
+      window.navigator.msSaveOrOpenBlob(blob, 'document.pdf')
   }
 
   return (

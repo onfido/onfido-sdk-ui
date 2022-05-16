@@ -34,9 +34,6 @@ export const integratorTrackedEvents = new Map<
   ['Starting live photo upload', 'UPLOAD'],
 ])
 
-// FIXME: Using @ts-ignore here because of Map constructor argument bug
-// https://github.com/microsoft/TypeScript/pull/43396
-// @ts-ignore
 export const analyticsEventsMapping = new Map<
   LegacyTrackedEventNames,
   {

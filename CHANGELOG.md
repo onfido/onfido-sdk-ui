@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+- Internal: Upgrade `typescript` to 4.6.2
+
 ### Changed
 
 - Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`

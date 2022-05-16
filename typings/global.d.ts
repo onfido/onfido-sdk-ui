@@ -22,5 +22,11 @@ declare global {
     updateOptions?: (
       options: SdkOptions & { onComplete?: (data: unknown) => void }
     ) => void
+    MSStream: object
+  }
+
+  interface Navigator extends Window.Navigator {
+    msSaveOrOpenBlob?: (blob: Blob, defaultName: string) => void
+    msMaxTouchPoints?: number
   }
 }
