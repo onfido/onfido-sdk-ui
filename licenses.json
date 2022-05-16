@@ -989,42 +989,42 @@
     "path": "node_modules/@preact/compat",
     "licenseFile": "node_modules/@preact/compat/LICENSE"
   },
-  "@sentry/browser@5.14.2": {
+  "@sentry/browser@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
     "path": "node_modules/@sentry/browser",
     "licenseFile": "node_modules/@sentry/browser/LICENSE"
   },
-  "@sentry/core@5.14.2": {
+  "@sentry/core@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
     "path": "node_modules/@sentry/core",
     "licenseFile": "node_modules/@sentry/core/LICENSE"
   },
-  "@sentry/hub@5.14.2": {
+  "@sentry/hub@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
     "path": "node_modules/@sentry/hub",
     "licenseFile": "node_modules/@sentry/hub/LICENSE"
   },
-  "@sentry/minimal@5.14.2": {
+  "@sentry/minimal@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
     "path": "node_modules/@sentry/minimal",
     "licenseFile": "node_modules/@sentry/minimal/LICENSE"
   },
-  "@sentry/types@5.14.2": {
+  "@sentry/types@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
     "path": "node_modules/@sentry/types",
     "licenseFile": "node_modules/@sentry/types/LICENSE"
   },
-  "@sentry/utils@5.14.2": {
+  "@sentry/utils@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
@@ -2120,7 +2120,7 @@
     "path": "node_modules/astral-regex",
     "licenseFile": "node_modules/astral-regex/license"
   },
-  "async@2.6.3": {
+  "async@2.6.4": {
     "licenses": "MIT",
     "repository": "https://github.com/caolan/async",
     "publisher": "Caolan McMahon",
@@ -4428,8 +4428,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/history",
-    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/history",
+    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -5627,8 +5627,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/webpack/loader-utils",
     "publisher": "Tobias Koppers @sokra",
-    "path": "node_modules/thread-loader/node_modules/loader-utils",
-    "licenseFile": "node_modules/thread-loader/node_modules/loader-utils/LICENSE"
+    "path": "node_modules/string-replace-loader/node_modules/loader-utils",
+    "licenseFile": "node_modules/string-replace-loader/node_modules/loader-utils/LICENSE"
   },
   "locate-path@3.0.0": {
     "licenses": "MIT",
@@ -6434,7 +6434,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/nicolas/Dev/onfido-sdk-ui",
+    "path": "/Users/victor.camargo/projects/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "open@8.4.0": {
@@ -7549,8 +7549,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
   },
   "resolve.exports@1.1.0": {
     "licenses": "MIT",
@@ -8148,6 +8148,14 @@
     "url": "https://sindresorhus.com",
     "path": "node_modules/string-length",
     "licenseFile": "node_modules/string-length/license"
+  },
+  "string-replace-loader@3.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Va1/string-replace-loader",
+    "publisher": "Valentyn Barmashyn",
+    "email": "barmashyn.val@gmail.com",
+    "path": "node_modules/string-replace-loader",
+    "licenseFile": "node_modules/string-replace-loader/LICENCE"
   },
   "string-width@4.2.3": {
     "licenses": "MIT",
@@ -8849,8 +8857,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",
