@@ -75,7 +75,7 @@ module.exports = async (github, context) => {
 
   const f = await readFile('release/githubActions/workflows.config')
   console.log(f)
-  
+
   debug('Adding reviewers')
   await github.rest.pulls.requestReviewers({
     owner,
