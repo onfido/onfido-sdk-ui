@@ -160,7 +160,7 @@ const getVersionFromSourceFile = (sourceFile) => {
 const updateAndUploadFiles = async (AWSBase32Map, versionData) => {
   debug('Uploading updated base32map.json to AWS')
   await writeToFile('aws/base32map.json', JSON.stringify(AWSBase32Map, null, 2))
-  await execute(`aws s3 cp aws/base32map.json ${AWS_BASE}base32map.json`)
+  await execute(`aws s3 cp aws/base32map.json ${AWS_BASE}base32map.json --acl public-read`)
 
   debug('Updating workflows.config')
   await replaceInFile(

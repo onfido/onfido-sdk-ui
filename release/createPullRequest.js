@@ -68,7 +68,7 @@ module.exports = async (github, context) => {
     /^PULL_REQUEST_NUMBER\s*=.*$/gm,
     `PULL_REQUEST_NUMBER=${result.data.number}`
   )
-  
+
   debug('Adding reviewers')
   await github.rest.pulls.requestReviewers({
     owner,

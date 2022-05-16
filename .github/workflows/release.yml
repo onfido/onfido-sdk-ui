@@ -56,7 +56,7 @@ jobs:
       - name: Tag commit
         run: |
           git tag $RELEASE_VERSION -m "Release ${RELEASE_VERSION}"  
-          git push $RELEASE_VERSION
+          git push origin $RELEASE_VERSION
 
       # Stores latest full release as $LATEST_TAG
       - name: Determine release type
@@ -69,12 +69,12 @@ jobs:
       - name: Upload Base32 to S3
         run: |
           echo $BASE_32_VERSION
-          aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-base32-releases/TEST/ --exclude "*.html" --recursive --acl public-read
-        # aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE_32_VERSION/ --exclude "*.html" --recursive --acl public-read
+          aws s3 cp ./dist s3://${{ env.AWS_S3_BUCKET }}/web-sdk-base32-releases/TEST/ --exclude "*.html" --recursive --acl public-read
+        # aws s3 cp ./dist s3://${{ env.AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE_32_VERSION/ --exclude "*.html" --recursive --acl public-read
 
       - name: Upload Release to S3
         run: |
-          aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-releases/TEST/ --exclude "*.html" --recursive --acl public-read
+          aws s3 cp ./dist s3://${{ env.AWS_S3_BUCKET }}/web-sdk-releases/TEST/ --exclude "*.html" --recursive --acl public-read
         # aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --exclude "*.html" --recursive --acl public-read
 
       # TODO: Remove --dry-run when ready to test with prod
