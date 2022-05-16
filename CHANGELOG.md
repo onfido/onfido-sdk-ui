@@ -8,18 +8,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-### Changed
-
-- Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
-- Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
-- Internal: Added test case configs to our demo app with queryString `testCase`
-- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
-- Internal: Add a css root scope to our SDK
-- Public: Scope our customization of castor components to our SDK css root
-- Public: Strip away `color-scheme` to prevent interference with customer styles
-- Internal: Upgrade `@sentry/browser@6.19.7`
-- Internal: Fix Sentry artifacts CI upload
-
 ## [8.0.0] - 2022-04-21
 
 ### Changed
@@ -1250,8 +1238,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Public: it's now possible to change the init options at runtime by calling `setOptions()` on the object returned by `Onfido.init()`
 - Public: `useWebcam` option added to the facial and document capture step
 
-[detectrtc]: https://github.com/muaz-khan/DetectRTC
-
 ## [0.5.1]
 
 ### Fix
@@ -1271,7 +1257,22 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...development
+## [0.0.2-rc.1] - 2022-05-16
+
+### Changed
+
+- Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
+- Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
+- Internal: Added test case configs to our demo app with queryString `testCase`
+- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
+- Internal: Add a css root scope to our SDK
+- Public: Scope our customization of castor components to our SDK css root
+- Public: Strip away `color-scheme` to prevent interference with customer styles
+- Internal: Upgrade `@sentry/browser@6.19.7`
+- Internal: Fix Sentry artifacts CI upload
+
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...development
+[8.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...8.0.0
 [6.20.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...6.20.1
 [6.20.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.19.0...6.20.0
 [6.19.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...6.19.0
@@ -1359,4 +1360,5 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 [0.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.6.1...0.7.0
 [0.6.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.5.1...0.6.1
 [0.5.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.5.0...0.5.1
-[0.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.4.0...0.5.0
+[0.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.0.2-rc.1...0.5.0
+[0.0.2-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.4.0...0.0.2-rc.1

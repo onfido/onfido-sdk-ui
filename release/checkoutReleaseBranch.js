@@ -31,8 +31,6 @@ const checkoutReleaseBranch = async () => {
   } else {
     await execute(`git push origin ${RELEASE_BRANCH_NAME}`)
   }
-
-  
 }
 
 ;(async () => {
