@@ -4,11 +4,9 @@ import classNames from 'classnames'
 
 import ScreenLayout from '../Theme/ScreenLayout'
 import PageTitle from '../PageTitle'
-import { getCountryFlagSrc } from '~supported-documents'
 import { parseTags } from '~utils'
 import { hasOnePreselectedDocument } from '~utils/steps'
 
-import Autocomplete from 'accessible-autocomplete/preact'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
@@ -16,6 +14,7 @@ import type { CountryData } from '~types/commons'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { StepComponentBaseProps } from '~types/routers'
 import { DocumentTypes, PoaTypes } from '~types/steps'
+import { CountryDropdown } from './CountryDropdown'
 
 export type Props = {
   previousStep: () => void
@@ -33,19 +32,6 @@ export type DocumentProps = {
 type State = {
   showNoResultsError: boolean
   alwaysShowEmptyMessage: boolean
-}
-
-const getCountryOptionTemplate = (country: CountryData) => {
-  if (country) {
-    const countryCode = country.country_alpha2
-    const countryFlagSrc = getCountryFlagSrc(countryCode, 'square')
-    return `<i
-      role="presentation"
-      class="${style.countryFlag}"
-      style="background-image: url(${countryFlagSrc})"></i>
-      <span class="${style.countryLabel}">${country.name}</span>`
-  }
-  return ''
 }
 
 export abstract class CountrySelectionBase extends Component<Props, State> {
@@ -66,7 +52,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
 
   abstract hasChanges: (prevProps: Props) => boolean | undefined
 
-  handleCountrySearchConfirm = (selectedCountry: CountryData) => {
+  handleCountrySelect = (selectedCountry: CountryData) => {
     const { documentCountry } = this.getDocumentProps()
 
     const hasNoCountry =
@@ -179,27 +165,11 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
       >
         <PageTitle title={translate('country_select.title')} />
         <div className={classNames(theme.alignTextLeft, style.container)}>
-          <div data-onfido-qa="countrySelector">
-            <label className={style.label} htmlFor="country-search">
-              {translate('country_select.search.label')}
-            </label>
-            <Autocomplete
-              id="country-search"
-              source={this.suggestCountries}
-              showAllValues
-              dropdownArrow={() => <i className={style.dropdownIcon} />}
-              placeholder={translate('country_select.search.input_placeholder')}
-              tNoResults={() => this.getNoResultsTextForDropdown()}
-              displayMenu="overlay"
-              cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
-              templates={{
-                inputValue: (country: CountryData) => country?.name,
-                suggestion: (country: CountryData) =>
-                  getCountryOptionTemplate(country),
-              }}
-              onConfirm={this.handleCountrySearchConfirm}
-            />
-          </div>
+          <CountryDropdown
+            {...this.props}
+            suggestCountries={this.suggestCountries}
+            handleCountrySelect={this.handleCountrySelect}
+          />
           {(hasCountrySelectError || this.state.alwaysShowEmptyMessage) &&
             this.renderNoResultsMessage()}
         </div>
