@@ -10,6 +10,7 @@ type SourceData = {
   country_alpha2: string
   country_alpha3: string
   country: string
+  document_type: string
 }
 
 type FlagShapes = 'rectangle' | 'square'
@@ -17,6 +18,12 @@ type FlagShapes = 'rectangle' | 'square'
 const FLAGS_FOLDER_BY_SHAPE: Record<FlagShapes, string> = {
   rectangle: '4x3',
   square: '1x1',
+}
+
+const documentTypeMap: Record<string, string> = {
+  DLD: 'driving_licence',
+  NIC: 'national_identity_card',
+  REP: 'residence_permit',
 }
 
 export const getCountryFlagSrc = (
@@ -42,6 +49,28 @@ export const getCountryDataForDocumentType = (
     return country
   }
   return null
+}
+
+export const getSupportedCountries = (): CountryData[] => {
+  const allSupportedDocumentTypes = supportedDrivingLicences
+    .concat(supportedNationalIDCards)
+    .concat(supportedResidencePermit)
+  return getCountriesList(allSupportedDocumentTypes)
+}
+
+export const getSupportedDocumentTypes = (country: string): string[] => {
+  return supportedDrivingLicences
+    .concat(supportedNationalIDCards)
+    .concat(supportedResidencePermit)
+    .filter(
+      (docData: { sourceData: SourceData }) =>
+        docData.sourceData.country_alpha3 === country
+    )
+    .map(
+      (docData: { sourceData: SourceData }) =>
+        documentTypeMap[docData.sourceData.document_type]
+    )
+    .concat(['passport'])
 }
 
 export const getSupportedCountriesForDocument = (
