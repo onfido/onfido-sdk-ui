@@ -501,6 +501,20 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_face_face_video_confirmation_retake_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_upload_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_face_face_video_capture_fallback_triggered',
     {
       eventName: 'FACE_VIDEO_FALLBACK_TRIGGERED',
