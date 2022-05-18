@@ -8,8 +8,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-- Internal: Upgrade `typescript` to 4.6.2
-
 ### Changed
 
 - Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
@@ -25,6 +23,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Migrated `MobileFlow`, `CrossDeviceLink` & `CrossDeviceSubmit` to typescript
 - Internal: Added `ScreenLayout` to CrossDeviceSubmit
 - Internal: Update FaceTec SDK on Auth step from 9.4.5 to 9.4.11
+- Internal: Upgrade `typescript` to 4.6.2
 
 ## [8.0.0] - 2022-04-21
 
