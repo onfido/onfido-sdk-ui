@@ -439,7 +439,7 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
       } else {
         console.error(`Invalid return statement from ${callbackName}`)
       }
-    } catch (errorResponse) {
+    } catch (errorResponse: any) {
       // @ts-ignore
       sendEvent(`Error response from ${callbackName}`)
       formatError(errorResponse, this.onApiError)
