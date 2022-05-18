@@ -257,19 +257,6 @@ describe('Confirm', () => {
 
             expect(spyUpload).not.toHaveBeenCalled()
           })
-
-          it('correctly updates the state with the error', async () => {
-            wrapper
-              .find({ 'data-onfido-qa': 'confirm-action-btn' })
-              .simulate('click')
-            await runAllPromises()
-            const errorState = wrapper.find('Confirm').state('error')
-
-            expect(errorState).toEqual({
-              name: 'GLARE_DETECTED',
-              type: 'error',
-            })
-          })
         })
 
         describe('when response contains continueWithOnfidoSubmission: true', () => {
