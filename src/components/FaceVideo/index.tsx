@@ -68,10 +68,16 @@ class FaceVideo extends Component<Props, State> {
 
   handleNextChallenge = () => {
     const { startedAt, currentIndex } = this.state
-    const { trackScreen } = this.props
-
-    trackScreen('next_button_clicked')
+    const { trackScreen, challenges } = this.props
+    const challengeType = challenges[currentIndex].type
     const nextIndex = currentIndex + 1
+    const properties: AnalyticsEventProperties = {
+      video_instruction_type: challengeType,
+      video_capture_step: `step${nextIndex}` as AnalyticsEventProperties['video_capture_step'],
+    }
+
+    trackScreen('next_button_clicked', properties)
+
     this.setState({ currentIndex: nextIndex })
 
     if (startedAt) {
