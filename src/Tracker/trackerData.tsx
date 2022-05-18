@@ -515,6 +515,13 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_face_video_intro_record_video_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_INTRO_RECORD_VIDEO_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'completed flow',
     { eventName: 'FLOW_COMPLETED', properties: { event_type: 'flow' } },
   ],
