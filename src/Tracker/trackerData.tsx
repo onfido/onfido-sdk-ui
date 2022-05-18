@@ -462,14 +462,14 @@ export const analyticsEventsMapping = new Map<
     'screen_face_video_capture_step_1',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
-      properties: { event_type: 'screen', video_capture_step: 'step1' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_face_video_capture_step_2',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
-      properties: { event_type: 'screen', video_capture_step: 'step2' },
+      properties: { event_type: 'screen' },
     },
   ],
   [

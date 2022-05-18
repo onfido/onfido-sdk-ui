@@ -221,6 +221,7 @@ export type AnalyticsEventProperties = {
   capture_method_rendered?: 'upload' | 'camera'
   document_side?: 'front' | 'back'
   video_capture_step?: 'step1' | 'step2'
+  video_instruction_type?: 'recite' | 'movement'
   link_method_selected?: 'copy' | 'qr_code' | 'sms'
   has_fallback?: boolean
   ui_alerts?: {
