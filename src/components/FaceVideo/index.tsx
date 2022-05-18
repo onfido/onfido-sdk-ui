@@ -143,7 +143,10 @@ class FaceVideo extends Component<Props, State> {
               hasMoreSteps={!isLastChallenge}
               disableInteraction={disableInteraction}
               onNext={this.handleNextChallenge}
-              onStop={onStop}
+              onStop={() => {
+                trackScreen('finish_button_clicked')
+                onStop()
+              }}
             >
               <Challenge challenge={currentChallenge} />
             </Recording>

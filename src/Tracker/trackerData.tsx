@@ -1058,6 +1058,13 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_face_face_video_capture_finish_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_FINISH_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_face_face_video_confirmation_play_clicked',
     {
       eventName: 'FACE_VIDEO_CONFIRMATION_PLAY_CLICKED',
