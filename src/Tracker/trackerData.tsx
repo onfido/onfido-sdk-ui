@@ -270,6 +270,21 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_document_video_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_document_document_video_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName:
+        'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_document_document_video_capture_fallback_triggered',
     {
       eventName: 'DOCUMENT_VIDEO_FALLBACK_TRIGGERED',
@@ -299,6 +314,21 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_DENIED',
       properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName:
+        'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
     },
   ],
   [
@@ -404,6 +434,21 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED',
       properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName:
+        'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
     },
   ],
   [
