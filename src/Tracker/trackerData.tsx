@@ -1051,9 +1051,9 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
-    'screen_face_face_video_capture_recording_next_click',
+    'screen_face_face_video_capture_next_button_clicked',
     {
-      eventName: 'FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED',
+      eventName: 'FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED',
       properties: { event_type: 'action' },
     },
   ],

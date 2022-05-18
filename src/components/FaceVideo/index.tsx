@@ -70,7 +70,7 @@ class FaceVideo extends Component<Props, State> {
     const { startedAt, currentIndex } = this.state
     const { trackScreen } = this.props
 
-    trackScreen('recording_next_click')
+    trackScreen('next_button_clicked')
     const nextIndex = currentIndex + 1
     this.setState({ currentIndex: nextIndex })
 
