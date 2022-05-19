@@ -1,9 +1,32 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import { DocumentOptionsType } from '../documentTypes'
 import { isDesktop } from '~utils'
-import style from '../style.scss'
+import style from './style.scss'
 import { WithLocalisedProps } from '~types/hocs'
+import { DocumentTypes, PoaTypes } from '~types/steps'
+
+export type DocumentOptionsType = {
+  type: DocumentTypes & PoaTypes
+  icon: string
+  label: string
+  detail?: string
+  warning?: string
+  eStatements?: string
+  checkAvailableInCountry?: (county: string) => boolean
+}
+
+export type DocumentTypeConfiguration = {
+  labelKey: string
+  detailKey?: string
+  eStatementsKey?: string
+  warningKey?: string
+  icon?: string
+  checkAvailableInCountry?: (country: string) => boolean
+}
+
+export type DocumentOptions =
+  | Record<DocumentTypes, DocumentTypeConfiguration>
+  | Record<PoaTypes, DocumentTypeConfiguration>
 
 export type HandleDocumentSelect = (option: DocumentOptionsType) => void
 

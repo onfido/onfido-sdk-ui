@@ -25,7 +25,7 @@ import {
   HandleDocumentSelect,
 } from '../DocumentSelector/DocumentList'
 
-import { idDocumentOptions } from '../Select/IdentityDocumentSelector'
+import { idDocumentOptions } from '../DocumentSelector/IdentityDocumentSelector'
 import { generateDefaultOptions } from '../DocumentSelector'
 
 import {
@@ -34,7 +34,7 @@ import {
 } from '~supported-documents'
 import { StepsRouterProps } from '~types/routers'
 
-type RestrictedDocumentSelectionProps = StepsRouterProps
+export type RestrictedDocumentSelectionProps = StepsRouterProps
 
 export const RestrictedDocumentSelection = ({
   nextStep,

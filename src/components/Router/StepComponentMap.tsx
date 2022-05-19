@@ -48,11 +48,11 @@ import type {
   StepConfigData,
 } from '~types/steps'
 import PoAClientIntro from '../ProofOfAddress/PoAIntro'
-import PoADocumentSelector from '../ProofOfAddress/PoADocumentSelect'
 import Guidance from '../ProofOfAddress/Guidance'
-import { SelectIdentityDocument } from '../Select/IdentityDocumentSelector'
-import DocumentCountrySelector from 'components/CountrySelector/DocumentCountrySelector'
-import PoACountrySelector from 'components/CountrySelector/PoACountrySelector'
+import PoADocumentSelector from '../DocumentSelector/PoADocumentSelector'
+import { IdentityDocumentSelector } from '../DocumentSelector/IdentityDocumentSelector'
+import IdentityCountrySelector from '../CountrySelector/IdentityCountrySelector'
+import PoACountrySelector from '../CountrySelector/PoACountrySelector'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -299,9 +299,9 @@ const buildNonPassportPreCaptureComponents = (
 ): ComponentType<StepComponentProps>[] => {
   const prependDocumentSelector = hasOnePreselectedDocument
     ? []
-    : [SelectIdentityDocument]
+    : [IdentityDocumentSelector]
   const prependCountrySelector = showCountrySelection
-    ? [DocumentCountrySelector]
+    ? [IdentityCountrySelector]
     : []
   // @ts-ignore
   // TODO: convert DocumentSelector to TS
@@ -344,7 +344,7 @@ const buildDocumentComponents = (
   if (isPassportDocument) {
     const preCaptureComponents = hasOnePreselectedDocument
       ? []
-      : [SelectIdentityDocument]
+      : [IdentityDocumentSelector]
 
     if (shouldUseVideo) {
       // @ts-ignore

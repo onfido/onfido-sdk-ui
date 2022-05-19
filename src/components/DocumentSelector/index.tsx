@@ -1,14 +1,17 @@
 import { Component, h } from 'preact'
 import { kebabCase } from '~utils/string'
 import { isEmpty } from '~utils/object'
-import { DocumentOptions, DocumentOptionsType } from './documentTypes'
 import { StepComponentBaseProps } from '~types/routers'
 import { TranslateCallback } from '~types/locales'
 import PageTitle from '../PageTitle'
 import { LocaleContext } from '~locales'
 import { DocumentTypeConfig, DocumentTypes, PoaTypes } from '~types/steps'
 import { PoASupportedCountry } from '~types/api'
-import { DocumentList } from './DocumentList'
+import {
+  DocumentList,
+  DocumentOptions,
+  DocumentOptionsType,
+} from './DocumentList'
 
 const always = () => true
 
