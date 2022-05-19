@@ -1,4 +1,4 @@
-import type { DeviceTypes } from './commons'
+import type { DeviceTypes, ErrorNames } from './commons'
 import type { StepConfig } from './steps'
 
 export const USER_ANALYTICS_EVENT = 'userAnalyticsEvent'
@@ -211,6 +211,37 @@ type UIAlerts =
   | 'camera_not_working'
   | 'camera_inactive'
   | 'video_error'
+
+export const ErrorNameToUIAlertMapping: Record<
+  ErrorNames,
+  UIAlerts | undefined
+> = {
+  BLUR_DETECTED: 'blur',
+  CAMERA_INACTIVE: 'camera_inactive',
+  CAMERA_INACTIVE_NO_FALLBACK: 'camera_inactive',
+  CAMERA_NOT_WORKING: 'camera_not_working',
+  CAMERA_NOT_WORKING_NO_FALLBACK: 'camera_not_working',
+  CUTOFF_DETECTED: 'cutoff',
+  DOC_VIDEO_TIMEOUT: 'doc_video_timeout',
+  FACE_VIDEO_TIMEOUT: 'face_video_timeout',
+  FORBIDDEN_CLIENT_ERROR: undefined,
+  GENERIC_CLIENT_ERROR: undefined,
+  INTERRUPTED_FLOW_ERROR: undefined,
+  PROFILE_DATA_TIMEOUT: 'profile_data_timeout',
+  GLARE_DETECTED: 'glare',
+  DOCUMENT_DETECTION: 'document_detection',
+  INVALID_SIZE: 'invalid_size',
+  INVALID_TYPE: 'invalid_type',
+  INVALID_IMAGE_SIZE: 'invalid_size',
+  MULTIPLE_FACES_ERROR: 'multiple_faces',
+  NO_FACE_ERROR: 'no_face',
+  REQUEST_ERROR: 'request_error',
+  SMS_FAILED: undefined,
+  SMS_OVERUSE: undefined,
+  UNSUPPORTED_ANDROID_BROWSER: undefined,
+  UNSUPPORTED_FILE: 'unsupported_file',
+  UNSUPPORTED_IOS_BROWSER: undefined,
+}
 
 export type AnalyticsEventProperties = {
   event_type?: TrackedEventTypes
