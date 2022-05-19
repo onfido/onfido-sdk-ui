@@ -11,6 +11,7 @@ import PageTitle from '../PageTitle'
 import { LocaleContext } from '~locales'
 import { DocumentTypeConfig, DocumentTypes, PoaTypes } from '~types/steps'
 import { PoASupportedCountry } from '~types/api'
+import type { documentSelectionType } from '~types/commons'
 
 const always = () => true
 
@@ -21,6 +22,7 @@ export type Props = {
   type: DocumentTypes | PoaTypes
   autoFocusOnInitialScreenTitle?: boolean
   countryList?: PoASupportedCountry[]
+  document_selection?: documentSelectionType[] | undefined
 } & StepComponentBaseProps
 
 // The 'type' value of these options must match the API document types.
@@ -32,13 +34,33 @@ export abstract class DocumentSelectorBase extends Component<Props> {
   private getOptions = (
     translate: (key: string, options?: Record<string, unknown>) => string
   ) => {
-    const { documentTypes, country } = this.props
-    const countryCode = country || this.country || 'GBR'
+    const {
+      documentTypes,
+      country,
+      document_selection,
+      idDocumentIssuingCountry,
+    } = this.props
+    const countryCode =
+      country ||
+      this.country ||
+      idDocumentIssuingCountry?.country_alpha3 ||
+      'GBR'
+
+    const docTypeFilter =
+      document_selection &&
+      document_selection.filter((value, index, self) => {
+        return (
+          self.findIndex((v) => v.document_type === value.document_type) ===
+          index
+        )
+      })
 
     if (!this.defaultOptions) {
       this.defaultOptions = generateDefaultOptions(
         this.getDefaultOptions(),
-        translate
+        translate,
+        docTypeFilter,
+        countryCode
       )
     }
 
@@ -144,9 +166,11 @@ export abstract class DocumentSelectorBase extends Component<Props> {
 
 function generateDefaultOptions(
   documentOptions: DocumentOptions,
-  translate: TranslateCallback
+  translate: TranslateCallback,
+  filterList?: documentSelectionType[],
+  issuingCountry?: string
 ): DocumentOptionsType[] {
-  return Object.entries(documentOptions).map(([type, configuration]) => {
+  const options = Object.entries(documentOptions).map(([type, configuration]) => {
     const {
       icon = `icon-${kebabCase(type)}`,
       labelKey,
@@ -166,4 +190,16 @@ function generateDefaultOptions(
       checkAvailableInCountry,
     }
   })
+
+  const filteredDocumentOptions = filterList
+    ? options.filter((el) => {
+        return filterList.some((f) => {
+          return (
+            f.document_type === el.type && f.issuing_country === issuingCountry
+          )
+        })
+      })
+    : options
+
+  return filteredDocumentOptions
 }
