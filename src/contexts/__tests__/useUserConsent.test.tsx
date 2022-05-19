@@ -39,6 +39,9 @@ const wrapper = ({ children, enable_require_applicant_consents }) => (
       sdk_features: {
         enable_require_applicant_consents,
       },
+      document_capture: {
+        max_total_retries: 0,
+      },
     }}
   >
     <UserConsentProvider token={token} url={url}>

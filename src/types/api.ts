@@ -241,6 +241,13 @@ export interface BiometricsLivenessPassiveVideoSettings {
 }
 
 export interface DocumentCapture {
+  /**
+   * The number of additional image quality retries that should return an error if an image quality validation is detected.
+   * This means that if image quality validations are detected, the user will only see an error on the first [1 + max_total_retries] upload attempt.
+   * From the [1 + max_total_retries + 1] attempt, if image quality validations are detected, the user will see a warning and they use can choose to
+   * proceed regardless of the image quality warning.
+   */
+  max_total_retries: number
   torch_turn_on_timeMs?: number
   video_length_ms?: number
   video_bitrate?: number
@@ -272,7 +279,7 @@ export interface SdkConfigurationValidationsOnDevice {
 export type SdkConfiguration = {
   validations?: SdkConfigurationValidations
   experimental_features?: ExperimentalFeatures
-  document_capture?: DocumentCapture
+  document_capture: DocumentCapture
   biometrics_liveness?: BiometricsLiveness
   sdk_features?: SdkFeatures
 }

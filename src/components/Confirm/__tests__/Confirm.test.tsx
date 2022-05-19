@@ -21,6 +21,7 @@ import { StepComponentBaseProps } from '~types/routers'
 import Welcome from '../../Welcome'
 import { WithLocalisedProps } from '~types/hocs'
 import { EnterpriseCallbackResponse } from '~types/enterprise'
+import { SdkConfigurationServiceContext } from '~contexts/useSdkConfigurationService'
 
 jest.mock('~utils')
 jest.mock('~utils/objectUrl')
@@ -76,6 +77,8 @@ type MockedConfirmType = {
   method: CaptureMethods
   mockVariant: 'success' | 'error' | 'continue'
   variant: RequestedVariant
+  imageQualityRetries?: number
+  maxDocumentCaptureRetries?: number
 }
 
 const ENTERPRISE_CALLBACKS_BY_VARIANT: Record<
@@ -105,7 +108,13 @@ const ENTERPRISE_CALLBACKS_BY_VARIANT: Record<
   },
 }
 
-const MockedConfirm = ({ method, mockVariant, variant }: MockedConfirmType) => {
+const MockedConfirm = ({
+  method,
+  mockVariant,
+  variant,
+  imageQualityRetries,
+  maxDocumentCaptureRetries,
+}: MockedConfirmType) => {
   const props: ConfirmProps = {
     ...defaultStepComponentBaseProps,
     ...defaultLocalisedProps,
@@ -122,12 +131,21 @@ const MockedConfirm = ({ method, mockVariant, variant }: MockedConfirmType) => {
     },
     enterpriseFeatures: ENTERPRISE_CALLBACKS_BY_VARIANT[mockVariant],
     token: 'fake_token',
+    imageQualityRetries: imageQualityRetries ?? 0,
   }
 
   return (
     <MockedReduxProvider>
       <MockedLocalised>
-        <Confirm {...props} />
+        <SdkConfigurationServiceContext.Provider
+          value={{
+            document_capture: {
+              max_total_retries: maxDocumentCaptureRetries ?? 1,
+            },
+          }}
+        >
+          <Confirm {...props} />
+        </SdkConfigurationServiceContext.Provider>
       </MockedLocalised>
     </MockedReduxProvider>
   )
@@ -281,6 +299,110 @@ describe('Confirm', () => {
             await runAllPromises()
 
             expect(spyUpload).toHaveBeenCalledTimes(1)
+          })
+        })
+      })
+    })
+
+    // add a specific test for document capture only, as it's the only one that uses a retry for image quality.
+    describe('document capture', () => {
+      describe('when an image quality detection issue is detected in the backend', () => {
+        beforeEach(() => {
+          mockedFormatError.mockImplementation(
+            ({ response, status }, onError) =>
+              onError({ status, response: JSON.parse(response) })
+          )
+        })
+
+        const errorImageQualityRetries = [0, 1]
+        errorImageQualityRetries.forEach((imageQualityRetry) => {
+          describe(`when imageQualityRetry (${imageQualityRetry}) <= max_total_retries (1)`, () => {
+            beforeEach(() => {
+              wrapper = mount(
+                <MockedConfirm
+                  method={'document'}
+                  mockVariant="continue"
+                  variant={'standard'}
+                  imageQualityRetries={imageQualityRetry}
+                  maxDocumentCaptureRetries={1}
+                />
+              )
+            })
+
+            it('should call the backend with the validations as errors', async () => {
+              const spyUpload = jest.spyOn(
+                { [uploadDocument.name]: uploadDocument },
+                uploadDocument.name
+              )
+              wrapper
+                .find({ 'data-onfido-qa': 'confirm-action-btn' })
+                .simulate('click')
+              await runAllPromises()
+
+              expect(spyUpload).toHaveBeenCalledTimes(1)
+              expect(spyUpload).toBeCalledWith(
+                expect.objectContaining({
+                  validations: {
+                    detect_blur: 'error',
+                    detect_cutoff: 'error',
+                    detect_document: 'error',
+                    detect_glare: 'error',
+                  },
+                }),
+                expect.anything(),
+                expect.anything(),
+                expect.anything(),
+                expect.anything()
+              )
+            })
+          })
+        })
+
+        const imageQualityWarnings = [2, 3] // can be up to infinity
+        imageQualityWarnings.forEach((imageQualityRetry) => {
+          afterEach(() => {
+            jest.clearAllMocks()
+          })
+
+          describe(`for imageQualityRetry (${imageQualityRetry}) > max_total_retries (1)`, () => {
+            beforeEach(() => {
+              wrapper = mount(
+                <MockedConfirm
+                  method={'document'}
+                  mockVariant="continue"
+                  variant={'standard'}
+                  imageQualityRetries={imageQualityRetry}
+                  maxDocumentCaptureRetries={1}
+                />
+              )
+            })
+
+            it('should call the backend with the validations as warnings, plus the document validation as error.', async () => {
+              const spyUpload = jest.spyOn(
+                { [uploadDocument.name]: uploadDocument },
+                uploadDocument.name
+              )
+              wrapper
+                .find({ 'data-onfido-qa': 'confirm-action-btn' })
+                .simulate('click')
+              await runAllPromises()
+
+              expect(spyUpload).toHaveBeenCalledTimes(1)
+              expect(spyUpload).toBeCalledWith(
+                expect.objectContaining({
+                  validations: {
+                    detect_blur: 'warn',
+                    detect_cutoff: 'warn',
+                    detect_document: 'error', // this one is always error
+                    detect_glare: 'warn',
+                  },
+                }),
+                expect.anything(),
+                expect.anything(),
+                expect.anything(),
+                expect.anything()
+              )
+            })
           })
         })
       })

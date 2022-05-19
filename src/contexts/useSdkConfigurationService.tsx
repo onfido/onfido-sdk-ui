@@ -9,7 +9,7 @@ type SdkConfigurationServiceProviderProps = {
   url?: string
   token?: string
   fallback?: ComponentChildren
-  overrideConfiguration?: SdkConfiguration
+  overrideConfiguration?: Partial<SdkConfiguration>
 }
 
 const defaultConfiguration: SdkConfiguration = {
@@ -18,6 +18,9 @@ const defaultConfiguration: SdkConfiguration = {
   },
   sdk_features: {
     enable_require_applicant_consents: true,
+  },
+  document_capture: {
+    max_total_retries: 1,
   },
 }
 
@@ -35,6 +38,12 @@ export const SdkConfigurationServiceProvider = ({
   const [configuration, setConfiguration] = useState<
     SdkConfiguration | undefined
   >(undefined)
+
+  if (overrideConfiguration && !overrideConfiguration.document_capture) {
+    // enforce the document capture to be set.
+    overrideConfiguration.document_capture =
+      defaultConfiguration.document_capture
+  }
 
   const [overrideConfigurationState] = useState(overrideConfiguration)
 

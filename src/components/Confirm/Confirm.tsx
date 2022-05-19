@@ -32,6 +32,7 @@ import {
 } from '~types/api'
 import { WithLocalisedProps } from '~types/hocs'
 import { useEffect, useState } from 'preact/hooks'
+import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
 
 type ImageQualityValidationNames =
   | 'CUTOFF_DETECTED'
@@ -40,14 +41,6 @@ type ImageQualityValidationNames =
 
 type CallbackTypes = 'selfie' | 'video' | 'document'
 type CallbackNames = 'onSubmitSelfie' | 'onSubmitVideo' | 'onSubmitDocument'
-
-// The number of additional image quality retries
-// that should return an error if an image quality validation is detected.
-// This means that if image quality validations are detected, the user will only see an error
-// on the first TWO upload attempt.
-// From the third attempt, if image quality validations are detected, the user will see a warning
-// and they use can choose to proceed regardless of the image quality warning
-const MAX_IMAGE_QUALITY_RETRIES_WITH_ERROR = 1
 
 const IMAGE_QUALITY_KEYS_MAP: Partial<
   Record<ImageQualityValidationTypes, ImageQualityValidationNames>
@@ -76,6 +69,7 @@ export type ConfirmProps = {
 export const Confirm = (props: ConfirmProps) => {
   const [uploadInProgress, setUploadInProgress] = useState(false)
   const [error, setErrorProp] = useState<ErrorProp | undefined>(undefined)
+  const sdkConfiguration = useSdkConfigurationService()
 
   useEffect(() => {
     props.trackScreen(undefined, {
@@ -278,10 +272,18 @@ export const Confirm = (props: ConfirmProps) => {
         !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const shouldReturnErrorForImageQuality =
-        imageQualityRetries <= MAX_IMAGE_QUALITY_RETRIES_WITH_ERROR
+        imageQualityRetries <=
+        sdkConfiguration.document_capture.max_total_retries
       const imageQualityErrorType = shouldReturnErrorForImageQuality
         ? 'error'
         : 'warn'
+
+      // create sdk validation payload to send to the backend.
+      // if the specific document detection (for example, detect_glare) issue happens on the backend:
+      //  - if it was requested as an 'error', then an error 422 will be sent from the backend.
+      //  - if it was requested as a 'warn', then there will be no HTTP error.
+      // If an error is returned from the backend, the idea is to force the user to retry with a new document capture.
+      // If a warning is returned, the end user can either retry a new document capture or upload the current document anyway.
       const validations: ImageQualityValidationPayload = {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
         ...(shouldPerformImageQualityValidations
