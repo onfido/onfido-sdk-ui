@@ -17,10 +17,10 @@ public abstract class DocumentSelectorBase extends BasePage {
 
         var element = driver.findElement(ByUtil.onfidoQa(documentType.canonicalName()));
 
-        var name = element.findElement(By.cssSelector(".onfido-sdk-ui-DocumentSelector-label")).getText();
-        var eStatementAccepted = element.findElements(By.cssSelector(".onfido-sdk-ui-DocumentSelector-tag")).size() == 1;
-        var hint = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-DocumentSelector-hint"));
-        var warning = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-DocumentSelector-warning"));
+        var name = element.findElement(By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-label")).getText();
+        var eStatementAccepted = element.findElements(By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-tag")).size() == 1;
+        var hint = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-hint"));
+        var warning = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-warning"));
 
         return new DocumentOption(name, hint, warning, eStatementAccepted);
 

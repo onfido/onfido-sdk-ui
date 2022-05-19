@@ -1,15 +1,20 @@
 import '@testing-library/jest-dom'
 import { h } from 'preact'
 import { render, screen } from '@testing-library/preact'
-import { RestrictedDocumentSelection } from '../RestrictedDocumentSelection'
+import {
+  RestrictedDocumentSelection,
+  RestrictedDocumentSelectionProps,
+} from '../RestrictedDocumentSelection'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
+
+const defaultProps = {} as RestrictedDocumentSelectionProps
 
 const renderRestrictedDocumentSelection = () =>
   render(
     <MockedReduxProvider>
       <MockedLocalised>
-        <RestrictedDocumentSelection />
+        <RestrictedDocumentSelection {...defaultProps} />
       </MockedLocalised>
     </MockedReduxProvider>
   )

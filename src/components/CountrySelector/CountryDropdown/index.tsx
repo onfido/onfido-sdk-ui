@@ -3,7 +3,7 @@ import { h, Component } from 'preact'
 import { getCountryFlagSrc } from '~supported-documents'
 import { parseTags } from '~utils'
 import Autocomplete from 'accessible-autocomplete/preact'
-import style from '../style.scss'
+import style from './style.scss'
 
 import type { CountryData } from '~types/commons'
 import type { WithLocalisedProps } from '~types/hocs'
@@ -87,7 +87,7 @@ export class CountryDropdown extends Component<CountryDropdownProps> {
           placeholder={translate('country_select.search.input_placeholder')}
           tNoResults={() => this.getNoResultsTextForDropdown()}
           displayMenu="overlay"
-          cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
+          cssNamespace={'onfido-sdk-ui-CountrySelector-CountryDropdown-custom'}
           templates={{
             inputValue: (country: CountryData) => country?.name,
             suggestion: (country: CountryData) =>
