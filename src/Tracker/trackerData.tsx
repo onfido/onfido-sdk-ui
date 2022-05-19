@@ -221,6 +221,34 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_back_confirmation_retake_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'back' },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_retake_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'front' },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_upload_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'back' },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_upload_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'front' },
+    },
+  ],
+  [
     'screen_document_fallback_clicked',
     {
       eventName: 'DOCUMENT_FALLBACK_CLICKED',
