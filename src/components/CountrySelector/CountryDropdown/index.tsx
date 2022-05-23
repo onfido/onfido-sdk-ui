@@ -1,12 +1,10 @@
 import { h, Component } from 'preact'
 
 import { getCountryFlagSrc } from '~supported-documents'
-import { parseTags } from '~utils'
 import Autocomplete from 'accessible-autocomplete/preact'
 import style from './style.scss'
 
 import type { CountryData } from '~types/commons'
-import type { WithLocalisedProps } from '~types/hocs'
 import { DocumentTypes, PoaTypes } from '~types/steps'
 
 export type SuggestedCountries = (
@@ -19,27 +17,41 @@ export type HandleCountrySelect = (selectedCountry: CountryData) => void
 export type CountryDropdownProps = {
   suggestCountries: SuggestedCountries
   handleCountrySelect: HandleCountrySelect
-} & WithLocalisedProps
+  placeholder: string
+  noResults: string
+  displayFlags: boolean
+}
 
 export type DocumentProps = {
   documentCountry: CountryData | undefined
   documentType: PoaTypes | DocumentTypes | undefined
 }
 
-const getCountryOptionTemplate = (country: CountryData) => {
+const getCountryOptionTemplate = (
+  country: CountryData,
+  displayFlags: boolean
+) => {
   if (!country) {
     return ''
   }
-  const countryCode = country.country_alpha2
-  const countryFlagSrc = getCountryFlagSrc(countryCode, 'square')
-  return `<i
+
+  if (displayFlags) {
+    const countryFlagSrc = getCountryFlagSrc(country.country_alpha2, 'square')
+    return `<i
       role="presentation"
       class="${style.countryFlag}"
       style="background-image: url(${countryFlagSrc})"></i>
-      <span class="${style.countryLabel}">${country.name}</span>`
+      <span class="${style.countryFlagLabel}">${country.name}</span>`
+  }
+
+  return `<span class="${style.countryLabel}">${country.name}</span>`
 }
 
 export class CountryDropdown extends Component<CountryDropdownProps> {
+  static defaultProps = {
+    displayFlags: false,
+  }
+
   handleMenuMouseClick = (event: Event) => {
     const target = event.target as HTMLUListElement
     // Intercept mouse click if event target is the displayed menu, i.e. scrollbar area
@@ -47,7 +59,7 @@ export class CountryDropdown extends Component<CountryDropdownProps> {
     // Otherwise accessible-autocomplete picks up a mouse click on scrollbar area as a confirm event
     if (
       target.className.includes(
-        'onfido-sdk-ui-CountrySelector-custom__menu--visible'
+        'onfido-sdk-ui-CountrySelector-CountryDropdown-custom__menu--visible'
       )
     ) {
       event.preventDefault()
@@ -62,36 +74,22 @@ export class CountryDropdown extends Component<CountryDropdownProps> {
     document.removeEventListener('mousedown', this.handleMenuMouseClick)
   }
 
-  getNoResultsTextForDropdown = () => {
-    if (typeof this.props.translate === undefined) {
-      return
-    }
-    return parseTags(
-      this.props.translate('country_select.alert_dropdown.country_not_found'),
-      ({ text }) => text
-    )
-  }
-
   render() {
-    const { translate } = this.props
     return (
       <div data-onfido-qa="countrySelector">
-        <label className={style.label} htmlFor="country-search">
-          {translate('country_select.search.label')}
-        </label>
         <Autocomplete
           id="country-search"
           source={this.props.suggestCountries}
           showAllValues
           dropdownArrow={() => <i className={style.dropdownIcon} />}
-          placeholder={translate('country_select.search.input_placeholder')}
-          tNoResults={() => this.getNoResultsTextForDropdown()}
+          placeholder={this.props.placeholder}
+          tNoResults={this.props.noResults}
           displayMenu="overlay"
           cssNamespace={'onfido-sdk-ui-CountrySelector-CountryDropdown-custom'}
           templates={{
             inputValue: (country: CountryData) => country?.name,
             suggestion: (country: CountryData) =>
-              getCountryOptionTemplate(country),
+              getCountryOptionTemplate(country, this.props.displayFlags),
           }}
           onConfirm={this.props.handleCountrySelect}
         />

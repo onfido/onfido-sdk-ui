@@ -21,10 +21,14 @@
   border-radius: 50%;
 }
 
-.countryLabel {
-  padding-left: 35 * $unit;
+.countryLabel,
+.countryFlagLabel {
   display: flex;
   align-items: center;
+}
+
+.countryFlagLabel {
+  padding-left: 35 * $unit;
 }
 
 //-----------------------------//
@@ -74,6 +78,12 @@ $_sdk-option-border-bottom: 0;
 
 .custom__wrapper {
   position: relative;
+  padding: 0;
+  margin-top: 8 * $unit;
+
+  @media (--small-viewport) {
+    margin-top: 0;
+  }
 }
 
 .custom__hint,
