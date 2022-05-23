@@ -53,6 +53,7 @@ import PoADocumentSelector from '../DocumentSelector/PoADocumentSelector'
 import { IdentityDocumentSelector } from '../DocumentSelector/IdentityDocumentSelector'
 import IdentityCountrySelector from '../CountrySelector/IdentityCountrySelector'
 import PoACountrySelector from '../CountrySelector/PoACountrySelector'
+import { RestrictedDocumentSelection } from 'components/RestrictedDocumentSelection/RestrictedDocumentSelection'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -297,9 +298,9 @@ const buildNonPassportPreCaptureComponents = (
 ): ComponentType<StepComponentProps>[] => {
   const prependDocumentSelector = hasOnePreselectedDocument
     ? []
-    : [IdentityDocumentSelector]
+    : [RestrictedDocumentSelection]
   const prependCountrySelector = showCountrySelection
-    ? [IdentityCountrySelector]
+    ? [RestrictedDocumentSelection]
     : []
   // @ts-ignore
   // TODO: convert DocumentSelector to TS
@@ -342,7 +343,7 @@ const buildDocumentComponents = (
   if (isPassportDocument) {
     const preCaptureComponents = hasOnePreselectedDocument
       ? []
-      : [IdentityDocumentSelector]
+      : [RestrictedDocumentSelection]
 
     if (shouldUseVideo) {
       // @ts-ignore
