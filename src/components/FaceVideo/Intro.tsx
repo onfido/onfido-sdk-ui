@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import { localised } from '~locales'
 import PageTitle from '../PageTitle'
-import { trackComponent } from '../../Tracker'
+import { appendToTracking, trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import {
   VIDEO_INTRO_LOCALES_MAPPING,
@@ -13,11 +13,12 @@ import {
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-import type { WithLocalisedProps } from '~types/hocs'
+import type { TrackScreenCallback, WithLocalisedProps } from '~types/hocs'
 import type { StepComponentFaceProps } from '~types/routers'
 
 type FaceVideoIntroProps = {
   nextStep: () => void
+  trackScreen: TrackScreenCallback
 } & StepComponentFaceProps
 
 type Props = FaceVideoIntroProps & WithLocalisedProps
@@ -27,6 +28,7 @@ const VIDEO_INTRO_TYPES: VideoIntroTypes[] = ['actions', 'speak']
 const Intro: FunctionComponent<Props> = ({
   translate,
   parseTranslatedTags,
+  trackScreen,
   nextStep,
   steps,
   autoFocusOnInitialScreenTitle,
@@ -68,7 +70,10 @@ const Intro: FunctionComponent<Props> = ({
           type="button"
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
-          onClick={nextStep}
+          onClick={() => {
+            trackScreen('record_video_button_clicked')
+            nextStep()
+          }}
           data-onfido-qa="liveness-continue-btn"
         >
           {translate('video_intro.button_primary')}
@@ -78,7 +83,7 @@ const Intro: FunctionComponent<Props> = ({
   )
 }
 
-export default trackComponent(
-  localised(withCrossDeviceWhenNoCamera(Intro)),
+export default appendToTracking(
+  trackComponent(localised(withCrossDeviceWhenNoCamera(Intro))),
   'video_intro'
 )
