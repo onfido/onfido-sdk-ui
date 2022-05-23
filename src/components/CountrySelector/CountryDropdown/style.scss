@@ -4,10 +4,6 @@
   /* placeholder to force class name generation for custom styling */
 }
 
-.label {
-  font-size: var(--onfido-font-size-small);
-}
-
 .countryFlag {
   position: absolute;
   left: 12 * $unit;
@@ -56,7 +52,7 @@ $_sdk-line-height: 18 * $unit-small;
 $_sdk-text-color: var(--osdk-color-content-body);
 
 $_sdk-input-border-style: 1px solid rgba(var(--ods-color-border-input));
-$_sdk-input-horizontal-padding: 10 * $unit-small;
+$_sdk-input-horizontal-padding: 8 * $unit-small;
 $_sdk-input-vertical-padding: 12 * $unit-small;
 $_sdk-input-icon-padding: 34 * $unit-small;
 $_sdk-search-icon-size: 24 * $unit-small;
