@@ -5,7 +5,8 @@ import { Dispatch } from 'redux'
 
 import { useLocales } from '~locales'
 import { GlobalActions } from '~types/redux'
-
+import { StepsRouterProps } from '~types/routers'
+import style from './style.scss'
 import {
   setIdDocumentIssuingCountry,
   setIdDocumentType,
@@ -32,7 +33,7 @@ import {
   getSupportedCountries,
   getSupportedDocumentTypes,
 } from '~supported-documents'
-import { StepsRouterProps } from '~types/routers'
+import { CountryData } from '~types/commons'
 
 export type RestrictedDocumentSelectionProps = StepsRouterProps
 
@@ -42,14 +43,16 @@ export const RestrictedDocumentSelection = ({
   const { translate, parseTranslatedTags } = useLocales()
   const dispatch = useDispatch<Dispatch<GlobalActions>>()
 
-  const [country, setCountry] = useState('')
+  const [country, setCountry] = useState<CountryData>()
   const countries = useMemo(() => getSupportedCountries(), [])
   const documents = useMemo(() => {
     if (!country) {
       return []
     }
 
-    const supportedDocumentTypes = getSupportedDocumentTypes(country)
+    const supportedDocumentTypes = getSupportedDocumentTypes(
+      country.country_alpha3
+    )
     const defaultDocumentOptions = generateDefaultOptions(
       idDocumentOptions,
       translate
@@ -61,9 +64,11 @@ export const RestrictedDocumentSelection = ({
   }, [country, translate])
 
   const handleCountrySelect: HandleCountrySelect = (selectedCountry) => {
-    if (!selectedCountry) return
+    if (!selectedCountry) {
+      return
+    }
     dispatch(setIdDocumentIssuingCountry(selectedCountry))
-    setCountry(selectedCountry.country_alpha3)
+    setCountry(selectedCountry)
   }
 
   const handleDocumentSelect: HandleDocumentSelect = ({ type }) => {
@@ -71,30 +76,53 @@ export const RestrictedDocumentSelection = ({
     nextStep()
   }
 
-  const suggestCountries: SuggestedCountries = (query = '', populateResults) =>
+  const suggestCountries: SuggestedCountries = (
+    query = '',
+    populateResults
+  ) => {
+    if (country && query !== country.name) {
+      setCountry(undefined)
+    }
+
     populateResults(
       countries.filter((country) =>
         country.name.toLowerCase().includes(query.trim().toLowerCase())
       )
     )
+  }
 
   return (
     <ScreenLayout>
-      <PageTitle title={translate('doc_select.title')} />
-      <div>
+      <PageTitle
+        title={translate('restricted_document_selection.title')}
+        subTitle={translate('restricted_document_selection.subtitle')}
+      />
+      <div className={style.selectionContainer}>
+        <label htmlFor="country-search">
+          {translate('restricted_document_selection.country')}
+        </label>
         <CountryDropdown
           suggestCountries={suggestCountries}
           handleCountrySelect={handleCountrySelect}
-          parseTranslatedTags={parseTranslatedTags}
-          translate={translate}
-        />
-        <DocumentList
-          options={documents}
-          handleDocumentSelect={handleDocumentSelect}
-          parseTranslatedTags={parseTranslatedTags}
-          translate={translate}
+          placeholder={translate(
+            'restricted_document_selection.country_placeholder'
+          )}
+          noResults={translate(
+            'restricted_document_selection.country.country_not_found'
+          )}
         />
       </div>
+      {documents.length > 0 ? (
+        <div className={style.selectionContainer}>
+          <label>{translate('restricted_document_selection.document')}</label>
+          <DocumentList
+            options={documents}
+            handleDocumentSelect={handleDocumentSelect}
+            parseTranslatedTags={parseTranslatedTags}
+            translate={translate}
+          />
+        </div>
+      ) : undefined}
     </ScreenLayout>
   )
 }

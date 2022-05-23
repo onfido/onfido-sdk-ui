@@ -92,7 +92,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
     // Otherwise accessible-autocomplete picks up a mouse click on scrollbar area as a confirm event
     if (
       target.className.includes(
-        'onfido-sdk-ui-CountrySelector-custom__menu--visible'
+        'onfido-sdk-ui-CountrySelector-CountryDropdown-custom__menu--visible'
       )
     ) {
       event.preventDefault()
@@ -165,8 +165,16 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
       >
         <PageTitle title={translate('country_select.title')} />
         <div className={classNames(theme.alignTextLeft, style.container)}>
+          <label className={style.label} htmlFor="country-search">
+            {translate('country_select.search.label')}
+          </label>
           <CountryDropdown
             {...this.props}
+            displayFlags={true}
+            placeholder={translate('country_select.search.input_placeholder')}
+            noResults={translate(
+              'country_select.alert_dropdown.country_not_found'
+            )}
             suggestCountries={this.suggestCountries}
             handleCountrySelect={this.handleCountrySelect}
           />
