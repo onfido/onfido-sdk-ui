@@ -83,7 +83,7 @@ export class CountryDropdown extends Component<CountryDropdownProps> {
           showAllValues
           dropdownArrow={() => <i className={style.dropdownIcon} />}
           placeholder={this.props.placeholder}
-          tNoResults={this.props.noResults}
+          tNoResults={() => this.props.noResults}
           displayMenu="overlay"
           cssNamespace={'onfido-sdk-ui-CountrySelector-CountryDropdown-custom'}
           templates={{

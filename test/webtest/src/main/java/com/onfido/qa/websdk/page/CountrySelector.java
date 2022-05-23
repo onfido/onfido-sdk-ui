@@ -80,6 +80,6 @@ public class CountrySelector extends BasePage {
     }
 
     public String selectorLabel() {
-        return text(By.cssSelector(".onfido-sdk-ui-CountrySelector-CountryDropdown-label"));
+        return text(By.cssSelector(".onfido-sdk-ui-CountrySelector-label"));
     }
 }
