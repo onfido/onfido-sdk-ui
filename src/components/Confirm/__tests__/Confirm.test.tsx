@@ -1,5 +1,7 @@
+import '@testing-library/jest-dom'
+import { act, render, screen, waitFor } from '@testing-library/preact'
+import userEvent from '@testing-library/user-event'
 import { h } from 'preact'
-import { mount, ReactWrapper } from 'enzyme'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider, {
@@ -197,10 +199,16 @@ const UPLOAD_TYPES: Array<{
 
 const mockedFormatError = formatError as jest.MockedFunction<typeof formatError>
 
-describe('Confirm', () => {
-  let wrapper: ReactWrapper
-  const runAllPromises = () => new Promise(setImmediate)
+/**
+ * Ensures that the callable expression does not happen. see https://stackoverflow.com/a/68400490
+ * @param callable
+ */
+async function expectNever(callable: () => unknown): Promise<void> {
+  // the callable expression should never happen, otherwise the test will fail.
+  await expect(() => waitFor(callable)).rejects.toEqual(expect.anything())
+}
 
+describe('Confirm', () => {
   describe('onSubmitCallback', () => {
     UPLOAD_TYPES.forEach(({ type, method, variant, uploadFunction }) => {
       describe(`for ${type}`, () => {
@@ -210,7 +218,7 @@ describe('Confirm', () => {
 
         describe('when response contains onfidoSuccessResponse', () => {
           beforeEach(() => {
-            wrapper = mount(
+            render(
               <MockedConfirm
                 method={method}
                 mockVariant="success"
@@ -224,12 +232,15 @@ describe('Confirm', () => {
               { [uploadFunction.name]: uploadFunction },
               uploadFunction.name
             )
-            wrapper
-              .find({ 'data-onfido-qa': 'confirm-action-btn' })
-              .simulate('click')
-            await runAllPromises()
 
-            expect(spyUpload).not.toHaveBeenCalled()
+            const confirm = screen.getByLabelText('confirm')
+
+            act(() => userEvent.click(confirm))
+
+            await expectNever(() =>
+              // this should never happen, otherwise the test will fail.
+              expect(spyUpload).toHaveBeenCalled()
+            )
           })
 
           it('triggers the onApiSuccess method', async () => {
@@ -239,18 +250,20 @@ describe('Confirm', () => {
               mockedReduxProps.actions,
               'setCaptureMetadata'
             )
-            wrapper
-              .find({ 'data-onfido-qa': 'confirm-action-btn' })
-              .simulate('click')
-            await runAllPromises()
 
-            expect(spyOnApiSuccess).toHaveBeenCalledTimes(1)
+            const confirm = screen.getByLabelText('confirm')
+
+            act(() => userEvent.click(confirm))
+
+            waitFor(() => expect(spyOnApiSuccess).toHaveBeenCalledTimes(1), {
+              timeout: 2000,
+            })
           })
         })
 
         describe('when an errorResponse is caught', () => {
           beforeEach(() => {
-            wrapper = mount(
+            render(
               <MockedConfirm
                 method={method}
                 mockVariant="error"
@@ -268,142 +281,144 @@ describe('Confirm', () => {
               { [uploadFunction.name]: uploadFunction },
               uploadFunction.name
             )
-            wrapper
-              .find({ 'data-onfido-qa': 'confirm-action-btn' })
-              .simulate('click')
-            await runAllPromises()
 
-            expect(spyUpload).not.toHaveBeenCalled()
+            const confirm = screen.getByLabelText('confirm')
+
+            act(() => userEvent.click(confirm))
+
+            await expectNever(() =>
+              // this should never happen, otherwise the test will fail.
+              expect(spyUpload).toHaveBeenCalled()
+            )
           })
         })
+      })
 
-        describe('when response contains continueWithOnfidoSubmission: true', () => {
-          beforeEach(() => {
-            wrapper = mount(
-              <MockedConfirm
-                method={method}
-                mockVariant="continue"
-                variant={variant}
-              />
-            )
-          })
+      describe('when response contains continueWithOnfidoSubmission: true', () => {
+        beforeEach(() => {
+          render(
+            <MockedConfirm
+              method={method}
+              mockVariant="continue"
+              variant={variant}
+            />
+          )
+        })
 
-          it('triggers the SDK to send the request to Onfido', async () => {
-            const spyUpload = jest.spyOn(
-              { [uploadFunction.name]: uploadFunction },
-              uploadFunction.name
-            )
-            wrapper
-              .find({ 'data-onfido-qa': 'confirm-action-btn' })
-              .simulate('click')
-            await runAllPromises()
+        it('triggers the SDK to send the request to Onfido', async () => {
+          const spyUpload = jest.spyOn(
+            { [uploadFunction.name]: uploadFunction },
+            uploadFunction.name
+          )
+          const confirm = screen.getByLabelText('confirm')
 
-            expect(spyUpload).toHaveBeenCalledTimes(1)
-          })
+          act(() => userEvent.click(confirm))
+
+          waitFor(() => expect(spyUpload).toHaveBeenCalledTimes(1))
+        })
+      })
+    })
+  })
+})
+// add a specific test for document capture only, as it's the only one that uses a retry for image quality.
+describe('document capture', () => {
+  describe('when an image quality detection issue is detected in the backend', () => {
+    beforeEach(() => {
+      mockedFormatError.mockImplementation(({ response, status }, onError) =>
+        onError({ status, response: JSON.parse(response) })
+      )
+    })
+
+    const errorImageQualityRetries = [0, 1]
+    errorImageQualityRetries.forEach((imageQualityRetry) => {
+      describe(`when imageQualityRetry (${imageQualityRetry}) <= max_total_retries (1)`, () => {
+        beforeEach(() => {
+          render(
+            <MockedConfirm
+              method={'document'}
+              mockVariant="continue"
+              variant={'standard'}
+              imageQualityRetries={imageQualityRetry}
+              maxDocumentCaptureRetries={1}
+            />
+          )
+        })
+
+        it('should call the backend with the validations as errors', async () => {
+          const spyUpload = jest.spyOn(
+            { [uploadDocument.name]: uploadDocument },
+            uploadDocument.name
+          )
+
+          const confirm = screen.getByLabelText('confirm')
+
+          act(() => userEvent.click(confirm))
+
+          await waitFor(() => expect(spyUpload).toHaveBeenCalledTimes(1))
+
+          expect(spyUpload).toBeCalledWith(
+            expect.objectContaining({
+              validations: {
+                detect_blur: 'error',
+                detect_cutoff: 'error',
+                detect_document: 'error',
+                detect_glare: 'error',
+              },
+            }),
+            expect.anything(),
+            expect.anything(),
+            expect.anything(),
+            expect.anything()
+          )
         })
       })
     })
 
-    // add a specific test for document capture only, as it's the only one that uses a retry for image quality.
-    describe('document capture', () => {
-      describe('when an image quality detection issue is detected in the backend', () => {
+    const imageQualityWarnings = [2, 3] // can be up to infinity
+    imageQualityWarnings.forEach((imageQualityRetry) => {
+      afterEach(() => {
+        jest.clearAllMocks()
+      })
+
+      describe(`for imageQualityRetry (${imageQualityRetry}) > max_total_retries (1)`, () => {
         beforeEach(() => {
-          mockedFormatError.mockImplementation(
-            ({ response, status }, onError) =>
-              onError({ status, response: JSON.parse(response) })
+          render(
+            <MockedConfirm
+              method={'document'}
+              mockVariant="continue"
+              variant={'standard'}
+              imageQualityRetries={imageQualityRetry}
+              maxDocumentCaptureRetries={1}
+            />
           )
         })
 
-        const errorImageQualityRetries = [0, 1]
-        errorImageQualityRetries.forEach((imageQualityRetry) => {
-          describe(`when imageQualityRetry (${imageQualityRetry}) <= max_total_retries (1)`, () => {
-            beforeEach(() => {
-              wrapper = mount(
-                <MockedConfirm
-                  method={'document'}
-                  mockVariant="continue"
-                  variant={'standard'}
-                  imageQualityRetries={imageQualityRetry}
-                  maxDocumentCaptureRetries={1}
-                />
-              )
-            })
+        it('should call the backend with the validations as warnings, plus the document validation as error.', async () => {
+          const spyUpload = jest.spyOn(
+            { [uploadDocument.name]: uploadDocument },
+            uploadDocument.name
+          )
 
-            it('should call the backend with the validations as errors', async () => {
-              const spyUpload = jest.spyOn(
-                { [uploadDocument.name]: uploadDocument },
-                uploadDocument.name
-              )
-              wrapper
-                .find({ 'data-onfido-qa': 'confirm-action-btn' })
-                .simulate('click')
-              await runAllPromises()
+          const confirm = screen.getByLabelText('confirm')
 
-              expect(spyUpload).toHaveBeenCalledTimes(1)
-              expect(spyUpload).toBeCalledWith(
-                expect.objectContaining({
-                  validations: {
-                    detect_blur: 'error',
-                    detect_cutoff: 'error',
-                    detect_document: 'error',
-                    detect_glare: 'error',
-                  },
-                }),
-                expect.anything(),
-                expect.anything(),
-                expect.anything(),
-                expect.anything()
-              )
-            })
-          })
-        })
+          act(() => userEvent.click(confirm))
 
-        const imageQualityWarnings = [2, 3] // can be up to infinity
-        imageQualityWarnings.forEach((imageQualityRetry) => {
-          afterEach(() => {
-            jest.clearAllMocks()
-          })
+          await waitFor(() => expect(spyUpload).toHaveBeenCalledTimes(1))
 
-          describe(`for imageQualityRetry (${imageQualityRetry}) > max_total_retries (1)`, () => {
-            beforeEach(() => {
-              wrapper = mount(
-                <MockedConfirm
-                  method={'document'}
-                  mockVariant="continue"
-                  variant={'standard'}
-                  imageQualityRetries={imageQualityRetry}
-                  maxDocumentCaptureRetries={1}
-                />
-              )
-            })
-
-            it('should call the backend with the validations as warnings, plus the document validation as error.', async () => {
-              const spyUpload = jest.spyOn(
-                { [uploadDocument.name]: uploadDocument },
-                uploadDocument.name
-              )
-              wrapper
-                .find({ 'data-onfido-qa': 'confirm-action-btn' })
-                .simulate('click')
-              await runAllPromises()
-
-              expect(spyUpload).toHaveBeenCalledTimes(1)
-              expect(spyUpload).toBeCalledWith(
-                expect.objectContaining({
-                  validations: {
-                    detect_blur: 'warn',
-                    detect_cutoff: 'warn',
-                    detect_document: 'error', // this one is always error
-                    detect_glare: 'warn',
-                  },
-                }),
-                expect.anything(),
-                expect.anything(),
-                expect.anything(),
-                expect.anything()
-              )
-            })
-          })
+          expect(spyUpload).toBeCalledWith(
+            expect.objectContaining({
+              validations: {
+                detect_blur: 'warn',
+                detect_cutoff: 'warn',
+                detect_document: 'error', // this one is always error
+                detect_glare: 'warn',
+              },
+            }),
+            expect.anything(),
+            expect.anything(),
+            expect.anything(),
+            expect.anything()
+          )
         })
       })
     })
