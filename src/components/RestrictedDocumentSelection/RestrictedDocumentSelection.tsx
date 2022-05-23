@@ -6,7 +6,7 @@ import { Dispatch } from 'redux'
 import { useLocales } from '~locales'
 import { GlobalActions } from '~types/redux'
 import { StepsRouterProps } from '~types/routers'
-import style from './style.scss'
+import style from './RestrictedDocumentSelection.scss'
 import {
   setIdDocumentIssuingCountry,
   setIdDocumentType,
@@ -43,7 +43,7 @@ export const RestrictedDocumentSelection = ({
   const { translate, parseTranslatedTags } = useLocales()
   const dispatch = useDispatch<Dispatch<GlobalActions>>()
 
-  const [country, setCountry] = useState<CountryData>()
+  const [country, setCountry] = useState<CountryData | undefined>(undefined)
   const countries = useMemo(() => getSupportedCountries(), [])
   const documents = useMemo(() => {
     if (!country) {
