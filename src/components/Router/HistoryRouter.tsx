@@ -4,7 +4,7 @@ import { buildStepFinder, findFirstIndex } from '~utils/steps'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
-import { trackException } from '../../Tracker'
+import { sendEvent, trackException } from '../../Tracker'
 
 import type { ErrorCallback, ParsedError } from '~types/api'
 import type { FlowVariants, FormattedError } from '~types/commons'
@@ -249,6 +249,11 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     setStepIndex(currentStep - 1)
   }
 
+  const goBack = () => {
+    sendEvent('navigation_back_button_clicked')
+    back()
+  }
+
   const getDocumentType = () => {
     const findStep = buildStepFinder(steps)
     const documentStep = findStep('document')
@@ -283,7 +288,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     <StepsRouter
       {...props}
       completeStep={completeStep}
-      back={back}
+      back={goBack}
       changeFlowTo={changeFlowTo}
       componentsList={getComponentsList(steps)}
       disableNavigation={disableNavigation()}

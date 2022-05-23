@@ -428,7 +428,7 @@ export const Confirm = (props: ConfirmProps) => {
       } else {
         console.error(`Invalid return statement from ${callbackName}`)
       }
-    } catch (errorResponse) {
+    } catch (errorResponse: any) {
       // @ts-ignore
       sendEvent(`Error response from ${callbackName}`)
       formatError(errorResponse, onApiError)
@@ -484,7 +484,11 @@ export const Confirm = (props: ConfirmProps) => {
   }
 
   const onRetake = () => {
-    const { actions, previousStep } = props
+    const { actions, previousStep, trackScreen, capture } = props
+
+    trackScreen('retake_button_clicked', {
+      count_attempt: capture.sdkMetadata.take_number,
+    })
 
     const imageQualitiesKeys = Object.keys(IMAGE_QUALITY_KEYS_MAP) as Array<
       keyof typeof IMAGE_QUALITY_KEYS_MAP
@@ -502,9 +506,15 @@ export const Confirm = (props: ConfirmProps) => {
   }
 
   const onConfirm = () => {
-    if (error?.type === 'warning') {
-      props.actions.resetImageQualityRetries()
-      props.nextStep()
+    const { actions, nextStep, trackScreen, capture } = props
+
+    trackScreen('upload_button_clicked', {
+      count_attempt: capture.sdkMetadata.take_number,
+    })
+
+    if (this.state.error?.type === 'warning') {
+      actions.resetImageQualityRetries()
+      nextStep()
     } else {
       uploadCaptureToOnfido()
     }
