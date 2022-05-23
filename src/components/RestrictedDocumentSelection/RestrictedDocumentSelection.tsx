@@ -59,7 +59,6 @@ export const RestrictedDocumentSelection = ({
     () =>
       document_selection &&
       document_selection.filter((value, index, self) => {
-        console.log('testing: value, index, self', value, index, self)
         return (
           self.findIndex(
             (v) =>
