@@ -512,7 +512,7 @@ export const Confirm = (props: ConfirmProps) => {
       count_attempt: capture.sdkMetadata.take_number,
     })
 
-    if (this.state.error?.type === 'warning') {
+    if (error?.type === 'warning') {
       actions.resetImageQualityRetries()
       nextStep()
     } else {
