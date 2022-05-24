@@ -134,21 +134,21 @@ const sendEvent = (
   }
 }
 
-const screeNameHierarchyFormat = (
-  screeNameHierarchy: string[]
+const screenNameHierarchyFormat = (
+  screenNameHierarchy: string[]
 ): LegacyTrackedEventNames =>
-  `screen_${cleanFalsy(screeNameHierarchy).join(
+  `screen_${cleanFalsy(screenNameHierarchy).join(
     '_'
   )}` as LegacyTrackedEventNames
 
 const sendScreen = (
-  screeNameHierarchy: string[],
+  screenNameHierarchy: string[],
   properties?: Record<string, unknown>
-): void => sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
+): void => sendEvent(screenNameHierarchyFormat(screenNameHierarchy), properties)
 
 const appendToTracking = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,
-  ancestorScreeNameHierarchy?: string
+  ancestorScreenNameHierarchy?: string
 ): ComponentType<P> =>
   class TrackedComponent extends Component<P> {
     trackScreen: TrackScreenCallback = (
@@ -157,8 +157,8 @@ const appendToTracking = <P extends WithTrackingProps>(
     ) =>
       this.props.trackScreen(
         [
-          ...(ancestorScreeNameHierarchy
-            ? wrapArray(ancestorScreeNameHierarchy)
+          ...(ancestorScreenNameHierarchy
+            ? wrapArray(ancestorScreenNameHierarchy)
             : []),
           ...(screenNameHierarchy ? wrapArray(screenNameHierarchy) : []),
         ],

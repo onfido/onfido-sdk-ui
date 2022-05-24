@@ -495,7 +495,11 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
   }
 
   onRetake = () => {
-    const { actions, previousStep } = this.props
+    const { actions, previousStep, trackScreen, capture } = this.props
+
+    trackScreen('retake_button_clicked', {
+      count_attempt: capture.sdkMetadata.take_number,
+    })
 
     const imageQualitiesKeys = Object.keys(IMAGE_QUALITY_KEYS_MAP) as Array<
       keyof typeof IMAGE_QUALITY_KEYS_MAP
@@ -513,9 +517,15 @@ class Confirm extends Component<ConfirmProps, ConfirmState> {
   }
 
   onConfirm = () => {
+    const { actions, nextStep, trackScreen, capture } = this.props
+
+    trackScreen('upload_button_clicked', {
+      count_attempt: capture.sdkMetadata.take_number,
+    })
+
     if (this.state.error?.type === 'warning') {
-      this.props.actions.resetImageQualityRetries()
-      this.props.nextStep()
+      actions.resetImageQualityRetries()
+      nextStep()
     } else {
       this.uploadCaptureToOnfido()
     }

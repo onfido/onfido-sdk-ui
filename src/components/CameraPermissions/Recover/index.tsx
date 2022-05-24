@@ -1,14 +1,18 @@
 import { FunctionComponent, h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import { trackComponent } from 'Tracker'
+import { appendToTracking, trackComponent } from 'Tracker'
 import { localised } from '~locales'
 import PageTitle from 'components/PageTitle'
 import ScreenLayout from 'components/Theme/ScreenLayout'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
-import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import type {
+  TrackScreenCallback,
+  WithLocalisedProps,
+  WithTrackingProps,
+} from '~types/hocs'
 
 const localeKeys = {
   camera: {
@@ -27,18 +31,26 @@ const localeKeys = {
 
 type RecoverProps = {
   audio?: boolean
+  trackScreen: TrackScreenCallback
 }
 
 type Props = RecoverProps & WithLocalisedProps & WithTrackingProps
 
-const Recover: FunctionComponent<Props> = ({ translate, audio }) => {
+const Recover: FunctionComponent<Props> = ({
+  translate,
+  trackScreen,
+  audio,
+}) => {
   const locales = localeKeys[audio ? 'microphoneAndCamera' : 'camera']
 
   const actions = (
     <Button
       variant="primary"
       className={classNames(theme['button-centered'], theme['button-lg'])}
-      onClick={() => window.location.reload()}
+      onClick={() => {
+        trackScreen('refresh_button_clicked')
+        window.location.reload()
+      }}
     >
       {translate('permission_recovery.button_primary')}
     </Button>
@@ -71,4 +83,7 @@ const Recover: FunctionComponent<Props> = ({ translate, audio }) => {
   )
 }
 
-export default trackComponent(localised(Recover))
+export default appendToTracking(
+  trackComponent(localised(Recover)),
+  'camera_access_denied'
+)

@@ -6,6 +6,10 @@ import style from './style.scss'
 
 import type { WithTrackingProps } from '~types/hocs'
 import type { ErrorProp, RenderFallbackProp } from '~types/routers'
+import {
+  AnalyticsEventProperties,
+  ErrorNameToUIAlertMapping,
+} from '~types/tracker'
 
 type Props = {
   error: ErrorProp
@@ -30,8 +34,13 @@ export default class CameraError extends Component<Props, State> {
   }
 
   trackFallbackClick = (): void => {
-    if (this.props.error.type === 'warning') {
-      this.props.trackScreen('fallback_triggered')
+    const { type, name } = this.props.error
+    if (type === 'warning') {
+      const uiAlertName = ErrorNameToUIAlertMapping[name]
+      const properties: AnalyticsEventProperties = uiAlertName
+        ? { ui_alerts: { [uiAlertName]: type } }
+        : {}
+      this.props.trackScreen('fallback_triggered', properties)
     }
   }
 
