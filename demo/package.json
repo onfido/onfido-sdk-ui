@@ -64,11 +64,6 @@
     "typescript": "^4.2.3",
     "webpack-dev-server": "^3.11.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "./**/*.(js|jsx|ts|tsx|json)": [
       "prettier --write"
