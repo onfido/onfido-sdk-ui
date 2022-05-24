@@ -122,7 +122,6 @@ export function generateDefaultOptions(
   translate: TranslateCallback,
   filterList?: documentSelectionType[]
 ): DocumentOptionsType[] {
-  console.log('filterList', filterList)
   const options = Object.entries(documentOptions).map(
     ([type, configuration]) => {
       const {

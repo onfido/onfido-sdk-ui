@@ -47,7 +47,7 @@ export const RestrictedDocumentSelection = ({
   const { translate, parseTranslatedTags } = useLocales()
   const dispatch = useDispatch<Dispatch<GlobalActions>>()
   const [country, setCountry] = useState<CountryData | undefined>(undefined)
-  
+
   const countryFilter =
     document_selection &&
     document_selection.filter((value, index, self) => {
@@ -65,13 +65,13 @@ export const RestrictedDocumentSelection = ({
           self.findIndex(
             (v) =>
               v.document_type === value.document_type &&
-              v.issuing_country === country
+              v.issuing_country === country?.country_alpha3
           ) === index
         )
       }),
     [country]
   )
-  
+
   const countries = useMemo(() => getSupportedCountries(countryFilter), [])
   const documents = useMemo(() => {
     if (!country) {
@@ -84,7 +84,7 @@ export const RestrictedDocumentSelection = ({
     const defaultDocumentOptions = generateDefaultOptions(
       idDocumentOptions,
       translate,
-      documentTypeFilter  
+      documentTypeFilter
     )
 
     return defaultDocumentOptions.filter(({ type }) =>
@@ -137,7 +137,7 @@ export const RestrictedDocumentSelection = ({
             'restricted_document_selection.country_placeholder'
           )}
           noResults={translate(
-            'restricted_document_selection.country.country_not_found'
+            'restricted_document_selection.country_not_found'
           )}
         />
       </div>
