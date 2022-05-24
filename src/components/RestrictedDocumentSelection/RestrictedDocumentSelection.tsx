@@ -94,27 +94,25 @@ export const RestrictedDocumentSelection = ({
   return (
     <ScreenLayout>
       <PageTitle
-        title={translate('restricted_document_selection.title')}
-        subTitle={translate('restricted_document_selection.subtitle')}
+        title={translate('doc_select.title')}
+        subTitle={translate('doc_select.subtitle_country')}
       />
       <div className={style.selectionContainer}>
         <label htmlFor="country-search">
-          {translate('restricted_document_selection.country')}
+          {translate('doc_select.section.header_country')}
         </label>
         <CountryDropdown
           suggestCountries={suggestCountries}
           handleCountrySelect={handleCountrySelect}
           placeholder={translate(
-            'restricted_document_selection.country_placeholder'
+            'doc_select.section.input_placeholder_country'
           )}
-          noResults={translate(
-            'restricted_document_selection.country.country_not_found'
-          )}
+          noResults={translate('doc_select.section.input_country_not_found')}
         />
       </div>
       {documents.length > 0 ? (
         <div className={style.selectionContainer}>
-          <label>{translate('restricted_document_selection.document')}</label>
+          <label>{translate('doc_select.section.header_doc_type')}</label>
           <DocumentList
             options={documents}
             handleDocumentSelect={handleDocumentSelect}
