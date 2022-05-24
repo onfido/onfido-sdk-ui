@@ -22,6 +22,7 @@ import type {
   RenderFallbackProp,
   StepComponentFaceProps,
 } from '~types/routers'
+import { AnalyticsEventProperties } from '~types/tracker'
 
 export type FaceVideoProps = {
   cameraClassName: string
@@ -55,7 +56,7 @@ class FaceVideo extends Component<Props, State> {
 
   onRecordingStart = () => {
     this.setState({ startedAt: currentMilliseconds() })
-    sendScreen(['face_video_capture_step_1'])
+    this.trackStep(0)
   }
 
   onVideoCapture: HandleCaptureProp = (payload) => {
@@ -67,15 +68,35 @@ class FaceVideo extends Component<Props, State> {
 
   handleNextChallenge = () => {
     const { startedAt, currentIndex } = this.state
-    const { trackScreen } = this.props
+    const { trackScreen, challenges } = this.props
+    const challengeType = challenges[currentIndex].type
+    const nextIndex = currentIndex + 1
+    const properties: AnalyticsEventProperties = {
+      video_instruction_type: challengeType,
+      video_capture_step: `step${nextIndex}` as AnalyticsEventProperties['video_capture_step'],
+    }
 
-    trackScreen('recording_next_click')
-    this.setState({ currentIndex: currentIndex + 1 })
+    trackScreen('next_button_clicked', properties)
+
+    this.setState({ currentIndex: nextIndex })
 
     if (startedAt) {
       this.setState({ switchSeconds: currentMilliseconds() - startedAt })
-      sendScreen(['face_video_capture_step_2'])
+      this.trackStep(nextIndex)
     }
+  }
+
+  trackStep = (challengeIndex: number) => {
+    const { challenges } = this.props
+    const challengeType = challenges[challengeIndex].type
+    const eventName = `face_video_capture_step_${challengeIndex + 1}`
+    const properties: AnalyticsEventProperties = {
+      video_instruction_type: challengeType,
+      video_capture_step: `step${
+        challengeIndex + 1
+      }` as AnalyticsEventProperties['video_capture_step'],
+    }
+    sendScreen([eventName], properties)
   }
 
   render = () => {
@@ -122,7 +143,10 @@ class FaceVideo extends Component<Props, State> {
               hasMoreSteps={!isLastChallenge}
               disableInteraction={disableInteraction}
               onNext={this.handleNextChallenge}
-              onStop={onStop}
+              onStop={() => {
+                trackScreen('finish_button_clicked')
+                onStop()
+              }}
             >
               <Challenge challenge={currentChallenge} />
             </Recording>

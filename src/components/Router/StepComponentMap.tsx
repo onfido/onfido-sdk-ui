@@ -53,7 +53,6 @@ import PoADocumentSelector from '../DocumentSelector/PoADocumentSelector'
 import { IdentityDocumentSelector } from '../DocumentSelector/IdentityDocumentSelector'
 import IdentityCountrySelector from '../CountrySelector/IdentityCountrySelector'
 import PoACountrySelector from '../CountrySelector/PoACountrySelector'
-import { RestrictedDocumentSelection } from 'components/RestrictedDocumentSelection/RestrictedDocumentSelection'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -68,6 +67,15 @@ type ComponentsByStepType = Partial<
   Record<ExtendedStepTypes, ComponentType<StepComponentProps>[]>
 >
 
+export type ComponentsListProps = {
+  flow: FlowVariants
+  documentType: DocumentTypes | undefined
+  poaDocumentCountry?: CountryData | undefined
+  steps: StepConfig[]
+  mobileFlow?: boolean
+  deviceHasCameraSupport?: boolean
+}
+
 export const buildComponentsList = ({
   flow,
   documentType,
@@ -75,14 +83,7 @@ export const buildComponentsList = ({
   mobileFlow,
   deviceHasCameraSupport,
   poaDocumentCountry,
-}: {
-  flow: FlowVariants
-  documentType: DocumentTypes | undefined
-  poaDocumentCountry?: CountryData | undefined
-  steps: StepConfig[]
-  mobileFlow?: boolean
-  deviceHasCameraSupport?: boolean
-}): ComponentStep[] => {
+}: ComponentsListProps): ComponentStep[] => {
   const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
 
   return flow === 'captureSteps'
@@ -298,9 +299,9 @@ const buildNonPassportPreCaptureComponents = (
 ): ComponentType<StepComponentProps>[] => {
   const prependDocumentSelector = hasOnePreselectedDocument
     ? []
-    : [RestrictedDocumentSelection]
+    : [IdentityDocumentSelector]
   const prependCountrySelector = showCountrySelection
-    ? [RestrictedDocumentSelection]
+    ? [IdentityCountrySelector]
     : []
   // @ts-ignore
   // TODO: convert DocumentSelector to TS
@@ -343,7 +344,7 @@ const buildDocumentComponents = (
   if (isPassportDocument) {
     const preCaptureComponents = hasOnePreselectedDocument
       ? []
-      : [RestrictedDocumentSelection]
+      : [IdentityDocumentSelector]
 
     if (shouldUseVideo) {
       // @ts-ignore

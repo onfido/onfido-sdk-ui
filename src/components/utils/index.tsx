@@ -1,4 +1,3 @@
-import { h } from 'preact'
 import enumerateDevices, { DeviceData } from 'enumerate-devices'
 import detectSystem from './detectSystem'
 import type { SdkMetadata, ErrorNames } from '~types/commons'
@@ -93,7 +92,7 @@ const isWindows = (navigator.userAgent || '').includes('Windows')
 const maxTouchPoints = navigator.maxTouchPoints || navigator.msMaxTouchPoints
 const isTouchable =
   'ontouchstart' in window ||
-  maxTouchPoints > 0 ||
+  (maxTouchPoints !== undefined && maxTouchPoints > 0) ||
   (typeof window.matchMedia === 'function' &&
     matchMedia('(any-pointer: coarse)').matches)
 
@@ -109,7 +108,7 @@ const enumerateDevicesInternal = (
 ) => {
   try {
     enumerateDevices().then(onSuccess).catch(onError)
-  } catch (exception) {
+  } catch (exception: any) {
     onError(exception)
   }
 }

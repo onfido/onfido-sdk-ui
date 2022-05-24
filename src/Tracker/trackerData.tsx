@@ -34,9 +34,6 @@ export const integratorTrackedEvents = new Map<
   ['Starting live photo upload', 'UPLOAD'],
 ])
 
-// FIXME: Using @ts-ignore here because of Map constructor argument bug
-// https://github.com/microsoft/TypeScript/pull/43396
-// @ts-ignore
 export const analyticsEventsMapping = new Map<
   LegacyTrackedEventNames,
   {
@@ -224,6 +221,34 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_back_confirmation_retake_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'back' },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_retake_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'front' },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_upload_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'back' },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_upload_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'front' },
+    },
+  ],
+  [
     'screen_document_fallback_clicked',
     {
       eventName: 'DOCUMENT_FALLBACK_CLICKED',
@@ -259,6 +284,35 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_document_video_capture_camera_access',
+    {
+      eventName: 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_document_document_video_capture_camera_access_denied',
+    {
+      eventName: 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_document_document_video_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_document_document_video_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName:
+        'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_document_document_video_capture_fallback_triggered',
     {
       eventName: 'DOCUMENT_VIDEO_FALLBACK_TRIGGERED',
@@ -267,7 +321,43 @@ export const analyticsEventsMapping = new Map<
   ],
   [
     'screen_face_selfie_intro',
-    { eventName: 'FACE_INTRO', properties: { event_type: 'screen' } },
+    { eventName: 'FACE_SELFIE_INTRO', properties: { event_type: 'screen' } },
+  ],
+  [
+    'screen_face_selfie_intro_take_selfie_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_INTRO_TAKE_SELFIE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_access',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_access_denied',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_DENIED',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName:
+        'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
   ],
   [
     'screen_face_selfie_capture_file_upload',
@@ -284,10 +374,31 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_face_selfie_capture_capture_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_CAPTURE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_face_selfie_confirmation',
     {
       eventName: 'FACE_SELFIE_CONFIRMATION',
       properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_selfie_confirmation_retake_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_selfie_confirmation_upload_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
     },
   ],
   [
@@ -340,6 +451,35 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_face_face_video_capture_camera_access',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_access_denied',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName:
+        'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_face_face_video_confirmation_video_error',
     {
       eventName: 'FACE_VIDEO_CONFIRMATION_VIDEO_ERROR',
@@ -350,14 +490,14 @@ export const analyticsEventsMapping = new Map<
     'screen_face_video_capture_step_1',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
-      properties: { event_type: 'screen', video_capture_step: 'step1' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_face_video_capture_step_2',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
-      properties: { event_type: 'screen', video_capture_step: 'step2' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
@@ -389,6 +529,20 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_face_face_video_confirmation_retake_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_upload_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_face_face_video_capture_fallback_triggered',
     {
       eventName: 'FACE_VIDEO_FALLBACK_TRIGGERED',
@@ -400,6 +554,13 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_VIDEO_INTRO',
       properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_video_intro_record_video_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_INTRO_RECORD_VIDEO_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
     },
   ],
   [
@@ -918,9 +1079,16 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
-    'screen_face_face_video_capture_recording_next_click',
+    'screen_face_face_video_capture_next_button_clicked',
     {
-      eventName: 'FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED',
+      eventName: 'FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_finish_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_FINISH_BUTTON_CLICKED',
       properties: { event_type: 'action' },
     },
   ],
@@ -1089,6 +1257,20 @@ export const analyticsEventsMapping = new Map<
     'face_video_upload_completed',
     {
       eventName: 'FACE_VIDEO_UPLOAD_COMPLETED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'navigation_back_button_clicked',
+    {
+      eventName: 'NAVIGATION_BACK_BUTTON_CLICKED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'navigation_close_button_clicked',
+    {
+      eventName: 'NAVIGATION_CLOSE_BUTTON_CLICKED',
       properties: { event_type: 'flow' },
     },
   ],

@@ -3,29 +3,33 @@ import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
-import { buildComponentsList } from '../../Router/StepComponentMap'
+import {
+  buildComponentsList,
+  ComponentsListProps,
+} from '../../Router/StepComponentMap'
 import { localised } from '~locales'
 import { CROSS_DEVICE_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
+import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import { MobileConfig } from '~types/commons'
 
 const previousComponentType = ({
-  flow = 'captureSteps',
+  flow,
   documentType,
-  poaDocumentType,
   poaDocumentCountry,
   steps,
   step,
-}) =>
+}: ComponentsListProps & { step?: number }) =>
   buildComponentsList({
     flow,
     documentType,
-    poaDocumentType,
     poaDocumentCountry,
     steps,
   })[step || 0].step.type
 
-const getStageIcon = (key, isFace) => {
+type stageIconKeys = keyof typeof CROSS_DEVICE_INTRO_LOCALES_MAPPING
+const getStageIcon = (key: stageIconKeys, isFace: boolean) => {
   const iconPrefix = 'stageIcon'
   if (key !== 'take-photos') {
     return `${iconPrefix}-${key}`
@@ -33,9 +37,26 @@ const getStageIcon = (key, isFace) => {
   return isFace ? `${iconPrefix}-take-selfie` : `${iconPrefix}-take-photos`
 }
 
-const Intro = ({ translate, nextStep, mobileConfig }) => {
-  const isFace = previousComponentType(mobileConfig) === 'face'
-  const stageList = Object.keys(CROSS_DEVICE_INTRO_LOCALES_MAPPING)
+type IntroProps = {
+  mobileConfig: MobileConfig
+  nextStep: () => void
+} & WithLocalisedProps &
+  WithTrackingProps
+
+const Intro = ({ translate, nextStep, mobileConfig }: IntroProps) => {
+  const isFace =
+    previousComponentType({
+      // TODO: Check with reviewers: is this always captureSteps as it isn't available in mobileConfig?
+      flow: 'captureSteps',
+      documentType: mobileConfig.documentType,
+      poaDocumentCountry: mobileConfig.poaDocumentCountry,
+      steps: mobileConfig.steps,
+      step: mobileConfig.step,
+    }) === 'face'
+
+  const stageList = Object.keys(
+    CROSS_DEVICE_INTRO_LOCALES_MAPPING
+  ) as Array<stageIconKeys>
 
   return (
     <div

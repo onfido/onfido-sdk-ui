@@ -2,10 +2,10 @@ import { h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { localised } from '~locales'
-import { WithLocalisedProps } from '~types/hocs'
+import { TrackScreenCallback, WithLocalisedProps } from '~types/hocs'
 import { TranslateCallback } from '~types/locales'
 import { StepComponentFaceProps } from '~types/routers'
-import { trackComponent } from '../../Tracker'
+import { appendToTracking, trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import PageTitle from '../PageTitle'
 import ScreenLayout from '../Theme/ScreenLayout'
@@ -46,16 +46,21 @@ const InstructionsPure = ({
 
 const Actions = ({
   nextStep,
+  trackScreen,
   translate,
 }: {
   nextStep: () => void
+  trackScreen: TrackScreenCallback
   translate: TranslateCallback
 }) => (
   <Button
     type="button"
     variant="primary"
     className={classNames(theme['button-centered'], theme['button-lg'])}
-    onClick={nextStep}
+    onClick={() => {
+      trackScreen('take_selfie_button_clicked')
+      nextStep()
+    }}
     data-onfido-qa="selfie-continue-btn"
   >
     {translate('selfie_intro.button_primary')}
@@ -65,6 +70,7 @@ const Actions = ({
 const Intro = ({
   translate,
   nextStep,
+  trackScreen,
   steps,
   autoFocusOnInitialScreenTitle,
 }: IntroProps) => {
@@ -78,7 +84,7 @@ const Intro = ({
       text: translate('selfie_intro.list_item_no_glasses'),
     },
   ]
-  const actions = <Actions {...{ nextStep, translate }} />
+  const actions = <Actions {...{ nextStep, trackScreen, translate }} />
   const isFirstScreen = steps[0].type === 'face'
 
   return (
@@ -98,7 +104,7 @@ const Intro = ({
   )
 }
 
-export default trackComponent(
-  localised(withCrossDeviceWhenNoCamera(Intro)),
+export default appendToTracking(
+  trackComponent(localised(withCrossDeviceWhenNoCamera(Intro))),
   'selfie_intro'
 )

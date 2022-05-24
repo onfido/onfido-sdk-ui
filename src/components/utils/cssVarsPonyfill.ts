@@ -7,7 +7,7 @@ export function cssVarsPonyfill() {
 
   const script = document.createElement('script')
   script.src = `https://unpkg.com/css-vars-ponyfill@2.3.2`
-  // eslint-disable-next-line no-undef
+  // @ts-ignore eslint-disable-next-line no-undef
   script.onload = () => cssVars({ watch: true })
   document.head.appendChild(script)
 }

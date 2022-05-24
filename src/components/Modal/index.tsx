@@ -7,6 +7,7 @@ import { useLocales } from '~locales'
 import style from './style.scss'
 import styleConstants from '../Theme/constants.scss'
 import theme from '../Theme/style.scss'
+import { sendEvent } from 'Tracker'
 
 const MODAL_ANIMATION_DURATION = getCSSMillisecsValue(
   styleConstants.modal_animation_duration
@@ -36,6 +37,12 @@ const Modal = ({
   shouldCloseOnOverlayClick = true,
 }: ModalProps) => {
   const { translate } = useLocales()
+  const close = () => {
+    if (onRequestClose) {
+      sendEvent('navigation_close_button_clicked')
+      onRequestClose()
+    }
+  }
   return (
     <ReactModal
       isOpen={!!isOpen}
@@ -47,7 +54,7 @@ const Modal = ({
         beforeClose: theme['modalOverlay--before-close'],
       }}
       bodyOpenClassName={theme.modalBody}
-      className={classNames(theme.modalInner, style.inner)}
+      className={classNames(theme.root, theme.modalInner, style.inner)}
       role={'dialog'}
       shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
       closeTimeoutMS={MODAL_ANIMATION_DURATION}
@@ -56,7 +63,7 @@ const Modal = ({
       <button
         type="button"
         aria-label={translate('generic.accessibility.close_sdk_screen')}
-        onClick={onRequestClose}
+        onClick={close}
         className={classNames(style.closeButton, {
           [style.closeButtonFullScreen]: isFullScreen,
         })}
@@ -80,7 +87,7 @@ const WrappedModal = ({
   useModal ? (
     <ModalContainer {...otherProps}>{children}</ModalContainer>
   ) : (
-    <div className={style.inner}>{children}</div>
+    <div className={classNames(theme.root, style.inner)}>{children}</div>
   )
 
 export default WrappedModal

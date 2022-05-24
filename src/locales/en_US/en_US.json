@@ -510,6 +510,14 @@
         "subtitle": "You’ll need a document that:",
         "title": "Let’s verify your address"
     },
+    "restricted_document_selection": {
+      "title": "Choose your document",
+      "subtitle":"Select issuing country to see which documents we accept",
+      "country": "Issuing country",
+      "country_not_found": "No Results",
+      "country_placeholder": "Type to search for country",
+      "document": "Accepted documents"
+    },
     "selfie_capture": {
         "alert": {
             "camera_inactive": {
