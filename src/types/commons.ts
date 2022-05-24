@@ -152,7 +152,6 @@ export type MobileConfig = {
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   analyticsSessionUuid?: string
-  document_selection?: Array<documentSelectionType>
 }
 
 export type FormattedError = {

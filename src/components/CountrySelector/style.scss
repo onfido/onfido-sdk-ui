@@ -9,6 +9,10 @@
   font-size: var(--onfido-font-size-small);
 }
 
+.label {
+  @extend %_text;
+}
+
 .errorContainer {
   margin-top: 8 * $unit;
   display: flex;
