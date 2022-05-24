@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { act, render, screen, waitFor } from '@testing-library/preact'
+import { render, screen, waitFor } from '@testing-library/preact'
 import userEvent from '@testing-library/user-event'
 import { h } from 'preact'
 
@@ -233,9 +233,11 @@ describe('Confirm', () => {
               uploadFunction.name
             )
 
-            const confirm = screen.getByLabelText('confirm')
+            const confirm = screen.getByText(
+              'doc_confirmation.button_primary_upload'
+            )
 
-            act(() => userEvent.click(confirm))
+            userEvent.click(confirm)
 
             await expectNever(() =>
               // this should never happen, otherwise the test will fail.
@@ -251,13 +253,18 @@ describe('Confirm', () => {
               'setCaptureMetadata'
             )
 
-            const confirm = screen.getByLabelText('confirm')
+            const confirm = screen.getByText(
+              'doc_confirmation.button_primary_upload'
+            )
 
-            act(() => userEvent.click(confirm))
+            userEvent.click(confirm)
 
-            waitFor(() => expect(spyOnApiSuccess).toHaveBeenCalledTimes(1), {
-              timeout: 2000,
-            })
+            await waitFor(
+              () => expect(spyOnApiSuccess).toHaveBeenCalledTimes(1),
+              {
+                timeout: 2000,
+              }
+            )
           })
         })
 
@@ -282,9 +289,11 @@ describe('Confirm', () => {
               uploadFunction.name
             )
 
-            const confirm = screen.getByLabelText('confirm')
+            const confirm = screen.getByText(
+              'doc_confirmation.button_primary_upload'
+            )
 
-            act(() => userEvent.click(confirm))
+            userEvent.click(confirm)
 
             await expectNever(() =>
               // this should never happen, otherwise the test will fail.
@@ -310,11 +319,13 @@ describe('Confirm', () => {
             { [uploadFunction.name]: uploadFunction },
             uploadFunction.name
           )
-          const confirm = screen.getByLabelText('confirm')
+          const confirm = screen.getByText(
+            'doc_confirmation.button_primary_upload'
+          )
 
-          act(() => userEvent.click(confirm))
+          userEvent.click(confirm)
 
-          waitFor(() => expect(spyUpload).toHaveBeenCalledTimes(1))
+          await waitFor(() => expect(spyUpload).toHaveBeenCalledTimes(1))
         })
       })
     })
@@ -350,9 +361,11 @@ describe('document capture', () => {
             uploadDocument.name
           )
 
-          const confirm = screen.getByLabelText('confirm')
+          const confirm = screen.getByText(
+            'doc_confirmation.button_primary_upload'
+          )
 
-          act(() => userEvent.click(confirm))
+          userEvent.click(confirm)
 
           await waitFor(() => expect(spyUpload).toHaveBeenCalledTimes(1))
 
@@ -399,9 +412,11 @@ describe('document capture', () => {
             uploadDocument.name
           )
 
-          const confirm = screen.getByLabelText('confirm')
+          const confirm = screen.getByText(
+            'doc_confirmation.button_primary_upload'
+          )
 
-          act(() => userEvent.click(confirm))
+          userEvent.click(confirm)
 
           await waitFor(() => expect(spyUpload).toHaveBeenCalledTimes(1))
 

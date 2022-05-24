@@ -39,12 +39,6 @@ export const SdkConfigurationServiceProvider = ({
     SdkConfiguration | undefined
   >(undefined)
 
-  if (overrideConfiguration && !overrideConfiguration.document_capture) {
-    // enforce the document capture to be set.
-    overrideConfiguration.document_capture =
-      defaultConfiguration.document_capture
-  }
-
   const [overrideConfigurationState] = useState(overrideConfiguration)
 
   useEffect(() => {

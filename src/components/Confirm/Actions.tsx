@@ -60,7 +60,6 @@ const ConfirmAction = ({
   return (
     <Button
       type="button"
-      aria-label="confirm"
       variant="primary"
       className={classNames(theme['button-sm'], {
         [theme.vertical]: isButtonGroupStacked(),
