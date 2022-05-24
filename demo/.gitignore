@@ -1,0 +1,14 @@
+/node_modules
+/lib
+/.DS_Store
+/dist
+/secrets.json
+/key.pem
+/cert.pem
+.DS_Store
+/appBin
+/bin
+/src/**/bin
+/src/**/build
+/src/**/node_modules
+/src/react/.eslintcache
