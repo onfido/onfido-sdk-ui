@@ -21,7 +21,6 @@ import {
   HandleCountrySelect,
   SuggestedCountries,
 } from '../CountrySelector/CountryDropdown'
-
 import {
   DocumentList,
   HandleDocumentSelect,
