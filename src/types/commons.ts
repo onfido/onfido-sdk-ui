@@ -158,5 +158,3 @@ export type FormattedError = {
   type: 'expired_token' | 'exception'
   message: string
 }
-
-

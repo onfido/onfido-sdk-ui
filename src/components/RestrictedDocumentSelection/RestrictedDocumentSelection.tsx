@@ -28,12 +28,11 @@ import {
 
 import { idDocumentOptions } from '../DocumentSelector/IdentityDocumentSelector'
 import { generateDefaultOptions } from '../DocumentSelector'
-import type { documentSelectionType } from '~types/commons'
 import {
   getSupportedCountries,
   getSupportedDocumentTypes,
 } from '~supported-documents'
-import { CountryData } from '~types/commons'
+import { CountryData, documentSelectionType } from '~types/commons'
 
 export type RestrictedDocumentSelectionProps = {
   documentSelection?: documentSelectionType[]
