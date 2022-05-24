@@ -36,37 +36,24 @@ import {
 import { CountryData } from '~types/commons'
 
 export type RestrictedDocumentSelectionProps = {
-  document_selection?: documentSelectionType[]
+  documentSelection?: documentSelectionType[]
+  countryFilter?: documentSelectionType[]
 } & StepsRouterProps
 
 export const RestrictedDocumentSelection = ({
   nextStep,
-  document_selection,
+  documentSelection,
+  countryFilter,
 }: RestrictedDocumentSelectionProps) => {
   const { translate, parseTranslatedTags } = useLocales()
   const dispatch = useDispatch<Dispatch<GlobalActions>>()
   const [country, setCountry] = useState<CountryData | undefined>(undefined)
 
-  const countryFilter =
-    document_selection &&
-    document_selection.filter((value, index, self) => {
-      return (
-        self.findIndex((v) => v.issuing_country === value.issuing_country) ===
-        index
-      )
-    })
-
   const documentTypeFilter = useMemo(
     () =>
-      document_selection &&
-      document_selection.filter((value, index, self) => {
-        return (
-          self.findIndex(
-            (v) =>
-              v.document_type === value.document_type &&
-              v.issuing_country === country?.country_alpha3
-          ) === index
-        )
+      documentSelection &&
+      documentSelection.filter((obj) => {
+        return obj.issuing_country === country?.country_alpha3
       }),
     [country]
   )

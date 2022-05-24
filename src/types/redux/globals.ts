@@ -1,10 +1,5 @@
 import * as constants from './constants'
-import type {
-  CountryData,
-  UrlsConfig,
-  ExtendedStepTypes,
-  documentSelectionType,
-} from '~types/commons'
+import type { CountryData, UrlsConfig, ExtendedStepTypes } from '~types/commons'
 import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,
@@ -100,5 +95,4 @@ export type GlobalState = {
   anonymousUuid?: string
   clientUuid?: string
   stepsConfig: Array<StepConfig>
-  document_selection?: Array<documentSelectionType>
 }
