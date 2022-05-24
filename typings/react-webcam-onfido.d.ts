@@ -26,26 +26,4 @@ declare module 'react-webcam-onfido' {
     screenshotFormat?: 'image/webp' | 'image/png' | 'image/jpeg'
     width?: ConstraintTypes
   }
-
-  export default class Webcam extends Component<WebcamProps> {
-    stream: MediaStream
-    canvas: HTMLCanvasElement
-    ctx: CanvasRenderingContext2D
-    video?: HTMLVideoElement
-    recordedBlobs: Blob[]
-    mediaRecorder: MediaRecorder
-
-    getConstraints(
-      width?: number,
-      height?: number,
-      facingMode?: FacingModeType,
-      audio?: boolean
-    ): ConstraintPayload
-
-    getCanvas(): HTMLCanvasElement | null
-    getVideoBlob(): Blob
-
-    startRecording(): void
-    stopRecording(): void
-  }
 }

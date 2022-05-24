@@ -2,7 +2,6 @@ import { DocumentOverlay } from 'components/Overlay'
 import VideoCapture, { VideoOverlayProps } from 'components/VideoCapture'
 import { h } from 'preact'
 import { useEffect, useRef, useState } from 'preact/hooks'
-import Webcam from 'react-webcam-onfido'
 import { trackException } from 'Tracker'
 import { DocumentSides } from '~types/commons'
 import type { WithTrackingProps } from '~types/hocs'
@@ -20,6 +19,7 @@ import { getInactiveError } from '~utils/inactiveError'
 import CaptureControls from './CaptureControls'
 import useMultiFrameCaptureStep from './useMultiFrameCaptureStep'
 import CaptureInstructions from './CaptureInstructions'
+import Webcam from 'webcam/react-webcam'
 
 const appendFileName = (
   payload: CapturePayload,

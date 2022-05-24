@@ -1,8 +1,8 @@
-import Webcam from 'react-webcam-onfido'
 import { canvasToBlob } from './blob'
 
 import type { SdkMetadata } from '~types/commons'
 import type { HandleCaptureProp } from '~types/routers'
+import Webcam from 'webcam/react-webcam'
 
 export const screenshot = (
   webcam: Webcam,

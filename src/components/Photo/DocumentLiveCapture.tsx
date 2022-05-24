@@ -1,5 +1,4 @@
 import { Component, h } from 'preact'
-import Webcam from 'react-webcam-onfido'
 import { screenshot } from '~utils/camera'
 import { mimeType } from '~utils/blob'
 import { getInactiveError } from '~utils/inactiveError'
@@ -17,6 +16,7 @@ import type { WithTrackingProps } from '~types/hocs'
 import type { CapturePayload } from '~types/redux'
 import type { HandleCaptureProp, RenderFallbackProp } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
+import Webcam from 'webcam/react-webcam'
 
 export type Props = {
   children?: h.JSX.Element

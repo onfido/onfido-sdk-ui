@@ -1,5 +1,4 @@
 import { h, Component, Ref } from 'preact'
-import Webcam from 'react-webcam-onfido'
 
 import { getRecordedVideo } from '~utils/camera'
 import { VIDEO_CAPTURE } from '~utils/constants'
@@ -18,6 +17,7 @@ import type {
   HandleCaptureProp,
   RenderFallbackProp,
 } from '~types/routers'
+import Webcam from 'webcam/react-webcam'
 
 type PhotoOverlayProps = {
   hasCameraError: boolean

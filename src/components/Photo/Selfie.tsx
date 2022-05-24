@@ -7,7 +7,6 @@ import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 import { SdkMetadata } from '~types/commons'
-import Webcam from 'react-webcam-onfido'
 import {
   WithLocalisedProps,
   WithPageIdProps,
@@ -15,6 +14,7 @@ import {
 } from '~types/hocs'
 import { ErrorProp, RenderFallbackProp } from '~types/routers'
 import { CapturePayload } from '~types/redux'
+import Webcam from 'webcam/react-webcam'
 
 type State = {
   hasBecomeInactive: boolean

@@ -1,6 +1,5 @@
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
-import Webcam from 'react-webcam-onfido'
 import { screenshot } from '~utils/camera'
 import { blobToLossyBase64 } from '~utils/blob'
 import { randomId } from '~utils/string'
@@ -17,6 +16,7 @@ import type {
   HandleCaptureProp,
   RenderFallbackProp,
 } from '~types/routers'
+import Webcam from 'webcam/react-webcam'
 
 const maxAttempts = 3
 

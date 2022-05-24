@@ -1,6 +1,5 @@
 import { FunctionComponent, h, Ref } from 'preact'
 import { mount, ReactWrapper, shallow } from 'enzyme'
-import Webcam from 'react-webcam-onfido'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
@@ -11,6 +10,7 @@ import type { CameraProps } from '~types/camera'
 import type { CaptureMethods } from '~types/commons'
 import type { WithTrackingProps } from '~types/hocs'
 import { fakeCapturePayload } from '~jest/captures'
+import Webcam from 'webcam/react-webcam'
 
 jest.mock('~utils')
 

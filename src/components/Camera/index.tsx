@@ -1,5 +1,4 @@
 import { h, FunctionComponent } from 'preact'
-import Webcam, { WebcamProps } from 'react-webcam-onfido'
 import classNames from 'classnames'
 
 import { localised } from '~locales'
@@ -16,6 +15,8 @@ import type {
   WithTrackingProps,
   WithPermissionsFlowProps,
 } from '~types/hocs'
+import Webcam from 'webcam/react-webcam'
+import { WebcamProps } from 'react-webcam-onfido'
 
 const isWebmFormatSupported = () => {
   const webmMimeTypes: string[] = [
@@ -100,7 +101,7 @@ const Camera: FunctionComponent<Props> = ({
           role="group"
           aria-describedby="cameraViewAriaLabel"
         >
-          <Webcam {...webcamProps} />
+          <Webcam {...(webcamProps as any)} />
         </div>
         {buttonType === 'photo' && (
           <div className={style.actions}>

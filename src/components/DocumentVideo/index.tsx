@@ -1,7 +1,6 @@
 import { h, FunctionComponent } from 'preact'
 import { memo, useEffect, useRef, useState } from 'preact/compat'
 import { useSelector } from 'react-redux'
-import Webcam from 'react-webcam-onfido'
 
 import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'
@@ -27,6 +26,7 @@ import type {
   RenderFallbackProp,
 } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
+import Webcam from 'webcam/react-webcam'
 
 const renamedCapture = (
   payload: CapturePayload,
