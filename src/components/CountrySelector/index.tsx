@@ -39,10 +39,10 @@ const getCountryOptionTemplate = (country: CountryData) => {
   if (country) {
     const countryCode = country.country_alpha2
     const countryFlagSrc = getCountryFlagSrc(countryCode, 'square')
-    return `<i
+    return `<img
       role="presentation"
       class="${style.countryFlag}"
-      style="background-image: url(${countryFlagSrc})"></i>
+      src="${countryFlagSrc}"/>
       <span class="${style.countryLabel}">${country.name}</span>`
   }
   return ''
