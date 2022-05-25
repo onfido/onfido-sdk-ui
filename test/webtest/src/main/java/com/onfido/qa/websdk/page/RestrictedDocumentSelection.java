@@ -27,8 +27,7 @@ public class RestrictedDocumentSelection extends BasePage {
     protected DocumentOption _getOption(IDocumentType documentType) {
 
         var element = driver.findElement(ByUtil.onfidoQa(documentType.canonicalName()));
-
-        var name = element.findElement(By.cssSelector(".onfido-sdk-ui-RestrictedDocumentSelection-DocumentList-label")).getText();
+        var name = element.findElement(By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-label")).getText();
         var eStatementAccepted = element.findElements(By.cssSelector(".onfido-sdk-ui-RestrictedDocumentSelection-DocumentList-tag")).size() == 1;
         var hint = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-RestrictedDocumentSelection-DocumentList-hint"));
         var warning = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-RestrictedDocumentSelection-DocumentList-warning"));
