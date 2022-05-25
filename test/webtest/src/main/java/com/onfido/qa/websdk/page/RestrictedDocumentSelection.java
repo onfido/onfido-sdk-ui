@@ -2,6 +2,7 @@ package com.onfido.qa.websdk.page;
 
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.common.Page;
+import com.onfido.qa.websdk.DocumentType;
 import com.onfido.qa.websdk.IDocumentType;
 import com.onfido.qa.websdk.model.DocumentOption;
 import com.onfido.qa.websdk.util.ByUtil;
@@ -91,6 +92,10 @@ public class RestrictedDocumentSelection extends BasePage {
         click(By.cssSelector(String.format("button[data-onfido-qa='%s']", documentType.canonicalName())));
 
         return createComponent(next);
+    }
+
+    public DocumentOption getOption(DocumentType documentType) {
+        return _getOption(documentType);
     }
 
     @Override
