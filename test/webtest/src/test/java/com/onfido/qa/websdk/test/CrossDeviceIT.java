@@ -35,7 +35,7 @@ public class CrossDeviceIT extends WebSdkIT {
         onfido().withSteps(new DocumentStep().withForceCrossDevice(true))
                 .init(RestrictedDocumentSelection.class)
                 .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
-                .selectDocument(PASSPORT, DocumentUpload.class);
+                .selectDocument(PASSPORT, CrossDeviceIntro.class);
     }
 
     @Test(description = "should display cross device intro screen if forceCrossDevice is enabled with useLiveDocumentCapture enabled also")
