@@ -24,15 +24,15 @@ describe('RestrictedDocumentSelection', () => {
     renderRestrictedDocumentSelection()
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      /restricted_document_selection.title/i
+      /doc_select.title/i
     )
 
     expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
-      /restricted_document_selection.subtitle/i
+      /doc_select.subtitle_country/i
     )
 
     expect(
-      screen.getByText(/restricted_document_selection.country/)
+      screen.getByText(/doc_select.section.header_country/i)
     ).toBeInTheDocument()
   })
 })

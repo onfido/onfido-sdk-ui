@@ -298,7 +298,14 @@
         "subtitle": "It must be an official photo ID",
         "subtitle_poa": "These are the documents most likely to show your current home address",
         "title": "Choose your document",
-        "title_poa": "Select a %{country} document"
+        "title_poa": "Select a %{country} document",
+        "subtitle_country": "Select issuing country to see which documents we accept",
+        "section": {
+          "header_country": "Issuing country",
+          "input_country_not_found": "No Results",
+          "input_placeholder_country": "Type to search for country",
+          "header_doc_type": "Accepted documents"
+        }
     },
     "doc_submit": {
         "button_link_upload": "or upload photo – no scans or photocopies",
@@ -509,14 +516,6 @@
         "list_shows_address": "Shows your <strong>current<\/strong> address",
         "subtitle": "You’ll need a document that:",
         "title": "Let’s verify your address"
-    },
-    "restricted_document_selection": {
-      "title": "Choose your document",
-      "subtitle":"Select issuing country to see which documents we accept",
-      "country": "Issuing country",
-      "country_not_found": "No Results",
-      "country_placeholder": "Type to search for country",
-      "document": "Accepted documents"
     },
     "selfie_capture": {
         "alert": {
