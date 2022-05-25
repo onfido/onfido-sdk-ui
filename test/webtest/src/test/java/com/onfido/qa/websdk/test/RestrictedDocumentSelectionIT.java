@@ -5,6 +5,7 @@ import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.page.CountrySelector;
 import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.IdDocumentSelector;
+import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
 import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.DocumentStep.Option;
@@ -19,7 +20,7 @@ import static com.onfido.qa.websdk.UploadDocument.NATIONAL_IDENTITY_CARD_JPG;
 import static com.onfido.qa.websdk.UploadDocument.UK_DRIVING_LICENCE_PNG;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CountrySelectorIT extends WebSdkIT {
+public class RestrictedDocumentSelectionIT extends WebSdkIT {
 
     @DataProvider
     public static Object[][] documentTypesWithCountrySelection() {
@@ -43,8 +44,9 @@ public class CountrySelectorIT extends WebSdkIT {
     public void testCountryNotSelectionShown(DocumentType documentType) {
 
         var upload = onfido().init(Welcome.class)
-                             .continueToNextStep(IdDocumentSelector.class)
-                             .select(documentType, DocumentUpload.class);
+                             .continueToNextStep(RestrictedDocumentSelection.class)
+                             .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                             .selectDocument(documentType, DocumentUpload.class);
 
         verifyCopy(upload.title(), "doc_submit.title_passport");
 
