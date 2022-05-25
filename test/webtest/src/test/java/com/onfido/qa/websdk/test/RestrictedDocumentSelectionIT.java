@@ -39,7 +39,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
 
     @Test(
             dataProvider = "documentTypesWithoutCountrySelection",
-            description = "should not display country selection screen for certain document type selected"
+            description = "should not display Restricted Document selection screen for certain document type selected"
     )
     public void testCountryNotSelectionShown(DocumentType documentType) {
 
@@ -54,25 +54,24 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
 
     @Test(
             dataProvider = "documentTypesWithCountrySelection",
-            description = "should display country selection screen for certain document type selected"
+            description = "should display Restricted Document selection screen for certain document type selected"
     )
     public void testCountrySelectionShown(DocumentType documentType) {
 
 
         var countrySelector = onfido().init(Welcome.class)
-                                      .continueToNextStep(IdDocumentSelector.class)
-                                      .select(documentType, CountrySelector.class);
+                                      .continueToNextStep(RestrictedDocumentSelection.class);
+                            
 
         verifyCopy(countrySelector.title(), "country_select.title");
         verifyCopy(countrySelector.selectorLabel(), "country_select.search.label");
 
         assertThat(countrySelector.countryFinderInput().isDisplayed()).isTrue();
-        assertThat(countrySelector.isSubmitBtnEnabled()).isFalse();
 
     }
 
     @Test(
-            description = "should skip country selection screen and successfully upload a document when only residence permit document type preselected"
+            description = "should skip Restricted document selection screen and successfully upload a document when only residence permit document type preselected"
     )
     public void testSkipCountryScreenForResidencePermit() {
         var welcome = onfido().withSteps("welcome", new DocumentStep().withDocumentType(RESIDENT_PERMIT)).init(Welcome.class);
@@ -90,7 +89,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
     }
 
     @Test(
-            description = "should skip country selection screen and successfully upload a document when multiple document types have country preset"
+            description = "should successfully upload a document when multiple document types have country preset"
     )
     public void testSkippingCountrySelectionIfPreset() {
 
@@ -105,17 +104,17 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
                         )
                         .init(Welcome.class);
 
-        var documentSelector = welcome.continueToNextStep(IdDocumentSelector.class);
-        var documentUpload = documentSelector.select(DRIVING_LICENCE, DocumentUpload.class);
+        var documentSelector = welcome.continueToNextStep(RestrictedDocumentSelection.class).selectCountry("spain");
+        var documentUpload = documentSelector.selectDocument(DRIVING_LICENCE, DocumentUpload.class);
 
         verifyCopy(documentUpload.title(), "doc_submit.title_license_front");
-        documentSelector = documentUpload.back(IdDocumentSelector.class);
+        documentSelector = documentUpload.back(RestrictedDocumentSelection.class).selectCountry("malaysia");
 
-        documentUpload = documentSelector.select(IDENTITY_CARD, DocumentUpload.class);
+        documentUpload = documentSelector.selectDocument(IDENTITY_CARD, DocumentUpload.class);
         verifyCopy(documentUpload.title(), "doc_submit.title_id_front");
 
-        documentSelector = documentUpload.back(IdDocumentSelector.class);
-        documentUpload = documentSelector.select(RESIDENT_PERMIT, DocumentUpload.class);
+        documentSelector = documentUpload.back(RestrictedDocumentSelection.class).selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY);
+        documentUpload = documentSelector.selectDocument(RESIDENT_PERMIT, DocumentUpload.class);
 
         verifyCopy(documentUpload.title(), "doc_submit.title_permit_front");
 
@@ -128,21 +127,25 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
 
     }
 
-    @Test(description = "should show country selection screen for driver's license and national ID given invalid country code")
-    public void testShowCountrySelectionWithInvalidCountryCode() {
+    @Test(description = "should show country selection screen for driver's license and national ID given valid country code")
+    public void testShowCountrySelectionWithValidCountryCode() {
 
         onfido()
                 .withSteps("welcome", new DocumentStep().withDocumentType(DRIVING_LICENCE, new Option("ES"))
-                                                        .withDocumentType(IDENTITY_CARD, new Option("XYZ")))
+                                                        .withDocumentType(IDENTITY_CARD, new Option("ES")))
                 .init(Welcome.class)
-                .continueToNextStep(IdDocumentSelector.class).select(DRIVING_LICENCE, CountrySelector.class)
-                .back(IdDocumentSelector.class)
-                .select(IDENTITY_CARD, CountrySelector.class).select(CountrySelector.SUPPORTED_COUNTRY, DocumentUpload.class)
+                .continueToNextStep(RestrictedDocumentSelection.class)
+                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectDocument(DRIVING_LICENCE, DocumentUpload.class)
+               
+                .back(RestrictedDocumentSelection.class)
+                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectDocument(IDENTITY_CARD, DocumentUpload.class)
                 .upload(NATIONAL_IDENTITY_CARD_JPG)
                 .clickConfirmButton(DocumentUpload.class);
     }
 
-    @Test(description = "should skip country selection screen and successfully upload document when only driver's license preselected with a valid country code")
+    @Test(description = "should skip Restricted Document selection screen and successfully upload document when only driver's license preselected with a valid country code")
     public void testSkipCountrySelection() {
 
         onfido()
@@ -153,43 +156,32 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
     }
 
 
-    @Test(description = "should show country selection screen with only driver's license preselected and showCountrySelection enabled")
-    public void testShowCountrySelectionWithShowCountrySelectionEnabled() {
-        var countrySelector = onfido()
-                .withSteps(new DocumentStep().withDocumentType(DRIVING_LICENCE, true).withShowCountrySelection(true))
-                .init(CountrySelector.class);
-
-        assertThat(countrySelector.isSubmitBtnEnabled()).isFalse();
-    }
-
-    @Test(description = "should show country selection screen when multiple documents enabled with boolean values (legacy config)")
+    @Test(description = "should show Restricted Document selection screen when multiple documents enabled with boolean values (legacy config)")
     public void testShowCountrySelectionWithMultipleDocsEnabled() {
         onfido()
                 .withSteps(new DocumentStep().withDocumentType(DRIVING_LICENCE, true).withDocumentType(IDENTITY_CARD, true))
-                .init(IdDocumentSelector.class)
-                .select(IDENTITY_CARD, CountrySelector.class)
-                .select(CountrySelector.SUPPORTED_COUNTRY, DocumentUpload.class)
+                .init(RestrictedDocumentSelection.class)
+                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectDocument(IDENTITY_CARD, DocumentUpload.class)
                 .upload(NATIONAL_IDENTITY_CARD_JPG)
                 .clickConfirmButton(DocumentUpload.class);
     }
 
-    @Test(description = "should go to document upload screen when a supported country is selected")
+    @Test(description = "should go to document upload screen when a supported country + document is selected")
     public void testGoToUploadScreenWhenASupportedCountryIsSelected() {
         onfido().withSteps("document")
-                .init(IdDocumentSelector.class)
-                .select(IDENTITY_CARD, CountrySelector.class)
-                .select(CountrySelector.SUPPORTED_COUNTRY, DocumentUpload.class);
+                .init(RestrictedDocumentSelection.class)
+                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectDocument(IDENTITY_CARD, DocumentUpload.class);
     }
 
     @Test(description = "should be able to select \"Hong Kong\" as a supported country option when searching with \"香\"")
     public void testSelectHongKong() {
-        var countrySelector = onfido().withSteps("document")
-                                      .init(IdDocumentSelector.class)
-                                      .select(IDENTITY_CARD, CountrySelector.class)
-                                      .searchFor("香 ")
-                                      .selectFirstOptionInDropdownMenu();
-
-        assertThat(countrySelector.isSubmitBtnEnabled()).isTrue();
+        onfido().withSteps("document")
+                .init(RestrictedDocumentSelection.class)
+                .searchFor("香 ")
+                .selectFirstOptionInDropdownMenu()
+                .selectDocument(IDENTITY_CARD, DocumentUpload.class);
 
     }
 
@@ -197,10 +189,9 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
     @Test(description = "should display \"Country not found\" message and error variant of help icon when searching for \"xyz\"", enabled = false)
     public void testCountryNotFoundMessage() {
         var countrySelector = onfido().withSteps("document")
-                                      .init(IdDocumentSelector.class)
-                                      .select(IDENTITY_CARD, CountrySelector.class)
-                                      .select("xyz");
-
+                                      .init(RestrictedDocumentSelection.class)
+                                      .selectCountry("xyz");
+                        
         assertThat(countrySelector.countryNotFoundMessageIdDisabled()).isTrue();
     }
 }
