@@ -10,6 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Use the `max_total_retries` field from SdkConfiguration to compute the max number of document capture retries after an image quality failed check. It was previously was set to 1.
 - Internal: Add `video_instruction_type` property to analytics event `FACE_VIDEO_CAPTURE` and `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
 - Internal: Rename analytics event `FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED` to `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
 - Internal: Add `ui_alerts` properties to `FALLBACK_TRIGGERED` analytics events
@@ -30,6 +31,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added `ScreenLayout` to CrossDeviceSubmit
 - Internal: Update FaceTec SDK on Auth step from 9.4.5 to 9.4.11
 - Internal: Upgrade `typescript` to 4.6.2
+- Public: Fix inline style to support Content Security Policy
 
 ## [8.0.0] - 2022-04-21
 
