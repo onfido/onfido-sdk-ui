@@ -39,8 +39,7 @@ export const performHttpReq = <T>(
   request.onload = () => {
     if (
       request.status === 200 ||
-      request.status === 201 ||
-      request.status === 204
+      request.status === 201
     ) {
       const contentType = request.getResponseHeader('content-type')
       if (contentType && contentType.startsWith('application/json')) {
