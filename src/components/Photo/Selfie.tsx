@@ -78,6 +78,8 @@ export default class SelfieCapture extends Component<Props, State> {
       return
     }
 
+    this.props.trackScreen('capture_button_clicked')
+
     this.setState({ isCaptureButtonDisabled: true })
     screenshot(this.webcam.current, this.handleSelfie)
   }

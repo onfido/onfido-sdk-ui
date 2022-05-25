@@ -46,6 +46,7 @@ export default <P extends Props>(
     }
 
     setPermissionsPrimerSeen = () => {
+      this.props.trackScreen('camera_access_allow_button_clicked')
       this.setState({ hasSeenPermissionsPrimer: true })
     }
 

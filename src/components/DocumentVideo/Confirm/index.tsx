@@ -136,7 +136,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       )
 
       nextStep()
-    } catch (errorResponse) {
+    } catch (errorResponse: any) {
       setLoading(false)
       triggerOnError(errorResponse)
 

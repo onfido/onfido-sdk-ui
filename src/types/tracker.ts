@@ -1,4 +1,4 @@
-import type { DeviceTypes } from './commons'
+import type { DeviceTypes, ErrorNames } from './commons'
 import type { StepConfig } from './steps'
 
 export const USER_ANALYTICS_EVENT = 'userAnalyticsEvent'
@@ -39,6 +39,10 @@ export type LegacyTrackedEventNames =
   | 'screen_document_back_capture_request_error'
   | 'screen_document_back_confirmation'
   | 'screen_document_front_confirmation'
+  | 'screen_document_back_confirmation_retake_button_clicked'
+  | 'screen_document_front_confirmation_retake_button_clicked'
+  | 'screen_document_back_confirmation_upload_button_clicked'
+  | 'screen_document_front_confirmation_upload_button_clicked'
   | 'screen_document_front_confirmation_cutoff_detected'
   | 'screen_document_back_confirmation_cutoff_detected'
   | 'screen_document_front_confirmation_blur_detected'
@@ -58,19 +62,31 @@ export type LegacyTrackedEventNames =
   | 'screen_document_type_select'
   | 'screen_document_document_video_capture_file_upload'
   | 'screen_document_document_video_capture'
+  | 'screen_document_document_video_capture_camera_access'
+  | 'screen_document_document_video_capture_camera_access_denied'
+  | 'screen_document_document_video_capture_camera_access_allow_button_clicked'
+  | 'screen_document_document_video_capture_camera_access_denied_refresh_button_clicked'
   | 'screen_document_document_video_capture_fallback_triggered'
   | 'screen_document_document_video_capture_doc_video_timeout'
   | 'screen_document_confirmation_video_play_clicked'
   | 'screen_document_confirmation_video_pause_clicked'
   | 'screen_document_confirmation_video_playback_finished'
   | 'screen_face_selfie_intro'
+  | 'screen_face_selfie_intro_take_selfie_button_clicked'
   | 'screen_face_selfie_capture_file_upload'
   | 'screen_face_selfie_capture'
+  | 'screen_face_selfie_capture_capture_button_clicked'
+  | 'screen_face_selfie_capture_camera_access'
+  | 'screen_face_selfie_capture_camera_access_denied'
+  | 'screen_face_selfie_capture_camera_access_allow_button_clicked'
+  | 'screen_face_selfie_capture_camera_access_denied_refresh_button_clicked'
   | 'screen_face_selfie_capture_camera_not_working'
   | 'screen_face_selfie_capture_camera_not_working_no_fallback'
   | 'screen_face_selfie_capture_camera_inactive'
   | 'screen_face_selfie_capture_camera_inactive_no_fallback'
   | 'screen_face_selfie_confirmation'
+  | 'screen_face_selfie_confirmation_retake_button_clicked'
+  | 'screen_face_selfie_confirmation_upload_button_clicked'
   | 'screen_face_selfie_confirmation_no_face_error'
   | 'screen_face_selfie_confirmation_multiple_faces_error'
   | 'screen_face_selfie_confirmation_request_error'
@@ -82,12 +98,17 @@ export type LegacyTrackedEventNames =
   | 'Live photo upload completed'
   | 'screen_face_face_video_capture_file_upload'
   | 'screen_face_face_video_capture_record_button_click'
-  | 'screen_face_face_video_capture_recording_next_click'
+  | 'screen_face_face_video_capture_next_button_clicked'
+  | 'screen_face_face_video_capture_finish_button_clicked'
   | 'screen_face_face_video_capture'
+  | 'screen_face_face_video_capture_camera_access'
+  | 'screen_face_face_video_capture_camera_access_denied'
   | 'screen_face_face_video_capture_face_video_timeout'
   | 'screen_face_face_video_capture_camera_inactive'
   | 'screen_face_face_video_capture_camera_not_working'
   | 'screen_face_face_video_capture_camera_not_working_no_fallback'
+  | 'screen_face_face_video_capture_camera_access_allow_button_clicked'
+  | 'screen_face_face_video_capture_camera_access_denied_refresh_button_clicked'
   | 'screen_face_face_video_capture_fallback_triggered'
   | 'screen_face_face_video_camera_inactive_no_fallback'
   | 'screen_face_video_capture_step_1'
@@ -101,8 +122,11 @@ export type LegacyTrackedEventNames =
   | 'screen_face_face_video_confirmation_play_clicked'
   | 'screen_face_face_video_confirmation_pause_clicked'
   | 'screen_face_face_video_confirmation_playback_finished'
+  | 'screen_face_face_video_confirmation_retake_button_clicked'
+  | 'screen_face_face_video_confirmation_upload_button_clicked'
   | 'screen_face_face_video_capture_fallback_triggered'
   | 'screen_face_video_intro'
+  | 'screen_face_video_intro_record_video_button_clicked'
   | 'completed flow'
   | 'started flow'
   | 'screen_forbidden_client_error'
@@ -133,6 +157,8 @@ export type LegacyTrackedEventNames =
   | 'face_video_upload_started'
   | 'face_video_upload_completed'
   | 'screen_workflow_retry'
+  | 'navigation_back_button_clicked'
+  | 'navigation_close_button_clicked'
 
 export type UserAnalyticsEventNames =
   | 'WELCOME'
@@ -191,6 +217,37 @@ type UIAlerts =
   | 'camera_inactive'
   | 'video_error'
 
+export const ErrorNameToUIAlertMapping: Record<
+  ErrorNames,
+  UIAlerts | undefined
+> = {
+  BLUR_DETECTED: 'blur',
+  CAMERA_INACTIVE: 'camera_inactive',
+  CAMERA_INACTIVE_NO_FALLBACK: 'camera_inactive',
+  CAMERA_NOT_WORKING: 'camera_not_working',
+  CAMERA_NOT_WORKING_NO_FALLBACK: 'camera_not_working',
+  CUTOFF_DETECTED: 'cutoff',
+  DOC_VIDEO_TIMEOUT: 'doc_video_timeout',
+  FACE_VIDEO_TIMEOUT: 'face_video_timeout',
+  FORBIDDEN_CLIENT_ERROR: undefined,
+  GENERIC_CLIENT_ERROR: undefined,
+  INTERRUPTED_FLOW_ERROR: undefined,
+  PROFILE_DATA_TIMEOUT: 'profile_data_timeout',
+  GLARE_DETECTED: 'glare',
+  DOCUMENT_DETECTION: 'document_detection',
+  INVALID_SIZE: 'invalid_size',
+  INVALID_TYPE: 'invalid_type',
+  INVALID_IMAGE_SIZE: 'invalid_size',
+  MULTIPLE_FACES_ERROR: 'multiple_faces',
+  NO_FACE_ERROR: 'no_face',
+  REQUEST_ERROR: 'request_error',
+  SMS_FAILED: undefined,
+  SMS_OVERUSE: undefined,
+  UNSUPPORTED_ANDROID_BROWSER: undefined,
+  UNSUPPORTED_FILE: 'unsupported_file',
+  UNSUPPORTED_IOS_BROWSER: undefined,
+}
+
 export type AnalyticsEventProperties = {
   event_type?: TrackedEventTypes
   step?: string
@@ -200,6 +257,7 @@ export type AnalyticsEventProperties = {
   capture_method_rendered?: 'upload' | 'camera'
   document_side?: 'front' | 'back'
   video_capture_step?: 'step1' | 'step2'
+  video_instruction_type?: 'recite' | 'movement'
   link_method_selected?: 'copy' | 'qr_code' | 'sms'
   has_fallback?: boolean
   ui_alerts?: {
@@ -254,31 +312,50 @@ export type AnalyticsTrackedEventNames =
   | 'DOCUMENT_CAPTURE'
   | 'DOCUMENT_CAPTURE_ERROR'
   | 'DOCUMENT_CONFIRMATION'
+  | 'DOCUMENT_CONFIRMATION_RETAKE_BUTTON_CLICKED'
+  | 'DOCUMENT_CONFIRMATION_UPLOAD_BUTTON_CLICKED'
   | 'DOCUMENT_CONFIRMATION_ERROR'
   | 'DOCUMENT_FALLBACK_CLICKED'
   | 'DOCUMENT_IMAGE_QUALITY_GUIDE'
   | 'DOCUMENT_IMAGE_QUALITY_GUIDE_ERROR'
   | 'DOCUMENT_TYPE_SELECTION'
   | 'DOCUMENT_VIDEO_CAPTURE'
+  | 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS'
+  | 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED'
+  | 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED'
+  | 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED'
   | 'DOCUMENT_VIDEO_CAPTURE_ERROR'
   | 'DOCUMENT_VIDEO_FALLBACK_TRIGGERED'
   | 'DOCUMENT_VIDEO_CONFIRMATION_PLAY_CLICKED'
   | 'DOCUMENT_VIDEO_CONFIRMATION_PAUSE_CLICKED'
   | 'DOCUMENT_VIDEO_CONFIRMATION_PLAYBACK_FINISHED'
-  | 'FACE_INTRO'
+  | 'FACE_SELFIE_INTRO'
+  | 'FACE_SELFIE_INTRO_TAKE_SELFIE_BUTTON_CLICKED'
   | 'FACE_SELFIE_CAPTURE'
+  | 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS'
+  | 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_DENIED'
+  | 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED'
+  | 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED'
   | 'FACE_SELFIE_CAPTURE_ERROR'
+  | 'FACE_SELFIE_CAPTURE_CAPTURE_BUTTON_CLICKED'
   | 'FACE_SELFIE_CONFIRMATION'
   | 'FACE_SELFIE_CONFIRMATION_ERROR'
+  | 'FACE_SELFIE_CONFIRMATION_RETAKE_BUTTON_CLICKED'
+  | 'FACE_SELFIE_CONFIRMATION_UPLOAD_BUTTON_CLICKED'
   | 'FACE_SELFIE_FALLBACK_TRIGGERED'
   | 'FACE_SELFIE_SNAPSHOT_UPLOAD_COMPLETED'
   | 'FACE_SELFIE_SNAPSHOT_UPLOAD_STARTED'
   | 'FACE_SELFIE_UPLOAD_STARTED'
   | 'FACE_SELFIE_UPLOAD_COMPLETED'
   | 'FACE_VIDEO_CAPTURE'
+  | 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS'
+  | 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED'
+  | 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED'
+  | 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED'
   | 'FACE_VIDEO_CAPTURE_ERROR'
   | 'FACE_VIDEO_CAPTURE_RECORD_BUTTON_CLICKED'
-  | 'FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED'
+  | 'FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED'
+  | 'FACE_VIDEO_CAPTURE_FINISH_BUTTON_CLICKED'
   | 'FACE_VIDEO_CHALLENGE_FETCH_ERROR'
   | 'FACE_VIDEO_CHALLENGE_LOADED'
   | 'FACE_VIDEO_CHALLENGE_REQUESTED'
@@ -288,8 +365,11 @@ export type AnalyticsTrackedEventNames =
   | 'FACE_VIDEO_CONFIRMATION_PLAY_CLICKED'
   | 'FACE_VIDEO_CONFIRMATION_PAUSE_CLICKED'
   | 'FACE_VIDEO_CONFIRMATION_PLAYBACK_FINISHED'
+  | 'FACE_VIDEO_CONFIRMATION_RETAKE_BUTTON_CLICKED'
+  | 'FACE_VIDEO_CONFIRMATION_UPLOAD_BUTTON_CLICKED'
   | 'FACE_VIDEO_FALLBACK_TRIGGERED'
   | 'FACE_VIDEO_INTRO'
+  | 'FACE_VIDEO_INTRO_RECORD_VIDEO_BUTTON_CLICKED'
   | 'FLOW_COMPLETED'
   | 'FLOW_STARTED'
   | 'FORBIDDEN_CLIENT_ERROR'
@@ -308,6 +388,8 @@ export type AnalyticsTrackedEventNames =
   | 'DATA_CAPTURE_ERROR'
   | 'WELCOME'
   | 'WORKFLOW_RETRY'
+  | 'NAVIGATION_BACK_BUTTON_CLICKED'
+  | 'NAVIGATION_CLOSE_BUTTON_CLICKED'
   | 'DOCUMENT_UPLOAD_STARTED'
   | 'DOCUMENT_UPLOAD_COMPLETED'
   | 'DOCUMENT_VIDEO_UPLOAD_STARTED'

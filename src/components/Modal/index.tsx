@@ -7,6 +7,7 @@ import { useLocales } from '~locales'
 import style from './style.scss'
 import styleConstants from '../Theme/constants.scss'
 import theme from '../Theme/style.scss'
+import { sendEvent } from 'Tracker'
 
 const MODAL_ANIMATION_DURATION = getCSSMillisecsValue(
   styleConstants.modal_animation_duration
@@ -36,6 +37,12 @@ const Modal = ({
   shouldCloseOnOverlayClick = true,
 }: ModalProps) => {
   const { translate } = useLocales()
+  const close = () => {
+    if (onRequestClose) {
+      sendEvent('navigation_close_button_clicked')
+      onRequestClose()
+    }
+  }
   return (
     <ReactModal
       isOpen={!!isOpen}
@@ -56,7 +63,7 @@ const Modal = ({
       <button
         type="button"
         aria-label={translate('generic.accessibility.close_sdk_screen')}
-        onClick={onRequestClose}
+        onClick={close}
         className={classNames(style.closeButton, {
           [style.closeButtonFullScreen]: isFullScreen,
         })}
