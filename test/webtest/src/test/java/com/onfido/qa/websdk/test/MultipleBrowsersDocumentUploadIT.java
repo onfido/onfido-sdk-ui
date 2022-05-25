@@ -36,7 +36,7 @@ public class MultipleBrowsersDocumentUploadIT extends WebSdkIT {
         onfido().withSteps("document", "complete")
                 .init(RestrictedDocumentSelection.class)
                 .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
-                .selectDocument(PASSPORT, DocumentUpload.class)
+                .selectDocument(IDENTITY_CARD, DocumentUpload.class)
                 .upload(UploadDocument.NATIONAL_IDENTITY_CARD_PDF)
                 .clickConfirmButton(null);
     }
