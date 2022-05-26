@@ -66,7 +66,8 @@ public class RestrictedDocumentSelection extends BasePage {
     }
 
     public RestrictedDocumentSelection selectFirstOptionInDropdownMenu() {
-        //sleep(250);
+        sleep(250);
+        driver.actions().sendKeys(Keys.ENTER).perform();
         driver.actions().sendKeys(Keys.DOWN, Keys.ENTER).perform();
 
         return this;
