@@ -20,6 +20,7 @@ import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.EnterpriseFeatures;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import com.onfido.qa.websdk.sdk.Raw;
+import com.onfido.qa.websdk.sdk.DocumentStep.Option;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -95,11 +96,10 @@ public class DocumentIT extends WebSdkIT {
     @Mobile
     public void testPermissionDialogIsShown22(DocumentType documentType) {
 
-        var permission = onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true))
-                            .init(RestrictedDocumentSelection.class)
-                            .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
-                            .selectDocument(documentType, Permission.class);
-
+        var permission = onfido()
+        .withSteps(new DocumentStep().withDocumentType(PASSPORT, new Option("ESP")))
+        .init(Permission.class);
+    
         takePercySnapshot("permission-camera");
         permission.clickEnableCamera(null);
 
