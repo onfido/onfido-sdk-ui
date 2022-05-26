@@ -112,16 +112,6 @@ export class Engine implements EngineInterface {
       )
     })
 
-  getDocumentTypeFilter = (
-    config: Array<documentSelectionType>
-  ): Array<documentSelectionType> =>
-    config &&
-    config.filter((value, index, self) => {
-      return (
-        self.findIndex((v) => v.document_type === value.document_type) === index
-      )
-    })
-
   getWorkFlowStep = (
     taskId: string | undefined,
     configuration: WorkflowStepConfig
@@ -136,9 +126,7 @@ export class Engine implements EngineInterface {
             countryFilter: this.getCountryFilter(
               configuration.document_selection
             ),
-            documentSelection: this.getDocumentTypeFilter(
-              configuration.document_selection
-            ),
+            documentSelection: configuration.document_selection,
           },
         }
       case 'upload_face_photo':

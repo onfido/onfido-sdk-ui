@@ -51,8 +51,14 @@ export const RestrictedDocumentSelection = ({
   const documentTypeFilter = useMemo(
     () =>
       documentSelection &&
-      documentSelection.filter((obj) => {
-        return obj.issuing_country === country?.country_alpha3
+      documentSelection.filter((value, index, self) => {
+        return (
+          self.findIndex(
+            (v) =>
+              v.document_type === value.document_type &&
+              v.issuing_country === country?.country_alpha3
+          ) === index
+        )
       }),
     [country]
   )
