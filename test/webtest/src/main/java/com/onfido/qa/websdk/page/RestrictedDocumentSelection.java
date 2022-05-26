@@ -12,8 +12,6 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.bytebuddy.jar.asm.Label;
-
 public class RestrictedDocumentSelection extends BasePage {
     public static final String SUPPORTED_COUNTRY = "france";
 
@@ -28,9 +26,9 @@ public class RestrictedDocumentSelection extends BasePage {
 
         var element = driver.findElement(ByUtil.onfidoQa(documentType.canonicalName()));
         var name = element.findElement(By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-label")).getText();
-        var eStatementAccepted = element.findElements(By.cssSelector(".onfido-sdk-ui-RestrictedDocumentSelection-DocumentList-tag")).size() == 1;
-        var hint = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-RestrictedDocumentSelection-DocumentList-hint"));
-        var warning = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-RestrictedDocumentSelection-DocumentList-warning"));
+        var eStatementAccepted = element.findElements(By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-tag")).size() == 1;
+        var hint = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-hint"));
+        var warning = getOptionalText(element, By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-warning"));
 
         return new DocumentOption(name, hint, warning, eStatementAccepted);
 

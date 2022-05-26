@@ -77,28 +77,13 @@ public class DocumentIT extends WebSdkIT {
     }
 
     @Test(groups = {"percy"})
-   // @Mobile
-    public void testPermissionDialogIsShown() {
-        var permission = onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true))
-                                 .init(RestrictedDocumentSelection.class)
-                                 .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
-                                 .selectDocument(PASSPORT, Permission.class);
-
-        takePercySnapshot("permission-camera");
-        permission.clickEnableCamera(null);
-    }
-
-    @Test(
-        groups = {"percy"},
-        dataProvider = "documentTypesWithoutCountrySelection",
-        description = "should XXX XXX XXX"
-    )
     @Mobile
-    public void testPermissionDialogIsShown22(DocumentType documentType) {
+    public void testPermissionDialogIsShown() {
 
         var permission = onfido()
-        .withSteps(new DocumentStep().withDocumentType(PASSPORT, new Option("ESP")))
+        .withSteps(new DocumentStep().withDocumentType(PASSPORT, new Option("ESP")).withUseLiveDocumentCapture(true))
         .init(Permission.class);
+        
     
         takePercySnapshot("permission-camera");
         permission.clickEnableCamera(null);
@@ -107,15 +92,13 @@ public class DocumentIT extends WebSdkIT {
 
 
     @Test(groups = {"percy"}, description = "should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled")
-    //@Mobile
+    @Mobile
     @Browser(enableMicrophoneCameraAccess = true)
     public void testPassportLiveCapture() {
 
-        var capture = onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true), "complete")
-                              .init(RestrictedDocumentSelection.class)
-                              .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
-                              .selectDocument(PASSPORT, DocumentLiveCapture.class);
-
+        var capture = onfido().withSteps(new DocumentStep().withDocumentType(PASSPORT, new Option("ESP")).withUseLiveDocumentCapture(true), "complete")
+                              .init(DocumentLiveCapture.class);
+                              
         takePercySnapshotWithoutVideo("document-submit-passport useLiveDocumentCapture=true");
 
         var confirm = capture.takePhoto();
@@ -126,13 +109,11 @@ public class DocumentIT extends WebSdkIT {
     }
 
     @Test(description = "should upload a passport and verify UI elements", groups = {"percy"})
-    //@Mobile
+    @Mobile
     public void testPassportUploadScreen() {
 
-        var intro = onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(false), "complete")
-                            .init(RestrictedDocumentSelection.class)
-                            .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
-                            .selectDocument(PASSPORT, PassportUploaderIntro.class);
+        var intro = onfido().withSteps(new DocumentStep().withDocumentType(PASSPORT, new Option("ESP")).withUseLiveDocumentCapture(false), "complete")
+                            .init(PassportUploaderIntro.class);
 
         takePercySnapshot("document-submit-passport-intro useLiveDocumentCapture=false");
 
@@ -174,12 +155,16 @@ public class DocumentIT extends WebSdkIT {
     }
 
     private void percyUpload(DocumentType documentType, UploadDocument front, UploadDocument back) {
-        var countrySelector = onfido().withSteps("document").init(RestrictedDocumentSelection.class).selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY).selectDocument(documentType, CountrySelector.class);
+        var countrySelector = 
+            onfido().withSteps("document")
+            .init(RestrictedDocumentSelection.class)
+            .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY);
+          
 
         var name = documentType.name();
         takePercySnapshot(format("CountrySelector-%s", name));
 
-        var upload = countrySelector.selectSupportedCountry(DocumentUpload.class);
+        var upload = countrySelector.selectDocument(documentType, DocumentUpload.class);
         takePercySnapshot(format("Upload-%s-Front", name));
 
         var confirmUpload = upload.upload(front);
@@ -373,7 +358,9 @@ public class DocumentIT extends WebSdkIT {
     @Test(description = "should verify UI elements on the document selection screen", groups = ("percy"))
     public void testShouldVerifyUiElementsOnTheDocumentSelectionScreen() {
 
-        var documentSelector = onfido().withSteps("document").init(RestrictedDocumentSelection.class).selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY);
+        var documentSelector = onfido().withSteps("document")
+        .init(RestrictedDocumentSelection.class)
+        .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY);
 
 
         Map<DocumentType, DocumentOption> expectedOptions = new EnumMap<>(DocumentType.class);
