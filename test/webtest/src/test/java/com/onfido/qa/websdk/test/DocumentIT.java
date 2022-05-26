@@ -59,7 +59,7 @@ public class DocumentIT extends WebSdkIT {
     }
 
     @Test(groups = {"percy"})
-    @Mobile
+   // @Mobile
     public void testPermissionDialogIsShown() {
         var permission = onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true))
                                  .init(RestrictedDocumentSelection.class)
@@ -72,7 +72,7 @@ public class DocumentIT extends WebSdkIT {
 
 
     @Test(groups = {"percy"}, description = "should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled")
-    @Mobile
+    //@Mobile
     @Browser(enableMicrophoneCameraAccess = true)
     public void testPassportLiveCapture() {
 
@@ -91,7 +91,7 @@ public class DocumentIT extends WebSdkIT {
     }
 
     @Test(description = "should upload a passport and verify UI elements", groups = {"percy"})
-    @Mobile
+    //@Mobile
     public void testPassportUploadScreen() {
 
         var intro = onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(false), "complete")

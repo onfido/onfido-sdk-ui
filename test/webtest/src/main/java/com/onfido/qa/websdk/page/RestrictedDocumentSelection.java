@@ -61,7 +61,6 @@ public class RestrictedDocumentSelection extends BasePage {
     }
 
     public RestrictedDocumentSelection searchFor(String search) {
-        driver.actions().sendKeys(Keys.ENTER).perform();
         input(SEARCH, search);
         return this;
     }
