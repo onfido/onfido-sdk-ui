@@ -20,6 +20,8 @@ import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.EnterpriseFeatures;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import com.onfido.qa.websdk.sdk.Raw;
+
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.EnumMap;
@@ -50,6 +52,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DocumentIT extends WebSdkIT {
 
+    @DataProvider
+    public static Object[][] documentTypesWithCountrySelection() {
+        return new Object[][]{
+                {DRIVING_LICENCE},
+                {IDENTITY_CARD}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] documentTypesWithoutCountrySelection() {
+        return new Object[][]{
+                {PASSPORT}
+        };
+    }
+
     private ImageQualityGuide gotoPassportUpload() {
         return onfido().withSteps("document", "complete")
                        .init(RestrictedDocumentSelection.class)
@@ -68,6 +85,23 @@ public class DocumentIT extends WebSdkIT {
 
         takePercySnapshot("permission-camera");
         permission.clickEnableCamera(null);
+    }
+
+    @Test(
+        groups = {"percy"},
+        dataProvider = "documentTypesWithoutCountrySelection",
+        description = "should XXX XXX XXX"
+    )
+    public void testPermissionDialogIsShown22(DocumentType documentType) {
+
+        var permission = onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true))
+                            .init(RestrictedDocumentSelection.class)
+                            .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                            .selectDocument(documentType, Permission.class);
+
+        takePercySnapshot("permission-camera");
+        permission.clickEnableCamera(null);
+
     }
 
 

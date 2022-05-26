@@ -2,9 +2,7 @@ package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.websdk.DocumentType;
 import com.onfido.qa.websdk.UploadDocument;
-import com.onfido.qa.websdk.page.CountrySelector;
 import com.onfido.qa.websdk.page.DocumentUpload;
-import com.onfido.qa.websdk.page.IdDocumentSelector;
 import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
 import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.DocumentStep;
