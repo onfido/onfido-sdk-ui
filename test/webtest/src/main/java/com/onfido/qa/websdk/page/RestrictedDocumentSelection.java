@@ -61,13 +61,13 @@ public class RestrictedDocumentSelection extends BasePage {
     }
 
     public RestrictedDocumentSelection searchFor(String search) {
+        driver.actions().sendKeys(Keys.ENTER).perform();
         input(SEARCH, search);
         return this;
     }
 
     public RestrictedDocumentSelection selectFirstOptionInDropdownMenu() {
         sleep(250);
-        driver.actions().sendKeys(Keys.ENTER).perform();
         driver.actions().sendKeys(Keys.DOWN, Keys.ENTER).perform();
 
         return this;
