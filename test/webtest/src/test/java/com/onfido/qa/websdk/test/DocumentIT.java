@@ -92,6 +92,7 @@ public class DocumentIT extends WebSdkIT {
         dataProvider = "documentTypesWithoutCountrySelection",
         description = "should XXX XXX XXX"
     )
+    @Mobile
     public void testPermissionDialogIsShown22(DocumentType documentType) {
 
         var permission = onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true))
