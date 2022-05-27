@@ -65,6 +65,21 @@ The callbacks return a FormData object, including the information that the SDK w
 
 ```
 
+**onSubmitVideo FormData Paramaters**
+
+```javascript
+{
+  file: blob,
+  challange:  { type: 'recite' / 'movement', query: number[] / string }
+  challange_id: string,
+  challenge_switch_at: number, // seconds
+  languages: { source: 'sdk', language_code: string }
+  sdk_source: string,
+  sdk_version: string,
+  sdk_metadata: object,
+}
+```
+
 #### Allowing the SDK to upload data to Onfido
 
 If you would like the SDK to upload the user-submitted data directly to Onfido you can resolve the promise with an object containing `continueWithOnfidoSubmission: true`
