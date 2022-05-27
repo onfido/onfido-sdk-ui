@@ -157,8 +157,9 @@ public class AccessibilityIT extends WebSdkIT {
     }
     
     // https://github.com/alphagov/accessible-autocomplete/issues/361
+    // Disabling until we replace autocomplete
     // FIXME: bug
-    @Test(description = "should verify accessibility for the document selector screen")
+    @Test(enabled=false, description = "should verify accessibility for the document selector screen")
     public void testShouldVerifyAccessibilityForTheDocumentSelectorScreen() {
         onfido().withSteps("document").init(RestrictedDocumentSelection.class).selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY);
         verifyAxeReport();
