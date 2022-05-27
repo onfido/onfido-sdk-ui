@@ -61,8 +61,8 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
                                       .continueToNextStep(RestrictedDocumentSelection.class);
                             
 
-        verifyCopy(countrySelector.title(), "country_select.title");
-        verifyCopy(countrySelector.selectorLabel(), "country_select.search.label");
+        verifyCopy(countrySelector.title(), "doc_select.title");
+        verifyCopy(countrySelector.selectorLabel(), "doc_select.section.header_country");
 
         assertThat(countrySelector.countryFinderInput().isDisplayed()).isTrue();
 

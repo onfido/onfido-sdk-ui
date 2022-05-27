@@ -155,10 +155,12 @@ public class AccessibilityIT extends WebSdkIT {
         verifyAxeReport();
 
     }
-
+    
+    // https://github.com/alphagov/accessible-autocomplete/issues/361
+    // FIXME: bug
     @Test(description = "should verify accessibility for the document selector screen")
     public void testShouldVerifyAccessibilityForTheDocumentSelectorScreen() {
-        onfido().withSteps("document").init(RestrictedDocumentSelection.class);
+        onfido().withSteps("document").init(RestrictedDocumentSelection.class).selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY);
         verifyAxeReport();
     }
 
