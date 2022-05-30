@@ -69,11 +69,11 @@ jobs:
       - name: Upload Base32 to S3
         run: |
           echo $BASE_32_VERSION
-          aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE_32_VERSION/ --exclude "*.html" --recursive --acl public-read
+          aws s3 cp ./dist s3://${{ env.AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE_32_VERSION/ --exclude "*.html" --recursive --acl public-read
 
       - name: Upload Release to S3
         run: |
-          aws s3 cp ./dist s3://${{ AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --exclude "*.html" --recursive --acl public-read
+          aws s3 cp ./dist s3://${{ env.AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --exclude "*.html" --recursive --acl public-read
 
       - name: Publish to NPM
         env:
@@ -94,14 +94,6 @@ jobs:
           script: |
             require('./release/extractReleaseNotes.js')(core)
 
-      - name: log
-        env: 
-          body: ${{ steps.extract-release-notes.outputs.release_notes }}
-          name: ${{  steps.extract-release-notes.outputs.release_name }}
-        run: |
-          echo $body
-          echo $name
-
       - name: Create Github Release
         if: ${{ env.RELEASE_VERSION == env.LATEST_TAG }}
         uses: ncipollo/release-action@v1
@@ -111,13 +103,9 @@ jobs:
           name: ${{  steps.extract-release-notes.outputs.release_name }}
           generateReleaseNotes: false
 
+      # Legacy: Surge uses the NODE_ENV=test + TEST_ENV=deployment
       - name: Run build for Surge
-        # Legacy: Surge uses the NODE_ENV=test + TEST_ENV=deployment
-        run: |
-          if [ "$RELEASE_VERSION" == "$LATEST_TAG" ]
-          then
-            TEST_ENV=deployment npm run build:test
-          fi
+        run: TEST_ENV=deployment NODE_ENV=test npm run build:test
 
       - name: Publish latest version to Surge
         if: ${{ env.VERSION == env.LATEST_TAG }}
