@@ -273,7 +273,9 @@ class CrossDeviceLinkUI extends Component<Props, State> {
         role="img"
         aria-label="QR code image"
       >
-        <QRCodeGenerator url={this.getMobileUrl()} size={144} />
+        <div className={style.qrCodeBackground}>
+          <QRCodeGenerator url={this.getMobileUrl()} size={144} />
+        </div>
       </div>
       <QRCodeHowTo />
     </div>

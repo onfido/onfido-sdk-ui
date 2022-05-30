@@ -29,7 +29,7 @@ module.exports = {
     eqeqeq: ['error', 'always', { null: 'ignore' }],
     'prefer-const': 'error',
     '@typescript-eslint/no-empty-function': 'warn',
-    '@typescript-eslint/no-var-requires': 'warn',
+    '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/ban-ts-comment': 'warn',
     /* Temporary disabled rules for React development */
     '@typescript-eslint/explicit-module-boundary-types': 'off',
