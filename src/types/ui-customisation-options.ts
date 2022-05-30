@@ -84,6 +84,9 @@ export type UICustomizationOptions = {
   colorBackgroundButtonCameraHover?: string
   colorBackgroundButtonCameraActive?: string
 
+  // QR code background
+  colorBackgroundQRCode?: string
+
   // Auth interface customization
   authAccentColor?: string
   authDualSpinnerColor?: string
