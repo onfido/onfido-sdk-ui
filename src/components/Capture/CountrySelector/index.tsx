@@ -32,9 +32,9 @@ export const CountrySelector = (props: CountrySelectorProps) => {
 
           return (
             <Option key={isoAlpha3} value={isoAlpha3}>
-              <i
+              <img
                 role="presentation"
-                style={{ backgroundImage: `url(${countryFlagSrc})` }}
+                src={countryFlagSrc}
                 className={styles['countryFlag']}
               />
               <span className={styles['countryLabel']}>{label}</span>

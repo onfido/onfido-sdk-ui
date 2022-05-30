@@ -37,10 +37,10 @@ const getCountryOptionTemplate = (
 
   if (displayFlags) {
     const countryFlagSrc = getCountryFlagSrc(country.country_alpha2, 'square')
-    return `<i
+    return `<img
       role="presentation"
       class="${style.countryFlag}"
-      style="background-image: url(${countryFlagSrc})"></i>
+      src="${countryFlagSrc}"/>
       <span class="${style.countryFlagLabel}">${country.name}</span>`
   }
 

@@ -5,7 +5,6 @@ import { Dispatch } from 'redux'
 
 import { useLocales } from '~locales'
 import { GlobalActions } from '~types/redux'
-
 import { StepsRouterProps } from '~types/routers'
 import style from './RestrictedDocumentSelection.scss'
 import {
@@ -28,10 +27,12 @@ import {
 
 import { idDocumentOptions } from '../DocumentSelector/IdentityDocumentSelector'
 import { generateDefaultOptions } from '../DocumentSelector'
+
 import {
   getSupportedCountries,
   getSupportedDocumentTypes,
 } from '~supported-documents'
+
 import { CountryData, documentSelectionType } from '~types/commons'
 
 export type RestrictedDocumentSelectionProps = {
@@ -64,6 +65,7 @@ export const RestrictedDocumentSelection = ({
   )
 
   const countries = useMemo(() => getSupportedCountries(countryFilter), [])
+
   const documents = useMemo(() => {
     if (!country) {
       return []
