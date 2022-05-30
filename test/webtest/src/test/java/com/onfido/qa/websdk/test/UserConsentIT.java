@@ -34,7 +34,7 @@ public class UserConsentIT extends WebSdkIT {
 
     @Test(description = "should accept user consent")
     public void testAcceptUserConsent() {
-        var documentSelector = init().acceptUserConsent(IdDocumentSelector.class);
+        var documentSelector = init().acceptUserConsent(RestrictedDocumentSelection.class);
 
         verifyCopy(documentSelector.title(), "doc_select.title");
     }
@@ -66,7 +66,7 @@ public class UserConsentIT extends WebSdkIT {
 
     @Test(description = "remove consents from navigation once accepted")
     public void testRemoveConsentsFromNavigationOnceAccepted() {
-        var documentSelector = init().acceptUserConsent(IdDocumentSelector.class);
+        var documentSelector = init().acceptUserConsent(RestrictedDocumentSelection.class);
 
         verifyCopy(documentSelector.title(), "doc_select.title");
         assertThat(documentSelector.backArrow().isDisplayed()).isFalse();
@@ -76,15 +76,16 @@ public class UserConsentIT extends WebSdkIT {
     public void testRemoveConsentsFromHistoryOnceAccepted() {
         var crossDevice = init(Welcome.class,"welcome", "document")
                 .continueToNextStep(UserConsent.class)
-                .acceptUserConsent(IdDocumentSelector.class)
-                .select(PASSPORT, DocumentUpload.class)
+                .acceptUserConsent(RestrictedDocumentSelection.class)
+                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectDocument(PASSPORT, DocumentUpload.class)
                      .switchToCrossDevice();
 
         assertThat(crossDevice.backArrow().isDisplayed()).isTrue();
 
         var welcome = crossDevice
                 .back(DocumentUpload.class)
-                .back(IdDocumentSelector.class)
+                .back(RestrictedDocumentSelection.class)
                 .back(Welcome.class);
 
         verifyCopy(welcome.title(), "welcome.title");
