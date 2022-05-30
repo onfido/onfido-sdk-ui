@@ -19,6 +19,9 @@ target/
 /test/webtest/src/test/resources/_*.properties
 out/
 
-dist
-lib
+/dist
+/lib
 .env
+
+/onfido-sdk-web-sample-app
+/aws
