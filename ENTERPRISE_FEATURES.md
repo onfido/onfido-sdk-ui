@@ -70,8 +70,8 @@ The callbacks return a FormData object, including the information that the SDK w
 ```javascript
 {
   file: blob,
-  challange:  { type: 'recite' / 'movement', query: number[] / string }
-  challange_id: string,
+  challenge:  { type: 'recite' / 'movement', query: number[] / string }
+  challenge_id: string,
   challenge_switch_at: number, // seconds
   languages: { source: 'sdk', language_code: string }
   sdk_source: string,
