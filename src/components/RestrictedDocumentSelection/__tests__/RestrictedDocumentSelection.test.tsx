@@ -8,13 +8,18 @@ import {
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'
 
-const defaultProps = {} as RestrictedDocumentSelectionProps
+const defaultProps: Partial<RestrictedDocumentSelectionProps> = {
+  trackScreen: jest.fn(),
+  nextStep: jest.fn(),
+}
 
 const renderRestrictedDocumentSelection = () =>
   render(
     <MockedReduxProvider>
       <MockedLocalised>
-        <RestrictedDocumentSelection {...defaultProps} />
+        <RestrictedDocumentSelection
+          {...(defaultProps as RestrictedDocumentSelectionProps)}
+        />
       </MockedLocalised>
     </MockedReduxProvider>
   )
