@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [8.1.0-rc.1] - 2022-05-30
+
 ### Changed
 
 - Internal: Use the `max_total_retries` field from SdkConfiguration to compute the max number of document capture retries after an image quality failed check. It was previously was set to 1.
@@ -1264,8 +1266,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Public: it's now possible to change the init options at runtime by calling `setOptions()` on the object returned by `Onfido.init()`
 - Public: `useWebcam` option added to the facial and document capture step
 
-[detectrtc]: https://github.com/muaz-khan/DetectRTC
-
 ## [0.5.1]
 
 ### Fix
@@ -1285,7 +1285,9 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0-rc.1...development
+[8.1.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0-rc.1
+[8.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...8.0.0
 [6.20.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...6.20.1
 [6.20.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.19.0...6.20.0
 [6.19.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...6.19.0
