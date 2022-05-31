@@ -30,7 +30,7 @@ $selector-button-box-shadow: 0 0 0 2px;
   position: relative;
 
   &::after {
-    background: url('assets/right.svg') no-repeat;
+    background: url('./assets/right.svg') no-repeat;
     background-size: contain;
     content: '';
     display: block;
