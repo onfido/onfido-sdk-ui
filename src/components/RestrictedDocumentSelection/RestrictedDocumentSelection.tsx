@@ -5,7 +5,6 @@ import { Dispatch } from 'redux'
 
 import { useLocales } from '~locales'
 import { GlobalActions } from '~types/redux'
-
 import { StepsRouterProps } from '~types/routers'
 import style from './RestrictedDocumentSelection.scss'
 import {
@@ -28,10 +27,12 @@ import {
 
 import { idDocumentOptions } from '../DocumentSelector/IdentityDocumentSelector'
 import { generateDefaultOptions } from '../DocumentSelector'
+
 import {
   getSupportedCountries,
   getSupportedDocumentTypes,
 } from '~supported-documents'
+
 import { CountryData, documentSelectionType } from '~types/commons'
 import { trackComponent } from '../../Tracker'
 import { WithTrackingProps } from '~types/hocs'

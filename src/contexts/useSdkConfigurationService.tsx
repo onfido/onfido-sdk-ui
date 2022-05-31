@@ -9,7 +9,7 @@ type SdkConfigurationServiceProviderProps = {
   url?: string
   token?: string
   fallback?: ComponentChildren
-  overrideConfiguration?: SdkConfiguration
+  overrideConfiguration?: Partial<SdkConfiguration>
 }
 
 const defaultConfiguration: SdkConfiguration = {
@@ -18,6 +18,9 @@ const defaultConfiguration: SdkConfiguration = {
   },
   sdk_features: {
     enable_require_applicant_consents: true,
+  },
+  document_capture: {
+    max_total_retries: 1,
   },
 }
 
