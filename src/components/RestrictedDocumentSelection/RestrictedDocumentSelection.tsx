@@ -148,5 +148,6 @@ export const RestrictedDocumentSelection = trackComponent(
         ) : undefined}
       </ScreenLayout>
     )
-  }
+  },
+  'type_select'
 )

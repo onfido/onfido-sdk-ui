@@ -6,6 +6,7 @@ export const setUICustomizations = (customUI: UICustomizationOptions): void => {
   const sdkCustomisations = Object.entries(customUI).map(
     ([property, value]) => `--osdk-${kebabCase(property)}: ${value};`
   )
+
   if (sdkCustomisations.length > 0) {
     const style = document.createElement('style')
     style.textContent = `:root { ${sdkCustomisations.join('\n')} }`
