@@ -15,7 +15,7 @@ public class PoADocumentSelection extends DocumentSelectorBase {
 
     public List<PoADocumentType> getOptions() {
 
-        return driver.findElements(By.cssSelector(".onfido-sdk-ui-DocumentSelector-list > li > button"))
+        return driver.findElements(By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-list > li > button"))
               .stream()
               .map(x -> {
                   return PoADocumentType.fromCanonicalName(x.getAttribute("data-onfido-qa"));

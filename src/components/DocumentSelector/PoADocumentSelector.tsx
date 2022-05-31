@@ -1,21 +1,11 @@
 import { h } from 'preact'
-import { trackComponent } from '../../../Tracker'
-import {
-  DocumentOptions,
-  DocumentOptionsType,
-} from '../../DocumentSelector/documentTypes'
-import { DocumentSelectorBase, Props } from '../../DocumentSelector'
+import { trackComponent } from '../../Tracker'
+import { DocumentOptions, DocumentOptionsType } from './DocumentList'
+import { DocumentSelectorBase, Props } from './index'
 import { upperCase } from '~utils/string'
 import { PoaTypes } from '~types/steps'
 import usePoASupportedCountries from '~contexts/usePoASupportedCountries'
-import { map, omitBy } from '~utils/object'
-
-type CountryData = {
-  country_alpha3: string
-  country_alpha2: string
-  country: string
-  document_types: PoaTypes[]
-}
+import { map } from '~utils/object'
 
 class PoADocumentSelector extends DocumentSelectorBase {
   constructor(props: Props) {
