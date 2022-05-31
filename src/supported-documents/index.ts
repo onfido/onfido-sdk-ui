@@ -107,11 +107,15 @@ const getCountriesList = (supportedDocsData: { sourceData: SourceData }[]) => {
     }
   })
 
-  const uniqueCountriesList = [
-    ...new Map(
-      countriesList.map((country) => [country.country_alpha3, country])
-    ).values(),
-  ]
+  const map = new Map(
+    countriesList.map((country) => [country.country_alpha3, country])
+  )
+
+  const uniqueCountriesList = []
+
+  for (const v of map.values()) {
+    uniqueCountriesList.push(v)
+  }
 
   return uniqueCountriesList.sort((a, b) => a.name.localeCompare(b.name))
 }
