@@ -20,7 +20,6 @@ import {
   HandleCountrySelect,
   SuggestedCountries,
 } from '../CountrySelector/CountryDropdown'
-
 import {
   DocumentList,
   HandleDocumentSelect,
@@ -33,20 +32,43 @@ import {
   getSupportedCountries,
   getSupportedDocumentTypes,
 } from '~supported-documents'
-import { CountryData } from '~types/commons'
+
+import { CountryData, documentSelectionType } from '~types/commons'
 import { trackComponent } from '../../Tracker'
 import { WithTrackingProps } from '~types/hocs'
 
-export type RestrictedDocumentSelectionProps = StepsRouterProps &
+export type RestrictedDocumentSelectionProps = {
+  documentSelection?: documentSelectionType[]
+  countryFilter?: documentSelectionType[]
+} & StepsRouterProps &
   WithTrackingProps
 
 export const RestrictedDocumentSelection = trackComponent(
-  ({ nextStep }: RestrictedDocumentSelectionProps) => {
+  ({
+    nextStep,
+    documentSelection,
+    countryFilter,
+  }: RestrictedDocumentSelectionProps) => {
     const { translate, parseTranslatedTags } = useLocales()
     const dispatch = useDispatch<Dispatch<GlobalActions>>()
-
     const [country, setCountry] = useState<CountryData | undefined>(undefined)
-    const countries = useMemo(() => getSupportedCountries(), [])
+
+    const documentTypeFilter = useMemo(
+      () =>
+        documentSelection &&
+        documentSelection.filter((value, index, self) => {
+          return (
+            self.findIndex(
+              (v) =>
+                v.document_type === value.document_type &&
+                v.issuing_country === country?.country_alpha3
+            ) === index
+          )
+        }),
+      [country]
+    )
+
+    const countries = useMemo(() => getSupportedCountries(countryFilter), [])
     const documents = useMemo(() => {
       if (!country) {
         return []
@@ -57,7 +79,8 @@ export const RestrictedDocumentSelection = trackComponent(
       )
       const defaultDocumentOptions = generateDefaultOptions(
         idDocumentOptions,
-        translate
+        translate,
+        documentTypeFilter
       )
 
       return defaultDocumentOptions.filter(({ type }) =>

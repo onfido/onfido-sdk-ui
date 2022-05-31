@@ -12,6 +12,7 @@ import {
   DocumentOptions,
   DocumentOptionsType,
 } from './DocumentList'
+import type { documentSelectionType } from '~types/commons'
 
 const always = () => true
 
@@ -118,26 +119,39 @@ export abstract class DocumentSelectorBase extends Component<Props> {
 
 export function generateDefaultOptions(
   documentOptions: DocumentOptions,
-  translate: TranslateCallback
+  translate: TranslateCallback,
+  filterList?: documentSelectionType[]
 ): DocumentOptionsType[] {
-  return Object.entries(documentOptions).map(([type, configuration]) => {
-    const {
-      icon = `icon-${kebabCase(type)}`,
-      labelKey,
-      detailKey,
-      warningKey,
-      eStatementsKey,
-      checkAvailableInCountry,
-    } = configuration
+  const options = Object.entries(documentOptions).map(
+    ([type, configuration]) => {
+      const {
+        icon = `icon-${kebabCase(type)}`,
+        labelKey,
+        detailKey,
+        warningKey,
+        eStatementsKey,
+        checkAvailableInCountry,
+      } = configuration
 
-    return {
-      icon,
-      type: type as DocumentTypes & PoaTypes,
-      label: translate(labelKey),
-      detail: detailKey ? translate(detailKey) : '',
-      warning: warningKey ? translate(warningKey) : '',
-      eStatements: eStatementsKey ? translate(eStatementsKey) : '',
-      checkAvailableInCountry,
+      return {
+        icon,
+        type: type as DocumentTypes & PoaTypes,
+        label: translate(labelKey),
+        detail: detailKey ? translate(detailKey) : '',
+        warning: warningKey ? translate(warningKey) : '',
+        eStatements: eStatementsKey ? translate(eStatementsKey) : '',
+        checkAvailableInCountry,
+      }
     }
-  })
+  )
+
+  const filteredDocumentOptions = filterList
+    ? options.filter((el) => {
+        return filterList.some((f) => {
+          return f.document_type === el.type
+        })
+      })
+    : options
+
+  return filteredDocumentOptions
 }

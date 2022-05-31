@@ -25,7 +25,7 @@ export class MockEngine implements EngineInterface {
     return {
       id: 'ec9013ea',
       applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
-      config: { name: 'timeout', value: 1209600 },
+      config: { name: 'timeout', value: 1209600, document_selection: [] },
       finished: false,
       task_def_id: 'upload_document_photo',
       task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
@@ -44,7 +44,7 @@ export class MockEngine implements EngineInterface {
     return {
       id: 'Xec9013ea',
       applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
-      config: { name: 'timeout', value: 1209600 },
+      config: { name: 'timeout', value: 1209600, document_selection: [] },
       finished: false,
       task_def_id: 'upload_document_photo',
       task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',

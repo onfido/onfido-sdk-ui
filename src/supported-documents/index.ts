@@ -3,7 +3,7 @@ const supportedDrivingLicences = require('./supported-docs-driving_licence.json'
 const supportedNationalIDCards = require('./supported-docs-national_identity_card.json')
 const supportedResidencePermit = require('./supported-docs-residence_permit.json')
 
-import type { CountryData } from '~types/commons'
+import type { CountryData, documentSelectionType } from '~types/commons'
 import type { DocumentTypes } from '~types/steps'
 
 type SourceData = {
@@ -51,11 +51,19 @@ export const getCountryDataForDocumentType = (
   return null
 }
 
-export const getSupportedCountries = (): CountryData[] => {
+export const getSupportedCountries = (
+  filterList?: documentSelectionType[]
+): CountryData[] => {
   const allSupportedDocumentTypes = supportedDrivingLicences
     .concat(supportedNationalIDCards)
     .concat(supportedResidencePermit)
-  return getCountriesList(allSupportedDocumentTypes)
+  return filterList
+    ? getCountriesList(allSupportedDocumentTypes).filter((el) => {
+        return filterList.some((f) => {
+          return f.issuing_country === el.country_alpha3
+        })
+      })
+    : getCountriesList(allSupportedDocumentTypes)
 }
 
 export const getSupportedDocumentTypes = (country: string): string[] => {
