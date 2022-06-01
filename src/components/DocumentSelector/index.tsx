@@ -1,16 +1,18 @@
 import { Component, h } from 'preact'
 import { kebabCase } from '~utils/string'
 import { isEmpty } from '~utils/object'
-import classNames from 'classnames'
-import { DocumentOptions, DocumentOptionsType } from './documentTypes'
-import { isDesktop } from '~utils'
-import style from './style.scss'
 import { StepComponentBaseProps } from '~types/routers'
 import { TranslateCallback } from '~types/locales'
 import PageTitle from '../PageTitle'
 import { LocaleContext } from '~locales'
 import { DocumentTypeConfig, DocumentTypes, PoaTypes } from '~types/steps'
 import { PoASupportedCountry } from '~types/api'
+import {
+  DocumentList,
+  DocumentOptions,
+  DocumentOptionsType,
+} from './DocumentList'
+import type { documentSelectionType } from '~types/commons'
 
 const always = () => true
 
@@ -55,7 +57,7 @@ export abstract class DocumentSelectorBase extends Component<Props> {
     return options.length ? options : defaultDocOptions
   }
 
-  handleSelect = (option: DocumentOptionsType) => {
+  handleDocumentSelect = (option: DocumentOptionsType) => {
     this.handleDocumentTypeSelected(option)
     this.props.nextStep()
   }
@@ -75,7 +77,7 @@ export abstract class DocumentSelectorBase extends Component<Props> {
   }
 
   render() {
-    const { className, country } = this.props
+    const { country } = this.props
     const countryCode = country || this.country || 'GBR'
 
     return (
@@ -101,69 +103,55 @@ export abstract class DocumentSelectorBase extends Component<Props> {
                 subTitle={subTitle}
                 shouldAutoFocus={this.shouldAutoFocus()}
               />
-              <ul
-                aria-label={translate('doc_select.list_accessibility')}
-                className={classNames(style.list, className)}
-              >
-                {options.map(this.renderOption)}
-              </ul>
+              <DocumentList
+                {...injectedProps}
+                {...this.props}
+                handleDocumentSelect={this.handleDocumentSelect}
+                options={options}
+              />
             </div>
           )
         }}
       </LocaleContext.Consumer>
     )
   }
-
-  renderOption = (option: DocumentOptionsType) => (
-    <li>
-      <button
-        type="button"
-        onClick={() => this.handleSelect(option)}
-        className={classNames(style.option, {
-          [style.optionHoverDesktop]: isDesktop,
-        })}
-        data-onfido-qa={option.type}
-      >
-        <div className={`${style.icon} ${style[option.icon]}`} />
-        <div className={style.content}>
-          <div className={style.optionMain}>
-            <p className={style.label}>{option.label}</p>
-            {option.detail && <div className={style.hint}>{option.detail}</div>}
-            {option.warning && (
-              <div className={style.warning}>{option.warning}</div>
-            )}
-          </div>
-          {option.eStatements && (
-            <div className={style.tag}>{option.eStatements}</div>
-          )}
-        </div>
-      </button>
-    </li>
-  )
 }
 
-function generateDefaultOptions(
+export function generateDefaultOptions(
   documentOptions: DocumentOptions,
-  translate: TranslateCallback
+  translate: TranslateCallback,
+  filterList?: documentSelectionType[]
 ): DocumentOptionsType[] {
-  return Object.entries(documentOptions).map(([type, configuration]) => {
-    const {
-      icon = `icon-${kebabCase(type)}`,
-      labelKey,
-      detailKey,
-      warningKey,
-      eStatementsKey,
-      checkAvailableInCountry,
-    } = configuration
+  const options = Object.entries(documentOptions).map(
+    ([type, configuration]) => {
+      const {
+        icon = `icon-${kebabCase(type)}`,
+        labelKey,
+        detailKey,
+        warningKey,
+        eStatementsKey,
+        checkAvailableInCountry,
+      } = configuration
 
-    return {
-      icon,
-      type: type as DocumentTypes & PoaTypes,
-      label: translate(labelKey),
-      detail: detailKey ? translate(detailKey) : '',
-      warning: warningKey ? translate(warningKey) : '',
-      eStatements: eStatementsKey ? translate(eStatementsKey) : '',
-      checkAvailableInCountry,
+      return {
+        icon,
+        type: type as DocumentTypes & PoaTypes,
+        label: translate(labelKey),
+        detail: detailKey ? translate(detailKey) : '',
+        warning: warningKey ? translate(warningKey) : '',
+        eStatements: eStatementsKey ? translate(eStatementsKey) : '',
+        checkAvailableInCountry,
+      }
     }
-  })
+  )
+
+  const filteredDocumentOptions = filterList
+    ? options.filter((el) => {
+        return filterList.some((f) => {
+          return f.document_type === el.type
+        })
+      })
+    : options
+
+  return filteredDocumentOptions
 }

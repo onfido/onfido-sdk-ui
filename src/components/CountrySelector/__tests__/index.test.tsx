@@ -10,7 +10,7 @@ const defaultOptions: NarrowSdkOptions = {
   steps: [{ type: 'welcome' }],
 }
 import { Props as CountrySelectorProps } from '../index'
-import DocumentCountrySelector from '../DocumentCountrySelector'
+import IdentityCountrySelector from '../IdentityCountrySelector'
 
 const defaultProps: CountrySelectorProps = {
   documentType: 'driving_licence',
@@ -42,7 +42,7 @@ const defaultProps: CountrySelectorProps = {
 
 describe('CountrySelector', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<DocumentCountrySelector {...defaultProps} />)
+    const wrapper = shallow(<IdentityCountrySelector {...defaultProps} />)
     expect(wrapper.exists()).toBeTruthy()
   })
 })

@@ -124,6 +124,13 @@ export type ErrorNames =
 
 export type ErrorTypes = 'error' | 'warning'
 
+export type documentSelectionType = {
+  config: unknown
+  document_type: string
+  id: string
+  issuing_country: string
+}
+
 export type MobileConfig = {
   clientStepIndex?: number
   deviceHasCameraSupport?: boolean

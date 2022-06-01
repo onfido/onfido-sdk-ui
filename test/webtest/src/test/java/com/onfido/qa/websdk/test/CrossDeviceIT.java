@@ -1,19 +1,7 @@
 package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.websdk.UploadDocument;
-import com.onfido.qa.websdk.page.BasePage;
-import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
-import com.onfido.qa.websdk.page.CrossDeviceClientSuccess;
-import com.onfido.qa.websdk.page.CrossDeviceIntro;
-import com.onfido.qa.websdk.page.CrossDeviceLink;
-import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
-import com.onfido.qa.websdk.page.CrossDeviceSubmit;
-import com.onfido.qa.websdk.page.DocumentUpload;
-import com.onfido.qa.websdk.page.IdDocumentSelector;
-import com.onfido.qa.websdk.page.ImageQualityGuide;
-import com.onfido.qa.websdk.page.MobileNotificationSent;
-import com.onfido.qa.websdk.page.SelfieUpload;
-import com.onfido.qa.websdk.page.Welcome;
+import com.onfido.qa.websdk.page.*;
 import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.EnterpriseFeatures;
 import com.onfido.qa.websdk.sdk.EnterpriseFeatures.EnterpriseCobranding;
@@ -44,14 +32,18 @@ public class CrossDeviceIT extends WebSdkIT {
 
     @Test(description = "should navigate to cross device when forceCrossDevice is enabled")
     public void testShouldNavigateToCrossDeviceWhenForceCrossDeviceIsEnabled() {
-        onfido().withSteps(new DocumentStep().withForceCrossDevice(true)).init(IdDocumentSelector.class)
-                .select(PASSPORT, CrossDeviceIntro.class);
+        onfido().withSteps(new DocumentStep().withForceCrossDevice(true))
+                .init(RestrictedDocumentSelection.class)
+                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectDocument(PASSPORT, CrossDeviceIntro.class);
     }
 
     @Test(description = "should display cross device intro screen if forceCrossDevice is enabled with useLiveDocumentCapture enabled also")
     public void testShouldDisplayCrossDeviceIntroScreenIfForceCrossDeviceIsEnabledWithUseLiveDocumentCaptureEnabledAlso() {
-        onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true).withForceCrossDevice(true)).init(IdDocumentSelector.class)
-                .select(PASSPORT, CrossDeviceIntro.class);
+        onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true).withForceCrossDevice(true))
+                .init(RestrictedDocumentSelection.class)
+                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectDocument(PASSPORT, CrossDeviceIntro.class);
     }
 
     private CrossDeviceLink gotoCrossDeviceScreen() {
@@ -61,8 +53,9 @@ public class CrossDeviceIT extends WebSdkIT {
     private CrossDeviceLink gotoCrossDeviceScreen(WebSdk webSdk) {
         return webSdk
                 .withSteps(new DocumentStep())
-                .init(IdDocumentSelector.class)
-                .select(PASSPORT, DocumentUpload.class)
+                .init(RestrictedDocumentSelection.class)
+                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectDocument(PASSPORT, DocumentUpload.class)
                 .switchToCrossDevice()
                 .getSecureLink();
     }
@@ -346,11 +339,12 @@ public class CrossDeviceIT extends WebSdkIT {
 
         verifier.verifyPage(welcome);
 
-        var documentSelector = verifier.verifyPage(welcome.continueToNextStep(IdDocumentSelector.class));
+        var documentSelector = verifier.verifyPage(welcome.continueToNextStep(RestrictedDocumentSelection.class));
 
-        var link = documentSelector.select(PASSPORT, DocumentUpload.class)
-                                   .switchToCrossDevice()
-                                   .getSecureLink().copyLink();
+        var link = documentSelector.selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectDocument(PASSPORT, DocumentUpload.class)
+                .switchToCrossDevice()
+                .getSecureLink().copyLink();
 
         openMobileScreen(link);
 

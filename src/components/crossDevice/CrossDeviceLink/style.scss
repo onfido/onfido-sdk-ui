@@ -25,12 +25,21 @@ $parent-width: 432;
 }
 
 .qrCodeSection {
-  margin-top: 16 * $unit;
+  margin-top: 13 * $unit;
 }
 
 .qrCodeContainer {
-  height: 144 * $unit;
-  margin-bottom: 16 * $unit;
+  height: 154 * $unit;
+  margin-bottom: 13 * $unit;
+}
+
+.qrCodeBackground {
+  height: 154 * $unit;
+  width: 154 * $unit;
+  padding: 5 * $unit;
+  border-radius: 4 * $unit;
+  margin: 0 auto;
+  background: var(--osdk-color-background-q-r-code);
 }
 
 .smsSection {
