@@ -8,7 +8,7 @@ import { sendAnalyticsEvent } from './onfidoTracker'
 
 import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
 import type {
-  TrackedEventNames,
+  LegacyTrackedEventNames,
   TrackedEventTypes,
   UserAnalyticsEventNames,
   UserAnalyticsEventDetail,
@@ -29,7 +29,7 @@ let sentryHub: Hub | undefined
 let woopra: WoopraTracker = null
 
 const integratorTrackedEvents = new Map<
-  TrackedEventNames,
+  LegacyTrackedEventNames,
   UserAnalyticsEventNames
 >([
   ['screen_welcome', 'WELCOME'],
@@ -147,7 +147,7 @@ const userAnalyticsEvent = (
 }
 
 const sendEvent = (
-  eventName: TrackedEventNames,
+  eventName: LegacyTrackedEventNames,
   eventType: TrackedEventTypes = 'screen',
   properties?: Record<string, unknown>
 ): void => {
@@ -164,8 +164,10 @@ const sendEvent = (
 
 const screeNameHierarchyFormat = (
   screeNameHierarchy: string[]
-): TrackedEventNames =>
-  `screen_${cleanFalsy(screeNameHierarchy).join('_')}` as TrackedEventNames
+): LegacyTrackedEventNames =>
+  `screen_${cleanFalsy(screeNameHierarchy).join(
+    '_'
+  )}` as LegacyTrackedEventNames
 
 const sendScreen = (
   screeNameHierarchy: string[],

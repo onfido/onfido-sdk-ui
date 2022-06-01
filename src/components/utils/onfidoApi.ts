@@ -20,7 +20,7 @@ import type {
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
-import type { TrackedEventNames } from '~types/tracker'
+import type { LegacyTrackedEventNames } from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 type UploadPayload = {
@@ -138,7 +138,7 @@ export const sendMultiframeSelfie = (
   onSuccess: SuccessCallback<UploadFileResponse>,
   onError: ErrorCallback,
   sendEvent: (
-    event: TrackedEventNames,
+    event: LegacyTrackedEventNames,
     eventType: string,
     properties?: Record<string, unknown>
   ) => void

@@ -4,8 +4,10 @@ import { trackedEnvironmentData } from '~utils'
 import type { ExtendedStepTypes, UrlsConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { RootState } from '~types/redux'
-import type { AnalyticsPayload, TrackedEventNames } from '~types/tracker'
+import type { AnalyticsPayload, LegacyTrackedEventNames } from '~types/tracker'
 import { reduxStore } from 'components/ReduxAppWrapper'
+import { analyticsEventsMapping } from './trackerData'
+import { trackException } from './'
 
 let currentStepType: ExtendedStepTypes | undefined
 let analyticsSessionUuid: string | undefined
@@ -50,7 +52,7 @@ const source_metadata = {
 const stepsArrToString = () => steps?.map((step) => step['type']).join()
 
 export const sendAnalyticsEvent = (
-  event: TrackedEventNames,
+  event: LegacyTrackedEventNames,
   event_type: string,
   eventProperties: Optional<Record<string, unknown>>
 ): void => {
@@ -59,19 +61,26 @@ export const sendAnalyticsEvent = (
   if (!analyticsSessionUuid) return
 
   const environmentData = trackedEnvironmentData()
+  const eventData = analyticsEventsMapping.get(event)
+
+  if (!eventData?.eventName) {
+    trackException(`Legacy event is not mapped - ${event}`)
+    return
+  }
 
   const requiredFields = {
     event_uuid: uuidv4(),
-    event,
+    event: eventData?.eventName,
     event_time: new Date(Date.now()).toISOString(),
     source: 'sdk',
   }
 
   const properties = {
-    event_type,
+    // event_type,
     step: currentStepType,
     is_cross_device: isCrossDeviceClient,
     ...eventProperties,
+    ...eventData?.properties,
   }
 
   const event_metadata = {
