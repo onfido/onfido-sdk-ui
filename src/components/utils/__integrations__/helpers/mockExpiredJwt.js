@@ -11,3 +11,14 @@ export const EXPECTED_EXPIRED_TOKEN_ERROR = {
     },
   },
 }
+
+export const EXPECTED_AUTHORIZATION_TOKEN_ERROR = {
+  status: 401,
+  response: {
+    error: {
+      fields: {},
+      message: 'Authorization error: please re-check your credentials',
+      type: 'authorization_error',
+    },
+  },
+}
