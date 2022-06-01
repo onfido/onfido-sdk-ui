@@ -2,11 +2,12 @@ name: CI
 
 on:
   pull_request:
+    types: [synchronize, opened]
 
 env:
   BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
   BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
-  PR_NUMBER: ${{ github.event.pull_request.number }}
+  PR_NUMBER: 1895
   SDK_TOKEN_FACTORY_SECRET: ${{ secrets.SDK_TOKEN_FACTORY_SECRET}}
 
 jobs:
