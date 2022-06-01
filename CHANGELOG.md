@@ -32,6 +32,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Update FaceTec SDK on Auth step from 9.4.5 to 9.4.11
 - Internal: Upgrade `typescript` to 4.6.2
 - Public: Fix inline style to support Content Security Policy
+- Public: Add UI customization option for `colorBackgroundQRCode`
 
 ## [8.0.0] - 2022-04-21
 
@@ -1139,7 +1140,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Public: The documentType in the capture object now corresponds to the API document_types.
 - Public: Fixed bug where URL path was removed between steps.
 
-## [0.11.1] - Hotfix
+## [0.11.1]
 
 ### Fixed
 
@@ -1203,7 +1204,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 ## [0.8.2]
 
-## Fixed
+### Fixed
 
 - Fixed bug of a broken layout on the document selection step. Always reproducible on IE and on other browsers too, but only when going back a step on certain conditions.
 - Fixed bug where on IE an unnecessary scrollbar appeared and the scrolling area was bigger than it should have been.
@@ -1214,7 +1215,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 ## [0.8.1]
 
-## Fixed
+### Fixed
 
 - `Object.assign` was being used but not polyfilled. Its occurrence was replaced with an es6 object construction.
 - UI disappeared if the browser's windows width was smaller than 481px;

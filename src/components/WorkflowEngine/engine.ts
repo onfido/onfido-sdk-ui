@@ -1,6 +1,7 @@
 import { performHttpReq, HttpRequestParams } from '~utils/http'
 import { formatError } from '~utils/onfidoApi'
 import type { StepConfig } from '~types/steps'
+import type { documentSelectionType } from '~types/commons'
 import type {
   WorkflowResponse,
   OutcomeStepKeys,
@@ -100,13 +101,21 @@ export class Engine implements EngineInterface {
     })
   }
 
+  getCountryFilter = (
+    config: Array<documentSelectionType>
+  ): Array<documentSelectionType> =>
+    config &&
+    config.filter((value, index, self) => {
+      return (
+        self.findIndex((v) => v.issuing_country === value.issuing_country) ===
+        index
+      )
+    })
+
   getWorkFlowStep = (
     taskId: string | undefined,
     configuration: WorkflowStepConfig
   ): StepConfig | undefined => {
-    console.log(`requested step for task ${taskId}`)
-    console.log(`configuration`, configuration)
-
     switch (taskId) {
       case 'upload_document':
       case 'upload_document_photo':
@@ -114,6 +123,10 @@ export class Engine implements EngineInterface {
           type: 'document',
           options: {
             ...configuration,
+            countryFilter: this.getCountryFilter(
+              configuration.document_selection
+            ),
+            documentSelection: configuration.document_selection,
           },
         }
       case 'upload_face_photo':

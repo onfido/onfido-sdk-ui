@@ -1,7 +1,6 @@
 import { h } from 'preact'
 import { localised } from '~locales'
 import { trackComponent } from 'Tracker'
-import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
 import type { CountryData } from '~types/commons'
@@ -9,8 +8,6 @@ import { CountrySelectionBase, DocumentProps, Props } from '.'
 import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import { StepComponentBaseProps } from '~types/routers'
 import usePoASupportedCountries from '~contexts/usePoASupportedCountries'
-import { parseTags, preventDefaultOnClick } from '~utils'
-import classNames from 'classnames'
 
 export type PoaProps = {
   poaDocumentType: string
@@ -75,7 +72,7 @@ class CountrySelection extends CountrySelectionBase {
   }
 }
 
-const PoACountrySelection = (props: Props) => {
+const PoACountrySelector = (props: Props) => {
   const poaCountries = usePoASupportedCountries()
 
   const countries: CountryData[] = poaCountries.map((country) => ({
@@ -88,6 +85,6 @@ const PoACountrySelection = (props: Props) => {
 }
 
 export default trackComponent(
-  localised(PoACountrySelection),
+  localised(PoACountrySelector),
   'poa_country_select'
 )
