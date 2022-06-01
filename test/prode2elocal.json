@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "localhostUrl": "https://latest-onfido-sdk-ui-onfido.surge.sh/",
+  "localhostUrl": "https://1895-pr-onfido-sdk-ui-onfido.surge.sh",
   "supportedLanguages": [],
   "fullTestCoverageLanguages": ["en_US"],
   "testDeviceMobileNumber": "07495 023357"
