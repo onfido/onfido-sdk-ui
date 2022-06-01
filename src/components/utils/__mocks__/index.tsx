@@ -10,3 +10,4 @@ export const parseTags = jest
   .fn()
   .mockImplementation((text, handler) => handler({ text }))
 export const getCSSMillisecsValue = jest.fn().mockReturnValue('200ms')
+export const trackedEnvironmentData = jest.fn().mockReturnValue({})

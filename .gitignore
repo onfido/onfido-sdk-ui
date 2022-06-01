@@ -25,3 +25,4 @@ dist/*~*
 test/mock-server/*.pem
 test/mock-server/frontend/
 coverage/
+.env

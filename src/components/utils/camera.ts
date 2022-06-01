@@ -37,7 +37,7 @@ export const getRecordedVideo = (
 const getDeviceInfo = (stream: MediaStream): SdkMetadata => {
   if (stream) {
     const videoTrack = stream.getVideoTracks()[0]
-    const videoSettings = videoTrack.getSettings()
+    const videoSettings = videoTrack?.getSettings()
     const audioTrack = stream.getAudioTracks()[0]
 
     return {

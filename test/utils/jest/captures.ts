@@ -16,6 +16,12 @@ export const fakeCapturePayload = (
     captureMethod: 'live',
     camera_name: `fake-video-track${suffix}`,
     microphone_name: 'fake-audio-track',
+    camera_settings: {
+      aspect_ratio: 1,
+      frame_rate: 2,
+      height: 3,
+      width: 4,
+    },
   }
 
   return {

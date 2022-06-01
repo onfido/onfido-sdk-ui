@@ -22,6 +22,8 @@ type Props = {
 
 export const mockedReduxProps: ReduxProps = {
   actions: {
+    setIsCrossDeviceClient: jest.fn(),
+    setCurrentStepType: jest.fn(),
     /* common actions */
     reset: jest.fn(),
     /* `captures` actions */

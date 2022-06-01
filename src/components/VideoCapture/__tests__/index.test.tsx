@@ -178,6 +178,12 @@ describe('VideoCapture', () => {
             camera_name: 'fake-video-track',
             captureMethod: 'live',
             microphone_name: 'fake-audio-track',
+            camera_settings: {
+              aspect_ratio: 1,
+              frame_rate: 2,
+              height: 3,
+              width: 4,
+            },
           },
         })
       })

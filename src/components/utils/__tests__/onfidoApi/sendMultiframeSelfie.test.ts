@@ -52,8 +52,20 @@ describe('onfidoApi', () => {
           mockXHR.onload(new ProgressEvent('upload snapshots')) // Upload snapshots
         await runAllPromises()
 
-        expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Starting snapshot upload'
+        expect(mockedTrackingCallback).toHaveBeenNthCalledWith(
+          1,
+          'Starting snapshot upload',
+          'action'
+        )
+        expect(mockedTrackingCallback).toHaveBeenNthCalledWith(
+          2,
+          'Snapshot upload completed',
+          'action'
+        )
+        expect(mockedTrackingCallback).toHaveBeenNthCalledWith(
+          3,
+          'Starting live photo upload',
+          'action'
         )
         expect(mockXHR.open).toHaveBeenCalledWith('POST', `${url}/v3/snapshots`)
         expect(mockXHR.send).toHaveBeenCalled()
@@ -71,11 +83,20 @@ describe('onfidoApi', () => {
         expect(mockedOnSuccess).toHaveBeenCalledWith({ payload: 'success' })
         expect(mockedOnError).not.toHaveBeenCalled()
 
-        expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Snapshot upload completed'
+        expect(mockedTrackingCallback).toHaveBeenNthCalledWith(
+          1,
+          'Starting snapshot upload',
+          'action'
         )
-        expect(mockedTrackingCallback).toHaveBeenCalledWith(
-          'Starting live photo upload'
+        expect(mockedTrackingCallback).toHaveBeenNthCalledWith(
+          2,
+          'Snapshot upload completed',
+          'action'
+        )
+        expect(mockedTrackingCallback).toHaveBeenNthCalledWith(
+          3,
+          'Starting live photo upload',
+          'action'
         )
       })
     })
