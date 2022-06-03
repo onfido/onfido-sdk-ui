@@ -7,6 +7,7 @@ import com.onfido.qa.webdriver.WebTest;
 import com.onfido.qa.webdriver.listener.BrowserStackListener;
 import com.onfido.qa.webdriver.listener.ScreenshotListener;
 import com.onfido.qa.configuration.Property;
+import com.onfido.qa.websdk.mock.Mock;
 import com.onfido.qa.websdk.sdk.WebSdk;
 import io.percy.selenium.Percy;
 import org.openqa.selenium.Point;

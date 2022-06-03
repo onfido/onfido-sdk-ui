@@ -7,6 +7,7 @@ import com.onfido.qa.webdriver.common.Component;
 import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.webdriver.driver.ExpectedConditions;
 import com.onfido.qa.configuration.Property;
+import com.onfido.qa.websdk.mock.Mock;
 import com.onfido.qa.websdk.model.CrossDeviceLinkMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 @SuppressWarnings({"SameParameterValue", "BooleanParameter"})
 public class WebSdk {
@@ -31,6 +33,7 @@ public class WebSdk {
     private final Driver driver;
     private boolean tokenSet;
     private final List<Runnable> beforeInit = new ArrayList<>();
+    private final List<Consumer<Mock>> mocks = new ArrayList<>();
     private boolean enableWebcam = true;
 
     public WebSdk(Driver driver) {
@@ -111,11 +114,6 @@ public class WebSdk {
         return this;
     }
 
-    public WebSdk withSdkConfiguration(Map<String,Object> sdkConfiguration) {
-       parameters.put("overrideSdkConfiguration", sdkConfiguration);
-       return this;
-    }
-
     private WebSdk put(String key, Object value) {
         parameters.put(key, value);
         return this;
@@ -133,10 +131,17 @@ public class WebSdk {
         return put("steps", Arrays.stream(steps).toArray());
     }
 
+    public WebSdk withMock(Consumer<Mock> mock) {
+        mocks.add(mock);
+        return this;
+    }
+
     public Onfido init() {
 
         // navigate to the base url
         driver.get(Property.get("baseUrl"));
+
+        driver.executeScript(String.format("window.sessionId = '%s'", driver.getSessionId()));
 
         if (!tokenSet) {
             withToken(getToken());
@@ -151,6 +156,11 @@ public class WebSdk {
         // and wait for the page to be ready
         driver.waitFor(ExpectedConditions.pageReady());
         // then call the onfido.init method with the parameters
+
+        var mock = new Mock(driver.driver);
+        mocks.forEach(consumer -> {
+            consumer.accept(mock);
+        });
 
         var parameters = serializedParameters();
         log.info("Initializing web sdk with: Onfido.init({})", parameters);
