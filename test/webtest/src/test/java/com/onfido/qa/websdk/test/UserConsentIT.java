@@ -2,6 +2,7 @@ package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.mock.Code;
+import com.onfido.qa.websdk.mock.Consent;
 import com.onfido.qa.websdk.mock.SdkConfiguration;
 import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
@@ -9,6 +10,8 @@ import com.onfido.qa.websdk.page.UserConsent;
 import com.onfido.qa.websdk.page.Welcome;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+
+import java.util.Arrays;
 
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -101,7 +104,14 @@ public class UserConsentIT extends WebSdkIT {
         verifyCopy(welcome.title(), "welcome.title");
     }
 
+    @Test(description = "do not show consent screen, if consent is already given")
     public void testConsentScreenNotShownWhenConsentAlreadyGiven() {
-
+        onfido()
+                .withSteps("document")
+                .withMock(mock -> {
+                    mock.extend(Code.SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                    mock.set(Code.CONSENTS, Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
+                })
+                .init(RestrictedDocumentSelection.class);
     }
 }

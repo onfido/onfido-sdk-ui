@@ -1,7 +1,8 @@
 package com.onfido.qa.websdk.mock;
 
 public enum Code {
-    SDK_CONFIGURATION("sdkConfiguration");
+    SDK_CONFIGURATION("sdkConfiguration"),
+    CONSENTS("consents");
 
     public final String code;
 
