@@ -1,9 +1,12 @@
+import IconMicrophone from 'components/FaceVideo/assets/IconMicrophone'
+import IconCamera from 'components/FaceVideo/assets/IconCamera'
 import type {
   CaptureFlows,
   CaptureSteps,
   InstructionLocale,
 } from '~types/docVideo'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
+import { IconElement } from '~types/commons'
 
 type CaptureSideLocale = {
   title: string
@@ -172,7 +175,7 @@ export const POA_REQUIREMENTS_LOCALES_MAPPING: Record<string, string> = {
 export type VideoIntroTypes = 'actions' | 'speak'
 
 type VideoIntroLocale = {
-  className: string
+  icon: IconElement
   localeKey: string
 }
 
@@ -181,11 +184,11 @@ export const VIDEO_INTRO_LOCALES_MAPPING: Record<
   VideoIntroLocale
 > = {
   actions: {
-    className: 'twoActionsIcon',
+    icon: IconCamera,
     localeKey: 'video_intro.list_item_actions',
   },
   speak: {
-    className: 'speakOutLoudIcon',
+    icon: IconMicrophone,
     localeKey: 'video_intro.list_item_speak',
   },
 }

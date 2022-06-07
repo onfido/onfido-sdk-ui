@@ -22,6 +22,7 @@ import CaptureControls, {
 import type { CountryData } from '~types/commons'
 import type { CaptureFlows } from '~types/docVideo'
 import type { DocumentTypes } from '~types/steps'
+import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 
 jest.mock('~utils')
 jest.mock('Tracker')
@@ -197,9 +198,11 @@ describe('DocumentVideo', () => {
       wrapper = mount(
         <MockedReduxProvider>
           <MockedLocalised>
-            <MockedContainerDimensions>
-              <DocumentVideo {...defaultProps} />
-            </MockedContainerDimensions>
+            <SdkOptionsProvider options={{ steps: [] }}>
+              <MockedContainerDimensions>
+                <DocumentVideo {...defaultProps} />
+              </MockedContainerDimensions>
+            </SdkOptionsProvider>
           </MockedLocalised>
         </MockedReduxProvider>
       )
@@ -288,9 +291,11 @@ describe('DocumentVideo', () => {
       wrapper = mount(
         <MockedReduxProvider>
           <MockedLocalised>
-            <MockedContainerDimensions>
-              <DocumentVideo {...defaultProps} documentType="passport" />
-            </MockedContainerDimensions>
+            <SdkOptionsProvider options={{ steps: [] }}>
+              <MockedContainerDimensions>
+                <DocumentVideo {...defaultProps} documentType="passport" />
+              </MockedContainerDimensions>
+            </SdkOptionsProvider>
           </MockedLocalised>
         </MockedReduxProvider>
       )
@@ -366,12 +371,14 @@ describe('DocumentVideo', () => {
           wrapper = mount(
             <MockedReduxProvider overrideGlobals={{ idDocumentIssuingCountry }}>
               <MockedLocalised>
-                <MockedContainerDimensions>
-                  <DocumentVideo
-                    {...defaultProps}
-                    documentType={documentType}
-                  />
-                </MockedContainerDimensions>
+                <SdkOptionsProvider options={{ steps: [] }}>
+                  <MockedContainerDimensions>
+                    <DocumentVideo
+                      {...defaultProps}
+                      documentType={documentType}
+                    />
+                  </MockedContainerDimensions>
+                </SdkOptionsProvider>
               </MockedLocalised>
             </MockedReduxProvider>
           )
@@ -442,9 +449,11 @@ describe('DocumentVideo', () => {
       wrapper = mount(
         <MockedReduxProvider>
           <MockedLocalised>
-            <MockedContainerDimensions>
-              <DocumentVideo {...defaultProps} documentType="passport" />
-            </MockedContainerDimensions>
+            <SdkOptionsProvider options={{ steps: [] }}>
+              <MockedContainerDimensions>
+                <DocumentVideo {...defaultProps} documentType="passport" />
+              </MockedContainerDimensions>
+            </SdkOptionsProvider>
           </MockedLocalised>
         </MockedReduxProvider>
       )

@@ -108,6 +108,12 @@
   );
 
   --osdk-color-border-button-primary: rgba(var(--ods-color-border-action));
+  --osdk-color-border-button-primary-hover: rgba(
+    var(--ods-color-border-action-hover)
+  );
+  --osdk-color-border-button-primary-active: rgba(
+    var(--ods-color-border-action-active)
+  );
 
   /* Secondary Button customisations */
   --osdk-color-content-button-secondary-text: rgba(
@@ -123,6 +129,12 @@
   );
 
   --osdk-color-border-button-secondary: rgba(var(--ods-color-border-action));
+  --osdk-color-border-button-secondary-hover: rgba(
+    var(--ods-color-border-action-hover)
+  );
+  --osdk-color-border-button-secondary-active: rgba(
+    var(--ods-color-border-action-active)
+  );
 
   /* Button group customisations */
   --osdk-border-radius-button: var(--ods-border-radius-medium);
@@ -164,6 +176,9 @@
   --osdk-color-background-link-active: rgba(
     var(--ods-color-background-action-active)
   );
+
+  // Input outline color
+  --osdk-color-input-outline: -webkit-focus-ring-color;
 
   /* Header/Highlight Pills */
   --osdk-color-background-info-pill: rgba(var(--ods-color-background-info));

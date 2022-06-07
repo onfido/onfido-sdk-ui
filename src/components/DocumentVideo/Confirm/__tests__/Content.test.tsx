@@ -6,6 +6,7 @@ import MockedLocalised from '~jest/MockedLocalised'
 import Content from '../Content'
 
 import type { DocumentCapture } from '~types/redux'
+import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 
 jest.mock('~utils/objectUrl')
 
@@ -24,29 +25,37 @@ describe('DocumentVideo', () => {
   describe('Confirm', () => {
     describe('Content', () => {
       it('renders without crashing', () => {
-        const wrapper = shallow(<Content {...defaultProps} previewing />)
+        const wrapper = shallow(
+          <SdkOptionsProvider options={{ steps: [] }}>
+            <Content {...defaultProps} previewing />
+          </SdkOptionsProvider>
+        )
         expect(wrapper.exists()).toBeTruthy()
       })
 
       describe('when mounted', () => {
         it('renders nothing without capture', () => {
           const wrapper = mount(
-            <MockedLocalised>
-              <Content {...defaultProps} previewing />
-            </MockedLocalised>
+            <SdkOptionsProvider options={{ steps: [] }}>
+              <MockedLocalised>
+                <Content {...defaultProps} previewing />
+              </MockedLocalised>
+            </SdkOptionsProvider>
           )
           expect(wrapper.find('Content').children().exists()).toBeFalsy()
         })
 
         it('render texts when not previewing', () => {
           const wrapper = mount(
-            <MockedLocalised>
-              <Content
-                {...defaultProps}
-                capture={fakeCapture}
-                previewing={false}
-              />
-            </MockedLocalised>
+            <SdkOptionsProvider options={{ steps: [] }}>
+              <MockedLocalised>
+                <Content
+                  {...defaultProps}
+                  capture={fakeCapture}
+                  previewing={false}
+                />
+              </MockedLocalised>
+            </SdkOptionsProvider>
           )
 
           expect(wrapper.find('.title').text()).toEqual('outro.body')
@@ -57,11 +66,13 @@ describe('DocumentVideo', () => {
 
         it('render CaptureViewer when previewing', () => {
           const wrapper = mount(
-            <MockedReduxProvider>
-              <MockedLocalised>
-                <Content {...defaultProps} capture={fakeCapture} previewing />
-              </MockedLocalised>
-            </MockedReduxProvider>
+            <SdkOptionsProvider options={{ steps: [] }}>
+              <MockedReduxProvider>
+                <MockedLocalised>
+                  <Content {...defaultProps} capture={fakeCapture} previewing />
+                </MockedLocalised>
+              </MockedReduxProvider>
+            </SdkOptionsProvider>
           )
 
           expect(wrapper.find('.title').text()).toEqual(

@@ -7,6 +7,7 @@ import theme from '../Theme/style.scss'
 import style from './style.scss'
 import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import { StepComponentBaseProps } from '~types/routers'
+import IconComplete from './assets/IconComplete'
 
 type Props = {
   message?: string
@@ -29,7 +30,7 @@ class Complete extends Component<Props> {
     return (
       <ScreenLayout pageId={'Complete'}>
         <div className={style.wrapper}>
-          <span className={`${theme.icon}  ${style.icon}`} />
+          <IconComplete className={`${style.icon}`} />
           <PageTitle title={title} subTitle={body} />
         </div>
       </ScreenLayout>

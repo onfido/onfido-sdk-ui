@@ -3,6 +3,7 @@ import { act, render, screen, waitFor } from '@testing-library/preact'
 import userEvent from '@testing-library/user-event'
 import { FunctionComponent, h } from 'preact'
 import { trackException } from 'Tracker'
+import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import { fakeCapturePayload } from '~jest/captures'
 import MockedContainerDimensions from '~jest/MockedContainerDimensions'
 import MockedLocalised from '~jest/MockedLocalised'
@@ -33,9 +34,11 @@ const mockedTrackException = trackException as jest.MockedFunction<
 const Wrapper: FunctionComponent = ({ children }) => {
   return (
     <MockedReduxProvider>
-      <MockedLocalised>
-        <MockedContainerDimensions>{children}</MockedContainerDimensions>
-      </MockedLocalised>
+      <SdkOptionsProvider options={{ steps: [] }}>
+        <MockedLocalised>
+          <MockedContainerDimensions>{children}</MockedContainerDimensions>
+        </MockedLocalised>
+      </SdkOptionsProvider>
     </MockedReduxProvider>
   )
 }

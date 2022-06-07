@@ -30,6 +30,8 @@ export type UICustomizationOptions = {
   colorBackgroundButtonPrimaryHover?: string
   colorBackgroundButtonPrimaryActive?: string
   colorBorderButtonPrimary?: string
+  colorBorderButtonPrimaryHover?: string
+  colorBorderButtonPrimaryActive?: string
 
   // Secondary Button
   colorContentButtonSecondaryText?: string
@@ -37,6 +39,8 @@ export type UICustomizationOptions = {
   colorBackgroundButtonSecondaryHover?: string
   colorBackgroundButtonSecondaryActive?: string
   colorBorderButtonSecondary?: string
+  colorBorderButtonSecondaryHover?: string
+  colorBorderButtonSecondaryActive?: string
 
   // Applied to both Primary, Secondary Buttons
   borderRadiusButton?: string
@@ -53,6 +57,10 @@ export type UICustomizationOptions = {
 
   // Icon Background
   colorBackgroundIcon?: string
+  colorIcon?: string
+
+  // Input
+  colorInputOutline?: string
 
   // Link
   colorBorderLinkUnderline?: string

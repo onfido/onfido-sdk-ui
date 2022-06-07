@@ -132,14 +132,12 @@ $parent-width: 432;
   padding-top: 16 * $unit;
 }
 
-.copySuccess .actionContainer::before {
+.iconCheckmark {
   width: 13 * $unit;
   height: 11 * $unit;
   display: inline-block;
   justify-content: center;
   content: '';
-  background-repeat: no-repeat;
-  background-image: url('./assets/checkmark.svg');
   z-index: 1;
 }
 
@@ -205,26 +203,11 @@ $parent-width: 432;
   margin: 0 16 * $unit;
 }
 
-%_option-icon {
+.optionIcon {
   width: 22 * $unit;
   height: 16 * $unit;
   display: inline-block;
   content: '';
   vertical-align: text-bottom;
   background-repeat: no-repeat;
-}
-
-.smsLinkOption::before {
-  @extend %_option-icon;
-  background-image: url('./assets/icon-sms.svg');
-}
-
-.qrCodeLinkOption::before {
-  @extend %_option-icon;
-  background-image: url('./assets/icon-qr-code.svg');
-}
-
-.copyLinkOption::before {
-  @extend %_option-icon;
-  background-image: url('./assets/icon-copy-link.svg');
 }

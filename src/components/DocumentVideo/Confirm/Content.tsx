@@ -7,6 +7,7 @@ import style from './style.scss'
 
 import type { DocumentCapture } from '~types/redux'
 import { WithTrackingProps } from '~types/hocs'
+import IconComplete from 'components/Complete/assets/IconComplete'
 
 type Props = {
   capture?: DocumentCapture
@@ -41,7 +42,7 @@ const Content: FunctionComponent<Props> = ({
 
   return (
     <div className={style.content}>
-      <span className={style.icon} />
+      <IconComplete className={style.icon} />
       <span className={style.title}>{translate('outro.body')}</span>
       <span className={style.body}>{translate('video_confirmation.body')}</span>
     </div>

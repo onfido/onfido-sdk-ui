@@ -8,6 +8,7 @@ import { CountrySelectionBase, DocumentProps, Props } from '.'
 import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import { StepComponentBaseProps } from '~types/routers'
 import usePoASupportedCountries from '~contexts/usePoASupportedCountries'
+import IconQuestion from './assets/IconQuestion'
 
 export type PoaProps = {
   poaDocumentType: string
@@ -61,7 +62,7 @@ class CountrySelection extends CountrySelectionBase {
     return (
       <div className={style.errorContainer}>
         <div>
-          <i className={style.helpIcon} />
+          <IconQuestion className={style.icon} />
         </div>
         <div>
           <span className={style.fallbackText}>{errorIntro}</span>

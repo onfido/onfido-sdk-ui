@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { VideoOverlayProps } from 'components/VideoCapture'
 import { h } from 'preact'
 import { act } from 'preact/test-utils'
+import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedVideoCapture from '~jest/MockedVideoCapture'
 import { DocumentTypes } from '~types/steps'
@@ -56,11 +57,13 @@ const renderCaptureControls = (recordState: MultiFrameCaptureStepActions) => {
   }
   render(
     <MockedLocalised>
-      <MockedVideoCapture
-        renderVideoOverlay={(props: VideoOverlayProps) => {
-          return <CaptureControls {...props} {...defaultProps} />
-        }}
-      />
+      <SdkOptionsProvider options={{ steps: [] }}>
+        <MockedVideoCapture
+          renderVideoOverlay={(props: VideoOverlayProps) => {
+            return <CaptureControls {...props} {...defaultProps} />
+          }}
+        />
+      </SdkOptionsProvider>
     </MockedLocalised>
   )
 }

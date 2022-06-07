@@ -48,7 +48,7 @@
 
   button:focus,
   input:focus {
-    outline: auto 5px -webkit-focus-ring-color;
+    outline: auto 5px var(--osdk-color-input-outline);
   }
 }
 

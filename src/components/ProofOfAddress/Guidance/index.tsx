@@ -12,6 +12,8 @@ import {
   POA_REQUIREMENTS_LOCALES_MAPPING,
 } from '~utils/localesMapping'
 
+import IconWarningSmall from './assets/IconWarningSmall'
+
 type Props = StepComponentProps & {
   poaDocumentType: string
 }
@@ -25,6 +27,7 @@ const Guidance: FunctionComponent<Props> = ({ nextStep, poaDocumentType }) => {
         title={translate(POA_GUIDANCE_LOCALES_MAPPING[poaDocumentType].title)}
         subTitle={
           <span className={style.subTitle}>
+            <IconWarningSmall className={style.warningSmallIcon} />
             {parseTranslatedTags(
               POA_GUIDANCE_LOCALES_MAPPING[poaDocumentType].subtitle,
               ({ text }) => (

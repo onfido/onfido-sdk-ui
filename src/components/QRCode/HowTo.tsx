@@ -6,6 +6,8 @@ import style from './style.scss'
 import { WithLocalisedProps } from '~types/hocs'
 import { trackException } from 'Tracker'
 
+import IconInfo from './assets/IconInfo'
+
 type Props = WithLocalisedProps
 type State = {
   isExpanded: boolean
@@ -28,7 +30,7 @@ class QRCodeHowTo extends Component<Props, State> {
     const { isExpanded } = this.state
     return (
       <div className={style.qrCodeHelp}>
-        <i className={style.qrCodeHelpIcon} />
+        <IconInfo className={style.qrCodeHelpIcon} />
         <button
           type="button"
           aria-atomic="false"

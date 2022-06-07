@@ -89,13 +89,12 @@ public class CrossDeviceLink extends BasePage {
     }
 
     public CrossDeviceLink clickSmsOption() {
-        click(By.cssSelector(".onfido-sdk-ui-crossDevice-CrossDeviceLink-smsLinkOption"));
-
+        click(ByUtil.onfidoQa("cross-device-sms-link-option"));
         return this;
     }
 
     public CrossDeviceLink clickLinkOption() {
-        click(By.cssSelector(".onfido-sdk-ui-crossDevice-CrossDeviceLink-copyLinkOption"));
+        click(ByUtil.onfidoQa("cross-device-copy_link-link-option"));
         return this;
     }
 

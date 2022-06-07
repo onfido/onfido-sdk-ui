@@ -32,22 +32,9 @@
   font-size: inherit;
 }
 
-%_icon {
+.icon {
   display: inline-block;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
   height: 13 * $unit;
   width: 13 * $unit;
   margin-right: 8 * $unit;
-}
-
-.helpIcon {
-  @extend %_icon;
-  background-image: url('assets/question-icon.svg');
-}
-
-.errorIcon {
-  @extend %_icon;
-  background-image: url('assets/alert-icon.svg');
 }

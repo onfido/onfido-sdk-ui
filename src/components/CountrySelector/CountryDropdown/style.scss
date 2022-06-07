@@ -98,6 +98,7 @@ $_sdk-option-border-bottom: 0;
   /* font size for form elements (input, select, textarea) must be at least 16px otherwise iOS Safari intervenes & forces UI to zoom in */
   font-size: var(--onfido-font-size-base);
   color: $_sdk-text-color;
+  outline-color: var(--osdk-color-input-outline);
 }
 
 .custom__hint {
@@ -122,16 +123,16 @@ $_sdk-option-border-bottom: 0;
   height: $_sdk-search-icon-size;
   width: $_sdk-search-icon-size;
   position: absolute;
-  top: 3 * $unit-small;
-  right: 4 * $unit-small;
+  top: 5 * $unit-small;
+  right: 5 * $unit-small;
 }
 
 .chevronIcon {
   height: $_sdk-search-icon-size;
   width: $_sdk-search-icon-size;
   position: absolute;
-  top: 3 * $unit-small;
-  right: 4 * $unit-small;
+  top: 5 * $unit-small;
+  right: 5 * $unit-small;
 }
 
 .custom__menu {
@@ -156,7 +157,7 @@ $_sdk-option-border-bottom: 0;
 
 .custom__menu--overlay {
   box-shadow: rgba(0, 0, 0, 0.256863) 0 2 * $unit 6 * $unit;
-  left: 0;
+  left: 2 * $unit;
   position: absolute;
   top: 100%;
   z-index: 100;

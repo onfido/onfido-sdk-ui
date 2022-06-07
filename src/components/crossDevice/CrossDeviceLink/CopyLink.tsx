@@ -5,6 +5,7 @@ import { localised } from '~locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 import { WithLocalisedProps } from '~types/hocs'
+import IconCheckmark from './assets/IconCheckmark'
 
 type CopyLinkProps = {
   mobileUrl: string
@@ -70,6 +71,7 @@ class CopyLink extends Component<Props, State> {
               aria-live="polite"
               aria-relevant="text"
             >
+              {copySuccess && <IconCheckmark className={style.iconCheckmark} />}
               <button
                 type="button"
                 onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}

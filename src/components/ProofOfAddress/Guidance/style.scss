@@ -17,19 +17,16 @@
 .subTitle {
   font-size: var(--onfido-font-size-large);
   font-weight: 400;
+}
 
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 16 * $unit-small;
-    height: 16 * $unit-small;
-    background-image: url('./assets/warningSmall.svg');
-    background-size: contain;
-    vertical-align: middle;
-    line-height: 1;
-    margin-right: 5 * $unit-small;
-    margin-top: -2 * $unit-small;
-  }
+.warningSmallIcon {
+  display: inline-block;
+  width: 16 * $unit-small;
+  height: 16 * $unit-small;
+  vertical-align: middle;
+  line-height: 1;
+  margin-right: 5 * $unit-small;
+  margin-top: -2 * $unit-small;
 }
 
 .bolder {

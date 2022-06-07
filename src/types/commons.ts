@@ -1,3 +1,4 @@
+import { FunctionComponent, h } from 'preact'
 import { EventEmitter2 } from 'eventemitter2'
 import { EnterpriseFeatures } from './enterprise'
 import { SupportedLanguages, LocaleConfig } from './locales'
@@ -172,3 +173,7 @@ export type FormattedError = {
   type: 'expired_token' | 'exception'
   message: string
 }
+
+export type IconElement = FunctionComponent<
+  h.JSX.IntrinsicAttributes & h.JSX.SVGAttributes<SVGSVGElement>
+>

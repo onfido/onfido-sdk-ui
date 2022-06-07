@@ -13,6 +13,7 @@ import { StepsRouterProps } from '~types/routers'
 import { StepConfig } from '~types/steps'
 import { MobileConfig } from '~types/commons'
 import ScreenLayout from 'components/Theme/ScreenLayout'
+import IconCompleteTickSmall from './assets/IconCompleteTickSmall'
 
 type CrossDeviceSubmitProps = {
   captures: CaptureState
@@ -120,7 +121,9 @@ class CrossDeviceSubmit extends Component<Props, State> {
         >
           {this.hasPoACaptureSteps() && (
             <li className={style.uploadListItem}>
-              <span className={`${theme.icon} ${style.icon}`} />
+              <IconCompleteTickSmall
+                className={`${theme.icon} ${style.icon}`}
+              />
               <span
                 className={classNames(
                   style.listText,
@@ -133,7 +136,9 @@ class CrossDeviceSubmit extends Component<Props, State> {
           )}
           {this.hasDocumentCaptureStep() && (
             <li className={style.uploadListItem}>
-              <span className={`${theme.icon} ${style.icon}`} />
+              <IconCompleteTickSmall
+                className={`${theme.icon} ${style.icon}`}
+              />
               <span
                 className={classNames(
                   style.listText,
@@ -146,7 +151,9 @@ class CrossDeviceSubmit extends Component<Props, State> {
           )}
           {this.hasFaceCaptureStep() && (
             <li className={style.uploadListItem}>
-              <span className={`${theme.icon} ${style.icon}`} />
+              <IconCompleteTickSmall
+                className={`${theme.icon} ${style.icon}`}
+              />
               <span
                 className={classNames(
                   style.listText,

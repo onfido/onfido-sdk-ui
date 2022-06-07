@@ -7,6 +7,7 @@ import MockedVideoCapture from '~jest/MockedVideoCapture'
 import CaptureControls from '../index'
 
 import type { CaptureFlows } from '~types/docVideo'
+import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 
 navigator.vibrate = jest.fn()
 
@@ -37,27 +38,29 @@ const MockedDocumentVideo: FunctionComponent<MockedDocumentVideoProps> = ({
 
   return (
     <MockedLocalised>
-      <MockedVideoCapture
-        renderVideoOverlay={(props) => (
-          <CaptureControls
-            {...props}
-            captureFlow={captureFlow}
-            flowRestartTrigger={flowRestartTrigger}
-            onSubmit={defaultProps.onSubmit}
-          />
+      <SdkOptionsProvider options={{ steps: [] }}>
+        <MockedVideoCapture
+          renderVideoOverlay={(props) => (
+            <CaptureControls
+              {...props}
+              captureFlow={captureFlow}
+              flowRestartTrigger={flowRestartTrigger}
+              onSubmit={defaultProps.onSubmit}
+            />
+          )}
+        />
+        {withRestartButton && (
+          <button
+            type="button"
+            id="restartFlow"
+            onClick={() =>
+              setFlowRestartTrigger((prevTrigger) => prevTrigger + 1)
+            }
+          >
+            Restart flow
+          </button>
         )}
-      />
-      {withRestartButton && (
-        <button
-          type="button"
-          id="restartFlow"
-          onClick={() =>
-            setFlowRestartTrigger((prevTrigger) => prevTrigger + 1)
-          }
-        >
-          Restart flow
-        </button>
-      )}
+      </SdkOptionsProvider>
     </MockedLocalised>
   )
 }
@@ -107,7 +110,7 @@ const assertHoldingState = (wrapper: ReactWrapper) => {
     'doc_video_capture.header_passport_progress'
   )
   expect(wrapper.find('CaptureProgress .loading').exists()).toBeTruthy()
-  expect(wrapper.find('.controls .success').exists()).toBeFalsy()
+  expect(wrapper.find('.controls .successIcon').exists()).toBeFalsy()
   expect(findButton(wrapper).exists()).toBeFalsy()
 
   waitForTimeout(wrapper, 'holding')
@@ -116,7 +119,7 @@ const assertHoldingState = (wrapper: ReactWrapper) => {
 
 const assertSuccessState = (wrapper: ReactWrapper, lastStep = false) => {
   expect(wrapper.find('CaptureProgress').exists()).toBeFalsy()
-  expect(wrapper.find('.controls .success').exists()).toBeTruthy()
+  expect(wrapper.find('.controls .successIcon').exists()).toBeTruthy()
   expect(findButton(wrapper).exists()).toBeFalsy()
   expect(navigator.vibrate).toHaveBeenCalledWith(500)
 
@@ -180,7 +183,7 @@ describe('DocumentVideo', () => {
         simulateNextStep(wrapper)
         waitForTimeout(wrapper, 'success')
         wrapper.setProps({})
-        expect(wrapper.find('.controls .success').exists()).toBeFalsy()
+        expect(wrapper.find('.controls .successIcon').exists()).toBeFalsy()
       })
     })
 

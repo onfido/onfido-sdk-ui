@@ -32,12 +32,9 @@
   font-weight: normal;
 }
 
-.instructions .success {
-  background-image: url('./assets/success.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 48 * $unit;
+.successIcon {
+  // Otherwise overriden by Overlay.document svg (see Overlay/style.scss)
+  height: 48 * $unit !important;
 }
 
 .instructions .ariaLabel {

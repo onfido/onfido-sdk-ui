@@ -41,14 +41,10 @@ const Intro: FunctionComponent<Props> = ({
           aria-label={translate('video_intro.list_accessibility')}
         >
           {VIDEO_INTRO_TYPES.map((key) => {
+            const Icon = VIDEO_INTRO_LOCALES_MAPPING[key].icon
             return (
               <li key={key} className={style.introBullet}>
-                <span
-                  className={classNames(
-                    style.introIcon,
-                    style[VIDEO_INTRO_LOCALES_MAPPING[key].className]
-                  )}
-                />
+                <Icon className={style.introIcon} />
                 {parseTranslatedTags(
                   VIDEO_INTRO_LOCALES_MAPPING[key].localeKey,
                   ({ text }) => (
