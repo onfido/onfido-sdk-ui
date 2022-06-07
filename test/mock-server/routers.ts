@@ -263,7 +263,11 @@ apiRouter
     context.response.status = Status.OK
   })
   .get('/v3.3/applicants/:id/consents', async (context) => {
-    context.response.body = sendMock(context, 'consents', responses.api.v3.applicant_consents)
+    context.response.body = sendMock(
+      context,
+      'consents',
+      responses.api.v3.applicant_consents
+    )
     context.response.status = Status.OK
   })
   .get(
