@@ -2,7 +2,9 @@ package com.onfido.qa.websdk.mock;
 
 public enum Code {
     SDK_CONFIGURATION("sdkConfiguration"),
-    CONSENTS("consents");
+    CONSENTS("consents"),
+    WORKFLOW_RUN_COMPLETE("workflowRunComplete"),
+    WORKFLOW_RUN("workflowRun");
 
     public final String code;
 

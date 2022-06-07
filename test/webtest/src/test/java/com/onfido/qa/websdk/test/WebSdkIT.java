@@ -132,6 +132,10 @@ public abstract class WebSdkIT extends WebTest {
         return new WebSdk(driver()).withLanguage(language);
     }
 
+    protected Mock mock() {
+        return new Mock(driver().driver);
+    }
+
     protected final Copy copy(String language) {
 
         JsonNode tree;

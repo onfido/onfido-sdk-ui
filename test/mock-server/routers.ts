@@ -192,13 +192,22 @@ telephonyRouter.post('/v1/cross_device_sms', (context) => {
   context.response.body = responses.telephony.v1.cross_device_sms
 })
 
-type MockCode = 'sdkConfiguration' | 'consents'
+type MockCode =
+  | 'sdkConfiguration'
+  | 'consents'
+  | 'workflowRun'
+  | 'workflowRunComplete'
+
 type MockValue = {
   value: any
   patch: boolean
 }
 
-const allowedCodes: MockCode[] = ['sdkConfiguration']
+const allowedCodes: MockCode[] = [
+  'sdkConfiguration',
+  'workflowRun',
+  'workflowRunComplete',
+]
 const mockResponses: Record<string, Record<MockCode, MockValue>> = {}
 
 const mockRouter = new Router({ prefix: '/mock' })
@@ -263,7 +272,11 @@ apiRouter
     context.response.status = Status.OK
   })
   .get('/v3.3/applicants/:id/consents', async (context) => {
-    context.response.body = sendMock(context, 'consents', responses.api.v3.applicant_consents)
+    context.response.body = sendMock(
+      context,
+      'consents',
+      responses.api.v3.applicant_consents
+    )
     context.response.status = Status.OK
   })
   .get(
@@ -330,6 +343,14 @@ apiRouter
   .post('/v4/documents', async (context) => {
     await sleep(500)
     context.response.body = responses.api.v4.documents
+  })
+  .get('/v4/workflow_runs/:id', (context) => {
+    context.response.body = sendMock(context, 'workflowRun', {})
+    context.response.status = Status.OK
+  })
+  .get('/v4/workflow_runs/:id/complete', (context) => {
+    context.response.body = sendMock(context, 'workflowRunComplete', {})
+    context.response.status = Status.OK
   })
 
 export { mockRouter, apiRouter, telephonyRouter, tokenFactoryRouter }

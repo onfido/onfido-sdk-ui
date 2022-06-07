@@ -2,11 +2,11 @@ package com.onfido.qa.websdk.sdk;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.onfido.qa.configuration.Property;
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.common.Component;
 import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.webdriver.driver.ExpectedConditions;
-import com.onfido.qa.configuration.Property;
 import com.onfido.qa.websdk.mock.Mock;
 import com.onfido.qa.websdk.model.CrossDeviceLinkMethod;
 import org.slf4j.Logger;
@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 @SuppressWarnings({"SameParameterValue", "BooleanParameter"})
@@ -59,33 +60,36 @@ public class WebSdk {
     }
 
     public WebSdk withCrossDeviceLinkMethods(CrossDeviceLinkMethod... methods) {
-        put("_crossDeviceLinkMethods", Arrays.asList(methods));
-        return this;
+        return put("_crossDeviceLinkMethods", Arrays.asList(methods));
     }
 
     public WebSdk withCrossDeviceLinkMethods(String... methods) {
-        put("_crossDeviceLinkMethods", Arrays.asList(methods));
-        return this;
+        return put("_crossDeviceLinkMethods", Arrays.asList(methods));
     }
 
     public WebSdk withCrossDeviceClientIntroProductName(String productName) {
-        put("crossDeviceClientIntroProductName", productName);
-        return this;
+        return put("crossDeviceClientIntroProductName", productName);
     }
 
     public WebSdk withCrossDeviceClientIntroProductLogoSrc(String url) {
-        put("crossDeviceClientIntroProductLogoSrc", url);
-        return this;
+        return put("crossDeviceClientIntroProductLogoSrc", url);
     }
 
     public WebSdk withOnComplete(Raw raw) {
-        put("onComplete", raw);
-        return this;
+        return put("onComplete", raw);
     }
 
     public WebSdk withEnableWebcam() {
         enableWebcam = true;
         return this;
+    }
+
+    public WebSdk withWorkflowRunId(UUID workflowRunId) {
+        return withWorkflowRunId(workflowRunId.toString());
+    }
+
+    public WebSdk withWorkflowRunId(String workflowRunId) {
+        return put("workflowRunId", workflowRunId);
     }
 
     public WebSdk withDisableWebcam() {
@@ -169,6 +173,7 @@ public class WebSdk {
 
         return new Onfido(driver);
     }
+
 
     private void setupWebcam() {
         if (enableWebcam) {

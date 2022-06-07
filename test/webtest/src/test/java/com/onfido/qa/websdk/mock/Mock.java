@@ -1,5 +1,6 @@
 package com.onfido.qa.websdk.mock;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -17,6 +18,7 @@ public class Mock {
 
     static {
         objectMapper = new ObjectMapper();
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     }
 
     public Mock(RemoteWebDriver driver) {
