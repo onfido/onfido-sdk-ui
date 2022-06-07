@@ -18,7 +18,10 @@ public class WorkflowRun {
     private final static Map<TaskDefinition, ConfigBase> DEFAULT_CONFIG = new EnumMap<>(TaskDefinition.class);
 
     static {
-        DEFAULT_CONFIG.put(TaskDefinition.UPLOAD_DOCUMENT, new UploadDocumentConfig(Arrays.asList(new UploadDocumentConfig.DocumentSelection(PASSPORT, "AFG"), new UploadDocumentConfig.DocumentSelection(PASSPORT, "ALB"))));
+        var uploadDocumentConfig = new UploadDocumentConfig(Arrays.asList(new UploadDocumentConfig.DocumentSelection(PASSPORT, "AFG"), new UploadDocumentConfig.DocumentSelection(PASSPORT, "ALB")));
+
+        DEFAULT_CONFIG.put(TaskDefinition.UPLOAD_DOCUMENT, uploadDocumentConfig);
+        DEFAULT_CONFIG.put(TaskDefinition.UPLOAD_DOCUMENT_PHOTO, uploadDocumentConfig);
     }
 
     public WorkflowRun(UUID workflowRunId, TaskDefinition taskDefinition) {
