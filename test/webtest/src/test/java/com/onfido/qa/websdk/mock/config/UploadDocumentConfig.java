@@ -10,7 +10,7 @@ public class UploadDocumentConfig extends ConfigBase {
 
     public static final int DEFAULT_TIMEOUT = 1209600;
 
-    @JsonProperty("ngc_enabled")
+    @JsonProperty("nfc_enabled")
     public boolean nfcEnabled = true;
 
     @JsonProperty
