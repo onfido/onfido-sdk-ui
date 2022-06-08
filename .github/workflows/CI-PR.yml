@@ -33,7 +33,7 @@ jobs:
         run: npm install
 
       - name: Run dependencies audit
-        uses: oke-py/npm-audit-action@v1.7.2
+        uses: oke-py/npm-audit-action@v2.2.0
         with:
           audit_level: moderate
           production_flag: true
