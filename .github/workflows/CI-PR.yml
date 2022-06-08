@@ -32,15 +32,16 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run dependencies audit
-        uses: oke-py/npm-audit-action@v2.2.0
-        with:
-          audit_level: moderate
-          production_flag: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          issue_assignees: stefaniacardenas
-          issue_labels: vulnerability
-          dedupe_issues: true
+      # Disabled until fixed: https://github.com/oke-py/npm-audit-action/issues/121
+      # - name: Run dependencies audit
+      #   uses: oke-py/npm-audit-action@v2.2.0
+      #   with:
+      #     audit_level: moderate
+      #     production_flag: true
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     issue_assignees: stefaniacardenas
+      #     issue_labels: vulnerability
+      #     dedupe_issues: true
 
       - name: Run linters
         run: npm run check
