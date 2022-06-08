@@ -7,6 +7,7 @@ import com.onfido.qa.websdk.page.CountrySelector;
 import com.onfido.qa.websdk.page.FaceVideoIntro;
 import com.onfido.qa.websdk.page.PoAIntro;
 import com.onfido.qa.websdk.page.ProfileData;
+import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
 import com.onfido.qa.websdk.page.SelfieIntro;
 import com.onfido.qa.websdk.page.SpinnerPage;
 import com.onfido.qa.websdk.page.Welcome;
@@ -26,8 +27,8 @@ public class WorkflowIT extends WebSdkIT {
     public static Object[][] foo() {
 
         return new Object[][]{
-                {TaskDefinition.UPLOAD_DOCUMENT, CountrySelector.class},
-                {TaskDefinition.UPLOAD_DOCUMENT_PHOTO, CountrySelector.class},
+                {TaskDefinition.UPLOAD_DOCUMENT, RestrictedDocumentSelection.class},
+                {TaskDefinition.UPLOAD_DOCUMENT_PHOTO, RestrictedDocumentSelection.class},
                 {TaskDefinition.UPLOAD_FACE_PHOTO, SelfieIntro.class},
                 {TaskDefinition.UPLOAD_FACE_VIDEO, FaceVideoIntro.class},
                 {TaskDefinition.PROOF_OF_ADDRESS_CAPTURE, PoAIntro.class},
