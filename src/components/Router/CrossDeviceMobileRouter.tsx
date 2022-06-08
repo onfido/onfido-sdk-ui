@@ -12,7 +12,6 @@ import withTheme from '../Theme'
 import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
-
 import {
   setupAnalyticsCookie,
   setWoopraCookie,
@@ -20,9 +19,8 @@ import {
   uninstallAnalyticsCookie,
   uninstallWoopra,
 } from '../../Tracker'
-import { LocaleProvider } from '~locales'
+import { LocaleLoader, LocaleProvider } from '~locales'
 import { HistoryRouterWrapper } from './HistoryRouter'
-
 import type { ErrorNames, MobileConfig } from '~types/commons'
 import type { SupportedLanguages, LocaleConfig } from '~types/locales'
 import type { CaptureKeys } from '~types/redux'
@@ -367,12 +365,8 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   renderContent = (): h.JSX.Element => {
-    const { hasCamera, token, options, urls } = this.props
-    const { crossDeviceError, loading, steps } = this.state
-
-    if (loading) {
-      return <WrappedSpinner disableNavigation />
-    }
+    const { hasCamera, options, urls } = this.props
+    const { crossDeviceError, steps } = this.state
 
     if (crossDeviceError) {
       return <WrappedError disableNavigation={true} error={crossDeviceError} />
@@ -437,11 +431,18 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   render(): h.JSX.Element {
-    const { language } = this.state
+    const { language, loading } = this.state
+    const { autoFocusOnInitialScreenTitle } = this.props.options
+
+    if (loading) {
+      return <WrappedSpinner disableNavigation={true} />
+    }
 
     return (
       <LocaleProvider language={language}>
-        {this.renderContent()}
+        <LocaleLoader shouldAutoFocus={autoFocusOnInitialScreenTitle}>
+          {this.renderContent()}
+        </LocaleLoader>
       </LocaleProvider>
     )
   }

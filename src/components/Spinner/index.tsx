@@ -16,19 +16,20 @@ const Spinner = ({ shouldAutoFocus }: SpinnerProps) => {
   }, [shouldAutoFocus])
 
   return (
-    <div
-      className={style.loader}
-      aria-live="assertive"
-      tabIndex={-1}
-      // role="progressbar" fixes issues on iOS where the aria-live="assertive" is not announced
-      role="progressbar"
-      ref={containerRef}
-      aria-label={translate('generic.loading')}
-    >
-      <div className={style.inner}>
-        <div />
-        <div />
-        <div />
+    <div>
+      <div
+        className={style.loader}
+        aria-live="assertive"
+        tabIndex={-1}
+        role="progressbar" // fixes issues on iOS where the aria-live="assertive" is not announced
+        ref={containerRef}
+        aria-label={translate('generic.loading')}
+      >
+        <div className={style.inner}>
+          <div />
+          <div />
+          <div />
+        </div>
       </div>
     </div>
   )

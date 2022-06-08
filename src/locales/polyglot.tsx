@@ -1,14 +1,9 @@
 import * as Polyglot from 'node-polyglot'
-import * as en_US from './en_US/en_US.json'
-import * as es_ES from './es_ES/es_ES.json'
-import * as de_DE from './de_DE/de_DE.json'
-import * as fr_FR from './fr_FR/fr_FR.json'
-import * as it_IT from './it_IT/it_IT.json'
-import * as pt_PT from './pt_PT/pt_PT.json'
-import * as nl_NL from './nl_NL/nl_NL.json'
+import en_US from './en_US/en_US.json'
 import { isDesktop } from '~utils'
-import { memoize } from '~utils/func'
 import { LocaleConfig, SupportedLanguages } from '~types/locales'
+import { useEffect, useState } from 'preact/hooks'
+import { trackException } from 'Tracker'
 
 const defaultLocaleTag = 'en_US'
 
@@ -20,62 +15,161 @@ type TranslationType = Record<string, LocaleTypeObj>
 
 // Note: We're extending because we're using private Polyglot vars
 class PolyglotExtended extends Polyglot {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  phrases?: any
+  phrases?: unknown
   currentLocale: SupportedLanguages | LocaleConfig['locale'] = defaultLocaleTag
 }
 
-const defaultTranslationWithNoRegion: TranslationType = {
-  en: en_US,
-  es: es_ES,
-  de: de_DE,
-  fr: fr_FR,
-  it: it_IT,
-  pt: pt_PT,
-  nl: nl_NL,
+// English is bundled as fallback, other langauges are loaded dynamically
+const files = {
+  en_US: () => Promise.resolve(en_US),
+  es_ES: () =>
+    import(/* webpackChunkName: "lang_es_ES" */ './es_ES/es_ES.json'),
+  de_DE: () =>
+    import(/* webpackChunkName: "lang_de_DE" */ './de_DE/de_DE.json'),
+  fr_FR: () =>
+    import(/* webpackChunkName: "lang_fr_FR" */ './fr_FR/fr_FR.json'),
+  it_IT: () =>
+    import(/* webpackChunkName: "lang_it_IT" */ './it_IT/it_IT.json'),
+  pt_PT: () =>
+    import(/* webpackChunkName: "lang_pt_PT" */ './pt_PT/pt_PT.json'),
+  nl_NL: () =>
+    import(/* webpackChunkName: "lang_nl_NL" */ './nl_NL/nl_NL.json'),
 }
 
 // Language tags should follow the IETF's BCP 47 guidelines, link below:
-//https://www.w3.org/International/questions/qa-lang-2or3
+// https://www.w3.org/International/questions/qa-lang-2or3
 // Generally it should be a two or three charaters tag (language) followed by a two/three characters subtag (region), if needed.
-const availableTranslations: TranslationType = {
-  ...defaultTranslationWithNoRegion,
-  en_US,
-  es_ES,
-  de_DE,
-  fr_FR,
-  it_IT,
-  pt_PT,
-  nl_NL,
+const availableTranslations = {
+  en_US: files.en_US,
+  en: files.en_US,
+  es_ES: files.es_ES,
+  es: files.es_ES,
+  de_DE: files.de_DE,
+  de: files.de_DE,
+  fr_FR: files.fr_FR,
+  fr: files.fr_FR,
+  it_IT: files.it_IT,
+  it: files.it_IT,
+  pt_PT: files.pt_PT,
+  pt: files.pt_PT,
+  nl_NL: files.nl_NL,
+  nl: files.nl_NL,
 }
 
-const mobilePhrases = (): LocaleTypeObj => {
-  const phrases: LocaleTypeObj = {}
-  for (const lang in availableTranslations) {
-    if ({}.hasOwnProperty.call(availableTranslations, lang)) {
-      phrases[lang] = availableTranslations[lang].mobilePhrases
-    }
-  }
-  return phrases
-}
-
-const mobileTranslations = mobilePhrases()
-
-const defaultLanguage = () => {
+const createDefaultPolyglot = (): PolyglotExtended => {
   const polyglot = new Polyglot({
-    // Note: The empty onMissingKey hides missing keys instead of being display in front-end
-    // @ts-ignore
     onMissingKey: (key) => {
+      // The empty onMissingKey hides missing keys instead of being display in front-end
       if (process.env.NODE_ENV === 'development') {
         console.error(`The locale ${key} is missing`)
       }
+      return ''
     },
   }) as PolyglotExtended
+
+  return extendPolyglot(polyglot, en_US, en_US?.mobilePhrases, 'en_US')
+}
+
+const updatePolyglot = async (
+  polyglot: PolyglotExtended,
+  language?: SupportedLanguages | LocaleConfig
+) => {
+  if (!language) {
+    return polyglot
+  }
+
+  const nonDefaultLocale =
+    typeof language === 'string' ? language : language.locale
+
+  if (nonDefaultLocale && availableTranslations[nonDefaultLocale]) {
+    await loadSupportedLanguage(nonDefaultLocale, polyglot)
+  }
+
+  if (typeof language !== 'string') {
+    await withCustomLanguage(language, polyglot)
+  }
+
+  return polyglot
+}
+
+const findMissingKeys = (
+  defaultKeys: string[],
+  customKeys: string[],
+  customLocale: LocaleConfig['locale']
+): void => {
+  const newTranslationsSet = new Set(customKeys)
+  const missingKeys = defaultKeys.filter(
+    (element) => !newTranslationsSet.has(element)
+  )
+  const isSupportedLanguage = Object.keys(availableTranslations).some(
+    (supportedLanguage) => supportedLanguage === customLocale
+  )
+
+  if (missingKeys.length && !isSupportedLanguage) {
+    console.warn('Missing keys:', missingKeys)
+  }
+}
+
+const polyglotFormatKeys = (phrases: TranslationType): string[] => {
+  const polyglot = new Polyglot({ phrases }) as PolyglotExtended
+  return getPhrasesFromPolyglot(polyglot)
+}
+
+const getPhrasesFromPolyglot = (polyglot: PolyglotExtended): string[] => {
+  return polyglot?.phrases ? Object.keys(polyglot?.phrases as object) : []
+}
+
+const verifyKeysPresence = (
+  customLanguageConfig: LocaleConfig,
+  polyglot: PolyglotExtended
+) => {
+  const { phrases, mobilePhrases } = customLanguageConfig
+  const defaultKeys = getPhrasesFromPolyglot(polyglot)
+  // Currently mobilePhrases can be passed inside the phrases object or as a separate object.
+  // Only return the warning for missing keys if mobilePhrases are not present in phrases or as a separate object.
+  const customMobilePhrases = Object.assign(
+    {},
+    phrases?.mobilePhrases,
+    mobilePhrases
+  )
+  const customKeys = polyglotFormatKeys({
+    ...phrases,
+    mobilePhrases: customMobilePhrases as TranslationType,
+  })
+  findMissingKeys(defaultKeys, customKeys, customLanguageConfig?.locale)
+}
+
+const withCustomLanguage = async (
+  customLanguageConfig: LocaleConfig,
+  polyglot: PolyglotExtended
+): Promise<PolyglotExtended> => {
+  const { locale, phrases, mobilePhrases } = customLanguageConfig
+  verifyKeysPresence(customLanguageConfig, polyglot)
+  return extendPolyglot(polyglot, phrases, mobilePhrases, locale)
+}
+
+const loadSupportedLanguage = async (
+  language: SupportedLanguages,
+  polyglot: PolyglotExtended
+): Promise<PolyglotExtended | undefined> => {
+  if (!availableTranslations[language]) {
+    return polyglot
+  }
+
+  let translations
+  try {
+    translations = await availableTranslations[language]()
+  } catch (e) {
+    console.error(e)
+    trackException(`Could not load locale file: ${language}`)
+    return polyglot
+  }
+
   return extendPolyglot(
     polyglot,
-    availableTranslations[defaultLocaleTag],
-    mobileTranslations[defaultLocaleTag],
-    defaultLocaleTag
+    translations,
+    translations?.mobilePhrases,
+    language
   )
 }
 
@@ -93,87 +187,29 @@ const extendPolyglot = (
   return polyglot
 }
 
-const findMissingKeys = (
-  defaultKeys: string[],
-  customKeys: string[],
-  customLocale: LocaleConfig['locale']
-): void => {
-  const newTranslationsSet = new Set(customKeys)
-  const missingKeys = defaultKeys.filter(
-    (element) => !newTranslationsSet.has(element)
-  )
-  const isSupportedLanguage = Object.keys(availableTranslations).some(
-    (supportedLanguage) => supportedLanguage === customLocale
-  )
-  if (missingKeys.length && !isSupportedLanguage) {
-    console.warn('Missing keys:', missingKeys)
-  }
-}
-
-const polyglotFormatKeys = (phrases: TranslationType): string[] => {
-  const polyglot = new Polyglot({ phrases }) as PolyglotExtended
-  return Object.keys(polyglot?.phrases)
-}
-
-const verifyKeysPresence = (
-  customLanguageConfig: LocaleConfig,
+type UsePolyglotState = {
   polyglot: PolyglotExtended
-) => {
-  const { phrases, mobilePhrases } = customLanguageConfig
-  const defaultKeys = Object.keys(polyglot.phrases)
-  // Currently mobilePhrases can be passed inside the phrases object or as a separate object.
-  // Only return the warning for missing keys if mobilePhrases are not present in phrases or as a separate object.
-  const customMobilePhrases = Object.assign(
-    {},
-    phrases?.mobilePhrases,
-    mobilePhrases
-  )
-  const customKeys = polyglotFormatKeys({
-    ...phrases,
-    mobilePhrases: customMobilePhrases as TranslationType,
+  loading: boolean
+}
+
+export const usePolyglot = (
+  language?: SupportedLanguages | LocaleConfig
+): UsePolyglotState => {
+  const [{ polyglot, loading }, setState] = useState<UsePolyglotState>({
+    polyglot: createDefaultPolyglot(),
+    loading: true,
   })
-  findMissingKeys(defaultKeys, customKeys, customLanguageConfig?.locale)
-}
 
-const trySupportedLanguage = (
-  polyglot: PolyglotExtended,
-  language?: SupportedLanguages
-): PolyglotExtended | undefined => {
-  if (language && availableTranslations[language]) {
-    return extendPolyglot(
-      polyglot,
-      availableTranslations[language],
-      mobileTranslations[language],
-      language
-    )
-  }
-  console.warn('Locale not supported')
-}
+  useEffect(() => {
+    const setup = async () => {
+      setState((state) => ({ ...state, loading: true }))
+      let polyglot = createDefaultPolyglot()
+      polyglot = await updatePolyglot(polyglot, language)
+      setState((state) => ({ ...state, polyglot, loading: false }))
+    }
 
-const withCustomLanguage = (
-  customLanguageConfig: LocaleConfig,
-  polyglot: PolyglotExtended
-): PolyglotExtended => {
-  const { locale, phrases, mobilePhrases } = customLanguageConfig
-  verifyKeysPresence(customLanguageConfig, polyglot)
-  const newPolyglot = trySupportedLanguage(polyglot, locale) || polyglot
-  return extendPolyglot(newPolyglot, phrases, mobilePhrases, locale)
-}
+    setup()
+  }, [language])
 
-const overrideTranslations = (
-  language: SupportedLanguages | LocaleConfig,
-  polyglot: PolyglotExtended
-): PolyglotExtended | undefined => {
-  if (typeof language === 'string') {
-    return trySupportedLanguage(polyglot, language)
-  }
-  return withCustomLanguage(language, polyglot)
+  return { polyglot, loading }
 }
-
-export default memoize(
-  (language: SupportedLanguages | LocaleConfig): PolyglotExtended => {
-    const polyglot = defaultLanguage()
-    if (!language) return polyglot
-    return overrideTranslations(language, polyglot) || polyglot
-  }
-)
