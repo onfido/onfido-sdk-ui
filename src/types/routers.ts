@@ -44,9 +44,8 @@ export type FlowChangeCallback = (
   payload: {
     userStepIndex: number
     clientStepIndex: number
-    clientStep: ComponentStep
-  },
-  workflowSteps: StepConfig[]
+    clientSteps: StepConfig[]
+  }
 ) => void
 
 export type ChangeFlowProp = (
