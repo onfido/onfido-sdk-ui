@@ -83,7 +83,7 @@ const ProfileData = ({
   }
 
   return (
-    <ScreenLayout>
+    <ScreenLayout pageId={'ProfileData'}>
       <PageTitle title={translate(`profile_data.${title}`)} />
       <div className={style['form']}>
         {Object.entries(formData).map(([type, value]) => (

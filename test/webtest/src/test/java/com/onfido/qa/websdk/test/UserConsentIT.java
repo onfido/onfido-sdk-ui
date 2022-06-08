@@ -1,11 +1,19 @@
 package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.webdriver.common.Page;
-import com.onfido.qa.websdk.page.*;
+import com.onfido.qa.websdk.mock.Code;
+import com.onfido.qa.websdk.mock.Consent;
+import com.onfido.qa.websdk.mock.SdkConfiguration;
+import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
+import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
+import com.onfido.qa.websdk.page.DocumentUpload;
+import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
+import com.onfido.qa.websdk.page.UserConsent;
+import com.onfido.qa.websdk.page.Welcome;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import java.util.Map;
+import java.util.Arrays;
 
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,11 +23,17 @@ public class UserConsentIT extends WebSdkIT {
     public static final String CONSENT_FRAME_TITLE = "Onfido's privacy statement and Terms of Service";
 
     public <T extends Page> T init(Class<T> pageClass, Object... steps) {
-        return onfido().withSdkConfiguration(Map.of("sdk_features", Map.of("enable_require_applicant_consents", true))).withSteps(steps).init(pageClass);
+
+        return onfido()
+                .withSteps(steps)
+                .withMock(mock -> {
+                    mock.extend(Code.SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                })
+                .init(pageClass);
     }
 
     private UserConsent init() {
-        return init(UserConsent.class,"document");
+        return init(UserConsent.class, "document");
     }
 
     @Test(description = "should verify UI elements on the consent screen")
@@ -31,6 +45,7 @@ public class UserConsentIT extends WebSdkIT {
         verifyCopy(consent.acceptButtonText(), "user_consent.button_primary");
         verifyCopy(consent.declineButtonText(), "user_consent.button_secondary");
     }
+
 
     @Test(description = "should accept user consent")
     public void testAcceptUserConsent() {
@@ -74,12 +89,12 @@ public class UserConsentIT extends WebSdkIT {
 
     @Test(description = "remove consents from history once accepted")
     public void testRemoveConsentsFromHistoryOnceAccepted() {
-        var crossDevice = init(Welcome.class,"welcome", "document")
+        var crossDevice = init(Welcome.class, "welcome", "document")
                 .continueToNextStep(UserConsent.class)
                 .acceptUserConsent(RestrictedDocumentSelection.class)
                 .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
                 .selectDocument(PASSPORT, DocumentUpload.class)
-                     .switchToCrossDevice();
+                .switchToCrossDevice();
 
         assertThat(crossDevice.backArrow().isDisplayed()).isTrue();
 
@@ -89,6 +104,19 @@ public class UserConsentIT extends WebSdkIT {
                 .back(Welcome.class);
 
         verifyCopy(welcome.title(), "welcome.title");
+    }
+
+
+    // FIXME: this actually shows a bug with the web sdk
+    @Test(description = "do not show consent screen, if consent is already given", enabled = false)
+    public void testConsentScreenNotShownWhenConsentAlreadyGiven() {
+        onfido()
+                .withSteps("document")
+                .withMock(mock -> {
+                    mock.extend(Code.SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                    mock.set(Code.CONSENTS, Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
+                })
+                .init(RestrictedDocumentSelection.class);
     }
 
     @Test(description = "Is not displayed on cross device", groups = {"percy", "tabs"})
