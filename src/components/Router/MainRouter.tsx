@@ -35,7 +35,7 @@ const WrappedError = withTheme(GenericError)
 type State = {
   crossDeviceInitialClientStep?: number
   crossDeviceInitialStep?: number
-  workflowSteps?: StepConfig[]
+  crossDeviceSteps: StepConfig[]
 }
 
 export default class MainRouter extends Component<InternalRouterProps, State> {
@@ -72,7 +72,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     const {
       crossDeviceInitialClientStep,
       crossDeviceInitialStep,
-      workflowSteps,
+      crossDeviceSteps,
     } = this.state
 
     return {
@@ -89,7 +89,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       language,
       poaDocumentType,
       step: crossDeviceInitialStep,
-      steps: workflowSteps ? workflowSteps : steps,
+      steps: crossDeviceSteps ? crossDeviceSteps : steps,
       token,
       urls,
       woopraCookie,
@@ -102,19 +102,14 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
     newFlow,
     _newStep,
     _previousFlow,
-    { userStepIndex, clientStepIndex },
-    workflowSteps
+    { userStepIndex, clientStepIndex, clientSteps }
   ) => {
     if (newFlow === 'crossDeviceSteps') {
       this.setState({
         crossDeviceInitialStep: userStepIndex,
         crossDeviceInitialClientStep: clientStepIndex,
+        crossDeviceSteps: clientSteps,
       })
-      if (this.useWorkflowRun()) {
-        this.setState({
-          workflowSteps: workflowSteps,
-        })
-      }
     }
   }
 

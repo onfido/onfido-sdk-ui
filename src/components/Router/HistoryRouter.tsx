@@ -158,17 +158,11 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     const previousUserStep = getComponentsList(steps)[previousUserStepIndex]
 
     onFlowChange &&
-      onFlowChange(
-        newFlow,
-        newStep,
-        previousFlow,
-        {
-          userStepIndex: previousUserStepIndex,
-          clientStepIndex: previousUserStep.stepIndex,
-          clientStep: previousUserStep,
-        },
-        steps
-      )
+      onFlowChange(newFlow, newStep, previousFlow, {
+        userStepIndex: previousUserStepIndex,
+        clientStepIndex: previousUserStep.stepIndex,
+        clientSteps: steps,
+      })
     setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 

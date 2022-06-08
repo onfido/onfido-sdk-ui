@@ -4,6 +4,8 @@ import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.websdk.mock.Code;
 import com.onfido.qa.websdk.mock.Consent;
 import com.onfido.qa.websdk.mock.SdkConfiguration;
+import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
+import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
 import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
 import com.onfido.qa.websdk.page.UserConsent;
@@ -104,6 +106,7 @@ public class UserConsentIT extends WebSdkIT {
         verifyCopy(welcome.title(), "welcome.title");
     }
 
+
     // FIXME: this actually shows a bug with the web sdk
     @Test(description = "do not show consent screen, if consent is already given", enabled = false)
     public void testConsentScreenNotShownWhenConsentAlreadyGiven() {
@@ -114,5 +117,27 @@ public class UserConsentIT extends WebSdkIT {
                     mock.set(Code.CONSENTS, Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
                 })
                 .init(RestrictedDocumentSelection.class);
+    }
+
+    @Test(description = "Is not displayed on cross device", groups = {"percy", "tabs"})
+    public void testIsNotDisplayedOnCrossDevice() {
+        var link = init(Welcome.class, "welcome", "document")
+                .continueToNextStep(UserConsent.class)
+                .acceptUserConsent(RestrictedDocumentSelection.class)
+                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectDocument(PASSPORT, DocumentUpload.class)
+                .switchToCrossDevice().getSecureLink().copyLink();
+
+        openMobileScreen(link);
+
+        var intro = verifyPage(CrossDeviceClientIntro.class);
+        switchToMainScreen();
+
+        verifyPage(CrossDeviceMobileConnected.class);
+        switchToMobileScreen();
+
+        var documentUpload = intro.clickContinue(DocumentUpload.class);
+
+        verifyCopy(documentUpload.title(), "doc_submit.title_passport");
     }
 }
