@@ -10,6 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## Changed
 
+- Public: Make the `useLiveDocumentCapture` true by default. Clients can still change this option to false.
 - Internal: Add dynamically loaded files (except en_US)
 
 ## [8.1.0] - 2022-06-13
