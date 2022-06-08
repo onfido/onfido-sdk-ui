@@ -3298,7 +3298,7 @@
     "path": "node_modules/chrome-trace-event",
     "licenseFile": "node_modules/chrome-trace-event/LICENSE.txt"
   },
-  "chromedriver@94.0.0": {
+  "chromedriver@96.0.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/giggio/node-chromedriver",
     "publisher": "Giovanni Bassi",
@@ -9355,13 +9355,13 @@
     "path": "node_modules/jest-changed-files/node_modules/onetime",
     "licenseFile": "node_modules/jest-changed-files/node_modules/onetime/license"
   },
-  "onfido-sdk-ui@6.15.5": {
+  "onfido-sdk-ui@6.15.6": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/kimmigan/dev/onfido-sdk-ui",
+    "path": "/Users/danny/Onfido/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "opener@1.5.2": {
