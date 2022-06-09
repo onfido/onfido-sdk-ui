@@ -37,6 +37,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Add UI customization option for `colorBackgroundQRCode`
 - Public: Fix for http 204 request errors due to parsing
 
+## [6.15.6] - 2022-06-08
+
+### Fixed
+
+- Public: Added mapping to convert old to new analytics events
+
 ## [8.0.0] - 2022-04-21
 
 ### Changed
