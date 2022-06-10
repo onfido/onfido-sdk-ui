@@ -1,15 +1,13 @@
 import { h } from 'preact'
 
-import { isDesktop, addDeviceRelatedProperties } from '~utils'
+import { addDeviceRelatedProperties } from '~utils'
 import { validateFile } from '~utils/file'
 import { POA_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 
 import { appendToTracking, trackException } from '../../Tracker'
 import { useLocales } from '~locales'
-import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import Uploader from '../Uploader'
-import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import FallbackButton from '../Button/FallbackButton'
@@ -96,11 +94,7 @@ const Document = (props: Props) => {
     )
   }
 
-  const { hasCamera, poaDocumentType, useWebcam } = props
-
-  const renderFallback = isDesktop
-    ? renderCrossDeviceFallback
-    : renderUploadFallback
+  const { poaDocumentType } = props
 
   const title = translate(
     POA_CAPTURE_LOCALES_MAPPING[getDocumentType(poaDocumentType)]?.title || ''
@@ -109,18 +103,6 @@ const Document = (props: Props) => {
     ...props,
     forceCrossDevice: props.forceCrossDevice ?? false,
     onError: handleError,
-  }
-  const renderTitle = <PageTitle title={title} smaller />
-
-  if (hasCamera && useWebcam) {
-    return (
-      <DocumentAutoCapture
-        {...propsWithErrorHandling}
-        renderFallback={renderFallback}
-        renderTitle={renderTitle}
-        onValidCapture={handlePhotoCapture}
-      />
-    )
   }
 
   // Different upload types show different icons

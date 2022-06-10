@@ -52,7 +52,6 @@ export type QueryParams = {
   useModal?: StringifiedBoolean
   useMultipleSelfieCapture?: StringifiedBoolean
   useUploader?: StringifiedBoolean
-  useWebcam?: StringifiedBoolean
   customisedUI?: StringifiedBoolean
   useCustomizedApiRequests?: StringifiedBoolean
   decoupleResponse?: DecoupleResponseOptions
@@ -205,7 +204,6 @@ export const getInitSdkOptions = (): SdkOptions => {
       useLiveDocumentCapture:
         queryParamToValueString.useLiveDocumentCapture === 'true',
       uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-      useWebcam: queryParamToValueString.useWebcam === 'true',
       documentTypes: getPreselectedDocumentTypes(),
       showCountrySelection:
         queryParamToValueString.oneDocWithCountrySelection === 'true',
@@ -382,9 +380,6 @@ export const commonSteps: Record<
     'welcome',
     {
       type: 'document',
-      options: {
-        useWebcam: false,
-      },
     },
     {
       type: 'face',
@@ -398,9 +393,6 @@ export const commonSteps: Record<
     'welcome',
     {
       type: 'document',
-      options: {
-        useWebcam: true,
-      },
     },
     'face',
     'complete',
@@ -431,9 +423,6 @@ export const commonSteps: Record<
     'welcome',
     {
       type: 'document',
-      options: {
-        useWebcam: false,
-      },
     },
     {
       type: 'face',

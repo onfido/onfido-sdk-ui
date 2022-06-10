@@ -78,12 +78,6 @@ const formatOptions = ({
 const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
   const documentStep = buildStepFinder(steps)('document')
 
-  if (documentStep?.options?.useWebcam) {
-    console.warn(
-      '`useWebcam` is an experimental option and is currently discouraged'
-    )
-  }
-
   if (documentStep?.options?.useLiveDocumentCapture) {
     console.warn(
       '`useLiveDocumentCapture` is a beta feature and is still subject to ongoing changes'

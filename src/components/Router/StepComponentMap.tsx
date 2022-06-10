@@ -113,12 +113,11 @@ const shouldUseCameraForDocumentCapture = (
   deviceHasCameraSupport?: boolean
 ): boolean => {
   const canUseLiveDocumentCapture =
-    (!isDesktop || isHybrid) && documentStep?.options?.useLiveDocumentCapture
+    ((!isDesktop || isHybrid) &&
+      documentStep?.options?.useLiveDocumentCapture) ??
+    false
 
-  return (
-    (canUseLiveDocumentCapture || documentStep?.options?.useWebcam === true) &&
-    deviceHasCameraSupport === true
-  )
+  return canUseLiveDocumentCapture && deviceHasCameraSupport === true
 }
 
 const buildCaptureStepComponents = (

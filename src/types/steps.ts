@@ -54,7 +54,6 @@ export type CaptureOptions = {
   requestedVariant?: RequestedVariant
   uploadFallback?: boolean
   useUploader?: boolean
-  useWebcam?: boolean
 }
 
 export type StepOptionWelcome = {

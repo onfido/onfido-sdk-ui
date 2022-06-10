@@ -8,7 +8,6 @@ import { randomId } from '~utils/string'
 import { appendToTracking, trackException } from '../../Tracker'
 import { useLocales } from '~locales'
 import DocumentVideo from '../DocumentVideo'
-import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
@@ -194,7 +193,6 @@ const Document = (props: Props) => {
     trackScreen,
     uploadFallback = true,
     useLiveDocumentCapture,
-    useWebcam,
   } = props
 
   const renderFallback = isDesktop
@@ -234,17 +232,6 @@ const Document = (props: Props) => {
   const renderTitle = <PageTitle title={title} smaller />
   const enableLiveDocumentCapture =
     useLiveDocumentCapture && (!isDesktop || isHybrid)
-
-  if (hasCamera && useWebcam) {
-    return (
-      <DocumentAutoCapture
-        {...propsWithErrorHandling}
-        renderFallback={renderFallback}
-        renderTitle={renderTitle}
-        onValidCapture={handlePhotoCapture}
-      />
-    )
-  }
 
   if (hasCamera && enableLiveDocumentCapture) {
     if (!documentType) {

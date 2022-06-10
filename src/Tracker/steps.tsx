@@ -14,7 +14,6 @@ const keys = [
   'photoCaptureFallback',
   'retries',
   'useUploader',
-  'useWebcam',
 ]
 
 export const cleanStepsForConfig = (steps: StepConfig[]): StepConfig[] =>
