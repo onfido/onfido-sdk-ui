@@ -25,31 +25,35 @@ public class Mock {
         this.driver = driver;
     }
 
+    public Mock response(Code code, int statusCode) {
+        return perform(false, code, "", statusCode);
+    }
+
     public Mock extend(Code code, String payload) {
-        return perform(true, code, payload);
+        return perform(true, code, payload, null);
     }
 
     public Mock extend(Code code, Object object) {
-        return perform(true, code, object);
+        return perform(true, code, object, null);
     }
 
     public Mock set(Code code, String payload) {
-        return perform(false, code, payload);
+        return perform(false, code, payload, null);
     }
 
     public Mock set(Code code, Object object) {
-        return perform(false, code, object);
+        return perform(false, code, object, null);
     }
 
-    private Mock perform(boolean extend, Code code, Object object) {
+    private Mock perform(boolean extend, Code code, Object object, Integer statusCode) {
         try {
-            return perform(extend, code, objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(object));
+            return perform(extend, code, objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(object), statusCode);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private Mock perform(boolean extend, Code code, String payload) {
+    private Mock perform(boolean extend, Code code, String payload, Integer statusCode) {
         var url = String.format("/mock/%s", code.code);
         var sessionId = driver.getSessionId().toString();
         var method = extend ? "PATCH" : "PUT";
@@ -60,7 +64,7 @@ public class Mock {
             log.info("Setting response payload for {} to {}", code, payload);
         }
 
-        driver.executeScript("return window.request.apply(window, Array.prototype.slice.call(arguments))", method, url, sessionId, payload);
+        driver.executeScript("return window.request.apply(window, Array.prototype.slice.call(arguments))", method, url, sessionId, payload, statusCode);
 
         return this;
     }
