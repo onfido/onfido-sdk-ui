@@ -1,22 +1,17 @@
 package com.onfido.qa.websdk.test;
 
+import com.onfido.qa.websdk.mock.Consent;
+import com.onfido.qa.websdk.mock.SdkConfiguration;
 import com.onfido.qa.websdk.mock.TaskDefinition;
 import com.onfido.qa.websdk.mock.WorkflowRun;
-import com.onfido.qa.websdk.page.BasePage;
-import com.onfido.qa.websdk.page.CountrySelector;
-import com.onfido.qa.websdk.page.FaceVideoIntro;
-import com.onfido.qa.websdk.page.PoAIntro;
-import com.onfido.qa.websdk.page.ProfileData;
-import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
-import com.onfido.qa.websdk.page.SelfieIntro;
-import com.onfido.qa.websdk.page.SpinnerPage;
-import com.onfido.qa.websdk.page.Welcome;
+import com.onfido.qa.websdk.page.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
 import java.util.UUID;
 
-import static com.onfido.qa.websdk.mock.Code.WORKFLOW_RUN;
+import static com.onfido.qa.websdk.mock.Code.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WorkflowIT extends WebSdkIT {
@@ -71,5 +66,36 @@ public class WorkflowIT extends WebSdkIT {
         assertThat(page.backArrow().isDisplayed()).isFalse();
 
 
+    }
+
+    @Test(description = "show consent screen, if consent is not already given")
+    public void testConsentScreenShownWhenConsentNotAlreadyGiven() {
+        var userConsent = onfido()
+                .withWorkflowRunId(workflowRunId)
+                .withMock(mock -> {
+                    mock.set(WORKFLOW_RUN, new WorkflowRun(workflowRunId, TaskDefinition.UPLOAD_DOCUMENT));
+                    mock.extend(SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                })
+                .init(Welcome.class)
+                .continueToNextStep(UserConsent.class)
+                .acceptUserConsent(RestrictedDocumentSelection.class);
+
+
+        verifyCopy(userConsent.title(), "doc_select.title");
+    }
+
+    @Test(description = "do not show consent screen, if consent is already given")
+    public void testConsentScreenNotShownWhenConsentAlreadyGiven() {
+        var document = onfido()
+                .withWorkflowRunId(workflowRunId)
+                .withMock(mock -> {
+                    mock.set(WORKFLOW_RUN, new WorkflowRun(workflowRunId, TaskDefinition.UPLOAD_DOCUMENT));
+                    mock.extend(SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                    mock.set(CONSENTS, Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
+                })
+                .init(Welcome.class)
+                .continueToNextStep(RestrictedDocumentSelection.class);
+
+        verifyCopy(document.title(), "doc_select.title");
     }
 }

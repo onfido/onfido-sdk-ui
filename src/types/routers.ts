@@ -1,4 +1,4 @@
-import { h, ComponentType } from 'preact'
+import { h, ComponentType, ComponentChildren } from 'preact'
 import { ActionCreatorsMapObject } from 'redux'
 
 import type { ErrorCallback } from './api'
@@ -86,15 +86,26 @@ export type InternalRouterProps = {
   options: NarrowSdkOptions
 } & ExternalRouterProps
 
-export type HistoryRouterProps = {
+type HistoryRouterBaseProps = {
   crossDeviceClientError?: (name?: ErrorNames) => void
   mobileConfig?: MobileConfig
   sendClientSuccess?: () => void
   step?: number
   stepIndexType?: StepIndexType
   workflowRunId?: string
-  useSteps: StepsHook
 } & InternalRouterProps
+
+export type HistoryRouterWrapperProps = HistoryRouterBaseProps & {
+  useSteps: StepsHook
+  fallback?: ComponentChildren
+}
+
+export type HistoryRouterProps = HistoryRouterBaseProps & {
+  loadNextStep: (p: () => void) => void
+  completeStep: (data: CompleteStepValue) => void
+  hasNextStep: boolean
+  steps: StepConfig[]
+}
 
 export type StepsRouterProps = {
   back: () => void
@@ -107,7 +118,7 @@ export type StepsRouterProps = {
   triggerOnError: ErrorCallback
   isLoadingStep?: boolean
   completeStep: (data: CompleteStepValue) => void
-} & HistoryRouterProps
+} & HistoryRouterBaseProps
 
 export type StepComponentBaseProps = {
   resetSdkFocus: () => void
@@ -164,19 +175,13 @@ export type StepperState = {
   docData: unknown[]
 }
 
-export type StepsLoadingStatus =
-  | 'idle'
-  | 'loading'
-  | 'success'
-  | 'finished'
-  | 'error'
-
 export type CompleteStepValue = Array<{ id: string }> | Record<string, unknown>
 
 export type StepsHook = () => {
   loadNextStep: (p: () => void) => void
   completeStep: (data: CompleteStepValue) => void
-  status: StepsLoadingStatus
-  steps: StepConfig[]
+  loading: boolean
+  hasNextStep: boolean
+  steps: StepConfig[] | undefined
   error: string | undefined
 }
