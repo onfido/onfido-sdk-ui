@@ -1,12 +1,12 @@
 const MediaRecorder = window.MediaRecorder
 
-const handleDataAvailable = (event, recordedBlobs) => {
+const handleDataAvailable = (event: BlobEvent, recordedBlobs: Array<Blob>) => {
   if (event.data && event.data.size > 0) {
     recordedBlobs.push(event.data)
   }
 }
 
-const handleStop = (event) => {
+const handleStop = (event: Event) => {
   console.log('Recorder stopped: ', event)
 }
 
@@ -21,14 +21,14 @@ const videoOptions = () => {
     audioBitsPerSecond: 128000,
     videoBitsPerSecond: 2500000,
   }
-  let mimeTypes = [
+  const mimeTypes = [
     'video/webm;codecs=vp8,opus',
     'video/webm;codecs=vp8',
     'video/webm;codecs=vp9',
     'video/webm',
   ]
   let mimeType = ''
-  for (let type in mimeTypes) {
+  for (const type in mimeTypes) {
     if (MediaRecorder.isTypeSupported(mimeTypes[type])) {
       mimeType = mimeTypes[type]
       break
@@ -42,8 +42,11 @@ const videoOptions = () => {
   }
 }
 
-export const createMediaRecorder = (stream) => {
-  let options = videoOptions()
+export const createMediaRecorder = (
+  stream: MediaStream | undefined
+): MediaRecorder | undefined => {
+  if (!stream) return
+  const options = videoOptions()
   try {
     return new MediaRecorder(stream, options)
   } catch (e) {
@@ -52,8 +55,8 @@ export const createMediaRecorder = (stream) => {
   }
 }
 
-export const startRecording = (mediaRecorder) => {
-  let recordedBlobs = []
+export const startRecording = (mediaRecorder: MediaRecorder) => {
+  const recordedBlobs: Array<Blob> = []
   mediaRecorder.onstop = handleStop
   mediaRecorder.ondataavailable = (e) => handleDataAvailable(e, recordedBlobs)
   mediaRecorder.start(10) // collect 10ms of data

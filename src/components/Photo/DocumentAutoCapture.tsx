@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
-import Webcam from 'react-webcam-onfido'
+import Webcam from 'webcam/react-webcam'
 import { screenshot } from '~utils/camera'
 import { blobToLossyBase64 } from '~utils/blob'
 import { randomId } from '~utils/string'

@@ -1,20 +1,25 @@
-/* @flow */
-import React, { Component } from 'react'
+import { h, Component } from 'preact'
 import { createMediaRecorder, startRecording } from './video'
 import { backCameraKeywords } from './utils'
-import enumerateDevices from 'enumerate-devices'
+import enumerateDevices, { DeviceData } from 'enumerate-devices'
+
+type GetUserMediaType = (
+  constraints?: MediaStreamConstraints
+) => Promise<MediaStream>
 
 /*
 Deliberately ignoring the old api, due to very inconsistent behaviour
 */
 const mediaDevices = navigator.mediaDevices
-const getUserMedia =
+const getUserMedia: GetUserMediaType | null =
   mediaDevices && mediaDevices.getUserMedia
     ? mediaDevices.getUserMedia.bind(mediaDevices)
     : null
 const hasGetUserMedia = !!getUserMedia
 
-const handleFacingModeConstraints = (constraints) => {
+const handleFacingModeConstraints = (
+  constraints: MediaStreamConstraints
+): Promise<MediaStreamConstraints> | undefined => {
   if (constraints && typeof constraints.video === 'object') {
     const { facingMode } = constraints.video
     // To detect an environment or rear facing camera, the constraint can be passed in as {facingMode: "environment"} or {facingMode: {exact: "environment"}};
@@ -22,20 +27,27 @@ const handleFacingModeConstraints = (constraints) => {
     const shouldUseBackCam =
       facingMode === 'environment' ||
       (typeof facingMode === 'object' &&
+        // @ts-ignore
         facingMode.exact &&
+        // @ts-ignore
         facingMode.exact === 'environment')
-    if (!shouldUseBackCam) return constraints
-    return enumerateDevices().then((devices) => {
+    if (!shouldUseBackCam) return Promise.resolve(constraints)
+    return enumerateDevices().then((devices: DeviceData[]) => {
       const cameras = extractCamerasFromDevices(devices)
 
       const mainBackCam = mainBackCamera(cameras)
       if (mainBackCam && mainBackCam.deviceId === '') {
+        if (!constraints.video) {
+          constraints.video = {}
+        }
+        // @ts-ignore
         constraints.video.facingMode = { ideal: 'environment' }
       } else {
         const deviceId =
           mainBackCam && mainBackCam.deviceId
             ? mainBackCam.deviceId
             : cameras[0].deviceId
+        // @ts-ignore
         constraints.video.deviceId = { exact: deviceId }
       }
       return constraints
@@ -43,7 +55,7 @@ const handleFacingModeConstraints = (constraints) => {
   }
 }
 
-const isBackCameraLabel = (label) => {
+const isBackCameraLabel = (label: string): boolean => {
   const lowercaseLabel = label.toLowerCase()
 
   return backCameraKeywords.some((keyword) => {
@@ -53,17 +65,23 @@ const isBackCameraLabel = (label) => {
 
 const cameraObjects = new Map()
 
-const extractCamerasFromDevices = (devices) => {
-  const cameras = devices
-    .filter((device) => {
+type CameraType = {
+  deviceId?: string
+  label: string
+  cameraType: 'front' | 'back'
+}
+
+const extractCamerasFromDevices = (devices: DeviceData[]): CameraType[] => {
+  const cameras: Array<CameraType> = devices
+    .filter((device: DeviceData) => {
       return device.kind === 'videoinput'
     })
-    .map((videoDevice) => {
+    .map((videoDevice: DeviceData) => {
       if (cameraObjects.has(videoDevice.deviceId)) {
         return cameraObjects.get(videoDevice.deviceId)
       }
 
-      const label = videoDevice.label !== null ? videoDevice.label : ''
+      const label = videoDevice.label || ''
       const camera = {
         deviceId: videoDevice.deviceId,
         label,
@@ -109,36 +127,37 @@ const extractCamerasFromDevices = (devices) => {
   return cameras
 }
 
-const mainBackCamera = (cameras) =>
+const mainBackCamera = (cameras: Array<CameraType>) =>
   cameras
     .filter((camera) => camera.cameraType === 'back')
     .sort((camera1, camera2) => camera1.label.localeCompare(camera2.label))[0]
 
 const DEBUG = false
-const debugConsole = (...args) => {
+const debugConsole = (...args: any[]) => {
   if (DEBUG) console.log(...args)
 }
 
-type constraintTypes = number | Object
-type facingModeLiterals = 'user' | 'environment'
-type facingModeType = facingModeLiterals | { exact: facingModeLiterals }
+type FacingModeType =
+  | VideoFacingModeEnum
+  | { exact: VideoFacingModeEnum }
+  | { ideal: VideoFacingModeEnum }
 
-type CameraType = {
-  audio?: boolean,
-  onUserMedia: Function,
-  onFailure: Function,
-  height?: constraintTypes,
-  width?: constraintTypes,
-  fallbackHeight?: constraintTypes,
-  fallbackWidth?: constraintTypes,
-  facingMode?: facingModeType,
-  screenshotFormat?: 'image/webp' | 'image/png' | 'image/jpeg',
-  className?: String,
+export type WebcamProps = {
+  audio?: boolean
+  className?: string
+  facingMode?: FacingModeType
+  fallbackHeight?: ConstrainULong
+  fallbackWidth?: ConstrainULong
+  height?: ConstrainULong
+  onFailure?: (error?: Error) => void
+  onUserMedia?: () => void
+  screenshotFormat?: 'image/webp' | 'image/png' | 'image/jpeg'
+  width?: ConstrainULong
 }
 
 type State = {
-  hasUserMedia: boolean,
-  mirrored: boolean,
+  hasUserMedia: boolean
+  mirrored: boolean
 }
 
 const permissionErrors = [
@@ -147,22 +166,22 @@ const permissionErrors = [
   'NotFoundError',
 ]
 
-const stopStreamTracks = (stream: MediaStream) => {
+const stopStreamTracks = (stream: MediaStream | undefined) => {
   if (stream && stream.getVideoTracks) {
     // check for stream first AND stream.getVideoTracks
-    for (let track of stream.getVideoTracks()) {
+    for (const track of stream.getVideoTracks()) {
       track.stop()
     }
   }
   if (stream && stream.getAudioTracks) {
     // check for stream first AND stream.getAudioTracks
-    for (let track of stream.getAudioTracks()) {
+    for (const track of stream.getAudioTracks()) {
       track.stop()
     }
   }
 }
 
-export default class Webcam extends Component<CameraType, State> {
+export default class Webcam extends Component<WebcamProps, State> {
   static defaultProps = {
     audio: false,
     screenshotFormat: 'image/webp',
@@ -170,7 +189,7 @@ export default class Webcam extends Component<CameraType, State> {
     onFailure: () => {},
   }
 
-  static mountedInstances = []
+  static mountedInstances: Array<Webcam> = []
 
   static userMediaRequested = false
 
@@ -179,19 +198,19 @@ export default class Webcam extends Component<CameraType, State> {
     mirrored: false,
   }
 
-  stream: MediaStream
-  canvas: HTMLCanvasElement
-  ctx: CanvasRenderingContext2D
-  video: ?HTMLVideoElement
-  recordedBlobs: Array<any>
-  mediaRecorder: Object
+  stream?: MediaStream
+  canvas?: HTMLCanvasElement
+  ctx?: CanvasRenderingContext2D | null
+  video?: HTMLVideoElement | null
+  recordedBlobs?: Array<Blob>
+  mediaRecorder?: MediaRecorder
 
-  constructor(props: CameraType) {
+  constructor(props: WebcamProps) {
     super(props)
 
     if (!hasGetUserMedia) {
       const error = new Error('getUserMedia is not supported by this browser')
-      this.props.onFailure(error)
+      this.props.onFailure && this.props.onFailure(error)
     }
   }
 
@@ -215,33 +234,36 @@ export default class Webcam extends Component<CameraType, State> {
   }
 
   getConstraints(
-    width: *,
-    height: *,
-    facingMode?: facingModeType,
+    width?: ConstrainULong,
+    height?: ConstrainULong,
+    facingMode?: FacingModeType,
     audio?: boolean
-  ): Object {
+  ): MediaStreamConstraints {
     /*
     Safari 11 has a bug where if you specify both the height and width
     constraints you must chose a resolution supported by the web cam. If an
     unsupported resolution is used getUserMedia(constraints) will hit a
     OverconstrainedError complaining that width is an invalid constraint.
     This bug exists for ideal constraints as well as min and max.
-
     However if only a height is specified safari will correctly chose the
     nearest resolution supported by the web cam.
-
     Reference: https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API/Constraints
     */
 
     // if `{facingMode: 'user'}` Firefox will still allow the user to choose which camera to use (Front camera will be the first option)
     // if `{facingMode: {exact: 'user'}}` Firefox won't give the user a choice and will show the front camera
-    const constraints: Object = { video: { facingMode }, audio }
+    const constraints: MediaStreamConstraints = {
+      video: { facingMode },
+      audio,
+    }
 
     if (width) {
+      // @ts-ignore
       constraints.video.width = parseInt(width, 10) || width // some devices need a Number type
     }
 
     if (height) {
+      // @ts-ignore
       constraints.video.height = parseInt(height, 10) || height
     }
 
@@ -267,17 +289,17 @@ export default class Webcam extends Component<CameraType, State> {
       audio
     )
 
-    const logError = (e) => console.log('error', e, typeof e)
+    const logError = (e: any) => console.log('error', e, typeof e)
 
-    const onSuccess = (stream) => {
+    const onSuccess = (stream: MediaStream) => {
       Webcam.userMediaRequested = false
       Webcam.mountedInstances.forEach((instance) =>
         instance.handleUserMedia(stream)
       )
     }
 
-    let hasTriedFallbackConstraints
-    const onError = (e) => {
+    let hasTriedFallbackConstraints = false
+    const onError = (e: any) => {
       Webcam.userMediaRequested = false
       logError(e)
       const isPermissionError = permissionErrors.includes(e.name)
@@ -300,7 +322,7 @@ export default class Webcam extends Component<CameraType, State> {
       // If some 'videoinput' devices do no contains label, permission is not granted yet.
       if (!hasDevicePermission) {
         // Call getUserMedia just to trigger the permission popup
-        let mediaStream = await getUserMedia({ video: true, audio })
+        const mediaStream = await getUserMedia({ video: true, audio })
         mediaStream.getVideoTracks().forEach((stream) => stream.stop())
       }
 
@@ -316,11 +338,11 @@ export default class Webcam extends Component<CameraType, State> {
     }
   }
 
-  handleError(error: Object) {
+  handleError(error: any) {
     this.setState({
       hasUserMedia: false,
     })
-    this.props.onFailure(error)
+    this.props.onFailure && this.props.onFailure(error)
   }
 
   handleUserMedia(stream: MediaStream) {
@@ -332,6 +354,7 @@ export default class Webcam extends Component<CameraType, State> {
     since we will be seeing  the stream of the rear camera*/
     const isVideoStreamForRearCamera =
       facingMode === 'environment' ||
+      // @ts-ignore
       (facingMode && facingMode.exact && facingMode.exact === 'environment')
 
     this.setState({
@@ -344,7 +367,7 @@ export default class Webcam extends Component<CameraType, State> {
           !videoSettings.facingMode),
     })
 
-    this.props.onUserMedia()
+    this.props.onUserMedia && this.props.onUserMedia()
   }
 
   componentWillUnmount() {
@@ -388,6 +411,7 @@ export default class Webcam extends Component<CameraType, State> {
     const { canvas } = this
 
     if (!this.ctx) this.ctx = canvas.getContext('2d')
+    if (!this.ctx) return null
     const { ctx } = this
 
     // This is set every time incase the video element has resized
@@ -401,14 +425,17 @@ export default class Webcam extends Component<CameraType, State> {
 
   startRecording() {
     this.mediaRecorder = createMediaRecorder(this.stream)
-    this.recordedBlobs = startRecording(this.mediaRecorder)
+    if (this.mediaRecorder) {
+      this.recordedBlobs = startRecording(this.mediaRecorder)
+    }
   }
 
   stopRecording() {
-    this.mediaRecorder.stop(this.recordedBlobs)
+    this.mediaRecorder && this.mediaRecorder.stop()
   }
 
-  getVideoBlob() {
+  getVideoBlob(): Blob | undefined {
+    if (!this.mediaRecorder) return
     const mimeType = this.mediaRecorder.mimeType
     const type = mimeType.split(';')[0] // mimeType (excluding the codec)
     return new Blob(this.recordedBlobs, { type })
@@ -436,6 +463,7 @@ export default class Webcam extends Component<CameraType, State> {
         // the muted attribute must be true and should be used in conjuction with `playsinline="true"` and `autoPlay="true"`, in order to prevent the "Live Broadcast" screen in iOS Safari
         muted
         autoPlay
+        // @ts-ignore
         playsinline // necessary for iOS, see https://github.com/webrtc/samples/issues/929
         srcObject={this.stream}
         className={this.props.className}
