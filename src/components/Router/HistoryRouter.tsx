@@ -270,9 +270,9 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
 
   if (status === 'error') {
     return (
-      <div>
+      <div data-page-id={'Error'}>
         <p>There was a server error!</p>
-        <p>{error}</p>
+        <p data-qa="error">{error}</p>
         <p>Please try reloading the app, and try again.</p>
       </div>
     )
