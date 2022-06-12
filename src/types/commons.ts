@@ -1,7 +1,13 @@
 import { EventEmitter2 } from 'eventemitter2'
 import { EnterpriseFeatures } from './enterprise'
 import { SupportedLanguages, LocaleConfig } from './locales'
-import { DocumentTypes, PoaTypes, StepConfig, StepTypes } from './steps'
+import {
+  DocumentTypes,
+  PoaTypes,
+  PrivateStepConfig,
+  StepConfig,
+  StepTypes,
+} from './steps'
 import { SdkOptions } from './sdk'
 import { UICustomizationOptions } from './ui-customisation-options'
 
@@ -28,9 +34,15 @@ const STEP_CROSS_DEVICE = 'crossDevice'
 export type ExtendedStepTypes = StepTypes | typeof STEP_CROSS_DEVICE
 export type ExtendedStepConfig =
   | StepConfig
-  | { type: typeof STEP_CROSS_DEVICE; options?: never; skip?: boolean }
+  | ({ type: typeof STEP_CROSS_DEVICE; options?: never } & PrivateStepConfig)
 
-export type CaptureMethods = 'poa' | 'document' | 'face' | 'auth' | 'data'
+export type CaptureMethods =
+  | 'poa'
+  | 'document'
+  | 'face'
+  | 'auth'
+  | 'data'
+  | 'activeVideo'
 
 export type CaptureMethodVariants = 'live' | 'html5'
 
