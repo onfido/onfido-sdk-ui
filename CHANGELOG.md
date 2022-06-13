@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [8.1.0] - 2022-06-13
+
 ### Changed
 
 - Internal: Use the `max_total_retries` field from SdkConfiguration to compute the max number of document capture retries after an image quality failed check. It was previously was set to 1.
@@ -20,7 +22,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
 - Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
 - Internal: Added test case configs to our demo app with queryString `testCase`
-- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
 - Internal: Add a css root scope to our SDK
 - Public: Scope our customization of castor components to our SDK css root
 - Public: Strip away `color-scheme` to prevent interference with customer styles
@@ -31,9 +32,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added `ScreenLayout` to CrossDeviceSubmit
 - Internal: Update FaceTec SDK on Auth step from 9.4.5 to 9.4.11
 - Internal: Upgrade `typescript` to 4.6.2
-- Public: Fix inline style to support Content Security Policy
 - Public: Add UI customization option for `colorBackgroundQRCode`
 - Public: Fix for http 204 request errors due to parsing
+
+### Fixed
+
+- Public: Fix inline style to support Content Security Policy
+- Public: Fix for http 204 request errors due to parsing
+- Public: Fix for skipping step when using cross-device on mobile
+- Public: Fix for showing user consent multiple times
+- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
 
 ## [8.0.0] - 2022-04-21
 
@@ -159,6 +167,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added `autoFocusOnInitialScreenTitle` SDK configuration option for integrators to override the SDK auto focusing on the initial screen's title on loading. The default behaviour may not be desirable for some host apps or sites as it could cause the browser to focus on the SDK, rather than content or form inputs outside of the SDK that the end user should see and fill in first.
 - Upgrade `react-phone-number-input` to v3.1.38
 - Revert change which returns document type as 'unknown' in `onComplete` callback payload if Residence Permit is selected. The API now supports Residence Permit as a document type for document uploads.
+
+## [6.15.6] - 2022-06-08
+
+### Fixed
+
+- Public: Added mapping to convert old to new analytics events
 
 ## [6.15.5] - 2021-12-2
 
@@ -1265,8 +1279,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Public: it's now possible to change the init options at runtime by calling `setOptions()` on the object returned by `Onfido.init()`
 - Public: `useWebcam` option added to the facial and document capture step
 
-[detectrtc]: https://github.com/muaz-khan/DetectRTC
-
 ## [0.5.1]
 
 ### Fix
@@ -1286,13 +1298,16 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0...development
+[8.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0
+[8.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...8.0.0
 [6.20.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...6.20.1
 [6.20.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.19.0...6.20.0
 [6.19.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...6.19.0
 [6.18.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.17.0...6.18.0
 [6.17.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...6.17.0
-[6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.16.0
+[6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.6...6.16.0
+[6.15.6]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.15.6
 [6.15.5]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...6.15.5
 [6.15.4]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...6.15.4
 [6.15.3]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...6.15.3

@@ -12,7 +12,7 @@ const updateDemoApp = async () => {
   debug(`Cloning ${repoName}`)
   await execute(`rm -rf ${repoName}`)
   await execute(`git clone ${repo}`)
-  await execute(`git checkout -b upgrade/${RELEASE_VERSION}`, cwd)
+  await execute('git checkout master', cwd)
 
   debug(`Installing onfido-sdk-ui@${RELEASE_VERSION}`)
   await spawnShell(`npm i onfido-sdk-ui@${RELEASE_VERSION}`, cwd)
@@ -27,7 +27,7 @@ const updateDemoApp = async () => {
     cwd
   )
 
-  await execute(`git push origin head`, cwd)
+  await execute(`git push origin master`, cwd)
   await execute(`rm -rf ${repoName}`)
 }
 
