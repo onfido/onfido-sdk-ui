@@ -10,8 +10,6 @@ import Document from '../Document'
 import withCaptureVariant from '../withCaptureVariant'
 
 import type { StepComponentDocumentProps } from '~types/routers'
-import { createOptionsStepsHook } from '../../Router/createOptionsStepsHook'
-import { NarrowSdkOptions } from '~types/commons'
 
 jest.mock('../withCrossDeviceWhenNoCamera')
 
@@ -21,10 +19,6 @@ const DocumentVideoCapture = withCaptureVariant(Document, {
   side: 'front',
   requestedVariant: 'video',
 })
-
-const defaultOptions: NarrowSdkOptions = {
-  steps: [{ type: 'welcome' }, { type: 'document' }],
-}
 
 const defaultProps: StepComponentDocumentProps = {
   allowCrossDeviceFlow: true,
@@ -40,7 +34,6 @@ const defaultProps: StepComponentDocumentProps = {
   trackScreen: jest.fn(),
   triggerOnError: jest.fn(),
   hasCamera: true,
-  useSteps: createOptionsStepsHook(defaultOptions),
   completeStep: jest.fn(),
   ...mockedReduxProps,
 }

@@ -39,3 +39,6 @@ export const findFirstIndex = (
   componentsList: ComponentStep[],
   clientStepIndex: number
 ) => componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
+
+export const findFirstEnabled = (componentsList: ComponentStep[]) =>
+  componentsList.findIndex((c) => !c.step.skip)

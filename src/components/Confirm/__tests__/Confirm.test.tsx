@@ -45,7 +45,6 @@ const defaultStepComponentBaseProps: StepComponentBaseProps = {
   trackScreen: jest.fn(),
   completeStep: jest.fn(),
   step: 0,
-  useSteps: jest.fn(),
 }
 
 const defaultLocalisedProps: WithLocalisedProps = {
