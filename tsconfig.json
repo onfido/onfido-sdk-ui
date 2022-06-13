@@ -20,7 +20,8 @@
       "~utils": ["components/utils/index"],
       "~utils/*": ["components/utils/*"],
       "~supported-documents": ["supported-documents/index"],
-      "~auth-sdk/*": ["../auth-sdk/FaceTec/*"]
+      "~auth-sdk/*": ["../auth-sdk/FaceTec/*"],
+      "~webcam/*": ["webcam/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

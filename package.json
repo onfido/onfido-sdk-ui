@@ -73,7 +73,8 @@
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
       "^~supported-documents(.*)$": "<rootDir>/src/supported-documents$1",
       "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
-      "^components(.*)$": "<rootDir>/src/components$1"
+      "^components(.*)$": "<rootDir>/src/components$1",
+      "^~webcam(.*)$": "<rootDir>/src/webcam$1"
     },
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest",

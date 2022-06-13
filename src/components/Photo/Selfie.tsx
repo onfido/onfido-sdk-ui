@@ -7,7 +7,7 @@ import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 import { SdkMetadata } from '~types/commons'
-import Webcam from 'webcam/react-webcam'
+import Webcam from '~webcam/react-webcam'
 import {
   WithLocalisedProps,
   WithPageIdProps,

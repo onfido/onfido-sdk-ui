@@ -259,6 +259,7 @@ const baseConfig = {
       '~types': `${__dirname}/src/types`,
       '~utils': `${__dirname}/src/components/utils`,
       '~supported-documents': `${__dirname}/src/supported-documents`,
+      '~webcam': `${__dirname}/src/webcam`,
       '~auth-sdk': `${__dirname}/auth-sdk/FaceTec`,
       'socket.io-client': resolve(
         'node_modules/socket.io-client/dist/socket.io.js'

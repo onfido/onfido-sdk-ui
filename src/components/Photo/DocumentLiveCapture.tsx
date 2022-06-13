@@ -1,5 +1,5 @@
 import { Component, h } from 'preact'
-import Webcam from 'webcam/react-webcam'
+import Webcam from '~webcam/react-webcam'
 import { screenshot } from '~utils/camera'
 import { mimeType } from '~utils/blob'
 import { getInactiveError } from '~utils/inactiveError'

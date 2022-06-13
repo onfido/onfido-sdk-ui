@@ -1,6 +1,6 @@
 import { FunctionComponent, h, Ref } from 'preact'
 import { mount, ReactWrapper, shallow } from 'enzyme'
-import Webcam from 'webcam/react-webcam'
+import Webcam from '~webcam/react-webcam'
 
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider from '~jest/MockedReduxProvider'

@@ -1,4 +1,4 @@
-import Webcam from 'webcam/react-webcam'
+import Webcam from '~webcam/react-webcam'
 import { canvasToBlob } from './blob'
 
 import type { SdkMetadata } from '~types/commons'

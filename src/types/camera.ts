@@ -1,5 +1,5 @@
 import { h, Ref } from 'preact'
-import Webcam from 'webcam/react-webcam'
+import Webcam from '~webcam/react-webcam'
 
 import type { WithPermissionsFlowProps } from './hocs'
 import type { RenderFallbackProp } from './routers'

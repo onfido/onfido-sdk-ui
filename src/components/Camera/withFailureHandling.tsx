@@ -1,5 +1,5 @@
 import { h, Component, ComponentType } from 'preact'
-import { WebcamProps } from 'webcam/react-webcam'
+import { WebcamProps } from '~webcam/react-webcam'
 import CameraError from '../CameraError'
 
 import type { CameraProps } from '~types/camera'
