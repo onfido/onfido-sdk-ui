@@ -2,11 +2,12 @@ package com.onfido.qa.websdk.sdk;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.onfido.qa.configuration.Property;
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.webdriver.common.Component;
 import com.onfido.qa.webdriver.common.Page;
 import com.onfido.qa.webdriver.driver.ExpectedConditions;
-import com.onfido.qa.configuration.Property;
+import com.onfido.qa.websdk.mock.Mock;
 import com.onfido.qa.websdk.model.CrossDeviceLinkMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import java.util.function.Consumer;
 
 @SuppressWarnings({"SameParameterValue", "BooleanParameter"})
 public class WebSdk {
@@ -31,6 +34,7 @@ public class WebSdk {
     private final Driver driver;
     private boolean tokenSet;
     private final List<Runnable> beforeInit = new ArrayList<>();
+    private final List<Consumer<Mock>> mocks = new ArrayList<>();
     private boolean enableWebcam = true;
 
     public WebSdk(Driver driver) {
@@ -56,33 +60,36 @@ public class WebSdk {
     }
 
     public WebSdk withCrossDeviceLinkMethods(CrossDeviceLinkMethod... methods) {
-        put("_crossDeviceLinkMethods", Arrays.asList(methods));
-        return this;
+        return put("_crossDeviceLinkMethods", Arrays.asList(methods));
     }
 
     public WebSdk withCrossDeviceLinkMethods(String... methods) {
-        put("_crossDeviceLinkMethods", Arrays.asList(methods));
-        return this;
+        return put("_crossDeviceLinkMethods", Arrays.asList(methods));
     }
 
     public WebSdk withCrossDeviceClientIntroProductName(String productName) {
-        put("crossDeviceClientIntroProductName", productName);
-        return this;
+        return put("crossDeviceClientIntroProductName", productName);
     }
 
     public WebSdk withCrossDeviceClientIntroProductLogoSrc(String url) {
-        put("crossDeviceClientIntroProductLogoSrc", url);
-        return this;
+        return put("crossDeviceClientIntroProductLogoSrc", url);
     }
 
     public WebSdk withOnComplete(Raw raw) {
-        put("onComplete", raw);
-        return this;
+        return put("onComplete", raw);
     }
 
     public WebSdk withEnableWebcam() {
         enableWebcam = true;
         return this;
+    }
+
+    public WebSdk withWorkflowRunId(UUID workflowRunId) {
+        return withWorkflowRunId(workflowRunId.toString());
+    }
+
+    public WebSdk withWorkflowRunId(String workflowRunId) {
+        return put("workflowRunId", workflowRunId);
     }
 
     public WebSdk withDisableWebcam() {
@@ -111,11 +118,6 @@ public class WebSdk {
         return this;
     }
 
-    public WebSdk withSdkConfiguration(Map<String,Object> sdkConfiguration) {
-       parameters.put("overrideSdkConfiguration", sdkConfiguration);
-       return this;
-    }
-
     private WebSdk put(String key, Object value) {
         parameters.put(key, value);
         return this;
@@ -133,10 +135,17 @@ public class WebSdk {
         return put("steps", Arrays.stream(steps).toArray());
     }
 
+    public WebSdk withMock(Consumer<Mock> mock) {
+        mocks.add(mock);
+        return this;
+    }
+
     public Onfido init() {
 
         // navigate to the base url
         driver.get(Property.get("baseUrl"));
+
+        driver.executeScript(String.format("window.sessionId = '%s'", driver.getSessionId()));
 
         if (!tokenSet) {
             withToken(getToken());
@@ -152,6 +161,11 @@ public class WebSdk {
         driver.waitFor(ExpectedConditions.pageReady());
         // then call the onfido.init method with the parameters
 
+        var mock = new Mock(driver.driver);
+        mocks.forEach(consumer -> {
+            consumer.accept(mock);
+        });
+
         var parameters = serializedParameters();
         log.info("Initializing web sdk with: Onfido.init({})", parameters);
 
@@ -159,6 +173,7 @@ public class WebSdk {
 
         return new Onfido(driver);
     }
+
 
     private void setupWebcam() {
         if (enableWebcam) {

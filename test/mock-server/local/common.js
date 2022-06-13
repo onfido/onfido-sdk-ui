@@ -11,6 +11,14 @@
     }
   }
 
+  window.request = function(method, url, sessionId, payload) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method, url, false);
+    xhr.setRequestHeader("X-Session-Id", sessionId)
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.send(payload);
+  }
+
   var parameters = new URLSearchParams(location.search);
   if (parameters.has('link_id')) {
     window.onfido = Onfido.init({
