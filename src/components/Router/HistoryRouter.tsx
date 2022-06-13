@@ -1,6 +1,6 @@
-import { h } from 'preact'
+import { Fragment, h } from 'preact'
 
-import { buildStepFinder, findFirstIndex } from '~utils/steps'
+import { buildStepFinder, findFirstEnabled, findFirstIndex } from '~utils/steps'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
@@ -14,6 +14,7 @@ import type {
   ComponentStep,
   HistoryLocationState,
   HistoryRouterProps,
+  HistoryRouterWrapperProps,
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes, StepConfig } from '~types/steps'
@@ -36,6 +37,30 @@ const formattedError = ({ response, status }: ParsedError): FormattedError => {
   return { type, message }
 }
 
+export const HistoryRouterWrapper = ({
+  useSteps,
+  fallback,
+  ...props
+}: HistoryRouterWrapperProps) => {
+  const { steps, error, loading, ...useStepsProps } = useSteps()
+
+  if (!steps || loading) {
+    return <Fragment>{fallback}</Fragment>
+  }
+
+  if (error) {
+    return (
+      <div>
+        <p>There was a server error!</p>
+        <p>{error}</p>
+        <p>Please try reloading the app, and try again.</p>
+      </div>
+    )
+  }
+
+  return <HistoryRouter {...props} {...useStepsProps} steps={steps} />
+}
+
 export const HistoryRouter = (props: HistoryRouterProps) => {
   const {
     currentStepType,
@@ -49,7 +74,10 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     stepIndexType,
     deviceHasCameraSupport,
     options: { mobileFlow, useMemoryHistory },
-    useSteps,
+    steps,
+    hasNextStep,
+    loadNextStep,
+    completeStep,
   } = props
 
   const getComponentsList = (
@@ -81,15 +109,13 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     }
   }, useMemoryHistory)
 
-  const { loadNextStep, completeStep, error, status, steps } = useSteps()
-
   const [state, setState] = useState<HistoryRouterState>(() => {
     const componentsList = getComponentsList(steps, 'captureSteps')
 
     const stepIndex =
       stepIndexType === 'client'
         ? findFirstIndex(componentsList, defaultStep || 0)
-        : defaultStep || 0
+        : findFirstEnabled(componentsList)
 
     push({
       flow: 'captureSteps',
@@ -184,7 +210,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       if (isNewStepType) {
         actions.setCurrentStepType(newStepType)
       }
-    } else if (status !== 'finished') {
+    } else if (hasNextStep) {
       loadNextStep(() => {
         setStepIndex(0, 'captureSteps')
       })
@@ -263,20 +289,10 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
   }
 
   useEffect(() => {
-    if (status === 'finished') {
+    if (!hasNextStep) {
       triggerOnComplete()
     }
-  }, [status, triggerOnComplete])
-
-  if (status === 'error') {
-    return (
-      <div>
-        <p>There was a server error!</p>
-        <p>{error}</p>
-        <p>Please try reloading the app, and try again.</p>
-      </div>
-    )
-  }
+  }, [hasNextStep, triggerOnComplete])
 
   return (
     <StepsRouter

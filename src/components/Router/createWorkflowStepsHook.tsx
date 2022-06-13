@@ -3,27 +3,25 @@ import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
 
 import { formatStep } from '../../index'
 import { NarrowSdkOptions, UrlsConfig } from '~types/commons'
-import {
-  StepsLoadingStatus,
-  StepsHook,
-  CompleteStepValue,
-} from '~types/routers'
+import { StepsHook, CompleteStepValue } from '~types/routers'
 import { poller, PollFunc, Engine } from '../WorkflowEngine'
 import type { WorkflowResponse } from '../WorkflowEngine/utils/WorkflowTypes'
 import useUserConsent from '~contexts/useUserConsent'
 
 type WorkflowStepsState = {
-  status: StepsLoadingStatus
-  steps: StepConfig[]
+  loading: boolean
+  steps: StepConfig[] | undefined
+  hasNextStep: boolean
   taskId: string | undefined
   error: string | undefined
 }
 
 const defaultState: WorkflowStepsState = {
-  status: 'idle',
+  loading: false,
   taskId: undefined,
   error: undefined,
-  steps: [],
+  steps: undefined,
+  hasNextStep: true,
 }
 
 export const createWorkflowStepsHook = (
@@ -34,7 +32,6 @@ export const createWorkflowStepsHook = (
 
   const [state, setState] = useState<WorkflowStepsState>({
     ...defaultState,
-    steps: options.steps,
   })
 
   useEffect(() => {
@@ -49,7 +46,7 @@ export const createWorkflowStepsHook = (
     }))
   }, [addUserConsentStep])
 
-  const { taskId, status, error, steps } = state
+  const { taskId, loading, error, steps, hasNextStep } = state
 
   const docData = useRef<Array<{ id: string }>>([])
   const personalData = useRef<Record<string, unknown>>({})
@@ -77,7 +74,7 @@ export const createWorkflowStepsHook = (
       } catch {
         setState((state) => ({
           ...state,
-          status: 'error',
+          loading: false,
           error: 'Workflow run ID is not set.',
         }))
         return
@@ -88,7 +85,8 @@ export const createWorkflowStepsHook = (
       if (workflow.finished || !workflow.has_remaining_interactive_tasks) {
         setState((state) => ({
           ...state,
-          status: 'finished',
+          loading: false,
+          hasNextStep: false,
           taskId: workflow?.task_id,
           // @ts-ignore
           steps: [formatStep(workflowEngine.getOutcomeStep(workflow))],
@@ -112,7 +110,7 @@ export const createWorkflowStepsHook = (
       if (!step) {
         setState((state) => ({
           ...state,
-          status: 'error',
+          loading: false,
           error: 'Task is currently not supported.',
         }))
         return
@@ -120,7 +118,7 @@ export const createWorkflowStepsHook = (
 
       setState((state) => ({
         ...state,
-        status: 'success',
+        loading: false,
         steps: [formatStep(step)],
         taskId: workflow?.task_id,
       }))
@@ -148,7 +146,7 @@ export const createWorkflowStepsHook = (
 
       setState((state) => ({
         ...state,
-        status: 'loading',
+        loading: true,
       }))
 
       if (!taskId) {
@@ -167,6 +165,7 @@ export const createWorkflowStepsHook = (
         .then(() => {
           setState((state) => ({
             ...state,
+            loading: false,
             taskId: undefined,
           }))
           docData.current = []
@@ -175,7 +174,7 @@ export const createWorkflowStepsHook = (
         .catch(() =>
           setState((state) => ({
             ...state,
-            status: 'error',
+            loading: false,
             error: 'Could not complete workflow task.',
           }))
         )
@@ -187,7 +186,8 @@ export const createWorkflowStepsHook = (
   return {
     completeStep,
     loadNextStep,
-    status,
+    hasNextStep,
+    loading,
     steps,
     error,
   }

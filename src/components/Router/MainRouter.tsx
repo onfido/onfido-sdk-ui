@@ -6,7 +6,7 @@ import withTheme from '../Theme'
 import GenericError from '../GenericError'
 
 import { getWoopraCookie } from '../../Tracker'
-import { HistoryRouter } from './HistoryRouter'
+import { HistoryRouterWrapper } from './HistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
@@ -174,7 +174,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
               />
             }
           >
-            <HistoryRouter
+            <HistoryRouterWrapper
               {...this.props}
               mobileConfig={this.generateMobileConfig()}
               onFlowChange={this.onFlowChange}
@@ -183,6 +183,11 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
                 this.useWorkflowRun()
                   ? createWorkflowStepsHook(options, urls)
                   : createOptionsStepsHook(options)
+              }
+              fallback={
+                <Spinner
+                  shouldAutoFocus={options.autoFocusOnInitialScreenTitle}
+                />
               }
             />
           </PoASupportedCountriesProvider>

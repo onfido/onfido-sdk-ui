@@ -21,7 +21,7 @@ import {
   uninstallWoopra,
 } from '../../Tracker'
 import { LocaleProvider } from '~locales'
-import { HistoryRouter } from './HistoryRouter'
+import { HistoryRouterWrapper } from './HistoryRouter'
 
 import type { ErrorNames, MobileConfig } from '~types/commons'
 import type { SupportedLanguages, LocaleConfig } from '~types/locales'
@@ -413,7 +413,7 @@ export default class CrossDeviceMobileRouter extends Component<
               />
             }
           >
-            <HistoryRouter
+            <HistoryRouterWrapper
               {...this.props}
               {...this.state}
               crossDeviceClientError={this.setError}
