@@ -22,7 +22,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
 - Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
 - Internal: Added test case configs to our demo app with queryString `testCase`
-- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
 - Internal: Add a css root scope to our SDK
 - Public: Scope our customization of castor components to our SDK css root
 - Public: Strip away `color-scheme` to prevent interference with customer styles
@@ -33,9 +32,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added `ScreenLayout` to CrossDeviceSubmit
 - Internal: Update FaceTec SDK on Auth step from 9.4.5 to 9.4.11
 - Internal: Upgrade `typescript` to 4.6.2
-- Public: Fix inline style to support Content Security Policy
 - Public: Add UI customization option for `colorBackgroundQRCode`
+
+### Fixed
+
+- Public: Fix inline style to support Content Security Policy
 - Public: Fix for http 204 request errors due to parsing
+- Public: Fix for skipping step when using cross-device on mobile
+- Public: Fix for showing user consent multiple times
+- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
 
 ## [6.15.6] - 2022-06-08
 
