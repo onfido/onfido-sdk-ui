@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [8.1.0-rc.4] - 2022-05-30
+## [8.1.0] - 2022-06-13
 
 ### Changed
 
@@ -41,12 +41,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fix for skipping step when using cross-device on mobile
 - Public: Fix for showing user consent multiple times
 - Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
-
-## [6.15.6] - 2022-06-08
-
-### Fixed
-
-- Public: Added mapping to convert old to new analytics events
 
 ## [8.0.0] - 2022-04-21
 
@@ -172,6 +166,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added `autoFocusOnInitialScreenTitle` SDK configuration option for integrators to override the SDK auto focusing on the initial screen's title on loading. The default behaviour may not be desirable for some host apps or sites as it could cause the browser to focus on the SDK, rather than content or form inputs outside of the SDK that the end user should see and fill in first.
 - Upgrade `react-phone-number-input` to v3.1.38
 - Revert change which returns document type as 'unknown' in `onComplete` callback payload if Residence Permit is selected. The API now supports Residence Permit as a document type for document uploads.
+
+## [6.15.6] - 2022-06-08
+
+### Fixed
+
+- Public: Added mapping to convert old to new analytics events
 
 ## [6.15.5] - 2021-12-2
 
@@ -1297,15 +1297,16 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0-rc.4...development
-[8.1.0-rc.4]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0-rc.4
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0...development
+[8.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0
 [8.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...8.0.0
 [6.20.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...6.20.1
 [6.20.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.19.0...6.20.0
 [6.19.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...6.19.0
 [6.18.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.17.0...6.18.0
 [6.17.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...6.17.0
-[6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.16.0
+[6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.6...6.16.0
+[6.15.6]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.15.6
 [6.15.5]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...6.15.5
 [6.15.4]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...6.15.4
 [6.15.3]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...6.15.3
