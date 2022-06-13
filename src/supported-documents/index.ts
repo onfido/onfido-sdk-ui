@@ -59,7 +59,7 @@ export const getSupportedCountries = (
     .concat(supportedNationalIDCards)
     .concat(supportedResidencePermit)
     .concat(supportedPassport)
-    
+
   return filterList
     ? getCountriesList(allSupportedDocumentTypes).filter((el) => {
         return filterList.some((f) => {
