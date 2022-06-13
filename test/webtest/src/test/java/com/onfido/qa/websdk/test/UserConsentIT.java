@@ -90,25 +90,25 @@ public class UserConsentIT extends WebSdkIT {
         verifyCopy(welcome.title(), "welcome.title");
     }
 
-    @Test(description = "Is not displayed on cross device", groups = {"percy", "tabs"})
-    public void testIsNotDisplayedOnCrossDevice() {
-        var link = init(Welcome.class, "welcome", "document")
-                .continueToNextStep(UserConsent.class)
-                .acceptUserConsent(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
-                .selectDocument(PASSPORT, DocumentUpload.class)
-                .switchToCrossDevice().getSecureLink().copyLink();
+    // @Test(description = "Is not displayed on cross device", groups = {"percy", "tabs"})
+    // public void testIsNotDisplayedOnCrossDevice() {
+    //     var link = init(Welcome.class, "welcome", "document")
+    //             .continueToNextStep(UserConsent.class)
+    //             .acceptUserConsent(RestrictedDocumentSelection.class)
+    //             .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+    //             .selectDocument(PASSPORT, DocumentUpload.class)
+    //             .switchToCrossDevice().getSecureLink().copyLink();
 
-        openMobileScreen(link);
+    //     openMobileScreen(link);
 
-        var intro = verifyPage(CrossDeviceClientIntro.class);
-        switchToMainScreen();
+    //     var intro = verifyPage(CrossDeviceClientIntro.class);
+    //     switchToMainScreen();
 
-        verifyPage(CrossDeviceMobileConnected.class);
-        switchToMobileScreen();
+    //     verifyPage(CrossDeviceMobileConnected.class);
+    //     switchToMobileScreen();
 
-        var documentUpload = intro.clickContinue(DocumentUpload.class);
+    //     var documentUpload = intro.clickContinue(DocumentUpload.class);
 
-        verifyCopy(documentUpload.title(), "doc_submit.title_passport");
-    }
+    //     verifyCopy(documentUpload.title(), "doc_submit.title_passport");
+    // }
 }
