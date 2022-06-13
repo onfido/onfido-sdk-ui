@@ -29,6 +29,7 @@ const defaultProps: CountrySelectorProps = {
   triggerOnError: jest.fn(),
   hasCamera: true,
   allowCrossDeviceFlow: true,
+  completeStep: jest.fn(),
   ...mockedReduxProps,
 }
 

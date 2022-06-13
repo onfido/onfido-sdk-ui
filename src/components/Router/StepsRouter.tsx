@@ -6,7 +6,7 @@ import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 import { ContainerDimensionsProvider } from '~contexts/useContainerDimensions'
-
+import Spinner from '../Spinner'
 import type { TrackScreenCallback } from '~types/hocs'
 import type { StepComponentProps, StepsRouterProps } from '~types/routers'
 
@@ -41,10 +41,10 @@ class StepsRouter extends Component<StepsRouterProps> {
       disableNavigation,
       hideOnfidoLogo,
       isFullScreen,
+      isLoadingStep,
       options: { mobileFlow, ...globalUserOptions },
       ...otherProps
     } = this.props
-
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
@@ -99,7 +99,11 @@ class StepsRouter extends Component<StepsRouterProps> {
               [theme.scrollableContent]: !isFullScreen,
             })}
           >
-            <CurrentComponent {...passedProps} />
+            {isLoadingStep ? (
+              <Spinner />
+            ) : (
+              <CurrentComponent {...passedProps} />
+            )}
           </div>
           {!hideLogoLogic && (textCobrandLogic || logoCobrandLogic) ? (
             <div

@@ -30,6 +30,7 @@ const defaultProps: StepComponentBaseProps = {
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
   step: 0,
+  completeStep: jest.fn(),
 }
 
 const findButton = (wrapper: ReactWrapper) =>

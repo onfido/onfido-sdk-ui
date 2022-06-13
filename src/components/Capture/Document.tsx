@@ -299,6 +299,7 @@ const Document = (props: Props) => {
       title={title}
       instructions={instructions}
       pageId={'DocumentUploader'}
+      countryCode={props.idDocumentIssuingCountry?.country_alpha2}
     />
   )
 }

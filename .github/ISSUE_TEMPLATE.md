@@ -23,6 +23,6 @@ Please add code snippet(s) of your integration with the Onfido SDK and all custo
 
 Please describe in as much detail as possible how to reproduce the problem
 
-### Demo:
+### Reproducible demo:
 
-If possible, please share a URL or public repository where the issue can be reproduced
+Please provide a replication of the bug in our latest or LTS version as a demo. We have a basic [jsfiddle](https://jsfiddle.net/gh/get/library/pure/onfido/onfido-sdk-ui/tree/master/demo/fiddle) for you to get you started.

@@ -17,6 +17,7 @@ import customUIConfig from './custom-ui-config.json'
 import testDarkCobrandLogo from './assets/onfido-logo.svg'
 import testLightCobrandLogo from './assets/onfido-logo-light.svg'
 import sampleCompanyLogo from './assets/sample-logo.svg'
+import testCases from './testCases'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
@@ -63,6 +64,10 @@ export type QueryParams = {
   crossDeviceClientIntroCustomProductName?: StringifiedBoolean
   crossDeviceClientIntroCustomProductLogo?: StringifiedBoolean
   autoFocusOnInitialScreenTitle?: StringifiedBoolean
+  token?: string
+  applicantId?: StringifiedBoolean
+  workflowRunId?: StringifiedBoolean
+  testCase?: string
 }
 
 export type CheckData = {
@@ -309,6 +314,19 @@ export const getInitSdkOptions = (): SdkOptions => {
       queryParamToValueString.autoFocusOnInitialScreenTitle === 'true'
   }
 
+  let testCaseOptions = {}
+  if (queryParamToValueString.testCase) {
+    const testCase = testCases[queryParamToValueString.testCase]
+    if (!testCase) {
+      console.warn(
+        'The test case from the query param could not be found. The available keys are: ',
+        Object.keys(testCases)
+      )
+    }
+
+    testCaseOptions = testCase
+  }
+
   return {
     useModal: queryParamToValueString.useModal === 'true',
     shouldCloseOnOverlayClick:
@@ -334,6 +352,7 @@ export const getInitSdkOptions = (): SdkOptions => {
     ...smsNumberCountryCode,
     _crossDeviceLinkMethods: visibleCrossDeviceMethods,
     autoFocusOnInitialScreenTitle,
+    ...testCaseOptions,
   }
 }
 

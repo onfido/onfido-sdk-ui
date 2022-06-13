@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Cache node modules
@@ -32,15 +32,15 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run dependencies audit
-        uses: oke-py/npm-audit-action@v1.7.2
-        with:
-          audit_level: moderate
-          production_flag: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          issue_assignees: stefaniacardenas
-          issue_labels: vulnerability
-          dedupe_issues: true
+      # - name: Run dependencies audit
+      #   uses: oke-py/npm-audit-action@v1.7.2
+      #   with:
+      #     audit_level: moderate
+      #     production_flag: true
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     issue_assignees: stefaniacardenas
+      #     issue_labels: vulnerability
+      #     dedupe_issues: true
 
       - name: Run linters
         run: npm run check
@@ -81,7 +81,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Cache node modules
@@ -131,7 +131,7 @@ jobs:
       - uses: actions/checkout@v2.3.4
       - uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
       - uses: actions/setup-java@v2
@@ -166,7 +166,7 @@ jobs:
         working-directory: ./test/webtest
         id: chrome
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dit.test=!MultipleBrowsersDocumentUploadIT -DthreadCount=10 -Denvironment=headless"
+        run: ./run-ui-tests.sh "-Dbrowser=chrome -Dit.test=!MultipleBrowsersDocumentUploadIT,!ReleaseIT -DthreadCount=10 -Denvironment=headless"
         shell: bash
         continue-on-error: true
         env:

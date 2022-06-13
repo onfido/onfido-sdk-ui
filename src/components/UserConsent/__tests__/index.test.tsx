@@ -51,6 +51,7 @@ const defaultProps: StepComponentBaseProps = {
   resetSdkFocus: jest.fn(),
   trackScreen: jest.fn(),
   step: 0,
+  completeStep: jest.fn(),
 }
 
 const mockUpdateConsent = jest.fn()
@@ -66,6 +67,7 @@ describe('UserConsent', () => {
             enabled: true,
             consents: [],
             updateConsents: (v) => Promise.resolve(v).then(mockUpdateConsent),
+            addUserConsentStep: () => [],
           }}
         >
           <MockedLocalised>

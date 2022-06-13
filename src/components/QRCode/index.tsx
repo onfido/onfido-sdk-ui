@@ -3,7 +3,7 @@ import QRCode, { BaseQRCodeProps } from 'qrcode.react'
 
 type Props = {
   url: string
-  level: BaseQRCodeProps['level']
+  level?: BaseQRCodeProps['level']
   size: number
 }
 

@@ -20,8 +20,8 @@ const FlagComponent = ({ country }: { country: string }) => (
 )
 
 export type PhoneNumberInputProps = {
-  sms: { number: string }
-  smsNumberCountryCode: Country
+  sms?: { number?: string }
+  smsNumberCountryCode?: Country
   options: SdkOptions
   clearErrors: () => void
 } & ReduxProps &

@@ -21,7 +21,7 @@ import {
   uninstallWoopra,
 } from '../../Tracker'
 import { LocaleProvider } from '~locales'
-import HistoryRouter from './HistoryRouter'
+import { HistoryRouterWrapper } from './HistoryRouter'
 
 import type { ErrorNames, MobileConfig } from '~types/commons'
 import type { SupportedLanguages, LocaleConfig } from '~types/locales'
@@ -34,6 +34,7 @@ import type {
 import type { StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
+import { createCrossDeviceStepsHook } from './createCrossDeviceStepsHook'
 import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
 
 const RESTRICTED_CROSS_DEVICE = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
@@ -93,6 +94,8 @@ type State = {
   stepIndexType?: StepIndexType
   steps?: StepConfig[]
   token?: string
+  useWorkflow?: boolean
+  docPayload?: Record<string, unknown>[]
 }
 
 export default class CrossDeviceMobileRouter extends Component<
@@ -117,6 +120,8 @@ export default class CrossDeviceMobileRouter extends Component<
       step: undefined,
       steps: undefined,
       token: undefined,
+      useWorkflow: false,
+      docPayload: [],
     }
 
     this.state.socket.on('config', this.setUpHostedSDKWithMobileConfig)
@@ -205,8 +210,8 @@ export default class CrossDeviceMobileRouter extends Component<
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
       analyticsSessionUuid,
+      useWorkflow,
     } = data
-
     if (disableAnalytics) {
       uninstallWoopra()
       uninstallAnalyticsCookie(this.props.actions.setAnonymousUuid)
@@ -236,6 +241,8 @@ export default class CrossDeviceMobileRouter extends Component<
         stepIndexType: 'client',
         crossDeviceError: undefined,
         language,
+        useWorkflow,
+        docPayload: [],
       },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
       // Once a fix is released, it should be done in CX-2571
@@ -339,6 +346,7 @@ export default class CrossDeviceMobileRouter extends Component<
 
   sendClientSuccess = (): void => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
+    const { docPayload } = this.state
     const captureKeys = Object.keys(this.props.captures).filter(
       (key) => key !== 'takesHistory'
     ) as CaptureKeys[]
@@ -347,7 +355,15 @@ export default class CrossDeviceMobileRouter extends Component<
       // @ts-ignore
       return acc.concat(pick(this.props.captures[key], CAPTURE_DATA_WHITELIST))
     }, [])
-    this.sendMessage('client success', { captures })
+    this.sendMessage('client success', { captures, docPayload })
+  }
+
+  onCompleteStep = (docData: unknown[]): void => {
+    this.setState({
+      ...this.state,
+      // @ts-ignore
+      docPayload: [...this.state.docPayload, ...docData],
+    })
   }
 
   renderContent = (): h.JSX.Element => {
@@ -397,12 +413,12 @@ export default class CrossDeviceMobileRouter extends Component<
               />
             }
           >
-            <HistoryRouter
+            <HistoryRouterWrapper
               {...this.props}
               {...this.state}
               crossDeviceClientError={this.setError}
               sendClientSuccess={this.sendClientSuccess}
-              steps={steps}
+              useSteps={createCrossDeviceStepsHook(steps, this.onCompleteStep)}
             />
           </PoASupportedCountriesProvider>
         </SdkConfigurationServiceProvider>

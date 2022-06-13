@@ -5,6 +5,8 @@ import type {
   StepConfigMap,
 } from '~types/steps'
 
+import type { ComponentStep } from '~types/routers'
+
 export type FindStepCallback = <T extends StepTypes>(
   type: T
 ) => Partial<StepConfigMap>[T]
@@ -32,3 +34,11 @@ export const getEnabledDocuments = (steps: StepConfig[]): DocumentTypes[] => {
   const configuredDocTypes = Object.keys(docTypes) as DocumentTypes[]
   return configuredDocTypes.filter((type) => docTypes[type])
 }
+
+export const findFirstIndex = (
+  componentsList: ComponentStep[],
+  clientStepIndex: number
+) => componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
+
+export const findFirstEnabled = (componentsList: ComponentStep[]) =>
+  componentsList.findIndex((c) => !c.step.skip)

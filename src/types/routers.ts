@@ -1,4 +1,4 @@
-import { h, ComponentType } from 'preact'
+import { h, ComponentType, ComponentChildren } from 'preact'
 import { ActionCreatorsMapObject } from 'redux'
 
 import type { ErrorCallback } from './api'
@@ -16,9 +16,11 @@ import type {
   StepOptionDocument,
   StepOptionPoA,
   StepOptionFace,
+  StepOptionData,
   StepOptionComplete,
   StepOptionAuth,
   StepConfig,
+  StepOptionRetry,
 } from './steps'
 import type {
   CombinedActions,
@@ -42,7 +44,7 @@ export type FlowChangeCallback = (
   payload: {
     userStepIndex: number
     clientStepIndex: number
-    clientStep: ComponentStep
+    clientSteps: StepConfig[]
   }
 ) => void
 
@@ -84,14 +86,26 @@ export type InternalRouterProps = {
   options: NarrowSdkOptions
 } & ExternalRouterProps
 
-export type HistoryRouterProps = {
+type HistoryRouterBaseProps = {
   crossDeviceClientError?: (name?: ErrorNames) => void
   mobileConfig?: MobileConfig
   sendClientSuccess?: () => void
   step?: number
   stepIndexType?: StepIndexType
-  steps: StepConfig[]
+  workflowRunId?: string
 } & InternalRouterProps
+
+export type HistoryRouterWrapperProps = HistoryRouterBaseProps & {
+  useSteps: StepsHook
+  fallback?: ComponentChildren
+}
+
+export type HistoryRouterProps = HistoryRouterBaseProps & {
+  loadNextStep: (p: () => void) => void
+  completeStep: (data: CompleteStepValue) => void
+  hasNextStep: boolean
+  steps: StepConfig[]
+}
 
 export type StepsRouterProps = {
   back: () => void
@@ -102,7 +116,9 @@ export type StepsRouterProps = {
   previousStep: () => void
   step: number
   triggerOnError: ErrorCallback
-} & HistoryRouterProps
+  isLoadingStep?: boolean
+  completeStep: (data: CompleteStepValue) => void
+} & HistoryRouterBaseProps
 
 export type StepComponentBaseProps = {
   resetSdkFocus: () => void
@@ -122,20 +138,50 @@ export type StepComponentDocumentProps = StepOptionDocument &
   StepComponentBaseProps
 export type StepComponentPoaProps = StepOptionPoA & StepComponentBaseProps
 export type StepComponentFaceProps = StepOptionFace & StepComponentBaseProps
+export type StepComponentDataProps = StepOptionData & StepComponentBaseProps
 export type StepComponentCompleteProps = StepOptionComplete &
   StepComponentBaseProps
 export type StepComponentAuthProps = StepOptionAuth & StepComponentBaseProps
+export type StepComponentRetryProps = StepOptionRetry & StepComponentBaseProps
 
 export type StepComponentProps =
   | StepComponentBaseProps
   | StepComponentDocumentProps
   | StepComponentPoaProps
   | StepComponentFaceProps
+  | StepComponentDataProps
   | StepComponentCompleteProps
   | StepComponentAuthProps
+  | StepComponentRetryProps
 
 export type ComponentStep = {
   component: ComponentType<StepComponentProps>
   step: ExtendedStepConfig
   stepIndex: number
+}
+
+export type HistoryLocationState = {
+  step: number
+  flow: FlowVariants
+}
+
+export type StepperState = {
+  loadingStep: boolean
+  steps: StepConfig[]
+  taskId: string | null
+  completed: boolean
+  serviceError: string | null
+  personalData: unknown
+  docData: unknown[]
+}
+
+export type CompleteStepValue = Array<{ id: string }> | Record<string, unknown>
+
+export type StepsHook = () => {
+  loadNextStep: (p: () => void) => void
+  completeStep: (data: CompleteStepValue) => void
+  loading: boolean
+  hasNextStep: boolean
+  steps: StepConfig[] | undefined
+  error: string | undefined
 }

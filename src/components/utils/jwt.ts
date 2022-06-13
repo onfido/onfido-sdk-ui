@@ -37,7 +37,7 @@ export const getUrlsFromJWT = (token: string): UrlsConfig => {
   try {
     const jwt = parseJwt(token)
     Object.assign(urls, jwt.urls)
-  } catch (err) {
+  } catch (err: any) {
     console.error('Invalid token:', err.message)
   }
 
@@ -50,7 +50,7 @@ export const getEnterpriseFeaturesFromJWT = (
   try {
     const jwt = parseJwt(token)
     return jwt.enterprise_features
-  } catch (err) {
+  } catch (err: any) {
     console.error('Invalid token:', err.message)
     return {}
   }
@@ -62,7 +62,7 @@ export const getPayloadFromJWT = (token: string): JWTPayload => {
   try {
     const jwt = parseJwt(token)
     Object.assign(payload, jwt.payload)
-  } catch (err) {
+  } catch (err: any) {
     console.error('Invalid token:', err.message)
   }
 

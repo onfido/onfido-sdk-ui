@@ -970,7 +970,7 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
   script-src 'self' https://www.woopra.com https://assets.onfido.com https://sentry.io;
   style-src 'self' https://assets.onfido.com;
   connect-src blob: *.onfido.com wss://*.onfido.com https://www.woopra.com https://sentry.io;
-  img-src 'self' data: blob: https://lipis.github.io/flag-icon-css/;
+  img-src 'self' data: blob: https://assets.onfido.com/;
   media-src blob:;
   object-src 'self' blob:;
   frame-src 'self' data: blob:;

@@ -12,7 +12,7 @@ The following features must be enabled for your account before they can be used.
 
 This premium enterprise feature enables you to control the data collected by the Onfido SDK by using callbacks that are invoked when the end user submits their captured media. The callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response that controls what the SDK does next.
 
-Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument` and `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. Note: The callback for video is not supported yet.
+Before the feature can be used, it must be enabled for your account. Once enabled, you will need to set `useCustomizedApiRequests` to `true` and provide the callbacks for `onSubmitDocument`, `onSubmitVideo`, `onSubmitSelfie` within the `enterpriseFeatures` block of the configuration options. Note: The callback for video is not supported yet.
 
 ```javascript
 Onfido.init({
@@ -23,6 +23,9 @@ Onfido.init({
       // Your callback code here
     },
     onSubmitSelfie: (selfieData) => {
+      // Your callback code here
+    },
+    onSubmitVideo: (videoData) => {
       // Your callback code here
     },
   },
@@ -60,6 +63,21 @@ The callbacks return a FormData object, including the information that the SDK w
   sdk_metadata: object,
 }
 
+```
+
+**onSubmitVideo FormData Paramaters**
+
+```javascript
+{
+  file: blob,
+  challenge:  { type: 'recite' / 'movement', query: number[] / string }
+  challenge_id: string,
+  challenge_switch_at: number, // seconds
+  languages: { source: 'sdk', language_code: string }
+  sdk_source: string,
+  sdk_version: string,
+  sdk_metadata: object,
+}
 ```
 
 #### Allowing the SDK to upload data to Onfido

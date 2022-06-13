@@ -151,6 +151,10 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBackgroundButtonCameraHover`  | Change background color of Live Selfie/Document Capture screens's Camera button on hover    |
   | `colorBackgroundButtonCameraActive` | Change background color of Live Selfie/Document Capture screen's Camera button on click/tap |
 
+  | Cross-device            | Description                                                       |
+  | ----------------------- | ----------------------------------------------------------------- |
+  | `colorBackgroundQRCode` | Change background color of the QR code on the Cross device screen |
+
   | Auth Module Colors (shared) | Description                                                                                                                                                                                                                                                                                                                                                                                |
   | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
   | `authAccentColor`           | <ul><li>Change color of activity indicator animation shown during server-side work</li><li> Change background color of result animation</li><li> Change background color of the upload progress bar</li> </ul>                                                                                                                                                                             |

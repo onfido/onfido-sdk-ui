@@ -5,69 +5,83 @@
 :global {
   @include castor.Field();
   @include castor.FieldLabel();
-  @include castor.Button();
+  @include castor.HelperText();
   @include castor.Validation();
   @include castor.Asterisk();
+  @include castor.Button();
   @include castor.Input();
+  @include castor.Select();
   @include castor.Icon();
-
-  .ods-field-label {
-    text-align: left;
-  }
-
-  .ods-button {
-    border-radius: var(--osdk-border-radius-button);
-
-    /* stylelint-disable-next-line selector-class-pattern */
-    &.-action--primary {
-      background-color: var(--osdk-color-background-button-primary);
-      color: var(--osdk-color-content-button-primary-text);
-      border-color: var(--osdk-color-border-button-primary);
-
-      &:active {
-        background-color: var(--osdk-color-background-button-primary-active);
-      }
-
-      /* stylelint-disable max-nesting-depth */
-      @media (hover: hover) {
-        &:hover {
-          background-color: var(--osdk-color-background-button-primary-hover);
-        }
-      }
-      /* stylelint-enable max-nesting-depth */
-
-      &:disabled {
-        background-color: rgba(var(--ods-color-neutral-300));
-        border-color: transparent;
-      }
-    }
-
-    /* stylelint-disable-next-line selector-class-pattern */
-    &.-action--secondary {
-      background-color: var(--osdk-color-background-button-secondary);
-      color: var(--osdk-color-content-button-secondary-text);
-      border-color: var(--osdk-color-border-button-secondary);
-
-      &:active {
-        background-color: var(--osdk-color-background-button-secondary-active);
-        border-color: var(--osdk-color-border-button-secondary);
-      }
-
-      /* stylelint-disable max-nesting-depth */
-      @media (hover: hover) {
-        &:hover {
-          background-color: var(--osdk-color-background-button-secondary-hover);
-          border-color: var(--osdk-color-border-button-secondary);
-        }
-      }
-      /* stylelint-enable max-nesting-depth */
-    }
-  }
 }
 
 :root {
+  // Note: color-scheme from castor.day is stripped away by webpack
   @include castor.day();
   @include onfidoSdk.tokens();
+}
+
+.root {
+  /*
+    Note: The WebSDK is used in Onfido's workflow builder, which also uses castor.
+    The prevent interference we scope our adjusted castor classes to our root.
+    The :global classes endup like .onfido-sdk-ui-Theme-root .ods-button in the compiled css.
+  */
+  :global(.ods-field-label) {
+    text-align: left;
+  }
+
+  :global(.ods-popover) {
+    max-width: unset;
+  }
+
+  :global(.ods-button) {
+    border-radius: var(--osdk-border-radius-button);
+  }
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  :global(.ods-button.-action--primary) {
+    background-color: var(--osdk-color-background-button-primary);
+    color: var(--osdk-color-content-button-primary-text);
+    border-color: var(--osdk-color-border-button-primary);
+
+    &:active {
+      background-color: var(--osdk-color-background-button-primary-active);
+    }
+
+    /* stylelint-disable max-nesting-depth */
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--osdk-color-background-button-primary-hover);
+      }
+    }
+    /* stylelint-enable max-nesting-depth */
+
+    &:disabled {
+      background-color: rgba(var(--ods-color-neutral-300));
+      border-color: transparent;
+    }
+  }
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  :global(.ods-button.-action--secondary) {
+    background-color: var(--osdk-color-background-button-secondary);
+    color: var(--osdk-color-content-button-secondary-text);
+    border-color: var(--osdk-color-border-button-secondary);
+
+    &:active {
+      background-color: var(--osdk-color-background-button-secondary-active);
+      border-color: var(--osdk-color-border-button-secondary);
+    }
+
+    /* stylelint-disable max-nesting-depth */
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--osdk-color-background-button-secondary-hover);
+        border-color: var(--osdk-color-border-button-secondary);
+      }
+    }
+    /* stylelint-enable max-nesting-depth */
+  }
 }
 
 .step {

@@ -51,6 +51,7 @@ const defaultProps: StepComponentDocumentProps = {
   steps: [{ type: 'document' }],
   trackScreen: jest.fn(),
   triggerOnError: jest.fn(),
+  completeStep: jest.fn(),
   ...mockedReduxProps,
 }
 

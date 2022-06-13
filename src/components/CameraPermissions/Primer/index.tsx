@@ -70,4 +70,4 @@ const Permissions: FunctionComponent<Props> = ({
   )
 }
 
-export default trackComponent(localised(Permissions))
+export default trackComponent(localised(Permissions), 'camera_access')

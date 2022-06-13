@@ -39,10 +39,10 @@ const getCountryOptionTemplate = (country: CountryData) => {
   if (country) {
     const countryCode = country.country_alpha2
     const countryFlagSrc = getCountryFlagSrc(countryCode, 'square')
-    return `<i
+    return `<img
       role="presentation"
       class="${style.countryFlag}"
-      style="background-image: url(${countryFlagSrc})"></i>
+      src="${countryFlagSrc}"/>
       <span class="${style.countryLabel}">${country.name}</span>`
   }
   return ''
@@ -58,6 +58,7 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   abstract updateCountry: (selectedCountry: CountryData) => void
   abstract resetCountry: () => void
   abstract renderNoResultsMessage: () => h.JSX.Element
+  protected trackScreen?: () => void
 
   abstract getSupportedCountries: (
     documentType: Optional<PoaTypes | DocumentTypes>
@@ -113,8 +114,10 @@ export abstract class CountrySelectionBase extends Component<Props, State> {
   }
 
   componentDidMount() {
+    if (this.trackScreen) {
+      this.trackScreen()
+    }
     this.resetCountry()
-
     document.addEventListener('mousedown', this.handleMenuMouseClick)
   }
 

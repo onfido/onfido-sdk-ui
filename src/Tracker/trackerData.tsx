@@ -10,7 +10,9 @@ export const integratorTrackedEvents = new Map<
   UserAnalyticsEventNames
 >([
   ['screen_welcome', 'WELCOME'],
+  ['screen_workflow_retry', 'WORKFLOW_RETRY'],
   ['screen_userConsent', 'USER_CONSENT'],
+  ['screen_data_capture', 'DATA_CAPTURE'],
   ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
   ['screen_document_front_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'],
   ['screen_document_back_capture_file_upload', 'DOCUMENT_CAPTURE_BACK'],
@@ -32,9 +34,6 @@ export const integratorTrackedEvents = new Map<
   ['Starting live photo upload', 'UPLOAD'],
 ])
 
-// FIXME: Using @ts-ignore here because of Map constructor argument bug
-// https://github.com/microsoft/TypeScript/pull/43396
-// @ts-ignore
 export const analyticsEventsMapping = new Map<
   LegacyTrackedEventNames,
   {
@@ -174,9 +173,14 @@ export const analyticsEventsMapping = new Map<
     'screen_document_back_capture_file_upload',
     {
       eventName: 'DOCUMENT_CAPTURE',
-      properties: { event_type: 'screen', document_side: 'back' },
+      properties: {
+        event_type: 'screen',
+        document_side: 'back',
+        capture_method_rendered: 'upload',
+      },
     },
   ],
+  // Note: Only the _file_upload ones for DOCUMENT_CAPTURE seem to be used
   [
     'screen_document_back_capture',
     {
@@ -188,7 +192,11 @@ export const analyticsEventsMapping = new Map<
     'screen_document_front_capture_file_upload',
     {
       eventName: 'DOCUMENT_CAPTURE',
-      properties: { event_type: 'screen', capture_method_rendered: 'upload' },
+      properties: {
+        event_type: 'screen',
+        capture_method_rendered: 'upload',
+        document_side: 'front',
+      },
     },
   ],
   [
@@ -210,6 +218,34 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_CONFIRMATION',
       properties: { event_type: 'screen', document_side: 'front' },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_retake_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'back' },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_retake_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'front' },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_upload_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'back' },
+    },
+  ],
+  [
+    'screen_document_front_confirmation_upload_button_clicked',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'front' },
     },
   ],
   [
@@ -248,6 +284,35 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_document_video_capture_camera_access',
+    {
+      eventName: 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_document_document_video_capture_camera_access_denied',
+    {
+      eventName: 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_document_document_video_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_document_document_video_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName:
+        'DOCUMENT_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_document_document_video_capture_fallback_triggered',
     {
       eventName: 'DOCUMENT_VIDEO_FALLBACK_TRIGGERED',
@@ -256,7 +321,43 @@ export const analyticsEventsMapping = new Map<
   ],
   [
     'screen_face_selfie_intro',
-    { eventName: 'FACE_INTRO', properties: { event_type: 'screen' } },
+    { eventName: 'FACE_SELFIE_INTRO', properties: { event_type: 'screen' } },
+  ],
+  [
+    'screen_face_selfie_intro_take_selfie_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_INTRO_TAKE_SELFIE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_access',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_access_denied',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_DENIED',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_selfie_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName:
+        'FACE_SELFIE_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
   ],
   [
     'screen_face_selfie_capture_file_upload',
@@ -273,10 +374,31 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_face_selfie_capture_capture_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_CAPTURE_CAPTURE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_face_selfie_confirmation',
     {
       eventName: 'FACE_SELFIE_CONFIRMATION',
       properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_selfie_confirmation_retake_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_selfie_confirmation_upload_button_clicked',
+    {
+      eventName: 'FACE_SELFIE_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
     },
   ],
   [
@@ -329,6 +451,35 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_face_face_video_capture_camera_access',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_access_denied',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName:
+        'FACE_VIDEO_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_face_face_video_confirmation_video_error',
     {
       eventName: 'FACE_VIDEO_CONFIRMATION_VIDEO_ERROR',
@@ -339,14 +490,14 @@ export const analyticsEventsMapping = new Map<
     'screen_face_video_capture_step_1',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
-      properties: { event_type: 'screen', video_capture_step: 'step1' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
     'screen_face_video_capture_step_2',
     {
       eventName: 'FACE_VIDEO_CAPTURE',
-      properties: { event_type: 'screen', video_capture_step: 'step2' },
+      properties: { event_type: 'screen' },
     },
   ],
   [
@@ -378,6 +529,20 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_face_face_video_confirmation_retake_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_RETAKE_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_confirmation_upload_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
     'screen_face_face_video_capture_fallback_triggered',
     {
       eventName: 'FACE_VIDEO_FALLBACK_TRIGGERED',
@@ -389,6 +554,13 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_VIDEO_INTRO',
       properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_face_video_intro_record_video_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_INTRO_RECORD_VIDEO_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
     },
   ],
   [
@@ -475,12 +647,20 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_data_capture',
+    { eventName: 'DATA_CAPTURE', properties: { event_type: 'screen' } },
+  ],
+  [
     'screen_userConsent',
     { eventName: 'USER_CONSENT', properties: { event_type: 'screen' } },
   ],
   [
     'screen_welcome',
     { eventName: 'WELCOME', properties: { event_type: 'screen' } },
+  ],
+  [
+    'screen_workflow_retry',
+    { eventName: 'WORKFLOW_RETRY', properties: { event_type: 'screen' } },
   ],
   [
     'screen_document_front_confirmation_cutoff_detected',
@@ -671,6 +851,16 @@ export const analyticsEventsMapping = new Map<
       properties: {
         event_type: 'view',
         ui_alerts: { face_video_timeout: 'warning' },
+      },
+    },
+  ],
+  [
+    'screen_data_capture_profile_data_timeout',
+    {
+      eventName: 'DATA_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: { profile_data_timeout: 'warning' },
       },
     },
   ],
@@ -889,9 +1079,16 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
-    'screen_face_face_video_capture_recording_next_click',
+    'screen_face_face_video_capture_next_button_clicked',
     {
-      eventName: 'FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED',
+      eventName: 'FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_finish_button_clicked',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_FINISH_BUTTON_CLICKED',
       properties: { event_type: 'action' },
     },
   ],
@@ -1060,6 +1257,20 @@ export const analyticsEventsMapping = new Map<
     'face_video_upload_completed',
     {
       eventName: 'FACE_VIDEO_UPLOAD_COMPLETED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'navigation_back_button_clicked',
+    {
+      eventName: 'NAVIGATION_BACK_BUTTON_CLICKED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'navigation_close_button_clicked',
+    {
+      eventName: 'NAVIGATION_CLOSE_BUTTON_CLICKED',
       properties: { event_type: 'flow' },
     },
   ],

@@ -70,6 +70,15 @@ const baseStyleLoaders = (modules, withSourceMap) => [
         : modules,
     },
   },
+  // ref: https://github.com/onfido/onfido-sdk-ui/issues/1804
+  // Note: The css vars polyfill (IE11) seems to only support :root vars
+  {
+    loader: 'string-replace-loader',
+    options: {
+      search: /color-scheme: light;/,
+      replace: '',
+    },
+  },
   ...(modules
     ? [
         {
@@ -222,7 +231,7 @@ const basePlugins = (bundle_name = '') => [
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'DJ',
+      BASE_32_VERSION: 'DM',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
