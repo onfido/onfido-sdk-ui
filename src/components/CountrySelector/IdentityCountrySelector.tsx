@@ -22,7 +22,7 @@ export type DocProps = {
   WithTrackingProps &
   StepComponentBaseProps
 
-class CountrySelection extends CountrySelectionBase {
+class IdentityCountrySelection extends CountrySelectionBase {
   trackScreen = () => {
     this.props.trackScreen(undefined, {
       document_type: this.props.documentType,
@@ -84,4 +84,7 @@ class CountrySelection extends CountrySelectionBase {
   }
 }
 
-export default appendToTracking(localised(CountrySelection), 'country_select')
+export default appendToTracking(
+  localised(IdentityCountrySelection),
+  'country_select'
+)

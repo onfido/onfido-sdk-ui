@@ -1,4 +1,17 @@
 {
+  "@actions/core@1.6.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/actions/toolkit",
+    "path": "node_modules/@actions/core",
+    "licenseFile": "node_modules/@actions/core/LICENSE.md"
+  },
+  "@actions/http-client@1.0.11": {
+    "licenses": "MIT",
+    "repository": "https://github.com/actions/http-client",
+    "publisher": "GitHub, Inc.",
+    "path": "node_modules/@actions/http-client",
+    "licenseFile": "node_modules/@actions/http-client/LICENSE"
+  },
   "@axe-core/webdriverjs@4.4.2": {
     "licenses": "MPL-2.0",
     "repository": "https://github.com/dequelabs/axe-core-npm",
@@ -989,42 +1002,42 @@
     "path": "node_modules/@preact/compat",
     "licenseFile": "node_modules/@preact/compat/LICENSE"
   },
-  "@sentry/browser@5.14.2": {
+  "@sentry/browser@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
     "path": "node_modules/@sentry/browser",
     "licenseFile": "node_modules/@sentry/browser/LICENSE"
   },
-  "@sentry/core@5.14.2": {
+  "@sentry/core@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
     "path": "node_modules/@sentry/core",
     "licenseFile": "node_modules/@sentry/core/LICENSE"
   },
-  "@sentry/hub@5.14.2": {
+  "@sentry/hub@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
     "path": "node_modules/@sentry/hub",
     "licenseFile": "node_modules/@sentry/hub/LICENSE"
   },
-  "@sentry/minimal@5.14.2": {
+  "@sentry/minimal@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
     "path": "node_modules/@sentry/minimal",
     "licenseFile": "node_modules/@sentry/minimal/LICENSE"
   },
-  "@sentry/types@5.14.2": {
+  "@sentry/types@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
     "path": "node_modules/@sentry/types",
     "licenseFile": "node_modules/@sentry/types/LICENSE"
   },
-  "@sentry/utils@5.14.2": {
+  "@sentry/utils@6.19.7": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/getsentry/sentry-javascript",
     "publisher": "Sentry",
@@ -2120,7 +2133,7 @@
     "path": "node_modules/astral-regex",
     "licenseFile": "node_modules/astral-regex/license"
   },
-  "async@2.6.3": {
+  "async@2.6.4": {
     "licenses": "MIT",
     "repository": "https://github.com/caolan/async",
     "publisher": "Caolan McMahon",
@@ -2455,8 +2468,8 @@
   "chalk@3.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/chalk/chalk",
-    "path": "node_modules/@testing-library/jest-dom/node_modules/chalk",
-    "licenseFile": "node_modules/@testing-library/jest-dom/node_modules/chalk/license"
+    "path": "node_modules/ora/node_modules/chalk",
+    "licenseFile": "node_modules/ora/node_modules/chalk/license"
   },
   "chalk@4.1.0": {
     "licenses": "MIT",
@@ -2475,6 +2488,14 @@
     "repository": "https://github.com/chalk/chalk",
     "path": "node_modules/@jest/console/node_modules/chalk",
     "licenseFile": "node_modules/@jest/console/node_modules/chalk/license"
+  },
+  "changelog-parser@2.8.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/ungoldman/changelog-parser",
+    "publisher": "Nate Goldman",
+    "email": "ungoldman@gmail.com",
+    "path": "node_modules/changelog-parser",
+    "licenseFile": "node_modules/changelog-parser/LICENSE.md"
   },
   "char-regex@1.0.2": {
     "licenses": "MIT",
@@ -4428,8 +4449,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/history",
-    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/history",
+    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -5601,6 +5622,14 @@
     "path": "node_modules/liftup",
     "licenseFile": "node_modules/liftup/LICENSE"
   },
+  "line-reader@0.2.4": {
+    "licenses": "MIT*",
+    "repository": "git+https://nickewing@github.com/nickewing/line-reader",
+    "publisher": "Nick Ewing",
+    "email": "nick@nickewing.net",
+    "path": "node_modules/line-reader",
+    "licenseFile": "node_modules/line-reader/LICENSE"
+  },
   "lines-and-columns@1.1.6": {
     "licenses": "MIT",
     "repository": "https://github.com/eventualbuddha/lines-and-columns",
@@ -5627,8 +5656,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/webpack/loader-utils",
     "publisher": "Tobias Koppers @sokra",
-    "path": "node_modules/thread-loader/node_modules/loader-utils",
-    "licenseFile": "node_modules/thread-loader/node_modules/loader-utils/LICENSE"
+    "path": "node_modules/string-replace-loader/node_modules/loader-utils",
+    "licenseFile": "node_modules/string-replace-loader/node_modules/loader-utils/LICENSE"
   },
   "locate-path@3.0.0": {
     "licenses": "MIT",
@@ -6033,6 +6062,15 @@
     "path": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp",
     "licenseFile": "node_modules/license-checker-rseidelsohn/node_modules/mkdirp/LICENSE"
   },
+  "moment@2.29.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/moment/moment",
+    "publisher": "Iskren Ivov Chernev",
+    "email": "iskren.chernev@gmail.com",
+    "url": "https://github.com/ichernev",
+    "path": "node_modules/moment",
+    "licenseFile": "node_modules/moment/LICENSE"
+  },
   "moo@0.5.1": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/tjvr/moo",
@@ -6434,7 +6472,7 @@
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/nicolas/Dev/onfido-sdk-ui",
+    "path": "/Users/tony.findeisen/Development/github/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "open@8.4.0": {
@@ -7463,6 +7501,13 @@
     "path": "node_modules/relateurl",
     "licenseFile": "node_modules/relateurl/license"
   },
+  "remove-markdown@0.2.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/stiang/remove-markdown",
+    "publisher": "Stian Grytøyr",
+    "path": "node_modules/remove-markdown",
+    "licenseFile": "node_modules/remove-markdown/LICENSE"
+  },
   "renderkid@3.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/AriaMinaei/RenderKid",
@@ -7549,8 +7594,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
   },
   "resolve.exports@1.1.0": {
     "licenses": "MIT",
@@ -7762,8 +7807,8 @@
   "semver@5.7.1": {
     "licenses": "ISC",
     "repository": "https://github.com/npm/node-semver",
-    "path": "node_modules/semver",
-    "licenseFile": "node_modules/semver/LICENSE"
+    "path": "node_modules/make-dir/node_modules/semver",
+    "licenseFile": "node_modules/make-dir/node_modules/semver/LICENSE"
   },
   "semver@6.3.0": {
     "licenses": "ISC",
@@ -7777,17 +7822,18 @@
     "path": "node_modules/core-js-compat/node_modules/semver",
     "licenseFile": "node_modules/core-js-compat/node_modules/semver/LICENSE"
   },
-  "semver@7.3.2": {
-    "licenses": "ISC",
-    "repository": "https://github.com/npm/node-semver",
-    "path": "node_modules/ts-jest/node_modules/semver",
-    "licenseFile": "node_modules/ts-jest/node_modules/semver/LICENSE"
-  },
   "semver@7.3.5": {
     "licenses": "ISC",
     "repository": "https://github.com/npm/node-semver",
-    "path": "node_modules/jest-snapshot/node_modules/semver",
-    "licenseFile": "node_modules/jest-snapshot/node_modules/semver/LICENSE"
+    "path": "node_modules/eslint-plugin-compat/node_modules/semver",
+    "licenseFile": "node_modules/eslint-plugin-compat/node_modules/semver/LICENSE"
+  },
+  "semver@7.3.7": {
+    "licenses": "ISC",
+    "repository": "https://github.com/npm/node-semver",
+    "publisher": "GitHub Inc.",
+    "path": "node_modules/semver",
+    "licenseFile": "node_modules/semver/LICENSE"
   },
   "send@0.17.1": {
     "licenses": "MIT",
@@ -8148,6 +8194,14 @@
     "url": "https://sindresorhus.com",
     "path": "node_modules/string-length",
     "licenseFile": "node_modules/string-length/license"
+  },
+  "string-replace-loader@3.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Va1/string-replace-loader",
+    "publisher": "Valentyn Barmashyn",
+    "email": "barmashyn.val@gmail.com",
+    "path": "node_modules/string-replace-loader",
+    "licenseFile": "node_modules/string-replace-loader/LICENCE"
   },
   "string-width@4.2.3": {
     "licenses": "MIT",
@@ -8597,6 +8651,14 @@
     "path": "node_modules/tsutils",
     "licenseFile": "node_modules/tsutils/LICENSE"
   },
+  "tunnel@0.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/koichik/node-tunnel",
+    "publisher": "Koichi Kobayashi",
+    "email": "koichik@improvement.jp",
+    "path": "node_modules/tunnel",
+    "licenseFile": "node_modules/tunnel/LICENSE"
+  },
   "type-check@0.3.2": {
     "licenses": "MIT",
     "repository": "https://github.com/gkz/type-check",
@@ -8682,7 +8744,7 @@
     "path": "node_modules/typedarray-to-buffer",
     "licenseFile": "node_modules/typedarray-to-buffer/LICENSE"
   },
-  "typescript@4.2.3": {
+  "typescript@4.6.4": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/Microsoft/TypeScript",
     "publisher": "Microsoft Corp.",
@@ -8849,8 +8911,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",

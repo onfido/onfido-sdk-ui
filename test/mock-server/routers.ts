@@ -1,6 +1,6 @@
 /* eslint-disable no-duplicate-imports */
-import { Router, Status } from './deps.ts'
-import type { FormDataBody } from './deps.ts'
+import type { FormDataBody, RouterContext } from './deps.ts'
+import { deepMerge, Router, Status } from './deps.ts'
 
 import { generateToken } from './jwt.ts'
 import responses from './responses.ts'
@@ -192,13 +192,77 @@ telephonyRouter.post('/v1/cross_device_sms', (context) => {
   context.response.body = responses.telephony.v1.cross_device_sms
 })
 
+type MockCode =
+  | 'sdkConfiguration'
+  | 'consents'
+  | 'workflowRun'
+  | 'workflowRunComplete'
+
+type MockValue = {
+  value: any
+  patch: boolean
+}
+
+const allowedCodes: MockCode[] = [
+  'sdkConfiguration',
+  'workflowRun',
+  'workflowRunComplete',
+]
+const mockResponses: Record<string, Record<MockCode, MockValue>> = {}
+
+const mockRouter = new Router({ prefix: '/mock' })
+
+const mockHandler = async (context: any) => {
+  const sessionId = context.request.headers.get('X-Session-Id')
+  const code = context.params.code as MockCode
+
+  if (!sessionId || allowedCodes.indexOf(code) === -1) {
+    context.response.status = Status.BadRequest
+  }
+
+  mockResponses[sessionId as string] = mockResponses[sessionId as string] || {}
+  mockResponses[sessionId as string][code] = {
+    patch: 'patch' === context.request.method.toLowerCase(),
+    value: await context.request.body().value,
+  }
+
+  context.response.status = Status.OK
+}
+
+mockRouter.patch('/:code', mockHandler)
+mockRouter.put('/:code', mockHandler)
+
+const sendMock = (context: any, code: MockCode, defaultPayload: any) => {
+  const sessionId = context.request.headers.get('X-Session-Id')
+
+  if (
+    sessionId &&
+    mockResponses[sessionId] &&
+    code in mockResponses[sessionId]
+  ) {
+    const mock = mockResponses[sessionId][code]
+
+    if (mock.patch) {
+      return deepMerge(defaultPayload, mock.value)
+    }
+
+    return mock.value
+  }
+
+  return defaultPayload
+}
+
 const apiRouter = new Router({ prefix: '/api' })
 apiRouter
   .get('/ping', (context) => {
     context.response.body = { message: 'pong' }
   })
   .post('/v3.3/sdk/configurations', async (context) => {
-    context.response.body = responses.api.v3.sdk_configurations
+    context.response.body = sendMock(
+      context,
+      'sdkConfiguration',
+      responses.api.v3.sdk_configurations
+    )
     context.response.status = Status.OK
   })
   .patch('/v3.3/applicants/:id/location', async (context) => {
@@ -208,7 +272,11 @@ apiRouter
     context.response.status = Status.OK
   })
   .get('/v3.3/applicants/:id/consents', async (context) => {
-    context.response.body = responses.api.v3.applicant_consents
+    context.response.body = sendMock(
+      context,
+      'consents',
+      responses.api.v3.applicant_consents
+    )
     context.response.status = Status.OK
   })
   .get(
@@ -276,5 +344,13 @@ apiRouter
     await sleep(500)
     context.response.body = responses.api.v4.documents
   })
+  .get('/v4/workflow_runs/:id', (context) => {
+    context.response.body = sendMock(context, 'workflowRun', {})
+    context.response.status = Status.OK
+  })
+  .get('/v4/workflow_runs/:id/complete', (context) => {
+    context.response.body = sendMock(context, 'workflowRunComplete', {})
+    context.response.status = Status.OK
+  })
 
-export { apiRouter, telephonyRouter, tokenFactoryRouter }
+export { mockRouter, apiRouter, telephonyRouter, tokenFactoryRouter }

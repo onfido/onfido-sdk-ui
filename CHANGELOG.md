@@ -33,6 +33,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Update FaceTec SDK on Auth step from 9.4.5 to 9.4.11
 - Internal: Upgrade `typescript` to 4.6.2
 - Public: Add UI customization option for `colorBackgroundQRCode`
+- Public: Fix for http 204 request errors due to parsing
 
 ### Fixed
 

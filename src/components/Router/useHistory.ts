@@ -27,7 +27,7 @@ export const useHistory = (
 
   useEffect(() => {
     return history.listen((location, action) => {
-      if (location.state) {
+      if (location.state && listenerRef.current) {
         listenerRef.current(location, action)
       }
     })
