@@ -1,6 +1,8 @@
 package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.websdk.UploadDocument;
+import com.onfido.qa.websdk.mock.Consent;
+import com.onfido.qa.websdk.mock.SdkConfiguration;
 import com.onfido.qa.websdk.mock.TaskDefinition;
 import com.onfido.qa.websdk.mock.WorkflowRun;
 import com.onfido.qa.websdk.mock.config.UploadDocumentConfig;
@@ -17,6 +19,7 @@ import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
 import com.onfido.qa.websdk.page.Retry;
 import com.onfido.qa.websdk.page.SelfieIntro;
 import com.onfido.qa.websdk.page.SpinnerPage;
+import com.onfido.qa.websdk.page.UserConsent;
 import com.onfido.qa.websdk.page.Welcome;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -27,8 +30,11 @@ import java.util.UUID;
 
 import static com.onfido.qa.websdk.DocumentType.DRIVING_LICENCE;
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
+import static com.onfido.qa.websdk.mock.Code.CONSENTS;
+import static com.onfido.qa.websdk.mock.Code.SDK_CONFIGURATION;
 import static com.onfido.qa.websdk.mock.Code.WORKFLOW_RUN;
 import static com.onfido.qa.websdk.mock.Code.WORKFLOW_RUN_COMPLETE;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SuppressWarnings("BooleanParameter")
@@ -70,10 +76,6 @@ public class WorkflowIT extends WebSdkIT {
 
     }
 
-
-    /***
-     * @see engine.ts getWorkFlowStep
-     */
     @Test(description = "return of an interactive task, shows the related steps", dataProvider = "taskDefinitions")
     public void testReturnOfAnInteractiveTaskShowsTheRelatedSteps(TaskDefinition taskDefinition, Class<BasePage> expectedPage) {
 
@@ -157,6 +159,37 @@ public class WorkflowIT extends WebSdkIT {
     @Test(description = "restrictedDocumentSelectionIsOnlyShowingSupportingCountries")
     public void testRestrictedDocumentSelectionIsOnlyShowingSupportingCountries() {
 
+    }
+
+    @Test(description = "show consent screen, if consent is not already given")
+    public void testConsentScreenShownWhenConsentNotAlreadyGiven() {
+        var userConsent = onfido()
+                .withWorkflowRunId(workflowRunId)
+                .withMock(mock -> {
+                    mock.set(WORKFLOW_RUN, new WorkflowRun(workflowRunId, TaskDefinition.UPLOAD_DOCUMENT));
+                    mock.extend(SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                })
+                .init(Welcome.class)
+                .continueToNextStep(UserConsent.class)
+                .acceptUserConsent(RestrictedDocumentSelection.class);
+
+
+        verifyCopy(userConsent.title(), "doc_select.title");
+    }
+
+    @Test(description = "do not show consent screen, if consent is already given")
+    public void testConsentScreenNotShownWhenConsentAlreadyGiven() {
+        var document = onfido()
+                .withWorkflowRunId(workflowRunId)
+                .withMock(mock -> {
+                    mock.set(WORKFLOW_RUN, new WorkflowRun(workflowRunId, TaskDefinition.UPLOAD_DOCUMENT));
+                    mock.extend(SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                    mock.set(CONSENTS, Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
+                })
+                .init(Welcome.class)
+                .continueToNextStep(RestrictedDocumentSelection.class);
+
+        verifyCopy(document.title(), "doc_select.title");
         var documentSelections = Arrays.asList(
                 new DocumentSelection(PASSPORT, "FRA"),
                 new DocumentSelection(DRIVING_LICENCE, "FRA"),

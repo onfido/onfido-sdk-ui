@@ -1,21 +1,22 @@
 import { useCallback, useState } from 'preact/hooks'
-import { StepsHook, StepsLoadingStatus } from '~types/routers'
+import { StepsHook } from '~types/routers'
 import { StepConfig } from '~types/steps'
 
 export const createCrossDeviceStepsHook = (
   defaultSteps: StepConfig[],
   onCompleteStep: (docData: unknown[]) => void
 ): StepsHook => () => {
-  const [status, setStatus] = useState<StepsLoadingStatus>('idle')
+  const [hasNextStep, setHasNextStep] = useState<boolean>(true)
   const [steps] = useState(defaultSteps)
 
   return {
-    loadNextStep: useCallback(() => setStatus('finished'), []),
+    loadNextStep: useCallback(() => setHasNextStep(false), []),
     completeStep: useCallback((data) => {
       if (Array.isArray(data)) onCompleteStep(data)
     }, []),
     error: undefined,
-    status,
+    loading: false,
+    hasNextStep,
     steps,
   }
 }
