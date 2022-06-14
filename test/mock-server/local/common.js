@@ -11,11 +11,21 @@
     }
   }
 
-  window.request = function(method, url, sessionId, payload) {
+  window.request = function(method, url, sessionId, payload, statusCode) {
     var xhr = new XMLHttpRequest();
     xhr.open(method, url, false);
     xhr.setRequestHeader("X-Session-Id", sessionId)
-    xhr.setRequestHeader("Content-Type", "application/json")
+
+    if (payload === "") {
+      xhr.setRequestHeader("Content-Type", "text/plain")
+    } else {
+      xhr.setRequestHeader("Content-Type", "application/json")
+    }
+
+    if (statusCode) {
+      xhr.setRequestHeader("X-Status", statusCode)
+    }
+
     xhr.send(payload);
   }
 

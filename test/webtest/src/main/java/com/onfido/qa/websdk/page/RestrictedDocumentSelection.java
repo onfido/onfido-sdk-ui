@@ -9,18 +9,33 @@ import com.onfido.qa.websdk.util.ByUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.pagefactory.ByChained;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class RestrictedDocumentSelection extends BasePage {
     public static final String SUPPORTED_COUNTRY = "france";
 
-    private static final Logger log = LoggerFactory.getLogger(CountrySelector.class);
+    private static final Logger log = LoggerFactory.getLogger(RestrictedDocumentSelection.class);
 
     public static final By BASE = By.cssSelector("[data-onfido-qa=\"countrySelector\"]");
     public static final By SEARCH = By.cssSelector("[data-onfido-qa='countrySelector'] #country-search");
-    public static final By SUBMIT_BUTTON = ByUtil.onfidoQa("countrySelectorNextStep");
     public static final By ERROR_MESSAGE = By.cssSelector(".onfido-sdk-ui-CountrySelector-fallbackText");
+    public static final int QUARTER_SECOND = 250;
+
+    public List<String> getCountries() {
+
+        click(countryFinderInput());
+
+        return driver.findElements(new ByChained(BASE, By.cssSelector("ul li span")))
+                .stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+
+    }
 
     protected DocumentOption _getOption(IDocumentType documentType) {
 
@@ -64,13 +79,13 @@ public class RestrictedDocumentSelection extends BasePage {
     }
 
     public RestrictedDocumentSelection selectFirstOptionInDropdownMenu() {
-        sleep(250);
+        sleep(QUARTER_SECOND);
         driver.actions().sendKeys(Keys.DOWN, Keys.ENTER).perform();
 
         return this;
     }
 
-   
+
 
     public boolean countryNotFoundMessageIdDisabled() {
 
@@ -95,6 +110,16 @@ public class RestrictedDocumentSelection extends BasePage {
         return _getOption(documentType);
     }
 
+    public List<DocumentType> getOptions() {
+
+        return driver.findElements(By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-list li button"))
+                .stream()
+                .map(x -> {
+                     return DocumentType.fromCanonicalName(x.getAttribute("data-onfido-qa"));
+                })
+                .collect(Collectors.toList());
+    }
+
     @Override
     protected By pageId() {
         return BASE;
@@ -107,5 +132,5 @@ public class RestrictedDocumentSelection extends BasePage {
     public String selectorLabel() {
         return text(By.tagName("label"));
     }
-    
+
 }

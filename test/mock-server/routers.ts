@@ -199,6 +199,7 @@ type MockCode =
   | 'workflowRunComplete'
 
 type MockValue = {
+  status: number
   value: any
   patch: boolean
 }
@@ -215,6 +216,7 @@ const mockRouter = new Router({ prefix: '/mock' })
 const mockHandler = async (context: any) => {
   const sessionId = context.request.headers.get('X-Session-Id')
   const code = context.params.code as MockCode
+  const status = context.request.headers.get('X-Status')
 
   if (!sessionId || allowedCodes.indexOf(code) === -1) {
     context.response.status = Status.BadRequest
@@ -224,6 +226,7 @@ const mockHandler = async (context: any) => {
   mockResponses[sessionId as string][code] = {
     patch: 'patch' === context.request.method.toLowerCase(),
     value: await context.request.body().value,
+    status: status ? status : Status.OK,
   }
 
   context.response.status = Status.OK
@@ -232,24 +235,43 @@ const mockHandler = async (context: any) => {
 mockRouter.patch('/:code', mockHandler)
 mockRouter.put('/:code', mockHandler)
 
-const sendMock = (context: any, code: MockCode, defaultPayload: any) => {
-  const sessionId = context.request.headers.get('X-Session-Id')
-
+const getMock = (sessionId: any, code: MockCode): MockValue | undefined => {
   if (
     sessionId &&
     mockResponses[sessionId] &&
     code in mockResponses[sessionId]
   ) {
-    const mock = mockResponses[sessionId][code]
+    return mockResponses[sessionId][code]
+  }
+  return
+}
 
-    if (mock.patch) {
-      return deepMerge(defaultPayload, mock.value)
-    }
-
-    return mock.value
+const mockPayload = (mock: MockValue, defaultPayload: any) => {
+  if (mock.patch) {
+    return deepMerge(defaultPayload, mock.value)
   }
 
-  return defaultPayload
+  return mock.value
+}
+
+const sendMock = (context: any, code: MockCode, defaultPayload: any) => {
+  const sessionId = context.request.headers.get('X-Session-Id')
+
+  context.response.body = defaultPayload
+  context.response.status = Status.OK
+
+  if (!sessionId) {
+    return
+  }
+
+  const mock = getMock(sessionId, code)
+
+  if (!mock) {
+    return
+  }
+
+  context.response.body = mockPayload(mock, defaultPayload)
+  context.response.status = mock.status
 }
 
 const apiRouter = new Router({ prefix: '/api' })
@@ -258,12 +280,7 @@ apiRouter
     context.response.body = { message: 'pong' }
   })
   .post('/v3.3/sdk/configurations', async (context) => {
-    context.response.body = sendMock(
-      context,
-      'sdkConfiguration',
-      responses.api.v3.sdk_configurations
-    )
-    context.response.status = Status.OK
+    sendMock(context, 'sdkConfiguration', responses.api.v3.sdk_configurations)
   })
   .patch('/v3.3/applicants/:id/location', async (context) => {
     context.response.status = Status.OK
@@ -272,12 +289,7 @@ apiRouter
     context.response.status = Status.OK
   })
   .get('/v3.3/applicants/:id/consents', async (context) => {
-    context.response.body = sendMock(
-      context,
-      'consents',
-      responses.api.v3.applicant_consents
-    )
-    context.response.status = Status.OK
+    sendMock(context, 'consents', responses.api.v3.applicant_consents)
   })
   .get(
     '/v3.3/report_types/proof_of_address/supported_countries',
@@ -345,12 +357,10 @@ apiRouter
     context.response.body = responses.api.v4.documents
   })
   .get('/v4/workflow_runs/:id', (context) => {
-    context.response.body = sendMock(context, 'workflowRun', {})
-    context.response.status = Status.OK
+    sendMock(context, 'workflowRun', {})
   })
-  .get('/v4/workflow_runs/:id/complete', (context) => {
-    context.response.body = sendMock(context, 'workflowRunComplete', {})
-    context.response.status = Status.OK
+  .post('/v4/workflow_runs/:id/complete', (context) => {
+    sendMock(context, 'workflowRunComplete', {})
   })
 
 export { mockRouter, apiRouter, telephonyRouter, tokenFactoryRouter }
