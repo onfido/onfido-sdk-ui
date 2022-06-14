@@ -39,10 +39,7 @@ export type StepIndexType = 'client' | 'user'
 
 export type FlowChangeCallback = (
   newFlow: FlowVariants,
-  newStep: number,
-  previousFlow: FlowVariants,
   payload: {
-    userStepIndex: number
     clientStepIndex: number
     clientSteps: StepConfig[]
   }

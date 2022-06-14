@@ -132,7 +132,7 @@ export type documentSelectionType = {
 }
 
 export type MobileConfig = {
-  clientStepIndex?: number
+  stepIndex: number
   deviceHasCameraSupport?: boolean
   disableAnalytics?: boolean
   useWorkflow?: boolean
@@ -142,7 +142,6 @@ export type MobileConfig = {
   poaDocumentCountry?: CountryData
   language?: SupportedLanguages | LocaleConfig
   poaDocumentType?: PoaTypes
-  step?: number
   steps: StepConfig[]
   token?: string
   urls: UrlsConfig

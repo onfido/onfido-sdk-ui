@@ -192,7 +192,7 @@ export default class CrossDeviceMobileRouter extends Component<
 
   setUpHostedSDKWithMobileConfig = (data: MobileConfig): void => {
     const {
-      clientStepIndex,
+      stepIndex,
       disableAnalytics,
       documentType,
       enterpriseFeatures,
@@ -235,7 +235,7 @@ export default class CrossDeviceMobileRouter extends Component<
       {
         token,
         steps,
-        step: clientStepIndex,
+        step: stepIndex,
         stepIndexType: 'client',
         crossDeviceError: undefined,
         language,
