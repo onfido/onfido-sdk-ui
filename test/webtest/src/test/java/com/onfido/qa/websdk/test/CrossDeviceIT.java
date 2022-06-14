@@ -21,6 +21,7 @@ public class CrossDeviceIT extends WebSdkIT {
 
     public static final String PRODUCT_NAME = "for a [COMPANY/PRODUCT NAME] loan";
     public static final String LOGO_URL = "https://assets.onfido.com/web-sdk-releases/6.16.0/images/sample-logo_2hXI-.svg";
+    public static final String HIDE_LINK_TEXT = ".onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText {color: transparent}";
 
 
     @Test(description = "should verify UI elements on the cross device intro screen", groups = {"percy"})
@@ -88,7 +89,7 @@ public class CrossDeviceIT extends WebSdkIT {
 
         verifyCopy(crossDeviceLink.copyLinkText(), "get_link.button_copy");
 
-        takePercySnapshot("CrossDeviceIntro-Link");
+        takePercySnapshot("CrossDeviceIntro-Link", HIDE_LINK_TEXT);
         crossDeviceLink.clickCopyLink();
 
         verifyCopy(crossDeviceLink.copyLinkText(), "get_link.button_copied");
