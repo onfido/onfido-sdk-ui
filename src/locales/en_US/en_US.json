@@ -367,6 +367,10 @@
         "back": "back",
         "close": "close",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "We’re sorry, we do not support your current location",
+                "message": "Location not supported"
+            },
             "interrupted_flow_error": {
                 "instruction": "Restart process on a different device",
                 "message": "Camera not detected"
