@@ -10,6 +10,15 @@ import { dirname, relative, resolve } from 'path'
 import CopyPlugin from 'copy-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import nodeExternals from 'webpack-node-externals'
+import { ModifySourcePlugin } from 'modify-source-webpack-plugin'
+
+import runMorph, { getSourceFileAsString } from './build/morph/build.morph'
+
+if (!process.env.HOT_RELOAD_ENABLED) {
+  console.log('Running morph')
+  runMorph()
+  console.log('Completed morph')
+}
 
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'
@@ -27,13 +36,10 @@ const baseRules = () => {
   return [
     {
       test: /\.(js|ts)x?$/,
-      use: [
-        'thread-loader',
-        {
-          loader: 'babel-loader',
-          options: { configFile: resolve('babel.config.js') },
-        },
-      ],
+      use: {
+        loader: 'babel-loader',
+        options: { configFile: resolve('babel.config.js') },
+      },
       resolve: {
         fullySpecified: false,
       },
@@ -44,6 +50,7 @@ const baseRules = () => {
         resolve('node_modules/@onfido/castor-icons'),
         resolve('node_modules/strip-ansi'),
         resolve('node_modules/ansi-regex'),
+        resolve('node_modules/@sentry'),
       ],
     },
   ]
@@ -205,43 +212,56 @@ const formatDefineHash = (defineHash) => {
 }
 const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
-const basePlugins = (bundle_name = '') => [
-  new Visualizer({
-    filename: `./reports/statistics.html`,
-  }),
-  new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
-    openAnalyzer: false,
-    reportFilename: `${__dirname}/dist/reports/bundle_${
-      bundle_name === 'npm' ? 'npm_size.html' : `${SDK_ENV}_dist_size.html`
-    }`,
-    defaultSizes: 'gzip',
-  }),
-  new webpack.NoEmitOnErrorsPlugin(),
-  new webpack.DefinePlugin(
-    formatDefineHash({
-      ...CONFIG,
-      NODE_ENV,
-      SDK_ENV,
-      PRODUCTION_BUILD,
-      SDK_VERSION: packageJson.version,
-      SDK_SOURCE: 'onfido_web_sdk',
-      // We use a Base 32 version string for the cross-device flow, to make URL
-      // string support easier...
-      // ref: https://en.wikipedia.org/wiki/Base32
-      // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
-      // the release script 🤖
-      BASE_32_VERSION: 'DM',
-      PRIVACY_FEATURE_ENABLED: false,
-      JWT_FACTORY: CONFIG.JWT_FACTORY,
-      US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
-      CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
-      SDK_TOKEN_FACTORY_SECRET,
-      WOOPRA_WINDOW_KEY,
-      WOOPRA_IMPORT: `imports-loader?this=>Window.prototype["${WOOPRA_WINDOW_KEY}"],window=>Window.prototype["${WOOPRA_WINDOW_KEY}"]!wpt/wpt.js`,
-    })
-  ),
-]
+const basePlugins = (bundle_name = '') =>
+  [
+    !process.env.HOT_RELOAD_ENABLED &&
+      new ModifySourcePlugin({
+        rules: [
+          {
+            test: /\.tsx$/,
+            modify: (_src, path) => {
+              return getSourceFileAsString(path)
+            },
+          },
+        ],
+      }),
+    new Visualizer({
+      filename: `./reports/statistics.html`,
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      reportFilename: `${__dirname}/dist/reports/bundle_${
+        bundle_name === 'npm' ? 'npm_size.html' : `${SDK_ENV}_dist_size.html`
+      }`,
+      defaultSizes: 'gzip',
+    }),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin(
+      formatDefineHash({
+        ...CONFIG,
+        NODE_ENV,
+        SDK_ENV,
+        PRODUCTION_BUILD,
+        SDK_VERSION: packageJson.version,
+        SDK_SOURCE: 'onfido_web_sdk',
+        HOT_RELOAD_ENABLED: process.env.HOT_RELOAD_ENABLED,
+        // We use a Base 32 version string for the cross-device flow, to make URL
+        // string support easier...
+        // ref: https://en.wikipedia.org/wiki/Base32
+        // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
+        // the release script 🤖
+        BASE_32_VERSION: 'DJ',
+        PRIVACY_FEATURE_ENABLED: false,
+        JWT_FACTORY: CONFIG.JWT_FACTORY,
+        US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
+        CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
+        SDK_TOKEN_FACTORY_SECRET,
+        WOOPRA_WINDOW_KEY,
+        WOOPRA_IMPORT: `imports-loader?this=>Window.prototype["${WOOPRA_WINDOW_KEY}"],window=>Window.prototype["${WOOPRA_WINDOW_KEY}"]!wpt/wpt.js`,
+      })
+    ),
+  ].filter(Boolean)
 
 const baseConfig = {
   mode: PRODUCTION_BUILD ? 'production' : 'development',
@@ -257,6 +277,7 @@ const baseConfig = {
       '~contexts': `${__dirname}/src/contexts`,
       '~locales': `${__dirname}/src/locales`,
       '~types': `${__dirname}/src/types`,
+      '~core': `${__dirname}/src/core`,
       '~utils': `${__dirname}/src/components/utils`,
       '~supported-documents': `${__dirname}/src/supported-documents`,
       '~auth-sdk': `${__dirname}/auth-sdk/FaceTec`,
@@ -276,7 +297,7 @@ const baseConfig = {
 
   node: {
     global: true,
-    __filename: false,
+    __filename: true,
     __dirname: false,
   },
 
@@ -319,6 +340,8 @@ const configDist = () => ({
   optimization: {
     nodeEnv: false, // otherwise it gets set by mode, see: https://webpack.js.org/concepts/mode/
     chunkIds: 'named',
+    moduleIds: 'named',
+    sideEffects: false,
     splitChunks: {
       cacheGroups: {
         defaultVendors: false,
@@ -340,7 +363,10 @@ const configDist = () => ({
           }),
         ]
       : []),
-    // see MiniCssExtractPlugin on the bottom of the file...
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+      chunkFilename: `onfido${SDK_ENV === 'Auth' ? SDK_ENV : ''}.[name].css`,
+    }),
     new HtmlWebpackPlugin({
       template: './demo/demo.ejs',
       filename: 'index.html',
@@ -371,7 +397,8 @@ const configDist = () => ({
     hot: true,
     historyApiFallback: true,
     static: './dist',
-    allowedHosts: 'all', // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
+    // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
+    allowedHosts: 'all',
     devMiddleware: {
       publicPath: '/',
     },
@@ -384,6 +411,10 @@ const minimizer = (banner = false) =>
         new TerserPlugin({
           parallel: true,
           extractComments: false,
+          terserOptions: {
+            keep_fnames: true,
+            keep_classnames: true,
+          },
         }),
         banner &&
           new webpack.BannerPlugin({
@@ -424,6 +455,8 @@ const configNpmLib = () => ({
   optimization: {
     nodeEnv: false,
     chunkIds: 'named',
+    moduleIds: 'named',
+    sideEffects: false,
     splitChunks: {
       chunks: 'all',
     },
@@ -465,16 +498,21 @@ const configNpmLib = () => ({
   ],
 })
 
+// NOTE: Temporary disabled
+// TODO: fix plugins: https://github.com/stephencookdev/speed-measure-webpack-plugin
 // Workaround for https://github.com/stephencookdev/speed-measure-webpack-plugin/issues/167
-const smp = new SpeedMeasurePlugin()
-const configWithSpeedMeasures = smp.wrap(configDist())
-configWithSpeedMeasures.plugins.unshift(
-  new MiniCssExtractPlugin({
-    filename: 'style.css',
-    chunkFilename: `onfido${SDK_ENV === 'Auth' ? SDK_ENV : ''}.[name].css`,
-  })
-)
+// const smp = new SpeedMeasurePlugin()
+// const configWithSpeedMeasures = smp.wrap(configDist())
+// configWithSpeedMeasures.plugins.unshift(
+//   new MiniCssExtractPlugin({
+//     filename: 'style.css',
+//     chunkFilename: `onfido${SDK_ENV === 'Auth' ? SDK_ENV : ''}.[name].css`,
+//   })
+// )
 
-export default SDK_ENV === 'Auth'
-  ? [configWithSpeedMeasures]
-  : [configWithSpeedMeasures, configNpmLib()]
+// export default SDK_ENV === 'Auth'
+//   ? [configWithSpeedMeasures]
+//   : [configWithSpeedMeasures, configNpmLib()]
+
+const config = configDist()
+export default SDK_ENV === 'Auth' ? [config] : [config, configNpmLib()]
