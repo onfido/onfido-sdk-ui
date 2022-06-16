@@ -263,7 +263,6 @@ const buildRequiredVideoComponents = (
   mobileFlow?: boolean,
   isFirstCaptureStepInFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
-  // @TODO: convert FaceVideoCapture, FaceVideoConfirm to TS
   const allVideoSteps = [FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm]
 
   if (mobileFlow && !shouldUseCamera) {
@@ -458,7 +457,6 @@ const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
 }
 
 const crossDeviceDesktopComponents: ComponentsByStepType = {
-  // @TODO: convert CrossDeviceIntro into TS
   // @ts-ignore
   crossDevice: [CrossDeviceIntro, CrossDeviceLink, MobileFlow],
   complete: [Complete],
