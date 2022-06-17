@@ -256,6 +256,10 @@
         "back": "terug",
         "close": "sluiten",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Het spijt ons, we kunnen niet verdergaan, omdat uw huidige locatie niet ondersteund wordt",
+                "message": "Service niet beschikbaar"
+            },
             "interrupted_flow_error": {
                 "instruction": "Start het proces opnieuw vanaf een ander apparaat",
                 "message": "Camera niet gedetecteerd"
