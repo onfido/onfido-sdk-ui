@@ -179,6 +179,30 @@ export const SdkOptionsView: FunctionComponent<{
         ))}
       </div>
     </div>
+    <div className="label">
+      <input
+        type="checkbox"
+        checked={
+          !!sdkOptions.overrideSdkConfiguration?.experimental_features
+            ?.motion_experiment?.enabled
+        }
+        title="enable_liveness_experiment"
+        onChange={(e) =>
+          updateSdkOptions({
+            overrideSdkConfiguration: {
+              ...sdkOptions.overrideSdkConfiguration,
+              experimental_features: {
+                ...sdkOptions.overrideSdkConfiguration?.experimental_features,
+                motion_experiment: {
+                  enabled: (e.target as HTMLInputElement).checked,
+                },
+              },
+            },
+          })
+        }
+      />
+      &nbsp;enableLivenessExperiment
+    </div>
   </div>
 )
 

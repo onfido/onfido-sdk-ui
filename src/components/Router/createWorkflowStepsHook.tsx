@@ -7,6 +7,7 @@ import { StepsHook, CompleteStepValue } from '~types/routers'
 import { poller, PollFunc, Engine } from '../WorkflowEngine'
 import type { WorkflowResponse } from '../WorkflowEngine/utils/WorkflowTypes'
 import useUserConsent from '~contexts/useUserConsent'
+import useActiveVideo from '~contexts/useActiveVideo'
 
 type WorkflowStepsState = {
   loading: boolean
@@ -29,6 +30,7 @@ export const createWorkflowStepsHook = (
   { onfido_api_url }: UrlsConfig
 ): StepsHook => () => {
   const { addUserConsentStep } = useUserConsent()
+  const { addActiveVideoStep } = useActiveVideo()
 
   const [state, setState] = useState<WorkflowStepsState>({
     ...defaultState,
@@ -42,9 +44,9 @@ export const createWorkflowStepsHook = (
 
     setState((state) => ({
       ...state,
-      steps: addUserConsentStep(options.steps),
+      steps: addUserConsentStep(addActiveVideoStep(options.steps)),
     }))
-  }, [addUserConsentStep])
+  }, [addUserConsentStep, addActiveVideoStep])
 
   const { taskId, loading, error, steps, hasNextStep } = state
 

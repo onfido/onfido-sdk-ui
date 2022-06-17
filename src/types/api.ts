@@ -256,6 +256,9 @@ export interface DocumentCapture {
 export interface ExperimentalFeatures {
   enable_image_quality_service?: boolean
   enable_multi_frame_capture?: boolean
+  motion_experiment?: {
+    enabled: boolean
+  }
 }
 
 export interface SdkFeatures {
