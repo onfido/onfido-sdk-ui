@@ -20,6 +20,7 @@ import { ErrorProp, StepComponentBaseProps } from '~types/routers'
 import { DocumentCapture, FaceCapture } from '~types/redux'
 import { CaptureMethods, DocumentSides, ErrorNames } from '~types/commons'
 import {
+  ApiRawError,
   DocumentImageResponse,
   FaceVideoResponse,
   ImageQualityValidationPayload,
@@ -429,10 +430,10 @@ export const Confirm = (props: ConfirmProps) => {
       } else {
         console.error(`Invalid return statement from ${callbackName}`)
       }
-    } catch (errorResponse: any) {
+    } catch (errorResponse: unknown) {
       // @ts-ignore
       sendEvent(`Error response from ${callbackName}`)
-      formatError(errorResponse, onApiError)
+      formatError(errorResponse as ApiRawError, onApiError)
     }
   }
 
