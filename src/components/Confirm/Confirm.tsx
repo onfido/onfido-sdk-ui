@@ -76,6 +76,7 @@ export const Confirm = (props: ConfirmProps) => {
       document_type: props.documentType,
       country_code: props.idDocumentIssuingCountry?.country_alpha2,
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const setError = (name: ErrorNames, errorMessage?: unknown) => {
