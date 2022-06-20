@@ -34,6 +34,7 @@ export type QueryParams = {
   multiDocWithPresetCountry?: StringifiedBoolean
   multiDocWithBooleanValues?: StringifiedBoolean
   noCompleteStep?: StringifiedBoolean
+  noDocumentStep?: StringifiedBoolean
   oneDoc?: DocumentTypes
   oneDocWithCountrySelection?: StringifiedBoolean
   oneDocWithPresetCountry?: StringifiedBoolean
@@ -199,21 +200,23 @@ export const getInitSdkOptions = (): SdkOptions => {
     steps.push({ type: 'poa' })
   }
 
-  steps.push({
-    type: 'document',
-    options: {
-      useLiveDocumentCapture:
-        queryParamToValueString.useLiveDocumentCapture === 'true',
-      uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-      useWebcam: queryParamToValueString.useWebcam === 'true',
-      documentTypes: getPreselectedDocumentTypes(),
-      showCountrySelection:
-        queryParamToValueString.oneDocWithCountrySelection === 'true',
-      forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
-      requestedVariant:
-        queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
-    },
-  })
+  if (queryParamToValueString.noDocumentStep !== 'true') {
+    steps.push({
+      type: 'document',
+      options: {
+        useLiveDocumentCapture:
+          queryParamToValueString.useLiveDocumentCapture === 'true',
+        uploadFallback: queryParamToValueString.uploadFallback !== 'false',
+        useWebcam: queryParamToValueString.useWebcam === 'true',
+        documentTypes: getPreselectedDocumentTypes(),
+        showCountrySelection:
+          queryParamToValueString.oneDocWithCountrySelection === 'true',
+        forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
+        requestedVariant:
+          queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
+      },
+    })
+  }
 
   steps.push({
     type: 'face',

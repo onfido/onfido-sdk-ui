@@ -1,19 +1,28 @@
 const { error } = require('./util/logging')
 const { isRCVersion } = require('./util/helpers')
 const { execute } = require('./util/terminal')
-const { RELEASE_VERSION, BASE_32_VERSION, PULL_REQUEST_NUMBER } = process.env
+const {
+  RELEASE_VERSION,
+  BASE_32_VERSION,
+  PULL_REQUEST_NUMBER,
+  AWS_S3_BUCKET,
+} = process.env
+
+const AWS_BASE = `s3://${AWS_S3_BUCKET}/web-sdk-base32-releases/`
 
 const postReleaseChecks = async () => {
   const { stdout: npmout } = await execute(
     `npm view onfido-sdk-ui@${RELEASE_VERSION}`
   )
+  console.log('postReleaseChecks', npmout)
   if (npmout.length === 0) {
     error(`It seems this release isn't published on NPM`)
   }
 
   try {
     await execute(`aws s3 ls ${AWS_BASE}${BASE_32_VERSION}/onfido.min.js`)
-  } catch {
+  } catch (e) {
+    console.error(e)
     error(
       `The upload to AWS seems to have gone wrong, we couldn't find ${BASE_32_VERSION}/onfido.min.js`
     )

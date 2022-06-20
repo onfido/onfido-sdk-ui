@@ -7,21 +7,18 @@ import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.model.DocumentOption;
 import com.onfido.qa.websdk.page.Complete;
 import com.onfido.qa.websdk.page.ConfirmUpload;
-import com.onfido.qa.websdk.page.CountrySelector;
 import com.onfido.qa.websdk.page.CrossDeviceIntro;
 import com.onfido.qa.websdk.page.DocumentLiveCapture;
 import com.onfido.qa.websdk.page.DocumentUpload;
-import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
 import com.onfido.qa.websdk.page.ImageQualityGuide;
 import com.onfido.qa.websdk.page.PassportUploaderIntro;
 import com.onfido.qa.websdk.page.Permission;
+import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
 import com.onfido.qa.websdk.page.SelfieUpload;
 import com.onfido.qa.websdk.sdk.DocumentStep;
 import com.onfido.qa.websdk.sdk.EnterpriseFeatures;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import com.onfido.qa.websdk.sdk.Raw;
-import com.onfido.qa.websdk.sdk.DocumentStep.Option;
-
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

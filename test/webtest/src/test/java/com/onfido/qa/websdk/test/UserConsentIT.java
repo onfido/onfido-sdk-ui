@@ -106,17 +106,31 @@ public class UserConsentIT extends WebSdkIT {
         verifyCopy(welcome.title(), "welcome.title");
     }
 
-
-    // FIXME: this actually shows a bug with the web sdk
-    @Test(description = "do not show consent screen, if consent is already given", enabled = false)
+    @Test(description = "do not show consent screen, if consent is already given")
     public void testConsentScreenNotShownWhenConsentAlreadyGiven() {
-        onfido()
+        var document = onfido()
                 .withSteps("document")
                 .withMock(mock -> {
                     mock.extend(Code.SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
                     mock.set(Code.CONSENTS, Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
                 })
                 .init(RestrictedDocumentSelection.class);
+
+        verifyCopy(document.title(), "doc_select.title");
+    }
+
+    @Test(description = "do not show consent screen, if consent is already given and not first screen")
+    public void testConsentScreenNotShownWhenConsentAlreadyGivenAndNotFirstScreen() {
+        var document = onfido()
+                .withSteps("welcome","document")
+                .withMock(mock -> {
+                    mock.extend(Code.SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                    mock.set(Code.CONSENTS, Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
+                })
+                .init(Welcome.class)
+                .continueToNextStep(RestrictedDocumentSelection.class);
+
+        verifyCopy(document.title(), "doc_select.title");
     }
 
     @Test(description = "Is not displayed on cross device", groups = {"percy", "tabs"})

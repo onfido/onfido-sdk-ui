@@ -1,9 +1,19 @@
 const { debug } = require('./util/logging')
 const parseChangelog = require('changelog-parser')
 const { replaceInFile, readFile } = require('./util/file')
-const { GITHUB_ACTOR, RELEASE_VERSION, RELEASE_BRANCH_NAME } = process.env
+const {
+  GITHUB_ACTOR,
+  RELEASE_VERSION,
+  RELEASE_BRANCH_NAME,
+  REMOTE_BRANCH_EXIST,
+} = process.env
 
 module.exports = async (github, context) => {
+  if (REMOTE_BRANCH_EXIST) {
+    console.log('PR already exists, we are good to go!')
+    return
+  }
+
   const changelogData = await parseChangelog('CHANGELOG.md')
   const entry = changelogData.versions.find(
     (i) => i.version === RELEASE_VERSION

@@ -84,11 +84,10 @@ jobs:
         run: |
           if [[ $(git branch --all --list $RELEASE_BRANCH_NAME) ]] 
           then
-            echo "REMOTE_BRANCH_EXIST=true >> $GITHUB_ENV"
+            echo "REMOTE_BRANCH_EXIST=true" >> $GITHUB_ENV
           fi
 
       - name: Create Pull Request
-        if: ${{ env.REMOTE_BRANCH_EXIST != true }}
         uses: actions/github-script@v6
         with:
           script: |
