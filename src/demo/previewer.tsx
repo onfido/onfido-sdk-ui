@@ -18,6 +18,14 @@ if (process.env.NODE_ENV === 'development') {
   require('preact/devtools')
 }
 
+const saveSdkOptions = (sdkOptions: SdkOptions) => {
+  if (sdkOptions) {
+    localStorage.setItem('onfido-sdk-options-demo', JSON.stringify(sdkOptions))
+  } else {
+    localStorage.removeItem('onfido-sdk-options-demo')
+  }
+}
+
 const SdkPreviewer = () => {
   const [viewOptions, setViewOptions] = useState<UIConfigs>({
     darkBackground: false,
@@ -41,6 +49,13 @@ const SdkPreviewer = () => {
       ...currentOptions,
       ...newOptions,
     }))
+
+  const resetSdkOptions = () => {
+    saveSdkOptions({})
+    location.reload()
+  }
+
+  useEffect(() => saveSdkOptions(sdkOptions), [sdkOptions])
 
   /**
    * This side effect should run once after the component mounted,
@@ -138,6 +153,7 @@ const SdkPreviewer = () => {
 
         <SdkOptionsView
           sdkOptions={sdkOptions}
+          resetSdkOptions={resetSdkOptions}
           updateSdkOptions={updateSdkOptions}
         />
 
