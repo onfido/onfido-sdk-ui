@@ -355,7 +355,7 @@ onfidoOut.tearDown()
 
 - **`useModal {Boolean} optional`**
 
-  Turns the SDK into a modal, which fades the background and puts the SDK into a contained box.
+  Turns the SDK into a modal, which fades the background and puts the SDK into a contained box. The default value is `false`.
 
   ```javascript
   <script>
@@ -393,11 +393,11 @@ onfidoOut.tearDown()
 
 - **`shouldCloseOnOverlayClick {Boolean} optional`**
 
-  If `useModal` is set to `true`, by default the user can close the SDK by clicking on the close button or on the background overlay. You can disable the user's ability to close the SDK by clicking the background overlay through setting `shouldCloseOnOverlayClick` to `false`.
+  If `useModal` is set to `true`, by default the user can close the SDK by clicking on the close button or on the background overlay. You can disable the user's ability to close the SDK by clicking the background overlay through setting `shouldCloseOnOverlayClick` to `false`. The default value is `true`.
 
-- **`autoFocusOnInitialScreenTitle {Boolean} optional (default: true)`**
+- **`autoFocusOnInitialScreenTitle {Boolean} optional`**
 
-  Sets the SDK to auto focus on the initial screen's title. By default the SDK will auto focus on every screen's title. When disabled, auto focus will not be applied for the initial screen's title. The SDK will still auto focus to all subsequent screens' titles as the user goes through the steps.
+  Sets the SDK to auto focus on the initial screen's title. By default the SDK will auto focus on every screen's title. When disabled, auto focus will not be applied for the initial screen's title. The SDK will still auto focus to all subsequent screens' titles as the user goes through the steps. The default value is `true`.
 
 - **`containerId {String} optional`**
 
