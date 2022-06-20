@@ -8,7 +8,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import classNames from 'classnames'
 import { setNavigationDisabled } from '../ReduxAppWrapper/store/actions/globals'
-import { withFullScreenState } from '../FullScreen'
+import { withFullScreenState, WithFullScreenStateProps } from '../FullScreen'
 import { isDesktop } from '~utils'
 import { localised } from '~locales'
 import style from './style.scss'
@@ -61,11 +61,10 @@ type NavProps = {
   id?: string
   back?: () => void
   disabled?: boolean
-  isFullScreen?: boolean
   className?: string
 }
 
-type Props = NavProps & WithLocalisedProps
+type Props = NavProps & WithLocalisedProps & WithFullScreenStateProps
 
 class NavigationBar extends Component<Props> {
   private backBtn = createRef<HTMLButtonElement>()
