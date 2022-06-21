@@ -77,7 +77,6 @@ export type StepOptionDocument = {
   documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
   forceCrossDevice?: boolean
   photoCaptureFallback?: never // for cross-compatibility with StepOptionFace in withCrossDeviceWhenNoCamera
-  showCountrySelection?: boolean
   useLiveDocumentCapture?: boolean
 } & CaptureOptions
 

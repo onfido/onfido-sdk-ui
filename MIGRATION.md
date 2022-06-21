@@ -2,6 +2,12 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `8.10.0` -> `next`
+
+### Change in SDK Options
+
+The deprecated option `showCountrySelection` has been removed.
+
 ## `6.20.0` -> `8.0.0`
 
 ### Change in SDK Options

@@ -524,17 +524,20 @@ The custom options are:
 
 - `documentTypes` (object)
 
-  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see either the document selection screen or the country selection screen and instead will be taken directly to the capture screen.
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`.
 
 - `country` (string)
 
   Document country can be specified per document type. The `country` configuration for a document type allows you to specify the issuing country of the document as a string containing a 3-letter ISO 3166-1 alpha-3 country code.
 
+  If `documentTypes` only includes one document type with a country value, users will not see either the document selection and instead will be taken directly to the capture screen.
+
+  ⚠️ **Note**: the `null` value is deprecated and has no effect.
   If a document country is specified for a document type, or is passed as `null`, the country selection screen is not displayed to the end user.
 
   ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information.
 
-  For example, if you would like to set the country as Spain (ESP) and skip the country selection screen for the driving licence document type only:
+  For example, if you would like to only allow the driving licence document for Spain (ESP), and national identity card and residence permit for all country:
 
   ```json
   {
@@ -550,122 +553,6 @@ The custom options are:
             "national_identity_card": true,
             "residence_permit": true
           }
-        }
-      },
-      "complete"
-    ]
-  }
-  ```
-
-  For example, if you would like to skip the country selection screen for driving licence but do not want to set a country:
-
-  ```json
-  {
-    "steps": [
-      "welcome",
-      {
-        "type": "document",
-        "options": {
-          "documentTypes": {
-            "driving_licence": {
-              "country": null
-            },
-            "passport": true,
-            "national_identity_card": true
-          }
-        }
-      },
-      "complete"
-    ]
-  }
-  ```
-
-- `showCountrySelection` (boolean - default: `false`)
-
-  ⚠️ **Note**: Support for the `showCountrySelection` option will be deprecated soon in favour of the per document country configuration detailed above which offers integrators better control.
-
-  The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes`. It has no effect when the SDK has been set up with multiple documents preselected.
-
-  The country selection screen is never displayed for a passport document.
-
-  By default, if only one document type is preselected, and the document type is not `passport`, the country selection screen will not be displayed. If you would like to have this screen displayed still, set `showCountrySelection` to `true`.
-
-  ```javascript
-  options: {
-    documentTypes: {
-      passport: boolean,
-      driving_licence: boolean,
-      national_identity_card: boolean,
-      residence_permit: boolean
-    },
-    showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
-  }
-  ```
-
-  Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour):
-
-  ```json
-  {
-    "steps": [
-      "welcome",
-      {
-        "type": "document",
-        "options": {
-          "documentTypes": {
-            // Note that only 1 document type is selected here
-            "passport": false,
-            "driving_licence": false,
-            "national_identity_card": true
-          },
-          "showCountrySelection": false
-        }
-      },
-      "complete"
-    ]
-  }
-  ```
-
-  Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed:
-
-  **Example 1**
-  All document type options enabled, `"showCountrySelection": false` has no effect
-
-  ```json
-  {
-    "steps": [
-      "welcome",
-      {
-        "type": "document",
-        "options": {
-          "documentTypes": {
-            "passport": true,
-            "driving_licence": true,
-            "national_identity_card": true
-          },
-          "showCountrySelection": false (NOTE: has no effect)
-        }
-      },
-      "complete"
-    ]
-  }
-  ```
-
-  **Example 2**
-  2 document type options enabled, `"showCountrySelection": false` has no effect
-
-  ```json
-  {
-    "steps": [
-      "welcome",
-      {
-        "type": "document",
-        "options": {
-          "documentTypes": {
-            "passport": true,
-            "national_identity_card": true,
-            "driving_licence": false
-          },
-          "showCountrySelection": false (NOTE: has no effect)
         }
       },
       "complete"

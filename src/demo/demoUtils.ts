@@ -207,8 +207,6 @@ export const getInitSdkOptions = (): SdkOptions => {
       uploadFallback: queryParamToValueString.uploadFallback !== 'false',
       useWebcam: queryParamToValueString.useWebcam === 'true',
       documentTypes: getPreselectedDocumentTypes(),
-      showCountrySelection:
-        queryParamToValueString.oneDocWithCountrySelection === 'true',
       forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
       requestedVariant:
         queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
