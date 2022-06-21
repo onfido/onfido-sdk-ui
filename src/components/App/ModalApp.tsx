@@ -3,7 +3,7 @@ import { EventEmitter2 } from 'eventemitter2'
 import { v4 as uuidv4 } from 'uuid'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
-import { LocaleProvider } from '~locales'
+import { LocaleLoader, LocaleProvider } from '~locales'
 import {
   parseJwt,
   getUrlsFromJWT,
@@ -398,7 +398,11 @@ class ModalApp extends Component<Props> {
             containerEl={containerEl}
             shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
           >
-            <Router {...otherProps} />
+            <LocaleLoader
+              shouldAutoFocus={options.autoFocusOnInitialScreenTitle}
+            >
+              <Router {...otherProps} />
+            </LocaleLoader>
           </Modal>
         </SdkOptionsProvider>
       </LocaleProvider>
