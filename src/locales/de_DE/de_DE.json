@@ -537,6 +537,7 @@
         "list_item_selfie": "Ihr Gesicht",
         "next_button": "Dokument auswählen",
         "subtitle": "Es dauert nur wenige Minuten",
-        "title": "Identität überprüfen"
+        "title": "Identität überprüfen",
+        "start_workflow_button": "Identität überprüfen"
     }
 }
