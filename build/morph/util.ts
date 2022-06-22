@@ -1,8 +1,8 @@
-import { Node } from 'ts-morph'
+import { CallExpression, Node } from 'ts-morph'
 import { fromBasePath } from './project'
 
 // node: CallExpression
-export const abstractOriginInfo = (callExpression) => {
+export const abstractOriginInfo = (callExpression: CallExpression) => {
   const filePath = callExpression
     .getSourceFile()
     .getFilePath()
@@ -10,7 +10,7 @@ export const abstractOriginInfo = (callExpression) => {
   const lineNumber = callExpression.getStartLineNumber()
 
   const anc = callExpression.getAncestors()
-  const trace = []
+  const trace: string[] = []
   anc.forEach((x) => {
     if (
       Node.isMethodDeclaration(x) ||
@@ -20,7 +20,7 @@ export const abstractOriginInfo = (callExpression) => {
       Node.isFunctionExpression(x) ||
       Node.isPropertyDeclaration(x)
     ) {
-      trace.push(x.getName())
+      trace.push(x.getName() || '')
     }
   })
   const methodName = trace.reverse().join('.')
@@ -33,8 +33,8 @@ export const abstractOriginInfo = (callExpression) => {
 }
 
 export const appendArgumentsToCallExpression = (
-  callExpression,
-  { max, data }
+  callExpression: CallExpression,
+  { max, data }: { max: number; data: string[] }
 ) => {
   const originArguments = callExpression.getArguments()
   const originArgumentsLength = originArguments.length
@@ -55,7 +55,8 @@ export const appendArgumentsToCallExpression = (
   callExpression.addArguments(data)
 }
 
-export const getNthDecscendant = (node, condition, nth) => {
+// @ts-ignore
+export const getNthDescendant = (node, condition, nth) => {
   let count = 0
   for (const descendant of node._getDescendantsIterator()) {
     if (condition == null || condition(descendant)) {
