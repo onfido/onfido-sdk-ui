@@ -9,7 +9,6 @@ import {
   Validation,
   Input,
   Button,
-  Asterisk,
 } from '@onfido/castor-react'
 import { useLocales } from '~locales'
 import ScreenLayout from '../Theme/ScreenLayout'
@@ -230,9 +229,7 @@ const FieldComponent = ({
       <FieldLabel>
         <span>
           {getTranslatedFieldLabel(translate, type, selectedCountry)}
-          {isRequired ? (
-            <Asterisk aria-label="required" />
-          ) : (
+          {!isRequired && (
             <span className={style['optional']}>
               {` ${translate('profile_data.field_optional')}`}
             </span>
