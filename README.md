@@ -533,7 +533,7 @@ The custom options are:
   If `documentTypes` only includes one document type with a country value, users will not see the document selection screen and instead will be taken directly to the capture screen.
 
   ⚠️ **Note**: the `null` value is deprecated and has no effect.
-  If a document country is specified for a document type, or is passed as `null`, the country selection screen is not displayed to the end user.
+  If a document country is specified for a document type, the country selection screen is not displayed to the end user.
 
   ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information.
 
