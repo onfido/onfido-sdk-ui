@@ -1,4 +1,9 @@
 import type { documentSelectionType } from '~types/commons'
+import type {
+  StepConfig,
+  GetDocDataFunc,
+  GetPersonalDataFunc,
+} from '~types/steps'
 
 export type GetWorkflowFunc = () => Promise<WorkflowResponse>
 export type CompleteWorkflowFunc = (
@@ -9,8 +14,15 @@ export type CompleteWorkflowFunc = (
 
 export type GetFlowStepFunc = (
   taskId: string | undefined,
-  configuration: WorkflowStepConfig
-) => unknown
+  configuration: WorkflowStepConfig,
+  {
+    getDocData,
+    getPersonalData,
+  }: {
+    getDocData: GetDocDataFunc
+    getPersonalData: GetPersonalDataFunc
+  }
+) => StepConfig | undefined
 
 export type documentSelectionConfigType = {
   document_selection: Array<documentSelectionType>
