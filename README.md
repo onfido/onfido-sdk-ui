@@ -537,7 +537,7 @@ The custom options are:
 
   ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information.
 
-  For example, if you would like to only allow the driving licence document for Spain (ESP), and national identity card and residence permit for all country:
+ For example, if you want to allow only Spanish (ESP) driving licences, and national identity cards and residence permits for all countries:
 
   ```json
   {
