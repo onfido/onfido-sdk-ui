@@ -55,6 +55,7 @@ export class MockEngine implements EngineInterface {
     }
   }
 
+  // @ts-ignore
   getWorkFlowStep = (
     taskId: string | undefined,
     configuration: WorkflowStepConfig

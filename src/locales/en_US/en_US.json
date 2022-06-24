@@ -18,8 +18,9 @@
         "reload_app": "Please try reloading the app, and try again."
     },
     "profile_data": {
-        "personal_details_title": "Add your personal information",
-        "address_detials_title": "Add your address",
+        "country_of_residence_title": "Your country of residence",
+        "personal_information_title": "Your personal information",
+        "address_title": "Your address",
         "field_labels": {
             "first_name": "First name",
             "last_name": "Last name",
@@ -72,7 +73,7 @@
             }
         },
         "field_optional": "(optional)",
-        "button_submit": "Continue",
+        "button_continue": "Continue",
         "components": {
             "country_select": {
                 "placeholder": "Select a country"
