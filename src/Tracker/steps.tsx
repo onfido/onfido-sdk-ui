@@ -4,7 +4,6 @@ import { pick } from '~utils/object'
 // Only accept these keys in step.options
 const keys = [
   'documentTypes',
-  'showCountrySelection',
   'forceCrossDevice',
   'useLiveDocumentCapture',
   'uploadFallback',

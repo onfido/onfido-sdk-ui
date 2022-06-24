@@ -25,9 +25,6 @@ public class DocumentStep extends Step {
         private Map<String, Object> documentTypes;
 
         @JsonProperty
-        private Boolean showCountrySelection;
-
-        @JsonProperty
         private Boolean forceCrossDevice;
 
         @JsonProperty
@@ -87,11 +84,6 @@ public class DocumentStep extends Step {
         }
 
         this.options.documentTypes.put(documentType.canonicalName(), option);
-        return this;
-    }
-
-    public DocumentStep withShowCountrySelection(Boolean showCountrySelection) {
-        this.options.showCountrySelection = showCountrySelection;
         return this;
     }
 
