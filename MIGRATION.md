@@ -2,7 +2,7 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `8.10.0` -> `next`
+## `8.0.0` -> `next`
 
 ### Change in SDK Options
 

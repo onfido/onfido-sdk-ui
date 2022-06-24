@@ -518,7 +518,7 @@ The custom options are:
 
 This is the identity document capture step. Users will be asked to select the document type and its issuing country before providing images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
 
-Document selection and country selection are both optional screens. These screens will only show to the end user if specific options are not configured to the SDK.
+Document type and document country selection is an optional screen. This screen will only show to the end user if specific options are not configured to the SDK.
 
 The custom options are:
 
@@ -531,8 +531,6 @@ The custom options are:
   Document country can be specified per document type. The `country` configuration for a document type allows you to specify the issuing country of the document as a string containing a 3-letter ISO 3166-1 alpha-3 country code.
 
   If `documentTypes` only includes one document type with a country value, users will not see the document selection screen and instead will be taken directly to the capture screen.
-
-  If a document country is specified for a document type, the country selection screen is not displayed to the end user.
 
   ⚠️ **Note**: the `null` value is deprecated and has no effect.
 
