@@ -2,6 +2,21 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `8.0.0` -> `next`
+
+### Added strings
+
+- `profile_data.country_of_residence_title`
+- `profile_data.personal_information_title`
+- `profile_data.address_title`
+- `profile_data.button_continue`
+
+### Removed strings
+
+- `profile_data.personal_details_title`
+- `profile_data.address_detials_title`
+- `profile_data.button_submit`
+
 ## `6.20.0` -> `8.0.0`
 
 ### Change in SDK Options

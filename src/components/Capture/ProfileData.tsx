@@ -20,14 +20,16 @@ import { DateOfBirthInput, getMaxDay } from './DateOfBirthInput'
 import style from './style.scss'
 
 import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
-import type { FlatStepOptionData } from '~types/steps'
+import type { GetPersonalDataFunc } from '~types/steps'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { TranslateCallback } from '~types/locales'
 
 type ProfileDataProps = StepComponentDataProps & {
   title: string
   dataSubPath: string
-  data: FlatStepOptionData
+  dataFields: string[]
+  disabledFields: string[]
+  getPersonalData: GetPersonalDataFunc
   nextStep: () => void
   completeStep: (data: CompleteStepValue) => void
 } & WithLocalisedProps
@@ -35,12 +37,31 @@ type ProfileDataProps = StepComponentDataProps & {
 const ProfileData = ({
   title,
   dataSubPath,
-  data,
+  dataFields,
+  disabledFields,
+  getPersonalData,
   nextStep,
   completeStep,
 }: ProfileDataProps) => {
   const { translate } = useLocales()
-  const [formData, setFormData] = useState<{ [key: string]: string }>(data)
+  const [formData, setFormData] = useState(() => {
+    const personalData = getPersonalData()
+    const pathData = dataSubPath
+      ? personalData[dataSubPath] ?? {}
+      : personalData
+
+    return {
+      // make empty data values with fields described
+      ...dataFields.reduce((acc, curr) => ({ ...acc, [curr]: '' }), {}),
+      // override values with already set personal data
+      ...Object.fromEntries(
+        Object.entries(pathData as Record<string, unknown>).filter(([key]) =>
+          dataFields.includes(key)
+        )
+      ),
+    }
+  })
+
   // Touchers are a set of functions that can be executed to "touch" fields.
   // Upon touching a field, it can "invalidate" itself.
   // They also return a field validity state, so a form can check if fields
@@ -90,7 +111,8 @@ const ProfileData = ({
             key={type}
             type={type as FieldComponentProps['type']}
             value={value as FieldComponentProps['value']}
-            selectedCountry={formData.country}
+            selectedCountry={(formData as { country: string }).country}
+            disabled={(disabledFields || []).includes(type)}
             setToucher={setToucher}
             removeToucher={removeToucher}
             onChange={handleChange}
@@ -104,7 +126,7 @@ const ProfileData = ({
             style['submit-button']
           )}
         >
-          {translate('profile_data.button_submit')}
+          {translate('profile_data.button_continue')}
         </Button>
       </div>
     </ScreenLayout>
@@ -143,7 +165,8 @@ type FieldValueChangeFunc = (
 type FieldComponentProps = {
   type: fieldType
   value: string
-  selectedCountry?: ProfileDataProps['data']['country']
+  selectedCountry?: string
+  disabled: boolean
   setToucher: SetToucherFunc
   removeToucher: RemoveRoucherFunc
   onChange: FieldValueChangeFunc
@@ -153,6 +176,7 @@ const FieldComponent = ({
   type,
   value,
   selectedCountry,
+  disabled,
   setToucher,
   removeToucher,
   onChange,
@@ -214,6 +238,7 @@ const FieldComponent = ({
         {getTranslatedFieldHelperText(translate, type, selectedCountry)}
         {getFieldComponent(type, {
           value,
+          disabled,
           invalid: isTouched && isInvalid,
           required: isRequired,
           onBlur: handleBlur,
@@ -231,6 +256,7 @@ const getFieldComponent = (
   type: FieldComponentProps['type'],
   props: {
     value: FieldComponentProps['value']
+    disabled: boolean
     invalid: boolean
     required: boolean
     onBlur: () => void
