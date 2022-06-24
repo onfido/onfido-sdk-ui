@@ -20,6 +20,10 @@ The guides below are provided to ease the transition of existing applications us
 - `profile_data.address_detials_title`
 - `profile_data.button_submit`
 
+### Change in SDK Options
+
+- The deprecated `showCountrySelection` option has been removed.
+
 ## `6.20.0` -> `8.0.0`
 
 ### Change in SDK Options

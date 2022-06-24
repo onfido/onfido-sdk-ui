@@ -51,6 +51,7 @@ import Guidance from '../ProofOfAddress/Guidance'
 import PoADocumentSelector from '../DocumentSelector/PoADocumentSelector'
 import PoACountrySelector from '../CountrySelector/PoACountrySelector'
 import { RestrictedDocumentSelection } from '../RestrictedDocumentSelection'
+import { getCountryDataForDocumentType } from '~supported-documents'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -301,13 +302,14 @@ const buildRequiredSelfieComponents = (
 }
 
 const buildNonPassportPreCaptureComponents = (
-  hasOnePreselectedDocument: boolean
+  hasOnePreselectedDocument: boolean,
+  showCountrySelection: boolean
 ): ComponentType<StepComponentProps>[] => {
-  const prependDocumentSelector = hasOnePreselectedDocument
-    ? []
-    : [RestrictedDocumentSelection]
+  const prependDocumentSelector =
+    hasOnePreselectedDocument && !showCountrySelection
+      ? []
+      : [RestrictedDocumentSelection]
   // @ts-ignore
-  // TODO: convert DocumentSelector to TS
   return [...prependDocumentSelector]
 }
 
@@ -319,6 +321,13 @@ const buildDocumentComponents = (
   mobileFlow: boolean | undefined,
   isFirstCaptureStepInFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
+  const options = documentStep?.options
+
+  const configForDocumentType =
+    documentType && options?.documentTypes
+      ? options?.documentTypes[documentType]
+      : undefined
+
   const shouldUseVideo =
     documentStep?.options?.requestedVariant === 'video' &&
     window.MediaRecorder != null
@@ -361,8 +370,25 @@ const buildDocumentComponents = (
       : [...preCaptureComponents, ...standardCaptureComponents]
   }
 
+  const countryCode =
+    typeof configForDocumentType === 'boolean'
+      ? null
+      : configForDocumentType?.country
+  const supportedCountry = getCountryDataForDocumentType(
+    countryCode,
+    documentType
+  )
+  const hasMultipleDocumentsWithUnsupportedCountry =
+    !hasOnePreselectedDocument && !supportedCountry
+  const hasCountryCodeOrDocumentTypeFlag =
+    countryCode !== null || configForDocumentType === true
+  const showCountrySelection =
+    hasMultipleDocumentsWithUnsupportedCountry &&
+    hasCountryCodeOrDocumentTypeFlag
+
   const preCaptureComponents = buildNonPassportPreCaptureComponents(
-    hasOnePreselectedDocument
+    hasOnePreselectedDocument,
+    showCountrySelection
   )
 
   if (shouldUseVideo) {
