@@ -49,7 +49,13 @@ export const createWorkflowStepsHook = (
   const { taskId, loading, error, steps, hasNextStep } = state
 
   const docData = useRef<Array<{ id: string }>>([])
+  const getDocData = useCallback(() => {
+    return docData.current
+  }, [docData])
   const personalData = useRef<Record<string, unknown>>({})
+  const getPersonalData = useCallback(() => {
+    return personalData.current
+  }, [personalData])
 
   const pollStep = useCallback((cb: () => void) => {
     if (!token) {
@@ -104,7 +110,8 @@ export const createWorkflowStepsHook = (
 
       const step = workflowEngine.getWorkFlowStep(
         workflow.task_def_id,
-        workflow.config
+        workflow.config,
+        { getDocData, getPersonalData }
       )
 
       if (!step) {
