@@ -532,33 +532,34 @@ The custom options are:
 
   If `documentTypes` only includes one document type with a country value, users will not see the document selection screen and instead will be taken directly to the capture screen.
 
-  ⚠️ **Note**: the `null` value is deprecated and has no effect.
   If a document country is specified for a document type, the country selection screen is not displayed to the end user.
+
+  ⚠️ **Note**: the `null` value is deprecated and has no effect.
 
   ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information.
 
- For example, if you want to allow only Spanish (ESP) driving licences, and national identity cards and residence permits for all countries:
+For example, if you want to allow only Spanish (ESP) driving licences, and national identity cards and residence permits for all countries:
 
-  ```json
-  {
-    "steps": [
-      "welcome",
-      {
-        "type": "document",
-        "options": {
-          "documentTypes": {
-            "driving_licence": {
-              "country": "ESP"
-            },
-            "national_identity_card": true,
-            "residence_permit": true
-          }
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "driving_licence": {
+            "country": "ESP"
+          },
+          "national_identity_card": true,
+          "residence_permit": true
         }
-      },
-      "complete"
-    ]
-  }
-  ```
+      }
+    },
+    "complete"
+  ]
+}
+```
 
 - `forceCrossDevice` (boolean - default: `false`)
 
