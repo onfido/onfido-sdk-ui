@@ -10,6 +10,9 @@ The guides below are provided to ease the transition of existing applications us
 - `profile_data.personal_information_title`
 - `profile_data.address_title`
 - `profile_data.button_continue`
+- `profile_data.field_labels.usa_specific.ssn`
+- `profile_data.field_validation.usa_specific.required_ssn`
+- `profile_data.field_validation.usa_specific.invalid_ssn`
 
 ### Removed strings
 
