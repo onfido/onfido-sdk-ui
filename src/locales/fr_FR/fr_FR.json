@@ -1,7 +1,8 @@
 {
     "profile_data": {
-        "personal_details_title": "Ajoutez vos informations personnelles",
-        "address_detials_title": "Ajoutez votre adresse",
+        "country_of_residence_title" : "Votre pays de résidence",
+        "personal_information_title": "Ajoutez vos informations personnelles",
+        "address_title": "Ajoutez votre adresse",
         "field_labels": {
             "first_name": "Prénom",
             "dob": "Date de naissance",
@@ -55,7 +56,7 @@
             }
         },
         "field_optional": "(facultatif)",
-        "button_submit": "Continuer",
+        "button_continue": "Continuer",
         "components": {
             "country_select": {
                 "placeholder": "Sélectionnez un pays"

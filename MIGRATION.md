@@ -12,8 +12,9 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 - `doc_multi_frame_capture.capture_progress_title`
 - `doc_multi_frame_capture.instructions_title_front`
 - `doc_multi_frame_capture.instructions_title_back`
-- `profile_data.personal_details_title`
-- `profile_data.address_detials_title`
+- `profile_data.country_of_residence_title": "Your country of residence`
+- `profile_data.personal_information_title": "Your personal information`
+- `profile_data.address_title`
 - `profile_data.field_labels.first_name`
 - `profile_data.field_labels.last_name`
 - `profile_data.field_labels.dob`
@@ -54,7 +55,7 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 - `profile_data.field_validation.usa_specific.too_short_postcode`
 - `profile_data.field_validation.usa_specific.too_long_postcode`
 - `profile_data.field_optional`
-- `profile_data.button_submit`
+- `profile_data.button_continue`
 - `profile_data.components.country_select.placeholder`
 - `profile_data.components.state_select.placeholder`
 - `profile_data.prompt.header_timeout`

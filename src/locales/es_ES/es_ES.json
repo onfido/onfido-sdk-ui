@@ -1,7 +1,8 @@
 {
     "profile_data": {
-        "personal_details_title": "Añada sus datos personales",
-        "address_detials_title": "Añada su dirección",
+        "country_of_residence_title" : "Por favor, introduzca su nombre de pila",
+        "personal_information_title": "Añada sus datos personales",
+        "address_title": "Añada su dirección",
         "field_labels": {
             "first_name": "Nombre",
             "dob": "Fecha de nacimiento",
@@ -54,7 +55,7 @@
             }
         },
         "field_optional": "(opcional)",
-        "button_submit": "Continuar",
+        "button_continue": "Continuar",
         "components": {
             "country_select": {
                 "placeholder": "Seleccione un país"

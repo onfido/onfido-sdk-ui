@@ -1,7 +1,8 @@
 {
     "profile_data": {
-        "personal_details_title": "Aggiungere i dati personali",
-        "address_detials_title": "Aggiungere l’indirizzo",
+        "country_of_residence_title": "Il tuo paese di residenza",
+        "personal_information_title": "Aggiungere i dati personali",
+        "address_title": "Aggiungere l’indirizzo",
         "field_labels": {
             "first_name": "Nome",
             "dob": "Data di nascita",
@@ -55,7 +56,7 @@
             }
         },
         "field_optional": "(facoltativo)",
-        "button_submit": "Continua",
+        "button_continue": "Continua",
         "components": {
             "country_select": {
                 "placeholder": "Selezionare un paese"

@@ -1,7 +1,8 @@
 {
     "profile_data": {
-        "personal_details_title": "Voeg uw persoonlijke informatie toe",
-        "address_detials_title": "Voeg uw adres toe",
+        "country_of_residence_title": "Uw land van verblijf",
+        "personal_information_title": "Voeg uw persoonlijke informatie toe",
+        "address_title": "Voeg uw adres toe",
         "field_labels": {
             "first_name": "Voornaam",
             "dob": "Geboortedatum",
@@ -55,7 +56,7 @@
             }
         },
         "field_optional": "(optioneel)",
-        "button_submit": "Doorgaan",
+        "button_continue": "Doorgaan",
         "components": {
             "country_select": {
                 "placeholder": "Selecteer een land"
