@@ -1,0 +1,2 @@
+class t extends class{constructor(t){this.network=void 0,this.options={url:"http://default"},this.dispatchToNetwork=t=>{this.network.dispatch({url:this.options.url,data:t})},this.network=t.network}}{constructor(...t){super(...t),this.options={url:"http://inhouse"},this.dispatch=t=>{t.meta={sdk_source:"web"},this.dispatchToNetwork(t)}}}export{t as InhouseService};
+//# sourceMappingURL=foo.modern.js.map

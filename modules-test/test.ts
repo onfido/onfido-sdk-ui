@@ -1,11 +1,11 @@
 // @ts-nocheck
-import { Network } from './network'
+import { Network } from '../../modules/network'
 import {
   InhouseService,
   Analytics,
   WoopraService,
   ReactAnalytics,
-} from './AnalyticsCore/analytics'
+} from '../../modules/AnalyticsCore/analytics'
 
 // const log = {}
 // const ApiAnalytics = (networkEvent) => {

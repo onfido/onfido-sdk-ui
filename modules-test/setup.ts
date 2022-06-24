@@ -2,13 +2,13 @@
 import { Network } from './network'
 
 import Analytics from './AnalyticsCore/analytics'
-import Logger from './AnalyticsCore/logger'
-import Performance from './AnalyticsCore/performance'
+import Logger from '../../modules/AnalyticsCore/logger'
+import Performance from '../../modules/AnalyticsCore/performance'
 
-import InHouse from './AnalyticsCore/services/inhouse'
-import Woopra from './AnalyticsCore/services/woopra'
+import InHouse from '../../modules/AnalyticsCore/services/inhouse'
+import Woopra from '../../modules/AnalyticsCore/services/woopra'
 
-import ApiAnalytics from './AnalyticsCore/apiAnalytics'
+import ApiAnalytics from '../../modules/AnalyticsCore/apiAnalytics'
 
 const network = new Network()
 

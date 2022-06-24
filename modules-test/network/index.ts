@@ -1,6 +1,6 @@
 // @ts-nocheck
-// TODO: support batch
 export class Network {
+  // Support batch
   queue = []
   options: {
     pipes: []
