@@ -530,7 +530,7 @@ The custom options are:
 
   Document country can be specified per document type. The `country` configuration for a document type allows you to specify the issuing country of the document as a string containing a 3-letter ISO 3166-1 alpha-3 country code.
 
-  If `documentTypes` only includes one document type with a country value, users will not see the document selection and instead will be taken directly to the capture screen.
+  If `documentTypes` only includes one document type with a country value, users will not see the document selection screen and instead will be taken directly to the capture screen.
 
   ⚠️ **Note**: the `null` value is deprecated and has no effect.
   If a document country is specified for a document type, or is passed as `null`, the country selection screen is not displayed to the end user.
