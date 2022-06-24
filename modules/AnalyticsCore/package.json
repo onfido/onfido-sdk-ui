@@ -1,0 +1,16 @@
+{
+  "name": "@onfido/analytics",                      
+  "type": "module",
+  "source": "index.ts",
+  "exports": {
+    "require": "../dist/@onfido/analytics/foo.cjs",      
+    "default": "../dist/@onfido/analytics/foo.modern.js" 
+  },
+  "main": "../dist/@onfido/analytics/foo.cjs",           
+  "module": "../dist/@onfido/analytics/foo.module.js",   
+  "unpkg": "../dist/@onfido/analytics/foo.umd.js",       
+  "scripts": {
+    "build": "microbundle",           
+    "dev": "microbundle watch"        
+  }
+}
