@@ -192,7 +192,7 @@ const FieldComponent = ({
 }: FieldComponentProps) => {
   const { translate } = useLocales()
 
-  const isRequired = isFieldRequired(type, selectedCountry)
+  const isRequired = isFieldRequired(type, selectedCountry, ssnEnabled)
   const [isTouched, setIsTouched] = useState<boolean>(false)
   const [validationError, setValidationError] = useState<string | null>(null)
 
@@ -209,8 +209,10 @@ const FieldComponent = ({
   }, [type, isInvalid, setToucher, removeToucher, setIsTouched])
 
   useEffect(() => {
-    setValidationError(validateField(type, value, selectedCountry)(translate))
-  }, [type, value, selectedCountry, translate])
+    setValidationError(
+      validateField(type, value, selectedCountry, ssnEnabled)(translate)
+    )
+  }, [type, value, selectedCountry, ssnEnabled, translate])
 
   const handleBlur = () => {
     if (!isTouched) setIsTouched(true)
@@ -325,7 +327,8 @@ const getTranslatedFieldHelperText = (
 
 const isFieldRequired = (
   type: FieldComponentProps['type'],
-  country?: FieldComponentProps['selectedCountry']
+  country?: FieldComponentProps['selectedCountry'],
+  ssnEnabled?: FieldComponentProps['ssnEnabled']
 ): boolean => {
   const requiredFields = [
     'first_name',
@@ -337,7 +340,10 @@ const isFieldRequired = (
   ]
 
   if (country === 'USA') {
-    requiredFields.push('ssn', 'state')
+    requiredFields.push('state')
+    if (ssnEnabled) {
+      requiredFields.push('ssn')
+    }
   }
 
   return requiredFields.includes(type)
@@ -346,10 +352,11 @@ const isFieldRequired = (
 const validateField = (
   type: FieldComponentProps['type'],
   value: FieldComponentProps['value'],
-  country?: FieldComponentProps['selectedCountry']
+  country?: FieldComponentProps['selectedCountry'],
+  ssnEnabled?: FieldComponentProps['ssnEnabled']
 ) => (translate: TranslateCallback): string | null => {
   // required values
-  if (isFieldRequired(type, country) && !value) {
+  if (isFieldRequired(type, country, ssnEnabled) && !value) {
     return translate(
       `profile_data.${
         translateSpecific('validation_required', type, country) ||
