@@ -1,47 +1,26 @@
 import { h, Component, ComponentType } from 'preact'
 import { cleanFalsy, wrapArray } from '~utils/array'
-import WoopraTracker from './safeWoopra'
 import { map as mapObject } from '~utils/object'
 import * as execeptionTracking from '~core/ExceptionHandler'
+import * as Woopra from '~core/Woopra'
 import { sendAnalyticsEvent } from './onfidoTracker'
 import { integratorTrackedEvents } from './trackerData'
 import { v4 as uuidv4 } from 'uuid'
 const Cookies = require('js-cookie')
 
 import type { TrackScreenCallback, WithTrackingProps } from '~types/hocs'
+import type { EventHint } from '~core/ExceptionHandler'
 import type {
   LegacyTrackedEventNames,
   UserAnalyticsEventNames,
   UserAnalyticsEventDetail,
 } from '~types/tracker'
-import type { EventHint } from '~core/ExceptionHandler'
 
 let shouldSendEvents = false
 
-const client = window.location.hostname
-const sdk_version = process.env.SDK_VERSION
-let woopra: WoopraTracker = null
-
-const setUp = (): void => {
-  woopra = new WoopraTracker('onfidojssdkwoopra')
-
-  woopra.init()
-
-  // configure tracker
-  woopra.config({
-    domain: process.env.WOOPRA_DOMAIN,
-    cookie_name: 'onfido-js-sdk-woopra',
-    cookie_domain: location.hostname,
-    referer: location.href,
-  })
-
-  // Do not overwrite the woopra client if we are in the cross device client.
-  // This is so we can track the original page where the user opened the SDK.
-  woopra.identify(
-    client.match(/^(id|id-dev)\.onfido\.com$/)
-      ? { sdk_version }
-      : { sdk_version, client }
-  )
+const setUp = () => {
+  Woopra.install()
+  shouldSendEvents = true
 }
 
 const uninstall = (): void => {
@@ -50,7 +29,7 @@ const uninstall = (): void => {
 }
 
 const uninstallWoopra = (): void => {
-  woopra && woopra.dispose()
+  Woopra.uninstall()
   shouldSendEvents = false
 }
 
@@ -96,7 +75,7 @@ const sendEvent = (
 
   if (shouldSendEvents) {
     const formattedProperties = formatProperties(properties)
-    woopra && woopra.track(eventName, formattedProperties)
+    Woopra.track(eventName, formattedProperties)
     sendAnalyticsEvent(eventName, formattedProperties)
   }
 }
@@ -156,26 +135,8 @@ const trackException = (message: string, extra?: EventHint): void => {
   )
 }
 
-const setWoopraCookie = (cookie: string): void => {
-  if (!woopra) {
-    return
-  }
-
-  const cookie_name = woopra.config('cookie_name')
-  const cookie_expire = woopra.config('cookie_expire')
-  const cookie_path = woopra.config('cookie_path')
-  const cookie_domain = woopra.config('cookie_domain')
-  woopra.docCookies.setItem(
-    cookie_name,
-    cookie,
-    cookie_expire,
-    cookie_path,
-    cookie_domain
-  )
-  woopra.cookie = cookie
-}
-
-const getWoopraCookie = (): Optional<string> => (woopra ? woopra.cookie : null)
+const setWoopraCookie = Woopra.setCookie
+const getWoopraCookie = Woopra.getCookie
 
 const cookieAttributes = {
   name: 'onfido-web-sdk-analytics',

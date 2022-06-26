@@ -7,7 +7,7 @@ import ModalApp from '../ModalApp'
 
 import type { SDKOptionsWithRenderData } from '~types/commons'
 
-jest.mock('Tracker/safeWoopra')
+jest.mock('~core/Woopra/safeWoopra')
 
 const defaultOptions: SDKOptionsWithRenderData = {
   steps: [
