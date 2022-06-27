@@ -35,7 +35,7 @@ public class CrossDeviceIT extends WebSdkIT {
     public void testShouldNavigateToCrossDeviceWhenForceCrossDeviceIsEnabled() {
         onfido().withSteps(new DocumentStep().withForceCrossDevice(true))
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, CrossDeviceIntro.class);
     }
 
@@ -43,7 +43,7 @@ public class CrossDeviceIT extends WebSdkIT {
     public void testShouldDisplayCrossDeviceIntroScreenIfForceCrossDeviceIsEnabledWithUseLiveDocumentCaptureEnabledAlso() {
         onfido().withSteps(new DocumentStep().withUseLiveDocumentCapture(true).withForceCrossDevice(true))
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, CrossDeviceIntro.class);
     }
 
@@ -55,7 +55,7 @@ public class CrossDeviceIT extends WebSdkIT {
         return webSdk
                 .withSteps(new DocumentStep())
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .switchToCrossDevice()
                 .getSecureLink();
@@ -342,7 +342,7 @@ public class CrossDeviceIT extends WebSdkIT {
 
         var documentSelector = verifier.verifyPage(welcome.continueToNextStep(RestrictedDocumentSelection.class));
 
-        var link = documentSelector.selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+        var link = documentSelector.selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .switchToCrossDevice()
                 .getSecureLink().copyLink();
