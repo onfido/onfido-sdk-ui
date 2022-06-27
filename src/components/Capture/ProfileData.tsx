@@ -403,7 +403,7 @@ const validateField = (
       return translate('profile_data.field_validation.invalid_dob')
     }
   }
-  if (type === 'ssn' && ssnEnabled) {
+  if (type === 'ssn' && country === 'USA' && ssnEnabled) {
     if (!/^\d{3}-?\d{2}-?\d{4}$/.test(value)) {
       return translate('profile_data.field_validation.usa_specific.invalid_ssn')
     }
