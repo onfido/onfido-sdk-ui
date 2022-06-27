@@ -66,7 +66,9 @@ export const sendAnalyticsEvent = (
   const eventData = analyticsEventsMapping.get(event)
 
   if (!eventData?.eventName) {
-    trackException(`Legacy event is not mapped - ${event}`)
+    const msg = `Legacy event is not mapped - ${event}`
+    console.error(msg)
+    trackException(msg)
     return
   }
 
