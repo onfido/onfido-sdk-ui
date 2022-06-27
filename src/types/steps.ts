@@ -118,6 +118,7 @@ export type StepOptionData = {
     state?: string
     postcode?: string
   }
+  ssn_enabled?: boolean
   getPersonalData: GetPersonalDataFunc
 }
 

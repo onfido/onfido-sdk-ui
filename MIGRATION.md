@@ -60,6 +60,9 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 - `profile_data.components.state_select.placeholder`
 - `profile_data.prompt.header_timeout`
 - `profile_data.prompt.details_timeout`
+- `profile_data.field_labels.usa_specific.ssn`
+- `profile_data.field_validation.usa_specific.required_ssn`
+- `profile_data.field_validation.usa_specific.invalid_ssn`
 
 ### Removed strings
 

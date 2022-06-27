@@ -199,7 +199,8 @@ const buildDataComponents = (
     <DataCapture
       {...props}
       title="personal_information_title"
-      dataFields={['first_name', 'last_name', 'dob']}
+      dataFields={['first_name', 'last_name', 'dob', 'ssn']}
+      ssnEnabled={dataStep?.options?.ssn_enabled}
       getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
