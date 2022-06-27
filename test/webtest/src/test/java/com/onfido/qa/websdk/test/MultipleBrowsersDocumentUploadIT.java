@@ -24,7 +24,7 @@ public class MultipleBrowsersDocumentUploadIT extends WebSdkIT {
     public void testShouldUploadDocument(UploadDocument document) {
         onfido().withSteps("document", "complete")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(document)
@@ -35,7 +35,7 @@ public class MultipleBrowsersDocumentUploadIT extends WebSdkIT {
     public void testShouldUploadIdDocumentWithPdf() {
         onfido().withSteps("document", "complete")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(IDENTITY_CARD, DocumentUpload.class)
                 .upload(UploadDocument.NATIONAL_IDENTITY_CARD_PDF)
                 .clickConfirmButton(null);
@@ -47,7 +47,7 @@ public class MultipleBrowsersDocumentUploadIT extends WebSdkIT {
         onfido().withSteps(new DocumentStep().withUploadFallback(false), "face", "complete")
                 .withDisableWebcam()
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(PASSPORT_JPG)

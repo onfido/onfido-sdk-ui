@@ -5,7 +5,7 @@ import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
 import { validateFile } from '~utils/file'
 import { isButtonGroupStacked } from '../Theme/utils'
-import { appendToTracking, trackComponent } from '../../Tracker'
+import { appendToTracking } from '../../Tracker'
 import { localised } from '~locales'
 import CustomFileInput from '../CustomFileInput'
 import PageTitle from '../PageTitle'
@@ -327,6 +327,7 @@ const UploadArea = (props: UploadAreaProps) => {
 
 class Uploader extends Component<UploaderProps, UploaderState> {
   static defaultProps = {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     onUpload: () => {},
   }
 
