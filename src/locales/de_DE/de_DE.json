@@ -34,7 +34,6 @@
             "invalid": "Bitte auf ungültige Zeichen oder Symbole überprüfen",
             "invalid_dob": "Bitte geben Sie ein gültiges Geburtsdatum ein",
             "too_short_last_name": "Der Nachname ist zu kurz",
-            "too_short_first_name": "Der Vorname ist zu kurz",
             "too_short_postcode": "Die Postleitzahl ist zu kurz",
             "too_long_last_name": "Der Nachname ist zu lang",
             "too_long_first_name": "Der Vorname ist zu lang",

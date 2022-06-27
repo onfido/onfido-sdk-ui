@@ -2,7 +2,7 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `8.1.0` -> `8.2.0`
+## `8.0.0` -> `next`
 
 The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the follinw string(s) has been added:
 
@@ -12,8 +12,8 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 - `doc_multi_frame_capture.capture_progress_title`
 - `doc_multi_frame_capture.instructions_title_front`
 - `doc_multi_frame_capture.instructions_title_back`
-- `profile_data.country_of_residence_title": "Your country of residence`
-- `profile_data.personal_information_title": "Your personal information`
+- `profile_data.country_of_residence_title`
+- `profile_data.personal_information_title`
 - `profile_data.address_title`
 - `profile_data.field_labels.first_name`
 - `profile_data.field_labels.last_name`
@@ -70,7 +70,6 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 ### Change in SDK Options
 
 - The deprecated `showCountrySelection` option has been removed.
-
 
 ## `6.20.0` -> `8.0.0`
 

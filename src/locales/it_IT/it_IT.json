@@ -34,7 +34,6 @@
             "invalid": "Verificare che non ci siano simboli o caratteri non validi",
             "invalid_dob": "Inserire una data di nascita valida",
             "too_short_last_name": "Il cognome è troppo breve",
-            "too_short_first_name": "Il nome è troppo breve",
             "too_short_postcode": "Il codice postale è troppo breve",
             "too_long_last_name": "Il cognome è troppo lungo",
             "too_long_first_name": "Il nome è troppo lungo",

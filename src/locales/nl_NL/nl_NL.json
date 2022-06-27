@@ -34,7 +34,6 @@
             "invalid": "Controleer op ongeldige tekens of symbolen",
             "invalid_dob": "Voer een geldig geboortedatum in",
             "too_short_last_name": "Achternaam is te kort",
-            "too_short_first_name": "Voornaam is te kort",
             "too_short_postcode": "Postcode is te kort",
             "too_long_last_name": "Achternaam is te lang",
             "too_long_first_name": "Voornaam is te lang",

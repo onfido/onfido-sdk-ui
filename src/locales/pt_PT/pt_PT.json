@@ -34,7 +34,6 @@
             "invalid": "Verifique se existem caracteres ou símbolos inválidos",
             "invalid_dob": "Introduza uma data de nascimento válida",
             "too_short_last_name": "O apelido é demasiado curto",
-            "too_short_first_name": "O nome próprio é demasiado curto",
             "too_short_postcode": "O código postal é demasiado curto",
             "too_long_last_name": "O apelido é demasiado longo",
             "too_long_first_name": "O nome próprio é demasiado longo",
