@@ -20,6 +20,7 @@ import { ErrorProp, StepComponentBaseProps } from '~types/routers'
 import { DocumentCapture, FaceCapture } from '~types/redux'
 import { CaptureMethods, DocumentSides, ErrorNames } from '~types/commons'
 import {
+  ApiRawError,
   DocumentImageResponse,
   FaceVideoResponse,
   ImageQualityValidationPayload,
@@ -76,6 +77,7 @@ export const Confirm = (props: ConfirmProps) => {
       document_type: props.documentType,
       country_code: props.idDocumentIssuingCountry?.country_alpha2,
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const setError = (name: ErrorNames, errorMessage?: unknown) => {
@@ -428,10 +430,10 @@ export const Confirm = (props: ConfirmProps) => {
       } else {
         console.error(`Invalid return statement from ${callbackName}`)
       }
-    } catch (errorResponse: any) {
+    } catch (errorResponse: unknown) {
       // @ts-ignore
       sendEvent(`Error response from ${callbackName}`)
-      formatError(errorResponse, onApiError)
+      formatError(errorResponse as ApiRawError, onApiError)
     }
   }
 

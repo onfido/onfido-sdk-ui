@@ -161,8 +161,7 @@ describe('onfidoApi', () => {
               error('success should not be invoked')
             },
             (e: ParsedError) => {
-              // @ts-ignore
-              const err: TypeError = e as TypeError
+              const err = (e as unknown) as TypeError
 
               try {
                 expect(err.constructor.name).toEqual('TypeError')

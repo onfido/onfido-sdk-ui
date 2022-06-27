@@ -19,6 +19,7 @@ import style from './style.scss'
 
 import type { CombinedActions, RootState, DocumentCapture } from '~types/redux'
 import type { ErrorProp, StepComponentDocumentProps } from '~types/routers'
+import { ParsedError } from '~types/api'
 
 const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   nextStep,
@@ -136,15 +137,16 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
       )
 
       nextStep()
-    } catch (errorResponse: any) {
+    } catch (errorResponse: unknown) {
+      const error = errorResponse as ParsedError
       setLoading(false)
-      triggerOnError(errorResponse)
+      triggerOnError(error)
 
       // @TODO: Handle catches with typescript
       setError({
         name: 'REQUEST_ERROR',
         type: 'error',
-        properties: { error_message: errorResponse?.response?.message },
+        properties: { error_message: error?.response?.message },
       })
     }
   }, [

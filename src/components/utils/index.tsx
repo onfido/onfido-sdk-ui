@@ -108,8 +108,8 @@ const enumerateDevicesInternal = (
 ) => {
   try {
     enumerateDevices().then(onSuccess).catch(onError)
-  } catch (exception: any) {
-    onError(exception)
+  } catch (exception: unknown) {
+    onError(exception as Error)
   }
 }
 
