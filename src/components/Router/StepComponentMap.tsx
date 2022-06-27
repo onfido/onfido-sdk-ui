@@ -51,6 +51,7 @@ import Guidance from '../ProofOfAddress/Guidance'
 import PoADocumentSelector from '../DocumentSelector/PoADocumentSelector'
 import PoACountrySelector from '../CountrySelector/PoACountrySelector'
 import { RestrictedDocumentSelection } from '../RestrictedDocumentSelection'
+import { getCountryDataForDocumentType } from '~supported-documents'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -185,35 +186,43 @@ const buildCaptureStepComponents = (
 const buildDataComponents = (
   dataStep?: StepConfigData
 ): ComponentType<StepComponentProps>[] => {
-  const Personal = (props: any) => (
+  const CountryOfResidence = (props: any) => (
     <DataCapture
-      title="personal_details_title"
-      data={{
-        first_name: dataStep?.options?.first_name,
-        last_name: dataStep?.options?.last_name,
-        dob: dataStep?.options?.dob,
-      }}
       {...props}
+      title="country_of_residence_title"
+      dataSubPath="address"
+      dataFields={['country']}
+      getPersonalData={dataStep?.options?.getPersonalData}
+    />
+  )
+  const PersonalInformation = (props: any) => (
+    <DataCapture
+      {...props}
+      title="personal_information_title"
+      dataFields={['first_name', 'last_name', 'dob']}
+      getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
   const Address = (props: any) => (
     <DataCapture
-      title="address_detials_title"
-      dataSubPath="address"
-      data={{
-        country: dataStep?.options?.address?.country,
-        line1: dataStep?.options?.address?.line1,
-        line2: dataStep?.options?.address?.line2,
-        line3: dataStep?.options?.address?.line3,
-        town: dataStep?.options?.address?.town,
-        state: dataStep?.options?.address?.state,
-        postcode: dataStep?.options?.address?.postcode,
-      }}
       {...props}
+      title="address_title"
+      dataSubPath="address"
+      dataFields={[
+        'country',
+        'line1',
+        'line2',
+        'line3',
+        'town',
+        'state',
+        'postcode',
+      ]}
+      disabledFields={['country']}
+      getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
 
-  return [Personal, Address]
+  return [CountryOfResidence, PersonalInformation, Address]
 }
 
 const buildFaceComponents = (
@@ -292,13 +301,14 @@ const buildRequiredSelfieComponents = (
 }
 
 const buildNonPassportPreCaptureComponents = (
-  hasOnePreselectedDocument: boolean
+  hasOnePreselectedDocument: boolean,
+  showCountrySelection: boolean
 ): ComponentType<StepComponentProps>[] => {
-  const prependDocumentSelector = hasOnePreselectedDocument
-    ? []
-    : [RestrictedDocumentSelection]
+  const prependDocumentSelector =
+    hasOnePreselectedDocument && !showCountrySelection
+      ? []
+      : [RestrictedDocumentSelection]
   // @ts-ignore
-  // TODO: convert DocumentSelector to TS
   return [...prependDocumentSelector]
 }
 
@@ -310,6 +320,13 @@ const buildDocumentComponents = (
   mobileFlow: boolean | undefined,
   isFirstCaptureStepInFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
+  const options = documentStep?.options
+
+  const configForDocumentType =
+    documentType && options?.documentTypes
+      ? options?.documentTypes[documentType]
+      : undefined
+
   const shouldUseVideo =
     documentStep?.options?.requestedVariant === 'video' &&
     window.MediaRecorder != null
@@ -352,8 +369,25 @@ const buildDocumentComponents = (
       : [...preCaptureComponents, ...standardCaptureComponents]
   }
 
+  const countryCode =
+    typeof configForDocumentType === 'boolean'
+      ? null
+      : configForDocumentType?.country
+  const supportedCountry = getCountryDataForDocumentType(
+    countryCode,
+    documentType
+  )
+  const hasMultipleDocumentsWithUnsupportedCountry =
+    !hasOnePreselectedDocument && !supportedCountry
+  const hasCountryCodeOrDocumentTypeFlag =
+    countryCode !== null || configForDocumentType === true
+  const showCountrySelection =
+    hasMultipleDocumentsWithUnsupportedCountry &&
+    hasCountryCodeOrDocumentTypeFlag
+
   const preCaptureComponents = buildNonPassportPreCaptureComponents(
-    hasOnePreselectedDocument
+    hasOnePreselectedDocument,
+    showCountrySelection
   )
 
   if (shouldUseVideo) {

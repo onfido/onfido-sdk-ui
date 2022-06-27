@@ -77,7 +77,6 @@ export type StepOptionDocument = {
   documentTypes?: Partial<Record<DocumentTypes, DocumentTypeConfig>>
   forceCrossDevice?: boolean
   photoCaptureFallback?: never // for cross-compatibility with StepOptionFace in withCrossDeviceWhenNoCamera
-  showCountrySelection?: boolean
   useLiveDocumentCapture?: boolean
 } & CaptureOptions
 
@@ -119,10 +118,14 @@ export type StepOptionData = {
     state?: string
     postcode?: string
   }
+  getPersonalData: GetPersonalDataFunc
 }
 
 export type FlatStepOptionData = Omit<StepOptionData, 'address'> &
   StepOptionData['address']
+
+export type GetDocDataFunc = () => Array<{ id: string }>
+export type GetPersonalDataFunc = () => Record<string, unknown>
 
 type StepOptionsMap = {
   welcome: StepOptionWelcome

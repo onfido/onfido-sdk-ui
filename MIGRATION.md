@@ -61,6 +61,17 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 - `profile_data.prompt.header_timeout`
 - `profile_data.prompt.details_timeout`
 
+### Removed strings
+
+- `profile_data.personal_details_title`
+- `profile_data.address_detials_title`
+- `profile_data.button_submit`
+
+### Change in SDK Options
+
+- The deprecated `showCountrySelection` option has been removed.
+
+
 ## `6.20.0` -> `8.0.0`
 
 ### Change in SDK Options
