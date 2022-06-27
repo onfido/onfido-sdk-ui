@@ -172,7 +172,7 @@ export const createWorkflowStepsHook = (
         .then(() => {
           setState((state) => ({
             ...state,
-            loading: false,
+            loading: true,
             taskId: undefined,
           }))
           docData.current = []
