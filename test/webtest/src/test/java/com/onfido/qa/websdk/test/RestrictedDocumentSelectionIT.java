@@ -43,7 +43,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
 
         var upload = onfido().init(Welcome.class)
                              .continueToNextStep(RestrictedDocumentSelection.class)
-                             .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                             .selectSupportedCountry()
                              .selectDocument(documentType, DocumentUpload.class);
 
         verifyCopy(upload.title(), "doc_submit.title_passport");
@@ -128,11 +128,11 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
                                                         .withDocumentType(IDENTITY_CARD, new Option("ES")))
                 .init(Welcome.class)
                 .continueToNextStep(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(DRIVING_LICENCE, DocumentUpload.class)
 
                 .back(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(IDENTITY_CARD, DocumentUpload.class)
                 .upload(NATIONAL_IDENTITY_CARD_JPG)
                 .clickConfirmButton(DocumentUpload.class);
@@ -154,7 +154,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
         onfido()
                 .withSteps(new DocumentStep().withDocumentType(DRIVING_LICENCE, true).withDocumentType(IDENTITY_CARD, true))
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(IDENTITY_CARD, DocumentUpload.class)
                 .upload(NATIONAL_IDENTITY_CARD_JPG)
                 .clickConfirmButton(DocumentUpload.class);
@@ -164,7 +164,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
     public void testGoToUploadScreenWhenASupportedCountryIsSelected() {
         onfido().withSteps("document")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(IDENTITY_CARD, DocumentUpload.class);
     }
 
