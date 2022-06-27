@@ -17,7 +17,7 @@ public class NavigationIT extends WebSdkIT {
         onfido().withSteps("welcome", "document", new FaceStep().withUseUploader(true), "complete")
                 .init(Welcome.class)
                 .continueToNextStep(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(PASSPORT_JPG)
@@ -36,7 +36,7 @@ public class NavigationIT extends WebSdkIT {
     public void testShouldDisplayTheFaceVideoIntroAgainOnBackButtonClickWhenOnTheFaceVideoFlowAndIHaveACamera() {
         onfido().withSteps("document", new FaceStep().withRequestedVariant(VIDEO))
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(PASSPORT_JPG)
@@ -51,7 +51,7 @@ public class NavigationIT extends WebSdkIT {
         onfido().withSteps("welcome", "document")
                 .init(Welcome.class)
                 .continueToNextStep(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .continueOnPhone()
                 .back(DocumentUpload.class);
