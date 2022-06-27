@@ -6466,13 +6466,13 @@
     "path": "node_modules/onetime",
     "licenseFile": "node_modules/onetime/license"
   },
-  "onfido-sdk-ui@8.0.0": {
+  "onfido-sdk-ui@9.0.0-beta.5": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
     "email": "web-sdk@onfido.com",
     "url": "https://github.com/onfido",
-    "path": "/Users/tony.findeisen/Development/github/onfido-sdk-ui",
+    "path": "/Users/zoeazhdariradkani/work/Orchestration/onfido-sdk-ui",
     "licenseFile": "LICENSE"
   },
   "open@8.4.0": {
