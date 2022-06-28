@@ -140,7 +140,6 @@ export const Confirm = (props: ConfirmProps) => {
       if (props.crossDeviceClientError) {
         return props.crossDeviceClientError()
       }
-      setError('' as ErrorNames)
       return
     }
     if (status === 422) {
