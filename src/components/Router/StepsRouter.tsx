@@ -96,6 +96,7 @@ class StepsRouter extends Component<StepsRouterProps> {
             className={theme.navigationBar}
           />
           <div
+            key={stepId}
             className={classNames(theme.content, {
               [theme.fullScreenContentWrapper]: isFullScreen,
               [theme.scrollableContent]: !isFullScreen,
