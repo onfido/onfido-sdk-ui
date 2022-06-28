@@ -7,8 +7,8 @@ import type { RootState } from '~types/redux'
 import type { AnalyticsPayload, LegacyTrackedEventNames } from '~types/tracker'
 import { reduxStore } from 'components/ReduxAppWrapper'
 import { analyticsEventsMapping } from './trackerData'
-import { trackException } from './'
-import { cleanStepsForConfig } from './steps'
+import { trackException } from '../../Tracker'
+import { cleanStepsForConfig } from './prepareStepsConfig'
 import * as execeptionTracking from '~core/ExceptionHandler'
 
 let currentStepType: ExtendedStepTypes | undefined
