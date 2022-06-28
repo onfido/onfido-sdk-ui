@@ -7,6 +7,7 @@ import type {
 } from '~types/steps'
 import type { ServerRegions, SdkOptions, SdkResponse } from '~types/sdk'
 import type { UICustomizationOptions } from '~types/ui-customisation-options'
+import type { EnterpriseCallbackResponse } from '~types/enterprise'
 
 import type {
   ApplicantData,
@@ -159,106 +160,125 @@ const getPreselectedDocumentTypes = (): Partial<
   return {}
 }
 
+const loadSdkOptions = () => {
+  const persistedData = localStorage.getItem('onfido-sdk-options-demo')
+  const sdkOptions: SdkOptions = persistedData ? JSON.parse(persistedData) : {}
+  return sdkOptions
+}
+
 export const getInitSdkOptions = (): SdkOptions => {
+  const sdkOptions: SdkOptions = loadSdkOptions()
+
   const linkId = queryParamToValueString.link_id as string
 
   if (linkId) {
-    return {
-      mobileFlow: true,
-      roomId: linkId.substring(2),
+    sdkOptions.mobileFlow = true
+    sdkOptions.roomId = linkId.substring(2)
+  }
+
+  if (queryParamToValueString.language) {
+    if (queryParamToValueString.language === 'customTranslations') {
+      sdkOptions.language = SAMPLE_LOCALE
+    } else {
+      sdkOptions.language = queryParamToValueString.language
     }
   }
 
-  const language =
-    queryParamToValueString.language === 'customTranslations'
-      ? SAMPLE_LOCALE
-      : queryParamToValueString.language
+  if (!sdkOptions.steps) {
+    const steps: Array<PublicStepConfig> = []
 
-  const steps: Array<PublicStepConfig> = []
+    if (queryParamToValueString.customWelcomeScreenCopy === 'true') {
+      steps.push({
+        type: 'welcome',
+        options: {
+          title: 'Open your new bank account',
+          descriptions: [
+            'To open a bank account, we will need to verify your identity.',
+            'It will only take a couple of minutes.',
+          ],
+          nextButton: 'Verify Identity',
+        },
+      })
+    } else {
+      steps.push({ type: 'welcome' })
+    }
 
-  if (queryParamToValueString.customWelcomeScreenCopy === 'true') {
+    if (queryParamToValueString.showAuth === 'true') {
+      steps.push({ type: 'auth', options: { retries: 10 } })
+    }
+
+    if (queryParamToValueString.poa === 'true') {
+      steps.push({ type: 'poa' })
+    }
+
+    if (queryParamToValueString.noDocumentStep !== 'true') {
+      steps.push({
+        type: 'document',
+        options: {
+          useLiveDocumentCapture:
+            queryParamToValueString.useLiveDocumentCapture !== 'false',
+          uploadFallback: queryParamToValueString.uploadFallback !== 'false',
+          useWebcam: queryParamToValueString.useWebcam === 'true',
+          documentTypes: getPreselectedDocumentTypes(),
+          forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
+          requestedVariant:
+            queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
+        },
+      })
+    }
+
     steps.push({
-      type: 'welcome',
+      type: 'face',
       options: {
-        title: 'Open your new bank account',
-        descriptions: [
-          'To open a bank account, we will need to verify your identity.',
-          'It will only take a couple of minutes.',
-        ],
-        nextButton: 'Verify Identity',
-      },
-    })
-  } else {
-    steps.push({ type: 'welcome' })
-  }
-
-  if (queryParamToValueString.showAuth === 'true') {
-    steps.push({ type: 'auth', options: { retries: 10 } })
-  }
-
-  if (queryParamToValueString.poa === 'true') {
-    steps.push({ type: 'poa' })
-  }
-
-  if (queryParamToValueString.noDocumentStep !== 'true') {
-    steps.push({
-      type: 'document',
-      options: {
-        useLiveDocumentCapture:
-          queryParamToValueString.useLiveDocumentCapture !== 'false',
+        useUploader: queryParamToValueString.useUploader === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-        useWebcam: queryParamToValueString.useWebcam === 'true',
-        documentTypes: getPreselectedDocumentTypes(),
-        showCountrySelection:
-          queryParamToValueString.oneDocWithCountrySelection === 'true',
-        forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
+        useMultipleSelfieCapture:
+          queryParamToValueString.useMultipleSelfieCapture !== 'false',
+        photoCaptureFallback:
+          queryParamToValueString.photoCaptureFallback !== 'false',
         requestedVariant:
-          queryParamToValueString.docVideo === 'true' ? 'video' : 'standard',
+          queryParamToValueString.faceVideo === 'true' ? 'video' : 'standard',
       },
     })
+
+    if (queryParamToValueString.noCompleteStep !== 'true') {
+      steps.push({ type: 'complete' })
+    }
+
+    sdkOptions.steps = steps
   }
 
-  steps.push({
-    type: 'face',
-    options: {
-      useUploader: queryParamToValueString.useUploader === 'true',
-      uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-      useMultipleSelfieCapture:
-        queryParamToValueString.useMultipleSelfieCapture !== 'false',
-      photoCaptureFallback:
-        queryParamToValueString.photoCaptureFallback !== 'false',
-      requestedVariant:
-        queryParamToValueString.faceVideo === 'true' ? 'video' : 'standard',
-    },
-  })
-
-  if (queryParamToValueString.noCompleteStep !== 'true') {
-    steps.push({ type: 'complete' })
+  if (queryParamToValueString.countryCode) {
+    sdkOptions.smsNumberCountryCode = queryParamToValueString.countryCode
   }
 
-  const smsNumberCountryCode = queryParamToValueString.countryCode
-    ? { smsNumberCountryCode: queryParamToValueString.countryCode }
-    : {}
+  if (!sdkOptions.enterpriseFeatures) {
+    sdkOptions.enterpriseFeatures = {}
+  }
 
-  const hideOnfidoLogo = queryParamToValueString.hideOnfidoLogo === 'true'
-  const cobrand =
-    queryParamToValueString.showCobrand === 'true'
-      ? { text: '[COMPANY/PRODUCT NAME]' }
-      : undefined
-  const logoCobrand =
-    queryParamToValueString.showLogoCobrand === 'true'
-      ? { lightLogoSrc: testLightCobrandLogo, darkLogoSrc: testDarkCobrandLogo }
-      : undefined
-  const useCustomizedApiRequests =
-    queryParamToValueString.useCustomizedApiRequests === 'true'
-  let decoupleCallbacks = {}
+  if (queryParamToValueString.hideOnfidoLogo === 'true') {
+    sdkOptions.enterpriseFeatures.hideOnfidoLogo = true
+  }
+  if (queryParamToValueString.showCobrand === 'true') {
+    sdkOptions.enterpriseFeatures.cobrand = { text: '[COMPANY/PRODUCT NAME]' }
+  }
+  if (queryParamToValueString.showLogoCobrand === 'true') {
+    sdkOptions.enterpriseFeatures.logoCobrand = {
+      lightLogoSrc: testLightCobrandLogo,
+      darkLogoSrc: testDarkCobrandLogo,
+    }
+  }
+  if (queryParamToValueString.useCustomizedApiRequests === 'true') {
+    sdkOptions.enterpriseFeatures.useCustomizedApiRequests = true
+  }
   if (queryParamToValueString.decoupleResponse === 'success') {
     const successResponse = Promise.resolve({
       onfidoSuccessResponse: {
         id: '123-456-789',
       },
-    })
-    decoupleCallbacks = {
+    } as EnterpriseCallbackResponse)
+    sdkOptions.enterpriseFeatures = {
+      ...sdkOptions.enterpriseFeatures,
       onSubmitDocument: () => successResponse,
       onSubmitSelfie: () => successResponse,
       onSubmitVideo: () => successResponse,
@@ -274,50 +294,72 @@ export const getInitSdkOptions = (): SdkOptions => {
         },
       }),
     }
-    decoupleCallbacks = {
+    sdkOptions.enterpriseFeatures = {
+      ...sdkOptions.enterpriseFeatures,
       onSubmitDocument: () => Promise.reject(errorResponse),
       onSubmitSelfie: () => Promise.reject(errorResponse),
       onSubmitVideo: () => Promise.reject(errorResponse),
     }
   } else if (queryParamToValueString.decoupleResponse === 'onfido') {
     const response = Promise.resolve({ continueWithOnfidoSubmission: true })
-    decoupleCallbacks = {
+    sdkOptions.enterpriseFeatures = {
+      ...sdkOptions.enterpriseFeatures,
       onSubmitDocument: () => response,
       onSubmitSelfie: () => response,
       onSubmitVideo: () => response,
     }
   }
 
-  let visibleCrossDeviceMethods
   if (queryParamToValueString.excludeSmsCrossDeviceOption === 'true') {
-    visibleCrossDeviceMethods = ['copy_link', 'qr_code']
+    sdkOptions._crossDeviceLinkMethods = ['copy_link', 'qr_code']
   }
   if (queryParamToValueString.singleCrossDeviceOption === 'true') {
-    visibleCrossDeviceMethods = ['sms']
+    sdkOptions._crossDeviceLinkMethods = ['sms']
   }
   if (queryParamToValueString.invalidCrossDeviceAlternativeMethods === 'true') {
-    visibleCrossDeviceMethods = ['copy', 'qrCode', 'sms']
+    sdkOptions._crossDeviceLinkMethods = ['copy', 'qrCode', 'sms']
   }
 
-  const customUI =
-    queryParamToValueString.customisedUI === 'true' ? customUIConfig : undefined
+  if (queryParamToValueString.customisedUI === 'true') {
+    sdkOptions.customUI = customUIConfig as UICustomizationOptions
+  }
 
-  const crossDeviceClientIntroProductName =
+  if (
     queryParamToValueString.crossDeviceClientIntroCustomProductName === 'true'
-      ? 'for a [COMPANY/PRODUCT NAME] loan'
-      : undefined
-  const crossDeviceClientIntroProductLogoSrc =
+  ) {
+    sdkOptions.crossDeviceClientIntroProductName =
+      'for a [COMPANY/PRODUCT NAME] loan'
+  }
+  if (
     queryParamToValueString.crossDeviceClientIntroCustomProductLogo === 'true'
-      ? sampleCompanyLogo
-      : undefined
-
-  let autoFocusOnInitialScreenTitle = true
-  if (queryParamToValueString.autoFocusOnInitialScreenTitle) {
-    autoFocusOnInitialScreenTitle =
-      queryParamToValueString.autoFocusOnInitialScreenTitle === 'true'
+  ) {
+    sdkOptions.crossDeviceClientIntroProductLogoSrc = sampleCompanyLogo
+  }
+  if (queryParamToValueString.autoFocusOnInitialScreenTitle !== 'false') {
+    sdkOptions.autoFocusOnInitialScreenTitle = true
   }
 
-  let testCaseOptions = {}
+  if (queryParamToValueString.useModal === 'true') {
+    sdkOptions.useModal = true
+  }
+  if (queryParamToValueString.shouldCloseOnOverlayClick !== 'false') {
+    sdkOptions.shouldCloseOnOverlayClick = true
+  }
+  if (queryParamToValueString.disableAnalytics === 'true') {
+    sdkOptions.disableAnalytics = true
+  }
+  if (queryParamToValueString.useMemoryHistory === 'true') {
+    sdkOptions.useMemoryHistory = true
+  }
+
+  if (!sdkOptions.userDetails) {
+    sdkOptions.userDetails = {}
+  }
+  if (queryParamToValueString.smsNumber) {
+    sdkOptions.userDetails.smsNumber = queryParamToValueString.smsNumber
+  }
+
+  let testCaseOptions: SdkOptions = {}
   if (queryParamToValueString.testCase) {
     const testCase = testCases[queryParamToValueString.testCase]
     if (!testCase) {
@@ -331,30 +373,7 @@ export const getInitSdkOptions = (): SdkOptions => {
   }
 
   return {
-    useModal: queryParamToValueString.useModal === 'true',
-    shouldCloseOnOverlayClick:
-      queryParamToValueString.shouldCloseOnOverlayClick !== 'true',
-    language,
-    disableAnalytics: queryParamToValueString.disableAnalytics === 'true',
-    useMemoryHistory: queryParamToValueString.useMemoryHistory === 'true',
-    steps,
-    mobileFlow: false,
-    userDetails: {
-      smsNumber: queryParamToValueString.smsNumber,
-    },
-    enterpriseFeatures: {
-      hideOnfidoLogo,
-      cobrand,
-      logoCobrand,
-      useCustomizedApiRequests,
-      ...decoupleCallbacks,
-    },
-    customUI: customUI as UICustomizationOptions,
-    crossDeviceClientIntroProductName,
-    crossDeviceClientIntroProductLogoSrc,
-    ...smsNumberCountryCode,
-    _crossDeviceLinkMethods: visibleCrossDeviceMethods,
-    autoFocusOnInitialScreenTitle,
+    ...sdkOptions,
     ...testCaseOptions,
   }
 }

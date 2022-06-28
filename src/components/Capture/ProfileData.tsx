@@ -9,7 +9,6 @@ import {
   Validation,
   Input,
   Button,
-  Asterisk,
 } from '@onfido/castor-react'
 import { useLocales } from '~locales'
 import ScreenLayout from '../Theme/ScreenLayout'
@@ -21,14 +20,17 @@ import { DateOfBirthInput, getMaxDay } from './DateOfBirthInput'
 import style from './style.scss'
 
 import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
-import type { FlatStepOptionData } from '~types/steps'
+import type { StepOptionData } from '~types/steps'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { TranslateCallback } from '~types/locales'
 
 type ProfileDataProps = StepComponentDataProps & {
   title: string
   dataSubPath: string
-  data: FlatStepOptionData
+  dataFields: string[]
+  disabledFields: string[]
+  ssnEnabled?: StepOptionData['ssn_enabled']
+  getPersonalData: StepOptionData['getPersonalData']
   nextStep: () => void
   completeStep: (data: CompleteStepValue) => void
 } & WithLocalisedProps
@@ -36,12 +38,32 @@ type ProfileDataProps = StepComponentDataProps & {
 const ProfileData = ({
   title,
   dataSubPath,
-  data,
+  dataFields,
+  disabledFields,
+  ssnEnabled,
+  getPersonalData,
   nextStep,
   completeStep,
 }: ProfileDataProps) => {
   const { translate } = useLocales()
-  const [formData, setFormData] = useState<{ [key: string]: string }>(data)
+  const [formData, setFormData] = useState(() => {
+    const personalData = getPersonalData()
+    const pathData = dataSubPath
+      ? personalData[dataSubPath] ?? {}
+      : personalData
+
+    return {
+      // make empty data values with fields described
+      ...dataFields.reduce((acc, curr) => ({ ...acc, [curr]: '' }), {}),
+      // override values with already set personal data
+      ...Object.fromEntries(
+        Object.entries(pathData as Record<string, unknown>).filter(([key]) =>
+          dataFields.includes(key)
+        )
+      ),
+    }
+  })
+
   // Touchers are a set of functions that can be executed to "touch" fields.
   // Upon touching a field, it can "invalidate" itself.
   // They also return a field validity state, so a form can check if fields
@@ -91,7 +113,12 @@ const ProfileData = ({
             key={type}
             type={type as FieldComponentProps['type']}
             value={value as FieldComponentProps['value']}
-            selectedCountry={formData.country}
+            selectedCountry={
+              (getPersonalData() as { address: { country: string } })?.address
+                ?.country
+            }
+            ssnEnabled={ssnEnabled}
+            disabled={(disabledFields || []).includes(type)}
             setToucher={setToucher}
             removeToucher={removeToucher}
             onChange={handleChange}
@@ -105,7 +132,7 @@ const ProfileData = ({
             style['submit-button']
           )}
         >
-          {translate('profile_data.button_submit')}
+          {translate('profile_data.button_continue')}
         </Button>
       </div>
     </ScreenLayout>
@@ -116,6 +143,7 @@ type fieldType =
   | 'first_name'
   | 'last_name'
   | 'dob'
+  | 'ssn'
   | 'country'
   | 'line1'
   | 'line2'
@@ -144,23 +172,26 @@ type FieldValueChangeFunc = (
 type FieldComponentProps = {
   type: fieldType
   value: string
-  selectedCountry?: ProfileDataProps['data']['country']
+  selectedCountry?: string
+  disabled: boolean
   setToucher: SetToucherFunc
   removeToucher: RemoveRoucherFunc
   onChange: FieldValueChangeFunc
-}
+} & Pick<ProfileDataProps, 'ssnEnabled'>
 
 const FieldComponent = ({
   type,
   value,
   selectedCountry,
+  ssnEnabled,
+  disabled,
   setToucher,
   removeToucher,
   onChange,
 }: FieldComponentProps) => {
   const { translate } = useLocales()
 
-  const isRequired = isFieldRequired(type, selectedCountry)
+  const isRequired = isFieldRequired(type, selectedCountry, ssnEnabled)
   const [isTouched, setIsTouched] = useState<boolean>(false)
   const [validationError, setValidationError] = useState<string | null>(null)
 
@@ -177,8 +208,10 @@ const FieldComponent = ({
   }, [type, isInvalid, setToucher, removeToucher, setIsTouched])
 
   useEffect(() => {
-    setValidationError(validateField(type, value, selectedCountry)(translate))
-  }, [type, value, selectedCountry, translate])
+    setValidationError(
+      validateField(type, value, selectedCountry, ssnEnabled)(translate)
+    )
+  }, [type, value, selectedCountry, ssnEnabled, translate])
 
   const handleBlur = () => {
     if (!isTouched) setIsTouched(true)
@@ -195,7 +228,8 @@ const FieldComponent = ({
   // edge cases when field component should not be rendered at all
   if (
     (type === 'line3' && selectedCountry === 'USA') ||
-    (type === 'state' && selectedCountry !== 'USA')
+    (type === 'state' && selectedCountry !== 'USA') ||
+    (type === 'ssn' && (selectedCountry !== 'USA' || !ssnEnabled))
   ) {
     if (value) onChange(type, '') // removed value if was already set
     return null
@@ -206,9 +240,7 @@ const FieldComponent = ({
       <FieldLabel>
         <span>
           {getTranslatedFieldLabel(translate, type, selectedCountry)}
-          {isRequired ? (
-            <Asterisk aria-label="required" />
-          ) : (
+          {!isRequired && (
             <span className={style['optional']}>
               {` ${translate('profile_data.field_optional')}`}
             </span>
@@ -217,6 +249,7 @@ const FieldComponent = ({
         {getTranslatedFieldHelperText(translate, type, selectedCountry)}
         {getFieldComponent(type, {
           value,
+          disabled,
           invalid: isTouched && isInvalid,
           required: isRequired,
           onBlur: handleBlur,
@@ -234,6 +267,7 @@ const getFieldComponent = (
   type: FieldComponentProps['type'],
   props: {
     value: FieldComponentProps['value']
+    disabled: boolean
     invalid: boolean
     required: boolean
     onBlur: () => void
@@ -290,7 +324,8 @@ const getTranslatedFieldHelperText = (
 
 const isFieldRequired = (
   type: FieldComponentProps['type'],
-  country?: FieldComponentProps['selectedCountry']
+  country?: FieldComponentProps['selectedCountry'],
+  ssnEnabled?: FieldComponentProps['ssnEnabled']
 ): boolean => {
   const requiredFields = [
     'first_name',
@@ -303,6 +338,9 @@ const isFieldRequired = (
 
   if (country === 'USA') {
     requiredFields.push('state')
+    if (ssnEnabled) {
+      requiredFields.push('ssn')
+    }
   }
 
   return requiredFields.includes(type)
@@ -311,10 +349,11 @@ const isFieldRequired = (
 const validateField = (
   type: FieldComponentProps['type'],
   value: FieldComponentProps['value'],
-  country?: FieldComponentProps['selectedCountry']
+  country?: FieldComponentProps['selectedCountry'],
+  ssnEnabled?: FieldComponentProps['ssnEnabled']
 ) => (translate: TranslateCallback): string | null => {
   // required values
-  if (isFieldRequired(type, country) && !value) {
+  if (isFieldRequired(type, country, ssnEnabled) && !value) {
     return translate(
       `profile_data.${
         translateSpecific('validation_required', type, country) ||
@@ -362,6 +401,11 @@ const validateField = (
 
     if (!Object.values(validity).every(Boolean)) {
       return translate('profile_data.field_validation.invalid_dob')
+    }
+  }
+  if (type === 'ssn' && country === 'USA' && ssnEnabled) {
+    if (!/^\d{3}-?\d{2}-?\d{4}$/.test(value)) {
+      return translate('profile_data.field_validation.usa_specific.invalid_ssn')
     }
   }
 
@@ -417,6 +461,8 @@ const translateSpecific = (
   country?: FieldComponentProps['selectedCountry']
 ): string | null => {
   switch (`${translationType}_${fieldType}_${country?.toLocaleLowerCase()}`) {
+    case 'label_ssn_usa':
+      return 'field_labels.usa_specific.ssn'
     case 'label_town_gbr':
       return 'field_labels.gbr_specific.town'
     case 'label_postcode_gbr':
@@ -429,6 +475,10 @@ const translateSpecific = (
       return 'field_labels.usa_specific.line1_helper_text'
     case 'helper_text_line2_usa':
       return 'field_labels.usa_specific.line2_helper_text'
+    case 'validation_required_ssn_usa':
+      return 'field_validation.usa_specific.required_ssn'
+    case 'validation_invalid_ssn_usa':
+      return 'field_validation.usa_specific.invalid_ssn'
     case 'validation_required_postcode_gbr':
       return 'field_validation.gbr_specific.required_postcode'
     case 'validation_required_state_usa':

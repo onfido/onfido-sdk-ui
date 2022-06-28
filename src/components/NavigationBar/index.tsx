@@ -61,6 +61,7 @@ type NavProps = {
   id?: string
   back?: () => void
   disabled?: boolean
+  transparent?: boolean
   className?: string
 }
 
@@ -77,11 +78,18 @@ class NavigationBar extends Component<Props> {
   }
 
   render() {
-    const { back, translate, disabled, isFullScreen, className } = this.props
+    const {
+      back,
+      translate,
+      disabled,
+      isFullScreen,
+      transparent,
+      className,
+    } = this.props
     return (
       <div
         className={classNames(className, style.navigation, {
-          [style.fullScreenNav]: isFullScreen,
+          [style.transparent]: isFullScreen || transparent,
         })}
       >
         <button

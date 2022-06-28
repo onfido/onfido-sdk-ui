@@ -2,7 +2,11 @@ package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.annotation.Browser;
 import com.onfido.qa.websdk.DocumentType;
-import com.onfido.qa.websdk.page.*;
+import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
+import com.onfido.qa.websdk.page.CrossDeviceIntro;
+import com.onfido.qa.websdk.page.DocumentVideoCapture;
+import com.onfido.qa.websdk.page.DocumentVideoConfirm;
+import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
 import com.onfido.qa.websdk.sdk.DocumentStep;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -32,7 +36,7 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
 
         var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, CrossDeviceIntro.class)
                 .getSecureLink()
                 .copyLink();
@@ -118,7 +122,7 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
 
         var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(DRIVING_LICENCE, CrossDeviceIntro.class)
                 .getSecureLink()
                 .copyLink();

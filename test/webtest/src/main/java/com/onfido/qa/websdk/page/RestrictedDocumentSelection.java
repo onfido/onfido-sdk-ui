@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RestrictedDocumentSelection extends BasePage {
-    public static final String SUPPORTED_COUNTRY = "france";
+    protected static final String SUPPORTED_COUNTRY = "france";
 
     private static final Logger log = LoggerFactory.getLogger(RestrictedDocumentSelection.class);
 

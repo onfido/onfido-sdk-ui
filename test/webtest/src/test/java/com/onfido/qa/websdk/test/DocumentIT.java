@@ -68,7 +68,7 @@ public class DocumentIT extends WebSdkIT {
     private ImageQualityGuide gotoPassportUpload() {
         return onfido().withSteps("document", "complete")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class);
     }
@@ -80,7 +80,7 @@ public class DocumentIT extends WebSdkIT {
         var permission = onfido()
                 .withSteps(new DocumentStep().withUseLiveDocumentCapture(true))
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, Permission.class);
 
         takePercySnapshot("permission-camera");
@@ -96,7 +96,7 @@ public class DocumentIT extends WebSdkIT {
         var capture = onfido()
                 .withSteps(new DocumentStep().withUseLiveDocumentCapture(true))
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentLiveCapture.class);
 
         takePercySnapshotWithoutVideo("document-submit-passport useLiveDocumentCapture=true");
@@ -115,7 +115,7 @@ public class DocumentIT extends WebSdkIT {
         var intro = onfido()
                 .withSteps(new DocumentStep().withUseLiveDocumentCapture(false), "complete")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, PassportUploaderIntro.class);
 
         takePercySnapshot("document-submit-passport-intro useLiveDocumentCapture=false");
@@ -132,7 +132,7 @@ public class DocumentIT extends WebSdkIT {
 
     @Test(description = "should upload a passport and verify UI elements", groups = {"percy"})
     public void testShouldUploadAPassportAndVerifyUiElements() {
-        var upload = onfido().withSteps("document", "complete").init(RestrictedDocumentSelection.class).selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY).selectDocument(PASSPORT, DocumentUpload.class);
+        var upload = onfido().withSteps("document", "complete").init(RestrictedDocumentSelection.class).selectSupportedCountry().selectDocument(PASSPORT, DocumentUpload.class);
 
         takePercySnapshot("document-submit-passport-intro");
 
@@ -161,7 +161,7 @@ public class DocumentIT extends WebSdkIT {
         var countrySelector =
                 onfido().withSteps("document")
                         .init(RestrictedDocumentSelection.class)
-                        .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY);
+                        .selectSupportedCountry();
 
 
         var name = documentType.name();
@@ -233,7 +233,7 @@ public class DocumentIT extends WebSdkIT {
     private ConfirmUpload verifyCroppedImage() {
         var confirmUpload = onfido().withSteps("document")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(DRIVING_LICENCE, DocumentUpload.class)
                 .upload(IDENTITY_CARD_WITH_CUT_OFF)
                 .clickConfirmButton(ConfirmUpload.class);
@@ -281,7 +281,7 @@ public class DocumentIT extends WebSdkIT {
 
         var confirmUpload = onfido().withSteps("document")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(DRIVING_LICENCE, DocumentUpload.class)
                 .upload(NATIONAL_IDENTITY_CARD_JPG)
                 .clickConfirmButton(DocumentUpload.class)
@@ -320,14 +320,14 @@ public class DocumentIT extends WebSdkIT {
         onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
                 .withDisableWebcam()
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, CrossDeviceIntro.class);
     }
 
     // @TODO: remove this test when we fully support docVideo variant for both desktop & mobile web
     @Test(description = "should be taken to the cross-device flow for video capture docVideo variant requested")
     public void testShouldBeTakenToTheCrossDeviceFlowForVideoCaptureDocVideoVariantRequested() {
-        onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO)).init(RestrictedDocumentSelection.class).selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY).selectDocument(PASSPORT, CrossDeviceIntro.class);
+        onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO)).init(RestrictedDocumentSelection.class).selectSupportedCountry().selectDocument(PASSPORT, CrossDeviceIntro.class);
     }
 
     @Test(description = "should be able to retry document upload when using customized API requests feature and receiving an error response from the callback")
@@ -343,7 +343,7 @@ public class DocumentIT extends WebSdkIT {
         var confirmUpload = onfido().withSteps("document", "complete")
                 .withEnterpriseFeatures(enterpriseFeatures)
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(IDENTITY_CARD_WITH_GLARE)
@@ -363,7 +363,7 @@ public class DocumentIT extends WebSdkIT {
 
         var documentSelector = onfido().withSteps("document")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY);
+                .selectSupportedCountry();
 
 
         Map<DocumentType, DocumentOption> expectedOptions = new EnumMap<>(DocumentType.class);

@@ -43,7 +43,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
 
         var upload = onfido().init(Welcome.class)
                              .continueToNextStep(RestrictedDocumentSelection.class)
-                             .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                             .selectSupportedCountry()
                              .selectDocument(documentType, DocumentUpload.class);
 
         verifyCopy(upload.title(), "doc_submit.title_passport");
@@ -59,7 +59,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
 
         var countrySelector = onfido().init(Welcome.class)
                                       .continueToNextStep(RestrictedDocumentSelection.class);
-                            
+
 
         verifyCopy(countrySelector.title(), "doc_select.title");
         verifyCopy(countrySelector.selectorLabel(), "doc_select.section.header_country");
@@ -72,7 +72,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
             description = "should skip Restricted document selection screen and successfully upload a document when only residence permit document type preselected"
     )
     public void testSkipCountryScreenForResidencePermit() {
-        var welcome = onfido().withSteps("welcome", new DocumentStep().withDocumentType(RESIDENT_PERMIT)).init(Welcome.class);
+        var welcome = onfido().withSteps("welcome", new DocumentStep().withDocumentType(RESIDENT_PERMIT, new Option("ESP"))).init(Welcome.class);
         var documentUpload = welcome.continueToNextStep(DocumentUpload.class);
 
         verifyCopy(documentUpload.title(), "doc_submit.title_permit_front");
@@ -87,7 +87,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
     }
 
     @Test(
-            description = "should successfully upload a document when multiple document types have country preset"
+            description = "should successfully upload a document when multiple document types have country preset, and ignore 'null' country"
     )
     public void testSkippingCountrySelectionIfPreset() {
 
@@ -111,17 +111,12 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
         documentUpload = documentSelector.selectDocument(IDENTITY_CARD, DocumentUpload.class);
         verifyCopy(documentUpload.title(), "doc_submit.title_id_front");
 
-        documentSelector = documentUpload.back(RestrictedDocumentSelection.class).selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY);
-        documentUpload = documentSelector.selectDocument(RESIDENT_PERMIT, DocumentUpload.class);
-
-        verifyCopy(documentUpload.title(), "doc_submit.title_permit_front");
-
         var confirm = documentUpload.upload(NATIONAL_IDENTITY_CARD_JPG);
         verifyCopy(confirm.title(), "doc_confirmation.title");
         verifyCopy(confirm.message(), "doc_confirmation.body_permit");
 
         var documentUploadBack = confirm.clickConfirmButton(DocumentUpload.class);
-        verifyCopy(documentUploadBack.title(), "doc_submit.title_permit_back");
+        verifyCopy(documentUploadBack.title(), "doc_submit.title_id_back");
 
     }
 
@@ -133,11 +128,11 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
                                                         .withDocumentType(IDENTITY_CARD, new Option("ES")))
                 .init(Welcome.class)
                 .continueToNextStep(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(DRIVING_LICENCE, DocumentUpload.class)
-               
+
                 .back(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(IDENTITY_CARD, DocumentUpload.class)
                 .upload(NATIONAL_IDENTITY_CARD_JPG)
                 .clickConfirmButton(DocumentUpload.class);
@@ -159,7 +154,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
         onfido()
                 .withSteps(new DocumentStep().withDocumentType(DRIVING_LICENCE, true).withDocumentType(IDENTITY_CARD, true))
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(IDENTITY_CARD, DocumentUpload.class)
                 .upload(NATIONAL_IDENTITY_CARD_JPG)
                 .clickConfirmButton(DocumentUpload.class);
@@ -169,7 +164,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
     public void testGoToUploadScreenWhenASupportedCountryIsSelected() {
         onfido().withSteps("document")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(IDENTITY_CARD, DocumentUpload.class);
     }
 
@@ -189,7 +184,7 @@ public class RestrictedDocumentSelectionIT extends WebSdkIT {
         var countrySelector = onfido().withSteps("document")
                                       .init(RestrictedDocumentSelection.class)
                                       .selectCountry("xyz");
-                        
+
         assertThat(countrySelector.countryNotFoundMessageIdDisabled()).isTrue();
     }
 }

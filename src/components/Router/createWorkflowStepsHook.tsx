@@ -7,6 +7,7 @@ import { StepsHook, CompleteStepValue } from '~types/routers'
 import { poller, PollFunc, Engine } from '../WorkflowEngine'
 import type { WorkflowResponse } from '../WorkflowEngine/utils/WorkflowTypes'
 import useUserConsent from '~contexts/useUserConsent'
+import useActiveVideo from '~contexts/useActiveVideo'
 
 type WorkflowStepsState = {
   loading: boolean
@@ -29,6 +30,7 @@ export const createWorkflowStepsHook = (
   { onfido_api_url }: UrlsConfig
 ): StepsHook => () => {
   const { addUserConsentStep } = useUserConsent()
+  const { addActiveVideoStep } = useActiveVideo()
 
   const [state, setState] = useState<WorkflowStepsState>({
     ...defaultState,
@@ -42,14 +44,20 @@ export const createWorkflowStepsHook = (
 
     setState((state) => ({
       ...state,
-      steps: addUserConsentStep(options.steps),
+      steps: addUserConsentStep(addActiveVideoStep(options.steps)),
     }))
-  }, [addUserConsentStep])
+  }, [addUserConsentStep, addActiveVideoStep])
 
   const { taskId, loading, error, steps, hasNextStep } = state
 
   const docData = useRef<Array<{ id: string }>>([])
+  const getDocData = useCallback(() => {
+    return docData.current
+  }, [docData])
   const personalData = useRef<Record<string, unknown>>({})
+  const getPersonalData = useCallback(() => {
+    return personalData.current
+  }, [personalData])
 
   const pollStep = useCallback((cb: () => void) => {
     if (!token) {
@@ -104,7 +112,8 @@ export const createWorkflowStepsHook = (
 
       const step = workflowEngine.getWorkFlowStep(
         workflow.task_def_id,
-        workflow.config
+        workflow.config,
+        { getDocData, getPersonalData }
       )
 
       if (!step) {
@@ -165,7 +174,7 @@ export const createWorkflowStepsHook = (
         .then(() => {
           setState((state) => ({
             ...state,
-            loading: false,
+            loading: true,
             taskId: undefined,
           }))
           docData.current = []

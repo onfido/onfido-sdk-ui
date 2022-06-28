@@ -18,8 +18,9 @@
         "reload_app": "Please try reloading the app, and try again."
     },
     "profile_data": {
-        "personal_details_title": "Add your personal information",
-        "address_detials_title": "Add your address",
+        "country_of_residence_title": "Your country of residence",
+        "personal_information_title": "Your personal information",
+        "address_title": "Your address",
         "field_labels": {
             "first_name": "First name",
             "last_name": "Last name",
@@ -35,6 +36,7 @@
                 "postcode": "Postcode"
             },
             "usa_specific": {
+                "ssn": "Social Security number (SSN)",
                 "line1_helper_text": "Street address, for example: 200 Albert Street",
                 "line2_helper_text": "Apartment, suite, unit, etc.",
                 "state": "State",
@@ -65,6 +67,8 @@
                 "too_long_postcode": "Postcode is too long"
             },
             "usa_specific": {
+                "required_ssn": "Please enter your Social Security number",
+                "invalid_ssn": "Please enter a valid Social Security number",
                 "required_state": "Please select a state",
                 "required_postcode": "Please enter your zip code",
                 "too_short_postcode": "Zip code is too short",
@@ -72,7 +76,7 @@
             }
         },
         "field_optional": "(optional)",
-        "button_submit": "Continue",
+        "button_continue": "Continue",
         "components": {
             "country_select": {
                 "placeholder": "Select a country"
@@ -634,7 +638,7 @@
         "list_item_poa": "your proof of address",
         "list_item_selfie": "your face",
         "next_button": "Choose document",
-        "start_workflow_button": "Start verfication",
+        "start_workflow_button": "Start verification",
         "subtitle": "It should take a few minutes",
         "title": "Verify your identity"
     }

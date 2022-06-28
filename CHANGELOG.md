@@ -12,6 +12,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Make the `useLiveDocumentCapture` true by default. Clients can still change this option to false.
 - Internal: Add dynamically loaded files (except en_US)
+- Internal: Upgraded Sentry to v7, added ErrorBoundary, fingerprinting and moved into its own module
+- Internal: Migrate webpack to typescript
 
 ## [8.1.0] - 2022-06-13
 
