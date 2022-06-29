@@ -179,6 +179,10 @@
         "back": "indietro",
         "close": "chiudi",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Siamo spiacenti. Sembra che non sia possibile procedere oltre perché la posizione attuale non è supportata",
+                "message": "Servizio non disponibile"
+            },
             "interrupted_flow_error": {
                 "instruction": "Riavvia il processo su un altro dispositivo",
                 "message": "Fotocamera non rilevata"

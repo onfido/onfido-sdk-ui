@@ -266,6 +266,10 @@
         "back": "retour",
         "close": "fermer",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Nous sommes désolés, il semble que nous ne puissions pas poursuivre car votre emplacement actuel n'est pas pris en charge",
+                "message": "Service indisponible"
+            },
             "interrupted_flow_error": {
                 "instruction": "Redémarrez le processus sur un autre appareil",
                 "message": "Appareil photo non détecté"
