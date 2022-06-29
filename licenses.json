@@ -986,6 +986,12 @@
     "path": "node_modules/@nodelib/fs.walk",
     "licenseFile": "node_modules/@nodelib/fs.walk/LICENSE"
   },
+  "@onfido/active-video-capture@0.0.1": {
+    "licenses": "MIT",
+    "repository": "/active-video-capture",
+    "path": "node_modules/@onfido/active-video-capture",
+    "licenseFile": "node_modules/@onfido/active-video-capture/README.md"
+  },
   "@onfido/castor-icons@2.8.1": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor-icons",
@@ -1538,6 +1544,12 @@
     "path": "node_modules/@types/source-list-map",
     "licenseFile": "node_modules/@types/source-list-map/LICENSE"
   },
+  "@types/speed-measure-webpack-plugin@1.3.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/speed-measure-webpack-plugin",
+    "licenseFile": "node_modules/@types/speed-measure-webpack-plugin/LICENSE"
+  },
   "@types/stack-utils@2.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
@@ -1573,6 +1585,18 @@
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/@types/uuid",
     "licenseFile": "node_modules/@types/uuid/LICENSE"
+  },
+  "@types/webpack-bundle-analyzer@4.4.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/webpack-bundle-analyzer",
+    "licenseFile": "node_modules/@types/webpack-bundle-analyzer/LICENSE"
+  },
+  "@types/webpack-node-externals@2.5.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "node_modules/@types/webpack-node-externals",
+    "licenseFile": "node_modules/@types/webpack-node-externals/LICENSE"
   },
   "@types/webpack-sources@3.2.0": {
     "licenses": "MIT",
@@ -1669,6 +1693,14 @@
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
     "path": "node_modules/@typescript-eslint/visitor-keys",
     "licenseFile": "node_modules/@typescript-eslint/visitor-keys/LICENSE"
+  },
+  "@vladmandic/human@2.8.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/vladmandic/human",
+    "publisher": "Vladimir Mandic",
+    "email": "mandic00@live.com",
+    "path": "node_modules/@vladmandic/human",
+    "licenseFile": "node_modules/@vladmandic/human/LICENSE"
   },
   "@webassemblyjs/ast@1.11.1": {
     "licenses": "MIT",
@@ -7138,7 +7170,7 @@
     "path": "node_modules/preact-render-to-string",
     "licenseFile": "node_modules/preact-render-to-string/LICENSE"
   },
-  "preact@10.5.13": {
+  "preact@10.8.2": {
     "licenses": "MIT",
     "repository": "https://github.com/preactjs/preact",
     "path": "node_modules/preact",
@@ -7442,6 +7474,14 @@
     "email": "cezary@gmail.com",
     "path": "node_modules/react-webcam-onfido",
     "licenseFile": "node_modules/react-webcam-onfido/README.md"
+  },
+  "react-webcam@7.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mozmorris/react-webcam",
+    "publisher": "Moz Morris",
+    "email": "mozmorris@gmail.com",
+    "path": "node_modules/react-webcam",
+    "licenseFile": "node_modules/react-webcam/LICENSE"
   },
   "react@16.14.0": {
     "licenses": "MIT",
