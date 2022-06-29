@@ -1,9 +1,9 @@
 import { Project } from 'ts-morph'
 import { join } from 'path'
 
-export const fromBasePath = (path) => join(process.cwd(), path || '')
+export const fromBasePath = (path?: string) => join(process.cwd(), path || '')
 
-let projectCache
+let projectCache: Project
 export const getProject = () => {
   projectCache = new Project({
     tsConfigFilePath: fromBasePath('/tsconfig.json'),
@@ -18,7 +18,7 @@ export const getProject = () => {
   return projectCache
 }
 
-export const getSourceFileAsString = (path) => {
+export const getSourceFileAsString = (path: string) => {
   const sourceFile = projectCache.getSourceFile(path)
 
   if (!sourceFile) {
