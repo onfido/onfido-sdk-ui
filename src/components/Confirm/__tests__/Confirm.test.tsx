@@ -108,6 +108,23 @@ const ENTERPRISE_CALLBACKS_BY_VARIANT: Record<
     onSubmitVideo: () => continueWithOnfidoSubmission,
   },
 }
+const defaultConfirmProps: ConfirmProps = {
+  ...defaultStepComponentBaseProps,
+  ...defaultLocalisedProps,
+  actions: mockedReduxProps.actions,
+  isFullScreen: false,
+  side: 'back',
+  country: '',
+  error: '',
+  isDecoupledFromAPI: true,
+  method: 'document',
+  capture: {
+    variant: 'standard',
+    ...defaultDocumentCapture,
+  },
+  token: 'fake_token',
+  imageQualityRetries: 0,
+}
 
 const MockedConfirm = ({
   method,
@@ -117,21 +134,13 @@ const MockedConfirm = ({
   maxDocumentCaptureRetries,
 }: MockedConfirmType) => {
   const props: ConfirmProps = {
-    ...defaultStepComponentBaseProps,
-    ...defaultLocalisedProps,
-    actions: mockedReduxProps.actions,
-    isFullScreen: false,
-    side: 'back',
-    country: '',
-    error: '',
-    isDecoupledFromAPI: true,
+    ...defaultConfirmProps,
     method,
     capture: {
       variant,
       ...(method === 'face' ? defaultFaceCapture : defaultDocumentCapture),
     },
     enterpriseFeatures: ENTERPRISE_CALLBACKS_BY_VARIANT[mockVariant],
-    token: 'fake_token',
     imageQualityRetries: imageQualityRetries ?? 0,
   }
 
@@ -435,6 +444,63 @@ describe('document capture', () => {
           )
         })
       })
+    })
+  })
+
+  describe('when a geoblocked error happens', () => {
+    beforeEach(() => {
+      mockedFormatError.mockImplementation(({ response, status }, onError) =>
+        onError({ status, response: JSON.parse(response) })
+      )
+
+      const geoblockedRawError: ApiRawError = {
+        status: 403,
+        response: JSON.stringify({
+          error: {
+            message:
+              'Cannot process api requests from this country. The api request will be blocked.',
+            type: 'geoblocked_request',
+            fields: {},
+          },
+        }),
+      }
+
+      const mockedConfirm = (
+        <MockedReduxProvider>
+          <MockedLocalised>
+            <SdkConfigurationServiceContext.Provider
+              value={{
+                document_capture: {
+                  max_total_retries: 1,
+                },
+              }}
+            >
+              <Confirm
+                {...defaultConfirmProps}
+                enterpriseFeatures={{
+                  onSubmitDocument: () => Promise.reject(geoblockedRawError),
+                }}
+              />
+            </SdkConfigurationServiceContext.Provider>
+          </MockedLocalised>
+        </MockedReduxProvider>
+      )
+
+      render(mockedConfirm)
+    })
+
+    it('Should display a geoblocked error with its instructions.', async () => {
+      const confirm = screen.getByText('doc_confirmation.button_primary_upload')
+
+      userEvent.click(confirm)
+
+      await waitFor(() =>
+        screen.getByText('generic.errors.geoblocked_error.message')
+      )
+
+      await waitFor(() =>
+        screen.getByText('generic.errors.geoblocked_error.instruction')
+      )
     })
   })
 })
