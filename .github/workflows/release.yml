@@ -107,6 +107,17 @@ jobs:
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
 
+      - name: Run build for Surge (staging)
+        run: NODE_ENV=staging npm run build:all
+
+      - name: Publish to Surge (staging)
+        uses: dswistowski/surge-sh-action@v1.0.1
+        with:
+          domain: "https://staging-latest-onfido-sdk-ui-onfido.surge.sh/"
+          project: './dist'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
+
       - name: Extract release notes
         if: ${{ env.RELEASE_VERSION == env.LATEST_TAG }}
         id: extract-release-notes
