@@ -71,6 +71,9 @@
       "^~contexts(.*)$": "<rootDir>/src/contexts$1",
       "^~locales(.*)$": "<rootDir>/src/locales$1",
       "^~types(.*)$": "<rootDir>/src/types$1",
+      "^~modules/*": [
+        "./modules/*"
+      ],
       "^~core(.*)$": "<rootDir>/src/core$1",
       "^~modules(.*)$": "<rootDir>/modules$1",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
