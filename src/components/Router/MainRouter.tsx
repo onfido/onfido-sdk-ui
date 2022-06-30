@@ -62,6 +62,8 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       customUI,
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
+      workflowRunId,
+      useWorkflow,
     } = options
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
     if (!steps) {
@@ -89,6 +91,8 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       woopraCookie,
       anonymousUuid,
       analyticsSessionUuid,
+      workflowRunId,
+      useWorkflow,
     }
   }
 

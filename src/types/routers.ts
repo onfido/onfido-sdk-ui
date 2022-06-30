@@ -98,9 +98,10 @@ export type HistoryRouterWrapperProps = HistoryRouterBaseProps & {
 }
 
 export type HistoryRouterProps = HistoryRouterBaseProps & {
-  loadNextStep: (p: () => void) => void
+  loadNextStep: (p: () => void, flow?: FlowVariants) => void
   completeStep: (data: CompleteStepValue) => void
   hasNextStep: boolean
+  hasPreviousStep: boolean
   steps: StepConfig[]
 }
 
@@ -175,10 +176,11 @@ export type StepperState = {
 export type CompleteStepValue = Array<{ id: string }> | Record<string, unknown>
 
 export type StepsHook = () => {
-  loadNextStep: (p: () => void) => void
+  loadNextStep: (p: () => void, flow?: FlowVariants) => void
   completeStep: (data: CompleteStepValue) => void
   loading: boolean
   hasNextStep: boolean
+  hasPreviousStep: boolean
   steps: StepConfig[] | undefined
   error: string | undefined
 }

@@ -151,6 +151,7 @@ export type MobileConfig = {
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   analyticsSessionUuid?: string
+  workflowRunId?: string
 }
 
 export type FormattedError = {

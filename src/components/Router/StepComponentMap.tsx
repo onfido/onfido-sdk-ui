@@ -73,6 +73,7 @@ export type ComponentsListProps = {
   steps: StepConfig[]
   mobileFlow?: boolean
   deviceHasCameraSupport?: boolean
+  hasPreviousStep?: boolean
 }
 
 export const buildComponentsList = ({
@@ -82,9 +83,8 @@ export const buildComponentsList = ({
   mobileFlow,
   deviceHasCameraSupport,
   poaDocumentCountry,
+  hasPreviousStep,
 }: ComponentsListProps): ComponentStep[] => {
-  const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
-
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
         buildCaptureStepComponents(
@@ -92,9 +92,10 @@ export const buildComponentsList = ({
           documentType,
           mobileFlow,
           steps,
-          deviceHasCameraSupport
+          deviceHasCameraSupport,
+          hasPreviousStep
         ),
-        captureSteps
+        steps
       )
     : buildComponentsFromSteps(
         crossDeviceDesktopComponents,
@@ -105,9 +106,6 @@ export const buildComponentsList = ({
 const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
-
-const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
-  hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
 const shouldUseCameraForDocumentCapture = (
   documentStep?: StepConfigDocument,
@@ -127,7 +125,8 @@ const buildCaptureStepComponents = (
   documentType: DocumentTypes | undefined,
   mobileFlow: boolean | undefined,
   steps: StepConfig[],
-  deviceHasCameraSupport?: boolean
+  deviceHasCameraSupport?: boolean,
+  hasPreviousStep?: boolean
 ): ComponentsByStepType => {
   const findStep = buildStepFinder(steps)
   const faceStep = findStep('face')
@@ -141,8 +140,6 @@ const buildCaptureStepComponents = (
   const firstCaptureStepType = steps.filter((step) =>
     captureStepTypes.has(step?.type)
   )[0]?.type
-  const showCrossDeviceClientIntroForFaceStep =
-    mobileFlow && firstCaptureStepType === 'face'
 
   return {
     welcome: [Welcome],
@@ -152,7 +149,7 @@ const buildCaptureStepComponents = (
         faceStep,
         deviceHasCameraSupport,
         mobileFlow,
-        showCrossDeviceClientIntroForFaceStep
+        !hasPreviousStep && mobileFlow && firstCaptureStepType === 'face'
       ),
     ],
     ...(SDK_ENV === 'Auth' && {
@@ -165,7 +162,7 @@ const buildCaptureStepComponents = (
         hasOnePreselectedDocument(steps),
         shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport),
         mobileFlow,
-        firstCaptureStepType === 'document'
+        !hasPreviousStep && firstCaptureStepType === 'document'
       ),
     ],
     data: [...buildDataComponents(dataStep)],
@@ -173,7 +170,7 @@ const buildCaptureStepComponents = (
       ...buildPoaComponents(
         poaDocumentCountry,
         mobileFlow,
-        firstCaptureStepType === 'poa'
+        !hasPreviousStep && firstCaptureStepType === 'poa'
       ),
     ],
     complete,

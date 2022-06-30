@@ -76,6 +76,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     options: { mobileFlow, useMemoryHistory },
     steps,
     hasNextStep,
+    hasPreviousStep,
     loadNextStep,
     completeStep,
   } = props
@@ -94,6 +95,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       steps,
       mobileFlow,
       deviceHasCameraSupport,
+      hasPreviousStep,
     })
   }
 
@@ -215,7 +217,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     } else if (hasNextStep) {
       loadNextStep(() => {
         setStepIndex(0, 'captureSteps')
-      })
+      }, state.flow)
     }
   }
 
