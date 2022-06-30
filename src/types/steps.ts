@@ -5,6 +5,7 @@ const STEP_POA = 'poa'
 const STEP_FACE = 'face'
 const STEP_COMPLETE = 'complete'
 const STEP_AUTH = 'auth'
+const STEP_ACTIVE_VIDEO = 'activeVideo'
 const STEP_CROSS_DEVICE_SESSION_INTRO = 'crossDeviceSessionIntro'
 const STEP_WORKFLOW_PASS = 'pass'
 const STEP_WORKFLOW_REJECT = 'reject'
@@ -26,6 +27,7 @@ export type PublicStepTypes =
 export type PrivateStepTypes =
   | typeof STEP_WORKFLOW_RETRY
   | typeof STEP_USER_CONSENT
+  | typeof STEP_ACTIVE_VIDEO
 
 export type StepTypes = PublicStepTypes | PrivateStepTypes
 
@@ -118,6 +120,7 @@ export type StepOptionData = {
     state?: string
     postcode?: string
   }
+  ssn_enabled?: boolean
   getPersonalData: GetPersonalDataFunc
 }
 
@@ -135,6 +138,7 @@ type StepOptionsMap = {
   document: StepOptionDocument
   poa: StepOptionPoA
   face: StepOptionFace
+  activeVideo: never
   complete: StepOptionComplete
   pass: StepOptionPass
   reject: StepOptionReject
@@ -152,6 +156,7 @@ export type StepConfigMap = {
 export type StepConfigWelcome = StepConfigMap['welcome']
 export type StepConfigUserConsent = StepConfigMap['userConsent']
 export type StepConfigAuth = StepConfigMap['auth']
+export type StepConfigActiveVideo = StepConfigMap['activeVideo']
 export type StepConfigCrossDeviceSessionIntro = StepConfigMap['crossDeviceSessionIntro']
 export type StepConfigDocument = StepConfigMap['document']
 export type StepConfigPoa = StepConfigMap['poa']
@@ -169,13 +174,17 @@ export type PublicStepConfig =
   | StepConfigFace
   | StepConfigComplete
   | StepConfigAuth
+  | StepConfigActiveVideo
   | StepConfigCrossDeviceSessionIntro
   | StepConfigPass
   | StepConfigReject
   | StepConfigData
   | StepConfigRetry
 
-type PrivateStepConfig = { skip?: boolean }
+export type PrivateStepConfig = {
+  skip?: boolean
+  edgeToEdgeContent?: boolean
+}
 
 export type StepConfig = (PublicStepConfig | StepConfigUserConsent) &
   PrivateStepConfig

@@ -1,4 +1,74 @@
 {
+    "profile_data": {
+        "country_of_residence_title" : "Votre pays de résidence",
+        "personal_information_title": "Ajoutez vos informations personnelles",
+        "address_title": "Ajoutez votre adresse",
+        "field_labels": {
+            "first_name": "Prénom",
+            "dob": "Date de naissance",
+            "last_name": "Nom de famille",
+            "country": "Pays",
+            "line1": "Adresse ligne 1",
+            "line2": "Adresse ligne 2",
+            "line3": "Adresse ligne 3",
+            "town": "Ville",
+            "postcode": "Code postal",
+            "gbr_specific": {
+                "town": "Ville",
+                "postcode": "Code postal"
+            },
+            "usa_specific": {
+                "line1_helper_text": "Nom de la rue, par exemple : 200 rue Albert",
+                "line2_helper_text": "Appartement, suite, unité, etc.",
+                "state": "État",
+                "postcode": "Zip code (États-Unis)"
+            }
+        },
+        "field_validation": {
+            "required_first_name": "Veuillez renseigner votre prénom",
+            "required_last_name": "Veuillez renseigner votre nom de famille",
+            "required_dob": "Veuillez saisir votre date de naissance",
+            "required_country": "Veuillez sélectionner un pays",
+            "required_line1": "Veuillez renseigner votre adresse",
+            "required_postcode": "Veuillez renseigner votre code postal",
+            "invalid": "Veuillez vérifier s'il y a des caractères ou des symboles invalides",
+            "invalid_dob": "Veuillez saisir une date de naissance valide",
+            "too_short_last_name": "Le nom de famille est trop court",       
+            "too_short_postcode": "Le code postal est trop court",
+            "too_long_last_name": "Le nom de famille est trop long",
+            "too_long_first_name": "Le prénom est trop long",
+            "too_long_postcode": "Le code postal est trop long",
+            "too_long__line1": "La ligne de l'adresse est trop longue",
+            "too_long__line2": "La ligne de l'adresse est trop longue",
+            "too_long__line3": "La ligne de l'adresse est trop longue",
+            "too_long_town": "La ville est trop long",
+            "gbr_specific": {
+                "required_postcode": "Veuillez renseigner votre code postal",
+                "too_short_postcode": "Le code postal est trop court",
+                "too_long_postcode": "Le code postal est trop long"
+            },
+            "usa_specific": {
+                "required_state": "Veuillez sélectionner un État",
+                "required_postcode": "Veuillez renseigner votre code postal",
+                "too_short_postcode": "Le code postal est trop court",
+                "too_long_postcode": "Le code postal est trop long"
+            }
+        },
+        "field_optional": "(facultatif)",
+        "button_continue": "Continuer",
+        "components": {
+            "country_select": {
+                "placeholder": "Sélectionnez un pays"
+            },
+            "state_select": {
+                "placeholder": "Sélectionnez un État"
+            }
+        },
+        "prompt": {
+            "header_timeout": "Apparemment vous avez mis trop longtemps",
+            "details_timeout": "Recommencer"
+        }
+    },
     "auth_accessibility": {
         "back_button": "Annuler"
     },
@@ -252,6 +322,11 @@
         "button_secondary": "Aperçu de la vidéo",
         "title": "Veuillez vérifier votre vidéo"
     },
+    "doc_multi_frame_capture": {
+        "capture_progress_title": "Scan en cours du document",
+        "instructions_title_front": "Positionnez le recto de votre document dans le cadre",
+        "instructions_title_back": "Positionnez le verso de votre document dans le cadre"
+    },
     "error_unsupported_browser": {
         "subtitle_android": "Redémarrez le processus sur la dernière version de Google Chrome",
         "subtitle_ios": "Redémarrer le processus sur la dernière version de Safari",
@@ -266,6 +341,10 @@
         "back": "retour",
         "close": "fermer",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Nous sommes désolés, il semble que nous ne puissions pas poursuivre car votre emplacement actuel n'est pas pris en charge",
+                "message": "Service indisponible"
+            },
             "interrupted_flow_error": {
                 "instruction": "Redémarrez le processus sur un autre appareil",
                 "message": "Appareil photo non détecté"
@@ -537,6 +616,7 @@
         "list_item_selfie": "votre visage",
         "next_button": "Sélectionner un document",
         "subtitle": "Cela ne prendra que quelques minutes",
-        "title": "Vérification d’identité"
+        "title": "Vérification d’identité",
+        "start_workflow_button": "Commencer la vérification"
     }
 }

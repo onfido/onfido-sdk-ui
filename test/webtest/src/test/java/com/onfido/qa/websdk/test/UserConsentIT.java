@@ -92,7 +92,7 @@ public class UserConsentIT extends WebSdkIT {
         var crossDevice = init(Welcome.class, "welcome", "document")
                 .continueToNextStep(UserConsent.class)
                 .acceptUserConsent(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .switchToCrossDevice();
 
@@ -138,7 +138,7 @@ public class UserConsentIT extends WebSdkIT {
         var link = init(Welcome.class, "welcome", "document")
                 .continueToNextStep(UserConsent.class)
                 .acceptUserConsent(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .switchToCrossDevice().getSecureLink().copyLink();
 

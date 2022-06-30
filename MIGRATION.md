@@ -4,12 +4,65 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `8.0.0` -> `next`
 
+The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the follinw string(s) has been added:
+
 ### Added strings
 
+- `welcome.start_workflow_button`
+- `doc_multi_frame_capture.capture_progress_title`
+- `doc_multi_frame_capture.instructions_title_front`
+- `doc_multi_frame_capture.instructions_title_back`
 - `profile_data.country_of_residence_title`
 - `profile_data.personal_information_title`
 - `profile_data.address_title`
+- `profile_data.field_labels.first_name`
+- `profile_data.field_labels.last_name`
+- `profile_data.field_labels.dob`
+- `profile_data.field_labels.country`
+- `profile_data.field_labels.line1`
+- `profile_data.field_labels.line2`
+- `profile_data.field_labels.line3`
+- `profile_data.field_labels.town`
+- `profile_data.field_labels.postcode`
+- `profile_data.field_labels.gbr_specific.town`
+- `profile_data.field_labels.gbr_specific.postcode`
+- `profile_data.field_labels.usa_specific.line1_helper_text`
+- `profile_data.field_labels.usa_specific.line2_helper_text`
+- `profile_data.field_labels.usa_specific.state`
+- `profile_data.field_labels.usa_specific.postcode`
+- `profile_data.field_validation.required_first_name`
+- `profile_data.field_validation.required_last_name`
+- `profile_data.field_validation.required_dob`
+- `profile_data.field_validation.required_country`
+- `profile_data.field_validation.required_line1`
+- `profile_data.field_validation.required_postcode`
+- `profile_data.field_validation.invalid`
+- `profile_data.field_validation.invalid_dob`
+- `profile_data.field_validation.too_short_last_name`
+- `profile_data.field_validation.too_short_postcode`
+- `profile_data.field_validation.too_long_last_name`
+- `profile_data.field_validation.too_long_first_name`
+- `profile_data.field_validation.too_long_postcode`
+- `profile_data.field_validation.too_long__line1`
+- `profile_data.field_validation.too_long__line2`
+- `profile_data.field_validation.too_long__line3`
+- `profile_data.field_validation.too_long_town`
+- `profile_data.field_validation.gbr_specific.required_postcode`
+- `profile_data.field_validation.gbr_specific.too_short_postcode`
+- `profile_data.field_validation.gbr_specific.too_long_postcode`
+- `profile_data.field_validation.usa_specific.required_state`
+- `profile_data.field_validation.usa_specific.required_postcode`
+- `profile_data.field_validation.usa_specific.too_short_postcode`
+- `profile_data.field_validation.usa_specific.too_long_postcode`
+- `profile_data.field_optional`
 - `profile_data.button_continue`
+- `profile_data.components.country_select.placeholder`
+- `profile_data.components.state_select.placeholder`
+- `profile_data.prompt.header_timeout`
+- `profile_data.prompt.details_timeout`
+- `profile_data.field_labels.usa_specific.ssn`
+- `profile_data.field_validation.usa_specific.required_ssn`
+- `profile_data.field_validation.usa_specific.invalid_ssn`
 
 ### Removed strings
 

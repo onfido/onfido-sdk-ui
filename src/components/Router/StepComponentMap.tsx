@@ -29,6 +29,7 @@ import CrossDeviceClientIntro from 'components/crossDevice/ClientIntro'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
+import LazyActiveVideo from '../ActiveVideo/Lazy'
 import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 
@@ -132,6 +133,7 @@ const buildCaptureStepComponents = (
   const faceStep = findStep('face')
   const documentStep = findStep('document')
   const dataStep = findStep('data')
+  const activeVideoStep = findStep('activeVideo')
 
   const complete = mobileFlow
     ? [ClientSuccess as ComponentType<StepComponentProps>]
@@ -154,6 +156,9 @@ const buildCaptureStepComponents = (
     ],
     ...(SDK_ENV === 'Auth' && {
       auth: [LazyAuth],
+    }),
+    ...(activeVideoStep && {
+      activeVideo: [LazyActiveVideo],
     }),
     document: [
       ...buildDocumentComponents(
@@ -196,7 +201,8 @@ const buildDataComponents = (
     <DataCapture
       {...props}
       title="personal_information_title"
-      dataFields={['first_name', 'last_name', 'dob']}
+      dataFields={['first_name', 'last_name', 'dob', 'ssn']}
+      ssnEnabled={dataStep?.options?.ssn_enabled}
       getPersonalData={dataStep?.options?.getPersonalData}
     />
   )

@@ -8,7 +8,21 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.onfido.qa.annotation.Browser;
 import com.onfido.qa.websdk.PoADocumentType;
 import com.onfido.qa.websdk.UploadDocument;
-import com.onfido.qa.websdk.page.*;
+import com.onfido.qa.websdk.page.Complete;
+import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
+import com.onfido.qa.websdk.page.CrossDeviceLink;
+import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
+import com.onfido.qa.websdk.page.CrossDeviceSubmit;
+import com.onfido.qa.websdk.page.DocumentUpload;
+import com.onfido.qa.websdk.page.FaceVideo;
+import com.onfido.qa.websdk.page.FaceVideoIntro;
+import com.onfido.qa.websdk.page.ImageQualityGuide;
+import com.onfido.qa.websdk.page.PoADocumentSelection;
+import com.onfido.qa.websdk.page.PoAIntro;
+import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
+import com.onfido.qa.websdk.page.SelfieCamera;
+import com.onfido.qa.websdk.page.SelfieIntro;
+import com.onfido.qa.websdk.page.Welcome;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WindowType;
@@ -87,7 +101,7 @@ public class AccessibilityIT extends WebSdkIT {
     public void testCrossDeviceIntro() {
         onfido().withSteps("document")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .switchToCrossDevice();
 
@@ -97,7 +111,7 @@ public class AccessibilityIT extends WebSdkIT {
     private CrossDeviceLink gotoCrossDeviceLinkScreen() {
         return onfido().withSteps("document")
                        .init(RestrictedDocumentSelection.class)
-                       .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                       .selectSupportedCountry()
                        .selectDocument(PASSPORT, DocumentUpload.class)
                        .switchToCrossDevice()
                        .getSecureLink();
@@ -155,13 +169,13 @@ public class AccessibilityIT extends WebSdkIT {
         verifyAxeReport();
 
     }
-    
+
     // https://github.com/alphagov/accessible-autocomplete/issues/361
     // Disabling until we replace autocomplete
     // FIXME: bug
     @Test(enabled=false, description = "should verify accessibility for the document selector screen")
     public void testShouldVerifyAccessibilityForTheDocumentSelectorScreen() {
-        onfido().withSteps("document").init(RestrictedDocumentSelection.class).selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY);
+        onfido().withSteps("document").init(RestrictedDocumentSelection.class).selectSupportedCountry();
         verifyAxeReport();
     }
 
@@ -169,7 +183,7 @@ public class AccessibilityIT extends WebSdkIT {
     public void testShouldVerifyAccessibilityForThePassportUploadImageGuideScreen() {
         onfido().withSteps("document")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class);
 
@@ -182,7 +196,7 @@ public class AccessibilityIT extends WebSdkIT {
     @Test(description = "should verify accessibility for country selector screen", enabled = false)
     public void testAccessibilityForCountrySelector() {
         onfido().withSteps("document").init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(DRIVING_LICENCE, DocumentUpload.class);
 
         verifyAxeReport();
@@ -191,7 +205,7 @@ public class AccessibilityIT extends WebSdkIT {
     @Test(description = "should verify accessibility for the document uploader screen")
     public void testShouldVerifyAccessibilityForTheDocumentUploaderScreen() {
         onfido().withSteps("document").init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(DRIVING_LICENCE, DocumentUpload.class);
 
         verifyAxeReport();
@@ -202,7 +216,7 @@ public class AccessibilityIT extends WebSdkIT {
 
         onfido().withSteps("document")
                 .init(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(UploadDocument.PASSPORT_JPG);
