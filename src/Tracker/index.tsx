@@ -86,10 +86,50 @@ const userAnalyticsEvent = (
   )
 }
 
+const withOriginStacktrace = (
+  originMethod: string,
+  base?: Record<string, unknown> = {},
+  originInfo: string,
+  namePartial?: string | string[]
+) => {
+  // console.log('withOriginStacktrace',originMethod, namePartial)
+  // if (originInfo) {
+  //   originInfo.partial = [originInfo.partial, namePartial]
+  // }
+
+  let originStacktrace = base?.originStacktrace || []
+
+  if (typeof originStacktrace === 'string') {
+    originStacktrace = JSON.parse(originStacktrace)
+  }
+
+  originStacktrace.push({ ...originInfo, namePartial })
+  
+  return {
+    ...(base || {}),
+    originStacktrace
+  }
+  // console.log('withOriginStacktrace', {
+  //   originMethod,
+  //   base,
+  //   originInfo,
+  //   namePartial,
+  //   originStacktrace,
+  // })
+
+  // return base
+  // return {
+  //   ...(base || {}),
+  //   originStacktrace: [...(originStacktrace || []), originInfo].filter(Boolean),
+  // }
+}
+
 const sendEvent = (
   eventName: LegacyTrackedEventNames,
-  properties?: Record<string, unknown>
+  properties?: Record<string, unknown>,
+  originInfo?: string
 ): void => {
+  // console.warn('sendEvent')
   if (integratorTrackedEvents.has(eventName)) {
     userAnalyticsEvent(integratorTrackedEvents.get(eventName), properties)
   }
@@ -97,7 +137,16 @@ const sendEvent = (
   if (shouldSendEvents) {
     const formattedProperties = formatProperties(properties)
     woopra && woopra.track(eventName, formattedProperties)
-    sendAnalyticsEvent(eventName, formattedProperties)
+    sendAnalyticsEvent(
+      eventName,
+  
+        withOriginStacktrace(
+            'sendEvent',
+            formattedProperties,
+            originInfo,
+            eventName
+          )
+    )
   }
 }
 
@@ -110,27 +159,68 @@ const screenNameHierarchyFormat = (
 
 const sendScreen = (
   screenNameHierarchy: string[],
-  properties?: Record<string, unknown>
-): void => sendEvent(screenNameHierarchyFormat(screenNameHierarchy), properties)
+  properties?: Record<string, unknown>,
+  originInfo?: string
+): void => {
+  // console.warn('sendScreen')
+  return sendEvent(
+    screenNameHierarchyFormat(screenNameHierarchy),
+    withOriginStacktrace(
+      'sendScreen',
+      properties,
+      originInfo,
+      'screen'
+      // screenNameHierarchyFormat(screenNameHierarchy)
+    )
+    // [
+    //   'screen',
+    //   ...screenNameHierarchy,
+    // ])
+  )
+}
 
 const appendToTracking = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,
-  ancestorScreenNameHierarchy?: string
+  ancestorScreenNameHierarchy?: string,
+  originInfoHead?: string
 ): ComponentType<P> =>
   class TrackedComponent extends Component<P> {
     trackScreen: TrackScreenCallback = (
       screenNameHierarchy?: string | string[],
-      ...others
-    ) =>
-      this.props.trackScreen(
+      properties,
+      originInfo
+      // ...others
+    ) => {
+      // console.warn('appendTracking.trackScreen')
+      // console.log('---> custom trackScreen', properties, originInfo)
+      return this.props.trackScreen(
         [
           ...(ancestorScreenNameHierarchy
             ? wrapArray(ancestorScreenNameHierarchy)
             : []),
           ...(screenNameHierarchy ? wrapArray(screenNameHierarchy) : []),
         ],
-        ...others
+        // ...others
+        withOriginStacktrace(
+          'appendTracking',
+          withOriginStacktrace(
+            'appendTracking.trackScreen',
+            properties,
+            originInfo,
+            screenNameHierarchy
+          ),
+          originInfoHead,
+          ancestorScreenNameHierarchy
+        )
+        // properties,
+        // originInfo && { ...originInfo, partial: screenNameHierarchy },
+        // withOriginStacktrace(
+        //   properties,
+        //   properties?.originStacktrace || originInfo,
+        //   ancestorScreenNameHierarchy
+        // )
       )
+    }
 
     render = () => (
       <WrappedComponent {...this.props} trackScreen={this.trackScreen} />
@@ -139,15 +229,30 @@ const appendToTracking = <P extends WithTrackingProps>(
 
 const trackComponent = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,
-  screenName?: string
-): ComponentType<P> =>
-  class TrackedComponent extends Component<P> {
+  screenName?: string,
+  originInfo?: string
+): ComponentType<P> => {
+  // console.warn('trackComponent', screenName, originInfo)
+
+  return class TrackedComponent extends Component<P> {
     componentDidMount() {
-      this.props.trackScreen(screenName)
+      // console.warn('trackComponent.componentDidMount')
+      this.props.trackScreen(
+        screenName,
+        withOriginStacktrace(
+          'trackComponent.componentDidMount',
+          {},
+          originInfo,
+          screenName
+        ),
+        // null,
+        originInfo
+      )
     }
 
     render = () => <WrappedComponent {...this.props} />
   }
+}
 
 const trackException = (message: string, extra?: EventHint): void => {
   execeptionTracking?.captureException(
@@ -242,4 +347,5 @@ export {
   setupAnalyticsCookie,
   uninstallAnalyticsCookie,
   getAnalyticsCookie,
+  withOriginStacktrace,
 }

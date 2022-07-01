@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Project } from 'ts-morph'
 import { join } from 'path'
 

@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import { sendScreen } from '../../Tracker'
+import { sendScreen, withOriginStacktrace } from '../../Tracker'
 import { wrapArray } from '~utils/array'
 import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.scss'
@@ -15,16 +15,16 @@ class StepsRouter extends Component<StepsRouterProps> {
 
   resetSdkFocus = () => this.container?.focus()
 
-  trackScreen: TrackScreenCallback = (screenNameHierarchy, properties = {}) => {
+  trackScreen: TrackScreenCallback = (screenNameHierarchy, properties = {}, originInfo) => {
     const { step } = this.currentComponent()
+
     sendScreen(
       [
         step.type,
         ...(screenNameHierarchy ? wrapArray(screenNameHierarchy) : []),
       ],
-      {
-        ...properties,
-      }
+      withOriginStacktrace('StepsRouter.trackScreen', {...properties}, {filePath: 'src/Router/StepsRouter.tsx', lineNumber: 28, methodName: 'trackScreen'}, step.type),
+      originInfo
     )
   }
 

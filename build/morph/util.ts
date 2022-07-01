@@ -36,17 +36,28 @@ export const appendArgumentsToCallExpression = (
   callExpression: CallExpression,
   { max, data }: { max: number; data: string[] }
 ) => {
-  const originArguments = callExpression.getArguments()
+  const originArguments = callExpression?.getArguments() || []
   const originArgumentsLength = originArguments.length
   const expectedArgumentLength = max - data.length
 
+  console.log(
+    callExpression.getText(),
+    originArgumentsLength,
+    expectedArgumentLength
+  )
+
   if (originArgumentsLength < expectedArgumentLength) {
     // Too few arguments, add a couple
+    // console.log('--> to few')
     callExpression.addArguments(
       new Array(expectedArgumentLength - originArgumentsLength).fill('null')
     )
   } else if (originArgumentsLength > expectedArgumentLength) {
     // Too many arguments, remove a couple
+    // console.log(
+    //   '--> to many',
+    //   originArguments.slice(-(originArgumentsLength - expectedArgumentLength))
+    // )
     originArguments
       .slice(-(originArgumentsLength - expectedArgumentLength))
       .forEach((i) => callExpression.removeArgument(i))

@@ -120,6 +120,31 @@ export const sendAnalyticsEvent = (
   const payload = JSON.stringify(analyticsPayload)
 
   const url = urls.onfido_api_url
+  // console.log('[Analytics]', event, eventData?.eventName, eventProperties)
 
-  sendAnalytics(url, payload)
+  const createStacktrace = (stacktrace) => {
+    const text = []
+
+    return stacktrace
+      .map((i) =>
+        [
+          `[${i.namePartial || '.'}]`,
+          i.filePath && `   src: ${i.filePath}:${i.lineNumber}`,
+          i.methodName && `   method: ${i.methodName}`,
+          i.analyticsMethod && `   analyticsMethod: ${i.analyticsMethod}`,
+        ]
+          .filter(Boolean)
+          .join('\n')
+      )
+      .join('\n\n')
+  }
+
+  console.log(
+    `[Analytics] ${event} ${eventData.eventName} \n`,
+    { properties: eventProperties },
+    '\n',
+    createStacktrace(eventProperties.originStacktrace)
+  )
+
+  // sendAnalytics(url, payload)
 }
