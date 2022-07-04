@@ -15,6 +15,7 @@ export const baseRules = () => {
       },
       include: [
         resolve(BASE_DIR, 'src'),
+        resolve(BASE_DIR, 'modules'),
         resolve(BASE_DIR, 'node_modules/@onfido/castor'),
         resolve(BASE_DIR, 'node_modules/@onfido/castor-react'),
         resolve(BASE_DIR, 'node_modules/@onfido/castor-icons'),
