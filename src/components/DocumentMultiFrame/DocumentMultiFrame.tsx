@@ -3,7 +3,7 @@ import VideoCapture, { VideoOverlayProps } from 'components/VideoCapture'
 import { h } from 'preact'
 import { useEffect, useRef, useState } from 'preact/hooks'
 import Webcam from 'react-webcam-onfido'
-import { trackException } from 'Tracker'
+import { trackComponent, trackException } from 'Tracker'
 import { DocumentSides } from '~types/commons'
 import type { WithTrackingProps } from '~types/hocs'
 import { CapturePayload } from '~types/redux'
@@ -156,4 +156,4 @@ const DocumentMultiFrame = ({
   )
 }
 
-export default DocumentMultiFrame
+export default trackComponent(DocumentMultiFrame)
