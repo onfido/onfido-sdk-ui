@@ -108,7 +108,7 @@ export class Network {
       if (request.status === 200 || request.status === 201) {
         const contentType = request.getResponseHeader('content-type')
 
-        if (contentType && contentType.startsWith('application/json')) {
+        if (contentType && /^application\/json/.test(contentType)) {
           onSuccess(JSON.parse(request.response))
         } else {
           onSuccess(request.response)

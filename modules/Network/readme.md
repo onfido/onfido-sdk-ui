@@ -56,3 +56,9 @@ network.performHttpRequest(
 - Add support for retries on timeout
 - Provide consistent api for performHttpRequest (especially for onSuccess)
 - Add versioning
+
+## Changelog
+
+### 0.0.0 - 5-6-2022
+
+- Module created while maintining legacy api
