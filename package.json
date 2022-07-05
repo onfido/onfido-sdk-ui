@@ -71,6 +71,7 @@
       "^~locales(.*)$": "<rootDir>/src/locales$1",
       "^~types(.*)$": "<rootDir>/src/types$1",
       "^~core(.*)$": "<rootDir>/src/core$1",
+      "^~modules(.*)$": "<rootDir>/modules$1",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
       "^~supported-documents(.*)$": "<rootDir>/src/supported-documents$1",
       "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
