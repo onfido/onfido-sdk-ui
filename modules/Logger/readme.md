@@ -43,11 +43,11 @@ const instanceLogger = mainLogger.createInstance(label: string)
 
 ##### Log levels:
 
-- debug
-- info
-- warning
-- error
-- fatal
+- `debug` - only for internal debugging
+- `info` - for informational messages
+- `warning` - for potential issues
+- `error` - for errors during execution
+- `fatal` - for critical events that must be addressed
 
 ```ts
 instanceLogger.debug(message: string, metadata?: Record<string, unknown>)

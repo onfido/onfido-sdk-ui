@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { CallExpression, Node } from 'ts-morph'
 import { fromBasePath } from './project'
 
@@ -43,7 +44,9 @@ export const appendArgumentsToCallExpression = (
   if (originArgumentsLength < expectedArgumentLength) {
     // Too few arguments, add a couple
     callExpression.addArguments(
-      new Array(expectedArgumentLength - originArgumentsLength).fill('null')
+      new Array(expectedArgumentLength - originArgumentsLength).fill(
+        'undefined'
+      )
     )
   } else if (originArgumentsLength > expectedArgumentLength) {
     // Too many arguments, remove a couple
@@ -55,7 +58,6 @@ export const appendArgumentsToCallExpression = (
   callExpression.addArguments(data)
 }
 
-// @ts-ignore
 export const getNthDescendant = (node, condition, nth) => {
   let count = 0
   for (const descendant of node._getDescendantsIterator()) {
