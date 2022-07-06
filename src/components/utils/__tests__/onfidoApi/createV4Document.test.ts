@@ -1,14 +1,14 @@
 import { jwtToken, fakeCreateV4DocumentResponse } from '~jest/responses'
-import { performHttpReq } from '~utils/http'
+import { performHttpRequest } from '~core/Network'
 import { createV4Document } from '~utils/onfidoApi'
 
 jest.mock('~utils/blob')
-jest.mock('~utils/http')
+jest.mock('~core/Network')
 
 const url = 'https://test.url.com'
 
-const mockedPerformHttpReq = performHttpReq as jest.MockedFunction<
-  typeof performHttpReq
+const mockedPerformHttpReq = performHttpRequest as jest.MockedFunction<
+  typeof performHttpRequest
 >
 
 describe('onfidoApi', () => {

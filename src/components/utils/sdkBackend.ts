@@ -1,4 +1,4 @@
-import { HttpRequestParams, performHttpReq } from './http'
+import { HttpRequestParams, performHttpRequest } from '~core/Network'
 import { formatError } from './onfidoApi'
 import { trackException } from '../../Tracker'
 
@@ -59,7 +59,7 @@ export const postToBackend = (
     contentType: 'application/json',
   }
 
-  performHttpReq(options, onSuccess, (error) =>
+  performHttpRequest(options, onSuccess, (error) =>
     handleError(error, errorCallback)
   )
 }

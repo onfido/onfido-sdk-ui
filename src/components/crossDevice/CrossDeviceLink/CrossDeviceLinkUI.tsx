@@ -5,7 +5,7 @@ import { ParsedError } from '~types/api'
 import { ErrorNames } from '~types/commons'
 import { ErrorProp } from '~types/routers'
 import { preventDefaultOnClick } from '~utils'
-import { performHttpReq } from '~utils/http'
+import { performHttpRequest } from '~core/Network'
 import { formatError } from '~utils/onfidoApi'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
@@ -184,7 +184,7 @@ class CrossDeviceLinkUI extends Component<Props, State> {
       contentType: 'application/json',
       token: `Bearer ${token}`,
     }
-    performHttpReq(options, this.handleResponse, (request) =>
+    performHttpRequest(options, this.handleResponse, (request) =>
       formatError(request, this.handleSMSError)
     )
   }
