@@ -7,7 +7,6 @@ const sdk_version = process.env.SDK_VERSION
 let woopra: WoopraTracker = null
 
 export const install = () => {
-  console.log('install woopra')
   woopra = new WoopraTracker('onfidojssdkwoopra')
 
   woopra.init()
