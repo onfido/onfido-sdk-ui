@@ -51,7 +51,6 @@ const Intro = ({ translate, nextStep, mobileConfig }: IntroProps) => {
       documentType: mobileConfig.documentType,
       poaDocumentCountry: mobileConfig.poaDocumentCountry,
       steps: mobileConfig.steps,
-      step: mobileConfig.step,
     }) === 'face'
 
   const stageList = Object.keys(

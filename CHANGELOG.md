@@ -12,7 +12,17 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Add dynamically loaded files (except en_US)
 - Internal: Upgraded Sentry to v7, added ErrorBoundary, fingerprinting and moved into its own module
+- Internal: Move Woopra into it's own core module
 - Internal: Migrate webpack to typescript
+- Internal: Add cross device pooling
+- Public: Support for SSN (for USA only) data capture.
+- Public: Collect country of residence before other profile data
+- Public: Add translations for profile data
+- Public: Support DocumentTypes option
+- Public: Remove asterisk from required fields
+- Internal: Handle geoblocking errors in v3 /documents apis
+- Internal: Remove isFullScreen prop from NavigationBar
+- Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
 
 ## [8.1.0] - 2022-06-13
 

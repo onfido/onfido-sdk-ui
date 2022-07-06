@@ -28,6 +28,7 @@ export const createOptionsStepsHook = (
     completeStep: useCallback(() => ({}), []),
     error: undefined,
     loading: false,
+    hasPreviousStep: false,
     hasNextStep,
     steps,
   }

@@ -2,12 +2,21 @@ import { useCallback, useState } from 'preact/hooks'
 import { StepsHook } from '~types/routers'
 import { StepConfig } from '~types/steps'
 
+const isComplete = (step: StepConfig): boolean => step.type === 'complete'
+const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
+
 export const createCrossDeviceStepsHook = (
   defaultSteps: StepConfig[],
   onCompleteStep: (docData: unknown[]) => void
 ): StepsHook => () => {
   const [hasNextStep, setHasNextStep] = useState<boolean>(true)
-  const [steps] = useState(defaultSteps)
+
+  // Mobile must have a complete step to finish the cross-device session.
+  const [steps] = useState(() =>
+    hasCompleteStep(defaultSteps)
+      ? defaultSteps
+      : [...defaultSteps, { type: 'complete' } as StepConfig]
+  )
 
   return {
     loadNextStep: useCallback(() => setHasNextStep(false), []),
@@ -16,6 +25,7 @@ export const createCrossDeviceStepsHook = (
     }, []),
     error: undefined,
     loading: false,
+    hasPreviousStep: false,
     hasNextStep,
     steps,
   }
