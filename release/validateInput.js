@@ -17,13 +17,13 @@ const validateInput = async () => {
     ].join('\n')
   )
 
-  const validReleaseVersionString = /^\d{1,2}\.\d{1,2}\.\d{1,2}(\-(rc|alpha|beta)\.\d{1,2})?$/.test(
+  const validReleaseVersionString = /^\d{1,2}\.\d{1,2}\.\d{1,2}(\-(rc|alpha|beta|test)\.\d{1,2})?$/.test(
     RELEASE_VERSION
   )
 
   if (!validReleaseVersionString) {
     error(
-      'Invalid release version, use format: major.minor.patch(-rc.*) (6.20.0 / 6.20.0-rc.1)'
+      'Invalid release version, use format: major.minor.patch(-rc|alpha|beta|test.*) (6.20.0 / 6.20.0-rc.1)'
     )
   }
 
