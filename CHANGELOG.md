@@ -20,7 +20,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Add translations for profile data
 - Public: Support DocumentTypes option
 - Public: Remove asterisk from required fields
-- Internal: Handle geoblocking errors in v3 /documents apis
 - Internal: Remove isFullScreen prop from NavigationBar
 - Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
 
