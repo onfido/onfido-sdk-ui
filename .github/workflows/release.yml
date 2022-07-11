@@ -111,6 +111,7 @@ jobs:
         run: NODE_ENV=staging npm run build:all
 
       - name: Publish to Surge (staging)
+        if: ${{ env.RELEASE_VERSION == env.LATEST_TAG }}
         uses: dswistowski/surge-sh-action@v1.0.1
         with:
           domain: "https://staging-latest-onfido-sdk-ui-onfido.surge.sh/"
