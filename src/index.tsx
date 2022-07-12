@@ -18,7 +18,12 @@ import type {
   SDKOptionsWithRenderData,
 } from '~types/commons'
 import type { SdkOptions, SdkHandle } from '~types/sdk'
-import type { StepConfig, StepTypes } from '~types/steps'
+import type {
+  StepConfig,
+  StepTypes,
+  StepConfigWelcome,
+  StepConfigMap,
+} from '~types/steps'
 import App from './components/App'
 
 if (process.env.NODE_ENV === 'development') {
@@ -72,12 +77,17 @@ const formatOptions = ({
       ? ['welcome', 'auth', ...mandatorySteps]
       : ['welcome', ...mandatorySteps]
 
+  //@ts-ignore TODO: quick fix, remove this whole block when the welcome screen is configured via workflow
+  const welcomeStep: StepConfig[] = [
+    steps?.map(formatStep).find((i) => i.type === 'welcome'),
+  ] || [{ type: 'welcome' }]
+
   return {
     ...otherOptions,
     smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
     useWorkflow,
     steps: useWorkflow
-      ? defaultSteps.map(formatStep)
+      ? (welcomeStep || defaultSteps).map(formatStep)
       : (steps || defaultSteps)
           .map(formatStep)
           .map(injectPrivateConfig)
