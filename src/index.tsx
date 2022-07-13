@@ -18,12 +18,7 @@ import type {
   SDKOptionsWithRenderData,
 } from '~types/commons'
 import type { SdkOptions, SdkHandle } from '~types/sdk'
-import type {
-  StepConfig,
-  StepTypes,
-  StepConfigWelcome,
-  StepConfigMap,
-} from '~types/steps'
+import type { StepConfig, StepTypes } from '~types/steps'
 import App from './components/App'
 
 if (process.env.NODE_ENV === 'development') {
