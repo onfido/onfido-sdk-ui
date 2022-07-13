@@ -177,11 +177,11 @@ const updateAndUploadFiles = async (AWSBase32Map, versionData) => {
     `RELEASE_VERSION=${RELEASE_VERSION}`
   )
 
-  debug('Updating webpack.config.babel.js')
+  debug('Updating build/webpack/constants.ts')
   await replaceInFile(
-    'webpack.config.babel.js',
-    /BASE_32_VERSION\s*: '([A-Z]+)'/,
-    `BASE_32_VERSION: '${versionData.hash}'`
+    'build/webpack/constants.ts',
+    /export const BASE_32_VERSION = '[A-Z]+'/,
+    `export const BASE_32_VERSION = '${versionData.hash}'`
   )
 
   debug('Generating new BASE_32_VERSION_MAPPING.md')

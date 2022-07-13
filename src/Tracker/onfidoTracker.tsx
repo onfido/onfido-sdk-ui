@@ -9,6 +9,7 @@ import { reduxStore } from 'components/ReduxAppWrapper'
 import { analyticsEventsMapping } from './trackerData'
 import { trackException } from './'
 import { cleanStepsForConfig } from './steps'
+import * as execeptionTracking from '~core/ExceptionHandler'
 
 let currentStepType: ExtendedStepTypes | undefined
 let analyticsSessionUuid: string | undefined
@@ -109,6 +110,12 @@ export const sendAnalyticsEvent = (
     properties,
     sdk_config,
   }
+
+  // TODO: Convert analytics to include an eventemitter
+  execeptionTracking.addBreadcrumb({
+    message: `Analytics event: ${eventData?.eventName}`,
+    data: properties,
+  })
 
   const payload = JSON.stringify(analyticsPayload)
 

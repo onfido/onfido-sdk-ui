@@ -1,3 +1,10 @@
+import type { documentSelectionType } from '~types/commons'
+import type {
+  StepConfig,
+  GetDocDataFunc,
+  GetPersonalDataFunc,
+} from '~types/steps'
+
 export type GetWorkflowFunc = () => Promise<WorkflowResponse>
 export type CompleteWorkflowFunc = (
   taskId: string,
@@ -7,8 +14,19 @@ export type CompleteWorkflowFunc = (
 
 export type GetFlowStepFunc = (
   taskId: string | undefined,
-  configuration: WorkflowStepConfig
-) => unknown
+  configuration: WorkflowStepConfig,
+  {
+    getDocData,
+    getPersonalData,
+  }: {
+    getDocData: GetDocDataFunc
+    getPersonalData: GetPersonalDataFunc
+  }
+) => StepConfig | undefined
+
+export type documentSelectionConfigType = {
+  document_selection: Array<documentSelectionType>
+}
 
 export type WorklowTaskStepKeys = string
 export type OutcomeStepKeys = 'pass' | 'reject' | 'complete'
@@ -34,8 +52,6 @@ export type WorkflowResponse = {
   has_remaining_interactive_tasks: boolean
 }
 
-export type WorkflowStepConfig =
-  | {
-      [name: string]: unknown
-    }
-  | undefined
+export type WorkflowStepConfig = documentSelectionConfigType & {
+  [name: string]: unknown
+}

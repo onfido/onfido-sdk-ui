@@ -1,14 +1,7 @@
 package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.annotation.Browser;
-import com.onfido.qa.websdk.page.ConfirmUpload;
-import com.onfido.qa.websdk.page.DocumentUpload;
-import com.onfido.qa.websdk.page.FaceVideo;
-import com.onfido.qa.websdk.page.FaceVideoIntro;
-import com.onfido.qa.websdk.page.IdDocumentSelector;
-import com.onfido.qa.websdk.page.ImageQualityGuide;
-import com.onfido.qa.websdk.page.SelfieUpload;
-import com.onfido.qa.websdk.page.Welcome;
+import com.onfido.qa.websdk.page.*;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import org.testng.annotations.Test;
 
@@ -23,8 +16,9 @@ public class NavigationIT extends WebSdkIT {
     public void testNavigateToSecondLastStepAndThenBackToBeginning() {
         onfido().withSteps("welcome", "document", new FaceStep().withUseUploader(true), "complete")
                 .init(Welcome.class)
-                .continueToNextStep(IdDocumentSelector.class)
-                .select(PASSPORT, DocumentUpload.class)
+                .continueToNextStep(RestrictedDocumentSelection.class)
+                .selectSupportedCountry()
+                .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(PASSPORT_JPG)
                 .clickConfirmButton(SelfieUpload.class)
@@ -33,7 +27,7 @@ public class NavigationIT extends WebSdkIT {
                 .back(ConfirmUpload.class)
                 .back(ImageQualityGuide.class)
                 .back(DocumentUpload.class)
-                .back(IdDocumentSelector.class);
+                .back(RestrictedDocumentSelection.class);
 
     }
 
@@ -41,8 +35,9 @@ public class NavigationIT extends WebSdkIT {
     @Browser(enableMicrophoneCameraAccess = true)
     public void testShouldDisplayTheFaceVideoIntroAgainOnBackButtonClickWhenOnTheFaceVideoFlowAndIHaveACamera() {
         onfido().withSteps("document", new FaceStep().withRequestedVariant(VIDEO))
-                .init(IdDocumentSelector.class)
-                .select(PASSPORT, DocumentUpload.class)
+                .init(RestrictedDocumentSelection.class)
+                .selectSupportedCountry()
+                .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(PASSPORT_JPG)
                 .clickConfirmButton(FaceVideoIntro.class)
@@ -55,8 +50,9 @@ public class NavigationIT extends WebSdkIT {
     private void testNavigateToContinueOnMobileAndGoBack() {
         onfido().withSteps("welcome", "document")
                 .init(Welcome.class)
-                .continueToNextStep(IdDocumentSelector.class)
-                .select(PASSPORT, DocumentUpload.class)
+                .continueToNextStep(RestrictedDocumentSelection.class)
+                .selectSupportedCountry()
+                .selectDocument(PASSPORT, DocumentUpload.class)
                 .continueOnPhone()
                 .back(DocumentUpload.class);
 

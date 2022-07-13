@@ -14,6 +14,18 @@ public class CompleteData {
     @JsonProperty
     public Document document_back;
 
+    @JsonProperty
+    public Face face;
+
+    public static class Face {
+
+        @JsonProperty
+        public String id;
+
+        @JsonProperty
+        public String variant;
+    }
+
     public static class Document {
 
         @JsonProperty

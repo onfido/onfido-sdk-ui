@@ -29,9 +29,9 @@ import CrossDeviceClientIntro from 'components/crossDevice/ClientIntro'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
+import LazyActiveVideo from '../ActiveVideo/Lazy'
 import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
-import { getCountryDataForDocumentType } from '~supported-documents'
 
 import type {
   CountryData,
@@ -48,11 +48,11 @@ import type {
   StepConfigData,
 } from '~types/steps'
 import PoAClientIntro from '../ProofOfAddress/PoAIntro'
-import PoADocumentSelector from '../ProofOfAddress/PoADocumentSelect'
 import Guidance from '../ProofOfAddress/Guidance'
-import { SelectIdentityDocument } from '../Select/IdentityDocumentSelector'
-import DocumentCountrySelector from 'components/CountrySelector/DocumentCountrySelector'
-import PoACountrySelector from 'components/CountrySelector/PoACountrySelector'
+import PoADocumentSelector from '../DocumentSelector/PoADocumentSelector'
+import PoACountrySelector from '../CountrySelector/PoACountrySelector'
+import { RestrictedDocumentSelection } from '../RestrictedDocumentSelection'
+import { getCountryDataForDocumentType } from '~supported-documents'
 
 let LazyAuth: ComponentType<StepComponentProps>
 
@@ -74,6 +74,7 @@ export type ComponentsListProps = {
   steps: StepConfig[]
   mobileFlow?: boolean
   deviceHasCameraSupport?: boolean
+  hasPreviousStep?: boolean
 }
 
 export const buildComponentsList = ({
@@ -83,9 +84,8 @@ export const buildComponentsList = ({
   mobileFlow,
   deviceHasCameraSupport,
   poaDocumentCountry,
+  hasPreviousStep,
 }: ComponentsListProps): ComponentStep[] => {
-  const captureSteps = mobileFlow ? buildClientCaptureSteps(steps) : steps
-
   return flow === 'captureSteps'
     ? buildComponentsFromSteps(
         buildCaptureStepComponents(
@@ -93,9 +93,10 @@ export const buildComponentsList = ({
           documentType,
           mobileFlow,
           steps,
-          deviceHasCameraSupport
+          deviceHasCameraSupport,
+          hasPreviousStep
         ),
-        captureSteps
+        steps
       )
     : buildComponentsFromSteps(
         crossDeviceDesktopComponents,
@@ -106,9 +107,6 @@ export const buildComponentsList = ({
 const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
-
-const buildClientCaptureSteps = (steps: StepConfig[]): StepConfig[] =>
-  hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
 const shouldUseCameraForDocumentCapture = (
   documentStep?: StepConfigDocument,
@@ -128,12 +126,14 @@ const buildCaptureStepComponents = (
   documentType: DocumentTypes | undefined,
   mobileFlow: boolean | undefined,
   steps: StepConfig[],
-  deviceHasCameraSupport?: boolean
+  deviceHasCameraSupport?: boolean,
+  hasPreviousStep?: boolean
 ): ComponentsByStepType => {
   const findStep = buildStepFinder(steps)
   const faceStep = findStep('face')
   const documentStep = findStep('document')
   const dataStep = findStep('data')
+  const activeVideoStep = findStep('activeVideo')
 
   const complete = mobileFlow
     ? [ClientSuccess as ComponentType<StepComponentProps>]
@@ -142,8 +142,6 @@ const buildCaptureStepComponents = (
   const firstCaptureStepType = steps.filter((step) =>
     captureStepTypes.has(step?.type)
   )[0]?.type
-  const showCrossDeviceClientIntroForFaceStep =
-    mobileFlow && firstCaptureStepType === 'face'
 
   return {
     welcome: [Welcome],
@@ -153,11 +151,14 @@ const buildCaptureStepComponents = (
         faceStep,
         deviceHasCameraSupport,
         mobileFlow,
-        showCrossDeviceClientIntroForFaceStep
+        !hasPreviousStep && mobileFlow && firstCaptureStepType === 'face'
       ),
     ],
     ...(SDK_ENV === 'Auth' && {
       auth: [LazyAuth],
+    }),
+    ...(activeVideoStep && {
+      activeVideo: [LazyActiveVideo],
     }),
     document: [
       ...buildDocumentComponents(
@@ -166,7 +167,7 @@ const buildCaptureStepComponents = (
         hasOnePreselectedDocument(steps),
         shouldUseCameraForDocumentCapture(documentStep, deviceHasCameraSupport),
         mobileFlow,
-        firstCaptureStepType === 'document'
+        !hasPreviousStep && firstCaptureStepType === 'document'
       ),
     ],
     data: [...buildDataComponents(dataStep)],
@@ -174,7 +175,7 @@ const buildCaptureStepComponents = (
       ...buildPoaComponents(
         poaDocumentCountry,
         mobileFlow,
-        firstCaptureStepType === 'poa'
+        !hasPreviousStep && firstCaptureStepType === 'poa'
       ),
     ],
     complete,
@@ -187,35 +188,44 @@ const buildCaptureStepComponents = (
 const buildDataComponents = (
   dataStep?: StepConfigData
 ): ComponentType<StepComponentProps>[] => {
-  const Personal = (props: any) => (
+  const CountryOfResidence = (props: any) => (
     <DataCapture
-      title="personal_details_title"
-      data={{
-        first_name: dataStep?.options?.first_name,
-        last_name: dataStep?.options?.last_name,
-        dob: dataStep?.options?.dob,
-      }}
       {...props}
+      title="country_of_residence_title"
+      dataSubPath="address"
+      dataFields={['country']}
+      getPersonalData={dataStep?.options?.getPersonalData}
+    />
+  )
+  const PersonalInformation = (props: any) => (
+    <DataCapture
+      {...props}
+      title="personal_information_title"
+      dataFields={['first_name', 'last_name', 'dob', 'ssn']}
+      ssnEnabled={dataStep?.options?.ssn_enabled}
+      getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
   const Address = (props: any) => (
     <DataCapture
-      title="address_detials_title"
-      dataSubPath="address"
-      data={{
-        country: dataStep?.options?.address?.country,
-        line1: dataStep?.options?.address?.line1,
-        line2: dataStep?.options?.address?.line2,
-        line3: dataStep?.options?.address?.line3,
-        town: dataStep?.options?.address?.town,
-        state: dataStep?.options?.address?.state,
-        postcode: dataStep?.options?.address?.postcode,
-      }}
       {...props}
+      title="address_title"
+      dataSubPath="address"
+      dataFields={[
+        'country',
+        'line1',
+        'line2',
+        'line3',
+        'town',
+        'state',
+        'postcode',
+      ]}
+      disabledFields={['country']}
+      getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
 
-  return [Personal, Address]
+  return [CountryOfResidence, PersonalInformation, Address]
 }
 
 const buildFaceComponents = (
@@ -256,7 +266,6 @@ const buildRequiredVideoComponents = (
   mobileFlow?: boolean,
   isFirstCaptureStepInFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
-  // @TODO: convert FaceVideoCapture, FaceVideoConfirm to TS
   const allVideoSteps = [FaceVideoIntro, FaceVideoCapture, FaceVideoConfirm]
 
   if (mobileFlow && !shouldUseCamera) {
@@ -297,15 +306,12 @@ const buildNonPassportPreCaptureComponents = (
   hasOnePreselectedDocument: boolean,
   showCountrySelection: boolean
 ): ComponentType<StepComponentProps>[] => {
-  const prependDocumentSelector = hasOnePreselectedDocument
-    ? []
-    : [SelectIdentityDocument]
-  const prependCountrySelector = showCountrySelection
-    ? [DocumentCountrySelector]
-    : []
+  const prependDocumentSelector =
+    hasOnePreselectedDocument && !showCountrySelection
+      ? []
+      : [RestrictedDocumentSelection]
   // @ts-ignore
-  // TODO: convert DocumentSelector to TS
-  return [...prependDocumentSelector, ...prependCountrySelector]
+  return [...prependDocumentSelector]
 }
 
 const buildDocumentComponents = (
@@ -317,10 +323,6 @@ const buildDocumentComponents = (
   isFirstCaptureStepInFlow: boolean | undefined
 ): ComponentType<StepComponentProps>[] => {
   const options = documentStep?.options
-
-  // DEPRECATED: documentStep.options.showCountrySelection will be deprecated in a future release
-  const showCountrySelectionForSinglePreselectedDocument =
-    options?.showCountrySelection
 
   const configForDocumentType =
     documentType && options?.documentTypes
@@ -344,7 +346,7 @@ const buildDocumentComponents = (
   if (isPassportDocument) {
     const preCaptureComponents = hasOnePreselectedDocument
       ? []
-      : [SelectIdentityDocument]
+      : [RestrictedDocumentSelection]
 
     if (shouldUseVideo) {
       // @ts-ignore
@@ -382,9 +384,8 @@ const buildDocumentComponents = (
   const hasCountryCodeOrDocumentTypeFlag =
     countryCode !== null || configForDocumentType === true
   const showCountrySelection =
-    showCountrySelectionForSinglePreselectedDocument ||
-    (hasMultipleDocumentsWithUnsupportedCountry &&
-      hasCountryCodeOrDocumentTypeFlag)
+    hasMultipleDocumentsWithUnsupportedCountry &&
+    hasCountryCodeOrDocumentTypeFlag
 
   const preCaptureComponents = buildNonPassportPreCaptureComponents(
     hasOnePreselectedDocument,
@@ -459,7 +460,6 @@ const crossDeviceSteps = (steps: StepConfig[]): ExtendedStepConfig[] => {
 }
 
 const crossDeviceDesktopComponents: ComponentsByStepType = {
-  // @TODO: convert CrossDeviceIntro into TS
   // @ts-ignore
   crossDevice: [CrossDeviceIntro, CrossDeviceLink, MobileFlow],
   complete: [Complete],

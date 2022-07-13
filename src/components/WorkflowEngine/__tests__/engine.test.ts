@@ -31,7 +31,7 @@ describe('Workflow Engine', () => {
       const workflow = {
         id: 'Xec9013ea',
         applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
-        config: { name: 'timeout', value: 1209600 },
+        config: { name: 'timeout', value: 1209600, document_selection: [] },
         finished: true,
         task_def_id: 'upload_document_photo',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
@@ -47,7 +47,7 @@ describe('Workflow Engine', () => {
       const workflow1 = {
         id: 'Xec9013ea',
         applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
-        config: { name: 'timeout', value: 1209600 },
+        config: { name: 'timeout', value: 1209600, document_selection: [] },
         finished: true,
         task_def_id: 'upload_document_photo',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
@@ -63,7 +63,7 @@ describe('Workflow Engine', () => {
       const workflow2 = {
         id: 'Xec9013ea',
         applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
-        config: { name: 'timeout', value: 1209600 },
+        config: { name: 'timeout', value: 1209600, document_selection: [] },
         finished: true,
         task_def_id: 'upload_document_photo',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
@@ -87,28 +87,30 @@ describe('Workflow Engine', () => {
 
     it('should return document capture Step', async () => {
       const workflowDocumentStep = {
-        config: { name: 'timeout', value: 1209600 },
+        config: { name: 'timeout', value: 1209600, document_selection: [] },
         task_type: 'INTERACTIVE',
         task_def_id: 'upload_document_photo',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowDocumentStep.task_def_id,
-        workflowDocumentStep.config
+        workflowDocumentStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       )
       expect(workflowStep?.type).toEqual('document')
     })
 
     it('should return face capture photo Step', async () => {
       const workflowFacCaptureStep = {
-        config: { name: 'timeout', value: 1209600 },
+        config: { name: 'timeout', value: 1209600, document_selection: [] },
         task_type: 'INTERACTIVE',
         task_def_id: 'upload_face_photo',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
-        workflowFacCaptureStep.config
+        workflowFacCaptureStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       ) as StepConfigFace
 
       expect(workflowStep.type).toEqual('face')
@@ -117,14 +119,15 @@ describe('Workflow Engine', () => {
 
     it('should return face capture video Step', async () => {
       const workflowFacCaptureStep = {
-        config: { name: 'timeout', value: 1209600 },
+        config: { name: 'timeout', value: 1209600, document_selection: [] },
         task_type: 'INTERACTIVE',
         task_def_id: 'upload_face_video',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
-        workflowFacCaptureStep.config
+        workflowFacCaptureStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       ) as StepConfigFace
 
       expect(workflowStep?.type).toEqual('face')
@@ -133,42 +136,45 @@ describe('Workflow Engine', () => {
 
     it('should return proof of address Step', async () => {
       const workflowFacCaptureStep = {
-        config: { name: 'timeout', value: 1209600 },
+        config: { name: 'timeout', value: 1209600, document_selection: [] },
         task_type: 'INTERACTIVE',
         task_def_id: 'proof_of_address_capture',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
-        workflowFacCaptureStep.config
+        workflowFacCaptureStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       )
       expect(workflowStep?.type).toEqual('poa')
     })
 
     it('should return Profile data capture Step', async () => {
       const workflowFacCaptureStep = {
-        config: { name: 'timeout', value: 1209600 },
+        config: { name: 'timeout', value: 1209600, document_selection: [] },
         task_type: 'INTERACTIVE',
         task_def_id: 'profile_data',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
-        workflowFacCaptureStep.config
+        workflowFacCaptureStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       )
       expect(workflowStep?.type).toEqual('data')
     })
 
     it('should return Retry Step', async () => {
       const workflowFacCaptureStep = {
-        config: { name: 'timeout', value: 1209600 },
+        config: { name: 'timeout', value: 1209600, document_selection: [] },
         task_type: 'INTERACTIVE',
         task_def_id: 'retry',
         task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
-        workflowFacCaptureStep.config
+        workflowFacCaptureStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       )
       expect(workflowStep?.type).toEqual('retry')
     })

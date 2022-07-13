@@ -1,13 +1,12 @@
 import { performHttpReq, HttpRequestParams } from '~utils/http'
 import { formatError } from '~utils/onfidoApi'
-import type { StepConfig } from '~types/steps'
+import type { documentSelectionType } from '~types/commons'
 import type {
   WorkflowResponse,
   OutcomeStepKeys,
   GetWorkflowFunc,
   CompleteWorkflowFunc,
   GetFlowStepFunc,
-  WorkflowStepConfig,
 } from './utils/WorkflowTypes'
 
 export interface EngineInterface {
@@ -100,12 +99,27 @@ export class Engine implements EngineInterface {
     })
   }
 
-  getWorkFlowStep = (
-    taskId: string | undefined,
-    configuration: WorkflowStepConfig
-  ): StepConfig | undefined => {
-    console.log(`requested step for task ${taskId}`)
-    console.log(`configuration`, configuration)
+  getCountryFilter = (
+    config: Array<documentSelectionType>
+  ): Array<documentSelectionType> =>
+    config &&
+    config.filter((value, index, self) => {
+      return (
+        self.findIndex((v) => v.issuing_country === value.issuing_country) ===
+        index
+      )
+    })
+
+  getWorkFlowStep: GetFlowStepFunc = (
+    taskId,
+    configuration,
+    { getDocData, getPersonalData }
+  ) => {
+    const options = {
+      ...configuration,
+      getDocData,
+      getPersonalData,
+    }
 
     switch (taskId) {
       case 'upload_document':
@@ -113,14 +127,18 @@ export class Engine implements EngineInterface {
         return {
           type: 'document',
           options: {
-            ...configuration,
+            ...options,
+            countryFilter: this.getCountryFilter(
+              configuration.document_selection
+            ),
+            documentSelection: configuration.document_selection,
           },
         }
       case 'upload_face_photo':
         return {
           type: 'face',
           options: {
-            ...configuration,
+            ...options,
             requestedVariant: 'standard',
             uploadFallback: false,
           },
@@ -129,7 +147,7 @@ export class Engine implements EngineInterface {
         return {
           type: 'face',
           options: {
-            ...configuration,
+            ...options,
             requestedVariant: 'video',
             uploadFallback: false,
             photoCaptureFallback: false,
@@ -138,15 +156,13 @@ export class Engine implements EngineInterface {
       case 'proof_of_address_capture':
         return {
           type: 'poa',
-          options: {
-            ...configuration,
-          },
+          options: { ...options },
         }
       case 'profile_data':
         return {
           type: 'data',
           options: {
-            ...configuration,
+            ...options,
             first_name: '',
             last_name: '',
             dob: '',
@@ -159,14 +175,13 @@ export class Engine implements EngineInterface {
               state: '',
               postcode: '',
             },
+            getPersonalData,
           },
         }
       case 'retry':
         return {
           type: 'retry',
-          options: {
-            ...configuration,
-          },
+          options: { ...options },
         }
       default:
         return

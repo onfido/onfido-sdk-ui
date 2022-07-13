@@ -1,11 +1,8 @@
 import { trackComponent } from '../../Tracker'
-import {
-  DocumentOptions,
-  DocumentOptionsType,
-} from '../DocumentSelector/documentTypes'
+import { DocumentOptions, DocumentOptionsType } from './DocumentList'
 import { CountryConfig, DocumentTypeConfig } from '~types/steps'
 import { getCountryDataForDocumentType } from '~supported-documents'
-import { DocumentSelectorBase } from '../DocumentSelector'
+import { DocumentSelectorBase } from './index'
 
 export const idDocumentOptions: DocumentOptions = {
   passport: {
@@ -84,7 +81,7 @@ class _IdentityDocumentSelector extends DocumentSelectorBase {
   }
 }
 
-export const SelectIdentityDocument = trackComponent(
+export const IdentityDocumentSelector = trackComponent(
   _IdentityDocumentSelector,
   'type_select'
 )

@@ -1,4 +1,13 @@
 {
+  // For webpack & ts-node
+  // overrides main compilerOptions listed below
+  "ts-node": {
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "esModuleInterop": true
+    }
+  },
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -17,6 +26,8 @@
       "~contexts/*": ["contexts/*"],
       "~locales": ["locales/index"],
       "~types/*": ["types/*"],
+      "~core/*": ["core/*"],
+      "~modules/*": ["../modules/*"],
       "~utils": ["components/utils/index"],
       "~utils/*": ["components/utils/*"],
       "~supported-documents": ["supported-documents/index"],

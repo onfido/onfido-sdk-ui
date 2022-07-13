@@ -32,8 +32,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      # Disabled until fixed: https://github.com/oke-py/npm-audit-action/issues/121
       # - name: Run dependencies audit
-      #   uses: oke-py/npm-audit-action@v1.7.2
+      #   uses: oke-py/npm-audit-action@v2.2.0
       #   with:
       #     audit_level: moderate
       #     production_flag: true
