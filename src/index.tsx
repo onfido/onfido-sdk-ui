@@ -72,10 +72,10 @@ const formatOptions = ({
       ? ['welcome', 'auth', ...mandatorySteps]
       : ['welcome', ...mandatorySteps]
 
-  //@ts-ignore TODO: quick fix, remove this whole block when the welcome screen is configured via workflow
-  const welcomeStep: StepConfig[] = [
-    steps?.map(formatStep).find((i) => i.type === 'welcome'),
-  ] || [{ type: 'welcome' }]
+  //@ts-ignorets TODO: quick fix, remove this whole block when the welcome screen is configured via workflow
+  const welcomeStep: StepConfig[] = steps?.some((e) => e.type === 'welcome')
+    ? [steps?.map(formatStep).find((i) => i.type === 'welcome')]
+    : [{ type: 'welcome' }]
 
   return {
     ...otherOptions,
