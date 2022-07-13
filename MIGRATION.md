@@ -2,6 +2,13 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `8.0.0` -> `8.1.1`
+
+### Added strings
+
+- `generic.errors.geoblocked_error.message`
+- `generic.errors.geoblocked_error.instruction`
+
 ## `6.20.0` -> `8.0.0`
 
 ### Change in SDK Options

@@ -179,6 +179,10 @@
         "back": "voltar",
         "close": "fechar",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Lamentamos, parece que não conseguimos avançar mais porque a sua localização atual não é suportada",
+                "message": "Serviço indisponível"
+            },
             "interrupted_flow_error": {
                 "instruction": "Reiniciar o processo num dispositivo diferente",
                 "message": "Câmara não detetada"

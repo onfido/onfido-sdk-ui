@@ -266,6 +266,10 @@
         "back": "zurück",
         "close": "Schließen",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Es tut uns leid, wir können leider nicht fortfahren, da Ihr aktueller Standort nicht unterstützt wird.",
+                "message": "Service nicht verfügbar"
+            },
             "interrupted_flow_error": {
                 "instruction": "Starten Sie den Prozess auf einem anderen Gerät neu",
                 "message": "Kamera nicht erkannt"
