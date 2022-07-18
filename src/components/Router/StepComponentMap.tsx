@@ -22,7 +22,7 @@ import {
 } from '../Confirm'
 import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
-import Retry from '../WorkflowEngine/Retry'
+import Retry from '~WorkflowEngine/Retry'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import CrossDeviceClientIntro from 'components/crossDevice/ClientIntro'
