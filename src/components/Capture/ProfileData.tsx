@@ -236,7 +236,7 @@ const FieldComponent = ({
   }
 
   return (
-    <Field>
+    <Field className={style['field']}>
       <FieldLabel>
         <span>
           {getTranslatedFieldLabel(translate, type, selectedCountry)}
@@ -283,6 +283,17 @@ const getFieldComponent = (
       return <DateOfBirthInput {...props} />
     case 'postcode':
       return <Input {...props} type="text" style={{ width: space(22) }} />
+    case 'ssn':
+      return (
+        <Input
+          {...props}
+          placeholder={'999-99-9999'}
+          pattern={'d{3}-d{2}-d{4}'}
+          maxLength={11}
+          type="text"
+          style={{ width: space(22) }}
+        />
+      )
     default:
       return <Input {...props} type="text" />
   }
