@@ -177,6 +177,46 @@
     "auth_upload_pass": {
         "body": "Upload successful"
     },
+    "avc_confirmation": {
+        "button_primary_upload": "Upload recording",
+        "subtitle": "A video of your face has been recorded successfully",
+        "title": "Recording complete"
+    },
+    "avc_face_alignment": {
+        "feedback_move_back": "Move back",
+        "feedback_move_closer": "Move closer",
+        "feedback_no_face_detected": "Face not detected",
+        "feedback_not_centered": "Face not centered",
+        "title": "Position your face in the frame"
+    },
+    "avc_face_capture": {
+        "alert": {
+            "timeout_body": "You have up to 15 seconds to complete the recording",
+            "timeout_button_primary": "Retry",
+            "timeout_title": "Sorry, we have to restart the recording",
+            "too_fast_body": "Please retry and turn your head slower",
+            "too_fast_button_primary": "Retry",
+            "too_fast_title": "You turned your head too fast"
+        },
+        "title": "Turn your head slowly to both sides",
+        "title_completed": "Recording complete"
+    },
+    "avc_intro": {
+        "button_primary_ready": "I'm ready",
+        "disclaimer": "Please be mindful that we'll record your face and your background",
+        "list_item_one": "First, position your face in the frame",
+        "list_item_two": "Then, turn your head slowly to both sides",
+        "subtitle": "This is to verify that you’re a real person",
+        "title": "Record a video"
+    },
+    "avc_no_face_detected": {
+        "button_primary_restart": "Restart recording",
+        "list_item_eyes": "Make sure your eyes are clearly visible",
+        "list_item_face": "Make sure to only show your face, we don’t need to see your ID",
+        "list_item_lighting": "Make sure to be in a place with good lighting",
+        "list_item_mask": "Make sure to remove masks or other items that cover your face. Eyeglasses are okay",
+        "title": "We can't detect your face"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",
@@ -305,10 +345,10 @@
         "title_poa": "Select a %{country} document",
         "subtitle_country": "Select issuing country to see which documents we accept",
         "section": {
-          "header_country": "Issuing country",
-          "input_country_not_found": "No Results",
-          "input_placeholder_country": "Type to search for country",
-          "header_doc_type": "Accepted documents"
+            "header_country": "Issuing country",
+            "input_country_not_found": "No Results",
+            "input_placeholder_country": "Type to search for country",
+            "header_doc_type": "Accepted documents"
         }
     },
     "doc_submit": {

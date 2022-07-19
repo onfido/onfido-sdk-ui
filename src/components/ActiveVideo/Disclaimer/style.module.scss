@@ -1,0 +1,15 @@
+@use '@onfido/castor';
+
+.disclaimer {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: castor.space(1);
+  }
+
+  .text {
+    @include castor.font('200-regular');
+    color: castor.color('neutral-600');
+  }
+}
