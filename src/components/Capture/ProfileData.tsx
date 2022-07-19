@@ -247,14 +247,18 @@ const FieldComponent = ({
           )}
         </span>
         {getTranslatedFieldHelperText(translate, type, selectedCountry)}
-        {getFieldComponent(type, {
-          value,
-          disabled,
-          invalid: isTouched && isInvalid,
-          required: isRequired,
-          onBlur: handleBlur,
-          onChange: handleChange,
-        })}
+        {getFieldComponent(
+          type,
+          {
+            value,
+            disabled,
+            invalid: isTouched && isInvalid,
+            required: isRequired,
+            onBlur: handleBlur,
+            onChange: handleChange,
+          },
+          selectedCountry
+        )}
         {isTouched && isInvalid && (
           <Validation state="error">{validationError}</Validation>
         )}
@@ -272,7 +276,8 @@ const getFieldComponent = (
     required: boolean
     onBlur: () => void
     onChange: (ev: { target: { value: string } }) => void
-  }
+  },
+  country?: FieldComponentProps['selectedCountry']
 ) => {
   switch (type) {
     case 'country':
@@ -280,7 +285,7 @@ const getFieldComponent = (
     case 'state':
       return <StateSelector {...props} />
     case 'dob':
-      return <DateOfBirthInput {...props} />
+      return <DateOfBirthInput {...props} country={country} />
     case 'postcode':
       return <Input {...props} type="text" style={{ width: space(22) }} />
     default:
