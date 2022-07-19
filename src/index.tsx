@@ -67,22 +67,22 @@ const formatOptions = ({
     ? []
     : ['document', 'face', 'complete']
   const internalSteps: StepTypes[] = ['userConsent']
-  const defaultSteps: StepTypes[] =
-    process.env.SDK_ENV === 'Auth'
-      ? ['welcome', 'auth', ...mandatorySteps]
-      : ['welcome', ...mandatorySteps]
 
   //@ts-ignorets TODO: quick fix, remove this whole block when the welcome screen is configured via workflow
-  const welcomeStep: StepConfig[] = steps?.some((e) => e.type === 'welcome')
-    ? [steps?.map(formatStep).find((i) => i.type === 'welcome')]
-    : [{ type: 'welcome' }]
+  const welcomeStep =
+    steps?.map(formatStep).find((i) => i.type === 'welcome') || 'welcome'
+
+  const defaultSteps: (StepTypes | StepConfig)[] =
+    process.env.SDK_ENV === 'Auth'
+      ? [welcomeStep, 'auth', ...mandatorySteps]
+      : [welcomeStep, ...mandatorySteps]
 
   return {
     ...otherOptions,
     smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
     useWorkflow,
     steps: useWorkflow
-      ? (welcomeStep || defaultSteps).map(formatStep)
+      ? defaultSteps.map(formatStep)
       : (steps || defaultSteps)
           .map(formatStep)
           .map(injectPrivateConfig)
