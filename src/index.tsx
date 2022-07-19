@@ -47,15 +47,6 @@ export const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {
   return typeOrStep
 }
 
-export const injectPrivateConfig = (step: StepConfig): StepConfig => {
-  if (step.type === 'activeVideo') {
-    // Active Video Capture SDK already includes a footer and should appear under a semi-transparent navigation bar
-    return { ...step, edgeToEdgeContent: true }
-  }
-
-  return step
-}
-
 const formatOptions = ({
   steps,
   smsNumberCountryCode,
@@ -85,7 +76,6 @@ const formatOptions = ({
       ? defaultSteps.map(formatStep)
       : (steps || defaultSteps)
           .map(formatStep)
-          .map(injectPrivateConfig)
           .filter(({ type }) => !internalSteps.includes(type)),
   }
 }
