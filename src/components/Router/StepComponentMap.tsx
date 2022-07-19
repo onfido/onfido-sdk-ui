@@ -289,9 +289,16 @@ const buildActiveVideoComponents = (
   mobileFlow?: boolean,
   isFirstCaptureStepInFlow?: boolean
 ): ComponentType<StepComponentProps>[] => {
+  // Active Video Capture SDK already includes a footer and should appear under a
+  // semi-transparent navigation bar. There is no way to set it at the step level
+  // because it only impacts the capture screen. As a (horrible) workaround,
+  // `StepsRouter` will look at the component name to set `edgeToEdgeContent`.
+  const ActiveVideoCapture = LazyActiveVideo
+  ActiveVideoCapture.displayName = 'ActiveVideoCapture'
+
   const allActiveVideoSteps = [
     ActiveVideoIntro,
-    LazyActiveVideo,
+    ActiveVideoCapture,
     ActiveVideoRecordingComplete,
     ActiveVideoUpload,
   ]

@@ -24,7 +24,6 @@ const useActiveVideo = () => {
 
       const activeVideo: StepConfig = {
         type: 'activeVideo',
-        edgeToEdgeContent: true,
       }
 
       return [
