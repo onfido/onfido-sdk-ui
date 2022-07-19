@@ -74,7 +74,7 @@
       "^~modules(.*)$": "<rootDir>/modules$1",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
       "^~supported-documents(.*)$": "<rootDir>/src/supported-documents$1",
-      "^~WorkflowEngine(.*)$": "<rootDir>/src/WorkflowEngine$1",
+      "^~workflow-engine(.*)$": "<rootDir>/src/workflow-engine$1",
       "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
       "^components(.*)$": "<rootDir>/src/components$1"
     },
