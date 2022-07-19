@@ -31,6 +31,8 @@
       "~utils": ["components/utils/index"],
       "~utils/*": ["components/utils/*"],
       "~supported-documents": ["supported-documents/index"],
+      "~workflow-engine": ["workflow-engine/index"],
+      "~workflow-engine/*": ["workflow-engine/*"],
       "~auth-sdk/*": ["../auth-sdk/FaceTec/*"]
     },
     "resolveJsonModule": true,
