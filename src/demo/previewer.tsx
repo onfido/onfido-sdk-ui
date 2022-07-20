@@ -140,7 +140,7 @@ const SdkPreviewer = () => {
         className={`iframe-wrapper${viewOptions.darkBackground ? ' dark' : ''}`}
       >
         <iframe
-          src={`/index.html${window.location.search}`}
+          src={`/${window.location.search}`}
           ref={iframe}
           style={{
             width: viewOptions.iframeWidth,
