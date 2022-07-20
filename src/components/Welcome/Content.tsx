@@ -15,6 +15,7 @@ const getInstructionKeys = (configuredCaptureSteps: StepTypes[]) => {
     document: 'welcome.list_item_doc',
     face: 'welcome.list_item_selfie',
     auth: 'welcome.list_item_selfie',
+    activeVideo: 'welcome.list_item_selfie',
   }
 
   configuredCaptureSteps.forEach((idvStep) => {
