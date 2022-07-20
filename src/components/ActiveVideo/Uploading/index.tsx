@@ -6,14 +6,24 @@ import { Wrapper } from '../Wrapper'
 import { BaseScreen } from '../BaseScreen'
 import { LoaderIcon } from '../assets/LoaderIcon'
 import { localised } from '~locales'
+import { connect } from 'react-redux'
+import { RootState } from '~types/redux'
+import { buildCaptureStateKey } from '~utils/redux'
 
 interface Props {
-  videoPayload: Blob
+  videoPayload?: Blob
   nextStep: () => void
 }
 
-const Uploading: FunctionComponent<Props> = ({ nextStep }) => {
+const mapStateToProps = ({ captures }: RootState, props: Props): Props => ({
+  ...props,
+  videoPayload: captures[buildCaptureStateKey({ method: 'activeVideo' })]?.blob,
+})
+
+const Uploading: FunctionComponent<Props> = ({ nextStep, videoPayload }) => {
   const [uploadProgress, setUploadProgress] = useState(0)
+
+  console.log(videoPayload)
 
   let interval: NodeJS.Timeout
 
@@ -58,4 +68,7 @@ const Uploading: FunctionComponent<Props> = ({ nextStep }) => {
   )
 }
 
-export default localised(Uploading)
+export default connect(mapStateToProps)(
+  // @ts-ignore: Preact Provider compatibility
+  localised(Uploading)
+)

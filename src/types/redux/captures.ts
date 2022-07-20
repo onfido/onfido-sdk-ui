@@ -52,6 +52,10 @@ export type FaceCapture = {
 
 export type DataCapture = StepOptionData & CapturePayload
 
+export type ActiveVideoCapture = {
+  id: string
+} & CapturePayload
+
 export type DeleteCapturePayload = {
   method: CaptureMethods
   side?: DocumentSides
@@ -66,7 +70,7 @@ export type MetadataPayload = {
 export type CaptureActions =
   | {
       type: typeof constants.CAPTURE_CREATE
-      payload: DocumentCapture | FaceCapture
+      payload: DocumentCapture | FaceCapture | ActiveVideoCapture
     }
   | {
       type: typeof constants.CAPTURE_DELETE
@@ -85,6 +89,7 @@ export type CaptureState = {
   poa?: DocumentCapture & MetadataState
   face?: FaceCapture & MetadataState
   data?: DataCapture & MetadataState
+  active_video?: ActiveVideoCapture & MetadataState
   // Timestamps of all the images taken within the current session
   takesHistory: {
     document_front: string[]
@@ -93,6 +98,7 @@ export type CaptureState = {
     face: string[]
     data: string[]
     poa: string[]
+    active_video: string[]
 
     // Fields for backwards-compatible with other capture state
     id?: never
