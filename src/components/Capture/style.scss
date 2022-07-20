@@ -24,3 +24,9 @@
 .submit-button {
   margin-top: castor.space(4);
 }
+
+@media (--small-viewport) {
+  .field {
+    min-width: 0;
+  }
+}
