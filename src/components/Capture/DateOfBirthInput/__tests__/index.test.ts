@@ -26,7 +26,7 @@ describe('getMaxDay', () => {
 })
 
 describe('getLocalisedInputFormat', () => {
-  const values = ['usa', 'uk', undefined]
+  const values = ['USA', 'UK', undefined]
 
   it('should return a format of 3 values', () => {
     values.forEach((value) => {
