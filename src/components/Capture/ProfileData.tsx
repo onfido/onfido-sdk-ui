@@ -205,7 +205,8 @@ const FieldComponent = ({
     return () => {
       removeToucher(type)
     }
-  }, [type, isInvalid, setToucher, removeToucher, setIsTouched])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type, isInvalid])
 
   useEffect(() => {
     setValidationError(
