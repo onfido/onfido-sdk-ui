@@ -28,6 +28,10 @@ type FaceResponse = {
   variant: RequestedVariant
 }
 
+type ActiveVideoResponse = {
+  id: string
+}
+
 export type SdkResponse = {
   document_front?: DocumentResponse
   document_back?: DocumentResponse
@@ -35,6 +39,7 @@ export type SdkResponse = {
   face?: FaceResponse
   data?: any
   poa?: DocumentResponse
+  active_video?: ActiveVideoResponse
 }
 
 export type SdkError = {
