@@ -11,6 +11,7 @@ export const buildCaptureStateKey = (payload: {
 
   if (method === 'poa') return 'poa'
   if (method === 'face') return 'face'
+  if (method === 'activeVideo') return 'active_video'
   if (variant === 'video') return 'document_video'
 
   return side === 'back' ? 'document_back' : 'document_front'
