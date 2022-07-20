@@ -321,9 +321,18 @@ const getTranslatedFieldHelperText = (
 
   switch (type) {
     case 'dob':
-      return <HelperText>MM / DD / YYYY</HelperText>
+      return <HelperText>{getLocalisedDobFormatExample(country)}</HelperText>
     default:
       return null
+  }
+}
+
+const getLocalisedDobFormatExample = (country: string | undefined) => {
+  switch (country) {
+    case 'usa':
+      return 'DD / MM / YYYY'
+    default:
+      return 'MM / DD / YYYY'
   }
 }
 
