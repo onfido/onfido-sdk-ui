@@ -72,9 +72,9 @@ export const getLocalisedInputFormat = (
 ): [InputFormat, InputFormat, InputFormat] => {
   switch (country) {
     case 'usa':
-      return ['day', 'month', 'year']
-    default:
       return ['month', 'day', 'year']
+    default:
+      return ['day', 'month', 'year']
   }
 }
 
