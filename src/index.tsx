@@ -67,10 +67,15 @@ const formatOptions = ({
     ? []
     : ['document', 'face', 'complete']
   const internalSteps: StepTypes[] = ['userConsent']
-  const defaultSteps: StepTypes[] =
+
+  //@ts-ignorets TODO: quick fix, remove this whole block when the welcome screen is configured via workflow
+  const welcomeStep =
+    steps?.map(formatStep).find((i) => i.type === 'welcome') || 'welcome'
+
+  const defaultSteps: (StepTypes | StepConfig)[] =
     process.env.SDK_ENV === 'Auth'
-      ? ['welcome', 'auth', ...mandatorySteps]
-      : ['welcome', ...mandatorySteps]
+      ? [welcomeStep, 'auth', ...mandatorySteps]
+      : [welcomeStep, ...mandatorySteps]
 
   return {
     ...otherOptions,
