@@ -248,14 +248,18 @@ const FieldComponent = ({
           )}
         </span>
         {getTranslatedFieldHelperText(translate, type, selectedCountry)}
-        {getFieldComponent(type, {
-          value,
-          disabled,
-          invalid: isTouched && isInvalid,
-          required: isRequired,
-          onBlur: handleBlur,
-          onChange: handleChange,
-        })}
+        {getFieldComponent(
+          type,
+          {
+            value,
+            disabled,
+            invalid: isTouched && isInvalid,
+            required: isRequired,
+            onBlur: handleBlur,
+            onChange: handleChange,
+          },
+          selectedCountry
+        )}
         {isTouched && isInvalid && (
           <Validation state="error">{validationError}</Validation>
         )}
@@ -273,7 +277,8 @@ const getFieldComponent = (
     required: boolean
     onBlur: () => void
     onChange: (ev: { target: { value: string } }) => void
-  }
+  },
+  country?: FieldComponentProps['selectedCountry']
 ) => {
   switch (type) {
     case 'country':
@@ -281,7 +286,7 @@ const getFieldComponent = (
     case 'state':
       return <StateSelector {...props} />
     case 'dob':
-      return <DateOfBirthInput {...props} />
+      return <DateOfBirthInput {...props} country={country} />
     case 'postcode':
       return <Input {...props} type="text" style={{ width: space(22) }} />
     case 'ssn':
@@ -328,9 +333,18 @@ const getTranslatedFieldHelperText = (
 
   switch (type) {
     case 'dob':
-      return <HelperText>MM / DD / YYYY</HelperText>
+      return <HelperText>{getLocalisedDobFormatExample(country)}</HelperText>
     default:
       return null
+  }
+}
+
+const getLocalisedDobFormatExample = (country: string | undefined) => {
+  switch (country) {
+    case 'USA':
+      return 'MM / DD / YYYY'
+    default:
+      return 'DD / MM / YYYY'
   }
 }
 

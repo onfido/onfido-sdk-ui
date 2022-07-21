@@ -7,6 +7,7 @@ import styles from './styles.scss'
 export type DateOfBirthInputProps = {
   name?: string
   value?: number | string
+  country?: string
   invalid?: boolean
   onChange?: (ev: { target: { value: string } }) => void
 }
@@ -14,10 +15,12 @@ export type DateOfBirthInputProps = {
 const DateOfBirthInputComponent: FunctionComponent<DateOfBirthInputProps> = ({
   name,
   value,
+  country,
   onChange,
   ...restInputProps
 }) => {
   const [yyyy = '', mm = '', dd = ''] = `${value}`.split('-')
+  const valueMap = { yyyy, mm, dd }
 
   const changeFieldValue = (
     type: 'yyyy' | 'mm' | 'dd',
@@ -32,44 +35,81 @@ const DateOfBirthInputComponent: FunctionComponent<DateOfBirthInputProps> = ({
 
   return (
     <div className={styles['componentContainer']}>
-      <div className={classNames(styles['inputContainer'], styles['small'])}>
-        <Input
-          {...restInputProps}
-          type="text"
-          name={makeInputName('month', name)}
-          placeholder="MM"
-          value={mm}
-          maxLength={2}
-          onChange={({ target: { value } }) => changeFieldValue('mm', value)}
-        />
-      </div>
-      <div className={classNames(styles['inputContainer'], styles['small'])}>
-        <Input
-          {...restInputProps}
-          type="text"
-          name={makeInputName('day', name)}
-          placeholder="DD"
-          value={dd}
-          maxLength={2}
-          onChange={({ target: { value } }) => changeFieldValue('dd', value)}
-        />
-      </div>
-      <div className={classNames(styles['inputContainer'], styles['large'])}>
-        <Input
-          {...restInputProps}
-          type="text"
-          name={makeInputName('year', name)}
-          placeholder="YYYY"
-          value={yyyy}
-          maxLength={4}
-          onChange={({ target: { value } }) => changeFieldValue('yyyy', value)}
-        />
-      </div>
+      {getLocalisedInputFormat(country).map((format) => {
+        const { valueType, placeholder, size, maxLength } = getInputParams(
+          format
+        )
+
+        return (
+          <div
+            key={format}
+            className={classNames(styles['inputContainer'], styles[size])}
+          >
+            <Input
+              {...restInputProps}
+              type="text"
+              name={makeInputName(format, name)}
+              placeholder={placeholder}
+              value={valueMap[valueType]}
+              maxLength={maxLength}
+              onChange={({ target: { value } }) =>
+                changeFieldValue(valueType, value)
+              }
+            />
+          </div>
+        )
+      })}
     </div>
   )
 }
 
 export const DateOfBirthInput = localised(DateOfBirthInputComponent)
+
+type InputFormat = 'year' | 'month' | 'day'
+
+export const getLocalisedInputFormat = (
+  country: string | undefined
+): [InputFormat, InputFormat, InputFormat] => {
+  switch (country) {
+    case 'USA':
+      return ['month', 'day', 'year']
+    default:
+      return ['day', 'month', 'year']
+  }
+}
+
+export const getInputParams = (
+  format: InputFormat
+): {
+  valueType: 'yyyy' | 'mm' | 'dd'
+  placeholder: 'YYYY' | 'MM' | 'DD'
+  size: 'small' | 'large'
+  maxLength: number
+} => {
+  switch (format) {
+    case 'year':
+      return {
+        valueType: 'yyyy',
+        placeholder: 'YYYY',
+        size: 'large',
+        maxLength: 4,
+      }
+    case 'month':
+      return {
+        valueType: 'mm',
+        placeholder: 'MM',
+        size: 'small',
+        maxLength: 2,
+      }
+    case 'day':
+      return {
+        valueType: 'dd',
+        placeholder: 'DD',
+        size: 'small',
+        maxLength: 2,
+      }
+  }
+}
 
 export const getMaxDay = (yyyy = '', mm = ''): number => {
   const year = parseInt(yyyy, 10) || new Date().getFullYear()
@@ -81,7 +121,7 @@ export const getMaxDay = (yyyy = '', mm = ''): number => {
 }
 
 export const makeInputName = (
-  inputName: string,
+  inputName: InputFormat,
   componentName?: DateOfBirthInputProps['name']
 ): string => (componentName ? `${componentName}-${inputName}` : inputName)
 
