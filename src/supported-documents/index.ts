@@ -94,6 +94,8 @@ export const getSupportedCountriesForDocument = (
       return getCountriesList(supportedNationalIDCards)
     case 'residence_permit':
       return getCountriesList(supportedResidencePermit)
+    case 'passport':
+      return getCountriesList(supportedPassport)
     default:
       console.error('Unsupported documentType:', documentType)
       return []
