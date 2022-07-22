@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## Changed
+## [next-version]
 
 - Public: Make the `useLiveDocumentCapture` true by default. Clients can still change this option to false.
 - Internal: Add dynamically loaded files (except en_US)
@@ -23,6 +23,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Remove asterisk from required fields
 - Internal: Remove isFullScreen prop from NavigationBar
 - Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
+
+## [8.2.0-rc.1] - 2022-07-22
 
 ## [8.1.1] - 2022-07-13
 
@@ -1315,7 +1317,9 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/null...development
+[null]: https://github.com/onfido/onfido-sdk-ui/compare/8.2.0-rc.1...null
+[8.2.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.1...8.2.0-rc.1
 [8.1.1]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0...8.1.1
 [8.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0
 [8.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...8.0.0
