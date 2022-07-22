@@ -341,6 +341,10 @@
         "back": "atrás",
         "close": "cerrar",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Lo sentimos, parece que no podemos seguir adelante ya que su ubicación actual no es compatible",
+                "message": "Servicio no disponible"
+            },
             "interrupted_flow_error": {
                 "instruction": "Reinicie el proceso con un dispositivo diferente",
                 "message": "Cámara no detectada"

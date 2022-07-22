@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { act, render, screen } from '@testing-library/preact'
+import { act, render, screen, waitFor } from '@testing-library/preact'
 import userEvent from '@testing-library/user-event'
 import { FunctionComponent, h } from 'preact'
 import { trackException } from 'Tracker'
@@ -13,9 +13,19 @@ import DocumentMultiFrame, {
 } from '../DocumentMultiFrame'
 
 jest.mock('~utils')
-jest.mock('Tracker')
+// only mock trackException, see https://jestjs.io/docs/jest-object#jestrequireactualmodulename
+jest.mock('Tracker', () => {
+  const originalModule = jest.requireActual('Tracker')
+
+  return {
+    __esModule: true,
+    ...originalModule,
+    trackException: jest.fn(),
+  }
+})
 
 const onCapture = jest.fn()
+const trackScreen = jest.fn()
 const mockedTrackException = trackException as jest.MockedFunction<
   typeof trackException
 >
@@ -36,7 +46,7 @@ const documentMultiFrameProps: DocumentMultiFrameProps = {
   side: 'front',
   onCapture,
   renderFallback: jest.fn(),
-  trackScreen: jest.fn(),
+  trackScreen: trackScreen,
 }
 
 describe('Multi Frame Support', () => {
@@ -105,5 +115,9 @@ describe('Multi Frame Support', () => {
         filename: 'document_front.webm',
       },
     })
+  })
+
+  it('should call trackScreen on mount.', async () => {
+    await waitFor(() => expect(trackScreen).toHaveBeenCalledTimes(1))
   })
 })

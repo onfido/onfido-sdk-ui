@@ -4,7 +4,7 @@ import { mount, shallow } from 'enzyme'
 import App from '../index'
 import type { SDKOptionsWithRenderData } from '~types/commons'
 
-jest.mock('Tracker/safeWoopra')
+jest.mock('~core/Woopra/safeWoopra')
 jest.mock('~utils')
 
 const defaultOptions: SDKOptionsWithRenderData = {

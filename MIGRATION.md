@@ -74,6 +74,13 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 
 - The deprecated `showCountrySelection` option has been removed.
 
+## `8.0.0` -> `8.1.1`
+
+### Added strings
+
+- `generic.errors.geoblocked_error.message`
+- `generic.errors.geoblocked_error.instruction`
+
 ## `6.20.0` -> `8.0.0`
 
 ### Change in SDK Options

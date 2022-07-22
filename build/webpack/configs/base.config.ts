@@ -16,8 +16,10 @@ export const baseConfig = {
       '~locales': `${BASE_DIR}/src/locales`,
       '~types': `${BASE_DIR}/src/types`,
       '~core': `${BASE_DIR}/src/core`,
+      '~modules': `${BASE_DIR}/modules`,
       '~utils': `${BASE_DIR}/src/components/utils`,
       '~supported-documents': `${BASE_DIR}/src/supported-documents`,
+      '~workflow-engine': `${BASE_DIR}/src/workflow-engine`,
       '~auth-sdk': `${BASE_DIR}/auth-sdk/FaceTec`,
       'socket.io-client': resolve(
         BASE_DIR,

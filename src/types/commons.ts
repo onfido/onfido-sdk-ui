@@ -118,6 +118,7 @@ export type ErrorNames =
   | 'FACE_VIDEO_TIMEOUT'
   | 'PROFILE_DATA_TIMEOUT'
   | 'FORBIDDEN_CLIENT_ERROR'
+  | 'GEOBLOCKED_ERROR'
   | 'GENERIC_CLIENT_ERROR'
   | 'GLARE_DETECTED'
   | 'INTERRUPTED_FLOW_ERROR'
@@ -144,7 +145,7 @@ export type documentSelectionType = {
 }
 
 export type MobileConfig = {
-  clientStepIndex?: number
+  stepIndex: number
   deviceHasCameraSupport?: boolean
   disableAnalytics?: boolean
   useWorkflow?: boolean
@@ -154,7 +155,6 @@ export type MobileConfig = {
   poaDocumentCountry?: CountryData
   language?: SupportedLanguages | LocaleConfig
   poaDocumentType?: PoaTypes
-  step?: number
   steps: StepConfig[]
   token?: string
   urls: UrlsConfig
@@ -164,6 +164,7 @@ export type MobileConfig = {
   crossDeviceClientIntroProductName?: string
   crossDeviceClientIntroProductLogoSrc?: string
   analyticsSessionUuid?: string
+  workflowRunId?: string
 }
 
 export type FormattedError = {
