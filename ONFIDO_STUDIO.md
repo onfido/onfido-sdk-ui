@@ -6,7 +6,7 @@ Onfido Studio enables you to build an optimised route to verify each end user, b
 
 ## Getting started
 
-Minimum supported version for Workflows: onfido-sdk-ui@9.0.0 and API v3.4
+Minimum supported version for Workflows: [onfido-sdk-ui@9.0.0](https://github.com/onfido/onfido-sdk-ui/releases/tag/9.0.0) and API [v3.4]()
 
 ### Initialize the SDK for Studio
 
