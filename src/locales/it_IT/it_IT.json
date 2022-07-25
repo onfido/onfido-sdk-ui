@@ -1,4 +1,74 @@
 {
+    "profile_data": {
+        "country_of_residence_title": "Il tuo paese di residenza",
+        "personal_information_title": "Aggiungere i dati personali",
+        "address_title": "Aggiungere l’indirizzo",
+        "field_labels": {
+            "first_name": "Nome",
+            "dob": "Data di nascita",
+            "last_name": "Cognome",
+            "country": "Paese",
+            "line1": "Indirizzo 1",
+            "line2": "Indirizzo 2",
+            "line3": "Indirizzo 3",
+            "town": "Comune",
+            "postcode": "Codice postale",
+            "gbr_specific": {
+                "town": "Città\/comune",
+                "postcode": "Codice postale"
+            },
+            "usa_specific": {
+                "line1_helper_text": "Indirizzo, ad esempio 200 Albert Street",
+                "line2_helper_text": "Appartamento, suite, unità ecc.",
+                "state": "Stato",
+                "postcode": "Zip code"
+            }
+        },
+        "field_validation": {
+            "required_first_name": "Inserire il nome",
+            "required_last_name": "Inserire il cognome",
+            "required_dob": "Inserire la data di nascita",
+            "required_country": "Selezionare un paese",
+            "required_line1": "Inserire l’indirizzo",
+            "required_postcode": "Inserire il codice postale",
+            "invalid": "Verificare che non ci siano simboli o caratteri non validi",
+            "invalid_dob": "Inserire una data di nascita valida",
+            "too_short_last_name": "Il cognome è troppo breve",
+            "too_short_postcode": "Il codice postale è troppo breve",
+            "too_long_last_name": "Il cognome è troppo lungo",
+            "too_long_first_name": "Il nome è troppo lungo",
+            "too_long_postcode": "Il codice postale è troppo lungo",
+            "too_long__line1": "L’indirizzo è troppo lungo",
+            "too_long__line2": "L’indirizzo è troppo lungo",
+            "too_long__line3": "L’indirizzo è troppo lungo",
+            "too_long_town": "La comune è troppo lungo",
+            "gbr_specific": {
+                "required_postcode": "Inserire il codice postale",
+                "too_short_postcode": "Il codice postale è troppo breve",
+                "too_long_postcode": "Il codice postale è troppo lungo"
+            },
+            "usa_specific": {
+                "required_state": "Selezionare uno stato",
+                "required_postcode": "Inserire il codice postale",
+                "too_short_postcode": "Il codice postale è troppo breve",
+                "too_long_postcode": "Il codice postale è troppo lungo"
+            }
+        },
+        "field_optional": "(facoltativo)",
+        "button_continue": "Continua",
+        "components": {
+            "country_select": {
+                "placeholder": "Selezionare un paese"
+            },
+            "state_select": {
+                "placeholder": "Selezionare uno stato"
+            }
+        },
+        "prompt": {
+            "header_timeout": "Sembra che ci sia voluto troppo tempo",
+            "details_timeout": "Ricomincia"
+        }
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",
@@ -165,6 +235,11 @@
         "button_secondary": "Anteprima video",
         "title": "Controlla il video"
     },
+    "doc_multi_frame_capture": {
+        "capture_progress_title": "Scansione documento",
+        "instructions_title_front": "Posizionare il fronte del documento nel riquadro",
+        "instructions_title_back": "Posizionare il retro del documento nel riquadro"
+    },
     "error_unsupported_browser": {
         "subtitle_android": "Riavvia il processo nell’ultima versione di Google Chrome",
         "subtitle_ios": "Riavvia il processo nell’ultima versione di Safari",
@@ -179,6 +254,10 @@
         "back": "indietro",
         "close": "chiudi",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Siamo spiacenti. Sembra che non sia possibile procedere oltre perché la posizione attuale non è supportata",
+                "message": "Servizio non disponibile"
+            },
             "interrupted_flow_error": {
                 "instruction": "Riavvia il processo su un altro dispositivo",
                 "message": "Fotocamera non rilevata"
@@ -450,6 +529,7 @@
         "list_item_selfie": "il tuo viso",
         "next_button": "Seleziona documento",
         "subtitle": "L’operazione richiederà pochi minuti",
-        "title": "Verifica la tua identità"
+        "title": "Verifica la tua identità",
+        "start_workflow_button": "Verifica la tua identità"
     }
 }

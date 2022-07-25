@@ -64,8 +64,14 @@ class MobileFlow extends Component<Props> {
     const captures = data.captures || []
     captures.forEach((capture) => this.props.actions.createCapture(capture))
 
-    this.props.actions.setClientSuccess(true)
     this.props.completeStep(data.docPayload)
+
+    // With workflow, the step is already finished on mobile, so we go directly to the next step
+    if (this.props.useWorkflow) {
+      this.props.nextStep()
+    } else {
+      this.props.actions.setClientSuccess(true)
+    }
   }
 
   onUserAnalyticsEvent = (data: {

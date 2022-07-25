@@ -1,4 +1,74 @@
 {
+    "profile_data": {
+        "country_of_residence_title": "Seu país de residência",
+        "personal_information_title": "Adicione as suas informações pessoais",
+        "address_title": "Adicione a sua morada",
+        "field_labels": {
+            "first_name": "Nome próprio",
+            "dob": "Data de nascimento",
+            "last_name": "Apelido",
+            "country": "País",
+            "line1": "Linha da morada 1",
+            "line2": "Linha da morada 2",
+            "line3": "Linha da morada 3",
+            "town": "Cidade",
+            "postcode": "Código postal",
+            "gbr_specific": {
+                "town": "Cidade",
+                "postcode": "Código postal"
+            },
+            "usa_specific": {
+                "line1_helper_text": "Morada, por exemplo: Rua Luís Silva 200",
+                "line2_helper_text": "Apartamento, suite, unidade, etc.",
+                "state": "Estado",
+                "postcode": "Código postal"
+            }
+        },
+        "field_validation": {
+            "required_first_name": "Introduza o seu nome próprio",
+            "required_last_name": "Introduza o seu apelido",
+            "required_dob": "Introduza a sua data de nascimento",
+            "required_country": "Selecione um país",
+            "required_line1": "Introduza a sua morada",
+            "required_postcode": "Introduza o seu código postal",
+            "invalid": "Verifique se existem caracteres ou símbolos inválidos",
+            "invalid_dob": "Introduza uma data de nascimento válida",
+            "too_short_last_name": "O apelido é demasiado curto",
+            "too_short_postcode": "O código postal é demasiado curto",
+            "too_long_last_name": "O apelido é demasiado longo",
+            "too_long_first_name": "O nome próprio é demasiado longo",
+            "too_long_postcode": "O código postal é demasiado longo",
+            "too_long__line1": "A linha da morada é demasiado longa",
+            "too_long__line2": "A linha da morada é demasiado longa",
+            "too_long__line3": "A linha da morada é demasiado longa",
+            "too_long_town": "O cidade é demasiado longa",
+            "gbr_specific": {
+                "required_postcode": "Introduza o seu código postal",
+                "too_short_postcode": "O código postal é demasiado curto",
+                "too_long_postcode": "O código postal é demasiado longo"
+            },
+            "usa_specific": {
+                "required_state": "Selecione um estado",
+                "required_postcode": "Introduza o seu código postal",
+                "too_short_postcode": "O código postal é demasiado curto",
+                "too_long_postcode": "O código postal é demasiado longo"
+            }
+        },
+        "field_optional": "(opcional)",
+        "button_continue": "Continuar",
+        "components": {
+            "country_select": {
+                "placeholder": "Selecione um país"
+            },
+            "state_select": {
+                "placeholder": "Selecione um estado"
+            }
+        },
+        "prompt": {
+            "header_timeout": "Parece que demorou demasiado tempo",
+            "details_timeout": "Começar de novo"
+        }
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",
@@ -165,6 +235,11 @@
         "button_secondary": "Pré-visualizar vídeo",
         "title": "Verifique o seu vídeo"
     },
+    "doc_multi_frame_capture": {
+        "capture_progress_title": "A digitalizar o documento",
+        "instructions_title_front": "Posicione a frente do seu documento na moldura",
+        "instructions_title_back": "Posicione o verso do seu documento na moldura"
+    },
     "error_unsupported_browser": {
         "subtitle_android": "Reiniciar o processo na versão mais recente do Google Chrome",
         "subtitle_ios": "Reiniciar o processo na versão mais recente do Safari",
@@ -179,6 +254,10 @@
         "back": "voltar",
         "close": "fechar",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Lamentamos, parece que não conseguimos avançar mais porque a sua localização atual não é suportada",
+                "message": "Serviço indisponível"
+            },
             "interrupted_flow_error": {
                 "instruction": "Reiniciar o processo num dispositivo diferente",
                 "message": "Câmara não detetada"
@@ -450,6 +529,7 @@
         "list_item_selfie": "o seu rosto",
         "next_button": "Escolha o documento",
         "subtitle": "Pode demorar alguns minutos",
-        "title": "Verifique a sua identidade"
+        "title": "Verifique a sua identidade",
+        "start_workflow_button": "Verifique a sua identidade"
     }
 }

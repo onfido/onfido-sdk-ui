@@ -2,16 +2,19 @@ import { StepConfig } from '~types/steps'
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
 
 import { formatStep } from '../../index'
-import { NarrowSdkOptions, UrlsConfig } from '~types/commons'
+import { FlowVariants, NarrowSdkOptions, UrlsConfig } from '~types/commons'
 import { StepsHook, CompleteStepValue } from '~types/routers'
-import { poller, PollFunc, Engine } from '../WorkflowEngine'
-import type { WorkflowResponse } from '../WorkflowEngine/utils/WorkflowTypes'
+import { poller, PollFunc, Engine } from '~workflow-engine'
+import type { WorkflowResponse } from '~workflow-engine/utils/WorkflowTypes'
 import useUserConsent from '~contexts/useUserConsent'
+import { noop } from '~utils/func'
+import useActiveVideo from '~contexts/useActiveVideo'
 
 type WorkflowStepsState = {
   loading: boolean
   steps: StepConfig[] | undefined
   hasNextStep: boolean
+  hasPreviousStep: boolean
   taskId: string | undefined
   error: string | undefined
 }
@@ -22,19 +25,28 @@ const defaultState: WorkflowStepsState = {
   error: undefined,
   steps: undefined,
   hasNextStep: true,
+  hasPreviousStep: false,
 }
+
+const captureStepTypes = new Set(['document', 'poa', 'face'])
 
 export const createWorkflowStepsHook = (
   { token, workflowRunId, ...options }: NarrowSdkOptions,
   { onfido_api_url }: UrlsConfig
 ): StepsHook => () => {
   const { addUserConsentStep } = useUserConsent()
+  const { addActiveVideoStep } = useActiveVideo()
 
   const [state, setState] = useState<WorkflowStepsState>({
     ...defaultState,
   })
 
   useEffect(() => {
+    if (options.mobileFlow) {
+      loadNextStep(noop)
+      return
+    }
+
     // We only inject this step in the first workflow task
     if (options.steps.every(({ type }) => type !== 'welcome')) {
       return
@@ -42,14 +54,20 @@ export const createWorkflowStepsHook = (
 
     setState((state) => ({
       ...state,
-      steps: addUserConsentStep(options.steps),
+      steps: addUserConsentStep(addActiveVideoStep(options.steps)),
     }))
-  }, [addUserConsentStep])
+  }, [addUserConsentStep, addActiveVideoStep])
 
-  const { taskId, loading, error, steps, hasNextStep } = state
+  const { taskId, loading, error, steps, hasNextStep, hasPreviousStep } = state
 
   const docData = useRef<Array<{ id: string }>>([])
+  const getDocData = useCallback(() => {
+    return docData.current
+  }, [docData])
   const personalData = useRef<Record<string, unknown>>({})
+  const getPersonalData = useCallback(() => {
+    return personalData.current
+  }, [personalData])
 
   const pollStep = useCallback((cb: () => void) => {
     if (!token) {
@@ -104,7 +122,8 @@ export const createWorkflowStepsHook = (
 
       const step = workflowEngine.getWorkFlowStep(
         workflow.task_def_id,
-        workflow.config
+        workflow.config,
+        { getDocData, getPersonalData }
       )
 
       if (!step) {
@@ -116,10 +135,17 @@ export const createWorkflowStepsHook = (
         return
       }
 
+      // If the step is not displayable on mobile we display the complete step
+      const formattedStep = formatStep(step)
+      const steps =
+        options.mobileFlow && !captureStepTypes.has(formattedStep.type)
+          ? [formatStep('complete')]
+          : [formattedStep]
+
       setState((state) => ({
         ...state,
         loading: false,
-        steps: [formatStep(step)],
+        steps,
         taskId: workflow?.task_id,
       }))
       cb()
@@ -135,7 +161,7 @@ export const createWorkflowStepsHook = (
   }, [])
 
   const loadNextStep = useCallback(
-    (cb: () => void) => {
+    (cb: () => void, flow?: FlowVariants) => {
       if (!workflowRunId) {
         throw new Error('No token provided')
       }
@@ -149,7 +175,8 @@ export const createWorkflowStepsHook = (
         loading: true,
       }))
 
-      if (!taskId) {
+      // When the browser is in `crossDeviceSteps` it doesn't have to complete the step
+      if (!taskId || flow === 'crossDeviceSteps') {
         pollStep(cb)
         return
       }
@@ -165,8 +192,10 @@ export const createWorkflowStepsHook = (
         .then(() => {
           setState((state) => ({
             ...state,
-            loading: false,
+            loading: true,
             taskId: undefined,
+            steps: undefined,
+            hasPreviousStep: true,
           }))
           docData.current = []
           personalData.current = {}
@@ -186,6 +215,7 @@ export const createWorkflowStepsHook = (
   return {
     completeStep,
     loadNextStep,
+    hasPreviousStep,
     hasNextStep,
     loading,
     steps,

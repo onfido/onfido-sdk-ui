@@ -94,7 +94,8 @@ describe('Workflow Engine', () => {
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowDocumentStep.task_def_id,
-        workflowDocumentStep.config
+        workflowDocumentStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       )
       expect(workflowStep?.type).toEqual('document')
     })
@@ -108,7 +109,8 @@ describe('Workflow Engine', () => {
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
-        workflowFacCaptureStep.config
+        workflowFacCaptureStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       ) as StepConfigFace
 
       expect(workflowStep.type).toEqual('face')
@@ -124,7 +126,8 @@ describe('Workflow Engine', () => {
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
-        workflowFacCaptureStep.config
+        workflowFacCaptureStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       ) as StepConfigFace
 
       expect(workflowStep?.type).toEqual('face')
@@ -140,7 +143,8 @@ describe('Workflow Engine', () => {
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
-        workflowFacCaptureStep.config
+        workflowFacCaptureStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       )
       expect(workflowStep?.type).toEqual('poa')
     })
@@ -154,7 +158,8 @@ describe('Workflow Engine', () => {
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
-        workflowFacCaptureStep.config
+        workflowFacCaptureStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       )
       expect(workflowStep?.type).toEqual('data')
     })
@@ -168,7 +173,8 @@ describe('Workflow Engine', () => {
       }
       const workflowStep = workflowEngine1.getWorkFlowStep(
         workflowFacCaptureStep.task_def_id,
-        workflowFacCaptureStep.config
+        workflowFacCaptureStep.config,
+        { getDocData: jest.fn(), getPersonalData: jest.fn() }
       )
       expect(workflowStep?.type).toEqual('retry')
     })

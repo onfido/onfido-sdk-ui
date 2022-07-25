@@ -26,6 +26,7 @@ const API_ERROR_EXPIRED_TOKEN = 'expired_token'
 const API_ERROR_VALIDATION = 'validation_error'
 const API_ERROR_UNKNOWN = 'unknown'
 const API_ERROR_ACCESS_DENIED = 'ACCESS_DENIED'
+const API_ERROR_GEOBLOCKED = 'geoblocked_request'
 
 type ApiErrorPayload = {
   message: string
@@ -66,6 +67,10 @@ type UnknownError = {
   type: typeof API_ERROR_UNKNOWN
 } & ApiErrorPayload
 
+type GeoblockedError = {
+  type: typeof API_ERROR_GEOBLOCKED
+} & ApiErrorPayload
+
 export type ParsedError = {
   response: {
     error?:
@@ -74,6 +79,7 @@ export type ParsedError = {
       | ValidationError
       | AccessDeniedError
       | UnknownError
+      | GeoblockedError
     type?: string
     message?: string
   }
@@ -256,6 +262,9 @@ export interface DocumentCapture {
 export interface ExperimentalFeatures {
   enable_image_quality_service?: boolean
   enable_multi_frame_capture?: boolean
+  motion_experiment?: {
+    enabled: boolean
+  }
 }
 
 export interface SdkFeatures {

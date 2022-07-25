@@ -4,6 +4,7 @@ import { localised } from '~locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 import { WithLocalisedProps } from '~types/hocs'
+import { trackException } from 'Tracker'
 
 type Props = WithLocalisedProps
 type State = {

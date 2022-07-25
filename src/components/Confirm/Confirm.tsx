@@ -20,6 +20,7 @@ import { ErrorProp, StepComponentBaseProps } from '~types/routers'
 import { DocumentCapture, FaceCapture } from '~types/redux'
 import { CaptureMethods, DocumentSides, ErrorNames } from '~types/commons'
 import {
+  ApiRawError,
   DocumentImageResponse,
   FaceVideoResponse,
   ImageQualityValidationPayload,
@@ -76,6 +77,7 @@ export const Confirm = (props: ConfirmProps) => {
       document_type: props.documentType,
       country_code: props.idDocumentIssuingCountry?.country_alpha2,
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const setError = (name: ErrorNames, errorMessage?: unknown) => {
@@ -130,7 +132,6 @@ export const Confirm = (props: ConfirmProps) => {
   }
 
   const onApiError = (error: ParsedError) => {
-    let errorKey, errorMessage
     const status = error.status || 0
     const response = error.response || {}
 
@@ -139,18 +140,26 @@ export const Confirm = (props: ConfirmProps) => {
       if (props.crossDeviceClientError) {
         return props.crossDeviceClientError()
       }
-    } else if (status === 422) {
-      errorKey = response?.error
+      return
+    }
+    if (status === 422) {
+      const errorKey = response?.error
         ? onfidoErrorReduce(response.error as ValidationError)
         : REQUEST_ERROR
-    } else {
-      props.triggerOnError({ status, response })
-      trackException(`${status} - ${response}`)
-      errorKey = REQUEST_ERROR
-      errorMessage = response?.error?.message
+      setError(errorKey as ErrorNames)
+      return
+    }
+    if (status === 403 && response.error?.type === 'geoblocked_request') {
+      setError(
+        'GEOBLOCKED_ERROR',
+        'generic.errors.geoblocked_error.instruction'
+      )
+      return
     }
 
-    setError(errorKey as ErrorNames, errorMessage)
+    props.triggerOnError({ status, response })
+    trackException(`${status} - ${response}`)
+    setError(REQUEST_ERROR, response?.error?.message)
   }
 
   const onVideoPreviewError = () => setError('VIDEO_ERROR' as ErrorNames)
@@ -428,10 +437,10 @@ export const Confirm = (props: ConfirmProps) => {
       } else {
         console.error(`Invalid return statement from ${callbackName}`)
       }
-    } catch (errorResponse: any) {
+    } catch (errorResponse: unknown) {
       // @ts-ignore
       sendEvent(`Error response from ${callbackName}`)
-      formatError(errorResponse, onApiError)
+      formatError(errorResponse as ApiRawError, onApiError)
     }
   }
 

@@ -76,6 +76,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     options: { mobileFlow, useMemoryHistory },
     steps,
     hasNextStep,
+    hasPreviousStep,
     loadNextStep,
     completeStep,
   } = props
@@ -94,6 +95,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       steps,
       mobileFlow,
       deviceHasCameraSupport,
+      hasPreviousStep,
     })
   }
 
@@ -178,17 +180,19 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     newStep = 0,
     excludeStepFromHistory = false
   ) => {
-    const { flow: previousFlow, step: previousUserStepIndex } = state
-    if (previousFlow === newFlow) return
+    const { flow: previousFlow, step: previousStepIndex } = state
 
-    const previousUserStep = getComponentsList(steps)[previousUserStepIndex]
+    if (!onFlowChange || previousFlow === newFlow) {
+      return
+    }
 
-    onFlowChange &&
-      onFlowChange(newFlow, newStep, previousFlow, {
-        userStepIndex: previousUserStepIndex,
-        clientStepIndex: previousUserStep.stepIndex,
-        clientSteps: steps,
-      })
+    const previousStep = getComponentsList(steps)[previousStepIndex]
+
+    onFlowChange(newFlow, {
+      clientStepIndex: previousStep.stepIndex,
+      clientSteps: steps,
+    })
+
     setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
@@ -213,7 +217,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     } else if (hasNextStep) {
       loadNextStep(() => {
         setStepIndex(0, 'captureSteps')
-      })
+      }, state.flow)
     }
   }
 

@@ -5,7 +5,7 @@ import { mimeType } from '~utils/blob'
 import { getInactiveError } from '~utils/inactiveError'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
-import { sendEvent } from '../../Tracker'
+import { sendEvent, trackComponent } from '../../Tracker'
 import Spinner from '../Spinner'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
@@ -38,7 +38,7 @@ type State = {
 
 const IDEAL_CAMERA_WIDTH_IN_PX = 1080 // Full HD 1080p
 
-export default class DocumentLiveCapture extends Component<Props, State> {
+class DocumentLiveCapture extends Component<Props, State> {
   private webcam?: Webcam
 
   state = {
@@ -142,3 +142,5 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     )
   }
 }
+
+export default trackComponent(DocumentLiveCapture)
