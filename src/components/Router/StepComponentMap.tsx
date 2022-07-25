@@ -30,6 +30,9 @@ import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
 import LazyActiveVideo from '../ActiveVideo/Lazy'
+import ActiveVideoIntro from '../ActiveVideo/Intro'
+import ActiveVideoRecordingComplete from '../ActiveVideo/RecordingComplete'
+import ActiveVideoUpload from '../ActiveVideo/Uploading'
 import { isDesktop, isHybrid } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 
@@ -43,9 +46,11 @@ import type { StepComponentProps, ComponentStep } from '~types/routers'
 import type {
   DocumentTypes,
   StepConfig,
+  StepConfigActiveVideo,
   StepConfigDocument,
   StepConfigFace,
   StepConfigData,
+  StepTypes,
 } from '~types/steps'
 import PoAClientIntro from '../ProofOfAddress/PoAIntro'
 import Guidance from '../ProofOfAddress/Guidance'
@@ -138,7 +143,13 @@ const buildCaptureStepComponents = (
   const complete = mobileFlow
     ? [ClientSuccess as ComponentType<StepComponentProps>]
     : [Complete]
-  const captureStepTypes = new Set(['document', 'poa', 'face', 'data'])
+  const captureStepTypes = new Set<StepTypes>([
+    'document',
+    'poa',
+    'face',
+    'data',
+    'activeVideo',
+  ])
   const firstCaptureStepType = steps.filter((step) =>
     captureStepTypes.has(step?.type)
   )[0]?.type
@@ -146,19 +157,29 @@ const buildCaptureStepComponents = (
   return {
     welcome: [Welcome],
     userConsent: [UserConsent],
-    face: [
-      ...buildFaceComponents(
-        faceStep,
-        deviceHasCameraSupport,
-        mobileFlow,
-        !hasPreviousStep && mobileFlow && firstCaptureStepType === 'face'
-      ),
-    ],
+    ...(faceStep && {
+      face: [
+        ...buildFaceComponents(
+          faceStep,
+          deviceHasCameraSupport,
+          mobileFlow,
+          !hasPreviousStep && mobileFlow && firstCaptureStepType === 'face'
+        ),
+      ],
+    }),
     ...(SDK_ENV === 'Auth' && {
       auth: [LazyAuth],
     }),
     ...(activeVideoStep && {
-      activeVideo: [LazyActiveVideo],
+      activeVideo: [
+        ...buildActiveVideoComponents(
+          activeVideoStep,
+          !!mobileFlow,
+          !hasPreviousStep &&
+            mobileFlow &&
+            firstCaptureStepType === 'activeVideo'
+        ),
+      ],
     }),
     document: [
       ...buildDocumentComponents(
@@ -246,17 +267,44 @@ const buildFaceComponents = (
     faceStep?.options?.requestedVariant === 'video' &&
     (videoCameraSupport || !photoCaptureFallback)
 
-  return shouldUseVideo
-    ? buildRequiredVideoComponents(
-        deviceHasCameraSupport && videoCameraSupport,
-        mobileFlow,
-        isFirstCaptureStepInFlow
-      )
-    : buildRequiredSelfieComponents(
-        shouldSelfieScreenUseCamera,
-        mobileFlow,
-        isFirstCaptureStepInFlow
-      )
+  if (shouldUseVideo) {
+    return buildRequiredVideoComponents(
+      deviceHasCameraSupport && videoCameraSupport,
+      mobileFlow,
+      isFirstCaptureStepInFlow
+    )
+  }
+
+  return buildRequiredSelfieComponents(
+    shouldSelfieScreenUseCamera,
+    mobileFlow,
+    isFirstCaptureStepInFlow
+  )
+}
+
+const buildActiveVideoComponents = (
+  activeVideoStep: StepConfigActiveVideo,
+  mobileFlow?: boolean,
+  isFirstCaptureStepInFlow?: boolean
+): ComponentType<StepComponentProps>[] => {
+  const allActiveVideoSteps = [
+    ActiveVideoIntro,
+    LazyActiveVideo,
+    ActiveVideoRecordingComplete,
+    ActiveVideoUpload,
+  ]
+
+  if (mobileFlow) {
+    // do not display intro on cross device flow
+    // @ts-ignore
+    return allActiveVideoSteps.slice(1)
+  }
+
+  // @ts-ignore
+  return mobileFlow && isFirstCaptureStepInFlow
+    ? // @ts-ignore
+      buildCrossDeviceClientComponents(allActiveVideoSteps)
+    : allActiveVideoSteps
 }
 
 const buildRequiredVideoComponents = (
