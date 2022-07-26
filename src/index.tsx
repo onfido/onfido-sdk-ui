@@ -172,7 +172,8 @@ export const init = (opts: SdkOptions): SdkHandle => {
   return {
     options,
     setOptions(changedOptions) {
-      this.options = { ...this.options, ...formatOptions(changedOptions) }
+      opts = { ...opts, ...changedOptions }
+      this.options = formatOptions({ ...opts, ...changedOptions })
       if (
         this.options.containerEl !== changedOptions.containerEl &&
         changedOptions.containerEl
