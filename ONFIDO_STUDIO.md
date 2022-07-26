@@ -35,13 +35,13 @@ $ curl https://api.onfido.com/v4/applicants \
 
 The JSON response will contain an `id` field containing an UUID that identifies the applicant. Once you pass the applicant ID to the SDK, documents and live photos and videos uploaded by that instance of the SDK will be associated with that applicant.
 
-### 2. WorkflowRun
+### 3. WorkflowRun
 
 Requesting a workflow run is a new, additional step required for a Workflows integration. Workflow runs fully replace Checks.
 
 Important: You must now request a workflow run before you initialise the SDK
 
-POST /v4/workflow_runs
+<Endpoint method="post">/v4/workflow_runs<Endpoint>
 Starts a workflow run. The request body must include the workflow_id and applicant_id. Authentication using API token. Returns a “workflow_run_id”.
 
 ```shell
