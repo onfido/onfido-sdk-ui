@@ -31,14 +31,14 @@ $ curl -X POST https://api.onfido.com/v3.4/workflow_runs/ \
 
 The workflow run will begin immediately, pausing on the first interactive task it reaches until you initialise the SDK for end user interaction.
 
-### 5. Import the library
+### 2. Import the library
 
 You can either:
 
 - import directly into your HTML page
 - use npm
 
-#### 5.1 HTML Script Tag Include
+#### 2.1 HTML Script Tag Include
 
 You can include the library as a regular script tag on your page:
 
@@ -54,7 +54,7 @@ And the CSS styles:
 
 You can see a [simple example using script tags](https://jsfiddle.net/gh/get/library/pure/onfido/onfido-sdk-ui/tree/master/demo/fiddle/).
 
-#### 5.2 NPM style import
+#### 2.2 NPM style import
 
 You can import the library as a module into your own JS build system (tested with Webpack):
 
@@ -103,7 +103,7 @@ The CSS style will be included inline with the JS code when the library is impor
 
 You can see an [example app using npm style import](https://github.com/onfido/onfido-sdk-web-sample-app/).
 
-### 6. Add basic HTML markup
+### 3. Add basic HTML markup
 
 Add an empty HTML element at the bottom of your page for the modal interface to mount itself on.
 
@@ -111,7 +111,7 @@ Add an empty HTML element at the bottom of your page for the modal interface to 
 <div id="onfido-mount"></div>
 ```
 
-### 7. Initialize the SDK for Studio
+### 4. Initialize the SDK for Studio
 
 You can now initialize the SDK, using the SDK token and workflowRunId.
 
