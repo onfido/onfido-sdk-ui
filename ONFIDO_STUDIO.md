@@ -8,6 +8,8 @@ Onfido Studio enables you to build an optimised route to verify each end user, b
 
 Minimum supported version for Workflows: [onfido-sdk-ui@9.0.0](https://github.com/onfido/onfido-sdk-ui/releases/tag/9.0.0) and API [v3.4]()
 
+The SDK communicates directly and dynamically with active workflows to show the relevant screens to ensure the correct capture and upload of user information. As a result, the SDK flow will vary depending on the workflow configuration. You don't need to specify any steps directly in the SDK integration.
+
 ### 1. Obtain an API token
 
 In order to start integrating, you'll need an [API token](https://documentation.onfido.com/#api-tokens).
