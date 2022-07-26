@@ -29,7 +29,7 @@ To create an applicant from your backend server, make request to the ['create ap
 ⚠️ Note: Different report types have different minimum requirements for applicant data. For a Document or Facial Similarity report, the minimum applicant details required are `first_name` and `last_name`.
 
 ```shell
-$ curl https://api.onfido.com/v4/applicants \
+$ curl https://api.onfido.com/v3.4/applicants \
   -H 'Authorization: Token token=<YOUR_API_TOKEN>' \
   -d 'first_name=John' \
   -d 'last_name=Smith'
@@ -43,11 +43,11 @@ Requesting a workflow run is a new, additional step required for a Workflows int
 
 Important: You must now request a workflow run before you initialise the SDK
 
-<Endpoint method="post">/v4/workflow_runs<Endpoint>
+<Endpoint method="post">/v3.4/workflow_runs<Endpoint>
 Starts a workflow run. The request body must include the workflow_id and applicant_id. Authentication using API token. Returns a “workflow_run_id”.
 
 ```shell
-$ curl -X POST https://api.onfido.com/v4/workflow_runs/ \
+$ curl -X POST https://api.onfido.com/v3.4/workflow_runs/ \
   -H 'Authorization: Token token=<YOUR_API_TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -67,7 +67,7 @@ The SDK is authenticated using SDK tokens. Each authenticated instance of the SD
 To generate an SDK token, make a request to the ['generate SDK token' endpoint](https://documentation.onfido.com/#generate-web-sdk-token), including the applicant ID and a valid referrer.
 
 ```shell
-$ curl https://api.onfido.com/v3/sdk_token \
+$ curl https://api.onfido.com/v3.4/sdk_token \
   -H 'Authorization: Token token=<YOUR_API_TOKEN>' \
   -F 'applicant_id=<APPLICANT_ID>' \
   -F 'referrer=<REFERRER_PATTERN>'
