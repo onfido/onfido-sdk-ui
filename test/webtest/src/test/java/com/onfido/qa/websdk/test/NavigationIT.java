@@ -57,4 +57,5 @@ public class NavigationIT extends WebSdkIT {
                 .back(DocumentUpload.class);
 
     }
+
 }

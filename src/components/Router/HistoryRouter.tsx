@@ -25,18 +25,6 @@ type HistoryRouterState = {
   initialStep: number
 } & HistoryLocationState
 
-const formattedError = ({ response, status }: ParsedError): FormattedError => {
-  const errorResponse = response.error || response || {}
-
-  const isExpiredTokenError =
-    status === 401 && errorResponse.type === 'expired_token'
-  const type = isExpiredTokenError ? 'expired_token' : 'exception'
-  // `/validate_document` returns a string only. Example: "Token has expired."
-  // Ticket in backlog to update all APIs to use signature similar to main Onfido API
-  const message = errorResponse.message || response.message || 'Unknown error'
-  return { type, message }
-}
-
 export const HistoryRouterWrapper = ({
   useSteps,
   fallback,
@@ -79,6 +67,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     hasPreviousStep,
     loadNextStep,
     completeStep,
+    triggerOnError,
   } = props
 
   const getComponentsList = (
@@ -220,20 +209,6 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       }, state.flow)
     }
   }
-
-  const triggerOnError: ErrorCallback = useCallback(
-    ({ response, status }) => {
-      if (status === 0) {
-        return
-      }
-
-      const error = formattedError({ response, status })
-      const { type, message } = error
-      options.events?.emit('error', { type, message })
-      trackException(`${type} - ${message}`)
-    },
-    [options.events]
-  )
 
   const triggerOnComplete = useCallback(() => {
     const expectedCaptureKeys: CaptureKeys[] = [

@@ -5,10 +5,14 @@ import { buildStepFinder } from '~utils/steps'
 import withTheme from '../Theme'
 import GenericError from '../GenericError'
 
-import { getWoopraCookie } from '../../Tracker'
+import { getWoopraCookie, trackException } from '../../Tracker'
 import { HistoryRouterWrapper } from './HistoryRouter'
 
-import type { MobileConfig } from '~types/commons'
+import type {
+  MobileConfig,
+  NarrowSdkOptions,
+  FormattedError,
+} from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 import Spinner from '../Spinner'
@@ -17,6 +21,7 @@ import { createOptionsStepsHook } from './createOptionsStepsHook'
 import { createWorkflowStepsHook } from './createWorkflowStepsHook'
 import { UserConsentProvider } from '~contexts/useUserConsent'
 import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
+import { ErrorCallback, ParsedError } from '~types/api'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
@@ -151,6 +156,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
         overrideConfiguration={this.props.options.overrideSdkConfiguration}
         url={urls.onfido_api_url}
         token={token}
+        triggerOnError={this.props.triggerOnError}
         fallback={
           <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
         }
@@ -173,6 +179,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
           >
             <HistoryRouterWrapper
               {...this.props}
+              triggerOnError={this.props.triggerOnError}
               mobileConfig={this.generateMobileConfig()}
               onFlowChange={this.onFlowChange}
               stepIndexType="user"

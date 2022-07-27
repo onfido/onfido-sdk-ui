@@ -39,6 +39,10 @@ const errors: Record<ErrorNames, LocaleData> = {
     message: 'generic.errors.request_error.message',
     instruction: 'generic.errors.request_error.instruction',
   },
+  EXPIRED_TOKEN: {
+    message: 'generic.errors.expired_token.message',
+    instruction: 'generic.errors.expired_token.instruction',
+  },
   CUTOFF_DETECTED: {
     message: 'doc_confirmation.alert.crop_title',
     instruction: 'doc_confirmation.alert.crop_detail',

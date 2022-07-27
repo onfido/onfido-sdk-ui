@@ -81,6 +81,7 @@ export type InternalRouterProps = {
   onFlowChange?: FlowChangeCallback
   // @TODO: remove this prop completely to consume useSdkOptions() hook instead
   options: NarrowSdkOptions
+  triggerOnError: ErrorCallback
 } & ExternalRouterProps
 
 type HistoryRouterBaseProps = {
@@ -113,7 +114,6 @@ export type StepsRouterProps = {
   nextStep: () => void
   previousStep: () => void
   step: number
-  triggerOnError: ErrorCallback
   isLoadingStep?: boolean
   completeStep: (data: CompleteStepValue) => void
 } & HistoryRouterBaseProps

@@ -26,7 +26,7 @@ class GenericError extends Component<Props> {
     const { message, instruction, icon } = errors[error.name]
     const iconName = icon ? icon : 'genericErrorIcon'
     return (
-      <div>
+      <div data-page-id={'Error'}>
         <PageTitle
           title={translate(message)}
           subTitle={translate(instruction)}
