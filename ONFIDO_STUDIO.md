@@ -18,7 +18,8 @@ You must use SDK tokens to authenticate the SDKs for Workflows. You can generate
 
 You must request a workflow run before you initialise the SDK
 
-`Post /v3.4/workflow_runs` Starts a workflow run. The request body must include the workflow_id and applicant_id. Authentication using API token. Returns a “workflow_run_id”.
+`Post /v3.4/workflow_runs` Starts a workflow run. The request body must include the workflow_id and applicant_id. 
+Returns a “workflow_run_id”.
 
 ```shell
 $ curl -X POST https://api.onfido.com/v3.4/workflow_runs/ \
