@@ -39,7 +39,9 @@ The SDK offers a number of benefits to help you create the best identity verific
 The following content assumes you're using our API v3 versions for backend calls. If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 <Callout type="info">
-If you are integrating using Onfido Studio please see our [Studio integration guide](ONFIDO_STUDIO.md).</Callout>
+> ℹ️ 
+> 
+> If you are integrating using Onfido Studio please see our [Studio integration guide](ONFIDO_STUDIO.md).</Callout>
 
 ### 1. Obtain an API token
 
