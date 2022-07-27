@@ -65,6 +65,7 @@ const userAnalyticsEvent = (
   )
 }
 
+// Last one
 const sendEvent = (
   eventName: LegacyTrackedEventNames,
   properties?: Record<string, unknown>
@@ -116,16 +117,33 @@ const appendToTracking = <P extends WithTrackingProps>(
     )
   }
 
+type AnalyticsDynamicProperties = Record<string, unknown>
+
 const trackComponent = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,
   screenName?: string
 ): ComponentType<P> =>
   class TrackedComponent extends Component<P> {
+    callback?: () => AnalyticsDynamicProperties = undefined
     componentDidMount() {
-      this.props.trackScreen(screenName)
+      const properties =
+        typeof this.callback === 'function' ? this.callback() : undefined
+
+      this.props.trackScreen(screenName, properties)
     }
 
-    render = () => <WrappedComponent {...this.props} />
+    trackPropertiesBeforeMount = (cb: () => AnalyticsDynamicProperties) => {
+      if (typeof cb === 'function') {
+        this.callback = cb
+      }
+    }
+
+    render = () => (
+      <WrappedComponent
+        {...this.props}
+        trackPropertiesBeforeMount={this.trackPropertiesBeforeMount}
+      />
+    )
   }
 
 const trackException = (message: string, extra?: EventHint): void => {

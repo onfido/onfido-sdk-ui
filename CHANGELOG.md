@@ -23,6 +23,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Remove asterisk from required fields
 - Internal: Remove isFullScreen prop from NavigationBar
 - Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
+- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
 
 ## [8.1.1] - 2022-07-13
 
