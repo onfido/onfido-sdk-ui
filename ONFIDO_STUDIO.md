@@ -14,7 +14,7 @@ You must use SDK tokens to authenticate the SDKs for Workflows. You can generate
 
 ### 1. WorkflowRun
 
-You must request a [workflow run](https://documentation.onfido.com/#create-workflow-run) before you initialise the SDK, including the workflow_id and applicant_id in the request body. 
+You must request a [workflow run](https://documentation.onfido.com/#create-workflow-run) before you initialise the SDK, including the `workflow_id` and `applicant_id` in the request body. 
 
 ```shell
 $ curl -X POST https://api.onfido.com/v3.4/workflow_runs/ \
@@ -26,7 +26,7 @@ $ curl -X POST https://api.onfido.com/v3.4/workflow_runs/ \
   }'
 ```
 
-The response will contain a workflow_run_id.
+The response will contain a `workflow_run_id`.
 
 ### 2. Import the library
 
