@@ -14,7 +14,7 @@ You must use SDK tokens to authenticate the SDKs for Workflows. You can generate
 
 ### 1. Workflow run
 
-You must request a [workflow run](https://documentation.onfido.com/#create-workflow-run) before you initialise the SDK, including the `workflow_id` and `applicant_id` in the request body. 
+You must request a [workflow run](https://documentation.onfido.com/#create-workflow-run) before you initialise the SDK, including the `workflow_id` and `applicant_id` in the request body.
 
 ```shell
 $ curl -X POST https://api.onfido.com/v3.4/workflow_runs/ \
@@ -119,11 +119,11 @@ Onfido.init({
 })
 ```
 
-| Function       | Description                                                            |
-| -------------- | ---------------------------------------------------------------- |
-| **onComplete** | `{Function} optional` <br /> Callback that fires when all interactive tasks in the workflow have been completed. On success, if you have configured webhooks, a notification will be sent to your backend confirming the workflow run has finished. You do not need to create a check using your backend as this is handled directly by the Workflow.  |
-| **onError**    | `{Function} optional` <br /> Callback that fires when an error occurs.                     |
-| **onUserExit** | `{Function} optional` <br /> Callback that fires when the user abandons the flow without completing it.  |
+| Function       | Description                                                                                                                                                                                                                                                                                                                                           |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **onComplete** | `{Function} optional` <br /> Callback that fires when all interactive tasks in the workflow have been completed. On success, if you have configured webhooks, a notification will be sent to your backend confirming the workflow run has finished. You do not need to create a check using your backend as this is handled directly by the Workflow. |
+| **onError**    | `{Function} optional` <br /> Callback that fires when an error occurs.                                                                                                                                                                                                                                                                                |
+| **onUserExit** | `{Function} optional` <br /> Callback that fires when the user abandons the flow without completing it.                                                                                                                                                                                                                                               |
 
 ## Customizing the SDK
 
