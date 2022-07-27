@@ -18,7 +18,7 @@ You must use SDK tokens to authenticate the SDKs for Workflows. You can generate
 
 Requesting a workflow run is a new, additional step required for a Workflows integration. Workflow runs fully replace Checks.
 
-Important: You must now request a workflow run before you initialise the SDK
+Important: You must request a workflow run before you initialise the SDK
 
 `Post /v3.4/workflow_runs` Starts a workflow run. The request body must include the workflow_id and applicant_id. Authentication using API token. Returns a “workflow_run_id”.
 
