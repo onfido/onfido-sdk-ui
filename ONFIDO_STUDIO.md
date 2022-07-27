@@ -121,11 +121,9 @@ Onfido.init({
 
 | Function       | Description                                                            |
 | -------------- | ---------------------------------------------------------------- |
-| **onComplete** | `{Function} optional` <br /> Callback that fires when all interactive tasks in the workflow have been completed. On success, if you have configured webhooks, a notification will be sent to your backend confirming the workflow run has finished. You do not need to create a check using your backend as this is handled directly by the Workflow. 
- |
+| **onComplete** | `{Function} optional` <br /> Callback that fires when all interactive tasks in the workflow have been completed. On success, if you have configured webhooks, a notification will be sent to your backend confirming the workflow run has finished. You do not need to create a check using your backend as this is handled directly by the Workflow.  |
 | **onError**    | `{Function} optional` <br /> Callback that fires when an error occurs.                     |
-| **onUserExit** | `{Function} optional` <br /> Callback that fires when the user abandons the flow without completing it.
-                    |
+| **onUserExit** | `{Function} optional` <br /> Callback that fires when the user abandons the flow without completing it.  |
 
 ## Customizing the SDK
 
