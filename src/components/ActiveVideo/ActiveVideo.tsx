@@ -4,7 +4,11 @@ import { useState } from 'preact/hooks'
 import { useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 import { localised } from '~locales'
-import type { WithLocalisedProps } from '~types/hocs'
+import type {
+  WithLocalisedProps,
+  WithPermissionsFlowProps,
+  WithTrackingProps,
+} from '~types/hocs'
 import {
   CombinedActions,
   ActiveVideoCapture as ActiveVideoCapturePayload,
@@ -12,12 +16,25 @@ import {
 import type { StepComponentBaseProps } from '~types/routers'
 import { addDeviceRelatedProperties } from '~utils'
 import { randomId } from '~utils/string'
+import withPermissionsFlow from 'components/CameraPermissions/withPermissionsFlow'
 import FaceNotDetected from './FaceNotDetected'
+import { trackComponent } from 'Tracker'
 
-type Props = StepComponentBaseProps & WithLocalisedProps
+type Props = StepComponentBaseProps & {
+  onUserMedia: () => void
+} & WithLocalisedProps &
+  WithPermissionsFlowProps &
+  WithTrackingProps
 
 const ActiveVideo: FunctionComponent<Props> = (props) => {
-  const { nextStep, translate, back, actions, mobileFlow } = props
+  const {
+    nextStep,
+    translate,
+    actions,
+    mobileFlow,
+    hasGrantedPermission,
+    onUserMedia,
+  } = props
   const [error, setError] = useState<LivenessError | null>()
   const dispatch = useDispatch<Dispatch<CombinedActions>>()
 
@@ -56,8 +73,10 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
       translate={translate}
       onError={onError}
       onSuccess={onSuccess}
+      onUserMedia={onUserMedia}
+      hasGrantedPermission={!!hasGrantedPermission}
     />
   )
 }
 
-export default localised(ActiveVideo)
+export default trackComponent(localised(withPermissionsFlow(ActiveVideo)))
