@@ -12,7 +12,7 @@ The SDK communicates directly and dynamically with active workflows to show the 
 
 You must use SDK tokens to authenticate the SDKs for Workflows. You can generate SDK tokens using [v3.4](https://documentation.onfido.com/#generate-sdk-token) API endpoint.
 
-### 1. WorkflowRun
+### 1. Workflow run
 
 You must request a [workflow run](https://documentation.onfido.com/#create-workflow-run) before you initialise the SDK, including the `workflow_id` and `applicant_id` in the request body. 
 
