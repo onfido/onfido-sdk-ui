@@ -10,8 +10,6 @@ Minimum supported version for Workflows: [onfido-sdk-ui@9.0.0](https://github.co
 
 The SDK communicates directly and dynamically with active workflows to show the relevant screens to ensure the correct capture and upload of user information. As a result, the SDK flow will vary depending on the workflow configuration. You don't need to specify any steps directly in the SDK integration.
 
-Workflows are currently only available via the Onfido SDKs, not via the API directly.
-
 You must use SDK tokens to authenticate the SDKs for Workflows. You can generate SDK tokens using v3.x API endpoint.
 
 ### 1. WorkflowRun
