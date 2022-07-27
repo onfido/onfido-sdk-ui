@@ -45,7 +45,7 @@ The following content assumes you're using our API v3 versions for backend calls
  
    **ℹ️ If you are integrating using Onfido Studio please see out [Studio integration guide](ONFIDO_STUDIO.md).**
 
-   **ℹ️ `If you are integrating using Onfido Studio please see out [Studio integration guide]`(ONFIDO_STUDIO.md).**
+   **ℹ️ `If you are integrating using Onfido Studio please see out` [Studio integration guide](ONFIDO_STUDIO.md).**
 
 ### 1. Obtain an API token
 
