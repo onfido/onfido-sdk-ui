@@ -98,7 +98,7 @@ Onfido.init({
 ```
 
 - `workflowRunId` {String} required
-  An existing workflow id is required to extract the dynamic flow.
+  The ID of the workflow run. An existing workflow id is required to extract the dynamic flow.
 
 ### Handling callbacks
 
