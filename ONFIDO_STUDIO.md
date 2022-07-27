@@ -31,7 +31,7 @@ $ curl -X POST https://api.onfido.com/v3.4/workflow_runs/ \
   }'
 ```
 
-The workflow run will begin immediately, pausing on the first interactive task it reaches until you initialise the SDK for end user interaction.
+After the workflow run has started, the Onfido backend will perform all non-interactive tasks until the first interactive task is reached. It will pause on the first interactive task until you initialise the SDK for end user interaction.
 
 ### 2. Import the library
 
