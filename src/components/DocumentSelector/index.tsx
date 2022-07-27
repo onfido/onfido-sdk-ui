@@ -155,3 +155,22 @@ export function generateDefaultOptions(
 
   return filteredDocumentOptions
 }
+
+export const idDocumentOptions: DocumentOptions = {
+  passport: {
+    labelKey: 'doc_select.button_passport',
+    detailKey: 'doc_select.button_passport_detail',
+  },
+  driving_licence: {
+    labelKey: 'doc_select.button_license',
+    detailKey: 'doc_select.button_license_detail',
+  },
+  national_identity_card: {
+    labelKey: 'doc_select.button_id',
+    detailKey: 'doc_select.button_id_detail',
+  },
+  residence_permit: {
+    labelKey: 'doc_select.button_permit',
+    detailKey: 'doc_select.button_permit_detail',
+  },
+}

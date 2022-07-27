@@ -25,8 +25,7 @@ import {
   HandleDocumentSelect,
 } from '../DocumentSelector/DocumentList'
 
-import { idDocumentOptions } from '../DocumentSelector/IdentityDocumentSelector'
-import { generateDefaultOptions } from '../DocumentSelector'
+import { idDocumentOptions, generateDefaultOptions } from '../DocumentSelector'
 
 import {
   getSupportedCountries,

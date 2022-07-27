@@ -1,6 +1,6 @@
 import { findKey } from '~utils/object'
 import { poaDocumentOptions } from './PoADocumentSelector'
-import { idDocumentOptions } from './IdentityDocumentSelector'
+import { idDocumentOptions } from '.'
 
 export type GroupType = 'identity' | 'proof_of_address'
 
