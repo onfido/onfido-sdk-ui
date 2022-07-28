@@ -8,7 +8,11 @@ export const baseConfig = {
 
   resolve: {
     extensions: ['.jsx', '.js', '.tsx', '.ts', '.scss', '.json'],
-    modules: [`${BASE_DIR}/node_modules`, `${BASE_DIR}/src`],
+    modules: [
+      `${BASE_DIR}/node_modules`,
+      `${BASE_DIR}/src`,
+      `${BASE_DIR}/modules`,
+    ],
     alias: {
       react: 'preact/compat',
       'react-dom': 'preact/compat',
