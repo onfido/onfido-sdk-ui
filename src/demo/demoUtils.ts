@@ -216,7 +216,7 @@ export const getInitSdkOptions = (): SdkOptions => {
         type: 'document',
         options: {
           useLiveDocumentCapture:
-            queryParamToValueString.useLiveDocumentCapture !== 'false',
+            queryParamToValueString.useLiveDocumentCapture === 'true',
           uploadFallback: queryParamToValueString.uploadFallback !== 'false',
           useWebcam: queryParamToValueString.useWebcam === 'true',
           documentTypes: getPreselectedDocumentTypes(),

@@ -572,7 +572,7 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
   }
   ```
 
-- `useLiveDocumentCapture` (boolean - default: `true`)
+- `useLiveDocumentCapture` (boolean - default: `false`)
   **This feature is only available on mobile devices.**
 
   When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. Configuring this option minimises the risk of fraudulent upload by bypassing the device's default camera application. For unsupported scenarios, see the `uploadFallback` section below.
