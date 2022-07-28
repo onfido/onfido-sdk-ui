@@ -34,6 +34,7 @@ import type { Socket } from 'socket.io-client'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
 import { createCrossDeviceStepsHook } from './createCrossDeviceStepsHook'
 import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
+import { createWorkflowStepsHook } from './createWorkflowStepsHook'
 
 const RESTRICTED_CROSS_DEVICE = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -93,6 +94,7 @@ type State = {
   steps?: StepConfig[]
   token?: string
   useWorkflow?: boolean
+  workflowRunId?: string
   docPayload?: Record<string, unknown>[]
 }
 
@@ -192,7 +194,7 @@ export default class CrossDeviceMobileRouter extends Component<
 
   setUpHostedSDKWithMobileConfig = (data: MobileConfig): void => {
     const {
-      clientStepIndex,
+      stepIndex,
       disableAnalytics,
       documentType,
       enterpriseFeatures,
@@ -209,6 +211,7 @@ export default class CrossDeviceMobileRouter extends Component<
       crossDeviceClientIntroProductLogoSrc,
       analyticsSessionUuid,
       useWorkflow,
+      workflowRunId,
     } = data
     if (disableAnalytics) {
       uninstallWoopra()
@@ -235,11 +238,12 @@ export default class CrossDeviceMobileRouter extends Component<
       {
         token,
         steps,
-        step: clientStepIndex,
+        step: stepIndex,
         stepIndexType: 'client',
         crossDeviceError: undefined,
         language,
         useWorkflow,
+        workflowRunId,
         docPayload: [],
       },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
@@ -366,7 +370,13 @@ export default class CrossDeviceMobileRouter extends Component<
 
   renderContent = (): h.JSX.Element => {
     const { hasCamera, options, urls } = this.props
-    const { crossDeviceError, steps } = this.state
+    const {
+      crossDeviceError,
+      steps,
+      token,
+      workflowRunId,
+      useWorkflow,
+    } = this.state
 
     if (crossDeviceError) {
       return <WrappedError disableNavigation={true} error={crossDeviceError} />
@@ -412,7 +422,19 @@ export default class CrossDeviceMobileRouter extends Component<
               {...this.state}
               crossDeviceClientError={this.setError}
               sendClientSuccess={this.sendClientSuccess}
-              useSteps={createCrossDeviceStepsHook(steps, this.onCompleteStep)}
+              useSteps={
+                useWorkflow
+                  ? createWorkflowStepsHook(
+                      {
+                        ...options,
+                        token,
+                        workflowRunId,
+                        mobileFlow: true,
+                      },
+                      urls
+                    )
+                  : createCrossDeviceStepsHook(steps, this.onCompleteStep)
+              }
             />
           </PoASupportedCountriesProvider>
         </SdkConfigurationServiceProvider>

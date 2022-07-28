@@ -30,7 +30,7 @@ public class HostedAppHistoryIT extends WebSdkIT {
                 .next()
                 .startVerification()
                 .continueToNextStep(RestrictedDocumentSelection.class)
-                .selectCountry(RestrictedDocumentSelection.SUPPORTED_COUNTRY)
+                .selectSupportedCountry()
                 .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(UploadDocument.PASSPORT_JPG)

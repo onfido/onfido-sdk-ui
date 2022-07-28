@@ -17,10 +17,11 @@ import theme from '../Theme/style.scss'
 import { CountrySelector } from './CountrySelector'
 import { StateSelector } from './StateSelector'
 import { DateOfBirthInput, getMaxDay } from './DateOfBirthInput'
+import { SSNInput } from './SSNInput'
 import style from './style.scss'
 
 import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
-import type { GetPersonalDataFunc } from '~types/steps'
+import type { StepOptionData } from '~types/steps'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { TranslateCallback } from '~types/locales'
 
@@ -29,7 +30,8 @@ type ProfileDataProps = StepComponentDataProps & {
   dataSubPath: string
   dataFields: string[]
   disabledFields: string[]
-  getPersonalData: GetPersonalDataFunc
+  ssnEnabled?: StepOptionData['ssn_enabled']
+  getPersonalData: StepOptionData['getPersonalData']
   nextStep: () => void
   completeStep: (data: CompleteStepValue) => void
 } & WithLocalisedProps
@@ -39,6 +41,7 @@ const ProfileData = ({
   dataSubPath,
   dataFields,
   disabledFields,
+  ssnEnabled,
   getPersonalData,
   nextStep,
   completeStep,
@@ -111,7 +114,11 @@ const ProfileData = ({
             key={type}
             type={type as FieldComponentProps['type']}
             value={value as FieldComponentProps['value']}
-            selectedCountry={(formData as { country: string }).country}
+            selectedCountry={
+              (getPersonalData() as { address: { country: string } })?.address
+                ?.country
+            }
+            ssnEnabled={ssnEnabled}
             disabled={(disabledFields || []).includes(type)}
             setToucher={setToucher}
             removeToucher={removeToucher}
@@ -137,6 +144,7 @@ type fieldType =
   | 'first_name'
   | 'last_name'
   | 'dob'
+  | 'ssn'
   | 'country'
   | 'line1'
   | 'line2'
@@ -170,12 +178,13 @@ type FieldComponentProps = {
   setToucher: SetToucherFunc
   removeToucher: RemoveRoucherFunc
   onChange: FieldValueChangeFunc
-}
+} & Pick<ProfileDataProps, 'ssnEnabled'>
 
 const FieldComponent = ({
   type,
   value,
   selectedCountry,
+  ssnEnabled,
   disabled,
   setToucher,
   removeToucher,
@@ -183,7 +192,7 @@ const FieldComponent = ({
 }: FieldComponentProps) => {
   const { translate } = useLocales()
 
-  const isRequired = isFieldRequired(type, selectedCountry)
+  const isRequired = isFieldRequired(type, selectedCountry, ssnEnabled)
   const [isTouched, setIsTouched] = useState<boolean>(false)
   const [validationError, setValidationError] = useState<string | null>(null)
 
@@ -197,11 +206,14 @@ const FieldComponent = ({
     return () => {
       removeToucher(type)
     }
-  }, [type, isInvalid, setToucher, removeToucher, setIsTouched])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type, isInvalid])
 
   useEffect(() => {
-    setValidationError(validateField(type, value, selectedCountry)(translate))
-  }, [type, value, selectedCountry, translate])
+    setValidationError(
+      validateField(type, value, selectedCountry, ssnEnabled)(translate)
+    )
+  }, [type, value, selectedCountry, ssnEnabled, translate])
 
   const handleBlur = () => {
     if (!isTouched) setIsTouched(true)
@@ -218,14 +230,15 @@ const FieldComponent = ({
   // edge cases when field component should not be rendered at all
   if (
     (type === 'line3' && selectedCountry === 'USA') ||
-    (type === 'state' && selectedCountry !== 'USA')
+    (type === 'state' && selectedCountry !== 'USA') ||
+    (type === 'ssn' && (selectedCountry !== 'USA' || !ssnEnabled))
   ) {
     if (value) onChange(type, '') // removed value if was already set
     return null
   }
 
   return (
-    <Field>
+    <Field className={style['field']}>
       <FieldLabel>
         <span>
           {getTranslatedFieldLabel(translate, type, selectedCountry)}
@@ -236,14 +249,18 @@ const FieldComponent = ({
           )}
         </span>
         {getTranslatedFieldHelperText(translate, type, selectedCountry)}
-        {getFieldComponent(type, {
-          value,
-          disabled,
-          invalid: isTouched && isInvalid,
-          required: isRequired,
-          onBlur: handleBlur,
-          onChange: handleChange,
-        })}
+        {getFieldComponent(
+          type,
+          {
+            value,
+            disabled,
+            invalid: isTouched && isInvalid,
+            required: isRequired,
+            onBlur: handleBlur,
+            onChange: handleChange,
+          },
+          selectedCountry
+        )}
         {isTouched && isInvalid && (
           <Validation state="error">{validationError}</Validation>
         )}
@@ -261,7 +278,8 @@ const getFieldComponent = (
     required: boolean
     onBlur: () => void
     onChange: (ev: { target: { value: string } }) => void
-  }
+  },
+  country?: FieldComponentProps['selectedCountry']
 ) => {
   switch (type) {
     case 'country':
@@ -269,9 +287,11 @@ const getFieldComponent = (
     case 'state':
       return <StateSelector {...props} />
     case 'dob':
-      return <DateOfBirthInput {...props} />
+      return <DateOfBirthInput {...props} country={country} />
     case 'postcode':
       return <Input {...props} type="text" style={{ width: space(22) }} />
+    case 'ssn':
+      return <SSNInput {...props} style={{ width: space(22) }} />
     default:
       return <Input {...props} type="text" />
   }
@@ -305,15 +325,25 @@ const getTranslatedFieldHelperText = (
 
   switch (type) {
     case 'dob':
-      return <HelperText>MM / DD / YYYY</HelperText>
+      return <HelperText>{getLocalisedDobFormatExample(country)}</HelperText>
     default:
       return null
   }
 }
 
+const getLocalisedDobFormatExample = (country: string | undefined) => {
+  switch (country) {
+    case 'USA':
+      return 'MM / DD / YYYY'
+    default:
+      return 'DD / MM / YYYY'
+  }
+}
+
 const isFieldRequired = (
   type: FieldComponentProps['type'],
-  country?: FieldComponentProps['selectedCountry']
+  country?: FieldComponentProps['selectedCountry'],
+  ssnEnabled?: FieldComponentProps['ssnEnabled']
 ): boolean => {
   const requiredFields = [
     'first_name',
@@ -326,6 +356,9 @@ const isFieldRequired = (
 
   if (country === 'USA') {
     requiredFields.push('state')
+    if (ssnEnabled) {
+      requiredFields.push('ssn')
+    }
   }
 
   return requiredFields.includes(type)
@@ -334,10 +367,11 @@ const isFieldRequired = (
 const validateField = (
   type: FieldComponentProps['type'],
   value: FieldComponentProps['value'],
-  country?: FieldComponentProps['selectedCountry']
+  country?: FieldComponentProps['selectedCountry'],
+  ssnEnabled?: FieldComponentProps['ssnEnabled']
 ) => (translate: TranslateCallback): string | null => {
   // required values
-  if (isFieldRequired(type, country) && !value) {
+  if (isFieldRequired(type, country, ssnEnabled) && !value) {
     return translate(
       `profile_data.${
         translateSpecific('validation_required', type, country) ||
@@ -385,6 +419,11 @@ const validateField = (
 
     if (!Object.values(validity).every(Boolean)) {
       return translate('profile_data.field_validation.invalid_dob')
+    }
+  }
+  if (type === 'ssn' && country === 'USA' && ssnEnabled) {
+    if (!/^\d{3}-?\d{2}-?\d{4}$/.test(value)) {
+      return translate('profile_data.field_validation.usa_specific.invalid_ssn')
     }
   }
 
@@ -440,6 +479,8 @@ const translateSpecific = (
   country?: FieldComponentProps['selectedCountry']
 ): string | null => {
   switch (`${translationType}_${fieldType}_${country?.toLocaleLowerCase()}`) {
+    case 'label_ssn_usa':
+      return 'field_labels.usa_specific.ssn'
     case 'label_town_gbr':
       return 'field_labels.gbr_specific.town'
     case 'label_postcode_gbr':
@@ -452,6 +493,10 @@ const translateSpecific = (
       return 'field_labels.usa_specific.line1_helper_text'
     case 'helper_text_line2_usa':
       return 'field_labels.usa_specific.line2_helper_text'
+    case 'validation_required_ssn_usa':
+      return 'field_validation.usa_specific.required_ssn'
+    case 'validation_invalid_ssn_usa':
+      return 'field_validation.usa_specific.invalid_ssn'
     case 'validation_required_postcode_gbr':
       return 'field_validation.gbr_specific.required_postcode'
     case 'validation_required_state_usa':

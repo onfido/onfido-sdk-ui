@@ -1,5 +1,7 @@
 import {
   getMaxDay,
+  getLocalisedInputFormat,
+  getInputParams,
   makeInputName,
   makeFieldValue,
   makeFullFieldValue,
@@ -23,13 +25,43 @@ describe('getMaxDay', () => {
   })
 })
 
+describe('getLocalisedInputFormat', () => {
+  const values = ['USA', 'UK', undefined]
+
+  it('should return a format of 3 values', () => {
+    values.forEach((value) => {
+      expect(getLocalisedInputFormat(value)).toHaveLength(3)
+    })
+  })
+
+  it('should have valid format values', () => {
+    values.forEach((value) => {
+      getLocalisedInputFormat(value).forEach((value) => {
+        expect(value).toMatch(/^year|month|day$/)
+      })
+    })
+  })
+})
+
+describe('getInputParams', () => {
+  const formats: ['year', 'month', 'day'] = ['year', 'month', 'day']
+
+  it('should return an object with correct keys', () => {
+    formats.forEach((format) => {
+      expect(Object.keys(getInputParams(format)).sort()).toEqual(
+        ['valueType', 'placeholder', 'size', 'maxLength'].sort()
+      )
+    })
+  })
+})
+
 describe('makeInputName', () => {
   it('should return name based on component name', () => {
-    expect(makeInputName('input', 'component')).toEqual('component-input')
+    expect(makeInputName('year', 'component')).toEqual('component-year')
   })
 
   it('should fallback to input name when no component name is provided', () => {
-    expect(makeInputName('input')).toEqual('input')
+    expect(makeInputName('year')).toEqual('year')
   })
 })
 

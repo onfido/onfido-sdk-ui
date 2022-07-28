@@ -1,4 +1,74 @@
 {
+    "profile_data": {
+        "country_of_residence_title": "Ihr Wohnsitzland",
+        "personal_information_title": "Fügen Sie Ihre persönlichen Informationen hinzu",
+        "address_title": "Fügen Sie Ihre Adresse hinzu",
+        "field_labels": {
+            "first_name": "Vorname",
+            "dob": "Geburtsdatum",
+            "last_name": "Nachname",
+            "country": "Land",
+            "line1": "Adresszeile 1",
+            "line2": "Adresszeile 2",
+            "line3": "Adresszeile 3",
+            "town": "Stadt",
+            "postcode": "Postleitzahl",
+            "gbr_specific": {
+                "town": "Stadt",
+                "postcode": "Postleitzahl"
+            },
+            "usa_specific": {
+                "line1_helper_text": "Straßenname, zum Beispiel: Abertstraße 200",
+                "line2_helper_text": "Wohnung, Suite, Einheit, etc.",
+                "state": "Staat",
+                "postcode": "Zip code"
+            }
+        },
+        "field_validation": {
+            "required_first_name":  "Bitte geben Sie Ihren vorname ein",
+            "required_last_name": "Bitte geben Sie Ihren Nachnamen ein",
+            "required_dob": "Bitte geben Sie Ihr Geburtsdatum ein",
+            "required_country": "Bitte wählen Sie ein Land aus",
+            "required_line1": "Bitte geben Sie Ihre Adresse ein",
+            "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
+            "invalid": "Bitte auf ungültige Zeichen oder Symbole überprüfen",
+            "invalid_dob": "Bitte geben Sie ein gültiges Geburtsdatum ein",
+            "too_short_last_name": "Der Nachname ist zu kurz",
+            "too_short_postcode": "Die Postleitzahl ist zu kurz",
+            "too_long_last_name": "Der Nachname ist zu lang",
+            "too_long_first_name": "Der Vorname ist zu lang",
+            "too_long_postcode": "Die Postleitzahl ist zu lang",
+            "too_long__line1": "Die Adresszeile ist zu lang",
+            "too_long__line2": "Die Adresszeile ist zu lang",
+            "too_long__line3": "Die Adresszeile ist zu lang",
+            "too_long_town": "",
+            "gbr_specific": {
+                "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
+                "too_short_postcode": "Die Postleitzahl ist zu kurz",
+                "too_long_postcode": "Die Postleitzahl ist zu lang"
+            },
+            "usa_specific": {
+                "required_state": "Bitte wählen Sie einen Staat aus",
+                "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
+                "too_short_postcode":  "Die Postleitzahl ist zu kurz",
+                "too_long_postcode": "Die Postleitzahl ist zu lang"
+            }
+        },
+        "field_optional": "(optional)",
+        "button_continue": "Weiter",
+        "components": {
+            "country_select": {
+                "placeholder": "Wählen Sie ein Land aus"
+            },
+            "state_select": {
+                "placeholder": "Wählen Sie ein Bundesland aus"
+            }
+        },
+        "prompt": {
+            "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht",
+            "details_timeout": "Erneut starten"
+        }
+    },
     "auth_accessibility": {
         "back_button": "Abbrechen"
     },
@@ -252,6 +322,11 @@
         "button_secondary": "Video-Vorschau",
         "title": "Selfie-Video prüfen"
     },
+    "doc_multi_frame_capture": {
+        "capture_progress_title": "Dokument wird gescannt",
+        "instructions_title_front": "Positionieren Sie die Vorderseite Ihres Dokuments im Rahmen",
+        "instructions_title_back": "Positionieren Sie die Rückseite Ihres Dokuments im Rahmen"
+    },
     "error_unsupported_browser": {
         "subtitle_android": "Starten Sie den Prozess auf der neuesten Version von Google Chrome neu",
         "subtitle_ios": "Starten Sie den Prozess mit der neuesten Version von Safari neu",
@@ -266,6 +341,10 @@
         "back": "zurück",
         "close": "Schließen",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Es tut uns leid, wir können leider nicht fortfahren, da Ihr aktueller Standort nicht unterstützt wird.",
+                "message": "Service nicht verfügbar"
+            },
             "interrupted_flow_error": {
                 "instruction": "Starten Sie den Prozess auf einem anderen Gerät neu",
                 "message": "Kamera nicht erkannt"
@@ -537,6 +616,7 @@
         "list_item_selfie": "Ihr Gesicht",
         "next_button": "Dokument auswählen",
         "subtitle": "Es dauert nur wenige Minuten",
-        "title": "Identität überprüfen"
+        "title": "Identität überprüfen",
+        "start_workflow_button": "Verifizierung beginnen"
     }
 }

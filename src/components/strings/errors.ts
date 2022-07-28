@@ -43,6 +43,10 @@ const errors: Record<ErrorNames, LocaleData> = {
     message: 'doc_confirmation.alert.crop_title',
     instruction: 'doc_confirmation.alert.crop_detail',
   },
+  GEOBLOCKED_ERROR: {
+    message: 'generic.errors.geoblocked_error.message',
+    instruction: 'generic.errors.geoblocked_error.instruction',
+  },
   GLARE_DETECTED: {
     message: 'doc_confirmation.alert.glare_title',
     instruction: 'doc_confirmation.alert.glare_detail',

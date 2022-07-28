@@ -36,6 +36,7 @@
                 "postcode": "Postcode"
             },
             "usa_specific": {
+                "ssn": "Social Security number (SSN)",
                 "line1_helper_text": "Street address, for example: 200 Albert Street",
                 "line2_helper_text": "Apartment, suite, unit, etc.",
                 "state": "State",
@@ -66,6 +67,8 @@
                 "too_long_postcode": "Postcode is too long"
             },
             "usa_specific": {
+                "required_ssn": "Please enter your Social Security number",
+                "invalid_ssn": "Please enter a valid Social Security number",
                 "required_state": "Please select a state",
                 "required_postcode": "Please enter your zip code",
                 "too_short_postcode": "Zip code is too short",
@@ -364,6 +367,10 @@
         "back": "back",
         "close": "close",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "We’re sorry, seems like we can’t proceed further as your current location is not supported",
+                "message": "Service unavailable"
+            },
             "interrupted_flow_error": {
                 "instruction": "Restart process on a different device",
                 "message": "Camera not detected"
@@ -635,7 +642,7 @@
         "list_item_poa": "your proof of address",
         "list_item_selfie": "your face",
         "next_button": "Choose document",
-        "start_workflow_button": "Start verfication",
+        "start_workflow_button": "Start verification",
         "subtitle": "It should take a few minutes",
         "title": "Verify your identity"
     }

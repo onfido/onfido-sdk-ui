@@ -1,4 +1,74 @@
 {
+    "profile_data": {
+        "country_of_residence_title": "Uw land van verblijf",
+        "personal_information_title": "Voeg uw persoonlijke informatie toe",
+        "address_title": "Voeg uw adres toe",
+        "field_labels": {
+            "first_name": "Voornaam",
+            "dob": "Geboortedatum",
+            "last_name": "Achternaam",
+            "country": "Land",
+            "line1": "Adresregel 1",
+            "line2": "Adresregel 2",
+            "line3": "Adresregel 3",
+            "town": "Stad",
+            "postcode": "Postcode",
+            "gbr_specific": {
+                "town": "Stad\/Dorp",
+                "postcode": "Postcode"
+            },
+            "usa_specific": {
+                "line1_helper_text": "Adres, bijvoorbeeld: 200 Albertstraat",
+                "line2_helper_text": "Appartement, suite, eenheid, enz.",
+                "state": "Staat",
+                "postcode": "Zip code (VS)"
+            }
+        },
+        "field_validation": {
+            "required_first_name": "Voer uw voornaam in",
+            "required_last_name": "Voer uw achternaam in",
+            "required_dob": "Voer uw geboortedatum in",
+            "required_country": "Selecteer een land",
+            "required_line1": "Voer uw adres in",
+            "required_postcode": "Voer uw postcode in",
+            "invalid": "Controleer op ongeldige tekens of symbolen",
+            "invalid_dob": "Voer een geldig geboortedatum in",
+            "too_short_last_name": "Achternaam is te kort",
+            "too_short_postcode": "Postcode is te kort",
+            "too_long_last_name": "Achternaam is te lang",
+            "too_long_first_name": "Voornaam is te lang",
+            "too_long_postcode": "Postcode is te lang",
+            "too_long__line1": "Adresregel is te lang",
+            "too_long__line2": "Adresregel is te lang",
+            "too_long__line3": "Adresregel is te lang",
+            "too_long_town": "Stad is te lang",
+            "gbr_specific": {
+                "required_postcode": "Voer uw postcode in",
+                "too_short_postcode": "Postcode is te kort",
+                "too_long_postcode": "Postcode is te lang"
+            },
+            "usa_specific": {
+                "required_state": "Selecteer een staat",
+                "required_postcode": "Voer uw postcode in",
+                "too_short_postcode": "Postcode is te kort",
+                "too_long_postcode": "Postcode is te lang"
+            }
+        },
+        "field_optional": "(optioneel)",
+        "button_continue": "Doorgaan",
+        "components": {
+            "country_select": {
+                "placeholder": "Selecteer een land"
+            },
+            "state_select": {
+                "placeholder": "Selecteer een staat"
+            }
+        },
+        "prompt": {
+            "header_timeout": "Het lijkt erop dat het te lang duurde",
+            "details_timeout": "Start opnieuw"
+        }
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",
@@ -167,6 +237,11 @@
         "button_secondary": "Video weergeven",
         "title": "Controleer uw filmpje"
     },
+    "doc_multi_frame_capture": {
+        "capture_progress_title": "Document scannen",
+        "instructions_title_front": "Plaats de voorkant van uw document in het kader",
+        "instructions_title_back": "Plaats de achterkant van uw document in het kader"
+    },
     "error_unsupported_browser": {
         "subtitle_android": "Start het proces opnieuw op de laatste versie Google Chrome",
         "subtitle_ios": "Start het proces opnieuw op de laatste versie van Safari",
@@ -181,6 +256,10 @@
         "back": "terug",
         "close": "sluiten",
         "errors": {
+            "geoblocked_error": {
+                "instruction": "Het spijt ons, we kunnen niet verdergaan, omdat uw huidige locatie niet ondersteund wordt",
+                "message": "Service niet beschikbaar"
+            },
             "interrupted_flow_error": {
                 "instruction": "Start het proces opnieuw vanaf een ander apparaat",
                 "message": "Camera niet gedetecteerd"
@@ -456,6 +535,7 @@
         "list_item_selfie": "uw gezicht",
         "next_button": "Kies een document",
         "subtitle": "Dat duurt maar een paar minuten",
-        "title": "Verifieer uw identiteit"
+        "title": "Verifieer uw identiteit",
+        "start_workflow_button": "Start verificatie"
     }
 }

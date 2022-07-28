@@ -247,6 +247,7 @@ export const ErrorNameToUIAlertMapping: Record<
   FACE_VIDEO_TIMEOUT: 'face_video_timeout',
   FORBIDDEN_CLIENT_ERROR: undefined,
   GENERIC_CLIENT_ERROR: undefined,
+  GEOBLOCKED_ERROR: undefined,
   INTERRUPTED_FLOW_ERROR: undefined,
   PROFILE_DATA_TIMEOUT: 'profile_data_timeout',
   GLARE_DETECTED: 'glare',

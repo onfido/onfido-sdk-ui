@@ -47,6 +47,15 @@ export const formatStep = (typeOrStep: StepConfig | StepTypes): StepConfig => {
   return typeOrStep
 }
 
+export const injectPrivateConfig = (step: StepConfig): StepConfig => {
+  if (step.type === 'activeVideo') {
+    // Active Video Capture SDK already includes a footer and should appear under a semi-transparent navigation bar
+    return { ...step, edgeToEdgeContent: true }
+  }
+
+  return step
+}
+
 const formatOptions = ({
   steps,
   smsNumberCountryCode,
@@ -58,10 +67,15 @@ const formatOptions = ({
     ? []
     : ['document', 'face', 'complete']
   const internalSteps: StepTypes[] = ['userConsent']
-  const defaultSteps: StepTypes[] =
+
+  //@ts-ignorets TODO: quick fix, remove this whole block when the welcome screen is configured via workflow
+  const welcomeStep =
+    steps?.map(formatStep).find((i) => i.type === 'welcome') || 'welcome'
+
+  const defaultSteps: (StepTypes | StepConfig)[] =
     process.env.SDK_ENV === 'Auth'
-      ? ['welcome', 'auth', ...mandatorySteps]
-      : ['welcome', ...mandatorySteps]
+      ? [welcomeStep, 'auth', ...mandatorySteps]
+      : [welcomeStep, ...mandatorySteps]
 
   return {
     ...otherOptions,
@@ -71,6 +85,7 @@ const formatOptions = ({
       ? defaultSteps.map(formatStep)
       : (steps || defaultSteps)
           .map(formatStep)
+          .map(injectPrivateConfig)
           .filter(({ type }) => !internalSteps.includes(type)),
   }
 }
@@ -84,10 +99,13 @@ const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
     )
   }
 
-  if (documentStep?.options?.useLiveDocumentCapture) {
+  const activeVideoStep = buildStepFinder(steps)('activeVideo')
+
+  if (activeVideoStep) {
     console.warn(
-      '`useLiveDocumentCapture` is a beta feature and is still subject to ongoing changes'
+      '`activeVideo` is a beta feature and is still subject to ongoing changes'
     )
+    import(/* webpackPrefetch: true */ './components/ActiveVideo/ActiveVideo')
   }
 }
 
@@ -148,7 +166,8 @@ export const init = (opts: SdkOptions): SdkHandle => {
   return {
     options,
     setOptions(changedOptions) {
-      this.options = { ...this.options, ...formatOptions(changedOptions) }
+      opts = { ...opts, ...changedOptions }
+      this.options = formatOptions({ ...opts, ...changedOptions })
       if (
         this.options.containerEl !== changedOptions.containerEl &&
         changedOptions.containerEl
