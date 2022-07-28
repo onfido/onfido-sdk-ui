@@ -1,6 +1,6 @@
 > Update internal docs here: https://wiki.onfido.net/display/SI/SDK+Analytics+-+List+of+Events+and+Properties
 
-## 8.2.0
+## [next-version]
 
 ### Analytics events:
 
