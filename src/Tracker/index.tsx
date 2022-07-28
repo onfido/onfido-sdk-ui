@@ -65,7 +65,6 @@ const userAnalyticsEvent = (
   )
 }
 
-// Last one
 const sendEvent = (
   eventName: LegacyTrackedEventNames,
   properties?: Record<string, unknown>
@@ -117,14 +116,11 @@ const appendToTracking = <P extends WithTrackingProps>(
     )
   }
 
-type AnalyticsDynamicProperties = Record<string, unknown>
-
 const trackComponent = <P extends WithTrackingProps>(
   WrappedComponent: ComponentType<P>,
   screenName?: string
 ): ComponentType<P> =>
   class TrackedComponent extends Component<P> {
-    callback?: () => AnalyticsDynamicProperties = undefined
     componentDidMount() {
       const properties = this.props.trackPropertiesBeforeMount
         ? this.props.trackPropertiesBeforeMount()
