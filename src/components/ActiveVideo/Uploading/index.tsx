@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import { useEffect, useState } from 'preact/hooks'
+import { useEffect } from 'preact/hooks'
 import { Footer } from '../Footer'
 import { Header } from '../Header'
 import { Wrapper } from '../Wrapper'
@@ -7,58 +7,102 @@ import { BaseScreen } from '../BaseScreen'
 import { LoaderIcon } from '../assets/LoaderIcon'
 import { localised } from '~locales'
 import { connect } from 'react-redux'
-import { RootState } from '~types/redux'
+import { ActiveVideoCapture, RootState } from '~types/redux'
 import { buildCaptureStateKey } from '~utils/redux'
+import { ErrorProp, StepComponentBaseProps } from '~types/routers'
+import { uploadActiveVideo } from '~utils/onfidoApi'
+import { ActiveVideoResponse, ParsedError } from '~types/api'
+import { ErrorNames } from '~types/commons'
+import { trackException } from 'Tracker'
 
-interface Props {
-  videoPayload?: Blob
+type Props = StepComponentBaseProps & {
+  capture?: ActiveVideoCapture
   nextStep: () => void
 }
 
 const mapStateToProps = ({ captures }: RootState, props: Props): Props => ({
   ...props,
-  videoPayload: captures[buildCaptureStateKey({ method: 'activeVideo' })]?.blob,
+  capture: captures[
+    buildCaptureStateKey({ method: 'activeVideo' })
+  ] as ActiveVideoCapture,
 })
 
-const Uploading: FunctionComponent<Props> = ({ nextStep, videoPayload }) => {
-  const [uploadProgress, setUploadProgress] = useState(0)
+const Uploading: FunctionComponent<Props> = ({
+  nextStep,
+  completeStep,
+  triggerOnError,
+  resetSdkFocus,
+  mobileFlow,
+  crossDeviceClientError,
+  token,
+  actions,
+  capture,
+  urls,
+}) => {
+  const onApiSuccess = (apiResponse: ActiveVideoResponse) => {
+    actions.setCaptureMetadata({ capture, apiResponse })
+    completeStep([{ id: apiResponse.id }])
+    nextStep()
+  }
 
-  console.log(videoPayload)
+  const onApiError = (error: ParsedError) => {
+    const status = error.status || 0
+    const response = error.response || {}
 
-  let interval: NodeJS.Timeout
-
-  /**
-   * This method is only intended to mimic the real upload.
-   */
-  useEffect(() => {
-    interval = setInterval(() => {
-      setUploadProgress((value) => {
-        if (value < 100) {
-          return value + 1
-        } else {
-          nextStep()
-          clearInterval(interval)
-        }
-
-        return value
-      })
-
-      return () => {
-        clearInterval(interval)
+    if (mobileFlow && status === 401) {
+      triggerOnError({ status, response })
+      if (crossDeviceClientError) {
+        crossDeviceClientError()
       }
-    }, 20)
-  }, [])
+    } else if (status === 422) {
+      setError('REQUEST_ERROR')
+    } else if (
+      status === 403 &&
+      response.error?.type === 'geoblocked_request'
+    ) {
+      setError(
+        'GEOBLOCKED_ERROR',
+        'generic.errors.geoblocked_error.instruction'
+      )
+    } else {
+      triggerOnError({ status, response })
+      trackException(`${status} - ${response}`)
+      setError('REQUEST_ERROR', response?.error?.message)
+    }
+  }
 
-  /**
-   * Get the formatted upload progress
-   * @returns The formatted upload progress.
-   */
-  const formattedUploadProgress = () => `${uploadProgress}%`
+  const setError = (name: ErrorNames, errorMessage?: unknown) => {
+    const error: ErrorProp = { name, type: 'error' }
+    if (errorMessage) {
+      error.properties = { error_message: errorMessage }
+    }
+
+    resetSdkFocus()
+  }
+
+  useEffect(() => {
+    if (capture) {
+      const metadata = {
+        sdk_metadata: capture.sdkMetadata,
+        sdk_source: process.env.SDK_SOURCE,
+        sdk_version: process.env.SDK_VERSION,
+      }
+
+      uploadActiveVideo(
+        capture.blob,
+        JSON.stringify(metadata),
+        urls.onfido_api_url,
+        token,
+        onApiSuccess,
+        onApiError
+      )
+    }
+  }, [])
 
   return (
     <BaseScreen>
       <Wrapper>
-        <Header title="Uploading" subtitle={formattedUploadProgress()}>
+        <Header title="Uploading">
           <LoaderIcon />
         </Header>
       </Wrapper>

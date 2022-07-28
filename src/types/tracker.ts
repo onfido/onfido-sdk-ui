@@ -156,6 +156,8 @@ export type LegacyTrackedEventNames =
   | 'document_video_upload_completed'
   | 'face_video_upload_started'
   | 'face_video_upload_completed'
+  | 'active_video_upload_started'
+  | 'active_video_upload_completed'
   | 'screen_workflow_retry'
   | 'navigation_back_button_clicked'
   | 'navigation_close_button_clicked'
