@@ -172,6 +172,13 @@
         "subtitle": "A video of your face has been recorded successfully",
         "title": "Recording complete"
     },
+    "avc_connection_error": {
+        "button_primary_reload": "Reload instructions",
+        "button_primary_retry_upload": "Retry upload",
+        "button_secondary_restart_recording": "Restart recording",
+        "subtitle": "Check that your connection is stable, then try again",
+        "title": "Connection error"
+    },
     "avc_face_alignment": {
         "feedback_move_back": "Move back",
         "feedback_move_closer": "Move closer",
