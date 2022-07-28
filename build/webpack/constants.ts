@@ -1,6 +1,9 @@
 import packageJson from '../../package.json'
 import { resolve } from 'path'
 
+// Dev only
+export const SAFE_SOURCE_MAPS = process.env.SAFE_SOURCE_MAPS ?? false
+
 export const BASE_DIR = resolve(__dirname, '../../')
 // We use a Base 32 version string for the cross-device flow, to make URL
 // string support easier...

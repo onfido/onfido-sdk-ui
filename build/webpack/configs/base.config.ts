@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import { PRODUCTION_BUILD, BASE_DIR } from '../constants'
+import { PRODUCTION_BUILD, BASE_DIR, SAFE_SOURCE_MAPS } from '../constants'
 
 export const baseConfig = {
   mode: PRODUCTION_BUILD ? 'production' : 'development',
@@ -42,5 +42,10 @@ export const baseConfig = {
     __dirname: false,
   },
 
-  devtool: PRODUCTION_BUILD ? 'source-map' : 'cheap-module-source-map',
+  devtool: PRODUCTION_BUILD
+    ? 'source-map'
+    : SAFE_SOURCE_MAPS
+    ? // See https://github.com/onfido/onfido-sdk-ui/pull/1980
+      'cheap-module-source-map'
+    : 'eval-cheap-module-source-map',
 }
