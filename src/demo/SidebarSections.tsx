@@ -186,7 +186,7 @@ export const SdkOptionsView: FunctionComponent<{
           !!sdkOptions.overrideSdkConfiguration?.experimental_features
             ?.motion_experiment?.enabled
         }
-        title="enable_liveness_experiment"
+        title="motion_experiment"
         onChange={(e) =>
           updateSdkOptions({
             overrideSdkConfiguration: {
@@ -201,7 +201,7 @@ export const SdkOptionsView: FunctionComponent<{
           })
         }
       />
-      &nbsp;enableLivenessExperiment
+      &nbsp;Motion Experiment
     </div>
   </div>
 )

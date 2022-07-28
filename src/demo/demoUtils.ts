@@ -29,6 +29,7 @@ export type QueryParams = {
   language?: 'customTranslations' | SupportedLanguages
   customWelcomeScreenCopy?: StringifiedBoolean
   link_id?: string
+  motionExperiment?: StringifiedBoolean
   docVideo?: StringifiedBoolean
   faceVideo?: StringifiedBoolean
   multiDocWithInvalidPresetCountry?: StringifiedBoolean
@@ -216,7 +217,7 @@ export const getInitSdkOptions = (): SdkOptions => {
         type: 'document',
         options: {
           useLiveDocumentCapture:
-            queryParamToValueString.useLiveDocumentCapture !== 'false',
+            queryParamToValueString.useLiveDocumentCapture === 'true',
           uploadFallback: queryParamToValueString.uploadFallback !== 'false',
           useWebcam: queryParamToValueString.useWebcam === 'true',
           documentTypes: getPreselectedDocumentTypes(),
@@ -246,6 +247,18 @@ export const getInitSdkOptions = (): SdkOptions => {
     }
 
     sdkOptions.steps = steps
+  }
+
+  if (queryParamToValueString.motionExperiment === 'true') {
+    sdkOptions.overrideSdkConfiguration = {
+      ...sdkOptions.overrideSdkConfiguration,
+      experimental_features: {
+        ...sdkOptions.overrideSdkConfiguration?.experimental_features,
+        motion_experiment: {
+          enabled: true,
+        },
+      },
+    }
   }
 
   if (queryParamToValueString.countryCode) {

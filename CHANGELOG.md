@@ -10,7 +10,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## Changed
 
-- Public: Make the `useLiveDocumentCapture` true by default. Clients can still change this option to false.
 - Internal: Add dynamically loaded files (except en_US)
 - Internal: Upgraded Sentry to v7, added ErrorBoundary, fingerprinting and moved into its own module
 - Internal: Move Woopra into it's own core module
@@ -23,6 +22,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Remove asterisk from required fields
 - Internal: Remove isFullScreen prop from NavigationBar
 - Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
+- Internal: Update terser to 5.14.2 & moment to 2.29.4
+- Internal: Add Network module
+- Internal: Move all network calls to the Network module
 - Internal: Add `trackPropertiesBeforeMount` to internal analytics api
 
 ## [8.1.1] - 2022-07-13
