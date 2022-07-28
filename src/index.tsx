@@ -67,10 +67,15 @@ const formatOptions = ({
     ? []
     : ['document', 'face', 'complete']
   const internalSteps: StepTypes[] = ['userConsent']
-  const defaultSteps: StepTypes[] =
+
+  //@ts-ignorets TODO: quick fix, remove this whole block when the welcome screen is configured via workflow
+  const welcomeStep =
+    steps?.map(formatStep).find((i) => i.type === 'welcome') || 'welcome'
+
+  const defaultSteps: (StepTypes | StepConfig)[] =
     process.env.SDK_ENV === 'Auth'
-      ? ['welcome', 'auth', ...mandatorySteps]
-      : ['welcome', ...mandatorySteps]
+      ? [welcomeStep, 'auth', ...mandatorySteps]
+      : [welcomeStep, ...mandatorySteps]
 
   return {
     ...otherOptions,
@@ -91,12 +96,6 @@ const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
   if (documentStep?.options?.useWebcam) {
     console.warn(
       '`useWebcam` is an experimental option and is currently discouraged'
-    )
-  }
-
-  if (documentStep?.options?.useLiveDocumentCapture) {
-    console.warn(
-      '`useLiveDocumentCapture` is a beta feature and is still subject to ongoing changes'
     )
   }
 
@@ -167,7 +166,8 @@ export const init = (opts: SdkOptions): SdkHandle => {
   return {
     options,
     setOptions(changedOptions) {
-      this.options = { ...this.options, ...formatOptions(changedOptions) }
+      opts = { ...opts, ...changedOptions }
+      this.options = formatOptions({ ...opts, ...changedOptions })
       if (
         this.options.containerEl !== changedOptions.containerEl &&
         changedOptions.containerEl

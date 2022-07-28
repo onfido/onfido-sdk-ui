@@ -572,8 +572,8 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
   }
   ```
 
-- `useLiveDocumentCapture` (boolean - default: `false`)
-  **This BETA feature is only available on mobile devices.**
+- `useLiveDocumentCapture` (boolean - default: `true`)
+  **This feature is only available on mobile devices.**
 
   When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. Configuring this option minimises the risk of fraudulent upload by bypassing the device's default camera application. For unsupported scenarios, see the `uploadFallback` section below.
 
@@ -855,7 +855,7 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
   default-src 'self' https://assets.onfido.com;
   script-src 'self' https://www.woopra.com https://assets.onfido.com https://sentry.io;
   style-src 'self' https://assets.onfido.com;
-  connect-src blob: *.onfido.com wss://*.onfido.com https://www.woopra.com https://sentry.io;
+  connect-src 'self' data: blob: *.onfido.com wss://*.onfido.com https://www.woopra.com https://sentry.io;
   img-src 'self' data: blob: https://assets.onfido.com/;
   media-src blob:;
   object-src 'self' blob:;

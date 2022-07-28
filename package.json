@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "8.1.0",
+  "version": "8.1.1",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -10,6 +10,7 @@
   "license": "SEE LICENSE IN ./LICENSE",
   "scripts": {
     "dev": "HOT_RELOAD_ENABLED=true NODE_ENV=development HTTPS=true webpack serve --progress",
+    "dev:activeVideo": "SAFE_SOURCE_MAPS=true npm run dev",
     "dev:auth": "HOT_RELOAD_ENABLED=true NODE_ENV=development SDK_ENV=Auth HTTPS=true webpack serve --progress",
     "dev:insecure": "HOT_RELOAD_ENABLED=true NODE_ENV=development webpack serve --progress",
     "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
@@ -74,6 +75,7 @@
       "^~modules(.*)$": "<rootDir>/modules$1",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
       "^~supported-documents(.*)$": "<rootDir>/src/supported-documents$1",
+      "^~workflow-engine(.*)$": "<rootDir>/src/workflow-engine$1",
       "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
       "^components(.*)$": "<rootDir>/src/components$1"
     },
@@ -130,9 +132,9 @@
     "@babel/preset-typescript": "^7.13.0",
     "@babel/register": "^7.8.6",
     "@babel/runtime-corejs3": "^7.17.2",
-    "@onfido/castor": "^2.0.3",
+    "@onfido/castor": "^2.2.2",
     "@onfido/castor-icons": "^2.8.0",
-    "@onfido/castor-react": "^2.0.3",
+    "@onfido/castor-react": "^2.2.2",
     "@sentry/integrations": "^7.2.0",
     "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^5.16.1",
@@ -195,7 +197,7 @@
     "jest-cli": "^27.5.1",
     "jest-environment-jsdom": "^27.5.1",
     "jest-fetch-mock": "^3.0.3",
-    "license-checker-rseidelsohn": "^1.1.2",
+    "license-checker-rseidelsohn": "^3.1.0",
     "mini-css-extract-plugin": "^2.5.3",
     "modify-source-webpack-plugin": "^3.0.0",
     "moment": "^2.29.3",
