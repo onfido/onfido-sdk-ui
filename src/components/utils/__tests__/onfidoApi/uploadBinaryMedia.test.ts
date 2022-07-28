@@ -1,10 +1,10 @@
 import { jwtToken } from '~jest/responses'
 import { uploadBinaryMedia } from '~utils/onfidoApi'
 import { hmac256 } from '~utils/blob'
-import { performHttpReq } from '~utils/http'
+import { performHttpRequest } from '~core/Network'
 
 jest.mock('~utils/blob')
-jest.mock('~utils/http')
+jest.mock('~core/Network')
 
 const url = 'https://test.url.com'
 
@@ -15,8 +15,8 @@ const documentCapture = {
 }
 
 const mockedHmac256 = hmac256 as jest.MockedFunction<typeof hmac256>
-const mockedPerformHttpReq = performHttpReq as jest.MockedFunction<
-  typeof performHttpReq
+const mockedPerformHttpReq = performHttpRequest as jest.MockedFunction<
+  typeof performHttpRequest
 >
 
 describe('onfidoApi', () => {

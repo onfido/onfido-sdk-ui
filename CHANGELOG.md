@@ -23,6 +23,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Remove isFullScreen prop from NavigationBar
 - Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
 - Internal: Update terser to 5.14.2 & moment to 2.29.4
+- Internal: Add Network module
+- Internal: Move all network calls to the Network module
 
 ## [8.1.1] - 2022-07-13
 
