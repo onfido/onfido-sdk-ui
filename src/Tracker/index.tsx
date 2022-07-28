@@ -126,24 +126,14 @@ const trackComponent = <P extends WithTrackingProps>(
   class TrackedComponent extends Component<P> {
     callback?: () => AnalyticsDynamicProperties = undefined
     componentDidMount() {
-      const properties =
-        typeof this.callback === 'function' ? this.callback() : undefined
+      const properties = this.props.trackPropertiesBeforeMount
+        ? this.props.trackPropertiesBeforeMount()
+        : undefined
 
       this.props.trackScreen(screenName, properties)
     }
 
-    trackPropertiesBeforeMount = (cb: () => AnalyticsDynamicProperties) => {
-      if (typeof cb === 'function') {
-        this.callback = cb
-      }
-    }
-
-    render = () => (
-      <WrappedComponent
-        {...this.props}
-        trackPropertiesBeforeMount={this.trackPropertiesBeforeMount}
-      />
-    )
+    render = () => <WrappedComponent {...this.props} />
   }
 
 const trackException = (message: string, extra?: EventHint): void => {

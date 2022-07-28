@@ -27,6 +27,8 @@ export type WithFailureHandlingProps = {
   onError?: (error: Error) => void
 }
 
+export type TrackPropertiesBeforeMountCallback = () => Record<string, unknown>
+
 export type TrackScreenCallback = (
   screenNameHierarchy?: string | string[],
   properties?: Record<string, unknown>
@@ -34,6 +36,7 @@ export type TrackScreenCallback = (
 
 export type WithTrackingProps = {
   trackScreen: TrackScreenCallback
+  trackPropertiesBeforeMount?: TrackPropertiesBeforeMountCallback
 }
 
 export type WithCaptureVariantProps = {
