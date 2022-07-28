@@ -77,5 +77,7 @@
   "https://deno.land/x/oak@v10.1.0/tssCompare.ts": "e496924cb94de38bc035695926bd2f81e16bc3c8980ab1f34fe2f4865bb9aaeb",
   "https://deno.land/x/oak@v10.1.0/types.d.ts": "be92ff788029c7e14224f8e94cf630da14702d75d17df95480dfd42ebf7e978c",
   "https://deno.land/x/oak@v10.1.0/util.ts": "0030f8e9d957533e2fe9c89927eadb6e90c7b28ded05a25f14fd1edd6eb67469",
-  "https://deno.land/x/path_to_regexp@v6.2.0/index.ts": "e94c04a44bbecac99ff2db2d831afe98b423e627b775cb57fc7935f848c64c51"
+  "https://deno.land/x/path_to_regexp@v6.2.0/index.ts": "e94c04a44bbecac99ff2db2d831afe98b423e627b775cb57fc7935f848c64c51",
+  "https://deno.land/std@0.142.0/collections/_utils.ts": "fd759867be7a0047a1fa89ec89f7b58ebe3f2f7f089a8f4e416eb30c5d764868",
+  "https://deno.land/std@0.142.0/collections/deep_merge.ts": "0fd3eb411cbcc9a06491c30aa2432ab7e0f59614801a5a1667bea049a07ce02e"
 }
