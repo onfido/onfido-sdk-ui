@@ -252,7 +252,10 @@ const Document = (props: Props) => {
       throw new Error('documentType not provided')
     }
 
-    if (sdkConfiguration.experimental_features?.enable_multi_frame_capture) {
+    if (
+      false &&
+      sdkConfiguration.experimental_features?.enable_multi_frame_capture
+    ) {
       return (
         <DocumentMultiFrame
           documentType={documentType}
@@ -273,6 +276,7 @@ const Document = (props: Props) => {
         renderFallback={renderFallback}
         renderTitle={renderTitle}
         trackScreen={trackScreen}
+        trackPropertiesBeforeMount={() => ({ myProp: 'val' })}
       />
     )
   }
