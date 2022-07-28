@@ -10,6 +10,7 @@
   "license": "SEE LICENSE IN ./LICENSE",
   "scripts": {
     "dev": "HOT_RELOAD_ENABLED=true NODE_ENV=development HTTPS=true webpack serve --progress",
+    "dev:activeVideo": "SAFE_SOURCE_MAPS=true npm run dev",
     "dev:auth": "HOT_RELOAD_ENABLED=true NODE_ENV=development SDK_ENV=Auth HTTPS=true webpack serve --progress",
     "dev:insecure": "HOT_RELOAD_ENABLED=true NODE_ENV=development webpack serve --progress",
     "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
