@@ -99,12 +99,6 @@ const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
     )
   }
 
-  if (documentStep?.options?.useLiveDocumentCapture) {
-    console.warn(
-      '`useLiveDocumentCapture` is a beta feature and is still subject to ongoing changes'
-    )
-  }
-
   const activeVideoStep = buildStepFinder(steps)('activeVideo')
 
   if (activeVideoStep) {
@@ -172,6 +166,7 @@ export const init = (opts: SdkOptions): SdkHandle => {
   return {
     options,
     setOptions(changedOptions) {
+      opts = { ...opts, ...changedOptions }
       this.options = formatOptions({ ...opts, ...changedOptions })
       if (
         this.options.containerEl !== changedOptions.containerEl &&
