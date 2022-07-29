@@ -25,6 +25,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Update terser to 5.14.2 & moment to 2.29.4
 - Internal: Add Network module
 - Internal: Move all network calls to the Network module
+- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
 
 ## [8.1.1] - 2022-07-13
 
