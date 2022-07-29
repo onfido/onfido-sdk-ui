@@ -13,6 +13,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## Changed
 
 - Internal: Send OS name and version information in sdk configuration request
+
+## [8.2.0-rc.2] - 2022-07-29
+
+- Public: Fixed setoption, setOptions was setting unspecified values to their default value.
 - Internal: Add dynamically loaded files (except en_US)
 - Internal: Upgraded Sentry to v7, added ErrorBoundary, fingerprinting and moved into its own module
 - Internal: Move Woopra into it's own core module
@@ -30,12 +34,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Move all network calls to the Network module
 - Internal: Add `trackPropertiesBeforeMount` to internal analytics api
 - Public: Add commit hash in console
-
-## [next-version]
-
-## [8.2.0-rc.2] - 2022-07-29
-
-## [8.1.1] - 2022-07-13
 
 ## [8.1.0] - 2022-06-13
 
