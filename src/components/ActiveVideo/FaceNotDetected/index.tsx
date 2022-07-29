@@ -1,5 +1,4 @@
 import { h, FunctionComponent } from 'preact'
-import { TranslateCallback } from '@onfido/active-video-capture'
 import styles from './style.module.scss'
 import { Button } from '../Button'
 import { Footer } from '../Footer'
@@ -12,14 +11,18 @@ import { PersonIcon } from '../assets/PersonIcon'
 import { Wrapper } from '../Wrapper'
 import { BaseScreen } from '../BaseScreen'
 import { localised } from '~locales'
+import { trackComponent } from 'Tracker'
+import type { WithTrackingProps } from '~types/hocs'
+import { TranslateCallback } from '@onfido/active-video-capture'
 
-interface Props {
+type Props = {
   restart: () => void
   translate: TranslateCallback
-}
+} & WithTrackingProps
 
 const FaceNotDetected: FunctionComponent<Props> = ({
   restart,
+  trackScreen,
   translate,
 }: Props) => {
   const items = [
@@ -41,6 +44,11 @@ const FaceNotDetected: FunctionComponent<Props> = ({
     },
   ]
 
+  const handleRestart = (): void => {
+    trackScreen('no_face_detected_restart_clicked')
+    restart()
+  }
+
   return (
     <BaseScreen>
       <Wrapper>
@@ -58,7 +66,7 @@ const FaceNotDetected: FunctionComponent<Props> = ({
       </Wrapper>
 
       <Footer>
-        <Button onClick={() => restart()}>
+        <Button onClick={() => handleRestart()}>
           {translate('avc_no_face_detected.button_primary_restart')}
         </Button>
       </Footer>
@@ -66,4 +74,4 @@ const FaceNotDetected: FunctionComponent<Props> = ({
   )
 }
 
-export default localised(FaceNotDetected)
+export default trackComponent(localised(FaceNotDetected), 'no_face_detected')

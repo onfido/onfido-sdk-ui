@@ -8,15 +8,25 @@ import { Wrapper } from '../Wrapper'
 import { BaseScreen } from '../BaseScreen'
 import { localised } from '~locales'
 import { StepComponentProps } from '~types/routers'
-import { WithLocalisedProps } from '~types/hocs'
+import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import { trackComponent } from 'Tracker'
 
-type Props = StepComponentProps & WithLocalisedProps
+type Props = StepComponentProps & WithLocalisedProps & WithTrackingProps
 
-const Intro: FunctionComponent<Props> = ({ nextStep, translate }: Props) => {
+const Intro: FunctionComponent<Props> = ({
+  nextStep,
+  trackScreen,
+  translate,
+}: Props) => {
   const items = [
     translate('avc_intro.list_item_one'),
     translate('avc_intro.list_item_two'),
   ]
+
+  const handleReady = (): void => {
+    trackScreen('intro_ready_clicked')
+    nextStep()
+  }
 
   return (
     <BaseScreen>
@@ -39,7 +49,7 @@ const Intro: FunctionComponent<Props> = ({ nextStep, translate }: Props) => {
       </Wrapper>
 
       <Footer>
-        <Button onClick={() => nextStep()}>
+        <Button onClick={() => handleReady()}>
           {translate('avc_intro.button_primary_ready')}
         </Button>
       </Footer>
@@ -47,4 +57,4 @@ const Intro: FunctionComponent<Props> = ({ nextStep, translate }: Props) => {
   )
 }
 
-export default localised(Intro)
+export default trackComponent(localised(Intro), 'intro')
