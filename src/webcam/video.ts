@@ -1,3 +1,5 @@
+import { trackException } from 'Tracker'
+
 const MediaRecorder = window.MediaRecorder
 
 const handleDataAvailable = (event: BlobEvent, recordedBlobs: Array<Blob>) => {
@@ -7,7 +9,7 @@ const handleDataAvailable = (event: BlobEvent, recordedBlobs: Array<Blob>) => {
 }
 
 const handleStop = (event: Event) => {
-  console.log('Recorder stopped: ', event)
+  debugConsole('Recorder stopped: ', event)
 }
 
 const videoOptions = () => {
@@ -33,7 +35,7 @@ const videoOptions = () => {
       mimeType = mimeTypes[type]
       break
     } else {
-      console.log(`${mimeTypes[type]} is not Supported`)
+      debugConsole(`${mimeTypes[type]} is not Supported`)
     }
   }
   return {
@@ -50,7 +52,7 @@ export const createMediaRecorder = (
   try {
     return new MediaRecorder(stream, options)
   } catch (e) {
-    console.error(`Exception while creating MediaRecorder: ${e}`)
+    logError(e)
     return
   }
 }
@@ -60,6 +62,18 @@ export const startRecording = (mediaRecorder: MediaRecorder) => {
   mediaRecorder.onstop = handleStop
   mediaRecorder.ondataavailable = (e) => handleDataAvailable(e, recordedBlobs)
   mediaRecorder.start(10) // collect 10ms of data
-  console.log('MediaRecorder started', mediaRecorder)
+  debugConsole('MediaRecorder started', mediaRecorder)
   return recordedBlobs
+}
+
+export const debugConsole = (...args: any[]) => {
+  if (process.env.NODE_ENV === 'development') console.log(...args)
+}
+
+export const logError = (e: any) => {
+  if (process.env.NODE_ENV === 'development') console.error(e)
+  let message
+  if (e instanceof Error) message = e.message
+  else message = String(e)
+  trackException('react-webcam error: ' + message)
 }

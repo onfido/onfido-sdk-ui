@@ -1,5 +1,10 @@
 import { h, Component } from 'preact'
-import { createMediaRecorder, startRecording } from './video'
+import {
+  createMediaRecorder,
+  debugConsole,
+  startRecording,
+  logError,
+} from './video'
 import { backCameraKeywords } from './utils'
 import enumerateDevices, { DeviceData } from 'enumerate-devices'
 
@@ -131,11 +136,6 @@ const mainBackCamera = (cameras: Array<CameraType>) =>
   cameras
     .filter((camera) => camera.cameraType === 'back')
     .sort((camera1, camera2) => camera1.label.localeCompare(camera2.label))[0]
-
-const DEBUG = false
-const debugConsole = (...args: any[]) => {
-  if (DEBUG) console.log(...args)
-}
 
 type FacingModeType =
   | VideoFacingModeEnum
@@ -288,8 +288,6 @@ export default class Webcam extends Component<WebcamProps, State> {
       facingMode,
       audio
     )
-
-    const logError = (e: any) => console.log('error', e, typeof e)
 
     const onSuccess = (stream: MediaStream) => {
       Webcam.userMediaRequested = false

@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+- Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
+
 ## Changed
 
 - Internal: Add dynamically loaded files (except en_US)
