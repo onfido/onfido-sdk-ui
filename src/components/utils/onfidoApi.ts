@@ -1,6 +1,6 @@
 import { hmac256, mimeType } from './blob'
 import { parseJwt } from './jwt'
-import { performHttpReq, HttpRequestParams } from './http'
+import { performHttpRequest, HttpRequestParams } from '~core/Network'
 import { forEach } from './object'
 import { sendEvent, trackException } from '../../Tracker'
 import detectSystem from './detectSystem'
@@ -303,7 +303,9 @@ export const requestChallenges = (
     token: `Bearer ${token}`,
   }
 
-  performHttpReq(options, onSuccess, (request) => formatError(request, onError))
+  performHttpRequest(options, onSuccess, (request) =>
+    formatError(request, onError)
+  )
 }
 
 export const getPoASupportedCountries = (url?: string, token?: string) => {
@@ -323,7 +325,9 @@ export const getPoASupportedCountries = (url?: string, token?: string) => {
   }
 
   return new Promise<PoASupportedCountry[]>((resolve, reject) => {
-    performHttpReq(options, resolve, (request) => formatError(request, reject))
+    performHttpRequest(options, resolve, (request) =>
+      formatError(request, reject)
+    )
   })
 }
 
@@ -348,7 +352,9 @@ export const getApplicantConsents = (
   }
 
   return new Promise<ApplicantConsentStatus[]>((resolve, reject) => {
-    performHttpReq(options, resolve, (request) => formatError(request, reject))
+    performHttpRequest(options, resolve, (request) =>
+      formatError(request, reject)
+    )
   })
 }
 
@@ -375,7 +381,9 @@ export const updateApplicantConsents = (
   }
 
   return new Promise((resolve, reject) => {
-    performHttpReq(options, resolve, (request) => formatError(request, reject))
+    performHttpRequest(options, resolve, (request) =>
+      formatError(request, reject)
+    )
   })
 }
 
@@ -400,7 +408,9 @@ export const updateApplicantLocation = (
   }
 
   return new Promise<void>((resolve, reject) => {
-    performHttpReq(options, resolve, (request) => formatError(request, reject))
+    performHttpRequest(options, resolve, (request) =>
+      formatError(request, reject)
+    )
   })
 }
 
@@ -428,7 +438,7 @@ export const uploadBinaryMedia = (
           token: `Bearer ${token}`,
         }
 
-        performHttpReq(requestParams, resolve, (request) =>
+        performHttpRequest(requestParams, resolve, (request) =>
           formatError(request, reject)
         )
 
@@ -446,7 +456,7 @@ export const uploadBinaryMedia = (
             token: `Bearer ${token}`,
           }
 
-          performHttpReq(requestParams, resolve, (request) =>
+          performHttpRequest(requestParams, resolve, (request) =>
             formatError(request, reject)
           )
         })
@@ -472,7 +482,7 @@ export const createV4Document = (
         token: `Bearer ${token}`,
       }
 
-      performHttpReq(requestParams, resolve, (request) =>
+      performHttpRequest(requestParams, resolve, (request) =>
         formatError(request, reject)
       )
     } catch (error) {
@@ -529,7 +539,7 @@ const sendFile = <T>(
   const startTime = performance.now()
   // Sends upload_started event
   sendEvent(analyticsEvents[0])
-  performHttpReq(
+  performHttpRequest(
     requestParams,
     (response: T) => {
       // Sends upload_completed event
@@ -552,24 +562,21 @@ export const sendAnalytics = (
   payload: string
 ): void => {
   const endpoint = `${url}/v3/analytics`
-  const request = new XMLHttpRequest()
-  request.open('POST', endpoint)
-  request.setRequestHeader('Content-Type', 'application/json')
 
-  request.onload = () => {
-    const isSuccessfulRequest = request.status === 200 || request.status === 201
-    if (!isSuccessfulRequest) {
+  performHttpRequest(
+    {
+      method: 'POST',
+      contentType: 'application/json',
+      endpoint,
+      payload,
+    },
+    () => {},
+    (request) => {
       trackException(
         `analytics request error - status: ${request.status}, response: ${request.response}`
       )
     }
-  }
-  request.onerror = () =>
-    trackException(
-      `analytics request error - status: ${request.status}, response: ${request.response}`
-    )
-
-  request.send(payload)
+  )
 }
 
 export const getSdkConfiguration = (
@@ -597,7 +604,7 @@ export const getSdkConfiguration = (
         }),
       }
 
-      performHttpReq(requestParams, resolve, (request) =>
+      performHttpRequest(requestParams, resolve, (request) =>
         formatError(request, reject)
       )
     } catch (error) {

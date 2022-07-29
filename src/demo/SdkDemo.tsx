@@ -74,7 +74,7 @@ const SdkDemo: FunctionComponent<Props> = ({
 
     if (queryParamToValueString.token) {
       setToken(queryParamToValueString.token)
-    } else {
+    } else if (!token) {
       getToken(
         hasPreview,
         url,
@@ -141,7 +141,7 @@ const SdkDemo: FunctionComponent<Props> = ({
           Verify identity
         </button>
       )}
-      {token && queryParamToValueString.createCheck && applicantForm}
+      {!token && queryParamToValueString.createCheck && applicantForm}
       {token && regionCode && tokenUrl && (
         <SdkMount
           options={options}

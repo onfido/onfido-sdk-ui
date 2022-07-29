@@ -1274,4 +1274,144 @@ export const analyticsEventsMapping = new Map<
       properties: { event_type: 'flow' },
     },
   ],
+  [
+    'screen_poa_poa_client_intro',
+    {
+      eventName: 'POA_CLIENT_INTRO',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_poa_poa_confirmation',
+    {
+      eventName: 'POA_CONFIRMATION_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_poa_poa_confirmation_upload_button_clicked',
+    {
+      eventName: 'POA_CONFIRMATION_UPLOAD_BUTTON_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_face_face_video_capture_camera_inactive_no_fallback',
+    {
+      eventName: 'FACE_VIDEO_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        has_fallback: false,
+        ui_alerts: {
+          camera_inactive: 'error',
+        },
+      },
+    },
+  ],
+  [
+    'screen_document_front_capture_file_upload_invalid_type',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: {
+          invalid_type: 'error',
+        },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_file_upload_invalid_type',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        ui_alerts: {
+          invalid_type: 'error',
+        },
+      },
+    },
+  ],
+  [
+    'screen_retry',
+    {
+      eventName: 'RETRY',
+      properties: { event_type: 'screen' },
+    },
+  ],
+  [
+    'screen_complete_face_video_confirmation_play_clicked',
+    {
+      eventName: 'FACE_VIDEO_CONFIRMATION_PLAY_CLICKED',
+      properties: { event_type: 'action' },
+    },
+  ],
+  [
+    'screen_document_front_capture_file_upload_invalid_size',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        ui_alerts: {
+          invalid_size: 'error',
+        },
+      },
+    },
+  ],
+  [
+    'screen_document_back_capture_file_upload_invalid_size',
+    {
+      eventName: 'DOCUMENT_CAPTURE_ERROR',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        ui_alerts: {
+          invalid_size: 'error',
+        },
+      },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_access',
+    {
+      eventName: 'DOCUMENT_CAPTURE_CAMERA_ACCESS',
+      properties: { event_type: 'screen', document_side: 'front' },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_access',
+    {
+      eventName: 'DOCUMENT_CAPTURE_CAMERA_ACCESS',
+      properties: { event_type: 'screen', document_side: 'back' },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'DOCUMENT_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'front' },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_access_allow_button_clicked',
+    {
+      eventName: 'DOCUMENT_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'back' },
+    },
+  ],
+  [
+    'screen_document_front_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName: 'DOCUMENT_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'front' },
+    },
+  ],
+  [
+    'screen_document_back_capture_camera_access_denied_refresh_button_clicked',
+    {
+      eventName: 'DOCUMENT_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
+      properties: { event_type: 'action', document_side: 'back' },
+    },
+  ],
 ])

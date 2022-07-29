@@ -1,4 +1,4 @@
-import { performHttpReq, HttpRequestParams } from '~utils/http'
+import { performHttpRequest, HttpRequestParams } from '~core/Network'
 import { formatError } from '~utils/onfidoApi'
 import type { documentSelectionType } from '~types/commons'
 import type {
@@ -56,7 +56,7 @@ export class Engine implements EngineInterface {
           token: `Bearer ${token}`,
         }
 
-        performHttpReq(requestParams, resolve, (request) =>
+        performHttpRequest(requestParams, resolve, (request) =>
           formatError(request, reject)
         )
       } catch (error) {
@@ -90,7 +90,7 @@ export class Engine implements EngineInterface {
           token: `Bearer ${token}`,
         }
 
-        performHttpReq(requestParams, resolve, (request) =>
+        performHttpRequest(requestParams, resolve, (request) =>
           formatError(request, reject)
         )
       } catch (error) {
