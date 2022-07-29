@@ -91,6 +91,7 @@ jobs:
 
       - name: Create Pull Request
         uses: actions/github-script@v6
+        if: ${{ env.REMOTE_BRANCH_EXIST != true }}
         with:
           script: |
             require('./release/createPullRequest.js')(github, context)
