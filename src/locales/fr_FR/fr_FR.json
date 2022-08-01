@@ -33,7 +33,7 @@
             "required_postcode": "Veuillez renseigner votre code postal",
             "invalid": "Veuillez vérifier s'il y a des caractères ou des symboles invalides",
             "invalid_dob": "Veuillez saisir une date de naissance valide",
-            "too_short_last_name": "Le nom de famille est trop court",       
+            "too_short_last_name": "Le nom de famille est trop court",
             "too_short_postcode": "Le code postal est trop court",
             "too_long_last_name": "Le nom de famille est trop long",
             "too_long_first_name": "Le prénom est trop long",
@@ -330,7 +330,14 @@
         "subtitle": "Il doit s’agir d’une pièce d’identité officielle avec photo",
         "subtitle_poa": "Voici les documents les plus susceptibles d'indiquer votre adresse de résidence actuelle",
         "title": "Sélectionnez un document",
-        "title_poa": "Sélectionnez un document de %{country}"
+        "title_poa": "Sélectionnez un document de %{country}",
+        "section": {
+          "header_country": "Pays émetteur",
+          "header_doc_type": "Documents acceptés",
+          "input_placeholder_country": "Aucun résultat",
+          "input_placeholder_country_copy": "Sélectionnez votre pays"
+        },
+        "subtitle_country": "Sélectionnez le pays émetteur pour voir quels documents nous acceptons"
     },
     "doc_submit": {
         "button_link_upload": "ou envoyer une photo - pas de scans ou de photocopies",

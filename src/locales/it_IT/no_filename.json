@@ -1,0 +1,147 @@
+{
+    "cross_device_checklist": {
+        "list_item_poa": "Prova dell'indirizzo"
+    },
+    "doc_select": {
+        "section": {
+            "header_country": "Paese emittente",
+            "header_doc_type": "Documenti accettati",
+            "input_placeholder_country": "Nessun risultato",
+            "input_placeholder_country_copy": "Seleziona il paese di emissione"
+        },
+        "subtitle_country": "Seleziona il paese di emissione per vedere quali documenti accettiamo",
+        "subtitle_entire_page": "Intera pagina",
+        "subtitle_front_back": "Davanti e dietro",
+        "subtitle_photo_page": "Pagina delle foto"
+    },
+    "generic": {
+        "errors": {
+            "geoblocked_error": {
+                "instruction": "Siamo spiacenti. Sembra che non sia possibile procedere oltre perché la posizione attuale non è supportata",
+                "message": "Servizio non disponibile"
+            }
+        }
+    },
+    "livenessV2": {
+        "error_reload_instructions": "Ricarica le istruzioni",
+        "intro_note_no1": "Innanzitutto, posiziona il viso nel riquadro",
+        "intro_note_no2": "Poi, gira lentamente la testa da entrambe le parti",
+        "intro_ready_button": "Ricorda che registreremo il tuo viso e lo sfondo",
+        "intro_subtitle": "Questo serve a verificare che tu sia una persona reale",
+        "intro_warning": "Ricorda che registreremo il tuo viso e lo sfondo",
+        "success_main_button": "Invia verifica",
+        "success_title": "Ora abbiamo tutto quello che ci serve per iniziare a verificare la tua identità"
+    },
+    "poa_cancel": "Annulla",
+    "poa_err_invalid_file": {
+        "message": "Seleziona un altro file.",
+        "ok": "OK",
+        "title": "File non valido"
+    },
+    "poa_intro": {
+        "title": "Verifichiamo il tuo indirizzo"
+    },
+    "profile_data": {
+        "address_title": "Aggiungere l’indirizzo",
+        "button_continue": "Continua",
+        "components": {
+            "country_select": {
+                "placeholder": "Selezionare un paese"
+            },
+            "state_select": {
+                "placeholder": "Selezionare uno stato"
+            }
+        },
+        "country_of_residence_title": "Il tuo paese di residenza",
+        "field_labels": {
+            "country": "Paese",
+            "dob": "Data di nascita",
+            "first_name": "Nome",
+            "gbr_specific": {
+                "postcode": "Codice postale",
+                "town": "Città\/comune"
+            },
+            "last_name": "Cognome",
+            "line1": "Indirizzo 1",
+            "line2": "Indirizzo 2",
+            "line3": "Indirizzo 3",
+            "postcode": "Codice postale",
+            "town": "Comune",
+            "usa_specific": {
+                "line1_helper_text": "Indirizzo, ad esempio 200 Albert Street",
+                "line2_helper_text": "Appartamento, suite, unità ecc.",
+                "postcode": "Zip code",
+                "state": "Stato"
+            }
+        },
+        "field_optional": "(facoltativo)",
+        "field_validation": {
+            "gbr_specific": {
+                "required_postcode": "Inserire il codice postale",
+                "too_long_postcode": "Il codice postale è troppo lungo",
+                "too_short_postcode": "Il codice postale è troppo breve"
+            },
+            "invalid": "Verificare che non ci siano simboli o caratteri non validi",
+            "invalid_dob": "Inserire una data di nascita valida",
+            "required_country": "Selezionare un paese",
+            "required_dob": "Inserire la data di nascita",
+            "required_first_name": "",
+            "required_last_name": "Inserire il cognome",
+            "required_line1": "Inserire l’indirizzo",
+            "required_postcode": "Inserire il codice postale",
+            "too_long__line1": "L’indirizzo è troppo lungo",
+            "too_long_first_name": "Il nome è troppo lungo",
+            "too_long_last_name": "Il cognome è troppo lungo",
+            "too_long_postcode": "Il codice postale è troppo lungo",
+            "too_long_town": "",
+            "too_short_first_name": "Il nome è troppo breve",
+            "too_short_last_name": "Il cognome è troppo breve",
+            "too_short_postcode": "Il codice postale è troppo breve",
+            "usa_specific": {
+                "required_state": "Selezionare uno stato"
+            }
+        },
+        "personal_information_title": "Aggiungere i dati personali",
+        "prompt": {
+            "details_timeout": "Ricomincia",
+            "header_timeout": "Sembra che ci sia voluto troppo tempo"
+        }
+    },
+    "retry_feedback": {
+        "button_primary": "Riprova"
+    },
+    "retry_feedback_id_expired": {
+        "subtitle": "Riprova con un documento d’identità valido e assicurati chele informazioni siano ben leggibili",
+        "title": "Il documento è scaduto"
+    },
+    "retry_feedback_id_generic": {
+        "subtitle": "Riprova con un documento d’identità valido e assicurati che le informazioni siano ben leggibili",
+        "title": "Si è verificato un problema con il tuo documento"
+    },
+    "retry_feedback_id_unaccepted": {
+        "subtitle": "Riprova con un documento d’identità valido e assicurati che le informazioni siano ben leggibili",
+        "title": "Documento non accettato"
+    },
+    "retry_feedback_selfie_generic": {
+        "subtitle": "Riprova e assicurati che il volto sia visibile e ben illuminato",
+        "title": "Si è verificato un problema con il selfie"
+    },
+    "workflow_complete": {
+        "pass": {
+            "description": "",
+            "title": ""
+        },
+        "reject": {
+            "description": "",
+            "title": ""
+        }
+    },
+    "workflow_erros": {
+        "generic_title": "",
+        "no_workflow_run_id": "",
+        "reload_app": "",
+        "task_not_completed": "",
+        "task_not_retrieved": "",
+        "task_not_supported": ""
+    }
+}
