@@ -23,6 +23,7 @@ export const baseConfig = {
       '~modules': `${BASE_DIR}/modules`,
       '~utils': `${BASE_DIR}/src/components/utils`,
       '~supported-documents': `${BASE_DIR}/src/supported-documents`,
+      '~webcam': `${BASE_DIR}/src/webcam`,
       '~workflow-engine': `${BASE_DIR}/src/workflow-engine`,
       '~auth-sdk': `${BASE_DIR}/auth-sdk/FaceTec`,
       'socket.io-client': resolve(

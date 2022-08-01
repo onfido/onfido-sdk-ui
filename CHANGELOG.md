@@ -8,6 +8,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+- Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
+
 ## Changed
 
 - Internal: Add dynamically loaded files (except en_US)
@@ -33,6 +35,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Migrate the react-webcam code into SDK + migrate it to typescript
 - Internal: Use the `max_total_retries` field from SdkConfiguration to compute the max number of document capture retries after an image quality failed check. It was previously was set to 1.
 - Internal: Add `video_instruction_type` property to analytics event `FACE_VIDEO_CAPTURE` and `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
 - Internal: Rename analytics event `FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED` to `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
