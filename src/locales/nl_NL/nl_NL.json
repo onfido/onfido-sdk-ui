@@ -198,7 +198,14 @@
         "subtitle": "Het moet een officieel identiteitsbewijs met foto zijn",
         "subtitle_poa": "Dit zijn de meest waarschijnlijke documenten waaruit uw huidige adres blijkt",
         "title": "Kies uw document",
-        "title_poa": "Kies een %{country} document"
+        "title_poa": "Kies een %{country} document",
+        "section": {
+            "header_country": "Land van uitgifte",
+            "header_doc_type": "Geaccepteerde documenten",
+            "input_placeholder_country": "Geen resultaten",
+            "input_placeholder_country_copy": "Selecteer land van uitgifte"
+        },
+        "subtitle_country": "Selecteer het land van uitgifte om te zien welke documenten we accepteren"
     },
     "doc_submit": {
         "button_link_upload": "of upload een foto - geen scans of kopieën",

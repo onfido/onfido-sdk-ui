@@ -196,7 +196,14 @@
         "subtitle": "Deve essere un documento d’identità ufficiale con foto",
         "subtitle_poa": "Questi sono i documenti che più probabilmente mostrano il tuo indirizzo attuale",
         "title": "Seleziona il tuo documento",
-        "title_poa": "Seleziona un documento %{country}"
+        "title_poa": "Seleziona un documento %{country}",
+        "section": {
+            "header_country": "Paese emittente",
+            "header_doc_type": "Documenti accettati",
+            "input_placeholder_country": "Nessun risultato",
+            "input_placeholder_country_copy": "Seleziona il paese di emissione"
+        },
+        "subtitle_country": "Seleziona il paese di emissione per vedere quali documenti accettiamo"
     },
     "doc_submit": {
         "button_link_upload": "o carica foto (no scansioni o fotocopie)",
