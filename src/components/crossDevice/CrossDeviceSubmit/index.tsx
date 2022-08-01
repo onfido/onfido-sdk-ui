@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h, Component, FunctionComponent, ComponentType } from 'preact'
 import { connect } from 'react-redux'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
@@ -180,7 +180,16 @@ const mapStateToProps = ({ captures }: RootState) => ({
   captures,
 })
 
-export default connect(mapStateToProps)(
-  // @ts-ignore
-  trackComponent(localised(CrossDeviceSubmit), 'desktop_submit')
-)
+const LocalisedCrossDeviceSubmit = localised(
+  CrossDeviceSubmit
+) as FunctionComponent<Props>
+
+const TrackedLocalisedCrossDeviceSubmit = trackComponent(
+  LocalisedCrossDeviceSubmit,
+  'desktop_submit'
+) as FunctionComponent<Props>
+
+// Note: Preact and Redux types don't play nice together, hence the type cast.
+export default (connect(mapStateToProps)(
+  TrackedLocalisedCrossDeviceSubmit
+) as unknown) as ComponentType<CrossDeviceSubmitProps>

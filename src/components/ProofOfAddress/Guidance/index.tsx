@@ -1,6 +1,6 @@
 import { trackComponent } from '../../../Tracker'
 import { useLocales } from '~locales'
-import { FunctionComponent, h } from 'preact'
+import { ComponentType, FunctionComponent, h } from 'preact'
 import { StepComponentProps } from '~types/routers'
 import theme from '../../Theme/style.scss'
 import PageTitle from '../../PageTitle'
@@ -66,4 +66,4 @@ const Guidance: FunctionComponent<Props> = ({ nextStep, poaDocumentType }) => {
   )
 }
 
-export default trackComponent(Guidance)
+export default trackComponent(Guidance) as ComponentType<StepComponentProps>
