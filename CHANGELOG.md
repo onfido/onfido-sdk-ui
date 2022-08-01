@@ -28,6 +28,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add Network module
 - Internal: Move all network calls to the Network module
 - Internal: Add `trackPropertiesBeforeMount` to internal analytics api
+- Public: Add commit hash in console
 
 ## [8.1.1] - 2022-07-13
 

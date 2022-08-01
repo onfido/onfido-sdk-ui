@@ -153,7 +153,11 @@ const getContainerElementById = (containerId: string) => {
 }
 
 export const init = (opts: SdkOptions): SdkHandle => {
-  console.log('onfido_sdk_version', process.env.SDK_VERSION)
+  console.log(
+    'onfido_sdk_version',
+    process.env.SDK_VERSION,
+    process.env.COMMITHASH
+  )
   const options = formatOptions({ ...defaults, ...opts })
 
   experimentalFeatureWarnings(options)
