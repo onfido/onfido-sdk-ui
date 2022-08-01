@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact'
+import { h, FunctionComponent, ComponentType } from 'preact'
 import { useEffect } from 'preact/hooks'
 import { Footer } from '../Footer'
 import { Header } from '../Header'
@@ -9,16 +9,17 @@ import { localised } from '~locales'
 import { connect } from 'react-redux'
 import { ActiveVideoCapture, RootState } from '~types/redux'
 import { buildCaptureStateKey } from '~utils/redux'
-import { ErrorProp, StepComponentBaseProps } from '~types/routers'
+import { ErrorProp, StepComponentProps } from '~types/routers'
 import { uploadActiveVideo } from '~utils/onfidoApi'
 import { ActiveVideoResponse, ParsedError } from '~types/api'
 import { ErrorNames } from '~types/commons'
 import { trackException } from 'Tracker'
+import { WithLocalisedProps } from '~types/hocs'
 
-type Props = StepComponentBaseProps & {
-  capture?: ActiveVideoCapture
-  nextStep: () => void
-}
+type Props = StepComponentProps &
+  WithLocalisedProps & {
+    capture?: ActiveVideoCapture
+  }
 
 const mapStateToProps = ({ captures }: RootState, props: Props): Props => ({
   ...props,
@@ -112,7 +113,7 @@ const Uploading: FunctionComponent<Props> = ({
   )
 }
 
-export default connect(mapStateToProps)(
-  // @ts-ignore: Preact Provider compatibility
-  localised(Uploading)
-)
+// Note: Preact and Redux types don't play nice together, hence the type cast.
+export default (connect(mapStateToProps)(
+  localised(Uploading) as FunctionComponent<Props>
+) as unknown) as ComponentType<StepComponentProps>

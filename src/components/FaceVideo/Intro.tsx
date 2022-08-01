@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact'
+import { h, FunctionComponent, ComponentType } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 
@@ -13,15 +13,10 @@ import {
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-import type { TrackScreenCallback, WithLocalisedProps } from '~types/hocs'
-import type { StepComponentFaceProps } from '~types/routers'
+import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import type { StepComponentFaceProps, StepComponentProps } from '~types/routers'
 
-type FaceVideoIntroProps = {
-  nextStep: () => void
-  trackScreen: TrackScreenCallback
-} & StepComponentFaceProps
-
-type Props = FaceVideoIntroProps & WithLocalisedProps
+type Props = StepComponentFaceProps & WithTrackingProps & WithLocalisedProps
 
 const VIDEO_INTRO_TYPES: VideoIntroTypes[] = ['actions', 'speak']
 
@@ -86,4 +81,4 @@ const Intro: FunctionComponent<Props> = ({
 export default appendToTracking(
   trackComponent(localised(withCrossDeviceWhenNoCamera(Intro))),
   'video_intro'
-)
+) as ComponentType<StepComponentProps>

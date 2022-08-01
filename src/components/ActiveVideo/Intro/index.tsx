@@ -1,4 +1,3 @@
-import { TranslateCallback } from '@onfido/active-video-capture'
 import { h, FunctionComponent } from 'preact'
 import { Button } from '../Button'
 import { Footer } from '../Footer'
@@ -8,11 +7,10 @@ import { Disclaimer } from '../Disclaimer'
 import { Wrapper } from '../Wrapper'
 import { BaseScreen } from '../BaseScreen'
 import { localised } from '~locales'
+import { StepComponentProps } from '~types/routers'
+import { WithLocalisedProps } from '~types/hocs'
 
-interface Props {
-  nextStep: () => void
-  translate: TranslateCallback
-}
+type Props = StepComponentProps & WithLocalisedProps
 
 const Intro: FunctionComponent<Props> = ({ nextStep, translate }: Props) => {
   const items = [
