@@ -73,9 +73,14 @@ export const Confirm = (props: ConfirmProps) => {
   const sdkConfiguration = useSdkConfigurationService()
 
   useEffect(() => {
+    // 'DOCUMENT_CONFIRMATION'
     props.trackScreen(undefined, {
       document_type: props.documentType,
       country_code: props.idDocumentIssuingCountry?.country_alpha2,
+      count_attempt: props.imageQualityRetries,
+      max_retry_count: sdkConfiguration.document_capture.max_total_retries,
+      warning_origin: 'device',
+      warnings: undefined, // leave this empty to show that there are no on device warning.
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
