@@ -71,6 +71,7 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
     <ActiveVideoCapture
       debug={true}
       translate={translate}
+      track={() => {}}
       onError={onError}
       onSuccess={onSuccess}
       onUserMedia={onUserMedia}
