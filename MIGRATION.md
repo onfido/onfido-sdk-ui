@@ -65,11 +65,11 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 - `profile_data.field_labels.usa_specific.ssn`
 - `profile_data.field_validation.usa_specific.required_ssn`
 - `profile_data.field_validation.usa_specific.invalid_ssn`
-- `section.header_country`
-- `section.input_country_not_found`
-- `section.input_placeholder_country`
-- `section.header_doc_type`
-_ `subtitle_country`
+- `doc_select.section.header_country`
+- `doc_select.section.input_country_not_found`
+- `doc_select.section.input_placeholder_country`
+- `doc_select.section.header_doc_type`
+- `doc_select.subtitle_country`
 
 ### Removed strings
 
