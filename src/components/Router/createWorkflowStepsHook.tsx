@@ -106,8 +106,7 @@ export const createWorkflowStepsHook = (
           loading: false,
           hasNextStep: false,
           taskId: workflow?.task_id,
-          // @ts-ignore
-          steps: [formatStep(workflowEngine.getOutcomeStep(workflow))],
+          steps: [formatStep('complete')],
         }))
         cb()
         return

@@ -179,8 +179,6 @@ const buildCaptureStepComponents = (
       ),
     ],
     complete,
-    pass: [Complete],
-    reject: [Complete],
     retry: [Retry],
   }
 }

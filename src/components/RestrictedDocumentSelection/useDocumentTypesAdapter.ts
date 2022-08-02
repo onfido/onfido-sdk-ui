@@ -77,6 +77,7 @@ export const useDocumentTypesAdapter = () => {
           ...documentStep,
           options: {
             ...documentStep.options,
+            //@ts-ignore
             documentSelection,
             countryFilter,
           },

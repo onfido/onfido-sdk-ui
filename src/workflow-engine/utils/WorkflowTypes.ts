@@ -29,8 +29,7 @@ export type documentSelectionConfigType = {
 }
 
 export type WorklowTaskStepKeys = string
-export type OutcomeStepKeys = 'pass' | 'reject' | 'complete'
-export type StepKeys = 'loading' | WorklowTaskStepKeys | OutcomeStepKeys
+export type StepKeys = 'loading' | WorklowTaskStepKeys | 'complete'
 export type WorkflowTaskTypes =
   | 'START'
   | 'INTERACTIVE'
@@ -47,7 +46,6 @@ export type WorkflowResponse = {
   task_def_id?: string | undefined
   config: WorkflowStepConfig
   finished: boolean
-  outcome: boolean | undefined
   error: string | undefined
   has_remaining_interactive_tasks: boolean
 }

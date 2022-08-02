@@ -3,14 +3,12 @@ import { formatError } from '~utils/onfidoApi'
 import type { documentSelectionType } from '~types/commons'
 import type {
   WorkflowResponse,
-  OutcomeStepKeys,
   GetWorkflowFunc,
   CompleteWorkflowFunc,
   GetFlowStepFunc,
 } from './utils/WorkflowTypes'
 
 export interface EngineInterface {
-  getOutcomeStep(workflow: WorkflowResponse | undefined): OutcomeStepKeys
   getWorkflow: GetWorkflowFunc
   completeWorkflow: CompleteWorkflowFunc
   getWorkFlowStep: GetFlowStepFunc
@@ -31,14 +29,6 @@ export class Engine implements EngineInterface {
 
   constructor(engineProps: EngineProps) {
     this.engineProps = engineProps
-  }
-
-  getOutcomeStep = (workflow: WorkflowResponse): OutcomeStepKeys => {
-    return !workflow.has_remaining_interactive_tasks
-      ? 'complete'
-      : workflow.outcome
-      ? 'pass'
-      : 'reject'
   }
 
   getWorkflow: GetWorkflowFunc = async (): Promise<WorkflowResponse> => {
