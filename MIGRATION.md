@@ -6,7 +6,7 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `8.1.1` -> `8.2.0`
 
-The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the follinw string(s) has been added:
+The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the following string(s) has been added:
 
 ### Added strings
 
@@ -65,6 +65,11 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 - `profile_data.field_labels.usa_specific.ssn`
 - `profile_data.field_validation.usa_specific.required_ssn`
 - `profile_data.field_validation.usa_specific.invalid_ssn`
+- `section.header_country`
+- `section.input_country_not_found`
+- `section.input_placeholder_country`
+- `section.header_doc_type`
+_ `subtitle_country`
 
 ### Removed strings
 
