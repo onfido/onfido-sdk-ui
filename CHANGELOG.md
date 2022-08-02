@@ -21,6 +21,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Add translations for profile data
 - Public: Support DocumentTypes option
 - Public: Remove asterisk from required fields
+- Public: Merge country and document selection in a single screen.
 - Internal: Remove isFullScreen prop from NavigationBar
 - Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
 
