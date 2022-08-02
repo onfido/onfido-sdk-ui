@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## Changed
 
+- Internal: Send OS name and version information in sdk configuration request
 - Internal: Add dynamically loaded files (except en_US)
 - Internal: Upgraded Sentry to v7, added ErrorBoundary, fingerprinting and moved into its own module
 - Internal: Move Woopra into it's own core module

@@ -586,6 +586,7 @@ export const getSdkConfiguration = (
   new Promise((resolve, reject) => {
     try {
       const browserInfo = detectSystem('browser')
+      const osInfo = detectSystem('os')
 
       const requestParams: HttpRequestParams = {
         endpoint: `${url}/v3.3/sdk/configurations`,
@@ -599,6 +600,8 @@ export const getSdkConfiguration = (
             system: {
               browser: browserInfo.name,
               browser_version: browserInfo.version,
+              os: osInfo.name,
+              os_version: osInfo.version,
             },
           },
         }),
