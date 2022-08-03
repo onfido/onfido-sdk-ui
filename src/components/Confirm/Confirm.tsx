@@ -35,7 +35,11 @@ import {
 import { WithLocalisedProps } from '~types/hocs'
 import { useEffect, useState } from 'preact/hooks'
 import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
-import { CaptureFormat, CaptureMethodRendered } from '~types/tracker'
+import {
+  AnalyticsEventPropertiesWarnings,
+  CaptureFormat,
+  CaptureMethodRendered,
+} from '~types/tracker'
 import { buildStepFinder } from '~utils/steps'
 import { shouldUseCameraForDocumentCapture } from '~utils'
 
@@ -137,7 +141,12 @@ export const Confirm = (props: ConfirmProps) => {
     props.resetSdkFocus()
   }
 
-  const onfidoErrorFieldMap = ([key, val]: [ValidationReasons, string[]]) => {
+  /**
+   * Transforms input into ErrorNames
+   */
+  const mapToErrorName = ([key, val]: [ValidationReasons, string[]]):
+    | ErrorNames
+    | undefined => {
     if (key === 'document_detection') return 'DOCUMENT_DETECTION'
     // on corrupted PDF or other unsupported file types
     if (key === 'file') return 'INVALID_TYPE'
@@ -151,7 +160,12 @@ export const Confirm = (props: ConfirmProps) => {
     }
   }
 
-  const handleImageQualityError = (errorField: ValidationError['fields']) => {
+  /**
+   * Returns the first image quality error in terms of priority, or undefined if none is found
+   */
+  const returnFirstImageQualityErrorFound = (
+    errorField: ValidationError['fields']
+  ) => {
     const imageQualityKeys = Object.keys(IMAGE_QUALITY_KEYS_MAP) as Array<
       keyof typeof IMAGE_QUALITY_KEYS_MAP
     >
@@ -161,13 +175,16 @@ export const Confirm = (props: ConfirmProps) => {
     }
   }
 
+  /**
+   * Transforms a backend response that can contain multiple errors into a single error, defined by priority.
+   */
   const onfidoErrorReduce = ({ fields }: ValidationError) => {
-    const imageQualityError = handleImageQualityError(fields)
+    const imageQualityError = returnFirstImageQualityErrorFound(fields)
     const entriesOfFields = Object.entries(fields) as Array<
       [ValidationReasons, string[]]
     >
 
-    const [first] = entriesOfFields.map(onfidoErrorFieldMap)
+    const [first] = entriesOfFields.map(mapToErrorName)
     return first || imageQualityError
   }
 
@@ -183,10 +200,13 @@ export const Confirm = (props: ConfirmProps) => {
       return
     }
     if (status === 422) {
-      const errorKey = response?.error
-        ? onfidoErrorReduce(response.error as ValidationError)
-        : REQUEST_ERROR
-      setError(errorKey as ErrorNames)
+      if (response?.error) {
+        const validationError = response.error as ValidationError
+        const errorKey = onfidoErrorReduce(validationError)
+        setError(errorKey as ErrorNames)
+        return
+      }
+      setError(REQUEST_ERROR)
       return
     }
     if (status === 403 && response.error?.type === 'geoblocked_request') {
@@ -204,7 +224,13 @@ export const Confirm = (props: ConfirmProps) => {
 
   const onVideoPreviewError = () => setError('VIDEO_ERROR' as ErrorNames)
 
-  const imageQualityWarnings = (warnings: ImageQualityWarnings) => {
+  /**
+   * Returns the first image quality warning found in the warnings, if no truthy 'valid' property is found.
+   * The order depends on the IMAGE_QUALITY_KEYS_MAP map.
+   */
+  const returnFirstImageQualityWarning = (
+    warnings: ImageQualityWarnings
+  ): ImageQualityValidationNames | undefined => {
     const imageQualityKeys = Object.keys(IMAGE_QUALITY_KEYS_MAP) as Array<
       keyof typeof IMAGE_QUALITY_KEYS_MAP
     >
@@ -217,12 +243,14 @@ export const Confirm = (props: ConfirmProps) => {
     }
   }
 
-  const onImageQualityWarning = (apiResponse: DocumentImageResponse) => {
+  const onImageQualityWarning = (
+    apiResponse: DocumentImageResponse
+  ): ImageQualityValidationNames | undefined => {
     const { sdk_warnings: warnings } = apiResponse
     if (!warnings) {
-      return null
+      return
     }
-    return imageQualityWarnings(warnings)
+    return returnFirstImageQualityWarning(warnings)
   }
 
   const onApiSuccess = (
