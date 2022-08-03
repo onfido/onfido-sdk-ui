@@ -73,6 +73,7 @@ describe('Router', () => {
             <MockedLocalised>
               <HistoryRouterWrapper
                 options={defaultOptions}
+                triggerOnError={() => {}}
                 allowCrossDeviceFlow={false}
                 useSteps={createMockStepsHook({
                   steps: [{ type: 'activeVideo' }],
