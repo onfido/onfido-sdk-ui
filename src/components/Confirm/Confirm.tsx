@@ -22,6 +22,7 @@ import { CapturePayload, DocumentCapture, FaceCapture } from '~types/redux'
 import { CaptureMethods, DocumentSides, ErrorNames } from '~types/commons'
 import {
   ApiRawError,
+  ChallengeData,
   DocumentImageResponse,
   FaceVideoResponse,
   ImageQualityValidationPayload,
@@ -577,18 +578,12 @@ export const Confirm = (props: ConfirmProps) => {
         snapshot,
       }
     } else if (callbackName === CALLBACK_TYPES.video) {
+      const { blob, language, challengeData } = data as UploadVideoPayload
       const {
-        blob,
-        language,
-        challengeData: {
-          //@ts-ignore
-          challenges: challenge,
-          //@ts-ignore
-          id: challenge_id,
-          //@ts-ignore
-          switchSeconds: challenge_switch_at,
-        },
-      } = data as UploadVideoPayload
+        challenges: challenge,
+        id: challenge_id,
+        switchSeconds: challenge_switch_at,
+      } = challengeData as ChallengeData
       payload = {
         file: blob,
         challenge: JSON.stringify(challenge),
@@ -664,10 +659,7 @@ export const Confirm = (props: ConfirmProps) => {
       error={error}
       trackScreen={props.trackScreen}
       method={props.method}
-      //@ts-ignore todo optional in Previews
-      documentType={props.documentType}
-      //@ts-ignore todo optional in Previews
-      poaDocumentType={props.poaDocumentType}
+      documentType={props.documentType || props.poaDocumentType}
       forceRetake={error?.type === 'error'}
       onVideoError={onVideoPreviewError}
     />
