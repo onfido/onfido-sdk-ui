@@ -407,6 +407,7 @@ export default class CrossDeviceMobileRouter extends Component<
           url={this.props.urls.onfido_api_url}
           token={this.state.token}
           fallback={<WrappedSpinner disableNavigation />}
+          triggerOnError={this.props.triggerOnError}
         >
           <PoASupportedCountriesProvider
             url={urls.onfido_api_url}

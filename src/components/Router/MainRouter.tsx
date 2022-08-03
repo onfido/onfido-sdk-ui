@@ -151,6 +151,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
         overrideConfiguration={this.props.options.overrideSdkConfiguration}
         url={urls.onfido_api_url}
         token={token}
+        triggerOnError={this.props.triggerOnError}
         fallback={
           <Spinner shouldAutoFocus={options.autoFocusOnInitialScreenTitle} />
         }
@@ -173,6 +174,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
           >
             <HistoryRouterWrapper
               {...this.props}
+              triggerOnError={this.props.triggerOnError}
               mobileConfig={this.generateMobileConfig()}
               onFlowChange={this.onFlowChange}
               stepIndexType="user"
