@@ -19,6 +19,7 @@ const CAPTURE_STEP_TYPES: Set<StepTypes> = new Set([
   'face',
   'data',
   'auth',
+  'activeVideo',
 ])
 
 type WelcomeActionsProps = {

@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { ComponentType, h } from 'preact'
 import { trackComponent } from '../../Tracker'
 import { DocumentOptions, DocumentOptionsType } from './DocumentList'
 import { DocumentSelectorBase, Props } from './index'
@@ -6,6 +6,7 @@ import { upperCase } from '~utils/string'
 import { PoaTypes } from '~types/steps'
 import usePoASupportedCountries from '~contexts/usePoASupportedCountries'
 import { map } from '~utils/object'
+import { StepComponentProps } from '~types/routers'
 
 class PoADocumentSelector extends DocumentSelectorBase {
   constructor(props: Props) {
@@ -80,4 +81,7 @@ export const poaDocumentOptions: DocumentOptions = {
   },
 }
 
-export default trackComponent(PoADocumentSelection, 'type_select')
+export default trackComponent(
+  PoADocumentSelection,
+  'type_select'
+) as ComponentType<StepComponentProps>

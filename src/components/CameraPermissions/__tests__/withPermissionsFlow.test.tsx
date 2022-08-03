@@ -47,7 +47,7 @@ describe('CameraPermissions', () => {
         const wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <WrappedComponent {...defaultProps} buttonType="none" />
+              <WrappedComponent {...defaultProps} />
             </MockedLocalised>
           </MockedReduxProvider>
         )
@@ -68,7 +68,7 @@ describe('CameraPermissions', () => {
         const wrapper = mount(
           <MockedReduxProvider>
             <MockedLocalised>
-              <WrappedComponent {...defaultProps} buttonType="none" />
+              <WrappedComponent {...defaultProps} />
             </MockedLocalised>
           </MockedReduxProvider>
         )

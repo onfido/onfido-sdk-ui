@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h, Component, ComponentType } from 'preact'
 import { createSocket } from '~utils/crossDeviceSync'
 import Spinner from '../../Spinner'
 import { trackComponent } from '../../../Tracker'
@@ -101,4 +101,7 @@ class CrossDeviceLink extends Component<CrossDeviceLinkProps> {
     this.props.roomId ? <CrossDeviceLinkUI {...this.props} /> : <Spinner />
 }
 
-export default trackComponent(localised(CrossDeviceLink), 'crossdevice_link')
+export default trackComponent(
+  localised(CrossDeviceLink),
+  'crossdevice_link'
+) as ComponentType<StepComponentProps>

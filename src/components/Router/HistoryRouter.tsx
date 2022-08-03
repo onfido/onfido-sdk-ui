@@ -242,6 +242,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       'face',
       'data',
       'poa',
+      'active_video',
     ]
     const data: SdkResponse = Object.entries(captures)
       .filter(([key, value]) => key !== 'takesHistory' && value != null)
