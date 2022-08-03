@@ -1,5 +1,5 @@
 import { h, FunctionComponent, ComponentType } from 'preact'
-import { useEffect } from 'preact/hooks'
+import { useCallback, useEffect } from 'preact/hooks'
 import { Footer } from '../Footer'
 import { Header } from '../Header'
 import { Wrapper } from '../Wrapper'
@@ -43,70 +43,75 @@ const Uploading: FunctionComponent<Props> = ({
   trackScreen,
   translate,
 }) => {
-  const onApiSuccess = (apiResponse: ActiveVideoResponse) => {
-    actions.setCaptureMetadata({ capture, apiResponse })
-    completeStep([{ id: apiResponse.id }])
-    trackScreen('upload_completed')
-    nextStep()
-  }
-
-  const onApiError = (error: ParsedError) => {
-    const status = error.status || 0
-    const response = error.response || {}
-
-    if (mobileFlow && status === 401) {
-      triggerOnError({ status, response })
-      if (crossDeviceClientError) {
-        crossDeviceClientError()
-      }
-    } else if (status === 422) {
-      setError('REQUEST_ERROR')
-    } else if (
-      status === 403 &&
-      response.error?.type === 'geoblocked_request'
-    ) {
-      setError(
-        'GEOBLOCKED_ERROR',
-        'generic.errors.geoblocked_error.instruction'
-      )
-    } else {
-      triggerOnError({ status, response })
-      trackException(`${status} - ${response}`)
-      setError('REQUEST_ERROR', response?.error?.message)
-    }
-  }
-
-  const setError = (name: ErrorNames, errorMessage?: unknown) => {
-    const error: ErrorProp = { name, type: 'error' }
-    if (errorMessage) {
-      error.properties = { error_message: errorMessage }
-    }
-
-    resetSdkFocus()
-  }
-
-  const upload = (): void => {
-    if (capture) {
-      const metadata = {
-        sdk_metadata: capture.sdkMetadata,
-        sdk_source: process.env.SDK_SOURCE,
-        sdk_version: process.env.SDK_VERSION,
+  const setError = useCallback(
+    (name: ErrorNames, errorMessage?: unknown) => {
+      const error: ErrorProp = { name, type: 'error' }
+      if (errorMessage) {
+        error.properties = { error_message: errorMessage }
       }
 
-      uploadActiveVideo(
-        capture.blob,
-        JSON.stringify(metadata),
-        urls.onfido_api_url,
-        token,
-        onApiSuccess,
-        onApiError
-      )
-    }
-  }
+      resetSdkFocus()
+    },
+    [resetSdkFocus]
+  )
+
+  const onApiSuccess = useCallback(
+    (apiResponse: ActiveVideoResponse) => {
+      actions.setCaptureMetadata({ capture, apiResponse })
+      completeStep([{ id: apiResponse.id }])
+      trackScreen('upload_completed')
+      nextStep()
+    },
+    [actions, capture, completeStep, nextStep, trackScreen]
+  )
+
+  const onApiError = useCallback(
+    (error: ParsedError) => {
+      const status = error.status || 0
+      const response = error.response || {}
+
+      if (mobileFlow && status === 401) {
+        triggerOnError({ status, response })
+        if (crossDeviceClientError) {
+          crossDeviceClientError()
+        }
+      } else if (status === 422) {
+        setError('REQUEST_ERROR')
+      } else if (
+        status === 403 &&
+        response.error?.type === 'geoblocked_request'
+      ) {
+        setError(
+          'GEOBLOCKED_ERROR',
+          'generic.errors.geoblocked_error.instruction'
+        )
+      } else {
+        triggerOnError({ status, response })
+        trackException(`${status} - ${response}`)
+        setError('REQUEST_ERROR', response?.error?.message)
+      }
+    },
+    [crossDeviceClientError, mobileFlow, setError, triggerOnError]
+  )
 
   useEffect(() => {
-    upload()
-  }, [])
+    if (!capture) return
+
+    const metadata = {
+      sdk_metadata: capture.sdkMetadata,
+      sdk_source: process.env.SDK_SOURCE,
+      sdk_version: process.env.SDK_VERSION,
+    }
+
+    uploadActiveVideo(
+      capture.blob,
+      JSON.stringify(metadata),
+      urls.onfido_api_url,
+      token,
+      onApiSuccess,
+      onApiError
+    )
+  }, [capture, onApiError, onApiSuccess, token, urls.onfido_api_url])
 
   return (
     <BaseScreen>
