@@ -233,16 +233,3 @@ export const capitalise = (string: string): string => {
  */
 export const buildIteratorKey = (value: string | number | boolean): string =>
   btoa(unescape(encodeURIComponent(value)))
-
-export const shouldUseCameraForDocumentCapture = (
-  documentStep?: StepConfigDocument,
-  deviceHasCameraSupport?: boolean
-): boolean => {
-  const canUseLiveDocumentCapture =
-    (!isDesktop || isHybrid) && documentStep?.options?.useLiveDocumentCapture
-
-  return (
-    (canUseLiveDocumentCapture || documentStep?.options?.useWebcam === true) &&
-    deviceHasCameraSupport === true
-  )
-}

@@ -41,7 +41,7 @@ import {
   CaptureMethodRendered,
 } from '~types/tracker'
 import { buildStepFinder } from '~utils/steps'
-import { shouldUseCameraForDocumentCapture } from '~utils'
+import { shouldUseCameraForDocumentCapture } from '~utils/shouldUseCamera'
 
 type ImageQualityValidationNames =
   | 'CUTOFF_DETECTED'

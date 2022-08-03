@@ -33,7 +33,7 @@ import LazyActiveVideo from '../ActiveVideo/Lazy'
 import ActiveVideoIntro from '../ActiveVideo/Intro'
 import ActiveVideoRecordingComplete from '../ActiveVideo/RecordingComplete'
 import ActiveVideoUpload from '../ActiveVideo/Uploading'
-import { shouldUseCameraForDocumentCapture } from '~utils'
+import { shouldUseCameraForDocumentCapture } from '~utils/shouldUseCamera'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 
 import type {
