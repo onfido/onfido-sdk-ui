@@ -49,6 +49,14 @@ export type LegacyTrackedEventNames =
   | 'screen_document_back_confirmation_blur_detected'
   | 'screen_document_front_confirmation_glare_detected'
   | 'screen_document_back_confirmation_glare_detected'
+  | 'screen_document_front_confirmation_cutoff_detected_warning'
+  | 'screen_document_back_confirmation_cutoff_detected_warning'
+  | 'screen_document_front_confirmation_blur_detected_warning'
+  | 'screen_document_back_confirmation_blur_detected_warning'
+  | 'screen_document_front_confirmation_glare_detected_warning'
+  | 'screen_document_back_confirmation_glare_detected_warning'
+  | 'screen_document_front_confirmation_document_detection_warning'
+  | 'screen_document_back_confirmation_document_detection_warning'
   | 'screen_document_front_confirmation_request_error'
   | 'screen_document_back_confirmation_request_error'
   | 'screen_document_front_confirmation_document_detection'
@@ -225,6 +233,7 @@ type UIAlerts =
   | 'multiple_faces'
   | 'document_capture'
   | 'document_detection'
+  | 'document' // same as document_detection, new nomenclature for analytics
   | 'face_video_timeout'
   | 'profile_data_timeout'
   | 'doc_video_timeout'
@@ -283,7 +292,12 @@ export type AnalyticsEventProperties = {
   ui_alerts?: {
     [key in UIAlerts]?: 'error' | 'warning' | null
   }
+  warning_shown?: 'document' | 'blur' | 'glare' | 'cutoff'
   callback_name?: string
+}
+
+export type AnalyticsEventPropertiesWarnings = {
+  [key in UIAlerts]?: 'warning'
 }
 
 export type AnalyticsPayload = {
@@ -335,6 +349,7 @@ export type AnalyticsTrackedEventNames =
   | 'DOCUMENT_CONFIRMATION_RETAKE_BUTTON_CLICKED'
   | 'DOCUMENT_CONFIRMATION_UPLOAD_BUTTON_CLICKED'
   | 'DOCUMENT_CONFIRMATION_ERROR'
+  | 'DOCUMENT_CONFIRMATION_WARNING'
   | 'DOCUMENT_FALLBACK_CLICKED'
   | 'DOCUMENT_IMAGE_QUALITY_GUIDE'
   | 'DOCUMENT_IMAGE_QUALITY_GUIDE_ERROR'

@@ -135,8 +135,48 @@ export const Confirm = (props: ConfirmProps) => {
     props.resetSdkFocus()
   }
 
-  const setWarning = (name: ErrorNames) => {
-    setErrorProp({ name, type: 'warning' })
+  const setWarning = (
+    name: ErrorNames,
+    extraProps: Record<string, unknown>,
+    imageQualityWarnings?: ImageQualityWarnings
+  ) => {
+    const warningAnalytics: AnalyticsEventPropertiesWarnings = {}
+
+    if (imageQualityWarnings) {
+      // build the warnings for analytics purposes
+      const validationReasons = Object.keys(
+        imageQualityWarnings
+      ) as ImageQualityValidationTypes[]
+
+      validationReasons.forEach((reason) => {
+        if (imageQualityWarnings[reason]?.valid) {
+          return
+        }
+        switch (reason) {
+          case 'detect_blur':
+            warningAnalytics.blur = 'warning'
+            break
+          case 'detect_cutoff':
+            warningAnalytics.cutoff = 'warning'
+            break
+          case 'detect_glare':
+            warningAnalytics.glare = 'warning'
+            break
+          case 'detect_document':
+            warningAnalytics.document = 'warning'
+            break
+        }
+      })
+    }
+
+    console.log(warningAnalytics)
+
+    setErrorProp({
+      name,
+      type: 'warning',
+      analyticsProperties: { ...extraProps, ...{ warnings: warningAnalytics } },
+    })
+
     setUploadInProgress(false)
     props.resetSdkFocus()
   }
@@ -260,15 +300,28 @@ export const Confirm = (props: ConfirmProps) => {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const imageQualityWarning = onImageQualityWarning(
-      apiResponse as DocumentImageResponse
-    )
+    const documentImageResponse = apiResponse as DocumentImageResponse
+    const imageQualityWarning = onImageQualityWarning(documentImageResponse)
 
     if (!imageQualityWarning) {
       completeStep([{ id: apiResponse.id }])
       nextStep()
     } else {
-      setWarning(imageQualityWarning)
+      setWarning(
+        imageQualityWarning,
+        {
+          document_type: props.documentType,
+          country_code: props.idDocumentIssuingCountry?.country_alpha2,
+          warning_origin: 'remote',
+          count_attempt: props.imageQualityRetries,
+          max_retry_count: sdkConfiguration.document_capture.max_total_retries,
+          // not sure what is_blocking refers to, but its the correct way to compute it
+          is_blocking:
+            props.imageQualityRetries >
+            sdkConfiguration.document_capture.max_total_retries,
+        },
+        documentImageResponse.sdk_warnings
+      )
     }
   }
 

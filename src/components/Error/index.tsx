@@ -11,6 +11,10 @@ import style from './style.scss'
 import type { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import type { ParsedElement } from '~types/locales'
 import type { ErrorProp } from '~types/routers'
+import {
+  isDocumentTrackingError,
+  trackDocumentError,
+} from 'Tracker/errorTracking'
 
 type ErrorRoles = 'alert' | 'alertdialog'
 
@@ -36,10 +40,14 @@ class Error extends Component<Props> {
       this.container.focus()
     }
 
-    this.props.trackScreen(
-      lowerCase(this.props.error.name),
-      this.props.error.properties
-    )
+    if (isDocumentTrackingError(this.props.error.name)) {
+      trackDocumentError(this.props.error, this.props.trackScreen)
+    } else {
+      this.props.trackScreen(
+        lowerCase(this.props.error.name),
+        this.props.error.properties
+      )
+    }
   }
 
   render() {
