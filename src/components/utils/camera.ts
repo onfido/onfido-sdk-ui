@@ -1,4 +1,4 @@
-import Webcam from 'react-webcam-onfido'
+import Webcam from '~webcam/react-webcam'
 import { canvasToBlob } from './blob'
 
 import type { SdkMetadata } from '~types/commons'
@@ -18,6 +18,11 @@ export const screenshot = (
 
   if (!canvas) {
     console.error('webcam canvas is null')
+    return
+  }
+
+  if (!webcam.stream) {
+    console.error('webcam stream is null')
     return
   }
 
@@ -54,6 +59,10 @@ export const getRecordedVideo = (
   callback: HandleCaptureProp
 ): void => {
   const blob = webcam.getVideoBlob()
+  if (!blob || !webcam.stream) {
+    console.error('webcam blob or stream is null')
+    return
+  }
   const sdkMetadata = getDeviceInfo(webcam.stream)
   callback({ blob, sdkMetadata })
 }

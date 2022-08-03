@@ -33,7 +33,8 @@
       "~supported-documents": ["supported-documents/index"],
       "~workflow-engine": ["workflow-engine/index"],
       "~workflow-engine/*": ["workflow-engine/*"],
-      "~auth-sdk/*": ["../auth-sdk/FaceTec/*"]
+      "~auth-sdk/*": ["../auth-sdk/FaceTec/*"],
+      "~webcam/*": ["webcam/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

@@ -15,8 +15,6 @@ const defaultOptions: SDKOptionsWithRenderData = {
     { type: 'data' },
     { type: 'complete' },
     { type: 'retry' },
-    { type: 'pass' },
-    { type: 'reject' },
   ],
   containerId: 'onfido-mount',
   containerEl: document.createElement('div'),

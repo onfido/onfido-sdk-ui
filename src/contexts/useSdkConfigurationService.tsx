@@ -43,14 +43,12 @@ export const SdkConfigurationServiceProvider = ({
   token,
   fallback,
   triggerOnError,
-  overrideConfiguration = {},
+  overrideConfiguration,
 }: SdkConfigurationServiceProviderProps) => {
   const [error, setError] = useState<ParsedError | undefined>(undefined)
   const [configuration, setConfiguration] = useState<
     SdkConfiguration | undefined
   >(undefined)
-
-  const [overrideConfigurationState] = useState(overrideConfiguration)
 
   useEffect(() => {
     if (!url || !token) {
@@ -62,9 +60,9 @@ export const SdkConfigurationServiceProvider = ({
           deepmerge(
             deepmerge(defaultConfiguration, apiConfiguration),
             // TODO: Cleanup the overrideConfigurationState and add it to the mock server
-            process.env.NODE_ENV === 'production'
+            process.env.NODE_ENV === 'production' || !overrideConfiguration
               ? {}
-              : overrideConfigurationState
+              : overrideConfiguration
           )
         )
       )
@@ -73,7 +71,7 @@ export const SdkConfigurationServiceProvider = ({
         setError(error)
         setConfiguration(defaultConfiguration)
       })
-  }, [url, token, overrideConfigurationState])
+  }, [url, token, overrideConfiguration])
 
   if (error && error.status === 401) {
     return <WrappedError error={{ name: 'EXPIRED_TOKEN' }} disableNavigation />

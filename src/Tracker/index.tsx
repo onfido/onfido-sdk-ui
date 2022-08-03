@@ -122,7 +122,11 @@ const trackComponent = <P extends WithTrackingProps>(
 ): ComponentType<P> =>
   class TrackedComponent extends Component<P> {
     componentDidMount() {
-      this.props.trackScreen(screenName)
+      const properties = this.props.trackPropertiesBeforeMount
+        ? this.props.trackPropertiesBeforeMount()
+        : undefined
+
+      this.props.trackScreen(screenName, properties)
     }
 
     render = () => <WrappedComponent {...this.props} />

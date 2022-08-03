@@ -1,5 +1,5 @@
 import { Component, h } from 'preact'
-import type { WebcamProps } from 'react-webcam-onfido'
+import { WebcamProps } from '~webcam/react-webcam'
 
 export default class Webcam extends Component<WebcamProps> {
   componentDidMount(): void {

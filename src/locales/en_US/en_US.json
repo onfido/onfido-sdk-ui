@@ -1,14 +1,4 @@
 {
-    "workflow_complete": {
-        "pass": {
-            "title": "Passed",
-            "description": "We have been able to verify your identity"
-        },
-        "reject": {
-            "title": "Rejected",
-            "description": "We haven't been able to verify your identity"
-        }
-    },
     "workflow_erros": {
         "task_not_supported": "Task is currently not supported.",
         "task_not_completed": "Could not complete workflow task.",
