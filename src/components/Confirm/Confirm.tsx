@@ -505,7 +505,7 @@ export const Confirm = (props: ConfirmProps) => {
     const formDataPayload = prepareCallbackPayload(data, callbackName)
 
     const startTime = performance.now()
-    // @ts-ignore
+
     sendEvent(`Triggering ${callbackName} callback`)
     sendEvent('Starting upload', { method })
 
@@ -522,7 +522,6 @@ export const Confirm = (props: ConfirmProps) => {
       } = await enterpriseFeaturesCallback(formDataPayload)
 
       if (onfidoSuccessResponse) {
-        // @ts-ignore
         sendEvent(`Success response from ${callbackName}`)
         sendEvent('Completed upload', {
           method,
@@ -561,7 +560,6 @@ export const Confirm = (props: ConfirmProps) => {
         console.error(`Invalid return statement from ${callbackName}`)
       }
     } catch (errorResponse: unknown) {
-      // @ts-ignore
       sendEvent(`Error response from ${callbackName}`)
       formatError(errorResponse as ApiRawError, onApiError)
     }
