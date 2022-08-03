@@ -17,6 +17,7 @@ import theme from '../Theme/style.scss'
 import { CountrySelector } from './CountrySelector'
 import { StateSelector } from './StateSelector'
 import { DateOfBirthInput, getMaxDay } from './DateOfBirthInput'
+import { SSNInput } from './SSNInput'
 import style from './style.scss'
 
 import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
@@ -290,16 +291,7 @@ const getFieldComponent = (
     case 'postcode':
       return <Input {...props} type="text" style={{ width: space(22) }} />
     case 'ssn':
-      return (
-        <Input
-          {...props}
-          placeholder={'999-99-9999'}
-          pattern={'d{3}-d{2}-d{4}'}
-          maxLength={11}
-          type="text"
-          style={{ width: space(22) }}
-        />
-      )
+      return <SSNInput {...props} style={{ width: space(22) }} />
     default:
       return <Input {...props} type="text" />
   }

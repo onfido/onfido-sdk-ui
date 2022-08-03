@@ -1,16 +1,14 @@
-import { performHttpReq, HttpRequestParams } from '~utils/http'
+import { performHttpRequest, HttpRequestParams } from '~core/Network'
 import { formatError } from '~utils/onfidoApi'
 import type { documentSelectionType } from '~types/commons'
 import type {
   WorkflowResponse,
-  OutcomeStepKeys,
   GetWorkflowFunc,
   CompleteWorkflowFunc,
   GetFlowStepFunc,
 } from './utils/WorkflowTypes'
 
 export interface EngineInterface {
-  getOutcomeStep(workflow: WorkflowResponse | undefined): OutcomeStepKeys
   getWorkflow: GetWorkflowFunc
   completeWorkflow: CompleteWorkflowFunc
   getWorkFlowStep: GetFlowStepFunc
@@ -33,14 +31,6 @@ export class Engine implements EngineInterface {
     this.engineProps = engineProps
   }
 
-  getOutcomeStep = (workflow: WorkflowResponse): OutcomeStepKeys => {
-    return !workflow.has_remaining_interactive_tasks
-      ? 'complete'
-      : workflow.outcome
-      ? 'pass'
-      : 'reject'
-  }
-
   getWorkflow: GetWorkflowFunc = async (): Promise<WorkflowResponse> => {
     const { token, workflowRunId, workflowServiceUrl } = this.engineProps
     if (!token) {
@@ -56,7 +46,7 @@ export class Engine implements EngineInterface {
           token: `Bearer ${token}`,
         }
 
-        performHttpReq(requestParams, resolve, (request) =>
+        performHttpRequest(requestParams, resolve, (request) =>
           formatError(request, reject)
         )
       } catch (error) {
@@ -90,7 +80,7 @@ export class Engine implements EngineInterface {
           token: `Bearer ${token}`,
         }
 
-        performHttpReq(requestParams, resolve, (request) =>
+        performHttpRequest(requestParams, resolve, (request) =>
           formatError(request, reject)
         )
       } catch (error) {

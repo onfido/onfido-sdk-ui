@@ -8,9 +8,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+- Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
+
 ## Changed
 
-- Public: Make the `useLiveDocumentCapture` true by default. Clients can still change this option to false.
+- Internal: Send OS name and version information in sdk configuration request
 - Internal: Add dynamically loaded files (except en_US)
 - Internal: Upgraded Sentry to v7, added ErrorBoundary, fingerprinting and moved into its own module
 - Internal: Move Woopra into it's own core module
@@ -23,6 +25,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Remove asterisk from required fields
 - Internal: Remove isFullScreen prop from NavigationBar
 - Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
+- Internal: Update terser to 5.14.2 & moment to 2.29.4
+- Internal: Add Network module
+- Internal: Move all network calls to the Network module
+- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
+- Public: Add commit hash in console
 
 ## [8.1.1] - 2022-07-13
 
@@ -30,6 +37,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Migrate the react-webcam code into SDK + migrate it to typescript
 - Internal: Use the `max_total_retries` field from SdkConfiguration to compute the max number of document capture retries after an image quality failed check. It was previously was set to 1.
 - Internal: Add `video_instruction_type` property to analytics event `FACE_VIDEO_CAPTURE` and `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
 - Internal: Rename analytics event `FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED` to `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`

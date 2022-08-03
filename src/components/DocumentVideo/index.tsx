@@ -1,7 +1,7 @@
 import { h, FunctionComponent } from 'preact'
 import { memo, useEffect, useRef, useState } from 'preact/compat'
 import { useSelector } from 'react-redux'
-import Webcam from 'react-webcam-onfido'
+import Webcam from '~webcam/react-webcam'
 
 import { mimeType } from '~utils/blob'
 import { screenshot } from '~utils/camera'

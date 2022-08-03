@@ -77,7 +77,8 @@
       "^~supported-documents(.*)$": "<rootDir>/src/supported-documents$1",
       "^~workflow-engine(.*)$": "<rootDir>/src/workflow-engine$1",
       "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
-      "^components(.*)$": "<rootDir>/src/components$1"
+      "^components(.*)$": "<rootDir>/src/components$1",
+      "^~webcam(.*)$": "<rootDir>/src/webcam$1"
     },
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest",
@@ -190,6 +191,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "git-revision-webpack-plugin": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "imports-loader": "^0.8.0",
     "jest": "^27.5.1",
@@ -201,6 +203,7 @@
     "mini-css-extract-plugin": "^2.5.3",
     "modify-source-webpack-plugin": "^3.0.0",
     "moment": "^2.29.3",
+    "nock": "^13.2.8",
     "node-polyglot": "^2.2.2",
     "ora": "^4.0.3",
     "postcss": "^8.4.6",
@@ -214,7 +217,6 @@
     "react-phone-number-input": "^3.1.38",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
-    "react-webcam-onfido": "^1.0.0",
     "redux-mock-store": "^1.5.4",
     "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.5.4",
@@ -250,7 +252,7 @@
     "core-js": "^3.21.1",
     "deepmerge": "^4.2.2",
     "dompurify": "^2.2.6",
-    "enumerate-devices": "^1.1.0",
+    "enumerate-devices": "^1.1.1",
     "eventemitter2": "~2.2.2",
     "history": "~4.5.1",
     "hoist-non-react-statics": "^3.3.2",

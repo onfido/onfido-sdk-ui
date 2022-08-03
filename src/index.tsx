@@ -99,6 +99,12 @@ const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
     )
   }
 
+  if (documentStep?.options?.useLiveDocumentCapture) {
+    console.warn(
+      '`useLiveDocumentCapture` is a beta feature and is still subject to ongoing changes'
+    )
+  }
+
   const activeVideoStep = buildStepFinder(steps)('activeVideo')
 
   if (activeVideoStep) {
@@ -147,7 +153,11 @@ const getContainerElementById = (containerId: string) => {
 }
 
 export const init = (opts: SdkOptions): SdkHandle => {
-  console.log('onfido_sdk_version', process.env.SDK_VERSION)
+  console.log(
+    'onfido_sdk_version',
+    process.env.SDK_VERSION,
+    process.env.COMMITHASH
+  )
   const options = formatOptions({ ...defaults, ...opts })
 
   experimentalFeatureWarnings(options)

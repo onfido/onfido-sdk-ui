@@ -2,6 +2,7 @@ import webpack from 'webpack'
 import { ModifySourcePlugin } from 'modify-source-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { getSourceFileAsString } from '../morph/build.morph'
+import { GitRevisionPlugin } from 'git-revision-webpack-plugin'
 // @ts-ignore
 import Visualizer from 'webpack-visualizer-plugin2'
 import {
@@ -15,6 +16,8 @@ import {
   BASE_32_VERSION,
   BASE_DIR,
 } from './constants'
+
+const gitRevisionPlugin = new GitRevisionPlugin()
 
 const formatDefineHash = (defineHash: Record<string, unknown>) => {
   const formatted: Record<string, unknown> = {}
@@ -67,6 +70,7 @@ export const basePlugins = (bundle_name = '') =>
         SDK_TOKEN_FACTORY_SECRET,
         WOOPRA_WINDOW_KEY,
         WOOPRA_IMPORT: `imports-loader?this=>Window.prototype["${WOOPRA_WINDOW_KEY}"],window=>Window.prototype["${WOOPRA_WINDOW_KEY}"]!wpt/wpt.js`,
+        COMMITHASH: gitRevisionPlugin.commithash(),
       })
     ),
   ].filter(Boolean)

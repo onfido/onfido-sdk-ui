@@ -26,56 +26,6 @@ describe('Workflow Engine', () => {
     })
   })
 
-  describe('with Workflow Outcome', () => {
-    it('should return outcome step: "complete"', async () => {
-      const workflow = {
-        id: 'Xec9013ea',
-        applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
-        config: { name: 'timeout', value: 1209600, document_selection: [] },
-        finished: true,
-        task_def_id: 'upload_document_photo',
-        task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
-        outcome: undefined,
-        error: undefined,
-        has_remaining_interactive_tasks: false,
-      }
-      const outcomeStep = workflowEngine1.getOutcomeStep(workflow)
-      expect(outcomeStep).toEqual('complete')
-    })
-
-    it('should return outcome step as: "Pass"', async () => {
-      const workflow1 = {
-        id: 'Xec9013ea',
-        applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
-        config: { name: 'timeout', value: 1209600, document_selection: [] },
-        finished: true,
-        task_def_id: 'upload_document_photo',
-        task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
-        outcome: true,
-        error: undefined,
-        has_remaining_interactive_tasks: true,
-      }
-      const outcomeStep = workflowEngine1.getOutcomeStep(workflow1)
-      expect(outcomeStep).toEqual('pass')
-    })
-
-    it('should return outcome step as: "Reject"', async () => {
-      const workflow2 = {
-        id: 'Xec9013ea',
-        applicant_id: 'd8034341-5ca2-4f90-a1c6-ae92c9519a21',
-        config: { name: 'timeout', value: 1209600, document_selection: [] },
-        finished: true,
-        task_def_id: 'upload_document_photo',
-        task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
-        outcome: undefined,
-        error: undefined,
-        has_remaining_interactive_tasks: true,
-      }
-      const outcomeStep = workflowEngine1.getOutcomeStep(workflow2)
-      expect(outcomeStep).toEqual('reject')
-    })
-  })
-
   describe('WorkflowStep task', () => {
     beforeEach(() => {
       workflowEngine1 = new Engine({

@@ -1,7 +1,6 @@
 import { EngineInterface, EngineProps } from '../engine'
 import type {
   WorkflowResponse,
-  OutcomeStepKeys,
   GetWorkflowFunc,
   WorkflowStepConfig,
 } from '../utils/WorkflowTypes'
@@ -13,14 +12,6 @@ export class MockEngine implements EngineInterface {
     this.engineProps = engineProps
   }
 
-  getOutcomeStep = (workflow: WorkflowResponse): OutcomeStepKeys => {
-    return !workflow.has_remaining_interactive_tasks
-      ? 'complete'
-      : workflow.outcome
-      ? 'pass'
-      : 'reject'
-  }
-
   getWorkflow: GetWorkflowFunc = async (): Promise<WorkflowResponse> => {
     return {
       id: 'ec9013ea',
@@ -30,7 +21,6 @@ export class MockEngine implements EngineInterface {
       task_def_id: 'upload_document_photo',
       task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
       task_type: 'INTERACTIVE',
-      outcome: false,
       error: 'error',
       has_remaining_interactive_tasks: true,
     }
@@ -49,7 +39,6 @@ export class MockEngine implements EngineInterface {
       task_def_id: 'upload_document_photo',
       task_id: '2a11059f-b2dd-4374-9e72-58bb2cb410b8',
       task_type: 'INTERACTIVE',
-      outcome: undefined,
       error: undefined,
       has_remaining_interactive_tasks: true,
     }

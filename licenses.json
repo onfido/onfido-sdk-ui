@@ -917,6 +917,14 @@
     "path": "node_modules/@jest/console/node_modules/@jest/types",
     "licenseFile": "node_modules/@jest/console/node_modules/@jest/types/LICENSE"
   },
+  "@jridgewell/gen-mapping@0.3.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jridgewell/gen-mapping",
+    "publisher": "Justin Ridgewell",
+    "email": "justin@ridgewell.name",
+    "path": "node_modules/@jridgewell/gen-mapping",
+    "licenseFile": "node_modules/@jridgewell/gen-mapping/LICENSE"
+  },
   "@jridgewell/resolve-uri@3.0.7": {
     "licenses": "MIT",
     "repository": "https://github.com/jridgewell/resolve-uri",
@@ -924,6 +932,22 @@
     "email": "justin@ridgewell.name",
     "path": "node_modules/@jridgewell/resolve-uri",
     "licenseFile": "node_modules/@jridgewell/resolve-uri/LICENSE"
+  },
+  "@jridgewell/set-array@1.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jridgewell/set-array",
+    "publisher": "Justin Ridgewell",
+    "email": "justin@ridgewell.name",
+    "path": "node_modules/@jridgewell/set-array",
+    "licenseFile": "node_modules/@jridgewell/set-array/LICENSE"
+  },
+  "@jridgewell/source-map@0.3.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jridgewell/source-map",
+    "publisher": "Justin Ridgewell",
+    "email": "justin@ridgewell.name",
+    "path": "node_modules/@jridgewell/source-map",
+    "licenseFile": "node_modules/@jridgewell/source-map/LICENSE"
   },
   "@jridgewell/sourcemap-codec@1.4.13": {
     "licenses": "MIT",
@@ -999,7 +1023,7 @@
     "path": "node_modules/@onfido/castor-icons",
     "licenseFile": "node_modules/@onfido/castor-icons/README.md"
   },
-  "@onfido/castor-react@2.2.1": {
+  "@onfido/castor-react@2.2.2": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
@@ -1013,7 +1037,7 @@
     "path": "node_modules/@onfido/castor-tokens",
     "licenseFile": "node_modules/@onfido/castor-tokens/README.md"
   },
-  "@onfido/castor@2.2.1": {
+  "@onfido/castor@2.2.2": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/onfido/castor",
     "publisher": "Onfido",
@@ -1607,8 +1631,8 @@
   "@types/webpack@4.41.32": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-    "path": "node_modules/@types/html-webpack-plugin/node_modules/@types/webpack",
-    "licenseFile": "node_modules/@types/html-webpack-plugin/node_modules/@types/webpack/LICENSE"
+    "path": "node_modules/@types/speed-measure-webpack-plugin/node_modules/@types/webpack",
+    "licenseFile": "node_modules/@types/speed-measure-webpack-plugin/node_modules/@types/webpack/LICENSE"
   },
   "@types/webpack@5.28.0": {
     "licenses": "MIT",
@@ -1900,8 +1924,8 @@
   "acorn-walk@8.2.0": {
     "licenses": "MIT",
     "repository": "https://github.com/acornjs/acorn",
-    "path": "node_modules/ts-node/node_modules/acorn-walk",
-    "licenseFile": "node_modules/ts-node/node_modules/acorn-walk/LICENSE"
+    "path": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk",
+    "licenseFile": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk/LICENSE"
   },
   "acorn@7.4.1": {
     "licenses": "MIT",
@@ -6220,7 +6244,7 @@
     "path": "node_modules/modify-source-webpack-plugin",
     "licenseFile": "node_modules/modify-source-webpack-plugin/LICENSE"
   },
-  "moment@2.29.3": {
+  "moment@2.29.4": {
     "licenses": "MIT",
     "repository": "https://github.com/moment/moment",
     "publisher": "Iskren Ivov Chernev",
@@ -8624,7 +8648,7 @@
     "path": "node_modules/terser-webpack-plugin",
     "licenseFile": "node_modules/terser-webpack-plugin/LICENSE"
   },
-  "terser@5.12.1": {
+  "terser@5.14.2": {
     "licenses": "BSD-2-Clause",
     "repository": "https://github.com/terser/terser",
     "publisher": "Mihai Bazon",

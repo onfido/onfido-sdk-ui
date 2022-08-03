@@ -8,7 +8,11 @@ export const baseConfig = {
 
   resolve: {
     extensions: ['.jsx', '.js', '.tsx', '.ts', '.scss', '.json'],
-    modules: [`${BASE_DIR}/node_modules`, `${BASE_DIR}/src`],
+    modules: [
+      `${BASE_DIR}/node_modules`,
+      `${BASE_DIR}/src`,
+      `${BASE_DIR}/modules`,
+    ],
     alias: {
       react: 'preact/compat',
       'react-dom': 'preact/compat',
@@ -19,6 +23,7 @@ export const baseConfig = {
       '~modules': `${BASE_DIR}/modules`,
       '~utils': `${BASE_DIR}/src/components/utils`,
       '~supported-documents': `${BASE_DIR}/src/supported-documents`,
+      '~webcam': `${BASE_DIR}/src/webcam`,
       '~workflow-engine': `${BASE_DIR}/src/workflow-engine`,
       '~auth-sdk': `${BASE_DIR}/auth-sdk/FaceTec`,
       'socket.io-client': resolve(

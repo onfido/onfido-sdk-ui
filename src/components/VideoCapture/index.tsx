@@ -1,5 +1,5 @@
 import { h, Component, Ref } from 'preact'
-import Webcam from 'react-webcam-onfido'
+import type Webcam from '~webcam/react-webcam'
 
 import { getRecordedVideo } from '~utils/camera'
 import { VIDEO_CAPTURE } from '~utils/constants'
