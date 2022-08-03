@@ -265,13 +265,16 @@ export const ErrorNameToUIAlertMapping: Record<
   UNSUPPORTED_IOS_BROWSER: undefined,
 }
 
+export type CaptureMethodRendered = 'upload' | 'camera'
+export type CaptureFormat = 'photo' | 'camera' // I think this maps 1-1 to RequestedVariant, photo is standard
+
 export type AnalyticsEventProperties = {
   event_type?: TrackedEventTypes
   step?: string
   is_cross_device?: boolean
   is_custom_ui?: boolean
   status?: string
-  capture_method_rendered?: 'upload' | 'camera'
+  capture_method_rendered?: CaptureMethodRendered
   document_side?: 'front' | 'back'
   video_capture_step?: 'step1' | 'step2'
   video_instruction_type?: 'recite' | 'movement'

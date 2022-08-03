@@ -30,7 +30,7 @@ import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
 import LazyActiveVideo from '../ActiveVideo/Lazy'
-import { isDesktop, isHybrid } from '~utils'
+import { isDesktop, isHybrid, shouldUseCameraForDocumentCapture } from '~utils'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 
 import type {
@@ -107,19 +107,6 @@ export const buildComponentsList = ({
 const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
-
-const shouldUseCameraForDocumentCapture = (
-  documentStep?: StepConfigDocument,
-  deviceHasCameraSupport?: boolean
-): boolean => {
-  const canUseLiveDocumentCapture =
-    (!isDesktop || isHybrid) && documentStep?.options?.useLiveDocumentCapture
-
-  return (
-    (canUseLiveDocumentCapture || documentStep?.options?.useWebcam === true) &&
-    deviceHasCameraSupport === true
-  )
-}
 
 const buildCaptureStepComponents = (
   poaDocumentCountry: CountryData | undefined,

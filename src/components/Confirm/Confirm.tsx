@@ -12,6 +12,7 @@ import {
   uploadFaceVideo,
   UploadVideoPayload,
   UploadDocumentVideoMediaPayload,
+  UploadDocumentAnalyticsPayload,
 } from '~utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
@@ -34,6 +35,9 @@ import {
 import { WithLocalisedProps } from '~types/hocs'
 import { useEffect, useState } from 'preact/hooks'
 import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
+import { CaptureFormat, CaptureMethodRendered } from '~types/tracker'
+import { buildStepFinder } from '~utils/steps'
+import { shouldUseCameraForDocumentCapture } from '~utils'
 
 type ImageQualityValidationNames =
   | 'CUTOFF_DETECTED'
@@ -71,6 +75,37 @@ export const Confirm = (props: ConfirmProps) => {
   const [uploadInProgress, setUploadInProgress] = useState(false)
   const [error, setErrorProp] = useState<ErrorProp | undefined>(undefined)
   const sdkConfiguration = useSdkConfigurationService()
+
+  const buildUploadDocumentAnalyticsPayload = ():
+    | UploadDocumentAnalyticsPayload
+    | undefined => {
+    if (props.currentStepType !== 'document') {
+      return
+    }
+    const findStep = buildStepFinder(props.steps)
+    const doc = findStep('document')
+    let capture_format: CaptureFormat | undefined
+    if (doc?.options?.requestedVariant) {
+      capture_format =
+        doc?.options?.requestedVariant === 'standard' ? 'photo' : 'camera'
+    }
+    const capture_method_rendered: CaptureMethodRendered = shouldUseCameraForDocumentCapture(
+      doc,
+      props.deviceHasCameraSupport
+    )
+      ? 'camera'
+      : 'upload'
+
+    return {
+      document_side: props.side,
+      country_code: props.idDocumentIssuingCountry?.country_alpha2,
+      document_type: props.documentType,
+      count_attempt: props.imageQualityRetries,
+      max_retry_count: sdkConfiguration.document_capture.max_total_retries,
+      capture_method_rendered: capture_method_rendered,
+      capture_format: capture_format,
+    }
+  }
 
   useEffect(() => {
     // 'DOCUMENT_CONFIRMATION'
@@ -332,7 +367,14 @@ export const Confirm = (props: ConfirmProps) => {
       if (isDecoupledFromAPI) {
         onSubmitCallback(data, CALLBACK_TYPES.document)
       } else {
-        uploadDocument(data, url, token)
+        uploadDocument(
+          data,
+          url,
+          token,
+          undefined,
+          undefined,
+          buildUploadDocumentAnalyticsPayload()
+        )
           .then((res) => {
             // Multi Frame Capture video
             if (props.captures.document_video) {
@@ -419,7 +461,8 @@ export const Confirm = (props: ConfirmProps) => {
             url,
             token,
             onApiSuccess,
-            onApiError
+            onApiError,
+            buildUploadDocumentAnalyticsPayload()
           )
           return
         }

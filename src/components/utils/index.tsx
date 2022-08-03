@@ -3,6 +3,7 @@ import detectSystem from './detectSystem'
 import type { SdkMetadata, ErrorNames } from '~types/commons'
 import type { TrackedEnvironmentData } from '~types/tracker'
 import type { TranslatedTagParser } from '~types/locales'
+import { StepConfigDocument } from '~types/steps'
 
 const parseUnit = (value: string | number): [number, string] => {
   const str = String(value)
@@ -232,3 +233,16 @@ export const capitalise = (string: string): string => {
  */
 export const buildIteratorKey = (value: string | number | boolean): string =>
   btoa(unescape(encodeURIComponent(value)))
+
+export const shouldUseCameraForDocumentCapture = (
+  documentStep?: StepConfigDocument,
+  deviceHasCameraSupport?: boolean
+): boolean => {
+  const canUseLiveDocumentCapture =
+    (!isDesktop || isHybrid) && documentStep?.options?.useLiveDocumentCapture
+
+  return (
+    (canUseLiveDocumentCapture || documentStep?.options?.useWebcam === true) &&
+    deviceHasCameraSupport === true
+  )
+}
