@@ -82,13 +82,16 @@ jobs:
 
       - name: Remote branch exists
         run: |
-          if [[ $(git branch --all --list $RELEASE_BRANCH_NAME) ]] 
+          git branch --all --list
+           
+          if [[ $(git branch --all --list remotes/origin/$RELEASE_BRANCH_NAME) ]] 
           then
             echo "REMOTE_BRANCH_EXIST=true" >> $GITHUB_ENV
           fi
 
       - name: Create Pull Request
         uses: actions/github-script@v6
+        if: ${{ env.REMOTE_BRANCH_EXIST != true }}
         with:
           script: |
             require('./release/createPullRequest.js')(github, context)

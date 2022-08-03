@@ -1,5 +1,7 @@
 package com.onfido.qa.websdk;
 
+import java.util.Arrays;
+
 public enum DocumentType implements IDocumentType {
 
     DRIVING_LICENCE("driving_licence", 2),
@@ -26,5 +28,13 @@ public enum DocumentType implements IDocumentType {
     @Override
     public String canonicalName() {
         return canonicalName;
+    }
+
+    public static DocumentType fromCanonicalName(String canonicalName) {
+
+        return Arrays.stream(values())
+                     .filter(x -> x.canonicalName.equalsIgnoreCase(canonicalName))
+                     .findFirst()
+                     .orElseThrow(() -> new IllegalArgumentException(String.format("No DocumentType with name '%s' available.", canonicalName)));
     }
 }

@@ -33,8 +33,7 @@ const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
 const WrappedError = withTheme(GenericError)
 
 type State = {
-  crossDeviceInitialClientStep?: number
-  crossDeviceInitialStep?: number
+  crossDeviceStepIndex: number
   crossDeviceSteps: StepConfig[]
 }
 
@@ -63,20 +62,18 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       customUI,
       crossDeviceClientIntroProductName,
       crossDeviceClientIntroProductLogoSrc,
+      workflowRunId,
+      useWorkflow,
     } = options
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
     if (!steps) {
       throw new Error('steps not provided')
     }
 
-    const {
-      crossDeviceInitialClientStep,
-      crossDeviceInitialStep,
-      crossDeviceSteps,
-    } = this.state
+    const { crossDeviceStepIndex, crossDeviceSteps } = this.state
 
     return {
-      clientStepIndex: crossDeviceInitialClientStep,
+      stepIndex: crossDeviceStepIndex,
       deviceHasCameraSupport,
       disableAnalytics,
       documentType,
@@ -88,29 +85,29 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       poaDocumentCountry,
       language,
       poaDocumentType,
-      step: crossDeviceInitialStep,
       steps: crossDeviceSteps ? crossDeviceSteps : steps,
       token,
       urls,
       woopraCookie,
       anonymousUuid,
       analyticsSessionUuid,
+      workflowRunId,
+      useWorkflow,
     }
   }
 
   onFlowChange: FlowChangeCallback = (
     newFlow,
-    _newStep,
-    _previousFlow,
-    { userStepIndex, clientStepIndex, clientSteps }
+    { clientStepIndex, clientSteps }
   ) => {
-    if (newFlow === 'crossDeviceSteps') {
-      this.setState({
-        crossDeviceInitialStep: userStepIndex,
-        crossDeviceInitialClientStep: clientStepIndex,
-        crossDeviceSteps: clientSteps,
-      })
+    if (newFlow !== 'crossDeviceSteps') {
+      return
     }
+
+    this.setState({
+      crossDeviceStepIndex: clientStepIndex,
+      crossDeviceSteps: clientSteps,
+    })
   }
 
   checkUnsupportedBrowserError = (): boolean => {
@@ -133,7 +130,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
 
     return (
       !isDesktop &&
-      ((!hasCamera && shouldStrictlyUseCamera === true) || isLivenessRequired)
+      ((!hasCamera && shouldStrictlyUseCamera) || isLivenessRequired)
     )
   }
 

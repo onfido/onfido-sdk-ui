@@ -1,7 +1,14 @@
-import { h, createContext, FunctionComponent, ComponentType } from 'preact'
+import {
+  h,
+  createContext,
+  FunctionComponent,
+  ComponentType,
+  ComponentChildren,
+  Fragment,
+} from 'preact'
 import { useContext } from 'preact/compat'
 import { parseTags } from '~utils'
-import initializePolyglot from './polyglot'
+import { usePolyglot } from './polyglot'
 
 import type { WithLocalisedProps } from '~types/hocs'
 import type {
@@ -9,6 +16,7 @@ import type {
   LocaleConfig,
   TranslatedTagParser,
 } from '~types/locales'
+import Spinner from 'components/Spinner'
 
 type ProviderProps = {
   language?: SupportedLanguages | LocaleConfig
@@ -22,7 +30,7 @@ export const LocaleProvider: FunctionComponent<ProviderProps> = ({
   language,
   children,
 }) => {
-  const polyglot = initializePolyglot(language)
+  const { polyglot, loading } = usePolyglot(language)
   const translate = polyglot.t.bind(polyglot)
   const parseTranslatedTags: TranslatedTagParser = (key, handler) =>
     parseTags(translate(key), handler)
@@ -30,14 +38,32 @@ export const LocaleProvider: FunctionComponent<ProviderProps> = ({
   return (
     <LocaleContext.Provider
       value={{
-        language: polyglot.currentLocale,
+        language: polyglot?.currentLocale,
         translate,
         parseTranslatedTags,
+        loading,
       }}
     >
       {children}
     </LocaleContext.Provider>
   )
+}
+
+type LocaleLoaderProps = {
+  shouldAutoFocus?: boolean
+  children: ComponentChildren
+}
+export const LocaleLoader = ({
+  shouldAutoFocus,
+  children,
+}: LocaleLoaderProps) => {
+  const context = useContext(LocaleContext)
+
+  if (context?.loading) {
+    return <Spinner shouldAutoFocus={shouldAutoFocus} />
+  }
+
+  return <Fragment>{children}</Fragment>
 }
 
 export const useLocales = (): WithLocalisedProps => {

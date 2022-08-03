@@ -16,6 +16,7 @@ export type WithLocalisedProps = {
   language?: SupportedLanguages
   parseTranslatedTags: TranslatedTagParser
   translate: TranslateCallback
+  loading?: boolean
 }
 
 export type WithCameraDetectionProps = {

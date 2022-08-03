@@ -3,16 +3,12 @@ package com.onfido.qa.websdk.test;
 import com.onfido.qa.webdriver.Driver;
 import com.onfido.qa.websdk.DocumentType;
 import com.onfido.qa.websdk.UploadDocument;
-import com.onfido.qa.websdk.page.ConfirmUpload;
-import com.onfido.qa.websdk.page.DocumentUpload;
-import com.onfido.qa.websdk.page.HostedAppStep1;
-import com.onfido.qa.websdk.page.HostedAppStep2;
-import com.onfido.qa.websdk.page.IdDocumentSelector;
-import com.onfido.qa.websdk.page.ImageQualityGuide;
-import com.onfido.qa.websdk.page.Welcome;
+import com.onfido.qa.websdk.page.*;
 import org.testng.annotations.Test;
 
 import java.util.Properties;
+
+import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 
 public class HostedAppHistoryIT extends WebSdkIT {
 
@@ -33,8 +29,9 @@ public class HostedAppHistoryIT extends WebSdkIT {
         verifyPage(HostedAppStep1.class)
                 .next()
                 .startVerification()
-                .continueToNextStep(IdDocumentSelector.class)
-                .select(DocumentType.PASSPORT, DocumentUpload.class)
+                .continueToNextStep(RestrictedDocumentSelection.class)
+                .selectSupportedCountry()
+                .selectDocument(PASSPORT, DocumentUpload.class)
                 .clickUploadButton(ImageQualityGuide.class)
                 .upload(UploadDocument.PASSPORT_JPG)
                 .clickConfirmButton(DocumentUpload.class)
@@ -43,7 +40,7 @@ public class HostedAppHistoryIT extends WebSdkIT {
                 .back(ConfirmUpload.class)
                 .back(ImageQualityGuide.class)
                 .back(DocumentUpload.class)
-                .back(IdDocumentSelector.class)
+                .back(RestrictedDocumentSelection.class)
                 .back(Welcome.class);
 
     }
@@ -55,9 +52,9 @@ public class HostedAppHistoryIT extends WebSdkIT {
         verifyPage(HostedAppStep1.class)
                 .next()
                 .startVerification()
-                .continueToNextStep(IdDocumentSelector.class)
+                .continueToNextStep(RestrictedDocumentSelection.class)
                 .back(Welcome.class)
-                .continueToNextStep(IdDocumentSelector.class);
+                .continueToNextStep(RestrictedDocumentSelection.class);
 
         driver().navigate().back();
 
@@ -72,9 +69,9 @@ public class HostedAppHistoryIT extends WebSdkIT {
         verifyPage(HostedAppStep1.class)
                 .next()
                 .startVerification()
-                .continueToNextStep(IdDocumentSelector.class)
+                .continueToNextStep(RestrictedDocumentSelection.class)
                 .back(Welcome.class)
-                .continueToNextStep(IdDocumentSelector.class);
+                .continueToNextStep(RestrictedDocumentSelection.class);
 
         driver().navigate().back();
 

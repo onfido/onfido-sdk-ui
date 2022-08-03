@@ -13,7 +13,7 @@ public abstract class BasePage extends Page {
 
     private static final Logger log = LoggerFactory.getLogger(BasePage.class);
 
-    private static final By SPINNER = By.cssSelector(".onfido-sdk-ui-Spinner-loader");
+    protected static final By SPINNER = By.cssSelector(".onfido-sdk-ui-Spinner-loader");
     private static final By CLOSE_MODAL = By.cssSelector(".onfido-sdk-ui-Modal-closeButton");
     private static final By BACK_ARROW = By.cssSelector(".onfido-sdk-ui-NavigationBar-iconBack");
 

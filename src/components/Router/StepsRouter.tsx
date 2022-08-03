@@ -57,6 +57,7 @@ class StepsRouter extends Component<StepsRouterProps> {
       resetSdkFocus: this.resetSdkFocus,
       trackScreen: this.trackScreen,
     }
+    const { step } = this.currentComponent()
 
     const stepId = `onfido-step${this.props.step}` // to trigger update in NavigationBar on step change
 
@@ -91,12 +92,15 @@ class StepsRouter extends Component<StepsRouterProps> {
             id={stepId}
             back={back}
             disabled={disableNavigation}
+            transparent={step.edgeToEdgeContent}
             className={theme.navigationBar}
           />
           <div
+            key={stepId}
             className={classNames(theme.content, {
               [theme.fullScreenContentWrapper]: isFullScreen,
               [theme.scrollableContent]: !isFullScreen,
+              [theme.edgeToEdgeContent]: step.edgeToEdgeContent,
             })}
           >
             {isLoadingStep ? (
@@ -105,30 +109,32 @@ class StepsRouter extends Component<StepsRouterProps> {
               <CurrentComponent {...passedProps} />
             )}
           </div>
-          {!hideLogoLogic && (textCobrandLogic || logoCobrandLogic) ? (
-            <div
-              className={classNames({
-                [theme.cobrandFooter]: textCobrandLogic || logoCobrandLogic,
-              })}
-            >
-              {logoCobrandLogic ? (
-                <div className={theme.logoCobrandImage} />
-              ) : null}
-              <div className={theme.cobrandLabel} aria-hidden="true">
-                {textCobrandLogic ? (
-                  <div className={theme.cobrandText}>
-                    {textCobrandLogic.text}
-                  </div>
+          {!step.edgeToEdgeContent ? (
+            !hideLogoLogic && (textCobrandLogic || logoCobrandLogic) ? (
+              <div
+                className={classNames({
+                  [theme.cobrandFooter]: textCobrandLogic || logoCobrandLogic,
+                })}
+              >
+                {logoCobrandLogic ? (
+                  <div className={theme.logoCobrandImage} />
                 ) : null}
-                <div className={theme.poweredBy}>powered by</div>
+                <div className={theme.cobrandLabel} aria-hidden="true">
+                  {textCobrandLogic ? (
+                    <div className={theme.cobrandText}>
+                      {textCobrandLogic.text}
+                    </div>
+                  ) : null}
+                  <div className={theme.poweredBy}>powered by</div>
+                </div>
+                <div className={theme.logo} />
               </div>
-              <div className={theme.logo} />
-            </div>
-          ) : (
-            <div className={theme.footer}>
-              <div className={theme.logo} />
-            </div>
-          )}
+            ) : (
+              <div className={theme.footer}>
+                <div className={theme.logo} />
+              </div>
+            )
+          ) : null}
         </div>
       </ContainerDimensionsProvider>
     )

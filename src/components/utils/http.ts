@@ -36,6 +36,12 @@ export const performHttpReq = <T>(
     request.setRequestHeader('Authorization', token)
   }
 
+  // @ts-ignore
+  const sessionId = window.sessionId
+  if (process.env.NODE_ENV !== 'production' && sessionId) {
+    request.setRequestHeader('X-Session-Id', sessionId)
+  }
+
   request.onload = () => {
     if (request.status === 200 || request.status === 201) {
       const contentType = request.getResponseHeader('content-type')

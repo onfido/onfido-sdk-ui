@@ -18,10 +18,14 @@ import customUIConfig from './custom-ui-config.json'
 
 export const SdkOptionsView: FunctionComponent<{
   sdkOptions: SdkOptions
+  resetSdkOptions: () => void
   updateSdkOptions: (newOptions: Partial<SdkOptions>) => void
-}> = ({ sdkOptions, updateSdkOptions }) => (
+}> = ({ sdkOptions, resetSdkOptions, updateSdkOptions }) => (
   <div>
     <h1>SDK Options</h1>
+    <div className="label">
+      <button onClick={resetSdkOptions}>Reset persisted options</button>
+    </div>
     <label>
       <input
         type="checkbox"
@@ -45,8 +49,6 @@ export const SdkOptionsView: FunctionComponent<{
         }
       />
       &nbsp;Use customised SDK UI
-      <br />
-      &nbsp;&nbsp;&nbsp;(refresh to reset)
     </label>
     <div className="label">
       Region
@@ -176,6 +178,30 @@ export const SdkOptionsView: FunctionComponent<{
           />
         ))}
       </div>
+    </div>
+    <div className="label">
+      <input
+        type="checkbox"
+        checked={
+          !!sdkOptions.overrideSdkConfiguration?.experimental_features
+            ?.motion_experiment?.enabled
+        }
+        title="enable_liveness_experiment"
+        onChange={(e) =>
+          updateSdkOptions({
+            overrideSdkConfiguration: {
+              ...sdkOptions.overrideSdkConfiguration,
+              experimental_features: {
+                ...sdkOptions.overrideSdkConfiguration?.experimental_features,
+                motion_experiment: {
+                  enabled: (e.target as HTMLInputElement).checked,
+                },
+              },
+            },
+          })
+        }
+      />
+      &nbsp;enableLivenessExperiment
     </div>
   </div>
 )

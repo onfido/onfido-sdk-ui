@@ -19,6 +19,8 @@ import type {
   RenderFallbackProp,
 } from '~types/routers'
 
+type VideoCaptureMethods = Exclude<CaptureMethods, 'poa' | 'activeVideo'>
+
 type PhotoOverlayProps = {
   hasCameraError: boolean
   isRecording: boolean
@@ -36,7 +38,7 @@ export type VideoCaptureProps = {
   cameraClassName?: string
   facing?: VideoFacingModeEnum
   inactiveError: ErrorProp
-  method: Exclude<CaptureMethods, 'poa'>
+  method: VideoCaptureMethods
   onRecordingStart?: () => void
   onRedo: () => void
   onVideoCapture: HandleCaptureProp
@@ -64,10 +66,7 @@ const initialStateWithoutMediaStream: Omit<State, 'hasMediaStream'> = {
 
 const IDEAL_CAMERA_WIDTH_IN_PX = 1080 // Full HD 1080p
 
-const RECORDING_TIMEOUT_ERRORS_MAP: Record<
-  Exclude<CaptureMethods, 'poa'>,
-  ErrorProp
-> = {
+const RECORDING_TIMEOUT_ERRORS_MAP: Record<VideoCaptureMethods, ErrorProp> = {
   face: {
     name: 'FACE_VIDEO_TIMEOUT',
     type: 'warning',

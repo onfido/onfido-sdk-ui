@@ -8,7 +8,22 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [8.1.1] - 2022-07-13
+## [8.3.0] - 2022-08-02
+
+- Public: Fixed setoption, setOptions was setting unspecified values to their default value.
+- Internal: Add dynamically loaded files (except en_US)
+- Internal: Upgraded Sentry to v7, added ErrorBoundary, fingerprinting and moved into its own module
+- Internal: Move Woopra into it's own core module
+- Internal: Migrate webpack to typescript
+- Internal: Add cross device pooling
+- Public: Support for SSN (for USA only) data capture.
+- Public: Collect country of residence before other profile data
+- Public: Add translations for profile data
+- Public: Support DocumentTypes option
+- Public: Remove asterisk from required fields
+- Public: Merge country and document selection in a single screen.
+- Internal: Remove isFullScreen prop from NavigationBar
+- Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
 
 ## [8.1.0] - 2022-06-13
 
@@ -1299,8 +1314,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.1...development
-[8.1.1]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0...8.1.1
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/8.3.0...development
+[8.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.2.0...8.3.0
 [8.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0
 [8.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...8.0.0
 [6.20.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...6.20.1

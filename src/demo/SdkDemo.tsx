@@ -35,7 +35,6 @@ const SdkDemo: FunctionComponent<Props> = ({
   sdkOptions,
   viewOptions,
 }) => {
-  const [workflow, setWorkflow] = useState<any>(undefined)
   const [token, setToken] = useState<string | undefined>(undefined)
   const [tokenUrl, setTokenUrl] = useState<string | undefined>(undefined)
   const [regionCode, setRegionCode] = useState<ServerRegions | undefined>(
@@ -142,7 +141,7 @@ const SdkDemo: FunctionComponent<Props> = ({
           Verify identity
         </button>
       )}
-      {token && queryParamToValueString.createCheck && applicantForm}
+      {!token && queryParamToValueString.createCheck && applicantForm}
       {token && regionCode && tokenUrl && (
         <SdkMount
           options={options}

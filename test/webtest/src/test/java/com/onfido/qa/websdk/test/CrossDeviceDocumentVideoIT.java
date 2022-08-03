@@ -2,12 +2,11 @@ package com.onfido.qa.websdk.test;
 
 import com.onfido.qa.annotation.Browser;
 import com.onfido.qa.websdk.DocumentType;
-import com.onfido.qa.websdk.page.CountrySelector;
 import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
 import com.onfido.qa.websdk.page.CrossDeviceIntro;
 import com.onfido.qa.websdk.page.DocumentVideoCapture;
 import com.onfido.qa.websdk.page.DocumentVideoConfirm;
-import com.onfido.qa.websdk.page.IdDocumentSelector;
+import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
 import com.onfido.qa.websdk.sdk.DocumentStep;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -36,10 +35,11 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
     public void testShouldStartTheAnssiFlowForPassportFlowAndAttemptToUpload() {
 
         var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
-                           .init(IdDocumentSelector.class)
-                           .select(PASSPORT, CrossDeviceIntro.class)
-                           .getSecureLink()
-                           .copyLink();
+                .init(RestrictedDocumentSelection.class)
+                .selectSupportedCountry()
+                .selectDocument(PASSPORT, CrossDeviceIntro.class)
+                .getSecureLink()
+                .copyLink();
 
         openMobileScreen(link);
         var videoCapture = verifyPage(CrossDeviceClientIntro.class).clickContinue(DocumentVideoCapture.class);
@@ -77,11 +77,11 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
     public void testShouldStartTheAnssiFlowForIdentityCardFlowAndAttemptToUpload() {
 
         var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
-                           .init(IdDocumentSelector.class)
-                           .select(IDENTITY_CARD, CountrySelector.class)
-                           .select("Italy", CrossDeviceIntro.class)
-                           .getSecureLink()
-                           .copyLink();
+                .init(RestrictedDocumentSelection.class)
+                .selectCountry("italy")
+                .selectDocument(IDENTITY_CARD, CrossDeviceIntro.class)
+                .getSecureLink()
+                .copyLink();
 
         openMobileScreen(link);
         var videoCapture = verifyPage(CrossDeviceClientIntro.class).clickContinue(DocumentVideoCapture.class);
@@ -121,11 +121,11 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
     public void testShouldStartTheAnssiFlowForDriversLicenseFlowAndAttemptToUpload() {
 
         var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
-                           .init(IdDocumentSelector.class)
-                           .select(DRIVING_LICENCE, CountrySelector.class)
-                           .selectSupportedCountry(CrossDeviceIntro.class)
-                           .getSecureLink()
-                           .copyLink();
+                .init(RestrictedDocumentSelection.class)
+                .selectSupportedCountry()
+                .selectDocument(DRIVING_LICENCE, CrossDeviceIntro.class)
+                .getSecureLink()
+                .copyLink();
 
         openMobileScreen(link);
         var videoCapture = verifyPage(CrossDeviceClientIntro.class).clickContinue(DocumentVideoCapture.class);
@@ -166,11 +166,11 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
     public void testShouldStartTheAnssiFlowForResidencePermitFlowAndAttemptToUpload() {
 
         var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
-                           .init(IdDocumentSelector.class)
-                           .select(RESIDENT_PERMIT, CountrySelector.class)
-                           .select("United Kingdom", CrossDeviceIntro.class)
-                           .getSecureLink()
-                           .copyLink();
+                .init(RestrictedDocumentSelection.class)
+                .selectCountry("United Kingdom")
+                .selectDocument(RESIDENT_PERMIT, CrossDeviceIntro.class)
+                .getSecureLink()
+                .copyLink();
 
         openMobileScreen(link);
         var videoCapture = verifyPage(CrossDeviceClientIntro.class).clickContinue(DocumentVideoCapture.class);
@@ -202,11 +202,11 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
     public void testShouldShowCameraNotWorkingErrorInAnssiFlow() {
 
         var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
-                           .init(IdDocumentSelector.class)
-                           .select(IDENTITY_CARD, CountrySelector.class)
-                           .select("Italy", CrossDeviceIntro.class)
-                           .getSecureLink()
-                           .copyLink();
+                .init(RestrictedDocumentSelection.class)
+                .selectCountry("Italy")
+                .selectDocument(IDENTITY_CARD, CrossDeviceIntro.class)
+                .getSecureLink()
+                .copyLink();
 
         openMobileScreen(link);
         var videoCapture = verifyPage(CrossDeviceClientIntro.class).clickContinue(DocumentVideoCapture.class);
@@ -272,12 +272,11 @@ public class CrossDeviceDocumentVideoIT extends WebSdkIT {
 
     private CrossDeviceClientIntro uploadUkResidentPermitCrossDevice() {
         var link = onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
-                           .init(IdDocumentSelector.class)
-                           .select(RESIDENT_PERMIT, CountrySelector.class)
-                           .select("United Kingdom")
-                           .submit(CrossDeviceIntro.class)
-                           .getSecureLink()
-                           .copyLink();
+                .init(RestrictedDocumentSelection.class)
+                .selectCountry("United Kingdom")
+                .selectDocument(RESIDENT_PERMIT, CrossDeviceIntro.class)
+                .getSecureLink()
+                .copyLink();
 
         openMobileScreen(link);
 

@@ -12,7 +12,6 @@ import withTheme from '../Theme'
 import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
-
 import {
   setupAnalyticsCookie,
   setWoopraCookie,
@@ -20,9 +19,8 @@ import {
   uninstallAnalyticsCookie,
   uninstallWoopra,
 } from '../../Tracker'
-import { LocaleProvider } from '~locales'
+import { LocaleLoader, LocaleProvider } from '~locales'
 import { HistoryRouterWrapper } from './HistoryRouter'
-
 import type { ErrorNames, MobileConfig } from '~types/commons'
 import type { SupportedLanguages, LocaleConfig } from '~types/locales'
 import type { CaptureKeys } from '~types/redux'
@@ -36,6 +34,7 @@ import type { Socket } from 'socket.io-client'
 import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
 import { createCrossDeviceStepsHook } from './createCrossDeviceStepsHook'
 import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
+import { createWorkflowStepsHook } from './createWorkflowStepsHook'
 
 const RESTRICTED_CROSS_DEVICE = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -95,6 +94,7 @@ type State = {
   steps?: StepConfig[]
   token?: string
   useWorkflow?: boolean
+  workflowRunId?: string
   docPayload?: Record<string, unknown>[]
 }
 
@@ -194,7 +194,7 @@ export default class CrossDeviceMobileRouter extends Component<
 
   setUpHostedSDKWithMobileConfig = (data: MobileConfig): void => {
     const {
-      clientStepIndex,
+      stepIndex,
       disableAnalytics,
       documentType,
       enterpriseFeatures,
@@ -211,6 +211,7 @@ export default class CrossDeviceMobileRouter extends Component<
       crossDeviceClientIntroProductLogoSrc,
       analyticsSessionUuid,
       useWorkflow,
+      workflowRunId,
     } = data
     if (disableAnalytics) {
       uninstallWoopra()
@@ -237,11 +238,12 @@ export default class CrossDeviceMobileRouter extends Component<
       {
         token,
         steps,
-        step: clientStepIndex,
+        step: stepIndex,
         stepIndexType: 'client',
         crossDeviceError: undefined,
         language,
         useWorkflow,
+        workflowRunId,
         docPayload: [],
       },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
@@ -367,12 +369,14 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   renderContent = (): h.JSX.Element => {
-    const { hasCamera, token, options, urls } = this.props
-    const { crossDeviceError, loading, steps } = this.state
-
-    if (loading) {
-      return <WrappedSpinner disableNavigation />
-    }
+    const { hasCamera, options, urls } = this.props
+    const {
+      crossDeviceError,
+      steps,
+      token,
+      workflowRunId,
+      useWorkflow,
+    } = this.state
 
     if (crossDeviceError) {
       return <WrappedError disableNavigation={true} error={crossDeviceError} />
@@ -418,7 +422,19 @@ export default class CrossDeviceMobileRouter extends Component<
               {...this.state}
               crossDeviceClientError={this.setError}
               sendClientSuccess={this.sendClientSuccess}
-              useSteps={createCrossDeviceStepsHook(steps, this.onCompleteStep)}
+              useSteps={
+                useWorkflow
+                  ? createWorkflowStepsHook(
+                      {
+                        ...options,
+                        token,
+                        workflowRunId,
+                        mobileFlow: true,
+                      },
+                      urls
+                    )
+                  : createCrossDeviceStepsHook(steps, this.onCompleteStep)
+              }
             />
           </PoASupportedCountriesProvider>
         </SdkConfigurationServiceProvider>
@@ -437,11 +453,18 @@ export default class CrossDeviceMobileRouter extends Component<
   }
 
   render(): h.JSX.Element {
-    const { language } = this.state
+    const { language, loading } = this.state
+    const { autoFocusOnInitialScreenTitle } = this.props.options
+
+    if (loading) {
+      return <WrappedSpinner disableNavigation={true} />
+    }
 
     return (
       <LocaleProvider language={language}>
-        {this.renderContent()}
+        <LocaleLoader shouldAutoFocus={autoFocusOnInitialScreenTitle}>
+          {this.renderContent()}
+        </LocaleLoader>
       </LocaleProvider>
     )
   }
