@@ -22,6 +22,7 @@ import type {
   ApplicantConsent,
   ApplicantConsentStatus,
   PoASupportedCountry,
+  ActiveVideoResponse,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
@@ -96,6 +97,12 @@ type SubmitLiveVideoPayload = {
   languages?: string
 } & SubmitPayload
 
+type SubmitActiveVideoPayload = {
+  media: Blob
+  type: 'liveness'
+  metadata: string
+} & SubmitPayload
+
 export const formatError = (
   { response, status }: ApiRawError,
   onError: ErrorCallback
@@ -136,6 +143,7 @@ export const uploadDocument = (
       analyticsEvents,
       onSuccess || resolve,
       onError || reject,
+      undefined,
       {
         event: 'DOCUMENT_UPLOAD_STARTED',
         legacyEvent: 'document_upload_started',
@@ -297,6 +305,37 @@ export const uploadFaceVideo = (
       analyticsEvents,
       onSuccess || resolve,
       onError || reject
+    )
+  )
+}
+
+export const uploadActiveVideo = (
+  media: Blob,
+  metadata: string,
+  url: string | undefined,
+  token: string | undefined,
+  onSuccess?: SuccessCallback<ActiveVideoResponse>,
+  onError?: ErrorCallback
+): Promise<ActiveVideoResponse> => {
+  const endpoint = `${url}/v3/biometrics/media`
+  const payload: SubmitActiveVideoPayload = {
+    media,
+    type: 'liveness',
+    metadata,
+  }
+  const analyticsEvents: LegacyTrackedEventNames[] = [
+    'active_video_upload_started',
+    'active_video_upload_completed',
+  ]
+  return new Promise((resolve, reject) =>
+    sendFile(
+      endpoint,
+      payload,
+      token,
+      analyticsEvents,
+      onSuccess || resolve,
+      onError || reject,
+      { method: 'PUT' }
     )
   )
 }
@@ -547,6 +586,7 @@ const sendFile = <T>(
   analyticsEvents: LegacyTrackedEventNames[],
   onSuccess: SuccessCallback<T>,
   onError: ErrorCallback,
+  options?: Partial<HttpRequestParams>,
   startEvent?: ApiEvent,
   successEvent?: ApiEvent
 ) => {
@@ -565,6 +605,7 @@ const sendFile = <T>(
   }
 
   const requestParams: HttpRequestParams = {
+    ...options,
     payload: objectToFormData(payload),
     endpoint,
     token: `Bearer ${token}`,

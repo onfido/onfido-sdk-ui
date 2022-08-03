@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h, Component, ComponentType } from 'preact'
 import MobileConnected from './MobileConnected'
 import CrossDeviceSubmit from './CrossDeviceSubmit'
 import MobileNotificationSent from './MobileNotificationSent'
@@ -100,4 +100,4 @@ class MobileFlow extends Component<Props> {
   }
 }
 
-export default MobileFlow
+export default MobileFlow as ComponentType<StepComponentProps>

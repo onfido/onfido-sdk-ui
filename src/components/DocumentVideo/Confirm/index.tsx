@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact'
+import { h, FunctionComponent, ComponentType } from 'preact'
 import { memo, useCallback, useState } from 'preact/compat'
 import type { Dispatch } from 'redux'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,7 +18,11 @@ import Content from './Content'
 import style from './style.scss'
 
 import type { CombinedActions, RootState, DocumentCapture } from '~types/redux'
-import type { ErrorProp, StepComponentDocumentProps } from '~types/routers'
+import type {
+  ErrorProp,
+  StepComponentDocumentProps,
+  StepComponentProps,
+} from '~types/routers'
 import { ParsedError } from '~types/api'
 
 const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
@@ -218,4 +222,7 @@ const Confirm: FunctionComponent<StepComponentDocumentProps> = ({
   )
 }
 
-export default appendToTracking(memo(Confirm), 'confirmation_video')
+export default appendToTracking(
+  memo(Confirm),
+  'confirmation_video'
+) as ComponentType<StepComponentProps>

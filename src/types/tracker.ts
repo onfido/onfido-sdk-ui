@@ -164,6 +164,8 @@ export type LegacyTrackedEventNames =
   | 'document_video_upload_completed'
   | 'face_video_upload_started'
   | 'face_video_upload_completed'
+  | 'active_video_upload_started'
+  | 'active_video_upload_completed'
   | 'screen_workflow_retry'
   | 'navigation_back_button_clicked'
   | 'navigation_close_button_clicked'
@@ -267,6 +269,7 @@ export const ErrorNameToUIAlertMapping: Record<
   MULTIPLE_FACES_ERROR: 'multiple_faces',
   NO_FACE_ERROR: 'no_face',
   REQUEST_ERROR: 'request_error',
+  EXPIRED_TOKEN: undefined,
   SMS_FAILED: undefined,
   SMS_OVERUSE: undefined,
   UNSUPPORTED_ANDROID_BROWSER: undefined,

@@ -18,7 +18,7 @@ import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
 import { ErrorProp, StepComponentBaseProps } from '~types/routers'
-import { DocumentCapture, FaceCapture } from '~types/redux'
+import { CapturePayload, DocumentCapture, FaceCapture } from '~types/redux'
 import { CaptureMethods, DocumentSides, ErrorNames } from '~types/commons'
 import {
   ApiRawError,
@@ -66,8 +66,8 @@ const CALLBACK_TYPES: Record<CallbackTypes, CallbackNames> = {
 const REQUEST_ERROR = 'REQUEST_ERROR'
 
 export type ConfirmProps = {
-  isFullScreen: boolean
-  capture: DocumentCapture | FaceCapture
+  isFullScreen?: boolean
+  capture: CapturePayload
   method: CaptureMethods
   country: string
   side: DocumentSides
@@ -664,7 +664,7 @@ export const Confirm = (props: ConfirmProps) => {
 
   return (
     <Previews
-      isFullScreen={props.isFullScreen}
+      isFullScreen={!!props.isFullScreen}
       capture={props.capture}
       retakeAction={onRetake}
       confirmAction={onConfirm}

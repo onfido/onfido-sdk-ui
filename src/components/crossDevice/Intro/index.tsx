@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { ComponentType, h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
@@ -13,6 +13,7 @@ import theme from '../../Theme/style.scss'
 import style from './style.scss'
 import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 import { MobileConfig } from '~types/commons'
+import { StepComponentProps } from '~types/routers'
 
 const previousComponentType = ({
   flow,
@@ -104,4 +105,6 @@ const Intro = ({ translate, nextStep, mobileConfig }: IntroProps) => {
   )
 }
 
-export default trackComponent(localised(Intro))
+export default trackComponent(
+  localised(Intro)
+) as ComponentType<StepComponentProps>

@@ -7,7 +7,7 @@ const useActiveVideo = () => {
 
   const enabled = experimental_features?.motion_experiment?.enabled ?? false
 
-  const addActiveVideoStep = useCallback(
+  const replaceFaceWithActiveVideoStep = useCallback(
     (steps: StepConfig[]) => {
       if (!enabled) {
         return steps
@@ -24,19 +24,18 @@ const useActiveVideo = () => {
 
       const activeVideo: StepConfig = {
         type: 'activeVideo',
-        edgeToEdgeContent: true,
       }
 
       return [
         ...steps.slice(0, faceIndex),
         activeVideo,
-        ...steps.slice(faceIndex),
+        ...steps.slice(faceIndex + 1),
       ]
     },
     [enabled]
   )
 
-  return { addActiveVideoStep }
+  return { replaceFaceWithActiveVideoStep }
 }
 
 export default useActiveVideo

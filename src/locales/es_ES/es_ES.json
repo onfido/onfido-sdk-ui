@@ -156,6 +156,53 @@
     "auth_upload_pass": {
         "body": "Carga realizada correctamente"
     },
+    "avc_confirmation": {
+        "button_primary_upload": "Subiendo grabación",
+        "subtitle": "Se ha registrado correctamente un vídeo de su cara",
+        "title": "Grabación completada"
+    },
+    "avc_connection_error": {
+        "button_primary_reload": "Volver a cargar las instrucciones",
+        "button_primary_retry_upload": "Reintentar la subida",
+        "button_secondary_restart_recording": "Reiniciar la grabación",
+        "subtitle": "Compruebe que la conexión sea estable e inténtelo de nuevo",
+        "title": "Error de conexión"
+    },
+    "avc_face_alignment": {
+        "feedback_move_back": "Muévase hacia atrás",
+        "feedback_move_closer": "Acérquese",
+        "feedback_no_face_detected": "Cara no detectada",
+        "feedback_not_centered": "La cara no está centrada",
+        "title": "Coloque la cara dentro el marco"
+    },
+    "avc_face_capture": {
+        "alert": {
+            "timeout_body": "Dispone de 15 segundos para completar la grabación",
+            "timeout_button_primary": "Reintentar",
+            "timeout_title": "Lo sentimos, debemos reiniciar la grabación",
+            "too_fast_body": "Vuelva a intentarlo y gire la cabeza más despacio",
+            "too_fast_button_primary": "Reintentar",
+            "too_fast_title": "Ha girado la cabeza demasiado rápido"
+        },
+        "title": "Gire la cabeza despacio hacia ambos lados",
+        "title_completed": "Grabación completada"
+    },
+    "avc_intro": {
+        "button_primary_ready": "Estoy listo",
+        "disclaimer": "Tenga en cuenta que grabaremos un vídeo del rostro y el fondo",
+        "list_item_one": "Primero, coloque la cara dentro del marco",
+        "list_item_two": "Luego, gire la cabeza despacio hacia ambos lados",
+        "subtitle": "Esto es para verificar que es una persona real",
+        "title": "Grábese en un vídeo"
+    },
+    "avc_no_face_detected": {
+        "button_primary_restart": "Reiniciar la grabación",
+        "list_item_eyes": "Asegúrese de que los ojos se vean con claridad",
+        "list_item_face": "Asegúrese de mostrar únicamente la cara. No necesitamos ver el documento de identidad",
+        "list_item_lighting": "Asegúrese de estar en un lugar con buena iluminación",
+        "list_item_mask": "Asegúrese de retirar mascarillas o cualquier otro objeto que le cubra el rostro. Puede llevar gafas para ver",
+        "title": "No podemos detectar su cara"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",

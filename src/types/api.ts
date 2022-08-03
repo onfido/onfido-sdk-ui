@@ -133,6 +133,16 @@ export type FaceVideoResponse = {
   languages: VideoChallengeLanguage[]
 } & UploadFileResponse
 
+export type ActiveVideoResponse = {
+  media: {
+    data: {
+      content_type: string
+      file_size: number
+    }
+    uuid: string
+  }
+} & UploadFileResponse
+
 export type SnapshotResponse = {
   uuid: string
 } & Record<keyof UploadFileResponse, never>

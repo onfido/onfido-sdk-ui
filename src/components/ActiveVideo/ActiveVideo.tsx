@@ -1,57 +1,83 @@
 import { ActiveVideoCapture, LivenessError } from '@onfido/active-video-capture'
 import { h, FunctionComponent } from 'preact'
 import { useState } from 'preact/hooks'
+import { useDispatch } from 'react-redux'
+import { Dispatch } from 'redux'
 import { localised } from '~locales'
-import type { WithLocalisedProps } from '~types/hocs'
+import type {
+  WithLocalisedProps,
+  WithPermissionsFlowProps,
+  WithTrackingProps,
+} from '~types/hocs'
+import {
+  CombinedActions,
+  ActiveVideoCapture as ActiveVideoCapturePayload,
+} from '~types/redux'
 import type { StepComponentBaseProps } from '~types/routers'
+import { addDeviceRelatedProperties } from '~utils'
+import { randomId } from '~utils/string'
+import withPermissionsFlow from 'components/CameraPermissions/withPermissionsFlow'
+import FaceNotDetected from './FaceNotDetected'
+import { trackComponent } from 'Tracker'
 
-type Props = StepComponentBaseProps & WithLocalisedProps
+type Props = StepComponentBaseProps & {
+  onUserMedia: () => void
+} & WithLocalisedProps &
+  WithPermissionsFlowProps &
+  WithTrackingProps
 
 const ActiveVideo: FunctionComponent<Props> = (props) => {
-  const { nextStep } = props
-  const [videoPayload, setVideoPayload] = useState<Blob | null>(null)
-  const [success, setSuccess] = useState<boolean>(false)
-  // FIXME: Move to src/locales/en_US/en_US.json
-  const localisedText = {
-    avc_face_alignment: {
-      feedback_move_back: 'Move back',
-      feedback_move_closer: 'Move closer',
-      feedback_no_face_detected: 'Face not detected',
-      feedback_not_centered: 'Face not centered',
-      title: 'Position your face in the frame',
-    },
-    avc_face_capture: {
-      alert: {
-        timeout_body: 'You have up to 15 seconds to complete the recording',
-        timeout_button_primary: 'Retry',
-        timeout_title: 'Sorry, we have to restart the recording',
-        too_fast_body: 'Please retry and turn your head slower',
-        too_fast_button_primary: 'Retry',
-        too_fast_title: 'You turned your head too fast',
-      },
-      title: 'Turn your head slowly to both sides',
-      title_completed: 'Recording complete',
-    },
+  const {
+    nextStep,
+    translate,
+    actions,
+    mobileFlow,
+    hasGrantedPermission,
+    onUserMedia,
+  } = props
+  const [error, setError] = useState<LivenessError | null>()
+  const dispatch = useDispatch<Dispatch<CombinedActions>>()
+
+  const onError = (error: LivenessError) => {
+    setError(error)
+  }
+
+  const onSuccess = (event: { videoPayload: Blob }) => {
+    const activeVideoCaptureData: ActiveVideoCapturePayload = {
+      method: 'activeVideo',
+      blob: event.videoPayload,
+      id: randomId(),
+      sdkMetadata: addDeviceRelatedProperties(
+        { captureMethod: 'html5' },
+        mobileFlow
+      ),
+    }
+
+    dispatch(actions.createCapture(activeVideoCaptureData))
+
+    nextStep()
+  }
+
+  if (error === LivenessError.FACE_DETECTION_TIMEOUT) {
+    return (
+      <FaceNotDetected restart={() => setError(null)} translate={translate} />
+    )
+  } else if (error) {
+    console.error(`Unsupported error: ${error}`)
   }
 
   // See: https://github.com/preactjs/preact/issues/2748
   return (
     <ActiveVideoCapture
       debug={true}
-      options={{
-        language: localisedText,
-      }}
-      onError={(event: LivenessError) => console.error(event)}
-      onSuccess={({ videoPayload }) => {
-        if (!success) {
-          setVideoPayload(videoPayload)
-          setSuccess(true)
-        }
-
-        nextStep()
-      }}
+      translate={translate}
+      track={() => {}}
+      onError={onError}
+      onSuccess={onSuccess}
+      onUserMedia={onUserMedia}
+      hasGrantedPermission={!!hasGrantedPermission}
     />
   )
 }
 
-export default localised(ActiveVideo)
+export default trackComponent(localised(withPermissionsFlow(ActiveVideo)))
