@@ -17,12 +17,15 @@ import {
   CombinedActions,
   ActiveVideoCapture as ActiveVideoCapturePayload,
 } from '~types/redux'
-import type { StepComponentBaseProps } from '~types/routers'
+import type { RenderFallbackProp, StepComponentBaseProps } from '~types/routers'
 import { addDeviceRelatedProperties } from '~utils'
 import { randomId } from '~utils/string'
 import withPermissionsFlow from 'components/CameraPermissions/withPermissionsFlow'
 import FaceNotDetected from './FaceNotDetected'
 import { trackComponent } from 'Tracker'
+import CameraError from 'components/CameraError'
+import FallbackButton from 'components/Button/FallbackButton'
+import withCrossDeviceWhenNoCamera from 'components/Capture/withCrossDeviceWhenNoCamera'
 
 type Props = StepComponentBaseProps & {
   onUserMedia: () => void
@@ -34,18 +37,16 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
   const {
     nextStep,
     translate,
+    trackScreen,
     actions,
     mobileFlow,
     hasGrantedPermission,
     onUserMedia,
-    trackScreen,
+    onError,
+    changeFlowTo,
   } = props
   const [error, setError] = useState<LivenessError | null>()
   const dispatch = useDispatch<Dispatch<CombinedActions>>()
-
-  const onError = (error: LivenessError) => {
-    setError(error)
-  }
 
   const onSuccess = (event: { videoPayload: Blob }) => {
     const activeVideoCaptureData: ActiveVideoCapturePayload = {
@@ -67,6 +68,15 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
     trackScreen(event)
   }
 
+  const renderCrossDeviceFallback: RenderFallbackProp = ({ text }) => {
+    return (
+      <FallbackButton
+        text={text}
+        onClick={() => changeFlowTo('crossDeviceSteps')}
+      />
+    )
+  }
+
   if (error === LivenessError.FACE_DETECTION_TIMEOUT) {
     return (
       <FaceNotDetected
@@ -75,8 +85,17 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
         trackScreen={trackScreen}
       />
     )
+  } else if (error === LivenessError.CAMERA_NOT_AVAILABLE) {
+    return (
+      <CameraError
+        error={{ name: 'CAMERA_NOT_WORKING', type: 'error' }}
+        trackScreen={trackScreen}
+        renderFallback={renderCrossDeviceFallback}
+      />
+    )
   } else if (error) {
     console.error(`Unsupported error: ${error}`)
+    onError && onError({ type: 'exception', message: error })
   }
 
   // See: https://github.com/preactjs/preact/issues/2748
@@ -85,7 +104,7 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
       debug={true}
       translate={translate}
       track={track}
-      onError={onError}
+      onError={setError}
       onSuccess={onSuccess}
       onUserMedia={onUserMedia}
       hasGrantedPermission={!!hasGrantedPermission}
@@ -94,6 +113,6 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
 }
 
 export default trackComponent(
-  localised(withPermissionsFlow(ActiveVideo)),
+  localised(withCrossDeviceWhenNoCamera(withPermissionsFlow(ActiveVideo))),
   'face_liveness'
 )

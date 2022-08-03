@@ -67,7 +67,9 @@ const withCrossDeviceWhenNoCamera = <P extends CaptureComponentProps>(
         !photoCaptureFallback
       const cameraRequiredButNoneDetected =
         (!hasCamera || shouldSelfieFallbackBeDisabled) &&
-        (requestedVariant === 'video' || currentStep === 'face')
+        (requestedVariant === 'video' ||
+          currentStep === 'face' ||
+          currentStep === 'activeVideo')
 
       if (
         cameraRequiredButNoneDetected ||
