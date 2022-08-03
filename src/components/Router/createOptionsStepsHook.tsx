@@ -10,7 +10,7 @@ export const createOptionsStepsHook = (
   options: NarrowSdkOptions
 ): StepsHook => () => {
   const { addUserConsentStep } = useUserConsent()
-  const { addActiveVideoStep } = useActiveVideo()
+  const { replaceFaceWithActiveVideoStep } = useActiveVideo()
   const { documentTypesAdapter } = useDocumentTypesAdapter()
   const [hasNextStep, setHasNextStep] = useState<boolean>(true)
   const [steps, setSteps] = useState<StepConfig[] | undefined>(undefined)
@@ -18,10 +18,10 @@ export const createOptionsStepsHook = (
   useEffect(() => {
     setSteps(
       addUserConsentStep(
-        addActiveVideoStep(documentTypesAdapter(options.steps))
+        replaceFaceWithActiveVideoStep(documentTypesAdapter(options.steps))
       )
     )
-  }, [addUserConsentStep, addActiveVideoStep, documentTypesAdapter])
+  }, [addUserConsentStep, replaceFaceWithActiveVideoStep, documentTypesAdapter])
 
   return {
     loadNextStep: useCallback(() => setHasNextStep(false), []),

@@ -2,6 +2,7 @@ import * as constants from '~types/redux/constants'
 import { pick, omitBy } from '~utils/object'
 
 import type {
+  ActiveVideoCapture,
   CaptureActions,
   DeleteCapturePayload,
   DocumentCapture,
@@ -10,7 +11,7 @@ import type {
 } from '~types/redux'
 
 export const createCapture = (
-  payload: DocumentCapture | FaceCapture
+  payload: DocumentCapture | FaceCapture | ActiveVideoCapture
 ): CaptureActions => ({
   type: constants.CAPTURE_CREATE,
   payload,

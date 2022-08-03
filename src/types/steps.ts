@@ -165,7 +165,6 @@ export type PublicStepConfig =
 
 export type PrivateStepConfig = {
   skip?: boolean
-  edgeToEdgeContent?: boolean
 }
 
 export type StepConfig = (PublicStepConfig | StepConfigUserConsent) &

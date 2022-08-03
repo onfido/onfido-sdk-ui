@@ -1,5 +1,5 @@
 export type HttpRequestParams = {
-  method?: 'GET' | 'POST' | 'PATCH'
+  method?: 'GET' | 'POST' | 'PATCH' | 'PUT'
   contentType?: string
   endpoint: string
   headers?: Record<string, string>

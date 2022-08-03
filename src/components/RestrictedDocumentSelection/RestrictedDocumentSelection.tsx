@@ -1,11 +1,11 @@
-import { h } from 'preact'
+import { ComponentType, h } from 'preact'
 import { useMemo, useState } from 'preact/hooks'
 import { useDispatch } from 'react-redux'
 import { Dispatch } from 'redux'
 
 import { useLocales } from '~locales'
 import { GlobalActions } from '~types/redux'
-import { StepsRouterProps } from '~types/routers'
+import { StepComponentProps } from '~types/routers'
 import style from './RestrictedDocumentSelection.scss'
 import {
   setIdDocumentIssuingCountry,
@@ -39,7 +39,7 @@ import { WithTrackingProps } from '~types/hocs'
 export type RestrictedDocumentSelectionProps = {
   documentSelection?: documentSelectionType[]
   countryFilter?: documentSelectionType[]
-} & StepsRouterProps &
+} & StepComponentProps &
   WithTrackingProps
 
 export const RestrictedDocumentSelection = trackComponent(
@@ -149,4 +149,4 @@ export const RestrictedDocumentSelection = trackComponent(
     )
   },
   'type_select'
-)
+) as ComponentType<StepComponentProps>

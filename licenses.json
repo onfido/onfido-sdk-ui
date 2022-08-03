@@ -1010,7 +1010,7 @@
     "path": "node_modules/@nodelib/fs.walk",
     "licenseFile": "node_modules/@nodelib/fs.walk/LICENSE"
   },
-  "@onfido/active-video-capture@0.0.1": {
+  "@onfido/active-video-capture@0.4.0": {
     "licenses": "MIT",
     "repository": "/active-video-capture",
     "path": "node_modules/@onfido/active-video-capture",
@@ -1718,7 +1718,7 @@
     "path": "node_modules/@typescript-eslint/visitor-keys",
     "licenseFile": "node_modules/@typescript-eslint/visitor-keys/LICENSE"
   },
-  "@vladmandic/human@2.8.1": {
+  "@vladmandic/human@2.9.1": {
     "licenses": "MIT",
     "repository": "https://github.com/vladmandic/human",
     "publisher": "Vladimir Mandic",

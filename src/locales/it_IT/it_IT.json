@@ -69,6 +69,53 @@
             "details_timeout": "Ricomincia"
         }
     },
+    "avc_confirmation": {
+        "button_primary_upload": "Carica registrazione",
+        "subtitle": "Un video del tuo viso è stato registrato con successo",
+        "title": "Registrazione completata"
+    },
+    "avc_connection_error": {
+        "button_primary_reload": "Ricarica le istruzioni",
+        "button_primary_retry_upload": "Ritenta il caricamento",
+        "button_secondary_restart_recording": "Riavvia la registrazione",
+        "subtitle": "Verifica che la tua connessione sia stabile e riprova",
+        "title": "Errore di connessione"
+    },
+    "avc_face_alignment": {
+        "feedback_move_back": "Allontanati",
+        "feedback_move_closer": "Avvicinati",
+        "feedback_no_face_detected": "Viso non rilevato",
+        "feedback_not_centered": "Viso non centrato",
+        "title": "Posiziona il viso nel riquadro"
+    },
+    "avc_face_capture": {
+        "alert": {
+            "timeout_body": "Hai fino a 15 secondi per completare la registrazione",
+            "timeout_button_primary": "Riprova",
+            "timeout_title": "Purtroppo è necessario riavviare la registrazione",
+            "too_fast_body": "Riprova girando la testa più lentamente",
+            "too_fast_button_primary": "Riprova",
+            "too_fast_title": "Hai girato la testa troppo rapidamente"
+        },
+        "title": "Gira lentamente la testa da entrambe le parti",
+        "title_completed": "Registrazione completata"
+    },
+    "avc_intro": {
+        "button_primary_ready": "È tutto pronto",
+        "disclaimer": "Ricorda che registreremo il tuo viso e lo sfondo",
+        "list_item_one": "Innanzitutto, posiziona il viso nel riquadro",
+        "list_item_two": "Poi, gira lentamente la testa da entrambe le parti",
+        "subtitle": "Questo serve a verificare che tu sia una persona reale",
+        "title": "Registra un video"
+    },
+    "avc_no_face_detected": {
+        "button_primary_restart": "Riavvia la registrazione",
+        "list_item_eyes": "Assicurati che i tuoi occhi siano ben visibili",
+        "list_item_face": "Assicurati di mostrare solo il tuo viso. Non ci serve vedere il documento.",
+        "list_item_lighting": "Assicurati di essere in un ambiente ben illuminato",
+        "list_item_mask": "Assicurati di rimuovere la mascherina o altri oggetti che coprono il viso. Puoi tenere gli occhiali da vista.",
+        "title": "Non riusciamo a rilevare il tuo viso"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",
