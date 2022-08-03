@@ -428,13 +428,10 @@ export const Confirm = (props: ConfirmProps) => {
       // A `filename` might have been defined when the capture is created
       // if filename is not present, check if `blob` has a property `name` (only available for File types, which come from the html5 file picker)
       // alternatively use default filename
-      //
       const blobName =
-        // @ts-ignore todo issue with blob type
-        filename || blob?.name || `document_capture.${mimeType(blob)}`
+        filename || (blob as File).name || `document_capture.${mimeType(blob)}`
       const { documentType: type } = capture as DocumentCapture
       const data: UploadDocumentPayload = {
-        //@ts-ignore todo issue with blob type
         file: { blob, filename: blobName },
         type,
         side,
@@ -459,12 +456,11 @@ export const Confirm = (props: ConfirmProps) => {
             if (props.captures.document_video) {
               const {
                 blob,
-                filename,
+                filename = `document_video_capture.${mimeType(blob)}`,
                 sdkMetadata,
               } = props.captures.document_video
 
               const data: UploadDocumentVideoMediaPayload = {
-                //@ts-ignore todo issue with blob type
                 file: { blob, filename },
                 sdkMetadata,
                 document_id: res.id,
