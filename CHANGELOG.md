@@ -30,6 +30,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Move all network calls to the Network module
 - Internal: Add `trackPropertiesBeforeMount` to internal analytics api
 - Public: Add commit hash in console
+- Internal: Add `x-onfido-sdk-version` and `x-onfido-sdk-platform` headers to all onfido network requests
 
 ## [8.1.1] - 2022-07-13
 
