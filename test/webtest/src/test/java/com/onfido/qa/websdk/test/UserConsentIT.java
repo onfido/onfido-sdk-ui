@@ -10,7 +10,6 @@ import com.onfido.qa.websdk.page.DocumentUpload;
 import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
 import com.onfido.qa.websdk.page.UserConsent;
 import com.onfido.qa.websdk.page.Welcome;
-import org.checkerframework.dataflow.qual.TerminatesExecution;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 

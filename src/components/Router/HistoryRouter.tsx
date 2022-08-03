@@ -4,10 +4,9 @@ import { buildStepFinder, findFirstEnabled, findFirstIndex } from '~utils/steps'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
-import { sendEvent, trackException } from '../../Tracker'
+import { sendEvent } from '../../Tracker'
 
-import type { ErrorCallback, ParsedError } from '~types/api'
-import type { FlowVariants, FormattedError } from '~types/commons'
+import type { FlowVariants } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
 import type {
   ChangeFlowProp,

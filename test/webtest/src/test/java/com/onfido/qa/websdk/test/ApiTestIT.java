@@ -2,8 +2,6 @@ package com.onfido.qa.websdk.test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.onfido.qa.websdk.UploadDocument;
-import com.onfido.qa.websdk.mock.TaskDefinition;
-import com.onfido.qa.websdk.mock.WorkflowRun;
 import com.onfido.qa.websdk.model.CompleteData;
 import com.onfido.qa.websdk.page.*;
 import com.onfido.qa.websdk.page.Error;
@@ -13,7 +11,6 @@ import org.testng.annotations.Test;
 
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
 import static com.onfido.qa.websdk.mock.Code.*;
-import static com.onfido.qa.websdk.test.WorkflowIT.SERVICE_UNAVAILABLE;
 import static com.onfido.qa.websdk.test.WorkflowIT.UNAUTHORIZED;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -135,9 +132,9 @@ public class ApiTestIT extends WebSdkIT {
     @Test(description = "Display an error message on startup if Token expired ")
     public void displayAnErrorMessageOnStartupIfTokenExpired() {
         var error = onfido()
-                .withSteps("welcome", "document").withMock(mock -> {
-                    mock.response(SDK_CONFIGURATION, UNAUTHORIZED);
-                }).init(Error.class);
+                .withSteps("welcome", "document")
+                .withMock(mock -> mock.response(SDK_CONFIGURATION, UNAUTHORIZED))
+                .init(Error.class);
 
        assertThat(error.title()).isEqualTo("Your token has expired");
     }

@@ -5,14 +5,10 @@ import { buildStepFinder } from '~utils/steps'
 import withTheme from '../Theme'
 import GenericError from '../GenericError'
 
-import { getWoopraCookie, trackException } from '../../Tracker'
+import { getWoopraCookie } from '../../Tracker'
 import { HistoryRouterWrapper } from './HistoryRouter'
 
-import type {
-  MobileConfig,
-  NarrowSdkOptions,
-  FormattedError,
-} from '~types/commons'
+import type { MobileConfig } from '~types/commons'
 import type { StepConfig } from '~types/steps'
 import type { FlowChangeCallback, InternalRouterProps } from '~types/routers'
 import Spinner from '../Spinner'
@@ -21,7 +17,6 @@ import { createOptionsStepsHook } from './createOptionsStepsHook'
 import { createWorkflowStepsHook } from './createWorkflowStepsHook'
 import { UserConsentProvider } from '~contexts/useUserConsent'
 import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
-import { ErrorCallback, ParsedError } from '~types/api'
 
 const isUploadFallbackOffAndShouldUseCamera = (step: StepConfig): boolean => {
   if (!step.options || (step.type !== 'document' && step.type !== 'face')) {
