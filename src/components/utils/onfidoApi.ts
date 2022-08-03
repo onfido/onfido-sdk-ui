@@ -40,7 +40,7 @@ export type UploadPayload = {
 }
 
 export type UploadDocumentPayload = {
-  file: Blob
+  file: Blob | FilePayload
   issuing_country?: string
   side?: DocumentSides
   type?: DocumentTypes | PoaTypes | 'unknown'
@@ -58,7 +58,7 @@ export type UploadDocumentAnalyticsPayload = {
 }
 
 export type UploadDocumentVideoMediaPayload = {
-  file: Blob
+  file: Blob | FilePayload
   document_id: string
   sdk_source?: string
   sdk_version?: string
@@ -489,10 +489,11 @@ export const uploadBinaryMedia = (
     try {
       const tokenData = parseJwt(token)
       const formData = new FormData()
+      const blob = (file as FilePayload).blob || file
       formData.append(
         'media',
-        file,
-        filename || `document_capture.${mimeType(file)}`
+        blob,
+        filename || `document_capture.${mimeType(blob)}`
       )
       formData.append('sdk_metadata', JSON.stringify(sdkMetadata))
 
@@ -510,7 +511,7 @@ export const uploadBinaryMedia = (
         return
       }
 
-      file
+      blob
         .arrayBuffer()
         .then((data) => hmac256(tokenData.uuid as string, data))
         .then((hmac) => {
