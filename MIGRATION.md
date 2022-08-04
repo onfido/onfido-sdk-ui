@@ -2,9 +2,11 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `8.0.0` -> `next`
+## `8.2.0` -> `next`
 
-The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the follinw string(s) has been added:
+## `8.1.1` -> `8.2.0`
+
+The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the following string(s) has been added:
 
 ### Added strings
 
@@ -63,6 +65,11 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 - `profile_data.field_labels.usa_specific.ssn`
 - `profile_data.field_validation.usa_specific.required_ssn`
 - `profile_data.field_validation.usa_specific.invalid_ssn`
+- `doc_select.section.header_country`
+- `doc_select.section.input_country_not_found`
+- `doc_select.section.input_placeholder_country`
+- `doc_select.section.header_doc_type`
+- `doc_select.subtitle_country`
 
 ### Removed strings
 

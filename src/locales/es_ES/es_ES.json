@@ -330,7 +330,14 @@
         "subtitle": "Debe ser un documento de identidad oficial con fotografía",
         "subtitle_poa": "Estos son los documentos en los que es más probable que se muestre la dirección de su hogar",
         "title": "Seleccione un documento",
-        "title_poa": "Seleccione un documento de %{country}"
+        "title_poa": "Seleccione un documento de %{country}",
+        "section": {
+          "header_country": "País emisor",
+          "header_doc_type": "Documentos aceptados",
+          "input_placeholder_country": "Sin resultados",
+          "input_placeholder_country_copy": "Seleccione el país emisor"
+        },
+        "subtitle_country": "Seleccione el país emisor para ver qué documentos aceptamos"
     },
     "doc_submit": {
         "button_link_upload": "o subir foto - no escaneos o fotocopias",

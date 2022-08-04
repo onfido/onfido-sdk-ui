@@ -10,10 +10,6 @@ export const minimizer = (banner = false) =>
         new TerserPlugin({
           parallel: true,
           extractComments: false,
-          terserOptions: {
-            keep_fnames: true,
-            keep_classnames: true,
-          },
         }),
         banner &&
           new webpack.BannerPlugin({
