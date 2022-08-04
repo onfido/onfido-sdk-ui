@@ -3,20 +3,15 @@ package com.onfido.qa.websdk.test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.onfido.qa.websdk.UploadDocument;
 import com.onfido.qa.websdk.model.CompleteData;
-import com.onfido.qa.websdk.page.Complete;
-import com.onfido.qa.websdk.page.CrossDeviceClientIntro;
-import com.onfido.qa.websdk.page.CrossDeviceClientSuccess;
-import com.onfido.qa.websdk.page.CrossDeviceMobileConnected;
-import com.onfido.qa.websdk.page.CrossDeviceSubmit;
-import com.onfido.qa.websdk.page.DocumentUpload;
-import com.onfido.qa.websdk.page.ImageQualityGuide;
-import com.onfido.qa.websdk.page.RestrictedDocumentSelection;
-import com.onfido.qa.websdk.page.SelfieUpload;
+import com.onfido.qa.websdk.page.*;
+import com.onfido.qa.websdk.page.Error;
 import com.onfido.qa.websdk.sdk.FaceStep;
 import com.onfido.qa.websdk.sdk.Raw;
 import org.testng.annotations.Test;
 
 import static com.onfido.qa.websdk.DocumentType.PASSPORT;
+import static com.onfido.qa.websdk.mock.Code.*;
+import static com.onfido.qa.websdk.test.WorkflowIT.UNAUTHORIZED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SuppressWarnings("OverlyCoupledMethod")
@@ -58,13 +53,13 @@ public class ApiTestIT extends WebSdkIT {
     @Test(description = "full CrossDevice flow invokes onComplete")
     public void testFullCrossDeviceFlowInvokesOnComplete() {
         var secureLink = onfido().withOnComplete(RECORD_COMPLETE_DATA)
-                                 .withSteps("document", new FaceStep().withUseUploader(true), "complete")
-                                 .init(RestrictedDocumentSelection.class)
-                                 .selectSupportedCountry()
-                                 .selectDocument(PASSPORT, DocumentUpload.class)
-                                 .switchToCrossDevice()
-                                 .getSecureLink()
-                                 .copyLink();
+                .withSteps("document", new FaceStep().withUseUploader(true), "complete")
+                .init(RestrictedDocumentSelection.class)
+                .selectSupportedCountry()
+                .selectDocument(PASSPORT, DocumentUpload.class)
+                .switchToCrossDevice()
+                .getSecureLink()
+                .copyLink();
 
         openMobileScreen(secureLink);
 
@@ -97,16 +92,16 @@ public class ApiTestIT extends WebSdkIT {
     public void testHalfCrossDeviceFlowInvokesOnComplete() {
 
         var secureLink = onfido().withOnComplete(RECORD_COMPLETE_DATA)
-                                 .withSteps("document", new FaceStep().withUseUploader(true), "complete")
-                                 .init(RestrictedDocumentSelection.class)
-                                 .selectSupportedCountry()
-                                 .selectDocument(PASSPORT, DocumentUpload.class)
-                                 .clickUploadButton(ImageQualityGuide.class)
-                                 .upload(UploadDocument.PASSPORT_JPG)
-                                 .clickConfirmButton(SelfieUpload.class)
-                                 .switchToCrossDevice()
-                                 .getSecureLink()
-                                 .copyLink();
+                .withSteps("document", new FaceStep().withUseUploader(true), "complete")
+                .init(RestrictedDocumentSelection.class)
+                .selectSupportedCountry()
+                .selectDocument(PASSPORT, DocumentUpload.class)
+                .clickUploadButton(ImageQualityGuide.class)
+                .upload(UploadDocument.PASSPORT_JPG)
+                .clickConfirmButton(SelfieUpload.class)
+                .switchToCrossDevice()
+                .getSecureLink()
+                .copyLink();
 
         openMobileScreen(secureLink);
 
@@ -131,5 +126,16 @@ public class ApiTestIT extends WebSdkIT {
         assertThat(completeData.document_back).isNull();
         assertThat(completeData.face).isNotNull();
 
+    }
+
+
+    @Test(description = "Display an error message on startup if Token expired ")
+    public void displayAnErrorMessageOnStartupIfTokenExpired() {
+        var error = onfido()
+                .withSteps("welcome", "document")
+                .withMock(mock -> mock.response(SDK_CONFIGURATION, UNAUTHORIZED))
+                .init(Error.class);
+
+       assertThat(error.title()).isEqualTo("Your token has expired");
     }
 }

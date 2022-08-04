@@ -42,6 +42,7 @@ public class WorkflowIT extends WebSdkIT {
 
     public static final int SERVICE_UNAVAILABLE = 503;
     public static final int NOT_FOUND = 404;
+    public static final int UNAUTHORIZED = 401;
 
     static UUID workflowRunId = UUID.randomUUID();
 

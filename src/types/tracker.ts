@@ -260,6 +260,7 @@ export const ErrorNameToUIAlertMapping: Record<
   MULTIPLE_FACES_ERROR: 'multiple_faces',
   NO_FACE_ERROR: 'no_face',
   REQUEST_ERROR: 'request_error',
+  EXPIRED_TOKEN: undefined,
   SMS_FAILED: undefined,
   SMS_OVERUSE: undefined,
   UNSUPPORTED_ANDROID_BROWSER: undefined,
