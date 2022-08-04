@@ -22,6 +22,7 @@ import { CapturePayload, DocumentCapture, FaceCapture } from '~types/redux'
 import { CaptureMethods, DocumentSides, ErrorNames } from '~types/commons'
 import {
   ApiRawError,
+  ChallengeData,
   DocumentImageResponse,
   FaceVideoResponse,
   ImageQualityValidationPayload,
@@ -428,13 +429,10 @@ export const Confirm = (props: ConfirmProps) => {
       // A `filename` might have been defined when the capture is created
       // if filename is not present, check if `blob` has a property `name` (only available for File types, which come from the html5 file picker)
       // alternatively use default filename
-      //
       const blobName =
-        // @ts-ignore todo issue with blob type
-        filename || blob?.name || `document_capture.${mimeType(blob)}`
+        filename || (blob as File).name || `document_capture.${mimeType(blob)}`
       const { documentType: type } = capture as DocumentCapture
       const data: UploadDocumentPayload = {
-        //@ts-ignore todo issue with blob type
         file: { blob, filename: blobName },
         type,
         side,
@@ -459,12 +457,11 @@ export const Confirm = (props: ConfirmProps) => {
             if (props.captures.document_video) {
               const {
                 blob,
-                filename,
+                filename = `document_video_capture.${mimeType(blob)}`,
                 sdkMetadata,
               } = props.captures.document_video
 
               const data: UploadDocumentVideoMediaPayload = {
-                //@ts-ignore todo issue with blob type
                 file: { blob, filename },
                 sdkMetadata,
                 document_id: res.id,
@@ -509,7 +506,7 @@ export const Confirm = (props: ConfirmProps) => {
     const formDataPayload = prepareCallbackPayload(data, callbackName)
 
     const startTime = performance.now()
-    // @ts-ignore
+
     sendEvent(`Triggering ${callbackName} callback`)
     sendEvent('Starting upload', { method })
 
@@ -526,7 +523,6 @@ export const Confirm = (props: ConfirmProps) => {
       } = await enterpriseFeaturesCallback(formDataPayload)
 
       if (onfidoSuccessResponse) {
-        // @ts-ignore
         sendEvent(`Success response from ${callbackName}`)
         sendEvent('Completed upload', {
           method,
@@ -565,7 +561,6 @@ export const Confirm = (props: ConfirmProps) => {
         console.error(`Invalid return statement from ${callbackName}`)
       }
     } catch (errorResponse: unknown) {
-      // @ts-ignore
       sendEvent(`Error response from ${callbackName}`)
       formatError(errorResponse as ApiRawError, onApiError)
     }
@@ -583,18 +578,12 @@ export const Confirm = (props: ConfirmProps) => {
         snapshot,
       }
     } else if (callbackName === CALLBACK_TYPES.video) {
+      const { blob, language, challengeData } = data as UploadVideoPayload
       const {
-        blob,
-        language,
-        challengeData: {
-          //@ts-ignore
-          challenges: challenge,
-          //@ts-ignore
-          id: challenge_id,
-          //@ts-ignore
-          switchSeconds: challenge_switch_at,
-        },
-      } = data as UploadVideoPayload
+        challenges: challenge,
+        id: challenge_id,
+        switchSeconds: challenge_switch_at,
+      } = challengeData as ChallengeData
       payload = {
         file: blob,
         challenge: JSON.stringify(challenge),
@@ -670,10 +659,7 @@ export const Confirm = (props: ConfirmProps) => {
       error={error}
       trackScreen={props.trackScreen}
       method={props.method}
-      //@ts-ignore todo optional in Previews
-      documentType={props.documentType}
-      //@ts-ignore todo optional in Previews
-      poaDocumentType={props.poaDocumentType}
+      documentType={props.documentType || props.poaDocumentType}
       forceRetake={error?.type === 'error'}
       onVideoError={onVideoPreviewError}
     />
