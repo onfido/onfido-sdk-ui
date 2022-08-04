@@ -169,8 +169,6 @@ export const Confirm = (props: ConfirmProps) => {
       })
     }
 
-    console.log(warningAnalytics)
-
     setErrorProp({
       name,
       type: 'warning',
