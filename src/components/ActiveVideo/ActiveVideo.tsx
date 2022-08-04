@@ -101,7 +101,6 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
   // See: https://github.com/preactjs/preact/issues/2748
   return (
     <ActiveVideoCapture
-      debug={true}
       translate={translate}
       track={track}
       onError={setError}
