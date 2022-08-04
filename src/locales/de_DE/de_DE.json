@@ -330,7 +330,14 @@
         "subtitle": "Es muss ein offizieller Lichtbildausweis sein",
         "subtitle_poa": "Diese Dokumente zeigen wahrscheinlich Ihre aktuelle Wohnadresse:",
         "title": "Dokument auswählen",
-        "title_poa": "Ein %{country}-Dokumente auswählen"
+        "title_poa": "Ein %{country}-Dokumente auswählen",
+        "section": {
+          "header_country": "Ausstellendes Land",
+          "header_doc_type": "Akzeptierte Dokumente",
+          "input_placeholder_country": "",
+          "input_placeholder_country_copy": "Ausstellungsland auswählen"
+        },
+        "subtitle_country": "Wählen Sie das ausstellende Land aus, um zu sehen, welche Dokumente wir akzeptieren"
     },
     "doc_submit": {
         "button_link_upload": "oder Foto hochladen – keine Scans oder Kopien",
