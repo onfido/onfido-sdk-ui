@@ -19,6 +19,7 @@ import testDarkCobrandLogo from './assets/onfido-logo.svg'
 import testLightCobrandLogo from './assets/onfido-logo-light.svg'
 import sampleCompanyLogo from './assets/sample-logo.svg'
 import testCases from './testCases'
+import StepsRouter from 'components/Router/StepsRouter'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean

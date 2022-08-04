@@ -389,7 +389,8 @@ describe('document capture', () => {
             expect.anything(),
             expect.anything(),
             expect.anything(),
-            expect.anything()
+            expect.anything(),
+            undefined
           )
         })
       })
@@ -440,7 +441,8 @@ describe('document capture', () => {
             expect.anything(),
             expect.anything(),
             expect.anything(),
-            expect.anything()
+            expect.anything(),
+            undefined
           )
         })
       })
