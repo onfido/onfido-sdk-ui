@@ -24,6 +24,8 @@ const useActiveVideo = () => {
 
       const activeVideo: StepConfig = {
         type: 'activeVideo',
+        //@ts-ignore
+        original: steps[faceIndex],
       }
 
       return [
