@@ -341,13 +341,13 @@
         "subtitle_poa": "These are the documents most likely to show your current home address",
         "title": "Choose your document",
         "title_poa": "Select a %{country} document",
-        "subtitle_country": "Select issuing country to see which documents we accept",
         "section": {
-            "header_country": "Issuing country",
-            "input_country_not_found": "No Results",
-            "input_placeholder_country": "Type to search for country",
-            "header_doc_type": "Accepted documents"
-        }
+          "header_country": "Issuing country",
+          "input_country_not_found": "No Results",
+          "input_placeholder_country": "Type to search for country",
+          "header_doc_type": "Accepted documents"
+        },
+        "subtitle_country": "Select issuing country to see which documents we accept"
     },
     "doc_submit": {
         "button_link_upload": "or upload photo – no scans or photocopies",

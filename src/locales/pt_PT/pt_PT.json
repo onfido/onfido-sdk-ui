@@ -243,7 +243,14 @@
         "subtitle": "Deve ser uma identificação oficial com fotografia",
         "subtitle_poa": "Estes são os documentos que deverão apresentar a sua morada atual",
         "title": "Escolha o seu documento",
-        "title_poa": "Selecione um documento de %{country}"
+        "title_poa": "Selecione um documento de %{country}",
+        "section": {
+          "header_country": "País emissor",
+          "header_doc_type": "Documentos aceitos",
+          "input_placeholder_country": "Sem resultados",
+          "input_placeholder_country_copy": "Selecione o país emissor"
+        },
+        "subtitle_country": "Selecione o país emissor para ver quais documentos aceitamos"
     },
     "doc_submit": {
         "button_link_upload": "ou carregar foto – digitalizações ou fotocópias não são permitidas",

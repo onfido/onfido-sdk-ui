@@ -32,7 +32,8 @@ export const install = ({ useGlobalListeners }: InstallProps = {}) => {
     return
   }
 
-  extendPreact()
+  // Temp disabled due to issue with react-phone-number-input
+  // extendPreact()
 
   const integrations = [
     useGlobalListeners && new GlobalHandlers(),
