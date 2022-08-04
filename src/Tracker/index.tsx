@@ -99,17 +99,22 @@ const appendToTracking = <P extends WithTrackingProps>(
   class TrackedComponent extends Component<P> {
     trackScreen: TrackScreenCallback = (
       screenNameHierarchy?: string | string[],
-      ...others
-    ) =>
-      this.props.trackScreen(
+      properties?
+    ) => {
+      const trackedEventBeforeMount = this.props.trackEventBeforeMount
+        ? this.props.trackEventBeforeMount()
+        : undefined
+
+      return this.props.trackScreen(
         [
           ...(ancestorScreenNameHierarchy
             ? wrapArray(ancestorScreenNameHierarchy)
             : []),
           ...(screenNameHierarchy ? wrapArray(screenNameHierarchy) : []),
         ],
-        ...others
+        { ...properties, ...trackedEventBeforeMount?.properties }
       )
+    }
 
     render = () => (
       <WrappedComponent {...this.props} trackScreen={this.trackScreen} />
@@ -122,11 +127,11 @@ const trackComponent = <P extends WithTrackingProps>(
 ): ComponentType<P> =>
   class TrackedComponent extends Component<P> {
     componentDidMount() {
-      const properties = this.props.trackPropertiesBeforeMount
-        ? this.props.trackPropertiesBeforeMount()
+      const trackedEventBeforeMount = this.props.trackEventBeforeMount
+        ? this.props.trackEventBeforeMount()
         : undefined
 
-      this.props.trackScreen(screenName, properties)
+      this.props.trackScreen(screenName, trackedEventBeforeMount?.properties)
     }
 
     render = () => <WrappedComponent {...this.props} />

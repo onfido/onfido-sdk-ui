@@ -3,6 +3,7 @@ import detectSystem from './detectSystem'
 import type { SdkMetadata, ErrorNames } from '~types/commons'
 import type { TrackedEnvironmentData } from '~types/tracker'
 import type { TranslatedTagParser } from '~types/locales'
+import { StepConfigDocument } from '~types/steps'
 
 const parseUnit = (value: string | number): [number, string] => {
   const str = String(value)

@@ -674,6 +674,17 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_front_confirmation_cutoff_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        warning_shown: 'cutoff',
+      },
+    },
+  ],
+  [
     'screen_document_back_confirmation_cutoff_detected',
     {
       eventName: 'DOCUMENT_CONFIRMATION_ERROR',
@@ -681,6 +692,17 @@ export const analyticsEventsMapping = new Map<
         event_type: 'view',
         document_side: 'back',
         ui_alerts: { cutoff: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_cutoff_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        warning_shown: 'cutoff',
       },
     },
   ],
@@ -696,6 +718,17 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_front_confirmation_blur_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        warning_shown: 'blur',
+      },
+    },
+  ],
+  [
     'screen_document_back_confirmation_blur_detected',
     {
       eventName: 'DOCUMENT_CONFIRMATION_ERROR',
@@ -703,6 +736,17 @@ export const analyticsEventsMapping = new Map<
         event_type: 'view',
         document_side: 'back',
         ui_alerts: { blur: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_blur_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        warning_shown: 'blur',
       },
     },
   ],
@@ -718,6 +762,17 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_front_confirmation_glare_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        warning_shown: 'glare',
+      },
+    },
+  ],
+  [
     'screen_document_back_confirmation_glare_detected',
     {
       eventName: 'DOCUMENT_CONFIRMATION_ERROR',
@@ -725,6 +780,17 @@ export const analyticsEventsMapping = new Map<
         event_type: 'view',
         document_side: 'back',
         ui_alerts: { glare: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_glare_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        warning_shown: 'glare',
       },
     },
   ],
@@ -802,6 +868,17 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_front_confirmation_document_detection_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        warning_shown: 'document',
+      },
+    },
+  ],
+  [
     'screen_document_back_confirmation_document_detection',
     {
       eventName: 'DOCUMENT_CONFIRMATION_ERROR',
@@ -809,6 +886,17 @@ export const analyticsEventsMapping = new Map<
         event_type: 'view',
         document_side: 'back',
         ui_alerts: { document_detection: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_document_detection_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        warning_shown: 'document',
       },
     },
   ],

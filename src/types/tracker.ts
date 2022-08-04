@@ -49,6 +49,14 @@ export type LegacyTrackedEventNames =
   | 'screen_document_back_confirmation_blur_detected'
   | 'screen_document_front_confirmation_glare_detected'
   | 'screen_document_back_confirmation_glare_detected'
+  | 'screen_document_front_confirmation_cutoff_detected_warning'
+  | 'screen_document_back_confirmation_cutoff_detected_warning'
+  | 'screen_document_front_confirmation_blur_detected_warning'
+  | 'screen_document_back_confirmation_blur_detected_warning'
+  | 'screen_document_front_confirmation_glare_detected_warning'
+  | 'screen_document_back_confirmation_glare_detected_warning'
+  | 'screen_document_front_confirmation_document_detection_warning'
+  | 'screen_document_back_confirmation_document_detection_warning'
   | 'screen_document_front_confirmation_request_error'
   | 'screen_document_back_confirmation_request_error'
   | 'screen_document_front_confirmation_document_detection'
@@ -251,6 +259,7 @@ type UIAlerts =
   | 'multiple_faces'
   | 'document_capture'
   | 'document_detection'
+  | 'document' // same as document_detection, new nomenclature for analytics
   | 'face_video_timeout'
   | 'profile_data_timeout'
   | 'doc_video_timeout'
@@ -292,13 +301,16 @@ export const ErrorNameToUIAlertMapping: Record<
   UNSUPPORTED_IOS_BROWSER: undefined,
 }
 
+export type CaptureMethodRendered = 'upload' | 'camera'
+export type CaptureFormat = 'photo' | 'camera' // I think this maps 1-1 to RequestedVariant, photo is standard
+
 export type AnalyticsEventProperties = {
   event_type?: TrackedEventTypes
   step?: string
   is_cross_device?: boolean
   is_custom_ui?: boolean
   status?: string
-  capture_method_rendered?: 'upload' | 'camera'
+  capture_method_rendered?: CaptureMethodRendered
   document_side?: 'front' | 'back'
   video_capture_step?: 'step1' | 'step2'
   video_instruction_type?: 'recite' | 'movement'
@@ -307,12 +319,17 @@ export type AnalyticsEventProperties = {
   ui_alerts?: {
     [key in UIAlerts]?: 'error' | 'warning' | null
   }
+  warning_shown?: 'document' | 'blur' | 'glare' | 'cutoff'
   callback_name?: string
   alignment_status?:
     | 'face not centered'
     | 'face too close'
     | 'face too far'
     | 'face aligned'
+}
+
+export type AnalyticsEventPropertiesWarnings = {
+  [key in UIAlerts]?: 'warning'
 }
 
 export type AnalyticsPayload = {
@@ -364,6 +381,7 @@ export type AnalyticsTrackedEventNames =
   | 'DOCUMENT_CONFIRMATION_RETAKE_BUTTON_CLICKED'
   | 'DOCUMENT_CONFIRMATION_UPLOAD_BUTTON_CLICKED'
   | 'DOCUMENT_CONFIRMATION_ERROR'
+  | 'DOCUMENT_CONFIRMATION_WARNING'
   | 'DOCUMENT_FALLBACK_CLICKED'
   | 'DOCUMENT_IMAGE_QUALITY_GUIDE'
   | 'DOCUMENT_IMAGE_QUALITY_GUIDE_ERROR'

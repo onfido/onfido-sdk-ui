@@ -26,7 +26,12 @@ import type {
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
-import type { LegacyTrackedEventNames } from '~types/tracker'
+import type {
+  AnalyticsTrackedEventNames,
+  CaptureFormat,
+  CaptureMethodRendered,
+  LegacyTrackedEventNames,
+} from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 export type UploadPayload = {
@@ -41,6 +46,16 @@ export type UploadDocumentPayload = {
   type?: DocumentTypes | PoaTypes | 'unknown'
   validations?: ImageQualityValidationPayload
 } & UploadPayload
+
+export type UploadDocumentAnalyticsPayload = {
+  document_side: DocumentSides
+  country_code?: string
+  document_type?: DocumentTypes
+  count_attempt: number
+  max_retry_count: number
+  capture_method_rendered: CaptureMethodRendered
+  capture_format?: CaptureFormat
+}
 
 export type UploadDocumentVideoMediaPayload = {
   file: Blob
@@ -104,7 +119,8 @@ export const uploadDocument = (
   url: string | undefined,
   token: string | undefined,
   onSuccess?: SuccessCallback<DocumentImageResponse>,
-  onError?: ErrorCallback
+  onError?: ErrorCallback,
+  analyticsPayload?: UploadDocumentAnalyticsPayload
 ): Promise<DocumentImageResponse> => {
   const { sdkMetadata, validations = {}, ...other } = payload
   const endpoint = `${url}/v3.3/documents`
@@ -126,7 +142,18 @@ export const uploadDocument = (
       token,
       analyticsEvents,
       onSuccess || resolve,
-      onError || reject
+      onError || reject,
+      undefined,
+      {
+        event: 'DOCUMENT_UPLOAD_STARTED',
+        legacyEvent: 'document_upload_started',
+        properties: analyticsPayload ?? {},
+      },
+      {
+        event: 'DOCUMENT_UPLOAD_COMPLETED',
+        legacyEvent: 'document_upload_completed',
+        properties: {},
+      }
     )
   })
 }
@@ -546,6 +573,12 @@ export const objectToFormData = (object: SubmitPayload): FormData => {
   return formData
 }
 
+type ApiEvent = {
+  legacyEvent: LegacyTrackedEventNames
+  event: AnalyticsTrackedEventNames // not used, only for declarative purposes.
+  properties: Record<string, unknown>
+}
+
 const sendFile = <T>(
   endpoint: string | undefined,
   data: SubmitPayload,
@@ -553,7 +586,9 @@ const sendFile = <T>(
   analyticsEvents: LegacyTrackedEventNames[],
   onSuccess: SuccessCallback<T>,
   onError: ErrorCallback,
-  options?: Partial<HttpRequestParams>
+  options?: Partial<HttpRequestParams>,
+  startEvent?: ApiEvent,
+  successEvent?: ApiEvent
 ) => {
   if (!endpoint) {
     throw new Error('onfido_api_url not provided')
@@ -577,15 +612,24 @@ const sendFile = <T>(
   }
 
   const startTime = performance.now()
-  // Sends upload_started event
-  sendEvent(analyticsEvents[0])
+  if (startEvent) {
+    sendEvent(startEvent.legacyEvent, startEvent.properties)
+  } else {
+    // Sends upload_started event
+    sendEvent(analyticsEvents[0])
+  }
   performHttpRequest(
     requestParams,
     (response: T) => {
-      // Sends upload_completed event
-      sendEvent(analyticsEvents[1], {
-        duration: Math.round(performance.now() - startTime),
-      })
+      if (successEvent) {
+        sendEvent(successEvent.legacyEvent, successEvent.properties)
+      } else {
+        // Sends upload_completed event
+        sendEvent(analyticsEvents[1], {
+          duration: Math.round(performance.now() - startTime),
+        })
+      }
+
       if (onSuccess) {
         onSuccess(response)
       }
