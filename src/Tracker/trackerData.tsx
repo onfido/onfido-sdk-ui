@@ -1502,4 +1502,188 @@ export const analyticsEventsMapping = new Map<
       properties: { event_type: 'action', document_side: 'back' },
     },
   ],
+  [
+    'screen_activeVideo_intro',
+    {
+      eventName: 'FACE_LIVENESS_INTRO',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_intro_ready_clicked',
+    {
+      eventName: 'FACE_LIVENESS_INTRO_READY_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_alignment',
+    {
+      eventName: 'FACE_LIVENESS_ALIGNMENT',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_alignment_status_not_centered',
+    {
+      eventName: 'FACE_LIVENESS_ALIGNMENT_STATUS',
+      properties: {
+        event_type: 'view',
+        step: 'face',
+        alignment_status: 'face not centered',
+      },
+    },
+  ],
+  [
+    'screen_activeVideo_alignment_status_too_close',
+    {
+      eventName: 'FACE_LIVENESS_ALIGNMENT_STATUS',
+      properties: {
+        event_type: 'view',
+        step: 'face',
+        alignment_status: 'face too close',
+      },
+    },
+  ],
+  [
+    'screen_activeVideo_alignment_status_too_far',
+    {
+      eventName: 'FACE_LIVENESS_ALIGNMENT_STATUS',
+      properties: {
+        event_type: 'view',
+        step: 'face',
+        alignment_status: 'face too far',
+      },
+    },
+  ],
+  [
+    'screen_activeVideo_alignment_status_aligned',
+    {
+      eventName: 'FACE_LIVENESS_ALIGNMENT_STATUS',
+      properties: {
+        event_type: 'view',
+        step: 'face',
+        alignment_status: 'face aligned',
+      },
+    },
+  ],
+  [
+    'screen_activeVideo_camera_access',
+    {
+      eventName: 'FACE_LIVENESS_CAMERA_ACCESS',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_camera_access_allow_button_clicked',
+    {
+      eventName: 'FACE_LIVENESS_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture_status',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE_STATUS',
+      properties: { event_type: 'view', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_no_face_detected',
+    {
+      eventName: 'FACE_LIVENESS_NO_FACE_DETECTED',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_no_face_detected_restart_clicked',
+    {
+      eventName: 'FACE_LIVENESS_NO_FACE_DETECTED_RESTART_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture_error_timeout',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE_ERROR_TIMEOUT',
+      properties: { event_type: 'view', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture_error_timeout_restart_clicked',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE_ERROR_TIMEOUT_RESTART_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture_error_too_fast',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE_ERROR_TOO_FAST',
+      properties: { event_type: 'view', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture_error_too_fast_restart_clicked',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE_ERROR_TOO_FAST_RESTART_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_outro',
+    {
+      eventName: 'FACE_LIVENESS_OUTRO',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_outro_upload_clicked',
+    {
+      eventName: 'FACE_LIVENESS_OUTRO_UPLOAD_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_upload',
+    {
+      eventName: 'FACE_LIVENESS_UPLOAD',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_upload_completed',
+    {
+      eventName: 'FACE_LIVENESS_UPLOAD_COMPLETED',
+      properties: { event_type: 'view', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_connection_error',
+    {
+      eventName: 'FACE_LIVENESS_CONNECTION_ERROR',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_connection_error_retry_clicked',
+    {
+      eventName: 'FACE_LIVENESS_CONNECTION_ERROR_RETRY_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_connection_error_restart_clicked',
+    {
+      eventName: 'FACE_LIVENESS_CONNECTION_ERROR_RESTART_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
 ])

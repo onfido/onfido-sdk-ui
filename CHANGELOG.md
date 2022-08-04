@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## Changed
 
+- Internal: Collect `FACE_LIVENESS_*` analytics events
 - Internal: Send OS name and version information in sdk configuration request
 
 ## [8.3.0] - 2022-08-02

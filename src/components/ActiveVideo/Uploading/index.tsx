@@ -13,11 +13,12 @@ import { ErrorProp, StepComponentProps } from '~types/routers'
 import { uploadActiveVideo } from '~utils/onfidoApi'
 import { ActiveVideoResponse, ParsedError } from '~types/api'
 import { ErrorNames } from '~types/commons'
-import { trackException } from 'Tracker'
-import { WithLocalisedProps } from '~types/hocs'
+import { trackException, trackComponent } from 'Tracker'
+import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
 
 type Props = StepComponentProps &
-  WithLocalisedProps & {
+  WithLocalisedProps &
+  WithTrackingProps & {
     capture?: ActiveVideoCapture
   }
 
@@ -39,10 +40,12 @@ const Uploading: FunctionComponent<Props> = ({
   actions,
   capture,
   urls,
+  trackScreen,
 }) => {
   const onApiSuccess = (apiResponse: ActiveVideoResponse) => {
     actions.setCaptureMetadata({ capture, apiResponse })
     completeStep([{ id: apiResponse.id }])
+    trackScreen('upload_completed')
     nextStep()
   }
 
@@ -69,6 +72,7 @@ const Uploading: FunctionComponent<Props> = ({
       triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
       setError('REQUEST_ERROR', response?.error?.message)
+      trackScreen('connection_error')
     }
   }
 
@@ -115,5 +119,5 @@ const Uploading: FunctionComponent<Props> = ({
 
 // Note: Preact and Redux types don't play nice together, hence the type cast.
 export default (connect(mapStateToProps)(
-  localised(Uploading) as FunctionComponent<Props>
+  trackComponent(localised(Uploading), 'upload') as FunctionComponent<Props>
 ) as unknown) as ComponentType<StepComponentProps>
