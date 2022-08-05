@@ -73,8 +73,8 @@ class StepsRouter extends Component<StepsRouterProps> {
       ? logoCobrand
       : globalUserOptions.enterpriseFeatures?.logoCobrand && logoCobrand
 
-    const edgeToEdgeContent =
-      CurrentComponent.displayName === 'ActiveVideoCapture'
+    // FIXME: Clean up this hack (see 163ed120, 10d9de1a, and e56fada0)
+    const edgeToEdgeContent = false
 
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
