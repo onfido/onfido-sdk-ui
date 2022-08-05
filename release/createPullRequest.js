@@ -57,36 +57,38 @@ module.exports = async (github, context) => {
     'nulrich',
   ].filter((s) => s.toLowerCase() !== GITHUB_ACTOR.toLowerCase())
 
-  debug('Creating PR')
-  const result = await github.rest.pulls.create({
-    title: RELEASE_BRANCH_NAME,
-    owner,
-    repo,
-    head: RELEASE_BRANCH_NAME,
-    base: 'master',
-    body,
-  })
+  try {
+    debug('Creating PR')
+    const result = await github.rest.pulls.create({
+      title: RELEASE_BRANCH_NAME,
+      owner,
+      repo,
+      head: RELEASE_BRANCH_NAME,
+      base: 'master',
+      body,
+    })
 
-  debug('Updating workflows.config')
-  await replaceInFile(
-    'release/githubActions/workflows.config',
-    /^PULL_REQUEST_NUMBER\s*=.*$/gm,
-    `PULL_REQUEST_NUMBER=${result.data.number}`
-  )
+    debug('Updating workflows.config')
+    await replaceInFile(
+      'release/githubActions/workflows.config',
+      /^PULL_REQUEST_NUMBER\s*=.*$/gm,
+      `PULL_REQUEST_NUMBER=${result.data.number}`
+    )
 
-  debug('Adding reviewers')
-  await github.rest.pulls.requestReviewers({
-    owner,
-    repo,
-    pull_number: result.data.number,
-    reviewers,
-  })
+    debug('Adding reviewers')
+    await github.rest.pulls.requestReviewers({
+      owner,
+      repo,
+      pull_number: result.data.number,
+      reviewers,
+    })
 
-  debug('Adding labels')
-  github.rest.issues.addLabels({
-    owner,
-    repo,
-    issue_number: result.data.number,
-    labels: ['release'],
-  })
+    debug('Adding labels')
+    github.rest.issues.addLabels({
+      owner,
+      repo,
+      issue_number: result.data.number,
+      labels: ['release'],
+    })
+  } catch (e) {}
 }

@@ -674,6 +674,17 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_front_confirmation_cutoff_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        warning_shown: 'cutoff',
+      },
+    },
+  ],
+  [
     'screen_document_back_confirmation_cutoff_detected',
     {
       eventName: 'DOCUMENT_CONFIRMATION_ERROR',
@@ -681,6 +692,17 @@ export const analyticsEventsMapping = new Map<
         event_type: 'view',
         document_side: 'back',
         ui_alerts: { cutoff: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_cutoff_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        warning_shown: 'cutoff',
       },
     },
   ],
@@ -696,6 +718,17 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_front_confirmation_blur_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        warning_shown: 'blur',
+      },
+    },
+  ],
+  [
     'screen_document_back_confirmation_blur_detected',
     {
       eventName: 'DOCUMENT_CONFIRMATION_ERROR',
@@ -703,6 +736,17 @@ export const analyticsEventsMapping = new Map<
         event_type: 'view',
         document_side: 'back',
         ui_alerts: { blur: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_blur_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        warning_shown: 'blur',
       },
     },
   ],
@@ -718,6 +762,17 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_front_confirmation_glare_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        warning_shown: 'glare',
+      },
+    },
+  ],
+  [
     'screen_document_back_confirmation_glare_detected',
     {
       eventName: 'DOCUMENT_CONFIRMATION_ERROR',
@@ -725,6 +780,17 @@ export const analyticsEventsMapping = new Map<
         event_type: 'view',
         document_side: 'back',
         ui_alerts: { glare: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_glare_detected_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        warning_shown: 'glare',
       },
     },
   ],
@@ -802,6 +868,17 @@ export const analyticsEventsMapping = new Map<
     },
   ],
   [
+    'screen_document_front_confirmation_document_detection_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'front',
+        warning_shown: 'document',
+      },
+    },
+  ],
+  [
     'screen_document_back_confirmation_document_detection',
     {
       eventName: 'DOCUMENT_CONFIRMATION_ERROR',
@@ -809,6 +886,17 @@ export const analyticsEventsMapping = new Map<
         event_type: 'view',
         document_side: 'back',
         ui_alerts: { document_detection: 'error' },
+      },
+    },
+  ],
+  [
+    'screen_document_back_confirmation_document_detection_warning',
+    {
+      eventName: 'DOCUMENT_CONFIRMATION_WARNING',
+      properties: {
+        event_type: 'view',
+        document_side: 'back',
+        warning_shown: 'document',
       },
     },
   ],
@@ -1412,6 +1500,190 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'DOCUMENT_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED',
       properties: { event_type: 'action', document_side: 'back' },
+    },
+  ],
+  [
+    'screen_activeVideo_intro',
+    {
+      eventName: 'FACE_LIVENESS_INTRO',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_intro_ready_clicked',
+    {
+      eventName: 'FACE_LIVENESS_INTRO_READY_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_alignment',
+    {
+      eventName: 'FACE_LIVENESS_ALIGNMENT',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_alignment_status_not_centered',
+    {
+      eventName: 'FACE_LIVENESS_ALIGNMENT_STATUS',
+      properties: {
+        event_type: 'view',
+        step: 'face',
+        alignment_status: 'face not centered',
+      },
+    },
+  ],
+  [
+    'screen_activeVideo_alignment_status_too_close',
+    {
+      eventName: 'FACE_LIVENESS_ALIGNMENT_STATUS',
+      properties: {
+        event_type: 'view',
+        step: 'face',
+        alignment_status: 'face too close',
+      },
+    },
+  ],
+  [
+    'screen_activeVideo_alignment_status_too_far',
+    {
+      eventName: 'FACE_LIVENESS_ALIGNMENT_STATUS',
+      properties: {
+        event_type: 'view',
+        step: 'face',
+        alignment_status: 'face too far',
+      },
+    },
+  ],
+  [
+    'screen_activeVideo_alignment_status_aligned',
+    {
+      eventName: 'FACE_LIVENESS_ALIGNMENT_STATUS',
+      properties: {
+        event_type: 'view',
+        step: 'face',
+        alignment_status: 'face aligned',
+      },
+    },
+  ],
+  [
+    'screen_activeVideo_camera_access',
+    {
+      eventName: 'FACE_LIVENESS_CAMERA_ACCESS',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_camera_access_allow_button_clicked',
+    {
+      eventName: 'FACE_LIVENESS_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture_status',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE_STATUS',
+      properties: { event_type: 'view', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_no_face_detected',
+    {
+      eventName: 'FACE_LIVENESS_NO_FACE_DETECTED',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_no_face_detected_restart_clicked',
+    {
+      eventName: 'FACE_LIVENESS_NO_FACE_DETECTED_RESTART_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture_error_timeout',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE_ERROR_TIMEOUT',
+      properties: { event_type: 'view', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture_error_timeout_restart_clicked',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE_ERROR_TIMEOUT_RESTART_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture_error_too_fast',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE_ERROR_TOO_FAST',
+      properties: { event_type: 'view', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_capture_error_too_fast_restart_clicked',
+    {
+      eventName: 'FACE_LIVENESS_CAPTURE_ERROR_TOO_FAST_RESTART_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_outro',
+    {
+      eventName: 'FACE_LIVENESS_OUTRO',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_outro_upload_clicked',
+    {
+      eventName: 'FACE_LIVENESS_OUTRO_UPLOAD_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_upload',
+    {
+      eventName: 'FACE_LIVENESS_UPLOAD',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_upload_completed',
+    {
+      eventName: 'FACE_LIVENESS_UPLOAD_COMPLETED',
+      properties: { event_type: 'view', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_connection_error',
+    {
+      eventName: 'FACE_LIVENESS_CONNECTION_ERROR',
+      properties: { event_type: 'screen', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_connection_error_retry_clicked',
+    {
+      eventName: 'FACE_LIVENESS_CONNECTION_ERROR_RETRY_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'screen_activeVideo_connection_error_restart_clicked',
+    {
+      eventName: 'FACE_LIVENESS_CONNECTION_ERROR_RESTART_CLICKED',
+      properties: { event_type: 'action', step: 'face' },
     },
   ],
 ])

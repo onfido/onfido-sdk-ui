@@ -33,7 +33,7 @@ import LazyActiveVideo from '../ActiveVideo/Lazy'
 import ActiveVideoIntro from '../ActiveVideo/Intro'
 import ActiveVideoRecordingComplete from '../ActiveVideo/RecordingComplete'
 import ActiveVideoUpload from '../ActiveVideo/Uploading'
-import { isDesktop, isHybrid } from '~utils'
+import { shouldUseCameraForDocumentCapture } from '~utils/shouldUseCamera'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 
 import type {
@@ -112,19 +112,6 @@ export const buildComponentsList = ({
 const isComplete = (step: StepConfig): boolean => step.type === 'complete'
 
 const hasCompleteStep = (steps: StepConfig[]): boolean => steps.some(isComplete)
-
-const shouldUseCameraForDocumentCapture = (
-  documentStep?: StepConfigDocument,
-  deviceHasCameraSupport?: boolean
-): boolean => {
-  const canUseLiveDocumentCapture =
-    (!isDesktop || isHybrid) && documentStep?.options?.useLiveDocumentCapture
-
-  return (
-    (canUseLiveDocumentCapture || documentStep?.options?.useWebcam === true) &&
-    deviceHasCameraSupport === true
-  )
-}
 
 const buildCaptureStepComponents = (
   poaDocumentCountry: CountryData | undefined,

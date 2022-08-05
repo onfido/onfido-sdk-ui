@@ -17,6 +17,7 @@ import { HistoryRouterWrapper } from '../HistoryRouter'
 
 jest.mock('~utils')
 jest.mock('~utils/crossDeviceSync')
+jest.mock('~utils/shouldUseCamera')
 
 const defaultOptions: NarrowSdkOptions = {
   steps: [

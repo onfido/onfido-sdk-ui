@@ -7,14 +7,21 @@ import { CameraIcon } from '../assets/CameraIcon'
 import { BaseScreen } from '../BaseScreen'
 import { localised } from '~locales'
 import { StepComponentProps } from '~types/routers'
-import { WithLocalisedProps } from '~types/hocs'
+import { WithLocalisedProps, WithTrackingProps } from '~types/hocs'
+import { trackComponent } from 'Tracker'
 
-type Props = StepComponentProps & WithLocalisedProps
+type Props = StepComponentProps & WithLocalisedProps & WithTrackingProps
 
 const RecordingComplete: FunctionComponent<Props> = ({
   nextStep,
   translate,
+  trackScreen,
 }: Props) => {
+  const handleUpload = (): void => {
+    trackScreen('outro_upload_clicked')
+    nextStep()
+  }
+
   return (
     <BaseScreen>
       <Wrapper>
@@ -27,7 +34,7 @@ const RecordingComplete: FunctionComponent<Props> = ({
       </Wrapper>
 
       <Footer>
-        <Button onClick={() => nextStep()}>
+        <Button onClick={() => handleUpload()}>
           {translate('avc_confirmation.button_primary_upload')}
         </Button>
       </Footer>
@@ -35,4 +42,4 @@ const RecordingComplete: FunctionComponent<Props> = ({
   )
 }
 
-export default localised(RecordingComplete)
+export default trackComponent(localised(RecordingComplete), 'outro')

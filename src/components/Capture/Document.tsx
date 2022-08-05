@@ -21,7 +21,10 @@ import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import style from './style.scss'
 
 import type { ImageResizeInfo } from '~types/commons'
-import type { WithCaptureVariantProps } from '~types/hocs'
+import type {
+  TrackEventBeforeMountCallback,
+  WithCaptureVariantProps,
+} from '~types/hocs'
 import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
@@ -235,6 +238,14 @@ const Document = (props: Props) => {
   const enableLiveDocumentCapture =
     useLiveDocumentCapture && (!isDesktop || isHybrid)
 
+  const trackEvent: TrackEventBeforeMountCallback = () => ({
+    event: 'DOCUMENT_CAPTURE',
+    properties: {
+      country_code: props.idDocumentIssuingCountry?.country_alpha2,
+      document_type: props.documentType,
+    },
+  })
+
   if (hasCamera && useWebcam) {
     return (
       <DocumentAutoCapture
@@ -260,6 +271,7 @@ const Document = (props: Props) => {
           renderFallback={renderFallback}
           trackScreen={trackScreen}
           side={side}
+          trackEventBeforeMount={trackEvent}
         />
       )
     }
@@ -273,6 +285,7 @@ const Document = (props: Props) => {
         renderFallback={renderFallback}
         renderTitle={renderTitle}
         trackScreen={trackScreen}
+        trackEventBeforeMount={trackEvent}
       />
     )
   }
@@ -300,6 +313,7 @@ const Document = (props: Props) => {
       instructions={instructions}
       pageId={'DocumentUploader'}
       countryCode={props.idDocumentIssuingCountry?.country_alpha2}
+      trackEventBeforeMount={trackEvent}
     />
   )
 }
