@@ -234,10 +234,24 @@ export default class CrossDeviceMobileRouter extends Component<
       return this.setError()
     }
 
+    // NOTE, This is should be removed as soon as motion is supported on Mobile
+    const convertMotionStepToInitialConfig = (steps: StepConfig[]) => {
+      const initialFaceStep =
+        //@ts-ignore
+        steps.find((s) => s.type === 'activeVideo')?.original
+
+      if (!initialFaceStep) return steps
+
+      return (
+        steps &&
+        steps.map((t) => (t.type === 'activeVideo' ? initialFaceStep : t))
+      )
+    }
+
     this.setState(
       {
         token,
-        steps,
+        steps: convertMotionStepToInitialConfig(steps),
         step: stepIndex,
         stepIndexType: 'client',
         crossDeviceError: undefined,
