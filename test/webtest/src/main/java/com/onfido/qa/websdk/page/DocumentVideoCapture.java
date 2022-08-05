@@ -10,7 +10,7 @@ import java.util.Optional;
 public class DocumentVideoCapture extends BasePage {
 
     public static final By CAPTURE_BTN = ByUtil.onfidoQa("doc-video-capture-btn");
-    public static final By SUCCESS_TICK = By.cssSelector(".onfido-sdk-ui-DocumentVideo-reusables-success");
+    public static final By SUCCESS_TICK = By.cssSelector(".onfido-sdk-ui-DocumentVideo-reusables-successIcon");
     public static final By ERROR_TITLE = By.cssSelector(".onfido-sdk-ui-Error-title-text");
 
     public DocumentVideoCapture(Driver driver) {
@@ -95,7 +95,7 @@ public class DocumentVideoCapture extends BasePage {
         driver.waitFor(timeout).visibility(ERROR_TITLE);
         return this;
     }
-
+    
     public String getErrorTitleText() {
         return text(ERROR_TITLE);
     }

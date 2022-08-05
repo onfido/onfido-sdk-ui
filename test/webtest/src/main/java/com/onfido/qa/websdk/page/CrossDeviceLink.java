@@ -45,7 +45,7 @@ public class CrossDeviceLink extends BasePage {
     }
 
     public boolean isOptionAvailable(CrossDeviceLinkMethod method) {
-        return driver.isInDom(By.cssSelector(".onfido-sdk-ui-crossDevice-CrossDeviceLink-" + method.className));
+        return driver.isInDom(ByUtil.onfidoQa("cross-device-"+ method.qaKey +"-link-option"));
     }
 
     public boolean alternativeMethodOptionsSectionIsDisplayed() {
