@@ -13,10 +13,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
 - Internal: Collect `FACE_LIVENESS_*` analytics events
 - Internal: Send OS name and version information in sdk configuration request
+- Internal: Update terser to 5.14.2 & moment to 2.29.4
+- Internal: Add Network module
+- Internal: Move all network calls to the Network module
+- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
+- Public: Add commit hash in console
+- Internal: Add `x-onfido-sdk-version` and `x-onfido-sdk-platform` headers to all onfido network requests
 
 ## [8.3.0] - 2022-08-02
-
-### Changed
 
 - Public: Fixed setoption, setOptions was setting unspecified values to their default value.
 - Internal: Add dynamically loaded files (except en_US)
@@ -32,12 +36,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Merge country and document selection in a single screen.
 - Internal: Remove isFullScreen prop from NavigationBar
 - Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
-- Internal: Update terser to 5.14.2 & moment to 2.29.4
-- Internal: Add Network module
-- Internal: Move all network calls to the Network module
-- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
-- Public: Add commit hash in console
-- Internal: Add `x-onfido-sdk-version` and `x-onfido-sdk-platform` headers to all onfido network requests
 
 ## [8.1.0] - 2022-06-13
 
