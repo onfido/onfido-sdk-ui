@@ -66,35 +66,5 @@ describe('Router', () => {
       expect(wrapper.find('MainRouter').exists()).toBeFalsy()
       expect(wrapper.find('CrossDeviceMobileRouter').exists()).toBeTruthy()
     })
-
-    it('renders with edgeToEdgeContent=true on specific components', async () => {
-      render(
-        <MockedReduxProvider>
-          <SdkOptionsProvider options={defaultOptions}>
-            <MockedLocalised>
-              <HistoryRouterWrapper
-                options={defaultOptions}
-                triggerOnError={() => {}}
-                allowCrossDeviceFlow={false}
-                useSteps={createMockStepsHook({
-                  steps: [{ type: 'activeVideo' }],
-                })}
-                {...mockedReduxProps}
-              />
-            </MockedLocalised>
-          </SdkOptionsProvider>
-        </MockedReduxProvider>
-      )
-
-      let back = screen.getByText(/generic.back/)
-      let navigationBar = back.closest('.navigationBar')
-      expect(navigationBar?.classList.contains('transparent')).toBeFalsy()
-
-      await userEvent.click(screen.getByText(/avc_intro.button_primary_ready/))
-
-      back = screen.getByText(/generic.back/)
-      navigationBar = back.closest('.navigationBar')
-      expect(navigationBar?.classList.contains('transparent')).toBeTruthy()
-    })
   })
 })

@@ -26,6 +26,7 @@ import { trackComponent } from 'Tracker'
 import CameraError from 'components/CameraError'
 import FallbackButton from 'components/Button/FallbackButton'
 import withCrossDeviceWhenNoCamera from 'components/Capture/withCrossDeviceWhenNoCamera'
+import NavigationBar from 'components/NavigationBar'
 
 type Props = StepComponentBaseProps & {
   onUserMedia: () => void
@@ -36,6 +37,7 @@ type Props = StepComponentBaseProps & {
 const ActiveVideo: FunctionComponent<Props> = (props) => {
   const {
     nextStep,
+    back,
     translate,
     trackScreen,
     actions,
@@ -108,6 +110,7 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
       onSuccess={onSuccess}
       onUserMedia={onUserMedia}
       hasGrantedPermission={!!hasGrantedPermission}
+      navigationBar={<NavigationBar back={back} transparent={true} />}
     />
   )
 }
