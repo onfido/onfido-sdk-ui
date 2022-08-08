@@ -51,7 +51,7 @@ jobs:
 
       - name: Setup env
         run: |
-          clean_release_version=$(echo $RELEASE_VERSION | sed -e 's/-.*//g')
+          clean_release_version=$(echo $RELEASE_VERSION | sed -e 's/-rc.*//g')
           echo "RELEASE_BRANCH_NAME=release/$clean_release_version" >> $GITHUB_ENV
 
       - name: Validate Input
