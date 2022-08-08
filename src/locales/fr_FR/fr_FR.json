@@ -236,6 +236,10 @@
         "back": "retour",
         "close": "fermer",
         "errors": {
+            "expired_token": {
+                "instruction": "",
+                "message": ""
+            },
             "geoblocked_error": {
                 "instruction": "Nous sommes désolés, il semble que nous ne puissions pas poursuivre car votre emplacement actuel n'est pas pris en charge",
                 "message": "Service indisponible"

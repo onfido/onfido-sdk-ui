@@ -236,6 +236,10 @@
         "back": "terug",
         "close": "sluiten",
         "errors": {
+            "expired_token": {
+                "instruction": "",
+                "message": ""
+            },
             "geoblocked_error": {
                 "instruction": "Het spijt ons, we kunnen niet verdergaan, omdat uw huidige locatie niet ondersteund wordt",
                 "message": "Service niet beschikbaar"

@@ -236,6 +236,10 @@
         "back": "zpět",
         "close": "zavřít",
         "errors": {
+            "expired_token": {
+                "instruction": "",
+                "message": ""
+            },
             "geoblocked_error": {
                 "instruction": "Litujeme, ale zdá se, že nemůžeme pokračovat dále, protože vaše aktuální umístění není podporováno.",
                 "message": "Služba není k dispozici"

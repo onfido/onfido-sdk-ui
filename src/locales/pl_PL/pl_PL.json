@@ -236,6 +236,10 @@
         "back": "wstecz",
         "close": "zamknij",
         "errors": {
+            "expired_token": {
+                "instruction": "",
+                "message": ""
+            },
             "geoblocked_error": {
                 "instruction": "Wygląda na to, że nie możemy kontynuować, ponieważ Twoja bieżąca lokalizacja nie jest obsługiwana",
                 "message": "Usługa niedostępna"

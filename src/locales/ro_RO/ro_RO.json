@@ -236,6 +236,10 @@
         "back": "înapoi",
         "close": "închideți",
         "errors": {
+            "expired_token": {
+                "instruction": "",
+                "message": ""
+            },
             "geoblocked_error": {
                 "instruction": "Ne pare rău, se pare că nu putem continua pentru că locația dvs. actuală nu este acoperită",
                 "message": "Serviciu indisponibil"

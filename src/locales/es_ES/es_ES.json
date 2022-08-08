@@ -236,6 +236,10 @@
         "back": "atrás",
         "close": "cerrar",
         "errors": {
+            "expired_token": {
+                "instruction": "",
+                "message": ""
+            },
             "geoblocked_error": {
                 "instruction": "Lo sentimos, parece que no podemos seguir adelante ya que su ubicación actual no es compatible",
                 "message": "Servicio no disponible"
