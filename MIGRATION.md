@@ -2,8 +2,6 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `8.2.0` -> `next`
-
 ## `8.1.1` -> `8.2.0`
 
 The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the following string(s) has been added:
