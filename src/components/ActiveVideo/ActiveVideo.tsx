@@ -12,25 +12,30 @@ import type {
   WithLocalisedProps,
   WithPermissionsFlowProps,
   WithTrackingProps,
+  WithFailureHandlingProps,
 } from '~types/hocs'
 import {
   CombinedActions,
   ActiveVideoCapture as ActiveVideoCapturePayload,
 } from '~types/redux'
-import type { RenderFallbackProp, StepComponentBaseProps } from '~types/routers'
+import type { StepComponentBaseProps } from '~types/routers'
+import { CameraProps } from '~types/camera'
+import { WebcamProps } from '~webcam/react-webcam'
 import { addDeviceRelatedProperties } from '~utils'
 import { randomId } from '~utils/string'
 import withPermissionsFlow from 'components/CameraPermissions/withPermissionsFlow'
+import withFailureHandling from 'components/Camera/withFailureHandling'
 import FaceNotDetected from './FaceNotDetected'
 import { trackComponent } from 'Tracker'
-import CameraError from 'components/CameraError'
-import FallbackButton from 'components/Button/FallbackButton'
 import withCrossDeviceWhenNoCamera from 'components/Capture/withCrossDeviceWhenNoCamera'
 import NavigationBar from 'components/NavigationBar'
 
 type Props = StepComponentBaseProps & {
   onUserMedia: () => void
-} & WithLocalisedProps &
+} & CameraProps &
+  WebcamProps &
+  WithLocalisedProps &
+  WithFailureHandlingProps &
   WithPermissionsFlowProps &
   WithTrackingProps
 
@@ -44,10 +49,9 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
     mobileFlow,
     hasGrantedPermission,
     onUserMedia,
-    onError,
-    changeFlowTo,
+    onFailure,
   } = props
-  const [error, setError] = useState<LivenessError | null>()
+  const [error, setError] = useState<LivenessError | Error | null>()
   const dispatch = useDispatch<Dispatch<CombinedActions>>()
 
   const onSuccess = (event: { videoPayload: Blob }) => {
@@ -66,17 +70,22 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
     nextStep()
   }
 
-  const track = (event: TrackingEvent): void => {
-    trackScreen(event)
+  const onError = (error: LivenessError | Error) => {
+    if (error instanceof Error && onFailure) {
+      // Under the hood, Motion depends on `react-webcam 7+` which emits DOMException
+      // errors. They'll bubble up to `withFailureHandling` or `withPermissionFlow` to
+      // show the appropriate error screen.
+      onFailure(error)
+    } else {
+      // Other errors are business-logic errors, like `FACE_DETECTION_TIMEOUT`. In
+      // such case, a specific error screen is displayed in place of the capture
+      // component.
+      setError(error)
+    }
   }
 
-  const renderCrossDeviceFallback: RenderFallbackProp = ({ text }) => {
-    return (
-      <FallbackButton
-        text={text}
-        onClick={() => changeFlowTo('crossDeviceSteps')}
-      />
-    )
+  const track = (event: TrackingEvent): void => {
+    trackScreen(event)
   }
 
   if (error === LivenessError.FACE_DETECTION_TIMEOUT) {
@@ -87,17 +96,8 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
         trackScreen={trackScreen}
       />
     )
-  } else if (error === LivenessError.CAMERA_NOT_AVAILABLE) {
-    return (
-      <CameraError
-        error={{ name: 'CAMERA_NOT_WORKING', type: 'error' }}
-        trackScreen={trackScreen}
-        renderFallback={renderCrossDeviceFallback}
-      />
-    )
   } else if (error) {
     console.error(`Unsupported error: ${error}`)
-    onError && onError({ type: 'exception', message: error })
   }
 
   // See: https://github.com/preactjs/preact/issues/2748
@@ -106,7 +106,7 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
       debug={false}
       translate={translate}
       track={track}
-      onError={setError}
+      onError={onError}
       onSuccess={onSuccess}
       onUserMedia={onUserMedia}
       hasGrantedPermission={!!hasGrantedPermission}
@@ -116,6 +116,10 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
 }
 
 export default trackComponent(
-  localised(withCrossDeviceWhenNoCamera(withPermissionsFlow(ActiveVideo))),
+  localised(
+    withCrossDeviceWhenNoCamera(
+      withFailureHandling(withPermissionsFlow(ActiveVideo))
+    )
+  ),
   'face_liveness'
 )
