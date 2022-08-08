@@ -6,13 +6,14 @@ import PermissionsRecover from '../CameraPermissions/Recover'
 import { checkIfWebcamPermissionGranted } from '~utils'
 
 import type { WithTrackingProps, WithPermissionsFlowProps } from '~types/hocs'
-import type { ErrorProp } from '~types/routers'
 
 const permissionErrors = [
   'PermissionDeniedError',
   'NotAllowedError',
   'NotFoundError',
-]
+] as const
+
+export type PermissionError = typeof permissionErrors[number]
 
 type Props = WebcamProps & WithTrackingProps & WithPermissionsFlowProps
 
@@ -51,8 +52,8 @@ export default <P extends Props>(
       this.props.onUserMedia && this.props.onUserMedia()
     }
 
-    handleWebcamFailure = (error: ErrorProp) => {
-      if (permissionErrors.includes(error.name)) {
+    handleWebcamFailure = (error?: Error) => {
+      if (error && permissionErrors.includes(error.name as PermissionError)) {
         this.setState({ hasGrantedPermission: false })
       } else {
         this.props.onFailure && this.props.onFailure()
