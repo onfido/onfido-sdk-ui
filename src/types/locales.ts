@@ -15,6 +15,9 @@ export type SupportedLanguages =
   | 'pt'
   | 'nl_NL'
   | 'nl'
+  | 'cs_CZ'
+  | 'pl_PL'
+  | 'ro_RO'
 
 export type LocaleConfig = {
   locale?: SupportedLanguages

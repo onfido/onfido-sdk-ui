@@ -1,172 +1,4 @@
 {
-    "workflow_erros": {
-        "task_not_supported": "Task is currently not supported.",
-        "task_not_completed": "Could not complete workflow task.",
-        "task_not_retrieved": "Could not retrieve workflow task.",
-        "no_workflow_run_id": "Workflow run ID is not set.",
-        "generic_title": "There was a server error!",
-        "reload_app": "Please try reloading the app, and try again."
-    },
-    "profile_data": {
-        "country_of_residence_title": "Your country of residence",
-        "personal_information_title": "Your personal information",
-        "address_title": "Your address",
-        "field_labels": {
-            "first_name": "First name",
-            "last_name": "Last name",
-            "dob": "Date of birth",
-            "country": "Country",
-            "line1": "Address line 1",
-            "line2": "Address line 2",
-            "line3": "Address line 3",
-            "town": "Town",
-            "postcode": "Postal code",
-            "gbr_specific": {
-                "town": "City/Town",
-                "postcode": "Postcode"
-            },
-            "usa_specific": {
-                "ssn": "Social Security number (SSN)",
-                "line1_helper_text": "Street address, for example: 200 Albert Street",
-                "line2_helper_text": "Apartment, suite, unit, etc.",
-                "state": "State",
-                "postcode": "Zip code"
-            }
-        },
-        "field_validation": {
-            "required_first_name": "Please enter your first name",
-            "required_last_name": "Please enter your last name",
-            "required_dob": "Please enter your date of birth",
-            "required_country": "Please select a country",
-            "required_line1": "Please enter your address",
-            "required_postcode": "Please enter your postal code",
-            "invalid": "Please check for invalid characters or symbols",
-            "invalid_dob": "Please enter a valid date of birth",
-            "too_short_last_name": "Last name is too short",
-            "too_short_postcode": "Postal code is too short",
-            "too_long_first_name": "First name is too long",
-            "too_long_last_name": "Last name is too long",
-            "too_long_line1": "Address line is too long",
-            "too_long_line2": "Address line is too long",
-            "too_long_line3": "Address line is too long",
-            "too_long_town": "Town is too long",
-            "too_long_postcode": "Postal code is too long",
-            "gbr_specific": {
-                "required_postcode": "Please enter your postcode",
-                "too_short_postcode": "Postcode is too short",
-                "too_long_postcode": "Postcode is too long"
-            },
-            "usa_specific": {
-                "required_ssn": "Please enter your Social Security number",
-                "invalid_ssn": "Please enter a valid Social Security number",
-                "required_state": "Please select a state",
-                "required_postcode": "Please enter your zip code",
-                "too_short_postcode": "Zip code is too short",
-                "too_long_postcode": "Zip code is too long"
-            }
-        },
-        "field_optional": "(optional)",
-        "button_continue": "Continue",
-        "components": {
-            "country_select": {
-                "placeholder": "Select a country"
-            },
-            "state_select": {
-                "placeholder": "Select a state"
-            }
-        },
-        "prompt": {
-            "header_timeout": "Looks like you took too long",
-            "detail_timeout": "Start again"
-        }
-    },
-    "auth_accessibility": {
-        "back_button": "Cancel"
-    },
-    "auth_cam_encrypt": {
-        "loader": "Encrypting camera feed"
-    },
-    "auth_cam_start": {
-        "loader": "Starting camera"
-    },
-    "auth_capture_start": {
-        "body": "Fit your face within the oval frame",
-        "button_primary": "Start face scan",
-        "feedback": {
-            "center_face": "Frame your face",
-            "conditions_too_bright": "Find a less bright environment",
-            "conditions_too_dark": "Find a brighter environment",
-            "head_not_upright": "Keep your head upright",
-            "neutral_expression": "Keep a neutral expression",
-            "not_looking_straight": "Look forward",
-            "remove_sunglasses": "Remove your sunglasses",
-            "steady_count_1": "Keep still: 1",
-            "steady_count_2": "Keep still: 2",
-            "steady_count_3": "Keep still: 3"
-        },
-        "title": "Start face scan"
-    },
-    "auth_capture": {
-        "feedback": {
-            "center_face": "Frame your face",
-            "even_lighting": "Make sure your lighting is even",
-            "eye_level": "Keep your camera at eye level",
-            "face_not_found": "Make sure your face is visible",
-            "head_not_upright": "Keep your head upright",
-            "move_back": "Now move back",
-            "move_close": "Now move in closer",
-            "move_closer": "Move in closer",
-            "not_looking_straight": "Look forward",
-            "steady": "Keep still"
-        }
-    },
-    "auth_error": {
-        "cam_encryption": {
-            "body": "This app blocks suspicious webcam configurations. <fallback>Learn more<\/fallback>.",
-            "button_primary": "Try again",
-            "button_primary_firefox": "Try again",
-            "subtitle": "This system cannot be verified due to the following:",
-            "table_header_1": "Possible issue",
-            "table_header_2": "Fix",
-            "table_row_1_cell_1": "Camera already in use by another app.",
-            "table_row_1_cell_1_firefox": "Camera permissions not remembered in Firefox.",
-            "table_row_1_cell_2": "Close the other app.",
-            "table_row_1_cell_2_firefox": "Check Remember Permissions.",
-            "table_row_2_cell_1": "A 3rd-party app is modifying the video.",
-            "table_row_2_cell_2": "Close\/Uninstall the other app.",
-            "table_row_3_cell_1": "Hardware not capable of being secured.",
-            "table_row_3_cell_2": "Use a different device.",
-            "title": "<b>Issue Encrypting Camera Feed<\/b>"
-        }
-    },
-    "auth_full_screen": {
-        "body": "This will start the selfie capture in full screen mode",
-        "button_primary": "Open in full screen",
-        "title": "Full screen selfie mode"
-    },
-    "auth_permission_denied": {
-        "body_cam": "To continue, you must enable camera permissions in your device settings.",
-        "button_primary_cam": "Launch settings"
-    },
-    "auth_permission": {
-        "body_cam": "To continue, you must enable camera permissions when prompted.",
-        "button_primary_cam": "Enable camera",
-        "title_cam": "Allow camera access"
-    },
-    "auth_progress": {
-        "loader": "Uploading"
-    },
-    "auth_retry": {
-        "body_blur": "Clean your camera lens",
-        "body_neutral_expression": "Keep a neutral expression",
-        "body_too_bright": "Find a less bright environment",
-        "button_primary": "Start camera",
-        "subtitle": "We weren’t able to capture your face properly",
-        "title": "Scan your face again"
-    },
-    "auth_upload_pass": {
-        "body": "Upload successful"
-    },
     "avc_confirmation": {
         "button_primary_upload": "Upload recording",
         "subtitle": "A video of your face has been recorded successfully",
@@ -215,10 +47,6 @@
         "title": "We can't detect your face"
     },
     "country_select": {
-        "poa_alert": {
-            "intro": "Can't find your country?",
-            "country_not_found": "Sorry about that. We are working on supporting more countries."
-        },
         "alert": {
             "another_doc": "Documents from that country are not currently supported — <fallback>try another document type<\/fallback>"
         },
@@ -238,10 +66,9 @@
         "info": "Tips",
         "list_item_doc_multiple": "Documents",
         "list_item_doc_one": "Document",
+        "list_item_poa": "Proof of address",
         "list_item_selfie": "Selfie",
         "list_item_video": "Video",
-        "list_item_active_video": "Video",
-        "list_item_poa": "Proof of Address",
         "subtitle": "Here’s everything you’ve uploaded:",
         "title": "One final step"
     },
@@ -276,6 +103,7 @@
         "title": "Mobile session linked to your computer"
     },
     "doc_capture": {
+        "button_primary": "Start document scan",
         "detail": {
             "folded_doc_front": "Lay your document flat, include all inner pages (must contain your photo)"
         },
@@ -298,16 +126,17 @@
             "no_doc_detail": "Make sure it’s fully in the frame",
             "no_doc_title": "Document not detected"
         },
-        "body_bank_statement": "Make sure details are clear to read, with no blur or glare",
-        "body_benefits_letter": "Make sure details are clear to read, with no blur or glare",
-        "body_bill": "Make sure details are clear to read, with no blur or glare",
+        "body": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
+        "body_bank_statement": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
+        "body_benefits_letter": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
+        "body_bill": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
         "body_id": "Make sure your details are clear and unobstructed",
         "body_image_medium": "It’ll take longer to verify you if we can’t read it",
         "body_image_poor": "To smoothly verify you, we need a better photo",
         "body_license": "Make sure your details are clear and unobstructed",
         "body_passport": "Make sure your details are clear and unobstructed",
         "body_permit": "Make sure your details are clear and unobstructed",
-        "body_tax_letter": "Make sure details are clear to read, with no blur or glare",
+        "body_tax_letter": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
         "button_close": "Close",
         "button_primary_redo": "Redo",
         "button_primary_upload": "Upload",
@@ -317,14 +146,18 @@
         "image_accessibility": "Photo of your document",
         "title": "Check your image"
     },
+    "doc_multi_frame_capture": {
+        "capture_progress_title": "Scanning document",
+        "instructions_title_back": "Position the back of your document in the frame",
+        "instructions_title_front": "Position the front of your document in the frame"
+    },
     "doc_select": {
         "button_bank_statement": "Bank or building society statement",
+        "button_bank_statement_non_uk": "Bank statement",
         "button_benefits_letter": "Benefits Letter",
         "button_benefits_letter_detail": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
         "button_bill": "Utility Bill",
         "button_bill_detail": "Gas, electricity, water, landline, or broadband",
-        "button_government_letter": "Government Letter",
-        "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
         "button_id": "Identity card",
         "button_id_detail": "Front and back",
         "button_license": "Driver’s license",
@@ -337,17 +170,21 @@
         "extra_estatements_ok": "e-statements accepted",
         "extra_no_mobile": "Sorry, no mobile phone bills",
         "list_accessibility": "Documents you can use to verify your identity",
+        "pill": "fastest",
+        "section": {
+            "header_country": "Issuing country",
+            "header_doc_type": "Accepted documents",
+            "input_placeholder_country": "No Results",
+            "input_placeholder_country_copy": "Select issuing country"
+        },
         "subtitle": "It must be an official photo ID",
+        "subtitle_country": "Select issuing country to see which documents we accept",
+        "subtitle_entire_page": "Entire page",
+        "subtitle_front_back": "Front and back",
+        "subtitle_photo_page": "Photo page",
         "subtitle_poa": "These are the documents most likely to show your current home address",
         "title": "Choose your document",
-        "title_poa": "Select a %{country} document",
-        "section": {
-          "header_country": "Issuing country",
-          "input_country_not_found": "No Results",
-          "input_placeholder_country": "Type to search for country",
-          "header_doc_type": "Accepted documents"
-        },
-        "subtitle_country": "Select issuing country to see which documents we accept"
+        "title_poa": "Select a %{country} document"
     },
     "doc_submit": {
         "button_link_upload": "or upload photo – no scans or photocopies",
@@ -356,7 +193,6 @@
         "title_bank_statement": "Submit statement",
         "title_benefits_letter": "Submit letter",
         "title_bill": "Submit bill",
-        "title_government_letter": "Government Letter",
         "title_id_back": "Submit identity card (back)",
         "title_id_front": "Submit identity card (front)",
         "title_license_back": "Submit license (back)",
@@ -386,11 +222,6 @@
         "button_secondary": "Preview video",
         "title": "Check your video"
     },
-    "doc_multi_frame_capture": {
-        "instructions_title_front": "Position the front of your document in the frame",
-        "instructions_title_back": "Position the back of your document in the frame",
-        "capture_progress_title": "Scanning document"
-    },
     "error_unsupported_browser": {
         "subtitle_android": "Restart the process on the latest version of Google Chrome",
         "subtitle_ios": "Restart the process on the latest version of Safari",
@@ -405,10 +236,6 @@
         "back": "back",
         "close": "close",
         "errors": {
-            "expired_token": {
-              "instruction": "Please try again",
-              "message": "Your token has expired"
-            },
             "geoblocked_error": {
                 "instruction": "We’re sorry, seems like we can’t proceed further as your current location is not supported",
                 "message": "Service unavailable"
@@ -477,6 +304,16 @@
         "title": "Get your secure link",
         "url_field_label": "Copy the link to your mobile browser"
     },
+    "livenessV2": {
+        "error_reload_instructions": "Reload instructions",
+        "intro_note_no1": "First, position your face in the frame",
+        "intro_note_no2": "Then, turn your head slowly to both sides",
+        "intro_ready_button": "Please be mindful that we’ll record your face and your background",
+        "intro_subtitle": "This is to verify that you’re a real person",
+        "intro_warning": "Please be mindful that we’ll record your face and your background",
+        "success_main_button": "Submit verification",
+        "success_title": "That’s all we need to start verifying your identity"
+    },
     "mobilePhrases": {
         "photo_upload": {
             "body_id_back": "Take a photo of the back of your card",
@@ -498,7 +335,7 @@
         },
         "upload_guide": {
             "button_primary": "Take a photo",
-            "title": "Passport photo page"
+            "title": "Position the photo page of your document in the frame"
         }
     },
     "outro": {
@@ -525,6 +362,7 @@
         "list_item_how_to_cam": "Grant access to your camera from your browser settings",
         "subtitle_both": "Recover camera and microphone access to take a video and complete the verification process",
         "subtitle_cam": "Recover camera access to continue your verification",
+        "subtitle_cam_old": "Recover camera access to continue face verification",
         "title_both": "Camera and microphone access denied",
         "title_cam": "Camera access is denied"
     },
@@ -532,7 +370,6 @@
         "body_bank_statement": "Provide the whole document page for best results",
         "body_benefits_letter": "Provide the whole document page for best results",
         "body_bill": "Provide the whole document page for best results",
-        "body_government_letter": "Provide the whole document page for best results",
         "body_id_back": "Upload back of card from your computer",
         "body_id_front": "Upload front of card from your computer",
         "body_license_back": "Upload back of license from your computer",
@@ -544,6 +381,12 @@
         "button_upload": "Upload",
         "title_selfie": "Selfie"
     },
+    "poa_cancel": "Cancel",
+    "poa_err_invalid_file": {
+        "message": "Please choose a different file.",
+        "ok": "OK",
+        "title": "Invalid File"
+    },
     "poa_guidance": {
         "button_primary": "Continue",
         "instructions": {
@@ -553,19 +396,125 @@
             "label": "Capture the entire document and make sure it clearly shows:",
             "logo": "Logo"
         },
-        "subtitle_bank_statement": "Must have been issued in the <strong>last 3 months<\/strong>",
-        "subtitle_benefits_letter": "Must have been issued in the <strong>last 12 months<\/strong>",
+        "subtitle_bank_statement": "Must be issued in the <strong>last 3 months<\/strong>",
+        "subtitle_benefits_letter": "Must be issued in the <strong>last 12 months<\/strong>",
         "subtitle_bill": "Must have been issued in the <strong>last 3 months<\/strong>",
-        "subtitle_government_letter": "Must have been issued in the <strong>last 12 months<\/strong>",
-        "subtitle_tax_letter": "Must have been issued in the <strong>last 12 months<\/strong>"
+        "subtitle_tax_letter": "Must be issued in the <strong>last 12 months<\/strong>"
     },
     "poa_intro": {
         "button_primary": "Start verification",
-        "list_matches_signup": "<strong>Matches<\/strong> the address you used on signup",
+        "list_matches_signup": "**Matches** the address you used on sign up",
         "list_most_recent": "Is your most <strong>recent<\/strong> document",
         "list_shows_address": "Shows your <strong>current<\/strong> address",
         "subtitle": "You’ll need a document that:",
         "title": "Let’s verify your address"
+    },
+    "profile_data": {
+        "address_title": "Add your address",
+        "button_continue": "Continue",
+        "components": {
+            "country_select": {
+                "placeholder": "Select a country"
+            },
+            "nationality_select": {
+                "placeholder": "Select a country"
+            },
+            "pan": {
+                "placeholder": "ABCDE1234F"
+            },
+            "ssn": {
+                "placeholder": "123-45-6789"
+            },
+            "state_select": {
+                "placeholder": "Select a state"
+            }
+        },
+        "country_of_residence_title": "Your country of residence",
+        "field_labels": {
+            "country": "Country",
+            "dob": "Date of birth",
+            "email": "Email",
+            "first_name": "First name",
+            "gbr_specific": {
+                "postcode": "Postcode",
+                "town": "City\/Town"
+            },
+            "last_name": "Last name",
+            "line1": "Address line 1",
+            "line2": "Address line 2",
+            "line3": "Address line 3",
+            "mobile_number": "Mobile number",
+            "nationality": "Nationality",
+            "pan": "Permanent account number (PAN)",
+            "postcode": "Postal code",
+            "ssn": "Social Security number (SSN)",
+            "town": "Town",
+            "usa_specific": {
+                "line1_helper_text": "Street address, for example: 200 Albert Street",
+                "line2_helper_text": "Apartment, suite, unit, etc.",
+                "postcode": "Zip code",
+                "state": "State"
+            }
+        },
+        "field_optional": "(optional)",
+        "field_validation": {
+            "correct_mobile_number": "Please check that your number is correct",
+            "gbr_specific": {
+                "required_postcode": "Please enter your postcode",
+                "too_long_postcode": "Postcode is too long",
+                "too_short_postcode": "Postcode is too short"
+            },
+            "invalid": "Please check for invalid characters or symbols",
+            "invalid_dob": "Please enter a valid date of birth",
+            "required_country": "Please select a country",
+            "required_dob": "Please enter your date of birth",
+            "required_email": "Please enter your email",
+            "required_first_name": "Please enter your first name",
+            "required_last_name": "Please enter your last name",
+            "required_line1": "Please enter your address",
+            "required_nationality": "Please select a country",
+            "required_pan": "Please enter your PAN",
+            "required_postcode": "Please enter your postal code",
+            "required_ssn": "Please enter your SSN",
+            "too_long__line1": "Address line is too long",
+            "too_long_first_name": "First name is too long",
+            "too_long_last_name": "Last name is too long",
+            "too_long_postcode": "Postal code is too long",
+            "too_long_town": "Town is too long",
+            "too_short_first_name": "First name is too short",
+            "too_short_last_name": "Last name is too short",
+            "too_short_postcode": "Postal code is too short",
+            "usa_specific": {
+                "required_state": "Please select a state"
+            },
+            "valid_email": "Please enter a valid email",
+            "valid_pan": "Please enter a valid PAN",
+            "valid_ssn": "Please enter a valid SSN"
+        },
+        "personal_information_title": "Add your personal information",
+        "prompt": {
+            "details_timeout": "Start again",
+            "header_timeout": "Looks like you took too long"
+        }
+    },
+    "retry_feedback": {
+        "button_primary": "Try again"
+    },
+    "retry_feedback_id_expired": {
+        "subtitle": "Please try again with a valid photo ID and make sure your information is clearly visible",
+        "title": "Your document has expired"
+    },
+    "retry_feedback_id_generic": {
+        "subtitle": "Please try again with a valid photo ID and make sure your information is clearly visible",
+        "title": "There was a problem with your document"
+    },
+    "retry_feedback_id_unaccepted": {
+        "subtitle": "Please try again with a valid photo ID and make sure your information is clearly visible",
+        "title": "Unaccepted document"
+    },
+    "retry_feedback_selfie_generic": {
+        "subtitle": "Please try again, and make sure your face is visible and well lit",
+        "title": "There was a problem with your selfie"
     },
     "selfie_capture": {
         "alert": {
@@ -584,7 +533,9 @@
                 "title": "Looks like you took too long"
             }
         },
+        "body": "Keep your face within the oval",
         "button_accessibility": "Take a photo",
+        "button_primary": "Start face scan",
         "frame_accessibility": "View from camera",
         "title": "Keep your face within the oval"
     },
@@ -647,6 +598,7 @@
     "video_capture": {
         "body": "Keep your face within the oval",
         "body_record": "Press the button when you’re ready",
+        "body_stop": "Press stop when you’re done",
         "button_primary_finish": "Finish recording",
         "button_primary_next": "Next step",
         "button_primary_start": "Start recording",
@@ -677,6 +629,7 @@
         "title": "Record a video"
     },
     "welcome": {
+        "doc_video_subtitle": "It should take a few minutes",
         "list_header_doc_video": "Use your device to record:",
         "list_header_webcam": "Use your webcam or phone to photograph:",
         "list_item_doc": "your identity document",
@@ -684,8 +637,26 @@
         "list_item_poa": "your proof of address",
         "list_item_selfie": "your face",
         "next_button": "Choose document",
-        "start_workflow_button": "Start verification",
+        "start_workflow_button": "Start verfication",
         "subtitle": "It should take a few minutes",
         "title": "Verify your identity"
+    },
+    "workflow_complete": {
+        "pass": {
+            "description": "We have been able to verify your identity",
+            "title": "Passed"
+        },
+        "reject": {
+            "description": "We haven't been able to verify your identity",
+            "title": "Rejected"
+        }
+    },
+    "workflow_erros": {
+        "generic_title": "There was a server error!",
+        "no_workflow_run_id": "Workflow run ID is not set.",
+        "reload_app": "Please try reloading the app, and try again.",
+        "task_not_completed": "Could not complete workflow task.",
+        "task_not_retrieved": "Could not retrieve workflow task.",
+        "task_not_supported": "Task is currently not supported"
     }
 }

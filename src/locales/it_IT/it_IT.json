@@ -1,74 +1,4 @@
 {
-    "profile_data": {
-        "country_of_residence_title": "Il tuo paese di residenza",
-        "personal_information_title": "Aggiungere i dati personali",
-        "address_title": "Aggiungere l’indirizzo",
-        "field_labels": {
-            "first_name": "Nome",
-            "dob": "Data di nascita",
-            "last_name": "Cognome",
-            "country": "Paese",
-            "line1": "Indirizzo 1",
-            "line2": "Indirizzo 2",
-            "line3": "Indirizzo 3",
-            "town": "Comune",
-            "postcode": "Codice postale",
-            "gbr_specific": {
-                "town": "Città\/comune",
-                "postcode": "Codice postale"
-            },
-            "usa_specific": {
-                "line1_helper_text": "Indirizzo, ad esempio 200 Albert Street",
-                "line2_helper_text": "Appartamento, suite, unità ecc.",
-                "state": "Stato",
-                "postcode": "Zip code"
-            }
-        },
-        "field_validation": {
-            "required_first_name": "Inserire il nome",
-            "required_last_name": "Inserire il cognome",
-            "required_dob": "Inserire la data di nascita",
-            "required_country": "Selezionare un paese",
-            "required_line1": "Inserire l’indirizzo",
-            "required_postcode": "Inserire il codice postale",
-            "invalid": "Verificare che non ci siano simboli o caratteri non validi",
-            "invalid_dob": "Inserire una data di nascita valida",
-            "too_short_last_name": "Il cognome è troppo breve",
-            "too_short_postcode": "Il codice postale è troppo breve",
-            "too_long_last_name": "Il cognome è troppo lungo",
-            "too_long_first_name": "Il nome è troppo lungo",
-            "too_long_postcode": "Il codice postale è troppo lungo",
-            "too_long__line1": "L’indirizzo è troppo lungo",
-            "too_long__line2": "L’indirizzo è troppo lungo",
-            "too_long__line3": "L’indirizzo è troppo lungo",
-            "too_long_town": "La comune è troppo lungo",
-            "gbr_specific": {
-                "required_postcode": "Inserire il codice postale",
-                "too_short_postcode": "Il codice postale è troppo breve",
-                "too_long_postcode": "Il codice postale è troppo lungo"
-            },
-            "usa_specific": {
-                "required_state": "Selezionare uno stato",
-                "required_postcode": "Inserire il codice postale",
-                "too_short_postcode": "Il codice postale è troppo breve",
-                "too_long_postcode": "Il codice postale è troppo lungo"
-            }
-        },
-        "field_optional": "(facoltativo)",
-        "button_continue": "Continua",
-        "components": {
-            "country_select": {
-                "placeholder": "Selezionare un paese"
-            },
-            "state_select": {
-                "placeholder": "Selezionare uno stato"
-            }
-        },
-        "prompt": {
-            "header_timeout": "Sembra che ci sia voluto troppo tempo",
-            "details_timeout": "Ricomincia"
-        }
-    },
     "avc_confirmation": {
         "button_primary_upload": "Carica registrazione",
         "subtitle": "Un video del tuo viso è stato registrato con successo",
@@ -117,10 +47,6 @@
         "title": "Non riusciamo a rilevare il tuo viso"
     },
     "country_select": {
-        "poa_alert": {
-            "intro": "Can't find your country?",
-            "country_not_found": "Siamo spiacenti. Stiamo lavorando per supportare più Paesi."
-        },
         "alert": {
             "another_doc": "I documenti di questo paese non sono supportati al momento. <fallback>Prova con un altro tipo di documento<\/fallback>"
         },
@@ -140,9 +66,9 @@
         "info": "Consigli",
         "list_item_doc_multiple": "Documenti",
         "list_item_doc_one": "Documento",
+        "list_item_poa": "Prova dell'indirizzo",
         "list_item_selfie": "Selfie",
         "list_item_video": "Video",
-        "list_item_poa": "Prova dell'indirizzo",
         "subtitle": "Ecco tutto quello che hai caricato:",
         "title": "Ultimo passaggio"
     },
@@ -177,6 +103,7 @@
         "title": "Connesso al computer"
     },
     "doc_capture": {
+        "button_primary": "Inizia a scansionare il documento",
         "detail": {
             "folded_doc_front": "Appoggia il documento aperto sulle pagine interne (deve contenere la tua foto)"
         },
@@ -219,6 +146,11 @@
         "image_accessibility": "Foto del tuo documento",
         "title": "Controlla l’immagine"
     },
+    "doc_multi_frame_capture": {
+        "capture_progress_title": "Scansione documento",
+        "instructions_title_back": "Posizionare il retro del documento nel riquadro",
+        "instructions_title_front": "Posizionare il fronte del documento nel riquadro"
+    },
     "doc_select": {
         "button_bank_statement": "Estratto conto della banca o istituto di credito",
         "button_bank_statement_non_uk": "Estratto conto della banca",
@@ -226,8 +158,6 @@
         "button_benefits_letter_detail": "Prestazioni previdenziali autorizzate dal governo, come sussidio di disoccupazione, indennità di alloggio o credito d'imposta",
         "button_bill": "Bolletta",
         "button_bill_detail": "Gas, elettricità, acqua, telefono fisso o Internet",
-        "button_government_letter": "Government Letter",
-        "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
         "button_id": "Carta d’identità",
         "button_id_detail": "Fronte e retro",
         "button_license": "Patente di guida",
@@ -240,17 +170,21 @@
         "extra_estatements_ok": "sono accettati gli estratti conto elettronici",
         "extra_no_mobile": "Non sono ammesse le bollette di telefonia mobile",
         "list_accessibility": "Documenti che puoi utilizzare per verificare la tua identità",
-        "subtitle": "Deve essere un documento d’identità ufficiale con foto",
-        "subtitle_poa": "Questi sono i documenti che più probabilmente mostrano il tuo indirizzo attuale",
-        "title": "Seleziona il tuo documento",
-        "title_poa": "Seleziona un documento %{country}",
+        "pill": "più veloce",
         "section": {
             "header_country": "Paese emittente",
             "header_doc_type": "Documenti accettati",
             "input_placeholder_country": "Nessun risultato",
             "input_placeholder_country_copy": "Seleziona il paese di emissione"
         },
-        "subtitle_country": "Seleziona il paese di emissione per vedere quali documenti accettiamo"
+        "subtitle": "Deve essere un documento d’identità ufficiale con foto",
+        "subtitle_country": "Seleziona il paese di emissione per vedere quali documenti accettiamo",
+        "subtitle_entire_page": "Intera pagina",
+        "subtitle_front_back": "Davanti e dietro",
+        "subtitle_photo_page": "Pagina delle foto",
+        "subtitle_poa": "Questi sono i documenti che più probabilmente mostrano il tuo indirizzo attuale",
+        "title": "Seleziona il tuo documento",
+        "title_poa": "Seleziona un documento %{country}"
     },
     "doc_submit": {
         "button_link_upload": "o carica foto (no scansioni o fotocopie)",
@@ -259,7 +193,6 @@
         "title_bank_statement": "Invia estratto conto",
         "title_benefits_letter": "Invia lettera",
         "title_bill": "Invia bolletta",
-        "title_government_letter": "Government Letter",
         "title_id_back": "Invia carta d’identità (retro)",
         "title_id_front": "Invia carta d’identità (fronte)",
         "title_license_back": "Invia patente (retro)",
@@ -288,11 +221,6 @@
     "doc_video_confirmation": {
         "button_secondary": "Anteprima video",
         "title": "Controlla il video"
-    },
-    "doc_multi_frame_capture": {
-        "capture_progress_title": "Scansione documento",
-        "instructions_title_front": "Posizionare il fronte del documento nel riquadro",
-        "instructions_title_back": "Posizionare il retro del documento nel riquadro"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Riavvia il processo nell’ultima versione di Google Chrome",
@@ -376,6 +304,16 @@
         "title": "Ricevi il tuo link sicuro",
         "url_field_label": "Copia il link nel browser del telefono"
     },
+    "livenessV2": {
+        "error_reload_instructions": "Ricarica le istruzioni",
+        "intro_note_no1": "Innanzitutto, posiziona il viso nel riquadro",
+        "intro_note_no2": "Poi, gira lentamente la testa da entrambe le parti",
+        "intro_ready_button": "Ricorda che registreremo il tuo viso e lo sfondo",
+        "intro_subtitle": "Questo serve a verificare che tu sia una persona reale",
+        "intro_warning": "Ricorda che registreremo il tuo viso e lo sfondo",
+        "success_main_button": "Invia verifica",
+        "success_title": "Ora abbiamo tutto quello che ci serve per iniziare a verificare la tua identità"
+    },
     "mobilePhrases": {
         "photo_upload": {
             "body_id_back": "Scatta una foto del retro della tua carta",
@@ -397,7 +335,7 @@
         },
         "upload_guide": {
             "button_primary": "Scatta una foto",
-            "title": "Pagina con foto del passaporto"
+            "title": "Posiziona la pagina della foto del documento nella cornice"
         }
     },
     "outro": {
@@ -424,6 +362,7 @@
         "list_item_how_to_cam": "Consenti l’accesso alla fotocamera dalle impostazioni del browser",
         "subtitle_both": "Ripristina l’accesso alla fotocamera e al microfono per registrare un video e completare il processo di verifica",
         "subtitle_cam": "Ripristina l’accesso alla fotocamera per continuare la verifica",
+        "subtitle_cam_old": "Ripristina l’accesso alla fotocamera per continuare il processo di verifica",
         "title_both": "Accesso alla fotocamera e al microfono negato",
         "title_cam": "Accesso alla fotocamera negato"
     },
@@ -431,7 +370,6 @@
         "body_bank_statement": "Invia l'intera pagina del documento per un risultato ottimale",
         "body_benefits_letter": "Invia l'intera pagina del documento per un risultato ottimale",
         "body_bill": "Invia l'intera pagina del documento per un risultato ottimale",
-        "body_government_letter": "Provide the whole document page for best results",
         "body_id_back": "Carica il retro della carta d’identità dal tuo computer",
         "body_id_front": "Carica il fronte della carta d’identità dal tuo computer",
         "body_license_back": "Carica il retro della patente dal tuo computer",
@@ -442,6 +380,12 @@
         "button_take_photo": "Scatta foto",
         "button_upload": "Carica",
         "title_selfie": "Selfie"
+    },
+    "poa_cancel": "Annulla",
+    "poa_err_invalid_file": {
+        "message": "Seleziona un altro file.",
+        "ok": "OK",
+        "title": "File non valido"
     },
     "poa_guidance": {
         "button_primary": "Continua",
@@ -455,15 +399,122 @@
         "subtitle_bank_statement": "Deve essere stato emesso negli <strong>ultimi 3 mesi<\/strong>",
         "subtitle_benefits_letter": "Deve essere stata emessa negli <strong>ultimi 12 mesi<\/strong>",
         "subtitle_bill": "Deve essere stato emesso negli <strong>ultimi 3 mesi<\/strong>",
-        "subtitle_tax_letter": "Deve essere stato emesso negli <strong>ultimi 12 mesi<\/strong>"
+        "subtitle_tax_letter": "Deve essere stata emessa negli <strong>ultimi 12 mesi<\/strong>"
     },
     "poa_intro": {
         "button_primary": "Inizia la verifica",
-        "list_matches_signup": "<strong>Corrisponde<\/strong> all'indirizzo utilizzato per la registrazione",
+        "list_matches_signup": "**Corrisponde** all'indirizzo utilizzato per la registrazione",
         "list_most_recent": "È il tuo documento più <strong>recente<\/strong>",
         "list_shows_address": "Mostra il tuo indirizzo <strong>attuale<\/strong>",
         "subtitle": "Ti servirà un documento che:",
         "title": "Verifichiamo il tuo indirizzo"
+    },
+    "profile_data": {
+        "address_title": "Aggiungere l’indirizzo",
+        "button_continue": "Continua",
+        "components": {
+            "country_select": {
+                "placeholder": "Selezionare un paese"
+            },
+            "nationality_select": {
+                "placeholder": ""
+            },
+            "pan": {
+                "placeholder": ""
+            },
+            "ssn": {
+                "placeholder": ""
+            },
+            "state_select": {
+                "placeholder": "Selezionare uno stato"
+            }
+        },
+        "country_of_residence_title": "Il tuo paese di residenza",
+        "field_labels": {
+            "country": "Paese",
+            "dob": "Data di nascita",
+            "email": "",
+            "first_name": "Nome",
+            "gbr_specific": {
+                "postcode": "Codice postale",
+                "town": "Città\/comune"
+            },
+            "last_name": "Cognome",
+            "line1": "Indirizzo 1",
+            "line2": "Indirizzo 2",
+            "line3": "Indirizzo 3",
+            "mobile_number": "",
+            "nationality": "",
+            "pan": "",
+            "postcode": "Codice postale",
+            "ssn": "",
+            "town": "Comune",
+            "usa_specific": {
+                "line1_helper_text": "Indirizzo, ad esempio 200 Albert Street",
+                "line2_helper_text": "Appartamento, suite, unità ecc.",
+                "postcode": "Zip code",
+                "state": "Stato"
+            }
+        },
+        "field_optional": "(facoltativo)",
+        "field_validation": {
+            "correct_mobile_number": "",
+            "gbr_specific": {
+                "required_postcode": "Inserire il codice postale",
+                "too_long_postcode": "Il codice postale è troppo lungo",
+                "too_short_postcode": "Il codice postale è troppo breve"
+            },
+            "invalid": "Verificare che non ci siano simboli o caratteri non validi",
+            "invalid_dob": "Inserire una data di nascita valida",
+            "required_country": "Selezionare un paese",
+            "required_dob": "Inserire la data di nascita",
+            "required_email": "",
+            "required_first_name": "",
+            "required_last_name": "Inserire il cognome",
+            "required_line1": "Inserire l’indirizzo",
+            "required_nationality": "",
+            "required_pan": "",
+            "required_postcode": "Inserire il codice postale",
+            "required_ssn": "",
+            "too_long__line1": "L’indirizzo è troppo lungo",
+            "too_long_first_name": "Il nome è troppo lungo",
+            "too_long_last_name": "Il cognome è troppo lungo",
+            "too_long_postcode": "Il codice postale è troppo lungo",
+            "too_long_town": "",
+            "too_short_first_name": "Il nome è troppo breve",
+            "too_short_last_name": "Il cognome è troppo breve",
+            "too_short_postcode": "Il codice postale è troppo breve",
+            "usa_specific": {
+                "required_state": "Selezionare uno stato"
+            },
+            "valid_email": "",
+            "valid_pan": "",
+            "valid_ssn": ""
+        },
+        "personal_information_title": "Aggiungere i dati personali",
+        "prompt": {
+            "details_timeout": "Ricomincia",
+            "header_timeout": "Sembra che ci sia voluto troppo tempo"
+        }
+    },
+    "retry_feedback": {
+        "button_primary": "Riprova"
+    },
+    "retry_feedback_id_expired": {
+        "subtitle": "Riprova con un documento d’identità valido e assicurati chele informazioni siano ben leggibili",
+        "title": "Il documento è scaduto"
+    },
+    "retry_feedback_id_generic": {
+        "subtitle": "Riprova con un documento d’identità valido e assicurati che le informazioni siano ben leggibili",
+        "title": "Si è verificato un problema con il tuo documento"
+    },
+    "retry_feedback_id_unaccepted": {
+        "subtitle": "Riprova con un documento d’identità valido e assicurati che le informazioni siano ben leggibili",
+        "title": "Documento non accettato"
+    },
+    "retry_feedback_selfie_generic": {
+        "subtitle": "Riprova e assicurati che il volto sia visibile e ben illuminato",
+        "title": "Si è verificato un problema con il selfie"
     },
     "selfie_capture": {
         "alert": {
@@ -482,7 +533,9 @@
                 "title": "Sembra che ci sia voluto troppo tempo"
             }
         },
+        "body": "Tieni il viso nell’ovale",
         "button_accessibility": "Scatta una foto",
+        "button_primary": "Inizia a scansionare il viso",
         "frame_accessibility": "Vista dalla fotocamera",
         "title": "Tieni il viso nell’ovale"
     },
@@ -545,6 +598,7 @@
     "video_capture": {
         "body": "Tieni il viso nell’ovale",
         "body_record": "Quando è tutto pronto, premi il pulsante",
+        "body_stop": "Premi \"stop\" quando hai finito",
         "button_primary_finish": "Termina registrazione",
         "button_primary_next": "Avanti",
         "button_primary_start": "Inizia a registrare",
@@ -575,6 +629,7 @@
         "title": "Registra un video"
     },
     "welcome": {
+        "doc_video_subtitle": "L’operazione richiederà pochi minuti",
         "list_header_doc_video": "Usa il dispositivo per registrare:",
         "list_header_webcam": "Usa la webcam o il telefono per fotografare:",
         "list_item_doc": "il tuo documento d’identità",
@@ -582,8 +637,26 @@
         "list_item_poa": "la tua prova dell'indirizzo",
         "list_item_selfie": "il tuo viso",
         "next_button": "Seleziona documento",
+        "start_workflow_button": "Inizia verifica",
         "subtitle": "L’operazione richiederà pochi minuti",
-        "title": "Verifica la tua identità",
-        "start_workflow_button": "Verifica la tua identità"
+        "title": "Verifica la tua identità"
+    },
+    "workflow_complete": {
+        "pass": {
+            "description": "",
+            "title": ""
+        },
+        "reject": {
+            "description": "",
+            "title": ""
+        }
+    },
+    "workflow_erros": {
+        "generic_title": "",
+        "no_workflow_run_id": "",
+        "reload_app": "",
+        "task_not_completed": "",
+        "task_not_retrieved": "",
+        "task_not_supported": ""
     }
 }
