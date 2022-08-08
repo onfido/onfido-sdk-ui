@@ -51,10 +51,11 @@ module.exports = async (github, context) => {
 
   const reviewers = [
     'DannyvanderJagt',
-    'Phoebe-B',
     'zoeradkani',
     'it-ony',
     'nulrich',
+    'osolliec',
+    'warrenseine',
   ].filter((s) => s.toLowerCase() !== GITHUB_ACTOR.toLowerCase())
 
   try {
