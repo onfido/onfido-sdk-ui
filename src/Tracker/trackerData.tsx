@@ -266,7 +266,10 @@ export const analyticsEventsMapping = new Map<
     'screen_document_type_select',
     {
       eventName: 'DOCUMENT_TYPE_SELECTION',
-      properties: { event_type: 'screen' },
+      properties: {
+        event_type: 'screen',
+        combined_country_and_document_selection: true,
+      },
     },
   ],
   [

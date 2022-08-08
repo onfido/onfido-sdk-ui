@@ -309,6 +309,7 @@ export type CaptureFormat = 'photo' | 'camera' // I think this maps 1-1 to Reque
 
 export type AnalyticsEventProperties = {
   event_type?: TrackedEventTypes
+  combined_country_and_document_selection?: boolean
   step?: string
   is_cross_device?: boolean
   is_custom_ui?: boolean
