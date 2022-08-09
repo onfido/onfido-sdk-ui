@@ -129,10 +129,10 @@ export const RestrictedDocumentSelection = trackComponent(
             suggestCountries={suggestCountries}
             handleCountrySelect={handleCountrySelect}
             placeholder={translate(
-              'doc_select.section.input_placeholder_country'
+              'doc_select.section.input_placeholder_country_copy' // lokalise is weird and input_placeholder_country_copy is `Select issuing country`
             )}
             noResults={translate(
-              'doc_select.section.input_placeholder_country'
+              'doc_select.section.input_placeholder_country' // // lokalise is weird and input_placeholder_country is `No Results`
             )}
           />
         </div>
