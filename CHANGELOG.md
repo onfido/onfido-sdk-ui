@@ -18,6 +18,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Send OS name and version information in sdk configuration request
 - Internal: Update FaceTec SDK on Auth step from 9.4.11 to 9.4.12
 - Internal: Show connection error screen on active video upload errors
+- Internal: Place cross device SMS feature behind a feature flag
 
 ## [8.3.0] - 2022-08-02
 
