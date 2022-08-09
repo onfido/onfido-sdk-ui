@@ -196,7 +196,7 @@ const Document = (props: Props) => {
     side,
     trackScreen,
     uploadFallback = true,
-    useLiveDocumentCapture,
+    useLiveDocumentCapture = true,
     useWebcam,
   } = props
 
