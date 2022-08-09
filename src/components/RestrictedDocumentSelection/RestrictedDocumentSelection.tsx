@@ -131,7 +131,9 @@ export const RestrictedDocumentSelection = trackComponent(
             placeholder={translate(
               'doc_select.section.input_placeholder_country'
             )}
-            noResults={translate('doc_select.section.input_country_not_found')}
+            noResults={translate(
+              'doc_select.section.input_placeholder_country'
+            )}
           />
         </div>
         {documents.length > 0 ? (
