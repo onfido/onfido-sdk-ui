@@ -62,8 +62,8 @@
         "title": "Vyberte zemi, kde došlo k vydání"
     },
     "cross_device_checklist": {
-        "button_primary": "",
-        "info": "",
+        "button_primary": "Odeslat ověření",
+        "info": "Tipy",
         "list_item_doc_multiple": "Dokumenty",
         "list_item_doc_one": "Dokument",
         "list_item_poa": "Doklad o adrese",
@@ -78,7 +78,7 @@
     },
     "cross_device_error_restart": {
         "subtitle": "Budete muset restartovat ověřování v počítači",
-        "title": ""
+        "title": "Něco se pokazilo"
     },
     "cross_device_intro": {
         "button_primary": "Získejte zabezpečený odkaz",
@@ -95,7 +95,7 @@
         "title": "Úspěšné nahrávání"
     },
     "cross_device_session_linked": {
-        "button_primary": "",
+        "button_primary": "Pokračovat",
         "info": "Dvojitá kontrola",
         "list_item_desktop_open": "Okno plochy je stále otevřené",
         "list_item_sent_by_you": "Tento odkaz jste poslali vy - pokud si myslíte, že by mohlo jít o podvod, požádejte o radu.",
@@ -105,14 +105,14 @@
     "doc_capture": {
         "button_primary": "Spuštění skenování dokumentů",
         "detail": {
-            "folded_doc_front": ""
+            "folded_doc_front": "Položte dokument na plocho a připojte všechny vnitřní stránky (musí obsahovat vaši fotografii)"
         },
         "header_folded_doc_front": "Strana s profilovou fotografií",
         "prompt": {
             "button_card": "Plastová karta",
             "button_paper": "Papírový dokument",
-            "title_id": "",
-            "title_license": ""
+            "title_id": "Jaký typ průkazu totožnosti máte?",
+            "title_license": "Jaký typ licence máte?"
         }
     },
     "doc_confirmation": {
@@ -121,28 +121,28 @@
             "blur_title": "Detekce rozmazané fotografie",
             "crop_detail": "Ujistěte se, že je viditelný celý dokument",
             "crop_title": "Zjištěný obraz s oříznutým okrajem",
-            "glare_detail": "",
-            "glare_title": "",
+            "glare_detail": "Odstupte od přímého světla",
+            "glare_title": "Zjištěno oslnění",
             "no_doc_detail": "Ujistěte se, že je tento dokument zcela v rámečku",
             "no_doc_title": "Dokument nebyl zjištěn"
         },
         "body": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
-        "body_bank_statement": "",
-        "body_benefits_letter": "",
-        "body_bill": "",
-        "body_id": "",
+        "body_bank_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+        "body_benefits_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+        "body_bill": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+        "body_id": "Ujistěte se, že jsou vaše údaje jasné a nezkreslené",
         "body_image_medium": "Ověření bude trvat déle, pokud nebudeme moci dokument přečíst",
         "body_image_poor": "Pro hladké ověření potřebujeme lepší fotografii",
-        "body_license": "",
+        "body_license": "Ujistěte se, že jsou vaše údaje jasné a nezkreslené",
         "body_passport": "Ujistěte se, že jsou vaše údaje jasné a nezkreslené",
-        "body_permit": "",
-        "body_tax_letter": "",
+        "body_permit": "Ujistěte se, že jsou vaše údaje jasné a nezkreslené",
+        "body_tax_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
         "button_close": "Zavřít",
-        "button_primary_redo": "",
-        "button_primary_upload": "",
+        "button_primary_redo": "Přepracovat",
+        "button_primary_upload": "Nahrát",
         "button_primary_upload_anyway": "Stejně nahrát",
         "button_secondary_redo": "Přepracovat",
-        "button_zoom": "",
+        "button_zoom": "Zvětšit obrázek",
         "image_accessibility": "Fotografie vašeho dokumentu",
         "title": "Zkontrolujte svůj snímek"
     },
@@ -159,13 +159,13 @@
         "button_bill": "Účet za komunální služby",
         "button_bill_detail": "Plyn, elektřina, voda, pevná linka nebo širokopásmové připojení",
         "button_id": "Průkaz totožnosti",
-        "button_id_detail": "",
-        "button_license": "",
+        "button_id_detail": "Přední a zadní strana",
+        "button_license": "Řidičský průkaz",
         "button_license_detail": "Přední a zadní strana",
         "button_passport": "Pas",
         "button_passport_detail": "Stránka pro fotografie",
         "button_permit": "Povolení k pobytu",
-        "button_permit_detail": "",
+        "button_permit_detail": "Přední a zadní strana",
         "button_tax_letter": "Dopis o dani",
         "extra_estatements_ok": "Přijímání elektronických výkazů",
         "extra_no_mobile": "Litujeme, nemáme žádné účty za mobilní telefon",
@@ -203,8 +203,8 @@
         "title_tax_letter": "Odeslat dopis"
     },
     "doc_video_capture": {
-        "button_primary_fallback": "",
-        "button_primary_fallback_end": "",
+        "button_primary_fallback": "Další krok",
+        "button_primary_fallback_end": "Dokončení nahrávání",
         "detail_step2": "Mějte dokument stále na očích",
         "header": "Při držení dokumentu držte přední stranu v rámečku",
         "header_paper_doc_step2": "Pomalu otočte dokument tak, abyste viděli vnější stránky",
@@ -220,13 +220,13 @@
     },
     "doc_video_confirmation": {
         "button_secondary": "Náhled videa",
-        "title": ""
+        "title": "Zkontrolujte své video"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Restartování v nejnovější verzi prohlížeče Google Chrome",
         "subtitle_ios": "Restartování v nejnovější verzi prohlížeče Safari",
         "title_android": "Nepodporovaný prohlížeč",
-        "title_ios": ""
+        "title_ios": "Nepodporovaný prohlížeč"
     },
     "generic": {
         "accessibility": {
@@ -237,8 +237,8 @@
         "close": "zavřít",
         "errors": {
             "expired_token": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Zkuste to znovu",
+                "message": "Platnost vašeho tokenu vypršela"
             },
             "geoblocked_error": {
                 "instruction": "Litujeme, ale zdá se, že nemůžeme pokračovat dále, protože vaše aktuální umístění není podporováno.",
@@ -261,22 +261,22 @@
             },
             "multiple_faces": {
                 "instruction": "Na selfie může být pouze váš obličej",
-                "message": ""
+                "message": "Nalezeno více obličejů"
             },
             "no_face": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Ujistěte se, že je váš obličej viditelný",
+                "message": "Obličej nebyl rozpoznán"
             },
             "request_error": {
                 "instruction": "Zkuste to znovu",
-                "message": ""
+                "message": "Něco se pokazilo"
             },
             "sms_failed": {
                 "instruction": "Zkopírujte odkaz do telefonu",
-                "message": ""
+                "message": "Něco se pokazilo"
             },
             "sms_overuse": {
-                "instruction": "",
+                "instruction": "Zkopírujte odkaz do telefonu",
                 "message": "Příliš mnoho neúspěšných pokusů"
             },
             "unsupported_file": {
@@ -303,7 +303,7 @@
         "number_field_input_placeholder": "Zadejte číslo mobilního telefonu",
         "number_field_label": "Zadejte své mobilní číslo:",
         "subtitle_qr": "Naskenujte kód QR pomocí telefonu",
-        "subtitle_sms": "",
+        "subtitle_sms": "Odeslání tohoto jednorázového odkazu do telefonu",
         "subtitle_url": "Odeslání tohoto jednorázového odkazu do telefonu",
         "title": "Získejte zabezpečený odkaz",
         "url_field_label": "Zkopírujte odkaz do mobilního prohlížeče"
@@ -330,7 +330,7 @@
         "selfie_capture": {
             "alert": {
                 "camera_inactive": {
-                    "detail": ""
+                    "detail": "Místo toho pořiďte fotografii v <fallback>základním režimu kamery<\/fallback>"
                 },
                 "camera_not_working": {
                     "detail": "Místo toho pořiďte fotografii v <fallback>základním režimu kamery<\/fallback>"
@@ -339,7 +339,7 @@
         },
         "upload_guide": {
             "button_primary": "Vyfoťte se",
-            "title": ""
+            "title": "Umístěte stránku s fotografií dokumentu do rámečku"
         }
     },
     "outro": {
@@ -392,7 +392,7 @@
         "title": "Neplatný soubor"
     },
     "poa_guidance": {
-        "button_primary": "",
+        "button_primary": "Pokračovat",
         "instructions": {
             "address": "Aktuální adresa",
             "full_name": "Celé jméno",
@@ -421,13 +421,13 @@
                 "placeholder": "Vybrat zemi"
             },
             "nationality_select": {
-                "placeholder": ""
+                "placeholder": "Vybrat zemi"
             },
             "pan": {
-                "placeholder": ""
+                "placeholder": "ABCDE1234F"
             },
             "ssn": {
-                "placeholder": ""
+                "placeholder": "123-45-6789"
             },
             "state_select": {
                 "placeholder": "Vybrat stát"
@@ -437,7 +437,7 @@
         "field_labels": {
             "country": "Země",
             "dob": "Datum narození",
-            "email": "",
+            "email": "E-mail",
             "first_name": "Křestní jméno",
             "gbr_specific": {
                 "postcode": "Poštovní směrovací číslo",
@@ -447,11 +447,11 @@
             "line1": "Řádek adresy 1",
             "line2": "Řádek adresy 2",
             "line3": "Řádek adresy 3",
-            "mobile_number": "",
-            "nationality": "",
-            "pan": "",
+            "mobile_number": "Číslo mobilního telefonu",
+            "nationality": "Státní příslušnost",
+            "pan": "Číslo trvalého účtu (PAN)",
             "postcode": "Poštovní směrovací číslo",
-            "ssn": "",
+            "ssn": "Číslo sociálního pojištění (SSN)",
             "town": "Město",
             "usa_specific": {
                 "line1_helper_text": "Ulice, například: 200 Albert Street",
@@ -462,7 +462,7 @@
         },
         "field_optional": "(volitelná položka)",
         "field_validation": {
-            "correct_mobile_number": "",
+            "correct_mobile_number": "Zkontrolujte správnost svého čísla",
             "gbr_specific": {
                 "required_postcode": "Zadejte své poštovní směrovací číslo",
                 "too_long_postcode": "Poštovní směrovací číslo je příliš dlouhé",
@@ -472,14 +472,14 @@
             "invalid_dob": "Zadejte platné datum narození",
             "required_country": "Vyberte zemi",
             "required_dob": "Zadejte své datum narození",
-            "required_email": "",
+            "required_email": "Zadejte svůj e-mail",
             "required_first_name": "Zadejte své křestní jméno",
             "required_last_name": "Zadejte své příjmení",
             "required_line1": "Zadejte svou adresu",
-            "required_nationality": "",
-            "required_pan": "",
+            "required_nationality": "Vyberte zemi",
+            "required_pan": "Zadejte své PAN",
             "required_postcode": "Zadejte své poštovní směrovací číslo",
-            "required_ssn": "",
+            "required_ssn": "Zadejte své číslo SSN",
             "too_long__line1": "Adresní řádek je příliš dlouhý",
             "too_long_first_name": "Křestní jméno je příliš dlouhé",
             "too_long_last_name": "Příjmení je příliš dlouhé",
@@ -491,9 +491,9 @@
             "usa_specific": {
                 "required_state": "Vyberte stát"
             },
-            "valid_email": "",
-            "valid_pan": "",
-            "valid_ssn": ""
+            "valid_email": "Zadejte platný e-mail",
+            "valid_pan": "Zadejte platné PAN",
+            "valid_ssn": "Zadejte platné číslo SSN"
         },
         "personal_information_title": "Přidejte své osobní údaje",
         "prompt": {
@@ -534,22 +534,22 @@
             },
             "timeout": {
                 "detail": "Po dokončení nezapomeňte stisknout tlačítko <fallback>Přepracování akcí videa<\/fallback>",
-                "title": ""
+                "title": "Vypadá to, že vám to trvalo příliš dlouho"
             }
         },
         "body": "Držte obličej v oválu",
         "button_accessibility": "",
         "button_primary": "Spuštění skenování obličeje",
-        "frame_accessibility": "",
-        "title": ""
+        "frame_accessibility": "Pohled z kamery",
+        "title": "Držte obličej v oválu"
     },
     "selfie_confirmation": {
         "image_accessibility": "Fotografie vašeho obličeje",
-        "subtitle": "",
+        "subtitle": "Ujistěte se, že je vidět celý váš obličej",
         "title": "Zkontrolujte si své selfie"
     },
     "selfie_intro": {
-        "button_primary": "",
+        "button_primary": "Pokračovat",
         "list_accessibility": "Tipy, jak pořídit dobré selfie",
         "list_item_face_forward": "Dívejte se dopředu a ujistěte se, že máte dobře viditelné oči",
         "list_item_no_glasses": "V případě potřeby si sundejte brýle",
@@ -557,9 +557,9 @@
         "title": "Pořiďte si selfie"
     },
     "sms_sent": {
-        "info": "",
+        "info": "Tipy",
         "info_link_expire": "Platnost vašeho odkazu vyprší za hodinu",
-        "info_link_window": "",
+        "info_link_window": "Při používání mobilního telefonu nechte toto okno otevřené",
         "link": "Znovu odešlete odkaz",
         "subtitle": "Odeslali jsme zabezpečený odkaz na %{number}",
         "subtitle_minutes": "Může trvat několik minut, než dorazí",
@@ -570,7 +570,7 @@
         "info_link_expire": "Platnost vašeho mobilního odkazu vyprší za jednu hodinu",
         "info_link_refresh": "Neobnovujte tuto stránku",
         "info_link_window": "Při používání mobilního telefonu nechte toto okno otevřené",
-        "link": "",
+        "link": "Zrušit",
         "subtitle": "Jakmile dokončíte tento krok, přejdeme k dalšímu kroku",
         "title": "Připojení k mobilnímu telefonu"
     },
@@ -600,14 +600,14 @@
         "title": ""
     },
     "video_capture": {
-        "body": "",
+        "body": "Držte obličej v oválu",
         "body_record": "Až budete připraveni, stiskněte tlačítko",
         "body_stop": "Po dokončení stiskněte tlačítko stop",
         "button_primary_finish": "Dokončení nahrávání",
         "button_primary_next": "Další krok",
-        "button_primary_start": "",
-        "button_record_accessibility": "",
-        "frame_accessibility": "",
+        "button_primary_start": "Spuštění nahrávání",
+        "button_record_accessibility": "Spuštění nahrávání",
+        "frame_accessibility": "Pohled z kamery",
         "header": {
             "challenge_digit_instructions": "Vyslovte každou číslici nahlas",
             "challenge_turn_forward": "pak se otočte dopředu",
@@ -615,11 +615,11 @@
             "challenge_turn_right": "Otočte hlavu doprava"
         },
         "prompt": {
-            "header_timeout": ""
+            "header_timeout": "Vypadá to, že vám to trvalo příliš dlouho"
         }
     },
     "video_confirmation": {
-        "body": "",
+        "body": "Vaše video bylo nahráno",
         "button_primary": "Nahrát video",
         "button_secondary": "Znovu pořídit video",
         "title": "Zkontrolujte své video",
@@ -629,7 +629,7 @@
         "button_primary": "Nahrávání videa",
         "list_accessibility": "Akce pro nahrávání selfie videa",
         "list_item_actions": "Na dokončení máte 20 sekund",
-        "list_item_speak": "",
+        "list_item_speak": "Postupujte podle pokynů k pohybu nebo mluvení",
         "title": "Nahrajte video"
     },
     "welcome": {
@@ -639,8 +639,8 @@
         "list_item_doc": "váš doklad totožnosti",
         "list_item_doc_video_timeout": "Nahrávání je omezeno na <timeout><\/timeout> sekund",
         "list_item_poa": "vás doklad o adrese",
-        "list_item_selfie": "",
-        "next_button": "",
+        "list_item_selfie": "váš obličej",
+        "next_button": "Vyberte dokument",
         "start_workflow_button": "Zahájit proces ověřování",
         "subtitle": "Mělo by to trvat několik minut",
         "title": "Potvrďte svou totožnost"

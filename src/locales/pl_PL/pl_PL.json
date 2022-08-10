@@ -62,8 +62,8 @@
         "title": "Wybierz kraj wydania"
     },
     "cross_device_checklist": {
-        "button_primary": "",
-        "info": "",
+        "button_primary": "Zgłoś weryfikację",
+        "info": "Porady",
         "list_item_doc_multiple": "Dokumenty",
         "list_item_doc_one": "Dokument",
         "list_item_poa": "Potwierdzenie adresu zamieszkania",
@@ -78,7 +78,7 @@
     },
     "cross_device_error_restart": {
         "subtitle": "Konieczne będzie ponowne uruchomienie weryfikacji na komputerze",
-        "title": ""
+        "title": "Coś poszło nie tak"
     },
     "cross_device_intro": {
         "button_primary": "Pobierz bezpieczne łącze",
@@ -95,7 +95,7 @@
         "title": "Udane przesyłanie plików"
     },
     "cross_device_session_linked": {
-        "button_primary": "",
+        "button_primary": "Kontynuuj",
         "info": "Sprawdź ponownie",
         "list_item_desktop_open": "Okno pulpitu pozostaje otwarte",
         "list_item_sent_by_you": "To łącze zostało wysłane przez Ciebie - jeśli uważasz, że to może być oszustwo, zwróć się o poradę",
@@ -105,14 +105,14 @@
     "doc_capture": {
         "button_primary": "Rozpocznij skanowanie dokumentu",
         "detail": {
-            "folded_doc_front": ""
+            "folded_doc_front": "Ułóż dokument płasko, także wszystkie wewnętrzne strony (muszą zawierać Twoje zdjęcie)"
         },
         "header_folded_doc_front": "Strona zdjęcia profilowego",
         "prompt": {
             "button_card": "Karta plastikowa",
             "button_paper": "Dokument papierowy",
-            "title_id": "",
-            "title_license": ""
+            "title_id": "Jaki rodzaj dowodu osobistego posiadasz?",
+            "title_license": "Jaki rodzaj prawa jazdy posiadasz?"
         }
     },
     "doc_confirmation": {
@@ -121,28 +121,28 @@
             "blur_title": "Wykryto nieostre zdjęcie",
             "crop_detail": "Upewnij się, że widoczny jest cały dokument",
             "crop_title": "Wykryto odcięty obraz",
-            "glare_detail": "",
-            "glare_title": "",
+            "glare_detail": "Odsuń się od bezpośredniego źródła światła",
+            "glare_title": "Wykryte odblaski",
             "no_doc_detail": "Upewnij się, że w pełni mieści się w ramce",
             "no_doc_title": "Dokument nie został wykryty"
         },
         "body": "Upewnij się, że załadowana jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
-        "body_bank_statement": "",
-        "body_benefits_letter": "",
-        "body_bill": "",
-        "body_id": "",
+        "body_bank_statement": "Upewnij się, że załadowana jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
+        "body_benefits_letter": "Upewnij się, że załadowana jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
+        "body_bill": "Upewnij się, że załadowana jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
+        "body_id": "Upewnij się, że Twoje dane są wyraźne i niezasłonięte",
         "body_image_medium": "Weryfikacja użytkownika będzie trwała dłużej, jeśli nie będziemy mogli go odczytać.",
         "body_image_poor": "Aby sprawnie zweryfikować tożsamość, potrzebujemy lepszego zdjęcia",
-        "body_license": "",
+        "body_license": "Upewnij się, że Twoje dane są wyraźne i niezasłonięte",
         "body_passport": "Upewnij się, że Twoje dane są wyraźne i niezasłonięte",
-        "body_permit": "",
-        "body_tax_letter": "",
+        "body_permit": "Upewnij się, że Twoje dane są wyraźne i niezasłonięte",
+        "body_tax_letter": "Upewnij się, że załadowana jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
         "button_close": "Zamknij",
-        "button_primary_redo": "",
-        "button_primary_upload": "",
+        "button_primary_redo": "Ponów",
+        "button_primary_upload": "Prześlij",
         "button_primary_upload_anyway": "Prześlij mimo wszystko",
         "button_secondary_redo": "Ponów",
-        "button_zoom": "",
+        "button_zoom": "Powiększ obraz",
         "image_accessibility": "Zdjęcie Twojego dokumentu",
         "title": "Sprawdź obraz"
     },
@@ -159,13 +159,13 @@
         "button_bill": "Rachunek za usługi komunalne",
         "button_bill_detail": "Gaz, prąd, woda, telefon stacjonarny lub łącze szerokopasmowe",
         "button_id": "Dowód osobisty",
-        "button_id_detail": "",
-        "button_license": "",
+        "button_id_detail": "Przód i tył",
+        "button_license": "Prawo jazdy",
         "button_license_detail": "Przód i tył",
         "button_passport": "Paszport",
         "button_passport_detail": "Strona ze zdjęciem",
         "button_permit": "Zezwolenie na pobyt",
-        "button_permit_detail": "",
+        "button_permit_detail": "Przód i tył",
         "button_tax_letter": "List dotyczący podatku lokalnego",
         "extra_estatements_ok": "Dokumenty elektroniczne są akceptowane",
         "extra_no_mobile": "Niestety nie uwzględniamy rachunków za mobilne usługi telekomunikacyjne",
@@ -203,8 +203,8 @@
         "title_tax_letter": "Prześlij list"
     },
     "doc_video_capture": {
-        "button_primary_fallback": "",
-        "button_primary_fallback_end": "",
+        "button_primary_fallback": "Następny krok",
+        "button_primary_fallback_end": "Zakończ nagrywanie",
         "detail_step2": "Zachowuj pełną widoczność dokumentu przez cały czas",
         "header": "Trzymając dokument w ręku, trzymaj przednią stronę w ramce.",
         "header_paper_doc_step2": "Powoli odwróć dokument, aby pokazać zewnętrzne strony.",
@@ -220,13 +220,13 @@
     },
     "doc_video_confirmation": {
         "button_secondary": "Podgląd wideo",
-        "title": ""
+        "title": "Sprawdź swój film"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Uruchom ponownie proces w najnowszej wersji Google Chrome",
         "subtitle_ios": "Uruchom ponownie proces w najnowszej wersji Safari",
         "title_android": "Nieobsługiwana przeglądarka",
-        "title_ios": ""
+        "title_ios": "Nieobsługiwana przeglądarka"
     },
     "generic": {
         "accessibility": {
@@ -261,22 +261,22 @@
             },
             "multiple_faces": {
                 "instruction": "Na selfie powinna być tylko Twoja twarz",
-                "message": ""
+                "message": "Znaleziono wiele twarzy"
             },
             "no_face": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Upewnij się, że twoja twarz jest widoczna",
+                "message": "Nie wykryto twarzy"
             },
             "request_error": {
                 "instruction": "Spróbuj ponownie",
-                "message": ""
+                "message": "Coś poszło nie tak"
             },
             "sms_failed": {
                 "instruction": "Skopiuj łącze do telefonu",
-                "message": ""
+                "message": "Coś poszło nie tak"
             },
             "sms_overuse": {
-                "instruction": "",
+                "instruction": "Skopiuj łącze do telefonu",
                 "message": "Zbyt wiele nieudanych prób"
             },
             "unsupported_file": {
@@ -303,7 +303,7 @@
         "number_field_input_placeholder": "Wpisz numer telefonu komórkowego",
         "number_field_label": "Wpisz swój numer telefonu komórkowego:",
         "subtitle_qr": "Zeskanuj kod QR za pomocą telefonu",
-        "subtitle_sms": "",
+        "subtitle_sms": "Wyślij to jednorazowe łącze na swój telefon",
         "subtitle_url": "Wyślij to jednorazowe łącze na swój telefon",
         "title": "Uzyskaj bezpieczne łącze",
         "url_field_label": "Skopiuj łącze do przeglądarki mobilnej"
@@ -330,7 +330,7 @@
         "selfie_capture": {
             "alert": {
                 "camera_inactive": {
-                    "detail": ""
+                    "detail": "Zamiast tego wykonaj zdjęcie, korzystając z <fallback>podstawowego trybu pracy aparatu<\/fallback> "
                 },
                 "camera_not_working": {
                     "detail": "Zamiast tego wykonaj zdjęcie, korzystając z <fallback>podstawowego trybu pracy aparatu<\/fallback> "
@@ -339,7 +339,7 @@
         },
         "upload_guide": {
             "button_primary": "Zrób zdjęcie",
-            "title": ""
+            "title": "Umieść stronę ze zdjęciem dokumentu w ramce"
         }
     },
     "outro": {
@@ -392,7 +392,7 @@
         "title": "Nieprawidłowy plik"
     },
     "poa_guidance": {
-        "button_primary": "",
+        "button_primary": "Kontynuuj",
         "instructions": {
             "address": "Aktualny adres",
             "full_name": "Imię i nazwisko",
@@ -534,22 +534,22 @@
             },
             "timeout": {
                 "detail": "Pamiętaj, aby po zakończeniu pracy nacisnąć przycisk. <fallback>Ponowienie czynności dotyczących wideo<\/fallback>",
-                "title": ""
+                "title": "Wygląda na to, że trwało to zbyt długo"
             }
         },
         "body": "Trzymaj twarz w obrębie owalu",
         "button_accessibility": "",
         "button_primary": "Rozpocznij skanowanie twarzy",
-        "frame_accessibility": "",
-        "title": ""
+        "frame_accessibility": "Widok z aparatu",
+        "title": "Trzymaj twarz w obrębie owalu"
     },
     "selfie_confirmation": {
         "image_accessibility": "Zdjęcie Twojej twarzy",
-        "subtitle": "",
+        "subtitle": "Upewnij się, że cała twarz jest widoczna",
         "title": "Sprawdź selfie"
     },
     "selfie_intro": {
-        "button_primary": "",
+        "button_primary": "Kontynuuj",
         "list_accessibility": "Wskazówki, jak zrobić dobre selfie",
         "list_item_face_forward": "Ustaw się twarzą na wprost i upewnij się, że oczy są dobrze widoczne.",
         "list_item_no_glasses": "Zdejmij okulary, jeśli to konieczne",
@@ -557,9 +557,9 @@
         "title": "Zrób sobie selfie"
     },
     "sms_sent": {
-        "info": "",
+        "info": "Porady",
         "info_link_expire": "Twój link wygaśnie za godzinę",
-        "info_link_window": "",
+        "info_link_window": "Pozostaw to okno otwarte podczas korzystania z telefonu komórkowego",
         "link": "Wyślij ponownie łącze",
         "subtitle": "Wysłaliśmy bezpieczne łącze na numer %{number}",
         "subtitle_minutes": "Przyjazd może potrwać kilka minut.",
@@ -570,7 +570,7 @@
         "info_link_expire": "Twoje mobilne łącze wygaśnie za godzinę.",
         "info_link_refresh": "Nie odświeżaj tej strony",
         "info_link_window": "Pozostaw to okno otwarte podczas korzystania z telefonu komórkowego",
-        "link": "",
+        "link": "Anuluj",
         "subtitle": "Po zakończeniu przejdziemy do następnego kroku",
         "title": "Połączono z telefonem komórkowym"
     },
@@ -600,14 +600,14 @@
         "title": ""
     },
     "video_capture": {
-        "body": "",
+        "body": "Trzymaj twarz w obrębie owalu",
         "body_record": "Naciśnij przycisk, gdy będziesz gotowy(-a)",
         "body_stop": "Naciśnij przycisk Stop, gdy skończysz",
         "button_primary_finish": "Zakończ nagrywanie",
         "button_primary_next": "Następny krok",
-        "button_primary_start": "",
-        "button_record_accessibility": "",
-        "frame_accessibility": "",
+        "button_primary_start": "Rozpocznij nagrywanie",
+        "button_record_accessibility": "Rozpocznij nagrywanie",
+        "frame_accessibility": "Widok z aparatu",
         "header": {
             "challenge_digit_instructions": "Wypowiedz na głos każdą cyfrę",
             "challenge_turn_forward": "skieruj się twarzą do przodu",
@@ -615,11 +615,11 @@
             "challenge_turn_right": "Obróć głowę w prawo"
         },
         "prompt": {
-            "header_timeout": ""
+            "header_timeout": "Wygląda na to, że trwało to zbyt długo"
         }
     },
     "video_confirmation": {
-        "body": "",
+        "body": "Twój film został nagrany",
         "button_primary": "Prześlij wideo",
         "button_secondary": "Ponownie nagraj wideo",
         "title": "Sprawdź swój film",
@@ -629,7 +629,7 @@
         "button_primary": "Nagrywanie wideo",
         "list_accessibility": "Czynności związane z nagrywaniem wideo selfie",
         "list_item_actions": "Masz 20 sekund na dokończenie",
-        "list_item_speak": "",
+        "list_item_speak": "Postępuj zgodnie z instrukcjami, aby się poruszać lub mówić",
         "title": "Nagraj wideo"
     },
     "welcome": {
@@ -639,8 +639,8 @@
         "list_item_doc": "Twój dokument tożsamości",
         "list_item_doc_video_timeout": "Czas nagrywania jest ograniczony do <timeout><\/timeout> s.",
         "list_item_poa": "dokument potwierdzający adres zamieszkania",
-        "list_item_selfie": "",
-        "next_button": "",
+        "list_item_selfie": "Twoja twarz",
+        "next_button": "Wybierz dokument",
         "start_workflow_button": "Rozpocznij weryfikację",
         "subtitle": "Powinno to zająć kilka minut.",
         "title": "Zweryfikuj swoją tożsamość"

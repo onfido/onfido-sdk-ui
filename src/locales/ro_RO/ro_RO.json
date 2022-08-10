@@ -62,8 +62,8 @@
         "title": "Selectați țara emitentă"
     },
     "cross_device_checklist": {
-        "button_primary": "",
-        "info": "",
+        "button_primary": "Trimiteți verificarea",
+        "info": "Sugestii",
         "list_item_doc_multiple": "Documente",
         "list_item_doc_one": "Document",
         "list_item_poa": "Dovadă adresă",
@@ -78,7 +78,7 @@
     },
     "cross_device_error_restart": {
         "subtitle": "Trebuie să începeți din nou verificarea dvs. pe computerul dvs.",
-        "title": ""
+        "title": "Ceva nu a mers bine"
     },
     "cross_device_intro": {
         "button_primary": "Obțineți linkul sigur",
@@ -95,7 +95,7 @@
         "title": "Încărcări cu succes"
     },
     "cross_device_session_linked": {
-        "button_primary": "",
+        "button_primary": "Continuați",
         "info": "Dublă verificare",
         "list_item_desktop_open": "Fereastra dvs. desktop rămâne deschisă",
         "list_item_sent_by_you": "Acest link a fost trimis de dvs. — solicitați sfaturi dacă credeți că poate fi vorba de înșelăciune",
@@ -105,14 +105,14 @@
     "doc_capture": {
         "button_primary": "Începeți scanarea documentului",
         "detail": {
-            "folded_doc_front": ""
+            "folded_doc_front": "Poziționați documentul dvs. pe o suprafață plană, includeți toate paginile interne (trebuie să conțină poza dvs.)"
         },
         "header_folded_doc_front": "Latură poză de profil",
         "prompt": {
             "button_card": "Card de plastic",
             "button_paper": "Document hârtie",
-            "title_id": "",
-            "title_license": ""
+            "title_id": "Ce tip de card de identitate aveți?",
+            "title_license": "Ce tip de permis de conducere aveți?"
         }
     },
     "doc_confirmation": {
@@ -121,28 +121,28 @@
             "blur_title": "Poză încețoșată detectată",
             "crop_detail": "Asigurați-vă că întregul document este vizibil",
             "crop_title": "Imagine tăiată detectată",
-            "glare_detail": "",
-            "glare_title": "",
+            "glare_detail": "Nu stați în lumină directă",
+            "glare_title": "Luciu detectat",
             "no_doc_detail": "Asigurați-vă că este integral în cadru",
             "no_doc_title": "Documentul nu a fost detectat"
         },
         "body": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare pentru a fi citite fără estompări sau luciri",
-        "body_bank_statement": "",
-        "body_benefits_letter": "",
-        "body_bill": "",
-        "body_id": "",
+        "body_bank_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare pentru a fi citite fără estompări sau luciri",
+        "body_benefits_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare pentru a fi citite fără estompări sau luciri",
+        "body_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare pentru a fi citite fără estompări sau luciri",
+        "body_id": "Asigurați-vă că detaliile dvs. sunt clare și neobstrucționate",
         "body_image_medium": "Va dura mai mult să vă verificăm dacă nu putem citi elementul",
         "body_image_poor": "Pentru a vă verifica mai ușor, avem nevoie de o poză mai bună",
-        "body_license": "",
+        "body_license": "Asigurați-vă că detaliile dvs. sunt clare și neobstrucționate",
         "body_passport": "Asigurați-vă că detaliile dvs. sunt clare și neobstrucționate",
-        "body_permit": "",
-        "body_tax_letter": "",
+        "body_permit": "Asigurați-vă că detaliile dvs. sunt clare și neobstrucționate",
+        "body_tax_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare pentru a fi citite fără estompări sau luciri",
         "button_close": "Închideți",
-        "button_primary_redo": "",
-        "button_primary_upload": "",
+        "button_primary_redo": "Refaceți",
+        "button_primary_upload": "Încărcați",
         "button_primary_upload_anyway": "Încărcați oricum",
         "button_secondary_redo": "Refaceți",
-        "button_zoom": "",
+        "button_zoom": "Măriți imaginea",
         "image_accessibility": "Poză a documentului dvs.",
         "title": "Verificați imaginea dvs."
     },
@@ -159,13 +159,13 @@
         "button_bill": "Factură de utilități",
         "button_bill_detail": "Gaz, electricitate, apă, telefon fix sau internet de bandă largă",
         "button_id": "Card de identitate",
-        "button_id_detail": "",
-        "button_license": "",
+        "button_id_detail": "Față și verso",
+        "button_license": "Permis de conducere",
         "button_license_detail": "Față și verso",
         "button_passport": "Pașaport",
         "button_passport_detail": "Pagină poză",
         "button_permit": "Permis de ședere",
-        "button_permit_detail": "",
+        "button_permit_detail": "Față și verso",
         "button_tax_letter": "Scrisoare de la Consiliul impozite",
         "extra_estatements_ok": "extrase electronice acceptate",
         "extra_no_mobile": "Ne pare rău, fără facturi de telefon mobil",
@@ -203,8 +203,8 @@
         "title_tax_letter": "Trimiteți scrisoare"
     },
     "doc_video_capture": {
-        "button_primary_fallback": "",
-        "button_primary_fallback_end": "",
+        "button_primary_fallback": "Următorul pas",
+        "button_primary_fallback_end": "Finalizați înregistrarea",
         "detail_step2": "Țineți documentul la vedere permanent",
         "header": "În timp ce poziționați documentul dvs, țineți pagina față în cadru",
         "header_paper_doc_step2": "Întoarceți ușor documentul dvs. pentru a arăta paginile externe",
@@ -220,13 +220,13 @@
     },
     "doc_video_confirmation": {
         "button_secondary": "Previzualizare clip video",
-        "title": ""
+        "title": "Verificați clipul dvs. video"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Începeți din nou acest proces pe ultima versiune de Google Chrome",
         "subtitle_ios": "Începeți din nou acest proces pe ultima versiune de Safari",
         "title_android": "Browser incompatibil",
-        "title_ios": ""
+        "title_ios": "Browser incompatibil"
     },
     "generic": {
         "accessibility": {
@@ -237,8 +237,8 @@
         "close": "închideți",
         "errors": {
             "expired_token": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Vă rugăm să încercați din nou",
+                "message": "Tokenul a expirat"
             },
             "geoblocked_error": {
                 "instruction": "Ne pare rău, se pare că nu putem continua pentru că locația dvs. actuală nu este acoperită",
@@ -261,22 +261,22 @@
             },
             "multiple_faces": {
                 "instruction": "Numai fața dvs. poate fi în poza selfie",
-                "message": ""
+                "message": "Fețe multiple găsite"
             },
             "no_face": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Asigurați-vă că fața dvs. este vizibilă",
+                "message": "Fața nu este detectată"
             },
             "request_error": {
                 "instruction": "Vă rugăm să încercați din nou",
-                "message": ""
+                "message": "Ceva nu a mers bine"
             },
             "sms_failed": {
                 "instruction": "Copiați linkul pe telefonul dvs.",
-                "message": ""
+                "message": "Ceva nu a mers bine"
             },
             "sms_overuse": {
-                "instruction": "",
+                "instruction": "Copiați linkul pe telefonul dvs.",
                 "message": "Prea multe încercări eșuate"
             },
             "unsupported_file": {
@@ -303,7 +303,7 @@
         "number_field_input_placeholder": "Introduceți numărul de telefon mobil",
         "number_field_label": "Introduceți numărul dvs. de telefon mobil:",
         "subtitle_qr": "Scanați codul QR cu telefonul dvs.",
-        "subtitle_sms": "",
+        "subtitle_sms": "Trimiteți acest link unic pe telefonul dvs.",
         "subtitle_url": "Trimiteți acest link unic pe telefonul dvs.",
         "title": "Primiți linkul sigur pentru dvs.",
         "url_field_label": "Copiați linkul în browserul telefonului dvs."
@@ -330,7 +330,7 @@
         "selfie_capture": {
             "alert": {
                 "camera_inactive": {
-                    "detail": ""
+                    "detail": "Faceți o poză folosind în schimb <fallback>modul de bază al camerei video<\/fallback>"
                 },
                 "camera_not_working": {
                     "detail": "Faceți o poză folosind în schimb <fallback>modul de bază al camerei video<\/fallback>"
@@ -339,7 +339,7 @@
         },
         "upload_guide": {
             "button_primary": "Faceți o poză",
-            "title": ""
+            "title": "Poziționați pagina cu poză a documentului dvs. în cadru"
         }
     },
     "outro": {
@@ -392,7 +392,7 @@
         "title": "Fișier nevalid"
     },
     "poa_guidance": {
-        "button_primary": "",
+        "button_primary": "Continuați",
         "instructions": {
             "address": "Adresa actuală",
             "full_name": "Numele complet",
@@ -421,13 +421,13 @@
                 "placeholder": "Selectați o țară"
             },
             "nationality_select": {
-                "placeholder": ""
+                "placeholder": "Selectați o țară"
             },
             "pan": {
-                "placeholder": ""
+                "placeholder": "ABCDE1234F"
             },
             "ssn": {
-                "placeholder": ""
+                "placeholder": "123-45-6789"
             },
             "state_select": {
                 "placeholder": "Selectați un stat"
@@ -437,7 +437,7 @@
         "field_labels": {
             "country": "Țară",
             "dob": "Data nașterii",
-            "email": "",
+            "email": "E-mail",
             "first_name": "Prenume",
             "gbr_specific": {
                 "postcode": "Cod poștal",
@@ -447,11 +447,11 @@
             "line1": "Linie adresă 1",
             "line2": "Linie adresă 2",
             "line3": "Linie adresă 3",
-            "mobile_number": "",
-            "nationality": "",
-            "pan": "",
+            "mobile_number": "Telefonul mobil",
+            "nationality": "Naționalitatea",
+            "pan": "Număr de cont permanent (PAN)",
             "postcode": "Cod poștal",
-            "ssn": "",
+            "ssn": "Numărul de asigurare socială (SSN)",
             "town": "Localitate",
             "usa_specific": {
                 "line1_helper_text": "Adresă stradă, de exemplu: 200 Albert Street",
@@ -462,7 +462,7 @@
         },
         "field_optional": "(opțional)",
         "field_validation": {
-            "correct_mobile_number": "",
+            "correct_mobile_number": "Vă rugăm să verificați dacă numărul dvs. este corect",
             "gbr_specific": {
                 "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
                 "too_long_postcode": "Codul poștal este prea lung",
@@ -472,14 +472,14 @@
             "invalid_dob": "Vă rugăm să introduceți o dată de naștere validă",
             "required_country": "Vă rugăm să selectați o țară",
             "required_dob": "Vă rugăm să introduceți data dvs. de naștere",
-            "required_email": "",
+            "required_email": "Vă rugăm să introduceți e-mailul dvs.",
             "required_first_name": "Vă rugăm să introduceți prenumele dvs.",
             "required_last_name": "Vă rugăm să introduceți numele dvs. de familie",
             "required_line1": "Vă rugăm să introduceți adresa dvs.",
-            "required_nationality": "",
-            "required_pan": "",
+            "required_nationality": "Vă rugăm să selectați o țară",
+            "required_pan": "Vă rugăm să introduceți numărul PAN",
             "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
-            "required_ssn": "",
+            "required_ssn": "Vă rugăm să introduceți numărul SSN",
             "too_long__line1": "Linia adresă este prea lungă",
             "too_long_first_name": "Prenumele este prea lung",
             "too_long_last_name": "Numele de familie este prea lung",
@@ -491,9 +491,9 @@
             "usa_specific": {
                 "required_state": "Vă rugăm să selectați un stat"
             },
-            "valid_email": "",
-            "valid_pan": "",
-            "valid_ssn": ""
+            "valid_email": "Vă rugăm să introduceți un e-mail valabil",
+            "valid_pan": "Vă rugăm să introduceți un PAN valabil",
+            "valid_ssn": "Vă rugăm să introduceți un SSN valabil"
         },
         "personal_information_title": "Adăugați informațiile dvs. personale",
         "prompt": {
@@ -534,22 +534,22 @@
             },
             "timeout": {
                 "detail": "Nu uitați să apăsați butonul când terminați. <fallback>Refaceți acțiunile video<\/fallback>",
-                "title": ""
+                "title": "Se pare că acțiunea dvs. a durat prea mult"
             }
         },
         "body": "Mențineți fața în oval",
         "button_accessibility": "",
         "button_primary": "Începeți scanarea feței",
-        "frame_accessibility": "",
-        "title": ""
+        "frame_accessibility": "Vizualizați din camera video",
+        "title": "Mențineți fața în oval"
     },
     "selfie_confirmation": {
         "image_accessibility": "Poza feței dvs.",
-        "subtitle": "",
+        "subtitle": "Asigurați-vă că întreaga față este vizibilă",
         "title": "Verificați poza dvs. selfie"
     },
     "selfie_intro": {
-        "button_primary": "",
+        "button_primary": "Continuați",
         "list_accessibility": "Sugestii pentru a face o poză selfie bună",
         "list_item_face_forward": "Uitați-vă înainte și asigurați-vă că ochii dvs. sunt clar vizibili",
         "list_item_no_glasses": "Dați-vă jos ochelarii dacă este necesar",
@@ -557,9 +557,9 @@
         "title": "Faceți o poză selfie"
     },
     "sms_sent": {
-        "info": "",
+        "info": "Sugestii",
         "info_link_expire": "Linkul dvs. va expira într-o oră",
-        "info_link_window": "",
+        "info_link_window": "Mențineți această fereastră deschisă în timp ce vă utilizați telefonul mobil",
         "link": "Trimiteți din nou linkul",
         "subtitle": "Am trimis un link sigur la %{number}",
         "subtitle_minutes": "Ar putea să dureze câteva minute să îl primiți",
@@ -570,7 +570,7 @@
         "info_link_expire": "Linkul dvs. pentru telefonul mobil va expira într-o oră",
         "info_link_refresh": "Nu reîmprospătați această pagină",
         "info_link_window": "Mențineți această fereastră deschisă în timp ce vă utilizați telefonul mobil",
-        "link": "",
+        "link": "Anulați",
         "subtitle": "Odată ce ați terminat, vom trece la următorul pas",
         "title": "Conectat la telefonul dvs. mobil"
     },
@@ -600,14 +600,14 @@
         "title": ""
     },
     "video_capture": {
-        "body": "",
+        "body": "Mențineți fața în oval",
         "body_record": "Apăsați butonul când sunteți gata",
         "body_stop": "Apăsați stop când ați terminat",
         "button_primary_finish": "Finalizați înregistrarea",
         "button_primary_next": "Următorul pas",
-        "button_primary_start": "",
-        "button_record_accessibility": "",
-        "frame_accessibility": "",
+        "button_primary_start": "Începeți înregistrarea",
+        "button_record_accessibility": "Începeți înregistrarea",
+        "frame_accessibility": "Vizualizați din camera video",
         "header": {
             "challenge_digit_instructions": "Spuneți fiecare cifră cu voce tare",
             "challenge_turn_forward": "apoi să vă uitați înainte",
@@ -615,11 +615,11 @@
             "challenge_turn_right": "Întoarceți capul spre dreapta"
         },
         "prompt": {
-            "header_timeout": ""
+            "header_timeout": "Se pare că acțiunea dvs. a durat prea mult"
         }
     },
     "video_confirmation": {
-        "body": "",
+        "body": "Clipul dvs. video a fost înregistrat",
         "button_primary": "Înregistrați un clip video",
         "button_secondary": "Faceți clipul video din nou",
         "title": "Verificați clipul dvs. video",
@@ -629,7 +629,7 @@
         "button_primary": "Înregistrați un clip video",
         "list_accessibility": "Acțiuni pentru a verifica un clip video selfie",
         "list_item_actions": "Aveți 20 de secunde să finalizați",
-        "list_item_speak": "",
+        "list_item_speak": "Urmați instrucțiunile pentru a vă mișca sau a vorbi",
         "title": "Înregistrați un clip video"
     },
     "welcome": {
@@ -639,8 +639,8 @@
         "list_item_doc": "documentul dvs. de identitate",
         "list_item_doc_video_timeout": "Înregistrarea este limitată la <timeout><\/timeout> secunde",
         "list_item_poa": "dovada dvs. de adresă",
-        "list_item_selfie": "",
-        "next_button": "",
+        "list_item_selfie": "fața dvs.",
+        "next_button": "Alegeți documentul",
         "start_workflow_button": "Începeți verificarea",
         "subtitle": "Ar trebui să dureze câteva minute",
         "title": "Verificați identitatea dvs."
