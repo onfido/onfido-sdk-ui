@@ -40,7 +40,10 @@ export const useDocumentTypesAdapter = () => {
       const documentSelection: documentSelectionType[] = []
 
       documentTypesKeys.forEach((type) => {
-        if (typeof documentTypes[type] === 'boolean') {
+        if (
+          typeof documentTypes[type] === 'boolean' &&
+          documentTypes[type] === true
+        ) {
           // Display this document type for all supported countries
           getSupportedCountriesForDocument(type).map((countryData) =>
             documentSelection.push({
