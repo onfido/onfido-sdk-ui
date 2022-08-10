@@ -381,4 +381,22 @@ public class DocumentIT extends WebSdkIT {
         }
 
     }
+
+    @Test(description = "should verify UI elements not present when disabled on the document selection screen")
+    public void testShouldVerifyUiElementsWithDisabledOptionsOnTheDocumentSelectionScreen() {
+
+        var documentSelector = onfido().withSteps(new DocumentStep()
+            .withDocumentType(DRIVING_LICENCE,new DocumentStep.Option("FRA"))
+            .withDocumentType(PASSPORT,new DocumentStep.Option("FRA"))
+            .withoutDocumentType(IDENTITY_CARD)
+        )
+            .init(RestrictedDocumentSelection.class)
+            .selectSupportedCountry();
+
+        assertThat(documentSelector.optionExists(DocumentType.DRIVING_LICENCE)).isEqualTo(true);
+        assertThat(documentSelector.optionExists(DocumentType.PASSPORT)).isEqualTo(true);
+
+        assertThat(documentSelector.optionExists(DocumentType.IDENTITY_CARD)).isEqualTo(false);
+        assertThat(documentSelector.optionExists(DocumentType.RESIDENT_PERMIT)).isEqualTo(false);
+    }
 }
