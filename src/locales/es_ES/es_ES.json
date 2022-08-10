@@ -203,6 +203,9 @@
         "list_item_mask": "Asegúrese de retirar mascarillas o cualquier otro objeto que le cubra el rostro. Puede llevar gafas para ver",
         "title": "No podemos detectar su cara"
     },
+    "avc_uploading": {
+        "title": "Cargando"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",

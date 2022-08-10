@@ -31,8 +31,7 @@ import CrossDeviceIntro from '../crossDevice/Intro'
 import FaceVideoIntro from '../FaceVideo/Intro'
 import LazyActiveVideo from '../ActiveVideo/Lazy'
 import ActiveVideoIntro from '../ActiveVideo/Intro'
-import ActiveVideoRecordingComplete from '../ActiveVideo/RecordingComplete'
-import ActiveVideoUpload from '../ActiveVideo/Uploading'
+import ActiveVideoConfirm from '../ActiveVideo/Confirm'
 import { shouldUseCameraForDocumentCapture } from '~utils/shouldUseCamera'
 import { buildStepFinder, hasOnePreselectedDocument } from '~utils/steps'
 
@@ -284,8 +283,7 @@ const buildActiveVideoComponents = (
   const allActiveVideoSteps: ComponentType<StepComponentProps>[] = [
     ActiveVideoIntro,
     ActiveVideoCapture,
-    ActiveVideoRecordingComplete,
-    ActiveVideoUpload,
+    ActiveVideoConfirm,
   ]
 
   if (mobileFlow) {

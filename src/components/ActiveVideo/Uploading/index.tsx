@@ -111,7 +111,7 @@ const Uploading: FunctionComponent<Props> = ({
   return (
     <BaseScreen>
       <Wrapper>
-        <Header title={translate("avc_uploading.title")}>
+        <Header title={translate('avc_uploading.title')}>
           <LoaderIcon />
         </Header>
       </Wrapper>
