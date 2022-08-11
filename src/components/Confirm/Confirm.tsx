@@ -302,10 +302,7 @@ export const Confirm = (props: ConfirmProps) => {
     const documentImageResponse = apiResponse as DocumentImageResponse
     const imageQualityWarning = onImageQualityWarning(documentImageResponse)
 
-    if (!imageQualityWarning) {
-      completeStep([{ id: apiResponse.id }])
-      nextStep()
-    } else {
+    if (imageQualityWarning) {
       setWarning(
         imageQualityWarning,
         {
@@ -322,6 +319,8 @@ export const Confirm = (props: ConfirmProps) => {
         documentImageResponse.sdk_warnings
       )
     }
+    completeStep([{ id: apiResponse.id }])
+    nextStep()
   }
 
   const handleSelfieUpload = (
