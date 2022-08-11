@@ -156,6 +156,7 @@ const getPreselectedDocumentTypes = (): Partial<
     return {
       driving_licence: true,
       national_identity_card: true,
+      passport: false,
     }
   }
 
