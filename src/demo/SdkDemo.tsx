@@ -83,7 +83,8 @@ const SdkDemo: FunctionComponent<Props> = ({
         (respondedToken, responedApplicantId) => {
           setToken(respondedToken)
           setApplicantId(responedApplicantId)
-        }
+        },
+        queryParamToValueString.apiToken
       )
     }
   }, [hasPreview, applicantData, messagePort, sdkOptions])
