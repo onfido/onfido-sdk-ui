@@ -301,8 +301,15 @@ export const Confirm = (props: ConfirmProps) => {
 
     const documentImageResponse = apiResponse as DocumentImageResponse
     const imageQualityWarning = onImageQualityWarning(documentImageResponse)
+    const isImageQualityWarningBlocker =
+      props.imageQualityRetries >
+      sdkConfiguration.document_capture.max_total_retries
 
-    if (imageQualityWarning) {
+    if (!imageQualityWarning || isImageQualityWarningBlocker) {
+      actions.resetImageQualityRetries()
+      completeStep([{ id: apiResponse.id }])
+      nextStep()
+    } else {
       setWarning(
         imageQualityWarning,
         {
@@ -312,15 +319,11 @@ export const Confirm = (props: ConfirmProps) => {
           count_attempt: props.imageQualityRetries,
           max_retry_count: sdkConfiguration.document_capture.max_total_retries,
           // not sure what is_blocking refers to, but its the correct way to compute it
-          is_blocking:
-            props.imageQualityRetries >
-            sdkConfiguration.document_capture.max_total_retries,
+          is_blocking: isImageQualityWarningBlocker,
         },
         documentImageResponse.sdk_warnings
       )
     }
-    completeStep([{ id: apiResponse.id }])
-    nextStep()
   }
 
   const handleSelfieUpload = (
