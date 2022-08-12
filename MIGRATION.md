@@ -6,6 +6,44 @@ The guides below are provided to ease the transition of existing applications us
 
 The `useLiveDocumentCapture` option is now true by default.
 
+The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the following string(s) has been added:
+
+### Added strings
+
+- `avc_confirmation.button_primary_upload`
+- `avc_confirmation.subtitle`
+- `avc_confirmation.title`
+- `avc_connection_error.button_primary_retry_upload`
+- `avc_connection_error.button_secondary_restart_recording`
+- `avc_connection_error.subtitle`
+- `avc_connection_error.title`
+- `avc_face_alignment.feedback_move_back`
+- `avc_face_alignment.feedback_move_closer`
+- `avc_face_alignment.feedback_no_face_detected`
+- `avc_face_alignment.feedback_not_centered`
+- `avc_face_alignment.title`
+- `avc_face_capture.alert.timeout_body`
+- `avc_face_capture.alert.timeout_button_primary`
+- `avc_face_capture.alert.timeout_title`
+- `avc_face_capture.alert.too_fast_body`
+- `avc_face_capture.alert.too_fast_button_primary`
+- `avc_face_capture.alert_too_fast_title`
+- `avc_face_capture.title`
+- `avc_face_capture.title_completed`
+- `avc_intro.button_primary_ready`
+- `avc_intro.disclaimer`
+- `avc_intro.list_item_one`
+- `avc_intro.list_item_two`
+- `avc_intro.subtitle`
+- `avc_intro.title`
+- `avc_no_face_detected.button_primary_restart`
+- `avc_no_face_detected.list_item_eyes`
+- `avc_no_face_detected.list_item_face`
+- `avc_no_face_detected.list_item_lighting`
+- `avc_no_face_detected.list_item_mask`
+- `avc_no_face_detected.title`
+- `avc_uploading.title`
+
 ## `8.1.1` -> `8.2.0`
 
 The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the following string(s) has been added:
