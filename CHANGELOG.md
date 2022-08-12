@@ -20,6 +20,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add `trackPropertiesBeforeMount` to internal analytics api
 - Public: Add commit hash in console
 - Internal: Add `x-onfido-sdk-version` and `x-onfido-sdk-platform` headers to all onfido network requests
+- Internal: Update FaceTec SDK on Auth step from 9.4.11 to 9.4.12
 
 ## [8.3.0] - 2022-08-02
 
