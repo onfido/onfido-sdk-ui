@@ -116,6 +116,9 @@
         "list_item_mask": "Zorg ervoor dat u maskers of andere voorwerpen die uw gezicht bedekken afzet. Een bril mag wel.",
         "title": "We kunnen uw gezicht niet detecteren"
     },
+    "avc_uploading": {
+        "title": "Uploaden"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",

@@ -116,6 +116,9 @@
         "list_item_mask": "Assicurati di rimuovere la mascherina o altri oggetti che coprono il viso. Puoi tenere gli occhiali da vista.",
         "title": "Non riusciamo a rilevare il tuo viso"
     },
+    "avc_uploading": {
+        "title": "Caricamento in corso"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",
