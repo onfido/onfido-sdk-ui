@@ -214,6 +214,9 @@
         "list_item_mask": "Make sure to remove masks or other items that cover your face. Eyeglasses are okay",
         "title": "We can't detect your face"
     },
+    "avc_uploading": {
+        "title": "Uploading"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",

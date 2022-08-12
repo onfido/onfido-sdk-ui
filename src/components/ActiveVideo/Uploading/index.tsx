@@ -41,6 +41,7 @@ const Uploading: FunctionComponent<Props> = ({
   capture,
   urls,
   trackScreen,
+  translate,
 }) => {
   const onApiSuccess = (apiResponse: ActiveVideoResponse) => {
     actions.setCaptureMetadata({ capture, apiResponse })
@@ -72,7 +73,6 @@ const Uploading: FunctionComponent<Props> = ({
       triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
       setError('REQUEST_ERROR', response?.error?.message)
-      trackScreen('connection_error')
     }
   }
 
@@ -85,7 +85,7 @@ const Uploading: FunctionComponent<Props> = ({
     resetSdkFocus()
   }
 
-  useEffect(() => {
+  const upload = (): void => {
     if (capture) {
       const metadata = {
         sdk_metadata: capture.sdkMetadata,
@@ -102,12 +102,16 @@ const Uploading: FunctionComponent<Props> = ({
         onApiError
       )
     }
+  }
+
+  useEffect(() => {
+    upload()
   }, [])
 
   return (
     <BaseScreen>
       <Wrapper>
-        <Header title="Uploading">
+        <Header title={translate('avc_uploading.title')}>
           <LoaderIcon />
         </Header>
       </Wrapper>

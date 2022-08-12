@@ -116,6 +116,9 @@
         "list_item_mask": "Certifique-se de que remove as máscaras ou outros artigos que cobrem o seu rosto. Os óculos não precisa de retirar",
         "title": "Não conseguimos detetar o seu rosto"
     },
+    "avc_uploading": {
+        "title": "Carregamento em curso"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",

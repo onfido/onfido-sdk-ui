@@ -203,6 +203,9 @@
         "list_item_mask": "Assurez-vous d'ôter le masque ou outres éléments qui couvrent votre visage. Les lunettes sont acceptées",
         "title": "Nous ne pouvons pas détecter votre visage"
     },
+    "avc_uploading": {
+        "title": "Téléversement"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",
