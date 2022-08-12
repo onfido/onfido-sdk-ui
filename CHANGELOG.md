@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [9.0.0-rc.1] - 2022-08-08
+## [9.0.0-rc.2] - 2022-08-12
 
 - Public: Make the `useLiveDocumentCapture` true by default. Clients can still change this option to false.
 - Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
@@ -1330,8 +1330,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/9.0.0-rc.1...development
-[9.0.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/8.3.0...9.0.0-rc.1
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/9.0.0-rc.2...development
+[9.0.0-rc.2]: https://github.com/onfido/onfido-sdk-ui/compare/8.3.0...9.0.0-rc.2
 [8.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0...8.3.0
 [8.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0
 [8.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...8.0.0
