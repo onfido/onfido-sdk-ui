@@ -97,7 +97,7 @@ describe('API uploadDocument endpoint', () => {
       try {
         expect(error.status).toBe(422)
         expect(error.response.error.type).toBe('validation_error')
-        expect(error.response.error.fields).toHaveProperty('content_type')
+        expect(error.response.error.fields).toHaveProperty('file')
         done()
       } catch (err) {
         done(err)
