@@ -150,7 +150,7 @@ export type WebcamProps = {
   fallbackWidth?: ConstrainULong
   height?: ConstrainULong
   onFailure?: (error?: Error) => void
-  onUserMedia?: () => void
+  onUserMedia?: (userMedia: MediaStream) => void
   screenshotFormat?: 'image/webp' | 'image/png' | 'image/jpeg'
   width?: ConstrainULong
 }
@@ -185,7 +185,7 @@ export default class Webcam extends Component<WebcamProps, State> {
   static defaultProps = {
     audio: false,
     screenshotFormat: 'image/webp',
-    onUserMedia: () => {},
+    onUserMedia: (userMedia: MediaStream) => {},
     onFailure: () => {},
   }
 
@@ -252,20 +252,31 @@ export default class Webcam extends Component<WebcamProps, State> {
 
     // if `{facingMode: 'user'}` Firefox will still allow the user to choose which camera to use (Front camera will be the first option)
     // if `{facingMode: {exact: 'user'}}` Firefox won't give the user a choice and will show the front camera
+
+    const params = new URLSearchParams(window.location.search)
+    const widthFromParams = parseInt(params.get('idealWidth') + '')
+    const heightFromParams = parseInt(params.get('idealHeight') + '')
+
     const constraints: MediaStreamConstraints = {
-      video: { facingMode },
+      video: {
+        facingMode: { ideal: 'environment' },
+        width: { ideal: widthFromParams },
+        height: { ideal: heightFromParams },
+      },
       audio,
     }
 
-    if (width) {
-      // @ts-ignore
-      constraints.video.width = parseInt(width, 10) || width // some devices need a Number type
-    }
+    console.log(constraints)
 
-    if (height) {
-      // @ts-ignore
-      constraints.video.height = parseInt(height, 10) || height
-    }
+    // if (width) {
+    //   // @ts-ignore
+    //   constraints.video.width = parseInt(width, 10) || width // some devices need a Number type
+    // }
+
+    // if (height) {
+    //   // @ts-ignore
+    //   constraints.video.height = parseInt(height, 10) || height
+    // }
 
     return constraints
   }
@@ -365,7 +376,7 @@ export default class Webcam extends Component<WebcamProps, State> {
           !videoSettings.facingMode),
     })
 
-    this.props.onUserMedia && this.props.onUserMedia()
+    this.props.onUserMedia && this.props.onUserMedia(stream)
   }
 
   componentWillUnmount() {

@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact'
+import { h, FunctionComponent, Fragment } from 'preact'
 import Webcam, { WebcamProps } from '~webcam/react-webcam'
 import classNames from 'classnames'
 
@@ -16,6 +16,7 @@ import type {
   WithTrackingProps,
   WithPermissionsFlowProps,
 } from '~types/hocs'
+import { useState } from 'preact/hooks'
 
 const isWebmFormatSupported = () => {
   const webmMimeTypes: string[] = [
@@ -37,6 +38,30 @@ type Props = {
   WithFailureHandlingProps &
   WithPermissionsFlowProps &
   WithTrackingProps
+
+const debugMessage = (
+  settings: MediaTrackSettings | null,
+  capa: MediaTrackCapabilities | null
+) => {
+  if (!settings || !capa) return ''
+  console.log(settings)
+  console.log(capa)
+  const debug = {
+    result: {
+      width: settings.width,
+      height: settings.height,
+      aspectRatio: settings.aspectRatio,
+      // @ts-ignore
+      resizeMode: settings.resizeMode,
+    },
+    capabilities: {
+      width: capa.width,
+      height: capa.height,
+    },
+  }
+
+  return debug
+}
 
 const Camera: FunctionComponent<Props> = ({
   audio,
@@ -61,6 +86,8 @@ const Camera: FunctionComponent<Props> = ({
   webcamRef,
   pageId,
 }) => {
+  const [settings, setSettings] = useState<MediaTrackSettings | null>(null)
+  const [capa, setCapa] = useState<MediaTrackCapabilities | null>(null)
   // Specify just a camera width (no height) because on safari if you specify both
   // height and width you will hit an OverconstrainedError if the camera does not
   // support the precise resolution.
@@ -86,41 +113,52 @@ const Camera: FunctionComponent<Props> = ({
   }
 
   return (
-    <div
-      className={classNames(style.camera, {
-        [style.docLiveCaptureFrame]: docLiveCaptureFrame,
-        [style.docAutoCaptureFrame]: docAutoCaptureFrame,
-      })}
-      data-page-id={pageId}
-    >
-      {renderTitle}
-      <div className={classNames(style.container, containerClassName)}>
-        <div
-          className={style.webcamContainer}
-          role="group"
-          aria-describedby="cameraViewAriaLabel"
-        >
-          <Webcam {...webcamProps} />
-        </div>
-        {buttonType === 'photo' && (
-          <div className={style.actions}>
-            <CameraButton
-              ariaLabel={translate('selfie_capture.button_accessibility')}
-              disableInteraction={!hasGrantedPermission || isButtonDisabled}
-              onClick={onButtonClick}
-              className={classNames(style.btn, {
-                [style.disabled]: !hasGrantedPermission || isButtonDisabled,
-              })}
+    <Fragment>
+      <div style={{ zIndex: 999999, color: 'white', overflowWrap: 'anywhere' }}>
+        {JSON.stringify(debugMessage(settings, capa))}
+      </div>
+      <div
+        className={classNames(style.camera, {
+          [style.docLiveCaptureFrame]: docLiveCaptureFrame,
+          [style.docAutoCaptureFrame]: docAutoCaptureFrame,
+        })}
+        data-page-id={pageId}
+      >
+        {renderTitle}
+        <div className={classNames(style.container, containerClassName)}>
+          <div
+            className={style.webcamContainer}
+            role="group"
+            aria-describedby="cameraViewAriaLabel"
+          >
+            <Webcam
+              {...webcamProps}
+              onUserMedia={(media) => {
+                setSettings(media.getVideoTracks()[0].getSettings())
+                setCapa(media.getVideoTracks()[0].getCapabilities())
+              }}
             />
           </div>
-        )}
-        {buttonType === 'video' &&
-          renderVideoOverlay &&
-          renderVideoOverlay({ hasGrantedPermission })}
-        {children}
-        {renderError}
+          {buttonType === 'photo' && (
+            <div className={style.actions}>
+              <CameraButton
+                ariaLabel={translate('selfie_capture.button_accessibility')}
+                disableInteraction={!hasGrantedPermission || isButtonDisabled}
+                onClick={onButtonClick}
+                className={classNames(style.btn, {
+                  [style.disabled]: !hasGrantedPermission || isButtonDisabled,
+                })}
+              />
+            </div>
+          )}
+          {buttonType === 'video' &&
+            renderVideoOverlay &&
+            renderVideoOverlay({ hasGrantedPermission })}
+          {children}
+          {renderError}
+        </div>
       </div>
-    </div>
+    </Fragment>
   )
 }
 
