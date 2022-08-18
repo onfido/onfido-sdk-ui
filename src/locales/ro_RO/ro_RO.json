@@ -46,6 +46,9 @@
         "list_item_mask": "Asigurați-vă că înlăturați măștile sau alte articole care vă acoperă fața. Ochelarii sunt acceptați",
         "title": "Nu vă putem detecta fața"
     },
+    "avc_uploading": {
+        "title": "Se încarcă"
+    },
     "country_select": {
         "alert": {
             "another_doc": "Documente din aceea țară nu sunt în prezent acoperite — <fallback>încercați cu un alt tip de document<\/fallback>"
@@ -54,6 +57,10 @@
             "country_not_found": "Țara nu a fost găsită"
         },
         "button_primary": "Trimiteți documentul",
+        "poa_alert": {
+            "country_not_found": "Ne cerem scuze. Depunem eforturi pentru a acoperi mai multe țări.",
+            "intro": "Nu vă găsiți țara?"
+        },
         "search": {
             "accessibility": "Selectați țara",
             "input_placeholder": "de exemplu, Statele Unite ale Americii",
@@ -158,6 +165,8 @@
         "button_benefits_letter_detail": "Beneficii pentru gospodărie autorizate de guvern, de exemplu, indemnizație de șomer, beneficii gospodărie, credite fiscale",
         "button_bill": "Factură de utilități",
         "button_bill_detail": "Gaz, electricitate, apă, telefon fix sau internet de bandă largă",
+        "button_government_letter": "Scrisoare de la guvern",
+        "button_government_letter_detail": "Orice scrisoare emisă de guvern, de exemplu, scrisori privind dreptul la beneficii, scrisori de votare, scrisori privind impozitele etc.",
         "button_id": "Card de identitate",
         "button_id_detail": "Față și verso",
         "button_license": "Permis de conducere",
@@ -193,6 +202,7 @@
         "title_bank_statement": "Trimiteți extras",
         "title_benefits_letter": "Trimiteți scrisoare",
         "title_bill": "Trimiteți factură",
+        "title_government_letter": "Scrisoare de la guvern",
         "title_id_back": "Trimiteți cardul de identitate (verso)",
         "title_id_front": "Trimiteți cardul de identitate (față)",
         "title_license_back": "Trimiteți permisul de conducere (verso)",
@@ -344,6 +354,7 @@
     },
     "outro": {
         "body": "Este tot ce avem nevoie pentru a începe verificarea identității dvs.",
+        "body_government_letter": "Furnizați întreaga pagină a documentului pentru rezultate mai bune",
         "title": "Vă mulțumim"
     },
     "permission": {
@@ -462,7 +473,6 @@
         },
         "field_optional": "(opțional)",
         "field_validation": {
-            "correct_mobile_number": "Vă rugăm să verificați dacă numărul dvs. este corect",
             "gbr_specific": {
                 "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
                 "too_long_postcode": "Codul poștal este prea lung",
@@ -476,6 +486,7 @@
             "required_first_name": "Vă rugăm să introduceți prenumele dvs.",
             "required_last_name": "Vă rugăm să introduceți numele dvs. de familie",
             "required_line1": "Vă rugăm să introduceți adresa dvs.",
+            "required_mobile_number": "Vă rugăm să verificați dacă numărul dvs. este corect",
             "required_nationality": "Vă rugăm să selectați o țară",
             "required_pan": "Vă rugăm să introduceți numărul PAN",
             "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
@@ -492,6 +503,7 @@
                 "required_state": "Vă rugăm să selectați un stat"
             },
             "valid_email": "Vă rugăm să introduceți un e-mail valabil",
+            "valid_mobile_number": "Vă rugăm să introduceți un număr de telefon valid",
             "valid_pan": "Vă rugăm să introduceți un PAN valabil",
             "valid_ssn": "Vă rugăm să introduceți un SSN valabil"
         },
@@ -585,19 +597,19 @@
         "title": "Încărcați pagina cu poză a pașaportului"
     },
     "user_consent": {
-        "button_primary": "",
-        "button_secondary": "",
+        "button_primary": "Accept",
+        "button_secondary": "Do not accept",
         "prompt": {
-            "button_primary": "",
-            "button_secondary": "",
-            "no_consent_detail": "",
-            "no_consent_title": ""
+            "button_primary": "Review again",
+            "button_secondary": "Yes, don’t verify me",
+            "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+            "no_consent_title": "Are you sure?"
         }
     },
     "user_consent_load_fail": {
-        "button_primary": "",
-        "detail": "",
-        "title": ""
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
     },
     "video_capture": {
         "body": "Mențineți fața în oval",

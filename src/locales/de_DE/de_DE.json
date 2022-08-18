@@ -133,6 +133,9 @@
         "list_item_mask": "Achten Sie darauf, dass Sie Gesichtsmasken oder andere Gegenstände, die Ihr Gesicht verdecken, abnehmen. Brillen sind zulässig",
         "title": "Wir können Ihr Gesicht nicht erkennen"
     },
+    "avc_uploading": {
+        "title": "Hochladen"
+    },
     "country_select": {
         "alert": {
             "another_doc": "Dokumente aus diesem Land werden derzeit nicht unterstützt. <fallback>Versuchen Sie es mit einem anderen Dokumententyp<\/fallback>."
@@ -141,6 +144,10 @@
             "country_not_found": "Land nicht gefunden"
         },
         "button_primary": "Dokument einreichen",
+        "poa_alert": {
+            "country_not_found": "Entschuldigen Sie bitte. Wir arbeiten an der Unterstützung von mehr Ländern.",
+            "intro": "Ihr Land ist nicht aufgeführt?"
+        },
         "search": {
             "accessibility": "Land auswählen",
             "input_placeholder": "z.B. Deutschland",
@@ -217,12 +224,12 @@
         "body_bank_statement": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
         "body_benefits_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
         "body_bill": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-        "body_id": "Die Reisepass Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+        "body_id": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
         "body_image_medium": "Es wird länger dauern, Sie zu verifizieren, wenn wir es nicht lesen können",
         "body_image_poor": "Um Sie reibungslos zu verifizieren, benötigen wir ein besseres Foto",
-        "body_license": "Die Reisepass Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-        "body_passport": "Die Reisepass Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-        "body_permit": "Die Reisepass Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+        "body_license": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+        "body_passport": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+        "body_permit": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
         "body_tax_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
         "button_close": "Schließen",
         "button_primary_redo": "Wiederholen",
@@ -245,6 +252,8 @@
         "button_benefits_letter_detail": "Von der Regierung autorisierte Sozialleistungen, wie z. B. Arbeitslosenhilfe, Wohngeld, Steuerermäßigung",
         "button_bill": "Betriebskostenabrechnung",
         "button_bill_detail": "Gas, Strom, Wasser, Festnetz oder Breitband-Internet",
+        "button_government_letter": "Staatliches Schreiben",
+        "button_government_letter_detail": "Jede Art vom Staat ausgestelltes Schreiben, z. B. Sozialleistungsschreiben, Wahlbenachrichtigung, Schreiben vom Finanzamt usw.",
         "button_id": "Nationaler Personalausweis",
         "button_id_detail": "Vorder- und Rückseite",
         "button_license": "Führerschein",
@@ -280,6 +289,7 @@
         "title_bank_statement": "Auszug senden",
         "title_benefits_letter": "Schreiben einreichen",
         "title_bill": "Rechnung senden",
+        "title_government_letter": "Staatliches Schreiben",
         "title_id_back": "Personalausweis einreichen (Rückseite)",
         "title_id_front": "Personalausweis einreichen (Vorderseite)",
         "title_license_back": "Führerschein einreichen (Rückseite)",
@@ -324,8 +334,8 @@
         "close": "Schließen",
         "errors": {
             "expired_token": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Bitte versuchen Sie es erneut",
+                "message": "Ihr Token ist abgelaufen"
             },
             "geoblocked_error": {
                 "instruction": "Es tut uns leid, wir können leider nicht fortfahren, da Ihr aktueller Standort nicht unterstützt wird.",
@@ -431,6 +441,7 @@
     },
     "outro": {
         "body": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen",
+        "body_government_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
         "title": "Danke"
     },
     "permission": {
@@ -508,13 +519,13 @@
                 "placeholder": "Wählen Sie ein Land aus"
             },
             "nationality_select": {
-                "placeholder": ""
+                "placeholder": "Wählen Sie ein Land aus"
             },
             "pan": {
-                "placeholder": ""
+                "placeholder": "ABCDE1234F"
             },
             "ssn": {
-                "placeholder": ""
+                "placeholder": "123-45-6789"
             },
             "state_select": {
                 "placeholder": "Wählen Sie ein Bundesland aus"
@@ -524,7 +535,7 @@
         "field_labels": {
             "country": "Land",
             "dob": "Geburtsdatum",
-            "email": "",
+            "email": "E-Mail-Adresse",
             "first_name": "Vorname",
             "gbr_specific": {
                 "postcode": "Postleitzahl",
@@ -534,11 +545,11 @@
             "line1": "Adresszeile 1",
             "line2": "Adresszeile 2",
             "line3": "Adresszeile 3",
-            "mobile_number": "",
-            "nationality": "",
-            "pan": "",
+            "mobile_number": "Mobiltelefonnummer",
+            "nationality": "Nationalität",
+            "pan": "Permanente Account-Nummer (PAN)",
             "postcode": "Postleitzahl",
-            "ssn": "",
+            "ssn": "Sozialversicherungsnummer (SVN)",
             "town": "Stadt",
             "usa_specific": {
                 "line1_helper_text": "Straßenname, zum Beispiel: Abertstraße 200",
@@ -549,7 +560,6 @@
         },
         "field_optional": "(optional)",
         "field_validation": {
-            "correct_mobile_number": "",
             "gbr_specific": {
                 "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
                 "too_long_postcode": "Die Postleitzahl ist zu lang",
@@ -559,14 +569,15 @@
             "invalid_dob": "Bitte geben Sie ein gültiges Geburtsdatum ein",
             "required_country": "Bitte wählen Sie ein Land aus",
             "required_dob": "Bitte geben Sie Ihr Geburtsdatum ein",
-            "required_email": "",
+            "required_email": "Bitte geben Sie Ihre E-Mail-Adresse ein",
             "required_first_name": "",
             "required_last_name": "Bitte geben Sie Ihren Nachnamen ein",
             "required_line1": "Bitte geben Sie Ihre Adresse ein",
-            "required_nationality": "",
-            "required_pan": "",
+            "required_mobile_number": "Bitte geben Sie Ihre Mobiltelefonnummer ein",
+            "required_nationality": "Bitte wählen Sie ein Land aus",
+            "required_pan": "Bitte geben Sie Ihre PAN ein",
             "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
-            "required_ssn": "",
+            "required_ssn": "Bitte geben Sie Ihre SVN ein",
             "too_long__line1": "Die Adresszeile ist zu lang",
             "too_long_first_name": "Der Vorname ist zu lang",
             "too_long_last_name": "Der Nachname ist zu lang",
@@ -578,9 +589,10 @@
             "usa_specific": {
                 "required_state": "Bitte wählen Sie einen Staat aus"
             },
-            "valid_email": "",
-            "valid_pan": "",
-            "valid_ssn": ""
+            "valid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+            "valid_mobile_number": "Bitte geben Sie eine gültige Mobiltelefonnummer ein",
+            "valid_pan": "Bitte geben Sie eine gültige PAN ein",
+            "valid_ssn": "Bitte geben Sie eine gültige SVN ein"
         },
         "personal_information_title": "Fügen Sie Ihre persönlichen Informationen hinzu",
         "prompt": {

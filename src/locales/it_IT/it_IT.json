@@ -46,6 +46,9 @@
         "list_item_mask": "Assicurati di rimuovere la mascherina o altri oggetti che coprono il viso. Puoi tenere gli occhiali da vista.",
         "title": "Non riusciamo a rilevare il tuo viso"
     },
+    "avc_uploading": {
+        "title": "Caricamento"
+    },
     "country_select": {
         "alert": {
             "another_doc": "I documenti di questo paese non sono supportati al momento. <fallback>Prova con un altro tipo di documento<\/fallback>"
@@ -54,6 +57,10 @@
             "country_not_found": "Paese non trovato"
         },
         "button_primary": "Invia documento",
+        "poa_alert": {
+            "country_not_found": "Siamo spiacenti. Stiamo lavorando per supportare più Paesi.",
+            "intro": "Non trovi il tuo Paese?"
+        },
         "search": {
             "accessibility": "Seleziona paese",
             "input_placeholder": "es. Italia",
@@ -130,12 +137,12 @@
         "body_bank_statement": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
         "body_benefits_letter": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
         "body_bill": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
-        "body_id": "Assicurati che i tuoi dati siano chiari e non coperti",
+        "body_id": "Assicurati che i tuoi dati siano nitidi e non coperti",
         "body_image_medium": "La verifica richiederà più tempo se non riusciremo a leggere i dati",
         "body_image_poor": "Per completare rapidamente la verifica ci serve una foto migliore",
-        "body_license": "Assicurati che i tuoi dati siano chiari e non coperti",
-        "body_passport": "Assicurati che i tuoi dati siano chiari e non coperti",
-        "body_permit": "Assicurati che i tuoi dati siano chiari e non coperti",
+        "body_license": "Assicurati che i tuoi dati siano nitidi e non coperti",
+        "body_passport": "Assicurati che i tuoi dati siano nitidi e non coperti",
+        "body_permit": "Assicurati che i tuoi dati siano nitidi e non coperti",
         "body_tax_letter": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
         "button_close": "Chiudi",
         "button_primary_redo": "Ripeti",
@@ -158,6 +165,8 @@
         "button_benefits_letter_detail": "Prestazioni previdenziali autorizzate dal governo, come sussidio di disoccupazione, indennità di alloggio o credito d'imposta",
         "button_bill": "Bolletta",
         "button_bill_detail": "Gas, elettricità, acqua, telefono fisso o Internet",
+        "button_government_letter": "Lettera del governo",
+        "button_government_letter_detail": "Qualsiasi lettera emessa dal governo, es. lettere sulle prestazioni previdenziali, lettere di voto, lettere sulle imposte ecc.",
         "button_id": "Carta d’identità",
         "button_id_detail": "Fronte e retro",
         "button_license": "Patente di guida",
@@ -193,6 +202,7 @@
         "title_bank_statement": "Invia estratto conto",
         "title_benefits_letter": "Invia lettera",
         "title_bill": "Invia bolletta",
+        "title_government_letter": "Lettera del governo",
         "title_id_back": "Invia carta d’identità (retro)",
         "title_id_front": "Invia carta d’identità (fronte)",
         "title_license_back": "Invia patente (retro)",
@@ -237,8 +247,8 @@
         "close": "chiudi",
         "errors": {
             "expired_token": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Riprova",
+                "message": "Il tuo token è scaduto"
             },
             "geoblocked_error": {
                 "instruction": "Siamo spiacenti. Sembra che non sia possibile procedere oltre perché la posizione attuale non è supportata",
@@ -344,6 +354,7 @@
     },
     "outro": {
         "body": "Ora abbiamo tutto quello che ci serve per iniziare a verificare la tua identità",
+        "body_government_letter": "Invia l’intera pagina del documento per un risultato ottimale",
         "title": "Grazie"
     },
     "permission": {
@@ -421,13 +432,13 @@
                 "placeholder": "Selezionare un paese"
             },
             "nationality_select": {
-                "placeholder": ""
+                "placeholder": "Seleziona un Paese"
             },
             "pan": {
-                "placeholder": ""
+                "placeholder": "ABCDE1234F"
             },
             "ssn": {
-                "placeholder": ""
+                "placeholder": "123-45-6789"
             },
             "state_select": {
                 "placeholder": "Selezionare uno stato"
@@ -437,7 +448,7 @@
         "field_labels": {
             "country": "Paese",
             "dob": "Data di nascita",
-            "email": "",
+            "email": "Email",
             "first_name": "Nome",
             "gbr_specific": {
                 "postcode": "Codice postale",
@@ -447,11 +458,11 @@
             "line1": "Indirizzo 1",
             "line2": "Indirizzo 2",
             "line3": "Indirizzo 3",
-            "mobile_number": "",
-            "nationality": "",
-            "pan": "",
+            "mobile_number": "Numero di cellulare",
+            "nationality": "Nazionalità",
+            "pan": "Numero di conto permanente (PAN)",
             "postcode": "Codice postale",
-            "ssn": "",
+            "ssn": "Numero di previdenza sociale (SSN)",
             "town": "Comune",
             "usa_specific": {
                 "line1_helper_text": "Indirizzo, ad esempio 200 Albert Street",
@@ -462,7 +473,6 @@
         },
         "field_optional": "(facoltativo)",
         "field_validation": {
-            "correct_mobile_number": "",
             "gbr_specific": {
                 "required_postcode": "Inserire il codice postale",
                 "too_long_postcode": "Il codice postale è troppo lungo",
@@ -472,14 +482,15 @@
             "invalid_dob": "Inserire una data di nascita valida",
             "required_country": "Selezionare un paese",
             "required_dob": "Inserire la data di nascita",
-            "required_email": "",
+            "required_email": "Inserisci la tua email",
             "required_first_name": "",
             "required_last_name": "Inserire il cognome",
             "required_line1": "Inserire l’indirizzo",
-            "required_nationality": "",
-            "required_pan": "",
+            "required_mobile_number": "Inserisci il tuo numero di cellulare",
+            "required_nationality": "Seleziona un Paese",
+            "required_pan": "Inserisci il tuo PAN",
             "required_postcode": "Inserire il codice postale",
-            "required_ssn": "",
+            "required_ssn": "Inserisci il tuo SSN",
             "too_long__line1": "L’indirizzo è troppo lungo",
             "too_long_first_name": "Il nome è troppo lungo",
             "too_long_last_name": "Il cognome è troppo lungo",
@@ -491,9 +502,10 @@
             "usa_specific": {
                 "required_state": "Selezionare uno stato"
             },
-            "valid_email": "",
-            "valid_pan": "",
-            "valid_ssn": ""
+            "valid_email": "Inserisci un’email valida",
+            "valid_mobile_number": "Inserisci un numero di telefono valido",
+            "valid_pan": "Inserisci un PAN valido",
+            "valid_ssn": "Inserisci un SSN valido"
         },
         "personal_information_title": "Aggiungere i dati personali",
         "prompt": {

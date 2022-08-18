@@ -46,6 +46,9 @@
         "list_item_mask": "Pamiętaj, aby zdjąć maski lub inne przedmioty zakrywające twarz. Okulary są akceptowane",
         "title": "Nie możemy wykryć twojej twarzy"
     },
+    "avc_uploading": {
+        "title": "Przesyłanie"
+    },
     "country_select": {
         "alert": {
             "another_doc": "Dokumenty z tego kraju nie są obecnie obsługiwane - <fallback>spróbuj użyć innego typu dokumentu<\/fallback>"
@@ -54,6 +57,10 @@
             "country_not_found": "Nie znaleziono kraju"
         },
         "button_primary": "Złóż dokument",
+        "poa_alert": {
+            "country_not_found": "Przepraszamy za to. Pracujemy nad wsparciem dla większej liczby krajów.",
+            "intro": "Nie możesz znaleźć swojego kraju?"
+        },
         "search": {
             "accessibility": "Wybierz kraj",
             "input_placeholder": "np. Stany Zjednoczone",
@@ -158,6 +165,8 @@
         "button_benefits_letter_detail": "Zasiłki dla gospodarstw domowych zatwierdzone przez rząd, np. zasiłek dla poszukujących pracy, zasiłek mieszkaniowy, ulgi podatkowe",
         "button_bill": "Rachunek za usługi komunalne",
         "button_bill_detail": "Gaz, prąd, woda, telefon stacjonarny lub łącze szerokopasmowe",
+        "button_government_letter": "Pismo rządowe",
+        "button_government_letter_detail": "Wszelkie pisma wydawane przez rząd, np. pisma dotyczące świadczeń, głosowania, podatków itp.",
         "button_id": "Dowód osobisty",
         "button_id_detail": "Przód i tył",
         "button_license": "Prawo jazdy",
@@ -193,6 +202,7 @@
         "title_bank_statement": "Złóż dokument",
         "title_benefits_letter": "Zgłoś list",
         "title_bill": "Prześlij rachunek",
+        "title_government_letter": "Pismo rządowe",
         "title_id_back": "Prześlij dowód osobisty (tył)",
         "title_id_front": "Prześlij dowód tożsamości (przód)",
         "title_license_back": "Prześlij dokument (tył)",
@@ -237,8 +247,8 @@
         "close": "zamknij",
         "errors": {
             "expired_token": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Spróbuj ponownie",
+                "message": "Twój token wygasł"
             },
             "geoblocked_error": {
                 "instruction": "Wygląda na to, że nie możemy kontynuować, ponieważ Twoja bieżąca lokalizacja nie jest obsługiwana",
@@ -344,6 +354,7 @@
     },
     "outro": {
         "body": "To wszystko, czego potrzebujemy, aby rozpocząć weryfikację Twojej tożsamości",
+        "body_government_letter": "Podaj całą stronę dokumentu, aby uzyskać najlepsze wyniki",
         "title": "Dziękuję"
     },
     "permission": {
@@ -421,13 +432,13 @@
                 "placeholder": "Wybierz kraj"
             },
             "nationality_select": {
-                "placeholder": ""
+                "placeholder": "Wybierz kraj"
             },
             "pan": {
-                "placeholder": ""
+                "placeholder": "ABCDE1234F"
             },
             "ssn": {
-                "placeholder": ""
+                "placeholder": "123-45-6789"
             },
             "state_select": {
                 "placeholder": "Wybierz stan"
@@ -437,7 +448,7 @@
         "field_labels": {
             "country": "Kraj",
             "dob": "Data urodzenia",
-            "email": "",
+            "email": "E-mail",
             "first_name": "Imię",
             "gbr_specific": {
                 "postcode": "Kod pocztowy",
@@ -447,11 +458,11 @@
             "line1": "Linia adresu 1",
             "line2": "Linia adresu 2",
             "line3": "Linia adresowa 3",
-            "mobile_number": "",
-            "nationality": "",
-            "pan": "",
+            "mobile_number": "Numer telefonu komórkowego",
+            "nationality": "Narodowość",
+            "pan": "Stały numer konta (PAN)",
             "postcode": "Kod pocztowy",
-            "ssn": "",
+            "ssn": "Numer ubezpieczenia społecznego (SSN)",
             "town": "Miejscowość",
             "usa_specific": {
                 "line1_helper_text": "Adres, na przykład: ul. Alberta 200",
@@ -462,7 +473,6 @@
         },
         "field_optional": "(opcjonalnie)",
         "field_validation": {
-            "correct_mobile_number": "",
             "gbr_specific": {
                 "required_postcode": "Wprowadź swój kod pocztowy",
                 "too_long_postcode": "Kod pocztowy jest zbyt długi",
@@ -472,14 +482,15 @@
             "invalid_dob": "Wprowadź prawidłową datę urodzenia",
             "required_country": "Wybierz kraj",
             "required_dob": "Wpisz swoją datę urodzenia",
-            "required_email": "",
+            "required_email": "Podaj swój adres e-mail",
             "required_first_name": "Wpisz swoje imię",
             "required_last_name": "Wpisz swoje nazwisko",
             "required_line1": "Wpisz adres",
-            "required_nationality": "",
-            "required_pan": "",
+            "required_mobile_number": "Podaj numer telefonu komórkowego",
+            "required_nationality": "Wybierz kraj",
+            "required_pan": "Podaj swój PAN",
             "required_postcode": "Wprowadź swój kod pocztowy",
-            "required_ssn": "",
+            "required_ssn": "Podaj swój numer SSN",
             "too_long__line1": "Wprowadzony adres jest zbyt długi",
             "too_long_first_name": "Imię jest zbyt długie",
             "too_long_last_name": "Nazwisko jest zbyt długie",
@@ -491,9 +502,10 @@
             "usa_specific": {
                 "required_state": "Wybierz stan"
             },
-            "valid_email": "",
-            "valid_pan": "",
-            "valid_ssn": ""
+            "valid_email": "Podaj poprawny adres e-mail",
+            "valid_mobile_number": "Podaj prawidłowy numer telefonu komórkowego",
+            "valid_pan": "Podaj prawidłowy PAN",
+            "valid_ssn": "Podaj prawidłowy numer SSN"
         },
         "personal_information_title": "Dodaj swoje dane osobowe",
         "prompt": {
@@ -585,19 +597,19 @@
         "title": "Prześlij stronę ze zdjęciem paszportowym"
     },
     "user_consent": {
-        "button_primary": "",
-        "button_secondary": "",
+        "button_primary": "Accept",
+        "button_secondary": "Do not accept",
         "prompt": {
-            "button_primary": "",
-            "button_secondary": "",
-            "no_consent_detail": "",
-            "no_consent_title": ""
+            "button_primary": "Review again",
+            "button_secondary": "Yes, don’t verify me",
+            "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+            "no_consent_title": "Are you sure?"
         }
     },
     "user_consent_load_fail": {
-        "button_primary": "",
-        "detail": "",
-        "title": ""
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
     },
     "video_capture": {
         "body": "Trzymaj twarz w obrębie owalu",

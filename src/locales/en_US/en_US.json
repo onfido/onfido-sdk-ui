@@ -133,6 +133,9 @@
         "list_item_mask": "Make sure to remove masks or other items that cover your face. Eyeglasses are okay",
         "title": "We can't detect your face"
     },
+    "avc_uploading": {
+        "title": "Uploading"
+    },
     "country_select": {
         "alert": {
             "another_doc": "Documents from that country are not currently supported — <fallback>try another document type<\/fallback>"
@@ -141,6 +144,10 @@
             "country_not_found": "Country not found"
         },
         "button_primary": "Submit document",
+        "poa_alert": {
+            "country_not_found": "Sorry about that. We are working on supporting more countries.",
+            "intro": "Can’t find your country?"
+        },
         "search": {
             "accessibility": "Select country",
             "input_placeholder": "e.g. United States",
@@ -245,6 +252,8 @@
         "button_benefits_letter_detail": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
         "button_bill": "Utility Bill",
         "button_bill_detail": "Gas, electricity, water, landline, or broadband",
+        "button_government_letter": "Government Letter",
+        "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
         "button_id": "Identity card",
         "button_id_detail": "Front and back",
         "button_license": "Driver’s license",
@@ -280,6 +289,7 @@
         "title_bank_statement": "Submit statement",
         "title_benefits_letter": "Submit letter",
         "title_bill": "Submit bill",
+        "title_government_letter": "Government Letter",
         "title_id_back": "Submit identity card (back)",
         "title_id_front": "Submit identity card (front)",
         "title_license_back": "Submit license (back)",
@@ -431,6 +441,7 @@
     },
     "outro": {
         "body": "That’s all we need to start verifying your identity",
+        "body_government_letter": "Provide the whole document page for best results",
         "title": "Thank you"
     },
     "permission": {
@@ -549,7 +560,6 @@
         },
         "field_optional": "(optional)",
         "field_validation": {
-            "correct_mobile_number": "Please check that your number is correct",
             "gbr_specific": {
                 "required_postcode": "Please enter your postcode",
                 "too_long_postcode": "Postcode is too long",
@@ -563,6 +573,7 @@
             "required_first_name": "Please enter your first name",
             "required_last_name": "Please enter your last name",
             "required_line1": "Please enter your address",
+            "required_mobile_number": "Please enter your mobile number",
             "required_nationality": "Please select a country",
             "required_pan": "Please enter your PAN",
             "required_postcode": "Please enter your postal code",
@@ -579,6 +590,7 @@
                 "required_state": "Please select a state"
             },
             "valid_email": "Please enter a valid email",
+            "valid_mobile_number": "Please enter a valid mobile number",
             "valid_pan": "Please enter a valid PAN",
             "valid_ssn": "Please enter a valid SSN"
         },

@@ -133,6 +133,9 @@
         "list_item_mask": "Assurez-vous d'ôter le masque ou outres éléments qui couvrent votre visage. Les lunettes sont acceptées",
         "title": "Nous ne pouvons pas détecter votre visage"
     },
+    "avc_uploading": {
+        "title": "Téléversement"
+    },
     "country_select": {
         "alert": {
             "another_doc": "Les documents de ce pays ne sont actuellement pas pris en charge — <fallback>essayez un autre type de document<\/fallback>"
@@ -141,6 +144,10 @@
             "country_not_found": "Pays introuvable"
         },
         "button_primary": "Envoyer le document",
+        "poa_alert": {
+            "country_not_found": "Nous sommes désolés. Nous travaillons à prendre en charge plus de pays.",
+            "intro": "Vous ne trouvez pas votre pays ?"
+        },
         "search": {
             "accessibility": "Choisissez le pays",
             "input_placeholder": "ex : France",
@@ -217,12 +224,12 @@
         "body_bank_statement": "Assurez-vous d'avoir téléversé la page entière du document et que les détails sont clairement lisibles, sans flou et sans reflets",
         "body_benefits_letter": "Assurez-vous d'avoir téléversé la page entière du document et que les détails sont clairement lisibles, sans flou et sans reflets",
         "body_bill": "Assurez-vous d'avoir téléversé la page entière du document et que les détails sont clairement lisibles, sans flou et sans reflets",
-        "body_id": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets",
+        "body_id": "Assurez-vous que vos coordonnées sont lisibles et nettes",
         "body_image_medium": "Il faudra plus de temps pour vous vérifier si la lecture est impossible",
         "body_image_poor": "Pour vous vérifier au mieux, nous avons besoin d’une meilleure photo",
-        "body_license": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets",
-        "body_passport": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets",
-        "body_permit": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets",
+        "body_license": "Assurez-vous que vos coordonnées sont lisibles et nettes",
+        "body_passport": "Assurez-vous que vos coordonnées sont lisibles et nettes",
+        "body_permit": "Assurez-vous que vos coordonnées sont lisibles et nettes",
         "body_tax_letter": "Assurez-vous d'avoir téléversé la page entière du document et que les détails sont clairement lisibles, sans flou et sans reflets",
         "button_close": "Fermer",
         "button_primary_redo": "Recommencer",
@@ -245,6 +252,8 @@
         "button_benefits_letter_detail": "Allocations autorisées par le gouvernement, par ex. allocation chômage, allocation logement, crédit d'impôt",
         "button_bill": "Facture de gaz, électricité, etc.",
         "button_bill_detail": "Gaz, électricité, eau, ligne fixe ou Internet",
+        "button_government_letter": "Lettre du gouvernement",
+        "button_government_letter_detail": "Toute lettre émise par le gouvernement, comme une lettre relative aux prestations, au vote ou la fiscalité, etc.",
         "button_id": "Carte nationale d’identité",
         "button_id_detail": "Recto et verso",
         "button_license": "Permis de conduire",
@@ -280,6 +289,7 @@
         "title_bank_statement": "Envoyer le relevé",
         "title_benefits_letter": "Envoyer la lettre",
         "title_bill": "Envoyer la facture",
+        "title_government_letter": "Lettre du gouvernement",
         "title_id_back": "Envoyez votre carte d’identité (verso)",
         "title_id_front": "Envoyer la carte d’identité (recto)",
         "title_license_back": "Envoyer le permis (verso)",
@@ -324,8 +334,8 @@
         "close": "fermer",
         "errors": {
             "expired_token": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Veuillez réessayer",
+                "message": "Votre jeton a expiré"
             },
             "geoblocked_error": {
                 "instruction": "Nous sommes désolés, il semble que nous ne puissions pas poursuivre car votre emplacement actuel n'est pas pris en charge",
@@ -431,6 +441,7 @@
     },
     "outro": {
         "body": "C’est tout ce dont nous avons besoin pour commencer à vérifier votre identité",
+        "body_government_letter": "Fournissez la page entière du document pour de meilleurs résultats",
         "title": "Merci"
     },
     "permission": {
@@ -508,13 +519,13 @@
                 "placeholder": "Sélectionnez un pays"
             },
             "nationality_select": {
-                "placeholder": ""
+                "placeholder": "Sélectionnez un pays"
             },
             "pan": {
-                "placeholder": ""
+                "placeholder": "ABCDE1234F"
             },
             "ssn": {
-                "placeholder": ""
+                "placeholder": "123-45-6789"
             },
             "state_select": {
                 "placeholder": "Sélectionnez un État"
@@ -524,7 +535,7 @@
         "field_labels": {
             "country": "Pays",
             "dob": "Date de naissance",
-            "email": "",
+            "email": "E-mail",
             "first_name": "Prénom",
             "gbr_specific": {
                 "postcode": "Code postal",
@@ -534,11 +545,11 @@
             "line1": "Adresse ligne 1",
             "line2": "Adresse ligne 2",
             "line3": "Adresse ligne 3",
-            "mobile_number": "",
-            "nationality": "",
-            "pan": "",
+            "mobile_number": "Numéro de mobile",
+            "nationality": "Nationalité",
+            "pan": "Numéro de compte permanent (PAN)",
             "postcode": "Code postal",
-            "ssn": "",
+            "ssn": "Numéro de sécurité sociale (SSN)",
             "town": "Ville",
             "usa_specific": {
                 "line1_helper_text": "Nom de la rue, par exemple : 200 rue Albert",
@@ -549,7 +560,6 @@
         },
         "field_optional": "(facultatif)",
         "field_validation": {
-            "correct_mobile_number": "",
             "gbr_specific": {
                 "required_postcode": "Veuillez renseigner votre code postal",
                 "too_long_postcode": "Le code postal est trop long",
@@ -559,14 +569,15 @@
             "invalid_dob": "Veuillez saisir une date de naissance valide",
             "required_country": "Veuillez sélectionner un pays",
             "required_dob": "Veuillez saisir votre date de naissance",
-            "required_email": "",
+            "required_email": "Veuillez renseigner votre adresse",
             "required_first_name": "",
             "required_last_name": "Veuillez renseigner votre nom de famille",
             "required_line1": "Veuillez renseigner votre adresse",
-            "required_nationality": "",
-            "required_pan": "",
+            "required_mobile_number": "Veuillez renseigner votre numéro de mobile",
+            "required_nationality": "Veuillez sélectionner un pays",
+            "required_pan": "Veuillez renseigner votre PAN",
             "required_postcode": "Veuillez renseigner votre code postal",
-            "required_ssn": "",
+            "required_ssn": "Veuillez renseigner votre SSN",
             "too_long__line1": "La ligne de l'adresse est trop longue",
             "too_long_first_name": "Le prénom est trop long",
             "too_long_last_name": "Le nom de famille est trop long",
@@ -578,9 +589,10 @@
             "usa_specific": {
                 "required_state": "Veuillez sélectionner un État"
             },
-            "valid_email": "",
-            "valid_pan": "",
-            "valid_ssn": ""
+            "valid_email": "Veuillez saisir un e-mail valide",
+            "valid_mobile_number": "Veuillez renseigner un numéro de mobile valide",
+            "valid_pan": "Veuillez saisir un PAN valide",
+            "valid_ssn": "Veuillez saisir un SSN valide"
         },
         "personal_information_title": "Ajoutez vos informations personnelles",
         "prompt": {

@@ -46,6 +46,9 @@
         "list_item_mask": "Zorg ervoor dat u maskers of andere voorwerpen die uw gezicht bedekken afzet. Een bril mag wel.",
         "title": "We kunnen uw gezicht niet detecteren"
     },
+    "avc_uploading": {
+        "title": "Uploaden"
+    },
     "country_select": {
         "alert": {
             "another_doc": "Documenten uit dat land worden momenteel niet ondersteund - <fallback>probeer een ander documenttype<\/fallback>"
@@ -54,6 +57,10 @@
             "country_not_found": "Land niet gevonden"
         },
         "button_primary": "Verzend document",
+        "poa_alert": {
+            "country_not_found": "Excuses daarvoor. We werken eraan om meer landen te ondersteunen.",
+            "intro": "Kunt u uw land niet vinden?"
+        },
         "search": {
             "accessibility": "Selecteer land",
             "input_placeholder": "bijv. Nederland",
@@ -158,6 +165,8 @@
         "button_benefits_letter_detail": "Door de overheid toegestane uitkeringen voor huishoudens, bv. uitkering voor werkzoekenden, huursubsidie, belastingkredieten",
         "button_bill": "Energierekening",
         "button_bill_detail": "Gas, elektriciteit, water, vaste telefoonlijn of breedband",
+        "button_government_letter": "Brief van de overheid",
+        "button_government_letter_detail": "Alle brieven van de overheid, bv. uitkeringsrechten, stembrieven, belastingbrieven, enz",
         "button_id": "Identiteitskaart",
         "button_id_detail": "Voor- en achterkant",
         "button_license": "Rijbewijs",
@@ -193,6 +202,7 @@
         "title_bank_statement": "Afschrift indienen",
         "title_benefits_letter": "Brief indienen",
         "title_bill": "Factuur indienen",
+        "title_government_letter": "Brief van de overheid",
         "title_id_back": "Verzend identiteitskaart (achterkant)",
         "title_id_front": "Verzend identiteitskaart (voorkant)",
         "title_license_back": "Verzend rijbewijs (achterkant)",
@@ -237,8 +247,8 @@
         "close": "sluiten",
         "errors": {
             "expired_token": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Probeer het opnieuw",
+                "message": "Uw token is verlopen"
             },
             "geoblocked_error": {
                 "instruction": "Het spijt ons, we kunnen niet verdergaan, omdat uw huidige locatie niet ondersteund wordt",
@@ -344,6 +354,7 @@
     },
     "outro": {
         "body": "Daarom moeten we uw identiteit verifiëren",
+        "body_government_letter": "Verstrek de hele documentpagina voor de beste resultaten",
         "title": "Dank u"
     },
     "permission": {
@@ -421,13 +432,13 @@
                 "placeholder": "Selecteer een land"
             },
             "nationality_select": {
-                "placeholder": ""
+                "placeholder": "Selecteer een land"
             },
             "pan": {
-                "placeholder": ""
+                "placeholder": "ABCDE1234F"
             },
             "ssn": {
-                "placeholder": ""
+                "placeholder": "123-45-6789"
             },
             "state_select": {
                 "placeholder": "Selecteer een staat"
@@ -437,7 +448,7 @@
         "field_labels": {
             "country": "Land",
             "dob": "Geboortedatum",
-            "email": "",
+            "email": "E-mailadres",
             "first_name": "Voornaam",
             "gbr_specific": {
                 "postcode": "Postcode",
@@ -447,11 +458,11 @@
             "line1": "Adresregel 1",
             "line2": "Adresregel 2",
             "line3": "Adresregel 3",
-            "mobile_number": "",
-            "nationality": "",
-            "pan": "",
+            "mobile_number": "Mobiel nummer",
+            "nationality": "Nationaliteit",
+            "pan": "Permanent account number (PAN)",
             "postcode": "Postcode",
-            "ssn": "",
+            "ssn": "Sociale Zekerheidsnummer (SSN)",
             "town": "Stad",
             "usa_specific": {
                 "line1_helper_text": "Adres, bijvoorbeeld: 200 Albertstraat",
@@ -462,7 +473,6 @@
         },
         "field_optional": "(optioneel)",
         "field_validation": {
-            "correct_mobile_number": "",
             "gbr_specific": {
                 "required_postcode": "Voer uw postcode in",
                 "too_long_postcode": "Postcode is te lang",
@@ -472,14 +482,15 @@
             "invalid_dob": "Voer een geldig geboortedatum in",
             "required_country": "Selecteer een land",
             "required_dob": "Voer uw geboortedatum in",
-            "required_email": "",
+            "required_email": "Voer uw e-mailadres in",
             "required_first_name": "",
             "required_last_name": "Voer uw achternaam in",
             "required_line1": "Voer uw adres in",
-            "required_nationality": "",
-            "required_pan": "",
+            "required_mobile_number": "Voer uw mobiele nummer in",
+            "required_nationality": "Selecteer een land",
+            "required_pan": "Voer uw PAN in",
             "required_postcode": "Voer uw postcode in",
-            "required_ssn": "",
+            "required_ssn": "Voer uw SSN in",
             "too_long__line1": "Adresregel is te lang",
             "too_long_first_name": "Voornaam is te lang",
             "too_long_last_name": "Achternaam is te lang",
@@ -491,9 +502,10 @@
             "usa_specific": {
                 "required_state": "Selecteer een staat"
             },
-            "valid_email": "",
-            "valid_pan": "",
-            "valid_ssn": ""
+            "valid_email": "Voer een geldig e-mailadres in",
+            "valid_mobile_number": "Voer een geldig mobiel nummer in",
+            "valid_pan": "Voer een geldig PAN in",
+            "valid_ssn": "Voer een geldig SSN in"
         },
         "personal_information_title": "Voeg uw persoonlijke informatie toe",
         "prompt": {

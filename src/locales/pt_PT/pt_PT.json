@@ -46,6 +46,9 @@
         "list_item_mask": "Certifique-se de que remove as máscaras ou outros artigos que cobrem o seu rosto. Os óculos não precisa de retirar",
         "title": "Não conseguimos detetar o seu rosto"
     },
+    "avc_uploading": {
+        "title": "Carregamento em curso"
+    },
     "country_select": {
         "alert": {
             "another_doc": "Os documentos desse país não são atualmente suportados — <fallback>tente outro tipo de documento<\/fallback>"
@@ -54,6 +57,10 @@
             "country_not_found": "País não encontrado"
         },
         "button_primary": "Enviar documento",
+        "poa_alert": {
+            "country_not_found": "Lamentamos. Estamos a trabalhar para suportar mais países.",
+            "intro": "Não consegue encontrar o seu país?"
+        },
         "search": {
             "accessibility": "Selecione o país",
             "input_placeholder": "por exemplo, Portugal",
@@ -130,12 +137,12 @@
         "body_bank_statement": "Certifique-se de que carregou a página inteira do documento e que os detalhes são facilmente legíveis, sem desfoque ou brilho",
         "body_benefits_letter": "Certifique-se de que carregou a página inteira do documento e que os detalhes são facilmente legíveis, sem desfoque ou brilho",
         "body_bill": "Certifique-se de que carregou a página inteira do documento e que os detalhes são facilmente legíveis, sem desfoque ou brilho",
-        "body_id": "Certifique-se de que os seus dados são claros e desobstruídos",
+        "body_id": "Certifique-se de que os seus dados são nítidos e não estão obstruídos",
         "body_image_medium": "Vamos demorar mais tempo a verificar a sua identidade se não conseguirmos efetuar a leitura",
         "body_image_poor": "Para confirmar melhor a sua identidade, precisamos de uma fotografia melhor",
-        "body_license": "Certifique-se de que os seus dados são claros e desobstruídos",
-        "body_passport": "Certifique-se de que os seus dados são claros e desobstruídos",
-        "body_permit": "Certifique-se de que os seus dados são claros e desobstruídos",
+        "body_license": "Certifique-se de que os seus dados são nítidos e não estão obstruídos",
+        "body_passport": "Certifique-se de que os seus dados são nítidos e não estão obstruídos",
+        "body_permit": "Certifique-se de que os seus dados são nítidos e não estão obstruídos",
         "body_tax_letter": "Certifique-se de que carregou a página inteira do documento e que os detalhes são facilmente legíveis, sem desfoque ou brilho",
         "button_close": "Fechar",
         "button_primary_redo": "Refazer",
@@ -158,6 +165,8 @@
         "button_benefits_letter_detail": "Benefícios autorizados pelo governo, p.e. subsídio de desemprego, subsídio de habitação, créditos fiscais",
         "button_bill": "Fatura de serviço essencial",
         "button_bill_detail": "Gás, eletricidade, água, telefone fixo ou banda larga",
+        "button_government_letter": "Carta governamental",
+        "button_government_letter_detail": "Qualquer carta emitida pelo governo como, por exemplo, direito a prestações, cartas de voto, cartas fiscais, etc.",
         "button_id": "Cartão de identidade",
         "button_id_detail": "Frente e verso",
         "button_license": "Carta de condução",
@@ -193,6 +202,7 @@
         "title_bank_statement": "Enviar declaração",
         "title_benefits_letter": "Enviar carta",
         "title_bill": "Enviar fatura",
+        "title_government_letter": "Carta governamental",
         "title_id_back": "Submeter cartão de identidade (verso)",
         "title_id_front": "Submeter cartão de identidade (frente)",
         "title_license_back": "Submeter carta (verso)",
@@ -237,8 +247,8 @@
         "close": "fechar",
         "errors": {
             "expired_token": {
-                "instruction": "",
-                "message": ""
+                "instruction": "Tente novamente",
+                "message": "O seu token está caducado"
             },
             "geoblocked_error": {
                 "instruction": "Lamentamos, parece que não conseguimos avançar mais porque a sua localização atual não é suportada",
@@ -344,6 +354,7 @@
     },
     "outro": {
         "body": "É tudo o que precisamos para começar a verificar a sua identidade",
+        "body_government_letter": "Forneça a página completa do documento para melhores resultados",
         "title": "Obrigado"
     },
     "permission": {
@@ -421,13 +432,13 @@
                 "placeholder": "Selecione um país"
             },
             "nationality_select": {
-                "placeholder": ""
+                "placeholder": "Selecione um país"
             },
             "pan": {
-                "placeholder": ""
+                "placeholder": "ABCDE1234F"
             },
             "ssn": {
-                "placeholder": ""
+                "placeholder": "123-45-6789"
             },
             "state_select": {
                 "placeholder": "Selecione um estado"
@@ -437,7 +448,7 @@
         "field_labels": {
             "country": "País",
             "dob": "Data de nascimento",
-            "email": "",
+            "email": "Email",
             "first_name": "Nome próprio",
             "gbr_specific": {
                 "postcode": "Código postal",
@@ -447,11 +458,11 @@
             "line1": "Linha da morada 1",
             "line2": "Linha da morada 2",
             "line3": "Linha da morada 3",
-            "mobile_number": "",
-            "nationality": "",
-            "pan": "",
+            "mobile_number": "Número de telemóvel",
+            "nationality": "Nacionalidade",
+            "pan": "Número de conta permanente (PAN)",
             "postcode": "Código postal",
-            "ssn": "",
+            "ssn": "Número de Segurança Social (NISS)",
             "town": "Cidade",
             "usa_specific": {
                 "line1_helper_text": "Morada, por exemplo: Rua Luís Silva 200",
@@ -462,7 +473,6 @@
         },
         "field_optional": "(opcional)",
         "field_validation": {
-            "correct_mobile_number": "",
             "gbr_specific": {
                 "required_postcode": "Introduza o seu código postal",
                 "too_long_postcode": "O código postal é demasiado longo",
@@ -472,14 +482,15 @@
             "invalid_dob": "Introduza uma data de nascimento válida",
             "required_country": "Selecione um país",
             "required_dob": "Introduza a sua data de nascimento",
-            "required_email": "",
+            "required_email": "Introduza o seu e-mail",
             "required_first_name": "",
             "required_last_name": "Introduza o seu apelido",
             "required_line1": "Introduza a sua morada",
-            "required_nationality": "",
-            "required_pan": "",
+            "required_mobile_number": "Introduza o seu número de telemóvel",
+            "required_nationality": "Selecione um país",
+            "required_pan": "Introduza o seu PAN",
             "required_postcode": "Introduza o seu código postal",
-            "required_ssn": "",
+            "required_ssn": "Introduza o seu NISS",
             "too_long__line1": "A linha da morada é demasiado longa",
             "too_long_first_name": "O nome próprio é demasiado longo",
             "too_long_last_name": "O apelido é demasiado longo",
@@ -491,9 +502,10 @@
             "usa_specific": {
                 "required_state": "Selecione um estado"
             },
-            "valid_email": "",
-            "valid_pan": "",
-            "valid_ssn": ""
+            "valid_email": "Introduza um e-mail válido",
+            "valid_mobile_number": "Introduza um número de telemóvel válido",
+            "valid_pan": "Introduza um PAN válido",
+            "valid_ssn": "Introduza um NISS válido"
         },
         "personal_information_title": "Adicione as suas informações pessoais",
         "prompt": {
@@ -663,4 +675,5 @@
         "task_not_retrieved": "",
         "task_not_supported": ""
     }
+    
 }

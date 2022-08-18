@@ -46,6 +46,9 @@
         "list_item_mask": "Nezapomeňte si sundat roušku nebo jiné předměty, které vám zakrývají obličej. Brýle jsou v pořádku",
         "title": "Nemůžeme rozpoznat váš obličej"
     },
+    "avc_uploading": {
+        "title": "Nahrávání"
+    },
     "country_select": {
         "alert": {
             "another_doc": "Dokumenty z této země nejsou v současné době podporovány - <fallback>zkuste jiný typ dokumentu<\/fallback>."
@@ -54,6 +57,10 @@
             "country_not_found": "Země nebyla nalezena"
         },
         "button_primary": "Odeslat dokument",
+        "poa_alert": {
+            "country_not_found": "Litujeme. Pracujeme na budoucí podpoře dalších zemí.",
+            "intro": "Nemůžete najít svou zemi?"
+        },
         "search": {
             "accessibility": "Zvolte zemi",
             "input_placeholder": "např. Spojené státy",
@@ -158,6 +165,8 @@
         "button_benefits_letter_detail": "Vládou schválené dávky pro domácnosti, např. příspěvek pro uchazeče o zaměstnání, příspěvek na bydlení, daňové úlevy.",
         "button_bill": "Účet za komunální služby",
         "button_bill_detail": "Plyn, elektřina, voda, pevná linka nebo širokopásmové připojení",
+        "button_government_letter": "Vládní dopis",
+        "button_government_letter_detail": "Jakýkoli dopis vydaný vládou, například dopis o nároku na dávky, dopis o volbách, dopis o daních atd.",
         "button_id": "Průkaz totožnosti",
         "button_id_detail": "Přední a zadní strana",
         "button_license": "Řidičský průkaz",
@@ -193,6 +202,7 @@
         "title_bank_statement": "Odeslat prohlášení",
         "title_benefits_letter": "Odeslat dopis",
         "title_bill": "Předložit účet",
+        "title_government_letter": "Vládní dopis",
         "title_id_back": "Předložit průkaz totožnosti (zadní strana)",
         "title_id_front": "Předložit průkaz totožnosti (přední strana)",
         "title_license_back": "Předložit licenci (zadní strana)",
@@ -344,6 +354,7 @@
     },
     "outro": {
         "body": "To je vše, co potřebujeme, abychom mohli začít ověřovat vaši totožnost",
+        "body_government_letter": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
         "title": "Děkujeme"
     },
     "permission": {
@@ -462,7 +473,6 @@
         },
         "field_optional": "(volitelná položka)",
         "field_validation": {
-            "correct_mobile_number": "Zkontrolujte správnost svého čísla",
             "gbr_specific": {
                 "required_postcode": "Zadejte své poštovní směrovací číslo",
                 "too_long_postcode": "Poštovní směrovací číslo je příliš dlouhé",
@@ -476,6 +486,7 @@
             "required_first_name": "Zadejte své křestní jméno",
             "required_last_name": "Zadejte své příjmení",
             "required_line1": "Zadejte svou adresu",
+            "required_mobile_number": "Zkontrolujte správnost svého čísla",
             "required_nationality": "Vyberte zemi",
             "required_pan": "Zadejte své PAN",
             "required_postcode": "Zadejte své poštovní směrovací číslo",
@@ -492,6 +503,7 @@
                 "required_state": "Vyberte stát"
             },
             "valid_email": "Zadejte platný e-mail",
+            "valid_mobile_number": "Zadejte platné mobilní číslo",
             "valid_pan": "Zadejte platné PAN",
             "valid_ssn": "Zadejte platné číslo SSN"
         },
@@ -585,19 +597,19 @@
         "title": "Nahrávání pasové fotografie"
     },
     "user_consent": {
-        "button_primary": "",
-        "button_secondary": "",
+        "button_primary": "Accept",
+        "button_secondary": "Do not accept",
         "prompt": {
-            "button_primary": "",
-            "button_secondary": "",
-            "no_consent_detail": "",
-            "no_consent_title": ""
+            "button_primary": "Review again",
+            "button_secondary": "Yes, don’t verify me",
+            "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+            "no_consent_title": "Are you sure?"
         }
     },
     "user_consent_load_fail": {
-        "button_primary": "",
-        "detail": "",
-        "title": ""
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
     },
     "video_capture": {
         "body": "Držte obličej v oválu",
