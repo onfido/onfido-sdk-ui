@@ -183,8 +183,8 @@
         "section": {
             "header_country": "Vydávající země",
             "header_doc_type": "Akceptované dokumenty",
-            "input_placeholder_country": "Žádné výsledky",
-            "input_placeholder_country_copy": "Vyberte zemi, kde došlo k vydání"
+            "input_country_not_found": "Žádné výsledky",
+            "input_placeholder_country": "Vyberte zemi, kde došlo k vydání"
         },
         "subtitle": "Musí se jednat o oficiální průkaz totožnosti s fotografií",
         "subtitle_country": "Vyberte zemi vydání a podívejte se, které doklady přijímáme",
@@ -349,7 +349,7 @@
         },
         "upload_guide": {
             "button_primary": "Vyfoťte se",
-            "title": "Umístěte stránku s fotografií dokumentu do rámečku"
+            "title": "Nahrávání pasové fotografie"
         }
     },
     "outro": {

@@ -270,8 +270,8 @@
         "section": {
             "header_country": "Issuing country",
             "header_doc_type": "Accepted documents",
-            "input_placeholder_country": "No Results",
-            "input_placeholder_country_copy": "Select issuing country"
+            "input_country_not_found": "No Results",
+            "input_placeholder_country": "Select issuing country"
         },
         "subtitle": "It must be an official photo ID",
         "subtitle_country": "Select issuing country to see which documents we accept",
@@ -436,7 +436,7 @@
         },
         "upload_guide": {
             "button_primary": "Take a photo",
-            "title": "Position the photo page of your document in the frame"
+            "title": "Upload passport photo page"
         }
     },
     "outro": {

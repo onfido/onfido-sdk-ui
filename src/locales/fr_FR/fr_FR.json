@@ -270,8 +270,8 @@
         "section": {
             "header_country": "Pays émetteur",
             "header_doc_type": "Documents acceptés",
-            "input_placeholder_country": "Aucun résultat",
-            "input_placeholder_country_copy": "Sélectionnez votre pays"
+            "input_country_not_found": "Aucun résultat",
+            "input_placeholder_country": "Sélectionnez votre pays"
         },
         "subtitle": "Il doit s’agir d’une pièce d’identité officielle avec photo",
         "subtitle_country": "Sélectionnez le pays émetteur pour voir quels documents nous acceptons",
@@ -436,7 +436,7 @@
         },
         "upload_guide": {
             "button_primary": "Prendre une photo",
-            "title": "Positionnez la page de la photo de votre document dans le cadre"
+            "title": "Envoyez la page du passeport contenant votre photo"
         }
     },
     "outro": {

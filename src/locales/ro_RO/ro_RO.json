@@ -183,8 +183,8 @@
         "section": {
             "header_country": "Țară emitentă",
             "header_doc_type": "Documente acceptate",
-            "input_placeholder_country": "Niciun rezultat",
-            "input_placeholder_country_copy": "Selectați țara emitentă"
+            "input_country_not_found": "Niciun rezultat",
+            "input_placeholder_country": "Selectați țara emitentă"
         },
         "subtitle": "Trebuie să fie un document de identitate cu poză oficial",
         "subtitle_country": "Selectați țara emitentă pentru a vedea ce documente acceptăm",
@@ -349,7 +349,7 @@
         },
         "upload_guide": {
             "button_primary": "Faceți o poză",
-            "title": "Poziționați pagina cu poză a documentului dvs. în cadru"
+            "title": "Încărcați pagina cu poză a pașaportului"
         }
     },
     "outro": {

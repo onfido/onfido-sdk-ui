@@ -183,8 +183,8 @@
         "section": {
             "header_country": "Land van uitgifte",
             "header_doc_type": "Geaccepteerde documenten",
-            "input_placeholder_country": "Geen resultaten",
-            "input_placeholder_country_copy": "Selecteer land van uitgifte"
+            "input_country_not_found": "Geen resultaten",
+            "input_placeholder_country": "Selecteer land van uitgifte"
         },
         "subtitle": "Het moet een officieel identiteitsbewijs met foto zijn",
         "subtitle_country": "Selecteer het land van uitgifte om te zien welke documenten we accepteren",
@@ -349,7 +349,7 @@
         },
         "upload_guide": {
             "button_primary": "Neem een foto",
-            "title": "Plaats de fotopagina van uw document in het kader"
+            "title": "Upload de fotopagina van uw paspoort"
         }
     },
     "outro": {

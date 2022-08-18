@@ -183,8 +183,8 @@
         "section": {
             "header_country": "País emissor",
             "header_doc_type": "Documentos aceitos",
-            "input_placeholder_country": "Sem resultados",
-            "input_placeholder_country_copy": "Selecione o país emissor"
+            "input_country_not_found": "Sem resultados",
+            "input_placeholder_country": "Selecione o país emissor"
         },
         "subtitle": "Deve ser uma identificação oficial com fotografia",
         "subtitle_country": "Selecione o país emissor para ver quais documentos aceitamos",
@@ -349,7 +349,7 @@
         },
         "upload_guide": {
             "button_primary": "Tirar uma fotografia",
-            "title": "Coloque a página de fotografia do seu documento na moldura"
+            "title": "Carregue a página com fotografia do passaporte"
         }
     },
     "outro": {
@@ -675,5 +675,4 @@
         "task_not_retrieved": "",
         "task_not_supported": ""
     }
-    
 }

@@ -245,7 +245,7 @@
     "yn": "^3.0.0"
   },
   "dependencies": {
-    "@onfido/active-video-capture": "^0.8.0",
+    "@onfido/active-video-capture": "^0.10.0",
     "@sentry/browser": "^7.2.0",
     "blueimp-load-image": "~2.29.0",
     "classnames": "~2.2.5",

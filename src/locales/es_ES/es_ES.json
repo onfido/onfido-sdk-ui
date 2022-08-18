@@ -270,8 +270,8 @@
         "section": {
             "header_country": "País emisor",
             "header_doc_type": "Documentos aceptados",
-            "input_placeholder_country": "Sin resultados",
-            "input_placeholder_country_copy": "Seleccione el país emisor"
+            "input_country_not_found": "Sin resultados",
+            "input_placeholder_country": "Seleccione el país emisor"
         },
         "subtitle": "Debe ser un documento de identidad oficial con fotografía",
         "subtitle_country": "Seleccione el país emisor para ver qué documentos aceptamos",
@@ -436,7 +436,7 @@
         },
         "upload_guide": {
             "button_primary": "Tomar foto",
-            "title": "Coloque la página del documento con fotografía dentro del cuadro"
+            "title": "Subir la página del pasaporte con su foto"
         }
     },
     "outro": {

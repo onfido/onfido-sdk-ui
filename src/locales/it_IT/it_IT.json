@@ -183,8 +183,8 @@
         "section": {
             "header_country": "Paese emittente",
             "header_doc_type": "Documenti accettati",
-            "input_placeholder_country": "Nessun risultato",
-            "input_placeholder_country_copy": "Seleziona il paese di emissione"
+            "input_country_not_found": "Nessun risultato",
+            "input_placeholder_country": "Seleziona il paese di emissione"
         },
         "subtitle": "Deve essere un documento d’identità ufficiale con foto",
         "subtitle_country": "Seleziona il paese di emissione per vedere quali documenti accettiamo",
@@ -349,7 +349,7 @@
         },
         "upload_guide": {
             "button_primary": "Scatta una foto",
-            "title": "Posiziona la pagina della foto del documento nella cornice"
+            "title": "Invia la pagina con foto del passaporto"
         }
     },
     "outro": {

@@ -183,8 +183,8 @@
         "section": {
             "header_country": "Kraj wydania",
             "header_doc_type": "Zaakceptowane dokumenty",
-            "input_placeholder_country": "Brak wyników",
-            "input_placeholder_country_copy": "Wybierz kraj wydania"
+            "input_country_not_found": "Brak wyników",
+            "input_placeholder_country": "Wybierz kraj wydania"
         },
         "subtitle": "Musi to być oficjalny dokument tożsamości ze zdjęciem",
         "subtitle_country": "Wybierz kraj wydania, aby zobaczyć, jakie dokumenty akceptujemy",
@@ -349,7 +349,7 @@
         },
         "upload_guide": {
             "button_primary": "Zrób zdjęcie",
-            "title": "Umieść stronę ze zdjęciem dokumentu w ramce"
+            "title": "Prześlij stronę ze zdjęciem paszportowym"
         }
     },
     "outro": {
