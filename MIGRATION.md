@@ -4,8 +4,6 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `8.2.0` -> `9.0.0`
 
-The `useLiveDocumentCapture` option is now true by default.
-
 The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the following string(s) has been added:
 
 ### Added strings
