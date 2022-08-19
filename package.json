@@ -39,7 +39,8 @@
     "test-server:run": "docker-compose up --abort-on-container-exit",
     "test-server:build": "docker-compose up --build --no-start",
     "test-server:prepare": "rm -rf ./test/mock-server/frontend && cp -r dist test/mock-server/frontend",
-    "mock-server": "cd ./test/mock-server && deno run --allow-net --allow-read --allow-write server.ts"
+    "mock-server": "cd ./test/mock-server && deno run --allow-net --allow-read --allow-write server.ts",
+    "websdk": "npx ts-node -T scripts/locales/index.ts"
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -174,10 +175,12 @@
     "babel-plugin-auto-await": "^0.4.2",
     "chalk": "^2.4.2",
     "changelog-parser": "^2.8.1",
+    "commander": "^9.4.0",
     "concurrently": "^6.4.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
     "custom-event-polyfill": "^1.0.7",
+    "deep-object-diff": "^1.1.7",
     "dotenv": "^16.0.0",
     "dts-bundle-generator": "^5.5.0",
     "enzyme": "^3.11.0",
