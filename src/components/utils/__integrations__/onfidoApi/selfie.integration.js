@@ -20,7 +20,6 @@ let jwtToken = null
 
 describe('API uploadFacePhoto endpoint', () => {
   beforeEach(async () => {
-    jest.setTimeout(15000)
     jwtToken = await getTestJwtToken()
   })
 
@@ -190,9 +189,7 @@ describe('API uploadSnapshot endpoint', () => {
   })
 })
 
-// FIXME: consistently fails with 403 error, as separate test suites uploadSnapshot, uploadFacePhoto tests work
-// eslint-disable-next-line jest/no-disabled-tests
-describe.skip('API sendMultiframeSelfie endpoint', () => {
+describe('API sendMultiframeSelfie endpoint', () => {
   beforeEach(async () => {
     jwtToken = await getTestJwtToken()
   })
@@ -239,8 +236,8 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
     sendMultiframeSelfie(
       snapshotData,
       selfieData,
-      API_URL,
       jwtToken,
+      API_URL,
       (response) => onSuccessCallback(response),
       (error) => {
         console.error(error.response)
@@ -279,8 +276,8 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
     sendMultiframeSelfie(
       snapshotData,
       selfieData,
-      API_URL,
       EXPIRED_JWT_TOKEN,
+      API_URL,
       () => done(),
       (e) => ASSERT_EXPIRED_JWT_ERROR(done, e),
       (eventString) => console.log(eventString)
@@ -288,13 +285,14 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
   })
 
   test('sendMultiframeSelfie returns an error on uploading empty files', (done) => {
-    expect.assertions(3)
+    expect.assertions(4)
     const onErrorCallback = (error) => {
       try {
         expect(error.status).toBe(422)
         expect(error.response.error.type).toBe('validation_error')
+        expect(error.response.error.fields).toHaveProperty('attachment')
         expect(error.response.error.fields).toHaveProperty(
-          'attachment_file_size'
+          'attachment_content_type'
         )
         done()
       } catch (err) {
@@ -326,8 +324,8 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
     sendMultiframeSelfie(
       snapshotData,
       selfieData,
-      API_URL,
       jwtToken,
+      API_URL,
       (response) => done(response),
       onErrorCallback,
       (eventString) => console.log(eventString)
