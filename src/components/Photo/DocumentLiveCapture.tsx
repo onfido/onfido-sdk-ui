@@ -36,7 +36,10 @@ type State = {
   isCapturing: boolean
 }
 
-const IDEAL_CAMERA_WIDTH_IN_PX = 1080 // Full HD 1080p
+// Weirdly, width and height will be switched while in portrait mode. So what we really want is width = height and height = width
+// https://stackoverflow.com/questions/61332186/when-mobile-is-rotated-width-and-height-are-swapped-in-get-user-media-api-javas
+const IDEAL_CAMERA_WIDTH = 1080 // Full HD 1080p
+const IDEAL_CAMERA_HEIGHT = 1920
 
 class DocumentLiveCapture extends Component<Props, State> {
   private webcam?: Webcam
@@ -107,7 +110,8 @@ class DocumentLiveCapture extends Component<Props, State> {
           <Camera
             facing="environment"
             docLiveCaptureFrame
-            idealCameraWidth={IDEAL_CAMERA_WIDTH_IN_PX}
+            idealCameraWidth={IDEAL_CAMERA_WIDTH}
+            height={IDEAL_CAMERA_HEIGHT}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
             webcamRef={(ref) => ref && (this.webcam = ref)}

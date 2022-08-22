@@ -60,6 +60,7 @@ const Camera: FunctionComponent<Props> = ({
   translate,
   webcamRef,
   pageId,
+  height,
 }) => {
   // Specify just a camera width (no height) because on safari if you specify both
   // height and width you will hit an OverconstrainedError if the camera does not
@@ -83,6 +84,7 @@ const Camera: FunctionComponent<Props> = ({
     fallbackWidth: fallbackToDefaultWidth
       ? defaultCameraWidthInPx
       : fallbackHeight,
+    height: height,
   }
 
   return (
