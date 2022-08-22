@@ -13,7 +13,6 @@
     "dev:activeVideo": "SAFE_SOURCE_MAPS=true npm run dev",
     "dev:auth": "HOT_RELOAD_ENABLED=true NODE_ENV=development SDK_ENV=Auth HTTPS=true webpack serve --progress",
     "dev:insecure": "HOT_RELOAD_ENABLED=true NODE_ENV=development webpack serve --progress",
-    "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
     "prebuild": "npm run clean",
     "build": "webpack",
     "build:auth": "SDK_ENV=Auth webpack",
