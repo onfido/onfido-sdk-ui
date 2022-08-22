@@ -103,7 +103,7 @@ Different SDK configuration options can be tested manually inside the previewer 
 Some of the SDK configuration options can also be previewed in the demo app by using the following query strings:
 
 | QueryString                               | Values              | Default | Description                                                                                                                            |
-|-------------------------------------------|---------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------|
+| ----------------------------------------- | ------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `docVideo`                                | `true`,`false`      | `false` | Enable liveness video feature for the `document` step                                                                                  |
 | `faceVideo`                               | `true`,`false`      | `false` | Enable liveness video feature for the `face` step                                                                                      |
 | `useMultipleSelfieCapture`                | `true`,`false`      | `false` | Enable snapshot feature for the `face` step                                                                                            |
