@@ -35,7 +35,6 @@ const TEST_VIDEO_DATA = {
 
 describe('API uploadFaceVideo endpoint', () => {
   beforeEach(async () => {
-    jest.setTimeout(15000)
     jwtToken = await getTestJwtToken()
   })
 
