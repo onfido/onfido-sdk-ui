@@ -119,10 +119,21 @@ jobs:
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
 
+      - name: Build artifact
+        run: npm run build
+
+      - name: Publish to Surge
+        uses: dswistowski/surge-sh-action@v1.0.1
+        with:
+          domain: "https://prod-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh"
+          project: './dist'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
+
       - name: Add comment with Surge link to PR
         uses: mshick/add-pr-comment@v1
         with:
-          message: "https://${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀\nhttps://staging-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀"
+          message: "https://${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀\nhttps://staging-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀\nhttps://prod-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
   test-ui-chrome:
     runs-on: ubuntu-latest
