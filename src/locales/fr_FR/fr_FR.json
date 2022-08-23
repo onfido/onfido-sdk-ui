@@ -436,7 +436,7 @@
         },
         "upload_guide": {
             "button_primary": "Prendre une photo",
-            "title": "Envoyez la page du passeport contenant votre photo"
+            "title": "Page du passeport contenant votre photo"
         }
     },
     "outro": {
