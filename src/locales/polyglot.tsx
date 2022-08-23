@@ -37,7 +37,7 @@ const files = {
   cs_CZ: () =>
     import(/* webpackChunkName: "lang_cs_CZ" */ './cs_CZ/cs_CZ.json'),
   pl_PL: () =>
-    import(/* webpackChunkName: "lang_cs_CZ" */ './pl_PL/pl_PL.json'),
+    import(/* webpackChunkName: "lang_pl_PL" */ './pl_PL/pl_PL.json'),
   ro_RO: () =>
     import(/* webpackChunkName: "lang_ro_RO" */ './ro_RO/ro_RO.json'),
 }
