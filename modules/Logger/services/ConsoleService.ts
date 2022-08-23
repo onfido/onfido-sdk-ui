@@ -1,6 +1,5 @@
 import type { DataPackage, EnviromentType, ServiceInterface } from '../types'
 
-// TODO: Remote configurability for labels and levels
 export class ConsoleService implements ServiceInterface {
   environment: EnviromentType = 'production'
 
@@ -10,12 +9,16 @@ export class ConsoleService implements ServiceInterface {
   }
 
   public dispatch(data: DataPackage) {
-    if (this.environment === 'development') {
-      this.log(data)
-      return true
+    if (this.environment === 'production') {
+      if (data.level === 'fatal') {
+        this.log(data)
+        return true
+      }
+
+      return false
     }
 
-    if (this.environment === 'production' && data.level === 'fatal') {
+    if (this.environment === 'development') {
       this.log(data)
       return true
     }
@@ -25,8 +28,8 @@ export class ConsoleService implements ServiceInterface {
 
   private log(data: DataPackage) {
     console.log(
-      `[Console] label=${data.label} level=${data.level} message=${data.message} data=`,
-      data
+      `[${data.labels.join(',')}:${data.level}] ${data.message}`,
+      data.metadata
     )
   }
 }

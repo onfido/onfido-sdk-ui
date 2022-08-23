@@ -7,11 +7,11 @@ import type { Logger } from './Logger'
 import type { LabelKeyType } from './types'
 
 export class LogInstance {
-  private label: string
+  private labels: string[]
   private dispatch: Logger['dispatch']
 
-  constructor(label: string, dispatch: Logger['dispatch']) {
-    this.label = label
+  constructor(labels: string | string[], dispatch: Logger['dispatch']) {
+    this.labels = typeof labels === 'string' ? [labels] : labels
     this.dispatch = dispatch
   }
 
@@ -24,7 +24,7 @@ export class LogInstance {
     lineNumber?: string
   ) => {
     this.dispatch({
-      label: this.label,
+      labels: this.labels,
       level,
       message,
       metadata,

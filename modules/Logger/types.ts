@@ -2,7 +2,7 @@ export type EnviromentType = 'production' | 'development' | 'debug'
 export type LabelKeyType = 'debug' | 'info' | 'warning' | 'error' | 'fatal'
 
 export type DataPackage = {
-  label: string
+  labels: string[]
   level: LabelKeyType
   message: string
   metadata?: Record<string, unknown>
