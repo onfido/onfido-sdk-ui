@@ -1,3 +1,5 @@
+import { CompleteStepValue } from './routers'
+
 const STEP_WELCOME = 'welcome'
 const STEP_USER_CONSENT = 'userConsent'
 const STEP_DOCUMENT = 'document'
@@ -94,11 +96,25 @@ export type StepOptionComplete = {
   submessage?: string
 }
 
+export type OptionsEnbaled =
+  | 'address_enabled'
+  | 'country_residence_enabled'
+  | 'dob_enabled'
+  | 'email_address_enabled'
+  | 'first_name_enabled'
+  | 'last_name_enabled'
+  | 'phone_number_enabled'
+  | 'nationality_enabled'
+  | 'pan_enabled'
+  | 'ssn_enabled'
+
 export type StepOptionData = {
   first_name?: string
   last_name?: string
-  email?: string
+  email_address?: string
   dob?: string
+  country_residence?: string
+  phone_number?: string
   address?: {
     country?: string
     line1?: string
@@ -108,6 +124,15 @@ export type StepOptionData = {
     state?: string
     postcode?: string
   }
+  address_enabled?: boolean
+  country_residence_enabled?: boolean
+  dob_enabled?: boolean
+  email_address_enabled?: boolean
+  first_name_enabled?: boolean
+  last_name_enabled?: boolean
+  phone_number_enabled?: boolean
+  nationality_enabled?: boolean
+  pan_enabled?: boolean
   ssn_enabled?: boolean
   getPersonalData: GetPersonalDataFunc
 }

@@ -16,7 +16,7 @@ export const StateSelector = (props: StateSelectorProps) => {
 
   return (
     <div className={styles.stateSelector}>
-      <Select {...props}>
+      <Select {...props} native>
         <Option hidden value="">
           {translate('profile_data.components.state_select.placeholder')}
         </Option>

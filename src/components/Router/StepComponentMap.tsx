@@ -50,6 +50,7 @@ import type {
   StepConfigFace,
   StepConfigData,
   StepTypes,
+  OptionsEnbaled,
 } from '~types/steps'
 import PoAClientIntro from '../ProofOfAddress/PoAIntro'
 import Guidance from '../ProofOfAddress/Guidance'
@@ -125,7 +126,6 @@ const buildCaptureStepComponents = (
   const documentStep = findStep('document')
   const dataStep = findStep('data')
   const activeVideoStep = findStep('activeVideo')
-
   const complete = mobileFlow
     ? [ClientSuccess as ComponentType<StepComponentProps>]
     : [Complete]
@@ -197,17 +197,35 @@ const buildDataComponents = (
     <DataCapture
       {...props}
       title="country_of_residence_title"
-      dataSubPath="address"
-      dataFields={['country']}
+      dataFields={['country_residence']}
       getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
+
+  const profileDataCaptureFields = [
+    'first_name',
+    'last_name',
+    'dob',
+    'email_address',
+    'phone_number',
+    'nationality',
+    'ssn',
+    'pan',
+  ].filter((key) => {
+    const optionKey = `${key}_enabled` as OptionsEnbaled
+    return dataStep?.options && dataStep?.options[optionKey] === true
+  })
+  const hasCountryOfResidenceEnabled =
+    dataStep?.options && Boolean(dataStep?.options['country_residence_enabled'])
+
   const PersonalInformation = (props: any) => (
     <DataCapture
       {...props}
+      options={dataStep?.options}
       title="personal_information_title"
-      dataFields={['first_name', 'last_name', 'dob', 'ssn']}
+      dataFields={profileDataCaptureFields}
       ssnEnabled={dataStep?.options?.ssn_enabled}
+      panEnabled={dataStep?.options?.pan_enabled}
       getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
@@ -225,12 +243,21 @@ const buildDataComponents = (
         'state',
         'postcode',
       ]}
-      disabledFields={['country']}
+      disabledFields={hasCountryOfResidenceEnabled ? ['country'] : []}
       getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
 
-  return [CountryOfResidence, PersonalInformation, Address]
+  const dataComponents = []
+
+  dataStep?.options?.country_residence_enabled &&
+    dataComponents.push(CountryOfResidence)
+
+  dataComponents.push(PersonalInformation)
+
+  dataStep?.options?.address_enabled && dataComponents.push(Address)
+
+  return dataComponents
 }
 
 const buildFaceComponents = (
