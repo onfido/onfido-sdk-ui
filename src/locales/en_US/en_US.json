@@ -505,7 +505,7 @@
     },
     "poa_intro": {
         "button_primary": "Start verification",
-        "list_matches_signup": "**Matches** the address you used on sign up",
+        "list_matches_signup": "<strong>Matches<\/strong> the address you used on sign up",
         "list_most_recent": "Is your most <strong>recent<\/strong> document",
         "list_shows_address": "Shows your <strong>current<\/strong> address",
         "subtitle": "You’ll need a document that:",

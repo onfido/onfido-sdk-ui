@@ -505,7 +505,7 @@
     },
     "poa_intro": {
         "button_primary": "Iniciar verificación",
-        "list_matches_signup": "**Coincide** con la dirección utilizada para el registro",
+        "list_matches_signup": "<strong>Coincide<\/strong> con la dirección utilizada para el registro",
         "list_most_recent": "Es su documento más <strong>reciente<\/strong>",
         "list_shows_address": "Muestra su dirección <strong>actual<\/strong>",
         "subtitle": "Necesitará un documento que:",

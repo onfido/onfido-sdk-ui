@@ -418,7 +418,7 @@
     },
     "poa_intro": {
         "button_primary": "Zahájení ověřování",
-        "list_matches_signup": "Údaj **odpovídá** adrese, kterou jste použili při registraci",
+        "list_matches_signup": "Údaj <strong>odpovídá<\/strong> adrese, kterou jste použili při registraci",
         "list_most_recent": "Je to váš <strong>nejnovější<\/strong> dokument",
         "list_shows_address": "Zobrazuje vaši <strong>aktuální<\/strong> adresu",
         "subtitle": "Budete potřebovat dokument, který:",

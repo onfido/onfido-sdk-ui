@@ -418,7 +418,7 @@
     },
     "poa_intro": {
         "button_primary": "Începeți verificarea",
-        "list_matches_signup": "**Se potrivește** cu adresa pe care ați utilizat-o pentru a vă înregistra",
+        "list_matches_signup": "<strong>Se potrivește<\/strong> cu adresa pe care ați utilizat-o pentru a vă înregistra",
         "list_most_recent": "Este documentul dvs. <strong>recent<\/strong>",
         "list_shows_address": "Arată adresa dvs. <strong>actuală<\/strong>",
         "subtitle": "Aveți nevoie de un document care:",

@@ -418,7 +418,7 @@
     },
     "poa_intro": {
         "button_primary": "Rozpocznij weryfikację",
-        "list_matches_signup": "zawiera adres **zgodny** z adresem, który został użyty podczas rejestracji",
+        "list_matches_signup": "zawiera adres <strong>zgodny<\/strong> z adresem, który został użyty podczas rejestracji",
         "list_most_recent": "Czy Twój <strong> najnowszy <\/strong> dokument",
         "list_shows_address": "zawiera <strong>aktualny<\/strong> adres",
         "subtitle": "Potrzebny będzie dokument, który:",

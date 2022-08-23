@@ -418,7 +418,7 @@
     },
     "poa_intro": {
         "button_primary": "Start verificatie",
-        "list_matches_signup": "**Komt overeen** met het adres dat u bij de registratie heeft gebruikt",
+        "list_matches_signup": "<strong>Komt overeen<\/strong> met het adres dat u bij de registratie heeft gebruikt",
         "list_most_recent": "Is uw meest <strong>recente<\/strong> document",
         "list_shows_address": "Toont uw <strong>huidige<\/strong> adres",
         "subtitle": "U heeft een document nodig dat:",

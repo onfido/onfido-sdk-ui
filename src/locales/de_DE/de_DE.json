@@ -505,7 +505,7 @@
     },
     "poa_intro": {
         "button_primary": "Bestätigung beginnen",
-        "list_matches_signup": "Der von Ihnen bei der Registrierung verwendeten Adresse **entspricht**",
+        "list_matches_signup": "Der von Ihnen bei der Registrierung verwendeten Adresse <strong>entspricht<\/strong>",
         "list_most_recent": "Ihr <strong>aktuellstes<\/strong> Dokument ist",
         "list_shows_address": "Ihre  <strong>aktuelle<\/strong> Adresse zeigt",
         "subtitle": "Sie brauchen ein Dokument, das:",

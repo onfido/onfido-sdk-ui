@@ -418,7 +418,7 @@
     },
     "poa_intro": {
         "button_primary": "Iniciar verificação",
-        "list_matches_signup": "**Corresponde** à morada que usou no seu registo",
+        "list_matches_signup": "<strong>Corresponde<\/strong> à morada que usou no seu registo",
         "list_most_recent": "É o seu documento mais <strong>recente<\/strong>",
         "list_shows_address": "Mostra a sua morada <strong>atual<\/strong>",
         "subtitle": "Vai precisar de um documento que:",

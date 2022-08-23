@@ -418,7 +418,7 @@
     },
     "poa_intro": {
         "button_primary": "Inizia la verifica",
-        "list_matches_signup": "**Corrisponde** all'indirizzo utilizzato per la registrazione",
+        "list_matches_signup": "<strong>Corrisponde<\/strong> all'indirizzo utilizzato per la registrazione",
         "list_most_recent": "È il tuo documento più <strong>recente<\/strong>",
         "list_shows_address": "Mostra il tuo indirizzo <strong>attuale<\/strong>",
         "subtitle": "Ti servirà un documento che:",
