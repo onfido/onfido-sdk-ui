@@ -294,6 +294,12 @@ const FieldComponent = ({
     return null
   }
 
+  // edge cases when field component should not be rendered at all
+  if (type === 'pan' && (selectedCountry !== 'IND' || !panEnabled)) {
+    if (value) onChange(type, '') // removed value if was already set
+    return null
+  }
+
   return (
     <Field className={style['field']}>
       <FieldLabel>

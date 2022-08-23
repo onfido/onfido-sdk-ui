@@ -1,3 +1,5 @@
+import { CompleteStepValue } from './routers'
+
 const STEP_WELCOME = 'welcome'
 const STEP_USER_CONSENT = 'userConsent'
 const STEP_DOCUMENT = 'document'
@@ -109,7 +111,7 @@ export type OptionsEnbaled =
 export type StepOptionData = {
   first_name?: string
   last_name?: string
-  email?: string
+  email_address?: string
   dob?: string
   country_residence?: string
   phone_number?: string
