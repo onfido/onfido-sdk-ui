@@ -58,6 +58,38 @@ describe('locales', () => {
         expect(keys_locale[i]).toBe(keys_US[i])
       }
     })
+
+    // this respects the order of keys when we download from lokalise. This test prevents people from manually adding keys wherever
+    it(`each key in the '${locale}' file must be declared in alphabetical order`, async () => {
+      const localeJson = await readJsonFile(`../${locale}/${locale}.json`) // throws if the file does not exist
+      const keys_locale = removeAuthKeys(flattenKeys(localeJson))
+
+      for (let i = 0; i < keys_locale.length - 1; i++) {
+        const splitted = keys_locale[i].split('.')
+        const splitted2 = keys_locale[i + 1].split('.')
+
+        const minLength = Math.min(splitted.length, splitted2.length)
+
+        for (let i = 0; i < minLength; i++) {
+          // we compare each level of the key, either the level is -1, meaning [i] is before [i-1] and we stop, or it's zero and we must compare next level
+          if (splitted[i].localeCompare(splitted2[i]) === -1) {
+            break
+          }
+          if (splitted[i].localeCompare(splitted2[i]) === 0) {
+            // continue
+          }
+          if (splitted[i].localeCompare(splitted2[i]) === 1) {
+            // eslint-disable-next-line jest/no-conditional-expect
+            expect(false).toBe(
+              `the key '${keys_locale[i]}' should be after the key '${
+                keys_locale[i + 1]
+              }', but it was declared before it`
+            )
+          }
+        }
+        // if we reach the end, the test is succesful
+      }
+    })
   })
 
   LOCALES_WITH_AUTH.map((locale) => {
