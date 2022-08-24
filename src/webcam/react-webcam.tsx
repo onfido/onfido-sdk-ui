@@ -254,16 +254,30 @@ export default class Webcam extends Component<WebcamProps, State> {
     // if `{facingMode: {exact: 'user'}}` Firefox won't give the user a choice and will show the front camera
 
     const params = new URLSearchParams(window.location.search)
-    const widthFromParams = parseInt(params.get('idealWidth') + '')
-    const heightFromParams = parseInt(params.get('idealHeight') + '')
+    const w = params.get('idealWidth')
+    const h = params.get('idealHeight')
 
-    const constraints: MediaStreamConstraints = {
-      video: {
-        facingMode: { ideal: 'environment' },
-        width: { ideal: widthFromParams },
-        height: { ideal: heightFromParams },
-      },
-      audio,
+    let constraints: MediaStreamConstraints | null = null
+    if (w && h) {
+      const widthFromParams = parseInt(w)
+      const heightFromParams = parseInt(h)
+      constraints = {
+        video: {
+          facingMode: { ideal: 'environment' },
+          width: { ideal: widthFromParams },
+          height: { ideal: heightFromParams },
+        },
+        audio,
+      }
+    } else if (w) {
+      const widthFromParams = parseInt(w)
+      constraints = {
+        video: {
+          facingMode: { ideal: 'environment' },
+          width: { ideal: widthFromParams },
+        },
+        audio,
+      }
     }
 
     console.log(constraints)
@@ -278,7 +292,7 @@ export default class Webcam extends Component<WebcamProps, State> {
     //   constraints.video.height = parseInt(height, 10) || height
     // }
 
-    return constraints
+    return constraints!
   }
 
   async requestUserMedia() {
