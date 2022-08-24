@@ -136,6 +136,7 @@ const Camera: FunctionComponent<Props> = ({
               onUserMedia={(media) => {
                 setSettings(media.getVideoTracks()[0].getSettings())
                 setCapa(media.getVideoTracks()[0].getCapabilities())
+                webcamProps.onUserMedia && webcamProps.onUserMedia(media)
               }}
             />
           </div>

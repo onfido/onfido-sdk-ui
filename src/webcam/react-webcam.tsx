@@ -185,7 +185,7 @@ export default class Webcam extends Component<WebcamProps, State> {
   static defaultProps = {
     audio: false,
     screenshotFormat: 'image/webp',
-    onUserMedia: (userMedia: MediaStream) => {},
+    onUserMedia: () => {},
     onFailure: () => {},
   }
 
@@ -263,7 +263,9 @@ export default class Webcam extends Component<WebcamProps, State> {
       const heightFromParams = parseInt(h)
       constraints = {
         video: {
-          facingMode: { ideal: 'environment' },
+          facingMode: {
+            ideal: this.props.facingMode === 'user' ? 'user' : 'environment',
+          },
           width: { ideal: widthFromParams },
           height: { ideal: heightFromParams },
         },
