@@ -1,5 +1,3 @@
-import { CompleteStepValue } from './routers'
-
 const STEP_WELCOME = 'welcome'
 const STEP_USER_CONSENT = 'userConsent'
 const STEP_DOCUMENT = 'document'

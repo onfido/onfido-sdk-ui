@@ -28,7 +28,7 @@ import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
 import type { StepOptionData } from '~types/steps'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { TranslateCallback } from '~types/locales'
-import PhoneNumberInputLazy from './PhoneNumberInput/phoneNumberInputLazy'
+import { ProfileDataPhoneNumberInput } from '../../components/PhoneNumberInput/Lazy'
 import { allCountriesList } from './CountrySelector/countries'
 
 type ProfileDataProps = StepComponentDataProps & {
@@ -286,14 +286,9 @@ const FieldComponent = ({
   if (
     (type === 'line3' && selectedCountry === 'USA') ||
     (type === 'state' && selectedCountry !== 'USA') ||
-    (type === 'ssn' && (selectedCountry !== 'USA' || !ssnEnabled))
+    (type === 'ssn' && (selectedCountry !== 'USA' || !ssnEnabled)) ||
+    (type === 'pan' && (selectedCountry !== 'IND' || !panEnabled))
   ) {
-    if (value) onChange(type, '') // removed value if was already set
-    return null
-  }
-
-  // edge cases when field component should not be rendered at all
-  if (type === 'pan' && (selectedCountry !== 'IND' || !panEnabled)) {
     if (value) onChange(type, '') // removed value if was already set
     return null
   }
@@ -371,7 +366,7 @@ const getFieldComponent = (
       return <Input {...props} type="email" />
     case 'phone_number':
       return (
-        <PhoneNumberInputLazy
+        <ProfileDataPhoneNumberInput
           {...props}
           smsNumberCountryCode={countryCode}
           options={sdkOptions}
@@ -478,6 +473,11 @@ const hasValidEmail = (email: string) => {
     )
 }
 
+const hasValidPan = (pan: string) => {
+  const myRegEx = /^\w+$/
+  return pan.length === 10 && myRegEx.test(String(pan).toLowerCase())
+}
+
 const validateField = (
   type: FieldComponentProps['type'],
   value: FieldComponentProps['value'],
@@ -543,7 +543,7 @@ const validateField = (
   }
 
   if (type === 'pan' && country === 'IND' && panEnabled) {
-    if (value.length !== 10) {
+    if (!hasValidPan(value)) {
       return translate('profile_data.field_validation.ind_specific.invalid_pan')
     }
   }
@@ -656,6 +656,3 @@ const translateSpecific = (
 }
 
 export default ProfileData
-function translate(arg0: string): any {
-  throw new Error('Function not implemented.')
-}

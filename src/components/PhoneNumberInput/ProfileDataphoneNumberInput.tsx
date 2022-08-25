@@ -1,27 +1,17 @@
 import 'react-phone-number-input/style.css'
 import { classy } from '@onfido/castor'
-import { getCountryFlagSrc } from '~supported-documents'
 import { h } from 'preact'
 import { localised } from '~locales'
 import { parsePhoneNumberFromString } from 'libphonenumber-js/mobile'
 import { useCallback, useEffect } from 'preact/hooks'
 import { WithLocalisedProps } from '~types/hocs'
-import classNames from 'classnames'
+import FlagComponent from './flag'
 import PhoneInput, { Country } from 'react-phone-number-input'
 import type { SdkOptions } from '~types/sdk'
 
 import style from './style.scss'
 
-const FlagComponent = ({ country }: { country: string }) => (
-  <span
-    className={classNames('react-phone-number-input__icon', style.flagIcon)}
-    style={{
-      'background-image': `url(${getCountryFlagSrc(country, 'rectangle')})`,
-    }}
-  />
-)
-
-export type PhoneNumberInputProps = {
+export type ProfileDataPhoneNumberInputProps = {
   value: string
   invalid: boolean
   onBlur: () => void
@@ -34,7 +24,7 @@ export type PhoneNumberInputProps = {
   options: SdkOptions
 } & WithLocalisedProps
 
-const PhoneNumberInput = ({
+const ProfileDataPhoneNumberInput = ({
   value,
   onBlur,
   onChange,
@@ -42,7 +32,7 @@ const PhoneNumberInput = ({
   smsNumberCountryCode,
   options,
   translate,
-}: PhoneNumberInputProps) => {
+}: ProfileDataPhoneNumberInputProps) => {
   const injectForCountrySelectAriaLabel = useCallback(() => {
     // HACK: This is necessary as setting the ARIA label with react-phone-number-input library `labels` property
     //       available in v3 loses the human readable country names.
@@ -66,19 +56,20 @@ const PhoneNumberInput = ({
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handlePhoneNumberChange = (phoneNumber: any) => {
-    if (!phoneNumber) {
-      return
-    }
-
-    const parsedNumber = parsePhoneNumberFromString(phoneNumber)
+    const parsedNumber = phoneNumber
+      ? parsePhoneNumberFromString(phoneNumber)
+      : undefined
     onChange({ target: { value: `${parsedNumber?.number}` } })
   }
+
+  const placeholderLabel = translate('get_link.number_field_input_placeholder')
 
   return (
     <div className={classy(style['wrapper'], invalid ? style['invalid'] : '')}>
       <PhoneInput
         onBlur={onBlur}
         id="phoneNumberInput"
+        placeholder={placeholderLabel}
         className={`${style.phoneNumberContainer}`}
         value={value}
         onChange={handlePhoneNumberChange}
@@ -89,4 +80,4 @@ const PhoneNumberInput = ({
   )
 }
 
-export default localised(PhoneNumberInput)
+export default localised(ProfileDataPhoneNumberInput)

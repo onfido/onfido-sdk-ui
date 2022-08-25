@@ -1,5 +1,14 @@
+@use '~@onfido/castor';
 @import '../Theme/constants';
 
+.wrapper {
+  border: 1px solid castor.color('border-input');
+  border-radius: 4 * $unit;
+
+  &.invalid {
+    border: 1px solid castor.color('border-negative');
+  }
+}
 /* "Loading" phone number input placeholder text */
 .loading {
   color: rgba(var(--ods-color-content-placeholder));
@@ -50,10 +59,4 @@
   input:focus {
     outline: auto 5px -webkit-focus-ring-color;
   }
-}
-
-.flagIcon {
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
 }
