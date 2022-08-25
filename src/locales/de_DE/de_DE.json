@@ -1,74 +1,4 @@
 {
-    "profile_data": {
-        "country_of_residence_title": "Ihr Wohnsitzland",
-        "personal_information_title": "Fügen Sie Ihre persönlichen Informationen hinzu",
-        "address_title": "Fügen Sie Ihre Adresse hinzu",
-        "field_labels": {
-            "first_name": "Vorname",
-            "dob": "Geburtsdatum",
-            "last_name": "Nachname",
-            "country": "Land",
-            "line1": "Adresszeile 1",
-            "line2": "Adresszeile 2",
-            "line3": "Adresszeile 3",
-            "town": "Stadt",
-            "postcode": "Postleitzahl",
-            "gbr_specific": {
-                "town": "Stadt",
-                "postcode": "Postleitzahl"
-            },
-            "usa_specific": {
-                "line1_helper_text": "Straßenname, zum Beispiel: Abertstraße 200",
-                "line2_helper_text": "Wohnung, Suite, Einheit, etc.",
-                "state": "Staat",
-                "postcode": "Zip code"
-            }
-        },
-        "field_validation": {
-            "required_first_name":  "Bitte geben Sie Ihren vorname ein",
-            "required_last_name": "Bitte geben Sie Ihren Nachnamen ein",
-            "required_dob": "Bitte geben Sie Ihr Geburtsdatum ein",
-            "required_country": "Bitte wählen Sie ein Land aus",
-            "required_line1": "Bitte geben Sie Ihre Adresse ein",
-            "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
-            "invalid": "Bitte auf ungültige Zeichen oder Symbole überprüfen",
-            "invalid_dob": "Bitte geben Sie ein gültiges Geburtsdatum ein",
-            "too_short_last_name": "Der Nachname ist zu kurz",
-            "too_short_postcode": "Die Postleitzahl ist zu kurz",
-            "too_long_last_name": "Der Nachname ist zu lang",
-            "too_long_first_name": "Der Vorname ist zu lang",
-            "too_long_postcode": "Die Postleitzahl ist zu lang",
-            "too_long__line1": "Die Adresszeile ist zu lang",
-            "too_long__line2": "Die Adresszeile ist zu lang",
-            "too_long__line3": "Die Adresszeile ist zu lang",
-            "too_long_town": "",
-            "gbr_specific": {
-                "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
-                "too_short_postcode": "Die Postleitzahl ist zu kurz",
-                "too_long_postcode": "Die Postleitzahl ist zu lang"
-            },
-            "usa_specific": {
-                "required_state": "Bitte wählen Sie einen Staat aus",
-                "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
-                "too_short_postcode":  "Die Postleitzahl ist zu kurz",
-                "too_long_postcode": "Die Postleitzahl ist zu lang"
-            }
-        },
-        "field_optional": "(optional)",
-        "button_continue": "Weiter",
-        "components": {
-            "country_select": {
-                "placeholder": "Wählen Sie ein Land aus"
-            },
-            "state_select": {
-                "placeholder": "Wählen Sie ein Bundesland aus"
-            }
-        },
-        "prompt": {
-            "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht",
-            "details_timeout": "Erneut starten"
-        }
-    },
     "auth_accessibility": {
         "back_button": "Abbrechen"
     },
@@ -207,10 +137,6 @@
         "title": "Hochladen"
     },
     "country_select": {
-        "poa_alert": {
-            "intro": "Can't find your country?",
-            "country_not_found": "Entschuldigen Sie bitte. Wir arbeiten an der Unterstützung von mehr Ländern."
-        },
         "alert": {
             "another_doc": "Dokumente aus diesem Land werden derzeit nicht unterstützt. <fallback>Versuchen Sie es mit einem anderen Dokumententyp<\/fallback>."
         },
@@ -218,6 +144,10 @@
             "country_not_found": "Land nicht gefunden"
         },
         "button_primary": "Dokument einreichen",
+        "poa_alert": {
+            "country_not_found": "Entschuldigen Sie bitte. Wir arbeiten an der Unterstützung von mehr Ländern.",
+            "intro": "Ihr Land ist nicht aufgeführt?"
+        },
         "search": {
             "accessibility": "Land auswählen",
             "input_placeholder": "z.B. Deutschland",
@@ -230,9 +160,9 @@
         "info": "Tipps",
         "list_item_doc_multiple": "Dokumente hochgeladen",
         "list_item_doc_one": "Dokument hochgeladen",
+        "list_item_poa": "Adressnachweis",
         "list_item_selfie": "Selfie hochgeladen",
         "list_item_video": "Video hochgeladen",
-        "list_item_poa": "Adressnachweis",
         "subtitle": "Hier ist alles, was Sie hochgeladen haben:",
         "title": "Ein letzter Schritt"
     },
@@ -267,6 +197,7 @@
         "title": "Mit Ihrem Computer verbunden"
     },
     "doc_capture": {
+        "button_primary": "Starten Sie mit dem Scannen des Dokuments",
         "detail": {
             "folded_doc_front": "Legen Sie Ihr Dokument flach hin, einschließlich aller Innenseiten (Ihr Foto muss enthalten sein)"
         },
@@ -293,12 +224,12 @@
         "body_bank_statement": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
         "body_benefits_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
         "body_bill": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-        "body_id": "Die Details der Karte müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+        "body_id": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
         "body_image_medium": "Es wird länger dauern, Sie zu verifizieren, wenn wir es nicht lesen können",
         "body_image_poor": "Um Sie reibungslos zu verifizieren, benötigen wir ein besseres Foto",
-        "body_license": "Die Führerschein Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-        "body_passport": "Die Reisepass Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-        "body_permit": "Die Details der Erlaubnis müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+        "body_license": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+        "body_passport": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+        "body_permit": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
         "body_tax_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
         "button_close": "Schließen",
         "button_primary_redo": "Wiederholen",
@@ -309,6 +240,11 @@
         "image_accessibility": "Foto Ihres Dokuments",
         "title": "Überprüfen Sie Ihr Bild"
     },
+    "doc_multi_frame_capture": {
+        "capture_progress_title": "Dokument wird gescannt",
+        "instructions_title_back": "Positionieren Sie die Rückseite Ihres Dokuments im Rahmen",
+        "instructions_title_front": "Positionieren Sie die Vorderseite Ihres Dokuments im Rahmen"
+    },
     "doc_select": {
         "button_bank_statement": "Bankauszug",
         "button_bank_statement_non_uk": "Bankauszug",
@@ -316,8 +252,8 @@
         "button_benefits_letter_detail": "Von der Regierung autorisierte Sozialleistungen, wie z. B. Arbeitslosenhilfe, Wohngeld, Steuerermäßigung",
         "button_bill": "Betriebskostenabrechnung",
         "button_bill_detail": "Gas, Strom, Wasser, Festnetz oder Breitband-Internet",
-        "button_government_letter": "Government Letter",
-        "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
+        "button_government_letter": "Staatliches Schreiben",
+        "button_government_letter_detail": "Jede Art vom Staat ausgestelltes Schreiben, z. B. Sozialleistungsschreiben, Wahlbenachrichtigung, Schreiben vom Finanzamt usw.",
         "button_id": "Nationaler Personalausweis",
         "button_id_detail": "Vorder- und Rückseite",
         "button_license": "Führerschein",
@@ -330,17 +266,21 @@
         "extra_estatements_ok": "E-Auszüge werden akzeptiert",
         "extra_no_mobile": "Entschuldigen Sie bitte, keine Mobiltelefonrechnungen",
         "list_accessibility": "Dokumente, die Sie zur Überprüfung Ihrer Identität verwenden können",
+        "pill": "Schnellste",
+        "section": {
+            "header_country": "Ausstellendes Land",
+            "header_doc_type": "Akzeptierte Dokumente",
+            "input_country_not_found": "",
+            "input_placeholder_country": "Ausstellungsland auswählen"
+        },
         "subtitle": "Es muss ein offizieller Lichtbildausweis sein",
+        "subtitle_country": "Wählen Sie das ausstellende Land aus, um zu sehen, welche Dokumente wir akzeptieren",
+        "subtitle_entire_page": "Ganze Seite",
+        "subtitle_front_back": "Vorne und Hinten",
+        "subtitle_photo_page": "Fotoseite",
         "subtitle_poa": "Diese Dokumente zeigen wahrscheinlich Ihre aktuelle Wohnadresse:",
         "title": "Dokument auswählen",
-        "title_poa": "Ein %{country}-Dokumente auswählen",
-        "section": {
-          "header_country": "Ausstellendes Land",
-          "header_doc_type": "Akzeptierte Dokumente",
-          "input_placeholder_country": "",
-          "input_placeholder_country_copy": "Ausstellungsland auswählen"
-        },
-        "subtitle_country": "Wählen Sie das ausstellende Land aus, um zu sehen, welche Dokumente wir akzeptieren"
+        "title_poa": "Ein %{country}-Dokumente auswählen"
     },
     "doc_submit": {
         "button_link_upload": "oder Foto hochladen – keine Scans oder Kopien",
@@ -349,7 +289,7 @@
         "title_bank_statement": "Auszug senden",
         "title_benefits_letter": "Schreiben einreichen",
         "title_bill": "Rechnung senden",
-        "title_government_letter": "Government Letter",
+        "title_government_letter": "Staatliches Schreiben",
         "title_id_back": "Personalausweis einreichen (Rückseite)",
         "title_id_front": "Personalausweis einreichen (Vorderseite)",
         "title_license_back": "Führerschein einreichen (Rückseite)",
@@ -368,7 +308,7 @@
         "header_passport": "Halten Sie die Lichtbild-Seite innerhalb des Rahmens, während Sie Ihren Reisepass halten",
         "header_passport_progress": "Halten Sie still",
         "header_step1": "Halten Sie nun still",
-        "header_step2": "Drehen Sie Ihr Dokument langsam um, sodass die Rückseite zu sehen sind",
+        "header_step2": "Drehen Sie Ihr Dokument langsam um, sodass die Rückseite zu sehen ist",
         "prompt": {
             "detail_timeout": "Die Videoaufnahme ist auf <timeout><\/timeout> Sekunden beschränkt. <fallback>Nochmal beginnen<\/fallback>"
         },
@@ -378,11 +318,6 @@
     "doc_video_confirmation": {
         "button_secondary": "Video-Vorschau",
         "title": "Selfie-Video prüfen"
-    },
-    "doc_multi_frame_capture": {
-        "capture_progress_title": "Dokument wird gescannt",
-        "instructions_title_front": "Positionieren Sie die Vorderseite Ihres Dokuments im Rahmen",
-        "instructions_title_back": "Positionieren Sie die Rückseite Ihres Dokuments im Rahmen"
     },
     "error_unsupported_browser": {
         "subtitle_android": "Starten Sie den Prozess auf der neuesten Version von Google Chrome neu",
@@ -398,6 +333,10 @@
         "back": "zurück",
         "close": "Schließen",
         "errors": {
+            "expired_token": {
+                "instruction": "Bitte versuchen Sie es erneut",
+                "message": "Ihr Token ist abgelaufen"
+            },
             "geoblocked_error": {
                 "instruction": "Es tut uns leid, wir können leider nicht fortfahren, da Ihr aktueller Standort nicht unterstützt wird.",
                 "message": "Service nicht verfügbar"
@@ -466,6 +405,16 @@
         "title": "Holen Sie sich Ihren Sicherheitslink",
         "url_field_label": "Kopieren Sie den Link in Ihren mobilen Browser"
     },
+    "livenessV2": {
+        "error_reload_instructions": "Anweisungen neu laden",
+        "intro_note_no1": "Positionieren Sie Ihr Gesicht zunächst im Rahmen",
+        "intro_note_no2": "Drehen Sie Ihren Kopf dann langsam nach beiden Seiten",
+        "intro_ready_button": "Bitte beachten Sie, dass wir Ihr Gesicht und Ihren Hintergrund aufnehmen",
+        "intro_subtitle": "Damit verifizieren wir, dass es sich bei Ihnen um eine reale Person handelt",
+        "intro_warning": "Bitte beachten Sie, dass wir Ihr Gesicht und Ihren Hintergrund aufnehmen",
+        "success_main_button": "Bestätigung senden",
+        "success_title": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen"
+    },
     "mobilePhrases": {
         "photo_upload": {
             "body_id_back": "Machen Sie ein Foto von der Rückseite Ihrer Karte",
@@ -492,6 +441,7 @@
     },
     "outro": {
         "body": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen",
+        "body_government_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
         "title": "Danke"
     },
     "permission": {
@@ -509,11 +459,12 @@
         "info": "Wiederherstellen",
         "list_header_both": "Befolgen Sie diese Schritte, um den Zugriff auf beides wiederherzustellen:",
         "list_header_cam": "Befolgen Sie diese Schritte, um den Kamerazugriff wiederherzustellen:",
-        "list_item_how_to_both": "Gewähren Sie den Zugriff auf Ihre Kamera und Ihr Mikrofon über Ihre Browsereinstellungen",
         "list_item_action_cam": "Aktualisieren Sie diese Seite, um den Identitätsüberprüfungsprozess neu zu starten",
+        "list_item_how_to_both": "Gewähren Sie den Zugriff auf Ihre Kamera und Ihr Mikrofon über Ihre Browsereinstellungen",
         "list_item_how_to_cam": "Gewähren Sie den Zugriff auf Ihre Kamera über Ihre Browsereinstellungen",
         "subtitle_both": "Stellen Sie den Zugriff auf Kamera und Mikrofon wieder her, um ein Video aufzunehmen und den Überprüfungsprozess abzuschließen",
         "subtitle_cam": "Kamerazugriff wiederherstellen, um Verifizierung fortzusetzen",
+        "subtitle_cam_old": "Kamerazugriff wiederherstellen, um Gesichtsverifizierung fortzusetzen",
         "title_both": "Kamera- und Mikrofonzugriff verweigert",
         "title_cam": "Kamerazugriff wird verweigert"
     },
@@ -521,7 +472,6 @@
         "body_bank_statement": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
         "body_benefits_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
         "body_bill": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
-        "body_government_letter": "Provide the whole document page for best results",
         "body_id_back": "Kartenrückseite von Ihrem Computer hochladen",
         "body_id_front": "Kartenvorderseite von Ihrem Computer hochladen",
         "body_license_back": "Rückseite des Führerscheins von Ihrem Computer hochladen",
@@ -532,6 +482,12 @@
         "button_take_photo": "Foto machen",
         "button_upload": "Hochladen",
         "title_selfie": "Selfie"
+    },
+    "poa_cancel": "Abbrechen",
+    "poa_err_invalid_file": {
+        "message": "Bitte wählen Sie eine andere Datei.",
+        "ok": "OK",
+        "title": "Ungültige Datei"
     },
     "poa_guidance": {
         "button_primary": "Fortfahren",
@@ -550,10 +506,118 @@
     "poa_intro": {
         "button_primary": "Bestätigung beginnen",
         "list_matches_signup": "Der von Ihnen bei der Registrierung verwendeten Adresse <strong>entspricht<\/strong>",
-        "list_most_recent": "Ist Ihr <strong>aktuellstes<\/strong> Dokument",
-        "list_shows_address": "Zeigt Ihre <strong>aktuelle<\/strong> Adresse",
+        "list_most_recent": "Ihr <strong>aktuellstes<\/strong> Dokument ist",
+        "list_shows_address": "Ihre  <strong>aktuelle<\/strong> Adresse zeigt",
         "subtitle": "Sie brauchen ein Dokument, das:",
         "title": "Bestätigen wir nun Ihre Adresse"
+    },
+    "profile_data": {
+        "address_title": "Fügen Sie Ihre Adresse hinzu",
+        "button_continue": "Weiter",
+        "components": {
+            "country_select": {
+                "placeholder": "Wählen Sie ein Land aus"
+            },
+            "nationality_select": {
+                "placeholder": "Wählen Sie ein Land aus"
+            },
+            "pan": {
+                "placeholder": "ABCDE1234F"
+            },
+            "ssn": {
+                "placeholder": "123-45-6789"
+            },
+            "state_select": {
+                "placeholder": "Wählen Sie ein Bundesland aus"
+            }
+        },
+        "country_of_residence_title": "Ihr Wohnsitzland",
+        "field_labels": {
+            "country": "Land",
+            "dob": "Geburtsdatum",
+            "email": "E-Mail-Adresse",
+            "first_name": "Vorname",
+            "gbr_specific": {
+                "postcode": "Postleitzahl",
+                "town": "Stadt"
+            },
+            "last_name": "Nachname",
+            "line1": "Adresszeile 1",
+            "line2": "Adresszeile 2",
+            "line3": "Adresszeile 3",
+            "mobile_number": "Mobiltelefonnummer",
+            "nationality": "Nationalität",
+            "pan": "Permanente Account-Nummer (PAN)",
+            "postcode": "Postleitzahl",
+            "ssn": "Sozialversicherungsnummer (SVN)",
+            "town": "Stadt",
+            "usa_specific": {
+                "line1_helper_text": "Straßenname, zum Beispiel: Abertstraße 200",
+                "line2_helper_text": "Wohnung, Suite, Einheit, etc.",
+                "postcode": "Zip code",
+                "state": "Staat"
+            }
+        },
+        "field_optional": "(optional)",
+        "field_validation": {
+            "gbr_specific": {
+                "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
+                "too_long_postcode": "Die Postleitzahl ist zu lang",
+                "too_short_postcode": "Die Postleitzahl ist zu kurz"
+            },
+            "invalid": "Bitte auf ungültige Zeichen oder Symbole überprüfen",
+            "invalid_dob": "Bitte geben Sie ein gültiges Geburtsdatum ein",
+            "required_country": "Bitte wählen Sie ein Land aus",
+            "required_dob": "Bitte geben Sie Ihr Geburtsdatum ein",
+            "required_email": "Bitte geben Sie Ihre E-Mail-Adresse ein",
+            "required_first_name": "",
+            "required_last_name": "Bitte geben Sie Ihren Nachnamen ein",
+            "required_line1": "Bitte geben Sie Ihre Adresse ein",
+            "required_mobile_number": "Bitte geben Sie Ihre Mobiltelefonnummer ein",
+            "required_nationality": "Bitte wählen Sie ein Land aus",
+            "required_pan": "Bitte geben Sie Ihre PAN ein",
+            "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
+            "required_ssn": "Bitte geben Sie Ihre SVN ein",
+            "too_long__line1": "Die Adresszeile ist zu lang",
+            "too_long_first_name": "Der Vorname ist zu lang",
+            "too_long_last_name": "Der Nachname ist zu lang",
+            "too_long_postcode": "Die Postleitzahl ist zu lang",
+            "too_long_town": "",
+            "too_short_first_name": "Der Vorname ist zu kurz",
+            "too_short_last_name": "Der Nachname ist zu kurz",
+            "too_short_postcode": "Die Postleitzahl ist zu kurz",
+            "usa_specific": {
+                "required_state": "Bitte wählen Sie einen Staat aus"
+            },
+            "valid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+            "valid_mobile_number": "Bitte geben Sie eine gültige Mobiltelefonnummer ein",
+            "valid_pan": "Bitte geben Sie eine gültige PAN ein",
+            "valid_ssn": "Bitte geben Sie eine gültige SVN ein"
+        },
+        "personal_information_title": "Fügen Sie Ihre persönlichen Informationen hinzu",
+        "prompt": {
+            "details_timeout": "Erneut starten",
+            "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht"
+        }
+    },
+    "retry_feedback": {
+        "button_primary": "Versuchen Sie es erneut."
+    },
+    "retry_feedback_id_expired": {
+        "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+        "title": "Ihr Ausweis ist ungültig"
+    },
+    "retry_feedback_id_generic": {
+        "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+        "title": "Es gab ein Problem mit Ihrem Ausweis"
+    },
+    "retry_feedback_id_unaccepted": {
+        "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+        "title": "Ausweis wird nicht akzeptiert"
+    },
+    "retry_feedback_selfie_generic": {
+        "subtitle": "Versuchen Sie es erneut und stellen Sie sicher, dass Ihr Gesicht sichtbar und gut beleuchtet ist",
+        "title": "Es gab ein Problem mit Ihrem Selfie"
     },
     "selfie_capture": {
         "alert": {
@@ -572,7 +636,9 @@
                 "title": "Sieht aus, als hätten Sie zu lange gebraucht"
             }
         },
+        "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
         "button_accessibility": "Ein Foto machen",
+        "button_primary": "Starten Sie mit dem Scannen des Gesichts",
         "frame_accessibility": "Ansicht von der Kamera",
         "title": "Positionieren Sie Ihr Gesicht im angezeigten Oval"
     },
@@ -635,6 +701,7 @@
     "video_capture": {
         "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
         "body_record": "Drücken Sie die Taste, wenn Sie bereit sind",
+        "body_stop": "Drücken Sie \"Stopp\", wenn Sie fertig sind",
         "button_primary_finish": "Aufnahme beenden",
         "button_primary_next": "Nächster Schritt",
         "button_primary_start": "Aufnahme starten",
@@ -665,6 +732,7 @@
         "title": "Selfie-Video aufnehmen"
     },
     "welcome": {
+        "doc_video_subtitle": "Es dauert nur wenige Minuten",
         "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
         "list_header_webcam": "Verwenden Sie Ihre Webcam oder Ihr Telefon zum Fotografieren:",
         "list_item_doc": "Ihr Ausweisdokument",
@@ -672,8 +740,26 @@
         "list_item_poa": "Ihr Adressnachweis",
         "list_item_selfie": "Ihr Gesicht",
         "next_button": "Dokument auswählen",
+        "start_workflow_button": "Verifizierung beginnen",
         "subtitle": "Es dauert nur wenige Minuten",
-        "title": "Identität überprüfen",
-        "start_workflow_button": "Verifizierung beginnen"
+        "title": "Identität überprüfen"
+    },
+    "workflow_complete": {
+        "pass": {
+            "description": "",
+            "title": ""
+        },
+        "reject": {
+            "description": "",
+            "title": ""
+        }
+    },
+    "workflow_erros": {
+        "generic_title": "",
+        "no_workflow_run_id": "",
+        "reload_app": "",
+        "task_not_completed": "",
+        "task_not_retrieved": "",
+        "task_not_supported": ""
     }
 }

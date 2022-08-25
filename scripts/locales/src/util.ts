@@ -23,7 +23,7 @@ export const languageMap = {
   pt_PT: 'Portuguese',
   ro_RO: 'Romanian',
   pl_PL: 'Polish',
-  cs_CZ: 'Tsjechisch', // TODO: check if is right word
+  cs_CZ: 'Czech',
 }
 
 export const convertLanguageKeysToReadable = (languages) => {
