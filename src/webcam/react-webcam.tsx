@@ -257,10 +257,43 @@ export default class Webcam extends Component<WebcamProps, State> {
     const w = params.get('idealWidth')
     const h = params.get('idealHeight')
 
+    const sw = params.get('selfieIdealWidth')
+    const sh = params.get('selfieIdealHeight')
+
+    const isSelfie = this.props.facingMode === 'user'
     let constraints: MediaStreamConstraints | null = null
-    if (w && h) {
-      const widthFromParams = parseInt(w)
-      const heightFromParams = parseInt(h)
+
+    if (!isSelfie) {
+      if (w && h) {
+        const widthFromParams = parseInt(w)
+        const heightFromParams = parseInt(h)
+        constraints = {
+          video: {
+            facingMode: {
+              ideal: this.props.facingMode === 'user' ? 'user' : 'environment',
+            },
+            width: { ideal: widthFromParams },
+            height: { ideal: heightFromParams },
+          },
+          audio,
+        }
+      } else if (w) {
+        const widthFromParams = parseInt(w)
+        constraints = {
+          video: {
+            facingMode: { ideal: 'environment' },
+            width: { ideal: widthFromParams },
+          },
+          audio,
+        }
+      }
+    } else {
+      if (!sw || !sh) {
+        alert('missing selfieIdealWidth or selfieIdealHeight')
+        return {}
+      }
+      const widthFromParams = parseInt(sw)
+      const heightFromParams = parseInt(sh)
       constraints = {
         video: {
           facingMode: {
@@ -268,15 +301,6 @@ export default class Webcam extends Component<WebcamProps, State> {
           },
           width: { ideal: widthFromParams },
           height: { ideal: heightFromParams },
-        },
-        audio,
-      }
-    } else if (w) {
-      const widthFromParams = parseInt(w)
-      constraints = {
-        video: {
-          facingMode: { ideal: 'environment' },
-          width: { ideal: widthFromParams },
         },
         audio,
       }
