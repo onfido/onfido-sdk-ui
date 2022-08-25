@@ -288,14 +288,9 @@ const FieldComponent = ({
     (type === 'line3' && selectedCountry === 'USA') ||
     (type === 'state' && selectedCountry !== 'USA') ||
     (type === 'ssn' && (selectedCountry !== 'USA' || !ssnEnabled)) ||
+    (type === 'pan' && (selectedCountry !== 'IND' || !panEnabled)) ||
     (type === 'pan' && (selectedCountry !== 'IND' || !panEnabled))
   ) {
-    if (value) onChange(type, '') // removed value if was already set
-    return null
-  }
-
-  // edge cases when field component should not be rendered at all
-  if (type === 'pan' && (selectedCountry !== 'IND' || !panEnabled)) {
     if (value) onChange(type, '') // removed value if was already set
     return null
   }
@@ -498,6 +493,11 @@ const hasValidPan = (pan: string) => {
   return pan.length === 10 && myRegEx.test(String(pan).toLowerCase())
 }
 
+const hasValidPan = (pan: string) => {
+  const myRegEx = /^\w+$/
+  return pan.length === 10 && myRegEx.test(String(pan).toLowerCase())
+}
+
 const validateField = (
   type: FieldComponentProps['type'],
   value: FieldComponentProps['value'],
@@ -676,6 +676,3 @@ const translateSpecific = (
 }
 
 export default ProfileData
-function translate(arg0: string): string | undefined {
-  throw new Error('Function not implemented.')
-}
