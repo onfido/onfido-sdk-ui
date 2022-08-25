@@ -248,7 +248,7 @@ jobs:
         if: ${{ steps.testserver.outcome == 'success' }}
         working-directory: ./test/webtest
         continue-on-error: true
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=firefox -DscreenshotListener.enabled=false"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -Denvironment=browserstack -Dbrowser=firefox -DscreenshotListener.enabled=false"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -268,7 +268,7 @@ jobs:
         continue-on-error: true
         id: edge
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=edge -DscreenshotListener.enabled=false"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -Denvironment=browserstack -Dbrowser=edge -DscreenshotListener.enabled=false"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -288,7 +288,7 @@ jobs:
         continue-on-error: true
         id: safari
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=safari -DbrowserVersion=15.1 -DscreenshotListener.enabled=false"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -Denvironment=browserstack -Dbrowser=safari -DbrowserVersion=15.1 -DscreenshotListener.enabled=false"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -308,7 +308,7 @@ jobs:
         continue-on-error: true
         id: ie
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -DnetworkLogs=false -DbaseUrl=http://localhost:8081/local/ -Denvironment=browserstack -Dbrowser=ie -DbrowserVersion=11 -DscreenshotListener.enabled=false"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -DnetworkLogs=false -DbaseUrl=http://localhost:8081/local/ -Denvironment=browserstack -Dbrowser=ie -DbrowserVersion=11 -DscreenshotListener.enabled=false"
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
