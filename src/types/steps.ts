@@ -109,7 +109,7 @@ export type OptionsEnbaled =
 export type StepOptionData = {
   first_name?: string
   last_name?: string
-  email_address?: string
+  email?: string
   dob?: string
   country_residence?: string
   phone_number?: string
