@@ -51,6 +51,7 @@ const debugMessage = (
       width: settings.width,
       height: settings.height,
       aspectRatio: settings.aspectRatio,
+      deviceId: settings.deviceId,
       // @ts-ignore
       resizeMode: settings.resizeMode,
     },
