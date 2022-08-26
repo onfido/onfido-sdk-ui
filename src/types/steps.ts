@@ -98,7 +98,7 @@ export type OptionsEnbaled =
   | 'address_enabled'
   | 'country_residence_enabled'
   | 'dob_enabled'
-  | 'email_address_enabled'
+  | 'email_enabled'
   | 'first_name_enabled'
   | 'last_name_enabled'
   | 'phone_number_enabled'
@@ -109,7 +109,7 @@ export type OptionsEnbaled =
 export type StepOptionData = {
   first_name?: string
   last_name?: string
-  email_address?: string
+  email?: string
   dob?: string
   country_residence?: string
   phone_number?: string
@@ -122,16 +122,19 @@ export type StepOptionData = {
     state?: string
     postcode?: string
   }
-  address_enabled?: boolean
-  country_residence_enabled?: boolean
-  dob_enabled?: boolean
-  email_address_enabled?: boolean
-  first_name_enabled?: boolean
-  last_name_enabled?: boolean
-  phone_number_enabled?: boolean
-  nationality_enabled?: boolean
-  pan_enabled?: boolean
   ssn_enabled?: boolean
+  profile_data_selection?: {
+    address_enabled?: boolean
+    country_residence_enabled?: boolean
+    dob_enabled?: boolean
+    email_enabled?: boolean
+    first_name_enabled?: boolean
+    last_name_enabled?: boolean
+    phone_number_enabled?: boolean
+    nationality_enabled?: boolean
+    pan_enabled?: boolean
+    ssn_enabled?: boolean
+  }
   getPersonalData: GetPersonalDataFunc
 }
 

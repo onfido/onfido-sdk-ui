@@ -62,6 +62,16 @@ import { getCountryDataForDocumentType } from '~supported-documents'
 let LazyAuth: ComponentType<StepComponentProps>
 
 const SDK_ENV = process.env.SDK_ENV
+const sortedProfileDataCaptureFields = [
+  'first_name',
+  'last_name',
+  'dob',
+  'email',
+  'phone_number',
+  'nationality',
+  'ssn',
+  'pan',
+]
 
 if (process.env.SDK_ENV === 'Auth') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -202,21 +212,23 @@ const buildDataComponents = (
     />
   )
 
-  const profileDataCaptureFields = [
-    'first_name',
-    'last_name',
-    'dob',
-    'email_address',
-    'phone_number',
-    'nationality',
-    'ssn',
-    'pan',
-  ].filter((key) => {
-    const optionKey = `${key}_enabled` as OptionsEnbaled
-    return dataStep?.options && dataStep?.options[optionKey] === true
-  })
+  const profileDataCaptureFields = dataStep?.options?.profile_data_selection
+    ? sortedProfileDataCaptureFields.filter((key) => {
+        const optionKey = `${key}_enabled` as OptionsEnbaled
+        return (
+          dataStep?.options &&
+          dataStep?.options?.profile_data_selection &&
+          Boolean(dataStep?.options?.profile_data_selection[optionKey]) === true
+        )
+      })
+    : ['first_name', 'last_name', 'dob', 'ssn']
+
   const hasCountryOfResidenceEnabled =
-    dataStep?.options && Boolean(dataStep?.options['country_residence_enabled'])
+    dataStep?.options &&
+    dataStep?.options?.profile_data_selection &&
+    Boolean(
+      dataStep?.options?.profile_data_selection['country_residence_enabled']
+    )
 
   const PersonalInformation = (props: any) => (
     <DataCapture
@@ -224,8 +236,11 @@ const buildDataComponents = (
       options={dataStep?.options}
       title="personal_information_title"
       dataFields={profileDataCaptureFields}
-      ssnEnabled={dataStep?.options?.ssn_enabled}
-      panEnabled={dataStep?.options?.pan_enabled}
+      ssnEnabled={
+        dataStep?.options?.ssn_enabled ||
+        dataStep?.options?.profile_data_selection?.ssn_enabled
+      }
+      panEnabled={dataStep?.options?.profile_data_selection?.pan_enabled}
       getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
@@ -250,12 +265,19 @@ const buildDataComponents = (
 
   const dataComponents = []
 
-  dataStep?.options?.country_residence_enabled &&
+  if (
+    Boolean(dataStep?.options?.country_residence_enabled) ||
+    dataStep?.options?.country_residence_enabled === undefined
+  )
     dataComponents.push(CountryOfResidence)
 
   dataComponents.push(PersonalInformation)
 
-  dataStep?.options?.address_enabled && dataComponents.push(Address)
+  if (
+    Boolean(dataStep?.options?.address_enabled) ||
+    dataStep?.options?.country_residence_enabled === undefined
+  )
+    dataComponents.push(Address)
 
   return dataComponents
 }

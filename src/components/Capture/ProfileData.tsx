@@ -189,7 +189,7 @@ type fieldType =
   | 'town'
   | 'state'
   | 'postcode'
-  | 'email_address'
+  | 'email'
   | 'phone_number'
 
 type Toucher = {
@@ -362,7 +362,7 @@ const getFieldComponent = (
       return <DateOfBirthInput {...props} country={country} />
     case 'postcode':
       return <Input {...props} type="text" style={{ width: space(22) }} />
-    case 'email_address':
+    case 'email':
       return <Input {...props} type="email" />
     case 'phone_number':
       return (
@@ -446,7 +446,7 @@ const isFieldRequired = (
     'country_residence',
     'line1',
     'postcode',
-    'email_address',
+    'email',
     'phone_number',
     'nationality',
   ]
@@ -554,7 +554,7 @@ const validateField = (
       : translate(`profile_data.field_validation.invalid_${type}`)
   }
 
-  if (type === 'email_address') {
+  if (type === 'email') {
     return hasValidEmail(value)
       ? ''
       : translate(`profile_data.field_validation.invalid_${type}`)
