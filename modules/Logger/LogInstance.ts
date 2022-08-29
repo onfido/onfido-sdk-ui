@@ -15,22 +15,22 @@ export class LogInstance {
     this.dispatch = dispatch
   }
 
-  // Note: filePath, methodName, lineNumber are injected at build time
+  // Note: file, method, line are injected at build time
   private capture = (level: LabelKeyType) => (
     message: string,
     metadata?: Record<string, unknown>,
-    filePath?: string,
-    methodName?: string,
-    lineNumber?: string
+    file?: string,
+    method?: string,
+    line?: string
   ) => {
     this.dispatch({
       labels: this.labels,
       level,
       message,
       metadata,
-      filePath,
-      methodName,
-      lineNumber,
+      file,
+      method,
+      line,
     })
   }
 

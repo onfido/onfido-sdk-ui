@@ -69,9 +69,9 @@ type DataPackage = {
   level: LabelKeyType
   message: string
   metadata?: Record<string, unknown>
-  filePath?: string
-  methodName?: string
-  lineNumber?: string
+  file?: string
+  method?: string
+  line?: string
 }
 
 class CustomService implements ServiceInterface {

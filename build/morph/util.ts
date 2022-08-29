@@ -4,11 +4,11 @@ import { fromBasePath } from './project'
 
 // node: CallExpression
 export const abstractOriginInfo = (callExpression: CallExpression) => {
-  const filePath = callExpression
+  const file = callExpression
     .getSourceFile()
     .getFilePath()
     .replace(fromBasePath(), '')
-  const lineNumber = callExpression.getStartLineNumber()
+  const line = callExpression.getStartLineNumber()
 
   const anc = callExpression.getAncestors()
   const trace: string[] = []
@@ -24,12 +24,12 @@ export const abstractOriginInfo = (callExpression: CallExpression) => {
       trace.push(x.getName() || '')
     }
   })
-  const methodName = trace.reverse().join('.')
+  const method = trace.reverse().join('.')
 
   return {
-    filePath,
-    methodName,
-    lineNumber,
+    file,
+    method,
+    line,
   }
 }
 

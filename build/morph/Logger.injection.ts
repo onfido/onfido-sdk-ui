@@ -85,15 +85,12 @@ export default (project: Project) => {
           return
         }
 
-        const { filePath, methodName, lineNumber } = abstractOriginInfo(
-          callExpression
-        )
-
+        const { file, method, line } = abstractOriginInfo(callExpression)
         count++
 
         appendArgumentsToCallExpression(callExpression, {
           max: methodParametersLength,
-          data: [`'${filePath}'`, `'${methodName}'`, `'${lineNumber}'`],
+          data: [`'${file}'`, `'${method}'`, `'${line}'`],
         })
       })
     })

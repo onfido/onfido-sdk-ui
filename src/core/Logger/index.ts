@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Logger, ConsoleService, EnviromentType } from '~modules/Logger'
 
 const onfidoSDKLogger = new Logger({
@@ -12,17 +13,21 @@ export const logger = onfidoSDKLogger.createInstance('default')
 export default onfidoSDKLogger
 
 // TODO: remove, only used for acceptance
+const customLevelLogger = onfidoSDKLogger.createInstance('Custom level')
+
 window.logger = logger
-window.customLevelLogger = onfidoSDKLogger.createInstance('Custom level')
+window.customLevelLogger = customLevelLogger
 
-logger.info('Info log')
-logger.debug('debug log')
-logger.warning('warning log')
-logger.error('error log')
-logger.fatal('fatal log')
+const metadata = { meta: 'data', is: 'working' }
 
-customLevelLogger.info('Info log')
-customLevelLogger.debug('debug log')
-customLevelLogger.warning('warning log')
-customLevelLogger.error('error log')
-customLevelLogger.fatal('fatal log')
+logger.info('Info log', metadata)
+logger.debug('debug log', metadata)
+logger.warning('warning log', metadata)
+logger.error('error log', metadata)
+logger.fatal('fatal log', metadata)
+
+customLevelLogger.info('Info log', metadata)
+customLevelLogger.debug('debug log', metadata)
+customLevelLogger.warning('warning log', metadata)
+customLevelLogger.error('error log', metadata)
+customLevelLogger.fatal('fatal log', metadata)

@@ -6,11 +6,11 @@ import { configDist } from './build/webpack/configs/dist.config'
 import { configLib } from './build/webpack/configs/lib.config'
 import { SDK_ENV } from './build/webpack/constants'
 
-if (process.env.HOT_RELOAD_ENABLED !== 'true') {
-  console.log('Running morph')
-  runMorph()
-  console.log('Completed morph')
-}
+// if (process.env.HOT_RELOAD_ENABLED !== 'true') {
+console.log('Running morph')
+runMorph()
+console.log('Completed morph')
+// }
 
 const distConfig = configDist()
 

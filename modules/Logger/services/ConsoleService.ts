@@ -27,9 +27,17 @@ export class ConsoleService implements ServiceInterface {
   }
 
   private log(data: DataPackage) {
-    console.log(
+    let log: unknown[] = [
       `[${data.labels.join(',')}:${data.level}] ${data.message}`,
-      data.metadata
-    )
+    ]
+
+    if (this.environment !== 'production') {
+      log = log.concat([
+        data.metadata,
+        { line: data.line, file: data.file, method: data.method },
+      ])
+    }
+
+    console.log(...log)
   }
 }

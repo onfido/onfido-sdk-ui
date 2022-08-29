@@ -1,8 +1,8 @@
 /*
   Inject origin location data into Logger methods at build time
-    - filePath: string
+    - file: string
     - method: string
-    - lineNumber: string
+    - line: string
 */
 import { Node, Project } from 'ts-morph'
 import { fromBasePath } from './project'
@@ -34,15 +34,12 @@ export default (project: Project) => {
       return
     }
 
-    const { filePath, methodName, lineNumber } = abstractOriginInfo(
-      callExpression
-    )
-
+    const { file, method, line } = abstractOriginInfo(callExpression)
     count++
 
     appendArgumentsToCallExpression(callExpression, {
       max: trackExceptionParameters.length,
-      data: [`'${filePath}'`, `'${methodName}'`, `'${lineNumber}'`],
+      data: [`'${file}'`, `'${method}'`, `'${line}'`],
     })
   })
 

@@ -8,9 +8,9 @@ export type DataPackage = {
   metadata?: Record<string, unknown>
 
   // Injected at build time (excluding hot reload)
-  filePath?: string
-  methodName?: string
-  lineNumber?: string
+  file?: string
+  method?: string
+  line?: string
 }
 
 export type ServicesType = Record<string, ServiceInterface>

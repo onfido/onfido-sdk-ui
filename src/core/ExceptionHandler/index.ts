@@ -82,7 +82,7 @@ export const install = ({ useGlobalListeners }: InstallProps = {}) => {
     beforeSend: (event, hint) => {
       const origin = hint.data?.exceptionOrigin
       if (origin && origin.file && origin.method) {
-        event.fingerprint = [origin.file, origin.method, origin.lineNumber]
+        event.fingerprint = [origin.file, origin.method, origin.line]
       }
 
       // HintData isn't visible in Sentry UI.
@@ -120,11 +120,11 @@ export const captureException = (
   // Injected in build process (not in hot-reload)
   file?: string,
   method?: string,
-  lineNumber?: number
+  line?: number
 ): void => {
   let exceptionOrigin
-  if (file || method || lineNumber) {
-    exceptionOrigin = { file, method, lineNumber }
+  if (file || method || line) {
+    exceptionOrigin = { file, method, line }
   }
 
   sentryHub?.captureException(error, {
