@@ -6,7 +6,6 @@ import { GitRevisionPlugin } from 'git-revision-webpack-plugin'
 // @ts-ignore
 import Visualizer from 'webpack-visualizer-plugin2'
 import {
-  WOOPRA_WINDOW_KEY,
   SDK_ENV,
   RELEASE_VERSION,
   PRODUCTION_BUILD,
@@ -66,8 +65,6 @@ export const basePlugins = (bundle_name = '') =>
         US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
         CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
         SDK_TOKEN_FACTORY_SECRET,
-        WOOPRA_WINDOW_KEY,
-        WOOPRA_IMPORT: `imports-loader?this=>Window.prototype["${WOOPRA_WINDOW_KEY}"],window=>Window.prototype["${WOOPRA_WINDOW_KEY}"]!wpt/wpt.js`,
         COMMITHASH: gitRevisionPlugin.commithash(),
       })
     ),

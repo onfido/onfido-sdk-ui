@@ -52,7 +52,6 @@ class ModalApp extends Component<Props> {
         this.props.actions.setAnonymousUuid,
         this.props.anonymousUuid
       )
-      Tracker.setUp()
       Tracker.install()
     } else {
       uninstallAnalyticsCookie(this.props.actions.setAnonymousUuid)

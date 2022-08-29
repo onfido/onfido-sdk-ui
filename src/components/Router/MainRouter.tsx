@@ -4,8 +4,6 @@ import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import { buildStepFinder } from '~utils/steps'
 import withTheme from '../Theme'
 import GenericError from '../GenericError'
-
-import { getWoopraCookie } from '../../Tracker'
 import { HistoryRouterWrapper } from './HistoryRouter'
 
 import type { MobileConfig } from '~types/commons'
@@ -65,7 +63,7 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       workflowRunId,
       useWorkflow,
     } = options
-    const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
+
     if (!steps) {
       throw new Error('steps not provided')
     }
@@ -88,7 +86,6 @@ export default class MainRouter extends Component<InternalRouterProps, State> {
       steps: crossDeviceSteps ? crossDeviceSteps : steps,
       token,
       urls,
-      woopraCookie,
       anonymousUuid,
       analyticsSessionUuid,
       workflowRunId,

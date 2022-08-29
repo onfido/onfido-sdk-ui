@@ -7,8 +7,6 @@ declare global {
   }
 }
 
-jest.mock('../../Tracker/safeWoopra')
-
 jest.mock('../demoUtils', () => ({
   getInitSdkOptions: jest.fn().mockReturnValue({}),
   queryParamToValueString: { useHistory: false },
