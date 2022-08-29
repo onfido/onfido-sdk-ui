@@ -243,6 +243,11 @@ jobs:
         id: testserver
         run: rm -rf ./test/mock-server/frontend && cp -r dist test/mock-server/frontend && docker-compose up --build --no-start
 
+      - name: Download local browserstack
+        id: download-browserstack
+        if: ${{ steps.testserver.outcome == 'success' }}
+        run: curl -o /tmp/browserstacklocal https://bstack-local-prod.s3.amazonaws.com/BrowserStackLocal-linux-x64 && chmod 777 /tmp/browserstacklocal
+
       - name: Run UI tests in Firefox
         id: firefox
         if: ${{ steps.testserver.outcome == 'success' }}
@@ -254,6 +259,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_LOCAL_BINARY: /tmp/browserstacklocal
           BUILD: ${{ github.ref }}-${{ github.run_id }}
 
       - name: Publish Selenium Test Results - Firefox
@@ -274,6 +280,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_LOCAL_BINARY: /tmp/browserstacklocal
           BUILD: ${{ github.ref }}-${{ github.run_id }}
 
       - name: Publish Selenium Test Results - Edge
@@ -294,6 +301,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_LOCAL_BINARY: /tmp/browserstacklocal
           BUILD: ${{ github.ref }}-${{ github.run_id }}
 
       - name: Publish Selenium Test Results - Safari
@@ -314,6 +322,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_LOCAL_BINARY: /tmp/browserstacklocal
           BUILD: ${{ github.ref }}-${{ github.run_id }}
 
       - name: Publish Selenium Test Results - IE
