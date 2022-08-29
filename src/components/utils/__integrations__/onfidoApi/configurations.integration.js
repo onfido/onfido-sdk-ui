@@ -20,6 +20,7 @@ describe('API configurations endpoint', () => {
     const configurations = await getSdkConfiguration(API_URL, jwtToken)
 
     expect(configurations).toHaveProperty('sdk_features', {
+      disable_cross_device_sms: false,
       enable_in_house_analytics: false,
       enable_on_device_face_detection: true,
       enable_require_applicant_consents: true,
@@ -33,6 +34,7 @@ describe('API configurations endpoint', () => {
     const configurations = await getSdkConfiguration(API_URL, jwtToken)
 
     expect(configurations).toHaveProperty('sdk_features', {
+      disable_cross_device_sms: false,
       enable_in_house_analytics: false,
       enable_on_device_face_detection: false,
       enable_require_applicant_consents: false,
@@ -46,6 +48,7 @@ describe('API configurations endpoint', () => {
     const configurations = await getSdkConfiguration(API_URL, jwtToken)
 
     expect(configurations).toHaveProperty('sdk_features', {
+      disable_cross_device_sms: false,
       enable_in_house_analytics: false,
       enable_on_device_face_detection: true,
       enable_require_applicant_consents: true,
