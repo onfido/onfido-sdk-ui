@@ -57,21 +57,15 @@ public abstract class BasePage extends Page {
 
     @Override
     protected WebElement input(By by, String value) {
+        var chars = value.split("");
+        var input = driver.waitFor.clickable(by);
+        input.clear();
+        for (String c : chars) {
+            input.sendKeys(c);
+            sleep(50);
+        }
 
-        // if (driver.driver.getCapabilities().getBrowserName().equalsIgnoreCase("internet explorer")) {
-            var chars = value.split("");
-            var input = driver.waitFor.clickable(by);
-            input.clear();
-            for (String c : chars) {
-                input.sendKeys(c);
-                sleep(50);
-            }
-
-            return input;
-        // } else {
-        //     return super.input(by, value);
-        // }
-
+        return input;
     }
 
     public void waitForLoaderDisappears(Driver driver) {
