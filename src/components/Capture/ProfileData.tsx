@@ -36,8 +36,9 @@ type ProfileDataProps = StepComponentDataProps & {
   dataSubPath: string
   dataFields: string[]
   disabledFields: string[]
-  ssnEnabled?: StepOptionData['ssn_enabled']
-  panEnabled?: StepOptionData['pan_enabled']
+  profile_data_selection?: StepOptionData['profile_data_selection']
+  ssnEnabled?: boolean
+  panEnabled?: boolean
   getPersonalData: StepOptionData['getPersonalData']
   nextStep: () => void
   completeStep: (data: CompleteStepValue) => void
@@ -316,6 +317,7 @@ const FieldComponent = ({
             onBlur: handleBlur,
             onChange: handleChange,
           },
+          translate,
           selectedCountry
         )}
         {isTouched && isInvalid && (
@@ -337,6 +339,7 @@ const getFieldComponent = (
     onBlur: () => void
     onChange: (ev: { target: { value: string } }) => void
   },
+  translate: TranslateCallback,
   country?: FieldComponentProps['selectedCountry']
 ) => {
   const smsNumberCountryCode = Array.isArray(sdkOptions)
@@ -373,14 +376,25 @@ const getFieldComponent = (
         />
       )
     case 'ssn':
-      return <SSNInput {...props} style={{ width: space(22) }} />
+      return (
+        <SSNInput
+          {...props}
+          placeholder={
+            translate('profile_data.components.ssn.placeholder') ||
+            '123-45-6789'
+          }
+          style={{ width: space(22) }}
+        />
+      )
     case 'pan':
       return (
         <Input
           {...props}
           maxLength={10}
           pattern={'[a-zA-Z0-9-]+'}
-          placeholder="AAAAA1234A"
+          placeholder={
+            translate('profile_data.components.pan.placeholder') || 'ABCDE1234F'
+          }
           type="text"
         />
       )
@@ -656,3 +670,6 @@ const translateSpecific = (
 }
 
 export default ProfileData
+function translate(arg0: string): string | undefined {
+  throw new Error('Function not implemented.')
+}

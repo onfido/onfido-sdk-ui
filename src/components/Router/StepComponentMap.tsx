@@ -266,16 +266,20 @@ const buildDataComponents = (
   const dataComponents = []
 
   if (
-    Boolean(dataStep?.options?.country_residence_enabled) ||
-    dataStep?.options?.country_residence_enabled === undefined
+    Boolean(
+      dataStep?.options?.profile_data_selection?.country_residence_enabled
+    ) ||
+    dataStep?.options?.profile_data_selection?.country_residence_enabled ===
+      undefined
   )
     dataComponents.push(CountryOfResidence)
 
   dataComponents.push(PersonalInformation)
 
   if (
-    Boolean(dataStep?.options?.address_enabled) ||
-    dataStep?.options?.country_residence_enabled === undefined
+    Boolean(dataStep?.options?.profile_data_selection?.address_enabled) ||
+    dataStep?.options?.profile_data_selection?.country_residence_enabled ===
+      undefined
   )
     dataComponents.push(Address)
 
