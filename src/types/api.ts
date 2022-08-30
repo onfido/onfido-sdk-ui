@@ -50,6 +50,7 @@ export type ValidationReasons =
   | 'detect_blur'
   | 'face_detection'
   | 'file'
+  | 'media'
 
 export type ValidationError = {
   type: typeof API_ERROR_VALIDATION

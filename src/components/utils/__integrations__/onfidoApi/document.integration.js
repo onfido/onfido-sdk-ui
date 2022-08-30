@@ -1,5 +1,9 @@
 import fs from 'fs'
-import { uploadDocument, uploadBinaryMedia } from '../../onfidoApi'
+import {
+  uploadDocument,
+  uploadBinaryMedia,
+  createV4Document,
+} from '../../onfidoApi'
 import {
   getTestJwtToken,
   createEmptyFile,
@@ -154,5 +158,35 @@ describe('API uploadBinaryMedia endpoint', () => {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(res).toHaveProperty('status', 422)
     })
+  })
+})
+
+describe('API createV4Document endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await getTestJwtToken()
+  })
+
+  test('createV4Document returns expected response on successful upload', async () => {
+    const testFileName = 'passport.jpg'
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new File([data], testFileName, {
+      type: 'image/jpeg',
+    })
+    const documentData = {
+      file: testFile,
+      filename: testFileName,
+      sdkMetadata: {},
+    }
+
+    expect.assertions(1)
+
+    const { media_id: documentUUID } = await uploadBinaryMedia(
+      documentData,
+      API_URL,
+      jwtToken
+    )
+
+    const res = await createV4Document([documentUUID], API_URL, jwtToken)
+    expect(res).toHaveProperty('uuid')
   })
 })
