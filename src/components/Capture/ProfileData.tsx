@@ -107,6 +107,7 @@ const ProfileData = ({
 
     const newPersonalData = Object.entries(cleanedFormData).reduce(
       (prev, [type, value]) => {
+        if (type === 'pan') return { ...prev, tax_id: `${value}` }
         if (type !== 'country_residence') return { ...prev, [type]: `${value}` }
 
         return {
@@ -288,7 +289,6 @@ const FieldComponent = ({
     (type === 'line3' && selectedCountry === 'USA') ||
     (type === 'state' && selectedCountry !== 'USA') ||
     (type === 'ssn' && (selectedCountry !== 'USA' || !ssnEnabled)) ||
-    (type === 'pan' && (selectedCountry !== 'IND' || !panEnabled)) ||
     (type === 'pan' && (selectedCountry !== 'IND' || !panEnabled))
   ) {
     if (value) onChange(type, '') // removed value if was already set
@@ -486,11 +486,6 @@ const hasValidEmail = (email: string) => {
     .match(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     )
-}
-
-const hasValidPan = (pan: string) => {
-  const myRegEx = /^\w+$/
-  return pan.length === 10 && myRegEx.test(String(pan).toLowerCase())
 }
 
 const hasValidPan = (pan: string) => {
