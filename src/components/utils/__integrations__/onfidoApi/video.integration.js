@@ -2,6 +2,7 @@ import fs from 'fs'
 import {
   requestChallenges,
   uploadFaceVideo,
+  uploadDocumentVideoMedia,
   uploadActiveVideo,
 } from '../../onfidoApi'
 import {
@@ -123,6 +124,48 @@ describe('API uploadFaceVideo endpoint', () => {
       jwtToken,
       (response) => done(response),
       onErrorCallback
+    )
+  })
+})
+
+describe('API uploadDocumentVideoMedia endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await getTestJwtToken()
+  })
+
+  test('uploadDocumentVideoMedia returns empty response on success', (done) => {
+    process.env.SDK_SOURCE = 'onfido_web_sdk'
+    process.env.SDK_VERSION = '8.3.0'
+
+    const testFileName = 'test-video.webm'
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new Blob([data], {
+      type: 'video/webm',
+    })
+
+    const videoData = {
+      file: testFile,
+      document_id: '12345678-1234-1234-1234-123456789abc',
+      sdkMetadata: {},
+    }
+
+    const onSuccessCallback = (response) => {
+      try {
+        expect(response).toStrictEqual(' ')
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+
+    expect.assertions(1)
+
+    uploadDocumentVideoMedia(
+      videoData,
+      API_URL,
+      jwtToken,
+      (response) => onSuccessCallback(response),
+      (error) => done(error)
     )
   })
 })
