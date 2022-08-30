@@ -91,6 +91,8 @@ describe('API applicant location endpoint', () => {
   test('updateApplicantLocation returns error response on applicant not found', async () => {
     const invalidApplicantUUID = '12345678-1234-1234-1234-123456789abc'
 
+    expect.assertions(1)
+
     await updateApplicantLocation(
       invalidApplicantUUID,
       API_URL,
