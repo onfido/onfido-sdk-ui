@@ -135,6 +135,7 @@ type StepOptionsMap = {
 export type StepConfigMap = {
   [Type in StepTypes]: {
     type: Type
+    consents?: { id: 'mno' | 'ssn'; url: string }[]
     options?: StepOptionsMap[Type]
   }
 }

@@ -567,6 +567,7 @@
       },
       "invalid": "Please check for invalid characters or symbols",
       "invalid_dob": "Please enter a valid date of birth",
+      "required_consent": "Please ensure you accept Onfido’s policies",
       "required_country": "Please select a country",
       "required_dob": "Please enter your date of birth",
       "required_email": "Please enter your email",

@@ -25,6 +25,10 @@
   margin-top: castor.space(4);
 }
 
+.field {
+  text-align: left;
+}
+
 @media (--small-viewport) {
   .field {
     min-width: 0;

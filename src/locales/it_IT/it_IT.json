@@ -480,6 +480,7 @@
       },
       "invalid": "Verificare che non ci siano simboli o caratteri non validi",
       "invalid_dob": "Inserire una data di nascita valida",
+      "required_consent": "Please ensure you accept Onfido’s policies",
       "required_country": "Selezionare un paese",
       "required_dob": "Inserire la data di nascita",
       "required_email": "Inserisci la tua email",

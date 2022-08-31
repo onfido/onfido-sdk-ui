@@ -41,6 +41,14 @@ export class Network {
     )
   }
 
+  public performHttpRequestPromise = <T>(
+    httpRequestParams: HttpRequestParams
+  ) => {
+    return new Promise<T>((resolve, reject) =>
+      this.performHttpRequest(httpRequestParams, resolve, reject)
+    )
+  }
+
   private applyMiddleware = (
     httpRequestParams: HttpRequestParams
   ): HttpRequestParams => {

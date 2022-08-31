@@ -209,6 +209,7 @@ const buildDataComponents = (
       dataFields={['first_name', 'last_name', 'dob', 'ssn']}
       ssnEnabled={dataStep?.options?.ssn_enabled}
       getPersonalData={dataStep?.options?.getPersonalData}
+      consents={dataStep?.consents}
     />
   )
   const Address = (props: any) => (

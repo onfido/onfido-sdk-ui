@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/preact-hooks'
+import { renderHook, act } from '@testing-library/preact'
 import useMultiFrameCaptureStep from '../useMultiFrameCaptureStep'
 
 describe('useMultiFrameCaptureStep', () => {

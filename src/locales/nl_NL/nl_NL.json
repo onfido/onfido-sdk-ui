@@ -480,6 +480,7 @@
       },
       "invalid": "Controleer op ongeldige tekens of symbolen",
       "invalid_dob": "Voer een geldig geboortedatum in",
+      "required_consent": "Please ensure you accept Onfido’s policies",
       "required_country": "Selecteer een land",
       "required_dob": "Voer uw geboortedatum in",
       "required_email": "Voer uw e-mailadres in",

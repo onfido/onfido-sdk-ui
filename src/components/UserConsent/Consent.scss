@@ -1,0 +1,27 @@
+.consent {
+  border-radius: var(--ods-border-radius-medium);
+  border: 1px solid rgba(var(--ods-color-border-separator));
+  background: rgba(var(--ods-color-background-main));
+  text-align: left;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+.header > button {
+  background: rgba(var(--ods-color-neutral-300));
+  border: none;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.content {
+  margin: 8px 48px 16px;
+}

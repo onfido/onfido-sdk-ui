@@ -480,6 +480,7 @@
       },
       "invalid": "Sprawdź, czy w polu nie ma nieprawidłowych znaków lub symboli",
       "invalid_dob": "Wprowadź prawidłową datę urodzenia",
+      "required_consent": "Please ensure you accept Onfido’s policies",
       "required_country": "Wybierz kraj",
       "required_dob": "Wpisz swoją datę urodzenia",
       "required_email": "Podaj swój adres e-mail",

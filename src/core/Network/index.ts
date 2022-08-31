@@ -9,3 +9,4 @@ const network = new Network({
 })
 
 export const performHttpRequest = network.performHttpRequest
+export const performHttpRequestPromise = network.performHttpRequestPromise

@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/preact-hooks'
+import { renderHook } from '@testing-library/preact'
 import { useDocumentTypesAdapter } from '../useDocumentTypesAdapter'
 import { DocumentTypeConfig, DocumentTypes, StepConfig } from '~types/steps'
 import * as assert from 'assert'

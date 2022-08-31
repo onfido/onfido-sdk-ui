@@ -151,6 +151,16 @@ export class Engine implements EngineInterface {
       case 'profile_data':
         return {
           type: 'data',
+          consents: [
+            {
+              id: 'mno',
+              url: 'https://assets.onfido.com/consent/mno.json',
+            },
+            {
+              id: 'ssn',
+              url: 'https://assets.onfido.com/consent/ssn.json',
+            },
+          ],
           options: {
             ...options,
             first_name: '',

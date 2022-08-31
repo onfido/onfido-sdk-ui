@@ -567,6 +567,7 @@
       },
       "invalid": "Compruebe si hay caracteres o símbolos no válidos",
       "invalid_dob": "Introduzca una fecha de nacimiento válida",
+      "required_consent": "Please ensure you accept Onfido’s policies",
       "required_country": "Seleccione un país",
       "required_dob": "Introduzca su fecha de nacimiento",
       "required_email": "Introduzca su correo electrónico",

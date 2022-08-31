@@ -480,6 +480,7 @@
       },
       "invalid": "Zkontrolujte, zda zde nejsou neplatné znaky nebo symboly",
       "invalid_dob": "Zadejte platné datum narození",
+      "required_consent": "Please ensure you accept Onfido’s policies",
       "required_country": "Vyberte zemi",
       "required_dob": "Zadejte své datum narození",
       "required_email": "Zadejte svůj e-mail",

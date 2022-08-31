@@ -24,8 +24,11 @@ import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
 import type { StepOptionData } from '~types/steps'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { TranslateCallback } from '~types/locales'
+import Spinner from '../Spinner'
+import { Consent } from 'components/UserConsent/Consent'
+import { ConsentTemplate, useConsents } from './useConsents'
 
-type ProfileDataProps = StepComponentDataProps & {
+export type ProfileDataProps = StepComponentDataProps & {
   title: string
   dataSubPath: string
   dataFields: string[]
@@ -34,6 +37,7 @@ type ProfileDataProps = StepComponentDataProps & {
   getPersonalData: StepOptionData['getPersonalData']
   nextStep: () => void
   completeStep: (data: CompleteStepValue) => void
+  consents: { id: 'mno' | 'ssn'; url: string }[]
 } & WithLocalisedProps
 
 const ProfileData = ({
@@ -45,8 +49,12 @@ const ProfileData = ({
   getPersonalData,
   nextStep,
   completeStep,
+  consents = [],
 }: ProfileDataProps) => {
   const { translate } = useLocales()
+  const { consentsData, consentsStatus, handleConsentChange } = useConsents(
+    consents
+  )
   const [formData, setFormData] = useState(() => {
     const personalData = getPersonalData()
     const pathData = dataSubPath
@@ -99,10 +107,33 @@ const ProfileData = ({
       Object.entries(formData).filter(([, value]) => value !== '')
     )
 
-    completeStep(
-      dataSubPath ? { [dataSubPath]: cleanedFormData } : cleanedFormData
-    )
+    const data = dataSubPath
+      ? {
+          [dataSubPath]: cleanedFormData,
+        }
+      : {
+          ...cleanedFormData,
+        }
+
+    if (consentsData.length > 0) {
+      data.consents = consentsData.map(({ id, granted }) => ({ [id]: granted }))
+    }
+
+    completeStep(data)
     nextStep()
+  }
+
+  if (consentsStatus === 'error') {
+    return (
+      <div data-page-id={'Error'}>
+        <p>There was a server error!</p>
+        <p>Please try reloading the app, and try again.</p>
+      </div>
+    )
+  }
+
+  if (consentsStatus !== 'done') {
+    return <Spinner />
   }
 
   return (
@@ -112,8 +143,8 @@ const ProfileData = ({
         {Object.entries(formData).map(([type, value]) => (
           <FieldComponent
             key={type}
-            type={type as FieldComponentProps['type']}
-            value={value as FieldComponentProps['value']}
+            type={type as FieldType}
+            value={String(value)}
             selectedCountry={
               (getPersonalData() as { address: { country: string } })?.address
                 ?.country
@@ -123,6 +154,18 @@ const ProfileData = ({
             setToucher={setToucher}
             removeToucher={removeToucher}
             onChange={handleChange}
+          />
+        ))}
+        {consentsData.map(({ id, granted, ...consent }) => (
+          <FieldComponent
+            key={id}
+            type={`consent-${id}`}
+            value={granted}
+            consent={consent}
+            disabled={false}
+            setToucher={setToucher}
+            removeToucher={removeToucher}
+            onChange={(_, checked) => handleConsentChange(id, Boolean(checked))}
           />
         ))}
         <Button
@@ -140,7 +183,7 @@ const ProfileData = ({
   )
 }
 
-type fieldType =
+type FieldType =
   | 'first_name'
   | 'last_name'
   | 'dob'
@@ -152,6 +195,8 @@ type fieldType =
   | 'town'
   | 'state'
   | 'postcode'
+
+type ConsentType = 'consent-mno' | 'consent-ssn'
 
 type Toucher = {
   type: FieldComponentProps['type']
@@ -166,13 +211,22 @@ type SetToucherFunc = (
 type RemoveRoucherFunc = (type: FieldComponentProps['type']) => void
 
 type FieldValueChangeFunc = (
-  type: FieldComponentProps['type'],
-  value: FieldComponentProps['value']
+  type: FieldValue['type'],
+  value: FieldValue['value']
 ) => void
 
-type FieldComponentProps = {
-  type: fieldType
-  value: string
+type FieldValue =
+  | {
+      type: FieldType
+      value: string
+    }
+  | {
+      type: ConsentType
+      value: boolean
+      consent: ConsentTemplate
+    }
+
+type FieldComponentProps = FieldValue & {
   selectedCountry?: string
   disabled: boolean
   setToucher: SetToucherFunc
@@ -180,16 +234,17 @@ type FieldComponentProps = {
   onChange: FieldValueChangeFunc
 } & Pick<ProfileDataProps, 'ssnEnabled'>
 
-const FieldComponent = ({
-  type,
-  value,
-  selectedCountry,
-  ssnEnabled,
-  disabled,
-  setToucher,
-  removeToucher,
-  onChange,
-}: FieldComponentProps) => {
+const FieldComponent = (props: FieldComponentProps) => {
+  const {
+    type,
+    value,
+    selectedCountry,
+    ssnEnabled,
+    setToucher,
+    removeToucher,
+    onChange,
+  } = props
+
   const { translate } = useLocales()
 
   const isRequired = isFieldRequired(type, selectedCountry, ssnEnabled)
@@ -210,21 +265,17 @@ const FieldComponent = ({
   }, [type, isInvalid])
 
   useEffect(() => {
-    setValidationError(
-      validateField(type, value, selectedCountry, ssnEnabled)(translate)
-    )
-  }, [type, value, selectedCountry, ssnEnabled, translate])
+    setValidationError(validateField(props)(translate))
+  }, [props, translate])
 
   const handleBlur = () => {
     if (!isTouched) setIsTouched(true)
   }
 
-  const handleChange = ({
-    target: { value },
-  }: {
-    target: { value: FieldComponentProps['value'] }
+  const handleChange = (ev: {
+    target: { value: FieldValue['value'] }
   }): void => {
-    onChange(type, value)
+    onChange(type, ev.target.value)
   }
 
   // edge cases when field component should not be rendered at all
@@ -249,38 +300,36 @@ const FieldComponent = ({
           )}
         </span>
         {getTranslatedFieldHelperText(translate, type, selectedCountry)}
-        {getFieldComponent(
-          type,
-          {
-            value,
-            disabled,
-            invalid: isTouched && isInvalid,
-            required: isRequired,
-            onBlur: handleBlur,
-            onChange: handleChange,
-          },
-          selectedCountry
-        )}
-        {isTouched && isInvalid && (
-          <Validation state="error">{validationError}</Validation>
-        )}
       </FieldLabel>
+      {getFieldComponent(
+        {
+          ...props,
+          invalid: isTouched && isInvalid,
+          required: isRequired,
+          onBlur: handleBlur,
+          onChange: handleChange,
+        },
+        selectedCountry
+      )}
+      {isTouched && isInvalid && (
+        <Validation state="error">{validationError}</Validation>
+      )}
     </Field>
   )
 }
 
 const getFieldComponent = (
-  type: FieldComponentProps['type'],
-  props: {
-    value: FieldComponentProps['value']
+  props: FieldValue & {
     disabled: boolean
     invalid: boolean
     required: boolean
     onBlur: () => void
-    onChange: (ev: { target: { value: string } }) => void
+    onChange: (ev: { target: { value: FieldValue['value'] } }) => void
   },
   country?: FieldComponentProps['selectedCountry']
 ) => {
+  const { type, onChange } = props
+
   switch (type) {
     case 'country':
       return <CountrySelector {...props} />
@@ -292,6 +341,26 @@ const getFieldComponent = (
       return <Input {...props} type="text" style={{ width: space(22) }} />
     case 'ssn':
       return <SSNInput {...props} style={{ width: space(22) }} />
+    case 'consent-mno':
+      return (
+        <Consent
+          {...props}
+          id={type}
+          params={new Map()}
+          onGrant={(grant) => onChange({ target: { value: grant } })}
+        />
+      )
+    case 'consent-ssn':
+      return (
+        <Consent
+          {...props}
+          id={type}
+          expandable={false}
+          params={new Map()}
+          onGrant={(grant) => onChange({ target: { value: grant } })}
+        />
+      )
+
     default:
       return <Input {...props} type="text" />
   }
@@ -352,6 +421,8 @@ const isFieldRequired = (
     'country',
     'line1',
     'postcode',
+    'consent-mno',
+    'consent-ssn',
   ]
 
   if (country === 'USA') {
@@ -364,17 +435,22 @@ const isFieldRequired = (
   return requiredFields.includes(type)
 }
 
-const validateField = (
-  type: FieldComponentProps['type'],
-  value: FieldComponentProps['value'],
-  country?: FieldComponentProps['selectedCountry'],
-  ssnEnabled?: FieldComponentProps['ssnEnabled']
-) => (translate: TranslateCallback): string | null => {
+const validateField = ({
+  type,
+  value,
+  selectedCountry,
+  ssnEnabled,
+}: FieldComponentProps) => (translate: TranslateCallback): string | null => {
+  // consents granted
+  if ((type === 'consent-mno' || type === 'consent-ssn') && !value) {
+    return translate(`profile_data.field_validation.required_consent`)
+  }
+
   // required values
-  if (isFieldRequired(type, country, ssnEnabled) && !value) {
+  if (isFieldRequired(type, selectedCountry, ssnEnabled) && !value) {
     return translate(
       `profile_data.${
-        translateSpecific('validation_required', type, country) ||
+        translateSpecific('validation_required', type, selectedCountry) ||
         `field_validation.required_${type}`
       }`
     )
@@ -383,9 +459,9 @@ const validateField = (
   // invalid symbols/format
   if (
     (['first_name', 'last_name'].includes(type) &&
-      /[\^!#$%*=<>;{}"]+/.test(value)) ||
+      /[\^!#$%*=<>;{}"]+/.test(value as string)) ||
     (['line1', 'line2', 'line3', 'town', 'postcode'].includes(type) &&
-      /[\^!$%*=<>]+/.test(value))
+      /[\^!$%*=<>]+/.test(value as string))
   ) {
     return translate('profile_data.field_validation.invalid')
   }
@@ -421,25 +497,25 @@ const validateField = (
       return translate('profile_data.field_validation.invalid_dob')
     }
   }
-  if (type === 'ssn' && country === 'USA' && ssnEnabled) {
+  if (type === 'ssn' && selectedCountry === 'USA' && ssnEnabled) {
     if (!/^\d{3}-?\d{2}-?\d{4}$/.test(value)) {
       return translate('profile_data.field_validation.usa_specific.invalid_ssn')
     }
   }
 
-  const valueByteLength = new TextEncoder().encode(value).length
+  const valueByteLength = new TextEncoder().encode(value as string).length
 
   // value too short
   if (
     (type === 'last_name' && valueByteLength < 2) ||
     (type === 'postcode' &&
-      country &&
-      ['GBP', 'USA'].includes(country) &&
+      selectedCountry &&
+      ['GBP', 'USA'].includes(selectedCountry) &&
       valueByteLength < 5)
   ) {
     return translate(
       `profile_data.${
-        translateSpecific('validation_too_short', type, country) ||
+        translateSpecific('validation_too_short', type, selectedCountry) ||
         `field_validation.too_short_${type}`
       }`
     )
@@ -452,14 +528,14 @@ const validateField = (
     (['line1', 'line2', 'line3'].includes(type) && valueByteLength >= 70) ||
     (type === 'town' && valueByteLength >= 30) ||
     (type === 'postcode' &&
-      (!country || !['GBP', 'USA'].includes(country)) &&
+      (!selectedCountry || !['GBP', 'USA'].includes(selectedCountry)) &&
       valueByteLength > 15) ||
-    (type === 'postcode' && country === 'GBR' && valueByteLength > 8) ||
-    (type === 'postcode' && country === 'USA' && valueByteLength > 5)
+    (type === 'postcode' && selectedCountry === 'GBR' && valueByteLength > 8) ||
+    (type === 'postcode' && selectedCountry === 'USA' && valueByteLength > 5)
   ) {
     return translate(
       `profile_data.${
-        translateSpecific('validation_too_long', type, country) ||
+        translateSpecific('validation_too_long', type, selectedCountry) ||
         `field_validation.too_long_${type}`
       }`
     )

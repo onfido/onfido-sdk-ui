@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { FunctionComponent, h } from 'preact'
-import { renderHook } from '@testing-library/preact-hooks'
+import { renderHook } from '@testing-library/preact'
 import { createOptionsStepsHook } from '../createOptionsStepsHook'
 import { UserConsentContext } from '~contexts/useUserConsent'
 

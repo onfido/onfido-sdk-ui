@@ -12,6 +12,7 @@
   @include castor.Input();
   @include castor.Select();
   @include castor.Icon();
+  @include castor.Checkbox();
 }
 
 :root {

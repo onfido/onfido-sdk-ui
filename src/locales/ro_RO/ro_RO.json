@@ -480,6 +480,7 @@
       },
       "invalid": "Vă rugăm să verificați să nu fie caractere sau simboluri nevalide",
       "invalid_dob": "Vă rugăm să introduceți o dată de naștere validă",
+      "required_consent": "Please ensure you accept Onfido’s policies",
       "required_country": "Vă rugăm să selectați o țară",
       "required_dob": "Vă rugăm să introduceți data dvs. de naștere",
       "required_email": "Vă rugăm să introduceți e-mailul dvs.",
