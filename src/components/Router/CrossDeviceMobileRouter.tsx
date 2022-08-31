@@ -194,6 +194,7 @@ export default class CrossDeviceMobileRouter extends Component<
     const {
       stepIndex,
       disableAnalytics,
+      disableAnalyticsCookies,
       documentType,
       enterpriseFeatures,
       idDocumentIssuingCountry,
@@ -210,11 +211,16 @@ export default class CrossDeviceMobileRouter extends Component<
       useWorkflow,
       workflowRunId,
     } = data
+
     if (disableAnalytics) {
       uninstallAnalyticsCookie(this.props.actions.setAnonymousUuid)
     } else {
       this.props.actions.setAnalyticsSessionUuid(analyticsSessionUuid)
-      setupAnalyticsCookie(this.props.actions.setAnonymousUuid, anonymousUuid)
+      setupAnalyticsCookie({
+        setAnonymousUuid: this.props.actions.setAnonymousUuid,
+        anonymousUuid,
+        disableAnalyticsCookies,
+      })
     }
 
     if (!token) {
