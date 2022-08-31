@@ -30,6 +30,7 @@
             </activation>
             <properties>
                 <dd.java.agent.arg>-javaagent:${settings.localRepository}/com/datadoghq/dd-java-agent/0.107.1/dd-java-agent-0.107.1.jar -Ddd.civisibility.enabled=true</dd.java.agent.arg>
+                <forkCount>1</forkCount>
             </properties>
             <dependencies>
                 <dependency>
@@ -111,7 +112,6 @@
             <artifactId>assertj-core</artifactId>
             <version>3.22.0</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -166,9 +166,7 @@
                     <parallel>methods</parallel>
                     <threadCount>${threadCount}</threadCount>
                     <forkCount>${forkCount}</forkCount>
-                    <argLine>
-                        ${dd.java.agent.arg} --add-opens java.base/java.lang.invoke=ALL-UNNAMED
-                    </argLine>
+                    <argLine>${dd.java.agent.arg} --add-opens java.base/java.lang.invoke=ALL-UNNAMED</argLine>
                 </configuration>
             </plugin>
         </plugins>
