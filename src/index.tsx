@@ -21,10 +21,6 @@ import type { SdkOptions, SdkHandle } from '~types/sdk'
 import type { StepConfig, StepTypes } from '~types/steps'
 import App from './components/App'
 
-// TODO: Remove, only for acceptance
-import { logger } from '~core/Logger'
-console.log('Logger instance available:', !!logger, process.env.NODE_ENV)
-
 if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
 }
