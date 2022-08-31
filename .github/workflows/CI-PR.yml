@@ -151,6 +151,10 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
+      - uses: datadog/agent-github-action@v1.3
+        with:
+          api_key: ${{ secrets.DD_API_KEY }}
+
       - name: Install Percy
         run: npm install -g @percy/cli
 
@@ -182,6 +186,11 @@ jobs:
         shell: bash
         continue-on-error: true
         env:
+          DD_SERVICE: web-sdk
+          DD_ENV: ci-chrome
+          DD_GIT_REPOSITORY_URL: ${{ github.repositoryUrl }}
+          DD_GIT_BRANCH: ${{ github.ref_name }}
+          DD_GIT_COMMIT_SHA: ${{ github.sha }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BUILD: ${{ github.ref }}-${{ github.run_id }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_JAVA }}
