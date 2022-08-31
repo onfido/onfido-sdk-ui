@@ -133,6 +133,14 @@ You can include the library as a regular script tag on your page:
 
 If you are importing the Auth module, you do not need to import the standard SDK module (`dist/onfido.min.js`) also.
 
+Alternatively, you can use hosted versions of files above from our CDN such as:
+
+```html
+<script src="https://assets.onfido.com/web-sdk-releases/8.3.0/onfido.min.js"></script>
+
+<script src="https://assets.onfido.com/web-sdk-releases/8.3.0/onfidoAuth.min.js"></script>
+```
+
 ⚠️ **The Authentication module is currently a BETA feature.**
 
 And the CSS styles:
