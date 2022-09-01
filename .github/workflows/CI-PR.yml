@@ -4,6 +4,13 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened ]
 
+env:
+  DD_SERVICE: web-sdk
+  DD_ENV: ci
+  DD_GIT_REPOSITORY_URL: ${{ github.repositoryUrl }}
+  DD_GIT_BRANCH: ${{ github.head_ref }}
+  DD_GIT_COMMIT_SHA: ${{ github.sha }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -151,6 +158,10 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
+      - uses: datadog/agent-github-action@v1.3
+        with:
+          api_key: ${{ secrets.DD_API_KEY }}
+
       - name: Install Percy
         run: npm install -g @percy/cli
 
@@ -182,6 +193,7 @@ jobs:
         shell: bash
         continue-on-error: true
         env:
+          DD_TAGS: browser:chrome,driver:local
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BUILD: ${{ github.ref }}-${{ github.run_id }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_JAVA }}
@@ -231,6 +243,10 @@ jobs:
           repository: it-ony/webtest
           path: webtest
 
+      - uses: datadog/agent-github-action@v1.3
+        with:
+          api_key: ${{ secrets.DD_API_KEY }}
+
       - name: Build webtest
         run: cd webtest && mvn --no-transfer-progress clean install && cd ..
 
@@ -256,6 +272,7 @@ jobs:
         run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -Denvironment=browserstack -Dbrowser=firefox -DscreenshotListener.enabled=false"
         shell: bash
         env:
+          DD_TAGS: browser:firefox,driver:browserstack
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
@@ -277,6 +294,7 @@ jobs:
         run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -Denvironment=browserstack -Dbrowser=edge -DscreenshotListener.enabled=false"
         shell: bash
         env:
+          DD_TAGS: browser:edge,driver:browserstack
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
@@ -298,6 +316,7 @@ jobs:
         run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -Denvironment=browserstack -Dbrowser=safari -DbrowserVersion=15.1 -DscreenshotListener.enabled=false"
         shell: bash
         env:
+          DD_TAGS: browser:firefox,driver:safari
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
@@ -319,6 +338,7 @@ jobs:
         run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -DnetworkLogs=false -DbaseUrl=http://localhost:8081/local/ -Denvironment=browserstack -Dbrowser=ie -DbrowserVersion=11 -DscreenshotListener.enabled=false"
         shell: bash
         env:
+          DD_TAGS: browser:ie,driver:browserstack
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
