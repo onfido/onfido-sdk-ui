@@ -105,9 +105,7 @@ describe('API uploadFaceVideo endpoint', () => {
       try {
         expect(error.status).toBe(422)
         expect(error.response.error.type).toBe('validation_error')
-        expect(error.response.error.fields).toHaveProperty(
-          'attachment_file_size'
-        )
+        expect(error.response.error.fields).toHaveProperty('attachment')
         done()
       } catch (err) {
         done(err)
