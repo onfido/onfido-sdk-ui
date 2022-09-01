@@ -62,7 +62,6 @@ describe('API configurations endpoint', () => {
     expect.assertions(1)
 
     await getSdkConfiguration(API_URL, EXPIRED_JWT_TOKEN).catch((err) => {
-      // eslint-disable-next-line jest/no-conditional-expect
       expect(err).toMatchObject(ASSERT_EXPIRED_JWT_ERROR_OBJECT)
     })
   })

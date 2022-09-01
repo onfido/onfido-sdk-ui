@@ -1,4 +1,8 @@
-import { getApplicantConsents, updateApplicantConsents } from '../../onfidoApi'
+import {
+  getApplicantConsents,
+  updateApplicantConsents,
+  updateApplicantLocation,
+} from '../../onfidoApi'
 import { getTestApplicantUUID, getTestJwtToken } from '../helpers'
 import { API_URL } from '../helpers/testUrls'
 
@@ -65,5 +69,39 @@ describe('API consents endpoint', () => {
 
     expect(applicantConsents).toHaveLength(1)
     expect(applicantConsentsUpdated[0]).toHaveProperty('granted', true)
+  })
+})
+
+describe('API applicant location endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await getTestJwtToken()
+    applicantUUID = await getTestApplicantUUID()
+  })
+
+  test('updateApplicantLocation returns empty response on success', async () => {
+    const applicantLocation = await updateApplicantLocation(
+      applicantUUID,
+      API_URL,
+      jwtToken
+    )
+
+    expect(applicantLocation).toStrictEqual('')
+  })
+
+  test('updateApplicantLocation returns error response on applicant not found', async () => {
+    const invalidApplicantUUID = '12345678-1234-1234-1234-123456789abc'
+
+    expect.assertions(1)
+
+    await updateApplicantLocation(
+      invalidApplicantUUID,
+      API_URL,
+      jwtToken
+    ).catch((applicantLocation) => {
+      expect(applicantLocation).toHaveProperty(
+        'response.error.type',
+        'resource_not_found'
+      )
+    })
   })
 })

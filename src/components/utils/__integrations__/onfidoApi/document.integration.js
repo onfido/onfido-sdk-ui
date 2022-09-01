@@ -151,7 +151,6 @@ describe('API uploadBinaryMedia endpoint', () => {
     expect.assertions(1)
 
     await uploadBinaryMedia(documentData, API_URL, jwtToken).catch((res) => {
-      // eslint-disable-next-line jest/no-conditional-expect
       expect(res).toHaveProperty('status', 422)
     })
   })
