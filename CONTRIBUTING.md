@@ -82,10 +82,11 @@ $ npm run test:integration # integration testing, for internal contributors only
 We use integration testing to ensure that our API call implementations work as expected.
 
 You are encouraged to add integration tests when
-* Adding a brand-new API call to the code
-* Updating an existing API call
-* New features added to an existing endpoint
-* Covering edge cases or negative cases
+
+- Adding a brand-new API call to the code
+- Updating an existing API call
+- New features added to an existing endpoint
+- Covering edge cases or negative cases
 
 You should place the integration tests at the `__integrations__` package.
 
