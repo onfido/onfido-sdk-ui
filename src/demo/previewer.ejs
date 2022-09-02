@@ -12,7 +12,7 @@
       http-equiv="Content-Security-Policy"
       content="
         default-src 'self';
-        script-src 'self' https://assets.onfido.com https://sentry.io;
+        script-src 'self' 'unsafe-eval' https://assets.onfido.com https://sentry.io;
         style-src 'self' 'unsafe-inline' https://assets.onfido.com;
         connect-src 'self' data: blob: <%= process.env.NODE_ENV === 'test' ? 'https://localhost:8080' : '' %> *.onfido.com wss://*.onfido.com *.pre-prod.onfido.xyz  *.dev.onfido.xyz wss://*.dev.onfido.xyz https://sentry.io;
         img-src 'self' data: blob: https://lipis.github.io/flag-icon-css/;
