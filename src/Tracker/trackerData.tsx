@@ -32,6 +32,7 @@ export const integratorTrackedEvents = new Map<
   ['face_video_upload_started', 'UPLOAD'],
   ['Starting snapshot upload', 'UPLOAD'],
   ['Starting live photo upload', 'UPLOAD'],
+  ['active_video_upload_started', 'UPLOAD'],
 ])
 
 export const analyticsEventsMapping = new Map<
