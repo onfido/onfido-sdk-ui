@@ -26,7 +26,6 @@ import { randomId } from '~utils/string'
 import withPermissionsFlow from 'components/CameraPermissions/withPermissionsFlow'
 import withFailureHandling from 'components/Camera/withFailureHandling'
 import FaceNotDetected from './FaceNotDetected'
-import { trackComponent } from 'Tracker'
 import withCrossDeviceWhenNoCamera from 'components/Capture/withCrossDeviceWhenNoCamera'
 import NavigationBar from 'components/NavigationBar'
 
@@ -115,11 +114,8 @@ const ActiveVideo: FunctionComponent<Props> = (props) => {
   )
 }
 
-export default trackComponent(
-  localised(
-    withCrossDeviceWhenNoCamera(
-      withFailureHandling(withPermissionsFlow(ActiveVideo))
-    )
-  ),
-  'face_liveness'
+export default localised(
+  withCrossDeviceWhenNoCamera(
+    withFailureHandling(withPermissionsFlow(ActiveVideo))
+  )
 )
