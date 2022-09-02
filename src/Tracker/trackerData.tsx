@@ -1690,4 +1690,18 @@ export const analyticsEventsMapping = new Map<
       properties: { event_type: 'action', step: 'face' },
     },
   ],
+  [
+    'active_video_upload_started',
+    {
+      eventName: 'FACE_LIVENESS_UPLOAD_PROGRESS_STARTED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'active_video_upload_completed',
+    {
+      eventName: 'FACE_LIVENESS_UPLOAD_PROGRESS_COMPLETED',
+      properties: { event_type: 'flow' },
+    },
+  ],
 ])
