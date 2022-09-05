@@ -1993,8 +1993,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ajv-validator/ajv",
     "publisher": "Evgeny Poberezkin",
-    "path": "node_modules/ajv-formats/node_modules/ajv",
-    "licenseFile": "node_modules/ajv-formats/node_modules/ajv/LICENSE"
+    "path": "node_modules/copy-webpack-plugin/node_modules/ajv",
+    "licenseFile": "node_modules/copy-webpack-plugin/node_modules/ajv/LICENSE"
   },
   "ajv@8.6.3": {
     "licenses": "MIT",
@@ -5491,8 +5491,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/epoberezkin/json-schema-traverse",
     "publisher": "Evgeny Poberezkin",
-    "path": "node_modules/ajv-formats/node_modules/json-schema-traverse",
-    "licenseFile": "node_modules/ajv-formats/node_modules/json-schema-traverse/LICENSE"
+    "path": "node_modules/copy-webpack-plugin/node_modules/json-schema-traverse",
+    "licenseFile": "node_modules/copy-webpack-plugin/node_modules/json-schema-traverse/LICENSE"
   },
   "json-stable-stringify-without-jsonify@1.0.1": {
     "licenses": "MIT",

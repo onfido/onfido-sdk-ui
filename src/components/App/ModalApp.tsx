@@ -46,15 +46,19 @@ class ModalApp extends Component<Props> {
     this.events = new EventEmitter2()
     this.events.on('complete', this.trackOnComplete)
     const { actions, analyticsSessionUuid } = props
-    if (!props.options.disableAnalytics) {
-      !analyticsSessionUuid && actions.setAnalyticsSessionUuid(uuidv4())
-      setupAnalyticsCookie(
-        this.props.actions.setAnonymousUuid,
-        this.props.anonymousUuid
-      )
-      Tracker.install()
-    } else {
-      uninstallAnalyticsCookie(this.props.actions.setAnonymousUuid)
+
+    // Note: analytics for the mobileFlow is set in the CrossDeviceMobileRouter
+    if (!props.options.mobileFlow) {
+      if (!props.options.disableAnalytics) {
+        !analyticsSessionUuid && actions.setAnalyticsSessionUuid(uuidv4())
+        setupAnalyticsCookie(
+          this.props.actions.setAnonymousUuid,
+          this.props.anonymousUuid
+        )
+        Tracker.install()
+      } else {
+        uninstallAnalyticsCookie(this.props.actions.setAnonymousUuid)
+      }
     }
     this.bindEvents(
       props.options.onComplete,
