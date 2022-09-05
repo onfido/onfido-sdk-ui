@@ -70,15 +70,15 @@ describe('locales', () => {
 
         const minLength = Math.min(splitted.length, splitted2.length)
 
-        for (let i = 0; i < minLength; i++) {
-          // we compare each level of the key, either the level is -1, meaning [i] is before [i-1] and we stop, or it's zero and we must compare next level
-          if (splitted[i].localeCompare(splitted2[i]) === -1) {
+        for (let j = 0; j < minLength; j++) {
+          // we compare each level of the key, either the level is -1, meaning [j] is before [j-1] and we stop, or it's zero and we must compare next level
+          if (splitted[j].localeCompare(splitted2[j]) === -1) {
             break
           }
-          if (splitted[i].localeCompare(splitted2[i]) === 0) {
+          if (splitted[j].localeCompare(splitted2[j]) === 0) {
             // continue
           }
-          if (splitted[i].localeCompare(splitted2[i]) === 1) {
+          if (splitted[j].localeCompare(splitted2[j]) === 1) {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(false).toBe(
               `the key '${keys_locale[i]}' should be after the key '${

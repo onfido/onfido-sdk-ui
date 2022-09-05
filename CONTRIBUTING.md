@@ -77,7 +77,22 @@ $ npm run test:unit # unit testing
 $ npm run test:integration # integration testing, for internal contributors only but executed during CI
 ```
 
-The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [testing guidelines](./test/README.md).
+### Integration testing
+
+We use integration testing to ensure that our API call implementations work as expected.
+
+You are encouraged to add integration tests when
+
+- Adding a brand-new API call to the code
+- Updating an existing API call
+- New features added to an existing endpoint
+- Covering edge cases or negative cases
+
+You should place the integration tests at the `__integrations__` package.
+
+### Ui Testing
+
+The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [UI testing guidelines](./test/README.md).
 
 You should also manually test any change in all the supported browsers, both on desktop and mobile. To facilitate this process, every time a new pull request is created, a new demo app link will be generated. If you don't have enough devices to test your changes, you can perform manual tests on different devices on Browserstack.
 

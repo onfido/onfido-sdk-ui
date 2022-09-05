@@ -1010,7 +1010,7 @@
     "path": "node_modules/@nodelib/fs.walk",
     "licenseFile": "node_modules/@nodelib/fs.walk/LICENSE"
   },
-  "@onfido/active-video-capture@0.4.0": {
+  "@onfido/active-video-capture@0.11.0": {
     "licenses": "MIT",
     "repository": "/active-video-capture",
     "path": "node_modules/@onfido/active-video-capture",
@@ -1052,14 +1052,6 @@
     "url": "https://lukeed.com",
     "path": "node_modules/@polka/url",
     "licenseFile": "node_modules/@polka/url/license"
-  },
-  "@preact/compat@17.0.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/preactjs/compat-alias-package",
-    "publisher": "Preact Team",
-    "email": "team@preactjs.com",
-    "path": "node_modules/@preact/compat",
-    "licenseFile": "node_modules/@preact/compat/LICENSE"
   },
   "@sentry/browser@7.2.0": {
     "licenses": "BSD-3-Clause",
@@ -1434,7 +1426,7 @@
     "path": "node_modules/@types/node-polyglot",
     "licenseFile": "node_modules/@types/node-polyglot/LICENSE"
   },
-  "@types/node@14.14.14": {
+  "@types/node@18.7.11": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/@types/node",
@@ -1631,8 +1623,8 @@
   "@types/webpack@4.41.32": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-    "path": "node_modules/@types/speed-measure-webpack-plugin/node_modules/@types/webpack",
-    "licenseFile": "node_modules/@types/speed-measure-webpack-plugin/node_modules/@types/webpack/LICENSE"
+    "path": "node_modules/@types/html-webpack-plugin/node_modules/@types/webpack",
+    "licenseFile": "node_modules/@types/html-webpack-plugin/node_modules/@types/webpack/LICENSE"
   },
   "@types/webpack@5.28.0": {
     "licenses": "MIT",
@@ -2857,8 +2849,8 @@
     "repository": "https://github.com/tj/commander.js",
     "publisher": "TJ Holowaychuk",
     "email": "tj@vision-media.ca",
-    "path": "node_modules/commander",
-    "licenseFile": "node_modules/commander/LICENSE"
+    "path": "node_modules/@babel/cli/node_modules/commander",
+    "licenseFile": "node_modules/@babel/cli/node_modules/commander/LICENSE"
   },
   "commander@7.2.0": {
     "licenses": "MIT",
@@ -2875,6 +2867,14 @@
     "email": "tj@vision-media.ca",
     "path": "node_modules/html-minifier-terser/node_modules/commander",
     "licenseFile": "node_modules/html-minifier-terser/node_modules/commander/LICENSE"
+  },
+  "commander@9.4.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tj/commander.js",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "path": "node_modules/commander",
+    "licenseFile": "node_modules/commander/LICENSE"
   },
   "commondir@1.0.1": {
     "licenses": "MIT",
@@ -3258,6 +3258,13 @@
     "url": "http://thlorenz.com",
     "path": "node_modules/deep-is",
     "licenseFile": "node_modules/deep-is/LICENSE"
+  },
+  "deep-object-diff@1.1.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mattphillips/deep-object-diff",
+    "publisher": "Matt Phillips",
+    "path": "node_modules/deep-object-diff",
+    "licenseFile": "node_modules/deep-object-diff/LICENSE"
   },
   "deepmerge@4.2.2": {
     "licenses": "MIT",
@@ -4370,6 +4377,13 @@
     "path": "node_modules/get-symbol-description",
     "licenseFile": "node_modules/get-symbol-description/LICENSE"
   },
+  "git-revision-webpack-plugin@5.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pirelenito/git-revision-webpack-plugin",
+    "publisher": "Paulo Ragonha",
+    "path": "node_modules/git-revision-webpack-plugin",
+    "licenseFile": "node_modules/git-revision-webpack-plugin/LICENSE"
+  },
   "glob-parent@5.1.2": {
     "licenses": "ISC",
     "repository": "https://github.com/gulpjs/glob-parent",
@@ -4601,8 +4615,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/history",
-    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
+    "path": "node_modules/react-router/node_modules/history",
+    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -5645,6 +5659,15 @@
     "path": "node_modules/json-stable-stringify-without-jsonify",
     "licenseFile": "node_modules/json-stable-stringify-without-jsonify/LICENSE"
   },
+  "json-stringify-safe@5.0.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/json-stringify-safe",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "url": "http://blog.izs.me",
+    "path": "node_modules/json-stringify-safe",
+    "licenseFile": "node_modules/json-stringify-safe/LICENSE"
+  },
   "json5@1.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/json5/json5",
@@ -6354,6 +6377,14 @@
     "path": "node_modules/no-case",
     "licenseFile": "node_modules/no-case/LICENSE"
   },
+  "nock@13.2.9": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nock/nock",
+    "publisher": "Pedro Teixeira",
+    "email": "pedro.teixeira@gmail.com",
+    "path": "node_modules/nock",
+    "licenseFile": "node_modules/nock/LICENSE"
+  },
   "node-environment-flags@1.0.6": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/boneskull/node-environment-flags",
@@ -6648,7 +6679,7 @@
     "path": "node_modules/onetime",
     "licenseFile": "node_modules/onetime/license"
   },
-  "onfido-sdk-ui@8.1.1": {
+  "onfido-sdk-ui@8.3.0": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
@@ -7298,6 +7329,14 @@
     "path": "node_modules/prop-types",
     "licenseFile": "node_modules/prop-types/LICENSE"
   },
+  "propagate@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nock/propagate",
+    "publisher": "Pedro Teixeira",
+    "email": "pedro.teixeira@gmail.com",
+    "path": "node_modules/propagate",
+    "licenseFile": "node_modules/propagate/LICENSE.md"
+  },
   "proxy-addr@2.0.6": {
     "licenses": "MIT",
     "repository": "https://github.com/jshttp/proxy-addr",
@@ -7484,14 +7523,6 @@
     "email": "hello@reacttraining.com",
     "path": "node_modules/react-router",
     "licenseFile": "node_modules/react-router/LICENSE"
-  },
-  "react-webcam-onfido@1.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/onfido/react-webcam",
-    "publisher": "Cezary Wojtkowski",
-    "email": "cezary@gmail.com",
-    "path": "node_modules/react-webcam-onfido",
-    "licenseFile": "node_modules/react-webcam-onfido/README.md"
   },
   "react-webcam@7.0.1": {
     "licenses": "MIT",
@@ -7792,8 +7823,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
   },
   "resolve.exports@1.1.0": {
     "licenses": "MIT",
@@ -9120,8 +9151,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router-dom/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",

@@ -22,6 +22,27 @@
         <excludeGroups />
     </properties>
 
+    <profiles>
+        <profile>
+            <id>dd</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <dd.java.agent.arg>-javaagent:${settings.localRepository}/com/datadoghq/dd-java-agent/0.107.1/dd-java-agent-0.107.1.jar -Ddd.civisibility.enabled=true</dd.java.agent.arg>
+                <forkCount>1</forkCount>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.datadoghq</groupId>
+                    <artifactId>dd-java-agent</artifactId>
+                    <version>0.107.1</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
     <!-- https://github.com/jcansdale-test/maven-consume -->
     <repositories>
         <repository>
@@ -91,7 +112,6 @@
             <artifactId>assertj-core</artifactId>
             <version>3.22.0</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -146,9 +166,7 @@
                     <parallel>methods</parallel>
                     <threadCount>${threadCount}</threadCount>
                     <forkCount>${forkCount}</forkCount>
-                    <argLine>
-                        --add-opens java.base/java.lang.invoke=ALL-UNNAMED
-                    </argLine>
+                    <argLine>${dd.java.agent.arg} --add-opens java.base/java.lang.invoke=ALL-UNNAMED</argLine>
                 </configuration>
             </plugin>
         </plugins>

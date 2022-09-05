@@ -13,6 +13,8 @@ export const getProject = () => {
   projectCache.addSourceFilesAtPaths([
     '!src/**/{__integrations__,__mocks__,__tests__}/**/*{.d.ts,.ts,.tsx,.js,.jsx}',
     'src/**/*{.d.ts,.ts,.tsx,.js,.jsx}',
+    'modules/**/*{.d.ts,.ts,.tsx,.js,.jsx}',
+    '!modules/**/{__integrations__,__mocks__,__tests__}/**/*{.d.ts,.ts,.tsx,.js,.jsx}',
   ])
 
   return projectCache
