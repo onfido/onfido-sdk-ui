@@ -1,9 +1,9 @@
-import type { DataPackage, EnviromentType, ServiceInterface } from '../types'
+import type { DataPackage, EnvironmentType, ServiceInterface } from '../types'
 
 export class ConsoleService implements ServiceInterface {
-  environment: EnviromentType = 'production'
+  environment: EnvironmentType = 'production'
 
-  constructor({ environment }: { environment?: EnviromentType } = {}) {
+  constructor({ environment }: { environment?: EnvironmentType } = {}) {
     this.environment = environment || this.environment
     return this
   }

@@ -7,13 +7,15 @@
     - Provide log instances
 */
 import { LogInstance } from './LogInstance'
-import type { DataPackage, ServicesType } from './types'
+import type { DataPackage, EnvironmentType, ServicesType } from './types'
 
 export class Logger {
   private services: ServicesType = {}
+  private environment: EnvironmentType = 'production'
 
-  constructor(props: { services: ServicesType }) {
+  constructor(props: { environment: EnvironmentType, services: ServicesType }) {
     this.services = props?.services
+    this.environment = props?.environment || this.environment
 
     if (!this.services) {
       throw new Error('There are no services provided to the logger')

@@ -20,7 +20,11 @@ import type {
 import type { SdkOptions, SdkHandle } from '~types/sdk'
 import type { StepConfig, StepTypes } from '~types/steps'
 import App from './components/App'
+import { logger } from '~core/Logger'
 
+// TODO: remove
+
+logger.info('tetst')
 if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
 }

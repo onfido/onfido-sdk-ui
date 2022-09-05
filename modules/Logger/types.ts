@@ -1,4 +1,4 @@
-export type EnviromentType = 'production' | 'development' | 'debug'
+export type EnvironmentType = 'production' | 'development' | 'debug'
 export type LabelKeyType = 'debug' | 'info' | 'warning' | 'error' | 'fatal'
 
 export type DataPackage = {

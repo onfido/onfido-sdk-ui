@@ -279,6 +279,11 @@ export interface ExperimentalFeatures {
 
 export interface SdkFeatures {
   enable_require_applicant_consents?: boolean
+  logger?: {
+    enabled: boolean
+    labels: string[]
+    levels: string[]
+  }
 }
 
 export interface OnDeviceValidation {
