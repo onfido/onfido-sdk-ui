@@ -694,7 +694,7 @@ It's possible to change the options initialized at runtime:
 
 ```javascript
 onfidoOut = Onfido.init({...})
-...
+
 //Change the title of the welcome screen
 onfidoOut.setOptions({
   steps: [
@@ -707,10 +707,10 @@ onfidoOut.setOptions({
     'complete'
   ]
 });
-...
+
 //replace the jwt token
 onfidoOut.setOptions({ token: '<YOUR_NEW_SDK_TOKEN>' });
-...
+
 //Open the modal
 onfidoOut.setOptions({ isModalOpen:true });
 ```
