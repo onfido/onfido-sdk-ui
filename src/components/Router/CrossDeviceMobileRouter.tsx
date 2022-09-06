@@ -13,6 +13,7 @@ import { setUICustomizations, setCobrandingLogos } from '../Theme/utils'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 import {
+  install,
   setupAnalyticsCookie,
   trackException,
   uninstallAnalyticsCookie,
@@ -210,11 +211,13 @@ export default class CrossDeviceMobileRouter extends Component<
       useWorkflow,
       workflowRunId,
     } = data
+
     if (disableAnalytics) {
       uninstallAnalyticsCookie(this.props.actions.setAnonymousUuid)
     } else {
       this.props.actions.setAnalyticsSessionUuid(analyticsSessionUuid)
       setupAnalyticsCookie(this.props.actions.setAnonymousUuid, anonymousUuid)
+      install()
     }
 
     if (!token) {
