@@ -19,6 +19,10 @@ import CopyLink from './CopyLink'
 import { LegacyTrackedEventNames } from '~types/tracker'
 import { CrossDeviceLinkProps } from '.'
 import { Country } from 'react-phone-number-input'
+import {
+  withSdkConfigurationService,
+  SDKConfigurationServiceProps,
+} from '~contexts/useSdkConfigurationService'
 
 export type SecureLinkViewType = {
   id: string
@@ -81,7 +85,9 @@ type CrossDeviceLinkUIProps = {
   _crossDeviceLinkMethods?: Array<string> | null
 }
 
-type Props = CrossDeviceLinkUIProps & CrossDeviceLinkProps
+type Props = CrossDeviceLinkUIProps &
+  CrossDeviceLinkProps &
+  SDKConfigurationServiceProps
 
 type State = {
   currentViewId: string
@@ -319,6 +325,7 @@ class CrossDeviceLinkUI extends Component<Props, State> {
     requiredViewRenders: viewRendersMapType
   ): SecureLinkViewType => {
     const { _crossDeviceLinkMethods } = this.props
+
     if (
       _crossDeviceLinkMethods?.length &&
       !configHasInvalidViewIds(_crossDeviceLinkMethods)
@@ -330,7 +337,14 @@ class CrossDeviceLinkUI extends Component<Props, State> {
         .filter(Boolean)
       return result as SecureLinkViewType
     }
-    return SECURE_LINK_VIEWS.filter((view) => view.id in requiredViewRenders)
+
+    let result = SECURE_LINK_VIEWS
+
+    if (this.props.sdkConfiguration?.sdk_features?.disable_cross_device_sms) {
+      result = result.filter((view) => view.id !== 'sms')
+    }
+
+    return result.filter((view) => view.id in requiredViewRenders)
   }
 
   componentWillUnmount() {
@@ -400,4 +414,4 @@ class CrossDeviceLinkUI extends Component<Props, State> {
   }
 }
 
-export default CrossDeviceLinkUI
+export default withSdkConfigurationService(CrossDeviceLinkUI)
