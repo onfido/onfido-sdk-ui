@@ -321,6 +321,7 @@ export const Confirm = (props: ConfirmProps) => {
         },
         documentImageResponse.sdk_warnings
       )
+      completeStep([{ id: apiResponse.id }])
     }
   }
 

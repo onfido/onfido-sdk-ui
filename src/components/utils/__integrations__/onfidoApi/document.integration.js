@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { uploadDocument } from '../../onfidoApi'
+import { uploadDocument, uploadBinaryMedia } from '../../onfidoApi'
 import {
   getTestJwtToken,
   createEmptyFile,
@@ -28,7 +28,6 @@ const TEST_DOCUMENT_DATA = {
 
 describe('API uploadDocument endpoint', () => {
   beforeEach(async () => {
-    jest.setTimeout(15000)
     jwtToken = await getTestJwtToken()
   })
 
@@ -114,5 +113,45 @@ describe('API uploadDocument endpoint', () => {
       (response) => done(response),
       onErrorCallback
     )
+  })
+})
+
+describe('API uploadBinaryMedia endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await getTestJwtToken()
+  })
+
+  test('uploadBinaryMedia returns expected response on successful upload', async () => {
+    const testFileName = 'passport.jpg'
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new File([data], testFileName, {
+      type: 'image/jpeg',
+    })
+
+    const documentData = {
+      file: testFile,
+      filename: testFileName,
+      sdkMetadata: {},
+    }
+
+    expect.assertions(2)
+
+    const res = await uploadBinaryMedia(documentData, API_URL, jwtToken)
+    expect(res).toHaveProperty('error', null)
+    expect(res).toHaveProperty('media_id')
+  })
+
+  test('uploadBinaryMedia returns 422 on empty file upload', async () => {
+    const documentData = {
+      file: createEmptyFile(),
+      filename: 'fileName.jpg',
+      sdkMetadata: {},
+    }
+
+    expect.assertions(1)
+
+    await uploadBinaryMedia(documentData, API_URL, jwtToken).catch((res) => {
+      expect(res).toHaveProperty('status', 422)
+    })
   })
 })

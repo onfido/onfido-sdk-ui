@@ -1,3 +1,4 @@
+// @ts-nocheck
 /*
   Mofidy source files by using AST (Abtract Syntax Tree) modifications
 
@@ -8,9 +9,11 @@ import { getProject } from './project'
 export { getSourceFileAsString } from './project'
 
 import exceptionHandlerInjection from './ExceptionHandler.injection'
+import loggerInjection from './Logger.injection'
 
 export default () => {
   const project = getProject()
 
   exceptionHandlerInjection(project)
+  loggerInjection(project)
 }

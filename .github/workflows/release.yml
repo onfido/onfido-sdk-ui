@@ -75,6 +75,10 @@ jobs:
         run: |
           aws s3 cp ./dist s3://${{ env.AWS_S3_BUCKET }}/web-sdk-releases/$RELEASE_VERSION/ --exclude "*.html" --recursive --acl public-read
 
+      - name: Upload Release as latest to S3
+        run: |
+          aws s3 cp ./dist s3://${{ env.AWS_S3_BUCKET }}/web-sdk-releases/latest/ --exclude "*.html" --recursive --acl public-read
+
       - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
