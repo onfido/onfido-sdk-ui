@@ -19,6 +19,7 @@ import testDarkCobrandLogo from './assets/onfido-logo.svg'
 import testLightCobrandLogo from './assets/onfido-logo-light.svg'
 import sampleCompanyLogo from './assets/sample-logo.svg'
 import testCases from './testCases'
+import StepsRouter from 'components/Router/StepsRouter'
 
 export type QueryParams = {
   countryCode?: StringifiedBoolean
@@ -29,6 +30,7 @@ export type QueryParams = {
   language?: 'customTranslations' | SupportedLanguages
   customWelcomeScreenCopy?: StringifiedBoolean
   link_id?: string
+  motionExperiment?: StringifiedBoolean
   docVideo?: StringifiedBoolean
   faceVideo?: StringifiedBoolean
   multiDocWithInvalidPresetCountry?: StringifiedBoolean
@@ -154,6 +156,7 @@ const getPreselectedDocumentTypes = (): Partial<
     return {
       driving_licence: true,
       national_identity_card: true,
+      passport: false,
     }
   }
 
@@ -246,6 +249,18 @@ export const getInitSdkOptions = (): SdkOptions => {
     }
 
     sdkOptions.steps = steps
+  }
+
+  if (queryParamToValueString.motionExperiment === 'true') {
+    sdkOptions.overrideSdkConfiguration = {
+      ...sdkOptions.overrideSdkConfiguration,
+      experimental_features: {
+        ...sdkOptions.overrideSdkConfiguration?.experimental_features,
+        motion_experiment: {
+          enabled: true,
+        },
+      },
+    }
   }
 
   if (queryParamToValueString.countryCode) {

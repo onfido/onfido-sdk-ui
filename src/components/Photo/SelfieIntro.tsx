@@ -1,10 +1,10 @@
-import { h } from 'preact'
+import { ComponentType, h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { localised } from '~locales'
 import { TrackScreenCallback, WithLocalisedProps } from '~types/hocs'
 import { TranslateCallback } from '~types/locales'
-import { StepComponentFaceProps } from '~types/routers'
+import { StepComponentFaceProps, StepComponentProps } from '~types/routers'
 import { appendToTracking, trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import PageTitle from '../PageTitle'
@@ -107,4 +107,4 @@ const Intro = ({
 export default appendToTracking(
   trackComponent(localised(withCrossDeviceWhenNoCamera(Intro))),
   'selfie_intro'
-)
+) as ComponentType<StepComponentProps>

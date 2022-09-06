@@ -35,7 +35,7 @@ export const createWorkflowStepsHook = (
   { onfido_api_url }: UrlsConfig
 ): StepsHook => () => {
   const { addUserConsentStep } = useUserConsent()
-  const { addActiveVideoStep } = useActiveVideo()
+  const { replaceFaceWithActiveVideoStep } = useActiveVideo()
 
   const [state, setState] = useState<WorkflowStepsState>({
     ...defaultState,
@@ -54,9 +54,9 @@ export const createWorkflowStepsHook = (
 
     setState((state) => ({
       ...state,
-      steps: addUserConsentStep(addActiveVideoStep(options.steps)),
+      steps: addUserConsentStep(replaceFaceWithActiveVideoStep(options.steps)),
     }))
-  }, [addUserConsentStep, addActiveVideoStep])
+  }, [addUserConsentStep, replaceFaceWithActiveVideoStep])
 
   const { taskId, loading, error, steps, hasNextStep, hasPreviousStep } = state
 
@@ -106,8 +106,7 @@ export const createWorkflowStepsHook = (
           loading: false,
           hasNextStep: false,
           taskId: workflow?.task_id,
-          // @ts-ignore
-          steps: [formatStep(workflowEngine.getOutcomeStep(workflow))],
+          steps: [formatStep('complete')],
         }))
         cb()
         return

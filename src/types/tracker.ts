@@ -49,6 +49,14 @@ export type LegacyTrackedEventNames =
   | 'screen_document_back_confirmation_blur_detected'
   | 'screen_document_front_confirmation_glare_detected'
   | 'screen_document_back_confirmation_glare_detected'
+  | 'screen_document_front_confirmation_cutoff_detected_warning'
+  | 'screen_document_back_confirmation_cutoff_detected_warning'
+  | 'screen_document_front_confirmation_blur_detected_warning'
+  | 'screen_document_back_confirmation_blur_detected_warning'
+  | 'screen_document_front_confirmation_glare_detected_warning'
+  | 'screen_document_back_confirmation_glare_detected_warning'
+  | 'screen_document_front_confirmation_document_detection_warning'
+  | 'screen_document_back_confirmation_document_detection_warning'
   | 'screen_document_front_confirmation_request_error'
   | 'screen_document_back_confirmation_request_error'
   | 'screen_document_front_confirmation_document_detection'
@@ -150,15 +158,60 @@ export type LegacyTrackedEventNames =
   | 'Error response from onSubmitSelfie'
   | 'Error response from onSubmitVideo'
   | 'Error response from onSubmitDocument'
+  | 'Success response from onSubmitSelfie'
+  | 'Success response from onSubmitVideo'
+  | 'Success response from onSubmitDocument'
   | 'document_upload_started'
   | 'document_upload_completed'
   | 'document_video_upload_started'
   | 'document_video_upload_completed'
   | 'face_video_upload_started'
   | 'face_video_upload_completed'
+  | 'active_video_upload_started'
+  | 'active_video_upload_completed'
   | 'screen_workflow_retry'
   | 'navigation_back_button_clicked'
   | 'navigation_close_button_clicked'
+  | 'screen_poa_poa_client_intro'
+  | 'screen_poa_poa_confirmation'
+  | 'screen_poa_poa_confirmation_upload_button_clicked'
+  | 'screen_face_face_video_capture_camera_inactive_no_fallback'
+  | 'screen_document_front_capture_file_upload_invalid_type'
+  | 'screen_document_back_capture_file_upload_invalid_type'
+  | 'screen_retry'
+  | 'screen_complete_face_video_confirmation_play_clicked'
+  | 'screen_document_front_capture_file_upload_invalid_size'
+  | 'screen_document_back_capture_file_upload_invalid_size'
+  | 'screen_document_front_capture_camera_access'
+  | 'screen_document_back_capture_camera_access'
+  | 'screen_document_front_capture_camera_access_allow_button_clicked'
+  | 'screen_document_back_capture_camera_access_allow_button_clicked'
+  | 'screen_document_front_capture_camera_access_denied_refresh_button_clicked'
+  | 'screen_document_back_capture_camera_access_denied_refresh_button_clicked'
+  | 'screen_activeVideo_intro'
+  | 'screen_activeVideo_intro_ready_clicked'
+  | 'screen_activeVideo_alignment'
+  | 'screen_activeVideo_alignment_status_not_centered'
+  | 'screen_activeVideo_alignment_status_too_close'
+  | 'screen_activeVideo_alignment_status_too_far'
+  | 'screen_activeVideo_alignment_status_aligned'
+  | 'screen_activeVideo_camera_access'
+  | 'screen_activeVideo_camera_access_allow_button_clicked'
+  | 'screen_activeVideo_capture'
+  | 'screen_activeVideo_capture_status'
+  | 'screen_activeVideo_no_face_detected'
+  | 'screen_activeVideo_no_face_detected_restart_clicked'
+  | 'screen_activeVideo_capture_error_timeout'
+  | 'screen_activeVideo_capture_error_timeout_restart_clicked'
+  | 'screen_activeVideo_capture_error_too_fast'
+  | 'screen_activeVideo_capture_error_too_fast_restart_clicked'
+  | 'screen_activeVideo_outro'
+  | 'screen_activeVideo_outro_upload_clicked'
+  | 'screen_activeVideo_upload'
+  | 'screen_activeVideo_upload_completed'
+  | 'screen_activeVideo_connection_error'
+  | 'screen_activeVideo_connection_error_retry_clicked'
+  | 'screen_activeVideo_connection_error_restart_clicked'
 
 export type UserAnalyticsEventNames =
   | 'WELCOME'
@@ -209,6 +262,7 @@ type UIAlerts =
   | 'multiple_faces'
   | 'document_capture'
   | 'document_detection'
+  | 'document' // same as document_detection, new nomenclature for analytics
   | 'face_video_timeout'
   | 'profile_data_timeout'
   | 'doc_video_timeout'
@@ -242,6 +296,7 @@ export const ErrorNameToUIAlertMapping: Record<
   MULTIPLE_FACES_ERROR: 'multiple_faces',
   NO_FACE_ERROR: 'no_face',
   REQUEST_ERROR: 'request_error',
+  EXPIRED_TOKEN: undefined,
   SMS_FAILED: undefined,
   SMS_OVERUSE: undefined,
   UNSUPPORTED_ANDROID_BROWSER: undefined,
@@ -249,13 +304,17 @@ export const ErrorNameToUIAlertMapping: Record<
   UNSUPPORTED_IOS_BROWSER: undefined,
 }
 
+export type CaptureMethodRendered = 'upload' | 'camera'
+export type CaptureFormat = 'photo' | 'camera' // I think this maps 1-1 to RequestedVariant, photo is standard
+
 export type AnalyticsEventProperties = {
   event_type?: TrackedEventTypes
+  combined_country_and_document_selection?: boolean
   step?: string
   is_cross_device?: boolean
   is_custom_ui?: boolean
   status?: string
-  capture_method_rendered?: 'upload' | 'camera'
+  capture_method_rendered?: CaptureMethodRendered
   document_side?: 'front' | 'back'
   video_capture_step?: 'step1' | 'step2'
   video_instruction_type?: 'recite' | 'movement'
@@ -264,7 +323,17 @@ export type AnalyticsEventProperties = {
   ui_alerts?: {
     [key in UIAlerts]?: 'error' | 'warning' | null
   }
+  warning_shown?: 'document' | 'blur' | 'glare' | 'cutoff'
   callback_name?: string
+  alignment_status?:
+    | 'face not centered'
+    | 'face too close'
+    | 'face too far'
+    | 'face aligned'
+}
+
+export type AnalyticsEventPropertiesWarnings = {
+  [key in UIAlerts]?: 'warning'
 }
 
 export type AnalyticsPayload = {
@@ -316,6 +385,7 @@ export type AnalyticsTrackedEventNames =
   | 'DOCUMENT_CONFIRMATION_RETAKE_BUTTON_CLICKED'
   | 'DOCUMENT_CONFIRMATION_UPLOAD_BUTTON_CLICKED'
   | 'DOCUMENT_CONFIRMATION_ERROR'
+  | 'DOCUMENT_CONFIRMATION_WARNING'
   | 'DOCUMENT_FALLBACK_CLICKED'
   | 'DOCUMENT_IMAGE_QUALITY_GUIDE'
   | 'DOCUMENT_IMAGE_QUALITY_GUIDE_ERROR'
@@ -330,6 +400,27 @@ export type AnalyticsTrackedEventNames =
   | 'DOCUMENT_VIDEO_CONFIRMATION_PLAY_CLICKED'
   | 'DOCUMENT_VIDEO_CONFIRMATION_PAUSE_CLICKED'
   | 'DOCUMENT_VIDEO_CONFIRMATION_PLAYBACK_FINISHED'
+  | 'FACE_LIVENESS_ALIGNMENT'
+  | 'FACE_LIVENESS_ALIGNMENT_STATUS'
+  | 'FACE_LIVENESS_CAMERA_ACCESS'
+  | 'FACE_LIVENESS_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED'
+  | 'FACE_LIVENESS_CAPTURE'
+  | 'FACE_LIVENESS_CAPTURE_ERROR_TIMEOUT'
+  | 'FACE_LIVENESS_CAPTURE_ERROR_TIMEOUT_RESTART_CLICKED'
+  | 'FACE_LIVENESS_CAPTURE_ERROR_TOO_FAST'
+  | 'FACE_LIVENESS_CAPTURE_ERROR_TOO_FAST_RESTART_CLICKED'
+  | 'FACE_LIVENESS_CAPTURE_STATUS'
+  | 'FACE_LIVENESS_CONNECTION_ERROR'
+  | 'FACE_LIVENESS_CONNECTION_ERROR_RESTART_CLICKED'
+  | 'FACE_LIVENESS_CONNECTION_ERROR_RETRY_CLICKED'
+  | 'FACE_LIVENESS_INTRO'
+  | 'FACE_LIVENESS_INTRO_READY_CLICKED'
+  | 'FACE_LIVENESS_NO_FACE_DETECTED'
+  | 'FACE_LIVENESS_NO_FACE_DETECTED_RESTART_CLICKED'
+  | 'FACE_LIVENESS_OUTRO'
+  | 'FACE_LIVENESS_OUTRO_UPLOAD_CLICKED'
+  | 'FACE_LIVENESS_UPLOAD'
+  | 'FACE_LIVENESS_UPLOAD_COMPLETED'
   | 'FACE_SELFIE_INTRO'
   | 'FACE_SELFIE_INTRO_TAKE_SELFIE_BUTTON_CLICKED'
   | 'FACE_SELFIE_CAPTURE'
@@ -397,3 +488,13 @@ export type AnalyticsTrackedEventNames =
   | 'DOCUMENT_VIDEO_UPLOAD_COMPLETED'
   | 'FACE_VIDEO_UPLOAD_STARTED'
   | 'FACE_VIDEO_UPLOAD_COMPLETED'
+  | 'POA_CLIENT_INTRO'
+  | 'POA_CONFIRMATION_BUTTON_CLICKED'
+  | 'POA_CONFIRMATION_UPLOAD_BUTTON_CLICKED'
+  | 'FACE_VIDEO_CAPTURE_ERROR'
+  | 'RETRY'
+  | 'FACE_VIDEO_COMFIRMATION_PLAY_CLICKED'
+  | 'DOCUMENT_CAPTURE_ERROR'
+  | 'DOCUMENT_CAPTURE_CAMERA_ACCESS'
+  | 'DOCUMENT_CAPTURE_CAMERA_ACCESS_ALLOW_BUTTON_CLICKED'
+  | 'DOCUMENT_CAPTURE_CAMERA_ACCESS_DENIED_REFRESH_BUTTON_CLICKED'

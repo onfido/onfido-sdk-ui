@@ -6,6 +6,7 @@ import type {
   TranslateCallback,
 } from './locales'
 import type { RequestedVariant } from './steps'
+import { AnalyticsTrackedEventNames } from './tracker'
 
 export type WithChallengesProps = {
   challenges: ChallengePayload[]
@@ -27,6 +28,13 @@ export type WithFailureHandlingProps = {
   onError?: (error: Error) => void
 }
 
+export type TrackedEvent = {
+  event: AnalyticsTrackedEventNames // this is informative only, it will not be used as a source of truth (yet). It's there to help the developer understand what event is declared here.
+  properties: Record<string, unknown>
+}
+
+export type TrackEventBeforeMountCallback = () => TrackedEvent
+
 export type TrackScreenCallback = (
   screenNameHierarchy?: string | string[],
   properties?: Record<string, unknown>
@@ -34,6 +42,7 @@ export type TrackScreenCallback = (
 
 export type WithTrackingProps = {
   trackScreen: TrackScreenCallback
+  trackEventBeforeMount?: TrackEventBeforeMountCallback
 }
 
 export type WithCaptureVariantProps = {

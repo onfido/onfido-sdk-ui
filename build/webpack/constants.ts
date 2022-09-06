@@ -1,13 +1,16 @@
 import packageJson from '../../package.json'
 import { resolve } from 'path'
 
+// Dev only
+export const SAFE_SOURCE_MAPS = process.env.SAFE_SOURCE_MAPS ?? false
+
 export const BASE_DIR = resolve(__dirname, '../../')
 // We use a Base 32 version string for the cross-device flow, to make URL
 // string support easier...
 // ref: https://en.wikipedia.org/wiki/Base32
 // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
 // the release script 🤖
-export const BASE_32_VERSION = 'DW'
+export const BASE_32_VERSION = 'DX'
 export const RELEASE_VERSION = packageJson.version
 
 // NODE_ENV can be one of: development | staging | test | production

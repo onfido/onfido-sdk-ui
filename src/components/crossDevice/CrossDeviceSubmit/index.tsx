@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h, Component, FunctionComponent, ComponentType } from 'preact'
 import { connect } from 'react-redux'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
@@ -59,6 +59,12 @@ class CrossDeviceSubmit extends Component<Props, State> {
     )
   }
 
+  hasActiveVideoCaptureStep = () => {
+    return (
+      this.props.steps.some((step) => step.type === 'activeVideo') ||
+      this.props.mobileConfig.steps[0].type === 'activeVideo'
+    )
+  }
   getFaceCaptureVariant = () => {
     const { face } = this.props.captures
     return face && face.metadata ? face.metadata.variant : 'standard'
@@ -83,6 +89,8 @@ class CrossDeviceSubmit extends Component<Props, State> {
       faceCaptureVariant === 'video'
         ? 'cross_device_checklist.list_item_video'
         : 'cross_device_checklist.list_item_selfie'
+
+    const activeVideoCopy = 'cross_device_checklist.list_item_active_video'
 
     // FIX: PoA copy currently only has English copy, need to update copy in other languages
     const poaCopy = 'cross_device_checklist.list_item_poa'
@@ -149,6 +157,19 @@ class CrossDeviceSubmit extends Component<Props, State> {
               </span>
             </li>
           )}
+          {this.hasActiveVideoCaptureStep() && (
+            <li className={style.uploadListItem}>
+              <span className={`${theme.icon} ${style.icon}`} />
+              <span
+                className={classNames(
+                  style.listText,
+                  style.activeVideoUploadedLabel
+                )}
+              >
+                {translate(activeVideoCopy)}
+              </span>
+            </li>
+          )}
         </ul>
       </ScreenLayout>
     )
@@ -159,7 +180,16 @@ const mapStateToProps = ({ captures }: RootState) => ({
   captures,
 })
 
-export default connect(mapStateToProps)(
-  // @ts-ignore
-  trackComponent(localised(CrossDeviceSubmit), 'desktop_submit')
-)
+const LocalisedCrossDeviceSubmit = localised(
+  CrossDeviceSubmit
+) as FunctionComponent<Props>
+
+const TrackedLocalisedCrossDeviceSubmit = trackComponent(
+  LocalisedCrossDeviceSubmit,
+  'desktop_submit'
+) as FunctionComponent<Props>
+
+// Note: Preact and Redux types don't play nice together, hence the type cast.
+export default (connect(mapStateToProps)(
+  TrackedLocalisedCrossDeviceSubmit
+) as unknown) as ComponentType<CrossDeviceSubmitProps>

@@ -156,6 +156,56 @@
     "auth_upload_pass": {
         "body": "Téléversement réussi"
     },
+    "avc_confirmation": {
+        "button_primary_upload": "Téléverser l’enregistrement",
+        "subtitle": "Une vidéo de votre visage a bien été enregistrée",
+        "title": "Enregistrement terminé"
+    },
+    "avc_connection_error": {
+        "button_primary_reload": "Recharger les instructions",
+        "button_primary_retry_upload": "Réessayer de téléverser",
+        "button_secondary_restart_recording": "Redémarrer l’enregistrement",
+        "subtitle": "Vérifiez que votre connexion est stable, puis réessayez",
+        "title": "Erreur de connexion"
+    },
+    "avc_face_alignment": {
+        "feedback_move_back": "Reculez",
+        "feedback_move_closer": "Approchez-vous",
+        "feedback_no_face_detected": "Visage non détecté",
+        "feedback_not_centered": "Visage non centré",
+        "title": "Positionnez votre visage dans le cadre"
+    },
+    "avc_face_capture": {
+        "alert": {
+            "timeout_body": "Vous avez jusqu'à 15 secondes pour compléter votre enregistrement",
+            "timeout_button_primary": "Réessayer",
+            "timeout_title": "Désolé, nous devons redémarrer l'enregistrement",
+            "too_fast_body": "Veuillez réessayer et tournez votre tête plus lentement",
+            "too_fast_button_primary": "Réessayer",
+            "too_fast_title": "Vous avez tourné votre tête trop vite"
+        },
+        "title": "Tournez votre tête lentement des deux côtés",
+        "title_completed": "Enregistrement terminé"
+    },
+    "avc_intro": {
+        "button_primary_ready": "Je suis prêt(e)",
+        "disclaimer": "Sachez que nous enregistrerons votre visage et l'arrière-plan",
+        "list_item_one": "D'abord, positionnez votre visage dans le cadre",
+        "list_item_two": "Ensuite, tournez votre tête lentement des deux côtés",
+        "subtitle": "Ceci sert à vérifier que vous êtes une personne authentique",
+        "title": "Enregistrez une vidéo"
+    },
+    "avc_no_face_detected": {
+        "button_primary_restart": "Redémarrer l’enregistrement",
+        "list_item_eyes": "Assurez-vous que vos yeux sont clairement visibles",
+        "list_item_face": "Assurez-vous de ne montrer que votre visage, nous n'avons pas besoin de voir votre pièce d'identité",
+        "list_item_lighting": "Assurez-vous d'être à un endroit bien éclairé",
+        "list_item_mask": "Assurez-vous d'ôter le masque ou outres éléments qui couvrent votre visage. Les lunettes sont acceptées",
+        "title": "Nous ne pouvons pas détecter votre visage"
+    },
+    "avc_uploading": {
+        "title": "Téléversement"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",

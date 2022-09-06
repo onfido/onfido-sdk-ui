@@ -72,6 +72,7 @@ export type ErrorProp = {
   name: ErrorNames
   type?: ErrorTypes
   properties?: Record<string, unknown>
+  analyticsProperties?: Record<string, unknown>
 }
 
 export type ExternalRouterProps = ReduxProps & WithCameraDetectionProps
@@ -81,6 +82,7 @@ export type InternalRouterProps = {
   onFlowChange?: FlowChangeCallback
   // @TODO: remove this prop completely to consume useSdkOptions() hook instead
   options: NarrowSdkOptions
+  triggerOnError: ErrorCallback
 } & ExternalRouterProps
 
 type HistoryRouterBaseProps = {
@@ -113,7 +115,6 @@ export type StepsRouterProps = {
   nextStep: () => void
   previousStep: () => void
   step: number
-  triggerOnError: ErrorCallback
   isLoadingStep?: boolean
   completeStep: (data: CompleteStepValue) => void
 } & HistoryRouterBaseProps

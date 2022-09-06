@@ -8,6 +8,20 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [9.0.0] - 2022-09-05
+
+- Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
+- Internal: Collect `FACE_LIVENESS_*` analytics events
+- Internal: Send OS name and version information in sdk configuration request
+- Internal: Update terser to 5.14.2 & moment to 2.29.4
+- Internal: Add Network module
+- Internal: Move all network calls to the Network module
+- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
+- Public: Add commit hash in console
+- Internal: Add `x-onfido-sdk-version` and `x-onfido-sdk-platform` headers to all onfido network requests
+- Internal: Update FaceTec SDK on Auth step from 9.4.11 to 9.4.12
+- Internal: Show connection error screen on active video upload errors
+
 ## [8.3.0] - 2022-08-02
 
 - Public: Fixed setoption, setOptions was setting unspecified values to their default value.
@@ -29,6 +43,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Migrate the react-webcam code into SDK + migrate it to typescript
 - Internal: Use the `max_total_retries` field from SdkConfiguration to compute the max number of document capture retries after an image quality failed check. It was previously was set to 1.
 - Internal: Add `video_instruction_type` property to analytics event `FACE_VIDEO_CAPTURE` and `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
 - Internal: Rename analytics event `FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED` to `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
@@ -1314,8 +1329,9 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/8.3.0...development
-[8.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.2.0...8.3.0
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/9.0.0...development
+[9.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.3.0...9.0.0
+[8.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0...8.3.0
 [8.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0
 [8.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...8.0.0
 [6.20.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...6.20.1

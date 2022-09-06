@@ -57,7 +57,6 @@ class StepsRouter extends Component<StepsRouterProps> {
       resetSdkFocus: this.resetSdkFocus,
       trackScreen: this.trackScreen,
     }
-    const { step } = this.currentComponent()
 
     const stepId = `onfido-step${this.props.step}` // to trigger update in NavigationBar on step change
 
@@ -73,6 +72,9 @@ class StepsRouter extends Component<StepsRouterProps> {
     const logoCobrandLogic = mobileFlow
       ? logoCobrand
       : globalUserOptions.enterpriseFeatures?.logoCobrand && logoCobrand
+
+    // FIXME: Clean up this hack (see 163ed120, 10d9de1a, and e56fada0)
+    const edgeToEdgeContent = false
 
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
@@ -92,7 +94,7 @@ class StepsRouter extends Component<StepsRouterProps> {
             id={stepId}
             back={back}
             disabled={disableNavigation}
-            transparent={step.edgeToEdgeContent}
+            transparent={edgeToEdgeContent}
             className={theme.navigationBar}
           />
           <div
@@ -100,7 +102,7 @@ class StepsRouter extends Component<StepsRouterProps> {
             className={classNames(theme.content, {
               [theme.fullScreenContentWrapper]: isFullScreen,
               [theme.scrollableContent]: !isFullScreen,
-              [theme.edgeToEdgeContent]: step.edgeToEdgeContent,
+              [theme.edgeToEdgeContent]: edgeToEdgeContent,
             })}
           >
             {isLoadingStep ? (
@@ -109,7 +111,7 @@ class StepsRouter extends Component<StepsRouterProps> {
               <CurrentComponent {...passedProps} />
             )}
           </div>
-          {!step.edgeToEdgeContent ? (
+          {!edgeToEdgeContent ? (
             !hideLogoLogic && (textCobrandLogic || logoCobrandLogic) ? (
               <div
                 className={classNames({

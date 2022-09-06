@@ -110,6 +110,10 @@ public class RestrictedDocumentSelection extends BasePage {
         return _getOption(documentType);
     }
 
+    public Boolean optionExists(DocumentType documentType) {
+        return !driver.findElements(ByUtil.onfidoQa(documentType.canonicalName())).isEmpty();
+    }
+
     public List<DocumentType> getOptions() {
 
         return driver.findElements(By.cssSelector(".onfido-sdk-ui-DocumentSelector-DocumentList-list li button"))

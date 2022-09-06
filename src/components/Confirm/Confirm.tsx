@@ -12,15 +12,17 @@ import {
   uploadFaceVideo,
   UploadVideoPayload,
   UploadDocumentVideoMediaPayload,
+  UploadDocumentAnalyticsPayload,
 } from '~utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
 import { ErrorProp, StepComponentBaseProps } from '~types/routers'
-import { DocumentCapture, FaceCapture } from '~types/redux'
+import { CapturePayload, DocumentCapture, FaceCapture } from '~types/redux'
 import { CaptureMethods, DocumentSides, ErrorNames } from '~types/commons'
 import {
   ApiRawError,
+  ChallengeData,
   DocumentImageResponse,
   FaceVideoResponse,
   ImageQualityValidationPayload,
@@ -34,6 +36,13 @@ import {
 import { WithLocalisedProps } from '~types/hocs'
 import { useEffect, useState } from 'preact/hooks'
 import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
+import {
+  AnalyticsEventPropertiesWarnings,
+  CaptureFormat,
+  CaptureMethodRendered,
+} from '~types/tracker'
+import { buildStepFinder } from '~utils/steps'
+import { shouldUseCameraForDocumentCapture } from '~utils/shouldUseCamera'
 
 type ImageQualityValidationNames =
   | 'CUTOFF_DETECTED'
@@ -58,8 +67,8 @@ const CALLBACK_TYPES: Record<CallbackTypes, CallbackNames> = {
 const REQUEST_ERROR = 'REQUEST_ERROR'
 
 export type ConfirmProps = {
-  isFullScreen: boolean
-  capture: DocumentCapture | FaceCapture
+  isFullScreen?: boolean
+  capture: CapturePayload
   method: CaptureMethods
   country: string
   side: DocumentSides
@@ -72,10 +81,46 @@ export const Confirm = (props: ConfirmProps) => {
   const [error, setErrorProp] = useState<ErrorProp | undefined>(undefined)
   const sdkConfiguration = useSdkConfigurationService()
 
+  const buildUploadDocumentAnalyticsPayload = ():
+    | UploadDocumentAnalyticsPayload
+    | undefined => {
+    if (props.currentStepType !== 'document') {
+      return
+    }
+    const findStep = buildStepFinder(props.steps)
+    const doc = findStep('document')
+    let capture_format: CaptureFormat | undefined
+    if (doc?.options?.requestedVariant) {
+      capture_format =
+        doc?.options?.requestedVariant === 'standard' ? 'photo' : 'camera'
+    }
+    const capture_method_rendered: CaptureMethodRendered = shouldUseCameraForDocumentCapture(
+      doc,
+      props.deviceHasCameraSupport
+    )
+      ? 'camera'
+      : 'upload'
+
+    return {
+      document_side: props.side,
+      country_code: props.idDocumentIssuingCountry?.country_alpha2,
+      document_type: props.documentType,
+      count_attempt: props.imageQualityRetries,
+      max_retry_count: sdkConfiguration.document_capture.max_total_retries,
+      capture_method_rendered: capture_method_rendered,
+      capture_format: capture_format,
+    }
+  }
+
   useEffect(() => {
+    // 'DOCUMENT_CONFIRMATION'
     props.trackScreen(undefined, {
       document_type: props.documentType,
       country_code: props.idDocumentIssuingCountry?.country_alpha2,
+      count_attempt: props.imageQualityRetries,
+      max_retry_count: sdkConfiguration.document_capture.max_total_retries,
+      warning_origin: 'device',
+      warnings: undefined, // leave this empty to show that there are no on device warning.
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -91,13 +136,56 @@ export const Confirm = (props: ConfirmProps) => {
     props.resetSdkFocus()
   }
 
-  const setWarning = (name: ErrorNames) => {
-    setErrorProp({ name, type: 'warning' })
+  const setWarning = (
+    name: ErrorNames,
+    extraProps: Record<string, unknown>,
+    imageQualityWarnings?: ImageQualityWarnings
+  ) => {
+    const warningAnalytics: AnalyticsEventPropertiesWarnings = {}
+
+    if (imageQualityWarnings) {
+      // build the warnings for analytics purposes
+      const validationReasons = Object.keys(
+        imageQualityWarnings
+      ) as ImageQualityValidationTypes[]
+
+      validationReasons.forEach((reason) => {
+        if (imageQualityWarnings[reason]?.valid) {
+          return
+        }
+        switch (reason) {
+          case 'detect_blur':
+            warningAnalytics.blur = 'warning'
+            break
+          case 'detect_cutoff':
+            warningAnalytics.cutoff = 'warning'
+            break
+          case 'detect_glare':
+            warningAnalytics.glare = 'warning'
+            break
+          case 'detect_document':
+            warningAnalytics.document = 'warning'
+            break
+        }
+      })
+    }
+
+    setErrorProp({
+      name,
+      type: 'warning',
+      analyticsProperties: { ...extraProps, ...{ warnings: warningAnalytics } },
+    })
+
     setUploadInProgress(false)
     props.resetSdkFocus()
   }
 
-  const onfidoErrorFieldMap = ([key, val]: [ValidationReasons, string[]]) => {
+  /**
+   * Transforms input into ErrorNames
+   */
+  const mapToErrorName = ([key, val]: [ValidationReasons, string[]]):
+    | ErrorNames
+    | undefined => {
     if (key === 'document_detection') return 'DOCUMENT_DETECTION'
     // on corrupted PDF or other unsupported file types
     if (key === 'file') return 'INVALID_TYPE'
@@ -111,7 +199,12 @@ export const Confirm = (props: ConfirmProps) => {
     }
   }
 
-  const handleImageQualityError = (errorField: ValidationError['fields']) => {
+  /**
+   * Returns the first image quality error in terms of priority, or undefined if none is found
+   */
+  const returnFirstImageQualityErrorFound = (
+    errorField: ValidationError['fields']
+  ) => {
     const imageQualityKeys = Object.keys(IMAGE_QUALITY_KEYS_MAP) as Array<
       keyof typeof IMAGE_QUALITY_KEYS_MAP
     >
@@ -121,13 +214,16 @@ export const Confirm = (props: ConfirmProps) => {
     }
   }
 
+  /**
+   * Transforms a backend response that can contain multiple errors into a single error, defined by priority.
+   */
   const onfidoErrorReduce = ({ fields }: ValidationError) => {
-    const imageQualityError = handleImageQualityError(fields)
+    const imageQualityError = returnFirstImageQualityErrorFound(fields)
     const entriesOfFields = Object.entries(fields) as Array<
       [ValidationReasons, string[]]
     >
 
-    const [first] = entriesOfFields.map(onfidoErrorFieldMap)
+    const [first] = entriesOfFields.map(mapToErrorName)
     return first || imageQualityError
   }
 
@@ -143,10 +239,13 @@ export const Confirm = (props: ConfirmProps) => {
       return
     }
     if (status === 422) {
-      const errorKey = response?.error
-        ? onfidoErrorReduce(response.error as ValidationError)
-        : REQUEST_ERROR
-      setError(errorKey as ErrorNames)
+      if (response?.error) {
+        const validationError = response.error as ValidationError
+        const errorKey = onfidoErrorReduce(validationError)
+        setError(errorKey as ErrorNames)
+        return
+      }
+      setError(REQUEST_ERROR)
       return
     }
     if (status === 403 && response.error?.type === 'geoblocked_request') {
@@ -164,7 +263,13 @@ export const Confirm = (props: ConfirmProps) => {
 
   const onVideoPreviewError = () => setError('VIDEO_ERROR' as ErrorNames)
 
-  const imageQualityWarnings = (warnings: ImageQualityWarnings) => {
+  /**
+   * Returns the first image quality warning found in the warnings, if no truthy 'valid' property is found.
+   * The order depends on the IMAGE_QUALITY_KEYS_MAP map.
+   */
+  const returnFirstImageQualityWarning = (
+    warnings: ImageQualityWarnings
+  ): ImageQualityValidationNames | undefined => {
     const imageQualityKeys = Object.keys(IMAGE_QUALITY_KEYS_MAP) as Array<
       keyof typeof IMAGE_QUALITY_KEYS_MAP
     >
@@ -177,12 +282,14 @@ export const Confirm = (props: ConfirmProps) => {
     }
   }
 
-  const onImageQualityWarning = (apiResponse: DocumentImageResponse) => {
+  const onImageQualityWarning = (
+    apiResponse: DocumentImageResponse
+  ): ImageQualityValidationNames | undefined => {
     const { sdk_warnings: warnings } = apiResponse
     if (!warnings) {
-      return null
+      return
     }
-    return imageQualityWarnings(warnings)
+    return returnFirstImageQualityWarning(warnings)
   }
 
   const onApiSuccess = (
@@ -192,15 +299,28 @@ export const Confirm = (props: ConfirmProps) => {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const imageQualityWarning = onImageQualityWarning(
-      apiResponse as DocumentImageResponse
-    )
+    const documentImageResponse = apiResponse as DocumentImageResponse
+    const imageQualityWarning = onImageQualityWarning(documentImageResponse)
 
     if (!imageQualityWarning) {
       completeStep([{ id: apiResponse.id }])
       nextStep()
     } else {
-      setWarning(imageQualityWarning)
+      setWarning(
+        imageQualityWarning,
+        {
+          document_type: props.documentType,
+          country_code: props.idDocumentIssuingCountry?.country_alpha2,
+          warning_origin: 'remote',
+          count_attempt: props.imageQualityRetries,
+          max_retry_count: sdkConfiguration.document_capture.max_total_retries,
+          // not sure what is_blocking refers to, but its the correct way to compute it
+          is_blocking:
+            props.imageQualityRetries >
+            sdkConfiguration.document_capture.max_total_retries,
+        },
+        documentImageResponse.sdk_warnings
+      )
     }
   }
 
@@ -309,13 +429,10 @@ export const Confirm = (props: ConfirmProps) => {
       // A `filename` might have been defined when the capture is created
       // if filename is not present, check if `blob` has a property `name` (only available for File types, which come from the html5 file picker)
       // alternatively use default filename
-      //
       const blobName =
-        // @ts-ignore todo issue with blob type
-        filename || blob?.name || `document_capture.${mimeType(blob)}`
+        filename || (blob as File).name || `document_capture.${mimeType(blob)}`
       const { documentType: type } = capture as DocumentCapture
       const data: UploadDocumentPayload = {
-        //@ts-ignore todo issue with blob type
         file: { blob, filename: blobName },
         type,
         side,
@@ -327,18 +444,24 @@ export const Confirm = (props: ConfirmProps) => {
       if (isDecoupledFromAPI) {
         onSubmitCallback(data, CALLBACK_TYPES.document)
       } else {
-        uploadDocument(data, url, token)
+        uploadDocument(
+          data,
+          url,
+          token,
+          undefined,
+          undefined,
+          buildUploadDocumentAnalyticsPayload()
+        )
           .then((res) => {
             // Multi Frame Capture video
             if (props.captures.document_video) {
               const {
                 blob,
-                filename,
+                filename = `document_video_capture.${mimeType(blob)}`,
                 sdkMetadata,
               } = props.captures.document_video
 
               const data: UploadDocumentVideoMediaPayload = {
-                //@ts-ignore todo issue with blob type
                 file: { blob, filename },
                 sdkMetadata,
                 document_id: res.id,
@@ -383,7 +506,7 @@ export const Confirm = (props: ConfirmProps) => {
     const formDataPayload = prepareCallbackPayload(data, callbackName)
 
     const startTime = performance.now()
-    // @ts-ignore
+
     sendEvent(`Triggering ${callbackName} callback`)
     sendEvent('Starting upload', { method })
 
@@ -400,7 +523,6 @@ export const Confirm = (props: ConfirmProps) => {
       } = await enterpriseFeaturesCallback(formDataPayload)
 
       if (onfidoSuccessResponse) {
-        // @ts-ignore
         sendEvent(`Success response from ${callbackName}`)
         sendEvent('Completed upload', {
           method,
@@ -414,7 +536,8 @@ export const Confirm = (props: ConfirmProps) => {
             url,
             token,
             onApiSuccess,
-            onApiError
+            onApiError,
+            buildUploadDocumentAnalyticsPayload()
           )
           return
         }
@@ -438,7 +561,6 @@ export const Confirm = (props: ConfirmProps) => {
         console.error(`Invalid return statement from ${callbackName}`)
       }
     } catch (errorResponse: unknown) {
-      // @ts-ignore
       sendEvent(`Error response from ${callbackName}`)
       formatError(errorResponse as ApiRawError, onApiError)
     }
@@ -456,18 +578,12 @@ export const Confirm = (props: ConfirmProps) => {
         snapshot,
       }
     } else if (callbackName === CALLBACK_TYPES.video) {
+      const { blob, language, challengeData } = data as UploadVideoPayload
       const {
-        blob,
-        language,
-        challengeData: {
-          //@ts-ignore
-          challenges: challenge,
-          //@ts-ignore
-          id: challenge_id,
-          //@ts-ignore
-          switchSeconds: challenge_switch_at,
-        },
-      } = data as UploadVideoPayload
+        challenges: challenge,
+        id: challenge_id,
+        switchSeconds: challenge_switch_at,
+      } = challengeData as ChallengeData
       payload = {
         file: blob,
         challenge: JSON.stringify(challenge),
@@ -535,7 +651,7 @@ export const Confirm = (props: ConfirmProps) => {
 
   return (
     <Previews
-      isFullScreen={props.isFullScreen}
+      isFullScreen={!!props.isFullScreen}
       capture={props.capture}
       retakeAction={onRetake}
       confirmAction={onConfirm}
@@ -543,10 +659,7 @@ export const Confirm = (props: ConfirmProps) => {
       error={error}
       trackScreen={props.trackScreen}
       method={props.method}
-      //@ts-ignore todo optional in Previews
-      documentType={props.documentType}
-      //@ts-ignore todo optional in Previews
-      poaDocumentType={props.poaDocumentType}
+      documentType={props.documentType || props.poaDocumentType}
       forceRetake={error?.type === 'error'}
       onVideoError={onVideoPreviewError}
     />

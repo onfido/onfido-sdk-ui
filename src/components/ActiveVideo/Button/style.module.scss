@@ -1,0 +1,27 @@
+@use '@onfido/castor';
+
+.button {
+  padding: 11px 23px;
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  border: none;
+  background-color: rgba(var(--ods-color-background-action));
+  color: rgba(var(--ods-color-content-on-action));
+  border-radius: var(--ods-border-radius-medium);
+  font-family: inherit;
+  font-size: 1rem;
+  user-select: none;
+  appearance: none;
+  border: 1px solid rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  position: relative;
+  text-decoration: none;
+  width: fit-content;
+  min-width: 272px;
+  min-height: 48px;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: rgba(var(--ods-color-background-action-hover));
+  }
+}

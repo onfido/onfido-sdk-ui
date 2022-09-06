@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact'
-import Webcam, { WebcamProps } from 'react-webcam-onfido'
+import Webcam, { WebcamProps } from '~webcam/react-webcam'
 import classNames from 'classnames'
 
 import { localised } from '~locales'

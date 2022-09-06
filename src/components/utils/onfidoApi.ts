@@ -1,6 +1,6 @@
 import { hmac256, mimeType } from './blob'
 import { parseJwt } from './jwt'
-import { performHttpReq, HttpRequestParams } from './http'
+import { performHttpRequest, HttpRequestParams } from '~core/Network'
 import { forEach } from './object'
 import { sendEvent, trackException } from '../../Tracker'
 import detectSystem from './detectSystem'
@@ -22,10 +22,16 @@ import type {
   ApplicantConsent,
   ApplicantConsentStatus,
   PoASupportedCountry,
+  ActiveVideoResponse,
 } from '~types/api'
 import type { DocumentSides, SdkMetadata, FilePayload } from '~types/commons'
 import type { SupportedLanguages } from '~types/locales'
-import type { LegacyTrackedEventNames } from '~types/tracker'
+import type {
+  AnalyticsTrackedEventNames,
+  CaptureFormat,
+  CaptureMethodRendered,
+  LegacyTrackedEventNames,
+} from '~types/tracker'
 import type { DocumentTypes, PoaTypes } from '~types/steps'
 
 export type UploadPayload = {
@@ -34,15 +40,25 @@ export type UploadPayload = {
 }
 
 export type UploadDocumentPayload = {
-  file: Blob
+  file: Blob | FilePayload
   issuing_country?: string
   side?: DocumentSides
   type?: DocumentTypes | PoaTypes | 'unknown'
   validations?: ImageQualityValidationPayload
 } & UploadPayload
 
+export type UploadDocumentAnalyticsPayload = {
+  document_side: DocumentSides
+  country_code?: string
+  document_type?: DocumentTypes
+  count_attempt: number
+  max_retry_count: number
+  capture_method_rendered: CaptureMethodRendered
+  capture_format?: CaptureFormat
+}
+
 export type UploadDocumentVideoMediaPayload = {
-  file: Blob
+  file: Blob | FilePayload
   document_id: string
   sdk_source?: string
   sdk_version?: string
@@ -81,6 +97,12 @@ type SubmitLiveVideoPayload = {
   languages?: string
 } & SubmitPayload
 
+type SubmitActiveVideoPayload = {
+  media: Blob
+  type: 'liveness'
+  metadata: string
+} & SubmitPayload
+
 export const formatError = (
   { response, status }: ApiRawError,
   onError: ErrorCallback
@@ -97,7 +119,8 @@ export const uploadDocument = (
   url: string | undefined,
   token: string | undefined,
   onSuccess?: SuccessCallback<DocumentImageResponse>,
-  onError?: ErrorCallback
+  onError?: ErrorCallback,
+  analyticsPayload?: UploadDocumentAnalyticsPayload
 ): Promise<DocumentImageResponse> => {
   const { sdkMetadata, validations = {}, ...other } = payload
   const endpoint = `${url}/v3.3/documents`
@@ -119,7 +142,18 @@ export const uploadDocument = (
       token,
       analyticsEvents,
       onSuccess || resolve,
-      onError || reject
+      onError || reject,
+      undefined,
+      {
+        event: 'DOCUMENT_UPLOAD_STARTED',
+        legacyEvent: 'document_upload_started',
+        properties: analyticsPayload ?? {},
+      },
+      {
+        event: 'DOCUMENT_UPLOAD_COMPLETED',
+        legacyEvent: 'document_upload_completed',
+        properties: {},
+      }
     )
   })
 }
@@ -275,6 +309,37 @@ export const uploadFaceVideo = (
   )
 }
 
+export const uploadActiveVideo = (
+  media: Blob,
+  metadata: string,
+  url: string | undefined,
+  token: string | undefined,
+  onSuccess?: SuccessCallback<ActiveVideoResponse>,
+  onError?: ErrorCallback
+): Promise<ActiveVideoResponse> => {
+  const endpoint = `${url}/v3/biometrics/media`
+  const payload: SubmitActiveVideoPayload = {
+    media,
+    type: 'liveness',
+    metadata,
+  }
+  const analyticsEvents: LegacyTrackedEventNames[] = [
+    'active_video_upload_started',
+    'active_video_upload_completed',
+  ]
+  return new Promise((resolve, reject) =>
+    sendFile(
+      endpoint,
+      payload,
+      token,
+      analyticsEvents,
+      onSuccess || resolve,
+      onError || reject,
+      { method: 'PUT' }
+    )
+  )
+}
+
 export const requestChallenges = (
   url: string | undefined,
   token: string | undefined,
@@ -303,7 +368,9 @@ export const requestChallenges = (
     token: `Bearer ${token}`,
   }
 
-  performHttpReq(options, onSuccess, (request) => formatError(request, onError))
+  performHttpRequest(options, onSuccess, (request) =>
+    formatError(request, onError)
+  )
 }
 
 export const getPoASupportedCountries = (url?: string, token?: string) => {
@@ -323,7 +390,9 @@ export const getPoASupportedCountries = (url?: string, token?: string) => {
   }
 
   return new Promise<PoASupportedCountry[]>((resolve, reject) => {
-    performHttpReq(options, resolve, (request) => formatError(request, reject))
+    performHttpRequest(options, resolve, (request) =>
+      formatError(request, reject)
+    )
   })
 }
 
@@ -348,7 +417,9 @@ export const getApplicantConsents = (
   }
 
   return new Promise<ApplicantConsentStatus[]>((resolve, reject) => {
-    performHttpReq(options, resolve, (request) => formatError(request, reject))
+    performHttpRequest(options, resolve, (request) =>
+      formatError(request, reject)
+    )
   })
 }
 
@@ -375,7 +446,9 @@ export const updateApplicantConsents = (
   }
 
   return new Promise((resolve, reject) => {
-    performHttpReq(options, resolve, (request) => formatError(request, reject))
+    performHttpRequest(options, resolve, (request) =>
+      formatError(request, reject)
+    )
   })
 }
 
@@ -400,7 +473,9 @@ export const updateApplicantLocation = (
   }
 
   return new Promise<void>((resolve, reject) => {
-    performHttpReq(options, resolve, (request) => formatError(request, reject))
+    performHttpRequest(options, resolve, (request) =>
+      formatError(request, reject)
+    )
   })
 }
 
@@ -414,10 +489,11 @@ export const uploadBinaryMedia = (
     try {
       const tokenData = parseJwt(token)
       const formData = new FormData()
+      const blob = (file as FilePayload).blob || file
       formData.append(
         'media',
-        file,
-        filename || `document_capture.${mimeType(file)}`
+        blob,
+        filename || `document_capture.${mimeType(blob)}`
       )
       formData.append('sdk_metadata', JSON.stringify(sdkMetadata))
 
@@ -428,14 +504,14 @@ export const uploadBinaryMedia = (
           token: `Bearer ${token}`,
         }
 
-        performHttpReq(requestParams, resolve, (request) =>
+        performHttpRequest(requestParams, resolve, (request) =>
           formatError(request, reject)
         )
 
         return
       }
 
-      file
+      blob
         .arrayBuffer()
         .then((data) => hmac256(tokenData.uuid as string, data))
         .then((hmac) => {
@@ -446,7 +522,7 @@ export const uploadBinaryMedia = (
             token: `Bearer ${token}`,
           }
 
-          performHttpReq(requestParams, resolve, (request) =>
+          performHttpRequest(requestParams, resolve, (request) =>
             formatError(request, reject)
           )
         })
@@ -472,7 +548,7 @@ export const createV4Document = (
         token: `Bearer ${token}`,
       }
 
-      performHttpReq(requestParams, resolve, (request) =>
+      performHttpRequest(requestParams, resolve, (request) =>
         formatError(request, reject)
       )
     } catch (error) {
@@ -498,13 +574,22 @@ export const objectToFormData = (object: SubmitPayload): FormData => {
   return formData
 }
 
+type ApiEvent = {
+  legacyEvent: LegacyTrackedEventNames
+  event: AnalyticsTrackedEventNames // not used, only for declarative purposes.
+  properties: Record<string, unknown>
+}
+
 const sendFile = <T>(
   endpoint: string | undefined,
   data: SubmitPayload,
   token: string | undefined,
   analyticsEvents: LegacyTrackedEventNames[],
   onSuccess: SuccessCallback<T>,
-  onError: ErrorCallback
+  onError: ErrorCallback,
+  options?: Partial<HttpRequestParams>,
+  startEvent?: ApiEvent,
+  successEvent?: ApiEvent
 ) => {
   if (!endpoint) {
     throw new Error('onfido_api_url not provided')
@@ -521,21 +606,31 @@ const sendFile = <T>(
   }
 
   const requestParams: HttpRequestParams = {
+    ...options,
     payload: objectToFormData(payload),
     endpoint,
     token: `Bearer ${token}`,
   }
 
   const startTime = performance.now()
-  // Sends upload_started event
-  sendEvent(analyticsEvents[0])
-  performHttpReq(
+  if (startEvent) {
+    sendEvent(startEvent.legacyEvent, startEvent.properties)
+  } else {
+    // Sends upload_started event
+    sendEvent(analyticsEvents[0])
+  }
+  performHttpRequest(
     requestParams,
     (response: T) => {
-      // Sends upload_completed event
-      sendEvent(analyticsEvents[1], {
-        duration: Math.round(performance.now() - startTime),
-      })
+      if (successEvent) {
+        sendEvent(successEvent.legacyEvent, successEvent.properties)
+      } else {
+        // Sends upload_completed event
+        sendEvent(analyticsEvents[1], {
+          duration: Math.round(performance.now() - startTime),
+        })
+      }
+
       if (onSuccess) {
         onSuccess(response)
       }
@@ -552,24 +647,21 @@ export const sendAnalytics = (
   payload: string
 ): void => {
   const endpoint = `${url}/v3/analytics`
-  const request = new XMLHttpRequest()
-  request.open('POST', endpoint)
-  request.setRequestHeader('Content-Type', 'application/json')
 
-  request.onload = () => {
-    const isSuccessfulRequest = request.status === 200 || request.status === 201
-    if (!isSuccessfulRequest) {
+  performHttpRequest(
+    {
+      method: 'POST',
+      contentType: 'application/json',
+      endpoint,
+      payload,
+    },
+    () => {},
+    (request) => {
       trackException(
         `analytics request error - status: ${request.status}, response: ${request.response}`
       )
     }
-  }
-  request.onerror = () =>
-    trackException(
-      `analytics request error - status: ${request.status}, response: ${request.response}`
-    )
-
-  request.send(payload)
+  )
 }
 
 export const getSdkConfiguration = (
@@ -579,6 +671,7 @@ export const getSdkConfiguration = (
   new Promise((resolve, reject) => {
     try {
       const browserInfo = detectSystem('browser')
+      const osInfo = detectSystem('os')
 
       const requestParams: HttpRequestParams = {
         endpoint: `${url}/v3.3/sdk/configurations`,
@@ -592,12 +685,14 @@ export const getSdkConfiguration = (
             system: {
               browser: browserInfo.name,
               browser_version: browserInfo.version,
+              os: osInfo.name,
+              os_version: osInfo.version,
             },
           },
         }),
       }
 
-      performHttpReq(requestParams, resolve, (request) =>
+      performHttpRequest(requestParams, resolve, (request) =>
         formatError(request, reject)
       )
     } catch (error) {

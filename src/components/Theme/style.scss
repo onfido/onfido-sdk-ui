@@ -124,7 +124,6 @@
   $non-content-height: $footer-height + $footer-margin + $navigation-height +
     $navigation-padding-top;
   height: calc(100% - #{$non-content-height});
-  position: relative;
   display: flex;
   flex-direction: column;
   -webkit-overflow-scrolling: touch;

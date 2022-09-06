@@ -156,6 +156,56 @@
     "auth_upload_pass": {
         "body": "Hochladen erfolgreich"
     },
+    "avc_confirmation": {
+        "button_primary_upload": "Aufnahme hochladen",
+        "subtitle": "Ein Video von Ihrem Gesicht wurde erfolgreich aufgenommen",
+        "title": "Aufnahme abgeschlossen"
+    },
+    "avc_connection_error": {
+        "button_primary_reload": "Anweisungen neu laden",
+        "button_primary_retry_upload": "Upload wiederholen",
+        "button_secondary_restart_recording": "Aufnahme neu starten",
+        "subtitle": "Prüfen Sie, ob Ihre Internetverbindung stabil ist, und versuchen Sie es dann erneut",
+        "title": "Verbindungsfehler"
+    },
+    "avc_face_alignment": {
+        "feedback_move_back": "Gehen Sie zurück",
+        "feedback_move_closer": "Rücken Sie näher heran",
+        "feedback_no_face_detected": "Gesicht nicht erkannt",
+        "feedback_not_centered": "Gesicht nicht mittig",
+        "title": "Positionieren Sie Ihr Gesicht im Rahmen"
+    },
+    "avc_face_capture": {
+        "alert": {
+            "timeout_body": "Sie haben maximal 15 Sekunden Zeit, um die Aufnahme zu beenden",
+            "timeout_button_primary": "Wiederholen",
+            "timeout_title": "Leider muss die Aufnahme neu gestartet werden",
+            "too_fast_body": "Bitte versuchen Sie es erneut und drehen Sie Ihren Kopf langsamer",
+            "too_fast_button_primary": "Wiederholen",
+            "too_fast_title": "Sie haben Ihren Kopf zu schnell gedreht"
+        },
+        "title": "Drehen Sie Ihren Kopf langsam nach beiden Seiten",
+        "title_completed": "Aufnahme abgeschlossen"
+    },
+    "avc_intro": {
+        "button_primary_ready": "Ich bin fertig",
+        "disclaimer": "Bitte beachten Sie, dass Ihr Gesicht und Ihr Hintergrund aufgenommen wird",
+        "list_item_one": "Positionieren Sie Ihr Gesicht zunächst im Rahmen",
+        "list_item_two": "Drehen Sie Ihren Kopf dann langsam nach beiden Seiten",
+        "subtitle": "Damit verifizieren wir, dass es sich bei Ihnen um eine reale Person handelt",
+        "title": "Video aufnehmen"
+    },
+    "avc_no_face_detected": {
+        "button_primary_restart": "Aufnahme neu starten",
+        "list_item_eyes": "Stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
+        "list_item_face": "Zeigen Sie nur Ihr Gesicht, Ihr Ausweis wird nicht benötigt",
+        "list_item_lighting": "Stellen Sie sicher, dass Sie sich an einem Ort mit guter Beleuchtung befinden",
+        "list_item_mask": "Achten Sie darauf, dass Sie Gesichtsmasken oder andere Gegenstände, die Ihr Gesicht verdecken, abnehmen. Brillen sind zulässig",
+        "title": "Wir können Ihr Gesicht nicht erkennen"
+    },
+    "avc_uploading": {
+        "title": "Hochladen"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",

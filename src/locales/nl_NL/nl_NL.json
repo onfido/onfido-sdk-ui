@@ -69,6 +69,56 @@
             "details_timeout": "Start opnieuw"
         }
     },
+    "avc_confirmation": {
+        "button_primary_upload": "Opname uploaden",
+        "subtitle": "Er is met succes een video van uw gezicht opgenomen",
+        "title": "Opname voltooid"
+    },
+    "avc_connection_error": {
+        "button_primary_reload": "Instructies herladen",
+        "button_primary_retry_upload": "Upload opnieuw proberen",
+        "button_secondary_restart_recording": "Opname opnieuw starten",
+        "subtitle": "Controleer of u een stabiele verbinding heeft en probeer het daarna opnieuw",
+        "title": "Verbindingsfout"
+    },
+    "avc_face_alignment": {
+        "feedback_move_back": "Ga naar achteren",
+        "feedback_move_closer": "Kom dichterbij",
+        "feedback_no_face_detected": "Gezicht niet gedetecteerd",
+        "feedback_not_centered": "Gezicht niet gecentreerd",
+        "title": "Plaats uw gezicht in het kader"
+    },
+    "avc_face_capture": {
+        "alert": {
+            "timeout_body": "U heeft 15 seconden om de opname te maken",
+            "timeout_button_primary": "Probeer opnieuw",
+            "timeout_title": "Sorry, we moeten de opname opnieuw starten",
+            "too_fast_body": "Probeer het opnieuw en draai uw hoofd dit keer langzamer",
+            "too_fast_button_primary": "Probeer opnieuw",
+            "too_fast_title": "U heeft uw hoofd te snel gedraaid"
+        },
+        "title": "Draai uw hoofd langzaam naar beide kanten",
+        "title_completed": "Opname voltooid"
+    },
+    "avc_intro": {
+        "button_primary_ready": "Ik ben klaar",
+        "disclaimer": "Wees u er bewust van dat we uw gezicht en achtergrond zullen opnemen",
+        "list_item_one": "Plaats eerst uw gezicht in het kader",
+        "list_item_two": "Draai uw hoofd dan langzaam naar beide kanten",
+        "subtitle": "Dit is om te bevestigen dat u een echt persoon bent",
+        "title": "Neem een video op"
+    },
+    "avc_no_face_detected": {
+        "button_primary_restart": "Opname opnieuw starten",
+        "list_item_eyes": "Zorg ervoor dat uw ogen duidelijk zichtbaar zijn",
+        "list_item_face": "Zorg ervoor dat u alleen uw gezicht laat zien, we hoeven uw identiteitsbewijs niet te zien",
+        "list_item_lighting": "Zorg dat u in een goed verlichte ruimte bent",
+        "list_item_mask": "Zorg ervoor dat u maskers of andere voorwerpen die uw gezicht bedekken afzet. Een bril mag wel.",
+        "title": "We kunnen uw gezicht niet detecteren"
+    },
+    "avc_uploading": {
+        "title": "Uploaden"
+    },
     "country_select": {
         "poa_alert": {
             "intro": "Can't find your country?",

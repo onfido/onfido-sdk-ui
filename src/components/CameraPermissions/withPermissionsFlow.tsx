@@ -1,24 +1,21 @@
 import { h, Component, ComponentType } from 'preact'
-import type { WebcamProps } from 'react-webcam-onfido'
+import { WebcamProps } from '~webcam/react-webcam'
 import PermissionsPrimer from '../CameraPermissions/Primer'
 import PermissionsRecover from '../CameraPermissions/Recover'
 
 import { checkIfWebcamPermissionGranted } from '~utils'
 
-import type { CameraProps } from '~types/camera'
 import type { WithTrackingProps, WithPermissionsFlowProps } from '~types/hocs'
-import type { ErrorProp } from '~types/routers'
 
 const permissionErrors = [
   'PermissionDeniedError',
   'NotAllowedError',
   'NotFoundError',
-]
+] as const
 
-type Props = CameraProps &
-  WebcamProps &
-  WithTrackingProps &
-  WithPermissionsFlowProps
+export type PermissionError = typeof permissionErrors[number]
+
+type Props = WebcamProps & WithTrackingProps & WithPermissionsFlowProps
 
 type State = {
   hasGrantedPermission: boolean | null
@@ -55,8 +52,8 @@ export default <P extends Props>(
       this.props.onUserMedia && this.props.onUserMedia()
     }
 
-    handleWebcamFailure = (error: ErrorProp) => {
-      if (permissionErrors.includes(error.name)) {
+    handleWebcamFailure = (error?: Error) => {
+      if (error && permissionErrors.includes(error.name as PermissionError)) {
         this.setState({ hasGrantedPermission: false })
       } else {
         this.props.onFailure && this.props.onFailure()

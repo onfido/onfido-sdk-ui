@@ -135,9 +135,9 @@ class ModalApp extends Component<Props> {
     onError?: (error: SdkError) => void,
     onUserExit?: (error: UserExitCode) => void
   ) => {
-    onComplete && this.events.on('complete', onComplete)
+    onComplete && this.events.once('complete', onComplete)
+    onUserExit && this.events.once('userExit', onUserExit)
     onError && this.events.on('error', onError)
-    onUserExit && this.events.on('userExit', onUserExit)
   }
 
   rebindEvents = (

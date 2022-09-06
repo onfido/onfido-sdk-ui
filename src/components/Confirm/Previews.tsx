@@ -18,26 +18,20 @@ import { TrackScreenCallback } from '~types/hocs'
 const getMessageKey = ({
   capture,
   documentType,
-  poaDocumentType,
   error,
   forceRetake,
   method,
 }: Pick<
   PreviewsProps,
-  | 'capture'
-  | 'documentType'
-  | 'poaDocumentType'
-  | 'error'
-  | 'forceRetake'
-  | 'method'
+  'capture' | 'documentType' | 'error' | 'forceRetake' | 'method'
 >) => {
   if (method === 'face') {
     return capture.variant === 'video' ? '' : 'selfie_confirmation.subtitle'
   }
 
   // In case of real error encountered but there's a `forceRetake` flag activated
-  if (error?.type === 'error') {
-    return CONFIRM_PREVIEWS_LOCALES_MAPPING[documentType || poaDocumentType]
+  if (error?.type === 'error' && documentType) {
+    return CONFIRM_PREVIEWS_LOCALES_MAPPING[documentType]
   }
 
   if (forceRetake) {
@@ -48,7 +42,11 @@ const getMessageKey = ({
     return 'doc_confirmation.body_image_medium'
   }
 
-  return CONFIRM_PREVIEWS_LOCALES_MAPPING[documentType || poaDocumentType]
+  if (documentType) {
+    return CONFIRM_PREVIEWS_LOCALES_MAPPING[documentType]
+  }
+
+  return ''
 }
 
 const getNamespace = (method: CaptureMethods, variant?: RequestedVariant) => {
@@ -71,8 +69,7 @@ type PreviewsProps = {
   isUploading: boolean
   error?: ErrorProp
   method: CaptureMethods
-  documentType: DocumentTypes
-  poaDocumentType: PoaTypes
+  documentType?: DocumentTypes | PoaTypes
   forceRetake: boolean
   onVideoError: () => void
   trackScreen: TrackScreenCallback
@@ -85,7 +82,6 @@ const Previews = ({
   error,
   method,
   documentType,
-  poaDocumentType,
   isFullScreen,
   isUploading,
   forceRetake,
@@ -114,7 +110,6 @@ const Previews = ({
     getMessageKey({
       capture,
       documentType,
-      poaDocumentType,
       error,
       forceRetake,
       method,

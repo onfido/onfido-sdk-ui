@@ -87,6 +87,16 @@ public class DocumentStep extends Step {
         return this;
     }
 
+    public DocumentStep withoutDocumentType(DocumentType documentType) {
+
+        if (this.options.documentTypes == null) {
+            this.options.documentTypes = new HashMap<>();
+        }
+
+        this.options.documentTypes.put(documentType.canonicalName(), false);
+        return this;
+    }
+
     public DocumentStep withForceCrossDevice(Boolean forceCrossDevice) {
         this.options.forceCrossDevice = forceCrossDevice;
         return this;
