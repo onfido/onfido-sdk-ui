@@ -1,6 +1,7 @@
-import { Network } from '~modules/Network'
-export { HttpRequestParams } from '~modules/Network'
+export * from './Network'
+export * from './types'
 
+import { Network } from './Network'
 import requestHeadersMiddleware from './middleware/requestHeadersMiddleware'
 
 const network = new Network({

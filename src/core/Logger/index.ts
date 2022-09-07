@@ -1,5 +1,8 @@
-// @ts-nocheck
-import { Logger, ConsoleService, EnviromentType } from '~modules/Logger'
+export * from './types'
+
+import { Logger } from './Logger'
+import { ConsoleService } from './services/ConsoleService'
+import { EnviromentType } from './types'
 
 const onfidoSDKLogger = new Logger({
   services: {
