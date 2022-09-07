@@ -315,21 +315,6 @@ public class DocumentIT extends WebSdkIT {
         onfido().withSteps(new DocumentStep().withDocumentType(PASSPORT)).init(DocumentUpload.class);
     }
 
-    @Test(description = "should be taken to the cross-device flow for video capture if there is no camera and docVideo variant requested")
-    public void testShouldBeTakenToTheCrossDeviceFlowForVideoCaptureIfThereIsNoCameraAndDocVideoVariantRequested() {
-        onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO))
-                .withDisableWebcam()
-                .init(RestrictedDocumentSelection.class)
-                .selectSupportedCountry()
-                .selectDocument(PASSPORT, CrossDeviceIntro.class);
-    }
-
-    // @TODO: remove this test when we fully support docVideo variant for both desktop & mobile web
-    @Test(description = "should be taken to the cross-device flow for video capture docVideo variant requested")
-    public void testShouldBeTakenToTheCrossDeviceFlowForVideoCaptureDocVideoVariantRequested() {
-        onfido().withSteps(new DocumentStep().withRequestedVariant(VIDEO)).init(RestrictedDocumentSelection.class).selectSupportedCountry().selectDocument(PASSPORT, CrossDeviceIntro.class);
-    }
-
     @Test(description = "should be able to retry document upload when using customized API requests feature and receiving an error response from the callback")
     public void testShouldBeAbleToRetryDocumentUploadWhenUsingCustomizedApiRequestsFeatureAndReceivingAnErrorResponseFromTheCallback() {
 

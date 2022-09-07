@@ -1,8 +1,5 @@
 import CameraButton from 'components/Button/CameraButton'
-import {
-  CaptureProgress,
-  SuccessState,
-} from 'components/DocumentVideo/reusables'
+import { CaptureProgress, SuccessState } from './reusables'
 import { VideoOverlayProps } from 'components/VideoCapture'
 import { FunctionComponent, h } from 'preact'
 import { memo, useEffect } from 'preact/compat'

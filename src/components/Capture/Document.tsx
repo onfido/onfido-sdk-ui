@@ -7,7 +7,6 @@ import { randomId } from '~utils/string'
 
 import { appendToTracking, trackException } from '../../Tracker'
 import { useLocales } from '~locales'
-import DocumentVideo from '../DocumentVideo'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
@@ -70,50 +69,6 @@ const Document = (props: Props) => {
       variant: 'standard',
     }
     actions.createCapture(documentCaptureData)
-
-    nextStep()
-  }
-
-  const handleVideoCapture: HandleDocVideoCaptureProp = (payload) => {
-    const { actions, documentType, mobileFlow, nextStep } = props
-    const { video, front, back } = payload
-
-    if (!documentType) {
-      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
-      throw new Error('documentType not provided')
-    }
-
-    const baseData: Omit<DocumentCapture, 'blob' | 'id'> = {
-      documentType,
-      method: 'document',
-      sdkMetadata: addDeviceRelatedProperties(
-        video?.sdkMetadata || {},
-        mobileFlow
-      ),
-    }
-
-    actions.createCapture({
-      ...front,
-      ...baseData,
-      id: randomId(),
-      side: 'front',
-    })
-
-    if (back) {
-      actions.createCapture({
-        ...back,
-        ...baseData,
-        id: randomId(),
-        side: 'back',
-      })
-    }
-
-    actions.createCapture({
-      ...video,
-      ...baseData,
-      id: randomId(),
-      variant: 'video',
-    })
 
     nextStep()
   }
@@ -192,7 +147,6 @@ const Document = (props: Props) => {
   const {
     documentType,
     hasCamera,
-    requestedVariant,
     side,
     trackScreen,
     uploadFallback = true,
@@ -203,22 +157,6 @@ const Document = (props: Props) => {
   const renderFallback = isDesktop
     ? renderCrossDeviceFallback
     : renderUploadFallback
-
-  if (hasCamera && requestedVariant === 'video') {
-    if (!documentType) {
-      trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
-      throw new Error('documentType not provided')
-    }
-
-    return (
-      <DocumentVideo
-        documentType={documentType}
-        onCapture={handleVideoCapture}
-        renderFallback={renderFallback}
-        trackScreen={trackScreen}
-      />
-    )
-  }
 
   if (!side) {
     trackException(EXCEPTIONS.CAPTURE_SIDE_NOT_PROVIDED)
