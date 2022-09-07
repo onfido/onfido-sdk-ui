@@ -28,27 +28,6 @@ public class ReleaseIT extends WebSdkIT {
     }
 
 
-    /*
-    1. Open link with additional GET parameter `?useWebcam=true`
-    2. Go through the flow to document capture
-       - browser should ask to enable the webcam
-    3. Accept the webcam to be used on browser
-       - photo capture frame should display preview from webcam
-    4. Place document in front of camera so that it aligns the edges of document capture frame
-       - document should be auto-captured
-       - confirmation screen should show up containing a photo that was taken
-       - user should be able to retake or continue with taken photo
-    */
-    @Scenario(id = "x2", priority = "P1", feature = "Document Capture")
-    @Test(groups = {"chrome", "firefox", "safari", "edge", "DocumentCapture"}, description = "Document photo webcam auto capture")
-    public void DocumentPhotoWebcamAutoCapture() {
-        /*
-        On private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers
-        Given webcam is connected to the computer
-        */
-
-        throw new SkipException("Not implemented");
-    }
 
 
     /*

@@ -19,9 +19,6 @@ public class DocumentStep extends Step {
         private Boolean uploadFallback;
 
         @JsonProperty
-        private Boolean useWebcam;
-
-        @JsonProperty
         private Map<String, Object> documentTypes;
 
         @JsonProperty
@@ -65,11 +62,6 @@ public class DocumentStep extends Step {
 
     public DocumentStep withUploadFallback(Boolean uploadFallback) {
         this.options.uploadFallback = uploadFallback;
-        return this;
-    }
-
-    public DocumentStep withUseWebcam(Boolean useWebcam) {
-        this.options.useWebcam = useWebcam;
         return this;
     }
 

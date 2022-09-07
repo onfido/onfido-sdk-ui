@@ -7,7 +7,6 @@ import { randomId } from '~utils/string'
 
 import { appendToTracking, trackException } from '../../Tracker'
 import { useLocales } from '~locales'
-import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
@@ -109,18 +108,6 @@ const Document = (props: Props) => {
     ...props,
     forceCrossDevice: props.forceCrossDevice ?? false,
     onError: handleError,
-  }
-  const renderTitle = <PageTitle title={title} smaller />
-
-  if (hasCamera && useWebcam) {
-    return (
-      <DocumentAutoCapture
-        {...propsWithErrorHandling}
-        renderFallback={renderFallback}
-        renderTitle={renderTitle}
-        onValidCapture={handlePhotoCapture}
-      />
-    )
   }
 
   // Different upload types show different icons

@@ -7,7 +7,6 @@ import { randomId } from '~utils/string'
 
 import { appendToTracking, trackException } from '../../Tracker'
 import { useLocales } from '~locales'
-import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
@@ -28,7 +27,6 @@ import type { DocumentCapture } from '~types/redux'
 import type {
   HandleCaptureProp,
   HandleDocMultiFrameCaptureProp,
-  HandleDocVideoCaptureProp,
   RenderFallbackProp,
   StepComponentDocumentProps,
 } from '~types/routers'
@@ -151,7 +149,6 @@ const Document = (props: Props) => {
     trackScreen,
     uploadFallback = true,
     useLiveDocumentCapture,
-    useWebcam,
   } = props
 
   const renderFallback = isDesktop
@@ -183,17 +180,6 @@ const Document = (props: Props) => {
       document_type: props.documentType,
     },
   })
-
-  if (hasCamera && useWebcam) {
-    return (
-      <DocumentAutoCapture
-        {...propsWithErrorHandling}
-        renderFallback={renderFallback}
-        renderTitle={renderTitle}
-        onValidCapture={handlePhotoCapture}
-      />
-    )
-  }
 
   if (hasCamera && enableLiveDocumentCapture) {
     if (!documentType) {
