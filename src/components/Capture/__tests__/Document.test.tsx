@@ -15,10 +15,6 @@ jest.mock('../withCrossDeviceWhenNoCamera')
 
 const DocumentFrontCapture = withCaptureVariant(Document, { side: 'front' })
 const DocumentBackCapture = withCaptureVariant(Document, { side: 'back' })
-const DocumentVideoCapture = withCaptureVariant(Document, {
-  side: 'front',
-  requestedVariant: 'video',
-})
 
 const defaultProps: StepComponentDocumentProps = {
   allowCrossDeviceFlow: true,
@@ -95,33 +91,6 @@ describe('Capture', () => {
         expect(wrapper.find('Uploader PageTitle .title').text()).toEqual(
           'doc_submit.title_license_back'
         )
-      })
-    })
-  })
-
-  describe('DocumentVideoCapture', () => {
-    it('renders without crashing', () => {
-      const wrapper = shallow(<DocumentVideoCapture {...defaultProps} />)
-      expect(wrapper.exists()).toBeTruthy()
-    })
-
-    describe('when mounted', () => {
-      it('renders without crashing', () => {
-        const wrapper = mount(
-          <MockedReduxProvider>
-            <MockedLocalised>
-              <MockedContainerDimensions>
-                <DocumentVideoCapture
-                  {...defaultProps}
-                  documentType="passport"
-                />
-              </MockedContainerDimensions>
-            </MockedLocalised>
-          </MockedReduxProvider>
-        )
-
-        expect(wrapper.exists()).toBeTruthy()
-        expect(wrapper.find('VideoCapture').exists()).toBeTruthy()
       })
     })
   })

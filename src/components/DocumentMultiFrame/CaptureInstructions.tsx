@@ -1,4 +1,4 @@
-import { Instructions } from 'components/DocumentVideo/reusables'
+import { Instructions } from './reusables'
 import { h } from 'preact'
 import { memo } from 'preact/compat'
 import { useLocales } from '~locales'

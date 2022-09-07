@@ -1,5 +1,3 @@
-import { hmac256, mimeType } from './blob'
-import { parseJwt } from './jwt'
 import { performHttpRequest, HttpRequestParams } from '~core/Network'
 import { forEach } from './object'
 import { sendEvent, trackException } from '../../Tracker'
@@ -14,7 +12,6 @@ import type {
   FaceVideoResponse,
   VideoChallengeResponse,
   SnapshotResponse,
-  UploadBinaryMediaReponse,
   CreateV4DocumentResponse,
   SuccessCallback,
   ErrorCallback,
@@ -478,59 +475,6 @@ export const updateApplicantLocation = (
     )
   })
 }
-
-export const uploadBinaryMedia = (
-  { file, filename, sdkMetadata }: UploadDocumentPayload,
-  url: string | undefined,
-  token: string | undefined,
-  includeHmacAuth = false
-): Promise<UploadBinaryMediaReponse> =>
-  new Promise((resolve, reject) => {
-    try {
-      const tokenData = parseJwt(token)
-      const formData = new FormData()
-      const blob = (file as FilePayload).blob || file
-      formData.append(
-        'media',
-        blob,
-        filename || `document_capture.${mimeType(blob)}`
-      )
-      formData.append('sdk_metadata', JSON.stringify(sdkMetadata))
-
-      if (!includeHmacAuth) {
-        const requestParams: HttpRequestParams = {
-          endpoint: `${url}/v4/binary_media`,
-          payload: formData,
-          token: `Bearer ${token}`,
-        }
-
-        performHttpRequest(requestParams, resolve, (request) =>
-          formatError(request, reject)
-        )
-
-        return
-      }
-
-      blob
-        .arrayBuffer()
-        .then((data) => hmac256(tokenData.uuid as string, data))
-        .then((hmac) => {
-          const requestParams: HttpRequestParams = {
-            endpoint: `${url}/v4/binary_media`,
-            headers: { 'X-Video-Auth': hmac },
-            payload: formData,
-            token: `Bearer ${token}`,
-          }
-
-          performHttpRequest(requestParams, resolve, (request) =>
-            formatError(request, reject)
-          )
-        })
-        .catch(reject)
-    } catch (error) {
-      reject(error)
-    }
-  })
 
 export const createV4Document = (
   mediaIds: string[],

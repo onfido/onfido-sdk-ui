@@ -17,11 +17,6 @@ export const DocumentBackCapture = appendToTracking(
   'back_capture'
 ) as ComponentType<StepComponentProps>
 
-export const DocumentVideoCapture = appendToTracking(
-  withCaptureVariant(Document, { side: 'front', requestedVariant: 'video' }),
-  'document_video_capture'
-) as ComponentType<StepComponentProps>
-
 export const PoACapture = appendToTracking(
   withCaptureVariant(ProofOfAddress, {
     forceCrossDevice: false,

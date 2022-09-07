@@ -7,7 +7,6 @@ import SelfieIntro from '../Photo/SelfieIntro'
 import {
   DocumentBackCapture,
   DocumentFrontCapture,
-  DocumentVideoCapture,
   DataCapture,
   FaceVideoCapture,
   PoACapture,
@@ -20,7 +19,6 @@ import {
   PoAConfirm,
   SelfieConfirm,
 } from '../Confirm'
-import DocumentVideoConfirm from '../DocumentVideo/Confirm'
 import Complete from '../Complete'
 import Retry from '~workflow-engine/Retry'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -365,15 +363,6 @@ const buildDocumentComponents = (
       ? options?.documentTypes[documentType]
       : undefined
 
-  const shouldUseVideo =
-    documentStep?.options?.requestedVariant === 'video' &&
-    window.MediaRecorder != null
-
-  const videoCaptureComponents: ComponentType<StepComponentProps>[] = [
-    DocumentVideoCapture,
-    DocumentVideoConfirm,
-  ]
-
   const doubleSidedDocs: DocumentTypes[] = [
     'driving_licence',
     'national_identity_card',
@@ -385,12 +374,6 @@ const buildDocumentComponents = (
     const preCaptureComponents = hasOnePreselectedDocument
       ? []
       : [RestrictedDocumentSelection]
-
-    if (shouldUseVideo) {
-      return mobileFlow && isFirstCaptureStepInFlow
-        ? [...buildCrossDeviceClientComponents(videoCaptureComponents)]
-        : [...preCaptureComponents, ...videoCaptureComponents]
-    }
 
     const standardCaptureComponents = shouldUseCamera
       ? [DocumentFrontCapture, DocumentFrontConfirm]
@@ -421,15 +404,6 @@ const buildDocumentComponents = (
     hasOnePreselectedDocument,
     showCountrySelection
   )
-
-  if (shouldUseVideo) {
-    return mobileFlow && isFirstCaptureStepInFlow
-      ? [
-          ...buildCrossDeviceClientComponents(videoCaptureComponents),
-          ...videoCaptureComponents,
-        ]
-      : [...preCaptureComponents, ...videoCaptureComponents]
-  }
 
   const frontCaptureComponents = [DocumentFrontCapture, DocumentFrontConfirm]
   const requiredFrontCaptureComponents =
