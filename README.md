@@ -527,7 +527,7 @@ The custom options are:
 
 - `documentTypes` (object)
 
-  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`.
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. When `documentTypes` is not defined, the default value for each document type is `true`. When `documentTypes` is defined, it will override the default values. Absent types are considered `false`.
 
 - `country` (string)
 
