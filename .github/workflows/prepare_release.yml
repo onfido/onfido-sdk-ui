@@ -36,7 +36,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
-      # e.g. "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
       - name: Setup Git
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}

@@ -245,7 +245,6 @@
     "webpack-node-externals": "^3.0.0",
     "webpack-visualizer-plugin2": "^1.0.0",
     "whatwg-fetch": "^3.6.2",
-    "wpt": "Woopra/browser-tracker.git#v5.1.20",
     "yn": "^3.0.0"
   },
   "dependencies": {

@@ -159,7 +159,6 @@ export type MobileConfig = {
   steps: StepConfig[]
   token?: string
   urls: UrlsConfig
-  woopraCookie?: string | null
   anonymousUuid?: string
   customUI: UICustomizationOptions | null
   crossDeviceClientIntroProductName?: string
