@@ -4,12 +4,12 @@ const { execute } = require('./util/terminal')
 const { RELEASE_VERSION } = process.env
 
 const prePublishChecks = async () => {
-  const { stdout: npmout } = await execute(
-    `npm view onfido-sdk-ui@${RELEASE_VERSION}`
-  )
-  if (npmout.length > 0) {
-    exitWithError(`It seems this release is already published on NPM`)
-  }
+  // const { stdout: npmout } = await execute(
+  //   `npm view onfido-sdk-ui@${RELEASE_VERSION}`
+  // )
+  // if (npmout.length > 0) {
+  //   exitWithError(`It seems this release is already published on NPM`)
+  // }
 
   const config = await readFile('release/githubActions/workflows.config')
 

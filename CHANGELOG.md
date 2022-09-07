@@ -12,16 +12,27 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added support for cs_CZ, ro_RO and pl_PL locales
 - Internal: Add utility tool for locales
 - Internal: Add Logger module
-
-## Changed
-
-- Internal: Collect `FACE_LIVENESS_*` analytics events
-- Internal: Send OS name and version information in sdk configuration request
-- Internal: Update FaceTec SDK on Auth step from 9.4.11 to 9.4.12
-- Internal: Show connection error screen on active video upload errors
+- Internal: Migrate analytics from `/v3` to `/v4`
+- Internal: Place cross device SMS feature behind a feature flag
 - Internal: Remove woopra
 - Internal: Migrate analytics from `/v3` to `/v4`
 - Internal: Place cross device SMS feature behind a feature flag
+
+## [9.0.0] - 2022-09-05
+
+## Changed
+
+- Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
+- Internal: Collect `FACE_LIVENESS_*` analytics events
+- Internal: Send OS name and version information in sdk configuration request
+- Internal: Update terser to 5.14.2 & moment to 2.29.4
+- Internal: Add Network module
+- Internal: Move all network calls to the Network module
+- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
+- Public: Add commit hash in console
+- Internal: Add `x-onfido-sdk-version` and `x-onfido-sdk-platform` headers to all onfido network requests
+- Internal: Update FaceTec SDK on Auth step from 9.4.11 to 9.4.12
+- Internal: Show connection error screen on active video upload errors
 
 ## [8.3.0] - 2022-08-02
 
@@ -39,12 +50,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Merge country and document selection in a single screen.
 - Internal: Remove isFullScreen prop from NavigationBar
 - Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
-- Internal: Update terser to 5.14.2 & moment to 2.29.4
-- Internal: Add Network module
-- Internal: Move all network calls to the Network module
-- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
-- Public: Add commit hash in console
-- Internal: Add `x-onfido-sdk-version` and `x-onfido-sdk-platform` headers to all onfido network requests
 
 ## [8.1.0] - 2022-06-13
 
@@ -1336,8 +1341,9 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/8.3.0...development
-[8.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.2.0...8.3.0
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/9.0.0...development
+[9.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.3.0...9.0.0
+[8.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0...8.3.0
 [8.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0
 [8.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...8.0.0
 [6.20.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...6.20.1

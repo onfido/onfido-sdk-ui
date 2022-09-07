@@ -60,5 +60,5 @@ const validateReleaseVersionNPM = async () => {
 
 ;(async () => {
   await validateInput()
-  await validateReleaseVersionNPM()
+  // await validateReleaseVersionNPM()
 })()
