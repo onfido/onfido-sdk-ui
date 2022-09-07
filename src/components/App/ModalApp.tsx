@@ -79,7 +79,11 @@ class ModalApp extends Component<Props> {
       const trackedProperties = {
         is_custom_ui: hasCustomUIConfigured,
       }
-      Tracker.sendEvent('started flow', trackedProperties)
+
+      // Note: Temporary, gives redux store time to update Network to set metadata header
+      setTimeout(() => {
+        Tracker.sendEvent('started flow', trackedProperties)
+      })
     }
   }
 

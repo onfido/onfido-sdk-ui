@@ -1,8 +1,10 @@
 import { h, createContext, FunctionComponent } from 'preact'
-import { useContext } from 'preact/compat'
+import { useContext, useEffect } from 'preact/compat'
 import { buildStepFinder, FindStepCallback } from '~utils/steps'
 
 import type { NarrowSdkOptions } from '~types/commons'
+import { useDispatch } from 'react-redux'
+import { setSDKOptions } from 'components/ReduxAppWrapper/store/actions/globals'
 
 type EnhancedOptions = {
   findStep: FindStepCallback
@@ -22,11 +24,16 @@ export const SdkOptionsProvider: FunctionComponent<Props> = ({
   children,
   options,
 }) => {
+  const dispatch = useDispatch()
   const { steps } = options
 
   const enhancedOptions: EnhancedOptions = {
     findStep: buildStepFinder(steps),
   }
+
+  useEffect(() => {
+    dispatch(setSDKOptions(options))
+  }, [])
 
   return (
     <SdkOptionsContext.Provider value={[options, enhancedOptions]}>

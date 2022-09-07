@@ -1,5 +1,10 @@
 import * as constants from './constants'
-import type { CountryData, UrlsConfig, ExtendedStepTypes } from '~types/commons'
+import type {
+  CountryData,
+  UrlsConfig,
+  ExtendedStepTypes,
+  NormalisedSdkOptions,
+} from '~types/commons'
 import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,
@@ -57,6 +62,7 @@ export type GlobalActions =
   | { type: typeof constants.SET_DECOUPLE_FROM_API; payload: boolean }
   | { type: typeof constants.RETRY_FOR_IMAGE_QUALITY }
   | { type: typeof constants.RESET_IMAGE_QUALITY_RETRIES }
+  | { type: typeof constants.SET_SDK_OPTIONS; payload: NormalisedSdkOptions }
   | { type: typeof constants.RESET_STORE }
 
 export type GlobalState = {
@@ -95,4 +101,5 @@ export type GlobalState = {
   anonymousUuid?: string
   clientUuid?: string
   stepsConfig: Array<StepConfig>
+  sdkOptions?: NormalisedSdkOptions
 }

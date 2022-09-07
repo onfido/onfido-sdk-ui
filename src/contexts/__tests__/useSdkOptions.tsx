@@ -5,6 +5,7 @@ import { EventEmitter2 } from 'eventemitter2'
 import { useSdkOptions, SdkOptionsProvider } from '../useSdkOptions'
 import type { NarrowSdkOptions } from '~types/commons'
 import type { StepTypes } from '~types/steps'
+import MockedReduxProvider from '~jest/MockedReduxProvider'
 
 type DummyProps = {
   step?: StepTypes
@@ -53,9 +54,11 @@ describe('context', () => {
 
     it('gets correct options data', () => {
       const wrapper = mount(
-        <SdkOptionsProvider options={defaultOptions}>
-          <DummyComponent />
-        </SdkOptionsProvider>
+        <MockedReduxProvider>
+          <SdkOptionsProvider options={defaultOptions}>
+            <DummyComponent />
+          </SdkOptionsProvider>
+        </MockedReduxProvider>
       )
 
       const span = wrapper.find('DummyComponent > span')
@@ -65,9 +68,11 @@ describe('context', () => {
 
     it('gets correct step config', () => {
       const wrapper = mount(
-        <SdkOptionsProvider options={defaultOptions}>
-          <DummyComponent step="document" />
-        </SdkOptionsProvider>
+        <MockedReduxProvider>
+          <SdkOptionsProvider options={defaultOptions}>
+            <DummyComponent step="document" />
+          </SdkOptionsProvider>
+        </MockedReduxProvider>
       )
 
       const span = wrapper.find('DummyComponent > span')
@@ -79,9 +84,11 @@ describe('context', () => {
 
     it(`gets no step when options doesn't include passed type`, () => {
       const wrapper = mount(
-        <SdkOptionsProvider options={defaultOptions}>
-          <DummyComponent step="userConsent" />
-        </SdkOptionsProvider>
+        <MockedReduxProvider>
+          <SdkOptionsProvider options={defaultOptions}>
+            <DummyComponent step="userConsent" />
+          </SdkOptionsProvider>
+        </MockedReduxProvider>
       )
 
       const span = wrapper.find('DummyComponent > span')

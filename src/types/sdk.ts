@@ -89,6 +89,11 @@ export interface SdkOptions extends FunctionalConfigurations {
   _crossDeviceLinkMethods?: Array<string> | null
   overrideSdkConfiguration?: Partial<SdkConfiguration>
   workflowRunId?: string
+
+  integration?: {
+    name?: string
+    version?: string
+  }
 }
 
 export type SdkHandle = {

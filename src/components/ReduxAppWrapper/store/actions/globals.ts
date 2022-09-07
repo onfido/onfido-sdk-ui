@@ -1,6 +1,11 @@
 import * as constants from '~types/redux/constants'
 
-import type { CountryData, UrlsConfig, ExtendedStepTypes } from '~types/commons'
+import type {
+  CountryData,
+  UrlsConfig,
+  ExtendedStepTypes,
+  NormalisedSdkOptions,
+} from '~types/commons'
 import type {
   EnterpriseCobranding,
   EnterpriseLogoCobranding,
@@ -171,6 +176,13 @@ export const setClientUuid = (payload: string): GlobalActions => ({
 
 export const setStepsConfig = (payload: StepConfig[]): GlobalActions => ({
   type: constants.SET_STEPS_CONFIG,
+  payload,
+})
+
+export const setSDKOptions = (
+  payload: NormalisedSdkOptions
+): GlobalActions => ({
+  type: constants.SET_SDK_OPTIONS,
   payload,
 })
 

@@ -68,10 +68,17 @@ const formatOptions = ({
       ? [welcomeStep, 'auth', ...mandatorySteps]
       : [welcomeStep, ...mandatorySteps]
 
+  // TODO: check if this is necessary
+  const allowIntegrationParam =
+    ['smart-capture-link-generic', 'smart-capture-link-unique'].indexOf(
+      otherOptions.integration?.name || ''
+    ) > -1
+
   return {
     ...otherOptions,
     smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
     useWorkflow,
+    integration: allowIntegrationParam ? otherOptions.integration : undefined,
     steps: useWorkflow
       ? defaultSteps.map(formatStep)
       : (steps || defaultSteps)

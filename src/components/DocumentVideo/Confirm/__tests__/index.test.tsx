@@ -359,6 +359,10 @@ describe('DocumentVideo', () => {
 
           expect(mockedStore.getActions()).toMatchObject([
             {
+              type: 'SET_SDK_OPTIONS',
+              payload: defaultOptions,
+            },
+            {
               type: 'CAPTURE_DELETE',
               payload: { method: 'document', side: 'front' },
             },
@@ -500,6 +504,10 @@ describe('DocumentVideo', () => {
           expect(mockedCreateV4Document).toHaveBeenCalledTimes(1)
 
           expect(mockedStore.getActions()).toMatchObject([
+            {
+              type: 'SET_SDK_OPTIONS',
+              payload: defaultOptions,
+            },
             {
               type: 'CAPTURE_DELETE',
               payload: { method: 'document', side: 'front' },

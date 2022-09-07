@@ -127,6 +127,12 @@ const SdkDemo: FunctionComponent<Props> = ({
     onModalRequestClose: () => setIsModalOpen(false),
     workflowRunId: queryParamToValueString.workflowRunId,
     ...(sdkOptions || {}),
+
+    // TODO: remove when ready to merge
+    integration: {
+      name: 'smart-capture-link-unique',
+      version: '1.0.0',
+    },
   }
 
   const applicantForm = applicantData ? (

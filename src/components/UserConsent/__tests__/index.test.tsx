@@ -3,7 +3,9 @@ import { h } from 'preact'
 import { sanitize } from 'dompurify'
 
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
-import { mockedReduxProps } from '~jest/MockedReduxProvider'
+import MockedReduxProvider, {
+  mockedReduxProps,
+} from '~jest/MockedReduxProvider'
 import UserConsent from '../index'
 
 import type { NarrowSdkOptions } from '~types/commons'
@@ -61,20 +63,22 @@ describe('UserConsent', () => {
     const sanitizer = sanitize as jest.Mock
     sanitizer.mockReturnValueOnce(xhrMock.response)
     render(
-      <SdkOptionsProvider options={defaultOptions}>
-        <UserConsentContext.Provider
-          value={{
-            enabled: true,
-            consents: [],
-            updateConsents: (v) => Promise.resolve(v).then(mockUpdateConsent),
-            addUserConsentStep: () => [],
-          }}
-        >
-          <MockedLocalised>
-            <UserConsent {...defaultProps} />
-          </MockedLocalised>
-        </UserConsentContext.Provider>
-      </SdkOptionsProvider>
+      <MockedReduxProvider>
+        <SdkOptionsProvider options={defaultOptions}>
+          <UserConsentContext.Provider
+            value={{
+              enabled: true,
+              consents: [],
+              updateConsents: (v) => Promise.resolve(v).then(mockUpdateConsent),
+              addUserConsentStep: () => [],
+            }}
+          >
+            <MockedLocalised>
+              <UserConsent {...defaultProps} />
+            </MockedLocalised>
+          </UserConsentContext.Provider>
+        </SdkOptionsProvider>
+      </MockedReduxProvider>
     )
   })
 
