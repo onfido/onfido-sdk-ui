@@ -130,7 +130,7 @@ export class Network {
     httpRequestParams: HttpRequestParams,
     request: XMLHttpRequest
   ) => {
-    onError(request)
+    onError && onError(request)
     if (this.onRequestErrorResponse) {
       this.onRequestErrorResponse(request, httpRequestParams)
     }

@@ -27,5 +27,9 @@ export const getSourceFileAsString = (path: string) => {
     throw new Error(`Could not find source file ${path}`)
   }
 
+  const s = sourceFile.getText()
+  if (s.match(/\.info\(/g)) {
+    console.log('getSourceFileAsString', path, sourceFile.getText())
+  }
   return sourceFile.getText()
 }

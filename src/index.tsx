@@ -21,6 +21,15 @@ import type { SdkOptions, SdkHandle } from '~types/sdk'
 import type { StepConfig, StepTypes } from '~types/steps'
 import App from './components/App'
 
+import { logger, testLogger } from '~core/Logger'
+
+// TODO: remove before merging
+logger.withLabels(['test']).info('test')
+logger.info('hi - info')
+logger.debug('hi - debug')
+logger.fatal('hi - fatal')
+testLogger.info('hello')
+
 if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
 }

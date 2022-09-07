@@ -1,9 +1,10 @@
-export type EnviromentType = 'production' | 'development' | 'debug'
-export type LabelKeyType = 'debug' | 'info' | 'warning' | 'error' | 'fatal'
+export type EnvironmentType = 'production' | 'development' | 'test'
+// export type LogLevels = 'info'
+export type LogLevels = 'debug' | 'info' | 'warning' | 'error' | 'fatal'
 
-export type DataPackage = {
+export type LogData = {
+  level: LogLevels
   labels: string[]
-  level: LabelKeyType
   message: string
   metadata?: Record<string, unknown>
 
@@ -13,7 +14,7 @@ export type DataPackage = {
   line?: string
 }
 
-export type ServicesType = Record<string, ServiceInterface>
-export interface ServiceInterface {
-  dispatch: (data: DataPackage) => boolean
+// export type ServicesType = Record<string, OutputInterface>
+export interface OutputInterface {
+  write: (data: LogData, environment: EnvironmentType) => boolean
 }

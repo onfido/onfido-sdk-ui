@@ -1,80 +1,74 @@
 import { Logger } from '../Logger'
-import { ConsoleService } from '../services/ConsoleService'
+import { ConsoleOutput } from '../outputs/ConsoleOutput'
 
-describe('Logger - with ConsoleService', () => {
+describe('Logger - with ConsoleOutput', () => {
   it('create', () => {
-    const consoleService = new ConsoleService()
-    expect(consoleService).toBeInstanceOf(ConsoleService)
+    const consoleOutput = new ConsoleOutput()
+    expect(consoleOutput).toBeInstanceOf(ConsoleOutput)
   })
 
   describe('in production', () => {
     const logger = new Logger({
-      services: {
-        log: new ConsoleService({ environment: 'production' }),
-      },
+      environment: 'production',
+      outputs: [new ConsoleOutput()],
     })
-
-    const logInstance = logger.createInstance('default')
 
     it('debug', () => {
       console.log = jest.fn()
-      logInstance.debug('hi')
+      logger.debug('hi')
       expect(console.log).toBeCalledTimes(0)
     })
     it('info', () => {
       console.log = jest.fn()
-      logInstance.info('hi')
+      logger.info('hi')
       expect(console.log).toBeCalledTimes(0)
     })
     it('warning', () => {
       console.log = jest.fn()
-      logInstance.warning('hi')
+      logger.warning('hi')
       expect(console.log).toBeCalledTimes(0)
     })
     it('error', () => {
       console.log = jest.fn()
-      logInstance.error('hi')
+      logger.error('hi')
       expect(console.log).toBeCalledTimes(0)
     })
     it('fatal', () => {
       console.log = jest.fn()
-      logInstance.fatal('hi')
+      logger.fatal('hi')
       expect(console.log).toBeCalledTimes(1)
     })
   })
 
   describe('in development', () => {
     const logger = new Logger({
-      services: {
-        log: new ConsoleService({ environment: 'development' }),
-      },
+      environment: 'development',
+      outputs: [new ConsoleOutput()],
     })
-
-    const logInstance = logger.createInstance('default')
 
     it('debug', () => {
       console.log = jest.fn()
-      logInstance.debug('hi')
+      logger.debug('hi')
       expect(console.log).toBeCalledTimes(1)
     })
     it('info', () => {
       console.log = jest.fn()
-      logInstance.info('hi')
+      logger.info('hi')
       expect(console.log).toBeCalledTimes(1)
     })
     it('warning', () => {
       console.log = jest.fn()
-      logInstance.warning('hi')
+      logger.warning('hi')
       expect(console.log).toBeCalledTimes(1)
     })
     it('error', () => {
       console.log = jest.fn()
-      logInstance.error('hi')
+      logger.error('hi')
       expect(console.log).toBeCalledTimes(1)
     })
     it('fatal', () => {
       console.log = jest.fn()
-      logInstance.fatal('hi')
+      logger.fatal('hi')
       expect(console.log).toBeCalledTimes(1)
     })
   })

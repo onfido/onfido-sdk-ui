@@ -21,20 +21,16 @@ export default (project: Project) => {
     fromBasePath('/src/core/Logger/Logger.ts')
   )
 
-  const logInstanceSourceFile = project.getSourceFile(
-    fromBasePath('/src/core/Logger/LogInstance.ts')
-  )
-
   const typesSourceFile = project.getSourceFile(
     fromBasePath('/src/core/Logger/types.ts')
   )
 
-  if (!loggerSourceFile || !logInstanceSourceFile || !typesSourceFile) {
+  if (!loggerSourceFile || !typesSourceFile) {
     throw new Error("Logger.injection can't find source file(s)")
   }
 
   const levels = typesSourceFile
-    ?.getTypeAlias('LabelKeyType')
+    ?.getTypeAlias('LogLevels')
     ?.getDescendantsOfKind(SyntaxKind.StringLiteral)
     ?.map((i) => i.getLiteralValue())
 
@@ -42,58 +38,45 @@ export default (project: Project) => {
     throw new Error("Logger.injection can't find log levels")
   }
 
-  const methodParametersLength = logInstanceSourceFile
-    .getClass('LogInstance')
-    ?.getProperty('capture')
-    ?.getDescendants()
-    ?.filter(Node.isArrowFunction)[1]
-    ?.getParameters().length
+  const methodParametersLength = loggerSourceFile
+    .getTypeAlias('logMethodProps')
+    .getDescendants()
+    .filter(Node.isNamedTupleMember).length
 
   if (methodParametersLength === 0) {
     throw new Error("Can't find the parameter list of LogInstance.capture")
   }
 
-  loggerSourceFile
-    ?.getClass('Logger')
-    ?.getMethod('createInstance')
-    ?.findReferencesAsNodes()
-    ?.forEach((node) => {
-      const variableDeclaration = node.getFirstAncestor(
-        Node.isVariableDeclaration
-      )
-
-      if (!variableDeclaration) {
-        return
-      }
-
-      variableDeclaration.findReferencesAsNodes().forEach((i) => {
-        const callExpression = i.getFirstAncestor(Node.isCallExpression)
-
-        // Exclude import identifiers etc
-        if (!callExpression) {
-          return
+  // Find all references for each "level" method
+  const refs = []
+  levels.forEach((level) => {
+    loggerSourceFile
+      ?.getClass('Logger')
+      ?.getMethod(level)
+      ?.findReferencesAsNodes()
+      ?.forEach((node) => {
+        if (node) {
+          refs.push(node)
         }
-
-        // Format: Logger.[method]
-        const callMethodName = getNthDescendant(
-          callExpression,
-          Node.isIdentifier,
-          2
-        ).getText()
-
-        if (levels.indexOf(callMethodName) < 0) {
-          return
-        }
-
-        const { file, method, line } = abstractOriginInfo(callExpression)
-        count++
-
-        appendArgumentsToCallExpression(callExpression, {
-          max: methodParametersLength,
-          data: [`'${file}'`, `'${method}'`, `'${line}'`],
-        })
       })
+  })
+
+  refs.forEach((node) => {
+    const callExpression = node.getFirstAncestor(Node.isCallExpression)
+
+    if (!callExpression) {
+      return
+    }
+
+    const { file, method, line } = abstractOriginInfo(callExpression)
+    console.log({ file, method, line })
+    count++
+
+    appendArgumentsToCallExpression(callExpression, {
+      max: methodParametersLength,
+      data: [`'${file}'`, `'${method}'`, `'${line}'`],
     })
+  })
 
   console.log(`Extended ${count} Logger.* references with origin info`)
 }
