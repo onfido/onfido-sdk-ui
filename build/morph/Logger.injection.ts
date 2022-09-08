@@ -6,27 +6,27 @@
     - lineNumber: string
 */
 import { Node, Project } from 'ts-morph'
-import { resolve } from 'path'
 import {
   abstractOriginInfo,
   getNthDescendant,
   appendArgumentsToCallExpression,
 } from './util'
+import { fromBasePath } from './project'
 import { SyntaxKind } from 'typescript'
 
 export default (project: Project) => {
   let count = 0
 
   const loggerSourceFile = project.getSourceFile(
-    resolve(__dirname, '../../modules/Logger/Logger.ts')
+    fromBasePath('/src/core/Logger/Logger.ts')
   )
 
   const logInstanceSourceFile = project.getSourceFile(
-    resolve(__dirname, '../../modules/Logger/LogInstance.ts')
+    fromBasePath('/src/core/Logger/LogInstance.ts')
   )
 
   const typesSourceFile = project.getSourceFile(
-    resolve(__dirname, '../../modules/Logger/types.ts')
+    fromBasePath('/src/core/Logger/types.ts')
   )
 
   if (!loggerSourceFile || !logInstanceSourceFile || !typesSourceFile) {
