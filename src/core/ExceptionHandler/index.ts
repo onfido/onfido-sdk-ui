@@ -14,7 +14,6 @@ import {
   HttpContext,
   wrap,
 } from '@sentry/browser'
-import { extendPreact } from './extendPreact'
 export { ErrorBoundary } from './ErrorBoundary'
 export type { EventHint } from '@sentry/browser'
 
@@ -31,9 +30,6 @@ export const install = ({ useGlobalListeners }: InstallProps = {}) => {
   if (sentryClient) {
     return
   }
-
-  // Temp disabled due to issue with react-phone-number-input
-  // extendPreact()
 
   const integrations = [
     useGlobalListeners && new GlobalHandlers(),
