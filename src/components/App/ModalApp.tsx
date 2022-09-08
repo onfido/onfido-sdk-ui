@@ -51,15 +51,17 @@ class ModalApp extends Component<Props> {
     if (!props.options.mobileFlow) {
       if (!props.options.disableAnalytics) {
         !analyticsSessionUuid && actions.setAnalyticsSessionUuid(uuidv4())
-        setupAnalyticsCookie(
-          this.props.actions.setAnonymousUuid,
-          this.props.anonymousUuid
-        )
+        setupAnalyticsCookie({
+          setAnonymousUuid: props.actions.setAnonymousUuid,
+          anonymousUuid: props.anonymousUuid,
+          disableAnalyticsCookies: props.options.disableAnalyticsCookies,
+        })
         Tracker.install()
       } else {
-        uninstallAnalyticsCookie(this.props.actions.setAnonymousUuid)
+        uninstallAnalyticsCookie(props.actions.setAnonymousUuid)
       }
     }
+
     this.bindEvents(
       props.options.onComplete,
       props.options.onError,

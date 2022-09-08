@@ -149,6 +149,7 @@ export type MobileConfig = {
   stepIndex: number
   deviceHasCameraSupport?: boolean
   disableAnalytics?: boolean
+  disableAnalyticsCookies?: boolean
   useWorkflow?: boolean
   documentType?: DocumentTypes
   enterpriseFeatures?: EnterpriseFeatures

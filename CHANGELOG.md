@@ -15,8 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Migrate analytics from `/v3` to `/v4`
 - Internal: Place cross device SMS feature behind a feature flag
 - Internal: Remove woopra
-- Internal: Migrate analytics from `/v3` to `/v4`
-- Internal: Place cross device SMS feature behind a feature flag
+- Internal: Add `disableAnalyticsCookies` option
 
 ## [9.0.0] - 2022-09-05
 
