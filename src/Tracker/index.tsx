@@ -141,16 +141,27 @@ const cookieAttributes = {
 
 // Internal Analytics Cookie
 type setAnonymousUuidFunc = (payload?: string) => void
-const setupAnalyticsCookie = (
-  setAnonymousUuid: setAnonymousUuidFunc,
+
+type setupAnalyticsCookieProps = {
+  setAnonymousUuid: setAnonymousUuidFunc
   anonymousUuid?: string
-) => {
+  disableAnalyticsCookies?: boolean
+}
+
+const setupAnalyticsCookie = ({
+  setAnonymousUuid,
+  anonymousUuid,
+  disableAnalyticsCookies,
+}: setupAnalyticsCookieProps) => {
   const cookie = getAnalyticsCookie()
 
   if (!anonymousUuid && !cookie) {
     const uuid = uuidv4()
     setAnonymousUuid(uuid)
-    setAnalyticsCookie(uuid)
+
+    if (!disableAnalyticsCookies) {
+      setAnalyticsCookie(uuid)
+    }
     return
   }
 
@@ -159,8 +170,13 @@ const setupAnalyticsCookie = (
     return
   }
 
-  if (anonymousUuid && anonymousUuid !== cookie) {
+  if (anonymousUuid && anonymousUuid !== cookie && !disableAnalyticsCookies) {
     setAnalyticsCookie(anonymousUuid)
+    return
+  }
+
+  if (cookie && disableAnalyticsCookies) {
+    uninstallAnalyticsCookie()
   }
 }
 
@@ -168,8 +184,8 @@ const setAnalyticsCookie = (anonymousUuid: string) => {
   Cookies.set(cookieAttributes.name, anonymousUuid, cookieAttributes)
 }
 
-const uninstallAnalyticsCookie = (setAnonymousUuid: setAnonymousUuidFunc) => {
-  setAnonymousUuid(undefined)
+const uninstallAnalyticsCookie = (setAnonymousUuid?: setAnonymousUuidFunc) => {
+  setAnonymousUuid && setAnonymousUuid(undefined)
   Cookies.remove(cookieAttributes.name, cookieAttributes)
 }
 

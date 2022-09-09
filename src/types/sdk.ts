@@ -53,6 +53,7 @@ export type ServerRegions = 'US' | 'EU' | 'CA'
 
 interface FunctionalConfigurations {
   disableAnalytics?: boolean
+  disableAnalyticsCookies?: boolean
   mobileFlow?: boolean
   roomId?: string
   tearDown?: boolean

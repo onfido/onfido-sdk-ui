@@ -25,6 +25,7 @@ export type QueryParams = {
   countryCode?: StringifiedBoolean
   createCheck?: StringifiedBoolean
   disableAnalytics?: StringifiedBoolean
+  disableAnalyticsCookies?: StringifiedBoolean
   forceCrossDevice?: StringifiedBoolean
   hideOnfidoLogo?: StringifiedBoolean
   language?: 'customTranslations' | SupportedLanguages
@@ -363,6 +364,9 @@ export const getInitSdkOptions = (): SdkOptions => {
   }
   if (queryParamToValueString.disableAnalytics === 'true') {
     sdkOptions.disableAnalytics = true
+  }
+  if (queryParamToValueString.disableAnalyticsCookies === 'true') {
+    sdkOptions.disableAnalyticsCookies = true
   }
   if (queryParamToValueString.useMemoryHistory === 'true') {
     sdkOptions.useMemoryHistory = true
