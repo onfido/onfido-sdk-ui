@@ -17,6 +17,7 @@ class StepsRouter extends Component<StepsRouterProps> {
 
   trackScreen: TrackScreenCallback = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
+
     sendScreen(
       [
         step.type,
@@ -26,6 +27,10 @@ class StepsRouter extends Component<StepsRouterProps> {
         ...properties,
       }
     )
+
+    if (this.props.extendTrackScreen) {
+      this.props.extendTrackScreen(step.type, screenNameHierarchy ? wrapArray(screenNameHierarchy) : [], properties)
+    }
   }
 
   currentComponent = () => {

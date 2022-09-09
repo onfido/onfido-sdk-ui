@@ -4,7 +4,7 @@ import { buildStepFinder, findFirstEnabled, findFirstIndex } from '~utils/steps'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
-import { sendEvent } from '../../Tracker'
+import { screenNameHierarchyFormat, sendEvent } from '../../Tracker'
 
 import type { FlowVariants } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
@@ -19,10 +19,29 @@ import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes, StepConfig } from '~types/steps'
 import { useCallback, useEffect, useState } from 'preact/hooks'
 import { useHistory } from './useHistory'
+import { SdkConfigurationServiceContext } from '~contexts/useSdkConfigurationService'
 
 type HistoryRouterState = {
   initialStep: number
 } & HistoryLocationState
+
+// FIXME: change url to the one, where it's deployed live
+const PASSIVE_SIGNAL_URL = 'http://127.0.0.1:8081/signal.js'
+
+interface PassiveSignalsTrackerConstructor {
+  new (configuration: { jwt: string }): PassiveSignalsTracker
+}
+
+interface PassiveSignalsTracker {
+  track: (context?: Record<any, any>) => void
+  tearDown: () => void
+}
+
+declare global {
+  interface Window {
+    PassiveSignalTracker: PassiveSignalsTrackerConstructor
+  }
+}
 
 export const HistoryRouterWrapper = ({
   useSteps,
@@ -45,7 +64,20 @@ export const HistoryRouterWrapper = ({
     )
   }
 
-  return <HistoryRouter {...props} {...useStepsProps} steps={steps} />
+  return (
+    <SdkConfigurationServiceContext.Consumer>
+      {(configuration) => {
+        return (
+          <HistoryRouter
+            {...props}
+            {...useStepsProps}
+            steps={steps}
+            sdkConfiguration={configuration}
+          />
+        )
+      }}
+    </SdkConfigurationServiceContext.Consumer>
+  )
 }
 
 export const HistoryRouter = (props: HistoryRouterProps) => {
@@ -60,13 +92,14 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     step: defaultStep,
     stepIndexType,
     deviceHasCameraSupport,
-    options: { mobileFlow, useMemoryHistory },
+    options: { mobileFlow, useMemoryHistory, token },
     steps,
     hasNextStep,
     hasPreviousStep,
     loadNextStep,
     completeStep,
     triggerOnError,
+    sdkConfiguration,
   } = props
 
   const getComponentsList = (
@@ -86,6 +119,44 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       hasPreviousStep,
     })
   }
+
+  const [tracker, setTracker] = useState<PassiveSignalsTracker | undefined>(
+    undefined
+  )
+  const [mounted, setMounted] = useState<boolean>(true)
+
+  useEffect(() => {
+    // FIXME: remove || true which is only here as the backend doesn't provide this value
+    const enabled =
+      sdkConfiguration?.device_intelligence?.passive_signals?.enabled || true
+
+    if (!(enabled && mounted)) {
+      return
+    }
+
+    const script = document.createElement('script')
+    script.type = 'application/javascript'
+    script.src = PASSIVE_SIGNAL_URL
+    script.async = true
+    script.onload = () => {
+      if (mounted) {
+        // save guard that the sdk is still mounted
+        const cls = window.PassiveSignalTracker as PassiveSignalsTrackerConstructor
+        setTracker(new cls({ jwt: token as string }))
+      }
+    }
+
+    const s = document.getElementsByTagName('script')[0]
+    s.parentNode?.insertBefore(script, s)
+
+    return () => {
+      if (tracker) {
+        tracker.tearDown()
+      }
+
+      setMounted(false)
+    }
+  }, [])
 
   const { back, forward, push } = useHistory(({ state: historyState }) => {
     const { step } = getComponentsList(steps, historyState.flow)[
@@ -248,6 +319,18 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     setStepIndex(currentStep - 1)
   }
 
+  const trackPassiveSignals = (
+    step: string,
+    screenNameHierarchy: string[],
+    properties: Record<any, any>
+  ) => {
+    tracker?.track({
+      step,
+      screens: screenNameHierarchyFormat(screenNameHierarchy),
+      properties,
+    })
+  }
+
   const goBack = () => {
     sendEvent('navigation_back_button_clicked')
     back()
@@ -286,6 +369,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       previousStep={previousStep}
       step={state.step}
       triggerOnError={triggerOnError}
+      extendTrackScreen={trackPassiveSignals}
       isLoadingStep={status === 'loading'}
     />
   )

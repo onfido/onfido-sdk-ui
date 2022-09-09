@@ -296,10 +296,19 @@ export interface SdkConfigurationValidationsOnDevice {
   blur?: OnDeviceValidation
 }
 
+export interface PassiveSignals {
+  enabled: boolean
+}
+
+export interface DeviceIntelligence {
+  passive_signals: PassiveSignals
+}
+
 export type SdkConfiguration = {
   validations?: SdkConfigurationValidations
   experimental_features?: ExperimentalFeatures
   document_capture: DocumentCapture
   biometrics_liveness?: BiometricsLiveness
   sdk_features?: SdkFeatures
+  device_intelligence?: DeviceIntelligence
 }

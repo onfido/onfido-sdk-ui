@@ -1,7 +1,7 @@
 import { h, ComponentType, ComponentChildren } from 'preact'
 import { ActionCreatorsMapObject } from 'redux'
 
-import type { ErrorCallback } from './api'
+import type { ErrorCallback, SdkConfiguration } from './api'
 import type {
   ExtendedStepConfig,
   FlowVariants,
@@ -105,6 +105,7 @@ export type HistoryRouterProps = HistoryRouterBaseProps & {
   hasNextStep: boolean
   hasPreviousStep: boolean
   steps: StepConfig[]
+  sdkConfiguration: SdkConfiguration
 }
 
 export type StepsRouterProps = {
@@ -117,6 +118,11 @@ export type StepsRouterProps = {
   step: number
   isLoadingStep?: boolean
   completeStep: (data: CompleteStepValue) => void
+  extendTrackScreen?: (
+    step: string,
+    screenNameHierarchy: string[],
+    properties: Record<any, any>
+  ) => void
 } & HistoryRouterBaseProps
 
 export type StepComponentBaseProps = {

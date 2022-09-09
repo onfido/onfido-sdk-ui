@@ -67,7 +67,7 @@ const sendEvent = (
   }
 }
 
-const screenNameHierarchyFormat = (
+export const screenNameHierarchyFormat = (
   screenNameHierarchy: string[]
 ): LegacyTrackedEventNames =>
   `screen_${cleanFalsy(screenNameHierarchy).join(
