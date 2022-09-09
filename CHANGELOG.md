@@ -12,14 +12,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added support for cs_CZ, ro_RO and pl_PL locales
 - Internal: Add utility tool for locales
 - Internal: Add Logger module
-- Internal: Migrate analytics from `/v3` to `/v4`
-- Internal: Place cross device SMS feature behind a feature flag
 - Internal: Remove woopra
 - Internal: Migrate analytics from `/v3` to `/v4`
 - Internal: Place cross device SMS feature behind a feature flag
 - Internal: Add `disableAnalyticsCookies` option
 - Public: Increase capture resolution for useLiveDocumentCapture mode, to prevent image quality issues.
-
 
 ## [9.0.0] - 2022-09-05
 
