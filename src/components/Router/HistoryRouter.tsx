@@ -115,7 +115,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     const enabled =
       sdkConfiguration?.device_intelligence?.passive_signals?.enabled || true
 
-    if (!(enabled && mounted)) {
+    if (!enabled || !mounted) {
       return
     }
 
@@ -124,11 +124,8 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     script.src = PASSIVE_SIGNAL_URL
     script.async = true
     script.onload = () => {
-      if (mounted) {
-        // save guard that the sdk is still mounted
-        const cls =
-          window.PassiveSignalTracker as PassiveSignalsTrackerConstructor
-        setTracker(new cls({ jwt: token as string }))
+      if (mounted && window.PassiveSignalTracker) {
+        setTracker(new window.PassiveSignalTracker({ jwt: token as string }))
       }
     }
 
