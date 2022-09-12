@@ -5,6 +5,15 @@ import type { SdkHandle, SdkOptions, SdkInitMethod } from '~types/sdk'
 declare global {
   type Optional<T> = T | null | undefined
 
+  interface PassiveSignalsTracker {
+    track: (context?: Record<string, unknown>) => void
+    tearDown: () => void
+  }
+
+  interface PassiveSignalsTrackerConstructor {
+    new (configuration: { jwt: string }): PassiveSignalsTracker
+  }
+
   namespace NodeJS {
     interface Global {
       OnfidoAuth: {
@@ -23,6 +32,7 @@ declare global {
       options: SdkOptions & { onComplete?: (data: unknown) => void }
     ) => void
     MSStream: object
+    PassiveSignalTracker: PassiveSignalsTrackerConstructor
   }
 
   interface Navigator extends Window.Navigator {

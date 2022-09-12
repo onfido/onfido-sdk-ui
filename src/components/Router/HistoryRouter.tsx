@@ -28,21 +28,6 @@ type HistoryRouterState = {
 // FIXME: change url to the one, where it's deployed live
 const PASSIVE_SIGNAL_URL = 'http://127.0.0.1:8081/signal.js'
 
-interface PassiveSignalsTrackerConstructor {
-  new (configuration: { jwt: string }): PassiveSignalsTracker
-}
-
-interface PassiveSignalsTracker {
-  track: (context?: Record<any, any>) => void
-  tearDown: () => void
-}
-
-declare global {
-  interface Window {
-    PassiveSignalTracker: PassiveSignalsTrackerConstructor
-  }
-}
-
 export const HistoryRouterWrapper = ({
   useSteps,
   fallback,
@@ -141,7 +126,8 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     script.onload = () => {
       if (mounted) {
         // save guard that the sdk is still mounted
-        const cls = window.PassiveSignalTracker as PassiveSignalsTrackerConstructor
+        const cls =
+          window.PassiveSignalTracker as PassiveSignalsTrackerConstructor
         setTracker(new cls({ jwt: token as string }))
       }
     }
@@ -156,7 +142,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
 
       setMounted(false)
     }
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const { back, forward, push } = useHistory(({ state: historyState }) => {
     const { step } = getComponentsList(steps, historyState.flow)[
@@ -322,7 +308,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
   const trackPassiveSignals = (
     step: string,
     screenNameHierarchy: string[],
-    properties: Record<any, any>
+    properties: Record<string, unknown>
   ) => {
     tracker?.track({
       step,
