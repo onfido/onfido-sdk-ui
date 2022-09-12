@@ -4,29 +4,41 @@ import { renderHook } from '@testing-library/preact-hooks'
 import { UserConsentContext } from '~contexts/useUserConsent'
 import { createWorkflowStepsHook } from '../createWorkflowStepsHook'
 import { StepConfig } from '~types/steps'
+import MockedReduxProvider from '~jest/MockedReduxProvider'
 
 const addUserConsentStepMock = jest.fn()
 
 const wrapper: FunctionComponent = ({ children }) => (
-  <UserConsentContext.Provider
-    value={{
-      consents: [
-        {
-          name: 'privacy_notices_read',
-          granted: false,
-          required: true,
+  <MockedReduxProvider
+    overrideGlobals={{
+      // @ts-ignore
+      sdkConfiguration: {
+        sdk_features: {
+          enable_require_applicant_consents: true,
         },
-      ],
-      enabled: true,
-      updateConsents: Promise.resolve,
-      addUserConsentStep: addUserConsentStepMock,
+      },
     }}
   >
-    {children}
-  </UserConsentContext.Provider>
+    <UserConsentContext.Provider
+      value={{
+        consents: [
+          {
+            name: 'privacy_notices_read',
+            granted: false,
+            required: true,
+          },
+        ],
+        enabled: true,
+        updateConsents: Promise.resolve,
+        addUserConsentStep: addUserConsentStepMock,
+      }}
+    >
+      {children}
+    </UserConsentContext.Provider>
+  </MockedReduxProvider>
 )
 
-const renderWorkflowStepsHook = (steps: StepConfig[]) =>
+const renderWorkflowStepsHook = (steps: StepConfig[]) => {
   renderHook(
     () =>
       createWorkflowStepsHook({ token: '', workflowRunId: '', steps }, {})(),
@@ -34,9 +46,10 @@ const renderWorkflowStepsHook = (steps: StepConfig[]) =>
       wrapper,
     }
   )
+}
 
 describe('useWorkflowSteps', () => {
-  it('calls addUserConsentStep', () => {
+  it('calls addUserConsentStep', async () => {
     renderWorkflowStepsHook([{ type: 'welcome' }])
     expect(addUserConsentStepMock).toHaveBeenCalled()
   })

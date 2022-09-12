@@ -22,7 +22,7 @@ import { Country } from 'react-phone-number-input'
 import {
   withSdkConfigurationService,
   SDKConfigurationServiceProps,
-} from '~contexts/useSdkConfigurationService'
+} from '~core/SdkConfiguration/useSdkConfigurationService'
 
 export type SecureLinkViewType = {
   id: string

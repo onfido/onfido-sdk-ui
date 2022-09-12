@@ -13,7 +13,7 @@ import {
 import { ComponentChildren, createContext, Fragment, h } from 'preact'
 import { ApplicantConsent, ApplicantConsentStatus } from '~types/api'
 import { getPayloadFromJWT } from '~utils/jwt'
-import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
+import useSdkConfigurationService from '~core/SdkConfiguration/useSdkConfigurationService'
 import { StepConfig } from '~types/steps'
 
 type ConsentProviderProps = {
@@ -128,7 +128,18 @@ export const UserConsentProvider = ({
 
     updateApplicantLocation(applicantUUID, url, token)
       .then(() => getApplicantConsents(applicantUUID, url, token))
-      .then((applicantConsents) => setConsents(applicantConsents))
+      .then(
+        (applicantConsents) => setConsents(applicantConsents)
+        // Debug: enable to simulate user consent
+        // () =>
+        //   setConsents([
+        //     {
+        //       name: 'privacy_notices_read',
+        //       required: true,
+        //       granted: false,
+        //     },
+        //   ])
+      )
       .catch(() =>
         setConsents([
           {

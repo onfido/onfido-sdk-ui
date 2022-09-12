@@ -1,10 +1,10 @@
 import { h } from 'preact'
 import { renderHook } from '@testing-library/preact-hooks'
 import useUserConsent, { UserConsentProvider } from '../useUserConsent'
-import { SdkConfigurationServiceContext } from '~contexts/useSdkConfigurationService'
 import { getApplicantConsents } from '~utils/onfidoApi'
 import { StepConfig } from '~types/steps'
 import * as assert from 'assert'
+import MockedReduxProvider from '~jest/MockedReduxProvider'
 
 jest.mock('~utils/onfidoApi')
 
@@ -34,20 +34,22 @@ const token =
 
 // @ts-ignore
 const wrapper = ({ children, enable_require_applicant_consents }) => (
-  <SdkConfigurationServiceContext.Provider
-    value={{
-      sdk_features: {
-        enable_require_applicant_consents,
-      },
-      document_capture: {
-        max_total_retries: 0,
+  <MockedReduxProvider
+    overrideGlobals={{
+      sdkConfiguration: {
+        sdk_features: {
+          enable_require_applicant_consents,
+        },
+        document_capture: {
+          max_total_retries: 0,
+        },
       },
     }}
   >
     <UserConsentProvider token={token} url={url}>
       {children}
     </UserConsentProvider>
-  </SdkConfigurationServiceContext.Provider>
+  </MockedReduxProvider>
 )
 
 const renderUserConsentHook = (enabled = true) =>

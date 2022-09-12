@@ -1,5 +1,5 @@
 import { useCallback } from 'preact/compat'
-import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
+import useSdkConfigurationService from '~core/SdkConfiguration/useSdkConfigurationService'
 import { StepConfig } from '~types/steps'
 
 const useActiveVideo = () => {

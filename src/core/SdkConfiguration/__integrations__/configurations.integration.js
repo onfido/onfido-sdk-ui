@@ -1,10 +1,10 @@
-import { getTestJwtToken } from '../helpers'
-import { getSdkConfiguration } from '../../onfidoApi'
-import { API_URL } from '../helpers/testUrls'
+import { getTestJwtToken } from 'components/utils/__integrations__/helpers'
+import { getSdkConfiguration } from '~core/SdkConfiguration/getSdkConfiguration'
+import { API_URL } from 'components/utils/__integrations__/helpers/testUrls'
 import {
   ASSERT_EXPIRED_JWT_ERROR_OBJECT,
   EXPIRED_JWT_TOKEN,
-} from '../helpers/mockExpiredJwtAndResponse'
+} from 'components/utils/__integrations__/helpers/mockExpiredJwtAndResponse'
 
 let jwtToken = null
 

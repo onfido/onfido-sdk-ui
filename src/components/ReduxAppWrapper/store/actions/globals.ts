@@ -8,6 +8,7 @@ import type {
 import type { GlobalActions } from '~types/redux'
 import type { DocumentTypes, PoaTypes, StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
+import { SdkConfiguration } from '~core/SdkConfiguration/types'
 
 export const setCurrentStepType = (
   payload: ExtendedStepTypes
@@ -176,5 +177,12 @@ export const setStepsConfig = (payload: StepConfig[]): GlobalActions => ({
 
 export const setIsCrossDeviceClient = (payload: boolean): GlobalActions => ({
   type: constants.SET_IS_CROSS_DEVICE_CLIENT,
+  payload,
+})
+
+export const setSdkConfiguration = (
+  payload: SdkConfiguration
+): GlobalActions => ({
+  type: constants.SET_SDK_CONFIGURATION,
   payload,
 })
