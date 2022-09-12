@@ -23,7 +23,6 @@ import { StepComponentBaseProps } from '~types/routers'
 import Welcome from '../../Welcome'
 import { WithLocalisedProps } from '~types/hocs'
 import { EnterpriseCallbackResponse } from '~types/enterprise'
-import { SdkConfigurationServiceContext } from '~contexts/useSdkConfigurationService'
 
 jest.mock('~utils')
 jest.mock('~utils/objectUrl')
@@ -145,17 +144,17 @@ const MockedConfirm = ({
   }
 
   return (
-    <MockedReduxProvider>
+    <MockedReduxProvider
+      overrideGlobals={{
+        sdkConfiguration: {
+          document_capture: {
+            max_total_retries: maxDocumentCaptureRetries ?? 1,
+          },
+        },
+      }}
+    >
       <MockedLocalised>
-        <SdkConfigurationServiceContext.Provider
-          value={{
-            document_capture: {
-              max_total_retries: maxDocumentCaptureRetries ?? 1,
-            },
-          }}
-        >
-          <Confirm {...props} />
-        </SdkConfigurationServiceContext.Provider>
+        <Confirm {...props} />
       </MockedLocalised>
     </MockedReduxProvider>
   )
@@ -468,22 +467,22 @@ describe('document capture', () => {
       }
 
       const mockedConfirm = (
-        <MockedReduxProvider>
+        <MockedReduxProvider
+          overrideGlobals={{
+            sdkConfiguration: {
+              document_capture: {
+                max_total_retries: 1,
+              },
+            },
+          }}
+        >
           <MockedLocalised>
-            <SdkConfigurationServiceContext.Provider
-              value={{
-                document_capture: {
-                  max_total_retries: 1,
-                },
+            <Confirm
+              {...defaultConfirmProps}
+              enterpriseFeatures={{
+                onSubmitDocument: () => Promise.reject(geoblockedRawError),
               }}
-            >
-              <Confirm
-                {...defaultConfirmProps}
-                enterpriseFeatures={{
-                  onSubmitDocument: () => Promise.reject(geoblockedRawError),
-                }}
-              />
-            </SdkConfigurationServiceContext.Provider>
+            />
           </MockedLocalised>
         </MockedReduxProvider>
       )

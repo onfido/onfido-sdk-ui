@@ -30,7 +30,7 @@ import type {
 } from '~types/routers'
 import type { StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
-import { SdkConfigurationServiceProvider } from '~contexts/useSdkConfigurationService'
+import { SdkConfigurationServiceProvider } from '~core/SdkConfiguration/useSdkConfigurationService'
 import { createCrossDeviceStepsHook } from './createCrossDeviceStepsHook'
 import { PoASupportedCountriesProvider } from '~contexts/usePoASupportedCountries'
 import { createWorkflowStepsHook } from './createWorkflowStepsHook'

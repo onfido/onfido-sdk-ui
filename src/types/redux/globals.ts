@@ -6,6 +6,7 @@ import type {
 } from '~types/enterprise'
 import type { DocumentTypes, PoaTypes, StepConfig } from '~types/steps'
 import type { Socket } from 'socket.io-client'
+import { SdkConfiguration } from '~core/SdkConfiguration/types'
 
 export type SmsPayload = {
   number?: string
@@ -57,6 +58,7 @@ export type GlobalActions =
   | { type: typeof constants.SET_DECOUPLE_FROM_API; payload: boolean }
   | { type: typeof constants.RETRY_FOR_IMAGE_QUALITY }
   | { type: typeof constants.RESET_IMAGE_QUALITY_RETRIES }
+  | { type: typeof constants.SET_SDK_CONFIGURATION; payload: SdkConfiguration }
   | { type: typeof constants.RESET_STORE }
 
 export type GlobalState = {
@@ -95,4 +97,5 @@ export type GlobalState = {
   anonymousUuid?: string
   clientUuid?: string
   stepsConfig: Array<StepConfig>
+  sdkConfiguration?: SdkConfiguration
 }

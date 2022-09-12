@@ -35,7 +35,7 @@ import type {
 } from '~types/routers'
 import type { DocumentTypes } from '~types/steps'
 import DocumentMultiFrame from 'components/DocumentMultiFrame'
-import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
+import useSdkConfigurationService from '~core/SdkConfiguration/useSdkConfigurationService'
 
 const EXCEPTIONS = {
   DOC_TYPE_NOT_PROVIDED: 'documentType was not provided',

@@ -43,6 +43,7 @@ export const initialState: GlobalState = {
   clientUuid: undefined,
   stepsConfig: [],
   isCrossDeviceClient: undefined,
+  sdkConfiguration: undefined,
 }
 
 export default function globals(
@@ -230,6 +231,12 @@ export default function globals(
       return {
         ...state,
         isCrossDeviceClient: action.payload,
+      }
+
+    case constants.SET_SDK_CONFIGURATION:
+      return {
+        ...state,
+        sdkConfiguration: action.payload,
       }
 
     case constants.RESET_STORE:

@@ -8,7 +8,7 @@ import type {
   PublicStepConfig,
 } from './steps'
 import { NormalisedSdkOptions } from '~types/commons'
-import { SdkConfiguration } from '~types/api'
+import { SdkConfiguration } from '~core/SdkConfiguration/types'
 
 type DocumentResponse = {
   id: string

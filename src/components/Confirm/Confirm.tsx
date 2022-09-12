@@ -35,7 +35,7 @@ import {
 } from '~types/api'
 import { WithLocalisedProps } from '~types/hocs'
 import { useEffect, useState } from 'preact/hooks'
-import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
+import useSdkConfigurationService from '~core/SdkConfiguration/useSdkConfigurationService'
 import {
   AnalyticsEventPropertiesWarnings,
   CaptureFormat,

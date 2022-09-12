@@ -16,6 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Place cross device SMS feature behind a feature flag
 - Internal: Remove woopra
 - Internal: Add `disableAnalyticsCookies` option
+- Internal: Move `sdkConfiguration` in to store
 
 ## [9.0.0] - 2022-09-05
 

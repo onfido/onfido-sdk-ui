@@ -1,19 +1,13 @@
 import { h } from 'preact'
 import { mount, shallow } from 'enzyme'
 import '@testing-library/jest-dom'
-import userEvent from '@testing-library/user-event'
-import { render, screen } from '@testing-library/preact'
-
 import { SdkOptionsProvider } from '~contexts/useSdkOptions'
 import MockedLocalised from '~jest/MockedLocalised'
 import MockedReduxProvider, {
   mockedReduxProps,
 } from '~jest/MockedReduxProvider'
-import createMockStepsHook from '~jest/createMockStepsHook'
 import type { NarrowSdkOptions } from '~types/commons'
-
 import Router from '../index'
-import { HistoryRouterWrapper } from '../HistoryRouter'
 
 jest.mock('~utils')
 jest.mock('~utils/crossDeviceSync')

@@ -3,26 +3,40 @@ import { FunctionComponent, h } from 'preact'
 import { renderHook } from '@testing-library/preact-hooks'
 import { createOptionsStepsHook } from '../createOptionsStepsHook'
 import { UserConsentContext } from '~contexts/useUserConsent'
+import MockedReduxProvider from '~jest/MockedReduxProvider'
+import { jwtToken } from '~jest/responses'
 
 const addUserConsentStepMock = jest.fn()
 
 const wrapper: FunctionComponent = ({ children }) => (
-  <UserConsentContext.Provider
-    value={{
-      consents: [
-        {
-          name: 'privacy_notices_read',
-          granted: false,
-          required: true,
+  <MockedReduxProvider
+    overrideGlobals={{
+      token: jwtToken,
+      // @ts-ignore
+      sdkConfiguration: {
+        sdk_features: {
+          enable_require_applicant_consents: true,
         },
-      ],
-      enabled: true,
-      updateConsents: Promise.resolve,
-      addUserConsentStep: addUserConsentStepMock,
+      },
     }}
   >
-    {children}
-  </UserConsentContext.Provider>
+    <UserConsentContext.Provider
+      value={{
+        consents: [
+          {
+            name: 'privacy_notices_read',
+            granted: false,
+            required: true,
+          },
+        ],
+        enabled: true,
+        updateConsents: Promise.resolve,
+        addUserConsentStep: addUserConsentStepMock,
+      }}
+    >
+      {children}
+    </UserConsentContext.Provider>
+  </MockedReduxProvider>
 )
 
 describe('useOptionsSteps', () => {
