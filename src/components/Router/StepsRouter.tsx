@@ -29,7 +29,11 @@ class StepsRouter extends Component<StepsRouterProps> {
     )
 
     if (this.props.extendTrackScreen) {
-      this.props.extendTrackScreen(step.type, screenNameHierarchy ? wrapArray(screenNameHierarchy) : [], properties)
+      this.props.extendTrackScreen(
+        step.type,
+        screenNameHierarchy ? wrapArray(screenNameHierarchy) : [],
+        properties
+      )
     }
   }
 
