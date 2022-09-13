@@ -9,6 +9,7 @@ import com.onfido.qa.webdriver.listener.ScreenshotListener;
 import com.onfido.qa.configuration.Property;
 import com.onfido.qa.websdk.mock.Mock;
 import com.onfido.qa.websdk.sdk.WebSdk;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.percy.selenium.Percy;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WindowType;
@@ -24,7 +25,6 @@ import org.testng.annotations.Listeners;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Properties;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -61,10 +61,16 @@ public abstract class WebSdkIT extends WebTest {
 
     @BeforeSuite(alwaysRun = true)
     public static void beforeSuite() {
+        setupDriverAutomatically();
 
         if (!System.getenv().containsKey("CI")) {
             logProperties();
         }
+    }
+
+    private static void setupDriverAutomatically() {
+        String browserName = Property.get("browser");
+        WebDriverManager.getInstance(browserName).setup();
     }
 
     @SuppressWarnings("HardcodedLineSeparator")
@@ -78,11 +84,6 @@ public abstract class WebSdkIT extends WebTest {
     @DataProvider
     public static Object[][] booleans() {
         return new Object[][]{{true}, {false}};
-    }
-
-    @Override
-    protected Properties properties() {
-        return Property.properties();
     }
 
     @SuppressWarnings("CallToSystemGetenv")

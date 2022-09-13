@@ -25,22 +25,15 @@ A best practice for local testing is to create a `local.properties` file and put
 
 ```properties
 local=true
-browserPath=/usr/local/bin/chromedriver
 ```
-
-Please check the correct path after installing chromedriver. You might even leave this setting out, if chromedriver is
-in your path anyway.
 
 ## Local testing
 
-Local testing will spin up a browser instance locally. Set the property `local=true`. To control local chrome browsers,
-a [chromedriver](https://chromedriver.chromium.org/) is needed. The version needs to match with the version of chrome
-installed locally. Set the `browserPath` to the binary of chromedriver.
+Set the property `local=true`. Local testing will spin up a browser instance locally. 
+Change browsers by setting the property with, for example, `browser=firefox`.
 
 To execute the tests locally you need
 
-* Chromedriver, which you can install either by [downloading](https://chromedriver.chromium.org/downloads) it or install
-  it via [brew](https://brew.sh/) by typing `brew install chromedriver`
 * Java 11. Set `$JAVA_HOME` environment variable in your path
 * Maven, which you can install via `brew install maven`
 * Docker and docker-compose
@@ -74,7 +67,7 @@ npm run test-server:prepare && docker-compose up --build
 ```
 
 Tests can be run from the IDE directly or via maven. For running from the IDE just press the play button next to the
-test. A maven run can be triggered via `mvn verify`. In maven you can specify the tests to be included by the `it.test`
+test. A maven run can be triggered via `mvn verify`. In maven, you can specify the tests to be included by the `it.test`
 property, see this [documentation](https://maven.apache.org/surefire/maven-failsafe-plugin/examples/single-test.html).
 
 # Write a test
