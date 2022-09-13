@@ -6,6 +6,7 @@
     - Be central place to collect all logs from instances and dispatch them to available services
     - Provide log instances
 */
+import { generatePayloadTimestamp } from '~core/Analytics/createAnalyticsPayload'
 import { EnvironmentType, LogData, OutputInterface } from './types'
 
 export type LoggerProps = {
@@ -63,6 +64,7 @@ export class Logger {
     line?: string
   ) {
     this.log({
+      timestamp: generatePayloadTimestamp(),
       level: 'debug',
       labels: this.labels,
       message,
@@ -81,6 +83,7 @@ export class Logger {
     line?: string
   ) {
     this.log({
+      timestamp: generatePayloadTimestamp(),
       level: 'info',
       labels: this.labels,
       message,
@@ -99,6 +102,7 @@ export class Logger {
     line?: string
   ) {
     this.log({
+      timestamp: generatePayloadTimestamp(),
       level: 'warning',
       labels: this.labels,
       message,
@@ -117,6 +121,7 @@ export class Logger {
     line?: string
   ) {
     this.log({
+      timestamp: generatePayloadTimestamp(),
       level: 'error',
       labels: this.labels,
       message,
@@ -135,6 +140,7 @@ export class Logger {
     line?: string
   ) {
     this.log({
+      timestamp: generatePayloadTimestamp(),
       level: 'fatal',
       labels: this.labels,
       message,

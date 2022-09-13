@@ -7,14 +7,13 @@ export type LogData = {
   labels: string[]
   message: string
   metadata?: Record<string, unknown>
-
+  timestamp: string
   // Injected at build time (excluding hot reload)
   file?: string
   method?: string
   line?: string
 }
 
-// export type ServicesType = Record<string, OutputInterface>
 export interface OutputInterface {
-  write: (data: LogData, environment: EnvironmentType) => boolean
+  write: (data: LogData, environment?: EnvironmentType) => void
 }

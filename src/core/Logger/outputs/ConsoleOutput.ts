@@ -6,7 +6,7 @@ import type {
 } from '../types'
 
 type Filter = {
-  label?: string
+  labels?: string
   levels?: LogLevels[]
 }
 
@@ -16,23 +16,6 @@ export class ConsoleOutput implements OutputInterface {
 
   constructor(props?: { filters?: Filter[] }) {
     this.filters = props?.filters || this.filters
-  }
-
-  public write(data: LogData, environment: EnvironmentType) {
-    // for development, test
-    if (environment !== 'production') {
-      if (this.applyFilters(data)) {
-        this.log(data)
-      }
-      return true
-    }
-
-    // Only show message in production to prevent information from leaking
-    if (environment === 'production' && data.level === 'fatal') {
-      this.log({ message: data.message })
-    }
-
-    return false
   }
 
   private applyFilters(data: LogData) {
@@ -47,11 +30,11 @@ export class ConsoleOutput implements OutputInterface {
         ? filter.levels?.indexOf(data.level) !== -1
         : true
 
-      const matchLabels = filter.label
+      const matchLabels = filter.labels
         ? data.labels
             ?.join('.')
             // Allow * to be a wildcard and match any label(s)
-            .match(new RegExp(`^${filter.label.replace(/\*/g, '.+')}$`))
+            .match(new RegExp(`^${filter.labels.replace(/\*/g, '.+')}$`))
         : true
 
       if (matchLevels && matchLabels) {
@@ -61,19 +44,33 @@ export class ConsoleOutput implements OutputInterface {
     return false
   }
 
-  private log(data: { message: string } | LogData) {
-    console.log('[console]', data)
-    // let log: unknown[] = [
-    //   `[${data.labels.join(',')}:${data.level}] ${data.message}`,
-    // ]
+  private log(data: LogData) {
+    const labels = data.labels.join('.')
+    const timestamp = data.timestamp.split('T')[1]
+    const origin = data?.file && `/${data.file}:${data.line}`
 
-    // if (environment !== 'production') {
-    //   log = log.concat([
-    //     data.metadata,
-    //     { line: data.line, file: data.file, method: data.method },
-    //   ])
-    // }
+    const log = [
+      `${timestamp} | [${labels}] | ${data.level} - ${data.message}`,
+      data.metadata,
+      origin,
+    ].filter(Boolean)
 
-    // console.log(...log)
+    console.log(...log)
+  }
+
+  public write(data: LogData, environment?: EnvironmentType) {
+    // for development, test
+    if (environment !== 'production') {
+      if (this.applyFilters(data)) {
+        this.log(data)
+      }
+      return
+    }
+
+    // Only show message in production to prevent information from leaking
+    if (environment === 'production' && data.level === 'fatal') {
+      // @ts-ignore
+      this.log({ message: data.message })
+    }
   }
 }

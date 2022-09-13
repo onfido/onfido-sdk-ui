@@ -1,3 +1,5 @@
+import { LogLevels } from '~core/Logger'
+
 interface ApplyFilter {
   doc_type?: string
 }
@@ -62,6 +64,10 @@ interface ExperimentalFeatures {
 interface SdkFeatures {
   enable_require_applicant_consents?: boolean
   disable_cross_device_sms?: boolean
+  enable_logger?: {
+    enabled?: boolean
+    levels?: LogLevels[]
+  }
 }
 
 interface OnDeviceValidation {

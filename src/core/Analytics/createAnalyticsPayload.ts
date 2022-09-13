@@ -50,17 +50,66 @@ type PerformanceAnalyticsProperties = {
 
 type AnalyticsPayloadProps = {
   event: string
+  event_time?: string
   properties:
     | AnalyticsProperties
     | LoggerProperties
     | PerformanceAnalyticsProperties
 }
 
-export const createAnalyticsPayload = (props: AnalyticsPayloadProps) => {
+type AnalyticsPayload = {
+  event: string
+  event_uuid: string
+  event_time: string
+
+  source: 'sdk'
+
+  applicant_uuid: string
+  anonymous_uuid: string
+  client_uuid: string
+  session_uuid: string
+
+  event_metadata: {
+    domain: string
+    os: string
+    os_version: string
+    browser: string
+    browser_version: string
+    device: 'desktop' | 'mobile'
+  }
+
+  sdk_config: {
+    expected_steps: string
+    steps_config: StepConfig
+  }
+
+  source_metadata: {
+    platform: string
+    version: string
+    sdk_environment: string
+  }
+
+  properties:
+    | AnalyticsProperties
+    | LoggerProperties
+    | PerformanceAnalyticsProperties
+}
+
+export const generatePayloadTimestamp = () => new Date(Date.now()).toISOString()
+
+export const createAnalyticsPayload = (
+  props: AnalyticsPayloadProps
+): AnalyticsPayload => {
+  console.log('createAnalyticsPayload', {
+    applicant_uuid,
+    anonymous_uuid,
+    client_uuid,
+    analyticsSessionUuid,
+  })
   return {
     event: props.event,
     event_uuid: uuidv4(),
-    event_time: new Date(Date.now()).toISOString(),
+    event_time: props.event_time || generatePayloadTimestamp(),
 
     source: 'sdk',
 

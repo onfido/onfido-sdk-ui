@@ -27,7 +27,7 @@ export class DefaultLogger extends Logger {
   constructor() {
     super({
       outputs: defaultOutputs,
-      labels: [],
+      labels: ['network', 'layer'],
     })
   }
 }

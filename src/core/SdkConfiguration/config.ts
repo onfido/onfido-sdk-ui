@@ -10,6 +10,9 @@ export const defaultConfiguration: SdkConfiguration = {
   sdk_features: {
     enable_require_applicant_consents: true,
     disable_cross_device_sms: false,
+    enable_logger: {
+      enabled: false,
+    },
   },
   document_capture: {
     max_total_retries: 1,

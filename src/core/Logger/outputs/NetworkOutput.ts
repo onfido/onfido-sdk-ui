@@ -3,39 +3,48 @@ import type { LogData, EnvironmentType, OutputInterface } from '../types'
 import { performHttpRequest } from '~core/Network'
 import { reduxStore } from 'components/ReduxAppWrapper'
 import { createAnalyticsPayload } from '~core/Analytics/createAnalyticsPayload'
+import { SdkConfiguration } from '~core/SdkConfiguration/types'
 
 let token: string | undefined
 let url: string | undefined
+let sdkConfiguration: SdkConfiguration | undefined
 
 export class NetworkOutput implements OutputInterface {
   private queue: Queue<unknown>
+  private waitingList: LogData[] = []
 
   constructor() {
     this.queue = new Queue<unknown>({
       limit: 1, // Note: Send directly until we find a reliable way to listen to SDK unmount, should be 20.
       paused: true,
-      flushListener: this.onFlush,
+      flushListener: this.sendToBackend,
     })
 
     this.listenToReduxStore()
   }
 
-  // Wait for url & token to be available
+  /* 
+    Note: We need to wait for the token, url & sdkConfiguration 
+    to be available in the store before sending any network requests
+  */
   private listenToReduxStore() {
     reduxStore.subscribe(() => {
       const store = reduxStore.getState()
 
       token = store.globals.token
       url = store.globals.urls.onfido_api_url
+      sdkConfiguration = store.globals.sdkConfiguration
 
-      if (token && url) {
+      if (token && url && sdkConfiguration) {
+        if (this.waitingList.length) {
+          this.waitingList.forEach(this.write)
+        }
         this.queue.resume()
       }
     })
   }
 
-  // Send to backend
-  private onFlush = (data: unknown[]) => {
+  private sendToBackend = (data: unknown[]) => {
     performHttpRequest(
       {
         method: 'POST',
@@ -52,6 +61,7 @@ export class NetworkOutput implements OutputInterface {
   private createLogPayload(data: LogData) {
     return createAnalyticsPayload({
       event: `LOG_${data.level.toUpperCase()}`,
+      event_time: data.timestamp,
       properties: {
         log_labels: data.labels,
         log_level: data.level,
@@ -72,16 +82,20 @@ export class NetworkOutput implements OutputInterface {
   private onNetworkSucces() {}
   private onNetworkError() {}
 
-  public write(data: LogData, environment: EnvironmentType) {
-    if (
-      environment === 'production' &&
-      data.level !== 'error' &&
-      data.level !== 'fatal'
-    ) {
-      this.queue.push(this.createLogPayload(data))
-      return true
+  public write = (data: LogData) => {
+    if (!sdkConfiguration) {
+      this.waitingList.push(data)
+      return
     }
 
-    return false
+    const enabled =
+      sdkConfiguration?.sdk_features?.enable_logger?.enabled || false
+    const enabledLevels =
+      sdkConfiguration?.sdk_features?.enable_logger?.levels || []
+
+    if (enabled && enabledLevels.indexOf(data.level) > -1) {
+      this.queue.push(this.createLogPayload(data))
+      return
+    }
   }
 }

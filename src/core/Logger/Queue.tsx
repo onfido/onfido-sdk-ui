@@ -35,23 +35,16 @@ export class Queue<T> {
     // Note: splice removes first x items from the this.queue automatically
     const batch = this.queue.splice(0, this.limit)
 
-    console.log(
-      '[Queue] flush batch=',
-      batch.length,
-      ' queue=',
-      this.queue.length,
-      ' limit=',
-      this.limit,
-      ' reflush=',
-      this.queue.length >= this.limit
-    )
-
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.flushListener!(batch)
 
     if (this.queue.length >= this.limit) {
       this.flush()
     }
+  }
+
+  public filter(filter: (data: T) => boolean) {
+    this.queue = this.queue.filter(filter)
   }
 
   public pause() {
