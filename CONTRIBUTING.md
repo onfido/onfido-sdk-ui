@@ -96,6 +96,10 @@ The Web SDK has a large coverage of UI tests. To set up your environment, please
 
 You should also manually test any change in all the supported browsers, both on desktop and mobile. To facilitate this process, every time a new pull request is created, a new demo app link will be generated. If you don't have enough devices to test your changes, you can perform manual tests on different devices on Browserstack.
 
+### Test results and monitoring
+
+Flaky tests are now reported to [datadog](https://app.datadoghq.com/ci/test-services?view=branches) (filter by web-sdk)
+
 ## Internationalization
 
 _This section applies to internal contributors only._
