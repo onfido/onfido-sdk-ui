@@ -81,9 +81,9 @@ public abstract class WebSdkIT extends WebTest {
     @SuppressWarnings("HardcodedLineSeparator")
     private static void logProperties() {
         log.debug("Properties: {}", Property.properties().entrySet()
-                .stream()
-                .map(x -> x.getKey() + "=" + x.getValue())
-                .collect(Collectors.joining("\n")));
+                                            .stream()
+                                            .map(x -> x.getKey() + "=" + x.getValue())
+                                            .collect(Collectors.joining("\n")));
     }
 
     @DataProvider
