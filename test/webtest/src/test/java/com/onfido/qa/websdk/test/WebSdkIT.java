@@ -61,24 +61,29 @@ public abstract class WebSdkIT extends WebTest {
 
     @BeforeSuite(alwaysRun = true)
     public static void beforeSuite() {
-        setupDriverAutomatically();
-
         if (!System.getenv().containsKey("CI")) {
             logProperties();
         }
+
+        setupDriverAutomatically();
     }
 
     private static void setupDriverAutomatically() {
         String browserName = Property.get("browser");
+
+        if (browserName.equals("ie")) {
+            browserName = "internet explorer";
+        }
+
         WebDriverManager.getInstance(browserName).setup();
     }
 
     @SuppressWarnings("HardcodedLineSeparator")
     private static void logProperties() {
         log.debug("Properties: {}", Property.properties().entrySet()
-                                            .stream()
-                                            .map(x -> x.getKey() + "=" + x.getValue())
-                                            .collect(Collectors.joining("\n")));
+                .stream()
+                .map(x -> x.getKey() + "=" + x.getValue())
+                .collect(Collectors.joining("\n")));
     }
 
     @DataProvider
