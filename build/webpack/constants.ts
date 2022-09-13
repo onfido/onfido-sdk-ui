@@ -25,6 +25,9 @@ export const PRODUCTION_BUILD = NODE_ENV !== 'development'
 export const SDK_TOKEN_FACTORY_SECRET =
   process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 export const SDK_ENV = process.env.SDK_ENV || 'idv'
+// FIXME: change url to the one, where it's deployed live
+const PASSIVE_SIGNALS_URL =
+  'https://onfido-assets-production.s3.eu-west-1.amazonaws.com/dev/passive-signals/v1/signal.js'
 
 type ConstantMap = Record<string, string | boolean | undefined>
 
@@ -42,6 +45,7 @@ const PROD_CONFIG: ConstantMap = {
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
   COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
+  PASSIVE_SIGNALS_URL,
 }
 
 const TEST_DEPLOYMENT_CONFIG: ConstantMap = {
@@ -76,6 +80,7 @@ const STAGING_CONFIG: ConstantMap = {
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
   COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
+  PASSIVE_SIGNALS_URL,
 
   // @TODO: clean-up this config when v4 APIs are live
   USE_V4_APIS_FOR_DOC_VIDEO: process.env.USE_V4_APIS_FOR_DOC_VIDEO,

@@ -1,10 +1,8 @@
 import { Fragment, h } from 'preact'
+import { useCallback, useEffect, useState } from 'preact/hooks'
 
+import { loadExternalScript } from '~utils/dynamicLoading'
 import { buildStepFinder, findFirstEnabled, findFirstIndex } from '~utils/steps'
-import { buildComponentsList } from './StepComponentMap'
-import StepsRouter from './StepsRouter'
-
-import { screenNameHierarchyFormat, sendEvent } from '../../Tracker'
 
 import type { FlowVariants } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
@@ -17,16 +15,17 @@ import type {
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes, StepConfig } from '~types/steps'
-import { useCallback, useEffect, useState } from 'preact/hooks'
-import { useHistory } from './useHistory'
 import { SdkConfigurationServiceContext } from '~contexts/useSdkConfigurationService'
+
+import { screenNameHierarchyFormat, sendEvent } from '../../Tracker'
+
+import { useHistory } from './useHistory'
+import { buildComponentsList } from './StepComponentMap'
+import StepsRouter from './StepsRouter'
 
 type HistoryRouterState = {
   initialStep: number
 } & HistoryLocationState
-
-// FIXME: change url to the one, where it's deployed live
-const PASSIVE_SIGNAL_URL = 'http://127.0.0.1:8081/signal.js'
 
 export const HistoryRouterWrapper = ({
   useSteps,
@@ -115,28 +114,20 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     const enabled =
       sdkConfiguration?.device_intelligence?.passive_signals?.enabled || true
 
-    if (!enabled || !mounted) {
+    const { PASSIVE_SIGNALS_URL } = process.env
+
+    if (!enabled || !mounted || !token || !PASSIVE_SIGNALS_URL) {
       return
     }
 
-    const script = document.createElement('script')
-    script.type = 'application/javascript'
-    script.src = PASSIVE_SIGNAL_URL
-    script.async = true
-    script.onload = () => {
-      if (mounted && window.PassiveSignalTracker) {
-        setTracker(new window.PassiveSignalTracker({ jwt: token as string }))
+    loadExternalScript(PASSIVE_SIGNALS_URL, () => {
+      if (window.PassiveSignalTracker) {
+        setTracker(new window.PassiveSignalTracker({ jwt: token }))
       }
-    }
-
-    const s = document.getElementsByTagName('script')[0]
-    s.parentNode?.insertBefore(script, s)
+    })
 
     return () => {
-      if (tracker) {
-        tracker.tearDown()
-      }
-
+      tracker?.tearDown()
       setMounted(false)
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
