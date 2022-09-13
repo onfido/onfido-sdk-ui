@@ -15,6 +15,10 @@ class StepsRouter extends Component<StepsRouterProps> {
 
   resetSdkFocus = () => this.container?.focus()
 
+  componentDidUpdate(prevProps, nextProps) {
+    console.log('[StepsRouter]', prevProps, nextProps)
+  }
+
   trackScreen: TrackScreenCallback = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
     sendScreen(

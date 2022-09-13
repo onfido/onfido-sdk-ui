@@ -72,7 +72,7 @@ export const sendAnalyticsEvent = (
     trackException(msg)
     return
   }
-
+  console.log(event, eventData.eventName)
   const requiredFields = {
     event_uuid: uuidv4(),
     event: eventData.eventName,
