@@ -428,6 +428,9 @@
     "address_title": "Voeg uw adres toe",
     "button_continue": "Doorgaan",
     "components": {
+      "country_residence_select": {
+        "placeholder": "Selecteer een land"
+      },
       "country_select": {
         "placeholder": "Selecteer een land"
       },
@@ -447,6 +450,7 @@
     "country_of_residence_title": "Uw land van verblijf",
     "field_labels": {
       "country": "Land",
+      "country_residence": "Land",
       "dob": "Geboortedatum",
       "email": "E-mailadres",
       "first_name": "Voornaam",
@@ -454,20 +458,23 @@
         "postcode": "Postcode",
         "town": "Stad/Dorp"
       },
+      "ind_specific": {
+        "pan": "Permanent account number (PAN)"
+      },
       "last_name": "Achternaam",
       "line1": "Adresregel 1",
       "line2": "Adresregel 2",
       "line3": "Adresregel 3",
       "mobile_number": "Mobiel nummer",
       "nationality": "Nationaliteit",
-      "pan": "Permanent account number (PAN)",
+      "phone_number": "Telefoonnummer",
       "postcode": "Postcode",
-      "ssn": "Sociale Zekerheidsnummer (SSN)",
       "town": "Stad",
       "usa_specific": {
         "line1_helper_text": "Adres, bijvoorbeeld: 200 Albertstraat",
         "line2_helper_text": "Appartement, suite, eenheid, enz.",
         "postcode": "Zip code (VS)",
+        "ssn": "Sociale Zekerheidsnummer (SSN)",
         "state": "Staat"
       }
     },
@@ -478,9 +485,17 @@
         "too_long_postcode": "Postcode is te lang",
         "too_short_postcode": "Postcode is te kort"
       },
+      "ind_specific": {
+        "invalid_pan": "Voer een geldig PAN in",
+        "required_pan": "Voer uw PAN in"
+      },
       "invalid": "Controleer op ongeldige tekens of symbolen",
       "invalid_dob": "Voer een geldig geboortedatum in",
+      "invalid_email": "Voer een geldig e-mailadres in",
+      "invalid_mobile_number": "Voer een geldig mobiel nummer in",
+      "invalid_phone_number": "Voer een geldig telefoonnummer in",
       "required_country": "Selecteer een land",
+      "required_country_residence": "Selecteer een land",
       "required_dob": "Voer uw geboortedatum in",
       "required_email": "Voer uw e-mailadres in",
       "required_first_name": "",
@@ -488,9 +503,8 @@
       "required_line1": "Voer uw adres in",
       "required_mobile_number": "Voer uw mobiele nummer in",
       "required_nationality": "Selecteer een land",
-      "required_pan": "Voer uw PAN in",
+      "required_phone_number": "Voer uw telefoonnummer in",
       "required_postcode": "Voer uw postcode in",
-      "required_ssn": "Voer uw SSN in",
       "too_long__line1": "Adresregel is te lang",
       "too_long_first_name": "Voornaam is te lang",
       "too_long_last_name": "Achternaam is te lang",
@@ -500,12 +514,10 @@
       "too_short_last_name": "Achternaam is te kort",
       "too_short_postcode": "Postcode is te kort",
       "usa_specific": {
+        "invalid_ssn": "Voer een geldig SSN in",
+        "required_ssn": "Voer uw SSN in",
         "required_state": "Selecteer een staat"
-      },
-      "valid_email": "Voer een geldig e-mailadres in",
-      "valid_mobile_number": "Voer een geldig mobiel nummer in",
-      "valid_pan": "Voer een geldig PAN in",
-      "valid_ssn": "Voer een geldig SSN in"
+      }
     },
     "personal_information_title": "Voeg uw persoonlijke informatie toe",
     "prompt": {

@@ -428,6 +428,9 @@
     "address_title": "Dodaj swój adres",
     "button_continue": "Kontynuuj",
     "components": {
+      "country_residence_select": {
+        "placeholder": "Wybierz kraj"
+      },
       "country_select": {
         "placeholder": "Wybierz kraj"
       },
@@ -447,6 +450,7 @@
     "country_of_residence_title": "Twój kraj zamieszkania",
     "field_labels": {
       "country": "Kraj",
+      "country_residence": "Kraj",
       "dob": "Data urodzenia",
       "email": "E-mail",
       "first_name": "Imię",
@@ -454,20 +458,23 @@
         "postcode": "Kod pocztowy",
         "town": "Miejscowość"
       },
+      "ind_specific": {
+        "pan": "Stały numer konta (PAN)"
+      },
       "last_name": "Nazwisko",
       "line1": "Linia adresu 1",
       "line2": "Linia adresu 2",
       "line3": "Linia adresowa 3",
       "mobile_number": "Numer telefonu komórkowego",
       "nationality": "Narodowość",
-      "pan": "Stały numer konta (PAN)",
+      "phone_number": "Numer telefonu",
       "postcode": "Kod pocztowy",
-      "ssn": "Numer ubezpieczenia społecznego (SSN)",
       "town": "Miejscowość",
       "usa_specific": {
         "line1_helper_text": "Adres, na przykład: ul. Alberta 200",
         "line2_helper_text": "Nr mieszkania, apartamentu, jednostki itp.",
         "postcode": "Kod pocztowy",
+        "ssn": "Numer ubezpieczenia społecznego (SSN)",
         "state": "Stan"
       }
     },
@@ -478,9 +485,17 @@
         "too_long_postcode": "Kod pocztowy jest zbyt długi",
         "too_short_postcode": "Kod pocztowy jest zbyt krótki"
       },
+      "ind_specific": {
+        "invalid_pan": "Podaj prawidłowy PAN",
+        "required_pan": "Podaj swój PAN"
+      },
       "invalid": "Sprawdź, czy w polu nie ma nieprawidłowych znaków lub symboli",
       "invalid_dob": "Wprowadź prawidłową datę urodzenia",
+      "invalid_email": "Podaj poprawny adres e-mail",
+      "invalid_mobile_number": "Podaj prawidłowy numer telefonu komórkowego",
+      "invalid_phone_number": "Wpisz poprawny numer telefonu",
       "required_country": "Wybierz kraj",
+      "required_country_residence": "Wybierz kraj",
       "required_dob": "Wpisz swoją datę urodzenia",
       "required_email": "Podaj swój adres e-mail",
       "required_first_name": "Wpisz swoje imię",
@@ -488,9 +503,8 @@
       "required_line1": "Wpisz adres",
       "required_mobile_number": "Podaj numer telefonu komórkowego",
       "required_nationality": "Wybierz kraj",
-      "required_pan": "Podaj swój PAN",
+      "required_phone_number": "Podaj swój numer telefonu",
       "required_postcode": "Wprowadź swój kod pocztowy",
-      "required_ssn": "Podaj swój numer SSN",
       "too_long__line1": "Wprowadzony adres jest zbyt długi",
       "too_long_first_name": "Imię jest zbyt długie",
       "too_long_last_name": "Nazwisko jest zbyt długie",
@@ -500,12 +514,10 @@
       "too_short_last_name": "Nazwisko jest zbyt krótkie",
       "too_short_postcode": "Kod pocztowy jest zbyt krótki",
       "usa_specific": {
+        "invalid_ssn": "Podaj prawidłowy numer SSN",
+        "required_ssn": "Podaj swój numer SSN",
         "required_state": "Wybierz stan"
-      },
-      "valid_email": "Podaj poprawny adres e-mail",
-      "valid_mobile_number": "Podaj prawidłowy numer telefonu komórkowego",
-      "valid_pan": "Podaj prawidłowy PAN",
-      "valid_ssn": "Podaj prawidłowy numer SSN"
+      }
     },
     "personal_information_title": "Dodaj swoje dane osobowe",
     "prompt": {

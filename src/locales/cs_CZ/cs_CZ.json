@@ -428,6 +428,9 @@
     "address_title": "Přidejte svou adresu",
     "button_continue": "Pokračovat",
     "components": {
+      "country_residence_select": {
+        "placeholder": "Vybrat zemi"
+      },
       "country_select": {
         "placeholder": "Vybrat zemi"
       },
@@ -447,6 +450,7 @@
     "country_of_residence_title": "Země vašeho trvalého pobytu",
     "field_labels": {
       "country": "Země",
+      "country_residence": "Země",
       "dob": "Datum narození",
       "email": "E-mail",
       "first_name": "Křestní jméno",
@@ -454,20 +458,23 @@
         "postcode": "Poštovní směrovací číslo",
         "town": "Město/obec"
       },
+      "ind_specific": {
+        "pan": "Číslo trvalého účtu (PAN)"
+      },
       "last_name": "Příjmení",
       "line1": "Řádek adresy 1",
       "line2": "Řádek adresy 2",
       "line3": "Řádek adresy 3",
       "mobile_number": "Číslo mobilního telefonu",
       "nationality": "Státní příslušnost",
-      "pan": "Číslo trvalého účtu (PAN)",
+      "phone_number": "Telefonní číslo",
       "postcode": "Poštovní směrovací číslo",
-      "ssn": "Číslo sociálního pojištění (SSN)",
       "town": "Město",
       "usa_specific": {
         "line1_helper_text": "Ulice, například: 200 Albert Street",
         "line2_helper_text": "Byt, apartmá, bytová jednotka atd.",
         "postcode": "Poštovní směrovací číslo",
+        "ssn": "Číslo sociálního pojištění (SSN)",
         "state": "Stát"
       }
     },
@@ -478,9 +485,17 @@
         "too_long_postcode": "Poštovní směrovací číslo je příliš dlouhé",
         "too_short_postcode": "Poštovní směrovací číslo je příliš krátké"
       },
+      "ind_specific": {
+        "invalid_pan": "Zadejte platné PAN",
+        "required_pan": "Zadejte své PAN"
+      },
       "invalid": "Zkontrolujte, zda zde nejsou neplatné znaky nebo symboly",
       "invalid_dob": "Zadejte platné datum narození",
+      "invalid_email": "Zadejte platný e-mail",
+      "invalid_mobile_number": "Zadejte platné mobilní číslo",
+      "invalid_phone_number": "Zadejte platné telefonní číslo",
       "required_country": "Vyberte zemi",
+      "required_country_residence": "Vyberte zemi",
       "required_dob": "Zadejte své datum narození",
       "required_email": "Zadejte svůj e-mail",
       "required_first_name": "Zadejte své křestní jméno",
@@ -488,9 +503,8 @@
       "required_line1": "Zadejte svou adresu",
       "required_mobile_number": "Zkontrolujte správnost svého čísla",
       "required_nationality": "Vyberte zemi",
-      "required_pan": "Zadejte své PAN",
+      "required_phone_number": "Zadejte své telefonní číslo",
       "required_postcode": "Zadejte své poštovní směrovací číslo",
-      "required_ssn": "Zadejte své číslo SSN",
       "too_long__line1": "Adresní řádek je příliš dlouhý",
       "too_long_first_name": "Křestní jméno je příliš dlouhé",
       "too_long_last_name": "Příjmení je příliš dlouhé",
@@ -500,12 +514,10 @@
       "too_short_last_name": "Příjmení je příliš krátké",
       "too_short_postcode": "Poštovní směrovací číslo je příliš krátké",
       "usa_specific": {
+        "invalid_ssn": "Zadejte platné číslo SSN",
+        "required_ssn": "Zadejte své číslo SSN",
         "required_state": "Vyberte stát"
-      },
-      "valid_email": "Zadejte platný e-mail",
-      "valid_mobile_number": "Zadejte platné mobilní číslo",
-      "valid_pan": "Zadejte platné PAN",
-      "valid_ssn": "Zadejte platné číslo SSN"
+      }
     },
     "personal_information_title": "Přidejte své osobní údaje",
     "prompt": {

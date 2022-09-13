@@ -428,6 +428,9 @@
     "address_title": "Aggiungere l’indirizzo",
     "button_continue": "Continua",
     "components": {
+      "country_residence_select": {
+        "placeholder": "Seleziona un Paese"
+      },
       "country_select": {
         "placeholder": "Selezionare un paese"
       },
@@ -447,6 +450,7 @@
     "country_of_residence_title": "Il tuo paese di residenza",
     "field_labels": {
       "country": "Paese",
+      "country_residence": "Paese",
       "dob": "Data di nascita",
       "email": "Email",
       "first_name": "Nome",
@@ -454,20 +458,23 @@
         "postcode": "Codice postale",
         "town": "Città/comune"
       },
+      "ind_specific": {
+        "pan": "Numero di conto permanente (PAN)"
+      },
       "last_name": "Cognome",
       "line1": "Indirizzo 1",
       "line2": "Indirizzo 2",
       "line3": "Indirizzo 3",
       "mobile_number": "Numero di cellulare",
       "nationality": "Nazionalità",
-      "pan": "Numero di conto permanente (PAN)",
+      "phone_number": "Numero di telefono",
       "postcode": "Codice postale",
-      "ssn": "Numero di previdenza sociale (SSN)",
       "town": "Comune",
       "usa_specific": {
         "line1_helper_text": "Indirizzo, ad esempio 200 Albert Street",
         "line2_helper_text": "Appartamento, suite, unità ecc.",
         "postcode": "Zip code",
+        "ssn": "Numero di previdenza sociale (SSN)",
         "state": "Stato"
       }
     },
@@ -478,9 +485,17 @@
         "too_long_postcode": "Il codice postale è troppo lungo",
         "too_short_postcode": "Il codice postale è troppo breve"
       },
+      "ind_specific": {
+        "invalid_pan": "Inserisci un PAN valido",
+        "required_pan": "Inserisci il tuo PAN"
+      },
       "invalid": "Verificare che non ci siano simboli o caratteri non validi",
       "invalid_dob": "Inserire una data di nascita valida",
+      "invalid_email": "Inserisci un’email valida",
+      "invalid_mobile_number": "Inserisci un numero di telefono valido",
+      "invalid_phone_number": "Inserisci un numero di telefono valido",
       "required_country": "Selezionare un paese",
+      "required_country_residence": "Seleziona un Paese",
       "required_dob": "Inserire la data di nascita",
       "required_email": "Inserisci la tua email",
       "required_first_name": "",
@@ -488,9 +503,8 @@
       "required_line1": "Inserire l’indirizzo",
       "required_mobile_number": "Inserisci il tuo numero di cellulare",
       "required_nationality": "Seleziona un Paese",
-      "required_pan": "Inserisci il tuo PAN",
+      "required_phone_number": "Inserisci il tuo numero di telefono",
       "required_postcode": "Inserire il codice postale",
-      "required_ssn": "Inserisci il tuo SSN",
       "too_long__line1": "L’indirizzo è troppo lungo",
       "too_long_first_name": "Il nome è troppo lungo",
       "too_long_last_name": "Il cognome è troppo lungo",
@@ -500,12 +514,10 @@
       "too_short_last_name": "Il cognome è troppo breve",
       "too_short_postcode": "Il codice postale è troppo breve",
       "usa_specific": {
+        "invalid_ssn": "Inserisci un SSN valido",
+        "required_ssn": "Inserisci il tuo SSN",
         "required_state": "Selezionare uno stato"
-      },
-      "valid_email": "Inserisci un’email valida",
-      "valid_mobile_number": "Inserisci un numero di telefono valido",
-      "valid_pan": "Inserisci un PAN valido",
-      "valid_ssn": "Inserisci un SSN valido"
+      }
     },
     "personal_information_title": "Aggiungere i dati personali",
     "prompt": {

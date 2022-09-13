@@ -77,7 +77,7 @@ export const SSNInput = (props: SSNInputProps) => {
       maxLength={11}
       onChange={handleOnInputChange}
       onInput={handleOnInputValueChange}
-      placeholder={'999-99-9999'}
+      placeholder={props?.placeholder}
       type="text"
       value={formattedSSNValue}
     />

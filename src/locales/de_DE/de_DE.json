@@ -8,6 +8,20 @@
   "auth_cam_start": {
     "loader": "Starten der Kamera"
   },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "Positionieren Sie Ihr Gesicht im Rahmen",
+      "even_lighting": "Stellen Sie sicher, dass Ihre Beleuchtung gleichmäßig ist",
+      "eye_level": "Halten Sie Ihre Kamera auf Augenhöhe",
+      "face_not_found": "Stellen Sie sicher, dass Ihr Gesicht sichtbar ist",
+      "head_not_upright": "Halten Sie Ihren Kopf aufrecht",
+      "move_back": "Gehen sie jetzt zurück",
+      "move_close": "Rücken Sie jetzt näher heran",
+      "move_closer": "Rücken Sie näher heran",
+      "not_looking_straight": "Schauen Sie nach vorne",
+      "steady": "Halten Sie still"
+    }
+  },
   "auth_capture_start": {
     "body": "Positionieren Sie Ihr Gesicht innerhalb des ovalen Rahmens",
     "button_primary": "Starten Sie mit dem Scannen des Gesichts",
@@ -24,20 +38,6 @@
       "steady_count_3": "Halten Sie still: 3"
     },
     "title": "Starten Sie mit dem Scannen des Gesichts"
-  },
-  "auth_capture": {
-    "feedback": {
-      "center_face": "Positionieren Sie Ihr Gesicht im Rahmen",
-      "even_lighting": "Stellen Sie sicher, dass Ihre Beleuchtung gleichmäßig ist",
-      "eye_level": "Halten Sie Ihre Kamera auf Augenhöhe",
-      "face_not_found": "Stellen Sie sicher, dass Ihr Gesicht sichtbar ist",
-      "head_not_upright": "Halten Sie Ihren Kopf aufrecht",
-      "move_back": "Gehen sie jetzt zurück",
-      "move_close": "Rücken Sie jetzt näher heran",
-      "move_closer": "Rücken Sie näher heran",
-      "not_looking_straight": "Schauen Sie nach vorne",
-      "steady": "Halten Sie still"
-    }
   },
   "auth_error": {
     "cam_encryption": {
@@ -63,14 +63,14 @@
     "button_primary": "Als Vollbild öffnen",
     "title": "Vollbild-Selfie-Modus"
   },
-  "auth_permission_denied": {
-    "body_cam": "Um fortzufahren, müssen Sie die Kameraberechtigungen in Ihren Geräteeinstellungen aktivieren.",
-    "button_primary_cam": "Einstellungen starten"
-  },
   "auth_permission": {
     "body_cam": "Um fortzufahren, müssen Sie bei Aufforderung die Kameraberechtigungen aktivieren.",
     "button_primary_cam": "Kamera aktivieren",
     "title_cam": "Zugriff auf Kamera erlauben"
+  },
+  "auth_permission_denied": {
+    "body_cam": "Um fortzufahren, müssen Sie die Kameraberechtigungen in Ihren Geräteeinstellungen aktivieren.",
+    "button_primary_cam": "Einstellungen starten"
   },
   "auth_progress": {
     "loader": "Hochladen"
@@ -86,6 +86,7 @@
   "auth_upload_pass": {
     "body": "Hochladen erfolgreich"
   },
+
   "avc_confirmation": {
     "button_primary_upload": "Aufnahme hochladen",
     "subtitle": "Ein Video von Ihrem Gesicht wurde erfolgreich aufgenommen",
@@ -515,6 +516,9 @@
     "address_title": "Fügen Sie Ihre Adresse hinzu",
     "button_continue": "Weiter",
     "components": {
+      "country_residence_select": {
+        "placeholder": "Wählen Sie ein Land aus"
+      },
       "country_select": {
         "placeholder": "Wählen Sie ein Land aus"
       },
@@ -534,6 +538,7 @@
     "country_of_residence_title": "Ihr Wohnsitzland",
     "field_labels": {
       "country": "Land",
+      "country_residence": "Land",
       "dob": "Geburtsdatum",
       "email": "E-Mail-Adresse",
       "first_name": "Vorname",
@@ -541,20 +546,23 @@
         "postcode": "Postleitzahl",
         "town": "Stadt"
       },
+      "ind_specific": {
+        "pan": "Permanente Account-Nummer (PAN)"
+      },
       "last_name": "Nachname",
       "line1": "Adresszeile 1",
       "line2": "Adresszeile 2",
       "line3": "Adresszeile 3",
       "mobile_number": "Mobiltelefonnummer",
       "nationality": "Nationalität",
-      "pan": "Permanente Account-Nummer (PAN)",
+      "phone_number": "Telefonnummer",
       "postcode": "Postleitzahl",
-      "ssn": "Sozialversicherungsnummer (SVN)",
       "town": "Stadt",
       "usa_specific": {
         "line1_helper_text": "Straßenname, zum Beispiel: Abertstraße 200",
         "line2_helper_text": "Wohnung, Suite, Einheit, etc.",
         "postcode": "Zip code",
+        "ssn": "Sozialversicherungsnummer (SVN)",
         "state": "Staat"
       }
     },
@@ -565,9 +573,17 @@
         "too_long_postcode": "Die Postleitzahl ist zu lang",
         "too_short_postcode": "Die Postleitzahl ist zu kurz"
       },
+      "ind_specific": {
+        "invalid_pan": "Bitte geben Sie eine gültige PAN ein",
+        "required_pan": "Bitte geben Sie Ihre PAN ein"
+      },
       "invalid": "Bitte auf ungültige Zeichen oder Symbole überprüfen",
       "invalid_dob": "Bitte geben Sie ein gültiges Geburtsdatum ein",
+      "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "invalid_mobile_number": "Bitte geben Sie eine gültige Mobiltelefonnummer ein",
+      "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer ein",
       "required_country": "Bitte wählen Sie ein Land aus",
+      "required_country_residence": "Bitte wählen Sie ein Land aus",
       "required_dob": "Bitte geben Sie Ihr Geburtsdatum ein",
       "required_email": "Bitte geben Sie Ihre E-Mail-Adresse ein",
       "required_first_name": "",
@@ -575,9 +591,8 @@
       "required_line1": "Bitte geben Sie Ihre Adresse ein",
       "required_mobile_number": "Bitte geben Sie Ihre Mobiltelefonnummer ein",
       "required_nationality": "Bitte wählen Sie ein Land aus",
-      "required_pan": "Bitte geben Sie Ihre PAN ein",
+      "required_phone_number": "Bitte geben Sie Ihre Telefonnummer ein",
       "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
-      "required_ssn": "Bitte geben Sie Ihre SVN ein",
       "too_long__line1": "Die Adresszeile ist zu lang",
       "too_long_first_name": "Der Vorname ist zu lang",
       "too_long_last_name": "Der Nachname ist zu lang",
@@ -587,12 +602,10 @@
       "too_short_last_name": "Der Nachname ist zu kurz",
       "too_short_postcode": "Die Postleitzahl ist zu kurz",
       "usa_specific": {
+        "invalid_ssn": "Bitte geben Sie eine gültige SVN ein",
+        "required_ssn": "Bitte geben Sie Ihre SVN ein",
         "required_state": "Bitte wählen Sie einen Staat aus"
-      },
-      "valid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-      "valid_mobile_number": "Bitte geben Sie eine gültige Mobiltelefonnummer ein",
-      "valid_pan": "Bitte geben Sie eine gültige PAN ein",
-      "valid_ssn": "Bitte geben Sie eine gültige SVN ein"
+      }
     },
     "personal_information_title": "Fügen Sie Ihre persönlichen Informationen hinzu",
     "prompt": {

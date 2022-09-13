@@ -428,6 +428,9 @@
     "address_title": "Adicione a sua morada",
     "button_continue": "Continuar",
     "components": {
+      "country_residence_select": {
+        "placeholder": "Selecione um país"
+      },
       "country_select": {
         "placeholder": "Selecione um país"
       },
@@ -447,6 +450,7 @@
     "country_of_residence_title": "Seu país de residência",
     "field_labels": {
       "country": "País",
+      "country_residence": "País",
       "dob": "Data de nascimento",
       "email": "Email",
       "first_name": "Nome próprio",
@@ -454,20 +458,23 @@
         "postcode": "Código postal",
         "town": "Cidade"
       },
+      "ind_specific": {
+        "pan": "Número de conta permanente (PAN)"
+      },
       "last_name": "Apelido",
       "line1": "Linha da morada 1",
       "line2": "Linha da morada 2",
       "line3": "Linha da morada 3",
       "mobile_number": "Número de telemóvel",
       "nationality": "Nacionalidade",
-      "pan": "Número de conta permanente (PAN)",
+      "phone_number": "Número de telefone",
       "postcode": "Código postal",
-      "ssn": "Número de Segurança Social (NISS)",
       "town": "Cidade",
       "usa_specific": {
         "line1_helper_text": "Morada, por exemplo: Rua Luís Silva 200",
         "line2_helper_text": "Apartamento, suite, unidade, etc.",
         "postcode": "Código postal",
+        "ssn": "Número de Segurança Social (NISS)",
         "state": "Estado"
       }
     },
@@ -478,9 +485,17 @@
         "too_long_postcode": "O código postal é demasiado longo",
         "too_short_postcode": "O código postal é demasiado curto"
       },
+      "ind_specific": {
+        "invalid_pan": "Introduza um PAN válido",
+        "required_pan": "Introduza o seu PAN"
+      },
       "invalid": "Verifique se existem caracteres ou símbolos inválidos",
       "invalid_dob": "Introduza uma data de nascimento válida",
+      "invalid_email": "Introduza um e-mail válido",
+      "invalid_mobile_number": "Introduza um número de telemóvel válido",
+      "invalid_phone_number": "Introduza um número de telefone válido",
       "required_country": "Selecione um país",
+      "required_country_residence": "Selecione um país",
       "required_dob": "Introduza a sua data de nascimento",
       "required_email": "Introduza o seu e-mail",
       "required_first_name": "",
@@ -488,9 +503,8 @@
       "required_line1": "Introduza a sua morada",
       "required_mobile_number": "Introduza o seu número de telemóvel",
       "required_nationality": "Selecione um país",
-      "required_pan": "Introduza o seu PAN",
+      "required_phone_number": "Introduza o seu número de telefone",
       "required_postcode": "Introduza o seu código postal",
-      "required_ssn": "Introduza o seu NISS",
       "too_long__line1": "A linha da morada é demasiado longa",
       "too_long_first_name": "O nome próprio é demasiado longo",
       "too_long_last_name": "O apelido é demasiado longo",
@@ -500,12 +514,10 @@
       "too_short_last_name": "O apelido é demasiado curto",
       "too_short_postcode": "O código postal é demasiado curto",
       "usa_specific": {
+        "invalid_ssn": "Introduza um NISS válido",
+        "required_ssn": "Introduza o seu NISS",
         "required_state": "Selecione um estado"
-      },
-      "valid_email": "Introduza um e-mail válido",
-      "valid_mobile_number": "Introduza um número de telemóvel válido",
-      "valid_pan": "Introduza um PAN válido",
-      "valid_ssn": "Introduza um NISS válido"
+      }
     },
     "personal_information_title": "Adicione as suas informações pessoais",
     "prompt": {

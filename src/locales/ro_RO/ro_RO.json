@@ -428,6 +428,9 @@
     "address_title": "Adăugați adresa dvs.",
     "button_continue": "Continuați",
     "components": {
+      "country_residence_select": {
+        "placeholder": "Selectați o țară"
+      },
       "country_select": {
         "placeholder": "Selectați o țară"
       },
@@ -447,6 +450,7 @@
     "country_of_residence_title": "Țara dvs. de reședință",
     "field_labels": {
       "country": "Țară",
+      "country_residence": "Țară",
       "dob": "Data nașterii",
       "email": "E-mail",
       "first_name": "Prenume",
@@ -454,20 +458,23 @@
         "postcode": "Cod poștal",
         "town": "Oraș/Localitate"
       },
+      "ind_specific": {
+        "pan": "Număr de cont permanent (PAN)"
+      },
       "last_name": "Nume de familie",
       "line1": "Linie adresă 1",
       "line2": "Linie adresă 2",
       "line3": "Linie adresă 3",
       "mobile_number": "Telefonul mobil",
       "nationality": "Naționalitatea",
-      "pan": "Număr de cont permanent (PAN)",
+      "phone_number": "Număr de telefon",
       "postcode": "Cod poștal",
-      "ssn": "Numărul de asigurare socială (SSN)",
       "town": "Localitate",
       "usa_specific": {
         "line1_helper_text": "Adresă stradă, de exemplu: 200 Albert Street",
         "line2_helper_text": "Apartament, birou, bloc etc.",
         "postcode": "Cod poștal",
+        "ssn": "Numărul de asigurare socială (SSN)",
         "state": "Stat"
       }
     },
@@ -478,9 +485,17 @@
         "too_long_postcode": "Codul poștal este prea lung",
         "too_short_postcode": "Codul poștal este prea scurt"
       },
+      "ind_specific": {
+        "invalid_pan": "Vă rugăm să introduceți un PAN valabil",
+        "required_pan": "Vă rugăm să introduceți numărul PAN"
+      },
       "invalid": "Vă rugăm să verificați să nu fie caractere sau simboluri nevalide",
       "invalid_dob": "Vă rugăm să introduceți o dată de naștere validă",
+      "invalid_email": "Vă rugăm să introduceți un e-mail valabil",
+      "invalid_mobile_number": "Vă rugăm să introduceți un număr de telefon valid",
+      "invalid_phone_number": "Vă rugăm să introduceți un număr de telefon valabil",
       "required_country": "Vă rugăm să selectați o țară",
+      "required_country_residence": "Vă rugăm să selectați o țară",
       "required_dob": "Vă rugăm să introduceți data dvs. de naștere",
       "required_email": "Vă rugăm să introduceți e-mailul dvs.",
       "required_first_name": "Vă rugăm să introduceți prenumele dvs.",
@@ -488,9 +503,8 @@
       "required_line1": "Vă rugăm să introduceți adresa dvs.",
       "required_mobile_number": "Vă rugăm să verificați dacă numărul dvs. este corect",
       "required_nationality": "Vă rugăm să selectați o țară",
-      "required_pan": "Vă rugăm să introduceți numărul PAN",
+      "required_phone_number": "Vă rugăm să introduceți numărul dvs. de telefon",
       "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
-      "required_ssn": "Vă rugăm să introduceți numărul SSN",
       "too_long__line1": "Linia adresă este prea lungă",
       "too_long_first_name": "Prenumele este prea lung",
       "too_long_last_name": "Numele de familie este prea lung",
@@ -500,12 +514,10 @@
       "too_short_last_name": "Numele de familie este prea scurt",
       "too_short_postcode": "Codul poștal este prea scurt",
       "usa_specific": {
+        "invalid_ssn": "Vă rugăm să introduceți un SSN valabil",
+        "required_ssn": "Vă rugăm să introduceți numărul SSN",
         "required_state": "Vă rugăm să selectați un stat"
-      },
-      "valid_email": "Vă rugăm să introduceți un e-mail valabil",
-      "valid_mobile_number": "Vă rugăm să introduceți un număr de telefon valid",
-      "valid_pan": "Vă rugăm să introduceți un PAN valabil",
-      "valid_ssn": "Vă rugăm să introduceți un SSN valabil"
+      }
     },
     "personal_information_title": "Adăugați informațiile dvs. personale",
     "prompt": {

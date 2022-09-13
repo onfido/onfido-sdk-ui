@@ -8,6 +8,20 @@
   "auth_cam_start": {
     "loader": "Démarrage de l’appareil photo"
   },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "Encadrez votre visage",
+      "even_lighting": "Assurez-vous que votre éclairage est uniforme",
+      "eye_level": "Gardez votre appareil photo au niveau des yeux",
+      "face_not_found": "Assurez-vous que votre visage est visible",
+      "head_not_upright": "Gardez la tête droite",
+      "move_back": "Maintenant, reculez",
+      "move_close": "Maintenant, approchez-vous",
+      "move_closer": "Approchez-vous",
+      "not_looking_straight": "Regardez devant vous",
+      "steady": "Ne bougez pas"
+    }
+  },
   "auth_capture_start": {
     "body": "Gardez votre visage dans l’ovale.",
     "button_primary": "Démarrer le scan du visage",
@@ -24,20 +38,6 @@
       "steady_count_3": "Restez immobile : 3"
     },
     "title": "Démarrer le scan du visage"
-  },
-  "auth_capture": {
-    "feedback": {
-      "center_face": "Encadrez votre visage",
-      "even_lighting": "Assurez-vous que votre éclairage est uniforme",
-      "eye_level": "Gardez votre appareil photo au niveau des yeux",
-      "face_not_found": "Assurez-vous que votre visage est visible",
-      "head_not_upright": "Gardez la tête droite",
-      "move_back": "Maintenant, reculez",
-      "move_close": "Maintenant, approchez-vous",
-      "move_closer": "Approchez-vous",
-      "not_looking_straight": "Regardez devant vous",
-      "steady": "Ne bougez pas"
-    }
   },
   "auth_error": {
     "cam_encryption": {
@@ -63,14 +63,14 @@
     "button_primary": "Ouvrir en plein écran",
     "title": "Mode selfie plein écran"
   },
-  "auth_permission_denied": {
-    "body_cam": "Pour continuer, vous devez activer les autorisations de la caméra dans les paramètres de votre mobile.",
-    "button_primary_cam": "Paramètres de lancement"
-  },
   "auth_permission": {
     "body_cam": "Pour continuer, vous devez activer les autorisations de la caméra lorsque vous y êtes invité.",
     "button_primary_cam": "Activer la caméra",
     "title_cam": "Autoriser l’accès à la caméra"
+  },
+  "auth_permission_denied": {
+    "body_cam": "Pour continuer, vous devez activer les autorisations de la caméra dans les paramètres de votre mobile.",
+    "button_primary_cam": "Paramètres de lancement"
   },
   "auth_progress": {
     "loader": "Téléversement"
@@ -515,6 +515,9 @@
     "address_title": "Ajoutez votre adresse",
     "button_continue": "Continuer",
     "components": {
+      "country_residence_select": {
+        "placeholder": "Sélectionnez un pays"
+      },
       "country_select": {
         "placeholder": "Sélectionnez un pays"
       },
@@ -534,6 +537,7 @@
     "country_of_residence_title": "Votre pays de résidence",
     "field_labels": {
       "country": "Pays",
+      "country_residence": "Pays",
       "dob": "Date de naissance",
       "email": "E-mail",
       "first_name": "Prénom",
@@ -541,20 +545,23 @@
         "postcode": "Code postal",
         "town": "Ville"
       },
+      "ind_specific": {
+        "pan": "Numéro de compte permanent (PAN)"
+      },
       "last_name": "Nom de famille",
       "line1": "Adresse ligne 1",
       "line2": "Adresse ligne 2",
       "line3": "Adresse ligne 3",
       "mobile_number": "Numéro de mobile",
       "nationality": "Nationalité",
-      "pan": "Numéro de compte permanent (PAN)",
+      "phone_number": "Numéro de téléphone",
       "postcode": "Code postal",
-      "ssn": "Numéro de sécurité sociale (SSN)",
       "town": "Ville",
       "usa_specific": {
         "line1_helper_text": "Nom de la rue, par exemple : 200 rue Albert",
         "line2_helper_text": "Appartement, suite, unité, etc.",
         "postcode": "Zip code (États-Unis)",
+        "ssn": "Numéro de sécurité sociale (SSN)",
         "state": "État"
       }
     },
@@ -565,9 +572,17 @@
         "too_long_postcode": "Le code postal est trop long",
         "too_short_postcode": "Le code postal est trop court"
       },
+      "ind_specific": {
+        "invalid_pan": "Veuillez saisir un PAN valide",
+        "required_pan": "Veuillez renseigner votre PAN"
+      },
       "invalid": "Veuillez vérifier s'il y a des caractères ou des symboles invalides",
       "invalid_dob": "Veuillez saisir une date de naissance valide",
+      "invalid_email": "Veuillez saisir un e-mail valide",
+      "invalid_mobile_number": "Veuillez renseigner un numéro de mobile valide",
+      "invalid_phone_number": "Veuillez renseigner un numéro de téléphone valide",
       "required_country": "Veuillez sélectionner un pays",
+      "required_country_residence": "Veuillez sélectionner un pays",
       "required_dob": "Veuillez saisir votre date de naissance",
       "required_email": "Veuillez renseigner votre adresse",
       "required_first_name": "",
@@ -575,9 +590,8 @@
       "required_line1": "Veuillez renseigner votre adresse",
       "required_mobile_number": "Veuillez renseigner votre numéro de mobile",
       "required_nationality": "Veuillez sélectionner un pays",
-      "required_pan": "Veuillez renseigner votre PAN",
+      "required_phone_number": "Veuillez renseigner votre numéro de téléphone",
       "required_postcode": "Veuillez renseigner votre code postal",
-      "required_ssn": "Veuillez renseigner votre SSN",
       "too_long__line1": "La ligne de l'adresse est trop longue",
       "too_long_first_name": "Le prénom est trop long",
       "too_long_last_name": "Le nom de famille est trop long",
@@ -587,12 +601,10 @@
       "too_short_last_name": "Le nom de famille est trop court",
       "too_short_postcode": "Le code postal est trop court",
       "usa_specific": {
+        "invalid_ssn": "Veuillez saisir un SSN valide",
+        "required_ssn": "Veuillez renseigner votre SSN",
         "required_state": "Veuillez sélectionner un État"
-      },
-      "valid_email": "Veuillez saisir un e-mail valide",
-      "valid_mobile_number": "Veuillez renseigner un numéro de mobile valide",
-      "valid_pan": "Veuillez saisir un PAN valide",
-      "valid_ssn": "Veuillez saisir un SSN valide"
+      }
     },
     "personal_information_title": "Ajoutez vos informations personnelles",
     "prompt": {

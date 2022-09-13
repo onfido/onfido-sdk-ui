@@ -18,19 +18,27 @@ import { CountrySelector } from './CountrySelector'
 import { StateSelector } from './StateSelector'
 import { DateOfBirthInput, getMaxDay } from './DateOfBirthInput'
 import { SSNInput } from './SSNInput'
+import { useSdkOptions } from '~contexts'
+import { isValidPhoneNumber } from 'react-phone-number-input'
+
 import style from './style.scss'
 
+import type { SdkOptions } from '~types/sdk'
 import type { StepComponentDataProps, CompleteStepValue } from '~types/routers'
 import type { StepOptionData } from '~types/steps'
 import type { WithLocalisedProps } from '~types/hocs'
 import type { TranslateCallback } from '~types/locales'
+import { ProfileDataPhoneNumberInput } from '../../components/PhoneNumberInput/Lazy'
+import { allCountriesList } from './CountrySelector/countries'
 
 type ProfileDataProps = StepComponentDataProps & {
   title: string
   dataSubPath: string
   dataFields: string[]
   disabledFields: string[]
-  ssnEnabled?: StepOptionData['ssn_enabled']
+  profile_data_selection?: StepOptionData['profile_data_selection']
+  ssnEnabled?: boolean
+  panEnabled?: boolean
   getPersonalData: StepOptionData['getPersonalData']
   nextStep: () => void
   completeStep: (data: CompleteStepValue) => void
@@ -42,10 +50,12 @@ const ProfileData = ({
   dataFields,
   disabledFields,
   ssnEnabled,
+  panEnabled,
   getPersonalData,
   nextStep,
   completeStep,
 }: ProfileDataProps) => {
+  const sdkOptions = useSdkOptions()
   const { translate } = useLocales()
   const [formData, setFormData] = useState(() => {
     const personalData = getPersonalData()
@@ -82,7 +92,38 @@ const ProfileData = ({
   }, [])
 
   const handleChange: FieldValueChangeFunc = (type, value) => {
+    if (type === 'country') {
+      updatePersonalData({ ...formData, [type]: `${value}` })
+    }
+
     setFormData((formData) => ({ ...formData, [type]: `${value}` }))
+  }
+
+  const updatePersonalData = (data: any) => {
+    const cleanedFormData = Object.fromEntries(
+      // do not send empty values to API, instead remove those entries
+      Object.entries(data).filter(([, value]) => value !== '')
+    )
+
+    const newPersonalData = Object.entries(cleanedFormData).reduce(
+      (prev, [type, value]) => {
+        if (type === 'pan') return { ...prev, tax_id: `${value}` }
+        if (type !== 'country_residence') return { ...prev, [type]: `${value}` }
+
+        return {
+          ...prev,
+          [type]: `${value}`,
+          address: {
+            country: `${value}`,
+          },
+        }
+      },
+      {}
+    )
+
+    completeStep(
+      dataSubPath ? { [dataSubPath]: newPersonalData } : newPersonalData
+    )
   }
 
   const handleSubmit = () => {
@@ -94,14 +135,7 @@ const ProfileData = ({
 
     if (!isFormValid) return
 
-    const cleanedFormData = Object.fromEntries(
-      // do not send empty values to API, instead remove those entries
-      Object.entries(formData).filter(([, value]) => value !== '')
-    )
-
-    completeStep(
-      dataSubPath ? { [dataSubPath]: cleanedFormData } : cleanedFormData
-    )
+    updatePersonalData(formData)
     nextStep()
   }
 
@@ -118,7 +152,9 @@ const ProfileData = ({
               (getPersonalData() as { address: { country: string } })?.address
                 ?.country
             }
+            sdkOptions={sdkOptions as SdkOptions}
             ssnEnabled={ssnEnabled}
+            panEnabled={panEnabled}
             disabled={(disabledFields || []).includes(type)}
             setToucher={setToucher}
             removeToucher={removeToucher}
@@ -145,13 +181,18 @@ type fieldType =
   | 'last_name'
   | 'dob'
   | 'ssn'
+  | 'pan'
   | 'country'
+  | 'country_residence'
+  | 'nationality'
   | 'line1'
   | 'line2'
   | 'line3'
   | 'town'
   | 'state'
   | 'postcode'
+  | 'email'
+  | 'phone_number'
 
 type Toucher = {
   type: FieldComponentProps['type']
@@ -173,18 +214,23 @@ type FieldValueChangeFunc = (
 type FieldComponentProps = {
   type: fieldType
   value: string
+  sdkOptions: SdkOptions
   selectedCountry?: string
   disabled: boolean
+  ssnEnabled?: boolean
+  panEnabled?: boolean
   setToucher: SetToucherFunc
   removeToucher: RemoveRoucherFunc
   onChange: FieldValueChangeFunc
-} & Pick<ProfileDataProps, 'ssnEnabled'>
+}
 
 const FieldComponent = ({
   type,
   value,
   selectedCountry,
-  ssnEnabled,
+  ssnEnabled = false,
+  panEnabled = false,
+  sdkOptions,
   disabled,
   setToucher,
   removeToucher,
@@ -192,7 +238,12 @@ const FieldComponent = ({
 }: FieldComponentProps) => {
   const { translate } = useLocales()
 
-  const isRequired = isFieldRequired(type, selectedCountry, ssnEnabled)
+  const isRequired = isFieldRequired(
+    type,
+    selectedCountry,
+    ssnEnabled,
+    panEnabled
+  )
   const [isTouched, setIsTouched] = useState<boolean>(false)
   const [validationError, setValidationError] = useState<string | null>(null)
 
@@ -211,9 +262,15 @@ const FieldComponent = ({
 
   useEffect(() => {
     setValidationError(
-      validateField(type, value, selectedCountry, ssnEnabled)(translate)
+      validateField(
+        type,
+        value,
+        selectedCountry,
+        ssnEnabled,
+        panEnabled
+      )(translate)
     )
-  }, [type, value, selectedCountry, ssnEnabled, translate])
+  }, [type, value, selectedCountry, ssnEnabled, panEnabled, translate])
 
   const handleBlur = () => {
     if (!isTouched) setIsTouched(true)
@@ -231,7 +288,8 @@ const FieldComponent = ({
   if (
     (type === 'line3' && selectedCountry === 'USA') ||
     (type === 'state' && selectedCountry !== 'USA') ||
-    (type === 'ssn' && (selectedCountry !== 'USA' || !ssnEnabled))
+    (type === 'ssn' && (selectedCountry !== 'USA' || !ssnEnabled)) ||
+    (type === 'pan' && (selectedCountry !== 'IND' || !panEnabled))
   ) {
     if (value) onChange(type, '') // removed value if was already set
     return null
@@ -251,6 +309,7 @@ const FieldComponent = ({
         {getTranslatedFieldHelperText(translate, type, selectedCountry)}
         {getFieldComponent(
           type,
+          sdkOptions,
           {
             value,
             disabled,
@@ -259,6 +318,7 @@ const FieldComponent = ({
             onBlur: handleBlur,
             onChange: handleChange,
           },
+          translate,
           selectedCountry
         )}
         {isTouched && isInvalid && (
@@ -271,6 +331,7 @@ const FieldComponent = ({
 
 const getFieldComponent = (
   type: FieldComponentProps['type'],
+  sdkOptions: SdkOptions,
   props: {
     value: FieldComponentProps['value']
     disabled: boolean
@@ -279,10 +340,25 @@ const getFieldComponent = (
     onBlur: () => void
     onChange: (ev: { target: { value: string } }) => void
   },
+  translate: TranslateCallback,
   country?: FieldComponentProps['selectedCountry']
 ) => {
+  const smsNumberCountryCode = Array.isArray(sdkOptions)
+    ? sdkOptions[0].smsNumberCountryCode
+    : sdkOptions.smsNumberCountryCode
+
+  const countryCode =
+    allCountriesList.find((countryList) => countryList.isoAlpha3 === country)
+      ?.countryCode ||
+    smsNumberCountryCode ||
+    'GB'
+
   switch (type) {
+    case 'country_residence':
+      return <CountrySelector {...props} />
     case 'country':
+      return <CountrySelector {...props} />
+    case 'nationality':
       return <CountrySelector {...props} />
     case 'state':
       return <StateSelector {...props} />
@@ -290,8 +366,39 @@ const getFieldComponent = (
       return <DateOfBirthInput {...props} country={country} />
     case 'postcode':
       return <Input {...props} type="text" style={{ width: space(22) }} />
+    case 'email':
+      return <Input {...props} type="email" />
+    case 'phone_number':
+      return (
+        <ProfileDataPhoneNumberInput
+          {...props}
+          smsNumberCountryCode={countryCode}
+          options={sdkOptions}
+        />
+      )
     case 'ssn':
-      return <SSNInput {...props} style={{ width: space(22) }} />
+      return (
+        <SSNInput
+          {...props}
+          placeholder={
+            translate('profile_data.components.ssn.placeholder') ||
+            '123-45-6789'
+          }
+          style={{ width: space(22) }}
+        />
+      )
+    case 'pan':
+      return (
+        <Input
+          {...props}
+          maxLength={10}
+          pattern={'[a-zA-Z0-9-]+'}
+          placeholder={
+            translate('profile_data.components.pan.placeholder') || 'ABCDE1234F'
+          }
+          type="text"
+        />
+      )
     default:
       return <Input {...props} type="text" />
   }
@@ -343,15 +450,20 @@ const getLocalisedDobFormatExample = (country: string | undefined) => {
 const isFieldRequired = (
   type: FieldComponentProps['type'],
   country?: FieldComponentProps['selectedCountry'],
-  ssnEnabled?: FieldComponentProps['ssnEnabled']
+  ssnEnabled?: FieldComponentProps['ssnEnabled'],
+  panEnabled?: FieldComponentProps['panEnabled']
 ): boolean => {
   const requiredFields = [
     'first_name',
     'last_name',
     'dob',
     'country',
+    'country_residence',
     'line1',
     'postcode',
+    'email',
+    'phone_number',
+    'nationality',
   ]
 
   if (country === 'USA') {
@@ -361,17 +473,35 @@ const isFieldRequired = (
     }
   }
 
+  if (country === 'IND' && panEnabled) {
+    requiredFields.push('pan')
+  }
+
   return requiredFields.includes(type)
+}
+
+const hasValidEmail = (email: string) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    )
+}
+
+const hasValidPan = (pan: string) => {
+  const myRegEx = /^\w+$/
+  return pan.length === 10 && myRegEx.test(String(pan).toLowerCase())
 }
 
 const validateField = (
   type: FieldComponentProps['type'],
   value: FieldComponentProps['value'],
   country?: FieldComponentProps['selectedCountry'],
-  ssnEnabled?: FieldComponentProps['ssnEnabled']
+  ssnEnabled?: FieldComponentProps['ssnEnabled'],
+  panEnabled?: FieldComponentProps['panEnabled']
 ) => (translate: TranslateCallback): string | null => {
   // required values
-  if (isFieldRequired(type, country, ssnEnabled) && !value) {
+  if (isFieldRequired(type, country, ssnEnabled, panEnabled) && !value) {
     return translate(
       `profile_data.${
         translateSpecific('validation_required', type, country) ||
@@ -425,6 +555,24 @@ const validateField = (
     if (!/^\d{3}-?\d{2}-?\d{4}$/.test(value)) {
       return translate('profile_data.field_validation.usa_specific.invalid_ssn')
     }
+  }
+
+  if (type === 'pan' && country === 'IND' && panEnabled) {
+    if (!hasValidPan(value)) {
+      return translate('profile_data.field_validation.ind_specific.invalid_pan')
+    }
+  }
+
+  if (type === 'phone_number') {
+    return value && isValidPhoneNumber(value)
+      ? ''
+      : translate(`profile_data.field_validation.invalid_${type}`)
+  }
+
+  if (type === 'email') {
+    return hasValidEmail(value)
+      ? ''
+      : translate(`profile_data.field_validation.invalid_${type}`)
   }
 
   const valueByteLength = new TextEncoder().encode(value).length
@@ -481,6 +629,8 @@ const translateSpecific = (
   switch (`${translationType}_${fieldType}_${country?.toLocaleLowerCase()}`) {
     case 'label_ssn_usa':
       return 'field_labels.usa_specific.ssn'
+    case 'label_pan_ind':
+      return 'field_labels.ind_specific.pan'
     case 'label_town_gbr':
       return 'field_labels.gbr_specific.town'
     case 'label_postcode_gbr':
@@ -511,6 +661,10 @@ const translateSpecific = (
       return 'field_validation.gbr_specific.too_long_postcode'
     case 'validation_too_long_postcode_usa':
       return 'field_validation.usa_specific.too_long_postcode'
+    case 'validation_required_pan_ind':
+      return 'field_validation.ind_specific.required_pan'
+    case 'validation_invalid_pan_ind':
+      return 'field_validation.ind_specific.invalid_pan'
   }
 
   return null

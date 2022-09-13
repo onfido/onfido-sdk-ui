@@ -50,6 +50,7 @@ import type {
   StepConfigFace,
   StepConfigData,
   StepTypes,
+  OptionsEnbaled,
 } from '~types/steps'
 import PoAClientIntro from '../ProofOfAddress/PoAIntro'
 import Guidance from '../ProofOfAddress/Guidance'
@@ -61,6 +62,16 @@ import { getCountryDataForDocumentType } from '~supported-documents'
 let LazyAuth: ComponentType<StepComponentProps>
 
 const SDK_ENV = process.env.SDK_ENV
+const sortedProfileDataCaptureFields = [
+  'first_name',
+  'last_name',
+  'dob',
+  'email',
+  'phone_number',
+  'nationality',
+  'ssn',
+  'pan',
+]
 
 if (process.env.SDK_ENV === 'Auth') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -125,7 +136,6 @@ const buildCaptureStepComponents = (
   const documentStep = findStep('document')
   const dataStep = findStep('data')
   const activeVideoStep = findStep('activeVideo')
-
   const complete = mobileFlow
     ? [ClientSuccess as ComponentType<StepComponentProps>]
     : [Complete]
@@ -197,17 +207,40 @@ const buildDataComponents = (
     <DataCapture
       {...props}
       title="country_of_residence_title"
-      dataSubPath="address"
-      dataFields={['country']}
+      dataFields={['country_residence']}
       getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
+
+  const profileDataCaptureFields = dataStep?.options?.profile_data_selection
+    ? sortedProfileDataCaptureFields.filter((key) => {
+        const optionKey = `${key}_enabled` as OptionsEnbaled
+        return (
+          dataStep?.options &&
+          dataStep?.options?.profile_data_selection &&
+          Boolean(dataStep?.options?.profile_data_selection[optionKey]) === true
+        )
+      })
+    : ['first_name', 'last_name', 'dob', 'ssn']
+
+  const hasCountryOfResidenceEnabled =
+    dataStep?.options &&
+    dataStep?.options?.profile_data_selection &&
+    Boolean(
+      dataStep?.options?.profile_data_selection['country_residence_enabled']
+    )
+
   const PersonalInformation = (props: any) => (
     <DataCapture
       {...props}
+      options={dataStep?.options}
       title="personal_information_title"
-      dataFields={['first_name', 'last_name', 'dob', 'ssn']}
-      ssnEnabled={dataStep?.options?.ssn_enabled}
+      dataFields={profileDataCaptureFields}
+      ssnEnabled={
+        dataStep?.options?.ssn_enabled ||
+        dataStep?.options?.profile_data_selection?.ssn_enabled
+      }
+      panEnabled={dataStep?.options?.profile_data_selection?.pan_enabled}
       getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
@@ -225,12 +258,32 @@ const buildDataComponents = (
         'state',
         'postcode',
       ]}
-      disabledFields={['country']}
+      disabledFields={hasCountryOfResidenceEnabled ? ['country'] : []}
       getPersonalData={dataStep?.options?.getPersonalData}
     />
   )
 
-  return [CountryOfResidence, PersonalInformation, Address]
+  const dataComponents = []
+
+  if (
+    Boolean(
+      dataStep?.options?.profile_data_selection?.country_residence_enabled
+    ) ||
+    dataStep?.options?.profile_data_selection?.country_residence_enabled ===
+      undefined
+  )
+    dataComponents.push(CountryOfResidence)
+
+  dataComponents.push(PersonalInformation)
+
+  if (
+    Boolean(dataStep?.options?.profile_data_selection?.address_enabled) ||
+    dataStep?.options?.profile_data_selection?.country_residence_enabled ===
+      undefined
+  )
+    dataComponents.push(Address)
+
+  return dataComponents
 }
 
 const buildFaceComponents = (

@@ -8,6 +8,20 @@
   "auth_cam_start": {
     "loader": "Starting camera"
   },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "Frame your face",
+      "even_lighting": "Make sure your lighting is even",
+      "eye_level": "Keep your camera at eye level",
+      "face_not_found": "Make sure your face is visible",
+      "head_not_upright": "Keep your head upright",
+      "move_back": "Now move back",
+      "move_close": "Now move in closer",
+      "move_closer": "Move in closer",
+      "not_looking_straight": "Look forward",
+      "steady": "Keep still"
+    }
+  },
   "auth_capture_start": {
     "body": "Fit your face within the oval frame",
     "button_primary": "Start face scan",
@@ -24,20 +38,6 @@
       "steady_count_3": "Keep still: 3"
     },
     "title": "Start face scan"
-  },
-  "auth_capture": {
-    "feedback": {
-      "center_face": "Frame your face",
-      "even_lighting": "Make sure your lighting is even",
-      "eye_level": "Keep your camera at eye level",
-      "face_not_found": "Make sure your face is visible",
-      "head_not_upright": "Keep your head upright",
-      "move_back": "Now move back",
-      "move_close": "Now move in closer",
-      "move_closer": "Move in closer",
-      "not_looking_straight": "Look forward",
-      "steady": "Keep still"
-    }
   },
   "auth_error": {
     "cam_encryption": {
@@ -63,14 +63,14 @@
     "button_primary": "Open in full screen",
     "title": "Full screen selfie mode"
   },
-  "auth_permission_denied": {
-    "body_cam": "To continue, you must enable camera permissions in your device settings.",
-    "button_primary_cam": "Launch settings"
-  },
   "auth_permission": {
     "body_cam": "To continue, you must enable camera permissions when prompted.",
     "button_primary_cam": "Enable camera",
     "title_cam": "Allow camera access"
+  },
+  "auth_permission_denied": {
+    "body_cam": "To continue, you must enable camera permissions in your device settings.",
+    "button_primary_cam": "Launch settings"
   },
   "auth_progress": {
     "loader": "Uploading"
@@ -515,6 +515,9 @@
     "address_title": "Add your address",
     "button_continue": "Continue",
     "components": {
+      "country_residence_select": {
+        "placeholder": "Select a country"
+      },
       "country_select": {
         "placeholder": "Select a country"
       },
@@ -534,6 +537,7 @@
     "country_of_residence_title": "Your country of residence",
     "field_labels": {
       "country": "Country",
+      "country_residence": "Country",
       "dob": "Date of birth",
       "email": "Email",
       "first_name": "First name",
@@ -541,20 +545,23 @@
         "postcode": "Postcode",
         "town": "City/Town"
       },
+      "ind_specific": {
+        "pan": "Permanent account number (PAN)"
+      },
       "last_name": "Last name",
       "line1": "Address line 1",
       "line2": "Address line 2",
       "line3": "Address line 3",
       "mobile_number": "Mobile number",
       "nationality": "Nationality",
-      "pan": "Permanent account number (PAN)",
+      "phone_number": "Phone number",
       "postcode": "Postal code",
-      "ssn": "Social Security number (SSN)",
       "town": "Town",
       "usa_specific": {
         "line1_helper_text": "Street address, for example: 200 Albert Street",
         "line2_helper_text": "Apartment, suite, unit, etc.",
         "postcode": "Zip code",
+        "ssn": "Social Security number (SSN)",
         "state": "State"
       }
     },
@@ -565,9 +572,17 @@
         "too_long_postcode": "Postcode is too long",
         "too_short_postcode": "Postcode is too short"
       },
+      "ind_specific": {
+        "invalid_pan": "Please enter a valid PAN",
+        "required_pan": "Please enter your PAN"
+      },
       "invalid": "Please check for invalid characters or symbols",
       "invalid_dob": "Please enter a valid date of birth",
+      "invalid_email": "Please enter a valid email",
+      "invalid_mobile_number": "Please enter a valid mobile number",
+      "invalid_phone_number": "Please enter a valid phone number",
       "required_country": "Please select a country",
+      "required_country_residence": "Please select a country",
       "required_dob": "Please enter your date of birth",
       "required_email": "Please enter your email",
       "required_first_name": "Please enter your first name",
@@ -575,9 +590,8 @@
       "required_line1": "Please enter your address",
       "required_mobile_number": "Please enter your mobile number",
       "required_nationality": "Please select a country",
-      "required_pan": "Please enter your PAN",
+      "required_phone_number": "Please enter your phone number",
       "required_postcode": "Please enter your postal code",
-      "required_ssn": "Please enter your SSN",
       "too_long__line1": "Address line is too long",
       "too_long_first_name": "First name is too long",
       "too_long_last_name": "Last name is too long",
@@ -587,12 +601,10 @@
       "too_short_last_name": "Last name is too short",
       "too_short_postcode": "Postal code is too short",
       "usa_specific": {
+        "invalid_ssn": "Please enter a valid SSN",
+        "required_ssn": "Please enter your SSN",
         "required_state": "Please select a state"
-      },
-      "valid_email": "Please enter a valid email",
-      "valid_mobile_number": "Please enter a valid mobile number",
-      "valid_pan": "Please enter a valid PAN",
-      "valid_ssn": "Please enter a valid SSN"
+      }
     },
     "personal_information_title": "Add your personal information",
     "prompt": {

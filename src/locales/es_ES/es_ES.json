@@ -8,6 +8,20 @@
   "auth_cam_start": {
     "loader": "Iniciando cámara"
   },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "Coloque su rostro en el marco",
+      "even_lighting": "Asegúrese de que la iluminación sea uniforme",
+      "eye_level": "Mantenga la cámara a la altura de los ojos",
+      "face_not_found": "Asegúrese que su cara sea visible",
+      "head_not_upright": "Mantenga la cabeza erguida",
+      "move_back": "Ahora muévase hacia atrás",
+      "move_close": "Ahora acérquese",
+      "move_closer": "Acérquese",
+      "not_looking_straight": "Mire hacia adelante",
+      "steady": "No se mueva"
+    }
+  },
   "auth_capture_start": {
     "body": "Coloque su rostro dentro del marco ovalado",
     "button_primary": "Iniciar escaneo del rostro",
@@ -24,20 +38,6 @@
       "steady_count_3": "No se mueva: 3"
     },
     "title": "Iniciar escaneo del rostro"
-  },
-  "auth_capture": {
-    "feedback": {
-      "center_face": "Coloque su rostro en el marco",
-      "even_lighting": "Asegúrese de que la iluminación sea uniforme",
-      "eye_level": "Mantenga la cámara a la altura de los ojos",
-      "face_not_found": "Asegúrese que su cara sea visible",
-      "head_not_upright": "Mantenga la cabeza erguida",
-      "move_back": "Ahora muévase hacia atrás",
-      "move_close": "Ahora acérquese",
-      "move_closer": "Acérquese",
-      "not_looking_straight": "Mire hacia adelante",
-      "steady": "No se mueva"
-    }
   },
   "auth_error": {
     "cam_encryption": {
@@ -63,14 +63,14 @@
     "button_primary": "Abrir en pantalla completa",
     "title": "Modo selfie en pantalla completa"
   },
-  "auth_permission_denied": {
-    "body_cam": "Para continuar, deberá conceder acceso a la cámara desde la configuración de su móvil.",
-    "button_primary_cam": "Acceder a la configuración"
-  },
   "auth_permission": {
     "body_cam": "Para continuar, deberá conceder acceso a la cámara cuando se le solicite.",
     "button_primary_cam": "Conceder acceso a la cámara",
     "title_cam": "Permitir acceso a la cámara"
+  },
+  "auth_permission_denied": {
+    "body_cam": "Para continuar, deberá conceder acceso a la cámara desde la configuración de su móvil.",
+    "button_primary_cam": "Acceder a la configuración"
   },
   "auth_progress": {
     "loader": "Cargando"
@@ -515,6 +515,9 @@
     "address_title": "Añada su dirección",
     "button_continue": "Continuar",
     "components": {
+      "country_residence_select": {
+        "placeholder": "Seleccione un país"
+      },
       "country_select": {
         "placeholder": "Seleccione un país"
       },
@@ -534,6 +537,7 @@
     "country_of_residence_title": "",
     "field_labels": {
       "country": "País",
+      "country_residence": "País",
       "dob": "Fecha de nacimiento",
       "email": "Correo electrónico",
       "first_name": "Nombre",
@@ -541,20 +545,23 @@
         "postcode": "Código postal",
         "town": "Ciudad/Población"
       },
+      "ind_specific": {
+        "pan": "Número de cuenta permanente (PAN)"
+      },
       "last_name": "Apellido",
       "line1": "Línea de dirección 1",
       "line2": "Línea de dirección 2",
       "line3": "Línea de dirección 3",
       "mobile_number": "Número de móvil",
       "nationality": "Nacionalidad",
-      "pan": "Número de cuenta permanente (PAN)",
+      "phone_number": "Número de teléfono",
       "postcode": "Código postal",
-      "ssn": "Número de la seguridad social (NSS)",
       "town": "Población",
       "usa_specific": {
         "line1_helper_text": "Dirección, por ejemplo: calle Alberto, n.º 200",
         "line2_helper_text": "Apartamento, suite, unidad, etc.",
         "postcode": "Código postal",
+        "ssn": "Número de la seguridad social (NSS)",
         "state": "Estado"
       }
     },
@@ -565,9 +572,17 @@
         "too_long_postcode": "El código postal es demasiado largo",
         "too_short_postcode": "El código postal es demasiado corto"
       },
+      "ind_specific": {
+        "invalid_pan": "Introduzca un PAN válido",
+        "required_pan": "Introduzca su PAN"
+      },
       "invalid": "Compruebe si hay caracteres o símbolos no válidos",
       "invalid_dob": "Introduzca una fecha de nacimiento válida",
+      "invalid_email": "Introduzca un correo electrónico válido",
+      "invalid_mobile_number": "Introduzca un número de móvil válido",
+      "invalid_phone_number": "Introduzca un número de teléfono válido",
       "required_country": "Seleccione un país",
+      "required_country_residence": "Seleccione un país",
       "required_dob": "Introduzca su fecha de nacimiento",
       "required_email": "Introduzca su correo electrónico",
       "required_first_name": "",
@@ -575,9 +590,8 @@
       "required_line1": "Introduzca su dirección",
       "required_mobile_number": "Introduzca su número de móvil",
       "required_nationality": "Seleccione un país",
-      "required_pan": "Introduzca su PAN",
+      "required_phone_number": "Introduzca su número de teléfono",
       "required_postcode": "Introduzca su código postal",
-      "required_ssn": "Introduzca su NSS",
       "too_long__line1": "La línea de dirección es demasiado larga",
       "too_long_first_name": "El nombre es demasiado largo",
       "too_long_last_name": "El apellido es demasiado largo",
@@ -587,12 +601,10 @@
       "too_short_last_name": "El apellido es demasiado corto",
       "too_short_postcode": "El código postal es demasiado corto",
       "usa_specific": {
+        "invalid_ssn": "Introduzca un NSS válido",
+        "required_ssn": "Introduzca su NSS",
         "required_state": "Seleccione un estado"
-      },
-      "valid_email": "Introduzca un correo electrónico válido",
-      "valid_mobile_number": "Introduzca un número de móvil válido",
-      "valid_pan": "Introduzca un PAN válido",
-      "valid_ssn": "Introduzca un NSS válido"
+      }
     },
     "personal_information_title": "Añada sus datos personales",
     "prompt": {
