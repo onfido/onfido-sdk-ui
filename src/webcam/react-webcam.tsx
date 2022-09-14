@@ -145,6 +145,8 @@ type FacingModeType =
 export type WebcamProps = {
   audio?: boolean
   className?: string
+  constraints?: MediaStreamConstraints // Allow passing a MediaStreamConstraints directly
+  fallbackConstraints?: MediaStreamConstraints
   facingMode?: FacingModeType
   fallbackHeight?: ConstrainULong
   fallbackWidth?: ConstrainULong
@@ -279,15 +281,15 @@ export default class Webcam extends Component<WebcamProps, State> {
       audio,
       fallbackWidth,
       fallbackHeight,
+      constraints,
+      fallbackConstraints,
     } = this.props
 
-    const constraints = this.getConstraints(width, height, facingMode, audio)
-    const fallbackConstraints = this.getConstraints(
-      fallbackWidth,
-      fallbackHeight,
-      facingMode,
-      audio
-    )
+    const usedConstraints =
+      constraints ?? this.getConstraints(width, height, facingMode, audio)
+    const usedFallbackConstraints =
+      fallbackConstraints ??
+      this.getConstraints(fallbackWidth, fallbackHeight, facingMode, audio)
 
     const onSuccess = (stream: MediaStream) => {
       Webcam.userMediaRequested = false
@@ -305,7 +307,7 @@ export default class Webcam extends Component<WebcamProps, State> {
         Webcam.mountedInstances.forEach((instance) => instance.handleError(e))
       } else {
         hasTriedFallbackConstraints = true
-        getUserMedia(fallbackConstraints).then(onSuccess).catch(onError)
+        getUserMedia(usedFallbackConstraints).then(onSuccess).catch(onError)
       }
     }
     Webcam.userMediaRequested = true
@@ -326,7 +328,7 @@ export default class Webcam extends Component<WebcamProps, State> {
 
       // Permission should be granted here, we can use enumerateDevices
       this.stream = await getUserMedia(
-        await handleFacingModeConstraints(constraints)
+        await handleFacingModeConstraints(usedConstraints)
       )
       if (this.stream) {
         onSuccess(this.stream)

@@ -36,8 +36,6 @@ type State = {
   isCapturing: boolean
 }
 
-const IDEAL_CAMERA_WIDTH_IN_PX = 1080 // Full HD 1080p
-
 class DocumentLiveCapture extends Component<Props, State> {
   private webcam?: Webcam
 
@@ -105,9 +103,37 @@ class DocumentLiveCapture extends Component<Props, State> {
           <Spinner />
         ) : (
           <Camera
-            facing="environment"
+            // ideally we'd like to have 1440x1920. The browser can still bypass the 'ideal' and send something else instead.
+            constraints={{
+              video: {
+                width: {
+                  // width is reversed (==height) in portrait mode
+                  ideal: 1440,
+                },
+                height: {
+                  ideal: 1920,
+                },
+                facingMode: {
+                  ideal: 'environment',
+                },
+              },
+            }}
+            // all smartphones have 1920x1080 resolution (See slavi's research), use that for fallback
+            fallbackConstraints={{
+              video: {
+                width: {
+                  // width is reversed (==height) in portrait mode
+                  ideal: 1080,
+                },
+                height: {
+                  ideal: 1920,
+                },
+                facingMode: {
+                  ideal: 'environment',
+                },
+              },
+            }}
             docLiveCaptureFrame
-            idealCameraWidth={IDEAL_CAMERA_WIDTH_IN_PX}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
             webcamRef={(ref) => ref && (this.webcam = ref)}
@@ -128,7 +154,6 @@ class DocumentLiveCapture extends Component<Props, State> {
             buttonType="photo"
             onButtonClick={this.captureDocumentPhoto}
             isButtonDisabled={hasCameraError || isCapturing}
-            fallbackToDefaultWidth
           >
             {hasAllowedCameraAccess && !hasCameraError && (
               <Timeout seconds={10} onTimeout={this.handleTimeout} />
