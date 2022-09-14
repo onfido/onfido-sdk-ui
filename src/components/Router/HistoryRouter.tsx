@@ -1,7 +1,6 @@
 import { Fragment, h } from 'preact'
 import { useCallback, useEffect, useState } from 'preact/hooks'
 
-import { loadExternalScript } from '~utils/dynamicLoading'
 import { buildStepFinder, findFirstEnabled, findFirstIndex } from '~utils/steps'
 
 import type { FlowVariants } from '~types/commons'
@@ -15,15 +14,13 @@ import type {
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes, StepConfig } from '~types/steps'
-import { SdkConfigurationServiceContext } from '~contexts/useSdkConfigurationService'
+import usePassiveSignals from '~contexts/usePassiveSignals'
 
 import { sendEvent } from '../../Tracker'
 
 import { useHistory } from './useHistory'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
-
-const { PASSIVE_SIGNALS_URL } = process.env
 
 type HistoryRouterState = {
   initialStep: number
@@ -50,20 +47,7 @@ export const HistoryRouterWrapper = ({
     )
   }
 
-  return (
-    <SdkConfigurationServiceContext.Consumer>
-      {(configuration) => {
-        return (
-          <HistoryRouter
-            {...props}
-            {...useStepsProps}
-            steps={steps}
-            sdkConfiguration={configuration}
-          />
-        )
-      }}
-    </SdkConfigurationServiceContext.Consumer>
-  )
+  return <HistoryRouter {...props} {...useStepsProps} steps={steps} />
 }
 
 export const HistoryRouter = (props: HistoryRouterProps) => {
@@ -85,7 +69,6 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     loadNextStep,
     completeStep,
     triggerOnError,
-    sdkConfiguration,
   } = props
 
   const getComponentsList = (
@@ -106,32 +89,9 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     })
   }
 
-  const [passiveSignalsTracker, setPassiveSignalsTracker] = useState<
-    PassiveSignals.Tracker | undefined
-  >(undefined)
-
-  useEffect(() => {
-    // Don't load the Passive Signals module by default
-    const enabled =
-      sdkConfiguration?.device_intelligence?.passive_signals?.enabled || false
-
-    if (!enabled || !token || !PASSIVE_SIGNALS_URL) {
-      return
-    }
-
-    loadExternalScript(PASSIVE_SIGNALS_URL, () => {
-      if (window.PassiveSignalsTracker) {
-        const tracker = new window.PassiveSignalsTracker({ jwt: token })
-        setPassiveSignalsTracker(tracker)
-        tracker.track()
-      }
-    })
-
-    return () => {
-      // Stop all the connected tracers
-      passiveSignalsTracker?.stop()
-    }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  // TODO: this hook returns an instance of PassiveSignalsTracker,
+  // use it to customisably track behaviours like screen switching.
+  usePassiveSignals(token)
 
   const { back, forward, push } = useHistory(({ state: historyState }) => {
     const { step } = getComponentsList(steps, historyState.flow)[
