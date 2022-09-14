@@ -121,7 +121,7 @@ export type StepsRouterProps = {
   extendTrackScreen?: (
     step: string,
     screenNameHierarchy: string[],
-    properties: Record<any, any>
+    properties: Record<string, unknown>
   ) => void
 } & HistoryRouterBaseProps
 

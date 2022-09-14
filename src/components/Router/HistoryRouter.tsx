@@ -23,6 +23,8 @@ import { useHistory } from './useHistory'
 import { buildComponentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 
+const { PASSIVE_SIGNALS_URL } = process.env
+
 type HistoryRouterState = {
   initialStep: number
 } & HistoryLocationState
@@ -107,16 +109,13 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
   const [tracker, setTracker] = useState<PassiveSignalsTracker | undefined>(
     undefined
   )
-  const [mounted, setMounted] = useState<boolean>(true)
 
   useEffect(() => {
-    // FIXME: remove || true which is only here as the backend doesn't provide this value
+    // Don't load the Passive Signals module by default
     const enabled =
-      sdkConfiguration?.device_intelligence?.passive_signals?.enabled || true
+      sdkConfiguration?.device_intelligence?.passive_signals?.enabled || false
 
-    const { PASSIVE_SIGNALS_URL } = process.env
-
-    if (!enabled || !mounted || !token || !PASSIVE_SIGNALS_URL) {
+    if (!enabled || !token || !PASSIVE_SIGNALS_URL) {
       return
     }
 
@@ -128,7 +127,6 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
 
     return () => {
       tracker?.tearDown()
-      setMounted(false)
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 

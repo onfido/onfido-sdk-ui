@@ -12,7 +12,7 @@
       http-equiv="Content-Security-Policy"
       content="
       default-src 'self' https://assets.onfido.com;
-      script-src 'self' https://assets.onfido.com https://sentry.io https://*.amazonaws.com https://*.sardine.ai/;
+      script-src 'self' https://assets.onfido.com https://sentry.io https://*.sardine.ai/;
       style-src 'self' 'unsafe-inline' https://assets.onfido.com;
       connect-src blob: 'self' data: <%= process.env.NODE_ENV === 'test' ? 'https://localhost:8082 https://localhost:8080' : '' %> *.onfido.com wss://*.onfido.com *.dev.onfido.xyz wss://*.dev.onfido.xyz https://*.sentry.io;
       img-src 'self' data: blob: https://assets.onfido.com/;
