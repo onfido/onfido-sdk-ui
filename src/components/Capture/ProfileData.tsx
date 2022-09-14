@@ -488,9 +488,17 @@ const hasValidEmail = (email: string) => {
     )
 }
 
+const hasValidPostcode = (ssn: string) => {
+  // taken from: https://stackoverflow.com/a/7259020
+  return /^([A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$/.test(ssn)
+}
+
+const hasValidSsn = (ssn: string) => {
+  return /^\d{3}-?\d{2}-?\d{4}$/.test(ssn)
+}
+
 const hasValidPan = (pan: string) => {
-  const myRegEx = /^\w+$/
-  return pan.length === 10 && myRegEx.test(String(pan).toLowerCase())
+  return pan.length === 10 && /^\w+$/.test(String(pan).toLowerCase())
 }
 
 const validateField = (
@@ -550,26 +558,25 @@ const validateField = (
     if (!Object.values(validity).every(Boolean)) {
       return translate('profile_data.field_validation.invalid_dob')
     }
-  }
-  if (type === 'ssn' && country === 'USA' && ssnEnabled) {
-    if (!/^\d{3}-?\d{2}-?\d{4}$/.test(value)) {
+  } else if (type === 'postcode' && country === 'GBR') {
+    if (!hasValidPostcode(value)) {
+      return translate(
+        'profile_data.field_validation.gbr_specific.invalid_postcode'
+      )
+    }
+  } else if (type === 'ssn' && country === 'USA' && ssnEnabled) {
+    if (!hasValidSsn(value)) {
       return translate('profile_data.field_validation.usa_specific.invalid_ssn')
     }
-  }
-
-  if (type === 'pan' && country === 'IND' && panEnabled) {
+  } else if (type === 'pan' && country === 'IND' && panEnabled) {
     if (!hasValidPan(value)) {
       return translate('profile_data.field_validation.ind_specific.invalid_pan')
     }
-  }
-
-  if (type === 'phone_number') {
+  } else if (type === 'phone_number') {
     return value && isValidPhoneNumber(value)
       ? ''
       : translate(`profile_data.field_validation.invalid_${type}`)
-  }
-
-  if (type === 'email') {
+  } else if (type === 'email') {
     return hasValidEmail(value)
       ? ''
       : translate(`profile_data.field_validation.invalid_${type}`)

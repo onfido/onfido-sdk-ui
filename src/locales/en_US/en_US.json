@@ -568,6 +568,7 @@
     "field_optional": "(optional)",
     "field_validation": {
       "gbr_specific": {
+        "invalid_postcode": "Please enter a valid postcode",
         "required_postcode": "Please enter your postcode",
         "too_long_postcode": "Postcode is too long",
         "too_short_postcode": "Postcode is too short"
