@@ -106,9 +106,9 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     })
   }
 
-  const [tracker, setTracker] = useState<PassiveSignals.Tracker | undefined>(
-    undefined
-  )
+  const [passiveSignalsTracker, setPassiveSignalsTracker] = useState<
+    PassiveSignals.Tracker | undefined
+  >(undefined)
 
   useEffect(() => {
     // Don't load the Passive Signals module by default
@@ -121,13 +121,15 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
 
     loadExternalScript(PASSIVE_SIGNALS_URL, () => {
       if (window.PassiveSignalsTracker) {
-        setTracker(new window.PassiveSignalsTracker({ jwt: token }))
+        const tracker = new window.PassiveSignalsTracker({ jwt: token })
+        setPassiveSignalsTracker(tracker)
+        tracker.track()
       }
     })
 
     return () => {
       // Stop all the connected tracers
-      tracker?.stop()
+      passiveSignalsTracker?.stop()
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
