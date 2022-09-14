@@ -173,9 +173,6 @@ jobs:
       - name: Build webtest
         run: cd webtest && mvn --no-transfer-progress clean install && cd ..
 
-      - name: Setup Chromedriver
-        uses: nanasess/setup-chromedriver@v1
-
       - uses: actions/download-artifact@v2
         with:
           name: build-${{ github.run_id }}
