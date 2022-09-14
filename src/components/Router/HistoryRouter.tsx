@@ -17,7 +17,7 @@ import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes, StepConfig } from '~types/steps'
 import { SdkConfigurationServiceContext } from '~contexts/useSdkConfigurationService'
 
-import { screenNameHierarchyFormat, sendEvent } from '../../Tracker'
+import { sendEvent } from '../../Tracker'
 
 import { useHistory } from './useHistory'
 import { buildComponentsList } from './StepComponentMap'
@@ -106,7 +106,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     })
   }
 
-  const [tracker, setTracker] = useState<PassiveSignalsTracker | undefined>(
+  const [tracker, setTracker] = useState<PassiveSignals.Tracker | undefined>(
     undefined
   )
 
@@ -120,13 +120,14 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     }
 
     loadExternalScript(PASSIVE_SIGNALS_URL, () => {
-      if (window.PassiveSignalTracker) {
-        setTracker(new window.PassiveSignalTracker({ jwt: token }))
+      if (window.PassiveSignalsTracker) {
+        setTracker(new window.PassiveSignalsTracker({ jwt: token }))
       }
     })
 
     return () => {
-      tracker?.tearDown()
+      // Stop all the connected tracers
+      tracker?.stop()
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -291,18 +292,6 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     setStepIndex(currentStep - 1)
   }
 
-  const trackPassiveSignals = (
-    step: string,
-    screenNameHierarchy: string[],
-    properties: Record<string, unknown>
-  ) => {
-    tracker?.track({
-      step,
-      screens: screenNameHierarchyFormat(screenNameHierarchy),
-      properties,
-    })
-  }
-
   const goBack = () => {
     sendEvent('navigation_back_button_clicked')
     back()
@@ -341,7 +330,6 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       previousStep={previousStep}
       step={state.step}
       triggerOnError={triggerOnError}
-      extendTrackScreen={trackPassiveSignals}
       isLoadingStep={status === 'loading'}
     />
   )

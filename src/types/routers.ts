@@ -118,11 +118,6 @@ export type StepsRouterProps = {
   step: number
   isLoadingStep?: boolean
   completeStep: (data: CompleteStepValue) => void
-  extendTrackScreen?: (
-    step: string,
-    screenNameHierarchy: string[],
-    properties: Record<string, unknown>
-  ) => void
 } & HistoryRouterBaseProps
 
 export type StepComponentBaseProps = {

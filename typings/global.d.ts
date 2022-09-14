@@ -5,13 +5,21 @@ import type { SdkHandle, SdkOptions, SdkInitMethod } from '~types/sdk'
 declare global {
   type Optional<T> = T | null | undefined
 
-  interface PassiveSignalsTracker {
-    track: (context?: Record<string, unknown>) => void
-    tearDown: () => void
-  }
+  namespace PassiveSignals {
+    type Context = {
+      sdk_version?: string
+    }
 
-  interface PassiveSignalsTrackerConstructor {
-    new (configuration: { jwt: string }): PassiveSignalsTracker
+    type Configuration = {
+      jwt: string
+      context?: Context
+    }
+
+    class Tracker {
+      constructor(configuration: Configuration): Tracker
+      track: () => void
+      stop: () => void
+    }
   }
 
   namespace NodeJS {
@@ -32,7 +40,7 @@ declare global {
       options: SdkOptions & { onComplete?: (data: unknown) => void }
     ) => void
     MSStream: object
-    PassiveSignalTracker: PassiveSignalsTrackerConstructor
+    PassiveSignalsTracker: typeof PassiveSignals.Tracker
   }
 
   interface Navigator extends Window.Navigator {
