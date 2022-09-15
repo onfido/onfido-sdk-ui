@@ -1,10 +1,7 @@
 import { Fragment, h } from 'preact'
+import { useCallback, useEffect, useState } from 'preact/hooks'
 
 import { buildStepFinder, findFirstEnabled, findFirstIndex } from '~utils/steps'
-import { buildComponentsList } from './StepComponentMap'
-import StepsRouter from './StepsRouter'
-
-import { sendEvent } from '../../Tracker'
 
 import type { FlowVariants } from '~types/commons'
 import type { CaptureKeys } from '~types/redux'
@@ -17,8 +14,13 @@ import type {
 } from '~types/routers'
 import type { SdkResponse } from '~types/sdk'
 import type { DocumentTypes, StepConfig } from '~types/steps'
-import { useCallback, useEffect, useState } from 'preact/hooks'
+import usePassiveSignals from '~contexts/usePassiveSignals'
+
+import { sendEvent } from '../../Tracker'
+
 import { useHistory } from './useHistory'
+import { buildComponentsList } from './StepComponentMap'
+import StepsRouter from './StepsRouter'
 
 type HistoryRouterState = {
   initialStep: number
@@ -60,7 +62,7 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
     step: defaultStep,
     stepIndexType,
     deviceHasCameraSupport,
-    options: { mobileFlow, useMemoryHistory },
+    options: { mobileFlow, useMemoryHistory, token },
     steps,
     hasNextStep,
     hasPreviousStep,
@@ -86,6 +88,10 @@ export const HistoryRouter = (props: HistoryRouterProps) => {
       hasPreviousStep,
     })
   }
+
+  // TODO: this hook returns an instance of PassiveSignalsTracker,
+  // use it to customisably track behaviours like screen switching.
+  usePassiveSignals(token)
 
   const { back, forward, push } = useHistory(({ state: historyState }) => {
     const { step } = getComponentsList(steps, historyState.flow)[

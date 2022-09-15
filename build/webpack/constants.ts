@@ -42,6 +42,8 @@ const PROD_CONFIG: ConstantMap = {
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
   COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
+  PASSIVE_SIGNALS_URL:
+    'https://assets.onfido.com/passive-signals/v1/signal.min.js',
 }
 
 const TEST_DEPLOYMENT_CONFIG: ConstantMap = {
@@ -76,6 +78,8 @@ const STAGING_CONFIG: ConstantMap = {
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
   COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
+  PASSIVE_SIGNALS_URL:
+    'https://assets.onfido.com/dev/passive-signals/v1/signal.min.js',
 
   // @TODO: clean-up this config when v4 APIs are live
   USE_V4_APIS_FOR_DOC_VIDEO: process.env.USE_V4_APIS_FOR_DOC_VIDEO,
