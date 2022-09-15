@@ -40,7 +40,7 @@ declare global {
       options: SdkOptions & { onComplete?: (data: unknown) => void }
     ) => void
     MSStream: object
-    PassiveSignalTracker: typeof PassiveSignals.Tracker
+    OnfidoPassiveSignals: typeof PassiveSignals.Tracker
   }
 
   interface Navigator extends Window.Navigator {

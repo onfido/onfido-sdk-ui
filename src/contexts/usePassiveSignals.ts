@@ -22,8 +22,8 @@ export default function usePassiveSignals(token: string | undefined) {
     }
 
     loadExternalScript(PASSIVE_SIGNALS_URL, () => {
-      if (window.PassiveSignalTracker) {
-        const tracker = new window.PassiveSignalTracker({ jwt: token })
+      if (window.OnfidoPassiveSignals) {
+        const tracker = new window.OnfidoPassiveSignals({ jwt: token })
         setPassiveSignalsTracker(tracker)
         tracker.track()
       }
