@@ -7,6 +7,7 @@ declare global {
 
   namespace PassiveSignals {
     type Context = {
+      disable_cookies?: boolean
       sdk_version?: string
     }
 
