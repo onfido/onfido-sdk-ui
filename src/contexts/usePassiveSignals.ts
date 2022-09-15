@@ -8,9 +8,9 @@ const { PASSIVE_SIGNALS_URL } = process.env
 export default function usePassiveSignals(token: string | undefined) {
   const sdkConfiguration = useSdkConfigurationService()
 
-  const [passiveSignalsTracker, setPassiveSignalsTracker] = useState<
-    PassiveSignals.Tracker | undefined
-  >(undefined)
+  const [tracker, setTracker] = useState<PassiveSignals.Tracker | undefined>(
+    undefined
+  )
 
   useEffect(() => {
     // Don't load the Passive Signals module by default
@@ -24,16 +24,16 @@ export default function usePassiveSignals(token: string | undefined) {
     loadExternalScript(PASSIVE_SIGNALS_URL, () => {
       if (window.OnfidoPassiveSignals) {
         const tracker = new window.OnfidoPassiveSignals({ jwt: token })
-        setPassiveSignalsTracker(tracker)
+        setTracker(tracker)
         tracker.track()
       }
     })
 
     return () => {
       // Stop all the connected tracers
-      passiveSignalsTracker?.stop()
+      tracker?.stop()
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  return passiveSignalsTracker
+  return tracker
 }
