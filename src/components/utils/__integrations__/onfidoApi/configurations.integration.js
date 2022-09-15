@@ -24,6 +24,11 @@ describe('API configurations endpoint', () => {
       enable_in_house_analytics: false,
       enable_on_device_face_detection: true,
       enable_require_applicant_consents: true,
+      enable_performance_analytics: false,
+      logger: {
+        enabled: false,
+        levels: ['error', 'fatal'],
+      },
     })
   })
 
@@ -38,6 +43,11 @@ describe('API configurations endpoint', () => {
       enable_in_house_analytics: false,
       enable_on_device_face_detection: false,
       enable_require_applicant_consents: false,
+      enable_performance_analytics: false,
+      logger: {
+        enabled: false,
+        levels: ['error', 'fatal'],
+      },
     })
   })
 
@@ -52,6 +62,11 @@ describe('API configurations endpoint', () => {
       enable_in_house_analytics: false,
       enable_on_device_face_detection: true,
       enable_require_applicant_consents: true,
+      enable_performance_analytics: false,
+      logger: {
+        enabled: false,
+        levels: ['error', 'fatal'],
+      },
     })
   })
 
