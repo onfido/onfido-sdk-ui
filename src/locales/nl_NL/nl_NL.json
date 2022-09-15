@@ -481,6 +481,7 @@
     "field_optional": "(optioneel)",
     "field_validation": {
       "gbr_specific": {
+        "invalid_postcode": "Voer een geldig postcode in",
         "required_postcode": "Voer uw postcode in",
         "too_long_postcode": "Postcode is te lang",
         "too_short_postcode": "Postcode is te kort"

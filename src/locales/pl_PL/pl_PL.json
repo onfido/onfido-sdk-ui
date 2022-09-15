@@ -481,6 +481,7 @@
     "field_optional": "(opcjonalnie)",
     "field_validation": {
       "gbr_specific": {
+        "invalid_postcode": "Podaj prawidłowy pocztowy",
         "required_postcode": "Wprowadź swój kod pocztowy",
         "too_long_postcode": "Kod pocztowy jest zbyt długi",
         "too_short_postcode": "Kod pocztowy jest zbyt krótki"

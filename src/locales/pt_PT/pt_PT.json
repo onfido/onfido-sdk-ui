@@ -481,6 +481,7 @@
     "field_optional": "(opcional)",
     "field_validation": {
       "gbr_specific": {
+        "invalid_postcode": "Introduza um postal válido",
         "required_postcode": "Introduza o seu código postal",
         "too_long_postcode": "O código postal é demasiado longo",
         "too_short_postcode": "O código postal é demasiado curto"

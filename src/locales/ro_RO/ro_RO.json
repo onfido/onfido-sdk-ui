@@ -481,6 +481,7 @@
     "field_optional": "(opțional)",
     "field_validation": {
       "gbr_specific": {
+        "invalid_postcode": "Vă rugăm să introduceți un poștal valabil",
         "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
         "too_long_postcode": "Codul poștal este prea lung",
         "too_short_postcode": "Codul poștal este prea scurt"

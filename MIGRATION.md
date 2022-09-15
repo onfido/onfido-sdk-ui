@@ -83,6 +83,7 @@ The **German, English, Spanish, French, Italian, Dutch, and Portuguese** copy fo
 - `profile_data.field_validation.valid_mobile_number`
 - `profile_data.field_validation.valid_pan`
 - `profile_data.field_validation.valid_ssn`
+- `profile_data.field_validation.gbr_specific.invalid_postcode`
 - `retry_feedback.button_primary`
 - `retry_feedback_id_expired.subtitle`
 - `retry_feedback_id_expired.title`
