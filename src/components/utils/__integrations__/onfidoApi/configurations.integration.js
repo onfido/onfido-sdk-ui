@@ -23,7 +23,12 @@ describe('API configurations endpoint', () => {
       disable_cross_device_sms: false,
       enable_in_house_analytics: false,
       enable_on_device_face_detection: true,
+      enable_performance_analytics: false,
       enable_require_applicant_consents: true,
+      logger: {
+        enabled: false,
+        levels: ['error', 'fatal'],
+      },
     })
   })
 
@@ -37,7 +42,12 @@ describe('API configurations endpoint', () => {
       disable_cross_device_sms: false,
       enable_in_house_analytics: false,
       enable_on_device_face_detection: false,
+      enable_performance_analytics: false,
       enable_require_applicant_consents: false,
+      logger: {
+        enabled: false,
+        levels: ['error', 'fatal'],
+      },
     })
   })
 
@@ -51,7 +61,12 @@ describe('API configurations endpoint', () => {
       disable_cross_device_sms: false,
       enable_in_house_analytics: false,
       enable_on_device_face_detection: true,
+      enable_performance_analytics: false,
       enable_require_applicant_consents: true,
+      logger: {
+        enabled: false,
+        levels: ['error', 'fatal'],
+      },
     })
   })
 
