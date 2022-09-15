@@ -481,6 +481,7 @@
     "field_optional": "(volitelná položka)",
     "field_validation": {
       "gbr_specific": {
+        "invalid_postcode": "Zadejte platné poštovní",
         "required_postcode": "Zadejte své poštovní směrovací číslo",
         "too_long_postcode": "Poštovní směrovací číslo je příliš dlouhé",
         "too_short_postcode": "Poštovní směrovací číslo je příliš krátké"

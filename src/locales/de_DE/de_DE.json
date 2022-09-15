@@ -569,6 +569,7 @@
     "field_optional": "(optional)",
     "field_validation": {
       "gbr_specific": {
+        "invalid_postcode": "Bitte geben Sie eine gültige Postleitzahl ein",
         "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
         "too_long_postcode": "Die Postleitzahl ist zu lang",
         "too_short_postcode": "Die Postleitzahl ist zu kurz"
