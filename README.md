@@ -32,7 +32,7 @@ The SDK offers a number of benefits to help you create the best identity verific
 
 ⚠️ Note: the SDK is only responsible for capturing photos and videos. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and perform checks.
 
-![Various views from the SDK](screenshots/screenshots.jpg)
+![Various views from the SDK](demo/screenshots.jpg)
 
 ## Getting started
 
@@ -355,7 +355,7 @@ onfidoOut.tearDown()
 
 - **`useModal {Boolean} optional`**
 
-  Turns the SDK into a modal, which fades the background and puts the SDK into a contained box.
+  Turns the SDK into a modal, which fades the background and puts the SDK into a contained box. The default value is `false`.
 
   ```javascript
   <script>
@@ -393,11 +393,11 @@ onfidoOut.tearDown()
 
 - **`shouldCloseOnOverlayClick {Boolean} optional`**
 
-  If `useModal` is set to `true`, by default the user can close the SDK by clicking on the close button or on the background overlay. You can disable the user's ability to close the SDK by clicking the background overlay through setting `shouldCloseOnOverlayClick` to `false`.
+  If `useModal` is set to `true`, by default the user can close the SDK by clicking on the close button or on the background overlay. You can disable the user's ability to close the SDK by clicking the background overlay through setting `shouldCloseOnOverlayClick` to `false`. The default value is `true`.
 
-- **`autoFocusOnInitialScreenTitle {Boolean} optional (default: true)`**
+- **`autoFocusOnInitialScreenTitle {Boolean} optional`**
 
-  Sets the SDK to auto focus on the initial screen's title. By default the SDK will auto focus on every screen's title. When disabled, auto focus will not be applied for the initial screen's title. The SDK will still auto focus to all subsequent screens' titles as the user goes through the steps.
+  Sets the SDK to auto focus on the initial screen's title. By default the SDK will auto focus on every screen's title. When disabled, auto focus will not be applied for the initial screen's title. The SDK will still auto focus to all subsequent screens' titles as the user goes through the steps. The default value is `true`.
 
 - **`containerId {String} optional`**
 
@@ -475,6 +475,9 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   | Italian           | `it_IT`    |
   | Portuguese        | `pt_PT`    |
   | Dutch             | `nl_NL`    |
+  | Czech             | `cs_CZ`    |
+  | Polish            | `pl_PL`    |
+  | Romanian          | `ro_RO`    |
 
   Example:
 
@@ -518,160 +521,46 @@ The custom options are:
 
 This is the identity document capture step. Users will be asked to select the document type and its issuing country before providing images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
 
-Document selection and country selection are both optional screens. These screens will only show to the end user if specific options are not configured to the SDK.
+Document type and document country selection is an optional screen. This screen will only show to the end user if specific options are not configured to the SDK.
 
 The custom options are:
 
 - `documentTypes` (object)
 
-  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see either the document selection screen or the country selection screen and instead will be taken directly to the capture screen.
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. When `documentTypes` is not defined, the default value for each document type is `true`. When `documentTypes` is defined, it will override the default values. Absent types are considered `false`.
 
 - `country` (string)
 
   Document country can be specified per document type. The `country` configuration for a document type allows you to specify the issuing country of the document as a string containing a 3-letter ISO 3166-1 alpha-3 country code.
 
-  If a document country is specified for a document type, or is passed as `null`, the country selection screen is not displayed to the end user.
+  If `documentTypes` only includes one document type with a country value, users will not see the document selection screen and instead will be taken directly to the capture screen.
+
+  ⚠️ **Note**: the `null` value is deprecated and has no effect.
 
   ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information.
 
-  For example, if you would like to set the country as Spain (ESP) and skip the country selection screen for the driving licence document type only:
+For example, if you want to allow only Spanish (ESP) driving licences, and national identity cards and residence permits for all countries:
 
-  ```json
-  {
-    "steps": [
-      "welcome",
-      {
-        "type": "document",
-        "options": {
-          "documentTypes": {
-            "driving_licence": {
-              "country": "ESP"
-            },
-            "national_identity_card": true,
-            "residence_permit": true
-          }
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "driving_licence": {
+            "country": "ESP"
+          },
+          "national_identity_card": true,
+          "residence_permit": true
         }
-      },
-      "complete"
-    ]
-  }
-  ```
-
-  For example, if you would like to skip the country selection screen for driving licence but do not want to set a country:
-
-  ```json
-  {
-    "steps": [
-      "welcome",
-      {
-        "type": "document",
-        "options": {
-          "documentTypes": {
-            "driving_licence": {
-              "country": null
-            },
-            "passport": true,
-            "national_identity_card": true
-          }
-        }
-      },
-      "complete"
-    ]
-  }
-  ```
-
-- `showCountrySelection` (boolean - default: `false`)
-
-  ⚠️ **Note**: Support for the `showCountrySelection` option will be deprecated soon in favour of the per document country configuration detailed above which offers integrators better control.
-
-  The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes`. It has no effect when the SDK has been set up with multiple documents preselected.
-
-  The country selection screen is never displayed for a passport document.
-
-  By default, if only one document type is preselected, and the document type is not `passport`, the country selection screen will not be displayed. If you would like to have this screen displayed still, set `showCountrySelection` to `true`.
-
-  ```javascript
-  options: {
-    documentTypes: {
-      passport: boolean,
-      driving_licence: boolean,
-      national_identity_card: boolean,
-      residence_permit: boolean
+      }
     },
-    showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
-  }
-  ```
-
-  Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour):
-
-  ```json
-  {
-    "steps": [
-      "welcome",
-      {
-        "type": "document",
-        "options": {
-          "documentTypes": {
-            // Note that only 1 document type is selected here
-            "passport": false,
-            "driving_licence": false,
-            "national_identity_card": true
-          },
-          "showCountrySelection": false
-        }
-      },
-      "complete"
-    ]
-  }
-  ```
-
-  Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed:
-
-  **Example 1**
-  All document type options enabled, `"showCountrySelection": false` has no effect
-
-  ```json
-  {
-    "steps": [
-      "welcome",
-      {
-        "type": "document",
-        "options": {
-          "documentTypes": {
-            "passport": true,
-            "driving_licence": true,
-            "national_identity_card": true
-          },
-          "showCountrySelection": false (NOTE: has no effect)
-        }
-      },
-      "complete"
-    ]
-  }
-  ```
-
-  **Example 2**
-  2 document type options enabled, `"showCountrySelection": false` has no effect
-
-  ```json
-  {
-    "steps": [
-      "welcome",
-      {
-        "type": "document",
-        "options": {
-          "documentTypes": {
-            "passport": true,
-            "national_identity_card": true,
-            "driving_licence": false
-          },
-          "showCountrySelection": false (NOTE: has no effect)
-        }
-      },
-      "complete"
-    ]
-  }
-  ```
+    "complete"
+  ]
+}
+```
 
 - `forceCrossDevice` (boolean - default: `false`)
 
@@ -687,7 +576,7 @@ The custom options are:
   ```
 
 - `useLiveDocumentCapture` (boolean - default: `false`)
-  **This BETA feature is only available on mobile devices.**
+  **This feature is only available on mobile devices.**
 
   When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. Configuring this option minimises the risk of fraudulent upload by bypassing the device's default camera application. For unsupported scenarios, see the `uploadFallback` section below.
 
@@ -773,7 +662,7 @@ This is the final completion step. The screen displays a completion message to s
 #### Cross device - mobile client introductory screen
 
 When a user switches to the SDK's Cross Device flow, they will see an introductory screen when the SDK client loads on their mobile browser.
-![Default Cross device mobile client introductory screen](screenshots/cross-device-client-intro.png)
+![Default Cross device mobile client introductory screen](demo/cross-device-client-intro.png)
 
 - **`crossDeviceClientIntroProductName {String} optional`**
 
@@ -786,7 +675,7 @@ When a user switches to the SDK's Cross Device flow, they will see an introducto
   })
   ```
 
-  ![Cross Device Client Intro screen with client product name and copy](screenshots/cross-device-client-intro-example-1.png)
+  ![Cross Device Client Intro screen with client product name and copy](demo/cross-device-client-intro-example-1.png)
 
 - **`crossDeviceClientIntroProductLogoSrc {String} optional`**
 
@@ -800,7 +689,7 @@ When a user switches to the SDK's Cross Device flow, they will see an introducto
   })
   ```
 
-  ![Cross Device Client Intro screen with client product logo](screenshots/cross-device-client-intro-example-2.png)
+  ![Cross Device Client Intro screen with client product logo](demo/cross-device-client-intro-example-2.png)
 
 ### Changing options in runtime
 
@@ -967,10 +856,10 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
   http-equiv="Content-Security-Policy"
   content="
   default-src 'self' https://assets.onfido.com;
-  script-src 'self' https://www.woopra.com https://assets.onfido.com https://sentry.io;
+  script-src 'self' https://assets.onfido.com https://sentry.io;
   style-src 'self' https://assets.onfido.com;
-  connect-src blob: *.onfido.com wss://*.onfido.com https://www.woopra.com https://sentry.io;
-  img-src 'self' data: blob: https://lipis.github.io/flag-icon-css/;
+  connect-src 'self' data: blob: *.onfido.com wss://*.onfido.com https://sentry.io;
+  img-src 'self' data: blob: https://assets.onfido.com/;
   media-src blob:;
   object-src 'self' blob:;
   frame-src 'self' data: blob:;

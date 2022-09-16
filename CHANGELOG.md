@@ -8,8 +8,56 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+- Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
+- Public: Added support for cs_CZ, ro_RO and pl_PL locales
+- Internal: Add utility tool for locales
+- Internal: Add Logger module
+- Internal: Remove woopra
+- Internal: Migrate analytics from `/v3` to `/v4`
+- Internal: Place cross device SMS feature behind a feature flag
+- Internal: Add `disableAnalyticsCookies` option
+- Public: Increase capture resolution for useLiveDocumentCapture mode, to prevent image quality issues.
+- Internal: Integrate Passive Signals module
+
+## [9.0.0] - 2022-09-05
+
 ### Changed
 
+- Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
+- Internal: Collect `FACE_LIVENESS_*` analytics events
+- Internal: Send OS name and version information in sdk configuration request
+- Internal: Update terser to 5.14.2 & moment to 2.29.4
+- Internal: Add Network module
+- Internal: Move all network calls to the Network module
+- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
+- Public: Add commit hash in console
+- Internal: Add `x-onfido-sdk-version` and `x-onfido-sdk-platform` headers to all onfido network requests
+- Internal: Update FaceTec SDK on Auth step from 9.4.11 to 9.4.12
+- Internal: Show connection error screen on active video upload errors
+
+## [8.3.0] - 2022-08-02
+
+- Public: Fixed setoption, setOptions was setting unspecified values to their default value.
+- Internal: Add dynamically loaded files (except en_US)
+- Internal: Upgraded Sentry to v7, added ErrorBoundary, fingerprinting and moved into its own module
+- Internal: Move Woopra into it's own core module
+- Internal: Migrate webpack to typescript
+- Internal: Add cross device pooling
+- Public: Support for SSN (for USA only) data capture.
+- Public: Collect country of residence before other profile data
+- Public: Add translations for profile data
+- Public: Support DocumentTypes option
+- Public: Remove asterisk from required fields
+- Public: Merge country and document selection in a single screen.
+- Internal: Remove isFullScreen prop from NavigationBar
+- Internal: Add missing analytics events from DocumentLiveCapture and DocumentMultiframe
+
+## [8.1.0] - 2022-06-13
+
+### Changed
+
+- Internal: Migrate the react-webcam code into SDK + migrate it to typescript
+- Internal: Use the `max_total_retries` field from SdkConfiguration to compute the max number of document capture retries after an image quality failed check. It was previously was set to 1.
 - Internal: Add `video_instruction_type` property to analytics event `FACE_VIDEO_CAPTURE` and `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
 - Internal: Rename analytics event `FACE_VIDEO_CAPTURE_RECORDING_NEXT_CLICKED` to `FACE_VIDEO_CAPTURE_NEXT_BUTTON_CLICKED`
 - Internal: Add `ui_alerts` properties to `FALLBACK_TRIGGERED` analytics events
@@ -19,7 +67,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add properties to analytics events for `DOCUMENT_CAPTURE` & `DOCUMENT_CONFIRMATION`
 - Internal: Remove `trackComponentMode()` & `trackComponentAndMode()`
 - Internal: Added test case configs to our demo app with queryString `testCase`
-- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
 - Internal: Add a css root scope to our SDK
 - Public: Scope our customization of castor components to our SDK css root
 - Public: Strip away `color-scheme` to prevent interference with customer styles
@@ -30,6 +77,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added `ScreenLayout` to CrossDeviceSubmit
 - Internal: Update FaceTec SDK on Auth step from 9.4.5 to 9.4.11
 - Internal: Upgrade `typescript` to 4.6.2
+- Public: Add UI customization option for `colorBackgroundQRCode`
+
+### Fixed
+
+- Public: Fix inline style to support Content Security Policy
+- Public: Fix for http 204 request errors due to parsing
+- Public: Fix for skipping step when using cross-device on mobile
+- Public: Fix for showing user consent multiple times
+- Public: Fix error when `mobilePhrases` is supplied but `phrases` are not
 
 ## [8.0.0] - 2022-04-21
 
@@ -155,6 +211,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added `autoFocusOnInitialScreenTitle` SDK configuration option for integrators to override the SDK auto focusing on the initial screen's title on loading. The default behaviour may not be desirable for some host apps or sites as it could cause the browser to focus on the SDK, rather than content or form inputs outside of the SDK that the end user should see and fill in first.
 - Upgrade `react-phone-number-input` to v3.1.38
 - Revert change which returns document type as 'unknown' in `onComplete` callback payload if Residence Permit is selected. The API now supports Residence Permit as a document type for document uploads.
+
+## [6.15.6] - 2022-06-08
+
+### Fixed
+
+- Public: Added mapping to convert old to new analytics events
 
 ## [6.15.5] - 2021-12-2
 
@@ -1137,7 +1199,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Public: The documentType in the capture object now corresponds to the API document_types.
 - Public: Fixed bug where URL path was removed between steps.
 
-## [0.11.1] - Hotfix
+## [0.11.1]
 
 ### Fixed
 
@@ -1201,7 +1263,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 ## [0.8.2]
 
-## Fixed
+### Fixed
 
 - Fixed bug of a broken layout on the document selection step. Always reproducible on IE and on other browsers too, but only when going back a step on certain conditions.
 - Fixed bug where on IE an unnecessary scrollbar appeared and the scrolling area was bigger than it should have been.
@@ -1212,7 +1274,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 ## [0.8.1]
 
-## Fixed
+### Fixed
 
 - `Object.assign` was being used but not polyfilled. Its occurrence was replaced with an es6 object construction.
 - UI disappeared if the browser's windows width was smaller than 481px;
@@ -1261,8 +1323,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Public: it's now possible to change the init options at runtime by calling `setOptions()` on the object returned by `Onfido.init()`
 - Public: `useWebcam` option added to the facial and document capture step
 
-[detectrtc]: https://github.com/muaz-khan/DetectRTC
-
 ## [0.5.1]
 
 ### Fix
@@ -1282,13 +1342,18 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/9.0.0...development
+[9.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.3.0...9.0.0
+[8.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0...8.3.0
+[8.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0
+[8.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.1...8.0.0
 [6.20.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.20.0...6.20.1
 [6.20.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.19.0...6.20.0
 [6.19.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.18.0...6.19.0
 [6.18.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.17.0...6.18.0
 [6.17.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.16.0...6.17.0
-[6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.16.0
+[6.16.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.6...6.16.0
+[6.15.6]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.5...6.15.6
 [6.15.5]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.4...6.15.5
 [6.15.4]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.3...6.15.4
 [6.15.3]: https://github.com/onfido/onfido-sdk-ui/compare/6.15.2...6.15.3
