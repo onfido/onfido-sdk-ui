@@ -1,0 +1,461 @@
+{
+    "country_select": {
+        "poa_alert": {
+            "intro": "Can't find your country?",
+            "country_not_found": "Excuses daarvoor. We werken eraan om meer landen te ondersteunen."
+        },
+        "alert": {
+            "another_doc": "Documenten uit dat land worden momenteel niet ondersteund - <fallback>probeer een ander documenttype<\/fallback>"
+        },
+        "alert_dropdown": {
+            "country_not_found": "Land niet gevonden"
+        },
+        "button_primary": "Verzend document",
+        "search": {
+            "accessibility": "Selecteer land",
+            "input_placeholder": "bijv. Nederland",
+            "label": "Zoek een land"
+        },
+        "title": "Selecteer land van uitgifte"
+    },
+    "cross_device_checklist": {
+        "button_primary": "Verificatie verzenden",
+        "info": "Tips",
+        "list_item_doc_multiple": "Documenten",
+        "list_item_doc_one": "Document",
+        "list_item_selfie": "Selfie",
+        "list_item_video": "Filmpje",
+        "list_item_poa": "Adresbewijs",
+        "subtitle": "Hier ziet u alles wat u geüpload hebt:",
+        "title": "Eén laatste stap"
+    },
+    "cross_device_error_desktop": {
+        "subtitle": "De link werkt alleen op een mobiel apparaat",
+        "title": "Er is iets misgegaan"
+    },
+    "cross_device_error_restart": {
+        "subtitle": "U moet uw verificatie opnieuw starten op uw computer",
+        "title": "Er is iets misgegaan"
+    },
+    "cross_device_intro": {
+        "button_primary": "Ontvang veilige link",
+        "list_accessibility": "Vereiste stappen om de verificatie op uw mobiele telefoon voort te zetten",
+        "list_item_finish": "Kom hier terug om het verzenden af te ronden",
+        "list_item_open_link": "Open de link en voer de taken uit",
+        "list_item_send_phone": "Stuur een veilige link naar uw telefoon",
+        "subtitle": "Hier ziet u hoe dat moet:",
+        "title": "Ga door op uw telefoon"
+    },
+    "cross_device_return": {
+        "body": "Het kan een paar seconden duren voordat uw computer de update verwerkt",
+        "subtitle": "U kunt nu terug naar uw computer om door te gaan",
+        "title": "Uploaden gelukt"
+    },
+    "cross_device_session_linked": {
+        "button_primary": "Doorgaan",
+        "info": "Nogmaals controleren",
+        "list_item_desktop_open": "Het venster op uw desktop blijft open",
+        "list_item_sent_by_you": "Deze link is door u verstuurd - vraag om advies als u denkt dat het hier gaat om fraude",
+        "subtitle": "Ga door met de verificatie",
+        "title": "Mobiele sessie gekoppeld aan uw computer"
+    },
+    "doc_capture": {
+        "button_primary": "Start scannen van document",
+        "detail": {
+            "folded_doc_front": "Leg uw document plat, inclusief alle binnenste pagina's (moeten uw foto bevatten)"
+        },
+        "header_folded_doc_front": "Zijde profielfoto",
+        "prompt": {
+            "button_card": "Plastic kaart",
+            "button_paper": "Papieren document",
+            "title_id": "Wat voor type identiteitskaart hebt u?",
+            "title_license": "Wat voor type rijbewijs hebt u?"
+        }
+    },
+    "doc_confirmation": {
+        "alert": {
+            "blur_detail": "Zorg dat alles helder zichtbaar is",
+            "blur_title": "Onscherpe foto gedetecteerd",
+            "crop_detail": "Zorg dat het volledige document zichtbaar is",
+            "crop_title": "Afgesneden afbeelding gedetecteerd",
+            "glare_detail": "Ga niet in direct zonlicht staan",
+            "glare_title": "Schittering gedetecteerd",
+            "no_doc_detail": "Zorg dat het volledig in het kader geplaatst is",
+            "no_doc_title": "Document niet gedetecteerd"
+        },
+        "body": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+        "body_bank_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+        "body_benefits_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+        "body_bill": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+        "body_id": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
+        "body_image_medium": "Het duurt langer u te verifiëren als we deze niet kunnen lezen",
+        "body_image_poor": "Om u gemakkelijk te kunnen verifiëren, hebben we een betere foto nodig",
+        "body_license": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
+        "body_passport": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
+        "body_permit": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
+        "body_tax_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+        "button_close": "Sluiten",
+        "button_primary_redo": "Opnieuw uitvoeren",
+        "button_primary_upload": "Uploaden",
+        "button_primary_upload_anyway": "Toch uploaden",
+        "button_secondary_redo": "Opnieuw uitvoeren",
+        "button_zoom": "Vergroot afbeelding",
+        "image_accessibility": "Foto van uw document",
+        "title": "Controleer uw afbeelding"
+    },
+    "doc_select": {
+        "button_bank_statement": "Afschriften van de bank of bouwvereniging",
+        "button_bank_statement_non_uk": "Bankafschrift",
+        "button_benefits_letter": "Brief voordelen",
+        "button_benefits_letter_detail": "Door de overheid toegestane uitkeringen voor huishoudens, bv. uitkering voor werkzoekenden, huursubsidie, belastingkredieten",
+        "button_bill": "Energierekening",
+        "button_bill_detail": "Gas, elektriciteit, water, vaste telefoonlijn of breedband",
+        "button_government_letter": "Government Letter",
+        "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
+        "button_id": "Identiteitskaart",
+        "button_id_detail": "Voor- en achterkant",
+        "button_license": "Rijbewijs",
+        "button_license_detail": "Voor- en achterkant",
+        "button_passport": "Paspoort",
+        "button_passport_detail": "Fotopagina",
+        "button_permit": "Verblijfsvergunning",
+        "button_permit_detail": "Voor- en achterkant",
+        "button_tax_letter": "Brief gemeentelijke belastingen",
+        "extra_estatements_ok": "Elektronische afschriften geaccepteerd",
+        "extra_no_mobile": "Sorry, geen rekening voor mobiele telefoon",
+        "list_accessibility": "Document die u kunt gebruiken voor het verifiëren van uw identiteit",
+        "pill": "snelst",
+        "subtitle": "Het moet een officieel identiteitsbewijs met foto zijn",
+        "subtitle_poa": "Dit zijn de meest waarschijnlijke documenten waaruit uw huidige adres blijkt",
+        "title": "Kies uw document",
+        "title_poa": "Kies een %{country} document"
+    },
+    "doc_submit": {
+        "button_link_upload": "of upload een foto - geen scans of kopieën",
+        "button_primary": "Ga door op telefoon",
+        "subtitle": "Neem een foto met uw telefoon",
+        "title_bank_statement": "Afschrift indienen",
+        "title_benefits_letter": "Brief indienen",
+        "title_bill": "Factuur indienen",
+        "title_government_letter": "Government Letter",
+        "title_id_back": "Verzend identiteitskaart (achterkant)",
+        "title_id_front": "Verzend identiteitskaart (voorkant)",
+        "title_license_back": "Verzend rijbewijs (achterkant)",
+        "title_license_front": "Verzend rijbewijs (voorkant)",
+        "title_passport": "Verstuur de fotopagina van uw paspoort",
+        "title_permit_back": "Verzend verblijfsvergunning (achterkant)",
+        "title_permit_front": "Verzend verblijfsvergunning (voorkant)",
+        "title_tax_letter": "Brief indienen"
+    },
+    "doc_video_capture": {
+        "button_primary_fallback": "Volgende stap",
+        "button_primary_fallback_end": "Voltooi opname",
+        "detail_step2": "Zorg dat het document altijd volledig zichtbaar is",
+        "header": "Houd uw document vast en plaats de voorkant in het kader",
+        "header_paper_doc_step2": "Draai uw document langzaam om, zodat de buitenste pagina's zichtbaar worden",
+        "header_passport": "Houd uw paspoort vast en plaats de fotopagina in het kader",
+        "header_passport_progress": "Houd het stil",
+        "header_step1": "Houd het nu stil",
+        "header_step2": "Draai uw document langzaam om, zodat de achterkant zichtbaar wordt",
+        "prompt": {
+            "detail_timeout": "Opnemen video is beperkt tot <timeout><\/timeout> seconden. <fallback>Probeer opnieuw<\/fallback>"
+        },
+        "stepper": "Stap <step><\/step> van <total><\/total>",
+        "success_accessibility": "Gelukt"
+    },
+    "doc_video_confirmation": {
+        "button_secondary": "Video weergeven",
+        "title": "Controleer uw filmpje"
+    },
+    "error_unsupported_browser": {
+        "subtitle_android": "Start het proces opnieuw op de laatste versie Google Chrome",
+        "subtitle_ios": "Start het proces opnieuw op de laatste versie van Safari",
+        "title_android": "Browser wordt niet ondersteund",
+        "title_ios": "Browser wordt niet ondersteund"
+    },
+    "generic": {
+        "accessibility": {
+            "close_sdk_screen": "Sluit het scherm voor de verificatie van uw identiteit",
+            "dismiss_alert": "Melding negeren"
+        },
+        "back": "terug",
+        "close": "sluiten",
+        "errors": {
+            "interrupted_flow_error": {
+                "instruction": "Start het proces opnieuw vanaf een ander apparaat",
+                "message": "Camera niet gedetecteerd"
+            },
+            "invalid_size": {
+                "instruction": "Moet kleiner zijn dan 10 MB",
+                "message": "Bestandsgrootte overschreden."
+            },
+            "invalid_type": {
+                "instruction": "Probeer het met een ander bestandstype",
+                "message": "Bestand niet geüpload."
+            },
+            "lazy_loading": {
+                "message": "Er is een fout opgetreden bij het laden van de component"
+            },
+            "multiple_faces": {
+                "instruction": "Alleen uw gezicht mag zichtbaar zijn in de selfie",
+                "message": "Meerdere gezichten gevonden"
+            },
+            "no_face": {
+                "instruction": "Zorg dat uw gezicht zichtbaar is",
+                "message": "Gezicht niet gedetecteerd"
+            },
+            "request_error": {
+                "instruction": "Probeer het nog eens",
+                "message": "Er is iets misgegaan"
+            },
+            "sms_failed": {
+                "instruction": "Kopieer de link naar uw telefoon",
+                "message": "Er is iets misgegaan"
+            },
+            "sms_overuse": {
+                "instruction": "Kopieer de link naar uw telefoon",
+                "message": "Teveel mislukte pogingen"
+            },
+            "unsupported_file": {
+                "instruction": "Probeer het met een .JPG- of .PNG-bestand",
+                "message": "Bestandstype wordt niet ondersteund"
+            }
+        },
+        "lazy_load_placeholder": "Bezig met laden...",
+        "loading": "Bezig met laden"
+    },
+    "get_link": {
+        "alert_wrong_number": "Controleer of uw nummer juist is",
+        "button_copied": "Gekopieerd",
+        "button_copy": "Kopiëren",
+        "button_submit": "Verstuur link",
+        "info_qr_how": "Hoe kunt u een QR-code scannen",
+        "info_qr_how_list_item_camera": "Richt de camera van uw telefoon op de QR-code",
+        "info_qr_how_list_item_download": "Als het niet werkt, download dan een QR-scan vanuit Google Play of de App Store",
+        "link_divider": "of kies een alternatieve methode",
+        "link_qr": "Scan QR-code",
+        "link_sms": "Ontvang een link via sms",
+        "link_url": "Kopieer link",
+        "loader_sending": "Versturen",
+        "number_field_input_placeholder": "Voer mobiele nummer in",
+        "number_field_label": "Voer uw mobiele nummer in:",
+        "subtitle_qr": "Scan de QR-code met uw telefoon",
+        "subtitle_sms": "Stuur deze eenmalige link naar uw telefoon",
+        "subtitle_url": "Stuur deze eenmalige link naar uw telefoon",
+        "title": "Ontvang uw veilige link",
+        "url_field_label": "Kopieer de link naar uw mobiele telefoon"
+    },
+    "mobilePhrases": {
+        "photo_upload": {
+            "body_id_back": "Neem een foto van de achterkant van uw kaart",
+            "body_id_front": "Neem een foto van de voorkant van uw kaart",
+            "body_license_back": "Neem een foto van de achterkant van uw rijbewijs",
+            "body_license_front": "Neem een foto van de voorkant van uw rijbewijs",
+            "body_passport": "Neem een foto van de fotopagina van uw paspoort",
+            "body_selfie": "Neem een selfie van uw gezicht"
+        },
+        "selfie_capture": {
+            "alert": {
+                "camera_inactive": {
+                    "detail": "Neem in plaats daarvan een foto met de <fallback>basismodus van de camera<\/fallback>"
+                },
+                "camera_not_working": {
+                    "detail": "Neem in plaats daarvan een foto met de <fallback>basismodus van de camera<\/fallback>"
+                }
+            }
+        },
+        "upload_guide": {
+            "button_primary": "Neem een foto",
+            "title": "Plaats de fotopagina van uw document in het kader"
+        }
+    },
+    "outro": {
+        "body": "Daarom moeten we uw identiteit verifiëren",
+        "title": "Dank u"
+    },
+    "permission": {
+        "body_both": "We kunnen u niet verifiëren zonder uw camera en microfoon te gebruiken",
+        "body_cam": "We kunnen u niet verifiëren zonder camera",
+        "button_primary_both": "Allebei inschakelen",
+        "button_primary_cam": "Camera inschakelen",
+        "subtitle_both": "Als u daarom gevraagd wordt, moet u toegang tot zowel de camera als de microfoon inschakelen om door te gaan",
+        "subtitle_cam": "Als u daarom gevraagd wordt, moet u toegang tot de camera inschakelen om door te gaan",
+        "title_both": "Sta toegang toe tot camera en microfoon",
+        "title_cam": "Toegang tot camera toestaan"
+    },
+    "permission_recovery": {
+        "button_primary": "Verversen",
+        "info": "Herstellen",
+        "list_header_both": "Volg deze stappen om de toegang voor beide te herstellen:",
+        "list_header_cam": "Volg deze stappen om toegang tot de camera te herstellen:",
+        "list_item_action_cam": "Ververs deze pagina om het proces voor de verificatie van uw identiteit opnieuw te starten",
+        "list_item_how_to_both": "Verleen via uw browserinstellingen toegang tot uw camera en microfoon",
+        "list_item_how_to_cam": "Schakel toegang tot uw camera in vanuit de browserinstellingen",
+        "subtitle_both": "Herstel toegang tot de camera en de microfoon om een filmpje op te nemen en de verificatie van uw gezicht te voltooien",
+        "subtitle_cam": "Herstel de cameratoegang om uw verificatie voort te zetten",
+        "title_both": "Toegang tot camera en microfoon geweigerd",
+        "title_cam": "Toegang tot camera is geweigerd"
+    },
+    "photo_upload": {
+        "body_bank_statement": "Verstrek de hele documentpagina voor de beste resultaten",
+        "body_benefits_letter": "Verstrek de hele documentpagina voor de beste resultaten",
+        "body_bill": "Verstrek de hele documentpagina voor de beste resultaten",
+        "body_government_letter": "Provide the whole document page for best results",
+        "body_id_back": "Upload de achterkant van uw kaart vanaf uw computer",
+        "body_id_front": "Upload de voorkant van uw kaart vanaf uw computer",
+        "body_license_back": "Upload de achterkant van uw rijbewijs vanaf uw computer",
+        "body_license_front": "Upload de voorkant van uw rijbewijs vanaf uw computer",
+        "body_passport": "Upload de fotopagina van uw paspoort vanaf uw computer",
+        "body_selfie": "Upload een selfie vanaf uw computer",
+        "body_tax_letter": "Geef de hele documentpagina voor de beste resultaten",
+        "button_take_photo": "Neem een foto",
+        "button_upload": "Uploaden",
+        "title_selfie": "Selfie"
+    },
+    "poa_guidance": {
+        "button_primary": "Doorgaan",
+        "instructions": {
+            "address": "Huidig adres",
+            "full_name": "Volledige naam",
+            "issue_date": "Afgiftedatum of samenvattende periode",
+            "label": "Leg het hele document vast en zorg ervoor dat het duidelijk te zien is:",
+            "logo": "Logo"
+        },
+        "subtitle_bank_statement": "Moet in de <strong>laatste 3 maanden<\/strong> zijn afgegeven",
+        "subtitle_benefits_letter": "Moet in de <strong>laatste 12 maanden<\/strong> zijn afgegeven",
+        "subtitle_bill": "Moet in de <strong>laatste 3 maanden<\/strong> zijn afgegeven",
+        "subtitle_tax_letter": "Moet in de <strong>laatste 12 maanden<\/strong> zijn afgegeven"
+    },
+    "poa_intro": {
+        "button_primary": "Start verificatie",
+        "list_matches_signup": "<strong>Komt overeen<\/strong> met het adres dat u bij de registratie heeft gebruikt",
+        "list_most_recent": "Is uw meest <strong>recente<\/strong> document...",
+        "list_shows_address": "Toont uw <strong>huidig<\/strong> adres",
+        "subtitle": "U heeft een document nodig dat:",
+        "title": "Laten we uw adres verifiëren"
+    },
+    "selfie_capture": {
+        "alert": {
+            "camera_inactive": {
+                "detail": "Controleer dat deze verbinding heeft en werkt. U kunt <fallback>het verificatieproces ook op uw mobiele telefoon voortzetten<\/fallback>",
+                "detail_no_fallback": "Zorg dat de camera op uw apparaat werkt",
+                "title": "Doet uw camera het niet?"
+            },
+            "camera_not_working": {
+                "detail": "Hij is mogelijk losgekoppeld. <fallback>Probeer het met uw telefoon<\/fallback>.",
+                "detail_no_fallback": "Zorg dat de camera op uw apparaat werkt",
+                "title": "Camera doet het niet"
+            },
+            "timeout": {
+                "detail": "Vergeet niet op de knop te drukken als u klaar bent. <fallback>Herhaal de stappen voor het opnemen van een filmpje<\/fallback>",
+                "title": "Het lijkt erop dat het te lang duurde"
+            }
+        },
+        "body": "Houd uw gezicht binnen de ovaal",
+        "button_accessibility": "Neem een foto",
+        "button_primary": "Start een gezichtsscan",
+        "frame_accessibility": "Waargave vanaf camera",
+        "title": "Houd uw gezicht binnen de ovaal"
+    },
+    "selfie_confirmation": {
+        "image_accessibility": "Foto van uw gezicht",
+        "subtitle": "Zorg dat uw volledige gezicht zichtbaar is",
+        "title": "Controleer uw selfie"
+    },
+    "selfie_intro": {
+        "button_primary": "Doorgaan",
+        "list_accessibility": "Tips voor een goede selfie",
+        "list_item_face_forward": "Kijk recht vooruit en zorg dat uw ogen goed te zien zijn",
+        "list_item_no_glasses": "Zet uw bril af indien nodig",
+        "subtitle": "We vergelijken deze met uw document",
+        "title": "Neem een selfie"
+    },
+    "sms_sent": {
+        "info": "Tips",
+        "info_link_expire": "Uw link verloopt over een uur",
+        "info_link_window": "Houd dit venster open als u uw mobiele telefoon gebruikt",
+        "link": "Stuur link opnieuw",
+        "subtitle": "We hebben een beveiligde link gestuurd naar %{number}",
+        "subtitle_minutes": "Het kan een paar minuten duren voordat u deze ontvangt",
+        "title": "Check uw mobiele telefoon"
+    },
+    "switch_phone": {
+        "info": "Tips",
+        "info_link_expire": "Uw mobiele link verloopt over een uur",
+        "info_link_refresh": "Ververs deze pagina niet",
+        "info_link_window": "Houd dit venster open als u uw mobiele telefoon gebruikt",
+        "link": "Annuleren",
+        "subtitle": "Zodra u klaar bent, leiden we u naar de volgende stap",
+        "title": "Verbonden met uw mobiele telefoon"
+    },
+    "upload_guide": {
+        "button_primary": "Upload foto",
+        "image_detail_blur_alt": "Voorbeeld van een wazig document",
+        "image_detail_blur_label": "Alle details moeten scherp zijn - niets wazig",
+        "image_detail_cutoff_label": "Toon alle details - waaronder de onderste 2 regels",
+        "image_detail_glare_label": "Ga niet in direct zonlicht staan - geen glans",
+        "image_detail_good_label": "De foto moet uw document duidelijk weergeven",
+        "subtitle": "Scans en fotokopiën worden niet geaccepteerd",
+        "title": "Upload de fotopagina van uw paspoort"
+    },
+    "user_consent": {
+        "button_primary": "Accept",
+        "button_secondary": "Do not accept",
+        "prompt": {
+            "button_primary": "Review again",
+            "button_secondary": "Yes, don’t verify me",
+            "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+            "no_consent_title": "Are you sure?"
+        }
+    },
+    "user_consent_load_fail": {
+        "button_primary": "Reload screen",
+        "detail": "Check that your connection is stable, then try again",
+        "title": "Content failed to load"
+    },
+    "video_capture": {
+        "body": "Houd uw gezicht binnen de ovaal",
+        "body_record": "Druk op de knop als u klaar bent",
+        "body_stop": "Druk op Stop als u klaar bent",
+        "button_primary_finish": "Voltooi opname",
+        "button_primary_next": "Volgende stap",
+        "button_primary_start": "Start met opnemen",
+        "button_record_accessibility": "Start met opnemen",
+        "frame_accessibility": "Waargave vanaf camera",
+        "header": {
+            "challenge_digit_instructions": "Spreek elk cijfer hardop uit",
+            "challenge_turn_forward": "en kijk rechtuit",
+            "challenge_turn_left": "Draai uw hoofd naar links",
+            "challenge_turn_right": "Draai uw hoofd naar rechts"
+        },
+        "prompt": {
+            "header_timeout": "Het lijkt erop dat het te lang duurde"
+        }
+    },
+    "video_confirmation": {
+        "body": "Uw filmpje is opgenomen",
+        "button_primary": "Upload filmpje",
+        "button_secondary": "Neem filmpje opnieuw op",
+        "title": "Controleer uw filmpje",
+        "video_accessibility": "Speel uw opgenomen filmpje opnieuw af"
+    },
+    "video_intro": {
+        "button_primary": "Maak een filmpje",
+        "list_accessibility": "Acties om een selfievideo op te nemen",
+        "list_item_actions": "U hebt 20 seconden om af te ronden",
+        "list_item_speak": "Volg de instructies voor bewegen en spreken",
+        "title": "Maak een filmpje"
+    },
+    "welcome": {
+        "doc_video_subtitle": "Dat duurt maar een paar minuten",
+        "list_header_doc_video": "Gebruik uw apparaat om op te nemen:",
+        "list_header_webcam": "Gebruik uw webcam of telefoon om te fotograferen:",
+        "list_item_doc": "uw identiteitsbewijs",
+        "list_item_doc_video_timeout": "Opnemen is beperkt tot <timeout><\/timeout> seconden",
+        "list_item_poa": "uw adresbewijs",
+        "list_item_selfie": "uw gezicht",
+        "next_button": "Kies een document",
+        "subtitle": "Dat duurt maar een paar minuten",
+        "title": "Verifieer uw identiteit"
+    }
+}

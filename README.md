@@ -32,7 +32,7 @@ The SDK offers a number of benefits to help you create the best identity verific
 
 ⚠️ Note: the SDK is only responsible for capturing photos and videos. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and perform checks.
 
-![Various views from the SDK](demo/screenshots.jpg)
+![Various views from the SDK](screenshots/screenshots.jpg)
 
 ## Getting started
 
@@ -662,7 +662,7 @@ This is the final completion step. The screen displays a completion message to s
 #### Cross device - mobile client introductory screen
 
 When a user switches to the SDK's Cross Device flow, they will see an introductory screen when the SDK client loads on their mobile browser.
-![Default Cross device mobile client introductory screen](demo/cross-device-client-intro.png)
+![Default Cross device mobile client introductory screen](screenshots/cross-device-client-intro.png)
 
 - **`crossDeviceClientIntroProductName {String} optional`**
 
@@ -675,7 +675,7 @@ When a user switches to the SDK's Cross Device flow, they will see an introducto
   })
   ```
 
-  ![Cross Device Client Intro screen with client product name and copy](demo/cross-device-client-intro-example-1.png)
+  ![Cross Device Client Intro screen with client product name and copy](screenshots/cross-device-client-intro-example-1.png)
 
 - **`crossDeviceClientIntroProductLogoSrc {String} optional`**
 
@@ -689,7 +689,7 @@ When a user switches to the SDK's Cross Device flow, they will see an introducto
   })
   ```
 
-  ![Cross Device Client Intro screen with client product logo](demo/cross-device-client-intro-example-2.png)
+  ![Cross Device Client Intro screen with client product logo](screenshots/cross-device-client-intro-example-2.png)
 
 ### Changing options in runtime
 
