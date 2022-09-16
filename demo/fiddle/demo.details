@@ -3,6 +3,6 @@
  authors:
    - Onfido Team
  resources:
-   - https://assets.onfido.com/web-sdk-releases/9.0.0/onfido.min.js
-   - https://assets.onfido.com/web-sdk-releases/9.0.0/style.css
+   - https://assets.onfido.com/web-sdk-releases/9.1.0-rc.1/onfido.min.js
+   - https://assets.onfido.com/web-sdk-releases/9.1.0-rc.1/style.css
 ...
