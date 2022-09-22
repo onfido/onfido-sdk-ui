@@ -2,16 +2,13 @@ import { readFile } from 'fs/promises'
 import { readdirSync } from 'fs'
 
 const ALL_LOCALES = [
-  'cs_CZ',
   'de_DE',
   'en_US',
   'es_ES',
   'fr_FR',
   'it_IT',
   'nl_NL',
-  'pl_PL',
   'pt_PT',
-  'ro_RO',
 ]
 
 const LOCALES_WITH_AUTH = ['en_US', 'es_ES', 'fr_FR', 'de_DE']

@@ -42,8 +42,6 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 - `avc_no_face_detected.title`
 - `avc_uploading.title`
 
-We have added new language(s): **Czech, Polish, and Romanian**
-
 The **German, English, Spanish, French, Italian, Dutch, and Portuguese** copy for the following string(s) has been changed:
 
 ## Added:

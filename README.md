@@ -475,9 +475,6 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   | Italian           | `it_IT`    |
   | Portuguese        | `pt_PT`    |
   | Dutch             | `nl_NL`    |
-  | Czech             | `cs_CZ`    |
-  | Polish            | `pl_PL`    |
-  | Romanian          | `ro_RO`    |
 
   Example:
 

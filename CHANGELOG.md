@@ -11,7 +11,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [9.1.0-rc.1] - 2022-09-16
 
 - Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
-- Public: Added support for cs_CZ, ro_RO and pl_PL locales
 - Internal: Add utility tool for locales
 - Internal: Add Logger module
 - Internal: Remove woopra

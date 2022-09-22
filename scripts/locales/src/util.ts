@@ -21,9 +21,6 @@ export const languageMap = {
   nl_NL: 'Dutch',
   it_IT: 'Italian',
   pt_PT: 'Portuguese',
-  ro_RO: 'Romanian',
-  pl_PL: 'Polish',
-  cs_CZ: 'Czech',
 }
 
 export const convertLanguageKeysToReadable = (languages) => {

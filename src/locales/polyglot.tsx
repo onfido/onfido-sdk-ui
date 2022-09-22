@@ -34,12 +34,6 @@ const files = {
     import(/* webpackChunkName: "lang_pt_PT" */ './pt_PT/pt_PT.json'),
   nl_NL: () =>
     import(/* webpackChunkName: "lang_nl_NL" */ './nl_NL/nl_NL.json'),
-  cs_CZ: () =>
-    import(/* webpackChunkName: "lang_cs_CZ" */ './cs_CZ/cs_CZ.json'),
-  pl_PL: () =>
-    import(/* webpackChunkName: "lang_pl_PL" */ './pl_PL/pl_PL.json'),
-  ro_RO: () =>
-    import(/* webpackChunkName: "lang_ro_RO" */ './ro_RO/ro_RO.json'),
 }
 
 // Language tags should follow the IETF's BCP 47 guidelines, link below:
@@ -60,9 +54,6 @@ const availableTranslations = {
   pt: files.pt_PT,
   nl_NL: files.nl_NL,
   nl: files.nl_NL,
-  cs_CZ: files.cs_CZ,
-  pl_PL: files.pl_PL,
-  ro_RO: files.ro_RO,
 }
 
 const createDefaultPolyglot = (): PolyglotExtended => {
