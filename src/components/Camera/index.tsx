@@ -43,11 +43,9 @@ const Camera: FunctionComponent<Props> = ({
   buttonType,
   children,
   containerClassName,
-  constraints,
   docAutoCaptureFrame = false,
   docLiveCaptureFrame = false,
   facing = 'user',
-  fallbackConstraints,
   fallbackHeight,
   fallbackToDefaultWidth,
   hasGrantedPermission,
@@ -79,11 +77,9 @@ const Camera: FunctionComponent<Props> = ({
     onFailure,
     onUserMedia,
     className: style.video,
-    constraints,
     facingMode: facing,
     ref: webcamRef,
     width: idealCameraWidth || defaultCameraWidthInPx,
-    fallbackConstraints,
     fallbackWidth: fallbackToDefaultWidth
       ? defaultCameraWidthInPx
       : fallbackHeight,

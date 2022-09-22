@@ -17,7 +17,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Migrate analytics from `/v3` to `/v4`
 - Internal: Place cross device SMS feature behind a feature flag
 - Internal: Add `disableAnalyticsCookies` option
-- Public: Increase capture resolution for useLiveDocumentCapture mode, to prevent image quality issues.
 - Internal: Integrate Passive Signals module
 
 ## [9.0.0] - 2022-09-05
