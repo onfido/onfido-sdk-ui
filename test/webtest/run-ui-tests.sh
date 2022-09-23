@@ -7,6 +7,10 @@ docker-compose up -d
 
 CMD="mvn --no-transfer-progress $1 clean verify"
 
+if [[ ! -z "${DD_ENV}" ]]; then
+  CMD="${CMD} -Pdd"
+fi
+
 set +e
 
 if [[ -z "${PERCY_TOKEN}" ]]; then

@@ -1,6 +1,12 @@
 import { getSdkConfiguration } from '~utils/onfidoApi'
 import { useContext, useEffect, useState } from 'preact/compat'
-import { h, ComponentChildren, createContext, Fragment } from 'preact'
+import {
+  h,
+  ComponentChildren,
+  createContext,
+  Fragment,
+  ComponentType,
+} from 'preact'
 import { ParsedError, SdkConfiguration, ErrorCallback } from '~types/api'
 import deepmerge from 'deepmerge'
 import withTheme from '../components/Theme'
@@ -27,6 +33,7 @@ const defaultConfiguration: SdkConfiguration = {
   },
   sdk_features: {
     enable_require_applicant_consents: true,
+    disable_cross_device_sms: false,
   },
   document_capture: {
     max_total_retries: 1,
@@ -91,5 +98,22 @@ export const SdkConfigurationServiceProvider = ({
 const useSdkConfigurationService = () => {
   return useContext(SdkConfigurationServiceContext)
 }
+
+export type SDKConfigurationServiceProps = {
+  sdkConfiguration: SdkConfiguration
+}
+
+export const withSdkConfigurationService = <P,>(
+  WrapperComponent: ComponentType<P & SDKConfigurationServiceProps>
+): ComponentType<P> =>
+  function SDKConfigurationWrapper(props) {
+    return (
+      <SdkConfigurationServiceContext.Consumer>
+        {(sdkConfiguration) => (
+          <WrapperComponent {...props} sdkConfiguration={sdkConfiguration} />
+        )}
+      </SdkConfigurationServiceContext.Consumer>
+    )
+  }
 
 export default useSdkConfigurationService

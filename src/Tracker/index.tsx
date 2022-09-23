@@ -2,7 +2,6 @@ import { h, Component, ComponentType } from 'preact'
 import { cleanFalsy, wrapArray } from '~utils/array'
 import { map as mapObject } from '~utils/object'
 import * as execeptionTracking from '~core/ExceptionHandler'
-import * as Woopra from '~core/Woopra'
 import { sendAnalyticsEvent } from './onfidoTracker'
 import { integratorTrackedEvents } from './trackerData'
 import { v4 as uuidv4 } from 'uuid'
@@ -18,19 +17,8 @@ import type {
 
 let shouldSendEvents = false
 
-const setUp = () => {
-  Woopra.install()
-  shouldSendEvents = true
-}
-
 const uninstall = (): void => {
   execeptionTracking.uninstall()
-  uninstallWoopra()
-}
-
-const uninstallWoopra = (): void => {
-  Woopra.uninstall()
-  shouldSendEvents = false
 }
 
 const install = (): void => {
@@ -75,7 +63,6 @@ const sendEvent = (
 
   if (shouldSendEvents) {
     const formattedProperties = formatProperties(properties)
-    Woopra.track(eventName, formattedProperties)
     sendAnalyticsEvent(eventName, formattedProperties)
   }
 }
@@ -144,9 +131,6 @@ const trackException = (message: string, extra?: EventHint): void => {
   )
 }
 
-const setWoopraCookie = Woopra.setCookie
-const getWoopraCookie = Woopra.getCookie
-
 const cookieAttributes = {
   name: 'onfido-web-sdk-analytics',
   domain: location.hostname,
@@ -157,16 +141,27 @@ const cookieAttributes = {
 
 // Internal Analytics Cookie
 type setAnonymousUuidFunc = (payload?: string) => void
-const setupAnalyticsCookie = (
-  setAnonymousUuid: setAnonymousUuidFunc,
+
+type setupAnalyticsCookieProps = {
+  setAnonymousUuid: setAnonymousUuidFunc
   anonymousUuid?: string
-) => {
+  disableAnalyticsCookies?: boolean
+}
+
+const setupAnalyticsCookie = ({
+  setAnonymousUuid,
+  anonymousUuid,
+  disableAnalyticsCookies,
+}: setupAnalyticsCookieProps) => {
   const cookie = getAnalyticsCookie()
 
   if (!anonymousUuid && !cookie) {
     const uuid = uuidv4()
     setAnonymousUuid(uuid)
-    setAnalyticsCookie(uuid)
+
+    if (!disableAnalyticsCookies) {
+      setAnalyticsCookie(uuid)
+    }
     return
   }
 
@@ -175,8 +170,13 @@ const setupAnalyticsCookie = (
     return
   }
 
-  if (anonymousUuid && anonymousUuid !== cookie) {
+  if (anonymousUuid && anonymousUuid !== cookie && !disableAnalyticsCookies) {
     setAnalyticsCookie(anonymousUuid)
+    return
+  }
+
+  if (cookie && disableAnalyticsCookies) {
+    uninstallAnalyticsCookie()
   }
 }
 
@@ -184,8 +184,8 @@ const setAnalyticsCookie = (anonymousUuid: string) => {
   Cookies.set(cookieAttributes.name, anonymousUuid, cookieAttributes)
 }
 
-const uninstallAnalyticsCookie = (setAnonymousUuid: setAnonymousUuidFunc) => {
-  setAnonymousUuid(undefined)
+const uninstallAnalyticsCookie = (setAnonymousUuid?: setAnonymousUuidFunc) => {
+  setAnonymousUuid && setAnonymousUuid(undefined)
   Cookies.remove(cookieAttributes.name, cookieAttributes)
 }
 
@@ -198,17 +198,13 @@ const getAnalyticsCookie = () => {
 }
 
 export {
-  setUp,
   install,
   uninstall,
-  uninstallWoopra,
   trackException,
   sendEvent,
   sendScreen,
   trackComponent,
   appendToTracking,
-  setWoopraCookie,
-  getWoopraCookie,
   setupAnalyticsCookie,
   uninstallAnalyticsCookie,
   getAnalyticsCookie,

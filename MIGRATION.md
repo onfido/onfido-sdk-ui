@@ -42,6 +42,384 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 - `avc_no_face_detected.title`
 - `avc_uploading.title`
 
+The **German, English, Spanish, French, Italian, Dutch, and Portuguese** copy for the following string(s) has been changed:
+
+## Added:
+
+- `doc_select.subtitle_entire_page`
+- `doc_select.subtitle_front_back`
+- `doc_select.subtitle_photo_page`
+- `livenessV2.error_reload_instructions`
+- `livenessV2.intro_note_no1`
+- `livenessV2.intro_note_no2`
+- `livenessV2.intro_ready_button`
+- `livenessV2.intro_subtitle`
+- `livenessV2.intro_warning`
+- `livenessV2.success_main_button`
+- `livenessV2.success_title`
+- `outro.body_government_letter`
+- `permission_recovery.subtitle_cam_old`
+- `poa_cancel`
+- `poa_err_invalid_file.message`
+- `poa_err_invalid_file.ok`
+- `poa_err_invalid_file.title`
+- `profile_data.components.nationality_select.placeholder`
+- `profile_data.components.pan.placeholder`
+- `profile_data.components.ssn.placeholder`
+- `profile_data.field_labels.email`
+- `profile_data.field_labels.mobile_number`
+- `profile_data.field_labels.nationality`
+- `profile_data.field_labels.pan`
+- `profile_data.field_labels.ssn`
+- `profile_data.field_validation.required_email`
+- `profile_data.field_validation.required_mobile_number`
+- `profile_data.field_validation.required_nationality`
+- `profile_data.field_validation.required_pan`
+- `profile_data.field_validation.required_ssn`
+- `profile_data.field_validation.too_short_first_name`
+- `profile_data.field_validation.valid_email`
+- `profile_data.field_validation.valid_mobile_number`
+- `profile_data.field_validation.valid_pan`
+- `profile_data.field_validation.valid_ssn`
+- `profile_data.field_validation.gbr_specific.invalid_postcode`
+- `retry_feedback.button_primary`
+- `retry_feedback_id_expired.subtitle`
+- `retry_feedback_id_expired.title`
+- `retry_feedback_id_generic.subtitle`
+- `retry_feedback_id_generic.title`
+- `retry_feedback_id_unaccepted.subtitle`
+- `retry_feedback_id_unaccepted.title`
+- `retry_feedback_selfie_generic.subtitle`
+- `retry_feedback_selfie_generic.title`
+- `workflow_complete.pass.description`
+- `workflow_complete.pass.title`
+- `workflow_complete.reject.description`
+- `workflow_complete.reject.title`
+
+## Deleted:
+
+- `profile_data.field_validation.usa_specific.required_postcode`
+- `profile_data.field_validation.usa_specific.too_short_postcode`
+- `profile_data.field_validation.usa_specific.too_long_postcode`
+- `photo_upload.body_government_letter`
+
+## Updated:
+
+- `country_select.poa_alert.intro`
+- `doc_select.section.input_placeholder_country`
+
+The **German** copy for the following string(s) has been changed:
+
+## Added:
+
+- `doc_capture.button_primary`
+- `doc_select.pill`
+- `doc_select.section.input_country_not_found`
+- `generic.errors.expired_token.instruction`
+- `generic.errors.expired_token.message`
+- `selfie_capture.body`
+- `selfie_capture.button_primary`
+- `video_capture.body_stop`
+- `welcome.doc_video_subtitle`
+- `workflow_erros.generic_title`
+- `workflow_erros.no_workflow_run_id`
+- `workflow_erros.reload_app`
+- `workflow_erros.task_not_completed`
+- `workflow_erros.task_not_retrieved`
+- `workflow_erros.task_not_supported`
+
+## Updated:
+
+- `doc_select.button_government_letter`
+- `doc_select.button_government_letter_detail`
+- `doc_submit.title_government_letter`
+- `profile_data.field_validation.required_first_name`
+- `doc_confirmation.body_id`
+- `doc_confirmation.body_license`
+- `doc_confirmation.body_passport`
+- `doc_confirmation.body_permit`
+- `poa_intro.list_most_recent`
+- `poa_intro.list_shows_address`
+- `doc_video_capture.header_step2`
+
+## Deleted:
+
+- `profile_data.field_validation.too_long__line2`
+- `profile_data.field_validation.too_long__line3`
+- `doc_select.section.input_placeholder_country_copy`
+
+The **English** copy for the following string(s) has been changed:
+
+## Added:
+
+- `doc_capture.button_primary`
+- `doc_select.pill`
+- `selfie_capture.body`
+- `selfie_capture.button_primary`
+- `video_capture.body_stop`
+- `welcome.doc_video_subtitle`
+- `doc_confirmation.body`
+- `doc_select.button_bank_statement_non_uk`
+- `profile_data.field_validation.too_long__line1`
+- `profile_data.prompt.details_timeout`
+
+## Updated:
+
+- `welcome.start_workflow_button`
+- `poa_guidance.subtitle_tax_letter`
+- `poa_guidance.subtitle_benefits_letter`
+- `cross_device_checklist.list_item_poa`
+- `doc_confirmation.body_bank_statement`
+- `doc_confirmation.body_benefits_letter`
+- `doc_confirmation.body_bill`
+- `doc_confirmation.body_tax_letter`
+- `poa_guidance.subtitle_bank_statement`
+- `poa_intro.list_matches_signup`
+- `profile_data.address_title`
+- `profile_data.personal_information_title`
+- `workflow_erros.task_not_supported`
+
+## Deleted:
+
+- `profile_data.field_labels.usa_specific.ssn`
+- `profile_data.field_validation.too_long_line1`
+- `profile_data.field_validation.too_long_line2`
+- `profile_data.field_validation.too_long_line3`
+- `profile_data.field_validation.usa_specific.required_ssn`
+- `profile_data.field_validation.usa_specific.invalid_ssn`
+- `profile_data.prompt.detail_timeout`
+- `cross_device_checklist.list_item_active_video`
+- `poa_guidance.subtitle_government_letter`
+
+The **Spanish** copy for the following string(s) has been changed:
+
+## Added:
+
+- `doc_capture.button_primary`
+- `doc_select.pill`
+- `doc_select.section.input_country_not_found`
+- `generic.errors.expired_token.instruction`
+- `generic.errors.expired_token.message`
+- `selfie_capture.body`
+- `selfie_capture.button_primary`
+- `video_capture.body_stop`
+- `welcome.doc_video_subtitle`
+- `workflow_erros.generic_title`
+- `workflow_erros.no_workflow_run_id`
+- `workflow_erros.reload_app`
+- `workflow_erros.task_not_completed`
+- `workflow_erros.task_not_retrieved`
+- `workflow_erros.task_not_supported`
+
+## Updated:
+
+- `doc_select.button_government_letter`
+- `doc_select.button_government_letter_detail`
+- `doc_submit.title_government_letter`
+- `profile_data.field_validation.required_first_name`
+- `doc_confirmation.body_id`
+- `doc_confirmation.body_license`
+- `doc_confirmation.body_passport`
+- `doc_confirmation.body_permit`
+- `profile_data.field_validation.too_long_town`
+- `welcome.start_workflow_button`
+- `profile_data.country_of_residence_title`
+
+## Deleted:
+
+- `profile_data.field_validation.too_long__line2`
+- `profile_data.field_validation.too_long__line3`
+- `doc_select.section.input_placeholder_country_copy`
+
+The **French** copy for the following string(s) has been changed:
+
+## Added:
+
+- `doc_capture.button_primary`
+- `doc_select.pill`
+- `doc_select.section.input_country_not_found`
+- `generic.errors.expired_token.instruction`
+- `generic.errors.expired_token.message`
+- `selfie_capture.body`
+- `selfie_capture.button_primary`
+- `video_capture.body_stop`
+- `welcome.doc_video_subtitle`
+- `workflow_erros.generic_title`
+- `workflow_erros.no_workflow_run_id`
+- `workflow_erros.reload_app`
+- `workflow_erros.task_not_completed`
+- `workflow_erros.task_not_retrieved`
+- `workflow_erros.task_not_supported`
+
+## Updated:
+
+- `doc_select.button_government_letter`
+- `doc_select.button_government_letter_detail`
+- `doc_submit.title_government_letter`
+- `profile_data.field_validation.required_first_name`
+- `doc_confirmation.body_id`
+- `doc_confirmation.body_license`
+- `doc_confirmation.body_passport`
+- `doc_confirmation.body_permit`
+- `profile_data.field_validation.too_long_town`
+- `poa_guidance.subtitle_tax_letter`
+- `poa_guidance.subtitle_benefits_letter`
+- `cross_device_session_linked.list_item_sent_by_you`
+
+## Deleted:
+
+- `profile_data.field_validation.too_long__line2`
+- `profile_data.field_validation.too_long__line3`
+- `doc_select.section.input_placeholder_country_copy`
+
+The **Italian** copy for the following string(s) has been changed:
+
+## Added:
+
+- `doc_capture.button_primary`
+- `doc_select.pill`
+- `doc_select.section.input_country_not_found`
+- `generic.errors.expired_token.instruction`
+- `generic.errors.expired_token.message`
+- `selfie_capture.body`
+- `selfie_capture.button_primary`
+- `video_capture.body_stop`
+- `welcome.doc_video_subtitle`
+- `workflow_erros.generic_title`
+- `workflow_erros.no_workflow_run_id`
+- `workflow_erros.reload_app`
+- `workflow_erros.task_not_completed`
+- `workflow_erros.task_not_retrieved`
+- `workflow_erros.task_not_supported`
+
+## Updated:
+
+- `doc_select.button_government_letter`
+- `doc_select.button_government_letter_detail`
+- `doc_submit.title_government_letter`
+- `profile_data.field_validation.required_first_name`
+- `doc_confirmation.body_id`
+- `doc_confirmation.body_license`
+- `doc_confirmation.body_passport`
+- `doc_confirmation.body_permit`
+- `profile_data.field_validation.too_long_town`
+- `welcome.start_workflow_button`
+- `poa_guidance.subtitle_tax_letter`
+- `avc_uploading.title`
+
+## Deleted:
+
+- `profile_data.field_validation.too_long__line2`
+- `profile_data.field_validation.too_long__line3`
+- `doc_select.section.input_placeholder_country_copy`
+
+The **Portuguese** copy for the following string(s) has been changed:
+
+## Added:
+
+- `doc_capture.button_primary`
+- `doc_select.pill`
+- `doc_select.section.input_country_not_found`
+- `generic.errors.expired_token.instruction`
+- `generic.errors.expired_token.message`
+- `selfie_capture.body`
+- `selfie_capture.button_primary`
+- `video_capture.body_stop`
+- `welcome.doc_video_subtitle`
+- `workflow_erros.generic_title`
+- `workflow_erros.no_workflow_run_id`
+- `workflow_erros.reload_app`
+- `workflow_erros.task_not_completed`
+- `workflow_erros.task_not_retrieved`
+- `workflow_erros.task_not_supported`
+
+## Updated:
+
+- `doc_select.button_government_letter`
+- `doc_select.button_government_letter_detail`
+- `doc_submit.title_government_letter`
+- `profile_data.field_validation.required_first_name`
+- `doc_confirmation.body_id`
+- `doc_confirmation.body_license`
+- `doc_confirmation.body_passport`
+- `doc_confirmation.body_permit`
+- `profile_data.field_validation.too_long_town`
+- `welcome.start_workflow_button`
+
+## Deleted:
+
+- `profile_data.field_validation.too_long__line2`
+- `profile_data.field_validation.too_long__line3`
+- `doc_select.section.input_placeholder_country_copy`
+
+The **Dutch** copy for the following string(s) has been changed:
+
+## Added:
+
+- `doc_select.section.input_country_not_found`
+- `generic.errors.expired_token.instruction`
+- `generic.errors.expired_token.message`
+- `workflow_erros.generic_title`
+- `workflow_erros.no_workflow_run_id`
+- `workflow_erros.reload_app`
+- `workflow_erros.task_not_completed`
+- `workflow_erros.task_not_retrieved`
+- `workflow_erros.task_not_supported`
+
+## Updated:
+
+- `doc_select.button_government_letter`
+- `doc_select.button_government_letter_detail`
+- `doc_submit.title_government_letter`
+- `profile_data.field_validation.required_first_name`
+- `profile_data.field_validation.too_long_town`
+- `poa_intro.list_most_recent`
+- `poa_intro.list_shows_address`
+
+## Deleted:
+
+- `profile_data.field_validation.too_long__line2`
+- `profile_data.field_validation.too_long__line3`
+- `doc_select.section.input_placeholder_country_copy`
+
+The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the following string(s) has been added:
+
+### Added strings
+
+- `avc_confirmation.button_primary_upload`
+- `avc_confirmation.subtitle`
+- `avc_confirmation.title`
+- `avc_connection_error.button_primary_retry_upload`
+- `avc_connection_error.button_secondary_restart_recording`
+- `avc_connection_error.subtitle`
+- `avc_connection_error.title`
+- `avc_face_alignment.feedback_move_back`
+- `avc_face_alignment.feedback_move_closer`
+- `avc_face_alignment.feedback_no_face_detected`
+- `avc_face_alignment.feedback_not_centered`
+- `avc_face_alignment.title`
+- `avc_face_capture.alert.timeout_body`
+- `avc_face_capture.alert.timeout_button_primary`
+- `avc_face_capture.alert.timeout_title`
+- `avc_face_capture.alert.too_fast_body`
+- `avc_face_capture.alert.too_fast_button_primary`
+- `avc_face_capture.alert_too_fast_title`
+- `avc_face_capture.title`
+- `avc_face_capture.title_completed`
+- `avc_intro.button_primary_ready`
+- `avc_intro.disclaimer`
+- `avc_intro.list_item_one`
+- `avc_intro.list_item_two`
+- `avc_intro.subtitle`
+- `avc_intro.title`
+- `avc_no_face_detected.button_primary_restart`
+- `avc_no_face_detected.list_item_eyes`
+- `avc_no_face_detected.list_item_face`
+- `avc_no_face_detected.list_item_lighting`
+- `avc_no_face_detected.list_item_mask`
+- `avc_no_face_detected.title`
+- `avc_uploading.title`
+
 ## `8.1.1` -> `8.2.0`
 
 The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the following string(s) has been added:

@@ -1,4 +1,4 @@
-import type { HttpRequestParams } from '~modules/Network'
+import type { HttpRequestParams } from '../types'
 
 export default (httpRequestData: HttpRequestParams) => {
   if (!httpRequestData.headers) {

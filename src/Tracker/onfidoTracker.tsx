@@ -101,7 +101,6 @@ export const sendAnalyticsEvent = (
   const sdk_config = {
     expected_steps: stepsArrToString(),
     steps_config: steps,
-    sdk_token: token,
   }
 
   const analyticsPayload: AnalyticsPayload = {
@@ -119,9 +118,8 @@ export const sendAnalyticsEvent = (
     data: properties,
   })
 
-  const payload = JSON.stringify(analyticsPayload)
-
+  const payload = JSON.stringify({ events: [analyticsPayload] })
   const url = urls.onfido_api_url
 
-  sendAnalytics(url, payload)
+  sendAnalytics(url, payload, token!)
 }

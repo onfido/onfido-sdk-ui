@@ -55,6 +55,10 @@ export const configDist = () => ({
   },
   plugins: [
     ...basePlugins(),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+      chunkFilename: `onfido${SDK_ENV === 'Auth' ? SDK_ENV : ''}.[name].css`,
+    }),
     ...(SDK_ENV === 'Auth'
       ? [
           new CopyPlugin({

@@ -9,7 +9,7 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
-        <WebTest.version>0.9.1-SNAPSHOT</WebTest.version>
+        <WebTest.version>0.9.2-SNAPSHOT</WebTest.version>
         <forkCount>0</forkCount>
         <threadCount>5</threadCount>
         <kotlin.version>1.6.10</kotlin.version>
@@ -21,6 +21,27 @@
         <groups/>
         <excludeGroups />
     </properties>
+
+    <profiles>
+        <profile>
+            <id>dd</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <dd.java.agent.arg>-javaagent:${settings.localRepository}/com/datadoghq/dd-java-agent/0.107.1/dd-java-agent-0.107.1.jar -Ddd.civisibility.enabled=true</dd.java.agent.arg>
+                <forkCount>1</forkCount>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.datadoghq</groupId>
+                    <artifactId>dd-java-agent</artifactId>
+                    <version>0.107.1</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
     <!-- https://github.com/jcansdale-test/maven-consume -->
     <repositories>
@@ -92,6 +113,18 @@
             <version>3.22.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.3.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -146,9 +179,7 @@
                     <parallel>methods</parallel>
                     <threadCount>${threadCount}</threadCount>
                     <forkCount>${forkCount}</forkCount>
-                    <argLine>
-                        --add-opens java.base/java.lang.invoke=ALL-UNNAMED
-                    </argLine>
+                    <argLine>${dd.java.agent.arg} --add-opens java.base/java.lang.invoke=ALL-UNNAMED</argLine>
                 </configuration>
             </plugin>
         </plugins>

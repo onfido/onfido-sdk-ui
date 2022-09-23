@@ -149,6 +149,7 @@ export type MobileConfig = {
   stepIndex: number
   deviceHasCameraSupport?: boolean
   disableAnalytics?: boolean
+  disableAnalyticsCookies?: boolean
   useWorkflow?: boolean
   documentType?: DocumentTypes
   enterpriseFeatures?: EnterpriseFeatures
@@ -159,7 +160,6 @@ export type MobileConfig = {
   steps: StepConfig[]
   token?: string
   urls: UrlsConfig
-  woopraCookie?: string | null
   anonymousUuid?: string
   customUI: UICustomizationOptions | null
   crossDeviceClientIntroProductName?: string

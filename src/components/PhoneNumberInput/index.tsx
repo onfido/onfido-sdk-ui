@@ -1,23 +1,13 @@
 import { h, Component } from 'preact'
 import PhoneInput, { Country } from 'react-phone-number-input'
 import { parsePhoneNumberFromString } from 'libphonenumber-js/mobile'
-import classNames from 'classnames'
 import { localised } from '~locales'
-import { getCountryFlagSrc } from '~supported-documents'
 import 'react-phone-number-input/style.css'
 import style from './style.scss'
 import { ReduxProps } from '~types/routers'
 import { WithLocalisedProps } from '~types/hocs'
 import type { SdkOptions } from '~types/sdk'
-
-const FlagComponent = ({ country }: { country: string }) => (
-  <span
-    className={classNames('react-phone-number-input__icon', style.flagIcon)}
-    style={{
-      'background-image': `url(${getCountryFlagSrc(country, 'rectangle')})`,
-    }}
-  />
-)
+import FlagComponent from './flag'
 
 export type PhoneNumberInputProps = {
   sms?: { number?: string }

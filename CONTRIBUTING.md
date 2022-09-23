@@ -59,23 +59,46 @@ A Prettier config has been set up for this project and it is recommended to set 
 
 At build time, our CI runs the following tests:
 
-- UI
-- Unit
-- Integration
 - Type checker
 - Linter
-- npm dependencies vulnerability detection
+- Npm dependencies vulnerability detection
+- Unit
+- Integration
+- UI
 
 All of the above must have passed in order for the build to succeed. Please note that the CI relies on encrypted variables to run tests therefore the build will only be executed if the pull request has been created by an internal contributor and it will always fail for pull requests from external contributors.
 For internal contributors, all the PR checks must pass.
 
 ## Testing
 
-The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [testing guidelines](./test/README.md).
-Once your environment is ready, you can run `npm run build:test && npm run travis` to create the build and start up the server, and `npm run test:ui` to run the UI tests.
-The Web SDK has partial coverage of unit tests that can be executed with `npm run test`.
-You can also run a type checker and linter by running `npm run check`.
+```shell
+$ npm run check # type checker and linter
+$ npm run test:unit # unit testing
+$ npm run test:integration # integration testing, for internal contributors only but executed during CI
+```
+
+### Integration testing
+
+We use integration testing to ensure that our API call implementations work as expected.
+
+You are encouraged to add integration tests when
+
+- Adding a brand-new API call to the code
+- Updating an existing API call
+- New features added to an existing endpoint
+- Covering edge cases or negative cases
+
+You should place the integration tests at the `__integrations__` package.
+
+### Ui Testing
+
+The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [UI testing guidelines](./test/README.md).
+
 You should also manually test any change in all the supported browsers, both on desktop and mobile. To facilitate this process, every time a new pull request is created, a new demo app link will be generated. If you don't have enough devices to test your changes, you can perform manual tests on different devices on Browserstack.
+
+### Test results and monitoring
+
+Flaky tests are now reported to [datadog](https://app.datadoghq.com/ci/test-services?view=branches) (filter by web-sdk)
 
 ## Internationalization
 

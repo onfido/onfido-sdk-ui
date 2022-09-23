@@ -4,6 +4,13 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened ]
 
+env:
+  DD_SERVICE: web-sdk
+  DD_ENV: ci
+  DD_GIT_REPOSITORY_URL: ${{ github.repositoryUrl }}
+  DD_GIT_BRANCH: ${{ github.head_ref }}
+  DD_GIT_COMMIT_SHA: ${{ github.sha }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -119,10 +126,21 @@ jobs:
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
 
+      - name: Build artifact
+        run: npm run build
+
+      - name: Publish to Surge
+        uses: dswistowski/surge-sh-action@v1.0.1
+        with:
+          domain: "https://prod-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh"
+          project: './dist'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
+
       - name: Add comment with Surge link to PR
         uses: mshick/add-pr-comment@v1
         with:
-          message: "https://${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀\nhttps://staging-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀"
+          message: "https://${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀\nhttps://staging-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀\nhttps://prod-${{ github.event.pull_request.number }}-pr-onfido-sdk-ui-onfido.surge.sh 🚀"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
   test-ui-chrome:
     runs-on: ubuntu-latest
@@ -140,6 +158,10 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
+      - uses: datadog/agent-github-action@v1.3
+        with:
+          api_key: ${{ secrets.DD_API_KEY }}
+
       - name: Install Percy
         run: npm install -g @percy/cli
 
@@ -150,9 +172,6 @@ jobs:
 
       - name: Build webtest
         run: cd webtest && mvn --no-transfer-progress clean install && cd ..
-
-      - name: Setup Chromedriver
-        uses: nanasess/setup-chromedriver@v1
 
       - uses: actions/download-artifact@v2
         with:
@@ -171,6 +190,7 @@ jobs:
         shell: bash
         continue-on-error: true
         env:
+          DD_TAGS: browser:chrome,driver:local
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BUILD: ${{ github.ref }}-${{ github.run_id }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_JAVA }}
@@ -220,6 +240,10 @@ jobs:
           repository: it-ony/webtest
           path: webtest
 
+      - uses: datadog/agent-github-action@v1.3
+        with:
+          api_key: ${{ secrets.DD_API_KEY }}
+
       - name: Build webtest
         run: cd webtest && mvn --no-transfer-progress clean install && cd ..
 
@@ -232,17 +256,24 @@ jobs:
         id: testserver
         run: rm -rf ./test/mock-server/frontend && cp -r dist test/mock-server/frontend && docker-compose up --build --no-start
 
+      - name: Download local browserstack
+        id: download-browserstack
+        if: ${{ steps.testserver.outcome == 'success' }}
+        run: curl -o /tmp/browserstacklocal https://bstack-local-prod.s3.amazonaws.com/BrowserStackLocal-linux-x64 && chmod 777 /tmp/browserstacklocal
+
       - name: Run UI tests in Firefox
         id: firefox
         if: ${{ steps.testserver.outcome == 'success' }}
         working-directory: ./test/webtest
         continue-on-error: true
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=firefox -DscreenshotListener.enabled=false"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -Denvironment=browserstack -Dbrowser=firefox -DscreenshotListener.enabled=false"
         shell: bash
         env:
+          DD_TAGS: browser:firefox,driver:browserstack
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_LOCAL_BINARY: /tmp/browserstacklocal
           BUILD: ${{ github.ref }}-${{ github.run_id }}
 
       - name: Publish Selenium Test Results - Firefox
@@ -257,12 +288,14 @@ jobs:
         continue-on-error: true
         id: edge
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=edge -DscreenshotListener.enabled=false"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -Denvironment=browserstack -Dbrowser=edge -DscreenshotListener.enabled=false"
         shell: bash
         env:
+          DD_TAGS: browser:edge,driver:browserstack
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_LOCAL_BINARY: /tmp/browserstacklocal
           BUILD: ${{ github.ref }}-${{ github.run_id }}
 
       - name: Publish Selenium Test Results - Edge
@@ -277,12 +310,14 @@ jobs:
         continue-on-error: true
         id: safari
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -Denvironment=browserstack -Dbrowser=safari -DbrowserVersion=15.1 -DscreenshotListener.enabled=false"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -Denvironment=browserstack -Dbrowser=safari -DbrowserVersion=15.1 -DscreenshotListener.enabled=false"
         shell: bash
         env:
+          DD_TAGS: browser:firefox,driver:safari
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_LOCAL_BINARY: /tmp/browserstacklocal
           BUILD: ${{ github.ref }}-${{ github.run_id }}
 
       - name: Publish Selenium Test Results - Safari
@@ -297,12 +332,14 @@ jobs:
         continue-on-error: true
         id: ie
         if: ${{ steps.testserver.outcome == 'success' }}
-        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=1 -DnetworkLogs=false -DbaseUrl=http://localhost:8081/local/ -Denvironment=browserstack -Dbrowser=ie -DbrowserVersion=11 -DscreenshotListener.enabled=false"
+        run: ./run-ui-tests.sh "-Dit.test=MultipleBrowsersDocumentUploadIT -DthreadCount=2 -DnetworkLogs=false -DbaseUrl=http://localhost:8081/local/ -Denvironment=browserstack -Dbrowser=ie -DbrowserVersion=11 -DscreenshotListener.enabled=false"
         shell: bash
         env:
+          DD_TAGS: browser:ie,driver:browserstack
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_LOCAL_BINARY: /tmp/browserstacklocal
           BUILD: ${{ github.ref }}-${{ github.run_id }}
 
       - name: Publish Selenium Test Results - IE

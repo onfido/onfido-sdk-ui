@@ -10,7 +10,7 @@ export const BASE_DIR = resolve(__dirname, '../../')
 // ref: https://en.wikipedia.org/wiki/Base32
 // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
 // the release script 🤖
-export const BASE_32_VERSION = 'DX'
+export const BASE_32_VERSION = 'DY'
 export const RELEASE_VERSION = packageJson.version
 
 // NODE_ENV can be one of: development | staging | test | production
@@ -25,10 +25,6 @@ export const PRODUCTION_BUILD = NODE_ENV !== 'development'
 export const SDK_TOKEN_FACTORY_SECRET =
   process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 export const SDK_ENV = process.env.SDK_ENV || 'idv'
-
-const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
-const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
-export const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
 type ConstantMap = Record<string, string | boolean | undefined>
 
@@ -46,14 +42,14 @@ const PROD_CONFIG: ConstantMap = {
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
   COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
-  WOOPRA_DOMAIN,
+  PASSIVE_SIGNALS_URL:
+    'https://assets.onfido.com/passive-signals/v1/signal.min.js',
 }
 
 const TEST_DEPLOYMENT_CONFIG: ConstantMap = {
   ...PROD_CONFIG,
   PUBLIC_PATH: '/',
   MOBILE_URL: '/',
-  WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
 
 const TEST_E2E_CONFIG: ConstantMap = {
@@ -82,7 +78,8 @@ const STAGING_CONFIG: ConstantMap = {
   USER_CONSENT_URL: 'https://assets.onfido.com/consent/user_consent.html',
   COUNTRY_FLAGS_SRC: 'https://assets.onfido.com/flags/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
-  WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
+  PASSIVE_SIGNALS_URL:
+    'https://assets.onfido.com/dev/passive-signals/v1/signal.min.js',
 
   // @TODO: clean-up this config when v4 APIs are live
   USE_V4_APIS_FOR_DOC_VIDEO: process.env.USE_V4_APIS_FOR_DOC_VIDEO,
@@ -93,7 +90,6 @@ const DEVELOPMENT_CONFIG: ConstantMap = {
   PUBLIC_PATH: '/',
   MOBILE_URL: '/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
-  WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
 
 const CONFIG_MAP: Record<string, ConstantMap> = {

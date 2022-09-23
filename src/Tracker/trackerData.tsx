@@ -32,6 +32,7 @@ export const integratorTrackedEvents = new Map<
   ['face_video_upload_started', 'UPLOAD'],
   ['Starting snapshot upload', 'UPLOAD'],
   ['Starting live photo upload', 'UPLOAD'],
+  ['active_video_upload_started', 'UPLOAD'],
 ])
 
 export const analyticsEventsMapping = new Map<
@@ -1687,6 +1688,20 @@ export const analyticsEventsMapping = new Map<
     {
       eventName: 'FACE_LIVENESS_CONNECTION_ERROR_RESTART_CLICKED',
       properties: { event_type: 'action', step: 'face' },
+    },
+  ],
+  [
+    'active_video_upload_started',
+    {
+      eventName: 'FACE_LIVENESS_UPLOAD_PROGRESS_STARTED',
+      properties: { event_type: 'flow' },
+    },
+  ],
+  [
+    'active_video_upload_completed',
+    {
+      eventName: 'FACE_LIVENESS_UPLOAD_PROGRESS_COMPLETED',
+      properties: { event_type: 'flow' },
     },
   ],
 ])

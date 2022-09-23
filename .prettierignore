@@ -1,7 +1,6 @@
 /node_modules
 /lib
 /dist
-/src/locales/**/*.json
 /src/supported-documents/*.json
 /test/mock-server/frontend
 /test/mock-server/local

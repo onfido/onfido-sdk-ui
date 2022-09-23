@@ -1,12 +1,22 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
-
 This change log file is based on best practices from [Keep a Changelog](http://keepachangelog.com/).
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
 ## [next-version]
+
+## [9.1.0] - 2022-09-23
+
+- Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
+- Internal: Add utility tool for locales
+- Internal: Add Logger module
+- Internal: Remove woopra
+- Internal: Migrate analytics from `/v3` to `/v4`
+- Internal: Place cross device SMS feature behind a feature flag
+- Internal: Add `disableAnalyticsCookies` option
+- Internal: Integrate Passive Signals module
 
 ## [9.0.0] - 2022-09-05
 
@@ -1329,7 +1339,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/9.0.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.0...development
+[9.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/9.0.0...9.1.0
 [9.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.3.0...9.0.0
 [8.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.1.0...8.3.0
 [8.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/8.0.0...8.1.0

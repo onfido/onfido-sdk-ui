@@ -1,4 +1,4 @@
-export const getTestJwtToken = async () => {
+const requestToTokenFactory = async () => {
   return new Promise((resolve, reject) => {
     const secret = process.env.SDK_TOKEN_FACTORY_SECRET
 
@@ -13,12 +13,24 @@ export const getTestJwtToken = async () => {
     xhr.onload = function () {
       if (xhr.status >= 200 && xhr.status < 400) {
         const data = JSON.parse(xhr.responseText)
-        resolve(data.message)
+        resolve(data)
       } else {
         reject(xhr.responseText)
       }
     }
     xhr.send()
+  })
+}
+
+export const getTestJwtToken = async () => {
+  return await requestToTokenFactory().then((res) => {
+    return res.message
+  })
+}
+
+export const getTestApplicantUUID = async () => {
+  return await requestToTokenFactory().then((res) => {
+    return res.applicant_id
   })
 }
 

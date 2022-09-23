@@ -25,3 +25,4 @@ out/
 /onfido-sdk-web-sample-app
 /aws
 .vscode
+/scripts/locales/base

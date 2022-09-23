@@ -105,7 +105,7 @@ public class ProofOfAddressIT extends WebSdkIT {
 
         verifyCopy(intro.requirementsHeader(), "poa_intro.subtitle");
         assertThat(intro.firstRequirement()).isEqualTo("Shows your current address");
-        assertThat(intro.secondRequirement()).isEqualTo("Matches the address you used on signup");
+        assertThat(intro.secondRequirement()).isEqualTo("Matches the address you used on sign up");
         assertThat(intro.thirdRequirement()).isEqualTo("Is your most recent document");
 
         verifyCopy(intro.startVerificationButtonText(), "poa_intro.button_primary");

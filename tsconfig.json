@@ -26,6 +26,7 @@
       "~contexts/*": ["contexts/*"],
       "~locales": ["locales/index"],
       "~types/*": ["types/*"],
+      "~modules/*": ["../modules/*"],
       "~core/*": ["core/*"],
       "~modules/*": ["../modules/*"],
       "~utils": ["components/utils/index"],

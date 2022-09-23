@@ -1,5 +1,10 @@
 import fs from 'fs'
-import { requestChallenges, uploadFaceVideo } from '../../onfidoApi'
+import {
+  requestChallenges,
+  uploadFaceVideo,
+  uploadDocumentVideoMedia,
+  uploadActiveVideo,
+} from '../../onfidoApi'
 import {
   checkForExpectedFileUploadProperties,
   COMMON_FILE_UPLOAD_PROPERTIES,
@@ -35,7 +40,6 @@ const TEST_VIDEO_DATA = {
 
 describe('API uploadFaceVideo endpoint', () => {
   beforeEach(async () => {
-    jest.setTimeout(15000)
     jwtToken = await getTestJwtToken()
   })
 
@@ -101,9 +105,7 @@ describe('API uploadFaceVideo endpoint', () => {
       try {
         expect(error.status).toBe(422)
         expect(error.response.error.type).toBe('validation_error')
-        expect(error.response.error.fields).toHaveProperty(
-          'attachment_file_size'
-        )
+        expect(error.response.error.fields).toHaveProperty('attachment')
         done()
       } catch (err) {
         done(err)
@@ -120,6 +122,96 @@ describe('API uploadFaceVideo endpoint', () => {
       jwtToken,
       (response) => done(response),
       onErrorCallback
+    )
+  })
+})
+
+describe('API uploadDocumentVideoMedia endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await getTestJwtToken()
+  })
+
+  test('uploadDocumentVideoMedia returns empty response on success', (done) => {
+    process.env.SDK_SOURCE = 'onfido_web_sdk'
+    process.env.SDK_VERSION = '8.3.0'
+
+    const testFileName = 'test-video.webm'
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new Blob([data], {
+      type: 'video/webm',
+    })
+
+    const videoData = {
+      file: testFile,
+      document_id: '12345678-1234-1234-1234-123456789abc',
+      sdkMetadata: {},
+    }
+
+    const onSuccessCallback = (response) => {
+      try {
+        expect(response).toStrictEqual(' ')
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+
+    expect.assertions(1)
+
+    uploadDocumentVideoMedia(
+      videoData,
+      API_URL,
+      jwtToken,
+      (response) => onSuccessCallback(response),
+      (error) => done(error)
+    )
+  })
+})
+
+describe('API uploadActiveVideo endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await getTestJwtToken()
+  })
+
+  test('uploadActiveVideo returns expected response on successful upload', (done) => {
+    const testFileName = 'test-video.webm'
+    const contentType = 'video/webm'
+    const data = fs.readFileSync(`${PATH_TO_RESOURCE_FILES}${testFileName}`)
+    const testFile = new Blob([data], {
+      type: 'video/webm',
+    })
+
+    const metadata = {
+      sdk_metadata: 'sdk_metadata_here',
+      sdk_source: 'onfido_web_sdk',
+      sdk_version: '8.3.0',
+    }
+
+    const expectedProperties = [
+      'media.data.applicant_uuid',
+      { 'media.data.content_type': contentType },
+      { 'media.data.media_type': 'liveness' },
+      { 'media.data.metadata': metadata },
+    ]
+
+    const onSuccessCallback = (response) => {
+      try {
+        checkForExpectedFileUploadProperties(expectedProperties, response)
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+
+    expect.assertions(expectedProperties.length)
+
+    uploadActiveVideo(
+      testFile,
+      JSON.stringify(metadata),
+      API_URL,
+      jwtToken,
+      (response) => onSuccessCallback(response),
+      (error) => done(error)
     )
   })
 })

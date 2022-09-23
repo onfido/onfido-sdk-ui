@@ -27,7 +27,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
-      # e.g. "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
       - name: Setup Git
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
@@ -74,6 +73,10 @@ jobs:
       - name: Upload Release to S3
         run: |
           aws s3 cp ./dist s3://${{ env.AWS_S3_BUCKET }}/web-sdk-releases/$RELEASE_VERSION/ --exclude "*.html" --recursive --acl public-read
+
+      - name: Upload Release as latest to S3
+        run: |
+          aws s3 cp ./dist s3://${{ env.AWS_S3_BUCKET }}/web-sdk-releases/latest/ --exclude "*.html" --recursive --acl public-read
 
       - name: Publish to NPM
         env:

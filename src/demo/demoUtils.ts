@@ -25,6 +25,7 @@ export type QueryParams = {
   countryCode?: StringifiedBoolean
   createCheck?: StringifiedBoolean
   disableAnalytics?: StringifiedBoolean
+  disableAnalyticsCookies?: StringifiedBoolean
   forceCrossDevice?: StringifiedBoolean
   hideOnfidoLogo?: StringifiedBoolean
   language?: 'customTranslations' | SupportedLanguages
@@ -72,6 +73,7 @@ export type QueryParams = {
   applicantId?: StringifiedBoolean
   workflowRunId?: StringifiedBoolean
   testCase?: string
+  apiToken?: string
 }
 
 export type CheckData = {
@@ -363,6 +365,9 @@ export const getInitSdkOptions = (): SdkOptions => {
   if (queryParamToValueString.disableAnalytics === 'true') {
     sdkOptions.disableAnalytics = true
   }
+  if (queryParamToValueString.disableAnalyticsCookies === 'true') {
+    sdkOptions.disableAnalyticsCookies = true
+  }
   if (queryParamToValueString.useMemoryHistory === 'true') {
     sdkOptions.useMemoryHistory = true
   }
@@ -553,7 +558,8 @@ export const getToken = (
   url: string,
   applicantData: ApplicantData | undefined,
   eventEmitter: MessagePort | undefined,
-  onSuccess: (token: string, applicantId: string) => void
+  onSuccess: (token: string, applicantId: string) => void,
+  apiToken?: string
 ): void => {
   const request = new XMLHttpRequest()
 
@@ -567,6 +573,10 @@ export const getToken = (
     'Authorization',
     `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
   )
+
+  if (apiToken) {
+    request.setRequestHeader('x-onfido-api-token', apiToken)
+  }
 
   request.onload = () => {
     if (request.status >= 200 && request.status < 400) {

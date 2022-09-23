@@ -45,7 +45,7 @@ module.exports = {
     'jest/no-export': 'off',
     'jest/valid-describe': 'off',
     'jest/valid-expect': 'off',
-
+    'jest/no-conditional-expect': 'off',
     'jest/no-done-callback': 'off',
     /**  NOTE: This rule is disabled for these integration tests as onfidoApi.js were implemented using callbacks.
           Hence it is necessary to use Jest' done() callback function as per Jest's documentation for
