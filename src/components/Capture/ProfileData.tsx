@@ -107,7 +107,6 @@ const ProfileData = ({
 
     const newPersonalData = Object.entries(cleanedFormData).reduce(
       (prev, [type, value]) => {
-        if (type === 'pan') return { ...prev, tax_id: `${value}` }
         if (type !== 'country_residence') return { ...prev, [type]: `${value}` }
 
         return {
