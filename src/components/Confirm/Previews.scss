@@ -1,0 +1,25 @@
+@import '../Theme/constants';
+
+.previewsContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &.previewsContainerIsFullScreen {
+    top: 0;
+  }
+}
+
+.title {
+  flex: 0 0 auto;
+}
+
+.message {
+  margin: 32 * $unit 0 16 * $unit;
+  @media (--small-viewport) {
+    margin: 16 * $unit 0;
+  }
+}

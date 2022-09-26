@@ -1,0 +1,25 @@
+name: SVGOptimizer
+on:
+  # Disable the following line if you don't want the Action to run on PRs.
+  pull_request:
+    paths:
+      - '**.svg'
+# Enable the following line if you want the Action to run on regular pushes.
+#  push:
+# Enable the following lines if you want the Action to run on a schedule.
+#  schedule:
+#  - cron:  '0 * * * 1'  # See https://crontab.guru/
+# Enable one of the following lines if you want to manually trigger the Action.
+#  repository_dispatch:
+#  workflow_dispatch:
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ericcornelissen/svgo-action@v1
+        with:
+          test-run: false
+          svgo-version: 2
+          svgo-options: svgo.config.js
+          repo-token: ${{ secrets.GITHUB_TOKEN }}

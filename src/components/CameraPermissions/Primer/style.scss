@@ -1,0 +1,101 @@
+@import '../../Theme/constants';
+
+.bodyWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.instructions {
+  font-size: var(--onfido-font-size-small);
+  margin: 10% 16 * $unit-small 16 * $unit-small;
+}
+
+.image {
+  height: auto;
+  width: 100%;
+  font-size: var(--onfido-font-size-small);
+  display: flex;
+  flex-direction: row;
+  flex: 2 1 32 * $unit-x-small;
+  min-height: 32 * $unit-x-small;
+  max-width: 105.01 * $unit-x-small;
+  width: 100%;
+  padding: 10 * $unit-small;
+  margin: auto;
+
+  // To fix Safari flexbox rendering issue by forcing the div to be rendered in a new composite layer,
+  // see https://stackoverflow.com/questions/65524383/flexbox-bug-on-safari -> https://stackoverflow.com/questions/19169089/weird-css-stretching-issue-in-ios7-safari-and-chrome
+  transform: translateZ(0);
+
+  @media (--small-viewport) {
+    max-width: 79 * $unit-x-small;
+  }
+}
+
+.twoImages {
+  max-width: 1.5 * 105.01 * $unit-x-small;
+
+  @media (--small-viewport) {
+    max-width: 2 * 79 * $unit-x-small;
+  }
+}
+
+.reasons {
+  font-size: var(--onfido-font-size-small);
+
+  text-align: center;
+  min-height: 42 * $unit-small;
+}
+
+.reason {
+  margin-top: 8 * $unit-small;
+}
+
+%graphic {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: 136 * $unit;
+  width: 100%;
+
+  @media (--small-viewport) {
+    background-size: contain;
+    flex-grow: 1; // prevents container height collapsing on iOS devices
+    height: 100%;
+  }
+}
+
+.cameraAllow {
+  @extend %graphic;
+  background-image: url('./assets/camera-allow.svg');
+}
+
+.microphone {
+  @extend %graphic;
+  background-image: url('./assets/microphone.svg');
+  background-size: 90%;
+  margin-left: 1 * $unit;
+}
+
+.allow {
+  top: 70%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 50%;
+  font-weight: 600;
+
+  @media (--small-viewport) {
+    top: 65%;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

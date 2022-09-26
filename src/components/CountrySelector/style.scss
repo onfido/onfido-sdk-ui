@@ -1,0 +1,53 @@
+@import '../Theme/constants';
+
+.container {
+  flex: 1 1 auto;
+  padding-top: 16 * $unit;
+}
+
+%_text {
+  font-size: var(--onfido-font-size-small);
+}
+
+.label {
+  @extend %_text;
+}
+
+.errorContainer {
+  margin-top: 8 * $unit;
+  display: flex;
+}
+
+.fallbackText {
+  @extend %_text;
+  font-weight: bold;
+}
+
+.descriptionText {
+  @extend %_text;
+}
+
+.fallbackLink {
+  display: inline-block;
+  font-size: inherit;
+}
+
+%_icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: 13 * $unit;
+  width: 13 * $unit;
+  margin-right: 8 * $unit;
+}
+
+.helpIcon {
+  @extend %_icon;
+  background-image: url('assets/question-icon.svg');
+}
+
+.errorIcon {
+  @extend %_icon;
+  background-image: url('assets/alert-icon.svg');
+}

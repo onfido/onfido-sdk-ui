@@ -1,0 +1,161 @@
+@use 'sass:math';
+
+/* UNITS */
+
+/**
+ * We want our units to be based on `em`, so that our SDK can accommodate for
+ * the user changing their browser font size.
+ * At the same time, `px` is a unit often used in templates etc. from Design.
+ * To accommodate for both of these cases, we make our $unit be 1/16 of an `em`.
+ * This results in each $unit into being the same as 1px (when the parent
+ * font-size is 16px, as it is by default).
+ *
+ * So each "unit" isn't a pixel, but it is when the parent font size is 16px,
+ * and it's proportionate to the difference otherwise.
+ */
+$unit: math.div(1, 16) * 1em;
+
+/*
+ * We also need different units for when trying to do `px` "equivalents" when
+ * our parent has a different font size.
+ */
+$unit-x-large: math.div(1, 30) * 1em;
+$unit-large: math.div(1, 20) * 1em;
+$unit-small: math.div(1, 14) * 1em;
+$unit-x-small: math.div(1, 11) * 1em;
+
+/*
+ * We also have a special unit for the react-phone-number-input library, so
+ * we can keep its units in line with whatever units we decide to pick
+ */
+$unit-rrui: 1em;
+
+/* MARGINS & PADDINGS */
+
+$large-text-margin: 32 * $unit;
+$small-text-margin: 24 * $unit;
+$smaller-text-margin: 16 * $unit;
+$padding-lg: 16 * $unit;
+$padding-sm: 10 * $unit;
+$padding-xs: 8 * $unit;
+
+$sdk-container-max-width: 512 * $unit;
+$footer-height: 40 * $unit;
+$footer-margin: 0 * $unit;
+$navigation-height: 32 * $unit;
+$navigation-height-sm-screen: 38 * $unit;
+$navigation-padding-top: $padding-lg;
+$navigation-padding-sides: $padding-lg;
+$navigation-padding-top-sm-screen: $padding-sm;
+$navigation-padding-sides-sm-screen: $padding-xs;
+
+/* COLORS */
+/*
+ *  NOTE: Use rgb() notation instead of rgba() when using Castor basic color tokens.
+ *        The CSS color values do not have an opacity value. Only RGB.
+ *        Color reverts to browser default on IE11 which flags color value as invalid when rgba() used.
+ */
+
+/* Solid colors */
+$color-white: rgb(var(--ods-color-neutral-white));
+$color-black: rgb(var(--ods-color-neutral-black));
+
+$color-icon-temporary: rgb(var(--ods-color-neutral-300));
+$color-divider: rgb(var(--ods-color-neutral-400));
+$color-icons-connector-line: rgb(var(--ods-color-neutral-800));
+
+/* Transparent colors */
+$color-modal-overlay: rgba(0, 0, 0, 0.6);
+$color-camera-overlay: rgba(0, 0, 0, 0.7);
+$color-camera-error-overlay: #1c1f21;
+$color-navbar-gradient-one: rgba(28, 31, 33, 0);
+$color-navbar-gradient-two: rgba(28, 31, 33, 0.35);
+
+/* Doc/Face capture preview "Enlarge image" button colors */
+$color-small-button: rgba(15, 37, 54, 0.85);
+$color-small-button-hover: rgba(15, 37, 54, 0.6);
+$color-small-button-active: rgba(15, 37, 54, 0.85);
+
+/* Live Camera Capture screens' Back, Close icon button background is not customisable */
+$color-fullscreen-icon-button-hover: rgb(var(--ods-color-neutral-400));
+$color-fullscreen-icon-button-active: rgb(var(--ods-color-neutral-600));
+
+/* Primary/Secondary Button width variables */
+$lg-btn-width-lg-screen: 272 * $unit-small;
+$lg-btn-width-sm-screen: 100%;
+
+$sm-btn-width-lg-screen: 200 * $unit-small;
+$sm-btn-width-sm-screen: 160 * $unit-small;
+
+/* Modal */
+$modal-animation-duration: 200ms;
+// Export is required for ^ variable to be accessible at React/JS side
+:export {
+  modal_animation_duration: $modal-animation-duration;
+}
+
+%absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+%overflow-drop-shadow {
+  @media (--shorter-viewport) {
+    background-color: rgb(var(--ods-color-neutral-050));
+    bottom: 0;
+    box-shadow: 0 -5px 10px -5px #7b7b7b;
+    left: -1em;
+    position: absolute;
+    right: -1em;
+    top: -8 * $unit;
+    z-index: 0;
+    /* By default the sibling button will be hidden by this shadow span */
+    + button {
+      z-index: 1;
+    }
+  }
+}
+
+@mixin width-parent-relative($base-width, $parent-width) {
+  width: 100% * math.div($base-width, $parent-width);
+}
+
+%global-margin {
+  margin: 0 $large-text-margin;
+  @media (--small-viewport) {
+    margin: 0 $small-text-margin;
+  }
+  @media (--smaller-viewport) {
+    margin: 0 $smaller-text-margin;
+  }
+}
+
+%global-padding {
+  padding: 0 $large-text-margin;
+  @media (--small-viewport) {
+    padding: 0 $small-text-margin;
+  }
+  @media (--smaller-viewport) {
+    padding: 0 $smaller-text-margin;
+  }
+}
+
+%icon-circle-background {
+  background-color: var(--osdk-color-background-icon);
+  border-radius: 50%;
+}
+
+%header-highlight-pill {
+  border-radius: 14 * $unit-small;
+  background-color: var(--osdk-color-background-info-pill);
+  color: var(--osdk-color-content-info-pill);
+  font-family: inherit;
+  font-size: var(--onfido-font-size-small);
+  font-weight: 600;
+  line-height: 24 * $unit-small;
+  padding: 0 14 * $unit-small;
+}

@@ -1,0 +1,156 @@
+@import '../Theme/constants';
+
+.consentFrame {
+  width: 100%;
+  height: 100%;
+  border-style: none;
+
+  h1 {
+    color: var(--osdk-color-content-title);
+    font-weight: var(--osdk-font-weight-title);
+    font-size: var(--osdk-font-size-title);
+    line-height: 1.34;
+    text-align: center;
+    margin-bottom: 32 * $unit-x-large;
+    @media (--small-viewport) {
+      font-size: 24 * $unit;
+    }
+  }
+
+  hr {
+    margin: 24 * $unit 0;
+  }
+
+  > * {
+    text-align: left;
+  }
+
+  h4 {
+    margin-bottom: 32 * $unit;
+    margin-bottom: 16 * $unit;
+  }
+
+  div:last-child {
+    p {
+      height: 3em;
+    }
+  }
+}
+
+.actions {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &.vertical {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.action.vertical {
+  margin-top: 8 * $unit;
+  margin-right: 0;
+  width: $lg-btn-width-lg-screen;
+}
+
+.secondary {
+  margin-right: 16 * $unit;
+  @media (--small-viewport) {
+    margin-right: 8 * $unit;
+  }
+}
+
+/* Decline Modal */
+
+.declineModalInner {
+  font-size: 16px;
+
+  width: 448 * $unit;
+  min-height: 236 * $unit;
+  margin: auto;
+
+  border-radius: 4 * $unit;
+  border: 1px solid var(--osdk-color-border-surface-modal);
+  background-color: var(--osdk-color-background-surface-modal);
+
+  font-family: var(--osdk-font-family-body) !important;
+
+  color: var(--osdk-color-content-body);
+  font-weight: 500;
+  line-height: 1.5;
+
+  overflow: auto;
+
+  /* HACK: only apply this fix to IE11*/
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    height: 0; /*necessary for IE11, see: https://stackoverflow.com/questions/24396205/flex-grow-not-working-in-internet-explorer-11-0*/
+  }
+
+  @media (--small-viewport) {
+    width: 100%;
+    margin: auto $small-text-margin;
+  }
+
+  @media (--smaller-viewport) {
+    width: 100%;
+    margin: auto $smaller-text-margin;
+  }
+
+  &,
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+.modalContent {
+  margin: $small-text-margin;
+
+  @media (--small-viewport) {
+    margin: $smaller-text-margin;
+  }
+
+  h2 {
+    font-size: var(--onfido-font-size-large);
+    line-height: 28 * $unit;
+    margin: 0;
+  }
+
+  p {
+    margin-top: 8 * $unit;
+    margin-bottom: 24 * $unit;
+  }
+}
+
+.modalActions {
+  @media (--small-viewport) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    button {
+      width: 100%;
+    }
+
+    button:first-child {
+      margin-right: 0;
+      margin-bottom: 8 * $unit;
+    }
+  }
+}
+
+.contentFlexbox {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.errorIcon {
+  height: 40 * $unit;
+  background-size: contain;
+  background-image: url('./assets/error-circle.svg');
+}

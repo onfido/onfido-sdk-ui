@@ -1,0 +1,25 @@
+@import '../Theme/constants';
+
+.qrCodeHelp {
+  min-height: unset;
+}
+
+.qrCodeHelpButton {
+  cursor: pointer;
+}
+
+.qrCodeHelpIcon {
+  width: 20 * $unit;
+  height: 16 * $unit;
+  display: inline-block;
+  vertical-align: text-bottom;
+  content: '';
+  background-repeat: no-repeat;
+  background-image: url('./assets/icon-info.svg');
+}
+
+.qrCodeHelpList {
+  font-size: var(--onfido-font-size-small);
+  text-align: left;
+  margin-bottom: 16 * $unit;
+}

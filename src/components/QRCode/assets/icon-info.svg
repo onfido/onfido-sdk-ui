@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Group</title>
+  <desc>Created with Sketch.</desc>
+  <defs>
+    <path id="a" d="m8.6667 9.9327c1.5507-0.3189 2.6644-1.6828 2.6667-3.266 0-1.838-1.4953-3.3333-3.3333-3.3333s-3.3333 1.4953-3.3333 3.3333h1.3333c0-1.1027 0.89733-2 2-2s2 0.89733 2 2c0 1.1027-0.89733 2-2 2h-0.66667v2h1.3333v-0.734zm-1.3333 2.0673h1.3333v1.3333h-1.3333v-1.3333z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(-173 -346)">
+      <g transform="translate(173 184)">
+        <g transform="translate(0 160)">
+          <g transform="translate(0 2)">
+            <circle cx="8" cy="8" r="8" fill="#3640F5"/>
+            <mask fill="white">
+              <use xlink:href="#a"/>
+            </mask>
+            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#a"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

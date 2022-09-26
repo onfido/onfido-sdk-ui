@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none">
+  <g fill="#f7f9fa" stroke="#1e1e24">
+    <rect x="13.886" y="8.432" width="19.5" height="33.682" rx="2.659" stroke-width="1.773"/>
+    <path d="M24.966 38.568a1.33 1.33 0 0 1-1.329 1.33 1.33 1.33 0 0 1-1.33-1.33 1.33 1.33 0 0 1 1.33-1.33 1.33 1.33 0 0 1 1.329 1.33z" stroke-width=".886"/>
+  </g>
+  <rect x="34.273" y="6.767" width="2.659" height=".886" rx=".443" transform="rotate(315 34.273 6.767)" fill="#1e1e24"/>
+  <mask id="a" fill="#fff">
+    <rect x="15.659" y="18.182" width="15.955" height="6.205" rx=".591"/>
+  </mask>
+  <rect x="15.659" y="18.182" width="15.955" height="6.205" rx=".591" fill="#f7f9fa" stroke="#a2a8b3" stroke-width="1.773" mask="url(#a)"/>
+  <g fill-rule="evenodd">
+    <path d="M20.977 21.284c0-.245.198-.443.443-.443h7.977a.443.443 0 1 1 0 .886H21.42a.443.443 0 0 1-.443-.443z" fill="#a2a8b3"/>
+    <path d="M18.761 22.614a1.33 1.33 0 0 0 1.33-1.33 1.33 1.33 0 0 0-1.33-1.329 1.33 1.33 0 0 0-1.329 1.329 1.33 1.33 0 0 0 1.329 1.33z" fill="#3640f5"/>
+  </g>
+  <g fill="#1e1e24">
+    <rect x="20.091" y="10.205" width="7.091" height=".886" rx=".443"/>
+    <rect x="35.159" y="7.545" width="2.659" height=".886" rx=".443"/>
+    <rect x="32.943" y="4" width=".886" height="2.659" rx=".443"/>
+  </g>
+</svg>

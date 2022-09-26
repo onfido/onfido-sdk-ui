@@ -1,0 +1,79 @@
+@import '../Theme/constants';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8 * $unit;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+
+  @media (--small-viewport) {
+    align-items: flex-start;
+  }
+}
+
+.customDescriptions {
+  align-self: center;
+}
+
+.instructions {
+  margin-top: 32 * $unit;
+
+  > ol {
+    list-style-position: inside;
+    padding: 0;
+  }
+
+  > ol li {
+    margin-bottom: 16 * $unit;
+  }
+
+  > ol li::marker {
+    color: var(--osdk-color-background-alert-info);
+  }
+
+  @media (--small-viewport) {
+    text-align: left;
+
+    > ol {
+      padding-left: 32 * $unit;
+    }
+  }
+}
+
+.recordingLimit {
+  display: flex;
+  align-items: flex-start;
+
+  > .timer {
+    background: url('./assets/timer.svg') left no-repeat;
+    width: 20 * $unit;
+    align-self: stretch;
+  }
+
+  > .text {
+    flex: 1;
+    text-align: left;
+  }
+}
+
+.balanceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 310px;
+
+  > .balance {
+    background: url('./assets/balance.svg') center no-repeat;
+    background-size: 60%;
+    width: 100%;
+    height: 100%;
+    align-self: stretch;
+  }
+}

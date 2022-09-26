@@ -1,0 +1,173 @@
+/*
+ *  NOTE on CSS variable prefix naming convention & Castor DS token mappings:
+ *
+ *  1) Supported SDK customisation options = CSS variables with --osdk- prefix.
+ *     Anything without --osdk- prefix is not officially supported but is here as this is the single source for tokens.
+ *
+ *  2) Castor theme tokens = CSS variables with --ods- prefix.
+ *
+ *  3) Internal theme tokens = CSS variables with --onfido- prefix.
+ *
+ *  Wherever it makes sense for color token mappings, the relevant Day theme design tokens from Castor should be used.
+ *  See the Castor Day theme file for available tokens:
+ *  https://github.com/onfido/castor/blob/main/packages/core/src/theme/themes/day.scss
+ *  Where it does not, the basic color token, e.g. --ods-color-primary-500, should be used instead.
+ *
+ * Colors in theme color palette are RGB values but some also add a alpha level (opacity),
+ * so all color related CSS variables must be wrapped with rgba(), e.g. rgba((var(--castor-color-theme-token))).
+ *
+ * If using Castor basic color tokens, use the rgb() notation instead of rgba() notation.
+ * The CSS color values do not have an opacity value. Only RGB.
+ * Color reverts to browser default on IE11 which flags color value as invalid when rgba() used.
+ */
+
+/* stylelint-disable function-parentheses-space-inside */
+
+@mixin tokens() {
+  --onfido-unit: (1/16) * 1em;
+
+  /* Font settings */
+  --onfido-font-family: 'Open Sans', sans-serif;
+
+  --onfido-font-size-base: calc(16 * var(--onfido-unit));
+  --onfido-font-size-large: calc(20 * var(--onfido-unit));
+  --onfido-font-size-x-large: calc(30 * var(--onfido-unit));
+  --onfido-font-size-small: calc(14 * var(--onfido-unit));
+  --onfido-font-size-x-small: calc(11 * var(--onfido-unit));
+
+  /* Tokens that don't support customisation */
+  --onfido-color-background-button-custom: #d5dae0;
+
+  /* Tokens that support customisation */
+  --osdk-font-family-title: var(--onfido-font-family);
+  --osdk-font-size-title: var(--onfido-font-size-x-large);
+  --osdk-font-weight-title: 600;
+  --osdk-color-content-title: rgba(var(--ods-color-content-main));
+
+  --osdk-font-family-subtitle: var(--onfido-font-family);
+  --osdk-font-size-subtitle: var(--onfido-font-size-base);
+  --osdk-font-weight-subtitle: 600;
+  --osdk-color-content-subtitle: rgba(var(--ods-color-content-main));
+
+  --osdk-font-family-body: var(--onfido-font-family);
+  --osdk-font-size-body: var(--onfido-font-size-base);
+  --osdk-font-weight-body: 500;
+  --osdk-color-content-body: rgba(var(--ods-color-content-main));
+
+  /* Modal (SDK Container) */
+  --osdk-color-background-surface-modal: rgba(
+    var(--ods-color-background-surface)
+  );
+  --osdk-color-border-surface-modal: rgb(var(--ods-color-neutral-600));
+  --osdk-border-width-surface-modal: 1px;
+  --osdk-border-style-surface-modal: solid;
+  --osdk-border-radius-surface-modal: var(--ods-border-radius-large);
+
+  /* Warning/Info Message */
+  --osdk-color-background-alert-info: rgb(var(--ods-color-primary-500));
+
+  /* Warning/Info Message - fallback link */
+  --osdk-color-content-alert-info: rgba(var(--ods-color-content-inverse-main));
+  --osdk-color-background-alert-info-link-hover: rgba(
+    var(--ods-color-background-action-hover)
+  );
+  --osdk-color-background-alert-info-link-active: rgba(
+    var(--ods-color-background-action-active)
+  );
+
+  /* Error Message */
+  --osdk-color-background-alert-error: rgba(
+    var(--ods-color-background-negative)
+  );
+  --osdk-color-content-alert-error: rgba(var(--ods-color-content-inverse-main));
+
+  /* Error Message - fallback link */
+  --osdk-color-background-alert-error-link-hover: rgba(
+    var(--ods-color-background-negative-hover)
+  );
+  --osdk-color-background-alert-error-link-active: rgba(
+    var(--ods-color-background-negative-active)
+  );
+
+  /* Icon background circle color */
+  --osdk-color-background-icon: rgba(var(--ods-color-background-surface-alt));
+
+  /* Primary Button customisations */
+  --osdk-color-content-button-primary-text: rgba(
+    var(--ods-color-content-on-action)
+  );
+
+  --osdk-color-background-button-primary: rgba(
+    var(--ods-color-background-action)
+  );
+  --osdk-color-background-button-primary-hover: rgba(
+    var(--ods-color-background-action-hover)
+  );
+  --osdk-color-background-button-primary-active: rgba(
+    var(--ods-color-background-action-active)
+  );
+
+  --osdk-color-border-button-primary: rgba(var(--ods-color-border-action));
+
+  /* Secondary Button customisations */
+  --osdk-color-content-button-secondary-text: rgba(
+    var(--ods-color-content-action)
+  );
+
+  --osdk-color-background-button-secondary: transparent;
+  --osdk-color-background-button-secondary-hover: rgba(
+    var(--ods-color-background-action-subtle-hover)
+  );
+  --osdk-color-background-button-secondary-active: rgba(
+    var(--ods-color-background-action-subtle)
+  );
+
+  --osdk-color-border-button-secondary: rgba(var(--ods-color-border-action));
+
+  /* Button group customisations */
+  --osdk-border-radius-button: var(--ods-border-radius-medium);
+  --osdk-button-group-stacked: false;
+
+  /* Document Type Selectors option button colors */
+  --osdk-color-content-doc-type-button: var(--osdk-color-content-body);
+  --osdk-color-background-doc-type-button: rgb(var(--ods-color-neutral-white));
+
+  --osdk-color-border-doc-type-button: rgba(var(--ods-color-border-input));
+  --osdk-color-border-doc-type-button-hover: rgba(
+    var(--ods-color-border-action-hover)
+  );
+  --osdk-color-border-doc-type-button-active: rgba(
+    var(--ods-color-border-action-focus)
+  );
+
+  /* Back, Close (modal) icon button colors */
+  --osdk-color-background-button-icon-hover: rgb(var(--ods-color-neutral-400));
+  --osdk-color-background-button-icon-active: rgb(var(--ods-color-neutral-600));
+
+  /* Selfie Camera button colors */
+  --onfido-color-background-button-camera: rgb(var(--ods-color-neutral-white));
+  --osdk-color-background-button-camera-hover: rgb(
+    var(--ods-color-primary-400)
+  );
+  --osdk-color-background-button-camera-active: rgb(
+    var(--ods-color-primary-600)
+  );
+
+  /* Link colors */
+  --osdk-color-border-link-underline: rgba(var(--ods-color-border-action));
+  --osdk-color-content-link-text-hover: rgba(
+    var(--ods-color-content-on-action)
+  );
+  --osdk-color-background-link-hover: rgba(
+    var(--ods-color-background-action-hover)
+  );
+  --osdk-color-background-link-active: rgba(
+    var(--ods-color-background-action-active)
+  );
+
+  /* Header/Highlight Pills */
+  --osdk-color-background-info-pill: rgba(var(--ods-color-background-info));
+  --osdk-color-content-info-pill: rgba(var(--ods-color-content-inverse-main));
+}
+
+/* stylelint-enable function-parentheses-space-inside */

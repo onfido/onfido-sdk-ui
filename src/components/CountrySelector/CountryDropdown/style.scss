@@ -1,0 +1,222 @@
+@import '../../Theme/constants';
+
+.custom {
+  /* placeholder to force class name generation for custom styling */
+}
+
+.countryFlag {
+  position: absolute;
+  left: 12 * $unit;
+  top: 8 * $unit;
+  width: 24 * $unit;
+  height: 24 * $unit;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.countryLabel,
+.countryFlagLabel {
+  display: flex;
+  align-items: center;
+}
+
+.countryFlagLabel {
+  padding-left: 35 * $unit;
+}
+
+//-----------------------------//
+// accessible-autocomplete CSS //
+//-----------------------------//
+/*
+  All selector default BEM block name replaced with our custom CSS namespace
+  i.e. '.autocomplete__' to '.custom__'
+
+  NOTE (as per library's documentation):
+  "You will need to rewrite the CSS class names to use your specified block name."
+
+  Copied as is from node_modules/accessible-autocomplete/src/autocomplete.css
+  except for the following confirmed unused styles that were removed:
+    - styling for media query breakpoint @media (min-width: 641px)
+    - .custom__option--odd
+    - .custom__input--show-all-values (.custom__dropdown-arrow-down is not used in SDK)
+
+  Changes only applied for linting errors and to apply SDK theme styles
+  Use Sass variables, placeholders as much as possible to easily maintain this
+*/
+
+$_sdk-font-size: var(--onfido-font-size-small);
+$_sdk-line-height: 18 * $unit-small;
+$_sdk-text-color: var(--osdk-color-content-body);
+
+$_sdk-input-border-style: 1px solid rgba(var(--ods-color-border-input));
+$_sdk-input-horizontal-padding: 8 * $unit-small;
+$_sdk-input-vertical-padding: 12 * $unit-small;
+$_sdk-input-icon-padding: 34 * $unit-small;
+$_sdk-search-icon-size: 24 * $unit-small;
+
+$_sdk-menu-max-height: 265 * $unit;
+$_sdk-menu-width-offset: 4 * $unit;
+$_sdk-option-hover-color: var(--osdk-color-background-button-primary-hover);
+$_sdk-option-active-color: var(--osdk-color-background-button-primary-active);
+$_sdk-option-padding: 8 * $unit-small;
+$_sdk-option-border-bottom: 0;
+
+%_sdk-search-icon {
+  background-color: transparent;
+  background-image: url('assets/search-icon.svg');
+  background-size: $_sdk-search-icon-size;
+  background-repeat: no-repeat;
+  background-position: 98% 50%;
+}
+
+.custom__wrapper {
+  position: relative;
+  padding: 0;
+  margin-top: 8 * $unit;
+
+  @media (--small-viewport) {
+    margin-top: 0;
+  }
+}
+
+.custom__hint,
+.custom__input {
+  border: $_sdk-input-border-style;
+  border-radius: 4 * $unit;
+  box-sizing: border-box;
+  margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
+  width: 100%;
+}
+
+.custom__input {
+  height: auto;
+  background-color: transparent;
+  position: relative;
+  /* font size for form elements (input, select, textarea) must be at least 16px otherwise iOS Safari intervenes & forces UI to zoom in */
+  font-size: var(--onfido-font-size-base);
+  color: $_sdk-text-color;
+}
+
+.custom__hint {
+  height: 100%;
+  color: #b1b4b6;
+  position: absolute;
+}
+
+.custom__input--focused {
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2 * $unit;
+}
+
+.custom__input--show-all-values {
+  padding: $_sdk-input-horizontal-padding $_sdk-input-icon-padding
+    $_sdk-input-horizontal-padding $_sdk-input-vertical-padding;
+  cursor: pointer;
+}
+
+.dropdownIcon {
+  @extend %_sdk-search-icon;
+  height: $_sdk-search-icon-size;
+  width: $_sdk-search-icon-size;
+  position: absolute;
+  top: 3 * $unit-small;
+  right: 4 * $unit-small;
+}
+
+.chevronIcon {
+  height: $_sdk-search-icon-size;
+  width: $_sdk-search-icon-size;
+  position: absolute;
+  top: 3 * $unit-small;
+  right: 4 * $unit-small;
+}
+
+.custom__menu {
+  background-color: #fff;
+  border: $_sdk-input-border-style;
+  border-top: 0;
+  color: $_sdk-text-color;
+  margin: 0;
+  max-height: $_sdk-menu-max-height;
+  overflow-x: hidden;
+  padding: 0;
+  width: calc(100% - #{$_sdk-menu-width-offset});
+}
+
+.custom__menu--visible {
+  display: block;
+}
+
+.custom__menu--hidden {
+  display: none;
+}
+
+.custom__menu--overlay {
+  box-shadow: rgba(0, 0, 0, 0.256863) 0 2 * $unit 6 * $unit;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+}
+
+.custom__menu--inline {
+  position: relative;
+}
+
+.custom__option {
+  border-bottom: $_sdk-option-border-bottom;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.custom__option > * {
+  pointer-events: none;
+}
+
+.custom__option:first-of-type {
+  border-top-width: 0;
+}
+
+.custom__option:last-of-type {
+  border-bottom-width: 0;
+}
+
+.custom__option--focused,
+.custom__option:hover {
+  background-color: $_sdk-option-hover-color;
+  border-color: $_sdk-option-hover-color;
+  color: #fff;
+  outline: none;
+}
+
+.custom__option--no-results {
+  background-color: #fafafa;
+  color: #646b6f;
+  cursor: not-allowed;
+}
+
+.custom__hint,
+.custom__option {
+  font-size: $_sdk-font-size;
+  line-height: $_sdk-line-height;
+}
+
+.custom__hint,
+.custom__option {
+  padding: $_sdk-option-padding;
+}
+
+// Additional custom styling not in library's CSS
+
+.custom__option:active {
+  background-color: $_sdk-option-active-color;
+  border-color: $_sdk-option-active-color;
+}
+
+//------------------------------------//
+// END of accessible-autocomplete CSS //
+//------------------------------------//

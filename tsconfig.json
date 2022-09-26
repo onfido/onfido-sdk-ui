@@ -1,0 +1,49 @@
+{
+  // For webpack & ts-node
+  // overrides main compilerOptions listed below
+  "ts-node": {
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "esModuleInterop": true
+    }
+  },
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "lib": ["esnext", "dom"],
+    "module": "es2020",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "outDir": "./dist/",
+    "paths": {
+      "~jest/*": ["../test/utils/jest/*"],
+      "~contexts": ["contexts/index"],
+      "~contexts/*": ["contexts/*"],
+      "~locales": ["locales/index"],
+      "~types/*": ["types/*"],
+      "~core/*": ["core/*"],
+      "~modules/*": ["../modules/*"],
+      "~utils": ["components/utils/index"],
+      "~utils/*": ["components/utils/*"],
+      "~supported-documents": ["supported-documents/index"],
+      "~workflow-engine": ["workflow-engine/index"],
+      "~workflow-engine/*": ["workflow-engine/*"],
+      "~auth-sdk/*": ["../auth-sdk/FaceTec/*"],
+      "~webcam/*": ["webcam/*"]
+    },
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "target": "es2019",
+    "strict": true,
+    "sourceMap": true,
+    "types": ["jest"],
+    "typeRoots": ["./typings", "./node_modules/@types"],
+    "downlevelIteration": true
+  },
+  "exclude": ["./test/mock-server", "./lib", "test/webtest", "out"]
+}

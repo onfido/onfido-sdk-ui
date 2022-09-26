@@ -1,0 +1,73 @@
+@import '../../Theme/constants';
+
+.pageTitle {
+  margin-top: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.icon {
+  @extend %icon-circle-background;
+  height: 144 * $unit;
+  width: 144 * $unit;
+  background-size: contain;
+  background-image: url('./assets/connection-large.svg');
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (--shorter-viewport) {
+    height: 120 * $unit;
+    width: 120 * $unit;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @media (--longer-viewport) {
+    margin-top: 18 * $unit;
+    margin-bottom: 18 * $unit;
+  }
+}
+
+.customIcon {
+  height: 144 * $unit;
+  width: auto;
+  max-width: 144 * $unit;
+  margin: 0 auto;
+
+  @media (--shorter-viewport) {
+    height: 120 * $unit;
+    max-width: 120 * $unit;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @media (--longer-viewport) {
+    margin-top: 32 * $unit;
+  }
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  top: 16 * $unit;
+}
+
+.help {
+  z-index: 0;
+  margin-bottom: 0;
+  font-size: var(--osdk-font-size-body);
+
+  @media (--shorter-viewport) {
+    font-size: var(--onfido-font-size-small);
+    padding: 24 * $unit 12 * $unit 12 * $unit;
+  }
+}

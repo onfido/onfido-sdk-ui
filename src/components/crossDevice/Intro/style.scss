@@ -1,0 +1,88 @@
+@import '../../Theme/constants';
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  /* to raise button slightly so bottom of focus border is not cut off */
+  margin-bottom: 8 * $unit;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+
+  /* to position line connecting all three icons */
+  padding-bottom: 32 * $unit;
+  position: relative;
+
+  /* line connecting all three icons */
+  &::before {
+    content: '';
+    display: block;
+    background-color: $color-icons-connector-line;
+    width: 2 * $unit;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 23 * $unit;
+  }
+
+  &:last-child::before {
+    display: none;
+  }
+}
+
+.stageIcon {
+  @extend %icon-circle-background;
+  background-size: contain;
+  flex-shrink: 0;
+  float: left;
+  height: 48 * $unit;
+  width: 48 * $unit;
+  position: relative;
+  z-index: 1;
+
+  &-sms {
+    background-image: url('./assets/mobile.svg');
+  }
+
+  &-take-photos {
+    background-image: url('./assets/take-photos.svg');
+  }
+
+  &-take-selfie {
+    background-image: url('./assets/take-selfie.svg');
+  }
+
+  &-return-to-computer {
+    background-image: url('./assets/return-to-computer.svg');
+  }
+}
+
+.stageMessage {
+  text-align: left;
+  margin-left: 15 * $unit;
+  flex-grow: 1;
+  flex-basis: 100%;
+
+  &-sms,
+  &-take-photos,
+  &-return-to-computer {
+    color: var(--osdk-color-content-body);
+  }
+}

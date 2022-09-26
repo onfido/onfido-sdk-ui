@@ -1,0 +1,35 @@
+@import '../Theme/constants';
+
+.controls {
+  flex: 1;
+  margin: 32 * $unit 16 * $unit 48 * $unit;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  cursor: pointer;
+  outline-offset: 6 * $unit;
+  background-color: var(--color-background-button-camera);
+  font-size: inherit;
+  border-radius: 50%;
+  border: 3 * $unit solid $color-black;
+  box-shadow: 0 0 0 4 * $unit $color-white;
+  height: 56 * $unit;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  width: 56 * $unit;
+
+  &:hover {
+    background-color: var(--osdk-color-background-button-camera-hover);
+  }
+
+  &:active {
+    background-color: var(--osdk-color-background-button-camera-active);
+  }
+
+  &:disabled {
+    display: none;
+  }
+}

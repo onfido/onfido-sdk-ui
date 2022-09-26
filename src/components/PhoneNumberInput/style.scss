@@ -1,0 +1,59 @@
+@import '../Theme/constants';
+
+/* "Loading" phone number input placeholder text */
+.loading {
+  color: rgba(var(--ods-color-content-placeholder));
+  font-size: var(--font-size-large);
+  line-height: 1.6;
+  margin: 8 * $unit-large;
+  float: left;
+}
+
+.phoneNumberContainer {
+  float: left;
+  width: 100%;
+  padding: 8 * $unit 12 * $unit;
+}
+
+.phoneNumberContainer :global {
+  /* stylelint-disable selector-class-pattern */
+  .PhoneInputCountryIcon--border,
+  .react-phone-number-input__icon {
+    height: 28.8 * $unit;
+    width: 28.8 * $unit;
+  }
+
+  .react-phone-number-input__icon {
+    height: 28.8 * $unit;
+    width: 28.8 * $unit;
+    border: 0;
+    display: block;
+  }
+
+  .PhoneInputCountryIcon--border {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  /* stylelint-enable selector-class-pattern */
+}
+
+.phoneNumberContainer {
+  input {
+    overflow: hidden;
+    width: 100%;
+    height: 30 * $unit;
+    border: 0;
+    font-size: var(--onfido-font-size-base);
+  }
+
+  button:focus,
+  input:focus {
+    outline: auto 5px -webkit-focus-ring-color;
+  }
+}
+
+.flagIcon {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}

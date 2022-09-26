@@ -1,0 +1,21 @@
+@import '../../Theme/constants';
+
+.icon {
+  @extend %icon-circle-background;
+  height: 144 * $unit;
+  width: 144 * $unit;
+  background-size: contain;
+  background-image: url('./assets/connection-large.svg');
+  margin-top: 40 * $unit;
+  margin-bottom: 32 * $unit;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.help {
+  /* placeholder to namespace this with CSS modules */
+}
+
+.cancel {
+  cursor: pointer;
+}

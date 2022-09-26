@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+  <defs>
+    <style>
+      @font-face{font-family:&quot;OpenSans-Bold&quot;;src:url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAWsAAwAAAAAB8wAARnbAAAAAAAAAAAAAAAAAAAAAAAAAABHUE9TAAABHAAAAAwAAAAMABUACk9TLzIAAAEoAAAAVwAAAGB+/bDVY21hcAAAAYAAAABNAAABWkD65ZdnYXNwAAAB0AAAAAwAAAAMAAgAG2dseWYAAAHcAAABlwAAAaBOfTn2aGVhZAAAA3QAAAA2AAAANgpRSOloaGVhAAADrAAAABsAAAAkCI8CeWhtdHgAAAPIAAAAEAAAABALxAFbbG9jYQAAA9gAAAAMAAAADACuAUptYXhwAAAD5AAAABgAAAAgAAkALm5hbWUAAAP8AAABnAAAAtHcso/ScG9zdAAABZgAAAAUAAAAIP9pAGsAAQAAAAoACgAKAAB4nGNgYZFl2sPAysDAOovVmIGBUR5CM19kSGP8w8HExM3BxszKwsTEwgAUFGBAAEPHYGcGBQYFhTVs8v9EGFo4epkiFBgY54PkWOJYtwEpBQZmACYdC/gAeJxjYGBgZoBgGQZGBhAIAfIYwXwWBgsgzcXAwcAEhAoMKgyLFdb8/w8Ug7P/P/x/73/C/QioXihgZGMgCEAamAgroyVgpqXhAHwSDq0AAAAAAQACAAgACv//AA94nGNgYjjIwMDCxbqNgZmBnYFBWFFQ0RyIDzJ7/tmewVT5t5112y+vDJZnDGiAmSHifyeLC5sQgwKDGoMOAwOjCBu7qLKpmrqgHKO4oLoeo6mJmbmpsaiYODtIjInVRE1d1IxRREzclI3F5dn5zi87wr8mOB9b+vh059OdcXOWHF7q+++yi0vHvzxbl0bGk/MPCp89yRrIyKHtxMZoJuW3vX3ibpGZU7mCXjnw/bvpndeSrmUl/1OcaZ+OpdxrYQZGhiCgP7JYTzPIAt1iBLRUWYlNllFRVFFUhB3oIVM7RltGZVNjoKuY9hw+HDu32C+Esfxf53Smc79fpPtu2vSU9XTQM4fI4IO3+1f5/fvzQ6coZeLtwydvAv3KyOD0/w1LM+tBBnUgR4mNHWgqu6g4kBRTNDIXZFNWYlAHGq1mag4kzRiMgbbrMTIrV80TZ5z8L46JiTH53zpjRr7+lpKNX/8d0ewsY2EqaVVldPm8Z0mSawXLyd62Dcr6ips+W/5nsGbker1JXN10wydGyaAX8soA2GN8oQAAAQAAAAEZ2+LRWhFfDzz1CAkIAAAAAADJQhegAAAAANUrzNUAQv+JBIMGEgABAAkAAgAAAAAAAHicY2BkYODo/buCgYHlLAMEMDKgAmYAV4kDEQAEzQDBAhQAAASRAFgAUgBCAAAAFgAcAGQAkgDQeJxjYGRgYGBl0GVgZgABRgY0AAAFgQA4eJx1kc1q20AUhc8ktkmgMaWblpLFdFuskeTu7FWiGBMIzsIly8AgD7JAaIQkcO19HqMPkFWX3WeR5+oZeWwIJRru8N1zzxz9AfiIVwjsrwlrzwLn7PZ8gh4Sz6f4jLnnHoZ49NzHBxSeB7jAL89DfMcTT4neObsafzwLfBLfPJ/gTPzwfAolpp57uBS55z6+iEPOAF/Fb89D/BR/b/Isb/OdWcmVbrVMbbWt82zdypdnOY7iKOAWj+Tc2qwwMrF1ZWvd5rZU95Up5VKXzbUtVrGKo2l8tUymTnZq4OSjR7ruwdQNT0pnfmNbt201CcPNZqN0pdO1UbbOwiJPTdmYJry7TWaL5SwYqwg3yJGxWtYOBitIlmavSSksKmz5sZxrTVXimTVGhJgVeIoxojqn29JXMEfyN1meq7pdd/kWJRTuqRmSxJJ6iQbXnBS8a8ypS51yv+I0IR3cB29wdP+fI4+zB05qKvt7ymPy+2nu3VpOJwi5Nt1SdFWslFPDzr1JxmnB3LTLabg3VO5wy6edYcHkWfdVFKJ/n62AnnicY2BmAIP/aQxpDJiAFQAp8gHU) format(&quot;woff&quot;);font-weight:700;font-style:normal}
+    </style>
+  </defs>
+  <style>
+    .B{stroke:#2c3e4f}.C{stroke-width:2}.D{fill:#2c3e4f}.E{font-family:OpenSans-Bold,Open Sans}.F{font-weight:700}
+  </style>
+  <g fill-rule="evenodd">
+    <circle cx="24" cy="33" r="8" fill="#fff" class="B C"/>
+    <text font-size="11" class="D E F"><tspan x="20" y="37">€</tspan></text>
+    <circle cx="33" cy="21" r="8" fill="#fff" class="B C"/>
+    <text font-size="11" class="D E F"><tspan x="30" y="25">£</tspan></text>
+    <circle cx="17" cy="17" r="8" fill="#fff" class="B C"/>
+    <text font-size="11" class="D E F"><tspan x="14" y="21">$</tspan></text>
+  </g>
+</svg>
