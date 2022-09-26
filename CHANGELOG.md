@@ -7,6 +7,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+- Fix setting "pan" value for the profile capture step
+
 ## [9.1.0] - 2022-09-23
 
 - Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
