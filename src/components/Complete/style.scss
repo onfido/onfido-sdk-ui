@@ -1,0 +1,12 @@
+@import '../Theme/constants';
+
+.wrapper {
+  margin-top: 116 * $unit;
+}
+
+.icon {
+  height: 64 * $unit;
+  background-size: contain;
+  background-image: url('./assets/complete.svg');
+  margin-bottom: 24 * $unit;
+}

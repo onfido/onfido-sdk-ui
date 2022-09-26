@@ -1,0 +1,23 @@
+@import '../../Theme/constants';
+
+.controls {
+  flex: 1;
+  margin: 0 16 * $unit 48 * $unit;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonPlaceholder {
+  height: 48 * $unit;
+}
+
+.progress {
+  align-self: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 4 * $unit;
+  color: $color-white;
+  font-size: var(--onfido-font-size-small);
+  margin-top: 16 * $unit;
+  padding: 4 * $unit 10 * $unit;
+  text-transform: uppercase;
+}

@@ -1,0 +1,104 @@
+name: Prepare Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'Release version:'
+        required: true
+        type: string
+      is_lts:
+        description: 'LTS release'
+        required: true
+        type: boolean
+        default: false
+
+env: 
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+  AWS_DEFAULT_REGION: 'eu-west-1'
+
+jobs:
+  prepare-release:
+    runs-on: ubuntu-latest
+    env:
+      GIT_TERMINAL_PROMPT: 0
+      RELEASE_VERSION: ${{ github.event.inputs.release_version }}
+      BASE_32_VERSION: ${{ github.event.inputs.base32_version }}
+      IS_LTS: ${{ github.event.inputs.is_lts }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: unfor19/install-aws-cli-action@v1.0.2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      # Needed to be able to run `npm ci`. It fails if we try to install libraries from a github repo
+      # e.g. "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
+      - name: Setup Git
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
+          git config --global --add url."https://github.com/".insteadOf ssh://git@github.com/
+
+      - name: Install dependencies
+        run: |
+          npm config set registry https://registry.npmjs.org/
+          npm ci
+
+      - name: Setup env
+        run: |
+          clean_release_version=$(echo $RELEASE_VERSION | sed -e 's/-rc.*//g')
+          echo "RELEASE_BRANCH_NAME=release/$clean_release_version" >> $GITHUB_ENV
+
+      - name: Validate Input
+        run: node release/validateInput.js
+
+      - name: Checkout & Pull
+        run: node release/checkoutReleaseBranch.js
+
+      - name: Setup base32
+        run: node release/base32.js
+
+      - name: Add base32 to env
+        run: |
+          source ./release/githubActions/workflows.config
+          echo "BASE_32_VERSION=${BASE_32_VERSION}" >> $GITHUB_ENV
+
+      - name: Update CHANGELOG.md
+        run: node release/updateChangeLog.js
+
+      - name: Update files
+        run: node release/updateReleaseFiles.js
+
+      - name: Git status
+        run: git status
+
+      - name: Format
+        run: npm run format
+
+      - name: Remote branch exists
+        run: |
+          git branch --all --list
+           
+          if [[ $(git branch --all --list remotes/origin/$RELEASE_BRANCH_NAME) ]] 
+          then
+            echo "REMOTE_BRANCH_EXIST=true" >> $GITHUB_ENV
+          fi
+
+      - name: Create Pull Request
+        uses: actions/github-script@v6
+        if: ${{ env.REMOTE_BRANCH_EXIST != true }}
+        with:
+          script: |
+            require('./release/createPullRequest.js')(github, context)
+
+      - name: Make release commit & push
+        run: |
+          git status
+          git add .
+          git commit -m "Bumping version to ${RELEASE_VERSION} "
+          git push origin HEAD

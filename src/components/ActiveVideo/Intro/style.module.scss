@@ -1,0 +1,39 @@
+@use '@onfido/castor';
+
+.introGif {
+  width: 160px;
+  height: 160px;
+  background-image: url('https://assets.onfido.com/biometrics/active-video-liveness/assets/intro-optimized.gif');
+  background-size: contain;
+}
+
+.list {
+  padding: 0;
+  margin: 0 0 castor.space(4);
+  width: 100%;
+  row-gap: castor.space(1);
+  display: flex;
+  flex-direction: column;
+
+  .listItem {
+    list-style: none;
+
+    .text {
+      @include castor.font('300-regular');
+      color: var(--osdk-color-content-body);
+      display: flex;
+      align-items: center;
+
+      &::before {
+        $size: 6px;
+        display: inline-block;
+        content: '';
+        width: $size;
+        height: $size;
+        margin-right: castor.space(2);
+        border-radius: 50%;
+        background: castor.color('primary-500');
+      }
+    }
+  }
+}

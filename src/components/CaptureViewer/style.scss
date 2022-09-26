@@ -1,0 +1,75 @@
+@import '../Theme/constants';
+
+.pdfIcon {
+  display: inline-block;
+  width: 180 * $unit;
+  height: 180 * $unit;
+  max-width: 100%;
+  margin: 16 * $unit auto 16 * $unit;
+
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('./assets/pdf-success.svg');
+}
+
+.pdfWrapper,
+.imageWrapper,
+.croppedImageWrapper,
+.videoWrapper {
+  display: flex;
+  position: relative;
+  min-height: 90 * $unit;
+  justify-content: center;
+}
+
+.croppedImageWrapper {
+  @media (--small-viewport) {
+    min-height: 13em;
+  }
+}
+
+.imageWrapper.fullscreenImageWrapper,
+.croppedImageWrapper.fullscreenImageWrapper {
+  position: static;
+}
+
+.videoWrapper {
+  margin-bottom: 64 * $unit;
+  flex: 1;
+}
+
+.pdfWrapper {
+  display: block; /* makes the containing PDF viewer width shrink correctly on window resize */
+  overflow: overlay; /* append scrollbars if necessary and overlay over/above content (only for Chrome, to avoid double scrollbars) */
+}
+
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: 3 * $unit;
+  flex: 0 0 auto;
+  align-self: stretch;
+  object-fit: contain;
+}
+
+/* Used for Doc Live Capture preview (mobile devices only) */
+/* For browser compatibility for object-fit, object-position see
+    https://caniuse.com/#feat=object-fit
+    https://caniuse.com/#feat=object-position */
+.croppedDocumentImage {
+  width: 100%;
+  height: 15em;
+  object-fit: cover;
+  object-position: center;
+
+  @media (--small-viewport) {
+    height: 13em;
+  }
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

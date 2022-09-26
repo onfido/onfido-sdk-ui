@@ -1,0 +1,21 @@
+{
+  "extends": "../babel.config.js",
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "auto"
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3,
+        "useESModules": false,
+        "helpers": true
+      }
+    ]
+  ]
+}

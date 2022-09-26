@@ -1,0 +1,125 @@
+@import '../../Theme/constants';
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin-top: 8 * $unit;
+
+  @media (--small-viewport) {
+    margin-top: 0;
+  }
+}
+
+/* Selector Button box shadow (offset-x | offset-y | blur-radius | spread-radius) */
+$selector-button-box-shadow: 0 0 0 2px;
+
+.option {
+  width: 100%;
+  color: var(--osdk-color-content-doc-type-button);
+  background: var(--osdk-color-background-doc-type-button);
+  border-radius: var(--osdk-border-radius-button);
+  border-color: var(--osdk-color-border-doc-type-button);
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  line-height: 1.43;
+  margin-bottom: 8 * $unit;
+  padding: 16 * $unit;
+  position: relative;
+
+  &::after {
+    background: url('./assets/right.svg') no-repeat;
+    background-size: contain;
+    content: '';
+    display: block;
+    height: 12 * $unit;
+    position: absolute;
+    right: 16 * $unit;
+    top: 50%;
+    transform: translateY(-6 * $unit);
+    width: 8 * $unit;
+  }
+
+  &.optionHoverDesktop:hover {
+    box-shadow: $selector-button-box-shadow
+      var(--osdk-color-border-doc-type-button-hover);
+  }
+
+  &:active {
+    box-shadow: $selector-button-box-shadow
+      var(--osdk-color-border-doc-type-button-active);
+  }
+}
+
+.content {
+  text-align: left;
+  align-self: center;
+  flex-basis: 100%;
+}
+
+.optionMain {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 18 * $unit;
+  min-height: 48 * $unit;
+}
+
+.label {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.hint {
+  color: var(--osdk-color-content-body);
+  font-weight: 500;
+  font-size: var(--onfido-font-size-small);
+  margin-bottom: 4 * $unit-small;
+}
+
+.warning {
+  font-weight: 600;
+  font-size: var(--onfido-font-size-small);
+  margin-bottom: 6 * $unit-small;
+}
+
+/* .tag class used for PoA document type buttons, i.e. "e-statements accepted" text */
+.tag {
+  display: inline-block;
+  font-size: var(--onfido-font-size-small);
+  padding: 0 12 * $unit-small;
+  margin-left: -12 * $unit-small;
+  margin-top: 2 * $unit-small;
+}
+
+.icon {
+  max-width: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-shrink: 0;
+  width: 48 * $unit;
+  height: 48 * $unit;
+  margin-right: 16 * $unit;
+  align-self: flex-start;
+}
+
+$_document-types: (
+  'passport',
+  'national-identity-card',
+  'driving-licence',
+  'residence-permit',
+  'bank-building-society-statement',
+  'utility-bill',
+  'letter'
+);
+
+@each $_document-type in $_document-types {
+  .icon-#{$_document-type} {
+    @extend %icon-circle-background;
+    background-image: url('./assets/icon-#{$_document-type}.svg');
+  }
+}

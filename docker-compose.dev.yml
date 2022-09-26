@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  dev:
+    build: .
+    working_dir: /home/app/
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/home/app/
+    command: ['npm', 'run', 'dev']

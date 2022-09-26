@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Onfido SDK Demo</title>
+    <meta name="viewport" content="width=device-width, minimal-ui" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <% if (process.env.NODE_ENV !== "development"){ %>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+      default-src 'self' https://assets.onfido.com;
+      script-src 'self' https://assets.onfido.com https://www.woopra.com https://sentry.io;
+      style-src 'self' 'unsafe-inline' https://assets.onfido.com;
+      connect-src blob: 'self' data: <%= process.env.NODE_ENV === 'test' ? 'https://localhost:8082 https://localhost:8080' : '' %> *.onfido.com wss://*.onfido.com *.dev.onfido.xyz wss://*.dev.onfido.xyz https://www.woopra.com https://*.sentry.io;
+      img-src 'self' data: blob: https://assets.onfido.com/;
+      media-src blob:;
+      object-src 'self' blob:;
+      frame-src 'self' data: blob:;
+    "
+    />
+    <% } %>
+    <style type="text/css">
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Helvetica Neue', Tahoma, sans-serif;
+      }
+      #demo-app {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      .container {
+        width: 100%;
+        height: 100%;
+      }
+      @media (min-width: 480px) {
+        #demo-app {
+          position: relative;
+          padding-top: 5%;
+        }
+      }
+
+      #applicant-form {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        max-width: 30em;
+        width: 80%;
+      }
+      #applicant-form .input-field {
+        align-items: center;
+        display: flex;
+        text-align: left;
+      }
+      #applicant-form label {
+        min-width: 5em;
+      }
+      #applicant-form input {
+        flex: 1;
+        font-size: 1em;
+        margin-bottom: 0.5em;
+        margin-left: 1em;
+        margin-top: 0.5em;
+      }
+      #applicant-form button {
+        width: 50%;
+        margin: 0.5em auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo-app"></div>
+  </body>
+</html>

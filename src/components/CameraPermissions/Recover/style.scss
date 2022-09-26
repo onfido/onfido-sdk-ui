@@ -1,0 +1,42 @@
+@import '../../Theme/constants';
+
+.instructions {
+  font-size: var(--onfido-font-size-small);
+  text-align: left;
+  margin: 30 * $unit-small 0 24 * $unit-small;
+  position: relative;
+  padding: 24 * $unit-small 24 * $unit-small 12 * $unit-small;
+  @media (--small-viewport) and (--short-viewport) {
+    font-size: var(--onfido-font-size-x-small);
+  }
+  @media (--small-viewport) {
+    margin: 24 * $unit-small 0 12 * $unit-small;
+  }
+}
+
+.instructionsTitle {
+  font-weight: 600;
+  margin: 0 0 8 * $unit-small;
+}
+
+.recovery {
+  @extend %header-highlight-pill;
+  position: absolute;
+  top: 0;
+  left: 20 * $unit-small;
+  transform: translateY(-50%);
+}
+
+.steps {
+  padding: 0;
+  margin: 0;
+}
+
+.step {
+  margin: 0 15 * $unit-small 10 * $unit-small;
+}
+
+.button {
+  margin-left: auto;
+  margin-right: auto;
+}

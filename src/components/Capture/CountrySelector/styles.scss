@@ -1,0 +1,13 @@
+@import '../../Theme/constants';
+
+.countrySelector {
+  :global(.ods-select) {
+    max-width: unset;
+  }
+}
+
+.countrySelector {
+  :global(.ods-select-output) {
+    display: flex;
+  }
+}

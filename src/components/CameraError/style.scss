@@ -1,0 +1,46 @@
+@import '../Theme/constants';
+
+.errorContainer {
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 4;
+}
+
+@mixin _error-overlay {
+  &::before {
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+.errorContainerType {
+  @include _error-overlay;
+}
+
+.errorHasBackdrop {
+  @include _error-overlay;
+  bottom: 0;
+
+  &::before {
+    background-color: $color-camera-error-overlay;
+    opacity: 0.57;
+  }
+}
+
+.errorMessage {
+  @extend %global-margin;
+  top: 48 * $unit;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 2;
+}

@@ -1,0 +1,64 @@
+@import '../Theme/constants';
+
+.title {
+  color: var(--osdk-color-content-title);
+  font-family: var(--osdk-font-family-title);
+  font-weight: var(--osdk-font-weight-title);
+  margin-bottom: 16 * $unit;
+}
+
+.titleSpan {
+  font-size: var(--osdk-font-size-title);
+  line-height: 1.34;
+  @media (--small-viewport) {
+    font-size: 24 * $unit;
+  }
+}
+
+.titleSpan:focus {
+  outline: none;
+}
+
+.subTitle {
+  color: var(--osdk-color-content-subtitle);
+  font-size: var(--osdk-font-size-subtitle);
+  font-family: var(--osdk-font-family-subtitle);
+  font-weight: var(--osdk-font-weight-subtitle);
+}
+
+.titleWrapper {
+  margin: 32 * $unit 0 16 * $unit;
+  flex-shrink: 0;
+
+  // To fix Safari flexbox rendering issue by forcing the div to be rendered in a new composite layer,
+  // see https://stackoverflow.com/questions/65524383/flexbox-bug-on-safari -> https://stackoverflow.com/questions/19169089/weird-css-stretching-issue-in-ios7-safari-and-chrome
+  transform: translateZ(0);
+
+  @media (--small-viewport) {
+    margin: 0 0 16 * $unit;
+  }
+}
+
+.smaller {
+  margin-top: 0;
+}
+
+.fullScreen {
+  color: $color-white;
+  margin: 0;
+  z-index: 1;
+
+  .title,
+  .subTitle {
+    color: $color-white;
+  }
+
+  .title {
+    margin-bottom: 8 * $unit;
+  }
+
+  .titleSpan {
+    font-size: var(--onfido-font-size-base);
+    line-height: 1.5;
+  }
+}

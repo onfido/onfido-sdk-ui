@@ -1,0 +1,254 @@
+@import '../Theme/constants';
+
+.container {
+  display: flex;
+}
+
+.crossDeviceInstructionsContainer {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 20 * $unit;
+}
+
+.instructions {
+  @media (--small-viewport) {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+.instructionsCopy {
+  margin: 14 * $unit-small 24 * $unit-small;
+  font-size: var(--onfido-font-size-small);
+  line-height: 1.43;
+
+  @media (--small-viewport) {
+    font-size: var(--onfido-font-size-base);
+    margin: 14 * $unit 24 * $unit;
+  }
+}
+
+.error {
+  color: rgba(var(--ods-color-content-negative));
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+
+  &.vertical {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-right: 0;
+  }
+}
+
+.poaButtons {
+  margin-right: -16 * $unit;
+  @media (--small-viewport) {
+    margin-right: -8 * $unit;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  width: 100%;
+}
+
+.passportButtonShadow {
+  @extend %overflow-drop-shadow;
+}
+
+.poaBtn {
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.poaBtn:first-child {
+  margin-right: 16 * $unit;
+  @media (--small-viewport) {
+    margin-right: 8 * $unit;
+  }
+
+  &.vertical {
+    margin-right: 0;
+    margin-top: 8 * $unit;
+  }
+}
+
+.crossDeviceButton {
+  margin-top: 16 * $unit;
+  margin-bottom: 16 * $unit;
+}
+
+.iconContainer {
+  /* HACK: max-height does not behave well on IE11 when using flexbox, so we reset it here */
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    max-height: none;
+  }
+  @media (--small-viewport) {
+    max-height: 72 * $unit;
+  }
+}
+
+.poaIconContainer {
+  /* HACK: max-height does not behave well on IE11 when using flexbox, so we reset it here */
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    max-height: none;
+  }
+  @media (--small-viewport) {
+    max-height: 144 * $unit;
+    height: 144 * $unit;
+    width: 144 * $unit;
+  }
+}
+
+%_document-upload-icon {
+  @extend %icon-circle-background;
+  background-image: url('./assets/cross-device-doc-icon.svg');
+  background-size: 72 * $unit;
+  background-position: 40% 50%;
+  background-repeat: no-repeat;
+  height: 144 * $unit;
+  width: 144 * $unit;
+  margin: auto;
+}
+
+.icon {
+  @extend %_document-upload-icon;
+}
+
+.identityIcon {
+  @extend %_document-upload-icon;
+
+  @media (--small-viewport) {
+    background-image: url('./assets/camera.svg');
+    background-position: center;
+    background-color: transparent;
+    background-size: contain;
+    border-radius: 0;
+    height: 100%;
+    width: auto;
+  }
+}
+
+.proofOfAddressIcon {
+  @extend %_document-upload-icon;
+
+  @media (--small-viewport) {
+    height: 100%;
+    width: 100%;
+    background-image: url('./assets/letter-focus.svg');
+    background-size: contain;
+  }
+}
+
+.faceIcon {
+  @extend %icon-circle-background;
+  background-size: 64 * $unit auto;
+  background-image: url('./assets/cross-device-selfie-icon.svg');
+  background-size: 100 * $unit;
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  height: 144 * $unit;
+  width: 144 * $unit;
+  margin: auto;
+
+  @media (--small-viewport) {
+    background-image: url('./assets/camera.svg');
+    background-position: center;
+    background-color: transparent;
+    background-size: contain;
+    border-radius: 0;
+    height: 100%;
+    width: auto;
+  }
+}
+
+.contentWrapper,
+.uploaderWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 16 * $unit;
+}
+
+.uploadArea {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  padding: 24 * $unit 0 8 * $unit;
+  justify-content: space-around;
+  /*
+    We need to define a height for the uploadArea
+    because safari does not supporting height:100% inside a flex child like
+    .identityIcon and .faceIcon
+  */
+  height: 16 * $unit;
+
+  @media (--small-viewport) {
+    background-color: transparent;
+    border: 0;
+    justify-content: space-between;
+    padding: 0;
+  }
+}
+
+.imageQualityGuideRow {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.documentExampleCol {
+  flex: 1;
+  margin: 8 * $unit;
+  font-size: 14 * $unit;
+}
+
+.documentExampleImg {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-shrink: 0;
+  max-width: 100%;
+  width: 149 * $unit;
+  height: 106 * $unit;
+  margin: 0 auto;
+  margin-bottom: 8 * $unit;
+}
+
+.documentExampleImgBlur {
+  background-image: url('./assets/img-blur.png');
+}
+
+.documentExampleImgCutoff {
+  background-image: url('./assets/img-cutoff.png');
+}
+
+.documentExampleImgGlare {
+  background-image: url('./assets/img-glare.png');
+}
+
+.documentExampleImgGood {
+  background-image: url('./assets/img-good.png');
+}
+
+.documentExampleLabel {
+  text-align: center;
+}
+
+.passportUploadBtn {
+  margin-bottom: 16 * $unit;
+}
+
+.buttonLinkUploadCopy {
+  display: block;
+}

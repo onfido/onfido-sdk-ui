@@ -1,13 +1,14 @@
 {
-  "@actions/core@1.9.1": {
+  "@actions/core@1.6.0": {
     "licenses": "MIT",
     "repository": "https://github.com/actions/toolkit",
     "path": "node_modules/@actions/core",
     "licenseFile": "node_modules/@actions/core/LICENSE.md"
   },
-  "@actions/http-client@2.0.1": {
+  "@actions/http-client@1.0.11": {
     "licenses": "MIT",
-    "repository": "https://github.com/actions/toolkit",
+    "repository": "https://github.com/actions/http-client",
+    "publisher": "GitHub, Inc.",
     "path": "node_modules/@actions/http-client",
     "licenseFile": "node_modules/@actions/http-client/LICENSE"
   },
@@ -955,14 +956,6 @@
     "path": "node_modules/@jridgewell/sourcemap-codec",
     "licenseFile": "node_modules/@jridgewell/sourcemap-codec/LICENSE"
   },
-  "@jridgewell/trace-mapping@0.3.15": {
-    "licenses": "MIT",
-    "repository": "https://github.com/jridgewell/trace-mapping",
-    "publisher": "Justin Ridgewell",
-    "email": "justin@ridgewell.name",
-    "path": "node_modules/terser-webpack-plugin/node_modules/@jridgewell/trace-mapping",
-    "licenseFile": "node_modules/terser-webpack-plugin/node_modules/@jridgewell/trace-mapping/LICENSE"
-  },
   "@jridgewell/trace-mapping@0.3.9": {
     "licenses": "MIT",
     "repository": "https://github.com/jridgewell/trace-mapping",
@@ -1017,7 +1010,7 @@
     "path": "node_modules/@nodelib/fs.walk",
     "licenseFile": "node_modules/@nodelib/fs.walk/LICENSE"
   },
-  "@onfido/active-video-capture@0.12.0": {
+  "@onfido/active-video-capture@0.4.0": {
     "licenses": "MIT",
     "repository": "/active-video-capture",
     "path": "node_modules/@onfido/active-video-capture",
@@ -1059,6 +1052,14 @@
     "url": "https://lukeed.com",
     "path": "node_modules/@polka/url",
     "licenseFile": "node_modules/@polka/url/license"
+  },
+  "@preact/compat@17.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/preactjs/compat-alias-package",
+    "publisher": "Preact Team",
+    "email": "team@preactjs.com",
+    "path": "node_modules/@preact/compat",
+    "licenseFile": "node_modules/@preact/compat/LICENSE"
   },
   "@sentry/browser@7.2.0": {
     "licenses": "BSD-3-Clause",
@@ -1630,8 +1631,8 @@
   "@types/webpack@4.41.32": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-    "path": "node_modules/@types/html-webpack-plugin/node_modules/@types/webpack",
-    "licenseFile": "node_modules/@types/html-webpack-plugin/node_modules/@types/webpack/LICENSE"
+    "path": "node_modules/@types/speed-measure-webpack-plugin/node_modules/@types/webpack",
+    "licenseFile": "node_modules/@types/speed-measure-webpack-plugin/node_modules/@types/webpack/LICENSE"
   },
   "@types/webpack@5.28.0": {
     "licenses": "MIT",
@@ -1708,8 +1709,8 @@
   "@typescript-eslint/utils@5.15.0": {
     "licenses": "MIT",
     "repository": "https://github.com/typescript-eslint/typescript-eslint",
-    "path": "node_modules/eslint-plugin-jest/node_modules/@typescript-eslint/utils",
-    "licenseFile": "node_modules/eslint-plugin-jest/node_modules/@typescript-eslint/utils/LICENSE"
+    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/utils",
+    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/utils/LICENSE"
   },
   "@typescript-eslint/visitor-keys@5.15.0": {
     "licenses": "MIT",
@@ -1923,8 +1924,8 @@
   "acorn-walk@8.2.0": {
     "licenses": "MIT",
     "repository": "https://github.com/acornjs/acorn",
-    "path": "node_modules/ts-node/node_modules/acorn-walk",
-    "licenseFile": "node_modules/ts-node/node_modules/acorn-walk/LICENSE"
+    "path": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk",
+    "licenseFile": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk/LICENSE"
   },
   "acorn@7.4.1": {
     "licenses": "MIT",
@@ -1941,20 +1942,14 @@
   "acorn@8.7.0": {
     "licenses": "MIT",
     "repository": "https://github.com/acornjs/acorn",
-    "path": "node_modules/terser/node_modules/acorn",
-    "licenseFile": "node_modules/terser/node_modules/acorn/LICENSE"
+    "path": "node_modules/jsdom/node_modules/acorn",
+    "licenseFile": "node_modules/jsdom/node_modules/acorn/LICENSE"
   },
   "acorn@8.7.1": {
     "licenses": "MIT",
     "repository": "https://github.com/acornjs/acorn",
     "path": "node_modules/ts-node/node_modules/acorn",
     "licenseFile": "node_modules/ts-node/node_modules/acorn/LICENSE"
-  },
-  "acorn@8.8.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/acornjs/acorn",
-    "path": "node_modules/webpack/node_modules/acorn",
-    "licenseFile": "node_modules/webpack/node_modules/acorn/LICENSE"
   },
   "agent-base@6.0.2": {
     "licenses": "MIT",
@@ -2006,8 +2001,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ajv-validator/ajv",
     "publisher": "Evgeny Poberezkin",
-    "path": "node_modules/copy-webpack-plugin/node_modules/ajv",
-    "licenseFile": "node_modules/copy-webpack-plugin/node_modules/ajv/LICENSE"
+    "path": "node_modules/ajv-formats/node_modules/ajv",
+    "licenseFile": "node_modules/ajv-formats/node_modules/ajv/LICENSE"
   },
   "ajv@8.6.3": {
     "licenses": "MIT",
@@ -2862,8 +2857,8 @@
     "repository": "https://github.com/tj/commander.js",
     "publisher": "TJ Holowaychuk",
     "email": "tj@vision-media.ca",
-    "path": "node_modules/@babel/node/node_modules/commander",
-    "licenseFile": "node_modules/@babel/node/node_modules/commander/LICENSE"
+    "path": "node_modules/commander",
+    "licenseFile": "node_modules/commander/LICENSE"
   },
   "commander@7.2.0": {
     "licenses": "MIT",
@@ -2880,14 +2875,6 @@
     "email": "tj@vision-media.ca",
     "path": "node_modules/html-minifier-terser/node_modules/commander",
     "licenseFile": "node_modules/html-minifier-terser/node_modules/commander/LICENSE"
-  },
-  "commander@9.4.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/tj/commander.js",
-    "publisher": "TJ Holowaychuk",
-    "email": "tj@vision-media.ca",
-    "path": "node_modules/commander",
-    "licenseFile": "node_modules/commander/LICENSE"
   },
   "commondir@1.0.1": {
     "licenses": "MIT",
@@ -3272,13 +3259,6 @@
     "path": "node_modules/deep-is",
     "licenseFile": "node_modules/deep-is/LICENSE"
   },
-  "deep-object-diff@1.1.7": {
-    "licenses": "MIT",
-    "repository": "https://github.com/mattphillips/deep-object-diff",
-    "publisher": "Matt Phillips",
-    "path": "node_modules/deep-object-diff",
-    "licenseFile": "node_modules/deep-object-diff/LICENSE"
-  },
   "deepmerge@4.2.2": {
     "licenses": "MIT",
     "repository": "https://github.com/TehShrike/deepmerge",
@@ -3603,7 +3583,7 @@
     "path": "node_modules/engine.io-parser",
     "licenseFile": "node_modules/engine.io-parser/LICENSE"
   },
-  "enhanced-resolve@5.10.0": {
+  "enhanced-resolve@5.9.2": {
     "licenses": "MIT",
     "repository": "https://github.com/webpack/enhanced-resolve",
     "publisher": "Tobias Koppers @sokra",
@@ -3836,8 +3816,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mysticatea/eslint-utils",
     "publisher": "Toru Nagashima",
-    "path": "node_modules/eslint-plugin-jest/node_modules/@typescript-eslint/utils/node_modules/eslint-utils",
-    "licenseFile": "node_modules/eslint-plugin-jest/node_modules/@typescript-eslint/utils/node_modules/eslint-utils/LICENSE"
+    "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/utils/node_modules/eslint-utils",
+    "licenseFile": "node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/utils/node_modules/eslint-utils/LICENSE"
   },
   "eslint-visitor-keys@1.3.0": {
     "licenses": "Apache-2.0",
@@ -4390,13 +4370,6 @@
     "path": "node_modules/get-symbol-description",
     "licenseFile": "node_modules/get-symbol-description/LICENSE"
   },
-  "git-revision-webpack-plugin@5.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/pirelenito/git-revision-webpack-plugin",
-    "publisher": "Paulo Ragonha",
-    "path": "node_modules/git-revision-webpack-plugin",
-    "licenseFile": "node_modules/git-revision-webpack-plugin/LICENSE"
-  },
   "glob-parent@5.1.2": {
     "licenses": "ISC",
     "repository": "https://github.com/gulpjs/glob-parent",
@@ -4628,8 +4601,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/history",
-    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/history",
+    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -5633,6 +5606,14 @@
     "path": "node_modules/jsesc",
     "licenseFile": "node_modules/jsesc/LICENSE-MIT.txt"
   },
+  "json-parse-better-errors@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/zkat/json-parse-better-errors",
+    "publisher": "Kat Marchán",
+    "email": "kzm@zkat.tech",
+    "path": "node_modules/json-parse-better-errors",
+    "licenseFile": "node_modules/json-parse-better-errors/LICENSE.md"
+  },
   "json-parse-even-better-errors@2.3.1": {
     "licenses": "MIT",
     "repository": "https://github.com/npm/json-parse-even-better-errors",
@@ -5652,8 +5633,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/epoberezkin/json-schema-traverse",
     "publisher": "Evgeny Poberezkin",
-    "path": "node_modules/copy-webpack-plugin/node_modules/json-schema-traverse",
-    "licenseFile": "node_modules/copy-webpack-plugin/node_modules/json-schema-traverse/LICENSE"
+    "path": "node_modules/ajv-formats/node_modules/json-schema-traverse",
+    "licenseFile": "node_modules/ajv-formats/node_modules/json-schema-traverse/LICENSE"
   },
   "json-stable-stringify-without-jsonify@1.0.1": {
     "licenses": "MIT",
@@ -5663,15 +5644,6 @@
     "url": "http://substack.net",
     "path": "node_modules/json-stable-stringify-without-jsonify",
     "licenseFile": "node_modules/json-stable-stringify-without-jsonify/LICENSE"
-  },
-  "json-stringify-safe@5.0.1": {
-    "licenses": "ISC",
-    "repository": "https://github.com/isaacs/json-stringify-safe",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me",
-    "path": "node_modules/json-stringify-safe",
-    "licenseFile": "node_modules/json-stringify-safe/LICENSE"
   },
   "json5@1.0.1": {
     "licenses": "MIT",
@@ -6382,14 +6354,6 @@
     "path": "node_modules/no-case",
     "licenseFile": "node_modules/no-case/LICENSE"
   },
-  "nock@13.2.9": {
-    "licenses": "MIT",
-    "repository": "https://github.com/nock/nock",
-    "publisher": "Pedro Teixeira",
-    "email": "pedro.teixeira@gmail.com",
-    "path": "node_modules/nock",
-    "licenseFile": "node_modules/nock/LICENSE"
-  },
   "node-environment-flags@1.0.6": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/boneskull/node-environment-flags",
@@ -6684,7 +6648,7 @@
     "path": "node_modules/onetime",
     "licenseFile": "node_modules/onetime/license"
   },
-  "onfido-sdk-ui@8.3.0": {
+  "onfido-sdk-ui@8.1.1": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
@@ -7334,14 +7298,6 @@
     "path": "node_modules/prop-types",
     "licenseFile": "node_modules/prop-types/LICENSE"
   },
-  "propagate@2.0.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/nock/propagate",
-    "publisher": "Pedro Teixeira",
-    "email": "pedro.teixeira@gmail.com",
-    "path": "node_modules/propagate",
-    "licenseFile": "node_modules/propagate/LICENSE.md"
-  },
   "proxy-addr@2.0.6": {
     "licenses": "MIT",
     "repository": "https://github.com/jshttp/proxy-addr",
@@ -7528,6 +7484,14 @@
     "email": "hello@reacttraining.com",
     "path": "node_modules/react-router",
     "licenseFile": "node_modules/react-router/LICENSE"
+  },
+  "react-webcam-onfido@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/onfido/react-webcam",
+    "publisher": "Cezary Wojtkowski",
+    "email": "cezary@gmail.com",
+    "path": "node_modules/react-webcam-onfido",
+    "licenseFile": "node_modules/react-webcam-onfido/README.md"
   },
   "react-webcam@7.0.1": {
     "licenses": "MIT",
@@ -7828,8 +7792,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
   },
   "resolve.exports@1.1.0": {
     "licenses": "MIT",
@@ -7907,8 +7871,8 @@
     "publisher": "Isaac Z. Schlueter",
     "email": "i@izs.me",
     "url": "http://blog.izs.me/",
-    "path": "node_modules/flat-cache/node_modules/rimraf",
-    "licenseFile": "node_modules/flat-cache/node_modules/rimraf/LICENSE"
+    "path": "node_modules/@jest/core/node_modules/rimraf",
+    "licenseFile": "node_modules/@jest/core/node_modules/rimraf/LICENSE"
   },
   "rst-selector-parser@2.2.3": {
     "licenses": "BSD-3-Clause",
@@ -8500,8 +8464,8 @@
     "publisher": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com",
-    "path": "node_modules/renderkid/node_modules/strip-ansi",
-    "licenseFile": "node_modules/renderkid/node_modules/strip-ansi/license"
+    "path": "node_modules/string-length/node_modules/strip-ansi",
+    "licenseFile": "node_modules/string-length/node_modules/strip-ansi/license"
   },
   "strip-ansi@7.0.1": {
     "licenses": "MIT",
@@ -8677,7 +8641,7 @@
     "path": "node_modules/terminal-link",
     "licenseFile": "node_modules/terminal-link/license"
   },
-  "terser-webpack-plugin@5.3.6": {
+  "terser-webpack-plugin@5.3.1": {
     "licenses": "MIT",
     "repository": "https://github.com/webpack-contrib/terser-webpack-plugin",
     "publisher": "webpack Contrib Team",
@@ -9156,8 +9120,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",
@@ -9215,7 +9179,7 @@
     "path": "node_modules/node-polyglot/node_modules/warning",
     "licenseFile": "node_modules/node-polyglot/node_modules/warning/LICENSE.md"
   },
-  "watchpack@2.4.0": {
+  "watchpack@2.3.1": {
     "licenses": "MIT",
     "repository": "https://github.com/webpack/watchpack",
     "publisher": "Tobias Koppers @sokra",
@@ -9323,7 +9287,7 @@
     "path": "node_modules/webpack-visualizer-plugin2",
     "licenseFile": "node_modules/webpack-visualizer-plugin2/LICENSE"
   },
-  "webpack@5.74.0": {
+  "webpack@5.70.0": {
     "licenses": "MIT",
     "repository": "https://github.com/webpack/webpack",
     "publisher": "Tobias Koppers @sokra",

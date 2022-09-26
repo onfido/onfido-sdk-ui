@@ -475,9 +475,6 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   | Italian           | `it_IT`    |
   | Portuguese        | `pt_PT`    |
   | Dutch             | `nl_NL`    |
-  | Czech             | `cs_CZ`    |
-  | Polish            | `pl_PL`    |
-  | Romanian          | `ro_RO`    |
 
   Example:
 
@@ -856,9 +853,9 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
   http-equiv="Content-Security-Policy"
   content="
   default-src 'self' https://assets.onfido.com;
-  script-src 'self' https://assets.onfido.com https://sentry.io;
+  script-src 'self' https://www.woopra.com https://assets.onfido.com https://sentry.io;
   style-src 'self' https://assets.onfido.com;
-  connect-src 'self' data: blob: *.onfido.com wss://*.onfido.com https://sentry.io;
+  connect-src 'self' data: blob: *.onfido.com wss://*.onfido.com https://www.woopra.com https://sentry.io;
   img-src 'self' data: blob: https://assets.onfido.com/;
   media-src blob:;
   object-src 'self' blob:;

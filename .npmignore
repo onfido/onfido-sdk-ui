@@ -1,0 +1,18 @@
+# Exclude everything
+*
+
+# Then include only the ones we want
+!/dist/**/*
+!/lib/**/*
+
+# Exclude
+/dist/reports/*
+/dist/previewer/*
+/dist/previewer.min.js
+/dist/previewer.min.js.map
+
+/dist/demo.min.js
+/dist/demo.min.js.map
+/dist/index.html
+
+/lib/reports/*

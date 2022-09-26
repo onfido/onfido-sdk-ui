@@ -1,0 +1,35 @@
+@import '../Theme/constants';
+
+.actions {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-right: -16 * $unit;
+  @media (--small-viewport) {
+    margin-right: -8 * $unit;
+  }
+
+  &.vertical {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.singleAction {
+  display: block;
+  margin-bottom: 8 * $unit;
+}
+
+.retakeAction {
+  margin-right: 16 * $unit;
+  @media (--small-viewport) {
+    margin-right: 8 * $unit;
+  }
+
+  &.vertical {
+    margin-right: 0;
+    margin-top: 8 * $unit;
+    width: $lg-btn-width-lg-screen;
+  }
+}
