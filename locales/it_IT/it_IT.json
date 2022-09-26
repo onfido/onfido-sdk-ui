@@ -1,0 +1,691 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "Carica registrazione",
+    "subtitle": "Un video del tuo viso è stato registrato con successo",
+    "title": "Registrazione completata"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Ricarica le istruzioni",
+    "button_primary_retry_upload": "Ritenta il caricamento",
+    "button_secondary_restart_recording": "Riavvia la registrazione",
+    "subtitle": "Verifica che la tua connessione sia stabile e riprova",
+    "title": "Errore di connessione"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Allontanati",
+    "feedback_move_closer": "Avvicinati",
+    "feedback_no_face_detected": "Viso non rilevato",
+    "feedback_not_centered": "Viso non centrato",
+    "title": "Posiziona il viso nel riquadro"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "timeout_body": "Hai fino a 15 secondi per completare la registrazione",
+      "timeout_button_primary": "Riprova",
+      "timeout_title": "Purtroppo è necessario riavviare la registrazione",
+      "too_fast_body": "Riprova girando la testa più lentamente",
+      "too_fast_button_primary": "Riprova",
+      "too_fast_title": "Hai girato la testa troppo rapidamente"
+    },
+    "title": "Gira lentamente la testa da entrambe le parti",
+    "title_completed": "Registrazione completata"
+  },
+  "avc_intro": {
+    "button_primary_ready": "È tutto pronto",
+    "disclaimer": "Ricorda che registreremo il tuo viso e lo sfondo",
+    "list_item_one": "Innanzitutto, posiziona il viso nel riquadro",
+    "list_item_two": "Poi, gira lentamente la testa da entrambe le parti",
+    "subtitle": "Questo serve a verificare che tu sia una persona reale",
+    "title": "Registra un video"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Riavvia la registrazione",
+    "list_item_eyes": "Assicurati che i tuoi occhi siano ben visibili",
+    "list_item_face": "Assicurati di mostrare solo il tuo viso. Non ci serve vedere il documento.",
+    "list_item_lighting": "Assicurati di essere in un ambiente ben illuminato",
+    "list_item_mask": "Assicurati di rimuovere la mascherina o altri oggetti che coprono il viso. Puoi tenere gli occhiali da vista.",
+    "title": "Non riusciamo a rilevare il tuo viso"
+  },
+  "avc_uploading": {
+    "title": "Caricamento"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "I documenti di questo paese non sono supportati al momento. <fallback>Prova con un altro tipo di documento</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "Paese non trovato"
+    },
+    "button_primary": "Invia documento",
+    "poa_alert": {
+      "country_not_found": "Siamo spiacenti. Stiamo lavorando per supportare più Paesi.",
+      "intro": "Non trovi il tuo Paese?"
+    },
+    "search": {
+      "accessibility": "Seleziona paese",
+      "input_placeholder": "es. Italia",
+      "label": "Cerca paese"
+    },
+    "title": "Seleziona il paese di emissione"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Invia verifica",
+    "info": "Consigli",
+    "list_item_doc_multiple": "Documenti",
+    "list_item_doc_one": "Documento",
+    "list_item_poa": "Prova dell'indirizzo",
+    "list_item_selfie": "Selfie",
+    "list_item_video": "Video",
+    "subtitle": "Ecco tutto quello che hai caricato:",
+    "title": "Ultimo passaggio"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Il link funziona solo sui dispositivi mobili",
+    "title": "Si è verificato un errore"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Dovrai riavviare il processo di verifica sul tuo computer",
+    "title": "Si è verificato un errore"
+  },
+  "cross_device_intro": {
+    "button_primary": "Ricevi link sicuro",
+    "list_accessibility": "Passaggi necessari per continuare la verifica sul tuo telefono",
+    "list_item_finish": "Torna qui per completare l’invio",
+    "list_item_open_link": "Apri il link e completa i passaggi",
+    "list_item_send_phone": "Invia un link sicuro al tuo telefono",
+    "subtitle": "Ecco come fare:",
+    "title": "Continua sul tuo telefono"
+  },
+  "cross_device_return": {
+    "body": "Il computer potrebbe richieder qualche secondo per mostrare le informazioni aggiornate",
+    "subtitle": "Ora puoi tornare al tuo computer per continuare",
+    "title": "Caricamenti riusciti"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Continua",
+    "info": "Assicurati di",
+    "list_item_desktop_open": "Tenere aperta la finestra del browser",
+    "list_item_sent_by_you": "Aver inviato tu il link — Cerca assistenza se pensi si possa trattare di una truffa",
+    "subtitle": "Continua la verifica",
+    "title": "Connesso al computer"
+  },
+  "doc_capture": {
+    "button_primary": "Inizia a scansionare il documento",
+    "detail": {
+      "folded_doc_front": "Appoggia il documento aperto sulle pagine interne (deve contenere la tua foto)"
+    },
+    "header_folded_doc_front": "Lato foto profilo",
+    "prompt": {
+      "button_card": "Card plastificata",
+      "button_paper": "Documento cartaceo",
+      "title_id": "Che tipo di carta d’identità hai?",
+      "title_license": "Che tipo di patente hai?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Assicurati che tutto sia nitido",
+      "blur_title": "Sfocatura rilevata",
+      "crop_detail": "Assicurati che tutto il documento sia visibile",
+      "crop_title": "Immagine tagliata rilevata",
+      "glare_detail": "Allontanati dalla luce diretta",
+      "glare_title": "Riflesso rilevato",
+      "no_doc_detail": "Assicurati che sia ben inquadrato",
+      "no_doc_title": "Documento non rilevato"
+    },
+    "body": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
+    "body_bank_statement": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
+    "body_benefits_letter": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
+    "body_bill": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
+    "body_id": "Assicurati che i tuoi dati siano nitidi e non coperti",
+    "body_image_medium": "La verifica richiederà più tempo se non riusciremo a leggere i dati",
+    "body_image_poor": "Per completare rapidamente la verifica ci serve una foto migliore",
+    "body_license": "Assicurati che i tuoi dati siano nitidi e non coperti",
+    "body_passport": "Assicurati che i tuoi dati siano nitidi e non coperti",
+    "body_permit": "Assicurati che i tuoi dati siano nitidi e non coperti",
+    "body_tax_letter": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
+    "button_close": "Chiudi",
+    "button_primary_redo": "Ripeti",
+    "button_primary_upload": "Carica",
+    "button_primary_upload_anyway": "Carica comunque",
+    "button_secondary_redo": "Ripeti",
+    "button_zoom": "Ingrandisci l’immagine",
+    "image_accessibility": "Foto del tuo documento",
+    "title": "Controlla l’immagine"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Scansione documento",
+    "instructions_title_back": "Posizionare il retro del documento nel riquadro",
+    "instructions_title_front": "Posizionare il fronte del documento nel riquadro"
+  },
+  "doc_select": {
+    "button_bank_statement": "Estratto conto della banca o istituto di credito",
+    "button_bank_statement_non_uk": "Estratto conto della banca",
+    "button_benefits_letter": "Lettera sulle prestazioni previdenziali",
+    "button_benefits_letter_detail": "Prestazioni previdenziali autorizzate dal governo, come sussidio di disoccupazione, indennità di alloggio o credito d'imposta",
+    "button_bill": "Bolletta",
+    "button_bill_detail": "Gas, elettricità, acqua, telefono fisso o Internet",
+    "button_government_letter": "Lettera del governo",
+    "button_government_letter_detail": "Qualsiasi lettera emessa dal governo, es. lettere sulle prestazioni previdenziali, lettere di voto, lettere sulle imposte ecc.",
+    "button_id": "Carta d’identità",
+    "button_id_detail": "Fronte e retro",
+    "button_license": "Patente di guida",
+    "button_license_detail": "Fronte e retro",
+    "button_passport": "Passaporto",
+    "button_passport_detail": "Pagina della foto",
+    "button_permit": "Permesso di soggiorno",
+    "button_permit_detail": "Fronte e retro",
+    "button_tax_letter": "Lettera sull'imposta locale",
+    "extra_estatements_ok": "sono accettati gli estratti conto elettronici",
+    "extra_no_mobile": "Non sono ammesse le bollette di telefonia mobile",
+    "list_accessibility": "Documenti che puoi utilizzare per verificare la tua identità",
+    "pill": "più veloce",
+    "section": {
+      "header_country": "Paese emittente",
+      "header_doc_type": "Documenti accettati",
+      "input_country_not_found": "Nessun risultato",
+      "input_placeholder_country": "Seleziona il paese di emissione"
+    },
+    "subtitle": "Deve essere un documento d’identità ufficiale con foto",
+    "subtitle_country": "Seleziona il paese di emissione per vedere quali documenti accettiamo",
+    "subtitle_entire_page": "Intera pagina",
+    "subtitle_front_back": "Davanti e dietro",
+    "subtitle_photo_page": "Pagina delle foto",
+    "subtitle_poa": "Questi sono i documenti che più probabilmente mostrano il tuo indirizzo attuale",
+    "title": "Seleziona il tuo documento",
+    "title_poa": "Seleziona un documento %{country}"
+  },
+  "doc_submit": {
+    "button_link_upload": "o carica foto (no scansioni o fotocopie)",
+    "button_primary": "Continua sul telefono",
+    "subtitle": "Scatta una foto con il tuo telefono",
+    "title_bank_statement": "Invia estratto conto",
+    "title_benefits_letter": "Invia lettera",
+    "title_bill": "Invia bolletta",
+    "title_government_letter": "Lettera del governo",
+    "title_id_back": "Invia carta d’identità (retro)",
+    "title_id_front": "Invia carta d’identità (fronte)",
+    "title_license_back": "Invia patente (retro)",
+    "title_license_front": "Invia patente (fronte)",
+    "title_passport": "Invia la pagina con foto del passaporto",
+    "title_permit_back": "Invia permesso di soggiorno (retro)",
+    "title_permit_front": "Invia permesso di soggiorno (fronte)",
+    "title_tax_letter": "Invia lettera"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Avanti",
+    "button_primary_fallback_end": "Termina registrazione",
+    "detail_step2": "Fai in modo che il documento resti sempre visibile",
+    "header": "Tieni in mano il documento con il lato frontale nella cornice",
+    "header_paper_doc_step2": "Gira lentamente il documento per mostrare le pagine esterne",
+    "header_passport": "Tieni in mano il passaporto con la pagina della foto nella cornice",
+    "header_passport_progress": "Resta immobile",
+    "header_step1": "Ora resta immobile",
+    "header_step2": "Gira lentamente il documento per mostrare il retro",
+    "prompt": {
+      "detail_timeout": "La registrazione video ha un limite di <timeout></timeout> secondi. <fallback>Ricomincia</fallback>"
+    },
+    "stepper": "Passaggio <step></step> di <total></total>",
+    "success_accessibility": "Riuscito"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Anteprima video",
+    "title": "Controlla il video"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Riavvia il processo nell’ultima versione di Google Chrome",
+    "subtitle_ios": "Riavvia il processo nell’ultima versione di Safari",
+    "title_android": "Browser non supportato",
+    "title_ios": "Browser non supportato"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Chiudi la schermata di verifica dell’identità",
+      "dismiss_alert": "Ignora avviso"
+    },
+    "back": "indietro",
+    "close": "chiudi",
+    "errors": {
+      "expired_token": {
+        "instruction": "Riprova",
+        "message": "Il tuo token è scaduto"
+      },
+      "geoblocked_error": {
+        "instruction": "Siamo spiacenti. Sembra che non sia possibile procedere oltre perché la posizione attuale non è supportata",
+        "message": "Servizio non disponibile"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Riavvia il processo su un altro dispositivo",
+        "message": "Fotocamera non rilevata"
+      },
+      "invalid_size": {
+        "instruction": "Deve essere sotto i 10MB.",
+        "message": "Dimensione file superata."
+      },
+      "invalid_type": {
+        "instruction": "Prova a utilizzare un altro tipo di file.",
+        "message": "File non caricato."
+      },
+      "lazy_loading": {
+        "message": "Si è verificato un errore nel caricamento del componente"
+      },
+      "multiple_faces": {
+        "instruction": "Il selfie deve contenere solo il tuo viso",
+        "message": "Più visi rilevati"
+      },
+      "no_face": {
+        "instruction": "Assicurati che il viso sia visibile",
+        "message": "Viso non rilevato"
+      },
+      "request_error": {
+        "instruction": "Riprova",
+        "message": "Si è verificato un errore"
+      },
+      "sms_failed": {
+        "instruction": "Copia il link nel tuo telefono",
+        "message": "Si è verificato un errore"
+      },
+      "sms_overuse": {
+        "instruction": "Copia il link nel tuo telefono",
+        "message": "Troppi tentativi non riusciti"
+      },
+      "unsupported_file": {
+        "instruction": "Prova con un file JPG o PNG",
+        "message": "Tipo di file non supportato"
+      }
+    },
+    "lazy_load_placeholder": "Caricamento...",
+    "loading": "Caricamento in corso"
+  },
+  "get_link": {
+    "alert_wrong_number": "Controlla che il tuo numero sia corretto",
+    "button_copied": "Copiato",
+    "button_copy": "Copia",
+    "button_submit": "Invia link",
+    "info_qr_how": "Come scansionare un QR code",
+    "info_qr_how_list_item_camera": "Inquadra il QR code con la fotocamera del telefono",
+    "info_qr_how_list_item_download": "Se non funziona, scarica un’app per la scansione di QR code da Google Play o App Store",
+    "link_divider": "o scegli un metodo alternativo",
+    "link_qr": "Scansiona QR code",
+    "link_sms": "Ricevi link via SMS",
+    "link_url": "Copia link",
+    "loader_sending": "Invio in corso",
+    "number_field_input_placeholder": "Inserisci numero di telefono",
+    "number_field_label": "Inserisci il tuo numero di telefono:",
+    "subtitle_qr": "Scansiona il QR code con il tuo telefono",
+    "subtitle_sms": "Invia questo link monouso al tuo telefono",
+    "subtitle_url": "Invia questo link monouso al tuo telefono",
+    "title": "Ricevi il tuo link sicuro",
+    "url_field_label": "Copia il link nel browser del telefono"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Ricarica le istruzioni",
+    "intro_note_no1": "Innanzitutto, posiziona il viso nel riquadro",
+    "intro_note_no2": "Poi, gira lentamente la testa da entrambe le parti",
+    "intro_ready_button": "Ricorda che registreremo il tuo viso e lo sfondo",
+    "intro_subtitle": "Questo serve a verificare che tu sia una persona reale",
+    "intro_warning": "Ricorda che registreremo il tuo viso e lo sfondo",
+    "success_main_button": "Invia verifica",
+    "success_title": "Ora abbiamo tutto quello che ci serve per iniziare a verificare la tua identità"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Scatta una foto del retro della tua carta",
+      "body_id_front": "Scatta una foto del fronte della tua carta",
+      "body_license_back": "Scatta una foto del retro della tua patente",
+      "body_license_front": "Scatta una foto del fronte della tua patente",
+      "body_passport": "Scatta una foto del fronte della pagina con foto del tuo passaporto",
+      "body_selfie": "Scatta un selfie del tuo viso"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Oppure scatta una foto con la <fallback>modalità fotocamera base</fallback>"
+        },
+        "camera_not_working": {
+          "detail": "Oppure scatta una foto con la <fallback>modalità fotocamera base</fallback>"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Scatta una foto",
+      "title": "Pagina con foto del passaporto"
+    }
+  },
+  "outro": {
+    "body": "Ora abbiamo tutto quello che ci serve per iniziare a verificare la tua identità",
+    "body_government_letter": "Invia l’intera pagina del documento per un risultato ottimale",
+    "title": "Grazie"
+  },
+  "permission": {
+    "body_both": "Impossibile verificare la tua identità senza usare sia la fotocamera che il microfono",
+    "body_cam": "Impossibile verificare la tua identità senza la fotocamera",
+    "button_primary_both": "Abilita entrambi",
+    "button_primary_cam": "Abilita la fotocamera",
+    "subtitle_both": "Per continuare è necessario abilitare l’accesso a entrambi quando richiesto",
+    "subtitle_cam": "Per continuare è necessario abilitare l’accesso alla fotocamera quando richiesto",
+    "title_both": "Consenti l’accesso alla fotocamera e al microfono",
+    "title_cam": "Consenti l’accesso alla fotocamera"
+  },
+  "permission_recovery": {
+    "button_primary": "Ricarica",
+    "info": "Ripristino",
+    "list_header_both": "Segui questi passaggi per ripristinare l’accesso alla entrambi:",
+    "list_header_cam": "Segui questi passaggi per ripristinare l’accesso alla fotocamera:",
+    "list_item_action_cam": "Ricarica la pagina per riavviare il processo di verifica dell’identità",
+    "list_item_how_to_both": "Consenti l’accesso alla fotocamera e al microfono dalle impostazioni del browser",
+    "list_item_how_to_cam": "Consenti l’accesso alla fotocamera dalle impostazioni del browser",
+    "subtitle_both": "Ripristina l’accesso alla fotocamera e al microfono per registrare un video e completare il processo di verifica",
+    "subtitle_cam": "Ripristina l’accesso alla fotocamera per continuare la verifica",
+    "subtitle_cam_old": "Ripristina l’accesso alla fotocamera per continuare il processo di verifica",
+    "title_both": "Accesso alla fotocamera e al microfono negato",
+    "title_cam": "Accesso alla fotocamera negato"
+  },
+  "photo_upload": {
+    "body_bank_statement": "Invia l'intera pagina del documento per un risultato ottimale",
+    "body_benefits_letter": "Invia l'intera pagina del documento per un risultato ottimale",
+    "body_bill": "Invia l'intera pagina del documento per un risultato ottimale",
+    "body_id_back": "Carica il retro della carta d’identità dal tuo computer",
+    "body_id_front": "Carica il fronte della carta d’identità dal tuo computer",
+    "body_license_back": "Carica il retro della patente dal tuo computer",
+    "body_license_front": "Carica il fronte della patente dal tuo computer",
+    "body_passport": "Carica la pagina con foto del passaporto dal tuo computer",
+    "body_selfie": "Carica un selfie dal tuo computer",
+    "body_tax_letter": "Invia l'intera pagina del documento per un risultato ottimale",
+    "button_take_photo": "Scatta foto",
+    "button_upload": "Carica",
+    "title_selfie": "Selfie"
+  },
+  "poa_cancel": "Annulla",
+  "poa_err_invalid_file": {
+    "message": "Seleziona un altro file.",
+    "ok": "OK",
+    "title": "File non valido"
+  },
+  "poa_guidance": {
+    "button_primary": "Continua",
+    "instructions": {
+      "address": "Indirizzo attuale",
+      "full_name": "Nome e cognome",
+      "issue_date": "Data di emissione o periodo di riepilogo",
+      "label": "Riporta l'intero documento assicurandoti che mostri chiaramente:",
+      "logo": "Logo"
+    },
+    "subtitle_bank_statement": "Deve essere stato emesso negli <strong>ultimi 3 mesi</strong>",
+    "subtitle_benefits_letter": "Deve essere stata emessa negli <strong>ultimi 12 mesi</strong>",
+    "subtitle_bill": "Deve essere stato emesso negli <strong>ultimi 3 mesi</strong>",
+    "subtitle_tax_letter": "Deve essere stata emessa negli <strong>ultimi 12 mesi</strong>"
+  },
+  "poa_intro": {
+    "button_primary": "Inizia la verifica",
+    "list_matches_signup": "<strong>Corrisponde</strong> all'indirizzo utilizzato per la registrazione",
+    "list_most_recent": "È il tuo documento più <strong>recente</strong>",
+    "list_shows_address": "Mostra il tuo indirizzo <strong>attuale</strong>",
+    "subtitle": "Ti servirà un documento che:",
+    "title": "Verifichiamo il tuo indirizzo"
+  },
+  "profile_data": {
+    "address_title": "Aggiungere l’indirizzo",
+    "button_continue": "Continua",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Seleziona un Paese"
+      },
+      "country_select": {
+        "placeholder": "Selezionare un paese"
+      },
+      "nationality_select": {
+        "placeholder": "Seleziona un Paese"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Selezionare uno stato"
+      }
+    },
+    "country_of_residence_title": "Il tuo paese di residenza",
+    "field_labels": {
+      "country": "Paese",
+      "country_residence": "Paese",
+      "dob": "Data di nascita",
+      "email": "Email",
+      "first_name": "Nome",
+      "gbr_specific": {
+        "postcode": "Codice postale",
+        "town": "Città/comune"
+      },
+      "ind_specific": {
+        "pan": "Numero di conto permanente (PAN)"
+      },
+      "last_name": "Cognome",
+      "line1": "Indirizzo 1",
+      "line2": "Indirizzo 2",
+      "line3": "Indirizzo 3",
+      "mobile_number": "Numero di cellulare",
+      "nationality": "Nazionalità",
+      "phone_number": "Numero di telefono",
+      "postcode": "Codice postale",
+      "town": "Comune",
+      "usa_specific": {
+        "line1_helper_text": "Indirizzo, ad esempio 200 Albert Street",
+        "line2_helper_text": "Appartamento, suite, unità ecc.",
+        "postcode": "Zip code",
+        "ssn": "Numero di previdenza sociale (SSN)",
+        "state": "Stato"
+      }
+    },
+    "field_optional": "(facoltativo)",
+    "field_validation": {
+      "gbr_specific": {
+        "invalid_postcode": "Inserisci un postale valido",
+        "required_postcode": "Inserire il codice postale",
+        "too_long_postcode": "Il codice postale è troppo lungo",
+        "too_short_postcode": "Il codice postale è troppo breve"
+      },
+      "ind_specific": {
+        "invalid_pan": "Inserisci un PAN valido",
+        "required_pan": "Inserisci il tuo PAN"
+      },
+      "invalid": "Verificare che non ci siano simboli o caratteri non validi",
+      "invalid_dob": "Inserire una data di nascita valida",
+      "invalid_email": "Inserisci un’email valida",
+      "invalid_mobile_number": "Inserisci un numero di telefono valido",
+      "invalid_phone_number": "Inserisci un numero di telefono valido",
+      "required_country": "Selezionare un paese",
+      "required_country_residence": "Seleziona un Paese",
+      "required_dob": "Inserire la data di nascita",
+      "required_email": "Inserisci la tua email",
+      "required_first_name": "",
+      "required_last_name": "Inserire il cognome",
+      "required_line1": "Inserire l’indirizzo",
+      "required_mobile_number": "Inserisci il tuo numero di cellulare",
+      "required_nationality": "Seleziona un Paese",
+      "required_phone_number": "Inserisci il tuo numero di telefono",
+      "required_postcode": "Inserire il codice postale",
+      "too_long__line1": "L’indirizzo è troppo lungo",
+      "too_long_first_name": "Il nome è troppo lungo",
+      "too_long_last_name": "Il cognome è troppo lungo",
+      "too_long_postcode": "Il codice postale è troppo lungo",
+      "too_long_town": "",
+      "too_short_first_name": "Il nome è troppo breve",
+      "too_short_last_name": "Il cognome è troppo breve",
+      "too_short_postcode": "Il codice postale è troppo breve",
+      "usa_specific": {
+        "invalid_ssn": "Inserisci un SSN valido",
+        "required_ssn": "Inserisci il tuo SSN",
+        "required_state": "Selezionare uno stato"
+      }
+    },
+    "personal_information_title": "Aggiungere i dati personali",
+    "prompt": {
+      "details_timeout": "Ricomincia",
+      "header_timeout": "Sembra che ci sia voluto troppo tempo"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Riprova"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Riprova con un documento d’identità valido e assicurati chele informazioni siano ben leggibili",
+    "title": "Il documento è scaduto"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Riprova con un documento d’identità valido e assicurati che le informazioni siano ben leggibili",
+    "title": "Si è verificato un problema con il tuo documento"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Riprova con un documento d’identità valido e assicurati che le informazioni siano ben leggibili",
+    "title": "Documento non accettato"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Riprova e assicurati che il volto sia visibile e ben illuminato",
+    "title": "Si è verificato un problema con il selfie"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Controlla che sia collegata e funzionante. In alternativa puoi <fallback>continuare la verifica dal tuo telefono</fallback>.",
+        "detail_no_fallback": "Assicurati che il dispositivo abbia una fotocamera funzionante",
+        "title": "La fotocamera non funziona?"
+      },
+      "camera_not_working": {
+        "detail": "Potrebbe non essere collegata. <fallback>Prova a utilizzare il telefono</fallback>.",
+        "detail_no_fallback": "Assicurati che la fotocamera del dispositivo sia funzionante",
+        "title": "Fotocamera non funzionante"
+      },
+      "timeout": {
+        "detail": "Ricorda di premere il pulsante quando hai finito. <fallback>Ripeti le azioni del video</fallback>",
+        "title": "Sembra che ci sia voluto troppo tempo"
+      }
+    },
+    "body": "Tieni il viso nell’ovale",
+    "button_accessibility": "Scatta una foto",
+    "button_primary": "Inizia a scansionare il viso",
+    "frame_accessibility": "Vista dalla fotocamera",
+    "title": "Tieni il viso nell’ovale"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Foto del tuo viso",
+    "subtitle": "Assicurati che il viso sia visibile per intero",
+    "title": "Controlla il selfie"
+  },
+  "selfie_intro": {
+    "button_primary": "Continua",
+    "list_accessibility": "Consigli per un buon selfie",
+    "list_item_face_forward": "Guarda in avanti e assicurati che gli occhi siano ben visibili",
+    "list_item_no_glasses": "Togliti gli occhiali, se necessario",
+    "subtitle": "Lo confronteremo con il tuo documento",
+    "title": "Scatta un selfie"
+  },
+  "sms_sent": {
+    "info": "Consigli",
+    "info_link_expire": "Il tuo link scadrà tra un’ora",
+    "info_link_window": "Tieni aperta questa finestra mentre usi il telefono",
+    "link": "Invia nuovo link",
+    "subtitle": "Abbiamo inviato un link sicuro a %{number}",
+    "subtitle_minutes": "La ricezione potrebbe richiedere qualche minuto",
+    "title": "Controlla il telefono"
+  },
+  "switch_phone": {
+    "info": "Consigli",
+    "info_link_expire": "Il link inviato al tuo telefono scadrà tra un’ora",
+    "info_link_refresh": "Non ricaricare la pagina",
+    "info_link_window": "Tieni aperta questa finestra mentre usi il telefono",
+    "link": "Annulla",
+    "subtitle": "Quando avrai terminato ti porteremo al passaggio successivo",
+    "title": "Collegato al tuo telefono"
+  },
+  "upload_guide": {
+    "button_primary": "Carica foto",
+    "image_detail_blur_alt": "Esempio di un documento sfocato",
+    "image_detail_blur_label": "Tutti i dettagli devono essere nitidi, senza sfocature",
+    "image_detail_cutoff_label": "Mostra tutti i dettagli, incluse le 2 righe inferiori",
+    "image_detail_glare_label": "Allontanati dalla luce diretta per evitare riflessi",
+    "image_detail_good_label": "La foto deve mostrare chiaramente il tuo documento",
+    "subtitle": "Non sono ammesse scansioni e fotocopie",
+    "title": "Invia la pagina con foto del passaporto"
+  },
+  "user_consent": {
+    "button_primary": "Accept",
+    "button_secondary": "Do not accept",
+    "prompt": {
+      "button_primary": "Review again",
+      "button_secondary": "Yes, don’t verify me",
+      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "no_consent_title": "Are you sure?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Reload screen",
+    "detail": "Check that your connection is stable, then try again",
+    "title": "Content failed to load"
+  },
+  "video_capture": {
+    "body": "Tieni il viso nell’ovale",
+    "body_record": "Quando è tutto pronto, premi il pulsante",
+    "body_stop": "Premi \"stop\" quando hai finito",
+    "button_primary_finish": "Termina registrazione",
+    "button_primary_next": "Avanti",
+    "button_primary_start": "Inizia a registrare",
+    "button_record_accessibility": "Inizia a registrare",
+    "frame_accessibility": "Vista dalla fotocamera",
+    "header": {
+      "challenge_digit_instructions": "Pronuncia ciascun numero ad alta voce",
+      "challenge_turn_forward": "poi guarda in avanti",
+      "challenge_turn_left": "Gira la testa a sinistra",
+      "challenge_turn_right": "Gira la testa a destra"
+    },
+    "prompt": {
+      "header_timeout": "Sembra che ci sia voluto troppo tempo"
+    }
+  },
+  "video_confirmation": {
+    "body": "Il tuo video è stato registrato",
+    "button_primary": "Carica video",
+    "button_secondary": "Registra un altro video",
+    "title": "Controlla il video",
+    "video_accessibility": "Guarda il video registrato"
+  },
+  "video_intro": {
+    "button_primary": "Registra video",
+    "list_accessibility": "Azioni per registrare un video selfie",
+    "list_item_actions": "Hai 20 secondi per terminare",
+    "list_item_speak": "Muoviti o parla seguendo le istruzioni",
+    "title": "Registra un video"
+  },
+  "welcome": {
+    "doc_video_subtitle": "L’operazione richiederà pochi minuti",
+    "list_header_doc_video": "Usa il dispositivo per registrare:",
+    "list_header_webcam": "Usa la webcam o il telefono per fotografare:",
+    "list_item_doc": "il tuo documento d’identità",
+    "list_item_doc_video_timeout": "La registrazione ha un limite di <timeout></timeout> secondi",
+    "list_item_poa": "la tua prova dell'indirizzo",
+    "list_item_selfie": "il tuo viso",
+    "next_button": "Seleziona documento",
+    "start_workflow_button": "Inizia verifica",
+    "subtitle": "L’operazione richiederà pochi minuti",
+    "title": "Verifica la tua identità"
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "",
+      "title": ""
+    },
+    "reject": {
+      "description": "",
+      "title": ""
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "",
+    "no_workflow_run_id": "",
+    "reload_app": "",
+    "task_not_completed": "",
+    "task_not_retrieved": "",
+    "task_not_supported": ""
+  }
+}
