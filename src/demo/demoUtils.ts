@@ -212,10 +212,6 @@ export const getInitSdkOptions = (): SdkOptions => {
       steps.push({ type: 'auth', options: { retries: 10 } })
     }
 
-    if (queryParamToValueString.poa === 'true') {
-      steps.push({ type: 'poa' })
-    }
-
     if (queryParamToValueString.noDocumentStep !== 'true') {
       steps.push({
         type: 'document',
@@ -231,7 +227,9 @@ export const getInitSdkOptions = (): SdkOptions => {
         },
       })
     }
-
+    if (queryParamToValueString.poa === 'true') {
+      steps.push({ type: 'poa' })
+    }
     steps.push({
       type: 'face',
       options: {

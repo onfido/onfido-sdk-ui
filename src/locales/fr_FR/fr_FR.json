@@ -753,9 +753,10 @@
     "list_item_poa": "votre justificatif d'adresse",
     "list_item_selfie": "votre visage",
     "next_button": "Sélectionner un document",
-    "start_workflow_button": "Commencer la vérification",
+    "start_workflow_button": "Commencer la vérification%{trial}",
     "subtitle": "Cela ne prendra que quelques minutes",
-    "title": "Vérification d’identité"
+    "title": "Vérification d’identité%{trial}",
+    "trial_message": "Ne partagez pas de données personnelles ici, sauf si vous êtes engagé dans un essai Onfido."
   },
   "workflow_complete": {
     "pass": {

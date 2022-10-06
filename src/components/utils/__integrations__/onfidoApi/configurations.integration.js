@@ -21,7 +21,7 @@ describe('API configurations endpoint', () => {
 
     expect(configurations).toHaveProperty('sdk_features', {
       disable_cross_device_sms: false,
-      enable_in_house_analytics: false,
+      enable_in_house_analytics: true,
       enable_on_device_face_detection: true,
       enable_performance_analytics: false,
       enable_require_applicant_consents: true,
@@ -59,7 +59,7 @@ describe('API configurations endpoint', () => {
 
     expect(configurations).toHaveProperty('sdk_features', {
       disable_cross_device_sms: false,
-      enable_in_house_analytics: false,
+      enable_in_house_analytics: true,
       enable_on_device_face_detection: true,
       enable_performance_analytics: false,
       enable_require_applicant_consents: true,

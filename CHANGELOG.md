@@ -7,6 +7,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## Changed
+
+- Public: Welcome page UI changes for trial accounts
+
 ## [9.1.1] - 2022-09-26
 
 - Fix setting "pan" value for the profile capture step
