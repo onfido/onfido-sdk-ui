@@ -9,6 +9,7 @@ The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and
 ### Added strings
 
 - `welcome.trial_message`
+- `welcome.start_workflow_button_trial`
 
 ## `8.2.0` -> `9.0.0`
 

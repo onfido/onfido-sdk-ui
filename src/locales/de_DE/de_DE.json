@@ -754,7 +754,8 @@
     "list_item_poa": "Ihr Adressnachweis",
     "list_item_selfie": "Ihr Gesicht",
     "next_button": "Dokument auswählen",
-    "start_workflow_button": "Verifizierung beginnen%{trial}",
+    "start_workflow_button": "Verifizierung beginnen",
+    "start_workflow_button_trial": "Verifizierung beginnen (TEST)",
     "subtitle": "Es dauert nur wenige Minuten",
     "title": "Identität überprüfen%{trial}",
     "trial_message": "Geben Sie hier keine personenbezogenen Daten weiter, es sei denn, Sie nehmen an einer Onfido-Studie teil."
