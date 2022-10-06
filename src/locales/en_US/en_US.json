@@ -753,7 +753,8 @@
     "list_item_poa": "your proof of address",
     "list_item_selfie": "your face",
     "next_button": "Choose document",
-    "start_workflow_button": "Start verfication%{trial}",
+    "start_workflow_button": "Start verfication",
+    "start_workflow_button_trial": "Start verfication (TEST)",
     "subtitle": "It should take a few minutes",
     "title": "Verify your identity%{trial}",
     "trial_message": "Do not share personal data here unless you are engaged in an Onfido trial."

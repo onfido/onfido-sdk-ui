@@ -40,11 +40,12 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
     ? customNextButtonLabel
     : translate(
         `${
-          useWorkflow ? 'welcome.start_workflow_button' : 'welcome.next_button'
-        }`,
-        {
-          trial: isTrial && useWorkflow ? ' (TEST)' : '',
-        }
+          useWorkflow
+            ? isTrial
+              ? 'welcome.start_workflow_button_trial'
+              : 'welcome.start_workflow_button'
+            : 'welcome.next_button'
+        }`
       )
 
   return (

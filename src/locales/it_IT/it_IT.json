@@ -666,7 +666,8 @@
     "list_item_poa": "la tua prova dell'indirizzo",
     "list_item_selfie": "il tuo viso",
     "next_button": "Seleziona documento",
-    "start_workflow_button": "Inizia verifica%{trial}",
+    "start_workflow_button": "Inizia verifica",
+    "start_workflow_button_trial": "Inizia verifica (TEST)",
     "subtitle": "L’operazione richiederà pochi minuti",
     "title": "Verifica la tua identità%{trial}",
     "trial_message": "Non condividere i dati personali qui a meno che tu non sia coinvolto in una prova Onfido."
