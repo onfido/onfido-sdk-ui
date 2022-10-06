@@ -77,3 +77,10 @@
     align-self: stretch;
   }
 }
+
+.trialMessage {
+  color: var(--osdk-color-background-alert-error);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 60px;
+}

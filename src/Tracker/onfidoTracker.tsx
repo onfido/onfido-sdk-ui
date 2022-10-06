@@ -18,6 +18,7 @@ let token: string | undefined
 let urls: UrlsConfig
 let client_uuid: string | undefined
 let applicant_uuid: string | undefined
+let is_trial: boolean | undefined
 let anonymous_uuid: string | undefined
 let isCrossDeviceClient: boolean | undefined
 
@@ -39,6 +40,7 @@ const listener = () => {
   currentStepType = globalsInStore.currentStepType
   urls = globalsInStore.urls
   client_uuid = globalsInStore.clientUuid
+  is_trial = globalsInStore.isTrial
   applicant_uuid = globalsInStore.applicantUuid
   anonymous_uuid = globalsInStore.anonymousUuid
   isCrossDeviceClient = globalsInStore.isCrossDeviceClient
@@ -95,6 +97,7 @@ export const sendAnalyticsEvent = (
     applicant_uuid,
     anonymous_uuid,
     client_uuid,
+    is_trial,
     session_uuid: analyticsSessionUuid,
   }
 

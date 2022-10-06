@@ -237,6 +237,7 @@ class ModalApp extends Component<Props> {
       const tokenPayload = getPayloadFromJWT(token)
       this.props.actions.setApplicantUuid(tokenPayload.app)
       this.props.actions.setClientUuid(tokenPayload.client_uuid)
+      this.props.actions.setIsTrial(tokenPayload.is_trial)
 
       const isDesktopFlow = !options.mobileFlow
       if (isDesktopFlow) {

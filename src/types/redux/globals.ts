@@ -33,6 +33,7 @@ export type GlobalActions =
   | { type: typeof constants.SET_TOKEN; payload: string }
   | { type: typeof constants.SET_APPLICANT_UUID; payload: string }
   | { type: typeof constants.SET_CLIENT_UUID; payload: string }
+  | { type: typeof constants.SET_IS_TRIAL; payload: boolean }
   | {
       type: typeof constants.SET_STEPS_CONFIG
       payload: StepConfig[]
@@ -95,4 +96,5 @@ export type GlobalState = {
   anonymousUuid?: string
   clientUuid?: string
   stepsConfig: Array<StepConfig>
+  isTrial?: boolean
 }

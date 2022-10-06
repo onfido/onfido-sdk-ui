@@ -169,6 +169,11 @@ export const setClientUuid = (payload: string): GlobalActions => ({
   payload,
 })
 
+export const setIsTrial = (payload: boolean): GlobalActions => ({
+  type: constants.SET_IS_TRIAL,
+  payload,
+})
+
 export const setStepsConfig = (payload: StepConfig[]): GlobalActions => ({
   type: constants.SET_STEPS_CONFIG,
   payload,

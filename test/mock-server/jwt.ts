@@ -17,6 +17,7 @@ export const generateToken = async (context: any) => {
     payload: {
       app: 'ebbad7e0-5f3c-4a6e-bf96-fa65c172d12c',
       client_uuid: 'ce69f18f-8006-423d-afda-fcaff0de2154',
+      is_trial: false,
       is_sandbox: false,
       ref: '*://*/*',
       sardine_session: '1207fcd6-e76b-463d-b84a-fbcd17cf6f54',

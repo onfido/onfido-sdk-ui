@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Listeners({ScreenshotListener.class, BrowserStackListener.class})
+@Listeners({ ScreenshotListener.class, BrowserStackListener.class })
 @Browser(acceptInsureCertificates = true)
 public abstract class WebSdkIT extends WebTest {
 
@@ -40,7 +40,6 @@ public abstract class WebSdkIT extends WebTest {
     private static final int SLEEP_BEFORE_SNAPSHOT = 250;
 
     private static final Logger log = LoggerFactory.getLogger(WebSdkIT.class);
-
 
     static ObjectMapper objectMapper = new ObjectMapper();
     protected final String language;
@@ -81,14 +80,14 @@ public abstract class WebSdkIT extends WebTest {
     @SuppressWarnings("HardcodedLineSeparator")
     private static void logProperties() {
         log.debug("Properties: {}", Property.properties().entrySet()
-                                            .stream()
-                                            .map(x -> x.getKey() + "=" + x.getValue())
-                                            .collect(Collectors.joining("\n")));
+                .stream()
+                .map(x -> x.getKey() + "=" + x.getValue())
+                .collect(Collectors.joining("\n")));
     }
 
     @DataProvider
     public static Object[][] booleans() {
-        return new Object[][]{{true}, {false}};
+        return new Object[][] { { true }, { false } };
     }
 
     @SuppressWarnings("CallToSystemGetenv")
@@ -155,7 +154,6 @@ public abstract class WebSdkIT extends WebTest {
         return new Copy(tree);
     }
 
-
     public static class Copy {
         private final JsonNode tree;
 
@@ -169,8 +167,14 @@ public abstract class WebSdkIT extends WebTest {
 
     }
 
-    protected void verifyCopy(String actual, String path) {
-        assertThat(actual).isEqualTo(copy.get(path));
+    protected void verifyCopy(String actual, String path, String... replaceValues) {
+        var copyString = copy.get(path);
+
+        for (String value : replaceValues) {
+            copyString = copyString.replaceAll("\\%\\{.*\\}", value).trim();
+        }
+
+        assertThat(actual).isEqualTo(copyString);
     }
 
     protected void takePercySnapshot(String name) {
