@@ -26,19 +26,25 @@ type WelcomeActionsProps = {
   customNextButtonLabel?: string
   nextStep: () => void
   useWorkflow?: boolean
+  isTrial?: boolean
 }
 
 const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   customNextButtonLabel,
   nextStep,
   useWorkflow,
+  isTrial,
 }) => {
   const { translate } = useLocales()
   const buttonLabel = customNextButtonLabel
     ? customNextButtonLabel
     : translate(
         `${
-          useWorkflow ? 'welcome.start_workflow_button' : 'welcome.next_button'
+          useWorkflow
+            ? isTrial
+              ? 'welcome.start_workflow_button_trial'
+              : 'welcome.start_workflow_button'
+            : 'welcome.next_button'
         }`
       )
 
@@ -47,7 +53,11 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
       <Button
         type="button"
         variant="primary"
-        className={classNames(theme['button-centered'], theme['button-lg'])}
+        className={classNames(
+          { [theme['button-trial']]: isTrial && useWorkflow },
+          theme['button-centered'],
+          theme['button-lg']
+        )}
         onClick={nextStep}
         data-onfido-qa="welcome-next-btn"
       >
@@ -57,10 +67,20 @@ const WelcomeActions: FunctionComponent<WelcomeActionsProps> = ({
   )
 }
 
+const TrialMessage = () => {
+  const { translate } = useLocales()
+  return (
+    <div className={style.trialMessage}>
+      <p>{translate('welcome.trial_message')}</p>
+    </div>
+  )
+}
+
 const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   steps,
   nextStep,
   autoFocusOnInitialScreenTitle,
+  isTrial,
 }) => {
   const [{ useWorkflow }, { findStep }] = useSdkOptions()
   const { translate } = useLocales()
@@ -77,9 +97,15 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
   const forDocVideo = documentStep?.options?.requestedVariant === 'video'
 
   const actions = (
-    <WelcomeActions {...{ customNextButtonLabel, nextStep, useWorkflow }} />
+    <WelcomeActions
+      {...{ customNextButtonLabel, nextStep, useWorkflow, isTrial }}
+    />
   )
-  const welcomeTitle = customTitle || translate('welcome.title')
+  const welcomeTitle =
+    customTitle ||
+    translate('welcome.title', {
+      trial: isTrial && useWorkflow ? ' (TEST)' : '',
+    })
   const welcomeSubTitle = !customDescriptions
     ? translate('welcome.subtitle')
     : ''
@@ -110,6 +136,7 @@ const Welcome: FunctionComponent<StepComponentBaseProps> = ({
           descriptions={customDescriptions}
         />
       )}
+      {isTrial && useWorkflow && <TrialMessage />}
     </ScreenLayout>
   )
 }

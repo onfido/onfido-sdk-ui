@@ -27,7 +27,8 @@ public class UserConsentIT extends WebSdkIT {
         return onfido()
                 .withSteps(steps)
                 .withMock(mock -> {
-                    mock.extend(Code.SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                    mock.extend(Code.SDK_CONFIGURATION,
+                            new SdkConfiguration().withEnableRequireApplicantConsents(true));
                 })
                 .init(pageClass);
     }
@@ -45,7 +46,6 @@ public class UserConsentIT extends WebSdkIT {
         verifyCopy(consent.acceptButtonText(), "user_consent.button_primary");
         verifyCopy(consent.declineButtonText(), "user_consent.button_secondary");
     }
-
 
     @Test(description = "should accept user consent")
     public void testAcceptUserConsent() {
@@ -103,7 +103,7 @@ public class UserConsentIT extends WebSdkIT {
                 .back(RestrictedDocumentSelection.class)
                 .back(Welcome.class);
 
-        verifyCopy(welcome.title(), "welcome.title");
+        verifyCopy(welcome.title(), "welcome.title", "");
     }
 
     @Test(description = "do not show consent screen, if consent is already given")
@@ -111,8 +111,10 @@ public class UserConsentIT extends WebSdkIT {
         var document = onfido()
                 .withSteps("document")
                 .withMock(mock -> {
-                    mock.extend(Code.SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
-                    mock.set(Code.CONSENTS, Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
+                    mock.extend(Code.SDK_CONFIGURATION,
+                            new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                    mock.set(Code.CONSENTS,
+                            Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
                 })
                 .init(RestrictedDocumentSelection.class);
 
@@ -122,10 +124,12 @@ public class UserConsentIT extends WebSdkIT {
     @Test(description = "do not show consent screen, if consent is already given and not first screen")
     public void testConsentScreenNotShownWhenConsentAlreadyGivenAndNotFirstScreen() {
         var document = onfido()
-                .withSteps("welcome","document")
+                .withSteps("welcome", "document")
                 .withMock(mock -> {
-                    mock.extend(Code.SDK_CONFIGURATION, new SdkConfiguration().withEnableRequireApplicantConsents(true));
-                    mock.set(Code.CONSENTS, Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
+                    mock.extend(Code.SDK_CONFIGURATION,
+                            new SdkConfiguration().withEnableRequireApplicantConsents(true));
+                    mock.set(Code.CONSENTS,
+                            Arrays.asList(new Consent("privacy_notices_read_consent_given").withGranted(true)));
                 })
                 .init(Welcome.class)
                 .continueToNextStep(RestrictedDocumentSelection.class);
@@ -133,7 +137,7 @@ public class UserConsentIT extends WebSdkIT {
         verifyCopy(document.title(), "doc_select.title");
     }
 
-    @Test(description = "Is not displayed on cross device", groups = {"percy", "tabs"})
+    @Test(description = "Is not displayed on cross device", groups = { "percy", "tabs" })
     public void testIsNotDisplayedOnCrossDevice() {
         var link = init(Welcome.class, "welcome", "document")
                 .continueToNextStep(UserConsent.class)

@@ -667,8 +667,10 @@
     "list_item_selfie": "uw gezicht",
     "next_button": "Kies een document",
     "start_workflow_button": "Start verificatie",
+    "start_workflow_button_trial": "Start verificatie (TEST)",
     "subtitle": "Dat duurt maar een paar minuten",
-    "title": "Verifieer uw identiteit"
+    "title": "Verifieer uw identiteit%{trial}",
+    "trial_message": "Deel hier geen persoonlijke gegevens, tenzij u betrokken bent bij een Onfido-proef."
   },
   "workflow_complete": {
     "pass": {

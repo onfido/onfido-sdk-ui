@@ -42,7 +42,9 @@ class StepsRouter extends Component<StepsRouterProps> {
       hideOnfidoLogo,
       isFullScreen,
       isLoadingStep,
-      options: { mobileFlow, ...globalUserOptions },
+      isTrial,
+      currentStepType,
+      options: { useWorkflow, mobileFlow, ...globalUserOptions },
       ...otherProps
     } = this.props
     const componentBlob = this.currentComponent()
@@ -56,6 +58,7 @@ class StepsRouter extends Component<StepsRouterProps> {
       mobileFlow,
       resetSdkFocus: this.resetSdkFocus,
       trackScreen: this.trackScreen,
+      isTrial,
     }
 
     const stepId = `onfido-step${this.props.step}` // to trigger update in NavigationBar on step change
@@ -86,6 +89,8 @@ class StepsRouter extends Component<StepsRouterProps> {
             [theme.logoCobrandImage]: logoCobrand,
             [theme.onfidoCobrandLogo]: textCobrandLogic || logoCobrand,
             [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
+            [theme.trialBackground]:
+              isTrial && useWorkflow && currentStepType === 'welcome',
           })}
           tabIndex={-1}
           ref={(node) => node && (this.container = node)}

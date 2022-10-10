@@ -339,6 +339,7 @@ export type AnalyticsEventPropertiesWarnings = {
 export type AnalyticsPayload = {
   applicant_uuid?: string
   client_uuid?: string
+  is_trial?: boolean
   event?: AnalyticsTrackedEventNames
   event_metadata: {
     domain: string

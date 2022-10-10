@@ -27,6 +27,10 @@ const withTheme = <P extends unknown>(
       EnterpriseLogoCobranding | undefined
     >((state) => state.globals.logoCobrand)
 
+    const isTrial = useSelector<RootState, boolean | undefined>(
+      (state) => state.globals.isTrial
+    )
+
     const { back, disableNavigation = false } = props
 
     return (

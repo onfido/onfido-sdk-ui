@@ -93,6 +93,10 @@
   flex-direction: column;
 }
 
+.trialBackground {
+  background: url('./assets/trial-background.png');
+}
+
 .fullScreenStep {
   overflow: hidden;
   border-radius: 8 * $unit;
@@ -411,6 +415,29 @@ $logo-height: 32 * $unit;
   width: $lg-btn-width-lg-screen;
   @media (--small-viewport) {
     width: $lg-btn-width-sm-screen;
+  }
+}
+
+.button-trial {
+  background-color: var(--osdk-color-background-alert-error) !important;
+  border-color: var(--osdk-color-background-alert-error) !important;
+
+  &:hover {
+    background-color: var(
+      --osdk-color-background-alert-error-link-hover
+    ) !important;
+    border-color: var(
+      --osdk-color-background-alert-error-link-hover
+    ) !important;
+  }
+
+  &:active {
+    background-color: var(
+      --osdk-color-background-alert-error-link-active
+    ) !important;
+    border-color: var(
+      --osdk-color-background-alert-error-link-active
+    ) !important;
   }
 }
 

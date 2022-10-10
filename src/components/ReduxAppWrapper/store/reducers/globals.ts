@@ -41,6 +41,7 @@ export const initialState: GlobalState = {
   applicantUuid: undefined,
   anonymousUuid: undefined,
   clientUuid: undefined,
+  isTrial: false,
   stepsConfig: [],
   isCrossDeviceClient: undefined,
 }
@@ -218,6 +219,12 @@ export default function globals(
       return {
         ...state,
         clientUuid: action.payload,
+      }
+
+    case constants.SET_IS_TRIAL:
+      return {
+        ...state,
+        isTrial: action.payload,
       }
 
     case constants.SET_STEPS_CONFIG:

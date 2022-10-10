@@ -754,8 +754,10 @@
     "list_item_selfie": "su cara",
     "next_button": "Seleccione un documento",
     "start_workflow_button": "Empezar la verificación",
+    "start_workflow_button_trial": "Empezar la verificación (TEST)}",
     "subtitle": "Debería tomar unos minutos",
-    "title": "Verifique su identidad"
+    "title": "Verifique su identidad%{trial}",
+    "trial_message": "No comparta datos personales aquí a menos que participe en una prueba de Onfido."
   },
   "workflow_complete": {
     "pass": {

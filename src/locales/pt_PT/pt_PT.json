@@ -667,8 +667,10 @@
     "list_item_selfie": "o seu rosto",
     "next_button": "Escolha o documento",
     "start_workflow_button": "Iniciar a verificação",
+    "start_workflow_button_trial": "Iniciar a verificação (TEST)",
     "subtitle": "Pode demorar alguns minutos",
-    "title": "Verifique a sua identidade"
+    "title": "Verifique a sua identidade%{trial}",
+    "trial_message": "Ne partagez pas de données personalles ici, sauf si vous êtes engagé dans un essei Onfido."
   },
   "workflow_complete": {
     "pass": {

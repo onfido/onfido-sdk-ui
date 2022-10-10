@@ -5,6 +5,7 @@ import type { EnterpriseFeatures } from '~types/enterprise'
 type JWTPayload = {
   app?: string
   client_uuid?: string
+  is_trial?: boolean
   ref?: string
 }
 
