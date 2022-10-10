@@ -7,11 +7,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [next-version]
-
-- Public: Welcome page UI changes for trial accounts
 
 ## [9.1.2] - 2022-10-10
+
+- Public: Welcome page UI changes for trial accounts
 
 ## [9.1.1] - 2022-09-26
 
