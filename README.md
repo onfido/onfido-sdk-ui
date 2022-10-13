@@ -116,6 +116,7 @@ You can either:
 
 - import directly into your HTML page
 - use npm
+- use our CDN
 
 #### 4.1 HTML Script Tag Include
 
@@ -191,6 +192,16 @@ The CSS style will be included inline with the JS code when the library is impor
 ⚠️ Note: The library is **Browser only**, it does not support the **Node Context**.
 
 You can see an [example app using npm style import](https://github.com/onfido/onfido-sdk-web-sample-app/).
+
+#### 4.3 CDN
+
+Alternatively, you can use hosted versions of files above from our CDN such as:
+
+```html
+<!-- Replace "<version>" with the actual version you want to use, example: 9.0.0 -->
+<script src="https://assets.onfido.com/web-sdk-releases/<version>/onfido.min.js"></script>
+<script src="https://assets.onfido.com/web-sdk-releases/<version>/onfidoAuth.min.js"></script>
+```
 
 ### 5. Add basic HTML markup
 
