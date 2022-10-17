@@ -9269,6 +9269,26 @@
   },
   {
     "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 5566,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier3",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
       "back_required": false,
       "common_name": null,
       "country": "United States of America",
@@ -12965,6 +12985,26 @@
         "verify"
       ],
       "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Honduras",
+      "country_alpha2": "HN",
+      "country_alpha3": "HND",
+      "document_type": "NIC",
+      "has_nfc": false,
+      "id": 10342,
+      "municipality": null,
+      "region_iso": null,
+      "region_name": null,
+      "tier": "tier4",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2020"
     }
   },
   {

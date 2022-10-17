@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [9.1.3] - 2022-10-18
 
+- Public: Add Honduras and Mexico National Identity Cards
 - Public: Add UI customization options for buttons hover & active states
 - Public: Add UI customization options for giving small icons a custom color
 - Public: Add UI customization option for input `outline-color`
