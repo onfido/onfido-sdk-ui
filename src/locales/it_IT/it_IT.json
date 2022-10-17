@@ -250,6 +250,10 @@
         "instruction": "Riprova",
         "message": "Il tuo token è scaduto"
       },
+      "expired_trial": {
+        "instruction": "Hai raggiunto i limiti di prova",
+        "message": "La tua prova è scaduta"
+      },
       "geoblocked_error": {
         "instruction": "Siamo spiacenti. Sembra che non sia possibile procedere oltre perché la posizione attuale non è supportata",
         "message": "Servizio non disponibile"

@@ -250,6 +250,10 @@
         "instruction": "Probeer het opnieuw",
         "message": "Uw token is verlopen"
       },
+      "expired_trial": {
+        "instruction": "U heeft uw proeflimieten bereikt",
+        "message": "Uw proefperiode is vervallen"
+      },
       "geoblocked_error": {
         "instruction": "Het spijt ons, we kunnen niet verdergaan, omdat uw huidige locatie niet ondersteund wordt",
         "message": "Service niet beschikbaar"

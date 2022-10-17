@@ -23,6 +23,7 @@ export type ApiRawError = {
 
 const API_ERROR_AUTHORIZATION = 'authorization_error'
 const API_ERROR_EXPIRED_TOKEN = 'expired_token'
+const API_ERROR_EXPIRED_TRIAL = 'expired_trial'
 const API_ERROR_VALIDATION = 'validation_error'
 const API_ERROR_UNKNOWN = 'unknown'
 const API_ERROR_ACCESS_DENIED = 'ACCESS_DENIED'
@@ -39,6 +40,10 @@ type AuthorizationError = {
 
 type ExpiredTokenError = {
   type: typeof API_ERROR_EXPIRED_TOKEN
+} & ApiErrorPayload
+
+type ExpiredTrialError = {
+  type: typeof API_ERROR_EXPIRED_TRIAL
 } & ApiErrorPayload
 
 export type ValidationReasons =
@@ -76,6 +81,7 @@ export type ParsedError = {
     error?:
       | AuthorizationError
       | ExpiredTokenError
+      | ExpiredTrialError
       | ValidationError
       | AccessDeniedError
       | UnknownError

@@ -337,6 +337,10 @@
         "instruction": "Inténtelo de nuevo",
         "message": "Su token ha caducado"
       },
+      "expired_trial": {
+        "instruction": "Ha alcanzado sus límites de prueba",
+        "message": "Tu periodo de prueba ha caducado"
+      },
       "geoblocked_error": {
         "instruction": "Lo sentimos, parece que no podemos seguir adelante ya que su ubicación actual no es compatible",
         "message": "Servicio no disponible"
