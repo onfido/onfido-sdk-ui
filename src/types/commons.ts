@@ -116,6 +116,7 @@ export type ErrorNames =
   | 'CUTOFF_DETECTED'
   | 'DOC_VIDEO_TIMEOUT'
   | 'EXPIRED_TOKEN'
+  | 'EXPIRED_TRIAL'
   | 'FACE_VIDEO_TIMEOUT'
   | 'PROFILE_DATA_TIMEOUT'
   | 'FORBIDDEN_CLIENT_ERROR'
@@ -169,6 +170,6 @@ export type MobileConfig = {
 }
 
 export type FormattedError = {
-  type: 'expired_token' | 'exception'
+  type: 'expired_token' | 'expired_trial' | 'exception'
   message: string
 }

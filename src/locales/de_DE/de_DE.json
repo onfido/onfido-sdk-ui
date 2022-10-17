@@ -338,6 +338,10 @@
         "instruction": "Bitte versuchen Sie es erneut",
         "message": "Ihr Token ist abgelaufen"
       },
+      "expired_trial": {
+        "instruction": "Sie haben Ihr Testlimit erreicht",
+        "message": "Ihre Testversion ist abgelaufen"
+      },
       "geoblocked_error": {
         "instruction": "Es tut uns leid, wir können leider nicht fortfahren, da Ihr aktueller Standort nicht unterstützt wird.",
         "message": "Service nicht verfügbar"

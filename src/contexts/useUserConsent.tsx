@@ -11,10 +11,18 @@ import {
   useState,
 } from 'preact/compat'
 import { ComponentChildren, createContext, Fragment, h } from 'preact'
-import { ApplicantConsent, ApplicantConsentStatus } from '~types/api'
+import {
+  ApplicantConsent,
+  ApplicantConsentStatus,
+  ParsedError,
+} from '~types/api'
 import { getPayloadFromJWT } from '~utils/jwt'
 import useSdkConfigurationService from '~contexts/useSdkConfigurationService'
 import { StepConfig } from '~types/steps'
+import withTheme from '../components/Theme'
+import GenericError from '../components/GenericError'
+
+const WrappedError = withTheme(GenericError)
 
 type ConsentProviderProps = {
   children: ComponentChildren
@@ -57,6 +65,10 @@ export const UserConsentProvider = ({
 
   const [consents, setConsents] = useState<
     ApplicantConsentStatus[] | undefined
+  >(undefined)
+
+  const [expiredTrialError, setExpiredTrialError] = useState<
+    ParsedError | undefined
   >(undefined)
 
   const enabled = sdk_features?.enable_require_applicant_consents ?? false
@@ -128,8 +140,19 @@ export const UserConsentProvider = ({
 
     updateApplicantLocation(applicantUUID, url, token)
       .then(() => getApplicantConsents(applicantUUID, url, token))
-      .then((applicantConsents) => setConsents(applicantConsents))
-      .catch(() =>
+      .then(
+        (applicantConsents) => setConsents(applicantConsents)
+        // Debug: enable to simulate user consent
+        // () =>
+        //   setConsents([
+        //     {
+        //       name: 'privacy_notices_read',
+        //       required: true,
+        //       granted: false,
+        //     },
+        //   ])
+      )
+      .catch((error) => {
         setConsents([
           {
             name: 'privacy_notices_read',
@@ -137,8 +160,22 @@ export const UserConsentProvider = ({
             required: true,
           },
         ])
-      )
+        /**
+         * Will need to handle trial status as psrt of prefarbly configuraiton or sdk end point
+         */
+        if (
+          error &&
+          error.status === 403 &&
+          error.response.error.type === 'trial_limits_reached'
+        ) {
+          setExpiredTrialError(error)
+        }
+      })
   }, [url, token, applicantUUID, enabled])
+
+  if (expiredTrialError) {
+    return <WrappedError error={{ name: 'EXPIRED_TRIAL' }} disableNavigation />
+  }
 
   if (!consents) {
     return <Fragment>{fallback}</Fragment>

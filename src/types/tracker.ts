@@ -297,6 +297,7 @@ export const ErrorNameToUIAlertMapping: Record<
   NO_FACE_ERROR: 'no_face',
   REQUEST_ERROR: 'request_error',
   EXPIRED_TOKEN: undefined,
+  EXPIRED_TRIAL: undefined,
   SMS_FAILED: undefined,
   SMS_OVERUSE: undefined,
   UNSUPPORTED_ANDROID_BROWSER: undefined,

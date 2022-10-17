@@ -337,6 +337,10 @@
         "instruction": "Please try again",
         "message": "Your token has expired"
       },
+      "expired_trial": {
+        "instruction": "You have reached your trial limits",
+        "message": "Your trial has expired"
+      },
       "geoblocked_error": {
         "instruction": "We’re sorry, seems like we can’t proceed further as your current location is not supported",
         "message": "Service unavailable"

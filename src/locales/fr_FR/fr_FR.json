@@ -337,6 +337,10 @@
         "instruction": "Veuillez réessayer",
         "message": "Votre jeton a expiré"
       },
+      "expired_trial": {
+        "instruction": "Vous avez atteint vos limites d'essai",
+        "message": "Votre essai a expiré"
+      },
       "geoblocked_error": {
         "instruction": "Nous sommes désolés, il semble que nous ne puissions pas poursuivre car votre emplacement actuel n'est pas pris en charge",
         "message": "Service indisponible"

@@ -15,6 +15,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Display the correct error screen when expired trial.
 - Public: Added translations for expired trial `errors.expired_trial.instruction` and `errors.expired_trial.message`
 
+### Added
+
+- Public: Display the correct error screen when expired trial.
+- Public: Added translations for expired trial `errors.expired_trial.instruction` and `errors.expired_trial.message`
+
 ## [9.1.2] - 2022-10-10
 
 ### Changed

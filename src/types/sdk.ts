@@ -43,7 +43,7 @@ export type SdkResponse = {
 }
 
 export type SdkError = {
-  type: 'exception' | 'expired_token'
+  type: 'exception' | 'expired_token' | 'expired_trial'
   message: string
 }
 
