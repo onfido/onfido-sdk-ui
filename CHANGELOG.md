@@ -7,12 +7,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## changed
+## [next-version]
 
 ### Added
 
 - Public: Display the correct error screen when expired trial.
 - Public: Added translations for expired trial `errors.expired_trial.instruction` and `errors.expired_trial.message`
+
+## [9.1.3] - 2022-10-18
 
 ## [9.1.2] - 2022-10-10
 
@@ -1355,7 +1357,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]: https://github.com/onfido/onfido-sdk-ui/compare/null...development
-[null]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.2...null
+[null]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.3...null
+[9.1.3]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.2...9.1.3
 [9.1.2]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.1...9.1.2
 [9.1.1]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.0...9.1.1
 [9.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/9.0.0...9.1.0
