@@ -16,6 +16,8 @@ import type {
   WithTrackingProps,
   WithPermissionsFlowProps,
 } from '~types/hocs'
+import { useVideoConstraints } from '~webcam/useVideoConstraints'
+import Spinner from 'components/Spinner'
 
 const isWebmFormatSupported = () => {
   const webmMimeTypes: string[] = [
@@ -61,6 +63,21 @@ const Camera: FunctionComponent<Props> = ({
   webcamRef,
   pageId,
 }) => {
+  const {
+    videoConstraints: documentCaptureVideoConstraints,
+  } = useVideoConstraints(onFailure)
+
+  if (!documentCaptureVideoConstraints) {
+    return <Spinner />
+  }
+
+  let documentMediaStreamConstraints: MediaStreamConstraints | undefined
+  if (facing === 'environment') {
+    documentMediaStreamConstraints = {
+      audio: false,
+      video: documentCaptureVideoConstraints,
+    }
+  }
   // Specify just a camera width (no height) because on safari if you specify both
   // height and width you will hit an OverconstrainedError if the camera does not
   // support the precise resolution.
@@ -77,6 +94,7 @@ const Camera: FunctionComponent<Props> = ({
     onFailure,
     onUserMedia,
     className: style.video,
+    mediaStreamConstraints: documentMediaStreamConstraints,
     facingMode: facing,
     ref: webcamRef,
     width: idealCameraWidth || defaultCameraWidthInPx,
@@ -90,6 +108,7 @@ const Camera: FunctionComponent<Props> = ({
       className={classNames(style.camera, {
         [style.docLiveCaptureFrame]: docLiveCaptureFrame,
         [style.docAutoCaptureFrame]: docAutoCaptureFrame,
+        [style.shouldStretchVideo]: facing === 'user',
       })}
       data-page-id={pageId}
     >

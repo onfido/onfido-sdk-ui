@@ -153,6 +153,7 @@ export type WebcamProps = {
   onUserMedia?: () => void
   screenshotFormat?: 'image/webp' | 'image/png' | 'image/jpeg'
   width?: ConstrainULong
+  mediaStreamConstraints?: MediaStreamConstraints // If a mediaStreamConstraints is passed directly, it will be used in priority and bypass existing constraint building.
 }
 
 type State = {
@@ -279,9 +280,13 @@ export default class Webcam extends Component<WebcamProps, State> {
       audio,
       fallbackWidth,
       fallbackHeight,
+      mediaStreamConstraints,
     } = this.props
 
-    const constraints = this.getConstraints(width, height, facingMode, audio)
+    const constraints =
+      mediaStreamConstraints ??
+      this.getConstraints(width, height, facingMode, audio)
+
     const fallbackConstraints = this.getConstraints(
       fallbackWidth,
       fallbackHeight,

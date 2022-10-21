@@ -204,6 +204,8 @@ const Document = (props: Props) => {
     ? renderCrossDeviceFallback
     : renderUploadFallback
 
+  const isVideoCompatible = window.MediaRecorder != null
+
   if (hasCamera && requestedVariant === 'video') {
     if (!documentType) {
       trackException(EXCEPTIONS.DOC_TYPE_NOT_PROVIDED)
@@ -263,7 +265,10 @@ const Document = (props: Props) => {
       throw new Error('documentType not provided')
     }
 
-    if (sdkConfiguration.experimental_features?.enable_multi_frame_capture) {
+    if (
+      sdkConfiguration.experimental_features?.enable_multi_frame_capture &&
+      isVideoCompatible
+    ) {
       return (
         <DocumentMultiFrame
           documentType={documentType}

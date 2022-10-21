@@ -88,6 +88,8 @@ export const isDesktop =
     navigator.userAgent || ''
   ) && !isIOS
 
+export const isAndroid = /Android/i.test(navigator.userAgent || '')
+
 const isWindows = (navigator.userAgent || '').includes('Windows')
 
 const maxTouchPoints = navigator.maxTouchPoints || navigator.msMaxTouchPoints

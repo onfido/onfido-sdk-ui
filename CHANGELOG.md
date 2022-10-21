@@ -5,10 +5,21 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version]
+## [9.1.4] - 2022-10-24
 
+- Public: Add Honduras and Mexico National Identity Cards
+- Public: Change the `useLiveDocumentCapture` option: camera selection logic improved, resolution increased to 1920x1080.
 
 ## [9.1.3] - 2022-10-18
+
+- Public: Add UI customization options for buttons hover & active states
+- Public: Add UI customization options for giving small icons a custom color
+- Public: Add UI customization option for input `outline-color`
+- Internal: Move `sdkConfiguration` in to store
+- Internal: Add feature flag for inhouse analytics
+- Internal: Add `x-onfido-sdk-metadata` header to all onfido network requests
+- Internal: Add integration & intergration-version to `x-onfido-sdk-metadata` header
+- Internal: Add `PageVisibility`
 
 ### Added
 
