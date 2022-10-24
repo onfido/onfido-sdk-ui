@@ -54,6 +54,7 @@
         background-color: var(--osdk-color-background-button-primary-hover);
       }
     }
+
     /* stylelint-enable max-nesting-depth */
 
     &:disabled {
@@ -80,6 +81,7 @@
         border-color: var(--osdk-color-border-button-secondary);
       }
     }
+
     /* stylelint-enable max-nesting-depth */
   }
 }
@@ -87,7 +89,8 @@
 .step {
   width: 100%;
   min-height: 100%;
-  height: 0; /*necessary for IE11, see: https://stackoverflow.com/questions/24396205/flex-grow-not-working-in-internet-explorer-11-0*/
+  height: 0;
+  /*necessary for IE11, see: https://stackoverflow.com/questions/24396205/flex-grow-not-working-in-internet-explorer-11-0*/
   position: relative;
   display: flex;
   flex-direction: column;
@@ -132,6 +135,7 @@
   flex-direction: column;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
+
   @media (--small-viewport) {
     $non-content-height: $footer-height + $footer-margin +
       $navigation-height-sm-screen + $navigation-padding-top-sm-screen;
@@ -145,8 +149,10 @@
 }
 
 .scrollableContent {
-  flex: 1 1 auto; /* .content will fit remaining space */
-  overflow: auto; /* scrollbar will only appear when child element exceeds .content height */
+  flex: 1 1 auto;
+  /* .content will fit remaining space */
+  overflow: auto;
+  /* scrollbar will only appear when child element exceeds .content height */
   height: 100%;
 }
 
@@ -182,9 +188,11 @@ $logo-height: 32 * $unit;
   justify-content: center;
   align-items: center;
   margin: $footer-top-margin $large-text-margin 0;
+
   @media (--small-viewport) {
     margin: $footer-top-margin $small-text-margin 0;
   }
+
   @media (--smaller-viewport) {
     margin: $footer-top-margin $smaller-text-margin 0;
   }
@@ -202,7 +210,8 @@ $logo-height: 32 * $unit;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      padding-right: 5 * $unit; /* space between XXX and " powered by" text */
+      padding-right: 5 * $unit;
+      /* space between XXX and " powered by" text */
       flex-grow: 1;
     }
 
@@ -212,7 +221,8 @@ $logo-height: 32 * $unit;
 
     .fullScreenStep & {
       color: $color-white;
-      z-index: 0; /* to make the text visible, otherwise it is hidden by overlay */
+      z-index: 0;
+      /* to make the text visible, otherwise it is hidden by overlay */
     }
   }
 
@@ -227,7 +237,8 @@ $logo-height: 32 * $unit;
       background-image: var(--osdk-light-cobrand-logo-src);
       width: $cobrand-logo-width;
       margin-top: 0;
-      z-index: 0; /* to make the logo visible, otherwise it is hidden by overlay */
+      z-index: 0;
+      /* to make the logo visible, otherwise it is hidden by overlay */
     }
   }
 
@@ -242,7 +253,8 @@ $logo-height: 32 * $unit;
       background-image: url('./assets/onfido-logo-light.svg');
       width: $cobrand-logo-width;
       margin-top: 0;
-      z-index: 0; /* to make the logo visible, otherwise it is hidden by overlay */
+      z-index: 0;
+      /* to make the logo visible, otherwise it is hidden by overlay */
     }
   }
 }
@@ -338,6 +350,7 @@ $logo-height: 32 * $unit;
         color: var(--osdk-color-content-link-text-hover);
       }
     }
+
     /* stylelint-enable max-nesting-depth */
 
     &:active {
@@ -413,6 +426,7 @@ $logo-height: 32 * $unit;
 .button-lg {
   font-size: var(--onfido-font-size-small);
   width: $lg-btn-width-lg-screen;
+
   @media (--small-viewport) {
     width: $lg-btn-width-sm-screen;
   }
@@ -444,6 +458,7 @@ $logo-height: 32 * $unit;
 .button-sm {
   font-size: var(--onfido-font-size-small);
   width: $sm-btn-width-lg-screen;
+
   @media (--small-viewport) {
     width: $sm-btn-width-sm-screen;
   }
