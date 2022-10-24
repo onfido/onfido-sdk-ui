@@ -14,3 +14,4 @@ rules:
   scss/percent-placeholder-pattern: ^_?[a-z0-9]+(?:-[a-z0-9]+)*$
   scss/at-mixin-pattern: ^_?[a-z0-9]+(?:-[a-z0-9]+)*$
   scss/dollar-variable-no-missing-interpolation: true
+  function-parentheses-space-inside: null
