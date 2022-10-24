@@ -12,15 +12,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [9.1.3] - 2022-10-18
 
-- Public: Add UI customization options for buttons hover & active states
-- Public: Add UI customization options for giving small icons a custom color
-- Public: Add UI customization option for input `outline-color`
-- Internal: Move `sdkConfiguration` in to store
-- Internal: Add feature flag for inhouse analytics
-- Internal: Add `x-onfido-sdk-metadata` header to all onfido network requests
-- Internal: Add integration & intergration-version to `x-onfido-sdk-metadata` header
-- Internal: Add `PageVisibility`
-
 ### Added
 
 - Public: Display the correct error screen when expired trial.
