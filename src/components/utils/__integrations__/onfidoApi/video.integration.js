@@ -149,7 +149,7 @@ describe('API uploadDocumentVideoMedia endpoint', () => {
 
     const onSuccessCallback = (response) => {
       try {
-        expect(response).toStrictEqual(' ')
+        expect(response).toStrictEqual({})
         done()
       } catch (err) {
         done(err)
