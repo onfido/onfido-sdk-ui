@@ -6,22 +6,6 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version]
-
-## [next-version]
-
-- Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
-- Internal: Collect `FACE_LIVENESS_*` analytics events
-- Internal: Send OS name and version information in sdk configuration request
-- Internal: Update terser to 5.14.2 & moment to 2.29.4
-- Internal: Add Network module
-- Internal: Move all network calls to the Network module
-- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
-- Public: Add commit hash in console
-- Internal: Add `x-onfido-sdk-version` and `x-onfido-sdk-platform` headers to all onfido network requests
-- Internal: Update FaceTec SDK on Auth step from 9.4.11 to 9.4.12
-- Internal: Show connection error screen on active video upload errors
-
 ## [9.1.4] - 2022-10-26
 
 ### Changed
@@ -62,6 +46,18 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Integrate Passive Signals module
 
 ## [9.0.0] - 2022-09-05
+
+- Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
+- Internal: Collect `FACE_LIVENESS_*` analytics events
+- Internal: Send OS name and version information in sdk configuration request
+- Internal: Update terser to 5.14.2 & moment to 2.29.4
+- Internal: Add Network module
+- Internal: Move all network calls to the Network module
+- Internal: Add `trackPropertiesBeforeMount` to internal analytics api
+- Public: Add commit hash in console
+- Internal: Add `x-onfido-sdk-version` and `x-onfido-sdk-platform` headers to all onfido network requests
+- Internal: Update FaceTec SDK on Auth step from 9.4.11 to 9.4.12
+- Internal: Show connection error screen on active video upload errors
 
 ## [8.3.0] - 2022-08-02
 
@@ -1372,8 +1368,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/null...development
-[null]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.4...null
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.4...development
 [9.1.4]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.3...9.1.4
 [9.1.3]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.2...9.1.3
 [9.1.2]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.1...9.1.2
