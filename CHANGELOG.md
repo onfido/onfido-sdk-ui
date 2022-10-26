@@ -6,7 +6,9 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [9.1.4] - 2022-10-24
+## [next-version]
+
+### Changed
 
 - Public: Add Honduras and Mexico National Identity Cards
 - Public: Change the `useLiveDocumentCapture` option: camera selection logic improved, resolution increased to 1920x1080.
@@ -26,9 +28,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [9.1.1] - 2022-09-26
 
+### Changed
+
 - Fix setting "pan" value for the profile capture step
 
 ## [9.1.0] - 2022-09-23
+
+### Changed
 
 - Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
 - Internal: Add utility tool for locales
@@ -40,6 +46,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Integrate Passive Signals module
 
 ## [9.0.0] - 2022-09-05
+
+## Changed
 
 - Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
 - Internal: Collect `FACE_LIVENESS_*` analytics events
@@ -54,6 +62,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Show connection error screen on active video upload errors
 
 ## [8.3.0] - 2022-08-02
+
+### Changed
 
 - Public: Fixed setoption, setOptions was setting unspecified values to their default value.
 - Internal: Add dynamically loaded files (except en_US)
@@ -1360,8 +1370,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/null...development
-[null]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.3...null
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.3...development
 [9.1.3]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.2...9.1.3
 [9.1.2]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.1...9.1.2
 [9.1.1]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.0...9.1.1
