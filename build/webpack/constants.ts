@@ -10,7 +10,7 @@ export const BASE_DIR = resolve(__dirname, '../../')
 // ref: https://en.wikipedia.org/wiki/Base32
 // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
 // the release script 🤖
-export const BASE_32_VERSION = 'EB'
+export const BASE_32_VERSION = 'EC'
 export const RELEASE_VERSION = packageJson.version
 
 // NODE_ENV can be one of: development | staging | test | production
