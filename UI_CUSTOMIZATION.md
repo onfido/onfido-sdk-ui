@@ -60,6 +60,8 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBackgroundButtonPrimaryHover`  | Change background color of Primary Button on hover     |
   | `colorBackgroundButtonPrimaryActive` | Change background color of Primary Button on click/tap |
   | `colorBorderButtonPrimary`           | Change color of Primary Button border                  |
+  | `colorBorderButtonPrimaryHover`      | Change color of Primary Button border on hover         |
+  | `colorBorderButtonPrimaryActive`     | Change color of Primary Button border on click/tap     |
 
   | Secondary Buttons                      | Description                                              |
   | -------------------------------------- | -------------------------------------------------------- |
@@ -68,6 +70,8 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBackgroundButtonSecondaryHover`  | Change background color of Secondary Button on hover     |
   | `colorBackgroundButtonSecondaryActive` | Change background color of Secondary Button on click/tap |
   | `colorBorderButtonSecondary`           | Change color of Secondary Button border                  |
+  | `colorBorderButtonSecondaryHover`      | Change color of Secondary Button border on hover         |
+  | `colorBorderButtonSecondaryActive`     | Change color of Secondary Button border on click/tap     |
 
   | Document Type Buttons            | Description                                              |
   | -------------------------------- | -------------------------------------------------------- |
@@ -77,9 +81,14 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
   | `colorBorderDocTypeButtonActive` | Change color of Document Type Button border on click/tap |
 
-  | Icon Background option | Description                                                         |
-  | ---------------------- | ------------------------------------------------------------------- |
-  | `colorBackgroundIcon`  | Change color of the background circle of pictogram icons in the SDK |
+  | Icon options          | Description                                                         |
+  | --------------------- | ------------------------------------------------------------------- |
+  | `colorBackgroundIcon` | Change color of the background circle of pictogram icons in the SDK |
+  | `colorIcon`           | Change color of the colored (blue) small icons                      |
+
+  | Icon options        | Description                                         |
+  | ------------------- | --------------------------------------------------- |
+  | `colorInputOutline` | Change color of outline around certain input fields |
 
   Example configuration with Button options:
 

@@ -2,23 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 This change log file is based on best practices from [Keep a Changelog](http://keepachangelog.com/).
-
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [9.1.4] - 2022-10-26
+## [next-version]
 
-### Changed
+## [10.0.0] - 2022-11-21
 
+### Changed:
+
+- Public: Revert the `useLiveDocumentCapture` changes.
 - Public: Add Honduras and Mexico National Identity Cards
 - Public: Change the `useLiveDocumentCapture` option: camera selection logic improved, resolution increased to 1920x1080.
-
-## [9.1.3] - 2022-10-18
-
-### Added
-
+- Public: Add UI customization options for buttons hover & active states
+- Public: Add UI customization options for giving small icons a custom color
+- Public: Add UI customization option for input `outline-color`
+- Public: Accept `motion` as a `requestedVariant` for the `face` step
+- Public: Document Content Security Policy changes related to Motion
+- Internal: Move `sdkConfiguration` in to store
+- Internal: Add feature flag for inhouse analytics
+- Internal: Add `x-onfido-sdk-metadata` header to all onfido network requests
+- Internal: Add integration & intergration-version to `x-onfido-sdk-metadata` header
+- Internal: Add `PageVisibility`
+- Internal: Add a performance benchmark
 - Public: Display the correct error screen when expired trial.
 - Public: Added translations for expired trial `errors.expired_trial.instruction` and `errors.expired_trial.message`
+- Internal: Add network and feature flag support for Logger
 
 ## [9.1.2] - 2022-10-10
 
@@ -46,6 +55,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Integrate Passive Signals module
 
 ## [9.0.0] - 2022-09-05
+
+### Changed
 
 - Internal: Migrated onfido/react-webcam fork to typescript and absorbed it into this repo.
 - Internal: Collect `FACE_LIVENESS_*` analytics events
@@ -1368,9 +1379,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.4...development
-[9.1.4]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.3...9.1.4
-[9.1.3]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.2...9.1.3
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.0...development
+[10.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.2...10.0.0
 [9.1.2]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.1...9.1.2
 [9.1.1]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.0...9.1.1
 [9.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/9.0.0...9.1.0

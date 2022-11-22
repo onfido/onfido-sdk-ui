@@ -21,16 +21,16 @@
 
 ## Overview
 
-The Onfido Web SDK provides a set of components for JavaScript applications to capture identity documents and selfie photos and videos for the purpose of identity verification.
+The Onfido Web SDK provides a set of components for JavaScript applications to capture identity documents and selfie photos, videos, and motion captures for the purpose of identity verification.
 
 The SDK offers a number of benefits to help you create the best identity verification experience for your customers:
 
-- Carefully designed UI to guide your customers through the entire photo and video capture process
-- Modular design to help you seamlessly integrate the photo and video capture process into your application flow
+- Carefully designed UI to guide your customers through the entire photo, video, or motion capture capture process
+- Modular design to help you seamlessly integrate the photo, video, or motion capture capture process into your application flow
 - Advanced image quality detection technology to ensure the quality of the captured images meets the requirement of the Onfido identity verification process, guaranteeing the best success rate
 - Direct image upload to the Onfido service, to simplify integration
 
-⚠️ Note: the SDK is only responsible for capturing photos and videos. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and perform checks.
+⚠️ Note: the SDK is only responsible for capturing photos, videos, and motion captures. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and perform checks.
 
 ![Various views from the SDK](demo/screenshots.jpg)
 
@@ -63,7 +63,7 @@ $ curl https://api.onfido.com/v3/applicants \
   -d 'last_name=Smith'
 ```
 
-The JSON response will contain an `id` field containing an UUID that identifies the applicant. Once you pass the applicant ID to the SDK, documents and live photos and videos uploaded by that instance of the SDK will be associated with that applicant.
+The JSON response will contain an `id` field containing an UUID that identifies the applicant. Once you pass the applicant ID to the SDK, documents, photos, videos, and motion captures uploaded by that instance of the SDK will be associated with that applicant.
 
 ### 3. Generate an SDK token
 
@@ -116,6 +116,7 @@ You can either:
 
 - import directly into your HTML page
 - use npm
+- use our CDN
 
 #### 4.1 HTML Script Tag Include
 
@@ -192,6 +193,16 @@ The CSS style will be included inline with the JS code when the library is impor
 
 You can see an [example app using npm style import](https://github.com/onfido/onfido-sdk-web-sample-app/).
 
+#### 4.3 CDN
+
+Alternatively, you can use hosted versions of files above from our CDN such as:
+
+```html
+<!-- Replace "<version>" with the actual version you want to use, example: 9.0.0 -->
+<script src="https://assets.onfido.com/web-sdk-releases/<version>/onfido.min.js"></script>
+<script src="https://assets.onfido.com/web-sdk-releases/<version>/onfidoAuth.min.js"></script>
+```
+
 ### 5. Add basic HTML markup
 
 Add an empty HTML element at the bottom of your page for the modal interface to mount itself on.
@@ -245,7 +256,7 @@ Onfido.init({
 
 For two-sided documents like `driving_licence` and `national_identity_card`, the object will also contain a `document_back` property representing the reverse side.
 
-For the face step an object is returned with the `variant` used for the face capture,`'standard' | 'video'`. This informs whether to specify a `facial_similarity_photo` or `facial_similarity_video` report during check creation.
+For the face step an object is returned with the `variant` used for the face capture,`'standard' | 'video' | 'motion'`. This informs whether to specify a `facial_similarity_photo`, `facial_similarity_video`, or `facial_similarity_motion` report during check creation.
 
 ```javascript
     {
@@ -601,13 +612,19 @@ This is the Proof of Address capture step. Users will be asked to select the iss
 
 #### face
 
-This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photo or video before confirming.
+This is the face capture step. Users will be asked to capture their face in the form of a photo, a video, or a motion capture. For photos and videos, they will also have a chance to check its quality before confirming.
 
 The custom options are:
 
-- `requestedVariant` (string)
+- `requestedVariant` (string - default: `standard`)
 
-  A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, the SDK will try to fulfil this request depending on camera availability and device and browser support on the user's device. If a video cannot be taken, the face step will fallback to the `standard` photo option.
+  A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video' | 'motion'`. If `requestedVariant` is:
+
+  - `standard`: a photo will be captured;
+  - `video`: a video will be captured;
+  - `motion`: a motion capture will be captured.
+
+  The SDK will try to fulfil this request depending on camera availability, device capabilities, and browser support on the user's device. If a video cannot be taken, the face step will fallback to the `standard` variant. If Motion is not available, the face step will fallback to either `video` or `standard` variants. See `videoCaptureFallback` and `photoCaptureFallback` to control the fallback.
 
   If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the [`onComplete` callback](#handling-callbacks) to request the correct report when creating a check.
 
@@ -632,10 +649,15 @@ The custom options are:
 
 - `photoCaptureFallback` (boolean - default: `true`)
 
-  When enabled, this feature allows end-users to upload selfies if the requested variant is `video` and their browser does not support MediaRecorder.
+  When enabled, this feature allows end-users to upload selfies if the requested variant is `video` or `motion` and their browser does not support MediaRecorder, or if the requested variant is `motion` and Motion is unavailable on their device due to device capabilities.
 
-  When disabled, it will forward the user to the cross-device flow in order to attempt to capture a video in another device. If the user is already in a mobile device and it does not support
-  MediaRecorder, the unsupported browser error will be shown.
+  When disabled, it will forward the user to the cross-device flow in order to attempt to capture a video in another device. If the user is already in a mobile device and it does not support MediaRecorder, the unsupported browser error will be shown.
+
+- `videoCaptureFallback` (boolean - default: `true`)
+
+  When enabled, this feature allows end-users to upload videos if the requested variant is `motion` and their browser supports MediaRecorder, yet Motion is not supported due to device capabilities.
+
+  When disabled, it will forward the user to the cross-device flow in order to attempt to capture a photo in another device. Having both `photoCaptureFallback` and `videoCaptureFallback` disabled would forward the user to the cross-device flow with Motion.
 
 #### auth
 
@@ -719,7 +741,7 @@ The new options will be shallowly merged with the previous one, so you can only 
 
 ## Creating checks
 
-The SDK is responsible for the capture of identity documents and selfie photos and videos. It doesn't perform any checks against the [Onfido API](https://documentation.onfido.com/). You need to access the Onfido API in order to manage applicants and perform checks.
+The SDK is responsible for the capture of identity documents and selfie photos, videos, and motion captures. It doesn't perform any checks against the [Onfido API](https://documentation.onfido.com/). You need to access the Onfido API in order to manage applicants and perform checks.
 
 ### 1. Creating a check
 
@@ -853,11 +875,12 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
   http-equiv="Content-Security-Policy"
   content="
   default-src 'self' https://assets.onfido.com;
-  script-src 'self' https://assets.onfido.com https://sentry.io;
+  script-src 'self' 'unsafe-eval' https://assets.onfido.com https://sentry.io;
   style-src 'self' https://assets.onfido.com;
   connect-src 'self' data: blob: *.onfido.com wss://*.onfido.com https://sentry.io;
   img-src 'self' data: blob: https://assets.onfido.com/;
-  media-src blob:;
+  media-src blob: https://assets.onfido.com;
+  worker-src blob:;
   object-src 'self' blob:;
   frame-src 'self' data: blob:;
 "
