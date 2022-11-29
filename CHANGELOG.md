@@ -5,6 +5,12 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [9.1.5] - 2022-11-29
+
+### Changed
+
+- Public: Fix for https://github.com/onfido/onfido-sdk-ui/issues/2127
+
 ## [10.0.1] - 2022-11-24
 
 ### Fixed
