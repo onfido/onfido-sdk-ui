@@ -2,14 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 This change log file is based on best practices from [Keep a Changelog](http://keepachangelog.com/).
+
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [9.1.5] - 2022-11-29
+## [next-version]
 
-### Changed
+## [10.0.2] - 2022-11-29
+
+### Changed:
 
 - Public: Fix for https://github.com/onfido/onfido-sdk-ui/issues/2127
+- Public: Fix for https://github.com/onfido/onfido-sdk-ui/issues/2131
 
 ## [10.0.1] - 2022-11-24
 
@@ -22,8 +26,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed:
 
 - Public: Revert the `useLiveDocumentCapture` changes.
-- Public: Add Honduras and Mexico National Identity Cards
-- Public: Change the `useLiveDocumentCapture` option: camera selection logic improved, resolution increased to 1920x1080.
 - Public: Add UI customization options for buttons hover & active states
 - Public: Add UI customization options for giving small icons a custom color
 - Public: Add UI customization option for input `outline-color`
@@ -38,6 +40,20 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Display the correct error screen when expired trial.
 - Public: Added translations for expired trial `errors.expired_trial.instruction` and `errors.expired_trial.message`
 - Internal: Add network and feature flag support for Logger
+
+## [9.1.4] - 2022-10-26
+
+### Changed
+
+- Public: Add Honduras and Mexico National Identity Cards
+- Public: Change the `useLiveDocumentCapture` option: camera selection logic improved, resolution increased to 1920x1080.
+
+## [9.1.3] - 2022-10-18
+
+### Added
+
+- Public: Display the correct error screen when expired trial.
+- Public: Added translations for expired trial `errors.expired_trial.instruction` and `errors.expired_trial.message`
 
 ## [9.1.2] - 2022-10-10
 
@@ -1389,9 +1405,12 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.2...development
+[10.0.2]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.1...10.0.2
 [10.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.0...10.0.1
-[10.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.2...10.0.0
+[10.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.4...10.0.0
+[9.1.4]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.3...9.1.4
+[9.1.3]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.2...9.1.3
 [9.1.2]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.1...9.1.2
 [9.1.1]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.0...9.1.1
 [9.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/9.0.0...9.1.0
