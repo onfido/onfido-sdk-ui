@@ -587,6 +587,7 @@
       "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
       "invalid_mobile_number": "Bitte geben Sie eine gültige Mobiltelefonnummer ein",
       "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer ein",
+      "required_consent": "Please agree to authorize identity and fraud checks",
       "required_country": "Bitte wählen Sie ein Land aus",
       "required_country_residence": "Bitte wählen Sie ein Land aus",
       "required_dob": "Bitte geben Sie Ihr Geburtsdatum ein",

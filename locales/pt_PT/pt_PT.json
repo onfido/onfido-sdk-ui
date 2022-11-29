@@ -499,6 +499,7 @@
       "invalid_email": "Introduza um e-mail válido",
       "invalid_mobile_number": "Introduza um número de telemóvel válido",
       "invalid_phone_number": "Introduza um número de telefone válido",
+      "required_consent": "Please agree to authorize identity and fraud checks",
       "required_country": "Selecione um país",
       "required_country_residence": "Selecione um país",
       "required_dob": "Introduza a sua data de nascimento",
