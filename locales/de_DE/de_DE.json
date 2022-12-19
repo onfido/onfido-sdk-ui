@@ -86,7 +86,6 @@
   "auth_upload_pass": {
     "body": "Hochladen erfolgreich"
   },
-
   "avc_confirmation": {
     "button_primary_upload": "Aufnahme hochladen",
     "subtitle": "Ein Video von Ihrem Gesicht wurde erfolgreich aufgenommen",
@@ -197,6 +196,32 @@
     "subtitle": "Fahren Sie mit der Überprüfung fort",
     "title": "Mit Ihrem Computer verbunden"
   },
+  "doc_auto_capture": {
+    "button_accessibility": "Ein Foto aufnehmen",
+    "footer": {
+      "captured": "Foto aufgenommen",
+      "capturing": "nehme Foto auf",
+      "manual_fallback_identity_card_back": "Machen Sie ein Foto von der Rückseite ihres Personalausweises",
+      "manual_fallback_identity_card_front": "Machen Sie ein Foto von der Vorderseite ihres Personalausweises",
+      "manual_fallback_license_back": "Machen Sie ein Foto von der Rückseite ihres Führerscheins",
+      "manual_fallback_license_front": "Machen Sie ein Foto von der Vorderseite ihres Führerscheins",
+      "manual_fallback_passport": "Machen Sie ein Foto von der Lichtbild-Seite ihres Passes",
+      "manual_fallback_residence_permit_back": "Machen Sie ein Foto von der Rückseite ihrer Aufenthaltsgenehmigung",
+      "manual_fallback_residence_permit_front": "Machen Sie ein Foto von der Vorderseite ihrer Aufenthaltserlaubnis",
+      "position_identity_card_back": "Positionieren Sie die Rückseite ihres Personalausweises innerhalb des Rahmens",
+      "position_identity_card_front": "Positionieren Sie die Vorderseite ihres Personalausweises innerhalb des Rahmens",
+      "position_license_back": "Positionieren Sie die Rückseite ihres Führerscheins innerhalb des Rahmens",
+      "position_license_front": "Positionieren Sie die Vorderseite ihres Führerscheins innerhalb des Rahmens",
+      "position_passport": "Positionieren Sie die Lichtbild-Seite ihres Passes innerhalb des Rahmens",
+      "position_residence_permit_back": "Positionieren Sie die Rückseite ihrer Aufenthaltsgenehmigung innerhalb des Rahmens",
+      "position_residence_permit_front": "Positionieren Sie die Vorderseite ihrer Aufenthaltsgenehmigung innerhalb des Rahmens"
+    },
+    "frame": {
+      "flip_document": "Auf die Rückseite drehen",
+      "hold_still": "Stillhalten",
+      "no_document": "Dokument nicht erkannt"
+    }
+  },
   "doc_capture": {
     "button_primary": "Starten Sie mit dem Scannen des Dokuments",
     "detail": {
@@ -247,6 +272,8 @@
     "instructions_title_front": "Positionieren Sie die Vorderseite Ihres Dokuments im Rahmen"
   },
   "doc_select": {
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Bankauszug",
     "button_bank_statement_non_uk": "Bankauszug",
     "button_benefits_letter": "Sozialleistungsschreiben",
@@ -340,7 +367,7 @@
       },
       "expired_trial": {
         "instruction": "Sie haben Ihr Testlimit erreicht",
-        "message": "Ihre Testversion ist abgelaufen"
+        "message": "Ihr Token ist abgelaufen"
       },
       "geoblocked_error": {
         "instruction": "Es tut uns leid, wir können leider nicht fortfahren, da Ihr aktueller Standort nicht unterstützt wird.",
@@ -503,6 +530,10 @@
       "label": "Erfassen Sie das komplette Dokument und sorgen Sie dafür, dass es Folgendes klar zeigt:",
       "logo": "Logo"
     },
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
     "subtitle_bank_statement": "Muss in den <strong>letzten 3 Monaten</strong> ausgestellt worden sein",
     "subtitle_benefits_letter": "Muss in den <strong>letzten 12 Monaten</strong> ausgestellt worden sein",
     "subtitle_bill": "Muss in den <strong>letzten 3 Monaten</strong> ausgestellt worden sein",
@@ -587,7 +618,7 @@
       "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
       "invalid_mobile_number": "Bitte geben Sie eine gültige Mobiltelefonnummer ein",
       "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer ein",
-      "required_consent": "Please agree to authorize identity and fraud checks",
+      "required_consent": "",
       "required_country": "Bitte wählen Sie ein Land aus",
       "required_country_residence": "Bitte wählen Sie ein Land aus",
       "required_dob": "Bitte geben Sie Ihr Geburtsdatum ein",
@@ -599,9 +630,9 @@
       "required_nationality": "Bitte wählen Sie ein Land aus",
       "required_phone_number": "Bitte geben Sie Ihre Telefonnummer ein",
       "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
-      "too_long__line1": "Die Adresszeile ist zu lang",
       "too_long_first_name": "Der Vorname ist zu lang",
       "too_long_last_name": "Der Nachname ist zu lang",
+      "too_long_line1": "Die Adresszeile ist zu lang",
       "too_long_postcode": "Die Postleitzahl ist zu lang",
       "too_long_town": "",
       "too_short_first_name": "Der Vorname ist zu kurz",
@@ -667,9 +698,11 @@
     "title": "Selfie prüfen"
   },
   "selfie_intro": {
+    "banner_nudity_message": "Ihr Gesicht und Ihr Hintergrund werden bei diesem Vorgang aufgenommen",
     "button_primary": "Fortfahren",
     "list_accessibility": "Tipps für ein gutes Selfie",
     "list_item_face_forward": "Schauen Sie nach vorne und stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
+    "list_item_no_face_cover": "Entfernen Sie alles, was Ihr Gesicht verdeckt. Brillen sind zulässig",
     "list_item_no_glasses": "Nehmen Sie Ihre Brille ab, falls erforderlich",
     "subtitle": "Wir werden dies mit Ihrem Dokument vergleichen",
     "title": "Ein Selfie aufnehmen"
@@ -762,7 +795,7 @@
     "start_workflow_button": "Verifizierung beginnen",
     "start_workflow_button_trial": "Verifizierung beginnen (TEST)",
     "subtitle": "Es dauert nur wenige Minuten",
-    "title": "Identität überprüfen%{trial}",
+    "title": "Identität überprüfen",
     "trial_message": "Geben Sie hier keine personenbezogenen Daten weiter, es sei denn, Sie nehmen an einer Onfido-Studie teil."
   },
   "workflow_complete": {

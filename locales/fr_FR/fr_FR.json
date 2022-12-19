@@ -101,7 +101,7 @@
   "avc_face_alignment": {
     "feedback_move_back": "Reculez",
     "feedback_move_closer": "Approchez-vous",
-    "feedback_no_face_detected": "Visage non détecté",
+    "feedback_no_face_detected": "Aucun visage détecté",
     "feedback_not_centered": "Visage non centré",
     "title": "Positionnez votre visage dans le cadre"
   },
@@ -123,7 +123,7 @@
     "list_item_one": "D'abord, positionnez votre visage dans le cadre",
     "list_item_two": "Ensuite, tournez votre tête lentement des deux côtés",
     "subtitle": "Ceci sert à vérifier que vous êtes une personne authentique",
-    "title": "Enregistrez une vidéo"
+    "title": "Enregistrez une vidéo de votre visage"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Redémarrer l’enregistrement",
@@ -196,6 +196,32 @@
     "subtitle": "Poursuivre la vérification",
     "title": "Lié à votre ordinateur"
   },
+  "doc_auto_capture": {
+    "button_accessibility": "Prendre une photo",
+    "footer": {
+      "captured": "Photo capturée",
+      "capturing": "Capture de la photo en cours",
+      "manual_fallback_identity_card_back": "Prenez une photo du verso de votre carte",
+      "manual_fallback_identity_card_front": "Prenez une photo du recto de votre carte",
+      "manual_fallback_license_back": "Prenez une photo du verso de votre permis de conduire",
+      "manual_fallback_license_front": "Prenez une photo du recto de votre permis de conduire",
+      "manual_fallback_passport": "Prenez une photo de la page du passeport contenant votre photo",
+      "manual_fallback_residence_permit_back": "Prenez une photo du verso de votre permis de séjour",
+      "manual_fallback_residence_permit_front": "Prenez une photo du recto de votre permis de séjour",
+      "position_identity_card_back": "Positionnez le verso de votre carte dans le cadre",
+      "position_identity_card_front": "Positionnez le recto de votre carte dans le cadre",
+      "position_license_back": "Positionnez le verso de votre permis de conduire dans le cadre",
+      "position_license_front": "Positionnez le recto de votre permis de conduire dans le cadre",
+      "position_passport": "Placez la page du passeport contenant votre photo dans le cadre",
+      "position_residence_permit_back": "Positionnez le verso de votre permis de séjour dans le cadre",
+      "position_residence_permit_front": "Positionnez le recto de votre permis de séjour dans le cadre"
+    },
+    "frame": {
+      "flip_document": "Retournez du côté verso",
+      "hold_still": "Restez immobile",
+      "no_document": "Document non détecté"
+    }
+  },
   "doc_capture": {
     "button_primary": "Démarrer le scan du document",
     "detail": {
@@ -246,6 +272,8 @@
     "instructions_title_front": "Positionnez le recto de votre document dans le cadre"
   },
   "doc_select": {
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Relevé bancaire ou d'un organisme d'épargne",
     "button_bank_statement_non_uk": "Relevé bancaire",
     "button_benefits_letter": "Lettre des allocations",
@@ -502,6 +530,10 @@
       "label": "Prenez en photo tout le document et assurez-vous qu'il indique clairement :",
       "logo": "Logo"
     },
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
     "subtitle_bank_statement": "Doit avoir été émis au cours des <strong>3 derniers mois</strong>",
     "subtitle_benefits_letter": "Doit avoir été émis au cours des <strong> 12 derniers mois</strong>",
     "subtitle_bill": "Doit avoir été émis au cours des <strong>3 derniers mois</strong>",
@@ -586,7 +618,7 @@
       "invalid_email": "Veuillez saisir un e-mail valide",
       "invalid_mobile_number": "Veuillez renseigner un numéro de mobile valide",
       "invalid_phone_number": "Veuillez renseigner un numéro de téléphone valide",
-      "required_consent": "Please agree to authorize identity and fraud checks",
+      "required_consent": "",
       "required_country": "Veuillez sélectionner un pays",
       "required_country_residence": "Veuillez sélectionner un pays",
       "required_dob": "Veuillez saisir votre date de naissance",
@@ -598,9 +630,9 @@
       "required_nationality": "Veuillez sélectionner un pays",
       "required_phone_number": "Veuillez renseigner votre numéro de téléphone",
       "required_postcode": "Veuillez renseigner votre code postal",
-      "too_long__line1": "La ligne de l'adresse est trop longue",
       "too_long_first_name": "Le prénom est trop long",
       "too_long_last_name": "Le nom de famille est trop long",
+      "too_long_line1": "La ligne de l'adresse est trop longue",
       "too_long_postcode": "Le code postal est trop long",
       "too_long_town": "",
       "too_short_first_name": "Le prénom est trop court",
@@ -615,7 +647,7 @@
     "personal_information_title": "Ajoutez vos informations personnelles",
     "prompt": {
       "details_timeout": "Recommencer",
-      "header_timeout": "Apparemment vous avez mis trop longtemps"
+      "header_timeout": "Le temps est écoulé"
     }
   },
   "retry_feedback": {
@@ -666,9 +698,11 @@
     "title": "Vérifier votre selfie"
   },
   "selfie_intro": {
+    "banner_nudity_message": "Au cours de ce processus, votre visage et votre arrière-plan seront capturés",
     "button_primary": "Continuer",
     "list_accessibility": "Conseils pour prendre un bon selfie",
     "list_item_face_forward": "Regardez vers l’avant et assurez-vous que vos yeux sont bien visibles",
+    "list_item_no_face_cover": "Ôtez tout élément couvrant votre visage. Les lunettes sont acceptées",
     "list_item_no_glasses": "Retirez vos lunettes, si nécessaire",
     "subtitle": "Nous allons le comparer avec votre document",
     "title": "Prendre un selfie"
@@ -761,7 +795,7 @@
     "start_workflow_button": "Commencer la vérification",
     "start_workflow_button_trial": "Commencer la vérification (TEST)",
     "subtitle": "Cela ne prendra que quelques minutes",
-    "title": "Vérification d’identité%{trial}",
+    "title": "Vérification d’identité",
     "trial_message": "Ne partagez pas de données personnelles ici, sauf si vous êtes engagé dans un essai Onfido."
   },
   "workflow_complete": {

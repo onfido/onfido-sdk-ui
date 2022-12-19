@@ -25,8 +25,8 @@ The Onfido Web SDK provides a set of components for JavaScript applications to c
 
 The SDK offers a number of benefits to help you create the best identity verification experience for your customers:
 
-- Carefully designed UI to guide your customers through the entire photo, video, or motion capture capture process
-- Modular design to help you seamlessly integrate the photo, video, or motion capture capture process into your application flow
+- Carefully designed UI to guide your customers through the entire capture process for photos, videos, or motion captures
+- Modular design to help you seamlessly integrate the capture process for photos, videos, or motion captures into your application flow
 - Advanced image quality detection technology to ensure the quality of the captured images meets the requirement of the Onfido identity verification process, guaranteeing the best success rate
 - Direct image upload to the Onfido service, to simplify integration
 
@@ -37,6 +37,12 @@ The SDK offers a number of benefits to help you create the best identity verific
 ## Getting started
 
 The following content assumes you're using our API v3 versions for backend calls. If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
+
+<Callout type="info">
+
+> ℹ️ If you are integrating using Onfido Studio please see out [Studio integration guide](ONFIDO_STUDIO.md).
+
+</Callout>
 
 ### 1. Obtain an API token
 
@@ -486,6 +492,9 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   | Italian           | `it_IT`    |
   | Portuguese        | `pt_PT`    |
   | Dutch             | `nl_NL`    |
+  | Czech             | `cs_CZ`    |
+  | Polish            | `pl_PL`    |
+  | Romanian          | `ro_RO`    |
 
   Example:
 
@@ -583,17 +592,16 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
   }
   ```
 
-- `useLiveDocumentCapture` (boolean - default: `false`)
-  **This feature is only available on mobile devices.**
+  - `useLiveDocumentCapture` (boolean - default: `false`). DEPRECATED OPTION, WILL BE REMOVED NEXT QUARTERLY.
+    **This feature is only available on mobile devices.**
 
   When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. Configuring this option minimises the risk of fraudulent upload by bypassing the device's default camera application. For unsupported scenarios, see the `uploadFallback` section below.
 
   Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
 
 - `uploadFallback` (boolean - default: `true`)
-  Only available when `useLiveDocumentCapture` is enabled.
 
-  When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo.
+  The SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo.
 
   This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
 
@@ -601,7 +609,6 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
 
   ```javascript
   options: {
-    useLiveDocumentCapture: true,
     uploadFallback: false
   }
   ```
@@ -858,9 +865,9 @@ From version `6.5.0`, TypeScript is officially supported, providing typings for:
 
 ### Browser compatibility
 
-| ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png) |
-| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| Latest ✔                                                                                            | Latest \* ✔                                                                                            | 11 ✔                                                                                                                                    | Latest ✔                                                                                      | Latest ✔                                                                                            |
+| ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png) |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Latest ✔                                                                                            | Latest \* ✔                                                                                            | Latest ✔                                                                                      | Latest ✔                                                                                            |
 
 \* _Firefox on Android, iOS not supported_
 

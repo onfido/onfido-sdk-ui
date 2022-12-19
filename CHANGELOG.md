@@ -8,12 +8,24 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [10.0.2] - 2022-11-29
+### Changed
 
-### Changed:
+## [10.1.0] - 2022-12-08
 
-- Public: Fix for https://github.com/onfido/onfido-sdk-ui/issues/2127
-- Public: Fix for https://github.com/onfido/onfido-sdk-ui/issues/2131
+### Changed
+
+- Public: For Romanian National ID back side, stop having errors displayed (new IDs have nothing on the backside).
+- Public: Fix a Cross Device issue: `When the face step comes before the document step, it's asked for the type of document and issuing country on the desktop then again on the mobile.`
+- Public: Add Document auto capture for the New Document Capture Experience. It will be progressively rolled out at Onfido's discretion, depending on Document Type and Document Country.
+- Public: Add the New Document Capture Experience. It will be progressively rolled out at Onfido's discretion, to replace the native camera application.
+- Public: Deprecate beta option `useLiveDocumentCapture`. The option was not working properly, it will be removed during next quarterly.
+- Public: Deprecate undocumented alpha option `useWebcam`. The option was not working, at all, it will be removed during next quarterly.
+- Public: Added support for cs_CZ, ro_RO and pl_PL locales
+- Internal: Add Performance analytics
+- Internal: Track screen transition with performance analytics
+- Internal: Add network and feature flag support for Logger
+- Internal: Add data-onfido-qas for a few elements on profile screen and country option selection
+- Public: GA workflow api 3.5 integration
 
 ## [10.0.1] - 2022-11-24
 
@@ -1405,8 +1417,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.2...development
-[10.0.2]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.1...10.0.2
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.1.0...development
+[10.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.1...10.1.0
 [10.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.0...10.0.1
 [10.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.4...10.0.0
 [9.1.4]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.3...9.1.4

@@ -196,6 +196,32 @@
     "subtitle": "Continue with the verification",
     "title": "Mobile session linked to your computer"
   },
+  "doc_auto_capture": {
+    "button_accessibility": "Take a photo",
+    "footer": {
+      "position_identity_card_front": "Position the front of your card in the frame",
+      "position_identity_card_back": "Position the back of your card in the frame",
+      "position_residence_permit_front": "Position the front of your residence permit in the frame",
+      "position_residence_permit_back": "Position the back of your residence permit in the frame",
+      "position_license_front": "Position the front of your driver’s license in the frame",
+      "position_license_back": "Position the back of your driver’s license in the frame",
+      "position_passport": "Position your passport photo page in the frame",
+      "manual_fallback_identity_card_front": "Take a photo of the front of your card",
+      "manual_fallback_identity_card_back": "Take a photo of the back of your card",
+      "manual_fallback_residence_permit_front": "Take a photo of the front of your residence permit",
+      "manual_fallback_residence_permit_back": "Take a photo of the back of your residence permit",
+      "manual_fallback_license_front": "Take a photo of the front of your driver’s license",
+      "manual_fallback_license_back": "Take a photo of the back of your driver’s license",
+      "manual_fallback_passport": "Take a photo of your passport photo page",
+      "capturing": "Capturing photo",
+      "captured": "Photo captured"
+    },
+    "frame": {
+      "flip_document": "Flip to back side",
+      "hold_still": "Hold still",
+      "no_document": "Document not detected"
+    }
+  },
   "doc_capture": {
     "button_primary": "Start document scan",
     "detail": {
@@ -246,6 +272,8 @@
     "instructions_title_front": "Position the front of your document in the frame"
   },
   "doc_select": {
+    "button_address_card": "Address card",
+    "button_address_card_detail": "Temporary and permanent cards are accepted",
     "button_bank_statement": "Bank or building society statement",
     "button_bank_statement_non_uk": "Bank statement",
     "button_benefits_letter": "Benefits Letter",
@@ -502,6 +530,10 @@
       "label": "Capture the entire document and make sure it clearly shows:",
       "logo": "Logo"
     },
+    "instructions_address_card_issue_date": "Issue date",
+    "instructions_expiry_date": "Expiry date if applicable",
+    "instructions_full_address": "Full address",
+    "subtitle_address_card": "Must be a valid address card",
     "subtitle_bank_statement": "Must be issued in the <strong>last 3 months</strong>",
     "subtitle_benefits_letter": "Must be issued in the <strong>last 12 months</strong>",
     "subtitle_bill": "Must have been issued in the <strong>last 3 months</strong>",
@@ -598,9 +630,9 @@
       "required_nationality": "Please select a country",
       "required_phone_number": "Please enter your phone number",
       "required_postcode": "Please enter your postal code",
-      "too_long__line1": "Address line is too long",
       "too_long_first_name": "First name is too long",
       "too_long_last_name": "Last name is too long",
+      "too_long_line1": "Address line is too long",
       "too_long_postcode": "Postal code is too long",
       "too_long_town": "Town is too long",
       "too_short_first_name": "First name is too short",
@@ -666,9 +698,11 @@
     "title": "Check your selfie"
   },
   "selfie_intro": {
+    "banner_nudity_message": "Your face and your background will be captured during this process",
     "button_primary": "Continue",
     "list_accessibility": "Tips to take a good selfie",
     "list_item_face_forward": "Face forward and make sure your eyes are clearly visible",
+    "list_item_no_face_cover": "Remove anything that covers your face. Eyeglasses are okay",
     "list_item_no_glasses": "Remove your glasses, if necessary",
     "subtitle": "We’ll compare this with your document",
     "title": "Take a selfie"
@@ -761,7 +795,7 @@
     "start_workflow_button": "Start verification",
     "start_workflow_button_trial": "Start verification (TEST)",
     "subtitle": "It should take a few minutes",
-    "title": "Verify your identity%{trial}",
+    "title": "Verify your identity",
     "trial_message": "Do not share personal data here unless you are engaged in an Onfido trial."
   },
   "workflow_complete": {

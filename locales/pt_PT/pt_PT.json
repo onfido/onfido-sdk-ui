@@ -109,6 +109,32 @@
     "subtitle": "Continuar com a verificação",
     "title": "Ligado ao seu computador"
   },
+  "doc_auto_capture": {
+    "button_accessibility": "Tirar uma foto",
+    "footer": {
+      "captured": "Foto tirada",
+      "capturing": "A tirar foto",
+      "manual_fallback_identity_card_back": "Tire uma foto do verso do seu cartão",
+      "manual_fallback_identity_card_front": "Tire uma foto da frente do seu cartão",
+      "manual_fallback_license_back": "Tire uma foto do verso da sua carta de condução",
+      "manual_fallback_license_front": "Tire uma foto da frente da sua carta de condução",
+      "manual_fallback_passport": "Tire uma foto da página da foto do seu passaporte",
+      "manual_fallback_residence_permit_back": "Tire uma foto do verso da sua autorização de residência",
+      "manual_fallback_residence_permit_front": "Tire uma foto da frente da sua autorização de residência",
+      "position_identity_card_back": "Posicione o verso do seu cartão na moldura",
+      "position_identity_card_front": "Posicione a frente do seu cartão na moldura",
+      "position_license_back": "Posicione o verso da sua carta de condução na moldura",
+      "position_license_front": "Posicione a frente da sua carta de condução na moldura",
+      "position_passport": "Posicione a página da foto do seu passaporte na moldura",
+      "position_residence_permit_back": "Posicione o verso da sua autorização de residência na moldura",
+      "position_residence_permit_front": "Posicione a frente da sua autorização de residência na moldura"
+    },
+    "frame": {
+      "flip_document": "Gire o documento para mostrar a parte de trás",
+      "hold_still": "Mantenha-se imóvel",
+      "no_document": "Documento não detetado"
+    }
+  },
   "doc_capture": {
     "button_primary": "Iniciar digitalização de documento",
     "detail": {
@@ -159,6 +185,8 @@
     "instructions_title_front": "Posicione a frente do seu documento na moldura"
   },
   "doc_select": {
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Extrato bancário ou de uma sociedade de crédito imobiliário",
     "button_bank_statement_non_uk": "Extrato bancário",
     "button_benefits_letter": "Declaração de Benefícios",
@@ -415,6 +443,10 @@
       "label": "Capte o documento inteiro e garanta que este mostre claramente:",
       "logo": "Logótipo"
     },
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
     "subtitle_bank_statement": "Deverá ter sido emitido nos <strong>últimos 3 meses</strong>",
     "subtitle_benefits_letter": "Deverá ter sido emitido nos <strong>últimos 12 meses</strong>",
     "subtitle_bill": "Deverá ter sido emitido nos <strong>últimos 3 meses</strong>",
@@ -499,7 +531,7 @@
       "invalid_email": "Introduza um e-mail válido",
       "invalid_mobile_number": "Introduza um número de telemóvel válido",
       "invalid_phone_number": "Introduza um número de telefone válido",
-      "required_consent": "Please agree to authorize identity and fraud checks",
+      "required_consent": "",
       "required_country": "Selecione um país",
       "required_country_residence": "Selecione um país",
       "required_dob": "Introduza a sua data de nascimento",
@@ -511,9 +543,9 @@
       "required_nationality": "Selecione um país",
       "required_phone_number": "Introduza o seu número de telefone",
       "required_postcode": "Introduza o seu código postal",
-      "too_long__line1": "A linha da morada é demasiado longa",
       "too_long_first_name": "O nome próprio é demasiado longo",
       "too_long_last_name": "O apelido é demasiado longo",
+      "too_long_line1": "A linha da morada é demasiado longa",
       "too_long_postcode": "O código postal é demasiado longo",
       "too_long_town": "",
       "too_short_first_name": "O nome próprio é demasiado curto",
@@ -579,9 +611,11 @@
     "title": "Verifique a sua selfie"
   },
   "selfie_intro": {
+    "banner_nudity_message": "O seu rosto e o seu fundo serão captados durante este processo",
     "button_primary": "Continuar",
     "list_accessibility": "Dicas para tirar uma boa selfie",
     "list_item_face_forward": "Fique virado para a frente e assegure-se de que os seus olhos são claramente visíveis",
+    "list_item_no_face_cover": "Remova qualquer coisa que cubra o seu rosto. Pode usar óculos",
     "list_item_no_glasses": "Retire os seus óculos, se necessário",
     "subtitle": "Iremos efetuar uma comparação comparação o seu documento",
     "title": "Tirar uma fotografia"
@@ -674,7 +708,7 @@
     "start_workflow_button": "Iniciar a verificação",
     "start_workflow_button_trial": "Iniciar a verificação (TEST)",
     "subtitle": "Pode demorar alguns minutos",
-    "title": "Verifique a sua identidade%{trial}",
+    "title": "Verifique a sua identidade",
     "trial_message": "Ne partagez pas de données personalles ici, sauf si vous êtes engagé dans un essei Onfido."
   },
   "workflow_complete": {

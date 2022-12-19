@@ -5,7 +5,7 @@
     "title": "Opname voltooid"
   },
   "avc_connection_error": {
-    "button_primary_reload": "Instructies herladen",
+    "button_primary_reload": "Laad de instructies opnieuw",
     "button_primary_retry_upload": "Upload opnieuw proberen",
     "button_secondary_restart_recording": "Opname opnieuw starten",
     "subtitle": "Controleer of u een stabiele verbinding heeft en probeer het daarna opnieuw",
@@ -35,8 +35,8 @@
     "disclaimer": "Wees u er bewust van dat we uw gezicht en achtergrond zullen opnemen",
     "list_item_one": "Plaats eerst uw gezicht in het kader",
     "list_item_two": "Draai uw hoofd dan langzaam naar beide kanten",
-    "subtitle": "Dit is om te bevestigen dat u een echt persoon bent",
-    "title": "Neem een video op"
+    "subtitle": "Dit is om te verifiëren dat u een echte persoon bent",
+    "title": "Maak een filmpje"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Opname opnieuw starten",
@@ -109,6 +109,32 @@
     "subtitle": "Ga door met de verificatie",
     "title": "Mobiele sessie gekoppeld aan uw computer"
   },
+  "doc_auto_capture": {
+    "button_accessibility": "Maak een foto",
+    "footer": {
+      "captured": "Foto gemaakt",
+      "capturing": "Foto maken",
+      "manual_fallback_identity_card_back": "Maak een foto van de achterkant van uw kaart",
+      "manual_fallback_identity_card_front": "Maak een foto van de voorkant van uw kaart",
+      "manual_fallback_license_back": "Maak een foto van de achterkant van uw rijbewijs",
+      "manual_fallback_license_front": "Maak een foto van de voorkant van uw rijbewijs",
+      "manual_fallback_passport": "Maak een foto van de fotopagina van uw paspoort",
+      "manual_fallback_residence_permit_back": "Maak een foto van de achterkant van uw verblijfsvergunning",
+      "manual_fallback_residence_permit_front": "Maak een foto van de voorkant van uw verblijfsvergunning",
+      "position_identity_card_back": "Plaats de achterkant van uw kaart in het kader",
+      "position_identity_card_front": "Plaats de voorkant van uw kaart in het kader",
+      "position_license_back": "Plaats de achterkant van uw rijbewijs in het kader",
+      "position_license_front": "Plaats de voorkant van uw rijbewijs in het kader",
+      "position_passport": "Plaats de fotopagina van uw paspoort in het kader",
+      "position_residence_permit_back": "Plaats de achterkant van uw verblijfsvergunning in het kader",
+      "position_residence_permit_front": "Plaats de voorkant van uw verblijfsvergunning in het kader"
+    },
+    "frame": {
+      "flip_document": "Draai naar de achterkant",
+      "hold_still": "Houd stil",
+      "no_document": "Document niet gedetecteerd"
+    }
+  },
   "doc_capture": {
     "button_primary": "Start scannen van document",
     "detail": {
@@ -159,6 +185,8 @@
     "instructions_title_front": "Plaats de voorkant van uw document in het kader"
   },
   "doc_select": {
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Afschriften van de bank of bouwvereniging",
     "button_bank_statement_non_uk": "Bankafschrift",
     "button_benefits_letter": "Brief voordelen",
@@ -323,14 +351,14 @@
     "url_field_label": "Kopieer de link naar uw mobiele telefoon"
   },
   "livenessV2": {
-    "error_reload_instructions": "Instructies herladen",
-    "intro_note_no1": "Eerst, plaats uw gezicht in het frame",
+    "error_reload_instructions": "Laad de instructies opnieuw",
+    "intro_note_no1": "Plaats eerst uw gezicht in het kader",
     "intro_note_no2": "Draai uw hoofd dan langzaam naar beide kanten",
     "intro_ready_button": "Wees er bewust van dat we uw gezicht en achtergrond zullen opnemen",
     "intro_subtitle": "Dit is om te verifiëren dat u een echte persoon bent",
     "intro_warning": "Wees er bewust van dat we uw gezicht en achtergrond zullen opnemen",
     "success_main_button": "Verificatie indienen",
-    "success_title": "Dat is alles wat we nodig hebben om uw identiteit te verifiëren"
+    "success_title": "Daarom moeten we uw identiteit verifiëren"
   },
   "mobilePhrases": {
     "photo_upload": {
@@ -415,6 +443,10 @@
       "label": "Leg het hele document vast en zorg ervoor dat het duidelijk te zien is:",
       "logo": "Logo"
     },
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
     "subtitle_bank_statement": "Moet in de <strong>laatste 3 maanden</strong> zijn afgegeven",
     "subtitle_benefits_letter": "Moet in de <strong>laatste 12 maanden</strong> zijn afgegeven",
     "subtitle_bill": "Moet in de <strong>laatste 3 maanden</strong> zijn afgegeven",
@@ -499,7 +531,7 @@
       "invalid_email": "Voer een geldig e-mailadres in",
       "invalid_mobile_number": "Voer een geldig mobiel nummer in",
       "invalid_phone_number": "Voer een geldig telefoonnummer in",
-      "required_consent": "Please agree to authorize identity and fraud checks",
+      "required_consent": "",
       "required_country": "Selecteer een land",
       "required_country_residence": "Selecteer een land",
       "required_dob": "Voer uw geboortedatum in",
@@ -511,9 +543,9 @@
       "required_nationality": "Selecteer een land",
       "required_phone_number": "Voer uw telefoonnummer in",
       "required_postcode": "Voer uw postcode in",
-      "too_long__line1": "Adresregel is te lang",
       "too_long_first_name": "Voornaam is te lang",
       "too_long_last_name": "Achternaam is te lang",
+      "too_long_line1": "Adresregel is te lang",
       "too_long_postcode": "Postcode is te lang",
       "too_long_town": "",
       "too_short_first_name": "Voornaam is te kort",
@@ -579,9 +611,11 @@
     "title": "Controleer uw selfie"
   },
   "selfie_intro": {
+    "banner_nudity_message": "Uw gezicht en uw achtergrond worden tijdens dit proces opgenomen",
     "button_primary": "Doorgaan",
     "list_accessibility": "Tips voor een goede selfie",
     "list_item_face_forward": "Kijk recht vooruit en zorg dat uw ogen goed te zien zijn",
+    "list_item_no_face_cover": "Zet alles af wat uw gezicht bedekt. Een bril mag wel",
     "list_item_no_glasses": "Zet uw bril af indien nodig",
     "subtitle": "We vergelijken deze met uw document",
     "title": "Neem een selfie"
@@ -674,7 +708,7 @@
     "start_workflow_button": "Start verificatie",
     "start_workflow_button_trial": "Start verificatie (TEST)",
     "subtitle": "Dat duurt maar een paar minuten",
-    "title": "Verifieer uw identiteit%{trial}",
+    "title": "Verifieer uw identiteit",
     "trial_message": "Deel hier geen persoonlijke gegevens, tenzij u betrokken bent bij een Onfido-proef."
   },
   "workflow_complete": {

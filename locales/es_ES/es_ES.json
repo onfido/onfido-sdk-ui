@@ -92,7 +92,7 @@
     "title": "Grabación completada"
   },
   "avc_connection_error": {
-    "button_primary_reload": "Volver a cargar las instrucciones",
+    "button_primary_reload": "Recargar instrucciones",
     "button_primary_retry_upload": "Reintentar la subida",
     "button_secondary_restart_recording": "Reiniciar la grabación",
     "subtitle": "Compruebe que la conexión sea estable e inténtelo de nuevo",
@@ -101,7 +101,7 @@
   "avc_face_alignment": {
     "feedback_move_back": "Muévase hacia atrás",
     "feedback_move_closer": "Acérquese",
-    "feedback_no_face_detected": "Cara no detectada",
+    "feedback_no_face_detected": "Cara no encontrada",
     "feedback_not_centered": "La cara no está centrada",
     "title": "Coloque la cara dentro el marco"
   },
@@ -196,6 +196,32 @@
     "subtitle": "Continúe con la verificación",
     "title": "Vinculado a su ordenador"
   },
+  "doc_auto_capture": {
+    "button_accessibility": "Tome una foto",
+    "footer": {
+      "captured": "Foto capturada",
+      "capturing": "Capturar foto",
+      "manual_fallback_identity_card_back": "Tome una foto de la parte posterior de su tarjeta",
+      "manual_fallback_identity_card_front": "Tome una foto de la parte delantera de su tarjeta",
+      "manual_fallback_license_back": "Tome una foto de la parte posterior de su permiso de conducir",
+      "manual_fallback_license_front": "Tome una foto de la parte delantera de su permiso de conducir",
+      "manual_fallback_passport": "Tome una foto de la página del pasaporte que incluye su fotografía",
+      "manual_fallback_residence_permit_back": "Tome una foto de la parte posterior de su permiso de residencia",
+      "manual_fallback_residence_permit_front": "Tome una foto del la parte delantera de su permiso de residencia",
+      "position_identity_card_back": "Coloque la parte posterior de la tarjeta en el marco",
+      "position_identity_card_front": "Coloque la parte frontal de la tarjeta en el marco",
+      "position_license_back": "Coloque la parte posterior de su permiso de conducir dentro del marco",
+      "position_license_front": "Coloque la parte delantera de su permiso de conducir dentro del marco",
+      "position_passport": "Coloque la página de la foto del pasaporte en el marco",
+      "position_residence_permit_back": "Coloque la parte posterior de su permiso de residencia en el marco",
+      "position_residence_permit_front": "Coloque la parte delantera de su permiso de residencia en el marco"
+    },
+    "frame": {
+      "flip_document": "Pasar a la parte posterior",
+      "hold_still": "No se mueva",
+      "no_document": "Documento no detectado"
+    }
+  },
   "doc_capture": {
     "button_primary": "Iniciar escaneo del documento",
     "detail": {
@@ -243,9 +269,11 @@
   "doc_multi_frame_capture": {
     "capture_progress_title": "Escaneando documento",
     "instructions_title_back": "Ponga la parte trasera de su documento en el marco",
-    "instructions_title_front": "Ponga la parte delantera de su documento en el marco"
+    "instructions_title_front": "Coloque la parte frontal del documento dentro del cuadro"
   },
   "doc_select": {
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Extracto bancario o de una sociedad de crédito",
     "button_bank_statement_non_uk": "Extracto bancario",
     "button_benefits_letter": "Carta de prestación",
@@ -410,14 +438,14 @@
     "url_field_label": "Copie el enlace al navegador de internet de su teléfono"
   },
   "livenessV2": {
-    "error_reload_instructions": "Volver a cargar instrucciones",
-    "intro_note_no1": "Primero, coloque su cara en el marco",
+    "error_reload_instructions": "Recargar instrucciones",
+    "intro_note_no1": "Primero, coloque la cara dentro del marco",
     "intro_note_no2": "Luego, gire la cabeza despacio hacia ambos lados",
     "intro_ready_button": "Tenga en cuenta que podemos registrar su rostro y el fondo",
     "intro_subtitle": "Esto es para verificar que es una persona real",
-    "intro_warning": "Tenga en cuenta que registraremos su rostro y el fondo",
+    "intro_warning": "Tenga en cuenta que podemos registrar su rostro y el fondo",
     "success_main_button": "Enviar verificación",
-    "success_title": "Es todo lo que necesitamos para empezar a verificar su identidad"
+    "success_title": "Eso es todo lo que necesitamos para comenzar a verificar su identidad"
   },
   "mobilePhrases": {
     "photo_upload": {
@@ -502,13 +530,17 @@
       "label": "Capture todo el documento y asegúrese de que los siguientes datos se muestran con claridad:",
       "logo": "Logo"
     },
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
     "subtitle_bank_statement": "Debe haberse emitido en los <strong>últimos 3 meses</strong>",
     "subtitle_benefits_letter": "Debe haberse emitido en los <strong>últimos 12 meses</strong>",
     "subtitle_bill": "Debe haberse emitido en los <strong>últimos 3 meses</strong>",
     "subtitle_tax_letter": "Debe haberse emitido en los <strong>últimos 12 meses</strong>"
   },
   "poa_intro": {
-    "button_primary": "Iniciar verificación",
+    "button_primary": "Empezar la verificación",
     "list_matches_signup": "<strong>Coincide</strong> con la dirección utilizada para el registro",
     "list_most_recent": "Es su documento más <strong>reciente</strong>",
     "list_shows_address": "Muestra su dirección <strong>actual</strong>",
@@ -586,7 +618,7 @@
       "invalid_email": "Introduzca un correo electrónico válido",
       "invalid_mobile_number": "Introduzca un número de móvil válido",
       "invalid_phone_number": "Introduzca un número de teléfono válido",
-      "required_consent": "Please agree to authorize identity and fraud checks",
+      "required_consent": "",
       "required_country": "Seleccione un país",
       "required_country_residence": "Seleccione un país",
       "required_dob": "Introduzca su fecha de nacimiento",
@@ -598,9 +630,9 @@
       "required_nationality": "Seleccione un país",
       "required_phone_number": "Introduzca su número de teléfono",
       "required_postcode": "Introduzca su código postal",
-      "too_long__line1": "La línea de dirección es demasiado larga",
       "too_long_first_name": "El nombre es demasiado largo",
       "too_long_last_name": "El apellido es demasiado largo",
+      "too_long_line1": "La línea de dirección es demasiado larga",
       "too_long_postcode": "El código postal es demasiado largo",
       "too_long_town": "",
       "too_short_first_name": "El nombre es demasiado corto",
@@ -615,7 +647,7 @@
     "personal_information_title": "Añada sus datos personales",
     "prompt": {
       "details_timeout": "Empezar de nuevo",
-      "header_timeout": "Parece que ha tardado demasiado"
+      "header_timeout": "Parece que ha demorado demasiado"
     }
   },
   "retry_feedback": {
@@ -666,9 +698,11 @@
     "title": "Verificar selfie"
   },
   "selfie_intro": {
+    "banner_nudity_message": "Su cara y el fondo serán capturados durante este proceso",
     "button_primary": "Continuar",
     "list_accessibility": "Consejos para capturar un buen selfie",
     "list_item_face_forward": "Mire hacia delante y asegúrese de que sus ojos se vean con claridad",
+    "list_item_no_face_cover": "Elimine todo lo que cubra su cara. Se puede dejar las gafas puestas",
     "list_item_no_glasses": "Quítese las gafas si es necesario",
     "subtitle": "Compararemos esto con su documento",
     "title": "Tome una selfie"
@@ -759,9 +793,9 @@
     "list_item_selfie": "su cara",
     "next_button": "Seleccione un documento",
     "start_workflow_button": "Empezar la verificación",
-    "start_workflow_button_trial": "Empezar la verificación (TEST)}",
+    "start_workflow_button_trial": "Empezar la verificación (TEST)",
     "subtitle": "Debería tomar unos minutos",
-    "title": "Verifique su identidad%{trial}",
+    "title": "Verifique su identidad",
     "trial_message": "No comparta datos personales aquí a menos que participe en una prueba de Onfido."
   },
   "workflow_complete": {

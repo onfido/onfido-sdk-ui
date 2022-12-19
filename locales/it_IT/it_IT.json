@@ -109,6 +109,32 @@
     "subtitle": "Continua la verifica",
     "title": "Connesso al computer"
   },
+  "doc_auto_capture": {
+    "button_accessibility": "Scatta una foto",
+    "footer": {
+      "captured": "Foto acquisite",
+      "capturing": "Acquisizione foto",
+      "manual_fallback_identity_card_back": "Scatta una foto del retro della carta",
+      "manual_fallback_identity_card_front": "Scatta una foto del fronte della carta",
+      "manual_fallback_license_back": "Scatta una foto del retro della patente di guida",
+      "manual_fallback_license_front": "Scatta una foto del fronte della patente di guida",
+      "manual_fallback_passport": "Scatta una foto della pagina con foto del passaporto",
+      "manual_fallback_residence_permit_back": "Scatta una foto del retro del permesso di soggiorno",
+      "manual_fallback_residence_permit_front": "Scatta una foto del fronte del permesso di soggiorno",
+      "position_identity_card_back": "Posiziona il retro della carta nel riquadro",
+      "position_identity_card_front": "Posiziona il fronte della carta nel riquadro",
+      "position_license_back": "Posiziona il retro della patente di guida nel riquadro",
+      "position_license_front": "Posiziona il fronte della patente di guida nel riquadro",
+      "position_passport": "Posiziona la pagina con foto del passaporto nel riquadro",
+      "position_residence_permit_back": "Posiziona il retro del permesso di soggiorno nel riquadro",
+      "position_residence_permit_front": "Posiziona il fronte del permesso di soggiorno nel riquadro"
+    },
+    "frame": {
+      "flip_document": "Gira sul retro",
+      "hold_still": "Resta immobile",
+      "no_document": "Documento non rilevato"
+    }
+  },
   "doc_capture": {
     "button_primary": "Inizia a scansionare il documento",
     "detail": {
@@ -159,6 +185,8 @@
     "instructions_title_front": "Posizionare il fronte del documento nel riquadro"
   },
   "doc_select": {
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Estratto conto della banca o istituto di credito",
     "button_bank_statement_non_uk": "Estratto conto della banca",
     "button_benefits_letter": "Lettera sulle prestazioni previdenziali",
@@ -415,6 +443,10 @@
       "label": "Riporta l'intero documento assicurandoti che mostri chiaramente:",
       "logo": "Logo"
     },
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
     "subtitle_bank_statement": "Deve essere stato emesso negli <strong>ultimi 3 mesi</strong>",
     "subtitle_benefits_letter": "Deve essere stata emessa negli <strong>ultimi 12 mesi</strong>",
     "subtitle_bill": "Deve essere stato emesso negli <strong>ultimi 3 mesi</strong>",
@@ -499,7 +531,7 @@
       "invalid_email": "Inserisci un’email valida",
       "invalid_mobile_number": "Inserisci un numero di telefono valido",
       "invalid_phone_number": "Inserisci un numero di telefono valido",
-      "required_consent": "Please agree to authorize identity and fraud checks",
+      "required_consent": "",
       "required_country": "Selezionare un paese",
       "required_country_residence": "Seleziona un Paese",
       "required_dob": "Inserire la data di nascita",
@@ -511,9 +543,9 @@
       "required_nationality": "Seleziona un Paese",
       "required_phone_number": "Inserisci il tuo numero di telefono",
       "required_postcode": "Inserire il codice postale",
-      "too_long__line1": "L’indirizzo è troppo lungo",
       "too_long_first_name": "Il nome è troppo lungo",
       "too_long_last_name": "Il cognome è troppo lungo",
+      "too_long_line1": "L’indirizzo è troppo lungo",
       "too_long_postcode": "Il codice postale è troppo lungo",
       "too_long_town": "",
       "too_short_first_name": "Il nome è troppo breve",
@@ -579,9 +611,11 @@
     "title": "Controlla il selfie"
   },
   "selfie_intro": {
+    "banner_nudity_message": "Il tuo viso e lo sfondo verranno acquisiti durante questo processo",
     "button_primary": "Continua",
     "list_accessibility": "Consigli per un buon selfie",
     "list_item_face_forward": "Guarda in avanti e assicurati che gli occhi siano ben visibili",
+    "list_item_no_face_cover": "Rimuovi qualsiasi cosa copra il tuo viso. Puoi tenere gli occhiali da vista",
     "list_item_no_glasses": "Togliti gli occhiali, se necessario",
     "subtitle": "Lo confronteremo con il tuo documento",
     "title": "Scatta un selfie"
@@ -674,7 +708,7 @@
     "start_workflow_button": "Inizia verifica",
     "start_workflow_button_trial": "Inizia verifica (TEST)",
     "subtitle": "L’operazione richiederà pochi minuti",
-    "title": "Verifica la tua identità%{trial}",
+    "title": "Verifica la tua identità",
     "trial_message": "Non condividere i dati personali qui a meno che tu non sia coinvolto in una prova Onfido."
   },
   "workflow_complete": {
