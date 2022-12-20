@@ -1,0 +1,732 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "Ladda upp inspelning",
+    "subtitle": "En video av ditt ansikte har spelats in",
+    "title": "Inspelning slutförd"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Ladda om instruktioner",
+    "button_primary_retry_upload": "Försök ladda upp igen",
+    "button_secondary_restart_recording": "Starta om inspelningen",
+    "subtitle": "Kontrollera att din anslutning är stabil och försök sedan igen",
+    "title": "Anslutningsfel"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Flytta bakåt",
+    "feedback_move_closer": "Flytta närmare",
+    "feedback_no_face_detected": "Inget ansikte upptäcktes",
+    "feedback_not_centered": "Ansiktet är inte centrerat",
+    "title": "Placera ditt ansikte i ramen"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "timeout_body": "Du har upp till 15 sekunder på dig att slutföra inspelningen",
+      "timeout_button_primary": "Försök igen",
+      "timeout_title": "Tyvärr måste vi starta om inspelningen",
+      "too_fast_body": "Försök igen och vrid huvudet långsammare",
+      "too_fast_button_primary": "Försök igen",
+      "too_fast_title": "Du vände på huvudet för fort"
+    },
+    "title": "Vrid långsamt huvudet åt båda sidorna",
+    "title_completed": "Inspelning slutförd"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Jag är redo",
+    "disclaimer": "Tänk på att vi spelar in ditt ansikte och din bakgrund",
+    "list_item_one": "Placera först ansiktet i ramen",
+    "list_item_two": "Vrid sedan långsamt huvudet åt båda sidorna",
+    "subtitle": "Syftet med detta är att verifiera att du är en riktig person",
+    "title": "Spela in en video"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Starta om inspelningen",
+    "list_item_eyes": "Se till att dina ögon syns tydligt",
+    "list_item_face": "Se till att endast visa ditt ansikte, vi behöver inte se ditt ID",
+    "list_item_lighting": "Se till att vara på en plats med bra belysning",
+    "list_item_mask": "Se till att ta bort ansiktsmasker eller andra föremål som täcker ditt ansikte. Glasögon är okej",
+    "title": "Vi kan inte upptäcka ditt ansikte"
+  },
+  "avc_uploading": {
+    "title": "Laddar upp"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Dokument från det landet stöds för närvarande inte – <fallback>prova en annan dokumenttyp</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "Landet hittades inte"
+    },
+    "button_primary": "Skicka in dokument",
+    "poa_alert": {
+      "country_not_found": "Vi beklagar. Vi arbetar på att stödja fler länder.",
+      "intro": "Hittar du inte ditt land?"
+    },
+    "search": {
+      "accessibility": "Välj land",
+      "input_placeholder": "t.ex. USA",
+      "label": "Sök efter land"
+    },
+    "title": "Välj utfärdande land"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Skicka in verifiering",
+    "info": "Tips",
+    "list_item_doc_multiple": "Dokument",
+    "list_item_doc_one": "Dokument",
+    "list_item_poa": "Adressbevis",
+    "list_item_selfie": "Selfie",
+    "list_item_video": "Video",
+    "subtitle": "Här är allt du har laddat upp:",
+    "title": "Ett sista steg"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Länken fungerar endast på mobila enheter",
+    "title": "Något har gått fel"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Du måste starta om verifieringen på din dator",
+    "title": "Något har gått fel"
+  },
+  "cross_device_intro": {
+    "button_primary": "Få säker länk",
+    "list_accessibility": "Steg som krävs för att fortsätta verifieringen på din mobil",
+    "list_item_finish": "Kom tillbaka hit för att slutföra inlämningen",
+    "list_item_open_link": "Öppna länken och slutför uppgifterna",
+    "list_item_send_phone": "Skicka en säker länk till din telefon",
+    "subtitle": "Så här gör du:",
+    "title": "Fortsätt på din telefon"
+  },
+  "cross_device_return": {
+    "body": "Det kan ta några sekunder för datorn att uppdatera",
+    "subtitle": "Du kan nu återgå till datorn för att fortsätta",
+    "title": "Uppladdningarna lyckades"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Fortsätt",
+    "info": "Dubbelkolla",
+    "list_item_desktop_open": "Ditt webbfönster förblir öppet",
+    "list_item_sent_by_you": "Den här länken skickades av dig – sök rådgivning om du tror att detta kan vara en bluff",
+    "subtitle": "Fortsätt med verifieringen",
+    "title": "Mobilsession kopplad till din dator"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Ta ett foto",
+    "footer": {
+      "captured": "Foto taget",
+      "capturing": "Ta foto",
+      "manual_fallback_identity_card_back": "Ta ett foto av baksidan av ditt kort",
+      "manual_fallback_identity_card_front": "Ta ett foto av framsidan av ditt kort",
+      "manual_fallback_license_back": "Ta ett foto av baksidan av ditt körkort",
+      "manual_fallback_license_front": "Ta ett foto av framsidan av ditt körkort",
+      "manual_fallback_passport": "Ta ett foto av fotosidan i ditt pass",
+      "manual_fallback_residence_permit_back": "Ta ett foto av baksidan av ditt uppehållstillstånd",
+      "manual_fallback_residence_permit_front": "Ta ett foto av framsidan av ditt uppehållstillstånd",
+      "position_identity_card_back": "Placera kortets baksida i ramen",
+      "position_identity_card_front": "Placera kortets framsida i ramen",
+      "position_license_back": "Placera baksidan av ditt körkort i ramen",
+      "position_license_front": "Placera framsidan av ditt körkort i ramen",
+      "position_passport": "Placera passets fotosida i ramen",
+      "position_residence_permit_back": "Placera baksidan av ditt uppehållstillstånd i ramen",
+      "position_residence_permit_front": "Placera framsidan av ditt uppehållstillstånd i ramen"
+    },
+    "frame": {
+      "flip_document": "Vänd till baksidan",
+      "hold_still": "Håll stilla",
+      "no_document": "Dokumentet upptäcktes inte"
+    }
+  },
+  "doc_capture": {
+    "button_primary": "Starta dokumentskanning",
+    "detail": {
+      "folded_doc_front": "Lägg dokumentet platt och inkludera alla inre sidor (ditt foto måste finnas med)"
+    },
+    "header_folded_doc_front": "Sida med profilfoto",
+    "prompt": {
+      "button_card": "Plastkort",
+      "button_paper": "Pappersdokument",
+      "title_id": "Vilken typ av identitetskort har du?",
+      "title_license": "Vilken typ av körkort har du?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Se till att allt är tydligt",
+      "blur_title": "Suddigt foto upptäckt",
+      "crop_detail": "Se till att hela dokumentet är synligt",
+      "crop_title": "Manipulerad bild upptäckt",
+      "glare_detail": "Flytta bort från direkt ljus",
+      "glare_title": "Ljusreflex upptäckt",
+      "no_doc_detail": "Se till att hela dokumentet är inuti ramen",
+      "no_doc_title": "Inget dokument upptäcktes"
+    },
+    "body": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
+    "body_bank_statement": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
+    "body_benefits_letter": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
+    "body_bill": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
+    "body_id": "Se till att dina uppgifter syns tydligt och inte skyms",
+    "body_image_medium": "Det tar längre tid att verifiera dig om vi inte kan läsa det",
+    "body_image_poor": "För att verifiera dig på ett smidigt sätt behöver vi ett bättre foto",
+    "body_license": "Se till att dina uppgifter syns tydligt och inte skyms",
+    "body_passport": "Se till att dina uppgifter syns tydligt och inte skyms",
+    "body_permit": "Se till att dina uppgifter syns tydligt och inte skyms",
+    "body_tax_letter": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
+    "button_close": "Stäng",
+    "button_primary_redo": "Gör om",
+    "button_primary_upload": "Ladda upp",
+    "button_primary_upload_anyway": "Ladda upp ändå",
+    "button_secondary_redo": "Gör om",
+    "button_zoom": "Förstora bild",
+    "image_accessibility": "Foto av ditt dokument",
+    "title": "Kontrollera din bild"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Skannar dokument",
+    "instructions_title_back": "Placera dokumentets baksida i ramen",
+    "instructions_title_front": "Placera dokumentets framsida i ramen"
+  },
+  "doc_select": {
+    "button_address_card": "Adresskort",
+    "button_address_card_detail": "Tillfälliga och permanenta kort accepteras",
+    "button_bank_statement": "Kontoutdrag från bank eller hypoteksinstitut",
+    "button_bank_statement_non_uk": "Bankkontoutdrag",
+    "button_benefits_letter": "Brev gällande bidrag",
+    "button_benefits_letter_detail": "Statligt godkända förmåner som t.ex. Bidrag till arbetssökande, bostadsbidrag, skatteavdrag",
+    "button_bill": "Elräkning",
+    "button_bill_detail": "Bensin, el, vatten, fast telefon eller bredband",
+    "button_government_letter": "Brev från myndighet",
+    "button_government_letter_detail": "Alla statligt utfärdade brev som t.ex. Brev angående bidrag, röstbrev, skattebrev m.m.",
+    "button_id": "Identitetskort",
+    "button_id_detail": "Fram- och baksida",
+    "button_license": "Körkort",
+    "button_license_detail": "Fram- och baksida",
+    "button_passport": "Pass",
+    "button_passport_detail": "Fotosida",
+    "button_permit": "Uppehållstillstånd",
+    "button_permit_detail": "Fram- och baksida",
+    "button_tax_letter": "Brev från skattemyndighet",
+    "extra_estatements_ok": "e-utdrag godtas",
+    "extra_no_mobile": "Tyvärr, inga mobiltelefonräkningar",
+    "list_accessibility": "Dokument som du kan använda för att verifiera din identitet",
+    "pill": "snabbaste",
+    "section": {
+      "header_country": "Utfärdande land",
+      "header_doc_type": "Accepterade dokument",
+      "input_country_not_found": "Inget resultat",
+      "input_placeholder_country": "Välj utfärdande land"
+    },
+    "subtitle": "Det måste vara ett officiellt foto-ID",
+    "subtitle_country": "Välj utfärdande land för att se vilka dokument vi accepterar",
+    "subtitle_entire_page": "Hela sidan",
+    "subtitle_front_back": "Fram- och baksida",
+    "subtitle_photo_page": "Fotosida",
+    "subtitle_poa": "Dessa dokument är de som mest sannolikt visar din nuvarande hemadress",
+    "title": "Välj ditt dokument",
+    "title_poa": "Välj ett dokument från %{country}"
+  },
+  "doc_submit": {
+    "button_link_upload": "eller ladda upp foto – inga skanningar eller fotokopior",
+    "button_primary": "Fortsätt på telefon",
+    "subtitle": "Ta ett foto med din telefon",
+    "title_bank_statement": "Skicka in utdrag",
+    "title_benefits_letter": "Skicka in brev",
+    "title_bill": "Skicka in räkning",
+    "title_government_letter": "Brev från myndighet",
+    "title_id_back": "Skicka in identitetskort (baksida)",
+    "title_id_front": "Skicka in identitetskort (framsida)",
+    "title_license_back": "Ladda upp körkort (baksida)",
+    "title_license_front": "Ladda upp körkort (framsida)",
+    "title_passport": "Skicka in fotosida från pass",
+    "title_permit_back": "Skicka in uppehållstillstånd (baksida)",
+    "title_permit_front": "Skicka in uppehållstillstånd (framsida)",
+    "title_tax_letter": "Skicka in brev"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Nästa steg",
+    "button_primary_fallback_end": "Avsluta inspelning",
+    "detail_step2": "Håll hela dokumentet synligt hela tiden",
+    "header": "Håll i dokumentet och se till att framsidan är inuti ramen",
+    "header_paper_doc_step2": "Vänd långsamt på dokumentet för att visa de yttre sidorna",
+    "header_passport": "Håll i ditt pass och se till att fotosidan är inuti ramen",
+    "header_passport_progress": "Håll stilla",
+    "header_step1": "Håll nu stilla",
+    "header_step2": "Vänd långsamt på dokumentet för att visa baksidan",
+    "prompt": {
+      "detail_timeout": "Videoinspelningen är begränsad till <timeout></timeout>sekunder. <fallback>Börja om</fallback>"
+    },
+    "stepper": "Steg <step></step> av <total></total>",
+    "success_accessibility": "Lyckades"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Förhandsgranska video",
+    "title": "Kontrollera din video"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Starta om processen i den senaste versionen av Google Chrome",
+    "subtitle_ios": "Starta om processen i den senaste versionen av Safari",
+    "title_android": "Webbläsaren stöds inte",
+    "title_ios": "Webbläsaren stöds inte"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Stäng skärmen för identitetsverifiering",
+      "dismiss_alert": "Ignorera meddelande"
+    },
+    "back": "tillbaka",
+    "close": "stäng",
+    "errors": {
+      "expired_token": {
+        "instruction": "Försök igen",
+        "message": "Din token har gått ut"
+      },
+      "expired_trial": {
+        "instruction": "Du har nått gränsen för din provperiod",
+        "message": "Din provperiod har gått ut"
+      },
+      "geoblocked_error": {
+        "instruction": "Tyvärr verkar det som att vi inte kan gå vidare eftersom din nuvarande plats inte stöds",
+        "message": "Tjänsten går inte att nå"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Starta om processen på en annan enhet",
+        "message": "Ingen kamera upptäckt"
+      },
+      "invalid_size": {
+        "instruction": "Måste vara under 10 MB.",
+        "message": "Filstorleken har överskridits."
+      },
+      "invalid_type": {
+        "instruction": "Prova att använda en annan filtyp.",
+        "message": "Filen har inte laddats upp."
+      },
+      "lazy_loading": {
+        "message": "Ett fel uppstod när komponenten laddades"
+      },
+      "multiple_faces": {
+        "instruction": "Endast ditt ansikte får synas i selfien",
+        "message": "Flera ansikten hittades"
+      },
+      "no_face": {
+        "instruction": "Se till att ditt ansikte är synligt",
+        "message": "Inget ansikte upptäcktes"
+      },
+      "request_error": {
+        "instruction": "Försök igen",
+        "message": "Något har gått fel"
+      },
+      "sms_failed": {
+        "instruction": "Kopiera länken till din telefon",
+        "message": "Något har gått fel"
+      },
+      "sms_overuse": {
+        "instruction": "Kopiera länken till din telefon",
+        "message": "För många misslyckade försök"
+      },
+      "unsupported_file": {
+        "instruction": "Prova att använda en JPG- eller PNG-fil",
+        "message": "Filtypen stöds inte"
+      }
+    },
+    "lazy_load_placeholder": "Laddar…",
+    "loading": "Laddar"
+  },
+  "get_link": {
+    "alert_wrong_number": "Kontrollera att ditt nummer är korrekt",
+    "button_copied": "Kopierad",
+    "button_copy": "Kopiera",
+    "button_submit": "Skicka länk",
+    "info_qr_how": "Så här skannar du en QR-kod",
+    "info_qr_how_list_item_camera": "Rikta telefonens kamera mot QR-koden",
+    "info_qr_how_list_item_download": "Om det inte fungerar kan du ladda ner en QR-kodläsare från Google Play eller App Store",
+    "link_divider": "eller välj en alternativ metod",
+    "link_qr": "Skanna QR-kod",
+    "link_sms": "Få länk via SMS",
+    "link_url": "Kopiera länk",
+    "loader_sending": "Skickar",
+    "number_field_input_placeholder": "Ange mobilnummer",
+    "number_field_label": "Ange ditt mobilnummer:",
+    "subtitle_qr": "Skanna QR-koden med din telefon",
+    "subtitle_sms": "Skicka denna engångslänk till din telefon",
+    "subtitle_url": "Skicka denna engångslänk till din telefon",
+    "title": "Få din säkra länk",
+    "url_field_label": "Kopiera länken till din mobila webbläsare"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Ladda om instruktioner",
+    "intro_note_no1": "Placera först ansiktet i ramen",
+    "intro_note_no2": "Vrid sedan långsamt huvudet åt båda sidorna",
+    "intro_ready_button": "Tänk på att vi spelar in ditt ansikte och din bakgrund",
+    "intro_subtitle": "Syftet med detta är att verifiera att du är en riktig person",
+    "intro_warning": "Tänk på att vi spelar in ditt ansikte och din bakgrund",
+    "success_main_button": "Skicka in verifiering",
+    "success_title": "Det är allt vi behöver för att börja verifiera din identitet"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Ta ett foto av baksidan av ditt kort",
+      "body_id_front": "Ta ett foto av framsidan av ditt kort",
+      "body_license_back": "Ta ett foto av baksidan av ditt körkort",
+      "body_license_front": "Ta ett foto av framsidan av ditt körkort",
+      "body_passport": "Ta ett foto av fotosidan i ditt pass",
+      "body_selfie": "Ta en selfie som visar ditt ansikte"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Ta ett foto i <fallback>kamerans standardläge</fallback> istället"
+        },
+        "camera_not_working": {
+          "detail": "Ta ett foto i <fallback>kamerans standardläge</fallback> istället"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Ta ett foto",
+      "title": "Passets fotosida"
+    }
+  },
+  "outro": {
+    "body": "Det är allt vi behöver för att börja verifiera din identitet",
+    "body_government_letter": "Se till att skicka in hela dokumentsidan för bästa resultat",
+    "title": "Tack"
+  },
+  "permission": {
+    "body_both": "Vi kan inte verifiera dig utan att använda både din kamera och mikrofon",
+    "body_cam": "Vi kan inte verifiera dig utan din kamera",
+    "button_primary_both": "Aktivera båda",
+    "button_primary_cam": "Aktivera kamera",
+    "subtitle_both": "När du uppmanas måste du aktivera åtkomst för att båda ska fortsätta",
+    "subtitle_cam": "När du ombeds måste du aktivera kameraåtkomst för att fortsätta",
+    "title_both": "Tillåt kamera- och mikrofonåtkomst",
+    "title_cam": "Tillåt kameraåtkomst"
+  },
+  "permission_recovery": {
+    "button_primary": "Uppdatera",
+    "info": "Återställ",
+    "list_header_both": "Följ dessa steg för att återställa åtkomst för båda:",
+    "list_header_cam": "Följ dessa steg för att återställa kameraåtkomst:",
+    "list_item_action_cam": "Uppdatera den här sidan för att starta om processen för identitetsverifiering",
+    "list_item_how_to_both": "Bevilja åtkomst till din kamera och mikrofon från dina webbläsarinställningar",
+    "list_item_how_to_cam": "Bevilja åtkomst till din kamera från dina webbläsarinställningar",
+    "subtitle_both": "Återställ kamera- och mikrofonåtkomst för att göra en video och slutföra verifieringsprocessen",
+    "subtitle_cam": "Vi kan inte verifiera dig utan din kamera",
+    "subtitle_cam_old": "Återställ kameraåtkomst för att fortsätta med din verifiering",
+    "title_both": "Kamera- och mikrofonåtkomst nekad",
+    "title_cam": "Kameraåtkomst nekad"
+  },
+  "photo_upload": {
+    "body_bank_statement": "Se till att skicka in hela dokumentsidan för bästa resultat",
+    "body_benefits_letter": "Se till att skicka in hela dokumentsidan för bästa resultat",
+    "body_bill": "Se till att skicka in hela dokumentsidan för bästa resultat",
+    "body_id_back": "Ladda upp baksidan av identitetskortet från din dator",
+    "body_id_front": "Ladda upp framsidan av identitetskortet från din dator",
+    "body_license_back": "Ladda upp baksidan av körkortet från din dator",
+    "body_license_front": "Ladda upp framsidan av körkortet från din dator",
+    "body_passport": "Ladda upp fotosidan från passet från din dator",
+    "body_selfie": "Ladda upp en selfie från din dator",
+    "body_tax_letter": "Se till att skicka in hela dokumentsidan för bästa resultat",
+    "button_take_photo": "Ta foto",
+    "button_upload": "Ladda upp",
+    "title_selfie": "Selfie"
+  },
+  "poa_cancel": "Avbryt",
+  "poa_err_invalid_file": {
+    "message": "Välj en annan fil.",
+    "ok": "OK",
+    "title": "Ogiltig fil"
+  },
+  "poa_guidance": {
+    "button_primary": "Fortsätt",
+    "instructions": {
+      "address": "Nuvarande adress",
+      "full_name": "Fullständigt namn",
+      "issue_date": "Utfärdandedatum eller sammanfattad period",
+      "label": "Se till att hela dokumentet syns och att det tydligt visar:",
+      "logo": "Logotyp"
+    },
+    "instructions_address_card_issue_date": "Utfärdandedatum",
+    "instructions_expiry_date": "Utgångsdatum om tillämpligt",
+    "instructions_full_address": "Fullständig adress",
+    "subtitle_address_card": "Måste vara ett giltigt adresskort",
+    "subtitle_bank_statement": "Måste ha utfärdats under de senaste 3 månaderna",
+    "subtitle_benefits_letter": "Måste ha utfärdats under de senaste 12 månaderna",
+    "subtitle_bill": "Måste ha utfärdats under de senaste 3 månaderna",
+    "subtitle_tax_letter": "Måste ha utfärdats under de senaste 12 månaderna"
+  },
+  "poa_intro": {
+    "button_primary": "Starta verifiering",
+    "list_matches_signup": "Matchar adressen du använde vid registreringen",
+    "list_most_recent": "Är ditt senaste dokument",
+    "list_shows_address": "Visar din nuvarande adress",
+    "subtitle": "Du behöver ett dokument som:",
+    "title": "Låt oss verifiera din adress"
+  },
+  "profile_data": {
+    "address_title": "Lägg till din adress",
+    "button_continue": "Fortsätt",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Välj ett land"
+      },
+      "country_select": {
+        "placeholder": "Välj ett land"
+      },
+      "nationality_select": {
+        "placeholder": "Välj ett land"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Välj ett län"
+      }
+    },
+    "country_of_residence_title": "Bosättningsland",
+    "field_labels": {
+      "country": "Land",
+      "country_residence": "Land",
+      "dob": "Födelsedatum",
+      "email": "E-postadress",
+      "first_name": "Förnamn",
+      "gbr_specific": {
+        "postcode": "Postnummer",
+        "town": "Stad/ort"
+      },
+      "ind_specific": {
+        "pan": "Permanent Account Number (PAN)"
+      },
+      "last_name": "Efternamn",
+      "line1": "Adressrad 1",
+      "line2": "Adressrad 2",
+      "line3": "Adressrad 3",
+      "mobile_number": "Mobilnummer",
+      "nationality": "Nationalitet",
+      "phone_number": "Telefonnummer",
+      "postcode": "Postnummer",
+      "town": "Ort",
+      "usa_specific": {
+        "line1_helper_text": "Gatuadress, till exempel: 200 Albert Street",
+        "line2_helper_text": "Lägenhet, uppgång, enhet osv.",
+        "postcode": "Postnummer",
+        "ssn": "Personnummer",
+        "state": "Region"
+      }
+    },
+    "field_optional": "(valfritt)",
+    "field_validation": {
+      "gbr_specific": {
+        "invalid_postcode": "Ange ett giltigt postnummer",
+        "required_postcode": "Ange ditt postnummer",
+        "too_long_postcode": "Postnumret är för långt",
+        "too_short_postcode": "Postnumret är för kort"
+      },
+      "ind_specific": {
+        "invalid_pan": "Ange ett giltigt PAN",
+        "required_pan": "Ange ditt PAN"
+      },
+      "invalid": "Kontrollera om det finns ogiltiga tecken eller symboler",
+      "invalid_dob": "Ange ett giltigt födelsedatum",
+      "invalid_email": "Ange en giltig e-postadress",
+      "invalid_mobile_number": "Ange ett giltigt telefonnummer",
+      "invalid_phone_number": "Ange ett giltigt telefonnummer",
+      "required_consent": "Godkänn för att auktorisera identitets- och bedrägerikontroller",
+      "required_country": "Välj ett land",
+      "required_country_residence": "Välj ett land",
+      "required_dob": "Ange ditt födelsedatum",
+      "required_email": "Ange din e-postadress",
+      "required_first_name": "Ange ditt förnamn",
+      "required_last_name": "Ange ditt efternamn",
+      "required_line1": "Ange din adress",
+      "required_mobile_number": "Ange ditt mobilnummer",
+      "required_nationality": "Välj ett land",
+      "required_phone_number": "Ange ditt telefonnummer",
+      "required_postcode": "Ange ditt postnummer",
+      "too_long_first_name": "Förnamnet är för långt",
+      "too_long_last_name": "Efternamnet är för långt",
+      "too_long_line1": "Adressraden är för lång",
+      "too_long_postcode": "Postnumret är för långt",
+      "too_long_town": "Orten är för lång",
+      "too_short_first_name": "Förnamnet är för kort",
+      "too_short_last_name": "Efternamnet är för kort",
+      "too_short_postcode": "Postnumret är för kort",
+      "usa_specific": {
+        "invalid_ssn": "Ange ett giltigt personnummer",
+        "required_ssn": "Ange ditt personnummer",
+        "required_state": "Välj ett län"
+      }
+    },
+    "personal_information_title": "Lägg till dina personuppgifter",
+    "prompt": {
+      "details_timeout": "Börja om",
+      "header_timeout": "Det verkar ha tagit för lång tid"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Försök igen"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Försök igen med ett giltigt foto-ID och se till att din information syns tydligt",
+    "title": "Ditt dokument har gått ut"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Försök igen med ett giltigt foto-ID och se till att din information syns tydligt",
+    "title": "Det uppstod ett problem med ditt dokument"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Försök igen med ett giltigt foto-ID och se till att din information syns tydligt",
+    "title": "Dokumentet accepteras inte"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Försök igen och se till att ditt ansikte är synligt och välbelyst",
+    "title": "Det uppstod ett problem med din selfie"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Kontrollera att den är ansluten och fungerar. Du kan också <fallback>fortsätta verifieringen på din telefon</fallback>",
+        "detail_no_fallback": "Se till att din enhet har en fungerande kamera",
+        "title": "Fungerar inte kameran?"
+      },
+      "camera_not_working": {
+        "detail": "Den kan vara frånkopplad. <fallback>Prova att använda din telefon istället</fallback>.",
+        "detail_no_fallback": "Se till att enhetens kamera fungerar",
+        "title": "Kameran fungerar inte"
+      },
+      "timeout": {
+        "detail": "Kom ihåg att trycka på knappen när du är klar. <fallback>Gör om videoåtgärder</fallback>",
+        "title": "Det verkar ha tagit för lång tid"
+      }
+    },
+    "body": "Håll ansiktet inom ovalen",
+    "button_accessibility": "Ta ett foto",
+    "button_primary": "Starta ansiktsskanning",
+    "frame_accessibility": "Vy från kameran",
+    "title": "Håll ansiktet inom ovalen"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Foto av ditt ansikte",
+    "subtitle": "Se till att hela ditt ansikte är synligt",
+    "title": "Kontrollera din selfie"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "Ditt ansikte och din bakgrund kommer att spelas in under denna process",
+    "button_primary": "Fortsätt",
+    "list_accessibility": "Tips för att ta en bra selfie",
+    "list_item_face_forward": "Titta framåt och se till att dina ögon syns tydligt",
+    "list_item_no_face_cover": "Ta bort allt som täcker ditt ansikte. Glasögon är okej",
+    "list_item_no_glasses": "Ta av dina glasögon vid behov",
+    "subtitle": "Vi kommer att jämföra denna med ditt dokument",
+    "title": "Ta en selfie"
+  },
+  "sms_sent": {
+    "info": "Tips",
+    "info_link_expire": "Din länk går ut om en timme",
+    "info_link_window": "Håll detta fönster öppet när du använder din mobil",
+    "link": "Skicka länken igen",
+    "subtitle": "Vi har skickat en säker länk till %{number}",
+    "subtitle_minutes": "Det kan ta några minuter för den att komma fram",
+    "title": "Kontrollera din mobil"
+  },
+  "switch_phone": {
+    "info": "Tips",
+    "info_link_expire": "Din mobillänk går ut om en timme",
+    "info_link_refresh": "Uppdatera inte denna sida",
+    "info_link_window": "Håll detta fönster öppet när du använder din mobil",
+    "link": "Avbryt",
+    "subtitle": "När du är klar tar vi dig till nästa steg",
+    "title": "Ansluten till din mobil"
+  },
+  "upload_guide": {
+    "button_primary": "Ladda upp foto",
+    "image_detail_blur_alt": "Exempel på ett suddigt dokument",
+    "image_detail_blur_label": "Alla detaljer måste vara tydliga – inget får vara suddigt",
+    "image_detail_cutoff_label": "Visa alla detaljer – inklusive de två nedersta raderna",
+    "image_detail_glare_label": "Flytta bort från direkt ljus – inga ljusreflexer får förekomma",
+    "image_detail_good_label": "Fotot ska tydligt visa ditt dokument",
+    "subtitle": "Skanningar och fotokopior accepteras inte",
+    "title": "Ladda upp passets fotosida"
+  },
+  "user_consent": {
+    "button_primary": "Acceptera",
+    "button_secondary": "Acceptera inte",
+    "prompt": {
+      "button_primary": "Granska igen",
+      "button_secondary": "Ja, verifiera inte mig",
+      "no_consent_detail": "Om du inte accepterar Onfidos sekretesspolicy och användarvillkor kommer vi inte att kunna verifiera din identitet och du kommer att lämna detta steg.",
+      "no_consent_title": "Är du säker?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Ladda om skärmen",
+    "detail": "Kontrollera att din anslutning är stabil och försök sedan igen",
+    "title": "Innehållet kunde inte laddas"
+  },
+  "video_capture": {
+    "body": "Håll ansiktet inom ovalen",
+    "body_record": "Tryck på knappen när du är redo",
+    "body_stop": "Tryck på stopp när du är klar",
+    "button_primary_finish": "Avsluta inspelning",
+    "button_primary_next": "Nästa steg",
+    "button_primary_start": "Starta inspelning",
+    "button_record_accessibility": "Starta inspelning",
+    "frame_accessibility": "Vy från kameran",
+    "header": {
+      "challenge_digit_instructions": "Säg varje siffra högt",
+      "challenge_turn_forward": "vänd sedan kameran framåt",
+      "challenge_turn_left": "Vrid huvudet åt vänster",
+      "challenge_turn_right": "Vrid huvudet åt höger"
+    },
+    "prompt": {
+      "header_timeout": "Det verkar ha tagit för lång tid"
+    }
+  },
+  "video_confirmation": {
+    "body": "Din video har spelats in",
+    "button_primary": "Ladda upp video",
+    "button_secondary": "Gör om video",
+    "title": "Kontrollera din video",
+    "video_accessibility": "Spela upp din inspelade video igen"
+  },
+  "video_intro": {
+    "button_primary": "Spela in video",
+    "list_accessibility": "Hur du spelar in en selfievideo",
+    "list_item_actions": "Du har 20 sekunder på dig att slutföra detta",
+    "list_item_speak": "Följ instruktionerna för att röra dig eller tala",
+    "title": "Spela in en video"
+  },
+  "welcome": {
+    "doc_video_subtitle": "Detta kan ta några minuter",
+    "list_header_doc_video": "Använd din enhet för att spela in:",
+    "list_header_webcam": "Använd din webbkamera eller telefon för att fotografera:",
+    "list_item_doc": "ditt identitetsdokument",
+    "list_item_doc_video_timeout": "Inspelningen är begränsad till <timeout></timeout> sekunder",
+    "list_item_poa": "ditt adressbevis",
+    "list_item_selfie": "ditt ansikte",
+    "next_button": "Välj dokument",
+    "start_workflow_button": "Starta verifiering",
+    "start_workflow_button_trial": "Starta verifiering (TEST)",
+    "subtitle": "Detta kan ta några minuter",
+    "title": "Verifiera din identitet",
+    "trial_message": "Dela inte personuppgifter här om du inte deltar i en provperiod för Onfido."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Vi har verifierat din identitet",
+      "title": "Godkänd"
+    },
+    "reject": {
+      "description": "Vi har inte kunnat verifiera din identitet",
+      "title": "Nekad"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "Det uppstod ett serverfel!",
+    "no_workflow_run_id": "ID för arbetsflöde är inte inställt.",
+    "reload_app": "Prova att ladda om appen och försök igen.",
+    "task_not_completed": "Det gick inte att slutföra denna arbetsuppgift i flödet.",
+    "task_not_retrieved": "Det gick inte att hämta denna arbetsuppgift i flödet.",
+    "task_not_supported": "Uppgiften stöds för närvarande inte"
+  }
+}

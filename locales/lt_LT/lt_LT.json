@@ -1,0 +1,732 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "Įkelti įrašą",
+    "subtitle": "Jūsų veido vaizdo įrašas sėkmingai padarytas",
+    "title": "Įrašymas baigtas"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Įkelti nurodymus iš naujo",
+    "button_primary_retry_upload": "Bandyti įkelti dar kartą",
+    "button_secondary_restart_recording": "Iš naujo pradėti įrašymą",
+    "subtitle": "Patikrinkite, ar ryšys stabilus, tada bandykite dar kartą",
+    "title": "Ryšio klaida"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Toliau",
+    "feedback_move_closer": "Arčiau",
+    "feedback_no_face_detected": "Veidas neaptiktas",
+    "feedback_not_centered": "Veidas nėra centre",
+    "title": "Pasirūpinkite, kad jūsų veidas būtų rėmelyje"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "timeout_body": "Turite iki 15 sekundžių įrašymui užbaigti",
+      "timeout_button_primary": "Bandyti dar kartą",
+      "timeout_title": "Atsiprašome, turime iš naujo pradėti įrašymą",
+      "too_fast_body": "Bandykite dar kartą ir sukite galvą lėčiau",
+      "too_fast_button_primary": "Bandyti dar kartą",
+      "too_fast_title": "Per greitai pasukote galvą"
+    },
+    "title": "Lėtai pasukite galvą į abi puses",
+    "title_completed": "Įrašymas baigtas"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Aš pasiruošęs",
+    "disclaimer": "Atminkite, kad įrašysime jūsų veidą ir esamą aplinką",
+    "list_item_one": "Pirmiausia pasirūpinkite, kad jūsų veidas būtų rėmelyje",
+    "list_item_two": "Tada lėtai pasukite galvą į abi puses",
+    "subtitle": "Taip patvirtinsite, kad esate tikras asmuo",
+    "title": "Padaryti vaizdo įrašą"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Iš naujo pradėti įrašymą",
+    "list_item_eyes": "Įsitikinkite, kad jūsų akys aiškiai matomos",
+    "list_item_face": "Įsitikinkite, kad matosi tik jūsų veidas, mums nereikia matyti jūsų asmens tapatybės dokumento",
+    "list_item_lighting": "Įsitikinkite, kad esate gerai apšviestoje vietoje",
+    "list_item_mask": "Būtinai nusiimkite kaukes ar kitus veidą dengiančius elementus. Galima būti su akiniais",
+    "title": "Negalime aptikti jūsų veido"
+  },
+  "avc_uploading": {
+    "title": "Įkeliama"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Dokumentai iš tos šalies šiuo metu nepalaikomi – <fallback>bandykite kitą dokumento tipą</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "Šalis nerasta"
+    },
+    "button_primary": "Pateikti dokumentą",
+    "poa_alert": {
+      "country_not_found": "Atsiprašome. Stengiamės, kad būtų palaikoma daugiau šalių.",
+      "intro": "Nerandate savo šalies?"
+    },
+    "search": {
+      "accessibility": "Pasirinkite šalį",
+      "input_placeholder": "pvz., Jungtinės Valstijos",
+      "label": "Ieškoti šalies"
+    },
+    "title": "Pasirinkite išdavusią šalį"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Pateikti patvirtinimą",
+    "info": "Patarimai",
+    "list_item_doc_multiple": "Dokumentai",
+    "list_item_doc_one": "Dokumentas",
+    "list_item_poa": "Adreso patvirtinimas",
+    "list_item_selfie": "Asmenukė",
+    "list_item_video": "Vaizdo įrašas",
+    "subtitle": "Štai viskas, ką įkėlėte:",
+    "title": "Paskutinis žingsnis"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Nuoroda veikia tik mobiliuosiuose įrenginiuose",
+    "title": "Kažkas negerai"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Turėsite iš naujo pradėti patvirtinimą kompiuteryje",
+    "title": "Kažkas negerai"
+  },
+  "cross_device_intro": {
+    "button_primary": "Gauti saugią nuorodą",
+    "list_accessibility": "Veiksmai, kurių reikia norint tęsti patvirtinimą mobiliajame įrenginyje",
+    "list_item_finish": "Grįžkite čia, kad užbaigtumėte pateikimą",
+    "list_item_open_link": "Atidarykite nuorodą ir užbaikite užduotis",
+    "list_item_send_phone": "Siųsti saugią nuorodą į telefoną",
+    "subtitle": "Štai kaip tai padaryti:",
+    "title": "Tęsti telefonu"
+  },
+  "cross_device_return": {
+    "body": "Gali praeiti kelios sekundės, kol kompiuteryje matysite atnaujintą informaciją",
+    "subtitle": "Dabar galite grįžti į kompiuterį ir tęsti",
+    "title": "Įkėlimai sėkmingi"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Tęsti",
+    "info": "Pakartotinė peržiūra",
+    "list_item_desktop_open": "Jūsų darbastalio langas lieka atidarytas",
+    "list_item_sent_by_you": "Šią nuorodą atsiuntėte jūs – kreipkitės patarimo, jei manote, kad tai gali būti apgaulė",
+    "subtitle": "Tęsti patvirtinimą",
+    "title": "Mobilioji sesija susieta su jūsų kompiuteriu"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Fotografuoti",
+    "footer": {
+      "captured": "Nufotografuota nuotrauka",
+      "capturing": "Nuotraukos darymas",
+      "manual_fallback_identity_card_back": "Nufotografuokite galinę kortelės pusę",
+      "manual_fallback_identity_card_front": "Nufotografuokite priekinę kortelės pusę",
+      "manual_fallback_license_back": "Nufotografuokite vairuotojo pažymėjimo galinę pusę",
+      "manual_fallback_license_front": "Nufotografuokite vairuotojo pažymėjimo priekinę pusę",
+      "manual_fallback_passport": "Nufotografuokite paso nuotraukos puslapį",
+      "manual_fallback_residence_permit_back": "Nufotografuokite galinę leidimo nuolat gyventi pusę",
+      "manual_fallback_residence_permit_front": "Nufotografuokite leidimo gyventi priekinę pusę",
+      "position_identity_card_back": "Pasirūpinkite, kad kortelės galinė pusė būtų rėmelyje",
+      "position_identity_card_front": "Pasirūpinkite, kad kortelės priekinė pusė būtų rėmelyje",
+      "position_license_back": "Pasirūpinkite, kad galinė vairuotojo pažymėjimo pusė būtų rėmelyje",
+      "position_license_front": "Pasirūpinkite, kad priekinė vairuotojo pažymėjimo pusė būtų rėmelyje",
+      "position_passport": "Pasirūpinkite, kad paso nuotraukos puslapis būtų rėmelyje",
+      "position_residence_permit_back": "Pasirūpinkite, kad leidimo nuolat gyventi galinė pusė būtų rėmelyje",
+      "position_residence_permit_front": "Pasirūpinkite, kad leidimo nuolat gyventi priekinė pusė būtų rėmelyje"
+    },
+    "frame": {
+      "flip_document": "Atversti galinę pusę",
+      "hold_still": "Laikykite nejudindami",
+      "no_document": "Dokumentas neaptiktas"
+    }
+  },
+  "doc_capture": {
+    "button_primary": "Pradėti dokumento nuskaitymą",
+    "detail": {
+      "folded_doc_front": "Padėkite dokumentą plokščiai, įtraukite visus vidinius puslapius (turi būti jūsų nuotrauka)"
+    },
+    "header_folded_doc_front": "Paskyros nuotraukos pusė",
+    "prompt": {
+      "button_card": "Plastikinė kortelė",
+      "button_paper": "Popierinis dokumentas",
+      "title_id": "Kokio tipo asmens tapatybės kortelę turite?",
+      "title_license": "Kokio tipo pažymėjimą turite?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Įsitikinkite, kad viskas aiškiai matosi",
+      "blur_title": "Aptikta neryški nuotrauka",
+      "crop_detail": "Įsitikinkite, kad matomas visas dokumentas",
+      "crop_title": "Aptiktas apkarpytas vaizdas",
+      "glare_detail": "Patraukite nuo tiesioginės šviesos",
+      "glare_title": "Aptiktas atspindys",
+      "no_doc_detail": "Įsitikinkite, kad jis visiškai sutalpintas į rėmelį",
+      "no_doc_title": "Dokumentas neaptiktas"
+    },
+    "body": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
+    "body_bank_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
+    "body_benefits_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
+    "body_bill": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
+    "body_id": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
+    "body_image_medium": "Jei negalėsime perskaityti, užtruks ilgiau, kol jus patvirtinsime",
+    "body_image_poor": "Kad galėtume sklandžiai jus patvirtinti, mums reikia geresnės kokybės nuotraukos",
+    "body_license": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
+    "body_passport": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
+    "body_permit": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
+    "body_tax_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
+    "button_close": "Uždaryti",
+    "button_primary_redo": "Atstatyti",
+    "button_primary_upload": "Įkelti",
+    "button_primary_upload_anyway": "Vis tiek įkelti",
+    "button_secondary_redo": "Atstatyti",
+    "button_zoom": "Padidinti vaizdą",
+    "image_accessibility": "Jūsų dokumento nuotrauka",
+    "title": "Patikrinkite savo atvaizdą"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Nuskaitomas dokumentas",
+    "instructions_title_back": "Pasirūpinkite, kad dokumento galinė pusė būtų rėmelyje",
+    "instructions_title_front": "Pasirūpinkite, kad dokumento priekinė pusė būtų rėmelyje"
+  },
+  "doc_select": {
+    "button_address_card": "Adreso kortelė",
+    "button_address_card_detail": "Priimamos laikinos ir nuolatinės kortelės",
+    "button_bank_statement": "Banko arba būstų savininkų bendrijos išrašas",
+    "button_bank_statement_non_uk": "Banko išrašas",
+    "button_benefits_letter": "Pažyma apie išmokas",
+    "button_benefits_letter_detail": "Vyriausybės patvirtintos išmokos namų ūkiui, pvz.: pašalpa darbo ieškančiajam, būsto pašalpa, mokesčių kreditai",
+    "button_bill": "Sąskaita už komunalines paslaugas",
+    "button_bill_detail": "Dujos, elektra, vanduo, fiksuotasis ryšys arba plačiajuostis ryšys",
+    "button_government_letter": "Vyriausybės raštas",
+    "button_government_letter_detail": "Bet koks vyriausybės išduotas raštas, pvz. Teisė gauti išmokas, balsavimo lapeliai, mokesčių raštai ir kt.",
+    "button_id": "Asmens tapatybės kortelė",
+    "button_id_detail": "Priekinė ir galinė pusė",
+    "button_license": "Vairuotojo pažymėjimas",
+    "button_license_detail": "Priekinė ir galinė pusė",
+    "button_passport": "Pasas",
+    "button_passport_detail": "Nuotraukos puslapis",
+    "button_permit": "Leidimas gyventi",
+    "button_permit_detail": "Priekinė ir galinė pusė",
+    "button_tax_letter": "Tarybos mokestinis raštas",
+    "extra_estatements_ok": "el. išrašai yra tinkami",
+    "extra_no_mobile": "Atsiprašome, jokių sąskaitų už mobilųjį telefoną",
+    "list_accessibility": "Dokumentai, kuriuos galite naudoti savo tapatybei patvirtinti",
+    "pill": "greičiausias",
+    "section": {
+      "header_country": "Išdavusi šalis",
+      "header_doc_type": "Priimtini dokumentai",
+      "input_country_not_found": "Nėra rezultatų",
+      "input_placeholder_country": "Pasirinkite išdavusią šalį"
+    },
+    "subtitle": "Tai turi būti oficialus asmens tapatybės dokumentas su nuotrauka",
+    "subtitle_country": "Pasirinkite išdavusią šalį, kad pamatytumėte, kuriuos dokumentus priimame",
+    "subtitle_entire_page": "Visas puslapį",
+    "subtitle_front_back": "Priekinė ir galinė pusė",
+    "subtitle_photo_page": "Nuotraukos puslapis",
+    "subtitle_poa": "Štai dokumentai, kuriuose labiausiai tikėtas jūsų namų adreso buvimas",
+    "title": "Pasirinkite dokumentą",
+    "title_poa": "Pasirinkite %{country} dokumentą"
+  },
+  "doc_submit": {
+    "button_link_upload": "arba įkelkite nuotrauką – jokių skenuotų ar atšviestų",
+    "button_primary": "Tęsti telefonu",
+    "subtitle": "Fotografuokite telefonu",
+    "title_bank_statement": "Pateikti išrašą",
+    "title_benefits_letter": "Pateikti laišką",
+    "title_bill": "Pateikti sąskaitą",
+    "title_government_letter": "Vyriausybės raštas",
+    "title_id_back": "Pateikite asmens tapatybės kortelę (galinę pusę)",
+    "title_id_front": "Pateikite asmens tapatybės kortelę (priekinę pusę)",
+    "title_license_back": "Pateikti pažymėjimą (galinę pusę)",
+    "title_license_front": "Pateikti pažymėjimą (priekinę pusę)",
+    "title_passport": "Pateikti paso nuotraukos puslapį",
+    "title_permit_back": "Pateikti leidimą gyventi (galinę pusę)",
+    "title_permit_front": "Pateikti leidimą gyventi (priekinę pusę)",
+    "title_tax_letter": "Pateikti laišką"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Kitas žingsnis",
+    "button_primary_fallback_end": "Baigti įrašymą",
+    "detail_step2": "Dokumentas visada turi būti pilnai matomas",
+    "header": "Laikydami dokumentą, laikykite priekinę jo pusę rėmelyje",
+    "header_paper_doc_step2": "Lėtai apverskite dokumentą, kad būtų matomi išoriniai puslapiai",
+    "header_passport": "Laikydami pasą, nuotraukos puslapį išlaikykite rėmelyje",
+    "header_passport_progress": "Laikykite nejudindami",
+    "header_step1": "Dabar nejudėkite",
+    "header_step2": "Lėtai apverskite dokumentą, kad būtų matoma galinė pusė",
+    "prompt": {
+      "detail_timeout": "Vaizdo įrašymas ribojamas iki <timeout></timeout> sek. <fallback>Pradėkite iš naujo</fallback>"
+    },
+    "stepper": "​<step>​​</step>​ veiksmas iš ​<total>​​</total>​",
+    "success_accessibility": "Sėkmingai atlikta"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Peržiūrėti vaizdo įrašą",
+    "title": "Peržiūrėkite vaizdo įrašą"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Iš naujo pradėkite procesą naudodami naujausią „Google Chrome“ versiją",
+    "subtitle_ios": "Iš naujo pradėkite procesą naudodami naujausią „Safari“ versiją",
+    "title_android": "Nepalaikoma naršyklė",
+    "title_ios": "Nepalaikoma naršyklė"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Uždaryti tapatybės patvirtinimo ekraną",
+      "dismiss_alert": "Pašalinti įspėjimą"
+    },
+    "back": "atgal",
+    "close": "uždaryti",
+    "errors": {
+      "expired_token": {
+        "instruction": "Bandykite dar kartą",
+        "message": "Jūsų atpažinimo ženklas nebegalioja"
+      },
+      "expired_trial": {
+        "instruction": "Pasiekėte leidžiamų bandymų ribą",
+        "message": "Jūsų bandymo laikas baigėsi"
+      },
+      "geoblocked_error": {
+        "instruction": "Atsiprašome, atrodo, kad negalime tęsti, nes jūsų dabartinė vieta nepalaikoma",
+        "message": "Paslauga nepasiekiama"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Pradėkite procesą iš naujo kitame įrenginyje",
+        "message": "Kamera neaptikta"
+      },
+      "invalid_size": {
+        "instruction": "Turi būti mažiau nei 10 MB.",
+        "message": "Viršytas failo dydis."
+      },
+      "invalid_type": {
+        "instruction": "Bandykite naudoti kitą failo tipą.",
+        "message": "Failas neįkeltas."
+      },
+      "lazy_loading": {
+        "message": "Įkeliant komponentą įvyko klaida"
+      },
+      "multiple_faces": {
+        "instruction": "Asmenukėje gali būti tik jūsų veidas",
+        "message": "Aptikti keli veidai"
+      },
+      "no_face": {
+        "instruction": "Įsitikinkite, kad jūsų veidas matomas",
+        "message": "Veidas neaptiktas"
+      },
+      "request_error": {
+        "instruction": "Bandykite dar kartą",
+        "message": "Kažkas negerai"
+      },
+      "sms_failed": {
+        "instruction": "Nukopijuokite nuorodą į savo telefoną",
+        "message": "Kažkas negerai"
+      },
+      "sms_overuse": {
+        "instruction": "Nukopijuokite nuorodą į savo telefoną",
+        "message": "Pernelyg daug nesėkmingų bandymų"
+      },
+      "unsupported_file": {
+        "instruction": "Bandykite naudoti JPG arba PNG failą",
+        "message": "Nepalaikomas failo tipas"
+      }
+    },
+    "lazy_load_placeholder": "Įkeliama...",
+    "loading": "Įkeliama"
+  },
+  "get_link": {
+    "alert_wrong_number": "Patikrinkite, ar jūsų numeris teisingas",
+    "button_copied": "Nukopijuota",
+    "button_copy": "Kopijuoti",
+    "button_submit": "Siųsti nuorodą",
+    "info_qr_how": "Kaip nuskaityti QR kodą",
+    "info_qr_how_list_item_camera": "Nukreipkite telefono kamerą į QR kodą",
+    "info_qr_how_list_item_download": "Jei tai nepadeda, atsisiųskite QR kodų skaitytuvą iš „Google Play“ arba „App Store“",
+    "link_divider": "arba pasirinkti kitą būdą",
+    "link_qr": "Nuskaityti QR kodą",
+    "link_sms": "Gauti nuorodą SMS žinute",
+    "link_url": "Kopijuoti nuorodą",
+    "loader_sending": "Siunčiama",
+    "number_field_input_placeholder": "Įveskite mobiliojo telefono numerį",
+    "number_field_label": "Įveskite savo mobiliojo telefono numerį:",
+    "subtitle_qr": "Nuskaitykite QR kodą telefonu",
+    "subtitle_sms": "Siųsti šią vienkartinę nuorodą į telefoną",
+    "subtitle_url": "Siųsti šią vienkartinę nuorodą į telefoną",
+    "title": "Gaukite saugią nuorodą",
+    "url_field_label": "Nukopijuokite nuorodą į savo naršyklę mobiliesiems"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Įkelti nurodymus iš naujo",
+    "intro_note_no1": "Pirmiausia pasirūpinkite, kad jūsų veidas būtų rėmelyje",
+    "intro_note_no2": "Tada lėtai pasukite galvą į abi puses",
+    "intro_ready_button": "Atminkite, kad įrašysime jūsų veidą ir esamą aplinką",
+    "intro_subtitle": "Taip patvirtinsite, kad esate tikras asmuo",
+    "intro_warning": "Atminkite, kad įrašysime jūsų veidą ir esamą aplinką",
+    "success_main_button": "Pateikti patvirtinimą",
+    "success_title": "Tai viskas, ko mums reikia, kad galėtume pradėti tikrinti jūsų tapatybę"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Nufotografuokite galinę kortelės pusę",
+      "body_id_front": "Nufotografuokite priekinę kortelės pusę",
+      "body_license_back": "Nufotografuokite galinę pažymėjimo pusę",
+      "body_license_front": "Nufotografuokite priekinę pažymėjimo pusę",
+      "body_passport": "Nufotografuokite paso nuotraukos puslapį",
+      "body_selfie": "Padarykite asmenukę, kurioje matyti jūsų veidas"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Fotografuokite naudodami <fallback>pagrindinį kameros režimą</fallback>"
+        },
+        "camera_not_working": {
+          "detail": "Fotografuokite naudodami <fallback>pagrindinį kameros režimą</fallback>"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Fotografuoti",
+      "title": "Paso nuotraukos puslapis"
+    }
+  },
+  "outro": {
+    "body": "Tai viskas, ko mums reikia, kad galėtume pradėti tikrinti jūsų tapatybę",
+    "body_government_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
+    "title": "Dėkojame jums"
+  },
+  "permission": {
+    "body_both": "Negalime jūsų patvirtinti, jei kamera ir mikrofonas nenaudojami kartu",
+    "body_cam": "Negalime jūsų patvirtinti be jūsų kameros",
+    "button_primary_both": "Įjungti abu",
+    "button_primary_cam": "Įjungti kamerą",
+    "subtitle_both": "Kai būsite paraginti, turėsite įgalinti prieigą abiems, kad galėtumėte tęsti",
+    "subtitle_cam": "Kai būsite paraginti, turite įjungti prieigą prie kameros, kad galėtumėte tęsti",
+    "title_both": "Leisti prieigą prie kameros ir mikrofono",
+    "title_cam": "Leisti prieigą prie kameros"
+  },
+  "permission_recovery": {
+    "button_primary": "Atnaujinti",
+    "info": "Atkūrimas",
+    "list_header_both": "Atlikite šiuos veiksmus, kad atkurtumėte prieigą prie abiejų:",
+    "list_header_cam": "Norėdami atkurti prieigą prie kameros, atlikite šiuos veiksmus:",
+    "list_item_action_cam": "Atnaujinkite šį puslapį, kad iš naujo pradėtumėte tapatybės patvirtinimo procesą",
+    "list_item_how_to_both": "Suteikite prieigą prie fotoaparato ir mikrofono naudodami naršyklės nustatymus",
+    "list_item_how_to_cam": "Suteikite prieigą prie kameros naudodami naršyklės nustatymus",
+    "subtitle_both": "Atkurkite prieigą prie kameros ir mikrofono, kad galėtumėte padaryti vaizdo įrašą ir užbaigti patvirtinimo procesą",
+    "subtitle_cam": "Atkurkite prieigą prie fotoaparato ir tęskite patvirtinimą",
+    "subtitle_cam_old": "Atkurkite prieigą prie kameros, kad galėtumėte tęsti veido patikrinimą",
+    "title_both": "Kameros ir mikrofono prieiga uždrausta",
+    "title_cam": "Prieiga prie kameros uždrausta"
+  },
+  "photo_upload": {
+    "body_bank_statement": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
+    "body_benefits_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
+    "body_bill": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
+    "body_id_back": "Įkelkite galinę kortelės pusę iš kompiuterio",
+    "body_id_front": "Įkelkite priekinę kortelės pusę iš kompiuterio",
+    "body_license_back": "Įkelkite galinę pažymėjimo pusę iš kompiuterio",
+    "body_license_front": "Įkelkite priekinę pažymėjimo pusę iš kompiuterio",
+    "body_passport": "Įkelti iš kompiuterio paso nuotraukos puslapį",
+    "body_selfie": "Įkelkite asmenukę iš kompiuterio",
+    "body_tax_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
+    "button_take_photo": "Fotografuoti",
+    "button_upload": "Įkelti",
+    "title_selfie": "Asmenukė"
+  },
+  "poa_cancel": "Atšaukti",
+  "poa_err_invalid_file": {
+    "message": "Pasirinkite kitą failą.",
+    "ok": "Gerai",
+    "title": "Netinkamas failas"
+  },
+  "poa_guidance": {
+    "button_primary": "Tęsti",
+    "instructions": {
+      "address": "Dabartinis adresas",
+      "full_name": "Vardas ir pavardė",
+      "issue_date": "Išdavimo data arba suvestinis laikotarpis",
+      "label": "Užfiksuokite visą dokumentą ir įsitikinkite, kad jame aiškiai nurodyta:",
+      "logo": "Logotipas"
+    },
+    "instructions_address_card_issue_date": "Išdavimo data",
+    "instructions_expiry_date": "Galiojimo terminas (jei taikoma)",
+    "instructions_full_address": "Pilnas adresas",
+    "subtitle_address_card": "Turi būti galiojanti adreso kortelė",
+    "subtitle_bank_statement": "Turi būti išduotas per ​​pastaruosius 3 mėnesius​​",
+    "subtitle_benefits_letter": "Turi būti išduotas per ​​pastaruosius 12 mėnesių​​",
+    "subtitle_bill": "Turi būti išduota per ​​pastaruosius 3 mėnesius​​",
+    "subtitle_tax_letter": "Turi būti išduotas per ​​pastaruosius 12 mėnesių​​"
+  },
+  "poa_intro": {
+    "button_primary": "Pradėti patvirtinimą",
+    "list_matches_signup": "atitinka adresą, kurį naudojate registruodamiesi;",
+    "list_most_recent": "yra jūsų ​​naujausias​​ dokumentas.",
+    "list_shows_address": "rodo jūsų ​​dabartinį​​ adresą;",
+    "subtitle": "Jums reikės dokumento, kuris:",
+    "title": "Patvirtinkite savo adresą"
+  },
+  "profile_data": {
+    "address_title": "Pridėkite savo adresą",
+    "button_continue": "Tęsti",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Pasirinkti šalį"
+      },
+      "country_select": {
+        "placeholder": "Pasirinkti šalį"
+      },
+      "nationality_select": {
+        "placeholder": "Pasirinkti šalį"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Pasirinkti apskritį"
+      }
+    },
+    "country_of_residence_title": "Gyvenamoji šalis",
+    "field_labels": {
+      "country": "Šalis",
+      "country_residence": "Šalis",
+      "dob": "Gimimo data",
+      "email": "El. paštas",
+      "first_name": "Vardas",
+      "gbr_specific": {
+        "postcode": "Pašto kodas",
+        "town": "Miestas"
+      },
+      "ind_specific": {
+        "pan": "Nuolatinis sąskaitos numeris (PAN)"
+      },
+      "last_name": "Pavardė",
+      "line1": "1 adreso eilutė",
+      "line2": "2 adreso eilutė",
+      "line3": "3 adreso eilutė",
+      "mobile_number": "Mob. telefonas",
+      "nationality": "Tautybė",
+      "phone_number": "Telefono numeris",
+      "postcode": "Pašto kodas",
+      "town": "Miestas",
+      "usa_specific": {
+        "line1_helper_text": "Gatvės adresas, pavyzdžiui: 200 Albert Street",
+        "line2_helper_text": "Butas ir pan.",
+        "postcode": "Pašto kodas",
+        "ssn": "Socialinio draudimo numeris (SSN)",
+        "state": "Apskritis"
+      }
+    },
+    "field_optional": "(neprivaloma)",
+    "field_validation": {
+      "gbr_specific": {
+        "invalid_postcode": "Įveskite galiojantį pašto kodą",
+        "required_postcode": "Įveskite savo pašto kodą",
+        "too_long_postcode": "Pašto kodas per ilgas",
+        "too_short_postcode": "Pašto kodas per trumpas"
+      },
+      "ind_specific": {
+        "invalid_pan": "Įveskite galiojantį PAN",
+        "required_pan": "Įveskite savo PAN"
+      },
+      "invalid": "Patikrinkite, ar nėra netinkamų simbolių",
+      "invalid_dob": "Įveskite teisingą gimimo datą",
+      "invalid_email": "Įveskite galiojantį el. pašto adresą",
+      "invalid_mobile_number": "Įveskite galiojantį mob. telefono numerį",
+      "invalid_phone_number": "Įveskite galiojantį telefono numerį",
+      "required_consent": "Sutikite autorizuoti tapatybės ir sukčiavimo patikrinimus",
+      "required_country": "Pasirinkite šalį",
+      "required_country_residence": "Pasirinkite šalį",
+      "required_dob": "Įrašykite savo gimimo datą",
+      "required_email": "Įveskite savo el. paštą",
+      "required_first_name": "Įrašykite savo vardą",
+      "required_last_name": "Įrašykite savo pavardę",
+      "required_line1": "Įrašykite savo adresą",
+      "required_mobile_number": "Įveskite savo mobiliojo telefono numerį",
+      "required_nationality": "Pasirinkite šalį",
+      "required_phone_number": "Įveskite savo telefono numerį",
+      "required_postcode": "Įrašykite savo pašto kodą",
+      "too_long_first_name": "Vardas per ilgas",
+      "too_long_last_name": "Pavardė per ilga",
+      "too_long_line1": "Adreso eilutė per ilga",
+      "too_long_postcode": "Pašto kodas per ilgas",
+      "too_long_town": "Miesto pavadinimas per ilgas",
+      "too_short_first_name": "Vardas per trumpas",
+      "too_short_last_name": "Pavardė per trumpa",
+      "too_short_postcode": "Pašto kodas per trumpas",
+      "usa_specific": {
+        "invalid_ssn": "Įveskite galiojantį SSN",
+        "required_ssn": "Įveskite savo SSN",
+        "required_state": "Pasirinkite apskritį"
+      }
+    },
+    "personal_information_title": "Pridėkite savo asmeninę informaciją",
+    "prompt": {
+      "details_timeout": "Pradėti iš naujo",
+      "header_timeout": "Atrodo, kad užtrukote per ilgai"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Bandyti dar kartą"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Bandykite dar kartą naudodami galiojantį asmens tapatybės dokumentą su nuotrauka ir įsitikinkite, kad jūsų informacija aiškiai matoma",
+    "title": "Jūsų dokumentas nebegalioja"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Bandykite dar kartą naudodami galiojantį asmens tapatybės dokumentą su nuotrauka ir įsitikinkite, kad jūsų informacija aiškiai matoma",
+    "title": "Iškilo su jūsų dokumentu susijusi problema"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Bandykite dar kartą naudodami galiojantį asmens tapatybės dokumentą su nuotrauka ir įsitikinkite, kad jūsų informacija aiškiai matoma",
+    "title": "Nepriimtinas dokumentas"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Bandykite dar kartą ir įsitikinkite, kad jūsų veidas matomas ir gerai apšviestas",
+    "title": "Iškilo problema dėl jūsų asmenukės"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Patikrinkite, ar ji prijungta ir veikia. Taip pat galite <fallback>tęsti patvirtinimą savo telefone</fallback>",
+        "detail_no_fallback": "Įsitikinkite, kad jūsų įrenginyje yra veikianti kamera",
+        "title": "Kamera neveikia?"
+      },
+      "camera_not_working": {
+        "detail": "Ji gali būti atjungta. <fallback>Bandykite naudoti telefoną</fallback>.",
+        "detail_no_fallback": "Įsitikinkite, kad jūsų įrenginio kamera veikia",
+        "title": "Kamera neveikia"
+      },
+      "timeout": {
+        "detail": "Kai baigsite, nepamirškite paspausti mygtuko. <fallback>Pakartoti vaizdo įrašo veiksmus</fallback>",
+        "title": "Atrodo, kad užtrukote per ilgai"
+      }
+    },
+    "body": "Laikykite veidą ovale",
+    "button_accessibility": "Fotografuoti",
+    "button_primary": "Pradėti veido nuskaitymą",
+    "frame_accessibility": "Vaizdas iš kameros",
+    "title": "Laikykite veidą ovale"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Jūsų veido nuotrauka",
+    "subtitle": "Įsitikinkite, kad matomas visas jūsų veidas",
+    "title": "Patikrinkite asmenukę"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "Šio proceso metu bus užfiksuotas jūsų veidas ir fonas",
+    "button_primary": "Tęsti",
+    "list_accessibility": "Patarimai, kaip padaryti gerą asmenukę",
+    "list_item_face_forward": "Atsisukite veidu į priekį ir įsitikinkite, kad jūsų akys aiškiai matomos",
+    "list_item_no_face_cover": "Pašalinkite viską, kas dengia veidą. Galima būti su akiniais",
+    "list_item_no_glasses": "Jei reikia, nusiimkite akinius",
+    "subtitle": "Palyginsime tai su jūsų dokumentu",
+    "title": "Padarykite asmenukę"
+  },
+  "sms_sent": {
+    "info": "Patarimai",
+    "info_link_expire": "Jūsų nuoroda baigs galioti po valandos",
+    "info_link_window": "Laikykite šį langą atidarytą, kai naudojate mobilųjį telefoną",
+    "link": "Siųsti nuorodą iš naujo",
+    "subtitle": "Išsiuntėme saugią nuorodą numeriu %{number}",
+    "subtitle_minutes": "Gali užtrukti kelias minutes, kol pamatysite",
+    "title": "Patikrinkite savo mobilųjį telefoną"
+  },
+  "switch_phone": {
+    "info": "Patarimai",
+    "info_link_expire": "Jūsų nuoroda mobiliesiems baigs galioti po valandos",
+    "info_link_refresh": "Neatnaujinkite šio puslapio",
+    "info_link_window": "Laikykite šį langą atidarytą, kai naudojate mobilųjį telefoną",
+    "link": "Atšaukti",
+    "subtitle": "Kai baigsite, pereisime prie kito veiksmo",
+    "title": "Prisijungta prie jūsų mobiliojo telefono"
+  },
+  "upload_guide": {
+    "button_primary": "Įkelti nuotrauką",
+    "image_detail_blur_alt": "Neryškaus dokumento pavyzdys",
+    "image_detail_blur_label": "Visos detalės turi būti aiškios – jokių neryškumų",
+    "image_detail_cutoff_label": "Rodyti visas detales – įskaitant 2 apatines eilutes",
+    "image_detail_glare_label": "Pasitraukite nuo tiesioginės šviesos – neturi būti atspindžių",
+    "image_detail_good_label": "Nuotraukoje turi būti aiškiai matomas jūsų dokumentas",
+    "subtitle": "Skenuoti vaizdai ir fotokopijos netinka",
+    "title": "Įkelti paso nuotraukos puslapį"
+  },
+  "user_consent": {
+    "button_primary": "Sutinku",
+    "button_secondary": "Nesutinku",
+    "prompt": {
+      "button_primary": "Peržiūrėti dar kartą",
+      "button_secondary": "Taip, nepatvirtinkite manęs",
+      "no_consent_detail": "Jei nesutinkate su „Onfido“ privatumo patvirtinimais ir paslaugų teikimo sąlygomis, negalėsime patvirtinti jūsų tapatybės ir jūs išeisite iš šio etapo.",
+      "no_consent_title": "Ar tikrai?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Įkelti ekraną iš naujo",
+    "detail": "Patikrinkite, ar ryšys stabilus, tada bandykite dar kartą",
+    "title": "Nepavyko įkelti turinio"
+  },
+  "video_capture": {
+    "body": "Laikykite veidą ovale",
+    "body_record": "Kai būsite pasiruošę, paspauskite mygtuką",
+    "body_stop": "Baigę paspauskite stabdyti",
+    "button_primary_finish": "Baigti įrašymą",
+    "button_primary_next": "Kitas žingsnis",
+    "button_primary_start": "Pradėti įrašymą",
+    "button_record_accessibility": "Pradėti įrašymą",
+    "frame_accessibility": "Vaizdas iš kameros",
+    "header": {
+      "challenge_digit_instructions": "Ištarkite kiekvieną skaitmenį garsiai",
+      "challenge_turn_forward": "tada atsisukite veidu į priekį",
+      "challenge_turn_left": "Pasukite galvą į kairę",
+      "challenge_turn_right": "Pasukite galvą į dešinę"
+    },
+    "prompt": {
+      "header_timeout": "Atrodo, kad užtrukote per ilgai"
+    }
+  },
+  "video_confirmation": {
+    "body": "Jūsų vaizdo įrašas padarytas",
+    "button_primary": "Įkelti vaizdo įrašą",
+    "button_secondary": "Pakartotinai padaryti vaizdo įrašą",
+    "title": "Peržiūrėkite vaizdo įrašą",
+    "video_accessibility": "Iš naujo paleisti padarytą vaizdo įrašą"
+  },
+  "video_intro": {
+    "button_primary": "Padaryti vaizdo įrašą",
+    "list_accessibility": "Veiksmai asmenukės vaizdo įrašui padaryti",
+    "list_item_actions": "Turite užbaigti per 20 sekundžių",
+    "list_item_speak": "Vadovaukitės nurodymais, kaip judėti ar kalbėti",
+    "title": "Padaryti vaizdo įrašą"
+  },
+  "welcome": {
+    "doc_video_subtitle": "Tai turėtų užtrukti kelias minutes",
+    "list_header_doc_video": "Naudodamiesi įrenginiu įrašykite:",
+    "list_header_webcam": "Fotografuokite naudodami internetinę kamerą arba telefoną:",
+    "list_item_doc": "jūsų asmens tapatybės dokumentas",
+    "list_item_doc_video_timeout": "Įrašymo trukmė ribojama iki ​<timeout>​​</timeout>​ sek.",
+    "list_item_poa": "adreso patvirtinimas",
+    "list_item_selfie": "jūsų veidas",
+    "next_button": "Pasirinkite dokumentą",
+    "start_workflow_button": "Pradėti patvirtinimą",
+    "start_workflow_button_trial": "Pradėti patikrinimą (TEST)",
+    "subtitle": "Tai turėtų užtrukti kelias minutes",
+    "title": "Patvirtinkite savo tapatybę",
+    "trial_message": "Čia nesidalykite asmens duomenimis, nebent dalyvaujate „Onfido“ bandyme."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Patvirtinome jūsų tapatybę",
+      "title": "Išlaikyta"
+    },
+    "reject": {
+      "description": "Nepavyko patvirtinti jūsų tapatybės",
+      "title": "Atmesta"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "Įvyko serverio klaida!",
+    "no_workflow_run_id": "Nenustatytas darbo eigos vykdymo ID.",
+    "reload_app": "Bandykite iš naujo įkelti programėlę, po to bandykite dar kartą.",
+    "task_not_completed": "Nepavyko užbaigti darbo eigos užduoties.",
+    "task_not_retrieved": "Nepavyko nuskaityti darbo eigos užduoties.",
+    "task_not_supported": "Užduotis šiuo metu nepalaikoma"
+  }
+}

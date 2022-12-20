@@ -1,0 +1,732 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "上传录制内容",
+    "subtitle": "您的面部视频已成功录制",
+    "title": "录制完成"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "重新加载说明",
+    "button_primary_retry_upload": "重试上传",
+    "button_secondary_restart_recording": "重新开始录制",
+    "subtitle": "请检查连接是否稳定，然后重试",
+    "title": "连接错误"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "退后",
+    "feedback_move_closer": "靠近",
+    "feedback_no_face_detected": "未检测到面部",
+    "feedback_not_centered": "面部未居中",
+    "title": "将面部移入框中"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "timeout_body": "您有最多15秒的时间完成录制",
+      "timeout_button_primary": "重试",
+      "timeout_title": "对不起，我们必须重新开始录制",
+      "too_fast_body": "请重试，慢慢转动头部",
+      "too_fast_button_primary": "重试",
+      "too_fast_title": "您转头的速度太快了"
+    },
+    "title": "慢慢地将头转向两侧",
+    "title_completed": "录制完成"
+  },
+  "avc_intro": {
+    "button_primary_ready": "我准备好了",
+    "disclaimer": "请注意，我们会录制您的面部和背景",
+    "list_item_one": "首先，将面部移入框中",
+    "list_item_two": "然后，慢慢地将头转向两侧",
+    "subtitle": "这是为了验证您的真实身份",
+    "title": "录制视频"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "重新开始录制",
+    "list_item_eyes": "确保您的双眼清晰可见",
+    "list_item_face": "请务必只展示您的面部，我们不需要看到您的身份证",
+    "list_item_lighting": "请务必在光线充足的地方",
+    "list_item_mask": "请务必取下遮盖面部的口罩或其他物品。可以戴眼镜",
+    "title": "我们无法检测到您的面部"
+  },
+  "avc_uploading": {
+    "title": "正在上传"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "目前不支持该国家/地区的证明文件—<fallback>请尝试另一个证明文件类型</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "未找到国家/地区"
+    },
+    "button_primary": "提交证明文件",
+    "poa_alert": {
+      "country_not_found": "对此深感抱歉。我们正在努力支持更多的国家/地区。",
+      "intro": "找不到您的国家/地区？"
+    },
+    "search": {
+      "accessibility": "选择国家/地区",
+      "input_placeholder": "例如：美国",
+      "label": "搜索国家/地区"
+    },
+    "title": "选择签发国家/地区"
+  },
+  "cross_device_checklist": {
+    "button_primary": "提交验证",
+    "info": "小贴士",
+    "list_item_doc_multiple": "证明文件",
+    "list_item_doc_one": "证明文件",
+    "list_item_poa": "地址证明",
+    "list_item_selfie": "自拍",
+    "list_item_video": "视频",
+    "subtitle": "以下是您上传的所有内容：",
+    "title": "最后一步"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "链接仅适用于移动设备",
+    "title": "出了点问题"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "您需要在计算机上重新启动验证",
+    "title": "出了点问题"
+  },
+  "cross_device_intro": {
+    "button_primary": "获取安全链接",
+    "list_accessibility": "继续在手机上进行验证所需的步骤",
+    "list_item_finish": "返回此处检查以完成提交",
+    "list_item_open_link": "打开链接并完成任务",
+    "list_item_send_phone": "向手机发送安全链接",
+    "subtitle": "请按如下步骤操作：",
+    "title": "在手机上继续"
+  },
+  "cross_device_return": {
+    "body": "计算机可能需要几秒钟才能更新",
+    "subtitle": "您现在可以返回计算机以继续",
+    "title": "上传成功"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "继续",
+    "info": "复核",
+    "list_item_desktop_open": "您的桌面窗口仍处于打开状态",
+    "list_item_sent_by_you": "此链接由您发送；如果您认为这可能是诈骗链接，请寻求建议",
+    "subtitle": "继续验证",
+    "title": "链接到您计算机的手机会话"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "拍照",
+    "footer": {
+      "captured": "已拍摄照片",
+      "capturing": "正在拍摄照片",
+      "manual_fallback_identity_card_back": "拍摄您身份证背面的照片",
+      "manual_fallback_identity_card_front": "拍摄您身份证正面的照片",
+      "manual_fallback_license_back": "拍摄您驾照背面的照片",
+      "manual_fallback_license_front": "拍摄您驾照正面的照片",
+      "manual_fallback_passport": "拍摄您护照照片页的照片",
+      "manual_fallback_residence_permit_back": "拍摄您居留证背面的照片",
+      "manual_fallback_residence_permit_front": "拍摄您居留证正面的照片",
+      "position_identity_card_back": "将您的身份证背面放在框中",
+      "position_identity_card_front": "将您的身份证正面放在框中",
+      "position_license_back": "将驾照背面放在框中",
+      "position_license_front": "将驾照正面放在框中",
+      "position_passport": "将护照照片页放在框中",
+      "position_residence_permit_back": "将居留证背面放在框中",
+      "position_residence_permit_front": "将居留证正面放在框中"
+    },
+    "frame": {
+      "flip_document": "翻转到背面",
+      "hold_still": "保持不动",
+      "no_document": "未检测到证明文件"
+    }
+  },
+  "doc_capture": {
+    "button_primary": "开始证明文件扫描",
+    "detail": {
+      "folded_doc_front": "平放您的证明文件，包括所有内页（必须包含您的照片）"
+    },
+    "header_folded_doc_front": "资料照片一面",
+    "prompt": {
+      "button_card": "塑料身份证",
+      "button_paper": "纸质证明文件",
+      "title_id": "您持有哪种类型的身份证？",
+      "title_license": "您持有哪种类型的驾照？"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "请确保一切都清晰",
+      "blur_title": "检测到模糊照片",
+      "crop_detail": "确保证明文件完整可见",
+      "crop_title": "检测到经裁剪的图像",
+      "glare_detail": "请远离直射光线",
+      "glare_title": "检测到眩光",
+      "no_doc_detail": "请确保其完全在框中",
+      "no_doc_title": "未检测到证明文件"
+    },
+    "body": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
+    "body_bank_statement": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
+    "body_benefits_letter": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
+    "body_bill": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
+    "body_id": "请确保您的细节清晰且未受遮挡",
+    "body_image_medium": "如果我们无法分辨，则需要更长时间才能完成验证",
+    "body_image_poor": "为了顺利验证您的身份，我们需要一张更好的照片",
+    "body_license": "请确保您的细节清晰且未受遮挡",
+    "body_passport": "请确保您的细节清晰且未受遮挡",
+    "body_permit": "请确保您的细节清晰且未受遮挡",
+    "body_tax_letter": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
+    "button_close": "关闭",
+    "button_primary_redo": "重做",
+    "button_primary_upload": "上传",
+    "button_primary_upload_anyway": "仍然上传",
+    "button_secondary_redo": "重做",
+    "button_zoom": "放大图像",
+    "image_accessibility": "您的证明文件照片",
+    "title": "查看您的图像"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "正在扫描证明文件",
+    "instructions_title_back": "将证明文件背面放在框中",
+    "instructions_title_front": "将证明文件正面放在框中"
+  },
+  "doc_select": {
+    "button_address_card": "含地址身份证",
+    "button_address_card_detail": "接受临时和永久身份证",
+    "button_bank_statement": "银行或房屋互助协会对账单",
+    "button_bank_statement_non_uk": "银行对账单",
+    "button_benefits_letter": "福利函",
+    "button_benefits_letter_detail": "政府批准的家庭福利，例如求职者津贴、住房福利、税收抵免",
+    "button_bill": "水电费账单",
+    "button_bill_detail": "煤气、水电、固话或宽带账单",
+    "button_government_letter": "政府信函",
+    "button_government_letter_detail": "政府签发的任何信函，例如：应享福利、投票函、税务函等",
+    "button_id": "身份证",
+    "button_id_detail": "正面和背面",
+    "button_license": "驾照",
+    "button_license_detail": "正面和背面",
+    "button_passport": "护照",
+    "button_passport_detail": "照片页",
+    "button_permit": "居留证",
+    "button_permit_detail": "正面和背面",
+    "button_tax_letter": "市政税务函",
+    "extra_estatements_ok": "已接受电子对账单",
+    "extra_no_mobile": "抱歉，不可以是移动话费账单",
+    "list_accessibility": "可用于验证身份的证明文件",
+    "pill": "最快",
+    "section": {
+      "header_country": "签发国家/地区",
+      "header_doc_type": "可接受的证明文件",
+      "input_country_not_found": "没有结果",
+      "input_placeholder_country": "选择签发国家/地区"
+    },
+    "subtitle": "必须是带照片的正式身份证件",
+    "subtitle_country": "选择签发国家/地区以查看我们接受的证明文件",
+    "subtitle_entire_page": "整个页面",
+    "subtitle_front_back": "正面和背面",
+    "subtitle_photo_page": "照片页",
+    "subtitle_poa": "这些证明文件最有可能显示您当前的家庭地址",
+    "title": "选择您的证明文件",
+    "title_poa": "选择%{country}证明文件"
+  },
+  "doc_submit": {
+    "button_link_upload": "或者上传照片 – 不能是扫描件或复印件",
+    "button_primary": "在手机上继续",
+    "subtitle": "用手机拍照",
+    "title_bank_statement": "提交对账单",
+    "title_benefits_letter": "提交信函",
+    "title_bill": "提交账单",
+    "title_government_letter": "政府信函",
+    "title_id_back": "提交身份证（背面）",
+    "title_id_front": "提交身份证（正面）",
+    "title_license_back": "提交驾照（背面）",
+    "title_license_front": "提交驾照（正面）",
+    "title_passport": "提交护照照片页面",
+    "title_permit_back": "提交居留证（背面）",
+    "title_permit_front": "提交居留证（正面）",
+    "title_tax_letter": "提交信函"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "下一步",
+    "button_primary_fallback_end": "完成录制",
+    "detail_step2": "始终保持证明文件的完整视图",
+    "header": "手持证明文件时，请使正面始终保持在框中",
+    "header_paper_doc_step2": "慢慢翻转证明文件以显示外部页面",
+    "header_passport": "手持护照时，请使照片页保持在框中",
+    "header_passport_progress": "保持不动",
+    "header_step1": "现在，保持不动",
+    "header_step2": "慢慢翻转证明文件以显示背面",
+    "prompt": {
+      "detail_timeout": "视频录制限制为​<timeout>​​</timeout>​秒。​<fallback>​请重新开始​</fallback>"
+    },
+    "stepper": "第​<step>​​</step>​步，共​<total>​​</total>​步",
+    "success_accessibility": "成功"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "预览视频",
+    "title": "查看您的视频"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "请在最新版本的Chrome浏览器上重新启动此流程",
+    "subtitle_ios": "请在最新版本的Safari上重新启动此流程",
+    "title_android": "浏览器不受支持",
+    "title_ios": "浏览器不受支持"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "关闭身份验证屏幕",
+      "dismiss_alert": "忽略警报"
+    },
+    "back": "返回",
+    "close": "关闭",
+    "errors": {
+      "expired_token": {
+        "instruction": "请重试",
+        "message": "您的令牌已过期"
+      },
+      "expired_trial": {
+        "instruction": "您已达到试用限制",
+        "message": "您的试用已到期"
+      },
+      "geoblocked_error": {
+        "instruction": "很抱歉，由于您当前的位置不受支持，我们无法继续操作",
+        "message": "服务不可用"
+      },
+      "interrupted_flow_error": {
+        "instruction": "在其他设备上重新启动流程",
+        "message": "未检测到相机"
+      },
+      "invalid_size": {
+        "instruction": "文件大小必须小于10MB。",
+        "message": "文件大小超出限制。"
+      },
+      "invalid_type": {
+        "instruction": "请尝试使用另一个文件类型。",
+        "message": "文件未上传。"
+      },
+      "lazy_loading": {
+        "message": "加载组件时出错"
+      },
+      "multiple_faces": {
+        "instruction": "在自拍照中只能出现您自己的面部",
+        "message": "找到多个面部"
+      },
+      "no_face": {
+        "instruction": "请确保您的面部可见",
+        "message": "未检测到面部"
+      },
+      "request_error": {
+        "instruction": "请重试",
+        "message": "出了点问题"
+      },
+      "sms_failed": {
+        "instruction": "将链接复制到您的手机",
+        "message": "出了点问题"
+      },
+      "sms_overuse": {
+        "instruction": "将链接复制到您的手机",
+        "message": "尝试失败的次数过多"
+      },
+      "unsupported_file": {
+        "instruction": "尝试使用JPG或PNG文件",
+        "message": "文件类型不受支持"
+      }
+    },
+    "lazy_load_placeholder": "正在加载……",
+    "loading": "正在加载"
+  },
+  "get_link": {
+    "alert_wrong_number": "请检查您的电话号码是否正确",
+    "button_copied": "已复制",
+    "button_copy": "复制",
+    "button_submit": "发送链接",
+    "info_qr_how": "如何扫描二维码",
+    "info_qr_how_list_item_camera": "将手机相机对准二维码",
+    "info_qr_how_list_item_download": "如果不行，请从Google Play或App Store下载二维码扫描工具",
+    "link_divider": "或选择其他方式",
+    "link_qr": "扫描二维码",
+    "link_sms": "通过短信获取链接",
+    "link_url": "复制链接",
+    "loader_sending": "正在发送",
+    "number_field_input_placeholder": "输入手机号码",
+    "number_field_label": "输入手机号码：",
+    "subtitle_qr": "使用手机扫描二维码",
+    "subtitle_sms": "将此一次性链接发送到手机",
+    "subtitle_url": "将此一次性链接发送到手机",
+    "title": "获取您的安全链接",
+    "url_field_label": "将链接复制到您的手机浏览器"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "重新加载说明",
+    "intro_note_no1": "首先，将面部移入框中",
+    "intro_note_no2": "然后，慢慢地将头转向两侧",
+    "intro_ready_button": "请注意，我们会录制您的面部和背景",
+    "intro_subtitle": "这是为了验证您的真实身份",
+    "intro_warning": "请注意，我们会录制您的面部和背景",
+    "success_main_button": "提交验证",
+    "success_title": "这就是我们开始验证您的身份所需的一切"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "拍摄您身份证背面的照片",
+      "body_id_front": "拍摄您身份证正面的照片",
+      "body_license_back": "拍摄您驾照背面的照片",
+      "body_license_front": "拍摄您驾照正面的照片",
+      "body_passport": "拍摄您护照照片页的照片",
+      "body_selfie": "自拍一张面部照片"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "请改用<fallback>基本相机模式</fallback>拍照"
+        },
+        "camera_not_working": {
+          "detail": "请改用<fallback>基本相机模式</fallback>拍照"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "拍照",
+      "title": "护照照片页面"
+    }
+  },
+  "outro": {
+    "body": "这就是我们开始验证您的身份所需的一切",
+    "body_government_letter": "提供整个证明文件页面以获得最佳结果",
+    "title": "谢谢"
+  },
+  "permission": {
+    "body_both": "如果不同时使用相机和麦克风，我们将无法验证您的身份",
+    "body_cam": "如果不使用相机，我们就无法验证您的身份",
+    "button_primary_both": "启用两者",
+    "button_primary_cam": "启用相机",
+    "subtitle_both": "出现提示时，您必须启用这两者的访问才能继续",
+    "subtitle_cam": "出现提示时，您必须启用相机访问才能继续",
+    "title_both": "允许相机和麦克风访问",
+    "title_cam": "允许相机访问"
+  },
+  "permission_recovery": {
+    "button_primary": "刷新",
+    "info": "恢复",
+    "list_header_both": "要恢复对这两者的访问，请按以下步骤操作：",
+    "list_header_cam": "要恢复相机访问，请按以下步骤操作：",
+    "list_item_action_cam": "刷新此页面，以重新启动身份验证流程",
+    "list_item_how_to_both": "通过浏览器设置授予对相机和麦克风的访问",
+    "list_item_how_to_cam": "通过浏览器设置授予对相机的访问",
+    "subtitle_both": "恢复相机和麦克风访问，以拍摄视频并完成验证流程",
+    "subtitle_cam": "恢复相机访问，以继续您的验证",
+    "subtitle_cam_old": "恢复相机访问，以继续面部验证",
+    "title_both": "相机和麦克风访问被拒绝",
+    "title_cam": "相机访问被拒绝"
+  },
+  "photo_upload": {
+    "body_bank_statement": "提供整个证明文件页面以获得最佳结果",
+    "body_benefits_letter": "提供整个证明文件页面以获得最佳结果",
+    "body_bill": "提供整个证明文件页面以获得最佳结果",
+    "body_id_back": "从计算机上传身份证背面",
+    "body_id_front": "从计算机上传身份证正面",
+    "body_license_back": "从计算机上传驾照背面",
+    "body_license_front": "从计算机上传驾照正面",
+    "body_passport": "从计算机上传护照照片页",
+    "body_selfie": "从计算机上传自拍照",
+    "body_tax_letter": "提供整个证明文件页面以获得最佳结果",
+    "button_take_photo": "拍照",
+    "button_upload": "上传",
+    "title_selfie": "自拍"
+  },
+  "poa_cancel": "取消",
+  "poa_err_invalid_file": {
+    "message": "请选择其他文件。",
+    "ok": "确定",
+    "title": "无效文件"
+  },
+  "poa_guidance": {
+    "button_primary": "继续",
+    "instructions": {
+      "address": "当前地址",
+      "full_name": "全名",
+      "issue_date": "签发日期或总计期间",
+      "label": "捕捉整个证明文件，使其清晰显示以下细节：",
+      "logo": "徽标"
+    },
+    "instructions_address_card_issue_date": "签发日期",
+    "instructions_expiry_date": "有效期（如适用）",
+    "instructions_full_address": "完整地址",
+    "subtitle_address_card": "必须是有效的含地址身份证",
+    "subtitle_bank_statement": "必须​​在过去3个月内​​签发",
+    "subtitle_benefits_letter": "必须​​在过去12个月内​​签发",
+    "subtitle_bill": "必须​​在过去3个月内​​签发",
+    "subtitle_tax_letter": "必须​​在过去12个月内​​签发"
+  },
+  "poa_intro": {
+    "button_primary": "开始验证",
+    "list_matches_signup": "与您在注册时使用的地址匹配",
+    "list_most_recent": "是您的​​最新​​证明文件",
+    "list_shows_address": "显示您的​​当前​​地址",
+    "subtitle": "您需要提供满足以下条件的证明文件：",
+    "title": "我们来验证您的地址"
+  },
+  "profile_data": {
+    "address_title": "添加您的地址",
+    "button_continue": "继续",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "选择国家/地区"
+      },
+      "country_select": {
+        "placeholder": "选择国家/地区"
+      },
+      "nationality_select": {
+        "placeholder": "选择国家/地区"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "选择州/省"
+      }
+    },
+    "country_of_residence_title": "您居住所在的国家/地区",
+    "field_labels": {
+      "country": "国家/地区",
+      "country_residence": "国家/地区",
+      "dob": "出生日期",
+      "email": "电子邮箱",
+      "first_name": "名",
+      "gbr_specific": {
+        "postcode": "邮编",
+        "town": "市/镇"
+      },
+      "ind_specific": {
+        "pan": "永久账号（PAN）"
+      },
+      "last_name": "姓",
+      "line1": "地址行1",
+      "line2": "地址行2",
+      "line3": "地址行3",
+      "mobile_number": "手机号码",
+      "nationality": "国籍",
+      "phone_number": "手机号码",
+      "postcode": "邮政编码",
+      "town": "镇",
+      "usa_specific": {
+        "line1_helper_text": "街道地址，例如：200 Albert Street",
+        "line2_helper_text": "公寓、套房、单元等",
+        "postcode": "邮政编码",
+        "ssn": "社保号码（SSN）",
+        "state": "州/省"
+      }
+    },
+    "field_optional": "（选填）",
+    "field_validation": {
+      "gbr_specific": {
+        "invalid_postcode": "请输入有效的邮编",
+        "required_postcode": "请输入您的邮编",
+        "too_long_postcode": "邮编太长",
+        "too_short_postcode": "邮编太短"
+      },
+      "ind_specific": {
+        "invalid_pan": "请输入有效的PAN",
+        "required_pan": "请输入您的PAN"
+      },
+      "invalid": "请检查是否有无效字符或符号",
+      "invalid_dob": "请输入有效的出生日期",
+      "invalid_email": "请输入有效的电子邮箱",
+      "invalid_mobile_number": "请输入有效的手机号码",
+      "invalid_phone_number": "请输入有效的电话号码",
+      "required_consent": "请同意授权身份和欺诈检查",
+      "required_country": "请选择一个国家/地区",
+      "required_country_residence": "请选择一个国家/地区",
+      "required_dob": "请输入您的出生日期",
+      "required_email": "请输入您的电子邮箱",
+      "required_first_name": "请输入您的名",
+      "required_last_name": "请输入您的姓",
+      "required_line1": "请输入您的地址",
+      "required_mobile_number": "请输入手机号码",
+      "required_nationality": "请选择一个国家/地区",
+      "required_phone_number": "请输入您的电话号码",
+      "required_postcode": "请输入您的邮编",
+      "too_long_first_name": "名太长",
+      "too_long_last_name": "姓太长",
+      "too_long_line1": "地址行太长",
+      "too_long_postcode": "邮编太长",
+      "too_long_town": "镇太长",
+      "too_short_first_name": "姓太短",
+      "too_short_last_name": "名太短",
+      "too_short_postcode": "邮编太短",
+      "usa_specific": {
+        "invalid_ssn": "请输入有效的SSN",
+        "required_ssn": "请输入您的SSN",
+        "required_state": "请选择州/省"
+      }
+    },
+    "personal_information_title": "添加您的个人信息",
+    "prompt": {
+      "details_timeout": "重新开始",
+      "header_timeout": "看起来您花了太长时间"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "请重试"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见",
+    "title": "您的证明文件已过期"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见",
+    "title": "您的证明文件有问题"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见",
+    "title": "未接受的证明文件"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "请重试，并确保您的面部清晰且光线充足",
+    "title": "您的自拍照有问题"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "检查是否已连接并且工作正常。您也可以<fallback>在手机上继续验证</fallback>",
+        "detail_no_fallback": "确保您的设备有工作正常的相机",
+        "title": "相机未工作？"
+      },
+      "camera_not_working": {
+        "detail": "其可能已断开连接。<fallback>请尝试改用手机</fallback>。",
+        "detail_no_fallback": "确保您设备的相机工作正常",
+        "title": "相机未工作"
+      },
+      "timeout": {
+        "detail": "完成后，请记得按下按钮。<fallback>重做视频操作</fallback>",
+        "title": "看起来您花了太长时间"
+      }
+    },
+    "body": "将面部保持在椭圆形内",
+    "button_accessibility": "用手机拍照",
+    "button_primary": "开始面部扫描",
+    "frame_accessibility": "从相机查看",
+    "title": "将面部保持在椭圆形内"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "您的面部照片",
+    "subtitle": "请确保您的整个面部可见",
+    "title": "查看您的自拍照"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "在此流程中将捕捉您的面部和背景",
+    "button_primary": "继续",
+    "list_accessibility": "拍好自拍小贴士",
+    "list_item_face_forward": "面向前方，确保您的眼睛清晰可见",
+    "list_item_no_face_cover": "取下遮盖面部的任何物品。可以戴眼镜",
+    "list_item_no_glasses": "如有必要，请取下眼镜",
+    "subtitle": "我们会将其与您的证明文件进行比较",
+    "title": "拍摄自拍"
+  },
+  "sms_sent": {
+    "info": "小贴士",
+    "info_link_expire": "您的链接将在一小时后过期",
+    "info_link_window": "使用手机时请勿关闭此窗口",
+    "link": "重新发送链接",
+    "subtitle": "我们已将安全链接发送至%{number}",
+    "subtitle_minutes": "可能需要几分钟时间才能到达",
+    "title": "请检查手机"
+  },
+  "switch_phone": {
+    "info": "小贴士",
+    "info_link_expire": "您的移动链接将在一小时后过期",
+    "info_link_refresh": "不要刷新此页面",
+    "info_link_window": "使用手机时请勿关闭此窗口",
+    "link": "取消",
+    "subtitle": "完成后，我们将带您进入下一步",
+    "title": "已连接到手机"
+  },
+  "upload_guide": {
+    "button_primary": "上传照片",
+    "image_detail_blur_alt": "模糊证明文件示例",
+    "image_detail_blur_label": "所有细节都必须清晰，没有模糊之处",
+    "image_detail_cutoff_label": "显示所有细节—包括底部2行",
+    "image_detail_glare_label": "远离直射光，无眩光",
+    "image_detail_good_label": "照片应清晰展示您的证明文件",
+    "subtitle": "不接受扫描件和复印件",
+    "title": "上传护照照片页面"
+  },
+  "user_consent": {
+    "button_primary": "接受",
+    "button_secondary": "不接受",
+    "prompt": {
+      "button_primary": "再次审核",
+      "button_secondary": "是，不要验证我",
+      "no_consent_detail": "如果您不接受Onfido的隐私声明和服务条款，我们将无法验证您的身份，您将退出此步骤。",
+      "no_consent_title": "是否确定？"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "重新加载屏幕",
+    "detail": "请检查连接是否稳定，然后重试",
+    "title": "内容加载失败"
+  },
+  "video_capture": {
+    "body": "将面部保持在椭圆形内",
+    "body_record": "准备就绪后按下按钮",
+    "body_stop": "完成后按停止键",
+    "button_primary_finish": "完成录制",
+    "button_primary_next": "下一步",
+    "button_primary_start": "开始录制",
+    "button_record_accessibility": "开始录制",
+    "frame_accessibility": "从相机查看",
+    "header": {
+      "challenge_digit_instructions": "大声说出每个数字",
+      "challenge_turn_forward": "然后面向前方",
+      "challenge_turn_left": "向左转头",
+      "challenge_turn_right": "向右转头"
+    },
+    "prompt": {
+      "header_timeout": "看起来您花了太长时间"
+    }
+  },
+  "video_confirmation": {
+    "body": "您的视频已完成录制",
+    "button_primary": "上传视频",
+    "button_secondary": "重新拍摄视频",
+    "title": "查看您的视频",
+    "video_accessibility": "重播录制的视频"
+  },
+  "video_intro": {
+    "button_primary": "录制视频",
+    "list_accessibility": "录制自拍视频的操作",
+    "list_item_actions": "您还有20秒钟时间完成",
+    "list_item_speak": "按照说明移动或说话",
+    "title": "录制视频"
+  },
+  "welcome": {
+    "doc_video_subtitle": "这应该会需要几分钟时间",
+    "list_header_doc_video": "使用您的设备录制：",
+    "list_header_webcam": "使用网络相机或手机拍摄：",
+    "list_item_doc": "您的身份证件",
+    "list_item_doc_video_timeout": "视频录制限制为​<timeout>​​</timeout>​秒。​<fallback>​请重新开始​</fallback>",
+    "list_item_poa": "您的地址证明",
+    "list_item_selfie": "您的面部",
+    "next_button": "选择证明文件",
+    "start_workflow_button": "开始验证",
+    "start_workflow_button_trial": "开始验证（测试）",
+    "subtitle": "这应该会需要几分钟时间",
+    "title": "验证您的身份",
+    "trial_message": "除非您参与了Onfido试用，否则请勿在此共享个人数据。"
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "我们已验证您的身份",
+      "title": "已通过"
+    },
+    "reject": {
+      "description": "我们无法验证您的身份",
+      "title": "已拒绝"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "存在服务器错误！",
+    "no_workflow_run_id": "未设置工作流运行ID。",
+    "reload_app": "请尝试重新加载应用，然后重试。",
+    "task_not_completed": "无法完成工作流任务。",
+    "task_not_retrieved": "无法检索工作流任务。",
+    "task_not_supported": "任务当前不受支持"
+  }
+}

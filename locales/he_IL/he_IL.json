@@ -1,0 +1,732 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "העלאת סרטון",
+    "subtitle": "סרטון של הפנים שלך צולם בהצלחה",
+    "title": "הצילום הושלם"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "טען את ההוראות מחדש",
+    "button_primary_retry_upload": "נסה להעלות שוב",
+    "button_secondary_restart_recording": "צלם מחדש",
+    "subtitle": "ודא שהחיבור שלך יציב ונסה שוב",
+    "title": "שגיאה בחיבור"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "זוז אחורה",
+    "feedback_move_closer": "התקרב",
+    "feedback_no_face_detected": "לא זוהו פנים",
+    "feedback_not_centered": "הפנים לא מופיעות במרכז",
+    "title": "ראשית, מקם את הפנים שלך במסגרת"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "timeout_body": "יש לך עד 15 שניות להשלים את הצילום",
+      "timeout_button_primary": "נסה שוב",
+      "timeout_title": "מצטערים, אנחנו צריכים לצלם לחדש",
+      "too_fast_body": "נסה שוב וסובב את הראש לאט יותר",
+      "too_fast_button_primary": "נסה שוב",
+      "too_fast_title": "סובבת את הראש מהר מדי"
+    },
+    "title": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
+    "title_completed": "הצילום הושלם"
+  },
+  "avc_intro": {
+    "button_primary_ready": "אני מוכן",
+    "disclaimer": "שים לב, אנו עומדים לצלם את הפנים שלך ואת הסביבה שבה אתה נמצא",
+    "list_item_one": "ראשית, מקם את הפנים שלך במסגרת",
+    "list_item_two": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
+    "subtitle": "כדי לוודא שאתה אדם אמיתי",
+    "title": "הקלט סרטון"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "צלם מחדש",
+    "list_item_eyes": "ודא שהעיניים שלך נראות בבירור",
+    "list_item_face": "חשוב להציג רק את הפנים, אנחנו לא צריכים לראות את התעודה המזהה שלכם",
+    "list_item_lighting": "הקפד לצלם במקום עם תאורה טובה",
+    "list_item_mask": "הסר מסכות או פריטים אחרים שמכסים את הפנים. משקפיים זה בסדר",
+    "title": "אנחנו לא מצליחים לזהות את הפנים שלך"
+  },
+  "avc_uploading": {
+    "title": "מעלה"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "מסמכים מהארץ הזאת אינם נתמכים כרגע — <fallback>נסה סוג מסמך אחר</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "הארץ לא נמצאה"
+    },
+    "button_primary": "שלח מסמך",
+    "poa_alert": {
+      "country_not_found": "מצטערים. אנחנו עובדים על תמיכה בארצות נוספות.",
+      "intro": "לא מוצא את המדינה שלך?"
+    },
+    "search": {
+      "accessibility": "בחר ארץ",
+      "input_placeholder": "לדוגמה, ארצות הברית",
+      "label": "חפש ארץ"
+    },
+    "title": "בחר את ארץ ההנפקה"
+  },
+  "cross_device_checklist": {
+    "button_primary": "שלח אימות",
+    "info": "טיפים",
+    "list_item_doc_multiple": "מסמכים",
+    "list_item_doc_one": "מסמך",
+    "list_item_poa": "הוכחת הכתובת שלך",
+    "list_item_selfie": "סלפי",
+    "list_item_video": "סרטון",
+    "subtitle": "הנה כל הקבצים שהעלית:",
+    "title": "שלב אחד אחרון"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "הקישור פועל רק במכשירים ניידים",
+    "title": "משהו השתבש"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "הפעל מחדש את האימות במחשב שלך",
+    "title": "משהו השתבש"
+  },
+  "cross_device_intro": {
+    "button_primary": "קבלת קישור מאובטח",
+    "list_accessibility": "השלבים הנדרשים לצורך המשך האימות בנייד שלך",
+    "list_item_finish": "יש לבדוק שוב את המסך הנוכחי כדי לסיים את השליחה",
+    "list_item_open_link": "יש לפתוח את הקישור ולהשלים את המשימות",
+    "list_item_send_phone": "יש לשלוח קישור מאובטח לטלפון",
+    "subtitle": "כך עושים זאת:",
+    "title": "המשך בטלפון הנייד"
+  },
+  "cross_device_return": {
+    "body": "עדכון המחשב עשוי להימשך מספר שניות",
+    "subtitle": "כעת תוכל לחזור למחשב שלך כדי להמשיך",
+    "title": "ההעלאות בוצעו בהצלחה"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "המשך",
+    "info": "בדוק שוב",
+    "list_item_desktop_open": "חלון שולחן העבודה שלך נשאר פתוח",
+    "list_item_sent_by_you": "קישור זה נשלח על ידך — פנה לתמיכה אם אתה חושב שזו הונאה",
+    "subtitle": "המשך תהליך האימות",
+    "title": "הפעלה בנייד מקושרת למחשב שלך"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "צלם תמונה",
+    "footer": {
+      "captured": "התמונה צולמה",
+      "capturing": "מצלם תמונה",
+      "manual_fallback_identity_card_back": "צלם את החלק האחורי של התעודה",
+      "manual_fallback_identity_card_front": "צלם את החלק הקדמי של התעודה",
+      "manual_fallback_license_back": "צלם את החלק האחורי של הרישיון הנהיגה",
+      "manual_fallback_license_front": "צלם את החלק הקדמי של רישיון הנהיגה",
+      "manual_fallback_passport": "צלם את עמוד תמונת הדרכון שלך",
+      "manual_fallback_residence_permit_back": "צלם את החלק האחורי של היתר השהייה",
+      "manual_fallback_residence_permit_front": "יש לצלם את החלק הקדמי של אישור השהייה",
+      "position_identity_card_back": "מקם את הצד האחורי של המסמך בתוך המסגרת",
+      "position_identity_card_front": "מקם את עמוד הוויזה של המסמך בתוך המסגרת",
+      "position_license_back": "מקם את החלק האחורי של רישיון הנהיגה בתוך המסגרת",
+      "position_license_front": "מקם את החלק הקדמי של רישיון הנהיגה בתוך המסגרת",
+      "position_passport": "מקם את עמוד תמונת הדרכון בתוך המסגרת",
+      "position_residence_permit_back": "מקם את החלק האחורי של היתר השהייה במסגרת",
+      "position_residence_permit_front": "מקם את החלק הקדמי של היתר השהייה במסגרת"
+    },
+    "frame": {
+      "flip_document": "הפוך לצד האחורי",
+      "hold_still": "אל תזוז",
+      "no_document": "המסמך לא זוהה"
+    }
+  },
+  "doc_capture": {
+    "button_primary": "התחל סריקת מסמכים",
+    "detail": {
+      "folded_doc_front": "הנח את המסמך על המשטח, כולל כל הדפים הפנימיים (התמונה שלך חייבת להופיע)"
+    },
+    "header_folded_doc_front": "תמונת פרופיל",
+    "prompt": {
+      "button_card": "כרטיס פלסטיק",
+      "button_paper": "מסמך נייר",
+      "title_id": "איזה סוג תעודת זהות יש לך?",
+      "title_license": "איזה סוג הרישיון יש לך?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "ודא שהכול ברור",
+      "blur_title": "זוהתה תמונה מטושטשת",
+      "crop_detail": "ודא שניתן לראות את המסמך במלואו",
+      "crop_title": "זיהינו שהתמונה חתוכה",
+      "glare_detail": "התרחק מאור הישיר",
+      "glare_title": "זוהתה השתקפות",
+      "no_doc_detail": "ודא שהמסמך נמצא בתוך המסגרת",
+      "no_doc_title": "המסמך לא זוהה"
+    },
+    "body": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+    "body_bank_statement": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+    "body_benefits_letter": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+    "body_bill": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+    "body_id": "ודא שהפרטים ברורים ולא חסומים",
+    "body_image_medium": "אם לא נוכל לקרוא את המידע, ייקח יותר זמן לאמת את זהותך",
+    "body_image_poor": "אנחנו צריכים תמונה טובה יותר כדי לאמת את זהותך",
+    "body_license": "ודא שהפרטים ברורים ולא חסומים",
+    "body_passport": "ודא שהפרטים ברורים ולא חסומים",
+    "body_permit": "ודא שהפרטים ברורים ולא חסומים",
+    "body_tax_letter": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+    "button_close": "סגור",
+    "button_primary_redo": "בצע מחדש",
+    "button_primary_upload": "העלאה",
+    "button_primary_upload_anyway": "העלה בכל זאת",
+    "button_secondary_redo": "בצע מחדש",
+    "button_zoom": "הגדל תמונה",
+    "image_accessibility": "תמונה של המסמך שלך",
+    "title": "בדוק את התמונה שלך"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "סורק מסמך",
+    "instructions_title_back": "מקם את הצד האחורי של המסמך בתוך המסגרת",
+    "instructions_title_front": "מקם את עמוד הוויזה שבמסמך בתוך המסגרת"
+  },
+  "doc_select": {
+    "button_address_card": "כתובת לחיוב",
+    "button_address_card_detail": "אנו מקבלים כרטיסים זמניים וקבועים",
+    "button_bank_statement": "הצהרת בנק או חברת בנייה",
+    "button_bank_statement_non_uk": "דף חשבון בנק",
+    "button_benefits_letter": "אישור קבלת קצבאות",
+    "button_benefits_letter_detail": "למשל, הטבות ממשלתיות מורשות למשק בית. קצבה למחפשי עבודה, הטבת דיור, נקודות זיכוי במס",
+    "button_bill": "חשבון חשמל",
+    "button_bill_detail": "גז, חשמל, מים, טלפון קווי או פס רחב",
+    "button_government_letter": "מכתב ממשלתי",
+    "button_government_letter_detail": "כל מכתב ממשלתי שהונפק, למשל זכאות להטבות, הודעה לבוחר, מכתבים מרשויות המס וכו'",
+    "button_id": "תעודת זהות",
+    "button_id_detail": "צד קדמי וצד אחורי",
+    "button_license": "רישיון נהיגה",
+    "button_license_detail": "צד קדמי וצד אחורי",
+    "button_passport": "דרכון",
+    "button_passport_detail": "עמוד תמונה",
+    "button_permit": "היתר שהייה",
+    "button_permit_detail": "צד קדמי וצד אחורי",
+    "button_tax_letter": "אישור ארנונה",
+    "extra_estatements_ok": "דוחות אלקטרוניים התקבלו",
+    "extra_no_mobile": "מצטערים, אין חשבונות טלפון נייד",
+    "list_accessibility": "מסמכים שבהם אפשר להשתמש כדי לאמת את הזהות שלך",
+    "pill": "הכי מהיר",
+    "section": {
+      "header_country": "ארץ ההנפקה",
+      "header_doc_type": "מסמכים קבילים",
+      "input_country_not_found": "אין תוצאות",
+      "input_placeholder_country": "בחר את ארץ ההנפקה"
+    },
+    "subtitle": "התמונה צריכה להופיע בתוך מסמך רשמי",
+    "subtitle_country": "בחר את ארץ ההנפקה כדי לראות אילו מסמכים אנחנו מקבלים",
+    "subtitle_entire_page": "כל העמוד",
+    "subtitle_front_back": "צד קדמי וצד אחורי",
+    "subtitle_photo_page": "עמוד תמונה",
+    "subtitle_poa": "אלה המסמכים שהכי סביר שיציגו את כתובת המגורים הנוכחית שלך",
+    "title": "בחר את המסמך שלך",
+    "title_poa": "בחר מסמך %{country}"
+  },
+  "doc_submit": {
+    "button_link_upload": "או העלה תמונה – ללא סריקות או צילומים",
+    "button_primary": "המשך בטלפון הנייד",
+    "subtitle": "צלם תמונה עם הטלפון",
+    "title_bank_statement": "שלח הצהרה",
+    "title_benefits_letter": "שלח מכתב",
+    "title_bill": "שלח חשבון",
+    "title_government_letter": "מכתב ממשלתי",
+    "title_id_back": "שלח תעודת זהות (חלק אחורי)",
+    "title_id_front": "שלח תעודת זהות (חלק קדמי)",
+    "title_license_back": "שלח רישיון (צד אחורי)",
+    "title_license_front": "שלח רישיון (צד קדמי)",
+    "title_passport": "שלח עמוד דרכון עם תמונה",
+    "title_permit_back": "שלח היתר שהייה (צד אחורי)",
+    "title_permit_front": "שלח היתר שהייה (צד קדמי)",
+    "title_tax_letter": "שלח מכתב"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "השלב הבא",
+    "button_primary_fallback_end": "סיים את ההקלטה",
+    "detail_step2": "השאר את המסמך בתצוגה מלאה כל הזמן",
+    "header": "כשאתה מחזיק את המסמך, יש להשאיר את הצד הקדמי בתוך המסגרת",
+    "header_paper_doc_step2": "סובב לאט את המסמך כדי להציג את העמודים החיצוניים",
+    "header_passport": "כשאתה מחזיק את הדרכון, השאר את עמוד התמונה בתוך המסגרת",
+    "header_passport_progress": "אל תזוז",
+    "header_step1": "אל תזוז",
+    "header_step2": "סובב את המסמך לאט כדי להציג את החלק האחורי",
+    "prompt": {
+      "detail_timeout": "הקלטת סרטונים מוגבלת ל-​<timeout>​​</timeout>​ שניות. ​<fallback>​התחל שוב​</fallback>​"
+    },
+    "stepper": "שלב ​<step>​​</step>​ מתוך ​<total>​​</total>​",
+    "success_accessibility": "בוצע בהצלחה"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "תצוגה מקדימה של הסרטון",
+    "title": "בדוק את הסרטון שלך"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "התחל מחדש את התהליך בגרסה האחרונה של Google Chrome",
+    "subtitle_ios": "התחל מחדש את התהליך בגרסה העדכנית ביותר של Safari",
+    "title_android": "דפדפן לא נתמך",
+    "title_ios": "דפדפן לא נתמך"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "סגור את מסך אימות הזהות",
+      "dismiss_alert": "דחה התראה"
+    },
+    "back": "חזור",
+    "close": "סגור",
+    "errors": {
+      "expired_token": {
+        "instruction": "נסה שוב",
+        "message": "תוקף הטוקן שלך פג"
+      },
+      "expired_trial": {
+        "instruction": "הגעת למגבלות תקופת הניסיון שלך",
+        "message": "תקופת הניסיון שלך הסתיימה"
+      },
+      "geoblocked_error": {
+        "instruction": "מצטערים, נראה שלא נוכל להמשיך כיוון שהמיקום הנוכחי שלך אינו נתמך",
+        "message": "השירות לא זמין"
+      },
+      "interrupted_flow_error": {
+        "instruction": "התחל מחדש את התהליך במכשיר אחר",
+        "message": "המצלמה לא זוהתה"
+      },
+      "invalid_size": {
+        "instruction": "גודל הקובץ חייב להיות מתחת ל-10MB.",
+        "message": "הקובץ גדול מדי."
+      },
+      "invalid_type": {
+        "instruction": "נסה להעלות קובץ מסוג אחר.",
+        "message": "לא הועלה קובץ."
+      },
+      "lazy_loading": {
+        "message": "אירעה שגיאה בעת טעינת הרכיב"
+      },
+      "multiple_faces": {
+        "instruction": "רק הפנים שלך יכולות להופיע בסלפי",
+        "message": "נמצאו מספר פרצופים"
+      },
+      "no_face": {
+        "instruction": "ודא שהפנים שלך גלויות",
+        "message": "לא זוהו פנים"
+      },
+      "request_error": {
+        "instruction": "נסה שוב",
+        "message": "משהו השתבש"
+      },
+      "sms_failed": {
+        "instruction": "העתק את הקישור לטלפון שלך",
+        "message": "משהו השתבש"
+      },
+      "sms_overuse": {
+        "instruction": "העתק את הקישור לטלפון שלך",
+        "message": "יותר מדי ניסיונות כושלים"
+      },
+      "unsupported_file": {
+        "instruction": "נסה להעלות קובץ JPG או PNG",
+        "message": "קובץ לא נתמך"
+      }
+    },
+    "lazy_load_placeholder": "טוען…",
+    "loading": "טוען"
+  },
+  "get_link": {
+    "alert_wrong_number": "בדוק שהמספר נכון",
+    "button_copied": "הועתק",
+    "button_copy": "העתקה",
+    "button_submit": "שלח קישור",
+    "info_qr_how": "איך לסרוק קוד QR",
+    "info_qr_how_list_item_camera": "יש לכוון את המצלמה של הטלפון לקוד ה-QR",
+    "info_qr_how_list_item_download": "אם זה לא עובד, יש להוריד סורק קודי QR מ-Google Play או מ-App Store",
+    "link_divider": "או בחירת שיטה חלופית",
+    "link_qr": "סריקת קוד QR",
+    "link_sms": "קבלת קישור בהודעת טקסט (SMS)",
+    "link_url": "העתקת קישור",
+    "loader_sending": "שולח",
+    "number_field_input_placeholder": "הזן את מספר הטלפון הנייד שלך",
+    "number_field_label": "הזן את מספר הטלפון שלך:",
+    "subtitle_qr": "יש לסרוק את קוד ה-QR הזה באמצעות הטלפון הנייד",
+    "subtitle_sms": "שליחת קישור חד פעמי לטלפון הנייד",
+    "subtitle_url": "שליחת קישור חד פעמי לטלפון הנייד",
+    "title": "קבלו קישור מאובטח",
+    "url_field_label": "יש להעתיק את הקישור לדפדפן בטלפון הנייד שלכם"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "טען את ההוראות מחדש",
+    "intro_note_no1": "ראשית, מקם את הפנים שלך במסגרת",
+    "intro_note_no2": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
+    "intro_ready_button": "שים לב, הפנים והסביבה שלך יצולמו",
+    "intro_subtitle": "כדי לוודא שאתה אדם אמיתי",
+    "intro_warning": "שים לב, הפנים והסביבה שלך יצולמו",
+    "success_main_button": "שלח אימות",
+    "success_title": "זה כל מה שאנחנו צריכים כדי להתחיל לאמת את זהותך"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "צלם את החלק האחורי של התעודה",
+      "body_id_front": "צלם את החלק הקדמי של התעודה",
+      "body_license_back": "צלם את החלק האחורי של הרישיון",
+      "body_license_front": "צלם את החלק הקדמי של הרישיון",
+      "body_passport": "צלם את עמוד תמונת הדרכון שלך",
+      "body_selfie": "צלם תמונת סלפי שמציגה את הפנים שלך"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "צלם תמונה באמצעות <fallback>מצב המצלמה הבסיסי</fallback> במקום"
+        },
+        "camera_not_working": {
+          "detail": "צלם תמונה באמצעות <fallback>מצב המצלמה הבסיסי</fallback> במקום"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "צלם תמונה",
+      "title": "עמוד תמונת הדרכון"
+    }
+  },
+  "outro": {
+    "body": "זה כל מה שאנחנו צריכים כדי להתחיל לאמת את זהותך",
+    "body_government_letter": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
+    "title": "תודה"
+  },
+  "permission": {
+    "body_both": "לא ניתן לאמת את זהותך בלי להשתמש גם במצלמה וגם במיקרופון",
+    "body_cam": "אנחנו לא יכולים לאמת את זהותך בלי המצלמה שלך",
+    "button_primary_both": "הפעל את שניהם",
+    "button_primary_cam": "הפעל מצלמה",
+    "subtitle_both": "כאשר תתבקש, עליך לאפשר גישה לשניהם כדי להמשיך",
+    "subtitle_cam": "כאשר תתבקש, עליך לאפשר גישה עבור שניהם כדי להמשיך",
+    "title_both": "אפשר גישה למצלמה ולמיקרופון",
+    "title_cam": "אפשר גישה למצלמה"
+  },
+  "permission_recovery": {
+    "button_primary": "רענן",
+    "info": "שחזור",
+    "list_header_both": "בצע את השלבים הבאים כדי לשחזר את הגישה למצלמה:",
+    "list_header_cam": "בצע את השלבים הבאים כדי לשחזר את הגישה למצלמה:",
+    "list_item_action_cam": "רענן דף זה כדי להפעיל מחדש את תהליך אימות הזהות",
+    "list_item_how_to_both": "הענק גישה למצלמה מהגדרות הדפדפן שלך",
+    "list_item_how_to_cam": "הענק גישה למצלמה מהגדרות הדפדפן שלך",
+    "subtitle_both": "שחזר גישה למצלמה כדי לצלם סרטון ולהשלים את תהליך האימות",
+    "subtitle_cam": "שחזר את הגישה למצלמה כדי להמשיך באימות הפנים",
+    "subtitle_cam_old": "שחזר את הגישה למצלמה כדי להמשיך באימות הפנים",
+    "title_both": "הגישה למצלמה ולמיקרופון נדחתה",
+    "title_cam": "הגישה למצלמה נדחתה"
+  },
+  "photo_upload": {
+    "body_bank_statement": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
+    "body_benefits_letter": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
+    "body_bill": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
+    "body_id_back": "העלה תמונה של החלק האחורי של התעודה מהמחשב שלך",
+    "body_id_front": "העלה תמונה של החלק הקדמי של הרישיון מהמחשב שלך",
+    "body_license_back": "העלה תמונה של החלק האחורי הרישיון מהמחשב שלך",
+    "body_license_front": "העלה את הצד הקדמי של הרישיון מהמחשב שלך",
+    "body_passport": "העלה את עמוד הדרכון עם תמונה מהמחשב שלך",
+    "body_selfie": "העלה תמונת סלפי מהמחשב שלך",
+    "body_tax_letter": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
+    "button_take_photo": "צלם תמונה",
+    "button_upload": "העלאה",
+    "title_selfie": "סלפי"
+  },
+  "poa_cancel": "ביטול",
+  "poa_err_invalid_file": {
+    "message": "בחר קובץ אחר.",
+    "ok": "אישור",
+    "title": "קובץ לא חוקי"
+  },
+  "poa_guidance": {
+    "button_primary": "המשך",
+    "instructions": {
+      "address": "כתובת נוכחית",
+      "full_name": "שם מלא",
+      "issue_date": "תאריך הנפקה או תקופת סיכום",
+      "label": "צלם את המסמך בשלמותו וודא שהוא מוצג בבירור:",
+      "logo": "לוגו"
+    },
+    "instructions_address_card_issue_date": "תאריך הנפקה",
+    "instructions_expiry_date": "תאריך תפוגה אם רלוונטי",
+    "instructions_full_address": "כתובת מלאה",
+    "subtitle_address_card": "הכתובת לחיוב חייבת להיות חוקית",
+    "subtitle_bank_statement": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​",
+    "subtitle_benefits_letter": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​",
+    "subtitle_bill": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​",
+    "subtitle_tax_letter": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​"
+  },
+  "poa_intro": {
+    "button_primary": "התחל אימות",
+    "list_matches_signup": "ותואמת לכתובת שהזנת בעת ההרשמה",
+    "list_most_recent": "זהו ​​המסמך​​ הכי עדכני שלך",
+    "list_shows_address": "מופיעה ​​הכתובת​​ הנוכחית שלך",
+    "subtitle": "יש צורך במסמך שבו:",
+    "title": "בוא נאמת את הכתובת"
+  },
+  "profile_data": {
+    "address_title": "הוסף את הכתובת שלך",
+    "button_continue": "המשך",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "בחר ארץ"
+      },
+      "country_select": {
+        "placeholder": "בחר ארץ"
+      },
+      "nationality_select": {
+        "placeholder": "בחר ארץ"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123 -45 -6789"
+      },
+      "state_select": {
+        "placeholder": "בחר מדינה"
+      }
+    },
+    "country_of_residence_title": "ארץ מגורים",
+    "field_labels": {
+      "country": "ארץ",
+      "country_residence": "ארץ",
+      "dob": "תאריך לידה",
+      "email": "דוא\"ל",
+      "first_name": "שם פרטי",
+      "gbr_specific": {
+        "postcode": "מיקוד",
+        "town": "עיר/יישוב"
+      },
+      "ind_specific": {
+        "pan": "מספר חשבון קבוע (PAN)"
+      },
+      "last_name": "שם משפחה",
+      "line1": "שורת כתובת 1",
+      "line2": "שורת כתובת 2",
+      "line3": "שורת כתובת 3",
+      "mobile_number": "מספר טלפון נייד",
+      "nationality": "לאום",
+      "phone_number": "מספר טלפון",
+      "postcode": "מיקוד",
+      "town": "יישוב",
+      "usa_specific": {
+        "line1_helper_text": "כתובת רחוב, לדוגמה: רחוב אלברט 200",
+        "line2_helper_text": "דירה, סוויטה, יחידה וכו'.",
+        "postcode": "מיקוד",
+        "ssn": "מספר SSN",
+        "state": "מדינה"
+      }
+    },
+    "field_optional": "(אופציונלי)",
+    "field_validation": {
+      "gbr_specific": {
+        "invalid_postcode": "הזן מיקוד חוקי",
+        "required_postcode": "הזן את המיקוד שלך",
+        "too_long_postcode": "המיקוד ארוך מדי",
+        "too_short_postcode": "המיקוד קצר מדי"
+      },
+      "ind_specific": {
+        "invalid_pan": "הזן מספר חשבון קבוע (PAN) חוקי",
+        "required_pan": "הזן את מספר החשבון הקבוע (PAN) שלך"
+      },
+      "invalid": "בדוק שאין תווים או סמלים לא חוקיים",
+      "invalid_dob": "הזן תאריך לידה חוקי",
+      "invalid_email": "הזן כתובת דוא\"ל חוקית",
+      "invalid_mobile_number": "הזן מספר טלפון תקין",
+      "invalid_phone_number": "הזן מספר פלאפון תקין",
+      "required_consent": "יש להסכים לאשר בדיקות זהות והונאה",
+      "required_country": "בחר ארץ",
+      "required_country_residence": "בחר ארץ",
+      "required_dob": "הזן את תאריך הלידה שלך",
+      "required_email": "הזן את כתובת הדוא\"ל שלך",
+      "required_first_name": "הזן את שמך הפרטי",
+      "required_last_name": "הזן את שם המשפחה שלך",
+      "required_line1": "הזן את הכתובת שלך",
+      "required_mobile_number": "הזן את מספר הטלפון הנייד שלך",
+      "required_nationality": "בחר ארץ",
+      "required_phone_number": "הזן את מספר הטלפון שלך",
+      "required_postcode": "הזן את המיקוד שלך",
+      "too_long_first_name": "השם הפרטי ארוך מדי",
+      "too_long_last_name": "שם המשפחה ארוך מדי",
+      "too_long_line1": "שורת הכתובת ארוכה מדי",
+      "too_long_postcode": "המיקוד ארוך מדי",
+      "too_long_town": "שם העיר ארוך מדי",
+      "too_short_first_name": "השם הפרטי קצר מדי",
+      "too_short_last_name": "שם המשפחה קצר מדי",
+      "too_short_postcode": "המיקוד קצר מדי",
+      "usa_specific": {
+        "invalid_ssn": "הזן מספר חשבון קבוע (PAN) חוקי",
+        "required_ssn": "הזן את מספר ה-SSN שלך",
+        "required_state": "בחר מדינה"
+      }
+    },
+    "personal_information_title": "הוסף את המידע האישי שלך",
+    "prompt": {
+      "details_timeout": "התחל מחדש",
+      "header_timeout": "נראה שלקח לך יותר מדי זמן"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "נסה שוב"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "נסה שוב עם תעודה מזהה חוקית שכוללת תמונה וודא שהפרטים מופיעים בבירור",
+    "title": "תוקף המסמך שלך פג"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "נסה שוב עם תעודה מזהה חוקית שכוללת תמונה וודא שהפרטים מופיעים בבירור",
+    "title": "הייתה בעיה עם המסמך שלך"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "נסה שוב עם תעודה מזהה חוקית שכוללת תמונה וודא שהפרטים מופיעים בבירור",
+    "title": "מסמך לא מקובל"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "נסה שוב וודא שהפנים שלך גלויות ומוארות היטב",
+    "title": "הייתה בעיה עם תמונת הסלפי שלך"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "ודא שהיא מחוברת ומתפקדת באופן תקין. אפשר גם <fallback>להמשיך בתהליך האימות בטלפון</fallback>",
+        "detail_no_fallback": "ודא שהמצלמה שבמכשיר פועלת",
+        "title": "המצלמה לא פועלת?"
+      },
+      "camera_not_working": {
+        "detail": "ייתכן שהיא מנותקת. <fallback>נסה להשתמש בטלפון שלך במקום</fallback>.",
+        "detail_no_fallback": "וודא שהמצלמה של המכשיר פועלת",
+        "title": "המצלמה לא פועלת"
+      },
+      "timeout": {
+        "detail": "זכור ללחוץ על הכפתור כשתסיים. <fallback>בצע שוב את פעולות הווידאו</fallback>",
+        "title": "נראה שלקח לך יותר מדי זמן"
+      }
+    },
+    "body": "השאר את הפנים שלך בתוך האליפסה",
+    "button_accessibility": "צלם תמונה עם הטלפון",
+    "button_primary": "התחל סריקת פנים",
+    "frame_accessibility": "צפה מהמצלמה",
+    "title": "השאר את הפנים שלך בתוך האליפסה"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "תמונה של הפנים שלך",
+    "subtitle": "ודא שהפנים שלך גלויות",
+    "title": "בדוק את תמונת הסלפי שלך"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "הפנים והרקע שלך יצולמו במהלך תהליך זה",
+    "button_primary": "המשך",
+    "list_accessibility": "טיפים לצילום סלפי טוב",
+    "list_item_face_forward": "פנה קדימה וודא שהעיניים שלך מופיעות באופן ברור",
+    "list_item_no_face_cover": "הסר כל דבר שמכסה את פניך. משקפיים זה בסדר",
+    "list_item_no_glasses": "הסר את המשקפיים במידת הצורך",
+    "subtitle": "אנחנו נשווה את הסלפי למסמך שלך",
+    "title": "צלם סלפי"
+  },
+  "sms_sent": {
+    "info": "טיפים",
+    "info_link_expire": "תוקף הקישור לנייד שלך יפוג בעוד שעה",
+    "info_link_window": "יש להשאיר את החלון פתוח בעת השימוש בנייד",
+    "link": "שליחה חוזרת של הקישור",
+    "subtitle": "שלחנו קישור מאובטח למספר %{number}",
+    "subtitle_minutes": "ייתכן שיחלפו מספר דקות עד ההגעה",
+    "title": "בדוק את הטלפון הנייד שלך"
+  },
+  "switch_phone": {
+    "info": "טיפים",
+    "info_link_expire": "תוקף הקישור לנייד שלך יפוג בעוד שעה",
+    "info_link_refresh": "אל תרענן עמוד זה",
+    "info_link_window": "יש להשאיר את החלון פתוח בעת השימוש בנייד",
+    "link": "ביטול",
+    "subtitle": "לאחר שתסיימו תועברו לשלב הבא",
+    "title": "מחובר לנייד שלך"
+  },
+  "upload_guide": {
+    "button_primary": "העלה תמונה",
+    "image_detail_blur_alt": "דוגמה למסמך מטושטש",
+    "image_detail_blur_label": "כל הפרטים חייבים להיות ברורים ולא מטושטשים",
+    "image_detail_cutoff_label": "הצג את כל הפרטים — כולל שתי השורות התחתונות",
+    "image_detail_glare_label": "התרחק מאור ישיר כדי למנוע השתקפות",
+    "image_detail_good_label": "התמונה חייבת להציג את המסמך בצורה ברורה",
+    "subtitle": "סריקות והעתקים אינם מתקבלים",
+    "title": "העלה עמוד תמונת הדרכון"
+  },
+  "user_consent": {
+    "button_primary": "מאשר",
+    "button_secondary": "לא מאשר",
+    "prompt": {
+      "button_primary": "סקירה חוזרת",
+      "button_secondary": "כן, אל תאמתו את זהותי",
+      "no_consent_detail": "אם לא תאשר את הצהרות הפרטיות ותנאי השירות של Onfido, לא נוכל לאמת את זהותך ותצא משלב זה.",
+      "no_consent_title": "אתה בטוח?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "טען מחדש את המסך",
+    "detail": "ודא שהחיבור שלך יציב ונסה שוב",
+    "title": "טעינת התוכן נכשלה"
+  },
+  "video_capture": {
+    "body": "השאר את הפנים שלך בתוך האליפסה",
+    "body_record": "לחץ על הכפתור כשתהיה מוכן",
+    "body_stop": "בסיום, לחץ על 'עצור'",
+    "button_primary_finish": "סיים את ההקלטה",
+    "button_primary_next": "השלב הבא",
+    "button_primary_start": "התחל לצלם",
+    "button_record_accessibility": "התחל לצלם",
+    "frame_accessibility": "צפה מהמצלמה",
+    "header": {
+      "challenge_digit_instructions": "אמור כל ספרה בקול רם",
+      "challenge_turn_forward": "לאחר מכן פנה קדימה",
+      "challenge_turn_left": "סובב את ראשך שמאלה",
+      "challenge_turn_right": "סובב את ראשך ימינה"
+    },
+    "prompt": {
+      "header_timeout": "נראה שלקח לך יותר מדי זמן"
+    }
+  },
+  "video_confirmation": {
+    "body": "הסרטון שלך צולם",
+    "button_primary": "העלה סרטון",
+    "button_secondary": "צילום חוזר של הסרטון",
+    "title": "בדוק את הסרטון שלך",
+    "video_accessibility": "הפעל מחדש את הסרטון המוקלט"
+  },
+  "video_intro": {
+    "button_primary": "צלם וידאו",
+    "list_accessibility": "פעולות לצילום סרטון סלפי",
+    "list_item_actions": "יש לך 20 שניות לסיים",
+    "list_item_speak": "פעל לפי ההוראות כדי לזוז או לדבר",
+    "title": "הקלט סרטון"
+  },
+  "welcome": {
+    "doc_video_subtitle": "תהליך זה אמור לקחת כמה דקות",
+    "list_header_doc_video": "השתמש במכשיר שלך כדי לצלם:",
+    "list_header_webcam": "יש להשתמש במצלמת המחשב או בטלפון כדי לצלם את:",
+    "list_item_doc": "תעודת הזהות שלך",
+    "list_item_doc_video_timeout": "ההקלטה מוגבלת ל-​<timeout>​​</timeout>​ לשניות",
+    "list_item_poa": "הוכחת הכתובת שלך",
+    "list_item_selfie": "הפנים שלך",
+    "next_button": "בחר מסמך",
+    "start_workflow_button": "התחל אימות",
+    "start_workflow_button_trial": "התחל אימות",
+    "subtitle": "תהליך זה אמור לקחת כמה דקות",
+    "title": "אמת את זהותך",
+    "trial_message": "אל תשתף כאן נתונים אישיים אלא אם משתמש ב-Onfido לתקופת ניסיון."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "זהותך אומתה בהצלחה",
+      "title": "עבר בהצלחה"
+    },
+    "reject": {
+      "description": "לא הצלחנו לאמת את זהותך",
+      "title": "נדחה"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "אירעה שגיאה בשרת!",
+    "no_workflow_run_id": "מזהה הרצת זרימת עבודה אינו מוגדר.",
+    "reload_app": "נסה לטעון את האפליקציה מחדש ולנסות שוב.",
+    "task_not_completed": "לא ניתן להשלים את משימת זרימת העבודה.",
+    "task_not_retrieved": "לא ניתן לאחזר את משימת זרימת העבודה.",
+    "task_not_supported": "המשימה אינה נתמכת כרגע"
+  }
+}

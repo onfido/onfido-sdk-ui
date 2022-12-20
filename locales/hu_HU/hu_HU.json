@@ -1,0 +1,732 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "Felvétel feltöltése",
+    "subtitle": "Az arcáról készült videót sikeresen rögzítettük",
+    "title": "Felvétel kész"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Utasítások újratöltése",
+    "button_primary_retry_upload": "Próbálja újra feltölteni",
+    "button_secondary_restart_recording": "Rögzítés újraindítása",
+    "subtitle": "Ellenőrizze, hogy stabil-e a kapcsolat, majd próbálja újra",
+    "title": "Kapcsolati hiba"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Távolodjon",
+    "feedback_move_closer": "Közelítsen",
+    "feedback_no_face_detected": "Arc nem észlelhető",
+    "feedback_not_centered": "Arca nincs középen",
+    "title": "Illessze az arcát a keretbe"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "timeout_body": "Legfeljebb 15 másodperce van, hogy befejezze a felvételt",
+      "timeout_button_primary": "Próbálja újra",
+      "timeout_title": "Sajnáljuk, újra kell indítanunk a felvételt",
+      "too_fast_body": "Kezdje újra, és lassabban fordítsa el a fejét",
+      "too_fast_button_primary": "Próbálja újra",
+      "too_fast_title": "Túl gyorsan fordította el a fejét"
+    },
+    "title": "Fordítsa el a fejét lassan mindkét oldalra",
+    "title_completed": "Felvétel kész"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Kezdhetjük",
+    "disclaimer": "Kérjük, vegye figyelembe, hogy mind az arcát, mind a hátterét rögzítjük",
+    "list_item_one": "Először illessze az arcát a keretbe",
+    "list_item_two": "Ezután lassan fordítsa a fejét mindkét oldalra",
+    "subtitle": "Ez annak igazolására szolgál, hogy Ön egy valós személy",
+    "title": "Készítsen videófelvételt"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Rögzítés újraindítása",
+    "list_item_eyes": "Ügyeljen arra, hogy a szeme jól látható legyen",
+    "list_item_face": "Ügyeljen rá, hogy csak az arca látszódjon, nem kell látnunk a személyazonosító okmányát",
+    "list_item_lighting": "Ügyeljen arra, hogy jó megvilágítású helyen legyen",
+    "list_item_mask": "Távolítsa el az arcát takaró maszkot és egyéb tárgyakat. Szemüvege maradhat",
+    "title": "Arca nem érzékelhető"
+  },
+  "avc_uploading": {
+    "title": "Feltöltés"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Az adott országból származó dokumentumok jelenleg nem támogatottak — <fallback>próbálkozzon más típusú dokumentummal</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "Az ország nem található"
+    },
+    "button_primary": "Dokumentum elküldése",
+    "poa_alert": {
+      "country_not_found": "Sajnáljuk! Dolgozunk azon, hogy több ország legyen támogatott.",
+      "intro": "Nem találja az országot?"
+    },
+    "search": {
+      "accessibility": "Válasszon országot",
+      "input_placeholder": "pl. Amerikai Egyesült Államok",
+      "label": "Ország keresése"
+    },
+    "title": "Kibocsátó ország kiválasztása"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Hitelesítés elküldése",
+    "info": "Tippek",
+    "list_item_doc_multiple": "Dokumentumok",
+    "list_item_doc_one": "Dokumentum",
+    "list_item_poa": "Lakcím igazolása",
+    "list_item_selfie": "Szelfi",
+    "list_item_video": "Videó",
+    "subtitle": "Itt van minden, amit feltöltött:",
+    "title": "Egy utolsó lépés"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "A hivatkozás csak mobileszközökön működik",
+    "title": "Hiba történt"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Újra kell indítania az igazolási folyamatot a számítógépén",
+    "title": "Hiba történt"
+  },
+  "cross_device_intro": {
+    "button_primary": "Biztonságos hivatkozás beszerzése",
+    "list_accessibility": "Az azonosítás folytatásához szükséges lépések a mobilon",
+    "list_item_finish": "A beküldés befejezéséhez látogasson ide vissza",
+    "list_item_open_link": "Nyissa meg a linket, és végezze el a feladatokat",
+    "list_item_send_phone": "Küldje el a biztonságos linket a telefonjára",
+    "subtitle": "Így csinálja:",
+    "title": "Folytassa a telefonján"
+  },
+  "cross_device_return": {
+    "body": "A számítógép frissítése néhány másodpercet vehet igénybe",
+    "subtitle": "A folytatáshoz most térjen vissza a számítógépéhez",
+    "title": "Sikeres feltöltés"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Tovább",
+    "info": "Ellenőrizze kétszer",
+    "list_item_desktop_open": "Asztali gépe ablaka nyitva marad",
+    "list_item_sent_by_you": "Ezt a linket Ön küldte — kérjen tanácsot, ha úgy gondolja, hogy ez csalás lehet",
+    "subtitle": "Folytassa az azonosítást",
+    "title": "Számítógépéhez kapcsolódó mobil munkamenet"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Készítsen egy fényképet",
+    "footer": {
+      "captured": "Fénykép rögzítve",
+      "capturing": "Fénykép rögzítése",
+      "manual_fallback_identity_card_back": "Készítsen fényképet a kártya hátoldaláról",
+      "manual_fallback_identity_card_front": "Készítsen fényképet a kártya előlapjáról",
+      "manual_fallback_license_back": "Készítsen fényképet jogosítványa hátoldaláról",
+      "manual_fallback_license_front": "Készítsen fényképet jogosítványa előlapjáról",
+      "manual_fallback_passport": "Fényképezze le útlevele fényképes oldalát",
+      "manual_fallback_residence_permit_back": "Készítsen fényképet tartózkodási engedélye hátoldaláról",
+      "manual_fallback_residence_permit_front": "Készítsen fényképet tartózkodási engedélye előlapjáról",
+      "position_identity_card_back": "A dokumentum hátlapját illessze a keretbe",
+      "position_identity_card_front": "A dokumentum előlapját illessze a keretbe",
+      "position_license_back": "Helyezze a jogosítványa hátoldalát a keretbe",
+      "position_license_front": "Helyezze a jogosítványa előlapját a keretbe",
+      "position_passport": "Helyezze útlevele fényképes oldalát a keretbe",
+      "position_residence_permit_back": "Helyezze a tartózkodási engedély hátoldalát a keretbe",
+      "position_residence_permit_front": "Helyezze a tartózkodási engedély előlapját a keretbe"
+    },
+    "frame": {
+      "flip_document": "Fordítsa a hátoldalára",
+      "hold_still": "Ne mozduljon",
+      "no_document": "A dokumentum nem észlelhető"
+    }
+  },
+  "doc_capture": {
+    "button_primary": "Dokumentumbeolvasás indítása",
+    "detail": {
+      "folded_doc_front": "Fektesse a dokumentumot sík felületre, és mutassa az összes belső oldalt (a fényképes oldalt is beleértve)"
+    },
+    "header_folded_doc_front": "Profilkép",
+    "prompt": {
+      "button_card": "Műanyag kártya",
+      "button_paper": "Papíralapú dokumentum",
+      "title_id": "Milyen típusú személyazonosító igazolványa van?",
+      "title_license": "Milyen típusú jogosítványa van?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Győződjön meg róla, hogy minden jól látható",
+      "blur_title": "Homályos a fénykép",
+      "crop_detail": "Győződjön meg róla, hogy a teljes dokumentum látható",
+      "crop_title": "Levágott kép észlelve",
+      "glare_detail": "Kerülje el a közvetlen fényt",
+      "glare_title": "Tükröződés észlelhető",
+      "no_doc_detail": "Győződjön meg róla, hogy minden része a kereten belül van",
+      "no_doc_title": "A dokumentum nem észlelhető"
+    },
+    "body": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
+    "body_bank_statement": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
+    "body_benefits_letter": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
+    "body_bill": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
+    "body_id": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
+    "body_image_medium": "Ha nem tudjuk elolvasni, tovább fog tartani, amíg ellenőrizzük a személyazonosságát",
+    "body_image_poor": "A problémamentes azonosításhoz jobb fényképre van szükségünk",
+    "body_license": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
+    "body_passport": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
+    "body_permit": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
+    "body_tax_letter": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
+    "button_close": "Bezár",
+    "button_primary_redo": "Újra",
+    "button_primary_upload": "Feltöltés",
+    "button_primary_upload_anyway": "Töltse fel így is",
+    "button_secondary_redo": "Újra",
+    "button_zoom": "Kép nagyítása",
+    "image_accessibility": "Igazolványképe",
+    "title": "Ellenőrizze a képet"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Dokumentum beolvasása",
+    "instructions_title_back": "A dokumentum hátlapját illessze a keretbe",
+    "instructions_title_front": "A dokumentum előlapját illessze a keretbe"
+  },
+  "doc_select": {
+    "button_address_card": "Lakcímkártya",
+    "button_address_card_detail": "Ideiglenes és állandó kártyák is elfogadottak",
+    "button_bank_statement": "Banki vagy lakás-takarékpénztári számlakivonat",
+    "button_bank_statement_non_uk": "Bankszámlakivonat",
+    "button_benefits_letter": "Társadalombiztosítási igazolás",
+    "button_benefits_letter_detail": "A kormány által engedélyezett háztartási juttatások, pl. álláskeresési támogatás, lakhatási támogatás, adójóváírás",
+    "button_bill": "Közüzemi számla",
+    "button_bill_detail": "Gáz, villamos energia, víz, vezetékes telefon vagy szélessávú kapcsolat",
+    "button_government_letter": "Kormányzati levél",
+    "button_government_letter_detail": "Bármely, a kormány által kibocsájtott levél pl. Juttatásokkal, szavazással, adózással kapcsolatos levelek stb.",
+    "button_id": "Személyi igazolvány",
+    "button_id_detail": "Elülső és hátsó oldal",
+    "button_license": "Vezetői engedély",
+    "button_license_detail": "Elülső és hátsó oldal",
+    "button_passport": "Útlevél",
+    "button_passport_detail": "Arcképes oldal",
+    "button_permit": "Tartózkodási engedély",
+    "button_permit_detail": "Elülső és hátsó oldal",
+    "button_tax_letter": "Önkormányzati adóigazolás",
+    "extra_estatements_ok": "elfogadott e-nyilatkozatok",
+    "extra_no_mobile": "Sajnáljuk, mobiltelefon-számlát nem fogadunk el",
+    "list_accessibility": "A személyazonosság igazolására használható dokumentumok",
+    "pill": "leggyorsabb",
+    "section": {
+      "header_country": "Kibocsátó ország",
+      "header_doc_type": "Elfogadott dokumentumok",
+      "input_country_not_found": "Nincs találat",
+      "input_placeholder_country": "Kibocsátó ország kiválasztása"
+    },
+    "subtitle": "Hivatalos fényképes igazolványnak kell lennie",
+    "subtitle_country": "Válassza ki a kibocsátó országot, hogy lássa, mely dokumentumokat fogadjuk el",
+    "subtitle_entire_page": "Teljes oldal",
+    "subtitle_front_back": "Elülső és hátsó oldal",
+    "subtitle_photo_page": "Arcképes oldal",
+    "subtitle_poa": "Ezek azok a dokumentumok, amelyek a legnagyobb valószínűséggel jelzik az Ön jelenlegi lakcímét",
+    "title": "Válassza ki a dokumentumot",
+    "title_poa": "Válasszon az alábbi dokumentumtípusok közül: %{country}"
+  },
+  "doc_submit": {
+    "button_link_upload": "vagy töltsön fel nem szkennelt és nem fénymásolt fényképet",
+    "button_primary": "Folytassa telefonján",
+    "subtitle": "Készítsen egy fotót a telefonjával",
+    "title_bank_statement": "Dokumentum beküldése",
+    "title_benefits_letter": "Levél beküldése",
+    "title_bill": "Számla beküldése",
+    "title_government_letter": "Kormányzati levél",
+    "title_id_back": "Személyazonosító igazolvány beküldése (hátlap)",
+    "title_id_front": "Személyazonosító igazolvány beküldése (előlap)",
+    "title_license_back": "Jogosítvány beküldése (hátlap)",
+    "title_license_front": "Jogosítvány beküldése (előlap)",
+    "title_passport": "Útlevél fényképes oldalának beküldése",
+    "title_permit_back": "Küldje be a tartózkodási engedélyt (hátlap)",
+    "title_permit_front": "Küldje be a tartózkodási engedélyt (előlap)",
+    "title_tax_letter": "Levél beküldése"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Következő lépés",
+    "button_primary_fallback_end": "Felvétel befejezése",
+    "detail_step2": "A dokumentum mindig legyen teljes egészében látható",
+    "header": "Tartsa úgy a dokumentumot, hogy az elülső oldala a kereten belül legyen",
+    "header_paper_doc_step2": "Lassan fordítsa meg a dokumentumot, hogy a külső oldalai láthatóak legyenek",
+    "header_passport": "Tartsa úgy az útlevélét, hogy a fényképes oldal a kereten belül legyen",
+    "header_passport_progress": "Ne mozduljon",
+    "header_step1": "Maradjon most mozdulatlan",
+    "header_step2": "Lassan fordítsa meg a dokumentumot, hogy látszódjon a hátoldala",
+    "prompt": {
+      "detail_timeout": "A videórögzítés időkorlátja <timeout></timeout> másodperc. <fallback>Indítsa újra</fallback>"
+    },
+    "stepper": "​<step>​​</step>​./​<total>​​</total>​ lépés",
+    "success_accessibility": "Sikeres"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Videó előnézete",
+    "title": "Nézze meg a videóját"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "A folyamat újraindítása a Google Chrome legújabb verziójával",
+    "subtitle_ios": "Indítsa újra a folyamatot a Safari legújabb verziójával",
+    "title_android": "Nem támogatott böngésző",
+    "title_ios": "Nem támogatott böngésző"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Személyazonosság-ellenőrző képernyő bezárása",
+      "dismiss_alert": "Figyelmeztetés elvetése"
+    },
+    "back": "vissza",
+    "close": "bezár",
+    "errors": {
+      "expired_token": {
+        "instruction": "Kérjük, próbálja újra",
+        "message": "A token lejárt"
+      },
+      "expired_trial": {
+        "instruction": "Próbakerete kimerült",
+        "message": "A próbaidőszak lejárt"
+      },
+      "geoblocked_error": {
+        "instruction": "Sajnáljuk, de úgy tűnik, nem tudunk továbblépni, mert a jelenlegi tartózkodási helye nem támogatott",
+        "message": "A szolgáltatás nem elérhető"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Folyamat újraindítása egy másik eszközön",
+        "message": "A kamera nem észlelhető"
+      },
+      "invalid_size": {
+        "instruction": "Nem haladhatja meg a 10 MB-ot.",
+        "message": "Túllépte a fájlméretet."
+      },
+      "invalid_type": {
+        "instruction": "Próbálkozzon más fájltípussal.",
+        "message": "A fájl nincs feltöltve."
+      },
+      "lazy_loading": {
+        "message": "Hiba történt a komponens betöltése közben"
+      },
+      "multiple_faces": {
+        "instruction": "Csak az Ön arca lehet a szelfin",
+        "message": "Több arcot is észleltünk"
+      },
+      "no_face": {
+        "instruction": "Ügyeljen arra, hogy az arca látható legyen",
+        "message": "Arc nem észlelhető"
+      },
+      "request_error": {
+        "instruction": "Kérjük, próbálja újra",
+        "message": "Hiba történt"
+      },
+      "sms_failed": {
+        "instruction": "Másolja a hivatkozást a telefonjára",
+        "message": "Hiba történt"
+      },
+      "sms_overuse": {
+        "instruction": "Másolja a hivatkozást a telefonjára",
+        "message": "Túl sok sikertelen próbálkozás"
+      },
+      "unsupported_file": {
+        "instruction": "Próbálkozzon JPG- vagy PNG-fájl használatával",
+        "message": "Nem támogatott fájltípus"
+      }
+    },
+    "lazy_load_placeholder": "Betöltés folyamatban...",
+    "loading": "Betöltés"
+  },
+  "get_link": {
+    "alert_wrong_number": "Ellenőrizze, hogy helyes számot adott-e meg",
+    "button_copied": "Másolva",
+    "button_copy": "Másolás",
+    "button_submit": "Hivatkozás küldése",
+    "info_qr_how": "Így olvassa be a QR-kódot",
+    "info_qr_how_list_item_camera": "Irányítsa a telefon kameráját a QR-kódra",
+    "info_qr_how_list_item_download": "Ha nem működik, töltsön le egy QR-kód olvasót a Google Playről vagy az App Store-ból",
+    "link_divider": "vagy válasszon egy alternatív módszert",
+    "link_qr": "QR-kód beolvasása",
+    "link_sms": "Hivatkozás letöltése SMS-ben",
+    "link_url": "Hivatkozás másolása",
+    "loader_sending": "Küldés",
+    "number_field_input_placeholder": "Írja be a mobilszámát",
+    "number_field_label": "Írja be a mobilszámát:",
+    "subtitle_qr": "Olvassa be a QR-kódot a telefonjával",
+    "subtitle_sms": "Küldje el az egyszeri hivatkozást a telefonjára",
+    "subtitle_url": "Küldje el az egyszeri hivatkozást a telefonjára",
+    "title": "Biztonságos hivatkozás beszerzése",
+    "url_field_label": "Másolja a linket a mobil böngészőjébe"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Utasítások újratöltése",
+    "intro_note_no1": "Először illessze az arcát a keretbe",
+    "intro_note_no2": "Ezután lassan fordítsa a fejét mindkét oldalra",
+    "intro_ready_button": "Kérjük, vegye figyelembe, hogy mind az arcát, mind a hátterét rögzítjük",
+    "intro_subtitle": "Ez annak igazolására szolgál, hogy Ön egy valós személy",
+    "intro_warning": "Kérjük, vegye figyelembe, hogy mind az arcát, mind a hátterét rögzítjük",
+    "success_main_button": "Hitelesítés elküldése",
+    "success_title": "Ez minden, amire szükségünk van személyazonossága ellenőrzésének megkezdéséhez"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Készítsen fényképet a kártya hátoldaláról",
+      "body_id_front": "Készítsen fényképet a kártya előlapjáról",
+      "body_license_back": "Készítsen fényképet a jogosítványa hátoldaláról",
+      "body_license_front": "Készítsen fényképet a jogosítványa előlapjáról",
+      "body_passport": "Fényképezze le útlevele fényképes oldalát",
+      "body_selfie": "Készítsen egy szelfit, amelyen az arca látszik"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Fénykép készítéséhez használja inkább az <fallback>alap fényképező üzemmódot</fallback>"
+        },
+        "camera_not_working": {
+          "detail": "Fénykép készítéséhez használja inkább az <fallback>alap fényképező üzemmódot</fallback>"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Készítsen egy fényképet",
+      "title": "Útlevél fényképes oldala"
+    }
+  },
+  "outro": {
+    "body": "Ez minden, amire szükségünk van személyazonossága ellenőrzésének megkezdéséhez",
+    "body_government_letter": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
+    "title": "Köszönjük"
+  },
+  "permission": {
+    "body_both": "A fényképezőgép és a mikrofon használata nélkül nem tudjuk ellenőrizni a személyazonosságát",
+    "body_cam": "A kamera nélkül nem tudjuk igazolni a személyazonosságát",
+    "button_primary_both": "Mindkettő engedélyezése",
+    "button_primary_cam": "Kamera engedélyezése",
+    "subtitle_both": "Ha a rendszer kéri, a folytatáshoz engedélyeznie kell a hozzáférést mindkettőhöz",
+    "subtitle_cam": "Ha a rendszer kéri, a folytatáshoz engedélyeznie kell a kamerához való hozzáférést",
+    "title_both": "Kamera- és mikrofon-hozzáférés engedélyezése",
+    "title_cam": "Kamerához való hozzáférés engedélyezése"
+  },
+  "permission_recovery": {
+    "button_primary": "Frissítés",
+    "info": "Újraindítás",
+    "list_header_both": "Mindkét eszközhöz való hozzáférés helyreállításához kövesse az alábbi lépéseket:",
+    "list_header_cam": "A kamerához való hozzáférés helyreállításához kövesse az alábbi lépéseket:",
+    "list_item_action_cam": "Frissítse az oldalt a személyazonosság-ellenőrzési folyamat újraindításához",
+    "list_item_how_to_both": "Engedélyezze a fényképezőgéphez és a mikrofonhoz való hozzáférést a böngésző beállításaiban",
+    "list_item_how_to_cam": "Engedélyezze a fényképezőgéphez való hozzáférést a böngésző beállításaiban",
+    "subtitle_both": "Videó készítéséhez és az ellenőrzési folyamat befejezéséhez állítsa vissza a kamera és a mikrofon hozzáférését",
+    "subtitle_cam": "Állítsa vissza a kamera hozzáférését az arcellenőrzés folytatásához",
+    "subtitle_cam_old": "Állítsa vissza a kamera hozzáférését az arcellenőrzés folytatásához",
+    "title_both": "Kamera- és mikrofon-hozzáférés megtagadva",
+    "title_cam": "Kamerához való hozzáférés elutasítva"
+  },
+  "photo_upload": {
+    "body_bank_statement": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
+    "body_benefits_letter": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
+    "body_bill": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
+    "body_id_back": "A kártya hátoldalának feltöltése a számítógépről",
+    "body_id_front": "A jogosítvány előlapjának feltöltése a számítógépről",
+    "body_license_back": "Töltse fel a jogosítvány hátlapját a számítógépéről",
+    "body_license_front": "A jogosítvány előlapjának feltöltése a számítógépről",
+    "body_passport": "Útlevélkép oldal feltöltése a számítógépről",
+    "body_selfie": "Szelfi feltöltése a számítógépről",
+    "body_tax_letter": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
+    "button_take_photo": "Készítsen egy fényképet",
+    "button_upload": "Feltöltés",
+    "title_selfie": "Szelfi"
+  },
+  "poa_cancel": "Mégse",
+  "poa_err_invalid_file": {
+    "message": "Válasszon egy másik fájlt.",
+    "ok": "OK",
+    "title": "Nem megfelelő fájl"
+  },
+  "poa_guidance": {
+    "button_primary": "Tovább",
+    "instructions": {
+      "address": "Jelenlegi lakcím",
+      "full_name": "Teljes név",
+      "issue_date": "Kibocsátás dátuma vagy időtartama",
+      "label": "Készítsen fényképet a teljes dokumentumról, és győződjön meg arról, hogy tisztán látszik:",
+      "logo": "Logó"
+    },
+    "instructions_address_card_issue_date": "Kibocsátás dátuma",
+    "instructions_expiry_date": "Lejárat időpontja, ha van",
+    "instructions_full_address": "Teljes lakcím",
+    "subtitle_address_card": "A lakcímkártya érvényes kell legyen",
+    "subtitle_bank_statement": "​​3 hónapnál​​ nem régebbi",
+    "subtitle_benefits_letter": "​​12 hónapnál​​ nem régebbi",
+    "subtitle_bill": "​​3 hónapnál​​ nem régebbi",
+    "subtitle_tax_letter": "​​12 hónapnál​​ nem régebbi"
+  },
+  "poa_intro": {
+    "button_primary": "Ellenőrzés megkezdése",
+    "list_matches_signup": "Amely egyezik a regisztrációkor megadott címmel",
+    "list_most_recent": "Az Ön ​​legfrissebb​​ dokumentuma",
+    "list_shows_address": "Amelyen a ​​jelenlegi​​ címe látható",
+    "subtitle": "Olyan dokumentumra lesz szüksége:",
+    "title": "Ellenőrizzük a lakcímét"
+  },
+  "profile_data": {
+    "address_title": "Adja meg a címét",
+    "button_continue": "Tovább",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Ország kiválasztása"
+      },
+      "country_select": {
+        "placeholder": "Ország kiválasztása"
+      },
+      "nationality_select": {
+        "placeholder": "Ország kiválasztása"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Válasszon ki egy államot"
+      }
+    },
+    "country_of_residence_title": "Lakóhely szerinti ország",
+    "field_labels": {
+      "country": "Ország",
+      "country_residence": "Ország",
+      "dob": "Születési dátum",
+      "email": "E-mail-cím",
+      "first_name": "Utónév",
+      "gbr_specific": {
+        "postcode": "Irányítószám",
+        "town": "Város / Település"
+      },
+      "ind_specific": {
+        "pan": "Állandó számlaszám (PAN)"
+      },
+      "last_name": "Vezetéknév",
+      "line1": "Címsor 1",
+      "line2": "Címsor 2",
+      "line3": "Címsor 3",
+      "mobile_number": "Mobiltelefonszám",
+      "nationality": "Állampolgárság",
+      "phone_number": "Telefonszám",
+      "postcode": "Postai irányítószám",
+      "town": "Város",
+      "usa_specific": {
+        "line1_helper_text": "Utca, házszám, például: Albert utca 200.",
+        "line2_helper_text": "Lakás, lakosztály stb.",
+        "postcode": "Irányítószám",
+        "ssn": "Társadalombiztosítási azonosítószám (SSN)",
+        "state": "Állam"
+      }
+    },
+    "field_optional": "(nem kötelező)",
+    "field_validation": {
+      "gbr_specific": {
+        "invalid_postcode": "Kérjük, hogy érvényes irányítószámot adjon meg",
+        "required_postcode": "Adja meg az irányítószámát",
+        "too_long_postcode": "Az irányítószám túl hosszú",
+        "too_short_postcode": "Az irányítószám túl rövid"
+      },
+      "ind_specific": {
+        "invalid_pan": "Adjon meg egy érvényes PAN-t",
+        "required_pan": "Kérjük, adja meg az állandó számlaszámát (PAN)"
+      },
+      "invalid": "Kérjük, ellenőrizze az érvénytelen karaktereket vagy szimbólumokat",
+      "invalid_dob": "Érvényes születési dátumot adjon meg",
+      "invalid_email": "Kérjük, érvényes e-mail-címet adjon meg",
+      "invalid_mobile_number": "Kérem, adjon meg egy érvényes mobilszámot",
+      "invalid_phone_number": "Adjon meg egy érvényes telefonszámot",
+      "required_consent": "Kérjük, járuljon hozzá a személyazonosság és a csalási ellenőrzéséhez",
+      "required_country": "Kérjük, válasszon országot",
+      "required_country_residence": "Kérjük, válasszon országot",
+      "required_dob": "Kérjük, adja meg születési dátumát",
+      "required_email": "Kérjük, adja meg az e-mail-címét",
+      "required_first_name": "Kérjük, adja meg a keresztnevét",
+      "required_last_name": "Kérjük, adja meg a családnevét",
+      "required_line1": "Kérjük, írja be a címét",
+      "required_mobile_number": "Kérjük, adja meg mobilszámát",
+      "required_nationality": "Kérjük, válasszon országot",
+      "required_phone_number": "Kérjük, adja meg a telefonszámát",
+      "required_postcode": "Adja meg az irányítószámot",
+      "too_long_first_name": "A keresztnév túl hosszú",
+      "too_long_last_name": "A vezetéknév túl hosszú",
+      "too_long_line1": "A címsor túl hosszú",
+      "too_long_postcode": "Az irányítószám túl hosszú",
+      "too_long_town": "A város neve túl hosszú",
+      "too_short_first_name": "A keresztnév túl rövid",
+      "too_short_last_name": "A vezetéknév túl rövid",
+      "too_short_postcode": "Az irányítószám túl rövid",
+      "usa_specific": {
+        "invalid_ssn": "Kérjük adjon meg egy érvényes SSN-számot",
+        "required_ssn": "Kérjük, adja meg a társadalombiztosítási számát (SSN)",
+        "required_state": "Válasszon ki egy államot"
+      }
+    },
+    "personal_information_title": "Adja meg személyes adatait",
+    "prompt": {
+      "details_timeout": "Kezdje újra",
+      "header_timeout": "Úgy tűnik, túllépte az időkorlátot"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Próbálja újra"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Próbálkozzon újra érvényes fényképes személyazonosító okmánnyal, és győződjön meg róla, hogy az adatai jól láthatók",
+    "title": "A dokumentuma lejárt"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Próbálkozzon újra érvényes fényképes személyazonosító okmánnyal, és győződjön meg róla, hogy az adatai jól láthatók",
+    "title": "Probléma merült fel a dokumentumával kapcsolatban"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Próbálkozzon újra érvényes fényképes személyazonosító okmánnyal, és győződjön meg róla, hogy az adatai jól láthatók",
+    "title": "Nem elfogadott dokumentum"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Próbálkozzon újra, és ügyeljen, hogy arca látható és jól megvilágított legyen",
+    "title": "Probléma merült fel a szelfijével kapcsolatban"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Ellenőrizze, hogy csatlakoztatva van-e és működik-e.  <fallback>Folytathatja az azonosítást a telefonján is</fallback>",
+        "detail_no_fallback": "Győződjön meg róla, hogy az eszköz rendelkezik működőképes kamerával",
+        "title": "Nem működik a kamera?"
+      },
+      "camera_not_working": {
+        "detail": "Lehet, hogy nincs bekapcsolva. <fallback>Próbálja helyette a telefonját használni</fallback>.",
+        "detail_no_fallback": "Győződjön meg róla, hogy az eszköz kamerája működik",
+        "title": "A kamera nem működik"
+      },
+      "timeout": {
+        "detail": "Ha végzett, ne felejtse el megnyomni a gombot. Ismételje meg <fallback>a videóműveleteket</fallback>",
+        "title": "Úgy tűnik, túllépte az időkorlátot"
+      }
+    },
+    "body": "Tartsa az arcát az ovális kereten belül",
+    "button_accessibility": "Készítsen egy fényképet",
+    "button_primary": "Arcszkennelés indítása",
+    "frame_accessibility": "Kamera képe",
+    "title": "Tartsa az arcát az ovális kereten belül"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Arckép",
+    "subtitle": "Ügyeljen arra, hogy arca teljes egészében látható legyen",
+    "title": "Ellenőrizze a szelfijét"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "A folyamat során rögzítjük az arcát és a hátterét",
+    "button_primary": "Tovább",
+    "list_accessibility": "Tippek egy jó szelfi elkészítéséhez",
+    "list_item_face_forward": "Nézzen előre, és ügyeljen, hogy mindkét szeme tisztán látszódjon",
+    "list_item_no_face_cover": "Távolítson el mindent, ami eltakarja az arcát. Szemüvege maradhat",
+    "list_item_no_glasses": "Ha szükséges, vegye le a szemüvegét",
+    "subtitle": "Összehasonlítjuk ezt a dokumentumán szereplő képpel",
+    "title": "Készítsen egy szelfit"
+  },
+  "sms_sent": {
+    "info": "Tippek",
+    "info_link_expire": "A hivatkozása egy óra múlva lejár",
+    "info_link_window": "Hagyja nyitva az ablakot a mobil használata közben",
+    "link": "Hivatkozás újraküldése",
+    "subtitle": "Elküldtünk egy biztonságos linket erre a számra: %{number}",
+    "subtitle_minutes": "Néhány percbe telhet, míg megérkezik",
+    "title": "Ellenőrizze a mobilját"
+  },
+  "switch_phone": {
+    "info": "Tippek",
+    "info_link_expire": "A mobilhivatkozása egy óra múlva lejár",
+    "info_link_refresh": "Ne frissítse ezt az oldalt",
+    "info_link_window": "Hagyja nyitva az ablakot a mobil használata közben",
+    "link": "Mégse",
+    "subtitle": "Miután befejezte, átvisszük a következő lépésre",
+    "title": "Csatlakoztatva a mobiljához"
+  },
+  "upload_guide": {
+    "button_primary": "Töltse fel a fotót",
+    "image_detail_blur_alt": "Példa elmosódott dokumentumra",
+    "image_detail_blur_label": "Minden adatnak jól kell látszódnia — semmi nem lehet elmosódott",
+    "image_detail_cutoff_label": "Az összes adat megjelenítése — beleértve az alsó 2 sort is",
+    "image_detail_glare_label": "Távolodjon el a közvetlen fénytől — ne legyen csillogás",
+    "image_detail_good_label": "A fényképen a dokumentum jól látható legyen",
+    "subtitle": "Szkennelt és fénymásolt dokumentumot nem fogadunk el",
+    "title": "Töltse fel útlevele fényképes oldalát"
+  },
+  "user_consent": {
+    "button_primary": "Elfogad",
+    "button_secondary": "Nem fogadja el",
+    "prompt": {
+      "button_primary": "Ismételt ellenőrzés",
+      "button_secondary": "Igen, ne azonosítson",
+      "no_consent_detail": "Ha nem fogadja el az Onfido adatvédelmi nyilatkozatát és szolgáltatási feltételeit, nem tudjuk ellenőrizni személyazonosságát, és kilép ebből a lépésből.",
+      "no_consent_title": "Biztos benne?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Képernyő újratöltése",
+    "detail": "Ellenőrizze, hogy stabil-e a kapcsolat, majd próbálja újra",
+    "title": "A tartalmat nem sikerült betölteni"
+  },
+  "video_capture": {
+    "body": "Tartsa az arcát az ovális kereten belül",
+    "body_record": "Nyomja meg a gombot, ha készen áll",
+    "body_stop": "Nyomja meg a Stop gombot, ha elkészült",
+    "button_primary_finish": "Felvétel befejezése",
+    "button_primary_next": "Következő lépés",
+    "button_primary_start": "Felvétel indítása",
+    "button_record_accessibility": "Felvétel indítása",
+    "frame_accessibility": "Kamera képe",
+    "header": {
+      "challenge_digit_instructions": "Mondja ki hangosan az egyes számjegyeket",
+      "challenge_turn_forward": "majd nézzen előre",
+      "challenge_turn_left": "Fordítsa a fejét balra",
+      "challenge_turn_right": "Fordítsa a fejét jobbra"
+    },
+    "prompt": {
+      "header_timeout": "Úgy tűnik, túllépte az időkorlátot"
+    }
+  },
+  "video_confirmation": {
+    "body": "Videóját rögzítettük",
+    "button_primary": "Töltse fel a videót",
+    "button_secondary": "Vegye fel újra a videót",
+    "title": "Nézze meg a videóját",
+    "video_accessibility": "Rögzített videó lejátszása"
+  },
+  "video_intro": {
+    "button_primary": "Készítsen videófelvételt",
+    "list_accessibility": "Videószelfi rögzítésére vonatkozó műveletek",
+    "list_item_actions": "A befejezéshez 20 másodperc áll rendelkezésére",
+    "list_item_speak": "Kövesse a mozgásra és beszédre vonatkozó utasításokat",
+    "title": "Készítsen videófelvételt"
+  },
+  "welcome": {
+    "doc_video_subtitle": "Pár percet vesz igénybe",
+    "list_header_doc_video": "Használja eszközét a felvételhez:",
+    "list_header_webcam": "Használja webkameráját vagy telefonját az alábbiak fényképezéséhez:",
+    "list_item_doc": "Az Ön személyazonosító okmánya",
+    "list_item_doc_video_timeout": "A videórögzítés időkorlátja <timeout></timeout> másodperc",
+    "list_item_poa": "az Ön lakcímét igazoló dokumentum",
+    "list_item_selfie": "az Ön arca",
+    "next_button": "Dokumentum kiválasztása",
+    "start_workflow_button": "Ellenőrzés megkezdése",
+    "start_workflow_button_trial": "Ellenőrzés megkezdése (TEST)",
+    "subtitle": "Pár percet vesz igénybe",
+    "title": "Igazolja személyazonosságát",
+    "trial_message": "Ne osszon meg személyes adatokat itt, kivéve, ha az Onfido tesztelésében vesz részt."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Igazoltuk személyazonosságát",
+      "title": "Átment"
+    },
+    "reject": {
+      "description": "Nem tudtuk ellenőrizni a személyazonosságát",
+      "title": "Elutasítva"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "Szerverhiba történt!",
+    "no_workflow_run_id": "A munkafolyamat futtatásának azonosítója nincs beállítva.",
+    "reload_app": "Próbálja újratölteni az alkalmazást, majd próbálkozzon újra.",
+    "task_not_completed": "A munkafolyamat feladat végrehajtása nem sikerült.",
+    "task_not_retrieved": "Nem sikerült lekérdezni a munkafolyamat feladatot.",
+    "task_not_supported": "A feladat jelenleg nem támogatott"
+  }
+}

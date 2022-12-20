@@ -1,0 +1,732 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "録画をアップロード",
+    "subtitle": "顔の動画が正常に記録されました",
+    "title": "記録が完了しました"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "指示を再読み込みする",
+    "button_primary_retry_upload": "アップロードを再試行",
+    "button_secondary_restart_recording": "録画を再開する",
+    "subtitle": "接続が安定していることを確認してから、もう一度お試しください",
+    "title": "接続エラー"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "後ろへ下がってください",
+    "feedback_move_closer": "もっと近づいてください",
+    "feedback_no_face_detected": "顔が検出されませんでした",
+    "feedback_not_centered": "顔が中央に配置されていません",
+    "title": "顔を枠内に配置してください"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "timeout_body": "15秒以内に録画を完了してください",
+      "timeout_button_primary": "再試行",
+      "timeout_title": "申し訳ありませんが、録画を再開する必要があります",
+      "too_fast_body": "再試行し、頭をゆっくり回してください",
+      "too_fast_button_primary": "再試行",
+      "too_fast_title": "頭を回すのが速すぎました"
+    },
+    "title": "頭をゆっくりと両側に向けます",
+    "title_completed": "記録が完了しました"
+  },
+  "avc_intro": {
+    "button_primary_ready": "準備ができました",
+    "disclaimer": "顔と背景を録画することにご留意ください",
+    "list_item_one": "まず、顔を枠内に配置します",
+    "list_item_two": "そして、頭をゆっくりと両側に向けます",
+    "subtitle": "これは、お客様が実際の人物であることを確認するために行います",
+    "title": "動画を録画する"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "録画を再開する",
+    "list_item_eyes": "目がはっきり見えるようにしてください",
+    "list_item_face": "身分証明書の提示は必要ありませんので、必ず顔だけを見せてください",
+    "list_item_lighting": "充分な明るさがあることを確認してください",
+    "list_item_mask": "マスクなど顔を覆うアイテムは必ず外してください。メガネは大丈夫です",
+    "title": "顔を検出できません"
+  },
+  "avc_uploading": {
+    "title": "アップロード中"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "現在、その国のドキュメントはサポートされていません。<fallback>別のドキュメントの種類を</fallback>お試しください"
+    },
+    "alert_dropdown": {
+      "country_not_found": "国名が見つかりません"
+    },
+    "button_primary": "ドキュメントを送信",
+    "poa_alert": {
+      "country_not_found": "申し訳ありません。より多くの国をサポートできるよう取り組んでいます。",
+      "intro": "お住まいの国が見つかりませんか？"
+    },
+    "search": {
+      "accessibility": "国を選択",
+      "input_placeholder": "例：アメリカ合衆国",
+      "label": "国を検索"
+    },
+    "title": "発行国を選択"
+  },
+  "cross_device_checklist": {
+    "button_primary": "認証を送信",
+    "info": "ヒント",
+    "list_item_doc_multiple": "ドキュメント",
+    "list_item_doc_one": "ドキュメント",
+    "list_item_poa": "住所を証明するもの",
+    "list_item_selfie": "自撮り",
+    "list_item_video": "動画",
+    "subtitle": "アップロードした内容は次のとおりです。",
+    "title": "1番最後のステップ"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "リンクはモバイルデバイスでのみ機能します",
+    "title": "何らかの問題が発生しました"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "コンピューターで認証を再開する必要があります",
+    "title": "何らかの問題が発生しました"
+  },
+  "cross_device_intro": {
+    "button_primary": "安全なリンクを取得する",
+    "list_accessibility": "携帯での認証を継続するために必要な手順",
+    "list_item_finish": "提出を完了するには、ここに戻って確認してください",
+    "list_item_open_link": "リンクを開き、タスクを完了します",
+    "list_item_send_phone": "スマートフォンに安全なリンクを送信します",
+    "subtitle": "その方法：",
+    "title": "スマートフォンで続行"
+  },
+  "cross_device_return": {
+    "body": "パソコンからのアップデートに数秒かかる場合があります",
+    "subtitle": "コンピュータに戻って続行できるようになりました",
+    "title": "アップロードに成功しました"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "続行",
+    "info": "再度確認",
+    "list_item_desktop_open": "デスクトップウィンドウは開いたままです",
+    "list_item_sent_by_you": "このリンクはお客様が送信したものです。詐欺と思われる場合はご相談ください",
+    "subtitle": "認証を続行する",
+    "title": "パソコンにリンクされたモバイルセッション"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "写真を撮影する",
+    "footer": {
+      "captured": "写真がキャプチャされました",
+      "capturing": "写真をキャプチャしています",
+      "manual_fallback_identity_card_back": "カードの裏面を写真撮影してください",
+      "manual_fallback_identity_card_front": "カードの表側を写真撮影してください",
+      "manual_fallback_license_back": "運転免許証の裏面の写真を撮影してください",
+      "manual_fallback_license_front": "運転免許証の表側の写真を撮影してください",
+      "manual_fallback_passport": "パスポートの写真ページを写真撮影してください",
+      "manual_fallback_residence_permit_back": "居住許可証の裏面の写真を撮影してください",
+      "manual_fallback_residence_permit_front": "居住許可証の表側の写真を撮影してください",
+      "position_identity_card_back": "カードの背面を枠内に配置する",
+      "position_identity_card_front": "カードの前面を枠内に配置する",
+      "position_license_back": "運転免許証の裏面をフレームに配置する",
+      "position_license_front": "運転免許証の前面をフレームに配置する",
+      "position_passport": "パスポートの写真ページをフレームに配置する",
+      "position_residence_permit_back": "居住許可証の裏面を枠内に配置する",
+      "position_residence_permit_front": "居住許可証の前面を枠内に配置する"
+    },
+    "frame": {
+      "flip_document": "裏側に反転してください",
+      "hold_still": "そのまま動かさないでください",
+      "no_document": "書類が検出されませんでした"
+    }
+  },
+  "doc_capture": {
+    "button_primary": "ドキュメントのスキャンを開始",
+    "detail": {
+      "folded_doc_front": "ドキュメントを平らに置き、すべての内側のページを含める（ご自身の写真を含める必要があります）"
+    },
+    "header_folded_doc_front": "プロフィール写真側",
+    "prompt": {
+      "button_card": "プラスチックカード",
+      "button_paper": "紙のドキュメント",
+      "title_id": "どのような種類の身分証明書をお持ちですか？",
+      "title_license": "どのような種類の免許証をお持ちですか？"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "すべてがはっきりしていることを確認してください",
+      "blur_title": "ぼやけた写真が検出されました",
+      "crop_detail": "ドキュメント全体が表示されていることを確認する",
+      "crop_title": "カットオフ画像が検出されました",
+      "glare_detail": "直射光から離れた場所に置いてください",
+      "glare_title": "照り返しが検出されました",
+      "no_doc_detail": "フレーム内に完全に収まっていることを確認してください",
+      "no_doc_title": "ドキュメントが検出されませんでした"
+    },
+    "body": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
+    "body_bank_statement": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
+    "body_benefits_letter": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
+    "body_bill": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
+    "body_id": "詳細が明確で遮られていないことを確認してください",
+    "body_image_medium": "確認できない場合、認証に時間がかかります",
+    "body_image_poor": "ご本人確認をスムーズに行うには、より良い写真が必要です",
+    "body_license": "詳細が明確で遮られていないことを確認してください",
+    "body_passport": "詳細が明確で遮られていないことを確認してください",
+    "body_permit": "詳細が明確で遮られていないことを確認してください",
+    "body_tax_letter": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
+    "button_close": "閉じる",
+    "button_primary_redo": "やり直し",
+    "button_primary_upload": "アップロード",
+    "button_primary_upload_anyway": "そのままアップロードしてください",
+    "button_secondary_redo": "やり直し",
+    "button_zoom": "画像を拡大",
+    "image_accessibility": "ドキュメントの写真",
+    "title": "画像を確認する"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "ドキュメントをスキャンしています",
+    "instructions_title_back": "ドキュメントの背面を枠内に配置する",
+    "instructions_title_front": "ドキュメントの前面を枠内に配置する"
+  },
+  "doc_select": {
+    "button_address_card": "住所カード",
+    "button_address_card_detail": "仮カードと永久カードが利用可能です",
+    "button_bank_statement": "銀行または住宅金融組合の明細書",
+    "button_bank_statement_non_uk": "銀行取引明細書",
+    "button_benefits_letter": "特典レター",
+    "button_benefits_letter_detail": "政府が認可した家計給付など求職者手当、住宅給付、税額控除",
+    "button_bill": "公共料金請求書",
+    "button_bill_detail": "ガス、電気、水道、固定電話、ブロードバンド",
+    "button_government_letter": "政府発行の手紙",
+    "button_government_letter_detail": "政府が発行した手紙（例：給付金の権利、投票用紙、納税用紙など）",
+    "button_id": "身分証明書",
+    "button_id_detail": "表面と裏面",
+    "button_license": "運転免許証",
+    "button_license_detail": "表面と裏面",
+    "button_passport": "パスポート",
+    "button_passport_detail": "写真ページ",
+    "button_permit": "在留許可証",
+    "button_permit_detail": "表面と裏面",
+    "button_tax_letter": "地方税書類",
+    "extra_estatements_ok": "受け入れられる電子明細書",
+    "extra_no_mobile": "申し訳ありませんが、携帯電話の請求書は受け付けられません",
+    "list_accessibility": "本人確認に使用できるドキュメント",
+    "pill": "最速",
+    "section": {
+      "header_country": "発行国",
+      "header_doc_type": "受け入れられるドキュメント",
+      "input_country_not_found": "一致する結果がありませんでした",
+      "input_placeholder_country": "発行国を選択"
+    },
+    "subtitle": "正式な写真付き身分証明書である必要があります",
+    "subtitle_country": "発行国を選択すると、当社が受理できるドキュメントを確認できます",
+    "subtitle_entire_page": "全ページ",
+    "subtitle_front_back": "表面と裏面",
+    "subtitle_photo_page": "写真ページ",
+    "subtitle_poa": "次のドキュメントが、現在の自宅の住所を示す可能性の最も高いものです",
+    "title": "ドキュメントを選択",
+    "title_poa": "%{country}のドキュメントを選択"
+  },
+  "doc_submit": {
+    "button_link_upload": "または写真をアップロードする（スキャンやコピーはできません）",
+    "button_primary": "スマートフォンで続行",
+    "subtitle": "携帯電話で写真を撮る",
+    "title_bank_statement": "明細書を送信",
+    "title_benefits_letter": "手紙を送信",
+    "title_bill": "請求書を送信",
+    "title_government_letter": "政府発行の手紙",
+    "title_id_back": "身分証明書を提出する（裏面）",
+    "title_id_front": "身分証明書を提出する（表）",
+    "title_license_back": "免許証を提出する（裏面）",
+    "title_license_front": "免許証を提出する（前面）",
+    "title_passport": "パスポートの写真ページを送信する",
+    "title_permit_back": "在留許可証を提出する（裏面）",
+    "title_permit_front": "在留許可証を提出する（表面）",
+    "title_tax_letter": "手紙を送信"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "次のステップ",
+    "button_primary_fallback_end": "録画を終了する",
+    "detail_step2": "ドキュメントの全体を常に表示してください",
+    "header": "ドキュメントの表側を枠内に保ったまま、持っていてください",
+    "header_paper_doc_step2": "ドキュメントをゆっくりと回転させて外側のページを表示してください",
+    "header_passport": "パスポートを持ちながら、写真のページを枠内に収めてください",
+    "header_passport_progress": "そのまま動かさないでください",
+    "header_step1": "ここからは動かさないでください",
+    "header_step2": "ドキュメントをゆっくりと回して裏面を表示してください",
+    "prompt": {
+      "detail_timeout": "動画録画は <timeout></timeout> 秒に制限されています。<fallback>もう一度やり直してください</fallback>"
+    },
+    "stepper": "​<step>​​</step>​/​<total>​​</total>​ステップ",
+    "success_accessibility": "成功しました"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "プレビュー動画",
+    "title": "動画を確認する"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Google Chromeの最新バージョンでプロセスを再開する",
+    "subtitle_ios": "Safariの最新バージョンでプロセスを再開する",
+    "title_android": "サポートされていないブラウザ",
+    "title_ios": "サポートされていないブラウザ"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "本人確認画面を閉じる",
+      "dismiss_alert": "警告を解除する"
+    },
+    "back": "戻る",
+    "close": "閉じる",
+    "errors": {
+      "expired_token": {
+        "instruction": "再度お試しください",
+        "message": "トークンが期限切れです"
+      },
+      "expired_trial": {
+        "instruction": "トライアルの上限に達しました",
+        "message": "トライアルの有効期限が切れています"
+      },
+      "geoblocked_error": {
+        "instruction": "申し訳ありませんが、現在の所在地はサポートされていないため、これ以上手続きを進めることはできません",
+        "message": "サービスをご利用いただけません"
+      },
+      "interrupted_flow_error": {
+        "instruction": "別のデバイスでプロセスを再開する",
+        "message": "カメラが検出されませんでした"
+      },
+      "invalid_size": {
+        "instruction": "10MB未満である必要があります。",
+        "message": "ファイルサイズを超えています。"
+      },
+      "invalid_type": {
+        "instruction": "別のファイルタイプをお試しください。",
+        "message": "ファイルをアップロードできません。"
+      },
+      "lazy_loading": {
+        "message": "コンポーネントの読み込み中にエラー発生しました"
+      },
+      "multiple_faces": {
+        "instruction": "自撮り写真に写るのはあなたの顔だけにしてください",
+        "message": "複数の顔が見つかりました"
+      },
+      "no_face": {
+        "instruction": "顔が見えるようにしてください",
+        "message": "顔が検出されませんでした"
+      },
+      "request_error": {
+        "instruction": "再度お試しください",
+        "message": "何らかの問題が発生しました"
+      },
+      "sms_failed": {
+        "instruction": "携帯向けのリンクをコピー",
+        "message": "何らかの問題が発生しました"
+      },
+      "sms_overuse": {
+        "instruction": "携帯向けのリンクをコピー",
+        "message": "試行回数が超過しました"
+      },
+      "unsupported_file": {
+        "instruction": "JPGまたはPNGファイルを使用してください",
+        "message": "このファイルタイプには対応していません"
+      }
+    },
+    "lazy_load_placeholder": "読み込み中…",
+    "loading": "ローディング中です"
+  },
+  "get_link": {
+    "alert_wrong_number": "電話番号が正しいことを確認してください",
+    "button_copied": "コピー済み",
+    "button_copy": "コピー",
+    "button_submit": "リンクを送る",
+    "info_qr_how": "QRコードのスキャン方法",
+    "info_qr_how_list_item_camera": "スマートフォンのカメラをQRコードに向けます",
+    "info_qr_how_list_item_download": "動作しない場合は、Google PlayまたはApp StoreからQRコードスキャナーをダウンロードしてください",
+    "link_divider": "または別の方法を選択してください",
+    "link_qr": "QRコードをスキャン",
+    "link_sms": "SMSでリンクを取得",
+    "link_url": "リンクをコピー",
+    "loader_sending": "送信中",
+    "number_field_input_placeholder": "携帯電話番号を入力します",
+    "number_field_label": "携帯電話番号を入力します。",
+    "subtitle_qr": "スマートフォンでQRコードをスキャンする",
+    "subtitle_sms": "このワンタイムリンクをスマートフォンに送信する",
+    "subtitle_url": "このワンタイムリンクをスマートフォンに送信する",
+    "title": "安全なリンクを取得する",
+    "url_field_label": "リンクを携帯電話のブラウザにコピー"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "指示を再読み込みする",
+    "intro_note_no1": "まず、顔を枠内に配置します",
+    "intro_note_no2": "そして、頭をゆっくりと両側に向けます",
+    "intro_ready_button": "顔と背景を録画することにご留意ください",
+    "intro_subtitle": "これは、お客様が実際の人物であることを確認するために行います",
+    "intro_warning": "顔と背景を録画することにご留意ください",
+    "success_main_button": "認証を送信",
+    "success_title": "本人確認を開始するために必要なお手続きは以上です"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "カードの裏面を写真撮影してください",
+      "body_id_front": "カードの表側を写真撮影してください",
+      "body_license_back": "免許証の裏面を写真撮影してください",
+      "body_license_front": "免許証の表側を写真撮影してください",
+      "body_passport": "パスポートの写真ページを写真撮影してください",
+      "body_selfie": "顔を見せている自撮り写真を撮影してください"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "代わりに<fallback>基本的なカメラモード</fallback>を使用して写真を撮る"
+        },
+        "camera_not_working": {
+          "detail": "代わりに<fallback>基本的なカメラモード</fallback>を使用して写真を撮る"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "写真を撮影する",
+      "title": "パスポート写真ページ"
+    }
+  },
+  "outro": {
+    "body": "本人確認を開始するために必要なお手続きは以上です",
+    "body_government_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
+    "title": "ありがとうございます"
+  },
+  "permission": {
+    "body_both": "カメラとマイクの両方を使用しないと認証できません",
+    "body_cam": "カメラなしでは認証できません",
+    "button_primary_both": "両方を有効にする",
+    "button_primary_cam": "カメラを有効にする",
+    "subtitle_both": "プロンプトが表示されたら、続行するため両方へのアクセスを有効にしてください",
+    "subtitle_cam": "プロンプトが表示されたら、カメラへのアクセスを有効にして続行してください",
+    "title_both": "カメラとマイクへのアクセスを許可する",
+    "title_cam": "カメラへのアクセスを許可"
+  },
+  "permission_recovery": {
+    "button_primary": "更新",
+    "info": "回復",
+    "list_header_both": "両方へのアクセスを回復する方法は次のとおりです。",
+    "list_header_cam": "カメラへのアクセスを回復する方法は次のとおりです。",
+    "list_item_action_cam": "このページを更新して、本人確認プロセスを再開してください",
+    "list_item_how_to_both": "ブラウザの設定からカメラとマイクへのアクセスを許可する",
+    "list_item_how_to_cam": "ブラウザの設定からカメラへのアクセスを許可する",
+    "subtitle_both": "カメラとマイクへのアクセスを回復して動画を撮影し、認証プロセスを完了します",
+    "subtitle_cam": "カメラへのアクセスを回復して認証を続行する",
+    "subtitle_cam_old": "カメラへのアクセスを回復して顔認証を続行する",
+    "title_both": "カメラとマイクへのアクセスが拒否されました",
+    "title_cam": "カメラへのアクセスが拒否されました"
+  },
+  "photo_upload": {
+    "body_bank_statement": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
+    "body_benefits_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
+    "body_bill": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
+    "body_id_back": "パソコンからカードの裏面をアップロードする",
+    "body_id_front": "パソコンから免許証の前面をアップロードする",
+    "body_license_back": "パソコンから免許証の裏面をアップロードする",
+    "body_license_front": "パソコンから免許証の前面をアップロードする",
+    "body_passport": "パソコンからパスポートの写真ページをアップロードする",
+    "body_selfie": "パソコンから自撮り写真をアップロードする",
+    "body_tax_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
+    "button_take_photo": "写真を撮る",
+    "button_upload": "アップロード",
+    "title_selfie": "自撮り"
+  },
+  "poa_cancel": "キャンセル",
+  "poa_err_invalid_file": {
+    "message": "別のファイルを選択してください。",
+    "ok": "OK",
+    "title": "無効なファイル"
+  },
+  "poa_guidance": {
+    "button_primary": "続行",
+    "instructions": {
+      "address": "現在の住所",
+      "full_name": "氏名",
+      "issue_date": "発行日または要約期間",
+      "label": "ドキュメント全体をキャプチャし、次のことが明確に示されていることを確認します。",
+      "logo": "ロゴ"
+    },
+    "instructions_address_card_issue_date": "発行日",
+    "instructions_expiry_date": "有効期限（該当する場合）",
+    "instructions_full_address": "住所詳細",
+    "subtitle_address_card": "有効な住所カードである必要があります",
+    "subtitle_bank_statement": "過去3か月以内に発行されたものである必要があります",
+    "subtitle_benefits_letter": "​​過去3か月​​以内に発行されたものである必要があります",
+    "subtitle_bill": "​​過去3か月​​以内に発行されたものである必要があります",
+    "subtitle_tax_letter": "​​過去3か月​​以内に発行されたものである必要があります"
+  },
+  "poa_intro": {
+    "button_primary": "認証を開始",
+    "list_matches_signup": "登録時に使用した住所と一致するもの",
+    "list_most_recent": "​​最新の​​ドキュメントであること",
+    "list_shows_address": "​​現在の​​住所を表示",
+    "subtitle": "次の内容を記載したドキュメントが必要です。",
+    "title": "住所を認証しましょう"
+  },
+  "profile_data": {
+    "address_title": "住所を追加する",
+    "button_continue": "続行",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "国を選択"
+      },
+      "country_select": {
+        "placeholder": "国を選択"
+      },
+      "nationality_select": {
+        "placeholder": "国を選択"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "州・都道府県を選択"
+      }
+    },
+    "country_of_residence_title": "居住国",
+    "field_labels": {
+      "country": "国",
+      "country_residence": "国",
+      "dob": "生年月日",
+      "email": "メールアドレス",
+      "first_name": "名",
+      "gbr_specific": {
+        "postcode": "郵便番号",
+        "town": "都市名"
+      },
+      "ind_specific": {
+        "pan": "インドの納税者番号（PAN）"
+      },
+      "last_name": "姓",
+      "line1": "住所1",
+      "line2": "住所2",
+      "line3": "住所3",
+      "mobile_number": "携帯電話番号",
+      "nationality": "国籍",
+      "phone_number": "電話番号",
+      "postcode": "郵便番号",
+      "town": "町",
+      "usa_specific": {
+        "line1_helper_text": "番地（例：田中町1丁目33番地）",
+        "line2_helper_text": "建物名、部屋番号など",
+        "postcode": "郵便番号",
+        "ssn": "社会保障番号（SSN）",
+        "state": "州・都道府県"
+      }
+    },
+    "field_optional": "（オプション）",
+    "field_validation": {
+      "gbr_specific": {
+        "invalid_postcode": "有効な郵便番号を入力してください",
+        "required_postcode": "郵便番号を入力してください",
+        "too_long_postcode": "郵便番号が長すぎます",
+        "too_short_postcode": "郵便番号が短すぎます"
+      },
+      "ind_specific": {
+        "invalid_pan": "有効なインドの納税者番号（PAN）を入力してください",
+        "required_pan": "インドの納税者番号（PAN）を入力してください"
+      },
+      "invalid": "無効な文字または記号を確認してください",
+      "invalid_dob": "有効な生年月日を入力してください",
+      "invalid_email": "有効なメールアドレスを入力して下さい",
+      "invalid_mobile_number": "有効な携帯電話番号を入力してください",
+      "invalid_phone_number": "有効な電話番号を入力してください",
+      "required_consent": "本人確認と詐欺チェックの認証に同意してください",
+      "required_country": "国を選択してください",
+      "required_country_residence": "国を選択してください",
+      "required_dob": "生年月日を入力してください",
+      "required_email": "メールアドレスを入力してください",
+      "required_first_name": "名を入力してください",
+      "required_last_name": "姓を入力してください",
+      "required_line1": "住所を入力してください",
+      "required_mobile_number": "携帯電話番号を入力してください",
+      "required_nationality": "国を選択してください",
+      "required_phone_number": "電話番号を入力してください",
+      "required_postcode": "郵便番号を入力してください",
+      "too_long_first_name": "名が長すぎます",
+      "too_long_last_name": "名前が長すぎます",
+      "too_long_line1": "住所が長すぎます",
+      "too_long_postcode": "郵便番号が長すぎます",
+      "too_long_town": "町名が長すぎます",
+      "too_short_first_name": "名が短すぎます",
+      "too_short_last_name": "姓が短すぎます",
+      "too_short_postcode": "郵便番号が短すぎます",
+      "usa_specific": {
+        "invalid_ssn": "有効なSSNを入力してください",
+        "required_ssn": "SSNを入力してください",
+        "required_state": "州・都道府県を選択してください"
+      }
+    },
+    "personal_information_title": "お客様情報の追加",
+    "prompt": {
+      "details_timeout": "やり直す",
+      "header_timeout": "時間がかかりすぎたようです"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "再試行"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください",
+    "title": "ドキュメントの有効期限が切れています"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください",
+    "title": "ドキュメントに問題がありました"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください",
+    "title": "受け入れられないドキュメント"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "もう一度お試しください。顔が見え、明るい場所にいることを確認してください",
+    "title": "自撮り写真に問題がありました"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "接続され、機能していることを確認してください。<fallback>携帯で認証を続行</fallback>することもできます",
+        "detail_no_fallback": "デバイスに動作するカメラがあることを確認してください",
+        "title": "カメラが動作していませんか？"
+      },
+      "camera_not_working": {
+        "detail": "接続されていない可能性があります。<fallback>代わりに携帯を使用してみてください</fallback>。",
+        "detail_no_fallback": "デバイスのカメラが機能していることを確認してください",
+        "title": "カメラが動作していません"
+      },
+      "timeout": {
+        "detail": "完了したら、忘れずにボタンを押してください。<fallback>動画の操作をやり直す</fallback>",
+        "title": "時間がかかりすぎたようです"
+      }
+    },
+    "body": "顔を楕円の中に保ちます",
+    "button_accessibility": "写真を撮影する",
+    "button_primary": "顔スキャンを開始",
+    "frame_accessibility": "カメラから見た様子",
+    "title": "顔を楕円の中に保ちます"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "顔写真",
+    "subtitle": "顔全体が見えるようにしてください",
+    "title": "自撮り写真を確認する"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "このプロセス中に顔と背景がキャプチャされます",
+    "button_primary": "続行",
+    "list_accessibility": "自撮りのコツ",
+    "list_item_face_forward": "前を向いて、目がはっきり見えるようにしてください",
+    "list_item_no_face_cover": "顔を覆うものはすべて取り除いてください。メガネは大丈夫です",
+    "list_item_no_glasses": "必要に応じてメガネを外してください",
+    "subtitle": "こちらをお手元のドキュメントと比較します",
+    "title": "自撮りをする"
+  },
+  "sms_sent": {
+    "info": "ヒント",
+    "info_link_expire": "リンクは1時間後に期限切れになります",
+    "info_link_window": "携帯電話を使用している間、このウィンドウを開いたままにしてください",
+    "link": "リンクを再送信",
+    "subtitle": "%{number}に安全なリンクを送信しました",
+    "subtitle_minutes": "到着まで数分かかる場合があります",
+    "title": "携帯電話を確認する"
+  },
+  "switch_phone": {
+    "info": "ヒント",
+    "info_link_expire": "携帯電話リンクは1時間後に期限切れになります",
+    "info_link_refresh": "このページを更新しない",
+    "info_link_window": "携帯電話を使用している間、このウィンドウを開いたままにしてください",
+    "link": "キャンセル",
+    "subtitle": "完了したら、次のステップに進みます",
+    "title": "携帯電話に接続しました"
+  },
+  "upload_guide": {
+    "button_primary": "写真をアップロードする",
+    "image_detail_blur_alt": "ぼんやりした文書の例",
+    "image_detail_blur_label": "すべての詳細がぼやけておらず、はっきりしている必要があります",
+    "image_detail_cutoff_label": "下2行を含むすべての詳細を表示してください",
+    "image_detail_glare_label": "直射光から離れた場所に置き、照り返しが無いようにしてください",
+    "image_detail_good_label": "写真にはドキュメントがはっきり写っている必要があります",
+    "subtitle": "スキャンやコピーは受け付けていません",
+    "title": "パスポートの写真ページをアップロードする"
+  },
+  "user_consent": {
+    "button_primary": "受け入れる",
+    "button_secondary": "受け入れない",
+    "prompt": {
+      "button_primary": "もう一度確認する",
+      "button_secondary": "はい、本人確認しないでください",
+      "no_consent_detail": "Onfidoのプライバシーステートメントと利用規約に同意されない場合、当社はお客様の本人確認を行うことができません。そのため、このステップを終了することとなります。",
+      "no_consent_title": "本当によろしいですか？"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "画面を再読み込み",
+    "detail": "接続が安定していることを確認してから、もう一度お試しください",
+    "title": "コンテンツの読み込みに失敗しました"
+  },
+  "video_capture": {
+    "body": "顔を楕円の中に保ちます",
+    "body_record": "準備ができたらボタンを押してください",
+    "body_stop": "終了したら停止を押してください",
+    "button_primary_finish": "録画を終了する",
+    "button_primary_next": "次のステップ",
+    "button_primary_start": "録画を開始する",
+    "button_record_accessibility": "録画を開始する",
+    "frame_accessibility": "カメラから見た様子",
+    "header": {
+      "challenge_digit_instructions": "各数字を声に出してください",
+      "challenge_turn_forward": "次いで、前を向く",
+      "challenge_turn_left": "頭を左に回してください",
+      "challenge_turn_right": "頭を右に回してください"
+    },
+    "prompt": {
+      "header_timeout": "時間がかかりすぎたようです"
+    }
+  },
+  "video_confirmation": {
+    "body": "動画が録画されました",
+    "button_primary": "動画をアップロードする",
+    "button_secondary": "動画を再録画する",
+    "title": "動画を確認する",
+    "video_accessibility": "録画した動画を再生する"
+  },
+  "video_intro": {
+    "button_primary": "動画を録画する",
+    "list_accessibility": "自撮り動画を録画するアクション",
+    "list_item_actions": "終了まで残り20秒です",
+    "list_item_speak": "指示に従って移動したり話してください",
+    "title": "動画を録画する"
+  },
+  "welcome": {
+    "doc_video_subtitle": "数分かかります",
+    "list_header_doc_video": "デバイスを使用して以下を記録してください。",
+    "list_header_webcam": "ウェブカメラまたはスマートフォンを使用して写真を撮影してください。",
+    "list_item_doc": "本人確認書類",
+    "list_item_doc_video_timeout": "録画は<timeout></timeout>秒に制限されています",
+    "list_item_poa": "住所を証明するもの",
+    "list_item_selfie": "ご自身の顔",
+    "next_button": "ドキュメントを選択",
+    "start_workflow_button": "認証を開始",
+    "start_workflow_button_trial": "認証を開始（テスト）",
+    "subtitle": "数分かかります",
+    "title": "本人確認を行う",
+    "trial_message": "Onfidoトライアルに参加していない限り、ここで個人データを共有しないでください。"
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "本人確認が完了しました",
+      "title": "合格しました"
+    },
+    "reject": {
+      "description": "本人確認ができませんでした",
+      "title": "不合格でした"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "サーバーエラーが発生しました。",
+    "no_workflow_run_id": "ワークフロー実行IDが設定されていません。",
+    "reload_app": "アプリを再読み込みして、もう一度お試しください。",
+    "task_not_completed": "ワークフロータスクを完了できませんでした。",
+    "task_not_retrieved": "ワークフロータスクを取得できませんでした。",
+    "task_not_supported": "タスクは現在サポートされていません"
+  }
+}

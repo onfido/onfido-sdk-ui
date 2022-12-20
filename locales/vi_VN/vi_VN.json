@@ -1,0 +1,732 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "Tải bản ghi lên",
+    "subtitle": "Video về khuôn mặt của bạn đã được ghi lại thành công",
+    "title": "Ghi hình đã hoàn tất"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Tải lại hướng dẫn",
+    "button_primary_retry_upload": "Thử tải lên lại",
+    "button_secondary_restart_recording": "Quay lại video",
+    "subtitle": "Kiểm tra xem kết nối của bạn và thử lại",
+    "title": "Lỗi kết nối"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Lùi lại",
+    "feedback_move_closer": "Di chuyển gần hơn nữa",
+    "feedback_no_face_detected": "Không nhận dạng được khuôn mặt",
+    "feedback_not_centered": "Khuôn mặt không được căn giữa",
+    "title": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "timeout_body": "Bạn có tối đa 15 giây để hoàn tất bản ghi",
+      "timeout_button_primary": "Thử lại",
+      "timeout_title": "Rất tiếc, chúng tôi phải ghi hình lại",
+      "too_fast_body": "Vui lòng thử lại và xoay đầu chậm hơn",
+      "too_fast_button_primary": "Thử lại",
+      "too_fast_title": "Bạn đã xoay đầu quá nhanh"
+    },
+    "title": "Hãy xoay đầu từ từ sang hai bên",
+    "title_completed": "Ghi hình đã hoàn tất"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Tôi đã sẵn sàng",
+    "disclaimer": "Xin lưu ý rằng chúng tôi sẽ ghi lại khuôn mặt và nền ảnh của bạn",
+    "list_item_one": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình",
+    "list_item_two": "Sau đó, bạn hãy xoay đầu từ từ sang hai bên",
+    "subtitle": "Thông tin này để xác minh rằng bạn là một con người có thật",
+    "title": "Quay video"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Quay lại video",
+    "list_item_eyes": "Hãy chắc chắn rằng mắt bạn có thể nhìn thấy rõ ràng",
+    "list_item_face": "Đảm bảo chỉ hiển thị khuôn mặt của bạn, chúng tôi không cần xem giấy tờ tùy thân của bạn",
+    "list_item_lighting": "Đảm bảo ở nơi có ánh sáng tốt",
+    "list_item_mask": "Nhớ tháo khẩu trang hoặc các vật dụng khác che mặt của bạn. Bạn có thể vẫn đeo kính mắt",
+    "title": "Chúng tôi không thể phát hiện khuôn mặt của bạn"
+  },
+  "avc_uploading": {
+    "title": "Đang tải lên"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Giấy tờ từ quốc gia đó hiện không được hỗ trợ — <fallback>hãy thử loại giấy tờ khác</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "Không tìm thấy quốc gia"
+    },
+    "button_primary": "Gửi giấy tờ",
+    "poa_alert": {
+      "country_not_found": "Rất tiếc. Chúng tôi đang nỗ lực hỗ trợ nhiều quốc gia hơn.",
+      "intro": "Không tìm thấy quốc gia của bạn?"
+    },
+    "search": {
+      "accessibility": "Chọn quốc gia",
+      "input_placeholder": "ví dụ: Hoa Kỳ",
+      "label": "Tìm kiếm quốc gia"
+    },
+    "title": "Chọn quốc gia cấp giấy tờ"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Gửi xác minh",
+    "info": "Gợi ý",
+    "list_item_doc_multiple": "Giấy tờ",
+    "list_item_doc_one": "Giấy tờ",
+    "list_item_poa": "Bằng chứng về địa chỉ",
+    "list_item_selfie": "Ảnh selfie",
+    "list_item_video": "Video",
+    "subtitle": "Dưới đây là tất cả thông tin bạn đã tải lên:",
+    "title": "Bước cuối cùng"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Liên kết chỉ hoạt động trên thiết bị di động",
+    "title": "Đã xảy ra sự cố"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Bạn cần phải bắt đầu lại quá trình xác minh trên máy tính của mình",
+    "title": "Đã xảy ra sự cố"
+  },
+  "cross_device_intro": {
+    "button_primary": "Nhận liên kết bảo mật",
+    "list_accessibility": "Các bước cần thiết để tiếp tục xác minh trên điện thoại di động",
+    "list_item_finish": "Kiểm tra lại ở đây để hoàn tất việc gửi",
+    "list_item_open_link": "Mở liên kết và hoàn thành thao tác",
+    "list_item_send_phone": "Gửi liên kết bảo mật đến điện thoại của bạn",
+    "subtitle": "Sau đây là cách thức thực hiện:",
+    "title": "Tiếp tục trên điện thoại của bạn"
+  },
+  "cross_device_return": {
+    "body": "Máy tính của bạn có thể mất vài giây để cập nhật",
+    "subtitle": "Bây giờ bạn có thể quay lại máy tính để tiếp tục",
+    "title": "Tải lên thành công"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Tiếp tục",
+    "info": "Kiểm tra lại lần nữa",
+    "list_item_desktop_open": "Cửa sổ trang web trên máy tính của bạn vẫn mở",
+    "list_item_sent_by_you": "Liên kết này do chính bạn gửi - hãy tìm lời khuyên nếu bạn cho rằng đây có thể là lừa đảo",
+    "subtitle": "Tiếp tục xác minh",
+    "title": "Phiên di động được liên kết với máy tính của bạn"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Chụp ảnh",
+    "footer": {
+      "captured": "Ảnh đã chụp",
+      "capturing": "Đang chụp ảnh",
+      "manual_fallback_identity_card_back": "Chụp ảnh mặt sau thẻ của bạn",
+      "manual_fallback_identity_card_front": "Chụp ảnh mặt trước thẻ của bạn",
+      "manual_fallback_license_back": "Chụp ảnh mặt sau giấy phép lái xe của bạn",
+      "manual_fallback_license_front": "Chụp ảnh mặt trước giấy phép lái xe của bạn",
+      "manual_fallback_passport": "Chụp ảnh trang có ảnh hộ chiếu của bạn",
+      "manual_fallback_residence_permit_back": "Chụp ảnh mặt sau giấy phép cư trú của bạn",
+      "manual_fallback_residence_permit_front": "Chụp ảnh mặt trước giấy phép cư trú của bạn",
+      "position_identity_card_back": "Đặt mặt sau thẻ của bạn trong khung hình",
+      "position_identity_card_front": "Đặt mặt trước thẻ của bạn trong khung hình",
+      "position_license_back": "Đặt mặt sau của giấy phép lái xe trong khung hình",
+      "position_license_front": "Đặt mặt trước giấy phép lái xe trong khung hình",
+      "position_passport": "Đặt trang có ảnh hộ chiếu của bạn trong khung hình",
+      "position_residence_permit_back": "Đặt mặt sau giấy phép cư trú của bạn trong khung hình",
+      "position_residence_permit_front": "Đặt mặt trước giấy phép cư trú của bạn trong khung hình"
+    },
+    "frame": {
+      "flip_document": "Lật sang mặt sau",
+      "hold_still": "Hãy giữ yên",
+      "no_document": "Không tìm thấy giấy tờ"
+    }
+  },
+  "doc_capture": {
+    "button_primary": "Bắt đầu quét tài liệu",
+    "detail": {
+      "folded_doc_front": "Đặt giấy tờ của bạn lên mặt phẳng, chụp tất cả các trang bên trong (phải có ảnh rõ mặt)"
+    },
+    "header_folded_doc_front": "Bên có ảnh hồ sơ",
+    "prompt": {
+      "button_card": "Giấy phép dạng thẻ cứng",
+      "button_paper": "Giấy phép dạng giấy",
+      "title_id": "Bạn có loại thẻ căn cước nào?",
+      "title_license": "Bạn có loại giấy phép nào?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Đảm bảo hình ảnh rõ ràng",
+      "blur_title": "Phát hiện ảnh mờ",
+      "crop_detail": "Đảm bảo toàn bộ giấy tờ rõ ràng",
+      "crop_title": "Đã phát hiện hình ảnh bị cắt",
+      "glare_detail": "Tránh xa ánh sáng trực tiếp",
+      "glare_title": "Phát hiện ánh sáng chói",
+      "no_doc_detail": "Đảm bảo giấy tờ nằm hoàn toàn trong khung",
+      "no_doc_title": "Không tìm thấy giấy tờ"
+    },
+    "body": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
+    "body_bank_statement": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
+    "body_benefits_letter": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
+    "body_bill": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
+    "body_id": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
+    "body_image_medium": "Sẽ mất nhiều thời gian xác minh hơn nếu chúng tôi không đọc được",
+    "body_image_poor": "Để xác minh nhanh chóng, chúng tôi cần ảnh chụp sắc nét hơn",
+    "body_license": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
+    "body_passport": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
+    "body_permit": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
+    "body_tax_letter": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
+    "button_close": "Đóng",
+    "button_primary_redo": "Làm lại",
+    "button_primary_upload": "Tải lên",
+    "button_primary_upload_anyway": "Vẫn tải lên",
+    "button_secondary_redo": "Làm lại",
+    "button_zoom": "Phóng to hình ảnh",
+    "image_accessibility": "Ảnh chụp giấy tờ của bạn",
+    "title": "Kiểm tra hình ảnh của bạn"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Đang quét giấy tờ",
+    "instructions_title_back": "Đặt mặt sau giấy tờ của bạn trong khung hình",
+    "instructions_title_front": "Đặt mặt trước giấy tờ của bạn trong khung hình"
+  },
+  "doc_select": {
+    "button_address_card": "Thẻ địa chỉ",
+    "button_address_card_detail": "Thẻ tạm thời và thẻ vĩnh viễn được chấp nhận",
+    "button_bank_statement": "Bảng sao kê của ngân hàng hoặc hiệp hội xây dựng",
+    "button_bank_statement_non_uk": "Bảng sao kê của ngân hàng",
+    "button_benefits_letter": "Công văn phúc lợi",
+    "button_benefits_letter_detail": "Trợ cấp cho hộ gia đình do chính phủ cấp, ví dụ: Trợ cấp cho người tìm việc, Trợ cấp nhà ở, Tín dụng thuế",
+    "button_bill": "Hóa đơn dịch vụ thiết yếu",
+    "button_bill_detail": "Khí đốt, điện, nước, điện thoại cố định hoặc internet",
+    "button_government_letter": "Công văn của chính phủ",
+    "button_government_letter_detail": "Bất kỳ công văn nào do chính phủ ban hành, ví dụ: Công văn thông báo được nhận trợ cấp, Thư mời bỏ phiếu, Thông báo thuế, v.v.",
+    "button_id": "Thẻ căn cước",
+    "button_id_detail": "Mặt trước và mặt sau",
+    "button_license": "Giấy phép lái xe",
+    "button_license_detail": "Mặt trước và mặt sau",
+    "button_passport": "Hộ chiếu",
+    "button_passport_detail": "Trang có ảnh",
+    "button_permit": "Giấy phép cư trú",
+    "button_permit_detail": "Mặt trước và mặt sau",
+    "button_tax_letter": "Công văn thuế của hội đồng",
+    "extra_estatements_ok": "các bảng sao kê điện tử được chấp nhận",
+    "extra_no_mobile": "Rất tiếc, chúng tôi không chấp nhận hóa đơn điện thoại di động",
+    "list_accessibility": "Những giấy tờ bạn có thể sử dụng để xác minh danh tính",
+    "pill": "nhanh nhất",
+    "section": {
+      "header_country": "Quốc gia cấp giấy tờ",
+      "header_doc_type": "Những giấy tờ được chấp nhận",
+      "input_country_not_found": "Không có kết quả",
+      "input_placeholder_country": "Chọn quốc gia cấp giấy tờ"
+    },
+    "subtitle": "Phải là giấy tờ tùy thân có ảnh chính thức",
+    "subtitle_country": "Nhập quốc gia phát hành để chọn loại giấy tờ được chấp nhận",
+    "subtitle_entire_page": "Toàn trang",
+    "subtitle_front_back": "Mặt trước và mặt sau",
+    "subtitle_photo_page": "Trang có ảnh",
+    "subtitle_poa": "Đây là những giấy tờ có nhiều khả năng hiển thị địa chỉ nhà hiện tại của bạn nhất",
+    "title": "Chọn giấy tờ của bạn",
+    "title_poa": "Chọn giấy tờ của %{country}"
+  },
+  "doc_submit": {
+    "button_link_upload": "hoặc tải ảnh lên – không dùng bản scan hoặc bản sao",
+    "button_primary": "Tiếp tục trên điện thoại",
+    "subtitle": "Chụp ảnh bằng điện thoại của bạn",
+    "title_bank_statement": "Gửi bảng sao kê",
+    "title_benefits_letter": "Gửi thư",
+    "title_bill": "Gửi hóa đơn",
+    "title_government_letter": "Công văn của chính phủ",
+    "title_id_back": "Gửi thẻ căn cước (mặt sau)",
+    "title_id_front": "Gửi thẻ căn cước (mặt trước)",
+    "title_license_back": "Gửi giấy phép (mặt sau)",
+    "title_license_front": "Gửi giấy phép (mặt trước)",
+    "title_passport": "Gửi trang có ảnh hộ chiếu",
+    "title_permit_back": "Gửi giấy phép cư trú (mặt sau)",
+    "title_permit_front": "Gửi giấy phép cư trú (mặt trước)",
+    "title_tax_letter": "Gửi thư"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Bước tiếp theo",
+    "button_primary_fallback_end": "Hoàn tất ghi hình",
+    "detail_step2": "Luôn giữ giấy tờ ở chế độ xem toàn bộ",
+    "header": "Trong khi đặt tài liệu của bạn, giữ mặt trước trong khung",
+    "header_paper_doc_step2": "Từ từ xoay giấy tờ để hiển thị các trang bên ngoài",
+    "header_passport": "Trong khi cầm hộ chiếu, hãy giữ trang có ảnh trong khung hình",
+    "header_passport_progress": "Hãy giữ yên",
+    "header_step1": "Bây giờ, hãy giữ yên",
+    "header_step2": "Từ từ xoay giấy tờ của bạn để hiển thị mặt sau",
+    "prompt": {
+      "detail_timeout": "Thời lượng ghi video được giới hạn trong <timeout></timeout> giây. <fallback>Bắt đầu lại</fallback>"
+    },
+    "stepper": "Bước<step></step> / <total></total>",
+    "success_accessibility": "Thành công"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Xem trước video",
+    "title": "Kiểm tra video của bạn"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Lặp lại quy trình đó trên phiên bản Google Chrome mới nhất",
+    "subtitle_ios": "Lặp lại lại quy trình đó trên phiên bản Safari mới nhất",
+    "title_android": "Trình duyệt không được hỗ trợ",
+    "title_ios": "Trình duyệt không được hỗ trợ"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Đóng màn hình xác minh danh tính",
+      "dismiss_alert": "Bỏ cảnh báo"
+    },
+    "back": "quay lại",
+    "close": "đóng",
+    "errors": {
+      "expired_token": {
+        "instruction": "Vui lòng thử lại",
+        "message": "Mã thông báo của bạn đã hết hạn"
+      },
+      "expired_trial": {
+        "instruction": "Bạn đã đạt đến giới hạn dùng thử",
+        "message": "Bản dùng thử của bạn đã hết hạn"
+      },
+      "geoblocked_error": {
+        "instruction": "Rất tiếc, có vẻ như chúng tôi không thể tiếp tục vì vị trí hiện tại của bạn không được hỗ trợ",
+        "message": "Dịch vụ không khả dụng"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Lặp lại quy trình đó trên thiết bị khác",
+        "message": "Không phát hiện thấy máy ảnh"
+      },
+      "invalid_size": {
+        "instruction": "Phải dưới 10MB.",
+        "message": "Kích thước tập tin quá lớn."
+      },
+      "invalid_type": {
+        "instruction": "Thử sử dụng loại giấy tờ khác.",
+        "message": "Tập tin chưa được tải lên."
+      },
+      "lazy_loading": {
+        "message": "Đã xảy ra lỗi trong khi tải thành phần"
+      },
+      "multiple_faces": {
+        "instruction": "Ảnh selfie chỉ được có khuôn mặt của bạn",
+        "message": "Đã phát hiện nhiều khuôn mặt"
+      },
+      "no_face": {
+        "instruction": "Đảm bảo ảnh chụp rõ mặt",
+        "message": "Không nhận dạng được khuôn mặt"
+      },
+      "request_error": {
+        "instruction": "Vui lòng thử lại",
+        "message": "Đã xảy ra sự cố"
+      },
+      "sms_failed": {
+        "instruction": "Sao chép liên kết vào điện thoại của bạn",
+        "message": "Đã xảy ra sự cố"
+      },
+      "sms_overuse": {
+        "instruction": "Sao chép liên kết vào điện thoại của bạn",
+        "message": "Quá nhiều lần đăng nhập không thành công"
+      },
+      "unsupported_file": {
+        "instruction": "Thử sử dụng tệp JPG hoặc PNG",
+        "message": "Không hỗ trợ loại giấy tờ này"
+      }
+    },
+    "lazy_load_placeholder": "Đang tải...",
+    "loading": "Đang tải"
+  },
+  "get_link": {
+    "alert_wrong_number": "Kiểm tra xem số điện thoại của bạn có chính xác không",
+    "button_copied": "Đã sao chép",
+    "button_copy": "Sao chép",
+    "button_submit": "Gửi liên kết",
+    "info_qr_how": "Cách quét mã QR",
+    "info_qr_how_list_item_camera": "Hướng máy ảnh điện thoại vào mã QR",
+    "info_qr_how_list_item_download": "Nếu ứng dụng không hoạt động, hãy tải xuống một ứng dụng quét mã QR từ Google Play hoặc App Store",
+    "link_divider": "hoặc chọn một cách khác",
+    "link_qr": "Quét mã QR",
+    "link_sms": "Nhận liên kết qua SMS",
+    "link_url": "Sao chép liên kết",
+    "loader_sending": "Đang gửi",
+    "number_field_input_placeholder": "Nhập số điện thoại di động",
+    "number_field_label": "Nhập số điện thoại di động của bạn:",
+    "subtitle_qr": "Quét mã QR bằng điện thoại của bạn",
+    "subtitle_sms": "Gửi liên kết một lần đến điện thoại của bạn",
+    "subtitle_url": "Gửi liên kết một lần đến điện thoại của bạn",
+    "title": "Nhận liên kết bảo mật",
+    "url_field_label": "Sao chép liên kết vào trình duyệt di động của bạn"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Tải lại hướng dẫn",
+    "intro_note_no1": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình",
+    "intro_note_no2": "Sau đó, bạn hãy xoay đầu từ từ sang hai bên",
+    "intro_ready_button": "Xin lưu ý rằng chúng tôi sẽ ghi lại khuôn mặt và nền ảnh của bạn",
+    "intro_subtitle": "Thông tin này để xác minh rằng bạn là một con người có thật",
+    "intro_warning": "Xin lưu ý rằng chúng tôi sẽ ghi lại khuôn mặt và nền ảnh của bạn",
+    "success_main_button": "Gửi xác minh",
+    "success_title": "Chúng tôi đã có đầy đủ thông tin cần thiết để bắt đầu xác minh danh tính của bạn"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Chụp ảnh mặt sau thẻ của bạn",
+      "body_id_front": "Chụp ảnh mặt trước thẻ của bạn",
+      "body_license_back": "Chụp ảnh mặt sau giấy phép của bạn",
+      "body_license_front": "Chụp ảnh mặt trước giấy phép của bạn",
+      "body_passport": "Chụp ảnh trang có ảnh hộ chiếu của bạn",
+      "body_selfie": "Chụp ảnh selfie khuôn mặt của bạn"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Thay vào đó, hãy chụp ảnh bằng <fallback>chế độ máy ảnh cơ bản</fallback>"
+        },
+        "camera_not_working": {
+          "detail": "Thay vào đó, hãy chụp ảnh bằng <fallback>chế độ máy ảnh cơ bản</fallback>"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Chụp ảnh",
+      "title": "Trang có ảnh hộ chiếu"
+    }
+  },
+  "outro": {
+    "body": "Chúng tôi đã có đầy đủ thông tin cần thiết để bắt đầu xác minh danh tính của bạn",
+    "body_government_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
+    "title": "Cảm ơn bạn"
+  },
+  "permission": {
+    "body_both": "Chúng tôi không thể xác minh bạn mà không sử dụng cả máy ảnh và micrô",
+    "body_cam": "Chúng tôi không thể xác minh bạn mà không có máy ảnh",
+    "button_primary_both": "Cho phép cả hai",
+    "button_primary_cam": "Bật máy ảnh",
+    "subtitle_both": "Khi được hỏi, vui lòng bật quyền truy cập cho cả hai để tiếp tục",
+    "subtitle_cam": "Khi được hỏi, vui lòng bật quyền truy cập máy ảnh để tiếp tục",
+    "title_both": "Cho phép truy cập camera và micrô",
+    "title_cam": "Đồng ý kết nối máy ảnh"
+  },
+  "permission_recovery": {
+    "button_primary": "Làm mới",
+    "info": "Khôi phục",
+    "list_header_both": "Thực hiện theo các bước sau để khôi phục quyền truy cập vào cả hai:",
+    "list_header_cam": "Thực hiện theo các bước sau để khôi phục quyền truy cập máy ảnh:",
+    "list_item_action_cam": "Làm mới trang này để bắt đầu lại quá trình xác minh danh tính",
+    "list_item_how_to_both": "Cấp quyền truy cập vào máy ảnh và micrô từ cài đặt trình duyệt của bạn",
+    "list_item_how_to_cam": "Cấp quyền truy cập vào máy ảnh từ cài đặt trình duyệt của bạn",
+    "subtitle_both": "Khôi phục quyền truy cập máy ảnh và micrô để quay video và hoàn tất quy trình xác minh",
+    "subtitle_cam": "Khôi phục quyền truy cập máy ảnh để tiếp tục quá trình xác minh của bạn",
+    "subtitle_cam_old": "Khôi phục quyền truy cập vào máy ảnh để tiếp tục xác minh khuôn mặt",
+    "title_both": "Quyền truy cập máy ảnh và micrô bị từ chối",
+    "title_cam": "Quyền truy cập máy ảnh bị từ chối"
+  },
+  "photo_upload": {
+    "body_bank_statement": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
+    "body_benefits_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
+    "body_bill": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
+    "body_id_back": "Tải lên mặt sau của thẻ căn cước từ máy tính của bạn",
+    "body_id_front": "Tải lên mặt trước thẻ căn cước từ máy tính của bạn",
+    "body_license_back": "Tải lên mặt sau giấy phép từ máy tính của bạn",
+    "body_license_front": "Tải lên mặt trước giấy phép từ máy tính của bạn",
+    "body_passport": "Tải lên trang có ảnh hộ chiếu từ máy tính của bạn",
+    "body_selfie": "Tải lên ảnh selfie từ máy tính của bạn",
+    "body_tax_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
+    "button_take_photo": "Chụp ảnh",
+    "button_upload": "Tải lên",
+    "title_selfie": "Ảnh selfie"
+  },
+  "poa_cancel": "Hủy",
+  "poa_err_invalid_file": {
+    "message": "Vui lòng chọn tập tin khác.",
+    "ok": "Đồng ý",
+    "title": "Tập tin không hợp lệ"
+  },
+  "poa_guidance": {
+    "button_primary": "Tiếp tục",
+    "instructions": {
+      "address": "Địa chỉ hiện tại",
+      "full_name": "Họ tên",
+      "issue_date": "Ngày cấp hoặc khoảng thời gian tóm tắt",
+      "label": "Chụp lại toàn bộ giấy tờ và đảm bảo giấy tờ thể hiện rõ ràng:",
+      "logo": "Logo"
+    },
+    "instructions_address_card_issue_date": "Ngày cấp",
+    "instructions_expiry_date": "Ngày hết hạn nếu có",
+    "instructions_full_address": "Địa chỉ đầy đủ",
+    "subtitle_address_card": "Phải là thẻ địa chỉ hợp lệ",
+    "subtitle_bank_statement": "Phải được phát hành trong 3 tháng gần đây nhất",
+    "subtitle_benefits_letter": "Phải được phát hành trong 12 tháng gần đây nhất",
+    "subtitle_bill": "Phải được phát hành trong 3 tháng gần đây nhất",
+    "subtitle_tax_letter": "Phải được phát hành trong 12 tháng gần đây nhất"
+  },
+  "poa_intro": {
+    "button_primary": "Bắt đầu xác minh",
+    "list_matches_signup": "Trùng khớp với địa chỉ bạn đã sử dụng khi đăng ký",
+    "list_most_recent": "Là giấy tờ gần đây nhất của bạn",
+    "list_shows_address": "Thể hiện địa chỉ hiện tại​ của bạn",
+    "subtitle": "Bạn sẽ cần một giấy tờ:",
+    "title": "Hãy xác nhận địa chỉ của bạn"
+  },
+  "profile_data": {
+    "address_title": "Thêm địa chỉ của bạn",
+    "button_continue": "Tiếp tục",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Chọn quốc gia"
+      },
+      "country_select": {
+        "placeholder": "Chọn quốc gia"
+      },
+      "nationality_select": {
+        "placeholder": "Chọn quốc gia"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Chọn tiểu bang"
+      }
+    },
+    "country_of_residence_title": "Quốc gia bạn đang cư trú",
+    "field_labels": {
+      "country": "Quốc gia",
+      "country_residence": "Quốc gia",
+      "dob": "Ngày sinh",
+      "email": "Email",
+      "first_name": "Tên",
+      "gbr_specific": {
+        "postcode": "Mã bưu điện",
+        "town": "Thành phố/Thị trấn"
+      },
+      "ind_specific": {
+        "pan": "Số tài khoản cố định (PAN)"
+      },
+      "last_name": "Họ",
+      "line1": "Dòng địa chỉ 1",
+      "line2": "Dòng địa chỉ 2",
+      "line3": "Dòng địa chỉ 3",
+      "mobile_number": "Số điện thoại di động",
+      "nationality": "Quốc tịch",
+      "phone_number": "Số điện thoại",
+      "postcode": "Mã bưu chính",
+      "town": "Thị trấn/thị xã",
+      "usa_specific": {
+        "line1_helper_text": "Địa chỉ đường phố, ví dụ: 200 Albert Street",
+        "line2_helper_text": "Căn hộ, phòng, hoặc đơn nguyên, v.v.",
+        "postcode": "Mã Zip",
+        "ssn": "Số an sinh xã hội (SSN)",
+        "state": "Tiểu bang"
+      }
+    },
+    "field_optional": "(tùy chọn)",
+    "field_validation": {
+      "gbr_specific": {
+        "invalid_postcode": "Vui lòng nhập mã bưu chính hợp lệ",
+        "required_postcode": "Vui lòng nhập mã bưu điện của bạn",
+        "too_long_postcode": "Mã bưu điện quá dài",
+        "too_short_postcode": "Mã bưu điện quá ngắn"
+      },
+      "ind_specific": {
+        "invalid_pan": "Vui lòng nhập PAN hợp lệ",
+        "required_pan": "Vui lòng nhập PAN của bạn"
+      },
+      "invalid": "Vui lòng kiểm tra các ký tự hoặc ký hiệu không hợp lệ",
+      "invalid_dob": "Vui lòng nhập ngày sinh hợp lệ",
+      "invalid_email": "Vui lòng nhập email hợp lệ",
+      "invalid_mobile_number": "Vui lòng nhập số di động hợp lệ",
+      "invalid_phone_number": "Vui lòng nhập số điện thoại hợp lệ",
+      "required_consent": "Vui lòng đồng ý cho phép kiểm tra danh tính và gian lận",
+      "required_country": "Vui lòng chọn quốc gia",
+      "required_country_residence": "Vui lòng chọn quốc gia",
+      "required_dob": "Vui lòng điền ngày sinh của bạn",
+      "required_email": "Vui lòng nhập email",
+      "required_first_name": "Vui lòng điền tên của bạn",
+      "required_last_name": "Vui lòng điền họ của bạn",
+      "required_line1": "Vui lòng nhập địa chỉ của bạn",
+      "required_mobile_number": "Vui lòng nhập số điện thoại di động",
+      "required_nationality": "Vui lòng chọn quốc gia",
+      "required_phone_number": "Vui lòng nhập số điện thoại của bạn",
+      "required_postcode": "Vui lòng nhập mã bưu điện của bạn",
+      "too_long_first_name": "Tên quá dài",
+      "too_long_last_name": "Họ quá dài",
+      "too_long_line1": "Dòng địa chỉ quá dài",
+      "too_long_postcode": "Mã bưu điện quá dài",
+      "too_long_town": "Tên thị trấn quá dài",
+      "too_short_first_name": "Tên quá ngắn",
+      "too_short_last_name": "Họ quá ngắn",
+      "too_short_postcode": "Mã bưu điện quá ngắn",
+      "usa_specific": {
+        "invalid_ssn": "Vui lòng nhập SSN hợp lệ",
+        "required_ssn": "Vui lòng nhập SSN của bạn",
+        "required_state": "Vui lòng chọn tiểu bang"
+      }
+    },
+    "personal_information_title": "Thêm thông tin cá nhân của bạn",
+    "prompt": {
+      "details_timeout": "Bắt đầu lại",
+      "header_timeout": "Dường như bạn đã mất quá nhiều thời gian"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Thử lại"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Vui lòng thử lại với giấy tờ tùy thân có ảnh hợp lệ và đảm bảo thông tin của bạn được hiển thị rõ ràng",
+    "title": "Giấy tờ của bạn đã hết hạn"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Vui lòng thử lại với giấy tờ tùy thân có ảnh hợp lệ và đảm bảo thông tin của bạn được hiển thị rõ ràng",
+    "title": "Đã xảy ra sự cố với giấy tờ của bạn"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Vui lòng thử lại với giấy tờ tùy thân có ảnh hợp lệ và đảm bảo thông tin của bạn được hiển thị rõ ràng",
+    "title": "Giấy tờ chưa được chấp nhận"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Vui lòng thử lại và đảm bảo khuôn mặt của bạn được hiển thị rõ ràng và có đủ ánh sáng",
+    "title": "Đã xảy ra sự cố với ảnh selfie của bạn"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Kiểm tra xem máy ảnh có kết nối mạng và hoạt động không. Bạn cũng có thể <fallback>tiếp tục xác minh trên điện thoại của mình</fallback>",
+        "detail_no_fallback": "Đảm bảo thiết bị của bạn có máy ảnh hoạt động tốt",
+        "title": "Máy ảnh không hoạt động?"
+      },
+      "camera_not_working": {
+        "detail": "Kết nối có thể đã bị ngắt. <fallback>Hãy thử sử dụng điện thoại</fallback>.",
+        "detail_no_fallback": "Đảm bảo máy ảnh của thiết bị của bạn hoạt động tốt",
+        "title": "Máy ảnh không hoạt động"
+      },
+      "timeout": {
+        "detail": "Hãy nhớ nhấn nút khi bạn đã hoàn tất. <fallback>Lặp lại hành động quay video</fallback>",
+        "title": "Dường như bạn đã mất quá nhiều thời gian"
+      }
+    },
+    "body": "Giữ khuôn mặt của bạn trong hình bầu dục",
+    "button_accessibility": "Chụp ảnh",
+    "button_primary": "Bắt đầu quét khuôn mặt",
+    "frame_accessibility": "Hình ảnh từ camera",
+    "title": "Giữ khuôn mặt của bạn trong hình bầu dục"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Ảnh khuôn mặt của bạn",
+    "subtitle": "Đảm bảo khuôn mặt của bạn hiển thị rõ ràng",
+    "title": "Kiểm tra ảnh selfie của bạn"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "Khuôn mặt và nền ảnh của bạn sẽ được chụp trong quá trình này",
+    "button_primary": "Tiếp tục",
+    "list_accessibility": "Mẹo chụp ảnh selfie đẹp",
+    "list_item_face_forward": "Hướng mặt về phía trước và đảm bảo mắt bạn có thể nhìn thấy rõ ràng",
+    "list_item_no_face_cover": "Tháo bỏ bất cứ vật dụng nào che mặt của bạn. Bạn có thể vẫn đeo kính mắt",
+    "list_item_no_glasses": "Tháo kính ra, nếu cần thiết",
+    "subtitle": "Chúng tôi sẽ so sánh thông tin này với giấy tờ của bạn",
+    "title": "Chụp ảnh selfie"
+  },
+  "sms_sent": {
+    "info": "Gợi ý",
+    "info_link_expire": "Liên kết của bạn sẽ hết hạn sau một giờ",
+    "info_link_window": "Giữ cửa sổ này mở trong khi sử dụng điện thoại di động của bạn",
+    "link": "Gửi lại liên kết",
+    "subtitle": "Chúng tôi đã gửi liên kết an toàn đến %{number}",
+    "subtitle_minutes": "Có thể mất vài phút để đến nơi",
+    "title": "Kiểm tra điện thoại di động của bạn"
+  },
+  "switch_phone": {
+    "info": "Gợi ý",
+    "info_link_expire": "Liên kết di động của bạn sẽ hết hạn sau một giờ",
+    "info_link_refresh": "Không tải lại trang này",
+    "info_link_window": "Giữ cửa sổ này mở trong khi sử dụng điện thoại di động của bạn",
+    "link": "Hủy",
+    "subtitle": "Sau khi hoàn tất, chúng tôi sẽ đưa bạn đến bước tiếp theo",
+    "title": "Đã kết nối với điện thoại di động của bạn"
+  },
+  "upload_guide": {
+    "button_primary": "Tải ảnh lên",
+    "image_detail_blur_alt": "Ví dụ về giấy tờ bị mờ",
+    "image_detail_blur_label": "Tất cả các chi tiết phải rõ ràng — không chi tiết nào bị mờ",
+    "image_detail_cutoff_label": "Thể hiện mọi chi tiết — kể cả 2 dòng dưới cùng",
+    "image_detail_glare_label": "Tránh ánh sáng trực tiếp — không bị lóa",
+    "image_detail_good_label": "Ảnh phải thể hiện rõ giấy tờ của bạn",
+    "subtitle": "Không chấp nhận bản quét và bản sao",
+    "title": "Tải lên trang có ảnh hộ chiếu"
+  },
+  "user_consent": {
+    "button_primary": "Chấp nhận",
+    "button_secondary": "Không chấp nhận",
+    "prompt": {
+      "button_primary": "Xem lại",
+      "button_secondary": "Có, đừng xác minh tôi",
+      "no_consent_detail": "Nếu bạn không chấp nhận tuyên bố về quyền riêng tư và điều khoản dịch vụ của Onfido, chúng tôi sẽ không thể xác minh danh tính của bạn và bạn sẽ thoát khỏi bước này.",
+      "no_consent_title": "Bạn có chắc chắn không?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Tải lại màn hình",
+    "detail": "Kiểm tra xem kết nối của bạn và thử lại",
+    "title": "Không thể tải nội dung"
+  },
+  "video_capture": {
+    "body": "Giữ khuôn mặt của bạn trong hình bầu dục",
+    "body_record": "Nhấn nút khi bạn đã sẵn sàng",
+    "body_stop": "Nhấn nút Stop (Dừng) khi bạn đã hoàn tất",
+    "button_primary_finish": "Hoàn tất ghi hình",
+    "button_primary_next": "Bước tiếp theo",
+    "button_primary_start": "Bắt đầu quay",
+    "button_record_accessibility": "Bắt đầu quay",
+    "frame_accessibility": "Hình ảnh từ camera",
+    "header": {
+      "challenge_digit_instructions": "Đọc to từng chữ số",
+      "challenge_turn_forward": "sau đó quay mặt về phía trước",
+      "challenge_turn_left": "Xoay đầu sang trái",
+      "challenge_turn_right": "Xoay đầu sang phải"
+    },
+    "prompt": {
+      "header_timeout": "Dường như bạn đã mất quá nhiều thời gian"
+    }
+  },
+  "video_confirmation": {
+    "body": "Video của bạn đã được ghi lại",
+    "button_primary": "Gửi video",
+    "button_secondary": "Quay lại video",
+    "title": "Kiểm tra video của bạn",
+    "video_accessibility": "Phát lại video đã quay của bạn"
+  },
+  "video_intro": {
+    "button_primary": "Quay video",
+    "list_accessibility": "Các bước quay video selfie",
+    "list_item_actions": "Bạn có 20 giây để hoàn thành",
+    "list_item_speak": "Di chuyển hoặc nói theo hướng dẫn",
+    "title": "Quay video"
+  },
+  "welcome": {
+    "doc_video_subtitle": "Quá trình này có thể mất vài phút",
+    "list_header_doc_video": "Sử dụng thiết bị của bạn để ghi hình:",
+    "list_header_webcam": "Sử dụng webcam hoặc điện thoại của bạn để chụp ảnh:",
+    "list_item_doc": "giấy tờ tùy thân",
+    "list_item_doc_video_timeout": "Thời lượng ghi được giới hạn trong  <timeout></timeout> giây",
+    "list_item_poa": "bằng chứng về địa chỉ của bạn",
+    "list_item_selfie": "khuôn mặt của bạn",
+    "next_button": "Chọn giấy tờ",
+    "start_workflow_button": "Bắt đầu xác minh",
+    "start_workflow_button_trial": "Bắt đầu xác minh (KIỂM TRA)",
+    "subtitle": "Quá trình này có thể mất vài phút",
+    "title": "Xác minh danh tính của bạn",
+    "trial_message": "Không chia sẻ dữ liệu cá nhân tại đây trừ khi bạn tham gia thử nghiệm Onfido."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Chúng tôi đã xác minh danh tính của bạn",
+      "title": "Đạt"
+    },
+    "reject": {
+      "description": "Chúng tôi không thể xác minh danh tính của bạn",
+      "title": "Đã bị từ chối"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "Đã xảy ra lỗi máy chủ!",
+    "no_workflow_run_id": "Chưa đặt ID chạy quy trình công việc.",
+    "reload_app": "Vui lòng thử tải lại ứng dụng và thử lại.",
+    "task_not_completed": "Không thể hoàn thành tác vụ quy trình công việc.",
+    "task_not_retrieved": "Không thể truy xuất tác vụ quy trình công việc.",
+    "task_not_supported": "Tác vụ hiện không được hỗ trợ"
+  }
+}

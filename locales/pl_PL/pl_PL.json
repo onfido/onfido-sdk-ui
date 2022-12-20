@@ -1,4 +1,91 @@
 {
+  "auth_accessibility": {
+    "back_button": ""
+  },
+  "auth_cam_encrypt": {
+    "loader": ""
+  },
+  "auth_cam_start": {
+    "loader": ""
+  },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "",
+      "even_lighting": "",
+      "eye_level": "",
+      "face_not_found": "",
+      "head_not_upright": "",
+      "move_back": "",
+      "move_close": "",
+      "move_closer": "",
+      "not_looking_straight": "",
+      "steady": ""
+    }
+  },
+  "auth_capture_start": {
+    "body": "",
+    "button_primary": "",
+    "feedback": {
+      "center_face": "",
+      "conditions_too_bright": "",
+      "conditions_too_dark": "",
+      "head_not_upright": "",
+      "neutral_expression": "",
+      "not_looking_straight": "",
+      "remove_sunglasses": "",
+      "steady_count_1": "",
+      "steady_count_2": "",
+      "steady_count_3": ""
+    },
+    "title": ""
+  },
+  "auth_error": {
+    "cam_encryption": {
+      "body": "",
+      "button_primary": "",
+      "button_primary_firefox": "",
+      "subtitle": "",
+      "table_header_1": "",
+      "table_header_2": "",
+      "table_row_1_cell_1": "",
+      "table_row_1_cell_1_firefox": "",
+      "table_row_1_cell_2": "",
+      "table_row_1_cell_2_firefox": "",
+      "table_row_2_cell_1": "",
+      "table_row_2_cell_2": "",
+      "table_row_3_cell_1": "",
+      "table_row_3_cell_2": "",
+      "title": ""
+    }
+  },
+  "auth_full_screen": {
+    "body": "",
+    "button_primary": "",
+    "title": ""
+  },
+  "auth_permission": {
+    "body_cam": "",
+    "button_primary_cam": "",
+    "title_cam": ""
+  },
+  "auth_permission_denied": {
+    "body_cam": "",
+    "button_primary_cam": ""
+  },
+  "auth_progress": {
+    "loader": ""
+  },
+  "auth_retry": {
+    "body_blur": "",
+    "body_neutral_expression": "",
+    "body_too_bright": "",
+    "button_primary": "",
+    "subtitle": "",
+    "title": ""
+  },
+  "auth_upload_pass": {
+    "body": ""
+  },
   "avc_confirmation": {
     "button_primary_upload": "Prześlij nagranie",
     "subtitle": "Udało się nagrać film wideo przedstawiający Twoją twarz",
@@ -185,8 +272,8 @@
     "instructions_title_front": "Umieść przednią stronę dokumentu w ramce"
   },
   "doc_select": {
-    "button_address_card": "",
-    "button_address_card_detail": "",
+    "button_address_card": "Karta adresowa",
+    "button_address_card_detail": "Akceptowane są karty tymczasowe i stałe",
     "button_bank_statement": "Wyciąg z banku lub spółdzielni budowlanej",
     "button_bank_statement_non_uk": "Wyciąg bankowy",
     "button_benefits_letter": "List dotyczący korzyści",
@@ -279,8 +366,8 @@
         "message": "Twój token wygasł"
       },
       "expired_trial": {
-        "instruction": "",
-        "message": ""
+        "instruction": "Osiągnięto limit prób",
+        "message": "Twój okres próbny wygasł"
       },
       "geoblocked_error": {
         "instruction": "Wygląda na to, że nie możemy kontynuować, ponieważ Twoja bieżąca lokalizacja nie jest obsługiwana",
@@ -443,20 +530,20 @@
       "label": "Uchwyć cały dokument i upewnij się, że są na nim widoczne:",
       "logo": "Logo"
     },
-    "instructions_address_card_issue_date": "",
-    "instructions_expiry_date": "",
-    "instructions_full_address": "",
-    "subtitle_address_card": "",
-    "subtitle_bank_statement": "Musi być wydany w ciągu <strong>ostatnich 3 miesięcy</strong>",
-    "subtitle_benefits_letter": "Musi być wydany w ciągu <strong>ostatnich 12 miesięcy</strong>",
-    "subtitle_bill": "Data wydania musi mieścić się w okresie <strong>ostatnich 3 miesięcy</strong>",
-    "subtitle_tax_letter": "Musi być wydany w ciągu <strong>ostatnich 12 miesięcy</strong>"
+    "instructions_address_card_issue_date": "Data wydania",
+    "instructions_expiry_date": "Data ważności, jeśli dotyczy",
+    "instructions_full_address": "Pełny adres",
+    "subtitle_address_card": "Musi to być ważna karta adresowa",
+    "subtitle_bank_statement": "Musi być wydany w ciągu ostatnich 3 miesięcy",
+    "subtitle_benefits_letter": "Musi być wydany w ciągu ostatnich 12 miesięcy",
+    "subtitle_bill": "Data wydania musi mieścić się w okresie ostatnich 3 miesięcy",
+    "subtitle_tax_letter": "Musi być wydany w ciągu ostatnich 12 miesięcy"
   },
   "poa_intro": {
     "button_primary": "Rozpocznij weryfikację",
-    "list_matches_signup": "Zawiera adres <strong>zgodny</strong> z adresem, który został użyty podczas rejestracji",
-    "list_most_recent": "jest Twoim <strong> najnowszym </strong> dokumentem",
-    "list_shows_address": "Zawiera Twój <strong>aktualny</strong> adres",
+    "list_matches_signup": "Zawiera adres zgodny z adresem, który został użyty podczas rejestracji",
+    "list_most_recent": "jest Twoim  najnowszym  dokumentem",
+    "list_shows_address": "Zawiera Twój aktualny adres",
     "subtitle": "Potrzebny będzie dokument, który:",
     "title": "Teraz zweryfikujmy Twój adres"
   },
@@ -531,7 +618,7 @@
       "invalid_email": "Podaj poprawny adres e-mail",
       "invalid_mobile_number": "Podaj prawidłowy numer telefonu komórkowego",
       "invalid_phone_number": "Wpisz poprawny numer telefonu",
-      "required_consent": "",
+      "required_consent": "Wyraź zgodę na kontrolę tożsamości i oszustw",
       "required_country": "Wybierz kraj",
       "required_country_residence": "Wybierz kraj",
       "required_dob": "Wpisz swoją datę urodzenia",
@@ -709,7 +796,7 @@
     "start_workflow_button_trial": "Rozpocznij weryfikację (TEST)",
     "subtitle": "Powinno to zająć kilka minut",
     "title": "Zweryfikuj swoją tożsamość",
-    "trial_message": ""
+    "trial_message": "Nie udostępniaj danych osobowych w tym miejscu, chyba że bierzesz udział w badaniu Onfido."
   },
   "workflow_complete": {
     "pass": {

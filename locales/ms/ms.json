@@ -1,0 +1,732 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "Muat naik rakaman",
+    "subtitle": "Video wajah anda telah berjaya dirakam",
+    "title": "Rakaman selesai"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Muat semula arahan",
+    "button_primary_retry_upload": "Cuba muat naik semula",
+    "button_secondary_restart_recording": "Mulakan semula rakaman",
+    "subtitle": "Sila periksa sama ada sambungan anda stabil dan cuba lagi kemudian",
+    "title": "Ralat sambungan"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Bergerak ke belakang",
+    "feedback_move_closer": "Bergerak lebih dekat",
+    "feedback_no_face_detected": "Wajah tidak dikesan",
+    "feedback_not_centered": "Wajah tidak berada pada bahagian tengah",
+    "title": "Letakkan wajah anda dalam bingkai"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "timeout_body": "Anda mempunyai sehingga 15 saat untuk melengkapkan rakaman",
+      "timeout_button_primary": "Cuba Semula",
+      "timeout_title": "Maaf, kami perlu memulakan semula rakaman",
+      "too_fast_body": "Sila cuba lagi dan toleh kepala anda dengan lebih perlahan",
+      "too_fast_button_primary": "Cuba Semula",
+      "too_fast_title": "Anda toleh kepala terlalu cepat"
+    },
+    "title": "Toleh kepala anda perlahan-lahan ke kedua-dua belah sisi",
+    "title_completed": "Rakaman selesai"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Saya sudah bersedia",
+    "disclaimer": "Harap maklum bahawa kami akan merakam wajah anda berserta latar belakang anda",
+    "list_item_one": "Pertama, letakkan wajah anda dalam bingkai",
+    "list_item_two": "Kemudian, toleh kepala anda perlahan-lahan ke kedua-dua belah sisi",
+    "subtitle": "Ini adalah untuk mengesahkan bahawa anda merupakan orang sebenar",
+    "title": "Rakam video"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Mulakan semula rakaman",
+    "list_item_eyes": "Pastikan mata anda kelihatan dengan jelas",
+    "list_item_face": "Pastikan anda hanya menunjukkan wajah anda, kami tidak perlu melihat ID anda",
+    "list_item_lighting": "Pastikan anda berada di tempat yang mempunyai pencahayaan yang baik",
+    "list_item_mask": "Pastikan anda menanggalkan pelitup muka atau barangan lain yang menutup muka anda. Cermin mata dibenarkan",
+    "title": "Kami tidak dapat mengesan wajah anda"
+  },
+  "avc_uploading": {
+    "title": "Memuat naik"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Dokumen dari negara tersebut tidak disokong buat masa ini — <fallback>sila cuba jenis dokumen yang lain</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "Negara tidak ditemui"
+    },
+    "button_primary": "Hantar dokumen",
+    "poa_alert": {
+      "country_not_found": "Minta maaf tentang perkara tersebut. Kami sedang berusaha untuk menyokong lebih banyak negara.",
+      "intro": "Tidak menemui negara anda?"
+    },
+    "search": {
+      "accessibility": "Pilih negara",
+      "input_placeholder": "cth. Amerika Syarikat",
+      "label": "Cari negara"
+    },
+    "title": "Pilih negara yang mengeluarkan"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Hantar pengesahan",
+    "info": "Tip",
+    "list_item_doc_multiple": "Dokumen",
+    "list_item_doc_one": "Dokumen",
+    "list_item_poa": "Bukti alamat",
+    "list_item_selfie": "Swafoto",
+    "list_item_video": "Video",
+    "subtitle": "Berikut ialah semua yang telah anda muat naik:",
+    "title": "Langkah yang terakhir"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Pautan hanya berfungsi pada peranti mudah alih",
+    "title": "Ada yang tidak kena"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Anda perlu memulakan semula pengesahan anda pada komputer anda",
+    "title": "Ada yang tidak kena"
+  },
+  "cross_device_intro": {
+    "button_primary": "Dapatkan pautan yang selamat",
+    "list_accessibility": "Langkah-langkah yang diperlukan untuk meneruskan pengesahan pada telefon bimbit anda",
+    "list_item_finish": "Periksa semula di sini untuk menyelesaikan penyerahan",
+    "list_item_open_link": "Buka pautan dan lengkapkan tugasan",
+    "list_item_send_phone": "Hantar pautan yang selamat ke telefon anda",
+    "subtitle": "Berikut ialah cara-caranya:",
+    "title": "Teruskan di telefon"
+  },
+  "cross_device_return": {
+    "body": "Komputer anda mungkin mengambil masa beberapa saat untuk dikemas kini",
+    "subtitle": "Anda kini boleh kembali ke komputer anda untuk meneruskannya",
+    "title": "Muat naik berjaya"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Teruskan",
+    "info": "Semak semula",
+    "list_item_desktop_open": "Tetingkap desktop anda masih terbuka",
+    "list_item_sent_by_you": "Pautan ini telah dihantar oleh anda — dapatkan nasihat jika anda berpendapat ini mungkin penipuan",
+    "subtitle": "Teruskan dengan pengesahan",
+    "title": "Sesi telefon bimbit dipaut ke komputer anda"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Ambil gambar",
+    "footer": {
+      "captured": "Gambar dirakam",
+      "capturing": "Merakam gambar",
+      "manual_fallback_identity_card_back": "Ambil gambar bahagian belakang kad anda",
+      "manual_fallback_identity_card_front": "Ambil gambar bahagian depan kad anda",
+      "manual_fallback_license_back": "Ambil gambar bahagian belakang lesen memandu anda",
+      "manual_fallback_license_front": "Ambil gambar bahagian depan lesen memandu anda",
+      "manual_fallback_passport": "Ambil gambar halaman foto pasport anda",
+      "manual_fallback_residence_permit_back": "Ambil gambar bahagian belakang permit kediaman anda",
+      "manual_fallback_residence_permit_front": "Ambil gambar bahagian hadapan permit kediaman anda",
+      "position_identity_card_back": "Letakkan bahagian belakang kad anda dalam bingkai",
+      "position_identity_card_front": "Letakkan bahagian depan kad anda dalam bingkai",
+      "position_license_back": "Letakkan bahagian belakang lesen memandu anda dalam bingkai",
+      "position_license_front": "Letakkan bahagian depan lesen memandu anda dalam bingkai",
+      "position_passport": "Letakkan halaman foto pasport anda dalam bingkai",
+      "position_residence_permit_back": "Letakkan bahagian belakang permit kediaman anda dalam bingkai",
+      "position_residence_permit_front": "Letakkan bahagian depan permit kediaman anda dalam bingkai"
+    },
+    "frame": {
+      "flip_document": "Terbalikkan ke bahagian belakang",
+      "hold_still": "Jangan bergerak",
+      "no_document": "Dokumen tidak dikesan"
+    }
+  },
+  "doc_capture": {
+    "button_primary": "Mulakan imbasan dokumen",
+    "detail": {
+      "folded_doc_front": "Letakkan dokumen anda secara rata, sertakan semua halaman dalaman (ia mesti mengandungi gambar anda)"
+    },
+    "header_folded_doc_front": "Bahagian foto profil",
+    "prompt": {
+      "button_card": "Kad plastik",
+      "button_paper": "Kertas dokumen",
+      "title_id": "Apakah jenis kad pengenalan yang anda ada?",
+      "title_license": "Apakah jenis lesen yang anda ada?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Pastikan segala-galanya adalah jelas",
+      "blur_title": "Gambar kabur dikesan",
+      "crop_detail": "Pastikan dokumen penuh kelihatan",
+      "crop_title": "Imej terpotong dikesan",
+      "glare_detail": "Jauhi daripada cahaya langsung",
+      "glare_title": "Silau dikesan",
+      "no_doc_detail": "Pastikan ia berada dalam bingkai sepenuhnya",
+      "no_doc_title": "Dokumen tidak dikesan"
+    },
+    "body": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
+    "body_bank_statement": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
+    "body_benefits_letter": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
+    "body_bill": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
+    "body_id": "Pastikan butiran anda jelas dan tidak terlindung",
+    "body_image_medium": "Ia akan mengambil masa yang lebih lama untuk mengesahkan anda jika kami tidak dapat membacanya",
+    "body_image_poor": "Untuk mengesahkan anda dengan lancar, kami memerlukan gambar yang berkualiti lebih baik",
+    "body_license": "Pastikan butiran anda jelas dan tidak terlindung",
+    "body_passport": "Pastikan butiran anda jelas dan tidak terlindung",
+    "body_permit": "Pastikan butiran anda jelas dan tidak terlindung",
+    "body_tax_letter": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
+    "button_close": "Tutup",
+    "button_primary_redo": "Lakukan semula",
+    "button_primary_upload": "Muat naik",
+    "button_primary_upload_anyway": "Teruskan muat naik",
+    "button_secondary_redo": "Lakukan semula",
+    "button_zoom": "Besarkan imej",
+    "image_accessibility": "Gambar dokumen anda",
+    "title": "Periksa gambar anda"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Mengimbas dokumen",
+    "instructions_title_back": "Letakkan bahagian belakang dokumen anda dalam bingkai",
+    "instructions_title_front": "Letakkan bahagian depan dokumen anda dalam bingkai"
+  },
+  "doc_select": {
+    "button_address_card": "Kad alamat",
+    "button_address_card_detail": "Kad sementara dan kekal diterima",
+    "button_bank_statement": "Penyata bank atau penyata persatuan pembinaan",
+    "button_bank_statement_non_uk": "Penyata bank",
+    "button_benefits_letter": "Surat Faedah",
+    "button_benefits_letter_detail": "Faedah isi rumah yang dibenarkan oleh kerajaan cth. Elaun pencari kerja, Faedah perumahan, Kredit cukai",
+    "button_bill": "Bil Utiliti",
+    "button_bill_detail": "Gas, elektrik, air, talian tetap atau jalur lebar",
+    "button_government_letter": "Surat Kerajaan",
+    "button_government_letter_detail": "Sebarang surat yang dikeluarkan oleh kerajaan cth. Kelayakan manfaat, Surat pengundian, Surat cukai, dll.",
+    "button_id": "Kad pengenalan",
+    "button_id_detail": "Bahagian depan dan belakang",
+    "button_license": "Lesen memandu",
+    "button_license_detail": "Bahagian depan dan belakang",
+    "button_passport": "Pasport",
+    "button_passport_detail": "Halaman foto",
+    "button_permit": "Permit kediaman",
+    "button_permit_detail": "Bahagian depan dan belakang",
+    "button_tax_letter": "Surat Cukai Majlis",
+    "extra_estatements_ok": "e-penyata diterima",
+    "extra_no_mobile": "Maaf, bil telefon bimbit tidak diterima",
+    "list_accessibility": "Dokumen yang boleh anda gunakan untuk mengesahkan identiti anda",
+    "pill": "terpantas",
+    "section": {
+      "header_country": "Negara yang mengeluarkan",
+      "header_doc_type": "Dokumen yang diterima",
+      "input_country_not_found": "Tiada Hasil",
+      "input_placeholder_country": "Pilih negara yang mengeluarkan"
+    },
+    "subtitle": "Ia mestilah ID bergambar yang rasmi",
+    "subtitle_country": "Pilih negara yang mengeluarkan untuk melihat dokumen yang kami terima",
+    "subtitle_entire_page": "Seluruh halaman",
+    "subtitle_front_back": "Bahagian depan dan belakang",
+    "subtitle_photo_page": "Halaman foto",
+    "subtitle_poa": "Ini ialah dokumen-dokumen yang berkemungkinan besar menunjukkan alamat rumah semasa anda",
+    "title": "Pilih dokumen anda",
+    "title_poa": "Pilih dokumen %{country}"
+  },
+  "doc_submit": {
+    "button_link_upload": "atau muat naik gambar – imbasan atau fotokopi tidak dibenarkan",
+    "button_primary": "Teruskan di telefon",
+    "subtitle": "Ambil gambar dengan menggunakan telefon anda",
+    "title_bank_statement": "Hantar penyata",
+    "title_benefits_letter": "Hantar surat",
+    "title_bill": "Hantar bil",
+    "title_government_letter": "Surat Kerajaan",
+    "title_id_back": "Hantar kad pengenalan (bahagian belakang)",
+    "title_id_front": "Hantar kad pengenalan (bahagian depan)",
+    "title_license_back": "Hantar lesen (bahagian belakang)",
+    "title_license_front": "Hantar lesen (bahagian depan)",
+    "title_passport": "Hantar halaman foto pasport",
+    "title_permit_back": "Hantar permit kediaman (bahagian belakang)",
+    "title_permit_front": "Hantar permit kediaman (bahagian depan)",
+    "title_tax_letter": "Hantar surat"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Langkah seterusnya",
+    "button_primary_fallback_end": "Tamatkan rakaman",
+    "detail_step2": "Pastikan dokumen sentiasa dalam paparan penuh pada setiap masa",
+    "header": "Ketika memegang dokumen anda, pastikan bahagian depan dokumen berada dalam bingkai",
+    "header_paper_doc_step2": "Pusing dokumen anda secara perlahan-lahan untuk menunjukkan halaman luar",
+    "header_passport": "Ketika memegang pasport anda, pastikan halaman foto berada dalam bingkai",
+    "header_passport_progress": "Jangan bergerak",
+    "header_step1": "Sekarang, jangan bergerak",
+    "header_step2": "Pusing dokumen anda secara perlahan-lahan untuk menunjukkan bahagian belakang",
+    "prompt": {
+      "detail_timeout": "Rakaman video terhad kepada ​<timeout>​​</timeout>​ saat. ​<fallback>​Mulakan semula​</fallback>​"
+    },
+    "stepper": "Langkah ​<step>​​</step>​ daripada ​<total>​​</total>​",
+    "success_accessibility": "Berjaya"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Pratonton video",
+    "title": "Periksa video anda"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Mulakan semula proses pada versi terkini Google Chrome",
+    "subtitle_ios": "Mulakan semula proses pada versi terkini Safari",
+    "title_android": "Pelayar tidak disokong",
+    "title_ios": "Pelayar tidak disokong"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Tutup skrin pengesahan identiti",
+      "dismiss_alert": "Abaikan amaran"
+    },
+    "back": "belakang",
+    "close": "dekat",
+    "errors": {
+      "expired_token": {
+        "instruction": "Sila cuba lagi",
+        "message": "Token anda telah tamat tempoh"
+      },
+      "expired_trial": {
+        "instruction": "Anda telah mencapai had percubaan anda",
+        "message": "Percubaan anda telah tamat tempoh"
+      },
+      "geoblocked_error": {
+        "instruction": "Kami mohon maaf, kami tidak dapat meneruskan selanjutnya kerana lokasi semasa anda tidak disokong",
+        "message": "Perkhidmatan tidak tersedia"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Mulakan semula proses pada peranti yang lain",
+        "message": "Kamera tidak dikesan"
+      },
+      "invalid_size": {
+        "instruction": "Saiz mesti kurang daripada 10MB.",
+        "message": "Saiz fail melebihi had."
+      },
+      "invalid_type": {
+        "instruction": "Sila cuba jenis fail yang lain.",
+        "message": "Fail tidak dimuat naik."
+      },
+      "lazy_loading": {
+        "message": "Ralat berlaku semasa memuatkan komponen"
+      },
+      "multiple_faces": {
+        "instruction": "Hanya wajah anda sahaja yang boleh berada dalam swafoto",
+        "message": "Beberapa wajah ditemui"
+      },
+      "no_face": {
+        "instruction": "Pastikan wajah anda kelihatan",
+        "message": "Wajah tidak dikesan"
+      },
+      "request_error": {
+        "instruction": "Sila cuba lagi",
+        "message": "Ada yang tidak kena"
+      },
+      "sms_failed": {
+        "instruction": "Salin pautan ke telefon anda",
+        "message": "Ada yang tidak kena"
+      },
+      "sms_overuse": {
+        "instruction": "Salin pautan ke telefon anda",
+        "message": "Terlalu banyak percubaan yang gagal"
+      },
+      "unsupported_file": {
+        "instruction": "Cuba guna fail JPG atau PNG",
+        "message": "Jenis fail tidak disokong"
+      }
+    },
+    "lazy_load_placeholder": "Memuatkan...",
+    "loading": "Memuatkan"
+  },
+  "get_link": {
+    "alert_wrong_number": "Pastikan nombor anda betul",
+    "button_copied": "Disalin",
+    "button_copy": "Salin",
+    "button_submit": "Hantar pautan",
+    "info_qr_how": "Cara mengimbas kod QR",
+    "info_qr_how_list_item_camera": "Halakan kamera telefon anda ke kod QR",
+    "info_qr_how_list_item_download": "Jika ia tidak berjaya, muat turun pengimbas kod QR dari Google Play atau App Store",
+    "link_divider": "atau pilih kaedah alternatif",
+    "link_qr": "Imbas kod QR",
+    "link_sms": "Dapatkan pautan melalui SMS",
+    "link_url": "Salin pautan",
+    "loader_sending": "Menghantar",
+    "number_field_input_placeholder": "Masukkan nombor telefon bimbit",
+    "number_field_label": "Masukkan nombor telefon bimbit anda:",
+    "subtitle_qr": "Imbas kod QR dengan telefon anda",
+    "subtitle_sms": "Hantar pautan yang diberi hanya sekali ini ke telefon anda",
+    "subtitle_url": "Hantar pautan yang diberi hanya sekali ini ke telefon anda",
+    "title": "Dapatkan pautan yang selamat",
+    "url_field_label": "Salin pautan ke pelayar telefon bimbit anda"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Muat semula arahan",
+    "intro_note_no1": "Pertama, letakkan wajah anda dalam bingkai",
+    "intro_note_no2": "Kemudian, toleh kepala anda perlahan-lahan ke kedua-dua belah sisi",
+    "intro_ready_button": "Harap maklum bahawa kami akan merakam wajah anda berserta latar belakang anda",
+    "intro_subtitle": "Ini adalah untuk mengesahkan bahawa anda merupakan orang sebenar",
+    "intro_warning": "Harap maklum bahawa kami akan merakam wajah anda berserta latar belakang anda",
+    "success_main_button": "Hantar pengesahan",
+    "success_title": "Itu sahaja yang kami perlukan untuk mula mengesahkan identiti anda"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Ambil gambar bahagian belakang kad anda",
+      "body_id_front": "Ambil gambar bahagian depan kad anda",
+      "body_license_back": "Ambil gambar bahagian belakang lesen anda",
+      "body_license_front": "Ambil gambar bahagian depan lesen anda",
+      "body_passport": "Ambil gambar halaman foto pasport anda",
+      "body_selfie": "Ambil swafoto yang menunjukkan wajah anda"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Ambil gambar menggunakan <fallback>mod kamera asas</fallback> pula"
+        },
+        "camera_not_working": {
+          "detail": "Ambil gambar menggunakan <fallback>mod kamera asas</fallback> pula"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Ambil gambar",
+      "title": "Halaman foto pasport"
+    }
+  },
+  "outro": {
+    "body": "Itu sahaja yang kami perlukan untuk mula mengesahkan identiti anda",
+    "body_government_letter": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
+    "title": "Terima kasih"
+  },
+  "permission": {
+    "body_both": "Kami tidak dapat mengesahkan anda tanpa menggunakan kamera dan juga mikrofon anda",
+    "body_cam": "Kami tidak dapat mengesahkan anda tanpa kamera anda",
+    "button_primary_both": "Dayakan kedua-duanya",
+    "button_primary_cam": "Dayakan kamera",
+    "subtitle_both": "Apabila digesa, anda mesti mendayakan akses kamera dan mikrofon untuk meneruskannya",
+    "subtitle_cam": "Apabila digesa, anda mesti mendayakan akses kamera untuk meneruskannya",
+    "title_both": "Benarkan akses kamera dan mikrofon",
+    "title_cam": "Benarkan akses kamera"
+  },
+  "permission_recovery": {
+    "button_primary": "Segar semula",
+    "info": "Pemulihan",
+    "list_header_both": "Ikuti langkah-langkah ini untuk mengembalikan akses kamera dan juga mikrofon:",
+    "list_header_cam": "Ikuti langkah ini untuk mengembalikan akses kamera:",
+    "list_item_action_cam": "Segar semula halaman ini untuk memulakan semula proses pengesahan identiti",
+    "list_item_how_to_both": "Benarkan akses kepada kamera dan mikrofon anda melalui tetapan pelayar anda",
+    "list_item_how_to_cam": "Benarkan akses kepada kamera anda melalui tetapan pelayar anda",
+    "subtitle_both": "Kembalikan akses kamera dan mikrofon untuk merakam video dan melengkapkan proses pengesahan",
+    "subtitle_cam": "Kembalikan akses kamera untuk meneruskan pengesahan anda",
+    "subtitle_cam_old": "Kembalikan akses kamera untuk meneruskan pengesahan wajah",
+    "title_both": "Akses kamera dan mikrofon tidak dibenarkan",
+    "title_cam": "Akses kamera tidak dibenarkan"
+  },
+  "photo_upload": {
+    "body_bank_statement": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
+    "body_benefits_letter": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
+    "body_bill": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
+    "body_id_back": "Muat naik bahagian belakang kad pengenalan dengan menggunakan komputer anda",
+    "body_id_front": "Muat naik bahagian depan kad pengenalan dengan menggunakan komputer anda",
+    "body_license_back": "Muat naik bahagian belakang lesen dengan menggunakan komputer anda",
+    "body_license_front": "Muat naik bahagian depan lesen dengan menggunakan komputer anda",
+    "body_passport": "Muat naik halaman foto pasport dengan menggunakan komputer anda",
+    "body_selfie": "Muat naik swafoto dengan menggunakan komputer anda",
+    "body_tax_letter": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
+    "button_take_photo": "Tangkap gambar",
+    "button_upload": "Muat naik",
+    "title_selfie": "Swafoto"
+  },
+  "poa_cancel": "Batal",
+  "poa_err_invalid_file": {
+    "message": "Sila pilih fail lain.",
+    "ok": "OK",
+    "title": "Fail Tidak Sah"
+  },
+  "poa_guidance": {
+    "button_primary": "Teruskan",
+    "instructions": {
+      "address": "Alamat semasa",
+      "full_name": "Nama penuh",
+      "issue_date": "Tarikh pengeluaran atau ringkasan tempoh",
+      "label": "Rakam keseluruhan dokumen dan pastikan ia menunjukkan dengan jelas:",
+      "logo": "Logo"
+    },
+    "instructions_address_card_issue_date": "Tarikh dikeluarkan",
+    "instructions_expiry_date": "Tarikh luput, jika berkenaan",
+    "instructions_full_address": "Alamat penuh",
+    "subtitle_address_card": "Mesti kad alamat yang sah",
+    "subtitle_bank_statement": "Mesti dikeluarkan dalam tempoh ​​3 bulan terakhir​​",
+    "subtitle_benefits_letter": "Mesti dikeluarkan dalam tempoh ​​12 bulan terakhir​​",
+    "subtitle_bill": "Mesti dikeluarkan dalam tempoh ​​3 bulan terakhir​​",
+    "subtitle_tax_letter": "Mesti dikeluarkan dalam tempoh ​​12 bulan terakhir​​"
+  },
+  "poa_intro": {
+    "button_primary": "Mulakan pengesahan",
+    "list_matches_signup": "Padan dengan alamat yang anda guna semasa mendaftar",
+    "list_most_recent": "Dokumen ​​terkini​​ anda",
+    "list_shows_address": "Menunjukkan alamat ​​semasa​​ anda",
+    "subtitle": "Anda memerlukan dokumen yang:",
+    "title": "Mari sahkan alamat anda"
+  },
+  "profile_data": {
+    "address_title": "Tambah alamat anda",
+    "button_continue": "Teruskan",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Pilih negara"
+      },
+      "country_select": {
+        "placeholder": "Pilih negara"
+      },
+      "nationality_select": {
+        "placeholder": "Pilih negara"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Pilih negeri"
+      }
+    },
+    "country_of_residence_title": "Negara anda menetap",
+    "field_labels": {
+      "country": "Negara",
+      "country_residence": "Negara",
+      "dob": "Tarikh lahir",
+      "email": "E-mel",
+      "first_name": "Nama pertama",
+      "gbr_specific": {
+        "postcode": "Poskod",
+        "town": "Bandar/Pekan"
+      },
+      "ind_specific": {
+        "pan": "Nombor akaun tetap (PAN)"
+      },
+      "last_name": "Nama keluarga",
+      "line1": "Alamat baris 1",
+      "line2": "Alamat baris 2",
+      "line3": "Alamat baris 3",
+      "mobile_number": "Nombor telefon bimbit",
+      "nationality": "Kewarganegaraan",
+      "phone_number": "Nombor telefon",
+      "postcode": "Poskod",
+      "town": "Bandar",
+      "usa_specific": {
+        "line1_helper_text": "Alamat jalan, contohnya: 200 Albert Street",
+        "line2_helper_text": "Pangsapuri, suite, unit, dll.",
+        "postcode": "Poskod",
+        "ssn": "Nombor Keselamatan Sosial (SSN)",
+        "state": "Negeri"
+      }
+    },
+    "field_optional": "(pilihan)",
+    "field_validation": {
+      "gbr_specific": {
+        "invalid_postcode": "Sila masukkan poskod yang sah",
+        "required_postcode": "Sila masukkan poskod anda",
+        "too_long_postcode": "Poskod terlalu panjang",
+        "too_short_postcode": "Poskod terlalu pendek"
+      },
+      "ind_specific": {
+        "invalid_pan": "Sila masukkan PAN yang sah",
+        "required_pan": "Sila masukkan PAN anda"
+      },
+      "invalid": "Sila semak aksara atau simbol yang tidak sah",
+      "invalid_dob": "Sila masukkan tarikh lahir yang sah",
+      "invalid_email": "Sila masukkan e-mel yang sah",
+      "invalid_mobile_number": "Sila masukkan nombor telefon bimbit yang sah",
+      "invalid_phone_number": "Sila masukkan nombor telefon yang sah",
+      "required_consent": "Sila bersetuju untuk membenarkan pemeriksaan identiti dan penipuan",
+      "required_country": "Sila pilih negara",
+      "required_country_residence": "Sila pilih negara",
+      "required_dob": "Sila masukkan tarikh lahir anda",
+      "required_email": "Sila masukkan e-mel anda",
+      "required_first_name": "Sila masukkan nama pertama anda",
+      "required_last_name": "Sila masukkan nama keluarga anda",
+      "required_line1": "Sila masukkan alamat anda",
+      "required_mobile_number": "Sila masukkan nombor telefon bimbit anda",
+      "required_nationality": "Sila pilih negara",
+      "required_phone_number": "Sila masukkan nombor telefon anda",
+      "required_postcode": "Sila masukkan poskod anda",
+      "too_long_first_name": "Nama pertama terlalu panjang",
+      "too_long_last_name": "Nama keluarga terlalu panjang",
+      "too_long_line1": "Baris alamat terlalu panjang",
+      "too_long_postcode": "Poskod terlalu panjang",
+      "too_long_town": "Bandar terlalu panjang",
+      "too_short_first_name": "Nama pertama terlalu pendek",
+      "too_short_last_name": "Nama keluarga terlalu pendek",
+      "too_short_postcode": "Poskod terlalu pendek",
+      "usa_specific": {
+        "invalid_ssn": "Sila masukkan SSN yang sah",
+        "required_ssn": "Sila masukan SSN anda",
+        "required_state": "Sila pilih negeri"
+      }
+    },
+    "personal_information_title": "Tambah maklumat peribadi anda",
+    "prompt": {
+      "details_timeout": "Mula semula",
+      "header_timeout": "Nampaknya anda mengambil masa yang terlalu lama"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Cuba lagi"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas",
+    "title": "Dokumen anda telah tamat tempoh"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas",
+    "title": "Terdapat masalah dengan dokumen anda"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas",
+    "title": "Dokumen tidak diterima"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Sila cuba lagi serta pastikan wajah anda kelihatan dan terang",
+    "title": "Terdapat masalah dengan swafoto anda"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Periksa sama ada ia bersambung dan berfungsi. Anda juga boleh <fallback>meneruskan pengesahan pada telefon anda</fallback>",
+        "detail_no_fallback": "Pastikan peranti anda mempunyai kamera yang berfungsi",
+        "title": "Kamera tidak berfungsi?"
+      },
+      "camera_not_working": {
+        "detail": "Ia mungkin terputus sambungan. <fallback>Cuba guna telefon anda pula</fallback>.",
+        "detail_no_fallback": "Pastikan kamera peranti anda berfungsi",
+        "title": "Kamera tidak berfungsi"
+      },
+      "timeout": {
+        "detail": "Jangan lupa untuk menekan butang apabila anda telah selesai. <fallback>Lakukan semula aksi video</fallback>",
+        "title": "Nampaknya anda mengambil masa yang terlalu lama"
+      }
+    },
+    "body": "Pastikan wajah anda berada dalam bingkai berbentuk bujur",
+    "button_accessibility": "Ambil gambar",
+    "button_primary": "Mulakan imbasan wajah",
+    "frame_accessibility": "Pandangan dari kamera",
+    "title": "Pastikan wajah anda berada dalam bingkai berbentuk bujur"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Gambar wajah anda",
+    "subtitle": "Pastikan keseluruhan wajah anda kelihatan",
+    "title": "Periksa swafoto anda"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "Wajah dan latar belakang anda akan dirakam semasa proses ini",
+    "button_primary": "Teruskan",
+    "list_accessibility": "Tip untuk mengambil swafoto yang baik",
+    "list_item_face_forward": "Hadap ke hadapan dan pastikan mata anda jelas kelihatan",
+    "list_item_no_face_cover": "Tanggalkan apa sahaja yang menutupi muka anda. Cermin mata dibenarkan",
+    "list_item_no_glasses": "Tanggalkan cermin mata anda, jika perlu",
+    "subtitle": "Kami akan membandingkan swafoto tersebut dengan dokumen anda",
+    "title": "Ambil swafoto"
+  },
+  "sms_sent": {
+    "info": "Tip",
+    "info_link_expire": "Pautan anda akan tamat tempoh dalam masa satu jam",
+    "info_link_window": "Pastikan tetingkap ini terbuka semasa menggunakan telefon bimbit anda",
+    "link": "Hantar semula pautan",
+    "subtitle": "Kami telah menghantar pautan selamat ke %{number}",
+    "subtitle_minutes": "Ia mungkin mengambil masa beberapa minit untuk tiba",
+    "title": "Periksa telefon bimbit anda"
+  },
+  "switch_phone": {
+    "info": "Tip",
+    "info_link_expire": "Pautan untuk telefon bimbit anda akan tamat tempoh dalam masa satu jam",
+    "info_link_refresh": "Jangan segar semula halaman ini",
+    "info_link_window": "Pastikan tetingkap ini terbuka semasa menggunakan telefon bimbit anda",
+    "link": "Batal",
+    "subtitle": "Setelah anda selesai, kami akan membawa anda ke langkah seterusnya",
+    "title": "Disambungkan ke telefon bimbit anda"
+  },
+  "upload_guide": {
+    "button_primary": "Muat naik foto",
+    "image_detail_blur_alt": "Contoh dokumen yang kabur",
+    "image_detail_blur_label": "Semua butiran mesti jelas — tiada bahagian yang kabur",
+    "image_detail_cutoff_label": "Papar semua butiran — termasuk 2 baris terbawah",
+    "image_detail_glare_label": "Jauhi cahaya langsung — tiada silau",
+    "image_detail_good_label": "Gambar hendaklah menunjukkan dokumen anda dengan jelas",
+    "subtitle": "Imbasan dan fotokopi tidak diterima",
+    "title": "Muat naik halaman foto pasport"
+  },
+  "user_consent": {
+    "button_primary": "Bersetuju",
+    "button_secondary": "Tidak bersetuju",
+    "prompt": {
+      "button_primary": "Semak semula",
+      "button_secondary": "Ya, jangan sahkan saya",
+      "no_consent_detail": "Jika anda tidak bersetuju dengan pernyataan privasi dan terma perkhidmatan Onfido, kami tidak akan dapat mengesahkan identiti anda dan anda akan keluar daripada langkah ini.",
+      "no_consent_title": "Adakah anda pasti?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Muat semula skrin",
+    "detail": "Sila periksa sama ada sambungan anda stabil dan cuba lagi kemudian",
+    "title": "Kandungan gagal dimuatkan"
+  },
+  "video_capture": {
+    "body": "Pastikan wajah anda berada dalam bingkai berbentuk bujur",
+    "body_record": "Tekan butang apabila anda sudah bersedia",
+    "body_stop": "Tekan berhenti apabila anda telah selesai",
+    "button_primary_finish": "Tamatkan rakaman",
+    "button_primary_next": "Langkah seterusnya",
+    "button_primary_start": "Mula rakaman",
+    "button_record_accessibility": "Mula rakaman",
+    "frame_accessibility": "Pandangan dari kamera",
+    "header": {
+      "challenge_digit_instructions": "Sebut setiap digit dengan kuat",
+      "challenge_turn_forward": "kemudian menghadap ke hadapan",
+      "challenge_turn_left": "Toleh kepala anda ke kiri",
+      "challenge_turn_right": "Toleh kepala anda ke kanan"
+    },
+    "prompt": {
+      "header_timeout": "Nampaknya anda mengambil masa yang terlalu lama"
+    }
+  },
+  "video_confirmation": {
+    "body": "Video anda telah dirakam",
+    "button_primary": "Muat naik video",
+    "button_secondary": "Rakam semula video",
+    "title": "Periksa video anda",
+    "video_accessibility": "Main semula rakaman video anda"
+  },
+  "video_intro": {
+    "button_primary": "Rakam video",
+    "list_accessibility": "Tindakan untuk merakam video swafoto",
+    "list_item_actions": "Anda mempunyai 20 saat untuk menyelesaikannya",
+    "list_item_speak": "Ikut arahan untuk bergerak atau bercakap",
+    "title": "Rakam video"
+  },
+  "welcome": {
+    "doc_video_subtitle": "Ia akan mengambil masa beberapa minit",
+    "list_header_doc_video": "Guna peranti anda untuk merakam:",
+    "list_header_webcam": "Gunakan kamera web atau telefon anda untuk mengambil gambar:",
+    "list_item_doc": "dokumen pengenalan anda",
+    "list_item_doc_video_timeout": "Rakaman terhad kepada ​<timeout>​​</timeout>​ saat",
+    "list_item_poa": "bukti alamat anda",
+    "list_item_selfie": "wajah anda",
+    "next_button": "Pilih dokumen",
+    "start_workflow_button": "Mulakan pengesahan",
+    "start_workflow_button_trial": "Mulakan pengesahan (PERCUBAAN)",
+    "subtitle": "Ia akan mengambil masa beberapa minit",
+    "title": "Sahkan identiti anda",
+    "trial_message": "Jangan kongsi data peribadi di sini melainkan anda terlibat dalam percubaan Onfido."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Kami telah mengesahkan identiti anda",
+      "title": "Lulus"
+    },
+    "reject": {
+      "description": "Kami belum dapat mengesahkan identiti anda",
+      "title": "Ditolak"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "Berlaku ralat pelayan!",
+    "no_workflow_run_id": "ID pengenal pasti aliran kerja tidak ditetapkan.",
+    "reload_app": "Sila cuba muat semula aplikasi ini dan cuba lagi.",
+    "task_not_completed": "Tidak dapat menyelesaikan tugasan aliran kerja.",
+    "task_not_retrieved": "Tidak boleh mendapatkan semula tugasan aliran kerja.",
+    "task_not_supported": "Tugasan tidak disokong buat masa ini"
+  }
+}
