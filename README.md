@@ -132,16 +132,6 @@ You can include the library as a regular script tag on your page:
 <script src="dist/onfido.min.js"></script>
 ```
 
-⚠️ Note: The above import does **not** include the Auth module. To include it, use:
-
-```html
-<script src="dist/onfidoAuth.min.js"></script>
-```
-
-If you are importing the Auth module, you do not need to import the standard SDK module (`dist/onfido.min.js`) also.
-
-⚠️ **The Authentication module is currently a BETA feature.**
-
 And the CSS styles:
 
 ```html
@@ -703,6 +693,10 @@ The custom options are:
 
   When disabled, it will forward the user to the cross-device flow in order to attempt to capture a photo in another device. Having both `photoCaptureFallback` and `videoCaptureFallback` disabled would forward the user to the cross-device flow with Motion.
 
+- `recordMotionAudio` (boolean - default: `false`)
+
+  When enabled, and the requested variant is `motion` this feature allows Motion to record the user audio.
+
 #### auth
 
 This is the authentication step. If you have followed the guidelines specific to including authentication, you'll have this step made available. In here, a loading screen is presented to the user to fetch all necessary resources to perform authentication.
@@ -919,14 +913,14 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
   http-equiv="Content-Security-Policy"
   content="
   default-src 'self' https://assets.onfido.com;
-  script-src 'self' 'unsafe-eval' https://assets.onfido.com https://sentry.io;
+  script-src 'self' 'unsafe-eval' https://assets.onfido.com https://sentry.io https://*.sardine.ai/;
   style-src 'self' https://assets.onfido.com;
   connect-src 'self' data: blob: *.onfido.com wss://*.onfido.com https://sentry.io;
   img-src 'self' data: blob: https://assets.onfido.com/;
   media-src blob: https://assets.onfido.com;
-  worker-src blob:;
+  worker-src 'self' blob:;
   object-src 'self' blob:;
-  frame-src 'self' data: blob:;
+  frame-src 'self' data: blob: https://*.sardine.ai/;
 "
 />
 ```

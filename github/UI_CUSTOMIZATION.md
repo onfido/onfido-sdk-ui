@@ -73,13 +73,19 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBorderButtonSecondaryHover`      | Change color of Secondary Button border on hover         |
   | `colorBorderButtonSecondaryActive`     | Change color of Secondary Button border on click/tap     |
 
-  | Document Type Buttons            | Description                                              |
-  | -------------------------------- | -------------------------------------------------------- |
-  | `colorContentDocTypeButton`      | Change Document Type Button text color                   |
-  | `colorBackgroundDocTypeButton`   | Change background color of Document Type Button          |
-  | `colorBorderDocTypeButton`       | Change color of Document Type Button border              |
-  | `colorBorderDocTypeButtonHover`  | Change color of Document Type Button border on hover     |
-  | `colorBorderDocTypeButtonActive` | Change color of Document Type Button border on click/tap |
+  | Document Type Buttons                | Description                                                  |
+  | ------------------------------------ | ------------------------------------------------------------ |
+  | `colorContentDocTypeButton`          | Change Document Type Button text color                       |
+  | `colorBackgroundDocTypeButton`       | Change background color of Document Type Button              |
+  | `colorBackgroundDocTypeButtonHover`  | Change background color of Document Type Button on hover     |
+  | `colorBackgroundDocTypeButtonActive` | Change background color of Document Type Button on click/tap |
+  | `colorBorderDocTypeButton`           | Change color of Document Type Button border                  |
+  | `colorBorderDocTypeButtonHover`      | Change color of Document Type Button border on hover         |
+  | `colorBorderDocTypeButtonActive`     | Change color of Document Type Button border on click/tap     |
+
+  | Selector                  | Description                      |
+  | ------------------------- | -------------------------------- |
+  | `colorBackgroundSelector` | Change Selector background color |
 
   | Icon options          | Description                                                         |
   | --------------------- | ------------------------------------------------------------------- |
@@ -163,27 +169,3 @@ The Web SDK supports customization options across the SDK screen including text,
   | Cross-device            | Description                                                       |
   | ----------------------- | ----------------------------------------------------------------- |
   | `colorBackgroundQRCode` | Change background color of the QR code on the Cross device screen |
-
-  | Auth Module Colors (shared) | Description                                                                                                                                                                                                                                                                                                                                                                                |
-  | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-  | `authAccentColor`           | <ul><li>Change color of activity indicator animation shown during server-side work</li><li> Change background color of result animation</li><li> Change background color of the upload progress bar</li> </ul>                                                                                                                                                                             |
-  | `authFrameColor`            | <ul><li>Change the color of the border and background surrounding the oval outline Auth session</li><li>Change background color of the Auth overlay.</li><li>Change background color for the New User Guidance and Retry screens.</li><li> Change background color of Result screen and Result animation foreground</li><li>Change background color of initial loading animation</li></ul> |
-  | `authButtonCornerRadius`    | <ul><li>Change corner radius of the action button's border during the New User Guidance and Retry screens.</li><li>Change corner radius of the Auth Feedback bar.</li></ul>                                                                                                                                                                                                                |
-
-  | Auth Module Colors (unique) | Description                                                                                                              |
-  | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-  | `authDualSpinnercolor`      | Change animated Auth Progress Spinner strokes.                                                                           |
-  | `authRetryScreenovalcolor`  | Change oval's stroke that overlays the ideal image example during the first Retry screen.                                |
-  | `authOvalColor`             | Change color of Auth Oval outline                                                                                        |
-  | `authButtonColorNormal`     | Change background color of the action button during the New User Guidance and Retry screens.                             |
-  | `authButtonColorDisabled`   | Change background color of the action button when the button is disabled during the New User Guidance and Retry screens. |
-  | `authButtonColorPressed`    | Change background color of the action button when the button is pressed during the New User Guidance and Retry screens.  |
-  | `authFeedbackBarColor`      | Change background color of the Auth Feedback bar. Recommend making this have some transparency.                          |
-
-  | Auth Module Text Colors        | Description                                                                                                                                                                                                                                                                                                         |
-  | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | `authTextColor`                | <ul><li>Change color of text displayed on the New User Guidance and Retry screens (not including the action button text).</li><li>Change color of text displayed on the Result screen.</li><li>Change color of loading spinner foreground fill and message text shown to the user while the camera loads.</li></ul> |
-  | `authButtonTextHighlightColor` | Change color of the action button's text when the button is pressed during the New User Guidance and Retry screens.                                                                                                                                                                                                 |
-  | `authButtonTextDisabledColor`  | Change color of the action button's text when the button is disabled during the New User Guidance and Retry screens.                                                                                                                                                                                                |
-  | `authButtonTextNormalColor`    | Change color of the action button's text during the New User Guidance and Retry screens                                                                                                                                                                                                                             |
-  | `authFeedbackBarTextColor`     | Change color of text displayed within the Auth Browser SDK Feedback bar                                                                                                                                                                                                                                             |
