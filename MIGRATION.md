@@ -2,6 +2,77 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `10.1.0` -> `10.2.0`
+
+We have added new language(s):
+
+- Arabic
+- Armenian
+- Bulgarian
+- Chinese (Simplified)
+- Chinese (Traditional)
+- Croatian
+- Danish
+- English (United States)
+- Estonian
+- Finnish
+- French (Canadian)
+- Greek
+- Hebrew
+- Hindi
+- Hungarian
+- Indonesian
+- Japanese
+- Korean
+- Latvian
+- Lithuanian
+- Malay
+- Norwegian
+- Persian
+- Portuguese (Brazil)
+- Russian
+- Serbian
+- Slovak
+- Spanish (Latin America)
+- Swedish
+- Thai
+- Turkish
+- Ukrainian
+- Vietnamese
+
+## `9.1.4` -> `10.1.0`
+
+We have added new language(s): **Czech, Polish, and Romanian**
+The `useLiveDocumentCapture` beta document option has been deprecated from Onfido's SDK. You should think about removing it before the next major version.
+The `useWebcam` alpha document option has been deprecated from Onfido's SDK. You should think about removing it before the next major version.
+
+## Updated strings
+
+- `profile_data.field_validation.too_long_line1`
+
+## Added strings
+
+- doc_auto_capture.button_accessibility
+- doc_auto_capture.footer.position_identity_card_front
+- doc_auto_capture.footer.position_identity_card_back
+- doc_auto_capture.footer.position_residence_permit_front
+- doc_auto_capture.footer.position_residence_permit_back
+- doc_auto_capture.footer.position_license_front
+- doc_auto_capture.footer.position_license_back
+- doc_auto_capture.footer.position_passport
+- doc_auto_capture.footer.manual_fallback_identity_card_front
+- doc_auto_capture.footer.manual_fallback_identity_card_back
+- doc_auto_capture.footer.manual_fallback_residence_permit_front
+- doc_auto_capture.footer.manual_fallback_residence_permit_back
+- doc_auto_capture.footer.manual_fallback_license_front
+- doc_auto_capture.footer.manual_fallback_license_back
+- doc_auto_capture.footer.manual_fallback_passport
+- doc_auto_capture.footer.capturing
+- doc_auto_capture.footer.captured
+- doc_auto_capture.frame.flip_document
+- doc_auto_capture.frame.hold_still
+- doc_auto_capture.frame.no_document
+
 ## `9.1.1` -> `9.1.2`
 
 The **English**, **Spanish**, **German**, **French**, **Italian**, **Dutch** and **Portuguese** copy for the following string(s) has been added:
