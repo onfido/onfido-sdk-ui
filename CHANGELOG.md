@@ -10,6 +10,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+## [10.4.0] - 2023-01-23
+
+### Changed
+
+- Public: Fixed a bug in the selfie/face video step, where the face would not be zoomed in correctly.
+- Public: Reduce by one the number of forced retries in case of error while submitting a document. For a max retry count of 4, the 5th attempt will be the final one (previously it was the 6th attempt).
+- Public: In the document step, if there is only a single country due to `documentTypes` option, show a disabled input with the country pre selected for the user.
+- Public: In the document step, add new option `hideCountrySelection` to bypass the country selection sub screen. Refer to the README for more information.
+
 ## [10.3.1] - 2023-01-13
 
 ### Changed
@@ -1456,7 +1465,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.4.0...development
+[10.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.1...10.4.0
 [10.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.0...10.3.1
 [10.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.2.0...10.3.0
 [10.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.1.0...10.2.0

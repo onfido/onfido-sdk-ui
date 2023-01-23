@@ -94,7 +94,7 @@
   "avc_connection_error": {
     "button_primary_reload": "Uruchom ponownie instrukcję",
     "button_primary_retry_upload": "Ponów próbę wysłania",
-    "button_secondary_restart_recording": "Uruchom nagrywanie ponownie",
+    "button_secondary_restart_recording": "Nagraj ponownie",
     "subtitle": "Sprawdź, czy połączenie z internetem jest stabilne, a następnie spróbuj ponownie",
     "title": "Błąd połączenia"
   },
@@ -126,7 +126,7 @@
     "title": "Nagraj wideo"
   },
   "avc_no_face_detected": {
-    "button_primary_restart": "Uruchom nagrywanie ponownie",
+    "button_primary_restart": "Nagraj ponownie",
     "list_item_eyes": "Upewnij się, że oczy są dobrze widoczne",
     "list_item_face": "Upewnij się, że pokazujesz tylko swoją twarz, nie musimy widzieć Twojego dokumentu tożsamości",
     "list_item_lighting": "Upewnij się, że jesteś w miejscu z dobrym oświetleniem",

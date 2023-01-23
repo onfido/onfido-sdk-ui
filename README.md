@@ -197,6 +197,10 @@ Alternatively, you can use hosted versions of files above from our CDN such as:
 <!-- Replace "<version>" with the actual version you want to use, example: 9.0.0 -->
 <script src="https://assets.onfido.com/web-sdk-releases/<version>/onfido.min.js"></script>
 <script src="https://assets.onfido.com/web-sdk-releases/<version>/onfidoAuth.min.js"></script>
+<link
+  href="https://assets.onfido.com/web-sdk-releases/<version>/style.css"
+  rel="stylesheet"
+/>
 ```
 
 ### 5. Add basic HTML markup
@@ -605,6 +609,14 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
   ]
 }
 ```
+
+- `hideCountrySelection` (boolean - default: `false`)
+
+  Set this option to `true` in case you do not want the user to see the country selection screen.
+
+  ⚠️ **Note**: This option relies on the `documentTypes` option to show the document types to the user. The documents won't be pre filtered according to country.
+
+  ⚠️ **Note**: If this option is selected, in case of a `documentTypes` value set to `true` for a specific document, no country information is sent to Onfido's backend. This means that we are not able to do fine grained analytics analysis based on country.
 
 - `forceCrossDevice` (boolean - default: `false`)
 

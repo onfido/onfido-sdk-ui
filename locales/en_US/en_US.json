@@ -118,8 +118,8 @@
     "title_completed": "Recording complete"
   },
   "avc_intro": {
-    "button_primary_ready": "I'm ready",
-    "disclaimer": "Please be mindful that we'll record your face and your background",
+    "button_primary_ready": "Start recording",
+    "disclaimer": "Your face and your background will be recorded during this process",
     "list_item_one": "First, position your face in the frame",
     "list_item_two": "Then, turn your head slowly to both sides",
     "subtitle": "This is to verify that you’re a real person",
