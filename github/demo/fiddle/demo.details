@@ -1,0 +1,8 @@
+---
+ name: Onfido SDK Demo
+ authors:
+   - Onfido Team
+ resources:
+   - https://assets.onfido.com/web-sdk-releases/latest/onfido.min.js
+   - https://assets.onfido.com/web-sdk-releases/latest/style.css
+...

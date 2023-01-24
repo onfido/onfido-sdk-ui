@@ -1,91 +1,4 @@
 {
-  "auth_accessibility": {
-    "back_button": ""
-  },
-  "auth_cam_encrypt": {
-    "loader": ""
-  },
-  "auth_cam_start": {
-    "loader": ""
-  },
-  "auth_capture": {
-    "feedback": {
-      "center_face": "",
-      "even_lighting": "",
-      "eye_level": "",
-      "face_not_found": "",
-      "head_not_upright": "",
-      "move_back": "",
-      "move_close": "",
-      "move_closer": "",
-      "not_looking_straight": "",
-      "steady": ""
-    }
-  },
-  "auth_capture_start": {
-    "body": "",
-    "button_primary": "",
-    "feedback": {
-      "center_face": "",
-      "conditions_too_bright": "",
-      "conditions_too_dark": "",
-      "head_not_upright": "",
-      "neutral_expression": "",
-      "not_looking_straight": "",
-      "remove_sunglasses": "",
-      "steady_count_1": "",
-      "steady_count_2": "",
-      "steady_count_3": ""
-    },
-    "title": ""
-  },
-  "auth_error": {
-    "cam_encryption": {
-      "body": "",
-      "button_primary": "",
-      "button_primary_firefox": "",
-      "subtitle": "",
-      "table_header_1": "",
-      "table_header_2": "",
-      "table_row_1_cell_1": "",
-      "table_row_1_cell_1_firefox": "",
-      "table_row_1_cell_2": "",
-      "table_row_1_cell_2_firefox": "",
-      "table_row_2_cell_1": "",
-      "table_row_2_cell_2": "",
-      "table_row_3_cell_1": "",
-      "table_row_3_cell_2": "",
-      "title": ""
-    }
-  },
-  "auth_full_screen": {
-    "body": "",
-    "button_primary": "",
-    "title": ""
-  },
-  "auth_permission": {
-    "body_cam": "",
-    "button_primary_cam": "",
-    "title_cam": ""
-  },
-  "auth_permission_denied": {
-    "body_cam": "",
-    "button_primary_cam": ""
-  },
-  "auth_progress": {
-    "loader": ""
-  },
-  "auth_retry": {
-    "body_blur": "",
-    "body_neutral_expression": "",
-    "body_too_bright": "",
-    "button_primary": "",
-    "subtitle": "",
-    "title": ""
-  },
-  "auth_upload_pass": {
-    "body": ""
-  },
   "avc_confirmation": {
     "button_primary_upload": "Încărcați înregistrarea",
     "subtitle": "Un clip video cu fața dvs. a fost înregistrat cu succes",
@@ -272,8 +185,8 @@
     "instructions_title_front": "Poziționați pagina față a documentului dvs. în cadru"
   },
   "doc_select": {
-    "button_address_card": "Carte de adrese",
-    "button_address_card_detail": "Se acceptă carduri temporare și permanente",
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Extras de la bancă sau societatea mutuală de credit",
     "button_bank_statement_non_uk": "Extras de cont",
     "button_benefits_letter": "Scrisoare beneficii",
@@ -366,8 +279,8 @@
         "message": "Tokenul a expirat"
       },
       "expired_trial": {
-        "instruction": "Ați atins limitele de încercare",
-        "message": "Perioada de încercare a expirat"
+        "instruction": "",
+        "message": ""
       },
       "geoblocked_error": {
         "instruction": "Ne pare rău, se pare că nu putem continua pentru că locația dvs. actuală nu este acoperită",
@@ -530,20 +443,20 @@
       "label": "Capturați întregul document și asigurați-vă că arată în mod clar:",
       "logo": "Logo"
     },
-    "instructions_address_card_issue_date": "Data emiterii",
-    "instructions_expiry_date": "Data expirării, dacă este cazul",
-    "instructions_full_address": "Adresa completă",
-    "subtitle_address_card": "Trebuie să fie un card de adresă valabil",
-    "subtitle_bank_statement": "Trebuie să fie emis în ultimele 3 luni",
-    "subtitle_benefits_letter": "Trebuie să fie emis în ultimele 12 luni",
-    "subtitle_bill": "Trebuie să fi fost emis în ultimele 3 luni",
-    "subtitle_tax_letter": "Trebuie să fie emis în ultimele 12 luni"
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
+    "subtitle_bank_statement": "Trebuie să fie emis în <strong>ultimele 3 luni</strong>",
+    "subtitle_benefits_letter": "Trebuie să fie emis în <strong>ultimele 12 luni</strong>",
+    "subtitle_bill": "Trebuie să fi fost emis în <strong>ultimele 3 luni</strong>",
+    "subtitle_tax_letter": "Trebuie să fie emis în <strong>ultimele 12 luni</strong>"
   },
   "poa_intro": {
     "button_primary": "Începeți verificarea",
-    "list_matches_signup": "Se potrivește cu adresa pe care ați utilizat-o pentru a vă înregistra",
-    "list_most_recent": "Este documentul dvs. recent",
-    "list_shows_address": "Arată adresa dvs. actuală",
+    "list_matches_signup": "<strong>Se potrivește</strong> cu adresa pe care ați utilizat-o pentru a vă înregistra",
+    "list_most_recent": "Este documentul dvs. <strong>recent</strong>",
+    "list_shows_address": "Arată adresa dvs. <strong>actuală</strong>",
     "subtitle": "Aveți nevoie de un document care:",
     "title": "Haideți să vă verificăm adresa"
   },
@@ -618,7 +531,7 @@
       "invalid_email": "Vă rugăm să introduceți un e-mail valabil",
       "invalid_mobile_number": "Vă rugăm să introduceți un număr de telefon valid",
       "invalid_phone_number": "Vă rugăm să introduceți un număr de telefon valabil",
-      "required_consent": "Vă rugăm să fiți de acord să autorizați verificarea identității și a fraudei",
+      "required_consent": "",
       "required_country": "Vă rugăm să selectați o țară",
       "required_country_residence": "Vă rugăm să selectați o țară",
       "required_dob": "Vă rugăm să introduceți data dvs. de naștere",
@@ -796,7 +709,7 @@
     "start_workflow_button_trial": "Începeți verificarea (TEST)",
     "subtitle": "Ar trebui să dureze câteva minute",
     "title": "Verificați identitatea dvs.",
-    "trial_message": "Nu partajați date personale aici decât dacă sunteți angajat într-un proces Onfido."
+    "trial_message": ""
   },
   "workflow_complete": {
     "pass": {

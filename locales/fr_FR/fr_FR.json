@@ -272,8 +272,8 @@
     "instructions_title_front": "Positionnez le recto de votre document dans le cadre"
   },
   "doc_select": {
-    "button_address_card": "Carte d'adresse",
-    "button_address_card_detail": "Les cartes temporaires et permanentes sont acceptées",
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Relevé bancaire ou d'un organisme d'épargne",
     "button_bank_statement_non_uk": "Relevé bancaire",
     "button_benefits_letter": "Lettre des allocations",
@@ -530,20 +530,20 @@
       "label": "Prenez en photo tout le document et assurez-vous qu'il indique clairement :",
       "logo": "Logo"
     },
-    "instructions_address_card_issue_date": "Date d'émission",
-    "instructions_expiry_date": "Date d'expiration, le cas échéant",
-    "instructions_full_address": "Adresse complète",
-    "subtitle_address_card": "Il doit s'agir d'une carte d'adresse valide",
-    "subtitle_bank_statement": "Doit avoir été émis au cours des 3 derniers mois",
-    "subtitle_benefits_letter": "Doit avoir été émis au cours des  12 derniers mois",
-    "subtitle_bill": "Doit avoir été émis au cours des 3 derniers mois",
-    "subtitle_tax_letter": "Doit avoir été émis au cours des  12 derniers mois"
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
+    "subtitle_bank_statement": "Doit avoir été émis au cours des <strong>3 derniers mois</strong>",
+    "subtitle_benefits_letter": "Doit avoir été émis au cours des <strong> 12 derniers mois</strong>",
+    "subtitle_bill": "Doit avoir été émis au cours des <strong>3 derniers mois</strong>",
+    "subtitle_tax_letter": "Doit avoir été émis au cours des <strong> 12 derniers mois</strong>"
   },
   "poa_intro": {
     "button_primary": "Commencer la vérification",
-    "list_matches_signup": "Correspond à l'adresse que vous avez utilisée lors de l'inscription",
-    "list_most_recent": "Est votre document le plus récent",
-    "list_shows_address": "Indique votre adresse actuelle",
+    "list_matches_signup": "<strong>Correspond</strong> à l'adresse que vous avez utilisée lors de l'inscription",
+    "list_most_recent": "Est votre document le plus <strong>récent</strong>",
+    "list_shows_address": "Indique votre adresse <strong>actuelle</strong>",
     "subtitle": "Vous aurez besoin d'un document qui :",
     "title": "Vérifions votre adresse"
   },
@@ -618,12 +618,12 @@
       "invalid_email": "Veuillez saisir un e-mail valide",
       "invalid_mobile_number": "Veuillez renseigner un numéro de mobile valide",
       "invalid_phone_number": "Veuillez renseigner un numéro de téléphone valide",
-      "required_consent": "Veuillez accepter d'autoriser les contrôles d'identité et de fraude",
+      "required_consent": "",
       "required_country": "Veuillez sélectionner un pays",
       "required_country_residence": "Veuillez sélectionner un pays",
       "required_dob": "Veuillez saisir votre date de naissance",
       "required_email": "Veuillez renseigner votre adresse",
-      "required_first_name": "Veuillez saisir votre prénom",
+      "required_first_name": "",
       "required_last_name": "Veuillez renseigner votre nom de famille",
       "required_line1": "Veuillez renseigner votre adresse",
       "required_mobile_number": "Veuillez renseigner votre numéro de mobile",
@@ -634,7 +634,7 @@
       "too_long_last_name": "Le nom de famille est trop long",
       "too_long_line1": "La ligne de l'adresse est trop longue",
       "too_long_postcode": "Le code postal est trop long",
-      "too_long_town": "La ville est trop longue",
+      "too_long_town": "",
       "too_short_first_name": "Le prénom est trop court",
       "too_short_last_name": "Le nom de famille est trop court",
       "too_short_postcode": "Le code postal est trop court",
@@ -788,7 +788,7 @@
     "list_header_doc_video": "Utilisez votre mobile pour enregistrer :",
     "list_header_webcam": "Utilisez votre webcam ou mobile pour prendre en photo :",
     "list_item_doc": "votre document d’identité",
-    "list_item_doc_video_timeout": "L'enregistrement est limité à <timeout></timeout> secondes",
+    "list_item_doc_video_timeout": "L’enregistrement est limité à <timeout></timeout> secondes",
     "list_item_poa": "votre justificatif d'adresse",
     "list_item_selfie": "votre visage",
     "next_button": "Sélectionner un document",
@@ -800,20 +800,20 @@
   },
   "workflow_complete": {
     "pass": {
-      "description": "Nous avons vérifié votre identité",
-      "title": "Adopté"
+      "description": "",
+      "title": ""
     },
     "reject": {
-      "description": "Nous n'avons pas été en mesure de vérifier votre identité.",
-      "title": "Rejeté"
+      "description": "",
+      "title": ""
     }
   },
   "workflow_erros": {
-    "generic_title": "Il y a eu une erreur de serveur !",
-    "no_workflow_run_id": "L'ID d'exécution du flux de travail n'est pas défini.",
-    "reload_app": "Veuillez essayer de recharger l'application, et réessayer.",
-    "task_not_completed": "Impossible d'achever la tâche du flux de travail.",
-    "task_not_retrieved": "Impossible de récupérer la tâche du flux de travail.",
-    "task_not_supported": "La tâche n'est actuellement pas prise en charge"
+    "generic_title": "",
+    "no_workflow_run_id": "",
+    "reload_app": "",
+    "task_not_completed": "",
+    "task_not_retrieved": "",
+    "task_not_supported": ""
   }
 }

@@ -1,91 +1,4 @@
 {
-  "auth_accessibility": {
-    "back_button": ""
-  },
-  "auth_cam_encrypt": {
-    "loader": ""
-  },
-  "auth_cam_start": {
-    "loader": ""
-  },
-  "auth_capture": {
-    "feedback": {
-      "center_face": "",
-      "even_lighting": "",
-      "eye_level": "",
-      "face_not_found": "",
-      "head_not_upright": "",
-      "move_back": "",
-      "move_close": "",
-      "move_closer": "",
-      "not_looking_straight": "",
-      "steady": ""
-    }
-  },
-  "auth_capture_start": {
-    "body": "",
-    "button_primary": "",
-    "feedback": {
-      "center_face": "",
-      "conditions_too_bright": "",
-      "conditions_too_dark": "",
-      "head_not_upright": "",
-      "neutral_expression": "",
-      "not_looking_straight": "",
-      "remove_sunglasses": "",
-      "steady_count_1": "",
-      "steady_count_2": "",
-      "steady_count_3": ""
-    },
-    "title": ""
-  },
-  "auth_error": {
-    "cam_encryption": {
-      "body": "",
-      "button_primary": "",
-      "button_primary_firefox": "",
-      "subtitle": "",
-      "table_header_1": "",
-      "table_header_2": "",
-      "table_row_1_cell_1": "",
-      "table_row_1_cell_1_firefox": "",
-      "table_row_1_cell_2": "",
-      "table_row_1_cell_2_firefox": "",
-      "table_row_2_cell_1": "",
-      "table_row_2_cell_2": "",
-      "table_row_3_cell_1": "",
-      "table_row_3_cell_2": "",
-      "title": ""
-    }
-  },
-  "auth_full_screen": {
-    "body": "",
-    "button_primary": "",
-    "title": ""
-  },
-  "auth_permission": {
-    "body_cam": "",
-    "button_primary_cam": "",
-    "title_cam": ""
-  },
-  "auth_permission_denied": {
-    "body_cam": "",
-    "button_primary_cam": ""
-  },
-  "auth_progress": {
-    "loader": ""
-  },
-  "auth_retry": {
-    "body_blur": "",
-    "body_neutral_expression": "",
-    "body_too_bright": "",
-    "button_primary": "",
-    "subtitle": "",
-    "title": ""
-  },
-  "auth_upload_pass": {
-    "body": ""
-  },
   "avc_confirmation": {
     "button_primary_upload": "Opname uploaden",
     "subtitle": "Er is met succes een video van uw gezicht opgenomen",
@@ -272,8 +185,8 @@
     "instructions_title_front": "Plaats de voorkant van uw document in het kader"
   },
   "doc_select": {
-    "button_address_card": "Adres kaart",
-    "button_address_card_detail": "Tijdelijke en permanente kaarten worden geaccepteerd",
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Afschriften van de bank of bouwvereniging",
     "button_bank_statement_non_uk": "Bankafschrift",
     "button_benefits_letter": "Brief voordelen",
@@ -530,20 +443,20 @@
       "label": "Leg het hele document vast en zorg ervoor dat het duidelijk te zien is:",
       "logo": "Logo"
     },
-    "instructions_address_card_issue_date": "Uitgiftedatum",
-    "instructions_expiry_date": "Vervaldatum indien van toepassing",
-    "instructions_full_address": "Volledig adres",
-    "subtitle_address_card": "Moet een geldig adreskaartje zijn",
-    "subtitle_bank_statement": "Moet in de laatste 3 maanden zijn afgegeven",
-    "subtitle_benefits_letter": "Moet in de laatste 12 maanden zijn afgegeven",
-    "subtitle_bill": "Moet in de laatste 3 maanden zijn afgegeven",
-    "subtitle_tax_letter": "Moet in de laatste 12 maanden zijn afgegeven"
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
+    "subtitle_bank_statement": "Moet in de <strong>laatste 3 maanden</strong> zijn afgegeven",
+    "subtitle_benefits_letter": "Moet in de <strong>laatste 12 maanden</strong> zijn afgegeven",
+    "subtitle_bill": "Moet in de <strong>laatste 3 maanden</strong> zijn afgegeven",
+    "subtitle_tax_letter": "Moet in de <strong>laatste 12 maanden</strong> zijn afgegeven"
   },
   "poa_intro": {
     "button_primary": "Start verificatie",
-    "list_matches_signup": "Komt overeen met het adres dat u bij de registratie heeft gebruikt",
-    "list_most_recent": "Is uw meest recente document",
-    "list_shows_address": "Toont uw huidige adres",
+    "list_matches_signup": "<strong>Komt overeen</strong> met het adres dat u bij de registratie heeft gebruikt",
+    "list_most_recent": "Is uw meest <strong>recente</strong> document",
+    "list_shows_address": "Toont uw <strong>huidige</strong> adres",
     "subtitle": "U heeft een document nodig dat:",
     "title": "Laten we uw adres verifiëren"
   },
@@ -618,12 +531,12 @@
       "invalid_email": "Voer een geldig e-mailadres in",
       "invalid_mobile_number": "Voer een geldig mobiel nummer in",
       "invalid_phone_number": "Voer een geldig telefoonnummer in",
-      "required_consent": "Ga akkoord met het toestaan van identiteits- en fraudecontroles",
+      "required_consent": "",
       "required_country": "Selecteer een land",
       "required_country_residence": "Selecteer een land",
       "required_dob": "Voer uw geboortedatum in",
       "required_email": "Voer uw e-mailadres in",
-      "required_first_name": "Voer uw voornaam in",
+      "required_first_name": "",
       "required_last_name": "Voer uw achternaam in",
       "required_line1": "Voer uw adres in",
       "required_mobile_number": "Voer uw mobiele nummer in",
@@ -634,7 +547,7 @@
       "too_long_last_name": "Achternaam is te lang",
       "too_long_line1": "Adresregel is te lang",
       "too_long_postcode": "Postcode is te lang",
-      "too_long_town": "De stad is te lang",
+      "too_long_town": "",
       "too_short_first_name": "Voornaam is te kort",
       "too_short_last_name": "Achternaam is te kort",
       "too_short_postcode": "Postcode is te kort",
@@ -788,7 +701,7 @@
     "list_header_doc_video": "Gebruik uw apparaat om op te nemen:",
     "list_header_webcam": "Gebruik uw webcam of telefoon om te fotograferen:",
     "list_item_doc": "uw identiteitsbewijs",
-    "list_item_doc_video_timeout": "Opname is beperkt tot <timeout></timeout> seconden",
+    "list_item_doc_video_timeout": "Opnemen is beperkt tot <timeout></timeout> seconden",
     "list_item_poa": "uw adresbewijs",
     "list_item_selfie": "uw gezicht",
     "next_button": "Kies een document",
@@ -800,20 +713,20 @@
   },
   "workflow_complete": {
     "pass": {
-      "description": "We hebben uw identiteit geverifieerd",
-      "title": "Geslaagd"
+      "description": "",
+      "title": ""
     },
     "reject": {
-      "description": "We hebben uw identiteit niet kunnen verifiëren...",
-      "title": "Afgewezen"
+      "description": "",
+      "title": ""
     }
   },
   "workflow_erros": {
-    "generic_title": "Er was een server fout!",
-    "no_workflow_run_id": "Workflow run ID is niet ingesteld.",
-    "reload_app": "Probeer de app opnieuw te laden en probeer het opnieuw.",
-    "task_not_completed": "Kon de workflow taak niet voltooien.",
-    "task_not_retrieved": "Kon geen workflow taak ophalen.",
-    "task_not_supported": "De taak wordt momenteel niet ondersteund"
+    "generic_title": "",
+    "no_workflow_run_id": "",
+    "reload_app": "",
+    "task_not_completed": "",
+    "task_not_retrieved": "",
+    "task_not_supported": ""
   }
 }
