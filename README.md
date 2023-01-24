@@ -132,16 +132,6 @@ You can include the library as a regular script tag on your page:
 <script src="dist/onfido.min.js"></script>
 ```
 
-⚠️ Note: The above import does **not** include the Auth module. To include it, use:
-
-```html
-<script src="dist/onfidoAuth.min.js"></script>
-```
-
-If you are importing the Auth module, you do not need to import the standard SDK module (`dist/onfido.min.js`) also.
-
-⚠️ **The Authentication module is currently a BETA feature.**
-
 And the CSS styles:
 
 ```html
@@ -477,29 +467,64 @@ The Web SDK has multiple customizable features that provide flexibility, while a
 
 - **`language {String || Object} optional`**
 
-  You can customize the language displayed on the SDK by passing a string or object. If `language` is not present the default copy will be in English.
+  You can customize the language displayed on the SDK by passing a string or object.
+  If `language` is not present we will use the browser's language setting. If the browser's language is not supported, we will default to English (`en_US`).
 
   #### Supported languages
 
   The SDK supports and maintains the following languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
 
-  | Language          | Locale Tag |
-  | ----------------- | ---------- |
-  | English (default) | `en_US`    |
-  | German            | `de_DE`    |
-  | Spanish           | `es_ES`    |
-  | French            | `fr_FR`    |
-  | Italian           | `it_IT`    |
-  | Portuguese        | `pt_PT`    |
-  | Dutch             | `nl_NL`    |
-  | Czech             | `cs_CZ`    |
-  | Polish            | `pl_PL`    |
-  | Romanian          | `ro_RO`    |
+  | Language                 | Locale Tag | Direction |
+  | ------------------------ | ---------- | --------- |
+  | Arabic                   | "ar"       | rtl       |
+  | Armenian                 | "hy"       |           |
+  | Bulgarian                | "bg"       |           |
+  | Chinese (Simplified)     | "zh_CN"    |           |
+  | Chinese (Traditional)    | "zh_TW"    |           |
+  | Croatian                 | "hr"       |           |
+  | Czech                    | "cs"       |           |
+  | Danish                   | "da"       |           |
+  | Dutch                    | "nl"       |           |
+  | English (United Kingdom) | "en_GB"    |           |
+  | English (United States)  | "en_US"    |           |
+  | Estonian                 | "et"       |           |
+  | Finnish                  | "fi"       |           |
+  | French                   | "fr"       |           |
+  | French (Canadian)        | "fr_CA"    |           |
+  | German                   | "de"       |           |
+  | Greek                    | "el"       |           |
+  | Hebrew                   | "he"       | rtl       |
+  | Hindi                    | "hi"       |           |
+  | Hungarian                | "hu"       |           |
+  | Indonesian               | "id"       |           |
+  | Italian                  | "it"       |           |
+  | Japanese                 | "ja"       |           |
+  | Korean                   | "ko"       |           |
+  | Latvian                  | "lv"       |           |
+  | Lithuanian               | "lt"       |           |
+  | Malay                    | "ms"       |           |
+  | Norwegian                | "nb"       |           |
+  | Persian                  | "fa"       | rtl       |
+  | Polish                   | "pl"       |           |
+  | Portuguese               | "pt"       |           |
+  | Portuguese (Brazil)      | "pt_BR"    |           |
+  | Romanian                 | "ro"       |           |
+  | Russian                  | "ru"       |           |
+  | Serbian                  | "sr"       |           |
+  | Slovak                   | "sk"       |           |
+  | Slovenian                | "sl"       |           |
+  | Spanish                  | "es"       |           |
+  | Spanish (Latin America)  | "es_419"   |           |
+  | Swedish                  | "sv"       |           |
+  | Thai                     | "th"       |           |
+  | Turkish                  | "tr"       |           |
+  | Ukrainian                | "uk"       |           |
+  | Vietnamese               | "vi"       |           |
 
   Example:
 
   ```javascript
-  language: 'es_ES' | 'es'
+  language: 'pt_BR' | 'es'
   ```
 
   #### Custom languages
@@ -509,12 +534,14 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   | Key             | Description                                                                                | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
   | --------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
   | `locale`        | **required** <br /> A locale tag.                                                          | This is required when providing phrases for an unsupported language. You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supports English, Spanish, French and German. |
+  | `direction`     | **optional** <br /> Direction of reading                                                   | Set the direction of reading, either left-to-right or right-to-left. Values: `ltr` or `rtl`. Default: `ltr`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
   | `phrases`       | **required** <br /> An object containing the keys you want to override and the new values. | The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.                                                                                                                                                                                                                                                                                                                                                                                   |
   | `mobilePhrases` | **optional** <br /> An object containing the keys you want to override and the new values. | The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable.                                                                                                                                                                                                                                                                     |
 
   ```javascript
   language: {
     locale: 'en_US',
+    direction: 'ltr',
     phrases: { welcome: { title: 'My custom title' } },
     mobilePhrases: {
       'capture.driving_licence.instructions': 'This string will only appear on mobile'
@@ -665,6 +692,10 @@ The custom options are:
   When enabled, this feature allows end-users to upload videos if the requested variant is `motion` and their browser supports MediaRecorder, yet Motion is not supported due to device capabilities.
 
   When disabled, it will forward the user to the cross-device flow in order to attempt to capture a photo in another device. Having both `photoCaptureFallback` and `videoCaptureFallback` disabled would forward the user to the cross-device flow with Motion.
+
+- `recordMotionAudio` (boolean - default: `false`)
+
+  When enabled, and the requested variant is `motion` this feature allows Motion to record the user audio.
 
 #### auth
 
@@ -882,14 +913,14 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
   http-equiv="Content-Security-Policy"
   content="
   default-src 'self' https://assets.onfido.com;
-  script-src 'self' 'unsafe-eval' https://assets.onfido.com https://sentry.io;
+  script-src 'self' 'unsafe-eval' https://assets.onfido.com https://sentry.io https://*.sardine.ai/;
   style-src 'self' https://assets.onfido.com;
   connect-src 'self' data: blob: *.onfido.com wss://*.onfido.com https://sentry.io;
   img-src 'self' data: blob: https://assets.onfido.com/;
   media-src blob: https://assets.onfido.com;
-  worker-src blob:;
+  worker-src 'self' blob:;
   object-src 'self' blob:;
-  frame-src 'self' data: blob:;
+  frame-src 'self' data: blob: https://*.sardine.ai/;
 "
 />
 ```

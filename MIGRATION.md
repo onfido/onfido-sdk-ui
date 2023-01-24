@@ -2,17 +2,6 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `10.4.0`
-
-## Updated strings
-
-- `avc_intro:disclaimer` (ar, bg, cs, en_US, hr, hy, zh_CH, zh_TW)
-- `doc_auto_capture:position_license_front` (en_GB)
-- `avc_intro:button_primary_ready` (en_US)
-- `avc_connection_error:button_secondary_restart_recording` (pl)
-- `avc_no_face_detected:button_primary_restart` (pl)
-- `welcome:trial_message` (pt)
-
 ## `10.1.0` -> `10.2.0`
 
 We have added new language(s):

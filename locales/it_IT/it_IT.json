@@ -1,4 +1,91 @@
 {
+  "auth_accessibility": {
+    "back_button": ""
+  },
+  "auth_cam_encrypt": {
+    "loader": ""
+  },
+  "auth_cam_start": {
+    "loader": ""
+  },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "",
+      "even_lighting": "",
+      "eye_level": "",
+      "face_not_found": "",
+      "head_not_upright": "",
+      "move_back": "",
+      "move_close": "",
+      "move_closer": "",
+      "not_looking_straight": "",
+      "steady": ""
+    }
+  },
+  "auth_capture_start": {
+    "body": "",
+    "button_primary": "",
+    "feedback": {
+      "center_face": "",
+      "conditions_too_bright": "",
+      "conditions_too_dark": "",
+      "head_not_upright": "",
+      "neutral_expression": "",
+      "not_looking_straight": "",
+      "remove_sunglasses": "",
+      "steady_count_1": "",
+      "steady_count_2": "",
+      "steady_count_3": ""
+    },
+    "title": ""
+  },
+  "auth_error": {
+    "cam_encryption": {
+      "body": "",
+      "button_primary": "",
+      "button_primary_firefox": "",
+      "subtitle": "",
+      "table_header_1": "",
+      "table_header_2": "",
+      "table_row_1_cell_1": "",
+      "table_row_1_cell_1_firefox": "",
+      "table_row_1_cell_2": "",
+      "table_row_1_cell_2_firefox": "",
+      "table_row_2_cell_1": "",
+      "table_row_2_cell_2": "",
+      "table_row_3_cell_1": "",
+      "table_row_3_cell_2": "",
+      "title": ""
+    }
+  },
+  "auth_full_screen": {
+    "body": "",
+    "button_primary": "",
+    "title": ""
+  },
+  "auth_permission": {
+    "body_cam": "",
+    "button_primary_cam": "",
+    "title_cam": ""
+  },
+  "auth_permission_denied": {
+    "body_cam": "",
+    "button_primary_cam": ""
+  },
+  "auth_progress": {
+    "loader": ""
+  },
+  "auth_retry": {
+    "body_blur": "",
+    "body_neutral_expression": "",
+    "body_too_bright": "",
+    "button_primary": "",
+    "subtitle": "",
+    "title": ""
+  },
+  "auth_upload_pass": {
+    "body": ""
+  },
   "avc_confirmation": {
     "button_primary_upload": "Carica registrazione",
     "subtitle": "Un video del tuo viso è stato registrato con successo",
@@ -185,8 +272,8 @@
     "instructions_title_front": "Posizionare il fronte del documento nel riquadro"
   },
   "doc_select": {
-    "button_address_card": "",
-    "button_address_card_detail": "",
+    "button_address_card": "Scheda indirizzo",
+    "button_address_card_detail": "Sono accettate carte temporanee e permanenti",
     "button_bank_statement": "Estratto conto della banca o istituto di credito",
     "button_bank_statement_non_uk": "Estratto conto della banca",
     "button_benefits_letter": "Lettera sulle prestazioni previdenziali",
@@ -443,20 +530,20 @@
       "label": "Riporta l'intero documento assicurandoti che mostri chiaramente:",
       "logo": "Logo"
     },
-    "instructions_address_card_issue_date": "",
-    "instructions_expiry_date": "",
-    "instructions_full_address": "",
-    "subtitle_address_card": "",
-    "subtitle_bank_statement": "Deve essere stato emesso negli <strong>ultimi 3 mesi</strong>",
-    "subtitle_benefits_letter": "Deve essere stata emessa negli <strong>ultimi 12 mesi</strong>",
-    "subtitle_bill": "Deve essere stato emesso negli <strong>ultimi 3 mesi</strong>",
-    "subtitle_tax_letter": "Deve essere stata emessa negli <strong>ultimi 12 mesi</strong>"
+    "instructions_address_card_issue_date": "Data di emissione",
+    "instructions_expiry_date": "Data di scadenza, se applicabile",
+    "instructions_full_address": "Indirizzo completo",
+    "subtitle_address_card": "Deve essere una carta di indirizzo valida",
+    "subtitle_bank_statement": "Deve essere stato emesso negli ultimi 3 mesi",
+    "subtitle_benefits_letter": "Deve essere stata emessa negli ultimi 12 mesi",
+    "subtitle_bill": "Deve essere stato emesso negli ultimi 3 mesi",
+    "subtitle_tax_letter": "Deve essere stata emessa negli ultimi 12 mesi"
   },
   "poa_intro": {
     "button_primary": "Inizia la verifica",
-    "list_matches_signup": "<strong>Corrisponde</strong> all'indirizzo utilizzato per la registrazione",
-    "list_most_recent": "È il tuo documento più <strong>recente</strong>",
-    "list_shows_address": "Mostra il tuo indirizzo <strong>attuale</strong>",
+    "list_matches_signup": "Corrisponde all'indirizzo utilizzato per la registrazione",
+    "list_most_recent": "È il tuo documento più recente",
+    "list_shows_address": "Mostra il tuo indirizzo attuale",
     "subtitle": "Ti servirà un documento che:",
     "title": "Verifichiamo il tuo indirizzo"
   },
@@ -531,12 +618,12 @@
       "invalid_email": "Inserisci un’email valida",
       "invalid_mobile_number": "Inserisci un numero di telefono valido",
       "invalid_phone_number": "Inserisci un numero di telefono valido",
-      "required_consent": "",
+      "required_consent": "Accettate di autorizzare i controlli sull'identità e sulle frodi",
       "required_country": "Selezionare un paese",
       "required_country_residence": "Seleziona un Paese",
       "required_dob": "Inserire la data di nascita",
       "required_email": "Inserisci la tua email",
-      "required_first_name": "",
+      "required_first_name": "Inserire il proprio nome",
       "required_last_name": "Inserire il cognome",
       "required_line1": "Inserire l’indirizzo",
       "required_mobile_number": "Inserisci il tuo numero di cellulare",
@@ -547,7 +634,7 @@
       "too_long_last_name": "Il cognome è troppo lungo",
       "too_long_line1": "L’indirizzo è troppo lungo",
       "too_long_postcode": "Il codice postale è troppo lungo",
-      "too_long_town": "",
+      "too_long_town": "La città è troppo lunga",
       "too_short_first_name": "Il nome è troppo breve",
       "too_short_last_name": "Il cognome è troppo breve",
       "too_short_postcode": "Il codice postale è troppo breve",
@@ -701,7 +788,7 @@
     "list_header_doc_video": "Usa il dispositivo per registrare:",
     "list_header_webcam": "Usa la webcam o il telefono per fotografare:",
     "list_item_doc": "il tuo documento d’identità",
-    "list_item_doc_video_timeout": "La registrazione ha un limite di <timeout></timeout> secondi",
+    "list_item_doc_video_timeout": "La registrazione è limitata a <timeout></timeout> pochi secondi",
     "list_item_poa": "la tua prova dell'indirizzo",
     "list_item_selfie": "il tuo viso",
     "next_button": "Seleziona documento",
@@ -713,20 +800,20 @@
   },
   "workflow_complete": {
     "pass": {
-      "description": "",
-      "title": ""
+      "description": "Abbiamo verificato la vostra identità",
+      "title": "Passato"
     },
     "reject": {
-      "description": "",
-      "title": ""
+      "description": "Non siamo stati in grado di verificare la sua identità.",
+      "title": "Rifiutato"
     }
   },
   "workflow_erros": {
-    "generic_title": "",
-    "no_workflow_run_id": "",
-    "reload_app": "",
-    "task_not_completed": "",
-    "task_not_retrieved": "",
-    "task_not_supported": ""
+    "generic_title": "C'è stato un errore del server!",
+    "no_workflow_run_id": "L'ID della corsa del flusso di lavoro non è impostato.",
+    "reload_app": "Provare a ricaricare l'applicazione e riprovare.",
+    "task_not_completed": "Impossibile completare l'attività del flusso di lavoro.",
+    "task_not_retrieved": "Impossibile recuperare l'attività del flusso di lavoro.",
+    "task_not_supported": "L'attività non è attualmente supportata"
   }
 }
