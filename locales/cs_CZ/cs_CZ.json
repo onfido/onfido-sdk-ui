@@ -1,91 +1,4 @@
 {
-  "auth_accessibility": {
-    "back_button": ""
-  },
-  "auth_cam_encrypt": {
-    "loader": ""
-  },
-  "auth_cam_start": {
-    "loader": ""
-  },
-  "auth_capture": {
-    "feedback": {
-      "center_face": "",
-      "even_lighting": "",
-      "eye_level": "",
-      "face_not_found": "",
-      "head_not_upright": "",
-      "move_back": "",
-      "move_close": "",
-      "move_closer": "",
-      "not_looking_straight": "",
-      "steady": ""
-    }
-  },
-  "auth_capture_start": {
-    "body": "",
-    "button_primary": "",
-    "feedback": {
-      "center_face": "",
-      "conditions_too_bright": "",
-      "conditions_too_dark": "",
-      "head_not_upright": "",
-      "neutral_expression": "",
-      "not_looking_straight": "",
-      "remove_sunglasses": "",
-      "steady_count_1": "",
-      "steady_count_2": "",
-      "steady_count_3": ""
-    },
-    "title": ""
-  },
-  "auth_error": {
-    "cam_encryption": {
-      "body": "",
-      "button_primary": "",
-      "button_primary_firefox": "",
-      "subtitle": "",
-      "table_header_1": "",
-      "table_header_2": "",
-      "table_row_1_cell_1": "",
-      "table_row_1_cell_1_firefox": "",
-      "table_row_1_cell_2": "",
-      "table_row_1_cell_2_firefox": "",
-      "table_row_2_cell_1": "",
-      "table_row_2_cell_2": "",
-      "table_row_3_cell_1": "",
-      "table_row_3_cell_2": "",
-      "title": ""
-    }
-  },
-  "auth_full_screen": {
-    "body": "",
-    "button_primary": "",
-    "title": ""
-  },
-  "auth_permission": {
-    "body_cam": "",
-    "button_primary_cam": "",
-    "title_cam": ""
-  },
-  "auth_permission_denied": {
-    "body_cam": "",
-    "button_primary_cam": ""
-  },
-  "auth_progress": {
-    "loader": ""
-  },
-  "auth_retry": {
-    "body_blur": "",
-    "body_neutral_expression": "",
-    "body_too_bright": "",
-    "button_primary": "",
-    "subtitle": "",
-    "title": ""
-  },
-  "auth_upload_pass": {
-    "body": ""
-  },
   "avc_confirmation": {
     "button_primary_upload": "Nahrávání záznamu",
     "subtitle": "Video Vašeho obličeje bylo úspěšně nahráno",
@@ -272,8 +185,8 @@
     "instructions_title_front": "Umístěte přední stranu dokumentu do rámečku"
   },
   "doc_select": {
-    "button_address_card": "Adresní karta",
-    "button_address_card_detail": "Přijímají se dočasné i trvalé karty",
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Výpis z účtu banky nebo stavební spořitelny",
     "button_bank_statement_non_uk": "Bankovní výpis",
     "button_benefits_letter": "Dopis o výhodách",
@@ -366,8 +279,8 @@
         "message": "Platnost Vašeho tokenu vypršela"
       },
       "expired_trial": {
-        "instruction": "Dosáhli jste zkušebního limitu",
-        "message": "Vaše zkušební verze vypršela"
+        "instruction": "",
+        "message": ""
       },
       "geoblocked_error": {
         "instruction": "Litujeme, ale zdá se, že nemůžeme pokračovat dále, protože Vaše aktuální umístění není podporováno.",
@@ -530,20 +443,20 @@
       "label": "Zachyťte celý dokument a ujistěte se o viditelnosti následujících údajů:",
       "logo": "Logo"
     },
-    "instructions_address_card_issue_date": "Datum vydání",
-    "instructions_expiry_date": "Případné datum ukončení platnosti",
-    "instructions_full_address": "Úplná adresa",
-    "subtitle_address_card": "Musí se jednat o platnou adresní kartu",
-    "subtitle_bank_statement": "Musí být vydáno v posledních 3 měsících",
-    "subtitle_benefits_letter": "Musí být vydáno v posledních 12 měsících",
-    "subtitle_bill": "Musí být vydáno v posledních 3 měsících",
-    "subtitle_tax_letter": "Musí být vydáno v posledních 12 měsících"
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
+    "subtitle_bank_statement": "Musí být vydáno v <strong>posledních 3 měsících</strong>",
+    "subtitle_benefits_letter": "Musí být vydáno v <strong>posledních 12 měsících</strong>",
+    "subtitle_bill": "Musí být vydáno v <strong>posledních 3 měsících</strong>",
+    "subtitle_tax_letter": "Musí být vydáno v <strong>posledních 12 měsících</strong>"
   },
   "poa_intro": {
     "button_primary": "Zahájit proces ověřování",
-    "list_matches_signup": "Údaj odpovídá adrese, kterou jste použili při registraci",
-    "list_most_recent": "Je to Váš nejnovější dokument",
-    "list_shows_address": "Zobrazuje Vaši aktuální adresu",
+    "list_matches_signup": "Údaj <strong>odpovídá</strong> adrese, kterou jste použili při registraci",
+    "list_most_recent": "Je to Váš <strong>nejnovější</strong> dokument",
+    "list_shows_address": "Zobrazuje Vaši <strong>aktuální</strong> adresu",
     "subtitle": "Budete potřebovat dokument, který:",
     "title": "Nyní ověříme Vaši adresu"
   },
@@ -618,7 +531,7 @@
       "invalid_email": "Zadejte platný e-mail",
       "invalid_mobile_number": "Zadejte platné mobilní číslo",
       "invalid_phone_number": "Zadejte platné telefonní číslo",
-      "required_consent": "Souhlas s povolením kontroly totožnosti a podvodů",
+      "required_consent": "",
       "required_country": "Vyberte zemi",
       "required_country_residence": "Vyberte zemi",
       "required_dob": "Zadejte své datum narození",
@@ -796,7 +709,7 @@
     "start_workflow_button_trial": "Zahájit proces ověřování (TEST)",
     "subtitle": "Mělo by to trvat několik minut",
     "title": "Potvrďte svou totožnost",
-    "trial_message": "Pokud nejste zapojeni do zkušební verze aplikace Onfido, nesdílejte zde osobní údaje."
+    "trial_message": ""
   },
   "workflow_complete": {
     "pass": {

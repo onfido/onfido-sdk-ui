@@ -199,22 +199,22 @@
   "doc_auto_capture": {
     "button_accessibility": "Take a photo",
     "footer": {
-      "captured": "Photo captured",
-      "capturing": "Capturing photo",
-      "manual_fallback_identity_card_back": "Take a photo of the back of your card",
-      "manual_fallback_identity_card_front": "Take a photo of the front of your card",
-      "manual_fallback_license_back": "Take a photo of the back of your driver’s license",
-      "manual_fallback_license_front": "Take a photo of the front of your driver’s license",
-      "manual_fallback_passport": "Take a photo of your passport photo page",
-      "manual_fallback_residence_permit_back": "Take a photo of the back of your residence permit",
-      "manual_fallback_residence_permit_front": "Take a photo of the front of your residence permit",
-      "position_identity_card_back": "Position the back of your card in the frame",
       "position_identity_card_front": "Position the front of your card in the frame",
-      "position_license_back": "Position the back of your driver’s license in the frame",
-      "position_license_front": "Position the front of your driver’s license in the frame",
-      "position_passport": "Position your passport photo page in the frame",
+      "position_identity_card_back": "Position the back of your card in the frame",
+      "position_residence_permit_front": "Position the front of your residence permit in the frame",
       "position_residence_permit_back": "Position the back of your residence permit in the frame",
-      "position_residence_permit_front": "Position the front of your residence permit in the frame"
+      "position_license_front": "Position the front of your driver’s license in the frame",
+      "position_license_back": "Position the back of your driver’s license in the frame",
+      "position_passport": "Position your passport photo page in the frame",
+      "manual_fallback_identity_card_front": "Take a photo of the front of your card",
+      "manual_fallback_identity_card_back": "Take a photo of the back of your card",
+      "manual_fallback_residence_permit_front": "Take a photo of the front of your residence permit",
+      "manual_fallback_residence_permit_back": "Take a photo of the back of your residence permit",
+      "manual_fallback_license_front": "Take a photo of the front of your driver’s license",
+      "manual_fallback_license_back": "Take a photo of the back of your driver’s license",
+      "manual_fallback_passport": "Take a photo of your passport photo page",
+      "capturing": "Capturing photo",
+      "captured": "Photo captured"
     },
     "frame": {
       "flip_document": "Flip to back side",
@@ -534,16 +534,16 @@
     "instructions_expiry_date": "Expiry date if applicable",
     "instructions_full_address": "Full address",
     "subtitle_address_card": "Must be a valid address card",
-    "subtitle_bank_statement": "Must be issued in the last 3 months",
-    "subtitle_benefits_letter": "Must be issued in the last 12 months",
-    "subtitle_bill": "Must have been issued in the last 3 months",
-    "subtitle_tax_letter": "Must be issued in the last 12 months"
+    "subtitle_bank_statement": "Must be issued in the <strong>last 3 months</strong>",
+    "subtitle_benefits_letter": "Must be issued in the <strong>last 12 months</strong>",
+    "subtitle_bill": "Must have been issued in the <strong>last 3 months</strong>",
+    "subtitle_tax_letter": "Must be issued in the <strong>last 12 months</strong>"
   },
   "poa_intro": {
     "button_primary": "Start verification",
-    "list_matches_signup": "Matches the address you used on sign up",
-    "list_most_recent": "Is your most recent document",
-    "list_shows_address": "Shows your current address",
+    "list_matches_signup": "<strong>Matches</strong> the address you used on sign up",
+    "list_most_recent": "Is your most <strong>recent</strong> document",
+    "list_shows_address": "Shows your <strong>current</strong> address",
     "subtitle": "You’ll need a document that:",
     "title": "Let’s verify your address"
   },
@@ -800,7 +800,7 @@
   },
   "workflow_complete": {
     "pass": {
-      "description": "We have verified your identity",
+      "description": "We have been able to verify your identity",
       "title": "Passed"
     },
     "reject": {

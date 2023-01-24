@@ -272,8 +272,8 @@
     "instructions_title_front": "Positionieren Sie die Vorderseite Ihres Dokuments im Rahmen"
   },
   "doc_select": {
-    "button_address_card": "Adresskartei",
-    "button_address_card_detail": "Vorläufige und permanente Karten werden akzeptiert",
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Bankauszug",
     "button_bank_statement_non_uk": "Bankauszug",
     "button_benefits_letter": "Sozialleistungsschreiben",
@@ -298,7 +298,7 @@
     "section": {
       "header_country": "Ausstellendes Land",
       "header_doc_type": "Akzeptierte Dokumente",
-      "input_country_not_found": "Keine Ergebnisse",
+      "input_country_not_found": "",
       "input_placeholder_country": "Ausstellungsland auswählen"
     },
     "subtitle": "Es muss ein offizieller Lichtbildausweis sein",
@@ -530,20 +530,20 @@
       "label": "Erfassen Sie das komplette Dokument und sorgen Sie dafür, dass es Folgendes klar zeigt:",
       "logo": "Logo"
     },
-    "instructions_address_card_issue_date": "Datum der Ausgabe",
-    "instructions_expiry_date": "Verfallsdatum, falls zutreffend",
-    "instructions_full_address": "Vollständige Adresse",
-    "subtitle_address_card": "Muss eine gültige Adresskarte sein",
-    "subtitle_bank_statement": "Muss in den letzten 3 Monaten ausgestellt worden sein",
-    "subtitle_benefits_letter": "Muss in den letzten 12 Monaten ausgestellt worden sein",
-    "subtitle_bill": "Muss in den letzten 3 Monaten ausgestellt worden sein",
-    "subtitle_tax_letter": "Muss in den letzten 12 Monaten ausgestellt worden sein"
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
+    "subtitle_bank_statement": "Muss in den <strong>letzten 3 Monaten</strong> ausgestellt worden sein",
+    "subtitle_benefits_letter": "Muss in den <strong>letzten 12 Monaten</strong> ausgestellt worden sein",
+    "subtitle_bill": "Muss in den <strong>letzten 3 Monaten</strong> ausgestellt worden sein",
+    "subtitle_tax_letter": "Muss in den <strong>letzten 12 Monaten</strong> ausgestellt worden sein"
   },
   "poa_intro": {
     "button_primary": "Bestätigung beginnen",
-    "list_matches_signup": "Der von Ihnen bei der Registrierung verwendeten Adresse entspricht",
-    "list_most_recent": "Ihr aktuellstes Dokument ist",
-    "list_shows_address": "Ihre  aktuelle Adresse zeigt",
+    "list_matches_signup": "Der von Ihnen bei der Registrierung verwendeten Adresse <strong>entspricht</strong>",
+    "list_most_recent": "Ihr <strong>aktuellstes</strong> Dokument ist",
+    "list_shows_address": "Ihre  <strong>aktuelle</strong> Adresse zeigt",
     "subtitle": "Sie brauchen ein Dokument, das:",
     "title": "Bestätigen wir nun Ihre Adresse"
   },
@@ -618,12 +618,12 @@
       "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
       "invalid_mobile_number": "Bitte geben Sie eine gültige Mobiltelefonnummer ein",
       "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer ein",
-      "required_consent": "Bitte stimmen Sie der Identitäts- und Betrugsprüfung zu",
+      "required_consent": "",
       "required_country": "Bitte wählen Sie ein Land aus",
       "required_country_residence": "Bitte wählen Sie ein Land aus",
       "required_dob": "Bitte geben Sie Ihr Geburtsdatum ein",
       "required_email": "Bitte geben Sie Ihre E-Mail-Adresse ein",
-      "required_first_name": "Bitte geben Sie Ihren Vornamen ein",
+      "required_first_name": "",
       "required_last_name": "Bitte geben Sie Ihren Nachnamen ein",
       "required_line1": "Bitte geben Sie Ihre Adresse ein",
       "required_mobile_number": "Bitte geben Sie Ihre Mobiltelefonnummer ein",
@@ -634,7 +634,7 @@
       "too_long_last_name": "Der Nachname ist zu lang",
       "too_long_line1": "Die Adresszeile ist zu lang",
       "too_long_postcode": "Die Postleitzahl ist zu lang",
-      "too_long_town": "Die Stadt ist zu lang",
+      "too_long_town": "",
       "too_short_first_name": "Der Vorname ist zu kurz",
       "too_short_last_name": "Der Nachname ist zu kurz",
       "too_short_postcode": "Die Postleitzahl ist zu kurz",
@@ -800,20 +800,20 @@
   },
   "workflow_complete": {
     "pass": {
-      "description": "Wir haben Ihre Identität überprüft",
-      "title": "Bestanden"
+      "description": "",
+      "title": ""
     },
     "reject": {
-      "description": "Wir waren nicht in der Lage, Ihre Identität zu überprüfen.",
-      "title": "Abgelehnt"
+      "description": "",
+      "title": ""
     }
   },
   "workflow_erros": {
-    "generic_title": "Es gab einen Serverfehler!",
-    "no_workflow_run_id": "Die Workflow-Lauf-ID ist nicht gesetzt.",
-    "reload_app": "Versuchen Sie bitte, die App neu zu laden, und versuchen Sie es erneut.",
-    "task_not_completed": "Die Workflow-Aufgabe konnte nicht abgeschlossen werden.",
-    "task_not_retrieved": "Workflow-Aufgabe konnte nicht abgerufen werden.",
-    "task_not_supported": "Aufgabe wird derzeit nicht unterstützt"
+    "generic_title": "",
+    "no_workflow_run_id": "",
+    "reload_app": "",
+    "task_not_completed": "",
+    "task_not_retrieved": "",
+    "task_not_supported": ""
   }
 }

@@ -10,17 +10,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
-## [10.2.1] - 2023-01-24
+## [10.1.1] - 2023-01-24
 
 ### Changed
-
-## [10.2.0] - 2022-12-15
-
-### Changed
-
-- Public: Add a range of new languages
-- Public: Add RTL support
-- Public: Use browser language when available
 
 ## [10.1.0] - 2022-12-08
 
@@ -1429,9 +1421,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.2.1...development
-[10.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.2.0...10.2.1
-[10.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.1.0...10.2.0
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.1.1...development
+[10.1.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.1.0...10.1.1
 [10.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.1...10.1.0
 [10.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.0...10.0.1
 [10.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.4...10.0.0
