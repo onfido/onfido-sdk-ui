@@ -120,6 +120,7 @@
   "avc_intro": {
     "button_primary_ready": "Ich bin fertig",
     "disclaimer": "Bitte beachten Sie, dass Ihr Gesicht und Ihr Hintergrund aufgenommen wird",
+    "disclaimer_camera_and_audio_on": "Ihr Gesicht, Ihr Hintergrund und Ihr Ton werden während dieses Vorgangs aufgezeichnet.",
     "list_item_one": "Positionieren Sie Ihr Gesicht zunächst im Rahmen",
     "list_item_two": "Drehen Sie Ihren Kopf dann langsam nach beiden Seiten",
     "subtitle": "Damit verifizieren wir, dass es sich bei Ihnen um eine reale Person handelt",
@@ -471,6 +472,11 @@
       "title": "Reisepass Foto-Seite"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Scannen erfolgreich"
+    }
+  },
   "outro": {
     "body": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen",
     "body_government_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
@@ -785,6 +791,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Es dauert nur wenige Minuten",
+    "info_original_document": "Machen Sie ein Foto von Ihrem Originaldokument. Scans, Fotos von Bildschirmen oder Fotokopien sind nicht zulässig.",
     "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
     "list_header_webcam": "Verwenden Sie Ihre Webcam oder Ihr Telefon zum Fotografieren:",
     "list_item_doc": "Ihr Ausweisdokument",

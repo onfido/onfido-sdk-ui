@@ -33,6 +33,7 @@
   "avc_intro": {
     "button_primary_ready": "Pripravljen sem",
     "disclaimer": "Ne pozabite, da bomo posneli vaš obraz in ozadje",
+    "disclaimer_camera_and_audio_on": "Med tem postopkom bodo posneti vaš obraz, ozadje in zvok.",
     "list_item_one": "Najprej postavite obraz v okvir",
     "list_item_two": "Nato glavo počasi obrnite na obe strani",
     "subtitle": "S tem se preveri, ali ste resnična oseba",
@@ -384,6 +385,11 @@
       "title": "Stran potnega lista s fotografijo"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Uspešno skeniranje"
+    }
+  },
   "outro": {
     "body": "To je vse, kar potrebujemo za začetek preverjanja vaše identitete",
     "body_government_letter": "Za najboljše rezultate zagotovite celotno stran dokumenta",
@@ -698,6 +704,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Trajalo bo nekaj minut",
+    "info_original_document": "Fotografirajte izvirni dokument. Skeni, fotografije zaslonov ali fotokopije niso dovoljene.",
     "list_header_doc_video": "Uporabite napravo za snemanje:",
     "list_header_webcam": "S spletno kamero ali telefonom fotografirajte:",
     "list_item_doc": "vaš osebni dokument",

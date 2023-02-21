@@ -2,6 +2,11 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `11.0.0`
+
+The deprecated `useLiveDocumentCapture` document option has been removed from Onfido's SDK. Please remove it.
+The deprecated `useWebcam` document option has been removed from Onfido's SDK. Please remove it.
+
 ## `10.4.0`
 
 ## Updated strings
@@ -12,6 +17,9 @@ The guides below are provided to ease the transition of existing applications us
 - `avc_connection_error:button_secondary_restart_recording` (pl)
 - `avc_no_face_detected:button_primary_restart` (pl)
 - `welcome:trial_message` (pt)
+- `welcome:info_original_document` (all)
+- `avc_intro:disclaimer_camera_and_audio_on` (all)
+- `nfc_scan:sheet:success` (all)
 
 ## `10.1.0` -> `10.2.0`
 

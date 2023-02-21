@@ -33,6 +33,7 @@
   "avc_intro": {
     "button_primary_ready": "Spreman/na sam",
     "disclaimer": "Imajte na umu da ćemo snimiti vaše lice i pozadinu",
+    "disclaimer_camera_and_audio_on": "Ваше лице, позадина и звук биће снимљени током овог процеса",
     "list_item_one": "Prvo postavite lice u okvir",
     "list_item_two": "Zatim polako okrenite glavu na jednu pa na drugu stranu",
     "subtitle": "Ovim se potvrđuje da ste stvarna osoba",
@@ -384,6 +385,11 @@
       "title": "Stranica pasoša sa fotografijom"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Скенирање је успешно"
+    }
+  },
   "outro": {
     "body": "To je sve što nam treba da bismo započeli proveru vašeg identiteta",
     "body_government_letter": "Najbolje je da pošaljete celu stranicu dokumenta",
@@ -698,6 +704,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Trebalo bi da traje nekoliko minuta",
+    "info_original_document": "Снимите фотографију свог оригиналног документа. Скенирање, фотографије екрана или фотокопије нису дозвољени.",
     "list_header_doc_video": "Upotrebite vaš uređaj za snimanje:",
     "list_header_webcam": "Snimite fotografiju pomoću veb-kamere ili telefona:",
     "list_item_doc": "identifikacioni dokument",

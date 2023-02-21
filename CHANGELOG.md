@@ -6,9 +6,13 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version]
+## [11.0.0] - 2023-02-21
 
 ### Changed
+
+- Public: Typescript support: remove unused configuration types for POA step (They were not used but were not removed from the types.)
+- Public: Remove deprecated (since 10.1.0) option `useLiveDocumentCapture`.
+- Public: Remove deprecated (since 10.1.0) option `useWebcam`.
 
 ## [10.4.0] - 2023-01-23
 
@@ -18,6 +22,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Reduce by one the number of forced retries in case of error while submitting a document. For a max retry count of 4, the 5th attempt will be the final one (previously it was the 6th attempt).
 - Public: In the document step, if there is only a single country due to `documentTypes` option, show a disabled input with the country pre selected for the user.
 - Public: In the document step, add new option `hideCountrySelection` to bypass the country selection sub screen. Refer to the README for more information.
+- Public: Added support for dashboard document selection via `/supported_documents endpoint` and `enableDocumentSupportRules` option for overriding dashboard feature flag.
 
 ## [10.3.1] - 2023-01-13
 
@@ -1465,7 +1470,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.4.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/11.0.0...development
+[11.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.4.0...11.0.0
 [10.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.1...10.4.0
 [10.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.0...10.3.1
 [10.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.2.0...10.3.0
