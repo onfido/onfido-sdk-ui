@@ -120,6 +120,7 @@
   "avc_intro": {
     "button_primary_ready": "È tutto pronto",
     "disclaimer": "Ricorda che registreremo il tuo viso e lo sfondo",
+    "disclaimer_camera_and_audio_on": "Il vostro volto, lo sfondo e l'audio saranno registrati durante questo processo.",
     "list_item_one": "Innanzitutto, posiziona il viso nel riquadro",
     "list_item_two": "Poi, gira lentamente la testa da entrambe le parti",
     "subtitle": "Questo serve a verificare che tu sia una persona reale",
@@ -471,6 +472,11 @@
       "title": "Pagina con foto del passaporto"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Scansione riuscita"
+    }
+  },
   "outro": {
     "body": "Ora abbiamo tutto quello che ci serve per iniziare a verificare la tua identità",
     "body_government_letter": "Invia l’intera pagina del documento per un risultato ottimale",
@@ -785,6 +791,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "L’operazione richiederà pochi minuti",
+    "info_original_document": "Fotografare il documento originale. Non sono ammesse scansioni, foto di schermi o fotocopie.",
     "list_header_doc_video": "Usa il dispositivo per registrare:",
     "list_header_webcam": "Usa la webcam o il telefono per fotografare:",
     "list_item_doc": "il tuo documento d’identità",

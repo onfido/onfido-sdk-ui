@@ -120,6 +120,7 @@
   "avc_intro": {
     "button_primary_ready": "Start recording",
     "disclaimer": "Your face and your background will be recorded during this process",
+    "disclaimer_camera_and_audio_on": "Your face, background, and audio will be recorded during this process",
     "list_item_one": "First, position your face in the frame",
     "list_item_two": "Then, turn your head slowly to both sides",
     "subtitle": "This is to verify that you’re a real person",
@@ -471,6 +472,11 @@
       "title": "Passport photo page"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Scanning successful"
+    }
+  },
   "outro": {
     "body": "That’s all we need to start verifying your identity",
     "body_government_letter": "Provide the whole document page for best results",
@@ -785,6 +791,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "It should take a few minutes",
+    "info_original_document": "Take a photograph of your original document. Scans, photos of screens or photocopies are not allowed.",
     "list_header_doc_video": "Use your device to record:",
     "list_header_webcam": "Use your webcam or phone to photograph:",
     "list_item_doc": "your identity document",

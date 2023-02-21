@@ -33,6 +33,7 @@
   "avc_intro": {
     "button_primary_ready": "Jeg er klar",
     "disclaimer": "Vær opmærksom på, at vi optager dit ansigt og din baggrund",
+    "disclaimer_camera_and_audio_on": "Dit ansigt, din baggrund og din lyd vil blive optaget under denne proces",
     "list_item_one": "Først skal du placere dit ansigt inden for rammen",
     "list_item_two": "Dernæst drejer du hovedet langsomt til begge sider",
     "subtitle": "Dette er for at verificere, at du er en fysisk person",
@@ -384,6 +385,11 @@
       "title": "Siden i passet, hvor billedet fremgår"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Scanning vellykket"
+    }
+  },
   "outro": {
     "body": "Det er alt, hvad vi behøver for at starte verificeringen af din identitet",
     "body_government_letter": "Hele dokumentets side skal fremgå for at få det bedste resultat",
@@ -698,6 +704,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Det tager nok et par minutter",
+    "info_original_document": "Tag et fotografi af dit originale dokument. Scans, billeder af skærme eller fotokopier er ikke tilladt.",
     "list_header_doc_video": "Brug din enhed til at optage:",
     "list_header_webcam": "Brug dit webkamera eller telefon til at tage billedet:",
     "list_item_doc": "dit ID-dokument",

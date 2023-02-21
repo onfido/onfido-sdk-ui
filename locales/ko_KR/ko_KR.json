@@ -33,6 +33,7 @@
   "avc_intro": {
     "button_primary_ready": "준비 완료",
     "disclaimer": "본인 얼굴과 배경이 녹화된다는 점에 유념하시기 바랍니다",
+    "disclaimer_camera_and_audio_on": "이 과정에서 얼굴, 배경 및 오디오가 녹음됩니다.",
     "list_item_one": "먼저, 프레임 안에 얼굴이 배치되도록 하세요",
     "list_item_two": "그런 다음 고개를 좌우로 천천히 돌리세요",
     "subtitle": "이는 사용자가 (기계가 아닌) 사람인지 확인하기 위한 절차입니다",
@@ -384,6 +385,11 @@
       "title": "여권 사진 페이지"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "스캔 성공"
+    }
+  },
   "outro": {
     "body": "본인 인증 절차를 시작하기 위해 필요한 것은 이것이 다입니다",
     "body_government_letter": "최상의 결과를 위해 서류 전체 페이지를 제출하세요",
@@ -698,6 +704,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "이 절차를 진행하는 데는 몇 분 정도가 소요됩니다",
+    "info_original_document": "원본 문서의 사진을 찍습니다. 스캔, 화면 사진 또는 복사는 허용되지 않습니다.",
     "list_header_doc_video": "기기로 진행할 녹화 작업:",
     "list_header_webcam": "웹캠이나 휴대폰을 사용해 촬영하세요",
     "list_item_doc": "신분증 서류",

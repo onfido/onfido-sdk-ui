@@ -120,6 +120,7 @@
   "avc_intro": {
     "button_primary_ready": "Zacznij",
     "disclaimer": "Pamiętaj, że nagramy Twoją twarz razem z tłem",
+    "disclaimer_camera_and_audio_on": "Twoja twarz, tło i dźwięk zostaną nagrane podczas tego procesu",
     "list_item_one": "Najpierw umieść twarz w ramce",
     "list_item_two": "Następnie powoli obróć głowę w obie strony",
     "subtitle": "Ma to na celu sprawdzenie, czy naprawdę jesteś człowiekiem",
@@ -471,6 +472,11 @@
       "title": "Prześlij stronę ze zdjęciem paszportowym"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Skanowanie zakończone sukcesem"
+    }
+  },
   "outro": {
     "body": "To wszystko, czego potrzebujemy, aby rozpocząć weryfikację Twojej tożsamości",
     "body_government_letter": "Podaj całą stronę dokumentu, aby uzyskać najlepsze wyniki",
@@ -785,6 +791,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Powinno to zająć kilka minut",
+    "info_original_document": "Zrób zdjęcie swojego oryginalnego dokumentu. Skany, zdjęcia ekranów lub kserokopie nie są dozwolone.",
     "list_header_doc_video": "Użyj urządzenia, aby nagrać:",
     "list_header_webcam": "Użyj kamery internetowej lub telefonu do zrobienia zdjęć:",
     "list_item_doc": "Twojego dokumentu tożsamości",

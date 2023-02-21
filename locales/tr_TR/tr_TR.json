@@ -33,6 +33,7 @@
   "avc_intro": {
     "button_primary_ready": "Hazırım",
     "disclaimer": "Lütfen yüzünüzü ve arka planı kaydedeceğimizi unutmayın",
+    "disclaimer_camera_and_audio_on": "Bu işlem sırasında yüzünüz, arka planınız ve sesiniz kaydedilecek",
     "list_item_one": "İlk olarak, yüzünüzü çerçeveye yerleştirin",
     "list_item_two": "Ardından, başınızı yavaşça her iki tarafa çevirin",
     "subtitle": "Bu işlem, gerçek bir kişi olduğunuzu doğrulamak amacıyla yapılır",
@@ -384,6 +385,11 @@
       "title": "Pasaport fotoğraf sayfası"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Tarama başarılı"
+    }
+  },
   "outro": {
     "body": "Kimliğinizi doğrulamaya başlamak için ihtiyacımız olan tek şey bu",
     "body_government_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
@@ -698,6 +704,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Sadece birkaç dakika sürer",
+    "info_original_document": "Orijinal belgenizin bir fotoğrafını çekin. Taramalara, ekran fotoğraflarına veya fotokopilere izin verilmez.",
     "list_header_doc_video": "Kayıt yapmak için cihazınızı kullanın:",
     "list_header_webcam": "Aşağıdakileri fotoğraflamak için web kameranızı veya telefonunuzu kullanın:",
     "list_item_doc": "kimlik belgeniz",

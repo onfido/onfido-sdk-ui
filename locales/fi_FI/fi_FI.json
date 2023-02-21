@@ -33,6 +33,7 @@
   "avc_intro": {
     "button_primary_ready": "Olen valmis",
     "disclaimer": "Muistathan, että tallennamme kasvosi ja taustasi",
+    "disclaimer_camera_and_audio_on": "Kasvosi, taustasi ja ääni tallennetaan tämän prosessin aikana.",
     "list_item_one": "Aseta ensin kasvosi kehykseen",
     "list_item_two": "Käännä sitten päätäsi hitaasti molemmille puolille",
     "subtitle": "Näin vahvistetaan, että olet todellinen henkilö",
@@ -384,6 +385,11 @@
       "title": "Passin valokuvasivu"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Skannaus onnistui"
+    }
+  },
   "outro": {
     "body": "Emme tarvitse muuta henkilöllisyytesi vahvistuksen aloittamiseen",
     "body_government_letter": "Toimita asiakirjan koko sivu parhaan tuloksen saamiseksi",
@@ -698,6 +704,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Siihen menee muutama minuutti",
+    "info_original_document": "Ota valokuva alkuperäisestä asiakirjasta. Skannaukset, valokuvat näytöistä tai valokopiot eivät ole sallittuja.",
     "list_header_doc_video": "Käytä laitettasi tallentaaksesi:",
     "list_header_webcam": "Käytä verkkokameraa tai puhelinta kuvataksesi:",
     "list_item_doc": "henkilötodistuksesi",

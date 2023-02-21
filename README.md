@@ -569,7 +569,34 @@ The custom options are:
 
 This is the identity document capture step. Users will be asked to select the document type and its issuing country before providing images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
 
-Document type and document country selection is an optional screen. This screen will only show to the end user if specific options are not configured to the SDK.
+Document type and document country selection is an optional screen. This screen will only show to the end user if specific options are **not** configured to the SDK.
+
+You can configure the document capture step in one of two ways:
+
+- Designating eligible issuing countries and document types on your [Dashboard](https://onfido.com/dashboard/), enabling the SDK to automatically read these settings (**this is the preferred method**)
+- Hard coding eligible issuing countries and document types in your SDK integration
+
+Both methods of document capture configuration are detailed below.
+
+##### Country and document type selection by Dashboard
+
+Configuring the issuing country and document type selection step using your Dashboard is the **preferred method** of integration.
+
+- Start by opening up the Accounts tab on your Dashboard, then click Supported Documents.
+- You will be presented with a list of all available countries and their associated supported documents. Once you have made your selections, click Save Change.
+
+![The Supported Documents tab in the Dashboard](demo/supported_documents_dashboard.png)
+
+In order for your SDK to link to the Dashboard configuration and display the appropriate choices to your end users, Onfido must activate the feature. Contact [Client Support](mailto:client-support@onfido.com) to enable the Dashboard supported documents feature.
+
+**Please note:**
+
+- Any custom country and document type configurations that have been coded into your SDK integration will override and ignore any Dashboard settings
+- Currently only passport, national ID card, driving licence and residence permit are supported by this feature. If you nominate other document types in your Dashboard (visa, for example), these will not be displayed in the user interface
+
+##### Country and document type selection - SDK integration code
+
+Rather than configuring the document selection step using your Dashboard, you can hard code the issuing countries and supported document types in your SDK integration. Please note this is **not** the preferred integration method, we recommend the Dashboard configuration described above.
 
 The custom options are:
 
@@ -625,18 +652,13 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
   When `forceCrossDevice` is set to `true`, the cross device flow is mandatory for all users. Desktop users will be required to complete the capture process on a mobile device browser.
   Configuring this option minimises the risk of fraudulent upload by ensuring a higher likelihood of live capture.
 
+  The `forceCrossDevice` functionality can be configured for both the Document capture and Proof of Address verification steps. The option is also now available in Onfido Studio, configurable in the [workflow builder](https://developers.onfido.com/guide/onfido-studio-product#document-capture-task). `forceCrossDevice` cannot be configured for Face captures.
+
   ```javascript
   options: {
     forceCrossDevice: true
   }
   ```
-
-  - `useLiveDocumentCapture` (boolean - default: `false`). DEPRECATED OPTION, WILL BE REMOVED NEXT QUARTERLY.
-    **This feature is only available on mobile devices.**
-
-  When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. Configuring this option minimises the risk of fraudulent upload by bypassing the device's default camera application. For unsupported scenarios, see the `uploadFallback` section below.
-
-  Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
 
 - `uploadFallback` (boolean - default: `true`)
 
@@ -695,19 +717,34 @@ The custom options are:
 
 - `photoCaptureFallback` (boolean - default: `true`)
 
-  When enabled, this feature allows end-users to upload selfies if the requested variant is `video` or `motion` and their browser does not support MediaRecorder, or if the requested variant is `motion` and Motion is unavailable on their device due to device capabilities.
+  When enabled, this feature allows end-users to capture a selfie if:
 
-  When disabled, it will forward the user to the cross-device flow in order to attempt to capture a video in another device. If the user is already in a mobile device and it does not support MediaRecorder, the unsupported browser error will be shown.
+  - The requested variant is video and their browser does not support MediaRecorder
+  - The requested variant is motion and Motion is not available on the end-user device due to MediaRecorder not being supported or to limited device capabilities and the videoCaptureFallback feature is disabled. Please note that if videoCaptureFallback is enabled for the motion variant, we will fallback to [video](https://developers.onfido.com/guide/facial-similarity-reports#video) first. Only if a video can’t be recorded on the user device will we then fallback to selfie (as long as photoCaptureFallback is set to true).
+
+  When disabled:
+
+  - If the requested variant is video, we will return an unsupported browser error
+  - If the requested variant is motion and the videoCaptureFallback feature is disabled, we will return an unsupported browser error.
 
 - `videoCaptureFallback` (boolean - default: `true`)
 
-  When enabled, this feature allows end-users to upload videos if the requested variant is `motion` and their browser supports MediaRecorder, yet Motion is not supported due to device capabilities.
+  This feature is only relevant to the motion variant.
+  When enabled, this feature allows end-users to upload a [video](https://developers.onfido.com/guide/facial-similarity-reports#video) if the requested variant is motion and Motion is not available on the end-user device due to MediaRecorder not being supported or to limited device capabilities.
+  When disabled, we will fallback to selfie if photoCaptureFallback is enabled, otherwise we will return an unsupported browser error.
 
-  When disabled, it will forward the user to the cross-device flow in order to attempt to capture a photo in another device. Having both `photoCaptureFallback` and `videoCaptureFallback` disabled would forward the user to the cross-device flow with Motion.
+  Please note that the photoCaptureFallback and videoCaptureFallback features are enabled by default.
+
+  Therefore
+
+  - If the requested variant is Video and the user device doesn’t support MediaRecorder we will automatically fallback to Selfie and allow the user to take a selfie instead
+  - If the requested variant is motion and Motion is not available on the user device we will automatically fallback to Video first, asking the user to capture a video of themselves as they perform a head turn and a speech challenge. If however a video can’t be captured on the end-user device due to MediaRecorder not being supported, we will fallback to selfie instead and allow the user to complete the flow by capturing a selfie.
 
 - `recordMotionAudio` (boolean - default: `false`)
 
-  When enabled, and the requested variant is `motion` this feature allows Motion to record the user audio.
+  When enabled, and the requested variant is motion this feature allows Motion to record the user background audio.
+
+Please note that if a camera can’t be detected, we forward the user to the cross-device flow in order to attempt to capture in another device.
 
 #### auth
 
