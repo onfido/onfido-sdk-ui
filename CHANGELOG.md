@@ -6,13 +6,21 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [11.0.0] - 2023-02-21
+## [next-version]
 
 ### Changed
+
+## [12.0.0] - 2023-03-08
 
 - Public: Typescript support: remove unused configuration types for POA step (They were not used but were not removed from the types.)
 - Public: Remove deprecated (since 10.1.0) option `useLiveDocumentCapture`.
 - Public: Remove deprecated (since 10.1.0) option `useWebcam`.
+- Public: Add national ID number capture based on applicant geo
+- Public: Replace face step option `videoCaptureFallback` with `motionFallbackVariant`.
+- Public: Add Generic Document Types.
+- Public: Fix for "FLOW_STARTED" analytics event
+
+### Changed
 
 ## [10.4.0] - 2023-01-23
 
@@ -1470,8 +1478,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/11.0.0...development
-[11.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.4.0...11.0.0
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/12.0.0...development
+[12.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.4.0...12.0.0
 [10.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.1...10.4.0
 [10.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.0...10.3.1
 [10.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.2.0...10.3.0

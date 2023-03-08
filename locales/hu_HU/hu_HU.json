@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Mikrofonját egy másik alkalmazás használja",
       "timeout_body": "Legfeljebb 15 másodperce van, hogy befejezze a felvételt",
       "timeout_button_primary": "Próbálja újra",
       "timeout_title": "Sajnáljuk, újra kell indítanunk a felvételt",
@@ -31,9 +32,9 @@
     "title_completed": "Felvétel kész"
   },
   "avc_intro": {
-    "button_primary_ready": "Kezdhetjük",
+    "button_primary_ready": "Felvétel indítása",
     "disclaimer": "Kérjük, vegye figyelembe, hogy mind az arcát, mind a hátterét rögzítjük",
-    "disclaimer_camera_and_audio_on": "Az Ön arcát, hátterét és hangját rögzítjük a folyamat során.",
+    "disclaimer_camera_and_audio_on": "Az Ön arcát, hátterét és hangját rögzítjük a folyamat során",
     "list_item_one": "Először illessze az arcát a keretbe",
     "list_item_two": "Ezután lassan fordítsa a fejét mindkét oldalra",
     "subtitle": "Ez annak igazolására szolgál, hogy Ön egy valós személy",
@@ -115,6 +116,8 @@
     "footer": {
       "captured": "Fénykép rögzítve",
       "capturing": "Fénykép rögzítése",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Készítsen fényképet a kártya hátoldaláról",
       "manual_fallback_identity_card_front": "Készítsen fényképet a kártya előlapjáról",
       "manual_fallback_license_back": "Készítsen fényképet jogosítványa hátoldaláról",
@@ -122,6 +125,8 @@
       "manual_fallback_passport": "Fényképezze le útlevele fényképes oldalát",
       "manual_fallback_residence_permit_back": "Készítsen fényképet tartózkodási engedélye hátoldaláról",
       "manual_fallback_residence_permit_front": "Készítsen fényképet tartózkodási engedélye előlapjáról",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "A dokumentum hátlapját illessze a keretbe",
       "position_identity_card_front": "A dokumentum előlapját illessze a keretbe",
       "position_license_back": "Helyezze a jogosítványa hátoldalát a keretbe",
@@ -164,6 +169,7 @@
     "body_bank_statement": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
     "body_benefits_letter": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
     "body_bill": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
+    "body_generic_document": "",
     "body_id": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
     "body_image_medium": "Ha nem tudjuk elolvasni, tovább fog tartani, amíg ellenőrizzük a személyazonosságát",
     "body_image_poor": "A problémamentes azonosításhoz jobb fényképre van szükségünk",
@@ -231,6 +237,8 @@
     "title_bank_statement": "Dokumentum beküldése",
     "title_benefits_letter": "Levél beküldése",
     "title_bill": "Számla beküldése",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Kormányzati levél",
     "title_id_back": "Személyazonosító igazolvány beküldése (hátlap)",
     "title_id_front": "Személyazonosító igazolvány beküldése (előlap)",
@@ -398,12 +406,16 @@
   "permission": {
     "body_both": "A fényképezőgép és a mikrofon használata nélkül nem tudjuk ellenőrizni a személyazonosságát",
     "body_cam": "A kamera nélkül nem tudjuk igazolni a személyazonosságát",
+    "body_mic": "A mikrofon használata nélkül nem tudjuk ellenőrizni a személyazonosságát",
     "button_primary_both": "Mindkettő engedélyezése",
     "button_primary_cam": "Kamera engedélyezése",
+    "button_primary_mic": "Mikrofon engedélyezése",
     "subtitle_both": "Ha a rendszer kéri, a folytatáshoz engedélyeznie kell a hozzáférést mindkettőhöz",
     "subtitle_cam": "Ha a rendszer kéri, a folytatáshoz engedélyeznie kell a kamerához való hozzáférést",
+    "subtitle_mic": "Ha a rendszer kéri, a folytatáshoz engedélyeznie kell a mikrofonhoz való hozzáférést",
     "title_both": "Kamera- és mikrofon-hozzáférés engedélyezése",
-    "title_cam": "Kamerához való hozzáférés engedélyezése"
+    "title_cam": "Kamerához való hozzáférés engedélyezése",
+    "title_mic": "Mikrofon-hozzáférés engedélyezése"
   },
   "permission_recovery": {
     "button_primary": "Frissítés",
@@ -413,16 +425,21 @@
     "list_item_action_cam": "Frissítse az oldalt a személyazonosság-ellenőrzési folyamat újraindításához",
     "list_item_how_to_both": "Engedélyezze a fényképezőgéphez és a mikrofonhoz való hozzáférést a böngésző beállításaiban",
     "list_item_how_to_cam": "Engedélyezze a fényképezőgéphez való hozzáférést a böngésző beállításaiban",
+    "list_item_how_to_mic": "Adjon hozzáférést mikrofonjának a böngészőbeállításokban",
     "subtitle_both": "Videó készítéséhez és az ellenőrzési folyamat befejezéséhez állítsa vissza a kamera és a mikrofon hozzáférését",
     "subtitle_cam": "Állítsa vissza a kamera hozzáférését az arcellenőrzés folytatásához",
     "subtitle_cam_old": "Állítsa vissza a kamera hozzáférését az arcellenőrzés folytatásához",
+    "subtitle_mic": "A mikrofon használata nélkül nem tudjuk ellenőrizni a személyazonosságát",
     "title_both": "Kamera- és mikrofon-hozzáférés megtagadva",
-    "title_cam": "Kamerához való hozzáférés elutasítva"
+    "title_cam": "Kamerához való hozzáférés elutasítva",
+    "title_mic": "Mikrofon-hozzáférés megtagadva"
   },
   "photo_upload": {
     "body_bank_statement": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
     "body_benefits_letter": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
     "body_bill": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "A kártya hátoldalának feltöltése a számítógépről",
     "body_id_front": "A jogosítvány előlapjának feltöltése a számítógépről",
     "body_license_back": "Töltse fel a jogosítvány hátlapját a számítógépéről",
@@ -476,6 +493,39 @@
       "country_select": {
         "placeholder": "Ország kiválasztása"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Külföldi útlevél"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Jogsi",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Személyi igazolvány",
+        "ind_specific": {
+          "tax_id": "Személyes számlaszám (PAN)"
+        },
+        "ken_specific": {
+          "other": "Idegen kártya"
+        },
+        "nga_specific": {
+          "identity_card": "Nemzeti azonosító szám (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Útlevél",
+        "placeholder": "Válasszon nemzeti azonosító típust",
+        "tax_id": "Adóazonosító",
+        "voter_id": "Szavazói azonosító"
+      },
       "nationality_select": {
         "placeholder": "Ország kiválasztása"
       },
@@ -491,27 +541,71 @@
     },
     "country_of_residence_title": "Lakóhely szerinti ország",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI szám"
+      },
+      "can_specific": {
+        "national_id_value": "Társadalombiztosítási szám (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN számok"
+      },
+      "chn_specific": {
+        "national_id_value": "Rezidens Személyi igazolvány szám"
+      },
+      "col_specific": {
+        "national_id_value": "Kolumbiai személyi azonosító szám"
+      },
       "country": "Ország",
       "country_residence": "Ország",
       "dob": "Születési dátum",
       "email": "E-mail-cím",
+      "fin_specific": {
+        "national_id_value": "Személyi azonosító kód"
+      },
       "first_name": "Utónév",
       "gbr_specific": {
         "postcode": "Irányítószám",
         "town": "Város / Település"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Állandó számlaszám (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Fiskális kód"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Saját szám\" / Lakossági nyilvántartás kódja"
       },
       "last_name": "Vezetéknév",
       "line1": "Címsor 1",
       "line2": "Címsor 2",
       "line3": "Címsor 3",
+      "lux_specific": {
+        "national_id_value": "Társadalombiztosítási szám"
+      },
       "mobile_number": "Mobiltelefonszám",
+      "national_id_type": "Nemzeti igazolvány típusa",
+      "national_id_value": "Személyi igazolvány szám",
       "nationality": "Állampolgárság",
+      "phl_specific": {
+        "national_id_value": "PhilSys kártyaszám (PCN)"
+      },
       "phone_number": "Telefonszám",
+      "pol_specific": {
+        "national_id_value": "PESEL szám"
+      },
       "postcode": "Postai irányítószám",
+      "prt_specific": {
+        "national_id_value": "Adószám"
+      },
       "town": "Város",
+      "tur_specific": {
+        "national_id_value": "Török azonosító szám"
+      },
       "usa_specific": {
         "line1_helper_text": "Utca, házszám, például: Albert utca 200.",
         "line2_helper_text": "Lakás, lakosztály stb.",
@@ -522,11 +616,48 @@
     },
     "field_optional": "(nem kötelező)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes DNI-t"
+      },
+      "bra_specific": {
+        "invalid_other": "Adjon meg egy érvényes CNPJ-t",
+        "invalid_tax_id": "Adjon meg egy érvényes CPF-t"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes SIN-t"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes RUT/RUN számot",
+        "required_national_id_value": "Kérjük, adja meg a RUT / RUN számokat"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Kérjük, adjon meg egy érvényes lakos személyazonosító igazolvány számát"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Kérjük, adjon meg egy érvényes kolumbiai személyi azonosító számot",
+        "required_national_id_value": "Kérjük, adja meg kolumbiai személyi azonosító számát"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Adjon meg egy érvényes NIF/DNI-t",
+        "invalid_other": "Adjon meg egy érvényes NIE-t"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Kérjük, adjon meg egy érvényes személyazonosító kódot",
+        "required_national_id_value": "Kérjük, adja meg személyi azonosító kódját"
+      },
       "gbr_specific": {
         "invalid_postcode": "Kérjük, hogy érvényes irányítószámot adjon meg",
         "required_postcode": "Adja meg az irányítószámát",
         "too_long_postcode": "Az irányítószám túl hosszú",
         "too_short_postcode": "Az irányítószám túl rövid"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Adjon meg egy érvényes SSNIT-et",
+        "required_social_insurance": "Kérjük, adja meg SSNIT-jét"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes HKID-t",
+        "required_national_id_value": "Kérjük, adja meg HKID-jét"
       },
       "ind_specific": {
         "invalid_pan": "Adjon meg egy érvényes PAN-t",
@@ -534,9 +665,59 @@
       },
       "invalid": "Kérjük, ellenőrizze az érvénytelen karaktereket vagy szimbólumokat",
       "invalid_dob": "Érvényes születési dátumot adjon meg",
+      "invalid_driving_license": "Kérjük, adjon meg egy érvényes jogosítvány számát",
       "invalid_email": "Kérjük, érvényes e-mail-címet adjon meg",
       "invalid_mobile_number": "Kérem, adjon meg egy érvényes mobilszámot",
+      "invalid_national_id_value": "Adjon meg egy érvényes nemzeti azonosító számot",
+      "invalid_passport": "Adjon meg egy érvényes útlevélszámot",
       "invalid_phone_number": "Adjon meg egy érvényes telefonszámot",
+      "invalid_voter_id": "Adjon meg egy érvényes választói azonosító számot",
+      "ita_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes adókódot"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Kérjük, adjon meg egy érvényes „Saját szám” / Resident Record kódot",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Adjon meg egy érvényes idegen kártyaszámot",
+        "required_other": "Kérjük, adja meg az Alien Card számát"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes társadalombiztosítási számot",
+        "required_national_id_value": "Kérjük, adja meg társadalombiztosítási számát"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Adjon meg egy érvényes CURP-t",
+        "invalid_tax_id": "Adjon meg egy érvényes RFC-t"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes NRIC-t",
+        "required_national_id_value": "Kérjük, adja meg NRIC-jét"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Adjon meg egy érvényes nemzeti azonosító számot (NIN)",
+        "invalid_other": "Adjon meg egy érvényes BVN-t",
+        "invalid_tax_id": "Adjon meg egy érvényes TIN-számot",
+        "required_identity_card": "Kérjük, adja meg nemzeti azonosító számát (NIN)",
+        "required_other": "Kérjük, adja meg BVN-jét",
+        "required_tax_id": "Kérjük, adja meg TIN-számát"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes PhilSys kártyaszámot (PCN)",
+        "required_national_id_value": "Kérjük, adja meg PhilSys kártyaszámát (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes PESEL-számot",
+        "required_national_id_value": "Kérjük, adja meg PESEL számát"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes adószámot",
+        "required_national_id_value": "Kérjük, adja meg adószámát"
+      },
+      "reference": {
+        "translation": "Adjon meg egy érvényes"
+      },
       "required_consent": "Kérjük, járuljon hozzá a személyazonosság és a csalási ellenőrzéséhez",
       "required_country": "Kérjük, válasszon országot",
       "required_country_residence": "Kérjük, válasszon országot",
@@ -549,6 +730,12 @@
       "required_nationality": "Kérjük, válasszon országot",
       "required_phone_number": "Kérjük, adja meg a telefonszámát",
       "required_postcode": "Adja meg az irányítószámot",
+      "sgp_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes NRIC-t"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes PIN-t"
+      },
       "too_long_first_name": "A keresztnév túl hosszú",
       "too_long_last_name": "A vezetéknév túl hosszú",
       "too_long_line1": "A címsor túl hosszú",
@@ -557,12 +744,16 @@
       "too_short_first_name": "A keresztnév túl rövid",
       "too_short_last_name": "A vezetéknév túl rövid",
       "too_short_postcode": "Az irányítószám túl rövid",
+      "tur_specific": {
+        "invalid_national_id_value": "Adjon meg egy érvényes török személyazonosító számot"
+      },
       "usa_specific": {
         "invalid_ssn": "Kérjük adjon meg egy érvényes SSN-számot",
         "required_ssn": "Kérjük, adja meg a társadalombiztosítási számát (SSN)",
         "required_state": "Válasszon ki egy államot"
       }
     },
+    "national_id_number_title": "Adja hozzá nemzeti azonosító számát",
     "personal_information_title": "Adja meg személyes adatait",
     "prompt": {
       "details_timeout": "Kezdje újra",

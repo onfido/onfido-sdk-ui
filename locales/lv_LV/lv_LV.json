@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Jūsu mikrofonu izmanto cita lietotne",
       "timeout_body": "Jums ir 15 sekundes laika, lai pabeigtu ierakstu",
       "timeout_button_primary": "Mēģināt vēlreiz",
       "timeout_title": "Diemžēl mums ir jāveic ieraksts no jauna",
@@ -31,9 +32,9 @@
     "title_completed": "Ieraksts pabeigts"
   },
   "avc_intro": {
-    "button_primary_ready": "Esmu gatavs",
+    "button_primary_ready": "Sākt ierakstu",
     "disclaimer": "Ņemiet vērā, ka mēs ierakstīsim jūsu seju un fonu",
-    "disclaimer_camera_and_audio_on": "Šī procesa laikā tiks ierakstīta jūsu seja, fons un skaņa.",
+    "disclaimer_camera_and_audio_on": "Šī procesa laikā tiks ierakstīta jūsu seja, fons un skaņa",
     "list_item_one": "Vispirms pozicionējiet seju kadrā",
     "list_item_two": "Pēc tam lēnām pagrieziet galvu uz abām pusēm",
     "subtitle": "Tas nepieciešams, lai pārbaudītu, vai esat īsta persona",
@@ -115,6 +116,8 @@
     "footer": {
       "captured": "Fotoattēls uzņemts",
       "capturing": "Notiek fotoattēla uzņemšana",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Nofotografējiet kartes aizmuguri",
       "manual_fallback_identity_card_front": "Nofotografējiet kartes priekšpusi",
       "manual_fallback_license_back": "Nofotografējiet autovadītāja apliecības aizmuguri",
@@ -122,6 +125,8 @@
       "manual_fallback_passport": "Nofotografējiet pases fotoattēla lapu",
       "manual_fallback_residence_permit_back": "Nofotografējiet uzturēšanās atļaujas aizmuguri",
       "manual_fallback_residence_permit_front": "Nofotografējiet uzturēšanās atļaujas priekšpusi",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Ievietojiet kartes aizmuguri kadrā",
       "position_identity_card_front": "Ievietojiet kartes priekšpusi kadrā",
       "position_license_back": "Ievietojiet autovadītāja apliecības aizmuguri kadrā",
@@ -164,6 +169,7 @@
     "body_bank_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
     "body_benefits_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
     "body_bill": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
+    "body_generic_document": "",
     "body_id": "Jūsu informācijai ir jābūt skaidri redzamai",
     "body_image_medium": "Ja mēs nevarēsim to salasīt, pārbaude aizņems ilgāku laiku",
     "body_image_poor": "Lai jūs varētu ērti pārbaudīt, mums ir nepieciešama labāks fotoattēls",
@@ -231,6 +237,8 @@
     "title_bank_statement": "Iesniegt izziņu",
     "title_benefits_letter": "Iesniegt vēstuli",
     "title_bill": "Iesniegt rēķinu",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Vēstule no valdības",
     "title_id_back": "Iesniegt personas apliecību (aizmugure)",
     "title_id_front": "Iesniegt personas apliecību (priekšpuse)",
@@ -398,12 +406,16 @@
   "permission": {
     "body_both": "Mēs nevaram veikt pārbaudi, neizmantojot kameru un mikrofonu",
     "body_cam": "Mēs nevaram veikt pārbaudi bez kameras",
+    "body_mic": "Mēs nevaram veikt pārbaudi, neizmantojot mikrofonu",
     "button_primary_both": "Iespējot abus",
     "button_primary_cam": "Iespējot kameru",
+    "button_primary_mic": "Iespējot mikrofonu",
     "subtitle_both": "Kad tiek parādīta uzvedne, lai turpinātu, ir jāiespējo piekļuve abiem",
     "subtitle_cam": "Kad tiek parādīta uzvedne, ir jāiespējo piekļuve kamerai, lai turpinātu",
+    "subtitle_mic": "Kad tiek parādīta uzvedne, ir jāiespējo piekļuve mikrofonam, lai turpinātu",
     "title_both": "Atļaut piekļuvi kamerai un mikrofonam",
-    "title_cam": "Atļaut piekļuvi kamerai"
+    "title_cam": "Atļaut piekļuvi kamerai",
+    "title_mic": "Atļaut piekļuvi mikrofonam"
   },
   "permission_recovery": {
     "button_primary": "Atsvaidzināt",
@@ -413,16 +425,21 @@
     "list_item_action_cam": "Atsvaidziniet šo lapu, lai sāktu identitātes pārbaudes procesu no jauna.",
     "list_item_how_to_both": "Sniedziet piekļuvi kamerai un mikrofonam pārlūka iestatījumos.",
     "list_item_how_to_cam": "Sniedziet piekļuvi kamerai pārlūka iestatījumos.",
+    "list_item_how_to_mic": "Pārlūka iestatījumos piešķiriet piekļuvi mikrofonam",
     "subtitle_both": "Atjaunojiet piekļuvi kamerai un mikrofonam, lai uzņemtu videoklipu un pabeigtu pārbaudi",
     "subtitle_cam": "Atjaunojiet piekļuvi kamerai, lai turpinātu pārbaudi",
     "subtitle_cam_old": "Atjaunojiet piekļuvi kamerai, lai turpinātu sejas pārbaudi",
+    "subtitle_mic": "Mēs nevaram veikt pārbaudi, neizmantojot mikrofonu",
     "title_both": "Kamerai un mikrofonam ir liegta piekļuve",
-    "title_cam": "Piekļuve kamerai ir liegta"
+    "title_cam": "Piekļuve kamerai ir liegta",
+    "title_mic": "Mikrofonam ir liegta piekļuve"
   },
   "photo_upload": {
     "body_bank_statement": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
     "body_benefits_letter": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
     "body_bill": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Augšupielādējiet personas apliecības aizmuguri no datora",
     "body_id_front": "Augšupielādējiet personas apliecības priekšpusi no datora",
     "body_license_back": "Augšupielādējiet autovadītāja apliecības aizmuguri no datora",
@@ -476,6 +493,39 @@
       "country_select": {
         "placeholder": "Atlasīt valsti"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Ārzemju pase"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Vadītāja apliecība",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Personas apliecība",
+        "ind_specific": {
+          "tax_id": "Personīgais konta numurs (PAN)"
+        },
+        "ken_specific": {
+          "other": "Citplanētiešu karte"
+        },
+        "nga_specific": {
+          "identity_card": "Valsts identifikācijas numurs (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Pase",
+        "placeholder": "Izvēlieties valsts ID veidu",
+        "tax_id": "Nodokļu ID",
+        "voter_id": "Vēlētāja ID"
+      },
       "nationality_select": {
         "placeholder": "Atlasīt valsti"
       },
@@ -491,27 +541,71 @@
     },
     "country_of_residence_title": "Jūsu dzīvesvietas valsts",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI numurs"
+      },
+      "can_specific": {
+        "national_id_value": "Sociālās apdrošināšanas numurs (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN numuri"
+      },
+      "chn_specific": {
+        "national_id_value": "Iedzīvotāja Personas apliecība numurs"
+      },
+      "col_specific": {
+        "national_id_value": "Kolumbijas personas identifikācijas numurs"
+      },
       "country": "Valsts",
       "country_residence": "Valsts",
       "dob": "Dzimšanas datums",
       "email": "E-pasts",
+      "fin_specific": {
+        "national_id_value": "Personas kods"
+      },
       "first_name": "Vārds",
       "gbr_specific": {
         "postcode": "Pasta indekss",
         "town": "Pilsēta/novads"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Nodokļu maksātāja kods (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Fiskālais kods"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Mans numurs\" / Iedzīvotāja ieraksta kods"
       },
       "last_name": "Uzvārds",
       "line1": "Adrese (1. rinda)",
       "line2": "Adrese (2. rinda)",
       "line3": "Adrese (3. rinda)",
+      "lux_specific": {
+        "national_id_value": "Sociālās apdrošināšanas numurs"
+      },
       "mobile_number": "Mobilā tālruņa numurs",
+      "national_id_type": "Valsts ID veids",
+      "national_id_value": "Valsts ID numurs",
       "nationality": "Pilsonība",
+      "phl_specific": {
+        "national_id_value": "PhilSys kartes numurs (PCN)"
+      },
       "phone_number": "Tālruņa numurs",
+      "pol_specific": {
+        "national_id_value": "PESEL numurs"
+      },
       "postcode": "Pasta indekss",
+      "prt_specific": {
+        "national_id_value": "Nodokļa numurs"
+      },
       "town": "Pilsēta",
+      "tur_specific": {
+        "national_id_value": "Turcijas identifikācijas numurs"
+      },
       "usa_specific": {
         "line1_helper_text": "Ielas adrese, piemēram, Alberta iela 200",
         "line2_helper_text": "Dzīvokļa u.tml. numurs.",
@@ -522,11 +616,48 @@
     },
     "field_optional": "(pēc izvēles)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Lūdzu, ievadiet derīgu CNPJ",
+        "invalid_tax_id": "Lūdzu, ievadiet derīgu CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgus RUT/RUN numurus",
+        "required_national_id_value": "Lūdzu, ievadiet savus RUT/RUN numurus"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu iedzīvotāja personas apliecības numuru"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu Kolumbijas personas identifikācijas numuru",
+        "required_national_id_value": "Lūdzu, ievadiet savu Kolumbijas personas identifikācijas numuru"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Lūdzu, ievadiet derīgu NIF/DNI",
+        "invalid_other": "Lūdzu, ievadiet derīgu NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu personas kodu",
+        "required_national_id_value": "Lūdzu, ievadiet savu personas kodu"
+      },
       "gbr_specific": {
         "invalid_postcode": "Ievadiet derīgu pasta indeksu",
         "required_postcode": "Ievadiet savu pasta indeksu",
         "too_long_postcode": "Pasta indekss ir pārāk garš",
         "too_short_postcode": "Pasta indekss ir pārāk īss"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Lūdzu, ievadiet derīgu SSNIT",
+        "required_social_insurance": "Lūdzu, ievadiet savu SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu HKID",
+        "required_national_id_value": "Lūdzu, ievadiet savu HKID"
       },
       "ind_specific": {
         "invalid_pan": "Ievadiet derīgu PAN",
@@ -534,9 +665,59 @@
       },
       "invalid": "Pārbaudiet, vai nav nederīgu rakstzīmju vai simbolu",
       "invalid_dob": "Ievadiet derīgu dzimšanas datumu",
+      "invalid_driving_license": "Lūdzu, ievadiet derīgu autovadītāja apliecības numuru",
       "invalid_email": "Ievadiet derīgu e-pasta adresi",
       "invalid_mobile_number": "Ievadiet derīgu mobilā tālruņa numuru",
+      "invalid_national_id_value": "Lūdzu, ievadiet derīgu valsts ID numuru",
+      "invalid_passport": "Lūdzu, ievadiet derīgu pases numuru",
       "invalid_phone_number": "Ievadiet derīgu tālruņa numuru",
+      "invalid_voter_id": "Lūdzu, ievadiet derīgu vēlētāja ID numuru",
+      "ita_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu fiskālo kodu"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu \"Mans numurs\" / Iedzīvotāja ieraksta kodu",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Lūdzu, ievadiet derīgu ārvalstnieka kartes numuru",
+        "required_other": "Lūdzu, ievadiet savas ārvalstnieka kartes numuru"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu sociālās apdrošināšanas numuru",
+        "required_national_id_value": "Lūdzu, ievadiet savu sociālās apdrošināšanas numuru"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Lūdzu, ievadiet derīgu CURP",
+        "invalid_tax_id": "Lūdzu, ievadiet derīgu RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu NRIC",
+        "required_national_id_value": "Lūdzu, ievadiet savu NRIC"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Lūdzu, ievadiet derīgu valsts identifikācijas numuru (NIN)",
+        "invalid_other": "Lūdzu, ievadiet derīgu BVN",
+        "invalid_tax_id": "Lūdzu, ievadiet derīgu TIN",
+        "required_identity_card": "Lūdzu, ievadiet savu nacionālo identifikācijas numuru (NIN)",
+        "required_other": "Lūdzu, ievadiet savu BVN",
+        "required_tax_id": "Lūdzu, ievadiet savu TIN"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu PhilSys kartes numuru (PCN)",
+        "required_national_id_value": "Lūdzu, ievadiet savu PhilSys kartes numuru (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu PESEL numuru",
+        "required_national_id_value": "Lūdzu, ievadiet savu PESEL numuru"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu nodokļu maksātāja numuru",
+        "required_national_id_value": "Lūdzu, ievadiet savu nodokļu maksātāja numuru"
+      },
+      "reference": {
+        "translation": "Lūdzu, ievadiet derīgu"
+      },
       "required_consent": "Piekrītiet identitātes un krāpšanas pārbaužu veikšanai",
       "required_country": "Atlasiet valsti",
       "required_country_residence": "Atlasiet valsti",
@@ -549,6 +730,12 @@
       "required_nationality": "Atlasiet valsti",
       "required_phone_number": "Ievadiet savu tālruņa numuru",
       "required_postcode": "Ievadiet savu pasta indeksu",
+      "sgp_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu PIN"
+      },
       "too_long_first_name": "Vārds ir pārāk garš",
       "too_long_last_name": "Uzvārds ir pārāk garš",
       "too_long_line1": "Adreses rinda ir pārāk gara",
@@ -557,12 +744,16 @@
       "too_short_first_name": "Vārds ir pārāk īss",
       "too_short_last_name": "Uzvārds ir pārāk īss",
       "too_short_postcode": "Pasta indekss ir pārāk īss",
+      "tur_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu Turcijas ID numuru"
+      },
       "usa_specific": {
         "invalid_ssn": "Ievadiet derīgu PAN",
         "required_ssn": "Ievadiet savu SSN",
         "required_state": "Atlasiet štatu"
       }
     },
+    "national_id_number_title": "Pievienojiet savu valsts ID numuru",
     "personal_information_title": "Pievienojiet savu personisko informāciju",
     "prompt": {
       "details_timeout": "Sākt vēlreiz",

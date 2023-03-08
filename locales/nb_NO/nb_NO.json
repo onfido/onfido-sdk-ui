@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "En annen app bruker mikrofonen",
       "timeout_body": "Du har opptil 15 sekunder på å fullføre opptaket",
       "timeout_button_primary": "Prøv igjen",
       "timeout_title": "Beklager, vi må starte opptaket på nytt",
@@ -31,7 +32,7 @@
     "title_completed": "Opptaket er fullført"
   },
   "avc_intro": {
-    "button_primary_ready": "Jeg er klar",
+    "button_primary_ready": "Start opptak",
     "disclaimer": "Vær oppmerksom på at vi registrerer ansiktet og bakgrunnen din",
     "disclaimer_camera_and_audio_on": "Ansiktet ditt, bakgrunnen og lyden vil bli tatt opp under denne prosessen",
     "list_item_one": "Først, plasser ansiktet ditt i rammen",
@@ -115,6 +116,8 @@
     "footer": {
       "captured": "Bildet er tatt",
       "capturing": "Tar bilde",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Ta et bilde av baksiden av kortet ditt",
       "manual_fallback_identity_card_front": "Ta et bilde av forsiden av kortet ditt",
       "manual_fallback_license_back": "Ta et bilde av baksiden av førerkortet ditt",
@@ -122,6 +125,8 @@
       "manual_fallback_passport": "Ta et bilde av bildesiden i passet ditt",
       "manual_fallback_residence_permit_back": "Ta et bilde av baksiden av oppholdstillatelsen din",
       "manual_fallback_residence_permit_front": "Ta et bilde av forsiden av oppholdstillatelsen din",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Plasser kortets bakside i rammen",
       "position_identity_card_front": "Plasser kortets forside i rammen",
       "position_license_back": "Plasser baksiden av førerkortet i rammen",
@@ -164,6 +169,7 @@
     "body_bank_statement": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
     "body_benefits_letter": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
     "body_bill": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
+    "body_generic_document": "",
     "body_id": "Sørg for at opplysningene dine er tydelige og uhindret",
     "body_image_medium": "Det vil ta lengre tid å verifisere deg hvis vi ikke kan lese den",
     "body_image_poor": "For å kunne verifisere deg på en uproblematisk måte, trenger vi et bedre bilde",
@@ -231,6 +237,8 @@
     "title_bank_statement": "Send inn kontoutskrift",
     "title_benefits_letter": "Send inn brev",
     "title_bill": "Send inn regning",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Offentlig skriv",
     "title_id_back": "Send inn identitetskort (bakside)",
     "title_id_front": "Send inn identitetskort (forside)",
@@ -398,12 +406,16 @@
   "permission": {
     "body_both": "Vi kan ikke verifisere deg uten å bruke både kameraet og mikrofonen din",
     "body_cam": "Vi kan ikke verifisere deg uten kameraet ditt",
+    "body_mic": "Vi kan ikke verifisere deg uten å bruke mikrofonen din",
     "button_primary_both": "Aktiver begge",
     "button_primary_cam": "Aktiver kamera",
+    "button_primary_mic": "Aktiver mikrofon",
     "subtitle_both": "Når du blir bedt om det, må du aktivere tilgang for at begge skal fortsette",
     "subtitle_cam": "Når du blir bedt om det, må du aktivere kameratilgangen for å fortsette",
+    "subtitle_mic": "Når du blir bedt om det, må du aktivere tilgang til begge for å fortsette",
     "title_both": "Tillat kamera- og mikrofontilgang",
-    "title_cam": "Tillat kameratilgang"
+    "title_cam": "Tillat kameratilgang",
+    "title_mic": "Tillat mikrofontilgang"
   },
   "permission_recovery": {
     "button_primary": "Oppdater",
@@ -413,16 +425,21 @@
     "list_item_action_cam": "Oppdater denne siden for å starte prosessen for identitetsbekreftelse på nytt",
     "list_item_how_to_both": "Gi tilgang til kameraet fra nettleserinnstillingene",
     "list_item_how_to_cam": "Gi tilgang til kameraet i nettleserinnstillingene",
+    "list_item_how_to_mic": "Gi mikrofonen tilgang i nettleserinnstillingene",
     "subtitle_both": "Gjenopprett kameratilgang for å ta en video og fullfør verifiseringsprosessen",
     "subtitle_cam": "Gjenopprett kameratilgang for å fortsette verifiseringen",
     "subtitle_cam_old": "Gjenopprett kameratilgangen for å fortsette ansiktsverifiseringen",
+    "subtitle_mic": "Vi kan ikke verifisere deg uten å bruke mikrofonen din",
     "title_both": "Kamera- og mikrofontilgang nektet",
-    "title_cam": "Kameratilgang er nektet"
+    "title_cam": "Kameratilgang er nektet",
+    "title_mic": "Mikrofontilgang nektet"
   },
   "photo_upload": {
     "body_bank_statement": "Bruk hele dokumentsiden for det beste resultatet",
     "body_benefits_letter": "Bruk hele dokumentsiden for det beste resultatet",
     "body_bill": "Bruk hele dokumentsiden for det beste resultatet",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Last opp baksiden av kortet fra datamaskinen",
     "body_id_front": "Last opp forsiden av lisensen fra datamaskinen",
     "body_license_back": "Last opp baksiden av lisensen fra datamaskinen",
@@ -476,6 +493,39 @@
       "country_select": {
         "placeholder": "Velg et land"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Utenlandsk pass"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Førerkort",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Identitetskort",
+        "ind_specific": {
+          "tax_id": "Personlig kontonummer (PAN)"
+        },
+        "ken_specific": {
+          "other": "Alien kort"
+        },
+        "nga_specific": {
+          "identity_card": "Nasjonalt identifikasjonsnummer (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Pass",
+        "placeholder": "Velg en nasjonal ID-type",
+        "tax_id": "Skatte-ID",
+        "voter_id": "Velger-ID"
+      },
       "nationality_select": {
         "placeholder": "Velg et land"
       },
@@ -491,27 +541,71 @@
     },
     "country_of_residence_title": "Bostedslandet ditt",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI-nummer"
+      },
+      "can_specific": {
+        "national_id_value": "Social Insurance Number (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN-nummer"
+      },
+      "chn_specific": {
+        "national_id_value": "Resident Identitetskort nummer"
+      },
+      "col_specific": {
+        "national_id_value": "Colombiansk personlig identifikasjonsnummer"
+      },
       "country": "Land",
       "country_residence": "Land",
       "dob": "Fødselsdato",
       "email": "E-postadresse",
+      "fin_specific": {
+        "national_id_value": "Personlig identitetskode"
+      },
       "first_name": "Fornavn",
       "gbr_specific": {
         "postcode": "Postnummer",
         "town": "By/tettsted"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Permanent kontonummer (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Skattekode"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Mitt nummer\" / Innbyggerpostkode"
       },
       "last_name": "Etternavn",
       "line1": "Adresslinje 1",
       "line2": "Adresselinje 2",
       "line3": "Adresselinje 3",
+      "lux_specific": {
+        "national_id_value": "Personnummer"
+      },
       "mobile_number": "Mobilnummer",
+      "national_id_type": "Nasjonal ID-type",
+      "national_id_value": "Fødselsnummer",
       "nationality": "Nasjonalitet",
+      "phl_specific": {
+        "national_id_value": "PhilSys-kortnummer (PCN)"
+      },
       "phone_number": "Telefonnummer",
+      "pol_specific": {
+        "national_id_value": "PESEL-nummer"
+      },
       "postcode": "Postnummer",
+      "prt_specific": {
+        "national_id_value": "Skattenummer"
+      },
       "town": "By",
+      "tur_specific": {
+        "national_id_value": "Tyrkisk identifikasjonsnummer"
+      },
       "usa_specific": {
         "line1_helper_text": "Gateadresse, for eksempel: 200 Albert Street",
         "line2_helper_text": "Leilighet, suite, enhet, osv.",
@@ -522,11 +616,48 @@
     },
     "field_optional": "(valgfritt)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Angi en gyldig DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Vennligst skriv inn en gyldig CNPJ",
+        "invalid_tax_id": "Vennligst skriv inn en gyldig CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn en gyldig SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn et gyldig RUT / RUN-nummer",
+        "required_national_id_value": "Vennligst skriv inn dine RUT / RUN-numre"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn et gyldig ID-kortnummer"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn et gyldig colombiansk personlig identifikasjonsnummer",
+        "required_national_id_value": "Vennligst skriv inn ditt colombianske personnummer"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Vennligst skriv inn en gyldig NIF/DNI",
+        "invalid_other": "Vennligst skriv inn en gyldig NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn en gyldig personlig identitetskode",
+        "required_national_id_value": "Vennligst skriv inn din personlige identitetskode"
+      },
       "gbr_specific": {
         "invalid_postcode": "Vennligst skriv inn et gyldig postnummer",
         "required_postcode": "Vennligst skriv inn postnummer",
         "too_long_postcode": "Postnummeret er for langt",
         "too_short_postcode": "Postnummeret er for kort"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Vennligst skriv inn en gyldig SSNIT",
+        "required_social_insurance": "Vennligst skriv inn SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn en gyldig HKID",
+        "required_national_id_value": "Vennligst skriv inn HKID"
       },
       "ind_specific": {
         "invalid_pan": "Skriv inn et gyldig PAN",
@@ -534,9 +665,59 @@
       },
       "invalid": "Se etter ugyldige tegn eller symboler",
       "invalid_dob": "Oppgi en gyldig fødselsdato",
+      "invalid_driving_license": "Vennligst skriv inn et gyldig førerkortnummer",
       "invalid_email": "Vennligst skriv inn en gyldig e-post",
       "invalid_mobile_number": "Skriv inn et gyldig mobilnummer",
+      "invalid_national_id_value": "Vennligst skriv inn et gyldig nasjonalt ID-nummer",
+      "invalid_passport": "Vennligst skriv inn et gyldig passnummer",
       "invalid_phone_number": "Skriv inn et gyldig telefonnummer",
+      "invalid_voter_id": "Vennligst skriv inn et gyldig velger-ID",
+      "ita_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn en gyldig skattekode"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn en gyldig \"Mitt nummer\" / Resident Record-kode",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Vennligst skriv inn et gyldig Alien Card-nummer",
+        "required_other": "Vennligst skriv inn Alien Card-nummeret ditt"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn et gyldig personnummer",
+        "required_national_id_value": "Vennligst skriv inn personnummeret ditt"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Vennligst skriv inn en gyldig CURP",
+        "invalid_tax_id": "Vennligst skriv inn en gyldig RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Angi en gyldig NRIC",
+        "required_national_id_value": "Vennligst skriv inn NRIC"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Vennligst skriv inn et gyldig nasjonalt identifikasjonsnummer (NIN)",
+        "invalid_other": "Vennligst skriv inn et gyldig BVN",
+        "invalid_tax_id": "Vennligst skriv inn et gyldig TIN",
+        "required_identity_card": "Vennligst skriv inn ditt nasjonale identifikasjonsnummer (NIN)",
+        "required_other": "Vennligst skriv inn ditt BVN",
+        "required_tax_id": "Vennligst skriv inn TIN"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn et gyldig PhilSys-kortnummer (PCN)",
+        "required_national_id_value": "Vennligst skriv inn ditt PhilSys-kortnummer (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn et gyldig PESEL-nummer",
+        "required_national_id_value": "Vennligst skriv inn ditt PESEL-nummer"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn et gyldig skattenummer",
+        "required_national_id_value": "Vennligst skriv inn skattenummeret ditt"
+      },
+      "reference": {
+        "translation": "Vennligst skriv inn en gyldig"
+      },
       "required_consent": "Godta å godkjenne identitetssjekk og svindelkontroll",
       "required_country": "Velg et land",
       "required_country_residence": "Velg et land",
@@ -549,6 +730,12 @@
       "required_nationality": "Velg et land",
       "required_phone_number": "Oppgi telefonnummeret ditt",
       "required_postcode": "Skriv inn postnummeret ditt",
+      "sgp_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn en gyldig NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn en gyldig PIN"
+      },
       "too_long_first_name": "Fornavnet er for langt",
       "too_long_last_name": "Etternavnet er for langt",
       "too_long_line1": "Adresselinjen er for lang",
@@ -557,12 +744,16 @@
       "too_short_first_name": "Fornavnet er for kort",
       "too_short_last_name": "Etternavnet er for kort",
       "too_short_postcode": "Postnummeret er for kort",
+      "tur_specific": {
+        "invalid_national_id_value": "Vennligst skriv inn et gyldig tyrkisk ID-nummer"
+      },
       "usa_specific": {
         "invalid_ssn": "Skriv inn en gyldig personnummer",
         "required_ssn": "Vennligst oppgi personnummeret ditt",
         "required_state": "Vennligst velg fylke"
       }
     },
+    "national_id_number_title": "Legg til ditt nasjonale ID-nummer",
     "personal_information_title": "Legg til personopplysninger",
     "prompt": {
       "details_timeout": "Start på nytt",

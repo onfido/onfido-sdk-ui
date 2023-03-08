@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "الميكروفون قيد الاستخدام بواسطة تطبيق آخر",
       "timeout_body": "لديك ما يصل إلى 15 ثانية لإكمال التسجيل",
       "timeout_button_primary": "إعادة المحاولة",
       "timeout_title": "عذرًا، علينا إعادة بدء التسجيل",
@@ -31,7 +32,7 @@
     "title_completed": "اكتمل التسجيل"
   },
   "avc_intro": {
-    "button_primary_ready": "أنا مستعد",
+    "button_primary_ready": "بدء التسجيل",
     "disclaimer": "سيتم تسجيل وجهك وخلفيتك أثناء هذه العملية",
     "disclaimer_camera_and_audio_on": "سيتم تسجيل وجهك وخلفيتك وصوتك أثناء هذه العملية",
     "list_item_one": "أولاً، ضع وجهك ضمن الإطار",
@@ -115,6 +116,8 @@
     "footer": {
       "captured": "تم التقاط الصورة",
       "capturing": "Capturing photo",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "التقط صورة للجزء الخلفي من بطاقتك",
       "manual_fallback_identity_card_front": "التقط صورة للجزء الأمامي من بطاقتك",
       "manual_fallback_license_back": "التقط صورة للجزء الخلفي من رخصة القيادة",
@@ -122,6 +125,8 @@
       "manual_fallback_passport": "التقط صورة لصفحة صورة جواز سفرك",
       "manual_fallback_residence_permit_back": "التقط صورة للجزء الخلفي من تصريح إقامتك",
       "manual_fallback_residence_permit_front": "التقط صورة للجزء الأمامي من تصريح إقامتك",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "ضع الجزء الخلفي من بطاقتك في الإطار",
       "position_identity_card_front": "ضع الجزء الأمامي من بطاقتك في الإطار",
       "position_license_back": "ضع الجزء الخلفي من رخصة القيادة في الإطار",
@@ -164,6 +169,7 @@
     "body_bank_statement": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
     "body_benefits_letter": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
     "body_bill": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
+    "body_generic_document": "",
     "body_id": "تأكد من أن بياناتك واضحة وليست محجوبة",
     "body_image_medium": "سيستغرق الأمر وقتًا أطول للتحقق منك إذا لم نتمكن من قراءته",
     "body_image_poor": "للتحقق منك بسلاسة، نحتاج إلى صورة أفضل",
@@ -231,6 +237,8 @@
     "title_bank_statement": "إرسال بيان",
     "title_benefits_letter": "أرسِل الرسالة",
     "title_bill": "أرسِل الفاتورة",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "خطاب حكومي",
     "title_id_back": "إرسال بطاقة الهوية (الوجه الخلفي)",
     "title_id_front": "إرسال بطاقة الهوية (الوجه الأمامي)",
@@ -398,12 +406,16 @@
   "permission": {
     "body_both": "لا يمكننا التحقق منك من دون استخدام كل من الكاميرا والميكروفون",
     "body_cam": "لا يمكننا التحقق منك بدون الكاميرا",
+    "body_mic": "لا يمكننا التحقق منك من دون استخدام الميكروفون",
     "button_primary_both": "تمكين كلا الإثنين",
     "button_primary_cam": "تمكين الكاميرا",
+    "button_primary_mic": "تمكين الميكروفون",
     "subtitle_both": "عند المطالبة، يجب تمكين الوصول لكليهما للمتابعة",
     "subtitle_cam": "عند المطالبة، يجب تمكين الوصول إلى الكاميرا للمتابعة",
+    "subtitle_mic": "عند المطالبة، يجب تمكين الوصول إلى الميكروفون للمتابعة",
     "title_both": "السماح باستخدام الكاميرا والميكروفون",
-    "title_cam": "السماح باستخدام الكاميرا"
+    "title_cam": "السماح باستخدام الكاميرا",
+    "title_mic": "السماح باستخدام الميكروفون"
   },
   "permission_recovery": {
     "button_primary": "تنشيط",
@@ -413,16 +425,21 @@
     "list_item_action_cam": "تحديث هذه الصفحة لإعادة بدء عملية التحقق من الهوية",
     "list_item_how_to_both": "منح الوصول إلى الكاميرا والميكروفون من إعدادات المتصفح",
     "list_item_how_to_cam": "امنح الوصول إلى الكاميرا من إعدادات المتصفح",
+    "list_item_how_to_mic": "امنح إمكانية الوصول إلى الميكروفون من إعدادات متصفحك",
     "subtitle_both": "استعادة الوصول إلى الكاميرا والميكروفون لالتقاط مقطع فيديو وإكمال عملية التحقق",
     "subtitle_cam": "استعادة الوصول إلى الكاميرا لمتابعة عملية التحقق",
     "subtitle_cam_old": "استعادة الوصول إلى الكاميرا لمتابعة التحقق من الوجه",
+    "subtitle_mic": "لا يمكننا التحقق منك من دون الميكروفون الخاص بك",
     "title_both": "تم رفض الوصول إلى الكاميرا والميكروفون",
-    "title_cam": "تم رفض الوصول إلى الكاميرا"
+    "title_cam": "تم رفض الوصول إلى الكاميرا",
+    "title_mic": "تم رفض الوصول إلى الميكروفون"
   },
   "photo_upload": {
     "body_bank_statement": "قدّم صفحة المستند بالكامل للحصول على أفضل النتائج",
     "body_benefits_letter": "قدّم صفحة المستند بالكامل للحصول على أفضل النتائج",
     "body_bill": "قدّم صفحة المستند بالكامل للحصول على أفضل النتائج",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "تحميل الوجه الخلفي للبطاقة من جهاز كمبيوترك",
     "body_id_front": "تحميل الوجه الأمامي للبطاقة من جهاز كمبيوترك",
     "body_license_back": "تحميل الوجه الخلفي للترخيص من جهاز كمبيوترك",
@@ -476,6 +493,39 @@
       "country_select": {
         "placeholder": "يُرجى اختيار بلد"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "جواز سفر أجنبي"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "رخصة السائق",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "بطاقة إثبات شخصية",
+        "ind_specific": {
+          "tax_id": "رقم الحساب الشخصي (PAN)"
+        },
+        "ken_specific": {
+          "other": "بطاقة أجنبي"
+        },
+        "nga_specific": {
+          "identity_card": "رقم التعريف الوطني (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "جواز سفر",
+        "placeholder": "حدد نوع الهوية الوطنية",
+        "tax_id": "الرقم الضريبي",
+        "voter_id": "هوية الناخب"
+      },
       "nationality_select": {
         "placeholder": "يُرجى اختيار بلد"
       },
@@ -491,27 +541,71 @@
     },
     "country_of_residence_title": "بلد إقامتك",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "رقم DNI"
+      },
+      "can_specific": {
+        "national_id_value": "رقم التأمين الاجتماعي (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "أرقام RUT / RUN"
+      },
+      "chn_specific": {
+        "national_id_value": "المقيم بطاقة إثبات شخصية رقم"
+      },
+      "col_specific": {
+        "national_id_value": "رقم التعريف الشخصي الكولومبي"
+      },
       "country": "الدولة",
       "country_residence": "الدولة",
       "dob": "تاريخ الميلاد",
       "email": "البريد الإلكتروني",
+      "fin_specific": {
+        "national_id_value": "رمز الهوية الشخصية"
+      },
       "first_name": "الاسم الأول",
       "gbr_specific": {
         "postcode": "الرمز البريدي",
         "town": "المدينة/البلدة"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "رقم الحساب الدائم (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "الكود الضريبي"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"رقمي\" / رمز سجل المقيم"
       },
       "last_name": "اسم العائلة",
       "line1": "السطر الأول من العنوان",
       "line2": "السطر الثاني من العنوان",
       "line3": "السطر الثالث من العنوان",
+      "lux_specific": {
+        "national_id_value": "رقم الضمان الاجتماعي"
+      },
       "mobile_number": "رقم الهاتف المحمول",
+      "national_id_type": "نوع الهوية الوطنية",
+      "national_id_value": "رقم الهوية الوطنية",
       "nationality": "الجنسية",
+      "phl_specific": {
+        "national_id_value": "رقم بطاقة PhilSys (PCN)"
+      },
       "phone_number": "رقم الهاتف",
+      "pol_specific": {
+        "national_id_value": "رقم PESEL"
+      },
       "postcode": "الرمز البريدي",
+      "prt_specific": {
+        "national_id_value": "الرقم الضريبي"
+      },
       "town": "البلدة",
+      "tur_specific": {
+        "national_id_value": "رقم التعريف التركي"
+      },
       "usa_specific": {
         "line1_helper_text": "عنوان الشارع، على سبيل المثال: 200 شارع ألبرت",
         "line2_helper_text": "شقة، جناح، وحدة، الخ",
@@ -522,11 +616,48 @@
     },
     "field_optional": "(اختياري)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "الرجاء إدخال DNI صالح"
+      },
+      "bra_specific": {
+        "invalid_other": "الرجاء إدخال CNPJ",
+        "invalid_tax_id": "الرجاء إدخال CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "الرجاء إدخال SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "الرجاء إدخال أرقام RUT / RUN صالحة",
+        "required_national_id_value": "الرجاء إدخال أرقام RUT / RUN الخاصة بك"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "الرجاء إدخال رقم بطاقة هوية مقيم صالح"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "الرجاء إدخال رقم تعريف شخصي كولومبي صالح",
+        "required_national_id_value": "الرجاء إدخال رقم التعريف الشخصي الكولومبي الخاص بك"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "الرجاء إدخال NIF/DNI",
+        "invalid_other": "الرجاء إدخال NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "الرجاء إدخال رمز هوية شخصية صالح",
+        "required_national_id_value": "الرجاء إدخال رمز الهوية الشخصية الخاص بك"
+      },
       "gbr_specific": {
         "invalid_postcode": "يُرجى إدخال رمز بريدي صالح",
         "required_postcode": "يُرجى إدخال الرمز البريدي الخاص بك",
         "too_long_postcode": "الرمز البريدي طويل للغاية",
         "too_short_postcode": "الرمز البريدي قصير للغاية"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "الرجاء إدخال SSNIT صالح",
+        "required_social_insurance": "الرجاء إدخال SSNIT الخاص بك"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "الرجاء إدخال معرف HKID صالح",
+        "required_national_id_value": "الرجاء إدخال HKID الخاص بك"
       },
       "ind_specific": {
         "invalid_pan": "يرجى إدخال رقم حساب دائم صالح",
@@ -534,9 +665,59 @@
       },
       "invalid": "يُرجى التحقق من وجود أحرف أو رموز غير صالحة",
       "invalid_dob": "يُرجى إدخال تاريخ ميلاد صحيح",
+      "invalid_driving_license": "الرجاء إدخال رقم رخصة قيادة صالح",
       "invalid_email": "يُرجى إدخال بريد إلكتروني صالح",
       "invalid_mobile_number": "يُرجى إدخال رقم هاتف صحيح",
+      "invalid_national_id_value": "الرجاء إدخال رقم وطني صحيح",
+      "invalid_passport": "الرجاء إدخال رقم جواز سفر صالح",
       "invalid_phone_number": "يُرجى إدخال رقم هاتف صحيح",
+      "invalid_voter_id": "الرجاء إدخال رقم هوية ناخب صالح",
+      "ita_specific": {
+        "invalid_national_id_value": "الرجاء إدخال رمز مالي صالح"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "الرجاء إدخال \"رقمي\" صالح / رمز سجل المقيم",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "الرجاء إدخال رقم بطاقة أجنبي صالح",
+        "required_other": "الرجاء إدخال رقم بطاقة Alien الخاصة بك"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "الرجاء إدخال رقم ضمان اجتماعي صالح",
+        "required_national_id_value": "الرجاء إدخال رقم الضمان الاجتماعي الخاص بك"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "الرجاء إدخال CURP",
+        "invalid_tax_id": "الرجاء إدخال RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "الرجاء إدخال NRIC صالح",
+        "required_national_id_value": "الرجاء إدخال NRIC الخاص بك"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "الرجاء إدخال رقم تعريف وطني صالح (NIN)",
+        "invalid_other": "الرجاء إدخال BVN صالح",
+        "invalid_tax_id": "الرجاء إدخال رقم تعريف صحيح (TIN) صالح",
+        "required_identity_card": "الرجاء إدخال رقم التعريف الوطني الخاص بك (NIN)",
+        "required_other": "الرجاء إدخال رقم التعريف الشخصي الخاص بك",
+        "required_tax_id": "الرجاء إدخال رقم التعريف الضريبي الخاص بك"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "الرجاء إدخال رقم بطاقة PhilSys صالح (PCN)",
+        "required_national_id_value": "الرجاء إدخال رقم بطاقة PhilSys (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "الرجاء إدخال رقم PESEL صالح",
+        "required_national_id_value": "الرجاء إدخال رقم PESEL الخاص بك"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "الرجاء إدخال رقم ضريبي صالح",
+        "required_national_id_value": "الرجاء إدخال رقمك الضريبي"
+      },
+      "reference": {
+        "translation": "الرجاء إدخال"
+      },
       "required_consent": "يُرجى الموافقة على تفويض عمليات التحقق من الهوية والاحتيال",
       "required_country": "يُرجى تحديد الدولة",
       "required_country_residence": "يُرجى تحديد الدولة",
@@ -549,6 +730,12 @@
       "required_nationality": "يُرجى تحديد الدولة",
       "required_phone_number": "يُرجى إدخال رقم هاتفك",
       "required_postcode": "يُرجى إدخال الرمز البريدي الخاص بك",
+      "sgp_specific": {
+        "invalid_national_id_value": "الرجاء إدخال NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "الرجاء إدخال PIN"
+      },
       "too_long_first_name": "الاسم الأول طويل للغاية",
       "too_long_last_name": "اسم العائلة طويل للغاية",
       "too_long_line1": "سطر العنوان طويل للغاية",
@@ -557,12 +744,16 @@
       "too_short_first_name": "الاسم الأول قصير للغاية",
       "too_short_last_name": "اسم العائلة قصير للغاية",
       "too_short_postcode": "الرمز البريدي قصير للغاية",
+      "tur_specific": {
+        "invalid_national_id_value": "الرجاء إدخال رقم هوية تركي صالح"
+      },
       "usa_specific": {
         "invalid_ssn": "يُرجى إدخال رقم ضمان اجتماعي صحيح",
         "required_ssn": "من فضلك رقمك للضمان الاجتماعي (SSN)",
         "required_state": "يُرجى اختيار ولاية"
       }
     },
+    "national_id_number_title": "أضف رقم الهوية الوطنية الخاص بك",
     "personal_information_title": "أضف المعلومات الشخصية للمستخدم",
     "prompt": {
       "details_timeout": "ابدأ من جديد",

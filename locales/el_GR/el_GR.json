@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Το μικρόφωνό σας χρησιμοποιείται από άλλη εφαρμογή",
       "timeout_body": "Έχετε στη διάθεσή σας έως και 15 δευτερόλεπτα για να ολοκληρώσετε την εγγραφή",
       "timeout_button_primary": "Επανάληψη προσπάθειας",
       "timeout_title": "Δυστυχώς, πρέπει να επανεκκινήσουμε την εγγραφή",
@@ -31,9 +32,9 @@
     "title_completed": "Η εγγραφή ολοκληρώθηκε"
   },
   "avc_intro": {
-    "button_primary_ready": "Είμαι έτοιμος/-η",
+    "button_primary_ready": "Έναρξη εγγραφής",
     "disclaimer": "Λάβετε υπόψη ότι θα καταγράψουμε το πρόσωπό σας και το φόντο σας",
-    "disclaimer_camera_and_audio_on": "Το πρόσωπό σας, το φόντο και ο ήχος σας θα καταγραφούν κατά τη διάρκεια αυτής της διαδικασίας.",
+    "disclaimer_camera_and_audio_on": "Το πρόσωπο, το φόντο και ο ήχος σας θα καταγραφούν κατά τη διάρκεια αυτής της διαδικασίας",
     "list_item_one": "Πρώτα, τοποθετήστε το πρόσωπό σας στο πλαίσιο",
     "list_item_two": "Στη συνέχεια, γυρίστε το κεφάλι σας αργά και προς τις δύο πλευρές",
     "subtitle": "Αυτό είναι για να επαληθεύσετε ότι είστε πραγματικό πρόσωπο",
@@ -115,6 +116,8 @@
     "footer": {
       "captured": "Έγινε λήψη της φωτογραφίας",
       "capturing": "Λήψη φωτογραφίας",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Τραβήξτε μια φωτογραφία της πίσω όψης του δελτίου σας",
       "manual_fallback_identity_card_front": "Τραβήξτε μια φωτογραφία της μπροστινής όψης του δελτίου σας",
       "manual_fallback_license_back": "Τραβήξτε μια φωτογραφία της πίσω όψης του διπλώματος οδήγησής σας",
@@ -122,6 +125,8 @@
       "manual_fallback_passport": "Τραβήξτε μια φωτογραφία της σελίδας φωτογραφίας του διαβατηρίου σας",
       "manual_fallback_residence_permit_back": "Τραβήξτε μια φωτογραφία της πίσω όψης της άδειας διαμονής σας",
       "manual_fallback_residence_permit_front": "Τραβήξτε μια φωτογραφία της μπροστινής όψης της άδειας διαμονής σας",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Τοποθετήστε την πίσω όψη του δελτίου σας στο πλαίσιο",
       "position_identity_card_front": "Τοποθετήστε την μπροστινή όψη του δελτίου σας στο πλαίσιο",
       "position_license_back": "Τοποθετήστε την μπροστινή όψη της άδειας οδήγησής σας στο πλαίσιο",
@@ -164,6 +169,7 @@
     "body_bank_statement": "Βεβαιωθείτε ότι έχετε αποστείλει ολόκληρη τη σελίδα του εγγράφου και ότι τα στοιχεία είναι ευανάγνωστα, το έγγραφο δεν είναι θολό και δεν υπάρχει αντανάκλαση",
     "body_benefits_letter": "Βεβαιωθείτε ότι έχετε αποστείλει ολόκληρη τη σελίδα του εγγράφου και ότι τα στοιχεία είναι ευανάγνωστα, το έγγραφο δεν είναι θολό και δεν υπάρχει αντανάκλαση",
     "body_bill": "Βεβαιωθείτε ότι έχετε αποστείλει ολόκληρη τη σελίδα του εγγράφου και ότι τα στοιχεία είναι ευανάγνωστα, το έγγραφο δεν είναι θολό και δεν υπάρχει αντανάκλαση",
+    "body_generic_document": "",
     "body_id": "Βεβαιωθείτε ότι τα στοιχεία σας διακρίνονται με σαφήνεια και δεν καλύπτονται",
     "body_image_medium": "Θα χρειαστεί περισσότερος χρόνος για να επαληθεύσουμε την ταυτότητά σας αν δεν μπορούμε να το διαβάσουμε",
     "body_image_poor": "Για να επαληθεύσουμε την ταυτότητά σας, χρειαζόμαστε μια καλύτερη φωτογραφία",
@@ -231,6 +237,8 @@
     "title_bank_statement": "Υποβολή δήλωσης",
     "title_benefits_letter": "Υποβολή επιστολής",
     "title_bill": "Υποβολή λογαριασμού",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Κρατική επιστολή",
     "title_id_back": "Υποβολή δελτίου ταυτότητας (πίσω όψη)",
     "title_id_front": "Υποβολή δελτίου ταυτότητας (μπροστινή όψη)",
@@ -398,12 +406,16 @@
   "permission": {
     "body_both": "Δεν μπορούμε να σας επαληθεύσουμε χωρίς να χρησιμοποιήσουμε και την κάμερα και το μικρόφωνό σας",
     "body_cam": "Δεν μπορούμε να σας επαληθεύσουμε χωρίς την κάμερά σας",
+    "body_mic": "Δεν μπορούμε να σας επαληθεύσουμε χωρίς να χρησιμοποιήσουμε το μικρόφωνό σας",
     "button_primary_both": "Ενεργοποίηση και των δύο",
     "button_primary_cam": "Ενεργοποίηση κάμερας",
+    "button_primary_mic": "Ενεργοποίηση μικροφώνου",
     "subtitle_both": "Όταν σας ζητηθεί, πρέπει να ενεργοποιήσετε την πρόσβαση και για τα δύο για να συνεχίσετε",
     "subtitle_cam": "Όταν σας ζητηθεί, πρέπει να ενεργοποιήσετε την πρόσβαση στην κάμερα για να συνεχίσετε",
+    "subtitle_mic": "Όταν σας ζητηθεί, πρέπει να ενεργοποιήσετε την πρόσβαση στο μικρόφωνο για να συνεχίσετε",
     "title_both": "Να επιτρέπεται η πρόσβαση στην κάμερα και στο μικρόφωνο",
-    "title_cam": "Να επιτρέπεται η πρόσβαση στην κάμερα"
+    "title_cam": "Να επιτρέπεται η πρόσβαση στην κάμερα",
+    "title_mic": "Να επιτρέπεται η πρόσβαση στο μικρόφωνο"
   },
   "permission_recovery": {
     "button_primary": "Ανανέωση",
@@ -413,16 +425,21 @@
     "list_item_action_cam": "Ανανεώστε αυτήν τη σελίδα για να επανεκκινήσετε τη διαδικασία επαλήθευσης ταυτότητας",
     "list_item_how_to_both": "Παρέχετε πρόσβαση στην κάμερα και στο μικρόφωνό σας από τις ρυθμίσεις του προγράμματος περιήγησής σας",
     "list_item_how_to_cam": "Παρέχετε πρόσβαση στην κάμερά σας από τις ρυθμίσεις του προγράμματος περιήγησής σας",
+    "list_item_how_to_mic": "Παραχωρήστε πρόσβαση στο μικρόφωνό σας από τις ρυθμίσεις του προγράμματος περιήγησης",
     "subtitle_both": "Ανακτήστε την πρόσβαση στην κάμερα και στο μικρόφωνο για να τραβήξετε ένα βίντεο και να ολοκληρώσετε τη διαδικασία επαλήθευσης",
     "subtitle_cam": "Ανακτήστε την πρόσβαση στην κάμερα για να συνεχίσετε την επαλήθευσή σας",
     "subtitle_cam_old": "Ανακτήστε την πρόσβαση στην κάμερα για να συνεχίσετε την επαλήθευση προσώπου",
+    "subtitle_mic": "Δεν μπορούμε να σας επαληθεύσουμε χωρίς το μικρόφωνό σας",
     "title_both": "Απαγορεύεται η πρόσβαση στην κάμερα και στο μικρόφωνο",
-    "title_cam": "Δεν επιτρέπεται η πρόσβαση στην κάμερα"
+    "title_cam": "Δεν επιτρέπεται η πρόσβαση στην κάμερα",
+    "title_mic": "Δεν επιτρέπεται η πρόσβαση στο μικρόφωνο"
   },
   "photo_upload": {
     "body_bank_statement": "Παρέχετε ολόκληρη τη σελίδα του εγγράφου για καλύτερα αποτελέσματα",
     "body_benefits_letter": "Παρέχετε ολόκληρη τη σελίδα του εγγράφου για καλύτερα αποτελέσματα",
     "body_bill": "Παρέχετε ολόκληρη τη σελίδα του εγγράφου για καλύτερα αποτελέσματα",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Ανεβάστε την πίσω όψη του δελτίου από τον υπολογιστή σας",
     "body_id_front": "Ανεβάστε τον μπροστινή όψη του δελτίου από τον υπολογιστή σας",
     "body_license_back": "Ανεβάστε την πίσω όψη της άδειας από τον υπολογιστή σας",
@@ -476,6 +493,39 @@
       "country_select": {
         "placeholder": "Επιλέξτε χώρα"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Ξένο διαβατήριο"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Αδεια οδήγησης",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Δελτίο ταυτότητας",
+        "ind_specific": {
+          "tax_id": "Προσωπικός Αριθμός Λογαριασμού (PAN)"
+        },
+        "ken_specific": {
+          "other": "Κάρτα εξωγήινων"
+        },
+        "nga_specific": {
+          "identity_card": "Εθνικός Αριθμός Ταυτότητας (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Διαβατήριο",
+        "placeholder": "Επιλέξτε έναν τύπο εθνικής ταυτότητας",
+        "tax_id": "Τον αριθμό φορολογικού μητρώου",
+        "voter_id": "Ταυτότητα ψηφοφόρου"
+      },
       "nationality_select": {
         "placeholder": "Επιλέξτε χώρα"
       },
@@ -491,27 +541,71 @@
     },
     "country_of_residence_title": "Η χώρα διαμονής σας",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "Αριθμός DNI"
+      },
+      "can_specific": {
+        "national_id_value": "Αριθμός Κοινωνικής Ασφάλισης (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "Αριθμοί RUT / RUN"
+      },
+      "chn_specific": {
+        "national_id_value": "Αριθμός κατοίκου Δελτίο ταυτότητας"
+      },
+      "col_specific": {
+        "national_id_value": "Κολομβιανός Προσωπικός Αριθμός Ταυτότητας"
+      },
       "country": "Χώρα",
       "country_residence": "Χώρα",
       "dob": "Ημερομηνία γέννησης",
       "email": "Email",
+      "fin_specific": {
+        "national_id_value": "Προσωπικός κωδικός ταυτότητας"
+      },
       "first_name": "Όνομα",
       "gbr_specific": {
         "postcode": "Ταχυδρομικός κώδικας",
         "town": "Πόλη/Κωμόπολη"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Μόνιμος αριθμός λογαριασμού (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Δημοσιονομικός κώδικας"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Ο αριθμός μου\" / Κωδικός εγγραφής κατοίκου"
       },
       "last_name": "Επώνυμο",
       "line1": "Γραμμή διεύθυνσης 1",
       "line2": "Γραμμή διεύθυνσης 2",
       "line3": "Γραμμή διεύθυνσης 3",
+      "lux_specific": {
+        "national_id_value": "Αριθμός κοινωνικής ασφάλισης"
+      },
       "mobile_number": "Αριθμός κινητού τηλεφώνου",
+      "national_id_type": "Τύπος εθνικής ταυτότητας",
+      "national_id_value": "Εθνικός Αριθμός Ταυτότητας",
       "nationality": "Εθνικότητα",
+      "phl_specific": {
+        "national_id_value": "Αριθμός κάρτας PhilSys (PCN)"
+      },
       "phone_number": "Τηλεφωνικός αριθμός",
+      "pol_specific": {
+        "national_id_value": "Αριθμός PESEL"
+      },
       "postcode": "Ταχυδρομικός κώδικας",
+      "prt_specific": {
+        "national_id_value": "ΑΦΜ"
+      },
       "town": "Πόλη",
+      "tur_specific": {
+        "national_id_value": "Τουρκικός αριθμός αναγνώρισης"
+      },
       "usa_specific": {
         "line1_helper_text": "Διεύθυνση, για παράδειγμα: Κηφισίας 200",
         "line2_helper_text": "Διαμέρισμα, δωμάτιο, κ.λπ.",
@@ -522,11 +616,48 @@
     },
     "field_optional": "(προαιρετικό)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Εισαγάγετε ένα έγκυρο DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Παρακαλώ εισάγετε ένα έγκυρο CNPJ",
+        "invalid_tax_id": "Παρακαλώ εισάγετε ένα έγκυρο CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Παρακαλώ εισάγετε ένα έγκυρο SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έγκυρους αριθμούς RUT / RUN",
+        "required_national_id_value": "Εισαγάγετε τους αριθμούς RUT / RUN"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο αριθμό ταυτότητας κατοίκου"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο Κολομβιανό Προσωπικό Αριθμό Ταυτότητας",
+        "required_national_id_value": "Εισαγάγετε τον Κολομβιανό Προσωπικό Αριθμό Αναγνώρισής σας"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Παρακαλώ εισάγετε ένα έγκυρο NIF/DNI",
+        "invalid_other": "Παρακαλώ εισάγετε ένα έγκυρο NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο Προσωπικό κωδικό ταυτότητας",
+        "required_national_id_value": "Εισαγάγετε τον Προσωπικό σας κωδικό ταυτότητας"
+      },
       "gbr_specific": {
         "invalid_postcode": "Εισαγάγετε έναν έγκυρο ταχυδρομικό κώδικα",
         "required_postcode": "Εισαγάγετε τον ταχυδρομικό σας κώδικα",
         "too_long_postcode": "Ο ταχυδρομικός κώδικας είναι πολύ μεγάλος",
         "too_short_postcode": "Ο ταχυδρομικός κώδικας είναι πολύ μικρός"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Εισαγάγετε ένα έγκυρο SSNIT",
+        "required_social_insurance": "Εισαγάγετε το SSNIT σας"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Εισαγάγετε ένα έγκυρο HKID",
+        "required_national_id_value": "Εισαγάγετε το HKID σας"
       },
       "ind_specific": {
         "invalid_pan": "Εισαγάγετε ένα έγκυρο ΡΑΝ",
@@ -534,9 +665,59 @@
       },
       "invalid": "Ελέγξτε για μη έγκυρους χαρακτήρες ή σύμβολα",
       "invalid_dob": "Εισαγάγετε μια έγκυρη ημερομηνία γέννησης",
+      "invalid_driving_license": "Εισαγάγετε έναν έγκυρο αριθμό άδειας οδήγησης",
       "invalid_email": "Εισαγάγετε ένα έγκυρο email",
       "invalid_mobile_number": "Εισαγάγετε έναν έγκυρο αριθμό κινητού τηλεφώνου",
+      "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο εθνικό αριθμό ταυτότητας",
+      "invalid_passport": "Εισαγάγετε έναν έγκυρο αριθμό διαβατηρίου",
       "invalid_phone_number": "Εισαγάγετε έναν έγκυρο αριθμό τηλεφώνου",
+      "invalid_voter_id": "Εισαγάγετε έναν έγκυρο αριθμό ταυτότητας ψηφοφόρου",
+      "ita_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο φορολογικό κωδικό"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο κωδικό \"Ο αριθμός μου\" / κωδικός εγγραφής κατοίκου",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Εισαγάγετε έναν έγκυρο αριθμό κάρτας Alien",
+        "required_other": "Εισαγάγετε τον αριθμό της κάρτας Alien σας"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο αριθμό κοινωνικής ασφάλισης",
+        "required_national_id_value": "Εισαγάγετε τον αριθμό κοινωνικής ασφάλισής σας"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Παρακαλώ εισάγετε ένα έγκυρο CURP",
+        "invalid_tax_id": "Παρακαλώ εισάγετε ένα έγκυρο RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Εισαγάγετε ένα έγκυρο NRIC",
+        "required_national_id_value": "Εισαγάγετε το NRIC σας"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Εισαγάγετε έναν έγκυρο Εθνικό Αριθμό Ταυτότητας (NIN)",
+        "invalid_other": "Εισαγάγετε ένα έγκυρο BVN",
+        "invalid_tax_id": "Εισαγάγετε ένα έγκυρο ΑΦΜ",
+        "required_identity_card": "Εισαγάγετε τον Εθνικό Αριθμό Αναγνώρισής σας (NIN)",
+        "required_other": "Εισαγάγετε το BVN σας",
+        "required_tax_id": "Εισαγάγετε τον ΑΦΜ σας"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο αριθμό κάρτας PhilSys (PCN)",
+        "required_national_id_value": "Εισαγάγετε τον αριθμό της κάρτας PhilSys (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο αριθμό PESEL",
+        "required_national_id_value": "Εισαγάγετε τον αριθμό PESEL σας"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο ΑΦΜ",
+        "required_national_id_value": "Εισαγάγετε τον ΑΦΜ σας"
+      },
+      "reference": {
+        "translation": "Παρακαλώ εισάγετε ένα έγκυρο"
+      },
       "required_consent": "Αποδεχτείτε την εξουσιοδότηση διενέργειας ελέγχων ταυτότητας και απάτης",
       "required_country": "Επιλέξτε μια χώρα",
       "required_country_residence": "Επιλέξτε μια χώρα",
@@ -549,6 +730,12 @@
       "required_nationality": "Επιλέξτε μια χώρα",
       "required_phone_number": "Εισαγάγετε τον αριθμό τηλεφώνου σας",
       "required_postcode": "Εισαγάγετε τον ταχυδρομικό σας κώδικα",
+      "sgp_specific": {
+        "invalid_national_id_value": "Παρακαλώ εισάγετε ένα έγκυρο NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Παρακαλώ εισάγετε ένα έγκυρο PIN"
+      },
       "too_long_first_name": "Το όνομα είναι πολύ μεγάλο",
       "too_long_last_name": "Το επώνυμο είναι πολύ μεγάλο",
       "too_long_line1": "Η γραμμή διεύθυνσης είναι πολύ μεγάλη",
@@ -557,12 +744,16 @@
       "too_short_first_name": "Το όνομα είναι πολύ μικρό",
       "too_short_last_name": "Το επώνυμο είναι πολύ μικρό",
       "too_short_postcode": "Ο ταχυδρομικός κώδικας είναι πολύ μικρός",
+      "tur_specific": {
+        "invalid_national_id_value": "Εισαγάγετε έναν έγκυρο τουρκικό αριθμό ταυτότητας"
+      },
       "usa_specific": {
         "invalid_ssn": "Εισαγάγετε έναν έγκυρο ΑΜΚΑ",
         "required_ssn": "Εισαγάγετε τον ΑΜΚΑ σας",
         "required_state": "Επιλέξτε μια πολιτεία"
       }
     },
+    "national_id_number_title": "Προσθέστε τον εθνικό σας αριθμό ταυτότητας",
     "personal_information_title": "Προσθέστε τα προσωπικά σας στοιχεία",
     "prompt": {
       "details_timeout": "Επανέναρξη",

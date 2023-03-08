@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Din mikrofon används av en annan app",
       "timeout_body": "Du har upp till 15 sekunder på dig att slutföra inspelningen",
       "timeout_button_primary": "Försök igen",
       "timeout_title": "Tyvärr måste vi starta om inspelningen",
@@ -31,9 +32,9 @@
     "title_completed": "Inspelning slutförd"
   },
   "avc_intro": {
-    "button_primary_ready": "Jag är redo",
+    "button_primary_ready": "Starta inspelning",
     "disclaimer": "Tänk på att vi spelar in ditt ansikte och din bakgrund",
-    "disclaimer_camera_and_audio_on": "Ditt ansikte, din bakgrund och ditt ljud kommer att spelas in under denna process.",
+    "disclaimer_camera_and_audio_on": "Ditt ansikte, din bakgrund och ditt ljud kommer att spelas in under denna process",
     "list_item_one": "Placera först ansiktet i ramen",
     "list_item_two": "Vrid sedan långsamt huvudet åt båda sidorna",
     "subtitle": "Syftet med detta är att verifiera att du är en riktig person",
@@ -115,6 +116,8 @@
     "footer": {
       "captured": "Foto taget",
       "capturing": "Ta foto",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Ta ett foto av baksidan av ditt kort",
       "manual_fallback_identity_card_front": "Ta ett foto av framsidan av ditt kort",
       "manual_fallback_license_back": "Ta ett foto av baksidan av ditt körkort",
@@ -122,6 +125,8 @@
       "manual_fallback_passport": "Ta ett foto av fotosidan i ditt pass",
       "manual_fallback_residence_permit_back": "Ta ett foto av baksidan av ditt uppehållstillstånd",
       "manual_fallback_residence_permit_front": "Ta ett foto av framsidan av ditt uppehållstillstånd",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Placera kortets baksida i ramen",
       "position_identity_card_front": "Placera kortets framsida i ramen",
       "position_license_back": "Placera baksidan av ditt körkort i ramen",
@@ -164,6 +169,7 @@
     "body_bank_statement": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
     "body_benefits_letter": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
     "body_bill": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
+    "body_generic_document": "",
     "body_id": "Se till att dina uppgifter syns tydligt och inte skyms",
     "body_image_medium": "Det tar längre tid att verifiera dig om vi inte kan läsa det",
     "body_image_poor": "För att verifiera dig på ett smidigt sätt behöver vi ett bättre foto",
@@ -231,6 +237,8 @@
     "title_bank_statement": "Skicka in utdrag",
     "title_benefits_letter": "Skicka in brev",
     "title_bill": "Skicka in räkning",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Brev från myndighet",
     "title_id_back": "Skicka in identitetskort (baksida)",
     "title_id_front": "Skicka in identitetskort (framsida)",
@@ -398,12 +406,16 @@
   "permission": {
     "body_both": "Vi kan inte verifiera dig utan att använda både din kamera och mikrofon",
     "body_cam": "Vi kan inte verifiera dig utan din kamera",
+    "body_mic": "Vi kan inte verifiera dig utan att använda din mikrofon",
     "button_primary_both": "Aktivera båda",
     "button_primary_cam": "Aktivera kamera",
+    "button_primary_mic": "Aktivera mikrofon",
     "subtitle_both": "När du uppmanas måste du aktivera åtkomst för att båda ska fortsätta",
     "subtitle_cam": "När du ombeds måste du aktivera kameraåtkomst för att fortsätta",
+    "subtitle_mic": "När du ombeds måste du aktivera mikrofonåtkomst för att fortsätta",
     "title_both": "Tillåt kamera- och mikrofonåtkomst",
-    "title_cam": "Tillåt kameraåtkomst"
+    "title_cam": "Tillåt kameraåtkomst",
+    "title_mic": "Tillåt mikrofonåtkomst"
   },
   "permission_recovery": {
     "button_primary": "Uppdatera",
@@ -413,16 +425,21 @@
     "list_item_action_cam": "Uppdatera den här sidan för att starta om processen för identitetsverifiering",
     "list_item_how_to_both": "Bevilja åtkomst till din kamera och mikrofon från dina webbläsarinställningar",
     "list_item_how_to_cam": "Bevilja åtkomst till din kamera från dina webbläsarinställningar",
+    "list_item_how_to_mic": "Bevilja åtkomst till din mikrofon från dina webbläsarinställningar",
     "subtitle_both": "Återställ kamera- och mikrofonåtkomst för att göra en video och slutföra verifieringsprocessen",
     "subtitle_cam": "Vi kan inte verifiera dig utan din kamera",
     "subtitle_cam_old": "Återställ kameraåtkomst för att fortsätta med din verifiering",
+    "subtitle_mic": "Vi kan inte verifiera dig utan din mikrofon",
     "title_both": "Kamera- och mikrofonåtkomst nekad",
-    "title_cam": "Kameraåtkomst nekad"
+    "title_cam": "Kameraåtkomst nekad",
+    "title_mic": "Mikrofonåtkomst nekad"
   },
   "photo_upload": {
     "body_bank_statement": "Se till att skicka in hela dokumentsidan för bästa resultat",
     "body_benefits_letter": "Se till att skicka in hela dokumentsidan för bästa resultat",
     "body_bill": "Se till att skicka in hela dokumentsidan för bästa resultat",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Ladda upp baksidan av identitetskortet från din dator",
     "body_id_front": "Ladda upp framsidan av identitetskortet från din dator",
     "body_license_back": "Ladda upp baksidan av körkortet från din dator",
@@ -476,6 +493,39 @@
       "country_select": {
         "placeholder": "Välj ett land"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Utländskt pass"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Körkort",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Identitetskort",
+        "ind_specific": {
+          "tax_id": "Personligt kontonummer (PAN)"
+        },
+        "ken_specific": {
+          "other": "Alien kort"
+        },
+        "nga_specific": {
+          "identity_card": "National Identification Number (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Pass",
+        "placeholder": "Välj en nationell ID-typ",
+        "tax_id": "Skatte ID",
+        "voter_id": "Väljar-ID"
+      },
       "nationality_select": {
         "placeholder": "Välj ett land"
       },
@@ -491,27 +541,71 @@
     },
     "country_of_residence_title": "Bosättningsland",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI-nummer"
+      },
+      "can_specific": {
+        "national_id_value": "Social Insurance Number (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN-nummer"
+      },
+      "chn_specific": {
+        "national_id_value": "Resident Identitetskort nummer"
+      },
+      "col_specific": {
+        "national_id_value": "Colombianskt personnummer"
+      },
       "country": "Land",
       "country_residence": "Land",
       "dob": "Födelsedatum",
       "email": "E-postadress",
+      "fin_specific": {
+        "national_id_value": "Personlig identitetskod"
+      },
       "first_name": "Förnamn",
       "gbr_specific": {
         "postcode": "Postnummer",
         "town": "Stad/ort"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Permanent Account Number (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Skattekod"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Mitt nummer\" / Resident Record-kod"
       },
       "last_name": "Efternamn",
       "line1": "Adressrad 1",
       "line2": "Adressrad 2",
       "line3": "Adressrad 3",
+      "lux_specific": {
+        "national_id_value": "Personnummer"
+      },
       "mobile_number": "Mobilnummer",
+      "national_id_type": "Nationell ID-typ",
+      "national_id_value": "Personnummer",
       "nationality": "Nationalitet",
+      "phl_specific": {
+        "national_id_value": "PhilSys kortnummer (PCN)"
+      },
       "phone_number": "Telefonnummer",
+      "pol_specific": {
+        "national_id_value": "PESEL-nummer"
+      },
       "postcode": "Postnummer",
+      "prt_specific": {
+        "national_id_value": "Skattenummer"
+      },
       "town": "Ort",
+      "tur_specific": {
+        "national_id_value": "Turkiskt identifikationsnummer"
+      },
       "usa_specific": {
         "line1_helper_text": "Gatuadress, till exempel: 200 Albert Street",
         "line2_helper_text": "Lägenhet, uppgång, enhet osv.",
@@ -522,11 +616,48 @@
     },
     "field_optional": "(valfritt)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Ange ett giltigt DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Vänligen ange en giltig CNPJ",
+        "invalid_tax_id": "Vänligen ange en giltig CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Vänligen ange en giltig SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Vänligen ange ett giltigt RUT/RUN-nummer",
+        "required_national_id_value": "Ange dina RUT/RUN-nummer"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Ange ett giltigt ID-kortsnummer"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Ange ett giltigt colombianskt personnummer",
+        "required_national_id_value": "Ange ditt colombianska personnummer"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Vänligen ange en giltig NIF/DNI",
+        "invalid_other": "Vänligen ange en giltig NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Ange en giltig personlig identitetskod",
+        "required_national_id_value": "Vänligen ange din personliga identitetskod"
+      },
       "gbr_specific": {
         "invalid_postcode": "Ange ett giltigt postnummer",
         "required_postcode": "Ange ditt postnummer",
         "too_long_postcode": "Postnumret är för långt",
         "too_short_postcode": "Postnumret är för kort"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Vänligen ange en giltig SSNIT",
+        "required_social_insurance": "Vänligen ange din SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Ange ett giltigt HKID",
+        "required_national_id_value": "Vänligen ange ditt HKID"
       },
       "ind_specific": {
         "invalid_pan": "Ange ett giltigt PAN",
@@ -534,9 +665,59 @@
       },
       "invalid": "Kontrollera om det finns ogiltiga tecken eller symboler",
       "invalid_dob": "Ange ett giltigt födelsedatum",
+      "invalid_driving_license": "Ange ett giltigt körkortsnummer",
       "invalid_email": "Ange en giltig e-postadress",
       "invalid_mobile_number": "Ange ett giltigt telefonnummer",
+      "invalid_national_id_value": "Ange ett giltigt nationellt ID-nummer",
+      "invalid_passport": "Vänligen ange ett giltigt passnummer",
       "invalid_phone_number": "Ange ett giltigt telefonnummer",
+      "invalid_voter_id": "Ange ett giltigt röstnummer",
+      "ita_specific": {
+        "invalid_national_id_value": "Ange en giltig skattekod"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Vänligen ange en giltig \"Mitt nummer\" / Resident Record-kod",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Ange ett giltigt Alien Card-nummer",
+        "required_other": "Vänligen ange ditt Alien Card-nummer"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Ange ett giltigt personnummer",
+        "required_national_id_value": "Vänligen ange ditt personnummer"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Vänligen ange en giltig CURP",
+        "invalid_tax_id": "Vänligen ange en giltig RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Ange ett giltigt NRIC",
+        "required_national_id_value": "Ange ditt NRIC"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Ange ett giltigt National Identification Number (NIN)",
+        "invalid_other": "Ange ett giltigt BVN",
+        "invalid_tax_id": "Ange ett giltigt TIN",
+        "required_identity_card": "Vänligen ange ditt nationella identifieringsnummer (NIN)",
+        "required_other": "Ange ditt BVN",
+        "required_tax_id": "Vänligen ange ditt TIN"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Vänligen ange ett giltigt PhilSys Card Number (PCN)",
+        "required_national_id_value": "Vänligen ange ditt PhilSys-kortnummer (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Ange ett giltigt PESEL-nummer",
+        "required_national_id_value": "Vänligen ange ditt PESEL-nummer"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Ange ett giltigt skattenummer",
+        "required_national_id_value": "Ange ditt skattenummer"
+      },
+      "reference": {
+        "translation": "Vänligen ange en giltig"
+      },
       "required_consent": "Godkänn för att auktorisera identitets- och bedrägerikontroller",
       "required_country": "Välj ett land",
       "required_country_residence": "Välj ett land",
@@ -549,6 +730,12 @@
       "required_nationality": "Välj ett land",
       "required_phone_number": "Ange ditt telefonnummer",
       "required_postcode": "Ange ditt postnummer",
+      "sgp_specific": {
+        "invalid_national_id_value": "Vänligen ange en giltig NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Vänligen ange en giltig PIN"
+      },
       "too_long_first_name": "Förnamnet är för långt",
       "too_long_last_name": "Efternamnet är för långt",
       "too_long_line1": "Adressraden är för lång",
@@ -557,12 +744,16 @@
       "too_short_first_name": "Förnamnet är för kort",
       "too_short_last_name": "Efternamnet är för kort",
       "too_short_postcode": "Postnumret är för kort",
+      "tur_specific": {
+        "invalid_national_id_value": "Ange ett giltigt turkiskt ID-nummer"
+      },
       "usa_specific": {
         "invalid_ssn": "Ange ett giltigt personnummer",
         "required_ssn": "Ange ditt personnummer",
         "required_state": "Välj ett län"
       }
     },
+    "national_id_number_title": "Lägg till ditt nationella ID-nummer",
     "personal_information_title": "Lägg till dina personuppgifter",
     "prompt": {
       "details_timeout": "Börja om",

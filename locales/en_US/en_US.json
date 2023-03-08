@@ -107,6 +107,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Your microphone is being used by another app",
       "timeout_body": "You have up to 15 seconds to complete the recording",
       "timeout_button_primary": "Retry",
       "timeout_title": "Sorry, we have to restart the recording",
@@ -202,6 +203,8 @@
     "footer": {
       "captured": "Photo captured",
       "capturing": "Capturing photo",
+      "manual_fallback_generic_document_back": "Take a photo of the back of your document",
+      "manual_fallback_generic_document_front": "Take a photo of the front of your document",
       "manual_fallback_identity_card_back": "Take a photo of the back of your card",
       "manual_fallback_identity_card_front": "Take a photo of the front of your card",
       "manual_fallback_license_back": "Take a photo of the back of your driver’s license",
@@ -209,6 +212,8 @@
       "manual_fallback_passport": "Take a photo of your passport photo page",
       "manual_fallback_residence_permit_back": "Take a photo of the back of your residence permit",
       "manual_fallback_residence_permit_front": "Take a photo of the front of your residence permit",
+      "position_generic_document_back": "Position the back of your document in the frame",
+      "position_generic_document_front": "Position the front of your document in the frame",
       "position_identity_card_back": "Position the back of your card in the frame",
       "position_identity_card_front": "Position the front of your card in the frame",
       "position_license_back": "Position the back of your driver’s license in the frame",
@@ -251,6 +256,7 @@
     "body_bank_statement": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_benefits_letter": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_bill": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
+    "body_generic_document": "Make sure your details are clear and unobstructed",
     "body_id": "Make sure your details are clear and unobstructed",
     "body_image_medium": "It’ll take longer to verify you if we can’t read it",
     "body_image_poor": "To smoothly verify you, we need a better photo",
@@ -318,6 +324,8 @@
     "title_bank_statement": "Submit statement",
     "title_benefits_letter": "Submit letter",
     "title_bill": "Submit bill",
+    "title_generic_document_back": "Submit document (back)",
+    "title_generic_document_front": "Submit document (front)",
     "title_government_letter": "Government Letter",
     "title_id_back": "Submit identity card (back)",
     "title_id_front": "Submit identity card (front)",
@@ -485,12 +493,16 @@
   "permission": {
     "body_both": "We can’t verify you without using both your camera and microphone",
     "body_cam": "We can’t verify you without your camera",
+    "body_mic": "We can’t verify you without using your microphone",
     "button_primary_both": "Enable both",
     "button_primary_cam": "Enable camera",
+    "button_primary_mic": "Enable microphone",
     "subtitle_both": "When prompted, you must enable access for both to continue",
     "subtitle_cam": "When prompted, you must enable camera access to continue",
+    "subtitle_mic": "When prompted, you must enable microphone access to continue",
     "title_both": "Allow camera and microphone access",
-    "title_cam": "Allow camera access"
+    "title_cam": "Allow camera access",
+    "title_mic": "Allow microphone access"
   },
   "permission_recovery": {
     "button_primary": "Refresh",
@@ -500,16 +512,21 @@
     "list_item_action_cam": "Refresh this page to restart the identity verification process",
     "list_item_how_to_both": "Grant access to your camera and microphone from your browser settings",
     "list_item_how_to_cam": "Grant access to your camera from your browser settings",
+    "list_item_how_to_mic": "Grant access to your microphone from your browser settings",
     "subtitle_both": "Recover camera and microphone access to take a video and complete the verification process",
     "subtitle_cam": "Recover camera access to continue your verification",
     "subtitle_cam_old": "Recover camera access to continue face verification",
+    "subtitle_mic": "We can’t verify you without your microphone",
     "title_both": "Camera and microphone access denied",
-    "title_cam": "Camera access is denied"
+    "title_cam": "Camera access is denied",
+    "title_mic": "Microphone access denied"
   },
   "photo_upload": {
     "body_bank_statement": "Provide the whole document page for best results",
     "body_benefits_letter": "Provide the whole document page for best results",
     "body_bill": "Provide the whole document page for best results",
+    "body_generic_document_back": "Upload back of document from your computer",
+    "body_generic_document_front": "Upload front of document from your computer",
     "body_id_back": "Upload back of card from your computer",
     "body_id_front": "Upload front of card from your computer",
     "body_license_back": "Upload back of license from your computer",
@@ -563,6 +580,39 @@
       "country_select": {
         "placeholder": "Select a country"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Foreign passport"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Driver's license",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Identity card",
+        "ind_specific": {
+          "tax_id": "Personal Account Number (PAN)"
+        },
+        "ken_specific": {
+          "other": "Alien Card"
+        },
+        "nga_specific": {
+          "identity_card": "National Identification Number (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Passport",
+        "placeholder": "Select a national ID type",
+        "tax_id": "Tax ID",
+        "voter_id": "Voter ID"
+      },
       "nationality_select": {
         "placeholder": "Select a country"
       },
@@ -578,27 +628,71 @@
     },
     "country_of_residence_title": "Your country of residence",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI number"
+      },
+      "can_specific": {
+        "national_id_value": "Social Insurance Number (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN numbers"
+      },
+      "chn_specific": {
+        "national_id_value": "Resident Identity card number"
+      },
+      "col_specific": {
+        "national_id_value": "Colombian Personal Identification Number"
+      },
       "country": "Country",
       "country_residence": "Country",
       "dob": "Date of birth",
       "email": "Email",
+      "fin_specific": {
+        "national_id_value": "Personal identity code"
+      },
       "first_name": "First name",
       "gbr_specific": {
         "postcode": "Postcode",
         "town": "City/Town"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Permanent account number (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Fiscal code"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"My number\" / Resident Record code"
       },
       "last_name": "Last name",
       "line1": "Address line 1",
       "line2": "Address line 2",
       "line3": "Address line 3",
+      "lux_specific": {
+        "national_id_value": "Social Security number"
+      },
       "mobile_number": "Mobile number",
+      "national_id_type": "National ID type",
+      "national_id_value": "National ID number",
       "nationality": "Nationality",
+      "phl_specific": {
+        "national_id_value": "PhilSys Card Number (PCN)"
+      },
       "phone_number": "Phone number",
+      "pol_specific": {
+        "national_id_value": "PESEL number"
+      },
       "postcode": "Postal code",
+      "prt_specific": {
+        "national_id_value": "Tax number"
+      },
       "town": "Town",
+      "tur_specific": {
+        "national_id_value": "Turkish Identification Number"
+      },
       "usa_specific": {
         "line1_helper_text": "Street address, for example: 200 Albert Street",
         "line2_helper_text": "Apartment, suite, unit, etc.",
@@ -609,11 +703,48 @@
     },
     "field_optional": "(optional)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Please enter a valid DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Please enter a valid CNPJ",
+        "invalid_tax_id": "Please enter a valid CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Please enter a valid SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Please enter a valid RUT / RUN numbers",
+        "required_national_id_value": "Please enter your RUT / RUN numbers"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Please enter a valid resident identity card number"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Please enter a valid Colombian Personal Identification Number",
+        "required_national_id_value": "Please enter your Colombian Personal Identification Number"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Please enter a valid NIF/DNI",
+        "invalid_other": "Please enter a valid NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Please enter a valid Personal identity code",
+        "required_national_id_value": "Please enter your Personal identity code"
+      },
       "gbr_specific": {
         "invalid_postcode": "Please enter a valid postcode",
         "required_postcode": "Please enter your postcode",
         "too_long_postcode": "Postcode is too long",
         "too_short_postcode": "Postcode is too short"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Please enter a valid SSNIT",
+        "required_social_insurance": "Please enter your SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Please enter a valid HKID",
+        "required_national_id_value": "Please enter your HKID"
       },
       "ind_specific": {
         "invalid_pan": "Please enter a valid PAN",
@@ -621,9 +752,59 @@
       },
       "invalid": "Please check for invalid characters or symbols",
       "invalid_dob": "Please enter a valid date of birth",
+      "invalid_driving_license": "Please enter a valid driver's license number",
       "invalid_email": "Please enter a valid email",
       "invalid_mobile_number": "Please enter a valid mobile number",
+      "invalid_national_id_value": "Please enter a valid national ID number",
+      "invalid_passport": "Please enter a valid passport number",
       "invalid_phone_number": "Please enter a valid phone number",
+      "invalid_voter_id": "Please enter a valid voter ID number",
+      "ita_specific": {
+        "invalid_national_id_value": "Please enter a valid fiscal code"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Please enter a valid \"My number\" / Resident Record code",
+        "required_national_id_value": "Please enter your \"My number\" / Resident Record code"
+      },
+      "ken_specific": {
+        "invalid_other": "Please enter a valid Alien Card number",
+        "required_other": "Please enter your Alien Card number"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Please enter a valid Social Security number",
+        "required_national_id_value": "Please enter your Social Security number"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Please enter a valid CURP",
+        "invalid_tax_id": "Please enter a valid RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Please enter a valid NRIC",
+        "required_national_id_value": "Please enter your NRIC"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Please enter a valid National Identification Number (NIN)",
+        "invalid_other": "Please enter a valid BVN",
+        "invalid_tax_id": "Please enter a valid TIN",
+        "required_identity_card": "Please enter your National Identification Number (NIN)",
+        "required_other": "Please enter your BVN",
+        "required_tax_id": "Please enter your TIN"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Please enter a valid PhilSys Card Number (PCN)",
+        "required_national_id_value": "Please enter your PhilSys Card Number (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Please enter a valid PESEL number",
+        "required_national_id_value": "Please enter your PESEL number"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Please enter a valid Tax number",
+        "required_national_id_value": "Please enter your Tax number"
+      },
+      "reference": {
+        "translation": "Please enter a valid"
+      },
       "required_consent": "Please agree to authorize identity and fraud checks",
       "required_country": "Please select a country",
       "required_country_residence": "Please select a country",
@@ -636,6 +817,12 @@
       "required_nationality": "Please select a country",
       "required_phone_number": "Please enter your phone number",
       "required_postcode": "Please enter your postal code",
+      "sgp_specific": {
+        "invalid_national_id_value": "Please enter a valid NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Please enter a valid PIN"
+      },
       "too_long_first_name": "First name is too long",
       "too_long_last_name": "Last name is too long",
       "too_long_line1": "Address line is too long",
@@ -644,12 +831,16 @@
       "too_short_first_name": "First name is too short",
       "too_short_last_name": "Last name is too short",
       "too_short_postcode": "Postal code is too short",
+      "tur_specific": {
+        "invalid_national_id_value": "Please enter a valid Turkish ID number"
+      },
       "usa_specific": {
         "invalid_ssn": "Please enter a valid SSN",
         "required_ssn": "Please enter your SSN",
         "required_state": "Please select a state"
       }
     },
+    "national_id_number_title": "Add your national ID number",
     "personal_information_title": "Add your personal information",
     "prompt": {
       "details_timeout": "Start again",

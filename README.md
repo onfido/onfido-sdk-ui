@@ -692,7 +692,10 @@ The custom options are:
   - `video`: a video will be captured;
   - `motion`: a motion capture will be captured.
 
-  The SDK will try to fulfil this request depending on camera availability, device capabilities, and browser support on the user's device. If a video cannot be taken, the face step will fallback to the `standard` variant. If Motion is not available, the face step will fallback to either `video` or `standard` variants. See `videoCaptureFallback` and `photoCaptureFallback` to control the fallback.
+  The SDK will try to fulfil this request depending on camera availability, device capabilities, and browser support on the user's device:
+
+  - if a video cannot be taken, the face step can be configured to fallback to the `standard` variant (see `photoCaptureFallback`);
+  - if Motion is not available, the face step can be configured to fallback to either `video` or `standard` variants (see `motionFallbackVariant`).
 
   If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the [`onComplete` callback](#handling-callbacks) to request the correct report when creating a check.
 
@@ -717,32 +720,38 @@ The custom options are:
 
 - `photoCaptureFallback` (boolean - default: `true`)
 
-  When enabled, this feature allows end-users to capture a selfie if:
+  This feature only applies to the [Video](https://developers.onfido.com/guide/facial-similarity-reports#video) variant.
 
-  - The requested variant is video and their browser does not support MediaRecorder
-  - The requested variant is motion and Motion is not available on the end-user device due to MediaRecorder not being supported or to limited device capabilities and the videoCaptureFallback feature is disabled. Please note that if videoCaptureFallback is enabled for the motion variant, we will fallback to [video](https://developers.onfido.com/guide/facial-similarity-reports#video) first. Only if a video can’t be recorded on the user device will we then fallback to selfie (as long as photoCaptureFallback is set to true).
+  When enabled, it allows end-users to capture a selfie if their browser does not support MediaRecorder.
+  When disabled, we will return an unsupported browser error if the end-user browser doesn’t support MediaRecorder.
 
-  When disabled:
+- `motionFallbackVariant` (string - default: `undefined`)
 
-  - If the requested variant is video, we will return an unsupported browser error
-  - If the requested variant is motion and the videoCaptureFallback feature is disabled, we will return an unsupported browser error.
+  This feature only applies to the [Motion](https://developers.onfido.com/guide/facial-similarity-reports#motion) variant and it allows to specify which face capture variant users will fallback to if Motion is not available on the end-user device due to MediaRecorder not being supported or to limited device capabilities.
 
-- `videoCaptureFallback` (boolean - default: `true`)
+  If no variant is specified, then users on unsupported devices will receive an unsupported browser error instead.
 
-  This feature is only relevant to the motion variant.
-  When enabled, this feature allows end-users to upload a [video](https://developers.onfido.com/guide/facial-similarity-reports#video) if the requested variant is motion and Motion is not available on the end-user device due to MediaRecorder not being supported or to limited device capabilities.
-  When disabled, we will fallback to selfie if photoCaptureFallback is enabled, otherwise we will return an unsupported browser error.
+  The following example shows how to configure `motionFallbackVariant` to allow users on unsupported devices to fallback to Selfie:
 
-  Please note that the photoCaptureFallback and videoCaptureFallback features are enabled by default.
+  ```javascript
+  options: {
+    requestedVariant: 'motion',
+    motionFallbackVariant: 'standard'
+  }
+  ```
 
-  Therefore
+  The following example shows how to configure `motionFallbackVariant` to allow users on unsupported devices to fallback to Video:
 
-  - If the requested variant is Video and the user device doesn’t support MediaRecorder we will automatically fallback to Selfie and allow the user to take a selfie instead
-  - If the requested variant is motion and Motion is not available on the user device we will automatically fallback to Video first, asking the user to capture a video of themselves as they perform a head turn and a speech challenge. If however a video can’t be captured on the end-user device due to MediaRecorder not being supported, we will fallback to selfie instead and allow the user to complete the flow by capturing a selfie.
+  ```javascript
+  options: {
+    requestedVariant: 'motion',
+    motionFallbackVariant: 'video'
+  }
+  ```
 
 - `recordMotionAudio` (boolean - default: `false`)
 
-  When enabled, and the requested variant is motion this feature allows Motion to record the user background audio.
+  When enabled, and the requested variant is `motion`, this feature allows Motion to record the user background audio.
 
 Please note that if a camera can’t be detected, we forward the user to the cross-device flow in order to attempt to capture in another device.
 

@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Jokin toinen sovellus käyttää mikrofoniasi",
       "timeout_body": "Sinulla on 15 sekuntia aikaa viimeistellä tallennus",
       "timeout_button_primary": "Yritä uud.",
       "timeout_title": "Valitettavasti tallennus on aloitettava uudelleen",
@@ -31,9 +32,9 @@
     "title_completed": "Tallennus valmis"
   },
   "avc_intro": {
-    "button_primary_ready": "Olen valmis",
+    "button_primary_ready": "Aloita tallennus",
     "disclaimer": "Muistathan, että tallennamme kasvosi ja taustasi",
-    "disclaimer_camera_and_audio_on": "Kasvosi, taustasi ja ääni tallennetaan tämän prosessin aikana.",
+    "disclaimer_camera_and_audio_on": "Kasvosi, taustasi ja ääni tallennetaan tämän prosessin aikana",
     "list_item_one": "Aseta ensin kasvosi kehykseen",
     "list_item_two": "Käännä sitten päätäsi hitaasti molemmille puolille",
     "subtitle": "Näin vahvistetaan, että olet todellinen henkilö",
@@ -115,6 +116,8 @@
     "footer": {
       "captured": "Kuva otettu",
       "capturing": "Kuvaa otetaan",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Ota kuva korttisi takaosasta",
       "manual_fallback_identity_card_front": "Ota kuva korttisi etuosasta",
       "manual_fallback_license_back": "Ota kuva ajokorttisi takaosasta",
@@ -122,6 +125,8 @@
       "manual_fallback_passport": "Ota kuva passisi valokuvasivusta",
       "manual_fallback_residence_permit_back": "Ota kuva oleskelulupasi takaosasta",
       "manual_fallback_residence_permit_front": "Ota kuva oleskelulupasi etupuolesta",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Aseta korttisi takaosa kehykseen",
       "position_identity_card_front": "Aseta korttisi etuosa kehykseen",
       "position_license_back": "Aseta ajokorttisi takaosa kehykseen",
@@ -164,6 +169,7 @@
     "body_bank_statement": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
     "body_benefits_letter": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
     "body_bill": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
+    "body_generic_document": "",
     "body_id": "Varmista, että tietosi ovat selkeät ja että ne näkyvät kunnolla",
     "body_image_medium": "Vahvistuksesi kestää kauemmin, jos emme voi lukea sitä",
     "body_image_poor": "Tarvitsemme paremman kuvan vahvistaaksemme sinut sujuvasti",
@@ -231,6 +237,8 @@
     "title_bank_statement": "Lähetä tiliote",
     "title_benefits_letter": "Lähetä kirje",
     "title_bill": "Lähetä lasku",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Virallinen kirje",
     "title_id_back": "Lähetä henkilökortti (takaosa)",
     "title_id_front": "Lähetä henkilökortti (etuosa)",
@@ -398,12 +406,16 @@
   "permission": {
     "body_both": "Emme voi vahvistaa sinua käyttämättä sekä kameraasi että mikrofoniasi",
     "body_cam": "Emme voi vahvistaa sinua ilman kameraasi",
+    "body_mic": "Emme voi vahvistaa sinua käyttämättä mikrofoniasi",
     "button_primary_both": "Ota molemm. käytt.",
     "button_primary_cam": "Ota kamera käyttöön",
+    "button_primary_mic": "Ota mikrofoni käyttöön",
     "subtitle_both": "Kun sinua pyydetään, sinun on sallittava molempien käyttö jatkaaksesi",
     "subtitle_cam": "Kun sinua pyydetään, sinun on sallittava kameran käyttö jatkaaksesi",
+    "subtitle_mic": "Kun sinua pyydetään, sinun on sallittava mikrofonin käyttö jatkaaksesi",
     "title_both": "Salli kameran ja mikrofonin käyttö",
-    "title_cam": "Salli kameran käyttö"
+    "title_cam": "Salli kameran käyttö",
+    "title_mic": "Salli mikrofonin käyttö"
   },
   "permission_recovery": {
     "button_primary": "Päivitä",
@@ -413,16 +425,21 @@
     "list_item_action_cam": "Päivitä tämä sivu aloittaaksesi henkilöllisyyden vahvistamisprosessin uudelleen",
     "list_item_how_to_both": "Myönnä kamerasi ja mikrofonisi käyttöoikeus selainasetuksistasi",
     "list_item_how_to_cam": "Myönnä kamerasi käyttöoikeus selainasetuksistasi",
+    "list_item_how_to_mic": "Myönnä mikrofonisi käyttöoikeus selainasetuksistasi",
     "subtitle_both": "Palauta kameran ja mikrofonin käyttöoikeus videon kuvaamiseksi ja vahvistusprosessin viimeistelemiseksi",
     "subtitle_cam": "Palauta kameran käyttöoikeus jatkaaksesi vahvistustasi",
     "subtitle_cam_old": "Palauta kameran käyttöoikeus jatkaaksesi kasvojen vahvistusta",
+    "subtitle_mic": "Emme voi vahvistaa sinua ilman mikrofoniasi",
     "title_both": "Kameran ja mikrofonin käyttö estetty",
-    "title_cam": "Kameran käyttö on estetty"
+    "title_cam": "Kameran käyttö on estetty",
+    "title_mic": "Mikrofonin käyttö estetty"
   },
   "photo_upload": {
     "body_bank_statement": "Toimita asiakirjan koko sivu parhaan tuloksen saamiseksi",
     "body_benefits_letter": "Toimita asiakirjan koko sivu parhaan tuloksen saamiseksi",
     "body_bill": "Toimita asiakirjan koko sivu parhaan tuloksen saamiseksi",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Lataa kortin takaosa tietokoneeltasi",
     "body_id_front": "Lataa kortin etuosa tietokoneeltasi",
     "body_license_back": "Lataa ajokortin takaosa tietokoneeltasi",
@@ -476,6 +493,39 @@
       "country_select": {
         "placeholder": "Valitse maa"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Ulkomaalainen passi"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Ajokortti",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Henkilökortti",
+        "ind_specific": {
+          "tax_id": "Henkilökohtainen tilinumero (PAN)"
+        },
+        "ken_specific": {
+          "other": "Alien kortti"
+        },
+        "nga_specific": {
+          "identity_card": "Kansallinen henkilötunnus (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Passi",
+        "placeholder": "Valitse kansallinen tunnustyyppi",
+        "tax_id": "Verotunnus",
+        "voter_id": "Äänestäjän tunnus"
+      },
       "nationality_select": {
         "placeholder": "Valitse maa"
       },
@@ -491,27 +541,71 @@
     },
     "country_of_residence_title": "Asuinmaasi",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI numero"
+      },
+      "can_specific": {
+        "national_id_value": "Sosiaalivakuutusnumero (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN numerot"
+      },
+      "chn_specific": {
+        "national_id_value": "Asukasnumero Henkilökortti"
+      },
+      "col_specific": {
+        "national_id_value": "Kolumbialainen henkilötunnus"
+      },
       "country": "Maa",
       "country_residence": "Maa",
       "dob": "Syntymäaika",
       "email": "S-posti",
+      "fin_specific": {
+        "national_id_value": "Henkilötunnus"
+      },
       "first_name": "Etunimi",
       "gbr_specific": {
         "postcode": "Postinumero",
         "town": "Paikkakunta"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Pysyvä tilinumero"
+      },
+      "ita_specific": {
+        "national_id_value": "Verotunnus"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Oma numero\" / Asukastietuekoodi"
       },
       "last_name": "Sukunimi",
       "line1": "Osoiterivi 1",
       "line2": "Osoiterivi 2",
       "line3": "Osoiterivi 3",
+      "lux_specific": {
+        "national_id_value": "Sosiaaliturvatunnus"
+      },
       "mobile_number": "Matkapuhelinnumero",
+      "national_id_type": "Kansallisen henkilötodistuksen tyyppi",
+      "national_id_value": "Kansallinen henkilötunnus",
       "nationality": "Kansalaisuus",
+      "phl_specific": {
+        "national_id_value": "PhilSys-kortin numero (PCN)"
+      },
       "phone_number": "Puhelinnumero",
+      "pol_specific": {
+        "national_id_value": "PESEL numero"
+      },
       "postcode": "Postinumero",
+      "prt_specific": {
+        "national_id_value": "Veronumero"
+      },
       "town": "Paikkakunta",
+      "tur_specific": {
+        "national_id_value": "Turkin tunnusnumero"
+      },
       "usa_specific": {
         "line1_helper_text": "Katuosoite, esim.: Kauppakatu 1 A 3",
         "line2_helper_text": "Huoneisto, asunto, yksiö jne.",
@@ -522,11 +616,48 @@
     },
     "field_optional": "(valinnainen)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Anna kelvollinen DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Anna kelvollinen CNPJ",
+        "invalid_tax_id": "Anna kelvollinen CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Anna kelvollinen SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Anna kelvolliset RUT/RUN-numerot",
+        "required_national_id_value": "Anna RUT/RUN-numerosi"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Syötä voimassa oleva henkilökortin numero"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Anna kelvollinen kolumbialainen henkilötunnus",
+        "required_national_id_value": "Anna kolumbialainen henkilökohtainen tunnusnumerosi"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Anna kelvollinen NIF/DNI",
+        "invalid_other": "Anna kelvollinen NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Anna voimassa oleva henkilötunnus",
+        "required_national_id_value": "Ole hyvä ja syötä henkilötunnus"
+      },
       "gbr_specific": {
         "invalid_postcode": "Syötä kelvollinen postinumero",
         "required_postcode": "Syötä postinumerosi",
         "too_long_postcode": "Postinumero on liian pitkä",
         "too_short_postcode": "Postinumero on liian lyhyt"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Anna kelvollinen SSNIT",
+        "required_social_insurance": "Anna SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Anna kelvollinen HKID",
+        "required_national_id_value": "Anna HKID-tunnuksesi"
       },
       "ind_specific": {
         "invalid_pan": "Syötä kelvollinen PIN",
@@ -534,9 +665,59 @@
       },
       "invalid": "Tarkista virheelliset merkit tai symbolit",
       "invalid_dob": "Syötä kelvollinen syntymäaika",
+      "invalid_driving_license": "Anna voimassa oleva ajokortin numero",
       "invalid_email": "Syötä kelvollinen sähköpostiosoite",
       "invalid_mobile_number": "Syötä kelvollinen matkapuhelinnumero",
+      "invalid_national_id_value": "Anna voimassa oleva kansallinen henkilötunnus",
+      "invalid_passport": "Anna voimassa oleva passin numero",
       "invalid_phone_number": "Syötä kelvollinen puhelinnumero",
+      "invalid_voter_id": "Anna kelvollinen äänestäjänumero",
+      "ita_specific": {
+        "invalid_national_id_value": "Anna kelvollinen verokoodi"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Anna kelvollinen \"Oma numero\" / asukastietuekoodi",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Anna voimassa oleva ulkomaalaisen kortin numero",
+        "required_other": "Syötä Alien Card -numerosi"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Anna kelvollinen sosiaaliturvatunnus",
+        "required_national_id_value": "Anna sosiaaliturvatunnuksesi"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Anna kelvollinen CURP",
+        "invalid_tax_id": "Anna kelvollinen RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Anna kelvollinen NRIC",
+        "required_national_id_value": "Anna NRIC"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Anna kelvollinen kansallinen henkilötunnus (NIN)",
+        "invalid_other": "Anna kelvollinen BVN",
+        "invalid_tax_id": "Anna kelvollinen TIN-tunnus",
+        "required_identity_card": "Anna kansallinen tunnusnumerosi (NIN)",
+        "required_other": "Anna BVN-numerosi",
+        "required_tax_id": "Anna TIN-tunnus"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Anna kelvollinen PhilSys-kortin numero (PCN)",
+        "required_national_id_value": "Anna PhilSys-korttisi numero (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Anna kelvollinen PESEL-numero",
+        "required_national_id_value": "Anna PESEL-numerosi"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Anna kelvollinen veronumero",
+        "required_national_id_value": "Anna veronumerosi"
+      },
+      "reference": {
+        "translation": "Anna kelvollinen"
+      },
       "required_consent": "Hyväksy henkilöllisyys- ja petostarkistukset",
       "required_country": "Valitse maa",
       "required_country_residence": "Valitse maa",
@@ -549,6 +730,12 @@
       "required_nationality": "Valitse maa",
       "required_phone_number": "Syötä puhelinnumerosi",
       "required_postcode": "Syötä postinumerosi",
+      "sgp_specific": {
+        "invalid_national_id_value": "Anna kelvollinen NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Anna kelvollinen PIN"
+      },
       "too_long_first_name": "Etunimi on liian pitkä",
       "too_long_last_name": "Sukunimi on liian pitkä",
       "too_long_line1": "Osoiterivi on liian pitkä",
@@ -557,12 +744,16 @@
       "too_short_first_name": "Etunimi on liian lyhyt",
       "too_short_last_name": "Sukunimi on liian lyhyt",
       "too_short_postcode": "Postinumero on liian lyhyt",
+      "tur_specific": {
+        "invalid_national_id_value": "Anna kelvollinen turkkilainen henkilötunnus"
+      },
       "usa_specific": {
         "invalid_ssn": "Syötä kelvollinen henkilötunnus",
         "required_ssn": "Syötä henkilötunnuksesi",
         "required_state": "Valitse maakunta"
       }
     },
+    "national_id_number_title": "Lisää kansallinen henkilötunnuksesi",
     "personal_information_title": "Lisää henkilötietosi",
     "prompt": {
       "details_timeout": "Aloita uudelleen",

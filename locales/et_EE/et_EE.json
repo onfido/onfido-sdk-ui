@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Teie mikrofoni kasutab teine rakendus",
       "timeout_body": "Salvestamiseks on aega kuni 15 sekundit",
       "timeout_button_primary": "Proovige uuesti",
       "timeout_title": "Kahjuks peame salvestamist uuesti alustama",
@@ -31,9 +32,9 @@
     "title_completed": "Salvestamine lõpetatud"
   },
   "avc_intro": {
-    "button_primary_ready": "Olen valmis!",
+    "button_primary_ready": "Alustage salvestamist",
     "disclaimer": "Pidage meeles, et salvestame teie nägu ja tausta",
-    "disclaimer_camera_and_audio_on": "Selle protsessi käigus salvestatakse teie nägu, taust ja heli.",
+    "disclaimer_camera_and_audio_on": "Selle protsessi käigus salvestatakse teie nägu, taust ja heli",
     "list_item_one": "Kõigepealt asetage oma nägu kaadrisse",
     "list_item_two": "Seejärel keerake oma pead aeglaselt mõlemale poole",
     "subtitle": "Nii kinnitame, et olete tõeline inimene",
@@ -115,6 +116,8 @@
     "footer": {
       "captured": "Foto on jäädvustatud",
       "capturing": "Foto jäädvustamine",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Pildistage kaardi tagakülge",
       "manual_fallback_identity_card_front": "Pildistage kaardi esikülge",
       "manual_fallback_license_back": "Pildistage juhiloa tagakülge",
@@ -122,6 +125,8 @@
       "manual_fallback_passport": "Pildistage passi fotolehte",
       "manual_fallback_residence_permit_back": "Pildistage elamisloa tagakülge",
       "manual_fallback_residence_permit_front": "Pildista oma elamisloa esikülge",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Asetage kaardi tagakülg kaadrisse",
       "position_identity_card_front": "Asetage kaardi esikülg kaadrisse",
       "position_license_back": "Paigutage oma juhiloa tagakülg kaadrisse",
@@ -164,6 +169,7 @@
     "body_bank_statement": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
     "body_benefits_letter": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
     "body_bill": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
+    "body_generic_document": "",
     "body_id": "Veenduge, et teie andmed on selged ja katmata",
     "body_image_medium": "Teie isiku kinnitamine võtab kauem aega, kui me seda lugeda ei saa",
     "body_image_poor": "Teie isiku sujuvaks tuvastamiseks vajame paremat fotot",
@@ -231,6 +237,8 @@
     "title_bank_statement": "Esitage väljavõte",
     "title_benefits_letter": "Esitage kiri",
     "title_bill": "Esitage arve",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Kiri riigiasutuselt",
     "title_id_back": "Esita ID-kaart (tagakülg)",
     "title_id_front": "Esitage ID-kaart (esikülg)",
@@ -398,12 +406,16 @@
   "permission": {
     "body_both": "Me ei saa teie isikut kinnitada ilma nii kaamerat kui ka mikrofoni kasutamata",
     "body_cam": "Isiku kinnitamine ilma kaamerata ei ole võimalik",
+    "body_mic": "Me ei saa teie isikut kinnitada ilma mikrofoni kasutamata",
     "button_primary_both": "Lubage mõlemad",
     "button_primary_cam": "Lubage kaamera",
+    "button_primary_mic": "Lubage mikrofon",
     "subtitle_both": "Kui küsitakse juurdepääsuluba, peate jätkamiseks lubama juurdepääsu mõlemale",
     "subtitle_cam": "Kui küsitakse juurdepääsuluba, peate jätkamiseks lubama juurdepääsu kaamerale",
+    "subtitle_mic": "Kui küsitakse juurdepääsuluba, peate jätkamiseks lubama juurdepääsu mikrofonile",
     "title_both": "Lubage juurdepääs kaamerale ja mikrofonile",
-    "title_cam": "Lubage juurdepääs kaamerale"
+    "title_cam": "Lubage juurdepääs kaamerale",
+    "title_mic": "Lubage juurdepääs mikrofonile"
   },
   "permission_recovery": {
     "button_primary": "Värskenda",
@@ -413,16 +425,21 @@
     "list_item_action_cam": "Värskenda seda lehte isiku tuvastamise taaskäivitamiseks",
     "list_item_how_to_both": "Juurdepääsu andmine kaamerale ja mikrofonile brauseri seadetest",
     "list_item_how_to_cam": "Juurdepääsu andmine kaamerale brauseri seadetest",
+    "list_item_how_to_mic": "Juurdepääsu andmine mikrofonile brauseri seadetest",
     "subtitle_both": "Võimaldage juurdepääs kaamerale ja mikrofonile video tegemiseks ja kinnitamise lõpuleviimiseks",
     "subtitle_cam": "Kaamera juurdepääsu taastamine tuvastamise jätkamiseks",
     "subtitle_cam_old": "Kaamerale juurdepääsu taastamine näo tuvastamise jätkamiseks",
+    "subtitle_mic": "Meil ei ole võimalik teie isikut kinnitada ilma mikrofonita",
     "title_both": "Juurdepääs kaamerale ja mikrofonile on keelatud",
-    "title_cam": "Juurdepääs kaamerale on keelatud"
+    "title_cam": "Juurdepääs kaamerale on keelatud",
+    "title_mic": "Mikrofoni juurdepääs keelatud"
   },
   "photo_upload": {
     "body_bank_statement": "Parima tulemuse saamiseks esitage kogu dokumendileht",
     "body_benefits_letter": "Parima tulemuse saamiseks esitage kogu dokumendileht",
     "body_bill": "Parima tulemuse saamiseks esitage kogu dokumendileht",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Kaardi tagakülje üleslaadimine arvutist",
     "body_id_front": "Kaardi esikülje üleslaadimine arvutist",
     "body_license_back": "Loa tagakülje üleslaadimine arvutist",
@@ -476,6 +493,39 @@
       "country_select": {
         "placeholder": "Valige riik"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Välispass"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Juhiluba",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "ID-kaart",
+        "ind_specific": {
+          "tax_id": "Isiklik kontonumber (PAN)"
+        },
+        "ken_specific": {
+          "other": "Välismaalase kaart"
+        },
+        "nga_specific": {
+          "identity_card": "Riiklik identifitseerimisnumber (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Pass",
+        "placeholder": "Valige riikliku isikutunnistuse tüüp",
+        "tax_id": "Maksu ID",
+        "voter_id": "Valija ID"
+      },
       "nationality_select": {
         "placeholder": "Valige riik"
       },
@@ -491,27 +541,71 @@
     },
     "country_of_residence_title": "Teie elukohariik",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI number"
+      },
+      "can_specific": {
+        "national_id_value": "Sotsiaalkindlustuse number (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN numbrid"
+      },
+      "chn_specific": {
+        "national_id_value": "Residendi ID-kaart number"
+      },
+      "col_specific": {
+        "national_id_value": "Colombia isikukood"
+      },
       "country": "Riik",
       "country_residence": "Riik",
       "dob": "Sünnikuupäev",
       "email": "E-posti aadress",
+      "fin_specific": {
+        "national_id_value": "Isikukood"
+      },
       "first_name": "Eesnimi",
       "gbr_specific": {
         "postcode": "Sihtnumber",
         "town": "Linn"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Püsikonto number (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Maksukood"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Minu number\" / elaniku kirje kood"
       },
       "last_name": "Perekonnanimi",
       "line1": "Aadressi rida 1",
       "line2": "Aadressi rida 2",
       "line3": "Aadressi rida 3",
+      "lux_specific": {
+        "national_id_value": "Isikukood"
+      },
       "mobile_number": "Mobiiltelefoni number",
+      "national_id_type": "Riikliku isikutunnistuse tüüp",
+      "national_id_value": "Riiklik ID-number",
       "nationality": "Rahvus",
+      "phl_specific": {
+        "national_id_value": "PhilSysi kaardi number (PCN)"
+      },
       "phone_number": "Telefoninumber",
+      "pol_specific": {
+        "national_id_value": "PESEL number"
+      },
       "postcode": "Sihtnumber",
+      "prt_specific": {
+        "national_id_value": "Maksu number"
+      },
       "town": "Linn",
+      "tur_specific": {
+        "national_id_value": "Türgi identifitseerimisnumber"
+      },
       "usa_specific": {
         "line1_helper_text": "Aadress, näiteks Alberti tänav 200",
         "line2_helper_text": "Korter, sviit jne",
@@ -522,11 +616,48 @@
     },
     "field_optional": "(valikuline)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Sisestage kehtiv CNPJ",
+        "invalid_tax_id": "Sisestage kehtiv CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Sisestage kehtivad RUT/RUN numbrid",
+        "required_national_id_value": "Sisestage oma RUT / RUN numbrid"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv elaniku isikutunnistuse number"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv Colombia isikukood",
+        "required_national_id_value": "Sisestage oma Colombia isiklik identifitseerimisnumber"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Sisestage kehtiv NIF/DNI",
+        "invalid_other": "Sisestage kehtiv NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Palun sisesta kehtiv isikukood",
+        "required_national_id_value": "Palun sisesta oma isikukood"
+      },
       "gbr_specific": {
         "invalid_postcode": "Sisestage kehtiv sihtnumber",
         "required_postcode": "Sisestage oma sihtnumber",
         "too_long_postcode": "Sihtnumber on liiga pikk",
         "too_short_postcode": "Sihtnumber on liiga lühike"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Sisestage kehtiv SSNIT",
+        "required_social_insurance": "Sisestage oma SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv HKID",
+        "required_national_id_value": "Sisestage oma HKID"
       },
       "ind_specific": {
         "invalid_pan": "Sisestage kehtiv PAN",
@@ -534,9 +665,59 @@
       },
       "invalid": "Kontrollige sobimatuid märke või sümboleid",
       "invalid_dob": "Sisestage kehtiv sünnikuupäev",
+      "invalid_driving_license": "Sisestage kehtiv juhiloa number",
       "invalid_email": "Sisestage korrektne e-posti aadress",
       "invalid_mobile_number": "Sisestage toimiv mobiilinumber",
+      "invalid_national_id_value": "Sisestage kehtiv riiklik ID-number",
+      "invalid_passport": "Sisestage kehtiv passi number",
       "invalid_phone_number": "Sisestage kehtiv telefoninumber",
+      "invalid_voter_id": "Sisestage kehtiv valija ID-number",
+      "ita_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv maksukood"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv \"Minu number\" / elaniku kirje kood",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Sisestage kehtiv välismaalase kaardi number",
+        "required_other": "Sisestage oma välismaalase kaardi number"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv sotsiaalkindlustuse number",
+        "required_national_id_value": "Sisestage oma sotsiaalkindlustuse number"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Sisestage kehtiv CURP",
+        "invalid_tax_id": "Sisestage kehtiv RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv NRIC",
+        "required_national_id_value": "Sisestage oma NRIC"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Sisestage kehtiv riiklik identifitseerimisnumber (NIN)",
+        "invalid_other": "Sisestage kehtiv BVN",
+        "invalid_tax_id": "Sisestage kehtiv TIN-kood",
+        "required_identity_card": "Sisestage oma riiklik identifitseerimisnumber (NIN)",
+        "required_other": "Sisestage oma BVN",
+        "required_tax_id": "Sisestage oma TIN"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv PhilSysi kaardi number (PCN)",
+        "required_national_id_value": "Sisestage oma PhilSysi kaardi number (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv PESEL-i number",
+        "required_national_id_value": "Sisestage oma PESEL-i number"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv maksunumber",
+        "required_national_id_value": "Palun sisestage oma maksunumber"
+      },
+      "reference": {
+        "translation": "Sisestage kehtiv"
+      },
       "required_consent": "Nõustuge isikusamasuse ja pettuse tuvastamisega seotud kontrolliga",
       "required_country": "Valige riik",
       "required_country_residence": "Valige riik",
@@ -549,6 +730,12 @@
       "required_nationality": "Valige riik",
       "required_phone_number": "Sisestage oma telefoninumber",
       "required_postcode": "Sisestage enda sihtnumber",
+      "sgp_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv PIN"
+      },
       "too_long_first_name": "Eesnimi on liiga pikk",
       "too_long_last_name": "Perekonnanimi on liiga pikk",
       "too_long_line1": "Aadressirida on liiga pikk",
@@ -557,12 +744,16 @@
       "too_short_first_name": "Eesnimi on liiga lühike",
       "too_short_last_name": "Perekonnanimi on liiga lühike",
       "too_short_postcode": "Sihtnumber on liiga lühike",
+      "tur_specific": {
+        "invalid_national_id_value": "Sisestage kehtiv Türgi ID-number"
+      },
       "usa_specific": {
         "invalid_ssn": "Sisestage kehtiv SSN",
         "required_ssn": "Sisestage oma SSN",
         "required_state": "Valige osariik"
       }
     },
+    "national_id_number_title": "Lisage oma riiklik ID-number",
     "personal_information_title": "Lisage oma isikuandmed",
     "prompt": {
       "details_timeout": "Alustage uuesti",

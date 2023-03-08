@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Ваш микрофон используется другим приложением",
       "timeout_body": "У Вас есть не более 15 секунд, чтобы завершить запись",
       "timeout_button_primary": "Повторить",
       "timeout_title": "К сожалению, мы должны перезапустить запись",
@@ -31,7 +32,7 @@
     "title_completed": "Запись завершена"
   },
   "avc_intro": {
-    "button_primary_ready": "Я готов(-а)",
+    "button_primary_ready": "Начать запись",
     "disclaimer": "Имейте в виду, что мы будем записывать Ваше лицо и фон",
     "disclaimer_camera_and_audio_on": "Во время этого процесса будут записаны ваше лицо, фон и звук.",
     "list_item_one": "Сначала расположите свое лицо внутри рамки",
@@ -115,6 +116,8 @@
     "footer": {
       "captured": "Снимок сделан",
       "capturing": "Делаем снимок",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Сфотографируйте оборотную сторону карточки",
       "manual_fallback_identity_card_front": "Сфотографируйте лицевую сторону карточки",
       "manual_fallback_license_back": "Сфотографируйте оборотную сторону водительского удостоверения",
@@ -122,6 +125,8 @@
       "manual_fallback_passport": "Сфотографируйте страницу паспорта с Вашей фотографией",
       "manual_fallback_residence_permit_back": "Сфотографируйте оборотную сторону вида на жительство",
       "manual_fallback_residence_permit_front": "Сфотографируйте лицевую сторону ВНЖ",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Поместите оборотную сторону карточки в рамку",
       "position_identity_card_front": "Поместите лицевую сторону карточки в рамку",
       "position_license_back": "Поместите оборотную сторону водительского удостоверения в рамку",
@@ -164,6 +169,7 @@
     "body_bank_statement": "Убедитесь, что Вы загрузили всю страницу документа, данные четко видны, нет размытия или бликов",
     "body_benefits_letter": "Убедитесь, что Вы загрузили всю страницу документа, данные четко видны, нет размытия или бликов",
     "body_bill": "Убедитесь, что Вы загрузили всю страницу документа, данные четко видны, нет размытия или бликов",
+    "body_generic_document": "",
     "body_id": "Убедитесь, что Ваши данные четко видны и не перекрыты",
     "body_image_medium": "Если мы не сможем его прочитать, проверка займет больше времени",
     "body_image_poor": "Для быстрой проверки Вашей личности нам нужно фото лучшего качества",
@@ -231,6 +237,8 @@
     "title_bank_statement": "Отправить выписку",
     "title_benefits_letter": "Отправить письмо",
     "title_bill": "Отправить счет",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Письмо правительства",
     "title_id_back": "Отправить удостоверение личности (оборотная сторона)",
     "title_id_front": "Отправить удостоверение личности (лицевая сторона)",
@@ -398,12 +406,16 @@
   "permission": {
     "body_both": "Мы не можем верифицировать Вас без использования камеры и микрофона",
     "body_cam": "Мы не можем верифицировать Вас без камеры",
+    "body_mic": "Мы не можем верифицировать Вас без использования микрофона",
     "button_primary_both": "Включить камеру и микрофон",
     "button_primary_cam": "Резрешить доступ",
+    "button_primary_mic": "Включить микрофон",
     "subtitle_both": "При появлении запроса Вы должны разрешить доступ к камере и микрофону, чтобы продолжить",
     "subtitle_cam": "При появлении запроса Вы должны разрешить доступ к камере, чтобы продолжить",
+    "subtitle_mic": "При появлении запроса Вы должны разрешить доступ к микрофону, чтобы продолжить",
     "title_both": "Разрешить доступ к камере и микрофону",
-    "title_cam": "Разрешить доступ к камере"
+    "title_cam": "Разрешить доступ к камере",
+    "title_mic": "Разрешить доступ к микрофону"
   },
   "permission_recovery": {
     "button_primary": "Обновить",
@@ -413,16 +425,21 @@
     "list_item_action_cam": "Обновите эту страницу для перезапуска процесса подтверждения личности",
     "list_item_how_to_both": "Предоставьте доступ к камере и микрофону в настройках браузера",
     "list_item_how_to_cam": "Предоставьте доступ к камере в настройках браузера",
+    "list_item_how_to_mic": "Предоставьте доступ к вашему микрофону в настройках браузера",
     "subtitle_both": "Восстановите доступ к камере и микрофону, чтобы сделать видео и завершить процесс верификации",
     "subtitle_cam": "Восстановите доступ к камере, чтобы продолжить верификацию",
     "subtitle_cam_old": "Восстановите доступ к камере, чтобы продолжить проверку лица",
+    "subtitle_mic": "Мы не можем верифицировать Вас без микрофона",
     "title_both": "Доступ к камере и микрофону запрещен",
-    "title_cam": "Доступ к камере запрещен"
+    "title_cam": "Доступ к камере запрещен",
+    "title_mic": "Доступ к микрофону запрещен"
   },
   "photo_upload": {
     "body_bank_statement": "Для лучшего результата сфотографируйте документ целиком",
     "body_benefits_letter": "Для лучшего результата сфотографируйте документ целиком",
     "body_bill": "Для лучшего результата сфотографируйте документ целиком",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Загрузите оборотную сторону карточки со своего компьютера",
     "body_id_front": "Загрузите лицевую сторону удостоверения со своего компьютера",
     "body_license_back": "Загрузите оборотную сторону удостоверения со своего компьютера",
@@ -476,6 +493,39 @@
       "country_select": {
         "placeholder": "Выберите страну"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Загранпаспорт"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Водительское удостоверение",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Удостоверение личности",
+        "ind_specific": {
+          "tax_id": "Номер лицевого счета (PAN)"
+        },
+        "ken_specific": {
+          "other": "Чужая карта"
+        },
+        "nga_specific": {
+          "identity_card": "Национальный идентификационный номер (НИН)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Заграничный пасспорт",
+        "placeholder": "Выберите тип национального идентификатора",
+        "tax_id": "ИНН",
+        "voter_id": "Идентификатор избирателя"
+      },
       "nationality_select": {
         "placeholder": "Выберите страну"
       },
@@ -491,27 +541,71 @@
     },
     "country_of_residence_title": "Страна проживания",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "номер DNI"
+      },
+      "can_specific": {
+        "national_id_value": "Номер социального страхования (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "РУТ/РУН номера"
+      },
+      "chn_specific": {
+        "national_id_value": "Резидент Удостоверение личности номер"
+      },
+      "col_specific": {
+        "national_id_value": "Колумбийский личный идентификационный номер"
+      },
       "country": "Страна",
       "country_residence": "Страна",
       "dob": "Дата рождения",
       "email": "Адрес электронной почты",
+      "fin_specific": {
+        "national_id_value": "Персональный код"
+      },
       "first_name": "Имя",
       "gbr_specific": {
         "postcode": "Почтовый код",
         "town": "Город/населенный пункт"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Идентификационный номер налогоплательщика (код PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Фискальный код"
+      },
+      "jpn_specific": {
+        "national_id_value": "«Мой номер» / Код записи резидента"
       },
       "last_name": "Фамилия",
       "line1": "Строка адреса 1",
       "line2": "Строка адреса 2",
       "line3": "Строка адреса 3",
+      "lux_specific": {
+        "national_id_value": "Номер социального страхования"
+      },
       "mobile_number": "Мобильный телефон",
+      "national_id_type": "Тип национального идентификатора",
+      "national_id_value": "Национальный идентификационный номер",
       "nationality": "Гражданство",
+      "phl_specific": {
+        "national_id_value": "Номер карты PhilSys (PCN)"
+      },
       "phone_number": "Номер телефона",
+      "pol_specific": {
+        "national_id_value": "номер PESEL"
+      },
       "postcode": "Почтовый индекс",
+      "prt_specific": {
+        "national_id_value": "Налоговый номер"
+      },
       "town": "Город",
+      "tur_specific": {
+        "national_id_value": "Турецкий идентификационный номер"
+      },
       "usa_specific": {
         "line1_helper_text": "Улица, например: 200 Альберт-Стрит",
         "line2_helper_text": "Квартира, апартаменты, комната и т. д.",
@@ -522,11 +616,48 @@
     },
     "field_optional": "(необязательно)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Пожалуйста, введите правильный CNPJ",
+        "invalid_tax_id": "Пожалуйста, введите правильный CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите правильный SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительные номера RUT / RUN",
+        "required_national_id_value": "Пожалуйста, введите ваши номера RUT/RUN"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный номер удостоверения личности резидента"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный колумбийский личный идентификационный номер",
+        "required_national_id_value": "Пожалуйста, введите свой колумбийский личный идентификационный номер"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Пожалуйста, введите правильный NIF/DNI",
+        "invalid_other": "Пожалуйста, введите правильный NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный персональный код",
+        "required_national_id_value": "Пожалуйста, введите Ваш персональный код"
+      },
       "gbr_specific": {
         "invalid_postcode": "Введите действительный почтовый код",
         "required_postcode": "Введите свой почтовый код",
         "too_long_postcode": "Слишком длинный почтовый код",
         "too_short_postcode": "Слишком короткий почтовый код"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Пожалуйста, введите действительный SSNIT",
+        "required_social_insurance": "Пожалуйста, введите свой SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный HKID",
+        "required_national_id_value": "Пожалуйста, введите ваш HKID"
       },
       "ind_specific": {
         "invalid_pan": "Введите действительный PAN",
@@ -534,9 +665,59 @@
       },
       "invalid": "Проверьте наличие недопустимых символов или знаков",
       "invalid_dob": "Введите действительную дату рождения",
+      "invalid_driving_license": "Пожалуйста, введите действительный номер водительского удостоверения",
       "invalid_email": "Введите действительный адрес электронной почты",
       "invalid_mobile_number": "Введите действительный номер мобильного телефона",
+      "invalid_national_id_value": "Пожалуйста, введите действительный национальный идентификационный номер",
+      "invalid_passport": "Пожалуйста, введите действительный номер паспорта",
       "invalid_phone_number": "Введите действительный номер телефона",
+      "invalid_voter_id": "Пожалуйста, введите действительный идентификационный номер избирателя",
+      "ita_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный фискальный код"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный «Мой номер» / Код записи резидента",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Пожалуйста, введите действующий номер карты иностранца",
+        "required_other": "Пожалуйста, введите номер карты иностранца"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный номер социального страхования",
+        "required_national_id_value": "Пожалуйста, введите свой номер социального страхования"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Пожалуйста, введите правильный CURP",
+        "invalid_tax_id": "Пожалуйста, введите правильный RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный NRIC",
+        "required_national_id_value": "Пожалуйста, введите свой NRIC"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Пожалуйста, введите действительный национальный идентификационный номер (NIN)",
+        "invalid_other": "Пожалуйста, введите действительный BVN",
+        "invalid_tax_id": "Пожалуйста, введите действительный ИНН",
+        "required_identity_card": "Пожалуйста, введите свой национальный идентификационный номер (NIN)",
+        "required_other": "Пожалуйста, введите свой БВН",
+        "required_tax_id": "Пожалуйста, введите свой ИНН"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Введите действительный номер карты PhilSys (PCN)",
+        "required_national_id_value": "Пожалуйста, введите номер вашей карты PhilSys (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный номер PESEL",
+        "required_national_id_value": "Пожалуйста, введите свой номер PESEL"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный налоговый номер",
+        "required_national_id_value": "Пожалуйста, введите свой налоговый номер"
+      },
+      "reference": {
+        "translation": "Пожалуйста, введите правильный"
+      },
       "required_consent": "Разрешите проверку личности и фактов мошенничества",
       "required_country": "Выберите страну",
       "required_country_residence": "Выберите страну",
@@ -549,6 +730,12 @@
       "required_nationality": "Выберите страну",
       "required_phone_number": "Введите номер телефона",
       "required_postcode": "Введите свой почтовый индекс",
+      "sgp_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите правильный NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите правильный PIN"
+      },
       "too_long_first_name": "Слишком длинное имя",
       "too_long_last_name": "Слишком длинная фамилия",
       "too_long_line1": "Слишком длинная строка адреса",
@@ -557,12 +744,16 @@
       "too_short_first_name": "Слишком короткое имя",
       "too_short_last_name": "Слишком короткая фамилия",
       "too_short_postcode": "Слишком короткий почтовый индекс",
+      "tur_specific": {
+        "invalid_national_id_value": "Пожалуйста, введите действительный турецкий идентификационный номер"
+      },
       "usa_specific": {
         "invalid_ssn": "Введите действительный SSN",
         "required_ssn": "Введите свой SSN",
         "required_state": "Выберите свой штат"
       }
     },
+    "national_id_number_title": "Добавьте свой национальный идентификационный номер",
     "personal_information_title": "Добавьте свои персональные данные",
     "prompt": {
       "details_timeout": "Начать сначала",
