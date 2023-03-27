@@ -116,8 +116,8 @@
     "footer": {
       "captured": "ถ่ายภาพแล้ว",
       "capturing": "การถ่ายภาพ",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "ถ่ายรูปด้านหลังของเอกสารของคุณ",
+      "manual_fallback_generic_document_front": "ถ่ายรูปด้านหน้าของเอกสารของคุณ",
       "manual_fallback_identity_card_back": "ถ่ายรูปด้านหลังบัตรของคุณ",
       "manual_fallback_identity_card_front": "ถ่ายรูปด้านหน้าบัตรของคุณ",
       "manual_fallback_license_back": "ถ่ายรูปด้านหลังใบอนุญาตขับขี่ของคุณ",
@@ -169,7 +169,7 @@
     "body_bank_statement": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
     "body_benefits_letter": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
     "body_bill": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
-    "body_generic_document": "",
+    "body_generic_document": "เช็คให้แน่ใจว่ารายละเอียดชัดเจนและไม่มีอะไรกีดขวาง",
     "body_id": "เช็คให้แน่ใจว่ารายละเอียดชัดเจนและไม่มีอะไรกีดขวาง",
     "body_image_medium": "การยืนยันตัวตนจะใช้เวลานานขึ้นหากเราอ่านเอกสารไม่ได้",
     "body_image_poor": "เราต้องการรูปถ่ายที่ดีกว่านี้ เพื่อยืนยันตัวตนของคุณอย่างราบรื่น",
@@ -237,8 +237,8 @@
     "title_bank_statement": "ส่งใบแจ้งยอด",
     "title_benefits_letter": "ส่งจดหมาย",
     "title_bill": "ส่งใบเรียกเก็บเงิน",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "ส่งเอกสาร (ด้านหลัง)",
+    "title_generic_document_front": "ส่งเอกสาร (ด้านหน้า)",
     "title_government_letter": "หนังสือราชการ",
     "title_id_back": "ส่งบัตรประจำตัวประชาชน (ด้านหลัง)",
     "title_id_front": "ส่งบัตรประจำตัวประชาชน (ด้านหน้า)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "เรายืนยันตัวตนคุณไม่ได้ หากไม่ใช้กล้องและไมโครโฟน",
     "body_cam": "เรายืนยันตัวตนคุณไม่ได้ หากไม่ใช้กล้อง",
-    "body_mic": "เรายืนยันตัวตนคุณไม่ได้ หากไม่ใช้ไมโครโฟน",
     "button_primary_both": "เปิดใช้งานทั้ง 2 อย่าง",
     "button_primary_cam": "เปิดใช้งานกล้อง",
-    "button_primary_mic": "เปิดใช้งานไมโครโฟน",
     "subtitle_both": "เมื่อได้รับแจ้ง คุณต้องอนุญาตการเข้าถึงสำหรับทั้งคู่เพื่อดำเนินการต่อ",
     "subtitle_cam": "เมื่อได้รับแจ้ง คุณต้องอนุญาตการเข้าถึงกล้องเพื่อดำเนินการต่อ",
-    "subtitle_mic": "เมื่อได้รับแจ้ง คุณต้องอนุญาตการเข้าถึงไมโครโฟนเพื่อดำเนินการต่อ",
     "title_both": "อนุญาตให้เข้าถึงกล้องและไมโครโฟน",
-    "title_cam": "อนุญาตให้เข้าถึงกล้อง",
-    "title_mic": "อนุญาตให้เข้าถึงไมโครโฟน"
+    "title_cam": "อนุญาตให้เข้าถึงกล้อง"
   },
   "permission_recovery": {
     "button_primary": "รีเฟรช",
@@ -429,17 +425,15 @@
     "subtitle_both": "กู้คืนสิทธิ์การเข้าถึงกล้องและไมโครโฟน เพื่อถ่ายวิดีโอและดำเนินการตามขั้นตอนยืนยันให้เสร็จ",
     "subtitle_cam": "กู้คืนสิทธิ์การเข้าถึงกล้องเพื่อยืนยันตัวตนต่อ",
     "subtitle_cam_old": "กู้คืนสิทธิ์การเข้าถึงกล้องเพื่อยืนยันใบหน้าต่อ",
-    "subtitle_mic": "เรายืนยันตัวตนคุณไม่ได้ หากไม่มีไมโครโฟน",
     "title_both": "การเข้าถึงกล้องและไมโครโฟนถูกปฏิเสธ",
-    "title_cam": "การเข้าถึงกล้องถูกปฏิเสธ",
-    "title_mic": "การเข้าถึงไมโครโฟนถูกปฏิเสธ"
+    "title_cam": "การเข้าถึงกล้องถูกปฏิเสธ"
   },
   "photo_upload": {
     "body_bank_statement": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
     "body_benefits_letter": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
     "body_bill": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "อัปโหลดด้านหลังของเอกสารจากคอมพิวเตอร์ของคุณ",
+    "body_generic_document_front": "อัปโหลดด้านหน้าของเอกสารจากคอมพิวเตอร์ของคุณ",
     "body_id_back": "อัปโหลดด้านหลังบัตรจากคอมพิวเตอร์ของคุณ",
     "body_id_front": "อัปโหลดด้านหน้าบัตรจากคอมพิวเตอร์ของคุณ",
     "body_license_back": "อัปโหลดด้านหลังใบอนุญาตจากคอมพิวเตอร์ของคุณ",
@@ -558,6 +552,9 @@
       },
       "country": "ประเทศ",
       "country_residence": "ประเทศ",
+      "dnk_specific": {
+        "national_id_value": "หมายเลข CPR"
+      },
       "dob": "วันเกิด",
       "email": "อีเมล",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "กรุณาใส่ที่ถูกต้อง CNPJ",
-        "invalid_tax_id": "กรุณาใส่ที่ถูกต้อง CPF"
+        "invalid_tax_id": "กรุณาใส่ที่ถูกต้อง CPF",
+        "required_other": "กรุณากรอก CNPJ ของคุณ",
+        "required_tax_id": "กรุณากรอก CPF ของคุณ"
       },
       "can_specific": {
-        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง SIN"
+        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง SIN",
+        "required_national_id_value": "โปรดป้อน SIN ของคุณ"
       },
       "chl_specific": {
         "invalid_national_id_value": "โปรดป้อนหมายเลข RUT / RUN ที่ถูกต้อง",
         "required_national_id_value": "โปรดป้อนหมายเลข RUT / RUN ของคุณ"
       },
       "chn_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลขบัตรประจำตัวประชาชนที่ถูกต้อง"
+        "invalid_national_id_value": "โปรดป้อนหมายเลขบัตรประจำตัวประชาชนที่ถูกต้อง",
+        "required_national_id_value": "กรุณาใส่หมายเลขบัตรประจำตัวประชาชนของคุณ"
       },
       "col_specific": {
         "invalid_national_id_value": "โปรดป้อนหมายเลขประจำตัวส่วนบุคคลของโคลอมเบียที่ถูกต้อง",
         "required_national_id_value": "โปรดป้อนหมายเลขประจำตัวส่วนบุคคลโคลอมเบียของคุณ"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "โปรดป้อนหมายเลข CPR ที่ถูกต้อง",
+        "required_national_id_value": "กรุณาใส่หมายเลข CPR ของคุณ"
+      },
       "esp_specific": {
         "invalid_identity_card": "กรุณาใส่ที่ถูกต้อง NIF/DNI",
-        "invalid_other": "กรุณาใส่ที่ถูกต้อง NIE"
+        "invalid_other": "กรุณาใส่ที่ถูกต้อง NIE",
+        "required_identity_card": "โปรดป้อน NIF/DNI ของคุณ"
       },
       "fin_specific": {
         "invalid_national_id_value": "โปรดป้อนรหัสประจำตัวส่วนบุคคลที่ถูกต้อง",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "โปรดใส่หมายเลขโทรศัพท์ที่ถูกต้อง",
       "invalid_voter_id": "โปรดป้อนหมายเลขประจำตัวผู้มีสิทธิเลือกตั้งที่ถูกต้อง",
       "ita_specific": {
-        "invalid_national_id_value": "โปรดป้อนรหัสการเงินที่ถูกต้อง"
+        "invalid_national_id_value": "โปรดป้อนรหัสการเงินที่ถูกต้อง",
+        "required_national_id_value": "โปรดป้อนรหัสการเงินของคุณ"
       },
       "jpn_specific": {
         "invalid_national_id_value": "โปรดป้อน \"หมายเลขของฉัน\" / รหัสบันทึกถิ่นที่อยู่ที่ถูกต้อง",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "กรุณาใส่ที่ถูกต้อง CURP",
-        "invalid_tax_id": "กรุณาใส่ที่ถูกต้อง RFC"
+        "invalid_tax_id": "กรุณาใส่ที่ถูกต้อง RFC",
+        "required_identity_card": "กรุณากรอก CURP ของคุณ",
+        "required_tax_id": "กรุณากรอก RFC ของคุณ"
       },
       "mys_specific": {
         "invalid_national_id_value": "โปรดป้อน NRIC ที่ถูกต้อง",
@@ -727,14 +736,21 @@
       "required_last_name": "โปรดใส่นามสกุลของคุณ",
       "required_line1": "โปรดใส่อีเมล",
       "required_mobile_number": "โปรดใส่หมายเลขโทรศัพท์มือถือของคุณ",
+      "required_national_driving_license": "กรุณาใส่หมายเลขใบขับขี่ของคุณ",
+      "required_national_id_type": "กรุณาเลือกประเภทบัตรประจำตัวประชาชนของคุณ",
+      "required_national_id_value": "กรุณากรอกเลขประจำตัวประชาชนของคุณ",
+      "required_national_passport": "กรุณาใส่หมายเลขหนังสือเดินทางของคุณ",
+      "required_national_voter_id": "โปรดป้อนหมายเลขประจำตัวผู้มีสิทธิเลือกตั้งของคุณ",
       "required_nationality": "โปรดเลือกประเทศ",
       "required_phone_number": "โปรดใส่หมายเลขโทรศัพท์ของคุณ",
       "required_postcode": "โปรดใส่รหัสไปรษณีย์ของคุณ",
       "sgp_specific": {
-        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง NRIC"
+        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง NRIC",
+        "required_national_id_value": "กรุณากรอก NRIC ของคุณ"
       },
       "swe_specific": {
-        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง PIN"
+        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง PIN",
+        "required_national_id_value": "กรุณาใส่รหัส PIN ของคุณ"
       },
       "too_long_first_name": "ชื่อยาวเกินไป",
       "too_long_last_name": "นามสกุลยาวเกินไป",
@@ -745,7 +761,8 @@
       "too_short_last_name": "นามสกุลสั้นเกินไป",
       "too_short_postcode": "รหัสไปรษณีย์สั้นเกินไป",
       "tur_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลข ID ตุรกีที่ถูกต้อง"
+        "invalid_national_id_value": "โปรดป้อนหมายเลข ID ตุรกีที่ถูกต้อง",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "โปรดใส่ SSN ที่ถูกต้อง",

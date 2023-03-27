@@ -33,7 +33,7 @@
   },
   "avc_intro": {
     "button_primary_ready": "Sākt ierakstu",
-    "disclaimer": "Ņemiet vērā, ka mēs ierakstīsim jūsu seju un fonu",
+    "disclaimer": "Šī procesa laikā tiks ierakstīta jūsu seja un fons",
     "disclaimer_camera_and_audio_on": "Šī procesa laikā tiks ierakstīta jūsu seja, fons un skaņa",
     "list_item_one": "Vispirms pozicionējiet seju kadrā",
     "list_item_two": "Pēc tam lēnām pagrieziet galvu uz abām pusēm",
@@ -116,8 +116,8 @@
     "footer": {
       "captured": "Fotoattēls uzņemts",
       "capturing": "Notiek fotoattēla uzņemšana",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "Nofotografējiet dokumenta aizmuguri",
+      "manual_fallback_generic_document_front": "Nofotografējiet dokumenta priekšpusi",
       "manual_fallback_identity_card_back": "Nofotografējiet kartes aizmuguri",
       "manual_fallback_identity_card_front": "Nofotografējiet kartes priekšpusi",
       "manual_fallback_license_back": "Nofotografējiet autovadītāja apliecības aizmuguri",
@@ -169,7 +169,7 @@
     "body_bank_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
     "body_benefits_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
     "body_bill": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
-    "body_generic_document": "",
+    "body_generic_document": "Jūsu informācijai ir jābūt skaidri redzamai",
     "body_id": "Jūsu informācijai ir jābūt skaidri redzamai",
     "body_image_medium": "Ja mēs nevarēsim to salasīt, pārbaude aizņems ilgāku laiku",
     "body_image_poor": "Lai jūs varētu ērti pārbaudīt, mums ir nepieciešama labāks fotoattēls",
@@ -237,8 +237,8 @@
     "title_bank_statement": "Iesniegt izziņu",
     "title_benefits_letter": "Iesniegt vēstuli",
     "title_bill": "Iesniegt rēķinu",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "Iesniegt dokumentu (aizmugure)",
+    "title_generic_document_front": "Iesniegt dokumentu (priekšpuse)",
     "title_government_letter": "Vēstule no valdības",
     "title_id_back": "Iesniegt personas apliecību (aizmugure)",
     "title_id_front": "Iesniegt personas apliecību (priekšpuse)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "Mēs nevaram veikt pārbaudi, neizmantojot kameru un mikrofonu",
     "body_cam": "Mēs nevaram veikt pārbaudi bez kameras",
-    "body_mic": "Mēs nevaram veikt pārbaudi, neizmantojot mikrofonu",
     "button_primary_both": "Iespējot abus",
     "button_primary_cam": "Iespējot kameru",
-    "button_primary_mic": "Iespējot mikrofonu",
     "subtitle_both": "Kad tiek parādīta uzvedne, lai turpinātu, ir jāiespējo piekļuve abiem",
     "subtitle_cam": "Kad tiek parādīta uzvedne, ir jāiespējo piekļuve kamerai, lai turpinātu",
-    "subtitle_mic": "Kad tiek parādīta uzvedne, ir jāiespējo piekļuve mikrofonam, lai turpinātu",
     "title_both": "Atļaut piekļuvi kamerai un mikrofonam",
-    "title_cam": "Atļaut piekļuvi kamerai",
-    "title_mic": "Atļaut piekļuvi mikrofonam"
+    "title_cam": "Atļaut piekļuvi kamerai"
   },
   "permission_recovery": {
     "button_primary": "Atsvaidzināt",
@@ -429,17 +425,15 @@
     "subtitle_both": "Atjaunojiet piekļuvi kamerai un mikrofonam, lai uzņemtu videoklipu un pabeigtu pārbaudi",
     "subtitle_cam": "Atjaunojiet piekļuvi kamerai, lai turpinātu pārbaudi",
     "subtitle_cam_old": "Atjaunojiet piekļuvi kamerai, lai turpinātu sejas pārbaudi",
-    "subtitle_mic": "Mēs nevaram veikt pārbaudi, neizmantojot mikrofonu",
     "title_both": "Kamerai un mikrofonam ir liegta piekļuve",
-    "title_cam": "Piekļuve kamerai ir liegta",
-    "title_mic": "Mikrofonam ir liegta piekļuve"
+    "title_cam": "Piekļuve kamerai ir liegta"
   },
   "photo_upload": {
     "body_bank_statement": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
     "body_benefits_letter": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
     "body_bill": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "Augšupielādējiet dokumenta aizmuguri no datora",
+    "body_generic_document_front": "Augšupielādējiet dokumenta priekšpusi no datora",
     "body_id_back": "Augšupielādējiet personas apliecības aizmuguri no datora",
     "body_id_front": "Augšupielādējiet personas apliecības priekšpusi no datora",
     "body_license_back": "Augšupielādējiet autovadītāja apliecības aizmuguri no datora",
@@ -558,6 +552,9 @@
       },
       "country": "Valsts",
       "country_residence": "Valsts",
+      "dnk_specific": {
+        "national_id_value": "CPR numurs"
+      },
       "dob": "Dzimšanas datums",
       "email": "E-pasts",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "Lūdzu, ievadiet derīgu CNPJ",
-        "invalid_tax_id": "Lūdzu, ievadiet derīgu CPF"
+        "invalid_tax_id": "Lūdzu, ievadiet derīgu CPF",
+        "required_other": "Lūdzu, ievadiet savu CNPJ",
+        "required_tax_id": "Lūdzu, ievadiet savu CPF"
       },
       "can_specific": {
-        "invalid_national_id_value": "Lūdzu, ievadiet derīgu SIN"
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu SIN",
+        "required_national_id_value": "Lūdzu, ievadiet savu SIN"
       },
       "chl_specific": {
         "invalid_national_id_value": "Lūdzu, ievadiet derīgus RUT/RUN numurus",
         "required_national_id_value": "Lūdzu, ievadiet savus RUT/RUN numurus"
       },
       "chn_specific": {
-        "invalid_national_id_value": "Lūdzu, ievadiet derīgu iedzīvotāja personas apliecības numuru"
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu iedzīvotāja personas apliecības numuru",
+        "required_national_id_value": "Lūdzu, ievadiet iedzīvotāja personas apliecības numuru"
       },
       "col_specific": {
         "invalid_national_id_value": "Lūdzu, ievadiet derīgu Kolumbijas personas identifikācijas numuru",
         "required_national_id_value": "Lūdzu, ievadiet savu Kolumbijas personas identifikācijas numuru"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu CPR numuru",
+        "required_national_id_value": "Lūdzu, ievadiet savu CPR numuru"
+      },
       "esp_specific": {
         "invalid_identity_card": "Lūdzu, ievadiet derīgu NIF/DNI",
-        "invalid_other": "Lūdzu, ievadiet derīgu NIE"
+        "invalid_other": "Lūdzu, ievadiet derīgu NIE",
+        "required_identity_card": "Lūdzu, ievadiet savu NIF/DNI"
       },
       "fin_specific": {
         "invalid_national_id_value": "Lūdzu, ievadiet derīgu personas kodu",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "Ievadiet derīgu tālruņa numuru",
       "invalid_voter_id": "Lūdzu, ievadiet derīgu vēlētāja ID numuru",
       "ita_specific": {
-        "invalid_national_id_value": "Lūdzu, ievadiet derīgu fiskālo kodu"
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu fiskālo kodu",
+        "required_national_id_value": "Lūdzu, ievadiet savu fiskālo kodu"
       },
       "jpn_specific": {
         "invalid_national_id_value": "Lūdzu, ievadiet derīgu \"Mans numurs\" / Iedzīvotāja ieraksta kodu",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "Lūdzu, ievadiet derīgu CURP",
-        "invalid_tax_id": "Lūdzu, ievadiet derīgu RFC"
+        "invalid_tax_id": "Lūdzu, ievadiet derīgu RFC",
+        "required_identity_card": "Lūdzu, ievadiet savu CURP",
+        "required_tax_id": "Lūdzu, ievadiet savu RFC"
       },
       "mys_specific": {
         "invalid_national_id_value": "Lūdzu, ievadiet derīgu NRIC",
@@ -727,14 +736,21 @@
       "required_last_name": "Ievadiet savu uzvārdu",
       "required_line1": "Ievadiet savu adresi",
       "required_mobile_number": "Ievadiet savu mobilā tālruņa numuru",
+      "required_national_driving_license": "Lūdzu, ievadiet vadītāja apliecības numuru",
+      "required_national_id_type": "Lūdzu, atlasiet sava valsts ID veidu",
+      "required_national_id_value": "Lūdzu, ievadiet savu valsts ID numuru",
+      "required_national_passport": "Lūdzu, ievadiet savas pases numuru",
+      "required_national_voter_id": "Lūdzu, ievadiet savu vēlētāja ID numuru",
       "required_nationality": "Atlasiet valsti",
       "required_phone_number": "Ievadiet savu tālruņa numuru",
       "required_postcode": "Ievadiet savu pasta indeksu",
       "sgp_specific": {
-        "invalid_national_id_value": "Lūdzu, ievadiet derīgu NRIC"
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu NRIC",
+        "required_national_id_value": "Lūdzu, ievadiet savu NRIC"
       },
       "swe_specific": {
-        "invalid_national_id_value": "Lūdzu, ievadiet derīgu PIN"
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu PIN",
+        "required_national_id_value": "Lūdzu, ievadiet savu PIN"
       },
       "too_long_first_name": "Vārds ir pārāk garš",
       "too_long_last_name": "Uzvārds ir pārāk garš",
@@ -745,7 +761,8 @@
       "too_short_last_name": "Uzvārds ir pārāk īss",
       "too_short_postcode": "Pasta indekss ir pārāk īss",
       "tur_specific": {
-        "invalid_national_id_value": "Lūdzu, ievadiet derīgu Turcijas ID numuru"
+        "invalid_national_id_value": "Lūdzu, ievadiet derīgu Turcijas ID numuru",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "Ievadiet derīgu PAN",

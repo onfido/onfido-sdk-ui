@@ -33,7 +33,7 @@
   },
   "avc_intro": {
     "button_primary_ready": "Mulai merekam",
-    "disclaimer": "Harap perhatikan bahwa kami akan merekam wajah dan latar belakang Anda",
+    "disclaimer": "Selama proses ini, wajah dan latar belakang Anda akan direkam",
     "disclaimer_camera_and_audio_on": "Wajah, latar belakang, dan audio Anda akan direkam selama proses ini",
     "list_item_one": "Pertama, posisikan wajah Anda dalam bingkai",
     "list_item_two": "Kemudian, putar kepala Anda ke kedua sisi",
@@ -116,8 +116,8 @@
     "footer": {
       "captured": "Foto direkam",
       "capturing": "Merekam foto",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "Ambil foto bagian belakang dokumen Anda",
+      "manual_fallback_generic_document_front": "Ambil foto bagian depan dokumen Anda",
       "manual_fallback_identity_card_back": "Ambil foto bagian belakang kartu Anda",
       "manual_fallback_identity_card_front": "Ambil foto bagian depan kartu Anda",
       "manual_fallback_license_back": "Ambil foto bagian belakang SIM Anda",
@@ -169,7 +169,7 @@
     "body_bank_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
     "body_benefits_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
     "body_bill": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-    "body_generic_document": "",
+    "body_generic_document": "Pastikan detail Anda jelas dan tidak terhalang",
     "body_id": "Pastikan detail Anda jelas dan tidak terhalang",
     "body_image_medium": "Perlu waktu lebih lama untuk memverifikasi Anda jika kami tidak dapat membacanya",
     "body_image_poor": "Untuk memverifikasi Anda dengan lancar, kami membutuhkan foto yang lebih baik",
@@ -237,8 +237,8 @@
     "title_bank_statement": "Kirim rekening bulanan",
     "title_benefits_letter": "Kirim surat",
     "title_bill": "Kirim tagihan",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "Kirim dokumen (bagian belakang)",
+    "title_generic_document_front": "Kirim dokumen (bagian depan)",
     "title_government_letter": "Surat Pemerintah",
     "title_id_back": "Kirim kartu identitas (belakang)",
     "title_id_front": "Kirim kartu identitas (depan)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "Kami tidak dapat memverifikasi Anda tanpa menggunakan kamera dan mikrofon Anda",
     "body_cam": "Kami tidak dapat memverifikasi Anda tanpa kamera Anda",
-    "body_mic": "Kami tidak dapat memverifikasi Anda tanpa menggunakan mikrofon Anda",
     "button_primary_both": "Aktifkan keduanya",
     "button_primary_cam": "Aktifkan kamera",
-    "button_primary_mic": "Aktifkan mikrofon",
     "subtitle_both": "Saat diminta, Anda harus mengaktifkan akses untuk keduanya agar dapat melanjutkan",
     "subtitle_cam": "Saat diminta, Anda harus mengaktifkan akses kamera untuk melanjutkan",
-    "subtitle_mic": "Saat diminta, Anda harus mengaktifkan akses mikrofon untuk melanjutkan",
     "title_both": "Izinkan akses kamera dan mikrofon",
-    "title_cam": "Izinkan akses kamera",
-    "title_mic": "Izinkan akses mikrofon"
+    "title_cam": "Izinkan akses kamera"
   },
   "permission_recovery": {
     "button_primary": "Muat ulang",
@@ -429,17 +425,15 @@
     "subtitle_both": "Pulihkan akses kamera dan mikrofon untuk mengambil video dan selesaikan proses verifikasi",
     "subtitle_cam": "Pulihkan akses kamera untuk melanjutkan verifikasi",
     "subtitle_cam_old": "Pulihkan akses kamera untuk melanjutkan verifikasi wajah",
-    "subtitle_mic": "Kami tidak dapat memverifikasi Anda tanpa mikrofon Anda",
     "title_both": "Akses kamera dan mikrofon ditolak",
-    "title_cam": "Akses kamera ditolak",
-    "title_mic": "Akses mikrofon ditolak"
+    "title_cam": "Akses kamera ditolak"
   },
   "photo_upload": {
     "body_bank_statement": "Berikan seluruh halaman dokumen untuk hasil terbaik",
     "body_benefits_letter": "Berikan seluruh halaman dokumen untuk hasil terbaik",
     "body_bill": "Berikan seluruh halaman dokumen untuk hasil terbaik",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "Unggah bagian belakang dokumen melalui komputer Anda",
+    "body_generic_document_front": "Unggah bagian depan dokumen melalui komputer Anda",
     "body_id_back": "Unggah bagian belakang kartu dari komputer Anda",
     "body_id_front": "Unggah bagian depan kartu dari komputer Anda",
     "body_license_back": "Unggah kembali lisensi dari komputer Anda",
@@ -558,6 +552,9 @@
       },
       "country": "Negara",
       "country_residence": "Negara",
+      "dnk_specific": {
+        "national_id_value": "nomor CPR"
+      },
       "dob": "Tanggal lahir",
       "email": "Email",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "Harap masukkan yang valid CNPJ",
-        "invalid_tax_id": "Harap masukkan yang valid CPF"
+        "invalid_tax_id": "Harap masukkan yang valid CPF",
+        "required_other": "Silakan masukkan CNPJ Anda",
+        "required_tax_id": "Masukkan CPF Anda"
       },
       "can_specific": {
-        "invalid_national_id_value": "Harap masukkan yang valid SIN"
+        "invalid_national_id_value": "Harap masukkan yang valid SIN",
+        "required_national_id_value": "Silakan masukkan SIN Anda"
       },
       "chl_specific": {
         "invalid_national_id_value": "Masukkan nomor RUT / RUN yang valid",
         "required_national_id_value": "Silakan masukkan nomor RUT / RUN Anda"
       },
       "chn_specific": {
-        "invalid_national_id_value": "Masukkan nomor kartu identitas penduduk yang valid"
+        "invalid_national_id_value": "Masukkan nomor kartu identitas penduduk yang valid",
+        "required_national_id_value": "Masukkan nomor kartu identitas penduduk Anda"
       },
       "col_specific": {
         "invalid_national_id_value": "Masukkan Nomor Identifikasi Pribadi Kolombia yang valid",
         "required_national_id_value": "Masukkan Nomor Pengenal Pribadi Kolombia Anda"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "Masukkan nomor CPR yang valid",
+        "required_national_id_value": "Masukkan nomor CPR Anda"
+      },
       "esp_specific": {
         "invalid_identity_card": "Harap masukkan yang valid NIF/DNI",
-        "invalid_other": "Harap masukkan yang valid NIE"
+        "invalid_other": "Harap masukkan yang valid NIE",
+        "required_identity_card": "Masukkan NIF/DNI Anda"
       },
       "fin_specific": {
         "invalid_national_id_value": "Masukkan kode Identitas pribadi yang valid",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "Masukkan nomor telepon yang valid",
       "invalid_voter_id": "Harap masukkan nomor ID pemilih yang valid",
       "ita_specific": {
-        "invalid_national_id_value": "Masukkan kode fiskal yang valid"
+        "invalid_national_id_value": "Masukkan kode fiskal yang valid",
+        "required_national_id_value": "Silakan masukkan kode fiskal Anda"
       },
       "jpn_specific": {
         "invalid_national_id_value": "Masukkan kode \"Nomor Saya\" / Rekam Penduduk yang valid",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "Harap masukkan yang valid CURP",
-        "invalid_tax_id": "Harap masukkan yang valid RFC"
+        "invalid_tax_id": "Harap masukkan yang valid RFC",
+        "required_identity_card": "Masukkan CURP Anda",
+        "required_tax_id": "Masukkan RFC Anda"
       },
       "mys_specific": {
         "invalid_national_id_value": "Masukkan NRIC yang valid",
@@ -727,14 +736,21 @@
       "required_last_name": "Masukkan nama belakang Anda",
       "required_line1": "Tuliskan alamat Anda",
       "required_mobile_number": "Masukkan nomor ponsel Anda",
+      "required_national_driving_license": "Silakan masukkan nomor SIM Anda",
+      "required_national_id_type": "Silakan pilih jenis ID Nasional Anda",
+      "required_national_id_value": "Silakan masukkan nomor ID Nasional Anda",
+      "required_national_passport": "Silakan masukkan nomor paspor Anda",
+      "required_national_voter_id": "Silakan masukkan nomor ID pemilih Anda",
       "required_nationality": "Pilih negara",
       "required_phone_number": "Masukkan nomor telepon Anda",
       "required_postcode": "Masukkan kode pos Anda",
       "sgp_specific": {
-        "invalid_national_id_value": "Harap masukkan yang valid NRIC"
+        "invalid_national_id_value": "Harap masukkan yang valid NRIC",
+        "required_national_id_value": "Masukkan NRIC Anda"
       },
       "swe_specific": {
-        "invalid_national_id_value": "Harap masukkan yang valid PIN"
+        "invalid_national_id_value": "Harap masukkan yang valid PIN",
+        "required_national_id_value": "Masukkan PIN Anda"
       },
       "too_long_first_name": "Nama depan terlalu panjang",
       "too_long_last_name": "Nama belakang terlalu panjang",
@@ -745,7 +761,8 @@
       "too_short_last_name": "Nama belakang terlalu pendek",
       "too_short_postcode": "Kode pos terlalu pendek",
       "tur_specific": {
-        "invalid_national_id_value": "Masukkan nomor ID Turki yang valid"
+        "invalid_national_id_value": "Masukkan nomor ID Turki yang valid",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "Masukkan SSN yang valid",

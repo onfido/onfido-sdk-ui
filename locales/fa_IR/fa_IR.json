@@ -116,8 +116,8 @@
     "footer": {
       "captured": "عکس گرفته شده است",
       "capturing": "در حال عکس گرفتن",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "یک عکس از پشت مدرک خود بگیرید",
+      "manual_fallback_generic_document_front": "یک عکس از روی مدرک خود بگیرید",
       "manual_fallback_identity_card_back": "از پشت کارت خود عکس بگیرید",
       "manual_fallback_identity_card_front": "از روی کارت خود عکس بگیرید",
       "manual_fallback_license_back": "از پشت گواهینامه رانندگی خود عکس بگیرید",
@@ -169,7 +169,7 @@
     "body_bank_statement": "مطمئن شوید که تصویر کامل مدرک را بارگذاری کرده‌اید، جزئیات مدرک واضح بوده، عکس تار نیست و انعکاس نور در تصویر نیست",
     "body_benefits_letter": "مطمئن شوید که تصویر کامل مدرک را بارگذاری کرده‌اید، جزئیات مدرک واضح بوده، عکس تار نیست و انعکاس نور در تصویر نیست",
     "body_bill": "مطمئن شوید که تصویر کامل مدرک را بارگذاری کرده‌اید، جزئیات مدرک واضح بوده، عکس تار نیست و انعکاس نور در تصویر نیست",
-    "body_generic_document": "",
+    "body_generic_document": "اطمینان حاصل کنید که جزئیات مدرک واضح بوده و مانعی روی آن نیست",
     "body_id": "اطمینان حاصل کنید که جزئیات مدرک واضح بوده و مانعی روی آن نیست",
     "body_image_medium": "اگر نتوانیم این مدرک را بخوانیم، تأیید هویت شما زمان بیشتری خواهد برد",
     "body_image_poor": "برای تسهیل فرآیند تأیید هویت، به عکس بهتری نیاز داریم",
@@ -237,8 +237,8 @@
     "title_bank_statement": "ارسال صورتحساب",
     "title_benefits_letter": "ارسال نامه",
     "title_bill": "ارسال قبض",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "ارسال مدرک (پشت)",
+    "title_generic_document_front": "ارسال مدرک (رو)",
     "title_government_letter": "نامه دولتی",
     "title_id_back": "ارسال کارت شناسایی (سمت پشت)",
     "title_id_front": "ارسال کارت شناسایی (سمت رو)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "ما نمی‌توانیم بدون استفاده از دوربین و میکروفون، هویت شما را تأیید کنیم",
     "body_cam": "ما نمی‌توانیم بدون دوربین هویت شما را تأیید کنیم",
-    "body_mic": "ما نمی‌توانیم بدون استفاده از میکروفون، هویت شما را تأیید کنیم",
     "button_primary_both": "دسترسی به هر دو را فعال کنید",
     "button_primary_cam": "فعال کردن دوربین",
-    "button_primary_mic": "میکروفون را فعال کنید",
     "subtitle_both": "وقتی از شما درخواست شد، برای ادامه کار، باید دسترسی به هر دو را فعال کنید",
     "subtitle_cam": "وقتی از شما درخواست شد، برای ادامه کار، باید دسترسی به دوربین را فعال کنید",
-    "subtitle_mic": "وقتی از شما درخواست شد، برای ادامه کار، باید دسترسی به میکروفون را فعال کنید",
     "title_both": "اجازه دسترسی به دوربین و میکروفون را بدهید",
-    "title_cam": "اجازه استفاده از دوربین را بدهید",
-    "title_mic": "اجازه دسترسی به میکروفون را بدهید"
+    "title_cam": "اجازه استفاده از دوربین را بدهید"
   },
   "permission_recovery": {
     "button_primary": "تازه‌سازی",
@@ -429,17 +425,15 @@
     "subtitle_both": "برای فیلم‌برداری و تکمیل فرآیند تأیید هویت، دسترسی به دوربین و میکروفن را مجدداً فعال کنید",
     "subtitle_cam": "برای ادامه فرآیند تأیید هویت، دسترسی به دوربین را مجدداً فعال کنید",
     "subtitle_cam_old": "برای ادامه تأیید چهره، دسترسی به دوربین را مجدداً فعال کنید",
-    "subtitle_mic": "ما نمی‌توانیم بدون میکروفون، هویت شما را تأیید کنیم",
     "title_both": "دسترسی به دوربین و میکروفون رد شد",
-    "title_cam": "دسترسی به دوربین منع شده است",
-    "title_mic": "دسترسی به میکروفون رد شد"
+    "title_cam": "دسترسی به دوربین منع شده است"
   },
   "photo_upload": {
     "body_bank_statement": "برای دستیابی به بهترین نتایج، تصویر کل صفحه را ارائه دهید",
     "body_benefits_letter": "برای دستیابی به بهترین نتایج، تصویر کل صفحه را ارائه دهید",
     "body_bill": "برای دستیابی به بهترین نتایج، تصویر کل صفحه را ارائه دهید",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "پشت مدرک را از رایانه خود آپلود کنید",
+    "body_generic_document_front": "روی مدرک را از رایانه خود آپلود کنید",
     "body_id_back": "تصویر پشت کارت را از رایانه خود بارگذاری کنید",
     "body_id_front": "تصویر روی کارت را از رایانه خود بارگذاری کنید",
     "body_license_back": "تصویر پشت گواهینامه را از رایانه خود بارگذاری کنید",
@@ -558,6 +552,9 @@
       },
       "country": "کشور",
       "country_residence": "کشور",
+      "dnk_specific": {
+        "national_id_value": "شماره CPR"
+      },
       "dob": "تاریخ تولد",
       "email": "ایمیل",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "لطفا یک معتبر وارد کنید CNPJ",
-        "invalid_tax_id": "لطفا یک معتبر وارد کنید CPF"
+        "invalid_tax_id": "لطفا یک معتبر وارد کنید CPF",
+        "required_other": "لطفاً CNPJ خود را وارد کنید",
+        "required_tax_id": "لطفا CPF خود را وارد کنید"
       },
       "can_specific": {
-        "invalid_national_id_value": "لطفا یک معتبر وارد کنید SIN"
+        "invalid_national_id_value": "لطفا یک معتبر وارد کنید SIN",
+        "required_national_id_value": "لطفا SIN خود را وارد کنید"
       },
       "chl_specific": {
         "invalid_national_id_value": "لطفاً یک شماره RUT/RUN معتبر وارد کنید",
         "required_national_id_value": "لطفا شماره های RUT/RUN خود را وارد کنید"
       },
       "chn_specific": {
-        "invalid_national_id_value": "لطفا یک شماره کارت شناسایی اقامت معتبر وارد کنید"
+        "invalid_national_id_value": "لطفا یک شماره کارت شناسایی اقامت معتبر وارد کنید",
+        "required_national_id_value": "لطفا شماره شناسنامه اقامت خود را وارد کنید"
       },
       "col_specific": {
         "invalid_national_id_value": "لطفاً یک شماره شناسایی شخصی کلمبیایی معتبر وارد کنید",
         "required_national_id_value": "لطفا شماره شناسایی شخصی کلمبیایی خود را وارد کنید"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "لطفاً یک شماره CPR معتبر وارد کنید",
+        "required_national_id_value": "لطفا شماره CPR خود را وارد کنید"
+      },
       "esp_specific": {
         "invalid_identity_card": "لطفا یک معتبر وارد کنید NIF/DNI",
-        "invalid_other": "لطفا یک معتبر وارد کنید NIE"
+        "invalid_other": "لطفا یک معتبر وارد کنید NIE",
+        "required_identity_card": "لطفا NIF/DNI خود را وارد کنید"
       },
       "fin_specific": {
         "invalid_national_id_value": "لطفا یک کد هویت شخصی معتبر وارد کنید",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "لطفاً یک شماره تلفن معتبر وارد نمایید",
       "invalid_voter_id": "لطفا یک شماره شناسه رای دهنده معتبر وارد کنید",
       "ita_specific": {
-        "invalid_national_id_value": "لطفا یک کد مالی معتبر وارد کنید"
+        "invalid_national_id_value": "لطفا یک کد مالی معتبر وارد کنید",
+        "required_national_id_value": "لطفا کد مالی خود را وارد کنید"
       },
       "jpn_specific": {
         "invalid_national_id_value": "لطفاً یک \"شماره من\" / کد سابقه ساکن معتبر وارد کنید",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "لطفا یک معتبر وارد کنید CURP",
-        "invalid_tax_id": "لطفا یک معتبر وارد کنید RFC"
+        "invalid_tax_id": "لطفا یک معتبر وارد کنید RFC",
+        "required_identity_card": "لطفا CURP خود را وارد کنید",
+        "required_tax_id": "لطفا RFC خود را وارد کنید"
       },
       "mys_specific": {
         "invalid_national_id_value": "لطفا یک NRIC معتبر وارد کنید",
@@ -727,14 +736,21 @@
       "required_last_name": "لطفاً نام خانوادگی خود را وارد کنید",
       "required_line1": "لطفاً آدرس خود را وارد کنید",
       "required_mobile_number": "لطفاً شماره موبایل خود را وارد کنید",
+      "required_national_driving_license": "لطفا شماره گواهینامه رانندگی خود را وارد کنید",
+      "required_national_id_type": "لطفا نوع کارت ملی خود را انتخاب کنید",
+      "required_national_id_value": "لطفا شماره ملی خود را وارد کنید",
+      "required_national_passport": "لطفا شماره پاسپورت خود را وارد کنید",
+      "required_national_voter_id": "لطفا شماره شناسه رای دهنده خود را وارد کنید",
       "required_nationality": "لطفاً یک کشور را انتخاب کنید",
       "required_phone_number": "لطفاً شماره تلفن خود را وارد کنید",
       "required_postcode": "لطفاً کدپستی خود را وارد کنید",
       "sgp_specific": {
-        "invalid_national_id_value": "لطفا یک معتبر وارد کنید NRIC"
+        "invalid_national_id_value": "لطفا یک معتبر وارد کنید NRIC",
+        "required_national_id_value": "لطفا NRIC خود را وارد کنید"
       },
       "swe_specific": {
-        "invalid_national_id_value": "لطفا یک معتبر وارد کنید PIN"
+        "invalid_national_id_value": "لطفا یک معتبر وارد کنید PIN",
+        "required_national_id_value": "لطفا پین خود را وارد کنید"
       },
       "too_long_first_name": "نام خیلی طولانی است",
       "too_long_last_name": "نام خانوادگی خیلی طولانی است",
@@ -745,7 +761,8 @@
       "too_short_last_name": "نام خانوادگی خیلی کوتاه است",
       "too_short_postcode": "کدپستی خیلی کوتاه است",
       "tur_specific": {
-        "invalid_national_id_value": "لطفا یک شماره شناسایی معتبر ترکی وارد کنید"
+        "invalid_national_id_value": "لطفا یک شماره شناسایی معتبر ترکی وارد کنید",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "لطفاً یک SSN معتبر وارد کنید",

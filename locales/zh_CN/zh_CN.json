@@ -116,8 +116,8 @@
     "footer": {
       "captured": "已拍摄照片",
       "capturing": "正在拍摄照片",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "拍摄证件背面的照片",
+      "manual_fallback_generic_document_front": "拍摄证件正面的照片",
       "manual_fallback_identity_card_back": "拍摄您身份证背面的照片",
       "manual_fallback_identity_card_front": "拍摄您身份证正面的照片",
       "manual_fallback_license_back": "拍摄您驾照背面的照片",
@@ -169,7 +169,7 @@
     "body_bank_statement": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
     "body_benefits_letter": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
     "body_bill": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
-    "body_generic_document": "",
+    "body_generic_document": "请确保您的细节清晰且未受遮挡",
     "body_id": "请确保您的细节清晰且未受遮挡",
     "body_image_medium": "如果我们无法分辨，则需要更长时间才能完成验证",
     "body_image_poor": "为了顺利验证您的身份，我们需要一张更好的照片",
@@ -237,8 +237,8 @@
     "title_bank_statement": "提交对账单",
     "title_benefits_letter": "提交信函",
     "title_bill": "提交账单",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "提交证件（背面）",
+    "title_generic_document_front": "提交证件（正面）",
     "title_government_letter": "政府信函",
     "title_id_back": "提交身份证（背面）",
     "title_id_front": "提交身份证（正面）",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "如果不同时使用相机和麦克风，我们将无法验证您的身份",
     "body_cam": "如果不使用相机，我们就无法验证您的身份",
-    "body_mic": "如果不使用麦克风，我们将无法验证您的身份",
     "button_primary_both": "启用两者",
     "button_primary_cam": "启用相机",
-    "button_primary_mic": "启用麦克风",
     "subtitle_both": "出现提示时，您必须启用这两者的访问才能继续",
     "subtitle_cam": "出现提示时，您必须启用相机访问才能继续",
-    "subtitle_mic": "出现提示时，您必须启用麦克风访问才能继续",
     "title_both": "允许相机和麦克风访问",
-    "title_cam": "允许相机访问",
-    "title_mic": "允许麦克风访问"
+    "title_cam": "允许相机访问"
   },
   "permission_recovery": {
     "button_primary": "刷新",
@@ -429,17 +425,15 @@
     "subtitle_both": "恢复相机和麦克风访问，以拍摄视频并完成验证流程",
     "subtitle_cam": "恢复相机访问，以继续您的验证",
     "subtitle_cam_old": "恢复相机访问，以继续面部验证",
-    "subtitle_mic": "如果不使用麦克风，我们就无法验证您的身份",
     "title_both": "相机和麦克风访问被拒绝",
-    "title_cam": "相机访问被拒绝",
-    "title_mic": "麦克风访问被拒绝"
+    "title_cam": "相机访问被拒绝"
   },
   "photo_upload": {
     "body_bank_statement": "提供整个证明文件页面以获得最佳结果",
     "body_benefits_letter": "提供整个证明文件页面以获得最佳结果",
     "body_bill": "提供整个证明文件页面以获得最佳结果",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "从计算机上传证件背面",
+    "body_generic_document_front": "从计算机上传证件正面",
     "body_id_back": "从计算机上传身份证背面",
     "body_id_front": "从计算机上传身份证正面",
     "body_license_back": "从计算机上传驾照背面",
@@ -558,6 +552,9 @@
       },
       "country": "国家/地区",
       "country_residence": "国家/地区",
+      "dnk_specific": {
+        "national_id_value": "心肺复苏术号码"
+      },
       "dob": "出生日期",
       "email": "电子邮箱",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "请输入一个有效的 CNPJ",
-        "invalid_tax_id": "请输入一个有效的 CPF"
+        "invalid_tax_id": "请输入一个有效的 CPF",
+        "required_other": "请输入您的CNPJ",
+        "required_tax_id": "请输入您的公积金"
       },
       "can_specific": {
-        "invalid_national_id_value": "请输入一个有效的 SIN"
+        "invalid_national_id_value": "请输入一个有效的 SIN",
+        "required_national_id_value": "请输入您的社会保险号"
       },
       "chl_specific": {
         "invalid_national_id_value": "请输入有效的 RUT/RUN 编号",
         "required_national_id_value": "请输入您的 RUT / RUN 编号"
       },
       "chn_specific": {
-        "invalid_national_id_value": "请输入有效的居民身份证号码"
+        "invalid_national_id_value": "请输入有效的居民身份证号码",
+        "required_national_id_value": "请输入您的居民身份证号码"
       },
       "col_specific": {
         "invalid_national_id_value": "请输入有效的哥伦比亚个人身份证号码",
         "required_national_id_value": "请输入您的哥伦比亚个人身份证号码"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "请输入有效的 CPR 编号",
+        "required_national_id_value": "请输入您的 CPR 编号"
+      },
       "esp_specific": {
         "invalid_identity_card": "请输入一个有效的 NIF/DNI",
-        "invalid_other": "请输入一个有效的 NIE"
+        "invalid_other": "请输入一个有效的 NIE",
+        "required_identity_card": "请输入您的 NIF/DNI"
       },
       "fin_specific": {
         "invalid_national_id_value": "请输入有效的个人身份代码",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "请输入有效的电话号码",
       "invalid_voter_id": "请输入有效的选民身份证号码",
       "ita_specific": {
-        "invalid_national_id_value": "请输入有效的财务代码"
+        "invalid_national_id_value": "请输入有效的财务代码",
+        "required_national_id_value": "请输入您的财务代码"
       },
       "jpn_specific": {
         "invalid_national_id_value": "请输入有效的“我的号码”/居民票代码",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "请输入一个有效的 CURP",
-        "invalid_tax_id": "请输入一个有效的 RFC"
+        "invalid_tax_id": "请输入一个有效的 RFC",
+        "required_identity_card": "请输入您的 CURP",
+        "required_tax_id": "请输入您的RFC"
       },
       "mys_specific": {
         "invalid_national_id_value": "请输入有效的身份证",
@@ -727,14 +736,21 @@
       "required_last_name": "请输入您的姓",
       "required_line1": "请输入您的地址",
       "required_mobile_number": "请输入手机号码",
+      "required_national_driving_license": "请输入您的驾照号码",
+      "required_national_id_type": "请选择您的国民身份证类型",
+      "required_national_id_value": "请输入您的国民身份证号码",
+      "required_national_passport": "请输入您的护照号码",
+      "required_national_voter_id": "请输入您的选民身份证号码",
       "required_nationality": "请选择一个国家/地区",
       "required_phone_number": "请输入您的电话号码",
       "required_postcode": "请输入您的邮编",
       "sgp_specific": {
-        "invalid_national_id_value": "请输入一个有效的 NRIC"
+        "invalid_national_id_value": "请输入一个有效的 NRIC",
+        "required_national_id_value": "请输入您的身份证"
       },
       "swe_specific": {
-        "invalid_national_id_value": "请输入一个有效的 PIN"
+        "invalid_national_id_value": "请输入一个有效的 PIN",
+        "required_national_id_value": "请输入您的密码"
       },
       "too_long_first_name": "名太长",
       "too_long_last_name": "姓太长",
@@ -745,7 +761,8 @@
       "too_short_last_name": "名太短",
       "too_short_postcode": "邮编太短",
       "tur_specific": {
-        "invalid_national_id_value": "请输入有效的土耳其身份证号码"
+        "invalid_national_id_value": "请输入有效的土耳其身份证号码",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "请输入有效的SSN",

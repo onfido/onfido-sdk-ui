@@ -33,7 +33,7 @@
   },
   "avc_intro": {
     "button_primary_ready": "Начало на запис",
-    "disclaimer": "По време на този процес ще бъдат записани лицето и фонът ви.",
+    "disclaimer": "По време на този процес ще бъдат записани лицето и фонът ви",
     "disclaimer_camera_and_audio_on": "Лицето, фонът и звукът ви ще бъдат записани по време на този процес",
     "list_item_one": "Първо позиционирайте лицето си в рамката",
     "list_item_two": "След това бавно обърнете главата си наляво и надясно",
@@ -116,8 +116,8 @@
     "footer": {
       "captured": "Снимката е заснета",
       "capturing": "Снимане",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "Направете снимка на задната страна на документа си",
+      "manual_fallback_generic_document_front": "Направете снимка на лицевата страна на документа си",
       "manual_fallback_identity_card_back": "Направете снимка на задната страна на картата си",
       "manual_fallback_identity_card_front": "Направете снимка на лицевата страна на картата си",
       "manual_fallback_license_back": "Направете снимка на задната страна на шофьорската си книжка",
@@ -169,7 +169,7 @@
     "body_bank_statement": "Уверете се, че сте качили цялата страница на документа и подробностите се четат ясно, без да са размазани или с отблясъци",
     "body_benefits_letter": "Уверете се, че сте качили цялата страница на документа и подробностите се четат ясно, без да са размазани или с отблясъци",
     "body_bill": "Уверете се, че сте качили цялата страница на документа и подробностите се четат ясно, без да са размазани или с отблясъци",
-    "body_generic_document": "",
+    "body_generic_document": "Уверете се, че данните ви се виждат ясно и не са скрити",
     "body_id": "Уверете се, че данните ви се виждат ясно и не са скрити",
     "body_image_medium": "Проверката ще отнеме повече време, ако не можем да я разчетем",
     "body_image_poor": "За безпроблемен процес на потвърждаването се нуждаем от по-добра снимка",
@@ -237,8 +237,8 @@
     "title_bank_statement": "Изпращане на извлечение",
     "title_benefits_letter": "Подаване на служебна бележка",
     "title_bill": "Подаване на сметка за комунални услуги",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "Подаване на документа (задна страна)",
+    "title_generic_document_front": "Подаване на документа (предна страна)",
     "title_government_letter": "Официален документ",
     "title_id_back": "Подаване на лична карта (задна страна)",
     "title_id_front": "Подаване на лична карта (лицева страна)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "Не можем да потвърдим самоличността ви, без да използваме камерата и микрофона ви",
     "body_cam": "Не можем да потвърдим самоличността ви без достъп до камерата",
-    "body_mic": "Не можем да потвърдим самоличността ви, без да използваме микрофона",
     "button_primary_both": "Активиране на двете",
     "button_primary_cam": "Активиране на камерата",
-    "button_primary_mic": "Активиране на микрофона",
     "subtitle_both": "Когато бъдете подканени, трябва да активирате достъпа и за двете, за да продължите",
     "subtitle_cam": "Когато ви подканим, трябва да активирате достъпа до камерата, за да продължите",
-    "subtitle_mic": "Когато бъдете подканени, трябва да активирате достъпа до микрофона, за да продължите",
     "title_both": "Разрешете достъпа до камерата и микрофона",
-    "title_cam": "Разрешаване на достъп до камерата",
-    "title_mic": "Разрешете достъпа до микрофона"
+    "title_cam": "Разрешаване на достъп до камерата"
   },
   "permission_recovery": {
     "button_primary": "Обновяване",
@@ -429,17 +425,15 @@
     "subtitle_both": "Възстановете достъпа до камерата и микрофона, за да заснемете видео и да завършите процеса на проверка",
     "subtitle_cam": "Възстановете достъпа до камерата, за да продължите с процеса на потвърждаване",
     "subtitle_cam_old": "Възстановете достъпа до камерата, за да продължите с потвърждаването на лицето",
-    "subtitle_mic": "Не можем да потвърдим самоличността ви, без да използваме микрофона",
     "title_both": "Достъпът до камерата и микрофона е отказан",
-    "title_cam": "Достъпът до камерата е отказан",
-    "title_mic": "Достъпът до микрофона е отказан"
+    "title_cam": "Достъпът до камерата е отказан"
   },
   "photo_upload": {
     "body_bank_statement": "Изпратете цялата страница на документа за най-добър резултат",
     "body_benefits_letter": "Изпратете цялата страница на документа за най-добър резултат",
     "body_bill": "Изпратете цялата страница на документа за най-добър резултат",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "Качете задната страна на документа от компютъра си",
+    "body_generic_document_front": "Качете лицевата страна на документа от компютъра си",
     "body_id_back": "Качете задната страна на личната карта от компютъра си",
     "body_id_front": "Качете лицевата страна на личната карта от компютъра си",
     "body_license_back": "Качете задната страна на шофьорската книжка от компютъра си",
@@ -558,6 +552,9 @@
       },
       "country": "Държава",
       "country_residence": "Държава",
+      "dnk_specific": {
+        "national_id_value": "CPR номер"
+      },
       "dob": "Дата на раждане",
       "email": "Имейл адрес",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "Моля, въведете валиден CNPJ",
-        "invalid_tax_id": "Моля, въведете валиден CPF"
+        "invalid_tax_id": "Моля, въведете валиден CPF",
+        "required_other": "Моля, въведете своя CNPJ",
+        "required_tax_id": "Моля, въведете своя CPF"
       },
       "can_specific": {
-        "invalid_national_id_value": "Моля, въведете валиден SIN"
+        "invalid_national_id_value": "Моля, въведете валиден SIN",
+        "required_national_id_value": "Моля, въведете своя SIN"
       },
       "chl_specific": {
         "invalid_national_id_value": "Моля, въведете валидни RUT / RUN номера",
         "required_national_id_value": "Моля, въведете вашите RUT / RUN номера"
       },
       "chn_specific": {
-        "invalid_national_id_value": "Моля, въведете валиден номер на лична карта на жител"
+        "invalid_national_id_value": "Моля, въведете валиден номер на лична карта на жител",
+        "required_national_id_value": "Моля, въведете номера на вашата лична карта за жител"
       },
       "col_specific": {
         "invalid_national_id_value": "Моля, въведете валиден колумбийски персонален идентификационен номер",
         "required_national_id_value": "Моля, въведете вашия колумбийски персонален идентификационен номер"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден CPR номер",
+        "required_national_id_value": "Моля, въведете вашия CPR номер"
+      },
       "esp_specific": {
         "invalid_identity_card": "Моля, въведете валиден NIF/DNI",
-        "invalid_other": "Моля, въведете валиден NIE"
+        "invalid_other": "Моля, въведете валиден NIE",
+        "required_identity_card": "Моля, въведете своя NIF/DNI"
       },
       "fin_specific": {
         "invalid_national_id_value": "Моля, въведете валиден личен идентификационен код",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "Въведете валиден телефонен номер",
       "invalid_voter_id": "Моля, въведете валиден идентификационен номер на избирател",
       "ita_specific": {
-        "invalid_national_id_value": "Моля, въведете валиден фискален код"
+        "invalid_national_id_value": "Моля, въведете валиден фискален код",
+        "required_national_id_value": "Моля, въведете вашия фискален код"
       },
       "jpn_specific": {
         "invalid_national_id_value": "Моля, въведете валиден „Моят номер“/код за запис на жител",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "Моля, въведете валиден CURP",
-        "invalid_tax_id": "Моля, въведете валиден RFC"
+        "invalid_tax_id": "Моля, въведете валиден RFC",
+        "required_identity_card": "Моля, въведете своя CURP",
+        "required_tax_id": "Моля, въведете своя RFC"
       },
       "mys_specific": {
         "invalid_national_id_value": "Моля, въведете валидна НКЖИ",
@@ -727,14 +736,21 @@
       "required_last_name": "Въведете фамилия",
       "required_line1": "Въведете адрес",
       "required_mobile_number": "Въведете номер на мобилен телефон",
+      "required_national_driving_license": "Моля, въведете номера на вашата шофьорска книжка",
+      "required_national_id_type": "Моля, изберете вашия тип национална лична карта",
+      "required_national_id_value": "Моля, въведете вашия национален идентификационен номер",
+      "required_national_passport": "Моля, въведете номера на паспорта си",
+      "required_national_voter_id": "Моля, въведете идентификационния си номер на избирател",
       "required_nationality": "Изберете държава",
       "required_phone_number": "Въведете телефонния си номер",
       "required_postcode": "Въведете пощенски код",
       "sgp_specific": {
-        "invalid_national_id_value": "Моля, въведете валиден NRIC"
+        "invalid_national_id_value": "Моля, въведете валиден NRIC",
+        "required_national_id_value": "Моля, въведете вашата НКЖИ"
       },
       "swe_specific": {
-        "invalid_national_id_value": "Моля, въведете валиден PIN"
+        "invalid_national_id_value": "Моля, въведете валиден PIN",
+        "required_national_id_value": "Моля, въведете своя ПИН"
       },
       "too_long_first_name": "Собственото име е твърде дълго",
       "too_long_last_name": "Фамилията е твърде дълга",
@@ -745,7 +761,8 @@
       "too_short_last_name": "Фамилията е твърде кратка",
       "too_short_postcode": "Пощенският код е твърде кратък",
       "tur_specific": {
-        "invalid_national_id_value": "Моля, въведете валиден турски идентификационен номер"
+        "invalid_national_id_value": "Моля, въведете валиден турски идентификационен номер",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "Въведете валиден номер на социалната осигуровка (SSN)",

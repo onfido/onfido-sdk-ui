@@ -33,7 +33,7 @@
   },
   "avc_intro": {
     "button_primary_ready": "Iniciar gravação",
-    "disclaimer": "Lembre-se de que gravaremos seu rosto e entorno",
+    "disclaimer": "Seu rosto e plano de fundo serão gravados durante este processo",
     "disclaimer_camera_and_audio_on": "Seu rosto, fundo e áudio serão gravados durante este processo",
     "list_item_one": "Primeiro, posicione seu rosto no quadro",
     "list_item_two": "Em seguida, vire a cabeça lentamente para os dois lados",
@@ -116,8 +116,8 @@
     "footer": {
       "captured": "Foto capturada",
       "capturing": "Capturando foto",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "Tire uma foto do verso do seu documento",
+      "manual_fallback_generic_document_front": "Tire uma foto da frente do seu documento",
       "manual_fallback_identity_card_back": "Tire uma foto do verso do seu cartão",
       "manual_fallback_identity_card_front": "Tire uma foto da frente do seu cartão",
       "manual_fallback_license_back": "Tire uma foto do verso da sua carteira de habilitação",
@@ -169,7 +169,7 @@
     "body_bank_statement": "Certifique-se de que carregou toda a página do documento e de que os detalhes são claros e não estão desfocados ou ofuscados",
     "body_benefits_letter": "Certifique-se de que carregou toda a página do documento e de que os detalhes são claros e não estão desfocados ou ofuscados",
     "body_bill": "Certifique-se de que carregou toda a página do documento e de que os detalhes são claros e não estão desfocados ou ofuscados",
-    "body_generic_document": "",
+    "body_generic_document": "Certifique-se de que os seus dados estão nítidos e desobstruídos",
     "body_id": "Certifique-se de que os seus dados estão nítidos e desobstruídos",
     "body_image_medium": "Levará mais tempo para verificar se não conseguimos ler",
     "body_image_poor": "Para verificar sua identidade sem problemas, precisamos de uma foto melhor",
@@ -237,8 +237,8 @@
     "title_bank_statement": "Enviar declaração",
     "title_benefits_letter": "Enviar carta",
     "title_bill": "Enviar conta",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "Envie o documento (verso)",
+    "title_generic_document_front": "Envie o documento (frente)",
     "title_government_letter": "Carta do governo",
     "title_id_back": "Enviar documento de identidade (verso)",
     "title_id_front": "Enviar documento de identidade (frente)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "Não podemos verificar sua identidade sem usar sua câmera e seu microfone",
     "body_cam": "Não podemos verificar sua identidade sem sua câmera",
-    "body_mic": "Não podemos verificar sua identidade sem usar seu microfone",
     "button_primary_both": "Ativar ambos",
     "button_primary_cam": "Ativar câmera",
-    "button_primary_mic": "Ativar microfone",
     "subtitle_both": "Quando solicitado, você deve permitir o acesso a ambos para continuar",
     "subtitle_cam": "Quando solicitado, você deve ativar o acesso à câmera para continuar",
-    "subtitle_mic": "Quando solicitado, você deve ativar o acesso ao microfone para continuar",
     "title_both": "Permitir acesso à câmera e ao microfone",
-    "title_cam": "Permitir acesso à câmera",
-    "title_mic": "Permitir acesso ao microfone"
+    "title_cam": "Permitir acesso à câmera"
   },
   "permission_recovery": {
     "button_primary": "Atualizar",
@@ -429,17 +425,15 @@
     "subtitle_both": "Recupere o acesso à câmera e ao microfone para gravar um vídeo e concluir o processo de verificação",
     "subtitle_cam": "Recupere o acesso à câmera para continuar sua verificação",
     "subtitle_cam_old": "Recupere o acesso à câmera para continuar a verificação facial",
-    "subtitle_mic": "Não podemos verificar sua identidade sem seu microfone",
     "title_both": "Acesso negado à câmera e ao microfone",
-    "title_cam": "O acesso à câmera foi negado",
-    "title_mic": "Acesso ao microfone negado"
+    "title_cam": "O acesso à câmera foi negado"
   },
   "photo_upload": {
     "body_bank_statement": "Forneça toda a página do documento para obter melhores resultados",
     "body_benefits_letter": "Forneça toda a página do documento para obter melhores resultados",
     "body_bill": "Forneça toda a página do documento para obter melhores resultados",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "Carregue o verso do documento a partir do seu computador",
+    "body_generic_document_front": "Carregue a frente do documento a partir do seu computador",
     "body_id_back": "Carregar o verso do documento a partir do seu computador",
     "body_id_front": "Carregar a frente do documento a partir do seu computador",
     "body_license_back": "Carregar o verso da licença a partir do seu computador",
@@ -558,6 +552,9 @@
       },
       "country": "País",
       "country_residence": "País",
+      "dnk_specific": {
+        "national_id_value": "Número de RCP"
+      },
       "dob": "Data de nascimento",
       "email": "E-mail",
       "fin_specific": {
@@ -596,7 +593,7 @@
       },
       "phone_number": "Número de telefone",
       "pol_specific": {
-        "national_id_value": "número PESEL"
+        "national_id_value": "Número PESEL"
       },
       "postcode": "Código postal",
       "prt_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "Insira um válido CNPJ",
-        "invalid_tax_id": "Insira um válido CPF"
+        "invalid_tax_id": "Insira um válido CPF",
+        "required_other": "Informe seu CNPJ",
+        "required_tax_id": "Informe seu CPF"
       },
       "can_specific": {
-        "invalid_national_id_value": "Insira um válido SIN"
+        "invalid_national_id_value": "Insira um válido SIN",
+        "required_national_id_value": "Por favor, digite seu SIN"
       },
       "chl_specific": {
         "invalid_national_id_value": "Insira um número RUT / RUN válido",
         "required_national_id_value": "Por favor, insira seus números RUT / RUN"
       },
       "chn_specific": {
-        "invalid_national_id_value": "Insira um número de carteira de identidade de residente válido"
+        "invalid_national_id_value": "Insira um número de carteira de identidade de residente válido",
+        "required_national_id_value": "Por favor introduza o número do seu cartão de cidadão"
       },
       "col_specific": {
         "invalid_national_id_value": "Insira um número de identificação pessoal colombiano válido",
         "required_national_id_value": "Digite seu número de identificação pessoal colombiano"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "Insira um número de CPR válido",
+        "required_national_id_value": "Insira seu número de CPR"
+      },
       "esp_specific": {
         "invalid_identity_card": "Insira um válido NIF/DNI",
-        "invalid_other": "Insira um válido NIE"
+        "invalid_other": "Insira um válido NIE",
+        "required_identity_card": "Por favor introduza o seu NIF/DNI"
       },
       "fin_specific": {
         "invalid_national_id_value": "Insira um código de identidade pessoal válido",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "Insira um número de telefone válido",
       "invalid_voter_id": "Insira um número de identificação de eleitor válido",
       "ita_specific": {
-        "invalid_national_id_value": "Insira um código fiscal válido"
+        "invalid_national_id_value": "Insira um código fiscal válido",
+        "required_national_id_value": "Insira seu código fiscal"
       },
       "jpn_specific": {
         "invalid_national_id_value": "Insira um \"Meu número\"/código de registro de residente válido",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "Insira um válido CURP",
-        "invalid_tax_id": "Insira um válido RFC"
+        "invalid_tax_id": "Insira um válido RFC",
+        "required_identity_card": "Por favor, insira seu CURP",
+        "required_tax_id": "Insira sua RFC"
       },
       "mys_specific": {
         "invalid_national_id_value": "Insira um NRIC válido",
@@ -727,14 +736,21 @@
       "required_last_name": "Insira seu sobrenome",
       "required_line1": "Insira seu endereço",
       "required_mobile_number": "Insira seu número de telefone",
+      "required_national_driving_license": "Por favor, insira o número da sua carteira de motorista",
+      "required_national_id_type": "Por favor, selecione o seu tipo de ID Nacional",
+      "required_national_id_value": "Por favor insira o seu número de identificação nacional",
+      "required_national_passport": "Por favor, insira o número do seu passaporte",
+      "required_national_voter_id": "Por favor insira o seu número de identificação de eleitor",
       "required_nationality": "Selecione um país",
       "required_phone_number": "Insira seu número de telefone",
       "required_postcode": "Insira seu código postal",
       "sgp_specific": {
-        "invalid_national_id_value": "Insira um válido NRIC"
+        "invalid_national_id_value": "Insira um válido NRIC",
+        "required_national_id_value": "Insira seu NRIC"
       },
       "swe_specific": {
-        "invalid_national_id_value": "Insira um válido PIN"
+        "invalid_national_id_value": "Insira um válido PIN",
+        "required_national_id_value": "Insira seu PIN"
       },
       "too_long_first_name": "O nome é muito longo",
       "too_long_last_name": "O sobrenome é muito longo",
@@ -745,7 +761,8 @@
       "too_short_last_name": "O sobrenome é muito curto",
       "too_short_postcode": "O código postal é muito curto",
       "tur_specific": {
-        "invalid_national_id_value": "Insira um número de identificação turco válido"
+        "invalid_national_id_value": "Insira um número de identificação turco válido",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "Insira um SSN válido",

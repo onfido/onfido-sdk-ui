@@ -33,7 +33,7 @@
   },
   "avc_intro": {
     "button_primary_ready": "録画を開始する",
-    "disclaimer": "顔と背景を録画することにご留意ください",
+    "disclaimer": "この処理の間、顔や背景が録画されます",
     "disclaimer_camera_and_audio_on": "この際、お客様の顔、背景、音声が記録されます",
     "list_item_one": "まず、顔を枠内に配置します",
     "list_item_two": "そして、頭をゆっくりと両側に向けます",
@@ -116,8 +116,8 @@
     "footer": {
       "captured": "写真がキャプチャされました",
       "capturing": "写真をキャプチャしています",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "ドキュメントの裏面の写真を撮る",
+      "manual_fallback_generic_document_front": "ドキュメントの前面の写真を撮る",
       "manual_fallback_identity_card_back": "カードの裏面を写真撮影してください",
       "manual_fallback_identity_card_front": "カードの表側を写真撮影してください",
       "manual_fallback_license_back": "運転免許証の裏面の写真を撮影してください",
@@ -169,7 +169,7 @@
     "body_bank_statement": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
     "body_benefits_letter": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
     "body_bill": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
-    "body_generic_document": "",
+    "body_generic_document": "詳細が明確で遮られていないことを確認してください",
     "body_id": "詳細が明確で遮られていないことを確認してください",
     "body_image_medium": "確認できない場合、認証に時間がかかります",
     "body_image_poor": "ご本人確認をスムーズに行うには、より良い写真が必要です",
@@ -237,8 +237,8 @@
     "title_bank_statement": "明細書を送信",
     "title_benefits_letter": "手紙を送信",
     "title_bill": "請求書を送信",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "ドキュメント（裏面）を送信",
+    "title_generic_document_front": "ドキュメント（前面）を送信",
     "title_government_letter": "政府発行の手紙",
     "title_id_back": "身分証明書を提出する（裏面）",
     "title_id_front": "身分証明書を提出する（表）",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "カメラとマイクの両方を使用しないと認証できません",
     "body_cam": "カメラなしでは認証できません",
-    "body_mic": "マイクを使用しないと確認できません",
     "button_primary_both": "両方を有効にする",
     "button_primary_cam": "カメラを有効にする",
-    "button_primary_mic": "マイクを有効にする",
     "subtitle_both": "プロンプトが表示されたら、続行するため両方へのアクセスを有効にしてください",
     "subtitle_cam": "プロンプトが表示されたら、カメラへのアクセスを有効にして続行してください",
-    "subtitle_mic": "プロンプトが表示されたら、マイクへのアクセスを有効にして続行してください",
     "title_both": "カメラとマイクへのアクセスを許可する",
-    "title_cam": "カメラへのアクセスを許可",
-    "title_mic": "マイクへのアクセスを許可する"
+    "title_cam": "カメラへのアクセスを許可"
   },
   "permission_recovery": {
     "button_primary": "更新",
@@ -429,17 +425,15 @@
     "subtitle_both": "カメラとマイクへのアクセスを回復して動画を撮影し、認証プロセスを完了します",
     "subtitle_cam": "カメラへのアクセスを回復して認証を続行する",
     "subtitle_cam_old": "カメラへのアクセスを回復して顔認証を続行する",
-    "subtitle_mic": "マイクを使用しないと確認できません",
     "title_both": "カメラとマイクへのアクセスが拒否されました",
-    "title_cam": "カメラへのアクセスが拒否されました",
-    "title_mic": "マイクへのアクセスが拒否されました"
+    "title_cam": "カメラへのアクセスが拒否されました"
   },
   "photo_upload": {
     "body_bank_statement": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
     "body_benefits_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
     "body_bill": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "パソコンからドキュメントの裏面をアップロード",
+    "body_generic_document_front": "パソコンからドキュメントの前面をアップロード",
     "body_id_back": "パソコンからカードの裏面をアップロードする",
     "body_id_front": "パソコンから免許証の前面をアップロードする",
     "body_license_back": "パソコンから免許証の裏面をアップロードする",
@@ -558,6 +552,9 @@
       },
       "country": "国",
       "country_residence": "国",
+      "dnk_specific": {
+        "national_id_value": "心肺蘇生番号"
+      },
       "dob": "生年月日",
       "email": "メールアドレス",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "正しく入力してください CNPJ",
-        "invalid_tax_id": "正しく入力してください CPF"
+        "invalid_tax_id": "正しく入力してください CPF",
+        "required_other": "CNPJを入力してください",
+        "required_tax_id": "CPFを入力してください"
       },
       "can_specific": {
-        "invalid_national_id_value": "正しく入力してください SIN"
+        "invalid_national_id_value": "正しく入力してください SIN",
+        "required_national_id_value": "SINを入力してください"
       },
       "chl_specific": {
         "invalid_national_id_value": "有効な RUT / RUN 番号を入力してください",
         "required_national_id_value": "RUT / RUN番号を入力してください"
       },
       "chn_specific": {
-        "invalid_national_id_value": "有効な住民票番号を入力してください"
+        "invalid_national_id_value": "有効な住民票番号を入力してください",
+        "required_national_id_value": "住民票番号を入力してください"
       },
       "col_specific": {
         "invalid_national_id_value": "コロンビアの有効な個人識別番号を入力してください",
         "required_national_id_value": "コロンビアの個人識別番号を入力してください"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "有効な CPR 番号を入力してください",
+        "required_national_id_value": "CPR番号を入力してください"
+      },
       "esp_specific": {
         "invalid_identity_card": "正しく入力してください NIF/DNI",
-        "invalid_other": "正しく入力してください NIE"
+        "invalid_other": "正しく入力してください NIE",
+        "required_identity_card": "NIF/DNI を入力してください"
       },
       "fin_specific": {
         "invalid_national_id_value": "有効な個人識別コードを入力してください",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "有効な電話番号を入力してください",
       "invalid_voter_id": "有効な有権者 ID 番号を入力してください",
       "ita_specific": {
-        "invalid_national_id_value": "有効な会計コードを入力してください"
+        "invalid_national_id_value": "有効な会計コードを入力してください",
+        "required_national_id_value": "会計コードを入力してください"
       },
       "jpn_specific": {
         "invalid_national_id_value": "有効な「マイナンバー」・住民票コードを入力してください",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "正しく入力してください CURP",
-        "invalid_tax_id": "正しく入力してください RFC"
+        "invalid_tax_id": "正しく入力してください RFC",
+        "required_identity_card": "あなたのCURPを入力してください",
+        "required_tax_id": "RFC を入力してください"
       },
       "mys_specific": {
         "invalid_national_id_value": "有効な NRIC を入力してください",
@@ -727,14 +736,21 @@
       "required_last_name": "姓を入力してください",
       "required_line1": "住所を入力してください",
       "required_mobile_number": "携帯電話番号を入力してください",
+      "required_national_driving_license": "運転免許証番号を入力してください",
+      "required_national_id_type": "国民 ID の種類を選択してください",
+      "required_national_id_value": "国民 ID 番号を入力してください",
+      "required_national_passport": "パスポート番号を入力してください",
+      "required_national_voter_id": "有権者ID番号を入力してください",
       "required_nationality": "国を選択してください",
       "required_phone_number": "電話番号を入力してください",
       "required_postcode": "郵便番号を入力してください",
       "sgp_specific": {
-        "invalid_national_id_value": "正しく入力してください NRIC"
+        "invalid_national_id_value": "正しく入力してください NRIC",
+        "required_national_id_value": "NRICを入力してください"
       },
       "swe_specific": {
-        "invalid_national_id_value": "正しく入力してください PIN"
+        "invalid_national_id_value": "正しく入力してください PIN",
+        "required_national_id_value": "PIN を入力してください"
       },
       "too_long_first_name": "名が長すぎます",
       "too_long_last_name": "名前が長すぎます",
@@ -745,7 +761,8 @@
       "too_short_last_name": "姓が短すぎます",
       "too_short_postcode": "郵便番号が短すぎます",
       "tur_specific": {
-        "invalid_national_id_value": "有効なトルコの ID 番号を入力してください"
+        "invalid_national_id_value": "有効なトルコの ID 番号を入力してください",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "有効なSSNを入力してください",

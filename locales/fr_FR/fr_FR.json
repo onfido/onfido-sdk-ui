@@ -120,7 +120,7 @@
   },
   "avc_intro": {
     "button_primary_ready": "Démarrer l’enregistrement",
-    "disclaimer": "Sachez que nous enregistrerons votre visage et l'arrière-plan",
+    "disclaimer": "Sachez que nous enregistrerons votre visage et l’arrière-plan au cours du processus",
     "disclaimer_camera_and_audio_on": "Lors de cette étape, nous enregistrerons votre visage, l'arrière-plan et le son.",
     "list_item_one": "D'abord, positionnez votre visage dans le cadre",
     "list_item_two": "Ensuite, tournez votre tête lentement des deux côtés",
@@ -203,8 +203,8 @@
     "footer": {
       "captured": "Photo capturée",
       "capturing": "Capture de la photo en cours",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "Prenez une photo du verso de votre document",
+      "manual_fallback_generic_document_front": "Prenez une photo du recto de votre document",
       "manual_fallback_identity_card_back": "Prenez une photo du verso de votre carte",
       "manual_fallback_identity_card_front": "Prenez une photo du recto de votre carte",
       "manual_fallback_license_back": "Prenez une photo du verso de votre permis de conduire",
@@ -256,7 +256,7 @@
     "body_bank_statement": "Assurez-vous d'avoir téléversé la page entière du document et que les détails sont clairement lisibles, sans flou et sans reflets",
     "body_benefits_letter": "Assurez-vous d'avoir téléversé la page entière du document et que les détails sont clairement lisibles, sans flou et sans reflets",
     "body_bill": "Assurez-vous d'avoir téléversé la page entière du document et que les détails sont clairement lisibles, sans flou et sans reflets",
-    "body_generic_document": "",
+    "body_generic_document": "Assurez-vous que vos coordonnées sont lisibles et nettes",
     "body_id": "Assurez-vous que vos coordonnées sont lisibles et nettes",
     "body_image_medium": "Il faudra plus de temps pour vous vérifier si la lecture est impossible",
     "body_image_poor": "Pour vous vérifier au mieux, nous avons besoin d’une meilleure photo",
@@ -324,8 +324,8 @@
     "title_bank_statement": "Envoyer le relevé",
     "title_benefits_letter": "Envoyer la lettre",
     "title_bill": "Envoyer la facture",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "Soumettre le document (verso)",
+    "title_generic_document_front": "Soumettre le document (recto)",
     "title_government_letter": "Lettre du gouvernement",
     "title_id_back": "Envoyez votre carte d’identité (verso)",
     "title_id_front": "Envoyer la carte d’identité (recto)",
@@ -342,7 +342,7 @@
     "detail_step2": "Gardez le document visible à tout moment",
     "header": "En tenant votre document, gardez son recto dans le cadre",
     "header_paper_doc_step2": "Tournez lentement votre pièce d’identité pour montrer les pages extérieures",
-    "header_passport": "En tenant votre passeport, gardez la page de la photo dans le cadre",
+    "header_passport": "Pendant que vous tenez votre passeport, gardez la page de la photo dans le cadre",
     "header_passport_progress": "Restez immobile",
     "header_step1": "Patientez",
     "header_step2": "Tournez lentement votre pièce d’identité pour montrer le verso",
@@ -493,16 +493,12 @@
   "permission": {
     "body_both": "Nous ne pouvons pas vous vérifier sans utiliser votre appareil photo et votre micro",
     "body_cam": "Nous ne pouvons pas vous vérifier sans utiliser votre appareil photo",
-    "body_mic": "Nous ne pouvons pas commencer la vérification sans utiliser votre micro",
     "button_primary_both": "Activer les deux",
     "button_primary_cam": "Activer l’appareil photo",
-    "button_primary_mic": "Activer le micro",
     "subtitle_both": "Autorisez l’accès aux deux pour continuer",
     "subtitle_cam": "Lorsque vous y serez invité, vous devez autoriser l’accès à l’appareil photo pour continuer",
-    "subtitle_mic": "Autorisez l’accès au micro pour continuer",
     "title_both": "Autoriser l’accès à l’appareil photo et au micro",
-    "title_cam": "Autoriser l’accès à l’appareil photo",
-    "title_mic": "Autoriser l’accès au micro"
+    "title_cam": "Autoriser l’accès à l’appareil photo"
   },
   "permission_recovery": {
     "button_primary": "Actualiser",
@@ -516,17 +512,15 @@
     "subtitle_both": "Autorisez l’accès à l’appareil photo et au micro pour prendre une vidéo et compléter votre vérification d’identité",
     "subtitle_cam": "Récupérez l’accès à l’appareil photo pour continuer la vérification",
     "subtitle_cam_old": "Récupérez l’accès à l’appareil photo pour continuer la vérification",
-    "subtitle_mic": "Nous ne pouvons pas vous vérifier sans votre micro",
     "title_both": "L’accès à l’appareil photo et au micro n’est pas autorisé",
-    "title_cam": "L’accès à l’appareil photo n’est pas autorisé",
-    "title_mic": "L’accès au micro n’est pas autorisé"
+    "title_cam": "L’accès à l’appareil photo n’est pas autorisé"
   },
   "photo_upload": {
     "body_bank_statement": "Fournissez la page entière du document pour de meilleurs résultats",
     "body_benefits_letter": "Fournissez la page entière du document pour de meilleurs résultats",
     "body_bill": "Fournissez la page entière du document pour de meilleurs résultats",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "Téléverser le verso du document depuis votre ordinateur",
+    "body_generic_document_front": "Téléverser le recto du document depuis votre ordinateur",
     "body_id_back": "Envoyez votre carte depuis votre ordinateur",
     "body_id_front": "Envoyez le recto de votre carte depuis votre ordinateur",
     "body_license_back": "Envoyez le verso de votre permis depuis votre ordinateur",
@@ -645,6 +639,9 @@
       },
       "country": "Pays",
       "country_residence": "Pays",
+      "dnk_specific": {
+        "national_id_value": "Numéro CPR"
+      },
       "dob": "Date de naissance",
       "email": "E-mail",
       "fin_specific": {
@@ -708,25 +705,34 @@
       },
       "bra_specific": {
         "invalid_other": "Veuillez entrer un valide CNPJ",
-        "invalid_tax_id": "Veuillez entrer un valide CPF"
+        "invalid_tax_id": "Veuillez entrer un valide CPF",
+        "required_other": "Veuillez entrer votre CNPJ",
+        "required_tax_id": "Veuillez entrer votre CPF"
       },
       "can_specific": {
-        "invalid_national_id_value": "Veuillez entrer un valide SIN"
+        "invalid_national_id_value": "Veuillez entrer un valide SIN",
+        "required_national_id_value": "Veuillez entrer votre NAS"
       },
       "chl_specific": {
         "invalid_national_id_value": "Veuillez saisir des numéros RUT/RUN valides",
         "required_national_id_value": "Veuillez entrer vos numéros RUT / RUN"
       },
       "chn_specific": {
-        "invalid_national_id_value": "Veuillez entrer un numéro de carte d'identité de résident valide"
+        "invalid_national_id_value": "Veuillez entrer un numéro de carte d'identité de résident valide",
+        "required_national_id_value": "Veuillez entrer votre numéro de carte d'identité de résident"
       },
       "col_specific": {
         "invalid_national_id_value": "Veuillez saisir un numéro d'identification personnel colombien valide",
         "required_national_id_value": "Veuillez entrer votre numéro d'identification personnel colombien"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "Veuillez entrer un numéro CPR valide",
+        "required_national_id_value": "Veuillez entrer votre numéro RCR"
+      },
       "esp_specific": {
         "invalid_identity_card": "Veuillez entrer un valide NIF/DNI",
-        "invalid_other": "Veuillez entrer un valide NIE"
+        "invalid_other": "Veuillez entrer un valide NIE",
+        "required_identity_card": "Veuillez entrer votre NIF/DNI"
       },
       "fin_specific": {
         "invalid_national_id_value": "Veuillez entrer un code d'identité personnel valide",
@@ -760,7 +766,8 @@
       "invalid_phone_number": "Veuillez renseigner un numéro de téléphone valide",
       "invalid_voter_id": "Veuillez entrer un numéro d'identification d'électeur valide",
       "ita_specific": {
-        "invalid_national_id_value": "Veuillez entrer un code fiscal valide"
+        "invalid_national_id_value": "Veuillez entrer un code fiscal valide",
+        "required_national_id_value": "Veuillez entrer votre code fiscal"
       },
       "jpn_specific": {
         "invalid_national_id_value": "Veuillez entrer un code \"Mon numéro\" / dossier de résident valide",
@@ -776,7 +783,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "Veuillez entrer un valide CURP",
-        "invalid_tax_id": "Veuillez entrer un valide RFC"
+        "invalid_tax_id": "Veuillez entrer un valide RFC",
+        "required_identity_card": "Veuillez entrer votre CURP",
+        "required_tax_id": "Veuillez entrer votre RFC"
       },
       "mys_specific": {
         "invalid_national_id_value": "Veuillez entrer un NRIC valide",
@@ -814,14 +823,21 @@
       "required_last_name": "Veuillez renseigner votre nom de famille",
       "required_line1": "Veuillez renseigner votre adresse",
       "required_mobile_number": "Veuillez renseigner votre numéro de mobile",
+      "required_national_driving_license": "Veuillez entrer votre numéro de permis de conduire",
+      "required_national_id_type": "Veuillez sélectionner votre type d'identification nationale",
+      "required_national_id_value": "Veuillez entrer votre numéro d'identification national",
+      "required_national_passport": "Veuillez entrer votre numéro de passeport",
+      "required_national_voter_id": "Veuillez entrer votre numéro d'identification d'électeur",
       "required_nationality": "Veuillez sélectionner un pays",
       "required_phone_number": "Veuillez renseigner votre numéro de téléphone",
       "required_postcode": "Veuillez renseigner votre code postal",
       "sgp_specific": {
-        "invalid_national_id_value": "Veuillez entrer un valide NRIC"
+        "invalid_national_id_value": "Veuillez entrer un valide NRIC",
+        "required_national_id_value": "Veuillez entrer votre NRIC"
       },
       "swe_specific": {
-        "invalid_national_id_value": "Veuillez entrer un valide PIN"
+        "invalid_national_id_value": "Veuillez entrer un valide PIN",
+        "required_national_id_value": "Veuillez entrer votre NIP"
       },
       "too_long_first_name": "Le prénom est trop long",
       "too_long_last_name": "Le nom de famille est trop long",
@@ -832,7 +848,8 @@
       "too_short_last_name": "Le nom de famille est trop court",
       "too_short_postcode": "Le code postal est trop court",
       "tur_specific": {
-        "invalid_national_id_value": "Veuillez saisir un numéro d'identification turc valide"
+        "invalid_national_id_value": "Veuillez saisir un numéro d'identification turc valide",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "Veuillez saisir un SSN valide",

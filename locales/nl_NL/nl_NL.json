@@ -120,7 +120,7 @@
   },
   "avc_intro": {
     "button_primary_ready": "Start met opnemen",
-    "disclaimer": "Wees u er bewust van dat we uw gezicht en achtergrond zullen opnemen",
+    "disclaimer": "Uw gezicht en uw achtergrond worden tijdens dit proces opgenomen",
     "disclaimer_camera_and_audio_on": "Uw gezicht, achtergrond en geluid worden tijdens dit proces opgenomen",
     "list_item_one": "Plaats eerst uw gezicht in het kader",
     "list_item_two": "Draai uw hoofd dan langzaam naar beide kanten",
@@ -203,8 +203,8 @@
     "footer": {
       "captured": "Foto gemaakt",
       "capturing": "Foto maken",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "Neem een foto van de achterkant van uw document",
+      "manual_fallback_generic_document_front": "Neem een foto van de voorkant van uw document",
       "manual_fallback_identity_card_back": "Maak een foto van de achterkant van uw kaart",
       "manual_fallback_identity_card_front": "Maak een foto van de voorkant van uw kaart",
       "manual_fallback_license_back": "Maak een foto van de achterkant van uw rijbewijs",
@@ -256,7 +256,7 @@
     "body_bank_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
     "body_benefits_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
     "body_bill": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
-    "body_generic_document": "",
+    "body_generic_document": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
     "body_id": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
     "body_image_medium": "Het duurt langer u te verifiëren als we deze niet kunnen lezen",
     "body_image_poor": "Om u gemakkelijk te kunnen verifiëren, hebben we een betere foto nodig",
@@ -324,8 +324,8 @@
     "title_bank_statement": "Afschrift indienen",
     "title_benefits_letter": "Brief indienen",
     "title_bill": "Factuur indienen",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "Document indienen (achterkant)",
+    "title_generic_document_front": "Document indienen (voorkant)",
     "title_government_letter": "Brief van de overheid",
     "title_id_back": "Verzend identiteitskaart (achterkant)",
     "title_id_front": "Verzend identiteitskaart (voorkant)",
@@ -493,16 +493,12 @@
   "permission": {
     "body_both": "We kunnen u niet verifiëren zonder uw camera en microfoon te gebruiken",
     "body_cam": "We kunnen u niet verifiëren zonder camera",
-    "body_mic": "We kunnen u niet verifiëren zonder uw microfoon te gebruiken",
     "button_primary_both": "Allebei inschakelen",
     "button_primary_cam": "Camera inschakelen",
-    "button_primary_mic": "Schakel microfoon in",
     "subtitle_both": "Als u daarom gevraagd wordt, moet u toegang tot zowel de camera als de microfoon inschakelen om door te gaan",
     "subtitle_cam": "Als u daarom gevraagd wordt, moet u toegang tot de camera inschakelen om door te gaan",
-    "subtitle_mic": "Als u daarom gevraagd wordt, moet u toegang tot de microfoon inschakelen om door te gaan",
     "title_both": "Sta toegang toe tot camera en microfoon",
-    "title_cam": "Toegang tot camera toestaan",
-    "title_mic": "Sta toegang toe tot microfoon"
+    "title_cam": "Toegang tot camera toestaan"
   },
   "permission_recovery": {
     "button_primary": "Verversen",
@@ -516,17 +512,15 @@
     "subtitle_both": "Herstel toegang tot de camera en de microfoon om een filmpje op te nemen en de verificatie van uw gezicht te voltooien",
     "subtitle_cam": "Herstel de cameratoegang om uw verificatie voort te zetten",
     "subtitle_cam_old": "Herstel toegang tot de camera om door te gaan met de verificatie van uw gezicht",
-    "subtitle_mic": "We kunnen u niet verifiëren zonder microfoon",
     "title_both": "Toegang tot camera en microfoon geweigerd",
-    "title_cam": "Toegang tot camera is geweigerd",
-    "title_mic": "Toegang tot microfoon geweigerd"
+    "title_cam": "Toegang tot camera is geweigerd"
   },
   "photo_upload": {
     "body_bank_statement": "Verstrek de hele documentpagina voor de beste resultaten",
     "body_benefits_letter": "Verstrek de hele documentpagina voor de beste resultaten",
     "body_bill": "Verstrek de hele documentpagina voor de beste resultaten",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "Upload de achterkant van uw document vanaf uw computer",
+    "body_generic_document_front": "Upload de voorkant van uw document vanaf uw computer",
     "body_id_back": "Upload de achterkant van uw kaart vanaf uw computer",
     "body_id_front": "Upload de voorkant van uw kaart vanaf uw computer",
     "body_license_back": "Upload de achterkant van uw rijbewijs vanaf uw computer",
@@ -645,6 +639,9 @@
       },
       "country": "Land",
       "country_residence": "Land",
+      "dnk_specific": {
+        "national_id_value": "CPR-nummer"
+      },
       "dob": "Geboortedatum",
       "email": "E-mailadres",
       "fin_specific": {
@@ -708,25 +705,34 @@
       },
       "bra_specific": {
         "invalid_other": "Voer een geldig CNPJ",
-        "invalid_tax_id": "Voer een geldig CPF"
+        "invalid_tax_id": "Voer een geldig CPF",
+        "required_other": "Voer uw CNPJ in",
+        "required_tax_id": "Voer uw CPF in"
       },
       "can_specific": {
-        "invalid_national_id_value": "Voer een geldig SIN"
+        "invalid_national_id_value": "Voer een geldig SIN",
+        "required_national_id_value": "Voer uw SIN in"
       },
       "chl_specific": {
         "invalid_national_id_value": "Voer een geldig RUT / RUN-nummer in",
         "required_national_id_value": "Voer uw RUT / RUN-nummers in"
       },
       "chn_specific": {
-        "invalid_national_id_value": "Vul een geldig identiteitskaartnummer in"
+        "invalid_national_id_value": "Vul een geldig identiteitskaartnummer in",
+        "required_national_id_value": "Vul a.u.b. het nummer van uw bewonerskaart in"
       },
       "col_specific": {
         "invalid_national_id_value": "Voer een geldig Colombiaans persoonlijk identificatienummer in",
         "required_national_id_value": "Voer uw Colombiaans persoonlijk identificatienummer in"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "Voer een geldig reanimatienummer in",
+        "required_national_id_value": "Voer uw reanimatienummer in"
+      },
       "esp_specific": {
         "invalid_identity_card": "Voer een geldig NIF/DNI",
-        "invalid_other": "Voer een geldig NIE"
+        "invalid_other": "Voer een geldig NIE",
+        "required_identity_card": "Voer uw NIF/DNI in"
       },
       "fin_specific": {
         "invalid_national_id_value": "Voer een geldige persoonlijke identiteitscode in",
@@ -760,7 +766,8 @@
       "invalid_phone_number": "Voer een geldig telefoonnummer in",
       "invalid_voter_id": "Voer een geldig kiezers-ID in",
       "ita_specific": {
-        "invalid_national_id_value": "Voer een geldige fiscale code in"
+        "invalid_national_id_value": "Voer een geldige fiscale code in",
+        "required_national_id_value": "Vul a.u.b. uw fiscale code in"
       },
       "jpn_specific": {
         "invalid_national_id_value": "Voer een geldige \"Mijn nummer\" / Resident Record-code in",
@@ -776,7 +783,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "Voer een geldig CURP",
-        "invalid_tax_id": "Voer een geldig RFC"
+        "invalid_tax_id": "Voer een geldig RFC",
+        "required_identity_card": "Voer uw CURP in",
+        "required_tax_id": "Voer uw RFC in"
       },
       "mys_specific": {
         "invalid_national_id_value": "Voer een geldig NRIC in",
@@ -814,14 +823,21 @@
       "required_last_name": "Voer uw achternaam in",
       "required_line1": "Voer uw adres in",
       "required_mobile_number": "Voer uw mobiele nummer in",
+      "required_national_driving_license": "Vul a.u.b. uw rijbewijsnummer in",
+      "required_national_id_type": "Selecteer uw type nationale identiteitskaart",
+      "required_national_id_value": "Voer uw rijksregisternummer in",
+      "required_national_passport": "Vul a.u.b. uw paspoortnummer in",
+      "required_national_voter_id": "Voer uw kiezersnummer in",
       "required_nationality": "Selecteer een land",
       "required_phone_number": "Voer uw telefoonnummer in",
       "required_postcode": "Voer uw postcode in",
       "sgp_specific": {
-        "invalid_national_id_value": "Voer een geldig NRIC"
+        "invalid_national_id_value": "Voer een geldig NRIC",
+        "required_national_id_value": "Voer uw NRIC in"
       },
       "swe_specific": {
-        "invalid_national_id_value": "Voer een geldig PIN"
+        "invalid_national_id_value": "Voer een geldig PIN",
+        "required_national_id_value": "Voer uw pincode in"
       },
       "too_long_first_name": "Voornaam is te lang",
       "too_long_last_name": "Achternaam is te lang",
@@ -832,7 +848,8 @@
       "too_short_last_name": "Achternaam is te kort",
       "too_short_postcode": "Postcode is te kort",
       "tur_specific": {
-        "invalid_national_id_value": "Voer een geldig Turks ID-nummer in"
+        "invalid_national_id_value": "Voer een geldig Turks ID-nummer in",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "Voer een geldig SSN in",

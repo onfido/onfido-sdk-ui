@@ -156,33 +156,6 @@ import { init } from 'onfido-sdk-ui'
 var Onfido = require('onfido-sdk-ui')
 ```
 
-⚠️ Note: The above import does **not** include the Auth module. To include it, use:
-
-```javascript
-// ES6 module import
-import { init } from 'onfido-sdk-ui/dist/onfidoAuth.min.js'
-
-// commonjs style require
-var Onfido = require('onfido-sdk-ui/dist/onfidoAuth.min.js')
-```
-
-In addition to the alternative way of importing Auth, you need to have an `auth-sdk/` folder in your public assets folder, and copy the contents of `node_modules/onfido-sdk-ui/dist/auth-sdk` into it.
-
-If you are using Webpack on your application, you can automate this by adding:
-
-```javascript
-new CopyPlugin({
-  patterns: [
-    {
-      from: `../../node_modules/onfido-sdk-ui/dist/auth-sdk`,
-      to: `${__dirname}/bin/src/auth-sdk`,
-    },
-  ],
-})
-```
-
-This will fetch the core authentication technology from the SDK into your application. Using web workers for authentication enables the best performance achievable, without compromising on usability.
-
 The CSS style will be included inline with the JS code when the library is imported.
 
 ⚠️ Note: The library is **Browser only**, it does not support the **Node Context**.
@@ -196,7 +169,6 @@ Alternatively, you can use hosted versions of files above from our CDN such as:
 ```html
 <!-- Replace "<version>" with the actual version you want to use, example: 9.0.0 -->
 <script src="https://assets.onfido.com/web-sdk-releases/<version>/onfido.min.js"></script>
-<script src="https://assets.onfido.com/web-sdk-releases/<version>/onfidoAuth.min.js"></script>
 <link
   href="https://assets.onfido.com/web-sdk-releases/<version>/style.css"
   rel="stylesheet"
@@ -612,7 +584,7 @@ The custom options are:
 
   ⚠️ **Note**: the `null` value is deprecated and has no effect.
 
-  ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information.
+  ⚠️ **Note**: Passports have the same format worldwide so the SDK will not show the country selection screen even if they are not restricted by country (e.g. passport: true).
 
 For example, if you want to allow only Spanish (ESP) driving licences, and national identity cards and residence permits for all countries:
 
@@ -671,6 +643,39 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
   ```javascript
   options: {
     uploadFallback: false
+  }
+  ```
+
+- `genericDocumentTypes` (object)
+
+  You can add generic documents that are not supported by Onfido. They will be displayed at the bottom of the built-in document types.
+
+  ```javascript
+  genericDocumentTypes: [
+    {
+      id: 'my_single_side_document',
+      title: 'My single side document',
+      subTitle: 'Details about my document',
+      country: 'ALB',
+      pages: 1,
+    },
+    {
+      id: 'my_two_sides_document',
+      title: 'My two sides document',
+      subTitle: 'Details about my document',
+      country: 'ALB',
+      pages: 2,
+    },
+  ]
+  ```
+
+  In the same way to other document types, you can skip the document selection screen by adding a single `generic_document` object which references one of your generic documents declared in `genericDocumentTypes`.
+
+  ```javascript
+  documentTypes: {
+    generic_document: {
+      id: 'my_single_side_document',
+    }
   }
   ```
 
@@ -754,18 +759,6 @@ The custom options are:
   When enabled, and the requested variant is `motion`, this feature allows Motion to record the user background audio.
 
 Please note that if a camera can’t be detected, we forward the user to the cross-device flow in order to attempt to capture in another device.
-
-#### auth
-
-This is the authentication step. If you have followed the guidelines specific to including authentication, you'll have this step made available. In here, a loading screen is presented to the user to fetch all necessary resources to perform authentication.
-
-After all resources are loaded, the session is initialized, and the authentication check begins. An oval frame of the camera will be present (if camera permissions are provided) and actionable elements will render, asking the user to place their face in the frame, followed up by a different set of instructions for them to follow to successfully authenticate the user.
-
-If the user is not a match, or conditions are not good enough to successfully authenticate, the user will be asked to retry authentication. If authentication is not possible (i.e. user performing authentication is not a match, doesn't provide optimal light/environment conditions, or doesn't follow instructions on screen), the page will rollback to the previous step. Custom option is:
-
-- `retries` (number)
-
-This option allows the integrator to set the maximum number of retries until authentication session is cancelled. **Default maximum number of attempts is 3.**
 
 #### complete
 

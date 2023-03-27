@@ -116,8 +116,8 @@
     "footer": {
       "captured": "Լուսանկարն արված է",
       "capturing": "Լուսանկարվում է",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "Լուսանկարե՛ք Ձեր փաստաթղթի հետևի հատվածը",
+      "manual_fallback_generic_document_front": "Լուսանկարե՛ք Ձեր փաստաթղթի առջևի հատվածը",
       "manual_fallback_identity_card_back": "Լուսանկարեք ձեր քարտի դարձերեսը",
       "manual_fallback_identity_card_front": "Լուսանկարեք ձեր քարտի դիմերեսը",
       "manual_fallback_license_back": "Լուսանկարեք ձեր վարորդական վկայականի դարձերեսը",
@@ -169,7 +169,7 @@
     "body_bank_statement": "Համոզվեք, որ վերբեռնել եք փաստաթղթի ամբողջական էջը, և տվյալները ընթեռնելի են, պատկերը աղոտ չէ և չի փայլում",
     "body_benefits_letter": "Համոզվեք, որ վերբեռնել եք փաստաթղթի ամբողջական էջը, և տվյալները ընթեռնելի են, պատկերը աղոտ չէ և չի փայլում",
     "body_bill": "Համոզվեք, որ վերբեռնել եք փաստաթղթի ամբողջական էջը, և տվյալները ընթեռնելի են, պատկերը աղոտ չէ և չի փայլում",
-    "body_generic_document": "",
+    "body_generic_document": "Համոզվեք, որ ձեր տվյալները հասկանալի են և պարզ",
     "body_id": "Համոզվեք, որ ձեր տվյալները հասկանալի են և պարզ",
     "body_image_medium": "Ձեզ նույնականացնելու համար ավելի երկար ժամանակ կպահանջվի, եթե մենք չկարողանանք կարդալ այն",
     "body_image_poor": "Ձեզ արագ նույնականացնելու համար մեզ անհրաժեշտ է ավելի լավ որակի լուսանկար",
@@ -237,8 +237,8 @@
     "title_bank_statement": "Ուղարկել քաղվածքը",
     "title_benefits_letter": "Ուղարկել նամակը",
     "title_bill": "Ուղարկել հաշիվ",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "Ուղարկե՛ք փաստաթուղթը (հետևի հատվածը)",
+    "title_generic_document_front": "Ուղարկե՛ք փաստաթուղթը (առջևի հատվածը)",
     "title_government_letter": "Պետական փաստաթուղթ",
     "title_id_back": "Ուղարկել նույնականացման քարտը (դարձերեսը)",
     "title_id_front": "Ուղարկել նույնականացման քարտը (դիմերեսը)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "Մենք չենք կարող նույնականացնել ձեզ առանց տեսախցիկի և խոսափողի առկայության",
     "body_cam": "Մենք չենք կարող նույնականացնել ձեզ առանց ձեր տեսախցիկի",
-    "body_mic": "Մենք չենք կարող նույնականացնել ձեզ առանց խոսափողի առկայության",
     "button_primary_both": "Երկուսն էլ միացնել",
     "button_primary_cam": "Միացնել տեսախցիկը",
-    "button_primary_mic": "Միացնել խոսափողը",
     "subtitle_both": "Հարցումը ստանալուն պես պետք է թույլատրեք տեսախցիկի և խոսափողի հասանելիությունը, որպեսզի կարողանաք շարունակել",
     "subtitle_cam": "Հարցումը ստանալուն պես՝ պետք է թույլատրեք խոսափողի հասանելիությունը, որպեսզի կարողանաք շարունակել",
-    "subtitle_mic": "Հարցումը ստանալուն պես պետք է թույլատրեք խոսափողի հասանելիությունը, որպեսզի կարողանաք շարունակել",
     "title_both": "Թույլատրել մուտքը դեպի տեսախցիկ և խոսափող",
-    "title_cam": "Թույլատրել մուտքը դեպի տեսախցիկ",
-    "title_mic": "Թույլատրել մուտքը դեպի խոսափող"
+    "title_cam": "Թույլատրել մուտքը դեպի տեսախցիկ"
   },
   "permission_recovery": {
     "button_primary": "Թարմացնել",
@@ -429,17 +425,15 @@
     "subtitle_both": "Վերականգնեք տեսախցիկի և խոսափողի հասանելիությունը՝ տեսանյութը նկարահանելու և հաստատման գործընթացն ավարտելու համար",
     "subtitle_cam": "Վերականգնել տեսախցիկի հասանելիությունը՝ դեմքի նույնականացումը շարունակելու համար",
     "subtitle_cam_old": "Վերականգնել տեսախցիկի հասանելիությունը՝ դեմքի նույնականացումը շարունակելու համար",
-    "subtitle_mic": "Մենք չենք կարող նույնականացնել ձեզ առանց խոսափողի",
     "title_both": "Տեսախցիկի և խոսափողի հասանելիությունը մերժվել է",
-    "title_cam": "Տեսախցիկի հասանելիությունը մերժված է",
-    "title_mic": "Խոսափողի հասանելիությունը մերժվել է"
+    "title_cam": "Տեսախցիկի հասանելիությունը մերժված է"
   },
   "photo_upload": {
     "body_bank_statement": "Լավագույն արդյունքի համար հետևեք, որ փաստաթղթի էջը ամբողջական լինի",
     "body_benefits_letter": "Լավագույն արդյունքի համար հետևեք, որ փաստաթղթի էջը ամբողջական լինի",
     "body_bill": "Լավագույն արդյունքի համար հետևեք, որ փաստաթղթի էջը ամբողջական լինի",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "Վերբեռնե՛ք փաստաթղթի հետևի հատվածը Ձեր համակարգչից",
+    "body_generic_document_front": "Վերբեռնե՛ք փաստաթղթի դիմացի հատվածը Ձեր համակարգչից",
     "body_id_back": "Վերբեռնեք քարտի դիմերեսը ձեր համակարգչից",
     "body_id_front": "Վերբեռնեք քարտի դիմերեսը ձեր համակարգչից",
     "body_license_back": "Վերբեռնեք վկայականի դարձերեսը ձեր համակարգչից",
@@ -558,6 +552,9 @@
       },
       "country": "Երկիր",
       "country_residence": "Երկիր",
+      "dnk_specific": {
+        "national_id_value": "CPR համարը"
+      },
       "dob": "Ծննդյան ամսաթիվ",
       "email": "Էլ փոստ",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "Խնդրում ենք մուտքագրել վավեր CNPJ",
-        "invalid_tax_id": "Խնդրում ենք մուտքագրել վավեր CPF"
+        "invalid_tax_id": "Խնդրում ենք մուտքագրել վավեր CPF",
+        "required_other": "Խնդրում ենք մուտքագրել ձեր CNPJ-ը",
+        "required_tax_id": "Խնդրում ենք մուտքագրել ձեր CPF-ն"
       },
       "can_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր SIN"
+        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր SIN",
+        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր ՄԵՂՔԸ"
       },
       "chl_specific": {
         "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր RUT/RUN համարներ",
         "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր RUT / RUN համարները"
       },
       "chn_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր բնակության անձը հաստատող փաստաթղթի համարը"
+        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր բնակության անձը հաստատող փաստաթղթի համարը",
+        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր բնակության վկայականի համարը"
       },
       "col_specific": {
         "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր կոլումբիական նույնականացման համար",
         "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր կոլումբիական նույնականացման համարը"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր CPR համար",
+        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր CPR համարը"
+      },
       "esp_specific": {
         "invalid_identity_card": "Խնդրում ենք մուտքագրել վավեր NIF/DNI",
-        "invalid_other": "Խնդրում ենք մուտքագրել վավեր NIE"
+        "invalid_other": "Խնդրում ենք մուտքագրել վավեր NIE",
+        "required_identity_card": "Խնդրում ենք մուտքագրել ձեր NIF/DNI"
       },
       "fin_specific": {
         "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր Անձնական կոդը",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "Խնդրում ենք մուտքագրել վավեր հեռախոսահամար",
       "invalid_voter_id": "Խնդրում ենք մուտքագրել վավեր ընտրողի ID համարը",
       "ita_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր հարկային ծածկագիր"
+        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր հարկային ծածկագիր",
+        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր ֆիսկալ կոդը"
       },
       "jpn_specific": {
         "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր «Իմ համարը» / ռեզիդենտի գրանցման կոդը",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "Խնդրում ենք մուտքագրել վավեր CURP",
-        "invalid_tax_id": "Խնդրում ենք մուտքագրել վավեր RFC"
+        "invalid_tax_id": "Խնդրում ենք մուտքագրել վավեր RFC",
+        "required_identity_card": "Խնդրում ենք մուտքագրել ձեր CURP-ը",
+        "required_tax_id": "Խնդրում ենք մուտքագրել ձեր RFC-ն"
       },
       "mys_specific": {
         "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր NRIC",
@@ -727,14 +736,21 @@
       "required_last_name": "Խնդրում ենք մուտքագրել ձեր ազգանունը",
       "required_line1": "Խնդրում ենք մուտքագրել ձեր հասցեն",
       "required_mobile_number": "Խնդրում ենք մուտքագրել շարժական հեռախոսահամարը",
+      "required_national_driving_license": "Խնդրում ենք մուտքագրել ձեր վարորդական իրավունքի համարը",
+      "required_national_id_type": "Խնդրում ենք ընտրել ձեր ազգային ID-ի տեսակը",
+      "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր ազգային ID համարը",
+      "required_national_passport": "Խնդրում ենք մուտքագրել ձեր անձնագրի համարը",
+      "required_national_voter_id": "Խնդրում ենք մուտքագրել ձեր ընտրողի համարը",
       "required_nationality": "Խնդրում ենք ընտրել երկիրը",
       "required_phone_number": "Խնդրում ենք մուտքագրել ձեր հեռախոսահամարը",
       "required_postcode": "Խնդրում ենք մուտքագրել ձեր փոստային դասիչը",
       "sgp_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր NRIC"
+        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր NRIC",
+        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր NRIC-ը"
       },
       "swe_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր PIN"
+        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր PIN",
+        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր PIN կոդը"
       },
       "too_long_first_name": "Անունը շատ երկար է",
       "too_long_last_name": "Ազգանունը շատ երկար է",
@@ -745,7 +761,8 @@
       "too_short_last_name": "Ազգանունը շատ կարճ է",
       "too_short_postcode": "Փոստային դասիչը շատ կարճ է",
       "tur_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր թուրքական ID համար"
+        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր թուրքական ID համար",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "Խնդրում ենք մուտքագրեք վավեր ՀԾՀ",

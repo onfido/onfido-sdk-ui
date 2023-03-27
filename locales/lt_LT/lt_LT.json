@@ -33,7 +33,7 @@
   },
   "avc_intro": {
     "button_primary_ready": "Pradėti įrašymą",
-    "disclaimer": "Atminkite, kad įrašysime jūsų veidą ir esamą aplinką",
+    "disclaimer": "Atminkite, kad užfiksuosime jūsų veidą ir esamą aplinką",
     "disclaimer_camera_and_audio_on": "Šio proceso metu bus įrašomas jūsų veidas, fonas ir garsas",
     "list_item_one": "Pirmiausia pasirūpinkite, kad jūsų veidas būtų rėmelyje",
     "list_item_two": "Tada lėtai pasukite galvą į abi puses",
@@ -116,8 +116,8 @@
     "footer": {
       "captured": "Nufotografuota nuotrauka",
       "capturing": "Nuotraukos darymas",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "Nufotografuokite galinę dokumento pusę",
+      "manual_fallback_generic_document_front": "Nufotografuokite priekinę dokumento pusę",
       "manual_fallback_identity_card_back": "Nufotografuokite galinę kortelės pusę",
       "manual_fallback_identity_card_front": "Nufotografuokite priekinę kortelės pusę",
       "manual_fallback_license_back": "Nufotografuokite vairuotojo pažymėjimo galinę pusę",
@@ -169,7 +169,7 @@
     "body_bank_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
     "body_benefits_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
     "body_bill": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
-    "body_generic_document": "",
+    "body_generic_document": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
     "body_id": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
     "body_image_medium": "Jei negalėsime perskaityti, užtruks ilgiau, kol jus patvirtinsime",
     "body_image_poor": "Kad galėtume sklandžiai jus patvirtinti, mums reikia geresnės kokybės nuotraukos",
@@ -237,8 +237,8 @@
     "title_bank_statement": "Pateikti išrašą",
     "title_benefits_letter": "Pateikti laišką",
     "title_bill": "Pateikti sąskaitą",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "Pateikti dokumentą (galinę pusę)",
+    "title_generic_document_front": "Pateikti dokumentą (priekinę pusę)",
     "title_government_letter": "Vyriausybės raštas",
     "title_id_back": "Pateikite asmens tapatybės kortelę (galinę pusę)",
     "title_id_front": "Pateikite asmens tapatybės kortelę (priekinę pusę)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "Negalime jūsų patvirtinti, jei kamera ir mikrofonas nenaudojami kartu",
     "body_cam": "Negalime jūsų patvirtinti be jūsų kameros",
-    "body_mic": "Negalime jūsų patvirtinti nenaudojant mikrofono",
     "button_primary_both": "Įjungti abu",
     "button_primary_cam": "Įjungti kamerą",
-    "button_primary_mic": "Įjungti mikrofoną",
     "subtitle_both": "Kai būsite paraginti, turėsite įgalinti prieigą abiems, kad galėtumėte tęsti",
     "subtitle_cam": "Kai būsite paraginti, turite įjungti prieigą prie kameros, kad galėtumėte tęsti",
-    "subtitle_mic": "Kai būsite paraginti, turėsite įgalinti prieigą prie mikrofono, kad galėtumėte tęsti",
     "title_both": "Leisti prieigą prie kameros ir mikrofono",
-    "title_cam": "Leisti prieigą prie kameros",
-    "title_mic": "Leisti prieigą prie mikrofono"
+    "title_cam": "Leisti prieigą prie kameros"
   },
   "permission_recovery": {
     "button_primary": "Atnaujinti",
@@ -429,17 +425,15 @@
     "subtitle_both": "Atkurkite prieigą prie kameros ir mikrofono, kad galėtumėte padaryti vaizdo įrašą ir užbaigti patvirtinimo procesą",
     "subtitle_cam": "Atkurkite prieigą prie fotoaparato ir tęskite patvirtinimą",
     "subtitle_cam_old": "Atkurkite prieigą prie kameros, kad galėtumėte tęsti veido patikrinimą",
-    "subtitle_mic": "Negalime jūsų patvirtinti be mikrofono",
     "title_both": "Kameros ir mikrofono prieiga uždrausta",
-    "title_cam": "Prieiga prie kameros uždrausta",
-    "title_mic": "Prieiga prie mikrofono uždrausta"
+    "title_cam": "Prieiga prie kameros uždrausta"
   },
   "photo_upload": {
     "body_bank_statement": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
     "body_benefits_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
     "body_bill": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "Įkelkite galinę dokumento pusę iš kompiuterio",
+    "body_generic_document_front": "Įkelkite priekinę dokumento pusę iš kompiuterio",
     "body_id_back": "Įkelkite galinę kortelės pusę iš kompiuterio",
     "body_id_front": "Įkelkite priekinę kortelės pusę iš kompiuterio",
     "body_license_back": "Įkelkite galinę pažymėjimo pusę iš kompiuterio",
@@ -558,6 +552,9 @@
       },
       "country": "Šalis",
       "country_residence": "Šalis",
+      "dnk_specific": {
+        "national_id_value": "CPR numeris"
+      },
       "dob": "Gimimo data",
       "email": "El. paštas",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "Įveskite tinkamą CNPJ",
-        "invalid_tax_id": "Įveskite tinkamą CPF"
+        "invalid_tax_id": "Įveskite tinkamą CPF",
+        "required_other": "Įveskite savo CNPJ",
+        "required_tax_id": "Įveskite savo CPF"
       },
       "can_specific": {
-        "invalid_national_id_value": "Įveskite tinkamą SIN"
+        "invalid_national_id_value": "Įveskite tinkamą SIN",
+        "required_national_id_value": "Įveskite savo SIN"
       },
       "chl_specific": {
         "invalid_national_id_value": "Įveskite galiojančius RUT / RUN numerius",
         "required_national_id_value": "Įveskite savo RUT / RUN numerius"
       },
       "chn_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį gyventojo asmens tapatybės kortelės numerį"
+        "invalid_national_id_value": "Įveskite galiojantį gyventojo asmens tapatybės kortelės numerį",
+        "required_national_id_value": "Įveskite savo gyventojo asmens tapatybės kortelės numerį"
       },
       "col_specific": {
         "invalid_national_id_value": "Įveskite galiojantį Kolumbijos asmens identifikavimo numerį",
         "required_national_id_value": "Įveskite savo Kolumbijos asmens identifikavimo numerį"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "Įveskite galiojantį CPR numerį",
+        "required_national_id_value": "Įveskite savo CPR numerį"
+      },
       "esp_specific": {
         "invalid_identity_card": "Įveskite tinkamą NIF/DNI",
-        "invalid_other": "Įveskite tinkamą NIE"
+        "invalid_other": "Įveskite tinkamą NIE",
+        "required_identity_card": "Įveskite savo NIF/DNI"
       },
       "fin_specific": {
         "invalid_national_id_value": "Įveskite galiojantį asmens kodą",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "Įveskite galiojantį telefono numerį",
       "invalid_voter_id": "Įveskite galiojantį rinkėjo ID numerį",
       "ita_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį mokesčių kodą"
+        "invalid_national_id_value": "Įveskite galiojantį mokesčių kodą",
+        "required_national_id_value": "Įveskite savo mokesčių kodą"
       },
       "jpn_specific": {
         "invalid_national_id_value": "Įveskite galiojantį „Mano numeris“ / Gyventojo įrašo kodą",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "Įveskite tinkamą CURP",
-        "invalid_tax_id": "Įveskite tinkamą RFC"
+        "invalid_tax_id": "Įveskite tinkamą RFC",
+        "required_identity_card": "Įveskite savo CURP",
+        "required_tax_id": "Įveskite savo RFC"
       },
       "mys_specific": {
         "invalid_national_id_value": "Įveskite tinkamą NRIC",
@@ -727,14 +736,21 @@
       "required_last_name": "Įrašykite savo pavardę",
       "required_line1": "Įrašykite savo adresą",
       "required_mobile_number": "Įveskite savo mobiliojo telefono numerį",
+      "required_national_driving_license": "Įveskite vairuotojo pažymėjimo numerį",
+      "required_national_id_type": "Pasirinkite savo nacionalinio ID tipą",
+      "required_national_id_value": "Įveskite savo nacionalinį ID numerį",
+      "required_national_passport": "Įveskite savo paso numerį",
+      "required_national_voter_id": "Įveskite savo rinkėjo ID numerį",
       "required_nationality": "Pasirinkite šalį",
       "required_phone_number": "Įveskite savo telefono numerį",
       "required_postcode": "Įrašykite savo pašto kodą",
       "sgp_specific": {
-        "invalid_national_id_value": "Įveskite tinkamą NRIC"
+        "invalid_national_id_value": "Įveskite tinkamą NRIC",
+        "required_national_id_value": "Įveskite savo NRIC"
       },
       "swe_specific": {
-        "invalid_national_id_value": "Įveskite tinkamą PIN"
+        "invalid_national_id_value": "Įveskite tinkamą PIN",
+        "required_national_id_value": "Įveskite savo PIN kodą"
       },
       "too_long_first_name": "Vardas per ilgas",
       "too_long_last_name": "Pavardė per ilga",
@@ -745,7 +761,8 @@
       "too_short_last_name": "Pavardė per trumpa",
       "too_short_postcode": "Pašto kodas per trumpas",
       "tur_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį Turkijos ID numerį"
+        "invalid_national_id_value": "Įveskite galiojantį Turkijos ID numerį",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "Įveskite galiojantį SSN",

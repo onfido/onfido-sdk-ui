@@ -1154,7 +1154,7 @@
     "path": "node_modules/@octokit/types",
     "licenseFile": "node_modules/@octokit/types/LICENSE"
   },
-  "@onfido/active-video-capture@0.22.1": {
+  "@onfido/active-video-capture@0.23.0": {
     "licenses": "UNLICENSED",
     "repository": "/active-video-capture",
     "publisher": "Web SDK Customer Support",
@@ -1191,7 +1191,7 @@
     "path": "node_modules/@onfido/castor",
     "licenseFile": "node_modules/@onfido/castor/README.md"
   },
-  "@onfido/opencv@1.0.0": {
+  "@onfido/opencv@1.0.2": {
     "licenses": "Apache-2.0",
     "publisher": "Wilson",
     "path": "node_modules/@onfido/opencv",
@@ -1922,8 +1922,8 @@
   "@types/webpack@4.41.32": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-    "path": "node_modules/@types/html-webpack-plugin/node_modules/@types/webpack",
-    "licenseFile": "node_modules/@types/html-webpack-plugin/node_modules/@types/webpack/LICENSE"
+    "path": "node_modules/@types/speed-measure-webpack-plugin/node_modules/@types/webpack",
+    "licenseFile": "node_modules/@types/speed-measure-webpack-plugin/node_modules/@types/webpack/LICENSE"
   },
   "@types/webpack@5.28.0": {
     "licenses": "MIT",
@@ -2136,22 +2136,6 @@
     "path": "node_modules/@webpack-cli/serve",
     "licenseFile": "node_modules/@webpack-cli/serve/README.md"
   },
-  "@xstate/inspect@0.7.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/statelyai/xstate",
-    "publisher": "David Khourshid",
-    "email": "davidkpiano@gmail.com",
-    "path": "node_modules/@xstate/inspect",
-    "licenseFile": "node_modules/@xstate/inspect/README.md"
-  },
-  "@xstate/react@3.0.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/statelyai/xstate",
-    "publisher": "David Khourshid",
-    "email": "davidkpiano@gmail.com",
-    "path": "node_modules/@xstate/react",
-    "licenseFile": "node_modules/@xstate/react/LICENSE"
-  },
   "@xtuc/ieee754@1.2.0": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/feross/ieee754",
@@ -2243,8 +2227,8 @@
   "acorn-walk@8.2.0": {
     "licenses": "MIT",
     "repository": "https://github.com/acornjs/acorn",
-    "path": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk",
-    "licenseFile": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk/LICENSE"
+    "path": "node_modules/ts-node/node_modules/acorn-walk",
+    "licenseFile": "node_modules/ts-node/node_modules/acorn-walk/LICENSE"
   },
   "acorn@7.4.1": {
     "licenses": "MIT",
@@ -2584,13 +2568,6 @@
     "path": "node_modules/axe-core",
     "licenseFile": "node_modules/axe-core/LICENSE"
   },
-  "axios@0.24.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/axios/axios",
-    "publisher": "Matt Zabriskie",
-    "path": "node_modules/bundlewatch/node_modules/axios",
-    "licenseFile": "node_modules/bundlewatch/node_modules/axios/LICENSE"
-  },
   "axios@0.27.2": {
     "licenses": "MIT",
     "repository": "https://github.com/axios/axios",
@@ -2860,13 +2837,6 @@
     "path": "node_modules/buffer",
     "licenseFile": "node_modules/buffer/LICENSE"
   },
-  "bundlewatch@0.3.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/bundlewatch/bundlewatch",
-    "publisher": "bundlewatch",
-    "path": "node_modules/bundlewatch",
-    "licenseFile": "node_modules/bundlewatch/LICENSE"
-  },
   "bytes-iec@3.1.1": {
     "licenses": "MIT",
     "repository": "https://github.com/Saevon/bytes.js",
@@ -3028,13 +2998,6 @@
     "publisher": "Trent Mick, Sam Saccone",
     "path": "node_modules/chrome-trace-event",
     "licenseFile": "node_modules/chrome-trace-event/LICENSE.txt"
-  },
-  "ci-env@1.17.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/siddharthkp/ci-env",
-    "publisher": "siddharthkp",
-    "path": "node_modules/ci-env",
-    "licenseFile": "node_modules/ci-env/LICENSE"
   },
   "ci-info@2.0.0": {
     "licenses": "MIT",
@@ -3257,16 +3220,8 @@
     "repository": "https://github.com/tj/commander.js",
     "publisher": "TJ Holowaychuk",
     "email": "tj@vision-media.ca",
-    "path": "node_modules/@babel/cli/node_modules/commander",
-    "licenseFile": "node_modules/@babel/cli/node_modules/commander/LICENSE"
-  },
-  "commander@5.1.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/tj/commander.js",
-    "publisher": "TJ Holowaychuk",
-    "email": "tj@vision-media.ca",
-    "path": "node_modules/bundlewatch/node_modules/commander",
-    "licenseFile": "node_modules/bundlewatch/node_modules/commander/LICENSE"
+    "path": "node_modules/@babel/node/node_modules/commander",
+    "licenseFile": "node_modules/@babel/node/node_modules/commander/LICENSE"
   },
   "commander@7.2.0": {
     "licenses": "MIT",
@@ -4554,13 +4509,6 @@
     "url": "http://www.hiddentao.com/",
     "path": "node_modules/fast-levenshtein",
     "licenseFile": "node_modules/fast-levenshtein/LICENSE.md"
-  },
-  "fast-safe-stringify@2.1.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/davidmarkclements/fast-safe-stringify",
-    "publisher": "David Mark Clements",
-    "path": "node_modules/fast-safe-stringify",
-    "licenseFile": "node_modules/fast-safe-stringify/LICENSE"
   },
   "fastest-levenshtein@1.0.12": {
     "licenses": "MIT",
@@ -6293,13 +6241,6 @@
     "path": "node_modules/jsonfile",
     "licenseFile": "node_modules/jsonfile/LICENSE"
   },
-  "jsonpack@1.1.5": {
-    "licenses": "MIT",
-    "repository": "https://github.com/sapienlab/jsonpack",
-    "publisher": "Rodrigo González | sapienlab",
-    "path": "node_modules/jsonpack",
-    "licenseFile": "node_modules/jsonpack/LICENSE.md"
-  },
   "jsonpointer@5.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/janl/node-jsonpointer",
@@ -7471,7 +7412,7 @@
     "path": "node_modules/onetime",
     "licenseFile": "node_modules/onetime/license"
   },
-  "onfido-sdk-ui@10.3.0": {
+  "onfido-sdk-ui@10.4.0": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
@@ -10092,18 +10033,6 @@
     "email": "gary.court@gmail.com",
     "path": "node_modules/uri-js",
     "licenseFile": "node_modules/uri-js/README.md"
-  },
-  "use-isomorphic-layout-effect@1.1.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/Andarist/use-isomorphic-layout-effect",
-    "path": "node_modules/use-isomorphic-layout-effect",
-    "licenseFile": "node_modules/use-isomorphic-layout-effect/LICENSE"
-  },
-  "use-sync-external-store@1.2.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/facebook/react",
-    "path": "node_modules/use-sync-external-store",
-    "licenseFile": "node_modules/use-sync-external-store/LICENSE"
   },
   "util-deprecate@1.0.2": {
     "licenses": "MIT",

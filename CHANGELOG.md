@@ -10,6 +10,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+## [12.1.0] - 2023-03-27
+
+### Changed
+
+- Public: Added Generic document support
+
 ## [12.0.0] - 2023-03-08
 
 - Public: Typescript support: remove unused configuration types for POA step (They were not used but were not removed from the types.)
@@ -1478,7 +1484,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/12.0.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/12.1.0...development
+[12.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.0.0...12.1.0
 [12.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.4.0...12.0.0
 [10.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.1...10.4.0
 [10.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.0...10.3.1

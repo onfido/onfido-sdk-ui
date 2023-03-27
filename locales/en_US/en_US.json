@@ -493,16 +493,12 @@
   "permission": {
     "body_both": "We can’t verify you without using both your camera and microphone",
     "body_cam": "We can’t verify you without your camera",
-    "body_mic": "We can’t verify you without using your microphone",
     "button_primary_both": "Enable both",
     "button_primary_cam": "Enable camera",
-    "button_primary_mic": "Enable microphone",
     "subtitle_both": "When prompted, you must enable access for both to continue",
     "subtitle_cam": "When prompted, you must enable camera access to continue",
-    "subtitle_mic": "When prompted, you must enable microphone access to continue",
     "title_both": "Allow camera and microphone access",
-    "title_cam": "Allow camera access",
-    "title_mic": "Allow microphone access"
+    "title_cam": "Allow camera access"
   },
   "permission_recovery": {
     "button_primary": "Refresh",
@@ -516,10 +512,8 @@
     "subtitle_both": "Recover camera and microphone access to take a video and complete the verification process",
     "subtitle_cam": "Recover camera access to continue your verification",
     "subtitle_cam_old": "Recover camera access to continue face verification",
-    "subtitle_mic": "We can’t verify you without your microphone",
     "title_both": "Camera and microphone access denied",
-    "title_cam": "Camera access is denied",
-    "title_mic": "Microphone access denied"
+    "title_cam": "Camera access is denied"
   },
   "photo_upload": {
     "body_bank_statement": "Provide the whole document page for best results",
@@ -645,6 +639,9 @@
       },
       "country": "Country",
       "country_residence": "Country",
+      "dnk_specific": {
+        "national_id_value": "CPR number"
+      },
       "dob": "Date of birth",
       "email": "Email",
       "fin_specific": {
@@ -691,7 +688,7 @@
       },
       "town": "Town",
       "tur_specific": {
-        "national_id_value": "Turkish Identification Number"
+        "national_id_value": "Turkish ID Number"
       },
       "usa_specific": {
         "line1_helper_text": "Street address, for example: 200 Albert Street",
@@ -708,25 +705,34 @@
       },
       "bra_specific": {
         "invalid_other": "Please enter a valid CNPJ",
-        "invalid_tax_id": "Please enter a valid CPF"
+        "invalid_tax_id": "Please enter a valid CPF",
+        "required_other": "Please enter your CNPJ",
+        "required_tax_id": "Please enter your CPF"
       },
       "can_specific": {
-        "invalid_national_id_value": "Please enter a valid SIN"
+        "invalid_national_id_value": "Please enter a valid SIN",
+        "required_national_id_value": "Please enter your SIN"
       },
       "chl_specific": {
         "invalid_national_id_value": "Please enter a valid RUT / RUN numbers",
         "required_national_id_value": "Please enter your RUT / RUN numbers"
       },
       "chn_specific": {
-        "invalid_national_id_value": "Please enter a valid resident identity card number"
+        "invalid_national_id_value": "Please enter a valid resident identity card number",
+        "required_national_id_value": "Please enter your resident identity card number"
       },
       "col_specific": {
         "invalid_national_id_value": "Please enter a valid Colombian Personal Identification Number",
         "required_national_id_value": "Please enter your Colombian Personal Identification Number"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "Please enter a valid CPR number",
+        "required_national_id_value": "Please enter your CPR number"
+      },
       "esp_specific": {
         "invalid_identity_card": "Please enter a valid NIF/DNI",
-        "invalid_other": "Please enter a valid NIE"
+        "invalid_other": "Please enter a valid NIE",
+        "required_identity_card": "Please enter your NIF/DNI"
       },
       "fin_specific": {
         "invalid_national_id_value": "Please enter a valid Personal identity code",
@@ -760,7 +766,8 @@
       "invalid_phone_number": "Please enter a valid phone number",
       "invalid_voter_id": "Please enter a valid voter ID number",
       "ita_specific": {
-        "invalid_national_id_value": "Please enter a valid fiscal code"
+        "invalid_national_id_value": "Please enter a valid fiscal code",
+        "required_national_id_value": "Please enter your fiscal code"
       },
       "jpn_specific": {
         "invalid_national_id_value": "Please enter a valid \"My number\" / Resident Record code",
@@ -776,7 +783,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "Please enter a valid CURP",
-        "invalid_tax_id": "Please enter a valid RFC"
+        "invalid_tax_id": "Please enter a valid RFC",
+        "required_identity_card": "Please enter your CURP",
+        "required_tax_id": "Please enter your RFC"
       },
       "mys_specific": {
         "invalid_national_id_value": "Please enter a valid NRIC",
@@ -814,14 +823,21 @@
       "required_last_name": "Please enter your last name",
       "required_line1": "Please enter your address",
       "required_mobile_number": "Please enter your mobile number",
+      "required_national_driving_license": "Please enter your driver's license number",
+      "required_national_id_type": "Please select your National ID type",
+      "required_national_id_value": "Please enter your National ID number",
+      "required_national_passport": "Please enter your passport number",
+      "required_national_voter_id": "Please enter your voter ID number",
       "required_nationality": "Please select a country",
       "required_phone_number": "Please enter your phone number",
       "required_postcode": "Please enter your postal code",
       "sgp_specific": {
-        "invalid_national_id_value": "Please enter a valid NRIC"
+        "invalid_national_id_value": "Please enter a valid NRIC",
+        "required_national_id_value": "Please enter your NRIC"
       },
       "swe_specific": {
-        "invalid_national_id_value": "Please enter a valid PIN"
+        "invalid_national_id_value": "Please enter a valid PIN",
+        "required_national_id_value": "Please enter your PIN"
       },
       "too_long_first_name": "First name is too long",
       "too_long_last_name": "Last name is too long",
@@ -832,7 +848,8 @@
       "too_short_last_name": "Last name is too short",
       "too_short_postcode": "Postal code is too short",
       "tur_specific": {
-        "invalid_national_id_value": "Please enter a valid Turkish ID number"
+        "invalid_national_id_value": "Please enter a valid Turkish ID number",
+        "required_national_id_value": "Please enter your Turkish ID number"
       },
       "usa_specific": {
         "invalid_ssn": "Please enter a valid SSN",

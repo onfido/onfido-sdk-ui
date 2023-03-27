@@ -40,6 +40,7 @@ For all supported language the copy for the following string(s) has been added:
 - `profile_data::field_labels::chl_specific::national_id_value`
 - `profile_data::field_labels::chn_specific::national_id_value`
 - `profile_data::field_labels::col_specific::national_id_value`
+- `profile_data::field_labels::dnk_specific::national_id_value`
 - `profile_data::field_labels::fin_specific::national_id_value`
 - `profile_data::field_labels::hkg_specific::national_id_value`
 - `profile_data::field_labels::ita_specific::national_id_value`
@@ -52,16 +53,25 @@ For all supported language the copy for the following string(s) has been added:
 - `profile_data::field_labels::prt_specific::national_id_value`
 - `profile_data::field_labels::tur_specific::national_id_value`
 - `profile_data::field_validation::arg_specific::invalid_national_id_value`
+- `profile_data::field_validation::arg_specific::required_national_id_value`
 - `profile_data::field_validation::bra_specific::invalid_other`
 - `profile_data::field_validation::bra_specific::invalid_tax_id`
+- `profile_data::field_validation::bra_specific::required_other`
+- `profile_data::field_validation::bra_specific::required_tax_id`
 - `profile_data::field_validation::can_specific::invalid_national_id_value`
+- `profile_data::field_validation::can_specific::required_national_id_value`
 - `profile_data::field_validation::chl_specific::invalid_national_id_value`
 - `profile_data::field_validation::chl_specific::required_national_id_value`
 - `profile_data::field_validation::chn_specific::invalid_national_id_value`
+- `profile_data::field_validation::chn_specific::required_national_id_value`
 - `profile_data::field_validation::col_specific::invalid_national_id_value`
 - `profile_data::field_validation::col_specific::required_national_id_value`
+- `profile_data::field_validation::dnk_specific::invalid_national_id_value`
+- `profile_data::field_validation::dnk_specific::required_national_id_value`
 - `profile_data::field_validation::esp_specific::invalid_identity_card`
 - `profile_data::field_validation::esp_specific::invalid_other`
+- `profile_data::field_validation::esp_specific::required_identity_card`
+- `profile_data::field_validation::esp_specific::required_other`
 - `profile_data::field_validation::fin_specific::invalid_national_id_value`
 - `profile_data::field_validation::fin_specific::required_national_id_value`
 - `profile_data::field_validation::gha_specific::invalid_social_insurance`
@@ -70,6 +80,11 @@ For all supported language the copy for the following string(s) has been added:
 - `profile_data::field_validation::hkg_specific::required_national_id_value`
 - `profile_data::field_validation::invalid_driving_license`
 - `profile_data::field_validation::invalid_voter_id`
+- `profile_data::field_validation::required_id_type`
+- `profile_data::field_validation::required_id_value`
+- `profile_data::field_validation::required_passport`
+- `profile_data::field_validation::required_driving_license`
+- `profile_data::field_validation::required_voter_id`
 - `profile_data::field_validation::ita_specific::invalid_national_id_value`
 - `profile_data::field_validation::jpn_specific::invalid_national_id_value`
 - `profile_data::field_validation::jpn_specific::required_national_id_value`
@@ -79,6 +94,8 @@ For all supported language the copy for the following string(s) has been added:
 - `profile_data::field_validation::lux_specific::required_national_id_value`
 - `profile_data::field_validation::mex_specific::invalid_identity_card`
 - `profile_data::field_validation::mex_specific::invalid_tax_id`
+- `profile_data::field_validation::mex_specific::required_identity_card`
+- `profile_data::field_validation::mex_specific::required_tax_id`
 - `profile_data::field_validation::mys_specific::invalid_national_id_value`
 - `profile_data::field_validation::mys_specific::required_national_id_value`
 - `profile_data::field_validation::nga_specific::invalid_identity_card`
@@ -95,9 +112,12 @@ For all supported language the copy for the following string(s) has been added:
 - `profile_data::field_validation::prt_specific::required_national_id_value`
 - `profile_data::field_validation::reference::translation`
 - `profile_data::field_validation::sgp_specific::invalid_national_id_value`
+- `profile_data::field_validation::sgp_specific::required_national_id_value`
 - `profile_data::field_validation::swe_specific::invalid_national_id_value`
+- `profile_data::field_validation::swe_specific::required_national_id_value`
 - `profile_data::field_validation::tur_specific::invalid_national_id_value`
-- `profile_date::national_id_number_title`
+- `profile_data::field_validation::tur_specific::required_national_id_value`
+- `profile_data::national_id_number_title`
 
 ## `11.0.0`
 

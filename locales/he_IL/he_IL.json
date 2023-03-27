@@ -33,7 +33,7 @@
   },
   "avc_intro": {
     "button_primary_ready": "התחל לצלם",
-    "disclaimer": "שים לב, אנו עומדים לצלם את הפנים שלך ואת הסביבה שבה אתה נמצא",
+    "disclaimer": "במהלך תהליך זה, הפנים והרקע שלך יצולמו.",
     "disclaimer_camera_and_audio_on": "הפנים, הרקע והשמע שלך יוקלטו במהלך תהליך זה",
     "list_item_one": "ראשית, מקם את הפנים שלך במסגרת",
     "list_item_two": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
@@ -116,8 +116,8 @@
     "footer": {
       "captured": "התמונה צולמה",
       "capturing": "מצלם תמונה",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "צלם את גב המסמך שלך",
+      "manual_fallback_generic_document_front": "צלם את החלק הקדמי של המסמך שלך",
       "manual_fallback_identity_card_back": "צלם את החלק האחורי של התעודה",
       "manual_fallback_identity_card_front": "צלם את החלק הקדמי של התעודה",
       "manual_fallback_license_back": "צלם את החלק האחורי של הרישיון הנהיגה",
@@ -169,7 +169,7 @@
     "body_bank_statement": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
     "body_benefits_letter": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
     "body_bill": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
-    "body_generic_document": "",
+    "body_generic_document": "ודא שהפרטים ברורים ולא חסומים",
     "body_id": "ודא שהפרטים ברורים ולא חסומים",
     "body_image_medium": "אם לא נוכל לקרוא את המידע, ייקח יותר זמן לאמת את זהותך",
     "body_image_poor": "אנחנו צריכים תמונה טובה יותר כדי לאמת את זהותך",
@@ -237,8 +237,8 @@
     "title_bank_statement": "שלח הצהרה",
     "title_benefits_letter": "שלח מכתב",
     "title_bill": "שלח חשבון",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "שלח מסמך (גב)",
+    "title_generic_document_front": "שלח מסמך (החלק הקדמי)",
     "title_government_letter": "מכתב ממשלתי",
     "title_id_back": "שלח תעודת זהות (חלק אחורי)",
     "title_id_front": "שלח תעודת זהות (חלק קדמי)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "לא ניתן לאמת את זהותך בלי להשתמש גם במצלמה וגם במיקרופון",
     "body_cam": "אנחנו לא יכולים לאמת את זהותך בלי המצלמה שלך",
-    "body_mic": "לא ניתן לאמת אותך בלי להשתמש גם במצלמה וגם במיקרופון",
     "button_primary_both": "הפעל את שניהם",
     "button_primary_cam": "הפעל מצלמה",
-    "button_primary_mic": "הפעל מיקרופון",
     "subtitle_both": "כאשר תתבקש, עליך לאפשר גישה לשניהם כדי להמשיך",
     "subtitle_cam": "כאשר תתבקש, עליך לאפשר גישה עבור שניהם כדי להמשיך",
-    "subtitle_mic": "כאשר תתבקש, עליך לאפשר גישה לשניהם כדי להמשיך",
     "title_both": "אפשר גישה למצלמה ולמיקרופון",
-    "title_cam": "אפשר גישה למצלמה",
-    "title_mic": "אפשר גישה למיקרופון"
+    "title_cam": "אפשר גישה למצלמה"
   },
   "permission_recovery": {
     "button_primary": "רענן",
@@ -429,17 +425,15 @@
     "subtitle_both": "שחזר גישה למצלמה כדי לצלם סרטון ולהשלים את תהליך האימות",
     "subtitle_cam": "שחזר את הגישה למצלמה כדי להמשיך באימות הפנים",
     "subtitle_cam_old": "שחזר את הגישה למצלמה כדי להמשיך באימות הפנים",
-    "subtitle_mic": "לא ניתן לאמת את זהותך בלי להשתמש במיקרופון",
     "title_both": "הגישה למצלמה ולמיקרופון נדחתה",
-    "title_cam": "הגישה למצלמה נדחתה",
-    "title_mic": "הגישה למיקרופון נדחתה"
+    "title_cam": "הגישה למצלמה נדחתה"
   },
   "photo_upload": {
     "body_bank_statement": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
     "body_benefits_letter": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
     "body_bill": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "העלה את גב המסמך מהמחשב שלך",
+    "body_generic_document_front": "העלה את החלק הקדמי של המסמך מהמחשב שלך",
     "body_id_back": "העלה תמונה של החלק האחורי של התעודה מהמחשב שלך",
     "body_id_front": "העלה תמונה של החלק הקדמי של הרישיון מהמחשב שלך",
     "body_license_back": "העלה תמונה של החלק האחורי הרישיון מהמחשב שלך",
@@ -558,6 +552,9 @@
       },
       "country": "ארץ",
       "country_residence": "ארץ",
+      "dnk_specific": {
+        "national_id_value": "מספר החייאה"
+      },
       "dob": "תאריך לידה",
       "email": "דוא\"ל",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "אנא הזן תקף CNPJ",
-        "invalid_tax_id": "אנא הזן תקף CPF"
+        "invalid_tax_id": "אנא הזן תקף CPF",
+        "required_other": "נא להזין את ה-CNPJ שלך",
+        "required_tax_id": "אנא הזן את ה-CPF שלך"
       },
       "can_specific": {
-        "invalid_national_id_value": "אנא הזן תקף SIN"
+        "invalid_national_id_value": "אנא הזן תקף SIN",
+        "required_national_id_value": "אנא הזן את ה-SIN שלך"
       },
       "chl_specific": {
         "invalid_national_id_value": "נא להזין מספר RUT / RUN חוקי",
         "required_national_id_value": "נא להזין את מספרי RUT / RUN שלך"
       },
       "chn_specific": {
-        "invalid_national_id_value": "נא להזין מספר תעודת זהות תקפה"
+        "invalid_national_id_value": "נא להזין מספר תעודת זהות תקפה",
+        "required_national_id_value": "נא להזין את מספר תעודת הזהות שלך"
       },
       "col_specific": {
         "invalid_national_id_value": "אנא הזן מספר זיהוי אישי קולומביאני חוקי",
         "required_national_id_value": "אנא הזן את מספר הזיהוי האישי הקולומביאני שלך"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "נא להזין מספר CPR חוקי",
+        "required_national_id_value": "נא להזין את מספר החייאה שלך"
+      },
       "esp_specific": {
         "invalid_identity_card": "אנא הזן תקף NIF/DNI",
-        "invalid_other": "אנא הזן תקף NIE"
+        "invalid_other": "אנא הזן תקף NIE",
+        "required_identity_card": "אנא הזן את ה-NIF/DNI שלך"
       },
       "fin_specific": {
         "invalid_national_id_value": "אנא הזן קוד זהות אישי חוקי",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "הזן מספר פלאפון תקין",
       "invalid_voter_id": "נא להזין מספר תעודת בוחר חוקי",
       "ita_specific": {
-        "invalid_national_id_value": "אנא הזן קוד כלכלי חוקי"
+        "invalid_national_id_value": "אנא הזן קוד כלכלי חוקי",
+        "required_national_id_value": "אנא הזן את הקוד הכספי שלך"
       },
       "jpn_specific": {
         "invalid_national_id_value": "נא להזין קוד \"המספר שלי\" / רשומה תושב חוקי",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "אנא הזן תקף CURP",
-        "invalid_tax_id": "אנא הזן תקף RFC"
+        "invalid_tax_id": "אנא הזן תקף RFC",
+        "required_identity_card": "אנא הזן את ה-CURP שלך",
+        "required_tax_id": "אנא הזן את ה-RFC שלך"
       },
       "mys_specific": {
         "invalid_national_id_value": "אנא הזן NRIC חוקי",
@@ -727,14 +736,21 @@
       "required_last_name": "הזן את שם המשפחה שלך",
       "required_line1": "הזן את הכתובת שלך",
       "required_mobile_number": "הזן את מספר הטלפון הנייד שלך",
+      "required_national_driving_license": "נא להזין את מספר רישיון הנהיגה שלך",
+      "required_national_id_type": "אנא בחר את סוג התעודה הלאומית שלך",
+      "required_national_id_value": "נא להזין את מספר תעודת הזהות שלך",
+      "required_national_passport": "נא להזין את מספר הדרכון שלך",
+      "required_national_voter_id": "נא להזין את מספר תעודת זהות הבוחר שלך",
       "required_nationality": "בחר ארץ",
       "required_phone_number": "הזן את מספר הטלפון שלך",
       "required_postcode": "הזן את המיקוד שלך",
       "sgp_specific": {
-        "invalid_national_id_value": "אנא הזן תקף NRIC"
+        "invalid_national_id_value": "אנא הזן תקף NRIC",
+        "required_national_id_value": "נא להזין את ה-NRIC שלך"
       },
       "swe_specific": {
-        "invalid_national_id_value": "אנא הזן תקף PIN"
+        "invalid_national_id_value": "אנא הזן תקף PIN",
+        "required_national_id_value": "אנא הזן את ה-PIN שלך"
       },
       "too_long_first_name": "השם הפרטי ארוך מדי",
       "too_long_last_name": "שם המשפחה ארוך מדי",
@@ -745,7 +761,8 @@
       "too_short_last_name": "שם המשפחה קצר מדי",
       "too_short_postcode": "המיקוד קצר מדי",
       "tur_specific": {
-        "invalid_national_id_value": "נא להזין מספר זהות טורקי חוקי"
+        "invalid_national_id_value": "נא להזין מספר זהות טורקי חוקי",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "הזן מספר חשבון קבוע (PAN) חוקי",

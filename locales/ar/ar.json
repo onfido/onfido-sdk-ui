@@ -116,8 +116,8 @@
     "footer": {
       "captured": "تم التقاط الصورة",
       "capturing": "Capturing photo",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "التقط صورة للجهة الخلفية لمستندك",
+      "manual_fallback_generic_document_front": "التقط صورة للجهة الأمامية لمستندك",
       "manual_fallback_identity_card_back": "التقط صورة للجزء الخلفي من بطاقتك",
       "manual_fallback_identity_card_front": "التقط صورة للجزء الأمامي من بطاقتك",
       "manual_fallback_license_back": "التقط صورة للجزء الخلفي من رخصة القيادة",
@@ -169,7 +169,7 @@
     "body_bank_statement": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
     "body_benefits_letter": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
     "body_bill": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
-    "body_generic_document": "",
+    "body_generic_document": "تأكد من أن بياناتك واضحة وليست محجوبة",
     "body_id": "تأكد من أن بياناتك واضحة وليست محجوبة",
     "body_image_medium": "سيستغرق الأمر وقتًا أطول للتحقق منك إذا لم نتمكن من قراءته",
     "body_image_poor": "للتحقق منك بسلاسة، نحتاج إلى صورة أفضل",
@@ -237,8 +237,8 @@
     "title_bank_statement": "إرسال بيان",
     "title_benefits_letter": "أرسِل الرسالة",
     "title_bill": "أرسِل الفاتورة",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "إرسال المستند (النهاية)",
+    "title_generic_document_front": "إرسال المستند (البداية)",
     "title_government_letter": "خطاب حكومي",
     "title_id_back": "إرسال بطاقة الهوية (الوجه الخلفي)",
     "title_id_front": "إرسال بطاقة الهوية (الوجه الأمامي)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "لا يمكننا التحقق منك من دون استخدام كل من الكاميرا والميكروفون",
     "body_cam": "لا يمكننا التحقق منك بدون الكاميرا",
-    "body_mic": "لا يمكننا التحقق منك من دون استخدام الميكروفون",
     "button_primary_both": "تمكين كلا الإثنين",
     "button_primary_cam": "تمكين الكاميرا",
-    "button_primary_mic": "تمكين الميكروفون",
     "subtitle_both": "عند المطالبة، يجب تمكين الوصول لكليهما للمتابعة",
     "subtitle_cam": "عند المطالبة، يجب تمكين الوصول إلى الكاميرا للمتابعة",
-    "subtitle_mic": "عند المطالبة، يجب تمكين الوصول إلى الميكروفون للمتابعة",
     "title_both": "السماح باستخدام الكاميرا والميكروفون",
-    "title_cam": "السماح باستخدام الكاميرا",
-    "title_mic": "السماح باستخدام الميكروفون"
+    "title_cam": "السماح باستخدام الكاميرا"
   },
   "permission_recovery": {
     "button_primary": "تنشيط",
@@ -429,17 +425,15 @@
     "subtitle_both": "استعادة الوصول إلى الكاميرا والميكروفون لالتقاط مقطع فيديو وإكمال عملية التحقق",
     "subtitle_cam": "استعادة الوصول إلى الكاميرا لمتابعة عملية التحقق",
     "subtitle_cam_old": "استعادة الوصول إلى الكاميرا لمتابعة التحقق من الوجه",
-    "subtitle_mic": "لا يمكننا التحقق منك من دون الميكروفون الخاص بك",
     "title_both": "تم رفض الوصول إلى الكاميرا والميكروفون",
-    "title_cam": "تم رفض الوصول إلى الكاميرا",
-    "title_mic": "تم رفض الوصول إلى الميكروفون"
+    "title_cam": "تم رفض الوصول إلى الكاميرا"
   },
   "photo_upload": {
     "body_bank_statement": "قدّم صفحة المستند بالكامل للحصول على أفضل النتائج",
     "body_benefits_letter": "قدّم صفحة المستند بالكامل للحصول على أفضل النتائج",
     "body_bill": "قدّم صفحة المستند بالكامل للحصول على أفضل النتائج",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "قم بتحميل نهاية المستند من جهاز الكمبيوتر",
+    "body_generic_document_front": "قم بتحميل بداية المستند من جهاز الكمبيوتر",
     "body_id_back": "تحميل الوجه الخلفي للبطاقة من جهاز كمبيوترك",
     "body_id_front": "تحميل الوجه الأمامي للبطاقة من جهاز كمبيوترك",
     "body_license_back": "تحميل الوجه الخلفي للترخيص من جهاز كمبيوترك",
@@ -558,6 +552,9 @@
       },
       "country": "الدولة",
       "country_residence": "الدولة",
+      "dnk_specific": {
+        "national_id_value": "رقم البطاقة السكانية"
+      },
       "dob": "تاريخ الميلاد",
       "email": "البريد الإلكتروني",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "الرجاء إدخال CNPJ",
-        "invalid_tax_id": "الرجاء إدخال CPF"
+        "invalid_tax_id": "الرجاء إدخال CPF",
+        "required_other": "الرجاء إدخال CNPJ الخاص بك",
+        "required_tax_id": "الرجاء إدخال رقم CPF الخاص بك"
       },
       "can_specific": {
-        "invalid_national_id_value": "الرجاء إدخال SIN"
+        "invalid_national_id_value": "الرجاء إدخال SIN",
+        "required_national_id_value": "الرجاء إدخال رقم الضمان الاجتماعي الخاص بك"
       },
       "chl_specific": {
         "invalid_national_id_value": "الرجاء إدخال أرقام RUT / RUN صالحة",
         "required_national_id_value": "الرجاء إدخال أرقام RUT / RUN الخاصة بك"
       },
       "chn_specific": {
-        "invalid_national_id_value": "الرجاء إدخال رقم بطاقة هوية مقيم صالح"
+        "invalid_national_id_value": "الرجاء إدخال رقم بطاقة هوية مقيم صالح",
+        "required_national_id_value": "الرجاء إدخال رقم بطاقة الإقامة الخاصة بك"
       },
       "col_specific": {
         "invalid_national_id_value": "الرجاء إدخال رقم تعريف شخصي كولومبي صالح",
         "required_national_id_value": "الرجاء إدخال رقم التعريف الشخصي الكولومبي الخاص بك"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "الرجاء إدخال رقم صالح CPR",
+        "required_national_id_value": "الرجاء إدخال رقم البطاقة السكانية الخاصة بك"
+      },
       "esp_specific": {
         "invalid_identity_card": "الرجاء إدخال NIF/DNI",
-        "invalid_other": "الرجاء إدخال NIE"
+        "invalid_other": "الرجاء إدخال NIE",
+        "required_identity_card": "الرجاء إدخال NIF / DNI الخاص بك"
       },
       "fin_specific": {
         "invalid_national_id_value": "الرجاء إدخال رمز هوية شخصية صالح",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "يُرجى إدخال رقم هاتف صحيح",
       "invalid_voter_id": "الرجاء إدخال رقم هوية ناخب صالح",
       "ita_specific": {
-        "invalid_national_id_value": "الرجاء إدخال رمز مالي صالح"
+        "invalid_national_id_value": "الرجاء إدخال رمز مالي صالح",
+        "required_national_id_value": "الرجاء إدخال رمزك المالي"
       },
       "jpn_specific": {
         "invalid_national_id_value": "الرجاء إدخال \"رقمي\" صالح / رمز سجل المقيم",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "الرجاء إدخال CURP",
-        "invalid_tax_id": "الرجاء إدخال RFC"
+        "invalid_tax_id": "الرجاء إدخال RFC",
+        "required_identity_card": "الرجاء إدخال CURP الخاص بك",
+        "required_tax_id": "الرجاء إدخال RFC الخاص بك"
       },
       "mys_specific": {
         "invalid_national_id_value": "الرجاء إدخال NRIC صالح",
@@ -727,14 +736,21 @@
       "required_last_name": "يُرجى إدخال اسم العائلة",
       "required_line1": "يُرجى إدخال عنوانك",
       "required_mobile_number": "يُرجى إدخال رقم الهاتف المحمول",
+      "required_national_driving_license": "الرجاء إدخال رقم رخصة القيادة الخاصة بك",
+      "required_national_id_type": "الرجاء تحديد نوع الهوية الوطنية الخاصة بك",
+      "required_national_id_value": "الرجاء إدخال رقم الهوية الوطنية الخاصة بك",
+      "required_national_passport": "الرجاء إدخال رقم جواز سفرك",
+      "required_national_voter_id": "الرجاء إدخال رقم هوية الناخب الخاص بك",
       "required_nationality": "يُرجى تحديد الدولة",
       "required_phone_number": "يُرجى إدخال رقم هاتفك",
       "required_postcode": "يُرجى إدخال الرمز البريدي الخاص بك",
       "sgp_specific": {
-        "invalid_national_id_value": "الرجاء إدخال NRIC"
+        "invalid_national_id_value": "الرجاء إدخال NRIC",
+        "required_national_id_value": "الرجاء إدخال NRIC الخاص بك"
       },
       "swe_specific": {
-        "invalid_national_id_value": "الرجاء إدخال PIN"
+        "invalid_national_id_value": "الرجاء إدخال PIN",
+        "required_national_id_value": "الرجاء إدخال رقم التعريف الشخصي الخاص بك"
       },
       "too_long_first_name": "الاسم الأول طويل للغاية",
       "too_long_last_name": "اسم العائلة طويل للغاية",
@@ -745,7 +761,8 @@
       "too_short_last_name": "اسم العائلة قصير للغاية",
       "too_short_postcode": "الرمز البريدي قصير للغاية",
       "tur_specific": {
-        "invalid_national_id_value": "الرجاء إدخال رقم هوية تركي صالح"
+        "invalid_national_id_value": "الرجاء إدخال رقم هوية تركي صالح",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "يُرجى إدخال رقم ضمان اجتماعي صحيح",

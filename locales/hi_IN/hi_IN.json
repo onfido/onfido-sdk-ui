@@ -33,7 +33,7 @@
   },
   "avc_intro": {
     "button_primary_ready": "रिकॉर्डिंग शुरू करें",
-    "disclaimer": "कृपया ध्यान रखें कि हम आपका चेहरा और बैकग्राउंड रिकॉर्ड करेंगे",
+    "disclaimer": "इस प्रक्रिया के दौरान आपके चेहरे और आपकी बैकग्राउंड को रिकॉर्ड किया जाएगा",
     "disclaimer_camera_and_audio_on": "इस प्रक्रिया के दौरान आपका चेहरा, बैकग्राउंड और ऑडियो रिकॉर्ड किया जाएगा",
     "list_item_one": "सबसे पहले, अपने चेहरे को फ़्रेम में रखें",
     "list_item_two": "इसके बाद अपने सिर को धीरे-धीरे दोनों तरफ़ घुमाएँ",
@@ -116,8 +116,8 @@
     "footer": {
       "captured": "फ़ोटो कैप्चर हो गई",
       "capturing": "फ़ोटो कैप्चर की जा रही है",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "अपने डॉक्यूमेंट के पीछे के हिस्से की फ़ोटो खींचें",
+      "manual_fallback_generic_document_front": "अपने डॉक्यूमेंट के सामने के हिस्से की फ़ोटो खींचें",
       "manual_fallback_identity_card_back": "अपने कार्ड के पीछे के हिस्से की फ़ोटो खींचें",
       "manual_fallback_identity_card_front": "अपने कार्ड के सामने के हिस्से की फ़ोटो खींचें",
       "manual_fallback_license_back": "अपने ड्राइविंग लाइसेंस के पीछे के हिस्से की फ़ोटो खींचें",
@@ -169,7 +169,7 @@
     "body_bank_statement": "पक्का करें कि आपने पूरा डॉक्यूमेंट पेज अपलोड कर दिया है। साथ ही, जानकारी धुँधली या उस पर कोई चमक नहीं है और उसे साफ़-साफ़ पढ़ा जा सकता है",
     "body_benefits_letter": "पक्का करें कि आपने पूरा डॉक्यूमेंट पेज अपलोड कर दिया है। साथ ही, जानकारी धुँधली या उस पर कोई चमक नहीं है और उसे साफ़-साफ़ पढ़ा जा सकता है",
     "body_bill": "पक्का करें कि आपने पूरा डॉक्यूमेंट पेज अपलोड कर दिया है। साथ ही, जानकारी धुँधली या उस पर कोई चमक नहीं है और उसे साफ़-साफ़ पढ़ा जा सकता है",
-    "body_generic_document": "",
+    "body_generic_document": "आपकी जानकारी साफ़ दिखाई देनी चाहिए और छिपी नहीं होनी चाहिए",
     "body_id": "आपकी जानकारी साफ़ दिखाई देनी चाहिए और छिपी नहीं होनी चाहिए",
     "body_image_medium": "अगर हम इसे पढ़ नहीं पाएँगे, तो आपको वेरिफ़ाई करने में ज़्यादा समय लगेगा",
     "body_image_poor": "आपको आसानी से वेरिफ़ाई करने के लिए, आपको हमें एक बेहतर फ़ोटो देनी होगी",
@@ -237,8 +237,8 @@
     "title_bank_statement": "स्टेटमेंट सबमिट करें",
     "title_benefits_letter": "पत्र सबमिट करें",
     "title_bill": "बिल सबमिट करें",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "डॉक्यूमेंट सबमिट करें (पिछला हिस्सा)",
+    "title_generic_document_front": "डॉक्यूमेंट सबमिट करें (सामने का हिस्सा)",
     "title_government_letter": "सरकारी पत्र",
     "title_id_back": "पहचान पत्र सबमिट करें (पीछे का हिस्सा)",
     "title_id_front": "पहचान पत्र सबमिट करें (सामने का हिस्सा)",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "जब तक आप अपने कैमरे और माइक्रोफ़ोन दोनों का इस्तेमाल नहीं करेंगे, तब तक हम आपको वेरिफ़ाई नहीं कर पाएँगे",
     "body_cam": "आपके कैमरे के बिना हम आपको वेरिफ़ाई नहीं कर सकते",
-    "body_mic": "जब तक आप अपना माइक्रोफ़ोन इस्तेमाल नहीं करेंगे, तब तक हम आपको वेरिफ़ाई नहीं कर पाएँगे",
     "button_primary_both": "दोनों चालू करें",
     "button_primary_cam": "कैमरा चालू करें",
-    "button_primary_mic": "माइक्रोफ़ोन चालू करें",
     "subtitle_both": "कहे जाने पर, आगे बढ़ने के लिए आप दोनों का ऐक्सेस दें",
     "subtitle_cam": "कहे जाने पर, जारी रखने के लिए आपको कैमरे का ऐक्सेस चालू करना होगा",
-    "subtitle_mic": "कहे जाने पर, आगे बढ़ने के लिए आप माइक्रोफ़ोन का ऐक्सेस दें",
     "title_both": "कैमरा और माइक्रोफ़ोन ऐक्सेस की अनुमति दें",
-    "title_cam": "कैमरा ऐक्सेस की अनुमति दें",
-    "title_mic": "माइक्रोफ़ोन ऐक्सेस की अनुमति दें"
+    "title_cam": "कैमरा ऐक्सेस की अनुमति दें"
   },
   "permission_recovery": {
     "button_primary": "रीफ़्रेश करें",
@@ -429,17 +425,15 @@
     "subtitle_both": "वीडियो लेने और वेरिफ़िकेशन प्रोसेस पूरी करने के लिए कैमरा और माइक्रोफ़ोन ऐक्सेस रिकवर करें",
     "subtitle_cam": "अपना वेरिफ़िकेशन जारी रखने के लिए कैमरे का ऐक्सेस रिकवर करें",
     "subtitle_cam_old": "चेहरे का वेरिफ़िकेशन जारी रखने के लिए कैमरा ऐक्सेस रिकवर करें",
-    "subtitle_mic": "हम आपके माइक्रोफ़ोन के बिना आपको वेरिफ़ाई नहीं कर सकते",
     "title_both": "कैमरे और माइक्रोफ़ोन का ऐक्सेस अस्वीकार कर दिया गया",
-    "title_cam": "कैमरे का ऐक्सेस नहीं मिला",
-    "title_mic": "माइक्रोफ़ोन का ऐक्सेस नहीं मिला"
+    "title_cam": "कैमरे का ऐक्सेस नहीं मिला"
   },
   "photo_upload": {
     "body_bank_statement": "सबसे बढ़िया नतीजों के लिए पूरे डॉक्यूमेंट का पेज प्रदान करें",
     "body_benefits_letter": "सबसे बढ़िया नतीजों के लिए पूरे डॉक्यूमेंट का पेज प्रदान करें",
     "body_bill": "सबसे बढ़िया नतीजों के लिए पूरे डॉक्यूमेंट का पेज प्रदान करें",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "अपने कंप्यूटर से डॉक्यूमेंट का पिछला हिस्सा अपलोड करें",
+    "body_generic_document_front": "अपने कंप्यूटर से डॉक्यूमेंट के सामने का हिस्सा अपलोड करें",
     "body_id_back": "अपने कंप्यूटर से कार्ड के पीछे का हिस्सा अपलोड करें",
     "body_id_front": "अपने कंप्यूटर से कार्ड के सामने का हिस्सा अपलोड करें",
     "body_license_back": "अपने कंप्यूटर से लाइसेंस के पीछे का हिस्सा अपलोड करें",
@@ -558,6 +552,9 @@
       },
       "country": "देश",
       "country_residence": "देश",
+      "dnk_specific": {
+        "national_id_value": "सीपीआर संख्या"
+      },
       "dob": "जन्मतिथि",
       "email": "ईमेल",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "कृपया कोई मान्य दर्ज करें CNPJ",
-        "invalid_tax_id": "कृपया कोई मान्य दर्ज करें CPF"
+        "invalid_tax_id": "कृपया कोई मान्य दर्ज करें CPF",
+        "required_other": "कृपया अपना सीएनपीजे दर्ज करें",
+        "required_tax_id": "कृपया अपना सीपीएफ दर्ज करें"
       },
       "can_specific": {
-        "invalid_national_id_value": "कृपया कोई मान्य दर्ज करें SIN"
+        "invalid_national_id_value": "कृपया कोई मान्य दर्ज करें SIN",
+        "required_national_id_value": "कृपया अपना एसआईएन दर्ज करें"
       },
       "chl_specific": {
         "invalid_national_id_value": "कृपया मान्य आरयूटी/रन नंबर दर्ज करें",
         "required_national_id_value": "कृपया अपना आरयूटी/रन नंबर दर्ज करें"
       },
       "chn_specific": {
-        "invalid_national_id_value": "कृपया एक मान्य निवासी पहचान पत्र संख्या दर्ज करें"
+        "invalid_national_id_value": "कृपया एक मान्य निवासी पहचान पत्र संख्या दर्ज करें",
+        "required_national_id_value": "कृपया अपना निवासी पहचान पत्र नंबर दर्ज करें"
       },
       "col_specific": {
         "invalid_national_id_value": "कृपया एक मान्य कोलम्बियाई व्यक्तिगत पहचान संख्या दर्ज करें",
         "required_national_id_value": "कृपया अपनी कोलम्बियाई व्यक्तिगत पहचान संख्या दर्ज करें"
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "कृपया एक मान्य सीपीआर संख्या दर्ज करें",
+        "required_national_id_value": "कृपया अपना सीपीआर नंबर दर्ज करें"
+      },
       "esp_specific": {
         "invalid_identity_card": "कृपया कोई मान्य दर्ज करें NIF/DNI",
-        "invalid_other": "कृपया कोई मान्य दर्ज करें NIE"
+        "invalid_other": "कृपया कोई मान्य दर्ज करें NIE",
+        "required_identity_card": "कृपया अपना एनआईएफ/डीएनआई दर्ज करें"
       },
       "fin_specific": {
         "invalid_national_id_value": "कृपया एक वैध व्यक्तिगत पहचान कोड दर्ज करें",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "कृपया एक मान्य फ़ोन नंबर डालें",
       "invalid_voter_id": "कृपया एक मान्य मतदाता पहचान संख्या दर्ज करें",
       "ita_specific": {
-        "invalid_national_id_value": "कृपया एक मान्य वित्तीय कोड दर्ज करें"
+        "invalid_national_id_value": "कृपया एक मान्य वित्तीय कोड दर्ज करें",
+        "required_national_id_value": "कृपया अपना वित्तीय कोड दर्ज करें"
       },
       "jpn_specific": {
         "invalid_national_id_value": "कृपया मान्य \"मेरा नंबर\" / निवासी रिकॉर्ड कोड दर्ज करें",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "कृपया कोई मान्य दर्ज करें CURP",
-        "invalid_tax_id": "कृपया कोई मान्य दर्ज करें RFC"
+        "invalid_tax_id": "कृपया कोई मान्य दर्ज करें RFC",
+        "required_identity_card": "कृपया अपना CURP दर्ज करें",
+        "required_tax_id": "कृपया अपना RFC दर्ज करें"
       },
       "mys_specific": {
         "invalid_national_id_value": "कृपया एक मान्य एनआरआईसी दर्ज करें",
@@ -727,14 +736,21 @@
       "required_last_name": "कृपया अपना उपनाम डालें",
       "required_line1": "कृपया अपना पता डालें",
       "required_mobile_number": "कृपया अपना मोबाइल नंबर डालें",
+      "required_national_driving_license": "कृपया अपना ड्राइविंग लाइसेंस नंबर दर्ज करें",
+      "required_national_id_type": "कृपया अपना राष्ट्रीय आईडी प्रकार चुनें",
+      "required_national_id_value": "कृपया अपना राष्ट्रीय आईडी नंबर दर्ज करें",
+      "required_national_passport": "कृपया अपना पासपोर्ट नंबर दर्ज करें",
+      "required_national_voter_id": "कृपया अपना वोटर आईडी नंबर दर्ज करें",
       "required_nationality": "कृपया कोई देश चुनें",
       "required_phone_number": "कृपया अपना फ़ोन नंबर डालें",
       "required_postcode": "कृपया अपना पिन कोड डालें",
       "sgp_specific": {
-        "invalid_national_id_value": "कृपया कोई मान्य दर्ज करें NRIC"
+        "invalid_national_id_value": "कृपया कोई मान्य दर्ज करें NRIC",
+        "required_national_id_value": "कृपया अपना एनआरआईसी दर्ज करें"
       },
       "swe_specific": {
-        "invalid_national_id_value": "कृपया कोई मान्य दर्ज करें PIN"
+        "invalid_national_id_value": "कृपया कोई मान्य दर्ज करें PIN",
+        "required_national_id_value": "कृपया अपना पिन दर्ज करें"
       },
       "too_long_first_name": "नाम बहुत बड़ा है",
       "too_long_last_name": "उपनाम बहुत बड़ा है",
@@ -745,7 +761,8 @@
       "too_short_last_name": "उपनाम बहुत छोटा है",
       "too_short_postcode": "पिन कोड बहुत छोटा है",
       "tur_specific": {
-        "invalid_national_id_value": "कृपया एक मान्य तुर्की आईडी संख्या दर्ज करें"
+        "invalid_national_id_value": "कृपया एक मान्य तुर्की आईडी संख्या दर्ज करें",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "कृपया मान्य SSN डालें",

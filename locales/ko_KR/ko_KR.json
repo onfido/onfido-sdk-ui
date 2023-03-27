@@ -116,8 +116,8 @@
     "footer": {
       "captured": "사진이 캡처되었습니다",
       "capturing": "사진 캡처하기",
-      "manual_fallback_generic_document_back": "",
-      "manual_fallback_generic_document_front": "",
+      "manual_fallback_generic_document_back": "문서 뒷면 사진을 촬영하세요",
+      "manual_fallback_generic_document_front": "문서 앞면 사진을 촬영하세요",
       "manual_fallback_identity_card_back": "카드 뒷면 사진을 촬영하세요",
       "manual_fallback_identity_card_front": "카드 앞면 사진을 촬영하세요",
       "manual_fallback_license_back": "운전면허증 뒷면 사진을 촬영하세요",
@@ -169,7 +169,7 @@
     "body_bank_statement": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
     "body_benefits_letter": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
     "body_bill": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
-    "body_generic_document": "",
+    "body_generic_document": "세부 정보가 명확하게 나타나고 가려진 부분이 없는지 확인하세요",
     "body_id": "세부 정보가 명확하게 나타나고 가려진 부분이 없는지 확인하세요",
     "body_image_medium": "저희 측에서 정보를 읽을 수 없으면, 인증 절차에 시간이 오래 걸리게 됩니다",
     "body_image_poor": "원활한 본인 인증을 위해 더 명확한 사진 이미지가 필요합니다",
@@ -237,8 +237,8 @@
     "title_bank_statement": "명세서 제출",
     "title_benefits_letter": "정부 서신 제출",
     "title_bill": "청구서 제출",
-    "title_generic_document_back": "",
-    "title_generic_document_front": "",
+    "title_generic_document_back": "서류(뒷면) 제출",
+    "title_generic_document_front": "서류(앞면) 제출",
     "title_government_letter": "정부 발급 통지서",
     "title_id_back": "신분증(뒷면) 제출",
     "title_id_front": "신분증(앞면) 제출",
@@ -406,16 +406,12 @@
   "permission": {
     "body_both": "카메라와 마이크 기능 둘 다를 사용하지 않고서는 본인 인증 절차를 진행할 수 없습니다",
     "body_cam": "카메라 없이는 본인 인증 작업을 진행할 수 없습니다",
-    "body_mic": "마이크를 사용하지 않고서는 본인 인증 절차를 진행할 수 없습니다",
     "button_primary_both": "둘 다 사용",
     "button_primary_cam": "카메라 활성화",
-    "button_primary_mic": "마이크 사용하기",
     "subtitle_both": "계속하려면 안내 메시지가 표시될 때 두 가지 기능에 대한 접근 권한을 허용하셔야 합니다",
     "subtitle_cam": "계속하려면 안내 메시지가 표시될 때 카메라에 대한 접근 권한을 허용하셔야 합니다",
-    "subtitle_mic": "계속하려면 안내 메시지가 표시될 때 마이크에 대한 접근 권한을 허용하셔야 합니다",
     "title_both": "카메라와 마이크에 대한 접근 권한 허용",
-    "title_cam": "카메라 접근 권한 허용",
-    "title_mic": "마이크에 대한 접근 권한 허용"
+    "title_cam": "카메라 접근 권한 허용"
   },
   "permission_recovery": {
     "button_primary": "새로 고침",
@@ -429,17 +425,15 @@
     "subtitle_both": "동영상을 촬영하고 인증 절차를 완료하려면 카메라 및 마이크에 대한 접근 권한을 복원하세요",
     "subtitle_cam": "인증 절차를 계속하려면 카메라에 대한 접근 권한을 복원하세요",
     "subtitle_cam_old": "얼굴 인식 인증 절차를 계속하려면 카메라 접근 권한을 복원하세요",
-    "subtitle_mic": "마이크 없이는 본인 인증 절차를 진행할 수 없습니다",
     "title_both": "카메라와 마이크 접근 권한이 거부되었습니다",
-    "title_cam": "카메라 접근 권한이 거부되었습니다",
-    "title_mic": "마이크 접근 권한이 거부되었습니다"
+    "title_cam": "카메라 접근 권한이 거부되었습니다"
   },
   "photo_upload": {
     "body_bank_statement": "최상의 결과를 위해 서류 전체 페이지를 제출하세요",
     "body_benefits_letter": "최상의 결과를 위해 서류 전체 페이지를 제출하세요",
     "body_bill": "최상의 결과를 위해 서류 전체 페이지를 제출하세요",
-    "body_generic_document_back": "",
-    "body_generic_document_front": "",
+    "body_generic_document_back": "컴퓨터에서 서류 뒷면을 업로드하세요",
+    "body_generic_document_front": "컴퓨터에서 서류 앞면을 업로드하세요",
     "body_id_back": "컴퓨터에서 신분증 뒷면 이미지를 업로드하세요",
     "body_id_front": "컴퓨터에서 신분증 앞면 이미지를 업로드하세요",
     "body_license_back": "컴퓨터에서 면허증 뒷면 이미지를 업로드하세요",
@@ -558,6 +552,9 @@
       },
       "country": "국가",
       "country_residence": "국가",
+      "dnk_specific": {
+        "national_id_value": "심폐소생술 번호"
+      },
       "dob": "생년월일",
       "email": "이메일",
       "fin_specific": {
@@ -621,25 +618,34 @@
       },
       "bra_specific": {
         "invalid_other": "유효한 것을 입력하십시오 CNPJ",
-        "invalid_tax_id": "유효한 것을 입력하십시오 CPF"
+        "invalid_tax_id": "유효한 것을 입력하십시오 CPF",
+        "required_other": "귀하의 CNPJ를 입력하십시오",
+        "required_tax_id": "CPF를 입력하세요."
       },
       "can_specific": {
-        "invalid_national_id_value": "유효한 것을 입력하십시오 SIN"
+        "invalid_national_id_value": "유효한 것을 입력하십시오 SIN",
+        "required_national_id_value": "SIN을 입력하십시오"
       },
       "chl_specific": {
         "invalid_national_id_value": "유효한 RUT/RUN 번호를 입력하십시오.",
         "required_national_id_value": "RUT/RUN 번호를 입력하십시오."
       },
       "chn_specific": {
-        "invalid_national_id_value": "유효한 주민등록번호를 입력하세요."
+        "invalid_national_id_value": "유효한 주민등록번호를 입력하세요.",
+        "required_national_id_value": "주민등록번호를 입력해주세요."
       },
       "col_specific": {
         "invalid_national_id_value": "유효한 콜롬비아 개인 식별 번호를 입력하세요.",
         "required_national_id_value": "콜롬비아 개인 식별 번호를 입력하세요."
       },
+      "dnk_specific": {
+        "invalid_national_id_value": "유효한 CPR 번호를 입력하십시오",
+        "required_national_id_value": "심폐소생술 번호를 입력해주세요"
+      },
       "esp_specific": {
         "invalid_identity_card": "유효한 것을 입력하십시오 NIF/DNI",
-        "invalid_other": "유효한 것을 입력하십시오 NIE"
+        "invalid_other": "유효한 것을 입력하십시오 NIE",
+        "required_identity_card": "NIF/DNI를 입력하세요."
       },
       "fin_specific": {
         "invalid_national_id_value": "유효한 개인 식별 코드를 입력하세요.",
@@ -673,7 +679,8 @@
       "invalid_phone_number": "유효한 전화번호를 입력하세요",
       "invalid_voter_id": "유효한 유권자 ID 번호를 입력하십시오",
       "ita_specific": {
-        "invalid_national_id_value": "유효한 회계 코드를 입력하세요."
+        "invalid_national_id_value": "유효한 회계 코드를 입력하세요.",
+        "required_national_id_value": "재정 코드를 입력하십시오"
       },
       "jpn_specific": {
         "invalid_national_id_value": "유효한 \"마이 넘버\"/ 주민표 코드를 입력하십시오",
@@ -689,7 +696,9 @@
       },
       "mex_specific": {
         "invalid_identity_card": "유효한 것을 입력하십시오 CURP",
-        "invalid_tax_id": "유효한 것을 입력하십시오 RFC"
+        "invalid_tax_id": "유효한 것을 입력하십시오 RFC",
+        "required_identity_card": "CURP를 입력하세요.",
+        "required_tax_id": "RFC를 입력하세요."
       },
       "mys_specific": {
         "invalid_national_id_value": "유효한 NRIC를 입력하세요.",
@@ -727,14 +736,21 @@
       "required_last_name": "성(예: 홍)을 입력하세요",
       "required_line1": "주소를 입력하세요",
       "required_mobile_number": "휴대폰 번호를 입력해 주세요",
+      "required_national_driving_license": "운전면허증 번호를 입력하세요.",
+      "required_national_id_type": "주민등록증 유형을 선택하세요.",
+      "required_national_id_value": "주민등록번호를 입력하세요.",
+      "required_national_passport": "여권번호를 입력해주세요",
+      "required_national_voter_id": "유권자 ID 번호를 입력하십시오",
       "required_nationality": "국가를 선택하세요",
       "required_phone_number": "휴대폰 번호를 입력하세요",
       "required_postcode": "우편 번호를 입력하세요",
       "sgp_specific": {
-        "invalid_national_id_value": "유효한 것을 입력하십시오 NRIC"
+        "invalid_national_id_value": "유효한 것을 입력하십시오 NRIC",
+        "required_national_id_value": "NRIC를 입력하십시오"
       },
       "swe_specific": {
-        "invalid_national_id_value": "유효한 것을 입력하십시오 PIN"
+        "invalid_national_id_value": "유효한 것을 입력하십시오 PIN",
+        "required_national_id_value": "PIN을 입력하세요."
       },
       "too_long_first_name": "이름(예: 길동)이 너무 깁니다",
       "too_long_last_name": "성(예: 홍)이 너무 깁니다",
@@ -745,7 +761,8 @@
       "too_short_last_name": "성(예: 홍)이 너무 짧습니다",
       "too_short_postcode": "우편 번호가 너무 짧습니다",
       "tur_specific": {
-        "invalid_national_id_value": "유효한 터키 ID 번호를 입력하세요."
+        "invalid_national_id_value": "유효한 터키 ID 번호를 입력하세요.",
+        "required_national_id_value": ""
       },
       "usa_specific": {
         "invalid_ssn": "유효한 사회보장번호(SSN)를 입력하세요",
